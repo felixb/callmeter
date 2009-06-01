@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/hello"
-    />
-</LinearLayout>
+
+<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<TextView android:id="@+id/out_month" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/out_month_"></TextView>
+	<TextView android:layout_height="wrap_content" android:layout_below="@+id/out_month" android:id="@+id/in_month" android:layout_width="wrap_content" android:text="@string/in_month_"></TextView>
+	<TextView android:layout_height="wrap_content" android:layout_below="@+id/in_month" android:id="@+id/out" android:layout_width="wrap_content" android:text="@string/out_"></TextView>
+	<TextView android:layout_height="wrap_content" android:layout_below="@+id/out" android:id="@+id/in" android:layout_width="wrap_content" android:text="@string/in_"></TextView>
+
+
+</RelativeLayout>
