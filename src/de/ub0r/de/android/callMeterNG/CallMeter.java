@@ -1,5 +1,7 @@
 package de.ub0r.de.android.callMeterNG;
 
+import java.util.Calendar;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -22,7 +24,7 @@ import android.widget.Toast;
 public class CallMeter extends Activity {
 
 	/** Dialog: main. */
-	//private static final int DIALOG_MAIN = 0;
+	// private static final int DIALOG_MAIN = 0;
 	/** Dialog: about. */
 	private static final int DIALOG_ABOUT = 1;
 	/** Dialog: settings. */
@@ -199,15 +201,30 @@ public class CallMeter extends Activity {
 			int idType = cur.getColumnIndex(Calls.TYPE);
 			int idDuration = cur.getColumnIndex(Calls.DURATION);
 			int idDate = cur.getColumnIndex(Calls.DATE);
-			// TODO: check Date for dur*Month
+			int t = 0;
+			Calendar cal = Calendar.getInstance();
+			if (cal.get(Calendar.DAY_OF_MONTH) < prefsFirstDay) {
+				cal.roll(Calendar.MONTH, -1);
+			}
+			cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),
+					prefsFirstDay);
+			final long billDate = cal.getTimeInMillis();
 			do {
 				type = cur.getInt(idType);
 				switch (type) {
 				case Calls.INCOMING_TYPE:
-					durIn += cur.getInt(idDuration);
+					t = cur.getInt(idDuration);
+					durIn += t;
+					if (billDate >= cur.getLong(idDate)) {
+						durInMonth += t;
+					}
 					break;
 				case Calls.OUTGOING_TYPE:
-					durOut += cur.getInt(idDuration);
+					t = cur.getInt(idDuration);
+					durOut += t;
+					if (billDate >= cur.getLong(idDate)) {
+						durOutMonth += t;
+					}
 					break;
 				default:
 					break;
