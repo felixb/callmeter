@@ -35,7 +35,7 @@ public class CallMeter extends Activity {
 	/** Prefs: name for first day. */
 	private static final String PREFS_FIRSTDAY = "fd";
 	/** Prefs: first bill day. */
-	private static int prefsFirstDay = 0;
+	private static int prefsFirstDay = 1;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -208,6 +208,10 @@ public class CallMeter extends Activity {
 			}
 			cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),
 					prefsFirstDay);
+			cal.set(Calendar.HOUR_OF_DAY, 0);
+			cal.set(Calendar.MINUTE, 0);
+			cal.set(Calendar.SECOND, 0);
+			cal.set(Calendar.MILLISECOND, 0);
 			final long billDate = cal.getTimeInMillis();
 			do {
 				type = cur.getInt(idType);
@@ -247,3 +251,4 @@ public class CallMeter extends Activity {
 		}
 	}
 }
+
