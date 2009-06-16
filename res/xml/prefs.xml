@@ -1,0 +1,23 @@
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory
+		android:title="@string/settings"
+	>    
+		<ListPreference
+			android:key="billday"
+			android:title="@string/billday_"
+			android:summary="@string/billday_sum"
+			android:entries="@array/days"
+			android:entryValues="@array/days"
+			android:dialogTitle="@string/billday_"
+		/>
+		<ListPreference
+			android:key="billmode"
+			android:title="@string/billmode_"
+			android:summary="@string/billmode_sum"
+			android:entries="@array/modes_"
+			android:entryValues="@array/modes"
+			android:dialogTitle="@string/billmode_"
+		/>
+	</PreferenceCategory>
+</PreferenceScreen>

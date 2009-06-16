@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="hello">Hello World, CallMeter!</string>
+	
 	<string name="app_version">0.1</string>
 	<string name="app_name">CallMeter NG</string>
 	<string name="author_">author:</string>
@@ -18,5 +18,10 @@
 	<string name="out_">out: </string>
 	<string name="in_month_">in (month):</string>
 	<string name="out_month_">out (month):</string>
-<string name="pref_startday">first day of bill</string>
+<string name="billday_">first day of bill</string>
+<string name="billday_sum">The first day of your bill.</string>
+
+<string name="billmode_">Mode of billing</string>
+<string name="billmode_sum">Mode your calls are billed.</string>
+<string name="billdate_">count calls since:</string>
 </resources>

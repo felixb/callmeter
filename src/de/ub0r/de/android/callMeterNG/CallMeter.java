@@ -3,15 +3,15 @@ package de.ub0r.de.android.callMeterNG;
 import java.util.Calendar;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
+import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,7 +19,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class CallMeter extends Activity {
 
@@ -27,24 +26,38 @@ public class CallMeter extends Activity {
 	// private static final int DIALOG_MAIN = 0;
 	/** Dialog: about. */
 	private static final int DIALOG_ABOUT = 1;
-	/** Dialog: settings. */
-	private static final int DIALOG_SETTINGS = 2;
 
-	/** Preference's name. */
-	public static final String PREFS_NAME = "CallMeterPrefs";
 	/** Prefs: name for first day. */
-	private static final String PREFS_FIRSTDAY = "fd";
-	/** Prefs: first bill day. */
-	private static int prefsFirstDay = 1;
+	private static final String PREFS_BILLDAY = "billday";
+	/** Prefs: name for billingmode. */
+	private static final String PREFS_BILLMODE = "billmode";
+
+	/** Prefs: billmode: 1/1. */
+	private static final String BILLMODE_1_1 = "1_1";
+	/** Prefs: billmode: 10/10. */
+	private static final String BILLMODE_10_10 = "10_10";
+	/** Prefs: billmode: 60/1. */
+	private static final String BILLMODE_60_1 = "60_1";
+	/** Prefs: billmode: 60/10. */
+	private static final String BILLMODE_60_10 = "60_10";
+	/** Prefs: billmode: 60/60. */
+	private static final String BILLMODE_60_60 = "60_60";
+
+	private SharedPreferences preferences;
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.main);
-		// Restore preferences
-		SharedPreferences settings = this.getSharedPreferences(PREFS_NAME, 0);
-		prefsFirstDay = settings.getInt(PREFS_FIRSTDAY, prefsFirstDay);
+		// get prefs.
+		this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
+	}
+
+	/** Called on Activity resume. */
+	@Override
+	protected final void onResume() {
+		super.onResume();
 		// get calls
 		this.updateTime();
 	}
@@ -73,42 +86,6 @@ public class CallMeter extends Activity {
 							uri));
 				}
 			});
-			break;
-		case DIALOG_SETTINGS:
-			final CharSequence[] items = { "1", "2", "3", "4", "5", "6", "7",
-					"8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
-					"18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
-					"28", "29", "30", "31" };
-
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle(this.getResources().getString(
-					R.string.pref_startday));
-			builder.setItems(items, new DialogInterface.OnClickListener() {
-				public void onClick(final DialogInterface dialog, final int item) {
-					Toast.makeText(CallMeter.this.getApplicationContext(),
-							items[item], Toast.LENGTH_SHORT).show();
-				}
-			});
-			myDialog = builder.create();
-			myDialog
-					.setOnDismissListener(new DialogInterface.OnDismissListener() {
-						@Override
-						public void onDismiss(final DialogInterface di) {
-							// TODO: fill me
-							// save prefs from TextEdits
-							// TODO: get value
-
-							// save prefs to global
-							// TODO: prefsFirstDay = value
-							// save prefs
-							SharedPreferences settings = CallMeter.this
-									.getSharedPreferences(PREFS_NAME, 0);
-							SharedPreferences.Editor editor = settings.edit();
-							editor.putInt(PREFS_FIRSTDAY, prefsFirstDay);
-							// commit changes
-							editor.commit();
-						}
-					});
 			break;
 		default:
 			myDialog = null;
@@ -143,8 +120,7 @@ public class CallMeter extends Activity {
 			this.showDialog(DIALOG_ABOUT);
 			return true;
 		case R.id.item_settings: // start settings activity
-			this.showDialog(DIALOG_SETTINGS);
-
+			this.startActivity(new Intent(this, Preferences.class));
 			return true;
 		default:
 			return false;
@@ -184,6 +160,33 @@ public class CallMeter extends Activity {
 		return ret;
 	}
 
+	private int roundTime(final int time) {
+		final String prefBillMode = this.preferences.getString(PREFS_BILLMODE,
+				BILLMODE_1_1);
+		if (prefBillMode.equals(BILLMODE_1_1)) {
+			return time;
+		} else if (prefBillMode.equals(BILLMODE_10_10)) {
+			if (time % 10 != 0) {
+				return ((time / 10) + 1) * 10;
+			}
+		} else if (prefBillMode.equals(BILLMODE_60_1)) {
+			if (time < 60) {
+				return 60;
+			}
+		} else if (prefBillMode.equals(BILLMODE_60_10)) {
+			if (time < 60) {
+				return 60;
+			} else if (time % 10 != 0) {
+				return ((time / 10) + 1) * 10;
+			}
+		} else if (prefBillMode.equals(BILLMODE_60_60)) {
+			if (time % 60 != 0) {
+				return ((time / 60) + 1) * 60;
+			}
+		}
+		return time;
+	}
+
 	private void updateTime() {
 		// Form an array specifying which columns to return.
 		String[] projection = new String[] { Calls.TYPE, Calls.DURATION,
@@ -202,31 +205,36 @@ public class CallMeter extends Activity {
 			int idDuration = cur.getColumnIndex(Calls.DURATION);
 			int idDate = cur.getColumnIndex(Calls.DATE);
 			int t = 0;
+			final int prefBillDay = Integer.parseInt(this.preferences
+					.getString(PREFS_BILLDAY, "0"));
 			Calendar cal = Calendar.getInstance();
-			if (cal.get(Calendar.DAY_OF_MONTH) < prefsFirstDay) {
+			if (cal.get(Calendar.DAY_OF_MONTH) < prefBillDay) {
 				cal.roll(Calendar.MONTH, -1);
 			}
 			cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),
-					prefsFirstDay);
+					prefBillDay);
 			cal.set(Calendar.HOUR_OF_DAY, 0);
 			cal.set(Calendar.MINUTE, 0);
 			cal.set(Calendar.SECOND, 0);
 			cal.set(Calendar.MILLISECOND, 0);
 			final long billDate = cal.getTimeInMillis();
+			((TextView) this.findViewById(R.id.billdate)).setText(DateFormat
+					.getDateFormat(this).format(cal.getTime()));
 			do {
 				type = cur.getInt(idType);
 				switch (type) {
 				case Calls.INCOMING_TYPE:
-					t = cur.getInt(idDuration);
+					t = this.roundTime(cur.getInt(idDuration));
 					durIn += t;
-					if (billDate >= cur.getLong(idDate)) {
+					if (billDate <= cur.getLong(idDate)) {
 						durInMonth += t;
 					}
 					break;
 				case Calls.OUTGOING_TYPE:
-					t = cur.getInt(idDuration);
+					t = this.roundTime(cur.getInt(idDuration));
 					durOut += t;
-					if (billDate >= cur.getLong(idDate)) {
+					long date = cur.getLong(idDate);
+					if (billDate <= cur.getLong(idDate)) {
 						durOutMonth += t;
 					}
 					break;
@@ -235,20 +243,15 @@ public class CallMeter extends Activity {
 				}
 			} while (cur.moveToNext());
 
-			((TextView) this.findViewById(R.id.in)).setText(this.getResources()
-					.getString(R.string.in_)
-					+ " " + this.getTime(durIn));
+			((TextView) this.findViewById(R.id.in))
+					.setText(this.getTime(durIn));
 			((TextView) this.findViewById(R.id.out)).setText(this
-					.getResources().getString(R.string.out_)
-					+ " " + this.getTime(durOut));
+					.getTime(durOut));
 
 			((TextView) this.findViewById(R.id.in_month)).setText(this
-					.getResources().getString(R.string.in_month_)
-					+ " " + this.getTime(durInMonth));
+					.getTime(durInMonth));
 			((TextView) this.findViewById(R.id.out_month)).setText(this
-					.getResources().getString(R.string.out_month_)
-					+ " " + this.getTime(durOutMonth));
+					.getTime(durOutMonth));
 		}
 	}
 }
-

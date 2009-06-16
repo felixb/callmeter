@@ -2,10 +2,78 @@
 
 <RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<TextView android:id="@+id/out_month" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/out_month_"></TextView>
-	<TextView android:layout_height="wrap_content" android:layout_below="@+id/out_month" android:id="@+id/in_month" android:layout_width="wrap_content" android:text="@string/in_month_"></TextView>
-	<TextView android:layout_height="wrap_content" android:layout_below="@+id/in_month" android:id="@+id/out" android:layout_width="wrap_content" android:text="@string/out_"></TextView>
-	<TextView android:layout_height="wrap_content" android:layout_below="@+id/out" android:id="@+id/in" android:layout_width="wrap_content" android:text="@string/in_"></TextView>
+	<TextView
+		android:id="@+id/billdate_"
+		android:text="@string/billdate_"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+	/>
+	<TextView
+		android:id="@+id/out_month_"
+		android:text="@string/out_month_"
+		android:layout_below="@id/billdate_"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+	/>
+	<TextView
+		android:id="@+id/in_month_"
+		android:layout_below="@id/out_month_"
+		android:text="@string/in_month_"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+	/>
+	<TextView
+		android:id="@+id/out_"
+		android:layout_below="@id/in_month_"
+		android:text="@string/out_"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+	/>
+	<TextView
+		android:id="@+id/in_"
+		android:layout_below="@id/out_"
+		android:text="@string/in_"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+	/>
 
+
+	<TextView
+		android:id="@+id/billdate"
+		android:layout_toRightOf="@id/billdate_"
+		android:layout_alignTop="@id/billdate_"
+		android:paddingLeft="5sp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+	/>
+	<TextView
+		android:id="@+id/out_month"
+		android:layout_below="@id/billdate"
+		android:layout_alignRight="@id/billdate"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+	/>
+	<TextView
+		android:id="@+id/in_month"
+		android:layout_below="@id/out_month"
+		android:layout_alignRight="@id/billdate"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+	/>
+	<TextView
+		android:id="@+id/out"
+		android:layout_below="@id/in_month"
+		android:layout_alignRight="@id/billdate"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+	/>
+	<TextView
+		android:id="@+id/in"
+		android:layout_below="@id/out"
+		android:layout_alignRight="@id/billdate"
+		android:text="..."
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+	/>
 
 </RelativeLayout>
