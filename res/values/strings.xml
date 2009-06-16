@@ -13,7 +13,7 @@
 	<string name="donate_url">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=5832809</string>
 	<string name="donate_">donate</string>
 	<string name="settings">preferences</string>
-	<string name="about_">about</string>
+	<string name="about_">about CallMeter NG</string>
 	<string name="in_">in:</string>
 	<string name="out_">out: </string>
 	<string name="in_month_">in (month):</string>
