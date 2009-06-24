@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<string name="author_">Autor:</string>
+	<string name="license_">Lizens:</string>
+	<string name="license">GPLv3 - siehe http://www.gnu.org/licenses/gpl-3.0.txt</string>
+	<string name="donate_">Spende</string>
+	<string name="settings">Einstellungen</string>
+	<string name="about_">Über CallMeter NG</string>
+	<string name="in_">Ein:</string>
+	<string name="out_">Aus: </string>
+	<string name="in_month_">Ein (dieser Monat):</string>
+	<string name="out_month_">Aus (dieser Monat):</string>
+	<string name="billday_">Erster Rechnungstag</string>
+	<string name="billmode_">Abrechnungsmodus</string>
+	<string name="billdate_">Erster Rechnungstag:</string>
+	<string name="about">CallMeter logt deine Anrufe.</string>
+</resources>
