@@ -2,27 +2,24 @@
 <resources>
 	
 	<string name="app_version">0.1</string>
-	<string name="app_name">CallMeter NG</string>
-	<string name="author_">author:</string>
-	<string name="version_">version:</string>
-	<string name="license_">license:</string>
+	<string name="app_name">Call Meter NG</string>
+	<string name="author_">Author:</string>
+	<string name="version_">Version:</string>
+	<string name="license_">License:</string>
 	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt;</string>
 	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
-	<string name="source_">sourcescode:</string>
+	<string name="source_">Sourcescode:</string>
 	<string name="source">http://repo.or.cz/w/CallMeterNG.git</string>
 	<string name="donate_url">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=5832809</string>
-	<string name="donate_">donate</string>
-	<string name="settings">preferences</string>
-	<string name="about_">about CallMeter NG</string>
-	<string name="in_">in:</string>
-	<string name="out_">out: </string>
-	<string name="in_month_">in (month):</string>
-	<string name="out_month_">out (month):</string>
-<string name="billday_">first day of bill</string>
-<string name="billday_sum">The first day of your bill.</string>
-
-<string name="billmode_">Mode of billing</string>
-<string name="billmode_sum">Mode your calls are billed.</string>
-<string name="billdate_">count calls since:</string>
-<string name="about">CallMeter tracks your calls.</string>
+	<string name="donate_">Donate</string>
+	<string name="settings">Preferences</string>
+	<string name="about_">About CallMeter NG</string>
+	<string name="in_">In:</string>
+	<string name="out_">Out: </string>
+	<string name="in_month_">In (month):</string>
+	<string name="out_month_">Out (month):</string>
+	<string name="billday_">First day of your bill</string>
+	<string name="billmode_">Mode of billing</string>
+	<string name="billdate_">Count calls since:</string>
+	<string name="about">CallMeter tracks your calls.</string>
 </resources>
