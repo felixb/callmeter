@@ -2,8 +2,11 @@
 
 <RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="wrap_content"
+	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
+	android:paddingTop="10sp"
+	android:paddingLeft="10sp"
+	android:paddingRight="10sp"
 >
 
 	<TextView
@@ -45,38 +48,36 @@
 
 	<TextView
 		android:id="@+id/billdate"
-		android:layout_toRightOf="@id/billdate_"
 		android:layout_alignTop="@id/billdate_"
-		android:paddingLeft="10sp"
+		android:layout_alignParentRight="true"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
 	<TextView
 		android:id="@+id/out_month"
-		android:layout_alignRight="@id/billdate"
 		android:layout_alignTop="@id/out_month_"
+		android:layout_alignParentRight="true"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
 	<TextView
 		android:id="@+id/in_month"
 		android:layout_alignTop="@id/in_month_"
-		android:layout_alignRight="@id/billdate"
+		android:layout_alignParentRight="true"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
 	<TextView
 		android:id="@+id/out"
 		android:layout_alignTop="@id/out_"
-		android:layout_alignRight="@id/billdate"
+		android:layout_alignParentRight="true"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
 	<TextView
 		android:id="@+id/in"
 		android:layout_alignTop="@id/in_"
-		android:layout_alignRight="@id/billdate"
-		android:text="..."
+		android:layout_alignParentRight="true"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
