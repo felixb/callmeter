@@ -2,8 +2,9 @@
 
 <RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res/org.ifies.android"
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
+	android:layout_height="fill_parent"
 	android:paddingTop="10sp"
 	android:paddingLeft="10sp"
 	android:paddingRight="10sp"
@@ -81,4 +82,23 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
+	
+	<!-- Place an AdMob ad at the bottom of the screen. -->
+	<!-- It has white text on a black background. -->
+	<!-- The description of the surrounding context is 'Android game'. -->
+	<com.admob.android.ads.AdView
+		android:id="@+id/ad"
+		android:visibility="gone"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+	 
+	/>	
+	<!-- 
+	 	app:backgroundColor="#000000"
+		app:textColor="#FFFFFF"
+		app:keywords="Android game"
+		app:testing="true"
+		 -->
+	<!-- We could append app:testing="true" above to always get the test ad back -->
 </RelativeLayout>

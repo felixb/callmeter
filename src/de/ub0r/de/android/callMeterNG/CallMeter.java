@@ -2,6 +2,8 @@ package de.ub0r.de.android.callMeterNG;
 
 import java.util.Calendar;
 
+import com.admob.android.ads.AdView;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
@@ -52,6 +54,9 @@ public class CallMeter extends Activity {
 		this.setContentView(R.layout.main);
 		// get prefs.
 		this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		
+		AdView example_adview = (AdView) findViewById(R.id.ad);
+	    example_adview.setVisibility(AdView.VISIBLE);
 	}
 
 	/** Called on Activity resume. */
