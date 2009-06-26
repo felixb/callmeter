@@ -296,6 +296,5 @@ public class CallMeter extends Activity {
 				+ smsIn);
 		((TextView) this.findViewById(R.id.sms_out)).setText(smsOutMonth
 				+ " / " + smsOut);
-
 	}
 }
