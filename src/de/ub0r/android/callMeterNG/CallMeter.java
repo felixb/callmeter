@@ -2,8 +2,6 @@ package de.ub0r.android.callMeterNG;
 
 import java.util.Calendar;
 
-import com.admob.android.ads.AdView;
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
@@ -21,6 +19,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.admob.android.ads.AdView;
 
 public class CallMeter extends Activity {
 
@@ -55,8 +55,8 @@ public class CallMeter extends Activity {
 		// get prefs.
 		this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-		AdView example_adview = (AdView) findViewById(R.id.ad);
-		example_adview.setVisibility(AdView.VISIBLE);
+		AdView example_adview = (AdView) this.findViewById(R.id.ad);
+		example_adview.setVisibility(View.VISIBLE);
 	}
 
 	/** Called on Activity resume. */
@@ -195,38 +195,40 @@ public class CallMeter extends Activity {
 	}
 
 	private void updateTime() {
-		// Form an array specifying which columns to return.
+		// report basics
+
+		final int prefBillDay = Integer.parseInt(this.preferences.getString(
+				PREFS_BILLDAY, "0"));
+		Calendar cal = Calendar.getInstance();
+		if (cal.get(Calendar.DAY_OF_MONTH) < prefBillDay) {
+			cal.roll(Calendar.MONTH, -1);
+		}
+		cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), prefBillDay);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		final long billDate = cal.getTimeInMillis();
+		((TextView) this.findViewById(R.id.billdate)).setText(DateFormat
+				.getDateFormat(this).format(cal.getTime()));
+
+		// report calls
 		String[] projection = new String[] { Calls.TYPE, Calls.DURATION,
 				Calls.DATE };
 
 		Cursor cur = this.managedQuery(Calls.CONTENT_URI, projection, null,
 				null, null);
 
+		int durIn = 0;
+		int durOut = 0;
+		int durInMonth = 0;
+		int durOutMonth = 0;
 		if (cur.moveToFirst()) {
-			int durIn = 0;
-			int durOut = 0;
-			int durInMonth = 0;
-			int durOutMonth = 0;
 			int type;
-			int idType = cur.getColumnIndex(Calls.TYPE);
-			int idDuration = cur.getColumnIndex(Calls.DURATION);
-			int idDate = cur.getColumnIndex(Calls.DATE);
+			final int idType = cur.getColumnIndex(Calls.TYPE);
+			final int idDuration = cur.getColumnIndex(Calls.DURATION);
+			final int idDate = cur.getColumnIndex(Calls.DATE);
 			int t = 0;
-			final int prefBillDay = Integer.parseInt(this.preferences
-					.getString(PREFS_BILLDAY, "0"));
-			Calendar cal = Calendar.getInstance();
-			if (cal.get(Calendar.DAY_OF_MONTH) < prefBillDay) {
-				cal.roll(Calendar.MONTH, -1);
-			}
-			cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),
-					prefBillDay);
-			cal.set(Calendar.HOUR_OF_DAY, 0);
-			cal.set(Calendar.MINUTE, 0);
-			cal.set(Calendar.SECOND, 0);
-			cal.set(Calendar.MILLISECOND, 0);
-			final long billDate = cal.getTimeInMillis();
-			((TextView) this.findViewById(R.id.billdate)).setText(DateFormat
-					.getDateFormat(this).format(cal.getTime()));
 			do {
 				type = cur.getInt(idType);
 				switch (type) {
@@ -240,7 +242,6 @@ public class CallMeter extends Activity {
 				case Calls.OUTGOING_TYPE:
 					t = this.roundTime(cur.getInt(idDuration));
 					durOut += t;
-					long date = cur.getLong(idDate);
 					if (billDate <= cur.getLong(idDate)) {
 						durOutMonth += t;
 					}
@@ -250,12 +251,51 @@ public class CallMeter extends Activity {
 				}
 			} while (cur.moveToNext());
 
-			((TextView) this.findViewById(R.id.in)).setText(this
-					.getTime(durInMonth)
-					+ " / " + this.getTime(durIn));
-			((TextView) this.findViewById(R.id.out)).setText(this
-					.getTime(durOutMonth)
-					+ " / " + this.getTime(durOut));
 		}
+		((TextView) this.findViewById(R.id.in)).setText(this
+				.getTime(durInMonth)
+				+ " / " + this.getTime(durIn));
+		((TextView) this.findViewById(R.id.out)).setText(this
+				.getTime(durOutMonth)
+				+ " / " + this.getTime(durOut));
+
+		// report sms
+		projection = new String[] { Calls.TYPE, Calls.DATE };
+		cur = this.managedQuery(Uri.parse("content://sms"), null, null, null,
+				null);
+
+		int smsIn = 0;
+		int smsOut = 0;
+		int smsInMonth = 0;
+		int smsOutMonth = 0;
+		if (cur.moveToFirst()) {
+			do {
+				int type;
+				int idType = cur.getColumnIndex(Calls.TYPE);
+				int idDate = cur.getColumnIndex(Calls.DATE);
+				type = cur.getInt(idType);
+				switch (type) {
+				case Calls.INCOMING_TYPE:
+					++smsIn;
+					if (billDate <= cur.getLong(idDate)) {
+						++smsInMonth;
+					}
+					break;
+				case Calls.OUTGOING_TYPE:
+					++smsOut;
+					if (billDate <= cur.getLong(idDate)) {
+						++smsOutMonth;
+					}
+					break;
+				default:
+					break;
+				}
+			} while (cur.moveToNext());
+		}
+		((TextView) this.findViewById(R.id.sms_in)).setText(smsInMonth + " / "
+				+ smsIn);
+		((TextView) this.findViewById(R.id.sms_out)).setText(smsOutMonth
+				+ " / " + smsOut);
+
 	}
 }

@@ -17,26 +17,9 @@
 		android:layout_height="wrap_content"
 	/>
 	<TextView
-		android:id="@+id/out_month_"
-		android:text="@string/out_month_"
-		android:layout_below="@id/billdate_"
-		android:paddingLeft="10sp"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-	/>
-	<TextView
-		android:id="@+id/in_month_"
-		android:text="@string/in_month_"
-		android:layout_below="@id/out_month_"
-		android:paddingBottom="10sp"
-		android:paddingLeft="10sp"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-	/>
-	<TextView
 		android:id="@+id/out_"
 		android:text="@string/out_"
-		android:layout_below="@id/in_month_"
+		android:layout_below="@id/billdate_"
 		android:paddingLeft="10sp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
@@ -46,6 +29,24 @@
 		android:text="@string/in_"
 		android:layout_below="@id/out_"
 		android:paddingLeft="10sp"
+		android:paddingBottom="10sp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+	/>
+	<TextView
+		android:id="@+id/sms_out_"
+		android:text="@string/sms_out_"
+		android:layout_below="@id/in_"
+		android:paddingLeft="10sp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+	/>
+	<TextView
+		android:id="@+id/sms_in_"
+		android:text="@string/sms_in_"
+		android:layout_below="@id/sms_out_"
+		android:paddingLeft="10sp"
+		android:paddingBottom="10sp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
@@ -53,22 +54,6 @@
 	<TextView
 		android:id="@+id/billdate"
 		android:layout_alignTop="@id/billdate_"
-		android:layout_alignParentRight="true"
-		android:paddingRight="10sp"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-	/>
-	<TextView
-		android:id="@+id/out_month"
-		android:layout_alignTop="@id/out_month_"
-		android:layout_alignParentRight="true"
-		android:paddingRight="10sp"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-	/>
-	<TextView
-		android:id="@+id/in_month"
-		android:layout_alignTop="@id/in_month_"
 		android:layout_alignParentRight="true"
 		android:paddingRight="10sp"
 		android:layout_width="wrap_content"
@@ -85,6 +70,22 @@
 	<TextView
 		android:id="@+id/in"
 		android:layout_alignTop="@id/in_"
+		android:layout_alignParentRight="true"
+		android:paddingRight="10sp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+	/>
+	<TextView
+		android:id="@+id/sms_out"
+		android:layout_alignTop="@id/sms_out_"
+		android:layout_alignParentRight="true"
+		android:paddingRight="10sp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+	/>
+	<TextView
+		android:id="@+id/sms_in"
+		android:layout_alignTop="@id/sms_in_"
 		android:layout_alignParentRight="true"
 		android:paddingRight="10sp"
 		android:layout_width="wrap_content"

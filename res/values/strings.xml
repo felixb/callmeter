@@ -16,8 +16,9 @@
 	<string name="about_">About CallMeter NG</string>
 	<string name="in_">In:</string>
 	<string name="out_">Out: </string>
-	<string name="in_month_">In (this month):</string>
-	<string name="out_month_">Out (this month):</string>
+	<string name="sms_in_">SMS In:</string>
+	<string name="sms_out_">SMS Out:</string>
+	<string name="traffic_">INet:</string>
 	<string name="billday_">First day of your bill</string>
 	<string name="billmode_">Mode of billing</string>
 	<string name="billdate_">Start of billperiod:</string>
