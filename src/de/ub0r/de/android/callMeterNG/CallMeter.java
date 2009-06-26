@@ -55,8 +55,7 @@ public class CallMeter extends Activity {
 		// get prefs.
 		this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-		AdView example_adview = (AdView) this.findViewById(R.id.ad);
-		example_adview.setVisibility(View.VISIBLE);
+		((AdView) this.findViewById(R.id.ad)).setVisibility(View.VISIBLE);
 	}
 
 	/** Called on Activity resume. */
