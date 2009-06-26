@@ -1,4 +1,4 @@
-package de.ub0r.de.android.callMeterNG;
+package de.ub0r.android.callMeterNG;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
