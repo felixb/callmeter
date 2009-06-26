@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_version">0.2</string>
+	<string name="app_version">0.2.1</string>
 	<string name="app_name">Call Meter NG</string>
 	<string name="author_">Author:</string>
 	<string name="version_">Version:</string>
