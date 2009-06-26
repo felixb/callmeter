@@ -14,5 +14,5 @@
 	<string name="billday_">Erster Rechnungstag</string>
 	<string name="billmode_">Abrechnungsmodus</string>
 	<string name="billdate_">Erster Rechnungstag:</string>
-	<string name="about">CallMeter logt deine Anrufe.</string>
+	<string name="about">Call Meter erzeugt Reports aus deinen Anruf- und Nachrichtenlogs. Das ist alles.</string>
 </resources>
