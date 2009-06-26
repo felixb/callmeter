@@ -54,9 +54,9 @@ public class CallMeter extends Activity {
 		this.setContentView(R.layout.main);
 		// get prefs.
 		this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
-		
+
 		AdView example_adview = (AdView) findViewById(R.id.ad);
-	    example_adview.setVisibility(AdView.VISIBLE);
+		example_adview.setVisibility(AdView.VISIBLE);
 	}
 
 	/** Called on Activity resume. */
@@ -250,15 +250,12 @@ public class CallMeter extends Activity {
 				}
 			} while (cur.moveToNext());
 
-			((TextView) this.findViewById(R.id.in))
-					.setText(this.getTime(durIn));
+			((TextView) this.findViewById(R.id.in)).setText(this
+					.getTime(durInMonth)
+					+ " / " + this.getTime(durIn));
 			((TextView) this.findViewById(R.id.out)).setText(this
-					.getTime(durOut));
-
-			((TextView) this.findViewById(R.id.in_month)).setText(this
-					.getTime(durInMonth));
-			((TextView) this.findViewById(R.id.out_month)).setText(this
-					.getTime(durOutMonth));
+					.getTime(durOutMonth)
+					+ " / " + this.getTime(durOut));
 		}
 	}
 }
