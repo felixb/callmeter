@@ -6,13 +6,12 @@
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:paddingTop="10sp"
-	android:paddingLeft="10sp"
-	android:paddingRight="10sp"
 >
 
 	<TextView
 		android:id="@+id/billdate_"
 		android:text="@string/billdate_"
+		android:paddingLeft="10sp"
 		android:paddingBottom="10sp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
@@ -21,6 +20,7 @@
 		android:id="@+id/out_month_"
 		android:text="@string/out_month_"
 		android:layout_below="@id/billdate_"
+		android:paddingLeft="10sp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
@@ -29,6 +29,7 @@
 		android:text="@string/in_month_"
 		android:layout_below="@id/out_month_"
 		android:paddingBottom="10sp"
+		android:paddingLeft="10sp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
@@ -36,6 +37,7 @@
 		android:id="@+id/out_"
 		android:text="@string/out_"
 		android:layout_below="@id/in_month_"
+		android:paddingLeft="10sp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
@@ -43,6 +45,7 @@
 		android:id="@+id/in_"
 		android:text="@string/in_"
 		android:layout_below="@id/out_"
+		android:paddingLeft="10sp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
@@ -51,6 +54,7 @@
 		android:id="@+id/billdate"
 		android:layout_alignTop="@id/billdate_"
 		android:layout_alignParentRight="true"
+		android:paddingRight="10sp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
@@ -58,6 +62,7 @@
 		android:id="@+id/out_month"
 		android:layout_alignTop="@id/out_month_"
 		android:layout_alignParentRight="true"
+		android:paddingRight="10sp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
@@ -65,6 +70,7 @@
 		android:id="@+id/in_month"
 		android:layout_alignTop="@id/in_month_"
 		android:layout_alignParentRight="true"
+		android:paddingRight="10sp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
@@ -72,6 +78,7 @@
 		android:id="@+id/out"
 		android:layout_alignTop="@id/out_"
 		android:layout_alignParentRight="true"
+		android:paddingRight="10sp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
@@ -79,6 +86,7 @@
 		android:id="@+id/in"
 		android:layout_alignTop="@id/in_"
 		android:layout_alignParentRight="true"
+		android:paddingRight="10sp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 	/>
@@ -93,9 +101,7 @@
 		android:layout_height="wrap_content"
 		android:layout_alignParentBottom="true"
 	 
-	 	app:backgroundColor="#000000"
-		app:textColor="#FFFFFF"
-		app:keywords="Android market app report calls game"
+		app:keywords="android mobile handy cellphone google htc market app report calls game"
 	/>
 	<!-- We could append app:testing="true" above to always get the test ad back -->
 </RelativeLayout>
