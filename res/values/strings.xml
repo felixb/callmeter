@@ -13,12 +13,16 @@
 	<string name="donate_">Donate</string>
 	<string name="settings">Preferences</string>
 	<string name="about_">About CallMeter NG</string>
-	<string name="in_">In:</string>
-	<string name="out_">Out: </string>
+	<string name="in_">Calls In:</string>
+	<string name="out_">Calls Out: </string>
 	<string name="sms_in_">SMS In:</string>
 	<string name="sms_out_">SMS Out:</string>
 	<string name="billday_">First day of your bill</string>
 	<string name="billmode_">Mode of billing</string>
 	<string name="billdate_">Start of billperiod:</string>
+	<string name="smsperiod_">Same Period for SMS</string>
+	<string name="smsbillday_">First day of your SMS bill</string>
+	<string name="freemin_">Free Minutes / Month</string>
+	<string name="freesms_">Free SMS / Month</string>
 	<string name="about">Call Meter generates reports from your call and message logs. That`s all.</string>
 </resources>

@@ -33,6 +33,14 @@ public class CallMeter extends Activity {
 	private static final String PREFS_BILLDAY = "billday";
 	/** Prefs: name for billingmode. */
 	private static final String PREFS_BILLMODE = "billmode";
+	/** Prefs: name for smsperiod. */
+	private static final String PREFS_SMSPERIOD = "smsperiod";
+	/** Prefs: name for smsbillday. */
+	private static final String PREFS_SMSBILLDAY = "smsbillday";
+	/** Prefs: name for free min. */
+	private static final String PREFS_FREEMIN = "freemin";
+	/** Prefs: name for free sms. */
+	private static final String PREFS_FREESMS = "freesms";
 
 	/** Prefs: billmode: 1/1. */
 	private static final String BILLMODE_1_1 = "1_1";
@@ -192,23 +200,34 @@ public class CallMeter extends Activity {
 		return time;
 	}
 
-	private void updateTime() {
-		// report basics
-
-		final int prefBillDay = Integer.parseInt(this.preferences.getString(
-				PREFS_BILLDAY, "0"));
+	/**
+	 * Return Billdate as Calendar for a given day of month.
+	 * 
+	 * @param billDay
+	 *            first day of bill
+	 * @return date as Calendar
+	 */
+	private Calendar getBillDate(final int billDay) {
 		Calendar cal = Calendar.getInstance();
-		if (cal.get(Calendar.DAY_OF_MONTH) < prefBillDay) {
+		if (cal.get(Calendar.DAY_OF_MONTH) < billDay) {
 			cal.roll(Calendar.MONTH, -1);
 		}
-		cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), prefBillDay);
+		cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), billDay);
 		cal.set(Calendar.HOUR_OF_DAY, 0);
 		cal.set(Calendar.MINUTE, 0);
 		cal.set(Calendar.SECOND, 0);
 		cal.set(Calendar.MILLISECOND, 0);
-		final long billDate = cal.getTimeInMillis();
+		return cal;
+	}
+
+	private void updateTime() {
+		// report basics
+
+		Calendar calBillDate = this.getBillDate(Integer
+				.parseInt(this.preferences.getString(PREFS_BILLDAY, "0")));
+		long billDate = calBillDate.getTimeInMillis();
 		((TextView) this.findViewById(R.id.billdate)).setText(DateFormat
-				.getDateFormat(this).format(cal.getTime()));
+				.getDateFormat(this).format(calBillDate.getTime()));
 
 		// report calls
 		String[] projection = new String[] { Calls.TYPE, Calls.DURATION,
@@ -258,6 +277,14 @@ public class CallMeter extends Activity {
 				+ " / " + this.getTime(durOut));
 
 		// report sms
+		if (!this.preferences.getBoolean(PREFS_SMSPERIOD, false)) {
+			calBillDate = this.getBillDate(Integer.parseInt(this.preferences
+					.getString(PREFS_SMSBILLDAY, "0")));
+			billDate = calBillDate.getTimeInMillis();
+			
+		}
+		((TextView) this.findViewById(R.id.smsbilldate)).setText(DateFormat
+					.getDateFormat(this).format(calBillDate.getTime()));
 		projection = new String[] { Calls.TYPE, Calls.DATE };
 		cur = this.managedQuery(Uri.parse("content://sms"), null, null, null,
 				null);

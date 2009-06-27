@@ -17,5 +17,30 @@
 			android:entryValues="@array/modes"
 			android:dialogTitle="@string/billmode_"
 		/>
+		<CheckBoxPreference
+			android:key="smsperiod"
+			android:disableDependentsState="true"
+			android:title="@string/smsperiod_"
+		/>
+		<ListPreference
+			android:dependency="smsperiod"
+			android:key="smsbillday"
+			android:title="@string/smsbillday_"
+			android:entries="@array/days"
+			android:entryValues="@array/days"
+			android:dialogTitle="@string/smsbillday_"
+		/>
+		<EditTextPreference
+			android:key="freemin"
+			android:title="@string/freemin_"
+			android:dialogTitle="@string/freemin_"
+			android:inputType="number"
+		/>
+		<EditTextPreference
+			android:key="freemin"
+			android:title="@string/freesms_"
+			android:dialogTitle="@string/freesms_"
+			android:inputType="number"
+		/>
 	</PreferenceCategory>
 </PreferenceScreen>
