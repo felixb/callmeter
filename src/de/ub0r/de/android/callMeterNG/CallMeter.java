@@ -269,22 +269,33 @@ public class CallMeter extends Activity {
 			} while (cur.moveToNext());
 
 		}
+
 		((TextView) this.findViewById(R.id.in)).setText(this
 				.getTime(durInMonth)
 				+ " / " + this.getTime(durIn));
-		((TextView) this.findViewById(R.id.out)).setText(this
-				.getTime(durOutMonth)
-				+ " / " + this.getTime(durOut));
+
+		StringBuilder s = new StringBuilder();
+		int free = Integer.parseInt(this.preferences.getString(PREFS_FREEMIN,
+				"0"));
+		if (free != 0) {
+			s.append((durOutMonth * 100) / (free * 60));
+			s.append("% / ");
+		}
+		s.append(this.getTime(durOutMonth));
+		s.append(" / ");
+		s.append(this.getTime(durOut));
+		((TextView) this.findViewById(R.id.out)).setText(s.toString());
+		s = null;
 
 		// report sms
 		if (!this.preferences.getBoolean(PREFS_SMSPERIOD, false)) {
 			calBillDate = this.getBillDate(Integer.parseInt(this.preferences
 					.getString(PREFS_SMSBILLDAY, "0")));
 			billDate = calBillDate.getTimeInMillis();
-			
+
 		}
 		((TextView) this.findViewById(R.id.smsbilldate)).setText(DateFormat
-					.getDateFormat(this).format(calBillDate.getTime()));
+				.getDateFormat(this).format(calBillDate.getTime()));
 		projection = new String[] { Calls.TYPE, Calls.DATE };
 		cur = this.managedQuery(Uri.parse("content://sms"), null, null, null,
 				null);
@@ -319,7 +330,16 @@ public class CallMeter extends Activity {
 		}
 		((TextView) this.findViewById(R.id.sms_in)).setText(smsInMonth + " / "
 				+ smsIn);
-		((TextView) this.findViewById(R.id.sms_out)).setText(smsOutMonth
-				+ " / " + smsOut);
+
+		s = new StringBuilder();
+		free = Integer.parseInt(this.preferences.getString(PREFS_FREESMS, "0"));
+		if (free != 0) {
+			s.append((smsOutMonth * 100) / free);
+			s.append("% / ");
+		}
+		s.append(smsOutMonth);
+		s.append(" / ");
+		s.append(smsOut);
+		((TextView) this.findViewById(R.id.sms_out)).setText(s.toString());
 	}
 }

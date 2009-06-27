@@ -37,7 +37,7 @@
 			android:inputType="number"
 		/>
 		<EditTextPreference
-			android:key="freemin"
+			android:key="freesms"
 			android:title="@string/freesms_"
 			android:dialogTitle="@string/freesms_"
 			android:inputType="number"
