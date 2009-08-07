@@ -176,6 +176,11 @@ public class CallMeter extends Activity {
 	private int roundTime(final int time) {
 		final String prefBillMode = this.preferences.getString(PREFS_BILLMODE,
 				BILLMODE_1_1);
+		// 0 => 0
+		if (time == 0) {
+			return 0;
+		}
+		// !0 ..
 		if (prefBillMode.equals(BILLMODE_1_1)) {
 			return time;
 		} else if (prefBillMode.equals(BILLMODE_10_10)) {
