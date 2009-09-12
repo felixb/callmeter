@@ -21,39 +21,39 @@
 			android:title="@string/freedays_"
 		>
 			<CheckBoxPreference
-				android:key="freeday_call"
+				android:key="freedays_call"
 				android:title="@string/free_on_calls"
 			/>
 			<CheckBoxPreference
-				android:key="freeday_sms"
+				android:key="freedays_sms"
 				android:title="@string/free_on_sms"
 			/>
 			<CheckBoxPreference
-				android:key="freeday_1"
+				android:key="freedays_1"
 				android:title="@string/monday"
 			/>
 			<CheckBoxPreference
-				android:key="freeday_2"
+				android:key="freedays_2"
 				android:title="@string/tuesday"
 			/>
 			<CheckBoxPreference
-				android:key="freeday_3"
+				android:key="freedays_3"
 				android:title="@string/wednesday"
 			/>
 			<CheckBoxPreference
-				android:key="freeday_4"
+				android:key="freedays_4"
 				android:title="@string/thursday"
 			/>
 			<CheckBoxPreference
-				android:key="freeday_5"
+				android:key="freedays_5"
 				android:title="@string/friday"
 			/>
 			<CheckBoxPreference
-				android:key="freeday_6"
+				android:key="freedays_6"
 				android:title="@string/saturday"
 			/>
 			<CheckBoxPreference
-				android:key="freeday_7"
+				android:key="freedays_7"
 				android:title="@string/sunday"
 			/>
 		</PreferenceScreen>

@@ -42,6 +42,25 @@ public class CallMeter extends Activity {
 	/** Prefs: name for free sms. */
 	private static final String PREFS_FREESMS = "freesms";
 
+	/** Prefs: name for freedays calls. */
+	private static final String PREFS_FREEDAYS_CALL = "freedays_call";
+	/** Prefs: name for freedays sms. */
+	private static final String PREFS_FREEDAYS_SMS = "freedays_sms";
+	/** Prefs: name for freedays monday. */
+	private static final String PREFS_FREEDAYS_MONDAY = "freedays_1";
+	/** Prefs: name for freedays tuesday. */
+	private static final String PREFS_FREEDAYS_TUESDAY = "freedays_2";
+	/** Prefs: name for freedays wednesday. */
+	private static final String PREFS_FREEDAYS_WEDNESDAY = "freedays_3";
+	/** Prefs: name for freedays thursday. */
+	private static final String PREFS_FREEDAYS_THURSDAY = "freedays_4";
+	/** Prefs: name for freedays friday. */
+	private static final String PREFS_FREEDAYS_FRIDAY = "freedays_5";
+	/** Prefs: name for freedays saturday. */
+	private static final String PREFS_FREEDAYS_SATURDAY = "freedays_6";
+	/** Prefs: name for freedays sunday. */
+	private static final String PREFS_FREEDAYS_SUNDAY = "freedays_7";
+
 	/** Prefs: billmode: 1/1. */
 	private static final String BILLMODE_1_1 = "1_1";
 	/** Prefs: billmode: 10/10. */
@@ -227,7 +246,6 @@ public class CallMeter extends Activity {
 
 	private void updateTime() {
 		// report basics
-
 		Calendar calBillDate = this.getBillDate(Integer
 				.parseInt(this.preferences.getString(PREFS_BILLDAY, "0")));
 		long billDate = calBillDate.getTimeInMillis();
