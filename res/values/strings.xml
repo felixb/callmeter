@@ -25,4 +25,14 @@
 	<string name="freemin_">Free Minutes / Month</string>
 	<string name="freesms_">Free SMS / Month</string>
 	<string name="about">Call Meter generates reports from your call and message logs. That`s all.</string>
+	<string name="freedays_">Free days</string>
+	<string name="free_on_calls">Free calls on ..</string>
+	<string name="free_on_sms">Free SMS on ..</string>
+	<string name="monday">Monday</string>
+	<string name="tuesday">Tuesday</string>
+	<string name="wednesday">Wednesday</string>
+	<string name="thursday">Thursday</string>
+	<string name="friday">Friday</string>
+	<string name="saturday">Saturday</string>
+	<string name="sunday">Sunday</string>
 </resources>
