@@ -31,6 +31,8 @@ public class CallMeter extends Activity {
 
 	/** Days of a week. */
 	private static final int DAYS_WEEK = 7;
+	/** Hours of a day. */
+	private static final int HOURS_DAY = 24;
 
 	/** Prefs: name for first day. */
 	private static final String PREFS_BILLDAY = "billday";
@@ -51,20 +53,13 @@ public class CallMeter extends Activity {
 	private static final String PREFS_FREEDAYS_SMS = "freedays_sms";
 	/** Prefs: name for freedays .... */
 	private static final String PREFS_FREEDAYS_ = "freedays_";
-	/** Prefs: name for freedays monday. */
-	private static final short PREFS_FREEDAYS_MONDAY = 1;
-	/** Prefs: name for freedays tuesday. */
-	private static final short PREFS_FREEDAYS_TUESDAY = 2;
-	/** Prefs: name for freedays wednesday. */
-	private static final short PREFS_FREEDAYS_WEDNESDAY = 3;
-	/** Prefs: name for freedays thursday. */
-	private static final short PREFS_FREEDAYS_THURSDAY = 4;
-	/** Prefs: name for freedays friday. */
-	private static final short PREFS_FREEDAYS_FRIDAY = 5;
-	/** Prefs: name for freedays saturday. */
-	private static final short PREFS_FREEDAYS_SATURDAY = 6;
-	/** Prefs: name for freedays sunday. */
-	private static final short PREFS_FREEDAYS_SUNDAY = 7;
+
+	/** Prefs: name for freehours calls. */
+	private static final String PREFS_FREEHOURS_CALL = "freehourys_call";
+	/** Prefs: name for freehours sms. */
+	private static final String PREFS_FREEHOURS_SMS = "freehours_sms";
+	/** Prefs: name for freehours .... */
+	private static final String PREFS_FREEHOURS_ = "freehours_";
 
 	/** Prefs: billmode: 1/1. */
 	private static final String BILLMODE_1_1 = "1_1";
@@ -252,15 +247,20 @@ public class CallMeter extends Activity {
 	/**
 	 * Is the call/sms billed?
 	 * 
+	 * @param checkFreeDays
+	 *            check freeDays
 	 * @param freeDays
 	 *            array of free days / week
+	 * @param checkFreeHours
+	 *            check freeHours
 	 * @param freeHours
 	 *            array of free hours / day
 	 * @param d
 	 *            date
 	 * @return is billed?
 	 */
-	private boolean isBilled(final boolean[] freeDays,
+	private boolean isBilled(final boolean checkFreeDays,
+			final boolean[] freeDays, final boolean checkFreeHours,
 			final boolean[] freeHours, final long d) {
 		if (d < 0) {
 			return true;
@@ -270,12 +270,13 @@ public class CallMeter extends Activity {
 		}
 		Calendar date = Calendar.getInstance();
 		date.setTimeInMillis(d);
-		if (freeDays != null) {
-			if (freeDays[date.get(Calendar.DAY_OF_WEEK)]) {
+		if (checkFreeDays && freeDays != null) {
+			int grr = (date.get(Calendar.DAY_OF_WEEK) + 5) % 7;
+			if (freeDays[(date.get(Calendar.DAY_OF_WEEK) + 5) % 7]) {
 				return false;
 			}
 		}
-		if (freeHours != null) {
+		if (checkFreeHours && freeHours != null) {
 			if (freeHours[date.get(Calendar.HOUR_OF_DAY)]) {
 				return false;
 			}
@@ -304,6 +305,18 @@ public class CallMeter extends Activity {
 						+ (i + 1), false);
 			}
 		}
+		final boolean freeHoursCalls = this.preferences.getBoolean(
+				PREFS_FREEHOURS_CALL, false);
+		final boolean freeHoursSMS = this.preferences.getBoolean(
+				PREFS_FREEHOURS_SMS, false);
+		boolean[] freeHours = null;
+		if (freeHoursCalls || freeHoursSMS) {
+			freeHours = new boolean[HOURS_DAY];
+			for (int i = 0; i < HOURS_DAY; i++) {
+				freeHours[i] = this.preferences.getBoolean(
+						PREFS_FREEHOURS_ + i, false);
+			}
+		}
 
 		// report calls
 		String[] projection = new String[] { Calls.TYPE, Calls.DURATION,
@@ -318,25 +331,31 @@ public class CallMeter extends Activity {
 		int durOutMonth = 0;
 		if (cur.moveToFirst()) {
 			int type;
+			long d;
 			final int idType = cur.getColumnIndex(Calls.TYPE);
 			final int idDuration = cur.getColumnIndex(Calls.DURATION);
 			final int idDate = cur.getColumnIndex(Calls.DATE);
-			final int d = cur.getInt(idDate);
 			int t = 0;
 			do {
 				type = cur.getInt(idType);
+				d = cur.getLong(idDate);
 				switch (type) {
 				case Calls.INCOMING_TYPE:
 					t = this.roundTime(cur.getInt(idDuration));
 					durIn += t;
-					if (billDate <= d && this.isBilled(freeDays, null, d)) {
+					if (billDate <= d) {
 						durInMonth += t;
 					}
 					break;
 				case Calls.OUTGOING_TYPE:
 					t = this.roundTime(cur.getInt(idDuration));
 					durOut += t;
-					if (billDate <= d && this.isBilled(freeDays, null, d)) {
+					if (billDate <= d) {
+						System.gc();
+					}
+					if (billDate <= d
+							&& this.isBilled(freeDaysCalls, freeDays,
+									freeHoursCalls, freeHours, d)) {
 						durOutMonth += t;
 					}
 					break;
@@ -344,7 +363,6 @@ public class CallMeter extends Activity {
 					break;
 				}
 			} while (cur.moveToNext());
-
 		}
 
 		((TextView) this.findViewById(R.id.in)).setText(this
@@ -382,21 +400,25 @@ public class CallMeter extends Activity {
 		int smsInMonth = 0;
 		int smsOutMonth = 0;
 		if (cur.moveToFirst()) {
+			int type;
+			long d;
+			final int idType = cur.getColumnIndex(Calls.TYPE);
+			final int idDate = cur.getColumnIndex(Calls.DATE);
 			do {
-				int type;
-				int idType = cur.getColumnIndex(Calls.TYPE);
-				int idDate = cur.getColumnIndex(Calls.DATE);
 				type = cur.getInt(idType);
+				d = cur.getLong(idDate);
 				switch (type) {
 				case Calls.INCOMING_TYPE:
 					++smsIn;
-					if (billDate <= cur.getLong(idDate)) {
+					if (billDate <= d) {
 						++smsInMonth;
 					}
 					break;
 				case Calls.OUTGOING_TYPE:
 					++smsOut;
-					if (billDate <= cur.getLong(idDate)) {
+					if (billDate <= d
+							&& this.isBilled(freeDaysCalls, freeDays,
+									freeHoursCalls, freeHours, d)) {
 						++smsOutMonth;
 					}
 					break;
