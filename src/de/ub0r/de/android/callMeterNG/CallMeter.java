@@ -55,7 +55,7 @@ public class CallMeter extends Activity {
 	private static final String PREFS_FREEDAYS_ = "freedays_";
 
 	/** Prefs: name for freehours calls. */
-	private static final String PREFS_FREEHOURS_CALL = "freehourys_call";
+	private static final String PREFS_FREEHOURS_CALL = "freehours_call";
 	/** Prefs: name for freehours sms. */
 	private static final String PREFS_FREEHOURS_SMS = "freehours_sms";
 	/** Prefs: name for freehours .... */
@@ -271,7 +271,6 @@ public class CallMeter extends Activity {
 		Calendar date = Calendar.getInstance();
 		date.setTimeInMillis(d);
 		if (checkFreeDays && freeDays != null) {
-			int grr = (date.get(Calendar.DAY_OF_WEEK) + 5) % 7;
 			if (freeDays[(date.get(Calendar.DAY_OF_WEEK) + 5) % 7]) {
 				return false;
 			}
@@ -417,8 +416,8 @@ public class CallMeter extends Activity {
 				case Calls.OUTGOING_TYPE:
 					++smsOut;
 					if (billDate <= d
-							&& this.isBilled(freeDaysCalls, freeDays,
-									freeHoursCalls, freeHours, d)) {
+							&& this.isBilled(freeDaysSMS, freeDays,
+									freeHoursSMS, freeHours, d)) {
 						++smsOutMonth;
 					}
 					break;
