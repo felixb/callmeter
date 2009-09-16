@@ -7,10 +7,6 @@
 	<string name="donate_">Spende</string>
 	<string name="settings">Einstellungen</string>
 	<string name="about_">Über CallMeter NG</string>
-	<string name="in_">Anrufe Ein:</string>
-	<string name="out_">Anrufe Aus: </string>
-	<string name="sms_in_">SMS Ein:</string>
-	<string name="sms_out_">SMS Aus:</string>
 	<string name="billday_">Erster Rechnungstag</string>
 	<string name="billmode_">Abrechnungsmodus</string>
 	<string name="billdate_">Erster Rechnungstag:</string>
@@ -30,4 +26,10 @@
 	<string name="friday">Freitag</string>
 	<string name="saturday">Samstag</string>
 	<string name="sunday">Sonntag</string>
+	<string name="calls">Anrufe</string>
+	<string name="in">Ein:</string>
+	<string name="out">Aus:</string>
+	<string name="period">Abrechnung</string>
+	<string name="all">Alle</string>
+	<string name="usage">Verbrauch</string>
 </resources>

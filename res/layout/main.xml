@@ -6,6 +6,13 @@
 		android:layout_width="fill_parent"
 		android:stretchColumns="1"
 	>
+		<TextView
+			android:text="@string/calls"
+			android:paddingTop="10sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+		/>
 		<TableRow
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
@@ -32,7 +39,7 @@
 			android:paddingLeft="10sp"
 		>
 			<TextView
-				android:text="@string/out_"
+				android:text="@string/out"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 			/>
@@ -51,7 +58,7 @@
 			android:paddingBottom="10sp"			
 		>
 			<TextView
-				android:text="@string/in_"
+				android:text="@string/in"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 			/>
@@ -63,6 +70,13 @@
 				android:layout_height="wrap_content"
 			/>
 		</TableRow>
+		<TextView
+			android:text="@string/sms"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingTop="10sp"
+			android:gravity="center"
+		/>
 		<TableRow
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
@@ -88,7 +102,7 @@
 			android:paddingLeft="10sp"
 		>
 			<TextView
-				android:text="@string/sms_out_"
+				android:text="@string/out"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 			/>
@@ -107,7 +121,7 @@
 			android:paddingBottom="10sp"
 		>
 			<TextView
-				android:text="@string/sms_in_"
+				android:text="@string/in"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 			/>

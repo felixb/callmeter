@@ -13,10 +13,6 @@
 	<string name="donate_">Donate</string>
 	<string name="settings">Preferences</string>
 	<string name="about_">About CallMeter NG</string>
-	<string name="in_">Calls In:</string>
-	<string name="out_">Calls Out: </string>
-	<string name="sms_in_">SMS In:</string>
-	<string name="sms_out_">SMS Out:</string>
 	<string name="billday_">First day of your bill</string>
 	<string name="billmode_">Mode of billing</string>
 	<string name="billdate_">Start of billperiod:</string>
@@ -60,4 +56,11 @@
 	<string name="freehours_21">21:00 - 21:59</string>
 	<string name="freehours_22">22:00 - 22:59</string>
 	<string name="freehours_23">23:00 - 23:59</string>
+	<string name="calls">Calls</string>
+	<string name="sms">SMS</string>
+	<string name="in">In:</string>
+	<string name="out">Out:</string>
+	<string name="period">period</string>
+	<string name="all">all</string>
+	<string name="usage">usage</string>
 </resources>
