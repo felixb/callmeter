@@ -349,9 +349,6 @@ public class CallMeter extends Activity {
 				case Calls.OUTGOING_TYPE:
 					t = this.roundTime(cur.getInt(idDuration));
 					durOut += t;
-					if (billDate <= d) {
-						System.gc();
-					}
 					if (billDate <= d
 							&& this.isBilled(freeDaysCalls, freeDays,
 									freeHoursCalls, freeHours, d)) {
