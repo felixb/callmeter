@@ -2,7 +2,7 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	package="de.ub0r.de.android.callMeterNG"
-	android:versionName="0.6" android:versionCode="60">
+	android:versionName="0.6.1" android:versionCode="61">
 	<application android:icon="@drawable/icon" android:label="@string/app_name" android:debuggable="true">
 		<activity
 			android:name=".CallMeter"
