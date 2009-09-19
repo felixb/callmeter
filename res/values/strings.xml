@@ -6,6 +6,7 @@
 	<string name="version_">Version:</string>
 	<string name="license_">License:</string>
 	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt;</string>
+	<string name="author_cz">Tomáš Karvay &lt;karvay.tomas@gmail.com&gt; (Czech)</string>
 	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Sourcescode:</string>
 	<string name="source">http://repo.or.cz/w/CallMeterNG.git</string>
@@ -59,7 +60,8 @@
 	<string name="calls">Calls</string>
 	<string name="sms">SMS</string>
 	<string name="in">In:</string>
-	<string name="out">Out:</string>
+	<string name="out_calls">Out:</string>
+	<string name="out_sms">Out:</string>
 	<string name="period">period</string>
 	<string name="all">all</string>
 	<string name="usage">usage</string>

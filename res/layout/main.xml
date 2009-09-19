@@ -40,7 +40,7 @@
 			android:paddingLeft="10sp"
 		>
 			<TextView
-				android:text="@string/out"
+				android:text="@string/out_calls"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 			/>
@@ -111,7 +111,7 @@
 			android:paddingLeft="10sp"
 		>
 			<TextView
-				android:text="@string/out"
+				android:text="@string/out_sms"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 			/>
