@@ -71,6 +71,13 @@
 				android:layout_height="wrap_content"
 			/>
 		</TableRow>
+		<ProgressBar
+			android:id="@+id/calls_progressbar"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:max="100"
+			style="?android:attr/progressBarStyleHorizontal"
+		></ProgressBar>
 		<TextView
 			android:text="@string/sms"
 			android:layout_width="wrap_content"
@@ -135,17 +142,27 @@
 				android:layout_height="wrap_content"
 			/>
 		</TableRow>
-	<!-- Place an AdMob ad at the bottom of the screen. -->
-	<!-- It has white text on a black background. -->
-	<!-- The description of the surrounding context is 'Android game'. -->
-	<com.admob.android.ads.AdView
-		android:id="@+id/ad"
-		android:visibility="gone"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_alignParentBottom="true"
-	 
-		app:keywords="android mobile handy cellphone google htc market app report calls game"
-	/>
-	<!-- We could append app:testing="true" above to always get the test ad back -->
+		<ProgressBar
+			android:id="@+id/sms_progressbar"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:max="100"
+			style="?android:attr/progressBarStyleHorizontal"
+		></ProgressBar>
+		<View
+			android:layout_height="fill_parent"
+			android:layout_weight="1"
+		></View>
+		<!-- Place an AdMob ad at the bottom of the screen. -->
+		<!-- It has white text on a black background. -->
+		<!-- The description of the surrounding context is 'Android game'. -->
+		<com.admob.android.ads.AdView
+			android:id="@+id/ad"
+			android:visibility="gone"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			app:keywords="android mobile handy cellphone google htc market app report calls game"
+		/>
+		<!-- We could append app:testing="true" above to always get the test ad back -->
 </TableLayout>
