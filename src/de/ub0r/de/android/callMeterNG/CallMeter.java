@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
 import android.text.format.DateFormat;
@@ -75,6 +76,18 @@ public class CallMeter extends Activity {
 	private static final String BILLMODE_60_60 = "60_60";
 
 	private SharedPreferences preferences;
+
+	/**
+	 * Preferences.
+	 * 
+	 * @author flx
+	 */
+	private class Preferences extends PreferenceActivity {
+		public final void onCreate(final Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);
+			this.addPreferencesFromResource(R.xml.prefs);
+		}
+	}
 
 	private class Updater extends AsyncTask<Boolean, Integer, Boolean> {
 		/** Status Strings. */
