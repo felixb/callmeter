@@ -13,7 +13,7 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name="Preferences"></activity>
+		<activity android:name="CallMeter$Preferences"></activity>
 		<!-- The application's publisher ID assigned by AdMob -->
 		<meta-data android:value="a14a439b2045eb6" android:name="ADMOB_PUBLISHER_ID" />
 	</application>

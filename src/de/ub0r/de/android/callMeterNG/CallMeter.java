@@ -82,7 +82,7 @@ public class CallMeter extends Activity {
 	 * 
 	 * @author flx
 	 */
-	private class Preferences extends PreferenceActivity {
+	public static class Preferences extends PreferenceActivity {
 		public final void onCreate(final Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			this.addPreferencesFromResource(R.xml.prefs);
