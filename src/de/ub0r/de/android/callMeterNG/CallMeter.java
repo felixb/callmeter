@@ -434,7 +434,7 @@ public class CallMeter extends Activity {
 				} while (cur.moveToNext());
 			}
 
-			this.smsIn = this.calcString(smsInMonth, 0, smsOut, false);
+			this.smsIn = this.calcString(smsInMonth, 0, smsIn, false);
 			this.smsOut = this.calcString(smsOutMonth, free, smsOut, false);
 
 			return null;
