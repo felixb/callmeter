@@ -8,6 +8,7 @@
 	<string name="about_">Über CallMeter NG</string>
 	<string name="billday_">Erster Rechnungstag</string>
 	<string name="billmode_">Abrechnungsmodus</string>
+	<string name="billmode_hint">Länge der Takte (Erster/Folgende)</string>
 	<string name="billdate_">Erster Rechnungstag:</string>
 	<string name="smsperiod_">Gleiche Rechnung für SMS</string>
 	<string name="smsbillday_">Erster Rechnungstag für SMS</string>

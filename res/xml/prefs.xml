@@ -16,6 +16,7 @@
 			android:entries="@array/modes_"
 			android:entryValues="@array/modes"
 			android:dialogTitle="@string/billmode_"
+			android:summary="@string/billmode_hint"
 		/>
 		<PreferenceScreen
 			android:title="@string/freedays_"
