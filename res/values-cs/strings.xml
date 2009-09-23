@@ -9,6 +9,7 @@
 	<string name="about_">O aplikaci</string>
 	<string name="billday_">První zúčtovací den</string>
 	<string name="billmode_">Způsob účtování</string>
+	<string name="billmode_hint">Délka impulsu/následující učtovaný</string>
 	<string name="billdate_">Počátek zúčtovacího období:</string>
 	<string name="smsperiod_">Stejné období pro SMS</string>
 	<string name="smsbillday_">Počátek zúčtovacího období pro SMS</string>
