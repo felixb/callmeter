@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="author_">Autor:</string>
+	<string name="version_">Wersja:</string>
+	<string name="license_">Licencja:</string>
+	<string name="source_">Kod źródlowy:</string>
+	<string name="donate_">Wspomóż autora</string>
+	<string name="settings">Ustawienia</string>
+	<string name="about_">O programie</string>
+	<string name="billday_">Pierwszy dzień rachunku</string>
+	<string name="billmode_">Rodzaj rachunku (cyklu)</string>
+	<string name="billmode_hint">Długość pierwszego/kolejnych okresów rozliczeniowych</string>
+	<string name="billdate_">Początek okresu rozliczeniowego:</string>
+	<string name="smsperiod_">Ten sam okres dla SMS</string>
+	<string name="smsbillday_">Pierszy dzień rachunku za SMSy</string>
+	<string name="freemin_">Darmowe minuty/ Miesiąc</string>
+	<string name="freesms_">Darmowe SMS / Miesiąc</string>
+	<string name="about">Call Meter tworzy raport na podstawie informacji w telefonie. To wszystko.</string>
+	<string name="freedays_">Darmowe dni</string>
+	<string name="freehours_">Darmowe godziny</string>
+	<string name="free_on_calls">Darmowe połączenia w..</string>
+	<string name="free_on_sms">Darmowe SMS w..</string>
+	<string name="monday">Poniedziałek</string>
+	<string name="tuesday">Wtorek</string>
+	<string name="wednesday">Środa</string>
+	<string name="thursday">Czwartek</string>
+	<string name="friday">Piątek</string>
+	<string name="saturday">Sobota</string>
+	<string name="sunday">Niedziela</string>
+	<string name="calls">Połączenia</string>
+	<string name="in">Przychodzące:</string>
+	<string name="out_calls">Wychodzące:</string>
+	<string name="out_sms">Wychodzące:</string>
+	<string name="period">okres</string>
+	<string name="all">wszystko</string>
+	<string name="usage">użycie</string>
+</resources>
