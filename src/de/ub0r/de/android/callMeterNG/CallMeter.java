@@ -564,5 +564,4 @@ public class CallMeter extends Activity {
 			return false;
 		}
 	}
-
 }
