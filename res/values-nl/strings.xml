@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="author_">Maker:</string>
+	<string name="version_">Versie:</string>
+	<string name="license_">Licentie:</string>
+	<string name="donate_">Doneer</string>
+	<string name="settings">Voorkeuren</string>
+	<string name="about_">Over CallMeter NG</string>
+	<string name="billday_">Eerste factuurdag</string>
+	<string name="billmode_">Factuur wijze</string>
+	<string name="billmode_hint">Lengte van eerste/volgende factuur momenten</string>
+	<string name="billdate_">Start factureringsperiode:</string>
+	<string name="smsperiod_">Zelfde periode voor SMS</string>
+	<string name="smsbillday_">Eerste dag voor SMS factuur</string>
+	<string name="freemin_">Gratis belminuten / Maand</string>
+	<string name="freesms_">Gratis SMS / Month</string>
+	<string name="about">Call Meter genereert rapporten van jouw bel en SMS gedrag. Dat is alles.</string>
+	<string name="freedays_">Gratis dagen days</string>
+	<string name="freehours_">Gratis uren</string>
+	<string name="free_on_calls">Gratis bellen op ..</string>
+	<string name="free_on_sms">Gratis SMS op ..</string>
+	<string name="monday">Maandag</string>
+	<string name="tuesday">Dinsdag</string>
+	<string name="wednesday">Woensdag</string>
+	<string name="thursday">Donderdag</string>
+	<string name="friday">Vrijdag</string>
+	<string name="saturday">Zaterdag</string>
+	<string name="sunday">Zondag</string>
+	<string name="calls">Gesprekken</string>
+	<string name="sms">SMS</string>
+	<string name="in">In:</string>
+	<string name="out_calls">Uit:</string>
+	<string name="out_sms">Uit:</string>
+	<string name="period">periode</string>
+	<string name="all">alle</string>
+	<string name="usage">gebruik</string>
+</resources>

@@ -8,6 +8,7 @@
 	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt; (Code, German)</string>
 	<string name="author_cz">Tomáš Karvay &lt;karvay.tomas@gmail.com&gt; (Czech)</string>
 	<string name="author_pl">Łukasz Malcki &lt;maalicki@gmail.com&gt; (Polish)</string>
+	<string name="author_nl">Alfons Vereijt &lt;info@zangtechniek.nl&gt; (Dutch)</string>
 	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Sourcescode:</string>
 	<string name="source">http://repo.or.cz/w/CallMeterNG.git</string>
