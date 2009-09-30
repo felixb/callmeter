@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2009 Łukasz Malcki, Felix Bechstein
+	-->
+	<!--
+		This file is part of AndGMXsms. This program is free software; you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation; either
+		version 3 of the License, or (at your option) any later version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
 <resources>
 	<string name="author_">Autor:</string>
 	<string name="version_">Wersja:</string>
@@ -9,13 +26,15 @@
 	<string name="about_">O programie</string>
 	<string name="billday_">Pierwszy dzień rachunku</string>
 	<string name="billmode_">Rodzaj rachunku (cyklu)</string>
-	<string name="billmode_hint">Długość pierwszego/kolejnych okresów rozliczeniowych</string>
+	<string name="billmode_hint">Długość pierwszego/kolejnych okresów
+		rozliczeniowych</string>
 	<string name="billdate_">Początek okresu rozliczeniowego:</string>
 	<string name="smsperiod_">Ten sam okres dla SMS</string>
 	<string name="smsbillday_">Pierszy dzień rachunku za SMSy</string>
 	<string name="freemin_">Darmowe minuty/ Miesiąc</string>
 	<string name="freesms_">Darmowe SMS / Miesiąc</string>
-	<string name="about">Call Meter tworzy raport na podstawie informacji w telefonie. To wszystko.</string>
+	<string name="about">Call Meter tworzy raport na podstawie
+		informacji w telefonie. To wszystko.</string>
 	<string name="freedays_">Darmowe dni</string>
 	<string name="freehours_">Darmowe godziny</string>
 	<string name="free_on_calls">Darmowe połączenia w..</string>

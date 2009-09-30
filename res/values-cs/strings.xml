@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2009 Tomáš Karvay, Felix Bechstein
+	-->
+	<!--
+		This file is part of AndGMXsms. This program is free software; you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation; either
+		version 3 of the License, or (at your option) any later version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
 <resources>
 	<string name="author_">Autor:</string>
 	<string name="version_">Verze:</string>
 	<string name="license_">Licence:</string>
-	<string name="license">GPLv3 - info zde http://www.gnu.org/licenses/gpl-3.0.txt</string>
+	<string name="license">GPLv3 - info zde
+		http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="donate_">Přispěj na vývoj</string>
 	<string name="settings">Nastavení</string>
 	<string name="about_">O aplikaci</string>
@@ -15,7 +33,8 @@
 	<string name="smsbillday_">Počátek zúčtovacího období pro SMS</string>
 	<string name="freemin_">Volné minuty / Měsíc</string>
 	<string name="freesms_">Volné SMS / Měsíc</string>
-	<string name="about">Call Meter vytváří statistiky hovorů a sms podle Vašeho tarifu. Nic víc, nic miň.</string>
+	<string name="about">Call Meter vytváří statistiky hovorů a sms
+		podle Vašeho tarifu. Nic víc, nic miň.</string>
 	<string name="freedays_">Volné dny</string>
 	<string name="freehours_">Volné hodiny</string>
 	<string name="free_on_calls">Volné hovory vždy v ..</string>

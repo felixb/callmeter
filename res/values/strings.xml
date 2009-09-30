@@ -1,30 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2009 Felix Bechstein
+	-->
+	<!--
+		This file is part of Call Meter NG. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
 <resources>
 	<string name="app_version">0.7.3</string>
 	<string name="app_name">Call Meter NG</string>
 	<string name="author_">Author:</string>
 	<string name="version_">Version:</string>
 	<string name="license_">License:</string>
-	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt; (Code, German)</string>
-	<string name="author_cz">Tomáš Karvay &lt;karvay.tomas@gmail.com&gt; (Czech)</string>
-	<string name="author_pl">Łukasz Malcki &lt;maalicki@gmail.com&gt; (Polish)</string>
-	<string name="author_nl">Alfons Vereijt &lt;info@zangtechniek.nl&gt; (Dutch)</string>
-	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
+	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt; (Code,
+		German)</string>
+	<string name="author_cz">Tomáš Karvay &lt;karvay.tomas@gmail.com&gt;
+		(Czech)</string>
+	<string name="author_pl">Łukasz Malcki &lt;maalicki@gmail.com&gt;
+		(Polish)</string>
+	<string name="author_nl">Alfons Vereijt &lt;info@zangtechniek.nl&gt;
+		(Dutch)</string>
+	<string name="license">GPLv3 - see
+		http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Sourcescode:</string>
-	<string name="source">http://repo.or.cz/w/CallMeterNG.git</string>
-	<string name="donate_url">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=5832809</string>
+	<string name="source">http://repo.or.cz/w/CallMeterNG.git
+	</string>
+	<string name="donate_url">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=5832809
+	</string>
 	<string name="donate_">Donate</string>
 	<string name="settings">Preferences</string>
 	<string name="about_">About CallMeter NG</string>
 	<string name="billday_">First day of your bill</string>
 	<string name="billmode_">Mode of billing</string>
-	<string name="billmode_hint">Length of first/following billing timings</string>
+	<string name="billmode_hint">Length of first/following billing timings
+	</string>
 	<string name="billdate_">Start of billperiod:</string>
 	<string name="smsperiod_">Same Period for SMS</string>
 	<string name="smsbillday_">First day of your SMS bill</string>
 	<string name="freemin_">Free Minutes / Month</string>
 	<string name="freesms_">Free SMS / Month</string>
-	<string name="about">Call Meter generates reports from your call and message logs. That`s all.</string>
+	<string name="about">Call Meter generates reports from your call and
+		message logs. That`s all.</string>
 	<string name="freedays_">Free days</string>
 	<string name="freehours_">Free hours</string>
 	<string name="free_on_calls">Free calls on ..</string>

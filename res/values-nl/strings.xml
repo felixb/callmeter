@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>	<!--
+		Copyright (C) 2009 Alfons Vereijt, Felix Bechstein
+	-->
+	<!--
+		This file is part of AndGMXsms. This program is free software; you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation; either
+		version 3 of the License, or (at your option) any later version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
 <resources>
 	<string name="author_">Maker:</string>
 	<string name="version_">Versie:</string>
@@ -8,13 +24,20 @@
 	<string name="about_">Over CallMeter NG</string>
 	<string name="billday_">Eerste factuurdag</string>
 	<string name="billmode_">Factuur wijze</string>
-	<string name="billmode_hint">Lengte van eerste/volgende factuur momenten</string>
-	<string name="billdate_">Start factureringsperiode:</string>
-	<string name="smsperiod_">Zelfde periode voor SMS</string>
-	<string name="smsbillday_">Eerste dag voor SMS factuur</string>
-	<string name="freemin_">Gratis belminuten / Maand</string>
+	<string name="billmode_hint">Lengte van eerste/volgende factuur momenten
+	</string>
+	<string name="billdate_">Start factureringsperiode:
+	</string>
+	<string name="smsperiod_">Zelfde periode voor SMS
+	</string>
+	<string name="smsbillday_">Eerste dag voor SMS factuur
+	</string>
+	<string name="freemin_">Gratis belminuten / Maand
+	</string>
 	<string name="freesms_">Gratis SMS / Month</string>
-	<string name="about">Call Meter genereert rapporten van jouw bel en SMS gedrag. Dat is alles.</string>
+	<string name="about">
+		Call Meter genereert rapporten van jouw bel en SMS gedrag. Dat is alles.
+	</string>
 	<string name="freedays_">Gratis dagen days</string>
 	<string name="freehours_">Gratis uren</string>
 	<string name="free_on_calls">Gratis bellen op ..</string>

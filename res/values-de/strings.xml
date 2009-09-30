@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2009 Felix Bechstein
+	-->
+	<!--
+		This file is part of AndGMXsms. This program is free software; you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation; either
+		version 3 of the License, or (at your option) any later version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
 <resources>
 	<string name="author_">Autor:</string>
 	<string name="license_">Lizens:</string>
-	<string name="license">GPLv3 - siehe http://www.gnu.org/licenses/gpl-3.0.txt</string>
+	<string name="license">GPLv3 - siehe
+		http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="donate_">Spende</string>
 	<string name="settings">Einstellungen</string>
 	<string name="about_">Über CallMeter NG</string>
@@ -14,7 +32,8 @@
 	<string name="smsbillday_">Erster Rechnungstag für SMS</string>
 	<string name="freemin_">Freiminuten / Monat</string>
 	<string name="freesms_">FreiSMS / Monat</string>
-	<string name="about">Call Meter erzeugt Reports aus deinen Anruf- und Nachrichtenlogs. Das ist alles.</string>
+	<string name="about">Call Meter erzeugt Reports aus deinen Anruf-
+		und Nachrichtenlogs. Das ist alles.</string>
 	<string name="freedays_">Kostenlose Tage</string>
 	<string name="freehours_">Kostenlose Stunden</string>
 	<string name="free_on_calls">Kostenlose Gespräche ..</string>
