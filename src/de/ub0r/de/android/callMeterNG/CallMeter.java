@@ -44,6 +44,8 @@ import android.widget.TextView;
 import com.admob.android.ads.AdView;
 
 public class CallMeter extends Activity {
+	/** Tag for output. */
+	private static final String TAG = "CallMeterNG";
 
 	/** Dialog: main. */
 	// private static final int DIALOG_MAIN = 0;
@@ -82,6 +84,17 @@ public class CallMeter extends Activity {
 	/** Prefs: name for freehours .... */
 	private static final String PREFS_FREEHOURS_ = "freehours_";
 
+	/** Prefs: name for all old calls in. */
+	private static final String PREFS_ALL_CALLS_IN = "all_calls_in";
+	/** Prefs: name for all old calls out. */
+	private static final String PREFS_ALL_CALLS_OUT = "all_calls_out";
+	/** Prefs: name for all old sms in. */
+	private static final String PREFS_ALL_SMS_IN = "all_sms_in";
+	/** Prefs: name for all old sms out. */
+	private static final String PREFS_ALL_SMS_OUT = "all_sms_out";
+	/** Prefs: name for date of old calls/sms. */
+	private static final String PREFS_DATE_OLD = "all_date_old";
+
 	/** Prefs: billmode: 1/1. */
 	private static final String BILLMODE_1_1 = "1_1";
 	/** Prefs: billmode: 10/10. */
@@ -116,6 +129,11 @@ public class CallMeter extends Activity {
 				twSMSOut, twSMSBillDate;
 		/** Status ProgressBars. */
 		private ProgressBar pbCalls, pbSMS;
+
+		/** Sum of old calls/sms loaded/saved from preferences. */
+		private int allCallsIn, allCallsOut, allSMSIn, allSMSOut;
+		/** Date of when calls/sms are "old". */
+		private long allOldDate = 0;
 
 		private String getTime(final int seconds) {
 			String ret;
@@ -203,6 +221,21 @@ public class CallMeter extends Activity {
 		}
 
 		/**
+		 * Return "old" date as timestamp.
+		 * 
+		 * @return date before all calls/sms are "old"
+		 */
+		private long getOldDate() {
+			Calendar cal = Calendar.getInstance();
+			cal.roll(Calendar.MONTH, -1);
+			cal.set(Calendar.HOUR_OF_DAY, 0);
+			cal.set(Calendar.MINUTE, 0);
+			cal.set(Calendar.SECOND, 0);
+			cal.set(Calendar.MILLISECOND, 0);
+			return cal.getTimeInMillis();
+		}
+
+		/**
 		 * Is the call/sms billed?
 		 * 
 		 * @param checkFreeDays
@@ -273,6 +306,18 @@ public class CallMeter extends Activity {
 
 		@Override
 		protected void onPreExecute() {
+			// load old values from database
+			this.allCallsIn = CallMeter.this.preferences.getInt(
+					PREFS_ALL_CALLS_IN, 0);
+			this.allCallsOut = CallMeter.this.preferences.getInt(
+					PREFS_ALL_CALLS_OUT, 0);
+			this.allSMSIn = CallMeter.this.preferences.getInt(PREFS_ALL_SMS_IN,
+					0);
+			this.allSMSOut = CallMeter.this.preferences.getInt(
+					PREFS_ALL_SMS_OUT, 0);
+			this.allOldDate = CallMeter.this.preferences.getLong(
+					PREFS_DATE_OLD, 0);
+
 			this.pbCalls = (ProgressBar) CallMeter.this
 					.findViewById(R.id.calls_progressbar);
 			this.pbSMS = (ProgressBar) CallMeter.this
@@ -311,6 +356,7 @@ public class CallMeter extends Activity {
 					.parseInt(CallMeter.this.preferences.getString(
 							PREFS_BILLDAY, "0")));
 			long billDate = calBillDate.getTimeInMillis();
+			final long oldDate = this.getOldDate();
 
 			this.callsBillDate = DateFormat.getDateFormat(CallMeter.this)
 					.format(calBillDate.getTime());
@@ -348,10 +394,11 @@ public class CallMeter extends Activity {
 					Calls.DATE };
 
 			Cursor cur = CallMeter.this.managedQuery(Calls.CONTENT_URI,
-					projection, null, null, Calls.DATE + " DESC");
+					projection, Calls.DATE + " > " + this.allOldDate, null,
+					Calls.DATE + " DESC");
 
-			int durIn = 0;
-			int durOut = 0;
+			int durIn = this.allCallsIn;
+			int durOut = this.allCallsOut;
 			int durInMonth = 0;
 			int durOutMonth = 0;
 			int free = Integer.parseInt(CallMeter.this.preferences.getString(
@@ -371,19 +418,24 @@ public class CallMeter extends Activity {
 					d = cur.getLong(idDate);
 					switch (type) {
 					case Calls.INCOMING_TYPE:
-						t = this.roundTime(cur.getInt(idDuration));
+						t = cur.getInt(idDuration);
 						durIn += t;
 						if (billDate <= d) {
-							durInMonth += t;
+							durInMonth += this.roundTime(t);
+						} else if (d < oldDate) {
+							this.allCallsIn += t;
 						}
 						break;
 					case Calls.OUTGOING_TYPE:
-						t = this.roundTime(cur.getInt(idDuration));
+						t = cur.getInt(idDuration);
 						durOut += t;
-						if (billDate <= d
-								&& this.isBilled(freeDaysCalls, freeDays,
-										freeHoursCalls, freeHours, d)) {
-							durOutMonth += t;
+						if (billDate <= d) {
+							if (this.isBilled(freeDaysCalls, freeDays,
+									freeHoursCalls, freeHours, d)) {
+								durOutMonth += this.roundTime(t);
+							}
+						} else if (d < oldDate) {
+							this.allCallsOut += t;
 						}
 						break;
 					default:
@@ -418,11 +470,12 @@ public class CallMeter extends Activity {
 					calBillDate.getTime());
 			projection = new String[] { Calls.TYPE, Calls.DATE };
 			cur = CallMeter.this.managedQuery(Uri.parse("content://sms"),
-					projection, null, null, Calls.DATE + " DESC");
+					projection, Calls.DATE + " > " + this.allOldDate, null,
+					Calls.DATE + " DESC");
 			free = Integer.parseInt(CallMeter.this.preferences.getString(
 					PREFS_FREESMS, "0"));
-			int smsIn = 0;
-			int smsOut = 0;
+			int smsIn = this.allSMSIn;
+			int smsOut = this.allSMSOut;
 			int smsInMonth = 0;
 			int smsOutMonth = 0;
 			if (cur.moveToFirst()) {
@@ -440,14 +493,19 @@ public class CallMeter extends Activity {
 						++smsIn;
 						if (billDate <= d) {
 							++smsInMonth;
+						} else if (d < oldDate) {
+							++this.allSMSIn;
 						}
 						break;
 					case Calls.OUTGOING_TYPE:
 						++smsOut;
-						if (billDate <= d
-								&& this.isBilled(freeDaysSMS, freeDays,
-										freeHoursSMS, freeHours, d)) {
-							++smsOutMonth;
+						if (billDate <= d) {
+							if (this.isBilled(freeDaysSMS, freeDays,
+									freeHoursSMS, freeHours, d)) {
+								++smsOutMonth;
+							}
+						} else if (d < oldDate) {
+							++this.allSMSOut;
 						}
 						break;
 					default:
@@ -467,6 +525,8 @@ public class CallMeter extends Activity {
 
 			this.smsIn = this.calcString(smsInMonth, 0, smsIn, false);
 			this.smsOut = this.calcString(smsOutMonth, free, smsOut, false);
+
+			this.allOldDate = oldDate;
 
 			return null;
 		}
@@ -495,6 +555,15 @@ public class CallMeter extends Activity {
 			this.pbCalls.setVisibility(View.GONE);
 			this.pbSMS.setVisibility(View.GONE);
 			this.updateText();
+
+			// save old values to database
+			SharedPreferences.Editor editor = CallMeter.this.preferences.edit();
+			editor.putInt(PREFS_ALL_CALLS_IN, this.allCallsIn);
+			editor.putInt(PREFS_ALL_CALLS_OUT, this.allCallsOut);
+			editor.putInt(PREFS_ALL_SMS_IN, this.allSMSIn);
+			editor.putInt(PREFS_ALL_SMS_OUT, this.allSMSOut);
+			editor.putLong(PREFS_DATE_OLD, this.allOldDate);
+			editor.commit();
 		}
 	}
 
