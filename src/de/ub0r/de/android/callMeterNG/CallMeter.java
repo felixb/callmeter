@@ -45,7 +45,7 @@ import com.admob.android.ads.AdView;
 
 public class CallMeter extends Activity {
 	/** Tag for output. */
-	private static final String TAG = "CallMeterNG";
+	//private static final String TAG = "CallMeterNG";
 
 	/** Dialog: main. */
 	// private static final int DIALOG_MAIN = 0;
@@ -394,7 +394,7 @@ public class CallMeter extends Activity {
 					Calls.DATE };
 
 			Cursor cur = CallMeter.this.managedQuery(Calls.CONTENT_URI,
-					projection, Calls.DATE + " > " + this.allOldDate, null,
+					projection, Calls.DATE + " >= " + this.allOldDate, null,
 					Calls.DATE + " DESC");
 
 			int durIn = this.allCallsIn;
@@ -470,7 +470,7 @@ public class CallMeter extends Activity {
 					calBillDate.getTime());
 			projection = new String[] { Calls.TYPE, Calls.DATE };
 			cur = CallMeter.this.managedQuery(Uri.parse("content://sms"),
-					projection, Calls.DATE + " > " + this.allOldDate, null,
+					projection, Calls.DATE + " >= " + this.allOldDate, null,
 					Calls.DATE + " DESC");
 			free = Integer.parseInt(CallMeter.this.preferences.getString(
 					PREFS_FREESMS, "0"));
