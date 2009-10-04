@@ -17,75 +17,78 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 	-->
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res/de.ub0r.de.android.callMeterNG"
 	android:layout_height="fill_parent" android:layout_width="fill_parent"
 	android:stretchColumns="1">
-	<TextView android:text="@string/calls" android:paddingTop="10sp"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:gravity="center" android:textStyle="bold" />
-	<TableRow android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:paddingTop="10sp"
-		android:paddingLeft="10sp" android:paddingBottom="10sp">
-		<TextView android:text="@string/billdate_"
-			android:layout_width="wrap_content" android:layout_height="wrap_content" />
-		<TextView android:id="@+id/billdate" android:paddingRight="20sp"
-			android:gravity="right" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" />
-	</TableRow>
-	<TableRow android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:paddingLeft="10sp">
-		<TextView android:text="@string/out_calls"
-			android:layout_width="wrap_content" android:layout_height="wrap_content" />
-		<TextView android:id="@+id/out" android:paddingRight="20sp"
-			android:gravity="right" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" />
-	</TableRow>
-	<TableRow android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:paddingLeft="10sp"
-		android:paddingBottom="10sp">
-		<TextView android:text="@string/in" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" />
-		<TextView android:id="@+id/in" android:paddingRight="20sp"
-			android:gravity="right" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" />
-	</TableRow>
+	<TextView android:id="@+id/calls_" android:text="@string/calls"
+		android:paddingTop="5dip" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:gravity="center"
+		android:textStyle="bold" android:layout_alignParentTop="true" />
+
+	<TextView android:id="@+id/billdate_calls_" android:text="@string/billdate_"
+		android:paddingLeft="5dip" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@id/calls_" />
+	<TextView android:id="@+id/billdate" android:paddingRight="5dip"
+		android:gravity="right" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignTop="@id/billdate_calls_"
+		android:layout_alignParentRight="true" />
+
+	<TextView android:id="@+id/out_calls_" android:text="@string/out_calls"
+		android:paddingLeft="5dip" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@id/billdate_calls_" />
+	<TextView android:id="@+id/out" android:paddingRight="5dip"
+		android:gravity="right" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignTop="@id/out_calls_"
+		android:layout_alignParentRight="true" />
+
+	<TextView android:id="@+id/in_calls_" android:text="@string/in"
+		android:paddingLeft="5dip" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@id/out_calls_" />
+	<TextView android:id="@+id/in" android:paddingRight="5dip"
+		android:gravity="right" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignTop="@id/in_calls_"
+		android:layout_alignParentRight="true" />
+
 	<ProgressBar android:id="@+id/calls_progressbar"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:max="100" style="?android:attr/progressBarStyleHorizontal" />
-	<TextView android:text="@string/sms" android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:paddingTop="10sp"
-		android:gravity="center" android:textStyle="bold" />
-	<TableRow android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:paddingLeft="10sp"
-		android:paddingBottom="10sp">
-		<TextView android:text="@string/billdate_"
-			android:layout_width="wrap_content" android:layout_height="wrap_content" />
-		<TextView android:id="@+id/smsbilldate" android:paddingRight="20sp"
-			android:gravity="right" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" />
-	</TableRow>
-	<TableRow android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:paddingLeft="10sp">
-		<TextView android:text="@string/out_sms"
-			android:layout_width="wrap_content" android:layout_height="wrap_content" />
-		<TextView android:id="@+id/sms_out" android:paddingRight="20sp"
-			android:gravity="right" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" />
-	</TableRow>
-	<TableRow android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:paddingLeft="10sp"
-		android:paddingBottom="10sp">
-		<TextView android:text="@string/in" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" />
-		<TextView android:id="@+id/sms_in" android:paddingRight="20sp"
-			android:gravity="right" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" />
-	</TableRow>
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:max="100" style="?android:attr/progressBarStyleHorizontal"
+		android:layout_below="@id/in_calls_" />
+
+	<TextView android:id="@+id/sms_" android:text="@string/sms"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:paddingTop="5dip" android:gravity="center" android:textStyle="bold"
+		android:layout_below="@id/calls_progressbar" />
+
+	<TextView android:id="@+id/billdate_sms_" android:text="@string/billdate_"
+		android:paddingLeft="5dip" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@id/sms_" />
+	<TextView android:id="@+id/smsbilldate" android:paddingRight="5dip"
+		android:gravity="right" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignTop="@id/billdate_sms_"
+		android:layout_alignParentRight="true" />
+
+	<TextView android:id="@+id/out_sms_" android:text="@string/out_sms"
+		android:paddingLeft="5dip" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@id/billdate_sms_" />
+	<TextView android:id="@+id/sms_out" android:paddingRight="5dip"
+		android:gravity="right" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignTop="@id/out_sms_"
+		android:layout_alignParentRight="true" />
+
+	<TextView android:id="@+id/in_sms_" android:text="@string/in"
+		android:paddingLeft="5dip" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@id/out_sms_" />
+	<TextView android:id="@+id/sms_in" android:paddingRight="5dip"
+		android:gravity="right" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignTop="@id/in_sms_"
+		android:layout_alignParentRight="true" />
+
 	<ProgressBar android:id="@+id/sms_progressbar"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:max="100" style="?android:attr/progressBarStyleHorizontal" />
-	<View android:layout_height="fill_parent" android:layout_weight="1" />
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:max="100" style="?android:attr/progressBarStyleHorizontal"
+		android:layout_below="@id/in_sms_" />
+
 	<!-- Place an AdMob ad at the bottom of the screen. -->
 	<!-- It has white text on a black background. -->
 	<!-- The description of the surrounding context is 'Android game'. -->
@@ -97,4 +100,4 @@
 		We could append app:testing="true" above to always get the test ad
 		back
 	-->
-</TableLayout>
+</RelativeLayout>

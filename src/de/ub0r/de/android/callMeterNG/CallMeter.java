@@ -45,8 +45,7 @@ import com.admob.android.ads.AdView;
 
 public class CallMeter extends Activity {
 	/** Tag for output. */
-	//private static final String TAG = "CallMeterNG";
-
+	// private static final String TAG = "CallMeterNG";
 	/** Dialog: main. */
 	// private static final int DIALOG_MAIN = 0;
 	/** Dialog: about. */
@@ -552,7 +551,7 @@ public class CallMeter extends Activity {
 		 */
 		@Override
 		protected final void onPostExecute(final Boolean result) {
-			this.pbCalls.setVisibility(View.GONE);
+			this.pbCalls.setVisibility(View.INVISIBLE);
 			this.pbSMS.setVisibility(View.GONE);
 			this.updateText();
 
