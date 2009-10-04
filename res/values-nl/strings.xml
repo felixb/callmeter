@@ -38,7 +38,7 @@
 	<string name="about">
 		Call Meter genereert rapporten van jouw bel en SMS gedrag. Dat is alles.
 	</string>
-	<string name="freedays_">Gratis dagen days</string>
+	<string name="freedays_">Gratis dagen</string>
 	<string name="freehours_">Gratis uren</string>
 	<string name="free_on_calls">Gratis bellen op ..</string>
 	<string name="free_on_sms">Gratis SMS op ..</string>
