@@ -100,6 +100,8 @@ public class CallMeter extends Activity {
 	private static final String BILLMODE_10_10 = "10_10";
 	/** Prefs: billmode: 45/1. */
 	private static final String BILLMODE_45_1 = "45_1";
+	/** Prefs: billmode: 60/0. */
+	private static final String BILLMODE_60_0 = "60_0";
 	/** Prefs: billmode: 60/1. */
 	private static final String BILLMODE_60_1 = "60_1";
 	/** Prefs: billmode: 60/10. */
@@ -187,6 +189,8 @@ public class CallMeter extends Activity {
 				if (time < 45) {
 					return 45;
 				}
+			} else if (prefBillMode.equals(BILLMODE_60_0)) {
+				return 60;
 			} else if (prefBillMode.equals(BILLMODE_60_1)) {
 				if (time < 60) {
 					return 60;
