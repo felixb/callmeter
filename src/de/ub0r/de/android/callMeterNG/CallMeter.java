@@ -98,6 +98,8 @@ public class CallMeter extends Activity {
 	private static final String BILLMODE_1_1 = "1_1";
 	/** Prefs: billmode: 10/10. */
 	private static final String BILLMODE_10_10 = "10_10";
+	/** Prefs: billmode: 45/1. */
+	private static final String BILLMODE_45_1 = "45_1";
 	/** Prefs: billmode: 60/1. */
 	private static final String BILLMODE_60_1 = "60_1";
 	/** Prefs: billmode: 60/10. */
@@ -168,7 +170,6 @@ public class CallMeter extends Activity {
 		}
 
 		private int roundTime(final int time) {
-			// TODO: add 45/1
 			final String prefBillMode = CallMeter.this.preferences.getString(
 					PREFS_BILLMODE, BILLMODE_1_1);
 			// 0 => 0
@@ -181,6 +182,10 @@ public class CallMeter extends Activity {
 			} else if (prefBillMode.equals(BILLMODE_10_10)) {
 				if (time % 10 != 0) {
 					return ((time / 10) + 1) * 10;
+				}
+			} else if (prefBillMode.equals(BILLMODE_45_1)) {
+				if (time < 45) {
+					return 45;
 				}
 			} else if (prefBillMode.equals(BILLMODE_60_1)) {
 				if (time < 60) {
