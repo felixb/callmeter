@@ -400,8 +400,12 @@ public class CallMeter extends Activity {
 			int durOut = this.allCallsOut;
 			int durInMonth = 0;
 			int durOutMonth = 0;
-			int free = Integer.parseInt(CallMeter.this.preferences.getString(
-					PREFS_FREEMIN, "0"));
+			String s = CallMeter.this.preferences.getString(PREFS_FREEMIN, "0");
+			int free = 0;
+			if (s.length() > 0) {
+				free = Integer.parseInt(s);
+			}
+			s = null;
 
 			if (cur.moveToFirst()) {
 				status[2] = cur.getCount();
@@ -471,8 +475,12 @@ public class CallMeter extends Activity {
 			cur = CallMeter.this.managedQuery(Uri.parse("content://sms"),
 					projection, Calls.DATE + " >= " + this.allOldDate, null,
 					Calls.DATE + " DESC");
-			free = Integer.parseInt(CallMeter.this.preferences.getString(
-					PREFS_FREESMS, "0"));
+			s = CallMeter.this.preferences.getString(PREFS_FREESMS, "0");
+			free = 0;
+			if (s.length() > 0) {
+				free = Integer.parseInt(s);
+			}
+			s = null;
 			int smsIn = this.allSMSIn;
 			int smsOut = this.allSMSOut;
 			int smsInMonth = 0;
