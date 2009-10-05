@@ -168,6 +168,7 @@ public class CallMeter extends Activity {
 		}
 
 		private int roundTime(final int time) {
+			// TODO: add 45/1
 			final String prefBillMode = CallMeter.this.preferences.getString(
 					PREFS_BILLMODE, BILLMODE_1_1);
 			// 0 => 0
