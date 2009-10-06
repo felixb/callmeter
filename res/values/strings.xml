@@ -31,6 +31,8 @@
 		(Polish)</string>
 	<string name="author_nl">Alfons Verreijt &lt;info@zangtechniek.nl&gt;
 		(Dutch)</string>
+	<string name="author_gr">George Koutsouvalis &lt;koutsou@koutsou.gr&gt;
+		(Greek)</string>
 	<string name="license">GPLv3 - see
 		http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Sourcescode:</string>

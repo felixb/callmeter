@@ -52,6 +52,10 @@
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
 			android:paddingLeft="15sp" android:paddingRight="5sp"
 			android:autoLink="email" />
+		<TextView android:text="@string/author_gr"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:paddingLeft="15sp" android:paddingRight="5sp"
+			android:autoLink="email" />
 
 		<TextView android:text="@string/source_"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
