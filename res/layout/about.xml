@@ -31,42 +31,42 @@
 			android:paddingTop="5sp" android:paddingLeft="5sp" />
 		<TextView android:text="@string/license"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:paddingLeft="15sp" android:paddingRight="5sp"
+			android:paddingLeft="15dip" android:paddingRight="5dip"
 			android:autoLink="web" />
 
 		<TextView android:text="@string/author_"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:paddingTop="5sp" android:paddingLeft="5sp" />
+			android:paddingTop="5dip" android:paddingLeft="5dip" />
 		<TextView android:text="@string/author" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:paddingLeft="15sp"
-			android:paddingRight="5sp" android:autoLink="email" />
+			android:layout_height="wrap_content" android:paddingLeft="15dip"
+			android:paddingRight="5dip" android:autoLink="email" />
 		<TextView android:text="@string/author_cz"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:paddingLeft="15sp" android:paddingRight="5sp"
+			android:paddingLeft="15dip" android:paddingRight="5dip"
 			android:autoLink="email" />
 		<TextView android:text="@string/author_pl"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:paddingLeft="15sp" android:paddingRight="5sp"
+			android:paddingLeft="15dip" android:paddingRight="5dip"
 			android:autoLink="email" />
 		<TextView android:text="@string/author_nl"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:paddingLeft="15sp" android:paddingRight="5sp"
+			android:paddingLeft="15dip" android:paddingRight="5dip"
 			android:autoLink="email" />
 		<TextView android:text="@string/author_gr"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:paddingLeft="15sp" android:paddingRight="5sp"
+			android:paddingLeft="15dip" android:paddingRight="5dip"
 			android:autoLink="email" />
 
 		<TextView android:text="@string/source_"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:paddingTop="5sp" android:paddingLeft="5sp" />
+			android:paddingTop="5dip" android:paddingLeft="5dip" />
 		<TextView android:text="@string/source" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:paddingLeft="15sp"
-			android:paddingRight="5sp" android:autoLink="web" />
+			android:layout_height="wrap_content" android:paddingLeft="15dip"
+			android:paddingRight="5dip" android:autoLink="web" />
 
 		<Button android:id="@+id/btn_donate" android:text="@string/donate_"
 			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:layout_marginTop="10sp" android:layout_marginLeft="5sp"
-			android:layout_marginRight="5sp" />
+			android:layout_marginTop="10sp" android:layout_marginLeft="5dip"
+			android:layout_marginRight="5dip" />
 	</LinearLayout>
 </ScrollView>
