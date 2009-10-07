@@ -43,6 +43,7 @@
 	<string name="donate_">Donate</string>
 	<string name="settings">Preferences</string>
 	<string name="about_">About CallMeter NG</string>
+	<string name="changelog_">Changelog</string>
 	<string name="billday_">First day of your bill</string>
 	<string name="billmode_">Mode of billing</string>
 	<string name="billmode_hint">Length of first/following billing timings

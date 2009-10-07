@@ -38,6 +38,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -50,12 +51,16 @@ public class CallMeter extends Activity {
 	// private static final int DIALOG_MAIN = 0;
 	/** Dialog: about. */
 	private static final int DIALOG_ABOUT = 1;
+	/** Dialog: update. */
+	private static final int DIALOG_UPDATE = 2;
 
 	/** Days of a week. */
 	private static final int DAYS_WEEK = 7;
 	/** Hours of a day. */
 	private static final int HOURS_DAY = 24;
 
+	/** Prefs: name for last version run */
+	private static final String PREFS_LAST_RUN = "lastrun";
 	/** Prefs: name for first day. */
 	private static final String PREFS_BILLDAY = "billday";
 	/** Prefs: name for billingmode. */
@@ -591,6 +596,14 @@ public class CallMeter extends Activity {
 		this.setContentView(R.layout.main);
 		// get prefs.
 		this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		String v0 = this.preferences.getString(PREFS_LAST_RUN, "");
+		String v1 = this.getResources().getString(R.string.app_version);
+		if (!v0.equals(v1)) {
+			SharedPreferences.Editor editor = this.preferences.edit();
+			editor.putString(PREFS_LAST_RUN, v1);
+			editor.commit();
+			this.showDialog(DIALOG_UPDATE);
+		}
 	}
 
 	/** Called on Activity resume. */
@@ -628,6 +641,21 @@ public class CallMeter extends Activity {
 							uri));
 				}
 			});
+			break;
+		case DIALOG_UPDATE:
+			myDialog = new Dialog(this);
+			myDialog.setContentView(R.layout.update);
+			myDialog.setTitle(R.string.changelog_);
+			LinearLayout layout = (LinearLayout) myDialog
+					.findViewById(R.id.base_view);
+			TextView tw;
+			String[] changes = this.getResources().getStringArray(
+					R.array.updates);
+			for (String c : changes) {
+				tw = new TextView(this);
+				tw.setText(c);
+				layout.addView(tw);
+			}
 			break;
 		default:
 			myDialog = null;
