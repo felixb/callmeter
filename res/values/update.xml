@@ -20,7 +20,7 @@
 <resources>
 	<string-array name="updates">
 		<item>v0.9.3: Add Changelog, more text in about</item>
-		<item>v0.9.2: Add Greek Language</item>
+		<item>v0.9.2: Add greek translation</item>
 		<item>v0.9.1: Add scrollbar in about</item>
 		<item>v0.9: Add billmodes: 60/0, 45/1</item>
 	</string-array>
