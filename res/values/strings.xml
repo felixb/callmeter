@@ -55,8 +55,8 @@
 	<string name="freesms_">Free SMS / Month</string>
 	<string name="about">Call Meter generates reports from your call and
 		message logs. That`s all.</string>
-	<string name="about1">The outputformat is usage /time,amount used this billperiod / time,amount ovverall. Monthly time calculation takes the billmode into account. Overall does not.</string>
-	<string name="about2">The billmode specifies the length the first / following billing timeings. E.g. 60/10 means every call is billed for min. 60s, any longer call is rounded up to next full 10s.</string>
+	<string name="about1">The output format is usage / time,amount used this billperiod / time,amount overall. Monthly time calculation takes the billmode into account. Overall does not.</string>
+	<string name="about2">The billmode specifies the length the first / following billing timings. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.</string>
 	<string name="freedays_">Free days</string>
 	<string name="freehours_">Free hours</string>
 	<string name="free_on_calls">Free calls on ..</string>
