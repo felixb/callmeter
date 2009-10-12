@@ -35,6 +35,13 @@
 	<string name="freesms_">Darmowe SMS / Miesiąc</string>
 	<string name="about">Call Meter tworzy raport na podstawie
 		informacji w telefonie. To wszystko.</string>
+	<string name="about1">Format wyjściowy wykorzstuje /czas, całość
+		wykorzystanego rachunku / czas, całość ogółem. Przelicznik miesięczny
+		jest obliczany na podstawie rodzaju rachunku (cyklu).</string>
+	<string name="about2">Rodzaj rachunku (cyklu) oznacza rodzaj
+		rozliczania. Np. 60/10 oznacza, że każde połączenie na starcie jest
+		naliczane jako minuta a każda następna sekunda jest zaokrąglana do
+		10s. Dla rozliczania sekundowego wybierz 1/1.</string>
 	<string name="freedays_">Darmowe dni</string>
 	<string name="freehours_">Darmowe godziny</string>
 	<string name="free_on_calls">Darmowe połączenia w..</string>
