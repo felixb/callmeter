@@ -38,6 +38,8 @@
 	<string name="source_">Sourcescode:</string>
 	<string name="source">http://repo.or.cz/w/CallMeterNG.git
 	</string>
+	<string name="website_">Website:</string>
+	<string name="website">http://code.google.com/p/callmeter/</string>
 	<string name="donate_url">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=5832809
 	</string>
 	<string name="donate_">Donate</string>
