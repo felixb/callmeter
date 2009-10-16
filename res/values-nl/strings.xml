@@ -23,7 +23,7 @@
 	<string name="settings">Voorkeuren</string>
 	<string name="about_">Over CallMeter NG</string>
 	<string name="billday_">Eerste factuurdag</string>
-	<string name="billmode_">Factuur wijze</string>
+	<string name="billmode_">Factuurmodus</string>
 	<string name="billmode_hint">Lengte van eerste/volgende factuur momenten
 	</string>
 	<string name="billdate_">Start factureringsperiode:
@@ -38,6 +38,19 @@
 	<string name="about">
 		Call Meter genereert rapporten van jouw bel en SMS gedrag. Dat is alles.
 	</string>
+	<string name="about1">Hier staat het gebruik/tijd, gebruik tijdens
+		hudige factuurperiode/tijd, totaal gebruik. De maandelijkse
+		tijdberekening houdt rekening met de factuurmodus. Het totaalgebruik
+		doet dat niet.</string>
+
+	<string name="about2">De factuurmodus specificeert de lengte van de
+		eerste en volgende factuur momenten, of starttarief en vervolgtarief.
+		t-Mobile rekent bijvoorbeeld 60/1: ieder telefoontje kost altijd 60
+		seconden, ook al bel je totaal maar 1 seconde, ieder langer gesprek
+		wordt dan na een minuut per seconde in rekening gebracht. 60/10
+		betekent dat na een minuut alles wordt afgerond naar 10 seconden. Maar
+		die eerste minuut ben je dan wel altijd kwijt. Het goedkoopst is
+		altijd 1/1.</string>
 	<string name="freedays_">Gratis dagen</string>
 	<string name="freehours_">Gratis uren</string>
 	<string name="free_on_calls">Gratis bellen op ..</string>
