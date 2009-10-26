@@ -24,6 +24,7 @@ import java.util.Calendar;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -665,7 +666,7 @@ public class CallMeter extends Activity {
 							CallMeter.this.imeiHash);
 					sendIMEI.putExtra(Intent.EXTRA_SUBJECT,
 							"i'm the donator with following imei hash"); //FIXME:
-																			// constant
+					// constant
 					sendIMEI.setType("text/plain");
 					CallMeter.this.startActivity(sendIMEI);
 					CallMeter.this.dismissDialog(DIALOG_DONATE);
@@ -677,16 +678,6 @@ public class CallMeter extends Activity {
 			myDialog.setContentView(R.layout.about);
 			myDialog.setTitle(this.getString(R.string.about_) + " v"
 					+ this.getString(R.string.app_version));
-			button = (Button) myDialog.findViewById(R.id.btn_donate);
-			button.setOnClickListener(new OnClickListener() {
-				public void onClick(final View view) {
-					final Uri uri = Uri.parse(CallMeter.this
-							.getString(R.string.donate_url));
-					CallMeter.this.startActivity(new Intent(Intent.ACTION_VIEW,
-							uri));
-					CallMeter.this.showDialog(DIALOG_DONATE);
-				}
-			});
 			break;
 		case DIALOG_UPDATE:
 			myDialog = new Dialog(this);
@@ -737,6 +728,23 @@ public class CallMeter extends Activity {
 			return true;
 		case R.id.item_settings: // start settings activity
 			this.startActivity(new Intent(this, Preferences.class));
+			return true;
+		case R.id.item_donate:
+			try {
+				CallMeter.this.startActivity(new Intent(Intent.ACTION_VIEW, Uri
+						.parse(CallMeter.this.getString(R.string.donate_url))));
+			} catch (ActivityNotFoundException e) {
+				Log.e(TAG, "no browser", e);
+			}
+			CallMeter.this.showDialog(DIALOG_DONATE);
+			return true;
+		case R.id.item_more:
+			try {
+				CallMeter.this.startActivity(new Intent(Intent.ACTION_VIEW, Uri
+						.parse("market://search?q=pub:\"Felix Bechstein\"")));
+			} catch (ActivityNotFoundException e) {
+				Log.e(TAG, "no market", e);
+			}
 			return true;
 		default:
 			return false;
