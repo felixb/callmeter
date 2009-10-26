@@ -43,6 +43,9 @@
 	<string name="donate_url">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=5832809
 	</string>
 	<string name="donate_">Donate</string>
+	<string name="postdonate">To remove ads, you need to send me some data. I'll remove your ads with the next release.
+	The sent data is the MD5 hash of your IMEI. This hash is a one-way-function. It is not tracable back to you.</string>
+	<string name="send_">Send</string>
 	<string name="settings">Preferences</string>
 	<string name="about_">About CallMeter NG</string>
 	<string name="changelog_">Changelog</string>

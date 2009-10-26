@@ -18,6 +18,8 @@
  */
 package de.ub0r.de.android.callMeterNG;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 
 import android.app.Activity;
@@ -31,7 +33,9 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
+import android.telephony.TelephonyManager;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -46,9 +50,9 @@ import com.admob.android.ads.AdView;
 
 public class CallMeter extends Activity {
 	/** Tag for output. */
-	// private static final String TAG = "CallMeterNG";
-	/** Dialog: main. */
-	// private static final int DIALOG_MAIN = 0;
+	private static final String TAG = "CallMeterNG";
+	/** Dialog: donate. */
+	private static final int DIALOG_DONATE = 0;
 	/** Dialog: about. */
 	private static final int DIALOG_ABOUT = 1;
 	/** Dialog: update. */
@@ -115,6 +119,15 @@ public class CallMeter extends Activity {
 	private static final String BILLMODE_60_60 = "60_60";
 
 	private SharedPreferences preferences;
+
+	/** Unique ID of device. */
+	private String imeiHash = null;
+	/** Display ads? */
+	private boolean prefsNoAds;
+
+	/** Array of md5(imei) for which no ads should be displayed. */
+	private static final String[] NO_AD_HASHS = { "43dcb861b9588fb733300326b61dbab9", // me
+	};
 
 	/**
 	 * Preferences.
@@ -597,12 +610,23 @@ public class CallMeter extends Activity {
 		// get prefs.
 		this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		String v0 = this.preferences.getString(PREFS_LAST_RUN, "");
-		String v1 = this.getResources().getString(R.string.app_version);
+		String v1 = this.getString(R.string.app_version);
 		if (!v0.equals(v1)) {
 			SharedPreferences.Editor editor = this.preferences.edit();
 			editor.putString(PREFS_LAST_RUN, v1);
 			editor.commit();
 			this.showDialog(DIALOG_UPDATE);
+		}
+		// get imei
+		TelephonyManager mTelephonyMgr = (TelephonyManager) this
+				.getSystemService(TELEPHONY_SERVICE);
+		this.imeiHash = md5(mTelephonyMgr.getDeviceId());
+		this.prefsNoAds = false;
+		for (String h : NO_AD_HASHS) {
+			if (this.imeiHash.equals(h)) {
+				this.prefsNoAds = true;
+				break;
+			}
 		}
 	}
 
@@ -610,7 +634,9 @@ public class CallMeter extends Activity {
 	@Override
 	protected final void onResume() {
 		super.onResume();
-		((AdView) this.findViewById(R.id.ad)).setVisibility(View.VISIBLE);
+		if (!this.prefsNoAds) {
+			((AdView) this.findViewById(R.id.ad)).setVisibility(View.VISIBLE);
+		}
 		// get calls
 		new Updater().execute((Boolean[]) null);
 	}
@@ -626,19 +652,39 @@ public class CallMeter extends Activity {
 	protected final Dialog onCreateDialog(final int id) {
 		Dialog myDialog;
 		switch (id) {
-		case DIALOG_ABOUT:
+		case DIALOG_DONATE:
 			myDialog = new Dialog(this);
-			myDialog.setContentView(R.layout.about);
-			myDialog.setTitle(this.getResources().getString(R.string.about_)
-					+ " v"
-					+ this.getResources().getString(R.string.app_version));
+			myDialog.setContentView(R.layout.donate);
 			Button button = (Button) myDialog.findViewById(R.id.btn_donate);
 			button.setOnClickListener(new OnClickListener() {
 				public void onClick(final View view) {
-					Uri uri = Uri.parse(CallMeter.this
+					final Intent sendIMEI = new Intent(Intent.ACTION_SEND);
+					sendIMEI.putExtra(Intent.EXTRA_EMAIL, new String[] {
+							"f@ub0r.de", "" }); // FIXME: constant
+					sendIMEI.putExtra(Intent.EXTRA_TEXT,
+							CallMeter.this.imeiHash);
+					sendIMEI.putExtra(Intent.EXTRA_SUBJECT,
+							"i'm the donator with following imei hash"); //FIXME:
+																			// constant
+					sendIMEI.setType("text/plain");
+					CallMeter.this.startActivity(sendIMEI);
+					CallMeter.this.dismissDialog(DIALOG_DONATE);
+				}
+			});
+			break;
+		case DIALOG_ABOUT:
+			myDialog = new Dialog(this);
+			myDialog.setContentView(R.layout.about);
+			myDialog.setTitle(this.getString(R.string.about_) + " v"
+					+ this.getString(R.string.app_version));
+			button = (Button) myDialog.findViewById(R.id.btn_donate);
+			button.setOnClickListener(new OnClickListener() {
+				public void onClick(final View view) {
+					final Uri uri = Uri.parse(CallMeter.this
 							.getString(R.string.donate_url));
 					CallMeter.this.startActivity(new Intent(Intent.ACTION_VIEW,
 							uri));
+					CallMeter.this.showDialog(DIALOG_DONATE);
 				}
 			});
 			break;
@@ -695,5 +741,37 @@ public class CallMeter extends Activity {
 		default:
 			return false;
 		}
+	}
+
+	/**
+	 * Calc MD5 Hash from String.
+	 * 
+	 * @param s
+	 *            input
+	 * @return hash
+	 */
+	private static String md5(final String s) {
+		try {
+			// Create MD5 Hash
+			MessageDigest digest = java.security.MessageDigest
+					.getInstance("MD5");
+			digest.update(s.getBytes());
+			byte[] messageDigest = digest.digest();
+			// Create Hex String
+			StringBuilder hexString = new StringBuilder(32);
+			int b;
+			for (int i = 0; i < messageDigest.length; i++) {
+				b = 0xFF & messageDigest[i];
+				if (b < 0x10) {
+					hexString.append('0' + Integer.toHexString(b));
+				} else {
+					hexString.append(Integer.toHexString(b));
+				}
+			}
+			return hexString.toString();
+		} catch (NoSuchAlgorithmException e) {
+			Log.e(TAG, null, e);
+		}
+		return "";
 	}
 }

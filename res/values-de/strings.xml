@@ -21,7 +21,7 @@
 	<string name="license_">Lizens:</string>
 	<string name="license">GPLv3 - siehe
 		http://www.gnu.org/licenses/gpl-3.0.txt</string>
-	<string name="donate_">Spende</string>
+	<string name="donate_">Spenden</string>
 	<string name="settings">Einstellungen</string>
 	<string name="about_">Über CallMeter NG</string>
 	<string name="billday_">Erster Rechnungstag</string>
