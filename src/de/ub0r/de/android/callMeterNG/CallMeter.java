@@ -532,8 +532,8 @@ public class CallMeter extends Activity {
 			this.callsIn = this.calcString(durInMonth, 0, durIn, true);
 			this.callsOut = this.calcString(durOutMonth, free, durOut, true);
 
-			ret[0] = durInMonth;
-			ret[1] = free;
+			ret[0] = durOutMonth;
+			ret[1] = free * 60;
 			this.publishProgress((Void) null);
 
 			// report sms
@@ -608,7 +608,7 @@ public class CallMeter extends Activity {
 
 			this.allOldDate = oldDate;
 
-			ret[2] = smsInMonth;
+			ret[2] = smsOutMonth;
 			ret[3] = free;
 
 			return ret;
@@ -654,7 +654,7 @@ public class CallMeter extends Activity {
 			editor.putLong(PREFS_DATE_OLD, this.allOldDate);
 			editor.commit();
 
-			CallMeter.this.setProgressBarIndeterminate(false);
+			CallMeter.this.setProgressBarIndeterminateVisibility(false);
 		}
 	}
 
