@@ -50,6 +50,11 @@ import android.widget.TextView;
 
 import com.admob.android.ads.AdView;
 
+/**
+ * The main Activity, holding all data.
+ * 
+ * @author flx
+ */
 public class CallMeter extends Activity {
 	/** Tag for output. */
 	private static final String TAG = "CallMeterNG";
@@ -143,6 +148,11 @@ public class CallMeter extends Activity {
 		}
 	}
 
+	/**
+	 * AsyncTask to handel calcualtions in background.
+	 * 
+	 * @author flx
+	 */
 	private class Updater extends AsyncTask<Void, Void, Integer[]> {
 		/** Status Strings. */
 		private String callsIn, callsOut, callsBillDate, smsIn, smsOut,
@@ -158,6 +168,13 @@ public class CallMeter extends Activity {
 		/** Date of when calls/sms are "old". */
 		private long allOldDate = 0;
 
+		/**
+		 * Parse number of seconds to a readable time format.
+		 * 
+		 * @param seconds
+		 *            seconds
+		 * @return parsed string
+		 */
 		private String getTime(final int seconds) {
 			String ret;
 			int d = seconds / 86400;
@@ -191,6 +208,13 @@ public class CallMeter extends Activity {
 			return ret;
 		}
 
+		/**
+		 * Round up time with billmode in mind.
+		 * 
+		 * @param time
+		 *            time
+		 * @return rounded time
+		 */
 		private int roundTime(final int time) {
 			final String prefBillMode = CallMeter.this.preferences.getString(
 					PREFS_BILLMODE, BILLMODE_1_1);
@@ -303,6 +327,9 @@ public class CallMeter extends Activity {
 			return true;
 		}
 
+		/**
+		 * Update text on main Activity.
+		 */
 		private void updateText() {
 			this.twCallsBillDate.setText(this.callsBillDate);
 			this.twCallsIn.setText(this.callsIn);
@@ -313,6 +340,19 @@ public class CallMeter extends Activity {
 			this.twSMSOut.setText(this.smsOut);
 		}
 
+		/**
+		 * Build a String for given time/limit combination.
+		 * 
+		 * @param thisPeriod
+		 *            used this billperiod
+		 * @param limit
+		 *            limit
+		 * @param all
+		 *            used all together
+		 * @param calls
+		 *            calls/sms?
+		 * @return String holding all the data
+		 */
 		private String calcString(final int thisPeriod, final int limit,
 				final int all, final boolean calls) {
 			if (limit > 0) {
@@ -333,6 +373,9 @@ public class CallMeter extends Activity {
 			}
 		}
 
+		/**
+		 * Run before background task.
+		 */
 		@Override
 		protected void onPreExecute() {
 			CallMeter.this.setProgressBarIndeterminateVisibility(true);
@@ -379,6 +422,9 @@ public class CallMeter extends Activity {
 			this.updateText();
 		}
 
+		/**
+		 * Run in backgrund.
+		 */
 		@Override
 		protected Integer[] doInBackground(final Void... arg0) {
 			Integer[] ret = { 0, 0, 1, 1 };
@@ -587,11 +633,17 @@ public class CallMeter extends Activity {
 		 */
 		@Override
 		protected final void onPostExecute(final Integer[] result) {
-			this.pbCalls.setProgress(result[0]);
-			this.pbSMS.setProgress(result[1]);
-			this.pbCalls.setVisibility(View.VISIBLE);
-			this.pbSMS.setVisibility(View.VISIBLE);
 			this.updateText();
+			if (result[1] > 0) {
+				this.pbCalls.setMax(result[1]);
+				this.pbCalls.setProgress(result[0]);
+				this.pbCalls.setVisibility(View.VISIBLE);
+			}
+			if (result[3] > 0) {
+				this.pbSMS.setProgress(result[2]);
+				this.pbSMS.setMax(result[3]);
+				this.pbSMS.setVisibility(View.VISIBLE);
+			}
 
 			// save old values to database
 			SharedPreferences.Editor editor = CallMeter.this.preferences.edit();
