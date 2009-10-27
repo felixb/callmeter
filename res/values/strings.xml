@@ -47,10 +47,10 @@
 	<string name="donate_mail">f@ub0r.de</string>
 	<string name="donate_subject">I'm the donator. My IMEI hash is...</string>
 	<string name="donate_">Donate/remove ads</string>
-	<string name="postdonate">To remove ads, you need to send me some data.
-		I'll remove your ads with the next release. The sent data is the MD5
-		hash of your IMEI. This hash is a one-way-function. It is not
-		traceable back to you.
+	<string name="postdonate">To remove ads, you need to send me the MD5 hash
+		of your IMEI (unique id of your phone). This hash is a
+		one-way-function. It is not traceable back to you. I'll remove your
+		ads with the next release. 
 	</string>
 	<string name="send_">Send</string>
 	<string name="settings">Preferences</string>

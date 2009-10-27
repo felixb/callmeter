@@ -21,7 +21,16 @@
 	<string name="license_">Lizens:</string>
 	<string name="license">GPLv3 - siehe
 		http://www.gnu.org/licenses/gpl-3.0.txt</string>
-	<string name="donate_">Spenden</string>
+	<string name="donate_subject">Ich bin der Spender. Mein IMEI hash ist...
+	</string>
+	<string name="donate_">Spenden/Werbung entfernen</string>
+	<string name="postdonate">Um die Werbung zu entfernen brauche ich den MD5
+		Hash deiner IMEI (Eindeutige ID deines Handys) von dir. Der MD5 Hash
+		deiner IMEI. Der Hash ist eine Einwegfunktion und ist somit nicht zu
+		deiner IMEI Rückverfolgbar. Ich werde die Werbung mit dem nächsten
+		Release dann entfernen.
+	</string>
+	<string name="send_">Send</string>
 	<string name="settings">Einstellungen</string>
 	<string name="about_">Über CallMeter NG</string>
 	<string name="billday_">Erster Rechnungstag</string>
@@ -34,8 +43,14 @@
 	<string name="freesms_">FreiSMS / Monat</string>
 	<string name="about">Call Meter erzeugt Reports aus deinen Anruf-
 		und Nachrichtenlogs. Das ist alles.</string>
-	<string name="about1">Das Ausgabeformat ist Nutzung / Zeit, Anzahl Nutzung im Abrechnungszeitraum / Zeit,Anzahl gesamt. Die monatliche Nutzung ist mit hilfe des Abrechnungsmodus berechnet. Die Gesamtzeit nicht.</string>
-	<string name="about2">Der Abrechnungszeitraum bezeichnet die länge des ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s aufgerundet.</string>
+	<string name="about1">Das Ausgabeformat ist Nutzung / Zeit, Anzahl
+		Nutzung im Abrechnungszeitraum / Zeit,Anzahl gesamt. Die monatliche
+		Nutzung ist mit hilfe des Abrechnungsmodus berechnet. Die Gesamtzeit
+		nicht.</string>
+	<string name="about2">Der Abrechnungszeitraum bezeichnet die länge des
+		ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder
+		Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s
+		aufgerundet.</string>
 	<string name="freedays_">Kostenlose Tage</string>
 	<string name="freehours_">Kostenlose Stunden</string>
 	<string name="free_on_calls">Kostenlose Gespräche ..</string>
