@@ -19,7 +19,13 @@
 	<string name="author_">Maker:</string>
 	<string name="version_">Versie:</string>
 	<string name="license_">Licentie:</string>
-	<string name="donate_">Doneer</string>
+	<string name="donate_">Doneer/verwijder advertenties
+	</string>
+	<string name="postdonate">Om advertenties te verwijderen, moet je me de MD5
+		hash sturen van je IMEI code (uniek nummer van je telefoon). Deze hash
+		is eenrichtingverkeer; het is niet traceerbaar naar jou. Ik verwijder
+		je advertenties bij de volgende versie.</string>
+	<string name="send_">Verstuur</string>
 	<string name="settings">Voorkeuren</string>
 	<string name="about_">Over CallMeter NG</string>
 	<string name="billday_">Eerste factuurdag</string>
