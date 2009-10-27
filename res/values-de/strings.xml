@@ -51,7 +51,4 @@
 	<string name="in">Ein:</string>
 	<string name="out_calls">Aus:</string>
 	<string name="out_sms">Aus:</string>
-	<string name="period">Abrechnung</string>
-	<string name="all">Alle</string>
-	<string name="usage">Verbrauch</string>
 </resources>

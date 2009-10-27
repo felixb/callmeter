@@ -41,6 +41,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -142,7 +143,7 @@ public class CallMeter extends Activity {
 		}
 	}
 
-	private class Updater extends AsyncTask<Boolean, Integer, Boolean> {
+	private class Updater extends AsyncTask<Void, Void, Integer[]> {
 		/** Status Strings. */
 		private String callsIn, callsOut, callsBillDate, smsIn, smsOut,
 				smsBillDate;
@@ -334,6 +335,7 @@ public class CallMeter extends Activity {
 
 		@Override
 		protected void onPreExecute() {
+			CallMeter.this.setProgressBarIndeterminateVisibility(true);
 			// load old values from database
 			this.allCallsIn = CallMeter.this.preferences.getInt(
 					PREFS_ALL_CALLS_IN, 0);
@@ -378,7 +380,8 @@ public class CallMeter extends Activity {
 		}
 
 		@Override
-		protected Boolean doInBackground(final Boolean... arg0) {
+		protected Integer[] doInBackground(final Void... arg0) {
+			Integer[] ret = { 0, 0, 1, 1 };
 			// report basics
 			Calendar calBillDate = this.getBillDate(Integer
 					.parseInt(CallMeter.this.preferences.getString(
@@ -415,8 +418,6 @@ public class CallMeter extends Activity {
 				}
 			}
 
-			Integer[] status = { 0, 0, 1, 1 };
-
 			// report calls
 			String[] projection = new String[] { Calls.TYPE, Calls.DURATION,
 					Calls.DATE };
@@ -437,7 +438,6 @@ public class CallMeter extends Activity {
 			s = null;
 
 			if (cur.moveToFirst()) {
-				status[2] = cur.getCount();
 				int type;
 				long d;
 				final int idType = cur.getColumnIndex(Calls.TYPE);
@@ -475,20 +475,20 @@ public class CallMeter extends Activity {
 					}
 					++i;
 					if (i % 50 == 1) {
-						status[0] = (i * 100) / status[2];
 						this.callsIn = this.calcString(durInMonth, 0, durIn,
 								true);
 						this.callsOut = this.calcString(durOutMonth, free,
 								durOut, true);
-						this.publishProgress(status);
+						this.publishProgress((Void) null);
 					}
 				} while (cur.moveToNext());
 			}
 			this.callsIn = this.calcString(durInMonth, 0, durIn, true);
 			this.callsOut = this.calcString(durOutMonth, free, durOut, true);
 
-			status[0] = 100;
-			this.publishProgress(status);
+			ret[0] = durInMonth;
+			ret[1] = free;
+			this.publishProgress((Void) null);
 
 			// report sms
 			if (!CallMeter.this.preferences.getBoolean(PREFS_SMSPERIOD, false)) {
@@ -515,7 +515,6 @@ public class CallMeter extends Activity {
 			int smsInMonth = 0;
 			int smsOutMonth = 0;
 			if (cur.moveToFirst()) {
-				status[3] = cur.getCount();
 				int type;
 				long d;
 				final int idType = cur.getColumnIndex(Calls.TYPE);
@@ -549,12 +548,11 @@ public class CallMeter extends Activity {
 					}
 					++i;
 					if (i % 50 == 1) {
-						status[1] = (i * 100) / status[3];
 						this.smsIn = this.calcString(smsInMonth, 0, smsIn,
 								false);
 						this.smsOut = this.calcString(smsOutMonth, free,
 								smsOut, false);
-						this.publishProgress(status);
+						this.publishProgress((Void) null);
 					}
 				} while (cur.moveToNext());
 			}
@@ -564,7 +562,10 @@ public class CallMeter extends Activity {
 
 			this.allOldDate = oldDate;
 
-			return null;
+			ret[2] = smsInMonth;
+			ret[3] = free;
+
+			return ret;
 		}
 
 		/**
@@ -574,9 +575,7 @@ public class CallMeter extends Activity {
 		 *            progress
 		 */
 		@Override
-		protected final void onProgressUpdate(final Integer... progress) {
-			this.pbCalls.setProgress(progress[0]);
-			this.pbSMS.setProgress(progress[1]);
+		protected final void onProgressUpdate(final Void... progress) {
 			this.updateText();
 		}
 
@@ -587,9 +586,11 @@ public class CallMeter extends Activity {
 		 *            result
 		 */
 		@Override
-		protected final void onPostExecute(final Boolean result) {
-			this.pbCalls.setVisibility(View.INVISIBLE);
-			this.pbSMS.setVisibility(View.GONE);
+		protected final void onPostExecute(final Integer[] result) {
+			this.pbCalls.setProgress(result[0]);
+			this.pbSMS.setProgress(result[1]);
+			this.pbCalls.setVisibility(View.VISIBLE);
+			this.pbSMS.setVisibility(View.VISIBLE);
 			this.updateText();
 
 			// save old values to database
@@ -600,6 +601,8 @@ public class CallMeter extends Activity {
 			editor.putInt(PREFS_ALL_SMS_OUT, this.allSMSOut);
 			editor.putLong(PREFS_DATE_OLD, this.allOldDate);
 			editor.commit();
+
+			CallMeter.this.setProgressBarIndeterminate(false);
 		}
 	}
 
@@ -607,6 +610,7 @@ public class CallMeter extends Activity {
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		this.setContentView(R.layout.main);
 		// get prefs.
 		this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -639,7 +643,7 @@ public class CallMeter extends Activity {
 			((AdView) this.findViewById(R.id.ad)).setVisibility(View.VISIBLE);
 		}
 		// get calls
-		new Updater().execute((Boolean[]) null);
+		new Updater().execute((Void[]) null);
 	}
 
 	/**
@@ -659,16 +663,21 @@ public class CallMeter extends Activity {
 			Button button = (Button) myDialog.findViewById(R.id.btn_donate);
 			button.setOnClickListener(new OnClickListener() {
 				public void onClick(final View view) {
-					final Intent sendIMEI = new Intent(Intent.ACTION_SEND);
-					sendIMEI.putExtra(Intent.EXTRA_EMAIL, new String[] {
-							"f@ub0r.de", "" }); // FIXME: constant
-					sendIMEI.putExtra(Intent.EXTRA_TEXT,
-							CallMeter.this.imeiHash);
-					sendIMEI.putExtra(Intent.EXTRA_SUBJECT,
-							"i'm the donator with following imei hash"); //FIXME:
-					// constant
-					sendIMEI.setType("text/plain");
-					CallMeter.this.startActivity(sendIMEI);
+					final Intent in = new Intent(Intent.ACTION_SEND);
+					in.putExtra(Intent.EXTRA_EMAIL,
+							new String[] {
+									CallMeter.this
+											.getString(R.string.donate_mail),
+									"" }); // FIXME: "" is a k9 hack.
+					in.putExtra(Intent.EXTRA_TEXT, CallMeter.this.imeiHash);
+					in
+							.putExtra(Intent.EXTRA_SUBJECT, CallMeter.this
+									.getString(R.string.app_name)
+									+ " "
+									+ CallMeter.this
+											.getString(R.string.donate_subject));
+					in.setType("text/plain");
+					CallMeter.this.startActivity(in);
 					CallMeter.this.dismissDialog(DIALOG_DONATE);
 				}
 			});

@@ -57,7 +57,4 @@
 	<string name="in">Przychodzące:</string>
 	<string name="out_calls">Wychodzące:</string>
 	<string name="out_sms">Wychodzące:</string>
-	<string name="period">okres</string>
-	<string name="all">wszystko</string>
-	<string name="usage">użycie</string>
 </resources>

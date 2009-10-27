@@ -50,6 +50,4 @@
 	<string name="in">Přijaté:</string>
 	<string name="out_calls">Volané:</string>
 	<string name="out_sms">Odeslané:</string>
-	<string name="period">období</string>
-	<string name="all">vše</string>
 </resources>

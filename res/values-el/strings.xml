@@ -58,7 +58,4 @@
 	<string name="in">Εισερχόμενες:</string>
 	<string name="out_calls">Εξερχόμενες:</string>
 	<string name="out_sms">Σταλμένα:</string>
-	<string name="period">περίοδος</string>
-	<string name="all">συνολικά</string>
-	<string name="usage">χρήση</string>
 </resources>

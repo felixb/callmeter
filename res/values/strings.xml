@@ -31,7 +31,8 @@
 		(Polish)</string>
 	<string name="author_nl">Alfons Verreijt &lt;info@zangtechniek.nl&gt;
 		(Dutch)</string>
-	<string name="author_gr">George Koutsouvalis &lt;koutsou@koutsou.gr&gt;
+	<string name="author_gr">George Koutsouvalis
+		&lt;koutsou@koutsou.gr&gt;
 		(Greek)</string>
 	<string name="license">GPLv3 - see
 		http://www.gnu.org/licenses/gpl-3.0.txt</string>
@@ -39,15 +40,17 @@
 	<string name="source">http://repo.or.cz/w/CallMeterNG.git
 	</string>
 	<string name="website_">Website:</string>
-	<string name="website">http://code.google.com/p/callmeter/</string>
+	<string name="website">http://code.google.com/p/callmeter/
+	</string>
 	<string name="donate_url">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=5832809
 	</string>
+	<string name="donate_mail">f@ub0r.de</string>
+	<string name="donate_subject">I'm the donator. My IMEI hash is...</string>
 	<string name="donate_">Donate/remove ads</string>
 	<string name="postdonate">To remove ads, you need to send me some data.
-	I'll remove your ads with the next release.
-	The sent data is the MD5 hash of your IMEI.
-	This hash is a one-way-function.
-	It is not traceable back to you.
+		I'll remove your ads with the next release. The sent data is the MD5
+		hash of your IMEI. This hash is a one-way-function. It is not
+		traceable back to you.
 	</string>
 	<string name="send_">Send</string>
 	<string name="settings">Preferences</string>
@@ -65,8 +68,12 @@
 	<string name="freesms_">Free SMS / Month</string>
 	<string name="about">Call Meter generates reports from your call and
 		message logs. That`s all.</string>
-	<string name="about1">The output format is usage / time,amount used this billperiod / time,amount overall. Monthly time calculation takes the billmode into account. Overall does not.</string>
-	<string name="about2">The billmode specifies the length the first / following billing timings. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.</string>
+	<string name="about1">The output format is usage / time,amount used
+		this billperiod / time,amount overall. Monthly time calculation takes
+		the billmode into account. Overall does not.</string>
+	<string name="about2">The billmode specifies the length the first /
+		following billing timings. E.g. 60/10 means every call is billed for
+		minimum 60s, any longer call is rounded up to next full 10s.</string>
 	<string name="freedays_">Free days</string>
 	<string name="freehours_">Free hours</string>
 	<string name="free_on_calls">Free calls on ..</string>
@@ -107,7 +114,4 @@
 	<string name="in">In:</string>
 	<string name="out_calls">Out:</string>
 	<string name="out_sms">Out:</string>
-	<string name="period">period</string>
-	<string name="all">all</string>
-	<string name="usage">usage</string>
 </resources>
