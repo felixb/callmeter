@@ -30,7 +30,8 @@
 		deiner IMEI Rückverfolgbar. Ich werde die Werbung mit dem nächsten
 		Release dann entfernen.
 	</string>
-	<string name="send_">Send</string>
+	<string name="send_">Senden</string>
+	<string name="more_">Mehr Apps..</string>
 	<string name="settings">Einstellungen</string>
 	<string name="about_">Über CallMeter NG</string>
 	<string name="billday_">Erster Rechnungstag</string>
