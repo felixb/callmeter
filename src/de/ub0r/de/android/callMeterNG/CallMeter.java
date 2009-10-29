@@ -792,8 +792,8 @@ public class CallMeter extends Activity {
 			return true;
 		case R.id.item_donate:
 			try {
-				CallMeter.this.startActivity(new Intent(Intent.ACTION_VIEW, Uri
-						.parse(CallMeter.this.getString(R.string.donate_url))));
+				this.startActivity(new Intent(Intent.ACTION_VIEW, Uri
+						.parse(this.getString(R.string.donate_url))));
 			} catch (ActivityNotFoundException e) {
 				Log.e(TAG, "no browser", e);
 			}
@@ -801,7 +801,7 @@ public class CallMeter extends Activity {
 			return true;
 		case R.id.item_more:
 			try {
-				CallMeter.this.startActivity(new Intent(Intent.ACTION_VIEW, Uri
+				this.startActivity(new Intent(Intent.ACTION_VIEW, Uri
 						.parse("market://search?q=pub:\"Felix Bechstein\"")));
 			} catch (ActivityNotFoundException e) {
 				Log.e(TAG, "no market", e);
