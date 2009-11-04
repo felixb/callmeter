@@ -21,7 +21,8 @@
 	<string name="version_">Wersja:</string>
 	<string name="license_">Licencja:</string>
 	<string name="source_">Kod źródlowy:</string>
-	<string name="donate_">Wspomóż (usuń reklamy)</string>
+	<string name="donate_">Wspomóż/Usuń reklamy</string>
+	<string name="remove_ads">Usuń reklamy</string>
 	<string name="postdonate">Aby usunąć reklamy, musisz mi przesłać hash
 		swojego numeru IMEI (w MD5, unikalny dla Twojego telefonu). Hash
 		działa tylko w jedną stronę, więc nikt (nawet Ja) nie poznam tego

@@ -22,7 +22,15 @@
 	<string name="version_">Έκδοση:</string>
 	<string name="license_">Άδεια:</string>
 	<string name="source_">Κώδικασ:</string>
-	<string name="donate_">Κάνε Δωρεά</string>
+	<string name="donate_">Δωρεά/Απόκρυψη διαφημίσεων</string>
+	<string name="remove_ads">Απόκρυψη διαφημίσεων</string>
+	<string name="postdonate">Για την απόκρυψη των διαφημίσεων, θα πρέπει
+		να μου στείλετε τον MD5 κωδικό του IMEI (το μοναδικό ID για κάθε
+		κινητό). Αυτός ο κωδικός είναι συνάρτηση μιας κατεύθυνσης. Δεν
+		επιτρέπει τον εντοπισμό σας. Οι διαφημίσεις θα αποκρύπτονται σε εσάς
+		με την επόμενη έκδοση.
+	</string>
+	<string name="send_">Αποστέλω</string>
 	<string name="settings">Ρυθμίσεις</string>
 	<string name="about_">Σχετικά με το CallMeter NG</string>
 	<string name="billday_">Πρώτη μέρα λογαριασμού</string>
@@ -42,7 +50,7 @@
 		συγκεντρωτικοί, όχι.</string>
 	<string name="about2">Ο τύπος χρέωσης καθορίζει την ελάχιστη
 		χρέωση/και την χρέωση στη συνέχεια. Π.χ. 60/10 σημαίνει ελάχιστη
-		χρέωση 60s, και στη συνέχεια χρέωση ανά 10s.</string>
+		χρέωση 60s, και	στη συνέχεια χρέωση ανά 10s.</string>
 	<string name="freedays_">Δωρεάν ημέρες</string>
 	<string name="freehours_">Δωρεάν ώρες</string>
 	<string name="free_on_calls">Δωρεάν κλήσεις την ..</string>

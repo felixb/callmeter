@@ -712,6 +712,7 @@ public class CallMeter extends Activity {
 		case DIALOG_DONATE:
 			myDialog = new Dialog(this);
 			myDialog.setContentView(R.layout.donate);
+			myDialog.setTitle(R.string.remove_ads);
 			Button button = (Button) myDialog.findViewById(R.id.btn_donate);
 			button.setOnClickListener(new OnClickListener() {
 				public void onClick(final View view) {

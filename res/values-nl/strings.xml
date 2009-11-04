@@ -21,6 +21,7 @@
 	<string name="license_">Licentie:</string>
 	<string name="donate_">Doneer/verwijder advertenties
 	</string>
+	<string name="remove_ads">Verwijder advertenties</string>
 	<string name="postdonate">Om advertenties te verwijderen, moet je me de MD5
 		hash sturen van je IMEI code (uniek nummer van je telefoon). Deze hash
 		is eenrichtingverkeer; het is niet traceerbaar naar jou. Ik verwijder
