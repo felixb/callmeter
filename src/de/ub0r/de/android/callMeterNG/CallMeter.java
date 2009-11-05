@@ -35,6 +35,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
 import android.telephony.TelephonyManager;
+import android.telephony.gsm.SmsMessage;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
@@ -70,7 +71,7 @@ public class CallMeter extends Activity {
 	/** Hours of a day. */
 	private static final int HOURS_DAY = 24;
 
-	/** Prefs: name for last version run */
+	/** Prefs: name for last version run. */
 	private static final String PREFS_LAST_RUN = "lastrun";
 	/** Prefs: name for first day. */
 	private static final String PREFS_BILLDAY = "billday";
@@ -125,6 +126,10 @@ public class CallMeter extends Activity {
 	/** Prefs: billmode: 60/60. */
 	private static final String BILLMODE_60_60 = "60_60";
 
+	/** ContentProvider Column: Body. */
+	private static final String BODY = "body";
+
+	/** SharedPreferences. */
 	private SharedPreferences preferences;
 
 	/** Unique ID of device. */
@@ -133,7 +138,8 @@ public class CallMeter extends Activity {
 	private boolean prefsNoAds;
 
 	/** Array of md5(imei) for which no ads should be displayed. */
-	private static final String[] NO_AD_HASHS = { "43dcb861b9588fb733300326b61dbab9", // me
+	private static final String[] NO_AD_HASHS = { // .
+	"43dcb861b9588fb733300326b61dbab9", // me
 	};
 
 	/**
@@ -142,6 +148,12 @@ public class CallMeter extends Activity {
 	 * @author flx
 	 */
 	public static class Preferences extends PreferenceActivity {
+		/**
+		 * Called on Create.
+		 * 
+		 * @param savedInstanceState
+		 *            a Bundle
+		 */
 		public final void onCreate(final Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			this.addPreferencesFromResource(R.xml.prefs);
@@ -424,6 +436,10 @@ public class CallMeter extends Activity {
 
 		/**
 		 * Run in backgrund.
+		 * 
+		 * @param arg0
+		 *            Void[]
+		 * @return status
 		 */
 		@Override
 		protected Integer[] doInBackground(final Void... arg0) {
@@ -546,7 +562,7 @@ public class CallMeter extends Activity {
 			}
 			this.smsBillDate = DateFormat.getDateFormat(CallMeter.this).format(
 					calBillDate.getTime());
-			projection = new String[] { Calls.TYPE, Calls.DATE };
+			projection = new String[] { Calls.TYPE, Calls.DATE, BODY };
 			cur = CallMeter.this.managedQuery(Uri.parse("content://sms"),
 					projection, Calls.DATE + " >= " + this.allOldDate, null,
 					Calls.DATE + " DESC");
@@ -556,8 +572,8 @@ public class CallMeter extends Activity {
 				free = Integer.parseInt(s);
 			}
 			s = null;
-			int smsIn = this.allSMSIn;
-			int smsOut = this.allSMSOut;
+			int iSMSIn = this.allSMSIn;
+			int iSMSOut = this.allSMSOut;
 			int smsInMonth = 0;
 			int smsOutMonth = 0;
 			if (cur.moveToFirst()) {
@@ -565,28 +581,32 @@ public class CallMeter extends Activity {
 				long d;
 				final int idType = cur.getColumnIndex(Calls.TYPE);
 				final int idDate = cur.getColumnIndex(Calls.DATE);
+				final int idBody = cur.getColumnIndex(BODY);
 				int i = 0;
+				int l = 1;
 				do {
 					type = cur.getInt(idType);
 					d = cur.getLong(idDate);
+					l = SmsMessage
+							.calculateLength(cur.getString(idBody), false)[0];
 					switch (type) {
 					case Calls.INCOMING_TYPE:
-						++smsIn;
+						iSMSIn += l;
 						if (billDate <= d) {
-							++smsInMonth;
+							smsInMonth += l;
 						} else if (d < oldDate) {
-							++this.allSMSIn;
+							this.allSMSIn += l;
 						}
 						break;
 					case Calls.OUTGOING_TYPE:
-						++smsOut;
+						iSMSOut += l;
 						if (billDate <= d) {
 							if (this.isBilled(freeDaysSMS, freeDays,
 									freeHoursSMS, freeHours, d)) {
-								++smsOutMonth;
+								smsOutMonth += l;
 							}
 						} else if (d < oldDate) {
-							++this.allSMSOut;
+							this.allSMSOut += l;
 						}
 						break;
 					default:
@@ -594,17 +614,17 @@ public class CallMeter extends Activity {
 					}
 					++i;
 					if (i % 50 == 1) {
-						this.smsIn = this.calcString(smsInMonth, 0, smsIn,
+						this.smsIn = this.calcString(smsInMonth, 0, iSMSIn,
 								false);
 						this.smsOut = this.calcString(smsOutMonth, free,
-								smsOut, false);
+								iSMSOut, false);
 						this.publishProgress((Void) null);
 					}
 				} while (cur.moveToNext());
 			}
 
-			this.smsIn = this.calcString(smsInMonth, 0, smsIn, false);
-			this.smsOut = this.calcString(smsOutMonth, free, smsOut, false);
+			this.smsIn = this.calcString(smsInMonth, 0, iSMSIn, false);
+			this.smsOut = this.calcString(smsOutMonth, free, iSMSOut, false);
 
 			this.allOldDate = oldDate;
 
@@ -658,9 +678,14 @@ public class CallMeter extends Activity {
 		}
 	}
 
-	/** Called when the activity is first created. */
+	/**
+	 * Called when the activity is first created.
+	 * 
+	 * @param savedInstanceState
+	 *            a Bundle
+	 */
 	@Override
-	public void onCreate(final Bundle savedInstanceState) {
+	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		this.setContentView(R.layout.main);
