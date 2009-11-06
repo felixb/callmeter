@@ -140,6 +140,7 @@ public class CallMeter extends Activity {
 	/** Array of md5(imei) for which no ads should be displayed. */
 	private static final String[] NO_AD_HASHS = { // .
 	"43dcb861b9588fb733300326b61dbab9", // me
+			"d9018351e0159dd931e20cc1861ac5d8" // tommaso c.
 	};
 
 	/**
