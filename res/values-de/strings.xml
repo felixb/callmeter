@@ -53,6 +53,8 @@
 		ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder
 		Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s
 		aufgerundet.</string>
+	<string name="exclude_people_">Nummern ausschlie&#223;en</string>
+	<string name="exclude_people_hint">Nummern von der Abrechnung ausschlie&#223;en (nur Anrufe)</string>
 	<string name="freedays_">Kostenlose Tage</string>
 	<string name="freehours_">Kostenlose Stunden</string>
 	<string name="free_on_calls">Kostenlose Gespräche ..</string>

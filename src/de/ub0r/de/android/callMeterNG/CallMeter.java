@@ -20,11 +20,14 @@ package de.ub0r.de.android.callMeterNG;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -44,10 +47,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.admob.android.ads.AdView;
 
@@ -110,6 +118,11 @@ public class CallMeter extends Activity {
 	private static final String PREFS_ALL_SMS_OUT = "all_sms_out";
 	/** Prefs: name for date of old calls/sms. */
 	private static final String PREFS_DATE_OLD = "all_date_old";
+	/** Prefs: Exclude people prefix. */
+	private static final String PREFS_EXCLUDE_PEOPLE_PREFIX = "exclude_people_";
+	/** Prefs: Exclude people count. */
+	private static final String PREFS_EXCLUDE_PEOPLE_COUNT = PREFS_EXCLUDE_PEOPLE_PREFIX
+			+ "n";
 
 	/** Prefs: billmode: 1/1. */
 	private static final String BILLMODE_1_1 = "1_1";
@@ -130,17 +143,23 @@ public class CallMeter extends Activity {
 	private static final String BODY = "body";
 
 	/** SharedPreferences. */
-	private SharedPreferences preferences;
+	private static SharedPreferences preferences;
 
 	/** Unique ID of device. */
 	private String imeiHash = null;
 	/** Display ads? */
-	private boolean prefsNoAds;
+	private static boolean prefsNoAds;
+
+	/** Preferences: excluded numbers */
+	private static ArrayList<String> prefsExcludePeople;
+	/** ArrayAdapter for excluded numbers */
+	private static ArrayAdapter<String> excludedPeaoplAdapter;
 
 	/** Array of md5(imei) for which no ads should be displayed. */
 	private static final String[] NO_AD_HASHS = { // .
 	"43dcb861b9588fb733300326b61dbab9", // me
-			"d9018351e0159dd931e20cc1861ac5d8" // tommaso c.
+			"d9018351e0159dd931e20cc1861ac5d8", // tommaso c.
+			"2c72e52ef02a75210dc6680edab6b75d" // danny s.
 	};
 
 	/**
@@ -162,11 +181,129 @@ public class CallMeter extends Activity {
 	}
 
 	/**
+	 * Preferences.
+	 * 
+	 * @author flx
+	 */
+	public static class ExcludePeople extends Activity implements
+			OnItemClickListener {
+		/**
+		 * {@inheritDoc}
+		 */
+		protected final void onCreate(final Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);
+			this.setContentView(R.layout.exclude_people);
+			final ListView lv = (ListView) this.findViewById(R.id.list);
+			lv.setAdapter(CallMeter.excludedPeaoplAdapter);
+			lv.setOnItemClickListener(this);
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		protected final void onPause() {
+			super.onPause();
+			SharedPreferences.Editor editor = CallMeter.preferences.edit();
+			final int s = CallMeter.prefsExcludePeople.size();
+			editor.putInt(PREFS_EXCLUDE_PEOPLE_COUNT, s - 1);
+			for (int i = 1; i < s; i++) {
+				editor.putString(PREFS_EXCLUDE_PEOPLE_PREFIX + (i - 1),
+						CallMeter.prefsExcludePeople.get(i));
+			}
+			editor.commit();
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		public final void onItemClick(final AdapterView<?> parent,
+				final View view, final int position, final long id) {
+			if (position == 0) {
+				final AlertDialog.Builder builder = new AlertDialog.Builder(
+						this);
+				final EditText et = new EditText(this);
+				builder.setView(et);
+				builder.setTitle(R.string.exclude_people_add);
+				builder.setCancelable(true);
+				builder.setPositiveButton(android.R.string.ok,
+						new DialogInterface.OnClickListener() {
+							public void onClick(final DialogInterface dialog,
+									final int id) {
+								CallMeter.prefsExcludePeople.add(et.getText()
+										.toString());
+								CallMeter.excludedPeaoplAdapter
+										.notifyDataSetChanged();
+								dialog.dismiss();
+							}
+						});
+				builder.setNegativeButton(android.R.string.cancel,
+						new DialogInterface.OnClickListener() {
+							public void onClick(final DialogInterface dialog,
+									final int id) {
+								dialog.cancel();
+							}
+						});
+				builder.create().show();
+			} else {
+				final AlertDialog.Builder builder = new AlertDialog.Builder(
+						this);
+				builder.setCancelable(true);
+				final String[] itms = new String[2];
+				itms[0] = this.getString(R.string.exclude_people_edit);
+				itms[1] = this.getString(R.string.exclude_people_delete);
+				builder.setItems(itms, new DialogInterface.OnClickListener() {
+					public void onClick(final DialogInterface dialog,
+							final int item) {
+						if (item == 0) { // edit
+							final AlertDialog.Builder builder2 = new AlertDialog.Builder(
+									ExcludePeople.this);
+							final EditText et = new EditText(ExcludePeople.this);
+							et.setText(CallMeter.prefsExcludePeople
+									.get(position));
+							builder2.setView(et);
+							builder2.setTitle(R.string.exclude_people_edit);
+							builder2.setCancelable(true);
+							builder2.setPositiveButton(android.R.string.ok,
+									new DialogInterface.OnClickListener() {
+										public void onClick(
+												final DialogInterface dialog,
+												final int id) {
+											CallMeter.prefsExcludePeople.set(
+													position, et.getText()
+															.toString());
+											CallMeter.excludedPeaoplAdapter
+													.notifyDataSetChanged();
+											dialog.dismiss();
+										}
+									});
+							builder2.setNegativeButton(android.R.string.cancel,
+									new DialogInterface.OnClickListener() {
+										public void onClick(
+												final DialogInterface dialog,
+												final int id) {
+											dialog.cancel();
+										}
+									});
+							builder2.create().show();
+						} else { // delete
+							CallMeter.prefsExcludePeople.remove(position);
+							CallMeter.excludedPeaoplAdapter
+									.notifyDataSetChanged();
+						}
+					}
+
+				});
+				builder.create().show();
+			}
+		}
+	}
+
+	/**
 	 * AsyncTask to handel calcualtions in background.
 	 * 
 	 * @author flx
 	 */
-	private class Updater extends AsyncTask<Void, Void, Integer[]> {
+	class Updater extends AsyncTask<Void, Void, Integer[]> {
 		/** Status Strings. */
 		private String callsIn, callsOut, callsBillDate, smsIn, smsOut,
 				smsBillDate;
@@ -229,7 +366,7 @@ public class CallMeter extends Activity {
 		 * @return rounded time
 		 */
 		private int roundTime(final int time) {
-			final String prefBillMode = CallMeter.this.preferences.getString(
+			final String prefBillMode = CallMeter.preferences.getString(
 					PREFS_BILLMODE, BILLMODE_1_1);
 			// 0 => 0
 			if (time == 0) {
@@ -393,16 +530,13 @@ public class CallMeter extends Activity {
 		protected void onPreExecute() {
 			CallMeter.this.setProgressBarIndeterminateVisibility(true);
 			// load old values from database
-			this.allCallsIn = CallMeter.this.preferences.getInt(
-					PREFS_ALL_CALLS_IN, 0);
-			this.allCallsOut = CallMeter.this.preferences.getInt(
-					PREFS_ALL_CALLS_OUT, 0);
-			this.allSMSIn = CallMeter.this.preferences.getInt(PREFS_ALL_SMS_IN,
+			this.allCallsIn = CallMeter.preferences.getInt(PREFS_ALL_CALLS_IN,
 					0);
-			this.allSMSOut = CallMeter.this.preferences.getInt(
-					PREFS_ALL_SMS_OUT, 0);
-			this.allOldDate = CallMeter.this.preferences.getLong(
-					PREFS_DATE_OLD, 0);
+			this.allCallsOut = CallMeter.preferences.getInt(
+					PREFS_ALL_CALLS_OUT, 0);
+			this.allSMSIn = CallMeter.preferences.getInt(PREFS_ALL_SMS_IN, 0);
+			this.allSMSOut = CallMeter.preferences.getInt(PREFS_ALL_SMS_OUT, 0);
+			this.allOldDate = CallMeter.preferences.getLong(PREFS_DATE_OLD, 0);
 
 			this.pbCalls = (ProgressBar) CallMeter.this
 					.findViewById(R.id.calls_progressbar);
@@ -447,8 +581,8 @@ public class CallMeter extends Activity {
 			Integer[] ret = { 0, 0, 1, 1 };
 			// report basics
 			Calendar calBillDate = this.getBillDate(Integer
-					.parseInt(CallMeter.this.preferences.getString(
-							PREFS_BILLDAY, "0")));
+					.parseInt(CallMeter.preferences.getString(PREFS_BILLDAY,
+							"0")));
 			long billDate = calBillDate.getTimeInMillis();
 			final long oldDate = this.getOldDate();
 
@@ -456,34 +590,38 @@ public class CallMeter extends Activity {
 					.format(calBillDate.getTime());
 
 			// get not free days/timeslots
-			final boolean freeDaysCalls = CallMeter.this.preferences
-					.getBoolean(PREFS_FREEDAYS_CALL, false);
-			final boolean freeDaysSMS = CallMeter.this.preferences.getBoolean(
+			final boolean freeDaysCalls = CallMeter.preferences.getBoolean(
+					PREFS_FREEDAYS_CALL, false);
+			final boolean freeDaysSMS = CallMeter.preferences.getBoolean(
 					PREFS_FREEDAYS_SMS, false);
 			boolean[] freeDays = null;
 			if (freeDaysCalls || freeDaysSMS) {
 				freeDays = new boolean[DAYS_WEEK];
 				for (int i = 0; i < DAYS_WEEK; i++) {
-					freeDays[i] = CallMeter.this.preferences.getBoolean(
+					freeDays[i] = CallMeter.preferences.getBoolean(
 							PREFS_FREEDAYS_ + (i + 1), false);
 				}
 			}
-			final boolean freeHoursCalls = CallMeter.this.preferences
-					.getBoolean(PREFS_FREEHOURS_CALL, false);
-			final boolean freeHoursSMS = CallMeter.this.preferences.getBoolean(
+			final boolean freeHoursCalls = CallMeter.preferences.getBoolean(
+					PREFS_FREEHOURS_CALL, false);
+			final boolean freeHoursSMS = CallMeter.preferences.getBoolean(
 					PREFS_FREEHOURS_SMS, false);
 			boolean[] freeHours = null;
 			if (freeHoursCalls || freeHoursSMS) {
 				freeHours = new boolean[HOURS_DAY];
 				for (int i = 0; i < HOURS_DAY; i++) {
-					freeHours[i] = CallMeter.this.preferences.getBoolean(
+					freeHours[i] = CallMeter.preferences.getBoolean(
 							PREFS_FREEHOURS_ + i, false);
 				}
 			}
 
+			final String[] excludeNumbers = CallMeter.prefsExcludePeople
+					.toArray(new String[1]);
+			final int excludeNumbersSize = excludeNumbers.length;
+
 			// report calls
 			String[] projection = new String[] { Calls.TYPE, Calls.DURATION,
-					Calls.DATE };
+					Calls.DATE, Calls.NUMBER };
 
 			Cursor cur = CallMeter.this.managedQuery(Calls.CONTENT_URI,
 					projection, Calls.DATE + " >= " + this.allOldDate, null,
@@ -493,7 +631,7 @@ public class CallMeter extends Activity {
 			int durOut = this.allCallsOut;
 			int durInMonth = 0;
 			int durOutMonth = 0;
-			String s = CallMeter.this.preferences.getString(PREFS_FREEMIN, "0");
+			String s = CallMeter.preferences.getString(PREFS_FREEMIN, "0");
 			int free = 0;
 			if (s.length() > 0) {
 				free = Integer.parseInt(s);
@@ -503,11 +641,14 @@ public class CallMeter extends Activity {
 			if (cur.moveToFirst()) {
 				int type;
 				long d;
+				String n;
 				final int idType = cur.getColumnIndex(Calls.TYPE);
 				final int idDuration = cur.getColumnIndex(Calls.DURATION);
 				final int idDate = cur.getColumnIndex(Calls.DATE);
+				final int idNumber = cur.getColumnIndex(Calls.NUMBER);
 				int t = 0;
 				int i = 0;
+				boolean check = true;
 				do {
 					type = cur.getInt(idType);
 					d = cur.getLong(idDate);
@@ -527,7 +668,17 @@ public class CallMeter extends Activity {
 						if (billDate <= d) {
 							if (this.isBilled(freeDaysCalls, freeDays,
 									freeHoursCalls, freeHours, d)) {
-								durOutMonth += this.roundTime(t);
+								check = true;
+								n = cur.getString(idNumber);
+								for (int j = 1; j < excludeNumbersSize; j++) {
+									if (n.equals(excludeNumbers[j])) {
+										check = false;
+										break;
+									}
+								}
+								if (check) {
+									durOutMonth += this.roundTime(t);
+								}
 							}
 						} else if (d < oldDate) {
 							this.allCallsOut += t;
@@ -554,9 +705,9 @@ public class CallMeter extends Activity {
 			this.publishProgress((Void) null);
 
 			// report sms
-			if (!CallMeter.this.preferences.getBoolean(PREFS_SMSPERIOD, false)) {
+			if (!CallMeter.preferences.getBoolean(PREFS_SMSPERIOD, false)) {
 				calBillDate = this.getBillDate(Integer
-						.parseInt(CallMeter.this.preferences.getString(
+						.parseInt(CallMeter.preferences.getString(
 								PREFS_SMSBILLDAY, "0")));
 				billDate = calBillDate.getTimeInMillis();
 
@@ -567,7 +718,7 @@ public class CallMeter extends Activity {
 			cur = CallMeter.this.managedQuery(Uri.parse("content://sms"),
 					projection, Calls.DATE + " >= " + this.allOldDate, null,
 					Calls.DATE + " DESC");
-			s = CallMeter.this.preferences.getString(PREFS_FREESMS, "0");
+			s = CallMeter.preferences.getString(PREFS_FREESMS, "0");
 			free = 0;
 			if (s.length() > 0) {
 				free = Integer.parseInt(s);
@@ -667,7 +818,7 @@ public class CallMeter extends Activity {
 			}
 
 			// save old values to database
-			SharedPreferences.Editor editor = CallMeter.this.preferences.edit();
+			SharedPreferences.Editor editor = CallMeter.preferences.edit();
 			editor.putInt(PREFS_ALL_CALLS_IN, this.allCallsIn);
 			editor.putInt(PREFS_ALL_CALLS_OUT, this.allCallsOut);
 			editor.putInt(PREFS_ALL_SMS_IN, this.allSMSIn);
@@ -691,11 +842,12 @@ public class CallMeter extends Activity {
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		this.setContentView(R.layout.main);
 		// get prefs.
-		this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
-		String v0 = this.preferences.getString(PREFS_LAST_RUN, "");
+		CallMeter.preferences = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		String v0 = CallMeter.preferences.getString(PREFS_LAST_RUN, "");
 		String v1 = this.getString(R.string.app_version);
 		if (!v0.equals(v1)) {
-			SharedPreferences.Editor editor = this.preferences.edit();
+			SharedPreferences.Editor editor = CallMeter.preferences.edit();
 			editor.putString(PREFS_LAST_RUN, v1);
 			editor.commit();
 			this.showDialog(DIALOG_UPDATE);
@@ -704,20 +856,30 @@ public class CallMeter extends Activity {
 		TelephonyManager mTelephonyMgr = (TelephonyManager) this
 				.getSystemService(TELEPHONY_SERVICE);
 		this.imeiHash = md5(mTelephonyMgr.getDeviceId());
-		this.prefsNoAds = false;
+		prefsNoAds = false;
 		for (String h : NO_AD_HASHS) {
 			if (this.imeiHash.equals(h)) {
-				this.prefsNoAds = true;
+				prefsNoAds = true;
 				break;
 			}
 		}
+		prefsExcludePeople = new ArrayList<String>();
+		prefsExcludePeople.add(this.getString(R.string.exclude_people_add));
+		final int c = CallMeter.preferences.getInt(PREFS_EXCLUDE_PEOPLE_COUNT,
+				0);
+		for (int i = 0; i < c; i++) {
+			CallMeter.prefsExcludePeople.add(CallMeter.preferences.getString(
+					PREFS_EXCLUDE_PEOPLE_PREFIX + i, "???"));
+		}
+		excludedPeaoplAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, prefsExcludePeople);
 	}
 
 	/** Called on Activity resume. */
 	@Override
 	protected final void onResume() {
 		super.onResume();
-		if (!this.prefsNoAds) {
+		if (!prefsNoAds) {
 			((AdView) this.findViewById(R.id.ad)).setVisibility(View.VISIBLE);
 		}
 		// get calls

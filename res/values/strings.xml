@@ -45,12 +45,12 @@
 	<string name="donate_url">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=5832809
 	</string>
 	<string name="donate_mail">f@ub0r.de</string>
-	<string name="donate_subject">I'm the donator. My IMEI hash is...</string>
+	<string name="donate_subject">I\'m the donator. My IMEI hash is...</string>
 	<string name="donate_">Donate/remove ads</string>
 	<string name="remove_ads">Remove ads</string>
 	<string name="postdonate">To remove ads, you need to send me the MD5 hash
 		of your IMEI (unique id of your phone). This hash is a
-		one-way-function. It is not traceable back to you. I'll remove your
+		one-way-function. It is not traceable back to you. I\'ll remove your
 		ads with the next release. 
 	</string>
 	<string name="send_">Send</string>
@@ -75,6 +75,11 @@
 	<string name="about2">The billmode specifies the length the first /
 		following billing timings. E.g. 60/10 means every call is billed for
 		minimum 60s, any longer call is rounded up to next full 10s.</string>
+	<string name="exclude_people_">Exclude numbers</string>
+	<string name="exclude_people_hint">Exclude numbers from billing (Calls only)</string>
+	<string name="exclude_people_add">Add number</string>
+	<string name="exclude_people_edit">Edit</string>
+	<string name="exclude_people_delete">Delete</string>
 	<string name="freedays_">Free days</string>
 	<string name="freehours_">Free hours</string>
 	<string name="free_on_calls">Free calls on ..</string>
