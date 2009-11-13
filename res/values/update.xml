@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
+		<item>v0.9.6: Allow to exclude some numbers from billing</item>
 		<item>v0.9.5: Change ProgressIndicator, prepare to remove ads for donators, fix long text messages</item>
 		<item>v0.9.3: Add Changelog, more text in about</item>
 		<item>v0.9.2: Add greek translation</item>
