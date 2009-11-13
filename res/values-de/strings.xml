@@ -26,10 +26,9 @@
 	<string name="donate_">Spenden/Werbung entfernen</string>
 	<string name="remove_ads">Werbung entfernen</string>
 	<string name="postdonate">Um die Werbung zu entfernen brauche ich den MD5
-		Hash deiner IMEI (Eindeutige ID deines Handys) von dir. Der MD5 Hash
-		deiner IMEI. Der Hash ist eine Einwegfunktion und ist somit nicht zu
-		deiner IMEI Rückverfolgbar. Ich werde die Werbung mit dem nächsten
-		Release dann entfernen.
+		Hash deiner IMEI (Die eindeutige ID deines Handys) von dir. Der Hash ist
+		eine Einwegfunktion und ist somit nicht zu deiner IMEI Rückverfolgbar.
+		Ich werde die Werbung mit dem nächsten Release dann entfernen.
 	</string>
 	<string name="send_">Senden</string>
 	<string name="more_">Mehr Apps..</string>

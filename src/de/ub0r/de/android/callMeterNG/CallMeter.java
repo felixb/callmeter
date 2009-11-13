@@ -895,33 +895,44 @@ public class CallMeter extends Activity {
 	@Override
 	protected final Dialog onCreateDialog(final int id) {
 		Dialog d;
+		AlertDialog.Builder builder;
 		switch (id) {
 		case DIALOG_DONATE:
-			d = new Dialog(this);
-			d.setContentView(R.layout.donate);
-			d.setTitle(R.string.remove_ads);
-			Button button = (Button) d.findViewById(R.id.btn_donate);
-			button.setOnClickListener(new OnClickListener() {
-				public void onClick(final View view) {
-					final Intent in = new Intent(Intent.ACTION_SEND);
-					in.putExtra(Intent.EXTRA_EMAIL,
-							new String[] {
+			builder = new AlertDialog.Builder(this);
+			builder.setTitle(R.string.remove_ads);
+			builder.setMessage(R.string.postdonate);
+			builder.setPositiveButton(R.string.donate_,
+					new DialogInterface.OnClickListener() {
+						public void onClick(final DialogInterface dialog,
+								final int which) {
+							final Intent in = new Intent(Intent.ACTION_SEND);
+							in.putExtra(Intent.EXTRA_EMAIL, new String[] {
 									CallMeter.this
 											.getString(R.string.donate_mail),
 									"" }); // FIXME: "" is a k9 hack.
-					in.putExtra(Intent.EXTRA_TEXT, CallMeter.this.imeiHash);
-					in
-							.putExtra(Intent.EXTRA_SUBJECT, CallMeter.this
-									.getString(R.string.app_name)
-									+ " "
-									+ CallMeter.this
-											.getString(R.string.donate_subject));
-					in.setType("text/plain");
-					CallMeter.this.startActivity(in);
-					CallMeter.this.dismissDialog(DIALOG_DONATE);
-				}
-			});
-			return d;
+							in.putExtra(Intent.EXTRA_TEXT,
+									CallMeter.this.imeiHash);
+							in
+									.putExtra(
+											Intent.EXTRA_SUBJECT,
+											CallMeter.this
+													.getString(R.string.app_name)
+													+ " "
+													+ CallMeter.this
+															.getString(R.string.donate_subject));
+							in.setType("text/plain");
+							CallMeter.this.startActivity(in);
+							dialog.dismiss();
+						}
+					});
+			builder.setNegativeButton(android.R.string.cancel,
+					new DialogInterface.OnClickListener() {
+						public void onClick(final DialogInterface dialog,
+								final int which) {
+							dialog.cancel();
+						}
+					});
+			return builder.create();
 		case DIALOG_ABOUT:
 			d = new Dialog(this);
 			d.setContentView(R.layout.about);
@@ -929,7 +940,7 @@ public class CallMeter extends Activity {
 					+ this.getString(R.string.app_version));
 			return d;
 		case DIALOG_UPDATE:
-			final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder = new AlertDialog.Builder(this);
 			builder.setTitle(R.string.changelog_);
 			final String[] changes = this.getResources().getStringArray(
 					R.array.updates);
