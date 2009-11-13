@@ -51,7 +51,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -895,13 +894,13 @@ public class CallMeter extends Activity {
 	 */
 	@Override
 	protected final Dialog onCreateDialog(final int id) {
-		Dialog myDialog;
+		Dialog d;
 		switch (id) {
 		case DIALOG_DONATE:
-			myDialog = new Dialog(this);
-			myDialog.setContentView(R.layout.donate);
-			myDialog.setTitle(R.string.remove_ads);
-			Button button = (Button) myDialog.findViewById(R.id.btn_donate);
+			d = new Dialog(this);
+			d.setContentView(R.layout.donate);
+			d.setTitle(R.string.remove_ads);
+			Button button = (Button) d.findViewById(R.id.btn_donate);
 			button.setOnClickListener(new OnClickListener() {
 				public void onClick(final View view) {
 					final Intent in = new Intent(Intent.ACTION_SEND);
@@ -922,32 +921,37 @@ public class CallMeter extends Activity {
 					CallMeter.this.dismissDialog(DIALOG_DONATE);
 				}
 			});
-			break;
+			return d;
 		case DIALOG_ABOUT:
-			myDialog = new Dialog(this);
-			myDialog.setContentView(R.layout.about);
-			myDialog.setTitle(this.getString(R.string.about_) + " v"
+			d = new Dialog(this);
+			d.setContentView(R.layout.about);
+			d.setTitle(this.getString(R.string.about_) + " v"
 					+ this.getString(R.string.app_version));
-			break;
+			return d;
 		case DIALOG_UPDATE:
-			myDialog = new Dialog(this);
-			myDialog.setContentView(R.layout.update);
-			myDialog.setTitle(R.string.changelog_);
-			LinearLayout layout = (LinearLayout) myDialog
-					.findViewById(R.id.base_view);
-			TextView tw;
-			String[] changes = this.getResources().getStringArray(
+			final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle(R.string.changelog_);
+			final String[] changes = this.getResources().getStringArray(
 					R.array.updates);
-			for (String c : changes) {
-				tw = new TextView(this);
-				tw.setText(c);
-				layout.addView(tw);
+			final StringBuilder buf = new StringBuilder(changes[0]);
+			for (int i = 1; i < changes.length; i++) {
+				buf.append("\n\n");
+				buf.append(changes[i]);
 			}
-			break;
+			builder.setIcon(android.R.drawable.ic_menu_info_details);
+			builder.setMessage(buf.toString());
+			builder.setCancelable(true);
+			builder.setPositiveButton(android.R.string.ok,
+					new DialogInterface.OnClickListener() {
+						public void onClick(final DialogInterface dialog,
+								final int id) {
+							dialog.cancel();
+						}
+					});
+			return builder.create();
 		default:
-			myDialog = null;
+			return null;
 		}
-		return myDialog;
 	}
 
 	/**
