@@ -46,10 +46,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -149,9 +147,9 @@ public class CallMeter extends Activity {
 	/** Display ads? */
 	private static boolean prefsNoAds;
 
-	/** Preferences: excluded numbers */
+	/** Preferences: excluded numbers. */
 	private static ArrayList<String> prefsExcludePeople;
-	/** ArrayAdapter for excluded numbers */
+	/** ArrayAdapter for excluded numbers. */
 	private static ArrayAdapter<String> excludedPeaoplAdapter;
 
 	/** Array of md5(imei) for which no ads should be displayed. */
