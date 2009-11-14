@@ -899,7 +899,7 @@ public class CallMeter extends Activity {
 			builder = new AlertDialog.Builder(this);
 			builder.setTitle(R.string.remove_ads);
 			builder.setMessage(R.string.postdonate);
-			builder.setPositiveButton(R.string.donate_,
+			builder.setPositiveButton(R.string.send_,
 					new DialogInterface.OnClickListener() {
 						public void onClick(final DialogInterface dialog,
 								final int which) {
