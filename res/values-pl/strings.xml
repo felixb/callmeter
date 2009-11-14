@@ -52,6 +52,12 @@
 	<string name="freehours_">Darmowe godziny</string>
 	<string name="free_on_calls">Darmowe połączenia w..</string>
 	<string name="free_on_sms">Darmowe SMS w..</string>
+	<string name="exclude_people_">Wykluczenia</string>
+	<string name="exclude_people_hint">Wyklucz numery z rachunku (tylko połączenia)
+	</string>
+	<string name="exclude_people_add">Dodaj numer</string>
+	<string name="exclude_people_edit">Edytuj</string>
+	<string name="exclude_people_delete">Usuń</string>
 	<string name="monday">Poniedziałek</string>
 	<string name="tuesday">Wtorek</string>
 	<string name="wednesday">Środa</string>

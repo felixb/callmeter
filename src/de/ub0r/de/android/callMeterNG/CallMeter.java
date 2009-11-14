@@ -156,7 +156,8 @@ public class CallMeter extends Activity {
 	private static final String[] NO_AD_HASHS = { // .
 	"43dcb861b9588fb733300326b61dbab9", // me
 			"d9018351e0159dd931e20cc1861ac5d8", // tommaso c.
-			"2c72e52ef02a75210dc6680edab6b75d" // danny s.
+			"2c72e52ef02a75210dc6680edab6b75d", // danny s.
+			"f39b49859c04e6ea7849b43c73bd050e" // Łukasz m.
 	};
 
 	/**
