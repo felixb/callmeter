@@ -25,10 +25,14 @@
 	<string name="donate_">Δωρεά/Απόκρυψη διαφημίσεων</string>
 	<string name="remove_ads">Απόκρυψη διαφημίσεων</string>
 	<string name="postdonate">Για την απόκρυψη των διαφημίσεων, θα πρέπει
-		να μου στείλετε τον MD5 κωδικό του IMEI (το μοναδικό ID για κάθε
-		κινητό). Αυτός ο κωδικός είναι συνάρτηση μιας κατεύθυνσης. Δεν
-		επιτρέπει τον εντοπισμό σας. Οι διαφημίσεις θα αποκρύπτονται σε εσάς
-		με την επόμενη έκδοση.
+		να
+		μου στείλετε τον MD5 κωδικό του IMEI (το μοναδικό ID για κάθε
+		κινητό).
+		Αυτός ο κωδικός είναι συνάρτηση μιας κατεύθυνσης. Δεν
+		επιτρέπει τον
+		εντοπισμό σας. Οι διαφημίσεις θα αποκρύπτονται σε εσάς
+		με την επόμενη
+		έκδοση.
 	</string>
 	<string name="send_">Αποστέλω</string>
 	<string name="settings">Ρυθμίσεις</string>
@@ -49,12 +53,20 @@
 		υπολογισμοί χρησιμοποιούν το τύπο χρέωσης του λογαριασμού. Οι
 		συγκεντρωτικοί, όχι.</string>
 	<string name="about2">Ο τύπος χρέωσης καθορίζει την ελάχιστη
-		χρέωση/και την χρέωση στη συνέχεια. Π.χ. 60/10 σημαίνει ελάχιστη
-		χρέωση 60s, και	στη συνέχεια χρέωση ανά 10s.</string>
+		χρέωση/και
+		την χρέωση στη συνέχεια. Π.χ. 60/10 σημαίνει ελάχιστη
+		χρέωση 60s, και
+		στη συνέχεια χρέωση ανά 10s.</string>
 	<string name="freedays_">Δωρεάν ημέρες</string>
 	<string name="freehours_">Δωρεάν ώρες</string>
 	<string name="free_on_calls">Δωρεάν κλήσεις την ..</string>
 	<string name="free_on_sms">Δωρεάν μηνύματα την ..</string>
+	<string name="exclude_people_">Εξαίρεση αριθμών</string>
+	<string name="exclude_people_hint">Εξαίρεση αριθμών από μετρητή (Κλήσεις μόνο)
+	</string>
+	<string name="exclude_people_add">Προσθήκη αριθμού</string>
+	<string name="exclude_people_edit">Επεξεργασία</string>
+	<string name="exclude_people_delete">Διαγραφή</string>
 	<string name="monday">Δευτέρα</string>
 	<string name="tuesday">Τρίτη</string>
 	<string name="wednesday">Τετάρτη</string>

@@ -155,9 +155,10 @@ public class CallMeter extends Activity {
 	/** Array of md5(imei) for which no ads should be displayed. */
 	private static final String[] NO_AD_HASHS = { // .
 	"43dcb861b9588fb733300326b61dbab9", // me
-			"d9018351e0159dd931e20cc1861ac5d8", // tommaso c.
-			"2c72e52ef02a75210dc6680edab6b75d", // danny s.
-			"f39b49859c04e6ea7849b43c73bd050e" // Łukasz m.
+			"d9018351e0159dd931e20cc1861ac5d8", // Tommaso C.
+			"2c72e52ef02a75210dc6680edab6b75d", // Danny S.
+			"f39b49859c04e6ea7849b43c73bd050e", // Łukasz M.
+			"225905ca10fd56ae9c4b82254fa6d490" // George K.
 	};
 
 	/**
