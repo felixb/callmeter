@@ -550,12 +550,12 @@ public class CallMeter extends Activity {
 			this.pbSMS.setVisibility(View.VISIBLE);
 
 			this.twCallsIn = (TextView) CallMeter.this
-					.findViewById(R.id.calls1_in);
+					.findViewById(R.id.calls_in);
 			this.twCallsOut = (TextView) CallMeter.this
 					.findViewById(R.id.calls1_out);
 			this.twCallsBillDate = (TextView) CallMeter.this
 					.findViewById(R.id.calls_billdate);
-			this.twSMSIn = (TextView) CallMeter.this.findViewById(R.id.sms1_in);
+			this.twSMSIn = (TextView) CallMeter.this.findViewById(R.id.sms_in);
 			this.twSMSOut = (TextView) CallMeter.this
 					.findViewById(R.id.sms1_out);
 			this.twSMSBillDate = (TextView) CallMeter.this
