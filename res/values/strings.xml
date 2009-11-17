@@ -18,7 +18,7 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="app_version">0.9.5</string>
+	<string name="app_version">0.9.6</string>
 	<string name="app_name">Call Meter NG</string>
 	<string name="author_">Author:</string>
 	<string name="version_">Version:</string>
