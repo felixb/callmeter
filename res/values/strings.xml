@@ -34,6 +34,8 @@
 	<string name="author_gr">George Koutsouvalis
 		&lt;koutsou@koutsou.gr&gt;
 		(Greek)</string>
+	<string name="author_es">Nicolás Gonzále &lt;fahani45@gmail.com&gt;
+		(Spanish)</string>
 	<string name="license">GPLv3 - see
 		http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Sourcescode:</string>
@@ -76,7 +78,8 @@
 		following billing timings. E.g. 60/10 means every call is billed for
 		minimum 60s, any longer call is rounded up to next full 10s.</string>
 	<string name="exclude_people_">Exclude numbers</string>
-	<string name="exclude_people_hint">Exclude numbers from billing (Calls only)</string>
+	<string name="exclude_people_hint">Exclude numbers from billing (Calls only)
+	</string>
 	<string name="exclude_people_add">Add number</string>
 	<string name="exclude_people_edit">Edit</string>
 	<string name="exclude_people_delete">Delete</string>

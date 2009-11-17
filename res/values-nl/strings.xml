@@ -49,7 +49,6 @@
 		hudige factuurperiode/tijd, totaal gebruik. De maandelijkse
 		tijdberekening houdt rekening met de factuurmodus. Het totaalgebruik
 		doet dat niet.</string>
-
 	<string name="about2">De factuurmodus specificeert de lengte van de
 		eerste en volgende factuur momenten, of starttarief en vervolgtarief.
 		t-Mobile rekent bijvoorbeeld 60/1: ieder telefoontje kost altijd 60
@@ -58,6 +57,12 @@
 		betekent dat na een minuut alles wordt afgerond naar 10 seconden. Maar
 		die eerste minuut ben je dan wel altijd kwijt. Het goedkoopst is
 		altijd 1/1.</string>
+	<string name="exclude_people_">Uitgezonderde nummers</string>
+	<string name="exclude_people_hint">Niet te factureren nummers(Calls
+		only)</string>
+	<string name="exclude_people_add">Voeg nummer toe</string>
+	<string name="exclude_people_edit">Bewerk</string>
+	<string name="exclude_people_delete">Verwijder</string>
 	<string name="freedays_">Gratis dagen</string>
 	<string name="freehours_">Gratis uren</string>
 	<string name="free_on_calls">Gratis bellen op ..</string>
