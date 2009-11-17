@@ -539,9 +539,9 @@ public class CallMeter extends Activity {
 			this.allOldDate = CallMeter.preferences.getLong(PREFS_DATE_OLD, 0);
 
 			this.pbCalls = (ProgressBar) CallMeter.this
-					.findViewById(R.id.calls_progressbar);
+					.findViewById(R.id.calls1_progressbar);
 			this.pbSMS = (ProgressBar) CallMeter.this
-					.findViewById(R.id.sms_progressbar);
+					.findViewById(R.id.sms1_progressbar);
 
 			this.pbCalls.setProgress(0);
 			this.pbCalls.setIndeterminate(false);
@@ -549,15 +549,17 @@ public class CallMeter extends Activity {
 			this.pbCalls.setVisibility(View.VISIBLE);
 			this.pbSMS.setVisibility(View.VISIBLE);
 
-			this.twCallsIn = (TextView) CallMeter.this.findViewById(R.id.in);
-			this.twCallsOut = (TextView) CallMeter.this.findViewById(R.id.out);
+			this.twCallsIn = (TextView) CallMeter.this
+					.findViewById(R.id.calls1_in);
+			this.twCallsOut = (TextView) CallMeter.this
+					.findViewById(R.id.calls1_out);
 			this.twCallsBillDate = (TextView) CallMeter.this
-					.findViewById(R.id.billdate);
-			this.twSMSIn = (TextView) CallMeter.this.findViewById(R.id.sms_in);
+					.findViewById(R.id.calls_billdate);
+			this.twSMSIn = (TextView) CallMeter.this.findViewById(R.id.sms1_in);
 			this.twSMSOut = (TextView) CallMeter.this
-					.findViewById(R.id.sms_out);
+					.findViewById(R.id.sms1_out);
 			this.twSMSBillDate = (TextView) CallMeter.this
-					.findViewById(R.id.smsbilldate);
+					.findViewById(R.id.sms_billdate);
 
 			this.callsBillDate = "?";
 			this.callsIn = "?";

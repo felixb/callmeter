@@ -83,6 +83,8 @@
 	<string name="exclude_people_add">Add number</string>
 	<string name="exclude_people_edit">Edit</string>
 	<string name="exclude_people_delete">Delete</string>
+	<string name="plan1">Plan 1</string>
+	<string name="plan2">Plan 2</string>
 	<string name="freedays_">Free days</string>
 	<string name="freehours_">Free hours</string>
 	<string name="free_on_calls">Free calls on ..</string>
