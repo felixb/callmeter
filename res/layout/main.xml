@@ -17,128 +17,131 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 	-->
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res/de.ub0r.de.android.callMeterNG"
 	android:layout_height="fill_parent" android:layout_width="fill_parent">
-	<RelativeLayout android:layout_height="fill_parent"
-		android:layout_width="fill_parent">
 
-		<!--  calls common -->
+	<com.admob.android.ads.AdView android:id="@+id/ad"
+		android:layout_alignParentBottom="true" android:visibility="gone"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:gravity="bottom"
+		app:keywords="android mobile handy cellphone google htc market app report calls game" />
 
-		<TextView android:id="@+id/calls_" android:text="@string/calls"
-			android:paddingTop="5dip" android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:gravity="center"
-			android:textStyle="bold" android:layout_alignParentTop="true" />
+	<ScrollView android:layout_height="fill_parent"
+		android:layout_width="fill_parent" android:layout_above="@+id/ad">
+		<RelativeLayout android:layout_height="wrap_content"
+			android:layout_width="fill_parent">
 
-		<TextView android:id="@+id/calls_billdate_" android:text="@string/billdate_"
-			android:paddingLeft="5dip" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_below="@id/calls_" />
-		<TextView android:id="@+id/calls_billdate"
-			android:paddingRight="5dip" android:gravity="right"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_alignTop="@id/calls_billdate_"
-			android:layout_alignParentRight="true" />
+			<!--  calls common -->
 
-		<!-- real calls -->
+			<TextView android:id="@+id/calls_" android:text="@string/calls"
+				android:paddingTop="5dip" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:gravity="center"
+				android:textStyle="bold" android:layout_alignParentTop="true" />
 
-		<TextView android:id="@+id/calls_in_" android:text="@string/in"
-			android:paddingLeft="10dip" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_below="@id/calls_billdate_" />
-		<TextView android:id="@+id/calls_in" android:paddingRight="5dip"
-			android:gravity="right" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_alignTop="@id/calls_in_"
-			android:layout_alignParentRight="true" />
+			<TextView android:id="@+id/calls_billdate_" android:text="@string/billdate_"
+				android:paddingLeft="5dip" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_below="@id/calls_" />
+			<TextView android:id="@+id/calls_billdate"
+				android:paddingRight="5dip" android:gravity="right"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_alignTop="@id/calls_billdate_"
+				android:layout_alignParentRight="true" />
 
-		<TextView android:id="@+id/calls1_out_" android:text="@string/out_calls"
-			android:paddingLeft="10dip" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_below="@id/calls_in_" />
-		<TextView android:id="@+id/calls1_out" android:paddingRight="5dip"
-			android:gravity="right" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_alignTop="@id/calls1_out_"
-			android:layout_alignParentRight="true" />
+			<!-- real calls -->
 
-		<TextView android:id="@+id/calls2_out_" android:text="@string/out_calls"
-			android:paddingLeft="10dip" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_below="@id/calls1_out_" />
-		<TextView android:id="@+id/calls2_out" android:paddingRight="5dip"
-			android:gravity="right" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_alignTop="@id/calls2_out_"
-			android:layout_alignParentRight="true" />
+			<TextView android:id="@+id/calls_in_" android:text="@string/in"
+				android:paddingLeft="10dip" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_below="@id/calls_billdate_" />
+			<TextView android:id="@+id/calls_in" android:paddingRight="5dip"
+				android:gravity="right" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_alignTop="@id/calls_in_"
+				android:layout_alignParentRight="true" />
 
-		<ProgressBar android:id="@+id/calls1_progressbar"
-			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:padding="5dip" android:max="100"
-			style="?android:attr/progressBarStyleHorizontal"
-			android:layout_below="@id/calls2_out_" />
+			<TextView android:id="@+id/calls1_out_" android:text="@string/out_calls"
+				android:paddingLeft="10dip" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_below="@id/calls_in_" />
+			<TextView android:id="@+id/calls1_out" android:paddingRight="5dip"
+				android:gravity="right" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_alignTop="@id/calls1_out_"
+				android:layout_alignParentRight="true" />
 
-		<ProgressBar android:id="@+id/calls2_progressbar"
-			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:padding="5dip" android:max="100"
-			style="?android:attr/progressBarStyleHorizontal"
-			android:layout_below="@id/calls1_progressbar" />
+			<TextView android:id="@+id/calls2_out_" android:text="@string/out_calls"
+				android:paddingLeft="10dip" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_below="@id/calls1_out_" />
+			<TextView android:id="@+id/calls2_out" android:paddingRight="5dip"
+				android:gravity="right" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_alignTop="@id/calls2_out_"
+				android:layout_alignParentRight="true" />
 
-		<!--  end calls -->
-		<!--  sms common-->
+			<ProgressBar android:id="@+id/calls1_progressbar"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:padding="5dip" android:max="100"
+				style="?android:attr/progressBarStyleHorizontal"
+				android:layout_below="@id/calls2_out_" />
 
-		<TextView android:id="@+id/sms_" android:text="@string/sms"
-			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:paddingTop="5dip" android:gravity="center" android:textStyle="bold"
-			android:layout_below="@id/calls2_progressbar" />
+			<ProgressBar android:id="@+id/calls2_progressbar"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:padding="5dip" android:max="100"
+				style="?android:attr/progressBarStyleHorizontal"
+				android:layout_below="@id/calls1_progressbar" />
 
-		<TextView android:id="@+id/sms_billdate_" android:text="@string/billdate_"
-			android:paddingLeft="5dip" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_below="@id/sms_" />
-		<TextView android:id="@+id/sms_billdate"
-			android:paddingRight="5dip" android:gravity="right"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_alignTop="@id/sms_billdate_"
-			android:layout_alignParentRight="true" />
+			<!--  end calls -->
+			<!--  sms common-->
 
-		<!-- real calls -->
+			<TextView android:id="@+id/sms_" android:text="@string/sms"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:paddingTop="5dip" android:gravity="center"
+				android:textStyle="bold" android:layout_below="@id/calls2_progressbar" />
 
-		<TextView android:id="@+id/sms_in_" android:text="@string/in"
-			android:paddingLeft="10dip" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_below="@id/sms_billdate_" />
-		<TextView android:id="@+id/sms_in" android:paddingRight="5dip"
-			android:gravity="right" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_alignTop="@id/sms_in_"
-			android:layout_alignParentRight="true" />
+			<TextView android:id="@+id/sms_billdate_" android:text="@string/billdate_"
+				android:paddingLeft="5dip" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_below="@id/sms_" />
+			<TextView android:id="@+id/sms_billdate"
+				android:paddingRight="5dip" android:gravity="right"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_alignTop="@id/sms_billdate_"
+				android:layout_alignParentRight="true" />
 
-		<TextView android:id="@+id/sms1_out_" android:text="@string/out_sms"
-			android:paddingLeft="10dip" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_below="@id/sms_in_" />
-		<TextView android:id="@+id/sms1_out" android:paddingRight="5dip"
-			android:gravity="right" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_alignTop="@id/sms1_out_"
-			android:layout_alignParentRight="true" />
+			<!-- real calls -->
 
-		<TextView android:id="@+id/sms2_out_" android:text="@string/out_sms"
-			android:paddingLeft="10dip" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_below="@id/sms1_out_" />
-		<TextView android:id="@+id/sms2_out" android:paddingRight="5dip"
-			android:gravity="right" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_alignTop="@id/sms2_out_"
-			android:layout_alignParentRight="true" />
+			<TextView android:id="@+id/sms_in_" android:text="@string/in"
+				android:paddingLeft="10dip" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_below="@id/sms_billdate_" />
+			<TextView android:id="@+id/sms_in" android:paddingRight="5dip"
+				android:gravity="right" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_alignTop="@id/sms_in_"
+				android:layout_alignParentRight="true" />
 
-		<ProgressBar android:id="@+id/sms1_progressbar"
-			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:padding="5dip" android:max="100"
-			style="?android:attr/progressBarStyleHorizontal"
-			android:layout_below="@id/sms2_out_" />
+			<TextView android:id="@+id/sms1_out_" android:text="@string/out_sms"
+				android:paddingLeft="10dip" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_below="@id/sms_in_" />
+			<TextView android:id="@+id/sms1_out" android:paddingRight="5dip"
+				android:gravity="right" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_alignTop="@id/sms1_out_"
+				android:layout_alignParentRight="true" />
 
-		<ProgressBar android:id="@+id/sms2_progressbar"
-			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:padding="5dip" android:max="100"
-			style="?android:attr/progressBarStyleHorizontal"
-			android:layout_below="@id/sms1_progressbar" />
+			<TextView android:id="@+id/sms2_out_" android:text="@string/out_sms"
+				android:paddingLeft="10dip" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_below="@id/sms1_out_" />
+			<TextView android:id="@+id/sms2_out" android:paddingRight="5dip"
+				android:gravity="right" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_alignTop="@id/sms2_out_"
+				android:layout_alignParentRight="true" />
 
-		<!-- end sms -->
+			<ProgressBar android:id="@+id/sms1_progressbar"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:padding="5dip" android:max="100"
+				style="?android:attr/progressBarStyleHorizontal"
+				android:layout_below="@id/sms2_out_" />
 
-		<com.admob.android.ads.AdView android:id="@+id/ad"
-			android:visibility="gone" android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:layout_alignParentBottom="true"
-			app:keywords="android mobile handy cellphone google htc market app report calls game" />
+			<ProgressBar android:id="@+id/sms2_progressbar"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:padding="5dip" android:max="100"
+				style="?android:attr/progressBarStyleHorizontal"
+				android:layout_below="@id/sms1_progressbar" />
 
-	</RelativeLayout>
-</ScrollView>
+			<!-- end sms -->
+		</RelativeLayout>
+	</ScrollView>
+</RelativeLayout>
