@@ -24,53 +24,53 @@
 		<PreferenceScreen android:title="@string/plans_split"
 			android:summary="@string/plan1_hint" android:dependency="plans_split">
 			<PreferenceScreen android:title="@string/monday">
-				<CheckBoxPreference android:key="hours_1_0"
+				<CheckBoxPreference android:key="hours_1_1_0"
 					android:title="@string/hours_0" />
-				<CheckBoxPreference android:key="hours_1_1"
+				<CheckBoxPreference android:key="hours_1_1_1"
 					android:title="@string/hours_1" />
-				<CheckBoxPreference android:key="hours_1_2"
+				<CheckBoxPreference android:key="hours_1_1_2"
 					android:title="@string/hours_2" />
-				<CheckBoxPreference android:key="hours_1_3"
+				<CheckBoxPreference android:key="hours_1_1_3"
 					android:title="@string/hours_3" />
-				<CheckBoxPreference android:key="hours_1_4"
+				<CheckBoxPreference android:key="hours_1_1_4"
 					android:title="@string/hours_4" />
-				<CheckBoxPreference android:key="hours_1_5"
+				<CheckBoxPreference android:key="hours_1_1_5"
 					android:title="@string/hours_5" />
-				<CheckBoxPreference android:key="hours_1_6"
+				<CheckBoxPreference android:key="hours_1_1_6"
 					android:title="@string/hours_6" />
-				<CheckBoxPreference android:key="hours_1_7"
+				<CheckBoxPreference android:key="hours_1_1_7"
 					android:title="@string/hours_7" />
-				<CheckBoxPreference android:key="hours_1_8"
+				<CheckBoxPreference android:key="hours_1_1_8"
 					android:title="@string/hours_8" />
-				<CheckBoxPreference android:key="hours_1_9"
+				<CheckBoxPreference android:key="hours_1_1_9"
 					android:title="@string/hours_9" />
-				<CheckBoxPreference android:key="hours_1_10"
+				<CheckBoxPreference android:key="hours_1_1_10"
 					android:title="@string/hours_10" />
-				<CheckBoxPreference android:key="hours_1_11"
+				<CheckBoxPreference android:key="hours_1_1_11"
 					android:title="@string/hours_11" />
-				<CheckBoxPreference android:key="hours_1_12"
+				<CheckBoxPreference android:key="hours_1_1_12"
 					android:title="@string/hours_12" />
-				<CheckBoxPreference android:key="hours_1_13"
+				<CheckBoxPreference android:key="hours_1_1_13"
 					android:title="@string/hours_13" />
-				<CheckBoxPreference android:key="hours_1_14"
+				<CheckBoxPreference android:key="hours_1_1_14"
 					android:title="@string/hours_14" />
-				<CheckBoxPreference android:key="hours_1_15"
+				<CheckBoxPreference android:key="hours_1_1_15"
 					android:title="@string/hours_15" />
-				<CheckBoxPreference android:key="hours_1_16"
+				<CheckBoxPreference android:key="hours_1_1_16"
 					android:title="@string/hours_16" />
-				<CheckBoxPreference android:key="hours_1_17"
+				<CheckBoxPreference android:key="hours_1_1_17"
 					android:title="@string/hours_17" />
-				<CheckBoxPreference android:key="hours_1_18"
+				<CheckBoxPreference android:key="hours_1_1_18"
 					android:title="@string/hours_18" />
-				<CheckBoxPreference android:key="hours_1_19"
+				<CheckBoxPreference android:key="hours_1_1_19"
 					android:title="@string/hours_19" />
-				<CheckBoxPreference android:key="hours_1_20"
+				<CheckBoxPreference android:key="hours_1_1_20"
 					android:title="@string/hours_20" />
-				<CheckBoxPreference android:key="hours_1_21"
+				<CheckBoxPreference android:key="hours_1_1_21"
 					android:title="@string/hours_21" />
-				<CheckBoxPreference android:key="hours_1_22"
+				<CheckBoxPreference android:key="hours_1_1_22"
 					android:title="@string/hours_22" />
-				<CheckBoxPreference android:key="hours_1_23"
+				<CheckBoxPreference android:key="hours_1_1_23"
 					android:title="@string/hours_23" />
 			</PreferenceScreen>
 			<PreferenceScreen android:title="@string/tuesday">
@@ -388,22 +388,22 @@
 				android:entries="@array/modes_" android:entryValues="@array/modes"
 				android:dialogTitle="@string/billmode_" android:summary="@string/billmode_hint" />
 			<PreferenceCategory android:title="@string/plan1">
-				<CheckBoxPreference android:key="plan1_freecalls"
+				<CheckBoxPreference android:key="plan1_total_free_calls"
 					android:title="@string/plan_free_" android:disableDependentsState="true"
 					android:summary="@string/free_hint" />
 				<EditTextPreference android:key="plan1_freemin"
 					android:title="@string/plan_freemin_" android:dialogTitle="@string/plan_freemin_"
-					android:inputType="number" android:dependency="plan1_freecalls"
+					android:inputType="number" android:dependency="plan1_total_free_calls"
 					android:summary="@string/freemin_hint" />
 			</PreferenceCategory>
 			<PreferenceCategory android:title="@string/plan2"
 				android:dependency="plans_split">
-				<CheckBoxPreference android:key="plan2_freecalls"
+				<CheckBoxPreference android:key="plan2_total_free_calls"
 					android:title="@string/plan_free_" android:disableDependentsState="true"
 					android:summary="@string/free_hint" android:dependency="plans_split" />
 				<EditTextPreference android:key="plan2_freemin"
 					android:title="@string/plan_freemin_" android:dialogTitle="@string/plan_freemin_"
-					android:inputType="number" android:dependency="plan2_freecalls"
+					android:inputType="number" android:dependency="plan2_total_free_calls"
 					android:summary="@string/freemin_hint" />
 			</PreferenceCategory>
 		</PreferenceScreen>
@@ -417,23 +417,24 @@
 				android:key="smsbillday" android:title="@string/smsbillday_"
 				android:entries="@array/days" android:entryValues="@array/days"
 				android:dialogTitle="@string/smsbillday_" />
-			<PreferenceCategory android:title="@string/plan1">
-				<CheckBoxPreference android:key="plan1_freesms"
+			<PreferenceCategory android:title="@string/plan1"
+				android:dependency="plans_split">
+				<CheckBoxPreference android:key="plan1_total_free_sms"
 					android:title="@string/plan_free_" android:disableDependentsState="true"
-					android:summary="@string/free_hint" />
+					android:summary="@string/free_hint" android:dependency="plans_split" />
 				<EditTextPreference android:key="plan1_freesms"
 					android:title="@string/plan_freesms_" android:dialogTitle="@string/plan_freesms_"
-					android:inputType="number" android:dependency="plan1_freesms"
+					android:inputType="number" android:dependency="plan1_total_free_sms"
 					android:summary="@string/freesms_hint" />
 			</PreferenceCategory>
 			<PreferenceCategory android:title="@string/plan2"
 				android:dependency="plans_split">
-				<CheckBoxPreference android:key="plan2_freesms"
+				<CheckBoxPreference android:key="plan2_total_free_sms"
 					android:title="@string/plan_free_" android:disableDependentsState="true"
 					android:summary="@string/free_hint" android:dependency="plans_split" />
 				<EditTextPreference android:key="plan2_freesms"
 					android:title="@string/plan_freesms_" android:dialogTitle="@string/plan_freesms_"
-					android:inputType="number" android:dependency="plan2_freesms"
+					android:inputType="number" android:dependency="plan2_total_free_sms"
 					android:summary="@string/freesms_hint" />
 			</PreferenceCategory>
 		</PreferenceScreen>

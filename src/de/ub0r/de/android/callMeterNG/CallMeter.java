@@ -75,6 +75,8 @@ public class CallMeter extends Activity {
 	private static final int DAYS_WEEK = 7;
 	/** Hours of a day. */
 	private static final int HOURS_DAY = 24;
+	/** Seconds of a minute. */
+	private static final int SECONDS_MINUTE = 60;
 
 	/** Prefs: name for last version run. */
 	private static final String PREFS_LAST_RUN = "lastrun";
@@ -86,24 +88,28 @@ public class CallMeter extends Activity {
 	private static final String PREFS_SMSPERIOD = "smsperiod";
 	/** Prefs: name for smsbillday. */
 	private static final String PREFS_SMSBILLDAY = "smsbillday";
-	/** Prefs: name for free min. */
-	private static final String PREFS_FREEMIN = "freemin";
-	/** Prefs: name for free sms. */
-	private static final String PREFS_FREESMS = "freesms";
 
-	/** Prefs: name for freedays calls. */
-	private static final String PREFS_FREEDAYS_CALL = "freedays_call";
-	/** Prefs: name for freedays sms. */
-	private static final String PREFS_FREEDAYS_SMS = "freedays_sms";
-	/** Prefs: name for freedays .... */
-	private static final String PREFS_FREEDAYS_ = "freedays_";
+	/** Prefs: split plans. */
+	private static final String PREFS_SPLIT_PLANS = "plans_split";
+	/** Prefs: hours for plan 1. */
+	private static final String PREFS_PLAN1_HOURS_PREFIX = "hours_1_";
 
-	/** Prefs: name for freehours calls. */
-	private static final String PREFS_FREEHOURS_CALL = "freehours_call";
-	/** Prefs: name for freehours sms. */
-	private static final String PREFS_FREEHOURS_SMS = "freehours_sms";
-	/** Prefs: name for freehours .... */
-	private static final String PREFS_FREEHOURS_ = "freehours_";
+	/** Prefs: plan1 totally free calls. */
+	private static final String PREFS_PLAN1_T_FREE_CALLS = "plan1_total_free_calls";
+	/** Prefs: plan1 free minutes. */
+	private static final String PREFS_PLAN1_FREEMIN = "plan1_freemin";
+	/** Prefs: plan1 totally free sms. */
+	private static final String PREFS_PLAN1_T_FREE_SMS = "plan1_total_free_sms";
+	/** Prefs: plan1 free sms. */
+	private static final String PREFS_PLAN1_FREESMS = "plan1_freesms";
+	/** Prefs: plan1 totally free calls. */
+	private static final String PREFS_PLAN2_T_FREE_CALLS = "plan2_total_free_calls";
+	/** Prefs: plan1 free minutes. */
+	private static final String PREFS_PLAN2_FREEMIN = "plan2_freemin";
+	/** Prefs: plan1 totally free sms. */
+	private static final String PREFS_PLAN2_T_FREE_SMS = "plan2_total_free_sms";
+	/** Prefs: plan1 free sms. */
+	private static final String PREFS_PLAN2_FREESMS = "plan2_freesms";
 
 	/** Prefs: name for all old calls in. */
 	private static final String PREFS_ALL_CALLS_IN = "all_calls_in";
@@ -305,18 +311,21 @@ public class CallMeter extends Activity {
 	 */
 	class Updater extends AsyncTask<Void, Void, Integer[]> {
 		/** Status Strings. */
-		private String callsIn, callsOut, callsBillDate, smsIn, smsOut,
-				smsBillDate;
+		private String callsIn, callsOut1, callsOut2, callsBillDate, smsIn,
+				smsOut1, smsOut2, smsBillDate;
 		/** Status TextViews. */
-		private TextView twCallsIn, twCallsOut, twCallsBillDate, twSMSIn,
-				twSMSOut, twSMSBillDate;
+		private TextView twCallsIn, twCallsOut1, twCallsOut2, twCallsBillDate,
+				twSMSIn, twSMSOut1, twSMSOut2, twSMSBillDate;
 		/** Status ProgressBars. */
-		private ProgressBar pbCalls, pbSMS;
+		private ProgressBar pbCalls1, pbCalls2, pbSMS1, pbSMS2;
 
 		/** Sum of old calls/sms loaded/saved from preferences. */
 		private int allCallsIn, allCallsOut, allSMSIn, allSMSOut;
 		/** Date of when calls/sms are "old". */
 		private long allOldDate = 0;
+
+		/** Update string every.. rounds */
+		private static final int UPDATE_INTERVAL = 50;
 
 		/**
 		 * Parse number of seconds to a readable time format.
@@ -439,42 +448,45 @@ public class CallMeter extends Activity {
 		}
 
 		/**
-		 * Is the call/sms billed?
+		 * Load plans from preferences.
 		 * 
-		 * @param checkFreeDays
-		 *            check freeDays
-		 * @param freeDays
-		 *            array of free days / week
-		 * @param checkFreeHours
-		 *            check freeHours
-		 * @param freeHours
-		 *            array of free hours / day
-		 * @param d
-		 *            date
-		 * @return is billed?
+		 * @param p
+		 *            {@link SharedPreferences} to read plans from
+		 * @return null if plans aren't splitetd, else true for all hours in
+		 *         plan1
 		 */
-		private boolean isBilled(final boolean checkFreeDays,
-				final boolean[] freeDays, final boolean checkFreeHours,
-				final boolean[] freeHours, final long d) {
-			if (d < 0) {
-				return true;
+		private boolean[][] loadPlans(final SharedPreferences p) {
+			if (p.getBoolean(PREFS_SPLIT_PLANS, false)) {
+				return null;
 			}
-			if (freeDays == null && freeHours == null) {
+			boolean[][] ret = new boolean[DAYS_WEEK][HOURS_DAY];
+			for (int day = 0; day < DAYS_WEEK; day++) {
+				for (int hour = 0; hour < HOURS_DAY; hour++) {
+					ret[day][hour] = p.getBoolean(PREFS_PLAN1_HOURS_PREFIX
+							+ day + "_" + hour, false);
+				}
+			}
+			return ret;
+		}
+
+		/**
+		 * Check whether this a timesstamp is part of plan 1.
+		 * 
+		 * @param plans
+		 *            plans
+		 * @param d
+		 *            timestamp
+		 * @return true if timestamp is part of plan 1
+		 */
+		private boolean isPlan1(final boolean[][] plans, final long d) {
+			if (plans == null || d < 0) {
 				return true;
 			}
 			Calendar date = Calendar.getInstance();
 			date.setTimeInMillis(d);
-			if (checkFreeDays && freeDays != null) {
-				if (freeDays[(date.get(Calendar.DAY_OF_WEEK) + 5) % 7]) {
-					return false;
-				}
-			}
-			if (checkFreeHours && freeHours != null) {
-				if (freeHours[date.get(Calendar.HOUR_OF_DAY)]) {
-					return false;
-				}
-			}
-			return true;
+			final int day = (date.get(Calendar.DAY_OF_WEEK) + 5) % DAYS_WEEK;
+			final int hour = date.get(Calendar.HOUR_OF_DAY);
+			return plans[day][hour];
 		}
 
 		/**
@@ -483,11 +495,13 @@ public class CallMeter extends Activity {
 		private void updateText() {
 			this.twCallsBillDate.setText(this.callsBillDate);
 			this.twCallsIn.setText(this.callsIn);
-			this.twCallsOut.setText(this.callsOut);
+			this.twCallsOut1.setText(this.callsOut1);
+			this.twCallsOut2.setText(this.callsOut2);
 
 			this.twSMSBillDate.setText(this.smsBillDate);
 			this.twSMSIn.setText(this.smsIn);
-			this.twSMSOut.setText(this.smsOut);
+			this.twSMSOut1.setText(this.smsOut1);
+			this.twSMSOut2.setText(this.smsOut2);
 		}
 
 		/**
@@ -507,8 +521,8 @@ public class CallMeter extends Activity {
 				final int all, final boolean calls) {
 			if (limit > 0) {
 				if (calls) {
-					return ((thisPeriod * 100) / (limit * 60)) + "% / "
-							+ this.getTime(thisPeriod) + " / "
+					return ((thisPeriod * 100) / (limit * SECONDS_MINUTE))
+							+ "% / " + this.getTime(thisPeriod) + " / "
 							+ this.getTime(all);
 				} else {
 					return ((thisPeriod * 100) / limit) + "% / " + thisPeriod
@@ -538,84 +552,76 @@ public class CallMeter extends Activity {
 			this.allSMSOut = CallMeter.preferences.getInt(PREFS_ALL_SMS_OUT, 0);
 			this.allOldDate = CallMeter.preferences.getLong(PREFS_DATE_OLD, 0);
 
-			this.pbCalls = (ProgressBar) CallMeter.this
+			this.pbCalls1 = (ProgressBar) CallMeter.this
 					.findViewById(R.id.calls1_progressbar);
-			this.pbSMS = (ProgressBar) CallMeter.this
-					.findViewById(R.id.sms1_progressbar);
+			this.pbCalls2 = (ProgressBar) CallMeter.this
+					.findViewById(R.id.calls2_progressbar);
 
-			this.pbCalls.setProgress(0);
-			this.pbCalls.setIndeterminate(false);
-			this.pbSMS.setProgress(0);
-			this.pbCalls.setVisibility(View.VISIBLE);
-			this.pbSMS.setVisibility(View.VISIBLE);
+			this.pbSMS1 = (ProgressBar) CallMeter.this
+					.findViewById(R.id.sms1_progressbar);
+			this.pbSMS2 = (ProgressBar) CallMeter.this
+					.findViewById(R.id.sms2_progressbar);
+
+			this.pbCalls1.setProgress(0);
+			this.pbCalls1.setIndeterminate(false);
+			this.pbCalls1.setVisibility(View.VISIBLE);
+			this.pbCalls2.setProgress(0);
+			this.pbCalls2.setIndeterminate(false);
+			this.pbCalls2.setVisibility(View.VISIBLE);
+			this.pbSMS1.setProgress(0);
+			this.pbSMS1.setIndeterminate(false);
+			this.pbSMS1.setVisibility(View.VISIBLE);
+			this.pbSMS2.setProgress(0);
+			this.pbSMS2.setIndeterminate(false);
+			this.pbSMS2.setVisibility(View.VISIBLE);
 
 			this.twCallsIn = (TextView) CallMeter.this
 					.findViewById(R.id.calls_in);
-			this.twCallsOut = (TextView) CallMeter.this
+			this.twCallsOut1 = (TextView) CallMeter.this
 					.findViewById(R.id.calls1_out);
+			this.twCallsOut2 = (TextView) CallMeter.this
+					.findViewById(R.id.calls2_out);
 			this.twCallsBillDate = (TextView) CallMeter.this
 					.findViewById(R.id.calls_billdate);
 			this.twSMSIn = (TextView) CallMeter.this.findViewById(R.id.sms_in);
-			this.twSMSOut = (TextView) CallMeter.this
+			this.twSMSOut1 = (TextView) CallMeter.this
 					.findViewById(R.id.sms1_out);
+			this.twSMSOut2 = (TextView) CallMeter.this
+					.findViewById(R.id.sms2_out);
 			this.twSMSBillDate = (TextView) CallMeter.this
 					.findViewById(R.id.sms_billdate);
 
 			this.callsBillDate = "?";
 			this.callsIn = "?";
-			this.callsOut = "?";
+			this.callsOut1 = "?";
+			this.callsOut2 = "?";
 			this.smsBillDate = "?";
 			this.smsIn = "?";
-			this.smsOut = "?";
+			this.smsOut1 = "?";
+			this.smsOut2 = "?";
 
 			this.updateText();
 		}
 
 		/**
-		 * Run in backgrund.
+		 * Walk calls.
 		 * 
-		 * @param arg0
-		 *            Void[]
-		 * @return status
+		 * @param plans
+		 *            array of plans
+		 * @param calBillDate
+		 *            Date of billdate
+		 * @param oldDate
+		 *            old date
+		 * @param status
+		 *            status to return
 		 */
-		@Override
-		protected Integer[] doInBackground(final Void... arg0) {
-			Integer[] ret = { 0, 0, 1, 1 };
-			// report basics
-			Calendar calBillDate = this.getBillDate(Integer
-					.parseInt(CallMeter.preferences.getString(PREFS_BILLDAY,
-							"0")));
-			long billDate = calBillDate.getTimeInMillis();
-			final long oldDate = this.getOldDate();
+		private void walkCalls(final boolean[][] plans,
+				final Calendar calBillDate, final long oldDate,
+				final Integer[] status) {
 
 			this.callsBillDate = DateFormat.getDateFormat(CallMeter.this)
 					.format(calBillDate.getTime());
-
-			// get not free days/timeslots
-			final boolean freeDaysCalls = CallMeter.preferences.getBoolean(
-					PREFS_FREEDAYS_CALL, false);
-			final boolean freeDaysSMS = CallMeter.preferences.getBoolean(
-					PREFS_FREEDAYS_SMS, false);
-			boolean[] freeDays = null;
-			if (freeDaysCalls || freeDaysSMS) {
-				freeDays = new boolean[DAYS_WEEK];
-				for (int i = 0; i < DAYS_WEEK; i++) {
-					freeDays[i] = CallMeter.preferences.getBoolean(
-							PREFS_FREEDAYS_ + (i + 1), false);
-				}
-			}
-			final boolean freeHoursCalls = CallMeter.preferences.getBoolean(
-					PREFS_FREEHOURS_CALL, false);
-			final boolean freeHoursSMS = CallMeter.preferences.getBoolean(
-					PREFS_FREEHOURS_SMS, false);
-			boolean[] freeHours = null;
-			if (freeHoursCalls || freeHoursSMS) {
-				freeHours = new boolean[HOURS_DAY];
-				for (int i = 0; i < HOURS_DAY; i++) {
-					freeHours[i] = CallMeter.preferences.getBoolean(
-							PREFS_FREEHOURS_ + i, false);
-				}
-			}
+			long billDate = calBillDate.getTimeInMillis();
 
 			final String[] excludeNumbers = CallMeter.prefsExcludePeople
 					.toArray(new String[1]);
@@ -632,14 +638,31 @@ public class CallMeter extends Activity {
 			int durIn = this.allCallsIn;
 			int durOut = this.allCallsOut;
 			int durInMonth = 0;
-			int durOutMonth = 0;
-			String s = CallMeter.preferences.getString(PREFS_FREEMIN, "0");
-			int free = 0;
-			if (s.length() > 0) {
-				free = Integer.parseInt(s);
+			int durOut1Month = 0;
+			int durOut2Month = 0;
+			int free1 = 0; // -1 -> totally free
+			int free2 = 0;
+			if (CallMeter.preferences.getBoolean(PREFS_PLAN1_T_FREE_CALLS,
+					false)) {
+				free1 = -1;
+			} else {
+				String s = CallMeter.preferences.getString(PREFS_PLAN1_FREEMIN,
+						"0");
+				if (s.length() > 0) {
+					free1 = Integer.parseInt(s);
+				}
 			}
-			s = null;
-
+			if (CallMeter.preferences.getBoolean(PREFS_PLAN2_T_FREE_CALLS,
+					false)) {
+				free2 = -1;
+			} else {
+				String s = CallMeter.preferences.getString(PREFS_PLAN2_FREEMIN,
+						"0");
+				if (s.length() > 0) {
+					free2 = Integer.parseInt(s);
+				}
+			}
+			// walk through log
 			if (cur.moveToFirst()) {
 				int type;
 				long d;
@@ -650,6 +673,7 @@ public class CallMeter extends Activity {
 				final int idNumber = cur.getColumnIndex(Calls.NUMBER);
 				int t = 0;
 				int i = 0;
+				boolean p = true;
 				boolean check = true;
 				do {
 					type = cur.getInt(idType);
@@ -668,18 +692,20 @@ public class CallMeter extends Activity {
 						t = cur.getInt(idDuration);
 						durOut += t;
 						if (billDate <= d) {
-							if (this.isBilled(freeDaysCalls, freeDays,
-									freeHoursCalls, freeHours, d)) {
-								check = true;
-								n = cur.getString(idNumber);
-								for (int j = 1; j < excludeNumbersSize; j++) {
-									if (n.equals(excludeNumbers[j])) {
-										check = false;
-										break;
-									}
+							check = true;
+							n = cur.getString(idNumber);
+							for (int j = 1; j < excludeNumbersSize; j++) {
+								if (n.equals(excludeNumbers[j])) {
+									check = false;
+									break;
 								}
-								if (check) {
-									durOutMonth += this.roundTime(t);
+							}
+							if (check) {
+								p = this.isPlan1(plans, d);
+								if (p) {
+									durOut1Month += this.roundTime(t);
+								} else {
+									durOut2Month += this.roundTime(t);
 								}
 							}
 						} else if (d < oldDate) {
@@ -690,46 +716,79 @@ public class CallMeter extends Activity {
 						break;
 					}
 					++i;
-					if (i % 50 == 1) {
+					if (i % UPDATE_INTERVAL == 1) {
 						this.callsIn = this.calcString(durInMonth, 0, durIn,
 								true);
-						this.callsOut = this.calcString(durOutMonth, free,
+						this.callsOut1 = this.calcString(durOut1Month, free1,
+								durOut, true);
+						this.callsOut2 = this.calcString(durOut2Month, free2,
 								durOut, true);
 						this.publishProgress((Void) null);
 					}
 				} while (cur.moveToNext());
 			}
 			this.callsIn = this.calcString(durInMonth, 0, durIn, true);
-			this.callsOut = this.calcString(durOutMonth, free, durOut, true);
+			this.callsOut1 = this.calcString(durOut1Month, free1, durOut, true);
+			this.callsOut2 = this.calcString(durOut2Month, free2, durOut, true);
 
-			ret[0] = durOutMonth;
-			ret[1] = free * 60;
+			status[0] = durOut1Month;
+			status[1] = free1 * SECONDS_MINUTE;
+			status[2] = durOut2Month;
+			status[3] = free2 * SECONDS_MINUTE;
 			this.publishProgress((Void) null);
+		}
 
-			// report sms
-			if (!CallMeter.preferences.getBoolean(PREFS_SMSPERIOD, false)) {
-				calBillDate = this.getBillDate(Integer
-						.parseInt(CallMeter.preferences.getString(
-								PREFS_SMSBILLDAY, "0")));
-				billDate = calBillDate.getTimeInMillis();
-
-			}
+		/**
+		 * Walk sms.
+		 * 
+		 * @param plans
+		 *            array of plans
+		 * @param calBillDate
+		 *            Date of billdate
+		 * @param oldDate
+		 *            old date
+		 * @param status
+		 *            status to return
+		 */
+		private void walkSMS(final boolean[][] plans,
+				final Calendar calBillDate, final long oldDate,
+				final Integer[] status) {
+			// report basics
 			this.smsBillDate = DateFormat.getDateFormat(CallMeter.this).format(
 					calBillDate.getTime());
-			projection = new String[] { Calls.TYPE, Calls.DATE, BODY };
-			cur = CallMeter.this.managedQuery(Uri.parse("content://sms"),
-					projection, Calls.DATE + " >= " + this.allOldDate, null,
-					Calls.DATE + " DESC");
-			s = CallMeter.preferences.getString(PREFS_FREESMS, "0");
-			free = 0;
-			if (s.length() > 0) {
-				free = Integer.parseInt(s);
+			final long billDate = calBillDate.getTimeInMillis();
+			final String[] projection = new String[] { Calls.TYPE, Calls.DATE,
+					BODY };
+			final Cursor cur = CallMeter.this.managedQuery(Uri
+					.parse("content://sms"), projection, Calls.DATE + " >= "
+					+ this.allOldDate, null, Calls.DATE + " DESC");
+			int free1 = 0;
+			int free2 = 0;
+			if (CallMeter.preferences.getBoolean(PREFS_PLAN1_T_FREE_SMS, false)) {
+				free1 = -1;
+			} else {
+				String s = CallMeter.preferences.getString(PREFS_PLAN1_FREESMS,
+						"0");
+				if (s.length() > 0) {
+					free1 = Integer.parseInt(s);
+				}
 			}
-			s = null;
+			if (CallMeter.preferences.getBoolean(PREFS_PLAN2_T_FREE_SMS, false)) {
+				free2 = -1;
+			} else {
+				String s = CallMeter.preferences.getString(PREFS_PLAN2_FREESMS,
+						"0");
+				if (s.length() > 0) {
+					free2 = Integer.parseInt(s);
+				}
+			}
+
 			int iSMSIn = this.allSMSIn;
 			int iSMSOut = this.allSMSOut;
 			int smsInMonth = 0;
-			int smsOutMonth = 0;
+			int smsOut1Month = 0;
+			int smsOut2Month = 0;
+			boolean p = true;
 			if (cur.moveToFirst()) {
 				int type;
 				long d;
@@ -755,9 +814,11 @@ public class CallMeter extends Activity {
 					case Calls.OUTGOING_TYPE:
 						iSMSOut += l;
 						if (billDate <= d) {
-							if (this.isBilled(freeDaysSMS, freeDays,
-									freeHoursSMS, freeHours, d)) {
-								smsOutMonth += l;
+							p = this.isPlan1(plans, d);
+							if (p) {
+								smsOut1Month += l;
+							} else {
+								smsOut2Month += l;
 							}
 						} else if (d < oldDate) {
 							this.allSMSOut += l;
@@ -767,10 +828,12 @@ public class CallMeter extends Activity {
 						break;
 					}
 					++i;
-					if (i % 50 == 1) {
+					if (i % UPDATE_INTERVAL == 1) {
 						this.smsIn = this.calcString(smsInMonth, 0, iSMSIn,
 								false);
-						this.smsOut = this.calcString(smsOutMonth, free,
+						this.smsOut1 = this.calcString(smsOut2Month, free1,
+								iSMSOut, false);
+						this.smsOut2 = this.calcString(smsOut2Month, free2,
 								iSMSOut, false);
 						this.publishProgress((Void) null);
 					}
@@ -778,12 +841,45 @@ public class CallMeter extends Activity {
 			}
 
 			this.smsIn = this.calcString(smsInMonth, 0, iSMSIn, false);
-			this.smsOut = this.calcString(smsOutMonth, free, iSMSOut, false);
+			this.smsOut1 = this.calcString(smsOut2Month, free1, iSMSOut, false);
+			this.smsOut2 = this.calcString(smsOut2Month, free2, iSMSOut, false);
+
+			status[4] = smsOut1Month;
+			status[5] = free1;
+			status[6] = smsOut2Month;
+			status[7] = free2;
+		}
+
+		/**
+		 * Run in backgrund.
+		 * 
+		 * @param arg0
+		 *            Void[]
+		 * @return status
+		 */
+		@Override
+		protected Integer[] doInBackground(final Void... arg0) {
+
+			// load splitted plans
+			final boolean[][] plans = this.loadPlans(CallMeter.preferences);
+			final long oldDate = this.getOldDate();
+
+			// progressbar positions: calls1_pos, calls1_max, calls2_*, sms*
+			final Integer[] ret = { 0, 0, 0, 0, 1, 1, 1, 1 };
+			Calendar calBillDate = this.getBillDate(Integer
+					.parseInt(CallMeter.preferences.getString(PREFS_BILLDAY,
+							"0")));
+			this.walkCalls(plans, calBillDate, oldDate, ret);
+
+			// report sms
+			if (!CallMeter.preferences.getBoolean(PREFS_SMSPERIOD, false)) {
+				calBillDate = this.getBillDate(Integer
+						.parseInt(CallMeter.preferences.getString(
+								PREFS_SMSBILLDAY, "0")));
+			}
+			this.walkSMS(plans, calBillDate, oldDate, ret);
 
 			this.allOldDate = oldDate;
-
-			ret[2] = smsOutMonth;
-			ret[3] = free;
 
 			return ret;
 		}
@@ -808,15 +904,43 @@ public class CallMeter extends Activity {
 		@Override
 		protected final void onPostExecute(final Integer[] result) {
 			this.updateText();
+
+			// calls
+			ProgressBar pb1 = this.pbCalls1;
+			ProgressBar pb2 = this.pbCalls2;
 			if (result[1] > 0) {
-				this.pbCalls.setMax(result[1]);
-				this.pbCalls.setProgress(result[0]);
-				this.pbCalls.setVisibility(View.VISIBLE);
+				pb1.setMax(result[1]);
+				pb1.setProgress(result[0]);
+				pb1.setVisibility(View.VISIBLE);
+			} else {
+				pb2.setVisibility(View.INVISIBLE);
+				pb2 = this.pbCalls1;
 			}
 			if (result[3] > 0) {
-				this.pbSMS.setProgress(result[2]);
-				this.pbSMS.setMax(result[3]);
-				this.pbSMS.setVisibility(View.VISIBLE);
+				pb2.setMax(result[3]);
+				pb2.setProgress(result[2]);
+				pb2.setVisibility(View.VISIBLE);
+			} else {
+				pb2.setVisibility(View.INVISIBLE);
+			}
+
+			// sms
+			pb1 = this.pbSMS1;
+			pb2 = this.pbSMS2;
+			if (result[5] > 0) {
+				pb1.setProgress(result[4]);
+				pb1.setMax(result[5]);
+				pb1.setVisibility(View.VISIBLE);
+			} else {
+				pb2.setVisibility(View.INVISIBLE);
+				pb2 = this.pbSMS1;
+			}
+			if (result[7] > 0) {
+				pb2.setMax(result[7]);
+				pb2.setProgress(result[6]);
+				pb2.setVisibility(View.VISIBLE);
+			} else {
+				pb2.setVisibility(View.INVISIBLE);
 			}
 
 			// save old values to database
