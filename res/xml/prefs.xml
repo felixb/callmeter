@@ -19,8 +19,10 @@
 	-->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 	<PreferenceCategory android:title="@string/plans">
-		<PreferenceScreen android:title="@string/plan1"
-			android:summary="@string/plan_hint">
+		<CheckBoxPreference android:key="plans_split"
+			android:title="@string/plans_split" android:summary="@string/plans_split_hint" />
+		<PreferenceScreen android:title="@string/plans_split"
+			android:summary="@string/plan1_hint" android:dependency="plans_split">
 			<PreferenceScreen android:title="@string/monday">
 				<CheckBoxPreference android:key="hours_1_0"
 					android:title="@string/hours_0" />
@@ -372,363 +374,12 @@
 					android:title="@string/hours_23" />
 			</PreferenceScreen>
 		</PreferenceScreen>
-		<CheckBoxPreference android:key="plan2_enable"
-			android:title="@string/plan2_enable" />
-		<PreferenceScreen android:title="@string/plan2"
-			android:summary="@string/plan_hint" android:dependency="plan2_enable">
-			<PreferenceScreen android:title="@string/monday">
-				<CheckBoxPreference android:key="hours_2_0"
-					android:title="@string/hours_0" />
-				<CheckBoxPreference android:key="hours_2_1"
-					android:title="@string/hours_1" />
-				<CheckBoxPreference android:key="hours_2_2"
-					android:title="@string/hours_2" />
-				<CheckBoxPreference android:key="hours_2_3"
-					android:title="@string/hours_3" />
-				<CheckBoxPreference android:key="hours_2_4"
-					android:title="@string/hours_4" />
-				<CheckBoxPreference android:key="hours_2_5"
-					android:title="@string/hours_5" />
-				<CheckBoxPreference android:key="hours_2_6"
-					android:title="@string/hours_6" />
-				<CheckBoxPreference android:key="hours_2_7"
-					android:title="@string/hours_7" />
-				<CheckBoxPreference android:key="hours_2_8"
-					android:title="@string/hours_8" />
-				<CheckBoxPreference android:key="hours_2_9"
-					android:title="@string/hours_9" />
-				<CheckBoxPreference android:key="hours_2_10"
-					android:title="@string/hours_10" />
-				<CheckBoxPreference android:key="hours_2_11"
-					android:title="@string/hours_11" />
-				<CheckBoxPreference android:key="hours_2_12"
-					android:title="@string/hours_12" />
-				<CheckBoxPreference android:key="hours_2_13"
-					android:title="@string/hours_13" />
-				<CheckBoxPreference android:key="hours_2_14"
-					android:title="@string/hours_14" />
-				<CheckBoxPreference android:key="hours_2_15"
-					android:title="@string/hours_15" />
-				<CheckBoxPreference android:key="hours_2_16"
-					android:title="@string/hours_16" />
-				<CheckBoxPreference android:key="hours_2_17"
-					android:title="@string/hours_17" />
-				<CheckBoxPreference android:key="hours_2_18"
-					android:title="@string/hours_18" />
-				<CheckBoxPreference android:key="hours_2_19"
-					android:title="@string/hours_19" />
-				<CheckBoxPreference android:key="hours_2_20"
-					android:title="@string/hours_20" />
-				<CheckBoxPreference android:key="hours_2_21"
-					android:title="@string/hours_21" />
-				<CheckBoxPreference android:key="hours_2_22"
-					android:title="@string/hours_22" />
-				<CheckBoxPreference android:key="hours_2_23"
-					android:title="@string/hours_23" />
-			</PreferenceScreen>
-			<PreferenceScreen android:title="@string/tuesday">
-				<CheckBoxPreference android:key="hours_2_2_0"
-					android:title="@string/hours_0" />
-				<CheckBoxPreference android:key="hours_2_2_1"
-					android:title="@string/hours_1" />
-				<CheckBoxPreference android:key="hours_2_2_2"
-					android:title="@string/hours_2" />
-				<CheckBoxPreference android:key="hours_2_2_3"
-					android:title="@string/hours_3" />
-				<CheckBoxPreference android:key="hours_2_2_4"
-					android:title="@string/hours_4" />
-				<CheckBoxPreference android:key="hours_2_2_5"
-					android:title="@string/hours_5" />
-				<CheckBoxPreference android:key="hours_2_2_6"
-					android:title="@string/hours_6" />
-				<CheckBoxPreference android:key="hours_2_2_7"
-					android:title="@string/hours_7" />
-				<CheckBoxPreference android:key="hours_2_2_8"
-					android:title="@string/hours_8" />
-				<CheckBoxPreference android:key="hours_2_2_9"
-					android:title="@string/hours_9" />
-				<CheckBoxPreference android:key="hours_2_2_10"
-					android:title="@string/hours_10" />
-				<CheckBoxPreference android:key="hours_2_2_11"
-					android:title="@string/hours_11" />
-				<CheckBoxPreference android:key="hours_2_2_12"
-					android:title="@string/hours_12" />
-				<CheckBoxPreference android:key="hours_2_2_13"
-					android:title="@string/hours_13" />
-				<CheckBoxPreference android:key="hours_2_2_14"
-					android:title="@string/hours_14" />
-				<CheckBoxPreference android:key="hours_2_2_15"
-					android:title="@string/hours_15" />
-				<CheckBoxPreference android:key="hours_2_2_16"
-					android:title="@string/hours_16" />
-				<CheckBoxPreference android:key="hours_2_2_17"
-					android:title="@string/hours_17" />
-				<CheckBoxPreference android:key="hours_2_2_18"
-					android:title="@string/hours_18" />
-				<CheckBoxPreference android:key="hours_2_2_19"
-					android:title="@string/hours_19" />
-				<CheckBoxPreference android:key="hours_2_2_20"
-					android:title="@string/hours_20" />
-				<CheckBoxPreference android:key="hours_2_2_21"
-					android:title="@string/hours_21" />
-				<CheckBoxPreference android:key="hours_2_2_22"
-					android:title="@string/hours_22" />
-				<CheckBoxPreference android:key="hours_2_2_23"
-					android:title="@string/hours_23" />
-			</PreferenceScreen>
-			<PreferenceScreen android:title="@string/wednesday">
-				<CheckBoxPreference android:key="hours_2_3_0"
-					android:title="@string/hours_0" />
-				<CheckBoxPreference android:key="hours_2_3_1"
-					android:title="@string/hours_1" />
-				<CheckBoxPreference android:key="hours_2_3_2"
-					android:title="@string/hours_2" />
-				<CheckBoxPreference android:key="hours_2_3_3"
-					android:title="@string/hours_3" />
-				<CheckBoxPreference android:key="hours_2_3_4"
-					android:title="@string/hours_4" />
-				<CheckBoxPreference android:key="hours_2_3_5"
-					android:title="@string/hours_5" />
-				<CheckBoxPreference android:key="hours_2_3_6"
-					android:title="@string/hours_6" />
-				<CheckBoxPreference android:key="hours_2_3_7"
-					android:title="@string/hours_7" />
-				<CheckBoxPreference android:key="hours_2_3_8"
-					android:title="@string/hours_8" />
-				<CheckBoxPreference android:key="hours_2_3_9"
-					android:title="@string/hours_9" />
-				<CheckBoxPreference android:key="hours_2_3_10"
-					android:title="@string/hours_10" />
-				<CheckBoxPreference android:key="hours_2_3_11"
-					android:title="@string/hours_11" />
-				<CheckBoxPreference android:key="hours_2_3_12"
-					android:title="@string/hours_12" />
-				<CheckBoxPreference android:key="hours_2_3_13"
-					android:title="@string/hours_13" />
-				<CheckBoxPreference android:key="hours_2_3_14"
-					android:title="@string/hours_14" />
-				<CheckBoxPreference android:key="hours_2_3_15"
-					android:title="@string/hours_15" />
-				<CheckBoxPreference android:key="hours_2_3_16"
-					android:title="@string/hours_16" />
-				<CheckBoxPreference android:key="hours_2_3_17"
-					android:title="@string/hours_17" />
-				<CheckBoxPreference android:key="hours_2_3_18"
-					android:title="@string/hours_18" />
-				<CheckBoxPreference android:key="hours_2_3_19"
-					android:title="@string/hours_19" />
-				<CheckBoxPreference android:key="hours_2_3_20"
-					android:title="@string/hours_20" />
-				<CheckBoxPreference android:key="hours_2_3_21"
-					android:title="@string/hours_21" />
-				<CheckBoxPreference android:key="hours_2_3_22"
-					android:title="@string/hours_22" />
-				<CheckBoxPreference android:key="hours_2_3_23"
-					android:title="@string/hours_23" />
-			</PreferenceScreen>
-			<PreferenceScreen android:title="@string/thursday">
-				<CheckBoxPreference android:key="hours_2_4_0"
-					android:title="@string/hours_0" />
-				<CheckBoxPreference android:key="hours_2_4_1"
-					android:title="@string/hours_4" />
-				<CheckBoxPreference android:key="hours_2_4_2"
-					android:title="@string/hours_2" />
-				<CheckBoxPreference android:key="hours_2_4_3"
-					android:title="@string/hours_3" />
-				<CheckBoxPreference android:key="hours_2_4_4"
-					android:title="@string/hours_4" />
-				<CheckBoxPreference android:key="hours_2_4_5"
-					android:title="@string/hours_5" />
-				<CheckBoxPreference android:key="hours_2_4_6"
-					android:title="@string/hours_6" />
-				<CheckBoxPreference android:key="hours_2_4_7"
-					android:title="@string/hours_7" />
-				<CheckBoxPreference android:key="hours_2_4_8"
-					android:title="@string/hours_8" />
-				<CheckBoxPreference android:key="hours_2_4_9"
-					android:title="@string/hours_9" />
-				<CheckBoxPreference android:key="hours_2_4_10"
-					android:title="@string/hours_10" />
-				<CheckBoxPreference android:key="hours_2_4_11"
-					android:title="@string/hours_11" />
-				<CheckBoxPreference android:key="hours_2_4_12"
-					android:title="@string/hours_12" />
-				<CheckBoxPreference android:key="hours_2_4_13"
-					android:title="@string/hours_13" />
-				<CheckBoxPreference android:key="hours_2_4_14"
-					android:title="@string/hours_14" />
-				<CheckBoxPreference android:key="hours_2_4_15"
-					android:title="@string/hours_15" />
-				<CheckBoxPreference android:key="hours_2_4_16"
-					android:title="@string/hours_16" />
-				<CheckBoxPreference android:key="hours_2_4_17"
-					android:title="@string/hours_17" />
-				<CheckBoxPreference android:key="hours_2_4_18"
-					android:title="@string/hours_18" />
-				<CheckBoxPreference android:key="hours_2_4_19"
-					android:title="@string/hours_19" />
-				<CheckBoxPreference android:key="hours_2_4_20"
-					android:title="@string/hours_20" />
-				<CheckBoxPreference android:key="hours_2_4_21"
-					android:title="@string/hours_21" />
-				<CheckBoxPreference android:key="hours_2_4_22"
-					android:title="@string/hours_22" />
-				<CheckBoxPreference android:key="hours_2_4_23"
-					android:title="@string/hours_23" />
-			</PreferenceScreen>
-			<PreferenceScreen android:title="@string/friday">
-				<CheckBoxPreference android:key="hours_2_5_0"
-					android:title="@string/hours_0" />
-				<CheckBoxPreference android:key="hours_2_5_1"
-					android:title="@string/hours_1" />
-				<CheckBoxPreference android:key="hours_2_5_2"
-					android:title="@string/hours_2" />
-				<CheckBoxPreference android:key="hours_2_5_3"
-					android:title="@string/hours_3" />
-				<CheckBoxPreference android:key="hours_2_5_4"
-					android:title="@string/hours_4" />
-				<CheckBoxPreference android:key="hours_2_5_5"
-					android:title="@string/hours_5" />
-				<CheckBoxPreference android:key="hours_2_5_6"
-					android:title="@string/hours_6" />
-				<CheckBoxPreference android:key="hours_2_5_7"
-					android:title="@string/hours_7" />
-				<CheckBoxPreference android:key="hours_2_5_8"
-					android:title="@string/hours_8" />
-				<CheckBoxPreference android:key="hours_2_5_9"
-					android:title="@string/hours_9" />
-				<CheckBoxPreference android:key="hours_2_5_10"
-					android:title="@string/hours_10" />
-				<CheckBoxPreference android:key="hours_2_5_11"
-					android:title="@string/hours_11" />
-				<CheckBoxPreference android:key="hours_2_5_12"
-					android:title="@string/hours_12" />
-				<CheckBoxPreference android:key="hours_2_5_13"
-					android:title="@string/hours_13" />
-				<CheckBoxPreference android:key="hours_2_5_14"
-					android:title="@string/hours_14" />
-				<CheckBoxPreference android:key="hours_2_5_15"
-					android:title="@string/hours_15" />
-				<CheckBoxPreference android:key="hours_2_5_16"
-					android:title="@string/hours_16" />
-				<CheckBoxPreference android:key="hours_2_5_17"
-					android:title="@string/hours_17" />
-				<CheckBoxPreference android:key="hours_2_5_18"
-					android:title="@string/hours_18" />
-				<CheckBoxPreference android:key="hours_2_5_19"
-					android:title="@string/hours_19" />
-				<CheckBoxPreference android:key="hours_2_5_20"
-					android:title="@string/hours_20" />
-				<CheckBoxPreference android:key="hours_2_5_21"
-					android:title="@string/hours_21" />
-				<CheckBoxPreference android:key="hours_2_5_22"
-					android:title="@string/hours_22" />
-				<CheckBoxPreference android:key="hours_2_5_23"
-					android:title="@string/hours_23" />
-			</PreferenceScreen>
-			<PreferenceScreen android:title="@string/saturday">
-				<CheckBoxPreference android:key="hours_2_6_0"
-					android:title="@string/hours_0" />
-				<CheckBoxPreference android:key="hours_2_6_1"
-					android:title="@string/hours_1" />
-				<CheckBoxPreference android:key="hours_2_6_2"
-					android:title="@string/hours_2" />
-				<CheckBoxPreference android:key="hours_2_6_3"
-					android:title="@string/hours_3" />
-				<CheckBoxPreference android:key="hours_2_6_4"
-					android:title="@string/hours_4" />
-				<CheckBoxPreference android:key="hours_2_6_5"
-					android:title="@string/hours_5" />
-				<CheckBoxPreference android:key="hours_2_6_6"
-					android:title="@string/hours_6" />
-				<CheckBoxPreference android:key="hours_2_6_7"
-					android:title="@string/hours_7" />
-				<CheckBoxPreference android:key="hours_2_6_8"
-					android:title="@string/hours_8" />
-				<CheckBoxPreference android:key="hours_2_6_9"
-					android:title="@string/hours_9" />
-				<CheckBoxPreference android:key="hours_2_6_10"
-					android:title="@string/hours_10" />
-				<CheckBoxPreference android:key="hours_2_6_11"
-					android:title="@string/hours_11" />
-				<CheckBoxPreference android:key="hours_2_6_12"
-					android:title="@string/hours_12" />
-				<CheckBoxPreference android:key="hours_2_6_13"
-					android:title="@string/hours_13" />
-				<CheckBoxPreference android:key="hours_2_6_14"
-					android:title="@string/hours_14" />
-				<CheckBoxPreference android:key="hours_2_6_15"
-					android:title="@string/hours_15" />
-				<CheckBoxPreference android:key="hours_2_6_16"
-					android:title="@string/hours_16" />
-				<CheckBoxPreference android:key="hours_2_6_17"
-					android:title="@string/hours_17" />
-				<CheckBoxPreference android:key="hours_2_6_18"
-					android:title="@string/hours_18" />
-				<CheckBoxPreference android:key="hours_2_6_19"
-					android:title="@string/hours_19" />
-				<CheckBoxPreference android:key="hours_2_6_20"
-					android:title="@string/hours_20" />
-				<CheckBoxPreference android:key="hours_2_6_21"
-					android:title="@string/hours_21" />
-				<CheckBoxPreference android:key="hours_2_6_22"
-					android:title="@string/hours_22" />
-				<CheckBoxPreference android:key="hours_2_6_23"
-					android:title="@string/hours_23" />
-			</PreferenceScreen>
-			<PreferenceScreen android:title="@string/sunday">
-				<CheckBoxPreference android:key="hours_2_7_0"
-					android:title="@string/hours_0" />
-				<CheckBoxPreference android:key="hours_2_7_1"
-					android:title="@string/hours_1" />
-				<CheckBoxPreference android:key="hours_2_7_2"
-					android:title="@string/hours_2" />
-				<CheckBoxPreference android:key="hours_2_7_3"
-					android:title="@string/hours_3" />
-				<CheckBoxPreference android:key="hours_2_7_4"
-					android:title="@string/hours_4" />
-				<CheckBoxPreference android:key="hours_2_7_5"
-					android:title="@string/hours_5" />
-				<CheckBoxPreference android:key="hours_2_7_6"
-					android:title="@string/hours_6" />
-				<CheckBoxPreference android:key="hours_2_7_7"
-					android:title="@string/hours_7" />
-				<CheckBoxPreference android:key="hours_2_7_8"
-					android:title="@string/hours_8" />
-				<CheckBoxPreference android:key="hours_2_7_9"
-					android:title="@string/hours_9" />
-				<CheckBoxPreference android:key="hours_2_7_10"
-					android:title="@string/hours_10" />
-				<CheckBoxPreference android:key="hours_2_7_11"
-					android:title="@string/hours_11" />
-				<CheckBoxPreference android:key="hours_2_7_12"
-					android:title="@string/hours_12" />
-				<CheckBoxPreference android:key="hours_2_7_13"
-					android:title="@string/hours_13" />
-				<CheckBoxPreference android:key="hours_2_7_14"
-					android:title="@string/hours_14" />
-				<CheckBoxPreference android:key="hours_2_7_15"
-					android:title="@string/hours_15" />
-				<CheckBoxPreference android:key="hours_2_7_16"
-					android:title="@string/hours_16" />
-				<CheckBoxPreference android:key="hours_2_7_17"
-					android:title="@string/hours_17" />
-				<CheckBoxPreference android:key="hours_2_7_18"
-					android:title="@string/hours_18" />
-				<CheckBoxPreference android:key="hours_2_7_19"
-					android:title="@string/hours_19" />
-				<CheckBoxPreference android:key="hours_2_7_20"
-					android:title="@string/hours_20" />
-				<CheckBoxPreference android:key="hours_2_7_21"
-					android:title="@string/hours_21" />
-				<CheckBoxPreference android:key="hours_2_7_22"
-					android:title="@string/hours_22" />
-				<CheckBoxPreference android:key="hours_2_7_23"
-					android:title="@string/hours_23" />
-			</PreferenceScreen>
-		</PreferenceScreen>
 	</PreferenceCategory>
+
 	<PreferenceCategory android:title="@string/settings">
+
+		<!-- calls -->
+
 		<PreferenceScreen android:title="@string/calls">
 			<ListPreference android:key="billday" android:title="@string/billday_"
 				android:entries="@array/days" android:entryValues="@array/days"
@@ -736,10 +387,29 @@
 			<ListPreference android:key="billmode" android:title="@string/billmode_"
 				android:entries="@array/modes_" android:entryValues="@array/modes"
 				android:dialogTitle="@string/billmode_" android:summary="@string/billmode_hint" />
-			<EditTextPreference android:key="freemin"
-				android:title="@string/freemin_" android:dialogTitle="@string/freemin_"
-				android:inputType="number" />
+			<PreferenceCategory android:title="@string/plan1">
+				<CheckBoxPreference android:key="plan1_freecalls"
+					android:title="@string/plan_free_" android:disableDependentsState="true"
+					android:summary="@string/free_hint" />
+				<EditTextPreference android:key="plan1_freemin"
+					android:title="@string/plan_freemin_" android:dialogTitle="@string/plan_freemin_"
+					android:inputType="number" android:dependency="plan1_freecalls"
+					android:summary="@string/freemin_hint" />
+			</PreferenceCategory>
+			<PreferenceCategory android:title="@string/plan2"
+				android:dependency="plans_split">
+				<CheckBoxPreference android:key="plan2_freecalls"
+					android:title="@string/plan_free_" android:disableDependentsState="true"
+					android:summary="@string/free_hint" android:dependency="plans_split" />
+				<EditTextPreference android:key="plan2_freemin"
+					android:title="@string/plan_freemin_" android:dialogTitle="@string/plan_freemin_"
+					android:inputType="number" android:dependency="plan2_freecalls"
+					android:summary="@string/freemin_hint" />
+			</PreferenceCategory>
 		</PreferenceScreen>
+
+		<!-- sms -->
+
 		<PreferenceScreen android:title="@string/sms">
 			<CheckBoxPreference android:key="smsperiod"
 				android:disableDependentsState="true" android:title="@string/smsperiod_" />
@@ -747,47 +417,34 @@
 				android:key="smsbillday" android:title="@string/smsbillday_"
 				android:entries="@array/days" android:entryValues="@array/days"
 				android:dialogTitle="@string/smsbillday_" />
-			<EditTextPreference android:key="freesms"
-				android:title="@string/freesms_" android:dialogTitle="@string/freesms_"
-				android:inputType="number" />
+			<PreferenceCategory android:title="@string/plan1">
+				<CheckBoxPreference android:key="plan1_freesms"
+					android:title="@string/plan_free_" android:disableDependentsState="true"
+					android:summary="@string/free_hint" />
+				<EditTextPreference android:key="plan1_freesms"
+					android:title="@string/plan_freesms_" android:dialogTitle="@string/plan_freesms_"
+					android:inputType="number" android:dependency="plan1_freesms"
+					android:summary="@string/freesms_hint" />
+			</PreferenceCategory>
+			<PreferenceCategory android:title="@string/plan2"
+				android:dependency="plans_split">
+				<CheckBoxPreference android:key="plan2_freesms"
+					android:title="@string/plan_free_" android:disableDependentsState="true"
+					android:summary="@string/free_hint" android:dependency="plans_split" />
+				<EditTextPreference android:key="plan2_freesms"
+					android:title="@string/plan_freesms_" android:dialogTitle="@string/plan_freesms_"
+					android:inputType="number" android:dependency="plan2_freesms"
+					android:summary="@string/freesms_hint" />
+			</PreferenceCategory>
 		</PreferenceScreen>
+
+		<!-- exclude numbers -->
+
 		<PreferenceScreen android:title="@string/exclude_people_"
 			android:summary="@string/exclude_people_hint">
 			<intent android:action="android.intent.action.MAIN"
 				android:targetPackage="de.ub0r.de.android.callMeterNG"
 				android:targetClass="de.ub0r.de.android.callMeterNG.CallMeter$ExcludePeople" />
-		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/freedays_">
-			<PreferenceCategory android:title="@string/freedays_">
-				<CheckBoxPreference android:key="freedays_call"
-					android:title="@string/free_on_calls" />
-				<CheckBoxPreference android:key="freedays_sms"
-					android:title="@string/free_on_sms" />
-			</PreferenceCategory>
-			<PreferenceCategory android:title="@string/freedays_">
-				<CheckBoxPreference android:key="freedays_1"
-					android:title="@string/monday" />
-				<CheckBoxPreference android:key="freedays_2"
-					android:title="@string/tuesday" />
-				<CheckBoxPreference android:key="freedays_3"
-					android:title="@string/wednesday" />
-				<CheckBoxPreference android:key="freedays_4"
-					android:title="@string/thursday" />
-				<CheckBoxPreference android:key="freedays_5"
-					android:title="@string/friday" />
-				<CheckBoxPreference android:key="freedays_6"
-					android:title="@string/saturday" />
-				<CheckBoxPreference android:key="freedays_7"
-					android:title="@string/sunday" />
-			</PreferenceCategory>
-		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/freehours_">
-			<PreferenceCategory android:title="@string/freehours_">
-				<CheckBoxPreference android:key="freehours_call"
-					android:title="@string/free_on_calls" />
-				<CheckBoxPreference android:key="freehours_sms"
-					android:title="@string/free_on_sms" />
-			</PreferenceCategory>
 		</PreferenceScreen>
 	</PreferenceCategory>
 </PreferenceScreen>

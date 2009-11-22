@@ -67,8 +67,6 @@
 	<string name="billdate_">Start of billperiod:</string>
 	<string name="smsperiod_">Same Period for SMS</string>
 	<string name="smsbillday_">First day of your SMS bill</string>
-	<string name="freemin_">Free Minutes / Month</string>
-	<string name="freesms_">Free SMS / Month</string>
 	<string name="about">Call Meter generates reports from your call and
 		message logs. That`s all.</string>
 	<string name="about1">The output format is usage / time,amount used
@@ -84,10 +82,17 @@
 	<string name="exclude_people_edit">Edit</string>
 	<string name="exclude_people_delete">Delete</string>
 	<string name="plans">Plans</string>
+	<string name="plans_split">Split plans</string>
+	<string name="plans_split_hint">Split plan into to different billed plans</string>
 	<string name="plan1">Plan 1</string>
 	<string name="plan2">Plan 2</string>
-	<string name="plan2_enable">Activate 2nd plan</string>
-	<string name="plan_hint">Check hours to include calls/sms to this plan</string>
+	<string name="plan1_hint">Check hours to include calls/sms into first plan. All others will go into second plan.</string>
+	<string name="plan_free_">No billing</string>
+	<string name="plan_freemin_">Free Minutes</string>
+	<string name="plan_freesms_">Free SMS</string>
+	<string name="free_hint">Totally free</string>
+	<string name="freemin_hint">Free Minutes / Month</string>
+	<string name="freesms_hint">Free SMS / Month</string>
 	<string name="freedays_">Free days</string>
 	<string name="freehours_">Free hours</string>
 	<string name="free_on_calls">Free calls on ..</string>
