@@ -83,6 +83,7 @@
 	<string name="exclude_people_delete">Delete</string>
 	<string name="plans">Plans</string>
 	<string name="plans_split">Split plans</string>
+	<string name="plans_merge">Merge plans</string>
 	<string name="plans_split_hint">Split plan into to different billed plans</string>
 	<string name="plan1">Plan 1</string>
 	<string name="plan2">Plan 2</string>
@@ -93,10 +94,6 @@
 	<string name="free_hint">Totally free</string>
 	<string name="freemin_hint">Free Minutes / Month</string>
 	<string name="freesms_hint">Free SMS / Month</string>
-	<string name="freedays_">Free days</string>
-	<string name="freehours_">Free hours</string>
-	<string name="free_on_calls">Free calls on ..</string>
-	<string name="free_on_sms">Free SMS on ..</string>
 	<string name="monday">Monday</string>
 	<string name="tuesday">Tuesday</string>
 	<string name="wednesday">Wednesday</string>
@@ -133,4 +130,8 @@
 	<string name="in">In:</string>
 	<string name="out_calls">Out:</string>
 	<string name="out_sms">Out:</string>
+	<string name="out_calls1">Out (plan 1):</string>
+	<string name="out_sms1">Out (plan 1):</string>
+	<string name="out_calls2">Out (plan 2):</string>
+	<string name="out_sms2">Out (plan 2):</string>
 </resources>

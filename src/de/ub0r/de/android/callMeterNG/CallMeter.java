@@ -91,6 +91,10 @@ public class CallMeter extends Activity {
 
 	/** Prefs: split plans. */
 	private static final String PREFS_SPLIT_PLANS = "plans_split";
+	/** Prefs: merge plans for calls. */
+	private static final String PREFS_MERGE_PLANS_CALLS = "plans_merge_calls";
+	/** Prefs: merge plans for sms. */
+	private static final String PREFS_MERGE_PLANS_SMS = "plans_merge_sms";
 	/** Prefs: hours for plan 1. */
 	private static final String PREFS_PLAN1_HOURS_PREFIX = "hours_1_";
 
@@ -327,6 +331,11 @@ public class CallMeter extends Activity {
 		/** Update string every.. rounds */
 		private static final int UPDATE_INTERVAL = 50;
 
+		/** Merge plans for calls. */
+		private boolean plansMergeCalls = false;
+		/** Merge plans for sms. */
+		private boolean plansMergeSms = false;
+
 		/**
 		 * Parse number of seconds to a readable time format.
 		 * 
@@ -456,7 +465,7 @@ public class CallMeter extends Activity {
 		 *         plan1
 		 */
 		private boolean[][] loadPlans(final SharedPreferences p) {
-			if (p.getBoolean(PREFS_SPLIT_PLANS, false)) {
+			if (this.plansMergeCalls && this.plansMergeSms) {
 				return null;
 			}
 			boolean[][] ret = new boolean[DAYS_WEEK][HOURS_DAY];
@@ -543,6 +552,17 @@ public class CallMeter extends Activity {
 		@Override
 		protected void onPreExecute() {
 			CallMeter.this.setProgressBarIndeterminateVisibility(true);
+
+			if (CallMeter.preferences.getBoolean(PREFS_SPLIT_PLANS, false)) {
+				this.plansMergeCalls = CallMeter.preferences.getBoolean(
+						PREFS_MERGE_PLANS_CALLS, false);
+				this.plansMergeSms = CallMeter.preferences.getBoolean(
+						PREFS_MERGE_PLANS_SMS, false);
+			} else {
+				this.plansMergeCalls = true;
+				this.plansMergeSms = true;
+			}
+
 			// load old values from database
 			this.allCallsIn = CallMeter.preferences.getInt(PREFS_ALL_CALLS_IN,
 					0);
@@ -565,15 +585,27 @@ public class CallMeter extends Activity {
 			this.pbCalls1.setProgress(0);
 			this.pbCalls1.setIndeterminate(false);
 			this.pbCalls1.setVisibility(View.VISIBLE);
-			this.pbCalls2.setProgress(0);
-			this.pbCalls2.setIndeterminate(false);
-			this.pbCalls2.setVisibility(View.VISIBLE);
+			if (this.plansMergeCalls) {
+				((TextView) CallMeter.this.findViewById(R.id.calls1_out_))
+						.setText(R.string.out_calls);
+				this.pbCalls2.setVisibility(View.INVISIBLE);
+			} else {
+				this.pbCalls2.setProgress(0);
+				this.pbCalls2.setIndeterminate(false);
+				this.pbCalls2.setVisibility(View.VISIBLE);
+			}
 			this.pbSMS1.setProgress(0);
 			this.pbSMS1.setIndeterminate(false);
 			this.pbSMS1.setVisibility(View.VISIBLE);
-			this.pbSMS2.setProgress(0);
-			this.pbSMS2.setIndeterminate(false);
-			this.pbSMS2.setVisibility(View.VISIBLE);
+			if (this.plansMergeSms) {
+				((TextView) CallMeter.this.findViewById(R.id.sms1_out_))
+						.setText(R.string.out_sms);
+				this.pbSMS2.setVisibility(View.INVISIBLE);
+			} else {
+				this.pbSMS2.setProgress(0);
+				this.pbSMS2.setIndeterminate(false);
+				this.pbSMS2.setVisibility(View.VISIBLE);
+			}
 
 			this.twCallsIn = (TextView) CallMeter.this
 					.findViewById(R.id.calls_in);
@@ -841,7 +873,7 @@ public class CallMeter extends Activity {
 			}
 
 			this.smsIn = this.calcString(smsInMonth, 0, iSMSIn, false);
-			this.smsOut1 = this.calcString(smsOut2Month, free1, iSMSOut, false);
+			this.smsOut1 = this.calcString(smsOut1Month, free1, iSMSOut, false);
 			this.smsOut2 = this.calcString(smsOut2Month, free2, iSMSOut, false);
 
 			status[4] = smsOut1Month;
@@ -869,7 +901,11 @@ public class CallMeter extends Activity {
 			Calendar calBillDate = this.getBillDate(Integer
 					.parseInt(CallMeter.preferences.getString(PREFS_BILLDAY,
 							"0")));
-			this.walkCalls(plans, calBillDate, oldDate, ret);
+			if (this.plansMergeCalls) {
+				this.walkCalls(null, calBillDate, oldDate, ret);
+			} else {
+				this.walkCalls(plans, calBillDate, oldDate, ret);
+			}
 
 			// report sms
 			if (!CallMeter.preferences.getBoolean(PREFS_SMSPERIOD, false)) {
@@ -877,7 +913,11 @@ public class CallMeter extends Activity {
 						.parseInt(CallMeter.preferences.getString(
 								PREFS_SMSBILLDAY, "0")));
 			}
-			this.walkSMS(plans, calBillDate, oldDate, ret);
+			if (this.plansMergeSms) {
+				this.walkCalls(null, calBillDate, oldDate, ret);
+			} else {
+				this.walkSMS(plans, calBillDate, oldDate, ret);
+			}
 
 			this.allOldDate = oldDate;
 

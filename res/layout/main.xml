@@ -58,7 +58,7 @@
 				android:layout_alignTop="@id/calls_in_"
 				android:layout_alignParentRight="true" />
 
-			<TextView android:id="@+id/calls1_out_" android:text="@string/out_calls"
+			<TextView android:id="@+id/calls1_out_" android:text="@string/out_calls1"
 				android:paddingLeft="5dip" android:layout_width="wrap_content"
 				android:layout_height="wrap_content" android:layout_below="@id/calls_in_" />
 			<TextView android:id="@+id/calls1_out" android:gravity="right"
@@ -66,7 +66,7 @@
 				android:layout_alignTop="@id/calls1_out_"
 				android:layout_alignParentRight="true" />
 
-			<TextView android:id="@+id/calls2_out_" android:text="@string/out_calls"
+			<TextView android:id="@+id/calls2_out_" android:text="@string/out_calls2"
 				android:paddingLeft="5dip" android:layout_width="wrap_content"
 				android:layout_height="wrap_content" android:layout_below="@id/calls1_out_" />
 			<TextView android:id="@+id/calls2_out" android:gravity="right"
@@ -112,7 +112,7 @@
 				android:layout_alignTop="@id/sms_in_"
 				android:layout_alignParentRight="true" />
 
-			<TextView android:id="@+id/sms1_out_" android:text="@string/out_sms"
+			<TextView android:id="@+id/sms1_out_" android:text="@string/out_sms1"
 				android:paddingLeft="5dip" android:layout_width="wrap_content"
 				android:layout_height="wrap_content" android:layout_below="@id/sms_in_" />
 			<TextView android:id="@+id/sms1_out" android:gravity="right"
@@ -120,7 +120,7 @@
 				android:layout_alignTop="@id/sms1_out_"
 				android:layout_alignParentRight="true" />
 
-			<TextView android:id="@+id/sms2_out_" android:text="@string/out_sms"
+			<TextView android:id="@+id/sms2_out_" android:text="@string/out_sms2"
 				android:paddingLeft="5dip" android:layout_width="wrap_content"
 				android:layout_height="wrap_content" android:layout_below="@id/sms1_out_" />
 			<TextView android:id="@+id/sms2_out" android:gravity="right"

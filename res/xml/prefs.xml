@@ -387,6 +387,9 @@
 			<ListPreference android:key="billmode" android:title="@string/billmode_"
 				android:entries="@array/modes_" android:entryValues="@array/modes"
 				android:dialogTitle="@string/billmode_" android:summary="@string/billmode_hint" />
+			<CheckBoxPreference android:key="plans_merge_calls"
+				android:title="@string/plans_merge" android:dependency="plans_split"
+				android:disableDependentsState="true" />
 			<PreferenceCategory android:title="@string/plan1">
 				<CheckBoxPreference android:key="plan1_total_free_calls"
 					android:title="@string/plan_free_" android:disableDependentsState="true"
@@ -397,10 +400,10 @@
 					android:summary="@string/freemin_hint" />
 			</PreferenceCategory>
 			<PreferenceCategory android:title="@string/plan2"
-				android:dependency="plans_split">
+				android:dependency="plans_merge_calls">
 				<CheckBoxPreference android:key="plan2_total_free_calls"
 					android:title="@string/plan_free_" android:disableDependentsState="true"
-					android:summary="@string/free_hint" android:dependency="plans_split" />
+					android:summary="@string/free_hint" android:dependency="plans_merge_calls" />
 				<EditTextPreference android:key="plan2_freemin"
 					android:title="@string/plan_freemin_" android:dialogTitle="@string/plan_freemin_"
 					android:inputType="number" android:dependency="plan2_total_free_calls"
@@ -417,6 +420,9 @@
 				android:key="smsbillday" android:title="@string/smsbillday_"
 				android:entries="@array/days" android:entryValues="@array/days"
 				android:dialogTitle="@string/smsbillday_" />
+			<CheckBoxPreference android:key="plans_merge_sms"
+				android:title="@string/plans_merge" android:dependency="plans_split"
+				android:disableDependentsState="true" />
 			<PreferenceCategory android:title="@string/plan1"
 				android:dependency="plans_split">
 				<CheckBoxPreference android:key="plan1_total_free_sms"
@@ -428,10 +434,10 @@
 					android:summary="@string/freesms_hint" />
 			</PreferenceCategory>
 			<PreferenceCategory android:title="@string/plan2"
-				android:dependency="plans_split">
+				android:dependency="plans_merge_sms">
 				<CheckBoxPreference android:key="plan2_total_free_sms"
 					android:title="@string/plan_free_" android:disableDependentsState="true"
-					android:summary="@string/free_hint" android:dependency="plans_split" />
+					android:summary="@string/free_hint" android:dependency="plans_merge_sms" />
 				<EditTextPreference android:key="plan2_freesms"
 					android:title="@string/plan_freesms_" android:dialogTitle="@string/plan_freesms_"
 					android:inputType="number" android:dependency="plan2_total_free_sms"
