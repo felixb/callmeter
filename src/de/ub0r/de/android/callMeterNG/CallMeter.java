@@ -973,6 +973,11 @@ public class CallMeter extends Activity {
 			ProgressBar pb2 = this.pbCalls2;
 			if (result[1] > 0) {
 				pb1.setMax(result[1]);
+				if (result[1] > result[0]) {
+					pb1.setProgress(result[1]);
+				} else {
+					pb1.setProgress(result[0]);
+				}
 				pb1.setProgress(result[0]);
 				pb1.setVisibility(View.VISIBLE);
 			} else {
@@ -983,6 +988,11 @@ public class CallMeter extends Activity {
 				pb2.setVisibility(View.GONE);
 			} else {
 				pb2.setMax(result[3]);
+				if (result[3] > result[2]) {
+					pb2.setProgress(result[3]);
+				} else {
+					pb2.setProgress(result[2]);
+				}
 				pb2.setProgress(result[2]);
 				pb2.setVisibility(View.VISIBLE);
 			}
@@ -991,8 +1001,12 @@ public class CallMeter extends Activity {
 			pb1 = this.pbSMS1;
 			pb2 = this.pbSMS2;
 			if (result[5] > 0) {
-				pb1.setProgress(result[4]);
 				pb1.setMax(result[5]);
+				if (result[4] > result[5]) {
+					pb1.setProgress(result[5]);
+				} else {
+					pb1.setProgress(result[4]);
+				}
 				pb1.setVisibility(View.VISIBLE);
 			} else {
 				pb2.setVisibility(View.GONE);
@@ -1002,7 +1016,11 @@ public class CallMeter extends Activity {
 				pb2.setVisibility(View.GONE);
 			} else {
 				pb2.setMax(result[7]);
-				pb2.setProgress(result[6]);
+				if (result[6] > result[7]) {
+					pb2.setProgress(result[7]);
+				} else {
+					pb2.setProgress(result[6]);
+				}
 				pb2.setVisibility(View.VISIBLE);
 			}
 
