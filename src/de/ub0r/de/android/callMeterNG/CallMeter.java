@@ -473,7 +473,7 @@ public class CallMeter extends Activity {
 			for (int day = 0; day < DAYS_WEEK; day++) {
 				for (int hour = 0; hour < HOURS_DAY; hour++) {
 					ret[day][hour] = p.getBoolean(PREFS_PLAN1_HOURS_PREFIX
-							+ day + "_" + hour, false);
+							+ (day + 1) + "_" + hour, false);
 				}
 			}
 			return ret;
@@ -591,6 +591,8 @@ public class CallMeter extends Activity {
 						.setText(R.string.out_calls);
 				this.pbCalls2.setVisibility(View.INVISIBLE);
 			} else {
+				((TextView) CallMeter.this.findViewById(R.id.calls1_out_))
+						.setText(R.string.out_calls1);
 				this.pbCalls2.setProgress(0);
 				this.pbCalls2.setIndeterminate(false);
 				this.pbCalls2.setVisibility(View.VISIBLE);
@@ -603,6 +605,8 @@ public class CallMeter extends Activity {
 						.setText(R.string.out_sms);
 				this.pbSMS2.setVisibility(View.INVISIBLE);
 			} else {
+				((TextView) CallMeter.this.findViewById(R.id.sms1_out_))
+						.setText(R.string.out_sms1);
 				this.pbSMS2.setProgress(0);
 				this.pbSMS2.setIndeterminate(false);
 				this.pbSMS2.setVisibility(View.VISIBLE);
