@@ -591,10 +591,10 @@ public class CallMeter extends Activity {
 						.setText(R.string.out_calls);
 
 				CallMeter.this.findViewById(R.id.calls2_out_).setVisibility(
-						View.INVISIBLE);
+						View.GONE);
 				CallMeter.this.findViewById(R.id.calls2_out).setVisibility(
-						View.INVISIBLE);
-				this.pbCalls2.setVisibility(View.INVISIBLE);
+						View.GONE);
+				this.pbCalls2.setVisibility(View.GONE);
 			} else {
 				CallMeter.this.findViewById(R.id.calls2_out_).setVisibility(
 						View.VISIBLE);
@@ -614,10 +614,10 @@ public class CallMeter extends Activity {
 						.setText(R.string.out_sms);
 
 				CallMeter.this.findViewById(R.id.sms2_out_).setVisibility(
-						View.INVISIBLE);
+						View.GONE);
 				CallMeter.this.findViewById(R.id.sms2_out).setVisibility(
-						View.INVISIBLE);
-				this.pbSMS2.setVisibility(View.INVISIBLE);
+						View.GONE);
+				this.pbSMS2.setVisibility(View.GONE);
 			} else {
 				CallMeter.this.findViewById(R.id.sms2_out_).setVisibility(
 						View.VISIBLE);
@@ -976,11 +976,11 @@ public class CallMeter extends Activity {
 				pb1.setProgress(result[0]);
 				pb1.setVisibility(View.VISIBLE);
 			} else {
-				pb2.setVisibility(View.INVISIBLE);
+				pb2.setVisibility(View.GONE);
 				pb2 = this.pbCalls1;
 			}
 			if (this.plansMergeCalls || result[3] <= 0) {
-				pb2.setVisibility(View.INVISIBLE);
+				pb2.setVisibility(View.GONE);
 			} else {
 				pb2.setMax(result[3]);
 				pb2.setProgress(result[2]);
@@ -995,11 +995,11 @@ public class CallMeter extends Activity {
 				pb1.setMax(result[5]);
 				pb1.setVisibility(View.VISIBLE);
 			} else {
-				pb2.setVisibility(View.INVISIBLE);
+				pb2.setVisibility(View.GONE);
 				pb2 = this.pbSMS1;
 			}
 			if (this.plansMergeSms || result[7] <= 0) {
-				pb2.setVisibility(View.INVISIBLE);
+				pb2.setVisibility(View.GONE);
 			} else {
 				pb2.setMax(result[7]);
 				pb2.setProgress(result[6]);
