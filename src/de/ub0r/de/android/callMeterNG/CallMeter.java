@@ -115,6 +115,11 @@ public class CallMeter extends Activity {
 	/** Prefs: plan1 free sms. */
 	private static final String PREFS_PLAN2_FREESMS = "plan2_freesms";
 
+	/** Prefs: merge sms into calls. */
+	private static final String PREFS_MERGE_SMS_TO_CALLS = "merge_sms_calls";
+	/** Prefs: merge sms into calls; number of seconds billed for a single sms. */
+	private static final String PREFS_MERGE_SMS_TO_CALLS_SECONDS = "merge_sms_calls_sec";
+
 	/** Prefs: name for all old calls in. */
 	private static final String PREFS_ALL_CALLS_IN = "all_calls_in";
 	/** Prefs: name for all old calls out. */

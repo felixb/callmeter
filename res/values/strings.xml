@@ -84,16 +84,24 @@
 	<string name="plans">Plans</string>
 	<string name="plans_split">Split plans</string>
 	<string name="plans_merge">Merge plans</string>
-	<string name="plans_split_hint">Split plan into to different billed plans</string>
+	<string name="plans_split_hint">Split plan into to different billed plans
+	</string>
 	<string name="plan1">Plan 1</string>
 	<string name="plan2">Plan 2</string>
-	<string name="plan1_hint">Check hours to include calls/sms into first plan. All others will go into second plan.</string>
+	<string name="plan1_hint">Check hours to include calls/sms into first
+		plan. All others will go into second plan.</string>
 	<string name="plan_free_">No billing</string>
 	<string name="plan_freemin_">Free Minutes</string>
 	<string name="plan_freesms_">Free SMS</string>
 	<string name="free_hint">Totally free</string>
 	<string name="freemin_hint">Free Minutes / Month</string>
 	<string name="freesms_hint">Free SMS / Month</string>
+	<string name="merge_sms_calls_">Merge SMS into calls</string>
+	<string name="merge_sms_calls_hint">Currently working only without second
+		plan!</string>
+	<string name="merge_sms_calls_sec_">Seconds / SMS</string>
+	<string name="merge_sms_calls_sec_hint">Number of seconds a billed for a single sms.
+	</string>
 	<string name="monday">Monday</string>
 	<string name="tuesday">Tuesday</string>
 	<string name="wednesday">Wednesday</string>
@@ -127,6 +135,7 @@
 	<string name="hours_23">23:00 - 23:59</string>
 	<string name="calls">Calls</string>
 	<string name="sms">SMS</string>
+	<string name="calls_sms">Calls/SMS</string>
 	<string name="in">In:</string>
 	<string name="out_calls">Out:</string>
 	<string name="out_sms">Out:</string>

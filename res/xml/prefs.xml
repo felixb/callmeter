@@ -423,6 +423,16 @@
 			<CheckBoxPreference android:key="plans_merge_sms"
 				android:title="@string/plans_merge" android:dependency="plans_split"
 				android:disableDependentsState="true" />
+		
+			<!-- need more complex dependency here! -->
+			<CheckBoxPreference android:key="merge_sms_calls"
+				android:title="@string/merge_sms_calls_" android:summary="@string/merge_sms_calls_hint" />
+			<EditTextPreference android:key="merge_sms_calls_sec"
+				android:title="@string/merge_sms_calls_sec_" android:dialogTitle="@string/merge_sms_calls_sec_"
+				android:inputType="number" android:dependency="merge_sms_calls"
+				android:summary="@string/merge_sms_calls_sec_hint" />
+			<!-- need more complex dependency here! -->
+
 			<PreferenceCategory android:title="@string/plan1">
 				<CheckBoxPreference android:key="plan1_total_free_sms"
 					android:title="@string/plan_free_" android:disableDependentsState="true"
