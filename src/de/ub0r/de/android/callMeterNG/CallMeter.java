@@ -185,21 +185,31 @@ public class CallMeter extends Activity {
 	 * 
 	 * @author flx
 	 */
-	public static class Preferences extends PreferenceActivity {
+	public static class Preferences extends PreferenceActivity implements
+			SharedPreferences.OnSharedPreferenceChangeListener {
 		/**
-		 * Called on Create.
-		 * 
-		 * @param savedInstanceState
-		 *            a Bundle
+		 * {@inheritDoc}
 		 */
+		@Override
 		public final void onCreate(final Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			this.addPreferencesFromResource(R.xml.prefs);
 		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void onSharedPreferenceChanged(
+				final SharedPreferences sharedPreferences, final String key) {
+			if (key.equals(PREFS_SPLIT_PLANS)) {
+				// TODO: do some sane stuff here. add this to onCreate too.
+			}
+		}
 	}
 
 	/**
-	 * Preferences.
+	 * Preferences subscreen to exclude numbers.
 	 * 
 	 * @author flx
 	 */
