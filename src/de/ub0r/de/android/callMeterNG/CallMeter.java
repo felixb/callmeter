@@ -194,6 +194,8 @@ public class CallMeter extends Activity {
 		public final void onCreate(final Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			this.addPreferencesFromResource(R.xml.prefs);
+			this.getPreferences(MODE_WORLD_READABLE)
+					.registerOnSharedPreferenceChangeListener(this);
 		}
 
 		/**
