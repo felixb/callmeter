@@ -97,11 +97,12 @@
 	<string name="freemin_hint">Free Minutes / Month</string>
 	<string name="freesms_hint">Free SMS / Month</string>
 	<string name="merge_sms_calls_">Merge SMS into calls</string>
-	<string name="merge_sms_calls_hint">Currently working only without second
-		plan!</string>
+	<string name="merge_sms_calls_hint">Bill SMS as poart of calls.</string>
 	<string name="merge_sms_calls_sec_">Seconds / SMS</string>
 	<string name="merge_sms_calls_sec_hint">Number of seconds a billed for a single sms.
 	</string>
+	<string name="merge_sms_plan1_">Merge SMS into plan 1</string>
+	<string name="merge_sms_plan1_hint">Uncheck to merge them into plan 2.</string>
 	<string name="monday">Monday</string>
 	<string name="tuesday">Tuesday</string>
 	<string name="wednesday">Wednesday</string>

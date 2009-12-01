@@ -119,6 +119,8 @@ public class CallMeter extends Activity {
 	private static final String PREFS_MERGE_SMS_TO_CALLS = "merge_sms_calls";
 	/** Prefs: merge sms into calls; number of seconds billed for a single sms. */
 	private static final String PREFS_MERGE_SMS_TO_CALLS_SECONDS = "merge_sms_calls_sec";
+	/** Prefs: merge sms into calls; which plan to merge sms in. */
+	private static final String PREFS_MERGE_SMS_PLAN1 = "merge_sms_plan1";
 
 	/** Prefs: name for all old calls in. */
 	private static final String PREFS_ALL_CALLS_IN = "all_calls_in";
@@ -341,6 +343,9 @@ public class CallMeter extends Activity {
 		private boolean plansMergeCalls = false;
 		/** Merge plans for sms. */
 		private boolean plansMergeSms = false;
+
+		/** Sum of displayed calls out. Used if merging sms into calls. */
+		private int callsOutSum;
 
 		/**
 		 * Parse number of seconds to a readable time format.
@@ -588,53 +593,6 @@ public class CallMeter extends Activity {
 			this.pbSMS2 = (ProgressBar) CallMeter.this
 					.findViewById(R.id.sms2_progressbar);
 
-			this.pbCalls1.setProgress(0);
-			this.pbCalls1.setIndeterminate(false);
-			this.pbCalls1.setVisibility(View.VISIBLE);
-			if (this.plansMergeCalls) {
-				((TextView) CallMeter.this.findViewById(R.id.calls1_out_))
-						.setText(R.string.out_calls);
-
-				CallMeter.this.findViewById(R.id.calls2_out_).setVisibility(
-						View.GONE);
-				CallMeter.this.findViewById(R.id.calls2_out).setVisibility(
-						View.GONE);
-				this.pbCalls2.setVisibility(View.GONE);
-			} else {
-				CallMeter.this.findViewById(R.id.calls2_out_).setVisibility(
-						View.VISIBLE);
-				CallMeter.this.findViewById(R.id.calls2_out).setVisibility(
-						View.VISIBLE);
-				((TextView) CallMeter.this.findViewById(R.id.calls1_out_))
-						.setText(R.string.out_calls1);
-				this.pbCalls2.setProgress(0);
-				this.pbCalls2.setIndeterminate(false);
-				this.pbCalls2.setVisibility(View.VISIBLE);
-			}
-			this.pbSMS1.setProgress(0);
-			this.pbSMS1.setIndeterminate(false);
-			this.pbSMS1.setVisibility(View.VISIBLE);
-			if (this.plansMergeSms) {
-				((TextView) CallMeter.this.findViewById(R.id.sms1_out_))
-						.setText(R.string.out_sms);
-
-				CallMeter.this.findViewById(R.id.sms2_out_).setVisibility(
-						View.GONE);
-				CallMeter.this.findViewById(R.id.sms2_out).setVisibility(
-						View.GONE);
-				this.pbSMS2.setVisibility(View.GONE);
-			} else {
-				CallMeter.this.findViewById(R.id.sms2_out_).setVisibility(
-						View.VISIBLE);
-				CallMeter.this.findViewById(R.id.sms2_out).setVisibility(
-						View.VISIBLE);
-				((TextView) CallMeter.this.findViewById(R.id.sms1_out_))
-						.setText(R.string.out_sms1);
-				this.pbSMS2.setProgress(0);
-				this.pbSMS2.setIndeterminate(false);
-				this.pbSMS2.setVisibility(View.VISIBLE);
-			}
-
 			this.twCallsIn = (TextView) CallMeter.this
 					.findViewById(R.id.calls_in);
 			this.twCallsOut1 = (TextView) CallMeter.this
@@ -650,6 +608,66 @@ public class CallMeter extends Activity {
 					.findViewById(R.id.sms2_out);
 			this.twSMSBillDate = (TextView) CallMeter.this
 					.findViewById(R.id.sms_billdate);
+
+			this.pbCalls1.setProgress(0);
+			this.pbCalls1.setIndeterminate(false);
+			this.pbCalls1.setVisibility(View.VISIBLE);
+			if (this.plansMergeCalls) {
+				((TextView) CallMeter.this.findViewById(R.id.calls1_out_))
+						.setText(R.string.out_calls);
+
+				CallMeter.this.findViewById(R.id.calls2_out_).setVisibility(
+						View.GONE);
+				this.twCallsOut2.setVisibility(View.GONE);
+				this.pbCalls2.setVisibility(View.GONE);
+			} else {
+				CallMeter.this.findViewById(R.id.calls2_out_).setVisibility(
+						View.VISIBLE);
+				this.twCallsOut2.setVisibility(View.VISIBLE);
+				((TextView) CallMeter.this.findViewById(R.id.calls1_out_))
+						.setText(R.string.out_calls1);
+				this.pbCalls2.setProgress(0);
+				this.pbCalls2.setIndeterminate(false);
+				this.pbCalls2.setVisibility(View.VISIBLE);
+			}
+			this.pbSMS1.setProgress(0);
+			this.pbSMS1.setIndeterminate(false);
+			this.pbSMS1.setVisibility(View.VISIBLE);
+			if (this.plansMergeSms) {
+				((TextView) CallMeter.this.findViewById(R.id.sms1_out_))
+						.setText(R.string.out_sms);
+
+				CallMeter.this.findViewById(R.id.sms2_out_).setVisibility(
+						View.GONE);
+				this.twSMSOut2.setVisibility(View.GONE);
+				this.pbSMS2.setVisibility(View.GONE);
+			} else {
+				CallMeter.this.findViewById(R.id.sms2_out_).setVisibility(
+						View.VISIBLE);
+				this.twSMSOut2.setVisibility(View.VISIBLE);
+				((TextView) CallMeter.this.findViewById(R.id.sms1_out_))
+						.setText(R.string.out_sms1);
+				this.pbSMS2.setProgress(0);
+				this.pbSMS2.setIndeterminate(false);
+				this.pbSMS2.setVisibility(View.VISIBLE);
+			}
+
+			int v = View.VISIBLE;
+			if (CallMeter.preferences.getBoolean(PREFS_MERGE_SMS_TO_CALLS,
+					false)) {
+				v = View.GONE;
+				CallMeter.this.findViewById(R.id.sms2_out_).setVisibility(v);
+				this.twSMSOut2.setVisibility(v);
+				this.pbSMS2.setVisibility(v);
+			}
+			CallMeter.this.findViewById(R.id.sms_).setVisibility(v);
+			CallMeter.this.findViewById(R.id.sms_billdate_).setVisibility(v);
+			CallMeter.this.findViewById(R.id.sms_billdate).setVisibility(v);
+			CallMeter.this.findViewById(R.id.sms1_out_).setVisibility(v);
+			CallMeter.this.findViewById(R.id.sms1_out).setVisibility(v);
+			CallMeter.this.findViewById(R.id.sms_in_).setVisibility(v);
+			CallMeter.this.findViewById(R.id.sms_in).setVisibility(v);
+			this.pbSMS1.setVisibility(v);
 
 			this.callsBillDate = "?";
 			this.callsIn = "?";
@@ -796,6 +814,8 @@ public class CallMeter extends Activity {
 			status[2] = durOut2Month;
 			status[3] = free2 * SECONDS_MINUTE;
 			this.publishProgress((Void) null);
+
+			this.callsOutSum = durOut;
 		}
 
 		/**
@@ -908,6 +928,35 @@ public class CallMeter extends Activity {
 			status[5] = free1;
 			status[6] = smsOut2Month;
 			status[7] = free2;
+
+			if (CallMeter.preferences.getBoolean(PREFS_MERGE_SMS_TO_CALLS,
+					false)) {
+				// merge sms into calls.
+				final boolean mergeToPlan1 = this.plansMergeCalls
+						|| CallMeter.preferences.getBoolean(
+								PREFS_MERGE_SMS_PLAN1, true);
+				final int secondsForSMS = Integer
+						.parseInt(CallMeter.preferences.getString(
+								PREFS_MERGE_SMS_TO_CALLS_SECONDS, "0"));
+				int i = 0; // plan 1 number of seconds
+				if (!mergeToPlan1) {
+					i = 2; // plan 2 number of seconds
+				}
+				status[i] = secondsForSMS * smsOut1Month;
+
+				status[4] = 0;
+				status[5] = 0;
+				status[6] = 0;
+				status[7] = 0;
+
+				final String s = this.calcString(status[i], status[i + 1],
+						this.callsOutSum, true);
+				if (mergeToPlan1) {
+					this.callsOut1 = s;
+				} else {
+					this.callsOut2 = s;
+				}
+			}
 		}
 
 		/**

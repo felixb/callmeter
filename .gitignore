@@ -3,3 +3,4 @@ gen
 local.properties
 wiki
 build.properties
+.ant-targets-build.xml
