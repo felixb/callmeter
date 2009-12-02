@@ -54,7 +54,7 @@
 	<string name="billday_">First day of your bill</string>
 	<string name="billmode_">Mode of billing</string>
 	<string name="billmode_hint">Length of first/following billing timings.</string>
-	<string name="billdate_">Start of billperiod:</string>
+	<string name="billdate_">Start of billing period:</string>
 	<string name="smsperiod_">Same Period for SMS</string>
 	<string name="smsbillday_">First day of your SMS bill</string>
 	<string name="exclude_people_">Exclude numbers</string>
