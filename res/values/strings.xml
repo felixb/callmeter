@@ -76,20 +76,17 @@
 		following billing timings. E.g. 60/10 means every call is billed for
 		minimum 60s, any longer call is rounded up to next full 10s.</string>
 	<string name="exclude_people_">Exclude numbers</string>
-	<string name="exclude_people_hint">Exclude numbers from billing (Calls only)
-	</string>
+	<string name="exclude_people_hint">Exclude numbers from billing (Calls only)</string>
 	<string name="exclude_people_add">Add number</string>
 	<string name="exclude_people_edit">Edit</string>
 	<string name="exclude_people_delete">Delete</string>
 	<string name="plans">Plans</string>
 	<string name="plans_split">Split plans</string>
 	<string name="plans_merge">Merge plans</string>
-	<string name="plans_split_hint">Split plan into to different billed plans
-	</string>
+	<string name="plans_split_hint">Split plan into to different billed plans.</string>
 	<string name="plan1">Plan 1</string>
 	<string name="plan2">Plan 2</string>
-	<string name="plan1_hint">Check hours to include calls/sms into first
-		plan. All others will go into second plan.</string>
+	<string name="plan1_hint">Check hours to include calls/sms into first plan. All others will go into second plan.</string>
 	<string name="plan_free_">No billing</string>
 	<string name="plan_freemin_">Free Minutes</string>
 	<string name="plan_freesms_">Free SMS</string>
@@ -99,8 +96,7 @@
 	<string name="merge_sms_calls_">Merge SMS into calls</string>
 	<string name="merge_sms_calls_hint">Bill SMS as poart of calls.</string>
 	<string name="merge_sms_calls_sec_">Seconds / SMS</string>
-	<string name="merge_sms_calls_sec_hint">Number of seconds a billed for a single sms.
-	</string>
+	<string name="merge_sms_calls_sec_hint">Number of seconds a billed for a single sms.</string>
 	<string name="merge_sms_plan1_">Merge SMS into plan 1</string>
 	<string name="merge_sms_plan1_hint">Uncheck to merge them into plan 2.</string>
 	<string name="monday">Monday</string>
@@ -138,10 +134,11 @@
 	<string name="sms">SMS</string>
 	<string name="calls_sms">Calls/SMS</string>
 	<string name="in">In:</string>
-	<string name="out_calls">Out:</string>
-	<string name="out_sms">Out:</string>
-	<string name="out_calls1">Out (plan 1):</string>
-	<string name="out_sms1">Out (plan 1):</string>
-	<string name="out_calls2">Out (plan 2):</string>
-	<string name="out_sms2">Out (plan 2):</string>
+	<string name="out_calls">Out%s:</string>
+	<string name="out_sms">Out%s:</string>
+	<string name="plan_name1_">Plan 1: name</string>
+	<string name="plan_name2_">Plan 2: name</string>
+	<string name="plan_name1_def">plan 1</string>
+	<string name="plan_name2_def">plan 2</string>
+	<string name="plan_name_hint">Custom Name</string>
 </resources>

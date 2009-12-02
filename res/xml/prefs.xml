@@ -374,6 +374,12 @@
 					android:title="@string/hours_23" />
 			</PreferenceScreen>
 		</PreferenceScreen>
+		<EditTextPreference android:key="plan_name1"
+			android:title="@string/plan_name1_" android:summary="@string/plan_name_hint"
+			android:dependency="plans_split" />
+		<EditTextPreference android:key="plan_name2"
+			android:title="@string/plan_name2_" android:summary="@string/plan_name_hint"
+			android:dependency="plans_split" />
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/settings">

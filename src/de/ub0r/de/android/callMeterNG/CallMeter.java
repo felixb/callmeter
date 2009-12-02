@@ -34,6 +34,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
@@ -115,6 +116,11 @@ public class CallMeter extends Activity {
 	/** Prefs: plan1 free sms. */
 	private static final String PREFS_PLAN2_FREESMS = "plan2_freesms";
 
+	/** Prefs: custom name for plan 1. */
+	private static final String PREFS_NAME_PLAN1 = "plan_name1";
+	/** Prefs: custom name for plan 2. */
+	private static final String PREFS_NAME_PLAN2 = "plan_name2";
+
 	/** Prefs: merge sms into calls. */
 	private static final String PREFS_MERGE_SMS_TO_CALLS = "merge_sms_calls";
 	/** Prefs: merge sms into calls; number of seconds billed for a single sms. */
@@ -187,6 +193,10 @@ public class CallMeter extends Activity {
 	 */
 	public static class Preferences extends PreferenceActivity implements
 			SharedPreferences.OnSharedPreferenceChangeListener {
+
+		/** Preference: merge sms into calls. */
+		private Preference prefMergeSMStoCalls = null;
+
 		/**
 		 * {@inheritDoc}
 		 */
@@ -194,8 +204,13 @@ public class CallMeter extends Activity {
 		public final void onCreate(final Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			this.addPreferencesFromResource(R.xml.prefs);
-			this.getPreferences(MODE_WORLD_READABLE)
+			CallMeter.preferences
 					.registerOnSharedPreferenceChangeListener(this);
+			this.prefMergeSMStoCalls = this
+					.findPreference(PREFS_MERGE_SMS_TO_CALLS);
+			// run check on create!
+			this.onSharedPreferenceChanged(CallMeter.preferences,
+					PREFS_SPLIT_PLANS);
 		}
 
 		/**
@@ -204,8 +219,12 @@ public class CallMeter extends Activity {
 		@Override
 		public void onSharedPreferenceChanged(
 				final SharedPreferences sharedPreferences, final String key) {
-			if (key.equals(PREFS_SPLIT_PLANS)) {
-				// TODO: do some sane stuff here. add this to onCreate too.
+			if (key.equals(PREFS_SPLIT_PLANS)
+					|| key.equals(PREFS_MERGE_PLANS_SMS)) {
+				this.prefMergeSMStoCalls.setEnabled(!sharedPreferences
+						.getBoolean(PREFS_SPLIT_PLANS, false)
+						|| sharedPreferences.getBoolean(PREFS_MERGE_PLANS_SMS,
+								false));
 			}
 		}
 	}
@@ -586,6 +605,19 @@ public class CallMeter extends Activity {
 				this.plansMergeSms = true;
 			}
 
+			String namePlan1 = CallMeter.preferences.getString(
+					PREFS_NAME_PLAN1, "");
+			if (namePlan1.length() <= 0) {
+				namePlan1 = CallMeter.this.getString(R.string.plan_name1_def);
+			}
+			String namePlan2 = CallMeter.preferences.getString(
+					PREFS_NAME_PLAN2, "");
+			if (namePlan2.length() <= 0) {
+				namePlan2 = CallMeter.this.getString(R.string.plan_name2_def);
+			}
+			namePlan1 = " (" + namePlan1 + ")";
+			namePlan2 = " (" + namePlan2 + ")";
+
 			// load old values from database
 			this.allCallsIn = CallMeter.preferences.getInt(PREFS_ALL_CALLS_IN,
 					0);
@@ -626,7 +658,8 @@ public class CallMeter extends Activity {
 			this.pbCalls1.setVisibility(View.VISIBLE);
 			if (this.plansMergeCalls) {
 				((TextView) CallMeter.this.findViewById(R.id.calls1_out_))
-						.setText(R.string.out_calls);
+						.setText(String.format(CallMeter.this
+								.getString(R.string.out_calls), ""));
 
 				CallMeter.this.findViewById(R.id.calls2_out_).setVisibility(
 						View.GONE);
@@ -636,8 +669,13 @@ public class CallMeter extends Activity {
 				CallMeter.this.findViewById(R.id.calls2_out_).setVisibility(
 						View.VISIBLE);
 				this.twCallsOut2.setVisibility(View.VISIBLE);
+
+				String s = CallMeter.this.getString(R.string.out_calls);
 				((TextView) CallMeter.this.findViewById(R.id.calls1_out_))
-						.setText(R.string.out_calls1);
+						.setText(String.format(s, namePlan1));
+				((TextView) CallMeter.this.findViewById(R.id.calls2_out_))
+						.setText(String.format(s, namePlan2));
+
 				this.pbCalls2.setProgress(0);
 				this.pbCalls2.setIndeterminate(false);
 				this.pbCalls2.setVisibility(View.VISIBLE);
@@ -647,7 +685,8 @@ public class CallMeter extends Activity {
 			this.pbSMS1.setVisibility(View.VISIBLE);
 			if (this.plansMergeSms) {
 				((TextView) CallMeter.this.findViewById(R.id.sms1_out_))
-						.setText(R.string.out_sms);
+						.setText(String.format(CallMeter.this
+								.getString(R.string.out_sms), ""));
 
 				CallMeter.this.findViewById(R.id.sms2_out_).setVisibility(
 						View.GONE);
@@ -657,8 +696,13 @@ public class CallMeter extends Activity {
 				CallMeter.this.findViewById(R.id.sms2_out_).setVisibility(
 						View.VISIBLE);
 				this.twSMSOut2.setVisibility(View.VISIBLE);
+
+				String s = CallMeter.this.getString(R.string.out_sms);
 				((TextView) CallMeter.this.findViewById(R.id.sms1_out_))
-						.setText(R.string.out_sms1);
+						.setText(String.format(s, namePlan1));
+				((TextView) CallMeter.this.findViewById(R.id.sms2_out_))
+						.setText(String.format(s, namePlan2));
+
 				this.pbSMS2.setProgress(0);
 				this.pbSMS2.setIndeterminate(false);
 				this.pbSMS2.setVisibility(View.VISIBLE);
