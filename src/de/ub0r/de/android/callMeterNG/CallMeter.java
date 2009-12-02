@@ -196,6 +196,8 @@ public class CallMeter extends Activity {
 
 		/** Preference: merge sms into calls. */
 		private Preference prefMergeSMStoCalls = null;
+		/** Preference: merge sms into plan 1. */
+		private Preference prefMergeToPlan1 = null;
 
 		/**
 		 * {@inheritDoc}
@@ -208,6 +210,7 @@ public class CallMeter extends Activity {
 					.registerOnSharedPreferenceChangeListener(this);
 			this.prefMergeSMStoCalls = this
 					.findPreference(PREFS_MERGE_SMS_TO_CALLS);
+			this.prefMergeToPlan1 = this.findPreference(PREFS_MERGE_SMS_PLAN1);
 			// run check on create!
 			this.onSharedPreferenceChanged(CallMeter.preferences,
 					PREFS_SPLIT_PLANS);
@@ -220,11 +223,19 @@ public class CallMeter extends Activity {
 		public void onSharedPreferenceChanged(
 				final SharedPreferences sharedPreferences, final String key) {
 			if (key.equals(PREFS_SPLIT_PLANS)
-					|| key.equals(PREFS_MERGE_PLANS_SMS)) {
-				this.prefMergeSMStoCalls.setEnabled(!sharedPreferences
-						.getBoolean(PREFS_SPLIT_PLANS, false)
-						|| sharedPreferences.getBoolean(PREFS_MERGE_PLANS_SMS,
-								false));
+					|| key.equals(PREFS_MERGE_PLANS_SMS)
+					|| key.equals(PREFS_MERGE_PLANS_CALLS)
+					|| key.equals(PREFS_MERGE_SMS_TO_CALLS)) {
+				final boolean b0 = sharedPreferences.getBoolean(
+						PREFS_SPLIT_PLANS, false);
+				final boolean b1 = sharedPreferences.getBoolean(
+						PREFS_MERGE_PLANS_SMS, false);
+				final boolean b2 = sharedPreferences.getBoolean(
+						PREFS_MERGE_PLANS_CALLS, false);
+				final boolean b3 = sharedPreferences.getBoolean(
+						PREFS_MERGE_SMS_TO_CALLS, false);
+				this.prefMergeSMStoCalls.setEnabled(!b0 || b1);
+				this.prefMergeToPlan1.setEnabled(b0 && b1 && !b2 && b3);
 			}
 		}
 	}
