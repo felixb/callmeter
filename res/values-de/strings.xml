@@ -3,10 +3,11 @@
 		Copyright (C) 2009 Felix Bechstein
 	-->
 	<!--
-		This file is part of AndGMXsms. This program is free software; you can
-		redistribute it and/or modify it under the terms of the GNU General
-		Public License as published by the Free Software Foundation; either
-		version 3 of the License, or (at your option) any later version.
+		This file is part of Call Meter NG. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
 	-->
 	<!--
 		This program is distributed in the hope that it will be useful, but
@@ -19,48 +20,52 @@
 <resources>
 	<string name="author_">Autor:</string>
 	<string name="license_">Lizens:</string>
-	<string name="license">GPLv3 - siehe
-		http://www.gnu.org/licenses/gpl-3.0.txt</string>
-	<string name="donate_subject">Ich bin der Spender. Mein IMEI hash ist...
-	</string>
+	<string name="license">GPLv3 - siehe http://www.gnu.org/licenses/gpl-3.0.txt</string>
+	<string name="donate_subject">Ich bin der Spender. Mein IMEI Hash ist...</string>
 	<string name="donate_">Spenden/Werbung entfernen</string>
 	<string name="remove_ads">Werbung entfernen</string>
-	<string name="postdonate">Um die Werbung zu entfernen brauche ich den MD5
-		Hash deiner IMEI (Die eindeutige ID deines Handys) von dir. Der Hash ist
-		eine Einwegfunktion und ist somit nicht zu deiner IMEI Rückverfolgbar.
-		Ich werde die Werbung mit dem nächsten Release dann entfernen.
-	</string>
+	<string name="postdonate">Um die Werbung zu entfernen brauche ich den MD5 Hash deiner IMEI (Die eindeutige ID deines Handys) von dir. Der Hash ist eine Einwegfunktion und ist somit nicht zu deiner IMEI Rückverfolgbar. Ich werde die Werbung mit dem nächsten Release dann entfernen.</string>
+	<string name="about0_">Pass auf deine Freiminuten und FreiSMS auf!</string>
+	<string name="about0">CallMeter erzeugt aus deinen Anruf- und SMS-Logs Berichte. Es unterstützt viele verschiedene Abrechnungsmodi.</string>
+	<string name="about1">Das Ausgabeformat ist: Nutzung / Zeit oder Anzahl in diesem Monat / Zeit oder Anzahl überhaupt. Monatliche Anrufe werden nach Abrechnungsmodus berechnet. Die Gesamtzeit nicht.</string>
+	<string name="about2">Der Abrechnungszeitraum bezeichnet die länge des ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s aufgerundet.</string>
+	<string name="about3">Du kannst deine Anruf- oder SMS-Kontingente trennen. In jedem Kontingent kannst du dann folgendes einstelen: keine Abrechnung, auf ein bestimmtes Limit begrenzt oder keine Grenzen.</string>
+	<string name="about4">Deine SMS können über die Anrufe abgerechnet werden. Z.B. jede SMS als ein 60s Anruf.</string>
 	<string name="send_">Senden</string>
-	<string name="more_">Mehr Apps..</string>
 	<string name="settings">Einstellungen</string>
 	<string name="about_">Über CallMeter NG</string>
+	<string name="more_">Mehr Apps..</string>
+	<string name="changelog_">Changelog</string>
 	<string name="billday_">Erster Rechnungstag</string>
 	<string name="billmode_">Abrechnungsmodus</string>
-	<string name="billmode_hint">Länge der Takte (Erster/Folgende)</string>
+	<string name="billmode_hint">Länge der Takte (erster/folgende)</string>
 	<string name="billdate_">Erster Rechnungstag:</string>
 	<string name="smsperiod_">Gleiche Rechnung für SMS</string>
 	<string name="smsbillday_">Erster Rechnungstag für SMS</string>
-	<string name="freemin_">Freiminuten / Monat</string>
-	<string name="freesms_">FreiSMS / Monat</string>
-	<string name="about">Call Meter erzeugt Reports aus deinen Anruf-
-		und Nachrichtenlogs. Das ist alles.</string>
-	<string name="about1">Das Ausgabeformat ist Nutzung / Zeit, Anzahl
-		Nutzung im Abrechnungszeitraum / Zeit,Anzahl gesamt. Die monatliche
-		Nutzung ist mit hilfe des Abrechnungsmodus berechnet. Die Gesamtzeit
-		nicht.</string>
-	<string name="about2">Der Abrechnungszeitraum bezeichnet die länge des
-		ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder
-		Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s
-		aufgerundet.</string>
-	<string name="exclude_people_">Nummern ausschlie&#223;en</string>
-	<string name="exclude_people_hint">Nummern von der Abrechnung ausschlie&#223;en (nur Anrufe)</string>
-	<string name="exclude_people_add">Nummer hinzufügen</string>
+	<string name="exclude_people_">Nummern ausschließen</string>
+	<string name="exclude_people_hint">Anrufe an diese Nummern werden nicht abgerechnet.</string>
+	<string name="exclude_people_add">Numer hinzufügen</string>
 	<string name="exclude_people_edit">Ändern</string>
 	<string name="exclude_people_delete">Löschen</string>
-	<string name="freedays_">Kostenlose Tage</string>
-	<string name="freehours_">Kostenlose Stunden</string>
-	<string name="free_on_calls">Kostenlose Gespräche ..</string>
-	<string name="free_on_sms">Kostenlose SMS ..</string>
+	<string name="plans">Kontingente</string>
+	<string name="plans_split">2 Kontingente</string>
+	<string name="plans_merge">Kontingente verschmelzen</string>
+	<string name="plans_split_hint">Abrechnung in 2 verschiedene Kontingente trennen.</string>
+	<string name="plan1">Kontingent 1</string>
+	<string name="plan2">Kontingent 2</string>
+	<string name="plan1_hint">Wähle die Stunden, die im Kontingent 1 abgerechnet werden.</string>
+	<string name="plan_free_">Keine Abrechnung</string>
+	<string name="plan_freemin_">Freiminuten</string>
+	<string name="plan_freesms_">FreiSMS</string>
+	<string name="free_hint">Absolut keine Kosten</string>
+	<string name="freemin_hint">Freiminuten / Monat</string>
+	<string name="freesms_hint">FreiSMS / Monat</string>
+	<string name="merge_sms_calls_">SMS als Anrufe abrechnen</string>
+	<string name="merge_sms_calls_hint">Rechne SMS als Anrufe ab.</string>
+	<string name="merge_sms_calls_sec_">Sekunden / SMS</string>
+	<string name="merge_sms_calls_sec_hint">Anzahl der Sekunden, die für jede SMS abgerechnet werden.</string>
+	<string name="merge_sms_plan1_">In Kontingent 1 abrechnen</string>
+	<string name="merge_sms_plan1_hint">Abwählen, um im Kontingent 2 abzurechnen.</string>
 	<string name="monday">Montag</string>
 	<string name="tuesday">Dienstag</string>
 	<string name="wednesday">Mittwoch</string>
@@ -69,7 +74,13 @@
 	<string name="saturday">Samstag</string>
 	<string name="sunday">Sonntag</string>
 	<string name="calls">Anrufe</string>
+	<string name="calls_sms">Anrufe/SMS</string>
 	<string name="in">Ein:</string>
-	<string name="out_calls">Aus:</string>
-	<string name="out_sms">Aus:</string>
+	<string name="out_calls">Aus%s:</string>
+	<string name="out_sms">Aus%s:</string>
+	<string name="plan_name1_">Kontingent 1: Name</string>
+	<string name="plan_name2_">Kontingent 2: Name</string>
+	<string name="plan_name1_def">Kontingent 1</string>
+	<string name="plan_name2_def">Kontingent 2</string>
+	<string name="plan_name_hint">Eigener Name</string>
 </resources>
