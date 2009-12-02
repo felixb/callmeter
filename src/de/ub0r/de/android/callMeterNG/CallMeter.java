@@ -998,7 +998,7 @@ public class CallMeter extends Activity {
 				if (!mergeToPlan1) {
 					i = 2; // plan 2 number of seconds
 				}
-				status[i] = secondsForSMS * smsOut1Month;
+				status[i] += secondsForSMS * smsOut1Month;
 
 				status[4] = 0;
 				status[5] = 0;
@@ -1006,7 +1006,8 @@ public class CallMeter extends Activity {
 				status[7] = 0;
 
 				final String s = this.calcString(status[i], status[i + 1],
-						this.callsOutSum, true);
+						this.callsOutSum, false); // false ->
+				// no multiply 60s/min
 				if (mergeToPlan1) {
 					this.callsOut1 = s;
 				} else {
