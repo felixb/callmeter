@@ -28,7 +28,8 @@
 	<string name="author_pl">Łukasz Malcki &lt;maalicki@gmail.com&gt; (Polish)</string>
 	<string name="author_nl">Alfons Verreijt &lt;info@zangtechniek.nl&gt; (Dutch)</string>
 	<string name="author_gr">George Koutsouvalis &lt;koutsou@koutsou.gr&gt;	(Greek)</string>
-	<string name="author_es">Nicolás Gonzále &lt;fahani45@gmail.com&gt;	(Spanish)</string>
+	<string name="author_es">Angel Martinez &lt;angelmtn@gmail.com&gt;	(Spanish)</string>
+	<string name="author_ru">Александр Караченков &lt;kyrieli14@gmail.com&gt; (Russian)</string>
 	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Sourcescode:</string>
 	<string name="source">http://repo.or.cz/w/CallMeterNG.git</string>
@@ -120,7 +121,5 @@
 	<string name="out_sms">Out%s:</string>
 	<string name="plan_name1_">Plan 1: name</string>
 	<string name="plan_name2_">Plan 2: name</string>
-	<string name="plan_name1_def">plan 1</string>
-	<string name="plan_name2_def">plan 2</string>
 	<string name="plan_name_hint">Custom Name</string>
 </resources>

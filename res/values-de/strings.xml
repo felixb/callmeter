@@ -80,7 +80,5 @@
 	<string name="out_sms">Aus%s:</string>
 	<string name="plan_name1_">Kontingent 1: Name</string>
 	<string name="plan_name2_">Kontingent 2: Name</string>
-	<string name="plan_name1_def">Kontingent 1</string>
-	<string name="plan_name2_def">Kontingent 2</string>
 	<string name="plan_name_hint">Eigener Name</string>
 </resources>

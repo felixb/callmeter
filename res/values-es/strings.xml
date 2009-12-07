@@ -21,41 +21,53 @@
 	<string name="author_">Autor:</string>
 	<string name="version_">Versión:</string>
 	<string name="license_">Licencia:</string>
+	<string name="license">GPLv3 - visitar http://www.gnu.org/licenses/gpl-3.0.txt</string>
+	<string name="source_">Código fuente:</string>
+	<string name="website_">Web:</string>
 	<string name="donate_">Donar/Eliminar publicidad</string>
 	<string name="remove_ads">Eliminar publicidad</string>
-	<string name="postdonate">Para elimiar la publicidad, debes mandarme el MD5 del hash
-	de tu IMEI (Unico para cada teléfono). Este hash tiene una única funcion (one-way-funtion).
-	De ningún modo el hash permite encontrarte. La publicidad se eliminará con el siguiente relase de la aplicación.
-	</string>
+	<string name="postdonate">Para eliminar la publicidad, tienes que enviar el código MD5 de tu IMEI (único para cada teléfono). Este código es unidireccional y no permite rastrear el teléfono. Eliminaré la publicidad en la siguiente versión.</string>
+	<string name="about0_">¡Controla tus planes de llamadas!</string>
+	<string name="about0">CallMeter crea informes de tus registros de llamadas. Permite muchos tipos de tarificación.</string>
+	<string name="about1">La presentación es: minutos usados en el ciclo de facturación/ minutos totales. El cómputo mensual de llamadas tiene en cuenta el modo de tarificación. Los totales no.</string>
+	<string name="about2">El modo de tarificación especifica la longitud del primer/siguientes unidades de facturación. Ej. 60/10 significa que en cada llamada se factura el primer minuto completo y el resto se redondea en periodos de 10 s.</string>
+	<string name="about3">Puedes dividir tu plan de llamadas en dos horarios. Cada uno de ellos puede configurarse como gratuito limitado a cierto número de minutos o ilimitado.</string>
+	<string name="about4">También puedes incluir los SMS en el plan de llamadas. Por ejemplo, haciendo que cada mensaje cuente como una llamada de 15s.</string>
 	<string name="send_">Enviar</string>
 	<string name="settings">Preferencias</string>
 	<string name="about_">Sobre CallMeter NG</string>
-	<string name="more_">Mas aplicaciones.</string>
-	<string name="changelog_">Cambiar Log</string>
+	<string name="more_">Más aplicaciones..</string>
+	<string name="changelog_">Cambios en la versión</string>
 	<string name="billday_">Primer día de tu factura</string>
-	<string name="billmode_">Modo de facturación</string>
-	<string name="billmode_hint">Tamaño del primero/Seguido de los tiempos de facturación
-	</string>
-	<string name="billdate_">Empezar periodo de facturación:</string>
-	<string name="smsperiod_">El mismo periodo para los SMS</string>
+	<string name="billmode_">Tarificación</string>
+	<string name="billmode_hint">Tiempo del primero/restantes unidades de facturación.</string>
+	<string name="billdate_">Inicio de facturación:</string>
+	<string name="smsperiod_">Mismo periodo para SMS</string>
 	<string name="smsbillday_">Primer día de tu factura (SMS)</string>
-	<string name="freemin_">Minutos gratis / Mes</string>
-	<string name="freesms_">SMS gratis / Mes</string>
-	<string name="about">Call Meter genera informes de tus llamadas y mensajes. Esto es todo.</string>
-	<string name="about1">El formato de salida que es usado / tiempo, cantidad usado en el periodo de facturación / tiempo, cantidad total.
-		El calculo del tiempo mensual toma el modo de facturación de la cuenta. El total no.</string>
-	<string name="about2">El modo de facturación especifica el tamaño del primero/
-	seguido de los tiempos de facturación. Ejemplo: 60/10 significa que todas las llamadas son facturadas para un minimo de 60 segundos,
-	cualquier llamada superior será redondeada a los 10 segundos siguientes.</string>
 	<string name="exclude_people_">Números excluidos</string>
-	<string name="exclude_people_hint">Excluir números de la factura (solo llamadas)</string>
+	<string name="exclude_people_hint">Excluir números de facturación (sólo llamadas)</string>
 	<string name="exclude_people_add">Añadir número</string>
 	<string name="exclude_people_edit">Editar</string>
 	<string name="exclude_people_delete">Borrar</string>
-	<string name="freedays_">Días gratis</string>
-	<string name="freehours_">Horas gratis</string>
-	<string name="free_on_calls">Llamadas gratis en ..</string>
-	<string name="free_on_sms">Sms gratis en ..</string>
+	<string name="plans">Planes</string>
+	<string name="plans_split">Dividir planes</string>
+	<string name="plans_merge">Unir planes</string>
+	<string name="plans_split_hint">Divide un plan en dos diferentes.</string>
+	<string name="plan1">Plan 1</string>
+	<string name="plan2">Plan 2</string>
+	<string name="plan1_hint">Marcar los horarios incluidos en el primer plan (llamadas/SMS). El resto se incluirá en el segundo plan.</string>
+	<string name="plan_free_">Tarifa plana completa</string>
+	<string name="plan_freemin_">Minutos gratis</string>
+	<string name="plan_freesms_">SMS gratis</string>
+	<string name="free_hint">Sin límite de minutos</string>
+	<string name="freemin_hint">Minutos gratis / mes</string>
+	<string name="freesms_hint">SMS gratis / mes</string>
+	<string name="merge_sms_calls_">Unir SMS y llamadas</string>
+	<string name="merge_sms_calls_hint">Tarificar SMS como llamadas.</string>
+	<string name="merge_sms_calls_sec_">Segundos / SMS</string>
+	<string name="merge_sms_calls_sec_hint">Segundos equivalentes al coste de un SMS.</string>
+	<string name="merge_sms_plan1_">Incluir SMS en el plan 1</string>
+	<string name="merge_sms_plan1_hint">Desmarcar para incluirlos en el plan 2.</string>
 	<string name="monday">Lunes</string>
 	<string name="tuesday">Martes</string>
 	<string name="wednesday">Miércoles</string>
@@ -64,7 +76,12 @@
 	<string name="saturday">Sábado</string>
 	<string name="sunday">Domingo</string>
 	<string name="calls">Llamadas</string>
-	<string name="in">Entrada:</string>
-	<string name="out_calls">Salida:</string>
-	<string name="out_sms">Salida:</string>
+	<string name="sms">SMS</string>
+	<string name="calls_sms">Llamadas/SMS</string>
+	<string name="in">Recibidas:</string>
+	<string name="out_calls">Enviadas%s:</string>
+	<string name="out_sms">Enviados%s:</string>
+	<string name="plan_name1_">Plan 1: nombre</string>
+	<string name="plan_name2_">Plan 2: nombre</string>
+	<string name="plan_name_hint">Nombre personalizado</string>
 </resources>

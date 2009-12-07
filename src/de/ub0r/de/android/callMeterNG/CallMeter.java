@@ -619,12 +619,12 @@ public class CallMeter extends Activity {
 			String namePlan1 = CallMeter.preferences.getString(
 					PREFS_NAME_PLAN1, "");
 			if (namePlan1.length() <= 0) {
-				namePlan1 = CallMeter.this.getString(R.string.plan_name1_def);
+				namePlan1 = CallMeter.this.getString(R.string.plan1);
 			}
 			String namePlan2 = CallMeter.preferences.getString(
 					PREFS_NAME_PLAN2, "");
 			if (namePlan2.length() <= 0) {
-				namePlan2 = CallMeter.this.getString(R.string.plan_name2_def);
+				namePlan2 = CallMeter.this.getString(R.string.plan2);
 			}
 			namePlan1 = " (" + namePlan1 + ")";
 			namePlan2 = " (" + namePlan2 + ")";
