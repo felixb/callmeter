@@ -40,7 +40,7 @@
 	<string name="changelog_">Cambios en la versión</string>
 	<string name="billday_">Primer día de tu factura</string>
 	<string name="billmode_">Tarificación</string>
-	<string name="billmode_hint">Tiempo del primero/restantes unidades de facturación.</string>
+	<string name="billmode_hint">Duración de la primera/restantes unidades de tarificación.</string>
 	<string name="billdate_">Inicio de facturación:</string>
 	<string name="smsperiod_">Mismo periodo para SMS</string>
 	<string name="smsbillday_">Primer día de tu factura (SMS)</string>
