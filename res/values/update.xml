@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>v0.9.7: Allow a second plan for calls/sms (please check prefs!), allow to bill messages as calls, new about, remove ads for translator</item>
+		<item>v0.9.7: Allow a second plan for calls/sms (please check prefs!), allow to bill messages as calls, new about, remove ads for translator, add 30/10 billing mode</item>
 		<item>v0.9.6: Allow to exclude some numbers from billing, add spanish translation, remove ads for translators</item>
 		<item>v0.9.5: Change ProgressIndicator, prepare to remove ads for donators, fix long text messages</item>
 		<item>v0.9.3: Add Changelog, more text in about</item>
