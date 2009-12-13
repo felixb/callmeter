@@ -54,6 +54,7 @@
 	<string-array name="modes_">
 		<item>1/1</item>
 		<item>10/10</item>
+		<item>30/10</item>
 		<item>45/1</item>
 		<item>60/0</item>
 		<item>60/1</item>
@@ -63,6 +64,7 @@
 	<string-array name="modes">
 		<item>1_1</item>
 		<item>10_10</item>
+		<item>30_10</item>
 		<item>45_1</item>
 		<item>60_0</item>
 		<item>60_1</item>
