@@ -77,7 +77,7 @@
 	<string name="freemin_hint">Free Minutes / Month</string>
 	<string name="freesms_hint">Free SMS / Month</string>
 	<string name="merge_sms_calls_">Merge SMS into calls</string>
-	<string name="merge_sms_calls_hint">Bill SMS as poart of calls.</string>
+	<string name="merge_sms_calls_hint">Bill SMS as part of calls.</string>
 	<string name="merge_sms_calls_sec_">Seconds / SMS</string>
 	<string name="merge_sms_calls_sec_hint">Number of seconds a billed for a single sms.</string>
 	<string name="merge_sms_plan1_">Merge SMS into plan 1</string>
