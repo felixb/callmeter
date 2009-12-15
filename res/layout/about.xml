@@ -50,24 +50,24 @@
 		<TextView android:text="@string/author" android:layout_width="wrap_content"
 			android:layout_height="wrap_content" android:paddingLeft="10dip"
 			android:autoLink="email" />
-		<TextView android:text="@string/author_cz"
+<!--	<TextView android:text="@string/author_cz"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:paddingLeft="10dip" android:autoLink="email" />
+			android:paddingLeft="10dip" android:autoLink="email" /> -->
 		<TextView android:text="@string/author_pl"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
 			android:paddingLeft="10dip" android:autoLink="email" />
-		<TextView android:text="@string/author_nl"
+<!--	<TextView android:text="@string/author_nl"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:paddingLeft="10dip" android:autoLink="email" />
+			android:paddingLeft="10dip" android:autoLink="email" /> -->
 		<TextView android:text="@string/author_gr"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
 			android:paddingLeft="10dip" android:autoLink="email" />
 		<TextView android:text="@string/author_es"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
 			android:paddingLeft="10dip" android:autoLink="email" />
-		<TextView android:text="@string/author_ru"
+<!--	<TextView android:text="@string/author_ru"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:paddingLeft="10dip" android:autoLink="email" />
+			android:paddingLeft="10dip" android:autoLink="email" /> -->
 
 		<TextView android:text="@string/website_"
 			android:layout_width="wrap_content" android:layout_height="wrap_content" />
