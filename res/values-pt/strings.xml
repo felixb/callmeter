@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2009 Renato Picozzi, Felix Bechstein
+	-->
+	<!--
+		This file is part of Call Meter NG. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<resources>
+		<string name="author_">Autor:</string>
+	<string name="version_">Versão:</string>
+	<string name="license_">Licença:</string>
+	<string name="license">GPLv3 - veja
+		http://www.gnu.org/licenses/gpl-3.0.txt</string>
+	<string name="source_">Códigos fontes:</string>
+	<string name="website_">Web site:</string>
+	<string name="donate_">Doação/remova anúncios</string>
+	<string name="remove_adds">Remova anúncios</string>
+	<string name="postdonate">Para remover os anúncios, você precisa enviar o
+		código MD5 do seu IMEI (identificação única do seu celular). Este
+		código é uma função de via única. Não é rastreável de volta para você.
+		Eu irei remover seus anúncios na próxima versão.</string>
+	<string name="about0_">Veja seus planos de ligações e mensagens!</string>
+	<string name="about0">Call Meter gera um relatório de ligações e
+		mensagens. Suporta vários modos de cobranças.</string>
+	<string name="about1">Os formatos de saída são: uso / tempo, soma
+		utilizada neste período / tempo ou soma total. O cálculo de tempo
+		utiliza a forma de cobrança de seu plano. A soma total não.</string>
+	<string name="about2">O modo de cobrança utiliza o tamanho do primeiro e
+		posteriores tempos de cobrança. Ex. 30/10 diz que cada ligação é
+		taxada com o mínimo de 30s, e após este período será taxado de 10 em
+		10 segundos de utilização (sendo esse o período mínimo),
+		sucessivamente até o final da chamada.</string>
+	<string name="about3">Você pode separar os planos de ligações e mensagens
+		em até dois planos. Cada plano pode ser configurado de totalmente
+		grátis, limitado a um período ou, ilimitado.</string>
+	<string name="about4">Suas mensagens podem ser mescladas em seu plano de
+		chamada. Ex. contar cada mensagem como 15s de chamada.</string>
+	<string name="send_">Enviar</string>
+	<string name="settings">Preferências</string>
+	<string name="about_">Sobre Call Meter NG</string>
+	<string name="more_">Mais Anúncios..</string>
+	<string name="changelog_">Mudar relatório</string>
+	<string name="billday_">Primeiro dia da conta</string>
+	<string name="billmode_">Modo de cobrança</string>
+	<string name="billmode_hint">Comprimento do primeiro/seguintes períodos de
+		cobrança.</string>
+	<string name="billdate_">Início do período de cobrança:</string>
+	<string name="smsperiod_">Mesmo período para SMS</string>
+	<string name="smsbillday_">Primeiro dia da conta SMS</string>
+	<string name="exclude_people_">Números excluídos</string>
+	<string name="exclude_people_hint">Números excluídos da conta (Só ligações)</string>
+	<string name="exclude_people_add">Adicione número</string>
+	<string name="exclude_people_edit">Edição</string>
+	<string name="exclude_people_delete">Apagar</string>
+	<string name="plans">Planos</string>
+	<string name="plans_split">Planos divididos</string>
+	<string name="plans_merge">Planos juntos</string>
+	<string name="plans_split_hint">Planos divididos em contas separadas.</string>
+	<string name="plan1">Plano 1</string>
+	<string name="plan2">Plano 2</string>
+	<string name="plan1_hint">Seleção de horas incluídas nas chamadas/SMS do
+		primeiro plano. Todas as outras irão para o segundo plano.</string>
+	<string name="plan_free_">Sem cobrança</string>
+	<string name="plan_freemin_">Minutos grátis</string>
+	<string name="plan_freesms_">SMS grátis</string>
+	<string name="free_hint">Totalmente grátis</string>
+	<string name="freemin_hint">Minutos/Mês do plano</string>
+	<string name="freesms_hint">SMS/Mês do plano</string>
+	<string name="merge_sms_calls_">Juntar SMS com chamadas</string>
+	<string name="merge_sms_calls_hint">Cobrar SMS como parte das chamadas.</string>
+	<string name="merge_sms_calls_sec_">Segundos / SMS</string>
+	<string name="merge_sms_calls_sec_hint">Número de segundos cobrados em um SMS.</string>
+	<string name="merge_sms_plan1_">Juntar os SMS no plano 1</string>
+	<string name="merge_sms_plan1_hint">Desmarcar a junção com o plano 2.</string>
+	<string name="monday">Segunda</string>
+	<string name="tuesday">Terça</string>
+	<string name="wednesday">Quarta</string>
+	<string name="thursday">Quinta</string>
+	<string name="friday">Sexta</string>
+	<string name="saturday">Sábado</string>
+	<string name="sunday">Domingo</string>
+	<string name="calls">Ligações</string>
+	<string name="sms">SMS</string>
+	<string name="calls_sms">Ligações/SMS</string>
+	<string name="in">Recebidas:</string>
+	<string name="out_calls">Feita%s:</string>
+	<string name="out_sms">Feitas%s:</string>
+	<string name="plan_name1_">Plano 1: nome</string>
+	<string name="plan_name2_">Plano 2: nome</string>
+	<string name="plan_name_hint">Nome do Usuário</string>
+</resources>
