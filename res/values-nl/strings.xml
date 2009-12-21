@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>	<!--
-		Copyright (C) 2009 Alfons Vereijt, Felix Bechstein
+		Copyright (C) 2009 Tom Nuss, Felix Bechstein
 	-->
 	<!--
 		This file is part of AndGMXsms. This program is free software; you can
@@ -16,5 +16,75 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-
+	<string name="author_">Auteur:</string>
+	<string name="version_">Versie:</string>
+	<string name="license_">Licentie:</string>
+	<string name="license">GPLv3 - zie http://www.gnu.org/licenses/gpl-3.0.txt</string>
+	<string name="source_">Broncode:</string>
+	<string name="website_">Website:</string>
+	<string name="donate_">Doneer/verwijder ads</string>
+	<string name="remove_ads">Verwijder ads</string>
+	<string name="postdonate">
+	Om advertenties te verwijderen dien je mij de zogenaamde MD5 hash van je IMEI (unieke id van je telefoon) te sturen. Deze hash is een éénrichtingsverkeer functie. De hash is daardoor niet terug naar jou te traceren. Na versturen, verwijder ik de advertenties bij de volgende versie.</string>
+	<string name="about0_">Houd de minuten en aantal berichten van je abonnement bij!</string>
+	<string name="about0">CallMeter genereert rapporten uit de gesprek en berichten log van je telefoon. Het ondersteund meerdere vormen van facturatie.</string>
+	<string name="about1">
+	Het resultaat is het gebruik (tijd of aantal) gebruikt tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de vorm van facturatie. Die over de gehele periode doet dit niet.</string>
+	<string name="about2">
+	De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
+	<string name="about3">
+	Je kunt je telefoonabonnement in 2 schema\'s splitsen. Elk schema kan geheel vrij ingesteld worden, beperkt tot een bepaalde limiet of onbeperkt.</string>
+	<string name="about4">
+	Je berichten kunnen samengevoegd worden met je gespreksminuten. Bijvoorbeeld: elk bericht als een gesprek van 15 sec. rekenen.</string>
+	<string name="send_">Verstuur</string>
+	<string name="settings">Voorkeuren</string>
+	<string name="about_">Over CallMeter NG</string>
+	<string name="more_">Meer apps..</string>
+	<string name="changelog_">Changelog</string>
+	<string name="billday_">Eerste dag van facturatie</string>
+	<string name="billmode_">Facturatie modus</string>
+	<string name="billmode_hint">Lengte van eerste/volgende facturatie eenheden.</string>
+	<string name="billdate_">Begin facturatie periode:</string>
+	<string name="smsperiod_">Zelfde voor SMS</string>
+	<string name="smsbillday_">Eerste dag SMS facturatie</string>
+	<string name="exclude_people_">Nummers uitsluiten</string>
+	<string name="exclude_people_hint">Sluit nummers uit van facturatie (alleen gesprekken)</string>
+	<string name="exclude_people_add">Nummer toevoegen</string>
+	<string name="exclude_people_edit">Bewerken</string>
+	<string name="exclude_people_delete">Verwijderen</string>
+	<string name="plans">Schema</string>
+	<string name="plans_split">Splits schema\'s</string>
+	<string name="plans_merge">Voeg schema\'s samen</string>
+	<string name="plans_split_hint">Splits schema in verschillende facturatie schema\'s.</string>
+	<string name="plan1">Schema 1</string>
+	<string name="plan2">Schema 2</string>
+	<string name="plan1_hint">Geef de uren aan waarvan de gesprekken/sms aan eerste schema toegevoegd moeten worden. De rest wordt toegevoegd aan het tweede schema.</string>
+	<string name="plan_free_">Geen facturatie</string>
+	<string name="plan_freemin_">Gratis minuten</string>
+	<string name="plan_freesms_">Gratis SMS</string>
+	<string name="free_hint">Geheel vrij</string>
+	<string name="freemin_hint">Gratis minuten per maand</string>
+	<string name="freesms_hint">Gratis SMS per maand</string>
+	<string name="merge_sms_calls_">Voeg SMS samen met gesprekken</string>
+	<string name="merge_sms_calls_hint">Factureer SMS als onderdeel van gesprekken.</string>
+	<string name="merge_sms_calls_sec_">Seconden per SMS</string>
+	<string name="merge_sms_calls_sec_hint">Aantal seconden gefactureerd per SMS.</string>
+	<string name="merge_sms_plan1_">Voeg SMS samen met schema 1</string>
+	<string name="merge_sms_plan1_hint">Vink uit om samen te voegen met schema 2.</string>
+	<string name="monday">Maandag</string>
+	<string name="tuesday">Dinsdag</string>
+	<string name="wednesday">Woensdag</string>
+	<string name="thursday">Donderdag</string>
+	<string name="friday">Vrijdag</string>
+	<string name="saturday">Zaterdag</string>
+	<string name="sunday">Zondag</string>
+	<string name="calls">Gesprekken</string>
+	<string name="sms">SMS</string>
+	<string name="calls_sms">Gesprekken/SMS</string>
+	<string name="in">Inkomend:</string>
+	<string name="out_calls">Uitgaand:</string>
+	<string name="out_sms">Verstuurd:</string>
+	<string name="plan_name1_">Schema 1: naam</string>
+	<string name="plan_name2_">Schema 2: naam</string>
+	<string name="plan_name_hint">Gekozen naam</string>
 </resources>
