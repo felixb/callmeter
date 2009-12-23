@@ -857,8 +857,21 @@ public class CallMeter extends Activity {
 						if (billDate <= d) {
 							check = true;
 							n = cur.getString(idNumber);
+							// check if number should be excluded from billing
 							for (int j = 1; j < excludeNumbersSize; j++) {
-								if (n.equals(excludeNumbers[j])) {
+								final String s = excludeNumbers[j];
+								if (s.startsWith("*")) {
+									if (n.endsWith(s.substring(1))) {
+										check = false;
+										break;
+									}
+								} else if (s.endsWith("*")) {
+									if (n.startsWith(s.substring(0,
+											s.length() - 1))) {
+										check = false;
+										break;
+									}
+								} else if (n.equals(excludeNumbers[j])) {
 									check = false;
 									break;
 								}
