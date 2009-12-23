@@ -148,6 +148,19 @@ public class CallMeter extends Activity {
 	/** Prefs: limit for data traffic. */
 	private static final String PREFS_DATA_LIMIT = "data_limit";
 
+	/** Prefs: data in at last boot. */
+	private static final String PREFS_DATA_BOOT_IN = "data_boot_in";
+	/** Prefs: data out at last boot. */
+	private static final String PREFS_DATA_BOOT_OUT = "data_boot_out";
+	/** Prefs: data in after last boot. */
+	private static final String PREFS_DATA_RUNNING_IN = "data_running_in";
+	/** Prefs: data out after last boot. */
+	private static final String PREFS_DATA_RUNNING_OUT = "data_running_out";
+	/** Prefs: data in before bolling date. */
+	private static final String PREFS_DATA_PREBILLING_IN = "data_prebilling_in";
+	/** Prefs: data out before billing date. */
+	private static final String PREFS_DATA_PREBILLING_OUT = "data_prebilling_out";
+
 	/** Prefs: billmode: 1/1. */
 	private static final String BILLMODE_1_1 = "1_1";
 	/** Prefs: billmode: 10/10. */
@@ -376,13 +389,11 @@ public class CallMeter extends Activity {
 	class Updater extends AsyncTask<Void, Void, Integer[]> {
 		/** Status Strings. */
 		private String callsIn, callsOut1, callsOut2, callsBillDate, smsIn,
-				smsOut1, smsOut2, smsBillDate;
+				smsOut1, smsOut2, smsBillDate, dataIn, dataOut;
 		/** Status TextViews. */
 		private TextView twCallsIn, twCallsOut1, twCallsOut2, twCallsBillDate,
 				twSMSIn, twSMSOut1, twSMSOut2, twSMSBillDate, twDataBillDate,
 				twDataIn, twDataOut;
-		/** Layouts. */
-		private View vData, vDataBillDate, vDataIn, vDataOut;
 		/** Status ProgressBars. */
 		private ProgressBar pbCalls1, pbCalls2, pbSMS1, pbSMS2, pbData;
 
@@ -589,6 +600,10 @@ public class CallMeter extends Activity {
 			this.twSMSIn.setText(this.smsIn);
 			this.twSMSOut1.setText(this.smsOut1);
 			this.twSMSOut2.setText(this.smsOut2);
+
+			this.twDataBillDate.setText(this.callsBillDate);
+			this.twDataIn.setText(this.dataIn);
+			this.twDataOut.setText(this.dataOut);
 		}
 
 		/**
@@ -672,6 +687,8 @@ public class CallMeter extends Activity {
 					.findViewById(R.id.sms1_progressbar);
 			this.pbSMS2 = (ProgressBar) CallMeter.this
 					.findViewById(R.id.sms2_progressbar);
+			this.pbData = (ProgressBar) CallMeter.this
+					.findViewById(R.id.data_progressbar);
 
 			this.twCallsIn = (TextView) CallMeter.this
 					.findViewById(R.id.calls_in);
@@ -688,6 +705,12 @@ public class CallMeter extends Activity {
 					.findViewById(R.id.sms2_out);
 			this.twSMSBillDate = (TextView) CallMeter.this
 					.findViewById(R.id.sms_billdate);
+			this.twDataBillDate = (TextView) CallMeter.this
+					.findViewById(R.id.data_billdate);
+			this.twDataIn = (TextView) CallMeter.this
+					.findViewById(R.id.data_in);
+			this.twDataOut = (TextView) CallMeter.this
+					.findViewById(R.id.data_out);
 
 			this.pbCalls1.setProgress(0);
 			this.pbCalls1.setIndeterminate(false);
@@ -784,6 +807,8 @@ public class CallMeter extends Activity {
 			this.smsIn = "?";
 			this.smsOut1 = "?";
 			this.smsOut2 = "?";
+			this.dataIn = "?";
+			this.dataOut = "?";
 
 			this.updateText();
 		}
@@ -1081,6 +1106,15 @@ public class CallMeter extends Activity {
 		}
 
 		/**
+		 * @param data
+		 *            amaount of data transfered
+		 * @return more readable output
+		 */
+		private String makeBytesReadable(final long data) {
+			return data / (1024 * 1024) + "MB";
+		}
+
+		/**
 		 * Run in backgrund.
 		 * 
 		 * @param arg0
@@ -1094,8 +1128,9 @@ public class CallMeter extends Activity {
 			final boolean[][] plans = this.loadPlans(CallMeter.preferences);
 			final long oldDate = this.getOldDate();
 
-			// progressbar positions: calls1_pos, calls1_max, calls2_*, sms*
-			final Integer[] ret = { 0, 0, 0, 0, 1, 1, 1, 1 };
+			// progressbar positions: calls1_pos, calls1_max, calls2_*, sms*,
+			// data*
+			final Integer[] ret = { 0, 0, 0, 0, 1, 1, 1, 1, 2, 2 };
 			Calendar calBillDate = this.getBillDate(Integer
 					.parseInt(CallMeter.preferences.getString(PREFS_BILLDAY,
 							"0")));
@@ -1115,6 +1150,37 @@ public class CallMeter extends Activity {
 				this.walkSMS(null, calBillDate, oldDate, ret);
 			} else {
 				this.walkSMS(plans, calBillDate, oldDate, ret);
+			}
+
+			// report data
+			if (CallMeter.preferences.getBoolean(CallMeter.PREFS_DATA_ENABLE,
+					false)) {
+				// TODO: walk data
+				final long preBootIn = CallMeter.preferences.getLong(
+						CallMeter.PREFS_DATA_BOOT_IN, 0);
+				final long preBootOut = CallMeter.preferences.getLong(
+						CallMeter.PREFS_DATA_BOOT_OUT, 0);
+				final long preBillingIn = CallMeter.preferences.getLong(
+						CallMeter.PREFS_DATA_PREBILLING_IN, 0);
+				final long preBillingOut = CallMeter.preferences.getLong(
+						CallMeter.PREFS_DATA_PREBILLING_OUT, 0);
+				final long runningIn = CallMeter.preferences.getLong(
+						CallMeter.PREFS_DATA_RUNNING_IN, 0);
+				final long runningOut = CallMeter.preferences.getLong(
+						CallMeter.PREFS_DATA_RUNNING_OUT, 0);
+				final long currentIn = preBootIn + runningIn;
+				final long currentOut = preBootOut + runningOut;
+				final long thisBillingIn = currentIn - preBillingIn;
+				final long thisBillingOut = currentOut - preBillingOut;
+				this.dataIn = this.makeBytesReadable(thisBillingIn) + "/"
+						+ this.makeBytesReadable(currentIn);
+				this.dataOut = this.makeBytesReadable(currentOut
+						- preBillingOut)
+						+ "/" + this.makeBytesReadable(currentOut);
+				final long limit = Long.parseLong(CallMeter.preferences
+						.getString(PREFS_DATA_LIMIT, "0")) * 1024;
+				ret[8] = (int) (thisBillingIn + thisBillingOut) / (1024 * 1024);
+				ret[9] = (int) (limit / (1024 * 1024));
 			}
 
 			this.allOldDate = oldDate;
@@ -1199,6 +1265,10 @@ public class CallMeter extends Activity {
 				pb2.setVisibility(View.VISIBLE);
 			}
 
+			pb1 = this.pbData;
+			pb1.setMax(result[9]);
+			pb2.setProgress(result[8]);
+
 			// save old values to database
 			SharedPreferences.Editor editor = CallMeter.preferences.edit();
 			editor.putInt(PREFS_ALL_CALLS_IN, this.allCallsIn);
@@ -1237,12 +1307,15 @@ public class CallMeter extends Activity {
 		// get imei
 		TelephonyManager mTelephonyMgr = (TelephonyManager) this
 				.getSystemService(TELEPHONY_SERVICE);
-		this.imeiHash = md5(mTelephonyMgr.getDeviceId());
+		final String s = mTelephonyMgr.getDeviceId();
 		prefsNoAds = false;
-		for (String h : NO_AD_HASHS) {
-			if (this.imeiHash.equals(h)) {
-				prefsNoAds = true;
-				break;
+		if (s != null) {
+			this.imeiHash = md5(s);
+			for (String h : NO_AD_HASHS) {
+				if (this.imeiHash.equals(h)) {
+					prefsNoAds = true;
+					break;
+				}
 			}
 		}
 		prefsExcludePeople = new ArrayList<String>();

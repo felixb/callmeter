@@ -124,6 +124,7 @@
 	<string name="in">In:</string>
 	<string name="out_calls">Out%s:</string>
 	<string name="out_sms">Out%s:</string>
+	<string name="out_data">Out:</string>
 	<string name="plan_name1_">Plan 1: name</string>
 	<string name="plan_name2_">Plan 2: name</string>
 	<string name="plan_name_hint">Custom Name</string>
