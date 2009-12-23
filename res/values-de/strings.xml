@@ -44,7 +44,7 @@
 	<string name="smsbillday_">Erster Rechnungstag für SMS</string>
 	<string name="exclude_people_">Nummern ausschließen</string>
 	<string name="exclude_people_hint">Anrufe an diese Nummern werden nicht abgerechnet.</string>
-	<string name="exclude_people_add">Numer hinzufügen</string>
+	<string name="exclude_people_add">Nummer hinzufügen</string>
 	<string name="exclude_people_edit">Ändern</string>
 	<string name="exclude_people_delete">Löschen</string>
 	<string name="plans">Kontingente</string>
