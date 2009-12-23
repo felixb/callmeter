@@ -60,7 +60,7 @@
 	<string name="smsperiod_">Same Period for SMS</string>
 	<string name="smsbillday_">First day of your SMS bill</string>
 	<string name="exclude_people_">Exclude numbers</string>
-	<string name="exclude_people_hint">Don\'t bill some numbers (Calls) \nwildcards allowed: *555 or 555*</string>
+	<string name="exclude_people_hint">Don\'t bill some numbers (Calls)\nwildcards allowed: *555 or 555*</string>
 	<string name="exclude_people_add">Add number</string>
 	<string name="exclude_people_edit">Edit</string>
 	<string name="exclude_people_delete">Delete</string>
