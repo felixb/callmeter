@@ -143,6 +143,10 @@ public class CallMeter extends Activity {
 	/** Prefs: Exclude people count. */
 	private static final String PREFS_EXCLUDE_PEOPLE_COUNT = PREFS_EXCLUDE_PEOPLE_PREFIX
 			+ "n";
+	/** Prefs: enable data stats. */
+	private static final String PREFS_DATA_ENABLE = "data_enable";
+	/** Prefs: limit for data traffic. */
+	private static final String PREFS_DATA_LIMIT = "data_limit";
 
 	/** Prefs: billmode: 1/1. */
 	private static final String BILLMODE_1_1 = "1_1";
@@ -375,9 +379,12 @@ public class CallMeter extends Activity {
 				smsOut1, smsOut2, smsBillDate;
 		/** Status TextViews. */
 		private TextView twCallsIn, twCallsOut1, twCallsOut2, twCallsBillDate,
-				twSMSIn, twSMSOut1, twSMSOut2, twSMSBillDate;
+				twSMSIn, twSMSOut1, twSMSOut2, twSMSBillDate, twDataBillDate,
+				twDataIn, twDataOut;
+		/** Layouts. */
+		private View vData, vDataBillDate, vDataIn, vDataOut;
 		/** Status ProgressBars. */
-		private ProgressBar pbCalls1, pbCalls2, pbSMS1, pbSMS2;
+		private ProgressBar pbCalls1, pbCalls2, pbSMS1, pbSMS2, pbData;
 
 		/** Sum of old calls/sms loaded/saved from preferences. */
 		private int allCallsIn, allCallsOut, allSMSIn, allSMSOut;
@@ -753,6 +760,21 @@ public class CallMeter extends Activity {
 			CallMeter.this.findViewById(R.id.sms_in_).setVisibility(v);
 			CallMeter.this.findViewById(R.id.sms_in).setVisibility(v);
 			this.pbSMS1.setVisibility(v);
+
+			// data
+			v = View.GONE;
+			if (CallMeter.preferences.getBoolean(CallMeter.PREFS_DATA_ENABLE,
+					false)) {
+				v = View.VISIBLE;
+			}
+			CallMeter.this.findViewById(R.id.data_).setVisibility(v);
+			CallMeter.this.findViewById(R.id.data_billdate_layout)
+					.setVisibility(v);
+			CallMeter.this.findViewById(R.id.data_in_layout).setVisibility(v);
+			CallMeter.this.findViewById(R.id.data_out_layout).setVisibility(v);
+			CallMeter.this.findViewById(R.id.data_progressbar).setVisibility(v);
+
+			// common
 
 			this.callsBillDate = "?";
 			this.callsIn = "?";

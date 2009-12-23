@@ -141,6 +141,50 @@
 				style="?android:attr/progressBarStyleHorizontal" />
 
 			<!-- end sms -->
+			<!--  data common-->
+
+			<TextView android:id="@+id/data_" android:text="@string/data"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:paddingTop="10dip" android:gravity="center"
+				android:textStyle="bold" android:visibility="gone" />
+
+			<LinearLayout android:layout_height="wrap_content"
+				android:layout_width="fill_parent" android:id="@+id/data_billdate_layout"
+				android:visibility="gone">
+				<TextView android:id="@+id/data_billdate_" android:text="@string/billdate_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+				<TextView android:id="@+id/data_billdate" android:gravity="right"
+					android:layout_width="fill_parent" android:layout_height="wrap_content" />
+			</LinearLayout>
+
+			<!-- real data -->
+
+			<LinearLayout android:layout_height="wrap_content"
+				android:layout_width="fill_parent" android:id="@+id/data_in_layout"
+				android:visibility="gone">
+				<TextView android:id="@+id/data_in_" android:text="@string/in"
+					android:paddingLeft="5dip" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" />
+				<TextView android:id="@+id/data_in" android:gravity="right"
+					android:layout_width="fill_parent" android:layout_height="wrap_content" />
+			</LinearLayout>
+
+			<LinearLayout android:layout_height="wrap_content"
+				android:layout_width="fill_parent" android:id="@+id/data_out_layout"
+				android:visibility="gone">
+				<TextView android:id="@+id/data_out_" android:text="@string/out_sms"
+					android:paddingLeft="5dip" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" />
+				<TextView android:id="@+id/data_out" android:gravity="right"
+					android:layout_width="fill_parent" android:layout_height="wrap_content" />
+			</LinearLayout>
+
+			<ProgressBar android:id="@+id/data_progressbar"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:paddingTop="5dip" android:max="100"
+				style="?android:attr/progressBarStyleHorizontal" />
+
+			<!-- end data -->
 		</LinearLayout>
 	</ScrollView>
 </RelativeLayout>
