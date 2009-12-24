@@ -78,11 +78,13 @@ public class CallMeter extends Activity {
 	private static final int HOURS_DAY = 24;
 	/** Seconds of a minute. */
 	private static final int SECONDS_MINUTE = 60;
+	/** Bytes per Megabyte. */
+	static final int BYTES_MEGABYTE = 1024 * 1024;
 
 	/** Prefs: name for last version run. */
 	private static final String PREFS_LAST_RUN = "lastrun";
 	/** Prefs: name for first day. */
-	private static final String PREFS_BILLDAY = "billday";
+	static final String PREFS_BILLDAY = "billday";
 	/** Prefs: name for billingmode. */
 	private static final String PREFS_BILLMODE = "billmode";
 	/** Prefs: name for smsperiod. */
@@ -149,17 +151,21 @@ public class CallMeter extends Activity {
 	private static final String PREFS_DATA_LIMIT = "data_limit";
 
 	/** Prefs: data in at last boot. */
-	private static final String PREFS_DATA_BOOT_IN = "data_boot_in";
+	static final String PREFS_DATA_BOOT_IN = "data_boot_in";
 	/** Prefs: data out at last boot. */
-	private static final String PREFS_DATA_BOOT_OUT = "data_boot_out";
+	static final String PREFS_DATA_BOOT_OUT = "data_boot_out";
 	/** Prefs: data in after last boot. */
-	private static final String PREFS_DATA_RUNNING_IN = "data_running_in";
+	static final String PREFS_DATA_RUNNING_IN = "data_running_in";
 	/** Prefs: data out after last boot. */
-	private static final String PREFS_DATA_RUNNING_OUT = "data_running_out";
+	static final String PREFS_DATA_RUNNING_OUT = "data_running_out";
 	/** Prefs: data in before bolling date. */
-	private static final String PREFS_DATA_PREBILLING_IN = "data_prebilling_in";
+	static final String PREFS_DATA_PREBILLING_IN = "data_prebilling_in";
 	/** Prefs: data out before billing date. */
-	private static final String PREFS_DATA_PREBILLING_OUT = "data_prebilling_out";
+	static final String PREFS_DATA_PREBILLING_OUT = "data_prebilling_out";
+	/** Prefs: date of last billing. */
+	static final String PREFS_DATA_LASTBILLING = "data_lastbilling";
+	/** Prefs: date of next billing. */
+	static final String PREFS_DATA_NEXTBILLING = "data_nextbilling";
 
 	/** Prefs: billmode: 1/1. */
 	private static final String BILLMODE_1_1 = "1_1";
@@ -508,26 +514,6 @@ public class CallMeter extends Activity {
 				}
 			}
 			return time;
-		}
-
-		/**
-		 * Return Billdate as Calendar for a given day of month.
-		 * 
-		 * @param billDay
-		 *            first day of bill
-		 * @return date as Calendar
-		 */
-		private Calendar getBillDate(final int billDay) {
-			Calendar cal = Calendar.getInstance();
-			if (cal.get(Calendar.DAY_OF_MONTH) < billDay) {
-				cal.roll(Calendar.MONTH, -1);
-			}
-			cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), billDay);
-			cal.set(Calendar.HOUR_OF_DAY, 0);
-			cal.set(Calendar.MINUTE, 0);
-			cal.set(Calendar.SECOND, 0);
-			cal.set(Calendar.MILLISECOND, 0);
-			return cal;
 		}
 
 		/**
@@ -1111,7 +1097,7 @@ public class CallMeter extends Activity {
 		 * @return more readable output
 		 */
 		private String makeBytesReadable(final long data) {
-			return data / (1024 * 1024) + "MB";
+			return data / (BYTES_MEGABYTE) + "MB";
 		}
 
 		/**
@@ -1131,7 +1117,7 @@ public class CallMeter extends Activity {
 			// progressbar positions: calls1_pos, calls1_max, calls2_*, sms*,
 			// data*
 			final Integer[] ret = { 0, 0, 0, 0, 1, 1, 1, 1, 2, 2 };
-			Calendar calBillDate = this.getBillDate(Integer
+			Calendar calBillDate = getBillDate(Integer
 					.parseInt(CallMeter.preferences.getString(PREFS_BILLDAY,
 							"0")));
 			if (this.plansMergeCalls) {
@@ -1142,7 +1128,7 @@ public class CallMeter extends Activity {
 
 			// report sms
 			if (!CallMeter.preferences.getBoolean(PREFS_SMSPERIOD, false)) {
-				calBillDate = this.getBillDate(Integer
+				calBillDate = getBillDate(Integer
 						.parseInt(CallMeter.preferences.getString(
 								PREFS_SMSBILLDAY, "0")));
 			}
@@ -1155,7 +1141,9 @@ public class CallMeter extends Activity {
 			// report data
 			if (CallMeter.preferences.getBoolean(CallMeter.PREFS_DATA_ENABLE,
 					false)) {
-				// TODO: walk data
+				// walk data
+				CMBroadcastReceiver.updateTraffic(CallMeter.preferences);
+				// get data from prefs
 				final long preBootIn = CallMeter.preferences.getLong(
 						CallMeter.PREFS_DATA_BOOT_IN, 0);
 				final long preBootOut = CallMeter.preferences.getLong(
@@ -1178,9 +1166,10 @@ public class CallMeter extends Activity {
 						- preBillingOut)
 						+ "/" + this.makeBytesReadable(currentOut);
 				final long limit = Long.parseLong(CallMeter.preferences
-						.getString(PREFS_DATA_LIMIT, "0")) * 1024;
-				ret[8] = (int) (thisBillingIn + thisBillingOut) / (1024 * 1024);
-				ret[9] = (int) (limit / (1024 * 1024));
+						.getString(PREFS_DATA_LIMIT, "0"));
+				ret[8] = (int) (thisBillingIn + thisBillingOut)
+						/ (BYTES_MEGABYTE);
+				ret[9] = (int) limit;
 			}
 
 			this.allOldDate = oldDate;
@@ -1266,8 +1255,13 @@ public class CallMeter extends Activity {
 			}
 
 			pb1 = this.pbData;
-			pb1.setMax(result[9]);
-			pb2.setProgress(result[8]);
+			if (result[9] > 0) {
+				pb1.setMax(result[9]);
+				pb1.setProgress(result[8]);
+				pb1.setVisibility(View.VISIBLE);
+			} else {
+				pb1.setVisibility(View.GONE);
+			}
 
 			// save old values to database
 			SharedPreferences.Editor editor = CallMeter.preferences.edit();
@@ -1280,6 +1274,26 @@ public class CallMeter extends Activity {
 
 			CallMeter.this.setProgressBarIndeterminateVisibility(false);
 		}
+	}
+
+	/**
+	 * Return Billdate as Calendar for a given day of month.
+	 * 
+	 * @param billDay
+	 *            first day of bill
+	 * @return date as Calendar
+	 */
+	static final Calendar getBillDate(final int billDay) {
+		Calendar cal = Calendar.getInstance();
+		if (cal.get(Calendar.DAY_OF_MONTH) < billDay) {
+			cal.add(Calendar.MONTH, -1);
+		}
+		cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), billDay);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal;
 	}
 
 	/**
