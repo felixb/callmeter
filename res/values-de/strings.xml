@@ -66,6 +66,10 @@
 	<string name="merge_sms_calls_sec_hint">Anzahl der Sekunden, die für jede SMS abgerechnet werden.</string>
 	<string name="merge_sms_plan1_">In Kontingent 1 abrechnen</string>
 	<string name="merge_sms_plan1_hint">Abwählen, um im Kontingent 2 abzurechnen.</string>
+	<string name="data_enable_">Zeige Datenstatistik</string>
+	<string name="data_enable_hint">Daten werden in Echtzeit gesammelt. Im ersten Monat ist das Ergebnis evtl. falsch.</string>
+	<string name="data_limit_">Freivolumen</string>
+	<string name="data_limit_hint">Freivolumen in MB/Monat</string>
 	<string name="monday">Montag</string>
 	<string name="tuesday">Dienstag</string>
 	<string name="wednesday">Mittwoch</string>
@@ -74,10 +78,12 @@
 	<string name="saturday">Samstag</string>
 	<string name="sunday">Sonntag</string>
 	<string name="calls">Anrufe</string>
+	<string name="data">Daten</string>
 	<string name="calls_sms">Anrufe/SMS</string>
 	<string name="in">Ein:</string>
 	<string name="out_calls">Aus%s:</string>
 	<string name="out_sms">Aus%s:</string>
+	<string name="out_data">Aus:</string>
 	<string name="plan_name1_">Kontingent 1: Name</string>
 	<string name="plan_name2_">Kontingent 2: Name</string>
 	<string name="plan_name_hint">Eigener Name</string>
