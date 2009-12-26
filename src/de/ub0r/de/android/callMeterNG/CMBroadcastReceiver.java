@@ -19,6 +19,7 @@
 
 package de.ub0r.de.android.callMeterNG;
 
+import java.io.IOException;
 import java.util.Calendar;
 
 import android.app.AlarmManager;
@@ -29,6 +30,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 /**
  * ProxyStarter listens to any Broadcast. It'l start the Proxy Service on
@@ -37,6 +39,9 @@ import android.preference.PreferenceManager;
  * @author Felix Bechstein
  */
 public class CMBroadcastReceiver extends BroadcastReceiver {
+	/** Tag for output. */
+	private static final String TAG = "CallMeterNG.Receiver";
+
 	/** Time between to update checks. */
 	private static final long DELAY = 1 * 60 * 1000; // 1min
 
@@ -57,9 +62,18 @@ public class CMBroadcastReceiver extends BroadcastReceiver {
 		long runningIn = prefs.getLong(CallMeter.PREFS_DATA_RUNNING_IN, 0);
 		long runningOut = prefs.getLong(CallMeter.PREFS_DATA_RUNNING_OUT, 0);
 
-		// FIXME: get real data
-		runningIn += 2 * CallMeter.BYTES_MEGABYTE;
-		runningOut += CallMeter.BYTES_MEGABYTE;
+		final Device d = Device.getDevice();
+		final String inter = d.getCell();
+		if (inter != null) {
+			try {
+				final long rx = SysClassNet.getRxBytes(inter);
+				final long tx = SysClassNet.getTxBytes(inter);
+				runningIn = rx;
+				runningOut = tx;
+			} catch (IOException e) {
+				Log.e(TAG, "I/O Error", e);
+			}
+		}
 
 		final SharedPreferences.Editor editor = prefs.edit();
 		editor.putLong(CallMeter.PREFS_DATA_RUNNING_IN, runningIn);
