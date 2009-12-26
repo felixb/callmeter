@@ -21,10 +21,13 @@ package de.ub0r.de.android.callMeterNG;
 
 import java.util.Calendar;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
 
 /**
@@ -34,20 +37,27 @@ import android.preference.PreferenceManager;
  * @author Felix Bechstein
  */
 public class CMBroadcastReceiver extends BroadcastReceiver {
+	/** Time between to update checks. */
+	private static final long DELAY = 1 * 60 * 1000; // 1min
+
+	// private static final long DELAY = 30 * 60 * 1000; // 30min
 
 	/**
 	 * Update traffic data.
 	 * 
+	 * @param context
+	 *            Context
 	 * @param prefs
 	 *            preferences
 	 */
-	static final void updateTraffic(final SharedPreferences prefs) {
+	static final synchronized void updateTraffic(final Context context,
+			final SharedPreferences prefs) {
 		checkBillperiod(prefs);
 
 		long runningIn = prefs.getLong(CallMeter.PREFS_DATA_RUNNING_IN, 0);
 		long runningOut = prefs.getLong(CallMeter.PREFS_DATA_RUNNING_OUT, 0);
 
-		// FIXME
+		// FIXME: get real data
 		runningIn += 2 * CallMeter.BYTES_MEGABYTE;
 		runningOut += CallMeter.BYTES_MEGABYTE;
 
@@ -56,10 +66,18 @@ public class CMBroadcastReceiver extends BroadcastReceiver {
 		editor.putLong(CallMeter.PREFS_DATA_RUNNING_OUT, runningOut);
 		editor.commit();
 
+		// schedule next update
+		final AlarmManager mgr = (AlarmManager) context
+				.getSystemService(Context.ALARM_SERVICE);
+
+		final Intent i = new Intent(context, CMBroadcastReceiver.class);
+		final PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
+		final long t = SystemClock.elapsedRealtime() + DELAY;
+		mgr.set(AlarmManager.ELAPSED_REALTIME, t, pi);
 	}
 
 	/**
-	 * Check if billperiod changed.
+	 * Check if billing period changed.
 	 * 
 	 * @param prefs
 	 *            preferences
@@ -67,30 +85,24 @@ public class CMBroadcastReceiver extends BroadcastReceiver {
 	static final void checkBillperiod(final SharedPreferences prefs) {
 		final Calendar billDate = CallMeter.getBillDate(Integer.parseInt(prefs
 				.getString(CallMeter.PREFS_BILLDAY, "0")));
-		// long thisBill = billDate.getTimeInMillis();
-		billDate.add(Calendar.MONTH, -1);
 		long lastBill = billDate.getTimeInMillis();
-		billDate.add(Calendar.MONTH, 2);
-		long nextBill = billDate.getTimeInMillis();
-		// long now = System.currentTimeMillis();
+		long now = System.currentTimeMillis();
+		long lastCheck = prefs.getLong(CallMeter.PREFS_DATA_LASTCHECK, 0);
 
-		long nextPlanedBill = prefs
-				.getLong(CallMeter.PREFS_DATA_NEXTBILLING, 0);
-
-		if (nextPlanedBill < lastBill) {
+		final SharedPreferences.Editor editor = prefs.edit();
+		if (lastCheck < lastBill) {
 			long preBootIn = prefs.getLong(CallMeter.PREFS_DATA_BOOT_IN, 0);
 			long preBootOut = prefs.getLong(CallMeter.PREFS_DATA_BOOT_OUT, 0);
 			long runningIn = prefs.getLong(CallMeter.PREFS_DATA_RUNNING_IN, 0);
 			long runningOut = prefs
 					.getLong(CallMeter.PREFS_DATA_RUNNING_OUT, 0);
-			final SharedPreferences.Editor editor = prefs.edit();
 			editor.putLong(CallMeter.PREFS_DATA_PREBILLING_IN, preBootIn
 					+ runningIn);
-			editor.putLong(CallMeter.PREFS_DATA_BOOT_OUT, preBootOut
+			editor.putLong(CallMeter.PREFS_DATA_PREBILLING_OUT, preBootOut
 					+ runningOut);
-			editor.putLong(CallMeter.PREFS_DATA_NEXTBILLING, nextBill);
-			editor.commit();
 		}
+		editor.putLong(CallMeter.PREFS_DATA_LASTCHECK, now);
+		editor.commit();
 	}
 
 	/**
@@ -133,6 +145,6 @@ public class CMBroadcastReceiver extends BroadcastReceiver {
 		if (action != null && action.equals(Intent.ACTION_BOOT_COMPLETED)) {
 			checkPostboot(prefs);
 		}
-		updateTraffic(prefs);
+		updateTraffic(context, prefs);
 	}
 }

@@ -163,9 +163,7 @@ public class CallMeter extends Activity {
 	/** Prefs: data out before billing date. */
 	static final String PREFS_DATA_PREBILLING_OUT = "data_prebilling_out";
 	/** Prefs: date of last billing. */
-	static final String PREFS_DATA_LASTBILLING = "data_lastbilling";
-	/** Prefs: date of next billing. */
-	static final String PREFS_DATA_NEXTBILLING = "data_nextbilling";
+	static final String PREFS_DATA_LASTCHECK = "data_lastcheck";
 
 	/** Prefs: billmode: 1/1. */
 	private static final String BILLMODE_1_1 = "1_1";
@@ -1142,7 +1140,8 @@ public class CallMeter extends Activity {
 			if (CallMeter.preferences.getBoolean(CallMeter.PREFS_DATA_ENABLE,
 					false)) {
 				// walk data
-				CMBroadcastReceiver.updateTraffic(CallMeter.preferences);
+				CMBroadcastReceiver.updateTraffic(CallMeter.this,
+						CallMeter.preferences);
 				// get data from prefs
 				final long preBootIn = CallMeter.preferences.getLong(
 						CallMeter.PREFS_DATA_BOOT_IN, 0);
