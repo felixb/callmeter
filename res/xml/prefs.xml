@@ -467,7 +467,7 @@
 
 		<PreferenceScreen android:title="@string/data">
 			<CheckBoxPreference android:key="data_enable"
-				android:title="@string/data_enable_" />
+				android:title="@string/data_enable_" android:summary="@string/data_enable_hint" />
 			<EditTextPreference android:key="data_limit"
 				android:title="@string/data_limit_" android:dialogTitle="@string/data_limit_"
 				android:inputType="number" android:dependency="data_enable"

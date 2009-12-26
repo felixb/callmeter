@@ -84,6 +84,7 @@
 	<string name="merge_sms_plan1_">Merge SMS into plan 1</string>
 	<string name="merge_sms_plan1_hint">Uncheck to merge them into plan 2.</string>
 	<string name="data_enable_">Show data stats</string>
+	<string name="data_enable_hint">Data is collected in realtime. First month may be incorrect!</string>
 	<string name="data_limit_">Limit</string>
 	<string name="data_limit_hint">Limit of dataplan (MB/month)</string>
 	<string name="monday">Monday</string>

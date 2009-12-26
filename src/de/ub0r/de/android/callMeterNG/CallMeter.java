@@ -1114,7 +1114,7 @@ public class CallMeter extends Activity {
 
 			// progressbar positions: calls1_pos, calls1_max, calls2_*, sms*,
 			// data*
-			final Integer[] ret = { 0, 0, 0, 0, 1, 1, 1, 1, 2, 2 };
+			final Integer[] ret = { 0, 0, 0, 0, 1, 1, 1, 1, 0, 0 };
 			Calendar calBillDate = getBillDate(Integer
 					.parseInt(CallMeter.preferences.getString(PREFS_BILLDAY,
 							"0")));
