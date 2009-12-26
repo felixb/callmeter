@@ -43,9 +43,7 @@ public class CMBroadcastReceiver extends BroadcastReceiver {
 	private static final String TAG = "CallMeterNG.Receiver";
 
 	/** Time between to update checks. */
-	private static final long DELAY = 1 * 60 * 1000; // 1min
-
-	// private static final long DELAY = 30 * 60 * 1000; // 30min
+	private static final long DELAY = 30 * 60 * 1000; // 30min
 
 	/**
 	 * Update traffic data.
@@ -57,6 +55,9 @@ public class CMBroadcastReceiver extends BroadcastReceiver {
 	 */
 	static final synchronized void updateTraffic(final Context context,
 			final SharedPreferences prefs) {
+		if (!prefs.getBoolean(CallMeter.PREFS_DATA_ENABLE, false)) {
+			return;
+		}
 		checkBillperiod(prefs);
 
 		long runningIn = prefs.getLong(CallMeter.PREFS_DATA_RUNNING_IN, 0);

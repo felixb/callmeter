@@ -146,7 +146,7 @@ public class CallMeter extends Activity {
 	private static final String PREFS_EXCLUDE_PEOPLE_COUNT = PREFS_EXCLUDE_PEOPLE_PREFIX
 			+ "n";
 	/** Prefs: enable data stats. */
-	private static final String PREFS_DATA_ENABLE = "data_enable";
+	static final String PREFS_DATA_ENABLE = "data_enable";
 	/** Prefs: limit for data traffic. */
 	private static final String PREFS_DATA_LIMIT = "data_limit";
 
