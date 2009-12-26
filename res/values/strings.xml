@@ -83,6 +83,10 @@
 	<string name="merge_sms_calls_sec_hint">Number of seconds a billed for a single sms.</string>
 	<string name="merge_sms_plan1_">Merge SMS into plan 1</string>
 	<string name="merge_sms_plan1_hint">Uncheck to merge them into plan 2.</string>
+	<string name="data_enable_">Show data stats</string>
+	<string name="data_enable_hint">Data is collected in realtime. First month may be incorrect!</string>
+	<string name="data_limit_">Limit</string>
+	<string name="data_limit_hint">Limit of dataplan (MB/month)</string>
 	<string name="monday">Monday</string>
 	<string name="tuesday">Tuesday</string>
 	<string name="wednesday">Wednesday</string>
@@ -116,10 +120,12 @@
 	<string name="hours_23">23:00 - 23:59</string>
 	<string name="calls">Calls</string>
 	<string name="sms">SMS</string>
+	<string name="data">Data</string>
 	<string name="calls_sms">Calls/SMS</string>
 	<string name="in">In:</string>
 	<string name="out_calls">Out%s:</string>
 	<string name="out_sms">Out%s:</string>
+	<string name="out_data">Out:</string>
 	<string name="plan_name1_">Plan 1: name</string>
 	<string name="plan_name2_">Plan 2: name</string>
 	<string name="plan_name_hint">Custom Name</string>
