@@ -28,8 +28,8 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name="CallMeter$Preferences" />
-		<activity android:name="CallMeter$ExcludePeople" />
+		<activity android:name="Preferences" />
+		<activity android:name="ExcludePeople" />
 		<receiver android:name="CMBroadcastReceiver">
 			<intent-filter>
 				<action android:name="android.intent.action.BOOT_COMPLETED" />

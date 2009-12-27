@@ -480,7 +480,7 @@
 			android:summary="@string/exclude_people_hint">
 			<intent android:action="android.intent.action.MAIN"
 				android:targetPackage="de.ub0r.de.android.callMeterNG"
-				android:targetClass="de.ub0r.de.android.callMeterNG.CallMeter$ExcludePeople" />
+				android:targetClass="de.ub0r.de.android.callMeterNG.ExcludePeople" />
 		</PreferenceScreen>
 	</PreferenceCategory>
 </PreferenceScreen>

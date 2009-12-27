@@ -34,8 +34,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
 import android.telephony.TelephonyManager;
@@ -47,13 +45,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 import com.admob.android.ads.AdView;
 
@@ -93,11 +87,11 @@ public class CallMeter extends Activity {
 	private static final String PREFS_SMSBILLDAY = "smsbillday";
 
 	/** Prefs: split plans. */
-	private static final String PREFS_SPLIT_PLANS = "plans_split";
+	static final String PREFS_SPLIT_PLANS = "plans_split";
 	/** Prefs: merge plans for calls. */
-	private static final String PREFS_MERGE_PLANS_CALLS = "plans_merge_calls";
+	static final String PREFS_MERGE_PLANS_CALLS = "plans_merge_calls";
 	/** Prefs: merge plans for sms. */
-	private static final String PREFS_MERGE_PLANS_SMS = "plans_merge_sms";
+	static final String PREFS_MERGE_PLANS_SMS = "plans_merge_sms";
 	/** Prefs: hours for plan 1. */
 	private static final String PREFS_PLAN1_HOURS_PREFIX = "hours_1_";
 
@@ -124,11 +118,11 @@ public class CallMeter extends Activity {
 	private static final String PREFS_NAME_PLAN2 = "plan_name2";
 
 	/** Prefs: merge sms into calls. */
-	private static final String PREFS_MERGE_SMS_TO_CALLS = "merge_sms_calls";
+	static final String PREFS_MERGE_SMS_TO_CALLS = "merge_sms_calls";
 	/** Prefs: merge sms into calls; number of seconds billed for a single sms. */
 	private static final String PREFS_MERGE_SMS_TO_CALLS_SECONDS = "merge_sms_calls_sec";
 	/** Prefs: merge sms into calls; which plan to merge sms in. */
-	private static final String PREFS_MERGE_SMS_PLAN1 = "merge_sms_plan1";
+	static final String PREFS_MERGE_SMS_PLAN1 = "merge_sms_plan1";
 
 	/** Prefs: name for all old calls in. */
 	private static final String PREFS_ALL_CALLS_IN = "all_calls_in";
@@ -141,9 +135,9 @@ public class CallMeter extends Activity {
 	/** Prefs: name for date of old calls/sms. */
 	private static final String PREFS_DATE_OLD = "all_date_old";
 	/** Prefs: Exclude people prefix. */
-	private static final String PREFS_EXCLUDE_PEOPLE_PREFIX = "exclude_people_";
+	static final String PREFS_EXCLUDE_PEOPLE_PREFIX = "exclude_people_";
 	/** Prefs: Exclude people count. */
-	private static final String PREFS_EXCLUDE_PEOPLE_COUNT = PREFS_EXCLUDE_PEOPLE_PREFIX
+	static final String PREFS_EXCLUDE_PEOPLE_COUNT = PREFS_EXCLUDE_PEOPLE_PREFIX
 			+ "n";
 	/** Prefs: enable data stats. */
 	static final String PREFS_DATA_ENABLE = "data_enable";
@@ -188,7 +182,7 @@ public class CallMeter extends Activity {
 	private static final String BODY = "body";
 
 	/** SharedPreferences. */
-	private static SharedPreferences preferences;
+	static SharedPreferences preferences;
 
 	/** Unique ID of device. */
 	private String imeiHash = null;
@@ -196,9 +190,9 @@ public class CallMeter extends Activity {
 	private static boolean prefsNoAds;
 
 	/** Preferences: excluded numbers. */
-	private static ArrayList<String> prefsExcludePeople;
+	static ArrayList<String> prefsExcludePeople;
 	/** ArrayAdapter for excluded numbers. */
-	private static ArrayAdapter<String> excludedPeaoplAdapter;
+	static ArrayAdapter<String> excludedPeaoplAdapter;
 
 	/** Array of md5(imei) for which no ads should be displayed. */
 	private static final String[] NO_AD_HASHS = { // .
@@ -213,178 +207,6 @@ public class CallMeter extends Activity {
 			"80cfd25e841424e968db64de0d7d236e", // Renato P.
 			"cb4d969c66def366b56200d87d3c363c" // Daniel S.
 	};
-
-	/**
-	 * Preferences.
-	 * 
-	 * @author flx
-	 */
-	public static class Preferences extends PreferenceActivity implements
-			SharedPreferences.OnSharedPreferenceChangeListener {
-
-		/** Preference: merge sms into calls. */
-		private Preference prefMergeSMStoCalls = null;
-		/** Preference: merge sms into plan 1. */
-		private Preference prefMergeToPlan1 = null;
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public final void onCreate(final Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			this.addPreferencesFromResource(R.xml.prefs);
-			CallMeter.preferences
-					.registerOnSharedPreferenceChangeListener(this);
-			this.prefMergeSMStoCalls = this
-					.findPreference(PREFS_MERGE_SMS_TO_CALLS);
-			this.prefMergeToPlan1 = this.findPreference(PREFS_MERGE_SMS_PLAN1);
-			// run check on create!
-			this.onSharedPreferenceChanged(CallMeter.preferences,
-					PREFS_SPLIT_PLANS);
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public void onSharedPreferenceChanged(
-				final SharedPreferences sharedPreferences, final String key) {
-			if (key.equals(PREFS_SPLIT_PLANS)
-					|| key.equals(PREFS_MERGE_PLANS_SMS)
-					|| key.equals(PREFS_MERGE_PLANS_CALLS)
-					|| key.equals(PREFS_MERGE_SMS_TO_CALLS)) {
-				final boolean b0 = sharedPreferences.getBoolean(
-						PREFS_SPLIT_PLANS, false);
-				final boolean b1 = sharedPreferences.getBoolean(
-						PREFS_MERGE_PLANS_SMS, false);
-				final boolean b2 = sharedPreferences.getBoolean(
-						PREFS_MERGE_PLANS_CALLS, false);
-				final boolean b3 = sharedPreferences.getBoolean(
-						PREFS_MERGE_SMS_TO_CALLS, false);
-				this.prefMergeSMStoCalls.setEnabled(!b0 || b1);
-				this.prefMergeToPlan1.setEnabled(b0 && b1 && !b2 && b3);
-			}
-		}
-	}
-
-	/**
-	 * Preferences subscreen to exclude numbers.
-	 * 
-	 * @author flx
-	 */
-	public static class ExcludePeople extends Activity implements
-			OnItemClickListener {
-		/**
-		 * {@inheritDoc}
-		 */
-		protected final void onCreate(final Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			this.setContentView(R.layout.exclude_people);
-			final ListView lv = (ListView) this.findViewById(R.id.list);
-			lv.setAdapter(CallMeter.excludedPeaoplAdapter);
-			lv.setOnItemClickListener(this);
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		protected final void onPause() {
-			super.onPause();
-			SharedPreferences.Editor editor = CallMeter.preferences.edit();
-			final int s = CallMeter.prefsExcludePeople.size();
-			editor.putInt(PREFS_EXCLUDE_PEOPLE_COUNT, s - 1);
-			for (int i = 1; i < s; i++) {
-				editor.putString(PREFS_EXCLUDE_PEOPLE_PREFIX + (i - 1),
-						CallMeter.prefsExcludePeople.get(i));
-			}
-			editor.commit();
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		public final void onItemClick(final AdapterView<?> parent,
-				final View view, final int position, final long id) {
-			if (position == 0) {
-				final AlertDialog.Builder builder = new AlertDialog.Builder(
-						this);
-				final EditText et = new EditText(this);
-				builder.setView(et);
-				builder.setTitle(R.string.exclude_people_add);
-				builder.setCancelable(true);
-				builder.setPositiveButton(android.R.string.ok,
-						new DialogInterface.OnClickListener() {
-							public void onClick(final DialogInterface dialog,
-									final int id) {
-								CallMeter.prefsExcludePeople.add(et.getText()
-										.toString());
-								CallMeter.excludedPeaoplAdapter
-										.notifyDataSetChanged();
-								dialog.dismiss();
-							}
-						});
-				builder.setNegativeButton(android.R.string.cancel,
-						new DialogInterface.OnClickListener() {
-							public void onClick(final DialogInterface dialog,
-									final int id) {
-								dialog.cancel();
-							}
-						});
-				builder.create().show();
-			} else {
-				final AlertDialog.Builder builder = new AlertDialog.Builder(
-						this);
-				builder.setCancelable(true);
-				final String[] itms = new String[2];
-				itms[0] = this.getString(R.string.exclude_people_edit);
-				itms[1] = this.getString(R.string.exclude_people_delete);
-				builder.setItems(itms, new DialogInterface.OnClickListener() {
-					public void onClick(final DialogInterface dialog,
-							final int item) {
-						if (item == 0) { // edit
-							final AlertDialog.Builder builder2 = new AlertDialog.Builder(
-									ExcludePeople.this);
-							final EditText et = new EditText(ExcludePeople.this);
-							et.setText(CallMeter.prefsExcludePeople
-									.get(position));
-							builder2.setView(et);
-							builder2.setTitle(R.string.exclude_people_edit);
-							builder2.setCancelable(true);
-							builder2.setPositiveButton(android.R.string.ok,
-									new DialogInterface.OnClickListener() {
-										public void onClick(
-												final DialogInterface dialog,
-												final int id) {
-											CallMeter.prefsExcludePeople.set(
-													position, et.getText()
-															.toString());
-											CallMeter.excludedPeaoplAdapter
-													.notifyDataSetChanged();
-											dialog.dismiss();
-										}
-									});
-							builder2.setNegativeButton(android.R.string.cancel,
-									new DialogInterface.OnClickListener() {
-										public void onClick(
-												final DialogInterface dialog,
-												final int id) {
-											dialog.cancel();
-										}
-									});
-							builder2.create().show();
-						} else { // delete
-							CallMeter.prefsExcludePeople.remove(position);
-							CallMeter.excludedPeaoplAdapter
-									.notifyDataSetChanged();
-						}
-					}
-
-				});
-				builder.create().show();
-			}
-		}
-	}
 
 	/**
 	 * AsyncTask to handel calcualtions in background.
@@ -417,118 +239,6 @@ public class CallMeter extends Activity {
 
 		/** Sum of displayed calls out. Used if merging sms into calls. */
 		private int callsOutSum;
-
-		/**
-		 * Parse number of seconds to a readable time format.
-		 * 
-		 * @param seconds
-		 *            seconds
-		 * @return parsed string
-		 */
-		private String getTime(final int seconds) {
-			String ret;
-			int d = seconds / 86400;
-			int h = (seconds % 86400) / 3600;
-			int m = (seconds % 3600) / 60;
-			int s = seconds % 60;
-			if (d > 0) {
-				ret = d + "d ";
-			} else {
-				ret = "";
-			}
-			if (h > 0 || d > 0) {
-				if (h < 10) {
-					ret += "0";
-				}
-				ret += h + ":";
-			}
-			if (m > 0 || h > 0 || d > 0) {
-				if (m < 10 && h > 0) {
-					ret += "0";
-				}
-				ret += m + ":";
-			}
-			if (s < 10 && (m > 0 || h > 0 || d > 0)) {
-				ret += "0";
-			}
-			ret += s;
-			if (d == 0 && h == 0 && m == 0) {
-				ret += "s";
-			}
-			return ret;
-		}
-
-		/**
-		 * Round up time with billmode in mind.
-		 * 
-		 * @param time
-		 *            time
-		 * @return rounded time
-		 */
-		private int roundTime(final int time) {
-			final String prefBillMode = CallMeter.preferences.getString(
-					PREFS_BILLMODE, BILLMODE_1_1);
-			// 0 => 0
-			if (time == 0) {
-				return 0;
-			}
-			// !0 ..
-			if (prefBillMode.equals(BILLMODE_1_1)) {
-				return time;
-			} else if (prefBillMode.equals(BILLMODE_10_10)) {
-				if (time % 10 != 0) {
-					return ((time / 10) + 1) * 10;
-				}
-			} else if (prefBillMode.equals(BILLMODE_45_1)) {
-				if (time < 45) {
-					return 45;
-				}
-			} else if (prefBillMode.equals(BILLMODE_60_0)) {
-				return 60;
-			} else if (prefBillMode.equals(BILLMODE_60_1)) {
-				if (time < 60) {
-					return 60;
-				}
-			} else if (prefBillMode.equals(BILLMODE_60_10)) {
-				if (time < 60) {
-					return 60;
-				} else if (time % 10 != 0) {
-					return ((time / 10) + 1) * 10;
-				}
-			} else if (prefBillMode.equals(BILLMODE_30_6)) {
-				if (time < 30) {
-					return 30;
-				} else if (time % 6 != 0) {
-					return ((time / 6) + 1) * 6;
-				}
-			} else if (prefBillMode.equals(BILLMODE_30_10)) {
-				if (time < 30) {
-					return 30;
-				} else if (time % 10 != 0) {
-					return ((time / 10) + 1) * 10;
-				}
-			} else if (prefBillMode.equals(BILLMODE_60_60)) {
-				if (time % 60 != 0) {
-					return ((time / 60) + 1) * 60;
-				}
-			}
-			return time;
-		}
-
-		/**
-		 * Return "old" date as timestamp.
-		 * 
-		 * @return date before all calls/sms are "old"
-		 */
-		private long getOldDate() {
-			Calendar cal = Calendar.getInstance();
-			cal.roll(Calendar.MONTH, -1);
-			cal.set(Calendar.HOUR_OF_DAY, 0);
-			cal.set(Calendar.MINUTE, 0);
-			cal.set(Calendar.SECOND, 0);
-			cal.set(Calendar.MILLISECOND, 0);
-			return cal.getTimeInMillis();
-		}
 
 		/**
 		 * Load plans from preferences.
@@ -609,15 +319,16 @@ public class CallMeter extends Activity {
 			if (limit > 0) {
 				if (calls) {
 					return ((thisPeriod * 100) / (limit * SECONDS_MINUTE))
-							+ "% / " + this.getTime(thisPeriod) + " / "
-							+ this.getTime(all);
+							+ "% / " + CallMeter.getTime(thisPeriod) + " / "
+							+ CallMeter.getTime(all);
 				} else {
 					return ((thisPeriod * 100) / limit) + "% / " + thisPeriod
 							+ " / " + all;
 				}
 			} else {
 				if (calls) {
-					return this.getTime(thisPeriod) + " / " + this.getTime(all);
+					return CallMeter.getTime(thisPeriod) + " / "
+							+ CallMeter.getTime(all);
 				} else {
 					return thisPeriod + " / " + all;
 				}
@@ -625,7 +336,7 @@ public class CallMeter extends Activity {
 		}
 
 		/**
-		 * Run before background task.
+		 * {@inheritDoc}
 		 */
 		@Override
 		protected void onPreExecute() {
@@ -878,7 +589,7 @@ public class CallMeter extends Activity {
 						t = cur.getInt(idDuration);
 						durIn += t;
 						if (billDate <= d) {
-							durInMonth += this.roundTime(t);
+							durInMonth += CallMeter.roundTime(t);
 						} else if (d < oldDate) {
 							this.allCallsIn += t;
 						}
@@ -911,9 +622,9 @@ public class CallMeter extends Activity {
 							if (check) {
 								p = this.isPlan1(plans, d);
 								if (p) {
-									durOut1Month += this.roundTime(t);
+									durOut1Month += CallMeter.roundTime(t);
 								} else {
-									durOut2Month += this.roundTime(t);
+									durOut2Month += CallMeter.roundTime(t);
 								}
 							}
 						} else if (d < oldDate) {
@@ -1111,7 +822,7 @@ public class CallMeter extends Activity {
 
 			// load splitted plans
 			final boolean[][] plans = this.loadPlans(CallMeter.preferences);
-			final long oldDate = this.getOldDate();
+			final long oldDate = CallMeter.getOldDate();
 
 			// progressbar positions: calls1_pos, calls1_max, calls2_*, sms*,
 			// data*
@@ -1277,6 +988,118 @@ public class CallMeter extends Activity {
 	}
 
 	/**
+	 * Parse number of seconds to a readable time format.
+	 * 
+	 * @param seconds
+	 *            seconds
+	 * @return parsed string
+	 */
+	static final String getTime(final int seconds) {
+		String ret;
+		int d = seconds / 86400;
+		int h = (seconds % 86400) / 3600;
+		int m = (seconds % 3600) / 60;
+		int s = seconds % 60;
+		if (d > 0) {
+			ret = d + "d ";
+		} else {
+			ret = "";
+		}
+		if (h > 0 || d > 0) {
+			if (h < 10) {
+				ret += "0";
+			}
+			ret += h + ":";
+		}
+		if (m > 0 || h > 0 || d > 0) {
+			if (m < 10 && h > 0) {
+				ret += "0";
+			}
+			ret += m + ":";
+		}
+		if (s < 10 && (m > 0 || h > 0 || d > 0)) {
+			ret += "0";
+		}
+		ret += s;
+		if (d == 0 && h == 0 && m == 0) {
+			ret += "s";
+		}
+		return ret;
+	}
+
+	/**
+	 * Round up time with billmode in mind.
+	 * 
+	 * @param time
+	 *            time
+	 * @return rounded time
+	 */
+	static final int roundTime(final int time) {
+		final String prefBillMode = CallMeter.preferences.getString(
+				PREFS_BILLMODE, BILLMODE_1_1);
+		// 0 => 0
+		if (time == 0) {
+			return 0;
+		}
+		// !0 ..
+		if (prefBillMode.equals(BILLMODE_1_1)) {
+			return time;
+		} else if (prefBillMode.equals(BILLMODE_10_10)) {
+			if (time % 10 != 0) {
+				return ((time / 10) + 1) * 10;
+			}
+		} else if (prefBillMode.equals(BILLMODE_45_1)) {
+			if (time < 45) {
+				return 45;
+			}
+		} else if (prefBillMode.equals(BILLMODE_60_0)) {
+			return 60;
+		} else if (prefBillMode.equals(BILLMODE_60_1)) {
+			if (time < 60) {
+				return 60;
+			}
+		} else if (prefBillMode.equals(BILLMODE_60_10)) {
+			if (time < 60) {
+				return 60;
+			} else if (time % 10 != 0) {
+				return ((time / 10) + 1) * 10;
+			}
+		} else if (prefBillMode.equals(BILLMODE_30_6)) {
+			if (time < 30) {
+				return 30;
+			} else if (time % 6 != 0) {
+				return ((time / 6) + 1) * 6;
+			}
+		} else if (prefBillMode.equals(BILLMODE_30_10)) {
+			if (time < 30) {
+				return 30;
+			} else if (time % 10 != 0) {
+				return ((time / 10) + 1) * 10;
+			}
+		} else if (prefBillMode.equals(BILLMODE_60_60)) {
+			if (time % 60 != 0) {
+				return ((time / 60) + 1) * 60;
+			}
+		}
+		return time;
+	}
+
+	/**
+	 * Return "old" date as timestamp.
+	 * 
+	 * @return date before all calls/sms are "old"
+	 */
+	static final long getOldDate() {
+		Calendar cal = Calendar.getInstance();
+		cal.roll(Calendar.MONTH, -1);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTimeInMillis();
+	}
+
+	/**
 	 * Return Billdate as Calendar for a given day of month.
 	 * 
 	 * @param billDay
@@ -1297,10 +1120,7 @@ public class CallMeter extends Activity {
 	}
 
 	/**
-	 * Called when the activity is first created.
-	 * 
-	 * @param savedInstanceState
-	 *            a Bundle
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void onCreate(final Bundle savedInstanceState) {
@@ -1344,7 +1164,9 @@ public class CallMeter extends Activity {
 				android.R.layout.simple_list_item_1, prefsExcludePeople);
 	}
 
-	/** Called on Activity resume. */
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected final void onResume() {
 		super.onResume();
@@ -1356,11 +1178,7 @@ public class CallMeter extends Activity {
 	}
 
 	/**
-	 * Called to create dialog.
-	 * 
-	 * @param id
-	 *            Dialog id
-	 * @return dialog
+	 * {@inheritDoc}
 	 */
 	@Override
 	protected final Dialog onCreateDialog(final int id) {
@@ -1436,11 +1254,7 @@ public class CallMeter extends Activity {
 	}
 
 	/**
-	 * Open menu.
-	 * 
-	 * @param menu
-	 *            menu to inflate
-	 * @return ok/fail?
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean onCreateOptionsMenu(final Menu menu) {
@@ -1450,11 +1264,7 @@ public class CallMeter extends Activity {
 	}
 
 	/**
-	 * Handles item selections.
-	 * 
-	 * @param item
-	 *            menu item
-	 * @return done?
+	 * {@inheritDoc}
 	 */
 	public final boolean onOptionsItemSelected(final MenuItem item) {
 		switch (item.getItemId()) {
