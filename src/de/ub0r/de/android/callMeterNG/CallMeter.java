@@ -67,11 +67,11 @@ public class CallMeter extends Activity {
 	private static final int DIALOG_UPDATE = 2;
 
 	/** Days of a week. */
-	private static final int DAYS_WEEK = 7;
+	static final int DAYS_WEEK = 7;
 	/** Hours of a day. */
-	private static final int HOURS_DAY = 24;
+	static final int HOURS_DAY = 24;
 	/** Seconds of a minute. */
-	private static final int SECONDS_MINUTE = 60;
+	static final int SECONDS_MINUTE = 60;
 	/** Bytes per Megabyte. */
 	static final int BYTES_MEGABYTE = 1024 * 1024;
 
@@ -80,11 +80,11 @@ public class CallMeter extends Activity {
 	/** Prefs: name for first day. */
 	static final String PREFS_BILLDAY = "billday";
 	/** Prefs: name for billingmode. */
-	private static final String PREFS_BILLMODE = "billmode";
+	static final String PREFS_BILLMODE = "billmode";
 	/** Prefs: name for smsperiod. */
-	private static final String PREFS_SMSPERIOD = "smsperiod";
+	static final String PREFS_SMSPERIOD = "smsperiod";
 	/** Prefs: name for smsbillday. */
-	private static final String PREFS_SMSBILLDAY = "smsbillday";
+	static final String PREFS_SMSBILLDAY = "smsbillday";
 
 	/** Prefs: split plans. */
 	static final String PREFS_SPLIT_PLANS = "plans_split";
@@ -93,47 +93,47 @@ public class CallMeter extends Activity {
 	/** Prefs: merge plans for sms. */
 	static final String PREFS_MERGE_PLANS_SMS = "plans_merge_sms";
 	/** Prefs: hours for plan 1. */
-	private static final String PREFS_PLAN1_HOURS_PREFIX = "hours_1_";
+	static final String PREFS_PLAN1_HOURS_PREFIX = "hours_1_";
 
 	/** Prefs: plan1 totally free calls. */
-	private static final String PREFS_PLAN1_T_FREE_CALLS = "plan1_total_free_calls";
+	static final String PREFS_PLAN1_T_FREE_CALLS = "plan1_total_free_calls";
 	/** Prefs: plan1 free minutes. */
-	private static final String PREFS_PLAN1_FREEMIN = "plan1_freemin";
+	static final String PREFS_PLAN1_FREEMIN = "plan1_freemin";
 	/** Prefs: plan1 totally free sms. */
-	private static final String PREFS_PLAN1_T_FREE_SMS = "plan1_total_free_sms";
+	static final String PREFS_PLAN1_T_FREE_SMS = "plan1_total_free_sms";
 	/** Prefs: plan1 free sms. */
-	private static final String PREFS_PLAN1_FREESMS = "plan1_freesms";
+	static final String PREFS_PLAN1_FREESMS = "plan1_freesms";
 	/** Prefs: plan1 totally free calls. */
-	private static final String PREFS_PLAN2_T_FREE_CALLS = "plan2_total_free_calls";
+	static final String PREFS_PLAN2_T_FREE_CALLS = "plan2_total_free_calls";
 	/** Prefs: plan1 free minutes. */
-	private static final String PREFS_PLAN2_FREEMIN = "plan2_freemin";
+	static final String PREFS_PLAN2_FREEMIN = "plan2_freemin";
 	/** Prefs: plan1 totally free sms. */
-	private static final String PREFS_PLAN2_T_FREE_SMS = "plan2_total_free_sms";
+	static final String PREFS_PLAN2_T_FREE_SMS = "plan2_total_free_sms";
 	/** Prefs: plan1 free sms. */
-	private static final String PREFS_PLAN2_FREESMS = "plan2_freesms";
+	static final String PREFS_PLAN2_FREESMS = "plan2_freesms";
 
 	/** Prefs: custom name for plan 1. */
-	private static final String PREFS_NAME_PLAN1 = "plan_name1";
+	static final String PREFS_NAME_PLAN1 = "plan_name1";
 	/** Prefs: custom name for plan 2. */
-	private static final String PREFS_NAME_PLAN2 = "plan_name2";
+	static final String PREFS_NAME_PLAN2 = "plan_name2";
 
 	/** Prefs: merge sms into calls. */
 	static final String PREFS_MERGE_SMS_TO_CALLS = "merge_sms_calls";
 	/** Prefs: merge sms into calls; number of seconds billed for a single sms. */
-	private static final String PREFS_MERGE_SMS_TO_CALLS_SECONDS = "merge_sms_calls_sec";
+	static final String PREFS_MERGE_SMS_TO_CALLS_SECONDS = "merge_sms_calls_sec";
 	/** Prefs: merge sms into calls; which plan to merge sms in. */
 	static final String PREFS_MERGE_SMS_PLAN1 = "merge_sms_plan1";
 
 	/** Prefs: name for all old calls in. */
-	private static final String PREFS_ALL_CALLS_IN = "all_calls_in";
+	static final String PREFS_ALL_CALLS_IN = "all_calls_in";
 	/** Prefs: name for all old calls out. */
-	private static final String PREFS_ALL_CALLS_OUT = "all_calls_out";
+	static final String PREFS_ALL_CALLS_OUT = "all_calls_out";
 	/** Prefs: name for all old sms in. */
-	private static final String PREFS_ALL_SMS_IN = "all_sms_in";
+	static final String PREFS_ALL_SMS_IN = "all_sms_in";
 	/** Prefs: name for all old sms out. */
-	private static final String PREFS_ALL_SMS_OUT = "all_sms_out";
+	static final String PREFS_ALL_SMS_OUT = "all_sms_out";
 	/** Prefs: name for date of old calls/sms. */
-	private static final String PREFS_DATE_OLD = "all_date_old";
+	static final String PREFS_DATE_OLD = "all_date_old";
 	/** Prefs: Exclude people prefix. */
 	static final String PREFS_EXCLUDE_PEOPLE_PREFIX = "exclude_people_";
 	/** Prefs: Exclude people count. */
@@ -142,7 +142,7 @@ public class CallMeter extends Activity {
 	/** Prefs: enable data stats. */
 	static final String PREFS_DATA_ENABLE = "data_enable";
 	/** Prefs: limit for data traffic. */
-	private static final String PREFS_DATA_LIMIT = "data_limit";
+	static final String PREFS_DATA_LIMIT = "data_limit";
 
 	/** Prefs: data in at last boot. */
 	static final String PREFS_DATA_BOOT_IN = "data_boot_in";
@@ -299,40 +299,6 @@ public class CallMeter extends Activity {
 			this.twDataBillDate.setText(this.callsBillDate);
 			this.twDataIn.setText(this.dataIn);
 			this.twDataOut.setText(this.dataOut);
-		}
-
-		/**
-		 * Build a String for given time/limit combination.
-		 * 
-		 * @param thisPeriod
-		 *            used this billperiod
-		 * @param limit
-		 *            limit
-		 * @param all
-		 *            used all together
-		 * @param calls
-		 *            calls/sms?
-		 * @return String holding all the data
-		 */
-		private String calcString(final int thisPeriod, final int limit,
-				final int all, final boolean calls) {
-			if (limit > 0) {
-				if (calls) {
-					return ((thisPeriod * 100) / (limit * SECONDS_MINUTE))
-							+ "% / " + CallMeter.getTime(thisPeriod) + " / "
-							+ CallMeter.getTime(all);
-				} else {
-					return ((thisPeriod * 100) / limit) + "% / " + thisPeriod
-							+ " / " + all;
-				}
-			} else {
-				if (calls) {
-					return CallMeter.getTime(thisPeriod) + " / "
-							+ CallMeter.getTime(all);
-				} else {
-					return thisPeriod + " / " + all;
-				}
-			}
 		}
 
 		/**
@@ -636,19 +602,21 @@ public class CallMeter extends Activity {
 					}
 					++i;
 					if (i % UPDATE_INTERVAL == 1) {
-						this.callsIn = this.calcString(durInMonth, 0, durIn,
-								true);
-						this.callsOut1 = this.calcString(durOut1Month, free1,
-								durOut, true);
-						this.callsOut2 = this.calcString(durOut2Month, free2,
-								durOut, true);
+						this.callsIn = CallMeter.calcString(durInMonth, 0,
+								durIn, true);
+						this.callsOut1 = CallMeter.calcString(durOut1Month,
+								free1, durOut, true);
+						this.callsOut2 = CallMeter.calcString(durOut2Month,
+								free2, durOut, true);
 						this.publishProgress((Void) null);
 					}
 				} while (cur.moveToNext());
 			}
-			this.callsIn = this.calcString(durInMonth, 0, durIn, true);
-			this.callsOut1 = this.calcString(durOut1Month, free1, durOut, true);
-			this.callsOut2 = this.calcString(durOut2Month, free2, durOut, true);
+			this.callsIn = CallMeter.calcString(durInMonth, 0, durIn, true);
+			this.callsOut1 = CallMeter.calcString(durOut1Month, free1, durOut,
+					true);
+			this.callsOut2 = CallMeter.calcString(durOut2Month, free2, durOut,
+					true);
 
 			status[0] = durOut1Month;
 			status[1] = free1 * SECONDS_MINUTE;
@@ -750,20 +718,22 @@ public class CallMeter extends Activity {
 					}
 					++i;
 					if (i % UPDATE_INTERVAL == 1) {
-						this.smsIn = this.calcString(smsInMonth, 0, iSMSIn,
-								false);
-						this.smsOut1 = this.calcString(smsOut2Month, free1,
-								iSMSOut, false);
-						this.smsOut2 = this.calcString(smsOut2Month, free2,
-								iSMSOut, false);
+						this.smsIn = CallMeter.calcString(smsInMonth, 0,
+								iSMSIn, false);
+						this.smsOut1 = CallMeter.calcString(smsOut2Month,
+								free1, iSMSOut, false);
+						this.smsOut2 = CallMeter.calcString(smsOut2Month,
+								free2, iSMSOut, false);
 						this.publishProgress((Void) null);
 					}
 				} while (cur.moveToNext());
 			}
 
-			this.smsIn = this.calcString(smsInMonth, 0, iSMSIn, false);
-			this.smsOut1 = this.calcString(smsOut1Month, free1, iSMSOut, false);
-			this.smsOut2 = this.calcString(smsOut2Month, free2, iSMSOut, false);
+			this.smsIn = CallMeter.calcString(smsInMonth, 0, iSMSIn, false);
+			this.smsOut1 = CallMeter.calcString(smsOut1Month, free1, iSMSOut,
+					false);
+			this.smsOut2 = CallMeter.calcString(smsOut2Month, free2, iSMSOut,
+					false);
 
 			status[4] = smsOut1Month;
 			status[5] = free1;
@@ -790,7 +760,7 @@ public class CallMeter extends Activity {
 				status[6] = 0;
 				status[7] = 0;
 
-				final String s = this.calcString(status[i], status[i + 1],
+				final String s = CallMeter.calcString(status[i], status[i + 1],
 						this.callsOutSum, false); // false ->
 				// no multiply 60s/min
 				if (mergeToPlan1) {
@@ -984,6 +954,40 @@ public class CallMeter extends Activity {
 			editor.commit();
 
 			CallMeter.this.setProgressBarIndeterminateVisibility(false);
+		}
+	}
+
+	/**
+	 * Build a String for given time/limit combination.
+	 * 
+	 * @param thisPeriod
+	 *            used this billperiod
+	 * @param limit
+	 *            limit
+	 * @param all
+	 *            used all together
+	 * @param calls
+	 *            calls/sms?
+	 * @return String holding all the data
+	 */
+	static final String calcString(final int thisPeriod, final int limit,
+			final int all, final boolean calls) {
+		if (limit > 0) {
+			if (calls) {
+				return ((thisPeriod * 100) / (limit * SECONDS_MINUTE)) + "% / "
+						+ CallMeter.getTime(thisPeriod) + " / "
+						+ CallMeter.getTime(all);
+			} else {
+				return ((thisPeriod * 100) / limit) + "% / " + thisPeriod
+						+ " / " + all;
+			}
+		} else {
+			if (calls) {
+				return CallMeter.getTime(thisPeriod) + " / "
+						+ CallMeter.getTime(all);
+			} else {
+				return thisPeriod + " / " + all;
+			}
 		}
 	}
 
