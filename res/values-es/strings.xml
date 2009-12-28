@@ -45,7 +45,7 @@
 	<string name="smsperiod_">Mismo periodo para SMS</string>
 	<string name="smsbillday_">Primer día de tu factura (SMS)</string>
 	<string name="exclude_people_">Números excluidos</string>
-	<string name="exclude_people_hint">Excluir números de facturación (sólo llamadas)</string>
+	<string name="exclude_people_hint">Excluye números de la facturación (Llamadas). Posibilidad de usar comodines: *555 or 555*</string>
 	<string name="exclude_people_add">Añadir número</string>
 	<string name="exclude_people_edit">Editar</string>
 	<string name="exclude_people_delete">Borrar</string>
@@ -68,6 +68,10 @@
 	<string name="merge_sms_calls_sec_hint">Segundos equivalentes al coste de un SMS.</string>
 	<string name="merge_sms_plan1_">Incluir SMS en el plan 1</string>
 	<string name="merge_sms_plan1_hint">Desmarcar para incluirlos en el plan 2.</string>
+	<string name="data_enable_">Mostrar estadísticas de tráfico de datos</string>
+	<string name="data_enable_hint">El tráfico de datos se recopila en tiempo real. El primer mes puede que no se muestre correctamente!</string>
+	<string name="data_limit_">Límite</string>
+	<string name="data_limit_hint">Límite del plan de datos (MB/mes)</string>
 	<string name="monday">Lunes</string>
 	<string name="tuesday">Martes</string>
 	<string name="wednesday">Miércoles</string>
@@ -77,10 +81,12 @@
 	<string name="sunday">Domingo</string>
 	<string name="calls">Llamadas</string>
 	<string name="sms">SMS</string>
+	<string name="data">Datos</string>
 	<string name="calls_sms">Llamadas/SMS</string>
 	<string name="in">Recibidas:</string>
 	<string name="out_calls">Enviadas%s:</string>
 	<string name="out_sms">Enviados%s:</string>
+	<string name="out_data">Enviado:</string>
 	<string name="plan_name1_">Plan 1: nombre</string>
 	<string name="plan_name2_">Plan 2: nombre</string>
 	<string name="plan_name_hint">Nombre personalizado</string>
