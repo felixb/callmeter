@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>v1.0.2: Allow wildcards for excluded numbers: e.g. *555/666* excludes 4555/6667</item>
+		<item>v1.1: Add data statistics, allow wildcards for excluded numbers: e.g. *555/666* excludes 4555/6667</item>
 		<item>v1.0.1: Add translations: dutch+potuguese, add 30/6 billing mode</item>
 		<item>v1.0: Allow a second plan for calls/sms (please check prefs!), allow to bill messages as calls, new about, remove ads for translator, add 30/10 billing mode, remove outdated translations: dutch+czech</item>
 		<item>v0.9.6: Allow to exclude some numbers from billing, add spanish translation, remove ads for translators</item>
