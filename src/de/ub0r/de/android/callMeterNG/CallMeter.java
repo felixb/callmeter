@@ -30,6 +30,7 @@ import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -332,13 +333,31 @@ public class CallMeter extends Activity {
 			namePlan2 = " (" + namePlan2 + ")";
 
 			// load old values from database
-			this.allCallsIn = CallMeter.preferences.getInt(PREFS_ALL_CALLS_IN,
-					0);
-			this.allCallsOut = CallMeter.preferences.getInt(
-					PREFS_ALL_CALLS_OUT, 0);
-			this.allSMSIn = CallMeter.preferences.getInt(PREFS_ALL_SMS_IN, 0);
-			this.allSMSOut = CallMeter.preferences.getInt(PREFS_ALL_SMS_OUT, 0);
-			this.allOldDate = CallMeter.preferences.getLong(PREFS_DATE_OLD, 0);
+			if (this.allOldDate < System.currentTimeMillis()) {
+				this.allCallsIn = CallMeter.preferences.getInt(
+						PREFS_ALL_CALLS_IN, 0);
+				this.allCallsOut = CallMeter.preferences.getInt(
+						PREFS_ALL_CALLS_OUT, 0);
+				this.allSMSIn = CallMeter.preferences.getInt(PREFS_ALL_SMS_IN,
+						0);
+				this.allSMSOut = CallMeter.preferences.getInt(
+						PREFS_ALL_SMS_OUT, 0);
+				this.allOldDate = CallMeter.preferences.getLong(PREFS_DATE_OLD,
+						0);
+			} else { // fix bad results from "happy new 2010"
+				this.allCallsIn = 0;
+				this.allCallsOut = 0;
+				this.allSMSIn = 0;
+				this.allSMSOut = 0;
+				this.allOldDate = 0;
+				final Editor edt = CallMeter.preferences.edit();
+				edt.putInt(PREFS_ALL_CALLS_IN, 0);
+				edt.putInt(PREFS_ALL_CALLS_OUT, 0);
+				edt.putInt(PREFS_ALL_SMS_IN, 0);
+				edt.putInt(PREFS_ALL_SMS_OUT, 0);
+				edt.putLong(PREFS_DATE_OLD, 0);
+				edt.commit();
+			}
 
 			this.pbCalls1 = (ProgressBar) CallMeter.this
 					.findViewById(R.id.calls1_progressbar);
@@ -1095,7 +1114,7 @@ public class CallMeter extends Activity {
 	 */
 	static final long getOldDate() {
 		Calendar cal = Calendar.getInstance();
-		cal.roll(Calendar.MONTH, -1);
+		cal.add(Calendar.MONTH, -1);
 		cal.set(Calendar.HOUR_OF_DAY, 0);
 		cal.set(Calendar.MINUTE, 0);
 		cal.set(Calendar.SECOND, 0);
