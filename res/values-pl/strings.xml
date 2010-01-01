@@ -44,7 +44,7 @@
        <string name="smsperiod_">Ten sam okres dla SMS</string>
        <string name="smsbillday_">Pierwszy dzień rachunku SMS</string>
        <string name="exclude_people_">Wykluczaj numery</string>
-       <string name="exclude_people_hint">Wyklucz numery z rachunku (tylko połączenia)</string>
+       <string name="exclude_people_hint">Nie wliczaj niektórych numerów (połączeń).</string>
        <string name="exclude_people_add">Dodaj numer</string>
        <string name="exclude_people_edit">Edytuj</string>
        <string name="exclude_people_delete">Usuń</string>
@@ -67,6 +67,10 @@
        <string name="merge_sms_calls_sec_hint">Liczba sekund liczonych jako jeden sms.</string>
        <string name="merge_sms_plan1_">Wliczaj SMS w plan 1</string>
        <string name="merge_sms_plan1_hint">Odznacz aby wliczać w plan 2</string>
+       <string name="data_enable_">Pokaż statystyki</string>
+       <string name="data_enable_hint">Dane są zbierane automatycznie. Pierwszy miesiąc może być źle wyliczony!</string>
+       <string name="data_limit_">Limit</string>
+       <string name="data_limit_hint">Limit of dataplan (MB/month)</string>
        <string name="monday">Poniedziałek</string>
        <string name="tuesday">Wtorek</string>
        <string name="wednesday">Środa</string>
@@ -76,10 +80,12 @@
        <string name="sunday">Niedziela</string>
        <string name="calls">Połączenia</string>
        <string name="sms">SMS</string>
+       <string name="data">Dane</string>
        <string name="calls_sms">Połączenia/SMS</string>
        <string name="in">Przychodzące:</string>
        <string name="out_calls">Wychodzące%s:</string>
        <string name="out_sms">Wychodzącet%s:</string>
+       <string name="out_data">Wychodzące:</string>
        <string name="plan_name1_">Plan 1: nazwa</string>
        <string name="plan_name2_">Plan 2: nazwa</string>
        <string name="plan_name_hint">Własna nazwa</string>
