@@ -25,12 +25,15 @@
 	<string name="donate_">Spenden/Werbung entfernen</string>
 	<string name="remove_ads">Werbung entfernen</string>
 	<string name="postdonate">Um die Werbung zu entfernen brauche ich den MD5 Hash deiner IMEI (Die eindeutige ID deines Handys) von dir. Der Hash ist eine Einwegfunktion und ist somit nicht zu deiner IMEI Rückverfolgbar. Ich werde die Werbung mit dem nächsten Release dann entfernen.</string>
-	<string name="about0_">Pass auf deine Freiminuten und FreiSMS auf!</string>
-	<string name="about0">CallMeter erzeugt aus deinen Anruf- und SMS-Logs Berichte. Es unterstützt viele verschiedene Abrechnungsmodi.</string>
+	<string name="about0_">Pass auf deine Freiminuten, FreiSMS und dein Datenvolumen auf!</string>
+	<string name="about0">CallMeter erzeugt aus deinen Anruf-, SMS- und Daten-Logs Berichte. Es unterstützt viele verschiedene Abrechnungsmodi.</string>
 	<string name="about1">Das Ausgabeformat ist: Nutzung / Zeit oder Anzahl in diesem Monat / Zeit oder Anzahl überhaupt. Monatliche Anrufe werden nach Abrechnungsmodus berechnet. Die Gesamtzeit nicht.</string>
 	<string name="about2">Der Abrechnungszeitraum bezeichnet die länge des ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s aufgerundet.</string>
 	<string name="about3">Du kannst deine Anruf- oder SMS-Kontingente trennen. In jedem Kontingent kannst du dann folgendes einstelen: keine Abrechnung, auf ein bestimmtes Limit begrenzt oder keine Grenzen.</string>
 	<string name="about4">Deine SMS können über die Anrufe abgerechnet werden. Z.B. jede SMS als ein 60s Anruf.</string>
+	<string name="about5_">Was CallMeter NG nicht tut:</string>
+	<string name="about5">Es zählt nicht gelöschte Anrufe oder SMS! Anrufe/SMS älter als einen Monat werden aufsummiert und gespeichert. Werden Anrufe/SMS jünger als einen Monat gelöscht, wird das die Logs verfälschen!</string>
+	<string name="about6">Es ist nicht möglich zwischen Anrufen aus Sipdroid und echten Anrufen bzw. WebSMS und echten SMS zu unterscheiden. Androids nahtlose Integration dieser Apps lässt eine spätere Unterscheidung der Logs nicht mehr zu.</string>
 	<string name="send_">Senden</string>
 	<string name="settings">Einstellungen</string>
 	<string name="about_">Über CallMeter NG</string>
