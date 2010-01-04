@@ -60,12 +60,14 @@ import com.admob.android.ads.AdView;
 public class CallMeter extends Activity {
 	/** Tag for output. */
 	private static final String TAG = "CallMeterNG";
-	/** Dialog: donate. */
-	private static final int DIALOG_DONATE = 0;
+	/** Dialog: post donate. */
+	private static final int DIALOG_POSTDONATE = 0;
 	/** Dialog: about. */
 	private static final int DIALOG_ABOUT = 1;
 	/** Dialog: update. */
 	private static final int DIALOG_UPDATE = 2;
+	/** Dialog: pre donate. */
+	private static final int DIALOG_PREDONATE = 3;
 
 	/** Days of a week. */
 	static final int DAYS_WEEK = 7;
@@ -1208,7 +1210,31 @@ public class CallMeter extends Activity {
 		Dialog d;
 		AlertDialog.Builder builder;
 		switch (id) {
-		case DIALOG_DONATE:
+		case DIALOG_PREDONATE:
+			builder = new AlertDialog.Builder(this);
+			builder.setTitle(R.string.donate_);
+			builder.setMessage(R.string.predonate);
+			builder.setPositiveButton(R.string.donate_,
+					new DialogInterface.OnClickListener() {
+						public void onClick(final DialogInterface dialog,
+								final int which) {
+							try {
+								CallMeter.this
+										.startActivity(new Intent(
+												Intent.ACTION_VIEW,
+												Uri
+														.parse(CallMeter.this
+																.getString(R.string.donate_url))));
+							} catch (ActivityNotFoundException e) {
+								Log.e(TAG, "no browser", e);
+							} finally {
+								CallMeter.this.showDialog(DIALOG_POSTDONATE);
+							}
+						}
+					});
+			builder.setNegativeButton(android.R.string.cancel, null);
+			return builder.create();
+		case DIALOG_POSTDONATE:
 			builder = new AlertDialog.Builder(this);
 			builder.setTitle(R.string.remove_ads);
 			builder.setMessage(R.string.postdonate);
@@ -1233,16 +1259,9 @@ public class CallMeter extends Activity {
 															.getString(R.string.donate_subject));
 							in.setType("text/plain");
 							CallMeter.this.startActivity(in);
-							dialog.dismiss();
 						}
 					});
-			builder.setNegativeButton(android.R.string.cancel,
-					new DialogInterface.OnClickListener() {
-						public void onClick(final DialogInterface dialog,
-								final int which) {
-							dialog.cancel();
-						}
-					});
+			builder.setNegativeButton(android.R.string.cancel, null);
 			return builder.create();
 		case DIALOG_ABOUT:
 			d = new Dialog(this);
@@ -1255,7 +1274,7 @@ public class CallMeter extends Activity {
 			builder.setTitle(R.string.changelog_);
 			final String[] changes = this.getResources().getStringArray(
 					R.array.updates);
-			final StringBuilder buf = new StringBuilder();
+			StringBuilder buf = new StringBuilder();
 
 			buf.append(this.getString(R.string.see_about));
 
@@ -1265,6 +1284,7 @@ public class CallMeter extends Activity {
 			}
 			builder.setIcon(android.R.drawable.ic_menu_info_details);
 			builder.setMessage(buf.toString());
+			buf = null;
 			builder.setCancelable(true);
 			builder.setPositiveButton(android.R.string.ok,
 					new DialogInterface.OnClickListener() {
@@ -1301,13 +1321,7 @@ public class CallMeter extends Activity {
 			this.startActivity(new Intent(this, Preferences.class));
 			return true;
 		case R.id.item_donate:
-			try {
-				this.startActivity(new Intent(Intent.ACTION_VIEW, Uri
-						.parse(this.getString(R.string.donate_url))));
-			} catch (ActivityNotFoundException e) {
-				Log.e(TAG, "no browser", e);
-			}
-			CallMeter.this.showDialog(DIALOG_DONATE);
+			CallMeter.this.showDialog(DIALOG_PREDONATE);
 			return true;
 		case R.id.item_more:
 			try {
