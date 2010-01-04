@@ -1255,8 +1255,11 @@ public class CallMeter extends Activity {
 			builder.setTitle(R.string.changelog_);
 			final String[] changes = this.getResources().getStringArray(
 					R.array.updates);
-			final StringBuilder buf = new StringBuilder(changes[0]);
-			for (int i = 1; i < changes.length; i++) {
+			final StringBuilder buf = new StringBuilder();
+
+			buf.append(this.getString(R.string.see_about));
+
+			for (int i = 0; i < changes.length; i++) {
 				buf.append("\n\n");
 				buf.append(changes[i]);
 			}

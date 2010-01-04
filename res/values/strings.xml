@@ -57,6 +57,7 @@
 	<string name="about_">About CallMeter NG</string>
 	<string name="more_">More Apps..</string>
 	<string name="changelog_">Changelog</string>
+	<string name="see_about">Please consult the about dialog for information what CallMeter NG does and what it does not.</string>
 	<string name="billday_">First day of your bill</string>
 	<string name="billmode_">Mode of billing</string>
 	<string name="billmode_hint">Length of first/following billing timings.</string>
