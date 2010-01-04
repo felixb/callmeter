@@ -50,7 +50,7 @@
 	<string name="smsperiod_">Zelfde voor SMS</string>
 	<string name="smsbillday_">Eerste dag SMS facturatie</string>
 	<string name="exclude_people_">Nummers uitsluiten</string>
-	<string name="exclude_people_hint">Alleen telefoongesprekken\njokers toegestaan: *555 or 555*</string>
+	<string name="exclude_people_hint">Alleen telefoongesprekken\njokers toegestaan: *555 of 555*</string>
 	<string name="exclude_people_add">Nummer toevoegen</string>
 	<string name="exclude_people_edit">Bewerken</string>
 	<string name="exclude_people_delete">Verwijderen</string>
