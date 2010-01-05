@@ -30,6 +30,8 @@ import android.util.Log;
  * Representation of a device.
  */
 public abstract class Device {
+	/** Tag for output. */
+	private static final String TAG = "CallMeter.device";
 
 	/** Single instance. */
 	private static Device instance = null;
@@ -41,7 +43,7 @@ public abstract class Device {
 	 */
 	public static synchronized Device getDevice() {
 		if (instance == null) {
-			Log.i(Device.class.getName(), "Device: " + Build.DEVICE);
+			Log.i(TAG, "Device: " + Build.DEVICE);
 			// All the devices we know about.
 			Device[] allDevices = { new DefaultDevice(), new GenericDevice(),
 					new SamsungI7500Device(), new PulseDevice(),
@@ -59,6 +61,7 @@ public abstract class Device {
 				instance = allDevices[0];
 			}
 		}
+		Log.d(TAG, instance.getClass().getName());
 		return instance;
 	}
 
