@@ -867,11 +867,17 @@ public class CallMeter extends Activity {
 				this.dataOut = this.makeBytesReadable(currentOut
 						- preBillingOut)
 						+ "/" + this.makeBytesReadable(currentOut);
-				final long limit = Long.parseLong(CallMeter.preferences
-						.getString(PREFS_DATA_LIMIT, "0"));
+				int limit = 0;
+				try {
+					limit = Integer.parseInt(CallMeter.preferences.getString(
+							PREFS_DATA_LIMIT, "0"));
+				} catch (NumberFormatException e) {
+					Log.e(TAG, null, e);
+				}
+
 				ret[8] = (int) (thisBillingIn + thisBillingOut)
 						/ (BYTES_MEGABYTE);
-				ret[9] = (int) limit;
+				ret[9] = limit;
 			}
 
 			this.allOldDate = oldDate;
