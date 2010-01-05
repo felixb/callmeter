@@ -24,20 +24,16 @@
 	<string name="license">GPLv3 - zie http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Broncode:</string>
 	<string name="website_">Website:</string>
-	<string name="donate_">Doneer/verwijder ads</string>
+	<string name="donate_">Doneer</string>
+	<string name="donate_remove_ads_">Doneer/verwijder ads</string>
 	<string name="remove_ads">Verwijder ads</string>
-	<string name="postdonate">
-	Om advertenties te verwijderen dien je mij de zogenaamde MD5 hash van je IMEI (unieke id van je telefoon) te sturen. Deze hash is een éénrichtingsverkeer functie. De hash is daardoor niet terug naar jou te traceren. Na versturen, verwijder ik de advertenties bij de volgende versie.</string>
+	<string name="postdonate">Om advertenties te verwijderen dien je mij de zogenaamde MD5 hash van je IMEI (unieke id van je telefoon) te sturen. Deze hash is een éénrichtingsverkeer functie. De hash is daardoor niet terug naar jou te traceren.</string>
 	<string name="about0_">Houd de minuten en aantal berichten van je abonnement bij!</string>
 	<string name="about0">CallMeter genereert rapporten uit de gesprek en berichten log van je telefoon. Het ondersteund meerdere vormen van facturatie.</string>
-	<string name="about1">
-	Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
-	<string name="about2">
-	De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
-	<string name="about3">
-	Je kunt je verbruik in 2 schema\'s splitsen. Elk schema kan geheel vrij ingesteld worden, beperkt tot een bepaalde limiet of onbeperkt.</string>
-	<string name="about4">
-	Je berichten kunnen samengevoegd worden met je gespreksminuten. Bijvoorbeeld: elk bericht als een gesprek van 15 sec. rekenen.</string>
+	<string name="about1">Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
+	<string name="about2">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
+	<string name="about3">Je kunt je verbruik in 2 schema\'s splitsen. Elk schema kan geheel vrij ingesteld worden, beperkt tot een bepaalde limiet of onbeperkt.</string>
+	<string name="about4">Je berichten kunnen samengevoegd worden met je gespreksminuten. Bijvoorbeeld: elk bericht als een gesprek van 15 sec. rekenen.</string>
 	<string name="send_">Verstuur</string>
 	<string name="settings">Voorkeuren</string>
 	<string name="about_">Over CallMeter NG</string>

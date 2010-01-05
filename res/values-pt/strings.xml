@@ -24,8 +24,10 @@
 	<string name="license">GPLv3 - veja http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Códigos fontes:</string>
 	<string name="website_">Web site:</string>
-	<string name="donate_">Doação/remova anúncios</string>
-	<string name="postdonate">Para remover os anúncios, você precisa enviar o código MD5 do seu IMEI (identificação única do seu celular). Este código é uma função de via única. Não é rastreável de volta para você. Eu irei remover seus anúncios na próxima versão.</string>
+	<string name="donate_">Doação</string>
+	<string name="donate_remove_ads_">Doação/remova anúncios</string>
+	<string name="remove_ads_">Remova anúncios</string>
+	<string name="postdonate">Para remover os anúncios, você precisa enviar o código MD5 do seu IMEI (identificação única do seu celular). Este código é uma função de via única. Não é rastreável de volta para você.</string>
 	<string name="about0_">Veja seus planos de ligações e mensagens!</string>
 	<string name="about0">Call Meter gera um relatório de ligações e mensagens. Suporta vários modos de cobranças.</string>
 	<string name="about1">Os formatos de saída são: uso / tempo, soma utilizada neste período / tempo ou soma total. O cálculo de tempo utiliza a forma de cobrança de seu plano. A soma total não.</string>
