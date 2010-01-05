@@ -110,7 +110,6 @@ public abstract class Device {
  * Generic device implementation corresponding to the emulator.
  */
 class GenericDevice extends Device {
-
 	@Override
 	public String[] getNames() {
 		return new String[] { "generic" };
@@ -130,14 +129,12 @@ class GenericDevice extends Device {
 	public String getWiFi() {
 		return "eth0";
 	}
-
 }
 
 /**
  * Default device implementation corresponding to the HTC Dream and HTC Magic.
  */
 class DefaultDevice extends Device {
-
 	@Override
 	public String[] getNames() {
 		// TODO Get the device name of the HTC Magic.
@@ -158,7 +155,6 @@ class DefaultDevice extends Device {
 	public String getWiFi() {
 		return "tiwlan0";
 	}
-
 }
 
 /**
@@ -166,7 +162,6 @@ class DefaultDevice extends Device {
  * (Spica).
  */
 class SamsungI7500Device extends Device {
-
 	@Override
 	public String[] getNames() {
 		return new String[] { "GT-I7500", "spica" };
@@ -186,7 +181,6 @@ class SamsungI7500Device extends Device {
 	public String getWiFi() {
 		return "eth0";
 	}
-
 }
 
 /**
@@ -194,7 +188,6 @@ class SamsungI7500Device extends Device {
  * the Google Nexus One.
  */
 class PulseDevice extends Device {
-
 	@Override
 	public String[] getNames() {
 		return new String[] { "U8220", "passion" };
@@ -214,14 +207,12 @@ class PulseDevice extends Device {
 	public String getWiFi() {
 		return "eth0";
 	}
-
 }
 
 /**
  * Device implementation for the Motorola Droid.
  */
 class DroidDevice extends Device {
-
 	@Override
 	public String[] getNames() {
 		return new String[] { "sholes" };
@@ -241,5 +232,29 @@ class DroidDevice extends Device {
 	public String getWiFi() {
 		return "tiwlan0";
 	}
+}
 
+/**
+ * Device implementation for the LG Eve Android GW620R.
+ */
+class EveDevice extends Device {
+	@Override
+	public String[] getNames() {
+		return new String[] { "EVE" };
+	}
+
+	@Override
+	public String getBluetooth() {
+		return "bnep0";
+	}
+
+	@Override
+	public String getCell() {
+		return "rmnet0";
+	}
+
+	@Override
+	public String getWiFi() {
+		return "wlan0";
+	}
 }
