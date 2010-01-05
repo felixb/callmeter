@@ -164,22 +164,6 @@ public class CallMeter extends Activity {
 
 	/** Prefs: billmode: 1/1. */
 	private static final String BILLMODE_1_1 = "1_1";
-	/** Prefs: billmode: 10/10. */
-	private static final String BILLMODE_10_10 = "10_10";
-	/** Prefs: billmode: 30/6. */
-	private static final String BILLMODE_30_6 = "30_6";
-	/** Prefs: billmode: 30/10. */
-	private static final String BILLMODE_30_10 = "30_10";
-	/** Prefs: billmode: 45/1. */
-	private static final String BILLMODE_45_1 = "45_1";
-	/** Prefs: billmode: 60/0. */
-	private static final String BILLMODE_60_0 = "60_0";
-	/** Prefs: billmode: 60/1. */
-	private static final String BILLMODE_60_1 = "60_1";
-	/** Prefs: billmode: 60/10. */
-	private static final String BILLMODE_60_10 = "60_10";
-	/** Prefs: billmode: 60/60. */
-	private static final String BILLMODE_60_60 = "60_60";
 
 	/** ContentProvider Column: Body. */
 	private static final String BODY = "body";
@@ -242,6 +226,11 @@ public class CallMeter extends Activity {
 
 		/** Sum of displayed calls out. Used if merging sms into calls. */
 		private int callsOutSum;
+
+		/** Length of first billed timeslot. */
+		private int lengthOfFirstSlot;
+		/** Length of following timeslot. */
+		private int lengthOfNextSlots;
 
 		/**
 		 * Load plans from preferences.
@@ -528,6 +517,14 @@ public class CallMeter extends Activity {
 					projection, Calls.DATE + " >= " + this.allOldDate, null,
 					Calls.DATE + " DESC");
 
+			String prefBillMode = CallMeter.preferences.getString(
+					PREFS_BILLMODE, BILLMODE_1_1);
+			String[] prefTimeSlots = prefBillMode.split("_");
+			this.lengthOfFirstSlot = Integer.parseInt(prefTimeSlots[0]);
+			this.lengthOfNextSlots = Integer.parseInt(prefTimeSlots[1]);
+			prefBillMode = null;
+			prefTimeSlots = null;
+
 			int durIn = this.allCallsIn;
 			int durOut = this.allCallsOut;
 			int durInMonth = 0;
@@ -576,7 +573,7 @@ public class CallMeter extends Activity {
 						t = cur.getInt(idDuration);
 						durIn += t;
 						if (billDate <= d) {
-							durInMonth += CallMeter.roundTime(t);
+							durInMonth += this.roundTime(t);
 						} else if (d < oldDate) {
 							this.allCallsIn += t;
 						}
@@ -609,9 +606,9 @@ public class CallMeter extends Activity {
 							if (check) {
 								p = this.isPlan1(plans, d);
 								if (p) {
-									durOut1Month += CallMeter.roundTime(t);
+									durOut1Month += this.roundTime(t);
 								} else {
-									durOut2Month += CallMeter.roundTime(t);
+									durOut2Month += this.roundTime(t);
 								}
 							}
 						} else if (d < oldDate) {
@@ -790,6 +787,33 @@ public class CallMeter extends Activity {
 					this.callsOut2 = s;
 				}
 			}
+		}
+
+		/**
+		 * Round up time with billmode in mind.
+		 * 
+		 * @param time
+		 *            time
+		 * @return rounded time
+		 */
+		private int roundTime(final int time) {
+			// 0 => 0
+			if (time == 0) {
+				return 0;
+			}
+			// !0 ..
+			if (time <= this.lengthOfFirstSlot) { // round first slot
+				return this.lengthOfFirstSlot;
+			}
+			final int lons = this.lengthOfNextSlots;
+			if (lons == 0) {
+				return this.lengthOfFirstSlot;
+			}
+			if (time % lons == 0 || lons == 1) {
+				return time;
+			}
+			// round up to next full slot
+			return ((time / lons) + 1) * lons;
 		}
 
 		/**
@@ -1056,63 +1080,6 @@ public class CallMeter extends Activity {
 			ret += "s";
 		}
 		return ret;
-	}
-
-	/**
-	 * Round up time with billmode in mind.
-	 * 
-	 * @param time
-	 *            time
-	 * @return rounded time
-	 */
-	static final int roundTime(final int time) {
-		final String prefBillMode = CallMeter.preferences.getString(
-				PREFS_BILLMODE, BILLMODE_1_1);
-		// 0 => 0
-		if (time == 0) {
-			return 0;
-		}
-		// !0 ..
-		if (prefBillMode.equals(BILLMODE_1_1)) {
-			return time;
-		} else if (prefBillMode.equals(BILLMODE_10_10)) {
-			if (time % 10 != 0) {
-				return ((time / 10) + 1) * 10;
-			}
-		} else if (prefBillMode.equals(BILLMODE_45_1)) {
-			if (time < 45) {
-				return 45;
-			}
-		} else if (prefBillMode.equals(BILLMODE_60_0)) {
-			return 60;
-		} else if (prefBillMode.equals(BILLMODE_60_1)) {
-			if (time < 60) {
-				return 60;
-			}
-		} else if (prefBillMode.equals(BILLMODE_60_10)) {
-			if (time < 60) {
-				return 60;
-			} else if (time % 10 != 0) {
-				return ((time / 10) + 1) * 10;
-			}
-		} else if (prefBillMode.equals(BILLMODE_30_6)) {
-			if (time < 30) {
-				return 30;
-			} else if (time % 6 != 0) {
-				return ((time / 6) + 1) * 6;
-			}
-		} else if (prefBillMode.equals(BILLMODE_30_10)) {
-			if (time < 30) {
-				return 30;
-			} else if (time % 10 != 0) {
-				return ((time / 10) + 1) * 10;
-			}
-		} else if (prefBillMode.equals(BILLMODE_60_60)) {
-			if (time % 60 != 0) {
-				return ((time / 60) + 1) * 60;
-			}
-		}
-		return time;
 	}
 
 	/**
