@@ -26,7 +26,7 @@
 	<string name="website_">Website:</string>
 	<string name="donate_">Doneer</string>
 	<string name="donate_remove_ads_">Doneer/verwijder ads</string>
-	<string name="remove_ads">Verwijder ads</string>
+	<string name="remove_ads_">Verwijder ads</string>
 	<string name="predonate">Dit is een open-source applicatie uitgegeven onder de GPLv3 licentie. Het is gratis en blijft gratis. Als je de applicatie erg handig vindt of als je geïrriteerd bent door de advertenties, overweeg dan alsjeblieft om een donatie te doen (via paypal). Ik verwijder de advertenties dan bij de volgende update.\nDankjewel!</string>
 	<string name="postdonate">Om advertenties te verwijderen dien je mij de zogenaamde MD5 hash van je IMEI (unieke id van je telefoon) te sturen. Deze hash is een éénrichtingsverkeer functie. De hash is daardoor niet terug naar jou te traceren.</string>
 	<string name="about0_">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>

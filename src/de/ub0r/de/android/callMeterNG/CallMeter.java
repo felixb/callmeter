@@ -1209,7 +1209,7 @@ public class CallMeter extends Activity {
 			return builder.create();
 		case DIALOG_POSTDONATE:
 			builder = new AlertDialog.Builder(this);
-			builder.setTitle(R.string.remove_ads);
+			builder.setTitle(R.string.remove_ads_);
 			builder.setMessage(R.string.postdonate);
 			builder.setPositiveButton(R.string.send_,
 					new DialogInterface.OnClickListener() {

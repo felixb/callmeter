@@ -25,7 +25,7 @@
 	<string name="website_">Strona:</string>
 	<string name="donate_">Wspomóż</string>
 	<string name="donate_remove_ads_">Wspomóż/usuń reklamy</string>
-	<string name="remove_ads">Usuń reklamy</string>
+	<string name="remove_ads_">Usuń reklamy</string>
 	<string name="postdonate">Aby usunąć reklamy prześlij mi hash swojego numeru IMEI (w MD5, jest unikalny dla Twojego telefonu). Hash działa tylko w jedną stronę, więc nikt (nawet ja) nie poznam tego numeru.</string>
 	<string name="about0_">Sprwadź swoje połączenie i sms!</string>
 	<string name="about0">CallMeter tworzy raport na podstawie logów połączeń i sms. Obsługuje wile cykli rozliczeniowych.</string>

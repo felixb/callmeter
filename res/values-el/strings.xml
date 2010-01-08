@@ -26,7 +26,7 @@
 	<string name="website_">Website:</string>
 	<string name="donate_">Δωρεά</string>
 	<string name="donate_remove_ads_">Δωρεά/Απόκρυψη Ads</string>
-	<string name="remove_ads">Απόκρυψη Διαφημίσεων</string>
+	<string name="remove_ads_">Απόκρυψη Διαφημίσεων</string>
 	<string name="postdonate">Για την απόκρυψη των διαφημίσεων, θα πρέπει να μου στείλετε τον MD5 κωδικό του IMEI (το μοναδικό ID για κάθε κινητό). Αυτός ο κωδικός είναι συνάρτηση μιας κατεύθυνσης. Δεν επιτρέπει τον εντοπισμό σας.</string>
 	<string name="about0_">Παρακολουθήστε το πρόγραμμα κλήσεων και μηνυμάτων σας!</string>
 	<string name="about0">Το CallMeter δημιουργεί αναφορές από τις κλήσεις και τα μηνύματα. Υποστηρίζει πολλούς τύπους χρέωσης.</string>

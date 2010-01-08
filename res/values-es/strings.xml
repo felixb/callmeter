@@ -26,7 +26,7 @@
 	<string name="website_">Web:</string>
 	<string name="donate_">Donar</string>
 	<string name="donate_remove_ads_">Donar/Eliminar publicidad</string>
-	<string name="remove_ads">Eliminar publicidad</string>
+	<string name="remove_ads_">Eliminar publicidad</string>
 	<string name="postdonate">Para eliminar la publicidad, tienes que enviar el código MD5 de tu IMEI (único para cada teléfono). Este código es unidireccional y no permite rastrear el teléfono.</string>
 	<string name="about0_">¡Controla tus planes de llamadas!</string>
 	<string name="about0">CallMeter crea informes de tus registros de llamadas. Permite muchos tipos de tarificación.</string>
