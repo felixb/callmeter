@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>v1.1.2: Fix some bugs, add 30/30 billing mode, add EVE device for traffic counter</item>
+		<item>v1.1.2: Fix some bugs, add 30/30 billing mode, add EVE device for traffic counter, allow to bill (excluded) numbers in plan #1 or #2</item>
 		<item>v1.1.1: Fix happy-new-year-bug (run call meter twice to fix stats)</item>
 		<item>v1.1: Add data statistics, allow wildcards for excluded numbers: e.g. *555/666* excludes 4555/6667</item>
 		<item>v1.0.1: Add translations: dutch+potuguese, add 30/6 billing mode</item>

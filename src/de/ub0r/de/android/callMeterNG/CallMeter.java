@@ -232,6 +232,11 @@ public class CallMeter extends Activity {
 		/** Merge plans for sms. */
 		private boolean plansMergeSms = false;
 
+		/** Bill excluded people in plan1. */
+		private boolean excludedToPlan1 = false;
+		/** Bill excluded people in plan2. */
+		private boolean excludedToPlan2 = false;
+
 		/** Sum of displayed calls out. Used if merging sms into calls. */
 		private int callsOutSum;
 
@@ -313,9 +318,17 @@ public class CallMeter extends Activity {
 						PREFS_MERGE_PLANS_CALLS, false);
 				this.plansMergeSms = CallMeter.preferences.getBoolean(
 						PREFS_MERGE_PLANS_SMS, false);
+				this.excludedToPlan1 = !this.plansMergeCalls
+						&& CallMeter.preferences.getBoolean(
+								PREFS_EXCLUDE_PEOPLE_PLAN1, false);
+				this.excludedToPlan2 = !this.plansMergeCalls
+						&& CallMeter.preferences.getBoolean(
+								PREFS_EXCLUDE_PEOPLE_PLAN2, false);
 			} else {
 				this.plansMergeCalls = true;
 				this.plansMergeSms = true;
+				this.excludedToPlan1 = false;
+				this.excludedToPlan2 = false;
 			}
 
 			String namePlan1 = CallMeter.preferences.getString(
@@ -616,6 +629,12 @@ public class CallMeter extends Activity {
 								if (p) {
 									durOut1Month += this.roundTime(t);
 								} else {
+									durOut2Month += this.roundTime(t);
+								}
+							} else {
+								if (this.excludedToPlan1) {
+									durOut1Month += this.roundTime(t);
+								} else if (this.excludedToPlan2) {
 									durOut2Month += this.roundTime(t);
 								}
 							}
