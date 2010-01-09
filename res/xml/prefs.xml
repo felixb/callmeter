@@ -415,6 +415,17 @@
 					android:inputType="number" android:dependency="plan2_total_free_calls"
 					android:summary="@string/freemin_hint" />
 			</PreferenceCategory>
+
+			<!-- exclude numbers -->
+			<PreferenceCategory android:title="@string/exclude_people_">
+				<PreferenceScreen android:title="@string/exclude_people_"
+					android:summary="@string/exclude_people_hint">
+					<intent android:action="android.intent.action.MAIN"
+						android:targetPackage="de.ub0r.de.android.callMeterNG"
+						android:targetClass="de.ub0r.de.android.callMeterNG.ExcludePeople" />
+				</PreferenceScreen>
+			</PreferenceCategory>
+
 		</PreferenceScreen>
 
 		<!-- sms -->
@@ -474,13 +485,5 @@
 				android:summary="@string/data_limit_hint" />
 		</PreferenceScreen>
 
-		<!-- exclude numbers -->
-
-		<PreferenceScreen android:title="@string/exclude_people_"
-			android:summary="@string/exclude_people_hint">
-			<intent android:action="android.intent.action.MAIN"
-				android:targetPackage="de.ub0r.de.android.callMeterNG"
-				android:targetClass="de.ub0r.de.android.callMeterNG.ExcludePeople" />
-		</PreferenceScreen>
 	</PreferenceCategory>
 </PreferenceScreen>

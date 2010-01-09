@@ -45,7 +45,7 @@
 	<string name="smsperiod_">Ten sam okres dla SMS</string>
 	<string name="smsbillday_">Pierwszy dzień rachunku SMS</string>
 	<string name="exclude_people_">Wykluczaj numery</string>
-	<string name="exclude_people_hint">Nie wliczaj niektórych numerów (połączeń).</string>
+	<string name="exclude_people_hint">Nie wliczaj niektórych numerów.</string>
 	<string name="exclude_people_add">Dodaj numer</string>
 	<string name="exclude_people_edit">Edytuj</string>
 	<string name="exclude_people_delete">Usuń</string>

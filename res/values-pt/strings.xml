@@ -50,7 +50,7 @@
 	<string name="smsperiod_">Mesmo período para SMS</string>
 	<string name="smsbillday_">Primeiro dia da conta SMS</string>
 	<string name="exclude_people_">Números excluídos</string>
-	<string name="exclude_people_hint">Não cobra alguns números (Chamadas)\ncuringas são aceitos: *555 ou 555*</string>
+	<string name="exclude_people_hint">Não cobra alguns números\ncuringas são aceitos: *555 ou 555*</string>
 	<string name="exclude_people_add">Adicione número</string>
 	<string name="exclude_people_edit">Edição</string>
 	<string name="exclude_people_delete">Apagar</string>

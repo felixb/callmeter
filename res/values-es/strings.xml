@@ -50,7 +50,7 @@
 	<string name="smsperiod_">Mismo periodo para SMS</string>
 	<string name="smsbillday_">Primer día de tu factura (SMS)</string>
 	<string name="exclude_people_">Números excluidos</string>
-	<string name="exclude_people_hint">Excluye números de la facturación (Llamadas). Posibilidad de usar comodines: *555 or 555*</string>
+	<string name="exclude_people_hint">Excluye números de la facturación. Posibilidad de usar comodines: *555 or 555*</string>
 	<string name="exclude_people_add">Añadir número</string>
 	<string name="exclude_people_edit">Editar</string>
 	<string name="exclude_people_delete">Borrar</string>
