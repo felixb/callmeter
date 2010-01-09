@@ -424,6 +424,10 @@
 						android:targetPackage="de.ub0r.de.android.callMeterNG"
 						android:targetClass="de.ub0r.de.android.callMeterNG.ExcludePeople" />
 				</PreferenceScreen>
+				<CheckBoxPreference android:key="exclude_people_to_plan1"
+					android:title="@string/exclude_people_to_plan1_" android:summary="@string/exclude_people_to_plan1_hint" />
+				<CheckBoxPreference android:key="exclude_people_to_plan2"
+					android:title="@string/exclude_people_to_plan2_" android:summary="@string/exclude_people_to_plan2_hint" />
 			</PreferenceCategory>
 
 		</PreferenceScreen>

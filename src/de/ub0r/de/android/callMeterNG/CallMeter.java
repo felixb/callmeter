@@ -57,6 +57,7 @@ import com.admob.android.ads.AdView;
  * 
  * @author flx
  */
+@SuppressWarnings("deprecation")
 public class CallMeter extends Activity {
 	/** Tag for output. */
 	private static final String TAG = "CallMeterNG";
@@ -142,6 +143,13 @@ public class CallMeter extends Activity {
 	/** Prefs: Exclude people count. */
 	static final String PREFS_EXCLUDE_PEOPLE_COUNT = PREFS_EXCLUDE_PEOPLE_PREFIX
 			+ "n";
+	/** Prefs: Bill excluded people to plan #1. */
+	static final String PREFS_EXCLUDE_PEOPLE_PLAN1 = PREFS_EXCLUDE_PEOPLE_PREFIX
+			+ "to_plan1";
+	/** Prefs: Bill excluded people to plan #2. */
+	static final String PREFS_EXCLUDE_PEOPLE_PLAN2 = PREFS_EXCLUDE_PEOPLE_PREFIX
+			+ "to_plan2";
+
 	/** Prefs: enable data stats. */
 	static final String PREFS_DATA_ENABLE = "data_enable";
 	/** Prefs: limit for data traffic. */
