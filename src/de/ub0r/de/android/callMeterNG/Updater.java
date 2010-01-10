@@ -163,6 +163,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 * Update text on main Activity.
 	 */
 	private void updateText() {
+		if (!this.updateGUI) {
+			return;
+		}
 		this.twCallsBillDate.setText(this.callsBillDate);
 		this.twCallsIn.setText(this.callsIn);
 		this.twCallsOut1.setText(this.callsOut1);
@@ -804,71 +807,73 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 */
 	@Override
 	protected final void onPostExecute(final Integer[] result) {
-		this.updateText();
+		if (this.updateGUI) {
+			this.updateText();
 
-		// calls
-		ProgressBar pb1 = this.pbCalls1;
-		ProgressBar pb2 = this.pbCalls2;
-		if (result[1] > 0) {
-			pb1.setMax(result[1]);
-			if (result[1] > result[0]) {
-				pb1.setProgress(result[1]);
-			} else {
+			// calls
+			ProgressBar pb1 = this.pbCalls1;
+			ProgressBar pb2 = this.pbCalls2;
+			if (result[1] > 0) {
+				pb1.setMax(result[1]);
+				if (result[1] > result[0]) {
+					pb1.setProgress(result[1]);
+				} else {
+					pb1.setProgress(result[0]);
+				}
 				pb1.setProgress(result[0]);
-			}
-			pb1.setProgress(result[0]);
-			pb1.setVisibility(View.VISIBLE);
-		} else {
-			pb2.setVisibility(View.GONE);
-			pb2 = this.pbCalls1;
-		}
-		if (this.plansMergeCalls || result[3] <= 0) {
-			pb2.setVisibility(View.GONE);
-		} else {
-			pb2.setMax(result[3]);
-			if (result[3] > result[2]) {
-				pb2.setProgress(result[3]);
+				pb1.setVisibility(View.VISIBLE);
 			} else {
+				pb2.setVisibility(View.GONE);
+				pb2 = this.pbCalls1;
+			}
+			if (this.plansMergeCalls || result[3] <= 0) {
+				pb2.setVisibility(View.GONE);
+			} else {
+				pb2.setMax(result[3]);
+				if (result[3] > result[2]) {
+					pb2.setProgress(result[3]);
+				} else {
+					pb2.setProgress(result[2]);
+				}
 				pb2.setProgress(result[2]);
+				pb2.setVisibility(View.VISIBLE);
 			}
-			pb2.setProgress(result[2]);
-			pb2.setVisibility(View.VISIBLE);
-		}
 
-		// sms
-		pb1 = this.pbSMS1;
-		pb2 = this.pbSMS2;
-		if (result[5] > 0) {
-			pb1.setMax(result[5]);
-			if (result[4] > result[5]) {
-				pb1.setProgress(result[5]);
+			// sms
+			pb1 = this.pbSMS1;
+			pb2 = this.pbSMS2;
+			if (result[5] > 0) {
+				pb1.setMax(result[5]);
+				if (result[4] > result[5]) {
+					pb1.setProgress(result[5]);
+				} else {
+					pb1.setProgress(result[4]);
+				}
+				pb1.setVisibility(View.VISIBLE);
 			} else {
-				pb1.setProgress(result[4]);
+				pb2.setVisibility(View.GONE);
+				pb2 = this.pbSMS1;
 			}
-			pb1.setVisibility(View.VISIBLE);
-		} else {
-			pb2.setVisibility(View.GONE);
-			pb2 = this.pbSMS1;
-		}
-		if (this.plansMergeSms || result[7] <= 0) {
-			pb2.setVisibility(View.GONE);
-		} else {
-			pb2.setMax(result[7]);
-			if (result[6] > result[7]) {
-				pb2.setProgress(result[7]);
+			if (this.plansMergeSms || result[7] <= 0) {
+				pb2.setVisibility(View.GONE);
 			} else {
-				pb2.setProgress(result[6]);
+				pb2.setMax(result[7]);
+				if (result[6] > result[7]) {
+					pb2.setProgress(result[7]);
+				} else {
+					pb2.setProgress(result[6]);
+				}
+				pb2.setVisibility(View.VISIBLE);
 			}
-			pb2.setVisibility(View.VISIBLE);
-		}
 
-		pb1 = this.pbData;
-		if (result[9] > 0) {
-			pb1.setMax(result[9]);
-			pb1.setProgress(result[8]);
-			pb1.setVisibility(View.VISIBLE);
-		} else {
-			pb1.setVisibility(View.GONE);
+			pb1 = this.pbData;
+			if (result[9] > 0) {
+				pb1.setMax(result[9]);
+				pb1.setProgress(result[8]);
+				pb1.setVisibility(View.VISIBLE);
+			} else {
+				pb1.setVisibility(View.GONE);
+			}
 		}
 
 		// save old values to database
