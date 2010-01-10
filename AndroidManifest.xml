@@ -30,6 +30,7 @@
 		</activity>
 		<activity android:name="Preferences" />
 		<activity android:name="ExcludePeople" />
+		<activity android:name="ResetData" />
 		<receiver android:name="CMBroadcastReceiver">
 			<intent-filter>
 				<action android:name="android.intent.action.BOOT_COMPLETED" />

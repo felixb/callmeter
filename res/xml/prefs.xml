@@ -489,5 +489,11 @@
 				android:summary="@string/data_limit_hint" />
 		</PreferenceScreen>
 
+		<PreferenceScreen android:title="@string/reset_data_"
+			android:summary="@string/reset_data_hint">
+			<intent android:action="android.intent.action.MAIN"
+				android:targetPackage="de.ub0r.de.android.callMeterNG"
+				android:targetClass="de.ub0r.de.android.callMeterNG.ResetData" />
+		</PreferenceScreen>
 	</PreferenceCategory>
 </PreferenceScreen>

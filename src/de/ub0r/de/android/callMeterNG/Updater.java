@@ -22,7 +22,6 @@ import java.util.Calendar;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -182,6 +181,18 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	}
 
 	/**
+	 * Reset saved data.
+	 */
+	private void resetSavedDate() {
+		this.allCallsIn = 0;
+		this.allCallsOut = 0;
+		this.allSMSIn = 0;
+		this.allSMSOut = 0;
+		this.allOldDate = 0;
+		ResetData.resetData(this.context);
+	}
+
+	/**
 	 * Load old values from database.
 	 */
 	private void getOldData() {
@@ -194,18 +205,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.allSMSOut = this.prefs.getInt(CallMeter.PREFS_ALL_SMS_OUT, 0);
 			this.allOldDate = this.prefs.getLong(CallMeter.PREFS_DATE_OLD, 0);
 		} else { // fix bad results from "happy new 2010"
-			this.allCallsIn = 0;
-			this.allCallsOut = 0;
-			this.allSMSIn = 0;
-			this.allSMSOut = 0;
-			this.allOldDate = 0;
-			final Editor edt = this.prefs.edit();
-			edt.putInt(CallMeter.PREFS_ALL_CALLS_IN, 0);
-			edt.putInt(CallMeter.PREFS_ALL_CALLS_OUT, 0);
-			edt.putInt(CallMeter.PREFS_ALL_SMS_IN, 0);
-			edt.putInt(CallMeter.PREFS_ALL_SMS_OUT, 0);
-			edt.putLong(CallMeter.PREFS_DATE_OLD, 0);
-			edt.commit();
+			this.resetSavedDate();
 		}
 	}
 
@@ -270,8 +270,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			namePlan2 = " (" + namePlan2 + ")";
 		}
 
-		getSplitMergePrefs();
-		getOldData();
+		this.getSplitMergePrefs();
+		this.getOldData();
 
 		if (this.updateGUI) {
 			this.pbCalls1 = (ProgressBar) this.callmeter
@@ -393,7 +393,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.callmeter.findViewById(R.id.data_progressbar).setVisibility(v);
 
 			// common
-			initStatusText();
+			this.initStatusText();
 			this.updateText();
 		}
 	}
@@ -767,7 +767,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		// report data only if run from GUI
 		if (this.prefs.getBoolean(CallMeter.PREFS_DATA_ENABLE, false)
-				&& updateGUI) {
+				&& this.updateGUI) {
 			// walk data
 			CMBroadcastReceiver.updateTraffic(this.context, this.prefs);
 			// get data from prefs
