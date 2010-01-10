@@ -98,7 +98,7 @@ public class CMBroadcastReceiver extends BroadcastReceiver {
 	 *            preferences
 	 */
 	static final void checkBillperiod(final SharedPreferences prefs) {
-		final Calendar billDate = CallMeter.getBillDate(Integer.parseInt(prefs
+		final Calendar billDate = Updater.getBillDate(Integer.parseInt(prefs
 				.getString(CallMeter.PREFS_BILLDAY, "0")));
 		long lastBill = billDate.getTimeInMillis();
 		long now = System.currentTimeMillis();
