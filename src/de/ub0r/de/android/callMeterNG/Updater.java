@@ -765,8 +765,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.walkSMS(plans, calBillDate, oldDate, ret);
 		}
 
-		// report data
-		if (this.prefs.getBoolean(CallMeter.PREFS_DATA_ENABLE, false)) {
+		// report data only if run from GUI
+		if (this.prefs.getBoolean(CallMeter.PREFS_DATA_ENABLE, false)
+				&& updateGUI) {
 			// walk data
 			CMBroadcastReceiver.updateTraffic(this.context, this.prefs);
 			// get data from prefs
