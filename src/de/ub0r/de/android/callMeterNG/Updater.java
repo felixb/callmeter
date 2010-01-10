@@ -182,44 +182,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Load old values from database.
 	 */
-	@Override
-	protected void onPreExecute() {
-		if (this.updateGUI) {
-			this.callmeter.setProgressBarIndeterminateVisibility(true);
-		}
-
-		if (this.prefs.getBoolean(CallMeter.PREFS_SPLIT_PLANS, false)) {
-			this.plansMergeCalls = this.prefs.getBoolean(
-					CallMeter.PREFS_MERGE_PLANS_CALLS, false);
-			this.plansMergeSms = this.prefs.getBoolean(
-					CallMeter.PREFS_MERGE_PLANS_SMS, false);
-			this.excludedToPlan1 = !this.plansMergeCalls
-					&& this.prefs.getBoolean(
-							CallMeter.PREFS_EXCLUDE_PEOPLE_PLAN1, false);
-			this.excludedToPlan2 = !this.plansMergeCalls
-					&& this.prefs.getBoolean(
-							CallMeter.PREFS_EXCLUDE_PEOPLE_PLAN2, false);
-		} else {
-			this.plansMergeCalls = true;
-			this.plansMergeSms = true;
-			this.excludedToPlan1 = false;
-			this.excludedToPlan2 = false;
-		}
-
-		String namePlan1 = this.prefs.getString(CallMeter.PREFS_NAME_PLAN1, "");
-		if (namePlan1.length() <= 0) {
-			namePlan1 = this.context.getString(R.string.plan1);
-		}
-		String namePlan2 = this.prefs.getString(CallMeter.PREFS_NAME_PLAN2, "");
-		if (namePlan2.length() <= 0) {
-			namePlan2 = this.context.getString(R.string.plan2);
-		}
-		namePlan1 = " (" + namePlan1 + ")";
-		namePlan2 = " (" + namePlan2 + ")";
-
-		// load old values from database
+	private void getOldData() {
 		if (this.allOldDate < System.currentTimeMillis()) {
 			this.allCallsIn = this.prefs
 					.getInt(CallMeter.PREFS_ALL_CALLS_IN, 0);
@@ -242,6 +207,71 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			edt.putLong(CallMeter.PREFS_DATE_OLD, 0);
 			edt.commit();
 		}
+	}
+
+	/**
+	 * get prefs for splitting/merging plans.
+	 */
+	private void getSplitMergePrefs() {
+		if (this.prefs.getBoolean(CallMeter.PREFS_SPLIT_PLANS, false)) {
+			this.plansMergeCalls = this.prefs.getBoolean(
+					CallMeter.PREFS_MERGE_PLANS_CALLS, false);
+			this.plansMergeSms = this.prefs.getBoolean(
+					CallMeter.PREFS_MERGE_PLANS_SMS, false);
+			this.excludedToPlan1 = !this.plansMergeCalls
+					&& this.prefs.getBoolean(
+							CallMeter.PREFS_EXCLUDE_PEOPLE_PLAN1, false);
+			this.excludedToPlan2 = !this.plansMergeCalls
+					&& this.prefs.getBoolean(
+							CallMeter.PREFS_EXCLUDE_PEOPLE_PLAN2, false);
+		} else {
+			this.plansMergeCalls = true;
+			this.plansMergeSms = true;
+			this.excludedToPlan1 = false;
+			this.excludedToPlan2 = false;
+		}
+	}
+
+	/**
+	 * Init status text.
+	 */
+	private void initStatusText() {
+		this.callsBillDate = "?";
+		this.callsIn = "?";
+		this.callsOut1 = "?";
+		this.callsOut2 = "?";
+		this.smsBillDate = "?";
+		this.smsIn = "?";
+		this.smsOut1 = "?";
+		this.smsOut2 = "?";
+		this.dataIn = "?";
+		this.dataOut = "?";
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void onPreExecute() {
+		String namePlan1 = null;
+		String namePlan2 = null;
+		if (this.updateGUI) {
+			this.callmeter.setProgressBarIndeterminateVisibility(true);
+
+			namePlan1 = this.prefs.getString(CallMeter.PREFS_NAME_PLAN1, "");
+			if (namePlan1.length() <= 0) {
+				namePlan1 = this.context.getString(R.string.plan1);
+			}
+			namePlan2 = this.prefs.getString(CallMeter.PREFS_NAME_PLAN2, "");
+			if (namePlan2.length() <= 0) {
+				namePlan2 = this.context.getString(R.string.plan2);
+			}
+			namePlan1 = " (" + namePlan1 + ")";
+			namePlan2 = " (" + namePlan2 + ")";
+		}
+
+		getSplitMergePrefs();
+		getOldData();
 
 		if (this.updateGUI) {
 			this.pbCalls1 = (ProgressBar) this.callmeter
@@ -363,18 +393,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.callmeter.findViewById(R.id.data_progressbar).setVisibility(v);
 
 			// common
-
-			this.callsBillDate = "?";
-			this.callsIn = "?";
-			this.callsOut1 = "?";
-			this.callsOut2 = "?";
-			this.smsBillDate = "?";
-			this.smsIn = "?";
-			this.smsOut1 = "?";
-			this.smsOut2 = "?";
-			this.dataIn = "?";
-			this.dataOut = "?";
-
+			initStatusText();
 			this.updateText();
 		}
 	}
