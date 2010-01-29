@@ -29,20 +29,19 @@ import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
 import android.telephony.gsm.SmsMessage;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 /**
- * AsyncTask to handel calcualtions in background.
+ * AsyncTask to handle calcualtions in background.
  * 
  * @author flx
  */
 @SuppressWarnings("deprecation")
 class Updater extends AsyncTask<Void, Void, Integer[]> {
 	/** Tag for output. */
-	private static final String TAG = "CallMeterNG.updater";
+	// private static final String TAG = "CallMeterNG.updater";
 
 	/** Days of a week. */
 	static final int DAYS_WEEK = 7;
@@ -50,18 +49,15 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	static final int HOURS_DAY = 24;
 	/** Seconds of a minute. */
 	static final int SECONDS_MINUTE = 60;
-	/** Bytes per Megabyte. */
-	static final int BYTES_MEGABYTE = 1024 * 1024;
 
 	/** Status Strings. */
 	private String callsIn, callsOut1, callsOut2, callsBillDate, smsIn,
-			smsOut1, smsOut2, smsBillDate, dataIn, dataOut;
+			smsOut1, smsOut2, smsBillDate;
 	/** Status TextViews. */
 	private TextView twCallsIn, twCallsOut1, twCallsOut2, twCallsBillDate,
-			twSMSIn, twSMSOut1, twSMSOut2, twSMSBillDate, twDataBillDate,
-			twDataIn, twDataOut;
+			twSMSIn, twSMSOut1, twSMSOut2, twSMSBillDate;
 	/** Status ProgressBars. */
-	private ProgressBar pbCalls1, pbCalls2, pbSMS1, pbSMS2, pbData;
+	private ProgressBar pbCalls1, pbCalls2, pbSMS1, pbSMS2;
 
 	/** Sum of old calls/sms loaded/saved from preferences. */
 	private int allCallsIn, allCallsOut, allSMSIn, allSMSOut;
@@ -174,10 +170,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		this.twSMSIn.setText(this.smsIn);
 		this.twSMSOut1.setText(this.smsOut1);
 		this.twSMSOut2.setText(this.smsOut2);
-
-		this.twDataBillDate.setText(this.callsBillDate);
-		this.twDataIn.setText(this.dataIn);
-		this.twDataOut.setText(this.dataOut);
 	}
 
 	/**
@@ -244,15 +236,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		this.smsIn = "?";
 		this.smsOut1 = "?";
 		this.smsOut2 = "?";
-		this.dataIn = "?";
-		this.dataOut = "?";
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void onPreExecute() {
+	protected final void onPreExecute() {
 		String namePlan1 = null;
 		String namePlan2 = null;
 		if (this.updateGUI) {
@@ -283,8 +273,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					.findViewById(R.id.sms1_progressbar);
 			this.pbSMS2 = (ProgressBar) this.callmeter
 					.findViewById(R.id.sms2_progressbar);
-			this.pbData = (ProgressBar) this.callmeter
-					.findViewById(R.id.data_progressbar);
 
 			this.twCallsIn = (TextView) this.callmeter
 					.findViewById(R.id.calls_in);
@@ -301,12 +289,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					.findViewById(R.id.sms2_out);
 			this.twSMSBillDate = (TextView) this.callmeter
 					.findViewById(R.id.sms_billdate);
-			this.twDataBillDate = (TextView) this.callmeter
-					.findViewById(R.id.data_billdate);
-			this.twDataIn = (TextView) this.callmeter
-					.findViewById(R.id.data_in);
-			this.twDataOut = (TextView) this.callmeter
-					.findViewById(R.id.data_out);
 
 			this.pbCalls1.setProgress(0);
 			this.pbCalls1.setIndeterminate(false);
@@ -379,18 +361,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.callmeter.findViewById(R.id.sms_in_).setVisibility(v);
 			this.callmeter.findViewById(R.id.sms_in).setVisibility(v);
 			this.pbSMS1.setVisibility(v);
-
-			// data
-			v = View.GONE;
-			if (this.prefs.getBoolean(CallMeter.PREFS_DATA_ENABLE, false)) {
-				v = View.VISIBLE;
-			}
-			this.callmeter.findViewById(R.id.data_).setVisibility(v);
-			this.callmeter.findViewById(R.id.data_billdate_layout)
-					.setVisibility(v);
-			this.callmeter.findViewById(R.id.data_in_layout).setVisibility(v);
-			this.callmeter.findViewById(R.id.data_out_layout).setVisibility(v);
-			this.callmeter.findViewById(R.id.data_progressbar).setVisibility(v);
 
 			// common
 			this.initStatusText();
@@ -721,15 +691,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	}
 
 	/**
-	 * @param data
-	 *            amaount of data transfered
-	 * @return more readable output
-	 */
-	private String makeBytesReadable(final long data) {
-		return data / (BYTES_MEGABYTE) + "MB";
-	}
-
-	/**
 	 * Run in backgrund.
 	 * 
 	 * @param arg0
@@ -744,8 +705,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		final long oldDate = getOldDate();
 
 		// progressbar positions: calls1_pos, calls1_max, calls2_*, sms*,
-		// data*
-		final Integer[] ret = { 0, 0, 0, 0, 1, 1, 1, 1, 0, 0 };
+		final Integer[] ret = { 0, 0, 0, 0, 1, 1, 1, 1 };
 		Calendar calBillDate = getBillDate(Integer.parseInt(this.prefs
 				.getString(CallMeter.PREFS_BILLDAY, "0")));
 		if (this.plansMergeCalls) {
@@ -763,44 +723,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.walkSMS(null, calBillDate, oldDate, ret);
 		} else {
 			this.walkSMS(plans, calBillDate, oldDate, ret);
-		}
-
-		// report data only if run from GUI
-		if (this.prefs.getBoolean(CallMeter.PREFS_DATA_ENABLE, false)
-				&& this.updateGUI) {
-			// walk data
-			CMBroadcastReceiver.updateTraffic(this.context, this.prefs);
-			// get data from prefs
-			final long preBootIn = this.prefs.getLong(
-					CallMeter.PREFS_DATA_BOOT_IN, 0);
-			final long preBootOut = this.prefs.getLong(
-					CallMeter.PREFS_DATA_BOOT_OUT, 0);
-			final long preBillingIn = this.prefs.getLong(
-					CallMeter.PREFS_DATA_PREBILLING_IN, 0);
-			final long preBillingOut = this.prefs.getLong(
-					CallMeter.PREFS_DATA_PREBILLING_OUT, 0);
-			final long runningIn = this.prefs.getLong(
-					CallMeter.PREFS_DATA_RUNNING_IN, 0);
-			final long runningOut = this.prefs.getLong(
-					CallMeter.PREFS_DATA_RUNNING_OUT, 0);
-			final long currentIn = preBootIn + runningIn;
-			final long currentOut = preBootOut + runningOut;
-			final long thisBillingIn = currentIn - preBillingIn;
-			final long thisBillingOut = currentOut - preBillingOut;
-			this.dataIn = this.makeBytesReadable(thisBillingIn) + "/"
-					+ this.makeBytesReadable(currentIn);
-			this.dataOut = this.makeBytesReadable(currentOut - preBillingOut)
-					+ "/" + this.makeBytesReadable(currentOut);
-			int limit = 0;
-			try {
-				limit = Integer.parseInt(this.prefs.getString(
-						CallMeter.PREFS_DATA_LIMIT, "0"));
-			} catch (NumberFormatException e) {
-				Log.e(TAG, null, e);
-			}
-
-			ret[8] = (int) (thisBillingIn + thisBillingOut) / (BYTES_MEGABYTE);
-			ret[9] = limit;
 		}
 
 		this.allOldDate = oldDate;
@@ -885,15 +807,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 				pb2.setVisibility(View.VISIBLE);
 			}
-
-			pb1 = this.pbData;
-			if (result[9] > 0) {
-				pb1.setMax(result[9]);
-				pb1.setProgress(result[8]);
-				pb1.setVisibility(View.VISIBLE);
-			} else {
-				pb1.setVisibility(View.GONE);
-			}
 		}
 
 		// save old values to database
@@ -906,6 +819,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		editor.commit();
 
 		if (this.updateGUI) {
+			// FIXME
 			((CallMeter) this.context)
 					.setProgressBarIndeterminateVisibility(false);
 		}
@@ -924,7 +838,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 *            calls/sms?
 	 * @return String holding all the data
 	 */
-	static final String calcString(final int thisPeriod, final int limit,
+	private static String calcString(final int thisPeriod, final int limit,
 			final int all, final boolean calls) {
 		if (limit > 0) {
 			if (calls) {
@@ -950,7 +864,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 *            seconds
 	 * @return parsed string
 	 */
-	static final String getTime(final int seconds) {
+	private static String getTime(final int seconds) {
 		String ret;
 		int d = seconds / 86400;
 		int h = (seconds % 86400) / 3600;
@@ -988,7 +902,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 * 
 	 * @return date before all calls/sms are "old"
 	 */
-	static final long getOldDate() {
+	private static long getOldDate() {
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.MONTH, -1);
 		cal.set(Calendar.HOUR_OF_DAY, 0);
@@ -1005,7 +919,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 *            first day of bill
 	 * @return date as Calendar
 	 */
-	static final Calendar getBillDate(final int billDay) {
+	private static Calendar getBillDate(final int billDay) {
 		Calendar cal = Calendar.getInstance();
 		if (cal.get(Calendar.DAY_OF_MONTH) < billDay) {
 			cal.add(Calendar.MONTH, -1);

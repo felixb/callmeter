@@ -104,8 +104,11 @@ public class CallMeter extends Activity {
 
 	/** Prefs: merge sms into calls. */
 	static final String PREFS_MERGE_SMS_TO_CALLS = "merge_sms_calls";
-	/** Prefs: merge sms into calls; number of seconds billed for a single sms. */
-	static final String PREFS_MERGE_SMS_TO_CALLS_SECONDS = "merge_sms_calls_sec";
+	/**
+	 * Prefs: merge sms into calls; number of seconds billed for a single sms.
+	 */
+	static final String PREFS_MERGE_SMS_TO_CALLS_SECONDS = // .
+	"merge_sms_calls_sec";
 	/** Prefs: merge sms into calls; which plan to merge sms in. */
 	static final String PREFS_MERGE_SMS_PLAN1 = "merge_sms_plan1";
 
@@ -133,6 +136,8 @@ public class CallMeter extends Activity {
 
 	/** Prefs: enable data stats. */
 	static final String PREFS_DATA_ENABLE = "data_enable";
+	/** Prefs: bill each date separately. */
+	static final String PREFS_DATA_EACHDAY = "data_eachday";
 	/** Prefs: limit for data traffic. */
 	static final String PREFS_DATA_LIMIT = "data_limit";
 
@@ -181,7 +186,7 @@ public class CallMeter extends Activity {
 			"4bf7f35515fb7306dc7c43c9fa88558c", // Ronny T.
 			"75b9d156ebfda12a0e63da875593edc0", // Angel M.
 			"80cfd25e841424e968db64de0d7d236e", // Renato P.
-			"cb4d969c66def366b56200d87d3c363c" // Daniel S.
+			"cb4d969c66def366b56200d87d3c363c", // Daniel S.
 	};
 
 	/**
@@ -236,8 +241,10 @@ public class CallMeter extends Activity {
 		if (!prefsNoAds) {
 			((AdView) this.findViewById(R.id.ad)).setVisibility(View.VISIBLE);
 		}
-		// get calls
+		// get call/sms stats
 		new Updater(this).execute((Void[]) null);
+		// get data stats
+		new UpdaterData(this).execute((Void[]) null);
 	}
 
 	/**
@@ -257,12 +264,11 @@ public class CallMeter extends Activity {
 						public void onClick(final DialogInterface dialog,
 								final int which) {
 							try {
-								CallMeter.this
-										.startActivity(new Intent(
-												Intent.ACTION_VIEW,
-												Uri
-														.parse(CallMeter.this
-																.getString(R.string.donate_url))));
+								CallMeter.this.startActivity(new // .
+										Intent(Intent.ACTION_VIEW, // .
+												Uri.parse(CallMeter.this
+														.getString(// .
+														R.string.donate_url))));
 							} catch (ActivityNotFoundException e) {
 								Log.e(TAG, "no browser", e);
 							} finally {
@@ -287,14 +293,11 @@ public class CallMeter extends Activity {
 									"" }); // FIXME: "" is a k9 hack.
 							in.putExtra(Intent.EXTRA_TEXT,
 									CallMeter.this.imeiHash);
-							in
-									.putExtra(
-											Intent.EXTRA_SUBJECT,
-											CallMeter.this
-													.getString(R.string.app_name)
-													+ " "
-													+ CallMeter.this
-															.getString(R.string.donate_subject));
+							in.putExtra(Intent.EXTRA_SUBJECT, CallMeter.this
+									.getString(// .
+									R.string.app_name)
+									+ " " + CallMeter.this.getString(// .
+											R.string.donate_subject));
 							in.setType("text/plain");
 							CallMeter.this.startActivity(in);
 						}
@@ -344,12 +347,16 @@ public class CallMeter extends Activity {
 	public final boolean onCreateOptionsMenu(final Menu menu) {
 		MenuInflater inflater = this.getMenuInflater();
 		inflater.inflate(R.menu.menu, menu);
+		if (prefsNoAds) {
+			menu.removeItem(R.id.item_donate);
+		}
 		return true;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean onOptionsItemSelected(final MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.item_about: // start about dialog

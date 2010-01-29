@@ -483,10 +483,13 @@
 		<PreferenceScreen android:title="@string/data">
 			<CheckBoxPreference android:key="data_enable"
 				android:title="@string/data_enable_" android:summary="@string/data_enable_hint" />
-			<EditTextPreference android:key="data_limit"
-				android:title="@string/data_limit_" android:dialogTitle="@string/data_limit_"
-				android:inputType="number" android:dependency="data_enable"
-				android:summary="@string/data_limit_hint" />
+			<CheckBoxPreference android:key="data_eachday"
+				android:title="@string/data_each_day" android:summary="@string/data_each_day_hint"
+				android:dependency="data_enable" />
+				<EditTextPreference android:key="data_limit"
+					android:title="@string/data_limit_" android:dialogTitle="@string/data_limit_"
+					android:inputType="number" android:dependency="data_enable"
+					android:summary="@string/data_limit_hint" />
 		</PreferenceScreen>
 
 		<PreferenceScreen android:title="@string/reset_data_"
