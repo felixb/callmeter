@@ -96,6 +96,8 @@
 	<string name="merge_sms_plan1_hint">Uncheck to merge them into plan 2.</string>
 	<string name="data_enable_">Show data stats</string>
 	<string name="data_enable_hint">Data is collected in realtime. First month may be incorrect!</string>
+	<string name="data_each_day">Bill each day separately</string>
+	<string name="data_each_day_hint">Your billing period starts with each day.</string>
 	<string name="data_limit_">Limit</string>
 	<string name="data_limit_hint">Limit of dataplan (MB/month)</string>
 	<string name="monday">Monday</string>
@@ -140,4 +142,6 @@
 	<string name="plan_name1_">Plan 1: name</string>
 	<string name="plan_name2_">Plan 2: name</string>
 	<string name="plan_name_hint">Custom Name</string>
+	<string name="reset_data_">Reset data</string>
+	<string name="reset_data_hint">Reset cached data.\nRecalulate statistics from logs.</string>
 </resources>

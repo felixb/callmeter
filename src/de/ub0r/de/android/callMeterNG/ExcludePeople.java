@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -33,7 +34,8 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 	 */
 	protected final void onPause() {
 		super.onPause();
-		SharedPreferences.Editor editor = CallMeter.preferences.edit();
+		SharedPreferences.Editor editor = PreferenceManager
+				.getDefaultSharedPreferences(this).edit();
 		final int s = CallMeter.prefsExcludePeople.size();
 		editor.putInt(CallMeter.PREFS_EXCLUDE_PEOPLE_COUNT, s - 1);
 		for (int i = 1; i < s; i++) {
