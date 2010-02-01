@@ -73,6 +73,8 @@
 	<string name="merge_sms_plan1_hint">Abwählen, um im Kontingent 2 abzurechnen.</string>
 	<string name="data_enable_">Zeige Datenstatistik</string>
 	<string name="data_enable_hint">Daten werden in Echtzeit gesammelt. Im ersten Monat ist das Ergebnis evtl. falsch.</string>
+	<string name="data_each_day">Jeden Tag einzeln abrechnen</string>
+	<string name="data_each_day_hint">Der Abrechnungszeitraum wird mit jedem Tag neu gestartet.</string>
 	<string name="data_limit_">Freivolumen</string>
 	<string name="data_limit_hint">Freivolumen in MB/Monat</string>
 	<string name="monday">Montag</string>
@@ -92,4 +94,6 @@
 	<string name="plan_name1_">Kontingent 1: Name</string>
 	<string name="plan_name2_">Kontingent 2: Name</string>
 	<string name="plan_name_hint">Eigener Name</string>
+	<string name="reset_data_">Reset: Daten</string>
+	<string name="reset_data_hint">Zwischengespeicherte Daten löschen.\nDie Statistiken werden neu berechnet.</string>
 </resources>

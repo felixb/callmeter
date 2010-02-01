@@ -74,6 +74,8 @@
 	<string name="merge_sms_plan1_hint">Odznacz aby wliczać w plan 2</string>
 	<string name="data_enable_">Pokaż statystyki</string>
 	<string name="data_enable_hint">Dane są zbierane automatycznie. Pierwszy miesiąc może być źle wyliczony!</string>
+	<string name="data_each_day">Rachunek za każdy dzień osobno</string>
+	<string name="data_each_day_hint">Okres rozliczeniowy rozpoczyna się każdego dnia.</string>
 	<string name="data_limit_">Limit</string>
 	<string name="data_limit_hint">Limit of dataplan (MB/month)</string>
 	<string name="monday">Poniedziałek</string>
@@ -94,4 +96,6 @@
 	<string name="plan_name1_">Plan 1: nazwa</string>
 	<string name="plan_name2_">Plan 2: nazwa</string>
 	<string name="plan_name_hint">Własna nazwa</string>
+	<string name="reset_data_">Resetuj dane</string>
+	<string name="reset_data_hint">Resetuje obliczone dane.\nOblicza ponownie statystyke z logów telefonu.</string>
 </resources>

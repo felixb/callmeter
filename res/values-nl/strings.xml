@@ -54,6 +54,10 @@
 	<string name="exclude_people_add">Nummer toevoegen</string>
 	<string name="exclude_people_edit">Bewerken</string>
 	<string name="exclude_people_delete">Verwijderen</string>
+	<string name="exclude_people_to_plan1_">Uitgesloten nummers naar schema 1</string>
+	<string name="exclude_people_to_plan1_hint">Factureer nummers wel in schema 1</string>
+	<string name="exclude_people_to_plan2_">Uitgesloten nummers naar schema 2</string>
+	<string name="exclude_people_to_plan2_hint">Factureer nummers wel in schema 2</string>
 	<string name="plans">Schema</string>
 	<string name="plans_split">Splits in schema\'s</string>
 	<string name="plans_merge">Voeg schema\'s samen</string>
@@ -75,6 +79,8 @@
 	<string name="merge_sms_plan1_hint">Vink uit om samen te voegen met schema 2.</string>
 	<string name="data_enable_">Toon data stats</string>
 	<string name="data_enable_hint">Data wordt realtime bijgehouden. Eerste maand kan onjuist zijn!</string>
+	<string name="data_each_day">Factureer elke dag apart</string>
+	<string name="data_each_day_hint">Facturatieperiode begint elke dagniet terug naar jou te traceren.</string>
 	<string name="data_limit_">Limiet</string>
 	<string name="data_limit_hint">Limiet van data abonnement (MB/maand)</string>
 	<string name="monday">Maandag</string>
@@ -95,4 +101,6 @@
 	<string name="plan_name1_">Schema 1: naam</string>
 	<string name="plan_name2_">Schema 2: naam</string>
 	<string name="plan_name_hint">Gekozen naam</string>
+	<string name="reset_data_">Reset data</string>
+	<string name="reset_data_hint">Reset opgeslagen data.\nHerbereken vanuit log.</string>
 </resources>
