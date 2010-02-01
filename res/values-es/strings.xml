@@ -75,6 +75,8 @@
 	<string name="merge_sms_plan1_hint">Desmarcar para incluirlos en el plan 2.</string>
 	<string name="data_enable_">Mostrar estadísticas de tráfico de datos</string>
 	<string name="data_enable_hint">El tráfico de datos se recopila en tiempo real. El primer mes puede que no se muestre correctamente!</string>
+	<string name="data_each_day">Factura cada día por separado</string>
+	<string name="data_each_day_hint">El periodo de facturación se inicia diariamente.</string>
 	<string name="data_limit_">Límite</string>
 	<string name="data_limit_hint">Límite del plan de datos (MB/mes)</string>
 	<string name="monday">Lunes</string>
@@ -95,4 +97,6 @@
 	<string name="plan_name1_">Plan 1: nombre</string>
 	<string name="plan_name2_">Plan 2: nombre</string>
 	<string name="plan_name_hint">Nombre personalizado</string>
+	<string name="reset_data_">Reinicializar datos</string>
+	<string name="reset_data_hint">Reinicializa datos almacenados.\nRecalcula estadísticas de los registros.</string>
 </resources>
