@@ -22,6 +22,7 @@ import java.util.Calendar;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -50,6 +51,38 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	/** Seconds of a minute. */
 	static final int SECONDS_MINUTE = 60;
 
+	/** Preference's name for time of last checked bill period for calls. */
+	static final String PREFS_CALLS_PERIOD_LASTCHECK = // .
+	"calls_period_lastcheck";
+	/** Preference's name for time of last walk for calls. */
+	static final String PREFS_CALLS_WALK_LASTCHECK = "calls_walk_lastcheck";
+	/** Preference's name for saving calls in (this period). */
+	static final String PREFS_CALLS_PERIOD_IN = "calls_period_in";
+	/** Preference's name for saving calls out plan #1 (this period). */
+	static final String PREFS_CALLS_PERIOD_OUT1 = "calls_period_out1";
+	/** Preference's name for saving calls out plan #2 (this period). */
+	static final String PREFS_CALLS_PERIOD_OUT2 = "calls_period_out2";
+	/** Preference's name for saving calls in (all). */
+	static final String PREFS_CALLS_ALL_IN = "calls_all_in";
+	/** Preference's name for saving calls out (all). */
+	static final String PREFS_CALLS_ALL_OUT = "calls_all_out";
+
+	/** Preference's name for time of last checked bill period for sms. */
+	static final String PREFS_SMS_PERIOD_LASTCHECK = // .
+	"sms_period_lastcheck";
+	/** Preference's name for time of last walk for sms. */
+	static final String PREFS_SMS_WALK_LASTCHECK = "sms_walk_lastcheck";
+	/** Preference's name for saving sms in (this period). */
+	static final String PREFS_SMS_PERIOD_IN = "sms_period_in";
+	/** Preference's name for saving sms out plan #1 (this period). */
+	static final String PREFS_SMS_PERIOD_OUT1 = "sms_period_out1";
+	/** Preference's name for saving sms out plan #2 (this period). */
+	static final String PREFS_SMS_PERIOD_OUT2 = "sms_period_out2";
+	/** Preference's name for saving sms in (all). */
+	static final String PREFS_SMS_ALL_IN = "sms_all_in";
+	/** Preference's name for saving sms out (all). */
+	static final String PREFS_SMS_ALL_OUT = "sms_all_out";
+
 	/** Status Strings. */
 	private String callsIn, callsOut1, callsOut2, callsBillDate, smsIn,
 			smsOut1, smsOut2, smsBillDate;
@@ -58,11 +91,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			twSMSIn, twSMSOut1, twSMSOut2, twSMSBillDate;
 	/** Status ProgressBars. */
 	private ProgressBar pbCalls1, pbCalls2, pbSMS1, pbSMS2;
-
-	/** Sum of old calls/sms loaded/saved from preferences. */
-	private int allCallsIn, allCallsOut, allSMSIn, allSMSOut;
-	/** Date of when calls/sms are "old". */
-	private long allOldDate = 0;
 
 	/** Update string every.. rounds */
 	private static final int UPDATE_INTERVAL = 50;
@@ -110,6 +138,77 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.callmeter = null;
 		}
 		this.prefs = PreferenceManager.getDefaultSharedPreferences(c);
+	}
+
+	/**
+	 * Get the bill date for calls.
+	 * 
+	 * @param prefs
+	 *            {@link SharedPreferences}
+	 * @return bill date
+	 */
+	private static Calendar getBillDayCalls(final SharedPreferences prefs) {
+		return getBillDate(Integer.parseInt(prefs.getString(
+				CallMeter.PREFS_BILLDAY, "0")));
+	}
+
+	/**
+	 * Get the bill date for sms.
+	 * 
+	 * @param prefs
+	 *            {@link SharedPreferences}
+	 * @return bill date
+	 */
+	private static Calendar getBillDaySMS(final SharedPreferences prefs) {
+		if (!prefs.getBoolean(CallMeter.PREFS_SMSPERIOD, false)) {
+			return getBillDate(Integer.parseInt(prefs.getString(
+					CallMeter.PREFS_SMSBILLDAY, "0")));
+		}
+		return getBillDayCalls(prefs);
+	}
+
+	/**
+	 * Check if billing period changed for calls.
+	 * 
+	 * @param prefs
+	 *            preferences
+	 */
+	static final void checkBillperiodCalls(final SharedPreferences prefs) {
+		final Calendar billDate = getBillDayCalls(prefs);
+		long lastBill = billDate.getTimeInMillis();
+		long now = System.currentTimeMillis();
+		long lastCheck = prefs.getLong(PREFS_CALLS_PERIOD_LASTCHECK, 0);
+
+		final Editor editor = prefs.edit();
+		if (lastCheck < lastBill) {
+			editor.remove(PREFS_CALLS_PERIOD_IN);
+			editor.remove(PREFS_CALLS_PERIOD_OUT1);
+			editor.remove(PREFS_CALLS_PERIOD_OUT2);
+		}
+		editor.putLong(PREFS_SMS_PERIOD_LASTCHECK, now);
+		editor.commit();
+	}
+
+	/**
+	 * Check if billing period changed for sms.
+	 * 
+	 * @param prefs
+	 *            preferences
+	 */
+	static final void checkBillperiodSMS(final SharedPreferences prefs) {
+		final Calendar billDate = getBillDaySMS(prefs);
+		long lastBill = billDate.getTimeInMillis();
+		long now = System.currentTimeMillis();
+		long lastCheck = prefs.getLong(PREFS_SMS_PERIOD_LASTCHECK, 0);
+
+		final Editor editor = prefs.edit();
+		if (lastCheck < lastBill) {
+			editor.remove(PREFS_SMS_PERIOD_IN);
+			editor.remove(PREFS_SMS_PERIOD_OUT1);
+			editor.remove(PREFS_SMS_PERIOD_OUT2);
+		}
+		editor.putLong(PREFS_SMS_PERIOD_LASTCHECK, now);
+		editor.commit();
 	}
 
 	/**
@@ -173,36 +272,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	}
 
 	/**
-	 * Reset saved data.
-	 */
-	private void resetSavedDate() {
-		this.allCallsIn = 0;
-		this.allCallsOut = 0;
-		this.allSMSIn = 0;
-		this.allSMSOut = 0;
-		this.allOldDate = 0;
-		ResetData.resetData(this.context);
-	}
-
-	/**
-	 * Load old values from database.
-	 */
-	private void getOldData() {
-		if (this.allOldDate < System.currentTimeMillis()) {
-			this.allCallsIn = this.prefs
-					.getInt(CallMeter.PREFS_ALL_CALLS_IN, 0);
-			this.allCallsOut = this.prefs.getInt(CallMeter.PREFS_ALL_CALLS_OUT,
-					0);
-			this.allSMSIn = this.prefs.getInt(CallMeter.PREFS_ALL_SMS_IN, 0);
-			this.allSMSOut = this.prefs.getInt(CallMeter.PREFS_ALL_SMS_OUT, 0);
-			this.allOldDate = this.prefs.getLong(CallMeter.PREFS_DATE_OLD, 0);
-		} else { // fix bad results from "happy new 2010"
-			this.resetSavedDate();
-		}
-	}
-
-	/**
-	 * get prefs for splitting/merging plans.
+	 * Get preferences for splitting/merging plans.
 	 */
 	private void getSplitMergePrefs() {
 		if (this.prefs.getBoolean(CallMeter.PREFS_SPLIT_PLANS, false)) {
@@ -261,7 +331,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		}
 
 		this.getSplitMergePrefs();
-		this.getOldData();
 
 		if (this.updateGUI) {
 			this.pbCalls1 = (ProgressBar) this.callmeter
@@ -375,13 +444,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 *            array of plans
 	 * @param calBillDate
 	 *            Date of billdate
-	 * @param oldDate
-	 *            old date
 	 * @param status
 	 *            status to return
 	 */
 	private void walkCalls(final boolean[][] plans, final Calendar calBillDate,
-			final long oldDate, final Integer[] status) {
+			final Integer[] status) {
 
 		this.callsBillDate = DateFormat.getDateFormat(this.context).format(
 				calBillDate.getTime());
@@ -395,8 +462,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		String[] projection = new String[] { Calls.TYPE, Calls.DURATION,
 				Calls.DATE, Calls.NUMBER };
 
+		// get time of last walk
+		long lastWalk = this.prefs.getLong(PREFS_CALLS_WALK_LASTCHECK, 0);
+
 		Cursor cur = this.context.getContentResolver().query(Calls.CONTENT_URI,
-				projection, Calls.DATE + " >= " + this.allOldDate, null,
+				projection, Calls.DATE + " > " + lastWalk, null,
 				Calls.DATE + " DESC");
 
 		String prefBillMode = this.prefs.getString(CallMeter.PREFS_BILLMODE,
@@ -407,11 +477,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		prefBillMode = null;
 		prefTimeSlots = null;
 
-		int durIn = this.allCallsIn;
-		int durOut = this.allCallsOut;
-		int durInMonth = 0;
-		int durOut1Month = 0;
-		int durOut2Month = 0;
+		int durIn = this.prefs.getInt(PREFS_CALLS_ALL_IN, 0);
+		int durOut = this.prefs.getInt(PREFS_CALLS_ALL_OUT, 0);
+		int durInMonth = this.prefs.getInt(PREFS_CALLS_PERIOD_IN, 0);
+		int durOut1Month = this.prefs.getInt(PREFS_CALLS_PERIOD_OUT1, 0);
+		int durOut2Month = this.prefs.getInt(PREFS_CALLS_PERIOD_OUT2, 0);
+
 		int free1 = 0; // -1 -> totally free
 		int free2 = 0;
 		if (this.prefs.getBoolean(CallMeter.PREFS_PLAN1_T_FREE_CALLS, false)) {
@@ -446,14 +517,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			do {
 				type = cur.getInt(idType);
 				d = cur.getLong(idDate);
+				lastWalk = d;
 				switch (type) {
 				case Calls.INCOMING_TYPE:
 					t = cur.getInt(idDuration);
 					durIn += t;
 					if (billDate <= d) {
 						durInMonth += this.roundTime(t);
-					} else if (d < oldDate) {
-						this.allCallsIn += t;
 					}
 					break;
 				case Calls.OUTGOING_TYPE:
@@ -496,8 +566,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 								durOut2Month += this.roundTime(t);
 							}
 						}
-					} else if (d < oldDate) {
-						this.allCallsOut += t;
 					}
 					break;
 				default:
@@ -525,6 +593,15 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		this.publishProgress((Void) null);
 
 		this.callsOutSum = durOut;
+
+		final Editor editor = this.prefs.edit();
+		editor.putInt(PREFS_CALLS_ALL_IN, durIn);
+		editor.putInt(PREFS_CALLS_ALL_OUT, durOut);
+		editor.putInt(PREFS_CALLS_PERIOD_IN, durInMonth);
+		editor.putInt(PREFS_CALLS_PERIOD_OUT1, durOut1Month);
+		editor.putInt(PREFS_CALLS_PERIOD_OUT2, durOut2Month);
+		editor.putLong(PREFS_CALLS_WALK_LASTCHECK, lastWalk);
+		editor.commit();
 	}
 
 	/**
@@ -534,23 +611,24 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 *            array of plans
 	 * @param calBillDate
 	 *            Date of billdate
-	 * @param oldDate
-	 *            old date
 	 * @param status
 	 *            status to return
 	 */
 	private void walkSMS(final boolean[][] plans, final Calendar calBillDate,
-			final long oldDate, final Integer[] status) {
+			final Integer[] status) {
 		// report basics
 		this.smsBillDate = DateFormat.getDateFormat(this.context).format(
 				calBillDate.getTime());
 		final long billDate = calBillDate.getTimeInMillis();
 		final String[] projection = new String[] { Calls.TYPE, Calls.DATE,
 				CallMeter.BODY };
+
+		// get time of last walk
+		long lastWalk = this.prefs.getLong(PREFS_SMS_WALK_LASTCHECK, 0);
+
 		final Cursor cur = this.context.getContentResolver().query(
 				Uri.parse("content://sms"), projection,
-				Calls.DATE + " >= " + this.allOldDate, null,
-				Calls.DATE + " DESC");
+				Calls.DATE + " > " + lastWalk, null, Calls.DATE + " DESC");
 		int free1 = 0;
 		int free2 = 0;
 		if (this.prefs.getBoolean(CallMeter.PREFS_PLAN1_T_FREE_SMS, false)) {
@@ -570,11 +648,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			}
 		}
 
-		int iSMSIn = this.allSMSIn;
-		int iSMSOut = this.allSMSOut;
-		int smsInMonth = 0;
-		int smsOut1Month = 0;
-		int smsOut2Month = 0;
+		int iSMSIn = this.prefs.getInt(PREFS_SMS_ALL_IN, 0);
+		int iSMSOut = this.prefs.getInt(PREFS_SMS_ALL_OUT, 0);
+		int smsInMonth = this.prefs.getInt(PREFS_SMS_PERIOD_IN, 0);
+		int smsOut1Month = this.prefs.getInt(PREFS_SMS_PERIOD_OUT1, 0);
+		int smsOut2Month = this.prefs.getInt(PREFS_SMS_PERIOD_OUT1, 0);
+
 		boolean p = true;
 		if (cur.moveToFirst()) {
 			int type;
@@ -587,14 +666,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			do {
 				type = cur.getInt(idType);
 				d = cur.getLong(idDate);
+				lastWalk = d;
 				l = SmsMessage.calculateLength(cur.getString(idBody), false)[0];
 				switch (type) {
 				case Calls.INCOMING_TYPE:
 					iSMSIn += l;
 					if (billDate <= d) {
 						smsInMonth += l;
-					} else if (d < oldDate) {
-						this.allSMSIn += l;
 					}
 					break;
 				case Calls.OUTGOING_TYPE:
@@ -606,8 +684,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 						} else {
 							smsOut2Month += l;
 						}
-					} else if (d < oldDate) {
-						this.allSMSOut += l;
 					}
 					break;
 				default:
@@ -661,6 +737,15 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				this.callsOut2 = s;
 			}
 		}
+
+		final Editor editor = this.prefs.edit();
+		editor.putInt(PREFS_SMS_ALL_IN, iSMSIn);
+		editor.putInt(PREFS_SMS_ALL_OUT, iSMSOut);
+		editor.putInt(PREFS_SMS_PERIOD_IN, smsInMonth);
+		editor.putInt(PREFS_SMS_PERIOD_OUT1, smsOut1Month);
+		editor.putInt(PREFS_SMS_PERIOD_OUT2, smsOut2Month);
+		editor.putLong(PREFS_SMS_WALK_LASTCHECK, lastWalk);
+		editor.commit();
 	}
 
 	/**
@@ -702,16 +787,15 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		// load splitted plans
 		final boolean[][] plans = this.loadPlans(this.prefs);
-		final long oldDate = getOldDate();
 
 		// progressbar positions: calls1_pos, calls1_max, calls2_*, sms*,
 		final Integer[] ret = { 0, 0, 0, 0, 1, 1, 1, 1 };
 		Calendar calBillDate = getBillDate(Integer.parseInt(this.prefs
 				.getString(CallMeter.PREFS_BILLDAY, "0")));
 		if (this.plansMergeCalls) {
-			this.walkCalls(null, calBillDate, oldDate, ret);
+			this.walkCalls(null, calBillDate, ret);
 		} else {
-			this.walkCalls(plans, calBillDate, oldDate, ret);
+			this.walkCalls(plans, calBillDate, ret);
 		}
 
 		// report sms
@@ -720,12 +804,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					CallMeter.PREFS_SMSBILLDAY, "0")));
 		}
 		if (this.plansMergeSms) {
-			this.walkSMS(null, calBillDate, oldDate, ret);
+			this.walkSMS(null, calBillDate, ret);
 		} else {
-			this.walkSMS(plans, calBillDate, oldDate, ret);
+			this.walkSMS(plans, calBillDate, ret);
 		}
-
-		this.allOldDate = oldDate;
 
 		return ret;
 	}
@@ -808,15 +890,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				pb2.setVisibility(View.VISIBLE);
 			}
 		}
-
-		// save old values to database
-		SharedPreferences.Editor editor = this.prefs.edit();
-		editor.putInt(CallMeter.PREFS_ALL_CALLS_IN, this.allCallsIn);
-		editor.putInt(CallMeter.PREFS_ALL_CALLS_OUT, this.allCallsOut);
-		editor.putInt(CallMeter.PREFS_ALL_SMS_IN, this.allSMSIn);
-		editor.putInt(CallMeter.PREFS_ALL_SMS_OUT, this.allSMSOut);
-		editor.putLong(CallMeter.PREFS_DATE_OLD, this.allOldDate);
-		editor.commit();
 
 		if (this.updateGUI) {
 			// FIXME

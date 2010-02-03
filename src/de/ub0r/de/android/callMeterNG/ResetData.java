@@ -25,11 +25,20 @@ public class ResetData extends Activity {
 	static void resetData(final Context c) {
 		final Editor edt = PreferenceManager.getDefaultSharedPreferences(c)
 				.edit();
-		edt.putInt(CallMeter.PREFS_ALL_CALLS_IN, 0);
-		edt.putInt(CallMeter.PREFS_ALL_CALLS_OUT, 0);
-		edt.putInt(CallMeter.PREFS_ALL_SMS_IN, 0);
-		edt.putInt(CallMeter.PREFS_ALL_SMS_OUT, 0);
-		edt.putLong(CallMeter.PREFS_DATE_OLD, 0);
+		edt.remove(Updater.PREFS_CALLS_PERIOD_IN);
+		edt.remove(Updater.PREFS_CALLS_PERIOD_OUT1);
+		edt.remove(Updater.PREFS_CALLS_PERIOD_OUT2);
+		edt.remove(Updater.PREFS_CALLS_ALL_IN);
+		edt.remove(Updater.PREFS_CALLS_ALL_OUT);
+		edt.remove(Updater.PREFS_CALLS_PERIOD_LASTCHECK);
+		edt.remove(Updater.PREFS_CALLS_WALK_LASTCHECK);
+		edt.remove(Updater.PREFS_SMS_PERIOD_IN);
+		edt.remove(Updater.PREFS_SMS_PERIOD_OUT1);
+		edt.remove(Updater.PREFS_SMS_PERIOD_OUT2);
+		edt.remove(Updater.PREFS_SMS_ALL_IN);
+		edt.remove(Updater.PREFS_SMS_ALL_OUT);
+		edt.remove(Updater.PREFS_SMS_PERIOD_LASTCHECK);
+		edt.remove(Updater.PREFS_SMS_WALK_LASTCHECK);
 		edt.commit();
 	}
 

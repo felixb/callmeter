@@ -113,15 +113,15 @@ public class CallMeter extends Activity {
 	static final String PREFS_MERGE_SMS_PLAN1 = "merge_sms_plan1";
 
 	/** Prefs: name for all old calls in. */
-	static final String PREFS_ALL_CALLS_IN = "all_calls_in";
+	// static final String PREFS_ALL_CALLS_IN = "all_calls_in";
 	/** Prefs: name for all old calls out. */
-	static final String PREFS_ALL_CALLS_OUT = "all_calls_out";
+	// static final String PREFS_ALL_CALLS_OUT = "all_calls_out";
 	/** Prefs: name for all old sms in. */
-	static final String PREFS_ALL_SMS_IN = "all_sms_in";
+	// static final String PREFS_ALL_SMS_IN = "all_sms_in";
 	/** Prefs: name for all old sms out. */
-	static final String PREFS_ALL_SMS_OUT = "all_sms_out";
+	// static final String PREFS_ALL_SMS_OUT = "all_sms_out";
 	/** Prefs: name for date of old calls/sms. */
-	static final String PREFS_DATE_OLD = "all_date_old";
+	// static final String PREFS_DATE_OLD = "all_date_old";
 	/** Prefs: Exclude people prefix. */
 	static final String PREFS_EXCLUDE_PEOPLE_PREFIX = "exclude_people_";
 	/** Prefs: Exclude people count. */
