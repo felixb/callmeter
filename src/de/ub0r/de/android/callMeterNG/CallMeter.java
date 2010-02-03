@@ -191,6 +191,7 @@ public class CallMeter extends Activity {
 			"09eec4cc097d44c222470785fa19c75d", // Oleg J.
 			"3273e9f7b49d65c02cfc75a2730530a8", // Pjotr d. B.
 			"fe9c39f3ee0fdaffeda8ffbfe4105c7d", // Chrispen F.
+			"e3563c28b3916d95b9ef126202385c2b", // Istvan P.
 	};
 
 	/**
