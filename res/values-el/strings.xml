@@ -75,6 +75,8 @@
 	<string name="merge_sms_plan1_hint">Αποεπιλέξτε για να τοποθετηθούν στο δεύτερο πλάνο.</string>
 	<string name="data_enable_">Εμφάνιση στοιχείων δεδομένων</string>
 	<string name="data_enable_hint">Τα δεδομένα συλλέγονται σε πραγματικό χρόνο. Ο πρώτος μήνας ίσως να είναι λάθος!</string>
+	<string name="data_each_day">Ξεχωριστή χρέωση κάθε ημέρας</string>
+	<string name="data_each_day_hint">Η περίοδος χρέωσης ξεκινάει κάθε μέρα.</string>
 	<string name="data_limit_">Όριο</string>
 	<string name="data_limit_hint">Όριο πλάνου (MB/μήνα)</string>
 	<string name="monday">Δευτέρα</string>
@@ -95,4 +97,6 @@
 	<string name="plan_name1_">Πλάνο 1: όνομα</string>
 	<string name="plan_name2_">Πλάνο 2: όνομα</string>
 	<string name="plan_name_hint">Επιλογή Ονόματος</string>
+	<string name="reset_data_">Επαναφορά στοιχείων</string>
+	<string name="reset_data_hint">Επαναφορά προσωρινών δεδομένων.\nΥπολογισμός στατιστικών από τα logs.</string>
 </resources>
