@@ -41,13 +41,17 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 
 	/** Bytes per Megabyte. */
 	private static final int BYTES_MEGABYTE = 1024 * 1024;
+	/** 100. */
+	private static final int HUNDRET = 100;
 
 	/** Status Strings. */
 	private String dataIn, dataOut, dataBillDate;
 	/** Status TextViews. */
 	private TextView twDataBillDate, twDataIn, twDataOut;
-	/** Status ProgressBars. */
+	/** Status ProgressBar. */
 	private ProgressBar pbData;
+	/** Status ProgressBar Text. */
+	private TextView twPBDataText;
 
 	/** Preferences to use. */
 	private final SharedPreferences prefs;
@@ -97,6 +101,8 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 		if (this.updateGUI) {
 			this.pbData = (ProgressBar) this.callmeter
 					.findViewById(R.id.data_progressbar);
+			this.twPBDataText = (TextView) this.callmeter
+					.findViewById(R.id.data_progressbar_text);
 			this.twDataBillDate = (TextView) this.callmeter
 					.findViewById(R.id.data_billdate);
 			this.twDataIn = (TextView) this.callmeter
@@ -198,8 +204,12 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 				pb.setMax(result[1]);
 				pb.setProgress(result[0]);
 				pb.setVisibility(View.VISIBLE);
+				this.twPBDataText.setText(result[0] + "MB - "
+						+ (result[0] / (result[1] * HUNDRET)) + "%");
+				this.twPBDataText.setVisibility(View.VISIBLE);
 			} else {
 				pb.setVisibility(View.GONE);
+				this.twPBDataText.setVisibility(View.GONE);
 			}
 		}
 
