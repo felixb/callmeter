@@ -39,8 +39,6 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 	/** Tag for output. */
 	private static final String TAG = "CallMeterNG.ud";
 
-	/** Seconds of a minute. */
-	private static final int SECONDS_MINUTE = 60;
 	/** Bytes per Megabyte. */
 	private static final int BYTES_MEGABYTE = 1024 * 1024;
 
@@ -224,7 +222,8 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 		if (!p.getBoolean(CallMeter.PREFS_DATA_EACHDAY, false)) {
 			int billDay = 0;
 			try {
-				Integer.parseInt(p.getString(CallMeter.PREFS_BILLDAY, "0"));
+				billDay = Integer.parseInt(p.getString(CallMeter.PREFS_BILLDAY,
+						"0"));
 			} catch (NumberFormatException e) {
 				billDay = 0;
 			}
