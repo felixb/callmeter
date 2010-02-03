@@ -177,7 +177,7 @@
 				<CheckBoxPreference android:key="hours_1_4_0"
 					android:title="@string/hours_0" />
 				<CheckBoxPreference android:key="hours_1_4_1"
-					android:title="@string/hours_4" />
+					android:title="@string/hours_1" />
 				<CheckBoxPreference android:key="hours_1_4_2"
 					android:title="@string/hours_2" />
 				<CheckBoxPreference android:key="hours_1_4_3"
