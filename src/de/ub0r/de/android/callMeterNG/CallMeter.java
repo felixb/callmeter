@@ -51,6 +51,10 @@ import com.admob.android.ads.AdView;
 public class CallMeter extends Activity {
 	/** Tag for output. */
 	private static final String TAG = "CallMeterNG";
+
+	/** 100. */
+	static final int HUNDRET = 100;
+
 	/** Dialog: post donate. */
 	private static final int DIALOG_POSTDONATE = 0;
 	/** Dialog: about. */
@@ -62,66 +66,7 @@ public class CallMeter extends Activity {
 
 	/** Prefs: name for last version run. */
 	private static final String PREFS_LAST_RUN = "lastrun";
-	/** Prefs: name for first day. */
-	static final String PREFS_BILLDAY = "billday";
-	/** Prefs: name for billingmode. */
-	static final String PREFS_BILLMODE = "billmode";
-	/** Prefs: name for smsperiod. */
-	static final String PREFS_SMSPERIOD = "smsperiod";
-	/** Prefs: name for smsbillday. */
-	static final String PREFS_SMSBILLDAY = "smsbillday";
 
-	/** Prefs: split plans. */
-	static final String PREFS_SPLIT_PLANS = "plans_split";
-	/** Prefs: merge plans for calls. */
-	static final String PREFS_MERGE_PLANS_CALLS = "plans_merge_calls";
-	/** Prefs: merge plans for sms. */
-	static final String PREFS_MERGE_PLANS_SMS = "plans_merge_sms";
-	/** Prefs: hours for plan 1. */
-	static final String PREFS_PLAN1_HOURS_PREFIX = "hours_1_";
-
-	/** Prefs: plan1 totally free calls. */
-	static final String PREFS_PLAN1_T_FREE_CALLS = "plan1_total_free_calls";
-	/** Prefs: plan1 free minutes. */
-	static final String PREFS_PLAN1_FREEMIN = "plan1_freemin";
-	/** Prefs: plan1 totally free sms. */
-	static final String PREFS_PLAN1_T_FREE_SMS = "plan1_total_free_sms";
-	/** Prefs: plan1 free sms. */
-	static final String PREFS_PLAN1_FREESMS = "plan1_freesms";
-	/** Prefs: plan1 totally free calls. */
-	static final String PREFS_PLAN2_T_FREE_CALLS = "plan2_total_free_calls";
-	/** Prefs: plan1 free minutes. */
-	static final String PREFS_PLAN2_FREEMIN = "plan2_freemin";
-	/** Prefs: plan1 totally free sms. */
-	static final String PREFS_PLAN2_T_FREE_SMS = "plan2_total_free_sms";
-	/** Prefs: plan1 free sms. */
-	static final String PREFS_PLAN2_FREESMS = "plan2_freesms";
-
-	/** Prefs: custom name for plan 1. */
-	static final String PREFS_NAME_PLAN1 = "plan_name1";
-	/** Prefs: custom name for plan 2. */
-	static final String PREFS_NAME_PLAN2 = "plan_name2";
-
-	/** Prefs: merge sms into calls. */
-	static final String PREFS_MERGE_SMS_TO_CALLS = "merge_sms_calls";
-	/**
-	 * Prefs: merge sms into calls; number of seconds billed for a single sms.
-	 */
-	static final String PREFS_MERGE_SMS_TO_CALLS_SECONDS = // .
-	"merge_sms_calls_sec";
-	/** Prefs: merge sms into calls; which plan to merge sms in. */
-	static final String PREFS_MERGE_SMS_PLAN1 = "merge_sms_plan1";
-
-	/** Prefs: name for all old calls in. */
-	// static final String PREFS_ALL_CALLS_IN = "all_calls_in";
-	/** Prefs: name for all old calls out. */
-	// static final String PREFS_ALL_CALLS_OUT = "all_calls_out";
-	/** Prefs: name for all old sms in. */
-	// static final String PREFS_ALL_SMS_IN = "all_sms_in";
-	/** Prefs: name for all old sms out. */
-	// static final String PREFS_ALL_SMS_OUT = "all_sms_out";
-	/** Prefs: name for date of old calls/sms. */
-	// static final String PREFS_DATE_OLD = "all_date_old";
 	/** Prefs: Exclude people prefix. */
 	static final String PREFS_EXCLUDE_PEOPLE_PREFIX = "exclude_people_";
 	/** Prefs: Exclude people count. */
@@ -133,34 +78,6 @@ public class CallMeter extends Activity {
 	/** Prefs: Bill excluded people to plan #2. */
 	static final String PREFS_EXCLUDE_PEOPLE_PLAN2 = PREFS_EXCLUDE_PEOPLE_PREFIX
 			+ "to_plan2";
-
-	/** Prefs: enable data stats. */
-	static final String PREFS_DATA_ENABLE = "data_enable";
-	/** Prefs: bill each date separately. */
-	static final String PREFS_DATA_EACHDAY = "data_eachday";
-	/** Prefs: limit for data traffic. */
-	static final String PREFS_DATA_LIMIT = "data_limit";
-
-	/** Prefs: data in at last boot. */
-	static final String PREFS_DATA_BOOT_IN = "data_boot_in";
-	/** Prefs: data out at last boot. */
-	static final String PREFS_DATA_BOOT_OUT = "data_boot_out";
-	/** Prefs: data in after last boot. */
-	static final String PREFS_DATA_RUNNING_IN = "data_running_in";
-	/** Prefs: data out after last boot. */
-	static final String PREFS_DATA_RUNNING_OUT = "data_running_out";
-	/** Prefs: data in before bolling date. */
-	static final String PREFS_DATA_PREBILLING_IN = "data_prebilling_in";
-	/** Prefs: data out before billing date. */
-	static final String PREFS_DATA_PREBILLING_OUT = "data_prebilling_out";
-	/** Prefs: date of last billing. */
-	static final String PREFS_DATA_LASTCHECK = "data_lastcheck";
-
-	/** Prefs: billmode: 1/1. */
-	static final String BILLMODE_1_1 = "1_1";
-
-	/** ContentProvider Column: Body. */
-	static final String BODY = "body";
 
 	/** SharedPreferences. */
 	private SharedPreferences preferences;
@@ -250,6 +167,8 @@ public class CallMeter extends Activity {
 		new Updater(this).execute((Void[]) null);
 		// get data stats
 		new UpdaterData(this).execute((Void[]) null);
+		// schedule next update
+		CMBroadcastReceiver.schedNext(this);
 	}
 
 	/**
