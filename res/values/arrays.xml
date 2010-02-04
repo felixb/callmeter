@@ -62,6 +62,7 @@
 		<item>60/0</item>
 		<item>60/1</item>
 		<item>60/10</item>
+		<item>60/30</item>
 		<item>60/60</item>
 	</string-array>
 	<string-array name="modes">
@@ -75,6 +76,7 @@
 		<item>60_0</item>
 		<item>60_1</item>
 		<item>60_10</item>
+		<item>60_30</item>
 		<item>60_60</item>
 	</string-array>
 </resources>
