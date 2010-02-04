@@ -363,10 +363,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					false);
 			this.excludedToPlan1 = !this.plansMergeCalls
 					&& this.prefs.getBoolean(
-							CallMeter.PREFS_EXCLUDE_PEOPLE_PLAN1, false);
+							ExcludePeople.PREFS_EXCLUDE_PEOPLE_PLAN1, false);
 			this.excludedToPlan2 = !this.plansMergeCalls
 					&& this.prefs.getBoolean(
-							CallMeter.PREFS_EXCLUDE_PEOPLE_PLAN2, false);
+							ExcludePeople.PREFS_EXCLUDE_PEOPLE_PLAN2, false);
 		} else {
 			this.plansMergeCalls = true;
 			this.plansMergeSms = true;
@@ -531,13 +531,15 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			final Integer[] status) {
 		checkBillperiodCalls(this.prefs);
 
-		this.callsBillDate = DateFormat.getDateFormat(this.context).format(
-				calBillDate.getTime());
+		if (this.updateGUI) {
+			this.callsBillDate = DateFormat.getDateFormat(this.context).format(
+					calBillDate.getTime());
+		}
 
 		long billDate = calBillDate.getTimeInMillis();
 
-		final String[] excludeNumbers = CallMeter.prefsExcludePeople
-				.toArray(new String[1]);
+		final String[] excludeNumbers = ExcludePeople.loadExcludedPeople(
+				this.context).toArray(new String[1]);
 		final int excludeNumbersSize = excludeNumbers.length;
 
 		// report calls

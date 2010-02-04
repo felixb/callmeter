@@ -67,18 +67,6 @@ public class CallMeter extends Activity {
 	/** Prefs: name for last version run. */
 	private static final String PREFS_LAST_RUN = "lastrun";
 
-	/** Prefs: Exclude people prefix. */
-	static final String PREFS_EXCLUDE_PEOPLE_PREFIX = "exclude_people_";
-	/** Prefs: Exclude people count. */
-	static final String PREFS_EXCLUDE_PEOPLE_COUNT = PREFS_EXCLUDE_PEOPLE_PREFIX
-			+ "n";
-	/** Prefs: Bill excluded people to plan #1. */
-	static final String PREFS_EXCLUDE_PEOPLE_PLAN1 = PREFS_EXCLUDE_PEOPLE_PREFIX
-			+ "to_plan1";
-	/** Prefs: Bill excluded people to plan #2. */
-	static final String PREFS_EXCLUDE_PEOPLE_PLAN2 = PREFS_EXCLUDE_PEOPLE_PREFIX
-			+ "to_plan2";
-
 	/** SharedPreferences. */
 	private SharedPreferences preferences;
 
@@ -143,13 +131,7 @@ public class CallMeter extends Activity {
 				}
 			}
 		}
-		prefsExcludePeople = new ArrayList<String>();
-		prefsExcludePeople.add(this.getString(R.string.exclude_people_add));
-		final int c = this.preferences.getInt(PREFS_EXCLUDE_PEOPLE_COUNT, 0);
-		for (int i = 0; i < c; i++) {
-			CallMeter.prefsExcludePeople.add(this.preferences.getString(
-					PREFS_EXCLUDE_PEOPLE_PREFIX + i, "???"));
-		}
+		prefsExcludePeople = ExcludePeople.loadExcludedPeople(this);
 		excludedPeaoplAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, prefsExcludePeople);
 	}

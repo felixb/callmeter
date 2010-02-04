@@ -1,7 +1,10 @@
 package de.ub0r.de.android.callMeterNG;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,9 +21,22 @@ import android.widget.AdapterView.OnItemClickListener;
  * @author flx
  */
 public class ExcludePeople extends Activity implements OnItemClickListener {
+	/** Prefs: Exclude people prefix. */
+	static final String PREFS_EXCLUDE_PEOPLE_PREFIX = "exclude_people_";
+	/** Prefs: Exclude people count. */
+	static final String PREFS_EXCLUDE_PEOPLE_COUNT = PREFS_EXCLUDE_PEOPLE_PREFIX
+			+ "n";
+	/** Prefs: Bill excluded people to plan #1. */
+	static final String PREFS_EXCLUDE_PEOPLE_PLAN1 = PREFS_EXCLUDE_PEOPLE_PREFIX
+			+ "to_plan1";
+	/** Prefs: Bill excluded people to plan #2. */
+	static final String PREFS_EXCLUDE_PEOPLE_PLAN2 = PREFS_EXCLUDE_PEOPLE_PREFIX
+			+ "to_plan2";
+
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.exclude_people);
@@ -32,14 +48,15 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected final void onPause() {
 		super.onPause();
 		SharedPreferences.Editor editor = PreferenceManager
 				.getDefaultSharedPreferences(this).edit();
 		final int s = CallMeter.prefsExcludePeople.size();
-		editor.putInt(CallMeter.PREFS_EXCLUDE_PEOPLE_COUNT, s - 1);
+		editor.putInt(PREFS_EXCLUDE_PEOPLE_COUNT, s - 1);
 		for (int i = 1; i < s; i++) {
-			editor.putString(CallMeter.PREFS_EXCLUDE_PEOPLE_PREFIX + (i - 1),
+			editor.putString(PREFS_EXCLUDE_PEOPLE_PREFIX + (i - 1),
 					CallMeter.prefsExcludePeople.get(i));
 		}
 		editor.commit();
@@ -122,5 +139,25 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 			});
 			builder.create().show();
 		}
+	}
+
+	/**
+	 * Load excluded people from preferences.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @return list of excluded people
+	 */
+	static ArrayList<String> loadExcludedPeople(final Context context) {
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(context);
+		ArrayList<String> ret = new ArrayList<String>();
+		ret.add(context.getString(R.string.exclude_people_add));
+		final int c = p.getInt(PREFS_EXCLUDE_PEOPLE_COUNT, 0);
+		for (int i = 0; i < c; i++) {
+			ret.add(p.getString(
+					PREFS_EXCLUDE_PEOPLE_PREFIX + i, "???"));
+		}
+		return ret;
 	}
 }
