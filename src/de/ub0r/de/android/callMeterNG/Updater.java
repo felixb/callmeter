@@ -197,10 +197,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private final boolean updateGUI;
 
 	/**
-	 * AsyncTask updating stats.
+	 * AsyncTask updating statistics.
 	 * 
 	 * @param c
-	 *            Context
+	 *            {@link Context}
 	 */
 	Updater(final Context c) {
 		this.context = c;
@@ -533,6 +533,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		this.callsBillDate = DateFormat.getDateFormat(this.context).format(
 				calBillDate.getTime());
+
 		long billDate = calBillDate.getTimeInMillis();
 
 		final String[] excludeNumbers = CallMeter.prefsExcludePeople

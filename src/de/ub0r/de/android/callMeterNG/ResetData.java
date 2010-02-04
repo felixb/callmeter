@@ -48,6 +48,7 @@ public class ResetData extends Activity {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle(R.string.reset_data_);
 		builder.setMessage(R.string.reset_data_hint);
+		builder.setCancelable(false);
 		builder.setPositiveButton(android.R.string.yes, new OnClickListener() {
 			@Override
 			public void onClick(final DialogInterface dialog, final int which) {

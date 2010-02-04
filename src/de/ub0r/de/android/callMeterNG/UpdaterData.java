@@ -85,10 +85,10 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 	private final boolean updateGUI;
 
 	/**
-	 * AsyncTask updating stats.
+	 * AsyncTask updating statistics.
 	 * 
 	 * @param c
-	 *            Context
+	 *            {@link Context}
 	 */
 	UpdaterData(final Context c) {
 		this.context = c;
