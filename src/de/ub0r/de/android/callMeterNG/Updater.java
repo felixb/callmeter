@@ -62,11 +62,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private static final String PREFS_SMSBILLDAY = "smsbillday";
 
 	/** Prefs: split plans. */
-	private static final String PREFS_SPLIT_PLANS = "plans_split";
+	static final String PREFS_SPLIT_PLANS = "plans_split";
 	/** Prefs: merge plans for calls. */
-	private static final String PREFS_MERGE_PLANS_CALLS = "plans_merge_calls";
+	static final String PREFS_MERGE_PLANS_CALLS = "plans_merge_calls";
 	/** Prefs: merge plans for sms. */
-	private static final String PREFS_MERGE_PLANS_SMS = "plans_merge_sms";
+	static final String PREFS_MERGE_PLANS_SMS = "plans_merge_sms";
 	/** Prefs: hours for plan 1. */
 	private static final String PREFS_PLAN1_HOURS_PREFIX = "hours_1_";
 
@@ -95,14 +95,14 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private static final String PREFS_NAME_PLAN2 = "plan_name2";
 
 	/** Prefs: merge sms into calls. */
-	private static final String PREFS_MERGE_SMS_TO_CALLS = "merge_sms_calls";
+	static final String PREFS_MERGE_SMS_TO_CALLS = "merge_sms_calls";
 	/**
 	 * Prefs: merge sms into calls; number of seconds billed for a single sms.
 	 */
 	private static final String PREFS_MERGE_SMS_TO_CALLS_SECONDS = // .
 	"merge_sms_calls_sec";
 	/** Prefs: merge sms into calls; which plan to merge sms in. */
-	private static final String PREFS_MERGE_SMS_PLAN1 = "merge_sms_plan1";
+	static final String PREFS_MERGE_SMS_PLAN1 = "merge_sms_plan1";
 
 	/** Prefs: billmode: 1/1. */
 	private static final String BILLMODE_1_1 = "1_1";
@@ -111,37 +111,34 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private static final String BODY = "body";
 
 	/** Preference's name for time of last checked bill period for calls. */
-	private static final String PREFS_CALLS_PERIOD_LASTCHECK = // .
-	"calls_period_lastcheck";
+	static final String PREFS_CALLS_PERIOD_LASTCHECK = "calls_period_lastcheck";
 	/** Preference's name for time of last walk for calls. */
-	private static final String PREFS_CALLS_WALK_LASTCHECK = // .
-	"calls_walk_lastcheck";
+	static final String PREFS_CALLS_WALK_LASTCHECK = "calls_walk_lastcheck";
 	/** Preference's name for saving calls in (this period). */
-	private static final String PREFS_CALLS_PERIOD_IN = "calls_period_in";
+	static final String PREFS_CALLS_PERIOD_IN = "calls_period_in";
 	/** Preference's name for saving calls out plan #1 (this period). */
-	private static final String PREFS_CALLS_PERIOD_OUT1 = "calls_period_out1";
+	static final String PREFS_CALLS_PERIOD_OUT1 = "calls_period_out1";
 	/** Preference's name for saving calls out plan #2 (this period). */
-	private static final String PREFS_CALLS_PERIOD_OUT2 = "calls_period_out2";
+	static final String PREFS_CALLS_PERIOD_OUT2 = "calls_period_out2";
 	/** Preference's name for saving calls in (all). */
-	private static final String PREFS_CALLS_ALL_IN = "calls_all_in";
+	static final String PREFS_CALLS_ALL_IN = "calls_all_in";
 	/** Preference's name for saving calls out (all). */
-	private static final String PREFS_CALLS_ALL_OUT = "calls_all_out";
+	static final String PREFS_CALLS_ALL_OUT = "calls_all_out";
 
 	/** Preference's name for time of last checked bill period for sms. */
-	private static final String PREFS_SMS_PERIOD_LASTCHECK = // .
-	"sms_period_lastcheck";
+	static final String PREFS_SMS_PERIOD_LASTCHECK = "sms_period_lastcheck";
 	/** Preference's name for time of last walk for sms. */
-	private static final String PREFS_SMS_WALK_LASTCHECK = "sms_walk_lastcheck";
+	static final String PREFS_SMS_WALK_LASTCHECK = "sms_walk_lastcheck";
 	/** Preference's name for saving sms in (this period). */
-	private static final String PREFS_SMS_PERIOD_IN = "sms_period_in";
+	static final String PREFS_SMS_PERIOD_IN = "sms_period_in";
 	/** Preference's name for saving sms out plan #1 (this period). */
-	private static final String PREFS_SMS_PERIOD_OUT1 = "sms_period_out1";
+	static final String PREFS_SMS_PERIOD_OUT1 = "sms_period_out1";
 	/** Preference's name for saving sms out plan #2 (this period). */
-	private static final String PREFS_SMS_PERIOD_OUT2 = "sms_period_out2";
+	static final String PREFS_SMS_PERIOD_OUT2 = "sms_period_out2";
 	/** Preference's name for saving sms in (all). */
-	private static final String PREFS_SMS_ALL_IN = "sms_all_in";
+	static final String PREFS_SMS_ALL_IN = "sms_all_in";
 	/** Preference's name for saving sms out (all). */
-	private static final String PREFS_SMS_ALL_OUT = "sms_all_out";
+	static final String PREFS_SMS_ALL_OUT = "sms_all_out";
 
 	/** Value for calls out plan #1. */
 	private static final int RESULT_CALLS1_VAL = 0;
