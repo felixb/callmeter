@@ -30,6 +30,7 @@ import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
 import android.telephony.gsm.SmsMessage;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -42,7 +43,7 @@ import android.widget.TextView;
 @SuppressWarnings("deprecation")
 class Updater extends AsyncTask<Void, Void, Integer[]> {
 	/** Tag for output. */
-	// private static final String TAG = "CallMeterNG.updater";
+	private static final String TAG = "CallMeterNG.updater";
 
 	/** Days of a week. */
 	static final int DAYS_WEEK = 7;
@@ -175,9 +176,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 */
 	static final void checkBillperiodCalls(final SharedPreferences prefs) {
 		final Calendar billDate = getBillDayCalls(prefs);
-		long lastBill = billDate.getTimeInMillis();
-		long now = System.currentTimeMillis();
-		long lastCheck = prefs.getLong(PREFS_CALLS_PERIOD_LASTCHECK, 0);
+		final long lastBill = billDate.getTimeInMillis();
+		final long now = System.currentTimeMillis();
+		final long lastCheck = prefs.getLong(PREFS_CALLS_PERIOD_LASTCHECK, 0);
+		Log.d(TAG, "last check calls: " + now);
+		Log.d(TAG, "lastBill: " + lastBill);
 
 		final Editor editor = prefs.edit();
 		if (lastCheck < lastBill) {
@@ -185,8 +188,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			editor.remove(PREFS_CALLS_PERIOD_OUT1);
 			editor.remove(PREFS_CALLS_PERIOD_OUT2);
 		}
-		editor.putLong(PREFS_SMS_PERIOD_LASTCHECK, now);
+		editor.putLong(PREFS_CALLS_PERIOD_LASTCHECK, now);
 		editor.commit();
+		Log.d(TAG, "last check calls: " + now);
 	}
 
 	/**
@@ -197,9 +201,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 */
 	static final void checkBillperiodSMS(final SharedPreferences prefs) {
 		final Calendar billDate = getBillDaySMS(prefs);
-		long lastBill = billDate.getTimeInMillis();
-		long now = System.currentTimeMillis();
-		long lastCheck = prefs.getLong(PREFS_SMS_PERIOD_LASTCHECK, 0);
+		final long lastBill = billDate.getTimeInMillis();
+		final long now = System.currentTimeMillis();
+		final long lastCheck = prefs.getLong(PREFS_SMS_PERIOD_LASTCHECK, 0);
+		Log.d(TAG, "last check sms: " + lastCheck);
+		Log.d(TAG, "lastBill: " + lastBill);
 
 		final Editor editor = prefs.edit();
 		if (lastCheck < lastBill) {
@@ -209,6 +215,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		}
 		editor.putLong(PREFS_SMS_PERIOD_LASTCHECK, now);
 		editor.commit();
+		Log.d(TAG, "last check sms: " + now);
 	}
 
 	/**
@@ -449,6 +456,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 */
 	private void walkCalls(final boolean[][] plans, final Calendar calBillDate,
 			final Integer[] status) {
+		checkBillperiodCalls(this.prefs);
 
 		this.callsBillDate = DateFormat.getDateFormat(this.context).format(
 				calBillDate.getTime());
@@ -464,6 +472,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		// get time of last walk
 		long lastWalk = this.prefs.getLong(PREFS_CALLS_WALK_LASTCHECK, 0);
+		Log.d(TAG, "last walk calls: " + lastWalk);
 
 		Cursor cur = this.context.getContentResolver().query(Calls.CONTENT_URI,
 				projection, Calls.DATE + " > " + lastWalk, null,
@@ -510,6 +519,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			final int idDuration = cur.getColumnIndex(Calls.DURATION);
 			final int idDate = cur.getColumnIndex(Calls.DATE);
 			final int idNumber = cur.getColumnIndex(Calls.NUMBER);
+			lastWalk = cur.getLong(idDate);
 			int t = 0;
 			int i = 0;
 			boolean p = true;
@@ -517,7 +527,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			do {
 				type = cur.getInt(idType);
 				d = cur.getLong(idDate);
-				lastWalk = d;
+				Log.d(TAG, "got entry: " + d);
 				switch (type) {
 				case Calls.INCOMING_TYPE:
 					t = cur.getInt(idDuration);
@@ -594,6 +604,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		this.callsOutSum = durOut;
 
+		Log.d(TAG, "last walk calls: " + lastWalk);
 		final Editor editor = this.prefs.edit();
 		editor.putInt(PREFS_CALLS_ALL_IN, durIn);
 		editor.putInt(PREFS_CALLS_ALL_OUT, durOut);
@@ -616,6 +627,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 */
 	private void walkSMS(final boolean[][] plans, final Calendar calBillDate,
 			final Integer[] status) {
+		checkBillperiodSMS(this.prefs);
 		// report basics
 		this.smsBillDate = DateFormat.getDateFormat(this.context).format(
 				calBillDate.getTime());
@@ -625,6 +637,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		// get time of last walk
 		long lastWalk = this.prefs.getLong(PREFS_SMS_WALK_LASTCHECK, 0);
+		Log.d(TAG, "last walk sms: " + lastWalk);
 
 		final Cursor cur = this.context.getContentResolver().query(
 				Uri.parse("content://sms"), projection,
@@ -661,12 +674,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			final int idType = cur.getColumnIndex(Calls.TYPE);
 			final int idDate = cur.getColumnIndex(Calls.DATE);
 			final int idBody = cur.getColumnIndex(CallMeter.BODY);
+			lastWalk = cur.getLong(idDate);
 			int i = 0;
 			int l = 1;
 			do {
 				type = cur.getInt(idType);
 				d = cur.getLong(idDate);
-				lastWalk = d;
+				Log.d(TAG, "got entry: " + d);
 				l = SmsMessage.calculateLength(cur.getString(idBody), false)[0];
 				switch (type) {
 				case Calls.INCOMING_TYPE:
@@ -738,6 +752,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			}
 		}
 
+		Log.d(TAG, "last walk sms: " + lastWalk);
 		final Editor editor = this.prefs.edit();
 		editor.putInt(PREFS_SMS_ALL_IN, iSMSIn);
 		editor.putInt(PREFS_SMS_ALL_OUT, iSMSOut);
