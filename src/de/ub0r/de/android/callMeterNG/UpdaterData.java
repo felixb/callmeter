@@ -205,7 +205,7 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 				pb.setProgress(result[0]);
 				pb.setVisibility(View.VISIBLE);
 				this.twPBDataText.setText(result[0] + "MB - "
-						+ (result[0] / (result[1] * HUNDRET)) + "%");
+						+ ((result[0] * HUNDRET) / result[1]) + "%");
 				this.twPBDataText.setVisibility(View.VISIBLE);
 			} else {
 				pb.setVisibility(View.GONE);
