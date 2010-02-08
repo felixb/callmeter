@@ -18,8 +18,15 @@
  */
 package de.ub0r.de.android.callMeterNG;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.security.KeyFactory;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.Signature;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -75,14 +82,30 @@ public class CallMeter extends Activity {
 	/** Display ads? */
 	private static boolean prefsNoAds;
 
+	/** Crypto algorithm for signing UID hashs. */
+	private static final String ALGO = "RSA";
+	/** Crypto hash algorithm for signing UID hashs. */
+	private static final String SIGALGO = "SHA1with" + ALGO;
+	/** My public key for verifying UID hashs. */
+	private static final String KEY = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNAD"
+			+ "CBiQKBgQCgnfT4bRMLOv3rV8tpjcEqsNmC1OJaaEYRaTHOCC"
+			+ "F4sCIZ3pEfDcNmrZZQc9Y0im351ekKOzUzlLLoG09bsaOeMd"
+			+ "Y89+o2O0mW9NnBch3l8K/uJ3FRn+8Li75SqoTqFj3yCrd9IT"
+			+ "sOJC7PxcR5TvNpeXsogcyxxo3fMdJdjkafYwIDAQAB";
+
+	/** Preference's name: hide ads. */
+	private static final String PREFS_HIDEADS = "hideads";
+
+	/** Path to file containing signatures of UID Hash. */
+	private static final String NOADS_SIGNATURES = "/sdcard/callmeter.noads";
+
 	/** Preferences: excluded numbers. */
 	static ArrayList<String> prefsExcludePeople;
 	/** ArrayAdapter for excluded numbers. */
 	static ArrayAdapter<String> excludedPeaoplAdapter;
 
 	/** Array of md5(imei) for which no ads should be displayed. */
-	private static final String[] NO_AD_HASHS = { // .
-	"43dcb861b9588fb733300326b61dbab9", // me
+	private static final String[] NO_AD_HASHS = {
 			"d9018351e0159dd931e20cc1861ac5d8", // Tommaso C.
 			"2c72e52ef02a75210dc6680edab6b75d", // Danny S.
 			"f39b49859c04e6ea7849b43c73bd050e", // Lukasz M.
@@ -121,12 +144,16 @@ public class CallMeter extends Activity {
 		TelephonyManager mTelephonyMgr = (TelephonyManager) this
 				.getSystemService(TELEPHONY_SERVICE);
 		final String s = mTelephonyMgr.getDeviceId();
-		prefsNoAds = false;
-		if (s != null) {
+		prefsNoAds = this.hideAds();
+		// TODO: delete this after transition
+		if (!prefsNoAds && s != null) {
 			this.imeiHash = md5(s);
 			for (String h : NO_AD_HASHS) {
 				if (this.imeiHash.equals(h)) {
 					prefsNoAds = true;
+					// this is for transition
+					this.preferences.edit().putBoolean(PREFS_HIDEADS,
+							prefsNoAds).commit();
 					break;
 				}
 			}
@@ -285,6 +312,54 @@ public class CallMeter extends Activity {
 		default:
 			return false;
 		}
+	}
+
+	/**
+	 * Check for signature updates.
+	 * 
+	 * @return true if ads should be hidden
+	 */
+	private boolean hideAds() {
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		final File f = new File(NOADS_SIGNATURES);
+		try {
+			if (f.exists()) {
+				final BufferedReader br = new BufferedReader(new FileReader(f));
+				final byte[] publicKey = Base64Coder.decode(KEY);
+				final KeyFactory keyFactory = KeyFactory.getInstance(ALGO);
+				PublicKey pk = keyFactory
+						.generatePublic(new X509EncodedKeySpec(publicKey));
+				TelephonyManager mTelephonyMgr = (TelephonyManager) this
+						.getSystemService(TELEPHONY_SERVICE);
+				final String h = md5(mTelephonyMgr.getDeviceId());
+				boolean ret = false;
+				while (true) {
+					String l = br.readLine();
+					if (l == null) {
+						break;
+					}
+					try {
+						byte[] signature = Base64Coder.decode(l);
+						Signature sig = Signature.getInstance(SIGALGO);
+						sig.initVerify(pk);
+						sig.update(h.getBytes());
+						ret = sig.verify(signature);
+						if (ret) {
+							break;
+						}
+					} catch (IllegalArgumentException e) {
+						Log.w(TAG, "error reading line", e);
+					}
+				}
+				br.close();
+				f.delete();
+				p.edit().putBoolean(PREFS_HIDEADS, ret).commit();
+			}
+		} catch (Exception e) {
+			Log.e(TAG, "error reading signatures", e);
+		}
+		return p.getBoolean(PREFS_HIDEADS, false);
 	}
 
 	/**
