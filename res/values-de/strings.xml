@@ -33,7 +33,7 @@
 	<string name="about2">Der Abrechnungszeitraum bezeichnet die länge des ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s aufgerundet.</string>
 	<string name="about3">Du kannst deine Anruf- oder SMS-Kontingente trennen. In jedem Kontingent kannst du dann folgendes einstelen: keine Abrechnung, auf ein bestimmtes Limit begrenzt oder keine Grenzen.</string>
 	<string name="about4">Deine SMS können über die Anrufe abgerechnet werden. Z.B. jede SMS als ein 60s Anruf.</string>
-	<string name="about5">Es zählt nicht gelöschte Anrufe oder SMS! Anrufe/SMS älter als einen Monat werden aufsummiert und gespeichert. Werden Anrufe/SMS jünger als einen Monat gelöscht, wird das die Logs verfälschen!</string>
+	<string name="about5">CallMeter läuft alle 30min im Hintergrund (sofern das Gerät nicht im Standby ist). Werden Anrufe oder Nachrichten älter als 30min gelöscht, ändert das die Statistik nicht. Werden neuere Anrufe/Nachrichten gelöscht, kann es je nach Zeitpunkt die Statistiken verfälschen!</string>
 	<string name="about6_">Was CallMeter NG nicht tut:</string>
 	<string name="about6">Es ist nicht möglich zwischen Anrufen aus Sipdroid und echten Anrufen bzw. WebSMS und echten SMS zu unterscheiden. Androids nahtlose Integration dieser Apps lässt eine spätere Unterscheidung der Logs nicht mehr zu.</string>
 	<string name="send_">Senden</string>
