@@ -35,8 +35,8 @@
 	<string name="about2">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
 	<string name="about3">Je kunt je verbruik in 2 schema\'s splitsen. Elk schema kan geheel vrij ingesteld worden, beperkt tot een bepaalde limiet of onbeperkt.</string>
 	<string name="about4">Je berichten kunnen samengevoegd worden met je gespreksminuten. Bijvoorbeeld: elk bericht als een gesprek van 15 sec. rekenen.</string>
-	<string name="about5_">Wat doet CallMeter NG niet:</string>
 	<string name="about5">Het telt geen verwijderde gesprekken of berichten! Gesprekken/berichten ouder dan een maand worden samengevat en bewaard. Verwijderen van gesprekken/berichten jonger dan een maand resulteert in onjuiste statistieken!</string>
+	<string name="about6_">Wat doet CallMeter NG niet:</string>
 	<string name="about6">Het is onmogelijk een onderscheid te maken tussen Sipdroid en echte gesprekken of tussen websms en echte sms. Android\'s naadloze integratie van deze applicaties maakt het onmogelijk om dit later in de log te onderscheiden.</string>
 	<string name="send_">Verstuur</string>
 	<string name="settings">Voorkeuren</string>
