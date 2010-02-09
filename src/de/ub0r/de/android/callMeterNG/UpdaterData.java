@@ -18,6 +18,7 @@
  */
 package de.ub0r.de.android.callMeterNG;
 
+import java.io.IOException;
 import java.util.Calendar;
 
 import android.content.Context;
@@ -42,12 +43,37 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 	/** Bytes per Megabyte. */
 	private static final int BYTES_MEGABYTE = 1024 * 1024;
 
+	/** Prefs: enable data stats. */
+	private static final String PREFS_DATA_ENABLE = "data_enable";
+	/** Prefs: bill each date separately. */
+	private static final String PREFS_DATA_EACHDAY = "data_eachday";
+	/** Prefs: limit for data traffic. */
+	private static final String PREFS_DATA_LIMIT = "data_limit";
+
+	/** Prefs: data in at last boot. */
+	private static final String PREFS_DATA_BOOT_IN = "data_boot_in";
+	/** Prefs: data out at last boot. */
+	private static final String PREFS_DATA_BOOT_OUT = "data_boot_out";
+	/** Prefs: data in after last boot. */
+	private static final String PREFS_DATA_RUNNING_IN = "data_running_in";
+	/** Prefs: data out after last boot. */
+	private static final String PREFS_DATA_RUNNING_OUT = "data_running_out";
+	/** Prefs: data in before bolling date. */
+	private static final String PREFS_DATA_PREBILLING_IN = "data_prebilling_in";
+	/** Prefs: data out before billing date. */
+	private static final String PREFS_DATA_PREBILLING_OUT = // .
+	"data_prebilling_out";
+	/** Prefs: date of last billing. */
+	private static final String PREFS_DATA_LASTCHECK = "data_lastcheck";
+
 	/** Status Strings. */
 	private String dataIn, dataOut, dataBillDate;
 	/** Status TextViews. */
 	private TextView twDataBillDate, twDataIn, twDataOut;
-	/** Status ProgressBars. */
+	/** Status ProgressBar. */
 	private ProgressBar pbData;
+	/** Status ProgressBar Text. */
+	private TextView twPBDataText;
 
 	/** Preferences to use. */
 	private final SharedPreferences prefs;
@@ -59,10 +85,10 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 	private final boolean updateGUI;
 
 	/**
-	 * AsyncTask updating stats.
+	 * AsyncTask updating statistics.
 	 * 
 	 * @param c
-	 *            Context
+	 *            {@link Context}
 	 */
 	UpdaterData(final Context c) {
 		this.context = c;
@@ -97,6 +123,8 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 		if (this.updateGUI) {
 			this.pbData = (ProgressBar) this.callmeter
 					.findViewById(R.id.data_progressbar);
+			this.twPBDataText = (TextView) this.callmeter
+					.findViewById(R.id.data_progressbar_text);
 			this.twDataBillDate = (TextView) this.callmeter
 					.findViewById(R.id.data_billdate);
 			this.twDataIn = (TextView) this.callmeter
@@ -105,7 +133,7 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 					.findViewById(R.id.data_out);
 
 			int v = View.GONE;
-			if (this.prefs.getBoolean(CallMeter.PREFS_DATA_ENABLE, false)) {
+			if (this.prefs.getBoolean(PREFS_DATA_ENABLE, false)) {
 				v = View.VISIBLE;
 			}
 			this.callmeter.findViewById(R.id.data_).setVisibility(v);
@@ -125,7 +153,7 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 
 	/**
 	 * @param data
-	 *            amaount of data transfered
+	 *            amount of data transfered
 	 * @return more readable output
 	 */
 	private String makeBytesReadable(final long data) {
@@ -144,23 +172,19 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 				calBillDate.getTime());
 
 		// report data only if run from GUI
-		if (this.prefs.getBoolean(CallMeter.PREFS_DATA_ENABLE, false)
-				&& this.updateGUI) {
+		if (this.prefs.getBoolean(PREFS_DATA_ENABLE, false) && this.updateGUI) {
 			// walk data
-			CMBroadcastReceiver.updateTraffic(this.context, this.prefs);
+			updateTraffic(this.context, this.prefs);
 			// get data from preferences
-			final long preBootIn = this.prefs.getLong(
-					CallMeter.PREFS_DATA_BOOT_IN, 0);
-			final long preBootOut = this.prefs.getLong(
-					CallMeter.PREFS_DATA_BOOT_OUT, 0);
+			final long preBootIn = this.prefs.getLong(PREFS_DATA_BOOT_IN, 0);
+			final long preBootOut = this.prefs.getLong(PREFS_DATA_BOOT_OUT, 0);
 			final long preBillingIn = this.prefs.getLong(
-					CallMeter.PREFS_DATA_PREBILLING_IN, 0);
+					PREFS_DATA_PREBILLING_IN, 0);
 			final long preBillingOut = this.prefs.getLong(
-					CallMeter.PREFS_DATA_PREBILLING_OUT, 0);
-			final long runningIn = this.prefs.getLong(
-					CallMeter.PREFS_DATA_RUNNING_IN, 0);
-			final long runningOut = this.prefs.getLong(
-					CallMeter.PREFS_DATA_RUNNING_OUT, 0);
+					PREFS_DATA_PREBILLING_OUT, 0);
+			final long runningIn = this.prefs.getLong(PREFS_DATA_RUNNING_IN, 0);
+			final long runningOut = this.prefs.getLong(PREFS_DATA_RUNNING_OUT,
+					0);
 			final long currentIn = preBootIn + runningIn;
 			final long currentOut = preBootOut + runningOut;
 			final long thisBillingIn = currentIn - preBillingIn;
@@ -171,8 +195,8 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 					+ "/" + this.makeBytesReadable(currentOut);
 			int limit = 0;
 			try {
-				limit = Integer.parseInt(this.prefs.getString(
-						CallMeter.PREFS_DATA_LIMIT, "0"));
+				limit = Integer.parseInt(this.prefs.getString(PREFS_DATA_LIMIT,
+						"0"));
 			} catch (NumberFormatException e) {
 				Log.e(TAG, null, e);
 			}
@@ -198,16 +222,19 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 				pb.setMax(result[1]);
 				pb.setProgress(result[0]);
 				pb.setVisibility(View.VISIBLE);
+				this.twPBDataText.setText(result[0] + "MB - "
+						+ ((result[0] * CallMeter.HUNDRET) / result[1]) + "%");
+				this.twPBDataText.setVisibility(View.VISIBLE);
 			} else {
 				pb.setVisibility(View.GONE);
+				this.twPBDataText.setVisibility(View.GONE);
 			}
 		}
 
-		if (this.updateGUI) {
-			// FIXME
-			((CallMeter) this.context)
-					.setProgressBarIndeterminateVisibility(false);
-		}
+		// FIXME if (this.updateGUI) {
+		// ((CallMeter) this.context)
+		// .setProgressBarIndeterminateVisibility(false);
+		// }
 	}
 
 	/**
@@ -219,10 +246,10 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 	 */
 	static final Calendar getBillDate(final SharedPreferences p) {
 		Calendar cal = Calendar.getInstance();
-		if (!p.getBoolean(CallMeter.PREFS_DATA_EACHDAY, false)) {
+		if (!p.getBoolean(PREFS_DATA_EACHDAY, false)) {
 			int billDay = 0;
 			try {
-				billDay = Integer.parseInt(p.getString(CallMeter.PREFS_BILLDAY,
+				billDay = Integer.parseInt(p.getString(Updater.PREFS_BILLDAY,
 						"0"));
 			} catch (NumberFormatException e) {
 				billDay = 0;
@@ -237,5 +264,96 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 		cal.set(Calendar.SECOND, 0);
 		cal.set(Calendar.MILLISECOND, 0);
 		return cal;
+	}
+
+	/**
+	 * Update traffic data.
+	 * 
+	 * @param context
+	 *            Context
+	 * @param prefs
+	 *            preferences
+	 */
+	static final synchronized void updateTraffic(final Context context,
+			final SharedPreferences prefs) {
+		if (!prefs.getBoolean(PREFS_DATA_ENABLE, false)) {
+			return;
+		}
+		checkBillperiod(prefs);
+
+		long runningIn = prefs.getLong(PREFS_DATA_RUNNING_IN, 0);
+		long runningOut = prefs.getLong(PREFS_DATA_RUNNING_OUT, 0);
+
+		final Device d = Device.getDevice();
+		final String inter = d.getCell();
+		if (inter != null) {
+			try {
+				final long rx = SysClassNet.getRxBytes(inter);
+				final long tx = SysClassNet.getTxBytes(inter);
+				runningIn = rx;
+				runningOut = tx;
+			} catch (IOException e) {
+				Log.e(TAG, "I/O Error", e);
+			}
+		}
+
+		final SharedPreferences.Editor editor = prefs.edit();
+		editor.putLong(PREFS_DATA_RUNNING_IN, runningIn);
+		editor.putLong(PREFS_DATA_RUNNING_OUT, runningOut);
+		editor.commit();
+	}
+
+	/**
+	 * Check if billing period changed.
+	 * 
+	 * @param prefs
+	 *            preferences
+	 */
+	static final void checkBillperiod(final SharedPreferences prefs) {
+		final Calendar billDate = UpdaterData.getBillDate(prefs);
+		long lastBill = billDate.getTimeInMillis();
+		long now = System.currentTimeMillis();
+		long lastCheck = prefs.getLong(PREFS_DATA_LASTCHECK, 0);
+
+		final SharedPreferences.Editor editor = prefs.edit();
+		if (lastCheck < lastBill) {
+			long preBootIn = prefs.getLong(PREFS_DATA_BOOT_IN, 0);
+			long preBootOut = prefs.getLong(PREFS_DATA_BOOT_OUT, 0);
+			long runningIn = prefs.getLong(PREFS_DATA_RUNNING_IN, 0);
+			long runningOut = prefs.getLong(PREFS_DATA_RUNNING_OUT, 0);
+			editor.putLong(PREFS_DATA_PREBILLING_IN, preBootIn + runningIn);
+			editor.putLong(PREFS_DATA_PREBILLING_OUT, preBootOut + runningOut);
+		}
+		editor.putLong(PREFS_DATA_LASTCHECK, now);
+		editor.commit();
+	}
+
+	/**
+	 * Move traffic from thisboot to preboot.
+	 * 
+	 * @param prefs
+	 *            preferences
+	 */
+	static final void checkPostboot(final SharedPreferences prefs) {
+		long preBootIn = prefs.getLong(PREFS_DATA_BOOT_IN, 0);
+		long preBootOut = prefs.getLong(PREFS_DATA_BOOT_OUT, 0);
+		long runningIn = prefs.getLong(PREFS_DATA_RUNNING_IN, 0);
+		long runningOut = prefs.getLong(PREFS_DATA_RUNNING_OUT, 0);
+
+		if (runningIn == 0 && runningOut == 0) {
+			return;
+		}
+
+		preBootIn += runningIn;
+		runningIn = 0;
+		preBootOut += runningOut;
+		runningOut = 0;
+
+		final SharedPreferences.Editor editor = prefs.edit();
+		editor.putLong(PREFS_DATA_BOOT_IN, preBootIn);
+		editor.putLong(PREFS_DATA_BOOT_OUT, preBootOut);
+		editor.putLong(PREFS_DATA_RUNNING_IN, runningIn);
+		editor.putLong(PREFS_DATA_RUNNING_OUT, runningOut);
+		editor.commit();
 	}
 }

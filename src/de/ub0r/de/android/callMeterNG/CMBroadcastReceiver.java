@@ -19,9 +19,6 @@
 
 package de.ub0r.de.android.callMeterNG;
 
-import java.io.IOException;
-import java.util.Calendar;
-
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -33,8 +30,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 /**
- * ProxyStarter listens to any Broadcast. It'l start the Proxy Service on
- * receive.
+ * {@link BroadcastReceiver} running updates and postboot checks.
  * 
  * @author Felix Bechstein
  */
@@ -46,106 +42,18 @@ public class CMBroadcastReceiver extends BroadcastReceiver {
 	private static final long DELAY = 30 * 60 * 1000; // 30min
 
 	/**
-	 * Update traffic data.
+	 * Schedule next update.
 	 * 
 	 * @param context
-	 *            Context
-	 * @param prefs
-	 *            preferences
+	 *            {@link Context}
 	 */
-	static final synchronized void updateTraffic(final Context context,
-			final SharedPreferences prefs) {
-		if (!prefs.getBoolean(CallMeter.PREFS_DATA_ENABLE, false)) {
-			return;
-		}
-		checkBillperiod(prefs);
-
-		long runningIn = prefs.getLong(CallMeter.PREFS_DATA_RUNNING_IN, 0);
-		long runningOut = prefs.getLong(CallMeter.PREFS_DATA_RUNNING_OUT, 0);
-
-		final Device d = Device.getDevice();
-		final String inter = d.getCell();
-		if (inter != null) {
-			try {
-				final long rx = SysClassNet.getRxBytes(inter);
-				final long tx = SysClassNet.getTxBytes(inter);
-				runningIn = rx;
-				runningOut = tx;
-			} catch (IOException e) {
-				Log.e(TAG, "I/O Error", e);
-			}
-		}
-
-		final SharedPreferences.Editor editor = prefs.edit();
-		editor.putLong(CallMeter.PREFS_DATA_RUNNING_IN, runningIn);
-		editor.putLong(CallMeter.PREFS_DATA_RUNNING_OUT, runningOut);
-		editor.commit();
-
-		// schedule next update
-		final AlarmManager mgr = (AlarmManager) context
-				.getSystemService(Context.ALARM_SERVICE);
-
+	static final void schedNext(final Context context) {
 		final Intent i = new Intent(context, CMBroadcastReceiver.class);
 		final PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
 		final long t = SystemClock.elapsedRealtime() + DELAY;
+		final AlarmManager mgr = (AlarmManager) context
+				.getSystemService(Context.ALARM_SERVICE);
 		mgr.set(AlarmManager.ELAPSED_REALTIME, t, pi);
-	}
-
-	/**
-	 * Check if billing period changed.
-	 * 
-	 * @param prefs
-	 *            preferences
-	 */
-	static final void checkBillperiod(final SharedPreferences prefs) {
-		final Calendar billDate = UpdaterData.getBillDate(prefs);
-		long lastBill = billDate.getTimeInMillis();
-		long now = System.currentTimeMillis();
-		long lastCheck = prefs.getLong(CallMeter.PREFS_DATA_LASTCHECK, 0);
-
-		final SharedPreferences.Editor editor = prefs.edit();
-		if (lastCheck < lastBill) {
-			long preBootIn = prefs.getLong(CallMeter.PREFS_DATA_BOOT_IN, 0);
-			long preBootOut = prefs.getLong(CallMeter.PREFS_DATA_BOOT_OUT, 0);
-			long runningIn = prefs.getLong(CallMeter.PREFS_DATA_RUNNING_IN, 0);
-			long runningOut = prefs
-					.getLong(CallMeter.PREFS_DATA_RUNNING_OUT, 0);
-			editor.putLong(CallMeter.PREFS_DATA_PREBILLING_IN, preBootIn
-					+ runningIn);
-			editor.putLong(CallMeter.PREFS_DATA_PREBILLING_OUT, preBootOut
-					+ runningOut);
-		}
-		editor.putLong(CallMeter.PREFS_DATA_LASTCHECK, now);
-		editor.commit();
-	}
-
-	/**
-	 * Move traffic from thisboot to preboot.
-	 * 
-	 * @param prefs
-	 *            preferences
-	 */
-	static final void checkPostboot(final SharedPreferences prefs) {
-		long preBootIn = prefs.getLong(CallMeter.PREFS_DATA_BOOT_IN, 0);
-		long preBootOut = prefs.getLong(CallMeter.PREFS_DATA_BOOT_OUT, 0);
-		long runningIn = prefs.getLong(CallMeter.PREFS_DATA_RUNNING_IN, 0);
-		long runningOut = prefs.getLong(CallMeter.PREFS_DATA_RUNNING_OUT, 0);
-
-		if (runningIn == 0 && runningOut == 0) {
-			return;
-		}
-
-		preBootIn += runningIn;
-		runningIn = 0;
-		preBootOut += runningOut;
-		runningOut = 0;
-
-		final SharedPreferences.Editor editor = prefs.edit();
-		editor.putLong(CallMeter.PREFS_DATA_BOOT_IN, preBootIn);
-		editor.putLong(CallMeter.PREFS_DATA_BOOT_OUT, preBootOut);
-		editor.putLong(CallMeter.PREFS_DATA_RUNNING_IN, runningIn);
-		editor.putLong(CallMeter.PREFS_DATA_RUNNING_OUT, runningOut);
-		editor.commit();
 	}
 
 	/**
@@ -153,12 +61,17 @@ public class CMBroadcastReceiver extends BroadcastReceiver {
 	 */
 	@Override
 	public final void onReceive(final Context context, final Intent intent) {
+		Log.d(TAG, "wakeup");
 		final SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final String action = intent.getAction();
 		if (action != null && action.equals(Intent.ACTION_BOOT_COMPLETED)) {
-			checkPostboot(prefs);
+			UpdaterData.checkPostboot(prefs);
 		}
-		updateTraffic(context, prefs);
+		// run update
+		new Updater(context).execute((Void) null);
+		UpdaterData.updateTraffic(context, prefs);
+		// schedule next update
+		CMBroadcastReceiver.schedNext(context);
 	}
 }

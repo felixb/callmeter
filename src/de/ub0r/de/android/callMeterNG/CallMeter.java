@@ -18,8 +18,15 @@
  */
 package de.ub0r.de.android.callMeterNG;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.security.KeyFactory;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.Signature;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -51,6 +58,10 @@ import com.admob.android.ads.AdView;
 public class CallMeter extends Activity {
 	/** Tag for output. */
 	private static final String TAG = "CallMeterNG";
+
+	/** 100. */
+	static final int HUNDRET = 100;
+
 	/** Dialog: post donate. */
 	private static final int DIALOG_POSTDONATE = 0;
 	/** Dialog: about. */
@@ -62,105 +73,6 @@ public class CallMeter extends Activity {
 
 	/** Prefs: name for last version run. */
 	private static final String PREFS_LAST_RUN = "lastrun";
-	/** Prefs: name for first day. */
-	static final String PREFS_BILLDAY = "billday";
-	/** Prefs: name for billingmode. */
-	static final String PREFS_BILLMODE = "billmode";
-	/** Prefs: name for smsperiod. */
-	static final String PREFS_SMSPERIOD = "smsperiod";
-	/** Prefs: name for smsbillday. */
-	static final String PREFS_SMSBILLDAY = "smsbillday";
-
-	/** Prefs: split plans. */
-	static final String PREFS_SPLIT_PLANS = "plans_split";
-	/** Prefs: merge plans for calls. */
-	static final String PREFS_MERGE_PLANS_CALLS = "plans_merge_calls";
-	/** Prefs: merge plans for sms. */
-	static final String PREFS_MERGE_PLANS_SMS = "plans_merge_sms";
-	/** Prefs: hours for plan 1. */
-	static final String PREFS_PLAN1_HOURS_PREFIX = "hours_1_";
-
-	/** Prefs: plan1 totally free calls. */
-	static final String PREFS_PLAN1_T_FREE_CALLS = "plan1_total_free_calls";
-	/** Prefs: plan1 free minutes. */
-	static final String PREFS_PLAN1_FREEMIN = "plan1_freemin";
-	/** Prefs: plan1 totally free sms. */
-	static final String PREFS_PLAN1_T_FREE_SMS = "plan1_total_free_sms";
-	/** Prefs: plan1 free sms. */
-	static final String PREFS_PLAN1_FREESMS = "plan1_freesms";
-	/** Prefs: plan1 totally free calls. */
-	static final String PREFS_PLAN2_T_FREE_CALLS = "plan2_total_free_calls";
-	/** Prefs: plan1 free minutes. */
-	static final String PREFS_PLAN2_FREEMIN = "plan2_freemin";
-	/** Prefs: plan1 totally free sms. */
-	static final String PREFS_PLAN2_T_FREE_SMS = "plan2_total_free_sms";
-	/** Prefs: plan1 free sms. */
-	static final String PREFS_PLAN2_FREESMS = "plan2_freesms";
-
-	/** Prefs: custom name for plan 1. */
-	static final String PREFS_NAME_PLAN1 = "plan_name1";
-	/** Prefs: custom name for plan 2. */
-	static final String PREFS_NAME_PLAN2 = "plan_name2";
-
-	/** Prefs: merge sms into calls. */
-	static final String PREFS_MERGE_SMS_TO_CALLS = "merge_sms_calls";
-	/**
-	 * Prefs: merge sms into calls; number of seconds billed for a single sms.
-	 */
-	static final String PREFS_MERGE_SMS_TO_CALLS_SECONDS = // .
-	"merge_sms_calls_sec";
-	/** Prefs: merge sms into calls; which plan to merge sms in. */
-	static final String PREFS_MERGE_SMS_PLAN1 = "merge_sms_plan1";
-
-	/** Prefs: name for all old calls in. */
-	static final String PREFS_ALL_CALLS_IN = "all_calls_in";
-	/** Prefs: name for all old calls out. */
-	static final String PREFS_ALL_CALLS_OUT = "all_calls_out";
-	/** Prefs: name for all old sms in. */
-	static final String PREFS_ALL_SMS_IN = "all_sms_in";
-	/** Prefs: name for all old sms out. */
-	static final String PREFS_ALL_SMS_OUT = "all_sms_out";
-	/** Prefs: name for date of old calls/sms. */
-	static final String PREFS_DATE_OLD = "all_date_old";
-	/** Prefs: Exclude people prefix. */
-	static final String PREFS_EXCLUDE_PEOPLE_PREFIX = "exclude_people_";
-	/** Prefs: Exclude people count. */
-	static final String PREFS_EXCLUDE_PEOPLE_COUNT = PREFS_EXCLUDE_PEOPLE_PREFIX
-			+ "n";
-	/** Prefs: Bill excluded people to plan #1. */
-	static final String PREFS_EXCLUDE_PEOPLE_PLAN1 = PREFS_EXCLUDE_PEOPLE_PREFIX
-			+ "to_plan1";
-	/** Prefs: Bill excluded people to plan #2. */
-	static final String PREFS_EXCLUDE_PEOPLE_PLAN2 = PREFS_EXCLUDE_PEOPLE_PREFIX
-			+ "to_plan2";
-
-	/** Prefs: enable data stats. */
-	static final String PREFS_DATA_ENABLE = "data_enable";
-	/** Prefs: bill each date separately. */
-	static final String PREFS_DATA_EACHDAY = "data_eachday";
-	/** Prefs: limit for data traffic. */
-	static final String PREFS_DATA_LIMIT = "data_limit";
-
-	/** Prefs: data in at last boot. */
-	static final String PREFS_DATA_BOOT_IN = "data_boot_in";
-	/** Prefs: data out at last boot. */
-	static final String PREFS_DATA_BOOT_OUT = "data_boot_out";
-	/** Prefs: data in after last boot. */
-	static final String PREFS_DATA_RUNNING_IN = "data_running_in";
-	/** Prefs: data out after last boot. */
-	static final String PREFS_DATA_RUNNING_OUT = "data_running_out";
-	/** Prefs: data in before bolling date. */
-	static final String PREFS_DATA_PREBILLING_IN = "data_prebilling_in";
-	/** Prefs: data out before billing date. */
-	static final String PREFS_DATA_PREBILLING_OUT = "data_prebilling_out";
-	/** Prefs: date of last billing. */
-	static final String PREFS_DATA_LASTCHECK = "data_lastcheck";
-
-	/** Prefs: billmode: 1/1. */
-	static final String BILLMODE_1_1 = "1_1";
-
-	/** ContentProvider Column: Body. */
-	static final String BODY = "body";
 
 	/** SharedPreferences. */
 	private SharedPreferences preferences;
@@ -170,14 +82,30 @@ public class CallMeter extends Activity {
 	/** Display ads? */
 	private static boolean prefsNoAds;
 
+	/** Crypto algorithm for signing UID hashs. */
+	private static final String ALGO = "RSA";
+	/** Crypto hash algorithm for signing UID hashs. */
+	private static final String SIGALGO = "SHA1with" + ALGO;
+	/** My public key for verifying UID hashs. */
+	private static final String KEY = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNAD"
+			+ "CBiQKBgQCgnfT4bRMLOv3rV8tpjcEqsNmC1OJaaEYRaTHOCC"
+			+ "F4sCIZ3pEfDcNmrZZQc9Y0im351ekKOzUzlLLoG09bsaOeMd"
+			+ "Y89+o2O0mW9NnBch3l8K/uJ3FRn+8Li75SqoTqFj3yCrd9IT"
+			+ "sOJC7PxcR5TvNpeXsogcyxxo3fMdJdjkafYwIDAQAB";
+
+	/** Preference's name: hide ads. */
+	private static final String PREFS_HIDEADS = "hideads";
+
+	/** Path to file containing signatures of UID Hash. */
+	private static final String NOADS_SIGNATURES = "/sdcard/callmeter.noads";
+
 	/** Preferences: excluded numbers. */
 	static ArrayList<String> prefsExcludePeople;
 	/** ArrayAdapter for excluded numbers. */
 	static ArrayAdapter<String> excludedPeaoplAdapter;
 
 	/** Array of md5(imei) for which no ads should be displayed. */
-	private static final String[] NO_AD_HASHS = { // .
-	"43dcb861b9588fb733300326b61dbab9", // me
+	private static final String[] NO_AD_HASHS = {
 			"d9018351e0159dd931e20cc1861ac5d8", // Tommaso C.
 			"2c72e52ef02a75210dc6680edab6b75d", // Danny S.
 			"f39b49859c04e6ea7849b43c73bd050e", // Lukasz M.
@@ -216,23 +144,21 @@ public class CallMeter extends Activity {
 		TelephonyManager mTelephonyMgr = (TelephonyManager) this
 				.getSystemService(TELEPHONY_SERVICE);
 		final String s = mTelephonyMgr.getDeviceId();
-		prefsNoAds = false;
-		if (s != null) {
+		prefsNoAds = this.hideAds();
+		// TODO: delete this after transition
+		if (!prefsNoAds && s != null) {
 			this.imeiHash = md5(s);
 			for (String h : NO_AD_HASHS) {
 				if (this.imeiHash.equals(h)) {
 					prefsNoAds = true;
+					// this is for transition
+					this.preferences.edit().putBoolean(PREFS_HIDEADS,
+							prefsNoAds).commit();
 					break;
 				}
 			}
 		}
-		prefsExcludePeople = new ArrayList<String>();
-		prefsExcludePeople.add(this.getString(R.string.exclude_people_add));
-		final int c = this.preferences.getInt(PREFS_EXCLUDE_PEOPLE_COUNT, 0);
-		for (int i = 0; i < c; i++) {
-			CallMeter.prefsExcludePeople.add(this.preferences.getString(
-					PREFS_EXCLUDE_PEOPLE_PREFIX + i, "???"));
-		}
+		prefsExcludePeople = ExcludePeople.loadExcludedPeople(this);
 		excludedPeaoplAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, prefsExcludePeople);
 	}
@@ -250,6 +176,8 @@ public class CallMeter extends Activity {
 		new Updater(this).execute((Void[]) null);
 		// get data stats
 		new UpdaterData(this).execute((Void[]) null);
+		// schedule next update
+		CMBroadcastReceiver.schedNext(this);
 	}
 
 	/**
@@ -384,6 +312,54 @@ public class CallMeter extends Activity {
 		default:
 			return false;
 		}
+	}
+
+	/**
+	 * Check for signature updates.
+	 * 
+	 * @return true if ads should be hidden
+	 */
+	private boolean hideAds() {
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		final File f = new File(NOADS_SIGNATURES);
+		try {
+			if (f.exists()) {
+				final BufferedReader br = new BufferedReader(new FileReader(f));
+				final byte[] publicKey = Base64Coder.decode(KEY);
+				final KeyFactory keyFactory = KeyFactory.getInstance(ALGO);
+				PublicKey pk = keyFactory
+						.generatePublic(new X509EncodedKeySpec(publicKey));
+				TelephonyManager mTelephonyMgr = (TelephonyManager) this
+						.getSystemService(TELEPHONY_SERVICE);
+				final String h = md5(mTelephonyMgr.getDeviceId());
+				boolean ret = false;
+				while (true) {
+					String l = br.readLine();
+					if (l == null) {
+						break;
+					}
+					try {
+						byte[] signature = Base64Coder.decode(l);
+						Signature sig = Signature.getInstance(SIGALGO);
+						sig.initVerify(pk);
+						sig.update(h.getBytes());
+						ret = sig.verify(signature);
+						if (ret) {
+							break;
+						}
+					} catch (IllegalArgumentException e) {
+						Log.w(TAG, "error reading line", e);
+					}
+				}
+				br.close();
+				f.delete();
+				p.edit().putBoolean(PREFS_HIDEADS, ret).commit();
+			}
+		} catch (Exception e) {
+			Log.e(TAG, "error reading signatures", e);
+		}
+		return p.getBoolean(PREFS_HIDEADS, false);
 	}
 
 	/**

@@ -30,11 +30,11 @@ public class Preferences extends PreferenceActivity implements
 				.getDefaultSharedPreferences(this);
 		prefs.registerOnSharedPreferenceChangeListener(this);
 		this.prefMergeSMStoCalls = this
-				.findPreference(CallMeter.PREFS_MERGE_SMS_TO_CALLS);
+				.findPreference(Updater.PREFS_MERGE_SMS_TO_CALLS);
 		this.prefMergeToPlan1 = this
-				.findPreference(CallMeter.PREFS_MERGE_SMS_PLAN1);
+				.findPreference(Updater.PREFS_MERGE_SMS_PLAN1);
 		// run check on create!
-		this.onSharedPreferenceChanged(prefs, CallMeter.PREFS_SPLIT_PLANS);
+		this.onSharedPreferenceChanged(prefs, Updater.PREFS_SPLIT_PLANS);
 	}
 
 	/**
@@ -43,18 +43,18 @@ public class Preferences extends PreferenceActivity implements
 	@Override
 	public final void onSharedPreferenceChanged(
 			final SharedPreferences sharedPreferences, final String key) {
-		if (key.equals(CallMeter.PREFS_SPLIT_PLANS)
-				|| key.equals(CallMeter.PREFS_MERGE_PLANS_SMS)
-				|| key.equals(CallMeter.PREFS_MERGE_PLANS_CALLS)
-				|| key.equals(CallMeter.PREFS_MERGE_SMS_TO_CALLS)) {
+		if (key.equals(Updater.PREFS_SPLIT_PLANS)
+				|| key.equals(Updater.PREFS_MERGE_PLANS_SMS)
+				|| key.equals(Updater.PREFS_MERGE_PLANS_CALLS)
+				|| key.equals(Updater.PREFS_MERGE_SMS_TO_CALLS)) {
 			final boolean b0 = sharedPreferences.getBoolean(
-					CallMeter.PREFS_SPLIT_PLANS, false);
+					Updater.PREFS_SPLIT_PLANS, false);
 			final boolean b1 = sharedPreferences.getBoolean(
-					CallMeter.PREFS_MERGE_PLANS_SMS, false);
+					Updater.PREFS_MERGE_PLANS_SMS, false);
 			final boolean b2 = sharedPreferences.getBoolean(
-					CallMeter.PREFS_MERGE_PLANS_CALLS, false);
+					Updater.PREFS_MERGE_PLANS_CALLS, false);
 			final boolean b3 = sharedPreferences.getBoolean(
-					CallMeter.PREFS_MERGE_SMS_TO_CALLS, false);
+					Updater.PREFS_MERGE_SMS_TO_CALLS, false);
 			this.prefMergeSMStoCalls.setEnabled(!b0 || b1);
 			this.prefMergeToPlan1.setEnabled(b0 && b1 && !b2 && b3);
 		}

@@ -27,7 +27,7 @@
 	<string name="donate_">Doneer</string>
 	<string name="donate_remove_ads_">Doneer/verwijder ads</string>
 	<string name="remove_ads_">Verwijder ads</string>
-	<string name="predonate">Dit is een open-source applicatie uitgegeven onder de GPLv3 licentie. Het is gratis en blijft gratis. Als je de applicatie erg handig vindt of als je geïrriteerd bent door de advertenties, overweeg dan alsjeblieft om een donatie te doen (via paypal). Ik verwijder de advertenties dan bij de volgende update.\nDankjewel!</string>
+	<string name="predonate">Dit is een open-source applicatie uitgegeven onder de GPLv3 licentie. Het is gratis en blijft gratis. Als je de applicatie erg handig vindt of als je geïrriteerd bent door de advertenties, overweeg dan alsjeblieft om een donatie te doen (via paypal). Ik verwijder de advertenties dan zo spoedig mogelijk.\nDankjewel!</string>
 	<string name="postdonate">Om advertenties te verwijderen dien je mij de zogenaamde MD5 hash van je IMEI (unieke id van je telefoon) te sturen. Deze hash is een éénrichtingsverkeer functie. De hash is daardoor niet terug naar jou te traceren.</string>
 	<string name="about0_">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
 	<string name="about0">CallMeter genereert rapporten uit de gesprek, berichten en data log van je telefoon. Het ondersteunt meerdere manieren van factureren.</string>
@@ -35,8 +35,8 @@
 	<string name="about2">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
 	<string name="about3">Je kunt je verbruik in 2 schema\'s splitsen. Elk schema kan geheel vrij ingesteld worden, beperkt tot een bepaalde limiet of onbeperkt.</string>
 	<string name="about4">Je berichten kunnen samengevoegd worden met je gespreksminuten. Bijvoorbeeld: elk bericht als een gesprek van 15 sec. rekenen.</string>
-	<string name="about5_">Wat doet CallMeter NG niet:</string>
-	<string name="about5">Het telt geen verwijderde gesprekken of berichten! Gesprekken/berichten ouder dan een maand worden samengevat en bewaard. Verwijderen van gesprekken/berichten jonger dan een maand resulteert in onjuiste statistieken!</string>
+	<string name="about5">CallMeter werkt zich elke 30 minuten op de achtergrond bij (alleen wanneer niet in standby). Dit betekent dat het verwijderen van gesprekken of berichten ouder dan 30 min. de statistieken niet wijzigt. Het verwijderen van gesprekken of berichten jonger dan 30 min. kan resulteren in onjuiste statistieken.</string>
+	<string name="about6_">Wat doet CallMeter NG niet:</string>
 	<string name="about6">Het is onmogelijk een onderscheid te maken tussen Sipdroid en echte gesprekken of tussen websms en echte sms. Android\'s naadloze integratie van deze applicaties maakt het onmogelijk om dit later in de log te onderscheiden.</string>
 	<string name="send_">Verstuur</string>
 	<string name="settings">Voorkeuren</string>
