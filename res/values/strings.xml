@@ -87,6 +87,10 @@
 	<string name="free_hint">Totally free</string>
 	<string name="freemin_hint">Free Minutes / Month</string>
 	<string name="freesms_hint">Free SMS / Month</string>
+	<string name="bill_calls_incoming_">Bill incoming</string>
+	<string name="bill_calls_incoming_hint">Bill incoming calls as well.</string>
+	<string name="bill_sms_incoming_">Bill incoming</string>
+	<string name="bill_sms_incoming_hint">Bill incoming sms as well.</string>
 	<string name="merge_sms_calls_">Merge SMS into calls</string>
 	<string name="merge_sms_calls_hint">Bill SMS as part of calls.</string>
 	<string name="merge_sms_calls_sec_">Seconds / SMS</string>

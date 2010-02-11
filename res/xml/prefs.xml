@@ -404,6 +404,8 @@
 					android:title="@string/plan_freemin_" android:dialogTitle="@string/plan_freemin_"
 					android:inputType="number" android:dependency="plan1_total_free_calls"
 					android:summary="@string/freemin_hint" />
+				<CheckBoxPreference android:key="bill_calls_incoming"
+					android:title="@string/bill_calls_incoming_" android:summary="@string/bill_calls_incoming_hint" />
 			</PreferenceCategory>
 			<PreferenceCategory android:title="@string/plan2"
 				android:dependency="plans_merge_calls">
@@ -465,6 +467,8 @@
 					android:title="@string/plan_freesms_" android:dialogTitle="@string/plan_freesms_"
 					android:inputType="number" android:dependency="plan1_total_free_sms"
 					android:summary="@string/freesms_hint" />
+				<CheckBoxPreference android:key="bill_sms_incoming"
+					android:title="@string/bill_sms_incoming_" android:summary="@string/bill_sms_incoming_hint" />
 			</PreferenceCategory>
 			<PreferenceCategory android:title="@string/plan2"
 				android:dependency="plans_merge_sms">
@@ -486,10 +490,10 @@
 			<CheckBoxPreference android:key="data_eachday"
 				android:title="@string/data_each_day" android:summary="@string/data_each_day_hint"
 				android:dependency="data_enable" />
-				<EditTextPreference android:key="data_limit"
-					android:title="@string/data_limit_" android:dialogTitle="@string/data_limit_"
-					android:inputType="number" android:dependency="data_enable"
-					android:summary="@string/data_limit_hint" />
+			<EditTextPreference android:key="data_limit"
+				android:title="@string/data_limit_" android:dialogTitle="@string/data_limit_"
+				android:inputType="number" android:dependency="data_enable"
+				android:summary="@string/data_limit_hint" />
 		</PreferenceScreen>
 
 		<PreferenceScreen android:title="@string/reset_data_"

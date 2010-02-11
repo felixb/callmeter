@@ -128,6 +128,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	static final String PREFS_CALLS_ALL_IN = "calls_all_in";
 	/** Preference's name for saving calls out (all). */
 	static final String PREFS_CALLS_ALL_OUT = "calls_all_out";
+	/** Preference's name for billing incoming calls. */
+	static final String PREFS_CALLS_BILL_INCOMING = "bill_calls_incoming";
 
 	/** Preference's name for time of last checked bill period for sms. */
 	static final String PREFS_SMS_PERIOD_LASTCHECK = "sms_period_lastcheck";
@@ -143,6 +145,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	static final String PREFS_SMS_ALL_IN = "sms_all_in";
 	/** Preference's name for saving sms out (all). */
 	static final String PREFS_SMS_ALL_OUT = "sms_all_out";
+	/** Preference's name for billing incoming sms. */
+	static final String PREFS_SMS_BILL_INCOMING = "bill_sms_incoming";
 
 	/** Value for calls out plan #1. */
 	private static final int RESULT_CALLS1_VAL = 0;
@@ -516,6 +520,24 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.callmeter.findViewById(R.id.sms_in_).setVisibility(v);
 			this.callmeter.findViewById(R.id.sms_in).setVisibility(v);
 			this.pbSMS1.setVisibility(v);
+
+			v = View.VISIBLE;
+			if (!this.prefs.getBoolean(PREFS_CALLS_BILL_INCOMING, false)) {
+				v = View.GONE;
+			}
+			TextView tw = (TextView) this.callmeter
+					.findViewById(R.id.calls1_progressbar_text);
+			tw.setText("");
+			tw.setVisibility(v);
+
+			v = View.VISIBLE;
+			if (!this.prefs.getBoolean(PREFS_SMS_BILL_INCOMING, false)) {
+				v = View.GONE;
+			}
+			tw = (TextView) this.callmeter
+					.findViewById(R.id.sms1_progressbar_text);
+			tw.setText("");
+			tw.setVisibility(v);
 
 			// common
 			this.initStatusText();
@@ -950,6 +972,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 				pb1.setProgress(result[RESULT_CALLS1_VAL]);
 				pb1.setVisibility(View.VISIBLE);
+				((TextView) this.callmeter
+						.findViewById(R.id.calls1_progressbar_text))
+						.setText((result[RESULT_CALLS1_VAL] / SECONDS_MINUTE)
+								+ "min - "
+								+ (result[RESULT_CALLS1_VAL]
+										* CallMeter.HUNDRET / // .
+								result[RESULT_CALLS1_LIMIT]) + "%");
 			} else {
 				pb2.setVisibility(View.GONE);
 				pb2 = this.pbCalls1;
@@ -978,6 +1007,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					pb1.setProgress(result[RESULT_SMS1_VAL]);
 				}
 				pb1.setVisibility(View.VISIBLE);
+				((TextView) this.callmeter
+						.findViewById(R.id.sms1_progressbar_text))
+						.setText(result[RESULT_SMS1_VAL] + " - "
+								+ (result[RESULT_SMS1_VAL] * // .
+										CallMeter.HUNDRET / // .
+								result[RESULT_SMS1_LIMIT]) + "%");
 			} else {
 				pb2.setVisibility(View.GONE);
 				pb2 = this.pbSMS1;

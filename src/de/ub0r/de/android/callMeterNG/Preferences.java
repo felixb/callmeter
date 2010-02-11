@@ -18,6 +18,10 @@ public class Preferences extends PreferenceActivity implements
 	private Preference prefMergeSMStoCalls = null;
 	/** Preference: merge sms into plan 1. */
 	private Preference prefMergeToPlan1 = null;
+	/** Preference: bill incoming calls. */
+	private Preference prefBillIncomingCalls = null;
+	/** Preference: bill incoming sms. */
+	private Preference prefBillIncomingSMS = null;
 
 	/**
 	 * {@inheritDoc}
@@ -33,6 +37,10 @@ public class Preferences extends PreferenceActivity implements
 				.findPreference(Updater.PREFS_MERGE_SMS_TO_CALLS);
 		this.prefMergeToPlan1 = this
 				.findPreference(Updater.PREFS_MERGE_SMS_PLAN1);
+		this.prefBillIncomingCalls = this
+				.findPreference(Updater.PREFS_CALLS_BILL_INCOMING);
+		this.prefBillIncomingSMS = this
+				.findPreference(Updater.PREFS_SMS_BILL_INCOMING);
 		// run check on create!
 		this.onSharedPreferenceChanged(prefs, Updater.PREFS_SPLIT_PLANS);
 	}
@@ -57,6 +65,8 @@ public class Preferences extends PreferenceActivity implements
 					Updater.PREFS_MERGE_SMS_TO_CALLS, false);
 			this.prefMergeSMStoCalls.setEnabled(!b0 || b1);
 			this.prefMergeToPlan1.setEnabled(b0 && b1 && !b2 && b3);
+			this.prefBillIncomingCalls.setEnabled(!b0 || b2);
+			this.prefBillIncomingSMS.setEnabled(!b0 || b1);
 		}
 	}
 }
