@@ -118,8 +118,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	static final String PREFS_CALLS_PERIOD_IN = "calls_period_in";
 	/** Preference's name for saving calls out plan #1 (this period). */
 	static final String PREFS_CALLS_PERIOD_OUT1 = "calls_period_out1";
+	/** Preference's name for saving calls out plan #1 (this period, count). */
+	static final String PREFS_CALLS_PERIOD_OUT1_COUNT = "calls_period_out1_n";
 	/** Preference's name for saving calls out plan #2 (this period). */
 	static final String PREFS_CALLS_PERIOD_OUT2 = "calls_period_out2";
+	/** Preference's name for saving calls out plan #2 (this period, count). */
+	static final String PREFS_CALLS_PERIOD_OUT2_COUNT = "calls_period_out2_n";
 	/** Preference's name for saving calls in (all). */
 	static final String PREFS_CALLS_ALL_IN = "calls_all_in";
 	/** Preference's name for saving calls out (all). */
@@ -261,7 +265,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		if (lastCheck < lastBill) {
 			editor.remove(PREFS_CALLS_PERIOD_IN);
 			editor.remove(PREFS_CALLS_PERIOD_OUT1);
+			editor.remove(PREFS_CALLS_PERIOD_OUT1_COUNT);
 			editor.remove(PREFS_CALLS_PERIOD_OUT2);
+			editor.remove(PREFS_CALLS_PERIOD_OUT2_COUNT);
 		}
 		editor.putLong(PREFS_CALLS_PERIOD_LASTCHECK, now);
 		editor.commit();
@@ -567,6 +573,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		int durInMonth = this.prefs.getInt(PREFS_CALLS_PERIOD_IN, 0);
 		int durOut1Month = this.prefs.getInt(PREFS_CALLS_PERIOD_OUT1, 0);
 		int durOut2Month = this.prefs.getInt(PREFS_CALLS_PERIOD_OUT2, 0);
+		int countOut1Month = this.prefs
+				.getInt(PREFS_CALLS_PERIOD_OUT1_COUNT, 0);
+		int countOut2Month = this.prefs
+				.getInt(PREFS_CALLS_PERIOD_OUT2_COUNT, 0);
 
 		int free1 = 0; // -1 -> totally free
 		int free2 = 0;
@@ -641,8 +651,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 						if (check) {
 							p = this.isPlan1(plans, d);
 							if (p) {
+								++countOut1Month;
 								durOut1Month += this.roundTime(t);
 							} else {
+								++countOut2Month;
 								durOut2Month += this.roundTime(t);
 							}
 						} else {
@@ -686,7 +698,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		editor.putInt(PREFS_CALLS_ALL_OUT, durOut);
 		editor.putInt(PREFS_CALLS_PERIOD_IN, durInMonth);
 		editor.putInt(PREFS_CALLS_PERIOD_OUT1, durOut1Month);
+		editor.putInt(PREFS_CALLS_PERIOD_OUT1_COUNT, countOut1Month);
 		editor.putInt(PREFS_CALLS_PERIOD_OUT2, durOut2Month);
+		editor.putInt(PREFS_CALLS_PERIOD_OUT2_COUNT, countOut2Month);
 		editor.putLong(PREFS_CALLS_WALK_LASTCHECK, lastWalk);
 		editor.commit();
 	}
