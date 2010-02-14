@@ -27,15 +27,14 @@
 	<string name="donate_">Donar</string>
 	<string name="donate_remove_ads_">Donar/Eliminar publicidad</string>
 	<string name="remove_ads_">Eliminar publicidad</string>
-	<string name="predonate">Esta es una aplicación de código abierto publicada bajo licencia GPLv3. Es gratuita y así continuará siéndolo. Si te gusta la aplicación o la publicidad incluida te molesta, por favor plantéate hacer una donación (via paypal). Te eliminaré la publicidad en la próxima versión que publique. ¡Gracias!</string>
-	<string name="postdonate">Para eliminar la publicidad, tienes que enviar el código MD5 de tu IMEI (único para cada teléfono). Este código es unidireccional y no permite rastrear el teléfono.</string>
+	<string name="predonate">Esta es una aplicación de código abierto publicada bajo licencia GPLv3 license. Es gratuita y así continuará. Si te gusta la aplicación o la publicidad te molesta, planteate hacer una donación (via paypal) y retiraré la publicidad lo antes posible.\nGracias!</string><string name="postdonate">Para eliminar la publicidad, tienes que enviar el código MD5 de tu IMEI (único para cada teléfono). Este código es unidireccional y no permite rastrear el teléfono.</string>
 	<string name="about0_">¡Controla tus planes de llamadas, mensajes y datos!</string>
 	<string name="about0">CallMeter genera informes de tus registros de llamadas, mensajes y datos. Permite muchos tipos de tarificación.</string>
 	<string name="about1">La presentación es: minutos usados en el ciclo de facturación/ minutos totales. El cómputo mensual de llamadas tiene en cuenta el modo de tarificación. Los totales no.</string>
 	<string name="about2">El modo de tarificación especifica la longitud del primer/siguientes unidades de facturación. Ej. 60/10 significa que en cada llamada se factura el primer minuto completo y el resto se redondea en periodos de 10 s.</string>
 	<string name="about3">Puedes dividir tu plan de llamadas en dos horarios. Cada uno de ellos puede configurarse como gratuito limitado a cierto número de minutos o ilimitado.</string>
 	<string name="about4">También puedes incluir los SMS en el plan de llamadas. Por ejemplo, haciendo que cada mensaje cuente como una llamada de 15s.</string>
-	<string name="about5">¡No incluye las llamadas o mensajes borrados! Las llamadas y mensajes mayores de un mes se acumulan y guardan. ¡Borrar los menores de un mes hará que se muestren resultados erróneos!</string>
+	<string name="about5">CallMeter se ejecuta en segundo plano cada 30min (si no está en modo espera). Por lo que borrar llamadas o mensajes anteriores a 30min no cambiará las estadísticas. Borrar mensajes o llamadas de los últimos 30min puede dar estadísticas erróneas.</string>
 	<string name="about6_">Lo que CallMeter no hace:</string>
 	<string name="about6">No es posible diferenciar las llamadas reales de las de Sipdroid ni los SMS reales de los WebSMS. La profunda integración de estas aplicaciones con Android hacen imposible separar sus registros.</string>
 	<string name="send_">Enviar</string>
