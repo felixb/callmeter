@@ -28,10 +28,10 @@
 		app:keywords="android mobile handy cellphone google htc market app report calls game" />
 
 	<ScrollView android:layout_height="fill_parent"
-		android:layout_width="fill_parent" android:layout_above="@+id/ad"
-		android:padding="5dip">
-		<LinearLayout android:layout_height="fill_parent"
-			android:layout_width="fill_parent" android:orientation="vertical">
+		android:layout_width="fill_parent" android:layout_above="@+id/ad">
+		<LinearLayout android:layout_height="wrap_content"
+			android:layout_width="fill_parent" android:orientation="vertical"
+			android:padding="5dip">
 
 			<!--  calls common -->
 			<TextView android:id="@+id/calls_" android:text="@string/calls"

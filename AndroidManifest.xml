@@ -20,9 +20,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="de.ub0r.de.android.callMeterNG" android:versionName="1.1.4"
 	android:versionCode="114">
-	<application android:icon="@drawable/sym_call_outgoing" android:label="@string/app_name"
-		android:debuggable="true">
-		<activity android:name="CallMeter" android:label="@string/app_name">
+	<application android:icon="@drawable/sym_call_outgoing"
+		android:label="@string/app_name" android:debuggable="true">
+		<activity android:name="CallMeter" android:label="@string/app_name"
+			android:configChanges="orientation|keyboardHidden"
+			android:launchMode="singleTop">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
