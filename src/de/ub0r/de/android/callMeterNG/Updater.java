@@ -702,14 +702,20 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 			} while (cur.moveToNext());
 		}
-		this.callsIn = calcString(durInMonth, 0, durIn, true);
-		this.callsOut1 = calcString(durOut1Month, free1, durOut, true);
-		this.callsOut2 = calcString(durOut2Month, free2, durOut, true);
-
 		status[RESULT_CALLS1_VAL] = durOut1Month;
 		status[RESULT_CALLS1_LIMIT] = free1 * SECONDS_MINUTE;
 		status[RESULT_CALLS2_VAL] = durOut2Month;
 		status[RESULT_CALLS2_LIMIT] = free2 * SECONDS_MINUTE;
+
+		if (this.prefs.getBoolean(PREFS_CALLS_BILL_INCOMING, false)) {
+			status[RESULT_CALLS1_VAL] += durInMonth;
+			free1 = 0;
+		}
+
+		this.callsIn = calcString(durInMonth, 0, durIn, true);
+		this.callsOut1 = calcString(durOut1Month, free1, durOut, true);
+		this.callsOut2 = calcString(durOut2Month, free2, durOut, true);
+
 		this.publishProgress((Void) null);
 
 		this.callsOutSum = durOut;
@@ -827,14 +833,19 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			} while (cur.moveToNext());
 		}
 
-		this.smsIn = calcString(smsInMonth, 0, iSMSIn, false);
-		this.smsOut1 = calcString(smsOut1Month, free1, iSMSOut, false);
-		this.smsOut2 = calcString(smsOut2Month, free2, iSMSOut, false);
-
 		status[RESULT_SMS1_VAL] = smsOut1Month;
 		status[RESULT_SMS1_LIMIT] = free1;
 		status[RESULT_SMS2_VAL] = smsOut2Month;
 		status[RESULT_SMS2_LIMIT] = free2;
+
+		if (this.prefs.getBoolean(PREFS_SMS_BILL_INCOMING, false)) {
+			status[RESULT_SMS1_VAL] += smsInMonth;
+			free1 = 0;
+		}
+
+		this.smsIn = calcString(smsInMonth, 0, iSMSIn, false);
+		this.smsOut1 = calcString(smsOut1Month, free1, iSMSOut, false);
+		this.smsOut2 = calcString(smsOut2Month, free2, iSMSOut, false);
 
 		if (this.prefs.getBoolean(PREFS_MERGE_SMS_TO_CALLS, false)) {
 			// merge sms into calls.
@@ -974,8 +985,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				pb1.setVisibility(View.VISIBLE);
 				((TextView) this.callmeter
 						.findViewById(R.id.calls1_progressbar_text))
-						.setText((result[RESULT_CALLS1_VAL] / SECONDS_MINUTE)
-								+ "min - "
+						.setText(getTime(result[RESULT_CALLS1_VAL])
+								+ " - "
 								+ (result[RESULT_CALLS1_VAL]
 										* CallMeter.HUNDRET / // .
 								result[RESULT_CALLS1_LIMIT]) + "%");
