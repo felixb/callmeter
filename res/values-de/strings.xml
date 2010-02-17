@@ -65,6 +65,10 @@
 	<string name="free_hint">Absolut keine Kosten</string>
 	<string name="freemin_hint">Freiminuten / Monat</string>
 	<string name="freesms_hint">FreiSMS / Monat</string>
+	<string name="bill_calls_incoming_">Eingehende abrechnen</string>
+	<string name="bill_calls_incoming_hint">Eingehende Anrufe auch abrechnen.</string>
+	<string name="bill_sms_incoming_">Eingehende abrechnen</string>
+	<string name="bill_sms_incoming_hint">Eingehende SMS auch abrechnen.</string>
 	<string name="merge_sms_calls_">SMS als Anrufe abrechnen</string>
 	<string name="merge_sms_calls_hint">Rechne SMS als Anrufe ab.</string>
 	<string name="merge_sms_calls_sec_">Sekunden / SMS</string>
