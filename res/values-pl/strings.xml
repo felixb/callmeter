@@ -34,7 +34,6 @@
 	<string name="about2">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
 	<string name="about3">Możesz podzielić swoje połączenia lub sms na dwa plany. Oba plany mogą być ustawione na całodobowe darmowe połączenia lub w określonych godzinach.</string>
 	<string name="about4">Wiadomości mogą być brane pod uwagę w Twoim planie. Np. zliczać każdy wysłany sms jako 15s. połączenie.</string>
-	<string name="about5"> Nie zlicza usuniętych wiadomości oraz połączeń! Połączenia/SMS starsze niż miesiąc są sumowane i zapisywane. Usuwanie połączeń lub sms "młoszych" niż jeden miesiąc. Ich usuwanie spowoduje błędne wyświetlanie statystyk.</string>
 	<string name="about6_">Czego CallMeter NIE robi:</string>
 	<string name="about6">Nie da się odróżnić połączeń SIP od realnych połączeń lub websms od sms wysłanych "z telefonu". Android \ 's bezproblemową integrację tych. Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości żeby je odróżnić.</string>
 	<string name="send_">Wyślij</string>

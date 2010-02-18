@@ -67,6 +67,10 @@
 	<string name="free_hint">Πλήρως Δωρεάν</string>
 	<string name="freemin_hint">Δωρεάν Λεπτά / Μήνα</string>
 	<string name="freesms_hint">Δωρεάν SMS / Μήνα</string>
+	<string name="bill_calls_incoming_">Χρέωση εισερχόμενων</string>
+	<string name="bill_calls_incoming_hint">Χρέωση εισερχόμενων κλήσεων.</string>
+	<string name="bill_sms_incoming_">Χρέωση εισερχόμενων</string>
+	<string name="bill_sms_incoming_hint">Χρέωση εισερχόμενων μηνυμάτων.</string>
 	<string name="merge_sms_calls_">Μετατροπή SMS σε κλήσεις</string>
 	<string name="merge_sms_calls_hint">Χρέωση SMS ως κλήση.</string>
 	<string name="merge_sms_calls_sec_">Δευτερόλεπτα / SMS</string>

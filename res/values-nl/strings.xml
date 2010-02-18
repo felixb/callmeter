@@ -71,6 +71,10 @@
 	<string name="free_hint">Geheel vrij</string>
 	<string name="freemin_hint">Gratis minuten per maand</string>
 	<string name="freesms_hint">Gratis SMS per maand</string>
+	<string name="bill_calls_incoming_">Factureer inkomend</string>
+	<string name="bill_calls_incoming_hint">Factureer ook inkomende gesprekken.</string>
+	<string name="bill_sms_incoming_">Factureer inkomend</string>
+	<string name="bill_sms_incoming_hint">Factureer ook inkomende sms\'jes.</string>
 	<string name="merge_sms_calls_">Voeg SMS samen met gesprekken</string>
 	<string name="merge_sms_calls_hint">Factureer SMS als onderdeel van gesprekken.</string>
 	<string name="merge_sms_calls_sec_">Seconden per SMS</string>

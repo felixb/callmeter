@@ -27,7 +27,7 @@
 	<string name="donate_">Doação</string>
 	<string name="donate_remove_ads_">Doação/remova anúncios</string>
 	<string name="remove_ads_">Remova anúncios</string>
-	<string name="predonate">  Esta é uma aplicação open-source liberada sob aLicença GPLv3. É livre e permanecerá livre.Se você realmente gosta dela ou sevocê está irritado com os anúncios, por favor, considere uma doação (via PayPal). Eu  ireiremover os anúncios para você na próxima versão.\nObrigado!</string>
+	<string name="predonate">Esta é uma aplicação open-source realizada sob a licença GPLv3. É gratuita e permanecerá gratuita. Se você realmente  gosta dela ou quer retirar as propagandas, por favor considere uma doação (via  paypal). Eu irei remover as propagandas para você o mais rápido possível.\nObrigado!</string>
 	<string name="postdonate">Para remover os anúncios, você precisa enviar o código MD5 do seu IMEI (identificação única do seu celular). Este código é uma função de via única. Não é rastreável de volta para você.</string>
 	<string name="about0_">Observe suas ligações, mensagens e plano de dados!</string>
 	<string name="about0">O CallMeter gera relatórios de ligações, mensagens e dados.Ele suporta vários modos de cobrança.</string>
@@ -35,7 +35,7 @@
 	<string name="about2">O modo de cobrança utiliza o tamanho do primeiro e posteriores tempos de cobrança. Ex. 30/10 diz que cada ligação é taxada com o mínimo de 30s, e após este período será taxado de 10 em 10 segundos de utilização (sendo esse o período mínimo), sucessivamente até o final da chamada.</string>
 	<string name="about3">Você pode separar os planos de ligações e mensagens em até dois planos. Cada plano pode ser configurado de totalmente grátis, limitado a um período ou, ilimitado.</string>
 	<string name="about4">Suas mensagens podem ser mescladas em seu plano de chamada. Ex. contar cada mensagem como 15s de chamada.</string>
-	<string name="about5">Ele não considera chamadas ou mensagens apagadas!Chamadas/mensagens com mais de um mês são totalizadas e salvas. Chamadas ou mensagens apagadas dentro do mêsirão resultar em estatísticas erradas!</string>
+	<string name="about5">CallMeter roda oculto a cada 30min (se não estiver em repouso). Isto quer dizer, que apagar ligações ou mensagens com mais de 30min não alterarão sua estatística acumulada. Apagar ligações ou mensagens de até  30min poderá resultar em uma estatística errônea.</string>
 	<string name="about6_">O que CallMeter NG não faz:</string>
 	<string name="about6">Não há nenhuma maneira de distinguir entre Sipdroid (app da Google tipo Skype) e uma chamada realou entre MMS e um SMS.O Android faz uma integração destasaplicações que torna impossível distinguir depois entre os dados para cálculo.</string>
 	<string name="send_">Enviar</string>
@@ -67,6 +67,10 @@
 	<string name="free_hint">Totalmente grátis</string>
 	<string name="freemin_hint">Minutos/Mês do plano</string>
 	<string name="freesms_hint">SMS/Mês do plano</string>
+	<string name="bill_calls_incoming_">Conta de recebimento</string>
+	<string name="bill_calls_incoming_hint">Conta de recebimento de ligações é de.</string>
+	<string name="bill_sms_incoming_">Conta de recebimento</string>
+	<string name="bill_sms_incoming_hint">Conta de recebimento de SMS é de.</string>
 	<string name="merge_sms_calls_">Juntar SMS com chamadas</string>
 	<string name="merge_sms_calls_hint">Cobrar SMS como parte das chamadas.</string>
 	<string name="merge_sms_calls_sec_">Segundos / SMS</string>
