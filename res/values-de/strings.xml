@@ -69,6 +69,12 @@
 	<string name="bill_calls_incoming_hint">Eingehende Anrufe auch abrechnen.</string>
 	<string name="bill_sms_incoming_">Eingehende abrechnen</string>
 	<string name="bill_sms_incoming_hint">Eingehende SMS auch abrechnen.</string>
+	<string name="cost_per_call_">Kosten pro Anruf</string>
+	<string name="cost_per_call_hint">Jeder Anruf wird berechnet.</string>
+	<string name="cost_per_minute_">Kosten pro Minute</string>
+	<string name="cost_per_minute_hint">Jede Minute wird berechnet.</string>
+	<string name="cost_per_sms_">Kosten pro SMS</string>
+	<string name="cost_per_sms_hint">Jede SMS wird berechnet.</string>
 	<string name="merge_sms_calls_">SMS als Anrufe abrechnen</string>
 	<string name="merge_sms_calls_hint">Rechne SMS als Anrufe ab.</string>
 	<string name="merge_sms_calls_sec_">Sekunden / SMS</string>

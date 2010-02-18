@@ -400,12 +400,20 @@
 				<CheckBoxPreference android:key="plan1_total_free_calls"
 					android:title="@string/plan_free_" android:disableDependentsState="true"
 					android:summary="@string/free_hint" />
+				<CheckBoxPreference android:key="bill_calls_incoming"
+					android:title="@string/bill_calls_incoming_" android:summary="@string/bill_calls_incoming_hint" />
 				<EditTextPreference android:key="plan1_freemin"
 					android:title="@string/plan_freemin_" android:dialogTitle="@string/plan_freemin_"
 					android:inputType="number" android:dependency="plan1_total_free_calls"
 					android:summary="@string/freemin_hint" />
-				<CheckBoxPreference android:key="bill_calls_incoming"
-					android:title="@string/bill_calls_incoming_" android:summary="@string/bill_calls_incoming_hint" />
+				<EditTextPreference android:key="plan1_cost_per_call"
+					android:title="@string/cost_per_call_" android:dialogTitle="@string/cost_per_call_"
+					android:summary="@string/cost_per_call_hint" android:inputType="number"
+					android:dependency="plan1_total_free_calls" />
+				<EditTextPreference android:key="plan1_cost_per_minute"
+					android:title="@string/cost_per_minute_" android:dialogTitle="@string/cost_per_minute_"
+					android:summary="@string/cost_per_minute_hint" android:inputType="number"
+					android:dependency="plan1_total_free_calls" />
 			</PreferenceCategory>
 			<PreferenceCategory android:title="@string/plan2"
 				android:dependency="plans_merge_calls">
@@ -416,6 +424,14 @@
 					android:title="@string/plan_freemin_" android:dialogTitle="@string/plan_freemin_"
 					android:inputType="number" android:dependency="plan2_total_free_calls"
 					android:summary="@string/freemin_hint" />
+				<EditTextPreference android:key="plan2_cost_per_call"
+					android:title="@string/cost_per_call_" android:dialogTitle="@string/cost_per_call_"
+					android:summary="@string/cost_per_call_hint" android:inputType="number"
+					android:dependency="plan2_total_free_calls" />
+				<EditTextPreference android:key="plan2_cost_per_minute"
+					android:title="@string/cost_per_minute_" android:dialogTitle="@string/cost_per_minute_"
+					android:summary="@string/cost_per_minute_hint" android:inputType="number"
+					android:dependency="plan2_total_free_calls" />
 			</PreferenceCategory>
 
 			<!-- exclude numbers -->
@@ -463,12 +479,16 @@
 				<CheckBoxPreference android:key="plan1_total_free_sms"
 					android:title="@string/plan_free_" android:disableDependentsState="true"
 					android:summary="@string/free_hint" />
+				<CheckBoxPreference android:key="bill_sms_incoming"
+					android:title="@string/bill_sms_incoming_" android:summary="@string/bill_sms_incoming_hint" />
 				<EditTextPreference android:key="plan1_freesms"
 					android:title="@string/plan_freesms_" android:dialogTitle="@string/plan_freesms_"
 					android:inputType="number" android:dependency="plan1_total_free_sms"
 					android:summary="@string/freesms_hint" />
-				<CheckBoxPreference android:key="bill_sms_incoming"
-					android:title="@string/bill_sms_incoming_" android:summary="@string/bill_sms_incoming_hint" />
+				<EditTextPreference android:key="plan1_cost_per_sms"
+					android:title="@string/cost_per_sms_" android:dialogTitle="@string/cost_per_sms_"
+					android:summary="@string/cost_per_sms_hint" android:inputType="number"
+					android:dependency="plan1_total_free_sms" />
 			</PreferenceCategory>
 			<PreferenceCategory android:title="@string/plan2"
 				android:dependency="plans_merge_sms">
@@ -479,6 +499,10 @@
 					android:title="@string/plan_freesms_" android:dialogTitle="@string/plan_freesms_"
 					android:inputType="number" android:dependency="plan2_total_free_sms"
 					android:summary="@string/freesms_hint" />
+				<EditTextPreference android:key="plan2_cost_per_sms"
+					android:title="@string/cost_per_sms_" android:dialogTitle="@string/cost_per_sms_"
+					android:summary="@string/cost_per_sms_hint" android:inputType="number"
+					android:dependency="plan2_total_free_sms" />
 			</PreferenceCategory>
 		</PreferenceScreen>
 

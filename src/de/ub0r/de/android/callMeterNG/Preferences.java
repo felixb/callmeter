@@ -14,14 +14,18 @@ import android.preference.PreferenceManager;
 public class Preferences extends PreferenceActivity implements
 		SharedPreferences.OnSharedPreferenceChangeListener {
 
-	/** Preference: merge sms into calls. */
+	/** {@link Preference}: merge sms into calls. */
 	private Preference prefMergeSMStoCalls = null;
-	/** Preference: merge sms into plan 1. */
+	/** {@link Preference}: merge sms into plan 1. */
 	private Preference prefMergeToPlan1 = null;
-	/** Preference: bill incoming calls. */
+	/** {@link Preference}: bill incoming calls. */
 	private Preference prefBillIncomingCalls = null;
-	/** Preference: bill incoming sms. */
+	/** {@link Preference}: bill incoming sms. */
 	private Preference prefBillIncomingSMS = null;
+	/** {@link Preference}: plan1 - cost per call. */
+	private Preference prefPlan1CostPerCall = null;
+	/** {@link Preference}: plan2 - cost per call. */
+	private Preference prefPlan2CostPerCall = null;
 
 	/**
 	 * {@inheritDoc}
@@ -41,8 +45,14 @@ public class Preferences extends PreferenceActivity implements
 				.findPreference(Updater.PREFS_CALLS_BILL_INCOMING);
 		this.prefBillIncomingSMS = this
 				.findPreference(Updater.PREFS_SMS_BILL_INCOMING);
+		this.prefPlan1CostPerCall = this
+				.findPreference(Updater.PREFS_PLAN1_COST_PER_CALL);
+		this.prefPlan2CostPerCall = this
+				.findPreference(Updater.PREFS_PLAN2_COST_PER_CALL);
 		// run check on create!
 		this.onSharedPreferenceChanged(prefs, Updater.PREFS_SPLIT_PLANS);
+		this.onSharedPreferenceChanged(prefs, Updater.PREFS_PLAN1_FREEMIN);
+		this.onSharedPreferenceChanged(prefs, Updater.PREFS_PLAN2_FREEMIN);
 	}
 
 	/**
@@ -67,6 +77,16 @@ public class Preferences extends PreferenceActivity implements
 			this.prefMergeToPlan1.setEnabled(b0 && b1 && !b2 && b3);
 			this.prefBillIncomingCalls.setEnabled(!b0 || b2);
 			this.prefBillIncomingSMS.setEnabled(!b0 || b1);
+		} else if (key.equals(Updater.PREFS_PLAN1_FREEMIN)) {
+			final String s = sharedPreferences.getString(
+					Updater.PREFS_PLAN1_FREEMIN, "");
+			this.prefPlan1CostPerCall.setEnabled(s.length() == 0
+					|| Integer.parseInt(s) == 0);
+		} else if (key.equals(Updater.PREFS_PLAN2_FREEMIN)) {
+			final String s = sharedPreferences.getString(
+					Updater.PREFS_PLAN2_FREEMIN, "");
+			this.prefPlan2CostPerCall.setEnabled(s.length() == 0
+					|| Integer.parseInt(s) == 0);
 		}
 	}
 }

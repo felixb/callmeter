@@ -91,6 +91,12 @@
 	<string name="bill_calls_incoming_hint">Bill incoming calls as well.</string>
 	<string name="bill_sms_incoming_">Bill incoming</string>
 	<string name="bill_sms_incoming_hint">Bill incoming sms as well.</string>
+	<string name="cost_per_call_">Cost per call</string>
+	<string name="cost_per_call_hint">Each call will be billed with this.</string>
+	<string name="cost_per_minute_">Cost per minute</string>
+	<string name="cost_per_minute_hint">Each minute of a call will be billed with this.</string>
+	<string name="cost_per_sms_">Cost per SMS</string>
+	<string name="cost_per_sms_hint">Each SMS will be billed with this.</string>
 	<string name="merge_sms_calls_">Merge SMS into calls</string>
 	<string name="merge_sms_calls_hint">Bill SMS as part of calls.</string>
 	<string name="merge_sms_calls_sec_">Seconds / SMS</string>

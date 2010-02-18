@@ -74,16 +74,32 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private static final String PREFS_PLAN1_T_FREE_CALLS = // .
 	"plan1_total_free_calls";
 	/** Prefs: plan1 free minutes. */
-	private static final String PREFS_PLAN1_FREEMIN = "plan1_freemin";
+	static final String PREFS_PLAN1_FREEMIN = "plan1_freemin";
 	/** Prefs: plan1 totally free sms. */
 	private static final String PREFS_PLAN1_T_FREE_SMS = "plan1_total_free_sms";
+	/** Prefs: plan1 cost per call. */
+	static final String PREFS_PLAN1_COST_PER_CALL = "plan1_cost_per_call";
+	/** Prefs: plan1 cost per minute. */
+	private static final String PREFS_PLAN1_COST_PER_MINUTE = // .
+	"plan1_cost_per_minute";
+	/** Prefs: plan1 cost per sms. */
+	private static final String PREFS_PLAN1_COST_PER_SMS = // .
+	"plan1_cost_per_sms";
 	/** Prefs: plan1 free sms. */
 	private static final String PREFS_PLAN1_FREESMS = "plan1_freesms";
 	/** Prefs: plan1 totally free calls. */
 	private static final String PREFS_PLAN2_T_FREE_CALLS = // .
 	"plan2_total_free_calls";
+	/** Prefs: plan2 cost per call. */
+	static final String PREFS_PLAN2_COST_PER_CALL = "plan2_cost_per_call";
+	/** Prefs: plan2 cost per minute. */
+	private static final String PREFS_PLAN2_COST_PER_MINUTE = // .
+	"plan2_cost_per_minute";
+	/** Prefs: plan2 cost per sms. */
+	private static final String PREFS_PLAN2_COST_PER_SMS = // .
+	"plan2_cost_per_sms";
 	/** Prefs: plan1 free minutes. */
-	private static final String PREFS_PLAN2_FREEMIN = "plan2_freemin";
+	static final String PREFS_PLAN2_FREEMIN = "plan2_freemin";
 	/** Prefs: plan1 totally free sms. */
 	private static final String PREFS_PLAN2_T_FREE_SMS = "plan2_total_free_sms";
 	/** Prefs: plan1 free sms. */
