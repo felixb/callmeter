@@ -19,6 +19,8 @@
 package de.ub0r.de.android.callMeterNG;
 
 import java.util.Calendar;
+import java.util.Currency;
+import java.util.Locale;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -220,6 +222,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	/** Run updates on GUI. */
 	private final boolean updateGUI;
 
+	/** {@link Currency} symbol. */
+	private static String currencySymbol = "$";
+	/** {@link Currency} fraction digits. */
+	private static int currencyDigits = 2;
+
 	/**
 	 * AsyncTask updating statistics.
 	 * 
@@ -238,6 +245,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.callmeter = null;
 		}
 		this.prefs = PreferenceManager.getDefaultSharedPreferences(c);
+		final Currency cur = Currency.getInstance(Locale.getDefault());
+		currencySymbol = cur.getSymbol();
+		currencyDigits = cur.getDefaultFractionDigits();
 	}
 
 	/**
@@ -709,11 +719,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 				++i;
 				if (i % UPDATE_INTERVAL == 1) {
-					this.callsIn = calcString(durInMonth, 0, durIn, true);
+					this.callsIn = calcString(durInMonth, 0, durIn, true,
+							false, null);
 					this.callsOut1 = calcString(durOut1Month, free1, durOut,
-							true);
+							true, false, null);
 					this.callsOut2 = calcString(durOut2Month, free2, durOut,
-							true);
+							true, false, null);
 					this.publishProgress((Void) null);
 				}
 			} while (cur.moveToNext());
@@ -728,9 +739,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			free1 = 0;
 		}
 
-		this.callsIn = calcString(durInMonth, 0, durIn, true);
-		this.callsOut1 = calcString(durOut1Month, free1, durOut, true);
-		this.callsOut2 = calcString(durOut2Month, free2, durOut, true);
+		this.callsIn = calcString(durInMonth, 0, durIn, true, this.updateGUI,
+				this.prefs);
+		this.callsOut1 = calcString(durOut1Month, free1, durOut, true,
+				this.updateGUI, this.prefs);
+		this.callsOut2 = calcString(durOut2Month, free2, durOut, true,
+				this.updateGUI, this.prefs);
 
 		this.publishProgress((Void) null);
 
@@ -839,11 +853,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 				++i;
 				if (i % UPDATE_INTERVAL == 1) {
-					this.smsIn = calcString(smsInMonth, 0, iSMSIn, false);
+					this.smsIn = calcString(smsInMonth, 0, iSMSIn, false,
+							false, null);
 					this.smsOut1 = calcString(smsOut2Month, free1, iSMSOut,
-							false);
+							false, false, null);
 					this.smsOut2 = calcString(smsOut2Month, free2, iSMSOut,
-							false);
+							false, false, null);
 					this.publishProgress((Void) null);
 				}
 			} while (cur.moveToNext());
@@ -859,9 +874,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			free1 = 0;
 		}
 
-		this.smsIn = calcString(smsInMonth, 0, iSMSIn, false);
-		this.smsOut1 = calcString(smsOut1Month, free1, iSMSOut, false);
-		this.smsOut2 = calcString(smsOut2Month, free2, iSMSOut, false);
+		this.smsIn = calcString(smsInMonth, 0, iSMSIn, false, this.updateGUI,
+				this.prefs);
+		this.smsOut1 = calcString(smsOut1Month, free1, iSMSOut, false,
+				this.updateGUI, this.prefs);
+		this.smsOut2 = calcString(smsOut2Month, free2, iSMSOut, false,
+				this.updateGUI, this.prefs);
 
 		if (this.prefs.getBoolean(PREFS_MERGE_SMS_TO_CALLS, false)) {
 			// merge sms into calls.
@@ -881,7 +899,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			status[RESULT_SMS2_LIMIT] = 0;
 
 			final String s = calcString(status[i], status[i + 1],
-					this.callsOutSum, false); // false ->
+					this.callsOutSum, false, this.updateGUI, this.prefs); // false
+																			// ->
 			// no multiply 60s/min
 			if (mergeToPlan1) {
 				this.callsOut1 = s;
@@ -1075,10 +1094,15 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 *            used all together
 	 * @param calls
 	 *            calls/sms?
+	 * @param calcCost
+	 *            display cost
+	 * @param prefs
+	 *            {@link SharedPreferences}
 	 * @return String holding all the data
 	 */
 	private static String calcString(final int thisPeriod, final int limit,
-			final int all, final boolean calls) {
+			final int all, final boolean calls, final boolean calcCost,
+			final SharedPreferences prefs) {
 		if (limit > 0) {
 			if (calls) {
 				return ((thisPeriod * CallMeter.HUNDRET) / // .
