@@ -174,21 +174,26 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private static final int RESULT_CALLS2_VAL = 2;
 	/** Limit for calls out plan #2. */
 	private static final int RESULT_CALLS2_LIMIT = 3;
+	/** Calls in. */
+	private static final int RESULT_CALLS_IN = 4;
 	/** Value for sms out plan #1. */
-	private static final int RESULT_SMS1_VAL = 4;
+	private static final int RESULT_SMS1_VAL = 5;
 	/** Limit for sms out plan #1. */
-	private static final int RESULT_SMS1_LIMIT = 5;
+	private static final int RESULT_SMS1_LIMIT = 6;
 	/** Value for sms out plan #2. */
-	private static final int RESULT_SMS2_VAL = 6;
+	private static final int RESULT_SMS2_VAL = 7;
 	/** Limit for sms out plan #2. */
-	private static final int RESULT_SMS2_LIMIT = 7;
+	private static final int RESULT_SMS2_LIMIT = 8;
+	/** SMS in. */
+	private static final int RESULT_SMS_IN = 9;
 
 	/** Status Strings. */
-	private String callsIn, callsOut1, callsOut2, callsBillDate, smsIn,
-			smsOut1, smsOut2, smsBillDate;
+	private String callsIn, callsOut1, callsOut2, callsInOut, callsBillDate,
+			smsIn, smsOut1, smsOut2, smsInOut, smsBillDate;
 	/** Status TextViews. */
 	private TextView twCallsIn, twCallsOut1, twCallsOut2, twCallsBillDate,
-			twSMSIn, twSMSOut1, twSMSOut2, twSMSBillDate;
+			twCallsPB1Text, twSMSIn, twSMSOut1, twSMSOut2, twSMSBillDate,
+			twSMSPB1Text;
 	/** Status ProgressBars. */
 	private ProgressBar pbCalls1, pbCalls2, pbSMS1, pbSMS2;
 
@@ -381,11 +386,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		this.twCallsIn.setText(this.callsIn);
 		this.twCallsOut1.setText(this.callsOut1);
 		this.twCallsOut2.setText(this.callsOut2);
+		this.twCallsPB1Text.setText(this.callsInOut);
 
 		this.twSMSBillDate.setText(this.smsBillDate);
 		this.twSMSIn.setText(this.smsIn);
 		this.twSMSOut1.setText(this.smsOut1);
 		this.twSMSOut2.setText(this.smsOut2);
+		this.twSMSPB1Text.setText(this.smsInOut);
 	}
 
 	/**
@@ -468,6 +475,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					.findViewById(R.id.calls2_out);
 			this.twCallsBillDate = (TextView) this.callmeter
 					.findViewById(R.id.calls_billdate);
+			this.twCallsPB1Text = (TextView) this.callmeter
+					.findViewById(R.id.calls1_progressbar_text);
 			this.twSMSIn = (TextView) this.callmeter.findViewById(R.id.sms_in);
 			this.twSMSOut1 = (TextView) this.callmeter
 					.findViewById(R.id.sms1_out);
@@ -475,6 +484,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					.findViewById(R.id.sms2_out);
 			this.twSMSBillDate = (TextView) this.callmeter
 					.findViewById(R.id.sms_billdate);
+			this.twSMSPB1Text = (TextView) this.callmeter
+					.findViewById(R.id.sms1_progressbar_text);
 
 			this.pbCalls1.setProgress(0);
 			this.pbCalls1.setIndeterminate(false);
@@ -719,12 +730,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 				++i;
 				if (i % UPDATE_INTERVAL == 1) {
-					this.callsIn = calcString(durInMonth, 0, durIn, true,
-							false, null);
+					this.callsIn = calcString(durInMonth, 0, durIn, true);
 					this.callsOut1 = calcString(durOut1Month, free1, durOut,
-							true, false, null);
+							true);
 					this.callsOut2 = calcString(durOut2Month, free2, durOut,
-							true, false, null);
+							true);
 					this.publishProgress((Void) null);
 				}
 			} while (cur.moveToNext());
@@ -733,18 +743,21 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		status[RESULT_CALLS1_LIMIT] = free1 * SECONDS_MINUTE;
 		status[RESULT_CALLS2_VAL] = durOut2Month;
 		status[RESULT_CALLS2_LIMIT] = free2 * SECONDS_MINUTE;
+		status[RESULT_CALLS_IN] = durInMonth;
 
 		if (this.prefs.getBoolean(PREFS_CALLS_BILL_INCOMING, false)) {
-			status[RESULT_CALLS1_VAL] += durInMonth;
+			int sum = durInMonth + durOut1Month;
+			this.callsInOut = getTime(sum) + " - "
+					+ (sum * CallMeter.HUNDRET / status[RESULT_CALLS1_LIMIT])
+					+ "%";
 			free1 = 0;
+		} else {
+			this.callsInOut = "";
 		}
 
-		this.callsIn = calcString(durInMonth, 0, durIn, true, this.updateGUI,
-				this.prefs);
-		this.callsOut1 = calcString(durOut1Month, free1, durOut, true,
-				this.updateGUI, this.prefs);
-		this.callsOut2 = calcString(durOut2Month, free2, durOut, true,
-				this.updateGUI, this.prefs);
+		this.callsIn = calcString(durInMonth, 0, durIn, true);
+		this.callsOut1 = calcString(durOut1Month, free1, durOut, true);
+		this.callsOut2 = calcString(durOut2Month, free2, durOut, true);
 
 		this.publishProgress((Void) null);
 
@@ -853,12 +866,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 				++i;
 				if (i % UPDATE_INTERVAL == 1) {
-					this.smsIn = calcString(smsInMonth, 0, iSMSIn, false,
-							false, null);
+					this.smsIn = calcString(smsInMonth, 0, iSMSIn, false);
 					this.smsOut1 = calcString(smsOut2Month, free1, iSMSOut,
-							false, false, null);
+							false);
 					this.smsOut2 = calcString(smsOut2Month, free2, iSMSOut,
-							false, false, null);
+							false);
 					this.publishProgress((Void) null);
 				}
 			} while (cur.moveToNext());
@@ -868,18 +880,20 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		status[RESULT_SMS1_LIMIT] = free1;
 		status[RESULT_SMS2_VAL] = smsOut2Month;
 		status[RESULT_SMS2_LIMIT] = free2;
+		status[RESULT_SMS_IN] = smsInMonth;
 
 		if (this.prefs.getBoolean(PREFS_SMS_BILL_INCOMING, false)) {
-			status[RESULT_SMS1_VAL] += smsInMonth;
+			int sum = smsOut1Month + smsInMonth;
+			this.smsInOut = sum + " - " + (sum * CallMeter.HUNDRET / free1)
+					+ "%";
 			free1 = 0;
+		} else {
+			this.smsInOut = "";
 		}
 
-		this.smsIn = calcString(smsInMonth, 0, iSMSIn, false, this.updateGUI,
-				this.prefs);
-		this.smsOut1 = calcString(smsOut1Month, free1, iSMSOut, false,
-				this.updateGUI, this.prefs);
-		this.smsOut2 = calcString(smsOut2Month, free2, iSMSOut, false,
-				this.updateGUI, this.prefs);
+		this.smsIn = calcString(smsInMonth, 0, iSMSIn, false);
+		this.smsOut1 = calcString(smsOut1Month, free1, iSMSOut, false);
+		this.smsOut2 = calcString(smsOut2Month, free2, iSMSOut, false);
 
 		if (this.prefs.getBoolean(PREFS_MERGE_SMS_TO_CALLS, false)) {
 			// merge sms into calls.
@@ -899,9 +913,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			status[RESULT_SMS2_LIMIT] = 0;
 
 			final String s = calcString(status[i], status[i + 1],
-					this.callsOutSum, false, this.updateGUI, this.prefs); // false
-																			// ->
-			// no multiply 60s/min
+					this.callsOutSum, false); // false -> no multiply 60s/min
 			if (mergeToPlan1) {
 				this.callsOut1 = s;
 			} else {
@@ -961,7 +973,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		final boolean[][] plans = this.loadPlans(this.prefs);
 
 		// progressbar positions: calls1_pos, calls1_max, calls2_*, sms*,
-		final Integer[] ret = { 0, 0, 0, 0, 1, 1, 1, 1 };
+		final Integer[] ret = { 0, 0, 0, 0, 0, 1, 1, 1, 1, 0 };
 		Calendar calBillDate = getBillDate(Integer.parseInt(this.prefs
 				.getString(PREFS_BILLDAY, "0")));
 		if (this.plansMergeCalls) {
@@ -996,7 +1008,94 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	}
 
 	/**
-	 * Push data back to GUI. Hide progressbars.
+	 * Add cost to strings.
+	 * 
+	 * @param result
+	 *            result
+	 */
+	private void updateCost(final Integer[] result) {
+		// calls
+		float costPerCall1 = 0;
+		float costPerCall2 = 0;
+		float costPerMinute1 = 0;
+		float costPerMinute2 = 0;
+		if (!this.prefs.getBoolean(PREFS_PLAN1_T_FREE_CALLS, false)) {
+			String s = this.prefs.getString(PREFS_PLAN1_COST_PER_CALL, "");
+			if (s.length() > 0) {
+				costPerCall1 = Float.parseFloat(s);
+			}
+			s = this.prefs.getString(PREFS_PLAN1_COST_PER_MINUTE, "");
+			if (s.length() > 0) {
+				costPerMinute1 = Float.parseFloat(s);
+			}
+		}
+		if (!this.prefs.getBoolean(PREFS_PLAN2_T_FREE_CALLS, false)) {
+			String s = this.prefs.getString(PREFS_PLAN2_COST_PER_CALL, "");
+			if (s.length() > 0) {
+				costPerCall2 = Float.parseFloat(s);
+			}
+			s = this.prefs.getString(PREFS_PLAN2_COST_PER_MINUTE, "");
+			if (s.length() > 0) {
+				costPerMinute2 = Float.parseFloat(s);
+			}
+		}
+		// TODO: do the work for calls
+		// sms
+		float costPerSMS1 = 0;
+		float costPerSMS2 = 0;
+		if (!this.prefs.getBoolean(PREFS_PLAN1_T_FREE_SMS, false)) {
+			final String s = this.prefs.getString(PREFS_PLAN1_COST_PER_SMS, "");
+			if (s.length() > 0) {
+				costPerSMS1 = Float.parseFloat(s);
+			}
+		}
+		if (!this.prefs.getBoolean(PREFS_PLAN2_T_FREE_SMS, false)) {
+			final String s = this.prefs.getString(PREFS_PLAN2_COST_PER_SMS, "");
+			if (s.length() > 0) {
+				costPerSMS2 = Float.parseFloat(s);
+			}
+		}
+		if (costPerSMS1 > 0) {
+			final boolean billIn = this.prefs.getBoolean(
+					PREFS_SMS_BILL_INCOMING, false);
+			int i;
+			if (billIn) {
+				i = result[RESULT_SMS1_VAL] + result[RESULT_SMS_IN];
+			} else {
+				i = result[RESULT_SMS1_VAL];
+			}
+			if (result[RESULT_SMS1_LIMIT] > 0) {
+				i -= result[RESULT_SMS1_LIMIT];
+			}
+			if (i < 0) {
+				i = 0;
+			}
+			if (billIn) {
+				this.smsInOut = String.format("%." + currencyDigits + "f",
+						costPerSMS1 * i)
+						+ currencySymbol + " / " + this.smsInOut;
+			} else {
+				this.smsOut1 = String.format("%." + currencyDigits + "f",
+						costPerSMS1 * i)
+						+ currencySymbol + " / " + this.smsOut1;
+			}
+		}
+		if (costPerSMS2 > 0) {
+			int i = result[RESULT_SMS2_VAL];
+			if (result[RESULT_SMS2_LIMIT] > 0) {
+				i -= result[RESULT_SMS2_LIMIT];
+			}
+			if (i < 0) {
+				i = 0;
+			}
+			this.smsOut2 = String.format("%." + currencyDigits + "f",
+					costPerSMS2 * i)
+					+ currencySymbol + " / " + this.smsOut2;
+		}
+	}
+
+	/**
+	 * Push data back to GUI. Hide {@link ProgressBar}s.
 	 * 
 	 * @param result
 	 *            result
@@ -1004,6 +1103,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	@Override
 	protected final void onPostExecute(final Integer[] result) {
 		if (this.updateGUI) {
+			this.updateCost(result);
 			this.updateText();
 
 			// calls
@@ -1018,13 +1118,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 				pb1.setProgress(result[RESULT_CALLS1_VAL]);
 				pb1.setVisibility(View.VISIBLE);
-				((TextView) this.callmeter
-						.findViewById(R.id.calls1_progressbar_text))
-						.setText(getTime(result[RESULT_CALLS1_VAL])
-								+ " - "
-								+ (result[RESULT_CALLS1_VAL]
-										* CallMeter.HUNDRET / // .
-								result[RESULT_CALLS1_LIMIT]) + "%");
 			} else {
 				pb2.setVisibility(View.GONE);
 				pb2 = this.pbCalls1;
@@ -1053,12 +1146,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					pb1.setProgress(result[RESULT_SMS1_VAL]);
 				}
 				pb1.setVisibility(View.VISIBLE);
-				((TextView) this.callmeter
-						.findViewById(R.id.sms1_progressbar_text))
-						.setText(result[RESULT_SMS1_VAL] + " - "
-								+ (result[RESULT_SMS1_VAL] * // .
-										CallMeter.HUNDRET / // .
-								result[RESULT_SMS1_LIMIT]) + "%");
 			} else {
 				pb2.setVisibility(View.GONE);
 				pb2 = this.pbSMS1;
@@ -1094,15 +1181,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 *            used all together
 	 * @param calls
 	 *            calls/sms?
-	 * @param calcCost
-	 *            display cost
-	 * @param prefs
-	 *            {@link SharedPreferences}
 	 * @return String holding all the data
 	 */
 	private static String calcString(final int thisPeriod, final int limit,
-			final int all, final boolean calls, final boolean calcCost,
-			final SharedPreferences prefs) {
+			final int all, final boolean calls) {
 		if (limit > 0) {
 			if (calls) {
 				return ((thisPeriod * CallMeter.HUNDRET) / // .

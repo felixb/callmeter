@@ -408,11 +408,11 @@
 					android:summary="@string/freemin_hint" />
 				<EditTextPreference android:key="plan1_cost_per_call"
 					android:title="@string/cost_per_call_" android:dialogTitle="@string/cost_per_call_"
-					android:summary="@string/cost_per_call_hint" android:inputType="number"
+					android:summary="@string/cost_per_call_hint" android:inputType="numberDecimal"
 					android:dependency="plan1_total_free_calls" />
 				<EditTextPreference android:key="plan1_cost_per_minute"
 					android:title="@string/cost_per_minute_" android:dialogTitle="@string/cost_per_minute_"
-					android:summary="@string/cost_per_minute_hint" android:inputType="number"
+					android:summary="@string/cost_per_minute_hint" android:inputType="numberDecimal"
 					android:dependency="plan1_total_free_calls" />
 			</PreferenceCategory>
 			<PreferenceCategory android:title="@string/plan2"
@@ -426,11 +426,11 @@
 					android:summary="@string/freemin_hint" />
 				<EditTextPreference android:key="plan2_cost_per_call"
 					android:title="@string/cost_per_call_" android:dialogTitle="@string/cost_per_call_"
-					android:summary="@string/cost_per_call_hint" android:inputType="number"
+					android:summary="@string/cost_per_call_hint" android:inputType="numberDecimal"
 					android:dependency="plan2_total_free_calls" />
 				<EditTextPreference android:key="plan2_cost_per_minute"
 					android:title="@string/cost_per_minute_" android:dialogTitle="@string/cost_per_minute_"
-					android:summary="@string/cost_per_minute_hint" android:inputType="number"
+					android:summary="@string/cost_per_minute_hint" android:inputType="numberDecimal"
 					android:dependency="plan2_total_free_calls" />
 			</PreferenceCategory>
 
@@ -487,7 +487,7 @@
 					android:summary="@string/freesms_hint" />
 				<EditTextPreference android:key="plan1_cost_per_sms"
 					android:title="@string/cost_per_sms_" android:dialogTitle="@string/cost_per_sms_"
-					android:summary="@string/cost_per_sms_hint" android:inputType="number"
+					android:summary="@string/cost_per_sms_hint" android:inputType="numberDecimal"
 					android:dependency="plan1_total_free_sms" />
 			</PreferenceCategory>
 			<PreferenceCategory android:title="@string/plan2"
@@ -501,7 +501,7 @@
 					android:summary="@string/freesms_hint" />
 				<EditTextPreference android:key="plan2_cost_per_sms"
 					android:title="@string/cost_per_sms_" android:dialogTitle="@string/cost_per_sms_"
-					android:summary="@string/cost_per_sms_hint" android:inputType="number"
+					android:summary="@string/cost_per_sms_hint" android:inputType="numberDecimal"
 					android:dependency="plan2_total_free_sms" />
 			</PreferenceCategory>
 		</PreferenceScreen>
