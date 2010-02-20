@@ -31,7 +31,7 @@
 	<string name="author_es">Angel Martinez &lt;angelmtn@gmail.com&gt;	(Spanish)</string>
 	<string name="author_ru">Александр Караченков &lt;kyrieli14@gmail.com&gt; (Russian)</string>
 	<string name="author_pt_br">Renato Picozzi &lt;jdasco@gmail.com&gt; (Potuguese-Br)</string>
-	<string name="author_fr">Johann Vandromme &lt;jowann@gmail.com&gt; (Frensh)</string>
+	<string name="author_fr">Johann Vandromme &lt;jowann@gmail.com&gt; (French)</string>
 	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Sourcescode:</string>
 	<string name="source">http://github.com/felixb/callmeter</string>
