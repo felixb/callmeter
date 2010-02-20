@@ -72,6 +72,12 @@
 	<string name="bill_calls_incoming_hint">Les appels reçus sur votre téléphone sont facturés par l'opérateur.</string>
 	<string name="bill_sms_incoming_">Facturation des SMS reçus</string>
 	<string name="bill_sms_incoming_hint">Les SMS reçus sur votre téléphone sont facturés par l'opérateur.</string>
+	<string name="cost_per_call_">Coût d'un appel</string>
+	<string name="cost_per_call_hint">Prix de facturation de l'appel.</string>
+	<string name="cost_per_minute_">Coût d'une minute</string>
+	<string name="cost_per_minute_hint">Prix de facturation d'une minute.</string>
+	<string name="cost_per_sms_">Coût d'un SMS</string>
+	<string name="cost_per_sms_hint">Prix de facturation de chaque SMS.</string>
 	<string name="merge_sms_calls_">Inclure les SMS aux appels</string>
 	<string name="merge_sms_calls_hint">Facturation des SMS comme un temps d'appel.</string>
 	<string name="merge_sms_calls_sec_">Secondes / SMS</string>
