@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2010 Johann Vandromme, Felix Bechstein
+	-->
+	<!--
+		This file is part of Call Meter NG. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<resources>
+	<string name="author_">Author:</string>
+	<string name="version_">Version:</string>
+	<string name="license_">License:</string>
+	<string name="donate_">Contribuer</string>
+	<string name="donate_remove_ads_">Contribuer/Supprimer les pubs</string>
+	<string name="remove_ads_">Supprimer les pubs</string>
+	<string name="predonate">Il s'agit d'une application open-source sous licence GPLv3. Elle est gratuite et le restera. Si vous l'aimez ou si les publicités vous agacent, vous pouvez envisager de payer (par paypal). Je vous supprimerai les publicités dès que possible\nMerci!</string>
+	<string name="postdonate">Afin de supprimer les publicités, j'ai besoin que vous m'envoyez le hash-code MD5 de votre IMEI (numéro identifiant unique de votre téléphone). Ce code est basé sur une fonction unidirectionnelle et ne peut être utilisé pour vous tracer.</string>
+	<string name="about0_">Surveillez votre forfait d'appels, de messages et de données !</string>
+	<string name="about0">CallMeter crée le rapport du décompte de vos appels, de vos SMS et de vos données sur votre forfait téléphonique. Il permet également de paramétrer plusieurs plans de facturations différents.</string>
+	<string name="about1">Il affiche le compte / le décompte du forfait pour une période de facturation / une période quelconque ou le décompte global. Le calcul du temps restant par mois prend en compte votre forfait, contrairement au décompte global.</string>
+	<string name="about2">Le mode de facturation des appels permet de définir les durées minimales facturées (la première / les suivantes). Ces deux durées sont exprimées en seconde. Par exemple, 60/10 signifie que chaque appel est facturé au minimum 60 secondes, pour ensuite être facturé par tranche de 10 secondes.</string>
+	<string name="about3">Vous pouvez séparer la facturation des appels ou des messages en deux planifications distinctes. Chaque plan de facturation peut être configuré comme étant totalement gratuit, plafonné ou illimité.</string>
+	<string name="about4">Vos messages SMS peuvent être inclus dans votre temps d'appel. Par exemple, en facturant chaque message comme 15s d'appels.</string>
+	<string name="about5">CallMeter se lance en arrière plan toutes les 30 minutes (uniquement lorsque le téléphone n'est pas en veille). Cela signifie que les appels supprimés ou les messages datés de plus de 30 minutes ne modifieront pas vos statistiques. La suppression d'appels ou de messages datés de moins de 30 minutes peut donc générer de fausses statistiques.</string>
+	<string name="about6_">Ce que CallMeter NG ne fait pas:</string>
+	<string name="about6">Il n'existe aucun de moyen de distinguer les appels émis par sipdroid (VOIP) des appels réels et les websms des SMS réels. Le manque d'intégration de ces applications au système Android rend leur logs impossibles à distinguer.</string>
+	<string name="send_">Envoyer</string>
+	<string name="settings">Préférences</string>
+	<string name="about_">A propos de CallMeter NG</string>
+	<string name="more_">Plus d'applications..</string>
+	<string name="see_about">Veuillez consulter la section -A propos- pour connaître ce que CallMeter NG fait et ce qu'il ne fait pas.</string>
+	<string name="billday_">Premier jour du forfait</string>
+	<string name="billmode_">Mode de facturation d'appels</string>
+	<string name="billmode_hint">Durées minimales facturées (première / suivantes-en secondes)</string>
+	<string name="billdate_">Début de la période de facturation:</string>
+	<string name="smsperiod_">Même période pour les SMS</string>
+	<string name="smsbillday_">Premier jour de facturation SMS</string>
+	<string name="exclude_people_">Numéros gratuits</string>
+	<string name="exclude_people_hint">Appels non facturés (chiffres et joker acceptés : *555 ou 555*)</string>
+	<string name="exclude_people_add">Ajouter un numéro</string>
+	<string name="exclude_people_edit">Modifier</string>
+	<string name="exclude_people_delete">Supprimer</string>
+	<string name="exclude_people_to_plan1_">Numéros gratuits de la planification #1</string>
+	<string name="exclude_people_to_plan1_hint">Appels non facturés de la planification #1</string>
+	<string name="exclude_people_to_plan2_">Numéros gratuits de la planification #2</string>
+	<string name="exclude_people_to_plan2_hint">Appels non facturés de la planification #2</string>
+	<string name="plans">Plans</string>
+	<string name="plans_split">Séparer les planifications</string>
+	<string name="plans_merge">Rassembler les planifications</string>
+	<string name="plans_split_hint">Sépare la planification en deux plans différents.</string>
+	<string name="plan1">Planification 1</string>
+	<string name="plan2">Planification 2</string>
+	<string name="plan1_hint">Cocher les heures pour lesquelles les appels et SMS sont comptabilisés dans le premier plan. Les autres seront comptabilisées dans le second plan.</string>
+	<string name="plan_free_">Non facturé</string>
+	<string name="plan_freemin_">Minutes gratuites</string>
+	<string name="plan_freesms_">SMS gratuits</string>
+	<string name="free_hint">Complètement gratuit</string>
+	<string name="freemin_hint">Minutes gratuites / Mois</string>
+	<string name="freesms_hint">SMS gratuits / Mois</string>
+	<string name="bill_calls_incoming_">Facturation des appels reçus</string>
+	<string name="bill_calls_incoming_hint">Les appels reçus sur votre téléphone sont facturés par l'opérateur.</string>
+	<string name="bill_sms_incoming_">Facturation des SMS reçus</string>
+	<string name="bill_sms_incoming_hint">Les SMS reçus sur votre téléphone sont facturés par l'opérateur.</string>
+	<string name="merge_sms_calls_">Inclure les SMS aux appels</string>
+	<string name="merge_sms_calls_hint">Facturation des SMS comme un temps d'appel.</string>
+	<string name="merge_sms_calls_sec_">Secondes / SMS</string>
+	<string name="merge_sms_calls_sec_hint">Nombre de secondes facturées pour un SMS.</string>
+	<string name="merge_sms_plan1_">Inclure les SMS dans la planification 1</string>
+	<string name="merge_sms_plan1_hint">Décocher pour les inclure à la planification 2.</string>
+	<string name="data_enable_">Afficher les statistiques des données</string>
+	<string name="data_enable_hint">Les données sont collectées en temps réel. Le premier mois peut être incorrect !</string>
+	<string name="data_each_day">Facture de chaque jour séparément</string>
+	<string name="data_each_day_hint">Votre période de facturation débute chaque nouveau jour.</string>
+	<string name="data_limit_">Limite</string>
+	<string name="data_limit_hint">Limites du forfait des données (Mo/mois)</string>
+	<string name="monday">Lundi</string>
+	<string name="tuesday">Mardi</string>
+	<string name="wednesday">Mercredi</string>
+	<string name="thursday">Jeudi</string>
+	<string name="friday">Vendredi</string>
+	<string name="saturday">Samedi</string>
+	<string name="sunday">Dimanche</string>
+	<string name="calls">Appels</string>
+	<string name="sms">SMS</string>
+	<string name="data">Données</string>
+	<string name="calls_sms">Appels/SMS</string>
+	<string name="in">Entrants:</string>
+	<string name="out_calls">Sortants%s:</string>
+	<string name="out_sms">Sortants%s:</string>
+	<string name="out_data">Sortants:</string>
+	<string name="plan_name1_">Planification 1: nom</string>
+	<string name="plan_name2_">Planification 2: nom</string>
+	<string name="plan_name_hint">Nom personnalisé</string>
+	<string name="reset_data_">Réinitialiser les données</string>
+	<string name="reset_data_hint">Réinitialiser les données en cache.\Recalculer les statistiques à partir des logs.</string>
+</resources>
