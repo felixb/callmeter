@@ -26,6 +26,7 @@ public class ResetData extends Activity {
 		final Editor edt = PreferenceManager.getDefaultSharedPreferences(c)
 				.edit();
 		edt.remove(Updater.PREFS_CALLS_PERIOD_IN);
+		edt.remove(Updater.PREFS_CALLS_PERIOD_IN_COUNT);
 		edt.remove(Updater.PREFS_CALLS_PERIOD_OUT1);
 		edt.remove(Updater.PREFS_CALLS_PERIOD_OUT1_COUNT);
 		edt.remove(Updater.PREFS_CALLS_PERIOD_OUT2);

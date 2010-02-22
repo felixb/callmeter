@@ -134,6 +134,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	static final String PREFS_CALLS_WALK_LASTCHECK = "calls_walk_lastcheck";
 	/** Preference's name for saving calls in (this period). */
 	static final String PREFS_CALLS_PERIOD_IN = "calls_period_in";
+	/** Preference's name for saving calls in plan (this period, count). */
+	static final String PREFS_CALLS_PERIOD_IN_COUNT = "calls_period_in_n";
 	/** Preference's name for saving calls out plan #1 (this period). */
 	static final String PREFS_CALLS_PERIOD_OUT1 = "calls_period_out1";
 	/** Preference's name for saving calls out plan #1 (this period, count). */
@@ -299,6 +301,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		final Editor editor = prefs.edit();
 		if (lastCheck < lastBill) {
 			editor.remove(PREFS_CALLS_PERIOD_IN);
+			editor.remove(PREFS_CALLS_PERIOD_IN_COUNT);
 			editor.remove(PREFS_CALLS_PERIOD_OUT1);
 			editor.remove(PREFS_CALLS_PERIOD_OUT1_COUNT);
 			editor.remove(PREFS_CALLS_PERIOD_OUT2);
@@ -632,6 +635,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		int durInMonth = this.prefs.getInt(PREFS_CALLS_PERIOD_IN, 0);
 		int durOut1Month = this.prefs.getInt(PREFS_CALLS_PERIOD_OUT1, 0);
 		int durOut2Month = this.prefs.getInt(PREFS_CALLS_PERIOD_OUT2, 0);
+		int countInMonth = this.prefs.getInt(PREFS_CALLS_PERIOD_IN_COUNT, 0);
 		int countOut1Month = this.prefs
 				.getInt(PREFS_CALLS_PERIOD_OUT1_COUNT, 0);
 		int countOut2Month = this.prefs
@@ -675,6 +679,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				Log.d(TAG, "got entry: " + d);
 				switch (type) {
 				case Calls.INCOMING_TYPE:
+					++countInMonth;
 					t = cur.getInt(idDuration);
 					durIn += t;
 					if (billDate <= d) {
@@ -747,9 +752,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		if (this.prefs.getBoolean(PREFS_CALLS_BILL_INCOMING, false)) {
 			int sum = durInMonth + durOut1Month;
-			this.callsInOut = getTime(sum) + " - "
-					+ (sum * CallMeter.HUNDRET / status[RESULT_CALLS1_LIMIT])
-					+ "%";
+			this.callsInOut = getTime(sum);
+			if (status[RESULT_CALLS1_LIMIT] > 0) {
+				this.callsInOut += " - "
+						+ (sum * CallMeter.HUNDRET / status[RESULT_CALLS1_LIMIT])
+						+ "%";
+			}
 			free1 = 0;
 		} else {
 			this.callsInOut = "";
@@ -768,6 +776,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		editor.putInt(PREFS_CALLS_ALL_IN, durIn);
 		editor.putInt(PREFS_CALLS_ALL_OUT, durOut);
 		editor.putInt(PREFS_CALLS_PERIOD_IN, durInMonth);
+		editor.putInt(PREFS_CALLS_PERIOD_IN_COUNT, countInMonth);
 		editor.putInt(PREFS_CALLS_PERIOD_OUT1, durOut1Month);
 		editor.putInt(PREFS_CALLS_PERIOD_OUT1_COUNT, countOut1Month);
 		editor.putInt(PREFS_CALLS_PERIOD_OUT2, durOut2Month);
@@ -884,8 +893,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		if (this.prefs.getBoolean(PREFS_SMS_BILL_INCOMING, false)) {
 			int sum = smsOut1Month + smsInMonth;
-			this.smsInOut = sum + " - " + (sum * CallMeter.HUNDRET / free1)
-					+ "%";
+			this.smsInOut = sum + "";
+			if (free1 > 0) {
+				this.smsInOut += " - " + (sum * CallMeter.HUNDRET / free1)
+						+ "%";
+			}
 			free1 = 0;
 		} else {
 			this.smsInOut = "";
@@ -1020,26 +1032,84 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		float costPerMinute1 = 0;
 		float costPerMinute2 = 0;
 		if (!this.prefs.getBoolean(PREFS_PLAN1_T_FREE_CALLS, false)) {
-			String s = this.prefs.getString(PREFS_PLAN1_COST_PER_CALL, "");
-			if (s.length() > 0) {
-				costPerCall1 = Float.parseFloat(s);
+			if (result[RESULT_CALLS1_LIMIT] <= 0) {
+				final String s = this.prefs.getString(
+						PREFS_PLAN1_COST_PER_CALL, "");
+				if (s.length() > 0) {
+					costPerCall1 = Float.parseFloat(s);
+				}
 			}
-			s = this.prefs.getString(PREFS_PLAN1_COST_PER_MINUTE, "");
+			final String s = this.prefs.getString(PREFS_PLAN1_COST_PER_MINUTE,
+					"");
 			if (s.length() > 0) {
 				costPerMinute1 = Float.parseFloat(s);
 			}
 		}
 		if (!this.prefs.getBoolean(PREFS_PLAN2_T_FREE_CALLS, false)) {
-			String s = this.prefs.getString(PREFS_PLAN2_COST_PER_CALL, "");
-			if (s.length() > 0) {
-				costPerCall2 = Float.parseFloat(s);
+			if (result[RESULT_CALLS2_LIMIT] <= 0) {
+				final String s = this.prefs.getString(
+						PREFS_PLAN2_COST_PER_CALL, "");
+				if (s.length() > 0) {
+					costPerCall2 = Float.parseFloat(s);
+				}
 			}
-			s = this.prefs.getString(PREFS_PLAN2_COST_PER_MINUTE, "");
+			final String s = this.prefs.getString(PREFS_PLAN2_COST_PER_MINUTE,
+					"");
 			if (s.length() > 0) {
 				costPerMinute2 = Float.parseFloat(s);
 			}
 		}
-		// TODO: do the work for calls
+
+		if (costPerCall1 > 0 || costPerMinute1 > 0) {
+			final boolean billIn = this.prefs.getBoolean(
+					PREFS_CALLS_BILL_INCOMING, false);
+			int i;
+			int c;
+			String s;
+			if (billIn) {
+				i = result[RESULT_CALLS1_VAL] + result[RESULT_CALLS_IN];
+				c = this.prefs.getInt(PREFS_CALLS_PERIOD_IN_COUNT, 0);
+				s = this.callsInOut;
+			} else {
+				i = result[RESULT_CALLS1_VAL];
+				s = this.callsOut1;
+				c = this.prefs.getInt(PREFS_CALLS_PERIOD_OUT1_COUNT, 0);
+			}
+			if (result[RESULT_CALLS1_LIMIT] > 0) {
+				i -= result[RESULT_CALLS1_LIMIT];
+			}
+			if (i < 0) {
+				i = 0;
+			}
+			float cost = ((costPerMinute1 * i) / SECONDS_MINUTE)
+					+ (costPerCall1 * c);
+			s = String.format("%." + currencyDigits + "f", cost)
+					+ currencySymbol + " / " + s;
+			if (billIn) {
+				this.callsInOut = s;
+			} else {
+				this.callsOut1 = s;
+			}
+		}
+
+		if (costPerCall2 > 0 || costPerMinute2 > 0) {
+			int i = result[RESULT_CALLS2_VAL];
+			int c = this.prefs.getInt(PREFS_CALLS_PERIOD_OUT2_COUNT, 0);
+			String s = this.callsOut2;
+
+			if (result[RESULT_CALLS2_LIMIT] > 0) {
+				i -= result[RESULT_CALLS2_LIMIT];
+			}
+			if (i < 0) {
+				i = 0;
+			}
+			float cost = ((costPerMinute2 * i) / SECONDS_MINUTE)
+					+ (costPerCall2 * c);
+			s = String.format("%." + currencyDigits + "f", cost)
+					+ currencySymbol + " / " + s;
+			this.callsOut2 = s;
+		}
+
 		// sms
 		float costPerSMS1 = 0;
 		float costPerSMS2 = 0;
@@ -1059,10 +1129,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			final boolean billIn = this.prefs.getBoolean(
 					PREFS_SMS_BILL_INCOMING, false);
 			int i;
+			String s;
 			if (billIn) {
 				i = result[RESULT_SMS1_VAL] + result[RESULT_SMS_IN];
+				s = this.smsInOut;
 			} else {
 				i = result[RESULT_SMS1_VAL];
+				s = this.smsOut1;
 			}
 			if (result[RESULT_SMS1_LIMIT] > 0) {
 				i -= result[RESULT_SMS1_LIMIT];
@@ -1070,14 +1143,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			if (i < 0) {
 				i = 0;
 			}
+			final float cost = costPerSMS1 * i;
+			s = String.format("%." + currencyDigits + "f", cost)
+					+ currencySymbol + " / " + s;
 			if (billIn) {
-				this.smsInOut = String.format("%." + currencyDigits + "f",
-						costPerSMS1 * i)
-						+ currencySymbol + " / " + this.smsInOut;
+				this.smsInOut = s;
 			} else {
-				this.smsOut1 = String.format("%." + currencyDigits + "f",
-						costPerSMS1 * i)
-						+ currencySymbol + " / " + this.smsOut1;
+				this.smsOut1 = s;
 			}
 		}
 		if (costPerSMS2 > 0) {
@@ -1088,8 +1160,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			if (i < 0) {
 				i = 0;
 			}
-			this.smsOut2 = String.format("%." + currencyDigits + "f",
-					costPerSMS2 * i)
+			final float cost = costPerSMS2 * i;
+			this.smsOut2 = String.format("%." + currencyDigits + "f", cost)
 					+ currencySymbol + " / " + this.smsOut2;
 		}
 	}
