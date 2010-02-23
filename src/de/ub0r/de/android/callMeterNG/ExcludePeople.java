@@ -6,9 +6,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.Contacts.PhonesColumns;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -21,6 +25,9 @@ import android.widget.AdapterView.OnItemClickListener;
  * @author flx
  */
 public class ExcludePeople extends Activity implements OnItemClickListener {
+	/** Tag for output. */
+	private static final String TAG = "CallMeterNG.ex";
+
 	/** Prefs: Exclude people prefix. */
 	static final String PREFS_EXCLUDE_PEOPLE_PREFIX = "exclude_people_";
 	/** Prefs: Exclude people count. */
@@ -65,6 +72,45 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
+	protected final void onActivityResult(final int requestCode,
+			final int resultCode, final Intent data) {
+		Log.d(TAG, "requestCode: " + requestCode);
+		Log.d(TAG, "resultCode: " + requestCode);
+		if (data == null || data.getData() == null) {
+			return;
+		}
+		Log.d(TAG, "data: " + data.getData().toString());
+		// get number for uri
+		Cursor c = this.managedQuery(data.getData(), null, null, null, null);
+		if (!c.moveToFirst()) {
+			return;
+		}
+		int i = c.getColumnIndex(PhonesColumns.NUMBER);
+		if (i < 0) {
+			Log.e(TAG, "switch to data1");
+			i = c.getColumnIndex("data1");
+		}
+		if (i < 0) {
+			Log.e(TAG, "unable to find row");
+			return;
+		}
+		Log.e(TAG, "row: " + i);
+		String number = c.getString(i).replace(" ", "").replace("-", "")
+				.replace(".", "").replace("(", "").replace(")", "").replace(
+						"<", "").replace(">", "").trim();
+		Log.d(TAG, number);
+		if (requestCode == 0) {
+			CallMeter.prefsExcludePeople.add(number);
+		} else {
+			CallMeter.prefsExcludePeople.set(requestCode, number);
+		}
+		CallMeter.excludedPeaoplAdapter.notifyDataSetChanged();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	public final void onItemClick(final AdapterView<?> parent, final View view,
 			final int position, final long id) {
 		if (position == 0) {
@@ -81,16 +127,20 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 									.toString());
 							CallMeter.excludedPeaoplAdapter
 									.notifyDataSetChanged();
-							dialog.dismiss();
 						}
 					});
-			builder.setNegativeButton(android.R.string.cancel,
+			builder.setNeutralButton(R.string.contacts_,
 					new DialogInterface.OnClickListener() {
 						public void onClick(final DialogInterface dialog,
 								final int id) {
-							dialog.cancel();
+							final Intent intent = // .
+							new Intent(Intent.ACTION_GET_CONTENT);
+							intent.setType("vnd.android.cursor.item/phone");
+							ExcludePeople.this.startActivityForResult(intent,
+									position);
 						}
 					});
+			builder.setNegativeButton(android.R.string.cancel, null);
 			builder.create().show();
 		} else {
 			final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -99,10 +149,11 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 			itms[0] = this.getString(R.string.exclude_people_edit);
 			itms[1] = this.getString(R.string.exclude_people_delete);
 			builder.setItems(itms, new DialogInterface.OnClickListener() {
-				public void onClick(final DialogInterface dialog, final int item) {
+				public void onClick(final DialogInterface dialog, // .
+						final int item) {
 					if (item == 0) { // edit
-						final AlertDialog.Builder builder2 = new AlertDialog.Builder(
-								ExcludePeople.this);
+						final AlertDialog.Builder builder2 = // .
+						new AlertDialog.Builder(ExcludePeople.this);
 						final EditText et = new EditText(ExcludePeople.this);
 						et.setText(CallMeter.prefsExcludePeople.get(position));
 						builder2.setView(et);
@@ -118,17 +169,24 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 														.toString());
 										CallMeter.excludedPeaoplAdapter
 												.notifyDataSetChanged();
-										dialog.dismiss();
 									}
 								});
-						builder2.setNegativeButton(android.R.string.cancel,
+						builder2.setNeutralButton(R.string.contacts_,
 								new DialogInterface.OnClickListener() {
 									public void onClick(
 											final DialogInterface dialog,
 											final int id) {
-										dialog.cancel();
+										final Intent intent = // .
+										new Intent(Intent.ACTION_GET_CONTENT);
+										intent.setType("vnd.android"
+												+ ".cursor.item/phone");
+										ExcludePeople.this
+												.startActivityForResult(intent,
+														position);
 									}
 								});
+						builder2.setNegativeButton(android.R.string.cancel,
+								null);
 						builder2.create().show();
 					} else { // delete
 						CallMeter.prefsExcludePeople.remove(position);
@@ -155,8 +213,7 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 		ret.add(context.getString(R.string.exclude_people_add));
 		final int c = p.getInt(PREFS_EXCLUDE_PEOPLE_COUNT, 0);
 		for (int i = 0; i < c; i++) {
-			ret.add(p.getString(
-					PREFS_EXCLUDE_PEOPLE_PREFIX + i, "???"));
+			ret.add(p.getString(PREFS_EXCLUDE_PEOPLE_PREFIX + i, "???"));
 		}
 		return ret;
 	}

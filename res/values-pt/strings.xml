@@ -105,4 +105,5 @@
 	<string name="plan_name1_">Plano 1: nome</string>
 	<string name="plan_name2_">Plano 2: nome</string>
 	<string name="plan_name_hint">Nome do Usuário</string>
+	<string name="contacts_">Contatos</string>
 </resources>

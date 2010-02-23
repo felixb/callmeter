@@ -109,4 +109,5 @@
 	<string name="plan_name_hint">Επιλογή Ονόματος</string>
 	<string name="reset_data_">Επαναφορά στοιχείων</string>
 	<string name="reset_data_hint">Επαναφορά προσωρινών δεδομένων.\nΥπολογισμός στατιστικών από τα logs.</string>
+	<string name="contacts_">Επαφές</string>
 </resources>

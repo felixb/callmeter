@@ -108,4 +108,5 @@
 	<string name="plan_name_hint">Eigener Name</string>
 	<string name="reset_data_">Reset: Daten</string>
 	<string name="reset_data_hint">Zwischengespeicherte Daten löschen.\nDie Statistiken werden neu berechnet.</string>
+	<string name="contacts_">Kontakte</string>
 </resources>

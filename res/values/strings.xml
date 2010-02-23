@@ -156,4 +156,5 @@
 	<string name="plan_name_hint">Custom Name</string>
 	<string name="reset_data_">Reset data</string>
 	<string name="reset_data_hint">Reset cached data.\nRecalulate statistics from logs.</string>
+	<string name="contacts_">Contacts</string>
 </resources>

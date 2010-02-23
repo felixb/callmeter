@@ -98,4 +98,5 @@
 	<string name="plan_name_hint">Nombre personalizado</string>
 	<string name="reset_data_">Reinicializar datos</string>
 	<string name="reset_data_hint">Reinicializa datos almacenados.\nRecalcula estadísticas de los registros.</string>
+	<string name="contacts_">Contactos</string>
 </resources>
