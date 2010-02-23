@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>v2.1: Allow to set cost for calls/messages</item>
+		<item>v2.1: Allow to set cost for calls/messages, allow to bill incoming traffic only</item>
 		<item>v2.0: Run callmeter every 30min in background to save logs, add 60/30 billing mode, allow to bill inbound calls/messages, change donator check</item>
 		<item>v1.1.4: Fix billing date for data plans</item>
 		<item>v1.1.3: Add 30/1 billing mode, add 1-day-billing data-plans, add hi-res icons</item>
