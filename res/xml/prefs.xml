@@ -511,6 +511,9 @@
 		<PreferenceScreen android:title="@string/data">
 			<CheckBoxPreference android:key="data_enable"
 				android:title="@string/data_enable_" android:summary="@string/data_enable_hint" />
+			<CheckBoxPreference android:key="data_incoming_only"
+				android:title="@string/bill_data_incoming_only_" android:summary="@string/bill_data_incoming_only_hint"
+				android:dependency="data_enable" />
 			<CheckBoxPreference android:key="data_eachday"
 				android:title="@string/data_each_day" android:summary="@string/data_each_day_hint"
 				android:dependency="data_enable" />

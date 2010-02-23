@@ -36,12 +36,9 @@ import android.widget.TextView;
  * 
  * @author flx
  */
-class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
+class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 	/** Tag for output. */
 	private static final String TAG = "CallMeterNG.ud";
-
-	/** Bytes per Megabyte. */
-	private static final int BYTES_MEGABYTE = 1024 * 1024;
 
 	/** Prefs: enable data stats. */
 	private static final String PREFS_DATA_ENABLE = "data_enable";
@@ -49,6 +46,8 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 	private static final String PREFS_DATA_EACHDAY = "data_eachday";
 	/** Prefs: limit for data traffic. */
 	private static final String PREFS_DATA_LIMIT = "data_limit";
+	/** Prefs: bill only incoming data. */
+	private static final String PREFS_DATA_INCOMING_ONLY = "data_incoming_only";
 
 	/** Prefs: data in at last boot. */
 	private static final String PREFS_DATA_BOOT_IN = "data_boot_in";
@@ -65,6 +64,25 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 	"data_prebilling_out";
 	/** Prefs: date of last billing. */
 	private static final String PREFS_DATA_LASTCHECK = "data_lastcheck";
+
+	/** Byte units. */
+	private static final String BYTE_UNITS_B = "B";
+	/** Byte units: kB. */
+	private static final String BYTE_UNITS_KB = "kB";
+	/** Byte units: MB. */
+	private static final String BYTE_UNITS_MB = "MB";
+	/** Byte units: GB. */
+	private static final String BYTE_UNITS_GB = "GB";
+	/** Byte units: TB. */
+	private static final String BYTE_UNITS_TB = "TB";
+	/** Bytes: kB. */
+	private static final long BYTE_KB = 1024L;
+	/** Bytes: MB. */
+	private static final long BYTE_MB = BYTE_KB * BYTE_KB;
+	/** Bytes: GB. */
+	private static final long BYTE_GB = BYTE_MB * BYTE_KB;
+	/** Bytes: TB. */
+	private static final long BYTE_TB = BYTE_GB * BYTE_KB;
 
 	/** Status Strings. */
 	private String dataIn, dataOut, dataBillDate;
@@ -152,21 +170,12 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 	}
 
 	/**
-	 * @param data
-	 *            amount of data transfered
-	 * @return more readable output
-	 */
-	private String makeBytesReadable(final long data) {
-		return data / (BYTES_MEGABYTE) + "MB";
-	}
-
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Integer[] doInBackground(final Void... arg0) {
+	protected Long[] doInBackground(final Void... arg0) {
 		// progressbar positions: data_pos, data_max
-		final Integer[] ret = { 0, 0 };
+		final Long[] ret = { 0L, 0L };
 		Calendar calBillDate = getBillDate(this.prefs);
 		this.dataBillDate = DateFormat.getDateFormat(this.context).format(
 				calBillDate.getTime());
@@ -189,10 +198,10 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 			final long currentOut = preBootOut + runningOut;
 			final long thisBillingIn = currentIn - preBillingIn;
 			final long thisBillingOut = currentOut - preBillingOut;
-			this.dataIn = this.makeBytesReadable(thisBillingIn) + "/"
-					+ this.makeBytesReadable(currentIn);
-			this.dataOut = this.makeBytesReadable(currentOut - preBillingOut)
-					+ "/" + this.makeBytesReadable(currentOut);
+			this.dataIn = prettyBytes(thisBillingIn) + "/"
+					+ prettyBytes(currentIn);
+			this.dataOut = prettyBytes(currentOut - preBillingOut) + "/"
+					+ prettyBytes(currentOut);
 			int limit = 0;
 			try {
 				limit = Integer.parseInt(this.prefs.getString(PREFS_DATA_LIMIT,
@@ -201,30 +210,68 @@ class UpdaterData extends AsyncTask<Void, Void, Integer[]> {
 				Log.e(TAG, null, e);
 			}
 
-			ret[0] = (int) (thisBillingIn + thisBillingOut) / (BYTES_MEGABYTE);
-			ret[1] = limit;
+			ret[0] = thisBillingIn;
+			if (!this.prefs.getBoolean(PREFS_DATA_INCOMING_ONLY, false)) {
+				ret[0] += thisBillingOut;
+			}
+			ret[1] = limit * BYTE_MB;
 		}
 
 		return ret;
 	}
 
 	/**
+	 * Return pretty bytes.
+	 * 
+	 * @author Cyril Jaquier
+	 * @param value
+	 *            bytes
+	 * @return pretty bytes
+	 */
+	private static String prettyBytes(final long value) {
+		StringBuilder sb = new StringBuilder();
+		if (value < BYTE_KB) {
+			sb.append(String.valueOf(value));
+			sb.append(BYTE_UNITS_B);
+		} else if (value < BYTE_MB) {
+			sb.append(String.format("%.1f", value / (BYTE_KB * 1.0)));
+			sb.append(BYTE_UNITS_KB);
+		} else if (value < BYTE_GB) {
+			sb.append(String.format("%.2f", value / (BYTE_MB * 1.0)));
+			sb.append(BYTE_UNITS_MB);
+		} else if (value < BYTE_TB) {
+			sb.append(String.format("%.3f", value / (BYTE_GB * 1.0)));
+			sb.append(BYTE_UNITS_GB);
+		} else {
+			sb.append(String.format("%.4f", value / (BYTE_TB * 1.0)));
+			sb.append(BYTE_UNITS_TB);
+		}
+		return sb.toString();
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void onPostExecute(final Integer[] result) {
+	protected final void onPostExecute(final Long[] result) {
 		if (this.updateGUI) {
 			this.updateText();
 
-			// calls
 			ProgressBar pb = this.pbData;
 			if (result[1] > 0) {
-				pb.setMax(result[1]);
-				pb.setProgress(result[0]);
+				pb.setMax((int) (result[1] / BYTE_KB));
+				pb.setProgress((int) (result[0] / BYTE_KB));
 				pb.setVisibility(View.VISIBLE);
-				this.twPBDataText.setText(result[0] + "MB - "
-						+ ((result[0] * CallMeter.HUNDRET) / result[1]) + "%");
-				this.twPBDataText.setVisibility(View.VISIBLE);
+				final String s = ((result[0] * CallMeter.HUNDRET) / result[1])
+						+ "%";
+				if (this.prefs.getBoolean(PREFS_DATA_INCOMING_ONLY, false)) {
+					this.twDataIn.setText(s + " / " + this.twDataIn.getText());
+					this.twPBDataText.setVisibility(View.GONE);
+				} else {
+					this.twPBDataText.setText(s + " / "
+							+ prettyBytes(result[0]));
+					this.twPBDataText.setVisibility(View.VISIBLE);
+				}
 			} else {
 				pb.setVisibility(View.GONE);
 				this.twPBDataText.setVisibility(View.GONE);

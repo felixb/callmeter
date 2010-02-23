@@ -69,6 +69,8 @@
 	<string name="bill_calls_incoming_hint">Eingehende Anrufe auch abrechnen.</string>
 	<string name="bill_sms_incoming_">Eingehende abrechnen</string>
 	<string name="bill_sms_incoming_hint">Eingehende SMS auch abrechnen.</string>
+	<string name="bill_data_incoming_only_">Nur eingehender Traffic</string>
+	<string name="bill_data_incoming_only_hint">Nur eingehenden Traffic abrechnen.</string>
 	<string name="cost_per_call_">Kosten pro Anruf</string>
 	<string name="cost_per_call_hint">Jeder Anruf wird berechnet.</string>
 	<string name="cost_per_minute_">Kosten pro Minute</string>
