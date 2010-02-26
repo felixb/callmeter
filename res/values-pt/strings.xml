@@ -71,6 +71,8 @@
 	<string name="bill_calls_incoming_hint">Conta de recebimento de ligações é de.</string>
 	<string name="bill_sms_incoming_">Conta de recebimento</string>
 	<string name="bill_sms_incoming_hint">Conta de recebimento de SMS é de.</string>
+	<string name="bill_data_incoming_only_">Conta apenas de recebimento de chamadas</string>
+	<string name="bill_data_incoming_only_hint">Conta só do tráfego de recebimento de chamadas.</string>
 	<string name="cost_per_call_">Custo por ligação</string>
 	<string name="cost_per_call_hint">Cada ligação será cobrada por.</string>
 	<string name="cost_per_minute_">Custo por minuto</string>
