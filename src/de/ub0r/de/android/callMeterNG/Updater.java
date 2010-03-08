@@ -295,7 +295,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		final long lastBill = billDate.getTimeInMillis();
 		final long now = System.currentTimeMillis();
 		final long lastCheck = prefs.getLong(PREFS_CALLS_PERIOD_LASTCHECK, 0);
-		Log.d(TAG, "last check calls: " + now);
+		Log.d(TAG, "last check calls: " + lastCheck);
 		Log.d(TAG, "lastBill: " + lastBill);
 
 		final Editor editor = prefs.edit();
@@ -986,8 +986,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		// progressbar positions: calls1_pos, calls1_max, calls2_*, sms*,
 		final Integer[] ret = { 0, 0, 0, 0, 0, 1, 1, 1, 1, 0 };
-		Calendar calBillDate = getBillDate(Integer.parseInt(this.prefs
-				.getString(PREFS_BILLDAY, "0")));
+		Calendar calBillDate = getBillDayCalls(this.prefs);
 		if (this.plansMergeCalls) {
 			this.walkCalls(null, calBillDate, ret);
 		} else {
@@ -995,10 +994,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		}
 
 		// report sms
-		if (!this.prefs.getBoolean(PREFS_SMSPERIOD, false)) {
-			calBillDate = getBillDate(Integer.parseInt(this.prefs.getString(
-					PREFS_SMSBILLDAY, "0")));
-		}
+		calBillDate = getBillDaySMS(this.prefs);
 		if (this.plansMergeSms) {
 			this.walkSMS(null, calBillDate, ret);
 		} else {
