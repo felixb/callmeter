@@ -679,8 +679,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				Log.d(TAG, "got entry: " + d);
 				switch (type) {
 				case Calls.INCOMING_TYPE:
-					++countInMonth;
 					t = cur.getInt(idDuration);
+					if (t <= 0) {
+						break;
+					}
+					++countInMonth;
 					durIn += t;
 					if (billDate <= d) {
 						durInMonth += this.roundTime(t);
@@ -688,6 +691,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					break;
 				case Calls.OUTGOING_TYPE:
 					t = cur.getInt(idDuration);
+					if (t <= 0) {
+						break;
+					}
 					durOut += t;
 					if (billDate <= d) {
 						check = true;
