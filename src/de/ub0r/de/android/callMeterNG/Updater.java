@@ -837,21 +837,25 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		if (this.prefs.getBoolean(PREFS_CALLS_BILL_INCOMING, false)) {
 			int sum = durIn1Month + durOut1Month;
-			this.callsInOut1 = getTime(sum);
 			if (status[RESULT_CALLS1_LIMIT] > 0) {
-				this.callsInOut1 += " - "
-						+ (sum * CallMeter.HUNDRET / status[RESULT_CALLS1_LIMIT])
-						+ "%";
+				this.callsInOut1 = (sum * CallMeter.HUNDRET / status[RESULT_CALLS1_LIMIT])
+						+ "% / ";
+			} else {
+				this.callsInOut1 = "";
 			}
+			this.callsInOut1 += getTime(sum) + " ("
+					+ (countIn1Month + countOut1Month) + ")";
 			free1 = 0;
 
 			sum = durIn2Month + durOut2Month;
-			this.callsInOut2 = getTime(sum);
 			if (status[RESULT_CALLS2_LIMIT] > 0) {
-				this.callsInOut2 += " - "
-						+ (sum * CallMeter.HUNDRET / status[RESULT_CALLS2_LIMIT])
-						+ "%";
+				this.callsInOut2 = (sum * CallMeter.HUNDRET / status[RESULT_CALLS2_LIMIT])
+						+ "% / ";
+			} else {
+				this.callsInOut2 = "";
 			}
+			this.callsInOut2 += getTime(sum) + " ("
+					+ (countIn2Month + countOut2Month) + ")";
 			free2 = 0;
 		} else {
 			this.callsInOut1 = "";
@@ -1001,18 +1005,20 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		if (this.prefs.getBoolean(PREFS_SMS_BILL_INCOMING, false)) {
 			int sum = smsOut1Month + smsIn1Month;
-			this.smsInOut1 = sum + "";
 			if (free1 > 0) {
-				this.smsInOut1 += " - " + (sum * CallMeter.HUNDRET / free1)
-						+ "%";
+				this.smsInOut1 = (sum * CallMeter.HUNDRET / free1) + "% / ";
+			} else {
+				this.smsInOut1 = "";
 			}
+			this.smsInOut1 += sum;
 			free1 = 0;
 			sum = smsOut2Month + smsIn2Month;
-			this.smsInOut2 = sum + "";
 			if (free2 > 0) {
-				this.smsInOut2 += " - " + (sum * CallMeter.HUNDRET / free2)
-						+ "%";
+				this.smsInOut2 = (sum * CallMeter.HUNDRET / free2) + "% / ";
+			} else {
+				this.smsInOut2 = "";
 			}
+			this.smsInOut2 += sum;
 			free2 = 0;
 		} else {
 			this.smsInOut1 = "";
@@ -1050,19 +1056,21 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			int freesum = status[i + 1];
 			if (this.prefs.getBoolean(PREFS_CALLS_BILL_INCOMING, false)) {
 				int sum = status[i] + status[j];
-				ssum = getTime(sum);
 				if (freesum > 0) {
-					ssum += " - " + (sum * CallMeter.HUNDRET / freesum) + "%";
+					ssum = (sum * CallMeter.HUNDRET / freesum) + "% / ";
+				} else {
+					ssum = "";
 				}
+				ssum += getTime(sum);
 				freesum = 0;
 			} else {
 				ssum = "";
 			}
 
 			final String sin = calcString(status[j], 0, this.callsInSum, true,
-					0);
+					-1);
 			final String sout = calcString(status[i], freesum / SECONDS_MINUTE,
-					this.callsOutSum, true, 0);
+					this.callsOutSum, true, -1);
 			if (mergeToPlan1) {
 				this.callsIn1 = sin;
 				this.callsOut1 = sout;
@@ -1418,18 +1426,24 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 */
 	private static String calcString(final int thisPeriod, final int limit,
 			final int all, final boolean calls, final int count) {
+		String c = "";
+		if (calls && count >= 0) {
+			c = " (" + count + ")";
+		}
 		if (limit > 0) {
 			if (calls) {
 				return ((thisPeriod * CallMeter.HUNDRET) / // .
 						(limit * SECONDS_MINUTE))
-						+ "% / " + getTime(thisPeriod) + " / " + getTime(all);
+						+ "% / " + getTime(thisPeriod) + c
+						+ " / "
+						+ getTime(all);
 			} else {
 				return ((thisPeriod * CallMeter.HUNDRET) / limit) + "% / "
 						+ thisPeriod + " / " + all;
 			}
 		} else {
 			if (calls) {
-				return getTime(thisPeriod) + " / " + getTime(all);
+				return getTime(thisPeriod) + c + " / " + getTime(all);
 			} else {
 				return thisPeriod + " / " + all;
 			}
