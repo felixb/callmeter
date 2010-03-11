@@ -224,8 +224,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	/** Bill excluded people in plan2. */
 	private boolean excludedToPlan2 = false;
 
-	/** Sum of displayed calls out. Used if merging sms into calls. */
-	private int callsOutSum;
+	/** Sum of displayed calls in/out. Used if merging sms into calls. */
+	private int callsInSum, callsOutSum;
 
 	/** Length of first billed timeslot. */
 	private int lengthOfFirstSlot;
@@ -581,9 +581,24 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 						View.VISIBLE);
 			}
 
-			int v = View.VISIBLE;
-			if (this.prefs.getBoolean(PREFS_MERGE_SMS_TO_CALLS, false)) {
-				v = View.GONE;
+			int v = View.GONE;
+			if (!this.prefs.getBoolean(PREFS_MERGE_SMS_TO_CALLS, false)) {
+				v = View.VISIBLE;
+
+				int v1 = View.VISIBLE;
+				if (!this.prefs.getBoolean(PREFS_SMS_BILL_INCOMING, false)) {
+					v1 = View.GONE;
+				}
+				TextView tw = this.twSMSPB1Text;
+				tw.setText("");
+				tw.setVisibility(v1);
+				tw = this.twSMSPB2Text;
+				tw.setText("");
+				tw.setVisibility(v1);
+
+			} else {
+				this.twSMSPB1Text.setVisibility(View.GONE);
+				this.twSMSPB2Text.setVisibility(View.GONE);
 			}
 			this.callmeter.findViewById(R.id.sms_).setVisibility(v);
 			this.callmeter.findViewById(R.id.sms_billdate_).setVisibility(v);
@@ -605,17 +620,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			tw.setText("");
 			tw.setVisibility(v);
 			tw = this.twCallsPB2Text;
-			tw.setText("");
-			tw.setVisibility(v);
-
-			v = View.VISIBLE;
-			if (!this.prefs.getBoolean(PREFS_SMS_BILL_INCOMING, false)) {
-				v = View.GONE;
-			}
-			tw = this.twSMSPB1Text;
-			tw.setText("");
-			tw.setVisibility(v);
-			tw = this.twSMSPB2Text;
 			tw.setText("");
 			tw.setVisibility(v);
 
@@ -812,12 +816,14 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 				++i;
 				if (i % UPDATE_INTERVAL == 1) {
-					this.callsIn1 = calcString(durIn1Month, 0, durIn, true);
-					this.callsIn2 = calcString(durIn2Month, 0, durIn, true);
+					this.callsIn1 = calcString(durIn1Month, 0, durIn, true,
+							countIn1Month);
+					this.callsIn2 = calcString(durIn2Month, 0, durIn, true,
+							countIn2Month);
 					this.callsOut1 = calcString(durOut1Month, free1, durOut,
-							true);
+							true, countOut1Month);
 					this.callsOut2 = calcString(durOut2Month, free2, durOut,
-							true);
+							true, countOut2Month);
 					this.publishProgress((Void) null);
 				}
 			} while (cur.moveToNext());
@@ -852,13 +858,16 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.callsInOut2 = "";
 		}
 
-		this.callsIn1 = calcString(durIn1Month, 0, durIn, true);
-		this.callsIn2 = calcString(durIn2Month, 0, durIn, true);
-		this.callsOut1 = calcString(durOut1Month, free1, durOut, true);
-		this.callsOut2 = calcString(durOut2Month, free2, durOut, true);
+		this.callsIn1 = calcString(durIn1Month, 0, durIn, true, countIn1Month);
+		this.callsIn2 = calcString(durIn2Month, 0, durIn, true, countIn2Month);
+		this.callsOut1 = calcString(durOut1Month, free1, durOut, true,
+				countOut1Month);
+		this.callsOut2 = calcString(durOut2Month, free2, durOut, true,
+				countOut2Month);
 
 		this.publishProgress((Void) null);
 
+		this.callsInSum = durIn;
 		this.callsOutSum = durOut;
 
 		Log.d(TAG, "last walk calls: " + lastWalk);
@@ -973,12 +982,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 				++i;
 				if (i % UPDATE_INTERVAL == 1) {
-					this.smsIn1 = calcString(smsIn1Month, 0, iSMSIn, false);
-					this.smsIn2 = calcString(smsIn2Month, 0, iSMSIn, false);
+					this.smsIn1 = calcString(smsIn1Month, 0, iSMSIn, false, 0);
+					this.smsIn2 = calcString(smsIn2Month, 0, iSMSIn, false, 0);
 					this.smsOut1 = calcString(smsOut2Month, free1, iSMSOut,
-							false);
+							false, 0);
 					this.smsOut2 = calcString(smsOut2Month, free2, iSMSOut,
-							false);
+							false, 0);
 					this.publishProgress((Void) null);
 				}
 			} while (cur.moveToNext());
@@ -1010,10 +1019,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.smsInOut2 = "";
 		}
 
-		this.smsIn1 = calcString(smsIn1Month, 0, iSMSIn, false);
-		this.smsIn2 = calcString(smsIn2Month, 0, iSMSIn, false);
-		this.smsOut1 = calcString(smsOut1Month, free1, iSMSOut, false);
-		this.smsOut2 = calcString(smsOut2Month, free2, iSMSOut, false);
+		this.smsIn1 = calcString(smsIn1Month, 0, iSMSIn, false, 0);
+		this.smsIn2 = calcString(smsIn2Month, 0, iSMSIn, false, 0);
+		this.smsOut1 = calcString(smsOut1Month, free1, iSMSOut, false, 0);
+		this.smsOut2 = calcString(smsOut2Month, free2, iSMSOut, false, 0);
 
 		if (this.prefs.getBoolean(PREFS_MERGE_SMS_TO_CALLS, false)) {
 			// merge sms into calls.
@@ -1021,23 +1030,47 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					|| this.prefs.getBoolean(PREFS_MERGE_SMS_PLAN1, true);
 			final int secondsForSMS = Integer.parseInt(this.prefs.getString(
 					PREFS_MERGE_SMS_TO_CALLS_SECONDS, "0"));
-			int i = 0; // plan 1 number of seconds
+			int i = RESULT_CALLS1_VAL; // plan 1 number of seconds
+			int j = RESULT_CALLS1_IN;
 			if (!mergeToPlan1) {
-				i = 2; // plan 2 number of seconds
+				i = RESULT_CALLS2_VAL; // plan 2 number of seconds
+				j = RESULT_CALLS2_IN;
 			}
 			status[i] += secondsForSMS * smsOut1Month;
+			if (this.prefs.getBoolean(PREFS_SMS_BILL_INCOMING, false)) {
+				status[j] += secondsForSMS * smsIn1Month;
+			}
 
 			status[RESULT_SMS1_VAL] = 0;
 			status[RESULT_SMS1_LIMIT] = 0;
 			status[RESULT_SMS2_VAL] = 0;
 			status[RESULT_SMS2_LIMIT] = 0;
 
-			final String s = calcString(status[i], status[i + 1],
-					this.callsOutSum, false); // false -> no multiply 60s/min
-			if (mergeToPlan1) {
-				this.callsOut1 = s;
+			String ssum;
+			int freesum = status[i + 1];
+			if (this.prefs.getBoolean(PREFS_CALLS_BILL_INCOMING, false)) {
+				int sum = status[i] + status[j];
+				ssum = getTime(sum);
+				if (freesum > 0) {
+					ssum += " - " + (sum * CallMeter.HUNDRET / freesum) + "%";
+				}
+				freesum = 0;
 			} else {
-				this.callsOut2 = s;
+				ssum = "";
+			}
+
+			final String sin = calcString(status[j], 0, this.callsInSum, true,
+					0);
+			final String sout = calcString(status[i], freesum / SECONDS_MINUTE,
+					this.callsOutSum, true, 0);
+			if (mergeToPlan1) {
+				this.callsIn1 = sin;
+				this.callsOut1 = sout;
+				this.callsInOut1 = ssum;
+			} else {
+				this.callsIn2 = sin;
+				this.callsOut2 = sout;
+				this.callsInOut2 = ssum;
 			}
 		}
 
@@ -1379,10 +1412,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 *            used all together
 	 * @param calls
 	 *            calls/sms?
+	 * @param count
+	 *            number (of calls)
 	 * @return String holding all the data
 	 */
 	private static String calcString(final int thisPeriod, final int limit,
-			final int all, final boolean calls) {
+			final int all, final boolean calls, final int count) {
 		if (limit > 0) {
 			if (calls) {
 				return ((thisPeriod * CallMeter.HUNDRET) / // .
