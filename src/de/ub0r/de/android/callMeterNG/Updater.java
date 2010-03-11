@@ -159,8 +159,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	static final String PREFS_SMS_PERIOD_LASTCHECK = "sms_period_lastcheck";
 	/** Preference's name for time of last walk for sms. */
 	static final String PREFS_SMS_WALK_LASTCHECK = "sms_walk_lastcheck";
-	/** Preference's name for saving sms in (this period). */
-	static final String PREFS_SMS_PERIOD_IN = "sms_period_in";
+	/** Preference's name for saving sms in plan #1 (this period). */
+	static final String PREFS_SMS_PERIOD_IN1 = "sms_period_in";
+	/** Preference's name for saving sms in plan #2 (this period). */
+	static final String PREFS_SMS_PERIOD_IN2 = "sms_period_in2";
 	/** Preference's name for saving sms out plan #1 (this period). */
 	static final String PREFS_SMS_PERIOD_OUT1 = "sms_period_out1";
 	/** Preference's name for saving sms out plan #2 (this period). */
@@ -180,26 +182,32 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private static final int RESULT_CALLS2_VAL = 2;
 	/** Limit for calls out plan #2. */
 	private static final int RESULT_CALLS2_LIMIT = 3;
-	/** Calls in. */
-	private static final int RESULT_CALLS_IN = 4;
+	/** Calls in plan #1. */
+	private static final int RESULT_CALLS1_IN = 4;
+	/** Calls in plan #2. */
+	private static final int RESULT_CALLS2_IN = 5;
 	/** Value for sms out plan #1. */
-	private static final int RESULT_SMS1_VAL = 5;
+	private static final int RESULT_SMS1_VAL = 6;
 	/** Limit for sms out plan #1. */
-	private static final int RESULT_SMS1_LIMIT = 6;
+	private static final int RESULT_SMS1_LIMIT = 7;
 	/** Value for sms out plan #2. */
-	private static final int RESULT_SMS2_VAL = 7;
+	private static final int RESULT_SMS2_VAL = 8;
 	/** Limit for sms out plan #2. */
-	private static final int RESULT_SMS2_LIMIT = 8;
-	/** SMS in. */
-	private static final int RESULT_SMS_IN = 9;
+	private static final int RESULT_SMS2_LIMIT = 9;
+	/** SMS in plan #1. */
+	private static final int RESULT_SMS1_IN = 10;
+	/** SMS in plan #2. */
+	private static final int RESULT_SMS2_IN = 11;
 
 	/** Status Strings. */
-	private String callsIn, callsOut1, callsOut2, callsInOut, callsBillDate,
-			smsIn, smsOut1, smsOut2, smsInOut, smsBillDate;
+	private String callsIn1, callsIn2, callsOut1, callsOut2, callsInOut1,
+			callsInOut2, callsBillDate, smsIn1, smsIn2, smsOut1, smsOut2,
+			smsInOut1, smsInOut2, smsBillDate;
 	/** Status TextViews. */
-	private TextView twCallsIn, twCallsOut1, twCallsOut2, twCallsBillDate,
-			twCallsPB1Text, twSMSIn, twSMSOut1, twSMSOut2, twSMSBillDate,
-			twSMSPB1Text;
+	private TextView twCallsIn1, twCallsIn2, twCallsOut1, twCallsOut2,
+			twCallsBillDate, twCallsPB1Text, twCallsPB2Text, twSMSIn1,
+			twSMSIn2, twSMSOut1, twSMSOut2, twSMSBillDate, twSMSPB1Text,
+			twSMSPB2Text;
 	/** Status ProgressBars. */
 	private ProgressBar pbCalls1, pbCalls2, pbSMS1, pbSMS2;
 
@@ -259,6 +267,45 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		final Currency cur = Currency.getInstance(Locale.getDefault());
 		currencySymbol = cur.getSymbol();
 		currencyDigits = cur.getDefaultFractionDigits();
+
+		if (this.updateGUI) {
+			this.pbCalls1 = (ProgressBar) this.callmeter
+					.findViewById(R.id.calls1_progressbar);
+			this.pbCalls2 = (ProgressBar) this.callmeter
+					.findViewById(R.id.calls2_progressbar);
+			this.pbSMS1 = (ProgressBar) this.callmeter
+					.findViewById(R.id.sms1_progressbar);
+			this.pbSMS2 = (ProgressBar) this.callmeter
+					.findViewById(R.id.sms2_progressbar);
+			this.twCallsIn1 = (TextView) this.callmeter
+					.findViewById(R.id.calls1_in);
+			this.twCallsIn2 = (TextView) this.callmeter
+					.findViewById(R.id.calls2_in);
+			this.twCallsOut1 = (TextView) this.callmeter
+					.findViewById(R.id.calls1_out);
+			this.twCallsOut2 = (TextView) this.callmeter
+					.findViewById(R.id.calls2_out);
+			this.twCallsBillDate = (TextView) this.callmeter
+					.findViewById(R.id.calls_billdate);
+			this.twCallsPB1Text = (TextView) this.callmeter
+					.findViewById(R.id.calls1_progressbar_text);
+			this.twCallsPB2Text = (TextView) this.callmeter
+					.findViewById(R.id.calls2_progressbar_text);
+			this.twSMSIn1 = (TextView) this.callmeter
+					.findViewById(R.id.sms1_in);
+			this.twSMSIn2 = (TextView) this.callmeter
+					.findViewById(R.id.sms2_in);
+			this.twSMSOut1 = (TextView) this.callmeter
+					.findViewById(R.id.sms1_out);
+			this.twSMSOut2 = (TextView) this.callmeter
+					.findViewById(R.id.sms2_out);
+			this.twSMSBillDate = (TextView) this.callmeter
+					.findViewById(R.id.sms_billdate);
+			this.twSMSPB1Text = (TextView) this.callmeter
+					.findViewById(R.id.sms1_progressbar_text);
+			this.twSMSPB2Text = (TextView) this.callmeter
+					.findViewById(R.id.sms2_progressbar_text);
+		}
 	}
 
 	/**
@@ -306,6 +353,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		if (lastCheck < lastBill) {
 			editor.remove(PREFS_CALLS_PERIOD_IN1);
 			editor.remove(PREFS_CALLS_PERIOD_IN1_COUNT);
+			editor.remove(PREFS_CALLS_PERIOD_IN2);
+			editor.remove(PREFS_CALLS_PERIOD_IN2_COUNT);
 			editor.remove(PREFS_CALLS_PERIOD_OUT1);
 			editor.remove(PREFS_CALLS_PERIOD_OUT1_COUNT);
 			editor.remove(PREFS_CALLS_PERIOD_OUT2);
@@ -332,7 +381,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		final Editor editor = prefs.edit();
 		if (lastCheck < lastBill) {
-			editor.remove(PREFS_SMS_PERIOD_IN);
+			editor.remove(PREFS_SMS_PERIOD_IN1);
+			editor.remove(PREFS_SMS_PERIOD_IN2);
 			editor.remove(PREFS_SMS_PERIOD_OUT1);
 			editor.remove(PREFS_SMS_PERIOD_OUT2);
 		}
@@ -390,16 +440,20 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			return;
 		}
 		this.twCallsBillDate.setText(this.callsBillDate);
-		this.twCallsIn.setText(this.callsIn);
+		this.twCallsIn1.setText(this.callsIn1);
+		this.twCallsIn2.setText(this.callsIn2);
 		this.twCallsOut1.setText(this.callsOut1);
 		this.twCallsOut2.setText(this.callsOut2);
-		this.twCallsPB1Text.setText(this.callsInOut);
+		this.twCallsPB1Text.setText(this.callsInOut1);
+		this.twCallsPB2Text.setText(this.callsInOut2);
 
 		this.twSMSBillDate.setText(this.smsBillDate);
-		this.twSMSIn.setText(this.smsIn);
+		this.twSMSIn1.setText(this.smsIn1);
+		this.twSMSIn2.setText(this.smsIn2);
 		this.twSMSOut1.setText(this.smsOut1);
 		this.twSMSOut2.setText(this.smsOut2);
-		this.twSMSPB1Text.setText(this.smsInOut);
+		this.twSMSPB1Text.setText(this.smsInOut1);
+		this.twSMSPB2Text.setText(this.smsInOut2);
 	}
 
 	/**
@@ -430,11 +484,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 */
 	private void initStatusText() {
 		this.callsBillDate = "?";
-		this.callsIn = "?";
+		this.callsIn1 = "?";
+		this.callsIn2 = "?";
 		this.callsOut1 = "?";
 		this.callsOut2 = "?";
 		this.smsBillDate = "?";
-		this.smsIn = "?";
+		this.smsIn1 = "?";
+		this.smsIn2 = "?";
 		this.smsOut1 = "?";
 		this.smsOut2 = "?";
 	}
@@ -464,54 +520,26 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		this.getSplitMergePrefs();
 
 		if (this.updateGUI) {
-			this.pbCalls1 = (ProgressBar) this.callmeter
-					.findViewById(R.id.calls1_progressbar);
-			this.pbCalls2 = (ProgressBar) this.callmeter
-					.findViewById(R.id.calls2_progressbar);
-
-			this.pbSMS1 = (ProgressBar) this.callmeter
-					.findViewById(R.id.sms1_progressbar);
-			this.pbSMS2 = (ProgressBar) this.callmeter
-					.findViewById(R.id.sms2_progressbar);
-
-			this.twCallsIn = (TextView) this.callmeter
-					.findViewById(R.id.calls1_in);
-			this.twCallsOut1 = (TextView) this.callmeter
-					.findViewById(R.id.calls1_out);
-			this.twCallsOut2 = (TextView) this.callmeter
-					.findViewById(R.id.calls2_out);
-			this.twCallsBillDate = (TextView) this.callmeter
-					.findViewById(R.id.calls_billdate);
-			this.twCallsPB1Text = (TextView) this.callmeter
-					.findViewById(R.id.calls1_progressbar_text);
-			this.twSMSIn = (TextView) this.callmeter.findViewById(R.id.sms1_in);
-			this.twSMSOut1 = (TextView) this.callmeter
-					.findViewById(R.id.sms1_out);
-			this.twSMSOut2 = (TextView) this.callmeter
-					.findViewById(R.id.sms2_out);
-			this.twSMSBillDate = (TextView) this.callmeter
-					.findViewById(R.id.sms_billdate);
-			this.twSMSPB1Text = (TextView) this.callmeter
-					.findViewById(R.id.sms1_progressbar_text);
-
 			this.pbCalls1.setProgress(0);
 			this.pbCalls1.setIndeterminate(false);
 			this.pbCalls1.setVisibility(View.VISIBLE);
 			if (this.plansMergeCalls) {
+				this.callmeter.findViewById(R.id.calls2_view).setVisibility(
+						View.GONE);
+				((TextView) this.callmeter.findViewById(R.id.calls1_in_))
+						.setText(String.format(this.context
+								.getString(R.string.in), ""));
 				((TextView) this.callmeter.findViewById(R.id.calls1_out_))
 						.setText(String.format(this.context
 								.getString(R.string.out_calls), ""));
-
-				this.callmeter.findViewById(R.id.calls2_out_).setVisibility(
-						View.GONE);
-				this.twCallsOut2.setVisibility(View.GONE);
-				this.pbCalls2.setVisibility(View.GONE);
 			} else {
-				this.callmeter.findViewById(R.id.calls2_out_).setVisibility(
-						View.VISIBLE);
-				this.twCallsOut2.setVisibility(View.VISIBLE);
+				String s = this.context.getString(R.string.in);
+				((TextView) this.callmeter.findViewById(R.id.calls1_in_))
+						.setText(String.format(s, namePlan1));
+				((TextView) this.callmeter.findViewById(R.id.calls2_in_))
+						.setText(String.format(s, namePlan2));
 
-				String s = this.context.getString(R.string.out_calls);
+				s = this.context.getString(R.string.out_calls);
 				((TextView) this.callmeter.findViewById(R.id.calls1_out_))
 						.setText(String.format(s, namePlan1));
 				((TextView) this.callmeter.findViewById(R.id.calls2_out_))
@@ -519,26 +547,29 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 				this.pbCalls2.setProgress(0);
 				this.pbCalls2.setIndeterminate(false);
-				this.pbCalls2.setVisibility(View.VISIBLE);
+				this.callmeter.findViewById(R.id.calls2_view).setVisibility(
+						View.VISIBLE);
 			}
 			this.pbSMS1.setProgress(0);
 			this.pbSMS1.setIndeterminate(false);
 			this.pbSMS1.setVisibility(View.VISIBLE);
 			if (this.plansMergeSms) {
+				this.callmeter.findViewById(R.id.sms2_view).setVisibility(
+						View.GONE);
+				((TextView) this.callmeter.findViewById(R.id.sms1_in_))
+						.setText(String.format(this.context
+								.getString(R.string.in), ""));
 				((TextView) this.callmeter.findViewById(R.id.sms1_out_))
 						.setText(String.format(this.context
 								.getString(R.string.out_sms), ""));
-
-				this.callmeter.findViewById(R.id.sms2_out_).setVisibility(
-						View.GONE);
-				this.twSMSOut2.setVisibility(View.GONE);
-				this.pbSMS2.setVisibility(View.GONE);
 			} else {
-				this.callmeter.findViewById(R.id.sms2_out_).setVisibility(
-						View.VISIBLE);
-				this.twSMSOut2.setVisibility(View.VISIBLE);
+				String s = this.context.getString(R.string.in);
+				((TextView) this.callmeter.findViewById(R.id.sms1_in_))
+						.setText(String.format(s, namePlan1));
+				((TextView) this.callmeter.findViewById(R.id.sms2_in_))
+						.setText(String.format(s, namePlan2));
 
-				String s = this.context.getString(R.string.out_sms);
+				s = this.context.getString(R.string.out_sms);
 				((TextView) this.callmeter.findViewById(R.id.sms1_out_))
 						.setText(String.format(s, namePlan1));
 				((TextView) this.callmeter.findViewById(R.id.sms2_out_))
@@ -546,15 +577,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 				this.pbSMS2.setProgress(0);
 				this.pbSMS2.setIndeterminate(false);
-				this.pbSMS2.setVisibility(View.VISIBLE);
+				this.callmeter.findViewById(R.id.sms2_view).setVisibility(
+						View.VISIBLE);
 			}
 
 			int v = View.VISIBLE;
 			if (this.prefs.getBoolean(PREFS_MERGE_SMS_TO_CALLS, false)) {
 				v = View.GONE;
-				this.callmeter.findViewById(R.id.sms2_out_).setVisibility(v);
-				this.twSMSOut2.setVisibility(v);
-				this.pbSMS2.setVisibility(v);
 			}
 			this.callmeter.findViewById(R.id.sms_).setVisibility(v);
 			this.callmeter.findViewById(R.id.sms_billdate_).setVisibility(v);
@@ -564,13 +593,18 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.callmeter.findViewById(R.id.sms1_in_).setVisibility(v);
 			this.callmeter.findViewById(R.id.sms1_in).setVisibility(v);
 			this.pbSMS1.setVisibility(v);
+			if (!this.plansMergeSms) {
+				this.callmeter.findViewById(R.id.sms2_view).setVisibility(v);
+			}
 
 			v = View.VISIBLE;
 			if (!this.prefs.getBoolean(PREFS_CALLS_BILL_INCOMING, false)) {
 				v = View.GONE;
 			}
-			TextView tw = (TextView) this.callmeter
-					.findViewById(R.id.calls1_progressbar_text);
+			TextView tw = this.twCallsPB1Text;
+			tw.setText("");
+			tw.setVisibility(v);
+			tw = this.twCallsPB2Text;
 			tw.setText("");
 			tw.setVisibility(v);
 
@@ -578,8 +612,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			if (!this.prefs.getBoolean(PREFS_SMS_BILL_INCOMING, false)) {
 				v = View.GONE;
 			}
-			tw = (TextView) this.callmeter
-					.findViewById(R.id.sms1_progressbar_text);
+			tw = this.twSMSPB1Text;
+			tw.setText("");
+			tw.setVisibility(v);
+			tw = this.twSMSPB2Text;
 			tw.setText("");
 			tw.setVisibility(v);
 
@@ -587,6 +623,63 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.initStatusText();
 			this.updateText();
 		}
+	}
+
+	/**
+	 * Check, in which plan the call/message should be billed.
+	 * 
+	 * @param cur
+	 *            {@link Cursor}
+	 * @param idNumber
+	 *            id of number in cursor
+	 * @param excludeNumbers
+	 *            excluded numbers
+	 * @param plans
+	 *            plans
+	 * @param date
+	 *            timestamp
+	 * @return 0: no billing, 1: plan1, 2: plan2
+	 */
+	private int getPlan(final Cursor cur, final int idNumber,
+			final String[] excludeNumbers, final boolean[][] plans,
+			final long date) {
+		boolean check = true;
+		if (excludeNumbers != null) {
+			String n = cur.getString(idNumber);
+			// check if number should be excluded from billing
+			final int excludeNumbersSize = excludeNumbers.length;
+			for (int j = 1; j < excludeNumbersSize; j++) {
+				final String s = excludeNumbers[j];
+				if (s.startsWith("*")) {
+					if (n.endsWith(s.substring(1))) {
+						check = false;
+						break;
+					}
+				} else if (s.endsWith("*")) {
+					if (n.startsWith(s.substring(0, s.length() - 1))) {
+						check = false;
+						break;
+					}
+				} else if (n.equals(excludeNumbers[j])) {
+					check = false;
+					break;
+				}
+			}
+		}
+		if (check) {
+			if (this.isPlan1(plans, date)) {
+				return 1;
+			} else {
+				return 2;
+			}
+		} else {
+			if (this.excludedToPlan1) {
+				return 1;
+			} else if (this.excludedToPlan2) {
+				return 2;
+			}
+		}
+		return 0;
 	}
 
 	/**
@@ -612,7 +705,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		final String[] excludeNumbers = ExcludePeople.loadExcludedPeople(
 				this.context).toArray(new String[1]);
-		final int excludeNumbersSize = excludeNumbers.length;
 
 		// report calls
 		String[] projection = new String[] { Calls.TYPE, Calls.DURATION,
@@ -636,10 +728,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		int durIn = this.prefs.getInt(PREFS_CALLS_ALL_IN, 0);
 		int durOut = this.prefs.getInt(PREFS_CALLS_ALL_OUT, 0);
-		int durInMonth = this.prefs.getInt(PREFS_CALLS_PERIOD_IN1, 0);
+		int durIn1Month = this.prefs.getInt(PREFS_CALLS_PERIOD_IN1, 0);
+		int durIn2Month = this.prefs.getInt(PREFS_CALLS_PERIOD_IN2, 0);
 		int durOut1Month = this.prefs.getInt(PREFS_CALLS_PERIOD_OUT1, 0);
 		int durOut2Month = this.prefs.getInt(PREFS_CALLS_PERIOD_OUT2, 0);
-		int countInMonth = this.prefs.getInt(PREFS_CALLS_PERIOD_IN1_COUNT, 0);
+		int countIn1Month = this.prefs.getInt(PREFS_CALLS_PERIOD_IN1_COUNT, 0);
+		int countIn2Month = this.prefs.getInt(PREFS_CALLS_PERIOD_IN2_COUNT, 0);
 		int countOut1Month = this.prefs
 				.getInt(PREFS_CALLS_PERIOD_OUT1_COUNT, 0);
 		int countOut2Month = this.prefs
@@ -667,7 +761,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		if (cur.moveToFirst()) {
 			int type;
 			long d;
-			String n;
 			final int idType = cur.getColumnIndex(Calls.TYPE);
 			final int idDuration = cur.getColumnIndex(Calls.DURATION);
 			final int idDate = cur.getColumnIndex(Calls.DATE);
@@ -675,8 +768,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			lastWalk = cur.getLong(idDate);
 			int t = 0;
 			int i = 0;
-			boolean p = true;
-			boolean check = true;
+			int dt = 0;
+			int p = 0;
 			do {
 				type = cur.getInt(idType);
 				d = cur.getLong(idDate);
@@ -686,55 +779,32 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					Log.d(TAG, "skip");
 					continue;
 				}
+				if (billDate <= d) {
+					dt = this.roundTime(t);
+					p = this.getPlan(cur, idNumber, excludeNumbers, plans, d);
+				} else {
+					p = 0;
+				}
 				switch (type) {
 				case Calls.INCOMING_TYPE:
-					++countInMonth;
+					++countIn1Month;
 					durIn += t;
-					if (billDate <= d) {
-						durInMonth += this.roundTime(t);
+					if (p == 1) {
+						++countIn1Month;
+						durIn1Month += dt;
+					} else if (p == 2) {
+						++countIn2Month;
+						durIn2Month += dt;
 					}
 					break;
 				case Calls.OUTGOING_TYPE:
 					durOut += t;
-					if (billDate <= d) {
-						check = true;
-						n = cur.getString(idNumber);
-						// check if number should be excluded from billing
-						for (int j = 1; j < excludeNumbersSize; j++) {
-							final String s = excludeNumbers[j];
-							if (s.startsWith("*")) {
-								if (n.endsWith(s.substring(1))) {
-									check = false;
-									break;
-								}
-							} else if (s.endsWith("*")) {
-								if (n
-										.startsWith(s.substring(0,
-												s.length() - 1))) {
-									check = false;
-									break;
-								}
-							} else if (n.equals(excludeNumbers[j])) {
-								check = false;
-								break;
-							}
-						}
-						if (check) {
-							p = this.isPlan1(plans, d);
-							if (p) {
-								++countOut1Month;
-								durOut1Month += this.roundTime(t);
-							} else {
-								++countOut2Month;
-								durOut2Month += this.roundTime(t);
-							}
-						} else {
-							if (this.excludedToPlan1) {
-								durOut1Month += this.roundTime(t);
-							} else if (this.excludedToPlan2) {
-								durOut2Month += this.roundTime(t);
-							}
-						}
+					if (p == 1) {
+						++countOut1Month;
+						durOut1Month += dt;
+					} else if (p == 2) {
+						++countOut2Month;
+						durOut2Month += dt;
 					}
 					break;
 				default:
@@ -742,7 +812,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 				++i;
 				if (i % UPDATE_INTERVAL == 1) {
-					this.callsIn = calcString(durInMonth, 0, durIn, true);
+					this.callsIn1 = calcString(durIn1Month, 0, durIn, true);
+					this.callsIn2 = calcString(durIn2Month, 0, durIn, true);
 					this.callsOut1 = calcString(durOut1Month, free1, durOut,
 							true);
 					this.callsOut2 = calcString(durOut2Month, free2, durOut,
@@ -755,22 +826,34 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		status[RESULT_CALLS1_LIMIT] = free1 * SECONDS_MINUTE;
 		status[RESULT_CALLS2_VAL] = durOut2Month;
 		status[RESULT_CALLS2_LIMIT] = free2 * SECONDS_MINUTE;
-		status[RESULT_CALLS_IN] = durInMonth;
+		status[RESULT_CALLS1_IN] = durIn1Month;
+		status[RESULT_CALLS2_IN] = durIn2Month;
 
 		if (this.prefs.getBoolean(PREFS_CALLS_BILL_INCOMING, false)) {
-			int sum = durInMonth + durOut1Month;
-			this.callsInOut = getTime(sum);
+			int sum = durIn1Month + durOut1Month;
+			this.callsInOut1 = getTime(sum);
 			if (status[RESULT_CALLS1_LIMIT] > 0) {
-				this.callsInOut += " - "
+				this.callsInOut1 += " - "
 						+ (sum * CallMeter.HUNDRET / status[RESULT_CALLS1_LIMIT])
 						+ "%";
 			}
 			free1 = 0;
+
+			sum = durIn2Month + durOut2Month;
+			this.callsInOut2 = getTime(sum);
+			if (status[RESULT_CALLS2_LIMIT] > 0) {
+				this.callsInOut2 += " - "
+						+ (sum * CallMeter.HUNDRET / status[RESULT_CALLS2_LIMIT])
+						+ "%";
+			}
+			free2 = 0;
 		} else {
-			this.callsInOut = "";
+			this.callsInOut1 = "";
+			this.callsInOut2 = "";
 		}
 
-		this.callsIn = calcString(durInMonth, 0, durIn, true);
+		this.callsIn1 = calcString(durIn1Month, 0, durIn, true);
+		this.callsIn2 = calcString(durIn2Month, 0, durIn, true);
 		this.callsOut1 = calcString(durOut1Month, free1, durOut, true);
 		this.callsOut2 = calcString(durOut2Month, free2, durOut, true);
 
@@ -782,8 +865,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		final Editor editor = this.prefs.edit();
 		editor.putInt(PREFS_CALLS_ALL_IN, durIn);
 		editor.putInt(PREFS_CALLS_ALL_OUT, durOut);
-		editor.putInt(PREFS_CALLS_PERIOD_IN1, durInMonth);
-		editor.putInt(PREFS_CALLS_PERIOD_IN1_COUNT, countInMonth);
+		editor.putInt(PREFS_CALLS_PERIOD_IN1, durIn1Month);
+		editor.putInt(PREFS_CALLS_PERIOD_IN1_COUNT, countIn1Month);
+		editor.putInt(PREFS_CALLS_PERIOD_IN2, durIn2Month);
+		editor.putInt(PREFS_CALLS_PERIOD_IN2_COUNT, countIn2Month);
 		editor.putInt(PREFS_CALLS_PERIOD_OUT1, durOut1Month);
 		editor.putInt(PREFS_CALLS_PERIOD_OUT1_COUNT, countOut1Month);
 		editor.putInt(PREFS_CALLS_PERIOD_OUT2, durOut2Month);
@@ -840,7 +925,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		int iSMSIn = this.prefs.getInt(PREFS_SMS_ALL_IN, 0);
 		int iSMSOut = this.prefs.getInt(PREFS_SMS_ALL_OUT, 0);
-		int smsInMonth = this.prefs.getInt(PREFS_SMS_PERIOD_IN, 0);
+		int smsIn1Month = this.prefs.getInt(PREFS_SMS_PERIOD_IN1, 0);
+		int smsIn2Month = this.prefs.getInt(PREFS_SMS_PERIOD_IN2, 0);
 		int smsOut1Month = this.prefs.getInt(PREFS_SMS_PERIOD_OUT1, 0);
 		int smsOut2Month = this.prefs.getInt(PREFS_SMS_PERIOD_OUT1, 0);
 
@@ -863,7 +949,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				case Calls.INCOMING_TYPE:
 					iSMSIn += l;
 					if (billDate <= d) {
-						smsInMonth += l;
+						p = this.isPlan1(plans, d);
+						if (p) {
+							smsIn1Month += l;
+						} else {
+							smsIn2Month += l;
+						}
 					}
 					break;
 				case Calls.OUTGOING_TYPE:
@@ -882,7 +973,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 				++i;
 				if (i % UPDATE_INTERVAL == 1) {
-					this.smsIn = calcString(smsInMonth, 0, iSMSIn, false);
+					this.smsIn1 = calcString(smsIn1Month, 0, iSMSIn, false);
+					this.smsIn2 = calcString(smsIn2Month, 0, iSMSIn, false);
 					this.smsOut1 = calcString(smsOut2Month, free1, iSMSOut,
 							false);
 					this.smsOut2 = calcString(smsOut2Month, free2, iSMSOut,
@@ -896,21 +988,30 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		status[RESULT_SMS1_LIMIT] = free1;
 		status[RESULT_SMS2_VAL] = smsOut2Month;
 		status[RESULT_SMS2_LIMIT] = free2;
-		status[RESULT_SMS_IN] = smsInMonth;
+		status[RESULT_SMS1_IN] = smsIn1Month;
 
 		if (this.prefs.getBoolean(PREFS_SMS_BILL_INCOMING, false)) {
-			int sum = smsOut1Month + smsInMonth;
-			this.smsInOut = sum + "";
+			int sum = smsOut1Month + smsIn1Month;
+			this.smsInOut1 = sum + "";
 			if (free1 > 0) {
-				this.smsInOut += " - " + (sum * CallMeter.HUNDRET / free1)
+				this.smsInOut1 += " - " + (sum * CallMeter.HUNDRET / free1)
 						+ "%";
 			}
 			free1 = 0;
+			sum = smsOut2Month + smsIn2Month;
+			this.smsInOut2 = sum + "";
+			if (free2 > 0) {
+				this.smsInOut2 += " - " + (sum * CallMeter.HUNDRET / free2)
+						+ "%";
+			}
+			free2 = 0;
 		} else {
-			this.smsInOut = "";
+			this.smsInOut1 = "";
+			this.smsInOut2 = "";
 		}
 
-		this.smsIn = calcString(smsInMonth, 0, iSMSIn, false);
+		this.smsIn1 = calcString(smsIn1Month, 0, iSMSIn, false);
+		this.smsIn2 = calcString(smsIn2Month, 0, iSMSIn, false);
 		this.smsOut1 = calcString(smsOut1Month, free1, iSMSOut, false);
 		this.smsOut2 = calcString(smsOut2Month, free2, iSMSOut, false);
 
@@ -944,7 +1045,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		final Editor editor = this.prefs.edit();
 		editor.putInt(PREFS_SMS_ALL_IN, iSMSIn);
 		editor.putInt(PREFS_SMS_ALL_OUT, iSMSOut);
-		editor.putInt(PREFS_SMS_PERIOD_IN, smsInMonth);
+		editor.putInt(PREFS_SMS_PERIOD_IN1, smsIn1Month);
+		editor.putInt(PREFS_SMS_PERIOD_IN2, smsIn2Month);
 		editor.putInt(PREFS_SMS_PERIOD_OUT1, smsOut1Month);
 		editor.putInt(PREFS_SMS_PERIOD_OUT2, smsOut2Month);
 		editor.putLong(PREFS_SMS_WALK_LASTCHECK, lastWalk);
@@ -991,8 +1093,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		// load splitted plans
 		final boolean[][] plans = this.loadPlans(this.prefs);
 
-		// progressbar positions: calls1_pos, calls1_max, calls2_*, sms*,
-		final Integer[] ret = { 0, 0, 0, 0, 0, 1, 1, 1, 1, 0 };
+		// progressbar positions
+		final Integer[] ret = { 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0 };
 		Calendar calBillDate = getBillDayCalls(this.prefs);
 		if (this.plansMergeCalls) {
 			this.walkCalls(null, calBillDate, ret);
@@ -1062,17 +1164,16 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				costPerMinute2 = Float.parseFloat(s);
 			}
 		}
-
+		boolean billIn = this.prefs
+				.getBoolean(PREFS_CALLS_BILL_INCOMING, false);
 		if (costPerCall1 > 0 || costPerMinute1 > 0) {
-			final boolean billIn = this.prefs.getBoolean(
-					PREFS_CALLS_BILL_INCOMING, false);
 			int i;
 			int c;
 			String s;
 			if (billIn) {
-				i = result[RESULT_CALLS1_VAL] + result[RESULT_CALLS_IN];
+				i = result[RESULT_CALLS1_VAL] + result[RESULT_CALLS1_IN];
 				c = this.prefs.getInt(PREFS_CALLS_PERIOD_IN1_COUNT, 0);
-				s = this.callsInOut;
+				s = this.callsInOut1;
 			} else {
 				i = result[RESULT_CALLS1_VAL];
 				s = this.callsOut1;
@@ -1089,17 +1190,25 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			s = String.format("%." + currencyDigits + "f", cost)
 					+ currencySymbol + " / " + s;
 			if (billIn) {
-				this.callsInOut = s;
+				this.callsInOut1 = s;
 			} else {
 				this.callsOut1 = s;
 			}
 		}
 
 		if (costPerCall2 > 0 || costPerMinute2 > 0) {
-			int i = result[RESULT_CALLS2_VAL];
-			int c = this.prefs.getInt(PREFS_CALLS_PERIOD_OUT2_COUNT, 0);
-			String s = this.callsOut2;
-
+			int i;
+			int c;
+			String s;
+			if (billIn) {
+				i = result[RESULT_CALLS2_VAL] + result[RESULT_CALLS2_IN];
+				c = this.prefs.getInt(PREFS_CALLS_PERIOD_IN2_COUNT, 0);
+				s = this.callsInOut2;
+			} else {
+				i = result[RESULT_CALLS2_VAL];
+				s = this.callsOut2;
+				c = this.prefs.getInt(PREFS_CALLS_PERIOD_OUT2_COUNT, 0);
+			}
 			if (result[RESULT_CALLS2_LIMIT] > 0) {
 				i -= result[RESULT_CALLS2_LIMIT];
 			}
@@ -1110,7 +1219,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					+ (costPerCall2 * c);
 			s = String.format("%." + currencyDigits + "f", cost)
 					+ currencySymbol + " / " + s;
-			this.callsOut2 = s;
+			if (billIn) {
+				this.callsInOut2 = s;
+			} else {
+				this.callsOut2 = s;
+			}
 		}
 
 		// sms
@@ -1128,14 +1241,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				costPerSMS2 = Float.parseFloat(s);
 			}
 		}
+		billIn = this.prefs.getBoolean(PREFS_SMS_BILL_INCOMING, false);
 		if (costPerSMS1 > 0) {
-			final boolean billIn = this.prefs.getBoolean(
-					PREFS_SMS_BILL_INCOMING, false);
 			int i;
 			String s;
 			if (billIn) {
-				i = result[RESULT_SMS1_VAL] + result[RESULT_SMS_IN];
-				s = this.smsInOut;
+				i = result[RESULT_SMS1_VAL] + result[RESULT_SMS1_IN];
+				s = this.smsInOut1;
 			} else {
 				i = result[RESULT_SMS1_VAL];
 				s = this.smsOut1;
@@ -1150,13 +1262,21 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			s = String.format("%." + currencyDigits + "f", cost)
 					+ currencySymbol + " / " + s;
 			if (billIn) {
-				this.smsInOut = s;
+				this.smsInOut1 = s;
 			} else {
 				this.smsOut1 = s;
 			}
 		}
 		if (costPerSMS2 > 0) {
-			int i = result[RESULT_SMS2_VAL];
+			int i;
+			String s;
+			if (billIn) {
+				i = result[RESULT_SMS2_VAL] + result[RESULT_SMS2_IN];
+				s = this.smsInOut2;
+			} else {
+				i = result[RESULT_SMS2_VAL];
+				s = this.smsOut2;
+			}
 			if (result[RESULT_SMS2_LIMIT] > 0) {
 				i -= result[RESULT_SMS2_LIMIT];
 			}
@@ -1164,8 +1284,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				i = 0;
 			}
 			final float cost = costPerSMS2 * i;
-			this.smsOut2 = String.format("%." + currencyDigits + "f", cost)
-					+ currencySymbol + " / " + this.smsOut2;
+			s = String.format("%." + currencyDigits + "f", cost)
+					+ currencySymbol + " / " + s;
+			if (billIn) {
+				this.smsInOut2 = s;
+			} else {
+				this.smsOut2 = s;
+			}
 		}
 	}
 
@@ -1182,59 +1307,57 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.updateText();
 
 			// calls
-			ProgressBar pb1 = this.pbCalls1;
-			ProgressBar pb2 = this.pbCalls2;
+			ProgressBar pb = this.pbCalls1;
 			if (result[RESULT_CALLS1_LIMIT] > 0) {
-				pb1.setMax(result[1]);
+				pb.setMax(result[1]);
 				if (result[RESULT_CALLS1_LIMIT] > result[RESULT_CALLS1_VAL]) {
-					pb1.setProgress(result[RESULT_CALLS1_LIMIT]);
+					pb.setProgress(result[RESULT_CALLS1_LIMIT]);
 				} else {
-					pb1.setProgress(result[RESULT_CALLS1_VAL]);
+					pb.setProgress(result[RESULT_CALLS1_VAL]);
 				}
-				pb1.setProgress(result[RESULT_CALLS1_VAL]);
-				pb1.setVisibility(View.VISIBLE);
+				pb.setProgress(result[RESULT_CALLS1_VAL]);
+				pb.setVisibility(View.VISIBLE);
 			} else {
-				pb2.setVisibility(View.GONE);
-				pb2 = this.pbCalls1;
+				pb.setVisibility(View.GONE);
 			}
+			pb = this.pbCalls2;
 			if (this.plansMergeCalls || result[RESULT_CALLS2_LIMIT] <= 0) {
-				pb2.setVisibility(View.GONE);
+				pb.setVisibility(View.GONE);
 			} else {
-				pb2.setMax(result[RESULT_CALLS2_LIMIT]);
+				pb.setMax(result[RESULT_CALLS2_LIMIT]);
 				if (result[RESULT_CALLS2_LIMIT] > result[RESULT_CALLS2_VAL]) {
-					pb2.setProgress(result[RESULT_CALLS2_LIMIT]);
+					pb.setProgress(result[RESULT_CALLS2_LIMIT]);
 				} else {
-					pb2.setProgress(result[RESULT_CALLS2_VAL]);
+					pb.setProgress(result[RESULT_CALLS2_VAL]);
 				}
-				pb2.setProgress(result[RESULT_CALLS2_VAL]);
-				pb2.setVisibility(View.VISIBLE);
+				pb.setProgress(result[RESULT_CALLS2_VAL]);
+				pb.setVisibility(View.VISIBLE);
 			}
 
 			// sms
-			pb1 = this.pbSMS1;
-			pb2 = this.pbSMS2;
+			pb = this.pbSMS1;
 			if (result[RESULT_SMS1_LIMIT] > 0) {
-				pb1.setMax(result[RESULT_SMS1_LIMIT]);
+				pb.setMax(result[RESULT_SMS1_LIMIT]);
 				if (result[RESULT_SMS1_VAL] > result[RESULT_SMS1_LIMIT]) {
-					pb1.setProgress(result[RESULT_SMS1_LIMIT]);
+					pb.setProgress(result[RESULT_SMS1_LIMIT]);
 				} else {
-					pb1.setProgress(result[RESULT_SMS1_VAL]);
+					pb.setProgress(result[RESULT_SMS1_VAL]);
 				}
-				pb1.setVisibility(View.VISIBLE);
+				pb.setVisibility(View.VISIBLE);
 			} else {
-				pb2.setVisibility(View.GONE);
-				pb2 = this.pbSMS1;
+				pb.setVisibility(View.GONE);
 			}
+			pb = this.pbSMS2;
 			if (this.plansMergeSms || result[RESULT_SMS2_LIMIT] <= 0) {
-				pb2.setVisibility(View.GONE);
+				pb.setVisibility(View.GONE);
 			} else {
-				pb2.setMax(result[RESULT_SMS2_LIMIT]);
+				pb.setMax(result[RESULT_SMS2_LIMIT]);
 				if (result[RESULT_SMS2_VAL] > result[RESULT_SMS2_LIMIT]) {
-					pb2.setProgress(result[RESULT_SMS2_LIMIT]);
+					pb.setProgress(result[RESULT_SMS2_LIMIT]);
 				} else {
-					pb2.setProgress(result[RESULT_SMS2_VAL]);
+					pb.setProgress(result[RESULT_SMS2_VAL]);
 				}
-				pb2.setVisibility(View.VISIBLE);
+				pb.setVisibility(View.VISIBLE);
 			}
 		}
 

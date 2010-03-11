@@ -74,30 +74,34 @@
 				android:gravity="center" android:visibility="gone" />
 
 			<!--  calls2 -->
-			<LinearLayout android:layout_height="wrap_content"
-				android:layout_width="fill_parent">
-				<TextView android:id="@+id/calls2_in_" android:text="@string/in"
-					android:paddingLeft="5dip" android:layout_width="wrap_content"
-					android:layout_height="wrap_content" />
-				<TextView android:id="@+id/calls2_in" android:gravity="right"
-					android:layout_width="fill_parent" android:layout_height="wrap_content" />
-			</LinearLayout>
-			<LinearLayout android:layout_height="wrap_content"
-				android:layout_width="fill_parent">
-				<TextView android:id="@+id/calls2_out_" android:text="@string/out_calls"
-					android:paddingLeft="5dip" android:layout_width="wrap_content"
-					android:layout_height="wrap_content" />
-				<TextView android:id="@+id/calls2_out" android:gravity="right"
-					android:layout_width="fill_parent" android:layout_height="wrap_content" />
-			</LinearLayout>
+			<LinearLayout android:id="@+id/calls2_view"
+				android:layout_height="wrap_content" android:layout_width="fill_parent"
+				android:orientation="vertical">
+				<LinearLayout android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView android:id="@+id/calls2_in_" android:text="@string/in"
+						android:paddingLeft="5dip" android:layout_width="wrap_content"
+						android:layout_height="wrap_content" />
+					<TextView android:id="@+id/calls2_in" android:gravity="right"
+						android:layout_width="fill_parent" android:layout_height="wrap_content" />
+				</LinearLayout>
+				<LinearLayout android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView android:id="@+id/calls2_out_" android:text="@string/out_calls"
+						android:paddingLeft="5dip" android:layout_width="wrap_content"
+						android:layout_height="wrap_content" />
+					<TextView android:id="@+id/calls2_out" android:gravity="right"
+						android:layout_width="fill_parent" android:layout_height="wrap_content" />
+				</LinearLayout>
 
-			<ProgressBar android:id="@+id/calls2_progressbar"
-				android:layout_width="fill_parent" android:layout_height="wrap_content"
-				android:paddingTop="5dip" android:max="100"
-				style="?android:attr/progressBarStyleHorizontal" />
-			<TextView android:id="@+id/calls2_progressbar_text"
-				android:layout_width="fill_parent" android:layout_height="wrap_content"
-				android:gravity="center" android:visibility="gone" />
+				<ProgressBar android:id="@+id/calls2_progressbar"
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+					android:paddingTop="5dip" android:max="100"
+					style="?android:attr/progressBarStyleHorizontal" />
+				<TextView android:id="@+id/calls2_progressbar_text"
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+					android:gravity="center" android:visibility="gone" />
+			</LinearLayout>
 
 			<!--  end calls -->
 			<!--  sms common-->
@@ -143,32 +147,35 @@
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
 				android:gravity="center" android:visibility="gone" />
 
-			<!-- sms1 -->
-			<LinearLayout android:layout_height="wrap_content"
-				android:layout_width="fill_parent">
-				<TextView android:id="@+id/sms1_in_" android:text="@string/in"
-					android:paddingLeft="5dip" android:layout_width="wrap_content"
-					android:layout_height="wrap_content" />
-				<TextView android:id="@+id/sms1_in" android:gravity="right"
-					android:layout_width="fill_parent" android:layout_height="wrap_content" />
-			</LinearLayout>
-			<LinearLayout android:layout_height="wrap_content"
-				android:layout_width="fill_parent">
-				<TextView android:id="@+id/sms2_out_" android:text="@string/out_sms"
-					android:paddingLeft="5dip" android:layout_width="wrap_content"
-					android:layout_height="wrap_content" />
-				<TextView android:id="@+id/sms2_out" android:gravity="right"
-					android:layout_width="fill_parent" android:layout_height="wrap_content" />
-			</LinearLayout>
+			<!-- sms2 -->
+			<LinearLayout android:id="@+id/sms2_view"
+				android:layout_height="wrap_content" android:layout_width="fill_parent"
+				android:orientation="vertical">
+				<LinearLayout android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView android:id="@+id/sms2_in_" android:text="@string/in"
+						android:paddingLeft="5dip" android:layout_width="wrap_content"
+						android:layout_height="wrap_content" />
+					<TextView android:id="@+id/sms2_in" android:gravity="right"
+						android:layout_width="fill_parent" android:layout_height="wrap_content" />
+				</LinearLayout>
+				<LinearLayout android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView android:id="@+id/sms2_out_" android:text="@string/out_sms"
+						android:paddingLeft="5dip" android:layout_width="wrap_content"
+						android:layout_height="wrap_content" />
+					<TextView android:id="@+id/sms2_out" android:gravity="right"
+						android:layout_width="fill_parent" android:layout_height="wrap_content" />
+				</LinearLayout>
 
-			<ProgressBar android:id="@+id/sms2_progressbar"
-				android:layout_width="fill_parent" android:layout_height="wrap_content"
-				android:paddingTop="5dip" android:max="100"
-				style="?android:attr/progressBarStyleHorizontal" />
-			<TextView android:id="@+id/sms2_progressbar_text"
-				android:layout_width="fill_parent" android:layout_height="wrap_content"
-				android:gravity="center" android:visibility="gone" />
-
+				<ProgressBar android:id="@+id/sms2_progressbar"
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+					android:paddingTop="5dip" android:max="100"
+					style="?android:attr/progressBarStyleHorizontal" />
+				<TextView android:id="@+id/sms2_progressbar_text"
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+					android:gravity="center" android:visibility="gone" />
+			</LinearLayout>
 			<!-- end sms -->
 			<!--  data common-->
 

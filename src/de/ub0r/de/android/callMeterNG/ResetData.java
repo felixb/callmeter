@@ -37,7 +37,8 @@ public class ResetData extends Activity {
 		edt.remove(Updater.PREFS_CALLS_ALL_OUT);
 		edt.remove(Updater.PREFS_CALLS_PERIOD_LASTCHECK);
 		edt.remove(Updater.PREFS_CALLS_WALK_LASTCHECK);
-		edt.remove(Updater.PREFS_SMS_PERIOD_IN);
+		edt.remove(Updater.PREFS_SMS_PERIOD_IN1);
+		edt.remove(Updater.PREFS_SMS_PERIOD_IN2);
 		edt.remove(Updater.PREFS_SMS_PERIOD_OUT1);
 		edt.remove(Updater.PREFS_SMS_PERIOD_OUT2);
 		edt.remove(Updater.PREFS_SMS_ALL_IN);
