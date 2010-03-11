@@ -67,7 +67,8 @@
 			</LinearLayout>
 			<ProgressBar android:id="@+id/calls1_progressbar"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
-				android:paddingTop="5dip" android:max="100"
+				android:paddingTop="5dip" android:paddingLeft="10dip"
+				android:paddingRight="10dip" android:max="100"
 				style="?android:attr/progressBarStyleHorizontal" />
 			<TextView android:id="@+id/calls1_progressbar_text"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
@@ -96,7 +97,8 @@
 
 				<ProgressBar android:id="@+id/calls2_progressbar"
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
-					android:paddingTop="5dip" android:max="100"
+					android:paddingTop="5dip" android:paddingLeft="10dip"
+					android:paddingRight="10dip" android:max="100"
 					style="?android:attr/progressBarStyleHorizontal" />
 				<TextView android:id="@+id/calls2_progressbar_text"
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
@@ -141,7 +143,8 @@
 			</LinearLayout>
 			<ProgressBar android:id="@+id/sms1_progressbar"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
-				android:paddingTop="5dip" android:max="100"
+				android:paddingTop="5dip" android:paddingLeft="10dip"
+				android:paddingRight="10dip" android:max="100"
 				style="?android:attr/progressBarStyleHorizontal" />
 			<TextView android:id="@+id/sms1_progressbar_text"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
@@ -170,7 +173,8 @@
 
 				<ProgressBar android:id="@+id/sms2_progressbar"
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
-					android:paddingTop="5dip" android:max="100"
+					android:paddingTop="5dip" android:paddingLeft="10dip"
+					android:paddingRight="10dip" android:max="100"
 					style="?android:attr/progressBarStyleHorizontal" />
 				<TextView android:id="@+id/sms2_progressbar_text"
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
@@ -217,7 +221,8 @@
 
 			<ProgressBar android:id="@+id/data_progressbar"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
-				android:paddingTop="5dip" android:max="100"
+				android:paddingTop="5dip" android:paddingLeft="10dip"
+				android:paddingRight="10dip" android:max="100"
 				style="?android:attr/progressBarStyleHorizontal" />
 			<TextView android:id="@+id/data_progressbar_text"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
