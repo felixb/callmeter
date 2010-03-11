@@ -18,10 +18,6 @@ public class Preferences extends PreferenceActivity implements
 	private Preference prefMergeSMStoCalls = null;
 	/** {@link Preference}: merge sms into plan 1. */
 	private Preference prefMergeToPlan1 = null;
-	/** {@link Preference}: bill incoming calls. */
-	private Preference prefBillIncomingCalls = null;
-	/** {@link Preference}: bill incoming sms. */
-	private Preference prefBillIncomingSMS = null;
 	/** {@link Preference}: plan1 - cost per call. */
 	private Preference prefPlan1CostPerCall = null;
 	/** {@link Preference}: plan2 - cost per call. */
@@ -41,10 +37,6 @@ public class Preferences extends PreferenceActivity implements
 				.findPreference(Updater.PREFS_MERGE_SMS_TO_CALLS);
 		this.prefMergeToPlan1 = this
 				.findPreference(Updater.PREFS_MERGE_SMS_PLAN1);
-		this.prefBillIncomingCalls = this
-				.findPreference(Updater.PREFS_CALLS_BILL_INCOMING);
-		this.prefBillIncomingSMS = this
-				.findPreference(Updater.PREFS_SMS_BILL_INCOMING);
 		this.prefPlan1CostPerCall = this
 				.findPreference(Updater.PREFS_PLAN1_COST_PER_CALL);
 		this.prefPlan2CostPerCall = this
@@ -75,8 +67,6 @@ public class Preferences extends PreferenceActivity implements
 					Updater.PREFS_MERGE_SMS_TO_CALLS, false);
 			this.prefMergeSMStoCalls.setEnabled(!b0 || b1);
 			this.prefMergeToPlan1.setEnabled(b0 && b1 && !b2 && b3);
-			this.prefBillIncomingCalls.setEnabled(!b0 || b2);
-			this.prefBillIncomingSMS.setEnabled(!b0 || b1);
 		} else if (key.equals(Updater.PREFS_PLAN1_FREEMIN)) {
 			final String s = sharedPreferences.getString(
 					Updater.PREFS_PLAN1_FREEMIN, "");

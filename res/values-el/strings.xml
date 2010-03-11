@@ -100,7 +100,7 @@
 	<string name="sms">SMS</string>
 	<string name="data">Δεδομένα</string>
 	<string name="calls_sms">Κλήσεις/SMS</string>
-	<string name="in">Εισερχόμενες:</string>
+	<string name="in">Εισερχόμενες%s:</string>
 	<string name="out_calls">Εξερχόμενες%s:</string>
 	<string name="out_sms">Σταλμένα%s:</string>
 	<string name="out_data">Εξερχόμενα:</string>

@@ -99,7 +99,7 @@
 	<string name="calls">Anrufe</string>
 	<string name="data">Daten</string>
 	<string name="calls_sms">Anrufe/SMS</string>
-	<string name="in">Ein:</string>
+	<string name="in">Ein%s:</string>
 	<string name="out_calls">Aus%s:</string>
 	<string name="out_sms">Aus%s:</string>
 	<string name="out_data">Aus:</string>

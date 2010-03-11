@@ -132,14 +132,18 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	static final String PREFS_CALLS_PERIOD_LASTCHECK = "calls_period_lastcheck";
 	/** Preference's name for time of last walk for calls. */
 	static final String PREFS_CALLS_WALK_LASTCHECK = "calls_walk_lastcheck";
-	/** Preference's name for saving calls in (this period). */
-	static final String PREFS_CALLS_PERIOD_IN = "calls_period_in";
-	/** Preference's name for saving calls in plan (this period, count). */
-	static final String PREFS_CALLS_PERIOD_IN_COUNT = "calls_period_in_n";
+	/** Preference's name for saving calls in plan #1 (this period). */
+	static final String PREFS_CALLS_PERIOD_IN1 = "calls_period_in";
+	/** Preference's name for saving calls in plan #1 (this period, count). */
+	static final String PREFS_CALLS_PERIOD_IN1_COUNT = "calls_period_in_n";
 	/** Preference's name for saving calls out plan #1 (this period). */
 	static final String PREFS_CALLS_PERIOD_OUT1 = "calls_period_out1";
 	/** Preference's name for saving calls out plan #1 (this period, count). */
 	static final String PREFS_CALLS_PERIOD_OUT1_COUNT = "calls_period_out1_n";
+	/** Preference's name for saving calls in plan #2 (this period). */
+	static final String PREFS_CALLS_PERIOD_IN2 = "calls_period_in2";
+	/** Preference's name for saving calls in plan #2 (this period, count). */
+	static final String PREFS_CALLS_PERIOD_IN2_COUNT = "calls_period_in2_n";
 	/** Preference's name for saving calls out plan #2 (this period). */
 	static final String PREFS_CALLS_PERIOD_OUT2 = "calls_period_out2";
 	/** Preference's name for saving calls out plan #2 (this period, count). */
@@ -300,8 +304,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		final Editor editor = prefs.edit();
 		if (lastCheck < lastBill) {
-			editor.remove(PREFS_CALLS_PERIOD_IN);
-			editor.remove(PREFS_CALLS_PERIOD_IN_COUNT);
+			editor.remove(PREFS_CALLS_PERIOD_IN1);
+			editor.remove(PREFS_CALLS_PERIOD_IN1_COUNT);
 			editor.remove(PREFS_CALLS_PERIOD_OUT1);
 			editor.remove(PREFS_CALLS_PERIOD_OUT1_COUNT);
 			editor.remove(PREFS_CALLS_PERIOD_OUT2);
@@ -471,7 +475,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					.findViewById(R.id.sms2_progressbar);
 
 			this.twCallsIn = (TextView) this.callmeter
-					.findViewById(R.id.calls_in);
+					.findViewById(R.id.calls1_in);
 			this.twCallsOut1 = (TextView) this.callmeter
 					.findViewById(R.id.calls1_out);
 			this.twCallsOut2 = (TextView) this.callmeter
@@ -480,7 +484,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					.findViewById(R.id.calls_billdate);
 			this.twCallsPB1Text = (TextView) this.callmeter
 					.findViewById(R.id.calls1_progressbar_text);
-			this.twSMSIn = (TextView) this.callmeter.findViewById(R.id.sms_in);
+			this.twSMSIn = (TextView) this.callmeter.findViewById(R.id.sms1_in);
 			this.twSMSOut1 = (TextView) this.callmeter
 					.findViewById(R.id.sms1_out);
 			this.twSMSOut2 = (TextView) this.callmeter
@@ -557,8 +561,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.callmeter.findViewById(R.id.sms_billdate).setVisibility(v);
 			this.callmeter.findViewById(R.id.sms1_out_).setVisibility(v);
 			this.callmeter.findViewById(R.id.sms1_out).setVisibility(v);
-			this.callmeter.findViewById(R.id.sms_in_).setVisibility(v);
-			this.callmeter.findViewById(R.id.sms_in).setVisibility(v);
+			this.callmeter.findViewById(R.id.sms1_in_).setVisibility(v);
+			this.callmeter.findViewById(R.id.sms1_in).setVisibility(v);
 			this.pbSMS1.setVisibility(v);
 
 			v = View.VISIBLE;
@@ -632,10 +636,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		int durIn = this.prefs.getInt(PREFS_CALLS_ALL_IN, 0);
 		int durOut = this.prefs.getInt(PREFS_CALLS_ALL_OUT, 0);
-		int durInMonth = this.prefs.getInt(PREFS_CALLS_PERIOD_IN, 0);
+		int durInMonth = this.prefs.getInt(PREFS_CALLS_PERIOD_IN1, 0);
 		int durOut1Month = this.prefs.getInt(PREFS_CALLS_PERIOD_OUT1, 0);
 		int durOut2Month = this.prefs.getInt(PREFS_CALLS_PERIOD_OUT2, 0);
-		int countInMonth = this.prefs.getInt(PREFS_CALLS_PERIOD_IN_COUNT, 0);
+		int countInMonth = this.prefs.getInt(PREFS_CALLS_PERIOD_IN1_COUNT, 0);
 		int countOut1Month = this.prefs
 				.getInt(PREFS_CALLS_PERIOD_OUT1_COUNT, 0);
 		int countOut2Month = this.prefs
@@ -778,8 +782,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		final Editor editor = this.prefs.edit();
 		editor.putInt(PREFS_CALLS_ALL_IN, durIn);
 		editor.putInt(PREFS_CALLS_ALL_OUT, durOut);
-		editor.putInt(PREFS_CALLS_PERIOD_IN, durInMonth);
-		editor.putInt(PREFS_CALLS_PERIOD_IN_COUNT, countInMonth);
+		editor.putInt(PREFS_CALLS_PERIOD_IN1, durInMonth);
+		editor.putInt(PREFS_CALLS_PERIOD_IN1_COUNT, countInMonth);
 		editor.putInt(PREFS_CALLS_PERIOD_OUT1, durOut1Month);
 		editor.putInt(PREFS_CALLS_PERIOD_OUT1_COUNT, countOut1Month);
 		editor.putInt(PREFS_CALLS_PERIOD_OUT2, durOut2Month);
@@ -1067,7 +1071,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			String s;
 			if (billIn) {
 				i = result[RESULT_CALLS1_VAL] + result[RESULT_CALLS_IN];
-				c = this.prefs.getInt(PREFS_CALLS_PERIOD_IN_COUNT, 0);
+				c = this.prefs.getInt(PREFS_CALLS_PERIOD_IN1_COUNT, 0);
 				s = this.callsInOut;
 			} else {
 				i = result[RESULT_CALLS1_VAL];

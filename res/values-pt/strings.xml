@@ -100,7 +100,7 @@
 	<string name="sms">SMS</string>
 	<string name="data">Dados</string>
 	<string name="calls_sms">Ligações/SMS</string>
-	<string name="in">Recebidas:</string>
+	<string name="in">Recebidas%s:</string>
 	<string name="out_calls">Feita%s:</string>
 	<string name="out_sms">Feitas%s:</string>
 	<string name="out_data">Conexões:</string>

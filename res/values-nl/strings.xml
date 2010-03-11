@@ -106,9 +106,9 @@
 	<string name="sms">SMS</string>
 	<string name="data">Data</string>
 	<string name="calls_sms">Gesprekken/SMS</string>
-	<string name="in">Inkomend:</string>
-	<string name="out_calls">Uitgaand:</string>
-	<string name="out_sms">Verstuurd:</string>
+	<string name="in">Inkomend%s:</string>
+	<string name="out_calls">Uitgaand%s:</string>
+	<string name="out_sms">Verstuurd%s:</string>
 	<string name="out_data">Uitgaand:</string>
 	<string name="plan_name1_">Schema 1: naam</string>
 	<string name="plan_name2_">Schema 2: naam</string>

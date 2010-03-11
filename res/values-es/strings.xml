@@ -95,7 +95,7 @@
 	<string name="sms">SMS</string>
 	<string name="data">Datos</string>
 	<string name="calls_sms">Llamadas/SMS</string>
-	<string name="in">Recibidas:</string>
+	<string name="in">Recibidas%s:</string>
 	<string name="out_calls">Enviadas%s:</string>
 	<string name="out_sms">Enviados%s:</string>
 	<string name="out_data">Enviado:</string>

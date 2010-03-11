@@ -25,10 +25,12 @@ public class ResetData extends Activity {
 	static void resetData(final Context c) {
 		final Editor edt = PreferenceManager.getDefaultSharedPreferences(c)
 				.edit();
-		edt.remove(Updater.PREFS_CALLS_PERIOD_IN);
-		edt.remove(Updater.PREFS_CALLS_PERIOD_IN_COUNT);
+		edt.remove(Updater.PREFS_CALLS_PERIOD_IN1);
+		edt.remove(Updater.PREFS_CALLS_PERIOD_IN1_COUNT);
 		edt.remove(Updater.PREFS_CALLS_PERIOD_OUT1);
 		edt.remove(Updater.PREFS_CALLS_PERIOD_OUT1_COUNT);
+		edt.remove(Updater.PREFS_CALLS_PERIOD_IN2);
+		edt.remove(Updater.PREFS_CALLS_PERIOD_IN2_COUNT);
 		edt.remove(Updater.PREFS_CALLS_PERIOD_OUT2);
 		edt.remove(Updater.PREFS_CALLS_PERIOD_OUT2_COUNT);
 		edt.remove(Updater.PREFS_CALLS_ALL_IN);

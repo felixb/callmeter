@@ -88,7 +88,7 @@
 	<string name="sms">SMS</string>
 	<string name="data">Dane</string>
 	<string name="calls_sms">Połączenia/SMS</string>
-	<string name="in">Przychodzące:</string>
+	<string name="in">Przychodzące%s:</string>
 	<string name="out_calls">Wychodzące%s:</string>
 	<string name="out_sms">Wychodzącet%s:</string>
 	<string name="out_data">Wychodzące:</string>
