@@ -24,7 +24,7 @@
 	<com.admob.android.ads.AdView android:id="@+id/ad"
 		android:layout_alignParentBottom="true" android:visibility="gone"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:gravity="bottom"
+		android:gravity="bottom" app:isGoneWithoutAd="true"
 		app:keywords="android mobile handy cellphone google htc market app report calls game" />
 
 	<ScrollView android:layout_height="fill_parent"
