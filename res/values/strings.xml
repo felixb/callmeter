@@ -56,7 +56,10 @@
 	<string name="about6">There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs.</string>
 	<string name="send_">Send</string>
 	<string name="settings">Preferences</string>
-	<string name="about_">About CallMeter NG</string>
+	<string name="about_">About</string>
+	<string name="about_hint">About this app</string>
+	<string name="feedback_">Feedback</string>
+	<string name="feedback_hint">Report bugs, request features ...</string>
 	<string name="more_">More Apps..</string>
 	<string name="changelog_">Changelog</string>
 	<string name="see_about">Please consult the about dialog for information on what CallMeter NG does and does not do.</string>

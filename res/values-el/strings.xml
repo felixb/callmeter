@@ -40,7 +40,7 @@
 	<string name="about6">Δεν υπάρχει δυνατότητα διαχωρισμού κανονικών κλήσεων και αυτών που΄έγιναν με sipdroid ή μεταξύ websms και κανονικών μηνυμάτων. Η διένεξη των αρχείων χρήσης των εφαρμογών από το Android καθιστά μη δυνατό το διαχωρισμό τους στη συνέχεια.</string>
 	<string name="send_">Αποστολή</string>
 	<string name="settings">Ρυθμίσεις</string>
-	<string name="about_">Σχετικά με το CallMeter NG</string>
+	<string name="about_">Σχετικά με</string>
 	<string name="more_">Περισσότερες Apps..</string>
 	<string name="changelog_">Αρχείο Εκδόσεων</string>
 	<string name="billday_">Αρχική μέρα χρέωσης</string>

@@ -37,7 +37,7 @@
 	<string name="about6">Il n'existe aucun de moyen de distinguer les appels émis par sipdroid (VOIP) des appels réels et les websms des SMS réels. Le manque d'intégration de ces applications au système Android rend leur logs impossibles à distinguer.</string>
 	<string name="send_">Envoyer</string>
 	<string name="settings">Préférences</string>
-	<string name="about_">A propos de CallMeter NG</string>
+	<string name="about_">A propos de</string>
 	<string name="more_">Plus d'applications..</string>
 	<string name="see_about">Veuillez consulter la section -A propos- pour connaître ce que CallMeter NG fait et ce qu'il ne fait pas.</string>
 	<string name="billday_">Premier jour du forfait</string>

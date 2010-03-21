@@ -64,8 +64,6 @@ public class CallMeter extends Activity {
 
 	/** Dialog: post donate. */
 	private static final int DIALOG_POSTDONATE = 0;
-	/** Dialog: about. */
-	private static final int DIALOG_ABOUT = 1;
 	/** Dialog: update. */
 	private static final int DIALOG_UPDATE = 2;
 	/** Dialog: pre donate. */
@@ -185,7 +183,6 @@ public class CallMeter extends Activity {
 	 */
 	@Override
 	protected final Dialog onCreateDialog(final int id) {
-		Dialog d;
 		AlertDialog.Builder builder;
 		switch (id) {
 		case DIALOG_PREDONATE:
@@ -237,12 +234,6 @@ public class CallMeter extends Activity {
 					});
 			builder.setNegativeButton(android.R.string.cancel, null);
 			return builder.create();
-		case DIALOG_ABOUT:
-			d = new Dialog(this);
-			d.setContentView(R.layout.about);
-			d.setTitle(this.getString(R.string.about_) + " v"
-					+ this.getString(R.string.app_version));
-			return d;
 		case DIALOG_UPDATE:
 			builder = new AlertDialog.Builder(this);
 			builder.setTitle(R.string.changelog_);
@@ -292,22 +283,11 @@ public class CallMeter extends Activity {
 	@Override
 	public final boolean onOptionsItemSelected(final MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.item_about: // start about dialog
-			this.showDialog(DIALOG_ABOUT);
-			return true;
 		case R.id.item_settings: // start settings activity
 			this.startActivity(new Intent(this, Preferences.class));
 			return true;
 		case R.id.item_donate:
 			CallMeter.this.showDialog(DIALOG_PREDONATE);
-			return true;
-		case R.id.item_more:
-			try {
-				this.startActivity(new Intent(Intent.ACTION_VIEW, Uri
-						.parse("market://search?q=pub:\"Felix Bechstein\"")));
-			} catch (ActivityNotFoundException e) {
-				Log.e(TAG, "no market", e);
-			}
 			return true;
 		default:
 			return false;

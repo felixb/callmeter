@@ -39,7 +39,7 @@
 	<string name="about6">No es posible diferenciar las llamadas reales de las de Sipdroid ni los SMS reales de los WebSMS. La profunda integración de estas aplicaciones con Android hacen imposible separar sus registros.</string>
 	<string name="send_">Enviar</string>
 	<string name="settings">Preferencias</string>
-	<string name="about_">Sobre CallMeter NG</string>
+	<string name="about_">Sobre</string>
 	<string name="more_">Más aplicaciones..</string>
 	<string name="changelog_">Cambios en la versión</string>
 	<string name="billday_">Primer día de tu factura</string>

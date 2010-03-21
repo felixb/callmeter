@@ -38,7 +38,10 @@
 	<string name="about6">Es ist nicht möglich zwischen Anrufen aus Sipdroid und echten Anrufen bzw. WebSMS und echten SMS zu unterscheiden. Androids nahtlose Integration dieser Apps lässt eine spätere Unterscheidung der Logs nicht mehr zu.</string>
 	<string name="send_">Senden</string>
 	<string name="settings">Einstellungen</string>
-	<string name="about_">Über CallMeter NG</string>
+	<string name="about_">Über</string>
+	<string name="about_hint">Über diese App</string>
+	<string name="feedback_">Feedback</string>
+	<string name="feedback_hint">Bugreports, feature requests ...</string>
 	<string name="more_">Mehr Apps..</string>
 	<string name="changelog_">Changelog</string>
 	<string name="billday_">Erster Rechnungstag</string>
