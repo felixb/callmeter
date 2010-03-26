@@ -48,8 +48,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 
-import com.admob.android.ads.AdView;
-
 /**
  * The main Activity, holding all data.
  * 
@@ -127,6 +125,7 @@ public class CallMeter extends Activity {
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+		this.setTheme(Preferences.getTheme(this));
 		this.setContentView(R.layout.main);
 		// get prefs.
 		this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -168,7 +167,7 @@ public class CallMeter extends Activity {
 	protected final void onResume() {
 		super.onResume();
 		if (!prefsNoAds) {
-			((AdView) this.findViewById(R.id.ad)).setVisibility(View.VISIBLE);
+			this.findViewById(R.id.ad).setVisibility(View.VISIBLE);
 		}
 		// get call/sms stats
 		new Updater(this).execute((Void[]) null);

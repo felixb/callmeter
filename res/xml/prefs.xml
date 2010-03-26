@@ -18,6 +18,16 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="@string/appearance_">
+		<ListPreference android:title="@string/theme_"
+			android:key="theme" android:entries="@array/themes"
+			android:entryValues="@array/themes_values" />
+		<!--
+			<ListPreference android:title="@string/textsize_"
+			android:key="textsize" android:entries="@array/textsize"
+			android:entryValues="@array/textsize_values" />
+		-->
+	</PreferenceCategory>
 	<PreferenceCategory android:title="@string/plans">
 		<CheckBoxPreference android:key="plans_split"
 			android:title="@string/plans_split" android:summary="@string/plans_split_hint" />

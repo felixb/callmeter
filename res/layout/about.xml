@@ -18,11 +18,11 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="fill_parent">
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="?android:attr/colorBackground">
 	<LinearLayout android:orientation="vertical"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:paddingLeft="5dip" android:paddingRight="5dip"
-		android:paddingBottom="5dip">
+		android:padding="5dip">
 
 		<TextView android:text="@string/about0_"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
