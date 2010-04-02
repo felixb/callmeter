@@ -50,6 +50,9 @@
 	<string name="billdate_">Erster Rechnungstag:</string>
 	<string name="smsperiod_">Gleiche Rechnung für SMS</string>
 	<string name="smsbillday_">Erster Rechnungstag für SMS</string>
+	<string name="appearance_">Erscheinung</string>
+	<string name="theme_">Theme</string>
+	<string name="textsize_">Schriftgrad</string>
 	<string name="exclude_people_">Nummern ausschließen</string>
 	<string name="exclude_people_hint">Nummern nicht abrechnen\nWildcards erlaubt: *555 oder 555*</string>
 	<string name="exclude_people_add">Nummer hinzufügen</string>
@@ -112,4 +115,13 @@
 	<string name="reset_data_">Reset: Daten</string>
 	<string name="reset_data_hint">Zwischengespeicherte Daten löschen.\nDie Statistiken werden neu berechnet.</string>
 	<string name="contacts_">Kontakte</string>
+	
+	<string-array name="themes">
+		<item>Dunkel</item>
+		<item>Hell</item>
+	</string-array>
+	<string-array name="textsize">
+		<item>Klein</item>
+		<item>Mittel</item>
+	</string-array>
 </resources>

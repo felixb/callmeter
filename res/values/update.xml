@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>v2.3: Add theme support</item>
+		<item>v2.3: Add theme support, add Hungarian translation</item>
 		<item>v2.2: Allow to bill incoming calls/messages across two plans, minor changes to gui</item>
 		<item>v2.1: Allow to set cost for calls/messages, allow to bill incoming traffic only, set excluded numbers from contacts</item>
 		<item>v2.0: Run callmeter every 30min in background to save logs, add 60/30 billing mode, allow to bill inbound calls/messages, change donator check</item>
