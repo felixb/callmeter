@@ -264,9 +264,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.callmeter = null;
 		}
 		this.prefs = PreferenceManager.getDefaultSharedPreferences(c);
-		final Currency cur = Currency.getInstance(Locale.getDefault());
-		currencySymbol = cur.getSymbol();
-		currencyDigits = cur.getDefaultFractionDigits();
+		try {
+			final Currency cur = Currency.getInstance(Locale.getDefault());
+			currencySymbol = cur.getSymbol();
+			currencyDigits = cur.getDefaultFractionDigits();
+		} catch (Exception e) {
+			Log.w(TAG, "error getting currency", e);
+		}
 
 		if (this.updateGUI) {
 			this.pbCalls1 = (ProgressBar) this.callmeter
