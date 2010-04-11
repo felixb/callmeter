@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>v2.2.2: Fix currency FC</item>
+		<item>v2.2.3: Fix currency FC, add czech translation</item>
 		<item>v2.2.1: Add theme support, add Hungarian translation</item>
 		<item>v2.2: Allow to bill incoming calls/messages across two plans, minor changes to gui</item>
 		<item>v2.1: Allow to set cost for calls/messages, allow to bill incoming traffic only, set excluded numbers from contacts</item>

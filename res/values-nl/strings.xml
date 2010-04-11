@@ -116,4 +116,19 @@
 	<string name="reset_data_">Reset data</string>
 	<string name="reset_data_hint">Reset opgeslagen data.\nHerbereken vanuit log.</string>
 	<string name="contacts_">Contacten</string>
+	<string name="about_hint">Over deze app</string>
+	<string name="feedback_">Feedback</string>
+	<string name="feedback_hint">Meld bugs, suggesties ...</string>
+	<string name="appearance_">Uiterlijk</string>
+	<string name="theme_">Thema</string>
+	<string name="textsize_">Text grootte</string>
+
+	<string-array name="themes">
+		<item>Zwart</item>
+		<item>Licht</item>
+	</string-array>
+	<string-array name="textsize">
+		<item>Klein</item>
+		<item>Medium</item>
+	</string-array>
 </resources>

@@ -98,4 +98,16 @@
 	<string name="reset_data_">Resetuj dane</string>
 	<string name="reset_data_hint">Resetuje obliczone dane.\nOblicza ponownie statystyke z logów telefonu.</string>
 	<string name="contacts_">Kontakty</string>
+	<string name="appearance_">Wygląd</string>
+	<string name="theme_">Skin</string>
+	<string name="textsize_">Wielkość czcionki</string>
+
+	<string-array name="themes">
+		<item>Ciemny</item>
+		<item>Jasny</item>
+	</string-array>
+	<string-array name="textsize">
+		<item>Mały</item>
+		<item>Średni</item>
+	</string-array>
 </resources>

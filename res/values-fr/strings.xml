@@ -113,4 +113,16 @@
 	<string name="reset_data_">Réinitialiser les données</string>
 	<string name="reset_data_hint">Réinitialiser les données en cache.\Recalculer les statistiques à partir des logs.</string>
 	<string name="contacts_">Contacts</string>
+	<string name="appearance_">Apparence</string>
+	<string name="theme_">Thème</string>
+	<string name="textsize_">Taille du texte</string>
+
+	<string-array name="themes">
+		<item>Noir</item>
+		<item>Clair</item>
+	</string-array>
+	<string-array name="textsize">
+		<item>Petit</item>
+		<item>Moyen</item>
+	</string-array>
 </resources>
