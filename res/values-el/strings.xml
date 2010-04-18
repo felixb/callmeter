@@ -110,4 +110,17 @@
 	<string name="reset_data_">Επαναφορά στοιχείων</string>
 	<string name="reset_data_hint">Επαναφορά προσωρινών δεδομένων.\nΥπολογισμός στατιστικών από τα logs.</string>
 	<string name="contacts_">Επαφές</string>
+        <string name="bill_data_incoming_only_">Χρέωση εισερχόμενων</string>
+        <string name="bill_data_incoming_only_hint">Χρέωση εισερχόμενων μόνο κλήσεων.</string>
+        <string name="appearance_">Εμφάνιση</string>
+        <string name="theme_">Θέμα</string>
+        <string name="textsize_">Μέγεθος κειμένου</string>
+        <string-array name="themes">
+             <item>Σκούρο</item>
+             <item>Φωτεινό</item>
+        </string-array>
+        <string-array name="textsize">
+            <item>Μικρό</item>
+            <item>Μεσαίο</item>
+        </string-array>
 </resources>
