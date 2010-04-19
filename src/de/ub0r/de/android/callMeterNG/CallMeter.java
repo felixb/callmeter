@@ -59,8 +59,8 @@ public class CallMeter extends Activity {
 	/** Tag for output. */
 	private static final String TAG = "CallMeterNG";
 
-	/** Flury's API key. */
-	public static final String FLURYKEY = "DF1BECT8IJDIJ82NA3S8";
+	/** Flurry's API key. */
+	public static final String FLURRYKEY = "DF1BECT8IJDIJ82NA3S8";
 
 	/** 100. */
 	static final int HUNDRET = 100;
@@ -129,7 +129,7 @@ public class CallMeter extends Activity {
 	@Override
 	public final void onStart() {
 		super.onStart();
-		FlurryAgent.onStartSession(this, FLURYKEY);
+		FlurryAgent.onStartSession(this, FLURRYKEY);
 	}
 
 	/**
