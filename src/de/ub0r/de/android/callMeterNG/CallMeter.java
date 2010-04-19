@@ -28,6 +28,7 @@ import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -361,7 +362,13 @@ public class CallMeter extends Activity {
 		} catch (Exception e) {
 			Log.e(TAG, "error reading signatures", e);
 		}
-		return p.getBoolean(PREFS_HIDEADS, false);
+		final boolean ret = p.getBoolean(PREFS_HIDEADS, false);
+		if (ret != prefsNoAds) {
+			final HashMap<String, String> params = new HashMap<String, String>();
+			params.put("value", String.valueOf(ret));
+			FlurryAgent.onEvent("switch prefsNoAds", params);
+		}
+		return ret;
 	}
 
 	/**
