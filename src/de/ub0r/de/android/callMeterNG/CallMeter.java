@@ -48,6 +48,8 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 
+import com.flurry.android.FlurryAgent;
+
 /**
  * The main Activity, holding all data.
  * 
@@ -56,6 +58,9 @@ import android.widget.ArrayAdapter;
 public class CallMeter extends Activity {
 	/** Tag for output. */
 	private static final String TAG = "CallMeterNG";
+
+	/** Flury's API key. */
+	public static final String FLURYKEY = "DF1BECT8IJDIJ82NA3S8";
 
 	/** 100. */
 	static final int HUNDRET = 100;
@@ -117,6 +122,24 @@ public class CallMeter extends Activity {
 			"fe9c39f3ee0fdaffeda8ffbfe4105c7d", // Chrispen F.
 			"e3563c28b3916d95b9ef126202385c2b", // Istvan P.
 	};
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void onStart() {
+		super.onStart();
+		FlurryAgent.onStartSession(this, FLURYKEY);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void onStop() {
+		super.onStop();
+		FlurryAgent.onEndSession(this);
+	}
 
 	/**
 	 * {@inheritDoc}
