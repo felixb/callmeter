@@ -18,29 +18,12 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="app_version">2.2.3</string>
-	<string name="app_name">Call Meter NG</string>
 	<string name="author_">Author:</string>
 	<string name="version_">Version:</string>
 	<string name="license_">License:</string>
-	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt; (Code, German)</string>
-	<string name="author_nc">Cyril Jaquier &lt;netcounter@jaqpot.net&gt; (NetCounter)</string>
-	<string name="author_pl">Łukasz Malicki &lt;maalicki@gmail.com&gt; (Polish)</string>
-	<string name="author_nl">Tom Nuss &lt;tomnuss@gmail.com&gt; (Dutch)</string>
-	<string name="author_gr">George Koutsouvalis &lt;koutsou@koutsou.gr&gt;	(Greek)</string>
-	<string name="author_es">Angel Martinez &lt;angelmtn@gmail.com&gt;	(Spanish)</string>
-	<string name="author_pt_br">Renato Picozzi &lt;jdasco@gmail.com&gt; (Potuguese-Br)</string>
-	<string name="author_fr">Johann Vandromme &lt;jowann@gmail.com&gt; (French)</string>
-	<string name="author_hu">Lóránt Szabó &lt;loorant@gmail.com&gt; (Hungarian)</string>
-	<string name="author_cz">Tomáš Landovský &lt;landovsky@gmail.com&gt; (Czech)</string>
 	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Sourcescode:</string>
-	<string name="source">http://github.com/felixb/callmeter</string>
 	<string name="website_">Website:</string>
-	<string name="website">http://code.google.com/p/callmeter/</string>
-	<string name="donate_url">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=5832809</string>
-	<string name="donate_mail">flx.yoo@gmail.com</string>
-	<string name="donate_subject">I\'m the donator. My IMEI hash is...</string>
 	<string name="donate_">Donate</string>
 	<string name="donate_remove_ads_">Donate/remove ads</string>
 	<string name="remove_ads_">Remove ads</string>
@@ -62,8 +45,6 @@
 	<string name="feedback_">Feedback</string>
 	<string name="feedback_hint">Report bugs, request features ...</string>
 	<string name="more_">More Apps..</string>
-	<string name="changelog_">Changelog</string>
-	<string name="see_about">Please consult the about dialog for information on what CallMeter NG does and does not do.</string>
 	<string name="billday_">First day of your bill</string>
 	<string name="billmode_">Mode of billing</string>
 	<string name="billmode_hint">Length of first/following billing intervals.</string>
@@ -140,7 +121,6 @@
 	<string name="reset_data_">Reset data</string>
 	<string name="reset_data_hint">Reset cached data.\nRecalulate statistics from logs.</string>
 	<string name="contacts_">Contacts</string>
-	
 	<string-array name="themes">
 		<item>Black</item>
 		<item>Light</item>

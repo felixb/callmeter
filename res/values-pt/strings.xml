@@ -41,19 +41,28 @@
 	<string name="send_">Enviar</string>
 	<string name="settings">Preferências</string>
 	<string name="about_">Sobre</string>
+<!--	<string name="about_hint">About this app</string> -->
+<!--	<string name="feedback_">Feedback</string> -->
+<!--	<string name="feedback_hint">Report bugs, request features ...</string> -->
 	<string name="more_">Mais Anúncios..</string>
-	<string name="changelog_">Mudar relatório</string>
 	<string name="billday_">Primeiro dia da conta</string>
 	<string name="billmode_">Modo de cobrança</string>
 	<string name="billmode_hint">Comprimento do primeiro/seguintes períodos de cobrança.</string>
 	<string name="billdate_">Início do período de cobrança:</string>
 	<string name="smsperiod_">Mesmo período para SMS</string>
 	<string name="smsbillday_">Primeiro dia da conta SMS</string>
+<!--	<string name="appearance_">Appearance</string> -->
+<!--	<string name="theme_">Theme</string> -->
+<!--	<string name="textsize_">Text size</string> -->
 	<string name="exclude_people_">Números excluídos</string>
 	<string name="exclude_people_hint">Não cobra alguns números\ncuringas são aceitos: *555 ou 555*</string>
 	<string name="exclude_people_add">Adicione número</string>
 	<string name="exclude_people_edit">Edição</string>
 	<string name="exclude_people_delete">Apagar</string>
+<!--	<string name="exclude_people_to_plan1_">Excluded numbers to plan #1</string> -->
+<!--	<string name="exclude_people_to_plan1_hint">Bill excluded numbers in plan #1</string> -->
+<!--	<string name="exclude_people_to_plan2_">Excluded numbers to plan #2</string> -->
+<!--	<string name="exclude_people_to_plan2_hint">Bill excluded numbers in plan #2</string> -->
 	<string name="plans">Planos</string>
 	<string name="plans_split">Planos divididos</string>
 	<string name="plans_merge">Planos juntos</string>
@@ -87,6 +96,8 @@
 	<string name="merge_sms_plan1_hint">Desmarcar a junção com o plano 2.</string>
 	<string name="data_enable_">Mostrar dados estatísticos</string>
 	<string name="data_enable_hint">Os dados são coletados em tempo real. O primeiro mês pode estar incorreto!</string>
+<!--	<string name="data_each_day">Bill each day separately</string> -->
+<!--	<string name="data_each_day_hint">Your billing period starts with each day.</string> -->
 	<string name="data_limit_">Limite</string>
 	<string name="data_limit_hint">Limite do plano de dados (MB/mês)</string>
 	<string name="monday">Segunda</string>
@@ -107,5 +118,16 @@
 	<string name="plan_name1_">Plano 1: nome</string>
 	<string name="plan_name2_">Plano 2: nome</string>
 	<string name="plan_name_hint">Nome do Usuário</string>
+<!--	<string name="reset_data_">Reset data</string> -->
+<!--	<string name="reset_data_hint">Reset cached data.
+Recalulate statistics from logs.</string> -->
+<!--	<string-array name="themes"> -->
+<!--		<item>Black</item> -->
+<!--		<item>Light</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="textsize"> -->
+<!--		<item>Small</item> -->
+<!--		<item>Medium</item> -->
+<!--	</string-array> -->
 	<string name="contacts_">Contatos</string>
 </resources>

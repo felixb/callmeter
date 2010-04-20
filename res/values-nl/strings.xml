@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>	<!--
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
 		Copyright (C) 2010 Tom Nuss, Felix Bechstein
 	-->
 	<!--
-		This file is part of AndGMXsms. This program is free software; you can
-		redistribute it and/or modify it under the terms of the GNU General
-		Public License as published by the Free Software Foundation; either
-		version 3 of the License, or (at your option) any later version.
+		This file is part of Call Meter NG. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
 	-->
 	<!--
 		This program is distributed in the hope that it will be useful, but
@@ -16,8 +18,6 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="app_version">1.0</string>
-	<string name="app_name">Call Meter NG</string>
 	<string name="author_">Auteur:</string>
 	<string name="version_">Versie:</string>
 	<string name="license_">Licentie:</string>
@@ -41,14 +41,19 @@
 	<string name="send_">Verstuur</string>
 	<string name="settings">Voorkeuren</string>
 	<string name="about_">Over</string>
+	<string name="about_hint">Over deze app</string>
+	<string name="feedback_">Feedback</string>
+	<string name="feedback_hint">Meld bugs, suggesties ...</string>
 	<string name="more_">Meer apps..</string>
-	<string name="changelog_">Changelog</string>
 	<string name="billday_">Eerste dag van facturatie</string>
 	<string name="billmode_">Facturatie modus</string>
 	<string name="billmode_hint">Lengte van eerste/volgende facturatie eenheden.</string>
 	<string name="billdate_">Begin facturatie periode:</string>
 	<string name="smsperiod_">Zelfde voor SMS</string>
 	<string name="smsbillday_">Eerste dag SMS facturatie</string>
+	<string name="appearance_">Uiterlijk</string>
+	<string name="theme_">Thema</string>
+	<string name="textsize_">Text grootte</string>
 	<string name="exclude_people_">Nummers uitsluiten</string>
 	<string name="exclude_people_hint">Alleen telefoongesprekken\njokers toegestaan: *555 of 555*</string>
 	<string name="exclude_people_add">Nummer toevoegen</string>
@@ -116,13 +121,6 @@
 	<string name="reset_data_">Reset data</string>
 	<string name="reset_data_hint">Reset opgeslagen data.\nHerbereken vanuit log.</string>
 	<string name="contacts_">Contacten</string>
-	<string name="about_hint">Over deze app</string>
-	<string name="feedback_">Feedback</string>
-	<string name="feedback_hint">Meld bugs, suggesties ...</string>
-	<string name="appearance_">Uiterlijk</string>
-	<string name="theme_">Thema</string>
-	<string name="textsize_">Text grootte</string>
-
 	<string-array name="themes">
 		<item>Zwart</item>
 		<item>Licht</item>

@@ -45,8 +45,6 @@
 	<string name="feedback_">Visszajelzés/Feedback</string>
 	<string name="feedback_hint">Hibajelentés, fejlesztési ötletek küldése a fejlesztőnek...</string>
 	<string name="more_">További alkalmazások...</string>
-	<string name="changelog_">Verzióinformáció/Changelog</string>
-	<string name="see_about">Olasd el a Névjegy dialógust, hogy megtudd mire alkalmas a Call Meter NG és mire nem.</string>
 	<string name="billday_">A számlázás első napja</string>
 	<string name="billmode_">Számlázás módja</string>
 	<string name="billmode_hint">Az első/azt követő számlázási egységek másodpercben.</string>
@@ -123,4 +121,12 @@
 	<string name="reset_data_">Adatok alaphelyzetbe</string>
 	<string name="reset_data_hint">Mentett adatok nullázása.\nÚjraszámolás a naplókból.</string>
 	<string name="contacts_">Névjegyek</string>
+<!--	<string-array name="themes"> -->
+<!--		<item>Black</item> -->
+<!--		<item>Light</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="textsize"> -->
+<!--		<item>Small</item> -->
+<!--		<item>Medium</item> -->
+<!--	</string-array> -->
 </resources>

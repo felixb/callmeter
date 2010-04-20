@@ -19,9 +19,11 @@
 	-->
 <resources>
 	<string name="author_">Autor:</string>
+<!--	<string name="version_">Version:</string> -->
 	<string name="license_">Lizens:</string>
 	<string name="license">GPLv3 - siehe http://www.gnu.org/licenses/gpl-3.0.txt</string>
-	<string name="donate_subject">Ich bin der Spender. Mein IMEI Hash ist...</string>
+<!--	<string name="source_">Sourcescode:</string> -->
+<!--	<string name="website_">Website:</string> -->
 	<string name="donate_">Spenden</string>
 	<string name="donate_remove_ads_">Spenden/Werbung entfernen</string>
 	<string name="remove_ads_">Werbung entfernen</string>
@@ -43,7 +45,6 @@
 	<string name="feedback_">Feedback</string>
 	<string name="feedback_hint">Bugreports, feature requests ...</string>
 	<string name="more_">Mehr Apps..</string>
-	<string name="changelog_">Changelog</string>
 	<string name="billday_">Erster Rechnungstag</string>
 	<string name="billmode_">Abrechnungsmodus</string>
 	<string name="billmode_hint">Länge der Takte (erster/folgende)</string>
@@ -58,6 +59,10 @@
 	<string name="exclude_people_add">Nummer hinzufügen</string>
 	<string name="exclude_people_edit">Ändern</string>
 	<string name="exclude_people_delete">Löschen</string>
+	<string name="exclude_people_to_plan1_">Ausgeschlossene Nummern nach Plan #1</string>
+	<string name="exclude_people_to_plan1_hint">Ausgeschlossene nummern in Plan #1 abrechnen.</string>
+	<string name="exclude_people_to_plan2_">Ausgeschlossene Nummern nach Plan #2</string>
+	<string name="exclude_people_to_plan2_hint">Ausgeschlossene nummern in Plan #2 abrechnen.</string>
 	<string name="plans">Kontingente</string>
 	<string name="plans_split">2 Kontingente</string>
 	<string name="plans_merge">Kontingente verschmelzen</string>
@@ -103,6 +108,7 @@
 	<string name="saturday">Samstag</string>
 	<string name="sunday">Sonntag</string>
 	<string name="calls">Anrufe</string>
+<!--	<string name="sms">SMS</string> -->
 	<string name="data">Daten</string>
 	<string name="calls_sms">Anrufe/SMS</string>
 	<string name="in">Ein%s:</string>
@@ -115,7 +121,6 @@
 	<string name="reset_data_">Reset: Daten</string>
 	<string name="reset_data_hint">Zwischengespeicherte Daten löschen.\nDie Statistiken werden neu berechnet.</string>
 	<string name="contacts_">Kontakte</string>
-	
 	<string-array name="themes">
 		<item>Dunkel</item>
 		<item>Hell</item>

@@ -3,10 +3,11 @@
 		Copyright (C) 2010 Łukasz Malicki, Felix Bechstein
 	-->
 	<!--
-		This file is part of AndGMXsms. This program is free software; you can
-		redistribute it and/or modify it under the terms of the GNU General
-		Public License as published by the Free Software Foundation; either
-		version 3 of the License, or (at your option) any later version.
+		This file is part of Call Meter NG. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
 	-->
 	<!--
 		This program is distributed in the hope that it will be useful, but
@@ -34,24 +35,34 @@
 	<string name="about2">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
 	<string name="about3">Możesz podzielić swoje połączenia lub sms na dwa plany. Oba plany mogą być ustawione na całodobowe darmowe połączenia lub w określonych godzinach.</string>
 	<string name="about4">Wiadomości mogą być brane pod uwagę w Twoim planie. Np. zliczać każdy wysłany sms jako 15s. połączenie.</string>
+<!--	<string name="about5">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string> -->
 	<string name="about6_">Czego CallMeter NIE robi:</string>
 	<string name="about6">Nie da się odróżnić połączeń SIP od realnych połączeń lub websms od sms wysłanych "z telefonu". Android \ 's bezproblemową integrację tych. Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości żeby je odróżnić.</string>
 	<string name="send_">Wyślij</string>
 	<string name="settings">Ustawienia</string>
 	<string name="about_">O programie</string>
+<!--	<string name="about_hint">About this app</string> -->
+<!--	<string name="feedback_">Feedback</string> -->
+<!--	<string name="feedback_hint">Report bugs, request features ...</string> -->
 	<string name="more_">Więcej aplikacji..</string>
-	<string name="changelog_">Lista zmian</string>
 	<string name="billday_">Pierwszy dzień rachunku</string>
 	<string name="billmode_">Rodzaj cyklu</string>
 	<string name="billmode_hint">Długość pierwszego/kolejnych okresów rozliczeniowych.</string>
 	<string name="billdate_">Pierwszy dzień rachunku:</string>
 	<string name="smsperiod_">Ten sam okres dla SMS</string>
 	<string name="smsbillday_">Pierwszy dzień rachunku SMS</string>
+	<string name="appearance_">Wygląd</string>
+	<string name="theme_">Skin</string>
+	<string name="textsize_">Wielkość czcionki</string>
 	<string name="exclude_people_">Wykluczaj numery</string>
 	<string name="exclude_people_hint">Nie wliczaj niektórych numerów.</string>
 	<string name="exclude_people_add">Dodaj numer</string>
 	<string name="exclude_people_edit">Edytuj</string>
 	<string name="exclude_people_delete">Usuń</string>
+<!--	<string name="exclude_people_to_plan1_">Excluded numbers to plan #1</string> -->
+<!--	<string name="exclude_people_to_plan1_hint">Bill excluded numbers in plan #1</string> -->
+<!--	<string name="exclude_people_to_plan2_">Excluded numbers to plan #2</string> -->
+<!--	<string name="exclude_people_to_plan2_hint">Bill excluded numbers in plan #2</string> -->
 	<string name="plans">Plany</string>
 	<string name="plans_split">Rozdziel plany</string>
 	<string name="plans_merge">Połącz plany</string>
@@ -65,6 +76,18 @@
 	<string name="free_hint">Całkowicie darmowe</string>
 	<string name="freemin_hint">Darmowe minuty / Miesiąc</string>
 	<string name="freesms_hint">Darmowe SMS / Miesiąc</string>
+<!--	<string name="bill_calls_incoming_">Bill incoming</string> -->
+<!--	<string name="bill_calls_incoming_hint">Bill incoming calls as well.</string> -->
+<!--	<string name="bill_sms_incoming_">Bill incoming</string> -->
+<!--	<string name="bill_sms_incoming_hint">Bill incoming sms as well.</string> -->
+<!--	<string name="bill_data_incoming_only_">Bill incoming only</string> -->
+<!--	<string name="bill_data_incoming_only_hint">Bill only incoming traffic.</string> -->
+<!--	<string name="cost_per_call_">Cost per call</string> -->
+<!--	<string name="cost_per_call_hint">Each call will be billed with this.</string> -->
+<!--	<string name="cost_per_minute_">Cost per minute</string> -->
+<!--	<string name="cost_per_minute_hint">Each minute of a call will be billed with this.</string> -->
+<!--	<string name="cost_per_sms_">Cost per SMS</string> -->
+<!--	<string name="cost_per_sms_hint">Each SMS will be billed with this.</string> -->
 	<string name="merge_sms_calls_">Wliczaj SMS w połączenia</string>
 	<string name="merge_sms_calls_hint">Rachunek za SMS jest częścią rachunku za połączenia.</string>
 	<string name="merge_sms_calls_sec_">Sekuna / SMS</string>
@@ -98,10 +121,6 @@
 	<string name="reset_data_">Resetuj dane</string>
 	<string name="reset_data_hint">Resetuje obliczone dane.\nOblicza ponownie statystyke z logów telefonu.</string>
 	<string name="contacts_">Kontakty</string>
-	<string name="appearance_">Wygląd</string>
-	<string name="theme_">Skin</string>
-	<string name="textsize_">Wielkość czcionki</string>
-
 	<string-array name="themes">
 		<item>Ciemny</item>
 		<item>Jasny</item>

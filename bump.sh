@@ -2,11 +2,11 @@
 
 v=${1}
 vv=$(echo ${v}.0.0 | cut -d. -f1-3 | sed -e 's:^0\.::g' | tr -d .)
-n=$(fgrep app_name res/values/strings.xml | cut -d\> -f2 | cut -d\< -f1 | tr -d \ )
+n=$(fgrep app_name res/values/base.xml | cut -d\> -f2 | cut -d\< -f1 | tr -d \ )
 
 sed -i -e "s/android:versionName=[^ >]*/android:versionName=\"${v}\"/" AndroidManifest.xml
 sed -i -e "s/android:versionCode=[^ >]*/android:versionCode=\"${vv}\"/" AndroidManifest.xml
-sed -i -e "s/app_version\">[^<]*/app_version\">${v}/" res/values/strings.xml
+sed -i -e "s/app_version\">[^<]*/app_version\">${v}/" res/values/base.xml
 
 git diff
 

@@ -27,7 +27,8 @@
 	<string name="donate_">Donar</string>
 	<string name="donate_remove_ads_">Donar/Eliminar publicidad</string>
 	<string name="remove_ads_">Eliminar publicidad</string>
-	<string name="predonate">Esta es una aplicación de código abierto publicada bajo licencia GPLv3 license. Es gratuita y así continuará. Si te gusta la aplicación o la publicidad te molesta, planteate hacer una donación (via paypal) y retiraré la publicidad lo antes posible.\nGracias!</string><string name="postdonate">Para eliminar la publicidad, tienes que enviar el código MD5 de tu IMEI (único para cada teléfono). Este código es unidireccional y no permite rastrear el teléfono.</string>
+	<string name="predonate">Esta es una aplicación de código abierto publicada bajo licencia GPLv3 license. Es gratuita y así continuará. Si te gusta la aplicación o la publicidad te molesta, planteate hacer una donación (via paypal) y retiraré la publicidad lo antes posible.\nGracias!</string>
+	<string name="postdonate">Para eliminar la publicidad, tienes que enviar el código MD5 de tu IMEI (único para cada teléfono). Este código es unidireccional y no permite rastrear el teléfono.</string>
 	<string name="about0_">¡Controla tus planes de llamadas, mensajes y datos!</string>
 	<string name="about0">CallMeter genera informes de tus registros de llamadas, mensajes y datos. Permite muchos tipos de tarificación.</string>
 	<string name="about1">La presentación es: minutos usados en el ciclo de facturación/ minutos totales. El cómputo mensual de llamadas tiene en cuenta el modo de tarificación. Los totales no.</string>
@@ -40,19 +41,28 @@
 	<string name="send_">Enviar</string>
 	<string name="settings">Preferencias</string>
 	<string name="about_">Sobre</string>
+<!--	<string name="about_hint">About this app</string> -->
+<!--	<string name="feedback_">Feedback</string> -->
+<!--	<string name="feedback_hint">Report bugs, request features ...</string> -->
 	<string name="more_">Más aplicaciones..</string>
-	<string name="changelog_">Cambios en la versión</string>
 	<string name="billday_">Primer día de tu factura</string>
 	<string name="billmode_">Tarificación</string>
 	<string name="billmode_hint">Duración de la primera/restantes unidades de tarificación.</string>
 	<string name="billdate_">Inicio de facturación:</string>
 	<string name="smsperiod_">Mismo periodo para SMS</string>
 	<string name="smsbillday_">Primer día de tu factura (SMS)</string>
+<!--	<string name="appearance_">Appearance</string> -->
+<!--	<string name="theme_">Theme</string> -->
+<!--	<string name="textsize_">Text size</string> -->
 	<string name="exclude_people_">Números excluidos</string>
 	<string name="exclude_people_hint">Excluye números de la facturación. Posibilidad de usar comodines: *555 or 555*</string>
 	<string name="exclude_people_add">Añadir número</string>
 	<string name="exclude_people_edit">Editar</string>
 	<string name="exclude_people_delete">Borrar</string>
+<!--	<string name="exclude_people_to_plan1_">Excluded numbers to plan #1</string> -->
+<!--	<string name="exclude_people_to_plan1_hint">Bill excluded numbers in plan #1</string> -->
+<!--	<string name="exclude_people_to_plan2_">Excluded numbers to plan #2</string> -->
+<!--	<string name="exclude_people_to_plan2_hint">Bill excluded numbers in plan #2</string> -->
 	<string name="plans">Planes</string>
 	<string name="plans_split">Dividir planes</string>
 	<string name="plans_merge">Unir planes</string>
@@ -72,6 +82,12 @@
 	<string name="bill_sms_incoming_hint">Facturar también SMS recibidos.</string>
 	<string name="bill_data_incoming_only_">Facturar sólo entrantes</string>
 	<string name="bill_data_incoming_only_hint">Facturar sólo tráfico de entrada.</string>
+<!--	<string name="cost_per_call_">Cost per call</string> -->
+<!--	<string name="cost_per_call_hint">Each call will be billed with this.</string> -->
+<!--	<string name="cost_per_minute_">Cost per minute</string> -->
+<!--	<string name="cost_per_minute_hint">Each minute of a call will be billed with this.</string> -->
+<!--	<string name="cost_per_sms_">Cost per SMS</string> -->
+<!--	<string name="cost_per_sms_hint">Each SMS will be billed with this.</string> -->
 	<string name="merge_sms_calls_">Unir SMS y llamadas</string>
 	<string name="merge_sms_calls_hint">Tarificar SMS como llamadas.</string>
 	<string name="merge_sms_calls_sec_">Segundos / SMS</string>
@@ -105,4 +121,12 @@
 	<string name="reset_data_">Reinicializar datos</string>
 	<string name="reset_data_hint">Reinicializa datos almacenados.\nRecalcula estadísticas de los registros.</string>
 	<string name="contacts_">Contactos</string>
+<!--	<string-array name="themes"> -->
+<!--		<item>Black</item> -->
+<!--		<item>Light</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="textsize"> -->
+<!--		<item>Small</item> -->
+<!--		<item>Medium</item> -->
+<!--	</string-array> -->
 </resources>

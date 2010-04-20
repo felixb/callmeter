@@ -21,6 +21,9 @@
 	<string name="author_">Author:</string>
 	<string name="version_">Version:</string>
 	<string name="license_">License:</string>
+<!--	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string> -->
+<!--	<string name="source_">Sourcescode:</string> -->
+<!--	<string name="website_">Website:</string> -->
 	<string name="donate_">Contribuer</string>
 	<string name="donate_remove_ads_">Contribuer/Supprimer les pubs</string>
 	<string name="remove_ads_">Supprimer les pubs</string>
@@ -38,14 +41,19 @@
 	<string name="send_">Envoyer</string>
 	<string name="settings">Préférences</string>
 	<string name="about_">A propos de</string>
+<!--	<string name="about_hint">About this app</string> -->
+<!--	<string name="feedback_">Feedback</string> -->
+<!--	<string name="feedback_hint">Report bugs, request features ...</string> -->
 	<string name="more_">Plus d'applications..</string>
-	<string name="see_about">Veuillez consulter la section -A propos- pour connaître ce que CallMeter NG fait et ce qu'il ne fait pas.</string>
 	<string name="billday_">Premier jour du forfait</string>
 	<string name="billmode_">Mode de facturation d'appels</string>
 	<string name="billmode_hint">Durées minimales facturées (première / suivantes-en secondes)</string>
 	<string name="billdate_">Début de la période de facturation:</string>
 	<string name="smsperiod_">Même période pour les SMS</string>
 	<string name="smsbillday_">Premier jour de facturation SMS</string>
+	<string name="appearance_">Apparence</string>
+	<string name="theme_">Thème</string>
+	<string name="textsize_">Taille du texte</string>
 	<string name="exclude_people_">Numéros gratuits</string>
 	<string name="exclude_people_hint">Appels non facturés (chiffres et joker acceptés : *555 ou 555*)</string>
 	<string name="exclude_people_add">Ajouter un numéro</string>
@@ -113,10 +121,6 @@
 	<string name="reset_data_">Réinitialiser les données</string>
 	<string name="reset_data_hint">Réinitialiser les données en cache.\Recalculer les statistiques à partir des logs.</string>
 	<string name="contacts_">Contacts</string>
-	<string name="appearance_">Apparence</string>
-	<string name="theme_">Thème</string>
-	<string name="textsize_">Taille du texte</string>
-
 	<string-array name="themes">
 		<item>Noir</item>
 		<item>Clair</item>

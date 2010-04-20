@@ -41,19 +41,28 @@
 	<string name="send_">Αποστολή</string>
 	<string name="settings">Ρυθμίσεις</string>
 	<string name="about_">Σχετικά με</string>
+<!--	<string name="about_hint">About this app</string> -->
+<!--	<string name="feedback_">Feedback</string> -->
+<!--	<string name="feedback_hint">Report bugs, request features ...</string> -->
 	<string name="more_">Περισσότερες Apps..</string>
-	<string name="changelog_">Αρχείο Εκδόσεων</string>
 	<string name="billday_">Αρχική μέρα χρέωσης</string>
 	<string name="billmode_">Τύπος χρέωσης</string>
 	<string name="billmode_hint">Ελάχιστη χρέωση/χρέωση ανά, σε δευτερόλεπτα.</string>
 	<string name="billdate_">Πρώτη μέρα χρέωσης:</string>
 	<string name="smsperiod_">Ίδια περίοδος για SMS</string>
 	<string name="smsbillday_">Πρώτη ημέρα των SMS</string>
+	<string name="appearance_">Εμφάνιση</string>
+	<string name="theme_">Θέμα</string>
+	<string name="textsize_">Μέγεθος κειμένου</string>
 	<string name="exclude_people_">Εξαίρεση αριθμών</string>
 	<string name="exclude_people_hint">Μη χρέωση αριθμών (Κλήσεις)\nμπαλαντέρ επιτρέπονται: *555 ή 555*</string>
 	<string name="exclude_people_add">Προσθήκη αριθμού</string>
 	<string name="exclude_people_edit">Επεξεργασία</string>
 	<string name="exclude_people_delete">Διαγραφή</string>
+<!--	<string name="exclude_people_to_plan1_">Excluded numbers to plan #1</string> -->
+<!--	<string name="exclude_people_to_plan1_hint">Bill excluded numbers in plan #1</string> -->
+<!--	<string name="exclude_people_to_plan2_">Excluded numbers to plan #2</string> -->
+<!--	<string name="exclude_people_to_plan2_hint">Bill excluded numbers in plan #2</string> -->
 	<string name="plans">Πλάνο Χρέωσης</string>
 	<string name="plans_split">Διαχωρισμός Πλάνου</string>
 	<string name="plans_merge">Ένωση Πλάνων</string>
@@ -71,6 +80,8 @@
 	<string name="bill_calls_incoming_hint">Χρέωση εισερχόμενων κλήσεων.</string>
 	<string name="bill_sms_incoming_">Χρέωση εισερχόμενων</string>
 	<string name="bill_sms_incoming_hint">Χρέωση εισερχόμενων μηνυμάτων.</string>
+	<string name="bill_data_incoming_only_">Χρέωση εισερχόμενων</string>
+	<string name="bill_data_incoming_only_hint">Χρέωση εισερχόμενων μόνο κλήσεων.</string>
 	<string name="cost_per_call_">Κόστος ανά κλήση</string>
 	<string name="cost_per_call_hint">Κάθε κλήση έχει σταθερή χρέωση.</string>
 	<string name="cost_per_minute_">Κόστος ανά λεπτό</string>
@@ -110,17 +121,12 @@
 	<string name="reset_data_">Επαναφορά στοιχείων</string>
 	<string name="reset_data_hint">Επαναφορά προσωρινών δεδομένων.\nΥπολογισμός στατιστικών από τα logs.</string>
 	<string name="contacts_">Επαφές</string>
-        <string name="bill_data_incoming_only_">Χρέωση εισερχόμενων</string>
-        <string name="bill_data_incoming_only_hint">Χρέωση εισερχόμενων μόνο κλήσεων.</string>
-        <string name="appearance_">Εμφάνιση</string>
-        <string name="theme_">Θέμα</string>
-        <string name="textsize_">Μέγεθος κειμένου</string>
-        <string-array name="themes">
-             <item>Σκούρο</item>
-             <item>Φωτεινό</item>
-        </string-array>
-        <string-array name="textsize">
-            <item>Μικρό</item>
-            <item>Μεσαίο</item>
-        </string-array>
+	<string-array name="themes">
+		<item>Σκούρο</item>
+		<item>Φωτεινό</item>
+	</string-array>
+	<string-array name="textsize">
+		<item>Μικρό</item>
+		<item>Μεσαίο</item>
+	</string-array>
 </resources>

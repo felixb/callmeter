@@ -45,7 +45,6 @@
 	<string name="feedback_">Feedback</string>
 	<string name="feedback_hint">Ohlásit chybu, zaslat požadavek na funčknost.</string>
 	<string name="more_">Další aplikace autora..</string>
-	<string name="see_about">Popis funkcí aplikace najdete na obrazovce \'O aplikaci\'</string>
 	<string name="billday_">Začátek účetního období</string>
 	<string name="billmode_">Tarifikace</string>
 	<string name="billmode_hint">Způsob výpočtu ceny volání.</string>
@@ -122,7 +121,6 @@
 	<string name="reset_data_">Resetovat data</string>
 	<string name="reset_data_hint">Vymaže paměť aplikace.\nPřepočte statistiky z logu.</string>
 	<string name="contacts_">Z kontaktů</string>
-
 	<string-array name="themes">
 		<item>Tmavý</item>
 		<item>Světlý</item>
