@@ -27,7 +27,7 @@
 	<string name="donate_">Wspomóż</string>
 	<string name="donate_remove_ads_">Wspomóż/usuń reklamy</string>
 	<string name="remove_ads_">Usuń reklamy</string>
-	<string name="predonate">Ta open-surce'owa aplikacja jest udostępniana na licencji GPLve. Jest bezpłatna i taka też pozostanie. Jeśli Ci się podoba, lub denerwują Cię reklamy, wspomóż mnie (przez paypal). Usunę reklamy wraz z następną aktualizacją. Dzięki!</string>
+	<string name="predonate">Ta open-surce\'owa aplikacja jest udostępniana na licencji GPLve. Jest bezpłatna i taka też pozostanie. Jeśli Ci się podoba, lub denerwują Cię reklamy, wspomóż mnie (przez paypal). Usunę reklamy wraz z następną aktualizacją. Dzięki!</string>
 	<string name="postdonate">Aby usunąć reklamy prześlij mi hash swojego numeru IMEI (w MD5, jest unikalny dla Twojego telefonu). Hash działa tylko w jedną stronę, więc nikt (nawet ja) nie poznam tego numeru.</string>
 	<string name="about0_">Obserwuj swoje połączenia, wiadomości oraz pakiet rozmów!</string>
 	<string name="about0">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych..</string>
@@ -37,7 +37,7 @@
 	<string name="about4">Wiadomości mogą być brane pod uwagę w Twoim planie. Np. zliczać każdy wysłany sms jako 15s. połączenie.</string>
 <!--	<string name="about5">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string> -->
 	<string name="about6_">Czego CallMeter NIE robi:</string>
-	<string name="about6">Nie da się odróżnić połączeń SIP od realnych połączeń lub websms od sms wysłanych "z telefonu". Android \ 's bezproblemową integrację tych. Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości żeby je odróżnić.</string>
+	<string name="about6">Nie da się odróżnić połączeń SIP od realnych połączeń lub websms od sms wysłanych \"z telefonu\". Android \'s bezproblemową integrację tych. Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości żeby je odróżnić.</string>
 	<string name="send_">Wyślij</string>
 	<string name="settings">Ustawienia</string>
 	<string name="about_">O programie</string>
