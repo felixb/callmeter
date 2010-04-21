@@ -36,6 +36,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.flurry.android.FlurryAgent;
 
 /**
  * AsyncTask to handle calcualtions in background.
@@ -1134,27 +1137,37 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 */
 	@Override
 	protected Integer[] doInBackground(final Void... arg0) {
-
-		// load splitted plans
-		final boolean[][] plans = this.loadPlans(this.prefs);
-
 		// progressbar positions
 		final Integer[] ret = { 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0 };
-		Calendar calBillDate = getBillDayCalls(this.prefs);
-		if (this.plansMergeCalls) {
-			this.walkCalls(null, calBillDate, ret);
-		} else {
-			this.walkCalls(plans, calBillDate, ret);
-		}
+		try {
+			// load splitted plans
+			final boolean[][] plans = this.loadPlans(this.prefs);
 
-		// report sms
-		calBillDate = getBillDaySMS(this.prefs);
-		if (this.plansMergeSms) {
-			this.walkSMS(null, calBillDate, ret);
-		} else {
-			this.walkSMS(plans, calBillDate, ret);
-		}
+			Calendar calBillDate = getBillDayCalls(this.prefs);
+			if (this.plansMergeCalls) {
+				this.walkCalls(null, calBillDate, ret);
+			} else {
+				this.walkCalls(plans, calBillDate, ret);
+			}
 
+			// report sms
+			calBillDate = getBillDaySMS(this.prefs);
+			if (this.plansMergeSms) {
+				this.walkSMS(null, calBillDate, ret);
+			} else {
+				this.walkSMS(plans, calBillDate, ret);
+			}
+		} catch (Exception e) {
+			Toast.makeText(
+					this.context,
+					"some error occured, "
+							+ "please load sendlog from market and "
+							+ "send your logs to the developer.",
+					Toast.LENGTH_SHORT).show();
+			Log.e(TAG, "error in background", e);
+			FlurryAgent.onError(e.toString(), e.getMessage(), e.getClass()
+					.getName());
+		}
 		return ret;
 	}
 
