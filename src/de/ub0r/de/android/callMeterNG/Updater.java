@@ -30,7 +30,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
-import android.telephony.gsm.SmsMessage;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
@@ -45,7 +44,6 @@ import com.flurry.android.FlurryAgent;
  * 
  * @author flx
  */
-@SuppressWarnings("deprecation")
 class Updater extends AsyncTask<Void, Void, Integer[]> {
 	/** Tag for output. */
 	private static final String TAG = "CallMeterNG.updater";
@@ -56,6 +54,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	static final int HOURS_DAY = 24;
 	/** Seconds of a minute. */
 	static final int SECONDS_MINUTE = 60;
+
+	/** {@link TelephonyWrapper}. */
+	private static final TelephonyWrapper WRAPPER = TelephonyWrapper
+			.getInstance();
 
 	/** Prefs: name for first day. */
 	static final String PREFS_BILLDAY = "billday";
@@ -957,6 +959,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			final int idType = cur.getColumnIndex(Calls.TYPE);
 			final int idDate = cur.getColumnIndex(Calls.DATE);
 			final int idBody = cur.getColumnIndex(BODY);
+			String body;
 			lastWalk = cur.getLong(idDate);
 			int i = 0;
 			int l = 1;
@@ -964,7 +967,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				type = cur.getInt(idType);
 				d = cur.getLong(idDate);
 				Log.d(TAG, "got entry: " + d);
-				l = SmsMessage.calculateLength(cur.getString(idBody), false)[0];
+				body = cur.getString(idBody);
+				if (body == null) {
+					l = 1;
+				} else {
+					l = WRAPPER.calculateLength(body, false)[0];
+				}
 				switch (type) {
 				case Calls.INCOMING_TYPE:
 					iSMSIn += l;

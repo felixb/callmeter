@@ -55,12 +55,12 @@ public abstract class ContactsWrapper {
 			 * implementation class designed for that version of the SDK.
 			 * Unfortunately we have to use strings to represent the class
 			 * names. If we used the conventional
-			 * ContactAccessorSdk5.class.getName() syntax, we would get a
+			 * ContactsWrapper5.class.getName() syntax, we would get a
 			 * ClassNotFoundException at runtime on pre-Eclair SDKs. Using the
 			 * above syntax would force Dalvik to load the class and try to
 			 * resolve references to all other classes it uses. Since the
 			 * pre-Eclair does not have those classes, the loading of
-			 * ContactAccessorSdk5 would fail.
+			 * ContactsWrapper5 would fail.
 			 */
 			int sdkVersion = Integer.parseInt(Build.VERSION.SDK);
 			// Cupcake style
