@@ -51,9 +51,9 @@
 	<string name="billdate_">Início do período de cobrança:</string>
 	<string name="smsperiod_">Mesmo período para SMS</string>
 	<string name="smsbillday_">Primeiro dia da conta SMS</string>
-<!--	<string name="appearance_">Appearance</string> -->
-<!--	<string name="theme_">Theme</string> -->
-<!--	<string name="textsize_">Text size</string> -->
+	<string name="appearance_">Aparência</string>
+	<string name="theme_">Tema</string>
+	<string name="textsize_">Tamanho do texto</string>
 	<string name="exclude_people_">Números excluídos</string>
 	<string name="exclude_people_hint">Não cobra alguns números\ncuringas são aceitos: *555 ou 555*</string>
 	<string name="exclude_people_add">Adicione número</string>
@@ -119,15 +119,14 @@
 	<string name="plan_name2_">Plano 2: nome</string>
 	<string name="plan_name_hint">Nome do Usuário</string>
 <!--	<string name="reset_data_">Reset data</string> -->
-<!--	<string name="reset_data_hint">Reset cached data.
-Recalulate statistics from logs.</string> -->
-<!--	<string-array name="themes"> -->
-<!--		<item>Black</item> -->
-<!--		<item>Light</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="textsize"> -->
-<!--		<item>Small</item> -->
-<!--		<item>Medium</item> -->
-<!--	</string-array> -->
+<!--	<string name="reset_data_hint">Reset cached data. Recalulate statistics from logs.</string> -->
+	<string-array name="themes">
+		<item>Escuro</item>
+		<item>Claro</item>
+	</string-array>
+	<string-array name="textsize">
+		<item>Pequeno</item>
+		<item>Médio</item>
+	</string-array>
 	<string name="contacts_">Contatos</string>
 </resources>
