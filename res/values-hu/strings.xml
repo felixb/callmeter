@@ -29,6 +29,10 @@
 	<string name="remove_ads_">Hirdetések eltávolítása</string>
 	<string name="predonate">Ez egy nyílt forráskódú, GPLv3 licenc alatt kiadott alkalmazás. Ingyenes, és az is marad. Ha megtetszett a program, vagy ha zavarnak a hirdetések, kérlek adományozz (paypal-on keresztül). A hirdetéseket eltávolítom azonnal.\nKöszönöm!</string>
 	<string name="postdonate">A hirdetések eltávolításához küldd el nekem a telefonod egyedi IMEI számának MD5 hash kódját. A hashelési eljárás egyirányú, tehát a kódból nem nyerhető vissza az IMEI.</string>
+<!--	<string name="send_hash_">Send hash</string> -->
+<!--	<string name="signature_">You will get back a code, which you can paste here, to finally remove the ads:</string> -->
+<!--	<string name="sig_loaded">Ads removed!</string> -->
+<!--	<string name="sig_failed">Failed to remove ads!</string> -->
 	<string name="about0_">Kövesd nyomon a hívás-, SMS-, és adatforgalmadat!</string>
 	<string name="about0">A Call Meter NG statisztikát készít a hívás-, SMS-, és adatforgalomból. Mindezt többféle számlázási mód támogatásával.</string>
 	<string name="about1">A kimeneti formátum a következő: felhasznált mennyiség százalékosan / hívásidő, SMS-, vagy adatmennyiég az aktuális számlázási időszakra / összesített hívásidő, SMS-, vagy adatmennyiség. A havi számítás figyelembe veszi a számlázási módot, míg az összegzett nem.</string>

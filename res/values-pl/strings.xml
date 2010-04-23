@@ -29,6 +29,10 @@
 	<string name="remove_ads_">Usuń reklamy</string>
 	<string name="predonate">Ta open-surce\'owa aplikacja jest udostępniana na licencji GPLve. Jest bezpłatna i taka też pozostanie. Jeśli Ci się podoba, lub denerwują Cię reklamy, wspomóż mnie (przez paypal). Usunę reklamy wraz z następną aktualizacją. Dzięki!</string>
 	<string name="postdonate">Aby usunąć reklamy prześlij mi hash swojego numeru IMEI (w MD5, jest unikalny dla Twojego telefonu). Hash działa tylko w jedną stronę, więc nikt (nawet ja) nie poznam tego numeru.</string>
+<!--	<string name="send_hash_">Send hash</string> -->
+<!--	<string name="signature_">You will get back a code, which you can paste here, to finally remove the ads:</string> -->
+<!--	<string name="sig_loaded">Ads removed!</string> -->
+<!--	<string name="sig_failed">Failed to remove ads!</string> -->
 	<string name="about0_">Obserwuj swoje połączenia, wiadomości oraz pakiet rozmów!</string>
 	<string name="about0">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych..</string>
 	<string name="about1">Format wyjściowy wykorzystuje /czas, całość wykorzystanego rachunku /czas, całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>

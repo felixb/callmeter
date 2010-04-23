@@ -29,6 +29,10 @@
 	<string name="remove_ads_">Odstranit inzerci</string>
 	<string name="predonate">Call Meter je open-source aplikací vydanou pod licencí GPLv3. Využití aplikace není a nebude zpoplatněné. Pokud jste s ní spokojení, nebo pokud vám vadí inzerce, zvažte možnost přispět přes PayPal k jejímu vývoji. Kromě dobrého pocitu z podpory získá dárce aplikaci bez inzerce.\nPředem díky!</string>
 	<string name="postdonate">Pro odstranění inzerce mi zašlete emailem MD5 hash IMEI čísla vašeho telefonu. MD5 hash je jednostranou konverzí IMEI čísla na unikátní řetězec, který není vysledovatelný zpět k vám.</string>
+<!--	<string name="send_hash_">Send hash</string> -->
+<!--	<string name="signature_">You will get back a code, which you can paste here, to finally remove the ads:</string> -->
+<!--	<string name="sig_loaded">Ads removed!</string> -->
+<!--	<string name="sig_failed">Failed to remove ads!</string> -->
 	<string name="about0_">Call Meter slouží ke sledování stavu čerpání hovorného, SMS zpráv a datových přenosů v rámci měsíčního paušálu.</string>
 	<string name="about0">Aplikace tvoří statistiku na základě logů o hovorech, SMS zprávách a datových přenosech a podporuje několik způsobů účtování/tarifikace.</string>
 	<string name="about1">Výstupem je celkový počet využitých minut/sms/dat od nainstalování aplikace, a počet těchto jednotek případně ukazatel využití volných minut/sms/dat za aktuální účetní období. Výpočet měsíční spotřeby bere v potaz vybranou tarifikaci. V celkovém výpočtu není tarifikace zohledněna.\n\nLegenda zobrazování statistik:\nPříchozí hovory: délka a počet v aktuálním období / délka všech hovorů\nOdchozí hovory: [% využití volných minut akt. období] / délka a počet v akt. období / délka všech hovorů\nPříchozí SMS: počet SMS akt. období / celkový počet SMS\nOdchozí SMS: cena za SMS akt. období / [% využití volných SMS akt. období] / počet SMS akt. období / celkový počet SMS </string>

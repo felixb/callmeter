@@ -29,6 +29,10 @@
 	<string name="remove_ads_">Verwijder ads</string>
 	<string name="predonate">Dit is een open-source applicatie uitgegeven onder de GPLv3 licentie. Het is gratis en blijft gratis. Als je de applicatie erg handig vindt of als je geïrriteerd bent door de advertenties, overweeg dan alsjeblieft om een donatie te doen (via paypal). Ik verwijder de advertenties dan zo spoedig mogelijk.\nDankjewel!</string>
 	<string name="postdonate">Om advertenties te verwijderen dien je mij de zogenaamde MD5 hash van je IMEI (unieke id van je telefoon) te sturen. Deze hash is een éénrichtingsverkeer functie. De hash is daardoor niet terug naar jou te traceren.</string>
+<!--	<string name="send_hash_">Send hash</string> -->
+<!--	<string name="signature_">You will get back a code, which you can paste here, to finally remove the ads:</string> -->
+<!--	<string name="sig_loaded">Ads removed!</string> -->
+<!--	<string name="sig_failed">Failed to remove ads!</string> -->
 	<string name="about0_">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
 	<string name="about0">CallMeter genereert rapporten uit de gesprek, berichten en data log van je telefoon. Het ondersteunt meerdere manieren van factureren.</string>
 	<string name="about1">Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
