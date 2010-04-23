@@ -51,9 +51,9 @@
 	<string name="billdate_">Inicio de facturación:</string>
 	<string name="smsperiod_">Mismo periodo para SMS</string>
 	<string name="smsbillday_">Primer día de tu factura (SMS)</string>
-<!--	<string name="appearance_">Appearance</string> -->
-<!--	<string name="theme_">Theme</string> -->
-<!--	<string name="textsize_">Text size</string> -->
+	<string name="appearance_">Apariencia</string>
+	<string name="theme_">Tema</string>
+	<string name="textsize_">Tamaño texto</string>
 	<string name="exclude_people_">Números excluidos</string>
 	<string name="exclude_people_hint">Excluye números de la facturación. Posibilidad de usar comodines: *555 or 555*</string>
 	<string name="exclude_people_add">Añadir número</string>
@@ -121,12 +121,12 @@
 	<string name="reset_data_">Reinicializar datos</string>
 	<string name="reset_data_hint">Reinicializa datos almacenados.\nRecalcula estadísticas de los registros.</string>
 	<string name="contacts_">Contactos</string>
-<!--	<string-array name="themes"> -->
-<!--		<item>Black</item> -->
-<!--		<item>Light</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="textsize"> -->
-<!--		<item>Small</item> -->
-<!--		<item>Medium</item> -->
-<!--	</string-array> -->
+	<string-array name="themes">
+		<item>Oscuro</item>
+		<item>Claro</item>
+	</string-array>
+	<string-array name="textsize">
+		<item>Pequeño</item>
+		<item>Mediano</item>
+	</string-array>
 </resources>
