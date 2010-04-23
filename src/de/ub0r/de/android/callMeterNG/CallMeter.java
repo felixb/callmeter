@@ -22,8 +22,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.security.KeyFactory;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.X509EncodedKeySpec;
@@ -33,11 +31,9 @@ import java.util.HashMap;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
@@ -66,12 +62,8 @@ public class CallMeter extends Activity {
 	/** 100. */
 	static final int HUNDRET = 100;
 
-	/** Dialog: post donate. */
-	private static final int DIALOG_POSTDONATE = 0;
 	/** Dialog: update. */
-	private static final int DIALOG_UPDATE = 2;
-	/** Dialog: pre donate. */
-	private static final int DIALOG_PREDONATE = 3;
+	private static final int DIALOG_UPDATE = 0;
 
 	/** Prefs: name for last version run. */
 	private static final String PREFS_LAST_RUN = "lastrun";
@@ -96,7 +88,7 @@ public class CallMeter extends Activity {
 			+ "sOJC7PxcR5TvNpeXsogcyxxo3fMdJdjkafYwIDAQAB";
 
 	/** Preference's name: hide ads. */
-	private static final String PREFS_HIDEADS = "hideads";
+	static final String PREFS_HIDEADS = "hideads";
 
 	/** Path to file containing signatures of UID Hash. */
 	private static final String NOADS_SIGNATURES = "/sdcard/callmeter.noads";
@@ -168,7 +160,7 @@ public class CallMeter extends Activity {
 		prefsNoAds = this.hideAds();
 		// TODO: delete this after transition
 		if (!prefsNoAds && s != null) {
-			this.imeiHash = md5(s);
+			this.imeiHash = DonationHelper.md5(s);
 			for (String h : NO_AD_HASHS) {
 				if (this.imeiHash.equals(h)) {
 					prefsNoAds = true;
@@ -208,55 +200,6 @@ public class CallMeter extends Activity {
 	protected final Dialog onCreateDialog(final int id) {
 		AlertDialog.Builder builder;
 		switch (id) {
-		case DIALOG_PREDONATE:
-			builder = new AlertDialog.Builder(this);
-			builder.setTitle(R.string.donate_);
-			builder.setMessage(R.string.predonate);
-			builder.setPositiveButton(R.string.donate_,
-					new DialogInterface.OnClickListener() {
-						public void onClick(final DialogInterface dialog,
-								final int which) {
-							try {
-								CallMeter.this.startActivity(new // .
-										Intent(Intent.ACTION_VIEW, // .
-												Uri.parse(CallMeter.this
-														.getString(// .
-														R.string.donate_url))));
-							} catch (ActivityNotFoundException e) {
-								Log.e(TAG, "no browser", e);
-							} finally {
-								CallMeter.this.showDialog(DIALOG_POSTDONATE);
-							}
-						}
-					});
-			builder.setNegativeButton(android.R.string.cancel, null);
-			return builder.create();
-		case DIALOG_POSTDONATE:
-			builder = new AlertDialog.Builder(this);
-			builder.setTitle(R.string.remove_ads_);
-			builder.setMessage(R.string.postdonate);
-			builder.setPositiveButton(R.string.send_,
-					new DialogInterface.OnClickListener() {
-						public void onClick(final DialogInterface dialog,
-								final int which) {
-							final Intent in = new Intent(Intent.ACTION_SEND);
-							in.putExtra(Intent.EXTRA_EMAIL, new String[] {
-									CallMeter.this
-											.getString(R.string.donate_mail),
-									"" }); // FIXME: "" is a k9 hack.
-							in.putExtra(Intent.EXTRA_TEXT,
-									CallMeter.this.imeiHash);
-							in.putExtra(Intent.EXTRA_SUBJECT, CallMeter.this
-									.getString(// .
-									R.string.app_name)
-									+ " " + CallMeter.this.getString(// .
-											R.string.donate_subject));
-							in.setType("text/plain");
-							CallMeter.this.startActivity(in);
-						}
-					});
-			builder.setNegativeButton(android.R.string.cancel, null);
-			return builder.create();
 		case DIALOG_UPDATE:
 			builder = new AlertDialog.Builder(this);
 			builder.setTitle(R.string.changelog_);
@@ -310,7 +253,7 @@ public class CallMeter extends Activity {
 			this.startActivity(new Intent(this, Preferences.class));
 			return true;
 		case R.id.item_donate:
-			CallMeter.this.showDialog(DIALOG_PREDONATE);
+			this.startActivity(new Intent(this, DonationHelper.class));
 			return true;
 		default:
 			return false;
@@ -335,7 +278,8 @@ public class CallMeter extends Activity {
 						.generatePublic(new X509EncodedKeySpec(publicKey));
 				TelephonyManager mTelephonyMgr = (TelephonyManager) this
 						.getSystemService(TELEPHONY_SERVICE);
-				final String h = md5(mTelephonyMgr.getDeviceId());
+				final String h = DonationHelper
+						.md5(mTelephonyMgr.getDeviceId());
 				boolean ret = false;
 				while (true) {
 					String l = br.readLine();
@@ -369,37 +313,5 @@ public class CallMeter extends Activity {
 			FlurryAgent.onEvent("switch prefsNoAds", params);
 		}
 		return ret;
-	}
-
-	/**
-	 * Calc MD5 Hash from String.
-	 * 
-	 * @param s
-	 *            input
-	 * @return hash
-	 */
-	private static String md5(final String s) {
-		try {
-			// Create MD5 Hash
-			MessageDigest digest = java.security.MessageDigest
-					.getInstance("MD5");
-			digest.update(s.getBytes());
-			byte[] messageDigest = digest.digest();
-			// Create Hex String
-			StringBuilder hexString = new StringBuilder(32);
-			int b;
-			for (int i = 0; i < messageDigest.length; i++) {
-				b = 0xFF & messageDigest[i];
-				if (b < 0x10) {
-					hexString.append('0' + Integer.toHexString(b));
-				} else {
-					hexString.append(Integer.toHexString(b));
-				}
-			}
-			return hexString.toString();
-		} catch (NoSuchAlgorithmException e) {
-			Log.e(TAG, null, e);
-		}
-		return "";
 	}
 }

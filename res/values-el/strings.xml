@@ -24,7 +24,7 @@
 	<string name="license">GPLv3 - βλέπε http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Κώδικας:</string>
 	<string name="website_">Website:</string>
-	<string name="donate_">Δωρεά</string>
+	<string name="donate_">Δωρεά (Paypal)</string>
 	<string name="donate_remove_ads_">Δωρεά/Απόκρυψη Ads</string>
 	<string name="remove_ads_">Απόκρυψη Διαφημίσεων</string>
 	<string name="predonate">Πρόκειται για μια open-source εφαρμογή που διανέμεται υπό την άδεια του GPLv3. Είναι δωρεάν και θα παραμείνει δωρεάν. Εάν, πραγματικά, σας άρεσε ή ενοχλήστε από τις διαφημίσεις, παρακαλώ  σκεφτείτε τη δωρεά (με paypal). Θα απενεργοποιήσω τις διαφημίσεις για εσάς το συντομότερο δυνατό.\nΣας ευχαριστώ!</string>

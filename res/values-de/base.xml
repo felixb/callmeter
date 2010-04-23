@@ -18,5 +18,6 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+	<string name="lang">de</string>
 	<string name="donate_subject">Ich bin der Spender. Mein IMEI Hash ist...</string>
 </resources>

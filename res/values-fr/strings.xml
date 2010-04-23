@@ -24,7 +24,7 @@
 <!--	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string> -->
 <!--	<string name="source_">Sourcescode:</string> -->
 <!--	<string name="website_">Website:</string> -->
-	<string name="donate_">Contribuer</string>
+	<string name="donate_">Contribuer (Paypal)</string>
 	<string name="donate_remove_ads_">Contribuer/Supprimer les pubs</string>
 	<string name="remove_ads_">Supprimer les pubs</string>
 	<string name="predonate">Il s\'agit d\'une application open-source sous licence GPLv3. Elle est gratuite et le restera. Si vous l\'aimez ou si les publicités vous agacent, vous pouvez envisager de payer (par paypal). Je vous supprimerai les publicités dès que possible\nMerci!</string>

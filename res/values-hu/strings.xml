@@ -24,7 +24,7 @@
 	<string name="license">GPLv3 - bővebben: http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Forráskód:</string>
 	<string name="website_">Weboldal:</string>
-	<string name="donate_">Adományozás</string>
+	<string name="donate_">Adományozás (Paypal)</string>
 	<string name="donate_remove_ads_">Adomány/hirdetések eltávolítása</string>
 	<string name="remove_ads_">Hirdetések eltávolítása</string>
 	<string name="predonate">Ez egy nyílt forráskódú, GPLv3 licenc alatt kiadott alkalmazás. Ingyenes, és az is marad. Ha megtetszett a program, vagy ha zavarnak a hirdetések, kérlek adományozz (paypal-on keresztül). A hirdetéseket eltávolítom azonnal.\nKöszönöm!</string>

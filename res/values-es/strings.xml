@@ -24,7 +24,7 @@
 	<string name="license">GPLv3 - visitar http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Código fuente:</string>
 	<string name="website_">Web:</string>
-	<string name="donate_">Donar</string>
+	<string name="donate_">Donar (Paypal)</string>
 	<string name="donate_remove_ads_">Donar/Eliminar publicidad</string>
 	<string name="remove_ads_">Eliminar publicidad</string>
 	<string name="predonate">Esta es una aplicación de código abierto publicada bajo licencia GPLv3 license. Es gratuita y así continuará. Si te gusta la aplicación o la publicidad te molesta, planteate hacer una donación (via paypal) y retiraré la publicidad lo antes posible.\nGracias!</string>

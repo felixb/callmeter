@@ -24,11 +24,15 @@
 	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Sourcescode:</string>
 	<string name="website_">Website:</string>
-	<string name="donate_">Donate</string>
+	<string name="donate_">Donate (Paypal)</string>
 	<string name="donate_remove_ads_">Donate/remove ads</string>
 	<string name="remove_ads_">Remove ads</string>
 	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by ads, please consider donating (via paypal). I will remove the ads for you as soon as possible.\nThank you!</string>
 	<string name="postdonate">To remove ads, you need to send me the MD5 hash of your IMEI (unique id of your phone). This hash is a one-way-function. It is not traceable back to you.</string>
+	<string name="send_hash_">Send hash</string>
+	<string name="signature_">You will get back a code, which you can paste here, to finally remove the ads:</string>
+	<string name="sig_loaded">Ads removed!</string>
+	<string name="sig_failed">Failed to remove ads!</string>
 	<string name="about0_">Watch your call, message and data plans!</string>
 	<string name="about0">CallMeter generates reports from call, message and data logs. It supports several modes of billing.</string>
 	<string name="about1">The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not.</string>

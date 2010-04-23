@@ -24,7 +24,7 @@
 	<string name="license">GPLv3 - viz http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Zdrojový kód:</string>
 	<string name="website_">Web:</string>
-	<string name="donate_">Chci přispět</string>
+	<string name="donate_">Chci přispět (Paypal)</string>
 	<string name="donate_remove_ads_">Přispět/odstranit inzerci</string>
 	<string name="remove_ads_">Odstranit inzerci</string>
 	<string name="predonate">Call Meter je open-source aplikací vydanou pod licencí GPLv3. Využití aplikace není a nebude zpoplatněné. Pokud jste s ní spokojení, nebo pokud vám vadí inzerce, zvažte možnost přispět přes PayPal k jejímu vývoji. Kromě dobrého pocitu z podpory získá dárce aplikaci bez inzerce.\nPředem díky!</string>
