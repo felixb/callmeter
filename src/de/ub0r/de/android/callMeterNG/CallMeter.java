@@ -18,13 +18,7 @@
  */
 package de.ub0r.de.android.callMeterNG;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.security.KeyFactory;
-import java.security.PublicKey;
-import java.security.Signature;
-import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -34,9 +28,9 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -44,6 +38,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.flurry.android.FlurryAgent;
 
@@ -71,21 +66,8 @@ public class CallMeter extends Activity {
 	/** SharedPreferences. */
 	private SharedPreferences preferences;
 
-	/** Unique ID of device. */
-	private String imeiHash = null;
 	/** Display ads? */
 	private static boolean prefsNoAds;
-
-	/** Crypto algorithm for signing UID hashs. */
-	private static final String ALGO = "RSA";
-	/** Crypto hash algorithm for signing UID hashs. */
-	private static final String SIGALGO = "SHA1with" + ALGO;
-	/** My public key for verifying UID hashs. */
-	private static final String KEY = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNAD"
-			+ "CBiQKBgQCgnfT4bRMLOv3rV8tpjcEqsNmC1OJaaEYRaTHOCC"
-			+ "F4sCIZ3pEfDcNmrZZQc9Y0im351ekKOzUzlLLoG09bsaOeMd"
-			+ "Y89+o2O0mW9NnBch3l8K/uJ3FRn+8Li75SqoTqFj3yCrd9IT"
-			+ "sOJC7PxcR5TvNpeXsogcyxxo3fMdJdjkafYwIDAQAB";
 
 	/** Preference's name: hide ads. */
 	static final String PREFS_HIDEADS = "hideads";
@@ -97,24 +79,6 @@ public class CallMeter extends Activity {
 	static ArrayList<String> prefsExcludePeople;
 	/** ArrayAdapter for excluded numbers. */
 	static ArrayAdapter<String> excludedPeaoplAdapter;
-
-	/** Array of md5(imei) for which no ads should be displayed. */
-	private static final String[] NO_AD_HASHS = {
-			"d9018351e0159dd931e20cc1861ac5d8", // Tommaso C.
-			"2c72e52ef02a75210dc6680edab6b75d", // Danny S.
-			"f39b49859c04e6ea7849b43c73bd050e", // Lukasz M.
-			"225905ca10fd56ae9c4b82254fa6d490", // George K.
-			"9e30468a2b516aac2d1ddf2a875ca8b8", // Alfons V.
-			"4bf7f35515fb7306dc7c43c9fa88558c", // Ronny T.
-			"75b9d156ebfda12a0e63da875593edc0", // Angel M.
-			"80cfd25e841424e968db64de0d7d236e", // Renato P.
-			"cb4d969c66def366b56200d87d3c363c", // Daniel S.
-			"9044aee31eaba23bb55f7cdf01d563ec", // Ruurd O.
-			"09eec4cc097d44c222470785fa19c75d", // Oleg J.
-			"3273e9f7b49d65c02cfc75a2730530a8", // Pjotr d. B.
-			"fe9c39f3ee0fdaffeda8ffbfe4105c7d", // Chrispen F.
-			"e3563c28b3916d95b9ef126202385c2b", // Istvan P.
-	};
 
 	/**
 	 * {@inheritDoc}
@@ -153,24 +117,7 @@ public class CallMeter extends Activity {
 			editor.commit();
 			this.showDialog(DIALOG_UPDATE);
 		}
-		// get imei
-		TelephonyManager mTelephonyMgr = (TelephonyManager) this
-				.getSystemService(TELEPHONY_SERVICE);
-		final String s = mTelephonyMgr.getDeviceId();
 		prefsNoAds = this.hideAds();
-		// TODO: delete this after transition
-		if (!prefsNoAds && s != null) {
-			this.imeiHash = DonationHelper.md5(s);
-			for (String h : NO_AD_HASHS) {
-				if (this.imeiHash.equals(h)) {
-					prefsNoAds = true;
-					// this is for transition
-					this.preferences.edit().putBoolean(PREFS_HIDEADS,
-							prefsNoAds).commit();
-					break;
-				}
-			}
-		}
 		prefsExcludePeople = ExcludePeople.loadExcludedPeople(this);
 		excludedPeaoplAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, prefsExcludePeople);
@@ -271,44 +218,24 @@ public class CallMeter extends Activity {
 		final File f = new File(NOADS_SIGNATURES);
 		try {
 			if (f.exists()) {
-				final BufferedReader br = new BufferedReader(new FileReader(f));
-				final byte[] publicKey = Base64Coder.decode(KEY);
-				final KeyFactory keyFactory = KeyFactory.getInstance(ALGO);
-				PublicKey pk = keyFactory
-						.generatePublic(new X509EncodedKeySpec(publicKey));
-				TelephonyManager mTelephonyMgr = (TelephonyManager) this
-						.getSystemService(TELEPHONY_SERVICE);
-				final String h = DonationHelper
-						.md5(mTelephonyMgr.getDeviceId());
-				boolean ret = false;
-				while (true) {
-					String l = br.readLine();
-					if (l == null) {
-						break;
-					}
-					try {
-						byte[] signature = Base64Coder.decode(l);
-						Signature sig = Signature.getInstance(SIGALGO);
-						sig.initVerify(pk);
-						sig.update(h.getBytes());
-						ret = sig.verify(signature);
-						if (ret) {
-							break;
-						}
-					} catch (IllegalArgumentException e) {
-						Log.w(TAG, "error reading line", e);
+				if (DonationHelper.loadSig(this, Uri.fromFile(f))) {
+					if (!f.delete()) {
+						Log.w(TAG, "error deleting signature!");
+						Toast.makeText(
+								this,
+								"could not delete .noads file!\n"
+										+ "please delete it yourself.",
+								Toast.LENGTH_LONG).show();
 					}
 				}
-				br.close();
-				f.delete();
-				p.edit().putBoolean(PREFS_HIDEADS, ret).commit();
 			}
 		} catch (Exception e) {
 			Log.e(TAG, "error reading signatures", e);
 		}
 		final boolean ret = p.getBoolean(PREFS_HIDEADS, false);
 		if (ret != prefsNoAds) {
-			final HashMap<String, String> params = new HashMap<String, String>();
+			final HashMap<String, String> params = // .
+			new HashMap<String, String>();
 			params.put("value", String.valueOf(ret));
 			FlurryAgent.onEvent("switch prefsNoAds", params);
 		}
