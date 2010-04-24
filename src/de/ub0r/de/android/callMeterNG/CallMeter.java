@@ -38,7 +38,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 import com.flurry.android.FlurryAgent;
 
@@ -219,14 +218,7 @@ public class CallMeter extends Activity {
 		try {
 			if (f.exists()) {
 				if (DonationHelper.loadSig(this, Uri.fromFile(f))) {
-					if (!f.delete()) {
-						Log.w(TAG, "error deleting signature!");
-						Toast.makeText(
-								this,
-								"could not delete .noads file!\n"
-										+ "please delete it yourself.",
-								Toast.LENGTH_LONG).show();
-					}
+					f.delete();
 				}
 			}
 		} catch (Exception e) {
