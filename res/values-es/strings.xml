@@ -46,8 +46,11 @@
 	<string name="settings">Preferencias</string>
 	<string name="about_">Acerca de</string>
 	<string name="about_hint">Acerca de la aplicación</string>
+<!--	<string name="faq_hint">Some tips and tricks, how to set up this app.</string> -->
 	<string name="feedback_">Comentario</string>
 	<string name="feedback_hint">Informa de errores, solicita funcionalidades ...</string>
+<!--	<string name="twitter_hint">Follow me on twitter.
+Get update notifications etc.</string> -->
 	<string name="more_">Más aplicaciones..</string>
 	<string name="billday_">Primer día de tu factura</string>
 	<string name="billmode_">Tarificación</string>
@@ -57,6 +60,7 @@
 	<string name="smsbillday_">Primer día de tu factura (SMS)</string>
 	<string name="appearance_">Apariencia</string>
 	<string name="theme_">Tema</string>
+<!--	<string name="advanced_">Advanced</string> -->
 	<string name="textsize_">Tamaño texto</string>
 	<string name="exclude_people_">Números excluidos</string>
 	<string name="exclude_people_hint">Excluye números de la facturación. Posibilidad de usar comodines: *555, 555* or *555*</string>
@@ -64,9 +68,13 @@
 	<string name="exclude_people_edit">Editar</string>
 	<string name="exclude_people_delete">Borrar</string>
 	<string name="exclude_people_to_plan1_">Números excluidos del plan #1</string>
-	<string name="exclude_people_to_plan1_hint">Números excluidos de tarificación del plan #1</string>
+<!--	<string name="exclude_people_calls_">Enable for Calls</string> -->
+<!--	<string name="exclude_people_calls_to_plan1_hint">Bill calls to/from excluded numbers in plan #1</string> -->
+<!--	<string name="exclude_people_calls_to_plan2_hint">Bill calls to/from excluded numbers in plan #2</string> -->
+<!--	<string name="exclude_people_sms_">Enable for SMS</string> -->
+<!--	<string name="exclude_people_sms_to_plan1_hint">Bill messages to/from excluded numbers in plan #1</string> -->
+<!--	<string name="exclude_people_sms_to_plan2_hint">Bill messages to/from excluded numbers in plan #2</string> -->
 	<string name="exclude_people_to_plan2_">Números excluidos del plan #2</string>
-	<string name="exclude_people_to_plan2_hint">Números excluidos de tarificación del plan #2</string>
 	<string name="plans">Planes</string>
 	<string name="plans_split">Dividir planes</string>
 	<string name="plans_merge">Unir planes</string>

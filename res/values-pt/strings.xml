@@ -46,8 +46,11 @@
 	<string name="settings">Preferências</string>
 	<string name="about_">Sobre</string>
 <!--	<string name="about_hint">About this app</string> -->
+<!--	<string name="faq_hint">Some tips and tricks, how to set up this app.</string> -->
 <!--	<string name="feedback_">Feedback</string> -->
 <!--	<string name="feedback_hint">Report bugs, request features ...</string> -->
+<!--	<string name="twitter_hint">Follow me on twitter.
+Get update notifications etc.</string> -->
 	<string name="more_">Mais Anúncios..</string>
 	<string name="billday_">Primeiro dia da conta</string>
 	<string name="billmode_">Modo de cobrança</string>
@@ -57,6 +60,7 @@
 	<string name="smsbillday_">Primeiro dia da conta SMS</string>
 	<string name="appearance_">Aparência</string>
 	<string name="theme_">Tema</string>
+<!--	<string name="advanced_">Advanced</string> -->
 	<string name="textsize_">Tamanho do texto</string>
 	<string name="exclude_people_">Números excluídos</string>
 	<string name="exclude_people_hint">Não cobra alguns números\ncuringas são aceitos: *555, 555* ou *555*</string>
@@ -64,9 +68,13 @@
 	<string name="exclude_people_edit">Edição</string>
 	<string name="exclude_people_delete">Apagar</string>
 <!--	<string name="exclude_people_to_plan1_">Excluded numbers to plan #1</string> -->
-<!--	<string name="exclude_people_to_plan1_hint">Bill excluded numbers in plan #1</string> -->
+<!--	<string name="exclude_people_calls_">Enable for Calls</string> -->
+<!--	<string name="exclude_people_calls_to_plan1_hint">Bill calls to/from excluded numbers in plan #1</string> -->
+<!--	<string name="exclude_people_calls_to_plan2_hint">Bill calls to/from excluded numbers in plan #2</string> -->
+<!--	<string name="exclude_people_sms_">Enable for SMS</string> -->
+<!--	<string name="exclude_people_sms_to_plan1_hint">Bill messages to/from excluded numbers in plan #1</string> -->
+<!--	<string name="exclude_people_sms_to_plan2_hint">Bill messages to/from excluded numbers in plan #2</string> -->
 <!--	<string name="exclude_people_to_plan2_">Excluded numbers to plan #2</string> -->
-<!--	<string name="exclude_people_to_plan2_hint">Bill excluded numbers in plan #2</string> -->
 	<string name="plans">Planos</string>
 	<string name="plans_split">Planos divididos</string>
 	<string name="plans_merge">Planos juntos</string>

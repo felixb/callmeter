@@ -46,8 +46,11 @@
 	<string name="settings">Nastavení</string>
 	<string name="about_">Nápověda</string>
 	<string name="about_hint">Nápověda. O autorech.</string>
+<!--	<string name="faq_hint">Some tips and tricks, how to set up this app.</string> -->
 	<string name="feedback_">Feedback</string>
 	<string name="feedback_hint">Ohlásit chybu, zaslat požadavek na funčknost.</string>
+<!--	<string name="twitter_hint">Follow me on twitter.
+Get update notifications etc.</string> -->
 	<string name="more_">Další aplikace autora..</string>
 	<string name="billday_">Začátek účetního období</string>
 	<string name="billmode_">Tarifikace</string>
@@ -57,6 +60,7 @@
 	<string name="smsbillday_">První den účtování SMS</string>
 	<string name="appearance_">Přizpůsobení vzhledu</string>
 	<string name="theme_">Motiv</string>
+<!--	<string name="advanced_">Advanced</string> -->
 	<string name="textsize_">Velikost textu</string>
 	<string name="exclude_people_">Vyloučit tel. čísla</string>
 	<string name="exclude_people_hint">Nezohledňovat volání na čísla a předvolby. Zástupné znaky: *555, 555* or *555*</string>
@@ -64,9 +68,13 @@
 	<string name="exclude_people_edit">Upravit</string>
 	<string name="exclude_people_delete">Smazat</string>
 	<string name="exclude_people_to_plan1_">Nevylučovat z Paušálu 1</string>
-	<string name="exclude_people_to_plan1_hint">Započítávat hovory do Paušálu 1.</string>
+<!--	<string name="exclude_people_calls_">Enable for Calls</string> -->
+<!--	<string name="exclude_people_calls_to_plan1_hint">Bill calls to/from excluded numbers in plan #1</string> -->
+<!--	<string name="exclude_people_calls_to_plan2_hint">Bill calls to/from excluded numbers in plan #2</string> -->
+<!--	<string name="exclude_people_sms_">Enable for SMS</string> -->
+<!--	<string name="exclude_people_sms_to_plan1_hint">Bill messages to/from excluded numbers in plan #1</string> -->
+<!--	<string name="exclude_people_sms_to_plan2_hint">Bill messages to/from excluded numbers in plan #2</string> -->
 	<string name="exclude_people_to_plan2_">Nevylučovat z Paušálu 2</string>
-	<string name="exclude_people_to_plan2_hint">Započítávat hovory do Paušálu 2.</string>
 	<string name="plans">Paušály</string>
 	<string name="plans_split">Rozdělit účetní období</string>
 	<string name="plans_merge">Sloučit paušály</string>

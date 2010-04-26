@@ -46,8 +46,11 @@
 	<string name="settings">Beállítások</string>
 	<string name="about_">Névjegy</string>
 	<string name="about_hint">A Call Meter NG-ről.</string>
+<!--	<string name="faq_hint">Some tips and tricks, how to set up this app.</string> -->
 	<string name="feedback_">Visszajelzés/Feedback</string>
 	<string name="feedback_hint">Hibajelentés, fejlesztési ötletek küldése a fejlesztőnek...</string>
+<!--	<string name="twitter_hint">Follow me on twitter.
+Get update notifications etc.</string> -->
 	<string name="more_">További alkalmazások...</string>
 	<string name="billday_">A számlázás első napja</string>
 	<string name="billmode_">Számlázás módja</string>
@@ -57,6 +60,7 @@
 	<string name="smsbillday_">Az SMS számlázás első napja</string>
 	<string name="appearance_">Megjelenés</string>
 	<string name="theme_">Téma</string>
+<!--	<string name="advanced_">Advanced</string> -->
 	<string name="textsize_">Betüméret</string>
 	<string name="exclude_people_">Kivételek hozzáadása</string>
 	<string name="exclude_people_hint">Az adott számok nem kerülnek számlázásra\nwildcard-ok használhatók: *555, 555* vagy *555*</string>
@@ -64,9 +68,13 @@
 	<string name="exclude_people_edit">Szerkesztés</string>
 	<string name="exclude_people_delete">Törlés</string>
 	<string name="exclude_people_to_plan1_">Kivételek az 1-es tervnél</string>
-	<string name="exclude_people_to_plan1_hint">Számlázás a kivétellista számaira az 1-es tervnél</string>
+<!--	<string name="exclude_people_calls_">Enable for Calls</string> -->
+<!--	<string name="exclude_people_calls_to_plan1_hint">Bill calls to/from excluded numbers in plan #1</string> -->
+<!--	<string name="exclude_people_calls_to_plan2_hint">Bill calls to/from excluded numbers in plan #2</string> -->
+<!--	<string name="exclude_people_sms_">Enable for SMS</string> -->
+<!--	<string name="exclude_people_sms_to_plan1_hint">Bill messages to/from excluded numbers in plan #1</string> -->
+<!--	<string name="exclude_people_sms_to_plan2_hint">Bill messages to/from excluded numbers in plan #2</string> -->
 	<string name="exclude_people_to_plan2_">Kivételek az 2-es tervnél</string>
-	<string name="exclude_people_to_plan2_hint">Számlázás a kivétellista számaira az 2-es tervnél</string>
 	<string name="plans">Számlázási tervek</string>
 	<string name="plans_split">Elkülönített tervek használata</string>
 	<string name="plans_merge">Tervek összevonása</string>
