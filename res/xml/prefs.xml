@@ -443,21 +443,6 @@
 					android:summary="@string/cost_per_minute_hint" android:inputType="numberDecimal"
 					android:dependency="plan2_total_free_calls" />
 			</PreferenceCategory>
-
-			<!-- exclude numbers -->
-			<PreferenceCategory android:title="@string/exclude_people_">
-				<PreferenceScreen android:title="@string/exclude_people_"
-					android:summary="@string/exclude_people_hint">
-					<intent android:action="android.intent.action.MAIN"
-						android:targetPackage="de.ub0r.de.android.callMeterNG"
-						android:targetClass="de.ub0r.de.android.callMeterNG.ExcludePeople" />
-				</PreferenceScreen>
-				<CheckBoxPreference android:key="exclude_people_to_plan1"
-					android:title="@string/exclude_people_to_plan1_" android:summary="@string/exclude_people_to_plan1_hint" />
-				<CheckBoxPreference android:key="exclude_people_to_plan2"
-					android:title="@string/exclude_people_to_plan2_" android:summary="@string/exclude_people_to_plan2_hint" />
-			</PreferenceCategory>
-
 		</PreferenceScreen>
 
 		<!-- sms -->
@@ -528,7 +513,32 @@
 				android:inputType="number" android:dependency="data_enable"
 				android:summary="@string/data_limit_hint" />
 		</PreferenceScreen>
-
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/advanced_">
+		<PreferenceScreen android:title="@string/exclude_people_">
+			<PreferenceScreen android:title="@string/exclude_people_"
+				android:summary="@string/exclude_people_hint">
+				<intent android:action="android.intent.action.MAIN"
+					android:targetPackage="de.ub0r.de.android.callMeterNG"
+					android:targetClass="de.ub0r.de.android.callMeterNG.ExcludePeople" />
+			</PreferenceScreen>
+			<PreferenceCategory android:title="@string/calls">
+				<CheckBoxPreference android:key="exclude_people_calls"
+					android:title="@string/exclude_people_calls_" android:defaultValue="true" />
+				<CheckBoxPreference android:key="exclude_people_to_plan1"
+					android:title="@string/exclude_people_to_plan1_" android:summary="@string/exclude_people_calls_to_plan1_hint" />
+				<CheckBoxPreference android:key="exclude_people_to_plan2"
+					android:title="@string/exclude_people_to_plan2_" android:summary="@string/exclude_people_calls_to_plan2_hint" />
+			</PreferenceCategory>
+			<PreferenceCategory android:title="@string/sms">
+				<CheckBoxPreference android:key="exclude_people_sms"
+					android:title="@string/exclude_people_sms_" />
+				<CheckBoxPreference android:key="exclude_people_sms_to_plan1"
+					android:title="@string/exclude_people_to_plan1_" android:summary="@string/exclude_people_sms_to_plan1_hint" />
+				<CheckBoxPreference android:key="exclude_people_sms_to_plan2"
+					android:title="@string/exclude_people_to_plan2_" android:summary="@string/exclude_people_sms_to_plan2_hint" />
+			</PreferenceCategory>
+		</PreferenceScreen>
 		<PreferenceScreen android:title="@string/reset_data_"
 			android:summary="@string/reset_data_hint">
 			<intent android:action="android.intent.action.MAIN"

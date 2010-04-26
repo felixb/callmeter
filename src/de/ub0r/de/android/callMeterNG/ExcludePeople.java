@@ -35,12 +35,26 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 	/** Prefs: Exclude people count. */
 	static final String PREFS_EXCLUDE_PEOPLE_COUNT = PREFS_EXCLUDE_PEOPLE_PREFIX
 			+ "n";
-	/** Prefs: Bill excluded people to plan #1. */
-	static final String PREFS_EXCLUDE_PEOPLE_PLAN1 = PREFS_EXCLUDE_PEOPLE_PREFIX
-			+ "to_plan1";
-	/** Prefs: Bill excluded people to plan #2. */
-	static final String PREFS_EXCLUDE_PEOPLE_PLAN2 = PREFS_EXCLUDE_PEOPLE_PREFIX
-			+ "to_plan2";
+
+	/** Prefs: excluded people, enable for calls. */
+	static final String PREFS_EXCLUDE_PEOPLE_CALLS_ENABLE = // .
+	PREFS_EXCLUDE_PEOPLE_PREFIX + "calls";
+	/** Prefs: excluded people, enable for sms. */
+	static final String PREFS_EXCLUDE_PEOPLE_SMS_ENABLE = // .
+	PREFS_EXCLUDE_PEOPLE_PREFIX + "sms";
+
+	/** Prefs: Bill calls to/from excluded people to plan #1. */
+	static final String PREFS_EXCLUDE_PEOPLE_CALLS_PLAN1 = // .
+	PREFS_EXCLUDE_PEOPLE_PREFIX + "to_plan1";
+	/** Prefs: Bill calls to/from excluded people to plan #2. */
+	static final String PREFS_EXCLUDE_PEOPLE_CALLS_PLAN2 = // .
+	PREFS_EXCLUDE_PEOPLE_PREFIX + "to_plan2";
+	/** Prefs: Bill sms to/from excluded people to plan #1. */
+	static final String PREFS_EXCLUDE_PEOPLE_SMS_PLAN1 = // .
+	PREFS_EXCLUDE_PEOPLE_PREFIX + "sms_to_plan1";
+	/** Prefs: Bill sms to/from excluded people to plan #2. */
+	static final String PREFS_EXCLUDE_PEOPLE_SMS_PLAN2 = // .
+	PREFS_EXCLUDE_PEOPLE_PREFIX + "sms_to_plan2";
 
 	/**
 	 * Excluded person.

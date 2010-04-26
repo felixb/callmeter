@@ -226,10 +226,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	/** Merge plans for sms. */
 	private boolean plansMergeSms = false;
 
-	/** Bill excluded people in plan1. */
-	private boolean excludedToPlan1 = false;
-	/** Bill excluded people in plan2. */
-	private boolean excludedToPlan2 = false;
+	/** Bill excluded calls in this plan, 0 for no plan. */
+	private int excludedCallsToPlan = 0;
+	/** Bill excluded sms in this plan, 0 for no plan. */
+	private int excludedSmsToPlan = 0;
+
+	/** Excluded numbers. */
+	private ExcludedPerson[] excludeNumbers = null;
 
 	/** Sum of displayed calls in/out. Used if merging sms into calls. */
 	private int callsInSum, callsOutSum;
@@ -252,6 +255,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private static String currencySymbol = "$";
 	/** {@link Currency} fraction digits. */
 	private static int currencyDigits = 2;
+
+	/** Error message which should be returned to user. */
+	private String error = null;
 
 	/**
 	 * AsyncTask updating statistics.
@@ -476,17 +482,33 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					PREFS_MERGE_PLANS_CALLS, false);
 			this.plansMergeSms = this.prefs.getBoolean(PREFS_MERGE_PLANS_SMS,
 					false);
-			this.excludedToPlan1 = !this.plansMergeCalls
-					&& this.prefs.getBoolean(
-							ExcludePeople.PREFS_EXCLUDE_PEOPLE_PLAN1, false);
-			this.excludedToPlan2 = !this.plansMergeCalls
-					&& this.prefs.getBoolean(
-							ExcludePeople.PREFS_EXCLUDE_PEOPLE_PLAN2, false);
+			if (this.plansMergeCalls) {
+				this.excludedCallsToPlan = 0;
+			} else {
+				if (this.prefs.getBoolean(ExcludePeople.// .
+						PREFS_EXCLUDE_PEOPLE_CALLS_PLAN1, false)) {
+					this.excludedCallsToPlan = 1;
+				} else if (this.prefs.getBoolean(ExcludePeople.// .
+						PREFS_EXCLUDE_PEOPLE_CALLS_PLAN2, false)) {
+					this.excludedCallsToPlan = 2;
+				}
+			}
+			if (this.plansMergeSms) {
+				this.excludedSmsToPlan = 0;
+			} else {
+				if (this.prefs.getBoolean(
+						ExcludePeople.PREFS_EXCLUDE_PEOPLE_SMS_PLAN1, false)) {
+					this.excludedSmsToPlan = 1;
+				} else if (this.prefs.getBoolean(
+						ExcludePeople.PREFS_EXCLUDE_PEOPLE_SMS_PLAN2, false)) {
+					this.excludedSmsToPlan = 2;
+				}
+			}
 		} else {
 			this.plansMergeCalls = true;
 			this.plansMergeSms = true;
-			this.excludedToPlan1 = false;
-			this.excludedToPlan2 = false;
+			this.excludedCallsToPlan = 0;
+			this.excludedSmsToPlan = 0;
 		}
 	}
 
@@ -651,13 +673,15 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 *            excluded numbers
 	 * @param plans
 	 *            plans
+	 * @param toPlan
+	 *            bill excluded numbers in this plan, 0 for no plan.
 	 * @param date
 	 *            timestamp
 	 * @return 0: no billing, 1: plan1, 2: plan2
 	 */
 	private int getPlan(final Cursor cur, final int idNumber,
 			final ExcludedPerson[] excludeNumbers, final boolean[][] plans,
-			final long date) {
+			final int toPlan, final long date) {
 		boolean check = true;
 		if (excludeNumbers != null) {
 			String n = cur.getString(idNumber);
@@ -693,14 +717,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			} else {
 				return 2;
 			}
-		} else {
-			if (this.excludedToPlan1) {
-				return 1;
-			} else if (this.excludedToPlan2) {
-				return 2;
-			}
 		}
-		return 0;
+		return toPlan;
 	}
 
 	/**
@@ -723,10 +741,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		}
 
 		long billDate = calBillDate.getTimeInMillis();
-
-		final ExcludedPerson[] excludeNumbers = ExcludePeople
-				.loadExcludedPeople(this.context)
-				.toArray(new ExcludedPerson[1]);
 
 		// report calls
 		String[] projection = new String[] { Calls.TYPE, Calls.DURATION,
@@ -803,7 +817,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 				if (billDate <= d) {
 					dt = this.roundTime(t);
-					p = this.getPlan(cur, idNumber, excludeNumbers, plans, d);
+					p = this.getPlan(cur, idNumber, this.excludeNumbers, plans,
+							this.excludedCallsToPlan, d);
 				} else {
 					p = 0;
 				}
@@ -926,7 +941,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				calBillDate.getTime());
 		final long billDate = calBillDate.getTimeInMillis();
 		final String[] projection = new String[] // .
-		{ Calls.TYPE, Calls.DATE, BODY };
+		{ Calls.TYPE, Calls.DATE, BODY, "address" };
 
 		// get time of last walk
 		long lastWalk = this.prefs.getLong(PREFS_SMS_WALK_LASTCHECK, 0);
@@ -961,16 +976,17 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		int smsOut1Month = this.prefs.getInt(PREFS_SMS_PERIOD_OUT1, 0);
 		int smsOut2Month = this.prefs.getInt(PREFS_SMS_PERIOD_OUT1, 0);
 
-		boolean p = true;
 		if (cur.moveToFirst()) {
 			int type;
 			long d;
 			final int idType = cur.getColumnIndex(Calls.TYPE);
 			final int idDate = cur.getColumnIndex(Calls.DATE);
 			final int idBody = cur.getColumnIndex(BODY);
+			final int idNumber = cur.getColumnIndex("address");
 			String body;
 			lastWalk = cur.getLong(idDate);
 			int i = 0;
+			int p = 0;
 			int l = 1;
 			do {
 				type = cur.getInt(idType);
@@ -982,14 +998,15 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				} else {
 					l = WRAPPER.calculateLength(body, false)[0];
 				}
+				p = this.getPlan(cur, idNumber, this.excludeNumbers, plans,
+						this.excludedSmsToPlan, d);
 				switch (type) {
 				case Calls.INCOMING_TYPE:
 					iSMSIn += l;
 					if (billDate <= d) {
-						p = this.isPlan1(plans, d);
-						if (p) {
+						if (p == 1) {
 							smsIn1Month += l;
-						} else {
+						} else if (p == 2) {
 							smsIn2Month += l;
 						}
 					}
@@ -997,10 +1014,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				case Calls.OUTGOING_TYPE:
 					iSMSOut += l;
 					if (billDate <= d) {
-						p = this.isPlan1(plans, d);
-						if (p) {
+						if (p == 1) {
 							smsOut1Month += l;
-						} else {
+						} else if (p == 2) {
 							smsOut2Month += l;
 						}
 					}
@@ -1159,6 +1175,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		try {
 			// load splitted plans
 			final boolean[][] plans = this.loadPlans(this.prefs);
+			this.excludeNumbers = ExcludePeople
+					.loadExcludedPeople(this.context).toArray(
+							new ExcludedPerson[1]);
 
 			Calendar calBillDate = getBillDayCalls(this.prefs);
 			if (this.plansMergeCalls) {
@@ -1175,12 +1194,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				this.walkSMS(plans, calBillDate, ret);
 			}
 		} catch (Exception e) {
-			Toast.makeText(
-					this.context,
-					"some error occured, "
-							+ "please load sendlog from market and "
-							+ "send your logs to the developer.",
-					Toast.LENGTH_SHORT).show();
+			this.error = "some error occured, "
+					+ "please load sendlog from market and "
+					+ "send your logs to the developer.";
 			Log.e(TAG, "error in background", e);
 			FlurryAgent.onError(e.toString(), e.getMessage(), e.getClass()
 					.getName());
@@ -1377,6 +1393,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 */
 	@Override
 	protected final void onPostExecute(final Integer[] result) {
+		if (this.error != null) {
+			Toast.makeText(this.context, this.error, Toast.LENGTH_SHORT).show();
+		}
 		if (this.updateGUI) {
 			this.updateCost(result);
 			this.updateText();
