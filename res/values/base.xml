@@ -38,4 +38,6 @@
 	<string name="donate_subject">I\'m the donator. My IMEI hash is...</string>
 	<string name="changelog_">Changelog</string>
 	<string name="see_about">Please consult the about dialog for information on what CallMeter NG does and does not do.</string>
+	<string name="faq_">FAQ</string>
+	<string name="twitter_">twitter</string>
 </resources>
