@@ -59,7 +59,7 @@
 	<string name="theme_">Θέμα</string>
 	<string name="textsize_">Μέγεθος κειμένου</string>
 	<string name="exclude_people_">Εξαίρεση αριθμών</string>
-	<string name="exclude_people_hint">Μη χρέωση αριθμών (Κλήσεις)\nμπαλαντέρ επιτρέπονται: *555 ή 555*</string>
+	<string name="exclude_people_hint">Μη χρέωση αριθμών (Κλήσεις)\nμπαλαντέρ επιτρέπονται: *555, 555* ή *555*</string>
 	<string name="exclude_people_add">Προσθήκη αριθμού</string>
 	<string name="exclude_people_edit">Επεξεργασία</string>
 	<string name="exclude_people_delete">Διαγραφή</string>

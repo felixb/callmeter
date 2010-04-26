@@ -59,7 +59,7 @@
 	<string name="theme_">Thème</string>
 	<string name="textsize_">Taille du texte</string>
 	<string name="exclude_people_">Numéros gratuits</string>
-	<string name="exclude_people_hint">Appels non facturés (chiffres et joker acceptés : *555 ou 555*)</string>
+	<string name="exclude_people_hint">Appels non facturés (chiffres et joker acceptés : *555, 555* ou *555*)</string>
 	<string name="exclude_people_add">Ajouter un numéro</string>
 	<string name="exclude_people_edit">Modifier</string>
 	<string name="exclude_people_delete">Supprimer</string>

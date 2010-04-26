@@ -666,6 +666,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			for (int j = 1; j < excludeNumbersSize; j++) {
 				final String s = excludeNumbers[j].getNumber();
 				if (s.startsWith("*")) {
+					if (s.endsWith("*")) {
+						if (n.indexOf(s.substring(1, s.length() - 1)) >= 0) {
+							check = false;
+							break;
+						}
+					}
 					if (n.endsWith(s.substring(1))) {
 						check = false;
 						break;

@@ -59,7 +59,7 @@
 	<string name="theme_">Téma</string>
 	<string name="textsize_">Betüméret</string>
 	<string name="exclude_people_">Kivételek hozzáadása</string>
-	<string name="exclude_people_hint">Az adott számok nem kerülnek számlázásra\nwildcard-ok használhatók: *555 vagy 555*</string>
+	<string name="exclude_people_hint">Az adott számok nem kerülnek számlázásra\nwildcard-ok használhatók: *555, 555* vagy *555*</string>
 	<string name="exclude_people_add">Szám hozzáadása</string>
 	<string name="exclude_people_edit">Szerkesztés</string>
 	<string name="exclude_people_delete">Törlés</string>

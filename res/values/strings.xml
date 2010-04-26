@@ -61,7 +61,7 @@
 	<string name="theme_">Theme</string>
 	<string name="textsize_">Text size</string>
 	<string name="exclude_people_">Exclude numbers</string>
-	<string name="exclude_people_hint">Don\'t bill some numbers\nwildcards allowed: *555 or 555*</string>
+	<string name="exclude_people_hint">Don\'t bill some numbers\nwildcards allowed: *555, 555* or *555*</string>
 	<string name="exclude_people_add">Add number</string>
 	<string name="exclude_people_edit">Edit</string>
 	<string name="exclude_people_delete">Delete</string>

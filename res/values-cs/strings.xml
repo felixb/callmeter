@@ -59,7 +59,7 @@
 	<string name="theme_">Motiv</string>
 	<string name="textsize_">Velikost textu</string>
 	<string name="exclude_people_">Vyloučit tel. čísla</string>
-	<string name="exclude_people_hint">Nezohledňovat volání na čísla a předvolby. Zástupné znaky: *555 or 555*</string>
+	<string name="exclude_people_hint">Nezohledňovat volání na čísla a předvolby. Zástupné znaky: *555, 555* or *555*</string>
 	<string name="exclude_people_add">Přidat číslo</string>
 	<string name="exclude_people_edit">Upravit</string>
 	<string name="exclude_people_delete">Smazat</string>

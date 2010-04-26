@@ -59,7 +59,7 @@
 	<string name="theme_">Tema</string>
 	<string name="textsize_">Tamaño texto</string>
 	<string name="exclude_people_">Números excluidos</string>
-	<string name="exclude_people_hint">Excluye números de la facturación. Posibilidad de usar comodines: *555 or 555*</string>
+	<string name="exclude_people_hint">Excluye números de la facturación. Posibilidad de usar comodines: *555, 555* or *555*</string>
 	<string name="exclude_people_add">Añadir número</string>
 	<string name="exclude_people_edit">Editar</string>
 	<string name="exclude_people_delete">Borrar</string>

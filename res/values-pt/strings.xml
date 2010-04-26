@@ -59,7 +59,7 @@
 	<string name="theme_">Tema</string>
 	<string name="textsize_">Tamanho do texto</string>
 	<string name="exclude_people_">Números excluídos</string>
-	<string name="exclude_people_hint">Não cobra alguns números\ncuringas são aceitos: *555 ou 555*</string>
+	<string name="exclude_people_hint">Não cobra alguns números\ncuringas são aceitos: *555, 555* ou *555*</string>
 	<string name="exclude_people_add">Adicione número</string>
 	<string name="exclude_people_edit">Edição</string>
 	<string name="exclude_people_delete">Apagar</string>
