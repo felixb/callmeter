@@ -1254,7 +1254,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			float cost = ((costPerMinute1 * i) / SECONDS_MINUTE)
 					+ (costPerCall1 * c);
 			s = String.format("%." + currencyDigits + "f", cost)
-					+ currencySymbol + " / " + s;
+					+ currencySymbol + " | " + s;
 			if (billIn) {
 				this.callsInOut1 = s;
 			} else {
@@ -1284,7 +1284,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			float cost = ((costPerMinute2 * i) / SECONDS_MINUTE)
 					+ (costPerCall2 * c);
 			s = String.format("%." + currencyDigits + "f", cost)
-					+ currencySymbol + " / " + s;
+					+ currencySymbol + " | " + s;
 			if (billIn) {
 				this.callsInOut2 = s;
 			} else {
@@ -1326,7 +1326,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			}
 			final float cost = costPerSMS1 * i;
 			s = String.format("%." + currencyDigits + "f", cost)
-					+ currencySymbol + " / " + s;
+					+ currencySymbol + " | " + s;
 			if (billIn) {
 				this.smsInOut1 = s;
 			} else {
@@ -1351,7 +1351,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			}
 			final float cost = costPerSMS2 * i;
 			s = String.format("%." + currencyDigits + "f", cost)
-					+ currencySymbol + " / " + s;
+					+ currencySymbol + " | " + s;
 			if (billIn) {
 				this.smsInOut2 = s;
 			} else {
@@ -1460,17 +1460,17 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				return ((thisPeriod * CallMeter.HUNDRET) / // .
 						(limit * SECONDS_MINUTE))
 						+ "% / " + getTime(thisPeriod) + c
-						+ " / "
+						+ " | "
 						+ getTime(all);
 			} else {
 				return ((thisPeriod * CallMeter.HUNDRET) / limit) + "% / "
-						+ thisPeriod + " / " + all;
+						+ thisPeriod + " | " + all;
 			}
 		} else {
 			if (calls) {
-				return getTime(thisPeriod) + c + " / " + getTime(all);
+				return getTime(thisPeriod) + c + " | " + getTime(all);
 			} else {
-				return thisPeriod + " / " + all;
+				return thisPeriod + " | " + all;
 			}
 		}
 	}

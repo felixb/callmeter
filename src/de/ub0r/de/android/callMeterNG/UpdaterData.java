@@ -198,9 +198,9 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 			final long currentOut = preBootOut + runningOut;
 			final long thisBillingIn = currentIn - preBillingIn;
 			final long thisBillingOut = currentOut - preBillingOut;
-			this.dataIn = prettyBytes(thisBillingIn) + "/"
+			this.dataIn = prettyBytes(thisBillingIn) + " | "
 					+ prettyBytes(currentIn);
-			this.dataOut = prettyBytes(currentOut - preBillingOut) + "/"
+			this.dataOut = prettyBytes(currentOut - preBillingOut) + " | "
 					+ prettyBytes(currentOut);
 			int limit = 0;
 			try {
@@ -265,10 +265,10 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 				final String s = ((result[0] * CallMeter.HUNDRET) / result[1])
 						+ "%";
 				if (this.prefs.getBoolean(PREFS_DATA_INCOMING_ONLY, false)) {
-					this.twDataIn.setText(s + " / " + this.twDataIn.getText());
+					this.twDataIn.setText(s + " | " + this.twDataIn.getText());
 					this.twPBDataText.setVisibility(View.GONE);
 				} else {
-					this.twPBDataText.setText(s + " / "
+					this.twPBDataText.setText(s + " | "
 							+ prettyBytes(result[0]));
 					this.twPBDataText.setVisibility(View.VISIBLE);
 				}
