@@ -39,6 +39,8 @@ import android.widget.Toast;
 
 import com.flurry.android.FlurryAgent;
 
+import de.ub0r.de.android.callMeterNG.ExcludePeople.ExcludedPerson;
+
 /**
  * AsyncTask to handle calcualtions in background.
  * 
@@ -654,7 +656,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 * @return 0: no billing, 1: plan1, 2: plan2
 	 */
 	private int getPlan(final Cursor cur, final int idNumber,
-			final String[] excludeNumbers, final boolean[][] plans,
+			final ExcludedPerson[] excludeNumbers, final boolean[][] plans,
 			final long date) {
 		boolean check = true;
 		if (excludeNumbers != null) {
@@ -662,7 +664,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			// check if number should be excluded from billing
 			final int excludeNumbersSize = excludeNumbers.length;
 			for (int j = 1; j < excludeNumbersSize; j++) {
-				final String s = excludeNumbers[j];
+				final String s = excludeNumbers[j].getNumber();
 				if (s.startsWith("*")) {
 					if (n.endsWith(s.substring(1))) {
 						check = false;
@@ -673,7 +675,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 						check = false;
 						break;
 					}
-				} else if (n.equals(excludeNumbers[j])) {
+				} else if (n.equals(s)) {
 					check = false;
 					break;
 				}
@@ -716,8 +718,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		long billDate = calBillDate.getTimeInMillis();
 
-		final String[] excludeNumbers = ExcludePeople.loadExcludedPeople(
-				this.context).toArray(new String[1]);
+		final ExcludedPerson[] excludeNumbers = ExcludePeople
+				.loadExcludedPeople(this.context)
+				.toArray(new ExcludedPerson[1]);
 
 		// report calls
 		String[] projection = new String[] { Calls.TYPE, Calls.DURATION,

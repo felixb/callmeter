@@ -41,6 +41,8 @@ import android.widget.ArrayAdapter;
 
 import com.flurry.android.FlurryAgent;
 
+import de.ub0r.de.android.callMeterNG.ExcludePeople.ExcludedPerson;
+
 /**
  * The main Activity, holding all data.
  * 
@@ -75,9 +77,9 @@ public class CallMeter extends Activity {
 	private static final String NOADS_SIGNATURES = "/sdcard/callmeter.noads";
 
 	/** Preferences: excluded numbers. */
-	static ArrayList<String> prefsExcludePeople;
+	static ArrayList<ExcludedPerson> prefsExcludePeople;
 	/** ArrayAdapter for excluded numbers. */
-	static ArrayAdapter<String> excludedPeaoplAdapter;
+	static ArrayAdapter<ExcludedPerson> excludedPeaoplAdapter;
 
 	/**
 	 * {@inheritDoc}
@@ -118,7 +120,7 @@ public class CallMeter extends Activity {
 		}
 		prefsNoAds = this.hideAds();
 		prefsExcludePeople = ExcludePeople.loadExcludedPeople(this);
-		excludedPeaoplAdapter = new ArrayAdapter<String>(this,
+		excludedPeaoplAdapter = new ArrayAdapter<ExcludedPerson>(this,
 				android.R.layout.simple_list_item_1, prefsExcludePeople);
 	}
 

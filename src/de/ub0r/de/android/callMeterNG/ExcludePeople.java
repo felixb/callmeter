@@ -11,7 +11,6 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.provider.Contacts.PhonesColumns;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -28,6 +27,9 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 	/** Tag for output. */
 	private static final String TAG = "CallMeterNG.ex";
 
+	/** {@link ContactsWrapper}. */
+	static final ContactsWrapper CWRAPPER = ContactsWrapper.getInstance();
+
 	/** Prefs: Exclude people prefix. */
 	static final String PREFS_EXCLUDE_PEOPLE_PREFIX = "exclude_people_";
 	/** Prefs: Exclude people count. */
@@ -39,6 +41,61 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 	/** Prefs: Bill excluded people to plan #2. */
 	static final String PREFS_EXCLUDE_PEOPLE_PLAN2 = PREFS_EXCLUDE_PEOPLE_PREFIX
 			+ "to_plan2";
+
+	/**
+	 * Excluded person.
+	 * 
+	 * @author flx
+	 */
+	public static final class ExcludedPerson {
+		/** Person not found. */
+		private static final String NOT_FOUND = "##NOTFOUND##";
+
+		/** {@link Context}. */
+		private static Context context = null;
+
+		/** Number. */
+		private final String number;
+		/** Name. */
+		private String name = null;
+
+		/**
+		 * Default constructor.
+		 * 
+		 * @param num
+		 *            number
+		 */
+		public ExcludedPerson(final String num) {
+			this.number = num;
+		}
+
+		/**
+		 * @return number
+		 */
+		public String getNumber() {
+			return this.number;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String toString() {
+			if (this.name == null && this.name != NOT_FOUND //
+					&& context != null) {
+				this.name = ContactsWrapper.getNameForAddress(context,
+						this.number);
+				if (this.name == null || this.name.equals(this.number)) {
+					this.name = NOT_FOUND;
+				}
+			}
+			if (this.name == null || this.name == NOT_FOUND) {
+				return this.number;
+			} else {
+				return this.name + " <" + this.number + ">";
+			}
+		}
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -56,6 +113,15 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected final void onResume() {
+		super.onResume();
+		ExcludedPerson.context = this;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected final void onPause() {
 		super.onPause();
 		SharedPreferences.Editor editor = PreferenceManager
@@ -64,9 +130,10 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 		editor.putInt(PREFS_EXCLUDE_PEOPLE_COUNT, s - 1);
 		for (int i = 1; i < s; i++) {
 			editor.putString(PREFS_EXCLUDE_PEOPLE_PREFIX + (i - 1),
-					CallMeter.prefsExcludePeople.get(i));
+					CallMeter.prefsExcludePeople.get(i).getNumber());
 		}
 		editor.commit();
+		ExcludedPerson.context = null;
 	}
 
 	/**
@@ -82,28 +149,19 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 		}
 		Log.d(TAG, "data: " + data.getData().toString());
 		// get number for uri
-		Cursor c = this.managedQuery(data.getData(), null, null, null, null);
+		final String[] proj = CWRAPPER.getProjectionFilter();
+		Cursor c = this.managedQuery(data.getData(), proj, null, null, null);
 		if (!c.moveToFirst()) {
 			return;
 		}
-		int i = c.getColumnIndex(PhonesColumns.NUMBER);
-		if (i < 0) {
-			Log.e(TAG, "switch to data1");
-			i = c.getColumnIndex("data1");
-		}
-		if (i < 0) {
-			Log.e(TAG, "unable to find row");
-			return;
-		}
-		Log.e(TAG, "row: " + i);
-		String number = c.getString(i).replace(" ", "").replace("-", "")
-				.replace(".", "").replace("(", "").replace(")", "").replace(
-						"<", "").replace(">", "").trim();
+		String number = c.getString(2).replaceAll("( |-|\\.|\\(|\\)|\\<|\\>)",
+				"").trim();
 		Log.d(TAG, number);
 		if (requestCode == 0) {
-			CallMeter.prefsExcludePeople.add(number);
+			CallMeter.prefsExcludePeople.add(new ExcludedPerson(number));
 		} else {
-			CallMeter.prefsExcludePeople.set(requestCode, number);
+			CallMeter.prefsExcludePeople.set(requestCode, new ExcludedPerson(
+					number));
 		}
 		CallMeter.excludedPeaoplAdapter.notifyDataSetChanged();
 	}
@@ -123,8 +181,9 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 					new DialogInterface.OnClickListener() {
 						public void onClick(final DialogInterface dialog,
 								final int id) {
-							CallMeter.prefsExcludePeople.add(et.getText()
-									.toString());
+							CallMeter.prefsExcludePeople
+									.add(new ExcludedPerson(et.getText()
+											.toString()));
 							CallMeter.excludedPeaoplAdapter
 									.notifyDataSetChanged();
 						}
@@ -133,9 +192,7 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 					new DialogInterface.OnClickListener() {
 						public void onClick(final DialogInterface dialog,
 								final int id) {
-							final Intent intent = // .
-							new Intent(Intent.ACTION_GET_CONTENT);
-							intent.setType("vnd.android.cursor.item/phone");
+							final Intent intent = CWRAPPER.getPickPhoneIntent();
 							ExcludePeople.this.startActivityForResult(intent,
 									position);
 						}
@@ -155,7 +212,8 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 						final AlertDialog.Builder builder2 = // .
 						new AlertDialog.Builder(ExcludePeople.this);
 						final EditText et = new EditText(ExcludePeople.this);
-						et.setText(CallMeter.prefsExcludePeople.get(position));
+						et.setText(CallMeter.prefsExcludePeople.get(position)
+								.getNumber());
 						builder2.setView(et);
 						builder2.setTitle(R.string.exclude_people_edit);
 						builder2.setCancelable(true);
@@ -165,8 +223,8 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 											final DialogInterface dialog,
 											final int id) {
 										CallMeter.prefsExcludePeople.set(
-												position, et.getText()
-														.toString());
+												position, new ExcludedPerson(et
+														.getText().toString()));
 										CallMeter.excludedPeaoplAdapter
 												.notifyDataSetChanged();
 									}
@@ -206,14 +264,16 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 	 *            {@link Context}
 	 * @return list of excluded people
 	 */
-	static ArrayList<String> loadExcludedPeople(final Context context) {
+	static ArrayList<ExcludedPerson> loadExcludedPeople(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
-		ArrayList<String> ret = new ArrayList<String>();
-		ret.add(context.getString(R.string.exclude_people_add));
+		ArrayList<ExcludedPerson> ret = new ArrayList<ExcludedPerson>();
+		ret.add(new ExcludedPerson(context
+				.getString(R.string.exclude_people_add)));
 		final int c = p.getInt(PREFS_EXCLUDE_PEOPLE_COUNT, 0);
 		for (int i = 0; i < c; i++) {
-			ret.add(p.getString(PREFS_EXCLUDE_PEOPLE_PREFIX + i, "???"));
+			ret.add(new ExcludedPerson(p.getString(PREFS_EXCLUDE_PEOPLE_PREFIX
+					+ i, "???")));
 		}
 		return ret;
 	}

@@ -20,6 +20,7 @@
 package de.ub0r.de.android.callMeterNG;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
@@ -106,19 +107,30 @@ public abstract class ContactsWrapper {
 	 *            address
 	 * @return name, address if not found
 	 */
-	public final String getNameForAddress(final Context context,
+	public static final String getNameForAddress(final Context context,
 			final String address) {
+		String ret = address;
 		final ContactsWrapper w = getInstance();
 		final Uri uri = Uri.withAppendedPath(w.getUriFilter(), address);
 		final String[] proj = w.getProjectionFilter();
 		final Cursor cursor = context.getContentResolver().query(uri, proj,
 				null, null, null);
 		if (cursor != null && cursor.moveToFirst()) {
-			final String ret = cursor.getString(1);
-			if (ret != null) {
-				return ret;
+			final String s = cursor.getString(1);
+			if (s != null) {
+				ret = s;
 			}
 		}
-		return address;
+		if (cursor != null) {
+			cursor.close();
+		}
+		return ret;
 	}
+
+	/**
+	 * Pck a Contact's phone.
+	 * 
+	 * @return {@link Intent}
+	 */
+	public abstract Intent getPickPhoneIntent();
 }

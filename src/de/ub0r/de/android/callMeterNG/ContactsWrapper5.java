@@ -18,6 +18,7 @@
  */
 package de.ub0r.de.android.callMeterNG;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.provider.ContactsContract;
 
@@ -34,7 +35,8 @@ public final class ContactsWrapper5 extends ContactsWrapper {
 	/** Projection for persons query, filter. */
 	private static final String[] API5_PROJECTION_FILTER = // .
 	new String[] { ContactsContract.Data.CONTACT_ID,
-			ContactsContract.Data.DISPLAY_NAME };
+			ContactsContract.Data.DISPLAY_NAME,
+			ContactsContract.CommonDataKinds.Phone.NUMBER };
 
 	/**
 	 * {@inheritDoc}
@@ -50,5 +52,15 @@ public final class ContactsWrapper5 extends ContactsWrapper {
 	@Override
 	public String[] getProjectionFilter() {
 		return API5_PROJECTION_FILTER;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Intent getPickPhoneIntent() {
+		final Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+		i.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
+		return i;
 	}
 }
