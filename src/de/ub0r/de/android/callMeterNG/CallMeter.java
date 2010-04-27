@@ -79,7 +79,7 @@ public class CallMeter extends Activity {
 	/** Preferences: excluded numbers. */
 	static ArrayList<ExcludedPerson> prefsExcludePeople;
 	/** ArrayAdapter for excluded numbers. */
-	static ArrayAdapter<ExcludedPerson> excludedPeaoplAdapter;
+	static ArrayAdapter<ExcludedPerson> excludedPeopleAdapter;
 
 	/**
 	 * {@inheritDoc}
@@ -120,7 +120,7 @@ public class CallMeter extends Activity {
 		}
 		prefsNoAds = this.hideAds();
 		prefsExcludePeople = ExcludePeople.loadExcludedPeople(this);
-		excludedPeaoplAdapter = new ArrayAdapter<ExcludedPerson>(this,
+		excludedPeopleAdapter = new ArrayAdapter<ExcludedPerson>(this,
 				android.R.layout.simple_list_item_1, prefsExcludePeople);
 	}
 

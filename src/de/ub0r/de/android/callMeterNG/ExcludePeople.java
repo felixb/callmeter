@@ -119,7 +119,7 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.exclude_people);
 		final ListView lv = (ListView) this.findViewById(R.id.list);
-		lv.setAdapter(CallMeter.excludedPeaoplAdapter);
+		lv.setAdapter(CallMeter.excludedPeopleAdapter);
 		lv.setOnItemClickListener(this);
 	}
 
@@ -177,7 +177,7 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 			CallMeter.prefsExcludePeople.set(requestCode, new ExcludedPerson(
 					number));
 		}
-		CallMeter.excludedPeaoplAdapter.notifyDataSetChanged();
+		CallMeter.excludedPeopleAdapter.notifyDataSetChanged();
 	}
 
 	/**
@@ -198,7 +198,7 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 							CallMeter.prefsExcludePeople
 									.add(new ExcludedPerson(et.getText()
 											.toString()));
-							CallMeter.excludedPeaoplAdapter
+							CallMeter.excludedPeopleAdapter
 									.notifyDataSetChanged();
 						}
 					});
@@ -239,7 +239,7 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 										CallMeter.prefsExcludePeople.set(
 												position, new ExcludedPerson(et
 														.getText().toString()));
-										CallMeter.excludedPeaoplAdapter
+										CallMeter.excludedPeopleAdapter
 												.notifyDataSetChanged();
 									}
 								});
@@ -262,7 +262,7 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 						builder2.create().show();
 					} else { // delete
 						CallMeter.prefsExcludePeople.remove(position);
-						CallMeter.excludedPeaoplAdapter.notifyDataSetChanged();
+						CallMeter.excludedPeopleAdapter.notifyDataSetChanged();
 					}
 				}
 
