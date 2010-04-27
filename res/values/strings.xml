@@ -133,8 +133,9 @@
 	<string name="plan_name1_">Plan 1: name</string>
 	<string name="plan_name2_">Plan 2: name</string>
 	<string name="plan_name_hint">Custom Name</string>
-	<string name="reset_data_">Reset data</string>
-	<string name="reset_data_hint">Reset cached data.\nRecalulate statistics from logs.</string>
+	<string name="reset_data_">Reset statistics</string>
+	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string>
+	<string name="reset_data_data_">Reset traffic too.</string>
 	<string name="contacts_">Contacts</string>
 	<string-array name="themes">
 		<item>Black</item>

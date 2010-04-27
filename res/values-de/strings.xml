@@ -133,8 +133,9 @@
 	<string name="plan_name1_">Kontingent 1: Name</string>
 	<string name="plan_name2_">Kontingent 2: Name</string>
 	<string name="plan_name_hint">Eigener Name</string>
-	<string name="reset_data_">Reset: Daten</string>
-	<string name="reset_data_hint">Zwischengespeicherte Daten löschen.\nDie Statistiken werden neu berechnet.</string>
+	<string name="reset_data_">Statistik zurück setzen</string>
+	<string name="reset_data_hint">Anruf/SMS Statistik zurück setzen sorgt dafür, dass die Statistik neu berechnet wird.\n\nZurücksetzen der Traffic Statistik ist permanent. Es wird nur der Traffic vor dem letzten Reboot gelöscht!</string>
+	<string name="reset_data_data_">Auch Daten zurücksetzen</string>
 	<string name="contacts_">Kontakte</string>
 	<string-array name="themes">
 		<item>Dunkel</item>

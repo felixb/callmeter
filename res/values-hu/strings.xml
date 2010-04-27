@@ -133,8 +133,9 @@
 	<string name="plan_name1_">Terv 1: név</string>
 	<string name="plan_name2_">Terv 2: név</string>
 	<string name="plan_name_hint">Egyedi név</string>
-	<string name="reset_data_">Adatok alaphelyzetbe</string>
-	<string name="reset_data_hint">Mentett adatok nullázása.\nÚjraszámolás a naplókból.</string>
+<!--	<string name="reset_data_">Reset statistics</string> -->
+<!--	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string> -->
+<!--	<string name="reset_data_data_">Reset traffic too.</string> -->
 	<string name="contacts_">Névjegyek</string>
 <!--	<string-array name="themes"> -->
 <!--		<item>Black</item> -->

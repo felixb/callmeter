@@ -133,8 +133,9 @@
 	<string name="plan_name1_">Πλάνο 1: όνομα</string>
 	<string name="plan_name2_">Πλάνο 2: όνομα</string>
 	<string name="plan_name_hint">Επιλογή Ονόματος</string>
-	<string name="reset_data_">Επαναφορά στοιχείων</string>
-	<string name="reset_data_hint">Επαναφορά προσωρινών δεδομένων.\nΥπολογισμός στατιστικών από τα logs.</string>
+<!--	<string name="reset_data_">Reset statistics</string> -->
+<!--	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string> -->
+<!--	<string name="reset_data_data_">Reset traffic too.</string> -->
 	<string name="contacts_">Επαφές</string>
 	<string-array name="themes">
 		<item>Σκούρο</item>

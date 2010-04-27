@@ -54,18 +54,17 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 	private static final String PREFS_DATA_INCOMING_ONLY = "data_incoming_only";
 
 	/** Prefs: data in at last boot. */
-	private static final String PREFS_DATA_BOOT_IN = "data_boot_in";
+	static final String PREFS_DATA_BOOT_IN = "data_boot_in";
 	/** Prefs: data out at last boot. */
-	private static final String PREFS_DATA_BOOT_OUT = "data_boot_out";
+	static final String PREFS_DATA_BOOT_OUT = "data_boot_out";
 	/** Prefs: data in after last boot. */
-	private static final String PREFS_DATA_RUNNING_IN = "data_running_in";
+	static final String PREFS_DATA_RUNNING_IN = "data_running_in";
 	/** Prefs: data out after last boot. */
-	private static final String PREFS_DATA_RUNNING_OUT = "data_running_out";
+	static final String PREFS_DATA_RUNNING_OUT = "data_running_out";
 	/** Prefs: data in before bolling date. */
-	private static final String PREFS_DATA_PREBILLING_IN = "data_prebilling_in";
+	static final String PREFS_DATA_PREBILLING_IN = "data_prebilling_in";
 	/** Prefs: data out before billing date. */
-	private static final String PREFS_DATA_PREBILLING_OUT = // .
-	"data_prebilling_out";
+	static final String PREFS_DATA_PREBILLING_OUT = "data_prebilling_out";
 	/** Prefs: date of last billing. */
 	private static final String PREFS_DATA_LASTCHECK = "data_lastcheck";
 

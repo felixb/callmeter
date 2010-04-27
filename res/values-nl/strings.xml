@@ -133,8 +133,9 @@
 	<string name="plan_name1_">Schema 1: naam</string>
 	<string name="plan_name2_">Schema 2: naam</string>
 	<string name="plan_name_hint">Gekozen naam</string>
-	<string name="reset_data_">Reset data</string>
-	<string name="reset_data_hint">Reset opgeslagen data.\nHerbereken vanuit log.</string>
+<!--	<string name="reset_data_">Reset statistics</string> -->
+<!--	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string> -->
+<!--	<string name="reset_data_data_">Reset traffic too.</string> -->
 	<string name="contacts_">Contacten</string>
 	<string-array name="themes">
 		<item>Zwart</item>
