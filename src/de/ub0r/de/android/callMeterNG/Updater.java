@@ -1487,11 +1487,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			if (calls) {
 				return ((thisPeriod * CallMeter.HUNDRET) / // .
 						(limit * SECONDS_MINUTE))
-						+ "% / " + getTime(thisPeriod) + c
+						+ "% | " + getTime(thisPeriod) + c
 						+ " | "
 						+ getTime(all);
 			} else {
-				return ((thisPeriod * CallMeter.HUNDRET) / limit) + "% / "
+				return ((thisPeriod * CallMeter.HUNDRET) / limit) + "% | "
 						+ thisPeriod + " | " + all;
 			}
 		} else {
