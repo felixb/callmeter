@@ -56,7 +56,11 @@
 	<string name="billmode_hint">Länge der Takte (erster/folgende)</string>
 	<string name="billdate_">Erster Rechnungstag:</string>
 	<string name="smsperiod_">Gleiche Rechnung für SMS</string>
+	<string name="smsperiod_hint">Anruf Rechnungstag auch für SMS setzen.</string>
 	<string name="smsbillday_">Erster Rechnungstag für SMS</string>
+	<string name="dataperiod_">Gleiche Rechnung für Daten</string>
+	<string name="dataperiod_hint">Anruf Rechnungstag auch für Daten setzen.</string>
+	<string name="databillday_">Erster Rechnungstag für Daten</string>
 	<string name="appearance_">Erscheinung</string>
 	<string name="theme_">Theme</string>
 	<string name="textsize_">Schriftgrad</string>

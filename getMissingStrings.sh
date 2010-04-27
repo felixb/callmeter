@@ -5,6 +5,9 @@ grep -o 'name=[^>]*' res/values/strings.xml > /tmp/callmeter.strings.names
 for f in $(ls res/values-*/strings.xml) ; do
 	l=$(echo $(basename $(dirname $f)) | cut -d'-' -f2)
 	echo $f >&2
+	grep -v '^<!--' $f > /tmp/callmeter.strings.$l
+	mv /tmp/callmeter.strings.$l $f
+
 	grep -o 'name=[^>]*' $f > /tmp/callmeter.strings.names.$l
 
 	head -n2 res/values/strings.xml > /tmp/callmeter.strings.$l
@@ -28,7 +31,7 @@ for f in $(ls res/values-*/strings.xml) ; do
 		pos=$(grep -n "$s" res/values/strings.xml | cut -d: -f1)
 		if $(grep -n "$s" res/values/strings.xml | grep -v 'string-array' > /dev/null) ; then
 			line=$(grep "$s" res/values/strings.xml | sed -e 's:^:<!-- :' -e 's:$: -->:')
-			sed -e "${pos}i${line}" -i $f
+			sed -e "${pos}i${line//\\/\\\\}" -i $f
 		else
 			line=$(sed -n res/values/strings.xml -e "$pos,/<\/string-array>/p" | sed -e 's:^:<!-- :' -e 's:$: -->:')
 			line=$(echo $line | sed -e 's: <!--:\\n<!--:g')
