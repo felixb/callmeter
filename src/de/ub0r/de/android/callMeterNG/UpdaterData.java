@@ -42,8 +42,12 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 
 	/** Prefs: enable data stats. */
 	private static final String PREFS_DATA_ENABLE = "data_enable";
-	/** Prefs: bill each date separately. */
+	/** Prefs: bill each day separately. */
 	private static final String PREFS_DATA_EACHDAY = "data_eachday";
+	/** Prefs: bill data with call's period. */
+	private static final String PREFS_DATA_PERIOD = "dataperiod";
+	/** Prefs: start of data billing period.. */
+	private static final String PREFS_DATA_BILLDAY = "databillday";
 	/** Prefs: limit for data traffic. */
 	private static final String PREFS_DATA_LIMIT = "data_limit";
 	/** Prefs: bill only incoming data. */
@@ -296,8 +300,13 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 		if (!p.getBoolean(PREFS_DATA_EACHDAY, false)) {
 			int billDay = 0;
 			try {
-				billDay = Integer.parseInt(p.getString(Updater.PREFS_BILLDAY,
-						"0"));
+				if (p.getBoolean(PREFS_DATA_PERIOD, false)) {
+					billDay = Integer.parseInt(p.getString(
+							Updater.PREFS_BILLDAY, "0"));
+				} else {
+					billDay = Integer.parseInt(p.getString(PREFS_DATA_BILLDAY,
+							"0"));
+				}
 			} catch (NumberFormatException e) {
 				billDay = 0;
 			}

@@ -449,7 +449,8 @@
 
 		<PreferenceScreen android:title="@string/sms">
 			<CheckBoxPreference android:key="smsperiod"
-				android:disableDependentsState="true" android:title="@string/smsperiod_" />
+				android:disableDependentsState="true" android:title="@string/smsperiod_"
+				android:summary="@string/smsperiod_hint" />
 			<ListPreference android:dependency="smsperiod"
 				android:key="smsbillday" android:title="@string/smsbillday_"
 				android:entries="@array/days" android:entryValues="@array/days"
@@ -502,11 +503,18 @@
 		<PreferenceScreen android:title="@string/data">
 			<CheckBoxPreference android:key="data_enable"
 				android:title="@string/data_enable_" android:summary="@string/data_enable_hint" />
-			<CheckBoxPreference android:key="data_incoming_only"
-				android:title="@string/bill_data_incoming_only_" android:summary="@string/bill_data_incoming_only_hint"
-				android:dependency="data_enable" />
 			<CheckBoxPreference android:key="data_eachday"
 				android:title="@string/data_each_day" android:summary="@string/data_each_day_hint"
+				android:dependency="data_enable" android:disableDependentsState="true" />
+			<CheckBoxPreference android:key="dataperiod"
+				android:disableDependentsState="true" android:title="@string/dataperiod_"
+				android:summary="@string/dataperiod_hint" android:dependency="data_eachday" />
+			<ListPreference android:dependency="dataperiod"
+				android:key="databillday" android:title="@string/databillday_"
+				android:entries="@array/days" android:entryValues="@array/days"
+				android:dialogTitle="@string/databillday_" />
+			<CheckBoxPreference android:key="data_incoming_only"
+				android:title="@string/bill_data_incoming_only_" android:summary="@string/bill_data_incoming_only_hint"
 				android:dependency="data_enable" />
 			<EditTextPreference android:key="data_limit"
 				android:title="@string/data_limit_" android:dialogTitle="@string/data_limit_"

@@ -56,7 +56,11 @@
 	<string name="billmode_hint">Length of first/following billing intervals.</string>
 	<string name="billdate_">Start of billing period:</string>
 	<string name="smsperiod_">Same Period for SMS</string>
+	<string name="smsperiod_hint">Set SMS\'s billing period to calls\' period.</string>
 	<string name="smsbillday_">First day of your SMS bill</string>
+	<string name="dataperiod_">Same Period for data</string>
+	<string name="dataperiod_hint">Set data\'s billing period to calls\' period.</string>
+	<string name="databillday_">First day of your data bill</string>
 	<string name="appearance_">Appearance</string>
 	<string name="theme_">Theme</string>
 	<string name="textsize_">Text size</string>
