@@ -52,6 +52,8 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 	private static final String PREFS_DATA_LIMIT = "data_limit";
 	/** Prefs: bill only incoming data. */
 	private static final String PREFS_DATA_INCOMING_ONLY = "data_incoming_only";
+	/** Prefs: bill each mb with this. */
+	private static final String PREFS_DATA_COST = "cost_per_mb";
 
 	/** Prefs: data in at last boot. */
 	static final String PREFS_DATA_BOOT_IN = "data_boot_in";
@@ -260,18 +262,52 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 		if (this.updateGUI) {
 			this.updateText();
 
+			final boolean onlyIn = this.prefs.getBoolean(
+					PREFS_DATA_INCOMING_ONLY, false);
+			String cost = this.prefs.getString(PREFS_DATA_COST, "0");
+			float cpmb;
+			if (cost.length() > 0) {
+				cpmb = Float.parseFloat(cost);
+			} else {
+				cpmb = 0;
+			}
+			if (cpmb > 0) {
+				long i = result[0] - result[1];
+				if (i < 0L) {
+					i = 0L;
+				}
+				cost = String.format("%." + Updater.currencyDigits + "f", cpmb
+						* i / BYTE_MB)
+						+ Updater.currencySymbol;
+			} else {
+				cost = null;
+			}
+
 			ProgressBar pb = this.pbData;
 			if (result[1] > 0) {
 				pb.setMax((int) (result[1] / BYTE_KB));
 				pb.setProgress((int) (result[0] / BYTE_KB));
 				pb.setVisibility(View.VISIBLE);
-				final String s = ((result[0] * CallMeter.HUNDRET) / result[1])
-						+ "%";
-				if (this.prefs.getBoolean(PREFS_DATA_INCOMING_ONLY, false)) {
+				String s = ((result[0] * CallMeter.HUNDRET) / result[1]) + "%";
+				if (cost != null) {
+					s = cost + " | " + s;
+				}
+				if (onlyIn) {
 					this.twDataIn.setText(s + " | " + this.twDataIn.getText());
 					this.twPBDataText.setVisibility(View.GONE);
 				} else {
 					this.twPBDataText.setText(s + " | "
+							+ prettyBytes(result[0]));
+					this.twPBDataText.setVisibility(View.VISIBLE);
+				}
+			} else if (cost != null) {
+				pb.setVisibility(View.GONE);
+				if (onlyIn) {
+					this.twDataIn.setText(cost + " | "
+							+ this.twDataIn.getText());
+					this.twPBDataText.setVisibility(View.GONE);
+				} else {
+					this.twPBDataText.setText(cost + " | "
 							+ prettyBytes(result[0]));
 					this.twPBDataText.setVisibility(View.VISIBLE);
 				}

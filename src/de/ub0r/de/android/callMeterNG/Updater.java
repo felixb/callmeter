@@ -252,9 +252,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private final boolean updateGUI;
 
 	/** {@link Currency} symbol. */
-	private static String currencySymbol = "$";
+	static String currencySymbol = "$";
 	/** {@link Currency} fraction digits. */
-	private static int currencyDigits = 2;
+	static int currencyDigits = 2;
 
 	/** Error message which should be returned to user. */
 	private String error = null;

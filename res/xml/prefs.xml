@@ -520,6 +520,10 @@
 				android:title="@string/data_limit_" android:dialogTitle="@string/data_limit_"
 				android:inputType="number" android:dependency="data_enable"
 				android:summary="@string/data_limit_hint" />
+			<EditTextPreference android:key="cost_per_mb"
+				android:title="@string/cost_per_mb_" android:dialogTitle="@string/cost_per_mb_"
+				android:summary="@string/cost_per_mb_hint" android:inputType="numberDecimal"
+				android:dependency="data_enable" />
 		</PreferenceScreen>
 	</PreferenceCategory>
 	<PreferenceCategory android:title="@string/advanced_">
