@@ -31,7 +31,7 @@
 	<string name="postdonate">Aby usunąć reklamy prześlij mi hash swojego numeru IMEI (w MD5, jest unikalny dla Twojego telefonu). Hash działa tylko w jedną stronę, więc nikt (nawet ja) nie poznam tego numeru.</string>
 	<string name="send_hash_">Wyślij hash</string>
 	<string name="signature_">Otrzymasz kod, który należy tutaj wkleić, aby usunąć reklamy:</string>
-        <string name="sig_loaded">Reklamy usunięte</string>
+	<string name="sig_loaded">Reklamy usunięte</string>
 	<string name="sig_failed">Problem z usunięciem reklam</string>
 	<string name="about0_">Obserwuj swoje połączenia, wiadomości oraz pakiet rozmów!</string>
 	<string name="about0">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych..</string>
