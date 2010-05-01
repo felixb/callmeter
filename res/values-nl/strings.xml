@@ -46,7 +46,7 @@
 	<string name="settings">Voorkeuren</string>
 	<string name="about_">Over</string>
 	<string name="about_hint">Over deze app</string>
-	<string name="faq_hint">Tips & trucks hoe deze app in te stellen.</string>
+	<string name="faq_hint">Tips &amp; trucks hoe deze app in te stellen.</string>
 	<string name="feedback_">Feedback</string>
 	<string name="feedback_hint">Meld bugs, suggesties ...</string>
 	<string name="twitter_hint">Volg mij op twitter.\nKrijg update notificaties etc.</string>
