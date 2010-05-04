@@ -824,7 +824,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 				switch (type) {
 				case Calls.INCOMING_TYPE:
-					++countIn1Month;
 					durIn += t;
 					if (p == 1) {
 						++countIn1Month;

@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>v2.2.4: Change separator, show contacts name in excluded numbers, allow *555* wildcards, allow to exclude numbers for sms, allow to set separate billing period for data plan, allow to reset traffic stats, add cost to traffic stats</item>
+		<item>v2.3: Fix counting incoming calls, change separator, show contacts name in excluded numbers, allow *555* wildcards, allow to exclude numbers for sms, allow to set separate billing period for data plan, allow to reset traffic stats, add cost to traffic stats</item>
 		<item>v2.2.3: Fix currency FC, add czech translation</item>
 		<item>v2.2.1: Add theme support, add Hungarian translation</item>
 		<item>v2.2: Allow to bill incoming calls/messages across two plans, minor changes to gui</item>
