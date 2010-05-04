@@ -50,7 +50,7 @@ import de.ub0r.de.android.callMeterNG.ExcludePeople.ExcludedPerson;
  */
 public class CallMeter extends Activity {
 	/** Tag for output. */
-	private static final String TAG = "CallMeterNG";
+	public static final String TAG = "CallMeterNG";
 
 	/** Flurry's API key. */
 	public static final String FLURRYKEY = "DF1BECT8IJDIJ82NA3S8";
