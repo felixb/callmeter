@@ -139,6 +139,9 @@
 <!--	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string> -->
 <!--	<string name="reset_data_data_">Reset traffic too.</string> -->
 	<string name="contacts_">Contatos</string>
+<!--	<string name="debug_">Debug</string> -->
+<!--	<string name="send_logs_">Send logs</string> -->
+<!--	<string name="send_logs_hint">Send your device \'s logs to the developer.</string> -->
 	<string-array name="themes">
 		<item>Escuro</item>
 		<item>Claro</item>

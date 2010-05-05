@@ -139,6 +139,9 @@
 	<string name="reset_data_hint">Resetten van gesprek/sms data zorgt voor het opnieuw berekenen van de statistieken. \n\nResetten van data statistieken is permanent. Alleen data voordat het programma gestart is wordt gereset!</string>
 	<string name="reset_data_data_">Reset ook dataverkeer.</string>
 	<string name="contacts_">Contacten</string>
+<!--	<string name="debug_">Debug</string> -->
+<!--	<string name="send_logs_">Send logs</string> -->
+<!--	<string name="send_logs_hint">Send your device \'s logs to the developer.</string> -->
 	<string-array name="themes">
 		<item>Zwart</item>
 		<item>Licht</item>

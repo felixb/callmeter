@@ -139,6 +139,9 @@
 	<string name="reset_data_hint">Resetear los datos de llamadas y sms fuerza el recálculo las estadísticas.\n\nLa puesta a cero del tráfico de datos es permanente. Sólo resetea el tráfico producido antes del arranque!</string>
 	<string name="reset_data_data_">Pone a cero también el tráfico de datos.</string>
 	<string name="contacts_">Contactos</string>
+<!--	<string name="debug_">Debug</string> -->
+<!--	<string name="send_logs_">Send logs</string> -->
+<!--	<string name="send_logs_hint">Send your device \'s logs to the developer.</string> -->
 	<string-array name="themes">
 		<item>Oscuro</item>
 		<item>Claro</item>
