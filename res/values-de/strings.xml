@@ -139,6 +139,9 @@
 	<string name="reset_data_hint">Anruf/SMS Statistik zurück setzen sorgt dafür, dass die Statistik neu berechnet wird.\n\nZurücksetzen der Traffic Statistik ist permanent. Es wird nur der Traffic vor dem letzten Reboot gelöscht!</string>
 	<string name="reset_data_data_">Auch Daten zurücksetzen</string>
 	<string name="contacts_">Kontakte</string>
+	<string name="debug_">Debug</string>
+	<string name="send_logs_">Logs senden</string>
+	<string name="send_logs_hint">Logs von deinem Handy an den Entwickler senden.</string>
 	<string-array name="themes">
 		<item>Dunkel</item>
 		<item>Hell</item>
