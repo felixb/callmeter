@@ -19,6 +19,9 @@
 
 package de.ub0r.de.android.callMeterNG;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -59,10 +62,31 @@ public abstract class Device {
 			// Nothing found? Use the default device.
 			if (instance == null) {
 				instance = allDevices[0];
+				debugDeviceList();
 			}
 		}
 		Log.d(TAG, instance.getClass().getName());
 		return instance;
+	}
+
+	/**
+	 * Get a list of possible devices.
+	 */
+	private static void debugDeviceList() {
+		Log.i(TAG, "No device for " + Build.DEVICE);
+		try {
+			File f = new File(SysClassNet.SYS_CLASS_NET);
+			String[] devices = f.list();
+			for (String d : devices) {
+				String dev = SysClassNet.SYS_CLASS_NET + d + "/type";
+				BufferedReader r = new BufferedReader(new FileReader(dev), 8);
+				Log.d(TAG, "read: " + dev);
+				Log.d(TAG, r.readLine());
+				r.close();
+			}
+		} catch (Exception e) {
+			Log.e(TAG, "error reading /sys/", e);
+		}
 	}
 
 	/**

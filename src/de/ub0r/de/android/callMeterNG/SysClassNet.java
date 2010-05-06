@@ -33,7 +33,7 @@ public final class SysClassNet {
 	private static final String TAG = "CallMeterNG.Sys";
 
 	/** Prefix of all interfaces. */
-	private static final String SYS_CLASS_NET = "/sys/class/net/";
+	public static final String SYS_CLASS_NET = "/sys/class/net/";
 	/** carrier postfix. */
 	private static final String CARRIER = "/carrier";
 	/** Postfix: received bytes. */

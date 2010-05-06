@@ -220,8 +220,10 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 					+ prettyBytes(currentOut);
 			int limit = 0;
 			try {
-				limit = Integer.parseInt(this.prefs.getString(PREFS_DATA_LIMIT,
-						"0"));
+				String s = this.prefs.getString(PREFS_DATA_LIMIT, null);
+				if (s != null && s.length() > 0) {
+					limit = Integer.parseInt(s);
+				}
 			} catch (NumberFormatException e) {
 				Log.e(TAG, null, e);
 			}
