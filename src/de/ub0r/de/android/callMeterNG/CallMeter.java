@@ -38,6 +38,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import com.flurry.android.FlurryAgent;
 
@@ -122,6 +123,11 @@ public class CallMeter extends Activity {
 		prefsExcludePeople = ExcludePeople.loadExcludedPeople(this);
 		excludedPeopleAdapter = new ArrayAdapter<ExcludedPerson>(this,
 				android.R.layout.simple_list_item_1, prefsExcludePeople);
+
+		TextView tv = (TextView) this.findViewById(R.id.calls_);
+		Preferences.textSizeMedium = tv.getTextSize();
+		tv = (TextView) this.findViewById(R.id.calls1_in_);
+		Preferences.textSizeSmall = tv.getTextSize();
 	}
 
 	/**

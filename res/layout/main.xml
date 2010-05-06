@@ -37,7 +37,8 @@
 			<!--  calls common -->
 			<TextView android:id="@+id/calls_" android:text="@string/calls"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
-				android:gravity="center" android:textStyle="bold" />
+				android:gravity="center" android:textStyle="bold"
+				android:textAppearance="?android:attr/textAppearanceMedium" />
 
 			<LinearLayout android:layout_height="wrap_content"
 				android:layout_width="fill_parent">
@@ -112,7 +113,7 @@
 			<TextView android:id="@+id/sms_" android:text="@string/sms"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
 				android:paddingTop="10dip" android:gravity="center"
-				android:textStyle="bold" />
+				android:textStyle="bold" android:textAppearance="?android:attr/textAppearanceMedium" />
 
 			<LinearLayout android:layout_height="wrap_content"
 				android:layout_width="fill_parent">
@@ -187,7 +188,8 @@
 			<TextView android:id="@+id/data_" android:text="@string/data"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
 				android:paddingTop="10dip" android:gravity="center"
-				android:textStyle="bold" android:visibility="gone" />
+				android:textStyle="bold" android:visibility="gone"
+				android:textAppearance="?android:attr/textAppearanceMedium" />
 
 			<LinearLayout android:layout_height="wrap_content"
 				android:layout_width="fill_parent" android:id="@+id/data_billdate_layout"

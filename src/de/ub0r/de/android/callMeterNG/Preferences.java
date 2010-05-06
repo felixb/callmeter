@@ -49,10 +49,14 @@ public class Preferences extends PreferenceActivity implements
 	private static final String THEME_LIGHT = "light";
 	/** Preference's name: textsize. */
 	private static final String PREFS_TEXTSIZE = "textsize";
-	/** Textsize: black. */
+	/** Textsize: small. */
 	private static final String TEXTSIZE_SMALL = "small";
-	/** Textsize: light. */
+	/** Textsize: medium. */
 	private static final String TEXTSIZE_MEDIUM = "medium";
+	/** Textsize: small. */
+	public static float textSizeSmall = 14;
+	/** Textsize: medium. */
+	public static float textSizeMedium = 18;
 
 	/**
 	 * Get Theme from Preferences.
@@ -76,16 +80,16 @@ public class Preferences extends PreferenceActivity implements
 	 * 
 	 * @param context
 	 *            {@link Context}
-	 * @return theme
+	 * @return text size
 	 */
-	static final int getTextsize(final Context context) {
+	static final float getTextsize(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_TEXTSIZE, TEXTSIZE_SMALL);
 		if (s != null && TEXTSIZE_MEDIUM.equals(s)) {
-			return android.R.style.TextAppearance_Medium;
+			return textSizeMedium;
 		}
-		return android.R.style.TextAppearance_Small;
+		return textSizeSmall;
 	}
 
 	/**

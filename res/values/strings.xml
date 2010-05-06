@@ -141,7 +141,7 @@
 	<string name="contacts_">Contacts</string>
 	<string name="debug_">Debug</string>
 	<string name="send_logs_">Send logs</string>
-	<string name="send_logs_hint">Send your device \'s logs to the developer.</string>
+	<string name="send_logs_hint">Send your device\'s logs to the developer.</string>
 	<string-array name="themes">
 		<item>Black</item>
 		<item>Light</item>
