@@ -559,7 +559,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 			this.pbCalls1.setProgress(0);
 			this.pbCalls1.setIndeterminate(false);
-			this.pbCalls1.setVisibility(View.VISIBLE);
+			int v = setVisableIfSet(this.prefs.getString(PREFS_PLAN1_FREEMIN,
+					null));
+			this.pbCalls1.setVisibility(v);
 			if (this.plansMergeCalls) {
 				this.callmeter.findViewById(R.id.calls2_view).setVisibility(
 						View.GONE);
@@ -582,12 +584,15 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 				this.pbCalls2.setProgress(0);
 				this.pbCalls2.setIndeterminate(false);
-				this.callmeter.findViewById(R.id.calls2_view).setVisibility(
-						View.VISIBLE);
+				v = setVisableIfSet(this.prefs.getString(PREFS_PLAN2_FREEMIN,
+						null));
+				this.callmeter.findViewById(R.id.calls2_view).setVisibility(v);
 			}
 			this.pbSMS1.setProgress(0);
 			this.pbSMS1.setIndeterminate(false);
-			this.pbSMS1.setVisibility(View.VISIBLE);
+			v = setVisableIfSet(this.prefs.getString(PREFS_PLAN1_FREESMS, // .
+					null));
+			this.pbSMS1.setVisibility(v);
 			if (this.plansMergeSms) {
 				this.callmeter.findViewById(R.id.sms2_view).setVisibility(
 						View.GONE);
@@ -610,11 +615,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 				this.pbSMS2.setProgress(0);
 				this.pbSMS2.setIndeterminate(false);
-				this.callmeter.findViewById(R.id.sms2_view).setVisibility(
-						View.VISIBLE);
+				v = setVisableIfSet(this.prefs.getString(PREFS_PLAN2_FREESMS,
+						null));
+				this.callmeter.findViewById(R.id.sms2_view).setVisibility(v);
 			}
 
-			int v = View.GONE;
+			v = View.GONE;
 			if (!this.prefs.getBoolean(PREFS_MERGE_SMS_TO_CALLS, false)) {
 				v = View.VISIBLE;
 
@@ -632,6 +638,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			} else {
 				this.twSMSPB1Text.setVisibility(View.GONE);
 				this.twSMSPB2Text.setVisibility(View.GONE);
+				this.pbSMS1.setVisibility(View.GONE);
+				this.callmeter.findViewById(R.id.sms2_view).setVisibility(
+						View.GONE);
 			}
 			this.callmeter.findViewById(R.id.sms_).setVisibility(v);
 			this.callmeter.findViewById(R.id.sms_billdate_).setVisibility(v);
@@ -640,10 +649,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.callmeter.findViewById(R.id.sms1_out).setVisibility(v);
 			this.callmeter.findViewById(R.id.sms1_in_).setVisibility(v);
 			this.callmeter.findViewById(R.id.sms1_in).setVisibility(v);
-			this.pbSMS1.setVisibility(v);
-			if (!this.plansMergeSms) {
-				this.callmeter.findViewById(R.id.sms2_view).setVisibility(v);
-			}
 
 			v = View.VISIBLE;
 			if (!this.prefs.getBoolean(PREFS_CALLS_BILL_INCOMING, false)) {
@@ -1560,5 +1565,18 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		cal.set(Calendar.SECOND, 0);
 		cal.set(Calendar.MILLISECOND, 0);
 		return cal;
+	}
+
+	/**
+	 * @param s
+	 *            {@link String}
+	 * @return View.GONE if s is null, empty or "0", else View.VISABLE
+	 */
+	public static int setVisableIfSet(final String s) {
+		if (s == null || s.length() == 0 || s.equals("0")) {
+			return View.GONE;
+		} else {
+			return View.VISIBLE;
+		}
 	}
 }

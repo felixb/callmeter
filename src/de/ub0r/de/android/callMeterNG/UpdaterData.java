@@ -164,6 +164,10 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 					.setVisibility(v);
 			this.callmeter.findViewById(R.id.data_in_layout).setVisibility(v);
 			this.callmeter.findViewById(R.id.data_out_layout).setVisibility(v);
+			if (v == View.VISIBLE) {
+				v = Updater.setVisableIfSet(this.prefs.getString(
+						PREFS_DATA_LIMIT, null));
+			}
 			this.callmeter.findViewById(R.id.data_progressbar).setVisibility(v);
 
 			this.dataBillDate = "?";
