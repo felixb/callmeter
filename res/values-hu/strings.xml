@@ -139,15 +139,15 @@
 	<string name="reset_data_hint">A hívások és SMS-ek nullázása a statisztikák újraszámolását vonja maguk után.\n\nAz adatforgalmi mérők nullázása nem vonható vissza. Csak a telefon bekapcsolása (bootolása) előtti forgalmat nullázza!</string>
 	<string name="reset_data_data_">Adatforgalmi számlálók is legyenek nullázva</string>
 	<string name="contacts_">Névjegyek</string>
-	<string name="debug_">Debug</string> 
-	<string name="send_logs_">Napló küldése</string> 
-	<string name="send_logs_hint">A fejlesztőnek elküldi az esemény- és hibanaplót.</string> 
+	<string name="debug_">Debug</string>
+	<string name="send_logs_">Napló küldése</string>
+	<string name="send_logs_hint">A fejlesztőnek elküldi az esemény- és hibanaplót.</string>
 	<string-array name="Témák"> 
-		<item>Fekete</item> 
-		<item>Világos</item> 
+		<item>Fekete</item>
+		<item>Világos</item>
 	</string-array> 
 	<string-array name="textsize"> 
-		<item>Kicsi</item> 
-		<item>Közepes</item> 
+		<item>Kicsi</item>
+		<item>Közepes</item>
 	</string-array>
 </resources>
