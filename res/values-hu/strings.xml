@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Lóránt Szabó, Felix Bechstein
+		Copyright (C) 2010 Lóránt Szabó, Béla Durucz, Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter NG. This program is free software; you
@@ -29,10 +29,10 @@
 	<string name="remove_ads_">Hirdetések eltávolítása</string>
 	<string name="predonate">Ez egy nyílt forráskódú, GPLv3 licenc alatt kiadott alkalmazás. Ingyenes, és az is marad. Ha megtetszett a program, vagy ha zavarnak a hirdetések, kérlek támogasd paypal-on keresztül a fejlesztést. A hirdetéseket ez esetben azonnal eltávolítom.\nKöszönöm!</string>
 	<string name="postdonate">A hirdetések eltávolításához küldd el nekem a telefonod egyedi IMEI számának MD5 hash kódját. A hashelési eljárás egyirányú, tehát a kódból nem nyerhető vissza az IMEI.</string>
-<!--	<string name="send_hash_">Hash küldése</string> -->
-<!--	<string name="signature_">Egy kódot fogsz kapni hamarosan, amit ha ide beillesztesz, a reklámok eltűnnek:</string> -->
-<!--	<string name="sig_loaded">Reklámok sikeresen eltávolítva!</string> -->
-<!--	<string name="sig_failed">Reklámok eltávolítása sikertelen!</string> -->
+	<string name="send_hash_">Hash küldése</string>
+	<string name="signature_">Egy kódot fogsz kapni hamarosan, amit ha ide beillesztesz, a reklámok eltűnnek:</string>
+	<string name="sig_loaded">Reklámok sikeresen eltávolítva!</string>
+	<string name="sig_failed">Reklámok eltávolítása sikertelen!</string>
 	<string name="about0_">Kövesd nyomon a hívás-, SMS-, és adatforgalmadat!</string>
 	<string name="about0">A Call Meter NG statisztikát készít a hívás-, SMS-, és adatforgalomból. Mindezt többféle számlázási mód támogatásával.</string>
 	<string name="about1">A kimeneti formátum a következő: felhasznált mennyiség százalékosan / hívásidő, SMS-, vagy adatmennyiség az aktuális számlázási időszakra / összesített hívásidő, SMS-, vagy adatmennyiség. A havi számítás figyelembe veszi a számlázási módot, míg az összegzett nem.</string>
@@ -46,25 +46,25 @@
 	<string name="settings">Beállítások</string>
 	<string name="about_">Névjegy</string>
 	<string name="about_hint">A Call Meter NG-ről.</string>
-<!--	<string name="faq_hint">Tippek és trükkök, avagy hogyan állítsuk be a programot?</string> -->
+	<string name="faq_hint">Tippek és trükkök, avagy hogyan állítsuk be a programot?</string>
 	<string name="feedback_">Visszajelzés/Feedback</string>
 	<string name="feedback_hint">Hibajelentés, fejlesztési ötletek küldése a fejlesztőnek...</string>
-<!--	<string name="twitter_hint">Kövess Twitteren!\nÉrtesülj frissítésekről, egyebekről.</string> -->
+	<string name="twitter_hint">Kövess Twitteren!\nÉrtesülj frissítésekről, egyebekről.</string>
 	<string name="more_">További alkalmazások...</string>
 	<string name="billday_">A számlázás első napja</string>
 	<string name="billmode_">Számlázás módja</string>
 	<string name="billmode_hint">Az első és azt követő számlázási egységek másodpercben.</string>
 	<string name="billdate_">Számlázási időszak kezdete:</string>
 	<string name="smsperiod_">Azonos számlázási időszak SMS-re</string>
-<!--	<string name="smsperiod_hint">Ha az SMS-ek számlázási időszaka megegyezik a hívások számlázási időszakával, pipáld be.</string> -->
+	<string name="smsperiod_hint">Ha az SMS-ek számlázási időszaka megegyezik a hívások számlázási időszakával, pipáld be.</string>
 	<string name="smsbillday_">Az SMS számlázás első napja</string>
-<!--	<string name="dataperiod_">Azonos számlázási időszak adatkapcsolatra</string> -->
-<!--	<string name="dataperiod_hint">Ha az adatkapcsolat számlázási időszaka megegyezik a hívások számlázási időszakával, akkor pipáld be.</string> -->
-<!--	<string name="databillday_">Adatkapcsolat számlájának első napja</string> -->
+	<string name="dataperiod_">Azonos számlázási időszak adatkapcsolatra</string>
+	<string name="dataperiod_hint">Ha az adatkapcsolat számlázási időszaka megegyezik a hívások számlázási időszakával, akkor pipáld be.</string>
+	<string name="databillday_">Adatkapcsolat számlájának első napja</string>
 	<string name="appearance_">Megjelenés</string>
 	<string name="theme_">Téma</string>
 	<string name="textsize_">Betűméret</string>
-<!--	<string name="advanced_">Haladó beállítások</string> -->
+	<string name="advanced_">Haladó beállítások</string>
 	<string name="exclude_people_">Kivételek hozzáadása</string>
 	<string name="exclude_people_hint">Az adott számok nem kerülnek számlázásra\nwildcard-ok használhatók: *555, 555* vagy *555*</string>
 	<string name="exclude_people_add">Szám hozzáadása</string>
@@ -72,12 +72,12 @@
 	<string name="exclude_people_delete">Törlés</string>
 	<string name="exclude_people_to_plan1_">Kivételek az 1-es tarifa alól</string>
 	<string name="exclude_people_to_plan2_">Kivételek az 2-es tarifa alól</string>
-<!--	<string name="exclude_people_calls_">Hívások számlázásának engedélyezése</string> -->
-<!--	<string name="exclude_people_calls_to_plan1_hint">Ha szeretnéd, hogy a kivételek 1-es tarifával kerüljenek számlázásra, pipáld be.</string> -->
-<!--	<string name="exclude_people_calls_to_plan2_hint">Ha szeretnéd, hogy a kivételek 2-es tarifával kerüljenek számlázásra, pipáld be.</string> -->
-<!--	<string name="exclude_people_sms_">SMS-ek számlázásának bekapcsolása</string> -->
-<!--	<string name="exclude_people_sms_to_plan1_hint">Ha szeretnéd, hogy az SMS-ek 1-es tarifával kerüljenek számlázásra, pipáld be.</string> -->
-<!--	<string name="exclude_people_sms_to_plan2_hint">Ha szeretnéd, hogy az SMS-ek 2-es tarifával kerüljenek számlázásra, pipáld be.</string> -->
+	<string name="exclude_people_calls_">Hívások számlázásának engedélyezése</string>
+	<string name="exclude_people_calls_to_plan1_hint">Ha szeretnéd, hogy a kivételek 1-es tarifával kerüljenek számlázásra, pipáld be.</string>
+	<string name="exclude_people_calls_to_plan2_hint">Ha szeretnéd, hogy a kivételek 2-es tarifával kerüljenek számlázásra, pipáld be.</string>
+	<string name="exclude_people_sms_">SMS-ek számlázásának bekapcsolása</string>
+	<string name="exclude_people_sms_to_plan1_hint">Ha szeretnéd, hogy az SMS-ek 1-es tarifával kerüljenek számlázásra, pipáld be.</string>
+	<string name="exclude_people_sms_to_plan2_hint">Ha szeretnéd, hogy az SMS-ek 2-es tarifával kerüljenek számlázásra, pipáld be.</string>
 	<string name="plans">Díjcsomagok, tarifák</string>
 	<string name="plans_split">Különböző tarifák használata</string>
 	<string name="plans_merge">Tarifák összevonása</string>
@@ -103,8 +103,8 @@
 	<string name="cost_per_minute_hint">Percenként kiszámlázott összeg.</string>
 	<string name="cost_per_sms_">SMS díj</string>
 	<string name="cost_per_sms_hint">SMS-enként kiszámlázott díj.</string>
-<!--	<string name="cost_per_mb_">Ár megabyteonként</string> -->
-<!--	<string name="cost_per_mb_hint">Minden megabytenyi adatforgalom díja</string> -->
+		<string name="cost_per_mb_">Ár megabyteonként</string>
+		<string name="cost_per_mb_hint">Minden megabytenyi adatforgalom díja</string>
 	<string name="merge_sms_calls_">SMS-ek hívásként számlázása</string>
 	<string name="merge_sms_calls_hint">Bejelölés esetén az SMS-ek hívásként kerülnek számlázásra.</string>
 	<string name="merge_sms_calls_sec_">Másodperc / SMS</string>
@@ -135,9 +135,9 @@
 	<string name="plan_name1_">1-es tarifa: név</string>
 	<string name="plan_name2_">2-es tarifa: név</string>
 	<string name="plan_name_hint">Egyedi név</string>
-<!--	<string name="reset_data_">Számlálók nullázása</string> -->
-<!--	<string name="reset_data_hint">A hívások és SMS-ek nullázása a statisztikák újraszámolását vonja maguk után.\n\nAz adatforgalmi mérők nullázása nem vonható vissza. Csak a telefon bekapcsolása (bootolása) előtti forgalmat nullázza!</string> -->
-<!--	<string name="reset_data_data_">Adatforgalmi számlálók is legyenek nullázva</string> -->
+	<string name="reset_data_">Számlálók nullázása</string>
+	<string name="reset_data_hint">A hívások és SMS-ek nullázása a statisztikák újraszámolását vonja maguk után.\n\nAz adatforgalmi mérők nullázása nem vonható vissza. Csak a telefon bekapcsolása (bootolása) előtti forgalmat nullázza!</string>
+	<string name="reset_data_data_">Adatforgalmi számlálók is legyenek nullázva</string>
 	<string name="contacts_">Névjegyek</string>
 <!--	<string name="debug_">Debug</string> -->
 <!--	<string name="send_logs_">Send logs</string> -->
