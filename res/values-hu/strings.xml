@@ -142,7 +142,7 @@
 	<string name="debug_">Debug</string>
 	<string name="send_logs_">Napló küldése</string>
 	<string name="send_logs_hint">A fejlesztőnek elküldi az esemény- és hibanaplót.</string>
-	<string-array name="Témák"> 
+	<string-array name="theme"> 
 		<item>Fekete</item>
 		<item>Világos</item>
 	</string-array> 
