@@ -237,6 +237,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	/** Sum of displayed calls in/out. Used if merging sms into calls. */
 	private int callsInSum, callsOutSum;
 
+	/** Position of {@link ProgressBar}. */
+	private int billDatePosCalls, billDatePosSMS;
+
 	/** Length of first billed timeslot. */
 	private int lengthOfFirstSlot;
 	/** Length of following timeslot. */
@@ -471,6 +474,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		this.twSMSOut2.setText(this.smsOut2);
 		this.twSMSPB1Text.setText(this.smsInOut1);
 		this.twSMSPB2Text.setText(this.smsInOut2);
+
+		((ProgressBar) this.callmeter.findViewById(R.id.calls_progressbar_date))
+				.setProgress(this.billDatePosCalls);
+		((ProgressBar) this.callmeter.findViewById(R.id.sms_progressbar_date))
+				.setProgress(this.billDatePosSMS);
 	}
 
 	/**
@@ -740,9 +748,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			final Integer[] status) {
 		checkBillperiodCalls(this.prefs);
 
+		this.callsBillDate = DateFormat.getDateFormat(this.context).format(
+				calBillDate.getTime());
 		if (this.updateGUI) {
-			this.callsBillDate = DateFormat.getDateFormat(this.context).format(
-					calBillDate.getTime());
+			this.billDatePosCalls = getDatePos(calBillDate);
 		}
 
 		long billDate = calBillDate.getTimeInMillis();
@@ -943,6 +952,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		// report basics
 		this.smsBillDate = DateFormat.getDateFormat(this.context).format(
 				calBillDate.getTime());
+		if (this.updateGUI) {
+			this.billDatePosSMS = getDatePos(calBillDate);
+		}
+
 		final long billDate = calBillDate.getTimeInMillis();
 		final String[] projection = new String[] // .
 		{ Calls.TYPE, Calls.DATE, BODY, "address" };
@@ -1578,5 +1591,21 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		} else {
 			return View.VISIBLE;
 		}
+	}
+
+	/**
+	 * Get a {@link ProgressBar} position.
+	 * 
+	 * @param cal
+	 *            {@link Calendar}
+	 * @return position
+	 */
+	public static int getDatePos(final Calendar cal) {
+		Calendar c = (Calendar) cal.clone();
+		long bll = c.getTimeInMillis();
+		long now = System.currentTimeMillis() - bll;
+		c.add(Calendar.MONTH, 1);
+		long nxt = c.getTimeInMillis() - bll;
+		return (int) (now * 100 / nxt);
 	}
 }

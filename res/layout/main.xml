@@ -47,6 +47,10 @@
 				<TextView android:id="@+id/calls_billdate" android:gravity="right"
 					android:layout_width="fill_parent" android:layout_height="wrap_content" />
 			</LinearLayout>
+			<ProgressBar android:id="@+id/calls_progressbar_date"
+				android:layout_width="fill_parent" android:layout_height="5dip"
+				android:paddingLeft="10dip" android:paddingRight="10dip"
+				android:max="100" style="?android:attr/progressBarStyleHorizontal" />
 
 			<!-- real calls -->
 			<!--  calls1 -->
@@ -122,6 +126,10 @@
 				<TextView android:id="@+id/sms_billdate" android:gravity="right"
 					android:layout_width="fill_parent" android:layout_height="wrap_content" />
 			</LinearLayout>
+			<ProgressBar android:id="@+id/sms_progressbar_date"
+				android:layout_width="fill_parent" android:layout_height="5dip"
+				android:paddingLeft="10dip" android:paddingRight="10dip"
+				android:max="100" style="?android:attr/progressBarStyleHorizontal" />
 
 			<!-- real sms -->
 
@@ -199,6 +207,10 @@
 				<TextView android:id="@+id/data_billdate" android:gravity="right"
 					android:layout_width="fill_parent" android:layout_height="wrap_content" />
 			</LinearLayout>
+			<ProgressBar android:id="@+id/data_progressbar_date"
+				android:layout_width="fill_parent" android:layout_height="5dip"
+				android:paddingLeft="10dip" android:paddingRight="10dip"
+				android:max="100" style="?android:attr/progressBarStyleHorizontal" />
 
 			<!-- real data -->
 

@@ -107,6 +107,9 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 	/** Run updates on GUI. */
 	private final boolean updateGUI;
 
+	/** How much time of this billing period is gone already. */
+	private int billdatePos = 0;
+
 	/**
 	 * AsyncTask updating statistics.
 	 * 
@@ -136,6 +139,8 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 		this.twDataBillDate.setText(this.dataBillDate);
 		this.twDataIn.setText(this.dataIn);
 		this.twDataOut.setText(this.dataOut);
+		((ProgressBar) this.callmeter.findViewById(R.id.data_progressbar_date))
+				.setProgress(this.billdatePos);
 	}
 
 	/**
@@ -191,6 +196,8 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 
 		// report data only if run from GUI
 		if (this.prefs.getBoolean(PREFS_DATA_ENABLE, false) && this.updateGUI) {
+			this.billdatePos = Updater.getDatePos(calBillDate);
+
 			// walk data
 			updateTraffic(this.context, this.prefs);
 			// get data from preferences
