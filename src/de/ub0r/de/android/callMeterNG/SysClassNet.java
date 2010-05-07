@@ -35,11 +35,11 @@ public final class SysClassNet {
 	/** Prefix of all interfaces. */
 	public static final String SYS_CLASS_NET = "/sys/class/net/";
 	/** carrier postfix. */
-	private static final String CARRIER = "/carrier";
+	public static final String CARRIER = "/carrier";
 	/** Postfix: received bytes. */
-	private static final String RX_BYTES = "/statistics/rx_bytes";
+	public static final String RX_BYTES = "/statistics/rx_bytes";
 	/** Postfix: sent bytes. */
-	private static final String TX_BYTES = "/statistics/tx_bytes";
+	public static final String TX_BYTES = "/statistics/tx_bytes";
 
 	/**
 	 * Private constructor. This is an utility class.
