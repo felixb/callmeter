@@ -162,7 +162,7 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 					.findViewById(R.id.data_progressbar_date);
 
 			int v = View.GONE;
-			if (this.prefs.getBoolean(PREFS_DATA_ENABLE, false)) {
+			if (this.prefs.getBoolean(PREFS_DATA_ENABLE, true)) {
 				v = View.VISIBLE;
 			}
 			this.callmeter.findViewById(R.id.data_).setVisibility(v);
@@ -196,7 +196,7 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 				calBillDate.getTime());
 
 		// report data only if run from GUI
-		if (this.prefs.getBoolean(PREFS_DATA_ENABLE, false) && this.updateGUI) {
+		if (this.prefs.getBoolean(PREFS_DATA_ENABLE, true) && this.updateGUI) {
 			this.billdatePos = Updater.getDatePos(calBillDate);
 
 			// walk data
@@ -381,7 +381,7 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 	 */
 	static final synchronized void updateTraffic(final Context context,
 			final SharedPreferences prefs) {
-		if (!prefs.getBoolean(PREFS_DATA_ENABLE, false)) {
+		if (!prefs.getBoolean(PREFS_DATA_ENABLE, true)) {
 			return;
 		}
 		checkBillperiod(prefs);

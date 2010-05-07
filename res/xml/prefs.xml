@@ -502,7 +502,8 @@
 
 		<PreferenceScreen android:title="@string/data">
 			<CheckBoxPreference android:key="data_enable"
-				android:title="@string/data_enable_" android:summary="@string/data_enable_hint" />
+				android:title="@string/data_enable_" android:summary="@string/data_enable_hint"
+				android:defaultValue="true" />
 			<CheckBoxPreference android:key="data_eachday"
 				android:title="@string/data_each_day" android:summary="@string/data_each_day_hint"
 				android:dependency="data_enable" android:disableDependentsState="true" />
