@@ -86,9 +86,9 @@
 	<string name="plan2">Plan 2</string>
 	<string name="plan1_hint">Zaznacz godziny by wliczać połączenia/sms w rachunek pierwszy. Pozostałe będą wliczane w plan 2.</string>
 	<string name="plan_free_">Brak rachunku</string>
-	<string name="plan_freemin_">Darmowe minuty</string>
+	<string name="plan_freemin_">Koszt rozmów nie jest uwzględniany na rachunku.</string>
 	<string name="plan_freesms_">Darmowe SMS</string>
-	<string name="free_hint">Całkowicie darmowe</string>
+	<string name="free_hint">Koszt wiadomości SMS nie jest uwzględniany na rachunku.</string>
 	<string name="freemin_hint">Liczba darmowych minut w miesiącu</string>
 	<string name="freesms_hint">Liczba darmowych SMSów w miesiącu</string>
 	<string name="bill_calls_incoming_">Wliczaj przychodzące</string>
@@ -98,11 +98,11 @@
 	<string name="bill_data_incoming_only_">Wliczaj tylko przychodzący</string>
 	<string name="bill_data_incoming_only_hint">Wliczaj tylko transfer przychodzący.</string>
 	<string name="cost_per_call_">Koszt za połączenie</string>
-<!--	<string name="cost_per_call_hint">Each call will be billed with this.</string> -->
+	<string name="cost_per_call_hint">Każde połączenie będzie rozliczane za pomocą tego.</string>
 	<string name="cost_per_minute_">Koszt za minutę</string>
-<!--	<string name="cost_per_minute_hint">Each minute of a call will be billed with this.</string> -->
+	<string name="cost_per_minute_hint">Każda minuta połączenia będzie rozliczana za pomocą tego.</string>
 	<string name="cost_per_sms_">Koszt za SMS</string>
-<!--	<string name="cost_per_sms_hint">Each SMS will be billed with this.</string> -->
+	<string name="cost_per_sms_hint">Każdy SMS będzie rozliczany za pomocą tego.</string>
 	<string name="cost_per_mb_">Koszt za MB</string>
 	<string name="cost_per_mb_hint">Każdy MB transferu będzie rozliczany za pomocą tego.</string>
 	<string name="merge_sms_calls_">Wliczaj SMS w połączenia</string>
@@ -116,7 +116,7 @@
 	<string name="data_each_day">Rachunek za każdy dzień osobno</string>
 	<string name="data_each_day_hint">Okres rozliczeniowy rozpoczyna się każdego dnia.</string>
 	<string name="data_limit_">Limit</string>
-	<string name="data_limit_hint">Limit of dataplan (MB/month)</string>
+	<string name="data_limit_hint">Limit w planie taryfowym (MB/miesiąc)</string>
 	<string name="monday">Poniedziałek</string>
 	<string name="tuesday">Wtorek</string>
 	<string name="wednesday">Środa</string>
@@ -139,7 +139,7 @@
 	<string name="reset_data_hint">Reset połączeń/smsów skutkować będzie w przeliczeniu statystyk.\n\nUsunięcie statystyk ruchu jest nieodwracalne. Zresetowane zostają wyłącznie statystyki z przed uruchomienia!</string>
 	<string name="reset_data_data_">Usuń również dane.</string>
 	<string name="contacts_">Kontakty</string>
-<!--	<string name="debug_">Debug</string> -->
+	<string name="debug_">Debugowanie</string>
 	<string name="send_logs_">Wyślij logi</string>
 	<string name="send_logs_hint">Wyślij logi twojego urządzenia do autora.</string>
 	<string name="sendlog_run_">Uruchom SendLog</string>
