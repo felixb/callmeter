@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Łukasz Malicki, Felix Bechstein
+		Copyright (C) 2010 Łukasz Malicki, Felix Bechstein, Dariusz Więckiewicz
 	-->
 	<!--
 		This file is part of Call Meter NG. This program is free software; you
@@ -21,11 +21,11 @@
 	<string name="author_">Autor:</string>
 	<string name="version_">Wersja:</string>
 	<string name="license_">Licencja:</string>
-	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
+	<string name="license">GPLv3 - zobacz http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Kod źródłowy:</string>
 	<string name="website_">Strona:</string>
 	<string name="donate_">Wspomóż (Paypal)</string>
-	<string name="donate_remove_ads_">Wspomóż/usuń reklamy</string>
+	<string name="donate_remove_ads_">Wspomóż/Usuń reklamy</string>
 	<string name="remove_ads_">Usuń reklamy</string>
 	<string name="predonate">Ta open-surce\'owa aplikacja jest udostępniana na licencji GPLve. Jest bezpłatna i taka też pozostanie. Jeśli Ci się podoba, lub denerwują Cię reklamy, wspomóż mnie (przez paypal). Usunę reklamy wraz z następną aktualizacją. Dzięki!</string>
 	<string name="postdonate">Aby usunąć reklamy prześlij mi hash swojego numeru IMEI (w MD5, jest unikalny dla Twojego telefonu). Hash działa tylko w jedną stronę, więc nikt (nawet ja) nie poznam tego numeru.</string>
@@ -39,7 +39,7 @@
 	<string name="about2">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
 	<string name="about3">Możesz podzielić swoje połączenia lub sms na dwa plany. Oba plany mogą być ustawione na całodobowe darmowe połączenia lub w określonych godzinach.</string>
 	<string name="about4">Wiadomości mogą być brane pod uwagę w Twoim planie. Np. zliczać każdy wysłany sms jako 15s. połączenie.</string>
-	<string name="about5">CallMeter uruchamia sięw tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
+	<string name="about5">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
 	<string name="about6_">Czego CallMeter NIE robi:</string>
 	<string name="about6">Nie da się odróżnić połączeń SIP od realnych połączeń lub websms od sms wysłanych \"z telefonu\". Android \'s bezproblemową integrację tych. Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości żeby je odróżnić.</string>
 	<string name="send_">Wyślij</string>
@@ -62,7 +62,7 @@
 <!--	<string name="dataperiod_hint">Set data\'s billing period to calls\' period.</string> -->
 	<string name="databillday_">Pierwszy dzień rachunku za dane</string>
 	<string name="appearance_">Wygląd</string>
-	<string name="theme_">Skin</string>
+	<string name="theme_">Styl</string>
 	<string name="textsize_">Wielkość czcionki</string>
 	<string name="advanced_">Zaawansowane</string>
 	<string name="exclude_people_">Wykluczaj numery</string>
@@ -72,10 +72,10 @@
 	<string name="exclude_people_delete">Usuń</string>
 	<string name="exclude_people_to_plan1_">Wykluczone numery do planu 1</string>
 	<string name="exclude_people_to_plan2_">Wykluczone numery do planu 2</string>
-<!--	<string name="exclude_people_calls_">Enable for Calls</string> -->
+	<string name="exclude_people_calls_">Włącz dla połączeń</string>
 <!--	<string name="exclude_people_calls_to_plan1_hint">Bill calls to/from excluded numbers in plan #1</string> -->
 <!--	<string name="exclude_people_calls_to_plan2_hint">Bill calls to/from excluded numbers in plan #2</string> -->
-<!--	<string name="exclude_people_sms_">Enable for SMS</string> -->
+	<string name="exclude_people_sms_">Włącz dla SMS</string>
 <!--	<string name="exclude_people_sms_to_plan1_hint">Bill messages to/from excluded numbers in plan #1</string> -->
 <!--	<string name="exclude_people_sms_to_plan2_hint">Bill messages to/from excluded numbers in plan #2</string> -->
 	<string name="plans">Plany</string>
@@ -86,29 +86,29 @@
 	<string name="plan2">Plan 2</string>
 	<string name="plan1_hint">Zaznacz godziny by wliczać połączenia/sms w rachunek pierwszy. Pozostałe będą wliczane w plan 2.</string>
 	<string name="plan_free_">Brak rachunku</string>
-	<string name="plan_freemin_">Darmowe minuty</string>
+	<string name="plan_freemin_">Koszt rozmów nie jest uwzględniany na rachunku.</string>
 	<string name="plan_freesms_">Darmowe SMS</string>
-	<string name="free_hint">Całkowicie darmowe</string>
-	<string name="freemin_hint">Darmowe minuty / Miesiąc</string>
-	<string name="freesms_hint">Darmowe SMS / Miesiąc</string>
-<!--	<string name="bill_calls_incoming_">Bill incoming</string> -->
+	<string name="free_hint">Koszt wiadomości SMS nie jest uwzględniany na rachunku.</string>
+	<string name="freemin_hint">Liczba darmowych minut w miesiącu</string>
+	<string name="freesms_hint">Liczba darmowych SMSów w miesiącu</string>
+	<string name="bill_calls_incoming_">Wliczaj przychodzące</string>
 <!--	<string name="bill_calls_incoming_hint">Bill incoming calls as well.</string> -->
-<!--	<string name="bill_sms_incoming_">Bill incoming</string> -->
+	<string name="bill_sms_incoming_">Wliczaj przychodzące</string>
 <!--	<string name="bill_sms_incoming_hint">Bill incoming sms as well.</string> -->
-<!--	<string name="bill_data_incoming_only_">Bill incoming only</string> -->
-<!--	<string name="bill_data_incoming_only_hint">Bill only incoming traffic.</string> -->
-<!--	<string name="cost_per_call_">Cost per call</string> -->
-<!--	<string name="cost_per_call_hint">Each call will be billed with this.</string> -->
-<!--	<string name="cost_per_minute_">Cost per minute</string> -->
-<!--	<string name="cost_per_minute_hint">Each minute of a call will be billed with this.</string> -->
-<!--	<string name="cost_per_sms_">Cost per SMS</string> -->
-<!--	<string name="cost_per_sms_hint">Each SMS will be billed with this.</string> -->
-<!--	<string name="cost_per_mb_">Cost per MB</string> -->
-<!--	<string name="cost_per_mb_hint">Each MB of the traffic is bill with this.</string> -->
+	<string name="bill_data_incoming_only_">Wliczaj tylko przychodzący</string>
+	<string name="bill_data_incoming_only_hint">Wliczaj tylko transfer przychodzący.</string>
+	<string name="cost_per_call_">Koszt za połączenie</string>
+	<string name="cost_per_call_hint">Każde połączenie będzie rozliczane za pomocą tego.</string>
+	<string name="cost_per_minute_">Koszt za minutę</string>
+	<string name="cost_per_minute_hint">Każda minuta połączenia będzie rozliczana za pomocą tego.</string>
+	<string name="cost_per_sms_">Koszt za SMS</string>
+	<string name="cost_per_sms_hint">Każdy SMS będzie rozliczany za pomocą tego.</string>
+	<string name="cost_per_mb_">Koszt za MB</string>
+	<string name="cost_per_mb_hint">Każdy MB transferu będzie rozliczany za pomocą tego.</string>
 	<string name="merge_sms_calls_">Wliczaj SMS w połączenia</string>
 	<string name="merge_sms_calls_hint">Rachunek za SMS jest częścią rachunku za połączenia.</string>
-	<string name="merge_sms_calls_sec_">Sekuna / SMS</string>
-	<string name="merge_sms_calls_sec_hint">Liczba sekund liczonych jako jeden sms.</string>
+	<string name="merge_sms_calls_sec_">Sekunda / SMS</string>
+	<string name="merge_sms_calls_sec_hint">Liczba sekund liczonych jako jeden SMS.</string>
 	<string name="merge_sms_plan1_">Wliczaj SMS w plan 1</string>
 	<string name="merge_sms_plan1_hint">Odznacz aby wliczać w plan 2</string>
 	<string name="data_enable_">Pokaż statystyki</string>
@@ -116,7 +116,7 @@
 	<string name="data_each_day">Rachunek za każdy dzień osobno</string>
 	<string name="data_each_day_hint">Okres rozliczeniowy rozpoczyna się każdego dnia.</string>
 	<string name="data_limit_">Limit</string>
-	<string name="data_limit_hint">Limit of dataplan (MB/month)</string>
+	<string name="data_limit_hint">Limit w planie taryfowym (MB/miesiąc)</string>
 	<string name="monday">Poniedziałek</string>
 	<string name="tuesday">Wtorek</string>
 	<string name="wednesday">Środa</string>
@@ -130,22 +130,22 @@
 	<string name="calls_sms">Połączenia/SMS</string>
 	<string name="in">Przychodzące%s:</string>
 	<string name="out_calls">Wychodzące%s:</string>
-	<string name="out_sms">Wychodzącet%s:</string>
+	<string name="out_sms">Wychodzące%s:</string>
 	<string name="out_data">Wychodzące:</string>
 	<string name="plan_name1_">Plan 1: nazwa</string>
 	<string name="plan_name2_">Plan 2: nazwa</string>
 	<string name="plan_name_hint">Własna nazwa</string>
 	<string name="reset_data_">Resetuj statystyki</string>
-<!--	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string> -->
-<!--	<string name="reset_data_data_">Reset traffic too.</string> -->
+	<string name="reset_data_hint">Reset połączeń/smsów skutkować będzie w przeliczeniu statystyk.\n\nUsunięcie statystyk ruchu jest nieodwracalne. Zresetowane zostają wyłącznie statystyki z przed uruchomienia!</string>
+	<string name="reset_data_data_">Usuń również dane.</string>
 	<string name="contacts_">Kontakty</string>
-<!--	<string name="debug_">Debug</string> -->
-<!--	<string name="send_logs_">Send logs</string> -->
-<!--	<string name="send_logs_hint">Send your device\'s logs to the developer.</string> -->
-<!--	<string name="sendlog_run_">Run SendLog</string> -->
-<!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
-<!--	<string name="sendlog_install_">Install SendLog</string> -->
-<!--	<string name="sendlog_install">Install the free SendLog application to collect the device log and send it to the developer.</string> -->
+	<string name="debug_">Debugowanie</string>
+	<string name="send_logs_">Wyślij logi</string>
+	<string name="send_logs_hint">Wyślij logi twojego urządzenia do autora.</string>
+	<string name="sendlog_run_">Uruchom SendLog</string>
+	<string name="sendlog_run">SendLog zbierze logi urządzenia i wyśle je do autora.\nBędziesz miał okazję do przejrzenia i modyfikacji danych przed wysłaniem.</string>
+	<string name="sendlog_install_">Zainstaluj SendLog</string>
+	<string name="sendlog_install">Zainstaluj darmową aplikację SendLog aby zebrać logi urządzenia i wysłać je do autora.</string>
 	<string-array name="themes">
 		<item>Ciemny</item>
 		<item>Jasny</item>
