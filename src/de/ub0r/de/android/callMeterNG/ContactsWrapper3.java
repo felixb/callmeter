@@ -30,6 +30,7 @@ import android.provider.Contacts.People.Extensions;
 /**
  * Implement {@link ContactsWrapper} for API 3 and 4.
  * 
+ * @version 3
  * @author flx
  */
 @SuppressWarnings("deprecation")

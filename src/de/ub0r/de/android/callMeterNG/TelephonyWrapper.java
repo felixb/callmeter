@@ -20,7 +20,6 @@
 package de.ub0r.de.android.callMeterNG;
 
 import android.os.Build;
-import android.util.Log;
 
 /**
  * Wrap around Telephony API.
@@ -29,7 +28,7 @@ import android.util.Log;
  */
 public abstract class TelephonyWrapper {
 	/** Tag for output. */
-	private static final String TAG = "CallMeter.tw";
+	private static final String TAG = "tw";
 
 	/**
 	 * Static singleton instance of {@link TelephonyWrapper} holding the

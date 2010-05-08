@@ -31,7 +31,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -51,7 +50,7 @@ import de.ub0r.de.android.callMeterNG.ExcludePeople.ExcludedPerson;
  */
 public class CallMeter extends Activity {
 	/** Tag for output. */
-	public static final String TAG = "CallMeterNG";
+	public static final String TAG = "main";
 
 	/** Flurry's API key. */
 	public static final String FLURRYKEY = "DF1BECT8IJDIJ82NA3S8";

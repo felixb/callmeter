@@ -142,7 +142,11 @@
 	<string name="debug_">Debug</string>
 	<string name="send_logs_">Napló küldése</string>
 	<string name="send_logs_hint">A fejlesztőnek elküldi az esemény- és hibanaplót.</string>
-	<string-array name="theme"> 
+<!--	<string name="sendlog_run_">Run SendLog</string> -->
+<!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
+<!--	<string name="sendlog_install_">Install SendLog</string> -->
+<!--	<string name="sendlog_install">Install the free SendLog application to collect the device log and send it to the developer.</string> -->
+	<string-array name="themes">
 		<item>Fekete</item>
 		<item>Világos</item>
 	</string-array> 

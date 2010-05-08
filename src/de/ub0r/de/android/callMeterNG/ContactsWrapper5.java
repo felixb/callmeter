@@ -25,6 +25,7 @@ import android.provider.ContactsContract;
 /**
  * Helper class to set/unset background for api5 systems.
  * 
+ * @version 5
  * @author flx
  */
 public final class ContactsWrapper5 extends ContactsWrapper {

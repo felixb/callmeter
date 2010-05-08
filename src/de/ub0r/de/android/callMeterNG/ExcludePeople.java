@@ -11,7 +11,6 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -25,7 +24,7 @@ import android.widget.AdapterView.OnItemClickListener;
  */
 public class ExcludePeople extends Activity implements OnItemClickListener {
 	/** Tag for output. */
-	private static final String TAG = "CallMeterNG.ex";
+	private static final String TAG = "ex";
 
 	/** {@link ContactsWrapper}. */
 	static final ContactsWrapper CWRAPPER = ContactsWrapper.getInstance();

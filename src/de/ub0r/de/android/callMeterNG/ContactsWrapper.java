@@ -24,7 +24,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
-import android.util.Log;
 
 /**
  * Wrap around contacts API.
@@ -33,7 +32,7 @@ import android.util.Log;
  */
 public abstract class ContactsWrapper {
 	/** Tag for output. */
-	private static final String TAG = "CallMeter.cw";
+	private static final String TAG = "cw";
 
 	/**
 	 * Static singleton instance of {@link ContactsWrapper} holding the

@@ -27,7 +27,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 /**
  * {@link BroadcastReceiver} running updates and postboot checks.
@@ -36,7 +35,7 @@ import android.util.Log;
  */
 public class CMBroadcastReceiver extends BroadcastReceiver {
 	/** Tag for output. */
-	private static final String TAG = "CallMeterNG.Receiver";
+	private static final String TAG = "receiver";
 
 	/** Time between to update checks. */
 	private static final long DELAY = 30 * 60 * 1000; // 30min

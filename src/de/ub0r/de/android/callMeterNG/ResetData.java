@@ -18,7 +18,6 @@ import android.preference.PreferenceManager;
  * @author flx
  */
 public class ResetData extends Activity {
-
 	/**
 	 * Delete saved data from preferences.
 	 * 

@@ -27,14 +27,13 @@ import java.util.Arrays;
 import java.util.List;
 
 import android.os.Build;
-import android.util.Log;
 
 /**
  * Representation of a device.
  */
 public abstract class Device {
 	/** Tag for output. */
-	private static final String TAG = "CallMeter.device";
+	private static final String TAG = "device";
 
 	/** Single instance. */
 	private static Device instance = null;
@@ -45,6 +44,7 @@ public abstract class Device {
 	 * @return single instance
 	 */
 	public static synchronized Device getDevice() {
+		Log.d(TAG, "Device: " + Build.DEVICE);
 		if (instance == null) {
 			Log.i(TAG, "Device: " + Build.DEVICE);
 			// All the devices we know about.

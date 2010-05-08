@@ -31,7 +31,6 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -48,7 +47,7 @@ import de.ub0r.de.android.callMeterNG.ExcludePeople.ExcludedPerson;
  */
 class Updater extends AsyncTask<Void, Void, Integer[]> {
 	/** Tag for output. */
-	private static final String TAG = "CallMeterNG.updater";
+	private static final String TAG = "updater";
 
 	/** Days of a week. */
 	static final int DAYS_WEEK = 7;

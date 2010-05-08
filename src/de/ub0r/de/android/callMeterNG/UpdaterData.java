@@ -26,7 +26,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -38,7 +37,7 @@ import android.widget.TextView;
  */
 class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 	/** Tag for output. */
-	private static final String TAG = "CallMeterNG.ud";
+	private static final String TAG = "ud";
 
 	/** Prefs: enable data stats. */
 	private static final String PREFS_DATA_ENABLE = "data_enable";

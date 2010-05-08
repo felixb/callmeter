@@ -23,14 +23,12 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-import android.util.Log;
-
 /**
  * Acces /sys/class/net/ files.
  */
 public final class SysClassNet {
 	/** Tag for output. */
-	private static final String TAG = "CallMeterNG.Sys";
+	private static final String TAG = "sys";
 
 	/** Prefix of all interfaces. */
 	public static final String SYS_CLASS_NET = "/sys/class/net/";
