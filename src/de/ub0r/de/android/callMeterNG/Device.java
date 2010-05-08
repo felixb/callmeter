@@ -52,7 +52,7 @@ public abstract class Device {
 			// All the devices we know about.
 			Device[] allDevices = { new DefaultDevice(), new GenericDevice(),
 					new SamsungI7500Device(), new PulseDevice(),
-					new DroidDevice() };
+					new DroidDevice(), new EveDevice() };
 			// Iterates over all the devices and try to found the corresponding
 			// one.
 			for (Device device : allDevices) {
@@ -97,7 +97,6 @@ public abstract class Device {
 	 * @return some info
 	 */
 	private static String debugDeviceList() {
-		Log.i(TAG, "No device for " + Build.DEVICE);
 		try {
 			File f = new File(SysClassNet.SYS_CLASS_NET);
 			String[] devices = f.list();
