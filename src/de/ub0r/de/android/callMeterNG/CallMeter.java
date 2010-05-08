@@ -19,7 +19,6 @@
 package de.ub0r.de.android.callMeterNG;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.app.Activity;
@@ -36,12 +35,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.flurry.android.FlurryAgent;
-
-import de.ub0r.de.android.callMeterNG.ExcludePeople.ExcludedPerson;
 
 /**
  * The main Activity, holding all data.
@@ -75,11 +71,6 @@ public class CallMeter extends Activity {
 
 	/** Path to file containing signatures of UID Hash. */
 	private static final String NOADS_SIGNATURES = "/sdcard/callmeter.noads";
-
-	/** Preferences: excluded numbers. */
-	static ArrayList<ExcludedPerson> prefsExcludePeople;
-	/** ArrayAdapter for excluded numbers. */
-	static ArrayAdapter<ExcludedPerson> excludedPeopleAdapter;
 
 	/**
 	 * {@inheritDoc}
@@ -119,7 +110,6 @@ public class CallMeter extends Activity {
 			this.showDialog(DIALOG_UPDATE);
 		}
 		prefsNoAds = this.hideAds();
-		prefsExcludePeople = ExcludePeople.loadExcludedPeople(this);
 
 		TextView tv = (TextView) this.findViewById(R.id.calls_);
 		Preferences.textSizeMedium = tv.getTextSize();

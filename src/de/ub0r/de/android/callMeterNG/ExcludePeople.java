@@ -2,8 +2,8 @@ package de.ub0r.de.android.callMeterNG;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
 /**
@@ -23,7 +22,7 @@ import android.widget.AdapterView.OnItemClickListener;
  * 
  * @author flx
  */
-public class ExcludePeople extends Activity implements OnItemClickListener {
+public class ExcludePeople extends ListActivity implements OnItemClickListener {
 	/** Tag for output. */
 	private static final String TAG = "ex";
 
@@ -55,6 +54,12 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 	/** Prefs: Bill sms to/from excluded people to plan #2. */
 	static final String PREFS_EXCLUDE_PEOPLE_SMS_PLAN2 = // .
 	PREFS_EXCLUDE_PEOPLE_PREFIX + "sms_to_plan2";
+
+	/** Preferences: excluded numbers. */
+	static ArrayList<ExcludedPerson> prefsExcludePeople;
+
+	/** Adapter used for the list. */
+	private ArrayAdapter<ExcludedPerson> adapter = null;
 
 	/**
 	 * Excluded person.
@@ -96,7 +101,7 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 		@Override
 		public String toString() {
 			if (this.name == null && this.name != NOT_FOUND //
-					&& context != null) {
+					&& context != null && this.number.indexOf("*") < 0) {
 				this.name = ContactsWrapper.getNameForAddress(context,
 						this.number);
 				if (this.name == null || this.name.equals(this.number)) {
@@ -117,12 +122,12 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 	@Override
 	protected final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.exclude_people);
-		final ListView lv = (ListView) this.findViewById(R.id.list);
-		lv.setAdapter(new ArrayAdapter<ExcludedPerson>(this,
-				android.R.layout.simple_list_item_1,
-				CallMeter.prefsExcludePeople));
-		lv.setOnItemClickListener(this);
+		// this.setContentView(R.layout.exclude_people);
+		prefsExcludePeople = loadExcludedPeople(this);
+		this.adapter = new ArrayAdapter<ExcludedPerson>(this,
+				android.R.layout.simple_list_item_1, prefsExcludePeople);
+		this.setListAdapter(this.adapter);
+		this.getListView().setOnItemClickListener(this);
 	}
 
 	/**
@@ -142,11 +147,11 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 		super.onPause();
 		SharedPreferences.Editor editor = PreferenceManager
 				.getDefaultSharedPreferences(this).edit();
-		final int s = CallMeter.prefsExcludePeople.size();
+		final int s = prefsExcludePeople.size();
 		editor.putInt(PREFS_EXCLUDE_PEOPLE_COUNT, s - 1);
 		for (int i = 1; i < s; i++) {
 			editor.putString(PREFS_EXCLUDE_PEOPLE_PREFIX + (i - 1),
-					CallMeter.prefsExcludePeople.get(i).getNumber());
+					prefsExcludePeople.get(i).getNumber());
 		}
 		editor.commit();
 		ExcludedPerson.context = null;
@@ -174,12 +179,11 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 				"").trim();
 		Log.d(TAG, number);
 		if (requestCode == 0) {
-			CallMeter.prefsExcludePeople.add(new ExcludedPerson(number));
+			prefsExcludePeople.add(new ExcludedPerson(number));
 		} else {
-			CallMeter.prefsExcludePeople.set(requestCode, new ExcludedPerson(
-					number));
+			prefsExcludePeople.set(requestCode, new ExcludedPerson(number));
 		}
-		CallMeter.excludedPeopleAdapter.notifyDataSetChanged();
+		this.adapter.notifyDataSetChanged();
 	}
 
 	/**
@@ -197,11 +201,9 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 					new DialogInterface.OnClickListener() {
 						public void onClick(final DialogInterface dialog,
 								final int id) {
-							CallMeter.prefsExcludePeople
-									.add(new ExcludedPerson(et.getText()
-											.toString()));
-							CallMeter.excludedPeopleAdapter
-									.notifyDataSetChanged();
+							prefsExcludePeople.add(new ExcludedPerson(et
+									.getText().toString()));
+							ExcludePeople.this.adapter.notifyDataSetChanged();
 						}
 					});
 			builder.setNeutralButton(R.string.contacts_,
@@ -228,8 +230,9 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 						final AlertDialog.Builder builder2 = // .
 						new AlertDialog.Builder(ExcludePeople.this);
 						final EditText et = new EditText(ExcludePeople.this);
-						et.setText(CallMeter.prefsExcludePeople.get(position)
-								.getNumber());
+						et
+								.setText(prefsExcludePeople.get(position)
+										.getNumber());
 						builder2.setView(et);
 						builder2.setTitle(R.string.exclude_people_edit);
 						builder2.setCancelable(true);
@@ -238,10 +241,10 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 									public void onClick(
 											final DialogInterface dialog,
 											final int id) {
-										CallMeter.prefsExcludePeople.set(
-												position, new ExcludedPerson(et
-														.getText().toString()));
-										CallMeter.excludedPeopleAdapter
+										prefsExcludePeople.set(position,
+												new ExcludedPerson(et.getText()
+														.toString()));
+										ExcludePeople.this.adapter
 												.notifyDataSetChanged();
 									}
 								});
@@ -263,8 +266,8 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 								null);
 						builder2.create().show();
 					} else { // delete
-						CallMeter.prefsExcludePeople.remove(position);
-						CallMeter.excludedPeopleAdapter.notifyDataSetChanged();
+						prefsExcludePeople.remove(position);
+						ExcludePeople.this.adapter.notifyDataSetChanged();
 					}
 				}
 
