@@ -71,7 +71,7 @@
 	<string name="exclude_people_edit">Edição</string>
 	<string name="exclude_people_delete">Apagar</string>
 	<string name="exclude_people_to_plan1_">Excluir números do plano #1</string>
-	<string name="exclude_people_to_plan2_"> Excluir números do plano #2</string>
+	<string name="exclude_people_to_plan2_">Excluir números do plano #2</string>
 	<string name="exclude_people_calls_">Habilitado para Chamadas </string>
 	<string name="exclude_people_calls_to_plan1_hint">Conta das chamadas de/para números excluídos no plano #1</string>
 	<string name="exclude_people_calls_to_plan2_hint">Conta das chamadas de/para números excluídos no plano #2</string>
@@ -129,7 +129,7 @@
 	<string name="data">Dados</string>
 	<string name="calls_sms">Ligações/SMS</string>
 	<string name="in">Recebidas%s:</string>
-	<string name="out_calls">Feita%s:</string>
+	<string name="out_calls">Feitas%s:</string>
 	<string name="out_sms">Feitas%s:</string>
 	<string name="out_data">Conexões:</string>
 	<string name="plan_name1_">Plano 1: nome</string>
