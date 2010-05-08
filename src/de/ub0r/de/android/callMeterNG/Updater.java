@@ -520,6 +520,14 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.excludedCallsToPlan = 0;
 			this.excludedSmsToPlan = 0;
 		}
+		if (!this.prefs.getBoolean(
+				ExcludePeople.PREFS_EXCLUDE_PEOPLE_CALLS_ENABLE, true)) {
+			this.excludedCallsToPlan = -1;
+		}
+		if (!this.prefs.getBoolean(
+				ExcludePeople.PREFS_EXCLUDE_PEOPLE_SMS_ENABLE, false)) {
+			this.excludedSmsToPlan = -1;
+		}
 	}
 
 	/**
@@ -699,7 +707,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			final ExcludedPerson[] excludeNumbers, final boolean[][] plans,
 			final int toPlan, final long date) {
 		boolean check = true;
-		if (excludeNumbers != null) {
+		if (excludeNumbers != null && toPlan >= 0) {
 			String n = cur.getString(idNumber);
 			// check if number should be excluded from billing
 			final int excludeNumbersSize = excludeNumbers.length;
