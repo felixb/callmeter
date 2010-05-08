@@ -23,10 +23,11 @@
 	<string name="lang">en</string>
 	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt; (Code, German)</string>
 	<string name="author_nc">Cyril Jaquier &lt;netcounter@jaqpot.net&gt; (NetCounter)</string>
-	<string name="author_pl">Łukasz Malicki &lt;maalicki@gmail.com&gt; (Polish)</string>
 	<string name="author_nl">Tom Nuss &lt;tomnuss@gmail.com&gt; (Dutch)</string>
-	<string name="author_gr">George Koutsouvalis &lt;koutsou@koutsou.gr&gt;	(Greek)</string>
-	<string name="author_es">Angel Martinez &lt;angelmtn@gmail.com&gt;	(Spanish)</string>
+	<string name="author_pl1">Łukasz Malicki &lt;maalicki@gmail.com&gt; (Polish)</string>
+	<string name="author_pl2">Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt; (Polish)</string>
+	<string name="author_gr">George Koutsouvalis &lt;koutsou@koutsou.gr&gt; (Greek)</string>
+	<string name="author_es">Angel Martinez &lt;angelmtn@gmail.com&gt; (Spanish)</string>
 	<string name="author_pt_br">Renato Picozzi &lt;jdasco@gmail.com&gt; (Portuguese-Br)</string>
 	<string name="author_fr">Johann Vandromme &lt;jowann@gmail.com&gt; (French)</string>
 	<string name="author_hu">Lóránt Szabó &lt;loorant@gmail.com&gt; (Hungarian)</string>
