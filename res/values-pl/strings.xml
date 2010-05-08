@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Łukasz Malicki, Felix Bechstein
+		Copyright (C) 2010 Łukasz Malicki, Felix Bechstein, Dariusz Więckiewicz
 	-->
 	<!--
 		This file is part of Call Meter NG. This program is free software; you
@@ -97,18 +97,18 @@
 <!--	<string name="bill_sms_incoming_hint">Bill incoming sms as well.</string> -->
 <!--	<string name="bill_data_incoming_only_">Bill incoming only</string> -->
 <!--	<string name="bill_data_incoming_only_hint">Bill only incoming traffic.</string> -->
-<!--	<string name="cost_per_call_">Cost per call</string> -->
+	<string name="cost_per_call_">Koszt za połączenie</string>
 <!--	<string name="cost_per_call_hint">Each call will be billed with this.</string> -->
-<!--	<string name="cost_per_minute_">Cost per minute</string> -->
+	<string name="cost_per_minute_">Koszt za minutę</string>
 <!--	<string name="cost_per_minute_hint">Each minute of a call will be billed with this.</string> -->
-<!--	<string name="cost_per_sms_">Cost per SMS</string> -->
+	<string name="cost_per_sms_">Koszt za SMS</string>
 <!--	<string name="cost_per_sms_hint">Each SMS will be billed with this.</string> -->
-<!--	<string name="cost_per_mb_">Cost per MB</string> -->
+	<string name="cost_per_mb_">Koszt za 1 MB</string>
 <!--	<string name="cost_per_mb_hint">Each MB of the traffic is bill with this.</string> -->
 	<string name="merge_sms_calls_">Wliczaj SMS w połączenia</string>
 	<string name="merge_sms_calls_hint">Rachunek za SMS jest częścią rachunku za połączenia.</string>
-	<string name="merge_sms_calls_sec_">Sekuna / SMS</string>
-	<string name="merge_sms_calls_sec_hint">Liczba sekund liczonych jako jeden sms.</string>
+	<string name="merge_sms_calls_sec_">Sekunda / SMS</string>
+	<string name="merge_sms_calls_sec_hint">Liczba sekund liczonych jako jeden SMS.</string>
 	<string name="merge_sms_plan1_">Wliczaj SMS w plan 1</string>
 	<string name="merge_sms_plan1_hint">Odznacz aby wliczać w plan 2</string>
 	<string name="data_enable_">Pokaż statystyki</string>
@@ -130,7 +130,7 @@
 	<string name="calls_sms">Połączenia/SMS</string>
 	<string name="in">Przychodzące%s:</string>
 	<string name="out_calls">Wychodzące%s:</string>
-	<string name="out_sms">Wychodzącet%s:</string>
+	<string name="out_sms">Wychodzące%s:</string>
 	<string name="out_data">Wychodzące:</string>
 	<string name="plan_name1_">Plan 1: nazwa</string>
 	<string name="plan_name2_">Plan 2: nazwa</string>
