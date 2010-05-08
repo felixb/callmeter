@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -118,7 +119,9 @@ public class ExcludePeople extends Activity implements OnItemClickListener {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.exclude_people);
 		final ListView lv = (ListView) this.findViewById(R.id.list);
-		lv.setAdapter(CallMeter.excludedPeopleAdapter);
+		lv.setAdapter(new ArrayAdapter<ExcludedPerson>(this,
+				android.R.layout.simple_list_item_1,
+				CallMeter.prefsExcludePeople));
 		lv.setOnItemClickListener(this);
 	}
 
