@@ -385,8 +385,12 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 		}
 		checkBillperiod(prefs);
 
+		long storeRx = -1;
+		long storeTx = -1;
 		long runningIn = prefs.getLong(PREFS_DATA_RUNNING_IN, 0);
 		long runningOut = prefs.getLong(PREFS_DATA_RUNNING_OUT, 0);
+		Log.d(TAG, "old rx: " + runningIn);
+		Log.d(TAG, "old tx: " + runningOut);
 
 		final Device d = Device.getDevice();
 		final String inter = d.getCell();
@@ -394,6 +398,17 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 			try {
 				final long rx = SysClassNet.getRxBytes(inter);
 				final long tx = SysClassNet.getTxBytes(inter);
+				Log.d(TAG, "rx: " + rx);
+				Log.d(TAG, "tx: " + tx);
+				if (rx < runningIn || tx < runningOut) {
+					Log.d(TAG, "restart counter, save old values");
+					storeRx = prefs.getLong(PREFS_DATA_BOOT_IN, 0);
+					storeTx = prefs.getLong(PREFS_DATA_BOOT_OUT, 0);
+					Log.d(TAG, "preboot rx: " + storeRx);
+					Log.d(TAG, "preboot tx: " + storeTx);
+					storeRx += runningIn;
+					storeTx += runningOut;
+				}
 				runningIn = rx;
 				runningOut = tx;
 			} catch (IOException e) {
@@ -404,6 +419,12 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 		final SharedPreferences.Editor editor = prefs.edit();
 		editor.putLong(PREFS_DATA_RUNNING_IN, runningIn);
 		editor.putLong(PREFS_DATA_RUNNING_OUT, runningOut);
+		if (storeRx >= 0 && storeTx >= 0) {
+			Log.d(TAG, "preboot rx: " + storeRx);
+			Log.d(TAG, "preboot tx: " + storeTx);
+			editor.putLong(PREFS_DATA_BOOT_IN, storeRx);
+			editor.putLong(PREFS_DATA_BOOT_OUT, storeTx);
+		}
 		editor.commit();
 	}
 
