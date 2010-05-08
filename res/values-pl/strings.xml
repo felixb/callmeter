@@ -45,7 +45,7 @@
 	<string name="send_">Wyślij</string>
 	<string name="settings">Ustawienia</string>
 	<string name="about_">O programie</string>
-	<string name="about_hint">Informacje o programie i twórcy</string> 
+	<string name="about_hint">Informacje o programie i twórcy</string>
 	<string name="faq_hint">Kilka informacji, jak skonfigurować aplikację</string>
 	<string name="feedback_">Kontakt</string>
 	<string name="feedback_hint">Zgłoś problemy, sugestię...</string>
