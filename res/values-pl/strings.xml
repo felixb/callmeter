@@ -89,7 +89,7 @@
 	<string name="plan_freemin_">Darmowe minuty</string>
 	<string name="plan_freesms_">Darmowe SMS</string>
 	<string name="free_hint">Koszt nie jest uwzględniany na rachunku</string>
-	<string name="freemin_hint">Darmowe minuty</string>
+	<string name="freemin_hint">Darmowe minuty w planie taryfowym</string>
 	<string name="freesms_hint">Liczba darmowych SMSów w miesiącu</string>
 	<string name="bill_calls_incoming_">Wliczaj przychodzące</string>
 	<string name="bill_calls_incoming_hint">Wliczaj połączenia przychodzące w rachunek</string>
