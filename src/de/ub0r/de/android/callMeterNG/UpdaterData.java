@@ -93,7 +93,7 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 	/** Status TextViews. */
 	private TextView twDataBillDate, twDataIn, twDataOut;
 	/** Status ProgressBar. */
-	private ProgressBar pbData;
+	private ProgressBar pbData, pbBillDate;
 	/** Status ProgressBar Text. */
 	private TextView twPBDataText;
 
@@ -138,8 +138,7 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 		this.twDataBillDate.setText(this.dataBillDate);
 		this.twDataIn.setText(this.dataIn);
 		this.twDataOut.setText(this.dataOut);
-		((ProgressBar) this.callmeter.findViewById(R.id.data_progressbar_date))
-				.setProgress(this.billdatePos);
+		this.pbBillDate.setProgress(this.billdatePos);
 	}
 
 	/**
@@ -158,9 +157,11 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 					.findViewById(R.id.data_in);
 			this.twDataOut = (TextView) this.callmeter
 					.findViewById(R.id.data_out);
+			this.pbBillDate = (ProgressBar) this.callmeter
+					.findViewById(R.id.data_progressbar_date);
 
 			int v = View.GONE;
-			if (this.prefs.getBoolean(PREFS_DATA_ENABLE, false)) {
+			if (this.prefs.getBoolean(PREFS_DATA_ENABLE, true)) {
 				v = View.VISIBLE;
 			}
 			this.callmeter.findViewById(R.id.data_).setVisibility(v);
@@ -168,11 +169,11 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 					.setVisibility(v);
 			this.callmeter.findViewById(R.id.data_in_layout).setVisibility(v);
 			this.callmeter.findViewById(R.id.data_out_layout).setVisibility(v);
+			this.pbBillDate.setVisibility(v);
 			if (v == View.VISIBLE) {
 				v = Updater.setVisableIfSet(this.prefs.getString(
 						PREFS_DATA_LIMIT, null));
 			}
-			this.callmeter.findViewById(R.id.data_progressbar).setVisibility(v);
 
 			this.dataBillDate = "?";
 			this.dataIn = "?";
@@ -194,7 +195,7 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 				calBillDate.getTime());
 
 		// report data only if run from GUI
-		if (this.prefs.getBoolean(PREFS_DATA_ENABLE, false) && this.updateGUI) {
+		if (this.prefs.getBoolean(PREFS_DATA_ENABLE, true) && this.updateGUI) {
 			this.billdatePos = Updater.getDatePos(calBillDate);
 
 			// walk data
@@ -379,7 +380,7 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 	 */
 	static final synchronized void updateTraffic(final Context context,
 			final SharedPreferences prefs) {
-		if (!prefs.getBoolean(PREFS_DATA_ENABLE, false)) {
+		if (!prefs.getBoolean(PREFS_DATA_ENABLE, true)) {
 			return;
 		}
 		checkBillperiod(prefs);

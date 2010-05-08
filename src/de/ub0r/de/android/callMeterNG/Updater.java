@@ -215,7 +215,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			twSMSIn2, twSMSOut1, twSMSOut2, twSMSBillDate, twSMSPB1Text,
 			twSMSPB2Text;
 	/** Status ProgressBars. */
-	private ProgressBar pbCalls1, pbCalls2, pbSMS1, pbSMS2;
+	private ProgressBar pbCallsBillDate, pbCalls1, pbCalls2, pbSMSBillDate,
+			pbSMS1, pbSMS2;
 
 	/** Update string every.. rounds */
 	private static final int UPDATE_INTERVAL = 50;
@@ -288,10 +289,14 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		}
 
 		if (this.updateGUI) {
+			this.pbCallsBillDate = (ProgressBar) this.callmeter
+					.findViewById(R.id.calls_progressbar_date);
 			this.pbCalls1 = (ProgressBar) this.callmeter
 					.findViewById(R.id.calls1_progressbar);
 			this.pbCalls2 = (ProgressBar) this.callmeter
 					.findViewById(R.id.calls2_progressbar);
+			this.pbSMSBillDate = (ProgressBar) this.callmeter
+					.findViewById(R.id.sms_progressbar_date);
 			this.pbSMS1 = (ProgressBar) this.callmeter
 					.findViewById(R.id.sms1_progressbar);
 			this.pbSMS2 = (ProgressBar) this.callmeter
@@ -474,10 +479,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		this.twSMSPB1Text.setText(this.smsInOut1);
 		this.twSMSPB2Text.setText(this.smsInOut2);
 
-		((ProgressBar) this.callmeter.findViewById(R.id.calls_progressbar_date))
-				.setProgress(this.billDatePosCalls);
-		((ProgressBar) this.callmeter.findViewById(R.id.sms_progressbar_date))
-				.setProgress(this.billDatePosSMS);
+		this.pbCallsBillDate.setProgress(this.billDatePosCalls);
+		this.pbSMSBillDate.setProgress(this.billDatePosSMS);
 	}
 
 	/**
@@ -649,6 +652,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				this.callmeter.findViewById(R.id.sms2_view).setVisibility(
 						View.GONE);
 			}
+			this.pbSMSBillDate.setVisibility(v);
 			this.callmeter.findViewById(R.id.sms_).setVisibility(v);
 			this.callmeter.findViewById(R.id.sms_billdate_).setVisibility(v);
 			this.callmeter.findViewById(R.id.sms_billdate).setVisibility(v);

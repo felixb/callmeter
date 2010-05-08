@@ -22,6 +22,7 @@ package de.ub0r.de.android.callMeterNG;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -47,6 +48,7 @@ public abstract class Device {
 		Log.d(TAG, "Device: " + Build.DEVICE);
 		if (instance == null) {
 			Log.i(TAG, "Device: " + Build.DEVICE);
+			Log.d(TAG, "DEBUG: " + debugDeviceList());
 			// All the devices we know about.
 			Device[] allDevices = { new DefaultDevice(), new GenericDevice(),
 					new SamsungI7500Device(), new PulseDevice(),
@@ -62,7 +64,6 @@ public abstract class Device {
 			// Nothing found? Use the default device.
 			if (instance == null) {
 				instance = allDevices[0];
-				debugDeviceList();
 			}
 		}
 		Log.d(TAG, instance.getClass().getName());
@@ -70,23 +71,47 @@ public abstract class Device {
 	}
 
 	/**
-	 * Get a list of possible devices.
+	 * Read a {@link File} an return its name+its first line.
+	 * 
+	 * @param f
+	 *            filename
+	 * @return name + \n + 1st line
 	 */
-	private static void debugDeviceList() {
+	private static String readFile(final String f) {
+		StringBuilder sb = new StringBuilder();
+		try {
+			BufferedReader r = new BufferedReader(new FileReader(f), 8);
+			sb.append("read: " + f);
+			sb.append("\n");
+			sb.append(r.readLine());
+			r.close();
+		} catch (IOException e) {
+			Log.e(TAG, "error reading file: " + f, e);
+		}
+		return sb.toString();
+	}
+
+	/**
+	 * Get a list of possible devices.
+	 * 
+	 * @return some info
+	 */
+	private static String debugDeviceList() {
 		Log.i(TAG, "No device for " + Build.DEVICE);
 		try {
 			File f = new File(SysClassNet.SYS_CLASS_NET);
 			String[] devices = f.list();
 			for (String d : devices) {
-				String dev = SysClassNet.SYS_CLASS_NET + d + "/type";
-				BufferedReader r = new BufferedReader(new FileReader(dev), 8);
-				Log.d(TAG, "read: " + dev);
-				Log.d(TAG, r.readLine());
-				r.close();
+				String dev = SysClassNet.SYS_CLASS_NET + d;
+				Log.i(TAG, readFile(dev + "/type"));
+				Log.i(TAG, readFile(dev + SysClassNet.CARRIER));
+				Log.i(TAG, readFile(dev + SysClassNet.RX_BYTES));
+				Log.i(TAG, readFile(dev + SysClassNet.TX_BYTES));
 			}
 		} catch (Exception e) {
 			Log.e(TAG, "error reading /sys/", e);
 		}
+		return Build.MANUFACTURER + ":" + Build.PRODUCT + ":" + Build.MODEL;
 	}
 
 	/**
