@@ -110,7 +110,7 @@ public abstract class Device {
 		} catch (Exception e) {
 			Log.e(TAG, "error reading /sys/", e);
 		}
-		return Build.MANUFACTURER + ":" + Build.PRODUCT + ":" + Build.MODEL;
+		return Build.PRODUCT + ":" + Build.MODEL;
 	}
 
 	/**
