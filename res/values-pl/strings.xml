@@ -21,7 +21,7 @@
 	<string name="author_">Autor:</string>
 	<string name="version_">Wersja:</string>
 	<string name="license_">Licencja:</string>
-	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
+	<string name="license">GPLv3 - zobacz http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Kod źródłowy:</string>
 	<string name="website_">Strona:</string>
 	<string name="donate_">Wspomóż (Paypal)</string>
@@ -39,7 +39,7 @@
 	<string name="about2">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
 	<string name="about3">Możesz podzielić swoje połączenia lub sms na dwa plany. Oba plany mogą być ustawione na całodobowe darmowe połączenia lub w określonych godzinach.</string>
 	<string name="about4">Wiadomości mogą być brane pod uwagę w Twoim planie. Np. zliczać każdy wysłany sms jako 15s. połączenie.</string>
-	<string name="about5">CallMeter uruchamia sięw tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
+	<string name="about5">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
 	<string name="about6_">Czego CallMeter NIE robi:</string>
 	<string name="about6">Nie da się odróżnić połączeń SIP od realnych połączeń lub websms od sms wysłanych \"z telefonu\". Android \'s bezproblemową integrację tych. Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości żeby je odróżnić.</string>
 	<string name="send_">Wyślij</string>
@@ -72,10 +72,10 @@
 	<string name="exclude_people_delete">Usuń</string>
 	<string name="exclude_people_to_plan1_">Wykluczone numery do planu 1</string>
 	<string name="exclude_people_to_plan2_">Wykluczone numery do planu 2</string>
-<!--	<string name="exclude_people_calls_">Enable for Calls</string> -->
+	<string name="exclude_people_calls_">Włącz dla połączeń</string>
 <!--	<string name="exclude_people_calls_to_plan1_hint">Bill calls to/from excluded numbers in plan #1</string> -->
 <!--	<string name="exclude_people_calls_to_plan2_hint">Bill calls to/from excluded numbers in plan #2</string> -->
-<!--	<string name="exclude_people_sms_">Enable for SMS</string> -->
+	<string name="exclude_people_sms_">Włącz dla SMS</string>
 <!--	<string name="exclude_people_sms_to_plan1_hint">Bill messages to/from excluded numbers in plan #1</string> -->
 <!--	<string name="exclude_people_sms_to_plan2_hint">Bill messages to/from excluded numbers in plan #2</string> -->
 	<string name="plans">Plany</string>
