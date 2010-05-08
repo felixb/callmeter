@@ -86,9 +86,9 @@
 	<string name="plan2">Plan 2</string>
 	<string name="plan1_hint">Zaznacz godziny by wliczać połączenia/sms w plan pierwszy. Pozostałe będą wliczane w plan 2</string>
 	<string name="plan_free_">Brak rachunku</string>
-	<string name="plan_freemin_">Koszt rozmów nie jest uwzględniany na rachunku</string>
+	<string name="plan_freemin_">Darmowe minuty</string>
 	<string name="plan_freesms_">Darmowe SMS</string>
-	<string name="free_hint">Koszt wiadomości SMS nie jest uwzględniany na rachunku</string>
+	<string name="free_hint">Koszt nie jest uwzględniany na rachunku</string>
 	<string name="freemin_hint">Darmowe minuty</string>
 	<string name="freesms_hint">Liczba darmowych SMSów w miesiącu</string>
 	<string name="bill_calls_incoming_">Wliczaj przychodzące</string>
