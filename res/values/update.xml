@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
+		<item>v2.3.1: Fix polish translation</item>
 		<item>v2.3: Fix counting incoming calls, change separator, show contacts name in excluded numbers, allow *555* wildcards, allow to exclude numbers for sms, allow to set separate billing period for data plan, allow to reset traffic stats, add cost to traffic stats, show progressbar for billing cycle, fix some more bugs</item>
 		<item>v2.2.3: Fix currency FC, add czech translation</item>
 		<item>v2.2.1: Add theme support, add Hungarian translation</item>
