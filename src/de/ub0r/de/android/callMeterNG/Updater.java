@@ -236,6 +236,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 	/** Sum of displayed calls in/out. Used if merging sms into calls. */
 	private int callsInSum, callsOutSum;
+	/** Number of calls. */
+	private int callsInCount1, callsInCount2, callsOutCount1, callsOutCount2;
 
 	/** Position of {@link ProgressBar}. */
 	private int billDatePosCalls, billDatePosSMS;
@@ -903,7 +905,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		if (this.prefs.getBoolean(PREFS_CALLS_BILL_INCOMING, false)) {
 			int sum = durIn1Month + durOut1Month;
 			if (status[RESULT_CALLS1_LIMIT] > 0) {
-				this.callsInOut1 = (sum * CallMeter.HUNDRET / status[RESULT_CALLS1_LIMIT])
+				this.callsInOut1 = (sum * CallMeter.HUNDRET / // .
+						status[RESULT_CALLS1_LIMIT])
 						+ "% / ";
 			} else {
 				this.callsInOut1 = "";
@@ -914,7 +917,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 			sum = durIn2Month + durOut2Month;
 			if (status[RESULT_CALLS2_LIMIT] > 0) {
-				this.callsInOut2 = (sum * CallMeter.HUNDRET / status[RESULT_CALLS2_LIMIT])
+				this.callsInOut2 = (sum * CallMeter.HUNDRET / // .
+						status[RESULT_CALLS2_LIMIT])
 						+ "% / ";
 			} else {
 				this.callsInOut2 = "";
@@ -938,6 +942,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		this.callsInSum = durIn;
 		this.callsOutSum = durOut;
+		this.callsInCount1 = countIn1Month;
+		this.callsInCount2 = countIn2Month;
+		this.callsOutCount1 = countOut1Month;
+		this.callsOutCount2 = countOut2Month;
 
 		Log.d(TAG, "last walk calls: " + lastWalk);
 		final Editor editor = this.prefs.edit();
@@ -1114,9 +1122,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					PREFS_MERGE_SMS_TO_CALLS_SECONDS, "0"));
 			int i = RESULT_CALLS1_VAL; // plan 1 number of seconds
 			int j = RESULT_CALLS1_IN;
+			int callsInCount = this.callsInCount1;
+			int callsOutCount = this.callsOutCount1;
 			if (!mergeToPlan1) {
 				i = RESULT_CALLS2_VAL; // plan 2 number of seconds
 				j = RESULT_CALLS2_IN;
+				callsInCount = this.callsInCount2;
+				callsOutCount = this.callsOutCount2;
 			}
 			status[i] += secondsForSMS * smsOut1Month;
 			if (this.prefs.getBoolean(PREFS_SMS_BILL_INCOMING, false)) {
@@ -1144,9 +1156,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			}
 
 			final String sin = calcString(status[j], 0, this.callsInSum, true,
-					-1);
+					callsInCount);
 			final String sout = calcString(status[i], freesum / SECONDS_MINUTE,
-					this.callsOutSum, true, -1);
+					this.callsOutSum, true, callsOutCount);
 			if (mergeToPlan1) {
 				this.callsIn1 = sin;
 				this.callsOut1 = sout;
