@@ -578,7 +578,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.pbCalls1.setProgress(0);
 			this.pbCalls1.setIndeterminate(false);
 			int v = setVisableIfSet(this.prefs.getString(PREFS_PLAN1_FREEMIN,
-					null));
+					null), this.prefs.getBoolean(PREFS_PLAN1_T_FREE_CALLS,
+					false));
 			this.pbCalls1.setVisibility(v);
 			if (this.plansMergeCalls) {
 				this.callmeter.findViewById(R.id.calls2_view).setVisibility(
@@ -603,13 +604,17 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				this.pbCalls2.setProgress(0);
 				this.pbCalls2.setIndeterminate(false);
 				v = setVisableIfSet(this.prefs.getString(PREFS_PLAN2_FREEMIN,
-						null));
-				this.callmeter.findViewById(R.id.calls2_view).setVisibility(v);
+						null), this.prefs.getBoolean(PREFS_PLAN2_T_FREE_CALLS,
+						false));
+				this.pbCalls2.setVisibility(v);
+				this.callmeter.findViewById(R.id.calls2_view).setVisibility(
+						View.VISIBLE);
 			}
 			this.pbSMS1.setProgress(0);
 			this.pbSMS1.setIndeterminate(false);
 			v = setVisableIfSet(this.prefs.getString(PREFS_PLAN1_FREESMS, // .
-					null));
+					null), this.prefs.getBoolean(PREFS_PLAN1_T_FREE_SMS, // .
+					false));
 			this.pbSMS1.setVisibility(v);
 			if (this.plansMergeSms) {
 				this.callmeter.findViewById(R.id.sms2_view).setVisibility(
@@ -634,8 +639,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				this.pbSMS2.setProgress(0);
 				this.pbSMS2.setIndeterminate(false);
 				v = setVisableIfSet(this.prefs.getString(PREFS_PLAN2_FREESMS,
-						null));
-				this.callmeter.findViewById(R.id.sms2_view).setVisibility(v);
+						null), this.prefs.getBoolean(PREFS_PLAN2_T_FREE_SMS,
+						false));
+				this.pbSMS2.setVisibility(v);
+				this.callmeter.findViewById(R.id.sms2_view).setVisibility(
+						View.VISIBLE);
 			}
 
 			v = View.GONE;
@@ -1594,10 +1602,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	/**
 	 * @param s
 	 *            {@link String}
+	 * @param hide
+	 *            force hide
 	 * @return View.GONE if s is null, empty or "0", else View.VISABLE
 	 */
-	public static int setVisableIfSet(final String s) {
-		if (s == null || s.length() == 0 || s.equals("0")) {
+	static int setVisableIfSet(final String s, final boolean hide) {
+		if (hide || s == null || s.length() == 0 || s.equals("0")) {
 			return View.GONE;
 		} else {
 			return View.VISIBLE;

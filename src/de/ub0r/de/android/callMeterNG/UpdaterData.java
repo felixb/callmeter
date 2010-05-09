@@ -172,7 +172,7 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 			this.pbBillDate.setVisibility(v);
 			if (v == View.VISIBLE) {
 				v = Updater.setVisableIfSet(this.prefs.getString(
-						PREFS_DATA_LIMIT, null));
+						PREFS_DATA_LIMIT, null), false);
 			}
 
 			this.dataBillDate = "?";
