@@ -32,6 +32,7 @@
 	<string name="author_fr">Johann Vandromme &lt;jowann@gmail.com&gt; (French)</string>
 	<string name="author_hu">Lóránt Szabó &lt;loorant@gmail.com&gt; (Hungarian)</string>
 	<string name="author_cz">Tomáš Landovský &lt;landovsky@gmail.com&gt; (Czech)</string>
+	<string name="author_sv">David Hulth &lt;david@hulth.nu&gt; (Swedish)</string>
 	<string name="source">http://github.com/felixb/callmeter</string>
 	<string name="website">http://code.google.com/p/callmeter/</string>
 	<string name="donate_url">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=5832809</string>
