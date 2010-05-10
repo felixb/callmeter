@@ -29,6 +29,7 @@
 	<string name="remove_ads_">Απόκρυψη Διαφημίσεων</string>
 	<string name="predonate">Πρόκειται για μια open-source εφαρμογή που διανέμεται υπό την άδεια του GPLv3. Είναι δωρεάν και θα παραμείνει δωρεάν. Εάν, πραγματικά, σας άρεσε ή ενοχλήστε από τις διαφημίσεις, παρακαλώ  σκεφτείτε τη δωρεά (με paypal). Θα απενεργοποιήσω τις διαφημίσεις για εσάς το συντομότερο δυνατό.\nΣας ευχαριστώ!</string>
 	<string name="postdonate">Για την απόκρυψη των διαφημίσεων, θα πρέπει να μου στείλετε τον MD5 κωδικό του IMEI (το μοναδικό ID για κάθε κινητό). Αυτός ο κωδικός είναι συνάρτηση μιας κατεύθυνσης. Δεν επιτρέπει τον εντοπισμό σας.</string>
+<!--	<string name="postdonate_check">Please verify, that you did a donation already before sending.</string> -->
 <!--	<string name="send_hash_">Send hash</string> -->
 <!--	<string name="signature_">You will get back a code, which you can paste here, to finally remove the ads:</string> -->
 <!--	<string name="sig_loaded">Ads removed!</string> -->

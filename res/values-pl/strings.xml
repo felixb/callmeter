@@ -29,6 +29,7 @@
 	<string name="remove_ads_">Usuń reklamy</string>
 	<string name="predonate">Ta open-surce\'owa aplikacja jest udostępniana na licencji GPLve. Jest bezpłatna i taka też pozostanie. Jeśli Ci się podoba, lub denerwują Cię reklamy, wspomóż mnie (przez paypal). Usunę reklamy wraz z następną aktualizacją. Dzięki!</string>
 	<string name="postdonate">Aby usunąć reklamy prześlij mi hash swojego numeru IMEI (w MD5, jest unikalny dla Twojego telefonu). Hash działa tylko w jedną stronę, więc nikt (nawet ja) nie poznam tego numeru.</string>
+<!--	<string name="postdonate_check">Please verify, that you did a donation already before sending.</string> -->
 	<string name="send_hash_">Wyślij hash</string>
 	<string name="signature_">Otrzymasz kod, który należy tutaj wkleić, aby usunąć reklamy:</string>
 	<string name="sig_loaded">Reklamy usunięte</string>

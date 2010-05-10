@@ -29,6 +29,7 @@
 	<string name="remove_ads_">Odstranit inzerci</string>
 	<string name="predonate">Call Meter je open-source aplikací vydanou pod licencí GPLv3. Využití aplikace není a nebude zpoplatněné. Pokud jste s ní spokojení, nebo pokud vám vadí inzerce, zvažte možnost přispět přes PayPal k jejímu vývoji. Kromě dobrého pocitu z podpory získá dárce aplikaci bez inzerce.\nPředem díky!</string>
 	<string name="postdonate">Pro odstranění inzerce mi zašlete emailem MD5 hash IMEI čísla vašeho telefonu. MD5 hash je jednostranou konverzí IMEI čísla na unikátní řetězec, který není vysledovatelný zpět k vám.</string>
+<!--	<string name="postdonate_check">Please verify, that you did a donation already before sending.</string> -->
 <!--	<string name="send_hash_">Send hash</string> -->
 <!--	<string name="signature_">You will get back a code, which you can paste here, to finally remove the ads:</string> -->
 <!--	<string name="sig_loaded">Ads removed!</string> -->

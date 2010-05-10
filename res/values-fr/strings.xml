@@ -29,6 +29,7 @@
 	<string name="remove_ads_">Supprimer les pubs</string>
 	<string name="predonate">Il s\'agit d\'une application open-source sous licence GPLv3. Elle est gratuite et le restera. Si vous l\'aimez ou si les publicités vous agacent, vous pouvez envisager de payer (par paypal). Je vous supprimerai les publicités dès que possible\nMerci!</string>
 	<string name="postdonate">Afin de supprimer les publicités, j\'ai besoin que vous m\'envoyez le hash-code MD5 de votre IMEI (numéro identifiant unique de votre téléphone). Ce code est basé sur une fonction unidirectionnelle et ne peut être utilisé pour vous tracer.</string>
+<!--	<string name="postdonate_check">Please verify, that you did a donation already before sending.</string> -->
 	<string name="send_hash_">Envoyer le hash-code</string>
 	<string name="signature_">Pour supprimer les publicités, tapez ici le code qui vous a été renvoyé:</string>
 	<string name="sig_loaded">Publicités supprimées!</string>

@@ -29,6 +29,7 @@
 	<string name="remove_ads_">Verwijder ads</string>
 	<string name="predonate">Dit is een open-source applicatie uitgegeven onder de GPLv3 licentie. Het is gratis en blijft gratis. Als je de applicatie erg handig vindt of als je geïrriteerd bent door de advertenties, overweeg dan alsjeblieft om een donatie te doen (via paypal). Ik verwijder de advertenties dan zo spoedig mogelijk.\nDankjewel!</string>
 	<string name="postdonate">Om advertenties te verwijderen dien je mij de zogenaamde MD5 hash van je IMEI (unieke id van je telefoon) te sturen. Deze hash is een éénrichtingsverkeer functie. De hash is daardoor niet terug naar jou te traceren.</string>
+<!--	<string name="postdonate_check">Please verify, that you did a donation already before sending.</string> -->
 	<string name="send_hash_">Stuur hash</string>
 	<string name="signature_">Je zal een code terugkrijgen die je in onderstaande veld kan plakken. De advertenties zullen dan niet meer getoond worden.</string>
 	<string name="sig_loaded">Advertenties verwijderd!</string>
