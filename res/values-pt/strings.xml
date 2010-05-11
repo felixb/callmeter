@@ -67,7 +67,7 @@
 	<string name="textsize_">Tamanho do texto</string>
 	<string name="advanced_">Avançado</string>
 	<string name="exclude_people_">Números não tarifados</string>
-	<string name="exclude_people_hint">Números gratuitos, \ncuringas são aceitos: *555, 555* ou *555*</string>
+	<string name="exclude_people_hint">Números gratuitos,\ncuringas são aceitos: *555, 555* ou *555*</string>
 	<string name="exclude_people_add">Toque para adicionar número</string>
 	<string name="exclude_people_edit">Edição</string>
 	<string name="exclude_people_delete">Apagar</string>
