@@ -29,7 +29,7 @@
 	<string name="remove_ads_">Remova anúncios</string>
 	<string name="predonate">Esta é uma aplicação open-source realizada sob a licença GPLv3. É gratuita e permanecerá gratuita. Se você realmente gosta dela e quer retirar os anúncios, por favor, considere uma doação (via paypal). Eu irei remover as propagandas para você o mais rápido possível.\nObrigado!</string>
 	<string name="postdonate">Para remover os anúncios, você precisa enviar o código MD5 do seu IMEI (identificação única do seu celular). Este código é uma função de via única. Não é rastreável de volta para você.</string>
-	<string name="postdonate_check">Por favor, confirme já ter feito a doação antes de enviar.</string> -->
+	<string name="postdonate_check">Por favor, confirme já ter feito a doação antes de enviar.</string>
 	<string name="send_hash_">Enviar Código</string>
 	<string name="signature_">Você receberá um código, que irá colar aqui, para finalmente remover os anúncios:</string>
 	<string name="sig_loaded">Anúncios removidos!</string>
