@@ -143,7 +143,7 @@
 	<string name="contacts_">Kontakte</string>
 	<string name="debug_">Debug</string>
 	<string name="send_logs_">Logs senden</string>
-	<string name="send_logs_hint">Logs von deinem Handy an den Entwickler senden.</string>
+	<string name="send_logs_hint">Logs von deinem Handy an den Entwickler senden.\nBitte nur nach Aufforderung senden.</string>
 	<string name="sendlog_run_">SendLog starten</string>
 	<string name="sendlog_run">SendLog wird die Logs aus deinem Gerät auslesen und zum Entwickler schicken.\nDu hast vor dem Senden die Möglichkeit die Daten zu begutachten und zu verändern.</string>
 	<string name="sendlog_install_">SendLog installieren</string>
