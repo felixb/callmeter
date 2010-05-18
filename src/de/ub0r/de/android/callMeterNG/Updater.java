@@ -35,9 +35,6 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.flurry.android.FlurryAgent;
-
 import de.ub0r.de.android.callMeterNG.ExcludePeople.ExcludedPerson;
 
 /**
@@ -1246,8 +1243,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					+ "please load sendlog from market and "
 					+ "send your logs to the developer.";
 			Log.e(TAG, "error in background", e);
-			FlurryAgent.onError(e.toString(), e.getMessage(), e.getClass()
-					.getName());
 		}
 		return ret;
 	}

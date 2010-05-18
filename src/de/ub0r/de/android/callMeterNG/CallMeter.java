@@ -35,8 +35,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 
-import com.flurry.android.FlurryAgent;
-
 /**
  * The main Activity, holding all data.
  * 
@@ -69,24 +67,6 @@ public class CallMeter extends Activity {
 
 	/** Path to file containing signatures of UID Hash. */
 	private static final String NOADS_SIGNATURES = "/sdcard/callmeter.noads";
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onStart() {
-		super.onStart();
-		FlurryAgent.onStartSession(this, FLURRYKEY);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onStop() {
-		super.onStop();
-		FlurryAgent.onEndSession(this);
-	}
 
 	/**
 	 * {@inheritDoc}
@@ -212,7 +192,6 @@ public class CallMeter extends Activity {
 			final HashMap<String, String> params = // .
 			new HashMap<String, String>();
 			params.put("value", String.valueOf(ret));
-			FlurryAgent.onEvent("switch prefsNoAds", params);
 		}
 		return ret;
 	}
