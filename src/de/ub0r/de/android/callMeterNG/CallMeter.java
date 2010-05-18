@@ -18,7 +18,6 @@
  */
 package de.ub0r.de.android.callMeterNG;
 
-import java.io.File;
 import java.util.HashMap;
 
 import android.app.Activity;
@@ -27,7 +26,6 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -209,16 +207,6 @@ public class CallMeter extends Activity {
 	private boolean hideAds() {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(this);
-		final File f = new File(NOADS_SIGNATURES);
-		try {
-			if (f.exists()) {
-				if (DonationHelper.loadSig(this, Uri.fromFile(f))) {
-					f.delete();
-				}
-			}
-		} catch (Exception e) {
-			Log.e(TAG, "error reading signatures", e);
-		}
 		final boolean ret = p.getBoolean(PREFS_HIDEADS, false);
 		if (ret != prefsNoAds) {
 			final HashMap<String, String> params = // .

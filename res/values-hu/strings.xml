@@ -28,9 +28,10 @@
 	<string name="donate_remove_ads_">Támogatás/hirdetések eltávolítása</string>
 	<string name="remove_ads_">Hirdetések eltávolítása</string>
 	<string name="predonate">Ez egy nyílt forráskódú, GPLv3 licenc alatt kiadott alkalmazás. Ingyenes, és az is marad. Ha megtetszett a program, vagy ha zavarnak a hirdetések, kérlek támogasd paypal-on keresztül a fejlesztést. A hirdetéseket ez esetben azonnal eltávolítom.\nKöszönöm!</string>
-	<string name="postdonate">A hirdetések eltávolításához küldd el nekem a telefonod egyedi IMEI számának MD5 hash kódját. A hashelési eljárás egyirányú, tehát a kódból nem nyerhető vissza az IMEI.</string>
-<!--	<string name="postdonate_check">Please verify, that you did a donation already before sending.</string> -->
-	<string name="send_hash_">Hash küldése</string>
+<!--	<string name="postdonate">To remove ads, you need to load the noads code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work after one day.</string> -->
+<!--	<string name="paypal_id_">To verify your donation your paypal id (mail address) is needed:</string> -->
+<!--	<string name="paypal_id_hint">Paypal id</string> -->
+<!--	<string name="load_hash_">Load noads code</string> -->
 	<string name="signature_">Egy kódot fogsz kapni hamarosan, amit ha ide beillesztesz, a reklámok eltűnnek:</string>
 	<string name="sig_loaded">Reklámok sikeresen eltávolítva!</string>
 	<string name="sig_failed">Reklámok eltávolítása sikertelen!</string>
