@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>v2.3.5: New icon</item>
+		<item>v2.3.5: New icon, new billing mode 30/60</item>
 		<item>v2.3.4: Add swedish translation</item>
 		<item>v2.3.3: Fix hidden plan 2, fix call counter for sms-in-calls</item>
 		<item>v2.3.2: Hotfix for android-1.5</item>
