@@ -23,6 +23,7 @@
 	<string name="lang">en</string>
 	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt; (Code, German)</string>
 	<string name="author_nc">Cyril Jaquier &lt;netcounter@jaqpot.net&gt; (NetCounter)</string>
+	<string name="author_icon">Christoph Rado &lt;christoph.rado@gmail.com&gt; (Icon)</string>
 	<string name="author_nl">Tom Nuss &lt;tomnuss@gmail.com&gt; (Dutch)</string>
 	<string name="author_pl1">Łukasz Malicki &lt;maalicki@gmail.com&gt; (Polish)</string>
 	<string name="author_pl2">Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt; (Polish)</string>
