@@ -901,6 +901,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		if (this.prefs.getBoolean(PREFS_CALLS_BILL_INCOMING, false)) {
 			int sum = durIn1Month + durOut1Month;
+			status[RESULT_CALLS1_VAL] = sum;
 			if (status[RESULT_CALLS1_LIMIT] > 0) {
 				this.callsInOut1 = (sum * CallMeter.HUNDRET / // .
 						status[RESULT_CALLS1_LIMIT])
@@ -913,6 +914,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			free1 = 0;
 
 			sum = durIn2Month + durOut2Month;
+			status[RESULT_CALLS2_VAL] = sum;
 			if (status[RESULT_CALLS2_LIMIT] > 0) {
 				this.callsInOut2 = (sum * CallMeter.HUNDRET / // .
 						status[RESULT_CALLS2_LIMIT])
@@ -1086,6 +1088,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		if (this.prefs.getBoolean(PREFS_SMS_BILL_INCOMING, false)) {
 			int sum = smsOut1Month + smsIn1Month;
+			status[RESULT_SMS1_VAL] = sum;
 			if (free1 > 0) {
 				this.smsInOut1 = (sum * CallMeter.HUNDRET / free1) + "% / ";
 			} else {
@@ -1094,6 +1097,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.smsInOut1 += sum;
 			free1 = 0;
 			sum = smsOut2Month + smsIn2Month;
+			status[RESULT_SMS2_VAL] = sum;
 			if (free2 > 0) {
 				this.smsInOut2 = (sum * CallMeter.HUNDRET / free2) + "% / ";
 			} else {
