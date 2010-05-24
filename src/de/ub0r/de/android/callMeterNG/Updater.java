@@ -700,8 +700,6 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 *            {@link Cursor}
 	 * @param idNumber
 	 *            id of number in cursor
-	 * @param excludeNumbers
-	 *            excluded numbers
 	 * @param plans
 	 *            plans
 	 * @param toPlan
@@ -711,34 +709,39 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 * @return 0: no billing, 1: plan1, 2: plan2
 	 */
 	private int getPlan(final Cursor cur, final int idNumber,
-			final ExcludedPerson[] excludeNumbers, final boolean[][] plans,
-			final int toPlan, final long date) {
+			final boolean[][] plans, final int toPlan, final long date) {
 		boolean check = true;
-		if (excludeNumbers != null && toPlan >= 0) {
-			String n = cur.getString(idNumber);
-			// check if number should be excluded from billing
-			final int excludeNumbersSize = excludeNumbers.length;
-			for (int j = 1; j < excludeNumbersSize; j++) {
-				final String s = excludeNumbers[j].getNumber();
-				if (s.startsWith("*")) {
-					if (s.endsWith("*")) {
-						if (n.indexOf(s.substring(1, s.length() - 1)) >= 0) {
+		final ExcludedPerson[] exNumbers = this.excludeNumbers;
+		if (exNumbers != null && toPlan >= 0) {
+			final String n = cur.getString(idNumber);
+			if (n != null && n.length() > 0) {
+				// check if number should be excluded from billing
+				final int excludeNumbersSize = exNumbers.length;
+				for (int j = 1; j < excludeNumbersSize; j++) {
+					final String s = exNumbers[j].getNumber();
+					if (s == null || s.length() == 0) {
+						Log.d(TAG, "no number to check");
+					} else if (s.startsWith("*")) {
+						if (s.endsWith("*")) {
+							if (n.indexOf(s.substring(1, s.length() - 1))// .
+							>= 0) {
+								check = false;
+								break;
+							}
+						}
+						if (n.endsWith(s.substring(1))) {
 							check = false;
 							break;
 						}
-					}
-					if (n.endsWith(s.substring(1))) {
+					} else if (s.endsWith("*")) {
+						if (n.startsWith(s.substring(0, s.length() - 1))) {
+							check = false;
+							break;
+						}
+					} else if (n.equals(s)) {
 						check = false;
 						break;
 					}
-				} else if (s.endsWith("*")) {
-					if (n.startsWith(s.substring(0, s.length() - 1))) {
-						check = false;
-						break;
-					}
-				} else if (n.equals(s)) {
-					check = false;
-					break;
 				}
 			}
 		}
@@ -849,7 +852,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 				if (billDate <= d) {
 					dt = this.roundTime(t);
-					p = this.getPlan(cur, idNumber, this.excludeNumbers, plans,
+					p = this.getPlan(cur, idNumber, plans,
 							this.excludedCallsToPlan, d);
 				} else {
 					p = 0;
@@ -1041,8 +1044,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				} else {
 					l = WRAPPER.calculateLength(body, false)[0];
 				}
-				p = this.getPlan(cur, idNumber, this.excludeNumbers, plans,
-						this.excludedSmsToPlan, d);
+				p = this.getPlan(cur, idNumber, plans, this.excludedSmsToPlan,
+						d);
 				switch (type) {
 				case Calls.INCOMING_TYPE:
 					iSMSIn += l;
