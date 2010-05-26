@@ -19,7 +19,7 @@
 	-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="de.ub0r.de.android.callMeterNG" android:versionName="2.3.5"
-	android:versionCode="235">
+	android:versionCode="2035">
 	<application android:icon="@drawable/sym_call_outgoing"
 		android:label="@string/app_name" android:debuggable="true">
 		<activity android:name="CallMeter" android:label="@string/app_name"
