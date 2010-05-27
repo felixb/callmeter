@@ -225,7 +225,7 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 					limit = Integer.parseInt(s);
 				}
 			} catch (NumberFormatException e) {
-				Log.e(TAG, null, e);
+				Log.e(TAG, "wrong number format", e);
 			}
 
 			ret[0] = thisBillingIn;
@@ -350,10 +350,10 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 			try {
 				if (p.getBoolean(PREFS_DATA_PERIOD, false)) {
 					billDay = Integer.parseInt(p.getString(
-							Updater.PREFS_BILLDAY, "0"));
+							Updater.PREFS_BILLDAY, "1"));
 				} else {
 					billDay = Integer.parseInt(p.getString(PREFS_DATA_BILLDAY,
-							"0"));
+							"1"));
 				}
 			} catch (NumberFormatException e) {
 				billDay = 0;

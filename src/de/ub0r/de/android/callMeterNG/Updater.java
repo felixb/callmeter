@@ -340,7 +340,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 */
 	private static Calendar getBillDayCalls(final SharedPreferences prefs) {
 		return getBillDate(Integer
-				.parseInt(prefs.getString(PREFS_BILLDAY, "0")));
+				.parseInt(prefs.getString(PREFS_BILLDAY, "1")));
 	}
 
 	/**
@@ -353,7 +353,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private static Calendar getBillDaySMS(final SharedPreferences prefs) {
 		if (!prefs.getBoolean(PREFS_SMSPERIOD, false)) {
 			return getBillDate(Integer.parseInt(prefs.getString(
-					PREFS_SMSBILLDAY, "0")));
+					PREFS_SMSBILLDAY, "1")));
 		}
 		return getBillDayCalls(prefs);
 	}
@@ -815,17 +815,27 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		if (this.prefs.getBoolean(PREFS_PLAN1_T_FREE_CALLS, false)) {
 			free1 = -1;
 		} else {
-			String s = this.prefs.getString(PREFS_PLAN1_FREEMIN, "0");
-			if (s.length() > 0) {
-				free1 = Integer.parseInt(s);
+			try {
+				String s = this.prefs.getString(PREFS_PLAN1_FREEMIN, "0");
+				if (s.length() > 0) {
+					free1 = Integer.parseInt(s);
+				}
+			} catch (NumberFormatException e) {
+				free1 = 0;
+				Log.e(TAG, "wrong number format", e);
 			}
 		}
 		if (this.prefs.getBoolean(PREFS_PLAN2_T_FREE_CALLS, false)) {
 			free2 = -1;
 		} else {
-			String s = this.prefs.getString(PREFS_PLAN2_FREEMIN, "0");
-			if (s.length() > 0) {
-				free2 = Integer.parseInt(s);
+			try {
+				String s = this.prefs.getString(PREFS_PLAN2_FREEMIN, "0");
+				if (s.length() > 0) {
+					free2 = Integer.parseInt(s);
+				}
+			} catch (NumberFormatException e) {
+				free2 = 0;
+				Log.e(TAG, "wrong number format", e);
 			}
 		}
 		// walk through log
@@ -1001,17 +1011,27 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		if (this.prefs.getBoolean(PREFS_PLAN1_T_FREE_SMS, false)) {
 			free1 = -1;
 		} else {
-			String s = this.prefs.getString(PREFS_PLAN1_FREESMS, "0");
-			if (s.length() > 0) {
-				free1 = Integer.parseInt(s);
+			try {
+				String s = this.prefs.getString(PREFS_PLAN1_FREESMS, "0");
+				if (s.length() > 0) {
+					free1 = Integer.parseInt(s);
+				}
+			} catch (NumberFormatException e) {
+				free1 = 0;
+				Log.e(TAG, "wrong number format", e);
 			}
 		}
 		if (this.prefs.getBoolean(PREFS_PLAN2_T_FREE_SMS, false)) {
 			free2 = -1;
 		} else {
-			String s = this.prefs.getString(PREFS_PLAN2_FREESMS, "0");
-			if (s.length() > 0) {
-				free2 = Integer.parseInt(s);
+			try {
+				String s = this.prefs.getString(PREFS_PLAN2_FREESMS, "0");
+				if (s.length() > 0) {
+					free2 = Integer.parseInt(s);
+				}
+			} catch (NumberFormatException e) {
+				free2 = 0;
+				Log.e(TAG, "wrong number format", e);
 			}
 		}
 

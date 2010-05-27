@@ -160,12 +160,12 @@ public class Preferences extends PreferenceActivity implements
 			final String s = sharedPreferences.getString(
 					Updater.PREFS_PLAN1_FREEMIN, "");
 			this.prefPlan1CostPerCall.setEnabled(s.length() == 0
-					|| Integer.parseInt(s) == 0);
+					|| s.equals("0"));
 		} else if (key.equals(Updater.PREFS_PLAN2_FREEMIN)) {
 			final String s = sharedPreferences.getString(
 					Updater.PREFS_PLAN2_FREEMIN, "");
 			this.prefPlan2CostPerCall.setEnabled(s.length() == 0
-					|| Integer.parseInt(s) == 0);
+					|| s.equals("0"));
 		}
 	}
 }
