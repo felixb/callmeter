@@ -29,6 +29,7 @@ import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import de.ub0r.android.lib.Log;
 
 /**
  * AsyncTask to handlel calcualtions/display for data in background.

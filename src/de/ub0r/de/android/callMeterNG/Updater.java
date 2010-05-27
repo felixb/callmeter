@@ -35,6 +35,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.apis.TelephonyWrapper;
 import de.ub0r.de.android.callMeterNG.ExcludePeople.ExcludedPerson;
 
 /**

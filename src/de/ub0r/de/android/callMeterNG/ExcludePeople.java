@@ -16,6 +16,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.AdapterView.OnItemClickListener;
+import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.apis.ContactsWrapper;
 
 /**
  * Preferences subscreen to exclude numbers.
@@ -102,8 +104,8 @@ public class ExcludePeople extends ListActivity implements OnItemClickListener {
 		public String toString() {
 			if (this.name == null && this.name != NOT_FOUND //
 					&& context != null && this.number.indexOf("*") < 0) {
-				this.name = ContactsWrapper.getNameForAddress(context,
-						this.number);
+				this.name = ContactsWrapper.getInstance().getNameForNumber(
+						context.getContentResolver(), this.number);
 				if (this.name == null || this.name.equals(this.number)) {
 					this.name = NOT_FOUND;
 				}

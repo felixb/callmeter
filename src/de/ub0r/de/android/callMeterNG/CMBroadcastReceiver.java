@@ -27,6 +27,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
+import de.ub0r.android.lib.Log;
 
 /**
  * {@link BroadcastReceiver} running updates and postboot checks.

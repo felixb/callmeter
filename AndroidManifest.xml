@@ -20,7 +20,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="de.ub0r.de.android.callMeterNG" android:versionName="2.3.5"
 	android:versionCode="2035">
-	<application android:icon="@drawable/sym_call_outgoing"
+	<application android:name=".CallMeterApp" android:icon="@drawable/sym_call_outgoing"
 		android:label="@string/app_name" android:debuggable="true">
 		<activity android:name="CallMeter" android:label="@string/app_name"
 			android:configChanges="orientation|keyboardHidden"
@@ -34,10 +34,9 @@
 		<activity android:name="ExcludePeople" />
 		<activity android:name="ResetData" />
 		<activity android:name="About" />
-		<activity android:name="DonationHelper"
+		<activity android:name="de.ub0r.android.lib.DonationHelper"
 			android:configChanges="orientation|keyboardHidden"
-			android:windowSoftInputMode="adjustResize">
-		</activity>
+			android:windowSoftInputMode="adjustResize" />
 		<receiver android:name="CMBroadcastReceiver">
 			<intent-filter>
 				<action android:name="android.intent.action.BOOT_COMPLETED" />

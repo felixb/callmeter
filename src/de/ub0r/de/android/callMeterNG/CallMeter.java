@@ -18,8 +18,6 @@
  */
 package de.ub0r.de.android.callMeterNG;
 
-import java.util.HashMap;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -34,6 +32,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+import de.ub0r.android.lib.DonationHelper;
 
 /**
  * The main Activity, holding all data.
@@ -62,9 +61,6 @@ public class CallMeter extends Activity {
 	/** Display ads? */
 	private static boolean prefsNoAds;
 
-	/** Preference's name: hide ads. */
-	static final String PREFS_HIDEADS = "hideads";
-
 	/** Path to file containing signatures of UID Hash. */
 	private static final String NOADS_SIGNATURES = "/sdcard/callmeter.noads";
 
@@ -87,7 +83,7 @@ public class CallMeter extends Activity {
 			editor.commit();
 			this.showDialog(DIALOG_UPDATE);
 		}
-		prefsNoAds = this.hideAds();
+		prefsNoAds = DonationHelper.hideAds(this);
 
 		TextView tv = (TextView) this.findViewById(R.id.calls_);
 		Preferences.textSizeMedium = tv.getTextSize();
@@ -177,22 +173,5 @@ public class CallMeter extends Activity {
 		default:
 			return false;
 		}
-	}
-
-	/**
-	 * Check for signature updates.
-	 * 
-	 * @return true if ads should be hidden
-	 */
-	private boolean hideAds() {
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(this);
-		final boolean ret = p.getBoolean(PREFS_HIDEADS, false);
-		if (ret != prefsNoAds) {
-			final HashMap<String, String> params = // .
-			new HashMap<String, String>();
-			params.put("value", String.valueOf(ret));
-		}
-		return ret;
 	}
 }

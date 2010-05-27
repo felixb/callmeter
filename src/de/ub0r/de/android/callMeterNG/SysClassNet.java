@@ -23,6 +23,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
+import de.ub0r.android.lib.Log;
+
 /**
  * Acces /sys/class/net/ files.
  */

@@ -28,6 +28,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import android.os.Build;
+import de.ub0r.android.lib.Log;
 
 /**
  * Representation of a device.

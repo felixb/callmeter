@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2010 Felix Bechstein, The Android Open Source Project
+ * Copyright (C) 2010 Felix Bechstein
  * 
- * This file is part of CallMeter.
+ * This file is part of Call Meter NG.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -18,22 +18,16 @@
  */
 package de.ub0r.de.android.callMeterNG;
 
+import android.app.Application;
+import de.ub0r.android.lib.Log;
+
 /**
- * Wrap around Telephony API.
- * 
- * @version 3
  * @author flx
  */
-public final class TelephonyWrapper3 extends TelephonyWrapper {
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@SuppressWarnings("deprecation")
+public final class CallMeterApp extends Application {
 	@Override
-	public int[] calculateLength(final String messageBody,
-			final boolean use7bitOnly) {
-		return android.telephony.gsm.SmsMessage.calculateLength(messageBody,
-				use7bitOnly);
+	public void onCreate() {
+		super.onCreate();
+		Log.init("CallMeterNG");
 	}
 }
