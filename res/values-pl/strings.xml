@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Łukasz Malicki, Felix Bechstein, Dariusz Więckiewicz
+		Copyright (C) 2010 Felix Bechstein, Łukasz Malicki, Dariusz Więckiewicz
 	-->
 	<!--
 		This file is part of Call Meter NG. This program is free software; you
@@ -28,10 +28,10 @@
 	<string name="donate_remove_ads_">Wspomóż/Usuń reklamy</string>
 	<string name="remove_ads_">Usuń reklamy</string>
 	<string name="predonate">Ta open-surce\'owa aplikacja jest udostępniana na licencji GPLve. Jest bezpłatna i taka też pozostanie. Jeśli Ci się podoba, lub denerwują Cię reklamy, wspomóż mnie (przez paypal). Usunę reklamy wraz z następną aktualizacją. Dzięki!</string>
-<!--	<string name="postdonate">To remove ads, you need to load the noads code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work after one day.</string> -->
-<!--	<string name="paypal_id_">To verify your donation your paypal id (mail address) is needed:</string> -->
-<!--	<string name="paypal_id_hint">Paypal id</string> -->
-<!--	<string name="load_hash_">Load noads code</string> -->
+	<string name="postdonate">Aby usunąć reklamy, musisz wprowadzić kod usuwający. Kod jest dostępny tak szybko, jak szybko wpłynie datek. Proszę o cierpliwość, oraz powiadomienie mailem jeżeli go nie otrzymasz po dniu od wpłaty.</string>
+	<string name="paypal_id_">Aby zweryfikować twój datek potrzebny jest twój PayPal ID (adres e-mail):</string>
+	<string name="paypal_id_hint">PayPal ID</string>
+	<string name="load_hash_">Wprowadź kod usuwający</string>
 	<string name="signature_">Otrzymasz kod, który należy tutaj wkleić, aby usunąć reklamy:</string>
 	<string name="sig_loaded">Reklamy usunięte</string>
 	<string name="sig_failed">Problem z usunięciem reklam</string>
@@ -43,7 +43,7 @@
 	<string name="about4">Wiadomości mogą być brane pod uwagę w Twoim planie. Np. zliczać każdy wysłany sms jako 15s. połączenie.</string>
 	<string name="about5">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
 	<string name="about6_">Czego CallMeter NIE robi:</string>
-	<string name="about6">Nie da się odróżnić połączeń SIP od realnych połączeń lub websms od sms wysłanych \"z telefonu\". Android \'s bezproblemową integrację tych. Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości żeby je odróżnić.</string>
+	<string name="about6">Nie da się odróżnić połączeń SIP od realnych połączeń lub WebSMS od SMS wysłanych \"z telefonu\". Android \'s bezproblemową integrację tych. Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości żeby je odróżnić.</string>
 	<string name="send_">Wyślij</string>
 	<string name="settings">Ustawienia</string>
 	<string name="about_">O programie</string>
@@ -86,7 +86,7 @@
 	<string name="plans_split_hint">Podziel rachunek na dwa różne plany taryfowe</string>
 	<string name="plan1">Plan 1</string>
 	<string name="plan2">Plan 2</string>
-	<string name="plan1_hint">Zaznacz godziny by wliczać połączenia/sms w plan pierwszy. Pozostałe będą wliczane w plan 2</string>
+	<string name="plan1_hint">Zaznacz godziny by wliczać połączenia/sms w Plan 1. Pozostałe będą w Planie 2</string>
 	<string name="plan_free_">Brak rachunku</string>
 	<string name="plan_freemin_">Darmowe minuty</string>
 	<string name="plan_freesms_">Darmowe SMS</string>
@@ -96,17 +96,17 @@
 	<string name="bill_calls_incoming_">Wliczaj przychodzące</string>
 	<string name="bill_calls_incoming_hint">Wliczaj połączenia przychodzące w rachunek</string>
 	<string name="bill_sms_incoming_">Wliczaj przychodzące</string>
-	<string name="bill_sms_incoming_hint">Wliczaj smsy przychodzące w rachunek</string>
+	<string name="bill_sms_incoming_hint">Wliczaj SMSy przychodzące w rachunek</string>
 	<string name="bill_data_incoming_only_">Wliczaj tylko przychodzący</string>
 	<string name="bill_data_incoming_only_hint">Wliczaj tylko transfer przychodzący</string>
 	<string name="cost_per_call_">Koszt za połączenie</string>
-	<string name="cost_per_call_hint">Każde połączenie będzie rozliczane wg tego ustawienia</string>
+	<string name="cost_per_call_hint">Wprowadź stawkę za połączenie w złotych (PLN)</string>
 	<string name="cost_per_minute_">Koszt za minutę</string>
-	<string name="cost_per_minute_hint">Każda minuta połączenia będzie rozliczana wg tego ustawienia</string>
+	<string name="cost_per_minute_hint">Wprowadź stawkę za minutę połączenia w złotych (PLN)</string>
 	<string name="cost_per_sms_">Koszt za SMS</string>
-	<string name="cost_per_sms_hint">Każdy SMS będzie rozliczany wg tego ustawienia</string>
+	<string name="cost_per_sms_hint">Wprowadź stawkę za SMS w złotych (PLN)</string>
 	<string name="cost_per_mb_">Koszt za MB</string>
-	<string name="cost_per_mb_hint">Każdy MB transferu będzie rozliczany wg tego ustawienia</string>
+	<string name="cost_per_mb_hint">Wprowadź stawkę równą 1 MB transferu w złotych (PLN)</string>
 	<string name="merge_sms_calls_">Wliczaj SMS w połączenie</string>
 	<string name="merge_sms_calls_hint">Koszt wiadomości SMS jest częścią kosztu za Połączenie</string>
 	<string name="merge_sms_calls_sec_">Sekunda / SMS</string>
@@ -118,7 +118,7 @@
 	<string name="data_each_day">Rachunek za każdy dzień osobno</string>
 	<string name="data_each_day_hint">Okres rozliczeniowy danych rozpoczyna się każdego dnia</string>
 	<string name="data_limit_">Limit</string>
-	<string name="data_limit_hint">Limit danych w planie taryfowym (MB/miesiąc)</string>
+	<string name="data_limit_hint">Limit danych w planie taryfowym\n(MB/miesiąc)</string>
 	<string name="monday">Poniedziałek</string>
 	<string name="tuesday">Wtorek</string>
 	<string name="wednesday">Środa</string>
@@ -143,7 +143,7 @@
 	<string name="contacts_">Kontakty</string>
 	<string name="debug_">Debugowanie</string>
 	<string name="send_logs_">Wyślij logi</string>
-<!--	<string name="send_logs_hint">Send your device\'s logs to the developer.\nDo this only if you was asked to do so.</string> -->
+	<string name="send_logs_hint">Wyślij log z twojego urządzenia do autora.\nZrób to tylko wtedy, gdy zostaniesz o to poproszony.</string>
 	<string name="sendlog_run_">Uruchom SendLog</string>
 	<string name="sendlog_run">SendLog zbierze logi urządzenia i wyśle je do autora.\n\nBędziesz miał okazję do przejrzenia i modyfikacji danych przed ich wysłaniem</string>
 	<string name="sendlog_install_">Zainstaluj SendLog</string>
