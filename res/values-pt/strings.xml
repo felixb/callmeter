@@ -28,8 +28,10 @@
 	<string name="donate_remove_ads_">Doar/remover anúncios</string>
 	<string name="remove_ads_">Remova anúncios</string>
 	<string name="predonate">Esta é uma aplicação open-source realizada sob a licença GPLv3. É gratuita e permanecerá gratuita. Se você realmente gosta dela e quer retirar os anúncios, por favor, considere uma doação (via paypal). Eu irei remover as propagandas para você o mais rápido possível.\nObrigado!</string>
-	<string name="postdonate">Para remover os anúncios, você precisa enviar o código MD5 do seu IMEI (identificação única do seu celular). Este código é uma função de via única. Não é rastreável de volta para você.</string>
-	<string name="send_hash_">Enviar Código</string>
+	<string name="postdonate">Para remover os anúncios, você precisa carregar o código NoAds . Ele estará disponível tão logo que a doação chegar. Por favor, seja paciente e me mande um e-mail se ele não funcionar depois de um dia.</string> -->
+	<string name="paypal_id_">Para verificar a sua doação são necessários o envio de:</string> -->
+	<string name="paypal_id_hint">Seu ID no Paypal (endereço de email),</string> -->
+	<string name="load_hash_">Código NoAds.</string> -->
 	<string name="signature_">Você receberá um código, que irá colar aqui, para finalmente remover os anúncios:</string>
 	<string name="sig_loaded">Anúncios removidos!</string>
 	<string name="sig_failed">Falha ao remover os anúncios!</string>
@@ -39,7 +41,7 @@
 	<string name="about2">O modo de cobrança utiliza o tamanho do primeiro e posteriores tempos de cobrança. Ex. 30/10 diz que cada ligação é taxada com o mínimo de 30s, e após este período será taxado de 10 em 10 segundos de utilização (sendo esse o período mínimo) sucessivamente até o final da chamada.</string>
 	<string name="about3">Você pode separar os planos de ligações e mensagens em até dois planos. Cada plano pode ser configurado livremente, limitado a um período ou ilimitado.</string>
 	<string name="about4">Suas mensagens podem ser mescladas em seu plano de chamada. Ex. contar cada mensagem como 15s de chamada.</string>
-	<string name="about5">O CallMeter roda oculto a cada 30min (se não estiver em repouso). Isto quer dizer, que apagar ligações ou mensagens com mais de 30min não alterarão sua estatística acumulada. Apagar ligações ou mensagens em até 30min poderá resultar em uma estatística errônea.</string>
+	<string name="about5">O CallMeter roda oculto a cada 30min (se não estiver em repouso). Isto quer dizer, que apagar ligações ou mensagens com mais de 30min não alterará sua estatística acumulada. Apagar ligações ou mensagens em até 30min poderá resultar em uma estatística errônea.</string>
 	<string name="about6_">O que CallMeter NG não faz:</string>
 	<string name="about6">Não há nenhuma maneira de distinguir entre Sipdroid (ligações feitas por Voip, tipo Skype) e uma chamada real, ou entre MMS e um SMS. O Android faz uma integração destas aplicações que torna impossível distinguir depois os dados para cálculo.</string>
 	<string name="send_">Enviar</string>
@@ -62,12 +64,12 @@
 	<string name="dataperiod_hint">Iguala o período de cobrança de Dados com o período das ligações.</string>
 	<string name="databillday_">Primeiro dia da conta Dados</string>
 	<string name="appearance_">Aparência</string>
-	<string name="theme_">Tema</string>
+	<string name="theme_">Fundo de Tela</string>
 	<string name="textsize_">Tamanho do texto</string>
 	<string name="advanced_">Avançado</string>
 	<string name="exclude_people_">Números não tarifados</string>
-	<string name="exclude_people_hint">Números gratuitos, \ncuringas são aceitos: *555, 555* ou *555*</string>
-	<string name="exclude_people_add">Toque para adicionar número</string>
+	<string name="exclude_people_hint">Números gratuitos,\ncuringas são aceitos: *555, 555* ou *555*</string>
+	<string name="exclude_people_add">Toque para adicionar um número</string>
 	<string name="exclude_people_edit">Edição</string>
 	<string name="exclude_people_delete">Apagar</string>
 	<string name="exclude_people_to_plan1_">Excluir números do plano #1</string>
@@ -136,12 +138,12 @@
 	<string name="plan_name2_">Plano 2: nome</string>
 	<string name="plan_name_hint">Nome do Usuário</string>
 	<string name="reset_data_">Apagar estatísticas</string>
-	<string name="reset_data_hint">Apagar dados das chamadas/SMS irão resultar no recálculo das estatísticas.\n\nO cancelamento das estatísticas de tráfego é permanente. Só será visualizado após o boot!</string>
+	<string name="reset_data_hint">Apagar os dados das chamadas/SMS irão resultar no recálculo das estatísticas.\n\nO cancelamento das estatísticas de tráfego é permanente. Só será visualizado após o boot!</string>
 	<string name="reset_data_data_">Redefinir o tráfego também.</string>
 	<string name="contacts_">Contatos</string>
 	<string name="debug_">Debugar</string>
 	<string name="send_logs_">Enviar os logs</string>
-	<string name="send_logs_hint">Enviar os logs de seu equipamento para o desenvolvedor.</string>
+	<string name="send_logs_hint">Envie os logs de seu dispositivo  para o desenvolvedor. Faça isso apenas se você foi convidado a fazê-lo.</string> -->
 	<string name="sendlog_run_">Acionar o envio dos logs </string>
 	<string name="sendlog_run">O envio irá coletar os dados do log de seu aparelho e enviá-los ao desenvolvedor.\nVocê terá a oportunidade de rever e modificar os dados antes de enviá-los.</string>
 	<string name="sendlog_install_">Instalar o enviador de logs </string>
@@ -155,4 +157,3 @@
 		<item>Médio</item>
 	</string-array>
 </resources>
-
