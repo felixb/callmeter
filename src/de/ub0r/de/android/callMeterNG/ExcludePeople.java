@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -172,13 +171,13 @@ public class ExcludePeople extends ListActivity implements OnItemClickListener {
 		}
 		Log.d(TAG, "data: " + data.getData().toString());
 		// get number for uri
-		final String[] proj = CWRAPPER.getProjectionFilter();
-		Cursor c = this.managedQuery(data.getData(), proj, null, null, null);
-		if (!c.moveToFirst()) {
-			return;
+		String number = CWRAPPER.getNameAndNumber(this.getContentResolver(),
+				data.getData());
+		if (number == null) {
+			number = "???";
+		} else {
+			number = number.replaceAll("[^+0-9]", "");
 		}
-		String number = c.getString(2).replaceAll("( |-|\\.|\\(|\\)|\\<|\\>)",
-				"").trim();
 		Log.d(TAG, number);
 		if (requestCode == 0) {
 			prefsExcludePeople.add(new ExcludedPerson(number));
