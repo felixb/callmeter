@@ -28,10 +28,10 @@
 	<string name="donate_remove_ads_">Doar/remover anúncios</string>
 	<string name="remove_ads_">Remova anúncios</string>
 	<string name="predonate">Esta é uma aplicação open-source realizada sob a licença GPLv3. É gratuita e permanecerá gratuita. Se você realmente gosta dela e quer retirar os anúncios, por favor, considere uma doação (via paypal). Eu irei remover as propagandas para você o mais rápido possível.\nObrigado!</string>
-	<string name="postdonate">Para remover os anúncios, você precisa carregar o código NoAds . Ele estará disponível tão logo que a doação chegar. Por favor, seja paciente e me mande um e-mail se ele não funcionar depois de um dia.</string> -->
-	<string name="paypal_id_">Para verificar a sua doação são necessários o envio de:</string> -->
-	<string name="paypal_id_hint">Seu ID no Paypal (endereço de email),</string> -->
-	<string name="load_hash_">Código NoAds.</string> -->
+	<string name="postdonate">Para remover os anúncios, você precisa carregar o código NoAds . Ele estará disponível tão logo que a doação chegar. Por favor, seja paciente e me mande um e-mail se ele não funcionar depois de um dia.</string>
+	<string name="paypal_id_">Para verificar a sua doação são necessários o envio de:</string>
+	<string name="paypal_id_hint">Seu ID no Paypal (endereço de email),</string>
+	<string name="load_hash_">Código NoAds.</string>
 	<string name="signature_">Você receberá um código, que irá colar aqui, para finalmente remover os anúncios:</string>
 	<string name="sig_loaded">Anúncios removidos!</string>
 	<string name="sig_failed">Falha ao remover os anúncios!</string>
@@ -74,10 +74,10 @@
 	<string name="exclude_people_delete">Apagar</string>
 	<string name="exclude_people_to_plan1_">Excluir números do plano #1</string>
 	<string name="exclude_people_to_plan2_">Excluir números do plano #2</string>
-	<string name="exclude_people_calls_">Habilitado para Chamadas </string>
+	<string name="exclude_people_calls_">Habilitado em Chamadas </string>
 	<string name="exclude_people_calls_to_plan1_hint">Conta das chamadas de/para números excluídos no plano #1</string>
 	<string name="exclude_people_calls_to_plan2_hint">Conta das chamadas de/para números excluídos no plano #2</string>
-	<string name="exclude_people_sms_"> Habilitado para SMS</string>
+	<string name="exclude_people_sms_"> Habilitado em SMS</string>
 	<string name="exclude_people_sms_to_plan1_hint">Conta das mensagens de/para números excluídos no plano #1</string>
 	<string name="exclude_people_sms_to_plan2_hint">Conta das mensagens de/para números excluídos no plano #2</string>
 	<string name="plans">Planos</string>
@@ -94,11 +94,11 @@
 	<string name="freemin_hint">Minutos/mês incluídos no plano</string>
 	<string name="freesms_hint">SMS/mês incluídos no plano</string>
 	<string name="bill_calls_incoming_">Conta de recebimento</string>
-	<string name="bill_calls_incoming_hint">Cobrança de recebimento de ligações.</string>
+	<string name="bill_calls_incoming_hint">Cobrança pelo recebimento de ligações.</string>
 	<string name="bill_sms_incoming_">Conta de recebimento</string>
-	<string name="bill_sms_incoming_hint">Cobrança de recebimento de SMS.</string>
-	<string name="bill_data_incoming_only_">Conta apenas de recebimento de chamadas</string>
-	<string name="bill_data_incoming_only_hint">Conta só do tráfego de recebimento de chamadas.</string>
+	<string name="bill_sms_incoming_hint">Cobrança pelo recebimento de SMS.</string>
+	<string name="bill_data_incoming_only_">Cobrança pelo recebimento de Chamadas</string>
+	<string name="bill_data_incoming_only_hint">Cobrança pelo tráfego de recebimento de Dados.</string>
 	<string name="cost_per_call_">Custo por ligação</string>
 	<string name="cost_per_call_hint">Valor por ligação além do plano</string>
 	<string name="cost_per_minute_">Custo por minuto</string>
@@ -114,9 +114,9 @@
 	<string name="merge_sms_plan1_">Juntar os SMS ao plano 1</string>
 	<string name="merge_sms_plan1_hint">Desmarcar a junção com o plano 2.</string>
 	<string name="data_enable_">Mostrar os dados estatísticos</string>
-	<string name="data_enable_hint">Os dados são coletados em tempo real. O primeiro mês pode estar incorreto!</string>
-	<string name="data_each_day">Cobrar cada dia separadamente </string>
-	<string name="data_each_day_hint">Seu período de cobrança inicia neste dia.</string>
+	<string name="data_enable_hint">Dados coletados em tempo real. O primeiro mês pode estar incorreto!</string>
+	<string name="data_each_day">Cobrar cada dia separado </string>
+	<string name="data_each_day_hint">Seu período de cobrança inicia hoje.</string>
 	<string name="data_limit_">Limite</string>
 	<string name="data_limit_hint">Limite do plano de dados (MB/mês)</string>
 	<string name="monday">Segunda</string>
@@ -132,8 +132,8 @@
 	<string name="calls_sms">Ligações/SMS</string>
 	<string name="in">Recebidas%s:</string>
 	<string name="out_calls">Feitas%s:</string>
-	<string name="out_sms">Feitas%s:</string>
-	<string name="out_data">Conexões:</string>
+	<string name="out_sms">Enviados%s:</string>
+	<string name="out_data">Enviados:</string>
 	<string name="plan_name1_">Plano 1: nome</string>
 	<string name="plan_name2_">Plano 2: nome</string>
 	<string name="plan_name_hint">Nome do Usuário</string>
@@ -143,7 +143,7 @@
 	<string name="contacts_">Contatos</string>
 	<string name="debug_">Debugar</string>
 	<string name="send_logs_">Enviar os logs</string>
-	<string name="send_logs_hint">Envie os logs de seu dispositivo  para o desenvolvedor. Faça isso apenas se você foi convidado a fazê-lo.</string> -->
+	<string name="send_logs_hint">Envie os logs de seu dispositivo  para o desenvolvedor. Faça isso apenas se você foi convidado a fazê-lo.</string>
 	<string name="sendlog_run_">Acionar o envio dos logs </string>
 	<string name="sendlog_run">O envio irá coletar os dados do log de seu aparelho e enviá-los ao desenvolvedor.\nVocê terá a oportunidade de rever e modificar os dados antes de enviá-los.</string>
 	<string name="sendlog_install_">Instalar o enviador de logs </string>
@@ -157,3 +157,4 @@
 		<item>Médio</item>
 	</string-array>
 </resources>
+
