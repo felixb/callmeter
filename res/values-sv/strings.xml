@@ -113,6 +113,7 @@
 	<string name="merge_sms_calls_sec_hint">Antal samtalssekunder ett SMS ska räknas som.</string>
 	<string name="merge_sms_plan1_">Räkna SMS i prislista 1</string>
 	<string name="merge_sms_plan1_hint">Kryssa ur för att räkna SMS till prislista 2.</string>
+<!--	<string name="data_hint">WLAN stats are not collected here!</string> -->
 	<string name="data_enable_">Visa data-trafik</string>
 	<string name="data_enable_hint">Datatrafiken räknas i realtid. Första månadens värden kan vara felaktiga!</string>
 	<string name="data_each_day">Räkna varje dag för sig</string>

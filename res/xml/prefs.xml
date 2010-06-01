@@ -500,7 +500,7 @@
 
 		<!-- data -->
 
-		<PreferenceScreen android:title="@string/data">
+		<PreferenceScreen android:title="@string/data" android:summary="@string/data_hint">
 			<CheckBoxPreference android:key="data_enable"
 				android:title="@string/data_enable_" android:summary="@string/data_enable_hint"
 				android:defaultValue="true" />

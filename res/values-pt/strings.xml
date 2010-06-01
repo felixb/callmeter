@@ -113,6 +113,7 @@
 	<string name="merge_sms_calls_sec_hint">Número de segundos cobrados em um SMS.</string>
 	<string name="merge_sms_plan1_">Juntar os SMS ao plano 1</string>
 	<string name="merge_sms_plan1_hint">Desmarcar a junção com o plano 2.</string>
+<!--	<string name="data_hint">WLAN stats are not collected here!</string> -->
 	<string name="data_enable_">Mostrar os dados estatísticos</string>
 	<string name="data_enable_hint">Os dados são coletados em tempo real. O primeiro mês pode estar incorreto!</string>
 	<string name="data_each_day">Cobrar cada dia separadamente </string>

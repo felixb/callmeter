@@ -113,6 +113,7 @@
 	<string name="merge_sms_calls_sec_hint">Počet vteřin, které se započítají místo jedné SMS.</string>
 	<string name="merge_sms_plan1_">Sloučit s Paušálem 1</string>
 	<string name="merge_sms_plan1_hint">Zrušte volbu pro sloučení s Paušálem 2.</string>
+<!--	<string name="data_hint">WLAN stats are not collected here!</string> -->
 	<string name="data_enable_">Zobrazit statistiku</string>
 	<string name="data_enable_hint">Data jsou sbírána v reálném čase. Výpočet za 1. měsíc nemusí být přesný!</string>
 	<string name="data_each_day">Účtovat po dnech</string>

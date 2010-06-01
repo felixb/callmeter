@@ -113,6 +113,7 @@
 	<string name="merge_sms_calls_sec_hint">Nombre de secondes facturées pour un SMS.</string>
 	<string name="merge_sms_plan1_">Inclure les SMS dans la planification 1</string>
 	<string name="merge_sms_plan1_hint">Décocher pour les inclure à la planification 2.</string>
+<!--	<string name="data_hint">WLAN stats are not collected here!</string> -->
 	<string name="data_enable_">Afficher les statistiques des données</string>
 	<string name="data_enable_hint">Les données sont collectées en temps réel. Le premier mois peut être incorrect !</string>
 	<string name="data_each_day">Facture de chaque jour séparément</string>

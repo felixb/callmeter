@@ -113,6 +113,7 @@
 	<string name="merge_sms_calls_sec_hint">Aantal seconden gefactureerd per SMS.</string>
 	<string name="merge_sms_plan1_">Voeg SMS samen met schema 1</string>
 	<string name="merge_sms_plan1_hint">Vink uit om samen te voegen met schema 2.</string>
+<!--	<string name="data_hint">WLAN stats are not collected here!</string> -->
 	<string name="data_enable_">Toon data stats</string>
 	<string name="data_enable_hint">Data wordt realtime bijgehouden. Eerste maand kan onjuist zijn!</string>
 	<string name="data_each_day">Factureer elke dag apart</string>

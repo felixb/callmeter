@@ -113,6 +113,7 @@
 	<string name="merge_sms_calls_sec_hint">Segundos equivalentes al coste de un SMS.</string>
 	<string name="merge_sms_plan1_">Incluir SMS en el plan 1</string>
 	<string name="merge_sms_plan1_hint">Desmarcar para incluirlos en el plan 2.</string>
+<!--	<string name="data_hint">WLAN stats are not collected here!</string> -->
 	<string name="data_enable_">Mostrar estadísticas de tráfico de datos</string>
 	<string name="data_enable_hint">El tráfico de datos se recopila en tiempo real. El primer mes puede que no se muestre correctamente!</string>
 	<string name="data_each_day">Factura cada día por separado</string>

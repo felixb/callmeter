@@ -113,6 +113,7 @@
 	<string name="merge_sms_calls_sec_hint">SMS-enként elkönyvelt másodpercek száma.</string>
 	<string name="merge_sms_plan1_">SMS-ek számlázása hívásként 1-es tarifa szerint</string>
 	<string name="merge_sms_plan1_hint">A jelölést törölve az SMS-ek a 2-es tarifa szerint kerülnek számlázásra.</string>
+<!--	<string name="data_hint">WLAN stats are not collected here!</string> -->
 	<string name="data_enable_">Adatforgalom statisztikák</string>
 	<string name="data_enable_hint">Az adatgyűjtés valós időben történik. Az első hónap pontatlan lehet!</string>
 	<string name="data_each_day">Naponként kerül számlázásra</string>
