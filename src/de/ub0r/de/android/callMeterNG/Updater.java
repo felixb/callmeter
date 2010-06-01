@@ -1042,7 +1042,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		int smsIn1Month = this.prefs.getInt(PREFS_SMS_PERIOD_IN1, 0);
 		int smsIn2Month = this.prefs.getInt(PREFS_SMS_PERIOD_IN2, 0);
 		int smsOut1Month = this.prefs.getInt(PREFS_SMS_PERIOD_OUT1, 0);
-		int smsOut2Month = this.prefs.getInt(PREFS_SMS_PERIOD_OUT1, 0);
+		int smsOut2Month = this.prefs.getInt(PREFS_SMS_PERIOD_OUT2, 0);
 
 		if (cur.moveToFirst()) {
 			int type;
