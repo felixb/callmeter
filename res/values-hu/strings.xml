@@ -131,7 +131,9 @@
 	<string name="sms">SMS</string>
 	<string name="data">Atatforgalom</string>
 	<string name="calls_sms">Hívás/SMS</string>
-	<string name="in">Bejövő%s:</string>
+	<string name="in_calls">Bejövő%s:</string>
+	<string name="in_sms">Bejövő%s:</string>
+	<string name="in_data">Bejövő:</string>
 	<string name="out_calls">Kimenő%s:</string>
 	<string name="out_sms">Kimenő%s:</string>
 	<string name="out_data">Kimenő:</string>

@@ -572,9 +572,9 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		this.getSplitMergePrefs();
 
 		if (this.updateGUI) {
-			final String stringIn = this.context.getString(R.string.in);
-			((TextView) this.callmeter.findViewById(R.id.data_in_))
-					.setText(String.format(stringIn, ""));
+			final String stringInCalls = this.context
+					.getString(R.string.in_calls);
+			final String stringInSMS = this.context.getString(R.string.in_sms);
 
 			this.pbCalls1.setProgress(0);
 			this.pbCalls1.setIndeterminate(false);
@@ -586,15 +586,15 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				this.callmeter.findViewById(R.id.calls2_view).setVisibility(
 						View.GONE);
 				((TextView) this.callmeter.findViewById(R.id.calls1_in_))
-						.setText(String.format(stringIn, ""));
+						.setText(String.format(stringInCalls, ""));
 				((TextView) this.callmeter.findViewById(R.id.calls1_out_))
 						.setText(String.format(this.context
 								.getString(R.string.out_calls), ""));
 			} else {
 				((TextView) this.callmeter.findViewById(R.id.calls1_in_))
-						.setText(String.format(stringIn, namePlan1));
+						.setText(String.format(stringInCalls, namePlan1));
 				((TextView) this.callmeter.findViewById(R.id.calls2_in_))
-						.setText(String.format(stringIn, namePlan2));
+						.setText(String.format(stringInCalls, namePlan2));
 
 				String s = this.context.getString(R.string.out_calls);
 				((TextView) this.callmeter.findViewById(R.id.calls1_out_))
@@ -621,15 +621,15 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				this.callmeter.findViewById(R.id.sms2_view).setVisibility(
 						View.GONE);
 				((TextView) this.callmeter.findViewById(R.id.sms1_in_))
-						.setText(String.format(stringIn, ""));
+						.setText(String.format(stringInSMS, ""));
 				((TextView) this.callmeter.findViewById(R.id.sms1_out_))
 						.setText(String.format(this.context
 								.getString(R.string.out_sms), ""));
 			} else {
 				((TextView) this.callmeter.findViewById(R.id.sms1_in_))
-						.setText(String.format(stringIn, namePlan1));
+						.setText(String.format(stringInSMS, namePlan1));
 				((TextView) this.callmeter.findViewById(R.id.sms2_in_))
-						.setText(String.format(stringIn, namePlan2));
+						.setText(String.format(stringInSMS, namePlan2));
 
 				String s = this.context.getString(R.string.out_sms);
 				((TextView) this.callmeter.findViewById(R.id.sms1_out_))

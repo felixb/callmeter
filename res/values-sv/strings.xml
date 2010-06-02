@@ -131,7 +131,9 @@
 	<string name="sms">SMS</string>
 	<string name="data">Datatrafik</string>
 	<string name="calls_sms">Samtal/SMS</string>
-	<string name="in">In%s:</string>
+	<string name="in_calls">In%s:</string>
+	<string name="in_sms">In%s:</string>
+	<string name="in_data">In:</string>
 	<string name="out_calls">Ut%s:</string>
 	<string name="out_sms">Ut%s:</string>
 	<string name="out_data">Ut:</string>

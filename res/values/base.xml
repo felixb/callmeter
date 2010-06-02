@@ -36,9 +36,6 @@
 	<string name="source">http://github.com/felixb/callmeter</string>
 	<string name="website">http://code.google.com/p/callmeter/</string>
 	<string name="donate_url">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=5832809</string>
-	<string name="donate_mail">flx.yoo@gmail.com</string>
-	<string name="donate_subject">I\'m the donator. My IMEI hash is...</string>
-	<string name="changelog_">Changelog</string>
 	<string name="see_about">Please consult the about dialog for information on what CallMeter NG does and does not do.</string>
 	<string name="faq_">FAQ</string>
 	<string name="twitter_">twitter</string>

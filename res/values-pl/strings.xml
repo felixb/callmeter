@@ -131,7 +131,9 @@
 	<string name="sms">SMS</string>
 	<string name="data">Dane</string>
 	<string name="calls_sms">Połączenia/SMS</string>
-	<string name="in">Przychodzące%s:</string>
+	<string name="in_calls">Przychodzące%s:</string>
+	<string name="in_sms">Przychodzące%s:</string>
+	<string name="in_data">Przychodzące:</string>
 	<string name="out_calls">Wychodzące%s:</string>
 	<string name="out_sms">Wychodzące%s:</string>
 	<string name="out_data">Wychodzące:</string>

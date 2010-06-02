@@ -131,7 +131,9 @@
 	<string name="sms">SMS</string>
 	<string name="data">Data</string>
 	<string name="calls_sms">Hovory/SMS</string>
-	<string name="in">Příchozí%s:</string>
+	<string name="in_calls">Příchozí%s:</string>
+	<string name="in_sms">Příchozí%s:</string>
+	<string name="in_data">Příchozí:</string>
 	<string name="out_calls">Odchozí%s:</string>
 	<string name="out_sms">Odchozí%s:</string>
 	<string name="out_data">Odchozí:</string>
