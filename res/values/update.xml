@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
+		<item>v2.3.6: Fix some bugs, inner changes</item>
 		<item>v2.3.5: New icon, new billing modes 6/6,30/60 and 60/6, fix some bugs</item>
 		<item>v2.3.4: Add swedish translation</item>
 		<item>v2.3.3: Fix hidden plan 2, fix call counter for sms-in-calls</item>
