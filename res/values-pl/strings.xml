@@ -113,7 +113,7 @@
 	<string name="merge_sms_calls_sec_hint">Liczba sekund Połączenia przeliczana na jeden SMS</string>
 	<string name="merge_sms_plan1_">Wliczaj SMS w Plan 1</string>
 	<string name="merge_sms_plan1_hint">Odznacz aby wliczać w Plan 2</string>
-<!--	<string name="data_hint">WLAN stats are not collected here!</string> -->
+	<string name="data_hint">Transfer danych WLAN nie jest tutaj wliczany!</string>
 	<string name="data_enable_">Pokaż statystyki</string>
 	<string name="data_enable_hint">Dane są zbierane automatycznie. Pierwszy miesiąc może się różnić!</string>
 	<string name="data_each_day">Rachunek za każdy dzień osobno</string>
