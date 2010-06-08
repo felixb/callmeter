@@ -28,10 +28,10 @@
 	<string name="donate_remove_ads_">Donera/ta bort reklam</string>
 	<string name="remove_ads_">Ta bort reklam</string>
 	<string name="predonate">Det här är ett program med öppen källkods lanserad under GPLv3-licensen. Det är och kommer att vara gratis. Om du verkligen gillar det eller blir störd av reklamen får du gärna donera (via paypal). Jag kommer då att ta bort reklamen för dig så snabbt som möjligt.\nTack!</string>
-<!--	<string name="postdonate">För att ta bort reklamen behöver vi din upplåsningskod. Den är tillgänglig så fort din donation är registrerad. Vänligen ha tålamod och skicka ett mail om det inte fungerar efter en dag.</string> -->
-<!--	<string name="paypal_id_">För att verifiera din donation behövs ditt PayPal-ID (epost):</string> -->
-<!--	<string name="paypal_id_hint">Paypal id</string> -->
-<!--	<string name="load_hash_">Läs in upplåsningskod</string> -->
+	<string name="postdonate">För att ta bort reklamen behöver vi din upplåsningskod. Den är tillgänglig så fort din donation är registrerad. Vänligen ha tålamod och skicka ett mail om det inte fungerar efter en dag.</string>
+	<string name="paypal_id_">För att verifiera din donation behövs ditt PayPal-ID (epost):</string>
+	<string name="paypal_id_hint">Paypal id</string>
+	<string name="load_hash_">Läs in upplåsningskod</string>
 	<string name="signature_">Du kommer få en kod tillbaka, vilken du klistrar in här för att ta bort reklamen:</string>
 	<string name="sig_loaded">Reklam bortplockad!</string>
 	<string name="sig_failed">Kunde inte ta bort reklam!</string>
@@ -113,7 +113,7 @@
 	<string name="merge_sms_calls_sec_hint">Antal samtalssekunder ett SMS ska räknas som.</string>
 	<string name="merge_sms_plan1_">Räkna SMS i prislista 1</string>
 	<string name="merge_sms_plan1_hint">Kryssa ur för att räkna SMS till prislista 2.</string>
-<!--	<string name="data_hint">OBS! Räknar endast på datatrafik via 3G/GSM, ej WLAN!</string> -->
+	<string name="data_hint">OBS! Räknar endast på datatrafik via 3G/GSM, ej WLAN!</string>
 	<string name="data_enable_">Visa data-trafik</string>
 	<string name="data_enable_hint">Datatrafiken räknas i realtid. Kan bli lite knasigt första månaden du använder programmet.</string>
 	<string name="data_each_day">Räkna varje dag för sig</string>
@@ -146,7 +146,7 @@
 	<string name="contacts_">Kontakter</string>
 	<string name="debug_">Felsökningsläge (debug)</string>
 	<string name="send_logs_">Skicka loggar</string>
-<!--	<string name="send_logs_hint">Skicka loggar till tillverkaren av programmet. Gör endast detta om du blir ombedd av tillverkaren.</string> -->
+	<string name="send_logs_hint">Skicka loggar till tillverkaren av programmet. Gör endast detta om du blir ombedd av tillverkaren.</string>
 	<string name="sendlog_run_">Kör SendLog</string>
 	<string name="sendlog_run">SendLog samlar in enhetens loggdata och skickar det till utvecklaren.\nDu har möjligheten att se och ändra informationen innan den skickas.</string>
 	<string name="sendlog_install_">Installera SendLog</string>

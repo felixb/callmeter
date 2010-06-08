@@ -28,10 +28,10 @@
 	<string name="donate_remove_ads_">Doneer/verwijder ads</string>
 	<string name="remove_ads_">Verwijder ads</string>
 	<string name="predonate">Dit is een open-source applicatie uitgegeven onder de GPLv3 licentie. Het is gratis en blijft gratis. Als je de applicatie erg handig vindt of als je geïrriteerd bent door de advertenties, overweeg dan alsjeblieft om een donatie te doen (via paypal). Ik verwijder de advertenties dan zo spoedig mogelijk.\nDankjewel!</string>
-<!--	<string name="postdonate">Om advertenties te verwijderen, heb je de \'noads\'-code nodig. Je ontvangt deze zodra de donatie aangekomen is. Heb geduld en mail mij wanneer het niet werkt na 1 dag.</string> -->
-<!--	<string name="paypal_id_">Om je donatie te verifiëren is je paypal id nodig:</string> -->
-<!--	<string name="paypal_id_hint">Paypal id</string> -->
-<!--	<string name="load_hash_">Laad \'noads\'-code</string> -->
+	<string name="postdonate">Om advertenties te verwijderen, heb je de \'noads\'-code nodig. Je ontvangt deze zodra de donatie aangekomen is. Heb geduld en mail mij wanneer het niet werkt na 1 dag.</string>
+	<string name="paypal_id_">Om je donatie te verifiëren is je paypal id nodig:</string>
+	<string name="paypal_id_hint">Paypal id</string>
+	<string name="load_hash_">Laad \'noads\'-code</string>
 	<string name="signature_">Je zal een code terugkrijgen die je in onderstaande veld kan plakken. De advertenties zullen dan niet meer getoond worden.</string>
 	<string name="sig_loaded">Advertenties verwijderd!</string>
 	<string name="sig_failed">Verwijderden advertenties mislukt!</string>
@@ -113,7 +113,7 @@
 	<string name="merge_sms_calls_sec_hint">Aantal seconden gefactureerd per SMS.</string>
 	<string name="merge_sms_plan1_">Voeg SMS samen met schema 1</string>
 	<string name="merge_sms_plan1_hint">Vink uit om samen te voegen met schema 2.</string>
-<!--	<string name="data_hint">WLAN stats worden niet bijgehouden!</string> -->
+	<string name="data_hint">WLAN stats worden niet bijgehouden!</string>
 	<string name="data_enable_">Toon data stats</string>
 	<string name="data_enable_hint">Data wordt realtime bijgehouden. Eerste maand kan onjuist zijn!</string>
 	<string name="data_each_day">Factureer elke dag apart</string>
@@ -144,13 +144,13 @@
 	<string name="reset_data_hint">Resetten van gesprek/sms data zorgt voor het opnieuw berekenen van de statistieken. \n\nResetten van data statistieken is permanent. Alleen data voordat het programma gestart is wordt gereset!</string>
 	<string name="reset_data_data_">Reset ook dataverkeer.</string>
 	<string name="contacts_">Contacten</string>
-<!--	<string name="debug_">Debug</string> -->
-<!--	<string name="send_logs_">Stuur logs</string> -->
-<!--	<string name="send_logs_hint">Stuur je toestel logs naar de maker.\nDoe dit alleen wanneer je hier naar gevraagd is.</string> -->
-<!--	<string name="sendlog_run_">Draai SendLog</string> -->
-<!--	<string name="sendlog_run">SendLog verzamelt de toestel log en stuurt het naar de maker.\nJe hebt de mogelijkheid om de gegevens in te zien en te veranderen voordat deze verzonden wordt..</string> -->
-<!--	<string name="sendlog_install_">Installeer SendLog</string> -->
-<!--	<string name="sendlog_install">Installeer het gratis programma SendLog om de log van uw toestel naar de maker te kunnen sturen.</string> -->
+	<string name="debug_">Debug</string>
+	<string name="send_logs_">Stuur logs</string>
+	<string name="send_logs_hint">Stuur je toestel logs naar de maker.\nDoe dit alleen wanneer je hier naar gevraagd is.</string>
+	<string name="sendlog_run_">Draai SendLog</string>
+	<string name="sendlog_run">SendLog verzamelt de toestel log en stuurt het naar de maker.\nJe hebt de mogelijkheid om de gegevens in te zien en te veranderen voordat deze verzonden wordt..</string>
+	<string name="sendlog_install_">Installeer SendLog</string>
+	<string name="sendlog_install">Installeer het gratis programma SendLog om de log van uw toestel naar de maker te kunnen sturen.</string>
 	<string-array name="themes">
 		<item>Zwart</item>
 		<item>Licht</item>
