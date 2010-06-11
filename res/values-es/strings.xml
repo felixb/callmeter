@@ -3,19 +3,18 @@
 		Copyright (C) 2010 Angel Martinez, Felix Bechstein
 	-->
 	<!--
-		This file is part of Call Meter NG. This program is free software; you
-		can redistribute it and/or modify it under the terms of the GNU
-		General Public License as published by the Free Software Foundation;
-		either version 3 of the License, or (at your option) any later
-		version.
+		Este archivo forma parte de Call Meter NG. Este programa es gratuito; se puede
+		redistribuir y/o modificar bajo los términos de la Licencia Pública General GNU 
+                publicada por la Free Software Foundation; ya sea la versión 3 de la Licencia o 
+                cualquier otra posterior.
 	-->
 	<!--
-		This program is distributed in the hope that it will be useful, but
-		WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-		General Public License for more details. You should have received a
-		copy of the GNU General Public License along with this program; If
-		not, see <http://www.gnu.org/licenses/>.
+		Este programa se distribuye con la intención de que sea útil, pero sin NINGUNA
+                GARANTÍA; incluso la ITHOUT ANY WARRANTY; ni siquiera la garantía implícita
+                de COMERCIALIZACIÓN o IDONEIDAD PARA UN PROPÓSITO PARTICULAR. Para 
+                más detalles véase la Licencia Pública General GNU.
+		Debería haber recibido una copia de Licencia Pública General GNU junto con este
+		programa; si no, visite <http://www.gnu.org/licenses/>.
 	-->
 <resources>
 	<string name="author_">Autor:</string>
@@ -28,10 +27,10 @@
 	<string name="donate_remove_ads_">Donar/Eliminar publicidad</string>
 	<string name="remove_ads_">Eliminar publicidad</string>
 	<string name="predonate">Esta es una aplicación de código abierto publicada bajo licencia GPLv3 license. Es gratuita y así continuará. Si te gusta la aplicación o la publicidad te molesta, planteate hacer una donación (via paypal) y retiraré la publicidad lo antes posible.\nGracias!</string>
-<!--	<string name="postdonate">To remove ads, you need to load the noads code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work after one day.</string> -->
-<!--	<string name="paypal_id_">To verify your donation your paypal id (mail address) is needed:</string> -->
-<!--	<string name="paypal_id_hint">Paypal id</string> -->
-<!--	<string name="load_hash_">Load noads code</string> -->
+<!--	<string name="postdonate">Para eliminar la publicidad necesitas cargar el código correspondiente. Está disponible tan pronto como llegue el donativo. Ten paciencia y envíame un email si no funciona pasado un día.</string> -->
+<!--	<string name="paypal_id_">Para verificar tu donativo se necesita tu id de paypal (dirección de email):</string> -->
+<!--	<string name="paypal_id_hint">Id de Paypal</string> -->
+<!--	<string name="load_hash_">Cargar el código</string> -->
 	<string name="signature_">Recibirás un código, pégalo aquí para eliminar la publicidad:</string>
 	<string name="sig_loaded">Publicidad eliminada!</string>
 	<string name="sig_failed">Fallo al eliminar publicidad!</string>
@@ -113,7 +112,7 @@
 	<string name="merge_sms_calls_sec_hint">Segundos equivalentes al coste de un SMS.</string>
 	<string name="merge_sms_plan1_">Incluir SMS en el plan 1</string>
 	<string name="merge_sms_plan1_hint">Desmarcar para incluirlos en el plan 2.</string>
-<!--	<string name="data_hint">WLAN stats are not collected here!</string> -->
+<!--	<string name="data_hint">Aquí no se recogen la estadísticas WLAN!</string> -->
 	<string name="data_enable_">Mostrar estadísticas de tráfico de datos</string>
 	<string name="data_enable_hint">El tráfico de datos se recopila en tiempo real. El primer mes puede que no se muestre correctamente!</string>
 	<string name="data_each_day">Factura cada día por separado</string>
@@ -144,13 +143,13 @@
 	<string name="reset_data_hint">Resetear los datos de llamadas y sms fuerza el recálculo las estadísticas.\n\nLa puesta a cero del tráfico de datos es permanente. Sólo resetea el tráfico producido antes del arranque!</string>
 	<string name="reset_data_data_">Pone a cero también el tráfico de datos.</string>
 	<string name="contacts_">Contactos</string>
-<!--	<string name="debug_">Debug</string> -->
-<!--	<string name="send_logs_">Send logs</string> -->
-<!--	<string name="send_logs_hint">Send your device\'s logs to the developer.\nDo this only if you was asked to do so.</string> -->
-<!--	<string name="sendlog_run_">Run SendLog</string> -->
-<!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
-<!--	<string name="sendlog_install_">Install SendLog</string> -->
-<!--	<string name="sendlog_install">Install the free SendLog application to collect the device log and send it to the developer.</string> -->
+<!--	<string name="debug_">Depurar</string> -->
+<!--	<string name="send_logs_">Enviar logs</string> -->
+<!--	<string name="send_logs_hint">Envía los logs de tu dispositivo al desarrollador.\n Sólo si te han pedido que lo hagas.</string> -->
+<!--	<string name="sendlog_run_">Ejecutar envío de log</string> -->
+<!--	<string name="sendlog_run">SendLog envía el log de tu dispositivo al desarrollador.\nTendrás la oportunidad de revisar y modificar los datos antes de enviarlos.</string> -->
+<!--	<string name="sendlog_install_">Instalar SendLog</string> -->
+<!--	<string name="sendlog_install">Instala la aplicación gratuita SendLog para recoger los logs de tu dispositivo y enviarlos al desarrollador.</string> -->
 	<string-array name="themes">
 		<item>Oscuro</item>
 		<item>Claro</item>
