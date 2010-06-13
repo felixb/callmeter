@@ -132,8 +132,8 @@
 	<string name="data">Dados</string>
 	<string name="calls_sms">Ligações/SMS</string>
 	<string name="in_calls">Recebidas%s:</string>
-	<string name="in_data">Recebidos%s:</string>
 	<string name="in_sms">Recebidos:</string>
+	<string name="in_data">Recebidos%s:</string>
 	<string name="out_calls">Feitas%s:</string>
 	<string name="out_sms">Enviados%s:</string>
 	<string name="out_data">Enviados:</string>
@@ -160,4 +160,3 @@
 		<item>Médio</item>
 	</string-array>
 </resources>
-
