@@ -35,6 +35,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.apis.TelephonyWrapper;
 import de.ub0r.de.android.callMeterNG.ExcludePeople.ExcludedPerson;
@@ -44,23 +45,23 @@ import de.ub0r.de.android.callMeterNG.ExcludePeople.ExcludedPerson;
  * 
  * @author flx
  */
-class Updater extends AsyncTask<Void, Void, Integer[]> {
+public class Updater extends AsyncTask<Void, Void, Integer[]> {
 	/** Tag for output. */
 	private static final String TAG = "updater";
 
 	/** Days of a week. */
-	static final int DAYS_WEEK = 7;
+	public static final int DAYS_WEEK = 7;
 	/** Hours of a day. */
-	static final int HOURS_DAY = 24;
+	public static final int HOURS_DAY = 24;
 	/** Seconds of a minute. */
-	static final int SECONDS_MINUTE = 60;
+	public static final int SECONDS_MINUTE = 60;
 
 	/** {@link TelephonyWrapper}. */
 	private static final TelephonyWrapper WRAPPER = TelephonyWrapper
 			.getInstance();
 
 	/** Prefs: name for first day. */
-	static final String PREFS_BILLDAY = "billday";
+	public static final String PREFS_BILLDAY = "billday";
 	/** Prefs: name for billingmode. */
 	private static final String PREFS_BILLMODE = "billmode";
 	/** Prefs: name for smsperiod. */
@@ -69,11 +70,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private static final String PREFS_SMSBILLDAY = "smsbillday";
 
 	/** Prefs: split plans. */
-	static final String PREFS_SPLIT_PLANS = "plans_split";
+	public static final String PREFS_SPLIT_PLANS = "plans_split";
 	/** Prefs: merge plans for calls. */
-	static final String PREFS_MERGE_PLANS_CALLS = "plans_merge_calls";
+	public static final String PREFS_MERGE_PLANS_CALLS = "plans_merge_calls";
 	/** Prefs: merge plans for sms. */
-	static final String PREFS_MERGE_PLANS_SMS = "plans_merge_sms";
+	public static final String PREFS_MERGE_PLANS_SMS = "plans_merge_sms";
 	/** Prefs: hours for plan 1. */
 	private static final String PREFS_PLAN1_HOURS_PREFIX = "hours_1_";
 
@@ -81,11 +82,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private static final String PREFS_PLAN1_T_FREE_CALLS = // .
 	"plan1_total_free_calls";
 	/** Prefs: plan1 free minutes. */
-	static final String PREFS_PLAN1_FREEMIN = "plan1_freemin";
+	public static final String PREFS_PLAN1_FREEMIN = "plan1_freemin";
 	/** Prefs: plan1 totally free sms. */
 	private static final String PREFS_PLAN1_T_FREE_SMS = "plan1_total_free_sms";
 	/** Prefs: plan1 cost per call. */
-	static final String PREFS_PLAN1_COST_PER_CALL = "plan1_cost_per_call";
+	public static final String PREFS_PLAN1_COST_PER_CALL = "plan1_cost_per_call";
 	/** Prefs: plan1 cost per minute. */
 	private static final String PREFS_PLAN1_COST_PER_MINUTE = // .
 	"plan1_cost_per_minute";
@@ -98,7 +99,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private static final String PREFS_PLAN2_T_FREE_CALLS = // .
 	"plan2_total_free_calls";
 	/** Prefs: plan2 cost per call. */
-	static final String PREFS_PLAN2_COST_PER_CALL = "plan2_cost_per_call";
+	public static final String PREFS_PLAN2_COST_PER_CALL = "plan2_cost_per_call";
 	/** Prefs: plan2 cost per minute. */
 	private static final String PREFS_PLAN2_COST_PER_MINUTE = // .
 	"plan2_cost_per_minute";
@@ -106,7 +107,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private static final String PREFS_PLAN2_COST_PER_SMS = // .
 	"plan2_cost_per_sms";
 	/** Prefs: plan1 free minutes. */
-	static final String PREFS_PLAN2_FREEMIN = "plan2_freemin";
+	public static final String PREFS_PLAN2_FREEMIN = "plan2_freemin";
 	/** Prefs: plan1 totally free sms. */
 	private static final String PREFS_PLAN2_T_FREE_SMS = "plan2_total_free_sms";
 	/** Prefs: plan1 free sms. */
@@ -118,14 +119,14 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private static final String PREFS_NAME_PLAN2 = "plan_name2";
 
 	/** Prefs: merge sms into calls. */
-	static final String PREFS_MERGE_SMS_TO_CALLS = "merge_sms_calls";
+	public static final String PREFS_MERGE_SMS_TO_CALLS = "merge_sms_calls";
 	/**
 	 * Prefs: merge sms into calls; number of seconds billed for a single sms.
 	 */
 	private static final String PREFS_MERGE_SMS_TO_CALLS_SECONDS = // .
 	"merge_sms_calls_sec";
 	/** Prefs: merge sms into calls; which plan to merge sms in. */
-	static final String PREFS_MERGE_SMS_PLAN1 = "merge_sms_plan1";
+	public static final String PREFS_MERGE_SMS_PLAN1 = "merge_sms_plan1";
 
 	/** Prefs: billmode: 1/1. */
 	private static final String BILLMODE_1_1 = "1_1";
@@ -134,50 +135,50 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private static final String BODY = "body";
 
 	/** Preference's name for time of last checked bill period for calls. */
-	static final String PREFS_CALLS_PERIOD_LASTCHECK = "calls_period_lastcheck";
+	public static final String PREFS_CALLS_PERIOD_LASTCHECK = "calls_period_lastcheck";
 	/** Preference's name for time of last walk for calls. */
-	static final String PREFS_CALLS_WALK_LASTCHECK = "calls_walk_lastcheck";
+	public static final String PREFS_CALLS_WALK_LASTCHECK = "calls_walk_lastcheck";
 	/** Preference's name for saving calls in plan #1 (this period). */
-	static final String PREFS_CALLS_PERIOD_IN1 = "calls_period_in";
+	public static final String PREFS_CALLS_PERIOD_IN1 = "calls_period_in";
 	/** Preference's name for saving calls in plan #1 (this period, count). */
-	static final String PREFS_CALLS_PERIOD_IN1_COUNT = "calls_period_in_n";
+	public static final String PREFS_CALLS_PERIOD_IN1_COUNT = "calls_period_in_n";
 	/** Preference's name for saving calls out plan #1 (this period). */
-	static final String PREFS_CALLS_PERIOD_OUT1 = "calls_period_out1";
+	public static final String PREFS_CALLS_PERIOD_OUT1 = "calls_period_out1";
 	/** Preference's name for saving calls out plan #1 (this period, count). */
-	static final String PREFS_CALLS_PERIOD_OUT1_COUNT = "calls_period_out1_n";
+	public static final String PREFS_CALLS_PERIOD_OUT1_COUNT = "calls_period_out1_n";
 	/** Preference's name for saving calls in plan #2 (this period). */
-	static final String PREFS_CALLS_PERIOD_IN2 = "calls_period_in2";
+	public static final String PREFS_CALLS_PERIOD_IN2 = "calls_period_in2";
 	/** Preference's name for saving calls in plan #2 (this period, count). */
-	static final String PREFS_CALLS_PERIOD_IN2_COUNT = "calls_period_in2_n";
+	public static final String PREFS_CALLS_PERIOD_IN2_COUNT = "calls_period_in2_n";
 	/** Preference's name for saving calls out plan #2 (this period). */
-	static final String PREFS_CALLS_PERIOD_OUT2 = "calls_period_out2";
+	public static final String PREFS_CALLS_PERIOD_OUT2 = "calls_period_out2";
 	/** Preference's name for saving calls out plan #2 (this period, count). */
-	static final String PREFS_CALLS_PERIOD_OUT2_COUNT = "calls_period_out2_n";
+	public static final String PREFS_CALLS_PERIOD_OUT2_COUNT = "calls_period_out2_n";
 	/** Preference's name for saving calls in (all). */
-	static final String PREFS_CALLS_ALL_IN = "calls_all_in";
+	public static final String PREFS_CALLS_ALL_IN = "calls_all_in";
 	/** Preference's name for saving calls out (all). */
-	static final String PREFS_CALLS_ALL_OUT = "calls_all_out";
+	public static final String PREFS_CALLS_ALL_OUT = "calls_all_out";
 	/** Preference's name for billing incoming calls. */
-	static final String PREFS_CALLS_BILL_INCOMING = "bill_calls_incoming";
+	public static final String PREFS_CALLS_BILL_INCOMING = "bill_calls_incoming";
 
 	/** Preference's name for time of last checked bill period for sms. */
-	static final String PREFS_SMS_PERIOD_LASTCHECK = "sms_period_lastcheck";
+	public static final String PREFS_SMS_PERIOD_LASTCHECK = "sms_period_lastcheck";
 	/** Preference's name for time of last walk for sms. */
-	static final String PREFS_SMS_WALK_LASTCHECK = "sms_walk_lastcheck";
+	public static final String PREFS_SMS_WALK_LASTCHECK = "sms_walk_lastcheck";
 	/** Preference's name for saving sms in plan #1 (this period). */
-	static final String PREFS_SMS_PERIOD_IN1 = "sms_period_in";
+	public static final String PREFS_SMS_PERIOD_IN1 = "sms_period_in";
 	/** Preference's name for saving sms in plan #2 (this period). */
-	static final String PREFS_SMS_PERIOD_IN2 = "sms_period_in2";
+	public static final String PREFS_SMS_PERIOD_IN2 = "sms_period_in2";
 	/** Preference's name for saving sms out plan #1 (this period). */
-	static final String PREFS_SMS_PERIOD_OUT1 = "sms_period_out1";
+	public static final String PREFS_SMS_PERIOD_OUT1 = "sms_period_out1";
 	/** Preference's name for saving sms out plan #2 (this period). */
-	static final String PREFS_SMS_PERIOD_OUT2 = "sms_period_out2";
+	public static final String PREFS_SMS_PERIOD_OUT2 = "sms_period_out2";
 	/** Preference's name for saving sms in (all). */
-	static final String PREFS_SMS_ALL_IN = "sms_all_in";
+	public static final String PREFS_SMS_ALL_IN = "sms_all_in";
 	/** Preference's name for saving sms out (all). */
-	static final String PREFS_SMS_ALL_OUT = "sms_all_out";
+	public static final String PREFS_SMS_ALL_OUT = "sms_all_out";
 	/** Preference's name for billing incoming sms. */
-	static final String PREFS_SMS_BILL_INCOMING = "bill_sms_incoming";
+	public static final String PREFS_SMS_BILL_INCOMING = "bill_sms_incoming";
 
 	/** Value for calls out plan #1. */
 	private static final int RESULT_CALLS1_VAL = 0;
@@ -269,7 +270,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 * @param c
 	 *            {@link Context}
 	 */
-	Updater(final Context c) {
+	public Updater(final Context c) {
 		this.context = c;
 		if (c instanceof CallMeter) {
 			Log.d(TAG, "running in foreground");

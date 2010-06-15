@@ -17,7 +17,7 @@
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.ub0r.de.android.callMeterNG;
+package de.ub0r.android.callmeter;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -28,6 +28,8 @@ import android.content.SharedPreferences;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import de.ub0r.android.lib.Log;
+import de.ub0r.de.android.callMeterNG.Updater;
+import de.ub0r.de.android.callMeterNG.UpdaterData;
 
 /**
  * {@link BroadcastReceiver} running updates and postboot checks.
@@ -47,7 +49,7 @@ public class CMBroadcastReceiver extends BroadcastReceiver {
 	 * @param context
 	 *            {@link Context}
 	 */
-	static final void schedNext(final Context context) {
+	public static final void schedNext(final Context context) {
 		final Intent i = new Intent(context, CMBroadcastReceiver.class);
 		final PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
 		final long t = SystemClock.elapsedRealtime() + DELAY;

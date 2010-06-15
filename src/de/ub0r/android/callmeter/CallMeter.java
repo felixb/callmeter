@@ -16,9 +16,18 @@
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
+package de.ub0r.android.callmeter;
+
+import android.app.Application;
+import de.ub0r.android.lib.Log;
 
 /**
  * @author flx
  */
-package de.ub0r.de.android.callMeterNG;
-
+public final class CallMeter extends Application {
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		Log.init("CallMeterNG");
+	}
+}

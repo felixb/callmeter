@@ -32,6 +32,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+import de.ub0r.android.callmeter.CMBroadcastReceiver;
+import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.ui.Preferences;
 import de.ub0r.android.lib.DonationHelper;
 
 /**

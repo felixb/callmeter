@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import android.content.DialogInterface.OnClickListener;
 import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
+import de.ub0r.android.callmeter.R;
 
 /**
  * Activity to reset statistics.

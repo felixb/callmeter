@@ -17,7 +17,7 @@
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.ub0r.de.android.callMeterNG;
+package de.ub0r.android.callmeter.data;
 
 import java.io.BufferedReader;
 import java.io.File;

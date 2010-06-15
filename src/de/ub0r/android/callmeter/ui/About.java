@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2010 Felix Bechstein
  * 
- * This file is part of Call Meter NG.
+ * This file is part of CallMeter NG.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -16,18 +16,27 @@
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
-package de.ub0r.de.android.callMeterNG;
+package de.ub0r.android.callmeter.ui;
 
-import android.app.Application;
-import de.ub0r.android.lib.Log;
+import android.app.Activity;
+import android.os.Bundle;
+import de.ub0r.android.callmeter.R;
 
 /**
+ * Display About {@link Activity}.
+ * 
  * @author flx
  */
-public final class CallMeterApp extends Application {
+public class About extends Activity {
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	public void onCreate() {
-		super.onCreate();
-		Log.init("CallMeterNG");
+	public final void onCreate(final Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		this.setTheme(Preferences.getTheme(this));
+		this.setContentView(R.layout.about);
+		this.setTitle(this.getString(R.string.about_) + " v"
+				+ this.getString(R.string.app_version));
 	}
 }

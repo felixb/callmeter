@@ -29,6 +29,9 @@ import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.data.Device;
+import de.ub0r.android.callmeter.data.SysClassNet;
 import de.ub0r.android.lib.Log;
 
 /**
@@ -36,7 +39,7 @@ import de.ub0r.android.lib.Log;
  * 
  * @author flx
  */
-class UpdaterData extends AsyncTask<Void, Void, Long[]> {
+public class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 	/** Tag for output. */
 	private static final String TAG = "ud";
 
@@ -379,7 +382,7 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 	 * @param prefs
 	 *            preferences
 	 */
-	static final synchronized void updateTraffic(final Context context,
+	public static final synchronized void updateTraffic(final Context context,
 			final SharedPreferences prefs) {
 		if (!prefs.getBoolean(PREFS_DATA_ENABLE, true)) {
 			return;
@@ -460,7 +463,7 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 	 * @param prefs
 	 *            preferences
 	 */
-	static final void checkPostboot(final SharedPreferences prefs) {
+	public static final void checkPostboot(final SharedPreferences prefs) {
 		long preBootIn = prefs.getLong(PREFS_DATA_BOOT_IN, 0);
 		long preBootOut = prefs.getLong(PREFS_DATA_BOOT_OUT, 0);
 		long runningIn = prefs.getLong(PREFS_DATA_RUNNING_IN, 0);

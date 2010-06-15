@@ -1,4 +1,4 @@
-package de.ub0r.de.android.callMeterNG;
+package de.ub0r.android.callmeter.ui;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.Log;
+import de.ub0r.de.android.callMeterNG.ExcludePeople;
+import de.ub0r.de.android.callMeterNG.Updater;
 
 /**
  * Preferences.
@@ -55,7 +58,7 @@ public class Preferences extends PreferenceActivity implements
 	 *            {@link Context}
 	 * @return theme
 	 */
-	static final int getTheme(final Context context) {
+	public static final int getTheme(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_THEME, THEME_BLACK);
