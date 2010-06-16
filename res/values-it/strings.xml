@@ -47,7 +47,7 @@
 	<string name="send_">Invia</string>
 	<string name="settings">Impostazioni</string>
 	<string name="about_">Informazioni</string>
-	<string name="about_hint">Informazioni sull'applicazione</string>
+	<string name="about_hint">Informazioni sull\'applicazione</string>
 	<string name="faq_hint">Suggerimenti per impostare questa applicazione.</string>
 	<string name="feedback_">Commenti</string>
 	<string name="feedback_hint">Segnala anomalie, richiedi nuove funzioni...</string>
@@ -150,7 +150,7 @@
 	<string name="sendlog_run_">Esegui SendLog</string>
 	<string name="sendlog_run">SendLog recupera i log del dispositivo e li manda agli sviluppatori.\nAvrai la possibilità di rivedere e modificare i dati prima che essi siano inviati.</string>
 	<string name="sendlog_install_">Installa SendLog</string>
-	<string name="sendlog_install">Installa l'applicazione gratuita SendLog per recuperare i log del dispositvo e mandarli agli sviluppatori.</string>
+	<string name="sendlog_install">Installa l\'applicazione gratuita SendLog per recuperare i log del dispositvo e mandarli agli sviluppatori.</string>
 	<string-array name="themes">
 		<item>Nero</item>
 		<item>Chiaro</item>
