@@ -45,7 +45,7 @@
 			</intent-filter>
 		</receiver>
 		<!-- The application's publisher ID assigned by AdMob -->
-		<meta-data android:value="a14a439b2045eb6" android:name="ADMOB_PUBLISHER_ID" />
+		<meta-data android:value="a14c185ce8841c6" android:name="ADMOB_PUBLISHER_ID" />
 	</application>
 	<uses-sdk android:minSdkVersion="3" android:targetSdkVersion="4" />
 	<supports-screens android:largeScreens="true"
