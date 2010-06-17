@@ -1,162 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
+	
 		Copyright (C) 2010 Tor-Erik Selvik, Felix Bechstein
-	-->
-	<!--
-		This file is part of Call Meter NG. This program is free software; you
-		can redistribute it and/or modify it under the terms of the GNU
-		General Public License as published by the Free Software Foundation;
-		either version 3 of the License, or (at your option) any later
-		version.
-	-->
-	<!--
-		This program is distributed in the hope that it will be useful, but
-		WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-		General Public License for more details. You should have received a
-		copy of the GNU General Public License along with this program; If
-		not, see <http://www.gnu.org/licenses/>.
-	-->
+	
+	
+		Denne filen er en del av of Call Meter NG. Dette er et gratis program; du
+		kan videreformidle det og/eller endre det etter forskriftene hos GNU
+		General Public License som er utgitt av Free Software Foundation;
+		enten lisensversjon 3, eller(alternativt) enhver senere versjon.
+	
+	
+		Dette programmet er gjort tilgjengelig i håp om at noen finner det nyttig, men UTEN NOEN SOM HELST GARANTI; også enhver påstått garanti fra fra eventuelle VIDEREFORMIDLERE eller FUNKSJONALITET FOR ENHVER TILTENKT BRUK. Se GNU General Public License for ytterligere detaljer. Du skal ha mottatt en kopi av
+		GNU General Public License sammen med dette programmet; Hvis du mot formodning
+		ikke har mottatt dette, se <http://www.gnu.org/licenses/>.
+
 <resources>
-<!--	<string name="author_">Author:</string> -->
-<!--	<string name="version_">Version:</string> -->
-<!--	<string name="license_">License:</string> -->
-<!--	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string> -->
-<!--	<string name="source_">Sourcescode:</string> -->
-<!--	<string name="website_">Website:</string> -->
-<!--	<string name="donate_">Donate (Paypal)</string> -->
-<!--	<string name="donate_remove_ads_">Donate/remove ads</string> -->
-<!--	<string name="remove_ads_">Remove ads</string> -->
-<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by ads, please consider donating (via paypal). I will remove the ads for you as soon as possible.\nThank you!</string> -->
-<!--	<string name="postdonate">To remove ads, you need to load the noads code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work after one day.</string> -->
-<!--	<string name="paypal_id_">To verify your donation your paypal id (mail address) is needed:</string> -->
-<!--	<string name="paypal_id_hint">Paypal id</string> -->
-<!--	<string name="load_hash_">Load noads code</string> -->
-<!--	<string name="signature_">You will receive a code back, you have to enter here, to finally remove the ads:</string> -->
-<!--	<string name="sig_loaded">Ads removed!</string> -->
-<!--	<string name="sig_failed">Failed to remove ads!</string> -->
-<!--	<string name="about0_">Watch your call, message and data plans!</string> -->
-<!--	<string name="about0">CallMeter generates reports from call, message and data logs. It supports several modes of billing.</string> -->
-<!--	<string name="about1">The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not.</string> -->
-<!--	<string name="about2">The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.</string> -->
-<!--	<string name="about3">You can split your call or message plan into up to two plans. Each plan can be set to be totally free, capped to a set limit or unlimited.</string> -->
-<!--	<string name="about4">Your messages can be merged into your call plan. E.g. counting every message as a 15s call.</string> -->
-<!--	<string name="about5">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string> -->
-<!--	<string name="about6_">What does CallMeter NG not do:</string> -->
-<!--	<string name="about6">There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs.</string> -->
-<!--	<string name="send_">Send</string> -->
-<!--	<string name="settings">Preferences</string> -->
-<!--	<string name="about_">About</string> -->
-<!--	<string name="about_hint">About this app</string> -->
-<!--	<string name="faq_hint">Some tips and tricks, how to set up this app.</string> -->
-<!--	<string name="feedback_">Feedback</string> -->
-<!--	<string name="feedback_hint">Report bugs, request features ...</string> -->
-<!--	<string name="twitter_hint">Follow me on twitter.\nGet update notifications etc.</string> -->
-<!--	<string name="more_">More Apps..</string> -->
-<!--	<string name="billday_">First day of your bill</string> -->
-<!--	<string name="billmode_">Mode of billing</string> -->
-<!--	<string name="billmode_hint">Length of first/following billing intervals.</string> -->
-<!--	<string name="billdate_">Start of billing period:</string> -->
-<!--	<string name="smsperiod_">Same Period for SMS</string> -->
-<!--	<string name="smsperiod_hint">Set SMS\'s billing period to calls\' period.</string> -->
-<!--	<string name="smsbillday_">First day of your SMS bill</string> -->
-<!--	<string name="dataperiod_">Same Period for data</string> -->
-<!--	<string name="dataperiod_hint">Set data\'s billing period to calls\' period.</string> -->
-<!--	<string name="databillday_">First day of your data bill</string> -->
-<!--	<string name="appearance_">Appearance</string> -->
-<!--	<string name="theme_">Theme</string> -->
-<!--	<string name="textsize_">Text size</string> -->
-<!--	<string name="advanced_">Advanced</string> -->
-<!--	<string name="exclude_people_">Exclude numbers</string> -->
-<!--	<string name="exclude_people_hint">Don\'t bill some numbers\nwildcards allowed: *555, 555* or *555*</string> -->
-<!--	<string name="exclude_people_add">Add number</string> -->
-<!--	<string name="exclude_people_edit">Edit</string> -->
-<!--	<string name="exclude_people_delete">Delete</string> -->
-<!--	<string name="exclude_people_to_plan1_">Excluded numbers to plan #1</string> -->
-<!--	<string name="exclude_people_to_plan2_">Excluded numbers to plan #2</string> -->
-<!--	<string name="exclude_people_calls_">Enable for Calls</string> -->
-<!--	<string name="exclude_people_calls_to_plan1_hint">Bill calls to/from excluded numbers in plan #1</string> -->
-<!--	<string name="exclude_people_calls_to_plan2_hint">Bill calls to/from excluded numbers in plan #2</string> -->
-<!--	<string name="exclude_people_sms_">Enable for SMS</string> -->
-<!--	<string name="exclude_people_sms_to_plan1_hint">Bill messages to/from excluded numbers in plan #1</string> -->
-<!--	<string name="exclude_people_sms_to_plan2_hint">Bill messages to/from excluded numbers in plan #2</string> -->
-<!--	<string name="plans">Plans</string> -->
-<!--	<string name="plans_split">Split plans</string> -->
-<!--	<string name="plans_merge">Merge plans</string> -->
-<!--	<string name="plans_split_hint">Split plan into two different billed plans.</string> -->
-<!--	<string name="plan1">Plan 1</string> -->
-<!--	<string name="plan2">Plan 2</string> -->
-<!--	<string name="plan1_hint">Check hours to include calls/sms into first plan. All others will go into second plan.</string> -->
-<!--	<string name="plan_free_">No billing</string> -->
-<!--	<string name="plan_freemin_">Free Minutes</string> -->
-<!--	<string name="plan_freesms_">Free SMS</string> -->
-<!--	<string name="free_hint">Totally free</string> -->
-<!--	<string name="freemin_hint">Free Minutes / Month</string> -->
-<!--	<string name="freesms_hint">Free SMS / Month</string> -->
-<!--	<string name="bill_calls_incoming_">Bill incoming</string> -->
-<!--	<string name="bill_calls_incoming_hint">Bill incoming calls as well.</string> -->
-<!--	<string name="bill_sms_incoming_">Bill incoming</string> -->
-<!--	<string name="bill_sms_incoming_hint">Bill incoming sms as well.</string> -->
-<!--	<string name="bill_data_incoming_only_">Bill incoming only</string> -->
-<!--	<string name="bill_data_incoming_only_hint">Bill only incoming traffic.</string> -->
-<!--	<string name="cost_per_call_">Cost per call</string> -->
-<!--	<string name="cost_per_call_hint">Each call will be billed with this.</string> -->
-<!--	<string name="cost_per_minute_">Cost per minute</string> -->
-<!--	<string name="cost_per_minute_hint">Each minute of a call will be billed with this.</string> -->
-<!--	<string name="cost_per_sms_">Cost per SMS</string> -->
-<!--	<string name="cost_per_sms_hint">Each SMS will be billed with this.</string> -->
-<!--	<string name="cost_per_mb_">Cost per MB</string> -->
-<!--	<string name="cost_per_mb_hint">Each MB of the traffic is bill with this.</string> -->
-<!--	<string name="merge_sms_calls_">Merge SMS into calls</string> -->
-<!--	<string name="merge_sms_calls_hint">Bill SMS as part of calls.</string> -->
-<!--	<string name="merge_sms_calls_sec_">Seconds / SMS</string> -->
-<!--	<string name="merge_sms_calls_sec_hint">Number of seconds a billed for a single sms.</string> -->
-<!--	<string name="merge_sms_plan1_">Merge SMS into plan 1</string> -->
-<!--	<string name="merge_sms_plan1_hint">Uncheck to merge them into plan 2.</string> -->
-<!--	<string name="data_hint">WLAN stats are not collected here!</string> -->
-<!--	<string name="data_enable_">Show data stats</string> -->
-<!--	<string name="data_enable_hint">Data is collected in realtime. First month may be incorrect!</string> -->
-<!--	<string name="data_each_day">Bill each day separately</string> -->
-<!--	<string name="data_each_day_hint">Your billing period starts with each day.</string> -->
-<!--	<string name="data_limit_">Limit</string> -->
-<!--	<string name="data_limit_hint">Limit of data plan (MB/month)</string> -->
-<!--	<string name="monday">Monday</string> -->
-<!--	<string name="tuesday">Tuesday</string> -->
-<!--	<string name="wednesday">Wednesday</string> -->
-<!--	<string name="thursday">Thursday</string> -->
-<!--	<string name="friday">Friday</string> -->
-<!--	<string name="saturday">Saturday</string> -->
-<!--	<string name="sunday">Sunday</string> -->
-<!--	<string name="calls">Calls</string> -->
-<!--	<string name="sms">SMS</string> -->
-<!--	<string name="data">Data</string> -->
-<!--	<string name="calls_sms">Calls/SMS</string> -->
-<!--	<string name="in_calls">In%s:</string> -->
-<!--	<string name="in_sms">In%s:</string> -->
-<!--	<string name="in_data">In:</string> -->
-<!--	<string name="out_calls">Out%s:</string> -->
-<!--	<string name="out_sms">Out%s:</string> -->
-<!--	<string name="out_data">Out:</string> -->
-<!--	<string name="plan_name1_">Plan 1: name</string> -->
-<!--	<string name="plan_name2_">Plan 2: name</string> -->
-<!--	<string name="plan_name_hint">Custom Name</string> -->
-<!--	<string name="reset_data_">Reset statistics</string> -->
-<!--	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string> -->
-<!--	<string name="reset_data_data_">Reset traffic too.</string> -->
-<!--	<string name="contacts_">Contacts</string> -->
-<!--	<string name="debug_">Debug</string> -->
-<!--	<string name="send_logs_">Send logs</string> -->
-<!--	<string name="send_logs_hint">Send your device\'s logs to the developer.\nDo this only if you was asked to do so.</string> -->
-<!--	<string name="sendlog_run_">Run SendLog</string> -->
-<!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
-<!--	<string name="sendlog_install_">Install SendLog</string> -->
-<!--	<string name="sendlog_install">Install the free SendLog application to collect the device log and send it to the developer.</string> -->
-<!--	<string-array name="themes"> -->
-<!--		<item>Black</item> -->
-<!--		<item>Light</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="textsize"> -->
-<!--		<item>Small</item> -->
-<!--		<item>Medium</item> -->
-<!--	</string-array> -->
+<string name="author_">Forfatter:</string> 
+	<string name="version_">Versjon:</string>
+<string name="license_">Lisens:</string>
+<string name="license">GPLv3 - se http://www.gnu.org/licenses/gpl-3.0.txt</string>
+<string name="source_">Kildekode:</string>
+<string name="website_">Nettside:</string>
+<string name="donate_">Donasjon (Paypal)</string>
+<string name="donate_remove_ads_">Donasjon/Fjern reklame</string>
+<string name="remove_ads_">Fjern reklame</string>
+<string name="predonate">Dette er en åpen-kode applikasjon som er utgitt under GPLv3 lisens. Programmet er gratis, og vil fortsette å være gratis. Hvis du liker det eller du irriterer deg over reklamen, kan du vurdere å donere (via paypal). Jeg vil da fjerne reklamen så raskt som mulig.\nTusen takk!</string>
+<string name="postdonate">For å fjerne reklamen trenger du en kode. Den vil være tilgjengelig så snart donasjonen er registrert mottatt. Vennligst vær tålmodig, og send meg gjerne en mail hvis den ikke er fjernet etter en dag.</string>
+<string name="paypal_id_">For å bekrefte din donasjon, trenger vi din paypal id (email addresse):</string>
+<string name="paypal_id_hint">Paypal id</string>
+<string name="load_hash_">Laster reklamefri kode</string>
+<string name="signature_">Du vil motta en kode, som du må skrive her for å fjerne reklamen:</string>
+<string name="sig_loaded">Reklame fjernet!</string>
+<string name="sig_failed">Mislykket forsøk på å fjerne reklame!</string>
+<string name="about0_">Følg med på dine samtaler, meldinger og data trafikk!</string>
+<string name="about0">CallMeter lager rapporter fra samtale-, meldings- og dataloggen. Det er støtte for flere metoder av taksering.</string>
+<string name="about1">Oversikt over bruk/tid eller antall denne perioden/tid eller totaloversikt hele perioden. Månedlig beregning i samsvar med dine preferanser for avregning. Ingen beregning for totalforbruk.</string>
+<string name="about2">Takseringsintervall spesifiserer lengden på de første/neste takseringene. F.eks. 60/10 betyr at enhver samtale blir taksert for minimum 60s, og tid over dette rundes opp til nærmeste fulle 10s.</string>
+<string name="about3">Du kan dele opp dine samtaler/sms i to forskjellige takst-avtaler. Hver avtale kan settes opp uavhengig av den andre, med begrensninger eller helt fri.</string>
+<string name="about4">Din emeldinger kan bli slått sammen i din takst-avtale. F.eks. kan hver sms telles som en 15s samtale.</string>
+<string name="about5">CallMeter oppdaterer seg hvert 30. min. (ikke i stand-by). Dette betyr at det ikke vil påvirke din statistikk hvis du sletter samtaler eller meldinger som er eldre en 30 min. Hvis du sletter samtaler eller meldinger som er nyere enn 30 minutter, kan din statistikk/oversikt bli feil.</string>
+<string name="about6_">Hva er det CallMeter NG ikke gjør:</string>
+<string name="about6">Det er ingen mulighet å skille mellom sipdroid og reelle samtaler eller websms og vanlige sms. Android\'s sømløse integrering av slike applikasjoner gjør det umulig å hente data fra spesifikke applikasjoners telleverk.</string>
+<string name="send_">Send</string>
+<string name="settings">Innstillinger</string>
+<string name="about_">Om</string>
+<string name="about_hint">Om denne applikasjonen</string>
+<string name="faq_hint">Tips og triks, hvordan sette opp denne applikasjonen.</string>
+<string name="feedback_">Tilbakemelding</string>
+<string name="feedback_hint">Meld feil, etterspør funksjoner ...</string>
+<string name="twitter_hint">Følg på twitter.\nFå info om oppdateringer o.l.</string>
+<string name="more_">Flere Applikasjoner..</string>
+<string name="billday_">Første dag i perioden</string>
+<string name="billmode_">Takst-type</string>
+<string name="billmode_hint">Lengde på første/etterfølgene takseringsintervall.</string>
+<string name="billdate_">Oppstart for takseringsintervall:</string>
+<string name="smsperiod_">Samme periode for SMS</string>
+<string name="smsperiod_hint">Sette SMS\'s takseringsperiode til samme som samtaleperiode.</string>
+<string name="smsbillday_">Første dag i sms-takseringsperiode</string>
+<string name="dataperiod_">Samme periode for data</string>
+<string name="dataperiod_hint">Sette data-takseringsperiode til samme som samtaleperiode.</string>
+<string name="databillday_">Første dag i data-takseringsperiode</string>
+<string name="appearance_">Utseende</string>
+<string name="theme_">Tema</string>
+<string name="textsize_">Tekst størrelse</string>
+<string name="advanced_">Avansert</string>
+<string name="exclude_people_">Ekskluder nummer</string>
+<string name="exclude_people_hint">Ikke takser noen nummer\nwildcards tillatt: *800, 800* eller *800*</string>
+<string name="exclude_people_add">Legg til nummer</string>
+<string name="exclude_people_edit">Endre</string>
+<string name="exclude_people_delete">Slette</string>
+<string name="exclude_people_to_plan1_">Ekskluder nummer i plan nr 1</string>
+<string name="exclude_people_to_plan2_">Ekskluder nummer i plan nr 2</string>
+<string name="exclude_people_calls_">Aktiviser for samtaler</string>
+<string name="exclude_people_calls_to_plan1_hint">Takser samtaler til/fra ekskluderte nummer i plan nr 1</string>
+<string name="exclude_people_calls_to_plan2_hint">Takser samtaler til/fra ekskluderte nummer i plan nr 2</string>
+<string name="exclude_people_sms_">Aktiviser for SMS</string>
+<string name="exclude_people_sms_to_plan1_hint">Takser meldinger til/fra ekskluderte nummer i plan nr 1</string>
+<string name="exclude_people_sms_to_plan2_hint">Takser meldinger til/fra ekskluderte nummer i plan nr 2</string>
+<string name="plans">Planer</string>
+<string name="plans_split">Del planer</string>
+<string name="plans_merge">Sammenslå planer</string> 
+<string name="plans_split_hint">Del plan i to separate takseringsplaner.</string>
+<string name="plan1">Plan 1</string>
+<string name="plan2">Plan 2</string>
+<string name="plan1_hint">Huk av tidspunkt for å inkludere samtaler/sms i plan 1. Resten vil gå inn i plan 2.</string>
+<string name="plan_free_">Ingen taksering(gratis)</string>
+<string name="plan_freemin_">Gratis minutter</string>
+<string name="plan_freesms_">Gratis sms</string>
+<string name="free_hint">Helt gratis, ingen taksering</string>
+<string name="freemin_hint">Gratis minutter / Mnd</string>
+<string name="freesms_hint">Gratis SMS / Mnd</string>
+<string name="bill_calls_incoming_">Takser innkommende</string>
+<string name="bill_calls_incoming_hint">Takser innkommende samtaler.</string>
+<string name="bill_sms_incoming_">Takser innkommende</string>
+<string name="bill_sms_incoming_hint">Takser innkommende sms.</string>
+<string name="bill_data_incoming_only_">Takser bare innkommende</string>
+<string name="bill_data_incoming_only_hint">Takser bare innkommende trafikk.</string>
+<string name="cost_per_call_">Oppstartskostnad pr samtale</string>
+<string name="cost_per_call_hint">Hver samtale vil bli tillagt dette.</string>
+<string name="cost_per_minute_">Kostnad pr. minutt</string>
+<string name="cost_per_minute_hint">Hvert minutt av samtalen vil bli tillagt dette.</string>
+<string name="cost_per_sms_">Kostnad pr SMS</string>
+<string name="cost_per_sms_hint">Hver SMS vil bli tillagt med dette.</string>
+<string name="cost_per_mb_">Kostnad pr MB</string>
+<string name="cost_per_mb_hint">Hver MB datatrafikk vil bli tillagt dette.</string>
+<string name="merge_sms_calls_">Sammenslå SMS med samtaler</string>
+<string name="merge_sms_calls_hint">Takser SMS som en del av samtalekostnadene.</string>
+<string name="merge_sms_calls_sec_">Sekunder / SMS</string>
+<string name="merge_sms_calls_sec_hint">Antall sekunder for taksering av en sms.</string>
+<string name="merge_sms_plan1_">Sammenslå SMS i plan 1</string>
+<string name="merge_sms_plan1_hint">Fjern hake for å sammenslå i plan 2.</string>
+<string name="data_hint">WLAN trafikk er ikke medregnet!</string>
+<string name="data_enable_">Vis data statistikk</string>
+<string name="data_enable_hint">Data er registrert i sanntid. Den første måneden kan vise feil!</string>
+<string name="data_each_day">Takser hver dag individuelt</string>
+<string name="data_each_day_hint">Din takseringsperiode starter på nytt hver dag.</string>
+<string name="data_limit_">Grense</string>
+<string name="data_limit_hint">Grense for datatrafikk (MB/mnd)</string>
+<string name="monday">Mandag</string>
+<string name="tuesday">Tirsdag</string>
+<string name="wednesday">Onsdag</string>
+<string name="thursday">Torsdag</string>
+<string name="friday">Fredag</string>
+<string name="saturday">Lørdag</string>
+<string name="sunday">Søndag</string>
+<string name="calls">Samtaler</string>
+<string name="sms">SMS</string>
+<string name="data">Data</string>
+<string name="calls_sms">Samtaler/SMS</string>
+<string name="in_calls">Inn%s:</string>
+<string name="in_sms">Inn%s:</string>
+<string name="in_data">Inn:</string>
+<string name="out_calls">Ut%s:</string>
+<string name="out_sms">Ut%s:</string>
+<string name="out_data">Ut:</string>
+<string name="plan_name1_">Plan 1: navn</string>
+<string name="plan_name2_">Plan 2: navn</string>
+<string name="plan_name_hint">Selvvalgt navn</string>
+<string name="reset_data_">Nullstill statistikk</string>
+<string name="reset_data_hint">Nullstilling av samtaler/sms vil rekalkulere statistikk.\n\nNullstilling av tellere er permanent. Nullstilling gjelder bare samtaler før boot!</string>
+<string name="reset_data_data_">Nullstill datatrafikk også.</string>
+<string name="contacts_">Kontakter</string>
+<string name="debug_">Feilsøking</string>
+<string name="send_logs_">Send logg</string>
+<string name="send_logs_hint">Send din enhets logg til utvikler.\nGjør dette KUN hvis du er bedt om å gjøre det.</string>
+<string name="sendlog_run_">Run SendLog</string>
+<string name="sendlog_run">SendLog vil samle inn enhetens logg og sende den til utvikler. \nDu vil ha mulighet til å se gjennom og gjøre endringer før loggen blir sendt.</string>
+<string name="sendlog_install_">Installer SendLog</string>
+<string name="sendlog_install">Installer SendLog applikasjonen for å samle inn enhetens log og sende den til utvikler.</string>
+<string-array name="themes">
+	<item>Sort</item>
+	<item>Lys</item>
+</string-array>
+<string-array name="tekststørrelse">
+	<item>Liten</item>
+	<item>Medium</item>
+</string-array>
 </resources>
+
