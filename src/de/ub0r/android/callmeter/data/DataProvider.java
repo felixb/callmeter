@@ -43,45 +43,105 @@ public final class DataProvider extends ContentProvider {
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
 	private static final int DATABASE_VERSION = 1;
-	/** Table name for logs. */
-	private static final String TABLE_LOGS = "logs";
-	/** Table name for plans. */
-	private static final String TABLE_PLANS = "plans";
-	/** Table name for rules. */
-	private static final String TABLE_RULES = "rules";
 
-	/** {@link HashMap} for projection. */
-	private static final HashMap<String, String> LOGS_PROJECTION_MAP,
-			PLANS_PROJECTION_MAP, RULES_PROJECTION_MAP;
+	public static final class Logs {
+		/** Table name. */
+		private static final String TABLE = "logs";
+		/** {@link HashMap} for projection. */
+		private static final HashMap<String, String> PROJECTION_MAP;
 
-	// common
-	public static final String _ID = "_id";
-	public static final String _PLAN_ID = "_plan_id";
-	public static final String _RULE_ID = "_rule_id";
-	// logs
-	public static final String _TYPE = "type";
-	public static final String _DIRECTION = "direction";
-	public static final String _AMOUNT = "amount";
-	public static final String _BILL_AMOUNT = "bill_amount";
-	public static final String _REMOTE = "remote";
-	public static final String _ROAMED = "roamed";
-	public static final String _COST = "cost";
-	// plans
-	public static final String _NAME = "name";
-	public static final String _SHORTNAME = "shortname";
-	public static final String _LIMIT_TYPE = "limit_type";
-	public static final String _LIMIT = "limit";
-	public static final String _BILLMODE = "billmode";
-	public static final String _BILLDAY = "billday";
-	public static final String _BILLPERIOD = "billperiod";
-	public static final String _COST_PER_ITEM = "cost_per_item";
-	public static final String _COST_PER_AMOUNT = "cost_per_amount";
-	public static final String _COST_PER_ITEM_IN_LIMIT = "cost_per_item_in_limit";
-	// rules
-	public static final String _NOT = "not";
-	public static final String _WHAT = "what";
-	public static final String _WHAT0 = "what0";
-	public static final String _WHAT1 = "what1";
+		public static final String _ID = "_id";
+		public static final String _PLAN_ID = "_plan_id";
+		public static final String _RULE_ID = "_rule_id";
+		public static final String _TYPE = "type";
+		public static final String _DIRECTION = "direction";
+		public static final String _AMOUNT = "amount";
+		public static final String _BILL_AMOUNT = "bill_amount";
+		public static final String _REMOTE = "remote";
+		public static final String _ROAMED = "roamed";
+		public static final String _COST = "cost";
+
+		/** Content {@link Uri}. */
+		public static final Uri CONTENT_URI = Uri.parse("content://"
+				+ AUTHORITY + "/logs");
+		/**
+		 * The MIME type of {@link #CONTENT_URI} providing a list.
+		 */
+		public static final String CONTENT_TYPE = // .
+		"vnd.android.cursor.dir/vnd.ub0r.log";
+
+		/**
+		 * The MIME type of a {@link #CONTENT_URI} single entry.
+		 */
+		public static final String CONTENT_ITEM_TYPE = // .
+		"vnd.android.cursor.item/vnd.ub0r.log";
+	}
+
+	public static final class Plans {
+		/** Table name. */
+		private static final String TABLE = "plans";
+		/** {@link HashMap} for projection. */
+		private static final HashMap<String, String> PROJECTION_MAP;
+
+		public static final String _ID = "_id";
+		public static final String _NAME = "plan_name";
+		public static final String _SHORTNAME = "shortname";
+		public static final String _LIMIT_TYPE = "limit_type";
+		public static final String _LIMIT = "limit";
+		public static final String _BILLMODE = "billmode";
+		public static final String _BILLDAY = "billday";
+		public static final String _BILLPERIOD = "billperiod";
+		public static final String _COST_PER_ITEM = "cost_per_item";
+		public static final String _COST_PER_AMOUNT = "cost_per_amount";
+		public static final String _COST_PER_ITEM_IN_LIMIT = "cost_per_item_in_limit";
+
+		/** Content {@link Uri}. */
+		public static final Uri CONTENT_URI = Uri.parse("content://"
+				+ AUTHORITY + "/plans");
+		/**
+		 * The MIME type of {@link #CONTENT_URI} providing a list.
+		 */
+		public static final String CONTENT_TYPE = // .
+		"vnd.android.cursor.dir/vnd.ub0r.plan";
+
+		/**
+		 * The MIME type of a {@link #CONTENT_URI} single entry.
+		 */
+		public static final String CONTENT_ITEM_TYPE = // .
+		"vnd.android.cursor.item/vnd.ub0r.plan";
+
+	}
+
+	public static final class Rules {
+		/** Table name. */
+		private static final String TABLE = "rules";
+		/** {@link HashMap} for projection. */
+		private static final HashMap<String, String> PROJECTION_MAP;
+
+		public static final String _ID = "_id";
+		public static final String _PLAN_ID = "_plan_id";
+		public static final String _NAME = "rule_name";
+		public static final String _NOT = "not";
+		public static final String _WHAT = "what";
+		public static final String _WHAT0 = "what0";
+		public static final String _WHAT1 = "what1";
+
+		/** Content {@link Uri}. */
+		public static final Uri CONTENT_URI = Uri.parse("content://"
+				+ AUTHORITY + "/rules");
+		/**
+		 * The MIME type of {@link #CONTENT_URI} providing a list.
+		 */
+		public static final String CONTENT_TYPE = // .
+		"vnd.android.cursor.dir/vnd.ub0r.rule";
+
+		/**
+		 * The MIME type of a {@link #CONTENT_URI} single entry.
+		 */
+		public static final String CONTENT_ITEM_TYPE = // .
+		"vnd.android.cursor.item/vnd.ub0r.rule";
+
+	}
 
 	/** Internal id: logs. */
 	private static final int LOGS = 1;
@@ -99,28 +159,6 @@ public final class DataProvider extends ContentProvider {
 	/** Authority. */
 	public static final String AUTHORITY = "de.ub0r.android.callmeter."
 			+ "provider";
-
-	/** Content {@link Uri} for logs. */
-	public static final Uri LOGS_CONTENT_URI = Uri.parse("content://"
-			+ AUTHORITY + "/logs");
-	/** Content {@link Uri} for plans. */
-	public static final Uri PLANS_CONTENT_URI = Uri.parse("content://"
-			+ AUTHORITY + "/plans");
-	/** Content {@link Uri} for rules. */
-	public static final Uri RULES_CONTENT_URI = Uri.parse("content://"
-			+ AUTHORITY + "/rules");
-
-	/**
-	 * The MIME type of {@link #CONTENT_URI} providing a list of logs.
-	 */
-	public static final String LOGS_CONTENT_TYPE = // .
-	"vnd.android.cursor.dir/vnd.ub0r.log";
-
-	/**
-	 * The MIME type of a {@link #CONTENT_URI} single log entry.
-	 */
-	public static final String LOGS_CONTENT_ITEM_TYPE = // .
-	"vnd.android.cursor.item/vnd.ub0r.log";
 
 	/** {@link UriMatcher}. */
 	private static final UriMatcher URI_MATCHER;
