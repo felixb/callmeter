@@ -75,6 +75,41 @@ public final class DataProvider extends ContentProvider {
 		 */
 		public static final String CONTENT_ITEM_TYPE = // .
 		"vnd.android.cursor.item/vnd.ub0r.log";
+
+		static {
+			PROJECTION_MAP = new HashMap<String, String>();
+			PROJECTION_MAP.put(_ID, _ID);
+			PROJECTION_MAP.put(_PLAN_ID, _PLAN_ID);
+			PROJECTION_MAP.put(_TYPE, _TYPE);
+			PROJECTION_MAP.put(_DIRECTION, _DIRECTION);
+			PROJECTION_MAP.put(_AMOUNT, _AMOUNT);
+			PROJECTION_MAP.put(_BILL_AMOUNT, _BILL_AMOUNT);
+			PROJECTION_MAP.put(_REMOTE, _REMOTE);
+			PROJECTION_MAP.put(_ROAMED, _ROAMED);
+			PROJECTION_MAP.put(_COST, _COST);
+		}
+
+		public static void onCreate(final SQLiteDatabase db) {
+			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("CREATE TABLE " + TABLE + " (" // .
+					+ _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
+					+ _PLAN_ID + " INTEGER," // .
+					+ _TYPE + " INTEGER," // .
+					+ _DIRECTION + " INTEGER," // .
+					+ _AMOUNT + " INTEGER," // .
+					+ _BILL_AMOUNT + " INTEGER," // .
+					+ _REMOTE + " TEXT,"// .
+					+ _ROAMED + " INTEGER," // .
+					+ _COST + " INTEGER"// .
+					+ ");");
+		}
+
+		public static void onUpgrade(final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) {
+			Log.w(TAG, "Upgrading table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
+			onCreate(db);
+		}
 	}
 
 	public static final class Plans {
@@ -110,6 +145,46 @@ public final class DataProvider extends ContentProvider {
 		public static final String CONTENT_ITEM_TYPE = // .
 		"vnd.android.cursor.item/vnd.ub0r.plan";
 
+		static {
+			PROJECTION_MAP = new HashMap<String, String>();
+			PROJECTION_MAP.put(_ID, _ID);
+			PROJECTION_MAP.put(_NAME, _NAME);
+			PROJECTION_MAP.put(_SHORTNAME, _SHORTNAME);
+			PROJECTION_MAP.put(_LIMIT_TYPE, _LIMIT_TYPE);
+			PROJECTION_MAP.put(_LIMIT, _LIMIT);
+			PROJECTION_MAP.put(_BILLMODE, _BILLMODE);
+			PROJECTION_MAP.put(_BILLDAY, _BILLDAY);
+			PROJECTION_MAP.put(_BILLPERIOD, _BILLPERIOD);
+			PROJECTION_MAP.put(_COST_PER_ITEM, _COST_PER_ITEM);
+			PROJECTION_MAP.put(_COST_PER_AMOUNT, _COST_PER_AMOUNT);
+			PROJECTION_MAP
+					.put(_COST_PER_ITEM_IN_LIMIT, _COST_PER_ITEM_IN_LIMIT);
+		}
+
+		public static void onCreate(final SQLiteDatabase db) {
+			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("CREATE TABLE " + TABLE + " (" // .
+					+ _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
+					+ _NAME + " TEXT,"// .
+					+ _SHORTNAME + " TEXT,"// .
+					+ _LIMIT_TYPE + " INTEGER"// .
+					+ _LIMIT + " INTEGER"// .
+					+ _BILLMODE + " TEXT,"// .
+					+ _BILLDAY + " INTEGER"// .
+					+ _BILLPERIOD + " INTEGER"// .
+					+ _COST_PER_ITEM + " INTEGER"// .
+					+ _COST_PER_AMOUNT + " INTEGER"// .
+					+ _COST_PER_ITEM_IN_LIMIT + " INTEGER"// .
+					+ ");");
+		}
+
+		public static void onUpgrade(final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) {
+			Log.w(TAG, "Upgrading table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
+			onCreate(db);
+		}
+
 	}
 
 	public static final class Rules {
@@ -141,6 +216,35 @@ public final class DataProvider extends ContentProvider {
 		public static final String CONTENT_ITEM_TYPE = // .
 		"vnd.android.cursor.item/vnd.ub0r.rule";
 
+		static {
+			PROJECTION_MAP = new HashMap<String, String>();
+			PROJECTION_MAP.put(_ID, _ID);
+			PROJECTION_MAP.put(_PLAN_ID, _PLAN_ID);
+			PROJECTION_MAP.put(_NOT, _NOT);
+			PROJECTION_MAP.put(_WHAT, _WHAT);
+			PROJECTION_MAP.put(_WHAT0, _WHAT0);
+			PROJECTION_MAP.put(_WHAT1, _WHAT1);
+		}
+
+		public static void onCreate(final SQLiteDatabase db) {
+			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("CREATE TABLE " + TABLE + " (" // .
+					+ _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
+					+ _NAME + " TEXT,"// .
+					+ _PLAN_ID + " INTEGER"// .
+					+ _NOT + " INTEGER"// .
+					+ _WHAT + " INTEGER"// .
+					+ _WHAT0 + " INTEGER"// .
+					+ _WHAT1 + " INTEGER"// .
+					+ ");");
+		}
+
+		public static void onUpgrade(final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) {
+			Log.w(TAG, "Upgrading table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
+			onCreate(db);
+		}
 	}
 
 	/** Internal id: logs. */
@@ -172,38 +276,6 @@ public final class DataProvider extends ContentProvider {
 		URI_MATCHER.addURI(AUTHORITY, "rules", RULES);
 		URI_MATCHER.addURI(AUTHORITY, "rules/#", RULES_ID);
 
-		LOGS_PROJECTION_MAP = new HashMap<String, String>();
-		LOGS_PROJECTION_MAP.put(_ID, _ID);
-		LOGS_PROJECTION_MAP.put(_PLAN_ID, _PLAN_ID);
-		LOGS_PROJECTION_MAP.put(_TYPE, _TYPE);
-		LOGS_PROJECTION_MAP.put(_DIRECTION, _DIRECTION);
-		LOGS_PROJECTION_MAP.put(_AMOUNT, _AMOUNT);
-		LOGS_PROJECTION_MAP.put(_BILL_AMOUNT, _BILL_AMOUNT);
-		LOGS_PROJECTION_MAP.put(_REMOTE, _REMOTE);
-		LOGS_PROJECTION_MAP.put(_ROAMED, _ROAMED);
-		LOGS_PROJECTION_MAP.put(_COST, _COST);
-
-		PLANS_PROJECTION_MAP = new HashMap<String, String>();
-		PLANS_PROJECTION_MAP.put(_ID, _ID);
-		PLANS_PROJECTION_MAP.put(_NAME, _NAME);
-		PLANS_PROJECTION_MAP.put(_SHORTNAME, _SHORTNAME);
-		PLANS_PROJECTION_MAP.put(_LIMIT_TYPE, _LIMIT_TYPE);
-		PLANS_PROJECTION_MAP.put(_LIMIT, _LIMIT);
-		PLANS_PROJECTION_MAP.put(_BILLMODE, _BILLMODE);
-		PLANS_PROJECTION_MAP.put(_BILLDAY, _BILLDAY);
-		PLANS_PROJECTION_MAP.put(_BILLPERIOD, _BILLPERIOD);
-		PLANS_PROJECTION_MAP.put(_COST_PER_ITEM, _COST_PER_ITEM);
-		PLANS_PROJECTION_MAP.put(_COST_PER_AMOUNT, _COST_PER_AMOUNT);
-		PLANS_PROJECTION_MAP.put(_COST_PER_ITEM_IN_LIMIT,
-				_COST_PER_ITEM_IN_LIMIT);
-
-		RULES_PROJECTION_MAP = new HashMap<String, String>();
-		RULES_PROJECTION_MAP.put(_ID, _ID);
-		RULES_PROJECTION_MAP.put(_PLAN_ID, _PLAN_ID);
-		RULES_PROJECTION_MAP.put(_NOT, _NOT);
-		RULES_PROJECTION_MAP.put(_WHAT, _WHAT);
-		RULES_PROJECTION_MAP.put(_WHAT0, _WHAT0);
-		RULES_PROJECTION_MAP.put(_WHAT1, _WHAT1);
 	}
 
 	/**
@@ -227,41 +299,9 @@ public final class DataProvider extends ContentProvider {
 		@Override
 		public void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create database");
-			db.execSQL("CREATE TABLE " + TABLE_LOGS + " (" // .
-					+ _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
-					+ _PLAN_ID + " INTEGER," // .
-					+ _TYPE + " INTEGER," // .
-					+ _DIRECTION + " INTEGER," // .
-					+ _AMOUNT + " INTEGER," // .
-					+ _BILL_AMOUNT + " INTEGER," // .
-					+ _REMOTE + " TEXT,"// .
-					+ _ROAMED + " INTEGER," // .
-					+ _COST + " INTEGER"// .
-					+ ");");
-
-			db.execSQL("CREATE TABLE " + TABLE_PLANS + " (" // .
-					+ _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
-					+ _NAME + " TEXT,"// .
-					+ _SHORTNAME + " TEXT,"// .
-					+ _LIMIT_TYPE + " INTEGER"// .
-					+ _LIMIT + " INTEGER"// .
-					+ _BILLMODE + " TEXT,"// .
-					+ _BILLDAY + " INTEGER"// .
-					+ _BILLPERIOD + " INTEGER"// .
-					+ _COST_PER_ITEM + " INTEGER"// .
-					+ _COST_PER_AMOUNT + " INTEGER"// .
-					+ _COST_PER_ITEM_IN_LIMIT + " INTEGER"// .
-					+ ");");
-
-			db.execSQL("CREATE TABLE " + TABLE_RULES + " (" // .
-					+ _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
-					+ _NAME + " TEXT,"// .
-					+ _PLAN_ID + " INTEGER"// .
-					+ _NOT + " INTEGER"// .
-					+ _WHAT + " INTEGER"// .
-					+ _WHAT0 + " INTEGER"// .
-					+ _WHAT1 + " INTEGER"// .
-					+ ");");
+			Logs.onCreate(db);
+			Plans.onCreate(db);
+			Rules.onCreate(db);
 		}
 
 		/**
@@ -272,10 +312,9 @@ public final class DataProvider extends ContentProvider {
 				final int newVersion) {
 			Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
 					+ newVersion + ", which will destroy all old data");
-			db.execSQL("DROP TABLE IF EXISTS " + TABLE_LOGS);
-			db.execSQL("DROP TABLE IF EXISTS " + TABLE_PLANS);
-			db.execSQL("DROP TABLE IF EXISTS " + TABLE_RULES);
-			this.onCreate(db);
+			Logs.onUpgrade(db, oldVersion, newVersion);
+			Plans.onUpgrade(db, oldVersion, newVersion);
+			Rules.onUpgrade(db, oldVersion, newVersion);
 		}
 	}
 
@@ -288,9 +327,9 @@ public final class DataProvider extends ContentProvider {
 	@Override
 	public int delete(final Uri uri, final String selection,
 			final String[] selectionArgs) {
-		if (uri.equals(LOGS_CONTENT_URI)) {
+		if (uri.equals(Logs.CONTENT_URI)) {
 			final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
-			int ret = db.delete(TABLE_LOGS, selection, selectionArgs);
+			int ret = db.delete(Logs.TABLE, selection, selectionArgs);
 			return ret;
 		} else {
 			throw new IllegalArgumentException("method not implemented");
@@ -304,9 +343,9 @@ public final class DataProvider extends ContentProvider {
 	public String getType(final Uri uri) {
 		switch (URI_MATCHER.match(uri)) {
 		case LOGS:
-			return LOGS_CONTENT_TYPE;
+			return Logs.CONTENT_TYPE;
 		case LOGS_ID:
-			return LOGS_CONTENT_ITEM_TYPE;
+			return Logs.CONTENT_ITEM_TYPE;
 		default:
 			throw new IllegalArgumentException("Unknown URI: " + uri);
 		}
@@ -339,15 +378,15 @@ public final class DataProvider extends ContentProvider {
 		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
 
 		SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
-		qb.setTables(TABLE_LOGS);
+		qb.setTables(Logs.TABLE);
 
 		switch (URI_MATCHER.match(uri)) {
 		case LOGS:
-			qb.setProjectionMap(LOGS_PROJECTION_MAP);
+			qb.setProjectionMap(Logs.PROJECTION_MAP);
 			break;
 		case LOGS_ID:
-			qb.setProjectionMap(LOGS_PROJECTION_MAP);
-			qb.appendWhere(_ID + "=" + uri.getPathSegments().get(1));
+			qb.setProjectionMap(Logs.PROJECTION_MAP);
+			qb.appendWhere(Logs._ID + "=" + uri.getPathSegments().get(1));
 			break;
 		default:
 			throw new IllegalArgumentException("Unknown ORIG_URI " + uri);
@@ -385,7 +424,7 @@ public final class DataProvider extends ContentProvider {
 			throw new IllegalArgumentException("method not implemented");
 		}
 		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
-		int ret = db.update(TABLE_LOGS, values, _ID + " = " + tid, null);
+		int ret = db.update(Logs.TABLE, values, Logs._ID + " = " + tid, null);
 		return ret;
 	}
 }
