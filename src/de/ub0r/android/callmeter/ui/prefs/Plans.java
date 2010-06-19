@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2010 Felix Bechstein
+ * Copyright (C) 2010 Felix Bechstein, The Android Open Source Project
  * 
- * This file is part of CallMeter 3G.
+ * This file is part of Call Meter 3G.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -16,28 +16,15 @@
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
-package de.ub0r.android.callmeter.ui;
+package de.ub0r.android.callmeter.ui.prefs;
 
-import android.app.Activity;
-import android.os.Bundle;
-import de.ub0r.android.callmeter.R;
-import de.ub0r.android.callmeter.ui.prefs.Preferences;
+import android.app.ListActivity;
 
 /**
- * Display About {@link Activity}.
+ * {@link ListActivity} for setting plans.
  * 
  * @author flx
  */
-public class About extends Activity {
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		this.setTheme(Preferences.getTheme(this));
-		this.setContentView(R.layout.about);
-		this.setTitle(this.getString(R.string.about_) + " v"
-				+ this.getString(R.string.app_version));
-	}
+public class Plans extends ListActivity {
+
 }

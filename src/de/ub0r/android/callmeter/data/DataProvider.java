@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2010 Felix Bechstein, The Android Open Source Project
  * 
- * This file is part of SMSdroid.
+ * This file is part of Call Meter 3G.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -44,22 +44,56 @@ public final class DataProvider extends ContentProvider {
 	/** Version of the {@link SQLiteDatabase}. */
 	private static final int DATABASE_VERSION = 1;
 
+	/** Type of log: mixed. */
+	public static final int TYPE_MIXED = -1;
+	/** Type of log: title. */
+	public static final int TYPE_TITLE = -2;
+	/** Type of log: spacing. */
+	public static final int TYPE_SPACING = -3;
+	/** Type of log: call. */
+	public static final int TYPE_CALL = 1;
+	/** Type of log: sms. */
+	public static final int TYPE_SMS = 2;
+	/** Type of log: mms. */
+	public static final int TYPE_MMS = 3;
+	/** Type of log: data. */
+	public static final int TYPE_DATA = 4;
+
+	/**
+	 * Logs.
+	 * 
+	 * @author flx
+	 */
 	public static final class Logs {
 		/** Table name. */
 		private static final String TABLE = "logs";
 		/** {@link HashMap} for projection. */
 		private static final HashMap<String, String> PROJECTION_MAP;
 
-		public static final String _ID = "_id";
-		public static final String _PLAN_ID = "_plan_id";
-		public static final String _RULE_ID = "_rule_id";
-		public static final String _TYPE = "type";
-		public static final String _DIRECTION = "direction";
-		public static final String _AMOUNT = "amount";
-		public static final String _BILL_AMOUNT = "bill_amount";
-		public static final String _REMOTE = "remote";
-		public static final String _ROAMED = "roamed";
-		public static final String _COST = "cost";
+		/** ID. */
+		public static final String ID = "_id";
+		/** ID of plan this log is billed in. */
+		public static final String PLAN_ID = "_plan_id";
+		/** ID of rule this log was matched. */
+		public static final String RULE_ID = "_rule_id";
+		/** Type of log. */
+		public static final String TYPE = "type";
+		/** Direction of log. */
+		public static final String DIRECTION = "direction";
+		/** Direction of log: in. */
+		public static final int DIRECTION_IN = 1;
+		/** Direction of log: out. */
+		public static final int DIRECTION_OUT = 2;
+		/** Amount. */
+		public static final String AMOUNT = "amount";
+		/** Billed amount. */
+		public static final String BILL_AMOUNT = "bill_amount";
+		/** Remote part. */
+		public static final String REMOTE = "remote";
+		/** Roamed? */
+		public static final String ROAMED = "roamed";
+		/** Cost. */
+		public static final String COST = "cost";
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -78,32 +112,48 @@ public final class DataProvider extends ContentProvider {
 
 		static {
 			PROJECTION_MAP = new HashMap<String, String>();
-			PROJECTION_MAP.put(_ID, _ID);
-			PROJECTION_MAP.put(_PLAN_ID, _PLAN_ID);
-			PROJECTION_MAP.put(_TYPE, _TYPE);
-			PROJECTION_MAP.put(_DIRECTION, _DIRECTION);
-			PROJECTION_MAP.put(_AMOUNT, _AMOUNT);
-			PROJECTION_MAP.put(_BILL_AMOUNT, _BILL_AMOUNT);
-			PROJECTION_MAP.put(_REMOTE, _REMOTE);
-			PROJECTION_MAP.put(_ROAMED, _ROAMED);
-			PROJECTION_MAP.put(_COST, _COST);
+			PROJECTION_MAP.put(ID, ID);
+			PROJECTION_MAP.put(PLAN_ID, PLAN_ID);
+			PROJECTION_MAP.put(TYPE, TYPE);
+			PROJECTION_MAP.put(DIRECTION, DIRECTION);
+			PROJECTION_MAP.put(AMOUNT, AMOUNT);
+			PROJECTION_MAP.put(BILL_AMOUNT, BILL_AMOUNT);
+			PROJECTION_MAP.put(REMOTE, REMOTE);
+			PROJECTION_MAP.put(ROAMED, ROAMED);
+			PROJECTION_MAP.put(COST, COST);
 		}
 
+		/**
+		 * Create table in {@link SQLiteDatabase}.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 */
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
-					+ _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
-					+ _PLAN_ID + " INTEGER," // .
-					+ _TYPE + " INTEGER," // .
-					+ _DIRECTION + " INTEGER," // .
-					+ _AMOUNT + " INTEGER," // .
-					+ _BILL_AMOUNT + " INTEGER," // .
-					+ _REMOTE + " TEXT,"// .
-					+ _ROAMED + " INTEGER," // .
-					+ _COST + " INTEGER"// .
+					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
+					+ PLAN_ID + " INTEGER," // .
+					+ TYPE + " INTEGER," // .
+					+ DIRECTION + " INTEGER," // .
+					+ AMOUNT + " INTEGER," // .
+					+ BILL_AMOUNT + " INTEGER," // .
+					+ REMOTE + " TEXT,"// .
+					+ ROAMED + " INTEGER," // .
+					+ COST + " INTEGER"// .
 					+ ");");
 		}
 
+		/**
+		 * Upgrade table.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 * @param oldVersion
+		 *            old version
+		 * @param newVersion
+		 *            new version
+		 */
 		public static void onUpgrade(final SQLiteDatabase db,
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
@@ -112,23 +162,44 @@ public final class DataProvider extends ContentProvider {
 		}
 	}
 
+	/**
+	 * Plans.
+	 * 
+	 * @author flx
+	 */
 	public static final class Plans {
 		/** Table name. */
 		private static final String TABLE = "plans";
 		/** {@link HashMap} for projection. */
 		private static final HashMap<String, String> PROJECTION_MAP;
 
-		public static final String _ID = "_id";
-		public static final String _NAME = "plan_name";
-		public static final String _SHORTNAME = "shortname";
-		public static final String _LIMIT_TYPE = "limit_type";
-		public static final String _LIMIT = "limit";
-		public static final String _BILLMODE = "billmode";
-		public static final String _BILLDAY = "billday";
-		public static final String _BILLPERIOD = "billperiod";
-		public static final String _COST_PER_ITEM = "cost_per_item";
-		public static final String _COST_PER_AMOUNT = "cost_per_amount";
-		public static final String _COST_PER_ITEM_IN_LIMIT = "cost_per_item_in_limit";
+		/** ID. */
+		public static final String ID = "_id";
+		/** Name. */
+		public static final String NAME = "plan_name";
+		/** Short name. */
+		public static final String SHORTNAME = "shortname";
+		/** Type of log. */
+		public static final String TYPE = "plan_type";
+		/** Type of limit. */
+		public static final String LIMIT_TYPE = "limit_type";
+		/** Limit. */
+		public static final String LIMIT = "limit";
+		/** Billmode. */
+		public static final String BILLMODE = "billmode";
+		/** Billday. */
+		public static final String BILLDAY = "billday";
+		/** Billperiod. */
+		public static final String BILLPERIOD = "billperiod";
+		/** Cost per item. */
+		public static final String COST_PER_ITEM = "cost_per_item";
+		/** Cost per amount. */
+		public static final String COST_PER_AMOUNT = "cost_per_amount";
+		/** Cost per item in limit. */
+		public static final String COST_PER_ITEM_IN_LIMIT = // .
+		"cost_per_item_in_limit";
+		/** Cost per plan. */
+		public static final String COST_PER_PLAN = "cost_per_plan";
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -147,37 +218,79 @@ public final class DataProvider extends ContentProvider {
 
 		static {
 			PROJECTION_MAP = new HashMap<String, String>();
-			PROJECTION_MAP.put(_ID, _ID);
-			PROJECTION_MAP.put(_NAME, _NAME);
-			PROJECTION_MAP.put(_SHORTNAME, _SHORTNAME);
-			PROJECTION_MAP.put(_LIMIT_TYPE, _LIMIT_TYPE);
-			PROJECTION_MAP.put(_LIMIT, _LIMIT);
-			PROJECTION_MAP.put(_BILLMODE, _BILLMODE);
-			PROJECTION_MAP.put(_BILLDAY, _BILLDAY);
-			PROJECTION_MAP.put(_BILLPERIOD, _BILLPERIOD);
-			PROJECTION_MAP.put(_COST_PER_ITEM, _COST_PER_ITEM);
-			PROJECTION_MAP.put(_COST_PER_AMOUNT, _COST_PER_AMOUNT);
-			PROJECTION_MAP
-					.put(_COST_PER_ITEM_IN_LIMIT, _COST_PER_ITEM_IN_LIMIT);
+			PROJECTION_MAP.put(ID, ID);
+			PROJECTION_MAP.put(NAME, NAME);
+			PROJECTION_MAP.put(SHORTNAME, SHORTNAME);
+			PROJECTION_MAP.put(LIMIT_TYPE, LIMIT_TYPE);
+			PROJECTION_MAP.put(LIMIT, LIMIT);
+			PROJECTION_MAP.put(BILLMODE, BILLMODE);
+			PROJECTION_MAP.put(BILLDAY, BILLDAY);
+			PROJECTION_MAP.put(BILLPERIOD, BILLPERIOD);
+			PROJECTION_MAP.put(COST_PER_ITEM, COST_PER_ITEM);
+			PROJECTION_MAP.put(COST_PER_AMOUNT, COST_PER_AMOUNT);
+			PROJECTION_MAP.put(COST_PER_ITEM_IN_LIMIT, COST_PER_ITEM_IN_LIMIT);
 		}
 
+		/**
+		 * Create table in {@link SQLiteDatabase}.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 */
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
-					+ _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
-					+ _NAME + " TEXT,"// .
-					+ _SHORTNAME + " TEXT,"// .
-					+ _LIMIT_TYPE + " INTEGER"// .
-					+ _LIMIT + " INTEGER"// .
-					+ _BILLMODE + " TEXT,"// .
-					+ _BILLDAY + " INTEGER"// .
-					+ _BILLPERIOD + " INTEGER"// .
-					+ _COST_PER_ITEM + " INTEGER"// .
-					+ _COST_PER_AMOUNT + " INTEGER"// .
-					+ _COST_PER_ITEM_IN_LIMIT + " INTEGER"// .
+					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
+					+ NAME + " TEXT,"// .
+					+ SHORTNAME + " TEXT,"// .
+					+ LIMIT_TYPE + " INTEGER"// .
+					+ LIMIT + " INTEGER"// .
+					+ BILLMODE + " TEXT,"// .
+					+ BILLDAY + " INTEGER"// .
+					+ BILLPERIOD + " INTEGER"// .
+					+ COST_PER_ITEM + " INTEGER"// .
+					+ COST_PER_AMOUNT + " INTEGER"// .
+					+ COST_PER_ITEM_IN_LIMIT + " INTEGER"// .
 					+ ");");
+			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
+					+ "," + TYPE + ") VALUES ('Calls', 'Calls', " + TYPE_TITLE
+					+ ")");
+			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
+					+ "," + TYPE + ") VALUES ('Calls', 'Calls', " + TYPE_CALL
+					+ ")");
+			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
+					+ "," + TYPE + ") VALUES ('space', '-', " + TYPE_SPACING
+					+ ")");
+			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
+					+ "," + TYPE + ") VALUES ('SMS', 'SMS', " + TYPE_TITLE
+					+ ")");
+			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
+					+ "," + TYPE + ") VALUES ('SMS in', 'In', " + TYPE_SMS
+					+ ")");
+			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
+					+ "," + TYPE + ") VALUES ('SMS out', 'Out', " + TYPE_SMS
+					+ ")");
+			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
+					+ "," + TYPE + ") VALUES ('space', '-', " + TYPE_SPACING
+					+ ")");
+			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
+					+ "," + TYPE + ") VALUES ('Data/UMTS', 'Data', "
+					+ TYPE_TITLE + ")");
+			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
+					+ "," + TYPE + ") VALUES ('Data', 'Data', " + TYPE_DATA
+					+ ")");
 		}
 
+		/**
+		 * Upgrade table.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 * @param oldVersion
+		 *            old version
+		 * @param newVersion
+		 *            new version
+		 */
 		public static void onUpgrade(final SQLiteDatabase db,
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
@@ -187,19 +300,31 @@ public final class DataProvider extends ContentProvider {
 
 	}
 
+	/**
+	 * Rules.
+	 * 
+	 * @author flx
+	 */
 	public static final class Rules {
 		/** Table name. */
 		private static final String TABLE = "rules";
 		/** {@link HashMap} for projection. */
 		private static final HashMap<String, String> PROJECTION_MAP;
 
-		public static final String _ID = "_id";
-		public static final String _PLAN_ID = "_plan_id";
-		public static final String _NAME = "rule_name";
-		public static final String _NOT = "not";
-		public static final String _WHAT = "what";
-		public static final String _WHAT0 = "what0";
-		public static final String _WHAT1 = "what1";
+		/** ID. */
+		public static final String ID = "_id";
+		/** ID of plan referred by this rule. */
+		public static final String PLAN_ID = "_plan_id";
+		/** Name. */
+		public static final String NAME = "rule_name";
+		/** Negate rule? */
+		public static final String NOT = "not";
+		/** Kind of rule. */
+		public static final String WHAT = "what";
+		/** Target 0. */
+		public static final String WHAT0 = "what0";
+		/** Target 1. */
+		public static final String WHAT1 = "what1";
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -218,27 +343,43 @@ public final class DataProvider extends ContentProvider {
 
 		static {
 			PROJECTION_MAP = new HashMap<String, String>();
-			PROJECTION_MAP.put(_ID, _ID);
-			PROJECTION_MAP.put(_PLAN_ID, _PLAN_ID);
-			PROJECTION_MAP.put(_NOT, _NOT);
-			PROJECTION_MAP.put(_WHAT, _WHAT);
-			PROJECTION_MAP.put(_WHAT0, _WHAT0);
-			PROJECTION_MAP.put(_WHAT1, _WHAT1);
+			PROJECTION_MAP.put(ID, ID);
+			PROJECTION_MAP.put(PLAN_ID, PLAN_ID);
+			PROJECTION_MAP.put(NOT, NOT);
+			PROJECTION_MAP.put(WHAT, WHAT);
+			PROJECTION_MAP.put(WHAT0, WHAT0);
+			PROJECTION_MAP.put(WHAT1, WHAT1);
 		}
 
+		/**
+		 * Create table in {@link SQLiteDatabase}.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 */
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
-					+ _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
-					+ _NAME + " TEXT,"// .
-					+ _PLAN_ID + " INTEGER"// .
-					+ _NOT + " INTEGER"// .
-					+ _WHAT + " INTEGER"// .
-					+ _WHAT0 + " INTEGER"// .
-					+ _WHAT1 + " INTEGER"// .
+					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
+					+ NAME + " TEXT,"// .
+					+ PLAN_ID + " INTEGER"// .
+					+ NOT + " INTEGER"// .
+					+ WHAT + " INTEGER"// .
+					+ WHAT0 + " INTEGER"// .
+					+ WHAT1 + " INTEGER"// .
 					+ ");");
 		}
 
+		/**
+		 * Upgrade table.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 * @param oldVersion
+		 *            old version
+		 * @param newVersion
+		 *            new version
+		 */
 		public static void onUpgrade(final SQLiteDatabase db,
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
@@ -346,6 +487,14 @@ public final class DataProvider extends ContentProvider {
 			return Logs.CONTENT_TYPE;
 		case LOGS_ID:
 			return Logs.CONTENT_ITEM_TYPE;
+		case PLANS:
+			return Plans.CONTENT_TYPE;
+		case PLANS_ID:
+			return Plans.CONTENT_ITEM_TYPE;
+		case RULES:
+			return Rules.CONTENT_TYPE;
+		case RULES_ID:
+			return Rules.CONTENT_ITEM_TYPE;
 		default:
 			throw new IllegalArgumentException("Unknown URI: " + uri);
 		}
@@ -378,15 +527,25 @@ public final class DataProvider extends ContentProvider {
 		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
 
 		SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
-		qb.setTables(Logs.TABLE);
 
 		switch (URI_MATCHER.match(uri)) {
+		case LOGS_ID:
+			qb.appendWhere(Logs.ID + "=" + uri.getPathSegments().get(1));
 		case LOGS:
+			qb.setTables(Logs.TABLE);
 			qb.setProjectionMap(Logs.PROJECTION_MAP);
 			break;
-		case LOGS_ID:
-			qb.setProjectionMap(Logs.PROJECTION_MAP);
-			qb.appendWhere(Logs._ID + "=" + uri.getPathSegments().get(1));
+		case PLANS_ID:
+			qb.appendWhere(Plans.ID + "=" + uri.getPathSegments().get(1));
+		case PLANS:
+			qb.setTables(Plans.TABLE);
+			qb.setProjectionMap(Plans.PROJECTION_MAP);
+			break;
+		case RULES_ID:
+			qb.appendWhere(Rules.ID + "=" + uri.getPathSegments().get(1));
+		case RULES:
+			qb.setTables(Rules.TABLE);
+			qb.setProjectionMap(Rules.PROJECTION_MAP);
 			break;
 		default:
 			throw new IllegalArgumentException("Unknown ORIG_URI " + uri);
@@ -416,15 +575,6 @@ public final class DataProvider extends ContentProvider {
 	@Override
 	public int update(final Uri uri, final ContentValues values,
 			final String selection, final String[] selectionArgs) {
-		int tid = -1;
-		try {
-			tid = Integer.parseInt(uri.getLastPathSegment());
-		} catch (NumberFormatException e) {
-			Log.e(TAG, "not a number: " + uri, e);
-			throw new IllegalArgumentException("method not implemented");
-		}
-		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
-		int ret = db.update(Logs.TABLE, values, Logs._ID + " = " + tid, null);
-		return ret;
+		throw new IllegalArgumentException("method not implemented");
 	}
 }

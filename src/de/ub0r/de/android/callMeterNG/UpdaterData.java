@@ -29,9 +29,11 @@ import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.Device;
 import de.ub0r.android.callmeter.data.SysClassNet;
+import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.lib.Log;
 
 /**
@@ -106,7 +108,7 @@ public class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 	/** Context to use. */
 	private final Context context;
 	/** Ref to CallMeter instance. */
-	private final CallMeter callmeter;
+	private final Plans callmeter;
 	/** Run updates on GUI. */
 	private final boolean updateGUI;
 
@@ -119,11 +121,11 @@ public class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 	 * @param c
 	 *            {@link Context}
 	 */
-	UpdaterData(final Context c) {
+	public UpdaterData(final Context c) {
 		this.context = c;
 		if (c != null && c instanceof CallMeter) {
 			this.updateGUI = true;
-			this.callmeter = (CallMeter) c;
+			this.callmeter = (Plans) c;
 		} else {
 			this.updateGUI = false;
 			this.callmeter = null;

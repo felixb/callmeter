@@ -35,7 +35,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.apis.TelephonyWrapper;
 import de.ub0r.de.android.callMeterNG.ExcludePeople.ExcludedPerson;
@@ -252,7 +254,7 @@ public class Updater extends AsyncTask<Void, Void, Integer[]> {
 	/** Context to use. */
 	private final Context context;
 	/** Ref to CallMeter instance. */
-	private final CallMeter callmeter;
+	private final Plans callmeter;
 	/** Run updates on GUI. */
 	private final boolean updateGUI;
 
@@ -275,7 +277,7 @@ public class Updater extends AsyncTask<Void, Void, Integer[]> {
 		if (c instanceof CallMeter) {
 			Log.d(TAG, "running in foreground");
 			this.updateGUI = true;
-			this.callmeter = (CallMeter) c;
+			this.callmeter = (Plans) c;
 		} else {
 			Log.d(TAG, "running in background");
 			this.updateGUI = false;
@@ -1530,8 +1532,7 @@ public class Updater extends AsyncTask<Void, Void, Integer[]> {
 
 		if (this.updateGUI) {
 			// FIXME
-			((CallMeter) this.context)
-					.setProgressBarIndeterminateVisibility(false);
+			((Plans) this.context).setProgressBarIndeterminateVisibility(false);
 		}
 	}
 

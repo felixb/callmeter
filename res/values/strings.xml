@@ -53,6 +53,7 @@
 	<string name="feedback_hint">Report bugs, request features ...</string>
 	<string name="twitter_hint">Follow me on twitter.\nGet update notifications etc.</string>
 	<string name="more_">More Apps..</string>
+	<string name="billing_">Billing</string>
 	<string name="billday_">First day of your bill</string>
 	<string name="billmode_">Mode of billing</string>
 	<string name="billmode_hint">Length of first/following billing intervals.</string>
@@ -81,6 +82,9 @@
 	<string name="exclude_people_sms_to_plan1_hint">Bill messages to/from excluded numbers in plan #1</string>
 	<string name="exclude_people_sms_to_plan2_hint">Bill messages to/from excluded numbers in plan #2</string>
 	<string name="plans">Plans</string>
+	<string name="plans_hint">Set your plans for all kind of billing here.</string>
+	<string name="rules">Rules</string>
+	<string name="rules_hint">Set your billing rules here.</string>
 	<string name="plans_split">Split plans</string>
 	<string name="plans_merge">Merge plans</string>
 	<string name="plans_split_hint">Split plan into two different billed plans.</string>

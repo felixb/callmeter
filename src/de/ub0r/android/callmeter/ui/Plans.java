@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2010 Felix Bechstein
+ * Copyright (C) 2010 Felix Bechstein, The Android Open Source Project
  * 
- * This file is part of Call Meter NG.
+ * This file is part of Call Meter 3G.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -16,11 +16,11 @@
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
-package de.ub0r.de.android.callMeterNG;
+package de.ub0r.android.callmeter.ui;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,41 +31,34 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.ListView;
 import android.widget.TextView;
 import de.ub0r.android.callmeter.CMBroadcastReceiver;
 import de.ub0r.android.callmeter.R;
-import de.ub0r.android.callmeter.ui.Preferences;
+import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DonationHelper;
 
 /**
- * The main Activity, holding all data.
+ * Callmeter's Main {@link ListActivity}.
  * 
  * @author flx
  */
-public class CallMeter extends Activity {
+public class Plans extends ListActivity {
 	/** Tag for output. */
 	public static final String TAG = "main";
-
-	/** Flurry's API key. */
-	public static final String FLURRYKEY = "DF1BECT8IJDIJ82NA3S8";
-
-	/** 100. */
-	static final int HUNDRET = 100;
-
 	/** Dialog: update. */
 	private static final int DIALOG_UPDATE = 0;
 
 	/** Prefs: name for last version run. */
 	private static final String PREFS_LAST_RUN = "lastrun";
 
-	/** SharedPreferences. */
-	private SharedPreferences preferences;
-
 	/** Display ads? */
 	private static boolean prefsNoAds;
 
-	/** Path to file containing signatures of UID Hash. */
-	private static final String NOADS_SIGNATURES = "/sdcard/callmeter.noads";
+	/** SharedPreferences. */
+	private SharedPreferences preferences;
+	/** Plans. */
+	private PlanAdapter adapter = null;
 
 	/**
 	 * {@inheritDoc}
@@ -75,7 +68,7 @@ public class CallMeter extends Activity {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		this.setTheme(Preferences.getTheme(this));
-		this.setContentView(R.layout.main);
+		this.setContentView(R.layout.plans);
 		// get prefs.
 		this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		String v0 = this.preferences.getString(PREFS_LAST_RUN, "");
@@ -92,6 +85,12 @@ public class CallMeter extends Activity {
 		Preferences.textSizeMedium = tv.getTextSize();
 		tv = (TextView) this.findViewById(R.id.calls1_in_);
 		Preferences.textSizeSmall = tv.getTextSize();
+
+		final ListView list = this.getListView();
+		this.adapter = new PlanAdapter(this);
+		this.setListAdapter(this.adapter);
+		// list.setOnItemClickListener(this);
+		// list.setOnItemLongClickListener(this);
 	}
 
 	/**
@@ -104,9 +103,9 @@ public class CallMeter extends Activity {
 			this.findViewById(R.id.ad).setVisibility(View.VISIBLE);
 		}
 		// get call/sms stats
-		new Updater(this).execute((Void[]) null);
+		// new Updater(this).execute((Void[]) null);
 		// get data stats
-		new UpdaterData(this).execute((Void[]) null);
+		// new UpdaterData(this).execute((Void[]) null);
 		// schedule next update
 		CMBroadcastReceiver.schedNext(this);
 	}

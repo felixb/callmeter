@@ -25,9 +25,12 @@ import de.ub0r.android.lib.Log;
  * @author flx
  */
 public final class CallMeter extends Application {
+	/** 100. */
+	public static final int HUNDRET = 100;
+
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		Log.init("CallMeterNG");
+		Log.init("CallMeter3G");
 	}
 }
