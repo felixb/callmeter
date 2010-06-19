@@ -42,7 +42,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 2;
 
 	/** Type of log: mixed. */
 	public static final int TYPE_MIXED = -1;
@@ -58,6 +58,10 @@ public final class DataProvider extends ContentProvider {
 	public static final int TYPE_MMS = 3;
 	/** Type of log: data. */
 	public static final int TYPE_DATA = 4;
+	/** Direction of log: in. */
+	public static final int DIRECTION_IN = 1;
+	/** Direction of log: out. */
+	public static final int DIRECTION_OUT = 2;
 
 	/**
 	 * Logs.
@@ -70,6 +74,27 @@ public final class DataProvider extends ContentProvider {
 		/** {@link HashMap} for projection. */
 		private static final HashMap<String, String> PROJECTION_MAP;
 
+		/** Index in projection: ID. */
+		public static final int INDEX_ID = 0;
+		/** Index in projection: ID of plan this log is billed in. */
+		public static final int INDEX_PLAN_ID = 1;
+		/** Index in projection: ID of rule this log was matched. */
+		public static final int INDEX_RULE_ID = 2;
+		/** Index in projection: Type of log. */
+		public static final int INDEX_TYPE = 3;
+		/** Index in projection: Direction of log. */
+		public static final int INDEX_DIRECTION = 4;
+		/** Index in projection: Amount. */
+		public static final int INDEX_AMOUNT = 5;
+		/** Index in projection: Billed amount. */
+		public static final int INDEX_BILL_AMOUNT = 6;
+		/** Index in projection: Remote part. */
+		public static final int INDEX_REMOTE = 7;
+		/** Index in projection: Roamed? */
+		public static final int INDEX_ROAMED = 8;
+		/** Index in projection: Cost. */
+		public static final int INDEX_COST = 9;
+
 		/** ID. */
 		public static final String ID = "_id";
 		/** ID of plan this log is billed in. */
@@ -77,23 +102,24 @@ public final class DataProvider extends ContentProvider {
 		/** ID of rule this log was matched. */
 		public static final String RULE_ID = "_rule_id";
 		/** Type of log. */
-		public static final String TYPE = "type";
+		public static final String TYPE = "_type";
 		/** Direction of log. */
-		public static final String DIRECTION = "direction";
-		/** Direction of log: in. */
-		public static final int DIRECTION_IN = 1;
-		/** Direction of log: out. */
-		public static final int DIRECTION_OUT = 2;
+		public static final String DIRECTION = "_direction";
 		/** Amount. */
-		public static final String AMOUNT = "amount";
+		public static final String AMOUNT = "_amount";
 		/** Billed amount. */
-		public static final String BILL_AMOUNT = "bill_amount";
+		public static final String BILL_AMOUNT = "_bill_amount";
 		/** Remote part. */
-		public static final String REMOTE = "remote";
+		public static final String REMOTE = "_remote";
 		/** Roamed? */
-		public static final String ROAMED = "roamed";
+		public static final String ROAMED = "_roamed";
 		/** Cost. */
-		public static final String COST = "cost";
+		public static final String COST = "_cost";
+
+		/** Projection used for query. */
+		public static final String[] PROJECTION = new String[] { ID, PLAN_ID,
+				RULE_ID, TYPE, DIRECTION, AMOUNT, BILL_AMOUNT, REMOTE, ROAMED,
+				COST };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -160,6 +186,11 @@ public final class DataProvider extends ContentProvider {
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			onCreate(db);
 		}
+
+		/** Default constructor. */
+		private Logs() {
+			// nothing here.
+		}
 	}
 
 	/**
@@ -173,33 +204,70 @@ public final class DataProvider extends ContentProvider {
 		/** {@link HashMap} for projection. */
 		private static final HashMap<String, String> PROJECTION_MAP;
 
+		/** Index in projection: id. */
+		public static final int INDEX_ID = 0;
+		/** Index in projection: order. */
+		public static final int INDE_ORDER = 1;
+		/** Index in projection: name. */
+		public static final int INDEX_NAME = 2;
+		/** Index in projection: short name. */
+		public static final int INDEX_SHORTNAME = 3;
+		/** Index in projection: type. */
+		public static final int INDEX_TYPE = 4;
+		/** Index in projection:Type of limit. */
+		public static final int INDEX_LIMIT_TYPE = 5;
+		/** Index in projection:Limit. */
+		public static final int INDEX_LIMIT = 6;
+		/** Index in projection:Billmode. */
+		public static final int INDEX_BILLMODE = 7;
+		/** Index in projection:Billday. */
+		public static final int INDEX_BILLDAY = 8;
+		/** Index in projection:Billperiod. */
+		public static final int INDEX_BILLPERIOD = 9;
+		/** Index in projection:Cost per item. */
+		public static final int INDEX_COST_PER_ITEM = 10;
+		/** Index in projection:Cost per amount. */
+		public static final int INDEX_COST_PER_AMOUNT = 11;
+		/** Index in projection:Cost per item in limit. */
+		public static final int INDEX_COST_PER_ITEM_IN_LIMIT = 12;
+		/** Index in projection:Cost per plan. */
+		public static final int INDEX_COST_PER_PLAN = 13;
+
 		/** ID. */
 		public static final String ID = "_id";
+		/** Order. */
+		public static final String ORDER = "_order";
 		/** Name. */
-		public static final String NAME = "plan_name";
+		public static final String NAME = "_plan_name";
 		/** Short name. */
-		public static final String SHORTNAME = "shortname";
+		public static final String SHORTNAME = "_shortname";
 		/** Type of log. */
-		public static final String TYPE = "plan_type";
+		public static final String TYPE = "_plan_type";
 		/** Type of limit. */
-		public static final String LIMIT_TYPE = "limit_type";
+		public static final String LIMIT_TYPE = "_limit_type";
 		/** Limit. */
-		public static final String LIMIT = "limit";
+		public static final String LIMIT = "_limit";
 		/** Billmode. */
-		public static final String BILLMODE = "billmode";
+		public static final String BILLMODE = "_billmode";
 		/** Billday. */
-		public static final String BILLDAY = "billday";
+		public static final String BILLDAY = "_billday";
 		/** Billperiod. */
-		public static final String BILLPERIOD = "billperiod";
+		public static final String BILLPERIOD = "_billperiod";
 		/** Cost per item. */
-		public static final String COST_PER_ITEM = "cost_per_item";
+		public static final String COST_PER_ITEM = "_cost_per_item";
 		/** Cost per amount. */
-		public static final String COST_PER_AMOUNT = "cost_per_amount";
+		public static final String COST_PER_AMOUNT = "_cost_per_amount";
 		/** Cost per item in limit. */
 		public static final String COST_PER_ITEM_IN_LIMIT = // .
-		"cost_per_item_in_limit";
+		"_cost_per_item_in_limit";
 		/** Cost per plan. */
-		public static final String COST_PER_PLAN = "cost_per_plan";
+		public static final String COST_PER_PLAN = "_cost_per_plan";
+
+		/** Projection used for query. */
+		public static final String[] PROJECTION = new String[] { ID, ORDER,
+				NAME, SHORTNAME, TYPE, LIMIT_TYPE, LIMIT, BILLMODE, BILLDAY,
+				BILLPERIOD, COST_PER_ITEM, COST_PER_AMOUNT,
+				COST_PER_ITEM_IN_LIMIT, COST_PER_PLAN };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -219,8 +287,10 @@ public final class DataProvider extends ContentProvider {
 		static {
 			PROJECTION_MAP = new HashMap<String, String>();
 			PROJECTION_MAP.put(ID, ID);
+			PROJECTION_MAP.put(ORDER, ORDER);
 			PROJECTION_MAP.put(NAME, NAME);
 			PROJECTION_MAP.put(SHORTNAME, SHORTNAME);
+			PROJECTION_MAP.put(TYPE, TYPE);
 			PROJECTION_MAP.put(LIMIT_TYPE, LIMIT_TYPE);
 			PROJECTION_MAP.put(LIMIT, LIMIT);
 			PROJECTION_MAP.put(BILLMODE, BILLMODE);
@@ -229,6 +299,7 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(COST_PER_ITEM, COST_PER_ITEM);
 			PROJECTION_MAP.put(COST_PER_AMOUNT, COST_PER_AMOUNT);
 			PROJECTION_MAP.put(COST_PER_ITEM_IN_LIMIT, COST_PER_ITEM_IN_LIMIT);
+			PROJECTION_MAP.put(COST_PER_PLAN, COST_PER_PLAN);
 		}
 
 		/**
@@ -241,16 +312,19 @@ public final class DataProvider extends ContentProvider {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
 					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
+					+ ORDER + " INTEGER," // .
 					+ NAME + " TEXT,"// .
 					+ SHORTNAME + " TEXT,"// .
-					+ LIMIT_TYPE + " INTEGER"// .
-					+ LIMIT + " INTEGER"// .
+					+ TYPE + " TEXT, " // .
+					+ LIMIT_TYPE + " INTEGER,"// .
+					+ LIMIT + " INTEGER,"// .
 					+ BILLMODE + " TEXT,"// .
-					+ BILLDAY + " INTEGER"// .
-					+ BILLPERIOD + " INTEGER"// .
-					+ COST_PER_ITEM + " INTEGER"// .
-					+ COST_PER_AMOUNT + " INTEGER"// .
-					+ COST_PER_ITEM_IN_LIMIT + " INTEGER"// .
+					+ BILLDAY + " INTEGER,"// .
+					+ BILLPERIOD + " INTEGER,"// .
+					+ COST_PER_ITEM + " FLOAT,"// .
+					+ COST_PER_AMOUNT + " FLOAT,"// .
+					+ COST_PER_ITEM_IN_LIMIT + " FLOAT,"// .
+					+ COST_PER_PLAN + " FLOAT" // .
 					+ ");");
 			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
 					+ "," + TYPE + ") VALUES ('Calls', 'Calls', " + TYPE_TITLE
@@ -298,6 +372,10 @@ public final class DataProvider extends ContentProvider {
 			onCreate(db);
 		}
 
+		/** Default constructor. */
+		private Plans() {
+			// nothing here.
+		}
 	}
 
 	/**
@@ -311,20 +389,43 @@ public final class DataProvider extends ContentProvider {
 		/** {@link HashMap} for projection. */
 		private static final HashMap<String, String> PROJECTION_MAP;
 
+		/** Index in projection: id. */
+		public static final int INDEX_ID = 0;
+		/** Index in projection: order. */
+		public static final int INDE_ORDER = 1;
+		/** Index in projection: ID of plan referred by this rule. */
+		public static final int INDEX_PLAN_ID = 2;
+		/** Index in projection: Name. */
+		public static final int INDEX_NAME = 3;
+		/** Index in projection: Negate rule? */
+		public static final int INDEX_NOT = 4;
+		/** Index in projection: Kind of rule. */
+		public static final int INDEX_WHAT = 5;
+		/** Index in projection: Target 0. */
+		public static final int INDEX_WHAT0 = 6;
+		/** Index in projection: Target 1. */
+		public static final int INDEX_WHAT1 = 7;
+
 		/** ID. */
 		public static final String ID = "_id";
+		/** Order. */
+		public static final String ORDER = "_order";
 		/** ID of plan referred by this rule. */
 		public static final String PLAN_ID = "_plan_id";
 		/** Name. */
-		public static final String NAME = "rule_name";
+		public static final String NAME = "_rule_name";
 		/** Negate rule? */
-		public static final String NOT = "not";
+		public static final String NOT = "_not";
 		/** Kind of rule. */
-		public static final String WHAT = "what";
+		public static final String WHAT = "_what";
 		/** Target 0. */
-		public static final String WHAT0 = "what0";
+		public static final String WHAT0 = "_what0";
 		/** Target 1. */
-		public static final String WHAT1 = "what1";
+		public static final String WHAT1 = "_what1";
+
+		/** Projection used for query. */
+		public static final String[] PROJECTION = new String[] { ID, ORDER,
+				PLAN_ID, NAME, NOT, WHAT, WHAT0, WHAT1 };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -344,6 +445,7 @@ public final class DataProvider extends ContentProvider {
 		static {
 			PROJECTION_MAP = new HashMap<String, String>();
 			PROJECTION_MAP.put(ID, ID);
+			PROJECTION_MAP.put(ORDER, ORDER);
 			PROJECTION_MAP.put(PLAN_ID, PLAN_ID);
 			PROJECTION_MAP.put(NOT, NOT);
 			PROJECTION_MAP.put(WHAT, WHAT);
@@ -361,11 +463,12 @@ public final class DataProvider extends ContentProvider {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
 					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
+					+ ORDER + " INTEGER," // .
 					+ NAME + " TEXT,"// .
-					+ PLAN_ID + " INTEGER"// .
-					+ NOT + " INTEGER"// .
-					+ WHAT + " INTEGER"// .
-					+ WHAT0 + " INTEGER"// .
+					+ PLAN_ID + " INTEGER,"// .
+					+ NOT + " INTEGER,"// .
+					+ WHAT + " INTEGER,"// .
+					+ WHAT0 + " INTEGER,"// .
 					+ WHAT1 + " INTEGER"// .
 					+ ");");
 		}
@@ -385,6 +488,11 @@ public final class DataProvider extends ContentProvider {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			onCreate(db);
+		}
+
+		/** Default constructor. */
+		private Rules() {
+			// nothing here.
 		}
 	}
 

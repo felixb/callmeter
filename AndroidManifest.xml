@@ -53,6 +53,8 @@
 				<action android:name="android.provider.Telephony.SMS_RECEIVED" />
 			</intent-filter>
 		</receiver>
+		<provider android:name=".data.DataProvider"
+			android:authorities="de.ub0r.android.callmeter.provider" />
 		<!-- The application's publisher ID assigned by AdMob -->
 		<meta-data android:value="a14c185ce8841c6" android:name="ADMOB_PUBLISHER_ID" />
 	</application>

@@ -31,8 +31,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.ListView;
-import android.widget.TextView;
 import de.ub0r.android.callmeter.CMBroadcastReceiver;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
@@ -81,12 +79,12 @@ public class Plans extends ListActivity {
 		}
 		prefsNoAds = DonationHelper.hideAds(this);
 
-		TextView tv = (TextView) this.findViewById(R.id.calls_);
-		Preferences.textSizeMedium = tv.getTextSize();
-		tv = (TextView) this.findViewById(R.id.calls1_in_);
-		Preferences.textSizeSmall = tv.getTextSize();
+		// TextView tv = (TextView) this.findViewById(R.id.calls_);
+		// Preferences.textSizeMedium = tv.getTextSize();
+		// tv = (TextView) this.findViewById(R.id.calls1_in_);
+		// Preferences.textSizeSmall = tv.getTextSize();
 
-		final ListView list = this.getListView();
+		// final ListView list = this.getListView();
 		this.adapter = new PlanAdapter(this);
 		this.setListAdapter(this.adapter);
 		// list.setOnItemClickListener(this);
