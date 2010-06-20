@@ -29,5 +29,18 @@
 		<TextView android:id="@+id/normtitle" android:text="normtitle"
 			android:textAppearance="?android:attr/textAppearanceMedium"
 			android:layout_width="wrap_content" android:layout_height="wrap_content" />
+		<ProgressBar android:id="@+id/progressbarPeriod"
+			android:layout_width="@dimen/progressbar_width"
+			android:layout_height="5dip" android:layout_alignParentRight="true"
+			style="?android:attr/progressBarStyleHorizontal" android:max="100"
+			android:progress="5" />
+		<ProgressBar android:id="@+id/progressbarLimit"
+			android:layout_width="@dimen/progressbar_width"
+			android:layout_height="10dip" android:layout_alignParentRight="true"
+			android:layout_below="@+id/progressbarPeriod" style="?android:attr/progressBarStyleHorizontal"
+			android:max="100" android:progress="5" />
+		<TextView android:id="@+id/data" android:text="data"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_toLeftOf="@id/progressbarLimit" android:gravity="right" />
 	</RelativeLayout>
 </LinearLayout>

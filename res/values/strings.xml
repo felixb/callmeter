@@ -163,4 +163,9 @@
 		<item>Small</item>
 		<item>Medium</item>
 	</string-array>
+	<string-array name="prefs_plans_dialog">
+		<item>Edit</item>
+		<item>Up</item>
+		<item>Down</item>
+	</string-array>
 </resources>

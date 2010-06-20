@@ -3,6 +3,7 @@ package de.ub0r.android.callmeter.ui;
 import android.content.Context;
 import android.database.Cursor;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 import de.ub0r.android.callmeter.R;
@@ -47,6 +48,26 @@ public class PlanAdapter extends ResourceCursorAdapter {
 			view.findViewById(R.id.content).setVisibility(View.VISIBLE);
 			((TextView) view.findViewById(R.id.normtitle)).setText(cursor
 					.getString(DataProvider.Plans.INDEX_NAME));
+			final int limit = cursor.getInt(DataProvider.Plans.INDEX_LIMIT);
+			final int usedMonth = cursor
+					.getInt(DataProvider.Plans.INDEX_USED_MONTH);
+			if (limit > 0) {
+				final ProgressBar pb = (ProgressBar) view
+						.findViewById(R.id.progressbarLimit);
+				pb.setMax(limit);
+				pb.setProgress(usedMonth);
+				pb.setVisibility(View.VISIBLE);
+			} else {
+				view.findViewById(R.id.progressbarLimit).setVisibility(
+						View.INVISIBLE);
+			}
+			final int usedAll = cursor
+					.getInt(DataProvider.Plans.INDEX_USED_ALL);
+			final int usedCount = cursor
+					.getInt(DataProvider.Plans.INDEX_USED_COUNT);
+			final float usedCost = cursor
+					.getFloat(DataProvider.Plans.INDEX_COST);
+			// TODO: print data to screen
 		}
 	}
 }
