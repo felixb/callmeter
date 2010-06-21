@@ -24,17 +24,27 @@
 	<string name="license">GPLv3 - veja http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Códigos fontes:</string>
 	<string name="website_">Website:</string>
-	<string name="donate_">Doação (Paypal)</string>
+	<string name="debug_">Debugar</string>
+	<string name="send_logs_">Enviar os logs</string>
+	<string name="send_logs_hint">Envie os logs de seu dispositivo  para o desenvolvedor. Faça isso apenas se você foi convidado a fazê-lo.</string>
+	<string name="sendlog_run_">Acionar o envio dos logs </string>
+	<string name="sendlog_run">O envio irá coletar os dados do log de seu aparelho e enviá-los ao desenvolvedor.\nVocê terá a oportunidade de rever e modificar os dados antes de enviá-los.</string>
+	<string name="sendlog_install_">Instalar o enviador de logs </string>
+	<string name="sendlog_install">Instalar a aplicação, gratuita, que irá coletar e enviar os logs para o desenvolvedor.</string>
+	<string name="donate_paypal_">Doação (Paypal)</string>
+	<string name="donate_market_">Doação (Market)</string>
 	<string name="donate_remove_ads_">Doar/remover anúncios</string>
 	<string name="remove_ads_">Remova anúncios</string>
-	<string name="predonate">Esta é uma aplicação open-source realizada sob a licença GPLv3. É gratuita e permanecerá gratuita. Se você realmente gosta dela e quer retirar os anúncios, por favor, considere uma doação (via paypal). Eu irei remover as propagandas para você o mais rápido possível.\nObrigado!</string>
+<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
 	<string name="postdonate">Para remover os anúncios, você precisa carregar o código NoAds . Ele estará disponível tão logo que a doação chegar. Por favor, seja paciente e me mande um e-mail se ele não funcionar depois de um dia.</string>
-	<string name="paypal_id_">Para verificar a sua doação são necessários o envio de:</string>
-	<string name="paypal_id_hint">Seu ID no Paypal (endereço de email),</string>
+<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
+<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
 	<string name="load_hash_">Código NoAds.</string>
-	<string name="signature_">Você receberá um código, que irá colar aqui, para finalmente remover os anúncios:</string>
 	<string name="sig_loaded">Anúncios removidos!</string>
 	<string name="sig_failed">Falha ao remover os anúncios!</string>
+<!--	<string name="accept_">Accept Terms</string> -->
+<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
+<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the noads code will not work anymore. Please drop me a mail to get a new one.</string> -->
 	<string name="about0_">Acompanhe suas ligações, mensagens e plano de dados!</string>
 	<string name="about0">O CallMeter gera relatórios de ligações, mensagens e dados. Ele suporta vários tipos de cobrança.</string>
 	<string name="about1">Os formatos de saída são: uso / tempo ou soma utilizada neste período / tempo ou soma total. O cálculo de tempo utiliza a forma de cobrança de seu plano. A soma total não.</string>
@@ -144,13 +154,6 @@
 	<string name="reset_data_hint">Apagar os dados das chamadas ou SMS irão resultar no recálculo das estatísticas.\n\nO cancelamento das estatísticas de tráfego é permanente. Só será visualizado após o boot!</string>
 	<string name="reset_data_data_">Redefinir o tráfego também.</string>
 	<string name="contacts_">Contatos</string>
-	<string name="debug_">Debugar</string>
-	<string name="send_logs_">Enviar os logs</string>
-	<string name="send_logs_hint">Envie os logs de seu dispositivo  para o desenvolvedor. Faça isso apenas se você foi convidado a fazê-lo.</string>
-	<string name="sendlog_run_">Acionar o envio dos logs </string>
-	<string name="sendlog_run">O envio irá coletar os dados do log de seu aparelho e enviá-los ao desenvolvedor.\nVocê terá a oportunidade de rever e modificar os dados antes de enviá-los.</string>
-	<string name="sendlog_install_">Instalar o enviador de logs </string>
-	<string name="sendlog_install">Instalar a aplicação, gratuita, que irá coletar e enviar os logs para o desenvolvedor.</string>
 	<string-array name="themes">
 		<item>Escuro</item>
 		<item>Claro</item>

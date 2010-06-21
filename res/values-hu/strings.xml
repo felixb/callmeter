@@ -24,17 +24,27 @@
 	<string name="license">GPLv3 - bővebben: http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Forráskód:</string>
 	<string name="website_">Weboldal:</string>
-	<string name="donate_">Támogatás adománnyal (Paypal)</string>
+	<string name="debug_">Debug</string>
+	<string name="send_logs_">Napló küldése</string>
+	<string name="send_logs_hint">A fejlesztőnek elküldi a program logját.\nKérlek csak akkor küldd el, ha külön kérést kaptál erre.</string>
+	<string name="sendlog_run_">LogKüldés (SendLog) indítása</string>
+	<string name="sendlog_run">A LogKüldés (SendLog) összegyűjti a készüléked logját és a fejlesztőnek elküldi.\nLehetőség van a küldendő adatok megtekintésére és módosítására.</string>
+	<string name="sendlog_install_">LogKüldés (SendLog) telepítése</string>
+	<string name="sendlog_install">Az ingyenes LogKüldés (SendLog) program telepítése lehetőséget biztosít arra, hogy a fejlesztőnek elküldd a készüléked logját.</string>
+	<string name="donate_paypal_">Támogatás adománnyal (Paypal)</string>
+	<string name="donate_market_">Támogatás adománnyal (Market)</string>
 	<string name="donate_remove_ads_">Támogatás/hirdetések eltávolítása</string>
 	<string name="remove_ads_">Hirdetések eltávolítása</string>
-	<string name="predonate">Ez egy nyílt forráskódú, GPLv3 licenc alatt kiadott alkalmazás. Ingyenes, és az is marad. Ha megtetszett a program, vagy ha zavarnak a hirdetések, kérlek támogasd paypal-on keresztül a fejlesztést. A hirdetéseket ez esetben azonnal eltávolítom.\nKöszönöm!</string>
-	<string name="postdonate">Ha el akarod távolítani a reklámokat, akkor be kell írnod a reklámeltávolító (noads) kódot. Az adományod megérkezése után nem sokkal elérhetővé válik. Legyél türelemmel, de ha egy munkanapon belül nem érkezik meg, akkord írj egy e-mailt.</string> 
-	<string name="paypal_id_">Hogy hitelesítsd az adományod, szükségem lesz a PayPal felhasználónevedre (e-mailedre) :</string> 
-	<string name="paypal_id_hint">PayPal felhasználónév</string> 
-	<string name="load_hash_">Reklámeltávolító (noads) kód betöltése</string> 
-	<string name="signature_">Egy kódot fogsz kapni hamarosan, amit ha ide beillesztesz, a reklámok eltűnnek:</string>
+<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
+	<string name="postdonate">Ha el akarod távolítani a reklámokat, akkor be kell írnod a reklámeltávolító (noads) kódot. Az adományod megérkezése után nem sokkal elérhetővé válik. Legyél türelemmel, de ha egy munkanapon belül nem érkezik meg, akkord írj egy e-mailt.</string>
+<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
+<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
+	<string name="load_hash_">Reklámeltávolító (noads) kód betöltése</string>
 	<string name="sig_loaded">Reklámok sikeresen eltávolítva!</string>
 	<string name="sig_failed">Reklámok eltávolítása sikertelen!</string>
+<!--	<string name="accept_">Accept Terms</string> -->
+<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
+<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the noads code will not work anymore. Please drop me a mail to get a new one.</string> -->
 	<string name="about0_">Kövesd nyomon a hívás-, SMS-, és adatforgalmadat!</string>
 	<string name="about0">A Call Meter NG statisztikát készít a hívás-, SMS-, és adatforgalomból. Mindezt többféle számlázási mód támogatásával.</string>
 	<string name="about1">A kimeneti formátum a következő: felhasznált mennyiség százalékosan / hívásidő, SMS-, vagy adatmennyiség az aktuális számlázási időszakra / összesített hívásidő, SMS-, vagy adatmennyiség. A havi számítás figyelembe veszi a számlázási módot, míg az összegzett nem.</string>
@@ -144,18 +154,11 @@
 	<string name="reset_data_hint">A hívások és SMS-ek nullázása a statisztikák újraszámolását vonja maguk után.\n\nAz adatforgalmi mérők nullázása nem vonható vissza. Csak a telefon bekapcsolása (bootolása) előtti forgalmat nullázza!</string>
 	<string name="reset_data_data_">Adatforgalmi számlálók is legyenek nullázva</string>
 	<string name="contacts_">Névjegyek</string>
-	<string name="debug_">Debug</string>
-	<string name="send_logs_">Napló küldése</string>
-	<string name="send_logs_hint">A fejlesztőnek elküldi a program logját.\nKérlek csak akkor küldd el, ha külön kérést kaptál erre.</string> 
-	<string name="sendlog_run_">LogKüldés (SendLog) indítása</string> 
-	<string name="sendlog_run">A LogKüldés (SendLog) összegyűjti a készüléked logját és a fejlesztőnek elküldi.\nLehetőség van a küldendő adatok megtekintésére és módosítására.</string>
-	<string name="sendlog_install_">LogKüldés (SendLog) telepítése</string> 
-	<string name="sendlog_install">Az ingyenes LogKüldés (SendLog) program telepítése lehetőséget biztosít arra, hogy a fejlesztőnek elküldd a készüléked logját.</string>
 	<string-array name="themes">
 		<item>Fekete</item>
 		<item>Világos</item>
-	</string-array> 
-	<string-array name="textsize"> 
+	</string-array>
+	<string-array name="textsize">
 		<item>Kicsi</item>
 		<item>Közepes</item>
 	</string-array>

@@ -24,17 +24,27 @@
 	<string name="license">GPLv3 - voir http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Code source:</string>
 	<string name="website_">Site web:</string>
-	<string name="donate_">Contribuer (Paypal)</string>
+	<string name="debug_">Debug</string>
+	<string name="send_logs_">Envoyer les logs</string>
+	<string name="send_logs_hint">Envoyer les logs de votre téléphone au développeur.\nN\'effectuez cette action que s\'il vous l\'a été demandé.</string>
+	<string name="sendlog_run_">Mettre en place le SendLog</string>
+	<string name="sendlog_run">Le SendLog va collecter les logs de votre téléphone et les envoyer au développeur.\nVous pourrez vérifier et modifier les données de log envoyées.</string>
+	<string name="sendlog_install_">Installer SendLog</string>
+	<string name="sendlog_install">Installer l\'application gratuite SendLog pour récupérer les logs du téléphone pour les envoyer au développeur.</string>
+	<string name="donate_paypal_">Contribuer (Paypal)</string>
+	<string name="donate_market_">Contribuer (Market)</string>
 	<string name="donate_remove_ads_">Contribuer/Supprimer les pubs</string>
 	<string name="remove_ads_">Supprimer les pubs</string>
-	<string name="predonate">Il s\'agit d\'une application open-source sous licence GPLv3. Elle est gratuite et le restera. Si vous l\'aimez ou si les publicités vous agacent, vous pouvez envisager de payer (par paypal). Je vous supprimerai les publicités dès que possible\nMerci!</string>
+<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
 	<string name="postdonate">Pour supprimer les publicités, voud devez entrer un code qui vous sera délivré lorsque que votre don sera validé. Veuillez, s\'il vous plait, être patient et m\'envoyer un mail si cela ne fonctionne pas après un jour.</string>
-	<string name="paypal_id_">Pour vérifier votre don, votre identifiant paypal (votrer adresse mail) est nécessaire :</string>
-	<string name="paypal_id_hint">Identifiant Paypal</string>
+<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
+<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
 	<string name="load_hash_">Entrer votre code</string>
-	<string name="signature_">Pour supprimer les publicités, tapez ici le code qui vous a été envoyé:</string>
 	<string name="sig_loaded">Publicités supprimées!</string>
 	<string name="sig_failed">Tentative de suppression des publicités échouée!</string>
+<!--	<string name="accept_">Accept Terms</string> -->
+<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
+<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the noads code will not work anymore. Please drop me a mail to get a new one.</string> -->
 	<string name="about0_">Surveillez votre forfait d\'appels, de messages et de données !</string>
 	<string name="about0">CallMeter crée le rapport du décompte de vos appels, de vos SMS et de vos données sur votre forfait téléphonique. Il permet également de paramétrer plusieurs plans de facturations différents.</string>
 	<string name="about1">Il affiche le compte / le décompte du forfait pour une période de facturation / une période quelconque ou le décompte global. Le calcul du temps restant par mois prend en compte votre forfait, contrairement au décompte global.</string>
@@ -144,13 +154,6 @@
 	<string name="reset_data_hint">Réinitialiser les statistiques des appels/SMS va nécessiter le recalcule de ces statistiques.\n\nPar contre, la réinitialisation des statistiques de consommation internet est permanente : les statistiques du traffic effectué avant le dernier démarrage seront perdues!</string>
 	<string name="reset_data_data_">Réinitialiser le traffic de données.</string>
 	<string name="contacts_">Contacts</string>
-	<string name="debug_">Debug</string>
-	<string name="send_logs_">Envoyer les logs</string>
-	<string name="send_logs_hint">Envoyer les logs de votre téléphone au développeur.\nN\'effectuez cette action que s\'il vous l\'a été demandé.</string>
-	<string name="sendlog_run_">Mettre en place le SendLog</string>
-	<string name="sendlog_run">Le SendLog va collecter les logs de votre téléphone et les envoyer au développeur.\nVous pourrez vérifier et modifier les données de log envoyées.</string>
-	<string name="sendlog_install_">Installer SendLog</string>
-	<string name="sendlog_install">Installer l\'application gratuite SendLog pour récupérer les logs du téléphone pour les envoyer au développeur.</string>
 	<string-array name="themes">
 		<item>Noir</item>
 		<item>Clair</item>

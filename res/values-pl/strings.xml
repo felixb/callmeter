@@ -24,17 +24,27 @@
 	<string name="license">GPLv3 - zobacz http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Kod źródłowy:</string>
 	<string name="website_">Strona:</string>
-	<string name="donate_">Wspomóż (Paypal)</string>
+	<string name="debug_">Debugowanie</string>
+	<string name="send_logs_">Wyślij logi</string>
+	<string name="send_logs_hint">Wyślij log z twojego urządzenia do autora\n(tylko, gdy zostaniesz o to poproszony)</string>
+	<string name="sendlog_run_">Uruchom SendLog</string>
+	<string name="sendlog_run">SendLog zbierze logi urządzenia i wyśle je do autora.\n\nBędziesz miał okazję do przejrzenia i modyfikacji danych przed ich wysłaniem</string>
+	<string name="sendlog_install_">Zainstaluj SendLog</string>
+	<string name="sendlog_install">Zainstaluj darmową aplikację SendLog aby zebrać logi urządzenia i wysłać je do autora</string>
+	<string name="donate_paypal_">Wspomóż (Paypal)</string>
+	<string name="donate_market_">Wspomóż (Market)</string>
 	<string name="donate_remove_ads_">Wspomóż/Usuń reklamy</string>
 	<string name="remove_ads_">Usuń reklamy</string>
-	<string name="predonate">Ta open-surce\'owa aplikacja jest udostępniana na licencji GPLve. Jest bezpłatna i taka też pozostanie. Jeśli Ci się podoba, lub denerwują Cię reklamy, wspomóż mnie (przez paypal). Usunę reklamy wraz z następną aktualizacją. Dzięki!</string>
+<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
 	<string name="postdonate">Aby usunąć reklamy, musisz wprowadzić kod usuwający. Kod jest dostępny tak szybko, jak szybko wpłynie datek. Proszę o cierpliwość, oraz powiadomienie mailem jeżeli go nie otrzymasz po dniu od wpłaty.</string>
-	<string name="paypal_id_">Aby zweryfikować twój datek potrzebny jest twój PayPal ID (adres e-mail):</string>
-	<string name="paypal_id_hint">PayPal ID</string>
+<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
+<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
 	<string name="load_hash_">Wprowadź kod usuwający</string>
-	<string name="signature_">Otrzymasz kod, który należy tutaj wkleić, aby usunąć reklamy:</string>
 	<string name="sig_loaded">Reklamy usunięte</string>
 	<string name="sig_failed">Problem z usunięciem reklam</string>
+<!--	<string name="accept_">Accept Terms</string> -->
+<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
+<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the noads code will not work anymore. Please drop me a mail to get a new one.</string> -->
 	<string name="about0_">Obserwuj swoje połączenia, wiadomości oraz pakiet rozmów!</string>
 	<string name="about0">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych..</string>
 	<string name="about1">Format wyjściowy wykorzystuje /czas, całość wykorzystanego rachunku /czas, całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>
@@ -144,13 +154,6 @@
 	<string name="reset_data_hint">Resetowanie danych połączeń/smsów spowoduje ponowne obliczenie statystyk.\n\nUsunięcie statystyk ruchu jest nieodwracalne. Zresetowane zostają wyłącznie statystyki z przed uruchomienia urządzenia.</string>
 	<string name="reset_data_data_">Dane również</string>
 	<string name="contacts_">Kontakty</string>
-	<string name="debug_">Debugowanie</string>
-	<string name="send_logs_">Wyślij logi</string>
-	<string name="send_logs_hint">Wyślij log z twojego urządzenia do autora\n(tylko, gdy zostaniesz o to poproszony)</string>
-	<string name="sendlog_run_">Uruchom SendLog</string>
-	<string name="sendlog_run">SendLog zbierze logi urządzenia i wyśle je do autora.\n\nBędziesz miał okazję do przejrzenia i modyfikacji danych przed ich wysłaniem</string>
-	<string name="sendlog_install_">Zainstaluj SendLog</string>
-	<string name="sendlog_install">Zainstaluj darmową aplikację SendLog aby zebrać logi urządzenia i wysłać je do autora</string>
 	<string-array name="themes">
 		<item>Ciemny</item>
 		<item>Jasny</item>

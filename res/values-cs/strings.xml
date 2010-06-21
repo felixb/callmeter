@@ -24,17 +24,27 @@
 	<string name="license">GPLv3 - viz http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Zdrojový kód:</string>
 	<string name="website_">Web:</string>
-	<string name="donate_">Chci přispět (Paypal)</string>
+<!--	<string name="debug_">Debug</string> -->
+<!--	<string name="send_logs_">Send logs</string> -->
+<!--	<string name="send_logs_hint">Send your device\'s logs to the developer.\nDo this only if you was asked to do so.</string> -->
+<!--	<string name="sendlog_run_">Run SendLog</string> -->
+<!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
+<!--	<string name="sendlog_install_">Install SendLog</string> -->
+<!--	<string name="sendlog_install">Install the free SendLog application to collect the device log and send it to the developer.</string> -->
+	<string name="donate_paypal_">Chci přispět (Paypal)</string>
+	<string name="donate_market_">Chci přispět (Market)</string>
 	<string name="donate_remove_ads_">Přispět/odstranit inzerci</string>
 	<string name="remove_ads_">Odstranit inzerci</string>
-	<string name="predonate">Call Meter je open-source aplikací vydanou pod licencí GPLv3. Využití aplikace není a nebude zpoplatněné. Pokud jste s ní spokojení, nebo pokud vám vadí inzerce, zvažte možnost přispět přes PayPal k jejímu vývoji. Kromě dobrého pocitu z podpory získá dárce aplikaci bez inzerce.\nPředem díky!</string>
+<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
 <!--	<string name="postdonate">To remove ads, you need to load the noads code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work after one day.</string> -->
-<!--	<string name="paypal_id_">To verify your donation your paypal id (mail address) is needed:</string> -->
-<!--	<string name="paypal_id_hint">Paypal id</string> -->
+<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
+<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
 <!--	<string name="load_hash_">Load noads code</string> -->
-<!--	<string name="signature_">You will receive a code back, you have to enter here, to finally remove the ads:</string> -->
 <!--	<string name="sig_loaded">Ads removed!</string> -->
 <!--	<string name="sig_failed">Failed to remove ads!</string> -->
+<!--	<string name="accept_">Accept Terms</string> -->
+<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
+<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the noads code will not work anymore. Please drop me a mail to get a new one.</string> -->
 	<string name="about0_">Call Meter slouží ke sledování stavu čerpání hovorného, SMS zpráv a datových přenosů v rámci měsíčního paušálu.</string>
 	<string name="about0">Aplikace tvoří statistiku na základě logů o hovorech, SMS zprávách a datových přenosech a podporuje několik způsobů účtování/tarifikace.</string>
 	<string name="about1">Výstupem je celkový počet využitých minut/sms/dat od nainstalování aplikace, a počet těchto jednotek případně ukazatel využití volných minut/sms/dat za aktuální účetní období. Výpočet měsíční spotřeby bere v potaz vybranou tarifikaci. V celkovém výpočtu není tarifikace zohledněna.\n\nLegenda zobrazování statistik:\nPříchozí hovory: délka a počet v aktuálním období / délka všech hovorů\nOdchozí hovory: [% využití volných minut akt. období] / délka a počet v akt. období / délka všech hovorů\nPříchozí SMS: počet SMS akt. období / celkový počet SMS\nOdchozí SMS: cena za SMS akt. období / [% využití volných SMS akt. období] / počet SMS akt. období / celkový počet SMS </string>
@@ -144,13 +154,6 @@
 <!--	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string> -->
 <!--	<string name="reset_data_data_">Reset traffic too.</string> -->
 	<string name="contacts_">Z kontaktů</string>
-<!--	<string name="debug_">Debug</string> -->
-<!--	<string name="send_logs_">Send logs</string> -->
-<!--	<string name="send_logs_hint">Send your device\'s logs to the developer.\nDo this only if you was asked to do so.</string> -->
-<!--	<string name="sendlog_run_">Run SendLog</string> -->
-<!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
-<!--	<string name="sendlog_install_">Install SendLog</string> -->
-<!--	<string name="sendlog_install">Install the free SendLog application to collect the device log and send it to the developer.</string> -->
 	<string-array name="themes">
 		<item>Tmavý</item>
 		<item>Světlý</item>
