@@ -56,7 +56,7 @@
 	<string name="billday_">Primo giorno del conteggio</string>
 	<string name="billmode_">Modalità di conteggio</string>
 	<string name="billmode_hint">Dimensione intervalli di conteggio, primo/seguenti.</string>
-	<string name="billdate_">Inizio del conteggio:</string>
+	<string name="billdate_">Inizio conteggio:</string>
 	<string name="smsperiod_">Stesso periodo SMS</string>
 	<string name="smsperiod_hint">Usa lo stesso periodo usato per le chiamate al conteggio degli SMS.</string>
 	<string name="smsbillday_">Primo giorno del conteggio SMS</string>
@@ -76,7 +76,7 @@
 	<string name="exclude_people_to_plan2_">Piano 2</string>
 	<string name="exclude_people_calls_">Abilita per le chiamate</string>
 	<string name="exclude_people_calls_to_plan1_hint">Conteggia chiamate escludendo i numeri per il piano #1</string>
-	<string name="exclude_people_calls_to_plan2_hint">>Conteggia chiamate escludendo i numeri per il piano #2</string>
+	<string name="exclude_people_calls_to_plan2_hint">Conteggia chiamate escludendo i numeri per il piano #2</string>
 	<string name="exclude_people_sms_">Abilita per gli SMS</string>
 	<string name="exclude_people_sms_to_plan1_hint">Conteggia messaggi escludendo i numeri per il piano #1</string>
 	<string name="exclude_people_sms_to_plan2_hint">Conteggia messaggi escludendo i numeri per il piano #2</string>
@@ -141,8 +141,8 @@
 	<string name="plan_name2_">Piano 2: nome</string>
 	<string name="plan_name_hint">Nome personalizzato</string>
 	<string name="reset_data_">Azzera statistiche</string>
-	<string name="reset_data_hint">Azzerando chiamane/SMS le statistiche saranno ricalcolate.\n\nL\'azzeramento del traffico invece è permanente. It only resets traffic done before boot!</string>
-	<string name="reset_data_data_">Azzera anche il traffico</string>
+	<string name="reset_data_hint">Azzerando chiamane/SMS le statistiche saranno ricalcolate.\n\nL\'azzeramento del traffico invece è permanente. Azzera il traffico fatto prima dell\'accensione!</string>
+	<string name="reset_data_data_">Traffico</string>
 	<string name="contacts_">Contatti</string>
 	<string name="debug_">Debug</string>
 	<string name="send_logs_">Invia log</string>
