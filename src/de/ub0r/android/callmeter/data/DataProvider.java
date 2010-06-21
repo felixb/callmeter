@@ -42,22 +42,22 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 4;
+	private static final int DATABASE_VERSION = 1;
 
 	/** Type of log: mixed. */
-	public static final int TYPE_MIXED = -1;
+	public static final int TYPE_MIXED = 0;
 	/** Type of log: title. */
-	public static final int TYPE_TITLE = -2;
+	public static final int TYPE_TITLE = 1;
 	/** Type of log: spacing. */
-	public static final int TYPE_SPACING = -3;
+	public static final int TYPE_SPACING = 2;
 	/** Type of log: call. */
-	public static final int TYPE_CALL = 1;
+	public static final int TYPE_CALL = 3;
 	/** Type of log: sms. */
-	public static final int TYPE_SMS = 2;
+	public static final int TYPE_SMS = 4;
 	/** Type of log: mms. */
-	public static final int TYPE_MMS = 3;
+	public static final int TYPE_MMS = 5;
 	/** Type of log: data. */
-	public static final int TYPE_DATA = 4;
+	public static final int TYPE_DATA = 6;
 
 	/** Direction of log: in. */
 	public static final int DIRECTION_IN = 1;
@@ -213,7 +213,7 @@ public final class DataProvider extends ContentProvider {
 		/** Index in projection: id. */
 		public static final int INDEX_ID = 0;
 		/** Index in projection: order. */
-		public static final int INDE_ORDER = 1;
+		public static final int INDEX_ORDER = 1;
 		/** Index in projection: name. */
 		public static final int INDEX_NAME = 2;
 		/** Index in projection: short name. */
@@ -325,6 +325,7 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(COST_PER_AMOUNT, COST_PER_AMOUNT);
 			PROJECTION_MAP.put(COST_PER_ITEM_IN_LIMIT, COST_PER_ITEM_IN_LIMIT);
 			PROJECTION_MAP.put(COST_PER_PLAN, COST_PER_PLAN);
+			PROJECTION_MAP.put(COST, COST);
 		}
 
 		/**
@@ -714,11 +715,15 @@ public final class DataProvider extends ContentProvider {
 			final String selection, final String[] selectionArgs) {
 
 		final SQLiteDatabase db = this.mOpenHelper.getReadableDatabase();
-
+		int r = 0;
 		switch (URI_MATCHER.match(uri)) {
 		case PLANS_ID:
-			return db.update(Plans.TABLE, values, Plans.ID + "="
+			r = db.update(Plans.TABLE, values, Plans.ID + "="
 					+ uri.getPathSegments().get(1), null);
+			if (r > 0) {
+				this.getContext().getContentResolver().notifyChange(uri, null);
+			}
+			return r;
 		default:
 			db.close();
 			throw new IllegalArgumentException("Unknown ORIG_URI " + uri);

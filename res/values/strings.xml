@@ -144,4 +144,13 @@
 		<item>Up</item>
 		<item>Down</item>
 	</string-array>
+	<string-array name="plans_type">
+		<item>mixed</item>
+		<item>title</item>
+		<item>spacer</item>
+		<item>call</item>
+		<item>sms</item>
+		<item>mms</item>
+		<item>data</item>
+	</string-array>
 </resources>

@@ -31,7 +31,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
-import de.ub0r.android.lib.Log;
 
 /**
  * {@link ListActivity} for setting plans.
@@ -67,25 +66,31 @@ public class Plans extends ListActivity implements OnItemClickListener {
 	 *            Direction to swap the plans. up: -1, down: +1
 	 */
 	private void swap(final int position, final int direction) {
+		final ContentResolver cr = this.getContentResolver();
+		Cursor cursor = null;
 		// get plans
-		final Cursor currentCursor = (Cursor) Plans.this.adapter
-				.getItem(position);
-		Cursor otherCursor = null;
-		try {
-			otherCursor = (Cursor) Plans.this.adapter.getItem(position
-					+ direction);
-		} catch (Exception e) {
-			Log.w(TAG, "error swap " + direction, e);
-		}
-		if (otherCursor == null) {
+		final String idCurrent = String.valueOf(this.adapter
+				.getItemId(position));
+		final String idOther = String.valueOf(this.adapter.getItemId(position
+				+ direction));
+		cursor = cr.query(DataProvider.Plans.CONTENT_URI.buildUpon()
+				.appendPath(idCurrent).build(), DataProvider.Plans.PROJECTION,
+				null, null, null);
+		if (cursor == null || !cursor.moveToFirst()) {
 			return;
 		}
+		final int orderCurrent = cursor.getInt(DataProvider.Plans.INDEX_ORDER);
+		cursor.close();
+		cursor = cr.query(DataProvider.Plans.CONTENT_URI.buildUpon()
+				.appendPath(idOther).build(), DataProvider.Plans.PROJECTION,
+				null, null, null);
+		if (cursor == null || !cursor.moveToFirst()) {
+			return;
+		}
+		final int orderOther = cursor.getInt(DataProvider.Plans.INDEX_ORDER);
+		cursor.close();
 
 		// set new order
-		final int orderCurrent = currentCursor
-				.getInt(DataProvider.Plans.INDE_ORDER);
-		final int orderOther = currentCursor
-				.getInt(DataProvider.Plans.INDE_ORDER);
 		final ContentValues cvCurrent = new ContentValues();
 		ContentValues cvOther = null;
 		if (orderCurrent == orderOther) {
@@ -97,15 +102,11 @@ public class Plans extends ListActivity implements OnItemClickListener {
 		}
 
 		// push changes
-		final ContentResolver cr = this.getContentResolver();
 		cr.update(DataProvider.Plans.CONTENT_URI.buildUpon().appendPath(
-				currentCursor.getString(DataProvider.Plans.INDEX_ID)).build(),
-				cvCurrent, null, null);
+				String.valueOf(idCurrent)).build(), cvCurrent, null, null);
 		if (cvOther != null) {
-			cr.update(
-					DataProvider.Plans.CONTENT_URI.buildUpon().appendPath(
-							otherCursor.getString(DataProvider.Plans.INDEX_ID))
-							.build(), cvOther, null, null);
+			cr.update(DataProvider.Plans.CONTENT_URI.buildUpon().appendPath(
+					String.valueOf(idOther)).build(), cvOther, null, null);
 		}
 	}
 
@@ -121,6 +122,7 @@ public class Plans extends ListActivity implements OnItemClickListener {
 			public void onClick(final DialogInterface dialog, final int which) {
 				switch (which) {
 				case 0: // set
+					Plans.this.adapter.setEdit(id);
 					break;
 				case 1: // up
 					Plans.this.swap(position, -1);
@@ -133,5 +135,6 @@ public class Plans extends ListActivity implements OnItemClickListener {
 				}
 			}
 		});
+		builder.show();
 	}
 }
