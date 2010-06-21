@@ -24,17 +24,27 @@
 	<string name="license">GPLv3 - visitar http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Código fuente:</string>
 	<string name="website_">Web:</string>
-	<string name="donate_">Donar (Paypal)</string>
+	<string name="debug_">Depurar</string>
+	<string name="send_logs_">Enviar logs</string>
+	<string name="send_logs_hint">Envía los logs de tu dispositivo al desarrollador.\n Sólo si te han pedido que lo hagas.</string>
+	<string name="sendlog_run_">Ejecutar envío de log</string>
+	<string name="sendlog_run">SendLog envía el log de tu dispositivo al desarrollador.\nTendrás la oportunidad de revisar y modificar los datos antes de enviarlos.</string>
+	<string name="sendlog_install_">Instalar SendLog</string>
+	<string name="sendlog_install">Instala la aplicación gratuita SendLog para recoger los logs de tu dispositivo y enviarlos al desarrollador.</string>
+	<string name="donate_paypal_">Donar (Paypal)</string>
+	<string name="donate_market_">Donar (Market)</string>
 	<string name="donate_remove_ads_">Donar/Eliminar publicidad</string>
 	<string name="remove_ads_">Eliminar publicidad</string>
-	<string name="predonate">Esta es una aplicación de código abierto publicada bajo licencia GPLv3 license. Es gratuita y así continuará. Si te gusta la aplicación o la publicidad te molesta, planteate hacer una donación (via paypal) y retiraré la publicidad lo antes posible.\nGracias!</string>
+<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
 	<string name="postdonate">Para eliminar la publicidad necesitas cargar el código correspondiente. Está disponible tan pronto como llegue el donativo. Ten paciencia y envíame un email si no funciona pasado un día.</string>
-	<string name="paypal_id_">Para verificar tu donativo se necesita tu id de paypal (dirección de email):</string>
-	<string name="paypal_id_hint">Id de Paypal</string>
+<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
+<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
 	<string name="load_hash_">Cargar el código</string>
-	<string name="signature_">Recibirás un código, pégalo aquí para eliminar la publicidad:</string>
 	<string name="sig_loaded">Publicidad eliminada!</string>
 	<string name="sig_failed">Fallo al eliminar publicidad!</string>
+<!--	<string name="accept_">Accept Terms</string> -->
+<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
+<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the noads code will not work anymore. Please drop me a mail to get a new one.</string> -->
 	<string name="about0_">¡Controla tus planes de llamadas, mensajes y datos!</string>
 	<string name="about0">CallMeter genera informes de tus registros de llamadas, mensajes y datos. Permite muchos tipos de tarificación.</string>
 	<string name="about1">La presentación es: minutos usados en el ciclo de facturación/ minutos totales. El cómputo mensual de llamadas tiene en cuenta el modo de tarificación. Los totales no.</string>
@@ -144,13 +154,6 @@
 	<string name="reset_data_hint">Resetear los datos de llamadas y sms fuerza el recálculo las estadísticas.\n\nLa puesta a cero del tráfico de datos es permanente. Sólo resetea el tráfico producido antes del arranque!</string>
 	<string name="reset_data_data_">Pone a cero también el tráfico de datos.</string>
 	<string name="contacts_">Contactos</string>
-	<string name="debug_">Depurar</string>
-	<string name="send_logs_">Enviar logs</string>
-	<string name="send_logs_hint">Envía los logs de tu dispositivo al desarrollador.\n Sólo si te han pedido que lo hagas.</string>
-	<string name="sendlog_run_">Ejecutar envío de log</string>
-	<string name="sendlog_run">SendLog envía el log de tu dispositivo al desarrollador.\nTendrás la oportunidad de revisar y modificar los datos antes de enviarlos.</string>
-	<string name="sendlog_install_">Instalar SendLog</string>
-	<string name="sendlog_install">Instala la aplicación gratuita SendLog para recoger los logs de tu dispositivo y enviarlos al desarrollador.</string>
 	<string-array name="themes">
 		<item>Oscuro</item>
 		<item>Claro</item>

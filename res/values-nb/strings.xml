@@ -18,23 +18,33 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="author_">Forfatter:</string> 
+	<string name="author_">Forfatter:</string>
 	<string name="version_">Versjon:</string>
 	<string name="license_">Lisens:</string>
 	<string name="license">GPLv3 - se http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Kildekode:</string>
 	<string name="website_">Nettside:</string>
-	<string name="donate_">Donasjon (Paypal)</string>
+	<string name="debug_">Feilsøking</string>
+	<string name="send_logs_">Send logg</string>
+	<string name="send_logs_hint">Send din enhets logg til utvikler.\nGjør dette KUN hvis du er bedt om å gjøre det.</string>
+	<string name="sendlog_run_">Run SendLog</string>
+	<string name="sendlog_run">SendLog vil samle inn enhetens logg og sende den til utvikler. \nDu vil ha mulighet til å se gjennom og gjøre endringer før loggen blir sendt.</string>
+	<string name="sendlog_install_">Installer SendLog</string>
+	<string name="sendlog_install">Installer SendLog applikasjonen for å samle inn enhetens log og sende den til utvikler.</string>
+	<string name="donate_paypal_">Donasjon (Paypal)</string>
+	<string name="donate_market_">Donasjon (Market)</string>
 	<string name="donate_remove_ads_">Donasjon/Fjern reklame</string>
 	<string name="remove_ads_">Fjern reklame</string>
-	<string name="predonate">Dette er en åpen-kode applikasjon som er utgitt under GPLv3 lisens. Programmet er gratis, og vil fortsette å være gratis. Hvis du liker det eller du irriterer deg over reklamen, kan du vurdere å donere (via paypal). Jeg vil da fjerne reklamen så raskt som mulig.\nTusen takk!</string>
+<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
 	<string name="postdonate">For å fjerne reklamen trenger du en kode. Den vil være tilgjengelig så snart donasjonen er registrert mottatt. Vennligst vær tålmodig, og send meg gjerne en mail hvis den ikke er fjernet etter en dag.</string>
-	<string name="paypal_id_">For å bekrefte din donasjon, trenger vi din paypal id (email addresse):</string>
-	<string name="paypal_id_hint">Paypal id</string>
+<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
+<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
 	<string name="load_hash_">Laster reklamefri kode</string>
-	<string name="signature_">Du vil motta en kode, som du må skrive her for å fjerne reklamen:</string>
 	<string name="sig_loaded">Reklame fjernet!</string>
 	<string name="sig_failed">Mislykket forsøk på å fjerne reklame!</string>
+<!--	<string name="accept_">Accept Terms</string> -->
+<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
+<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the noads code will not work anymore. Please drop me a mail to get a new one.</string> -->
 	<string name="about0_">Følg med på dine samtaler, meldinger og data trafikk!</string>
 	<string name="about0">CallMeter lager rapporter fra samtale-, meldings- og dataloggen. Det er støtte for flere metoder av taksering.</string>
 	<string name="about1">Oversikt over bruk/tid eller antall denne perioden/tid eller totaloversikt hele perioden. Månedlig beregning i samsvar med dine preferanser for avregning. Ingen beregning for totalforbruk.</string>
@@ -82,7 +92,7 @@
 	<string name="exclude_people_sms_to_plan2_hint">Takser meldinger til/fra ekskluderte nummer i plan nr 2</string>
 	<string name="plans">Planer</string>
 	<string name="plans_split">Del planer</string>
-	<string name="plans_merge">Sammenslå planer</string> 
+	<string name="plans_merge">Sammenslå planer</string>
 	<string name="plans_split_hint">Del plan i to separate takseringsplaner.</string>
 	<string name="plan1">Plan 1</string>
 	<string name="plan2">Plan 2</string>
@@ -144,13 +154,6 @@
 	<string name="reset_data_hint">Nullstilling av samtaler/sms vil rekalkulere statistikk.\n\nNullstilling av tellere er permanent. Nullstilling gjelder bare samtaler før boot!</string>
 	<string name="reset_data_data_">Nullstill datatrafikk også.</string>
 	<string name="contacts_">Kontakter</string>
-	<string name="debug_">Feilsøking</string>
-	<string name="send_logs_">Send logg</string>
-	<string name="send_logs_hint">Send din enhets logg til utvikler.\nGjør dette KUN hvis du er bedt om å gjøre det.</string>
-	<string name="sendlog_run_">Run SendLog</string>
-	<string name="sendlog_run">SendLog vil samle inn enhetens logg og sende den til utvikler. \nDu vil ha mulighet til å se gjennom og gjøre endringer før loggen blir sendt.</string>
-	<string name="sendlog_install_">Installer SendLog</string>
-	<string name="sendlog_install">Installer SendLog applikasjonen for å samle inn enhetens log og sende den til utvikler.</string>
 	<string-array name="themes">
 		<item>Sort</item>
 		<item>Lys</item>
