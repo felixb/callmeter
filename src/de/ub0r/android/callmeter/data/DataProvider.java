@@ -60,14 +60,16 @@ public final class DataProvider extends ContentProvider {
 	public static final int TYPE_DATA = 6;
 
 	/** Direction of log: in. */
-	public static final int DIRECTION_IN = 1;
+	public static final int DIRECTION_IN = 0;
 	/** Direction of log: out. */
-	public static final int DIRECTION_OUT = 2;
+	public static final int DIRECTION_OUT = 1;
 
+	/** Type of limit: none. */
+	public static final int LIMIT_TYPE_NONE = 0;
 	/** Type of limit: units. */
-	public static final int LIMIT_TYPE_UNITS = 0;
+	public static final int LIMIT_TYPE_UNITS = 1;
 	/** Type of limit: cost. */
-	public static final int LIMIT_TYPE_COST = 1;
+	public static final int LIMIT_TYPE_COST = 2;
 
 	/**
 	 * Logs.

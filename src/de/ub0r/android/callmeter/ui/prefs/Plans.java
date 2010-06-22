@@ -23,6 +23,7 @@ import android.app.AlertDialog.Builder;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -122,7 +123,11 @@ public class Plans extends ListActivity implements OnItemClickListener {
 			public void onClick(final DialogInterface dialog, final int which) {
 				switch (which) {
 				case 0: // set
-					Plans.this.adapter.setEdit(id);
+					final Intent intent = new Intent(// .
+							Plans.this, PlanEdit.class);
+					intent.setData(DataProvider.Plans.CONTENT_URI.buildUpon()
+							.appendPath(String.valueOf(id)).build());
+					Plans.this.startActivity(intent);
 					break;
 				case 1: // up
 					Plans.this.swap(position, -1);

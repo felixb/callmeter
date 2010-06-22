@@ -36,6 +36,9 @@
 		<activity android:name=".ui.prefs.Plans"
 			android:configChanges="orientation|keyboardHidden"
 			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />
+		<activity android:name=".ui.prefs.PlanEdit"
+			android:configChanges="orientation|keyboardHidden"
+			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />
 		<activity android:name=".ui.prefs.Rules"
 			android:configChanges="orientation|keyboardHidden"
 			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />

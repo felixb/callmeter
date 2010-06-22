@@ -131,6 +131,31 @@
 	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string>
 	<string name="reset_data_data_">Reset traffic too.</string>
 	<string name="contacts_">Contacts</string>
+	<string name="help_">Help</string>
+	<string name="name_">Name:</string>
+	<string name="name_help">Set a name for your plan here.</string>
+	<string name="shortname_">Short name:</string>
+	<string name="shortname_help">Set a short name for compact layouts here.</string>
+	<string name="type_">Type:</string>
+	<string name="type_help">Set the type of your plan.</string>
+	<string name="limit_type_">Limit type:</string>
+	<string name="limit_type_help">Set the type of your limit here.</string>
+	<string name="limit_">Limit:</string>
+	<string name="limit_help">Set the limit of your plan here.</string>
+	<string name="billmode_">Billing mode:</string>
+	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter legth is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string>
+	<string name="billday_">First day of the billing period:</string>
+	<string name="billday_help">Set this to the first day of your bill.</string>
+	<string name="billperiod_">Length of the billing period:</string>
+	<string name="billperiod_help">Set the length of your billing period.</string>
+	<string name="cost_per_item_">Cost per log item:</string>
+	<string name="cost_per_item_help">Set the cost billed for a single log item after the limit is exeeded.</string>
+	<string name="cost_per_amount_">Cost per length:</string>
+	<string name="cost_per_amount_help">Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data).</string>
+	<string name="cost_per_item_in_limit_">Cost per log item in limit:</string>
+	<string name="cost_per_item_in_limit_help">Set the cost of one log item (e.g. a call) billed before the limit is exeeded.</string>
+	<string name="cost_per_plan_">Cost per plan:</string>
+	<string name="cost_per_plan_help">Set the cost of the plan for one billing period as is.</string>
 	<string-array name="themes">
 		<item>Black</item>
 		<item>Light</item>
@@ -152,5 +177,32 @@
 		<item>sms</item>
 		<item>mms</item>
 		<item>data</item>
+	</string-array>
+	<string-array name="limit_type">
+		<item>unlimited</item>
+		<item>units</item>
+		<item>cost</item>
+	</string-array>
+	<string-array name="billperiod">
+		<item>One day</item>
+		<item>One week</item>
+		<item>One month</item>
+		<item>Infinite</item>
+	</string-array>
+	<string-array name="direction_calls">
+		<item>in</item>
+		<item>out</item>
+	</string-array>
+	<string-array name="direction_sms">
+		<item>in</item>
+		<item>out</item>
+	</string-array>
+	<string-array name="direction_mms">
+		<item>in</item>
+		<item>out</item>
+	</string-array>
+	<string-array name="direction_data">
+		<item>in</item>
+		<item>out</item>
 	</string-array>
 </resources>

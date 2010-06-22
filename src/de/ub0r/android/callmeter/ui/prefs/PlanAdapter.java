@@ -1,3 +1,21 @@
+/*
+ * Copyright (C) 2010 Felix Bechstein, The Android Open Source Project
+ * 
+ * This file is part of Call Meter 3G.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this program; If not, see <http://www.gnu.org/licenses/>.
+ */
 package de.ub0r.android.callmeter.ui.prefs;
 
 import android.content.Context;
@@ -14,12 +32,11 @@ import de.ub0r.android.callmeter.data.DataProvider;
  * @author flx
  */
 public class PlanAdapter extends ResourceCursorAdapter {
+	/** Tag for output. */
+	public static final String TAG = "prefs.pa";
 
 	/** Type of plans. */
 	private final String[] types;
-
-	/** Id of item which is in settings mode. */
-	private long edit = -1;
 
 	/**
 	 * Default Constructor.
@@ -39,33 +56,14 @@ public class PlanAdapter extends ResourceCursorAdapter {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void bindView(final View view, final Context context,
+	public final void bindView(final View view, final Context ctxt,
 			final Cursor cursor) {
-		final int t = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
-		final int id = cursor.getInt(DataProvider.Plans.INDEX_ID);
-		final String title = cursor.getString(DataProvider.Plans.INDEX_NAME);
-		final int limit = cursor.getInt(DataProvider.Plans.INDEX_LIMIT);
-
 		final TextView twTitle = ((TextView) view.findViewById(R.id.normtitle));
-		twTitle.setText(title);
+		twTitle.setText(cursor.getString(DataProvider.Plans.INDEX_NAME));
 		final TextView twType = ((TextView) view.findViewById(R.id.type));
-		twType.setText(this.types[t]);
-		View settings = view.findViewById(R.id.settings);
-		if (id == this.edit) {
-			settings.setVisibility(View.VISIBLE);
-		} else {
-			settings.setVisibility(View.GONE);
-		}
+		twType
+				.setText(this.types[cursor
+						.getInt(DataProvider.Plans.INDEX_TYPE)]);
 	}
 
-	/**
-	 * Set item in edit mode.
-	 * 
-	 * @param id
-	 *            id of item.
-	 */
-	final void setEdit(final long id) {
-		this.edit = id;
-		this.notifyDataSetChanged();
-	}
 }
