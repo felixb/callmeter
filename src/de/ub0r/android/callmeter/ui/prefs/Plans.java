@@ -24,10 +24,10 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.DialogInterface.OnClickListener;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
@@ -38,7 +38,8 @@ import de.ub0r.android.callmeter.data.DataProvider;
  * 
  * @author flx
  */
-public class Plans extends ListActivity implements OnItemClickListener {
+public class Plans extends ListActivity implements OnClickListener,
+		OnItemClickListener {
 	/** Tag for output. */
 	public static final String TAG = "prefs.plans";
 
@@ -51,8 +52,7 @@ public class Plans extends ListActivity implements OnItemClickListener {
 	@Override
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// this.setTheme(Preferences.getTheme(this));
-		// this.setContentView(R.layout.plans);
+		this.setContentView(R.layout.prefs_plans);
 		this.adapter = new PlanAdapter(this);
 		this.setListAdapter(this.adapter);
 		this.getListView().setOnItemClickListener(this);
@@ -118,28 +118,49 @@ public class Plans extends ListActivity implements OnItemClickListener {
 	public final void onItemClick(final AdapterView<?> parent, final View view,
 			final int position, final long id) {
 		final Builder builder = new Builder(this);
-		builder.setItems(R.array.prefs_plans_dialog, new OnClickListener() {
-			@Override
-			public void onClick(final DialogInterface dialog, final int which) {
-				switch (which) {
-				case 0: // set
-					final Intent intent = new Intent(// .
-							Plans.this, PlanEdit.class);
-					intent.setData(DataProvider.Plans.CONTENT_URI.buildUpon()
-							.appendPath(String.valueOf(id)).build());
-					Plans.this.startActivity(intent);
-					break;
-				case 1: // up
-					Plans.this.swap(position, -1);
-					break;
-				case 2: // down
-					Plans.this.swap(position, 1);
-					break;
-				default:
-					break;
-				}
-			}
-		});
+		builder.setItems(R.array.prefs_plans_dialog,
+				new android.content.DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(final DialogInterface dialog,
+							final int which) {
+						switch (which) {
+						case 0: // set
+							final Intent intent = new Intent(// .
+									Plans.this, PlanEdit.class);
+							intent.setData(DataProvider.Plans.CONTENT_URI
+									.buildUpon().appendPath(String.valueOf(id))
+									.build());
+							Plans.this.startActivity(intent);
+							break;
+						case 1: // up
+							Plans.this.swap(position, -1);
+							break;
+						case 2: // down
+							Plans.this.swap(position, 1);
+							break;
+						default:
+							break;
+						}
+					}
+				});
 		builder.show();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void onClick(final View v) {
+		switch (v.getId()) {
+		case R.id.ok:
+			final Intent intent = new Intent(this, PlanEdit.class);
+			this.startActivity(intent);
+			break;
+		case R.id.add:
+			this.finish();
+			break;
+		default:
+			break;
+		}
 	}
 }

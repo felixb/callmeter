@@ -17,24 +17,12 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 	-->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
 	android:orientation="vertical">
 
-	<LinearLayout android:id="@+id/ok_cancel"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:orientation="horizontal" android:layout_alignParentBottom="true">
-		<Button android:id="@+id/ok" android:text="@android:string/ok"
-			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:layout_weight="1" />
-		<Button android:id="@+id/cancel" android:text="@android:string/cancel"
-			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:layout_weight="1" />
-	</LinearLayout>
-
-	<ScrollView android:layout_width="fill_parent"
-		android:layout_height="fill_parent" android:layout_alignParentTop="true"
-		android:layout_above="@id/ok_cancel">
+	<ScrollView android:layout_width="fill_parent" android:layout_height="1px"
+		android:layout_weight="1" android:fillViewport="true" >
 		<LinearLayout android:layout_width="fill_parent"
 			android:layout_height="fill_parent" android:orientation="vertical">
 			<RelativeLayout android:id="@+id/name_layout"
@@ -196,4 +184,15 @@
 			</RelativeLayout>
 		</LinearLayout>
 	</ScrollView>
-</RelativeLayout>
+
+	<LinearLayout android:id="@+id/ok_cancel"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:orientation="horizontal" style="@android:style/ButtonBar">
+		<Button android:id="@+id/ok" android:text="@android:string/ok"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_weight="1" />
+		<Button android:id="@+id/cancel" android:text="@android:string/cancel"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_weight="1" />
+	</LinearLayout>
+</LinearLayout>

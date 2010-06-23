@@ -50,6 +50,24 @@ public class PlanEdit extends Activity implements OnClickListener,
 	private EditText etShortname = null;
 	/** {@link Spinner} holding type. */
 	private Spinner spType = null;
+	/** {@link Spinner} holding type of limit. */
+	private Spinner spLimitType = null;
+	/** {@link EditText} holding limit. */
+	private EditText etLimit = null;
+	/** {@link EditText} holding shortname. */
+	private EditText etBillmode = null;
+	/** {@link Spinner} holding billperiod. */
+	private Spinner spBillperiod = null;
+	/** {@link Spinner} holding billday. */
+	private Spinner spBillday = null;
+	/** {@link EditText} holding cost per item. */
+	private EditText etCostPerItem = null;
+	/** {@link EditText} holding cost per amount. */
+	private EditText etCostPerAmount = null;
+	/** {@link EditText} holding cost per item in limit. */
+	private EditText etCostPerItemInLimit = null;
+	/** {@link EditText} holding cost per plan. */
+	private EditText etCostPerPlan = null;
 
 	/**
 	 * {@inheritDoc}
@@ -63,6 +81,19 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.etShortname = (EditText) this.findViewById(R.id.shortname_et);
 		this.spType = (Spinner) this.findViewById(R.id.type_sp);
 		this.spType.setOnItemSelectedListener(this);
+		this.spLimitType = (Spinner) this.findViewById(R.id.limit_type_sp);
+		this.etLimit = (EditText) this.findViewById(R.id.limit_et);
+		this.etBillmode = (EditText) this.findViewById(R.id.billmode_et);
+		this.spBillperiod = (Spinner) this.findViewById(R.id.billperiod_sp);
+		this.spBillday = (Spinner) this.findViewById(R.id.billday_sp);
+		this.etCostPerItem = (EditText) this
+				.findViewById(R.id.cost_per_item_et);
+		this.etCostPerAmount = (EditText) this
+				.findViewById(R.id.cost_per_amount_et);
+		this.etCostPerItemInLimit = (EditText) this
+				.findViewById(R.id.cost_per_item_in_limit_et);
+		this.etCostPerPlan = (EditText) this
+				.findViewById(R.id.cost_per_plan_et);
 
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.cancel).setOnClickListener(this);
