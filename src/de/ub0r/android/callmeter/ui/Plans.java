@@ -31,8 +31,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import de.ub0r.android.callmeter.CMBroadcastReceiver;
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.data.LogRunner;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DonationHelper;
 
@@ -89,6 +89,7 @@ public class Plans extends ListActivity {
 		this.setListAdapter(this.adapter);
 		// list.setOnItemClickListener(this);
 		// list.setOnItemLongClickListener(this);
+
 	}
 
 	/**
@@ -100,12 +101,20 @@ public class Plans extends ListActivity {
 		if (!prefsNoAds) {
 			this.findViewById(R.id.ad).setVisibility(View.VISIBLE);
 		}
-		// get call/sms stats
-		// new Updater(this).execute((Void[]) null);
-		// get data stats
-		// new UpdaterData(this).execute((Void[]) null);
+		LogRunner.registerMain(this);
+		// start LogRunner
+		LogRunner.update(this.getContentResolver());
 		// schedule next update
-		CMBroadcastReceiver.schedNext(this);
+		LogRunner.schedNext(this);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void onPause() {
+		super.onPause();
+		LogRunner.unregisterMain(this);
 	}
 
 	/**

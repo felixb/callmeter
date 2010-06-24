@@ -43,7 +43,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 2;
 
 	/** Type of log: mixed. */
 	public static final int TYPE_MIXED = 0;
@@ -95,16 +95,18 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_TYPE = 3;
 		/** Index in projection: Direction of log. */
 		public static final int INDEX_DIRECTION = 4;
+		/** Index in projection: Date. */
+		public static final int INDEX_DATE = 5;
 		/** Index in projection: Amount. */
-		public static final int INDEX_AMOUNT = 5;
+		public static final int INDEX_AMOUNT = 6;
 		/** Index in projection: Billed amount. */
-		public static final int INDEX_BILL_AMOUNT = 6;
+		public static final int INDEX_BILL_AMOUNT = 7;
 		/** Index in projection: Remote part. */
-		public static final int INDEX_REMOTE = 7;
+		public static final int INDEX_REMOTE = 8;
 		/** Index in projection: Roamed? */
-		public static final int INDEX_ROAMED = 8;
+		public static final int INDEX_ROAMED = 9;
 		/** Index in projection: Cost. */
-		public static final int INDEX_COST = 9;
+		public static final int INDEX_COST = 10;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -116,6 +118,8 @@ public final class DataProvider extends ContentProvider {
 		public static final String TYPE = "_type";
 		/** Direction of log. */
 		public static final String DIRECTION = "_direction";
+		/** Date of log. */
+		public static final String DATE = "_date";
 		/** Amount. */
 		public static final String AMOUNT = "_amount";
 		/** Billed amount. */
@@ -129,8 +133,8 @@ public final class DataProvider extends ContentProvider {
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, PLAN_ID,
-				RULE_ID, TYPE, DIRECTION, AMOUNT, BILL_AMOUNT, REMOTE, ROAMED,
-				COST };
+				RULE_ID, TYPE, DIRECTION, DATE, AMOUNT, BILL_AMOUNT, REMOTE,
+				ROAMED, COST };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -153,6 +157,7 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(PLAN_ID, PLAN_ID);
 			PROJECTION_MAP.put(TYPE, TYPE);
 			PROJECTION_MAP.put(DIRECTION, DIRECTION);
+			PROJECTION_MAP.put(DATE, DATE);
 			PROJECTION_MAP.put(AMOUNT, AMOUNT);
 			PROJECTION_MAP.put(BILL_AMOUNT, BILL_AMOUNT);
 			PROJECTION_MAP.put(REMOTE, REMOTE);
@@ -173,10 +178,11 @@ public final class DataProvider extends ContentProvider {
 					+ PLAN_ID + " INTEGER," // .
 					+ TYPE + " INTEGER," // .
 					+ DIRECTION + " INTEGER," // .
+					+ DATE + " LONG," // .
 					+ AMOUNT + " INTEGER," // .
 					+ BILL_AMOUNT + " INTEGER," // .
 					+ REMOTE + " TEXT,"// .
-					+ ROAMED + " INTEGER," // .
+					+ ROAMED + " BOOL," // .
 					+ COST + " INTEGER"// .
 					+ ");");
 		}
