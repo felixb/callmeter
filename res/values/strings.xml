@@ -3,7 +3,7 @@
 		Copyright (C) 2010 Felix Bechstein
 	-->
 	<!--
-		This file is part of Call Meter NG. This program is free software; you
+		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
@@ -30,6 +30,7 @@
 	<string name="send_">Send</string>
 	<string name="add_">Add</string>
 	<string name="settings">Preferences</string>
+	<string name="edit_">Edit</string>
 	<string name="about_">About</string>
 	<string name="about_hint">About this app</string>
 	<string name="faq_hint">Some tips and tricks, how to set up this app.</string>
@@ -169,15 +170,17 @@
 		<item>Edit</item>
 		<item>Up</item>
 		<item>Down</item>
+		<item>Delete</item>
 	</string-array>
 	<string-array name="plans_type">
-		<item>mixed</item>
-		<item>title</item>
-		<item>spacer</item>
-		<item>call</item>
-		<item>sms</item>
-		<item>mms</item>
-		<item>data</item>
+		<item>Mixed</item>
+		<item>Title</item>
+		<item>Spacer</item>
+		<item>Billperiod</item>
+		<item>Call</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Data</item>
 	</string-array>
 	<string-array name="limit_type">
 		<item>unlimited</item>
@@ -189,6 +192,33 @@
 		<item>One week</item>
 		<item>One month</item>
 		<item>Infinite</item>
+	</string-array>
+	<string-array name="billdays_week">
+		<item>Monday</item>
+		<item>Tuesday</item>
+		<item>Wednesday</item>
+		<item>Thursday</item>
+		<item>Friday</item>
+		<item>Saturday</item>
+		<item>Sunday</item>
+	</string-array>
+	<string-array name="billmodes">
+		<item>1/1</item>
+		<item>6/6</item>
+		<item>10/10</item>
+		<item>30/1</item>
+		<item>30/6</item>
+		<item>30/10</item>
+		<item>30/30</item>
+		<item>30/60</item>
+		<item>45/1</item>
+		<item>60/0</item>
+		<item>60/1</item>
+		<item>60/6</item>
+		<item>60/10</item>
+		<item>60/30</item>
+		<item>60/60</item>
+		<item>Custom</item>
 	</string-array>
 	<string-array name="direction_calls">
 		<item>in</item>

@@ -21,6 +21,7 @@ package de.ub0r.android.callmeter.data;
 import java.util.HashMap;
 
 import android.content.ContentProvider;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.UriMatcher;
@@ -50,14 +51,16 @@ public final class DataProvider extends ContentProvider {
 	public static final int TYPE_TITLE = 1;
 	/** Type of log: spacing. */
 	public static final int TYPE_SPACING = 2;
+	/** Type of log: billmode. */
+	public static final int TYPE_BILLMODE = 3;
 	/** Type of log: call. */
-	public static final int TYPE_CALL = 3;
+	public static final int TYPE_CALL = 4;
 	/** Type of log: sms. */
-	public static final int TYPE_SMS = 4;
+	public static final int TYPE_SMS = 5;
 	/** Type of log: mms. */
-	public static final int TYPE_MMS = 5;
+	public static final int TYPE_MMS = 6;
 	/** Type of log: data. */
-	public static final int TYPE_DATA = 6;
+	public static final int TYPE_DATA = 7;
 
 	/** Direction of log: in. */
 	public static final int DIRECTION_IN = 0;
@@ -609,13 +612,29 @@ public final class DataProvider extends ContentProvider {
 	@Override
 	public int delete(final Uri uri, final String selection,
 			final String[] selectionArgs) {
-		if (uri.equals(Logs.CONTENT_URI)) {
-			final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
-			int ret = db.delete(Logs.TABLE, selection, selectionArgs);
-			return ret;
-		} else {
-			throw new IllegalArgumentException("method not implemented");
+		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
+		int ret = 0;
+		switch (URI_MATCHER.match(uri)) {
+		case LOGS_ID:
+			ret = db.delete(Logs.TABLE, Logs.ID + "="
+					+ uri.getPathSegments().get(1), selectionArgs);
+			break;
+		case PLANS_ID:
+			ret = db.delete(Plans.TABLE, Plans.ID + "="
+					+ uri.getPathSegments().get(1), selectionArgs);
+			break;
+		case RULES_ID:
+			ret = db.delete(Rules.TABLE, Rules.ID + "="
+					+ uri.getPathSegments().get(1), selectionArgs);
+			break;
+		default:
+			db.close();
+			throw new IllegalArgumentException("Unknown Uri " + uri);
 		}
+		if (ret > 0) {
+			this.getContext().getContentResolver().notifyChange(uri, null);
+		}
+		return ret;
 	}
 
 	/**
@@ -646,7 +665,39 @@ public final class DataProvider extends ContentProvider {
 	 */
 	@Override
 	public Uri insert(final Uri uri, final ContentValues values) {
-		throw new IllegalArgumentException("method not implemented");
+		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
+		long ret = -1;
+		switch (URI_MATCHER.match(uri)) {
+		case LOGS:
+			ret = db.insert(Logs.TABLE, null, values);
+			break;
+		case PLANS:
+			if (!values.containsKey(Plans.ORDER)) {
+				final Cursor c = db.query(Plans.TABLE,
+						new String[] { Plans.ORDER }, null, null, null, null,
+						Plans.ORDER + " DESC");
+				if (c != null && c.moveToFirst()) {
+					values.put(Plans.ORDER, c.getInt(0) + 1);
+				}
+				if (c != null && !c.isClosed()) {
+					c.close();
+				}
+			}
+			ret = db.insert(Plans.TABLE, null, values);
+			break;
+		case RULES:
+			ret = db.insert(Rules.TABLE, null, values);
+			break;
+		default:
+			db.close();
+			throw new IllegalArgumentException("Unknown Uri " + uri);
+		}
+		if (ret >= 0) {
+			this.getContext().getContentResolver().notifyChange(uri, null);
+			return null;
+		} else {
+			return ContentUris.withAppendedId(uri, ret);
+		}
 	}
 
 	/**
@@ -688,7 +739,7 @@ public final class DataProvider extends ContentProvider {
 			qb.setProjectionMap(Rules.PROJECTION_MAP);
 			break;
 		default:
-			throw new IllegalArgumentException("Unknown ORIG_URI " + uri);
+			throw new IllegalArgumentException("Unknown Uri " + uri);
 		}
 
 		// If no sort order is specified use the default
@@ -715,20 +766,28 @@ public final class DataProvider extends ContentProvider {
 	@Override
 	public int update(final Uri uri, final ContentValues values,
 			final String selection, final String[] selectionArgs) {
-
-		final SQLiteDatabase db = this.mOpenHelper.getReadableDatabase();
-		int r = 0;
+		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
+		int ret = 0;
 		switch (URI_MATCHER.match(uri)) {
-		case PLANS_ID:
-			r = db.update(Plans.TABLE, values, Plans.ID + "="
+		case LOGS_ID:
+			ret = db.update(Logs.TABLE, values, Logs.ID + "="
 					+ uri.getPathSegments().get(1), null);
-			if (r > 0) {
-				this.getContext().getContentResolver().notifyChange(uri, null);
-			}
-			return r;
+			break;
+		case PLANS_ID:
+			ret = db.update(Plans.TABLE, values, Plans.ID + "="
+					+ uri.getPathSegments().get(1), null);
+			break;
+		case RULES_ID:
+			ret = db.update(Rules.TABLE, values, Rules.ID + "="
+					+ uri.getPathSegments().get(1), null);
+			break;
 		default:
 			db.close();
-			throw new IllegalArgumentException("Unknown ORIG_URI " + uri);
+			throw new IllegalArgumentException("Unknown Uri " + uri);
 		}
+		if (ret > 0) {
+			this.getContext().getContentResolver().notifyChange(uri, null);
+		}
+		return ret;
 	}
 }

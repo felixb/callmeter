@@ -25,6 +25,7 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -46,16 +47,29 @@ public class Plans extends ListActivity implements OnClickListener,
 	/** Plans. */
 	private PlanAdapter adapter = null;
 
+	/** Item menu: edit. */
+	private static final int WHICH_EDIT = 0;
+	/** Item menu: up. */
+	private static final int WHICH_UP = 1;
+	/** Item menu: down. */
+	private static final int WHICH_DOWN = 2;
+	/** Item menu: delete. */
+	private static final int WHICH_DELETE = 3;
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.setTitle(this.getString(R.string.settings) + " > "
+				+ this.getString(R.string.plans));
 		this.setContentView(R.layout.prefs_plans);
 		this.adapter = new PlanAdapter(this);
 		this.setListAdapter(this.adapter);
 		this.getListView().setOnItemClickListener(this);
+		this.findViewById(R.id.ok).setOnClickListener(this);
+		this.findViewById(R.id.add).setOnClickListener(this);
 	}
 
 	/**
@@ -74,17 +88,15 @@ public class Plans extends ListActivity implements OnClickListener,
 				.getItemId(position));
 		final String idOther = String.valueOf(this.adapter.getItemId(position
 				+ direction));
-		cursor = cr.query(DataProvider.Plans.CONTENT_URI.buildUpon()
-				.appendPath(idCurrent).build(), DataProvider.Plans.PROJECTION,
-				null, null, null);
+		cursor = cr.query(Uri.withAppendedPath(DataProvider.Plans.CONTENT_URI,
+				idCurrent), DataProvider.Plans.PROJECTION, null, null, null);
 		if (cursor == null || !cursor.moveToFirst()) {
 			return;
 		}
 		final int orderCurrent = cursor.getInt(DataProvider.Plans.INDEX_ORDER);
 		cursor.close();
-		cursor = cr.query(DataProvider.Plans.CONTENT_URI.buildUpon()
-				.appendPath(idOther).build(), DataProvider.Plans.PROJECTION,
-				null, null, null);
+		cursor = cr.query(Uri.withAppendedPath(DataProvider.Plans.CONTENT_URI,
+				idOther), DataProvider.Plans.PROJECTION, null, null, null);
 		if (cursor == null || !cursor.moveToFirst()) {
 			return;
 		}
@@ -103,11 +115,11 @@ public class Plans extends ListActivity implements OnClickListener,
 		}
 
 		// push changes
-		cr.update(DataProvider.Plans.CONTENT_URI.buildUpon().appendPath(
-				String.valueOf(idCurrent)).build(), cvCurrent, null, null);
+		cr.update(Uri.withAppendedPath(DataProvider.Plans.CONTENT_URI,
+				idCurrent), cvCurrent, null, null);
 		if (cvOther != null) {
-			cr.update(DataProvider.Plans.CONTENT_URI.buildUpon().appendPath(
-					String.valueOf(idOther)).build(), cvOther, null, null);
+			cr.update(Uri.withAppendedPath(DataProvider.Plans.CONTENT_URI,
+					idOther), cvOther, null, null);
 		}
 	}
 
@@ -124,19 +136,25 @@ public class Plans extends ListActivity implements OnClickListener,
 					public void onClick(final DialogInterface dialog,
 							final int which) {
 						switch (which) {
-						case 0: // set
+						case WHICH_EDIT:
 							final Intent intent = new Intent(// .
 									Plans.this, PlanEdit.class);
-							intent.setData(DataProvider.Plans.CONTENT_URI
-									.buildUpon().appendPath(String.valueOf(id))
-									.build());
+							intent.setData(Uri.withAppendedPath(
+									DataProvider.Plans.CONTENT_URI, String
+											.valueOf(id)));
 							Plans.this.startActivity(intent);
 							break;
-						case 1: // up
+						case WHICH_UP:
 							Plans.this.swap(position, -1);
 							break;
-						case 2: // down
+						case WHICH_DOWN:
 							Plans.this.swap(position, 1);
+							break;
+						case WHICH_DELETE:
+							Plans.this.getContentResolver().delete(
+									Uri.withAppendedPath(
+											DataProvider.Plans.CONTENT_URI,
+											String.valueOf(id)), null, null);
 							break;
 						default:
 							break;
@@ -152,11 +170,11 @@ public class Plans extends ListActivity implements OnClickListener,
 	@Override
 	public final void onClick(final View v) {
 		switch (v.getId()) {
-		case R.id.ok:
+		case R.id.add:
 			final Intent intent = new Intent(this, PlanEdit.class);
 			this.startActivity(intent);
 			break;
-		case R.id.add:
+		case R.id.ok:
 			this.finish();
 			break;
 		default:

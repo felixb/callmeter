@@ -90,6 +90,7 @@ public class Preferences extends PreferenceActivity {
 	@Override
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.setTitle(R.string.settings);
 		this.addPreferencesFromResource(R.xml.prefs);
 		// final SharedPreferences prefs = PreferenceManager
 		// .getDefaultSharedPreferences(this);

@@ -21,8 +21,9 @@
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
 	android:orientation="vertical">
 
-	<ScrollView android:layout_width="fill_parent" android:layout_height="1px"
-		android:layout_weight="1" android:fillViewport="true" >
+	<ScrollView android:layout_width="fill_parent"
+		android:layout_height="1px" android:layout_weight="1"
+		android:fillViewport="true">
 		<LinearLayout android:layout_width="fill_parent"
 			android:layout_height="fill_parent" android:orientation="vertical">
 			<RelativeLayout android:id="@+id/name_layout"
@@ -93,13 +94,19 @@
 				<Button android:id="@+id/billmode_help" android:text="@string/help_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
 					android:layout_alignParentRight="true" />
-				<EditText android:id="@+id/billmode_et"
+				<Spinner android:id="@+id/billmode_sp" android:entries="@array/billmodes"
 					android:layout_width="150dip" android:layout_height="wrap_content"
 					android:layout_toLeftOf="@id/billmode_help" />
 				<TextView android:id="@+id/billmode_tw" android:text="@string/billmode_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/billmode_et"
+					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/billmode_sp"
 					android:singleLine="false" android:layout_centerVertical="true" />
+				<EditText android:id="@+id/billmode_cust_2_et"
+					android:layout_width="75dip" android:layout_height="wrap_content"
+					android:layout_below="@id/billmode_sp" android:layout_toLeftOf="@id/billmode_help" />
+				<EditText android:id="@+id/billmode_cust_1_et"
+					android:layout_width="75dip" android:layout_height="wrap_content"
+					android:layout_below="@id/billmode_sp" android:layout_toLeftOf="@id/billmode_cust_2_et" />
 			</RelativeLayout>
 			<RelativeLayout android:id="@+id/billperiod_layout"
 				android:layout_width="fill_parent" android:layout_height="wrap_content">
