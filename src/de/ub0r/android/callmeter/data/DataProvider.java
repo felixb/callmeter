@@ -371,33 +371,34 @@ public final class DataProvider extends ContentProvider {
 					+ COST + " FLOAT" // .
 					+ ");");
 			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ") VALUES ('Calls', 'Calls', " + TYPE_TITLE
-					+ ")");
+					+ "," + TYPE + ", " + ORDER
+					+ ") VALUES ('Calls', 'Calls', " + TYPE_TITLE + ", 0 )");
 			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
 					+ "," + TYPE + "," + LIMIT + "," + LIMIT_TYPE + ","
-					+ USED_MONTH + ") VALUES ('Calls', 'Calls', " + TYPE_CALL
-					+ ", 10, 3, " + LIMIT_TYPE_UNITS + ")");
+					+ USED_MONTH + ", " + ORDER
+					+ ") VALUES ('Calls', 'Calls', " + TYPE_CALL + ", 10, 3, "
+					+ LIMIT_TYPE_UNITS + ", 1 )");
+			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
+					+ "," + TYPE + ", " + ORDER + ") VALUES ('space', '-', "
+					+ TYPE_SPACING + ", 2 )");
+			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
+					+ "," + TYPE + ", " + ORDER + ") VALUES ('SMS', 'SMS', "
+					+ TYPE_TITLE + ", 3)");
+			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
+					+ "," + TYPE + ", " + ORDER + ") VALUES ('SMS in', 'In', "
+					+ TYPE_SMS + ", 4)");
+			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
+					+ "," + TYPE + ", " + ORDER
+					+ ") VALUES ('SMS out', 'Out', " + TYPE_SMS + ", 5)");
 			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
 					+ "," + TYPE + ") VALUES ('space', '-', " + TYPE_SPACING
-					+ ")");
+					+ ", 6)");
 			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ") VALUES ('SMS', 'SMS', " + TYPE_TITLE
-					+ ")");
+					+ "," + TYPE + ", " + ORDER
+					+ ") VALUES ('Data/UMTS', 'Data', " + TYPE_TITLE + ", 7)");
 			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ") VALUES ('SMS in', 'In', " + TYPE_SMS
-					+ ")");
-			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ") VALUES ('SMS out', 'Out', " + TYPE_SMS
-					+ ")");
-			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ") VALUES ('space', '-', " + TYPE_SPACING
-					+ ")");
-			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ") VALUES ('Data/UMTS', 'Data', "
-					+ TYPE_TITLE + ")");
-			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ") VALUES ('Data', 'Data', " + TYPE_DATA
-					+ ")");
+					+ "," + TYPE + ", " + ORDER + ") VALUES ('Data', 'Data', "
+					+ TYPE_DATA + ", 8)");
 		}
 
 		/**
