@@ -44,7 +44,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 2;
+	private static final int DATABASE_VERSION = 1;
 
 	/** Type of log: mixed. */
 	public static final int TYPE_MIXED = 0;
@@ -391,8 +391,8 @@ public final class DataProvider extends ContentProvider {
 					+ "," + TYPE + ", " + ORDER
 					+ ") VALUES ('SMS out', 'Out', " + TYPE_SMS + ", 5)");
 			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ") VALUES ('space', '-', " + TYPE_SPACING
-					+ ", 6)");
+					+ "," + TYPE + ", " + ORDER + ") VALUES ('space', '-', "
+					+ TYPE_SPACING + ", 6)");
 			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
 					+ "," + TYPE + ", " + ORDER
 					+ ") VALUES ('Data/UMTS', 'Data', " + TYPE_TITLE + ", 7)");
@@ -430,6 +430,17 @@ public final class DataProvider extends ContentProvider {
 	 * @author flx
 	 */
 	public static final class Rules {
+		public static final int WHAT_CALL = 0;
+		public static final int WHAT_SMS = 1;
+		public static final int WHAT_MMS = 2;
+		public static final int WHAT_DATA = 3;
+		public static final int WHAT_ROAMING = 4;
+		public static final int WHAT_NUMBER = 5;
+		public static final int WHAT_NUMBERS = 6;
+		public static final int WHAT_HOURS = 7;
+		public static final int WHAT_LIMIT_REACHED = 8;
+		public static final int WHAT_AND = 9;
+
 		/** Table name. */
 		private static final String TABLE = "rules";
 		/** {@link HashMap} for projection. */
@@ -438,7 +449,7 @@ public final class DataProvider extends ContentProvider {
 		/** Index in projection: id. */
 		public static final int INDEX_ID = 0;
 		/** Index in projection: order. */
-		public static final int INDE_ORDER = 1;
+		public static final int INDEX_ORDER = 1;
 		/** Index in projection: ID of plan referred by this rule. */
 		public static final int INDEX_PLAN_ID = 2;
 		/** Index in projection: Name. */
@@ -451,6 +462,8 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_WHAT0 = 6;
 		/** Index in projection: Target 1. */
 		public static final int INDEX_WHAT1 = 7;
+		/** Index in projection: is child? */
+		public static final int INDEX_ISCHILD = 8;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -468,10 +481,12 @@ public final class DataProvider extends ContentProvider {
 		public static final String WHAT0 = "_what0";
 		/** Target 1. */
 		public static final String WHAT1 = "_what1";
+		/** Is child? */
+		public static final String ISCHILD = "_ischild";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, ORDER,
-				PLAN_ID, NAME, NOT, WHAT, WHAT0, WHAT1 };
+				PLAN_ID, NAME, NOT, WHAT, WHAT0, WHAT1, ISCHILD };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -492,11 +507,13 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP = new HashMap<String, String>();
 			PROJECTION_MAP.put(ID, ID);
 			PROJECTION_MAP.put(ORDER, ORDER);
+			PROJECTION_MAP.put(NAME, NAME);
 			PROJECTION_MAP.put(PLAN_ID, PLAN_ID);
 			PROJECTION_MAP.put(NOT, NOT);
 			PROJECTION_MAP.put(WHAT, WHAT);
 			PROJECTION_MAP.put(WHAT0, WHAT0);
 			PROJECTION_MAP.put(WHAT1, WHAT1);
+			PROJECTION_MAP.put(ISCHILD, ISCHILD);
 		}
 
 		/**
@@ -515,7 +532,8 @@ public final class DataProvider extends ContentProvider {
 					+ NOT + " INTEGER,"// .
 					+ WHAT + " INTEGER,"// .
 					+ WHAT0 + " INTEGER,"// .
-					+ WHAT1 + " INTEGER"// .
+					+ WHAT1 + " INTEGER,"// .
+					+ ISCHILD + " INTEGER" // .
 					+ ");");
 		}
 

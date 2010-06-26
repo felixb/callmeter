@@ -137,7 +137,7 @@
 	<string name="contacts_">Contacts</string>
 	<string name="help_">Help</string>
 	<string name="name_">Name:</string>
-	<string name="name_help">Set a name for your plan here.</string>
+	<string name="name_help">Set a name here.</string>
 	<string name="shortname_">Short name:</string>
 	<string name="shortname_help">Set a short name for compact layouts here.</string>
 	<string name="type_">Type:</string>
@@ -160,6 +160,14 @@
 	<string name="cost_per_item_in_limit_help">Set the cost of one log item (e.g. a call) billed before the limit is exeeded.</string>
 	<string name="cost_per_plan_">Cost per plan:</string>
 	<string name="cost_per_plan_help">Set the cost of the plan for one billing period as is.</string>
+	<string name="plan_">Plan:</string>
+	<string name="plan_help">Choose the plan this rule should fit.</string>
+	<string name="negate_">Negate:</string>
+	<string name="negate_help">Reverse the condition.</string>
+	<string name="what_">Condition:</string>
+	<string name="what_help">Choose a condition here.</string>
+	<string name="what01_">Arguments:</string>
+	<string name="what01_help">This condition needs one or two arguments to set.</string>
 	<string-array name="themes">
 		<item>Black</item>
 		<item>Light</item>
@@ -174,15 +182,33 @@
 		<item>Down</item>
 		<item>Delete</item>
 	</string-array>
+	<string-array name="prefs_rules_dialog">
+		<item>Edit</item>
+		<item>Up</item>
+		<item>Down</item>
+		<item>Delete</item>
+	</string-array>
 	<string-array name="plans_type">
 		<item>Mixed</item>
 		<item>Title</item>
 		<item>Spacer</item>
-		<item>Billperiod</item>
+		<item>Bill period</item>
 		<item>Call</item>
 		<item>SMS</item>
 		<item>MMS</item>
 		<item>Data</item>
+	</string-array>
+	<string-array name="rules_type">
+		<item>Is Call</item>
+		<item>Is SMS</item>
+		<item>Is MMS</item>
+		<item>Is Data</item>
+		<item>Is Roaming</item>
+		<item>Match Number</item>
+		<item>Match Numbers</item>
+		<item>Match Hours</item>
+		<item>Limit reached</item>
+		<item>And</item>
 	</string-array>
 	<string-array name="limit_type">
 		<item>unlimited</item>

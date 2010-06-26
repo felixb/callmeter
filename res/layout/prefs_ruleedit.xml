@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2009-2010 Felix Bechstein
+	-->
+	<!--
+		This file is part of Call Meter 3G. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<ScrollView android:layout_width="fill_parent"
+		android:layout_height="1px" android:layout_weight="1"
+		android:fillViewport="true">
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="fill_parent" android:orientation="vertical">
+			<RelativeLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content">
+				<Button android:id="@+id/name_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentRight="true" />
+				<EditText android:id="@+id/name_et" android:layout_width="150dip"
+					android:layout_height="wrap_content" android:layout_toLeftOf="@id/name_help" />
+				<TextView android:text="@string/name_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/name_et"
+					android:singleLine="false" android:layout_centerVertical="true" />
+			</RelativeLayout>
+			<RelativeLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content">
+				<Button android:id="@+id/negate_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentRight="true" />
+				<CheckBox android:id="@+id/negate_cb" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:layout_toLeftOf="@id/negate_help" />
+				<TextView android:text="@string/negate_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/negate_cb"
+					android:singleLine="false" android:layout_centerVertical="true" />
+			</RelativeLayout>
+			<RelativeLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content">
+				<Button android:id="@+id/type_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentRight="true" />
+				<Spinner android:id="@+id/type_sp" android:entries="@array/rules_type"
+					android:layout_width="150dip" android:layout_height="wrap_content"
+					android:layout_toLeftOf="@id/type_help" />
+				<TextView android:text="@string/what_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/type_sp"
+					android:singleLine="false" android:layout_centerVertical="true" />
+			</RelativeLayout>
+			<RelativeLayout android:id="@+id/what01_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<Button android:id="@+id/what01_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentRight="true" />
+				<Button android:id="@+id/what0_btn" android:layout_width="150dip"
+					android:layout_height="wrap_content" android:layout_toLeftOf="@id/what01_help" />
+				<Button android:id="@+id/what1_btn" android:layout_width="150dip"
+					android:layout_height="wrap_content" android:layout_toLeftOf="@id/what01_help"
+					android:layout_below="@id/what0_btn" />
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/what0_btn"
+					android:singleLine="false" android:layout_centerVertical="true" />
+			</RelativeLayout>
+			<RelativeLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content">
+				<Button android:id="@+id/plan_help" android:text="@string/plan_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentRight="true" />
+				<Spinner android:id="@+id/plan_sp" android:layout_width="150dip"
+					android:layout_height="wrap_content" android:layout_toLeftOf="@id/plan_help" />
+				<TextView android:text="@string/plan_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/plan_sp"
+					android:singleLine="false" android:layout_centerVertical="true" />
+			</RelativeLayout>
+		</LinearLayout>
+	</ScrollView>
+
+	<LinearLayout android:id="@+id/ok_cancel"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:orientation="horizontal" style="@android:style/ButtonBar">
+		<Button android:id="@+id/ok" android:text="@android:string/ok"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_weight="1" />
+		<Button android:id="@+id/cancel" android:text="@android:string/cancel"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_weight="1" />
+	</LinearLayout>
+</LinearLayout>
