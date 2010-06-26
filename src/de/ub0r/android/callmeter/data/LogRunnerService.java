@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009 - 2010 Felix Bechstein
+ * Copyright (C) 2009-2010 Felix Bechstein
  * 
  * This file is part of CallMeter 3G.
  * 

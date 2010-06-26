@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 Felix Bechstein, The Android Open Source Project
+ * Copyright (C) 2009-2010 Felix Bechstein, The Android Open Source Project
  * 
  * This file is part of Call Meter 3G.
  * 
