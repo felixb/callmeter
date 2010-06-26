@@ -17,16 +17,10 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 	-->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="wrap_content"
-	android:orientation="vertical">
-	<LinearLayout android:orientation="horizontal"
-		android:layout_width="fill_parent" android:layout_height="wrap_content">
-		<TextView android:id="@+id/normtitle" android:text="normtitle"
-			android:textAppearance="?android:attr/textAppearanceMedium"
-			android:layout_width="wrap_content" android:layout_height="wrap_content" />
-		<TextView android:id="@+id/type" android:text="type"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:paddingLeft="5dip" />
-	</LinearLayout>
-</LinearLayout>
+
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@id/android:list" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:drawSelectorOnTop="false"
+	android:scrollingCache="true" android:fastScrollEnabled="true"
+	android:choiceMode="singleChoice" android:background="?android:attr/colorBackground"
+	android:cacheColorHint="?android:attr/colorBackground" />

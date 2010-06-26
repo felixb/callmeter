@@ -31,6 +31,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.text.TextUtils;
+import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
 
 /**
@@ -155,6 +156,7 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP = new HashMap<String, String>();
 			PROJECTION_MAP.put(ID, ID);
 			PROJECTION_MAP.put(PLAN_ID, PLAN_ID);
+			PROJECTION_MAP.put(RULE_ID, RULE_ID);
 			PROJECTION_MAP.put(TYPE, TYPE);
 			PROJECTION_MAP.put(DIRECTION, DIRECTION);
 			PROJECTION_MAP.put(DATE, DATE);
@@ -176,10 +178,11 @@ public final class DataProvider extends ContentProvider {
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
 					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
 					+ PLAN_ID + " INTEGER," // .
+					+ RULE_ID + " INTEGER," // .
 					+ TYPE + " INTEGER," // .
 					+ DIRECTION + " INTEGER," // .
 					+ DATE + " LONG," // .
-					+ AMOUNT + " INTEGER," // .
+					+ AMOUNT + " LONG," // .
 					+ BILL_AMOUNT + " INTEGER," // .
 					+ REMOTE + " TEXT,"// .
 					+ ROAMED + " BOOL," // .
@@ -621,17 +624,20 @@ public final class DataProvider extends ContentProvider {
 		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
 		int ret = 0;
 		switch (URI_MATCHER.match(uri)) {
+		case LOGS:
+			ret = db.delete(Logs.TABLE, selection, selectionArgs);
+			break;
 		case LOGS_ID:
-			ret = db.delete(Logs.TABLE, Logs.ID + "="
-					+ uri.getPathSegments().get(1), selectionArgs);
+			ret = db.delete(Logs.TABLE, DbUtils.sqlAnd(Logs.ID + "="
+					+ uri.getPathSegments().get(1), selection), selectionArgs);
 			break;
 		case PLANS_ID:
-			ret = db.delete(Plans.TABLE, Plans.ID + "="
-					+ uri.getPathSegments().get(1), selectionArgs);
+			ret = db.delete(Plans.TABLE, DbUtils.sqlAnd(Plans.ID + "="
+					+ uri.getPathSegments().get(1), selection), selectionArgs);
 			break;
 		case RULES_ID:
-			ret = db.delete(Rules.TABLE, Rules.ID + "="
-					+ uri.getPathSegments().get(1), selectionArgs);
+			ret = db.delete(Rules.TABLE, DbUtils.sqlAnd(Rules.ID + "="
+					+ uri.getPathSegments().get(1), selection), selectionArgs);
 			break;
 		default:
 			db.close();
@@ -776,16 +782,16 @@ public final class DataProvider extends ContentProvider {
 		int ret = 0;
 		switch (URI_MATCHER.match(uri)) {
 		case LOGS_ID:
-			ret = db.update(Logs.TABLE, values, Logs.ID + "="
-					+ uri.getPathSegments().get(1), null);
+			ret = db.update(Logs.TABLE, values, DbUtils.sqlAnd(Logs.ID + "="
+					+ uri.getPathSegments().get(1), selection), null);
 			break;
 		case PLANS_ID:
-			ret = db.update(Plans.TABLE, values, Plans.ID + "="
-					+ uri.getPathSegments().get(1), null);
+			ret = db.update(Plans.TABLE, values, DbUtils.sqlAnd(Plans.ID + "="
+					+ uri.getPathSegments().get(1), selection), null);
 			break;
 		case RULES_ID:
-			ret = db.update(Rules.TABLE, values, Rules.ID + "="
-					+ uri.getPathSegments().get(1), null);
+			ret = db.update(Rules.TABLE, values, DbUtils.sqlAnd(Rules.ID + "="
+					+ uri.getPathSegments().get(1), selection), null);
 			break;
 		default:
 			db.close();

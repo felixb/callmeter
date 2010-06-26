@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2010 Felix Bechstein
+ * Copyright (C) 2009-2010 Felix Bechstein
  * 
- * This file is part of Call Meter NG.
+ * This file is part of Call Meter 3G.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software

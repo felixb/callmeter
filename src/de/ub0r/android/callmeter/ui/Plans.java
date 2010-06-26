@@ -32,7 +32,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import de.ub0r.android.callmeter.R;
-import de.ub0r.android.callmeter.data.LogRunner;
+import de.ub0r.android.callmeter.data.LogRunnerReceiver;
+import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DonationHelper;
 
@@ -44,6 +45,26 @@ import de.ub0r.android.lib.DonationHelper;
 public class Plans extends ListActivity {
 	/** Tag for output. */
 	public static final String TAG = "main";
+
+	/** Byte units. */
+	private static final String BYTE_UNITS_B = "B";
+	/** Byte units: kB. */
+	private static final String BYTE_UNITS_KB = "kB";
+	/** Byte units: MB. */
+	private static final String BYTE_UNITS_MB = "MB";
+	/** Byte units: GB. */
+	private static final String BYTE_UNITS_GB = "GB";
+	/** Byte units: TB. */
+	private static final String BYTE_UNITS_TB = "TB";
+	/** Bytes: kB. */
+	private static final long BYTE_KB = 1024L;
+	/** Bytes: MB. */
+	private static final long BYTE_MB = BYTE_KB * BYTE_KB;
+	/** Bytes: GB. */
+	private static final long BYTE_GB = BYTE_MB * BYTE_KB;
+	/** Bytes: TB. */
+	private static final long BYTE_TB = BYTE_GB * BYTE_KB;
+
 	/** Dialog: update. */
 	private static final int DIALOG_UPDATE = 0;
 
@@ -57,6 +78,35 @@ public class Plans extends ListActivity {
 	private SharedPreferences preferences;
 	/** Plans. */
 	private PlanAdapter adapter = null;
+
+	/**
+	 * Return pretty bytes.
+	 * 
+	 * @author Cyril Jaquier
+	 * @param value
+	 *            bytes
+	 * @return pretty bytes
+	 */
+	public static final String prettyBytes(final long value) {
+		StringBuilder sb = new StringBuilder();
+		if (value < BYTE_KB) {
+			sb.append(String.valueOf(value));
+			sb.append(BYTE_UNITS_B);
+		} else if (value < BYTE_MB) {
+			sb.append(String.format("%.1f", value / (BYTE_KB * 1.0)));
+			sb.append(BYTE_UNITS_KB);
+		} else if (value < BYTE_GB) {
+			sb.append(String.format("%.2f", value / (BYTE_MB * 1.0)));
+			sb.append(BYTE_UNITS_MB);
+		} else if (value < BYTE_TB) {
+			sb.append(String.format("%.3f", value / (BYTE_GB * 1.0)));
+			sb.append(BYTE_UNITS_GB);
+		} else {
+			sb.append(String.format("%.4f", value / (BYTE_TB * 1.0)));
+			sb.append(BYTE_UNITS_TB);
+		}
+		return sb.toString();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -101,20 +151,10 @@ public class Plans extends ListActivity {
 		if (!prefsNoAds) {
 			this.findViewById(R.id.ad).setVisibility(View.VISIBLE);
 		}
-		LogRunner.registerMain(this);
 		// start LogRunner
-		LogRunner.update(this.getContentResolver());
+		LogRunnerService.update(this);
 		// schedule next update
-		LogRunner.schedNext(this);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void onPause() {
-		super.onPause();
-		LogRunner.unregisterMain(this);
+		LogRunnerReceiver.schedNext(this);
 	}
 
 	/**
@@ -173,11 +213,14 @@ public class Plans extends ListActivity {
 	@Override
 	public final boolean onOptionsItemSelected(final MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.item_settings: // start settings activity
+		case R.id.item_settings:
 			this.startActivity(new Intent(this, Preferences.class));
 			return true;
 		case R.id.item_donate:
 			this.startActivity(new Intent(this, DonationHelper.class));
+			return true;
+		case R.id.item_logs:
+			this.startActivity(new Intent(this, Logs.class));
 			return true;
 		default:
 			return false;

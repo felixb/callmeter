@@ -18,13 +18,17 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Log;
 
 /**
@@ -85,6 +89,50 @@ public class Preferences extends PreferenceActivity {
 	}
 
 	/**
+	 * Delete data from logs.
+	 * 
+	 * @param type
+	 *            type to delete; -1 for all
+	 */
+	private void resetData(final int type) {
+		if (type < 0) {
+			this.getContentResolver().delete(DataProvider.Logs.CONTENT_URI,
+					null, null);
+		} else {
+			this.getContentResolver().delete(DataProvider.Logs.CONTENT_URI,
+					DataProvider.Logs.TYPE + " = " + type, null);
+		}
+	}
+
+	/**
+	 * Reset internal Logs.
+	 */
+	private void resetDataDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(R.string.reset_data_);
+		builder.setMessage(R.string.reset_data_hint);
+		builder.setCancelable(false);
+		builder.setPositiveButton(android.R.string.yes, new OnClickListener() {
+			@Override
+			public void onClick(final DialogInterface dialog, final int which) {
+				Preferences.this.resetData(DataProvider.TYPE_CALL);
+				Preferences.this.resetData(DataProvider.TYPE_SMS);
+				Preferences.this.resetData(DataProvider.TYPE_MMS);
+			}
+		});
+		builder.setNeutralButton(R.string.reset_data_data_,
+				new OnClickListener() {
+					@Override
+					public void onClick(final DialogInterface dialog,
+							final int which) {
+						Preferences.this.resetData(-1);
+					}
+				});
+		builder.setNegativeButton(android.R.string.no, null);
+		builder.show();
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -102,6 +150,17 @@ public class Preferences extends PreferenceActivity {
 						public boolean onPreferenceClick(
 								final Preference preference) {
 							Log.collectAndSendLog(Preferences.this);
+							return true;
+						}
+					});
+		}
+		p = this.findPreference("reset_data");
+		if (p != null) {
+			p.setOnPreferenceClickListener(// .
+					new Preference.OnPreferenceClickListener() {
+						public boolean onPreferenceClick(
+								final Preference preference) {
+							Preferences.this.resetDataDialog();
 							return true;
 						}
 					});

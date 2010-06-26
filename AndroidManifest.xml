@@ -30,6 +30,8 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
+		<activity android:name=".ui.Logs" android:configChanges="orientation|keyboardHidden"
+			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />
 		<activity android:name=".ui.prefs.Preferences"
 			android:configChanges="orientation|keyboardHidden"
 			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />
@@ -47,7 +49,7 @@
 		<activity android:name="de.ub0r.android.lib.DonationHelper"
 			android:configChanges="orientation|keyboardHidden"
 			android:windowSoftInputMode="adjustResize" />
-		<receiver android:name=".data.LogRunner">
+		<receiver android:name=".data.LogRunnerReceiver">
 			<intent-filter>
 				<action android:name="android.intent.action.BOOT_COMPLETED" />
 				<category android:name="android.intent.category.HOME" />
@@ -56,6 +58,7 @@
 				<action android:name="android.provider.Telephony.SMS_RECEIVED" />
 			</intent-filter>
 		</receiver>
+		<service android:name=".data.LogRunnerService" />
 		<provider android:name=".data.DataProvider"
 			android:authorities="de.ub0r.android.callmeter.provider" />
 		<!-- The application's publisher ID assigned by AdMob -->
