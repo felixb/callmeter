@@ -40,18 +40,6 @@
 			</RelativeLayout>
 			<RelativeLayout android:layout_width="fill_parent"
 				android:layout_height="wrap_content">
-				<Button android:id="@+id/negate_help" android:text="@string/help_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" />
-				<CheckBox android:id="@+id/negate_cb" android:layout_width="wrap_content"
-					android:layout_height="wrap_content" android:layout_toLeftOf="@id/negate_help" />
-				<TextView android:text="@string/negate_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/negate_cb"
-					android:singleLine="false" android:layout_centerVertical="true" />
-			</RelativeLayout>
-			<RelativeLayout android:layout_width="fill_parent"
-				android:layout_height="wrap_content">
 				<Button android:id="@+id/type_help" android:text="@string/help_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
 					android:layout_alignParentRight="true" />
@@ -63,24 +51,34 @@
 					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/type_sp"
 					android:singleLine="false" android:layout_centerVertical="true" />
 			</RelativeLayout>
-			<RelativeLayout android:id="@+id/what01_layout"
+			<RelativeLayout android:id="@+id/what0_layout"
 				android:layout_width="fill_parent" android:layout_height="wrap_content">
-				<Button android:id="@+id/what01_help" android:text="@string/help_"
+				<Button android:id="@+id/what0_help" android:text="@string/help_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
 					android:layout_alignParentRight="true" />
-				<Button android:id="@+id/what0_btn" android:layout_width="150dip"
-					android:layout_height="wrap_content" android:layout_toLeftOf="@id/what01_help" />
-				<Button android:id="@+id/what1_btn" android:layout_width="150dip"
-					android:layout_height="wrap_content" android:layout_toLeftOf="@id/what01_help"
-					android:layout_below="@id/what0_btn" />
-				<TextView android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
+				<Button android:id="@+id/what0_btn" android:text="@string/none"
+					android:layout_width="150dip" android:layout_height="wrap_content"
+					android:layout_toLeftOf="@id/what0_help" />
+				<TextView android:text="@string/what0_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
 					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/what0_btn"
 					android:singleLine="false" android:layout_centerVertical="true" />
 			</RelativeLayout>
-			<RelativeLayout android:layout_width="fill_parent"
-				android:layout_height="wrap_content">
-				<Button android:id="@+id/plan_help" android:text="@string/plan_"
+			<RelativeLayout android:id="@+id/negate_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<Button android:id="@+id/negate_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentRight="true" />
+				<CheckBox android:id="@+id/negate_cb" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:layout_toLeftOf="@id/negate_help" />
+				<TextView android:text="@string/negate_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/negate_cb"
+					android:singleLine="false" android:layout_centerVertical="true" />
+			</RelativeLayout>
+			<RelativeLayout android:id="@+id/plan_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<Button android:id="@+id/plan_help" android:text="@string/help_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
 					android:layout_alignParentRight="true" />
 				<Spinner android:id="@+id/plan_sp" android:layout_width="150dip"
@@ -88,6 +86,19 @@
 				<TextView android:text="@string/plan_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
 					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/plan_sp"
+					android:singleLine="false" android:layout_centerVertical="true" />
+			</RelativeLayout>
+			<RelativeLayout android:id="@+id/what1_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<Button android:id="@+id/what1_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentRight="true" />
+				<Button android:id="@+id/what1_btn" android:text="@string/none"
+					android:layout_width="150dip" android:layout_height="wrap_content"
+					android:layout_toLeftOf="@id/what1_help" />
+				<TextView android:text="@string/what1_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/what1_btn"
 					android:singleLine="false" android:layout_centerVertical="true" />
 			</RelativeLayout>
 		</LinearLayout>

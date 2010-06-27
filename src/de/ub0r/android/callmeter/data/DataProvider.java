@@ -439,7 +439,6 @@ public final class DataProvider extends ContentProvider {
 		public static final int WHAT_NUMBERS = 6;
 		public static final int WHAT_HOURS = 7;
 		public static final int WHAT_LIMIT_REACHED = 8;
-		public static final int WHAT_AND = 9;
 
 		/** Table name. */
 		private static final String TABLE = "rules";

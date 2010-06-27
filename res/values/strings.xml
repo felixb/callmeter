@@ -166,8 +166,11 @@
 	<string name="negate_help">Reverse the condition.</string>
 	<string name="what_">Condition:</string>
 	<string name="what_help">Choose a condition here.</string>
-	<string name="what01_">Arguments:</string>
-	<string name="what01_help">This condition needs one or two arguments to set.</string>
+	<string name="what0_">Argument:</string>
+	<string name="what0_help">This condition needs an arguments to set.</string>
+	<string name="what1_">And rule:</string>
+	<string name="what1_help">Set a rule which must match too.</string>
+	<string name="none">None</string>
 	<string-array name="themes">
 		<item>Black</item>
 		<item>Light</item>
@@ -208,7 +211,6 @@
 		<item>Match Numbers</item>
 		<item>Match Hours</item>
 		<item>Limit reached</item>
-		<item>And</item>
 	</string-array>
 	<string-array name="limit_type">
 		<item>unlimited</item>

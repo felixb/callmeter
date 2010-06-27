@@ -98,9 +98,13 @@ public class RuleEdit extends Activity implements OnClickListener,
 		this.findViewById(R.id.cancel).setOnClickListener(this);
 		this.findViewById(R.id.name_help).setOnClickListener(this);
 		this.findViewById(R.id.type_help).setOnClickListener(this);
-		this.findViewById(R.id.what01_help).setOnClickListener(this);
+		this.findViewById(R.id.what0_help).setOnClickListener(this);
+		this.findViewById(R.id.what1_help).setOnClickListener(this);
+		this.findViewById(R.id.plan_help).setOnClickListener(this);
 		this.findViewById(R.id.negate_help).setOnClickListener(this);
+
 		this.fillFields();
+		this.showHideFileds();
 	}
 
 	/**
@@ -164,27 +168,37 @@ public class RuleEdit extends Activity implements OnClickListener,
 
 		int v;
 		switch (t) {
-		case DataProvider.Rules.WHAT_AND:
 		case DataProvider.Rules.WHAT_HOURS:
 		case DataProvider.Rules.WHAT_NUMBER:
 		case DataProvider.Rules.WHAT_NUMBERS:
-			v = View.GONE;
+			v = View.VISIBLE;
 			break;
 		default:
-			v = View.INVISIBLE;
+			v = View.GONE;
 			break;
 		}
-		this.findViewById(R.id.what01_layout).setVisibility(v);
+		this.findViewById(R.id.what0_layout).setVisibility(v);
 
 		switch (t) {
-		case DataProvider.Rules.WHAT_AND:
-			v = View.GONE;
+		case DataProvider.Rules.WHAT_HOURS:
+		case DataProvider.Rules.WHAT_LIMIT_REACHED:
+		case DataProvider.Rules.WHAT_NUMBER:
+		case DataProvider.Rules.WHAT_NUMBERS:
+		case DataProvider.Rules.WHAT_ROAMING:
+			v = View.VISIBLE;
 			break;
 		default:
-			v = View.INVISIBLE;
+			v = View.GONE;
 			break;
 		}
-		this.findViewById(R.id.what1_btn).setVisibility(v);
+		this.findViewById(R.id.negate_layout).setVisibility(v);
+
+		if (this.isChild) {
+			v = View.GONE;
+		} else {
+			v = View.VISIBLE;
+		}
+		this.findViewById(R.id.plan_layout).setVisibility(v);
 	}
 
 	/**
@@ -237,8 +251,14 @@ public class RuleEdit extends Activity implements OnClickListener,
 		case R.id.negate_help:
 			this.showHelp(R.string.negate_help);
 			break;
-		case R.id.what01_help:
-			this.showHelp(R.string.what01_help);
+		case R.id.what0_help:
+			this.showHelp(R.string.what0_help);
+			break;
+		case R.id.what1_help:
+			this.showHelp(R.string.what1_help);
+			break;
+		case R.id.plan_help:
+			this.showHelp(R.string.plan_help);
 			break;
 		default:
 			break;
