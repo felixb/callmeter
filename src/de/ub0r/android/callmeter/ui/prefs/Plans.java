@@ -104,7 +104,7 @@ public class Plans extends ListActivity implements OnClickListener,
 		super.onCreate(savedInstanceState);
 		this.setTitle(this.getString(R.string.settings) + " > "
 				+ this.getString(R.string.plans));
-		this.setContentView(R.layout.prefs_plans);
+		this.setContentView(R.layout.list_ok_add);
 		this.adapter = new PlanAdapter(this);
 		this.setListAdapter(this.adapter);
 		this.getListView().setOnItemClickListener(this);

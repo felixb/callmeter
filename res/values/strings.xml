@@ -72,6 +72,8 @@
 	<string name="plans_hint">Set your plans for all kind of billing here.</string>
 	<string name="rules">Rules</string>
 	<string name="rules_hint">Set your billing rules here.</string>
+	<string name="numbers">Numbers</string>
+	<string name="hours">Hours</string>
 	<string name="plans_split">Split plans</string>
 	<string name="plans_merge">Merge plans</string>
 	<string name="plans_split_hint">Split plan into two different billed plans.</string>
@@ -220,6 +222,11 @@
 		<item>Edit</item>
 		<item>Up</item>
 		<item>Down</item>
+		<item>Delete</item>
+	</string-array>
+	<string-array name="prefs_select_edit_delete">
+		<item>Select</item>
+		<item>Edit</item>
 		<item>Delete</item>
 	</string-array>
 	<string-array name="prefs_edit_delete">

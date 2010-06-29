@@ -104,7 +104,7 @@ public class Rules extends ListActivity implements OnClickListener,
 		super.onCreate(savedInstanceState);
 		this.setTitle(this.getString(R.string.settings) + " > "
 				+ this.getString(R.string.rules));
-		this.setContentView(R.layout.prefs_rules);
+		this.setContentView(R.layout.list_ok_add);
 		this.adapter = new RuleAdapter(this);
 		this.setListAdapter(this.adapter);
 		this.getListView().setOnItemClickListener(this);

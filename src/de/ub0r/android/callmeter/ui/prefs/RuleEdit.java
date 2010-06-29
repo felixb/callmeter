@@ -315,6 +315,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 	 */
 	@Override
 	public final void onClick(final View v) {
+		final int t = this.spWhat.getSelectedItemPosition();
 		Intent intent = null;
 		switch (v.getId()) {
 		case R.id.ok:
@@ -322,8 +323,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 			final ContentValues cv = new ContentValues();
 			cv.put(DataProvider.Rules.NAME, n);
 			cv.put(DataProvider.Rules.NOT, this.cbNegate.isChecked());
-			cv.put(DataProvider.Rules.WHAT, this.spWhat
-					.getSelectedItemPosition());
+			cv.put(DataProvider.Rules.WHAT, t);
 			cv.put(DataProvider.Rules.WHAT0, this.what0);
 			cv.put(DataProvider.Rules.WHAT1, this.what1);
 			cv.put(DataProvider.Rules.PLAN_ID, this.plan);
@@ -346,6 +346,44 @@ public class RuleEdit extends Activity implements OnClickListener,
 			this.id = -1;
 			this.setResult(RESULT_CANCELED);
 			this.finish();
+			break;
+		case R.id.what0_btn:
+			int rt = -1;
+			if (t == DataProvider.Rules.WHAT_NUMBERS) {
+				intent = new Intent(this, NumberGroups.class);
+				rt = REQUEST_NUMBERS;
+			} else if (t == DataProvider.Rules.WHAT_HOURS) {
+				// intent = new Intent(this, HourGroups.class);
+				rt = REQUEST_HOURS;
+			}
+			if (this.what0 < 0) {
+				this.startActivityForResult(intent, rt);
+			} else {
+				final Intent i = intent;
+				final int r = rt;
+				final Builder builder = new Builder(this);
+				builder.setItems(R.array.prefs_edit_delete,
+						new android.content.DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(final DialogInterface dialog,
+									final int which) {
+								switch (which) {
+								case 0:
+									RuleEdit.this.startActivityForResult(// .
+											i, r);
+									break;
+								case 1:
+									// TODO: delete old child from DB
+									RuleEdit.this.what0 = -1;
+									break;
+								default:
+									break;
+								}
+							}
+						});
+				builder.setNegativeButton(android.R.string.cancel, null);
+				builder.show();
+			}
 			break;
 		case R.id.what1_btn:
 			final Intent i = new Intent(this, RuleEdit.class);

@@ -598,6 +598,9 @@ public final class DataProvider extends ContentProvider {
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
 				+ AUTHORITY + "/numbers");
+		/** Content {@link Uri} for a group of numbers. */
+		public static final Uri GROUP_URI = Uri.parse("content://" + AUTHORITY
+				+ "/numbers/group");
 		/**
 		 * The MIME type of {@link #CONTENT_URI} providing a list.
 		 */
