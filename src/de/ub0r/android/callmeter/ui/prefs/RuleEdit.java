@@ -20,17 +20,21 @@ package de.ub0r.android.callmeter.ui.prefs;
 
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
+import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 import de.ub0r.android.callmeter.R;
@@ -43,6 +47,13 @@ import de.ub0r.android.callmeter.data.DataProvider;
  */
 public class RuleEdit extends Activity implements OnClickListener,
 		OnItemSelectedListener {
+
+	/** Activity result request id: rule. */
+	private static final int REQUEST_RULE = 0;
+	/** Activity result request id: numbers. */
+	private static final int REQUEST_NUMBERS = 1;
+	/** Activity result request id: numbers. */
+	private static final int REQUEST_HOURS = 2;
 
 	/** Extra for {@link Intent}: is child? */
 	static final String EXTRA_ISCHILD = "is_child";
@@ -64,11 +75,11 @@ public class RuleEdit extends Activity implements OnClickListener,
 	private Button btnWhat1 = null;
 
 	/** Data for target plan. */
-	private int plan = -1;
+	private long plan = -1;
 	/** Data for what0. */
-	private int what0 = -1;
+	private long what0 = -1;
 	/** Data for what1. */
-	private int what1 = -1;
+	private long what1 = -1;
 	/** Data for is child. */
 	private boolean isChild = false;
 
@@ -104,6 +115,8 @@ public class RuleEdit extends Activity implements OnClickListener,
 		this.findViewById(R.id.negate_help).setOnClickListener(this);
 
 		this.fillFields();
+		this.fillChild();
+		this.fillPlan();
 		this.showHideFileds();
 	}
 
@@ -120,8 +133,93 @@ public class RuleEdit extends Activity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void onPause() {
-		super.onPause();
+	protected final void onActivityResult(final int requestCode,
+			final int resultCode, final Intent data) {
+		if (resultCode == RESULT_OK) {
+			final Uri uri = data.getData();
+			if (uri == null) {
+				this.what1 = -1;
+			} else {
+				this.what1 = Long.parseLong(uri.getPathSegments().get(1));
+			}
+		}
+		this.fillChild();
+	}
+
+	/**
+	 * Set text of the child {@link Button}.
+	 */
+	private void fillChild() {
+		Cursor cursor = null;
+		if (this.what1 >= 0) {
+			cursor = this.getContentResolver().query(
+					ContentUris.withAppendedId(DataProvider.Rules.CONTENT_URI,
+							this.what1),
+					new String[] { DataProvider.Rules.NAME }, null, null, null);
+		}
+		if (cursor != null && cursor.moveToFirst()) {
+			this.btnWhat1.setText(cursor.getString(0));
+		} else {
+			this.btnWhat1.setText(R.string.none);
+		}
+		if (cursor != null && !cursor.isClosed()) {
+			cursor.close();
+		}
+	}
+
+	/**
+	 * Set plan {@link Spinner}'s adapter.
+	 */
+	private void fillPlan() {
+		final int t = this.spWhat.getSelectedItemPosition();
+		String where = null;
+		switch (t) {
+		case DataProvider.Rules.WHAT_CALL:
+			where = DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_CALL
+					+ " OR " + DataProvider.Plans.TYPE + " = "
+					+ DataProvider.TYPE_MIXED;
+			break;
+		case DataProvider.Rules.WHAT_DATA:
+			where = DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_DATA;
+			break;
+		case DataProvider.Rules.WHAT_SMS:
+		case DataProvider.Rules.WHAT_MMS:
+			where = DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_SMS
+					+ " OR " + DataProvider.Plans.TYPE + " = "
+					+ DataProvider.TYPE_MMS + " OR " + DataProvider.Plans.TYPE
+					+ " = " + DataProvider.TYPE_MIXED;
+			break;
+		default:
+			where = DataProvider.Plans.TYPE + " != "
+					+ DataProvider.TYPE_BILLMODE + " AND "
+					+ DataProvider.Plans.TYPE + " != "
+					+ DataProvider.TYPE_SPACING + " AND "
+					+ DataProvider.Plans.TYPE + " != "
+					+ DataProvider.TYPE_TITLE;
+			break;
+		}
+
+		final Cursor cursor = this.getContentResolver()
+				.query(
+						DataProvider.Plans.CONTENT_URI,
+						new String[] { DataProvider.Plans.ID,
+								DataProvider.Plans.NAME }, where, null,
+						DataProvider.Plans.NAME);
+		this.spPlan.setAdapter(new SimpleCursorAdapter(this,
+				android.R.layout.simple_spinner_item, cursor,
+				new String[] { DataProvider.Plans.NAME },
+				new int[] { android.R.id.text1 }));
+
+		if (this.plan >= 0) {
+			final Adapter adapter = this.spPlan.getAdapter();
+			final int l = adapter.getCount();
+			for (int i = 0; i < l; i++) {
+				if (adapter.getItemId(i) == this.plan) {
+					this.spPlan.setSelection(i);
+					break;
+				}
+			}
+		}
 	}
 
 	/**
@@ -132,7 +230,6 @@ public class RuleEdit extends Activity implements OnClickListener,
 		if (uri == null) {
 			return;
 		}
-		this.isChild = this.getIntent().getBooleanExtra(EXTRA_ISCHILD, false);
 		Cursor cursor = this.getContentResolver().query(uri,
 				DataProvider.Rules.PROJECTION, null, null, null);
 		if (cursor == null || !cursor.moveToFirst()) {
@@ -155,7 +252,8 @@ public class RuleEdit extends Activity implements OnClickListener,
 		this.what0 = cursor.getInt(DataProvider.Rules.INDEX_WHAT0);
 		this.what1 = cursor.getInt(DataProvider.Rules.INDEX_WHAT1);
 		this.plan = cursor.getInt(DataProvider.Rules.INDEX_PLAN_ID);
-		// TODO: fill plan, what0, what1
+		this.isChild = this.getIntent().getBooleanExtra(EXTRA_ISCHILD, false);
+		// TODO: what0
 
 		cursor.close();
 	}
@@ -169,7 +267,6 @@ public class RuleEdit extends Activity implements OnClickListener,
 		int v;
 		switch (t) {
 		case DataProvider.Rules.WHAT_HOURS:
-		case DataProvider.Rules.WHAT_NUMBER:
 		case DataProvider.Rules.WHAT_NUMBERS:
 			v = View.VISIBLE;
 			break;
@@ -182,7 +279,6 @@ public class RuleEdit extends Activity implements OnClickListener,
 		switch (t) {
 		case DataProvider.Rules.WHAT_HOURS:
 		case DataProvider.Rules.WHAT_LIMIT_REACHED:
-		case DataProvider.Rules.WHAT_NUMBER:
 		case DataProvider.Rules.WHAT_NUMBERS:
 		case DataProvider.Rules.WHAT_ROAMING:
 			v = View.VISIBLE;
@@ -219,10 +315,12 @@ public class RuleEdit extends Activity implements OnClickListener,
 	 */
 	@Override
 	public final void onClick(final View v) {
+		Intent intent = null;
 		switch (v.getId()) {
 		case R.id.ok:
+			final String n = this.etName.getText().toString();
 			final ContentValues cv = new ContentValues();
-			cv.put(DataProvider.Rules.NAME, this.etName.getText().toString());
+			cv.put(DataProvider.Rules.NAME, n);
 			cv.put(DataProvider.Rules.NOT, this.cbNegate.isChecked());
 			cv.put(DataProvider.Rules.WHAT, this.spWhat
 					.getSelectedItemPosition());
@@ -231,16 +329,57 @@ public class RuleEdit extends Activity implements OnClickListener,
 			cv.put(DataProvider.Rules.PLAN_ID, this.plan);
 			cv.put(DataProvider.Rules.ISCHILD, this.isChild);
 
-			final Uri uri = this.getIntent().getData();
+			Uri uri = this.getIntent().getData();
 			if (uri == null) {
-				this.getContentResolver().insert(
+				uri = this.getContentResolver().insert(
 						DataProvider.Rules.CONTENT_URI, cv);
 			} else {
 				this.getContentResolver().update(uri, cv, null, null);
 			}
+			this.id = -1;
+			intent = new Intent(this, RuleEdit.class);
+			intent.setData(uri);
+			this.setResult(RESULT_OK, new Intent(intent));
+			this.finish();
+			break;
 		case R.id.cancel:
 			this.id = -1;
+			this.setResult(RESULT_CANCELED);
 			this.finish();
+			break;
+		case R.id.what1_btn:
+			final Intent i = new Intent(this, RuleEdit.class);
+			i.putExtra(EXTRA_ISCHILD, true);
+			if (this.what1 >= 0) {
+				i.setData(ContentUris.withAppendedId(
+						DataProvider.Rules.CONTENT_URI, this.what1));
+
+				final Builder builder = new Builder(this);
+				builder.setItems(R.array.prefs_edit_delete,
+						new android.content.DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(final DialogInterface dialog,
+									final int which) {
+								switch (which) {
+								case 0:
+									RuleEdit.this.startActivityForResult(// .
+											i, REQUEST_RULE);
+									break;
+								case 1:
+									// TODO: delete old child from DB
+									RuleEdit.this.what1 = -1;
+									RuleEdit.this.fillChild();
+									break;
+								default:
+									break;
+								}
+							}
+						});
+				builder.setNegativeButton(android.R.string.cancel, null);
+				builder.show();
+			} else {
+				this.startActivityForResult(i, REQUEST_RULE);
+			}
 			break;
 		case R.id.name_help:
 			this.showHelp(R.string.name_help);
@@ -271,7 +410,16 @@ public class RuleEdit extends Activity implements OnClickListener,
 	@Override
 	public final void onItemSelected(final AdapterView<?> parent,
 			final View view, final int position, final long id) {
-		this.showHideFileds();
+		switch (parent.getId()) {
+		case R.id.plan_sp:
+			this.plan = id;
+			break;
+		case R.id.type_sp:
+			this.showHideFileds();
+			this.fillPlan();
+		default:
+			break;
+		}
 	}
 
 	/**

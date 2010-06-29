@@ -44,7 +44,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 4;
 
 	/** Type of log: mixed. */
 	public static final int TYPE_MIXED = 0;
@@ -177,8 +177,8 @@ public final class DataProvider extends ContentProvider {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
 					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
-					+ PLAN_ID + " INTEGER," // .
-					+ RULE_ID + " INTEGER," // .
+					+ PLAN_ID + " LONG," // .
+					+ RULE_ID + " LONG," // .
 					+ TYPE + " INTEGER," // .
 					+ DIRECTION + " INTEGER," // .
 					+ DATE + " LONG," // .
@@ -186,7 +186,7 @@ public final class DataProvider extends ContentProvider {
 					+ BILL_AMOUNT + " INTEGER," // .
 					+ REMOTE + " TEXT,"// .
 					+ ROAMED + " BOOL," // .
-					+ COST + " INTEGER"// .
+					+ COST + " FLOAT"// .
 					+ ");");
 		}
 
@@ -430,15 +430,22 @@ public final class DataProvider extends ContentProvider {
 	 * @author flx
 	 */
 	public static final class Rules {
+		/** Condition type: match call. */
 		public static final int WHAT_CALL = 0;
+		/** Condition type: match sms. */
 		public static final int WHAT_SMS = 1;
+		/** Condition type: match mms. */
 		public static final int WHAT_MMS = 2;
+		/** Condition type: match data. */
 		public static final int WHAT_DATA = 3;
+		/** Condition type: is roaming. */
 		public static final int WHAT_ROAMING = 4;
-		public static final int WHAT_NUMBER = 5;
-		public static final int WHAT_NUMBERS = 6;
-		public static final int WHAT_HOURS = 7;
-		public static final int WHAT_LIMIT_REACHED = 8;
+		/** Condition type: match numbers. */
+		public static final int WHAT_NUMBERS = 7;
+		/** Condition type: match hours. */
+		public static final int WHAT_HOURS = 8;
+		/** Condition type: is limit reached. */
+		public static final int WHAT_LIMIT_REACHED = 9;
 
 		/** Table name. */
 		private static final String TABLE = "rules";
@@ -530,8 +537,8 @@ public final class DataProvider extends ContentProvider {
 					+ PLAN_ID + " INTEGER,"// .
 					+ NOT + " INTEGER,"// .
 					+ WHAT + " INTEGER,"// .
-					+ WHAT0 + " INTEGER,"// .
-					+ WHAT1 + " INTEGER,"// .
+					+ WHAT0 + " LONG,"// .
+					+ WHAT1 + " LONG,"// .
 					+ ISCHILD + " INTEGER" // .
 					+ ");");
 		}
@@ -559,6 +566,354 @@ public final class DataProvider extends ContentProvider {
 		}
 	}
 
+	/**
+	 * Numbers.
+	 * 
+	 * @author flx
+	 */
+	public static final class Numbers {
+		/** Table name. */
+		private static final String TABLE = "numbers";
+		/** {@link HashMap} for projection. */
+		private static final HashMap<String, String> PROJECTION_MAP;
+
+		/** Index in projection: ID. */
+		public static final int INDEX_ID = 0;
+		/** Index in projection: ID for number block. */
+		public static final int INDEX_GID = 1;
+		/** Index in projection: number. */
+		public static final int INDEX_NUMBER = 2;
+
+		/** ID. */
+		public static final String ID = "_id";
+		/** ID for number block. */
+		public static final String GID = "_gid";
+		/** Number. */
+		public static final String NUMBER = "_number";
+
+		/** Projection used for query. */
+		public static final String[] PROJECTION = new String[] { ID, GID,
+				NUMBER };
+
+		/** Content {@link Uri}. */
+		public static final Uri CONTENT_URI = Uri.parse("content://"
+				+ AUTHORITY + "/numbers");
+		/**
+		 * The MIME type of {@link #CONTENT_URI} providing a list.
+		 */
+		public static final String CONTENT_TYPE = // .
+		"vnd.android.cursor.dir/vnd.ub0r.number";
+
+		/**
+		 * The MIME type of a {@link #CONTENT_URI} single entry.
+		 */
+		public static final String CONTENT_ITEM_TYPE = // .
+		"vnd.android.cursor.item/vnd.ub0r.number";
+
+		static {
+			PROJECTION_MAP = new HashMap<String, String>();
+			PROJECTION_MAP.put(ID, ID);
+			PROJECTION_MAP.put(GID, GID);
+			PROJECTION_MAP.put(NUMBER, NUMBER);
+		}
+
+		/**
+		 * Create table in {@link SQLiteDatabase}.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 */
+		public static void onCreate(final SQLiteDatabase db) {
+			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("CREATE TABLE " + TABLE + " (" // .
+					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
+					+ GID + " LONG," // .
+					+ NUMBER + " TEXT"// .
+					+ ");");
+		}
+
+		/**
+		 * Upgrade table.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 * @param oldVersion
+		 *            old version
+		 * @param newVersion
+		 *            new version
+		 */
+		public static void onUpgrade(final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) {
+			Log.w(TAG, "Upgrading table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
+			onCreate(db);
+		}
+
+		/** Default constructor. */
+		private Numbers() {
+			// nothing here.
+		}
+	}
+
+	/**
+	 * Numbers.
+	 * 
+	 * @author flx
+	 */
+	public static final class NumbersGroup {
+		/** Table name. */
+		private static final String TABLE = "numbersgroup";
+		/** {@link HashMap} for projection. */
+		private static final HashMap<String, String> PROJECTION_MAP;
+
+		/** Index in projection: ID. */
+		public static final int INDEX_ID = 0;
+		/** Index in projection: name of Numbers group. */
+		public static final int INDEX_NAME = 1;
+
+		/** ID. */
+		public static final String ID = "_id";
+		/** Name of Numbers group. */
+		public static final String NAME = "_name";
+
+		/** Projection used for query. */
+		public static final String[] PROJECTION = new String[] { ID, NAME };
+
+		/** Content {@link Uri}. */
+		public static final Uri CONTENT_URI = Uri.parse("content://"
+				+ AUTHORITY + "/numbers/groups");
+		/**
+		 * The MIME type of {@link #CONTENT_URI} providing a list.
+		 */
+		public static final String CONTENT_TYPE = // .
+		"vnd.android.cursor.dir/vnd.ub0r.numbergroup";
+
+		/**
+		 * The MIME type of a {@link #CONTENT_URI} single entry.
+		 */
+		public static final String CONTENT_ITEM_TYPE = // .
+		"vnd.android.cursor.item/vnd.ub0r.numbergroup";
+
+		static {
+			PROJECTION_MAP = new HashMap<String, String>();
+			PROJECTION_MAP.put(ID, ID);
+			PROJECTION_MAP.put(NAME, NAME);
+		}
+
+		/**
+		 * Create table in {@link SQLiteDatabase}.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 */
+		public static void onCreate(final SQLiteDatabase db) {
+			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("CREATE TABLE " + TABLE + " (" // .
+					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
+					+ NAME + " TEXT" // .
+					+ ");");
+		}
+
+		/**
+		 * Upgrade table.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 * @param oldVersion
+		 *            old version
+		 * @param newVersion
+		 *            new version
+		 */
+		public static void onUpgrade(final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) {
+			Log.w(TAG, "Upgrading table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
+			onCreate(db);
+		}
+
+		/** Default constructor. */
+		private NumbersGroup() {
+			// nothing here.
+		}
+	}
+
+	/**
+	 * Hours.
+	 * 
+	 * @author flx
+	 */
+	public static final class Hours {
+		/** Table name. */
+		private static final String TABLE = "hours";
+		/** {@link HashMap} for projection. */
+		private static final HashMap<String, String> PROJECTION_MAP;
+
+		/** Index in projection: ID. */
+		public static final int INDEX_ID = 0;
+		/** Index in projection: ID for block of hours. */
+		public static final int INDEX_HOURS_ID = 1;
+		/** Index in projection: Day. */
+		public static final int INDEX_DAY = 2;
+		/** Index in projection: Hour of day. */
+		public static final int INDEX_HOUR = 3;
+
+		/** ID. */
+		public static final String ID = "_id";
+		/** ID for block of hours. */
+		public static final String GID = "_gid";
+		/** Day. */
+		public static final String DAY = "_day";
+		/** Hour of day. */
+		public static final String HOUR = "_hour";
+
+		/** Projection used for query. */
+		public static final String[] PROJECTION = new String[] { ID, GID, DAY,
+				HOUR };
+
+		/** Content {@link Uri}. */
+		public static final Uri CONTENT_URI = Uri.parse("content://"
+				+ AUTHORITY + "/hours");
+		/**
+		 * The MIME type of {@link #CONTENT_URI} providing a list.
+		 */
+		public static final String CONTENT_TYPE = // .
+		"vnd.android.cursor.dir/vnd.ub0r.hour";
+
+		/**
+		 * The MIME type of a {@link #CONTENT_URI} single entry.
+		 */
+		public static final String CONTENT_ITEM_TYPE = // .
+		"vnd.android.cursor.item/vnd.ub0r.hour";
+
+		static {
+			PROJECTION_MAP = new HashMap<String, String>();
+			PROJECTION_MAP.put(ID, ID);
+			PROJECTION_MAP.put(GID, GID);
+			PROJECTION_MAP.put(DAY, DAY);
+			PROJECTION_MAP.put(HOUR, HOUR);
+		}
+
+		/**
+		 * Create table in {@link SQLiteDatabase}.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 */
+		public static void onCreate(final SQLiteDatabase db) {
+			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("CREATE TABLE " + TABLE + " (" // .
+					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
+					+ GID + " LONG," // .
+					+ DAY + " INTEGER," // .
+					+ HOUR + " INTEGER" // .
+					+ ");");
+		}
+
+		/**
+		 * Upgrade table.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 * @param oldVersion
+		 *            old version
+		 * @param newVersion
+		 *            new version
+		 */
+		public static void onUpgrade(final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) {
+			Log.w(TAG, "Upgrading table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
+			onCreate(db);
+		}
+
+		/** Default constructor. */
+		private Hours() {
+			// nothing here.
+		}
+	}
+
+	/**
+	 * Hours.
+	 * 
+	 * @author flx
+	 */
+	public static final class HoursGroup {
+		/** Table name. */
+		private static final String TABLE = "hoursgroup";
+		/** {@link HashMap} for projection. */
+		private static final HashMap<String, String> PROJECTION_MAP;
+
+		/** Index in projection: ID. */
+		public static final int INDEX_ID = 0;
+		/** Index in projection: name of hours group. */
+		public static final int INDEX_NAME = 1;
+
+		/** ID. */
+		public static final String ID = "_id";
+		/** Name of hours group. */
+		public static final String NAME = "_name";
+
+		/** Projection used for query. */
+		public static final String[] PROJECTION = new String[] { ID, NAME };
+
+		/** Content {@link Uri}. */
+		public static final Uri CONTENT_URI = Uri.parse("content://"
+				+ AUTHORITY + "/hours/groups");
+		/**
+		 * The MIME type of {@link #CONTENT_URI} providing a list.
+		 */
+		public static final String CONTENT_TYPE = // .
+		"vnd.android.cursor.dir/vnd.ub0r.hourgroup";
+
+		/**
+		 * The MIME type of a {@link #CONTENT_URI} single entry.
+		 */
+		public static final String CONTENT_ITEM_TYPE = // .
+		"vnd.android.cursor.item/vnd.ub0r.hourgroup";
+
+		static {
+			PROJECTION_MAP = new HashMap<String, String>();
+			PROJECTION_MAP.put(ID, ID);
+			PROJECTION_MAP.put(NAME, NAME);
+		}
+
+		/**
+		 * Create table in {@link SQLiteDatabase}.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 */
+		public static void onCreate(final SQLiteDatabase db) {
+			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("CREATE TABLE " + TABLE + " (" // .
+					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
+					+ NAME + " TEXT" // .
+					+ ");");
+		}
+
+		/**
+		 * Upgrade table.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 * @param oldVersion
+		 *            old version
+		 * @param newVersion
+		 *            new version
+		 */
+		public static void onUpgrade(final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) {
+			Log.w(TAG, "Upgrading table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
+			onCreate(db);
+		}
+
+		/** Default constructor. */
+		private HoursGroup() {
+			// nothing here.
+		}
+	}
+
 	/** Internal id: logs. */
 	private static final int LOGS = 1;
 	/** Internal id: single log entry. */
@@ -571,6 +926,26 @@ public final class DataProvider extends ContentProvider {
 	private static final int RULES = 5;
 	/** Internal id: single rule. */
 	private static final int RULES_ID = 6;
+	/** Internal id: numbers. */
+	private static final int NUMBERS = 7;
+	/** Internal id: single number. */
+	private static final int NUMBERS_ID = 8;
+	/** Internal id: group of numbers. */
+	private static final int NUMBERS_GID = 9;
+	/** Internal id: number group. */
+	private static final int NUMBERS_GROUP = 10;
+	/** Internal id: singla number group. */
+	private static final int NUMBERS_GROUP_ID = 11;
+	/** Internal id: hours. */
+	private static final int HOURS = 12;
+	/** Internal id: single hour. */
+	private static final int HOURS_ID = 13;
+	/** Internal id: group of hours. */
+	private static final int HOURS_GID = 14;
+	/** Internal id: hours group. */
+	private static final int HOURS_GROUP = 15;
+	/** Internal id: single hours group. */
+	private static final int HOURS_GROUP_ID = 16;
 
 	/** Authority. */
 	public static final String AUTHORITY = "de.ub0r.android.callmeter."
@@ -587,7 +962,16 @@ public final class DataProvider extends ContentProvider {
 		URI_MATCHER.addURI(AUTHORITY, "plans/#", PLANS_ID);
 		URI_MATCHER.addURI(AUTHORITY, "rules", RULES);
 		URI_MATCHER.addURI(AUTHORITY, "rules/#", RULES_ID);
-
+		URI_MATCHER.addURI(AUTHORITY, "numbers", NUMBERS);
+		URI_MATCHER.addURI(AUTHORITY, "numbers/#", NUMBERS_ID);
+		URI_MATCHER.addURI(AUTHORITY, "numbers/group/#", NUMBERS_GID);
+		URI_MATCHER.addURI(AUTHORITY, "numbers/groups/", NUMBERS_GROUP);
+		URI_MATCHER.addURI(AUTHORITY, "numbers/groups/#", NUMBERS_GROUP_ID);
+		URI_MATCHER.addURI(AUTHORITY, "hours", HOURS);
+		URI_MATCHER.addURI(AUTHORITY, "hours/#", HOURS_ID);
+		URI_MATCHER.addURI(AUTHORITY, "hours/group/#", HOURS_GID);
+		URI_MATCHER.addURI(AUTHORITY, "hours/groups/", HOURS_GROUP);
+		URI_MATCHER.addURI(AUTHORITY, "hours/groups/#", HOURS_GROUP_ID);
 	}
 
 	/**
@@ -614,6 +998,10 @@ public final class DataProvider extends ContentProvider {
 			Logs.onCreate(db);
 			Plans.onCreate(db);
 			Rules.onCreate(db);
+			Numbers.onCreate(db);
+			NumbersGroup.onCreate(db);
+			Hours.onCreate(db);
+			HoursGroup.onCreate(db);
 		}
 
 		/**
@@ -627,6 +1015,10 @@ public final class DataProvider extends ContentProvider {
 			Logs.onUpgrade(db, oldVersion, newVersion);
 			Plans.onUpgrade(db, oldVersion, newVersion);
 			Rules.onUpgrade(db, oldVersion, newVersion);
+			Numbers.onUpgrade(db, oldVersion, newVersion);
+			NumbersGroup.onUpgrade(db, oldVersion, newVersion);
+			Hours.onUpgrade(db, oldVersion, newVersion);
+			HoursGroup.onUpgrade(db, oldVersion, newVersion);
 		}
 	}
 
@@ -641,6 +1033,7 @@ public final class DataProvider extends ContentProvider {
 			final String[] selectionArgs) {
 		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
 		int ret = 0;
+		String id;
 		switch (URI_MATCHER.match(uri)) {
 		case LOGS:
 			ret = db.delete(Logs.TABLE, selection, selectionArgs);
@@ -656,6 +1049,30 @@ public final class DataProvider extends ContentProvider {
 		case RULES_ID:
 			ret = db.delete(Rules.TABLE, DbUtils.sqlAnd(Rules.ID + "="
 					+ uri.getPathSegments().get(1), selection), selectionArgs);
+			break;
+		case NUMBERS_ID:
+			ret = db.delete(Numbers.TABLE, DbUtils.sqlAnd(Numbers.ID + "="
+					+ uri.getPathSegments().get(1), selection), selectionArgs);
+			break;
+		case NUMBERS_GID:
+		case NUMBERS_GROUP_ID:
+			id = uri.getPathSegments().get(2);
+			ret = db.delete(Numbers.TABLE, DbUtils.sqlAnd(Numbers.GID + "="
+					+ id, selection), selectionArgs);
+			ret += db.delete(NumbersGroup.TABLE, NumbersGroup.ID + " = " + id,
+					null);
+			break;
+		case HOURS_ID:
+			ret = db.delete(Hours.TABLE, DbUtils.sqlAnd(Hours.ID + "="
+					+ uri.getPathSegments().get(1), selection), selectionArgs);
+			break;
+		case HOURS_GID:
+		case HOURS_GROUP_ID:
+			id = uri.getPathSegments().get(2);
+			ret = db.delete(Hours.TABLE, DbUtils.sqlAnd(Hours.GID + "=" + id,
+					selection), selectionArgs);
+			ret += db
+					.delete(HoursGroup.TABLE, HoursGroup.ID + " = " + id, null);
 			break;
 		default:
 			db.close();
@@ -685,6 +1102,24 @@ public final class DataProvider extends ContentProvider {
 			return Rules.CONTENT_TYPE;
 		case RULES_ID:
 			return Rules.CONTENT_ITEM_TYPE;
+		case NUMBERS:
+		case NUMBERS_GID:
+			return Numbers.CONTENT_TYPE;
+		case NUMBERS_ID:
+			return Numbers.CONTENT_ITEM_TYPE;
+		case NUMBERS_GROUP:
+			return NumbersGroup.CONTENT_TYPE;
+		case NUMBERS_GROUP_ID:
+			return NumbersGroup.CONTENT_ITEM_TYPE;
+		case HOURS:
+		case HOURS_GID:
+			return Hours.CONTENT_TYPE;
+		case HOURS_ID:
+			return Hours.CONTENT_ITEM_TYPE;
+		case HOURS_GROUP:
+			return HoursGroup.CONTENT_TYPE;
+		case HOURS_GROUP_ID:
+			return HoursGroup.CONTENT_ITEM_TYPE;
 		default:
 			throw new IllegalArgumentException("Unknown URI: " + uri);
 		}
@@ -718,14 +1153,26 @@ public final class DataProvider extends ContentProvider {
 		case RULES:
 			ret = db.insert(Rules.TABLE, null, values);
 			break;
+		case NUMBERS:
+			ret = db.insert(Numbers.TABLE, null, values);
+			break;
+		case NUMBERS_GROUP:
+			ret = db.insert(NumbersGroup.TABLE, null, values);
+			break;
+		case HOURS:
+			ret = db.insert(Hours.TABLE, null, values);
+			break;
+		case HOURS_GROUP:
+			ret = db.insert(HoursGroup.TABLE, null, values);
+			break;
 		default:
 			db.close();
 			throw new IllegalArgumentException("Unknown Uri " + uri);
 		}
-		if (ret >= 0) {
-			this.getContext().getContentResolver().notifyChange(uri, null);
+		if (ret < 0) {
 			return null;
 		} else {
+			this.getContext().getContentResolver().notifyChange(uri, null);
 			return ContentUris.withAppendedId(uri, ret);
 		}
 	}
@@ -768,6 +1215,42 @@ public final class DataProvider extends ContentProvider {
 			qb.setTables(Rules.TABLE);
 			qb.setProjectionMap(Rules.PROJECTION_MAP);
 			break;
+		case NUMBERS_GID:
+			qb.appendWhere(Numbers.GID + "=" + uri.getPathSegments().get(2));
+			qb.setTables(Numbers.TABLE);
+			qb.setProjectionMap(Numbers.PROJECTION_MAP);
+			break;
+		case NUMBERS_ID:
+			qb.appendWhere(Numbers.ID + "=" + uri.getPathSegments().get(1));
+		case NUMBERS:
+			qb.setTables(Numbers.TABLE);
+			qb.setProjectionMap(Numbers.PROJECTION_MAP);
+			break;
+		case NUMBERS_GROUP_ID:
+			qb
+					.appendWhere(NumbersGroup.ID + "="
+							+ uri.getPathSegments().get(2));
+		case NUMBERS_GROUP:
+			qb.setTables(NumbersGroup.TABLE);
+			qb.setProjectionMap(NumbersGroup.PROJECTION_MAP);
+			break;
+		case HOURS_GID:
+			qb.appendWhere(Hours.GID + "=" + uri.getPathSegments().get(2));
+			qb.setTables(Hours.TABLE);
+			qb.setProjectionMap(Hours.PROJECTION_MAP);
+			break;
+		case HOURS_ID:
+			qb.appendWhere(Hours.ID + "=" + uri.getPathSegments().get(1));
+		case HOURS:
+			qb.setTables(Hours.TABLE);
+			qb.setProjectionMap(Hours.PROJECTION_MAP);
+			break;
+		case HOURS_GROUP_ID:
+			qb.appendWhere(HoursGroup.ID + "=" + uri.getPathSegments().get(2));
+		case HOURS_GROUP:
+			qb.setTables(HoursGroup.TABLE);
+			qb.setProjectionMap(HoursGroup.PROJECTION_MAP);
+			break;
 		default:
 			throw new IllegalArgumentException("Unknown Uri " + uri);
 		}
@@ -801,16 +1284,33 @@ public final class DataProvider extends ContentProvider {
 		switch (URI_MATCHER.match(uri)) {
 		case LOGS_ID:
 			ret = db.update(Logs.TABLE, values, DbUtils.sqlAnd(Logs.ID + "="
-					+ uri.getPathSegments().get(1), selection), null);
+					+ uri.getPathSegments().get(1), selection), selectionArgs);
 			break;
 		case PLANS_ID:
 			ret = db.update(Plans.TABLE, values, DbUtils.sqlAnd(Plans.ID + "="
-					+ uri.getPathSegments().get(1), selection), null);
+					+ uri.getPathSegments().get(1), selection), selectionArgs);
 			break;
 		case RULES_ID:
 			ret = db.update(Rules.TABLE, values, DbUtils.sqlAnd(Rules.ID + "="
-					+ uri.getPathSegments().get(1), selection), null);
+					+ uri.getPathSegments().get(1), selection), selectionArgs);
 			break;
+		case NUMBERS_ID:
+			ret = db.update(Numbers.TABLE, values, DbUtils.sqlAnd(Numbers.ID
+					+ "=" + uri.getPathSegments().get(1), selection),
+					selectionArgs);
+			break;
+		case NUMBERS_GROUP_ID:
+			ret = db.update(NumbersGroup.TABLE, values, DbUtils.sqlAnd(
+					NumbersGroup.ID + "=" + uri.getPathSegments().get(2),
+					selection), selectionArgs);
+		case HOURS_ID:
+			ret = db.update(Hours.TABLE, values, DbUtils.sqlAnd(Hours.ID + "="
+					+ uri.getPathSegments().get(1), selection), selectionArgs);
+			break;
+		case HOURS_GROUP_ID:
+			ret = db.update(HoursGroup.TABLE, values, DbUtils.sqlAnd(
+					HoursGroup.ID + "=" + uri.getPathSegments().get(2),
+					selection), selectionArgs);
 		default:
 			db.close();
 			throw new IllegalArgumentException("Unknown Uri " + uri);

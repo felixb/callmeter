@@ -22,6 +22,7 @@ import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -30,6 +31,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.ResourceCursorAdapter;
+import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
@@ -41,8 +44,45 @@ import de.ub0r.android.callmeter.data.DataProvider;
  */
 public class Plans extends ListActivity implements OnClickListener,
 		OnItemClickListener {
-	/** Tag for output. */
-	public static final String TAG = "prefs.plans";
+	/**
+	 * Adapter binding plans to View.
+	 * 
+	 * @author flx
+	 */
+	private static class PlanAdapter extends ResourceCursorAdapter {
+		/** Type of plans. */
+		private final String[] types;
+
+		/**
+		 * Default Constructor.
+		 * 
+		 * @param context
+		 *            {@link Context}
+		 */
+		public PlanAdapter(final Context context) {
+			super(context, R.layout.prefs_plans_item, context
+					.getContentResolver().query(DataProvider.Plans.CONTENT_URI,
+							DataProvider.Plans.PROJECTION, null, null,
+							DataProvider.Plans.ORDER), true);
+			this.types = context.getResources().getStringArray(
+					R.array.plans_type);
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public final void bindView(final View view, final Context ctxt,
+				final Cursor cursor) {
+			final TextView twTitle = ((TextView) view
+					.findViewById(R.id.normtitle));
+			twTitle.setText(cursor.getString(DataProvider.Plans.INDEX_NAME));
+			final TextView twType = ((TextView) view.findViewById(R.id.type));
+			twType.setText(this.types[cursor
+					.getInt(DataProvider.Plans.INDEX_TYPE)]);
+		}
+
+	}
 
 	/** Plans. */
 	private PlanAdapter adapter = null;
@@ -130,7 +170,7 @@ public class Plans extends ListActivity implements OnClickListener,
 	public final void onItemClick(final AdapterView<?> parent, final View view,
 			final int position, final long id) {
 		final Builder builder = new Builder(this);
-		builder.setItems(R.array.prefs_plans_dialog,
+		builder.setItems(R.array.prefs_edit_up_down_delete,
 				new android.content.DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(final DialogInterface dialog,
@@ -161,6 +201,7 @@ public class Plans extends ListActivity implements OnClickListener,
 						}
 					}
 				});
+		builder.setNegativeButton(android.R.string.cancel, null);
 		builder.show();
 	}
 
