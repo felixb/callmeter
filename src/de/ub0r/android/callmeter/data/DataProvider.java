@@ -441,11 +441,11 @@ public final class DataProvider extends ContentProvider {
 		/** Condition type: is roaming. */
 		public static final int WHAT_ROAMING = 4;
 		/** Condition type: match numbers. */
-		public static final int WHAT_NUMBERS = 7;
+		public static final int WHAT_NUMBERS = 5;
 		/** Condition type: match hours. */
-		public static final int WHAT_HOURS = 8;
+		public static final int WHAT_HOURS = 6;
 		/** Condition type: is limit reached. */
-		public static final int WHAT_LIMIT_REACHED = 9;
+		public static final int WHAT_LIMIT_REACHED = 7;
 
 		/** Table name. */
 		private static final String TABLE = "rules";
