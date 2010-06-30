@@ -73,6 +73,7 @@
 	<string name="rules">Rules</string>
 	<string name="rules_hint">Set your billing rules here.</string>
 	<string name="numbers">Numbers</string>
+	<string name="new_numbergroup">New numbergroup</string>
 	<string name="hours">Hours</string>
 	<string name="plans_split">Split plans</string>
 	<string name="plans_merge">Merge plans</string>

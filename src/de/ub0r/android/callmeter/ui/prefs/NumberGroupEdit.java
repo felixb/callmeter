@@ -20,6 +20,7 @@ package de.ub0r.android.callmeter.ui.prefs;
 
 import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -67,10 +68,14 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		 * 
 		 * @param context
 		 *            {@link Context}
+		 * @param id
+		 *            id of number group
 		 */
-		public NumberAdapter(final Context context) {
+		public NumberAdapter(final Context context, final long id) {
 			super(context, android.R.layout.simple_list_item_1, context
-					.getContentResolver().query(DataProvider.Numbers.GROUP_URI,
+					.getContentResolver().query(
+							ContentUris.withAppendedId(
+									DataProvider.Numbers.GROUP_URI, id),
 							DataProvider.Numbers.PROJECTION, null, null, null),
 					true);
 		}
@@ -102,7 +107,12 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 				+ this.getString(R.string.edit_));
 		this.setContentView(R.layout.list_name_ok_add);
 
-		this.setListAdapter(new NumberAdapter(this));
+		final Uri u = this.getIntent().getData();
+		if (u != null) {
+			this.id = ContentUris.parseId(u);
+		}
+
+		this.setListAdapter(new NumberAdapter(this, this.id));
 		this.getListView().setOnItemClickListener(this);
 
 		this.findViewById(R.id.ok).setOnClickListener(this);
@@ -110,36 +120,8 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		this.findViewById(R.id.name_help).setOnClickListener(this);
 
 		this.etName = (EditText) this.findViewById(R.id.name_et);
-
-		this.fillFields();
-	}
-
-	/**
-	 * Fill the fields with data from the cursor.
-	 */
-	private void fillFields() {
-		final Uri uri = this.getIntent().getData();
-		if (uri == null) {
-			return;
-		}
-		Cursor cursor = this.getContentResolver().query(uri,
-				DataProvider.NumbersGroup.PROJECTION, null, null, null);
-		if (cursor == null || !cursor.moveToFirst()) {
-			cursor = null;
-			this.id = -1;
-		}
-		if (cursor != null) {
-			final int nid = cursor.getInt(DataProvider.NumbersGroup.INDEX_ID);
-			if (nid != this.id) {
-				this.id = nid;
-			} else {
-				cursor.close();
-				return;
-			}
-		}
-		this.etName.setText(cursor.getString(DataProvider.Rules.INDEX_NAME));
-
-		cursor.close();
+		this.etName.setText(DataProvider.NumbersGroup.getName(this
+				.getContentResolver(), this.id));
 	}
 
 	/**
@@ -208,10 +190,9 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 							break;
 						case WHICH_DELETE:
 							NumberGroupEdit.this.getContentResolver().delete(
-									Uri.withAppendedPath(// .
-											DataProvider.Numbers.// .
-											CONTENT_URI, String.valueOf(id)),
-									null, null);
+									ContentUris.withAppendedId(
+											DataProvider.Numbers.CONTENT_URI,
+											id), null, null);
 							break;
 						default:
 							break;

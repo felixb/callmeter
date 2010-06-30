@@ -21,6 +21,7 @@ package de.ub0r.android.callmeter.data;
 import java.util.HashMap;
 
 import android.content.ContentProvider;
+import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
@@ -704,6 +705,28 @@ public final class DataProvider extends ContentProvider {
 		}
 
 		/**
+		 * Get Name for id.
+		 * 
+		 * @param cr
+		 *            {@link ContentResolver}
+		 * @param id
+		 *            id
+		 * @return name
+		 */
+		public static String getName(final ContentResolver cr, final long id) {
+			final Cursor cursor = cr.query(ContentUris.withAppendedId(
+					CONTENT_URI, id), new String[] { NAME }, null, null, null);
+			String ret = null;
+			if (cursor != null && cursor.moveToFirst()) {
+				ret = cursor.getString(0);
+			}
+			if (cursor != null && !cursor.isClosed()) {
+				cursor.close();
+			}
+			return ret;
+		}
+
+		/**
 		 * Create table in {@link SQLiteDatabase}.
 		 * 
 		 * @param db
@@ -881,6 +904,28 @@ public final class DataProvider extends ContentProvider {
 		}
 
 		/**
+		 * Get Name for id.
+		 * 
+		 * @param cr
+		 *            {@link ContentResolver}
+		 * @param id
+		 *            id
+		 * @return name
+		 */
+		public static String getName(final ContentResolver cr, final long id) {
+			final Cursor cursor = cr.query(ContentUris.withAppendedId(
+					CONTENT_URI, id), new String[] { NAME }, null, null, null);
+			String ret = null;
+			if (cursor != null && cursor.moveToFirst()) {
+				ret = cursor.getString(0);
+			}
+			if (cursor != null && !cursor.isClosed()) {
+				cursor.close();
+			}
+			return ret;
+		}
+
+		/**
 		 * Create table in {@link SQLiteDatabase}.
 		 * 
 		 * @param db
@@ -1036,30 +1081,30 @@ public final class DataProvider extends ContentProvider {
 			final String[] selectionArgs) {
 		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
 		int ret = 0;
-		String id;
+		long id;
 		switch (URI_MATCHER.match(uri)) {
 		case LOGS:
 			ret = db.delete(Logs.TABLE, selection, selectionArgs);
 			break;
 		case LOGS_ID:
 			ret = db.delete(Logs.TABLE, DbUtils.sqlAnd(Logs.ID + "="
-					+ uri.getPathSegments().get(1), selection), selectionArgs);
+					+ ContentUris.parseId(uri), selection), selectionArgs);
 			break;
 		case PLANS_ID:
 			ret = db.delete(Plans.TABLE, DbUtils.sqlAnd(Plans.ID + "="
-					+ uri.getPathSegments().get(1), selection), selectionArgs);
+					+ ContentUris.parseId(uri), selection), selectionArgs);
 			break;
 		case RULES_ID:
 			ret = db.delete(Rules.TABLE, DbUtils.sqlAnd(Rules.ID + "="
-					+ uri.getPathSegments().get(1), selection), selectionArgs);
+					+ ContentUris.parseId(uri), selection), selectionArgs);
 			break;
 		case NUMBERS_ID:
 			ret = db.delete(Numbers.TABLE, DbUtils.sqlAnd(Numbers.ID + "="
-					+ uri.getPathSegments().get(1), selection), selectionArgs);
+					+ ContentUris.parseId(uri), selection), selectionArgs);
 			break;
 		case NUMBERS_GID:
 		case NUMBERS_GROUP_ID:
-			id = uri.getPathSegments().get(2);
+			id = ContentUris.parseId(uri);
 			ret = db.delete(Numbers.TABLE, DbUtils.sqlAnd(Numbers.GID + "="
 					+ id, selection), selectionArgs);
 			ret += db.delete(NumbersGroup.TABLE, NumbersGroup.ID + " = " + id,
@@ -1067,18 +1112,17 @@ public final class DataProvider extends ContentProvider {
 			break;
 		case HOURS_ID:
 			ret = db.delete(Hours.TABLE, DbUtils.sqlAnd(Hours.ID + "="
-					+ uri.getPathSegments().get(1), selection), selectionArgs);
+					+ ContentUris.parseId(uri), selection), selectionArgs);
 			break;
 		case HOURS_GID:
 		case HOURS_GROUP_ID:
-			id = uri.getPathSegments().get(2);
+			id = ContentUris.parseId(uri);
 			ret = db.delete(Hours.TABLE, DbUtils.sqlAnd(Hours.GID + "=" + id,
 					selection), selectionArgs);
 			ret += db
 					.delete(HoursGroup.TABLE, HoursGroup.ID + " = " + id, null);
 			break;
 		default:
-			db.close();
 			throw new IllegalArgumentException("Unknown Uri " + uri);
 		}
 		if (ret > 0) {
@@ -1169,7 +1213,6 @@ public final class DataProvider extends ContentProvider {
 			ret = db.insert(HoursGroup.TABLE, null, values);
 			break;
 		default:
-			db.close();
 			throw new IllegalArgumentException("Unknown Uri " + uri);
 		}
 		if (ret < 0) {
@@ -1201,55 +1244,53 @@ public final class DataProvider extends ContentProvider {
 
 		switch (URI_MATCHER.match(uri)) {
 		case LOGS_ID:
-			qb.appendWhere(Logs.ID + "=" + uri.getPathSegments().get(1));
+			qb.appendWhere(Logs.ID + "=" + ContentUris.parseId(uri));
 		case LOGS:
 			qb.setTables(Logs.TABLE);
 			qb.setProjectionMap(Logs.PROJECTION_MAP);
 			break;
 		case PLANS_ID:
-			qb.appendWhere(Plans.ID + "=" + uri.getPathSegments().get(1));
+			qb.appendWhere(Plans.ID + "=" + ContentUris.parseId(uri));
 		case PLANS:
 			qb.setTables(Plans.TABLE);
 			qb.setProjectionMap(Plans.PROJECTION_MAP);
 			break;
 		case RULES_ID:
-			qb.appendWhere(Rules.ID + "=" + uri.getPathSegments().get(1));
+			qb.appendWhere(Rules.ID + "=" + ContentUris.parseId(uri));
 		case RULES:
 			qb.setTables(Rules.TABLE);
 			qb.setProjectionMap(Rules.PROJECTION_MAP);
 			break;
 		case NUMBERS_GID:
-			qb.appendWhere(Numbers.GID + "=" + uri.getPathSegments().get(2));
+			qb.appendWhere(Numbers.GID + "=" + ContentUris.parseId(uri));
 			qb.setTables(Numbers.TABLE);
 			qb.setProjectionMap(Numbers.PROJECTION_MAP);
 			break;
 		case NUMBERS_ID:
-			qb.appendWhere(Numbers.ID + "=" + uri.getPathSegments().get(1));
+			qb.appendWhere(Numbers.ID + "=" + ContentUris.parseId(uri));
 		case NUMBERS:
 			qb.setTables(Numbers.TABLE);
 			qb.setProjectionMap(Numbers.PROJECTION_MAP);
 			break;
 		case NUMBERS_GROUP_ID:
-			qb
-					.appendWhere(NumbersGroup.ID + "="
-							+ uri.getPathSegments().get(2));
+			qb.appendWhere(NumbersGroup.ID + "=" + ContentUris.parseId(uri));
 		case NUMBERS_GROUP:
 			qb.setTables(NumbersGroup.TABLE);
 			qb.setProjectionMap(NumbersGroup.PROJECTION_MAP);
 			break;
 		case HOURS_GID:
-			qb.appendWhere(Hours.GID + "=" + uri.getPathSegments().get(2));
+			qb.appendWhere(Hours.GID + "=" + ContentUris.parseId(uri));
 			qb.setTables(Hours.TABLE);
 			qb.setProjectionMap(Hours.PROJECTION_MAP);
 			break;
 		case HOURS_ID:
-			qb.appendWhere(Hours.ID + "=" + uri.getPathSegments().get(1));
+			qb.appendWhere(Hours.ID + "=" + ContentUris.parseId(uri));
 		case HOURS:
 			qb.setTables(Hours.TABLE);
 			qb.setProjectionMap(Hours.PROJECTION_MAP);
 			break;
 		case HOURS_GROUP_ID:
-			qb.appendWhere(HoursGroup.ID + "=" + uri.getPathSegments().get(2));
+			qb.appendWhere(HoursGroup.ID + "=" + ContentUris.parseId(uri));
 		case HOURS_GROUP:
 			qb.setTables(HoursGroup.TABLE);
 			qb.setProjectionMap(HoursGroup.PROJECTION_MAP);
@@ -1287,35 +1328,37 @@ public final class DataProvider extends ContentProvider {
 		switch (URI_MATCHER.match(uri)) {
 		case LOGS_ID:
 			ret = db.update(Logs.TABLE, values, DbUtils.sqlAnd(Logs.ID + "="
-					+ uri.getPathSegments().get(1), selection), selectionArgs);
+					+ ContentUris.parseId(uri), selection), selectionArgs);
 			break;
 		case PLANS_ID:
 			ret = db.update(Plans.TABLE, values, DbUtils.sqlAnd(Plans.ID + "="
-					+ uri.getPathSegments().get(1), selection), selectionArgs);
+					+ ContentUris.parseId(uri), selection), selectionArgs);
 			break;
 		case RULES_ID:
 			ret = db.update(Rules.TABLE, values, DbUtils.sqlAnd(Rules.ID + "="
-					+ uri.getPathSegments().get(1), selection), selectionArgs);
+					+ ContentUris.parseId(uri), selection), selectionArgs);
 			break;
 		case NUMBERS_ID:
-			ret = db.update(Numbers.TABLE, values, DbUtils.sqlAnd(Numbers.ID
-					+ "=" + uri.getPathSegments().get(1), selection),
-					selectionArgs);
+			ret = db
+					.update(Numbers.TABLE, values, DbUtils.sqlAnd(Numbers.ID
+							+ "=" + ContentUris.parseId(uri), selection),
+							selectionArgs);
 			break;
 		case NUMBERS_GROUP_ID:
-			ret = db.update(NumbersGroup.TABLE, values, DbUtils.sqlAnd(
-					NumbersGroup.ID + "=" + uri.getPathSegments().get(2),
-					selection), selectionArgs);
+			ret = db.update(NumbersGroup.TABLE, values, DbUtils
+					.sqlAnd(NumbersGroup.ID + "=" + ContentUris.parseId(uri),
+							selection), selectionArgs);
+			break;
 		case HOURS_ID:
 			ret = db.update(Hours.TABLE, values, DbUtils.sqlAnd(Hours.ID + "="
-					+ uri.getPathSegments().get(1), selection), selectionArgs);
+					+ ContentUris.parseId(uri), selection), selectionArgs);
 			break;
 		case HOURS_GROUP_ID:
 			ret = db.update(HoursGroup.TABLE, values, DbUtils.sqlAnd(
-					HoursGroup.ID + "=" + uri.getPathSegments().get(2),
-					selection), selectionArgs);
+					HoursGroup.ID + "=" + ContentUris.parseId(uri), selection),
+					selectionArgs);
+			break;
 		default:
-			db.close();
 			throw new IllegalArgumentException("Unknown Uri " + uri);
 		}
 		if (ret > 0) {

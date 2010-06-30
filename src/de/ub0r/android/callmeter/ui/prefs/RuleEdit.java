@@ -116,6 +116,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 
 		this.fillFields();
 		this.fillChild();
+		this.fillWhat0();
 		this.fillPlan();
 		this.showHideFileds();
 	}
@@ -137,13 +138,51 @@ public class RuleEdit extends Activity implements OnClickListener,
 			final int resultCode, final Intent data) {
 		if (resultCode == RESULT_OK) {
 			final Uri uri = data.getData();
-			if (uri == null) {
-				this.what1 = -1;
-			} else {
-				this.what1 = Long.parseLong(uri.getPathSegments().get(1));
+			switch (requestCode) {
+			case REQUEST_RULE:
+				if (uri == null) {
+					this.what1 = -1;
+				} else {
+					this.what1 = ContentUris.parseId(uri);
+				}
+				this.fillChild();
+				break;
+			case REQUEST_HOURS:
+			case REQUEST_NUMBERS:
+				if (uri == null) {
+					this.what0 = -1;
+				} else {
+					this.what0 = ContentUris.parseId(uri);
+				}
+				this.fillWhat0();
+				break;
+			default:
+				break;
 			}
 		}
-		this.fillChild();
+	}
+
+	/**
+	 * Set text of the what0 {@link Button}.
+	 */
+	private void fillWhat0() {
+		if (this.what0 < 0) {
+			this.btnWhat0.setText(R.string.none);
+		} else {
+			switch (this.spWhat.getSelectedItemPosition()) {
+			case DataProvider.Rules.WHAT_HOURS:
+				this.btnWhat0.setText(DataProvider.HoursGroup.getName(this
+						.getContentResolver(), this.what0));
+				break;
+			case DataProvider.Rules.WHAT_NUMBERS:
+				this.btnWhat0.setText(DataProvider.NumbersGroup.getName(this
+						.getContentResolver(), this.what0));
+				break;
+			default:
+				this.btnWhat0.setText(R.string.none);
+				break;
+			}
+		}
 	}
 
 	/**
@@ -253,8 +292,6 @@ public class RuleEdit extends Activity implements OnClickListener,
 		this.what1 = cursor.getInt(DataProvider.Rules.INDEX_WHAT1);
 		this.plan = cursor.getInt(DataProvider.Rules.INDEX_PLAN_ID);
 		this.isChild = this.getIntent().getBooleanExtra(EXTRA_ISCHILD, false);
-		// TODO: what0
-
 		cursor.close();
 	}
 
@@ -375,6 +412,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 								case 1:
 									// TODO: delete old child from DB
 									RuleEdit.this.what0 = -1;
+									RuleEdit.this.fillWhat0();
 									break;
 								default:
 									break;

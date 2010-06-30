@@ -21,12 +21,12 @@ package de.ub0r.android.callmeter.ui.prefs;
 import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -124,19 +124,19 @@ public class Plans extends ListActivity implements OnClickListener,
 		final ContentResolver cr = this.getContentResolver();
 		Cursor cursor = null;
 		// get plans
-		final String idCurrent = String.valueOf(this.adapter
-				.getItemId(position));
-		final String idOther = String.valueOf(this.adapter.getItemId(position
-				+ direction));
-		cursor = cr.query(Uri.withAppendedPath(DataProvider.Plans.CONTENT_URI,
-				idCurrent), DataProvider.Plans.PROJECTION, null, null, null);
+		final long idCurrent = this.adapter.getItemId(position);
+		final long idOther = this.adapter.getItemId(position + direction);
+		cursor = cr.query(ContentUris.withAppendedId(// .
+				DataProvider.Plans.CONTENT_URI, idCurrent),
+				DataProvider.Plans.PROJECTION, null, null, null);
 		if (cursor == null || !cursor.moveToFirst()) {
 			return;
 		}
 		final int orderCurrent = cursor.getInt(DataProvider.Plans.INDEX_ORDER);
 		cursor.close();
-		cursor = cr.query(Uri.withAppendedPath(DataProvider.Plans.CONTENT_URI,
-				idOther), DataProvider.Plans.PROJECTION, null, null, null);
+		cursor = cr.query(ContentUris.withAppendedId(
+				DataProvider.Plans.CONTENT_URI, idOther),
+				DataProvider.Plans.PROJECTION, null, null, null);
 		if (cursor == null || !cursor.moveToFirst()) {
 			return;
 		}
@@ -155,11 +155,12 @@ public class Plans extends ListActivity implements OnClickListener,
 		}
 
 		// push changes
-		cr.update(Uri.withAppendedPath(DataProvider.Plans.CONTENT_URI,
+		cr.update(ContentUris.withAppendedId(DataProvider.Plans.CONTENT_URI,
 				idCurrent), cvCurrent, null, null);
 		if (cvOther != null) {
-			cr.update(Uri.withAppendedPath(DataProvider.Plans.CONTENT_URI,
-					idOther), cvOther, null, null);
+			cr.update(ContentUris.withAppendedId(
+					DataProvider.Plans.CONTENT_URI, idOther), cvOther, null,
+					null);
 		}
 	}
 
@@ -179,9 +180,8 @@ public class Plans extends ListActivity implements OnClickListener,
 						case WHICH_EDIT:
 							final Intent intent = new Intent(// .
 									Plans.this, PlanEdit.class);
-							intent.setData(Uri.withAppendedPath(
-									DataProvider.Plans.CONTENT_URI, String
-											.valueOf(id)));
+							intent.setData(ContentUris.withAppendedId(
+									DataProvider.Plans.CONTENT_URI, id));
 							Plans.this.startActivity(intent);
 							break;
 						case WHICH_UP:
@@ -191,10 +191,13 @@ public class Plans extends ListActivity implements OnClickListener,
 							Plans.this.swap(position, 1);
 							break;
 						case WHICH_DELETE:
-							Plans.this.getContentResolver().delete(
-									Uri.withAppendedPath(
-											DataProvider.Plans.CONTENT_URI,
-											String.valueOf(id)), null, null);
+							Plans.this
+									.getContentResolver()
+									.delete(
+											ContentUris
+													.withAppendedId(
+															DataProvider.Plans.CONTENT_URI,
+															id), null, null);
 							break;
 						default:
 							break;

@@ -21,6 +21,7 @@ package de.ub0r.android.callmeter.ui.prefs;
 import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
 import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -107,7 +108,7 @@ public class NumberGroups extends ListActivity implements OnClickListener,
 	public final void onItemClick(final AdapterView<?> parent, final View view,
 			final int position, final long id) {
 		final Builder builder = new Builder(this);
-		builder.setItems(R.array.prefs_edit_up_down_delete,
+		builder.setItems(R.array.prefs_select_edit_delete,
 				new android.content.DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(final DialogInterface dialog,
@@ -123,17 +124,15 @@ public class NumberGroups extends ListActivity implements OnClickListener,
 						case WHICH_EDIT:
 							final Intent intent = new Intent(// .
 									NumberGroups.this, NumberGroupEdit.class);
-							intent.setData(Uri.withAppendedPath(
-									DataProvider.Plans.CONTENT_URI, String
-											.valueOf(id)));
+							intent.setData(ContentUris.withAppendedId(
+									DataProvider.NumbersGroup.CONTENT_URI, id));
 							NumberGroups.this.startActivity(intent);
 							break;
 						case WHICH_DELETE:
 							NumberGroups.this.getContentResolver().delete(
-									Uri.withAppendedPath(
+									ContentUris.withAppendedId(
 											DataProvider.NumbersGroup.// .
-											CONTENT_URI, String.valueOf(id)),
-									null, null);
+											CONTENT_URI, id), null, null);
 							break;
 						default:
 							break;
@@ -151,10 +150,17 @@ public class NumberGroups extends ListActivity implements OnClickListener,
 	public final void onClick(final View v) {
 		switch (v.getId()) {
 		case R.id.add:
+			final ContentValues cv = new ContentValues();
+			cv.put(DataProvider.NumbersGroup.NAME, this
+					.getString(R.string.new_numbergroup));
+			final Uri uri = this.getContentResolver().insert(
+					DataProvider.NumbersGroup.CONTENT_URI, cv);
 			final Intent intent = new Intent(this, NumberGroupEdit.class);
+			intent.setData(uri);
 			this.startActivity(intent);
 			break;
 		case R.id.ok:
+			this.setResult(RESULT_CANCELED);
 			this.finish();
 			break;
 		default:
