@@ -37,6 +37,7 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.lib.apis.ContactsWrapper;
 
 /**
  * Edit a single Plan.
@@ -45,6 +46,9 @@ import de.ub0r.android.callmeter.data.DataProvider;
  */
 public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		OnItemClickListener {
+	/** {@link ContactsWrapper}. */
+	public static final ContactsWrapper CWRAPPER = ContactsWrapper
+			.getInstance();
 
 	/** Item menu: edit. */
 	private static final int WHICH_EDIT = 0;
@@ -55,7 +59,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	private EditText etName = null;
 
 	/** Id of edited filed. */
-	private long id = -1;
+	private long gid = -1;
 
 	/**
 	 * Adapter binding plans to View.
@@ -109,10 +113,10 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 
 		final Uri u = this.getIntent().getData();
 		if (u != null) {
-			this.id = ContentUris.parseId(u);
+			this.gid = ContentUris.parseId(u);
 		}
 
-		this.setListAdapter(new NumberAdapter(this, this.id));
+		this.setListAdapter(new NumberAdapter(this, this.gid));
 		this.getListView().setOnItemClickListener(this);
 
 		this.findViewById(R.id.ok).setOnClickListener(this);
@@ -121,7 +125,27 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 
 		this.etName = (EditText) this.findViewById(R.id.name_et);
 		this.etName.setText(DataProvider.NumbersGroup.getName(this
-				.getContentResolver(), this.id));
+				.getContentResolver(), this.gid));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void onActivityResult(final int requestCode,
+			final int resultCode, final Intent data) {
+		if (data == null || data.getData() == null) {
+			return;
+		}
+		// get number for uri
+		String number = CWRAPPER.getNameAndNumber(this.getContentResolver(),
+				data.getData());
+		if (number == null) {
+			number = "???";
+		} else {
+			number = number.replaceAll("[^+0-9]", "");
+		}
+		this.setNumber(requestCode, number);
 	}
 
 	/**
@@ -162,7 +186,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 			this.finish();
 			break;
 		case R.id.add:
-			// TODO: fill me
+			this.showNumberDialog(-1);
 			break;
 		case R.id.name_help:
 			this.showHelp(R.string.name_help);
@@ -186,7 +210,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 							final int which) {
 						switch (which) {
 						case WHICH_EDIT:
-							// TODO: show dialog
+							NumberGroupEdit.this.showNumberDialog(id);
 							break;
 						case WHICH_DELETE:
 							NumberGroupEdit.this.getContentResolver().delete(
@@ -197,6 +221,61 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 						default:
 							break;
 						}
+					}
+				});
+		builder.setNegativeButton(android.R.string.cancel, null);
+		builder.show();
+	}
+
+	/**
+	 * Set a number.
+	 * 
+	 * @param id
+	 *            id of entry
+	 * @param number
+	 *            number
+	 */
+	private void setNumber(final long id, final String number) {
+		final ContentValues cv = new ContentValues();
+		cv.put(DataProvider.Numbers.GID, this.gid);
+		cv.put(DataProvider.Numbers.NUMBER, number);
+		if (id < 0) {
+			this.getContentResolver().insert(DataProvider.Numbers.CONTENT_URI,
+					cv);
+		} else {
+			this.getContentResolver().update(
+					ContentUris.withAppendedId(
+							DataProvider.Numbers.CONTENT_URI, id), cv, null,
+					null);
+		}
+	}
+
+	/**
+	 * Show an add/delete dialog.
+	 * 
+	 * @param id
+	 *            id of entry
+	 */
+	private void showNumberDialog(final long id) {
+		final Builder builder = new Builder(this);
+		final EditText et = new EditText(this);
+		builder.setView(et);
+		builder.setTitle(R.string.exclude_people_add);
+		builder.setCancelable(true);
+		builder.setPositiveButton(android.R.string.ok,
+				new DialogInterface.OnClickListener() {
+					public void onClick(final DialogInterface dialog,
+							final int id) {
+						NumberGroupEdit.this.setNumber(id, et.getText()
+								.toString());
+					}
+				});
+		builder.setNeutralButton(R.string.contacts_,
+				new DialogInterface.OnClickListener() {
+					public void onClick(final DialogInterface dialog,
+							final int id) {
+						final Intent intent = CWRAPPER.getPickPhoneIntent();
+						NumberGroupEdit.this.startActivityForResult(intent, id);
 					}
 				});
 		builder.setNegativeButton(android.R.string.cancel, null);

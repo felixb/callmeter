@@ -40,7 +40,6 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.apis.TelephonyWrapper;
-import de.ub0r.de.android.callMeterNG.ExcludePeople.ExcludedPerson;
 
 /**
  * AsyncTask to handle calcualtions in background.
@@ -234,7 +233,7 @@ public class Updater extends AsyncTask<Void, Void, Integer[]> {
 	private int excludedSmsToPlan = 0;
 
 	/** Excluded numbers. */
-	private ExcludedPerson[] excludeNumbers = null;
+	// private ExcludedPerson[] excludeNumbers = null;
 
 	/** Sum of displayed calls in/out. Used if merging sms into calls. */
 	private int callsInSum, callsOutSum;
@@ -499,24 +498,24 @@ public class Updater extends AsyncTask<Void, Void, Integer[]> {
 			if (this.plansMergeCalls) {
 				this.excludedCallsToPlan = 0;
 			} else {
-				if (this.prefs.getBoolean(ExcludePeople.// .
-						PREFS_EXCLUDE_PEOPLE_CALLS_PLAN1, false)) {
-					this.excludedCallsToPlan = 1;
-				} else if (this.prefs.getBoolean(ExcludePeople.// .
-						PREFS_EXCLUDE_PEOPLE_CALLS_PLAN2, false)) {
-					this.excludedCallsToPlan = 2;
-				}
+				// if (this.prefs.getBoolean(ExcludePeople.// .
+				// PREFS_EXCLUDE_PEOPLE_CALLS_PLAN1, false)) {
+				// this.excludedCallsToPlan = 1;
+				// } else if (this.prefs.getBoolean(ExcludePeople.// .
+				// PREFS_EXCLUDE_PEOPLE_CALLS_PLAN2, false)) {
+				// this.excludedCallsToPlan = 2;
+				// }
 			}
 			if (this.plansMergeSms) {
 				this.excludedSmsToPlan = 0;
 			} else {
-				if (this.prefs.getBoolean(
-						ExcludePeople.PREFS_EXCLUDE_PEOPLE_SMS_PLAN1, false)) {
-					this.excludedSmsToPlan = 1;
-				} else if (this.prefs.getBoolean(
-						ExcludePeople.PREFS_EXCLUDE_PEOPLE_SMS_PLAN2, false)) {
-					this.excludedSmsToPlan = 2;
-				}
+				// if (this.prefs.getBoolean(
+				// ExcludePeople.PREFS_EXCLUDE_PEOPLE_SMS_PLAN1, false)) {
+				// this.excludedSmsToPlan = 1;
+				// } else if (this.prefs.getBoolean(
+				// ExcludePeople.PREFS_EXCLUDE_PEOPLE_SMS_PLAN2, false)) {
+				// this.excludedSmsToPlan = 2;
+				// }
 			}
 		} else {
 			this.plansMergeCalls = true;
@@ -524,14 +523,14 @@ public class Updater extends AsyncTask<Void, Void, Integer[]> {
 			this.excludedCallsToPlan = 0;
 			this.excludedSmsToPlan = 0;
 		}
-		if (!this.prefs.getBoolean(
-				ExcludePeople.PREFS_EXCLUDE_PEOPLE_CALLS_ENABLE, true)) {
-			this.excludedCallsToPlan = -1;
-		}
-		if (!this.prefs.getBoolean(
-				ExcludePeople.PREFS_EXCLUDE_PEOPLE_SMS_ENABLE, false)) {
-			this.excludedSmsToPlan = -1;
-		}
+		// if (!this.prefs.getBoolean(
+		// ExcludePeople.PREFS_EXCLUDE_PEOPLE_CALLS_ENABLE, true)) {
+		// this.excludedCallsToPlan = -1;
+		// }
+		// if (!this.prefs.getBoolean(
+		// ExcludePeople.PREFS_EXCLUDE_PEOPLE_SMS_ENABLE, false)) {
+		// this.excludedSmsToPlan = -1;
+		// }
 	}
 
 	/**
@@ -715,49 +714,7 @@ public class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 */
 	private int getPlan(final Cursor cur, final int idNumber,
 			final boolean[][] plans, final int toPlan, final long date) {
-		boolean check = true;
-		final ExcludedPerson[] exNumbers = this.excludeNumbers;
-		if (exNumbers != null && toPlan >= 0) {
-			final String n = cur.getString(idNumber);
-			if (n != null && n.length() > 0) {
-				// check if number should be excluded from billing
-				final int excludeNumbersSize = exNumbers.length;
-				for (int j = 1; j < excludeNumbersSize; j++) {
-					final String s = exNumbers[j].getNumber();
-					if (s == null || s.length() == 0) {
-						Log.d(TAG, "no number to check");
-					} else if (s.startsWith("*")) {
-						if (s.endsWith("*")) {
-							if (n.indexOf(s.substring(1, s.length() - 1))// .
-							>= 0) {
-								check = false;
-								break;
-							}
-						}
-						if (n.endsWith(s.substring(1))) {
-							check = false;
-							break;
-						}
-					} else if (s.endsWith("*")) {
-						if (n.startsWith(s.substring(0, s.length() - 1))) {
-							check = false;
-							break;
-						}
-					} else if (n.equals(s)) {
-						check = false;
-						break;
-					}
-				}
-			}
-		}
-		if (check) {
-			if (this.isPlan1(plans, date)) {
-				return 1;
-			} else {
-				return 2;
-			}
-		}
-		return toPlan;
+		return 0;
 	}
 
 	/**
@@ -1252,9 +1209,9 @@ public class Updater extends AsyncTask<Void, Void, Integer[]> {
 		try {
 			// load splitted plans
 			final boolean[][] plans = this.loadPlans(this.prefs);
-			this.excludeNumbers = ExcludePeople
-					.loadExcludedPeople(this.context).toArray(
-							new ExcludedPerson[1]);
+			// this.excludeNumbers = ExcludePeople
+			// .loadExcludedPeople(this.context).toArray(
+			// new ExcludedPerson[1]);
 
 			Calendar calBillDate = getBillDayCalls(this.prefs);
 			if (this.plansMergeCalls) {
