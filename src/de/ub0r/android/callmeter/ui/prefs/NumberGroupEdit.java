@@ -20,6 +20,7 @@ package de.ub0r.android.callmeter.ui.prefs;
 
 import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
+import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
@@ -67,6 +68,9 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	 * @author flx
 	 */
 	private static class NumberAdapter extends ResourceCursorAdapter {
+		/** {@link ContentResolver} for internal querys. */
+		private final ContentResolver cr;
+
 		/**
 		 * Default Constructor.
 		 * 
@@ -80,8 +84,9 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 					.getContentResolver().query(
 							ContentUris.withAppendedId(
 									DataProvider.Numbers.GROUP_URI, id),
-							DataProvider.Numbers.PROJECTION, null, null, null),
-					true);
+							DataProvider.Numbers.PROJECTION, null, null,
+							DataProvider.Numbers.NUMBER), true);
+			this.cr = context.getContentResolver();
 		}
 
 		/**
@@ -92,9 +97,14 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 				final Cursor cursor) {
 			final TextView twTitle = ((TextView) view
 					.findViewById(android.R.id.text1));
-			twTitle
-					.setText(cursor
-							.getString(DataProvider.Numbers.INDEX_NUMBER));
+			final String number = cursor
+					.getString(DataProvider.Numbers.INDEX_NUMBER);
+			final String name = CWRAPPER.getNameForNumber(this.cr, number);
+			if (name != null && name.length() > 0) {
+				twTitle.setText(name + " <" + number + ">");
+			} else {
+				twTitle.setText(number);
+			}
 		}
 
 	}
@@ -138,14 +148,14 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 			return;
 		}
 		// get number for uri
-		String number = CWRAPPER.getNameAndNumber(this.getContentResolver(),
-				data.getData());
+		String number = CWRAPPER.getNumber(this.getContentResolver(), data
+				.getData());
 		if (number == null) {
 			number = "???";
 		} else {
 			number = number.replaceAll("[^+0-9]", "");
 		}
-		this.setNumber(requestCode, number);
+		this.setNumber(requestCode - 1, number);
 	}
 
 	/**
@@ -230,35 +240,60 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	/**
 	 * Set a number.
 	 * 
-	 * @param id
+	 * @param nid
 	 *            id of entry
 	 * @param number
 	 *            number
 	 */
-	private void setNumber(final long id, final String number) {
+	private void setNumber(final long nid, final String number) {
 		final ContentValues cv = new ContentValues();
 		cv.put(DataProvider.Numbers.GID, this.gid);
 		cv.put(DataProvider.Numbers.NUMBER, number);
-		if (id < 0) {
+		if (nid < 0) {
 			this.getContentResolver().insert(DataProvider.Numbers.CONTENT_URI,
 					cv);
 		} else {
 			this.getContentResolver().update(
 					ContentUris.withAppendedId(
-							DataProvider.Numbers.CONTENT_URI, id), cv, null,
+							DataProvider.Numbers.CONTENT_URI, nid), cv, null,
 					null);
 		}
 	}
 
 	/**
+	 * Get a number.
+	 * 
+	 * @param nid
+	 *            id of entry
+	 * @return number
+	 */
+	private String getNumber(final long nid) {
+		String ret = null;
+		final Cursor cursor = this.getContentResolver().query(
+				ContentUris.withAppendedId(DataProvider.Numbers.CONTENT_URI,
+						nid), new String[] { DataProvider.Numbers.NUMBER },
+				null, null, null);
+		if (cursor != null && cursor.moveToFirst()) {
+			ret = cursor.getString(0);
+		}
+		if (cursor != null && !cursor.isClosed()) {
+			cursor.close();
+		}
+		return ret;
+	}
+
+	/**
 	 * Show an add/delete dialog.
 	 * 
-	 * @param id
+	 * @param nid
 	 *            id of entry
 	 */
-	private void showNumberDialog(final long id) {
+	private void showNumberDialog(final long nid) {
 		final Builder builder = new Builder(this);
 		final EditText et = new EditText(this);
+		if (nid >= 0) {
+			et.setText(this.getNumber(nid));
+		}
 		builder.setView(et);
 		builder.setTitle(R.string.exclude_people_add);
 		builder.setCancelable(true);
@@ -266,7 +301,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 				new DialogInterface.OnClickListener() {
 					public void onClick(final DialogInterface dialog,
 							final int id) {
-						NumberGroupEdit.this.setNumber(id, et.getText()
+						NumberGroupEdit.this.setNumber(nid, et.getText()
 								.toString());
 					}
 				});
@@ -275,7 +310,8 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 					public void onClick(final DialogInterface dialog,
 							final int id) {
 						final Intent intent = CWRAPPER.getPickPhoneIntent();
-						NumberGroupEdit.this.startActivityForResult(intent, id);
+						NumberGroupEdit.this.startActivityForResult(intent,
+								(int) nid + 1);
 					}
 				});
 		builder.setNegativeButton(android.R.string.cancel, null);

@@ -1082,6 +1082,8 @@ public final class DataProvider extends ContentProvider {
 		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
 		int ret = 0;
 		long id;
+		Cursor c;
+		String w;
 		switch (URI_MATCHER.match(uri)) {
 		case LOGS:
 			ret = db.delete(Logs.TABLE, selection, selectionArgs);
@@ -1099,8 +1101,21 @@ public final class DataProvider extends ContentProvider {
 					+ ContentUris.parseId(uri), selection), selectionArgs);
 			break;
 		case NUMBERS_ID:
-			ret = db.delete(Numbers.TABLE, DbUtils.sqlAnd(Numbers.ID + "="
-					+ ContentUris.parseId(uri), selection), selectionArgs);
+			id = ContentUris.parseId(uri);
+			w = DbUtils.sqlAnd(Numbers.ID + "=" + id, selection);
+			c = db.query(Numbers.TABLE, new String[] { Numbers.GID }, w,
+					selectionArgs, null, null, null);
+			if (c != null && c.moveToFirst()) {
+				final long gid = c.getLong(0);
+				this.getContext().getContentResolver().notifyChange(
+						ContentUris.withAppendedId(Numbers.GROUP_URI, gid),
+						null);
+			}
+			if (c != null && !c.isClosed()) {
+				c.close();
+			}
+			c = null;
+			ret = db.delete(Numbers.TABLE, w, selectionArgs);
 			break;
 		case NUMBERS_GID:
 		case NUMBERS_GROUP_ID:
@@ -1324,6 +1339,7 @@ public final class DataProvider extends ContentProvider {
 	public int update(final Uri uri, final ContentValues values,
 			final String selection, final String[] selectionArgs) {
 		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
+		long i;
 		int ret = 0;
 		switch (URI_MATCHER.match(uri)) {
 		case LOGS_ID:
@@ -1343,6 +1359,14 @@ public final class DataProvider extends ContentProvider {
 					.update(Numbers.TABLE, values, DbUtils.sqlAnd(Numbers.ID
 							+ "=" + ContentUris.parseId(uri), selection),
 							selectionArgs);
+			if (ret > 0 && values != null) {
+				i = values.getAsLong(Numbers.GID);
+				if (i >= 0) {
+					this.getContext().getContentResolver().notifyChange(
+							ContentUris.withAppendedId(Numbers.GROUP_URI, i),
+							null);
+				}
+			}
 			break;
 		case NUMBERS_GROUP_ID:
 			ret = db.update(NumbersGroup.TABLE, values, DbUtils
