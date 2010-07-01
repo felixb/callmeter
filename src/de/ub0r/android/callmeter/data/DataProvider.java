@@ -799,6 +799,9 @@ public final class DataProvider extends ContentProvider {
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
 				+ AUTHORITY + "/hours");
+		/** Content {@link Uri} for a group of numbers. */
+		public static final Uri GROUP_URI = Uri.parse("content://" + AUTHORITY
+				+ "/hours/group");
 		/**
 		 * The MIME type of {@link #CONTENT_URI} providing a list.
 		 */
@@ -1126,6 +1129,19 @@ public final class DataProvider extends ContentProvider {
 					null);
 			break;
 		case HOURS_ID:
+			id = ContentUris.parseId(uri);
+			w = DbUtils.sqlAnd(Hours.ID + "=" + id, selection);
+			c = db.query(Hours.TABLE, new String[] { Hours.GID }, w,
+					selectionArgs, null, null, null);
+			if (c != null && c.moveToFirst()) {
+				final long gid = c.getLong(0);
+				this.getContext().getContentResolver().notifyChange(
+						ContentUris.withAppendedId(Hours.GROUP_URI, gid), null);
+			}
+			if (c != null && !c.isClosed()) {
+				c.close();
+			}
+			c = null;
 			ret = db.delete(Hours.TABLE, DbUtils.sqlAnd(Hours.ID + "="
 					+ ContentUris.parseId(uri), selection), selectionArgs);
 			break;
@@ -1376,6 +1392,14 @@ public final class DataProvider extends ContentProvider {
 		case HOURS_ID:
 			ret = db.update(Hours.TABLE, values, DbUtils.sqlAnd(Hours.ID + "="
 					+ ContentUris.parseId(uri), selection), selectionArgs);
+			if (ret > 0 && values != null) {
+				i = values.getAsLong(Numbers.GID);
+				if (i >= 0) {
+					this.getContext().getContentResolver().notifyChange(
+							ContentUris.withAppendedId(Hours.GROUP_URI, i),
+							null);
+				}
+			}
 			break;
 		case HOURS_GROUP_ID:
 			ret = db.update(HoursGroup.TABLE, values, DbUtils.sqlAnd(

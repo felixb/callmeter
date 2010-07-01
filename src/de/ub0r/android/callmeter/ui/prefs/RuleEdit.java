@@ -390,7 +390,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 				intent = new Intent(this, NumberGroups.class);
 				rt = REQUEST_NUMBERS;
 			} else if (t == DataProvider.Rules.WHAT_HOURS) {
-				// intent = new Intent(this, HourGroups.class);
+				intent = new Intent(this, HourGroups.class);
 				rt = REQUEST_HOURS;
 			}
 			if (this.what0 < 0) {

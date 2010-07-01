@@ -53,6 +53,12 @@
 		<activity android:name=".ui.prefs.NumberGroupEdit"
 			android:configChanges="orientation|keyboardHidden"
 			android:windowSoftInputMode="adjustResize" />
+		<activity android:name=".ui.prefs.HourGroups"
+			android:configChanges="orientation|keyboardHidden"
+			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />
+		<activity android:name=".ui.prefs.HourGroupEdit"
+			android:configChanges="orientation|keyboardHidden"
+			android:windowSoftInputMode="adjustResize" />
 		<activity android:name=".ui.About" android:configChanges="orientation|keyboardHidden"
 			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />
 		<activity android:name="de.ub0r.android.lib.DonationHelper"

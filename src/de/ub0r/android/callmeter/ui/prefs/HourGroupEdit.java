@@ -20,7 +20,6 @@ package de.ub0r.android.callmeter.ui.prefs;
 
 import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
-import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
@@ -34,6 +33,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ResourceCursorAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
@@ -45,7 +45,7 @@ import de.ub0r.android.lib.apis.ContactsWrapper;
  * 
  * @author flx
  */
-public class NumberGroupEdit extends ListActivity implements OnClickListener,
+public class HourGroupEdit extends ListActivity implements OnClickListener,
 		OnItemClickListener {
 	/** {@link ContactsWrapper}. */
 	public static final ContactsWrapper CWRAPPER = ContactsWrapper
@@ -67,9 +67,11 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	 * 
 	 * @author flx
 	 */
-	private static class NumberAdapter extends ResourceCursorAdapter {
-		/** {@link ContentResolver} for internal querys. */
-		private final ContentResolver cr;
+	private static class HourAdapter extends ResourceCursorAdapter {
+		/* List of weekdays. */
+		private final String[] resDays;
+		/* List of hours. */
+		private final String[] resHours;
 
 		/**
 		 * Default Constructor.
@@ -77,16 +79,22 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		 * @param context
 		 *            {@link Context}
 		 * @param id
-		 *            id of number group
+		 *            id of Hour group
 		 */
-		public NumberAdapter(final Context context, final long id) {
+		public HourAdapter(final Context context, final long id) {
 			super(context, android.R.layout.simple_list_item_1, context
 					.getContentResolver().query(
 							ContentUris.withAppendedId(
-									DataProvider.Numbers.GROUP_URI, id),
-							DataProvider.Numbers.PROJECTION, null, null,
-							DataProvider.Numbers.NUMBER), true);
-			this.cr = context.getContentResolver();
+									DataProvider.Hours.GROUP_URI, id),
+							DataProvider.Hours.PROJECTION,
+							null,
+							null,
+							DataProvider.Hours.DAY + ", "
+									+ DataProvider.Hours.HOUR), true);
+			this.resDays = context.getResources().getStringArray(
+					R.array.weekdays_all);
+			this.resHours = context.getResources().getStringArray(
+					R.array.hours_all);
 		}
 
 		/**
@@ -97,14 +105,9 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 				final Cursor cursor) {
 			final TextView twTitle = ((TextView) view
 					.findViewById(android.R.id.text1));
-			final String number = cursor
-					.getString(DataProvider.Numbers.INDEX_NUMBER);
-			final String name = CWRAPPER.getNameForNumber(this.cr, number);
-			if (name != null && name.length() > 0) {
-				twTitle.setText(name + " <" + number + ">");
-			} else {
-				twTitle.setText(number);
-			}
+			final int day = cursor.getInt(DataProvider.Hours.INDEX_DAY);
+			final int hour = cursor.getInt(DataProvider.Hours.INDEX_HOUR);
+			twTitle.setText(this.resDays[day] + ": " + this.resHours[hour]);
 		}
 
 	}
@@ -117,7 +120,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		super.onCreate(savedInstanceState);
 		this.setTitle(this.getString(R.string.settings) + " > "
 				+ this.getString(R.string.rules) + " > "
-				+ this.getString(R.string.numbers) + " > "
+				+ this.getString(R.string.hours) + " > "
 				+ this.getString(R.string.edit_));
 		this.setContentView(R.layout.list_name_ok_add);
 
@@ -126,7 +129,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 			this.gid = ContentUris.parseId(u);
 		}
 
-		this.setListAdapter(new NumberAdapter(this, this.gid));
+		this.setListAdapter(new HourAdapter(this, this.gid));
 		this.getListView().setOnItemClickListener(this);
 
 		this.findViewById(R.id.ok).setOnClickListener(this);
@@ -134,28 +137,8 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		this.findViewById(R.id.name_help).setOnClickListener(this);
 
 		this.etName = (EditText) this.findViewById(R.id.name_et);
-		this.etName.setText(DataProvider.NumbersGroup.getName(this
+		this.etName.setText(DataProvider.HoursGroup.getName(this
 				.getContentResolver(), this.gid));
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void onActivityResult(final int requestCode,
-			final int resultCode, final Intent data) {
-		if (data == null || data.getData() == null) {
-			return;
-		}
-		// get number for uri
-		String number = CWRAPPER.getNumber(this.getContentResolver(), data
-				.getData());
-		if (number == null) {
-			number = "???";
-		} else {
-			number = number.replaceAll("[^+0-9]", "");
-		}
-		this.setNumber(requestCode - 1, number);
 	}
 
 	/**
@@ -181,22 +164,22 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		case R.id.ok:
 			final String n = this.etName.getText().toString();
 			final ContentValues cv = new ContentValues();
-			cv.put(DataProvider.NumbersGroup.NAME, n);
+			cv.put(DataProvider.HoursGroup.NAME, n);
 
 			Uri uri = this.getIntent().getData();
 			if (uri == null) {
 				uri = this.getContentResolver().insert(
-						DataProvider.NumbersGroup.CONTENT_URI, cv);
+						DataProvider.HoursGroup.CONTENT_URI, cv);
 			} else {
 				this.getContentResolver().update(uri, cv, null, null);
 			}
-			intent = new Intent(this, NumberGroupEdit.class);
+			intent = new Intent(this, HourGroupEdit.class);
 			intent.setData(uri);
 			this.setResult(RESULT_OK, new Intent(intent));
 			this.finish();
 			break;
 		case R.id.add:
-			this.showNumberDialog(-1);
+			this.showHourDialog(-1);
 			break;
 		case R.id.name_help:
 			this.showHelp(R.string.name_help);
@@ -220,13 +203,12 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 							final int which) {
 						switch (which) {
 						case WHICH_EDIT:
-							NumberGroupEdit.this.showNumberDialog(id);
+							HourGroupEdit.this.showHourDialog(id);
 							break;
 						case WHICH_DELETE:
-							NumberGroupEdit.this.getContentResolver().delete(
-									ContentUris.withAppendedId(
-											DataProvider.Numbers.CONTENT_URI,
-											id), null, null);
+							HourGroupEdit.this.getContentResolver().delete(
+									ContentUris.withAppendedId(DataProvider.// .
+											Hours.CONTENT_URI, id), null, null);
 							break;
 						default:
 							break;
@@ -238,43 +220,48 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	}
 
 	/**
-	 * Set a number.
+	 * Set a Hour.
 	 * 
 	 * @param nid
 	 *            id of entry
-	 * @param number
-	 *            number
+	 * @param day
+	 *            day
+	 * @param hour
+	 *            hour
 	 */
-	private void setNumber(final long nid, final String number) {
+	private void setHour(final long nid, final int day, final int hour) {
 		final ContentValues cv = new ContentValues();
-		cv.put(DataProvider.Numbers.GID, this.gid);
-		cv.put(DataProvider.Numbers.NUMBER, number);
+		cv.put(DataProvider.Hours.GID, this.gid);
+		cv.put(DataProvider.Hours.DAY, day);
+		cv.put(DataProvider.Hours.HOUR, hour);
 		if (nid < 0) {
-			this.getContentResolver().insert(DataProvider.Numbers.CONTENT_URI,
-					cv);
+			this.getContentResolver()
+					.insert(DataProvider.Hours.CONTENT_URI, cv);
 		} else {
 			this.getContentResolver().update(
-					ContentUris.withAppendedId(
-							DataProvider.Numbers.CONTENT_URI, nid), cv, null,
-					null);
+					ContentUris.withAppendedId(DataProvider.Hours.CONTENT_URI,
+							nid), cv, null, null);
 		}
 	}
 
 	/**
-	 * Get a number.
+	 * Get a Hour.
 	 * 
 	 * @param nid
 	 *            id of entry
-	 * @return number
+	 * @return Hour
 	 */
-	private String getNumber(final long nid) {
-		String ret = null;
-		final Cursor cursor = this.getContentResolver().query(
-				ContentUris.withAppendedId(DataProvider.Numbers.CONTENT_URI,
-						nid), new String[] { DataProvider.Numbers.NUMBER },
-				null, null, null);
+	private int[] getHour(final long nid) {
+		int[] ret = new int[] { 0, 0 };
+		final Cursor cursor = this.getContentResolver()
+				.query(
+						ContentUris.withAppendedId(
+								DataProvider.Hours.CONTENT_URI, nid),
+						new String[] { DataProvider.Hours.DAY,
+								DataProvider.Hours.HOUR }, null, null, null);
 		if (cursor != null && cursor.moveToFirst()) {
-			ret = cursor.getString(0);
+			ret[0] = cursor.getInt(0);
+			ret[1] = cursor.getInt(1);
 		}
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
@@ -288,30 +275,27 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	 * @param nid
 	 *            id of entry
 	 */
-	private void showNumberDialog(final long nid) {
+	private void showHourDialog(final long nid) {
 		final Builder builder = new Builder(this);
-		final EditText et = new EditText(this);
+		final View v = View
+				.inflate(this, R.layout.prefs_hourgroup_dialog, null);
+		final Spinner spDays = (Spinner) v.findViewById(R.id.days);
+		final Spinner spHours = (Spinner) v.findViewById(R.id.hours);
 		if (nid >= 0) {
-			et.setText(this.getNumber(nid));
+			final int[] h = this.getHour(nid);
+			spDays.setSelection(h[0]);
+			spHours.setSelection(h[1]);
 		}
-		builder.setView(et);
-		builder.setTitle(R.string.add_number);
+		builder.setView(v);
+		builder.setTitle(R.string.add_hour);
 		builder.setCancelable(true);
 		builder.setPositiveButton(android.R.string.ok,
 				new DialogInterface.OnClickListener() {
 					public void onClick(final DialogInterface dialog,
 							final int id) {
-						NumberGroupEdit.this.setNumber(nid, et.getText()
-								.toString());
-					}
-				});
-		builder.setNeutralButton(R.string.contacts_,
-				new DialogInterface.OnClickListener() {
-					public void onClick(final DialogInterface dialog,
-							final int id) {
-						final Intent intent = CWRAPPER.getPickPhoneIntent();
-						NumberGroupEdit.this.startActivityForResult(intent,
-								(int) nid + 1);
+						HourGroupEdit.this.setHour(nid, spDays
+								.getSelectedItemPosition(), spHours
+								.getSelectedItemPosition());
 					}
 				});
 		builder.setNegativeButton(android.R.string.cancel, null);
