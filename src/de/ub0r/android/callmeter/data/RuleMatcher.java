@@ -122,10 +122,34 @@ public final class RuleMatcher {
 				if (number == null || number.length() == 0) {
 					return false;
 				}
-				if (this.numbers.contains(number)) {
-					return true;
+				if (number.startsWith("+")) {
+					number = number.substring(1);
 				}
-				return false; // TODO
+				final int l = this.numbers.size();
+				for (int i = 0; i < l; i++) {
+					String n = this.numbers.get(i);
+					if (n == null || n.length() == 0) {
+						return false;
+					}
+					if (n.startsWith("+")) {
+						n = n.substring(1);
+					}
+					if (number.equals(n)) {
+						return true;
+					}
+					if (n.startsWith("%")) {
+						if (n.endsWith("%")) {
+							return number.contains(n.substring(1,
+									n.length() - 1));
+						} else {
+							return number.endsWith(n.substring(1));
+						}
+					} else if (n.endsWith("%")) {
+						return number
+								.startsWith(n.substring(0, n.length() - 1));
+					}
+				}
+				return false;
 			}
 		}
 
@@ -233,7 +257,7 @@ public final class RuleMatcher {
 			this.negate = cursor.getInt(DataProvider.Rules.INDEX_NOT) > 0;
 			this.what = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
 			this.what0 = Group.getGroup(cr, this.what, cursor
-					.getLong(DataProvider.Rules.INDEX_WHAT1));
+					.getLong(DataProvider.Rules.INDEX_WHAT0));
 			this.what1 = getRule(cr, cursor
 					.getLong(DataProvider.Rules.INDEX_WHAT1));
 		}
