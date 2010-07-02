@@ -19,21 +19,30 @@
 	-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent" android:layout_height="wrap_content"
-	android:orientation="vertical" android:background="?android:attr/colorBackground">
+	android:orientation="vertical" android:background="?android:attr/colorBackground"
+	android:paddingLeft="5dip" android:paddingRight="5dip">
 	<TextView android:id="@+id/bigtitle" android:text="bigtitle"
 		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
 		android:gravity="center" />
+	<RelativeLayout android:id="@+id/period_layout"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+			android:text="@string/billday_" />
+		<TextView android:id="@+id/period" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+		<ProgressBar android:id="@+id/period_pb"
+			android:layout_width="fill_parent" android:layout_height="5dip"
+			android:layout_alignParentRight="true"
+			style="?android:attr/progressBarStyleHorizontal"
+			android:layout_below="@id/period" />
+	</RelativeLayout>
 	<RelativeLayout android:id="@+id/content"
 		android:layout_width="fill_parent" android:layout_height="wrap_content">
 		<TextView android:id="@+id/normtitle" android:text="normtitle"
 			android:textAppearance="?android:attr/textAppearanceMedium"
 			android:layout_width="wrap_content" android:layout_height="wrap_content" />
-		<ProgressBar android:id="@+id/progressbarPeriod"
-			android:layout_width="@dimen/progressbar_width"
-			android:layout_height="5dip" android:layout_alignParentRight="true"
-			style="?android:attr/progressBarStyleHorizontal" android:max="100"
-			android:progress="5" />
 		<ProgressBar android:id="@+id/progressbarLimit"
 			android:layout_width="@dimen/progressbar_width"
 			android:layout_height="10dip" android:layout_alignParentRight="true"

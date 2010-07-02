@@ -31,6 +31,11 @@ public final class CallMeter extends Application {
 	/** Tag for output. */
 	private static final String TAG = "App";
 
+	/** Minimum date. */
+	public static final long MIN_DATE = 10000000000L;
+	/** Miliseconds per seconds. */
+	public static final long MILLIS = 1000L;
+
 	/** 100. */
 	public static final int HUNDRET = 100;
 	/** Days of a week. */

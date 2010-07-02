@@ -55,7 +55,7 @@ public final class DataProvider extends ContentProvider {
 	/** Type of log: spacing. */
 	public static final int TYPE_SPACING = 2;
 	/** Type of log: billmode. */
-	public static final int TYPE_BILLMODE = 3;
+	public static final int TYPE_BILLPERIOD = 3;
 	/** Type of log: call. */
 	public static final int TYPE_CALL = 4;
 	/** Type of log: sms. */
@@ -473,10 +473,12 @@ public final class DataProvider extends ContentProvider {
 		 *            type of period
 		 * @param start
 		 *            first bill day set.
+		 * @param get
+		 *            the next, not the current one
 		 * @return {@link Calendar} with current first bill day
 		 */
 		public static Calendar getBillDay(final int period, // .
-				final Calendar start) {
+				final Calendar start, final boolean next) {
 			int f;
 			int v;
 			switch (period) {
@@ -511,7 +513,9 @@ public final class DataProvider extends ContentProvider {
 			while (ret.before(now)) {
 				ret.add(f, v);
 			}
-			ret.add(f, v * -1);
+			if (!next) {
+				ret.add(f, v * -1);
+			}
 			return ret;
 		}
 	}

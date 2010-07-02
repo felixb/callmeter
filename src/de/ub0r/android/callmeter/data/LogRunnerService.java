@@ -31,6 +31,7 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
 import android.telephony.TelephonyManager;
+import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.apis.TelephonyWrapper;
@@ -43,11 +44,6 @@ import de.ub0r.android.lib.apis.TelephonyWrapper;
 public final class LogRunnerService extends IntentService {
 	/** Tag for output. */
 	private static final String TAG = "lrs";
-
-	/** Minimum date. */
-	public static final long MIN_DATE = 10000000000L;
-	/** Miliseconds per seconds. */
-	public static final long MILLIS = 1000L;
 
 	/** Prefix for store of last data. */
 	private static final String PREFS_LASTDATA_PREFIX = "last_data_";
@@ -95,8 +91,8 @@ public final class LogRunnerService extends IntentService {
 	 * @return date in millis
 	 */
 	private long fixDate(final long date) {
-		if (date < MIN_DATE) {
-			return date * MILLIS;
+		if (date < CallMeter.MIN_DATE) {
+			return date * CallMeter.MILLIS;
 		} else {
 			return date;
 		}
@@ -340,7 +336,7 @@ public final class LogRunnerService extends IntentService {
 				+ maxdate, null, Calls.DATE + " DESC");
 		if (cursor == null || !cursor.moveToFirst()) {
 			cursor = cr.query(mmsUri, mmsProjection, Calls.DATE + " > "
-					+ (maxdate / MILLIS), null, Calls.DATE + " DESC");
+					+ (maxdate / CallMeter.MILLIS), null, Calls.DATE + " DESC");
 		}
 		if (cursor != null && cursor.moveToFirst()) {
 			final int idDate = cursor.getColumnIndex(Calls.DATE);

@@ -18,6 +18,8 @@
  */
 package de.ub0r.android.callmeter.ui;
 
+import java.util.Calendar;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
@@ -28,6 +30,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -36,6 +39,7 @@ import android.view.Window;
 import android.widget.ProgressBar;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
+import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerReceiver;
@@ -83,6 +87,8 @@ public class Plans extends ListActivity {
 	 * @author flx
 	 */
 	public class PlanAdapter extends ResourceCursorAdapter {
+		/** Now. */
+		final Calendar now;
 
 		/**
 		 * Default Constructor.
@@ -95,6 +101,9 @@ public class Plans extends ListActivity {
 					.query(DataProvider.Plans.CONTENT_URI,
 							DataProvider.Plans.PROJECTION, null, null,
 							DataProvider.Plans.ORDER), true);
+
+			this.now = Calendar.getInstance();
+			this.now.setTimeInMillis(System.currentTimeMillis());
 		}
 
 		/**
@@ -104,18 +113,53 @@ public class Plans extends ListActivity {
 		public final void bindView(final View view, final Context context,
 				final Cursor cursor) {
 			final int t = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
+			final int billPeriod = cursor
+					.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
+			Calendar billDay = Calendar.getInstance();
+			billDay.setTimeInMillis(cursor
+					.getLong(DataProvider.Plans.INDEX_BILLDAY));
+			billDay = DataProvider.Plans.getBillDay(billPeriod, billDay, false);
 			if (t == DataProvider.TYPE_SPACING) {
 				view.findViewById(R.id.bigtitle).setVisibility(View.INVISIBLE);
 				view.findViewById(R.id.content).setVisibility(View.GONE);
+				view.findViewById(R.id.period_layout).setVisibility(View.GONE);
 			} else if (t == DataProvider.TYPE_TITLE) {
 				final TextView tw = ((TextView) view
 						.findViewById(R.id.bigtitle));
 				tw.setText(cursor.getString(DataProvider.Plans.INDEX_NAME));
 				tw.setVisibility(View.VISIBLE);
 				view.findViewById(R.id.content).setVisibility(View.GONE);
+				view.findViewById(R.id.period_layout).setVisibility(View.GONE);
+			} else if (t == DataProvider.TYPE_BILLPERIOD) {
+				view.findViewById(R.id.bigtitle).setVisibility(View.GONE);
+				view.findViewById(R.id.content).setVisibility(View.GONE);
+				view.findViewById(R.id.period_layout).setVisibility(
+						View.VISIBLE);
+				final ProgressBar pb = (ProgressBar) view
+						.findViewById(R.id.period_pb);
+				if (billPeriod == DataProvider.BILLPERIOD_INFINITE) {
+					pb.setIndeterminate(true);
+					((TextView) view.findViewById(R.id.period))
+							.setText("\u221E");
+				} else {
+					pb.setIndeterminate(false);
+					final Calendar nextBillDay = DataProvider.Plans.getBillDay(
+							billPeriod, billDay, true);
+					long pr = billDay.getTimeInMillis() % CallMeter.MILLIS;
+					long nx = (nextBillDay.getTimeInMillis() % CallMeter.MILLIS)
+							- pr;
+					long nw = (this.now.getTimeInMillis() % CallMeter.MILLIS)
+							- pr;
+					pb.setMax((int) nx);
+					pb.setProgress((int) nw);
+					((TextView) view.findViewById(R.id.period))
+							.setText(DateFormat.getDateFormat(context).format(
+									billDay.getTime()));
+				}
 			} else {
 				view.findViewById(R.id.bigtitle).setVisibility(View.GONE);
 				view.findViewById(R.id.content).setVisibility(View.VISIBLE);
+				view.findViewById(R.id.period_layout).setVisibility(View.GONE);
 				((TextView) view.findViewById(R.id.normtitle)).setText(cursor
 						.getString(DataProvider.Plans.INDEX_NAME));
 				final int limit = cursor.getInt(DataProvider.Plans.INDEX_LIMIT);

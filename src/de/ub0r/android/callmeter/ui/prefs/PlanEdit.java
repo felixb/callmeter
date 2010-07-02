@@ -217,8 +217,10 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.billday = cursor.getLong(DataProvider.Plans.INDEX_BILLDAY);
 		Calendar calBD = Calendar.getInstance();
 		calBD.setTimeInMillis(this.billday);
-		calBD = DataProvider.Plans.getBillDay(bp, calBD);
-		this.billday = calBD.getTimeInMillis();
+		calBD = DataProvider.Plans.getBillDay(bp, calBD, false);
+		if (calBD != null) {
+			this.billday = calBD.getTimeInMillis();
+		}
 		this.etCostPerItem.setText(cursor
 				.getString(DataProvider.Plans.INDEX_COST_PER_ITEM));
 		this.etCostPerAmount.setText(cursor
@@ -261,7 +263,6 @@ public class PlanEdit extends Activity implements OnClickListener,
 		// TODO: hide limit if limit_type == unlimited
 		this.findViewById(R.id.limit_layout).setVisibility(v);
 		this.findViewById(R.id.billperiod_layout).setVisibility(v);
-		// TODO: hide billday if billperiod == infinite
 		this.findViewById(R.id.billday_layout).setVisibility(v);
 		this.findViewById(R.id.cost_per_plan_layout).setVisibility(v);
 		this.findViewById(R.id.cost_per_item_layout).setVisibility(v);
@@ -289,6 +290,12 @@ public class PlanEdit extends Activity implements OnClickListener,
 		} else {
 			this.etBillmodeCust1.setVisibility(View.GONE);
 			this.etBillmodeCust2.setVisibility(View.GONE);
+		}
+
+		// hide billday if billperiod == infinite
+		int i = this.spBillperiod.getSelectedItemPosition();
+		if (i == DataProvider.BILLPERIOD_INFINITE) {
+			this.findViewById(R.id.billday_layout).setVisibility(View.GONE);
 		}
 	}
 
@@ -370,6 +377,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 					dd.set(year, monthOfYear, dayOfMonth, 0, 0, 0);
 					PlanEdit.this.billday = dd.getTimeInMillis();
 					PlanEdit.this.fillBillday();
+					PlanEdit.this.showHideFileds();
 				}
 			}, d.get(Calendar.YEAR), d.get(Calendar.MONTH), d
 					.get(Calendar.DAY_OF_MONTH)).show();

@@ -237,7 +237,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 			break;
 		default:
 			where = DataProvider.Plans.TYPE + " != "
-					+ DataProvider.TYPE_BILLMODE + " AND "
+					+ DataProvider.TYPE_BILLPERIOD + " AND "
 					+ DataProvider.Plans.TYPE + " != "
 					+ DataProvider.TYPE_SPACING + " AND "
 					+ DataProvider.Plans.TYPE + " != "
