@@ -126,12 +126,11 @@
 				<Button android:id="@+id/billday_help" android:text="@string/help_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
 					android:layout_alignParentRight="true" />
-				<Spinner android:id="@+id/billday_sp" android:entries="@array/days"
-					android:layout_width="150dip" android:layout_height="wrap_content"
-					android:layout_toLeftOf="@id/billday_help" />
+				<Button android:id="@+id/billday_btn" android:layout_width="150dip"
+					android:layout_height="wrap_content" android:layout_toLeftOf="@id/billday_help" />
 				<TextView android:id="@+id/billday_tw" android:text="@string/billday_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/billday_sp"
+					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/billday_btn"
 					android:singleLine="false" android:layout_centerVertical="true" />
 			</RelativeLayout>
 			<RelativeLayout android:id="@+id/cost_per_plan_layout"

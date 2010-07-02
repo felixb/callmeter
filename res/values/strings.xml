@@ -268,17 +268,9 @@
 	<string-array name="billperiod">
 		<item>One day</item>
 		<item>One week</item>
+		<item>30 days</item>
 		<item>One month</item>
 		<item>Infinite</item>
-	</string-array>
-	<string-array name="billdays_week">
-		<item>Monday</item>
-		<item>Tuesday</item>
-		<item>Wednesday</item>
-		<item>Thursday</item>
-		<item>Friday</item>
-		<item>Saturday</item>
-		<item>Sunday</item>
 	</string-array>
 	<string-array name="billmodes">
 		<item>1/1</item>

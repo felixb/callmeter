@@ -18,6 +18,7 @@
  */
 package de.ub0r.android.callmeter.data;
 
+import java.util.Calendar;
 import java.util.HashMap;
 
 import android.content.ContentProvider;
@@ -45,7 +46,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 4;
+	private static final int DATABASE_VERSION = 5;
 
 	/** Type of log: mixed. */
 	public static final int TYPE_MIXED = 0;
@@ -75,6 +76,17 @@ public final class DataProvider extends ContentProvider {
 	public static final int LIMIT_TYPE_UNITS = 1;
 	/** Type of limit: cost. */
 	public static final int LIMIT_TYPE_COST = 2;
+
+	/** Bill period: one day. */
+	public static final int BILLPERIOD_DAY = 0;
+	/** Bill period: one week. */
+	public static final int BILLPERIOD_WEEK = 1;
+	/** Bill period: one 30 days. */
+	public static final int BILLPERIOD_30D = 2;
+	/** Bill period: month. */
+	public static final int BILLPERIOD_MONTH = 3;
+	/** Bill period: infinite. */
+	public static final int BILLPERIOD_INFINITE = 4;
 
 	/** Plan/rule id: not yet calculated. */
 	public static final int NO_ID = -1;
@@ -368,7 +380,7 @@ public final class DataProvider extends ContentProvider {
 					+ USED_ALL + " INTEGER,"// .
 					+ USED_COUNT + " INTEGER,"// .
 					+ BILLMODE + " TEXT,"// .
-					+ BILLDAY + " INTEGER,"// .
+					+ BILLDAY + " LONG,"// .
 					+ BILLPERIOD + " INTEGER,"// .
 					+ COST_PER_ITEM + " FLOAT,"// .
 					+ COST_PER_AMOUNT + " FLOAT,"// .
@@ -451,6 +463,55 @@ public final class DataProvider extends ContentProvider {
 			if (cursor != null && !cursor.isClosed()) {
 				cursor.close();
 			}
+			return ret;
+		}
+
+		/**
+		 * Get the first bill day of this period.
+		 * 
+		 * @param period
+		 *            type of period
+		 * @param start
+		 *            first bill day set.
+		 * @return {@link Calendar} with current first bill day
+		 */
+		public static Calendar getBillDay(final int period, // .
+				final Calendar start) {
+			int f;
+			int v;
+			switch (period) {
+			case BILLPERIOD_INFINITE:
+				return null;
+			case BILLPERIOD_DAY:
+				final Calendar ret = Calendar.getInstance();
+				ret.setTimeInMillis(System.currentTimeMillis());
+				ret.set(ret.get(Calendar.YEAR), ret.get(Calendar.MONTH), ret
+						.get(Calendar.DAY_OF_MONTH), 0, 0, 0);
+				return ret;
+			case BILLPERIOD_30D:
+				f = Calendar.DAY_OF_MONTH;
+				v = 30;
+				break;
+			case BILLPERIOD_MONTH:
+				f = Calendar.MONTH;
+				v = 1;
+				break;
+			case BILLPERIOD_WEEK:
+				f = Calendar.DAY_OF_MONTH;
+				v = 7;
+				break;
+			default:
+				return null;
+			}
+
+			final Calendar ret = (Calendar) start.clone();
+			final Calendar now = Calendar.getInstance();
+			now.setTimeInMillis(System.currentTimeMillis());
+
+			while (ret.before(now)) {
+				ret.add(f, v);
+			}
+			ret.add(f, v * -1);
 			return ret;
 		}
 	}

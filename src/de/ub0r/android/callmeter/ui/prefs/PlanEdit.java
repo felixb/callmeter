@@ -18,16 +18,23 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
+import java.util.Calendar;
+
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.app.AlertDialog.Builder;
+import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -63,8 +70,8 @@ public class PlanEdit extends Activity implements OnClickListener,
 	private EditText etBillmodeCust2 = null;
 	/** {@link Spinner} holding billperiod. */
 	private Spinner spBillperiod = null;
-	/** {@link Spinner} holding billday. */
-	private Spinner spBillday = null;
+	/** {@link Button} holding billday. */
+	private Button btnBillday = null;
 	/** {@link EditText} holding cost per item. */
 	private EditText etCostPerItem = null;
 	/** {@link EditText} holding cost per amount. */
@@ -73,6 +80,9 @@ public class PlanEdit extends Activity implements OnClickListener,
 	private EditText etCostPerItemInLimit = null;
 	/** {@link EditText} holding cost per plan. */
 	private EditText etCostPerPlan = null;
+
+	/** First day of this bill period. */
+	private long billday = 0;
 
 	/**
 	 * {@inheritDoc}
@@ -98,7 +108,8 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.etBillmodeCust2 = (EditText) this
 				.findViewById(R.id.billmode_cust_2_et);
 		this.spBillperiod = (Spinner) this.findViewById(R.id.billperiod_sp);
-		this.spBillday = (Spinner) this.findViewById(R.id.billday_sp);
+		this.btnBillday = (Button) this.findViewById(R.id.billday_btn);
+		this.btnBillday.setOnClickListener(this);
 		this.etCostPerItem = (EditText) this
 				.findViewById(R.id.cost_per_item_et);
 		this.etCostPerAmount = (EditText) this
@@ -125,6 +136,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.findViewById(R.id.cost_per_plan_help).setOnClickListener(this);
 
 		this.fillFields();
+		this.fillBillday();
 	}
 
 	/**
@@ -200,10 +212,13 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.spBillmode.setSelection(bm);
 		this.etBillmodeCust1.setText(billmodeParts[0]);
 		this.etBillmodeCust2.setText(billmodeParts[1]);
-		this.spBillperiod.setSelection(cursor
-				.getInt(DataProvider.Plans.INDEX_BILLPERIOD));
-		this.spBillday.setSelection(cursor
-				.getInt(DataProvider.Plans.INDEX_BILLDAY));
+		final int bp = cursor.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
+		this.spBillperiod.setSelection(bp);
+		this.billday = cursor.getLong(DataProvider.Plans.INDEX_BILLDAY);
+		Calendar calBD = Calendar.getInstance();
+		calBD.setTimeInMillis(this.billday);
+		calBD = DataProvider.Plans.getBillDay(bp, calBD);
+		this.billday = calBD.getTimeInMillis();
 		this.etCostPerItem.setText(cursor
 				.getString(DataProvider.Plans.INDEX_COST_PER_ITEM));
 		this.etCostPerAmount.setText(cursor
@@ -214,6 +229,12 @@ public class PlanEdit extends Activity implements OnClickListener,
 				.getString(DataProvider.Plans.INDEX_COST_PER_PLAN));
 
 		cursor.close();
+	}
+
+	/** Set text of billday {@link Button}. */
+	private void fillBillday() {
+		this.btnBillday.setText(DateFormat.getDateFormat(this).format(
+				this.billday));
 	}
 
 	/**
@@ -312,8 +333,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 			}
 			cv.put(DataProvider.Plans.BILLPERIOD, this.spBillperiod
 					.getSelectedItemPosition());
-			cv.put(DataProvider.Plans.BILLDAY, this.spBillday
-					.getSelectedItemPosition());
+			cv.put(DataProvider.Plans.BILLDAY, this.billday);
 			cv.put(DataProvider.Plans.COST_PER_ITEM, this.etCostPerItem
 					.getText().toString());
 			cv.put(DataProvider.Plans.COST_PER_AMOUNT, this.etCostPerAmount
@@ -333,6 +353,26 @@ public class PlanEdit extends Activity implements OnClickListener,
 		case R.id.cancel:
 			this.id = -1;
 			this.finish();
+			break;
+		case R.id.billday_btn:
+			final Calendar d = Calendar.getInstance();
+			if (this.billday > 0) {
+				d.setTimeInMillis(this.billday);
+			} else {
+				d.setTimeInMillis(System.currentTimeMillis());
+			}
+			new DatePickerDialog(this, new OnDateSetListener() {
+
+				@Override
+				public void onDateSet(final DatePicker view, final int year,
+						final int monthOfYear, final int dayOfMonth) {
+					final Calendar dd = Calendar.getInstance();
+					dd.set(year, monthOfYear, dayOfMonth, 0, 0, 0);
+					PlanEdit.this.billday = dd.getTimeInMillis();
+					PlanEdit.this.fillBillday();
+				}
+			}, d.get(Calendar.YEAR), d.get(Calendar.MONTH), d
+					.get(Calendar.DAY_OF_MONTH)).show();
 			break;
 		case R.id.name_help:
 			this.showHelp(R.string.name_help);
