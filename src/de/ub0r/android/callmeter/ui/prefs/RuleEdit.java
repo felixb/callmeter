@@ -55,6 +55,13 @@ public class RuleEdit extends Activity implements OnClickListener,
 	/** Activity result request id: numbers. */
 	private static final int REQUEST_HOURS = 2;
 
+	/** Item menu: edit. */
+	private static final int WHICH_SELECT = 0;
+	/** Item menu: edit. */
+	private static final int WHICH_EDIT = 1;
+	/** Item menu: delete. */
+	private static final int WHICH_DELETE = 2;
+
 	/** Extra for {@link Intent}: is child? */
 	static final String EXTRA_ISCHILD = "is_child";
 
@@ -386,30 +393,41 @@ public class RuleEdit extends Activity implements OnClickListener,
 			break;
 		case R.id.what0_btn:
 			int rt = -1;
+			Intent ie = null;
 			if (t == DataProvider.Rules.WHAT_NUMBERS) {
 				intent = new Intent(this, NumberGroups.class);
+				ie = new Intent(this, NumberGroupEdit.class);
+				ie.setData(ContentUris.withAppendedId(
+						DataProvider.NumbersGroup.CONTENT_URI, this.what0));
 				rt = REQUEST_NUMBERS;
 			} else if (t == DataProvider.Rules.WHAT_HOURS) {
 				intent = new Intent(this, HourGroups.class);
+				ie = new Intent(this, HourGroupEdit.class);
+				ie.setData(ContentUris.withAppendedId(
+						DataProvider.HoursGroup.CONTENT_URI, this.what0));
 				rt = REQUEST_HOURS;
 			}
 			if (this.what0 < 0) {
 				this.startActivityForResult(intent, rt);
 			} else {
-				final Intent i = intent;
+				final Intent fi = intent;
+				final Intent fie = ie;
 				final int r = rt;
 				final Builder builder = new Builder(this);
-				builder.setItems(R.array.prefs_edit_delete,
+				builder.setItems(R.array.prefs_select_edit_delete,
 						new android.content.DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(final DialogInterface dialog,
 									final int which) {
 								switch (which) {
-								case 0:
+								case WHICH_SELECT:
 									RuleEdit.this.startActivityForResult(// .
-											i, r);
+											fi, r);
 									break;
-								case 1:
+								case WHICH_EDIT:
+									RuleEdit.this.startActivity(fie);
+									break;
+								case WHICH_DELETE:
 									// TODO: delete old child from DB
 									RuleEdit.this.what0 = -1;
 									RuleEdit.this.fillWhat0();
@@ -424,10 +442,10 @@ public class RuleEdit extends Activity implements OnClickListener,
 			}
 			break;
 		case R.id.what1_btn:
-			final Intent i = new Intent(this, RuleEdit.class);
-			i.putExtra(EXTRA_ISCHILD, true);
+			final Intent fi = new Intent(this, RuleEdit.class);
+			fi.putExtra(EXTRA_ISCHILD, true);
 			if (this.what1 >= 0) {
-				i.setData(ContentUris.withAppendedId(
+				fi.setData(ContentUris.withAppendedId(
 						DataProvider.Rules.CONTENT_URI, this.what1));
 
 				final Builder builder = new Builder(this);
@@ -439,7 +457,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 								switch (which) {
 								case 0:
 									RuleEdit.this.startActivityForResult(// .
-											i, REQUEST_RULE);
+											fi, REQUEST_RULE);
 									break;
 								case 1:
 									// TODO: delete old child from DB
@@ -454,7 +472,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 				builder.setNegativeButton(android.R.string.cancel, null);
 				builder.show();
 			} else {
-				this.startActivityForResult(i, REQUEST_RULE);
+				this.startActivityForResult(fi, REQUEST_RULE);
 			}
 			break;
 		case R.id.name_help:
