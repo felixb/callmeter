@@ -19,6 +19,7 @@
 package de.ub0r.android.callmeter.data;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -197,7 +198,21 @@ public final class RuleMatcher {
 			@Override
 			boolean match(final Cursor log) {
 				long date = log.getLong(DataProvider.Logs.INDEX_DATE);
-				return false; // TODO
+				final Calendar cal = Calendar.getInstance();
+				cal.setTimeInMillis(date);
+				final int d = (cal.get(Calendar.DAY_OF_WEEK) - Calendar.SUNDAY)
+						% Calendar.SATURDAY;
+				final int h = cal.get(Calendar.HOUR_OF_DAY) + 1;
+				for (int k : this.hours.keySet()) {
+					if (k == 0 || k == d) {
+						for (int v : this.hours.get(k)) {
+							if (v == 0 || v == h) {
+								return true;
+							}
+						}
+					}
+				}
+				return false;
 			}
 		}
 
