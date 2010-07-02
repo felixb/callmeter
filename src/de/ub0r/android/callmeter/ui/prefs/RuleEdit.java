@@ -272,6 +272,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 	 * Fill the fields with data from the cursor.
 	 */
 	private void fillFields() {
+		this.isChild = this.getIntent().getBooleanExtra(EXTRA_ISCHILD, false);
 		final Uri uri = this.getIntent().getData();
 		if (uri == null) {
 			return;
@@ -298,7 +299,6 @@ public class RuleEdit extends Activity implements OnClickListener,
 		this.what0 = cursor.getInt(DataProvider.Rules.INDEX_WHAT0);
 		this.what1 = cursor.getInt(DataProvider.Rules.INDEX_WHAT1);
 		this.plan = cursor.getInt(DataProvider.Rules.INDEX_PLAN_ID);
-		this.isChild = this.getIntent().getBooleanExtra(EXTRA_ISCHILD, false);
 		cursor.close();
 	}
 
@@ -321,6 +321,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 		this.findViewById(R.id.what0_layout).setVisibility(v);
 
 		switch (t) {
+		case DataProvider.Rules.WHAT_INCOMMING:
 		case DataProvider.Rules.WHAT_HOURS:
 		case DataProvider.Rules.WHAT_LIMIT_REACHED:
 		case DataProvider.Rules.WHAT_NUMBERS:

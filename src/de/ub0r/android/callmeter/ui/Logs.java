@@ -27,8 +27,10 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
@@ -38,7 +40,7 @@ import de.ub0r.android.callmeter.ui.prefs.Preferences;
  * 
  * @author flx
  */
-public class Logs extends ListActivity {
+public class Logs extends ListActivity implements OnClickListener {
 	/** Tag for output. */
 	public static final String TAG = "logs";
 
@@ -52,13 +54,15 @@ public class Logs extends ListActivity {
 		/**
 		 * Default Constructor.
 		 * 
+		 * @param where
+		 *            slection
 		 * @param context
 		 *            {@link Context}
 		 */
-		public LogAdapter(final Context context) {
+		public LogAdapter(final Context context, final String where) {
 			super(context, R.layout.logs_item, context.getContentResolver()
 					.query(DataProvider.Logs.CONTENT_URI,
-							DataProvider.Logs.PROJECTION, null, null,
+							DataProvider.Logs.PROJECTION, where, null,
 							DataProvider.Logs.DATE + " DESC"), true);
 		}
 
@@ -102,9 +106,6 @@ public class Logs extends ListActivity {
 		}
 	}
 
-	/** Logs. */
-	private LogAdapter adapter = null;
-
 	/**
 	 * {@inheritDoc}
 	 */
@@ -114,7 +115,41 @@ public class Logs extends ListActivity {
 		this.setTheme(Preferences.getTheme(this));
 		this.setContentView(R.layout.logs);
 		this.setTitle(R.string.logs);
-		this.adapter = new LogAdapter(this);
-		this.setListAdapter(this.adapter);
+		this.findViewById(R.id.calls).setOnClickListener(this);
+		this.findViewById(R.id.sms).setOnClickListener(this);
+		this.findViewById(R.id.mms).setOnClickListener(this);
+		this.findViewById(R.id.data).setOnClickListener(this);
+		this.setAdapter();
+	}
+
+	/** Set Adapter. */
+	private void setAdapter() {
+		String where = DataProvider.Logs.TYPE + " < 0 ";
+		if (((ToggleButton) this.findViewById(R.id.calls)).isChecked()) {
+			where += " OR " + DataProvider.Logs.TYPE + " = "
+					+ DataProvider.TYPE_CALL;
+		}
+		if (((ToggleButton) this.findViewById(R.id.sms)).isChecked()) {
+			where += " OR " + DataProvider.Logs.TYPE + " = "
+					+ DataProvider.TYPE_SMS;
+		}
+		if (((ToggleButton) this.findViewById(R.id.mms)).isChecked()) {
+			where += " OR " + DataProvider.Logs.TYPE + " = "
+					+ DataProvider.TYPE_MMS;
+		}
+		if (((ToggleButton) this.findViewById(R.id.data)).isChecked()) {
+			where += " OR " + DataProvider.Logs.TYPE + " = "
+					+ DataProvider.TYPE_DATA;
+		}
+
+		this.setListAdapter(new LogAdapter(this, where));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onClick(final View v) {
+		this.setAdapter();
 	}
 }

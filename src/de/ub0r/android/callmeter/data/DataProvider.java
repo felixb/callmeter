@@ -469,14 +469,16 @@ public final class DataProvider extends ContentProvider {
 		public static final int WHAT_MMS = 2;
 		/** Condition type: match data. */
 		public static final int WHAT_DATA = 3;
+		/** Condition type: is incomming. */
+		public static final int WHAT_INCOMMING = 4;
 		/** Condition type: is roaming. */
-		public static final int WHAT_ROAMING = 4;
+		public static final int WHAT_ROAMING = 5;
 		/** Condition type: match numbers. */
-		public static final int WHAT_NUMBERS = 5;
+		public static final int WHAT_NUMBERS = 6;
 		/** Condition type: match hours. */
-		public static final int WHAT_HOURS = 6;
+		public static final int WHAT_HOURS = 7;
 		/** Condition type: is limit reached. */
-		public static final int WHAT_LIMIT_REACHED = 7;
+		public static final int WHAT_LIMIT_REACHED = 8;
 
 		/** Table name. */
 		private static final String TABLE = "rules";
@@ -1413,6 +1415,9 @@ public final class DataProvider extends ContentProvider {
 		long i;
 		int ret = 0;
 		switch (URI_MATCHER.match(uri)) {
+		case LOGS:
+			ret = db.update(Logs.TABLE, values, selection, selectionArgs);
+			break;
 		case LOGS_ID:
 			ret = db.update(Logs.TABLE, values, DbUtils.sqlAnd(Logs.ID + "="
 					+ ContentUris.parseId(uri), selection), selectionArgs);

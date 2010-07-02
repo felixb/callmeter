@@ -27,6 +27,7 @@ import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import de.ub0r.android.lib.Log;
 
 /**
  * Class matching logs via rules to plans.
@@ -34,6 +35,8 @@ import android.database.Cursor;
  * @author flx
  */
 public final class RuleMatcher {
+	/** Tag for output. */
+	private static final String TAG = "rm";
 
 	/**
 	 * A single Rule.
@@ -270,6 +273,10 @@ public final class RuleMatcher {
 					ret = true;
 				}
 				break;
+			case DataProvider.Rules.WHAT_INCOMMING:
+				ret = log.getInt(DataProvider.Logs.INDEX_DIRECTION) == // .
+				DataProvider.DIRECTION_IN;
+				break;
 			case DataProvider.Rules.WHAT_HOURS:
 			case DataProvider.Rules.WHAT_NUMBERS:
 				ret = this.what0 != null && this.what0.match(log);
@@ -409,6 +416,7 @@ public final class RuleMatcher {
 	 *            {@link Context}
 	 */
 	private static void load(final Context context) {
+		Log.d(TAG, "load()");
 		if (rules != null && plans != null) {
 			return;
 		}
@@ -449,6 +457,7 @@ public final class RuleMatcher {
 	 * Reload Rules and plans.
 	 */
 	static void flush() {
+		Log.d(TAG, "flush()");
 		rules = null;
 		plans = null;
 	}
@@ -460,6 +469,7 @@ public final class RuleMatcher {
 	 *            {@link Context}
 	 */
 	public static void unmatch(final Context context) {
+		Log.d(TAG, "unmatch()");
 		ContentValues cv = new ContentValues();
 		cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
 		cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
@@ -478,6 +488,8 @@ public final class RuleMatcher {
 	 */
 	private static void matchLog(final ContentResolver cr, final Cursor log) {
 		long lid = log.getLong(DataProvider.Logs.INDEX_ID);
+		Log.d(TAG, "matchLog(cr, " + lid + ")");
+		boolean matched = false;
 		final int l = rules.size();
 		for (int i = 0; i < l; i++) {
 			final Rule r = rules.get(i);
@@ -493,10 +505,18 @@ public final class RuleMatcher {
 				cv.put(DataProvider.Logs.RULE_ID, rid);
 				cr.update(ContentUris.withAppendedId(
 						DataProvider.Logs.CONTENT_URI, lid), cv, null, null);
+				// TODO
+				matched = true;
 				break;
 			}
 		}
-		// TODO
+		if (!matched) {
+			final ContentValues cv = new ContentValues();
+			cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NOT_FOUND);
+			cv.put(DataProvider.Logs.RULE_ID, DataProvider.NOT_FOUND);
+			cr.update(ContentUris.withAppendedId(DataProvider.Logs.CONTENT_URI,
+					lid), cv, null, null);
+		}
 	}
 
 	/**
@@ -506,6 +526,7 @@ public final class RuleMatcher {
 	 *            {@link Context}
 	 */
 	static synchronized void match(final Context context) {
+		Log.d(TAG, "match()");
 		load(context);
 		final Cursor cursor = context.getContentResolver().query(
 				DataProvider.Logs.CONTENT_URI, DataProvider.Logs.PROJECTION,

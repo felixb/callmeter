@@ -92,8 +92,12 @@ public class Rules extends ListActivity implements OnClickListener,
 					.findViewById(R.id.normtitle));
 			twTitle.setText(cursor.getString(DataProvider.Rules.INDEX_NAME));
 			final TextView twType = ((TextView) view.findViewById(R.id.type));
-			twType.setText(this.types[cursor
-					.getInt(DataProvider.Rules.INDEX_WHAT)]);
+			String w = "";
+			if (cursor.getInt(DataProvider.Rules.INDEX_NOT) > 0) {
+				w = "\u00AC ";
+			}
+			w += this.types[cursor.getInt(DataProvider.Rules.INDEX_WHAT)];
+			twType.setText(w);
 		}
 	}
 

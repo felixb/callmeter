@@ -127,6 +127,7 @@
 	<string name="sunday">Sunday</string>
 	<string name="calls">Calls</string>
 	<string name="sms">SMS</string>
+	<string name="mms">MMS</string>
 	<string name="data">Data</string>
 	<string name="calls_sms">Calls/SMS</string>
 	<string name="in_calls">In%s:</string>
@@ -253,6 +254,7 @@
 		<item>Is SMS</item>
 		<item>Is MMS</item>
 		<item>Is Data</item>
+		<item>Is Incomming</item>
 		<item>Is Roaming</item>
 		<item>Match Numbers</item>
 		<item>Match Hours</item>
