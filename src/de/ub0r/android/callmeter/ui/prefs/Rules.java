@@ -36,6 +36,7 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.callmeter.data.RuleMatcher;
 
 /**
  * {@link ListActivity} for setting rules.
@@ -110,6 +111,15 @@ public class Rules extends ListActivity implements OnClickListener,
 		this.getListView().setOnItemClickListener(this);
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.add).setOnClickListener(this);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void onStop() {
+		super.onStop();
+		RuleMatcher.unmatch(this);
 	}
 
 	/**

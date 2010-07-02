@@ -76,6 +76,11 @@ public final class DataProvider extends ContentProvider {
 	/** Type of limit: cost. */
 	public static final int LIMIT_TYPE_COST = 2;
 
+	/** Plan/rule id: not yet calculated. */
+	public static final int NO_ID = -1;
+	/** Plan/rule id: no plan/rule found. */
+	public static final int NOT_FOUND = -2;
+
 	/**
 	 * Logs.
 	 * 
@@ -423,6 +428,31 @@ public final class DataProvider extends ContentProvider {
 		private Plans() {
 			// nothing here.
 		}
+
+		/**
+		 * Get Name for id.
+		 * 
+		 * @param cr
+		 *            {@link ContentResolver}
+		 * @param id
+		 *            id
+		 * @return name
+		 */
+		public static String getName(final ContentResolver cr, final long id) {
+			if (id < 0) {
+				return null;
+			}
+			final Cursor cursor = cr.query(ContentUris.withAppendedId(
+					CONTENT_URI, id), new String[] { NAME }, null, null, null);
+			String ret = null;
+			if (cursor != null && cursor.moveToFirst()) {
+				ret = cursor.getString(0);
+			}
+			if (cursor != null && !cursor.isClosed()) {
+				cursor.close();
+			}
+			return ret;
+		}
 	}
 
 	/**
@@ -564,6 +594,31 @@ public final class DataProvider extends ContentProvider {
 		/** Default constructor. */
 		private Rules() {
 			// nothing here.
+		}
+
+		/**
+		 * Get Name for id.
+		 * 
+		 * @param cr
+		 *            {@link ContentResolver}
+		 * @param id
+		 *            id
+		 * @return name
+		 */
+		public static String getName(final ContentResolver cr, final long id) {
+			if (id < 0) {
+				return null;
+			}
+			final Cursor cursor = cr.query(ContentUris.withAppendedId(
+					CONTENT_URI, id), new String[] { NAME }, null, null, null);
+			String ret = null;
+			if (cursor != null && cursor.moveToFirst()) {
+				ret = cursor.getString(0);
+			}
+			if (cursor != null && !cursor.isClosed()) {
+				cursor.close();
+			}
+			return ret;
 		}
 	}
 

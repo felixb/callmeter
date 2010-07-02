@@ -193,8 +193,8 @@ public final class LogRunnerService extends IntentService {
 				Log.d(TAG, "rrx: " + rrx);
 				Log.d(TAG, "ttx: " + rtx);
 				final ContentValues baseCv = new ContentValues();
-				baseCv.put(DataProvider.Logs.PLAN_ID, -1);
-				baseCv.put(DataProvider.Logs.RULE_ID, -1);
+				baseCv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
+				baseCv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 				baseCv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_DATA);
 				baseCv.put(DataProvider.Logs.DATE, System.currentTimeMillis());
 				if (roaming) {
@@ -254,8 +254,8 @@ public final class LogRunnerService extends IntentService {
 				if (d == 0) {
 					continue;
 				}
-				cv.put(DataProvider.Logs.PLAN_ID, -1);
-				cv.put(DataProvider.Logs.RULE_ID, -1);
+				cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
+				cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_CALL);
 				cv.put(DataProvider.Logs.DATE, cursor.getLong(idDate));
 				cv.put(DataProvider.Logs.REMOTE, cursor.getLong(idNumber));
@@ -306,8 +306,8 @@ public final class LogRunnerService extends IntentService {
 				} else {
 					continue;
 				}
-				cv.put(DataProvider.Logs.PLAN_ID, -1);
-				cv.put(DataProvider.Logs.RULE_ID, -1);
+				cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
+				cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_SMS);
 				cv.put(DataProvider.Logs.DATE, cursor.getLong(idDate));
 				cv.put(DataProvider.Logs.REMOTE, cursor.getLong(idAddress));
@@ -360,8 +360,8 @@ public final class LogRunnerService extends IntentService {
 				} else {
 					continue;
 				}
-				cv.put(DataProvider.Logs.PLAN_ID, -1);
-				cv.put(DataProvider.Logs.RULE_ID, -1);
+				cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
+				cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_MMS);
 				cv.put(DataProvider.Logs.DATE, this.fixDate(cursor
 						.getLong(idDate)));
@@ -401,6 +401,7 @@ public final class LogRunnerService extends IntentService {
 		this.updateCalls(cr);
 		this.updateSMS(cr);
 		this.updateMMS(cr);
+		RuleMatcher.match(this);
 		// if (mainActivity != null) {
 		// FIXME with handler
 		// mainActivity.setProgressBarIndeterminateVisibility(false);
