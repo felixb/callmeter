@@ -541,7 +541,6 @@ public final class DataProvider extends ContentProvider {
 				Calendar ret;
 				if (now == null) {
 					ret = Calendar.getInstance();
-					ret.setTimeInMillis(System.currentTimeMillis());
 				} else {
 					ret = (Calendar) now.clone();
 				}
@@ -568,11 +567,15 @@ public final class DataProvider extends ContentProvider {
 			}
 
 			final Calendar ret = (Calendar) start.clone();
+			Calendar n = now;
+			if (n == null) {
+				n = Calendar.getInstance();
+			}
 
-			while (ret.after(now)) {
+			while (ret.after(n)) {
 				ret.add(f, v * -1);
 			}
-			while (ret.before(now)) {
+			while (ret.before(n)) {
 				ret.add(f, v);
 			}
 			if (!next) {

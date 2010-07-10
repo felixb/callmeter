@@ -365,8 +365,6 @@ public class PlanEdit extends Activity implements OnClickListener,
 			final Calendar d = Calendar.getInstance();
 			if (this.billday > 0) {
 				d.setTimeInMillis(this.billday);
-			} else {
-				d.setTimeInMillis(System.currentTimeMillis());
 			}
 			new DatePickerDialog(this, new OnDateSetListener() {
 
