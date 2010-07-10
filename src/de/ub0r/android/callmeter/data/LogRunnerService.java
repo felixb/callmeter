@@ -188,27 +188,33 @@ public final class LogRunnerService extends IntentService {
 				}
 				Log.d(TAG, "rrx: " + rrx);
 				Log.d(TAG, "ttx: " + rtx);
-				final ContentValues baseCv = new ContentValues();
-				baseCv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
-				baseCv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
-				baseCv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_DATA);
-				baseCv.put(DataProvider.Logs.DATE, System.currentTimeMillis());
-				if (roaming) {
-					baseCv.put(DataProvider.Logs.ROAMED, true);
-				}
 
-				ContentValues cv = new ContentValues(baseCv);
-				cv.put(DataProvider.Logs.DIRECTION, DataProvider.DIRECTION_IN);
-				cv.put(DataProvider.Logs.AMOUNT, rrx);
-				cr.insert(DataProvider.Logs.CONTENT_URI, cv);
-				cv = new ContentValues(baseCv);
-				cv.put(DataProvider.Logs.DIRECTION, DataProvider.DIRECTION_OUT);
-				cv.put(DataProvider.Logs.AMOUNT, rtx);
-				cr.insert(DataProvider.Logs.CONTENT_URI, cv);
-				this.setLastData(p, DataProvider.TYPE_DATA,
-						DataProvider.DIRECTION_IN, rx);
-				this.setLastData(p, DataProvider.TYPE_DATA,
-						DataProvider.DIRECTION_OUT, tx);
+				if (rrx > 0 || rtx > 0) { // save data to db
+					final ContentValues baseCv = new ContentValues();
+					baseCv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
+					baseCv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
+					baseCv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_DATA);
+					baseCv.put(DataProvider.Logs.DATE, System
+							.currentTimeMillis());
+					if (roaming) {
+						baseCv.put(DataProvider.Logs.ROAMED, true);
+					}
+
+					ContentValues cv = new ContentValues(baseCv);
+					cv.put(DataProvider.Logs.DIRECTION,
+							DataProvider.DIRECTION_IN);
+					cv.put(DataProvider.Logs.AMOUNT, rrx);
+					cr.insert(DataProvider.Logs.CONTENT_URI, cv);
+					cv = new ContentValues(baseCv);
+					cv.put(DataProvider.Logs.DIRECTION,
+							DataProvider.DIRECTION_OUT);
+					cv.put(DataProvider.Logs.AMOUNT, rtx);
+					cr.insert(DataProvider.Logs.CONTENT_URI, cv);
+					this.setLastData(p, DataProvider.TYPE_DATA,
+							DataProvider.DIRECTION_IN, rx);
+					this.setLastData(p, DataProvider.TYPE_DATA,
+							DataProvider.DIRECTION_OUT, tx);
+				}
 			} catch (IOException e) {
 				Log.e(TAG, "I/O Error", e);
 			}

@@ -145,10 +145,10 @@ public class Plans extends ListActivity {
 					pb.setIndeterminate(false);
 					final Calendar nextBillDay = DataProvider.Plans.getBillDay(
 							billPeriod, billDay, true);
-					long pr = billDay.getTimeInMillis() % CallMeter.MILLIS;
-					long nx = (nextBillDay.getTimeInMillis() % CallMeter.MILLIS)
+					long pr = billDay.getTimeInMillis() / CallMeter.MILLIS;
+					long nx = (nextBillDay.getTimeInMillis() / CallMeter.MILLIS)
 							- pr;
-					long nw = (this.now.getTimeInMillis() % CallMeter.MILLIS)
+					long nw = (this.now.getTimeInMillis() / CallMeter.MILLIS)
 							- pr;
 					pb.setMax((int) nx);
 					pb.setProgress((int) nw);

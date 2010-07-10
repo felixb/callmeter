@@ -473,8 +473,8 @@ public final class DataProvider extends ContentProvider {
 		 *            type of period
 		 * @param start
 		 *            first bill day set.
-		 * @param get
-		 *            the next, not the current one
+		 * @param next
+		 *            get the next, not the current one
 		 * @return {@link Calendar} with current first bill day
 		 */
 		public static Calendar getBillDay(final int period, // .
@@ -489,6 +489,9 @@ public final class DataProvider extends ContentProvider {
 				ret.setTimeInMillis(System.currentTimeMillis());
 				ret.set(ret.get(Calendar.YEAR), ret.get(Calendar.MONTH), ret
 						.get(Calendar.DAY_OF_MONTH), 0, 0, 0);
+				if (next) {
+					ret.add(Calendar.DAY_OF_MONTH, 1);
+				}
 				return ret;
 			case BILLPERIOD_30D:
 				f = Calendar.DAY_OF_MONTH;
