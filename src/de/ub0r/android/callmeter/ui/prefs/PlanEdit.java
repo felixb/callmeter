@@ -217,7 +217,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.billday = cursor.getLong(DataProvider.Plans.INDEX_BILLDAY);
 		Calendar calBD = Calendar.getInstance();
 		calBD.setTimeInMillis(this.billday);
-		calBD = DataProvider.Plans.getBillDay(bp, calBD, false);
+		calBD = DataProvider.Plans.getBillDay(bp, calBD, null, false);
 		if (calBD != null) {
 			this.billday = calBD.getTimeInMillis();
 		}
