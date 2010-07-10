@@ -431,6 +431,33 @@ public final class RuleMatcher {
 		long getId() {
 			return this.id;
 		}
+
+		/**
+		 * Get billed amount for amount.
+		 * 
+		 * @param log
+		 *            {@link Cursor} pointing to log
+		 * @param updatePlan
+		 *            update {@link Plan}'s fields
+		 * @return billed amount.
+		 */
+		long getBilledAmount(final Cursor log, final boolean updatePlan) {
+			final long a = log.getLong(DataProvider.Logs.INDEX_AMOUNT);
+			return a; // TODO
+		}
+
+		/**
+		 * Get cost for amount.
+		 * 
+		 * @param log
+		 *            {@link Cursor} pointing to log
+		 * @param updatePlan
+		 *            update {@link Plan}'s fields
+		 * @return cost
+		 */
+		float getCost(final Cursor log, final boolean updatePlan) {
+			return 0; // TODO
+		}
 	}
 
 	/**
@@ -526,7 +553,7 @@ public final class RuleMatcher {
 	 *            {@link Cursor} representing the log
 	 */
 	private static void matchLog(final ContentResolver cr, final Cursor log) {
-		long lid = log.getLong(DataProvider.Logs.INDEX_ID);
+		final long lid = log.getLong(DataProvider.Logs.INDEX_ID);
 		Log.d(TAG, "matchLog(cr, " + lid + ")");
 		boolean matched = false;
 		final int l = rules.size();
@@ -542,6 +569,9 @@ public final class RuleMatcher {
 				final ContentValues cv = new ContentValues();
 				cv.put(DataProvider.Logs.PLAN_ID, pid);
 				cv.put(DataProvider.Logs.RULE_ID, rid);
+				cv.put(DataProvider.Logs.BILL_AMOUNT, p.getBilledAmount(log,
+						true));
+				cv.put(DataProvider.Logs.COST, p.getCost(log, true));
 				cr.update(ContentUris.withAppendedId(
 						DataProvider.Logs.CONTENT_URI, lid), cv, null, null);
 				// TODO

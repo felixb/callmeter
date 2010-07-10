@@ -45,6 +45,7 @@ import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerReceiver;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
+import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.DonationHelper;
 
 /**
@@ -118,7 +119,8 @@ public class Plans extends ListActivity {
 			Calendar billDay = Calendar.getInstance();
 			billDay.setTimeInMillis(cursor
 					.getLong(DataProvider.Plans.INDEX_BILLDAY));
-			billDay = DataProvider.Plans.getBillDay(billPeriod, billDay, false);
+			billDay = DataProvider.Plans.getBillDay(billPeriod, billDay, null,
+					false);
 			if (t == DataProvider.TYPE_SPACING) {
 				view.findViewById(R.id.bigtitle).setVisibility(View.INVISIBLE);
 				view.findViewById(R.id.content).setVisibility(View.GONE);
@@ -144,7 +146,7 @@ public class Plans extends ListActivity {
 				} else {
 					pb.setIndeterminate(false);
 					final Calendar nextBillDay = DataProvider.Plans.getBillDay(
-							billPeriod, billDay, true);
+							billPeriod, billDay, null, true);
 					long pr = billDay.getTimeInMillis() / CallMeter.MILLIS;
 					long nx = (nextBillDay.getTimeInMillis() / CallMeter.MILLIS)
 							- pr;
@@ -175,12 +177,23 @@ public class Plans extends ListActivity {
 					view.findViewById(R.id.progressbarLimit).setVisibility(
 							View.INVISIBLE);
 				}
-				final int usedAll = cursor
-						.getInt(DataProvider.Plans.INDEX_USED_ALL);
-				final int usedCount = cursor
-						.getInt(DataProvider.Plans.INDEX_USED_COUNT);
-				final float usedCost = cursor
-						.getFloat(DataProvider.Plans.INDEX_COST);
+				final long pid = cursor.getLong(DataProvider.Plans.INDEX_ID);
+				final int p = cursor
+						.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
+				final Calendar ps = Calendar.getInstance();
+				ps.setTimeInMillis(cursor
+						.getLong(DataProvider.Plans.INDEX_BILLDAY));
+				final String where = DbUtils.sqlAnd(DataProvider.Plans
+						.getBilldayWhere(p, ps, null),
+						DataProvider.Logs.PLAN_ID + " = " + pid);
+
+				final Cursor c = context.getContentResolver().query(
+						DataProvider.Logs.SUM_URI,
+						DataProvider.Logs.PROJECTION_SUM, where, null, null);
+				final float cost = c
+						.getFloat(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
+				final long billedAmount = c
+						.getLong(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
 				// TODO: print data to screen
 			}
 		}
@@ -224,7 +237,7 @@ public class Plans extends ListActivity {
 	}
 
 	/**
-	 * Round up time with billmode in mind.
+	 * Round up time with bill mode in mind.
 	 * 
 	 * @param time
 	 *            time

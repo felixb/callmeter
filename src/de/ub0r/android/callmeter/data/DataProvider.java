@@ -127,6 +127,15 @@ public final class DataProvider extends ContentProvider {
 		/** Index in projection: Cost. */
 		public static final int INDEX_COST = 10;
 
+		/** Index in projection - sum: ID of plan this log is billed in. */
+		public static final int INDEX_SUM_PLAN_ID = 0;
+		/** Index in projection - sum: Amount. */
+		public static final int INDEX_SUM_AMOUNT = 1;
+		/** Index in projection - sum: Billed amount. */
+		public static final int INDEX_SUM_BILL_AMOUNT = 2;
+		/** Index in projection - sum: Cost. */
+		public static final int INDEX_SUM_COST = 3;
+
 		/** ID. */
 		public static final String ID = "_id";
 		/** ID of plan this log is billed in. */
@@ -154,10 +163,16 @@ public final class DataProvider extends ContentProvider {
 		public static final String[] PROJECTION = new String[] { ID, PLAN_ID,
 				RULE_ID, TYPE, DIRECTION, DATE, AMOUNT, BILL_AMOUNT, REMOTE,
 				ROAMED, COST };
+		/** Projection used for query - sum. */
+		public static final String[] PROJECTION_SUM = new String[] { PLAN_ID,
+				AMOUNT, BILL_AMOUNT, COST };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
 				+ AUTHORITY + "/logs");
+		/** Content {@link Uri} - sum. */
+		public static final Uri SUM_URI = Uri.parse("content://" + AUTHORITY
+				+ "/logs/sum");
 		/**
 		 * The MIME type of {@link #CONTENT_URI} providing a list.
 		 */
@@ -201,7 +216,7 @@ public final class DataProvider extends ContentProvider {
 					+ DIRECTION + " INTEGER," // .
 					+ DATE + " LONG," // .
 					+ AMOUNT + " LONG," // .
-					+ BILL_AMOUNT + " INTEGER," // .
+					+ BILL_AMOUNT + " LONG," // .
 					+ REMOTE + " TEXT,"// .
 					+ ROAMED + " BOOL," // .
 					+ COST + " FLOAT"// .
@@ -375,7 +390,7 @@ public final class DataProvider extends ContentProvider {
 					+ SHORTNAME + " TEXT,"// .
 					+ TYPE + " TEXT, " // .
 					+ LIMIT_TYPE + " INTEGER,"// .
-					+ LIMIT + " INTEGER,"// .
+					+ LIMIT + " LONG,"// .
 					+ USED_MONTH + " INTEGER,"// .
 					+ USED_ALL + " INTEGER,"// .
 					+ USED_COUNT + " INTEGER,"// .
@@ -467,26 +482,56 @@ public final class DataProvider extends ContentProvider {
 		}
 
 		/**
+		 * Get the SQL {@link String} selecting the bill period.
+		 * 
+		 * @param period
+		 *            type of period
+		 * @param start
+		 *            first bill day set.
+		 * @param now
+		 *            move now to some other time, null == real now
+		 * @return SQL {@link String} selecting the bill period
+		 */
+		public static String getBilldayWhere(final int period,
+				final Calendar start, final Calendar now) {
+			final Calendar bd = getBillDay(period, start, now, false);
+			if (bd == null) {
+				return null;
+			}
+			final Calendar nbd = getBillDay(period, start, now, true);
+			return DataProvider.Logs.DATE + " > " + bd.getTimeInMillis()
+					+ " AND " + DataProvider.Logs.DATE + " < "
+					+ nbd.getTimeInMillis();
+		}
+
+		/**
 		 * Get the first bill day of this period.
 		 * 
 		 * @param period
 		 *            type of period
 		 * @param start
 		 *            first bill day set.
+		 * @param now
+		 *            move now to some other time, null == real now
 		 * @param next
 		 *            get the next, not the current one
 		 * @return {@link Calendar} with current first bill day
 		 */
 		public static Calendar getBillDay(final int period, // .
-				final Calendar start, final boolean next) {
+				final Calendar start, final Calendar now, final boolean next) {
 			int f;
 			int v;
 			switch (period) {
 			case BILLPERIOD_INFINITE:
 				return null;
 			case BILLPERIOD_DAY:
-				final Calendar ret = Calendar.getInstance();
-				ret.setTimeInMillis(System.currentTimeMillis());
+				Calendar ret;
+				if (now == null) {
+					ret = Calendar.getInstance();
+					ret.setTimeInMillis(System.currentTimeMillis());
+				} else {
+					ret = (Calendar) now.clone();
+				}
 				ret.set(ret.get(Calendar.YEAR), ret.get(Calendar.MONTH), ret
 						.get(Calendar.DAY_OF_MONTH), 0, 0, 0);
 				if (next) {
@@ -510,9 +555,10 @@ public final class DataProvider extends ContentProvider {
 			}
 
 			final Calendar ret = (Calendar) start.clone();
-			final Calendar now = Calendar.getInstance();
-			now.setTimeInMillis(System.currentTimeMillis());
 
+			while (ret.after(now)) {
+				ret.add(f, v * -1);
+			}
 			while (ret.before(now)) {
 				ret.add(f, v);
 			}
@@ -1122,6 +1168,8 @@ public final class DataProvider extends ContentProvider {
 	private static final int HOURS_GROUP = 15;
 	/** Internal id: single hours group. */
 	private static final int HOURS_GROUP_ID = 16;
+	/** Internal id: sum of logs. */
+	private static final int LOGS_SUM = 17;
 
 	/** Authority. */
 	public static final String AUTHORITY = "de.ub0r.android.callmeter."
@@ -1134,6 +1182,7 @@ public final class DataProvider extends ContentProvider {
 		URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
 		URI_MATCHER.addURI(AUTHORITY, "logs", LOGS);
 		URI_MATCHER.addURI(AUTHORITY, "logs/#", LOGS_ID);
+		URI_MATCHER.addURI(AUTHORITY, "logs/sum", LOGS_SUM);
 		URI_MATCHER.addURI(AUTHORITY, "plans", PLANS);
 		URI_MATCHER.addURI(AUTHORITY, "plans/#", PLANS_ID);
 		URI_MATCHER.addURI(AUTHORITY, "rules", RULES);
@@ -1397,13 +1446,21 @@ public final class DataProvider extends ContentProvider {
 			final String sortOrder) {
 		final SQLiteDatabase db = this.mOpenHelper.getReadableDatabase();
 		SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+		final int uid = URI_MATCHER.match(uri);
+		String groupBy = null;
 
-		switch (URI_MATCHER.match(uri)) {
+		switch (uid) {
 		case LOGS_ID:
 			qb.appendWhere(Logs.ID + "=" + ContentUris.parseId(uri));
 		case LOGS:
 			qb.setTables(Logs.TABLE);
 			qb.setProjectionMap(Logs.PROJECTION_MAP);
+			break;
+		case LOGS_SUM:
+			qb.setTables(Logs.TABLE);
+			qb.setProjectionMap(Logs.PROJECTION_MAP);
+			groupBy = Logs.PLAN_ID;
+			// TODO add sums
 			break;
 		case PLANS_ID:
 			qb.appendWhere(Plans.ID + "=" + ContentUris.parseId(uri));
@@ -1464,8 +1521,8 @@ public final class DataProvider extends ContentProvider {
 		}
 
 		// Run the query
-		Cursor c = qb.query(db, projection, selection, selectionArgs, null,
-				null, orderBy);
+		final Cursor c = qb.query(db, projection, selection, selectionArgs,
+				groupBy, null, orderBy);
 
 		// Tell the cursor what uri to watch, so it knows when its source data
 		// changes
