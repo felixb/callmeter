@@ -224,6 +224,37 @@ public class Plans extends ListActivity {
 	}
 
 	/**
+	 * Round up time with billmode in mind.
+	 * 
+	 * @param time
+	 *            time
+	 * @param firstLength
+	 *            length of minimal billed call
+	 * @param nextLength
+	 *            length of following time slots billed
+	 * @return rounded time
+	 */
+	public static final int roundTime(final int time, final int firstLength,
+			final int nextLength) {
+		// 0 => 0
+		if (time == 0) {
+			return 0;
+		}
+		// !0 ..
+		if (time <= firstLength) { // round first slot
+			return firstLength;
+		}
+		if (nextLength == 0) {
+			return firstLength;
+		}
+		if (time % nextLength == 0 || nextLength == 1) {
+			return time;
+		}
+		// round up to next full slot
+		return ((time / nextLength) + 1) * nextLength;
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
