@@ -18,6 +18,7 @@
  */
 package de.ub0r.android.callmeter.data;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -28,6 +29,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
@@ -46,7 +48,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 5;
+	private static final int DATABASE_VERSION = 6;
 
 	/** Type of log: mixed. */
 	public static final int TYPE_MIXED = 0;
@@ -236,8 +238,11 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db,
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
+			final ContentValues[] values = backup(db, TABLE, new String[] {
+					AMOUNT, DATE, DIRECTION, REMOTE, ROAMED, TYPE }, null);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			onCreate(db);
+			reload(db, TABLE, values);
 		}
 
 		/** Default constructor. */
@@ -379,9 +384,11 @@ public final class DataProvider extends ContentProvider {
 		 * Create table in {@link SQLiteDatabase}.
 		 * 
 		 * @param db
-		 *            {@link SQLiteDatabase}
+		 *            {@link SQLiteDatabase} * @param fillDefault fill initial
+		 *            data
 		 */
-		public static void onCreate(final SQLiteDatabase db) {
+		public static void onCreate(final SQLiteDatabase db,
+				final boolean fillDefault) {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
 					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
@@ -403,6 +410,10 @@ public final class DataProvider extends ContentProvider {
 					+ COST_PER_PLAN + " FLOAT," // .
 					+ COST + " FLOAT" // .
 					+ ");");
+			if (!fillDefault) {
+				return;
+			}
+
 			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
 					+ "," + TYPE + ", " + ORDER
 					+ ") VALUES ('Calls', 'Calls', " + TYPE_TITLE + ", 0 )");
@@ -447,8 +458,10 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db,
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
-			onCreate(db);
+			onCreate(db, values == null);
+			reload(db, TABLE, values);
 		}
 
 		/** Default constructor. */
@@ -703,8 +716,10 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db,
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			onCreate(db);
+			reload(db, TABLE, values);
 		}
 
 		/** Default constructor. */
@@ -820,8 +835,10 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db,
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			onCreate(db);
+			reload(db, TABLE, values);
 		}
 
 		/** Default constructor. */
@@ -924,8 +941,10 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db,
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			onCreate(db);
+			reload(db, TABLE, values);
 		}
 
 		/** Default constructor. */
@@ -1022,8 +1041,10 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db,
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			onCreate(db);
+			reload(db, TABLE, values);
 		}
 
 		/** Default constructor. */
@@ -1126,8 +1147,10 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db,
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			onCreate(db);
+			reload(db, TABLE, values);
 		}
 
 		/** Default constructor. */
@@ -1221,7 +1244,7 @@ public final class DataProvider extends ContentProvider {
 		public void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create database");
 			Logs.onCreate(db);
-			Plans.onCreate(db);
+			Plans.onCreate(db, false);
 			Rules.onCreate(db);
 			Numbers.onCreate(db);
 			NumbersGroup.onCreate(db);
@@ -1249,6 +1272,91 @@ public final class DataProvider extends ContentProvider {
 
 	/** {@link DatabaseHelper}. */
 	private DatabaseHelper mOpenHelper;
+
+	/**
+	 * Try to backup fields from table.
+	 * 
+	 * @param db
+	 *            {@link SQLiteDatabase}
+	 * @param table
+	 *            table
+	 * @param cols
+	 *            columns
+	 * @param strip
+	 *            column to forget on backup, eg. _id
+	 * @return array of rows
+	 */
+	private static ContentValues[] backup(final SQLiteDatabase db,
+			final String table, final String[] cols, final String strip) {
+		ArrayList<ContentValues> ret = new ArrayList<ContentValues>();
+		String[] proj = cols;
+		if (strip != null) {
+			proj = new String[cols.length - 1];
+			int i = 0;
+			for (String c : cols) {
+				if (strip.equals(c)) {
+					continue;
+				}
+				proj[i] = c;
+				++i;
+			}
+		}
+		final int l = proj.length;
+		Cursor cursor = null;
+		try {
+			cursor = db.query(table, proj, null, null, null, null, null);
+		} catch (SQLException e) {
+			if (l == 1) {
+				return null;
+			}
+			final String err = e.getMessage();
+			if (!err.startsWith("no such column:")) {
+				return null;
+			}
+			final String str = err.split(":", 3)[1].trim();
+			return backup(db, table, cols, str);
+		}
+		if (cursor != null && cursor.moveToFirst()) {
+			do {
+				final ContentValues cv = new ContentValues();
+				for (int i = 0; i < l; i++) {
+					final String s = cursor.getString(i);
+					if (s != null) {
+						cv.put(proj[i], s);
+					}
+				}
+				ret.add(cv);
+			} while (cursor.moveToNext());
+		}
+		if (cursor != null && !cursor.isClosed()) {
+			cursor.close();
+		}
+
+		return ret.toArray(new ContentValues[0]);
+	}
+
+	/**
+	 * Reload backup into table.
+	 * 
+	 * @param db
+	 *            {@link SQLiteDatabase}
+	 * @param table
+	 *            table
+	 * @param values
+	 *            {@link ContentValues}[] backed up with backup()
+	 * 
+	 */
+	private static void reload(final SQLiteDatabase db, final String table,
+			final ContentValues[] values) {
+		if (values == null || values.length == 0) {
+			return;
+		}
+		Log.d(TAG, "reload(db, " + table + ", cv[" + values.length + "]");
+		for (ContentValues cv : values) {
+			db.insert(table, null, cv);
+		}
+		return;
+	}
 
 	/**
 	 * {@inheritDoc}

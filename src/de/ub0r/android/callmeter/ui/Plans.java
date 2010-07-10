@@ -190,11 +190,16 @@ public class Plans extends ListActivity {
 				final Cursor c = context.getContentResolver().query(
 						DataProvider.Logs.SUM_URI,
 						DataProvider.Logs.PROJECTION_SUM, where, null, null);
-				final float cost = c
-						.getFloat(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
-				final long billedAmount = c
-						.getLong(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
-				// TODO: print data to screen
+				if (c != null && c.moveToFirst()) {
+					final float cost = c
+							.getFloat(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
+					final long billedAmount = c
+							.getLong(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
+					// TODO: print data to screen
+				}
+				if (c != null && !c.isClosed()) {
+					c.close();
+				}
 			}
 		}
 	}
