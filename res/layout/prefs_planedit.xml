@@ -133,6 +133,18 @@
 					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/billday_btn"
 					android:singleLine="false" android:layout_centerVertical="true" />
 			</RelativeLayout>
+			<RelativeLayout android:id="@+id/billperiodid_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<Button android:id="@+id/billperiodid_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentRight="true" />
+				<Button android:id="@+id/billperiodid_btn" android:layout_width="150dip"
+					android:layout_height="wrap_content" android:layout_toLeftOf="@id/billperiodid_help" />
+				<TextView android:id="@+id/billperiodid_tw" android:text="@string/billperiod_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/billperiodid_btn"
+					android:singleLine="false" android:layout_centerVertical="true" />
+			</RelativeLayout>
 			<RelativeLayout android:id="@+id/cost_per_plan_layout"
 				android:layout_width="fill_parent" android:layout_height="wrap_content">
 				<Button android:id="@+id/cost_per_plan_help" android:text="@string/help_"

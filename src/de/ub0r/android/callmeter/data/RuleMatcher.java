@@ -366,12 +366,6 @@ public final class RuleMatcher {
 		private final int limitType;
 		/** Limit. */
 		private final int limit;
-		/** Limit used - month. */
-		private int usedMonth;
-		/** Limit used - all. */
-		private int usedAll;
-		/** Limit used - count. */
-		private int usedCount;
 		/** Billmode. */
 		private final String billmode;
 		/** Billday. */
@@ -386,8 +380,6 @@ public final class RuleMatcher {
 		private final float costPerItemInLimit;
 		/** Cost per plan. */
 		private final float costPerPlan;
-		/** Cost. */
-		private float cost;
 
 		/**
 		 * Load a {@link Plan}.
@@ -405,9 +397,6 @@ public final class RuleMatcher {
 			this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			this.limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 			this.limit = cursor.getInt(DataProvider.Plans.INDEX_LIMIT);
-			this.usedMonth = cursor.getInt(DataProvider.Plans.INDEX_USED_MONTH);
-			this.usedAll = cursor.getInt(DataProvider.Plans.INDEX_USED_ALL);
-			this.usedCount = cursor.getInt(DataProvider.Plans.INDEX_USED_COUNT);
 			this.billmode = cursor.getString(DataProvider.Plans.INDEX_BILLMODE);
 			this.billday = cursor.getInt(DataProvider.Plans.INDEX_BILLDAY);
 			this.billperiod = cursor
@@ -420,7 +409,6 @@ public final class RuleMatcher {
 					.getFloat(DataProvider.Plans.INDEX_COST_PER_ITEM_IN_LIMIT);
 			this.costPerPlan = cursor
 					.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
-			this.cost = cursor.getFloat(DataProvider.Plans.INDEX_COST);
 		}
 
 		/**

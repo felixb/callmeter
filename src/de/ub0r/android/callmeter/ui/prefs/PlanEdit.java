@@ -70,6 +70,8 @@ public class PlanEdit extends Activity implements OnClickListener,
 	private EditText etBillmodeCust2 = null;
 	/** {@link Spinner} holding billperiod. */
 	private Spinner spBillperiod = null;
+	/** {@link Button} holding billperiod link. */
+	private Button btnBillperiodId = null;
 	/** {@link Button} holding billday. */
 	private Button btnBillday = null;
 	/** {@link EditText} holding cost per item. */
@@ -108,6 +110,8 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.etBillmodeCust2 = (EditText) this
 				.findViewById(R.id.billmode_cust_2_et);
 		this.spBillperiod = (Spinner) this.findViewById(R.id.billperiod_sp);
+		this.btnBillperiodId = (Button) this
+				.findViewById(R.id.billperiodid_btn);
 		this.btnBillday = (Button) this.findViewById(R.id.billday_btn);
 		this.btnBillday.setOnClickListener(this);
 		this.etCostPerItem = (EditText) this
@@ -128,6 +132,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.findViewById(R.id.limit_help).setOnClickListener(this);
 		this.findViewById(R.id.billmode_help).setOnClickListener(this);
 		this.findViewById(R.id.billperiod_help).setOnClickListener(this);
+		this.findViewById(R.id.billperiodid_help).setOnClickListener(this);
 		this.findViewById(R.id.billday_help).setOnClickListener(this);
 		this.findViewById(R.id.cost_per_item_help).setOnClickListener(this);
 		this.findViewById(R.id.cost_per_amount_help).setOnClickListener(this);
@@ -292,10 +297,18 @@ public class PlanEdit extends Activity implements OnClickListener,
 			this.etBillmodeCust2.setVisibility(View.GONE);
 		}
 
-		// hide billday if billperiod == infinite
-		int i = this.spBillperiod.getSelectedItemPosition();
-		if (i == DataProvider.BILLPERIOD_INFINITE) {
+		if (t == DataProvider.TYPE_BILLPERIOD) {
+			this.findViewById(R.id.billperiodid_layout)
+					.setVisibility(View.GONE);
+			// hide billday if billperiod == infinite
+			int i = this.spBillperiod.getSelectedItemPosition();
+			if (i == DataProvider.BILLPERIOD_INFINITE) {
+				this.findViewById(R.id.billday_layout).setVisibility(View.GONE);
+			}
+		} else {
+			this.findViewById(R.id.billperiod_layout).setVisibility(View.GONE);
 			this.findViewById(R.id.billday_layout).setVisibility(View.GONE);
+			// TODO: hide some fields here
 		}
 	}
 
@@ -361,6 +374,9 @@ public class PlanEdit extends Activity implements OnClickListener,
 			this.id = -1;
 			this.finish();
 			break;
+		case R.id.billperiodid_btn:
+			// TODO: select billperiod
+			break;
 		case R.id.billday_btn:
 			final Calendar d = Calendar.getInstance();
 			if (this.billday > 0) {
@@ -398,6 +414,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 		case R.id.billmode_help:
 			this.showHelp(R.string.billmode_help);
 			break;
+		case R.id.billperiodid_help:
 		case R.id.billperiod_help:
 			this.showHelp(R.string.billperiod_help);
 			break;

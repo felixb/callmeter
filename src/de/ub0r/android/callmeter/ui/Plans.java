@@ -165,13 +165,11 @@ public class Plans extends ListActivity {
 				((TextView) view.findViewById(R.id.normtitle)).setText(cursor
 						.getString(DataProvider.Plans.INDEX_NAME));
 				final int limit = cursor.getInt(DataProvider.Plans.INDEX_LIMIT);
-				final int usedMonth = cursor
-						.getInt(DataProvider.Plans.INDEX_USED_MONTH);
 				if (limit > 0) {
 					final ProgressBar pb = (ProgressBar) view
 							.findViewById(R.id.progressbarLimit);
 					pb.setMax(limit);
-					pb.setProgress(usedMonth);
+					// pb.setProgress(usedMonth);
 					pb.setVisibility(View.VISIBLE);
 				} else {
 					view.findViewById(R.id.progressbarLimit).setVisibility(

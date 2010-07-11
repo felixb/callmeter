@@ -48,7 +48,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 6;
+	private static final int DATABASE_VERSION = 7;
 
 	/** Type of log: mixed. */
 	public static final int TYPE_MIXED = 0;
@@ -276,28 +276,20 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_LIMIT_TYPE = 5;
 		/** Index in projection: limit. */
 		public static final int INDEX_LIMIT = 6;
-		/** Index in projection: limit used month. */
-		public static final int INDEX_USED_MONTH = 7;
-		/** Index in projection: limit used all time. */
-		public static final int INDEX_USED_ALL = 8;
-		/** Index in projection: limit used count. */
-		public static final int INDEX_USED_COUNT = 9;
 		/** Index in projection: Billmode. */
-		public static final int INDEX_BILLMODE = 10;
+		public static final int INDEX_BILLMODE = 7;
 		/** Index in projection: Billday. */
-		public static final int INDEX_BILLDAY = 11;
-		/** Index in projection: Billperiod. */
-		public static final int INDEX_BILLPERIOD = 12;
+		public static final int INDEX_BILLDAY = 8;
+		/** Index in projection: type/id of billperiod. */
+		public static final int INDEX_BILLPERIOD = 9;
 		/** Index in projection: Cost per item. */
-		public static final int INDEX_COST_PER_ITEM = 13;
+		public static final int INDEX_COST_PER_ITEM = 10;
 		/** Index in projection: Cost per amount. */
-		public static final int INDEX_COST_PER_AMOUNT = 14;
+		public static final int INDEX_COST_PER_AMOUNT = 11;
 		/** Index in projection: Cost per item in limit. */
-		public static final int INDEX_COST_PER_ITEM_IN_LIMIT = 15;
+		public static final int INDEX_COST_PER_ITEM_IN_LIMIT = 12;
 		/** Index in projection: Cost per plan. */
-		public static final int INDEX_COST_PER_PLAN = 16;
-		/** Index in projection: Cost. */
-		public static final int INDEX_COST = 17;
+		public static final int INDEX_COST_PER_PLAN = 13;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -313,17 +305,11 @@ public final class DataProvider extends ContentProvider {
 		public static final String LIMIT_TYPE = "_limit_type";
 		/** Limit. */
 		public static final String LIMIT = "_limit";
-		/** Limit used - month. */
-		public static final String USED_MONTH = "_used_month";
-		/** Limit used - all. */
-		public static final String USED_ALL = "_used_all";
-		/** Limit used - count. */
-		public static final String USED_COUNT = "_used_count";
 		/** Billmode. */
 		public static final String BILLMODE = "_billmode";
 		/** Billday. */
 		public static final String BILLDAY = "_billday";
-		/** Billperiod. */
+		/** Type/Id of billperiod. */
 		public static final String BILLPERIOD = "_billperiod";
 		/** Cost per item. */
 		public static final String COST_PER_ITEM = "_cost_per_item";
@@ -334,14 +320,12 @@ public final class DataProvider extends ContentProvider {
 		"_cost_per_item_in_limit";
 		/** Cost per plan. */
 		public static final String COST_PER_PLAN = "_cost_per_plan";
-		/** Cost. */
-		public static final String COST = "_cost";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, ORDER,
-				NAME, SHORTNAME, TYPE, LIMIT_TYPE, LIMIT, USED_MONTH, USED_ALL,
-				USED_COUNT, BILLMODE, BILLDAY, BILLPERIOD, COST_PER_ITEM,
-				COST_PER_AMOUNT, COST_PER_ITEM_IN_LIMIT, COST_PER_PLAN, COST };
+				NAME, SHORTNAME, TYPE, LIMIT_TYPE, LIMIT, BILLMODE, BILLDAY,
+				BILLPERIOD, COST_PER_ITEM, COST_PER_AMOUNT,
+				COST_PER_ITEM_IN_LIMIT, COST_PER_PLAN };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -367,9 +351,6 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(TYPE, TYPE);
 			PROJECTION_MAP.put(LIMIT_TYPE, LIMIT_TYPE);
 			PROJECTION_MAP.put(LIMIT, LIMIT);
-			PROJECTION_MAP.put(USED_MONTH, USED_MONTH);
-			PROJECTION_MAP.put(USED_ALL, USED_ALL);
-			PROJECTION_MAP.put(USED_COUNT, USED_COUNT);
 			PROJECTION_MAP.put(BILLMODE, BILLMODE);
 			PROJECTION_MAP.put(BILLDAY, BILLDAY);
 			PROJECTION_MAP.put(BILLPERIOD, BILLPERIOD);
@@ -377,7 +358,6 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(COST_PER_AMOUNT, COST_PER_AMOUNT);
 			PROJECTION_MAP.put(COST_PER_ITEM_IN_LIMIT, COST_PER_ITEM_IN_LIMIT);
 			PROJECTION_MAP.put(COST_PER_PLAN, COST_PER_PLAN);
-			PROJECTION_MAP.put(COST, COST);
 		}
 
 		/**
@@ -398,17 +378,13 @@ public final class DataProvider extends ContentProvider {
 					+ TYPE + " TEXT, " // .
 					+ LIMIT_TYPE + " INTEGER,"// .
 					+ LIMIT + " LONG,"// .
-					+ USED_MONTH + " INTEGER,"// .
-					+ USED_ALL + " INTEGER,"// .
-					+ USED_COUNT + " INTEGER,"// .
 					+ BILLMODE + " TEXT,"// .
 					+ BILLDAY + " LONG,"// .
-					+ BILLPERIOD + " INTEGER,"// .
+					+ BILLPERIOD + " LONG,"// .
 					+ COST_PER_ITEM + " FLOAT,"// .
 					+ COST_PER_AMOUNT + " FLOAT,"// .
 					+ COST_PER_ITEM_IN_LIMIT + " FLOAT,"// .
-					+ COST_PER_PLAN + " FLOAT," // .
-					+ COST + " FLOAT" // .
+					+ COST_PER_PLAN + " FLOAT" // .
 					+ ");");
 			if (!fillDefault) {
 				return;
@@ -418,10 +394,9 @@ public final class DataProvider extends ContentProvider {
 					+ "," + TYPE + ", " + ORDER
 					+ ") VALUES ('Calls', 'Calls', " + TYPE_TITLE + ", 0 )");
 			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + "," + LIMIT + "," + LIMIT_TYPE + ","
-					+ USED_MONTH + ", " + ORDER
-					+ ") VALUES ('Calls', 'Calls', " + TYPE_CALL + ", 10, 3, "
-					+ LIMIT_TYPE_UNITS + ", 1 )");
+					+ "," + TYPE + "," + LIMIT + "," + LIMIT_TYPE + ", "
+					+ ORDER + ") VALUES ('Calls', 'Calls', " + TYPE_CALL
+					+ ", 10, " + LIMIT_TYPE_UNITS + ", 1 )");
 			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
 					+ "," + TYPE + ", " + ORDER + ") VALUES ('space', '-', "
 					+ TYPE_SPACING + ", 2 )");
