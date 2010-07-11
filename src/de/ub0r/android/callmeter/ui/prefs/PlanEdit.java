@@ -25,6 +25,7 @@ import android.app.DatePickerDialog;
 import android.app.AlertDialog.Builder;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -40,6 +41,7 @@ import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.lib.Log;
 
 /**
  * Edit a single Plan.
@@ -48,9 +50,11 @@ import de.ub0r.android.callmeter.data.DataProvider;
  */
 public class PlanEdit extends Activity implements OnClickListener,
 		OnItemSelectedListener {
+	/** Tag for debug out. */
+	private static final String TAG = "pe";
 
 	/** Id of edited filed. */
-	private long id = -1;
+	private long pid = -1;
 
 	/** {@link EditText} holding name. */
 	private EditText etName = null;
@@ -83,8 +87,16 @@ public class PlanEdit extends Activity implements OnClickListener,
 	/** {@link EditText} holding cost per plan. */
 	private EditText etCostPerPlan = null;
 
+	/** {@link View}s holding layout. */
+	private View llShortname, llLimitType, llLimit, llBillmode, llBillperiod,
+			llBillperiodId, llBillday, llCostPerItem, llCostPerAmount,
+			llCostPerItemInLimit, llCostPerPlan;
+
 	/** First day of this bill period. */
 	private long billday = 0;
+
+	/** Linked billperiod. */
+	private long billperiod = -1;
 
 	/**
 	 * {@inheritDoc}
@@ -123,8 +135,22 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.etCostPerPlan = (EditText) this
 				.findViewById(R.id.cost_per_plan_et);
 
+		this.llShortname = this.findViewById(R.id.shortname_layout);
+		this.llLimitType = this.findViewById(R.id.limit_type_layout);
+		this.llLimit = this.findViewById(R.id.limit_layout);
+		this.llBillmode = this.findViewById(R.id.billmode_layout);
+		this.llBillperiod = this.findViewById(R.id.billperiod_layout);
+		this.llBillperiodId = this.findViewById(R.id.billperiodid_layout);
+		this.llBillday = this.findViewById(R.id.billday_layout);
+		this.llCostPerAmount = this.findViewById(R.id.cost_per_amount_layout);
+		this.llCostPerItem = this.findViewById(R.id.cost_per_item_layout);
+		this.llCostPerItemInLimit = this
+				.findViewById(R.id.cost_per_item_in_limit_layout);
+		this.llCostPerPlan = this.findViewById(R.id.cost_per_plan_layout);
+
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.cancel).setOnClickListener(this);
+		this.findViewById(R.id.billperiodid_btn).setOnClickListener(this);
 		this.findViewById(R.id.name_help).setOnClickListener(this);
 		this.findViewById(R.id.type_help).setOnClickListener(this);
 		this.findViewById(R.id.shortname_help).setOnClickListener(this);
@@ -182,47 +208,60 @@ public class PlanEdit extends Activity implements OnClickListener,
 				DataProvider.Plans.PROJECTION, null, null, null);
 		if (cursor == null || !cursor.moveToFirst()) {
 			cursor = null;
-			this.id = -1;
+			this.pid = -1;
 		}
 		if (cursor != null) {
 			final int nid = cursor.getInt(DataProvider.Plans.INDEX_ID);
-			if (nid != this.id) {
-				this.id = nid;
+			if (nid != this.pid) {
+				this.pid = nid;
 			} else {
 				cursor.close();
 				return;
 			}
+		} else {
+			return;
 		}
 		this.etName.setText(cursor.getString(DataProvider.Plans.INDEX_NAME));
 		this.etShortname.setText(cursor
 				.getString(DataProvider.Plans.INDEX_SHORTNAME));
 		this.spType.setSelection(cursor.getInt(DataProvider.Plans.INDEX_TYPE));
-		this.spLimitType.setSelection(cursor
-				.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE));
+		try {
+			final int r = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
+			if (this.spLimitType.getCount() > r) {
+				this.spLimitType.setSelection(r);
+			}
+		} catch (IndexOutOfBoundsException e) {
+			Log.e(TAG, "error loading limit type", e);
+		}
 		this.etLimit.setText(cursor.getString(DataProvider.Plans.INDEX_LIMIT));
 		this.spBillmode = (Spinner) this.findViewById(R.id.billmode_sp);
 		final String billmode = cursor
 				.getString(DataProvider.Plans.INDEX_BILLMODE);
-		final String[] billmodeParts = billmode.split("/");
-		final String[] billmodes = this.getResources().getStringArray(
-				R.array.billmodes);
-		final int l = billmodes.length;
-		int bm = l - 1;
-		for (int i = 0; i < l; i++) {
-			if (billmode.equals(billmodes[i])) {
-				bm = i;
-				break;
+		if (billmode == null) {
+			this.spBillmode.setSelection(0);
+		} else {
+			final String[] billmodeParts = billmode.split("/");
+			final String[] billmodes = this.getResources().getStringArray(
+					R.array.billmodes);
+			final int l = billmodes.length;
+			int bm = l - 1;
+			for (int i = 0; i < l; i++) {
+				if (billmode.equals(billmodes[i])) {
+					bm = i;
+					break;
+				}
 			}
+			this.spBillmode.setSelection(bm);
+			this.etBillmodeCust1.setText(billmodeParts[0]);
+			this.etBillmodeCust2.setText(billmodeParts[1]);
 		}
-		this.spBillmode.setSelection(bm);
-		this.etBillmodeCust1.setText(billmodeParts[0]);
-		this.etBillmodeCust2.setText(billmodeParts[1]);
-		final int bp = cursor.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
-		this.spBillperiod.setSelection(bp);
+		this.billperiod = cursor.getLong(DataProvider.Plans.INDEX_BILLPERIOD);
+		this.spBillperiod.setSelection((int) this.billperiod);
 		this.billday = cursor.getLong(DataProvider.Plans.INDEX_BILLDAY);
 		Calendar calBD = Calendar.getInstance();
 		calBD.setTimeInMillis(this.billday);
-		calBD = DataProvider.Plans.getBillDay(bp, calBD, null, false);
+		calBD = DataProvider.Plans.getBillDay((int) this.billperiod, calBD,
+				null, false);
 		if (calBD != null) {
 			this.billday = calBD.getTimeInMillis();
 		}
@@ -242,6 +281,8 @@ public class PlanEdit extends Activity implements OnClickListener,
 	private void fillBillday() {
 		this.btnBillday.setText(DateFormat.getDateFormat(this).format(
 				this.billday));
+		this.btnBillperiodId.setText(DataProvider.Plans.getName(this
+				.getContentResolver(), this.billperiod));
 	}
 
 	/**
@@ -250,42 +291,47 @@ public class PlanEdit extends Activity implements OnClickListener,
 	private void showHideFileds() {
 		final int t = this.spType.getSelectedItemPosition();
 
-		int v;
-		if (t == DataProvider.TYPE_SPACING) {
-			v = View.GONE;
-		} else {
-			v = View.VISIBLE;
+		switch (t) {
+		case DataProvider.TYPE_CALL:
+		case DataProvider.TYPE_DATA:
+			this.llBillday.setVisibility(View.GONE);
+			this.llBillperiod.setVisibility(View.GONE);
+			this.llBillmode.setVisibility(View.GONE);
+			this.llCostPerItemInLimit.setVisibility(View.GONE);
+			break;
+		case DataProvider.TYPE_MIXED:
+			this.llBillday.setVisibility(View.GONE);
+			this.llBillperiod.setVisibility(View.GONE);
+			this.llCostPerAmount.setVisibility(View.GONE);
+			break;
+		case DataProvider.TYPE_MMS:
+		case DataProvider.TYPE_SMS:
+			this.llBillday.setVisibility(View.GONE);
+			this.llBillperiod.setVisibility(View.GONE);
+			this.llBillmode.setVisibility(View.GONE);
+			this.llCostPerItemInLimit.setVisibility(View.GONE);
+			this.llCostPerAmount.setVisibility(View.GONE);
+			break;
+		case DataProvider.TYPE_SPACING:
+			this.llShortname.setVisibility(View.GONE);
+		case DataProvider.TYPE_TITLE:
+			this.llBillday.setVisibility(View.GONE);
+			this.llBillperiod.setVisibility(View.GONE);
+		case DataProvider.TYPE_BILLPERIOD:
+			this.llLimitType.setVisibility(View.GONE);
+			this.llLimit.setVisibility(View.GONE);
+			this.llBillmode.setVisibility(View.GONE);
+			this.llBillperiodId.setVisibility(View.GONE);
+			this.llCostPerAmount.setVisibility(View.GONE);
+			this.llCostPerItem.setVisibility(View.GONE);
+			this.llCostPerItemInLimit.setVisibility(View.GONE);
+			this.llCostPerPlan.setVisibility(View.GONE);
+			break;
+		default:
+			break;
 		}
-		this.findViewById(R.id.shortname_layout).setVisibility(v);
 
-		if (t == DataProvider.TYPE_SPACING || // .
-				t == DataProvider.TYPE_TITLE) {
-			v = View.GONE;
-		} else {
-			v = View.VISIBLE;
-		}
-		this.findViewById(R.id.limit_type_layout).setVisibility(v);
 		// TODO: hide limit if limit_type == unlimited
-		this.findViewById(R.id.limit_layout).setVisibility(v);
-		this.findViewById(R.id.billperiod_layout).setVisibility(v);
-		this.findViewById(R.id.billday_layout).setVisibility(v);
-		this.findViewById(R.id.cost_per_plan_layout).setVisibility(v);
-		this.findViewById(R.id.cost_per_item_layout).setVisibility(v);
-		if (t == DataProvider.TYPE_CALL || // .
-				t == DataProvider.TYPE_DATA) {
-			v = View.VISIBLE;
-		} else {
-			v = View.GONE;
-		}
-		this.findViewById(R.id.cost_per_amount_layout).setVisibility(v);
-
-		if (t == DataProvider.TYPE_CALL || t == DataProvider.TYPE_MIXED) {
-			v = View.VISIBLE;
-		} else {
-			v = View.GONE;
-		}
-		this.findViewById(R.id.billmode_layout).setVisibility(v);
-		this.findViewById(R.id.cost_per_item_in_limit_layout).setVisibility(v);
 
 		final int bml = this.spBillmode.getCount();
 		final int bmp = this.spBillmode.getSelectedItemPosition();
@@ -330,14 +376,14 @@ public class PlanEdit extends Activity implements OnClickListener,
 	 */
 	@Override
 	public final void onClick(final View v) {
+		final int t = this.spType.getSelectedItemPosition();
 		switch (v.getId()) {
 		case R.id.ok:
 			final ContentValues cv = new ContentValues();
 			cv.put(DataProvider.Plans.NAME, this.etName.getText().toString());
 			cv.put(DataProvider.Plans.SHORTNAME, this.etShortname.getText()
 					.toString());
-			cv.put(DataProvider.Plans.TYPE, this.spType
-					.getSelectedItemPosition());
+			cv.put(DataProvider.Plans.TYPE, t);
 			cv.put(DataProvider.Plans.LIMIT_TYPE, this.spLimitType
 					.getSelectedItemPosition());
 			cv.put(DataProvider.Plans.LIMIT, this.etLimit.getText().toString());
@@ -351,8 +397,12 @@ public class PlanEdit extends Activity implements OnClickListener,
 			} else {
 				cv.put(DataProvider.Plans.BILLMODE, billmodes[bm]);
 			}
-			cv.put(DataProvider.Plans.BILLPERIOD, this.spBillperiod
-					.getSelectedItemPosition());
+			if (t == DataProvider.TYPE_BILLPERIOD) {
+				cv.put(DataProvider.Plans.BILLPERIOD, this.spBillperiod
+						.getSelectedItemPosition());
+			} else {
+				cv.put(DataProvider.Plans.BILLPERIOD, this.billperiod);
+			}
 			cv.put(DataProvider.Plans.BILLDAY, this.billday);
 			cv.put(DataProvider.Plans.COST_PER_ITEM, this.etCostPerItem
 					.getText().toString());
@@ -371,11 +421,42 @@ public class PlanEdit extends Activity implements OnClickListener,
 				this.getContentResolver().update(uri, cv, null, null);
 			}
 		case R.id.cancel:
-			this.id = -1;
+			this.pid = -1;
 			this.finish();
 			break;
 		case R.id.billperiodid_btn:
-			// TODO: select billperiod
+			final Cursor cursor = this.getContentResolver().query(
+					DataProvider.Plans.CONTENT_URI,
+					new String[] { DataProvider.Plans.ID,
+							DataProvider.Plans.NAME },
+					DataProvider.Plans.TYPE + " = "
+							+ DataProvider.TYPE_BILLPERIOD, null,
+					DataProvider.Plans.NAME);
+			if (cursor == null || !cursor.moveToFirst()) {
+				break;
+			}
+			final int l = cursor.getCount();
+			final String[] items = new String[l];
+			final long[] itemIds = new long[l];
+			for (int i = 0; i < l; i++) {
+				items[i] = cursor.getString(1);
+				itemIds[i] = cursor.getLong(0);
+				cursor.moveToNext();
+			}
+			cursor.close();
+			final Builder builder = new Builder(this);
+			builder.setCancelable(true);
+			builder.setNegativeButton(android.R.string.cancel, null);
+			builder.setItems(items,
+					new android.content.DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(final DialogInterface dialog,
+								final int which) {
+							PlanEdit.this.billperiod = itemIds[which];
+							PlanEdit.this.fillBillday();
+						}
+					});
+			builder.show();
 			break;
 		case R.id.billday_btn:
 			final Calendar d = Calendar.getInstance();
@@ -383,7 +464,6 @@ public class PlanEdit extends Activity implements OnClickListener,
 				d.setTimeInMillis(this.billday);
 			}
 			new DatePickerDialog(this, new OnDateSetListener() {
-
 				@Override
 				public void onDateSet(final DatePicker view, final int year,
 						final int monthOfYear, final int dayOfMonth) {
@@ -415,6 +495,8 @@ public class PlanEdit extends Activity implements OnClickListener,
 			this.showHelp(R.string.billmode_help);
 			break;
 		case R.id.billperiodid_help:
+			this.showHelp(R.string.billperiodid_help);
+			break;
 		case R.id.billperiod_help:
 			this.showHelp(R.string.billperiod_help);
 			break;

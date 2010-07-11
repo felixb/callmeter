@@ -158,6 +158,8 @@
 	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter legth is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string>
 	<string name="billday_">First day of the billing period:</string>
 	<string name="billday_help">Set this to the first day of your bill.</string>
+	<string name="billperiodid_">Billing period:</string>
+	<string name="billperiodid_help">Select your billing period.</string>
 	<string name="billperiod_">Length of the billing period:</string>
 	<string name="billperiod_help">Set the length of your billing period.</string>
 	<string name="cost_per_item_">Cost per log item:</string>
@@ -254,7 +256,7 @@
 		<item>Is SMS</item>
 		<item>Is MMS</item>
 		<item>Is Data</item>
-		<item>Is Incomming</item>
+		<item>Is Incoming</item>
 		<item>Is Roaming</item>
 		<item>Match Numbers</item>
 		<item>Match Hours</item>
