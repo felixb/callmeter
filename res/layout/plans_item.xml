@@ -40,16 +40,21 @@
 	</RelativeLayout>
 	<RelativeLayout android:id="@+id/content"
 		android:layout_width="fill_parent" android:layout_height="wrap_content">
-		<TextView android:id="@+id/normtitle" android:text="normtitle"
-			android:textAppearance="?android:attr/textAppearanceMedium"
-			android:layout_width="wrap_content" android:layout_height="wrap_content" />
+		<RelativeLayout android:id="@+id/content_data"
+			android:layout_width="fill_parent" android:layout_height="wrap_content">
+			<TextView android:id="@+id/data" android:text="data"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_alignParentRight="true" android:gravity="right"
+				android:singleLine="false" />
+			<TextView android:id="@+id/normtitle" android:text="normtitle"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/data" />
+		</RelativeLayout>
 		<ProgressBar android:id="@+id/progressbarLimit"
-			android:layout_width="@dimen/progressbar_width"
-			android:layout_height="10dip" android:layout_alignParentRight="true"
-			android:layout_below="@+id/progressbarPeriod" style="?android:attr/progressBarStyleHorizontal"
-			android:max="100" android:progress="5" />
-		<TextView android:id="@+id/data" android:text="data"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_toLeftOf="@id/progressbarLimit" android:gravity="right" />
+			android:layout_width="fill_parent" android:layout_height="10dip"
+			android:layout_alignParentRight="true" android:layout_below="@id/content_data"
+			style="?android:attr/progressBarStyleHorizontal" android:max="100"
+			android:progress="5" />
 	</RelativeLayout>
 </LinearLayout>

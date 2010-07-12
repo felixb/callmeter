@@ -115,11 +115,7 @@ public final class Logs extends ListActivity implements OnClickListener {
 			buf.append(cursor.getString(DataProvider.Logs.INDEX_REMOTE));
 			buf.append("\t");
 			long amount = cursor.getLong(DataProvider.Logs.INDEX_AMOUNT);
-			if (t == DataProvider.TYPE_DATA) {
-				buf.append(Plans.prettyBytes(amount));
-			} else {
-				buf.append(amount);
-			}
+			buf.append(Plans.formatAmount(t, amount));
 
 			((TextView) view.findViewById(android.R.id.text1)).setText(buf
 					.toString());

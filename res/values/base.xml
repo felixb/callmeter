@@ -143,6 +143,4 @@
 		<item>small</item>
 		<item>medium</item>
 	</string-array>
-	
-	<dimen name="progressbar_width">80dip</dimen>
 </resources>

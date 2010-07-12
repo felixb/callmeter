@@ -23,6 +23,7 @@ import java.util.Calendar;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -47,6 +48,7 @@ import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.DonationHelper;
+import de.ub0r.android.lib.Log;
 
 /**
  * Callmeter's Main {@link ListActivity}.
@@ -87,9 +89,11 @@ public class Plans extends ListActivity {
 	 * 
 	 * @author flx
 	 */
-	public class PlanAdapter extends ResourceCursorAdapter {
+	public static class PlanAdapter extends ResourceCursorAdapter {
 		/** Now. */
-		final Calendar now;
+		private final Calendar now;
+		/** Separator for the data. */
+		private static final String SEP = " | ";
 
 		/**
 		 * Default Constructor.
@@ -104,7 +108,103 @@ public class Plans extends ListActivity {
 							DataProvider.Plans.ORDER), true);
 
 			this.now = Calendar.getInstance();
-			this.now.setTimeInMillis(System.currentTimeMillis());
+		}
+
+		/**
+		 * Calculate used amount for given plan.
+		 * 
+		 * @param pType
+		 *            type of plan
+		 * @param amount
+		 *            amount
+		 * @return used amount
+		 */
+		private static int getUsed(final int pType, final long amount) {
+			switch (pType) {
+			case DataProvider.TYPE_DATA:
+				return (int) (amount / BYTE_KB);
+			default:
+				return (int) amount;
+			}
+		}
+
+		/**
+		 * Calculate limit set for given plan.
+		 * 
+		 * @param pType
+		 *            type of plan
+		 * @param limit
+		 *            limit
+		 * @return set limit
+		 */
+		private static int getLimit(final int pType, final int limit) {
+			switch (pType) {
+			case DataProvider.TYPE_DATA:
+				return limit * (int) BYTE_KB;
+			case DataProvider.TYPE_CALL:
+				return limit * CallMeter.SECONDS_MINUTE;
+			default:
+				return limit;
+			}
+		}
+
+		/**
+		 * Get a {@link String} showing all the data to the user.
+		 * 
+		 * @param pType
+		 *            type of plan
+		 * @param lType
+		 *            type of limit
+		 * @param limit
+		 *            limit
+		 * @param used
+		 *            used limit
+		 * @param count
+		 *            count
+		 * @param amount
+		 *            billed amount
+		 * @param cost
+		 *            cost
+		 * @param allAmount
+		 *            billed amount all time
+		 * @param allCount
+		 *            count all time
+		 * @return {@link String} holding all the data
+		 */
+		private String getString(final int pType, final int lType,
+				final int limit, final int used, final long count,
+				final long amount, final float cost, final long allAmount,
+				final long allCount) {
+			final StringBuilder ret = new StringBuilder();
+
+			// usage
+			if (lType != DataProvider.LIMIT_TYPE_NONE && limit > 0) {
+				ret.append((used * CallMeter.HUNDRET) / limit);
+				ret.append("%");
+				ret.append(SEP);
+			}
+
+			// amount
+			ret.append(formatAmount(pType, amount));
+			// count
+			if (pType == DataProvider.TYPE_CALL) {
+				ret.append(" (" + count + ")");
+			}
+			ret.append(SEP);
+
+			// amount all time
+			ret.append(formatAmount(pType, allAmount));
+			// count all time
+			if (pType == DataProvider.TYPE_CALL) {
+				ret.append(" (" + allCount + ")");
+			}
+
+			// cost
+			if (cost >= 0) {
+				ret.append(String.format("\n%." + CallMeter.currencyDigits
+						+ "f" + CallMeter.currencySymbol, cost));
+			}
+			return ret.toString();
 		}
 
 		/**
@@ -164,40 +264,118 @@ public class Plans extends ListActivity {
 				view.findViewById(R.id.period_layout).setVisibility(View.GONE);
 				((TextView) view.findViewById(R.id.normtitle)).setText(cursor
 						.getString(DataProvider.Plans.INDEX_NAME));
-				final int limit = cursor.getInt(DataProvider.Plans.INDEX_LIMIT);
+				final int limitType = cursor
+						.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
+				ProgressBar pb = null;
+				int limit = 0;
+				int used = 0;
+				switch (limitType) {
+				case DataProvider.LIMIT_TYPE_UNITS:
+					limit = getLimit(t, cursor
+							.getInt(DataProvider.Plans.INDEX_LIMIT));
+					break;
+				case DataProvider.LIMIT_TYPE_COST:
+					limit = cursor.getInt(DataProvider.Plans.INDEX_LIMIT)
+							* CallMeter.HUNDRET;
+					break;
+				default:
+					limit = -1;
+					break;
+				}
 				if (limit > 0) {
-					final ProgressBar pb = (ProgressBar) view
-							.findViewById(R.id.progressbarLimit);
+					pb = (ProgressBar) view.findViewById(R.id.progressbarLimit);
 					pb.setMax(limit);
-					// pb.setProgress(usedMonth);
 					pb.setVisibility(View.VISIBLE);
 				} else {
 					view.findViewById(R.id.progressbarLimit).setVisibility(
-							View.INVISIBLE);
+							View.GONE);
 				}
 				final long pid = cursor.getLong(DataProvider.Plans.INDEX_ID);
-				final int p = cursor
-						.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
+				long p = cursor.getLong(DataProvider.Plans.INDEX_BILLPERIOD);
 				final Calendar ps = Calendar.getInstance();
-				ps.setTimeInMillis(cursor
-						.getLong(DataProvider.Plans.INDEX_BILLDAY));
-				final String where = DbUtils.sqlAnd(DataProvider.Plans
-						.getBilldayWhere(p, ps, null),
-						DataProvider.Logs.PLAN_ID + " = " + pid);
-
-				final Cursor c = context.getContentResolver().query(
-						DataProvider.Logs.SUM_URI,
-						DataProvider.Logs.PROJECTION_SUM, where, null, null);
+				Cursor c = context.getContentResolver().query(
+						ContentUris.withAppendedId(
+								DataProvider.Plans.CONTENT_URI, p),
+						DataProvider.Plans.PROJECTION, null, null, null);
 				if (c != null && c.moveToFirst()) {
-					final float cost = c
-							.getFloat(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
-					final long billedAmount = c
-							.getLong(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
-					// TODO: print data to screen
+					ps.setTimeInMillis(c
+							.getLong(DataProvider.Plans.INDEX_BILLDAY));
+					p = c.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
 				}
 				if (c != null && !c.isClosed()) {
 					c.close();
 				}
+				final String where = DbUtils.sqlAnd(DataProvider.Plans
+						.getBilldayWhere((int) p, ps, this.now),
+						DataProvider.Logs.PLAN_ID + " = " + pid);
+				Log.d(TAG, "where: " + where);
+
+				float cost = -1;
+				long billedAmount = 0;
+				int count = 0;
+				long allBilledAmount = 0;
+				int allCount = 0;
+
+				c = context.getContentResolver().query(
+						DataProvider.Logs.SUM_URI,
+						DataProvider.Logs.PROJECTION_SUM, where, null, null);
+				if (c != null && c.moveToFirst()) {
+					cost = c.getFloat(DataProvider.Logs.INDEX_SUM_COST);
+					billedAmount = c
+							.getLong(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
+					count = c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+
+					Log.d(TAG, "plan: " + pid);
+					Log.d(TAG, "count: " + count);
+					Log.d(TAG, "cost: " + cost);
+					Log.d(TAG, "billedAmount: " + billedAmount);
+
+					switch (limitType) {
+					case DataProvider.LIMIT_TYPE_COST:
+						used = (int) (cost * CallMeter.HUNDRET);
+						break;
+					case DataProvider.LIMIT_TYPE_UNITS:
+						used = getUsed(t, billedAmount);
+						break;
+					default:
+						used = 0;
+						break;
+					}
+
+					if (pb != null) {
+						pb.setProgress(used);
+					}
+				}
+				if (c != null && !c.isClosed()) {
+					c.close();
+				}
+				// get all time
+				c = context.getContentResolver().query(
+						DataProvider.Logs.SUM_URI,
+						DataProvider.Logs.PROJECTION_SUM,
+						DataProvider.Logs.PLAN_ID + " = " + pid, null, null);
+				if (c != null && c.moveToFirst()) {
+					allBilledAmount = c
+							.getLong(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
+					allCount = c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+				}
+				if (c != null && !c.isClosed()) {
+					c.close();
+				}
+
+				final float costPerPlan = // .
+				cursor.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
+				if (costPerPlan > 0) {
+					if (cost <= 0) {
+						cost = costPerPlan;
+					} else {
+						cost += costPerPlan;
+					}
+				}
+
+				((TextView) view.findViewById(R.id.data)).setText(this
+						.getString(t, limitType, limit, used, count,
+								billedAmount, cost, allBilledAmount, allCount));
 			}
 		}
 	}
@@ -237,6 +415,67 @@ public class Plans extends ListActivity {
 			sb.append(BYTE_UNITS_TB);
 		}
 		return sb.toString();
+	}
+
+	/**
+	 * Parse number of seconds to a readable time format.
+	 * 
+	 * @param seconds
+	 *            seconds
+	 * @return parsed string
+	 */
+	public static final String prettySeconds(final long seconds) {
+		String ret;
+		int d = (int) (seconds / 86400);
+		int h = (int) ((seconds % 86400) / 3600);
+		int m = (int) ((seconds % 3600) / 60);
+		int s = (int) (seconds % 60);
+		if (d > 0) {
+			ret = d + "d ";
+		} else {
+			ret = "";
+		}
+		if (h > 0 || d > 0) {
+			if (h < 10) {
+				ret += "0";
+			}
+			ret += h + ":";
+		}
+		if (m > 0 || h > 0 || d > 0) {
+			if (m < 10 && h > 0) {
+				ret += "0";
+			}
+			ret += m + ":";
+		}
+		if (s < 10 && (m > 0 || h > 0 || d > 0)) {
+			ret += "0";
+		}
+		ret += s;
+		if (d == 0 && h == 0 && m == 0) {
+			ret += "s";
+		}
+		return ret;
+	}
+
+	/**
+	 * Format amount regarding type of plan.
+	 * 
+	 * @param pType
+	 *            type of plan
+	 * @param amount
+	 *            amount
+	 * @return {@link String} representing amount
+	 */
+	public static final String formatAmount(final int pType, // .
+			final long amount) {
+		switch (pType) {
+		case DataProvider.TYPE_DATA:
+			return prettyBytes(amount);
+		case DataProvider.TYPE_CALL:
+			return prettySeconds(amount);
+		default:
+			return String.valueOf(amount);
+		}
 	}
 
 	/**

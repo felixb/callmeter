@@ -137,6 +137,8 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_SUM_BILL_AMOUNT = 2;
 		/** Index in projection - sum: Cost. */
 		public static final int INDEX_SUM_COST = 3;
+		/** Index in projection - count. */
+		public static final int INDEX_SUM_COUNT = 4;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -167,7 +169,8 @@ public final class DataProvider extends ContentProvider {
 				ROAMED, COST };
 		/** Projection used for query - sum. */
 		public static final String[] PROJECTION_SUM = new String[] { PLAN_ID,
-				AMOUNT, BILL_AMOUNT, COST };
+				"sum(" + AMOUNT + ")", "sum(" + BILL_AMOUNT + ")",
+				"sum(" + COST + ")", "count(" + PLAN_ID + ")" };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -1322,7 +1325,6 @@ public final class DataProvider extends ContentProvider {
 	 *            table
 	 * @param values
 	 *            {@link ContentValues}[] backed up with backup()
-	 * 
 	 */
 	private static void reload(final SQLiteDatabase db, final String table,
 			final ContentValues[] values) {
@@ -1546,8 +1548,10 @@ public final class DataProvider extends ContentProvider {
 			qb.setTables(Logs.TABLE);
 			qb.setProjectionMap(Logs.PROJECTION_MAP);
 			groupBy = Logs.PLAN_ID;
+			return db.query(Logs.TABLE, projection, selection, selectionArgs,
+					groupBy, null, null);
 			// TODO add sums
-			break;
+			// break;
 		case PLANS_ID:
 			qb.appendWhere(Plans.ID + "=" + ContentUris.parseId(uri));
 		case PLANS:
