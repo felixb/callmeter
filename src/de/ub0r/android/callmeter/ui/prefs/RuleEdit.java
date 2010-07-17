@@ -415,7 +415,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 				final Intent fie = ie;
 				final int r = rt;
 				final Builder builder = new Builder(this);
-				builder.setItems(R.array.prefs_select_edit_delete,
+				builder.setItems(R.array.dialog_select_edit_delete,
 						new android.content.DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(final DialogInterface dialog,
@@ -450,7 +450,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 						DataProvider.Rules.CONTENT_URI, this.what1));
 
 				final Builder builder = new Builder(this);
-				builder.setItems(R.array.prefs_edit_delete,
+				builder.setItems(R.array.dialog_edit_delete,
 						new android.content.DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(final DialogInterface dialog,

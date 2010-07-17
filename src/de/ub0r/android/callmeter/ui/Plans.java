@@ -23,6 +23,7 @@ import java.util.Calendar;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
+import android.app.AlertDialog.Builder;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -30,6 +31,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.text.format.DateFormat;
 import android.view.Menu;
@@ -37,14 +40,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ProgressBar;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerReceiver;
 import de.ub0r.android.callmeter.data.LogRunnerService;
+import de.ub0r.android.callmeter.ui.prefs.PlanEdit;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.DonationHelper;
@@ -55,7 +61,7 @@ import de.ub0r.android.lib.Log;
  * 
  * @author flx
  */
-public class Plans extends ListActivity {
+public class Plans extends ListActivity implements OnItemLongClickListener {
 	/** Tag for output. */
 	public static final String TAG = "main";
 
@@ -69,20 +75,40 @@ public class Plans extends ListActivity {
 	private static final String BYTE_UNITS_GB = "GB";
 	/** Byte units: TB. */
 	private static final String BYTE_UNITS_TB = "TB";
-	/** Bytes: kB. */
-	private static final long BYTE_KB = 1024L;
-	/** Bytes: MB. */
-	private static final long BYTE_MB = BYTE_KB * BYTE_KB;
-	/** Bytes: GB. */
-	private static final long BYTE_GB = BYTE_MB * BYTE_KB;
-	/** Bytes: TB. */
-	private static final long BYTE_TB = BYTE_GB * BYTE_KB;
 
 	/** Dialog: update. */
 	private static final int DIALOG_UPDATE = 0;
 
+	/** {@link Message} for {@link Handler}: start background. */
+	public static final int MSG_BACKGROUND_START = 1;
+	/** {@link Message} for {@link Handler}: stop background. */
+	public static final int MSG_BACKGROUND_STOP = 2;
+
 	/** Prefs: name for last version run. */
 	private static final String PREFS_LAST_RUN = "lastrun";
+
+	/** {@link Handler} for handling messages from background process. */
+	private final Handler handler = new Handler() {
+		@Override
+		public void handleMessage(final Message msg) {
+			switch (msg.what) {
+			case MSG_BACKGROUND_START:
+				inProgress = true;
+				break;
+			case MSG_BACKGROUND_STOP:
+				inProgress = false;
+				break;
+			default:
+				break;
+			}
+			Plans.this.setProgressBarIndeterminateVisibility(inProgress);
+		}
+	};
+
+	/** {@link Handler} for outside. */
+	private static Handler currentHandler = null;
+	/** Running in background? */
+	private static boolean inProgress = false;
 
 	/**
 	 * Adapter binding plans to View.
@@ -122,29 +148,9 @@ public class Plans extends ListActivity {
 		private static int getUsed(final int pType, final long amount) {
 			switch (pType) {
 			case DataProvider.TYPE_DATA:
-				return (int) (amount / BYTE_KB);
+				return (int) (amount / CallMeter.BYTE_KB);
 			default:
 				return (int) amount;
-			}
-		}
-
-		/**
-		 * Calculate limit set for given plan.
-		 * 
-		 * @param pType
-		 *            type of plan
-		 * @param limit
-		 *            limit
-		 * @return set limit
-		 */
-		private static int getLimit(final int pType, final int limit) {
-			switch (pType) {
-			case DataProvider.TYPE_DATA:
-				return limit * (int) BYTE_KB;
-			case DataProvider.TYPE_CALL:
-				return limit * CallMeter.SECONDS_MINUTE;
-			default:
-				return limit;
 			}
 		}
 
@@ -172,7 +178,7 @@ public class Plans extends ListActivity {
 		 * @return {@link String} holding all the data
 		 */
 		private String getString(final int pType, final int lType,
-				final int limit, final int used, final long count,
+				final long limit, final int used, final long count,
 				final long amount, final float cost, final long allAmount,
 				final long allCount) {
 			final StringBuilder ret = new StringBuilder();
@@ -267,12 +273,12 @@ public class Plans extends ListActivity {
 				final int limitType = cursor
 						.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 				ProgressBar pb = null;
-				int limit = 0;
+				long limit = 0;
 				int used = 0;
 				switch (limitType) {
 				case DataProvider.LIMIT_TYPE_UNITS:
-					limit = getLimit(t, cursor
-							.getInt(DataProvider.Plans.INDEX_LIMIT));
+					limit = DataProvider.Plans.getLimit(t, cursor
+							.getLong(DataProvider.Plans.INDEX_LIMIT));
 					break;
 				case DataProvider.LIMIT_TYPE_COST:
 					limit = cursor.getInt(DataProvider.Plans.INDEX_LIMIT)
@@ -284,7 +290,7 @@ public class Plans extends ListActivity {
 				}
 				if (limit > 0) {
 					pb = (ProgressBar) view.findViewById(R.id.progressbarLimit);
-					pb.setMax(limit);
+					pb.setMax((int) limit);
 					pb.setVisibility(View.VISIBLE);
 				} else {
 					view.findViewById(R.id.progressbarLimit).setVisibility(
@@ -398,20 +404,20 @@ public class Plans extends ListActivity {
 	 */
 	public static final String prettyBytes(final long value) {
 		StringBuilder sb = new StringBuilder();
-		if (value < BYTE_KB) {
+		if (value < CallMeter.BYTE_KB) {
 			sb.append(String.valueOf(value));
 			sb.append(BYTE_UNITS_B);
-		} else if (value < BYTE_MB) {
-			sb.append(String.format("%.1f", value / (BYTE_KB * 1.0)));
+		} else if (value < CallMeter.BYTE_MB) {
+			sb.append(String.format("%.1f", value / (CallMeter.BYTE_KB * 1.0)));
 			sb.append(BYTE_UNITS_KB);
-		} else if (value < BYTE_GB) {
-			sb.append(String.format("%.2f", value / (BYTE_MB * 1.0)));
+		} else if (value < CallMeter.BYTE_GB) {
+			sb.append(String.format("%.2f", value / (CallMeter.BYTE_MB * 1.0)));
 			sb.append(BYTE_UNITS_MB);
-		} else if (value < BYTE_TB) {
-			sb.append(String.format("%.3f", value / (BYTE_GB * 1.0)));
+		} else if (value < CallMeter.BYTE_TB) {
+			sb.append(String.format("%.3f", value / (CallMeter.BYTE_GB * 1.0)));
 			sb.append(BYTE_UNITS_GB);
 		} else {
-			sb.append(String.format("%.4f", value / (BYTE_TB * 1.0)));
+			sb.append(String.format("%.4f", value / (CallMeter.BYTE_TB * 1.0)));
 			sb.append(BYTE_UNITS_TB);
 		}
 		return sb.toString();
@@ -479,43 +485,13 @@ public class Plans extends ListActivity {
 	}
 
 	/**
-	 * Round up time with bill mode in mind.
-	 * 
-	 * @param time
-	 *            time
-	 * @param firstLength
-	 *            length of minimal billed call
-	 * @param nextLength
-	 *            length of following time slots billed
-	 * @return rounded time
-	 */
-	public static final int roundTime(final int time, final int firstLength,
-			final int nextLength) {
-		// 0 => 0
-		if (time == 0) {
-			return 0;
-		}
-		// !0 ..
-		if (time <= firstLength) { // round first slot
-			return firstLength;
-		}
-		if (nextLength == 0) {
-			return firstLength;
-		}
-		if (time % nextLength == 0 || nextLength == 1) {
-			return time;
-		}
-		// round up to next full slot
-		return ((time / nextLength) + 1) * nextLength;
-	}
-
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+		currentHandler = this.handler;
 		this.setTheme(Preferences.getTheme(this));
 		this.setContentView(R.layout.plans);
 		// get prefs.
@@ -529,6 +505,7 @@ public class Plans extends ListActivity {
 			this.showDialog(DIALOG_UPDATE);
 		}
 		prefsNoAds = DonationHelper.hideAds(this);
+		this.getListView().setOnItemLongClickListener(this);
 
 		// TextView tv = (TextView) this.findViewById(R.id.calls_);
 		// Preferences.textSizeMedium = tv.getTextSize();
@@ -540,7 +517,6 @@ public class Plans extends ListActivity {
 		this.setListAdapter(this.adapter);
 		// list.setOnItemClickListener(this);
 		// list.setOnItemLongClickListener(this);
-
 	}
 
 	/**
@@ -549,6 +525,8 @@ public class Plans extends ListActivity {
 	@Override
 	protected final void onResume() {
 		super.onResume();
+		currentHandler = this.handler;
+		Plans.this.setProgressBarIndeterminateVisibility(inProgress);
 		if (!prefsNoAds) {
 			this.findViewById(R.id.ad).setVisibility(View.VISIBLE);
 		}
@@ -556,6 +534,24 @@ public class Plans extends ListActivity {
 		LogRunnerService.update(this);
 		// schedule next update
 		LogRunnerReceiver.schedNext(this);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void onPause() {
+		super.onPause();
+		currentHandler = null;
+	}
+
+	/**
+	 * Get the current {@link Handler}.
+	 * 
+	 * @return {@link Handler}.
+	 */
+	public static final Handler getHandler() {
+		return currentHandler;
 	}
 
 	/**
@@ -626,5 +622,35 @@ public class Plans extends ListActivity {
 		default:
 			return false;
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean onItemLongClick(final AdapterView<?> parent,
+			final View view, final int position, final long id) {
+		final Builder builder = new Builder(this);
+		builder.setItems(R.array.dialog_edit_plan,
+				new android.content.DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(final DialogInterface dialog,
+							final int which) {
+						switch (which) {
+						case 0:
+							final Intent intent = new Intent(// .
+									Plans.this, PlanEdit.class);
+							intent.setData(ContentUris.withAppendedId(
+									DataProvider.Plans.CONTENT_URI, id));
+							Plans.this.startActivity(intent);
+							break;
+						default:
+							break;
+						}
+					}
+				});
+		builder.setNegativeButton(android.R.string.cancel, null);
+		builder.show();
+		return true;
 	}
 }

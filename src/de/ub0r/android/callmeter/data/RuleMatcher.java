@@ -28,7 +28,10 @@ import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import de.ub0r.android.callmeter.CallMeter;
+import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * Class matching logs via rules to plans.
@@ -220,8 +223,6 @@ public final class RuleMatcher {
 		private final long id;
 		/** ID of plan referred by this rule. */
 		private final long planId;
-		/** Name. */
-		private final String name;
 		/** Negate rule? */
 		private final boolean negate;
 		/** Kind of rule. */
@@ -238,9 +239,12 @@ public final class RuleMatcher {
 		 *            {@link ContentResolver}
 		 * @param id
 		 *            ID of {@link Rule}
+		 * @param overwritePlanId
+		 *            overwrite plan id
 		 * @return {@link Rule}
 		 */
-		private static Rule getRule(final ContentResolver cr, final long id) {
+		private static Rule getRule(final ContentResolver cr, final long id,
+				final long overwritePlanId) {
 			if (id < 0) {
 				return null;
 			}
@@ -249,7 +253,7 @@ public final class RuleMatcher {
 					DataProvider.Rules.CONTENT_URI, id),
 					DataProvider.Rules.PROJECTION, null, null, null);
 			if (cursor != null && cursor.moveToFirst()) {
-				ret = new Rule(cr, cursor);
+				ret = new Rule(cr, cursor, overwritePlanId);
 			}
 			if (cursor != null && !cursor.isClosed()) {
 				cursor.close();
@@ -262,19 +266,25 @@ public final class RuleMatcher {
 		 * 
 		 * @param cr
 		 *            {@link ContentResolver}
+		 * @param overwritePlanId
+		 *            overwrite plan id
 		 * @param cursor
 		 *            {@link Cursor}
 		 */
-		Rule(final ContentResolver cr, final Cursor cursor) {
+		Rule(final ContentResolver cr, final Cursor cursor,
+				final long overwritePlanId) {
 			this.id = cursor.getLong(DataProvider.Rules.INDEX_ID);
-			this.planId = cursor.getLong(DataProvider.Rules.INDEX_PLAN_ID);
-			this.name = cursor.getString(DataProvider.Rules.INDEX_NAME);
+			if (overwritePlanId >= 0) {
+				this.planId = overwritePlanId;
+			} else {
+				this.planId = cursor.getLong(DataProvider.Rules.INDEX_PLAN_ID);
+			}
 			this.negate = cursor.getInt(DataProvider.Rules.INDEX_NOT) > 0;
 			this.what = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
 			this.what0 = Group.getGroup(cr, this.what, cursor
 					.getLong(DataProvider.Rules.INDEX_WHAT0));
 			this.what1 = getRule(cr, cursor
-					.getLong(DataProvider.Rules.INDEX_WHAT1));
+					.getLong(DataProvider.Rules.INDEX_WHAT1), this.planId);
 		}
 
 		/**
@@ -303,14 +313,10 @@ public final class RuleMatcher {
 			boolean ret = false;
 			switch (this.what) {
 			case DataProvider.Rules.WHAT_CALL:
-				if (t == DataProvider.TYPE_CALL) {
-					ret = true;
-				}
+				ret = (t == DataProvider.TYPE_CALL);
 				break;
 			case DataProvider.Rules.WHAT_DATA:
-				if (t == DataProvider.TYPE_DATA) {
-					ret = true;
-				}
+				ret = (t == DataProvider.TYPE_DATA);
 				break;
 			case DataProvider.Rules.WHAT_INCOMMING:
 				ret = log.getInt(DataProvider.Logs.INDEX_DIRECTION) == // .
@@ -320,20 +326,24 @@ public final class RuleMatcher {
 			case DataProvider.Rules.WHAT_NUMBERS:
 				ret = this.what0 != null && this.what0.match(log);
 				break;
-			case DataProvider.Rules.WHAT_LIMIT_REACHED:// TODO
+			case DataProvider.Rules.WHAT_LIMIT_REACHED:
+				final Plan p = plans.get(this.planId);
+				if (p != null) {
+					p.checkBillday(log);
+					ret = !p.isInLimit();
+				}
+				if (ret) {
+					Log.d(TAG, "limit reached: " + this.planId);
+				}
 				break;
 			case DataProvider.Rules.WHAT_MMS:
-				if (t == DataProvider.TYPE_MMS) {
-					ret = true;
-				}
+				ret = (t == DataProvider.TYPE_MMS);
 				break;
 			case DataProvider.Rules.WHAT_ROAMING:
 				ret = log.getInt(DataProvider.Logs.INDEX_ROAMED) > 0;
 				break;
 			case DataProvider.Rules.WHAT_SMS:
-				if (t == DataProvider.TYPE_SMS) {
-					ret = true;
-				}
+				ret = (t == DataProvider.TYPE_SMS);
 				break;
 			default:
 				break;
@@ -356,20 +366,16 @@ public final class RuleMatcher {
 	private static class Plan {
 		/** Id. */
 		private final long id;
-		/** Name. */
-		private final String name;
-		/** Short name. */
-		private final String shortname;
 		/** Type of log. */
 		private final int type;
 		/** Type of limit. */
 		private final int limitType;
 		/** Limit. */
-		private final int limit;
+		private final long limit;
 		/** Billmode. */
-		private final String billmode;
+		private final int billModeFirstLength, billModeNextLength;
 		/** Billday. */
-		private final int billday;
+		private final Calendar billday;
 		/** Billperiod. */
 		private final int billperiod;
 		/** Cost per item. */
@@ -378,8 +384,18 @@ public final class RuleMatcher {
 		private final float costPerAmount;
 		/** Cost per item in limit. */
 		private final float costPerItemInLimit;
-		/** Cost per plan. */
-		private final float costPerPlan;
+
+		/** Last valid billday. */
+		private Calendar currentBillday = null;
+		/** Time of nextBillday. */
+		private long nextBillday = -1;
+		/** Amount billed this period. */
+		private long billedAmount = 0;
+		/** Cost billed this period. */
+		private float billedCost = 0;
+
+		/** {@link ContentResolver}. */
+		private final ContentResolver cResolver;
 
 		/**
 		 * Load a {@link Plan}.
@@ -390,25 +406,56 @@ public final class RuleMatcher {
 		 *            {@link Cursor}
 		 */
 		Plan(final ContentResolver cr, final Cursor cursor) {
+			this.cResolver = cr;
 			this.id = cursor.getLong(DataProvider.Plans.INDEX_ID);
-			this.name = cursor.getString(DataProvider.Plans.INDEX_NAME);
-			this.shortname = cursor
-					.getString(DataProvider.Plans.INDEX_SHORTNAME);
 			this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			this.limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
-			this.limit = cursor.getInt(DataProvider.Plans.INDEX_LIMIT);
-			this.billmode = cursor.getString(DataProvider.Plans.INDEX_BILLMODE);
-			this.billday = cursor.getInt(DataProvider.Plans.INDEX_BILLDAY);
-			this.billperiod = cursor
-					.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
+			if (this.limitType == DataProvider.LIMIT_TYPE_UNITS) {
+				this.limit = DataProvider.Plans.getLimit(this.type, cursor
+						.getLong(DataProvider.Plans.INDEX_LIMIT));
+			} else {
+				this.limit = cursor.getLong(DataProvider.Plans.INDEX_LIMIT);
+			}
+
 			this.costPerItem = cursor
 					.getFloat(DataProvider.Plans.INDEX_COST_PER_ITEM);
 			this.costPerAmount = cursor
 					.getFloat(DataProvider.Plans.INDEX_COST_PER_AMOUNT);
 			this.costPerItemInLimit = cursor
 					.getFloat(DataProvider.Plans.INDEX_COST_PER_ITEM_IN_LIMIT);
-			this.costPerPlan = cursor
-					.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
+
+			final int bp = cursor.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
+			if (bp >= 0) {
+				final Cursor c = cr.query(ContentUris.withAppendedId(
+						DataProvider.Plans.CONTENT_URI, bp),
+						DataProvider.Plans.PROJECTION, null, null, null);
+				if (c != null && c.moveToFirst()) {
+					this.billday = Calendar.getInstance();
+					this.billday.setTimeInMillis(c
+							.getLong(DataProvider.Plans.INDEX_BILLDAY));
+					this.billperiod = c
+							.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
+				} else {
+					this.billperiod = DataProvider.BILLPERIOD_INFINITE;
+					this.billday = null;
+				}
+				if (c != null && !c.isClosed()) {
+					c.close();
+				}
+			} else {
+				this.billperiod = DataProvider.BILLPERIOD_INFINITE;
+				this.billday = null;
+			}
+			final String billmode = cursor
+					.getString(DataProvider.Plans.INDEX_BILLMODE);
+			if (billmode != null && billmode.contains("/")) {
+				String[] billmodes = billmode.split("/");
+				this.billModeFirstLength = Utils.parseInt(billmodes[0], 1);
+				this.billModeNextLength = Utils.parseInt(billmodes[1], 1);
+			} else {
+				this.billModeFirstLength = 1;
+				this.billModeNextLength = 1;
+			}
 		}
 
 		/**
@@ -421,6 +468,97 @@ public final class RuleMatcher {
 		}
 
 		/**
+		 * Check if this log is starting a new billing period.
+		 * 
+		 * @param log
+		 *            {@link Cursor} pointing to log
+		 */
+		void checkBillday(final Cursor log) {
+			// skip for infinite bill periods
+			if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
+				return;
+			}
+
+			// check whether date is in current bill period
+			final long d = log.getLong(DataProvider.Logs.INDEX_DATE);
+			if (this.currentBillday == null || this.nextBillday < d
+					|| d < this.currentBillday.getTimeInMillis()) {
+				final Calendar now = Calendar.getInstance();
+				now.setTimeInMillis(d);
+				this.currentBillday = DataProvider.Plans.getBillDay(
+						this.billperiod, this.billday, now, false);
+				this.nextBillday = DataProvider.Plans.getBillDay(
+						this.billperiod, this.billday, now, true)
+						.getTimeInMillis();
+
+				// load old stats
+				final String where = DbUtils.sqlAnd(DataProvider.Plans
+						.getBilldayWhere(this.billperiod, this.currentBillday,
+								now), DataProvider.Logs.PLAN_ID + " = "
+						+ this.id);
+				final Cursor c = this.cResolver.query(
+						DataProvider.Logs.SUM_URI,
+						DataProvider.Logs.PROJECTION_SUM, where, null, null);
+				if (c != null && c.moveToFirst()) {
+					this.billedAmount = c
+							.getLong(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
+					this.billedCost = c
+							.getFloat(DataProvider.Logs.INDEX_SUM_COST);
+				} else {
+					this.billedAmount = 0;
+					this.billedCost = 0;
+				}
+				if (c != null && !c.isClosed()) {
+					c.close();
+				}
+			}
+		}
+
+		/**
+		 * Return true if billed cost/amount is in limit.
+		 * 
+		 * @return true if billed cost/amount is in limit
+		 */
+		boolean isInLimit() {
+			switch (this.limitType) {
+			case DataProvider.LIMIT_TYPE_COST:
+				return this.billedCost < this.limit;
+			case DataProvider.LIMIT_TYPE_UNITS:
+				return this.billedAmount < this.limit;
+			default:
+				return true;
+			}
+		}
+
+		/**
+		 * Round up time with bill mode in mind.
+		 * 
+		 * @param time
+		 *            time
+		 * @return rounded time
+		 */
+		private long roundTime(final long time) {
+			// 0 => 0
+			if (time <= 0) {
+				return 0;
+			}
+			final long fl = this.billModeFirstLength;
+			final long nl = this.billModeNextLength;
+			// !0 ..
+			if (time <= fl) { // round first slot
+				return fl;
+			}
+			if (nl == 0) {
+				return fl;
+			}
+			if (time % nl == 0 || nl == 1) {
+				return time;
+			}
+			// round up to next full slot
+			return ((time / nl) + 1) * nl;
+		}
+
+		/**
 		 * Get billed amount for amount.
 		 * 
 		 * @param log
@@ -430,8 +568,19 @@ public final class RuleMatcher {
 		 * @return billed amount.
 		 */
 		long getBilledAmount(final Cursor log, final boolean updatePlan) {
-			final long a = log.getLong(DataProvider.Logs.INDEX_AMOUNT);
-			return a; // TODO
+			long ret = log.getLong(DataProvider.Logs.INDEX_AMOUNT);
+			final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
+			switch (t) {
+			case DataProvider.TYPE_CALL:
+				ret = this.roundTime(ret);
+				break;
+			default:
+				break;
+			}
+			if (updatePlan) {
+				this.billedAmount += ret;
+			}
+			return ret;
 		}
 
 		/**
@@ -439,12 +588,37 @@ public final class RuleMatcher {
 		 * 
 		 * @param log
 		 *            {@link Cursor} pointing to log
+		 * @param bAmount
+		 *            billed amount
 		 * @param updatePlan
 		 *            update {@link Plan}'s fields
 		 * @return cost
 		 */
-		float getCost(final Cursor log, final boolean updatePlan) {
-			return 0; // TODO
+		float getCost(final Cursor log, final long bAmount,
+				final boolean updatePlan) {
+			float ret = 0;
+			if (this.limitType != DataProvider.LIMIT_TYPE_NONE
+					&& this.isInLimit()) {
+				ret += this.costPerItemInLimit;
+			} else {
+				ret += this.costPerItem;
+				final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
+				switch (t) {
+				case DataProvider.TYPE_CALL:
+					ret += (this.costPerAmount * bAmount)
+							/ CallMeter.SECONDS_MINUTE;
+					break;
+				case DataProvider.TYPE_DATA:
+					ret += (this.costPerAmount * bAmount) / CallMeter.BYTE_MB;
+					break;
+				default:
+					break;
+				}
+			}
+			if (updatePlan) {
+				this.billedCost += ret;
+			}
+			return ret;
 		}
 	}
 
@@ -483,7 +657,7 @@ public final class RuleMatcher {
 						+ " = 0", null, DataProvider.Rules.ORDER);
 		if (cursor != null && cursor.moveToFirst()) {
 			do {
-				rules.add(new Rule(cr, cursor));
+				rules.add(new Rule(cr, cursor, -1));
 			} while (cursor.moveToNext());
 		}
 		if (cursor != null && !cursor.isClosed()) {
@@ -493,8 +667,9 @@ public final class RuleMatcher {
 
 		// load plans
 		plans = new HashMap<Long, Plan>();
-		cursor = cr.query(DataProvider.Plans.CONTENT_URI, // TODO: excl. space..
-				DataProvider.Plans.PROJECTION, null, null, null);
+		cursor = cr.query(DataProvider.Plans.CONTENT_URI,
+				DataProvider.Plans.PROJECTION,
+				DataProvider.Plans.WHERE_REALPLANS, null, null);
 		if (cursor != null && cursor.moveToFirst()) {
 			do {
 				final long i = cursor.getLong(DataProvider.Plans.INDEX_ID);
@@ -539,8 +714,10 @@ public final class RuleMatcher {
 	 *            {@link ContentResolver}
 	 * @param log
 	 *            {@link Cursor} representing the log
+	 * @return true if a log was matched
 	 */
-	private static void matchLog(final ContentResolver cr, final Cursor log) {
+	private static boolean matchLog(final ContentResolver cr, // .
+			final Cursor log) {
 		final long lid = log.getLong(DataProvider.Logs.INDEX_ID);
 		Log.d(TAG, "matchLog(cr, " + lid + ")");
 		boolean matched = false;
@@ -554,15 +731,16 @@ public final class RuleMatcher {
 			if (p != null) {
 				final long pid = p.getId();
 				final long rid = r.getId();
+				p.checkBillday(log);
 				final ContentValues cv = new ContentValues();
 				cv.put(DataProvider.Logs.PLAN_ID, pid);
 				cv.put(DataProvider.Logs.RULE_ID, rid);
-				cv.put(DataProvider.Logs.BILL_AMOUNT, p.getBilledAmount(log,
-						true));
-				cv.put(DataProvider.Logs.COST, p.getCost(log, true));
+				final long ba = p.getBilledAmount(log, true);
+				cv.put(DataProvider.Logs.BILL_AMOUNT, ba);
+				final float bc = p.getCost(log, ba, true);
+				cv.put(DataProvider.Logs.COST, bc);
 				cr.update(ContentUris.withAppendedId(
 						DataProvider.Logs.CONTENT_URI, lid), cv, null, null);
-				// TODO
 				matched = true;
 				break;
 			}
@@ -574,6 +752,7 @@ public final class RuleMatcher {
 			cr.update(ContentUris.withAppendedId(DataProvider.Logs.CONTENT_URI,
 					lid), cv, null, null);
 		}
+		return matched;
 	}
 
 	/**
@@ -581,9 +760,11 @@ public final class RuleMatcher {
 	 * 
 	 * @param context
 	 *            {@link Context}
+	 * @return true if a log was matcheds
 	 */
-	static synchronized void match(final Context context) {
+	static synchronized boolean match(final Context context) {
 		Log.d(TAG, "match()");
+		boolean ret = false;
 		load(context);
 		final Cursor cursor = context.getContentResolver().query(
 				DataProvider.Logs.CONTENT_URI, DataProvider.Logs.PROJECTION,
@@ -592,11 +773,12 @@ public final class RuleMatcher {
 		if (cursor != null && cursor.moveToFirst()) {
 			final ContentResolver cr = context.getContentResolver();
 			do {
-				matchLog(cr, cursor);
+				ret |= matchLog(cr, cursor);
 			} while (cursor.moveToNext());
 		}
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
 		}
+		return ret;
 	}
 }

@@ -35,6 +35,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.text.TextUtils;
+import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
 
@@ -330,6 +331,11 @@ public final class DataProvider extends ContentProvider {
 				BILLPERIOD, COST_PER_ITEM, COST_PER_AMOUNT,
 				COST_PER_ITEM_IN_LIMIT, COST_PER_PLAN };
 
+		/** Select only real plans. */
+		public static final String WHERE_REALPLANS = TYPE + " != "
+				+ TYPE_BILLPERIOD + " AND " + TYPE + " != " + TYPE_SPACING
+				+ " AND " + TYPE + " != " + TYPE_TITLE;
+
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
 				+ AUTHORITY + "/plans");
@@ -470,6 +476,26 @@ public final class DataProvider extends ContentProvider {
 				cursor.close();
 			}
 			return ret;
+		}
+
+		/**
+		 * Calculate limit set for given plan.
+		 * 
+		 * @param pType
+		 *            type of plan
+		 * @param limit
+		 *            limit
+		 * @return set limit
+		 */
+		public static long getLimit(final int pType, final long limit) {
+			switch (pType) {
+			case DataProvider.TYPE_DATA:
+				return limit * CallMeter.BYTE_KB;
+			case DataProvider.TYPE_CALL:
+				return limit * CallMeter.SECONDS_MINUTE;
+			default:
+				return limit;
+			}
 		}
 
 		/**

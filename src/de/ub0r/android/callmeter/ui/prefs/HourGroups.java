@@ -108,7 +108,7 @@ public class HourGroups extends ListActivity implements OnClickListener,
 	public final void onItemClick(final AdapterView<?> parent, final View view,
 			final int position, final long id) {
 		final Builder builder = new Builder(this);
-		builder.setItems(R.array.prefs_select_edit_delete,
+		builder.setItems(R.array.dialog_select_edit_delete,
 				new android.content.DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(final DialogInterface dialog,

@@ -41,7 +41,9 @@ import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * Edit a single Plan.
@@ -292,24 +294,19 @@ public class PlanEdit extends Activity implements OnClickListener,
 		final int t = this.spType.getSelectedItemPosition();
 
 		switch (t) {
-		case DataProvider.TYPE_CALL:
+		case DataProvider.TYPE_MMS:
+		case DataProvider.TYPE_SMS:
+			this.llCostPerAmount.setVisibility(View.GONE);
 		case DataProvider.TYPE_DATA:
-			this.llBillday.setVisibility(View.GONE);
-			this.llBillperiod.setVisibility(View.GONE);
 			this.llBillmode.setVisibility(View.GONE);
 			this.llCostPerItemInLimit.setVisibility(View.GONE);
+		case DataProvider.TYPE_CALL:
+			this.llBillday.setVisibility(View.GONE);
+			this.llBillperiod.setVisibility(View.GONE);
 			break;
 		case DataProvider.TYPE_MIXED:
 			this.llBillday.setVisibility(View.GONE);
 			this.llBillperiod.setVisibility(View.GONE);
-			this.llCostPerAmount.setVisibility(View.GONE);
-			break;
-		case DataProvider.TYPE_MMS:
-		case DataProvider.TYPE_SMS:
-			this.llBillday.setVisibility(View.GONE);
-			this.llBillperiod.setVisibility(View.GONE);
-			this.llBillmode.setVisibility(View.GONE);
-			this.llCostPerItemInLimit.setVisibility(View.GONE);
 			this.llCostPerAmount.setVisibility(View.GONE);
 			break;
 		case DataProvider.TYPE_SPACING:
@@ -386,7 +383,8 @@ public class PlanEdit extends Activity implements OnClickListener,
 			cv.put(DataProvider.Plans.TYPE, t);
 			cv.put(DataProvider.Plans.LIMIT_TYPE, this.spLimitType
 					.getSelectedItemPosition());
-			cv.put(DataProvider.Plans.LIMIT, this.etLimit.getText().toString());
+			cv.put(DataProvider.Plans.LIMIT, Utils.parseLong(this.etLimit
+					.getText().toString(), 0));
 			final int bm = this.spBillmode.getSelectedItemPosition();
 			final String[] billmodes = this.getResources().getStringArray(
 					R.array.billmodes);
@@ -420,6 +418,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 			} else {
 				this.getContentResolver().update(uri, cv, null, null);
 			}
+			RuleMatcher.unmatch(this);
 		case R.id.cancel:
 			this.pid = -1;
 			this.finish();

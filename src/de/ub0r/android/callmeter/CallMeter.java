@@ -45,6 +45,15 @@ public final class CallMeter extends Application {
 	/** Seconds of a minute. */
 	public static final int SECONDS_MINUTE = 60;
 
+	/** Bytes: kB. */
+	public static final long BYTE_KB = 1024L;
+	/** Bytes: MB. */
+	public static final long BYTE_MB = BYTE_KB * BYTE_KB;
+	/** Bytes: GB. */
+	public static final long BYTE_GB = BYTE_MB * BYTE_KB;
+	/** Bytes: TB. */
+	public static final long BYTE_TB = BYTE_GB * BYTE_KB;
+
 	/** {@link Currency} symbol. */
 	public static String currencySymbol = "$";
 	/** {@link Currency} fraction digits. */

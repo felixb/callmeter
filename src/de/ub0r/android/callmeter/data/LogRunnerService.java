@@ -28,6 +28,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
 import android.telephony.TelephonyManager;
@@ -58,9 +59,6 @@ public final class LogRunnerService extends IntentService {
 	/** Is phone roaming? */
 	private static boolean roaming = false;
 
-	/** Plans Activity to show work in progress. */
-	private static Plans mainActivity = null;
-
 	/**
 	 * Default Constructor.
 	 */
@@ -76,11 +74,6 @@ public final class LogRunnerService extends IntentService {
 	 */
 	public static void update(final Context context) {
 		context.startService(new Intent(context, LogRunnerService.class));
-		if (context instanceof Plans) {
-			mainActivity = (Plans) context;
-		} else {
-			mainActivity = null;
-		}
 	}
 
 	/**
@@ -389,26 +382,30 @@ public final class LogRunnerService extends IntentService {
 	@Override
 	protected void onHandleIntent(final Intent intent) {
 		Log.d(TAG, "onHandleIntent()");
+		final Handler h = Plans.getHandler();
+		if (h != null) {
+			h.sendEmptyMessage(Plans.MSG_BACKGROUND_START);
+		}
+
 		// update roaming info
 		roaming = ((TelephonyManager) this
 				.getSystemService(Context.TELEPHONY_SERVICE))
 				.isNetworkRoaming();
 
-		// if (mainActivity != null) {
-		// FIXME with handler
-		// mainActivity.setProgressBarIndeterminateVisibility(true);
-		// }
 		final ContentResolver cr = this.getContentResolver();
 		this.updateData(this);
 		this.updateCalls(cr);
 		this.updateSMS(cr);
 		this.updateMMS(cr);
-		RuleMatcher.match(this);
-		// if (mainActivity != null) {
-		// FIXME with handler
-		// mainActivity.setProgressBarIndeterminateVisibility(false);
-		// }
+		final boolean changed = RuleMatcher.match(this);
+		if (changed) {
+			cr.notifyChange(DataProvider.Plans.CONTENT_URI, null);
+		}
+
 		// schedule next update
 		LogRunnerReceiver.schedNext(this);
+		if (h != null) {
+			h.sendEmptyMessage(Plans.MSG_BACKGROUND_STOP);
+		}
 	}
 }
