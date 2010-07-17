@@ -30,6 +30,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * AsyncTask to handlel calcualtions/display for data in background.
@@ -219,15 +220,7 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 					+ prettyBytes(currentIn);
 			this.dataOut = prettyBytes(currentOut - preBillingOut) + " | "
 					+ prettyBytes(currentOut);
-			int limit = 0;
-			try {
-				String s = this.prefs.getString(PREFS_DATA_LIMIT, null);
-				if (s != null && s.length() > 0) {
-					limit = Integer.parseInt(s);
-				}
-			} catch (NumberFormatException e) {
-				Log.e(TAG, "wrong number format", e);
-			}
+			final int limit = Utils.parseInt(this.prefs.getString(PREFS_DATA_LIMIT, null), 0);
 
 			ret[0] = thisBillingIn;
 			if (!this.prefs.getBoolean(PREFS_DATA_INCOMING_ONLY, false)) {

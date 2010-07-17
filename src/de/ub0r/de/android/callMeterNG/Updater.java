@@ -36,6 +36,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 import de.ub0r.android.lib.apis.TelephonyWrapper;
 import de.ub0r.de.android.callMeterNG.ExcludePeople.ExcludedPerson;
 
@@ -817,28 +818,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		if (this.prefs.getBoolean(PREFS_PLAN1_T_FREE_CALLS, false)) {
 			free1 = -1;
 		} else {
-			try {
-				String s = this.prefs.getString(PREFS_PLAN1_FREEMIN, "0");
-				if (s.length() > 0) {
-					free1 = Integer.parseInt(s);
-				}
-			} catch (NumberFormatException e) {
-				free1 = 0;
-				Log.e(TAG, "wrong number format", e);
-			}
+			free1 = Utils.parseInt(this.prefs.getString(PREFS_PLAN1_FREEMIN, "0"), 0);
 		}
 		if (this.prefs.getBoolean(PREFS_PLAN2_T_FREE_CALLS, false)) {
 			free2 = -1;
 		} else {
-			try {
-				String s = this.prefs.getString(PREFS_PLAN2_FREEMIN, "0");
-				if (s.length() > 0) {
-					free2 = Integer.parseInt(s);
-				}
-			} catch (NumberFormatException e) {
-				free2 = 0;
-				Log.e(TAG, "wrong number format", e);
-			}
+			free2 = Utils.parseInt(this.prefs.getString(PREFS_PLAN2_FREEMIN, "0"), 0);
 		}
 		// walk through log
 		if (cur.moveToFirst()) {
@@ -1013,28 +998,12 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		if (this.prefs.getBoolean(PREFS_PLAN1_T_FREE_SMS, false)) {
 			free1 = -1;
 		} else {
-			try {
-				String s = this.prefs.getString(PREFS_PLAN1_FREESMS, "0");
-				if (s.length() > 0) {
-					free1 = Integer.parseInt(s);
-				}
-			} catch (NumberFormatException e) {
-				free1 = 0;
-				Log.e(TAG, "wrong number format", e);
-			}
+			free1 = Utils.parseInt(this.prefs.getString(PREFS_PLAN1_FREESMS, "0"), 0);
 		}
 		if (this.prefs.getBoolean(PREFS_PLAN2_T_FREE_SMS, false)) {
 			free2 = -1;
 		} else {
-			try {
-				String s = this.prefs.getString(PREFS_PLAN2_FREESMS, "0");
-				if (s.length() > 0) {
-					free2 = Integer.parseInt(s);
-				}
-			} catch (NumberFormatException e) {
-				free2 = 0;
-				Log.e(TAG, "wrong number format", e);
-			}
+			free2 = Utils.parseInt(this.prefs.getString(PREFS_PLAN2_FREESMS, "0"), 0);
 		}
 
 		int iSMSIn = this.prefs.getInt(PREFS_SMS_ALL_IN, 0);
@@ -1144,8 +1113,8 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			// merge sms into calls.
 			final boolean mergeToPlan1 = this.plansMergeCalls
 					|| this.prefs.getBoolean(PREFS_MERGE_SMS_PLAN1, true);
-			final int secondsForSMS = Integer.parseInt(this.prefs.getString(
-					PREFS_MERGE_SMS_TO_CALLS_SECONDS, "0"));
+			final int secondsForSMS = Utils.parseInt(this.prefs.getString(
+					PREFS_MERGE_SMS_TO_CALLS_SECONDS, "0"), 60);
 			int i = RESULT_CALLS1_VAL; // plan 1 number of seconds
 			int j = RESULT_CALLS1_IN;
 			int callsInCount = this.callsInCount1;
