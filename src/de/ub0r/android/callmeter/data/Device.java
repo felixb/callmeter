@@ -213,7 +213,7 @@ class DefaultDevice extends Device {
 class SamsungI7500Device extends Device {
 	@Override
 	public String[] getNames() {
-		return new String[] { "GT-I7500", "spica", "GT-I5700" };
+		return new String[] { "GT-I7500", "spica", "GT-I5700", "GT-I9000" };
 	}
 
 	@Override

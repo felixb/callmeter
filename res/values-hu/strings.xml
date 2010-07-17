@@ -139,7 +139,7 @@
 	<string name="sunday">vasárnap</string>
 	<string name="calls">Hívások</string>
 	<string name="sms">SMS</string>
-	<string name="data">Atatforgalom</string>
+	<string name="data">Adatforgalom</string>
 	<string name="calls_sms">Hívás/SMS</string>
 	<string name="in_calls">Bejövő%s:</string>
 	<string name="in_sms">Bejövő%s:</string>
