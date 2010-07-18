@@ -55,7 +55,7 @@ public final class DataProvider extends ContentProvider {
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
 	/** Separator of values. */
-	private static final String EXPORT_VALUESEPARATOR = "|#|";
+	private static final String EXPORT_VALUESEPARATOR = ":#:";
 
 	/** Type of log: mixed. */
 	public static final int TYPE_MIXED = 0;
@@ -220,6 +220,7 @@ public final class DataProvider extends ContentProvider {
 		 */
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
 					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
 					+ PLAN_ID + " LONG," // .
@@ -250,7 +251,6 @@ public final class DataProvider extends ContentProvider {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, new String[] {
 					AMOUNT, DATE, DIRECTION, REMOTE, ROAMED, TYPE }, null);
-			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -385,6 +385,7 @@ public final class DataProvider extends ContentProvider {
 		public static void onCreate(final SQLiteDatabase db,
 				final boolean fillDefault) {
 			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
 					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
 					+ ORDER + " INTEGER," // .
@@ -449,7 +450,6 @@ public final class DataProvider extends ContentProvider {
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
-			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			onCreate(db, values == null);
 			reload(db, TABLE, values);
 		}
@@ -703,6 +703,7 @@ public final class DataProvider extends ContentProvider {
 		 */
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
 					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
 					+ ORDER + " INTEGER," // .
@@ -730,7 +731,6 @@ public final class DataProvider extends ContentProvider {
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
-			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -828,6 +828,7 @@ public final class DataProvider extends ContentProvider {
 		 */
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
 					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
 					+ GID + " LONG," // .
@@ -849,7 +850,6 @@ public final class DataProvider extends ContentProvider {
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
-			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -935,6 +935,7 @@ public final class DataProvider extends ContentProvider {
 		 */
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
 					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
 					+ NAME + " TEXT" // .
@@ -955,7 +956,6 @@ public final class DataProvider extends ContentProvider {
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
-			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -1033,6 +1033,7 @@ public final class DataProvider extends ContentProvider {
 		 */
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
 					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
 					+ GID + " LONG," // .
@@ -1055,7 +1056,6 @@ public final class DataProvider extends ContentProvider {
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
-			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -1141,6 +1141,7 @@ public final class DataProvider extends ContentProvider {
 		 */
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
 					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
 					+ NAME + " TEXT" // .
@@ -1161,7 +1162,6 @@ public final class DataProvider extends ContentProvider {
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
-			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -1306,6 +1306,7 @@ public final class DataProvider extends ContentProvider {
 		ContentValues[] cvs = backup(db, table, projection, strip);
 		for (ContentValues cv : cvs) {
 			sb.append(table);
+			sb.append(" ");
 			for (String k : projection) {
 				final String v = cv.getAsString(k);
 				if (v != null) {
@@ -1340,7 +1341,7 @@ public final class DataProvider extends ContentProvider {
 		backupRuleSetSub(sb, db, Numbers.TABLE, Numbers.PROJECTION, null);
 		backupRuleSetSub(sb, db, NumbersGroup.TABLE, NumbersGroup.PROJECTION,
 				null);
-
+		db.close();
 		return sb.toString();
 	}
 
@@ -1354,7 +1355,52 @@ public final class DataProvider extends ContentProvider {
 	 */
 	public static void importRuleSet(final Context context, // .
 			final String ruleSet) {
-		// TODO: import rule set
+		if (ruleSet == null || ruleSet.length() == 0) {
+			return;
+		}
+		final String[] lines = ruleSet.split("\n");
+		if (lines.length <= 2) {
+			return;
+		}
+		final SQLiteDatabase db = new DatabaseHelper(context)
+				.getWritableDatabase();
+		final int l = lines.length;
+		String table = null;
+		ArrayList<ContentValues> cvs = null;
+		for (int i = 2; i < l; i++) {
+			String[] ti = lines[i].split(" ", 2);
+			if (ti.length < 2) {
+				continue;
+			}
+			if (table == null) {
+				table = ti[0];
+				cvs = new ArrayList<ContentValues>();
+			} else if (!table.equals(ti[0])) {
+				// reload cvs into table
+				db.delete(table, null, null);
+				reload(db, table, cvs.toArray(new ContentValues[1]));
+				// prepare new table/cvs
+				table = ti[0];
+				cvs = new ArrayList<ContentValues>();
+			}
+			final String imp = ti[1];
+			final String[] nvs = imp.split(EXPORT_VALUESEPARATOR);
+			final ContentValues cv = new ContentValues();
+			for (String nv : nvs) {
+				final String[] nvv = nv.split(":", 2);
+				if (nvv.length < 2) {
+					continue;
+				}
+				cv.put(nvv[0], nvv[1]);
+			}
+			cvs.add(cv);
+		}
+		if (table != null) {
+			// reload table
+			db.delete(table, null, null);
+			reload(db, table, cvs.toArray(new ContentValues[1]));
+		}
+		db.close();
 	}
 
 	/**
