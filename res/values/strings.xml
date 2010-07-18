@@ -181,6 +181,13 @@
 	<string name="what1_">And rule:</string>
 	<string name="what1_help">Set a rule which must match too.</string>
 	<string name="none">None</string>
+	<string name="export_rules_">Export rule set</string>
+	<string name="export_rules_hint">Export rule set.</string>
+	<string name="export_rules_progr">Exporting rule set..</string>
+	<string name="export_rules_descr">Description</string>
+	<string name="import_rules_">Import rule set</string>
+	<string name="import_rules_hint">Import rule set:</string>
+	<string name="import_rules_progr">Import rule set..</string>
 	<string-array name="weekdays_all">
 		<item>All week</item>
 		<item>Monday</item>

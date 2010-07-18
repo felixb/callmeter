@@ -18,18 +18,34 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URLDecoder;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.DialogInterface.OnClickListener;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.widget.EditText;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * Preferences.
@@ -37,6 +53,12 @@ import de.ub0r.android.lib.Log;
  * @author flx
  */
 public class Preferences extends PreferenceActivity {
+	/** Tag for output. */
+	private static final String TAG = "prefs";
+
+	/** Standard buffer size. */
+	public static final int BUFSIZE = 1024;
+
 	/** Preference's name: theme. */
 	private static final String PREFS_THEME = "theme";
 	/** Theme: black. */
@@ -133,6 +155,58 @@ public class Preferences extends PreferenceActivity {
 	}
 
 	/**
+	 * Export Rules.
+	 * 
+	 * @param descr
+	 *            description of the exported rule set
+	 */
+	private void exportRules(final String descr) {
+		if (descr == null) {
+			final EditText et = new EditText(this);
+			Builder builder = new Builder(this);
+			builder.setView(et);
+			builder.setCancelable(true);
+			builder.setTitle(R.string.export_rules_descr);
+			builder.setNegativeButton(android.R.string.cancel, null);
+			builder.setPositiveButton(android.R.string.ok,
+					new OnClickListener() {
+						@Override
+						public void onClick(final DialogInterface dialog,
+								final int which) {
+							Preferences.this.exportRules(et.getText()
+									.toString());
+						}
+					});
+			builder.show();
+		} else {
+			final ProgressDialog d = new ProgressDialog(this);
+			d.setIndeterminate(true);
+			d.setMessage(this.getString(R.string.export_rules_progr));
+			d.setCancelable(false);
+			d.show();
+
+			// run task in background
+			final AsyncTask<Void, Void, String> task = // .
+			new AsyncTask<Void, Void, String>() {
+				@Override
+				protected String doInBackground(final Void... params) {
+					final String ret = DataProvider.backupRuleSet(
+							Preferences.this, descr);
+					return ret;
+				}
+
+				@Override
+				protected void onPostExecute(final String result) {
+					Log.d(TAG, "export:\n" + result);
+					System.out.println("\n" + result);
+					d.dismiss();
+				}
+			};
+			task.execute((Void) null);
+		}
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -164,6 +238,124 @@ public class Preferences extends PreferenceActivity {
 							return true;
 						}
 					});
+		}
+		p = this.findPreference("export_rules");
+		if (p != null) {
+			p.setOnPreferenceClickListener(// .
+					new Preference.OnPreferenceClickListener() {
+						public boolean onPreferenceClick(
+								final Preference preference) {
+							Preferences.this.exportRules(null);
+							return true;
+						}
+					});
+		}
+
+		this.onNewIntent(this.getIntent());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void onNewIntent(final Intent intent) {
+		final Uri uri = intent.getData();
+		Log.d(TAG, "new intent: " + intent.getAction());
+		Log.d(TAG, "intent: " + intent.getData());
+		if (uri != null && uri.getScheme().startsWith("import")) {
+			final ProgressDialog d1 = new ProgressDialog(this);
+			d1.setCancelable(true);
+			d1.setMessage(this.getString(R.string.import_rules_progr));
+			d1.setIndeterminate(true);
+			d1.show();
+
+			new AsyncTask<Void, Void, String>() {
+				@Override
+				protected String doInBackground(final Void... params) {
+					String url;
+					if (uri.getScheme().equals("imports")) {
+						url = "https:/";
+					} else {
+						url = "http:/";
+					}
+					url += uri.getPath();
+					final HttpGet request = new HttpGet(url);
+					Log.d(TAG, "url: " + url);
+					StringBuilder sb = new StringBuilder();
+					try {
+						final HttpResponse response = new DefaultHttpClient()
+								.execute(request);
+						int resp = response.getStatusLine().getStatusCode();
+						if (resp != Utils.HTTP_OK) {
+							return null;
+						}
+						final BufferedReader bufferedReader = // .
+						new BufferedReader(new InputStreamReader(// .
+								response.getEntity().getContent()), BUFSIZE);
+						String line = bufferedReader.readLine();
+						while (line != null) {
+							sb.append(line);
+							sb.append("\n");
+							line = bufferedReader.readLine();
+						}
+					} catch (IOException e) {
+						Log.e(TAG, "error in reading export: " + e.toString(),
+								e);
+						return null;
+					}
+					return sb.toString();
+				}
+
+				@Override
+				protected void onPostExecute(final String result) {
+					Log.d(TAG, "import:\n" + result);
+					d1.dismiss();
+					if (result == null || result.length() == 0) {
+						return; // TODO: print error msg.
+					}
+					String[] lines = result.split("\n");
+					if (lines.length <= 2) {
+						return; // TODO: print error msg.
+					}
+					Builder builder = new Builder(Preferences.this);
+					builder.setCancelable(true);
+					builder.setTitle(R.string.import_rules_);
+					builder.setMessage(Preferences.this
+							.getString(R.string.import_rules_hint)
+							+ "\n" + URLDecoder.decode(lines[1]));
+					builder.setNegativeButton(android.R.string.cancel, null);
+					builder.setPositiveButton(android.R.string.ok,
+							new OnClickListener() {
+								@Override
+								public void onClick(
+										final DialogInterface dialog,
+										final int which) {
+									d1.setCancelable(false);
+									d1.setIndeterminate(true);
+									d1.show();
+									new AsyncTask<Void, Void, Void>() {
+
+										@Override
+										protected Void doInBackground(
+												final Void... params) {
+											DataProvider.importRuleSet(
+													Preferences.this, result);
+											return null;
+										}
+
+										@Override
+										protected void onPostExecute(
+												final Void result) {
+											d1.dismiss();
+										}
+									} // .
+											.execute((Void) null);
+								}
+							});
+					builder.show();
+				}
+			} // .
+					.execute((Void) null);
 		}
 	}
 }

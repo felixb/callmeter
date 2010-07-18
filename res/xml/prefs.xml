@@ -47,6 +47,9 @@
 	<PreferenceScreen android:key="reset_data"
 		android:title="@string/reset_data_" android:summary="@string/reset_data_hint" />
 
+	<PreferenceScreen android:key="export_rules"
+		android:title="@string/export_rules_" android:summary="@string/export_rules_hint" />
+
 	<PreferenceCategory android:title="@string/about_">
 		<PreferenceScreen android:title="@string/about_"
 			android:summary="@string/about_hint">

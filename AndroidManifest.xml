@@ -34,7 +34,16 @@
 			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />
 		<activity android:name=".ui.prefs.Preferences"
 			android:configChanges="orientation|keyboardHidden"
-			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />
+			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:scheme="import" />
+				<data android:scheme="imports" />
+				<data android:host="callmeter.android.ub0r.de" />
+			</intent-filter>
+		</activity>
 		<activity android:name=".ui.prefs.Plans"
 			android:configChanges="orientation|keyboardHidden"
 			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />

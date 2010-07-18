@@ -18,6 +18,7 @@
  */
 package de.ub0r.android.callmeter.data;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -50,6 +51,11 @@ public final class DataProvider extends ContentProvider {
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
 	private static final int DATABASE_VERSION = 7;
+
+	/** Version of the export file. */
+	private static final int EXPORT_VERSION = 0;
+	/** Separator of values. */
+	private static final String EXPORT_VALUESEPARATOR = "|#|";
 
 	/** Type of log: mixed. */
 	public static final int TYPE_MIXED = 0;
@@ -1279,6 +1285,77 @@ public final class DataProvider extends ContentProvider {
 
 	/** {@link DatabaseHelper}. */
 	private DatabaseHelper mOpenHelper;
+
+	/**
+	 * Backup a single table.
+	 * 
+	 * @param sb
+	 *            {@link StringBuilder} for saving the data
+	 * @param db
+	 *            {@link SQLiteDatabase}
+	 * @param table
+	 *            table name
+	 * @param projection
+	 *            projection
+	 * @param strip
+	 *            strip column
+	 */
+	private static void backupRuleSetSub(final StringBuilder sb,
+			final SQLiteDatabase db, final String table,
+			final String[] projection, final String strip) {
+		ContentValues[] cvs = backup(db, table, projection, strip);
+		for (ContentValues cv : cvs) {
+			sb.append(table);
+			for (String k : projection) {
+				final String v = cv.getAsString(k);
+				if (v != null) {
+					sb.append(k + ":" + v + EXPORT_VALUESEPARATOR);
+				}
+			}
+			sb.append("\n");
+		}
+	}
+
+	/**
+	 * Backup rule set to String.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param descr
+	 *            description of the rule set
+	 * @return {@link String} representing {@link Rules} and {@link Plans}
+	 */
+	public static String backupRuleSet(final Context context, // .
+			final String descr) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(EXPORT_VERSION + "\n");
+		sb.append(URLEncoder.encode(descr) + "\n");
+		final SQLiteDatabase db = new DatabaseHelper(context)
+				.getReadableDatabase();
+
+		backupRuleSetSub(sb, db, Plans.TABLE, Plans.PROJECTION, null);
+		backupRuleSetSub(sb, db, Rules.TABLE, Rules.PROJECTION, null);
+		backupRuleSetSub(sb, db, Hours.TABLE, Hours.PROJECTION, null);
+		backupRuleSetSub(sb, db, HoursGroup.TABLE, HoursGroup.PROJECTION, null);
+		backupRuleSetSub(sb, db, Numbers.TABLE, Numbers.PROJECTION, null);
+		backupRuleSetSub(sb, db, NumbersGroup.TABLE, NumbersGroup.PROJECTION,
+				null);
+
+		return sb.toString();
+	}
+
+	/**
+	 * Import rule set from {@link String}.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param ruleSet
+	 *            rule set as {@link String}
+	 */
+	public static void importRuleSet(final Context context, // .
+			final String ruleSet) {
+		// TODO: import rule set
+	}
 
 	/**
 	 * Try to backup fields from table.
