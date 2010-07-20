@@ -19,7 +19,10 @@
 package de.ub0r.android.callmeter.ui.prefs;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URLDecoder;
 
@@ -30,6 +33,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.app.AlertDialog.Builder;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -38,10 +42,12 @@ import android.content.DialogInterface.OnClickListener;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.widget.EditText;
+import android.widget.Toast;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Log;
@@ -200,6 +206,42 @@ public class Preferences extends PreferenceActivity {
 					Log.d(TAG, "export:\n" + result);
 					System.out.println("\n" + result);
 					d.dismiss();
+					if (result != null && result.length() > 0) {
+						final Intent intent = new Intent(Intent.ACTION_SEND);
+						intent.setType(DataProvider.EXPORT_MIMETYPE);
+						intent.putExtra(Intent.EXTRA_STREAM,
+								DataProvider.EXPORT_URI);
+						intent.putExtra(Intent.EXTRA_SUBJECT, // .
+								"Call Meter 3G export");
+						intent.addCategory(Intent.CATEGORY_DEFAULT);
+
+						try {
+							final File d = Environment
+									.getExternalStorageDirectory();
+							final File f = new File(d, DataProvider.PACKAGE
+									+ File.separator + // .
+									DataProvider.EXPORT_FILE);
+							f.mkdirs();
+							if (f.exists()) {
+								f.delete();
+							}
+							f.createNewFile();
+							FileWriter fw = new FileWriter(f);
+							fw.append(result);
+							fw.close();
+							// call an exporting app with the uri to the
+							// preferences
+							Preferences.this.startActivity(Intent
+									.createChooser(intent, Preferences.this
+											.getString(// .
+											R.string.export_rules_)));
+						} catch (IOException e) {
+							Log.e(TAG, "error writing export file", e);
+							Toast.makeText(Preferences.this,
+									R.string.err_export_write,
+									Toast.LENGTH_LONG).show();
+						}
+					}
 				}
 			};
 			task.execute((Void) null);
@@ -255,6 +297,142 @@ public class Preferences extends PreferenceActivity {
 	}
 
 	/**
+	 * Get a {@link InputStream} from {@link Uri}.
+	 * 
+	 * @param cr
+	 *            {@link ContentResolver}
+	 * @param uri
+	 *            {@link Uri}
+	 * @return {@link InputStream}
+	 */
+	private InputStream getStream(final ContentResolver cr, final Uri uri) {
+		if (uri.toString().startsWith("import")) {
+			String url;
+			if (uri.getScheme().equals("imports")) {
+				url = "https:/";
+			} else {
+				url = "http:/";
+			}
+			url += uri.getPath();
+			final HttpGet request = new HttpGet(url);
+			Log.d(TAG, "url: " + url);
+			try {
+				final HttpResponse response = new DefaultHttpClient()
+						.execute(request);
+				int resp = response.getStatusLine().getStatusCode();
+				if (resp != Utils.HTTP_OK) {
+					return null;
+				}
+				return response.getEntity().getContent();
+			} catch (IOException e) {
+				Log.e(TAG, "error in reading export: " + url, e);
+				return null;
+			}
+		} else if (uri.toString().startsWith("content://")) {
+			try {
+				return cr.openInputStream(uri);
+			} catch (IOException e) {
+				Log.e(TAG, "error in reading export: " + uri.toString(), e);
+				return null;
+			}
+		}
+		Log.d(TAG, "getStream() returns null, " + uri.toString());
+		return null;
+	}
+
+	/**
+	 * Import a given rule set.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param uri
+	 *            {@link Uri}
+	 */
+	private void importRuleSet(final Context context, final Uri uri) {
+		final ProgressDialog d1 = new ProgressDialog(this);
+		d1.setCancelable(true);
+		d1.setMessage(this.getString(R.string.import_rules_progr));
+		d1.setIndeterminate(true);
+		d1.show();
+
+		new AsyncTask<Void, Void, String>() {
+			@Override
+			protected String doInBackground(final Void... params) {
+				StringBuilder sb = new StringBuilder();
+				try {
+					final BufferedReader bufferedReader = // .
+					new BufferedReader(new InputStreamReader(// .
+							Preferences.this.getStream(Preferences.this
+									.getContentResolver(), uri)), BUFSIZE);
+					String line = bufferedReader.readLine();
+					while (line != null) {
+						sb.append(line);
+						sb.append("\n");
+						line = bufferedReader.readLine();
+					}
+				} catch (Exception e) {
+					Log.e(TAG, "error in reading export: " + e.toString(), e);
+					return null;
+				}
+				return sb.toString();
+			}
+
+			@Override
+			protected void onPostExecute(final String result) {
+				Log.d(TAG, "import:\n" + result);
+				d1.dismiss();
+				if (result == null || result.length() == 0) {
+					Toast.makeText(Preferences.this, R.string.err_export_read,
+							Toast.LENGTH_LONG).show();
+					return;
+				}
+				String[] lines = result.split("\n");
+				if (lines.length <= 2) {
+					Toast.makeText(Preferences.this, R.string.err_export_read,
+							Toast.LENGTH_LONG).show();
+					return;
+				}
+				Builder builder = new Builder(Preferences.this);
+				builder.setCancelable(true);
+				builder.setTitle(R.string.import_rules_);
+				builder.setMessage(Preferences.this
+						.getString(R.string.import_rules_hint)
+						+ "\n" + URLDecoder.decode(lines[1]));
+				builder.setNegativeButton(android.R.string.cancel, null);
+				builder.setPositiveButton(android.R.string.ok,
+						new OnClickListener() {
+							@Override
+							public void onClick(final DialogInterface dialog,
+									final int which) {
+								d1.setCancelable(false);
+								d1.setIndeterminate(true);
+								d1.show();
+								new AsyncTask<Void, Void, Void>() {
+
+									@Override
+									protected Void doInBackground(
+											final Void... params) {
+										DataProvider.importRuleSet(
+												Preferences.this, result);
+										return null;
+									}
+
+									@Override
+									protected void onPostExecute(
+											final Void result) {
+										d1.dismiss();
+									}
+								} // .
+										.execute((Void) null);
+							}
+						});
+				builder.show();
+			}
+		} // .
+				.execute((Void) null);
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -262,100 +440,9 @@ public class Preferences extends PreferenceActivity {
 		final Uri uri = intent.getData();
 		Log.d(TAG, "new intent: " + intent.getAction());
 		Log.d(TAG, "intent: " + intent.getData());
-		if (uri != null && uri.getScheme().startsWith("import")) {
-			final ProgressDialog d1 = new ProgressDialog(this);
-			d1.setCancelable(true);
-			d1.setMessage(this.getString(R.string.import_rules_progr));
-			d1.setIndeterminate(true);
-			d1.show();
-
-			new AsyncTask<Void, Void, String>() {
-				@Override
-				protected String doInBackground(final Void... params) {
-					String url;
-					if (uri.getScheme().equals("imports")) {
-						url = "https:/";
-					} else {
-						url = "http:/";
-					}
-					url += uri.getPath();
-					final HttpGet request = new HttpGet(url);
-					Log.d(TAG, "url: " + url);
-					StringBuilder sb = new StringBuilder();
-					try {
-						final HttpResponse response = new DefaultHttpClient()
-								.execute(request);
-						int resp = response.getStatusLine().getStatusCode();
-						if (resp != Utils.HTTP_OK) {
-							return null;
-						}
-						final BufferedReader bufferedReader = // .
-						new BufferedReader(new InputStreamReader(// .
-								response.getEntity().getContent()), BUFSIZE);
-						String line = bufferedReader.readLine();
-						while (line != null) {
-							sb.append(line);
-							sb.append("\n");
-							line = bufferedReader.readLine();
-						}
-					} catch (IOException e) {
-						Log.e(TAG, "error in reading export: " + e.toString(),
-								e);
-						return null;
-					}
-					return sb.toString();
-				}
-
-				@Override
-				protected void onPostExecute(final String result) {
-					Log.d(TAG, "import:\n" + result);
-					d1.dismiss();
-					if (result == null || result.length() == 0) {
-						return; // TODO: print error msg.
-					}
-					String[] lines = result.split("\n");
-					if (lines.length <= 2) {
-						return; // TODO: print error msg.
-					}
-					Builder builder = new Builder(Preferences.this);
-					builder.setCancelable(true);
-					builder.setTitle(R.string.import_rules_);
-					builder.setMessage(Preferences.this
-							.getString(R.string.import_rules_hint)
-							+ "\n" + URLDecoder.decode(lines[1]));
-					builder.setNegativeButton(android.R.string.cancel, null);
-					builder.setPositiveButton(android.R.string.ok,
-							new OnClickListener() {
-								@Override
-								public void onClick(
-										final DialogInterface dialog,
-										final int which) {
-									d1.setCancelable(false);
-									d1.setIndeterminate(true);
-									d1.show();
-									new AsyncTask<Void, Void, Void>() {
-
-										@Override
-										protected Void doInBackground(
-												final Void... params) {
-											DataProvider.importRuleSet(
-													Preferences.this, result);
-											return null;
-										}
-
-										@Override
-										protected void onPostExecute(
-												final Void result) {
-											d1.dismiss();
-										}
-									} // .
-											.execute((Void) null);
-								}
-							});
-					builder.show();
-				}
-			} // .
-					.execute((Void) null);
+		if (uri != null) {
+			Log.d(TAG, "importing: " + uri.toString());
+			this.importRuleSet(this, uri);
 		}
 	}
 }

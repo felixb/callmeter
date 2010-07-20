@@ -43,6 +43,11 @@
 				<data android:scheme="imports" />
 				<data android:host="callmeter.android.ub0r.de" />
 			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<data android:mimeType="application/android.callmeter.export" />
+			</intent-filter>
 		</activity>
 		<activity android:name=".ui.prefs.Plans"
 			android:configChanges="orientation|keyboardHidden"
@@ -87,6 +92,7 @@
 			android:authorities="de.ub0r.android.callmeter.provider" />
 		<!-- The application's publisher ID assigned by AdMob -->
 		<meta-data android:value="a14c185ce8841c6" android:name="ADMOB_PUBLISHER_ID" />
+		<meta-data android:value="true" android:name="ADMOB_ALLOW_LOCATION_FOR_ADS" />
 	</application>
 	<uses-sdk android:minSdkVersion="3" android:targetSdkVersion="8" />
 	<supports-screens android:anyDensity="true" />
@@ -96,6 +102,7 @@
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.RECEIVE_SMS" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<!-- AdMob SDK permissions -->
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />

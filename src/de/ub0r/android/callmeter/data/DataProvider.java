@@ -18,6 +18,8 @@
  */
 package de.ub0r.android.callmeter.data;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -30,11 +32,15 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.MatrixCursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.os.Environment;
+import android.os.ParcelFileDescriptor;
+import android.provider.OpenableColumns;
 import android.text.TextUtils;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.lib.DbUtils;
@@ -47,6 +53,12 @@ public final class DataProvider extends ContentProvider {
 	/** Tag for output. */
 	private static final String TAG = "dp";
 
+	/** Callmeter's package name. */
+	public static final String PACKAGE = "de.ub0r.android.callmeter";
+
+	/** Authority. */
+	public static final String AUTHORITY = PACKAGE + ".provider";
+
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
@@ -56,6 +68,14 @@ public final class DataProvider extends ContentProvider {
 	private static final int EXPORT_VERSION = 0;
 	/** Separator of values. */
 	private static final String EXPORT_VALUESEPARATOR = ":#:";
+	/** Mime type for export. */
+	public static final String EXPORT_MIMETYPE = // .
+	"application/android.callmeter.export";
+	/** {@link Uri} for export Content. */
+	public static final Uri EXPORT_URI = Uri.parse("content://" + AUTHORITY
+			+ "/export");
+	/** {@link Uri} for the actual export file. */
+	public static final String EXPORT_FILE = "ruleset.export";
 
 	/** Type of log: mixed. */
 	public static final int TYPE_MIXED = 0;
@@ -1206,10 +1226,8 @@ public final class DataProvider extends ContentProvider {
 	private static final int HOURS_GROUP_ID = 16;
 	/** Internal id: sum of logs. */
 	private static final int LOGS_SUM = 17;
-
-	/** Authority. */
-	public static final String AUTHORITY = "de.ub0r.android.callmeter."
-			+ "provider";
+	/** Internal id: export. */
+	private static final int EXPORT = 200;
 
 	/** {@link UriMatcher}. */
 	private static final UriMatcher URI_MATCHER;
@@ -1233,6 +1251,7 @@ public final class DataProvider extends ContentProvider {
 		URI_MATCHER.addURI(AUTHORITY, "hours/group/#", HOURS_GID);
 		URI_MATCHER.addURI(AUTHORITY, "hours/groups/", HOURS_GROUP);
 		URI_MATCHER.addURI(AUTHORITY, "hours/groups/#", HOURS_GROUP_ID);
+		URI_MATCHER.addURI(AUTHORITY, "export", EXPORT);
 	}
 
 	/**
@@ -1480,7 +1499,7 @@ public final class DataProvider extends ContentProvider {
 		if (values == null || values.length == 0) {
 			return;
 		}
-		Log.d(TAG, "reload(db, " + table + ", cv[" + values.length + "]");
+		Log.d(TAG, "reload(db, " + table + ", cv[" + values.length + "])");
 		for (ContentValues cv : values) {
 			db.insert(table, null, cv);
 		}
@@ -1609,6 +1628,8 @@ public final class DataProvider extends ContentProvider {
 			return HoursGroup.CONTENT_TYPE;
 		case HOURS_GROUP_ID:
 			return HoursGroup.CONTENT_ITEM_TYPE;
+		case EXPORT:
+			return EXPORT_MIMETYPE;
 		default:
 			throw new IllegalArgumentException("Unknown URI: " + uri);
 		}
@@ -1699,8 +1720,6 @@ public final class DataProvider extends ContentProvider {
 			groupBy = Logs.PLAN_ID;
 			return db.query(Logs.TABLE, projection, selection, selectionArgs,
 					groupBy, null, null);
-			// TODO add sums
-			// break;
 		case PLANS_ID:
 			qb.appendWhere(Plans.ID + "=" + ContentUris.parseId(uri));
 		case PLANS:
@@ -1747,6 +1766,23 @@ public final class DataProvider extends ContentProvider {
 			qb.setTables(HoursGroup.TABLE);
 			qb.setProjectionMap(HoursGroup.PROJECTION_MAP);
 			break;
+		case EXPORT:
+			Log.d(TAG, "export proj: + " + projection);
+			final int l = projection.length;
+			Object[] retArray = new Object[l];
+			for (int i = 0; i < l; i++) {
+				if (projection[i].equals(OpenableColumns.DISPLAY_NAME)) {
+					retArray[i] = EXPORT_FILE;
+				} else if (projection[i].equals(OpenableColumns.SIZE)) {
+					final File d = Environment.getExternalStorageDirectory();
+					final File f = new File(d, PACKAGE + File.separator
+							+ DataProvider.EXPORT_FILE);
+					retArray[i] = f.length();
+				}
+			}
+			final MatrixCursor ret = new MatrixCursor(projection, 1);
+			ret.addRow(retArray);
+			return ret;
 		default:
 			throw new IllegalArgumentException("Unknown Uri " + uri);
 		}
@@ -1837,5 +1873,18 @@ public final class DataProvider extends ContentProvider {
 			this.getContext().getContentResolver().notifyChange(uri, null);
 		}
 		return ret;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public ParcelFileDescriptor openFile(final Uri uri, final String mode)
+			throws FileNotFoundException {
+		Log.d(TAG, "openFile(" + uri.toString() + ")");
+		final File d = Environment.getExternalStorageDirectory();
+		final File f = new File(d, PACKAGE + File.separator
+				+ DataProvider.EXPORT_FILE);
+		return ParcelFileDescriptor
+				.open(f, ParcelFileDescriptor.MODE_READ_ONLY);
 	}
 }
