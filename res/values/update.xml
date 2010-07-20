@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
+		<item>v2.3.9: Support Samsung Galxy 3 GT-I5800, fix some FC</item>
 		<item>v2.3.8: Support Samsung Galxy S GT-I9000</item>
 		<item>v2.3.7: Add italian and norwegian translation</item>
 		<item>v2.3.6: Fix some bugs, inner changes</item>
