@@ -34,6 +34,7 @@ import android.widget.AdapterView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
@@ -44,7 +45,7 @@ import de.ub0r.android.callmeter.data.RuleMatcher;
  * @author flx
  */
 public class Plans extends ListActivity implements OnClickListener,
-		OnItemClickListener {
+		OnItemClickListener, OnItemLongClickListener {
 	/**
 	 * Adapter binding plans to View.
 	 * 
@@ -109,6 +110,7 @@ public class Plans extends ListActivity implements OnClickListener,
 		this.adapter = new PlanAdapter(this);
 		this.setListAdapter(this.adapter);
 		this.getListView().setOnItemClickListener(this);
+		this.getListView().setOnItemLongClickListener(this);
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.add).setOnClickListener(this);
 	}
@@ -178,8 +180,38 @@ public class Plans extends ListActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
+	public final void onClick(final View v) {
+		switch (v.getId()) {
+		case R.id.add:
+			final Intent intent = new Intent(this, PlanEdit.class);
+			this.startActivity(intent);
+			break;
+		case R.id.ok:
+			this.finish();
+			break;
+		default:
+			break;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public final void onItemClick(final AdapterView<?> parent, final View view,
 			final int position, final long id) {
+		final Intent intent = new Intent(this, PlanEdit.class);
+		intent.setData(ContentUris.withAppendedId(
+				DataProvider.Plans.CONTENT_URI, id));
+		this.startActivity(intent);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean onItemLongClick(final AdapterView<?> parent,
+			final View view, final int position, final long id) {
 		final Builder builder = new Builder(this);
 		builder.setItems(R.array.dialog_edit_up_down_delete,
 				new android.content.DialogInterface.OnClickListener() {
@@ -201,13 +233,9 @@ public class Plans extends ListActivity implements OnClickListener,
 							Plans.this.swap(position, 1);
 							break;
 						case WHICH_DELETE:
-							Plans.this
-									.getContentResolver()
-									.delete(
-											ContentUris
-													.withAppendedId(
-															DataProvider.Plans.CONTENT_URI,
-															id), null, null);
+							Plans.this.getContentResolver().delete(
+									ContentUris.withAppendedId(DataProvider.// .
+											Plans.CONTENT_URI, id), null, null);
 							break;
 						default:
 							break;
@@ -216,23 +244,6 @@ public class Plans extends ListActivity implements OnClickListener,
 				});
 		builder.setNegativeButton(android.R.string.cancel, null);
 		builder.show();
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.add:
-			final Intent intent = new Intent(this, PlanEdit.class);
-			this.startActivity(intent);
-			break;
-		case R.id.ok:
-			this.finish();
-			break;
-		default:
-			break;
-		}
+		return true;
 	}
 }

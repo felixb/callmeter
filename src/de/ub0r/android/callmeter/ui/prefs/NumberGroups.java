@@ -34,6 +34,7 @@ import android.widget.AdapterView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 
@@ -43,7 +44,7 @@ import de.ub0r.android.callmeter.data.DataProvider;
  * @author flx
  */
 public class NumberGroups extends ListActivity implements OnClickListener,
-		OnItemClickListener {
+		OnItemClickListener, OnItemLongClickListener {
 	/**
 	 * Adapter binding plans to View.
 	 * 
@@ -97,6 +98,7 @@ public class NumberGroups extends ListActivity implements OnClickListener,
 		this.setContentView(R.layout.list_ok_add);
 		this.setListAdapter(new NumberGroupAdapter(this));
 		this.getListView().setOnItemClickListener(this);
+		this.getListView().setOnItemLongClickListener(this);
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.add).setOnClickListener(this);
 	}
@@ -105,8 +107,46 @@ public class NumberGroups extends ListActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
+	public final void onClick(final View v) {
+		switch (v.getId()) {
+		case R.id.add:
+			final ContentValues cv = new ContentValues();
+			cv.put(DataProvider.NumbersGroup.NAME, this
+					.getString(R.string.new_numbergroup));
+			final Uri uri = this.getContentResolver().insert(
+					DataProvider.NumbersGroup.CONTENT_URI, cv);
+			final Intent intent = new Intent(this, NumberGroupEdit.class);
+			intent.setData(uri);
+			this.startActivity(intent);
+			break;
+		case R.id.ok:
+			this.setResult(RESULT_CANCELED);
+			this.finish();
+			break;
+		default:
+			break;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public final void onItemClick(final AdapterView<?> parent, final View view,
 			final int position, final long id) {
+		final Intent i = new Intent();
+		i.setData(ContentUris.withAppendedId(
+				DataProvider.NumbersGroup.CONTENT_URI, id));
+		this.setResult(RESULT_OK, i);
+		this.finish();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean onItemLongClick(final AdapterView<?> parent,
+			final View view, final int position, final long id) {
 		final Builder builder = new Builder(this);
 		builder.setItems(R.array.dialog_select_edit_delete,
 				new android.content.DialogInterface.OnClickListener() {
@@ -141,30 +181,6 @@ public class NumberGroups extends ListActivity implements OnClickListener,
 				});
 		builder.setNegativeButton(android.R.string.cancel, null);
 		builder.show();
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.add:
-			final ContentValues cv = new ContentValues();
-			cv.put(DataProvider.NumbersGroup.NAME, this
-					.getString(R.string.new_numbergroup));
-			final Uri uri = this.getContentResolver().insert(
-					DataProvider.NumbersGroup.CONTENT_URI, cv);
-			final Intent intent = new Intent(this, NumberGroupEdit.class);
-			intent.setData(uri);
-			this.startActivity(intent);
-			break;
-		case R.id.ok:
-			this.setResult(RESULT_CANCELED);
-			this.finish();
-			break;
-		default:
-			break;
-		}
+		return true;
 	}
 }
