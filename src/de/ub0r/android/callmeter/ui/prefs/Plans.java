@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein, The Android Open Source Project
+ * Copyright (C) 2009-2010 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -20,6 +20,7 @@ package de.ub0r.android.callmeter.ui.prefs;
 
 import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
+import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -27,17 +28,20 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
+import de.ub0r.android.lib.Log;
 
 /**
  * {@link ListActivity} for setting plans.
@@ -46,6 +50,9 @@ import de.ub0r.android.callmeter.data.RuleMatcher;
  */
 public class Plans extends ListActivity implements OnClickListener,
 		OnItemClickListener, OnItemLongClickListener {
+	/** Tag for output. */
+	private static final String TAG = "pp";
+
 	/**
 	 * Adapter binding plans to View.
 	 * 
@@ -113,6 +120,16 @@ public class Plans extends ListActivity implements OnClickListener,
 		this.getListView().setOnItemLongClickListener(this);
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.add).setOnClickListener(this);
+		this.findViewById(R.id.import_default).setOnClickListener(this);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void onResume() {
+		super.onResume();
+		this.showImportHint();
 	}
 
 	/**
@@ -183,11 +200,23 @@ public class Plans extends ListActivity implements OnClickListener,
 	public final void onClick(final View v) {
 		switch (v.getId()) {
 		case R.id.add:
-			final Intent intent = new Intent(this, PlanEdit.class);
+			Intent intent = new Intent(this, PlanEdit.class);
 			this.startActivity(intent);
 			break;
 		case R.id.ok:
 			this.finish();
+			break;
+		case R.id.import_default:
+			intent = new Intent(Intent.ACTION_VIEW, Uri.parse(this
+					.getString(R.string.url_rulesets)));
+			try {
+				this.startActivity(intent);
+			} catch (ActivityNotFoundException e) {
+				Log.e(TAG, "no activity to load url", e);
+				Toast.makeText(this,
+						"no activity to load url: " + intent.getDataString(),
+						Toast.LENGTH_LONG).show();
+			}
 			break;
 		default:
 			break;
@@ -245,5 +274,14 @@ public class Plans extends ListActivity implements OnClickListener,
 		builder.setNegativeButton(android.R.string.cancel, null);
 		builder.show();
 		return true;
+	}
+
+	/** Set the visability fo the import hint. */
+	private void showImportHint() {
+		int v = View.GONE;
+		if (this.getListView().getCount() == 0) {
+			v = View.VISIBLE;
+		}
+		this.findViewById(R.id.import_default).setVisibility(v);
 	}
 }

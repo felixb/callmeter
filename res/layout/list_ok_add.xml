@@ -21,9 +21,10 @@
 	xmlns:app="http://schemas.android.com/apk/res/de.ub0r.android.callmeter"
 	android:layout_height="fill_parent" android:layout_width="fill_parent">
 
-	<LinearLayout android:id="@+id/ok_add" android:layout_alignParentBottom="true"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:orientation="horizontal" style="@android:style/ButtonBar">
+	<LinearLayout android:id="@+id/ok_add"
+		android:layout_alignParentBottom="true" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:orientation="horizontal"
+		style="@android:style/ButtonBar">
 		<Button android:id="@+id/ok" android:text="@android:string/ok"
 			android:layout_width="fill_parent" android:layout_height="wrap_content"
 			android:layout_weight="1" />
@@ -31,9 +32,16 @@
 			android:layout_width="fill_parent" android:layout_height="wrap_content"
 			android:layout_weight="1" />
 	</LinearLayout>
-	<ListView android:id="@id/android:list" android:layout_width="fill_parent"
-		android:layout_height="fill_parent" android:drawSelectorOnTop="false"
-		android:scrollingCache="true" android:fastScrollEnabled="true"
-		android:choiceMode="singleChoice"
-		android:layout_above="@id/ok_add" />
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:layout_above="@id/ok_add">
+		<ListView android:id="@id/android:list" android:layout_width="fill_parent"
+			android:layout_height="fill_parent" android:drawSelectorOnTop="false"
+			android:scrollingCache="true" android:fastScrollEnabled="true"
+			android:choiceMode="singleChoice" />
+		<TextView android:id="@+id/import_default"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:gravity="center" android:singleLine="false"
+			android:text="@string/import_rules_empty"
+			android:layout_centerInParent="true" android:visibility="gone" />
+	</RelativeLayout>
 </RelativeLayout>
