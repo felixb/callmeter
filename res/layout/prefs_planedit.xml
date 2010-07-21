@@ -26,205 +26,201 @@
 		android:fillViewport="true">
 		<LinearLayout android:layout_width="fill_parent"
 			android:layout_height="fill_parent" android:orientation="vertical">
-			<RelativeLayout android:layout_width="fill_parent"
-				android:layout_height="wrap_content">
-				<Button android:id="@+id/name_help" android:text="@string/help_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" />
-				<EditText android:id="@+id/name_et" android:layout_width="150dip"
-					android:layout_height="wrap_content" android:layout_toLeftOf="@id/name_help" />
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal">
 				<TextView android:text="@string/name_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/name_et"
-					android:singleLine="false" android:layout_centerVertical="true" />
-			</RelativeLayout>
-			<RelativeLayout android:id="@+id/shortname_layout"
-				android:layout_width="fill_parent" android:layout_height="wrap_content">
-				<Button android:id="@+id/shortname_help" android:text="@string/help_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" />
-				<EditText android:id="@+id/shortname_et"
-					android:layout_width="150dip" android:layout_height="wrap_content"
-					android:layout_toLeftOf="@id/shortname_help" />
+					android:layout_width="wrap_content" android:layout_height="fill_parent"
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<EditText android:id="@+id/name_et" android:layout_width="150dip"
+					android:layout_height="wrap_content" />
+				<Button android:id="@+id/name_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+			<LinearLayout android:id="@+id/shortname_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:orientation="horizontal">
 				<TextView android:text="@string/shortname_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/shortname_et"
-					android:singleLine="false" android:layout_centerVertical="true" />
-			</RelativeLayout>
-			<RelativeLayout android:layout_width="fill_parent"
-				android:layout_height="wrap_content">
-				<Button android:id="@+id/type_help" android:text="@string/help_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" />
-				<Spinner android:id="@+id/type_sp" android:entries="@array/plans_type"
-					android:layout_width="150dip" android:layout_height="wrap_content"
-					android:layout_toLeftOf="@id/type_help" />
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<EditText android:id="@+id/shortname_et"
+					android:layout_width="150dip" android:layout_height="wrap_content" />
+				<Button android:id="@+id/shortname_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal">
 				<TextView android:text="@string/type_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/type_sp"
-					android:singleLine="false" android:layout_centerVertical="true" />
-			</RelativeLayout>
-			<RelativeLayout android:id="@+id/billperiodid_layout"
-				android:layout_width="fill_parent" android:layout_height="wrap_content">
-				<Button android:id="@+id/billperiodid_help" android:text="@string/help_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" />
-				<Button android:id="@+id/billperiodid_btn"
-					android:layout_width="150dip" android:layout_height="wrap_content"
-					android:layout_toLeftOf="@id/billperiodid_help" />
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<Spinner android:id="@+id/type_sp" android:entries="@array/plans_type"
+					android:layout_width="150dip" android:layout_height="wrap_content" />
+				<Button android:id="@+id/type_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+			<LinearLayout android:id="@+id/billperiodid_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:orientation="horizontal">
 				<TextView android:text="@string/billperiodid_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/billperiodid_btn"
-					android:singleLine="false" android:layout_centerVertical="true" />
-			</RelativeLayout>
-			<RelativeLayout android:id="@+id/limit_type_layout"
-				android:layout_width="fill_parent" android:layout_height="wrap_content">
-				<Button android:id="@+id/limit_type_help" android:text="@string/help_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" />
-				<Spinner android:id="@+id/limit_type_sp" android:entries="@array/limit_type"
-					android:layout_width="150dip" android:layout_height="wrap_content"
-					android:layout_toLeftOf="@id/limit_type_help" />
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<Button android:id="@+id/billperiodid_btn"
+					android:layout_width="150dip" android:layout_height="wrap_content" />
+				<Button android:id="@+id/billperiodid_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+			<LinearLayout android:id="@+id/limit_type_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:orientation="horizontal">
 				<TextView android:text="@string/limit_type_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/limit_type_sp"
-					android:singleLine="false" android:layout_centerVertical="true" />
-			</RelativeLayout>
-			<RelativeLayout android:id="@+id/limit_layout"
-				android:layout_width="fill_parent" android:layout_height="wrap_content">
-				<Button android:id="@+id/limit_help" android:text="@string/help_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" />
-				<EditText android:id="@+id/limit_et" android:layout_width="150dip"
-					android:layout_height="wrap_content" android:layout_toLeftOf="@id/limit_help" />
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<Spinner android:id="@+id/limit_type_sp" android:entries="@array/limit_type"
+					android:layout_width="150dip" android:layout_height="wrap_content" />
+				<Button android:id="@+id/limit_type_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+			<LinearLayout android:id="@+id/limit_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:orientation="horizontal">
 				<TextView android:text="@string/limit_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/limit_et"
-					android:singleLine="false" android:layout_centerVertical="true" />
-			</RelativeLayout>
-			<RelativeLayout android:id="@+id/billperiod_layout"
-				android:layout_width="fill_parent" android:layout_height="wrap_content">
-				<Button android:id="@+id/billperiod_help" android:text="@string/help_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" />
-				<Spinner android:id="@+id/billperiod_sp" android:entries="@array/billperiod"
-					android:layout_width="150dip" android:layout_height="wrap_content"
-					android:layout_toLeftOf="@id/billperiod_help" />
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<EditText android:id="@+id/limit_et" android:layout_width="150dip"
+					android:layout_height="wrap_content" />
+				<Button android:id="@+id/limit_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+			<LinearLayout android:id="@+id/billperiod_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:orientation="horizontal">
 				<TextView android:text="@string/billperiod_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/billperiod_sp"
-					android:singleLine="false" android:layout_centerVertical="true" />
-			</RelativeLayout>
-			<RelativeLayout android:id="@+id/billmode_layout"
-				android:layout_width="fill_parent" android:layout_height="wrap_content">
-				<Button android:id="@+id/billmode_help" android:text="@string/help_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" />
-				<Spinner android:id="@+id/billmode_sp" android:entries="@array/billmodes"
-					android:layout_width="150dip" android:layout_height="wrap_content"
-					android:layout_toLeftOf="@id/billmode_help" />
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<Spinner android:id="@+id/billperiod_sp" android:entries="@array/billperiod"
+					android:layout_width="150dip" android:layout_height="wrap_content" />
+				<Button android:id="@+id/billperiod_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+			<LinearLayout android:id="@+id/billmode_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:orientation="horizontal">
 				<TextView android:id="@+id/billmode_tw" android:text="@string/billmode_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/billmode_sp"
-					android:singleLine="false" android:layout_centerVertical="true" />
-				<EditText android:id="@+id/billmode_cust_2_et"
-					android:layout_width="75dip" android:layout_height="wrap_content"
-					android:layout_below="@id/billmode_sp" android:layout_toLeftOf="@id/billmode_help" />
-				<EditText android:id="@+id/billmode_cust_1_et"
-					android:layout_width="75dip" android:layout_height="wrap_content"
-					android:layout_below="@id/billmode_sp" android:layout_toLeftOf="@id/billmode_cust_2_et" />
-			</RelativeLayout>
-			<RelativeLayout android:id="@+id/billday_layout"
-				android:layout_width="fill_parent" android:layout_height="wrap_content">
-				<Button android:id="@+id/billday_help" android:text="@string/help_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" />
-				<Button android:id="@+id/billday_btn" android:layout_width="150dip"
-					android:layout_height="wrap_content" android:layout_toLeftOf="@id/billday_help" />
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<RelativeLayout android:layout_width="wrap_content"
+					android:layout_height="wrap_content">
+					<Spinner android:id="@+id/billmode_sp" android:entries="@array/billmodes"
+						android:layout_width="150dip" android:layout_height="wrap_content" />
+					<EditText android:id="@+id/billmode_cust_1_et"
+						android:layout_width="75dip" android:layout_height="wrap_content"
+						android:layout_below="@id/billmode_sp" android:layout_alignLeft="@id/billmode_sp" />
+					<EditText android:id="@+id/billmode_cust_2_et"
+						android:layout_width="75dip" android:layout_height="wrap_content"
+						android:layout_below="@id/billmode_sp" android:layout_alignRight="@id/billmode_sp" />
+				</RelativeLayout>
+				<Button android:id="@+id/billmode_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+			<LinearLayout android:id="@+id/billday_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:orientation="horizontal">
 				<TextView android:text="@string/billday_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/billday_btn"
-					android:singleLine="false" android:layout_centerVertical="true" />
-			</RelativeLayout>
-			<RelativeLayout android:id="@+id/cost_per_plan_layout"
-				android:layout_width="fill_parent" android:layout_height="wrap_content">
-				<Button android:id="@+id/cost_per_plan_help" android:text="@string/help_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" />
-				<EditText android:id="@+id/cost_per_plan_et"
-					android:layout_width="150dip" android:layout_height="wrap_content"
-					android:layout_toLeftOf="@id/cost_per_plan_help" />
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<Button android:id="@+id/billday_btn" android:layout_width="150dip"
+					android:layout_height="wrap_content" />
+				<Button android:id="@+id/billday_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+			<LinearLayout android:id="@+id/cost_per_plan_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:orientation="horizontal">
 				<TextView android:text="@string/cost_per_plan_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/cost_per_plan_et"
-					android:singleLine="false" android:layout_centerVertical="true" />
-			</RelativeLayout>
-			<RelativeLayout android:id="@+id/cost_per_item_in_limit_layout"
-				android:layout_width="fill_parent" android:layout_height="wrap_content">
-				<Button android:id="@+id/cost_per_item_in_limit_help"
-					android:text="@string/help_" android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" />
-				<EditText android:id="@+id/cost_per_item_in_limit_et"
-					android:layout_width="150dip" android:layout_height="wrap_content"
-					android:layout_toLeftOf="@id/cost_per_item_in_limit_help" />
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<EditText android:id="@+id/cost_per_plan_et"
+					android:layout_width="150dip" android:layout_height="wrap_content" />
+				<Button android:id="@+id/cost_per_plan_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+			<LinearLayout android:id="@+id/cost_per_item_in_limit_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:orientation="horizontal">
 				<TextView android:text="@string/cost_per_item_in_limit_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/cost_per_item_in_limit_et"
-					android:singleLine="false" android:layout_centerVertical="true" />
-			</RelativeLayout>
-			<RelativeLayout android:id="@+id/cost_per_item_layout"
-				android:layout_width="fill_parent" android:layout_height="wrap_content">
-				<Button android:id="@+id/cost_per_item_help" android:text="@string/help_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" />
-				<EditText android:id="@+id/cost_per_item_et"
-					android:layout_width="150dip" android:layout_height="wrap_content"
-					android:layout_toLeftOf="@id/cost_per_item_help" />
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<EditText android:id="@+id/cost_per_item_in_limit_et"
+					android:layout_width="150dip" android:layout_height="wrap_content" />
+				<Button android:id="@+id/cost_per_item_in_limit_help"
+					android:text="@string/help_" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" />
+			</LinearLayout>
+			<LinearLayout android:id="@+id/cost_per_item_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:orientation="horizontal">
 				<TextView android:text="@string/cost_per_item_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/cost_per_item_et"
-					android:singleLine="false" android:layout_centerVertical="true" />
-			</RelativeLayout>
-			<RelativeLayout android:id="@+id/cost_per_amount_in_limit_layout"
-				android:layout_width="fill_parent" android:layout_height="wrap_content">
-				<Button android:id="@+id/cost_per_amount_in_limit_help"
-					android:text="@string/help_" android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" />
-				<EditText android:id="@+id/cost_per_amount_in_limit_et"
-					android:layout_width="150dip" android:layout_height="wrap_content"
-					android:layout_toLeftOf="@id/cost_per_amount_in_limit_help" />
-				<EditText android:id="@+id/cost_per_amount_in_limit_et1"
-					android:layout_width="75dip" android:layout_height="wrap_content"
-					android:layout_alignLeft="@id/cost_per_amount_in_limit_et" />
-				<EditText android:id="@+id/cost_per_amount_in_limit_et2"
-					android:layout_width="75dip" android:layout_height="wrap_content"
-					android:layout_alignRight="@id/cost_per_amount_in_limit_et" />
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<EditText android:id="@+id/cost_per_item_et"
+					android:layout_width="150dip" android:layout_height="wrap_content" />
+				<Button android:id="@+id/cost_per_item_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+			<LinearLayout android:id="@+id/cost_per_amount_in_limit_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:orientation="horizontal">
 				<TextView android:text="@string/cost_per_amount_in_limit_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/cost_per_amount_in_limit_et"
-					android:singleLine="false" android:layout_centerVertical="true" />
-			</RelativeLayout>
-			<RelativeLayout android:id="@+id/cost_per_amount_layout"
-				android:layout_width="fill_parent" android:layout_height="wrap_content">
-				<Button android:id="@+id/cost_per_amount_help" android:text="@string/help_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" />
-				<EditText android:id="@+id/cost_per_amount_et"
-					android:layout_width="150dip" android:layout_height="wrap_content"
-					android:layout_toLeftOf="@id/cost_per_amount_help" />
-				<EditText android:id="@+id/cost_per_amount_et1"
-					android:layout_width="75dip" android:layout_height="wrap_content"
-					android:layout_alignLeft="@id/cost_per_amount_et" />
-				<EditText android:id="@+id/cost_per_amount_et2"
-					android:layout_width="75dip" android:layout_height="wrap_content"
-					android:layout_alignRight="@id/cost_per_amount_et" />
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<RelativeLayout android:layout_width="wrap_content"
+					android:layout_height="wrap_content">
+					<EditText android:id="@+id/cost_per_amount_in_limit_et"
+						android:layout_width="150dip" android:layout_height="wrap_content" />
+					<EditText android:id="@+id/cost_per_amount_in_limit_et1"
+						android:layout_width="75dip" android:layout_height="wrap_content"
+						android:layout_alignLeft="@id/cost_per_amount_in_limit_et" />
+					<EditText android:id="@+id/cost_per_amount_in_limit_et2"
+						android:layout_width="75dip" android:layout_height="wrap_content"
+						android:layout_alignRight="@id/cost_per_amount_in_limit_et" />
+				</RelativeLayout>
+				<Button android:id="@+id/cost_per_amount_in_limit_help"
+					android:text="@string/help_" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" />
+			</LinearLayout>
+			<LinearLayout android:id="@+id/cost_per_amount_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:orientation="horizontal">
 				<TextView android:text="@string/cost_per_amount_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/cost_per_amount_et"
-					android:singleLine="false" android:layout_centerVertical="true" />
-			</RelativeLayout>
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<RelativeLayout android:layout_width="wrap_content"
+					android:layout_height="wrap_content">
+					<EditText android:id="@+id/cost_per_amount_et"
+						android:layout_width="150dip" android:layout_height="wrap_content" />
+					<EditText android:id="@+id/cost_per_amount_et1"
+						android:layout_width="75dip" android:layout_height="wrap_content"
+						android:layout_alignLeft="@id/cost_per_amount_et" />
+					<EditText android:id="@+id/cost_per_amount_et2"
+						android:layout_width="75dip" android:layout_height="wrap_content"
+						android:layout_alignRight="@id/cost_per_amount_et" />
+				</RelativeLayout>
+				<Button android:id="@+id/cost_per_amount_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
 		</LinearLayout>
 	</ScrollView>
 

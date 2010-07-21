@@ -27,6 +27,7 @@ import java.io.InputStreamReader;
 import java.net.URLDecoder;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
@@ -51,7 +52,6 @@ import android.widget.Toast;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Log;
-import de.ub0r.android.lib.Utils;
 
 /**
  * Preferences.
@@ -320,7 +320,7 @@ public class Preferences extends PreferenceActivity {
 				final HttpResponse response = new DefaultHttpClient()
 						.execute(request);
 				int resp = response.getStatusLine().getStatusCode();
-				if (resp != Utils.HTTP_OK) {
+				if (resp != HttpStatus.SC_OK) {
 					return null;
 				}
 				return response.getEntity().getContent();

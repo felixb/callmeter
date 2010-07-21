@@ -297,19 +297,24 @@ public class Plans extends ListActivity implements OnItemLongClickListener {
 							View.GONE);
 				}
 				final long pid = cursor.getLong(DataProvider.Plans.INDEX_ID);
+				if (pid < 0) {
+					return;
+				}
 				long p = cursor.getLong(DataProvider.Plans.INDEX_BILLPERIOD);
 				final Calendar ps = Calendar.getInstance();
-				Cursor c = context.getContentResolver().query(
-						ContentUris.withAppendedId(
-								DataProvider.Plans.CONTENT_URI, p),
-						DataProvider.Plans.PROJECTION, null, null, null);
-				if (c != null && c.moveToFirst()) {
-					ps.setTimeInMillis(c
-							.getLong(DataProvider.Plans.INDEX_BILLDAY));
-					p = c.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
-				}
-				if (c != null && !c.isClosed()) {
-					c.close();
+				if (p >= 0) {
+					final Cursor c = context.getContentResolver().query(
+							ContentUris.withAppendedId(
+									DataProvider.Plans.CONTENT_URI, p),
+							DataProvider.Plans.PROJECTION, null, null, null);
+					if (c != null && c.moveToFirst()) {
+						ps.setTimeInMillis(c
+								.getLong(DataProvider.Plans.INDEX_BILLDAY));
+						p = c.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
+					}
+					if (c != null && !c.isClosed()) {
+						c.close();
+					}
 				}
 				final String where = DbUtils.sqlAnd(DataProvider.Plans
 						.getBilldayWhere((int) p, ps, this.now),
@@ -322,13 +327,13 @@ public class Plans extends ListActivity implements OnItemLongClickListener {
 				long allBilledAmount = 0;
 				int allCount = 0;
 
-				c = context.getContentResolver().query(
+				Cursor c = context.getContentResolver().query(
 						DataProvider.Logs.SUM_URI,
 						DataProvider.Logs.PROJECTION_SUM, where, null, null);
 				if (c != null && c.moveToFirst()) {
 					cost = c.getFloat(DataProvider.Logs.INDEX_SUM_COST);
-					billedAmount = c
-							.getLong(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
+					billedAmount = c.getLong(DataProvider.Logs.// .
+							INDEX_SUM_BILL_AMOUNT);
 					count = c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
 
 					Log.d(TAG, "plan: " + pid);
@@ -361,8 +366,8 @@ public class Plans extends ListActivity implements OnItemLongClickListener {
 						DataProvider.Logs.PROJECTION_SUM,
 						DataProvider.Logs.PLAN_ID + " = " + pid, null, null);
 				if (c != null && c.moveToFirst()) {
-					allBilledAmount = c
-							.getLong(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
+					allBilledAmount = c.getLong(DataProvider.Logs.// .
+							INDEX_SUM_BILL_AMOUNT);
 					allCount = c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
 				}
 				if (c != null && !c.isClosed()) {
