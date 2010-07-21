@@ -91,11 +91,14 @@ public class PlanEdit extends Activity implements OnClickListener,
 			etCostPerAmountInLimit2;
 	/** {@link EditText} holding cost per plan. */
 	private EditText etCostPerPlan = null;
+	/** {@link EditText} holding units for sms, mms, call in mixed plans. */
+	private EditText etMixedUnitsSMS, etMixedUnitsMMS, etMixedUnitsCall;
 
 	/** {@link View}s holding layout. */
 	private View llShortname, llLimitType, llLimit, llBillmode, llBillperiod,
 			llBillperiodId, llBillday, llCostPerItem, llCostPerAmount,
-			llCostPerItemInLimit, llCostPerAmountInLimit, llCostPerPlan;
+			llCostPerItemInLimit, llCostPerAmountInLimit, llCostPerPlan,
+			llMixedUnits;
 
 	/** First day of this bill period. */
 	private long billday = 0;
@@ -151,6 +154,12 @@ public class PlanEdit extends Activity implements OnClickListener,
 				.findViewById(R.id.cost_per_amount_in_limit_et2);
 		this.etCostPerPlan = (EditText) this
 				.findViewById(R.id.cost_per_plan_et);
+		this.etMixedUnitsCall = (EditText) this
+				.findViewById(R.id.mixed_units_call_et);
+		this.etMixedUnitsSMS = (EditText) this
+				.findViewById(R.id.mixed_units_sms_et);
+		this.etMixedUnitsMMS = (EditText) this
+				.findViewById(R.id.mixed_units_mms_et);
 
 		this.llShortname = this.findViewById(R.id.shortname_layout);
 		this.llLimitType = this.findViewById(R.id.limit_type_layout);
@@ -166,6 +175,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.llCostPerAmountInLimit = this
 				.findViewById(R.id.cost_per_amount_in_limit_layout);
 		this.llCostPerPlan = this.findViewById(R.id.cost_per_plan_layout);
+		this.llMixedUnits = this.findViewById(R.id.mixed_units_layout);
 
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.cancel).setOnClickListener(this);
@@ -186,6 +196,9 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.findViewById(R.id.cost_per_amount_in_limit_help)
 				.setOnClickListener(this);
 		this.findViewById(R.id.cost_per_plan_help).setOnClickListener(this);
+		this.findViewById(R.id.mixed_units_call_help).setOnClickListener(this);
+		this.findViewById(R.id.mixed_units_sms_help).setOnClickListener(this);
+		this.findViewById(R.id.mixed_units_mms_help).setOnClickListener(this);
 
 		this.fillFields();
 		this.fillBillday();
@@ -296,6 +309,12 @@ public class PlanEdit extends Activity implements OnClickListener,
 				.getString(DataProvider.Plans.INDEX_COST_PER_ITEM_IN_LIMIT));
 		this.etCostPerPlan.setText(cursor
 				.getString(DataProvider.Plans.INDEX_COST_PER_PLAN));
+		this.etMixedUnitsCall.setText(cursor
+				.getString(DataProvider.Plans.INDEX_MIXED_UNITS_CALL));
+		this.etMixedUnitsSMS.setText(cursor
+				.getString(DataProvider.Plans.INDEX_MIXED_UNITS_SMS));
+		this.etMixedUnitsMMS.setText(cursor
+				.getString(DataProvider.Plans.INDEX_MIXED_UNITS_MMS));
 
 		String s1 = cursor.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT1);
 		String s2 = cursor.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT2);
@@ -338,6 +357,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 			this.llBillperiod.setVisibility(View.GONE);
 			this.llCostPerAmount.setVisibility(View.GONE);
 			this.llCostPerAmountInLimit.setVisibility(View.GONE);
+			this.llMixedUnits.setVisibility(View.GONE);
 
 			this.llBillperiodId.setVisibility(View.VISIBLE);
 			this.llCostPerItem.setVisibility(View.VISIBLE);
@@ -350,6 +370,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 			this.llBillday.setVisibility(View.GONE);
 			this.llBillmode.setVisibility(View.GONE);
 			this.llBillperiod.setVisibility(View.GONE);
+			this.llMixedUnits.setVisibility(View.GONE);
 
 			this.llBillperiodId.setVisibility(View.VISIBLE);
 			this.llCostPerAmount.setVisibility(View.VISIBLE);
@@ -363,6 +384,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 		case DataProvider.TYPE_CALL:
 			this.llBillday.setVisibility(View.GONE);
 			this.llBillperiod.setVisibility(View.GONE);
+			this.llMixedUnits.setVisibility(View.GONE);
 
 			this.llBillmode.setVisibility(View.VISIBLE);
 			this.llBillperiodId.setVisibility(View.VISIBLE);
@@ -386,6 +408,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 			this.llCostPerItemInLimit.setVisibility(View.VISIBLE);
 			this.llCostPerPlan.setVisibility(View.VISIBLE);
 			this.llLimitType.setVisibility(View.VISIBLE);
+			this.llMixedUnits.setVisibility(View.VISIBLE);
 			this.llShortname.setVisibility(View.VISIBLE);
 			break;
 		case DataProvider.TYPE_SPACING:
@@ -399,6 +422,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 			this.llCostPerItemInLimit.setVisibility(View.GONE);
 			this.llCostPerPlan.setVisibility(View.GONE);
 			this.llLimitType.setVisibility(View.GONE);
+			this.llMixedUnits.setVisibility(View.GONE);
 			this.llShortname.setVisibility(View.GONE);
 			this.llLimit.setVisibility(View.GONE);
 			break;
@@ -416,6 +440,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 			this.llCostPerPlan.setVisibility(View.GONE);
 			this.llLimitType.setVisibility(View.GONE);
 			this.llLimit.setVisibility(View.GONE);
+			this.llMixedUnits.setVisibility(View.GONE);
 			break;
 		case DataProvider.TYPE_BILLPERIOD:
 			if (this.spBillperiod.getCount() <= this.billperiod) {
@@ -434,6 +459,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 			this.llCostPerPlan.setVisibility(View.GONE);
 			this.llLimitType.setVisibility(View.GONE);
 			this.llLimit.setVisibility(View.GONE);
+			this.llMixedUnits.setVisibility(View.GONE);
 			break;
 		default:
 			break;
@@ -506,7 +532,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 	 * @param t
 	 *            type of plan
 	 */
-	private final void savePlan(final int t) {
+	private void savePlan(final int t) {
 		final ContentValues cv = new ContentValues();
 		cv.put(DataProvider.Plans.NAME, this.etName.getText().toString());
 		cv.put(DataProvider.Plans.SHORTNAME, this.etShortname.getText()
@@ -561,6 +587,12 @@ public class PlanEdit extends Activity implements OnClickListener,
 		}
 		cv.put(DataProvider.Plans.COST_PER_PLAN, this.etCostPerPlan.getText()
 				.toString());
+		cv.put(DataProvider.Plans.MIXED_UNITS_CALL, this.etMixedUnitsCall
+				.getText().toString());
+		cv.put(DataProvider.Plans.MIXED_UNITS_SMS, this.etMixedUnitsSMS
+				.getText().toString());
+		cv.put(DataProvider.Plans.MIXED_UNITS_MMS, this.etMixedUnitsMMS
+				.getText().toString());
 
 		final Uri uri = this.getIntent().getData();
 		if (uri == null) {
@@ -678,6 +710,15 @@ public class PlanEdit extends Activity implements OnClickListener,
 			break;
 		case R.id.cost_per_plan_help:
 			this.showHelp(R.string.cost_per_plan_help);
+			break;
+		case R.id.mixed_units_call_help:
+			this.showHelp(R.string.mixed_units_call_help);
+			break;
+		case R.id.mixed_units_sms_help:
+			this.showHelp(R.string.mixed_units_sms_help);
+			break;
+		case R.id.mixed_units_mms_help:
+			this.showHelp(R.string.mixed_units_mms_help);
 			break;
 		default:
 			break;

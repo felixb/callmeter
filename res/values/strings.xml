@@ -172,6 +172,12 @@
 	<string name="cost_per_amount_in_limit_help">Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) as long as limit is not exeeded.</string>
 	<string name="cost_per_plan_">Cost per plan:</string>
 	<string name="cost_per_plan_help">Set the cost of the plan for one billing period as is.</string>
+	<string name="mixed_units_sms_">Units for a sms:</string>
+	<string name="mixed_units_sms_help">How much units are billed for a single sms?</string>
+	<string name="mixed_units_mms_">Units for a mms:</string>
+	<string name="mixed_units_mms_help">How much units are billed for a single mms?</string>
+	<string name="mixed_units_call_">Units for a call:</string>
+	<string name="mixed_units_call_help">How much units are billed for a one minute call?\nBill mode is taken into account here.</string>
 	<string name="plan_">Plan:</string>
 	<string name="plan_help">Choose the plan this rule should fit.</string>
 	<string name="negate_">Negate:</string>

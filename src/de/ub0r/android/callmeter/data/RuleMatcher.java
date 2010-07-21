@@ -386,6 +386,8 @@ public final class RuleMatcher {
 		private final float costPerItemInLimit;
 		/** Cost per amount in limit. */
 		private final float costPerAmountInLimit1, costPerAmountInLimit2;
+		/** Units for mixed plans. */
+		private final int mixedUnitsCall, mixedUnitsSMS, mixedUnitsMMS;
 
 		/** Last valid billday. */
 		private Calendar currentBillday = null;
@@ -431,6 +433,12 @@ public final class RuleMatcher {
 					INDEX_COST_PER_AMOUNT_IN_LIMIT1);
 			this.costPerAmountInLimit2 = cursor.getFloat(DataProvider.Plans.// .
 					INDEX_COST_PER_AMOUNT_IN_LIMIT2);
+			this.mixedUnitsCall = cursor
+					.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_CALL);
+			this.mixedUnitsSMS = cursor
+					.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_SMS);
+			this.mixedUnitsMMS = cursor
+					.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_MMS);
 
 			final int bp = cursor.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
 			if (bp >= 0) {
@@ -585,6 +593,24 @@ public final class RuleMatcher {
 			default:
 				break;
 			}
+
+			if (this.type == DataProvider.TYPE_MIXED) {
+				switch (t) {
+				case DataProvider.TYPE_CALL:
+					ret = (ret * this.mixedUnitsCall)
+							/ CallMeter.SECONDS_MINUTE;
+					break;
+				case DataProvider.TYPE_SMS:
+					ret = ret * this.mixedUnitsSMS;
+					break;
+				case DataProvider.TYPE_MMS:
+					ret = ret * this.mixedUnitsMMS;
+					break;
+				default:
+					break;
+				}
+			}
+
 			if (updatePlan) {
 				this.billedAmount += ret;
 			}

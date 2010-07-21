@@ -62,7 +62,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 10;
+	private static final int DATABASE_VERSION = 11;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -334,6 +334,12 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_COST_PER_AMOUNT_IN_LIMIT2 = 15;
 		/** Index in projection: Cost per plan. */
 		public static final int INDEX_COST_PER_PLAN = 16;
+		/** Index in projection: Mixed units for call. */
+		public static final int INDEX_MIXED_UNITS_CALL = 17;
+		/** Index in projection: Mixed units for sms. */
+		public static final int INDEX_MIXED_UNITS_SMS = 18;
+		/** Index in projection: Mixed units for mms. */
+		public static final int INDEX_MIXED_UNITS_MMS = 19;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -372,13 +378,20 @@ public final class DataProvider extends ContentProvider {
 		"_cost_per_amount_in_limit2";
 		/** Cost per plan. */
 		public static final String COST_PER_PLAN = "_cost_per_plan";
+		/** Mixed units for call. */
+		public static final String MIXED_UNITS_CALL = "_mixed_units_call";
+		/** Mixed units for sms. */
+		public static final String MIXED_UNITS_SMS = "_mixed_units_sms";
+		/** Mixed units for mms. */
+		public static final String MIXED_UNITS_MMS = "_mixed_units_mms";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, ORDER,
 				NAME, SHORTNAME, TYPE, LIMIT_TYPE, LIMIT, BILLMODE, BILLDAY,
 				BILLPERIOD, COST_PER_ITEM, COST_PER_AMOUNT1, COST_PER_AMOUNT2,
 				COST_PER_ITEM_IN_LIMIT, COST_PER_AMOUNT_IN_LIMIT1,
-				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN };
+				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN, MIXED_UNITS_CALL,
+				MIXED_UNITS_SMS, MIXED_UNITS_MMS };
 
 		/** Select only real plans. */
 		public static final String WHERE_REALPLANS = TYPE + " != "
@@ -421,6 +434,9 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(COST_PER_AMOUNT_IN_LIMIT2,
 					COST_PER_AMOUNT_IN_LIMIT2);
 			PROJECTION_MAP.put(COST_PER_PLAN, COST_PER_PLAN);
+			PROJECTION_MAP.put(MIXED_UNITS_CALL, MIXED_UNITS_CALL);
+			PROJECTION_MAP.put(MIXED_UNITS_SMS, MIXED_UNITS_SMS);
+			PROJECTION_MAP.put(MIXED_UNITS_MMS, MIXED_UNITS_MMS);
 		}
 
 		/**
@@ -449,7 +465,10 @@ public final class DataProvider extends ContentProvider {
 					+ COST_PER_ITEM_IN_LIMIT + " FLOAT,"// .
 					+ COST_PER_AMOUNT_IN_LIMIT1 + " FLOAT,"// .
 					+ COST_PER_AMOUNT_IN_LIMIT2 + " FLOAT,"// .
-					+ COST_PER_PLAN + " FLOAT" // .
+					+ COST_PER_PLAN + " FLOAT," // .
+					+ MIXED_UNITS_CALL + " INTEGER,"// .
+					+ MIXED_UNITS_SMS + " INTEGER,"// .
+					+ MIXED_UNITS_MMS + " INTEGER"// .
 					+ ");");
 		}
 

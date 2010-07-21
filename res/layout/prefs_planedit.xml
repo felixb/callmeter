@@ -60,6 +60,30 @@
 				<Button android:id="@+id/type_help" android:text="@string/help_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content" />
 			</LinearLayout>
+			<LinearLayout android:id="@+id/billperiod_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:orientation="horizontal">
+				<TextView android:text="@string/billperiod_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<Spinner android:id="@+id/billperiod_sp" android:entries="@array/billperiod"
+					android:layout_width="150dip" android:layout_height="wrap_content" />
+				<Button android:id="@+id/billperiod_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+			<LinearLayout android:id="@+id/billday_layout"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:orientation="horizontal">
+				<TextView android:text="@string/billday_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:singleLine="false" android:gravity="center_vertical"
+					android:layout_weight="1" />
+				<Button android:id="@+id/billday_btn" android:layout_width="150dip"
+					android:layout_height="wrap_content" />
+				<Button android:id="@+id/billday_help" android:text="@string/help_"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
 			<LinearLayout android:id="@+id/billperiodid_layout"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
 				android:orientation="horizontal">
@@ -96,18 +120,6 @@
 				<Button android:id="@+id/limit_help" android:text="@string/help_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content" />
 			</LinearLayout>
-			<LinearLayout android:id="@+id/billperiod_layout"
-				android:layout_width="fill_parent" android:layout_height="wrap_content"
-				android:orientation="horizontal">
-				<TextView android:text="@string/billperiod_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:singleLine="false" android:gravity="center_vertical"
-					android:layout_weight="1" />
-				<Spinner android:id="@+id/billperiod_sp" android:entries="@array/billperiod"
-					android:layout_width="150dip" android:layout_height="wrap_content" />
-				<Button android:id="@+id/billperiod_help" android:text="@string/help_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content" />
-			</LinearLayout>
 			<LinearLayout android:id="@+id/billmode_layout"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
 				android:orientation="horizontal">
@@ -129,17 +141,45 @@
 				<Button android:id="@+id/billmode_help" android:text="@string/help_"
 					android:layout_width="wrap_content" android:layout_height="wrap_content" />
 			</LinearLayout>
-			<LinearLayout android:id="@+id/billday_layout"
+			<LinearLayout android:id="@+id/mixed_units_layout"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
-				android:orientation="horizontal">
-				<TextView android:text="@string/billday_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:singleLine="false" android:gravity="center_vertical"
-					android:layout_weight="1" />
-				<Button android:id="@+id/billday_btn" android:layout_width="150dip"
-					android:layout_height="wrap_content" />
-				<Button android:id="@+id/billday_help" android:text="@string/help_"
-					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+				android:orientation="vertical">
+				<LinearLayout android:layout_width="fill_parent"
+					android:layout_height="wrap_content" android:orientation="horizontal">
+					<TextView android:id="@+id/mixed_units_call_tw"
+						android:text="@string/mixed_units_call_" android:layout_width="wrap_content"
+						android:layout_height="wrap_content" android:singleLine="false"
+						android:gravity="center_vertical" android:layout_weight="1" />
+					<EditText android:id="@+id/mixed_units_call_et"
+						android:layout_width="150dip" android:layout_height="wrap_content"
+						android:layout_below="@id/billmode_sp" />
+					<Button android:id="@+id/mixed_units_call_help" android:text="@string/help_"
+						android:layout_width="wrap_content" android:layout_height="wrap_content" />
+				</LinearLayout>
+				<LinearLayout android:layout_width="fill_parent"
+					android:layout_height="wrap_content" android:orientation="horizontal">
+					<TextView android:id="@+id/mixed_units_sms_tw"
+						android:text="@string/mixed_units_sms_" android:layout_width="wrap_content"
+						android:layout_height="wrap_content" android:singleLine="false"
+						android:gravity="center_vertical" android:layout_weight="1" />
+					<EditText android:id="@+id/mixed_units_sms_et"
+						android:layout_width="150dip" android:layout_height="wrap_content"
+						android:layout_below="@id/billmode_sp" />
+					<Button android:id="@+id/mixed_units_sms_help" android:text="@string/help_"
+						android:layout_width="wrap_content" android:layout_height="wrap_content" />
+				</LinearLayout>
+				<LinearLayout android:layout_width="fill_parent"
+					android:layout_height="wrap_content" android:orientation="horizontal">
+					<TextView android:id="@+id/mixed_units_mms_tw"
+						android:text="@string/mixed_units_mms_" android:layout_width="wrap_content"
+						android:layout_height="wrap_content" android:singleLine="false"
+						android:gravity="center_vertical" android:layout_weight="1" />
+					<EditText android:id="@+id/mixed_units_mms_et"
+						android:layout_width="150dip" android:layout_height="wrap_content"
+						android:layout_below="@id/billmode_sp" />
+					<Button android:id="@+id/mixed_units_mms_help" android:text="@string/help_"
+						android:layout_width="wrap_content" android:layout_height="wrap_content" />
+				</LinearLayout>
 			</LinearLayout>
 			<LinearLayout android:id="@+id/cost_per_plan_layout"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
