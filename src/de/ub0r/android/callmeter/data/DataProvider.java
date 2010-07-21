@@ -62,7 +62,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 7;
+	private static final int DATABASE_VERSION = 10;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -77,14 +77,14 @@ public final class DataProvider extends ContentProvider {
 	/** {@link Uri} for the actual export file. */
 	public static final String EXPORT_FILE = "ruleset.export";
 
-	/** Type of log: mixed. */
-	public static final int TYPE_MIXED = 0;
 	/** Type of log: title. */
-	public static final int TYPE_TITLE = 1;
+	public static final int TYPE_TITLE = 0;
 	/** Type of log: spacing. */
-	public static final int TYPE_SPACING = 2;
+	public static final int TYPE_SPACING = 1;
 	/** Type of log: billmode. */
-	public static final int TYPE_BILLPERIOD = 3;
+	public static final int TYPE_BILLPERIOD = 2;
+	/** Type of log: mixed. */
+	public static final int TYPE_MIXED = 3;
 	/** Type of log: call. */
 	public static final int TYPE_CALL = 4;
 	/** Type of log: sms. */
@@ -110,12 +110,20 @@ public final class DataProvider extends ContentProvider {
 	public static final int BILLPERIOD_DAY = 0;
 	/** Bill period: one week. */
 	public static final int BILLPERIOD_WEEK = 1;
-	/** Bill period: one 30 days. */
+	/** Bill period: 30 days. */
 	public static final int BILLPERIOD_30D = 2;
-	/** Bill period: month. */
-	public static final int BILLPERIOD_MONTH = 3;
+	/** Bill period: 60 days. */
+	public static final int BILLPERIOD_60D = 3;
+	/** Bill period: 90 days. */
+	public static final int BILLPERIOD_90D = 4;
+	/** Bill period: 1 month. */
+	public static final int BILLPERIOD_1MONTH = 5;
+	/** Bill period: 2 month. */
+	public static final int BILLPERIOD_2MONTH = 6;
+	/** Bill period: 3 month. */
+	public static final int BILLPERIOD_3MONTH = 7;
 	/** Bill period: infinite. */
-	public static final int BILLPERIOD_INFINITE = 4;
+	public static final int BILLPERIOD_INFINITE = 8;
 
 	/** Plan/rule id: not yet calculated. */
 	public static final int NO_ID = -1;
@@ -314,12 +322,18 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_BILLPERIOD = 9;
 		/** Index in projection: Cost per item. */
 		public static final int INDEX_COST_PER_ITEM = 10;
-		/** Index in projection: Cost per amount. */
-		public static final int INDEX_COST_PER_AMOUNT = 11;
+		/** Index in projection: Cost per amount1. */
+		public static final int INDEX_COST_PER_AMOUNT1 = 11;
+		/** Index in projection: Cost per amount2. */
+		public static final int INDEX_COST_PER_AMOUNT2 = 12;
 		/** Index in projection: Cost per item in limit. */
-		public static final int INDEX_COST_PER_ITEM_IN_LIMIT = 12;
+		public static final int INDEX_COST_PER_ITEM_IN_LIMIT = 13;
+		/** Index in projection: Cost per amount1 in limit. */
+		public static final int INDEX_COST_PER_AMOUNT_IN_LIMIT1 = 14;
+		/** Index in projection: Cost per amount2 in limit. */
+		public static final int INDEX_COST_PER_AMOUNT_IN_LIMIT2 = 15;
 		/** Index in projection: Cost per plan. */
-		public static final int INDEX_COST_PER_PLAN = 13;
+		public static final int INDEX_COST_PER_PLAN = 16;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -343,19 +357,28 @@ public final class DataProvider extends ContentProvider {
 		public static final String BILLPERIOD = "_billperiod";
 		/** Cost per item. */
 		public static final String COST_PER_ITEM = "_cost_per_item";
-		/** Cost per amount. */
-		public static final String COST_PER_AMOUNT = "_cost_per_amount";
+		/** Cost per amount1. */
+		public static final String COST_PER_AMOUNT1 = "_cost_per_amount1";
+		/** Cost per amount2. */
+		public static final String COST_PER_AMOUNT2 = "_cost_per_amount2";
 		/** Cost per item in limit. */
 		public static final String COST_PER_ITEM_IN_LIMIT = // .
 		"_cost_per_item_in_limit";
+		/** Cost per amount1 in limit. */
+		public static final String COST_PER_AMOUNT_IN_LIMIT1 = // .
+		"_cost_per_amount_in_limit1";
+		/** Cost per amount2 in limit. */
+		public static final String COST_PER_AMOUNT_IN_LIMIT2 = // .
+		"_cost_per_amount_in_limit2";
 		/** Cost per plan. */
 		public static final String COST_PER_PLAN = "_cost_per_plan";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, ORDER,
 				NAME, SHORTNAME, TYPE, LIMIT_TYPE, LIMIT, BILLMODE, BILLDAY,
-				BILLPERIOD, COST_PER_ITEM, COST_PER_AMOUNT,
-				COST_PER_ITEM_IN_LIMIT, COST_PER_PLAN };
+				BILLPERIOD, COST_PER_ITEM, COST_PER_AMOUNT1, COST_PER_AMOUNT2,
+				COST_PER_ITEM_IN_LIMIT, COST_PER_AMOUNT_IN_LIMIT1,
+				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN };
 
 		/** Select only real plans. */
 		public static final String WHERE_REALPLANS = TYPE + " != "
@@ -390,8 +413,13 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(BILLDAY, BILLDAY);
 			PROJECTION_MAP.put(BILLPERIOD, BILLPERIOD);
 			PROJECTION_MAP.put(COST_PER_ITEM, COST_PER_ITEM);
-			PROJECTION_MAP.put(COST_PER_AMOUNT, COST_PER_AMOUNT);
+			PROJECTION_MAP.put(COST_PER_AMOUNT1, COST_PER_AMOUNT1);
+			PROJECTION_MAP.put(COST_PER_AMOUNT2, COST_PER_AMOUNT2);
 			PROJECTION_MAP.put(COST_PER_ITEM_IN_LIMIT, COST_PER_ITEM_IN_LIMIT);
+			PROJECTION_MAP.put(COST_PER_AMOUNT_IN_LIMIT1,
+					COST_PER_AMOUNT_IN_LIMIT1);
+			PROJECTION_MAP.put(COST_PER_AMOUNT_IN_LIMIT2,
+					COST_PER_AMOUNT_IN_LIMIT2);
 			PROJECTION_MAP.put(COST_PER_PLAN, COST_PER_PLAN);
 		}
 
@@ -399,11 +427,9 @@ public final class DataProvider extends ContentProvider {
 		 * Create table in {@link SQLiteDatabase}.
 		 * 
 		 * @param db
-		 *            {@link SQLiteDatabase} * @param fillDefault fill initial
-		 *            data
+		 *            {@link SQLiteDatabase}
 		 */
-		public static void onCreate(final SQLiteDatabase db,
-				final boolean fillDefault) {
+		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
@@ -418,42 +444,13 @@ public final class DataProvider extends ContentProvider {
 					+ BILLDAY + " LONG,"// .
 					+ BILLPERIOD + " LONG,"// .
 					+ COST_PER_ITEM + " FLOAT,"// .
-					+ COST_PER_AMOUNT + " FLOAT,"// .
+					+ COST_PER_AMOUNT1 + " FLOAT,"// .
+					+ COST_PER_AMOUNT2 + " FLOAT,"// .
 					+ COST_PER_ITEM_IN_LIMIT + " FLOAT,"// .
+					+ COST_PER_AMOUNT_IN_LIMIT1 + " FLOAT,"// .
+					+ COST_PER_AMOUNT_IN_LIMIT2 + " FLOAT,"// .
 					+ COST_PER_PLAN + " FLOAT" // .
 					+ ");");
-			if (!fillDefault) {
-				return;
-			}
-
-			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ", " + ORDER
-					+ ") VALUES ('Calls', 'Calls', " + TYPE_TITLE + ", 0 )");
-			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + "," + LIMIT + "," + LIMIT_TYPE + ", "
-					+ ORDER + ") VALUES ('Calls', 'Calls', " + TYPE_CALL
-					+ ", 10, " + LIMIT_TYPE_UNITS + ", 1 )");
-			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ", " + ORDER + ") VALUES ('space', '-', "
-					+ TYPE_SPACING + ", 2 )");
-			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ", " + ORDER + ") VALUES ('SMS', 'SMS', "
-					+ TYPE_TITLE + ", 3)");
-			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ", " + ORDER + ") VALUES ('SMS in', 'In', "
-					+ TYPE_SMS + ", 4)");
-			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ", " + ORDER
-					+ ") VALUES ('SMS out', 'Out', " + TYPE_SMS + ", 5)");
-			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ", " + ORDER + ") VALUES ('space', '-', "
-					+ TYPE_SPACING + ", 6)");
-			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ", " + ORDER
-					+ ") VALUES ('Data/UMTS', 'Data', " + TYPE_TITLE + ", 7)");
-			db.execSQL("INSERT INTO " + TABLE + "(" + NAME + "," + SHORTNAME
-					+ "," + TYPE + ", " + ORDER + ") VALUES ('Data', 'Data', "
-					+ TYPE_DATA + ", 8)");
 		}
 
 		/**
@@ -470,7 +467,7 @@ public final class DataProvider extends ContentProvider {
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
-			onCreate(db, values == null);
+			onCreate(db);
 			reload(db, TABLE, values);
 		}
 
@@ -584,9 +581,25 @@ public final class DataProvider extends ContentProvider {
 				f = Calendar.DAY_OF_MONTH;
 				v = 30;
 				break;
-			case BILLPERIOD_MONTH:
+			case BILLPERIOD_60D:
+				f = Calendar.DAY_OF_MONTH;
+				v = 60;
+				break;
+			case BILLPERIOD_90D:
+				f = Calendar.DAY_OF_MONTH;
+				v = 90;
+				break;
+			case BILLPERIOD_1MONTH:
 				f = Calendar.MONTH;
 				v = 1;
+				break;
+			case BILLPERIOD_2MONTH:
+				f = Calendar.MONTH;
+				v = 2;
+				break;
+			case BILLPERIOD_3MONTH:
+				f = Calendar.MONTH;
+				v = 3;
 				break;
 			case BILLPERIOD_WEEK:
 				f = Calendar.DAY_OF_MONTH;
@@ -1276,7 +1289,7 @@ public final class DataProvider extends ContentProvider {
 		public void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create database");
 			Logs.onCreate(db);
-			Plans.onCreate(db, false);
+			Plans.onCreate(db);
 			Rules.onCreate(db);
 			Numbers.onCreate(db);
 			NumbersGroup.onCreate(db);
@@ -1463,7 +1476,7 @@ public final class DataProvider extends ContentProvider {
 				return null;
 			}
 			final String str = err.split(":", 3)[1].trim();
-			return backup(db, table, cols, str);
+			return backup(db, table, proj, str);
 		}
 		if (cursor != null && cursor.moveToFirst()) {
 			do {

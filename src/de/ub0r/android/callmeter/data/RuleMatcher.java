@@ -381,9 +381,11 @@ public final class RuleMatcher {
 		/** Cost per item. */
 		private final float costPerItem;
 		/** Cost per amount. */
-		private final float costPerAmount;
+		private final float costPerAmount1, costPerAmount2;
 		/** Cost per item in limit. */
 		private final float costPerItemInLimit;
+		/** Cost per amount in limit. */
+		private final float costPerAmountInLimit1, costPerAmountInLimit2;
 
 		/** Last valid billday. */
 		private Calendar currentBillday = null;
@@ -419,10 +421,16 @@ public final class RuleMatcher {
 
 			this.costPerItem = cursor
 					.getFloat(DataProvider.Plans.INDEX_COST_PER_ITEM);
-			this.costPerAmount = cursor
-					.getFloat(DataProvider.Plans.INDEX_COST_PER_AMOUNT);
+			this.costPerAmount1 = cursor
+					.getFloat(DataProvider.Plans.INDEX_COST_PER_AMOUNT1);
+			this.costPerAmount2 = cursor
+					.getFloat(DataProvider.Plans.INDEX_COST_PER_AMOUNT2);
 			this.costPerItemInLimit = cursor
 					.getFloat(DataProvider.Plans.INDEX_COST_PER_ITEM_IN_LIMIT);
+			this.costPerAmountInLimit1 = cursor.getFloat(DataProvider.Plans.// .
+					INDEX_COST_PER_AMOUNT_IN_LIMIT1);
+			this.costPerAmountInLimit2 = cursor.getFloat(DataProvider.Plans.// .
+					INDEX_COST_PER_AMOUNT_IN_LIMIT2);
 
 			final int bp = cursor.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
 			if (bp >= 0) {
@@ -597,24 +605,40 @@ public final class RuleMatcher {
 		float getCost(final Cursor log, final long bAmount,
 				final boolean updatePlan) {
 			float ret = 0;
+			float cpi, cpa1, cpa2;
 			if (this.limitType != DataProvider.LIMIT_TYPE_NONE
 					&& this.isInLimit()) {
-				ret += this.costPerItemInLimit;
+				cpi = this.costPerItemInLimit;
+				cpa1 = this.costPerAmountInLimit1;
+				cpa2 = this.costPerAmountInLimit2;
 			} else {
-				ret += this.costPerItem;
-				final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
-				switch (t) {
-				case DataProvider.TYPE_CALL:
-					ret += (this.costPerAmount * bAmount)
-							/ CallMeter.SECONDS_MINUTE;
-					break;
-				case DataProvider.TYPE_DATA:
-					ret += (this.costPerAmount * bAmount) / CallMeter.BYTE_MB;
-					break;
-				default:
-					break;
-				}
+				cpi = this.costPerItem;
+				cpa1 = this.costPerAmount1;
+				cpa2 = this.costPerAmount2;
 			}
+
+			ret += cpi;
+
+			final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
+			switch (t) {
+			case DataProvider.TYPE_CALL:
+				if (bAmount <= this.billModeFirstLength) {
+					ret += (cpa1 * bAmount) / CallMeter.SECONDS_MINUTE;
+				} else {
+					ret += (cpa1 * this.billModeFirstLength)
+							/ CallMeter.SECONDS_MINUTE;
+					ret += (cpa2 * (bAmount - // .
+							this.billModeFirstLength))
+							/ CallMeter.SECONDS_MINUTE;
+				}
+				break;
+			case DataProvider.TYPE_DATA:
+				ret += (cpa1 * bAmount) / CallMeter.BYTE_MB;
+				break;
+			default:
+				break;
+			}
+
 			if (updatePlan) {
 				this.billedCost += ret;
 			}

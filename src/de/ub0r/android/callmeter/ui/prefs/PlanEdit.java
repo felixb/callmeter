@@ -83,16 +83,19 @@ public class PlanEdit extends Activity implements OnClickListener,
 	/** {@link EditText} holding cost per item. */
 	private EditText etCostPerItem = null;
 	/** {@link EditText} holding cost per amount. */
-	private EditText etCostPerAmount = null;
+	private EditText etCostPerAmount, etCostPerAmount1, etCostPerAmount2;
 	/** {@link EditText} holding cost per item in limit. */
 	private EditText etCostPerItemInLimit = null;
+	/** {@link EditText} holding cost per amount in limit. */
+	private EditText etCostPerAmountInLimit, etCostPerAmountInLimit1,
+			etCostPerAmountInLimit2;
 	/** {@link EditText} holding cost per plan. */
 	private EditText etCostPerPlan = null;
 
 	/** {@link View}s holding layout. */
 	private View llShortname, llLimitType, llLimit, llBillmode, llBillperiod,
 			llBillperiodId, llBillday, llCostPerItem, llCostPerAmount,
-			llCostPerItemInLimit, llCostPerPlan;
+			llCostPerItemInLimit, llCostPerAmountInLimit, llCostPerPlan;
 
 	/** First day of this bill period. */
 	private long billday = 0;
@@ -116,6 +119,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.spType = (Spinner) this.findViewById(R.id.type_sp);
 		this.spType.setOnItemSelectedListener(this);
 		this.spLimitType = (Spinner) this.findViewById(R.id.limit_type_sp);
+		this.spLimitType.setOnItemSelectedListener(this);
 		this.etLimit = (EditText) this.findViewById(R.id.limit_et);
 		this.spBillmode = (Spinner) this.findViewById(R.id.billmode_sp);
 		this.spBillmode.setOnItemSelectedListener(this);
@@ -124,6 +128,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.etBillmodeCust2 = (EditText) this
 				.findViewById(R.id.billmode_cust_2_et);
 		this.spBillperiod = (Spinner) this.findViewById(R.id.billperiod_sp);
+		this.spBillperiod.setOnItemSelectedListener(this);
 		this.btnBillperiodId = (Button) this
 				.findViewById(R.id.billperiodid_btn);
 		this.btnBillday = (Button) this.findViewById(R.id.billday_btn);
@@ -132,8 +137,18 @@ public class PlanEdit extends Activity implements OnClickListener,
 				.findViewById(R.id.cost_per_item_et);
 		this.etCostPerAmount = (EditText) this
 				.findViewById(R.id.cost_per_amount_et);
+		this.etCostPerAmount1 = (EditText) this
+				.findViewById(R.id.cost_per_amount_et1);
+		this.etCostPerAmount2 = (EditText) this
+				.findViewById(R.id.cost_per_amount_et2);
 		this.etCostPerItemInLimit = (EditText) this
 				.findViewById(R.id.cost_per_item_in_limit_et);
+		this.etCostPerAmountInLimit = (EditText) this
+				.findViewById(R.id.cost_per_amount_in_limit_et);
+		this.etCostPerAmountInLimit1 = (EditText) this
+				.findViewById(R.id.cost_per_amount_in_limit_et1);
+		this.etCostPerAmountInLimit2 = (EditText) this
+				.findViewById(R.id.cost_per_amount_in_limit_et2);
 		this.etCostPerPlan = (EditText) this
 				.findViewById(R.id.cost_per_plan_et);
 
@@ -148,6 +163,8 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.llCostPerItem = this.findViewById(R.id.cost_per_item_layout);
 		this.llCostPerItemInLimit = this
 				.findViewById(R.id.cost_per_item_in_limit_layout);
+		this.llCostPerAmountInLimit = this
+				.findViewById(R.id.cost_per_amount_in_limit_layout);
 		this.llCostPerPlan = this.findViewById(R.id.cost_per_plan_layout);
 
 		this.findViewById(R.id.ok).setOnClickListener(this);
@@ -166,6 +183,8 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.findViewById(R.id.cost_per_amount_help).setOnClickListener(this);
 		this.findViewById(R.id.cost_per_item_in_limit_help).setOnClickListener(
 				this);
+		this.findViewById(R.id.cost_per_amount_in_limit_help)
+				.setOnClickListener(this);
 		this.findViewById(R.id.cost_per_plan_help).setOnClickListener(this);
 
 		this.fillFields();
@@ -258,7 +277,11 @@ public class PlanEdit extends Activity implements OnClickListener,
 			this.etBillmodeCust2.setText(billmodeParts[1]);
 		}
 		this.billperiod = cursor.getLong(DataProvider.Plans.INDEX_BILLPERIOD);
-		this.spBillperiod.setSelection((int) this.billperiod);
+		if (this.spBillperiod.getCount() > this.billperiod) {
+			this.spBillperiod.setSelection((int) this.billperiod);
+		} else {
+			this.spBillperiod.setSelection(DataProvider.BILLPERIOD_INFINITE);
+		}
 		this.billday = cursor.getLong(DataProvider.Plans.INDEX_BILLDAY);
 		Calendar calBD = Calendar.getInstance();
 		calBD.setTimeInMillis(this.billday);
@@ -269,12 +292,24 @@ public class PlanEdit extends Activity implements OnClickListener,
 		}
 		this.etCostPerItem.setText(cursor
 				.getString(DataProvider.Plans.INDEX_COST_PER_ITEM));
-		this.etCostPerAmount.setText(cursor
-				.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT));
 		this.etCostPerItemInLimit.setText(cursor
 				.getString(DataProvider.Plans.INDEX_COST_PER_ITEM_IN_LIMIT));
 		this.etCostPerPlan.setText(cursor
 				.getString(DataProvider.Plans.INDEX_COST_PER_PLAN));
+
+		String s1 = cursor.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT1);
+		String s2 = cursor.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT2);
+		this.etCostPerAmount.setText(s1);
+		this.etCostPerAmount1.setText(s1);
+		this.etCostPerAmount2.setText(s2);
+
+		s1 = cursor
+				.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT_IN_LIMIT1);
+		s2 = cursor
+				.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT_IN_LIMIT2);
+		this.etCostPerAmountInLimit.setText(s1);
+		this.etCostPerAmountInLimit1.setText(s1);
+		this.etCostPerAmountInLimit2.setText(s2);
 
 		cursor.close();
 	}
@@ -291,68 +326,165 @@ public class PlanEdit extends Activity implements OnClickListener,
 	 * Show or hide fields based on data in there.
 	 */
 	private void showHideFileds() {
+		this.spType.setOnItemSelectedListener(null);
+		this.spLimitType.setOnItemSelectedListener(null);
+		this.spBillperiod.setOnItemSelectedListener(null);
 		final int t = this.spType.getSelectedItemPosition();
-
 		switch (t) {
 		case DataProvider.TYPE_MMS:
 		case DataProvider.TYPE_SMS:
-			this.llCostPerAmount.setVisibility(View.GONE);
-		case DataProvider.TYPE_DATA:
+			this.llBillday.setVisibility(View.GONE);
 			this.llBillmode.setVisibility(View.GONE);
-			this.llCostPerItemInLimit.setVisibility(View.GONE);
+			this.llBillperiod.setVisibility(View.GONE);
+			this.llCostPerAmount.setVisibility(View.GONE);
+			this.llCostPerAmountInLimit.setVisibility(View.GONE);
+
+			this.llBillperiodId.setVisibility(View.VISIBLE);
+			this.llCostPerItem.setVisibility(View.VISIBLE);
+			this.llCostPerItemInLimit.setVisibility(View.VISIBLE);
+			this.llCostPerPlan.setVisibility(View.VISIBLE);
+			this.llLimitType.setVisibility(View.VISIBLE);
+			this.llShortname.setVisibility(View.VISIBLE);
+			break;
+		case DataProvider.TYPE_DATA:
+			this.llBillday.setVisibility(View.GONE);
+			this.llBillmode.setVisibility(View.GONE);
+			this.llBillperiod.setVisibility(View.GONE);
+
+			this.llBillperiodId.setVisibility(View.VISIBLE);
+			this.llCostPerAmount.setVisibility(View.VISIBLE);
+			this.llCostPerAmountInLimit.setVisibility(View.VISIBLE);
+			this.llCostPerItem.setVisibility(View.VISIBLE);
+			this.llCostPerItemInLimit.setVisibility(View.VISIBLE);
+			this.llCostPerPlan.setVisibility(View.VISIBLE);
+			this.llLimitType.setVisibility(View.VISIBLE);
+			this.llShortname.setVisibility(View.VISIBLE);
+			break;
 		case DataProvider.TYPE_CALL:
 			this.llBillday.setVisibility(View.GONE);
 			this.llBillperiod.setVisibility(View.GONE);
+
+			this.llBillmode.setVisibility(View.VISIBLE);
+			this.llBillperiodId.setVisibility(View.VISIBLE);
+			this.llCostPerAmount.setVisibility(View.VISIBLE);
+			this.llCostPerAmountInLimit.setVisibility(View.VISIBLE);
+			this.llCostPerItem.setVisibility(View.VISIBLE);
+			this.llCostPerItemInLimit.setVisibility(View.VISIBLE);
+			this.llCostPerPlan.setVisibility(View.VISIBLE);
+			this.llLimitType.setVisibility(View.VISIBLE);
+			this.llShortname.setVisibility(View.VISIBLE);
 			break;
 		case DataProvider.TYPE_MIXED:
 			this.llBillday.setVisibility(View.GONE);
 			this.llBillperiod.setVisibility(View.GONE);
 			this.llCostPerAmount.setVisibility(View.GONE);
+			this.llCostPerAmountInLimit.setVisibility(View.GONE);
+
+			this.llBillmode.setVisibility(View.VISIBLE);
+			this.llBillperiodId.setVisibility(View.VISIBLE);
+			this.llCostPerItem.setVisibility(View.VISIBLE);
+			this.llCostPerItemInLimit.setVisibility(View.VISIBLE);
+			this.llCostPerPlan.setVisibility(View.VISIBLE);
+			this.llLimitType.setVisibility(View.VISIBLE);
+			this.llShortname.setVisibility(View.VISIBLE);
 			break;
 		case DataProvider.TYPE_SPACING:
-			this.llShortname.setVisibility(View.GONE);
-		case DataProvider.TYPE_TITLE:
 			this.llBillday.setVisibility(View.GONE);
-			this.llBillperiod.setVisibility(View.GONE);
-		case DataProvider.TYPE_BILLPERIOD:
-			this.llLimitType.setVisibility(View.GONE);
-			this.llLimit.setVisibility(View.GONE);
 			this.llBillmode.setVisibility(View.GONE);
+			this.llBillperiod.setVisibility(View.GONE);
 			this.llBillperiodId.setVisibility(View.GONE);
 			this.llCostPerAmount.setVisibility(View.GONE);
+			this.llCostPerAmountInLimit.setVisibility(View.GONE);
 			this.llCostPerItem.setVisibility(View.GONE);
 			this.llCostPerItemInLimit.setVisibility(View.GONE);
 			this.llCostPerPlan.setVisibility(View.GONE);
+			this.llLimitType.setVisibility(View.GONE);
+			this.llShortname.setVisibility(View.GONE);
+			this.llLimit.setVisibility(View.GONE);
+			break;
+		case DataProvider.TYPE_TITLE:
+			this.llShortname.setVisibility(View.VISIBLE);
+
+			this.llBillday.setVisibility(View.GONE);
+			this.llBillmode.setVisibility(View.GONE);
+			this.llBillperiod.setVisibility(View.GONE);
+			this.llBillperiodId.setVisibility(View.GONE);
+			this.llCostPerAmount.setVisibility(View.GONE);
+			this.llCostPerAmountInLimit.setVisibility(View.GONE);
+			this.llCostPerItem.setVisibility(View.GONE);
+			this.llCostPerItemInLimit.setVisibility(View.GONE);
+			this.llCostPerPlan.setVisibility(View.GONE);
+			this.llLimitType.setVisibility(View.GONE);
+			this.llLimit.setVisibility(View.GONE);
+			break;
+		case DataProvider.TYPE_BILLPERIOD:
+			if (this.spBillperiod.getCount() <= this.billperiod) {
+				this.spBillperiod
+						.setSelection(DataProvider.BILLPERIOD_INFINITE);
+			}
+			this.llShortname.setVisibility(View.VISIBLE);
+			this.llBillperiod.setVisibility(View.VISIBLE);
+
+			this.llBillmode.setVisibility(View.GONE);
+			this.llBillperiodId.setVisibility(View.GONE);
+			this.llCostPerAmount.setVisibility(View.GONE);
+			this.llCostPerAmountInLimit.setVisibility(View.GONE);
+			this.llCostPerItem.setVisibility(View.GONE);
+			this.llCostPerItemInLimit.setVisibility(View.GONE);
+			this.llCostPerPlan.setVisibility(View.GONE);
+			this.llLimitType.setVisibility(View.GONE);
+			this.llLimit.setVisibility(View.GONE);
 			break;
 		default:
 			break;
 		}
 
-		// TODO: hide limit if limit_type == unlimited
-
-		final int bml = this.spBillmode.getCount();
-		final int bmp = this.spBillmode.getSelectedItemPosition();
-		if (bml == bmp + 1) {
-			this.etBillmodeCust1.setVisibility(View.VISIBLE);
-			this.etBillmodeCust2.setVisibility(View.VISIBLE);
-		} else {
-			this.etBillmodeCust1.setVisibility(View.GONE);
-			this.etBillmodeCust2.setVisibility(View.GONE);
-		}
-
 		if (t == DataProvider.TYPE_BILLPERIOD) {
-			this.findViewById(R.id.billperiodid_layout)
-					.setVisibility(View.GONE);
-			// hide billday if billperiod == infinite
-			int i = this.spBillperiod.getSelectedItemPosition();
-			if (i == DataProvider.BILLPERIOD_INFINITE) {
-				this.findViewById(R.id.billday_layout).setVisibility(View.GONE);
+			final int i = this.spBillperiod.getSelectedItemPosition();
+			if (i == DataProvider.BILLPERIOD_INFINITE
+					|| i == DataProvider.BILLPERIOD_DAY) {
+				this.llBillday.setVisibility(View.GONE);
+			} else {
+				this.llBillday.setVisibility(View.VISIBLE);
 			}
-		} else {
-			this.findViewById(R.id.billperiod_layout).setVisibility(View.GONE);
-			this.findViewById(R.id.billday_layout).setVisibility(View.GONE);
-			// TODO: hide some fields here
+		} else if (t != DataProvider.TYPE_SPACING
+				&& t != DataProvider.TYPE_TITLE) {
+			final int lt = this.spLimitType.getSelectedItemPosition();
+			if (lt == DataProvider.LIMIT_TYPE_NONE) {
+				this.llLimit.setVisibility(View.GONE);
+			} else {
+				this.llLimit.setVisibility(View.VISIBLE);
+			}
+
+			final int bml = this.spBillmode.getCount();
+			final int bmp = this.spBillmode.getSelectedItemPosition();
+			if (bml == bmp + 1) {
+				this.etBillmodeCust1.setVisibility(View.VISIBLE);
+				this.etBillmodeCust2.setVisibility(View.VISIBLE);
+			} else {
+				this.etBillmodeCust1.setVisibility(View.GONE);
+				this.etBillmodeCust2.setVisibility(View.GONE);
+			}
+
+			if (t == DataProvider.TYPE_CALL) {
+				this.etCostPerAmount.setVisibility(View.INVISIBLE);
+				this.etCostPerAmountInLimit.setVisibility(View.INVISIBLE);
+				this.etCostPerAmount1.setVisibility(View.VISIBLE);
+				this.etCostPerAmountInLimit1.setVisibility(View.VISIBLE);
+				this.etCostPerAmount2.setVisibility(View.VISIBLE);
+				this.etCostPerAmountInLimit2.setVisibility(View.VISIBLE);
+			} else {
+				this.etCostPerAmount.setVisibility(View.VISIBLE);
+				this.etCostPerAmountInLimit.setVisibility(View.VISIBLE);
+				this.etCostPerAmount1.setVisibility(View.GONE);
+				this.etCostPerAmountInLimit1.setVisibility(View.GONE);
+				this.etCostPerAmount2.setVisibility(View.GONE);
+				this.etCostPerAmountInLimit2.setVisibility(View.GONE);
+			}
 		}
+		this.spType.setOnItemSelectedListener(this);
+		this.spLimitType.setOnItemSelectedListener(this);
+		this.spBillperiod.setOnItemSelectedListener(this);
 	}
 
 	/**
@@ -369,6 +501,78 @@ public class PlanEdit extends Activity implements OnClickListener,
 	}
 
 	/**
+	 * Save a plan to database.
+	 * 
+	 * @param t
+	 *            type of plan
+	 */
+	private final void savePlan(final int t) {
+		final ContentValues cv = new ContentValues();
+		cv.put(DataProvider.Plans.NAME, this.etName.getText().toString());
+		cv.put(DataProvider.Plans.SHORTNAME, this.etShortname.getText()
+				.toString());
+		cv.put(DataProvider.Plans.TYPE, t);
+		cv.put(DataProvider.Plans.LIMIT_TYPE, this.spLimitType
+				.getSelectedItemPosition());
+		cv.put(DataProvider.Plans.LIMIT, Utils.parseLong(this.etLimit.getText()
+				.toString(), 0));
+		final int bm = this.spBillmode.getSelectedItemPosition();
+		final String[] billmodes = this.getResources().getStringArray(
+				R.array.billmodes);
+		if (bm == billmodes.length - 1) {
+			final String billmode = this.etBillmodeCust1.getText() + "/"
+					+ this.etBillmodeCust2.getText();
+			cv.put(DataProvider.Plans.BILLMODE, billmode);
+		} else {
+			cv.put(DataProvider.Plans.BILLMODE, billmodes[bm]);
+		}
+		if (t == DataProvider.TYPE_BILLPERIOD) {
+			cv.put(DataProvider.Plans.BILLPERIOD, this.spBillperiod
+					.getSelectedItemPosition());
+		} else {
+			cv.put(DataProvider.Plans.BILLPERIOD, this.billperiod);
+		}
+		cv.put(DataProvider.Plans.BILLDAY, this.billday);
+		cv.put(DataProvider.Plans.COST_PER_ITEM, this.etCostPerItem.getText()
+				.toString());
+		if (this.etCostPerAmount.getVisibility() == View.VISIBLE) {
+			cv.put(DataProvider.Plans.COST_PER_AMOUNT1, this.etCostPerAmount
+					.getText().toString());
+			cv.put(DataProvider.Plans.COST_PER_AMOUNT2, this.etCostPerAmount
+					.getText().toString());
+		} else {
+			cv.put(DataProvider.Plans.COST_PER_AMOUNT1, this.etCostPerAmount1
+					.getText().toString());
+			cv.put(DataProvider.Plans.COST_PER_AMOUNT2, this.etCostPerAmount2
+					.getText().toString());
+		}
+		cv.put(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT,
+				this.etCostPerItemInLimit.getText().toString());
+		if (this.etCostPerAmountInLimit.getVisibility() == View.VISIBLE) {
+			cv.put(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
+					this.etCostPerAmountInLimit.getText().toString());
+			cv.put(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT2,
+					this.etCostPerAmountInLimit.getText().toString());
+		} else {
+			cv.put(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
+					this.etCostPerAmountInLimit1.getText().toString());
+			cv.put(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT2,
+					this.etCostPerAmountInLimit2.getText().toString());
+		}
+		cv.put(DataProvider.Plans.COST_PER_PLAN, this.etCostPerPlan.getText()
+				.toString());
+
+		final Uri uri = this.getIntent().getData();
+		if (uri == null) {
+			this.getContentResolver()
+					.insert(DataProvider.Plans.CONTENT_URI, cv);
+		} else {
+			this.getContentResolver().update(uri, cv, null, null);
+		}
+		RuleMatcher.unmatch(this);
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -376,49 +580,7 @@ public class PlanEdit extends Activity implements OnClickListener,
 		final int t = this.spType.getSelectedItemPosition();
 		switch (v.getId()) {
 		case R.id.ok:
-			final ContentValues cv = new ContentValues();
-			cv.put(DataProvider.Plans.NAME, this.etName.getText().toString());
-			cv.put(DataProvider.Plans.SHORTNAME, this.etShortname.getText()
-					.toString());
-			cv.put(DataProvider.Plans.TYPE, t);
-			cv.put(DataProvider.Plans.LIMIT_TYPE, this.spLimitType
-					.getSelectedItemPosition());
-			cv.put(DataProvider.Plans.LIMIT, Utils.parseLong(this.etLimit
-					.getText().toString(), 0));
-			final int bm = this.spBillmode.getSelectedItemPosition();
-			final String[] billmodes = this.getResources().getStringArray(
-					R.array.billmodes);
-			if (bm == billmodes.length - 1) {
-				final String billmode = this.etBillmodeCust1.getText() + "/"
-						+ this.etBillmodeCust2.getText();
-				cv.put(DataProvider.Plans.BILLMODE, billmode);
-			} else {
-				cv.put(DataProvider.Plans.BILLMODE, billmodes[bm]);
-			}
-			if (t == DataProvider.TYPE_BILLPERIOD) {
-				cv.put(DataProvider.Plans.BILLPERIOD, this.spBillperiod
-						.getSelectedItemPosition());
-			} else {
-				cv.put(DataProvider.Plans.BILLPERIOD, this.billperiod);
-			}
-			cv.put(DataProvider.Plans.BILLDAY, this.billday);
-			cv.put(DataProvider.Plans.COST_PER_ITEM, this.etCostPerItem
-					.getText().toString());
-			cv.put(DataProvider.Plans.COST_PER_AMOUNT, this.etCostPerAmount
-					.getText().toString());
-			cv.put(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT,
-					this.etCostPerItemInLimit.getText().toString());
-			cv.put(DataProvider.Plans.COST_PER_PLAN, this.etCostPerPlan
-					.getText().toString());
-
-			final Uri uri = this.getIntent().getData();
-			if (uri == null) {
-				this.getContentResolver().insert(
-						DataProvider.Plans.CONTENT_URI, cv);
-			} else {
-				this.getContentResolver().update(uri, cv, null, null);
-			}
-			RuleMatcher.unmatch(this);
+			this.savePlan(t);
 		case R.id.cancel:
 			this.pid = -1;
 			this.finish();
@@ -510,6 +672,9 @@ public class PlanEdit extends Activity implements OnClickListener,
 			break;
 		case R.id.cost_per_item_in_limit_help:
 			this.showHelp(R.string.cost_per_item_in_limit_help);
+			break;
+		case R.id.cost_per_amount_in_limit_help:
+			this.showHelp(R.string.cost_per_amount_in_limit_help);
 			break;
 		case R.id.cost_per_plan_help:
 			this.showHelp(R.string.cost_per_plan_help);

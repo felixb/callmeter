@@ -168,6 +168,8 @@
 	<string name="cost_per_amount_help">Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data).</string>
 	<string name="cost_per_item_in_limit_">Cost per log item in limit:</string>
 	<string name="cost_per_item_in_limit_help">Set the cost of one log item (e.g. a call) billed before the limit is exeeded.</string>
+	<string name="cost_per_amount_in_limit_">Cost per length in limit:</string>
+	<string name="cost_per_amount_in_limit_help">Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) as long as limit is not exeeded.</string>
 	<string name="cost_per_plan_">Cost per plan:</string>
 	<string name="cost_per_plan_help">Set the cost of the plan for one billing period as is.</string>
 	<string name="plan_">Plan:</string>
@@ -255,10 +257,10 @@
 		<item>Delete</item>
 	</string-array>
 	<string-array name="plans_type">
-		<item>Mixed</item>
 		<item>Title</item>
 		<item>Spacer</item>
 		<item>Bill period</item>
+		<item>Mixed</item>
 		<item>Call</item>
 		<item>SMS</item>
 		<item>MMS</item>
@@ -284,7 +286,11 @@
 		<item>One day</item>
 		<item>One week</item>
 		<item>30 days</item>
+		<item>60 days</item>
+		<item>90 days</item>
 		<item>One month</item>
+		<item>Two month</item>
+		<item>Three month</item>
 		<item>Infinite</item>
 	</string-array>
 	<string-array name="billmodes">
