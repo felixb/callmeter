@@ -700,13 +700,21 @@ public class PlanEdit extends Activity implements OnClickListener,
 			this.showHelp(R.string.cost_per_item_help);
 			break;
 		case R.id.cost_per_amount_help:
-			this.showHelp(R.string.cost_per_amount_help);
+			if (this.etCostPerAmount.getVisibility() == View.VISIBLE) {
+				this.showHelp(R.string.cost_per_amount_help1);
+			} else {
+				this.showHelp(R.string.cost_per_amount_help2);
+			}
 			break;
 		case R.id.cost_per_item_in_limit_help:
 			this.showHelp(R.string.cost_per_item_in_limit_help);
 			break;
 		case R.id.cost_per_amount_in_limit_help:
-			this.showHelp(R.string.cost_per_amount_in_limit_help);
+			if (this.etCostPerAmountInLimit.getVisibility() == View.VISIBLE) {
+				this.showHelp(R.string.cost_per_amount_in_limit_help1);
+			} else {
+				this.showHelp(R.string.cost_per_amount_in_limit_help2);
+			}
 			break;
 		case R.id.cost_per_plan_help:
 			this.showHelp(R.string.cost_per_plan_help);
