@@ -25,6 +25,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URLDecoder;
+import java.util.Currency;
+import java.util.Locale;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -77,10 +79,21 @@ public class Preferences extends PreferenceActivity {
 	private static final String TEXTSIZE_SMALL = "small";
 	/** Textsize: medium. */
 	private static final String TEXTSIZE_MEDIUM = "medium";
+	/** Preference's name: currency smbol. */
+	private static final String PREFS_CURRENCY_SYMBOL = "currency_symbol";
+	/** Preference's name: currency format. */
+	private static final String PREFS_CURRENCY_FORMAT = "currency_format";
+	/** Preference's name: date format. */
+	private static final String PREFS_DATE_FORMAT = "date_format";
 	/** Textsize: small. */
 	public static float textSizeSmall = 14;
 	/** Textsize: medium. */
 	public static float textSizeMedium = 18;
+
+	/** {@link Currency} symbol. */
+	private static String defaultCurrencySymbol = null;
+	/** {@link Currency} fraction digits. */
+	private static int defaultCurrencyDigits = 2;
 
 	/**
 	 * Get Theme from Preferences.
@@ -114,6 +127,71 @@ public class Preferences extends PreferenceActivity {
 			return textSizeMedium;
 		}
 		return textSizeSmall;
+	}
+
+	/**
+	 * Get the currency symbol from {@link SharedPreferences}.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @return currency symbol
+	 */
+	public static final String getCurrencySymbol(final Context context) {
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(context);
+		final String pcs = p.getString(PREFS_CURRENCY_SYMBOL, "");
+		if (pcs.length() == 0) {
+			if (defaultCurrencySymbol == null) {
+				final Currency cur = Currency.getInstance(Locale.getDefault());
+				defaultCurrencySymbol = cur.getSymbol();
+				defaultCurrencyDigits = cur.getDefaultFractionDigits();
+			}
+			return defaultCurrencySymbol;
+		} else {
+			return pcs;
+		}
+	}
+
+	/**
+	 * Get the currency format from {@link SharedPreferences}.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @return currency format
+	 */
+	public static final String getCurrencyFormat(final Context context) {
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(context);
+		final String pcs = p.getString(PREFS_CURRENCY_FORMAT, "");
+		if (pcs.length() == 0) {
+			if (defaultCurrencySymbol == null) {
+				final Currency cur = Currency.getInstance(Locale.getDefault());
+				defaultCurrencySymbol = cur.getSymbol();
+				defaultCurrencyDigits = cur.getDefaultFractionDigits();
+			}
+			return "%." + defaultCurrencyDigits + "f"
+					+ getCurrencySymbol(context);
+		} else {
+			return pcs.replaceAll("$", getCurrencySymbol(context));
+		}
+	}
+
+	/**
+	 * Get the date format from {@link SharedPreferences}.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @return date format
+	 */
+	public static final String getDateFormat(final Context context) {
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(context);
+		final String pcs = p.getString(PREFS_DATE_FORMAT, "");
+		if (pcs.length() == 0) {
+			return null;
+		} else {
+			return pcs;
+		}
 	}
 
 	/**

@@ -38,7 +38,6 @@
 	<string name="source">http://github.com/felixb/callmeter</string>
 	<string name="website">http://code.google.com/p/callmeter/</string>
 	<string name="donate_url">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=5832809</string>
-	<string name="see_about">Please consult the about dialog for information on what CallMeter NG does and does not do.</string>
 	<string name="faq_">FAQ</string>
 	<string name="twitter_">twitter</string>
 
@@ -68,6 +67,33 @@
 	<string name="hours_21">21:00 - 21:59</string>
 	<string name="hours_22">22:00 - 22:59</string>
 	<string name="hours_23">23:00 - 23:59</string>
+		
+	<string-array name="currency_formats">
+		<item>Default</item>
+		<item>$1.00</item>
+		<item>$1000</item>
+		<item>1.00$</item>
+		<item>1000$</item>
+	</string-array>
+	<string-array name="currency_formats_values">
+		<item></item>
+		<item>$%.2f"</item>
+		<item>$%.0f</item>
+		<item>%.2f$</item>
+		<item>%.0f$</item>
+	</string-array>
+	<string-array name="date_formats">
+		<item>Default</item>
+		<item>MM/DD/YY</item>
+		<item>DD/MM/YYYY</item>
+		<item>DD.MM.YYYY</item>
+	</string-array>
+	<string-array name="date_formats_values">
+		<item></item>
+		<item>%tD</item>
+		<item>%te/%tm/%tY</item>
+		<item>%te.%tm.%tY</item>
+	</string-array>
 
 	<string-array name="days">
 		<item>1</item>

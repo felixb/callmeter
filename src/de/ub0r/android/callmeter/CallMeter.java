@@ -18,9 +18,6 @@
  */
 package de.ub0r.android.callmeter;
 
-import java.util.Currency;
-import java.util.Locale;
-
 import android.app.Application;
 import de.ub0r.android.lib.Log;
 
@@ -54,22 +51,9 @@ public final class CallMeter extends Application {
 	/** Bytes: TB. */
 	public static final long BYTE_TB = BYTE_GB * BYTE_KB;
 
-	/** {@link Currency} symbol. */
-	public static String currencySymbol = "$";
-	/** {@link Currency} fraction digits. */
-	public static int currencyDigits = 2;
-
 	@Override
 	public void onCreate() {
 		super.onCreate();
 		Log.init("CallMeter3G");
-
-		try {
-			final Currency cur = Currency.getInstance(Locale.getDefault());
-			currencySymbol = cur.getSymbol();
-			currencyDigits = cur.getDefaultFractionDigits();
-		} catch (Exception e) {
-			Log.w(TAG, "error getting currency", e);
-		}
 	}
 }

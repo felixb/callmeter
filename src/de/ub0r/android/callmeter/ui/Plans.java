@@ -87,6 +87,11 @@ public class Plans extends ListActivity implements OnItemLongClickListener {
 	/** Prefs: name for last version run. */
 	private static final String PREFS_LAST_RUN = "lastrun";
 
+	/** Selected currency format. */
+	private static String currencyFormat = "$%.2f";
+	/** Selected date format. */
+	private static String dateFormat = null;
+
 	/** {@link Handler} for handling messages from background process. */
 	private final Handler handler = new Handler() {
 		@Override
@@ -132,7 +137,6 @@ public class Plans extends ListActivity implements OnItemLongClickListener {
 					.query(DataProvider.Plans.CONTENT_URI,
 							DataProvider.Plans.PROJECTION, null, null,
 							DataProvider.Plans.ORDER), true);
-
 			this.now = Calendar.getInstance();
 		}
 
@@ -207,8 +211,8 @@ public class Plans extends ListActivity implements OnItemLongClickListener {
 
 			// cost
 			if (cost >= 0) {
-				ret.append(String.format("\n%." + CallMeter.currencyDigits
-						+ "f" + CallMeter.currencySymbol, cost));
+				ret.append("\n");
+				ret.append(String.format(currencyFormat, cost));
 			}
 			return ret.toString();
 		}
@@ -260,9 +264,16 @@ public class Plans extends ListActivity implements OnItemLongClickListener {
 							- pr;
 					pb.setMax((int) nx);
 					pb.setProgress((int) nw);
+					String formatedDate;
+					if (dateFormat == null) {
+						formatedDate = DateFormat.getDateFormat(context)
+								.format(billDay.getTime());
+					} else {
+						formatedDate = String.format(dateFormat, billDay,
+								billDay, billDay);
+					}
 					((TextView) view.findViewById(R.id.period))
-							.setText(DateFormat.getDateFormat(context).format(
-									billDay.getTime()));
+							.setText(formatedDate);
 				}
 			} else {
 				view.findViewById(R.id.bigtitle).setVisibility(View.GONE);
@@ -535,6 +546,8 @@ public class Plans extends ListActivity implements OnItemLongClickListener {
 		if (!prefsNoAds) {
 			this.findViewById(R.id.ad).setVisibility(View.VISIBLE);
 		}
+		currencyFormat = Preferences.getCurrencyFormat(this);
+		dateFormat = Preferences.getDateFormat(this);
 		// start LogRunner
 		LogRunnerService.update(this);
 		// schedule next update
@@ -573,9 +586,8 @@ public class Plans extends ListActivity implements OnItemLongClickListener {
 					R.array.updates);
 			StringBuilder buf = new StringBuilder();
 
-			buf.append(this.getString(R.string.see_about));
-
-			for (int i = 0; i < changes.length; i++) {
+			buf.append(changes[0]);
+			for (int i = 1; i < changes.length; i++) {
 				buf.append("\n\n");
 				buf.append(changes[i]);
 			}

@@ -25,7 +25,7 @@
 	<string name="about3">You can split your call or message plan into up to two plans. Each plan can be set to be totally free, capped to a set limit or unlimited.</string>
 	<string name="about4">Your messages can be merged into your call plan. E.g. counting every message as a 15s call.</string>
 	<string name="about5">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string>
-	<string name="about6_">What does CallMeter NG not do:</string>
+	<string name="about6_">What does CallMeter 3G not do:</string>
 	<string name="about6">There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs.</string>
 	<string name="send_">Send</string>
 	<string name="add_">Add</string>
@@ -52,6 +52,12 @@
 	<string name="appearance_">Appearance</string>
 	<string name="theme_">Theme</string>
 	<string name="textsize_">Text size</string>
+	<string name="custom_currency_symbol_">Custom currency symbol</string>
+	<string name="custom_currency_symbol_hint">Set a custom currency symbol, leave empty for system default.</string>
+	<string name="custom_currency_format_">Custom currency format</string>
+	<string name="custom_currency_format_hint">Select a custom currency format.</string>
+	<string name="custom_date_format_">Custom date format</string>
+	<string name="custom_date_format_hint">Select a custom date format.</string>
 	<string name="advanced_">Advanced</string>
 	<string name="exclude_people_">Exclude numbers</string>
 	<string name="exclude_people_hint">Don\'t bill some numbers\nwildcards allowed: *555, 555* or *555*</string>
