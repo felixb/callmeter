@@ -292,6 +292,20 @@ public class Preferences extends PreferenceActivity {
 						}
 					});
 		}
+		p = this.findPreference("import_rules");
+		if (p != null) {
+			p.setOnPreferenceClickListener(// .
+					new Preference.OnPreferenceClickListener() {
+						public boolean onPreferenceClick(
+								final Preference preference) {
+							Preferences.this.startActivity(new Intent(
+									Intent.ACTION_VIEW, Uri
+											.parse(Preferences.this.getString(// .
+													R.string.url_rulesets))));
+							return true;
+						}
+					});
+		}
 
 		this.onNewIntent(this.getIntent());
 	}

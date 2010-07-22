@@ -49,6 +49,8 @@
 
 	<PreferenceScreen android:key="export_rules"
 		android:title="@string/export_rules_" android:summary="@string/export_rules_hint" />
+	<PreferenceScreen android:key="import_rules"
+		android:title="@string/import_rules_" android:summary="@string/import_rules_hint" />
 
 	<PreferenceCategory android:title="@string/about_">
 		<PreferenceScreen android:title="@string/about_"

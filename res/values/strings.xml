@@ -196,7 +196,7 @@
 	<string name="export_rules_progr">Exporting rule set..</string>
 	<string name="export_rules_descr">Description</string>
 	<string name="import_rules_">Import rule set</string>
-	<string name="import_rules_hint">Import rule set:</string>
+	<string name="import_rules_hint">Import rule set.</string>
 	<string name="import_rules_progr">Import rule set..</string>
 	<string name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.</string>
 	<string name="err_export_write">Error writing export file.</string>

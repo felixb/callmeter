@@ -1420,9 +1420,6 @@ public final class DataProvider extends ContentProvider {
 		ArrayList<ContentValues> cvs = null;
 		for (int i = 2; i < l; i++) {
 			String[] ti = lines[i].split(" ", 2);
-			if (ti.length < 2) {
-				continue;
-			}
 			if (table == null) {
 				table = ti[0];
 				cvs = new ArrayList<ContentValues>();
@@ -1433,6 +1430,9 @@ public final class DataProvider extends ContentProvider {
 				// prepare new table/cvs
 				table = ti[0];
 				cvs = new ArrayList<ContentValues>();
+			}
+			if (ti.length < 2) {
+				continue;
 			}
 			final String imp = ti[1];
 			final String[] nvs = imp.split(EXPORT_VALUESEPARATOR);
