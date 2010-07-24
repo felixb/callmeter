@@ -69,18 +69,21 @@ public final class LogRunnerService extends IntentService {
 	/**
 	 * Run {@link LogRunnerService}.
 	 * 
+	 * @param action
+	 *            original action sent to {@link LogRunnerReceiver}
 	 * @param context
 	 *            {@link Context}
 	 */
-	public static void update(final Context context) {
-		context.startService(new Intent(context, LogRunnerService.class));
+	public static void update(final Context context, final String action) {
+		context.startService(new Intent(action, null, context,
+				LogRunnerService.class));
 	}
 
 	/**
 	 * Fix MMS date.
 	 * 
 	 * @param date
-	 *            date in millies or seconds
+	 *            date in millis or seconds
 	 * @return date in millis
 	 */
 	private long fixDate(final long date) {
@@ -381,7 +384,8 @@ public final class LogRunnerService extends IntentService {
 	 */
 	@Override
 	protected void onHandleIntent(final Intent intent) {
-		Log.d(TAG, "onHandleIntent()");
+		final String a = intent.getAction();
+		Log.d(TAG, "onHandleIntent(" + a + ")");
 		final Handler h = Plans.getHandler();
 		if (h != null) {
 			h.sendEmptyMessage(Plans.MSG_BACKGROUND_START);
@@ -392,14 +396,21 @@ public final class LogRunnerService extends IntentService {
 				.getSystemService(Context.TELEPHONY_SERVICE))
 				.isNetworkRoaming();
 
+		final boolean shortRun = a != null
+				&& (a.equals(Intent.ACTION_BOOT_COMPLETED)
+						|| a.equals(Intent.ACTION_SHUTDOWN) // .
+				|| a.equals(Intent.ACTION_REBOOT));
+
 		final ContentResolver cr = this.getContentResolver();
 		this.updateData(this);
-		this.updateCalls(cr);
-		this.updateSMS(cr);
-		this.updateMMS(cr);
-		final boolean changed = RuleMatcher.match(this);
-		if (changed) {
-			cr.notifyChange(DataProvider.Plans.CONTENT_URI, null);
+		if (!shortRun) {
+			this.updateCalls(cr);
+			this.updateSMS(cr);
+			this.updateMMS(cr);
+			final boolean changed = RuleMatcher.match(this);
+			if (changed) {
+				cr.notifyChange(DataProvider.Plans.CONTENT_URI, null);
+			}
 		}
 
 		// schedule next update

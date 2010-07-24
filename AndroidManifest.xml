@@ -81,6 +81,9 @@
 		<receiver android:name=".data.LogRunnerReceiver">
 			<intent-filter>
 				<action android:name="android.intent.action.BOOT_COMPLETED" />
+				<action android:name="android.intent.action.ACTION_SHUTDOWN" />
+				<action android:name="android.intent.action.REBOOT" />
+				<category android:name="android.intent.category.DEFAULT" />
 				<category android:name="android.intent.category.HOME" />
 			</intent-filter>
 			<intent-filter>

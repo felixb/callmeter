@@ -32,4 +32,10 @@
 		android:scrollingCache="true" android:fastScrollEnabled="true"
 		android:choiceMode="singleChoice" android:cacheColorHint="?android:attr/colorBackground"
 		android:layout_above="@id/ad" />
+	<TextView android:id="@+id/import_default"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:gravity="center" android:singleLine="false"
+		android:text="@string/import_rules_empty" android:layout_alignLeft="@id/android:list"
+		android:layout_alignRight="@id/android:list" android:layout_alignTop="@id/android:list"
+		android:layout_alignBottom="@id/android:list" android:visibility="gone" />
 </RelativeLayout>

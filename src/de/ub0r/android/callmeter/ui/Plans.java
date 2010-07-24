@@ -24,12 +24,14 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
+import android.content.ActivityNotFoundException;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -40,10 +42,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ProgressBar;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemLongClickListener;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
@@ -61,7 +65,8 @@ import de.ub0r.android.lib.Log;
  * 
  * @author flx
  */
-public class Plans extends ListActivity implements OnItemLongClickListener {
+public class Plans extends ListActivity implements OnClickListener,
+		OnItemLongClickListener {
 	/** Tag for output. */
 	public static final String TAG = "main";
 
@@ -521,6 +526,7 @@ public class Plans extends ListActivity implements OnItemLongClickListener {
 			this.showDialog(DIALOG_UPDATE);
 		}
 		prefsNoAds = DonationHelper.hideAds(this);
+		this.findViewById(R.id.import_default).setOnClickListener(this);
 		this.getListView().setOnItemLongClickListener(this);
 
 		// TextView tv = (TextView) this.findViewById(R.id.calls_);
@@ -548,8 +554,13 @@ public class Plans extends ListActivity implements OnItemLongClickListener {
 		}
 		currencyFormat = Preferences.getCurrencyFormat(this);
 		dateFormat = Preferences.getDateFormat(this);
+		if (this.getListView().getCount() == 0) {
+			this.findViewById(R.id.import_default).setVisibility(View.VISIBLE);
+		} else {
+			this.findViewById(R.id.import_default).setVisibility(View.GONE);
+		}
 		// start LogRunner
-		LogRunnerService.update(this);
+		LogRunnerService.update(this, LogRunnerReceiver.ACTION_FORCE_UPDATE);
 		// schedule next update
 		LogRunnerReceiver.schedNext(this);
 	}
@@ -638,6 +649,29 @@ public class Plans extends ListActivity implements OnItemLongClickListener {
 			return true;
 		default:
 			return false;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void onClick(final View v) {
+		switch (v.getId()) {
+		case R.id.import_default:
+			final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(this
+					.getString(R.string.url_rulesets)));
+			try {
+				this.startActivity(intent);
+			} catch (ActivityNotFoundException e) {
+				Log.e(TAG, "no activity to load url", e);
+				Toast.makeText(this,
+						"no activity to load url: " + intent.getDataString(),
+						Toast.LENGTH_LONG).show();
+			}
+			break;
+		default:
+			break;
 		}
 	}
 

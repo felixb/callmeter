@@ -38,6 +38,10 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	/** Time between to update checks. */
 	private static final long DELAY = 30 * 60 * 1000; // 30min
 
+	/** Force update. */
+	public static final String ACTION_FORCE_UPDATE = // .
+	"de.ub0r.android.callmeter.FORCE_UPDATE";
+
 	/**
 	 * Schedule next update.
 	 * 
@@ -60,7 +64,7 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	public void onReceive(final Context context, final Intent intent) {
 		Log.d(TAG, "wakeup");
 		// run LogRunnerService
-		LogRunnerService.update(context);
+		LogRunnerService.update(context, intent.getAction());
 		// schedule next update
 		LogRunnerReceiver.schedNext(context);
 	}
