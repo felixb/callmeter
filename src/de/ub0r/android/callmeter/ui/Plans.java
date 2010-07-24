@@ -111,6 +111,13 @@ public class Plans extends ListActivity implements OnClickListener,
 			default:
 				break;
 			}
+			if (Plans.this.getListView().getCount() == 0) {
+				Plans.this.findViewById(R.id.import_default).setVisibility(
+						View.VISIBLE);
+			} else {
+				Plans.this.findViewById(R.id.import_default).setVisibility(
+						View.GONE);
+			}
 			Plans.this.setProgressBarIndeterminateVisibility(inProgress);
 		}
 	};
