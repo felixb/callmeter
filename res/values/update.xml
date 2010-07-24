@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>v2.7.1: Custom date format, currency format/symbol<item>
+		<item>v2.7.1: Custom date format, currency format/symbol</item>
 		<item>v2.7.0: Initial alpha of Call Meter 3G\n\tMajor architecture refactoring</item>
 	</string-array>
 </resources>
