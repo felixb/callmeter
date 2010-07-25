@@ -62,7 +62,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 11;
+	private static final int DATABASE_VERSION = 12;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -340,6 +340,12 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_MIXED_UNITS_SMS = 18;
 		/** Index in projection: Mixed units for mms. */
 		public static final int INDEX_MIXED_UNITS_MMS = 19;
+		/** Index in projection: cache row for main: string. */
+		public static final int INDEX_CACHE_STRING = 20;
+		/** Index in projection: cache row for main: progressbar maximum. */
+		public static final int INDEX_CACHE_PROGRESS_MAX = 21;
+		/** Index in projection: cache row for main: progressbar position. */
+		public static final int INDEX_CACHE_PROGRESS_POS = 22;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -384,6 +390,12 @@ public final class DataProvider extends ContentProvider {
 		public static final String MIXED_UNITS_SMS = "_mixed_units_sms";
 		/** Mixed units for mms. */
 		public static final String MIXED_UNITS_MMS = "_mixed_units_mms";
+		/** Cache row for main: string. */
+		public static final String CACHE_STRING = "_cache_str";
+		/** Cache row for main: progressbar maximum. */
+		public static final String CACHE_PROGRESS_MAX = "_cache_prg_max";
+		/** Cache row for main: progressbar position. */
+		public static final String CACHE_PROGRESS_POS = "_cache_prg_pos";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, ORDER,
@@ -391,7 +403,8 @@ public final class DataProvider extends ContentProvider {
 				BILLPERIOD, COST_PER_ITEM, COST_PER_AMOUNT1, COST_PER_AMOUNT2,
 				COST_PER_ITEM_IN_LIMIT, COST_PER_AMOUNT_IN_LIMIT1,
 				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN, MIXED_UNITS_CALL,
-				MIXED_UNITS_SMS, MIXED_UNITS_MMS };
+				MIXED_UNITS_SMS, MIXED_UNITS_MMS, CACHE_STRING,
+				CACHE_PROGRESS_MAX, CACHE_PROGRESS_POS };
 
 		/** Select only real plans. */
 		public static final String WHERE_REALPLANS = TYPE + " != "
@@ -437,6 +450,9 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(MIXED_UNITS_CALL, MIXED_UNITS_CALL);
 			PROJECTION_MAP.put(MIXED_UNITS_SMS, MIXED_UNITS_SMS);
 			PROJECTION_MAP.put(MIXED_UNITS_MMS, MIXED_UNITS_MMS);
+			PROJECTION_MAP.put(CACHE_STRING, CACHE_STRING);
+			PROJECTION_MAP.put(CACHE_PROGRESS_MAX, CACHE_PROGRESS_MAX);
+			PROJECTION_MAP.put(CACHE_PROGRESS_POS, CACHE_PROGRESS_POS);
 		}
 
 		/**
@@ -468,7 +484,10 @@ public final class DataProvider extends ContentProvider {
 					+ COST_PER_PLAN + " FLOAT," // .
 					+ MIXED_UNITS_CALL + " INTEGER,"// .
 					+ MIXED_UNITS_SMS + " INTEGER,"// .
-					+ MIXED_UNITS_MMS + " INTEGER"// .
+					+ MIXED_UNITS_MMS + " INTEGER,"// .
+					+ CACHE_STRING + " TEXT," // .
+					+ CACHE_PROGRESS_MAX + " INTEGER," // .
+					+ CACHE_PROGRESS_POS + " INTEGER" // .
 					+ ");");
 		}
 

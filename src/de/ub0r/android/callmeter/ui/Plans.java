@@ -18,13 +18,16 @@
  */
 package de.ub0r.android.callmeter.ui;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
 import android.content.ActivityNotFoundException;
+import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -32,6 +35,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -132,11 +136,49 @@ public class Plans extends ListActivity implements OnClickListener,
 	 * 
 	 * @author flx
 	 */
-	public static class PlanAdapter extends ResourceCursorAdapter {
+	private static class PlanAdapter extends ResourceCursorAdapter {
+		/** A plan. */
+		private static class Plan {
+			/** Type of plan. */
+			private final int type;
+			/** Id of plan. */
+			private final long id;
+			/** {@link ContentResolver}. */
+			private final ContentResolver cr;
+
+			/**
+			 * Default Constructor.
+			 * 
+			 * @param contentResolver
+			 *            {@link ContentResolver}
+			 * @param t
+			 *            type of plan.
+			 * @param pid
+			 *            id of plan
+			 */
+			Plan(final ContentResolver contentResolver, final int t,
+					final long pid) {
+				this.cr = contentResolver;
+				this.type = t;
+				this.id = pid;
+			}
+
+			/**
+			 * Update the plan and write cached data to database.
+			 */
+			final void update() {
+			}
+		}
+
 		/** Now. */
 		private final Calendar now;
 		/** Separator for the data. */
 		private static final String SEP = " | ";
+
+		/** List of plans. */
+		private ArrayList<Plan> plansList = new ArrayList<Plan>();
+		/** Hash of plans. plan.id -> plan. */
+		private HashMap<Long, Plan> plansMap = new HashMap<Long, Plan>();
 
 		/**
 		 * Default Constructor.
@@ -150,6 +192,85 @@ public class Plans extends ListActivity implements OnClickListener,
 							DataProvider.Plans.PROJECTION, null, null,
 							DataProvider.Plans.ORDER), true);
 			this.now = Calendar.getInstance();
+		}
+
+		/**
+		 * Get a {@link Plan} by id.
+		 * 
+		 * @param id
+		 *            id of {@link Plan}
+		 * @return {@link Plan}
+		 */
+		private Plan getPlan(final long id) {
+			return this.plansMap.get(id);
+		}
+
+		/**
+		 * Append a {@link Plan} to the list of plans.
+		 * 
+		 * @param cr
+		 *            {@link ContentResolver}
+		 * @param id
+		 *            id of {@link Plan}
+		 * @param type
+		 *            type of {@link Plan}
+		 */
+		private void appendPlan(final ContentResolver cr, final long id,
+				final int type) {
+			final Plan p = new Plan(cr, type, id);
+			this.plansList.add(p);
+			this.plansMap.put(id, p);
+		}
+
+		/**
+		 * Reload all {@link Plan}s from {@link Cursor}.
+		 * 
+		 * @param cr
+		 *            {@link ContentResolver}
+		 * @param cursor
+		 *            {@link Cursor}
+		 */
+		synchronized void reloadPlans(final ContentResolver cr,
+				final Cursor cursor) {
+			this.plansList.clear();
+			this.plansMap.clear();
+			if (cursor == null) {
+				return;
+			}
+			if (!cursor.moveToFirst()) {
+				return;
+			}
+			do {
+				this.appendPlan(cr,
+						cursor.getLong(DataProvider.Plans.INDEX_ID),
+						DataProvider.Plans.INDEX_TYPE);
+			} while (cursor.moveToNext());
+		}
+
+		/** Update all {@link Plan}s in background. */
+		void updatePlans() {
+			new AsyncTask<Void, Void, Void>() {
+				@Override
+				protected Void doInBackground(final Void... params) {
+					final int l = PlanAdapter.this.plansList.size();
+					// update bill periods
+					for (int i = 0; i < l; i++) {
+						final Plan p = PlanAdapter.this.plansList.get(i);
+						if (p.type == DataProvider.TYPE_BILLPERIOD) {
+							p.update();
+						}
+					}
+					// update rest
+					for (int i = 0; i < l; i++) {
+						final Plan p = PlanAdapter.this.plansList.get(i);
+						if (p.type != DataProvider.TYPE_BILLPERIOD) {
+							p.update();
+						}
+					}
+					return null;
+				}
+			} // .
+					.execute((Void) null);
 		}
 
 		/**
