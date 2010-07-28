@@ -25,6 +25,7 @@ import java.util.HashMap;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.app.AlertDialog.Builder;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
@@ -88,11 +89,21 @@ public class Plans extends ListActivity implements OnClickListener,
 
 	/** Dialog: update. */
 	private static final int DIALOG_UPDATE = 0;
+	/** Dialog: recalc stats. */
+	private static final int DIALOG_RECALC = 1;
 
-	/** {@link Message} for {@link Handler}: start background. */
-	public static final int MSG_BACKGROUND_START = 1;
-	/** {@link Message} for {@link Handler}: stop background. */
-	public static final int MSG_BACKGROUND_STOP = 2;
+	/** {@link Message} for {@link Handler}: start background: LogMatcher. */
+	public static final int MSG_BACKGROUND_START_MATCHER = 1;
+	/** {@link Message} for {@link Handler}: stop background: LogMatcher. */
+	public static final int MSG_BACKGROUND_STOP_MATCHER = 2;
+	/** {@link Message} for {@link Handler}: start background: PlanAdapter. */
+	public static final int MSG_BACKGROUND_START_PLANADAPTER = 3;
+	/** {@link Message} for {@link Handler}: stop background: PlanAdapter. */
+	public static final int MSG_BACKGROUND_STOP_PLANADAPTER = 4;
+	/** {@link Message} for {@link Handler}: start background: LogRunner. */
+	public static final int MSG_BACKGROUND_START_RUNNER = 5;
+	/** {@link Message} for {@link Handler}: stop background: LogRunner. */
+	public static final int MSG_BACKGROUND_STOP_RUNNER = 6;
 
 	/** Prefs: name for last version run. */
 	private static final String PREFS_LAST_RUN = "lastrun";
@@ -107,11 +118,24 @@ public class Plans extends ListActivity implements OnClickListener,
 		@Override
 		public void handleMessage(final Message msg) {
 			switch (msg.what) {
-			case MSG_BACKGROUND_START:
-				inProgress = true;
+			case MSG_BACKGROUND_START_MATCHER:
+				inProgressMatcher = true;
 				break;
-			case MSG_BACKGROUND_STOP:
-				inProgress = false;
+			case MSG_BACKGROUND_START_RUNNER:
+				inProgressRunner = true;
+				break;
+			case MSG_BACKGROUND_STOP_RUNNER:
+			case MSG_BACKGROUND_STOP_MATCHER:
+				inProgressRunner = false;
+				inProgressMatcher = false;
+
+				Plans.this.adapter.updatePlans();
+				break;
+			case MSG_BACKGROUND_START_PLANADAPTER:
+				inProgressPlanadapter = true;
+				break;
+			case MSG_BACKGROUND_STOP_PLANADAPTER:
+				inProgressPlanadapter = false;
 				break;
 			default:
 				break;
@@ -123,14 +147,28 @@ public class Plans extends ListActivity implements OnClickListener,
 				Plans.this.findViewById(R.id.import_default).setVisibility(
 						View.GONE);
 			}
-			Plans.this.setProgressBarIndeterminateVisibility(inProgress);
+			Plans.this.setProgressBarIndeterminateVisibility(inProgressMatcher
+					|| inProgressPlanadapter);
+			if (inProgressRunner) {
+				Plans.this.showDialog(DIALOG_RECALC);
+			} else {
+				try {
+					Plans.this.dismissDialog(DIALOG_RECALC);
+				} catch (IllegalArgumentException e) {
+					Log.d(TAG, "failed dismissing dialog: " + e.toString());
+				}
+			}
 		}
 	};
 
 	/** {@link Handler} for outside. */
 	private static Handler currentHandler = null;
-	/** Running in background? */
-	private static boolean inProgress = false;
+	/** LogMatcher running in background? */
+	private static boolean inProgressMatcher = false;
+	/** LogRunner running in background? */
+	private static boolean inProgressRunner = false;
+	/** PlanAdapter running in background? */
+	private static boolean inProgressPlanadapter = false;
 
 	/**
 	 * Adapter binding plans to View.
@@ -138,20 +176,29 @@ public class Plans extends ListActivity implements OnClickListener,
 	 * @author flx
 	 */
 	private static class PlanAdapter extends ResourceCursorAdapter {
+		/** Newest {@link AsyncTask} which should run. */
+		private static Object runningTask = null;
+
 		/** A plan. */
 		private class Plan {
+			/** {@link Context}. */
+			private final Context ctx;
+
 			/** Type of plan. */
 			private final int type;
 			/** Id of plan. */
 			private final long id;
-			/** {@link Context}. */
-			private final Context ctx;
-
+			/** Bill period. */
 			private final long billperiod;
+			/** Bill day. */
 			private final long billday;
+			/** Bill day as {@link Calendar}. */
 			private final Calendar billdayc;
+			/** Type of limit. */
 			private final int limittype;
+			/** Limit. */
 			private final long limit;
+			/** Cost per plan. */
 			private final float cpp;
 
 			/**
@@ -188,7 +235,22 @@ public class Plans extends ListActivity implements OnClickListener,
 					this.billdayc = null;
 					this.limittype = cursor
 							.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
-					this.limit = cursor.getLong(DataProvider.Plans.INDEX_LIMIT);
+					long curLimit = cursor
+							.getLong(DataProvider.Plans.INDEX_LIMIT);
+					int used = 0;
+					switch (this.limittype) {
+					case DataProvider.LIMIT_TYPE_UNITS:
+						curLimit = DataProvider.Plans.getLimit(this.type,
+								curLimit);
+						break;
+					case DataProvider.LIMIT_TYPE_COST:
+						curLimit = curLimit * CallMeter.HUNDRET;
+						break;
+					default:
+						curLimit = -1;
+						break;
+					}
+					this.limit = curLimit;
 					this.cpp = cursor
 							.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
 				}
@@ -197,7 +259,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			/**
 			 * Update the plan and write cached data to database.
 			 */
-			final void update(final Calendar now) {
+			final void update() {
 				if (this.type == DataProvider.TYPE_SPACING
 						|| this.type == DataProvider.TYPE_TITLE) {
 					return;
@@ -225,9 +287,8 @@ public class Plans extends ListActivity implements OnClickListener,
 						final long nx = (nextBillDay.getTimeInMillis() // .
 								/ CallMeter.MILLIS)
 								- pr;
-						final long nw = (now.getTimeInMillis() // .
-								/ CallMeter.MILLIS)
-								- pr;
+						final long nw = (PlanAdapter.this.now.// .
+								getTimeInMillis() / CallMeter.MILLIS) - pr;
 						cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, nx);
 						cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, nw);
 						String formatedDate;
@@ -241,21 +302,8 @@ public class Plans extends ListActivity implements OnClickListener,
 						cv.put(DataProvider.Plans.CACHE_STRING, formatedDate);
 					}
 				} else {
-					long curLimit = 0;
 					int used = 0;
-					switch (this.limittype) {
-					case DataProvider.LIMIT_TYPE_UNITS:
-						curLimit = DataProvider.Plans.getLimit(this.type,
-								this.limit);
-						break;
-					case DataProvider.LIMIT_TYPE_COST:
-						curLimit = this.limit * CallMeter.HUNDRET;
-						break;
-					default:
-						curLimit = -1;
-						break;
-					}
-					if (curLimit > 0) {
+					if (this.limit > 0) {
 						cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX,
 								this.limit);
 					} else {
@@ -269,7 +317,8 @@ public class Plans extends ListActivity implements OnClickListener,
 					String where = null;
 					if (billp != null) {
 						where = DataProvider.Plans.getBilldayWhere(
-								(int) billp.billperiod, billp.billdayc, now);
+								(int) billp.billperiod, billp.billdayc,
+								PlanAdapter.this.now);
 					}
 					where = DbUtils.sqlAnd(where, DataProvider.Logs.PLAN_ID
 							+ " = " + this.id);
@@ -338,9 +387,9 @@ public class Plans extends ListActivity implements OnClickListener,
 						}
 					}
 
-					cv.put(DataProvider.Plans.CACHE_STRING, getString(
-							this.type, this.limittype, this.limit, used, count,
-							billedAmount, cost, allBilledAmount, allCount));
+					cv.put(DataProvider.Plans.CACHE_STRING, getString(this,
+							used, count, billedAmount, cost, allBilledAmount,
+							allCount));
 				}
 				this.ctx.getContentResolver().update(uri, cv, null, null);
 			}
@@ -421,24 +470,41 @@ public class Plans extends ListActivity implements OnClickListener,
 
 		/** Update all {@link Plan}s in background. */
 		void updatePlans() {
+			Log.d(TAG, "updatePlans()");
 			new AsyncTask<Void, Void, Void>() {
 				@Override
 				protected Void doInBackground(final Void... params) {
+					Log.d(TAG, "updatePlans().task start");
+					runningTask = this;
+					currentHandler
+							.sendEmptyMessage(MSG_BACKGROUND_START_PLANADAPTER);
 					final int l = PlanAdapter.this.plansList.size();
 					// update bill periods
 					for (int i = 0; i < l; i++) {
+						if (runningTask != this) {
+							break;
+						}
 						final Plan p = PlanAdapter.this.plansList.get(i);
 						if (p.type == DataProvider.TYPE_BILLPERIOD) {
-							p.update(PlanAdapter.this.now);
+							p.update();
 						}
 					}
 					// update rest
 					for (int i = 0; i < l; i++) {
+						if (runningTask != this) {
+							break;
+						}
 						final Plan p = PlanAdapter.this.plansList.get(i);
 						if (p.type != DataProvider.TYPE_BILLPERIOD) {
-							p.update(PlanAdapter.this.now);
+							p.update();
 						}
 					}
+					final boolean last = runningTask == this;
+					if (last) {
+						currentHandler.sendEmptyMessage(// .
+								MSG_BACKGROUND_STOP_PLANADAPTER);
+					}
+					Log.d(TAG, "updatePlans().task finished: " + last);
 					return null;
 				}
 			} // .
@@ -466,12 +532,8 @@ public class Plans extends ListActivity implements OnClickListener,
 		/**
 		 * Get a {@link String} showing all the data to the user.
 		 * 
-		 * @param pType
-		 *            type of plan
-		 * @param lType
-		 *            type of limit
-		 * @param limit
-		 *            limit
+		 * @param p
+		 *            {@link Plan}
 		 * @param used
 		 *            used limit
 		 * @param count
@@ -486,31 +548,30 @@ public class Plans extends ListActivity implements OnClickListener,
 		 *            count all time
 		 * @return {@link String} holding all the data
 		 */
-		private static String getString(final int pType, final int lType,
-				final long limit, final int used, final long count,
-				final long amount, final float cost, final long allAmount,
-				final long allCount) {
+		private static String getString(final Plan p, final int used,
+				final long count, final long amount, final float cost,
+				final long allAmount, final long allCount) {
 			final StringBuilder ret = new StringBuilder();
 
 			// usage
-			if (lType != DataProvider.LIMIT_TYPE_NONE && limit > 0) {
-				ret.append((used * CallMeter.HUNDRET) / limit);
+			if (p.limittype != DataProvider.LIMIT_TYPE_NONE && p.limit > 0) {
+				ret.append((used * CallMeter.HUNDRET) / p.limit);
 				ret.append("%");
 				ret.append(SEP);
 			}
 
 			// amount
-			ret.append(formatAmount(pType, amount));
+			ret.append(formatAmount(p.type, amount));
 			// count
-			if (pType == DataProvider.TYPE_CALL) {
+			if (p.type == DataProvider.TYPE_CALL) {
 				ret.append(" (" + count + ")");
 			}
 			ret.append(SEP);
 
 			// amount all time
-			ret.append(formatAmount(pType, allAmount));
+			ret.append(formatAmount(p.type, allAmount));
 			// count all time
-			if (pType == DataProvider.TYPE_CALL) {
+			if (p.type == DataProvider.TYPE_CALL) {
 				ret.append(" (" + allCount + ")");
 			}
 
@@ -632,28 +693,30 @@ public class Plans extends ListActivity implements OnClickListener,
 	 */
 	public static final String prettySeconds(final long seconds) {
 		String ret;
-		int d = (int) (seconds / 86400);
-		int h = (int) ((seconds % 86400) / 3600);
-		int m = (int) ((seconds % 3600) / 60);
-		int s = (int) (seconds % 60);
+		int d = (int) (seconds / CallMeter.SECONDS_DAY);
+		int h = (int) ((seconds % CallMeter.SECONDS_DAY) / // .
+		CallMeter.SECONDS_HOUR);
+		int m = (int) ((seconds % CallMeter.SECONDS_HOUR) / // .
+		CallMeter.SECONDS_MINUTE);
+		int s = (int) (seconds % CallMeter.SECONDS_MINUTE);
 		if (d > 0) {
 			ret = d + "d ";
 		} else {
 			ret = "";
 		}
 		if (h > 0 || d > 0) {
-			if (h < 10) {
+			if (h < CallMeter.TEN) {
 				ret += "0";
 			}
 			ret += h + ":";
 		}
 		if (m > 0 || h > 0 || d > 0) {
-			if (m < 10 && h > 0) {
+			if (m < CallMeter.TEN && h > 0) {
 				ret += "0";
 			}
 			ret += m + ":";
 		}
-		if (s < 10 && (m > 0 || h > 0 || d > 0)) {
+		if (s < CallMeter.TEN && (m > 0 || h > 0 || d > 0)) {
 			ret += "0";
 		}
 		ret += s;
@@ -725,7 +788,7 @@ public class Plans extends ListActivity implements OnClickListener,
 	protected final void onResume() {
 		super.onResume();
 		currentHandler = this.handler;
-		Plans.this.setProgressBarIndeterminateVisibility(inProgress);
+		Plans.this.setProgressBarIndeterminateVisibility(inProgressMatcher);
 		if (!prefsNoAds) {
 			this.findViewById(R.id.ad).setVisibility(View.VISIBLE);
 		}
@@ -739,8 +802,6 @@ public class Plans extends ListActivity implements OnClickListener,
 		// reload plan configuration
 		this.adapter.reloadPlans(this.getContentResolver(), this.adapter
 				.getCursor());
-		// TODO: move this to CursorChange?
-		this.adapter.updatePlans();
 		// start LogRunner
 		LogRunnerService.update(this, LogRunnerReceiver.ACTION_FORCE_UPDATE);
 		// schedule next update
@@ -796,6 +857,12 @@ public class Plans extends ListActivity implements OnClickListener,
 						}
 					});
 			return builder.create();
+		case DIALOG_RECALC:
+			final ProgressDialog pd = new ProgressDialog(this);
+			pd.setCancelable(true);
+			pd.setMessage(this.getString(R.string.reset_data_progr));
+			pd.setIndeterminate(true);
+			return pd;
 		default:
 			return null;
 		}

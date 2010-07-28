@@ -388,7 +388,7 @@ public final class LogRunnerService extends IntentService {
 		Log.d(TAG, "onHandleIntent(" + a + ")");
 		final Handler h = Plans.getHandler();
 		if (h != null) {
-			h.sendEmptyMessage(Plans.MSG_BACKGROUND_START);
+			h.sendEmptyMessage(Plans.MSG_BACKGROUND_START_MATCHER);
 		}
 
 		// update roaming info
@@ -402,6 +402,19 @@ public final class LogRunnerService extends IntentService {
 				|| a.equals(Intent.ACTION_REBOOT));
 
 		final ContentResolver cr = this.getContentResolver();
+		if (!shortRun && h != null) {
+			final Cursor c = cr.query(DataProvider.Logs.CONTENT_URI,
+					new String[] { DataProvider.Logs.PLAN_ID },
+					DataProvider.Logs.PLAN_ID + " != " + DataProvider.NO_ID
+							+ " AND " + DataProvider.Logs.TYPE + " != "
+							+ DataProvider.TYPE_DATA, null, null);
+			if (c != null && c.getCount() <= 0) {
+				h.sendEmptyMessage(Plans.MSG_BACKGROUND_START_RUNNER);
+			}
+			if (c != null && !c.isClosed()) {
+				c.close();
+			}
+		}
 		this.updateData(this);
 		if (!shortRun) {
 			this.updateCalls(cr);
@@ -409,14 +422,14 @@ public final class LogRunnerService extends IntentService {
 			this.updateMMS(cr);
 			final boolean changed = RuleMatcher.match(this);
 			if (changed) {
-				cr.notifyChange(DataProvider.Plans.CONTENT_URI, null);
+				cr.notifyChange(DataProvider.Logs.SUM_URI, null);
 			}
 		}
 
 		// schedule next update
 		LogRunnerReceiver.schedNext(this);
 		if (h != null) {
-			h.sendEmptyMessage(Plans.MSG_BACKGROUND_STOP);
+			h.sendEmptyMessage(Plans.MSG_BACKGROUND_STOP_MATCHER);
 		}
 	}
 }

@@ -41,6 +41,13 @@ public final class CallMeter extends Application {
 	public static final int HOURS_DAY = 24;
 	/** Seconds of a minute. */
 	public static final int SECONDS_MINUTE = 60;
+	/** Seconds of a hour. */
+	public static final int SECONDS_HOUR = 60 * SECONDS_MINUTE;
+	/** Seconds of a day. */
+	public static final int SECONDS_DAY = 24 * SECONDS_HOUR;
+
+	/** 10. */
+	public static final int TEN = 10;
 
 	/** Bytes: kB. */
 	public static final long BYTE_KB = 1024L;

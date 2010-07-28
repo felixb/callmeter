@@ -31,7 +31,8 @@
 		android:layout_height="fill_parent" android:drawSelectorOnTop="false"
 		android:scrollingCache="true" android:fastScrollEnabled="true"
 		android:choiceMode="singleChoice" android:cacheColorHint="?android:attr/colorBackground"
-		android:layout_above="@id/ad" />
+		android:layout_above="@id/ad" android:dividerHeight="0px"
+		android:divider="?android:attr/colorBackground" />
 	<TextView android:id="@+id/import_default"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:gravity="center" android:singleLine="false"
