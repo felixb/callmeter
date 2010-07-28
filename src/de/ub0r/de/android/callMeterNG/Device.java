@@ -24,7 +24,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import android.os.Build;
@@ -37,6 +36,9 @@ public abstract class Device {
 	/** Tag for output. */
 	private static final String TAG = "device";
 
+	/** Size of read buffer. */
+	private static final int BUFSIZE = 8;
+
 	/** Single instance. */
 	private static Device instance = null;
 	/** Device's interfaces. */
@@ -48,24 +50,9 @@ public abstract class Device {
 	public static synchronized Device getDevice() {
 		Log.d(TAG, "Device: " + Build.DEVICE);
 		if (instance == null) {
-			Log.i(TAG, "Device: " + Build.DEVICE);
+			Log.d(TAG, "Device: " + Build.DEVICE);
 			Log.d(TAG, "DEBUG: " + debugDeviceList());
-			// All the devices we know about.
-			Device[] allDevices = { new DefaultDevice(), new GenericDevice(),
-					new SamsungI7500Device(), new PulseDevice(),
-					new DroidDevice(), new EveDevice() };
-			// Iterates over all the devices and try to found the corresponding
-			// one.
-			for (Device device : allDevices) {
-				if (Arrays.asList(device.getNames()).contains(Build.DEVICE)) {
-					instance = device;
-					break;
-				}
-			}
-			// Nothing found? Use the default device.
-			if (instance == null) {
-				instance = allDevices[0];
-			}
+			instance = new DiscoverableDevice();
 		}
 		Log.d(TAG, instance.getClass().getName());
 		return instance;
@@ -81,7 +68,7 @@ public abstract class Device {
 	private static String readFile(final String f) {
 		StringBuilder sb = new StringBuilder();
 		try {
-			BufferedReader r = new BufferedReader(new FileReader(f), 8);
+			BufferedReader r = new BufferedReader(new FileReader(f), BUFSIZE);
 			sb.append("read: " + f);
 			sb.append("\n");
 			sb.append(r.readLine());
@@ -156,154 +143,77 @@ public abstract class Device {
 }
 
 /**
- * Generic device implementation corresponding to the emulator.
+ * Automatically discover the network interfaces. No real magic here, just try
+ * different possible solutions.
  */
-class GenericDevice extends Device {
+class DiscoverableDevice extends Device {
+
+	/** List of possible cell interfaces. */
+	private static final String[] CELL_INTERFACES = { //
+	"rmnet0", "pdp0", "ppp0" //
+	};
+
+	/** List of possible wifi interfaces. */
+	private static final String[] WIFI_INTERFACES = { //
+	"eth0", "tiwlan0", "wlan0", "athwlan0", "eth1" //
+	};
+
+	/** My cell interface. */
+	private String mCell = null;
+	/** My wifi interface. */
+	private String mWiFi = null;
+
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String[] getNames() {
-		return new String[] { "generic" };
-	}
-
-	@Override
-	public String getBluetooth() {
 		return null;
 	}
 
-	@Override
-	public String getCell() {
-		return this.getWiFi(); // for debugging purpose
-	}
-
-	@Override
-	public String getWiFi() {
-		return "eth0";
-	}
-}
-
-/**
- * Default device implementation corresponding to the HTC Dream and HTC Magic.
- */
-class DefaultDevice extends Device {
-	@Override
-	public String[] getNames() {
-		// TODO Get the device name of the HTC Magic.
-		return new String[] { "dream" };
-	}
-
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String getBluetooth() {
 		return "bnep0";
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String getCell() {
-		return "rmnet0";
+		if (this.mCell == null) {
+			for (String inter : CELL_INTERFACES) {
+				if (SysClassNet.isUp(inter)) {
+					Log
+							.i(this.getClass().getName(), "Cell interface: "
+									+ inter);
+					this.mCell = inter;
+					break;
+				}
+			}
+		}
+		return this.mCell;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String getWiFi() {
-		return "tiwlan0";
-	}
-}
-
-/**
- * Device implementation for the Samsung I7500. Also works with the I5700
- * (Spica).
- */
-class SamsungI7500Device extends Device {
-	@Override
-	public String[] getNames() {
-		return new String[] { "GT-I7500", "spica", "GT-I5700", "GT-I5800", "GT-I9000" };
-	}
-
-	@Override
-	public String getBluetooth() {
-		return "bnep0";
-	}
-
-	@Override
-	public String getCell() {
-		return "pdp0";
-	}
-
-	@Override
-	public String getWiFi() {
-		return "eth0";
-	}
-}
-
-/**
- * Device implementation for the T-Mobile Pulse (Huawei U8220). Also works for
- * the Google Nexus One.
- */
-class PulseDevice extends Device {
-	@Override
-	public String[] getNames() {
-		return new String[] { "U8220", "passion" };
-	}
-
-	@Override
-	public String getBluetooth() {
-		return "bnep0";
-	}
-
-	@Override
-	public String getCell() {
-		return "rmnet0";
-	}
-
-	@Override
-	public String getWiFi() {
-		return "eth0";
-	}
-}
-
-/**
- * Device implementation for the Motorola Droid.
- */
-class DroidDevice extends Device {
-	@Override
-	public String[] getNames() {
-		return new String[] { "sholes" };
-	}
-
-	@Override
-	public String getBluetooth() {
-		return "bnep0";
-	}
-
-	@Override
-	public String getCell() {
-		return "ppp0";
-	}
-
-	@Override
-	public String getWiFi() {
-		return "tiwlan0";
-	}
-}
-
-/**
- * Device implementation for the LG Eve Android GW620R.
- */
-class EveDevice extends Device {
-	@Override
-	public String[] getNames() {
-		return new String[] { "EVE" };
-	}
-
-	@Override
-	public String getBluetooth() {
-		return "bnep0";
-	}
-
-	@Override
-	public String getCell() {
-		return "rmnet0";
-	}
-
-	@Override
-	public String getWiFi() {
-		return "wlan0";
+		if (this.mWiFi == null) {
+			for (String inter : WIFI_INTERFACES) {
+				if (SysClassNet.isUp(inter)) {
+					Log
+							.i(this.getClass().getName(), "WiFi interface: "
+									+ inter);
+					this.mWiFi = inter;
+					break;
+				}
+			}
+		}
+		return this.mWiFi;
 	}
 }
