@@ -396,7 +396,7 @@ public final class LogRunnerService extends IntentService {
 				.getSystemService(Context.TELEPHONY_SERVICE))
 				.isNetworkRoaming();
 
-		final boolean shortRun = a != null
+		boolean shortRun = a != null
 				&& (a.equals(Intent.ACTION_BOOT_COMPLETED)
 						|| a.equals(Intent.ACTION_SHUTDOWN) // .
 				|| a.equals(Intent.ACTION_REBOOT));
@@ -410,6 +410,27 @@ public final class LogRunnerService extends IntentService {
 							+ " AND " + DataProvider.Logs.TYPE + " != "
 							+ DataProvider.TYPE_DATA, null, null);
 			if (c != null && c.getCount() <= 0) {
+				// skip if no plan is set up
+				Cursor c1 = cr.query(DataProvider.Plans.CONTENT_URI,
+						new String[] { DataProvider.Plans.ID }, null, null,
+						null);
+				if (c1 == null || c1.getCount() <= 0) {
+					shortRun = true;
+				}
+				if (!c1.isClosed()) {
+					c1.close();
+				}
+				// skip if no rule is set up
+				c1 = cr.query(DataProvider.Rules.CONTENT_URI,
+						new String[] { DataProvider.Rules.ID }, null, null,
+						null);
+				if (c1 == null || c1.getCount() <= 0) {
+					shortRun = true;
+				}
+				if (!c1.isClosed()) {
+					c1.close();
+				}
+
 				showDialog = true;
 				h.sendEmptyMessage(Plans.MSG_BACKGROUND_START_RUNNER);
 			}
@@ -422,10 +443,7 @@ public final class LogRunnerService extends IntentService {
 			this.updateCalls(cr);
 			this.updateSMS(cr);
 			this.updateMMS(cr);
-			final boolean changed = RuleMatcher.match(this, showDialog);
-			if (changed) {
-				cr.notifyChange(DataProvider.Logs.SUM_URI, null);
-			}
+			RuleMatcher.match(this, showDialog);
 		}
 
 		// schedule next update

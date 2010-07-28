@@ -512,6 +512,8 @@ public class Preferences extends PreferenceActivity {
 									@Override
 									protected void onPostExecute(
 											final Void result) {
+										de.ub0r.android.callmeter.ui.Plans
+												.reloadList();
 										d1.dismiss();
 									}
 								} // .

@@ -113,6 +113,9 @@ public class Plans extends ListActivity implements OnClickListener,
 	/** Selected date format. */
 	private static String dateFormat = null;
 
+	/** Force adapter to reload the list. */
+	private static boolean reloadList = false;
+
 	/** {@link Handler} for handling messages from background process. */
 	private final Handler handler = new Handler() {
 		@Override
@@ -145,7 +148,7 @@ public class Plans extends ListActivity implements OnClickListener,
 						statusMatcher = new ProgressDialog(Plans.this);
 						statusMatcher.setCancelable(true);
 						statusMatcher.setMessage(Plans.this
-								.getString(R.string.reset_data_progr21));
+								.getString(R.string.reset_data_progr2));
 						statusMatcher.setProgressStyle(// .
 								ProgressDialog.STYLE_HORIZONTAL);
 						statusMatcher.setMax(msg.arg2);
@@ -805,7 +808,6 @@ public class Plans extends ListActivity implements OnClickListener,
 		// tv = (TextView) this.findViewById(R.id.calls1_in_);
 		// Preferences.textSizeSmall = tv.getTextSize();
 
-		// final ListView list = this.getListView();
 		this.adapter = new PlanAdapter(this);
 		this.setListAdapter(this.adapter);
 	}
@@ -823,6 +825,12 @@ public class Plans extends ListActivity implements OnClickListener,
 		}
 		currencyFormat = Preferences.getCurrencyFormat(this);
 		dateFormat = Preferences.getDateFormat(this);
+
+		if (reloadList) {
+			this.adapter = new PlanAdapter(this);
+			this.setListAdapter(this.adapter);
+		}
+
 		if (this.getListView().getCount() == 0) {
 			this.findViewById(R.id.import_default).setVisibility(View.VISIBLE);
 		} else {
@@ -853,6 +861,11 @@ public class Plans extends ListActivity implements OnClickListener,
 	 */
 	public static final Handler getHandler() {
 		return currentHandler;
+	}
+
+	/** Force the Adapter to reload the list. */
+	public static final void reloadList() {
+		reloadList = true;
 	}
 
 	/**
