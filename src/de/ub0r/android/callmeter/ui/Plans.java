@@ -89,8 +89,6 @@ public class Plans extends ListActivity implements OnClickListener,
 
 	/** Dialog: update. */
 	private static final int DIALOG_UPDATE = 0;
-	/** Dialog: recalc stats. */
-	private static final int DIALOG_RECALC = 1;
 
 	/** {@link Message} for {@link Handler}: start background: LogMatcher. */
 	public static final int MSG_BACKGROUND_START_MATCHER = 1;
@@ -104,6 +102,8 @@ public class Plans extends ListActivity implements OnClickListener,
 	public static final int MSG_BACKGROUND_START_RUNNER = 5;
 	/** {@link Message} for {@link Handler}: stop background: LogRunner. */
 	public static final int MSG_BACKGROUND_STOP_RUNNER = 6;
+	/** {@link Message} for {@link Handler}: progress: LogMatcher. */
+	public static final int MSG_BACKGROUND_PROGRESS_MATCHER = 7;
 
 	/** Prefs: name for last version run. */
 	private static final String PREFS_LAST_RUN = "lastrun";
@@ -137,6 +137,26 @@ public class Plans extends ListActivity implements OnClickListener,
 			case MSG_BACKGROUND_STOP_PLANADAPTER:
 				inProgressPlanadapter = false;
 				break;
+			case MSG_BACKGROUND_PROGRESS_MATCHER:
+				if (statusMatcher != null && statusMatcher.isShowing()) {
+					Log.d(TAG, "matcher progress: " + msg.arg1);
+					if (msg.arg1 == 0) {
+						final ProgressDialog dold = statusMatcher;
+						statusMatcher = new ProgressDialog(Plans.this);
+						statusMatcher.setCancelable(true);
+						statusMatcher.setMessage(Plans.this
+								.getString(R.string.reset_data_progr21));
+						statusMatcher.setProgressStyle(// .
+								ProgressDialog.STYLE_HORIZONTAL);
+						statusMatcher.setMax(msg.arg2);
+						statusMatcher.setIndeterminate(false);
+						statusMatcher.show();
+						dold.dismiss();
+					}
+					statusMatcher.setProgress(msg.arg1);
+					// statusMatcher.show();
+				}
+				break;
 			default:
 				break;
 			}
@@ -150,12 +170,18 @@ public class Plans extends ListActivity implements OnClickListener,
 			Plans.this.setProgressBarIndeterminateVisibility(inProgressMatcher
 					|| inProgressPlanadapter);
 			if (inProgressRunner) {
-				Plans.this.showDialog(DIALOG_RECALC);
+				if (statusMatcher == null || !statusMatcher.isShowing()) {
+					statusMatcher = new ProgressDialog(Plans.this);
+					statusMatcher.setCancelable(true);
+					statusMatcher.setMessage(Plans.this
+							.getString(R.string.reset_data_progr1));
+					statusMatcher.setIndeterminate(true);
+					statusMatcher.show();
+				}
 			} else {
-				try {
-					Plans.this.dismissDialog(DIALOG_RECALC);
-				} catch (IllegalArgumentException e) {
-					Log.d(TAG, "failed dismissing dialog: " + e.toString());
+				if (statusMatcher != null) {
+					statusMatcher.dismiss();
+					statusMatcher = null;
 				}
 			}
 		}
@@ -169,6 +195,8 @@ public class Plans extends ListActivity implements OnClickListener,
 	private static boolean inProgressRunner = false;
 	/** PlanAdapter running in background? */
 	private static boolean inProgressPlanadapter = false;
+	/** {@link ProgressDialog} showing LogMatcher's status. */
+	private static ProgressDialog statusMatcher = null;
 
 	/**
 	 * Adapter binding plans to View.
@@ -237,7 +265,6 @@ public class Plans extends ListActivity implements OnClickListener,
 							.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 					long curLimit = cursor
 							.getLong(DataProvider.Plans.INDEX_LIMIT);
-					int used = 0;
 					switch (this.limittype) {
 					case DataProvider.LIMIT_TYPE_UNITS:
 						curLimit = DataProvider.Plans.getLimit(this.type,
@@ -476,8 +503,10 @@ public class Plans extends ListActivity implements OnClickListener,
 				protected Void doInBackground(final Void... params) {
 					Log.d(TAG, "updatePlans().task start");
 					runningTask = this;
-					currentHandler
-							.sendEmptyMessage(MSG_BACKGROUND_START_PLANADAPTER);
+					if (currentHandler != null) {
+						currentHandler.sendEmptyMessage(// .
+								MSG_BACKGROUND_START_PLANADAPTER);
+					}
 					final int l = PlanAdapter.this.plansList.size();
 					// update bill periods
 					for (int i = 0; i < l; i++) {
@@ -500,7 +529,7 @@ public class Plans extends ListActivity implements OnClickListener,
 						}
 					}
 					final boolean last = runningTask == this;
-					if (last) {
+					if (last && currentHandler != null) {
 						currentHandler.sendEmptyMessage(// .
 								MSG_BACKGROUND_STOP_PLANADAPTER);
 					}
@@ -857,12 +886,6 @@ public class Plans extends ListActivity implements OnClickListener,
 						}
 					});
 			return builder.create();
-		case DIALOG_RECALC:
-			final ProgressDialog pd = new ProgressDialog(this);
-			pd.setCancelable(true);
-			pd.setMessage(this.getString(R.string.reset_data_progr));
-			pd.setIndeterminate(true);
-			return pd;
 		default:
 			return null;
 		}

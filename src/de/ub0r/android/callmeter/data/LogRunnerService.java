@@ -402,6 +402,7 @@ public final class LogRunnerService extends IntentService {
 				|| a.equals(Intent.ACTION_REBOOT));
 
 		final ContentResolver cr = this.getContentResolver();
+		boolean showDialog = false;
 		if (!shortRun && h != null) {
 			final Cursor c = cr.query(DataProvider.Logs.CONTENT_URI,
 					new String[] { DataProvider.Logs.PLAN_ID },
@@ -409,6 +410,7 @@ public final class LogRunnerService extends IntentService {
 							+ " AND " + DataProvider.Logs.TYPE + " != "
 							+ DataProvider.TYPE_DATA, null, null);
 			if (c != null && c.getCount() <= 0) {
+				showDialog = true;
 				h.sendEmptyMessage(Plans.MSG_BACKGROUND_START_RUNNER);
 			}
 			if (c != null && !c.isClosed()) {
@@ -420,7 +422,7 @@ public final class LogRunnerService extends IntentService {
 			this.updateCalls(cr);
 			this.updateSMS(cr);
 			this.updateMMS(cr);
-			final boolean changed = RuleMatcher.match(this);
+			final boolean changed = RuleMatcher.match(this, showDialog);
 			if (changed) {
 				cr.notifyChange(DataProvider.Logs.SUM_URI, null);
 			}

@@ -28,7 +28,10 @@ import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.os.Handler;
+import android.os.Message;
 import de.ub0r.android.callmeter.CallMeter;
+import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
@@ -41,6 +44,9 @@ import de.ub0r.android.lib.Utils;
 public final class RuleMatcher {
 	/** Tag for output. */
 	private static final String TAG = "rm";
+
+	/** Steps for updating the GUI. */
+	private static final int PROGRESS_STEPS = 50;
 
 	/**
 	 * A single Rule.
@@ -810,10 +816,13 @@ public final class RuleMatcher {
 	 * 
 	 * @param context
 	 *            {@link Context}
+	 * @param showStatus
+	 *            post status to dialog/handler
 	 * @return true if a log was matcheds
 	 */
-	static synchronized boolean match(final Context context) {
-		Log.d(TAG, "match()");
+	static synchronized boolean match(final Context context,
+			final boolean showStatus) {
+		Log.d(TAG, "match(ctx, " + showStatus + ")");
 		boolean ret = false;
 		load(context);
 		final Cursor cursor = context.getContentResolver().query(
@@ -822,8 +831,30 @@ public final class RuleMatcher {
 				DataProvider.Logs.DATE + " ASC");
 		if (cursor != null && cursor.moveToFirst()) {
 			final ContentResolver cr = context.getContentResolver();
+			final int l = cursor.getCount();
+			Handler h = null;
+			if (showStatus) {
+				h = Plans.getHandler();
+				if (h != null) {
+					final Message m = h.obtainMessage(// .
+							Plans.MSG_BACKGROUND_PROGRESS_MATCHER);
+					m.arg1 = 0;
+					m.arg2 = l;
+					m.sendToTarget();
+				}
+			}
+			int i = 1;
 			do {
 				ret |= matchLog(cr, cursor);
+				if (h != null && (// .
+						i % PROGRESS_STEPS == 0 || // .
+						(i < PROGRESS_STEPS && i % CallMeter.TEN == 0))) {
+					final Message m = h.obtainMessage(// .
+							Plans.MSG_BACKGROUND_PROGRESS_MATCHER);
+					m.arg1 = i;
+					m.sendToTarget();
+				}
+				++i;
 			} while (cursor.moveToNext());
 		}
 		if (cursor != null && !cursor.isClosed()) {

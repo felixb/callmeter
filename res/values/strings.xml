@@ -148,7 +148,8 @@
 	<string name="reset_data_">Reset statistics</string>
 	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string>
 	<string name="reset_data_data_">Reset traffic too.</string>
-	<string name="reset_data_progr">Recalculating statistics ...\n\n(This may take some time!)</string>
+	<string name="reset_data_progr1">Recalculating statistics...\n\n(This may take some time!)</string>
+	<string name="reset_data_progr2">Recalculating statistics...</string>
 	<string name="contacts_">Contacts</string>
 	<string name="help_">Help</string>
 	<string name="name_">Name:</string>
