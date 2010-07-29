@@ -20,16 +20,18 @@ package de.ub0r.android.callmeter.ui.prefs;
 
 import java.util.Calendar;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnDismissListener;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,22 +40,25 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.lib.Log;
-import de.ub0r.android.lib.Utils;
 
 /**
  * Edit a single Plan.
  * 
  * @author flx
  */
-public class PlanEdit extends Activity implements OnClickListener,
-		OnItemSelectedListener {
+public class PlanEdit extends ListActivity implements OnClickListener,
+		OnItemSelectedListener, OnItemClickListener, OnDismissListener {
 	/** Tag for debug out. */
 	private static final String TAG = "pe";
+
+	/** {@link PreferenceAdapter}. */
+	private PreferenceAdapter adapter = null;
 
 	/** Id of edited filed. */
 	private long pid = -1;
@@ -115,90 +120,10 @@ public class PlanEdit extends Activity implements OnClickListener,
 		this.setTitle(this.getString(R.string.settings) + " > "
 				+ this.getString(R.string.plans) + " > "
 				+ this.getString(R.string.edit_));
-		this.setContentView(R.layout.prefs_planedit);
-
-		this.etName = (EditText) this.findViewById(R.id.name_et);
-		this.etShortname = (EditText) this.findViewById(R.id.shortname_et);
-		this.spType = (Spinner) this.findViewById(R.id.type_sp);
-		this.spType.setOnItemSelectedListener(this);
-		this.spLimitType = (Spinner) this.findViewById(R.id.limit_type_sp);
-		this.spLimitType.setOnItemSelectedListener(this);
-		this.etLimit = (EditText) this.findViewById(R.id.limit_et);
-		this.spBillmode = (Spinner) this.findViewById(R.id.billmode_sp);
-		this.spBillmode.setOnItemSelectedListener(this);
-		this.etBillmodeCust1 = (EditText) this
-				.findViewById(R.id.billmode_cust_1_et);
-		this.etBillmodeCust2 = (EditText) this
-				.findViewById(R.id.billmode_cust_2_et);
-		this.spBillperiod = (Spinner) this.findViewById(R.id.billperiod_sp);
-		this.spBillperiod.setOnItemSelectedListener(this);
-		this.btnBillperiodId = (Button) this
-				.findViewById(R.id.billperiodid_btn);
-		this.btnBillday = (Button) this.findViewById(R.id.billday_btn);
-		this.btnBillday.setOnClickListener(this);
-		this.etCostPerItem = (EditText) this
-				.findViewById(R.id.cost_per_item_et);
-		this.etCostPerAmount = (EditText) this
-				.findViewById(R.id.cost_per_amount_et);
-		this.etCostPerAmount1 = (EditText) this
-				.findViewById(R.id.cost_per_amount_et1);
-		this.etCostPerAmount2 = (EditText) this
-				.findViewById(R.id.cost_per_amount_et2);
-		this.etCostPerItemInLimit = (EditText) this
-				.findViewById(R.id.cost_per_item_in_limit_et);
-		this.etCostPerAmountInLimit = (EditText) this
-				.findViewById(R.id.cost_per_amount_in_limit_et);
-		this.etCostPerAmountInLimit1 = (EditText) this
-				.findViewById(R.id.cost_per_amount_in_limit_et1);
-		this.etCostPerAmountInLimit2 = (EditText) this
-				.findViewById(R.id.cost_per_amount_in_limit_et2);
-		this.etCostPerPlan = (EditText) this
-				.findViewById(R.id.cost_per_plan_et);
-		this.etMixedUnitsCall = (EditText) this
-				.findViewById(R.id.mixed_units_call_et);
-		this.etMixedUnitsSMS = (EditText) this
-				.findViewById(R.id.mixed_units_sms_et);
-		this.etMixedUnitsMMS = (EditText) this
-				.findViewById(R.id.mixed_units_mms_et);
-
-		this.llShortname = this.findViewById(R.id.shortname_layout);
-		this.llLimitType = this.findViewById(R.id.limit_type_layout);
-		this.llLimit = this.findViewById(R.id.limit_layout);
-		this.llBillmode = this.findViewById(R.id.billmode_layout);
-		this.llBillperiod = this.findViewById(R.id.billperiod_layout);
-		this.llBillperiodId = this.findViewById(R.id.billperiodid_layout);
-		this.llBillday = this.findViewById(R.id.billday_layout);
-		this.llCostPerAmount = this.findViewById(R.id.cost_per_amount_layout);
-		this.llCostPerItem = this.findViewById(R.id.cost_per_item_layout);
-		this.llCostPerItemInLimit = this
-				.findViewById(R.id.cost_per_item_in_limit_layout);
-		this.llCostPerAmountInLimit = this
-				.findViewById(R.id.cost_per_amount_in_limit_layout);
-		this.llCostPerPlan = this.findViewById(R.id.cost_per_plan_layout);
-		this.llMixedUnits = this.findViewById(R.id.mixed_units_layout);
+		this.setContentView(R.layout.list_ok_cancel);
 
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.cancel).setOnClickListener(this);
-		this.findViewById(R.id.billperiodid_btn).setOnClickListener(this);
-		this.findViewById(R.id.name_help).setOnClickListener(this);
-		this.findViewById(R.id.type_help).setOnClickListener(this);
-		this.findViewById(R.id.shortname_help).setOnClickListener(this);
-		this.findViewById(R.id.limit_type_help).setOnClickListener(this);
-		this.findViewById(R.id.limit_help).setOnClickListener(this);
-		this.findViewById(R.id.billmode_help).setOnClickListener(this);
-		this.findViewById(R.id.billperiod_help).setOnClickListener(this);
-		this.findViewById(R.id.billperiodid_help).setOnClickListener(this);
-		this.findViewById(R.id.billday_help).setOnClickListener(this);
-		this.findViewById(R.id.cost_per_item_help).setOnClickListener(this);
-		this.findViewById(R.id.cost_per_amount_help).setOnClickListener(this);
-		this.findViewById(R.id.cost_per_item_in_limit_help).setOnClickListener(
-				this);
-		this.findViewById(R.id.cost_per_amount_in_limit_help)
-				.setOnClickListener(this);
-		this.findViewById(R.id.cost_per_plan_help).setOnClickListener(this);
-		this.findViewById(R.id.mixed_units_call_help).setOnClickListener(this);
-		this.findViewById(R.id.mixed_units_sms_help).setOnClickListener(this);
-		this.findViewById(R.id.mixed_units_mms_help).setOnClickListener(this);
 
 		this.fillFields();
 		this.fillBillday();
@@ -248,11 +173,65 @@ public class PlanEdit extends Activity implements OnClickListener,
 			final int nid = cursor.getInt(DataProvider.Plans.INDEX_ID);
 			if (nid != this.pid) {
 				this.pid = nid;
+
+				this.adapter = new PreferenceAdapter(this);
+				this.adapter.add(new Preference.TextPreference(this,
+						DataProvider.Plans.NAME, "", R.string.name_,
+						R.string.name_help, InputType.TYPE_NULL));
+				this.adapter.add(new Preference.TextPreference(this,
+						DataProvider.Plans.SHORTNAME, "", R.string.shortname_,
+						R.string.shortname_help, InputType.TYPE_NULL));
+				this.adapter
+						.add(new Preference.ListPreference(this,
+								DataProvider.Plans.TYPE,
+								DataProvider.TYPE_CALL, R.string.type_,
+								R.string.type_help, R.array.plans_type));
+
+				// TODO: billperiod
+				// TODO: billperiodday
+				// TODO: billperiodid
+
+				this.adapter.add(new Preference.ListPreference(this,
+						DataProvider.Plans.LIMIT_TYPE,
+						DataProvider.LIMIT_TYPE_NONE, R.string.limit_type_,
+						R.string.limit_type_help, R.array.limit_type));
+				this.adapter.add(new Preference.TextPreference(this,
+						DataProvider.Plans.LIMIT, "0", R.string.limit_,
+						R.string.limit_help, InputType.TYPE_CLASS_NUMBER));
+				this.adapter.add(new Preference.ListPreference(this,
+						DataProvider.Plans.BILLMODE, 0, R.string.billmode_,
+						R.string.billmode_help, R.array.billmodes));
+				this.adapter.add(new Preference.TextPreference(this,
+						DataProvider.Plans.COST_PER_PLAN, "0",
+						R.string.cost_per_plan_, R.string.cost_per_plan_help,
+						InputType.TYPE_CLASS_NUMBER
+								| InputType.TYPE_NUMBER_FLAG_DECIMAL));
+				this.adapter.add(new Preference.TextPreference(this,
+						DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, "0",
+						R.string.cost_per_item_in_limit_,
+						R.string.cost_per_item_in_limit_help,
+						InputType.TYPE_CLASS_NUMBER
+								| InputType.TYPE_NUMBER_FLAG_DECIMAL));
+				this.adapter.add(new Preference.TextPreference(this,
+						DataProvider.Plans.COST_PER_ITEM, "0",
+						R.string.cost_per_item_, R.string.cost_per_item_help,
+						InputType.TYPE_CLASS_NUMBER
+								| InputType.TYPE_NUMBER_FLAG_DECIMAL));
+				// TODO: costperamount in limit
+				// TODO: costperamount
+				this.adapter.load(cursor);
+				this.setListAdapter(this.adapter);
+				this.getListView().setOnItemClickListener(this);
 			} else {
 				cursor.close();
 				return;
 			}
 		} else {
+			return;
+		}
+
+		if (1 == 1) { // FIXME
+			cursor.close();
 			return;
 		}
 		this.etName.setText(cursor.getString(DataProvider.Plans.INDEX_NAME));
@@ -335,6 +314,9 @@ public class PlanEdit extends Activity implements OnClickListener,
 
 	/** Set text of billday {@link Button}. */
 	private void fillBillday() {
+		if (1 == 1) {
+			return; // FIXME
+		}
 		this.btnBillday.setText(DateFormat.getDateFormat(this).format(
 				this.billday));
 		this.btnBillperiodId.setText(DataProvider.Plans.getName(this
@@ -345,124 +327,138 @@ public class PlanEdit extends Activity implements OnClickListener,
 	 * Show or hide fields based on data in there.
 	 */
 	private void showHideFileds() {
-		this.spType.setOnItemSelectedListener(null);
-		this.spLimitType.setOnItemSelectedListener(null);
-		this.spBillperiod.setOnItemSelectedListener(null);
-		final int t = this.spType.getSelectedItemPosition();
+		final int t = ((Preference.ListPreference) this.adapter
+				.getPreference(DataProvider.Plans.TYPE)).getValue();
 		switch (t) {
 		case DataProvider.TYPE_MMS:
 		case DataProvider.TYPE_SMS:
-			this.llBillday.setVisibility(View.GONE);
-			this.llBillmode.setVisibility(View.GONE);
-			this.llBillperiod.setVisibility(View.GONE);
-			this.llCostPerAmount.setVisibility(View.GONE);
-			this.llCostPerAmountInLimit.setVisibility(View.GONE);
-			this.llMixedUnits.setVisibility(View.GONE);
-
-			this.llBillperiodId.setVisibility(View.VISIBLE);
-			this.llCostPerItem.setVisibility(View.VISIBLE);
-			this.llCostPerItemInLimit.setVisibility(View.VISIBLE);
-			this.llCostPerPlan.setVisibility(View.VISIBLE);
-			this.llLimitType.setVisibility(View.VISIBLE);
-			this.llShortname.setVisibility(View.VISIBLE);
-			break;
-		case DataProvider.TYPE_DATA:
-			this.llBillday.setVisibility(View.GONE);
-			this.llBillmode.setVisibility(View.GONE);
-			this.llBillperiod.setVisibility(View.GONE);
-			this.llMixedUnits.setVisibility(View.GONE);
-
-			this.llBillperiodId.setVisibility(View.VISIBLE);
-			this.llCostPerAmount.setVisibility(View.VISIBLE);
-			this.llCostPerAmountInLimit.setVisibility(View.VISIBLE);
-			this.llCostPerItem.setVisibility(View.VISIBLE);
-			this.llCostPerItemInLimit.setVisibility(View.VISIBLE);
-			this.llCostPerPlan.setVisibility(View.VISIBLE);
-			this.llLimitType.setVisibility(View.VISIBLE);
-			this.llShortname.setVisibility(View.VISIBLE);
-			break;
-		case DataProvider.TYPE_CALL:
-			this.llBillday.setVisibility(View.GONE);
-			this.llBillperiod.setVisibility(View.GONE);
-			this.llMixedUnits.setVisibility(View.GONE);
-
-			this.llBillmode.setVisibility(View.VISIBLE);
-			this.llBillperiodId.setVisibility(View.VISIBLE);
-			this.llCostPerAmount.setVisibility(View.VISIBLE);
-			this.llCostPerAmountInLimit.setVisibility(View.VISIBLE);
-			this.llCostPerItem.setVisibility(View.VISIBLE);
-			this.llCostPerItemInLimit.setVisibility(View.VISIBLE);
-			this.llCostPerPlan.setVisibility(View.VISIBLE);
-			this.llLimitType.setVisibility(View.VISIBLE);
-			this.llShortname.setVisibility(View.VISIBLE);
-			break;
-		case DataProvider.TYPE_MIXED:
-			this.llBillday.setVisibility(View.GONE);
-			this.llBillperiod.setVisibility(View.GONE);
-			this.llCostPerAmount.setVisibility(View.GONE);
-			this.llCostPerAmountInLimit.setVisibility(View.GONE);
-
-			this.llBillmode.setVisibility(View.VISIBLE);
-			this.llBillperiodId.setVisibility(View.VISIBLE);
-			this.llCostPerItem.setVisibility(View.VISIBLE);
-			this.llCostPerItemInLimit.setVisibility(View.VISIBLE);
-			this.llCostPerPlan.setVisibility(View.VISIBLE);
-			this.llLimitType.setVisibility(View.VISIBLE);
-			this.llMixedUnits.setVisibility(View.VISIBLE);
-			this.llShortname.setVisibility(View.VISIBLE);
+			this.adapter.hide(DataProvider.Plans.SHORTNAME, false);
 			break;
 		case DataProvider.TYPE_SPACING:
-			this.llBillday.setVisibility(View.GONE);
-			this.llBillmode.setVisibility(View.GONE);
-			this.llBillperiod.setVisibility(View.GONE);
-			this.llBillperiodId.setVisibility(View.GONE);
-			this.llCostPerAmount.setVisibility(View.GONE);
-			this.llCostPerAmountInLimit.setVisibility(View.GONE);
-			this.llCostPerItem.setVisibility(View.GONE);
-			this.llCostPerItemInLimit.setVisibility(View.GONE);
-			this.llCostPerPlan.setVisibility(View.GONE);
-			this.llLimitType.setVisibility(View.GONE);
-			this.llMixedUnits.setVisibility(View.GONE);
-			this.llShortname.setVisibility(View.GONE);
-			this.llLimit.setVisibility(View.GONE);
+			this.adapter.hide(DataProvider.Plans.SHORTNAME, true);
+			break;
+		default:
+			this.adapter.hide(DataProvider.Plans.SHORTNAME, false);
+			break;
+		}
+
+		switch (t) {
+		case DataProvider.TYPE_MMS:
+		case DataProvider.TYPE_SMS:
+			this.adapter.hide(DataProvider.Plans.BILLDAY, true);
+			this.adapter.hide(DataProvider.Plans.BILLMODE, true);
+			this.adapter.hide(DataProvider.Plans.BILLPERIOD, true);
+			// FIXME this.llCostPerAmount.setVisibility(View.GONE);
+			// FIXME this.llCostPerAmountInLimit.setVisibility(View.GONE);
+			// FIXME this.llMixedUnits.setVisibility(View.GONE);
+
+			// FIXME: this.llBillperiodId.setVisibility(View.VISIBLE);
+			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, false);
+			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
+			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, false);
+			this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, false);
+			this.adapter.hide(DataProvider.Plans.SHORTNAME, false);
+			break;
+		case DataProvider.TYPE_DATA:
+			this.adapter.hide(DataProvider.Plans.BILLDAY, true);
+			this.adapter.hide(DataProvider.Plans.BILLMODE, true);
+			this.adapter.hide(DataProvider.Plans.BILLPERIOD, true);
+			// this.llMixedUnits.setVisibility(View.GONE);
+
+			// FIXME: this.llBillperiodId.setVisibility(View.VISIBLE);
+			// FIXME: this.llCostPerAmount.setVisibility(View.VISIBLE);
+			// FIXME: this.llCostPerAmountInLimit.setVisibility(View.VISIBLE);
+			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, false);
+			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
+			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, false);
+			this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, false);
+			this.adapter.hide(DataProvider.Plans.SHORTNAME, false);
+			break;
+		case DataProvider.TYPE_CALL:
+			this.adapter.hide(DataProvider.Plans.BILLDAY, true);
+			this.adapter.hide(DataProvider.Plans.BILLPERIOD, true);
+			// FIXME: this.llMixedUnits.setVisibility(View.GONE);
+
+			this.adapter.hide(DataProvider.Plans.BILLMODE, false);
+			// FIXME: this.llBillperiodId.setVisibility(View.VISIBLE);
+			// FIXME: this.llCostPerAmount.setVisibility(View.VISIBLE);
+			// FIXME: this.llCostPerAmountInLimit.setVisibility(View.VISIBLE);
+			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, false);
+			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
+			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, false);
+			this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, false);
+			this.adapter.hide(DataProvider.Plans.SHORTNAME, false);
+			break;
+		case DataProvider.TYPE_MIXED:
+			this.adapter.hide(DataProvider.Plans.BILLDAY, true);
+			this.adapter.hide(DataProvider.Plans.BILLPERIOD, true);
+			// FIXME: this.llCostPerAmount.setVisibility(View.GONE);
+			// FIXME: this.llCostPerAmountInLimit.setVisibility(View.GONE);
+
+			this.adapter.hide(DataProvider.Plans.BILLMODE, false);
+			// FIXME: this.llBillperiodId.setVisibility(View.VISIBLE);
+			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, false);
+			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
+			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, false);
+			this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, false);
+			// FIXME: this.llMixedUnits.setVisibility(View.VISIBLE);
+			this.adapter.hide(DataProvider.Plans.SHORTNAME, false);
+			break;
+		case DataProvider.TYPE_SPACING:
+			this.adapter.hide(DataProvider.Plans.BILLDAY, true);
+			this.adapter.hide(DataProvider.Plans.BILLMODE, true);
+			this.adapter.hide(DataProvider.Plans.BILLPERIOD, true);
+			// FIXME: this.llBillperiodId.setVisibility(View.GONE);
+			// FIXME: this.llCostPerAmount.setVisibility(View.GONE);
+			// FIXME: this.llCostPerAmountInLimit.setVisibility(View.GONE);
+			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, true);
+			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
+			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, true);
+			this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, true);
+			// FIXME: this.llMixedUnits.setVisibility(View.GONE);
+			this.adapter.hide(DataProvider.Plans.SHORTNAME, true);
+			this.adapter.hide(DataProvider.Plans.LIMIT, true);
 			break;
 		case DataProvider.TYPE_TITLE:
-			this.llShortname.setVisibility(View.VISIBLE);
+			this.adapter.hide(DataProvider.Plans.SHORTNAME, false);
 
-			this.llBillday.setVisibility(View.GONE);
-			this.llBillmode.setVisibility(View.GONE);
-			this.llBillperiod.setVisibility(View.GONE);
-			this.llBillperiodId.setVisibility(View.GONE);
-			this.llCostPerAmount.setVisibility(View.GONE);
-			this.llCostPerAmountInLimit.setVisibility(View.GONE);
-			this.llCostPerItem.setVisibility(View.GONE);
-			this.llCostPerItemInLimit.setVisibility(View.GONE);
-			this.llCostPerPlan.setVisibility(View.GONE);
-			this.llLimitType.setVisibility(View.GONE);
-			this.llLimit.setVisibility(View.GONE);
-			this.llMixedUnits.setVisibility(View.GONE);
+			this.adapter.hide(DataProvider.Plans.BILLDAY, true);
+			this.adapter.hide(DataProvider.Plans.BILLMODE, true);
+			this.adapter.hide(DataProvider.Plans.BILLPERIOD, true);
+			// FIXME: this.llBillperiodId.setVisibility(View.GONE);
+			// FIXME: this.llCostPerAmount.setVisibility(View.GONE);
+			// FIXME: this.llCostPerAmountInLimit.setVisibility(View.GONE);
+			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, true);
+			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
+			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, true);
+			this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, true);
+			// FIXME: this.llMixedUnits.setVisibility(View.GONE);
 			break;
 		case DataProvider.TYPE_BILLPERIOD:
-			if (this.spBillperiod.getCount() <= this.billperiod) {
-				this.spBillperiod
-						.setSelection(DataProvider.BILLPERIOD_INFINITE);
-			}
-			this.llShortname.setVisibility(View.VISIBLE);
-			this.llBillperiod.setVisibility(View.VISIBLE);
+			// if (this.spBillperiod.getCount() <= this.billperiod) {
+			// this.spBillperiod
+			// .setSelection(DataProvider.BILLPERIOD_INFINITE);
+			// } FIXME
+			this.adapter.hide(DataProvider.Plans.SHORTNAME, false);
+			this.adapter.hide(DataProvider.Plans.BILLPERIOD, false);
 
-			this.llBillmode.setVisibility(View.GONE);
-			this.llBillperiodId.setVisibility(View.GONE);
-			this.llCostPerAmount.setVisibility(View.GONE);
-			this.llCostPerAmountInLimit.setVisibility(View.GONE);
-			this.llCostPerItem.setVisibility(View.GONE);
-			this.llCostPerItemInLimit.setVisibility(View.GONE);
-			this.llCostPerPlan.setVisibility(View.GONE);
-			this.llLimitType.setVisibility(View.GONE);
-			this.llLimit.setVisibility(View.GONE);
-			this.llMixedUnits.setVisibility(View.GONE);
+			this.adapter.hide(DataProvider.Plans.BILLMODE, true);
+			// FIXME: this.llBillperiodId.setVisibility(View.GONE);
+			// FIXME: this.llCostPerAmount.setVisibility(View.GONE);
+			// FIXME: this.llCostPerAmountInLimit.setVisibility(View.GONE);
+			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, true);
+			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
+			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, true);
+			this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, true);
+			this.adapter.hide(DataProvider.Plans.LIMIT, true);
+			// FIXME: this.llMixedUnits.setVisibility(View.GONE);
 			break;
 		default:
 			break;
+		}
+
+		if (1 == 1) {
+			return; // FIXME
 		}
 
 		if (t == DataProvider.TYPE_BILLPERIOD) {
@@ -514,86 +510,13 @@ public class PlanEdit extends Activity implements OnClickListener,
 	}
 
 	/**
-	 * Show help text.
-	 * 
-	 * @param res
-	 *            resource
-	 */
-	private void showHelp(final int res) {
-		final Builder b = new Builder(this);
-		b.setMessage(res);
-		b.setPositiveButton(android.R.string.ok, null);
-		b.show();
-	}
-
-	/**
 	 * Save a plan to database.
 	 * 
 	 * @param t
 	 *            type of plan
 	 */
 	private void savePlan(final int t) {
-		final ContentValues cv = new ContentValues();
-		cv.put(DataProvider.Plans.NAME, this.etName.getText().toString());
-		cv.put(DataProvider.Plans.SHORTNAME, this.etShortname.getText()
-				.toString());
-		cv.put(DataProvider.Plans.TYPE, t);
-		cv.put(DataProvider.Plans.LIMIT_TYPE, this.spLimitType
-				.getSelectedItemPosition());
-		cv.put(DataProvider.Plans.LIMIT, Utils.parseLong(this.etLimit.getText()
-				.toString(), 0));
-		final int bm = this.spBillmode.getSelectedItemPosition();
-		final String[] billmodes = this.getResources().getStringArray(
-				R.array.billmodes);
-		if (bm == billmodes.length - 1) {
-			final String billmode = this.etBillmodeCust1.getText() + "/"
-					+ this.etBillmodeCust2.getText();
-			cv.put(DataProvider.Plans.BILLMODE, billmode);
-		} else {
-			cv.put(DataProvider.Plans.BILLMODE, billmodes[bm]);
-		}
-		if (t == DataProvider.TYPE_BILLPERIOD) {
-			cv.put(DataProvider.Plans.BILLPERIOD, this.spBillperiod
-					.getSelectedItemPosition());
-		} else {
-			cv.put(DataProvider.Plans.BILLPERIOD, this.billperiod);
-		}
-		cv.put(DataProvider.Plans.BILLDAY, this.billday);
-		cv.put(DataProvider.Plans.COST_PER_ITEM, this.etCostPerItem.getText()
-				.toString());
-		if (this.etCostPerAmount.getVisibility() == View.VISIBLE) {
-			cv.put(DataProvider.Plans.COST_PER_AMOUNT1, this.etCostPerAmount
-					.getText().toString());
-			cv.put(DataProvider.Plans.COST_PER_AMOUNT2, this.etCostPerAmount
-					.getText().toString());
-		} else {
-			cv.put(DataProvider.Plans.COST_PER_AMOUNT1, this.etCostPerAmount1
-					.getText().toString());
-			cv.put(DataProvider.Plans.COST_PER_AMOUNT2, this.etCostPerAmount2
-					.getText().toString());
-		}
-		cv.put(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT,
-				this.etCostPerItemInLimit.getText().toString());
-		if (this.etCostPerAmountInLimit.getVisibility() == View.VISIBLE) {
-			cv.put(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
-					this.etCostPerAmountInLimit.getText().toString());
-			cv.put(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT2,
-					this.etCostPerAmountInLimit.getText().toString());
-		} else {
-			cv.put(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
-					this.etCostPerAmountInLimit1.getText().toString());
-			cv.put(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT2,
-					this.etCostPerAmountInLimit2.getText().toString());
-		}
-		cv.put(DataProvider.Plans.COST_PER_PLAN, this.etCostPerPlan.getText()
-				.toString());
-		cv.put(DataProvider.Plans.MIXED_UNITS_CALL, this.etMixedUnitsCall
-				.getText().toString());
-		cv.put(DataProvider.Plans.MIXED_UNITS_SMS, this.etMixedUnitsSMS
-				.getText().toString());
-		cv.put(DataProvider.Plans.MIXED_UNITS_MMS, this.etMixedUnitsMMS
-				.getText().toString());
-
+		final ContentValues cv = this.adapter.save();
 		final Uri uri = this.getIntent().getData();
 		if (uri == null) {
 			this.getContentResolver()
@@ -609,7 +532,8 @@ public class PlanEdit extends Activity implements OnClickListener,
 	 */
 	@Override
 	public final void onClick(final View v) {
-		final int t = this.spType.getSelectedItemPosition();
+		// final int t = this.spType.getSelectedItemPosition();
+		final int t = -1; // FIXME
 		switch (v.getId()) {
 		case R.id.ok:
 			this.savePlan(t);
@@ -669,65 +593,6 @@ public class PlanEdit extends Activity implements OnClickListener,
 			}, d.get(Calendar.YEAR), d.get(Calendar.MONTH), d
 					.get(Calendar.DAY_OF_MONTH)).show();
 			break;
-		case R.id.name_help:
-			this.showHelp(R.string.name_help);
-			break;
-		case R.id.shortname_help:
-			this.showHelp(R.string.shortname_help);
-			break;
-		case R.id.type_help:
-			this.showHelp(R.string.type_help);
-			break;
-		case R.id.limit_type_help:
-			this.showHelp(R.string.limit_type_help);
-			break;
-		case R.id.limit_help:
-			this.showHelp(R.string.limit_help);
-			break;
-		case R.id.billmode_help:
-			this.showHelp(R.string.billmode_help);
-			break;
-		case R.id.billperiodid_help:
-			this.showHelp(R.string.billperiodid_help);
-			break;
-		case R.id.billperiod_help:
-			this.showHelp(R.string.billperiod_help);
-			break;
-		case R.id.billday_help:
-			this.showHelp(R.string.billday_help);
-			break;
-		case R.id.cost_per_item_help:
-			this.showHelp(R.string.cost_per_item_help);
-			break;
-		case R.id.cost_per_amount_help:
-			if (this.etCostPerAmount.getVisibility() == View.VISIBLE) {
-				this.showHelp(R.string.cost_per_amount_help1);
-			} else {
-				this.showHelp(R.string.cost_per_amount_help2);
-			}
-			break;
-		case R.id.cost_per_item_in_limit_help:
-			this.showHelp(R.string.cost_per_item_in_limit_help);
-			break;
-		case R.id.cost_per_amount_in_limit_help:
-			if (this.etCostPerAmountInLimit.getVisibility() == View.VISIBLE) {
-				this.showHelp(R.string.cost_per_amount_in_limit_help1);
-			} else {
-				this.showHelp(R.string.cost_per_amount_in_limit_help2);
-			}
-			break;
-		case R.id.cost_per_plan_help:
-			this.showHelp(R.string.cost_per_plan_help);
-			break;
-		case R.id.mixed_units_call_help:
-			this.showHelp(R.string.mixed_units_call_help);
-			break;
-		case R.id.mixed_units_sms_help:
-			this.showHelp(R.string.mixed_units_sms_help);
-			break;
-		case R.id.mixed_units_mms_help:
-			this.showHelp(R.string.mixed_units_mms_help);
-			break;
 		default:
 			break;
 		}
@@ -748,5 +613,24 @@ public class PlanEdit extends Activity implements OnClickListener,
 	@Override
 	public final void onNothingSelected(final AdapterView<?> parent) {
 		// nothing to do
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void onItemClick(final AdapterView<?> parent, final View view,
+			final int position, final long id) {
+		final Preference p = this.adapter.getItem(position);
+		p.showDialog(this);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void onDismiss(final DialogInterface dialog) {
+		this.showHideFileds();
+		this.adapter.notifyDataSetInvalidated();
 	}
 }
