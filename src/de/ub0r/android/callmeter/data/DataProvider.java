@@ -62,7 +62,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 12;
+	private static final int DATABASE_VERSION = 13;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -318,7 +318,7 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_BILLMODE = 7;
 		/** Index in projection: Billday. */
 		public static final int INDEX_BILLDAY = 8;
-		/** Index in projection: type/id of billperiod. */
+		/** Index in projection: type of billperiod. */
 		public static final int INDEX_BILLPERIOD = 9;
 		/** Index in projection: Cost per item. */
 		public static final int INDEX_COST_PER_ITEM = 10;
@@ -346,6 +346,8 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_CACHE_PROGRESS_MAX = 21;
 		/** Index in projection: cache row for main: progressbar position. */
 		public static final int INDEX_CACHE_PROGRESS_POS = 22;
+		/** Index in projection: id of billperiod. */
+		public static final int INDEX_BILLPERIOD_ID = 23;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -365,8 +367,10 @@ public final class DataProvider extends ContentProvider {
 		public static final String BILLMODE = "_billmode";
 		/** Billday. */
 		public static final String BILLDAY = "_billday";
-		/** Type/Id of billperiod. */
+		/** Type of billperiod. */
 		public static final String BILLPERIOD = "_billperiod";
+		/** Id of billperiod. */
+		public static final String BILLPERIOD_ID = "_billperiod_id";
 		/** Cost per item. */
 		public static final String COST_PER_ITEM = "_cost_per_item";
 		/** Cost per amount1. */
@@ -404,7 +408,7 @@ public final class DataProvider extends ContentProvider {
 				COST_PER_ITEM_IN_LIMIT, COST_PER_AMOUNT_IN_LIMIT1,
 				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN, MIXED_UNITS_CALL,
 				MIXED_UNITS_SMS, MIXED_UNITS_MMS, CACHE_STRING,
-				CACHE_PROGRESS_MAX, CACHE_PROGRESS_POS };
+				CACHE_PROGRESS_MAX, CACHE_PROGRESS_POS, BILLPERIOD_ID };
 
 		/** Select only real plans. */
 		public static final String WHERE_REALPLANS = TYPE + " != "
@@ -438,6 +442,7 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(BILLMODE, BILLMODE);
 			PROJECTION_MAP.put(BILLDAY, BILLDAY);
 			PROJECTION_MAP.put(BILLPERIOD, BILLPERIOD);
+			PROJECTION_MAP.put(BILLPERIOD_ID, BILLPERIOD_ID);
 			PROJECTION_MAP.put(COST_PER_ITEM, COST_PER_ITEM);
 			PROJECTION_MAP.put(COST_PER_AMOUNT1, COST_PER_AMOUNT1);
 			PROJECTION_MAP.put(COST_PER_AMOUNT2, COST_PER_AMOUNT2);
@@ -474,7 +479,8 @@ public final class DataProvider extends ContentProvider {
 					+ LIMIT + " LONG,"// .
 					+ BILLMODE + " TEXT,"// .
 					+ BILLDAY + " LONG,"// .
-					+ BILLPERIOD + " LONG,"// .
+					+ BILLPERIOD + " INTEGER,"// .
+					+ BILLPERIOD_ID + " LONG,"// .
 					+ COST_PER_ITEM + " FLOAT,"// .
 					+ COST_PER_AMOUNT1 + " FLOAT,"// .
 					+ COST_PER_AMOUNT2 + " FLOAT,"// .

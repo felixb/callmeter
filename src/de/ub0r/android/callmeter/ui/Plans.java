@@ -220,7 +220,9 @@ public class Plans extends ListActivity implements OnClickListener,
 			/** Id of plan. */
 			private final long id;
 			/** Bill period. */
-			private final long billperiod;
+			private final int billperiod;
+			/** Bill period id. */
+			private final long billperiodid;
 			/** Bill day. */
 			private final long billday;
 			/** Bill day as {@link Calendar}. */
@@ -245,7 +247,9 @@ public class Plans extends ListActivity implements OnClickListener,
 				this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 				this.id = cursor.getLong(DataProvider.Plans.INDEX_ID);
 				this.billperiod = cursor
-						.getLong(DataProvider.Plans.INDEX_BILLPERIOD);
+						.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
+				this.billperiodid = cursor
+						.getLong(DataProvider.Plans.INDEX_BILLPERIOD_ID);
 				if (this.type == DataProvider.TYPE_SPACING
 						|| this.type == DataProvider.TYPE_TITLE) {
 					this.billday = -1;
@@ -301,8 +305,8 @@ public class Plans extends ListActivity implements OnClickListener,
 				if (this.type == DataProvider.TYPE_BILLPERIOD) {
 					Calendar billDay = Calendar.getInstance();
 					billDay.setTimeInMillis(this.billday);
-					billDay = DataProvider.Plans.getBillDay(
-							(int) this.billperiod, billDay, null, false);
+					billDay = DataProvider.Plans.getBillDay(this.billperiod,
+							billDay, null, false);
 
 					if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
 						cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, -1);
@@ -310,8 +314,8 @@ public class Plans extends ListActivity implements OnClickListener,
 						cv.put(DataProvider.Plans.CACHE_STRING, "\u221E");
 					} else {
 						final Calendar nextBillDay = DataProvider.Plans
-								.getBillDay((int) this.billperiod, billDay,
-										null, true);
+								.getBillDay(this.billperiod, billDay, null,
+										true);
 						final long pr = billDay.getTimeInMillis()
 								/ CallMeter.MILLIS;
 						final long nx = (nextBillDay.getTimeInMillis() // .
@@ -343,11 +347,11 @@ public class Plans extends ListActivity implements OnClickListener,
 						return;
 					}
 					final Plan billp = PlanAdapter.this
-							.getPlan(this.billperiod);
+							.getPlan(this.billperiodid);
 					String where = null;
 					if (billp != null) {
 						where = DataProvider.Plans.getBilldayWhere(
-								(int) billp.billperiod, billp.billdayc,
+								billp.billperiod, billp.billdayc,
 								PlanAdapter.this.now);
 					}
 					where = DbUtils.sqlAnd(where, DataProvider.Logs.PLAN_ID

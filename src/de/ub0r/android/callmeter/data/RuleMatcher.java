@@ -446,7 +446,8 @@ public final class RuleMatcher {
 			this.mixedUnitsMMS = cursor
 					.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_MMS);
 
-			final int bp = cursor.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
+			final long bp = cursor
+					.getLong(DataProvider.Plans.INDEX_BILLPERIOD_ID);
 			if (bp >= 0) {
 				final Cursor c = cr.query(ContentUris.withAppendedId(
 						DataProvider.Plans.CONTENT_URI, bp),

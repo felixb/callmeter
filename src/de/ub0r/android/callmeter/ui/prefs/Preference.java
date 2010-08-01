@@ -1,19 +1,29 @@
 package de.ub0r.android.callmeter.ui.prefs;
 
+import java.util.Calendar;
+
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.AlertDialog.Builder;
+import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
 import android.database.Cursor;
+import android.net.Uri;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.lib.DbUtils;
 
 /**
  * Hold Preferences saved to / loaded from a database.
@@ -221,6 +231,239 @@ abstract class Preference {
 			} else {
 				return this.defaultValue;
 			}
+		}
+	}
+
+	/**
+	 * Preference holding a list of items from a cursor.
+	 * 
+	 * @author flx
+	 */
+	static final class CursorPreference extends Preference {
+		/** Current value. */
+		private long value = -1;
+		/** Name of current value. */
+		private String valueName = null;
+		/** {@link Uri} to data. */
+		private final Uri uri;
+		/** Projection. 0: _id, 1: _name */
+		private final String[] projection = new String[2];
+		/** Selection for query. */
+		private final String selection;
+
+		/**
+		 * Default Constructor.
+		 * 
+		 * @param ctx
+		 *            {@link Context}
+		 * @param prefName
+		 *            name of {@link Preference}
+		 * @param text
+		 *            resource id of the title text
+		 * @param help
+		 *            resource id of the help text
+		 * @param u
+		 *            {@link Uri} to data
+		 * @param id
+		 *            id in projection
+		 * @param name
+		 *            name in projection
+		 * @param sel
+		 *            selection for query
+		 */
+		protected CursorPreference(final Context ctx, final String prefName,
+				final int text, final int help, final Uri u, final String id,
+				final String name, final String sel) {
+			super(ctx, prefName, R.layout.prefadapter_item, text, help);
+			this.uri = u;
+			this.projection[0] = id;
+			this.projection[1] = name;
+			this.selection = sel;
+		}
+
+		@Override
+		void load(final Cursor cursor) {
+			this.value = cursor.getLong(cursor.getColumnIndex(this.name));
+		}
+
+		@Override
+		void save(final ContentValues values) {
+			values.put(this.name, this.value);
+
+		}
+
+		@Override
+		Dialog createDialog() {
+			final Cursor cursor = this.context.getContentResolver().query(
+					this.uri, this.projection, this.selection, null,
+					this.projection[1]);
+			int sel = -1;
+			int i = 0;
+			if (cursor != null && cursor.moveToFirst() && this.value >= 0) {
+				do {
+					if (this.value == cursor.getLong(0)) {
+						sel = i;
+						break;
+					}
+					++i;
+				} while (cursor.moveToNext());
+			}
+			final AlertDialog.Builder builder = new AlertDialog.Builder(
+					this.context);
+			builder.setCancelable(true);
+			builder.setTitle(this.resText);
+
+			builder.setSingleChoiceItems(cursor, sel, this.projection[1],
+					new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(final DialogInterface dialog,
+								final int which) {
+							final ListView lv = ((AlertDialog) dialog)
+									.getListView();
+							CursorPreference.this.value = lv.getAdapter()
+									.getItemId(which);
+							CursorPreference.this.valueName = null;
+							CursorPreference.this.dismissDialog();
+						}
+					});
+			builder.setNegativeButton(android.R.string.cancel, null);
+			builder.setNeutralButton(R.string.help_,
+					new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(final DialogInterface dialog,
+								final int which) {
+							CursorPreference.this.showHelp();
+						}
+					});
+			final AlertDialog d = builder.create();
+			return d;
+		}
+
+		@Override
+		void updateDialog(final Dialog d) {
+			final ListView lv = ((AlertDialog) d).getListView();
+			final ListAdapter a = lv.getAdapter();
+			final int l = a.getCount();
+			for (int i = 0; i < l; i++) {
+				if (this.value == a.getItemId(i)) {
+					lv.setSelection(i);
+					return;
+				}
+			}
+		}
+
+		@Override
+		String getHint() {
+			if (this.valueName == null) {
+				Cursor cursor = this.context.getContentResolver().query(
+						this.uri,
+						this.projection,
+						DbUtils.sqlAnd(this.selection, this.projection[0]
+								+ " == " + this.value), null, null);
+				if (cursor != null && cursor.moveToFirst()) {
+					this.valueName = cursor.getString(1);
+				}
+				if (cursor != null && !cursor.isClosed()) {
+					cursor.close();
+				}
+			}
+			if (this.valueName == null) {
+				this.valueName = this.context.getString(R.string.none);
+			}
+			return this.valueName;
+		}
+
+		/**
+		 * @return value
+		 */
+		public long getValue() {
+			return this.value;
+		}
+	}
+
+	/**
+	 * Preference holding a date.
+	 * 
+	 * @author flx
+	 */
+	static final class DatePreference extends Preference {
+		/** Current value. */
+		private final Calendar value = Calendar.getInstance();
+
+		/**
+		 * Default Constructor.
+		 * 
+		 * @param ctx
+		 *            {@link Context}
+		 * @param prefName
+		 *            name of {@link Preference}
+		 * @param text
+		 *            resource id of the title text
+		 * @param help
+		 *            resource id of the help text
+		 */
+		protected DatePreference(final Context ctx, final String prefName,
+				final int text, final int help) {
+			super(ctx, prefName, R.layout.prefadapter_item, text, help);
+		}
+
+		@Override
+		void load(final Cursor cursor) {
+			this.value.setTimeInMillis(cursor.getLong(cursor
+					.getColumnIndex(this.name)));
+		}
+
+		@Override
+		void save(final ContentValues values) {
+			values.put(this.name, this.value.getTimeInMillis());
+
+		}
+
+		@Override
+		Dialog createDialog() {
+			final DatePickerDialog d = new DatePickerDialog(this.context,
+					new OnDateSetListener() {
+						@Override
+						public void onDateSet(final DatePicker view,
+								final int year, final int monthOfYear,
+								final int dayOfMonth) {
+							DatePreference.this.value.set(year, monthOfYear,
+									dayOfMonth);
+						}
+					}, this.value.get(Calendar.YEAR), this.value
+							.get(Calendar.MONTH), this.value
+							.get(Calendar.DAY_OF_MONTH));
+
+			d.setCancelable(true);
+			d.setTitle(this.resText);
+
+			return d;
+		}
+
+		@Override
+		void updateDialog(final Dialog d) {
+			((DatePickerDialog) d).updateDate(this.value.get(Calendar.YEAR),
+					this.value.get(Calendar.MONTH), this.value
+							.get(Calendar.DAY_OF_MONTH));
+		}
+
+		@Override
+		String getHint() {
+			final String format = Preferences.getDateFormat(this.context);
+			if (format == null) {
+				return DateFormat.getDateFormat(this.context).format(
+						this.value.getTime());
+			} else {
+				return String
+						.format(format, this.value, this.value, this.value);
+			}
+		}
+
+		/**
+		 * @return value
+		 */
+		public Calendar getValue() {
+			return this.value;
 		}
 	}
 
