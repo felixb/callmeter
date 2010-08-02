@@ -21,7 +21,6 @@ final class PreferenceAdapter extends ArrayAdapter<Preference> {
 	 */
 	PreferenceAdapter(final Context context) {
 		super(context, 0);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

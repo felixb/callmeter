@@ -34,6 +34,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
+import de.ub0r.android.callmeter.ui.prefs.Preference.BillmodePreference;
 import de.ub0r.android.callmeter.ui.prefs.Preference.CursorPreference;
 import de.ub0r.android.callmeter.ui.prefs.Preference.DatePreference;
 import de.ub0r.android.callmeter.ui.prefs.Preference.ListPreference;
@@ -71,7 +72,6 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 		this.findViewById(R.id.cancel).setOnClickListener(this);
 
 		this.fillFields();
-		this.fillBillday();
 	}
 
 	/**
@@ -150,9 +150,9 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				this.adapter.add(new TextPreference(this,
 						DataProvider.Plans.LIMIT, "0", R.string.limit_,
 						R.string.limit_help, InputType.TYPE_CLASS_NUMBER));
-				this.adapter.add(new ListPreference(this,
-						DataProvider.Plans.BILLMODE, 0, R.string.billmode_,
-						R.string.billmode_help, R.array.billmodes));
+				this.adapter.add(new BillmodePreference(this,
+						DataProvider.Plans.BILLMODE, R.string.billmode_,
+						R.string.billmode_help));
 				this.adapter.add(new TextPreference(this,
 						DataProvider.Plans.COST_PER_PLAN, "0",
 						R.string.cost_per_plan_, R.string.cost_per_plan_help,
@@ -208,15 +208,6 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
 		}
-	}
-
-	/** Set text of billday Button. */
-	private void fillBillday() {
-		// FIXME
-		// this.btnBillday.setText(DateFormat.getDateFormat(this).format(
-		// this.billday));
-		// this.btnBillperiodId.setText(DataProvider.Plans.getName(this
-		// .getContentResolver(), this.billperiod));
 	}
 
 	/**
@@ -384,17 +375,6 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			final int lt = p.getValue();
 			this.adapter.hide(DataProvider.Plans.LIMIT,
 					lt == DataProvider.LIMIT_TYPE_NONE);
-
-			// FIXME
-			// final int bml = this.spBillmode.getCount();
-			// final int bmp = this.spBillmode.getSelectedItemPosition();
-			// if (bml == bmp + 1) {
-			// this.etBillmodeCust1.setVisibility(View.VISIBLE);
-			// this.etBillmodeCust2.setVisibility(View.VISIBLE);
-			// } else {
-			// this.etBillmodeCust1.setVisibility(View.GONE);
-			// this.etBillmodeCust2.setVisibility(View.GONE);
-			// }
 
 			final Text2Preference pil = (Text2Preference) this.adapter
 					.getPreference(DataProvider.Plans.// .

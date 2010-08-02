@@ -410,6 +410,152 @@ abstract class Preference {
 	}
 
 	/**
+	 * Preference holding a list of values.
+	 * 
+	 * @author flx
+	 */
+	static final class BillmodePreference extends Preference {
+		/** Current value. */
+		private String value = null;
+		/** List of values. */
+		private final String[] strValues;
+
+		/**
+		 * Default Constructor.
+		 * 
+		 * @param ctx
+		 *            {@link Context}
+		 * @param prefName
+		 *            name of {@link Preference}
+		 * @param text
+		 *            resource id of the title text
+		 * @param help
+		 *            resource id of the help text
+		 */
+		protected BillmodePreference(final Context ctx, final String prefName,
+				final int text, final int help) {
+			super(ctx, prefName, R.layout.prefadapter_item, text, help);
+			this.strValues = ctx.getResources().getStringArray(
+					R.array.billmodes);
+		}
+
+		@Override
+		void load(final Cursor cursor) {
+			this.value = cursor.getString(cursor.getColumnIndex(this.name));
+		}
+
+		@Override
+		void save(final ContentValues values) {
+			values.put(this.name, this.value);
+
+		}
+
+		/**
+		 * @return index of checked value
+		 */
+		private int getChecked() {
+			final String v = this.value;
+			final int l = this.strValues.length - 1;
+			for (int i = 0; i < l; i++) {
+				if (v.equals(this.strValues[i])) {
+					return i;
+				}
+			}
+			return l;
+		}
+
+		@Override
+		Dialog createDialog() {
+			final AlertDialog.Builder builder = new AlertDialog.Builder(
+					this.context);
+			builder.setCancelable(true);
+			builder.setTitle(this.resText);
+			builder.setSingleChoiceItems(this.strValues, this.getChecked(),
+					new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(final DialogInterface dialog,
+								final int which) {
+							if (which < BillmodePreference.// .
+							this.strValues.length - 1) {
+								BillmodePreference.this.value = // .
+								BillmodePreference.this.strValues[which];
+								BillmodePreference.this.dismissDialog();
+							} else {
+								AlertDialog.Builder b = new AlertDialog.Builder(
+										BillmodePreference.this.context);
+								final EditText et = new EditText(
+										BillmodePreference.this.context);
+								et.setText(BillmodePreference.this.value);
+								b.setView(et);
+								b.setCancelable(true);
+								b.setTitle(BillmodePreference.this.resText);
+								b.setNegativeButton(android.R.string.cancel,
+										null);
+								b.setNeutralButton(R.string.help_,
+										new DialogInterface.OnClickListener() {
+											@Override
+											public void onClick(
+													final DialogInterface // .
+													dialog, final int which) {
+												BillmodePreference.this
+														.showHelp();
+											}
+										});
+								b.setPositiveButton(android.R.string.ok,
+										new DialogInterface.OnClickListener() {
+											@Override
+											public void onClick(
+													final DialogInterface // .
+													dialog, final int which) {
+												BillmodePreference.this.// .
+												value = et.getText().toString();
+												BillmodePreference.this
+														.dismissDialog();
+											}
+										});
+								b.show();
+							}
+						}
+					});
+			builder.setNegativeButton(android.R.string.cancel, null);
+			builder.setNeutralButton(R.string.help_,
+					new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(final DialogInterface dialog,
+								final int which) {
+							BillmodePreference.this.showHelp();
+						}
+					});
+			return builder.create();
+		}
+
+		@Override
+		void updateDialog(final Dialog d) {
+			((AlertDialog) d).getListView().setSelection(this.getChecked());
+		}
+
+		@Override
+		String getHint() {
+			if (this.value != null && this.value.indexOf("/") > 0) {
+				return this.value;
+			} else {
+				return "1/1";
+			}
+		}
+
+		/**
+		 * @return value
+		 */
+		public String getValue() {
+			if (this.value != null && this.value.indexOf("/") > 0) {
+				return this.value;
+			} else {
+				return "1/1";
+			}
+		}
+	}
+
+	/**
 	 * Preference holding a list of items from a cursor.
 	 * 
 	 * @author flx
