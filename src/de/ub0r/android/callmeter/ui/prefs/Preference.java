@@ -134,6 +134,181 @@ abstract class Preference {
 	}
 
 	/**
+	 * Preference holding a {@link TextView}.
+	 * 
+	 * @author flx
+	 */
+	static final class Text2Preference extends Preference {
+		/** PrefName2. */
+		private final String name2;
+		/** Default values. */
+		private final String defaultValue1, defaultValue2;
+		/** Current values. */
+		private String value1, value2;
+		/** {@link EditText}s in {@link Dialog}. */
+		private EditText etDialog1, etDialog2;
+		/** {@link EditText}'s inputType. */
+		private final int iType;
+		/** Help2. */
+		private final int resHelp2;
+		/** Dialog is in single mode? . */
+		private boolean singleMode = true;
+
+		/**
+		 * Default Constructor.
+		 * 
+		 * @param ctx
+		 *            {@link Context}
+		 * @param prefName1
+		 *            name of {@link Preference}
+		 * @param prefName2
+		 *            name of {@link Preference}
+		 * @param defValue1
+		 *            default value of {@link Preference}
+		 * @param defValue2
+		 *            default value of {@link Preference}
+		 * @param text
+		 *            resource id of the title text
+		 * @param help1
+		 *            resource id of the help text / single {@link EditText}
+		 * @param help2
+		 *            resource id of the help text / double {@link EditText}
+		 * @param inputType
+		 *            {@link EditText}'s inputType
+		 */
+		protected Text2Preference(final Context ctx, final String prefName1,
+				final String prefName2, final String defValue1,
+				final String defValue2, final int text, final int help1,
+				final int help2, final int inputType) {
+			super(ctx, prefName1, R.layout.prefadapter_item, text, help1);
+			this.name2 = prefName2;
+			this.resHelp2 = help2;
+			this.defaultValue1 = defValue1;
+			this.defaultValue2 = defValue2;
+			this.iType = inputType;
+		}
+
+		@Override
+		void load(final Cursor cursor) {
+			this.value1 = cursor.getString(cursor.getColumnIndex(this.name));
+			this.value2 = cursor.getString(cursor.getColumnIndex(this.name2));
+		}
+
+		@Override
+		void save(final ContentValues values) {
+			values.put(this.name, this.value1);
+			if (this.singleMode) {
+				values.put(this.name2, this.value1);
+			} else {
+				values.put(this.name2, this.value2);
+			}
+
+		}
+
+		@Override
+		Dialog createDialog() {
+			final AlertDialog.Builder builder = new AlertDialog.Builder(
+					this.context);
+			builder.setCancelable(true);
+			builder.setTitle(this.resText);
+			final View root = LayoutInflater.from(this.context).inflate(
+					R.layout.doubleedit, null);
+			this.etDialog1 = (EditText) root.findViewById(android.R.id.text1);
+			this.etDialog2 = (EditText) root.findViewById(android.R.id.text2);
+			final EditText et1 = this.etDialog1;
+			et1.setInputType(this.iType);
+			final EditText et2 = this.etDialog2;
+			et2.setInputType(this.iType);
+			this.updateDialog(null);
+			builder.setView(root);
+			builder.setNegativeButton(android.R.string.cancel, null);
+			builder.setNeutralButton(R.string.help_,
+					new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(final DialogInterface dialog,
+								final int which) {
+							if (Text2Preference.this.singleMode) {
+								Text2Preference.this.showHelp();
+							} else {
+								final Builder b = new Builder(
+										Text2Preference.this.context);
+								b.setMessage(Text2Preference.this.resHelp2);
+								b.setPositiveButton(android.R.string.ok, null);
+								b.show();
+							}
+						}
+					});
+			builder.setPositiveButton(android.R.string.ok,
+					new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(final DialogInterface dialog,
+								final int which) {
+							String v = et1.getText().toString();
+							if (v != null && v.length() > 0) {
+								Text2Preference.this.value1 = v;
+							} else {
+								Text2Preference.this.value1 = // .
+								Text2Preference.this.defaultValue1;
+							}
+							v = et2.getText().toString();
+							if (v != null && v.length() > 0) {
+								Text2Preference.this.value2 = v;
+							} else {
+								Text2Preference.this.value2 = // .
+								Text2Preference.this.defaultValue2;
+							}
+						}
+					});
+			return builder.create();
+		}
+
+		@Override
+		void updateDialog(final Dialog d) {
+			this.etDialog1.setText(this.value1);
+			this.etDialog2.setText(this.value2);
+			if (this.singleMode) {
+				this.etDialog1.setVisibility(View.GONE);
+			} else {
+				this.etDialog1.setVisibility(View.VISIBLE);
+			}
+		}
+
+		@Override
+		String getHint() {
+			String ret = "";
+			if (this.value1 != null && this.value1.length() > 0) {
+				ret = this.value1;
+			} else {
+				ret = this.defaultValue1;
+			}
+
+			if (this.singleMode) {
+				return ret;
+			}
+
+			ret += " / ";
+
+			if (this.value2 != null && this.value2.length() > 0) {
+				ret += this.value2;
+			} else {
+				ret += this.defaultValue2;
+			}
+
+			return ret;
+		}
+
+		/**
+		 * Set single mode.
+		 * 
+		 * @param sm
+		 *            single mode
+		 */
+		void setSingleMode(final boolean sm) {
+			this.singleMode = sm;
+		}
+	}
+
+	/**
 	 * Preference holding a list of values.
 	 * 
 	 * @author flx

@@ -34,6 +34,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
+import de.ub0r.android.callmeter.ui.prefs.Preference.CursorPreference;
+import de.ub0r.android.callmeter.ui.prefs.Preference.DatePreference;
+import de.ub0r.android.callmeter.ui.prefs.Preference.ListPreference;
+import de.ub0r.android.callmeter.ui.prefs.Preference.Text2Preference;
+import de.ub0r.android.callmeter.ui.prefs.Preference.TextPreference;
 
 /**
  * Edit a single Plan.
@@ -115,73 +120,86 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				this.pid = nid;
 
 				this.adapter = new PreferenceAdapter(this);
-				this.adapter.add(new Preference.TextPreference(this,
+				this.adapter.add(new TextPreference(this,
 						DataProvider.Plans.NAME, "", R.string.name_,
 						R.string.name_help, InputType.TYPE_NULL));
-				this.adapter.add(new Preference.TextPreference(this,
+				this.adapter.add(new TextPreference(this,
 						DataProvider.Plans.SHORTNAME, "", R.string.shortname_,
 						R.string.shortname_help, InputType.TYPE_NULL));
 				this.adapter
-						.add(new Preference.ListPreference(this,
-								DataProvider.Plans.TYPE,
+						.add(new ListPreference(this, DataProvider.Plans.TYPE,
 								DataProvider.TYPE_CALL, R.string.type_,
 								R.string.type_help, R.array.plans_type));
-				this.adapter.add(new Preference.ListPreference(this,
+				this.adapter.add(new ListPreference(this,
 						DataProvider.Plans.BILLPERIOD,
 						DataProvider.BILLPERIOD_1MONTH, R.string.billperiod_,
 						R.string.billperiodid_, R.array.billperiod));
-				this.adapter.add(new Preference.DatePreference(this,
+				this.adapter.add(new DatePreference(this,
 						DataProvider.Plans.BILLDAY, R.string.billday_,
 						R.string.billday_help));
-				this.adapter.add(new Preference.CursorPreference(this,
+				this.adapter.add(new CursorPreference(this,
 						DataProvider.Plans.BILLPERIOD_ID,
 						R.string.billperiodid_, R.string.billperiodid_help,
 						DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID,
 						DataProvider.Plans.NAME, DataProvider.Plans.TYPE
 								+ " == " + DataProvider.TYPE_BILLPERIOD));
-				this.adapter.add(new Preference.ListPreference(this,
+				this.adapter.add(new ListPreference(this,
 						DataProvider.Plans.LIMIT_TYPE,
 						DataProvider.LIMIT_TYPE_NONE, R.string.limit_type_,
 						R.string.limit_type_help, R.array.limit_type));
-				this.adapter.add(new Preference.TextPreference(this,
+				this.adapter.add(new TextPreference(this,
 						DataProvider.Plans.LIMIT, "0", R.string.limit_,
 						R.string.limit_help, InputType.TYPE_CLASS_NUMBER));
-				this.adapter.add(new Preference.ListPreference(this,
+				this.adapter.add(new ListPreference(this,
 						DataProvider.Plans.BILLMODE, 0, R.string.billmode_,
 						R.string.billmode_help, R.array.billmodes));
-				this.adapter.add(new Preference.TextPreference(this,
+				this.adapter.add(new TextPreference(this,
 						DataProvider.Plans.COST_PER_PLAN, "0",
 						R.string.cost_per_plan_, R.string.cost_per_plan_help,
 						InputType.TYPE_CLASS_NUMBER
 								| InputType.TYPE_NUMBER_FLAG_DECIMAL));
-				this.adapter.add(new Preference.TextPreference(this,
+				this.adapter.add(new TextPreference(this,
 						DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, "0",
 						R.string.cost_per_item_in_limit_,
 						R.string.cost_per_item_in_limit_help,
 						InputType.TYPE_CLASS_NUMBER
 								| InputType.TYPE_NUMBER_FLAG_DECIMAL));
-				this.adapter.add(new Preference.TextPreference(this,
+				this.adapter.add(new TextPreference(this,
 						DataProvider.Plans.COST_PER_ITEM, "0",
 						R.string.cost_per_item_, R.string.cost_per_item_help,
 						InputType.TYPE_CLASS_NUMBER
 								| InputType.TYPE_NUMBER_FLAG_DECIMAL));
-				this.adapter.add(new Preference.TextPreference(this,
+				this.adapter.add(new TextPreference(this,
 						DataProvider.Plans.MIXED_UNITS_CALL, "0",
 						R.string.mixed_units_call_,
 						R.string.mixed_units_call_help,
 						InputType.TYPE_CLASS_NUMBER));
-				this.adapter.add(new Preference.TextPreference(this,
+				this.adapter.add(new TextPreference(this,
 						DataProvider.Plans.MIXED_UNITS_SMS, "0",
 						R.string.mixed_units_sms_,
 						R.string.mixed_units_sms_help,
 						InputType.TYPE_CLASS_NUMBER));
-				this.adapter.add(new Preference.TextPreference(this,
+				this.adapter.add(new TextPreference(this,
 						DataProvider.Plans.MIXED_UNITS_MMS, "0",
 						R.string.mixed_units_mms_,
 						R.string.mixed_units_mms_help,
 						InputType.TYPE_CLASS_NUMBER));
-				// TODO: costperamount in limit
-				// TODO: costperamount
+				this.adapter.add(new Text2Preference(this,
+						DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
+						DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT2, "0", "0",
+						R.string.cost_per_amount_in_limit_,
+						R.string.cost_per_amount_in_limit_help1,
+						R.string.cost_per_amount_in_limit_help2,
+						InputType.TYPE_CLASS_NUMBER
+								| InputType.TYPE_NUMBER_FLAG_DECIMAL));
+				this.adapter.add(new Text2Preference(this,
+						DataProvider.Plans.COST_PER_AMOUNT1,
+						DataProvider.Plans.COST_PER_AMOUNT2, "0", "0",
+						R.string.cost_per_amount_,
+						R.string.cost_per_amount_help1,
+						R.string.cost_per_amount_help2,
+						InputType.TYPE_CLASS_NUMBER
+								| InputType.TYPE_NUMBER_FLAG_DECIMAL));
 				this.adapter.load(cursor);
 				this.setListAdapter(this.adapter);
 				this.getListView().setOnItemClickListener(this);
@@ -205,7 +223,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 	 * Show or hide fields based on data in there.
 	 */
 	private void showHideFileds() {
-		final int t = ((Preference.ListPreference) this.adapter
+		final int t = ((ListPreference) this.adapter
 				.getPreference(DataProvider.Plans.TYPE)).getValue();
 		switch (t) {
 		case DataProvider.TYPE_MMS:
@@ -226,8 +244,9 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			this.adapter.hide(DataProvider.Plans.BILLDAY, true);
 			this.adapter.hide(DataProvider.Plans.BILLMODE, true);
 			this.adapter.hide(DataProvider.Plans.BILLPERIOD, true);
-			// FIXME this.llCostPerAmount.setVisibility(View.GONE);
-			// FIXME this.llCostPerAmountInLimit.setVisibility(View.GONE);
+			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
+			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
+					true);
 			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
 			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
 			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
@@ -248,8 +267,9 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
 
 			this.adapter.hide(DataProvider.Plans.BILLPERIOD_ID, false);
-			// FIXME: this.llCostPerAmount.setVisibility(View.VISIBLE);
-			// FIXME: this.llCostPerAmountInLimit.setVisibility(View.VISIBLE);
+			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, false);
+			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
+					false);
 			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, false);
 			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
 			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, false);
@@ -265,8 +285,9 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 
 			this.adapter.hide(DataProvider.Plans.BILLMODE, false);
 			this.adapter.hide(DataProvider.Plans.BILLPERIOD_ID, false);
-			// FIXME: this.llCostPerAmount.setVisibility(View.VISIBLE);
-			// FIXME: this.llCostPerAmountInLimit.setVisibility(View.VISIBLE);
+			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, false);
+			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
+					false);
 			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, false);
 			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
 			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, false);
@@ -276,8 +297,9 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 		case DataProvider.TYPE_MIXED:
 			this.adapter.hide(DataProvider.Plans.BILLDAY, true);
 			this.adapter.hide(DataProvider.Plans.BILLPERIOD, true);
-			// FIXME: this.llCostPerAmount.setVisibility(View.GONE);
-			// FIXME: this.llCostPerAmountInLimit.setVisibility(View.GONE);
+			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
+			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
+					true);
 
 			this.adapter.hide(DataProvider.Plans.BILLMODE, false);
 			this.adapter.hide(DataProvider.Plans.BILLPERIOD_ID, false);
@@ -295,8 +317,9 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			this.adapter.hide(DataProvider.Plans.BILLMODE, true);
 			this.adapter.hide(DataProvider.Plans.BILLPERIOD, true);
 			this.adapter.hide(DataProvider.Plans.BILLPERIOD_ID, true);
-			// FIXME: this.llCostPerAmount.setVisibility(View.GONE);
-			// FIXME: this.llCostPerAmountInLimit.setVisibility(View.GONE);
+			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
+			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
+					true);
 			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, true);
 			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
 			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, true);
@@ -314,8 +337,9 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			this.adapter.hide(DataProvider.Plans.BILLMODE, true);
 			this.adapter.hide(DataProvider.Plans.BILLPERIOD, true);
 			this.adapter.hide(DataProvider.Plans.BILLPERIOD_ID, true);
-			// FIXME: this.llCostPerAmount.setVisibility(View.GONE);
-			// FIXME: this.llCostPerAmountInLimit.setVisibility(View.GONE);
+			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
+			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
+					true);
 			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, true);
 			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
 			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, true);
@@ -330,8 +354,9 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 
 			this.adapter.hide(DataProvider.Plans.BILLMODE, true);
 			this.adapter.hide(DataProvider.Plans.BILLPERIOD_ID, true);
-			// FIXME: this.llCostPerAmount.setVisibility(View.GONE);
-			// FIXME: this.llCostPerAmountInLimit.setVisibility(View.GONE);
+			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
+			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
+					true);
 			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, true);
 			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
 			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, true);
@@ -346,22 +371,21 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 		}
 
 		if (t == DataProvider.TYPE_BILLPERIOD) {
-			// final int i = this.spBillperiod.getSelectedItemPosition();
-			// if (i == DataProvider.BILLPERIOD_INFINITE
-			// || i == DataProvider.BILLPERIOD_DAY) {
-			// this.llBillday.setVisibility(View.GONE);
-			// } else {
-			// this.llBillday.setVisibility(View.VISIBLE);
-			// }
+			final ListPreference p = (ListPreference) this.adapter
+					.getPreference(DataProvider.Plans.BILLPERIOD);
+			final int i = p.getValue();
+			this.adapter.hide(DataProvider.Plans.BILLDAY,
+					i == DataProvider.BILLPERIOD_INFINITE
+							|| i == DataProvider.BILLPERIOD_DAY);
 		} else if (t != DataProvider.TYPE_SPACING
 				&& t != DataProvider.TYPE_TITLE) {
-			// final int lt = this.spLimitType.getSelectedItemPosition();
-			// if (lt == DataProvider.LIMIT_TYPE_NONE) {
-			// this.llLimit.setVisibility(View.GONE);
-			// } else {
-			// this.llLimit.setVisibility(View.VISIBLE);
-			// }
+			final ListPreference p = (ListPreference) this.adapter
+					.getPreference(DataProvider.Plans.LIMIT_TYPE);
+			final int lt = p.getValue();
+			this.adapter.hide(DataProvider.Plans.LIMIT,
+					lt == DataProvider.LIMIT_TYPE_NONE);
 
+			// FIXME
 			// final int bml = this.spBillmode.getCount();
 			// final int bmp = this.spBillmode.getSelectedItemPosition();
 			// if (bml == bmp + 1) {
@@ -372,21 +396,13 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			// this.etBillmodeCust2.setVisibility(View.GONE);
 			// }
 
-			if (t == DataProvider.TYPE_CALL) {
-				// this.etCostPerAmount.setVisibility(View.INVISIBLE);
-				// this.etCostPerAmountInLimit.setVisibility(View.INVISIBLE);
-				// this.etCostPerAmount1.setVisibility(View.VISIBLE);
-				// this.etCostPerAmountInLimit1.setVisibility(View.VISIBLE);
-				// this.etCostPerAmount2.setVisibility(View.VISIBLE);
-				// this.etCostPerAmountInLimit2.setVisibility(View.VISIBLE);
-			} else {
-				// this.etCostPerAmount.setVisibility(View.VISIBLE);
-				// this.etCostPerAmountInLimit.setVisibility(View.VISIBLE);
-				// this.etCostPerAmount1.setVisibility(View.GONE);
-				// this.etCostPerAmountInLimit1.setVisibility(View.GONE);
-				// this.etCostPerAmount2.setVisibility(View.GONE);
-				// this.etCostPerAmountInLimit2.setVisibility(View.GONE);
-			}
+			final Text2Preference pil = (Text2Preference) this.adapter
+					.getPreference(DataProvider.Plans.// .
+					COST_PER_AMOUNT_IN_LIMIT1);
+			final Text2Preference pol = (Text2Preference) this.adapter
+					.getPreference(DataProvider.Plans.COST_PER_AMOUNT1);
+			pil.setSingleMode(t != DataProvider.TYPE_CALL);
+			pol.setSingleMode(t != DataProvider.TYPE_CALL);
 		}
 	}
 
