@@ -139,10 +139,12 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 						R.string.billday_help));
 				this.adapter.add(new CursorPreference(this,
 						DataProvider.Plans.BILLPERIOD_ID,
-						R.string.billperiodid_, R.string.billperiodid_help,
-						DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID,
-						DataProvider.Plans.NAME, DataProvider.Plans.TYPE
-								+ " == " + DataProvider.TYPE_BILLPERIOD));
+						R.string.billperiodid_, R.string.billperiodid_help, -1,
+						-1, -1, DataProvider.Plans.CONTENT_URI,
+						DataProvider.Plans.ID, DataProvider.Plans.NAME,
+						DataProvider.Plans.TYPE + " == "
+								+ DataProvider.TYPE_BILLPERIOD, null, null,
+						null));
 				this.adapter.add(new ListPreference(this,
 						DataProvider.Plans.LIMIT_TYPE,
 						DataProvider.LIMIT_TYPE_NONE, R.string.limit_type_,

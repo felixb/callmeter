@@ -5,11 +5,11 @@ import java.util.Calendar;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.AlertDialog.Builder;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.DialogInterface.OnDismissListener;
 import android.database.Cursor;
 import android.net.Uri;
@@ -17,11 +17,14 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.DbUtils;
 
@@ -31,6 +34,82 @@ import de.ub0r.android.lib.DbUtils;
  * @author flx
  */
 abstract class Preference {
+	/**
+	 * Preference holding a {@link TextView}.
+	 * 
+	 * @author flx
+	 */
+	static final class BoolPreference extends Preference implements
+			OnCheckedChangeListener {
+		/** Current value. */
+		private boolean value = false;
+		/** {@link OnDismissListener}. */
+		private final OnDismissListener dl;
+
+		/**
+		 * Default Constructor.
+		 * 
+		 * @param ctx
+		 *            {@link Context}
+		 * @param prefName
+		 *            name of {@link Preference}
+		 * @param text
+		 *            resource id of the title text
+		 * @param help
+		 *            resource id of the help text
+		 */
+		protected BoolPreference(final Context ctx, final String prefName,
+				final int text, final int help, final OnDismissListener odl) {
+			super(ctx, prefName, R.layout.prefadapter_item_bool, text, help);
+			this.dl = odl;
+		}
+
+		@Override
+		void load(final Cursor cursor) {
+			this.value = cursor.getInt(cursor.getColumnIndex(this.name)) != 0;
+		}
+
+		@Override
+		void save(final ContentValues values) {
+			if (this.value) {
+				values.put(this.name, 1);
+			} else {
+				values.put(this.name, 1);
+			}
+		}
+
+		@Override
+		Dialog createDialog() {
+			return null;
+		}
+
+		@Override
+		void updateDialog(final Dialog d) {
+		}
+
+		@Override
+		String getHint() {
+			return String.valueOf(this.value);
+		}
+
+		@Override
+		View getView(final View convertView, final ViewGroup parent) {
+			final View ret = super.getView(convertView, parent);
+			final CheckBox cb = (CheckBox) ret
+					.findViewById(android.R.id.checkbox);
+			cb.setChecked(this.value);
+			cb.setOnCheckedChangeListener(this);
+			return ret;
+		}
+
+		@Override
+		public void onCheckedChanged(final CompoundButton buttonView,
+				final boolean isChecked) {
+			this.value = isChecked;
+			this.dl.onDismiss(null);
+		}
+	}
+
 	/**
 	 * Preference holding a {@link TextView}.
 	 * 
@@ -93,14 +172,6 @@ abstract class Preference {
 			et.setText(this.value);
 			builder.setView(et);
 			builder.setNegativeButton(android.R.string.cancel, null);
-			builder.setNeutralButton(R.string.help_,
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(final DialogInterface dialog,
-								final int which) {
-							TextPreference.this.showHelp();
-						}
-					});
 			builder.setPositiveButton(android.R.string.ok,
 					new DialogInterface.OnClickListener() {
 						@Override
@@ -222,22 +293,6 @@ abstract class Preference {
 			this.updateDialog(null);
 			builder.setView(root);
 			builder.setNegativeButton(android.R.string.cancel, null);
-			builder.setNeutralButton(R.string.help_,
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(final DialogInterface dialog,
-								final int which) {
-							if (Text2Preference.this.singleMode) {
-								Text2Preference.this.showHelp();
-							} else {
-								final Builder b = new Builder(
-										Text2Preference.this.context);
-								b.setMessage(Text2Preference.this.resHelp2);
-								b.setPositiveButton(android.R.string.ok, null);
-								b.show();
-							}
-						}
-					});
 			builder.setPositiveButton(android.R.string.ok,
 					new DialogInterface.OnClickListener() {
 						@Override
@@ -306,6 +361,15 @@ abstract class Preference {
 		void setSingleMode(final boolean sm) {
 			this.singleMode = sm;
 		}
+
+		@Override
+		protected int getHelp() {
+			if (this.singleMode) {
+				return super.getHelp();
+			} else {
+				return this.resHelp2;
+			}
+		}
 	}
 
 	/**
@@ -372,14 +436,6 @@ abstract class Preference {
 						}
 					});
 			builder.setNegativeButton(android.R.string.cancel, null);
-			builder.setNeutralButton(R.string.help_,
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(final DialogInterface dialog,
-								final int which) {
-							ListPreference.this.showHelp();
-						}
-					});
 			return builder.create();
 		}
 
@@ -491,16 +547,6 @@ abstract class Preference {
 								b.setTitle(BillmodePreference.this.resText);
 								b.setNegativeButton(android.R.string.cancel,
 										null);
-								b.setNeutralButton(R.string.help_,
-										new DialogInterface.OnClickListener() {
-											@Override
-											public void onClick(
-													final DialogInterface // .
-													dialog, final int which) {
-												BillmodePreference.this
-														.showHelp();
-											}
-										});
 								b.setPositiveButton(android.R.string.ok,
 										new DialogInterface.OnClickListener() {
 											@Override
@@ -518,14 +564,6 @@ abstract class Preference {
 						}
 					});
 			builder.setNegativeButton(android.R.string.cancel, null);
-			builder.setNeutralButton(R.string.help_,
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(final DialogInterface dialog,
-								final int which) {
-							BillmodePreference.this.showHelp();
-						}
-					});
 			return builder.create();
 		}
 
@@ -566,11 +604,23 @@ abstract class Preference {
 		/** Name of current value. */
 		private String valueName = null;
 		/** {@link Uri} to data. */
-		private final Uri uri;
+		private Uri uri;
 		/** Projection. 0: _id, 1: _name */
 		private final String[] projection = new String[2];
 		/** Selection for query. */
-		private final String selection;
+		private String selection;
+		/** Resource id for new item. */
+		private final int resNewItem;
+		/** {@link OnClickListener} for new item button. */
+		private final DialogInterface.OnClickListener lsrNewItem;
+		/** Resource id for edit selected item. */
+		private final int resEditSelected;
+		/** {@link OnClickListener} for edit selected item. */
+		private final DialogInterface.OnClickListener lsrEditSelected;
+		/** Resource id for cancel. */
+		private final int resCancel;
+		/** {@link OnClickListener} for cancel. */
+		private final DialogInterface.OnClickListener lsrCancel;
 
 		/**
 		 * Default Constructor.
@@ -583,6 +633,63 @@ abstract class Preference {
 		 *            resource id of the title text
 		 * @param help
 		 *            resource id of the help text
+		 * @param editSelceted
+		 *            resource id of edit selected button
+		 * @param newItem
+		 *            resource id for new item
+		 * @param cancel
+		 *            resource id for cancel
+		 * @param u
+		 *            {@link Uri} to data
+		 * @param id
+		 *            id in projection
+		 * @param name
+		 *            name in projection
+		 * @param sel
+		 *            selection for query
+		 * @param editSelectedListener
+		 *            {@link OnClickListener} for edit selected button
+		 * @param newItemListener
+		 *            {@link OnClickListener} for new item button
+		 * @param cancelListener
+		 *            {@link OnClickListener} for cancel
+		 */
+		protected CursorPreference(final Context ctx, final String prefName,
+				final int text, final int help, final int editSelceted,
+				final int newItem, final int cancel, final Uri u,
+				final String id, final String name, final String sel,
+				final DialogInterface.OnClickListener editSelectedListener,
+				final DialogInterface.OnClickListener newItemListener,
+				final DialogInterface.OnClickListener cancelListener) {
+			super(ctx, prefName, R.layout.prefadapter_item, text, help);
+			this.uri = u;
+			this.projection[0] = id;
+			this.projection[1] = name;
+			this.selection = sel;
+			this.resEditSelected = editSelceted;
+			if (this.resEditSelected > 0) {
+				this.lsrEditSelected = editSelectedListener;
+			} else {
+				this.lsrEditSelected = null;
+			}
+			this.resNewItem = newItem;
+			if (this.resNewItem > 0) {
+				this.lsrNewItem = newItemListener;
+			} else {
+				this.lsrNewItem = null;
+			}
+			if (cancel > 0) {
+				this.resCancel = cancel;
+				this.lsrCancel = cancelListener;
+			} else {
+				this.resCancel = android.R.string.cancel;
+				this.lsrCancel = null;
+			}
+		}
+
+		/**
+		 * Set a new {@link Cursor}.
+		 * 
 		 * @param u
 		 *            {@link Uri} to data
 		 * @param id
@@ -592,13 +699,21 @@ abstract class Preference {
 		 * @param sel
 		 *            selection for query
 		 */
-		protected CursorPreference(final Context ctx, final String prefName,
-				final int text, final int help, final Uri u, final String id,
-				final String name, final String sel) {
-			super(ctx, prefName, R.layout.prefadapter_item, text, help);
+		void setCursor(final Uri u, final String id, final String name,
+				final String sel) {
 			this.uri = u;
 			this.projection[0] = id;
 			this.projection[1] = name;
+			this.selection = sel;
+		}
+
+		/**
+		 * Set a new {@link Cursor}.
+		 * 
+		 * @param sel
+		 *            selection for query
+		 */
+		void setCursor(final String sel) {
 			this.selection = sel;
 		}
 
@@ -633,7 +748,6 @@ abstract class Preference {
 					this.context);
 			builder.setCancelable(true);
 			builder.setTitle(this.resText);
-
 			builder.setSingleChoiceItems(cursor, sel, this.projection[1],
 					new DialogInterface.OnClickListener() {
 						@Override
@@ -647,15 +761,14 @@ abstract class Preference {
 							CursorPreference.this.dismissDialog();
 						}
 					});
-			builder.setNegativeButton(android.R.string.cancel, null);
-			builder.setNeutralButton(R.string.help_,
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(final DialogInterface dialog,
-								final int which) {
-							CursorPreference.this.showHelp();
-						}
-					});
+			if (this.lsrEditSelected != null) {
+				builder.setPositiveButton(this.resEditSelected,
+						this.lsrEditSelected);
+			}
+			if (this.lsrNewItem != null) {
+				builder.setNeutralButton(this.resNewItem, this.lsrNewItem);
+			}
+			builder.setNegativeButton(this.resCancel, this.lsrCancel);
 			final AlertDialog d = builder.create();
 			return d;
 		}
@@ -671,6 +784,8 @@ abstract class Preference {
 					return;
 				}
 			}
+			lv.setSelection(-1);
+			lv.setSelected(false);
 		}
 
 		@Override
@@ -699,6 +814,14 @@ abstract class Preference {
 		 */
 		public long getValue() {
 			return this.value;
+		}
+
+		/**
+		 * Clear value.
+		 */
+		public void clearValue() {
+			this.value = -1L;
+			this.valueName = null;
 		}
 	}
 
@@ -843,7 +966,7 @@ abstract class Preference {
 	 *            The parent that this view will eventually be attached to
 	 * @return A View corresponding to the data at the specified position.
 	 */
-	final View getView(final View convertView, final ViewGroup parent) {
+	View getView(final View convertView, final ViewGroup parent) {
 		final LayoutInflater inflater = (LayoutInflater) this.context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		if (this.hide) {
@@ -852,8 +975,10 @@ abstract class Preference {
 		// TODO: use convertView
 		final View ret = inflater.inflate(this.resLayout, null);
 		((TextView) ret.findViewById(android.R.id.text1)).setText(this.resText);
-		((TextView) ret.findViewById(android.R.id.text2)).setText(this
-				.getHint());
+		final String s = this.context.getString(this.getHelp()) + "\n"
+				+ this.context.getString(R.string.value) + ": "
+				+ this.getHint();
+		((TextView) ret.findViewById(android.R.id.text2)).setText(s);
 		return ret;
 	}
 
@@ -933,11 +1058,10 @@ abstract class Preference {
 		return this.hide;
 	}
 
-	/** Show help text. */
-	protected final void showHelp() {
-		final Builder b = new Builder(this.context);
-		b.setMessage(this.resHelp);
-		b.setPositiveButton(android.R.string.ok, null);
-		b.show();
+	/**
+	 * @return resource id for help
+	 */
+	protected int getHelp() {
+		return this.resHelp;
 	}
 }

@@ -18,15 +18,17 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnDismissListener;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Adapter;
@@ -36,17 +38,24 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
-import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.callmeter.ui.prefs.Preference.BoolPreference;
+import de.ub0r.android.callmeter.ui.prefs.Preference.CursorPreference;
+import de.ub0r.android.callmeter.ui.prefs.Preference.ListPreference;
+import de.ub0r.android.callmeter.ui.prefs.Preference.TextPreference;
+import de.ub0r.android.lib.DbUtils;
 
 /**
  * Edit a single Plan.
  * 
  * @author flx
  */
-public class RuleEdit extends Activity implements OnClickListener,
-		OnItemSelectedListener {
+public class RuleEdit extends ListActivity implements OnClickListener,
+		OnItemClickListener, OnDismissListener {
+	/** {@link PreferenceAdapter}. */
+	private PreferenceAdapter adapter = null;
 
 	/** Activity result request id: rule. */
 	private static final int REQUEST_RULE = 0;
@@ -99,30 +108,13 @@ public class RuleEdit extends Activity implements OnClickListener,
 		this.setTitle(this.getString(R.string.settings) + " > "
 				+ this.getString(R.string.rules) + " > "
 				+ this.getString(R.string.edit_));
-		this.setContentView(R.layout.prefs_ruleedit);
-
-		this.etName = (EditText) this.findViewById(R.id.name_et);
-		this.spPlan = (Spinner) this.findViewById(R.id.plan_sp);
-		this.spPlan.setOnItemSelectedListener(this);
-		this.cbNegate = (CheckBox) this.findViewById(R.id.negate_cb);
-		this.spWhat = (Spinner) this.findViewById(R.id.type_sp);
-		this.spWhat.setOnItemSelectedListener(this);
-		this.btnWhat0 = (Button) this.findViewById(R.id.what0_btn);
-		this.btnWhat0.setOnClickListener(this);
-		this.btnWhat1 = (Button) this.findViewById(R.id.what1_btn);
-		this.btnWhat1.setOnClickListener(this);
+		this.setContentView(R.layout.list_ok_cancel);
 
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.cancel).setOnClickListener(this);
-		this.findViewById(R.id.name_help).setOnClickListener(this);
-		this.findViewById(R.id.type_help).setOnClickListener(this);
-		this.findViewById(R.id.what0_help).setOnClickListener(this);
-		this.findViewById(R.id.what1_help).setOnClickListener(this);
-		this.findViewById(R.id.plan_help).setOnClickListener(this);
-		this.findViewById(R.id.negate_help).setOnClickListener(this);
 
 		this.fillFields();
-		this.fillChild();
+		this.fillWhat1();
 		this.fillWhat0();
 		this.fillPlan();
 		this.showHideFileds();
@@ -152,7 +144,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 				} else {
 					this.what1 = ContentUris.parseId(uri);
 				}
-				this.fillChild();
+				this.fillWhat1();
 				break;
 			case REQUEST_HOURS:
 			case REQUEST_NUMBERS:
@@ -173,6 +165,9 @@ public class RuleEdit extends Activity implements OnClickListener,
 	 * Set text of the what0 {@link Button}.
 	 */
 	private void fillWhat0() {
+		if (1 == 1) {
+			return; // FIXME
+		}
 		if (this.what0 < 0) {
 			this.btnWhat0.setText(R.string.none);
 		} else {
@@ -193,9 +188,12 @@ public class RuleEdit extends Activity implements OnClickListener,
 	}
 
 	/**
-	 * Set text of the child {@link Button}.
+	 * Set text of the what1 {@link Button}.
 	 */
-	private void fillChild() {
+	private void fillWhat1() {
+		if (1 == 1) {
+			return; // FIXME
+		}
 		Cursor cursor = null;
 		if (this.what1 >= 0) {
 			cursor = this.getContentResolver().query(
@@ -217,6 +215,9 @@ public class RuleEdit extends Activity implements OnClickListener,
 	 * Set plan {@link Spinner}'s adapter.
 	 */
 	private void fillPlan() {
+		if (1 == 1) {
+			return; // FIXME
+		}
 		final int t = this.spWhat.getSelectedItemPosition();
 		String where = null;
 		switch (t) {
@@ -287,18 +288,87 @@ public class RuleEdit extends Activity implements OnClickListener,
 			final int nid = cursor.getInt(DataProvider.Rules.INDEX_ID);
 			if (nid != this.id) {
 				this.id = nid;
+
+				this.adapter = new PreferenceAdapter(this);
+				this.adapter.add(new TextPreference(this,
+						DataProvider.Rules.NAME, "", R.string.name_,
+						R.string.name_help, InputType.TYPE_NULL));
+				this.adapter
+						.add(new ListPreference(this, DataProvider.Rules.WHAT,
+								DataProvider.Rules.WHAT_CALL, R.string.what_,
+								R.string.what_help, R.array.rules_type));
+				this.adapter.add(new CursorPreference(this,
+						DataProvider.Rules.WHAT1, R.string.what0_,
+						R.string.what0_help, R.string.edit_selected_,
+						R.string.new_, -1, DataProvider.HoursGroup.CONTENT_URI,
+						DataProvider.HoursGroup.ID,
+						DataProvider.HoursGroup.NAME, null, null, null, null)); // FIXME
+				this.adapter.add(new BoolPreference(this,
+						DataProvider.Rules.NOT, R.string.negate_,
+						R.string.negate_help, this));
+				this.adapter.add(new CursorPreference(this,
+						DataProvider.Rules.PLAN_ID, R.string.plan_,
+						R.string.plan_help, -1, -1, -1,
+						DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID,
+						DataProvider.Plans.NAME, null, null, null, null));
+				this.adapter.add(new CursorPreference(this,
+						DataProvider.Rules.WHAT1, R.string.what1_,
+						R.string.what1_help, R.string.edit_selected_,
+						R.string.new_, R.string.clear_,
+						DataProvider.Rules.CONTENT_URI, DataProvider.Rules.ID,
+						DataProvider.Rules.NAME, DbUtils.sqlAnd(
+								DataProvider.Rules.ISCHILD + " = 1",
+								DataProvider.Rules.ID + " != "
+										+ DataProvider.Rules.WHAT1),
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(final DialogInterface dialog,
+									final int which) {
+								final long sel = ((CursorPreference) // .
+								RuleEdit.this.adapter
+										.getPreference(DataProvider.// .
+										Rules.WHAT1)).getValue();
+								if (sel < 0) {
+									return;
+								}
+								final Intent fi = new Intent(
+										Intent.ACTION_VIEW,
+										ContentUris.withAppendedId(
+												DataProvider.Rules.CONTENT_URI,
+												sel), RuleEdit.this,
+										RuleEdit.class);
+								fi.putExtra(EXTRA_ISCHILD, true);
+								RuleEdit.this.startActivityForResult(fi,
+										REQUEST_RULE);
+							}
+						}, new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(final DialogInterface dialog,
+									final int which) {
+								final Intent fi = new Intent(RuleEdit.this,
+										RuleEdit.class);
+								fi.putExtra(EXTRA_ISCHILD, true);
+								RuleEdit.this.startActivityForResult(fi,
+										REQUEST_RULE);
+							}
+						}, new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(final DialogInterface dialog,
+									final int which) {
+								((CursorPreference) RuleEdit.this.adapter
+										.getPreference(DataProvider.// .
+										Rules.WHAT1)).clearValue();
+								// FIXME
+							}
+						}));
+				this.adapter.load(cursor);
+				this.setListAdapter(this.adapter);
+				this.getListView().setOnItemClickListener(this);
 			} else {
 				cursor.close();
 				return;
 			}
 		}
-		this.etName.setText(cursor.getString(DataProvider.Rules.INDEX_NAME));
-		this.cbNegate
-				.setChecked(cursor.getInt(DataProvider.Rules.INDEX_NOT) != 0);
-		this.spWhat.setSelection(cursor.getInt(DataProvider.Rules.INDEX_WHAT));
-		this.what0 = cursor.getInt(DataProvider.Rules.INDEX_WHAT0);
-		this.what1 = cursor.getInt(DataProvider.Rules.INDEX_WHAT1);
-		this.plan = cursor.getInt(DataProvider.Rules.INDEX_PLAN_ID);
 		cursor.close();
 	}
 
@@ -306,6 +376,10 @@ public class RuleEdit extends Activity implements OnClickListener,
 	 * Show or hide fields based on data in there.
 	 */
 	private void showHideFileds() {
+		if (1 == 1) {
+			return; // FIXME
+		}
+
 		final int t = this.spWhat.getSelectedItemPosition();
 
 		int v;
@@ -318,7 +392,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 			v = View.GONE;
 			break;
 		}
-		this.findViewById(R.id.what0_layout).setVisibility(v);
+		// this.findViewById(R.id.what0_layout).setVisibility(v);
 
 		switch (t) {
 		case DataProvider.Rules.WHAT_INCOMMING:
@@ -332,27 +406,14 @@ public class RuleEdit extends Activity implements OnClickListener,
 			v = View.GONE;
 			break;
 		}
-		this.findViewById(R.id.negate_layout).setVisibility(v);
+		// this.findViewById(R.id.negate_layout).setVisibility(v);
 
 		if (this.isChild) {
 			v = View.GONE;
 		} else {
 			v = View.VISIBLE;
 		}
-		this.findViewById(R.id.plan_layout).setVisibility(v);
-	}
-
-	/**
-	 * Show help text.
-	 * 
-	 * @param res
-	 *            resource
-	 */
-	private void showHelp(final int res) {
-		final Builder b = new Builder(this);
-		b.setMessage(res);
-		b.setPositiveButton(android.R.string.ok, null);
-		b.show();
+		// this.findViewById(R.id.plan_layout).setVisibility(v);
 	}
 
 	/**
@@ -392,7 +453,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 			this.setResult(RESULT_CANCELED);
 			this.finish();
 			break;
-		case R.id.what0_btn:
+		case -2: // R.id.what0_btn:
 			int rt = -1;
 			Intent ie = null;
 			if (t == DataProvider.Rules.WHAT_NUMBERS) {
@@ -442,7 +503,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 				builder.show();
 			}
 			break;
-		case R.id.what1_btn:
+		case -1: // R.id.what1_btn:
 			final Intent fi = new Intent(this, RuleEdit.class);
 			fi.putExtra(EXTRA_ISCHILD, true);
 			if (this.what1 >= 0) {
@@ -463,7 +524,7 @@ public class RuleEdit extends Activity implements OnClickListener,
 								case 1:
 									// TODO: delete old child from DB
 									RuleEdit.this.what1 = -1;
-									RuleEdit.this.fillChild();
+									RuleEdit.this.fillWhat1();
 									break;
 								default:
 									break;
@@ -476,24 +537,6 @@ public class RuleEdit extends Activity implements OnClickListener,
 				this.startActivityForResult(fi, REQUEST_RULE);
 			}
 			break;
-		case R.id.name_help:
-			this.showHelp(R.string.name_help);
-			break;
-		case R.id.type_help:
-			this.showHelp(R.string.what_help);
-			break;
-		case R.id.negate_help:
-			this.showHelp(R.string.negate_help);
-			break;
-		case R.id.what0_help:
-			this.showHelp(R.string.what0_help);
-			break;
-		case R.id.what1_help:
-			this.showHelp(R.string.what1_help);
-			break;
-		case R.id.plan_help:
-			this.showHelp(R.string.plan_help);
-			break;
 		default:
 			break;
 		}
@@ -503,25 +546,18 @@ public class RuleEdit extends Activity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void onItemSelected(final AdapterView<?> parent,
-			final View view, final int position, final long id) {
-		switch (parent.getId()) {
-		case R.id.plan_sp:
-			this.plan = id;
-			break;
-		case R.id.type_sp:
-			this.showHideFileds();
-			this.fillPlan();
-		default:
-			break;
-		}
+	public final void onItemClick(final AdapterView<?> parent, final View view,
+			final int position, final long id) {
+		final Preference p = this.adapter.getItem(position);
+		p.showDialog(this);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void onNothingSelected(final AdapterView<?> parent) {
-		// nothing to do
+	public final void onDismiss(final DialogInterface dialog) {
+		this.showHideFileds();
+		this.adapter.notifyDataSetInvalidated();
 	}
 }

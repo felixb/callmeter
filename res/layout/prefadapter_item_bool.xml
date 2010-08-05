@@ -7,7 +7,7 @@
 	android:paddingRight="?android:attr/scrollbarSize">
 	<TextView android:id="@android:id/text1" android:text="android:id/text1"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:layout_alignParentLeft="true" android:layout_toLeftOf="@+id/img"
+		android:layout_alignParentLeft="true" android:layout_toLeftOf="@android:id/checkbox"
 		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:singleLine="true" android:ellipsize="marquee"
 		android:layout_marginLeft="15dip" android:fadingEdge="horizontal" />
@@ -16,8 +16,7 @@
 		android:layout_height="wrap_content" android:singleLine="false"
 		android:layout_alignParentLeft="true" android:layout_toLeftOf="@+id/img"
 		android:layout_marginLeft="15dip" />
-	<ImageView android:id="@+id/img" android:layout_height="wrap_content"
-		android:layout_width="wrap_content" android:layout_alignParentRight="true"
-		android:background="@drawable/btn_circle" android:src="@drawable/ic_btn_round_more"
-		android:layout_centerVertical="true" />
+	<CheckBox android:id="@android:id/checkbox"
+		android:layout_height="wrap_content" android:layout_width="wrap_content"
+		android:layout_alignParentRight="true" android:layout_centerVertical="true" />
 </RelativeLayout>
