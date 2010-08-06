@@ -80,11 +80,9 @@ public class HourGroups extends ListActivity implements OnClickListener,
 	}
 
 	/** Item menu: edit. */
-	private static final int WHICH_SELECT = 0;
-	/** Item menu: edit. */
-	private static final int WHICH_EDIT = 1;
+	private static final int WHICH_EDIT = 0;
 	/** Item menu: delete. */
-	private static final int WHICH_DELETE = 2;
+	private static final int WHICH_DELETE = 1;
 
 	/**
 	 * {@inheritDoc}
@@ -120,7 +118,6 @@ public class HourGroups extends ListActivity implements OnClickListener,
 			this.startActivity(intent);
 			break;
 		case R.id.ok:
-			this.setResult(RESULT_CANCELED);
 			this.finish();
 			break;
 		default:
@@ -134,11 +131,11 @@ public class HourGroups extends ListActivity implements OnClickListener,
 	@Override
 	public final void onItemClick(final AdapterView<?> parent, final View view,
 			final int position, final long id) {
-		final Intent i = new Intent();
-		i.setData(ContentUris.withAppendedId(
+		final Intent intent = new Intent(// .
+				HourGroups.this, HourGroupEdit.class);
+		intent.setData(ContentUris.withAppendedId(
 				DataProvider.HoursGroup.CONTENT_URI, id));
-		this.setResult(RESULT_OK, i);
-		this.finish();
+		HourGroups.this.startActivity(intent);
 	}
 
 	/**
@@ -148,19 +145,12 @@ public class HourGroups extends ListActivity implements OnClickListener,
 	public final boolean onItemLongClick(final AdapterView<?> parent,
 			final View view, final int position, final long id) {
 		final Builder builder = new Builder(this);
-		builder.setItems(R.array.dialog_select_edit_delete,
+		builder.setItems(R.array.dialog_edit_delete,
 				new android.content.DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(final DialogInterface dialog,
 							final int which) {
 						switch (which) {
-						case WHICH_SELECT:
-							final Intent i = new Intent();
-							i.setData(ContentUris.withAppendedId(
-									DataProvider.HoursGroup.CONTENT_URI, id));
-							HourGroups.this.setResult(RESULT_OK, i);
-							HourGroups.this.finish();
-							break;
 						case WHICH_EDIT:
 							final Intent intent = new Intent(// .
 									HourGroups.this, HourGroupEdit.class);

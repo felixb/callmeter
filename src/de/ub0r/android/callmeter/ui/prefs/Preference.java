@@ -57,6 +57,8 @@ abstract class Preference {
 		 *            resource id of the title text
 		 * @param help
 		 *            resource id of the help text
+		 * @param odl
+		 *            {@link OnDismissListener}
 		 */
 		protected BoolPreference(final Context ctx, final String prefName,
 				final int text, final int help, final OnDismissListener odl) {
@@ -74,7 +76,7 @@ abstract class Preference {
 			if (this.value) {
 				values.put(this.name, 1);
 			} else {
-				values.put(this.name, 1);
+				values.put(this.name, 0);
 			}
 		}
 
@@ -95,10 +97,14 @@ abstract class Preference {
 		@Override
 		View getView(final View convertView, final ViewGroup parent) {
 			final View ret = super.getView(convertView, parent);
-			final CheckBox cb = (CheckBox) ret
-					.findViewById(android.R.id.checkbox);
-			cb.setChecked(this.value);
-			cb.setOnCheckedChangeListener(this);
+			if (ret != null) {
+				final CheckBox cb = (CheckBox) ret
+						.findViewById(android.R.id.checkbox);
+				if (cb != null) {
+					cb.setChecked(this.value);
+					cb.setOnCheckedChangeListener(this);
+				}
+			}
 			return ret;
 		}
 
@@ -705,6 +711,7 @@ abstract class Preference {
 			this.projection[0] = id;
 			this.projection[1] = name;
 			this.selection = sel;
+			this.refreshDialog();
 		}
 
 		/**
@@ -715,6 +722,7 @@ abstract class Preference {
 		 */
 		void setCursor(final String sel) {
 			this.selection = sel;
+			this.refreshDialog();
 		}
 
 		@Override
@@ -790,7 +798,7 @@ abstract class Preference {
 
 		@Override
 		String getHint() {
-			if (this.valueName == null) {
+			if (this.valueName == null && this.value >= 0L) {
 				Cursor cursor = this.context.getContentResolver().query(
 						this.uri,
 						this.projection,
@@ -817,11 +825,21 @@ abstract class Preference {
 		}
 
 		/**
+		 * Set a value.
+		 * 
+		 * @param val
+		 *            value
+		 */
+		public void setValue(final long val) {
+			this.value = val;
+			this.valueName = null;
+		}
+
+		/**
 		 * Clear value.
 		 */
 		public void clearValue() {
-			this.value = -1L;
-			this.valueName = null;
+			this.setValue(-1L);
 		}
 	}
 
@@ -1034,6 +1052,13 @@ abstract class Preference {
 			this.dialog.setOnDismissListener(listener);
 			this.dialog.show();
 		}
+	}
+
+	/**
+	 * Remove cached {@link Dialog}.
+	 */
+	final void refreshDialog() {
+		this.dialog = null;
 	}
 
 	/** Dismiss the {@link Dialog}. */

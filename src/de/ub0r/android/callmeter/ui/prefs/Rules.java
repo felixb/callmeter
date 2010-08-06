@@ -105,6 +105,9 @@ public class Rules extends ListActivity implements OnClickListener,
 				w = "\u00AC ";
 			}
 			w += this.types[cursor.getInt(DataProvider.Rules.INDEX_WHAT)];
+			if (cursor.getLong(DataProvider.Rules.INDEX_WHAT1) >= 0L) {
+				w += " & ...";
+			}
 			twType.setText(w);
 		}
 	}
