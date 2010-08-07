@@ -1718,6 +1718,17 @@ public final class DataProvider extends ContentProvider {
 			ret = db.insert(Plans.TABLE, null, values);
 			break;
 		case RULES:
+			if (!values.containsKey(Rules.ORDER)) {
+				final Cursor c = db.query(Rules.TABLE,
+						new String[] { Plans.ORDER }, null, null, null, null,
+						Rules.ORDER + " DESC");
+				if (c != null && c.moveToFirst()) {
+					values.put(Rules.ORDER, c.getInt(0) + 1);
+				}
+				if (c != null && !c.isClosed()) {
+					c.close();
+				}
+			}
 			ret = db.insert(Rules.TABLE, null, values);
 			break;
 		case NUMBERS:

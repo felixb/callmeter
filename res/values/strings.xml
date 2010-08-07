@@ -259,17 +259,6 @@
 		<item>Small</item>
 		<item>Medium</item>
 	</string-array>
-	<string-array name="dialog_edit_up_down_delete">
-		<item>Edit</item>
-		<item>Up</item>
-		<item>Down</item>
-		<item>Delete</item>
-	</string-array>
-	<string-array name="dialog_select_edit_delete">
-		<item>Select</item>
-		<item>Edit</item>
-		<item>Delete</item>
-	</string-array>
 	<string-array name="dialog_edit_plan">
 		<item>Edit plan</item>
 	</string-array>

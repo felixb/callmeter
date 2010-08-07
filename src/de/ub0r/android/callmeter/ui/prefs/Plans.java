@@ -38,6 +38,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
+
+import com.commonsware.cwac.tlv.TouchListView;
+import com.commonsware.cwac.tlv.TouchListView.DropListener;
+
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
@@ -90,7 +94,6 @@ public class Plans extends ListActivity implements OnClickListener,
 			twType.setText(this.types[cursor
 					.getInt(DataProvider.Plans.INDEX_TYPE)]);
 		}
-
 	}
 
 	/** Plans. */
@@ -98,12 +101,8 @@ public class Plans extends ListActivity implements OnClickListener,
 
 	/** Item menu: edit. */
 	private static final int WHICH_EDIT = 0;
-	/** Item menu: up. */
-	private static final int WHICH_UP = 1;
-	/** Item menu: down. */
-	private static final int WHICH_DOWN = 2;
 	/** Item menu: delete. */
-	private static final int WHICH_DELETE = 3;
+	private static final int WHICH_DELETE = 1;
 
 	/**
 	 * {@inheritDoc}
@@ -113,9 +112,16 @@ public class Plans extends ListActivity implements OnClickListener,
 		super.onCreate(savedInstanceState);
 		this.setTitle(this.getString(R.string.settings) + " > "
 				+ this.getString(R.string.plans));
-		this.setContentView(R.layout.list_ok_add);
+		this.setContentView(R.layout.list_ok_add_touch);
 		this.adapter = new PlanAdapter(this);
 		this.setListAdapter(this.adapter);
+		((TouchListView) this.getListView())
+				.setDropListener(new DropListener() {
+					@Override
+					public void drop(final int from, final int to) {
+						Plans.this.move(from, to);
+					}
+				});
 		this.getListView().setOnItemClickListener(this);
 		this.getListView().setOnItemLongClickListener(this);
 		this.findViewById(R.id.ok).setOnClickListener(this);
@@ -139,58 +145,6 @@ public class Plans extends ListActivity implements OnClickListener,
 	protected final void onStop() {
 		super.onStop();
 		RuleMatcher.unmatch(this);
-	}
-
-	/**
-	 * Swap two plans.
-	 * 
-	 * @param position
-	 *            Position of selected plan
-	 * @param direction
-	 *            Direction to swap the plans. up: -1, down: +1
-	 */
-	private void swap(final int position, final int direction) {
-		final ContentResolver cr = this.getContentResolver();
-		Cursor cursor = null;
-		// get plans
-		final long idCurrent = this.adapter.getItemId(position);
-		final long idOther = this.adapter.getItemId(position + direction);
-		cursor = cr.query(ContentUris.withAppendedId(// .
-				DataProvider.Plans.CONTENT_URI, idCurrent),
-				DataProvider.Plans.PROJECTION, null, null, null);
-		if (cursor == null || !cursor.moveToFirst()) {
-			return;
-		}
-		final int orderCurrent = cursor.getInt(DataProvider.Plans.INDEX_ORDER);
-		cursor.close();
-		cursor = cr.query(ContentUris.withAppendedId(
-				DataProvider.Plans.CONTENT_URI, idOther),
-				DataProvider.Plans.PROJECTION, null, null, null);
-		if (cursor == null || !cursor.moveToFirst()) {
-			return;
-		}
-		final int orderOther = cursor.getInt(DataProvider.Plans.INDEX_ORDER);
-		cursor.close();
-
-		// set new order
-		final ContentValues cvCurrent = new ContentValues();
-		ContentValues cvOther = null;
-		if (orderCurrent == orderOther) {
-			cvCurrent.put(DataProvider.Plans.ORDER, orderCurrent + direction);
-		} else {
-			cvOther = new ContentValues();
-			cvCurrent.put(DataProvider.Plans.ORDER, orderOther);
-			cvOther.put(DataProvider.Plans.ORDER, orderCurrent);
-		}
-
-		// push changes
-		cr.update(ContentUris.withAppendedId(DataProvider.Plans.CONTENT_URI,
-				idCurrent), cvCurrent, null, null);
-		if (cvOther != null) {
-			cr.update(ContentUris.withAppendedId(
-					DataProvider.Plans.CONTENT_URI, idOther), cvOther, null,
-					null);
-		}
 	}
 
 	/**
@@ -242,7 +196,7 @@ public class Plans extends ListActivity implements OnClickListener,
 	public final boolean onItemLongClick(final AdapterView<?> parent,
 			final View view, final int position, final long id) {
 		final Builder builder = new Builder(this);
-		builder.setItems(R.array.dialog_edit_up_down_delete,
+		builder.setItems(R.array.dialog_edit_delete,
 				new android.content.DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(final DialogInterface dialog,
@@ -254,12 +208,6 @@ public class Plans extends ListActivity implements OnClickListener,
 							intent.setData(ContentUris.withAppendedId(
 									DataProvider.Plans.CONTENT_URI, id));
 							Plans.this.startActivity(intent);
-							break;
-						case WHICH_UP:
-							Plans.this.swap(position, -1);
-							break;
-						case WHICH_DOWN:
-							Plans.this.swap(position, 1);
 							break;
 						case WHICH_DELETE:
 							Plans.this.getContentResolver().delete(
@@ -283,5 +231,63 @@ public class Plans extends ListActivity implements OnClickListener,
 			v = View.VISIBLE;
 		}
 		this.findViewById(R.id.import_default).setVisibility(v);
+	}
+
+	/**
+	 * Move item.
+	 * 
+	 * @param from
+	 *            from
+	 * @param to
+	 *            to
+	 */
+	private void move(final int from, final int to) {
+		if (from == to) {
+			return;
+		}
+		final ContentResolver cr = this.getContentResolver();
+		final String[] proj = new String[] { DataProvider.Plans.ID,
+				DataProvider.Plans.ORDER };
+
+		final int l = Math.abs(from - to) + 1;
+		long[] ids = new long[l];
+		int[] orders = new int[l];
+		int i = 0;
+		int dir;
+		if (from < to) {
+			dir = 1;
+		} else {
+			dir = -1;
+		}
+		for (int p = from; (from < to && p <= to) || // .
+				(from > to && p >= to); p += dir) {
+			final long id = this.adapter.getItemId(p);
+			ids[i] = id;
+			final Cursor cursor = cr
+					.query(ContentUris.withAppendedId(
+							DataProvider.Plans.CONTENT_URI, id), proj, null,
+							null, null);
+			if (cursor == null || !cursor.moveToFirst()) {
+				orders[i] = 0;
+			} else {
+				orders[i] = cursor.getInt(1);
+			}
+			if (cursor != null && !cursor.isClosed()) {
+				cursor.close();
+			}
+			++i;
+		}
+		final int neworder = orders[l - 1];
+		for (i = l - 2; i >= 0; i--) {
+			orders[i + 1] = orders[i];
+		}
+		orders[0] = neworder;
+		ContentValues cv = new ContentValues();
+		for (i = 0; i < l; i++) {
+			cv.clear();
+			cv.put(DataProvider.Plans.ORDER, orders[i]);
+			cr.update(ContentUris.withAppendedId(
+					DataProvider.Plans.CONTENT_URI, ids[i]), cv, null, null);
+		}
 	}
 }

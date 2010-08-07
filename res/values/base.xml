@@ -20,7 +20,7 @@
 <resources>
 	<string name="app_version">2.7.0 alpha0</string>
 	<string name="app_name">Call Meter 3G</string>
-	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt; (Code, German)</string>
+	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt; (Code, German) </string>
 	<string name="author_nc">Cyril Jaquier &lt;netcounter@jaqpot.net&gt; (NetCounter)</string>
 	<string name="author_icon">Christoph Rado &lt;christoph.rado@gmail.com&gt; (Icon)</string>
 	<string name="author_nl">Tom Nuss &lt;tomnuss@gmail.com&gt; (Dutch)</string>
@@ -67,7 +67,7 @@
 	<string name="hours_21">21:00 - 21:59</string>
 	<string name="hours_22">22:00 - 22:59</string>
 	<string name="hours_23">23:00 - 23:59</string>
-		
+
 	<string-array name="currency_formats">
 		<item>Default</item>
 		<item>$1.00</item>
@@ -171,4 +171,6 @@
 		<item>small</item>
 		<item>medium</item>
 	</string-array>
+
+	<dimen name="touchlist_height">30dip</dimen>
 </resources>

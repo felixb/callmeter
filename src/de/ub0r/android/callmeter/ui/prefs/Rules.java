@@ -38,6 +38,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
+
+import com.commonsware.cwac.tlv.TouchListView;
+import com.commonsware.cwac.tlv.TouchListView.DropListener;
+
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
@@ -58,12 +62,8 @@ public class Rules extends ListActivity implements OnClickListener,
 
 	/** Item menu: edit. */
 	private static final int WHICH_EDIT = 0;
-	/** Item menu: up. */
-	private static final int WHICH_UP = 1;
-	/** Item menu: down. */
-	private static final int WHICH_DOWN = 2;
 	/** Item menu: delete. */
-	private static final int WHICH_DELETE = 3;
+	private static final int WHICH_DELETE = 1;
 
 	/**
 	 * Adapter binding rules to View.
@@ -81,7 +81,7 @@ public class Rules extends ListActivity implements OnClickListener,
 		 *            {@link Context}
 		 */
 		public RuleAdapter(final Context context) {
-			super(context, R.layout.prefs_plans_item, context
+			super(context, R.layout.prefs_rules_item, context
 					.getContentResolver().query(DataProvider.Rules.CONTENT_URI,
 							DataProvider.Rules.PROJECTION,
 							DataProvider.Rules.ISCHILD + " = 0", null,
@@ -120,9 +120,17 @@ public class Rules extends ListActivity implements OnClickListener,
 		super.onCreate(savedInstanceState);
 		this.setTitle(this.getString(R.string.settings) + " > "
 				+ this.getString(R.string.rules));
-		this.setContentView(R.layout.list_ok_add);
+		this.setContentView(R.layout.list_ok_add_touch);
 		this.adapter = new RuleAdapter(this);
 		this.setListAdapter(this.adapter);
+		this.setListAdapter(this.adapter);
+		((TouchListView) this.getListView())
+				.setDropListener(new DropListener() {
+					@Override
+					public void drop(final int from, final int to) {
+						Rules.this.move(from, to);
+					}
+				});
 		this.getListView().setOnItemClickListener(this);
 		this.getListView().setOnItemLongClickListener(this);
 		this.findViewById(R.id.ok).setOnClickListener(this);
@@ -146,58 +154,6 @@ public class Rules extends ListActivity implements OnClickListener,
 	protected final void onStop() {
 		super.onStop();
 		RuleMatcher.unmatch(this);
-	}
-
-	/**
-	 * Swap two rules.
-	 * 
-	 * @param position
-	 *            Position of selected plan
-	 * @param direction
-	 *            Direction to swap the rules. up: -1, down: +1
-	 */
-	private void swap(final int position, final int direction) {
-		final ContentResolver cr = this.getContentResolver();
-		Cursor cursor = null;
-		// get rules
-		final long idCurrent = this.adapter.getItemId(position);
-		final long idOther = this.adapter.getItemId(position + direction);
-		cursor = cr.query(ContentUris.withAppendedId(// .
-				DataProvider.Rules.CONTENT_URI, idCurrent),
-				DataProvider.Rules.PROJECTION, null, null, null);
-		if (cursor == null || !cursor.moveToFirst()) {
-			return;
-		}
-		final int orderCurrent = cursor.getInt(DataProvider.Rules.INDEX_ORDER);
-		cursor.close();
-		cursor = cr.query(ContentUris.withAppendedId(// .
-				DataProvider.Rules.CONTENT_URI, idOther),
-				DataProvider.Rules.PROJECTION, null, null, null);
-		if (cursor == null || !cursor.moveToFirst()) {
-			return;
-		}
-		final int orderOther = cursor.getInt(DataProvider.Rules.INDEX_ORDER);
-		cursor.close();
-
-		// set new order
-		final ContentValues cvCurrent = new ContentValues();
-		ContentValues cvOther = null;
-		if (orderCurrent == orderOther) {
-			cvCurrent.put(DataProvider.Rules.ORDER, orderCurrent + direction);
-		} else {
-			cvOther = new ContentValues();
-			cvCurrent.put(DataProvider.Rules.ORDER, orderOther);
-			cvOther.put(DataProvider.Rules.ORDER, orderCurrent);
-		}
-
-		// push changes
-		cr.update(ContentUris.withAppendedId(DataProvider.Rules.CONTENT_URI,
-				idCurrent), cvCurrent, null, null);
-		if (cvOther != null) {
-			cr.update(ContentUris.withAppendedId(
-					DataProvider.Rules.CONTENT_URI, idOther), cvOther, null,
-					null);
-		}
 	}
 
 	/**
@@ -249,7 +205,7 @@ public class Rules extends ListActivity implements OnClickListener,
 	public final boolean onItemLongClick(final AdapterView<?> parent,
 			final View view, final int position, final long id) {
 		final Builder builder = new Builder(this);
-		builder.setItems(R.array.dialog_edit_up_down_delete,
+		builder.setItems(R.array.dialog_edit_delete,
 				new android.content.DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(final DialogInterface dialog,
@@ -261,12 +217,6 @@ public class Rules extends ListActivity implements OnClickListener,
 							intent.setData(ContentUris.withAppendedId(
 									DataProvider.Rules.CONTENT_URI, id));
 							Rules.this.startActivity(intent);
-							break;
-						case WHICH_UP:
-							Rules.this.swap(position, -1);
-							break;
-						case WHICH_DOWN:
-							Rules.this.swap(position, 1);
 							break;
 						case WHICH_DELETE:
 							Rules.this.getContentResolver().delete(
@@ -290,5 +240,63 @@ public class Rules extends ListActivity implements OnClickListener,
 			v = View.VISIBLE;
 		}
 		this.findViewById(R.id.import_default).setVisibility(v);
+	}
+
+	/**
+	 * Move item.
+	 * 
+	 * @param from
+	 *            from
+	 * @param to
+	 *            to
+	 */
+	private void move(final int from, final int to) {
+		if (from == to) {
+			return;
+		}
+		final ContentResolver cr = this.getContentResolver();
+		final String[] proj = new String[] { DataProvider.Rules.ID,
+				DataProvider.Rules.ORDER };
+
+		final int l = Math.abs(from - to) + 1;
+		long[] ids = new long[l];
+		int[] orders = new int[l];
+		int i = 0;
+		int dir;
+		if (from < to) {
+			dir = 1;
+		} else {
+			dir = -1;
+		}
+		for (int p = from; (from < to && p <= to) || // .
+				(from > to && p >= to); p += dir) {
+			final long id = this.adapter.getItemId(p);
+			ids[i] = id;
+			final Cursor cursor = cr
+					.query(ContentUris.withAppendedId(
+							DataProvider.Rules.CONTENT_URI, id), proj, null,
+							null, null);
+			if (cursor == null || !cursor.moveToFirst()) {
+				orders[i] = 0;
+			} else {
+				orders[i] = cursor.getInt(1);
+			}
+			if (cursor != null && !cursor.isClosed()) {
+				cursor.close();
+			}
+			++i;
+		}
+		final int neworder = orders[l - 1];
+		for (i = l - 2; i >= 0; i--) {
+			orders[i + 1] = orders[i];
+		}
+		orders[0] = neworder;
+		ContentValues cv = new ContentValues();
+		for (i = 0; i < l; i++) {
+			cv.clear();
+			cv.put(DataProvider.Rules.ORDER, orders[i]);
+			cr.update(ContentUris.withAppendedId(
+					DataProvider.Rules.CONTENT_URI, ids[i]), cv, null, null);
+		}
 	}
 }
