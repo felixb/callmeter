@@ -663,8 +663,40 @@ public class Plans extends ListActivity implements OnClickListener,
 				((TextView) view.findViewById(R.id.normtitle)).setText(cursor
 						.getString(DataProvider.Plans.INDEX_NAME));
 				twCache = (TextView) view.findViewById(R.id.data);
-				pbCache = (ProgressBar) view
-						.findViewById(R.id.progressbarLimit);
+				int usage = 0;
+				if (cacheLimitMax > 0) {
+					usage = (cacheLimitPos * CallMeter.HUNDRET) / cacheLimitMax;
+					if (usage >= CallMeter.HUNDRET) {
+						pbCache = (ProgressBar) view
+								.findViewById(R.id.progressbarLimitRed);
+						view.findViewById(R.id.progressbarLimitGreen)
+								.setVisibility(View.GONE);
+						view.findViewById(R.id.progressbarLimitYellow)
+								.setVisibility(View.GONE);
+					} else if (usage > 80) {
+						pbCache = (ProgressBar) view
+								.findViewById(R.id.progressbarLimitYellow);
+						view.findViewById(R.id.progressbarLimitGreen)
+								.setVisibility(View.GONE);
+						view.findViewById(R.id.progressbarLimitRed)
+								.setVisibility(View.GONE);
+					} else {
+						pbCache = (ProgressBar) view
+								.findViewById(R.id.progressbarLimitGreen);
+						view.findViewById(R.id.progressbarLimitYellow)
+								.setVisibility(View.GONE);
+						view.findViewById(R.id.progressbarLimitRed)
+								.setVisibility(View.GONE);
+					}
+				} else {
+					pbCache = (ProgressBar) view
+							.findViewById(R.id.progressbarLimitYellow);
+					view.findViewById(R.id.progressbarLimitGreen)
+							.setVisibility(View.GONE);
+					view.findViewById(R.id.progressbarLimitRed).setVisibility(
+							View.GONE);
+				}
+
 			}
 			if (twCache != null && pbCache != null) {
 				twCache.setText(cacheStr);
@@ -674,6 +706,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					pbCache.setIndeterminate(false);
 					pbCache.setMax(cacheLimitMax);
 					pbCache.setProgress(cacheLimitPos);
+
 					pbCache.setVisibility(View.VISIBLE);
 				} else {
 					pbCache.setIndeterminate(true);

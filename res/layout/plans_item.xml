@@ -54,9 +54,20 @@
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/data" />
 		</RelativeLayout>
-		<ProgressBar android:id="@+id/progressbarLimit"
+		<ProgressBar android:id="@+id/progressbarLimitGreen"
 			android:layout_width="fill_parent" android:layout_height="10dip"
 			android:layout_alignParentRight="true" android:layout_below="@id/content_data"
-			style="?android:attr/progressBarStyleHorizontal" android:max="100" />
+			style="?android:attr/progressBarStyleHorizontal" android:max="100"
+			android:progressDrawable="@drawable/progress_horizontal_green" />
+		<ProgressBar android:id="@+id/progressbarLimitYellow"
+			android:layout_width="fill_parent" android:layout_height="10dip"
+			android:layout_alignParentRight="true" android:layout_below="@id/content_data"
+			style="?android:attr/progressBarStyleHorizontal" android:max="100"
+			android:progressDrawable="@drawable/progress_horizontal_yellow" />
+		<ProgressBar android:id="@+id/progressbarLimitRed"
+			android:layout_width="fill_parent" android:layout_height="10dip"
+			android:layout_alignParentRight="true" android:layout_below="@id/content_data"
+			style="?android:attr/progressBarStyleHorizontal" android:max="100"
+			android:progressDrawable="@drawable/progress_horizontal_red" />
 	</RelativeLayout>
 </LinearLayout>
