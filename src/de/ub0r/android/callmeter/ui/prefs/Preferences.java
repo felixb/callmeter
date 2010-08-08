@@ -78,13 +78,15 @@ public class Preferences extends PreferenceActivity {
 	private static final String THEME_BLACK = "black";
 	/** Theme: light. */
 	private static final String THEME_LIGHT = "light";
-	/** Preference's name: textsize. */
+	/** Preference's name: text size. */
 	private static final String PREFS_TEXTSIZE = "textsize";
-	/** Textsize: small. */
+	/** Text size: small. */
 	private static final String TEXTSIZE_SMALL = "small";
-	/** Textsize: medium. */
+	/** Text size: medium. */
 	private static final String TEXTSIZE_MEDIUM = "medium";
-	/** Preference's name: currency smbol. */
+	/** Preference's name: show hours. */
+	public static final String PREFS_SHOWHOURS = "show_hours";
+	/** Preference's name: currency symbol. */
 	private static final String PREFS_CURRENCY_SYMBOL = "currency_symbol";
 	/** Preference's name: currency format. */
 	private static final String PREFS_CURRENCY_FORMAT = "currency_format";

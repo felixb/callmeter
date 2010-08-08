@@ -52,6 +52,8 @@
 	<string name="appearance_">Appearance</string>
 	<string name="theme_">Theme</string>
 	<string name="textsize_">Text size</string>
+	<string name="show_hours_">Show hours</string>
+	<string name="show_hours_hint">Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and hours are shown.</string>
 	<string name="custom_currency_symbol_">Custom currency symbol</string>
 	<string name="custom_currency_symbol_hint">Set a custom currency symbol, leave empty for system default.</string>
 	<string name="custom_currency_format_">Custom currency format</string>

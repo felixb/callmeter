@@ -27,6 +27,9 @@
 			android:key="textsize" android:entries="@array/textsize"
 			android:entryValues="@array/textsize_values" />
 		-->
+		<CheckBoxPreference android:key="show_hours"
+			android:defaultValue="true" android:title="@string/show_hours_"
+			android:summary="@string/show_hours_hint" />
 		<EditTextPreference android:title="@string/custom_currency_symbol_"
 			android:key="currency_symbol" android:summary="@string/custom_currency_symbol_hint" />
 		<ListPreference android:title="@string/custom_currency_format_"

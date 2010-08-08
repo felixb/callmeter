@@ -58,6 +58,8 @@ public final class Logs extends ListActivity implements OnClickListener {
 
 	/** {@link ToggleButton}s. */
 	private ToggleButton tbCall, tbSMS, tbMMS, tbData;
+	/** Show hours and days. */
+	private static boolean showHours = true;
 
 	/**
 	 * Adapter binding logs to View.
@@ -115,7 +117,7 @@ public final class Logs extends ListActivity implements OnClickListener {
 			buf.append(cursor.getString(DataProvider.Logs.INDEX_REMOTE));
 			buf.append("\t");
 			long amount = cursor.getLong(DataProvider.Logs.INDEX_AMOUNT);
-			buf.append(Plans.formatAmount(t, amount));
+			buf.append(Plans.formatAmount(t, amount, showHours));
 
 			((TextView) view.findViewById(android.R.id.text1)).setText(buf
 					.toString());
@@ -147,6 +149,16 @@ public final class Logs extends ListActivity implements OnClickListener {
 		this.tbData.setChecked(p.getBoolean(PREF_DATA, true));
 
 		this.setAdapter();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void onResume() {
+		super.onResume();
+		showHours = PreferenceManager.getDefaultSharedPreferences(this)
+				.getBoolean(Preferences.PREFS_SHOWHOURS, true);
 	}
 
 	/**

@@ -108,6 +108,9 @@ public class Plans extends ListActivity implements OnClickListener,
 	/** Prefs: name for last version run. */
 	private static final String PREFS_LAST_RUN = "lastrun";
 
+	/** Show hours and days. */
+	private static boolean showHours = true;
+
 	/** Selected currency format. */
 	private static String currencyFormat = "$%.2f";
 	/** Selected date format. */
@@ -423,7 +426,7 @@ public class Plans extends ListActivity implements OnClickListener,
 
 					cv.put(DataProvider.Plans.CACHE_STRING, getString(this,
 							used, count, billedAmount, cost, allBilledAmount,
-							allCount));
+							allCount, showHours));
 				}
 				this.ctx.getContentResolver().update(uri, cv, null, null);
 			}
@@ -582,11 +585,14 @@ public class Plans extends ListActivity implements OnClickListener,
 		 *            billed amount all time
 		 * @param allCount
 		 *            count all time
+		 * @param showHours
+		 *            show hours and days
 		 * @return {@link String} holding all the data
 		 */
 		private static String getString(final Plan p, final int used,
 				final long count, final long amount, final float cost,
-				final long allAmount, final long allCount) {
+				final long allAmount, final long allCount,
+				final boolean showHours) {
 			final StringBuilder ret = new StringBuilder();
 
 			// usage
@@ -597,7 +603,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			}
 
 			// amount
-			ret.append(formatAmount(p.type, amount));
+			ret.append(formatAmount(p.type, amount, showHours));
 			// count
 			if (p.type == DataProvider.TYPE_CALL) {
 				ret.append(" (" + count + ")");
@@ -605,7 +611,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			ret.append(SEP);
 
 			// amount all time
-			ret.append(formatAmount(p.type, allAmount));
+			ret.append(formatAmount(p.type, allAmount, showHours));
 			// count all time
 			if (p.type == DataProvider.TYPE_CALL) {
 				ret.append(" (" + allCount + ")");
@@ -758,16 +764,26 @@ public class Plans extends ListActivity implements OnClickListener,
 	 * 
 	 * @param seconds
 	 *            seconds
+	 * @param showHours
+	 *            show hours and days
 	 * @return parsed string
 	 */
-	public static final String prettySeconds(final long seconds) {
+	public static final String prettySeconds(final long seconds,
+			final boolean showHours) {
 		String ret;
-		int d = (int) (seconds / CallMeter.SECONDS_DAY);
-		int h = (int) ((seconds % CallMeter.SECONDS_DAY) / // .
-		CallMeter.SECONDS_HOUR);
-		int m = (int) ((seconds % CallMeter.SECONDS_HOUR) / // .
-		CallMeter.SECONDS_MINUTE);
-		int s = (int) (seconds % CallMeter.SECONDS_MINUTE);
+		int d, h, m;
+		if (showHours) {
+			d = (int) (seconds / CallMeter.SECONDS_DAY);
+			h = (int) ((seconds % CallMeter.SECONDS_DAY) / // .
+			CallMeter.SECONDS_HOUR);
+			m = (int) ((seconds % CallMeter.SECONDS_HOUR) / // .
+			CallMeter.SECONDS_MINUTE);
+		} else {
+			d = 0;
+			h = 0;
+			m = (int) (seconds / CallMeter.SECONDS_MINUTE);
+		}
+		final int s = (int) (seconds % CallMeter.SECONDS_MINUTE);
 		if (d > 0) {
 			ret = d + "d ";
 		} else {
@@ -802,15 +818,17 @@ public class Plans extends ListActivity implements OnClickListener,
 	 *            type of plan
 	 * @param amount
 	 *            amount
+	 * @param showHours
+	 *            show hours and days
 	 * @return {@link String} representing amount
 	 */
 	public static final String formatAmount(final int pType, // .
-			final long amount) {
+			final long amount, final boolean showHours) {
 		switch (pType) {
 		case DataProvider.TYPE_DATA:
 			return prettyBytes(amount);
 		case DataProvider.TYPE_CALL:
-			return prettySeconds(amount);
+			return prettySeconds(amount, showHours);
 		default:
 			return String.valueOf(amount);
 		}
@@ -855,6 +873,8 @@ public class Plans extends ListActivity implements OnClickListener,
 	@Override
 	protected final void onResume() {
 		super.onResume();
+		showHours = PreferenceManager.getDefaultSharedPreferences(this)
+				.getBoolean(Preferences.PREFS_SHOWHOURS, true);
 		currentHandler = this.handler;
 		Plans.this.setProgressBarIndeterminateVisibility(inProgressMatcher);
 		if (!prefsNoAds) {
