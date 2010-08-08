@@ -67,6 +67,11 @@ public class Preferences extends PreferenceActivity {
 	/** Standard buffer size. */
 	public static final int BUFSIZE = 1024;
 
+	/** Preference's name: alert at 80% usage. */
+	public static final String PREFS_ALERT80 = "alert_80";
+	/** Preference's name: alert at 100% usage. */
+	public static final String PREFS_ALERT100 = "alert_100";
+
 	/** Preference's name: theme. */
 	private static final String PREFS_THEME = "theme";
 	/** Theme: black. */

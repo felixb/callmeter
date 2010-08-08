@@ -26,13 +26,15 @@ import de.ub0r.android.lib.Log;
  */
 public final class CallMeter extends Application {
 	/** Tag for output. */
-	private static final String TAG = "App";
+	// private static final String TAG = "App";
 
 	/** Minimum date. */
 	public static final long MIN_DATE = 10000000000L;
-	/** Miliseconds per seconds. */
+	/** Milliseconds per seconds. */
 	public static final long MILLIS = 1000L;
 
+	/** 80. */
+	public static final int EIGHTY = 80;
 	/** 100. */
 	public static final int HUNDRET = 100;
 	/** Days of a week. */

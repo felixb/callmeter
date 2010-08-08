@@ -215,6 +215,8 @@
 	<string name="err_export_write">Error writing export file.</string>
 	<string name="err_export_read">Error reading export file.</string>
 	<string name="alerts_">Alerts</string>
+	<string name="alerts_title">Call Meter 3G alert</string>
+	<string name="alerts_message">Plan %s has reached %d%% usage!</string>
 	<string name="alerts_80_">Notify at 80%</string>
 	<string name="alerts_80_hint">Notify if a plan passes 80% of it\'s limit.</string>
 	<string name="alerts_100_">Notify at 100%</string>

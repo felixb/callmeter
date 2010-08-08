@@ -673,7 +673,7 @@ public class Plans extends ListActivity implements OnClickListener,
 								.setVisibility(View.GONE);
 						view.findViewById(R.id.progressbarLimitYellow)
 								.setVisibility(View.GONE);
-					} else if (usage > 80) {
+					} else if (usage > CallMeter.EIGHTY) {
 						pbCache = (ProgressBar) view
 								.findViewById(R.id.progressbarLimitYellow);
 						view.findViewById(R.id.progressbarLimitGreen)

@@ -62,7 +62,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 13;
+	private static final int DATABASE_VERSION = 14;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -348,6 +348,8 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_CACHE_PROGRESS_POS = 22;
 		/** Index in projection: id of billperiod. */
 		public static final int INDEX_BILLPERIOD_ID = 23;
+		/** Index in projection: next alert. */
+		public static final int INDEX_NEXT_ALERT = 24;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -400,6 +402,8 @@ public final class DataProvider extends ContentProvider {
 		public static final String CACHE_PROGRESS_MAX = "_cache_prg_max";
 		/** Cache row for main: progressbar position. */
 		public static final String CACHE_PROGRESS_POS = "_cache_prg_pos";
+		/** Next alert. */
+		public static final String NEXT_ALERT = "_next_alert";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, ORDER,
@@ -408,7 +412,8 @@ public final class DataProvider extends ContentProvider {
 				COST_PER_ITEM_IN_LIMIT, COST_PER_AMOUNT_IN_LIMIT1,
 				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN, MIXED_UNITS_CALL,
 				MIXED_UNITS_SMS, MIXED_UNITS_MMS, CACHE_STRING,
-				CACHE_PROGRESS_MAX, CACHE_PROGRESS_POS, BILLPERIOD_ID };
+				CACHE_PROGRESS_MAX, CACHE_PROGRESS_POS, BILLPERIOD_ID,
+				NEXT_ALERT };
 
 		/** Select only real plans. */
 		public static final String WHERE_REALPLANS = TYPE + " != "
@@ -458,6 +463,7 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(CACHE_STRING, CACHE_STRING);
 			PROJECTION_MAP.put(CACHE_PROGRESS_MAX, CACHE_PROGRESS_MAX);
 			PROJECTION_MAP.put(CACHE_PROGRESS_POS, CACHE_PROGRESS_POS);
+			PROJECTION_MAP.put(NEXT_ALERT, NEXT_ALERT);
 		}
 
 		/**
@@ -493,7 +499,8 @@ public final class DataProvider extends ContentProvider {
 					+ MIXED_UNITS_MMS + " INTEGER,"// .
 					+ CACHE_STRING + " TEXT," // .
 					+ CACHE_PROGRESS_MAX + " INTEGER," // .
-					+ CACHE_PROGRESS_POS + " INTEGER" // .
+					+ CACHE_PROGRESS_POS + " INTEGER," // .
+					+ NEXT_ALERT + " LONG" // .
 					+ ");");
 		}
 
@@ -1889,6 +1896,9 @@ public final class DataProvider extends ContentProvider {
 		case LOGS_ID:
 			ret = db.update(Logs.TABLE, values, DbUtils.sqlAnd(Logs.ID + "="
 					+ ContentUris.parseId(uri), selection), selectionArgs);
+			break;
+		case PLANS:
+			ret = db.update(Plans.TABLE, values, selection, selectionArgs);
 			break;
 		case PLANS_ID:
 			ret = db.update(Plans.TABLE, values, DbUtils.sqlAnd(Plans.ID + "="

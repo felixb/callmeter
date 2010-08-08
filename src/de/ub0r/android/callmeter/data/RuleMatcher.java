@@ -23,15 +23,23 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import de.ub0r.android.callmeter.CallMeter;
+import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.Plans;
+import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
@@ -372,6 +380,8 @@ public final class RuleMatcher {
 	private static class Plan {
 		/** Id. */
 		private final long id;
+		/** Name of plan. */
+		private final String name;
 		/** Type of log. */
 		private final int type;
 		/** Type of limit. */
@@ -394,6 +404,8 @@ public final class RuleMatcher {
 		private final float costPerAmountInLimit1, costPerAmountInLimit2;
 		/** Units for mixed plans. */
 		private final int mixedUnitsCall, mixedUnitsSMS, mixedUnitsMMS;
+		/** Time of next alert. */
+		private long nextAlert = 0;
 
 		/** Last valid billday. */
 		private Calendar currentBillday = null;
@@ -418,6 +430,7 @@ public final class RuleMatcher {
 		Plan(final ContentResolver cr, final Cursor cursor) {
 			this.cResolver = cr;
 			this.id = cursor.getLong(DataProvider.Plans.INDEX_ID);
+			this.name = cursor.getString(DataProvider.Plans.INDEX_NAME);
 			this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			this.limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 			if (this.limitType == DataProvider.LIMIT_TYPE_UNITS) {
@@ -445,6 +458,8 @@ public final class RuleMatcher {
 					.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_SMS);
 			this.mixedUnitsMMS = cursor
 					.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_MMS);
+			this.nextAlert = cursor
+					.getLong(DataProvider.Plans.INDEX_NEXT_ALERT);
 
 			final long bp = cursor
 					.getLong(DataProvider.Plans.INDEX_BILLPERIOD_ID);
@@ -761,6 +776,10 @@ public final class RuleMatcher {
 		cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 		context.getContentResolver().update(DataProvider.Logs.CONTENT_URI, cv,
 				null, null);
+		cv.clear();
+		cv.put(DataProvider.Plans.NEXT_ALERT, 0);
+		context.getContentResolver().update(DataProvider.Plans.CONTENT_URI, cv,
+				null, null);
 		flush();
 	}
 
@@ -860,6 +879,66 @@ public final class RuleMatcher {
 		}
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
+		}
+
+		if (ret) {
+			final SharedPreferences p = PreferenceManager
+					.getDefaultSharedPreferences(context);
+			final boolean a80 = p.getBoolean(Preferences.PREFS_ALERT80, true);
+			final boolean a100 = p.getBoolean(Preferences.PREFS_ALERT100, true);
+			// check for alerts
+			if (a80 || a100) {
+				final long now = System.currentTimeMillis();
+				int alert = 0;
+				Plan alertPlan = null;
+				for (long pid : plans.keySet()) {
+					final Plan plan = plans.get(pid);
+					if (plan.nextAlert > now) {
+						continue;
+					}
+					int used = 0;
+					if (plan.limitType == DataProvider.LIMIT_TYPE_COST) {
+						used = (int) // .
+						((plan.billedCost * CallMeter.HUNDRET) / plan.limit);
+					} else if (plan.limitType == // .
+					DataProvider.LIMIT_TYPE_UNITS) {
+						used = (int) // .
+						((plan.billedAmount * CallMeter.HUNDRET) / plan.limit);
+					}
+					if (a100 && used > CallMeter.HUNDRET) {
+						alert = used;
+						alertPlan = plan;
+					} else if (a80 && alert < CallMeter.EIGHTY
+							&& used > CallMeter.EIGHTY) {
+						alert = used;
+						alertPlan = plan;
+					}
+				}
+				if (alert > 0) {
+					final NotificationManager mNotificationMgr = // .
+					(NotificationManager) context
+							.getSystemService(Context.NOTIFICATION_SERVICE);
+					final String t = String.format(context
+							.getString(R.string.alerts_message),
+							alertPlan.name, alert);
+					final Notification n = new Notification(
+							android.R.drawable.stat_notify_error, t, now);
+					n.setLatestEventInfo(context, context
+							.getString(R.string.alerts_title), t, PendingIntent
+							.getActivity(context, 0, new Intent(context,
+									Plans.class),
+									PendingIntent.FLAG_CANCEL_CURRENT));
+					mNotificationMgr.notify(0, n);
+					final ContentValues cv = new ContentValues();
+					cv
+							.put(DataProvider.Plans.NEXT_ALERT,
+									alertPlan.nextBillday);
+					context.getContentResolver().update(
+							ContentUris.withAppendedId(
+									DataProvider.Plans.CONTENT_URI,
+									alertPlan.id), cv, null, null);
+				}
+			}
 		}
 		return ret;
 	}
