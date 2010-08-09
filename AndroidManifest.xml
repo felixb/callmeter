@@ -93,6 +93,20 @@
 		<service android:name=".data.LogRunnerService" />
 		<provider android:name=".data.DataProvider"
 			android:authorities="de.ub0r.android.callmeter.provider" />
+		<receiver android:name=".widget.StatsAppWidgetProvider">
+			<intent-filter>
+				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+			</intent-filter>
+			<meta-data android:name="android.appwidget.provider"
+				android:resource="@xml/stats_appwidget_info" />
+		</receiver>
+		<activity android:name=".widget.StatsAppWidgetConfigure"
+			android:configChanges="orientation|keyboardHidden"
+			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize">
+			<intent-filter>
+				<action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+			</intent-filter>
+		</activity>
 		<!-- The application's publisher ID assigned by AdMob -->
 		<meta-data android:value="a14c185ce8841c6" android:name="ADMOB_PUBLISHER_ID" />
 		<meta-data android:value="true" android:name="ADMOB_ALLOW_LOCATION_FOR_ADS" />

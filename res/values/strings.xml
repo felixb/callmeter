@@ -223,6 +223,7 @@
 	<string name="alerts_80_hint">Notify if a plan passes 80% of it\'s limit.</string>
 	<string name="alerts_100_">Notify at 100%</string>
 	<string name="alerts_100_hint">Notify if a plan passes 100% of it\'s limit.</string>
+	<string name="widget_config_">Widget config</string>
 	<string-array name="weekdays_all">
 		<item>All week</item>
 		<item>Monday</item>

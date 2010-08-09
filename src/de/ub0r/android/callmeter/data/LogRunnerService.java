@@ -34,6 +34,7 @@ import android.provider.CallLog.Calls;
 import android.telephony.TelephonyManager;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.ui.Plans;
+import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.apis.TelephonyWrapper;
 
@@ -443,7 +444,9 @@ public final class LogRunnerService extends IntentService {
 			this.updateCalls(cr);
 			this.updateSMS(cr);
 			this.updateMMS(cr);
-			RuleMatcher.match(this, showDialog);
+			if (RuleMatcher.match(this, showDialog)) {
+				StatsAppWidgetProvider.updateWidgets(this);
+			}
 		}
 
 		// schedule next update

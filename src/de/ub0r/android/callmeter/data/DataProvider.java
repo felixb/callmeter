@@ -584,6 +584,24 @@ public final class DataProvider extends ContentProvider {
 		 * @return SQL {@link String} selecting the bill period
 		 */
 		public static String getBilldayWhere(final int period,
+				final long start, final Calendar now) {
+			Calendar s = Calendar.getInstance();
+			s.setTimeInMillis(start);
+			return getBilldayWhere(period, s, now);
+		}
+
+		/**
+		 * Get the SQL {@link String} selecting the bill period.
+		 * 
+		 * @param period
+		 *            type of period
+		 * @param start
+		 *            first bill day set.
+		 * @param now
+		 *            move now to some other time, null == real now
+		 * @return SQL {@link String} selecting the bill period
+		 */
+		public static String getBilldayWhere(final int period,
 				final Calendar start, final Calendar now) {
 			final Calendar bd = getBillDay(period, start, now, false);
 			if (bd == null) {
@@ -593,6 +611,26 @@ public final class DataProvider extends ContentProvider {
 			return DataProvider.Logs.DATE + " > " + bd.getTimeInMillis()
 					+ " AND " + DataProvider.Logs.DATE + " < "
 					+ nbd.getTimeInMillis();
+		}
+
+		/**
+		 * Get the first bill day of this period.
+		 * 
+		 * @param period
+		 *            type of period
+		 * @param start
+		 *            first bill day set.
+		 * @param now
+		 *            move now to some other time, null == real now
+		 * @param next
+		 *            get the next, not the current one
+		 * @return {@link Calendar} with current first bill day
+		 */
+		public static Calendar getBillDay(final int period, // .
+				final long start, final Calendar now, final boolean next) {
+			Calendar s = Calendar.getInstance();
+			s.setTimeInMillis(start);
+			return getBillDay(period, s, now, next);
 		}
 
 		/**

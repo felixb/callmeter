@@ -62,6 +62,7 @@ import de.ub0r.android.callmeter.data.LogRunnerReceiver;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.PlanEdit;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
+import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.DonationHelper;
 import de.ub0r.android.lib.Log;
@@ -551,24 +552,6 @@ public class Plans extends ListActivity implements OnClickListener,
 		}
 
 		/**
-		 * Calculate used amount for given plan.
-		 * 
-		 * @param pType
-		 *            type of plan
-		 * @param amount
-		 *            amount
-		 * @return used amount
-		 */
-		private static int getUsed(final int pType, final long amount) {
-			switch (pType) {
-			case DataProvider.TYPE_DATA:
-				return (int) (amount / CallMeter.BYTE_KB);
-			default:
-				return (int) amount;
-			}
-		}
-
-		/**
 		 * Get a {@link String} showing all the data to the user.
 		 * 
 		 * @param p
@@ -863,6 +846,9 @@ public class Plans extends ListActivity implements OnClickListener,
 		// tv = (TextView) this.findViewById(R.id.calls1_in_);
 		// Preferences.textSizeSmall = tv.getTextSize();
 
+		// FIXME: delete me
+		StatsAppWidgetProvider.updateWidgets(this);
+
 		this.adapter = new PlanAdapter(this);
 		this.setListAdapter(this.adapter);
 	}
@@ -1045,5 +1031,23 @@ public class Plans extends ListActivity implements OnClickListener,
 		builder.setNegativeButton(android.R.string.cancel, null);
 		builder.show();
 		return true;
+	}
+
+	/**
+	 * Calculate used amount for given plan.
+	 * 
+	 * @param pType
+	 *            type of plan
+	 * @param amount
+	 *            amount
+	 * @return used amount
+	 */
+	public static int getUsed(final int pType, final long amount) {
+		switch (pType) {
+		case DataProvider.TYPE_DATA:
+			return (int) (amount / CallMeter.BYTE_KB);
+		default:
+			return (int) amount;
+		}
 	}
 }
