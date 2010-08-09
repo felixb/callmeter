@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>v2.3.10: Add russian translation</item>
+		<item>v2.3.10: Add russian translation, allow install on sd card</item>
 		<item>v2.3.9: Support any other device (?), fix some FC</item>
 		<item>v2.3.8: Support Samsung Galxy S GT-I9000</item>
 		<item>v2.3.7: Add italian and norwegian translation</item>
