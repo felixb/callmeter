@@ -988,7 +988,9 @@ abstract class Preference {
 		final LayoutInflater inflater = (LayoutInflater) this.context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		if (this.hide) {
-			return new View(this.context);
+			final View ret = new View(this.context);
+			ret.setVisibility(View.GONE);
+			return ret;
 		}
 		// TODO: use convertView
 		final View ret = inflater.inflate(this.resLayout, null);

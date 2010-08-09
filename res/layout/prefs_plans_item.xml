@@ -19,16 +19,13 @@
 	-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent" android:layout_height="@dimen/touchlist_height"
-	android:orientation="vertical">
-	<LinearLayout android:orientation="horizontal"
-		android:layout_width="fill_parent" android:layout_height="wrap_content">
-		<TextView android:id="@+id/normtitle" android:text="normtitle"
-			android:textAppearance="?android:attr/textAppearanceMedium"
-			android:layout_width="wrap_content" android:layout_height="wrap_content" />
-		<TextView android:id="@+id/type" android:text="type"
-			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:paddingLeft="5dip" android:layout_weight="1" />
-		<ImageView android:id="@+id/grabber" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:src="@drawable/grabber" />
-	</LinearLayout>
+	android:orientation="horizontal">
+	<TextView android:id="@+id/normtitle" android:text="normtitle"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content" android:layout_height="wrap_content" />
+	<TextView android:id="@+id/type" android:text="type"
+		android:layout_width="0dip" android:layout_height="wrap_content"
+		android:paddingLeft="5dip" android:layout_weight="1" />
+	<ImageView android:id="@+id/grabber" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:src="@drawable/grabber" />
 </LinearLayout>
