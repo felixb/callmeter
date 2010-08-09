@@ -73,6 +73,7 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 				+ this.getString(R.string.edit_));
 		this.setContentView(R.layout.list_ok_cancel);
 
+		this.getListView().setOnItemClickListener(this);
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.cancel).setOnClickListener(this);
 
@@ -171,128 +172,123 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	}
 
 	/**
+	 * Get a new {@link PreferenceAdapter} for this {@link ListActivity}.
+	 * 
+	 * @return {@link PreferenceAdapter}
+	 */
+	private PreferenceAdapter getAdapter() {
+		final PreferenceAdapter ret = new PreferenceAdapter(this);
+		ret.add(new TextPreference(this, DataProvider.Rules.NAME, this
+				.getString(R.string.rules_new), R.string.name_,
+				R.string.name_help, InputType.TYPE_NULL));
+		ret.add(new ListPreference(this, DataProvider.Rules.WHAT,
+				DataProvider.Rules.WHAT_CALL, R.string.what_,
+				R.string.what_help, R.array.rules_type));
+		ret.add(new CursorPreference(this, DataProvider.Rules.WHAT0,
+				R.string.what0_, R.string.what0_help, R.string.edit_groups_,
+				-1, -1, DataProvider.HoursGroup.CONTENT_URI,
+				DataProvider.HoursGroup.ID, DataProvider.HoursGroup.NAME, null,
+				new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(final DialogInterface dialog,
+							final int which) {
+						final int t = ((ListPreference) RuleEdit.// .
+						this.adapter.getPreference(DataProvider.Rules.WHAT))
+								.getValue();
+						Intent intent;
+						if (t == DataProvider.Rules.WHAT_NUMBERS) {
+							intent = new Intent(RuleEdit.this,
+									NumberGroups.class);
+						} else if (t == DataProvider.Rules.WHAT_HOURS) {
+							intent = new Intent(RuleEdit.this, // .
+									HourGroups.class);
+						} else {
+							intent = null;
+						}
+						if (intent != null) {
+							RuleEdit.this.startActivity(intent);
+						}
+					}
+				}, null, null));
+		ret.add(new BoolPreference(this, DataProvider.Rules.NOT,
+				R.string.negate_, R.string.negate_help, this));
+		ret.add(new CursorPreference(this, DataProvider.Rules.PLAN_ID,
+				R.string.plan_, R.string.plan_help, -1, -1, -1,
+				DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID,
+				DataProvider.Plans.NAME, null, null, null, null));
+		ret.add(new CursorPreference(this, DataProvider.Rules.WHAT1,
+				R.string.what1_, R.string.what1_help, R.string.edit_selected_,
+				R.string.new_, R.string.clear_, DataProvider.Rules.CONTENT_URI,
+				DataProvider.Rules.ID, DataProvider.Rules.NAME, DbUtils.sqlAnd(
+						DataProvider.Rules.ISCHILD + " = 1",
+						DataProvider.Rules.ID + " != "
+								+ DataProvider.Rules.WHAT1),
+				new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(final DialogInterface dialog,
+							final int which) {
+						final long sel = ((CursorPreference) // .
+						RuleEdit.this.adapter.getPreference(DataProvider.// .
+								Rules.WHAT1)).getValue();
+						if (sel < 0) {
+							return;
+						}
+						final Intent fi = new Intent(Intent.ACTION_VIEW,
+								ContentUris.withAppendedId(
+										DataProvider.Rules.CONTENT_URI, sel),
+								RuleEdit.this, RuleEdit.class);
+						fi.putExtra(EXTRA_ISCHILD, true);
+						RuleEdit.this.startActivityForResult(fi, REQUEST_RULE);
+					}
+				}, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(final DialogInterface dialog,
+							final int which) {
+						final Intent fi = new Intent(RuleEdit.this,
+								RuleEdit.class);
+						fi.putExtra(EXTRA_ISCHILD, true);
+						RuleEdit.this.startActivityForResult(fi, REQUEST_RULE);
+					}
+				}, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(final DialogInterface dialog,
+							final int which) {
+						((CursorPreference) RuleEdit.this.adapter
+								.getPreference(DataProvider.// .
+								Rules.WHAT1)).clearValue();
+					}
+				}));
+		return ret;
+	}
+
+	/**
 	 * Fill the fields with data from the cursor.
 	 */
 	private void fillFields() {
 		this.isChild = this.getIntent().getBooleanExtra(EXTRA_ISCHILD, false);
 		final Uri uri = this.getIntent().getData();
-		if (uri == null) {
-			return;
-		}
-		Cursor cursor = this.getContentResolver().query(uri,
-				DataProvider.Rules.PROJECTION, null, null, null);
-		if (cursor == null || !cursor.moveToFirst()) {
-			cursor = null;
-			this.rid = -1;
-		}
-		if (cursor != null) {
-			final int nid = cursor.getInt(DataProvider.Rules.INDEX_ID);
-			if (nid != this.rid) {
-				this.rid = nid;
-
-				this.adapter = new PreferenceAdapter(this);
-				this.adapter.add(new TextPreference(this,
-						DataProvider.Rules.NAME, "", R.string.name_,
-						R.string.name_help, InputType.TYPE_NULL));
-				this.adapter
-						.add(new ListPreference(this, DataProvider.Rules.WHAT,
-								DataProvider.Rules.WHAT_CALL, R.string.what_,
-								R.string.what_help, R.array.rules_type));
-				this.adapter.add(new CursorPreference(this,
-						DataProvider.Rules.WHAT0, R.string.what0_,
-						R.string.what0_help, R.string.edit_groups_, -1, -1,
-						DataProvider.HoursGroup.CONTENT_URI,
-						DataProvider.HoursGroup.ID,
-						DataProvider.HoursGroup.NAME, null,
-						new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(final DialogInterface dialog,
-									final int which) {
-								final int t = ((ListPreference) RuleEdit.// .
-								this.adapter
-										.getPreference(DataProvider.Rules.WHAT))
-										.getValue();
-								Intent intent;
-								if (t == DataProvider.Rules.WHAT_NUMBERS) {
-									intent = new Intent(RuleEdit.this,
-											NumberGroups.class);
-								} else if (t == DataProvider.Rules.WHAT_HOURS) {
-									intent = new Intent(RuleEdit.this,
-											HourGroups.class);
-								} else {
-									intent = null;
-								}
-								if (intent != null) {
-									RuleEdit.this.startActivity(intent);
-								}
-							}
-						}, null, null));
-				this.adapter.add(new BoolPreference(this,
-						DataProvider.Rules.NOT, R.string.negate_,
-						R.string.negate_help, this));
-				this.adapter.add(new CursorPreference(this,
-						DataProvider.Rules.PLAN_ID, R.string.plan_,
-						R.string.plan_help, -1, -1, -1,
-						DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID,
-						DataProvider.Plans.NAME, null, null, null, null));
-				this.adapter.add(new CursorPreference(this,
-						DataProvider.Rules.WHAT1, R.string.what1_,
-						R.string.what1_help, R.string.edit_selected_,
-						R.string.new_, R.string.clear_,
-						DataProvider.Rules.CONTENT_URI, DataProvider.Rules.ID,
-						DataProvider.Rules.NAME, DbUtils.sqlAnd(
-								DataProvider.Rules.ISCHILD + " = 1",
-								DataProvider.Rules.ID + " != "
-										+ DataProvider.Rules.WHAT1),
-						new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(final DialogInterface dialog,
-									final int which) {
-								final long sel = ((CursorPreference) // .
-								RuleEdit.this.adapter
-										.getPreference(DataProvider.// .
-										Rules.WHAT1)).getValue();
-								if (sel < 0) {
-									return;
-								}
-								final Intent fi = new Intent(
-										Intent.ACTION_VIEW,
-										ContentUris.withAppendedId(
-												DataProvider.Rules.CONTENT_URI,
-												sel), RuleEdit.this,
-										RuleEdit.class);
-								fi.putExtra(EXTRA_ISCHILD, true);
-								RuleEdit.this.startActivityForResult(fi,
-										REQUEST_RULE);
-							}
-						}, new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(final DialogInterface dialog,
-									final int which) {
-								final Intent fi = new Intent(RuleEdit.this,
-										RuleEdit.class);
-								fi.putExtra(EXTRA_ISCHILD, true);
-								RuleEdit.this.startActivityForResult(fi,
-										REQUEST_RULE);
-							}
-						}, new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(final DialogInterface dialog,
-									final int which) {
-								((CursorPreference) RuleEdit.this.adapter
-										.getPreference(DataProvider.// .
-										Rules.WHAT1)).clearValue();
-							}
-						}));
-				this.adapter.load(cursor);
-				this.setListAdapter(this.adapter);
-				this.getListView().setOnItemClickListener(this);
-			} else {
-				cursor.close();
-				return;
+		int nid = -1;
+		Cursor cursor = null;
+		if (uri != null) {
+			cursor = this.getContentResolver().query(uri,
+					DataProvider.Rules.PROJECTION, null, null, null);
+			if (cursor == null || !cursor.moveToFirst()) {
+				cursor = null;
+				this.rid = -1;
 			}
 		}
-		cursor.close();
+		if (cursor != null) {
+			nid = cursor.getInt(DataProvider.Rules.INDEX_ID);
+		}
+		if (this.rid == -1 || nid != this.rid) {
+			this.rid = nid;
+			this.adapter = this.getAdapter();
+			this.getListView().setAdapter(this.adapter);
+		}
+		if (cursor != null && !cursor.isClosed()) {
+			this.adapter.load(cursor);
+			cursor.close();
+		}
 	}
 
 	/**

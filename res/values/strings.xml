@@ -53,8 +53,10 @@
 	<string name="show_logs">Show logs</string>
 	<string name="plans">Plans</string>
 	<string name="plans_hint">Set your plans for all kind of billing here.</string>
+	<string name="plans_new">New plan</string>
 	<string name="rules">Rules</string>
 	<string name="rules_hint">Set your billing rules here.</string>
+	<string name="rules_new">New Rule</string>
 	<string name="numbers">Numbers</string>
 	<string name="new_numbergroup">New number group</string>
 	<string name="add_number">Add number</string>
