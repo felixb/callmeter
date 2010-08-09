@@ -37,7 +37,8 @@ public class About extends Activity {
 		super.onCreate(savedInstanceState);
 		this.setTheme(Preferences.getTheme(this));
 		this.setContentView(R.layout.about);
-		this.setTitle(this.getString(R.string.about_) + " v"
+		this.setTitle(this.getString(R.string.about_) + " "
+				+ this.getString(R.string.app_name) + " v"
 				+ this.getString(R.string.app_version));
 	}
 }

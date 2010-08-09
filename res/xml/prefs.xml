@@ -34,10 +34,10 @@
 			android:key="currency_symbol" android:summary="@string/custom_currency_symbol_hint" />
 		<ListPreference android:title="@string/custom_currency_format_"
 			android:key="currency_format" android:entries="@array/currency_formats"
-			android:entryValues="@array/currency_formats_values" />
+			android:entryValues="@array/currency_formats_values" android:summary="@string/custom_currency_format_hint" />
 		<ListPreference android:title="@string/custom_date_format_"
 			android:key="date_format" android:entries="@array/date_formats"
-			android:entryValues="@array/date_formats_values" />
+			android:entryValues="@array/date_formats_values" android:summary="@string/custom_date_format_hint" />
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/billing_">
