@@ -24,22 +24,24 @@
 		android:layout_alignParentBottom="true" android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:orientation="vertical"
 		style="@android:style/ButtonBar">
-		<RelativeLayout android:layout_width="fill_parent"
+		<LinearLayout android:layout_width="fill_parent"
 			android:layout_height="wrap_content">
-			<Button android:id="@+id/name_help" android:text="@string/help_"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:layout_alignParentRight="true" />
-			<EditText android:id="@+id/name_et" android:layout_width="150dip"
-				android:layout_height="wrap_content" android:layout_toLeftOf="@id/name_help" />
 			<TextView android:text="@string/name_" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:layout_alignParentLeft="true"
-				android:layout_toLeftOf="@id/name_et" android:singleLine="false"
-				android:layout_centerVertical="true" />
-		</RelativeLayout>
+				android:layout_height="wrap_content" android:singleLine="false"
+				android:paddingRight="5dip" />
+			<EditText android:id="@+id/name_et" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:singleLine="true"
+				android:layout_weight="1" />
+			<Button android:id="@+id/name_help" android:text="@string/help_"
+				android:layout_width="wrap_content" android:layout_height="wrap_content" />
+		</LinearLayout>
 		<LinearLayout android:id="@+id/ok_add"
 			android:layout_alignParentBottom="true" android:layout_width="fill_parent"
 			android:layout_height="wrap_content" android:orientation="horizontal">
 			<Button android:id="@+id/ok" android:text="@android:string/ok"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:layout_weight="1" />
+			<Button android:id="@+id/help" android:text="@string/help_"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
 				android:layout_weight="1" />
 			<Button android:id="@+id/add" android:text="@string/add_"

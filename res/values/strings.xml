@@ -58,9 +58,11 @@
 	<string name="rules_hint">Set your billing rules here.</string>
 	<string name="rules_new">New Rule</string>
 	<string name="numbers">Numbers</string>
+	<string name="numberergroup_help">Add some numbers a given rule should match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string>
 	<string name="new_numbergroup">New number group</string>
 	<string name="add_number">Add number</string>
 	<string name="hours">Hours</string>
+	<string name="hourgroup_help">Add some hours a given rule should match.</string>
 	<string name="new_hourgroup">New hour group</string>
 	<string name="add_hour">Add hour</string>
 	<string name="calls">Calls</string>
@@ -133,7 +135,7 @@
 	<string name="import_rules_">Import rule set</string>
 	<string name="import_rules_hint">Import rule set.</string>
 	<string name="import_rules_progr">Import rule set ...</string>
-	<string name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.</string>
+	<string name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.</string>
 	<string name="err_export_write">Error writing export file</string>
 	<string name="err_export_read">Error reading export file</string>
 	<string name="alerts_">Alerts</string>

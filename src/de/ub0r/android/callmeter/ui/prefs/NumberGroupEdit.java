@@ -119,7 +119,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 				+ this.getString(R.string.rules) + " > "
 				+ this.getString(R.string.numbers) + " > "
 				+ this.getString(R.string.edit_));
-		this.setContentView(R.layout.list_name_ok_add);
+		this.setContentView(R.layout.list_name_ok_help_add);
 
 		final Uri u = this.getIntent().getData();
 		if (u != null) {
@@ -132,6 +132,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.add).setOnClickListener(this);
 		this.findViewById(R.id.name_help).setOnClickListener(this);
+		this.findViewById(R.id.help).setOnClickListener(this);
 
 		this.etName = (EditText) this.findViewById(R.id.name_et);
 		this.etName.setText(DataProvider.NumbersGroup.getName(this
@@ -200,6 +201,9 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 			break;
 		case R.id.name_help:
 			this.showHelp(R.string.name_help);
+			break;
+		case R.id.help:
+			this.showHelp(R.string.numberergroup_help);
 			break;
 		default:
 			break;

@@ -140,13 +140,12 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 					+ DataProvider.TYPE_MMS + " OR " + DataProvider.Plans.TYPE
 					+ " = " + DataProvider.TYPE_MIXED;
 			break;
+		case DataProvider.Rules.WHAT_NUMBERS:
+			where = DataProvider.Plans.WHERE_REALPLANS + " AND "
+					+ DataProvider.Plans.TYPE + " != " + DataProvider.TYPE_DATA;
+			break;
 		default:
-			where = DataProvider.Plans.TYPE + " != "
-					+ DataProvider.TYPE_BILLPERIOD + " AND "
-					+ DataProvider.Plans.TYPE + " != "
-					+ DataProvider.TYPE_SPACING + " AND "
-					+ DataProvider.Plans.TYPE + " != "
-					+ DataProvider.TYPE_TITLE;
+			where = DataProvider.Plans.WHERE_REALPLANS;
 			break;
 		}
 

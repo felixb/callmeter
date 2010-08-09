@@ -62,7 +62,6 @@ import de.ub0r.android.callmeter.data.LogRunnerReceiver;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.PlanEdit;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.DonationHelper;
 import de.ub0r.android.lib.Log;
@@ -825,9 +824,6 @@ public class Plans extends ListActivity implements OnClickListener,
 		// tv = (TextView) this.findViewById(R.id.calls1_in_);
 		// Preferences.textSizeSmall = tv.getTextSize();
 
-		// FIXME: delete me
-		StatsAppWidgetProvider.updateWidgets(this);
-
 		this.adapter = new PlanAdapter(this);
 		this.setListAdapter(this.adapter);
 	}
@@ -842,9 +838,7 @@ public class Plans extends ListActivity implements OnClickListener,
 				.getBoolean(Preferences.PREFS_SHOWHOURS, true);
 		currentHandler = this.handler;
 		Plans.this.setProgressBarIndeterminateVisibility(inProgressMatcher);
-		if (!prefsNoAds) {
-			this.findViewById(R.id.ad).setVisibility(View.VISIBLE);
-		}
+
 		currencyFormat = Preferences.getCurrencyFormat(this);
 		dateFormat = Preferences.getDateFormat(this);
 
@@ -855,8 +849,12 @@ public class Plans extends ListActivity implements OnClickListener,
 
 		if (this.getListView().getCount() == 0) {
 			this.findViewById(R.id.import_default).setVisibility(View.VISIBLE);
+			this.findViewById(R.id.ad).setVisibility(View.GONE);
 		} else {
 			this.findViewById(R.id.import_default).setVisibility(View.GONE);
+			if (!prefsNoAds) {
+				this.findViewById(R.id.ad).setVisibility(View.VISIBLE);
+			}
 		}
 		// reload plan configuration
 		this.adapter.reloadPlans(this.getContentResolver(), this.adapter
