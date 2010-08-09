@@ -1360,7 +1360,6 @@ public final class DataProvider extends ContentProvider {
 	 * This class helps open, create, and upgrade the database file.
 	 */
 	private static class DatabaseHelper extends SQLiteOpenHelper {
-
 		/**
 		 * Default Constructor.
 		 * 
@@ -1401,11 +1400,33 @@ public final class DataProvider extends ContentProvider {
 			NumbersGroup.onUpgrade(db, oldVersion, newVersion);
 			Hours.onUpgrade(db, oldVersion, newVersion);
 			HoursGroup.onUpgrade(db, oldVersion, newVersion);
+			unmatch(db);
 		}
 	}
 
 	/** {@link DatabaseHelper}. */
 	private DatabaseHelper mOpenHelper;
+
+	/**
+	 * Run RuleMatcher.unmatch locally.
+	 * 
+	 * @param db
+	 *            {@link SQLiteDatabase}
+	 */
+	private static void unmatch(final SQLiteDatabase db) {
+		Log.d(TAG, "unmatch()");
+		if (db.isReadOnly()) {
+			Log.e(TAG, "Database is readonly, cann not unmatch on upgrade!");
+			return;
+		}
+		ContentValues cv = new ContentValues();
+		cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
+		cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
+		db.update(DataProvider.Logs.TABLE, cv, null, null);
+		cv.clear();
+		cv.put(DataProvider.Plans.NEXT_ALERT, 0);
+		db.update(DataProvider.Plans.TABLE, cv, null, null);
+	}
 
 	/**
 	 * Backup a single table.
