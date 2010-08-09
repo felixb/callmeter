@@ -274,21 +274,9 @@ public class Plans extends ListActivity implements OnClickListener,
 					this.billdayc = null;
 					this.limittype = cursor
 							.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
-					long curLimit = cursor
-							.getLong(DataProvider.Plans.INDEX_LIMIT);
-					switch (this.limittype) {
-					case DataProvider.LIMIT_TYPE_UNITS:
-						curLimit = DataProvider.Plans.getLimit(this.type,
-								curLimit);
-						break;
-					case DataProvider.LIMIT_TYPE_COST:
-						curLimit = curLimit * CallMeter.HUNDRET;
-						break;
-					default:
-						curLimit = -1;
-						break;
-					}
-					this.limit = curLimit;
+					this.limit = DataProvider.Plans.getLimit(this.type,
+							this.limittype, cursor
+									.getLong(DataProvider.Plans.INDEX_LIMIT));
 					this.cpp = cursor
 							.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
 				}
@@ -383,17 +371,8 @@ public class Plans extends ListActivity implements OnClickListener,
 						Log.d(TAG, "cost: " + cost);
 						Log.d(TAG, "billedAmount: " + billedAmount);
 
-						switch (this.limittype) {
-						case DataProvider.LIMIT_TYPE_COST:
-							used = (int) (cost * CallMeter.HUNDRET);
-							break;
-						case DataProvider.LIMIT_TYPE_UNITS:
-							used = getUsed(this.type, billedAmount);
-							break;
-						default:
-							used = 0;
-							break;
-						}
+						used = DataProvider.Plans.getUsed(this.type,
+								this.limittype, billedAmount, cost);
 
 						cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, used);
 					} else {
@@ -1031,23 +1010,5 @@ public class Plans extends ListActivity implements OnClickListener,
 		builder.setNegativeButton(android.R.string.cancel, null);
 		builder.show();
 		return true;
-	}
-
-	/**
-	 * Calculate used amount for given plan.
-	 * 
-	 * @param pType
-	 *            type of plan
-	 * @param amount
-	 *            amount
-	 * @return used amount
-	 */
-	public static int getUsed(final int pType, final long amount) {
-		switch (pType) {
-		case DataProvider.TYPE_DATA:
-			return (int) (amount / CallMeter.BYTE_KB);
-		default:
-			return (int) amount;
-		}
 	}
 }

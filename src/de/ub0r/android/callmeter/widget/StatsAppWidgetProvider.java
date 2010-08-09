@@ -121,20 +121,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			ptype = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			bid = cursor.getLong(DataProvider.Plans.INDEX_BILLPERIOD_ID);
 			ltype = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
-			if (ltype != DataProvider.LIMIT_TYPE_NONE) {
-				limit = cursor.getLong(DataProvider.Plans.INDEX_LIMIT);
-				switch (ltype) {
-				case DataProvider.LIMIT_TYPE_UNITS:
-					limit = DataProvider.Plans.getLimit(ptype, limit);
-					break;
-				case DataProvider.LIMIT_TYPE_COST:
-					limit = limit * CallMeter.HUNDRET;
-					break;
-				default:
-					limit = -1;
-					break;
-				}
-			}
+			limit = DataProvider.Plans.getLimit(ptype, ltype, cursor
+					.getLong(DataProvider.Plans.INDEX_LIMIT));
 		}
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
@@ -172,17 +160,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			Log.d(TAG, "cost: " + cost);
 			Log.d(TAG, "billedAmount: " + billedAmount);
 
-			switch (ltype) {
-			case DataProvider.LIMIT_TYPE_COST:
-				used = (int) (cost * CallMeter.HUNDRET);
-				break;
-			case DataProvider.LIMIT_TYPE_UNITS:
-				used = Plans.getUsed(ptype, billedAmount);
-				break;
-			default:
-				used = 0;
-				break;
-			}
+			used = DataProvider.Plans.getUsed(ptype, ltype, billedAmount, cost);
 		} else {
 			used = 0;
 		}

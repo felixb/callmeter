@@ -557,19 +557,63 @@ public final class DataProvider extends ContentProvider {
 		 * 
 		 * @param pType
 		 *            type of plan
+		 * @param lType
+		 *            type of limit
+		 * @param amount
+		 *            billed amount
+		 * @param cost
+		 *            billed cost
+		 * @return get used
+		 */
+		public static int getUsed(final int pType, final int lType,
+				final long amount, final float cost) {
+			switch (lType) {
+			case DataProvider.LIMIT_TYPE_COST:
+				return (int) (cost * CallMeter.HUNDRET);
+			case DataProvider.LIMIT_TYPE_UNITS:
+				switch (pType) {
+				case DataProvider.TYPE_DATA:
+					return (int) (amount / CallMeter.BYTE_KB);
+				default:
+					return (int) amount;
+				}
+			default:
+				return 0;
+			}
+		}
+
+		/**
+		 * Calculate limit set for given plan.
+		 * 
+		 * @param pType
+		 *            type of plan
+		 * @param lType
+		 *            type of limit
 		 * @param limit
 		 *            limit
-		 * @return set limit
+		 * @return get limit
 		 */
-		public static long getLimit(final int pType, final long limit) {
-			switch (pType) {
-			case DataProvider.TYPE_DATA:
-				return limit * CallMeter.BYTE_KB;
-			case DataProvider.TYPE_CALL:
-				return limit * CallMeter.SECONDS_MINUTE;
-			default:
-				return limit;
+		public static long getLimit(final int pType, final int lType,
+				final long limit) {
+			if (limit == 0L) {
+				return 0L;
 			}
+			switch (lType) {
+			case DataProvider.LIMIT_TYPE_UNITS:
+				switch (pType) {
+				case DataProvider.TYPE_DATA:
+					return limit * CallMeter.BYTE_KB;
+				case DataProvider.TYPE_CALL:
+					return limit * CallMeter.SECONDS_MINUTE;
+				default:
+					return limit;
+				}
+			case DataProvider.LIMIT_TYPE_COST:
+				return limit * CallMeter.HUNDRET;
+			default:
+				return 0L;
+			}
+
 		}
 
 		/**

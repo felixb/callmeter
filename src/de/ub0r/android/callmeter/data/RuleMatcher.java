@@ -433,12 +433,8 @@ public final class RuleMatcher {
 			this.name = cursor.getString(DataProvider.Plans.INDEX_NAME);
 			this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			this.limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
-			if (this.limitType == DataProvider.LIMIT_TYPE_UNITS) {
-				this.limit = DataProvider.Plans.getLimit(this.type, cursor
-						.getLong(DataProvider.Plans.INDEX_LIMIT));
-			} else {
-				this.limit = cursor.getLong(DataProvider.Plans.INDEX_LIMIT);
-			}
+			this.limit = DataProvider.Plans.getLimit(this.type, this.limitType,
+					cursor.getLong(DataProvider.Plans.INDEX_LIMIT));
 
 			this.costPerItem = cursor
 					.getFloat(DataProvider.Plans.INDEX_COST_PER_ITEM);
@@ -896,15 +892,8 @@ public final class RuleMatcher {
 					if (plan.nextAlert > now) {
 						continue;
 					}
-					int used = 0;
-					if (plan.limitType == DataProvider.LIMIT_TYPE_COST) {
-						used = (int) // .
-						((plan.billedCost * CallMeter.HUNDRET) / plan.limit);
-					} else if (plan.limitType == // .
-					DataProvider.LIMIT_TYPE_UNITS) {
-						used = (int) // .
-						((plan.billedAmount * CallMeter.HUNDRET) / plan.limit);
-					}
+					int used = DataProvider.Plans.getUsed(plan.limitType,
+							plan.type, plan.billedAmount, plan.billedCost);
 					if (a100 && used > CallMeter.HUNDRET) {
 						alert = used;
 						alertPlan = plan;
