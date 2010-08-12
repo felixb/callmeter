@@ -81,8 +81,10 @@
 	<string name="show_logs">Logs zeigen</string>
 	<string name="plans">Kontingente</string>
 	<string name="plans_hint">Stelle hier deine verschiedenen Kontingente ein.</string>
+<!--	<string name="plans_new">New plan</string> -->
 	<string name="rules">Regeln</string>
 	<string name="rules_hint">Hier kannst du deine Abrechnungsregeln definieren.</string>
+<!--	<string name="rules_new">New Rule</string> -->
 	<string name="numbers">Nummern</string>
 	<string name="numberergroup_help">Füge hier die Nummern hinzu, die die Regel treffen soll.\n\nPlatzhalter (\"%\") sind and beiden Enden der Nummer erlaubt.\nZ.B. trifft %34 1234, 12% trifft 1234 und %23% trifft 12345.</string>
 	<string name="new_numbergroup">Neue Nummerngruppe</string>

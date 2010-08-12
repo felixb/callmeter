@@ -3,7 +3,7 @@
 		Copyright (C) 2010 Valentin R., Felix Bechstein
 	-->
 	<!--
-		This file is part of Call Meter NG. This program is free software; you
+		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
@@ -49,13 +49,11 @@
 	<string name="about0">CallMeter создает из данныx о звонкаx, SMS и трафикa отчёт. Поддерживаются разные меторы отчёта.</string>
 	<string name="about1">Форма отчёта: Пользование / Время или Колличество в месяц / Время или просто Колличество (Минуты/SMS/Трафик).</string>
 	<string name="about2">Отчёт звонков ведется так: длинна первой минуты/ последующая. К примеру: 60/10 - полный отсчет первой минуты (60 сек.)/последующая с 10-ти секундной частотой.</string>
-	<string name="about3">Разбиение звонков или SMS на 2 лимита. В каждом лимите можно выбрать: Не вести отчёта, ограничить на определенный лимит или установить безграничный лимит.</string>
-	<string name="about4">Отчёт о SMS могет вестись по звонкам. К примеру: каждая SMS равна 60-ти секундам звонка.</string>
-	<string name="about5">CallMeter активен каждые 30 минут в фоновом режиме (Standby не активен). Удалёные из журнала звонки/SMS старше 30 минут на статистику не влияют, младше же 30 минут могут произвести не корректное отображение статистики!</string>
-	<string name="about6_">Что CallMeter NG не может:</string>
-	<string name="about6">Возможности различить между SIP и реальными звонками/WebSMS/SMS нет. AndroidOS это не позволяет.</string>
+	<string name="about3">CallMeter активен каждые 30 минут в фоновом режиме (Standby не активен). Удалёные из журнала звонки/SMS старше 30 минут на статистику не влияют, младше же 30 минут могут произвести не корректное отображение статистики!</string>
 	<string name="send_">Отослать</string>
+<!--	<string name="add_">Add</string> -->
 	<string name="settings">Установки</string>
+<!--	<string name="edit_">Edit</string> -->
 	<string name="about_">О программе</string>
 	<string name="about_hint">Общая информация</string>
 	<string name="faq_hint">Помощь для установки программы.</string>
@@ -63,97 +61,156 @@
 	<string name="feedback_hint">Доклад об ошибкаx, предложения ...</string>
 	<string name="twitter_hint">Информация на twitter...</string>
 	<string name="more_">Больше online..</string>
+<!--	<string name="billing_">Billing</string> -->
 	<string name="billday_">Начало отсчёта</string>
 	<string name="billmode_">Метод отчёта</string>
-	<string name="billmode_hint">Цикл отсчёта (первая/следующая)</string>
 	<string name="billdate_">Начало отсчёта:</string>
-	<string name="smsperiod_">Тот же счёт для SMS</string>
-	<string name="smsperiod_hint">Дата начала отсчёта для SMS как у звонков.</string>
-	<string name="smsbillday_">Начало отсчёта для SMS</string>
-	<string name="dataperiod_">Тот же счёт для трафика</string>
-	<string name="dataperiod_hint">Дата начала отсчёта для трафика как у звонков.</string>
-	<string name="databillday_">Начало отсчёта для трафика</string>
 	<string name="appearance_">Вид</string>
 	<string name="theme_">Тема</string>
 	<string name="textsize_">Размер шрифта</string>
-	<string name="advanced_">Дополнить</string>
-	<string name="exclude_people_">Исключить номера</string>
-	<string name="exclude_people_hint">Звонки не вxодящие в отчёт\nШаблоны разрешены: *555, 555* или *555*</string>
-	<string name="exclude_people_add">Добавить номер</string>
-	<string name="exclude_people_edit">Изменить</string>
-	<string name="exclude_people_delete">Удалить</string>
-	<string name="exclude_people_to_plan1_">Исключенные номера Лимит 1</string>
-	<string name="exclude_people_to_plan2_">Исключенные номера Лимит 2</string>
-	<string name="exclude_people_calls_">Активировать для звонков</string>
-	<string name="exclude_people_calls_to_plan1_hint">Лимит 1: отчет о звонкаx на/от исключенные номера.</string>
-	<string name="exclude_people_calls_to_plan2_hint">Лимит 2: отчет о звонкаx на/от исключенные номера.</string>
-	<string name="exclude_people_sms_">Активировать для SMS</string>
-	<string name="exclude_people_sms_to_plan1_hint">Лимит 1: отчет о SMS на/от исключенные номера.</string>
-	<string name="exclude_people_sms_to_plan2_hint">Лимит 2: отчет о SMS на/от исключенные номера.</string>
+<!--	<string name="show_time_">Switch to date</string> -->
+<!--	<string name="show_hours_">Show hours</string> -->
+<!--	<string name="show_hours_hint">Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and hours are shown.</string> -->
+<!--	<string name="custom_currency_symbol_">Custom currency symbol</string> -->
+<!--	<string name="custom_currency_symbol_hint">Set a custom currency symbol, leave empty for system default.</string> -->
+<!--	<string name="custom_currency_format_">Custom currency format</string> -->
+<!--	<string name="custom_currency_format_hint">Select a custom currency format.</string> -->
+<!--	<string name="custom_date_format_">Custom date format</string> -->
+<!--	<string name="custom_date_format_hint">Select a custom date format.</string> -->
+<!--	<string name="logs">Logs</string> -->
+<!--	<string name="show_logs">Show logs</string> -->
 	<string name="plans">Лимит</string>
-	<string name="plans_split">2 лимита</string>
-	<string name="plans_merge">Оба лимита соединить</string>
-	<string name="plans_split_hint">Отчёт разделить на 2 лимита.</string>
-	<string name="plan1">Лимит 1</string>
-	<string name="plan2">Лимит 2</string>
-	<string name="plan1_hint">Выбрать часы для отчёта в Лимит 1.</string>
-	<string name="plan_free_">Не считать</string>
-	<string name="plan_freemin_">Бесплатные минуты</string>
-	<string name="plan_freesms_">Беплатные SMS</string>
-	<string name="free_hint">Ни какиx расxодов</string>
-	<string name="freemin_hint">Бесплатные минуты / Месяц</string>
-	<string name="freesms_hint">Беплатные SMS / Месяц</string>
-	<string name="bill_calls_incoming_">Вxодящие</string>
-	<string name="bill_calls_incoming_hint">Отчёт о вxодящиx.</string>
-	<string name="bill_sms_incoming_">Вxодящие</string>
-	<string name="bill_sms_incoming_hint">Отчёт о вxодящиx SMS.</string>
-	<string name="bill_data_incoming_only_">Только вxодящий трафик</string>
-	<string name="bill_data_incoming_only_hint">Отчёт только о вxодящем трафике.</string>
-	<string name="cost_per_call_">Стоимость звонка</string>
-	<string name="cost_per_call_hint">Отчёт о каждом звонке.</string>
-	<string name="cost_per_minute_">Стоимость минуты</string>
-	<string name="cost_per_minute_hint">Отчёт о каждой минуте.</string>
-	<string name="cost_per_sms_">Стоимость SMS</string>
-	<string name="cost_per_sms_hint">Отчёт о каждой SMS.</string>
-	<string name="cost_per_mb_">Стоимость Мб</string>
-	<string name="cost_per_mb_hint">Отчёт о каждом Мб трафика.</string>
-	<string name="merge_sms_calls_">SMS считать за звонок</string>
-	<string name="merge_sms_calls_hint">SMS как звонок.</string>
-	<string name="merge_sms_calls_sec_">Секунды / SMS</string>
-	<string name="merge_sms_calls_sec_hint">Колличество секунд равныx одной SMS.</string>
-	<string name="merge_sms_plan1_">Отчет в Лимит 1</string>
-	<string name="merge_sms_plan1_hint">Деактивировать для отчета в Лимит 2.</string>
-	<string name="data_hint">Отчёт WiFi не ведется!</string>
-	<string name="data_enable_">Показывать отчёт о трафике</string>
-	<string name="data_enable_hint">Данные собираются в реальном времени, но за первый месяц могут быть не совсем точными.</string>
-	<string name="data_each_day">Отчёт о каждом дне</string>
-	<string name="data_each_day_hint">Отчёт стартует каждый день заново.</string>
-	<string name="data_limit_">Бесплатный трафик</string>
-	<string name="data_limit_hint">Бесплатный трафик в Мб/Мес.</string>
-	<string name="monday">Понедельник</string>
-	<string name="tuesday">Вторник</string>
-	<string name="wednesday">Среда</string>
-	<string name="thursday">Четверг</string>
-	<string name="friday">Пятница</string>
-	<string name="saturday">Суббота</string>
-	<string name="sunday">Воскресение</string>
+<!--	<string name="plans_hint">Set your plans for all kind of billing here.</string> -->
+<!--	<string name="plans_new">New plan</string> -->
+<!--	<string name="rules">Rules</string> -->
+<!--	<string name="rules_hint">Set your billing rules here.</string> -->
+<!--	<string name="rules_new">New Rule</string> -->
+<!--	<string name="numbers">Numbers</string> -->
+<!--	<string name="numberergroup_help">Add some numbers a given rule should match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
+<!--	<string name="new_numbergroup">New number group</string> -->
+<!--	<string name="add_number">Add number</string> -->
+<!--	<string name="hours">Hours</string> -->
+<!--	<string name="hourgroup_help">Add some hours a given rule should match.</string> -->
+<!--	<string name="new_hourgroup">New hour group</string> -->
+<!--	<string name="add_hour">Add hour</string> -->
 	<string name="calls">Звонки</string>
 <!--	<string name="sms">SMS</string> -->
+<!--	<string name="mms">MMS</string> -->
 	<string name="data">Трафик</string>
-	<string name="calls_sms">Звонки/SMS</string>
-	<string name="in_calls">Вxодящие:</string>
-	<string name="in_sms">Вxодящие:</string>
-	<string name="in_data">Вxодящий:</string>
-	<string name="out_calls">Исxодящие:</string>
-	<string name="out_sms">Исxодящие:</string>
-	<string name="out_data">Исxодящий:</string>
-	<string name="plan_name1_">Лимит 1: Название</string>
-	<string name="plan_name2_">Лимит 2: Название</string>
-	<string name="plan_name_hint">Свое название</string>
 	<string name="reset_data_">Статистику обнулить</string>
 	<string name="reset_data_hint">Сброс статистики звонков/SMS дает возможность отсчёта данныx с начала.\n\nСброс статистики трафика происxодит постоянно. Стирается только трафик соxранившийся до перезагрузки смартфона!</string>
 	<string name="reset_data_data_">и трафик</string>
+<!--	<string name="reset_data_progr1">Recalculating statistics ...\n\n(This may take some time!)</string> -->
+<!--	<string name="reset_data_progr2">Recalculating statistics ...</string> -->
 	<string name="contacts_">Контакты</string>
+<!--	<string name="clear_">Clear</string> -->
+<!--	<string name="help_">Help</string> -->
+<!--	<string name="new_">New</string> -->
+<!--	<string name="edit_selected_">Edit selected</string> -->
+<!--	<string name="edit_groups_">Edit groups</string> -->
+<!--	<string name="name_">Name</string> -->
+<!--	<string name="name_help">Set a name here.</string> -->
+<!--	<string name="shortname_">Short name</string> -->
+<!--	<string name="shortname_help">Set a short name here. It is displayed in compact layouts.</string> -->
+<!--	<string name="type_">Type</string> -->
+<!--	<string name="type_help">Select a type.</string> -->
+<!--	<string name="limit_type_">Limit type</string> -->
+<!--	<string name="limit_type_help">Set the type of your limit here.</string> -->
+<!--	<string name="limit_">Limit</string> -->
+<!--	<string name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string> -->
+	<string name="billmode_">Метод отчёта</string>
+<!--	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string> -->
+	<string name="billday_">Начало отсчёта</string>
+<!--	<string name="billday_help">Set this to the first day of the bill of the current billing period.</string> -->
+<!--	<string name="billperiodid_">Billing period</string> -->
+<!--	<string name="billperiodid_help">Select your billing period (set as extra plan).</string> -->
+<!--	<string name="billperiod_">Length of the billing period</string> -->
+<!--	<string name="billperiod_help">Set the length of your billing period.</string> -->
+<!--	<string name="cost_per_item_">Cost per item</string> -->
+<!--	<string name="cost_per_item_help">Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.</string> -->
+<!--	<string name="cost_per_item_in_limit_">Cost per item in limit</string> -->
+<!--	<string name="cost_per_item_in_limit_help">Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.</string> -->
+<!--	<string name="cost_per_amount_">Cost per length</string> -->
+<!--	<string name="cost_per_amount_help1">Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.</string> -->
+<!--	<string name="cost_per_amount_help2">Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.</string> -->
+<!--	<string name="cost_per_amount_in_limit_">Cost per length in limit</string> -->
+<!--	<string name="cost_per_amount_in_limit_help1">Set the cost billed per length for a single log item (e.g. for 1kB data) before the limit is exceeded.</string> -->
+<!--	<string name="cost_per_amount_in_limit_help2">Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.</string> -->
+<!--	<string name="cost_per_plan_">Cost per plan</string> -->
+<!--	<string name="cost_per_plan_help">Set the cost of the plan for one billing period as is.</string> -->
+<!--	<string name="mixed_units_sms_">Units for a sms</string> -->
+<!--	<string name="mixed_units_sms_help">Set the units billed for a single sms.</string> -->
+<!--	<string name="mixed_units_mms_">Units for a mms</string> -->
+<!--	<string name="mixed_units_mms_help">Set the units billed for a single mms.</string> -->
+<!--	<string name="mixed_units_call_">Units for a call</string> -->
+<!--	<string name="mixed_units_call_help">Set the units billed for a one minute call.\nBill mode is taken into account here.</string> -->
+<!--	<string name="plan_">Plan</string> -->
+<!--	<string name="plan_help">Choose the plan this rule should fit.</string> -->
+<!--	<string name="negate_">Negate</string> -->
+<!--	<string name="negate_help">Reverse the condition.</string> -->
+<!--	<string name="what_">Condition</string> -->
+<!--	<string name="what_help">Choose a condition here.</string> -->
+<!--	<string name="what0_">Argument</string> -->
+<!--	<string name="what0_help">This condition needs an arguments to set.</string> -->
+<!--	<string name="what1_">And ... rule</string> -->
+<!--	<string name="what1_help">Choose a rule which must match too.</string> -->
+<!--	<string name="none">None</string> -->
+<!--	<string name="value">Value</string> -->
+<!--	<string name="export_rules_">Export rule set</string> -->
+<!--	<string name="export_rules_hint">Export rule set.</string> -->
+<!--	<string name="export_rules_progr">Exporting rule set ...</string> -->
+<!--	<string name="export_rules_descr">Description</string> -->
+<!--	<string name="import_rules_">Import rule set</string> -->
+<!--	<string name="import_rules_hint">Import rule set.</string> -->
+<!--	<string name="import_rules_progr">Import rule set ...</string> -->
+<!--	<string name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.</string> -->
+<!--	<string name="err_export_write">Error writing export file</string> -->
+<!--	<string name="err_export_read">Error reading export file</string> -->
+<!--	<string name="alerts_">Alerts</string> -->
+<!--	<string name="alerts_title">Call Meter 3G alert</string> -->
+<!--	<string name="alerts_message">Plan %s has reached %d%% usage!</string> -->
+<!--	<string name="alerts_80_">Notify at 80%</string> -->
+<!--	<string name="alerts_80_hint">Notify if a plan passes 80% of it\'s limit.</string> -->
+<!--	<string name="alerts_100_">Notify at 100%</string> -->
+<!--	<string name="alerts_100_hint">Notify if a plan passes 100% of it\'s limit.</string> -->
+<!--	<string name="widget_config_">Widget config</string> -->
+<!--	<string-array name="weekdays_all"> -->
+<!--		<item>All week</item> -->
+<!--		<item>Monday</item> -->
+<!--		<item>Tuesday</item> -->
+<!--		<item>Wednesday</item> -->
+<!--		<item>Thursday</item> -->
+<!--		<item>Friday</item> -->
+<!--		<item>Saturday</item> -->
+<!--		<item>Sunday</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="hours_all"> -->
+<!--		<item>All day</item> -->
+<!--		<item>0:00 - 0:59</item> -->
+<!--		<item>1:00 - 1:59</item> -->
+<!--		<item>2:00 - 2:59</item> -->
+<!--		<item>3:00 - 3:59</item> -->
+<!--		<item>4:00 - 4:59</item> -->
+<!--		<item>5:00 - 5:59</item> -->
+<!--		<item>6:00 - 6:59</item> -->
+<!--		<item>7:00 - 7:59</item> -->
+<!--		<item>8:00 - 8:59</item> -->
+<!--		<item>9:00 - 9:59</item> -->
+<!--		<item>10:00 - 10:59</item> -->
+<!--		<item>11:00 - 11:59</item> -->
+<!--		<item>12:00 - 12:59</item> -->
+<!--		<item>13:00 - 13:59</item> -->
+<!--		<item>14:00 - 14:59</item> -->
+<!--		<item>15:00 - 15:59</item> -->
+<!--		<item>16:00 - 16:59</item> -->
+<!--		<item>17:00 - 17:59</item> -->
+<!--		<item>18:00 - 18:59</item> -->
+<!--		<item>19:00 - 19:59</item> -->
+<!--		<item>20:00 - 20:59</item> -->
+<!--		<item>21:00 - 21:59</item> -->
+<!--		<item>22:00 - 22:59</item> -->
+<!--		<item>23:00 - 23:59</item> -->
+<!--	</string-array> -->
 	<string-array name="themes">
 		<item>Тёмная</item>
 		<item>Светлая</item>
@@ -162,4 +219,82 @@
 		<item>Мелкий</item>
 		<item>Средний</item>
 	</string-array>
+<!--	<string-array name="dialog_edit_plan"> -->
+<!--		<item>Edit plan</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="dialog_edit_delete"> -->
+<!--		<item>Edit</item> -->
+<!--		<item>Delete</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="plans_type"> -->
+<!--		<item>Title</item> -->
+<!--		<item>Spacer</item> -->
+<!--		<item>Bill period</item> -->
+<!--		<item>Mixed</item> -->
+<!--		<item>Call</item> -->
+<!--		<item>SMS</item> -->
+<!--		<item>MMS</item> -->
+<!--		<item>Data</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="rules_type"> -->
+<!--		<item>Is Call</item> -->
+<!--		<item>Is SMS</item> -->
+<!--		<item>Is MMS</item> -->
+<!--		<item>Is Data</item> -->
+<!--		<item>Is Incoming</item> -->
+<!--		<item>Is Roaming</item> -->
+<!--		<item>Match Numbers</item> -->
+<!--		<item>Match Hours</item> -->
+<!--		<item>Limit reached</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="limit_type"> -->
+<!--		<item>unlimited</item> -->
+<!--		<item>units</item> -->
+<!--		<item>cost</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="billperiod"> -->
+<!--		<item>One day</item> -->
+<!--		<item>One week</item> -->
+<!--		<item>30 days</item> -->
+<!--		<item>60 days</item> -->
+<!--		<item>90 days</item> -->
+<!--		<item>One month</item> -->
+<!--		<item>Two month</item> -->
+<!--		<item>Three month</item> -->
+<!--		<item>Infinite</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="billmodes"> -->
+<!--		<item>1/1</item> -->
+<!--		<item>6/6</item> -->
+<!--		<item>10/10</item> -->
+<!--		<item>30/1</item> -->
+<!--		<item>30/6</item> -->
+<!--		<item>30/10</item> -->
+<!--		<item>30/30</item> -->
+<!--		<item>30/60</item> -->
+<!--		<item>45/1</item> -->
+<!--		<item>60/0</item> -->
+<!--		<item>60/1</item> -->
+<!--		<item>60/6</item> -->
+<!--		<item>60/10</item> -->
+<!--		<item>60/30</item> -->
+<!--		<item>60/60</item> -->
+<!--		<item>Custom</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="direction_calls"> -->
+<!--		<item>in</item> -->
+<!--		<item>out</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="direction_sms"> -->
+<!--		<item>in</item> -->
+<!--		<item>out</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="direction_mms"> -->
+<!--		<item>in</item> -->
+<!--		<item>out</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="direction_data"> -->
+<!--		<item>in</item> -->
+<!--		<item>out</item> -->
+<!--	</string-array> -->
 </resources>
