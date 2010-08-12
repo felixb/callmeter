@@ -23,10 +23,12 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.app.AlertDialog.Builder;
+import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -50,6 +52,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.DatePicker;
 import android.widget.ProgressBar;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
@@ -72,9 +75,12 @@ import de.ub0r.android.lib.Log;
  * @author flx
  */
 public class Plans extends ListActivity implements OnClickListener,
-		OnItemLongClickListener {
+		OnItemLongClickListener, OnDateSetListener {
 	/** Tag for output. */
 	public static final String TAG = "main";
+
+	/** Extra for setting now. */
+	public static final String EXTRA_NOW = "now";
 
 	/** Byte units. */
 	private static final String BYTE_UNITS_B = "B";
@@ -89,6 +95,8 @@ public class Plans extends ListActivity implements OnClickListener,
 
 	/** Dialog: update. */
 	private static final int DIALOG_UPDATE = 0;
+	/** Dialog: show time. */
+	private static final int DIALOG_SHOW_TIME = 1;
 
 	/** {@link Message} for {@link Handler}: start background: LogMatcher. */
 	public static final int MSG_BACKGROUND_START_MATCHER = 1;
@@ -290,6 +298,7 @@ public class Plans extends ListActivity implements OnClickListener,
 						|| this.type == DataProvider.TYPE_TITLE) {
 					return;
 				}
+				final Calendar lnow = PlanAdapter.this.now;
 				final Uri uri = ContentUris.withAppendedId(
 						DataProvider.Plans.CONTENT_URI, this.id);
 				final ContentValues cv = new ContentValues();
@@ -298,7 +307,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					Calendar billDay = Calendar.getInstance();
 					billDay.setTimeInMillis(this.billday);
 					billDay = DataProvider.Plans.getBillDay(this.billperiod,
-							billDay, null, false);
+							billDay, lnow, false);
 
 					if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
 						cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, -1);
@@ -306,15 +315,21 @@ public class Plans extends ListActivity implements OnClickListener,
 						cv.put(DataProvider.Plans.CACHE_STRING, "\u221E");
 					} else {
 						final Calendar nextBillDay = DataProvider.Plans
-								.getBillDay(this.billperiod, billDay, null,
+								.getBillDay(this.billperiod, billDay, lnow,
 										true);
 						final long pr = billDay.getTimeInMillis()
 								/ CallMeter.MILLIS;
 						final long nx = (nextBillDay.getTimeInMillis() // .
 								/ CallMeter.MILLIS)
 								- pr;
-						final long nw = (PlanAdapter.this.now.// .
-								getTimeInMillis() / CallMeter.MILLIS) - pr;
+						long nw;
+						if (lnow == null) {
+							nw = System.currentTimeMillis();
+						} else {
+							nw = lnow.getTimeInMillis();
+						}
+						nw = (nw / CallMeter.MILLIS) - pr;
+
 						cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, nx);
 						cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, nw);
 						String formatedDate;
@@ -343,8 +358,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					String where = null;
 					if (billp != null) {
 						where = DataProvider.Plans.getBilldayWhere(
-								billp.billperiod, billp.billdayc,
-								PlanAdapter.this.now);
+								billp.billperiod, billp.billdayc, lnow);
 					}
 					where = DbUtils.sqlAnd(where, DataProvider.Logs.PLAN_ID
 							+ " = " + this.id);
@@ -413,7 +427,7 @@ public class Plans extends ListActivity implements OnClickListener,
 		}
 
 		/** Now. */
-		private final Calendar now;
+		private Calendar now;
 		/** Separator for the data. */
 		private static final String SEP = " | ";
 
@@ -437,7 +451,21 @@ public class Plans extends ListActivity implements OnClickListener,
 							DataProvider.Plans.PROJECTION, null, null,
 							DataProvider.Plans.ORDER), true);
 			this.ctx = context;
-			this.now = Calendar.getInstance();
+		}
+
+		/**
+		 * Set date of now.
+		 * 
+		 * @param time
+		 *            time in milliseconds
+		 */
+		private void setNow(final long time) {
+			if (time <= 0) {
+				this.now = null;
+			} else if (this.now == null) {
+				this.now = Calendar.getInstance();
+			}
+			this.now.setTimeInMillis(time);
 		}
 
 		/**
@@ -904,12 +932,51 @@ public class Plans extends ListActivity implements OnClickListener,
 			}
 		}
 		// reload plan configuration
+		this.getNow(this.getIntent(), false);
 		this.adapter.reloadPlans(this.getContentResolver(), this.adapter
 				.getCursor());
 		// start LogRunner
 		LogRunnerService.update(this, LogRunnerReceiver.ACTION_FORCE_UPDATE);
 		// schedule next update
 		LogRunnerReceiver.schedNext(this);
+	}
+
+	/**
+	 * Get "now" from {@link Intent}.
+	 * 
+	 * @param intent
+	 *            {@link Intent}
+	 * @param updatePlans
+	 *            update plans after setting "now"
+	 */
+	private void getNow(final Intent intent, final boolean updatePlans) {
+		final long now = intent.getLongExtra(EXTRA_NOW, -1);
+		if (now >= 0) {
+			this.adapter.setNow(now);
+			String formatedDate;
+			if (dateFormat == null) {
+				formatedDate = DateFormat.getDateFormat(this).format(now);
+			} else {
+				final Calendar n = this.adapter.now;
+				formatedDate = String.format(dateFormat, n, n, n);
+			}
+			String t = this.getString(R.string.app_name) + " - " + formatedDate;
+			this.setTitle(t);
+		} else {
+			this.adapter.now = null;
+			this.setTitle(R.string.app_name);
+		}
+		if (updatePlans) {
+			this.adapter.updatePlans();
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void onNewIntent(final Intent intent) {
+		this.setIntent(intent);
 	}
 
 	/**
@@ -966,6 +1033,13 @@ public class Plans extends ListActivity implements OnClickListener,
 						}
 					});
 			return builder.create();
+		case DIALOG_SHOW_TIME:
+			Calendar cal = this.adapter.now;
+			if (cal == null) {
+				cal = Calendar.getInstance();
+			}
+			return new DatePickerDialog(this, this, cal.get(Calendar.YEAR), cal
+					.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 		default:
 			return null;
 		}
@@ -998,6 +1072,9 @@ public class Plans extends ListActivity implements OnClickListener,
 			return true;
 		case R.id.item_logs:
 			this.startActivity(new Intent(this, Logs.class));
+			return true;
+		case R.id.item_show_time:
+			this.showDialog(DIALOG_SHOW_TIME);
 			return true;
 		default:
 			return false;
@@ -1055,5 +1132,20 @@ public class Plans extends ListActivity implements OnClickListener,
 		builder.setNegativeButton(android.R.string.cancel, null);
 		builder.show();
 		return true;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public final void onDateSet(final DatePicker view, final int year,
+			final int monthOfYear, final int dayOfMonth) {
+		final Calendar date = Calendar.getInstance();
+		date.set(year, monthOfYear, dayOfMonth);
+		final Intent intent = new Intent(this, Plans.class);
+		intent.putExtra(EXTRA_NOW, date.getTimeInMillis());
+		if (this.adapter.now != null) {
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		}
+		this.startActivity(intent);
 	}
 }

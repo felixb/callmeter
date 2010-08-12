@@ -68,6 +68,7 @@
 	<string name="appearance_">Erscheinung</string>
 	<string name="theme_">Theme</string>
 	<string name="textsize_">Schriftgrad</string>
+	<string name="show_time_">Zu Datum</string>
 	<string name="show_hours_">Stunden zeigen</string>
 	<string name="show_hours_hint">Zeige Zeit in Sekunden, Minuten, Stunden und Tagen.\nSonst werden nur Sekunden und Stunden gezeigt.</string>
 	<string name="custom_currency_symbol_">Benutzerdefiniertes Währungssymbol</string>
