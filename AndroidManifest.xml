@@ -37,6 +37,11 @@
 		<activity android:name="de.ub0r.android.lib.DonationHelper"
 			android:configChanges="orientation|keyboardHidden"
 			android:windowSoftInputMode="adjustResize" />
+		<receiver android:name="de.ub0r.android.lib.DonationReceiver">
+			<intent-filter>
+				<action android:name="de.ub0r.android.donator.REGISTERED" />
+			</intent-filter>
+		</receiver>
 		<receiver android:name="CMBroadcastReceiver">
 			<intent-filter>
 				<action android:name="android.intent.action.BOOT_COMPLETED" />
