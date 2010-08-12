@@ -267,7 +267,8 @@ public class Plans extends ListActivity implements OnClickListener,
 					this.billdayc.setTimeInMillis(this.billday);
 					this.limittype = -1;
 					this.limit = -1;
-					this.cpp = 0;
+					this.cpp = cursor
+							.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
 				} else {
 					this.billday = -1;
 					this.billdayc = null;
@@ -402,7 +403,7 @@ public class Plans extends ListActivity implements OnClickListener,
 							cost += this.cpp;
 						}
 					}
-
+					cv.put(DataProvider.Plans.CACHE_COST, cost);
 					cv.put(DataProvider.Plans.CACHE_STRING, getString(this,
 							used, count, billedAmount, cost, allBilledAmount,
 							allCount, showHours));
@@ -484,6 +485,36 @@ public class Plans extends ListActivity implements OnClickListener,
 			} while (cursor.moveToNext());
 		}
 
+		/**
+		 * Update bill period's cost.
+		 * 
+		 * @param p
+		 *            bill period
+		 */
+		private void updateBillperiodCost(final Plan p) {
+			final ContentResolver cr = this.ctx.getContentResolver();
+			final Cursor cursor = cr.query(DataProvider.Plans.CONTENT_URI,
+					new String[] { DataProvider.Plans.CACHE_COST },
+					DataProvider.Plans.BILLPERIOD_ID + " == " + p.id, null,
+					null);
+			float cost = p.cpp;
+			if (cursor != null && cursor.moveToFirst()) {
+				do {
+					final float c = cursor.getFloat(0);
+					if (c > 0) {
+						cost += c;
+					}
+				} while (cursor.moveToNext());
+			}
+			if (cursor != null && !cursor.isClosed()) {
+				cursor.close();
+			}
+			final ContentValues cv = new ContentValues();
+			cv.put(DataProvider.Plans.CACHE_COST, cost);
+			cr.update(ContentUris.withAppendedId(
+					DataProvider.Plans.CONTENT_URI, p.id), cv, null, null);
+		}
+
 		/** Update all {@link Plan}s in background. */
 		void updatePlans() {
 			Log.d(TAG, "updatePlans()");
@@ -515,6 +546,16 @@ public class Plans extends ListActivity implements OnClickListener,
 						final Plan p = PlanAdapter.this.plansList.get(i);
 						if (p.type != DataProvider.TYPE_BILLPERIOD) {
 							p.update();
+						}
+					}
+					// update cost in bill periods
+					for (int i = 0; i < l; i++) {
+						if (runningTask != this) {
+							break;
+						}
+						final Plan p = PlanAdapter.this.plansList.get(i);
+						if (p.type == DataProvider.TYPE_BILLPERIOD) {
+							PlanAdapter.this.updateBillperiodCost(p);
 						}
 					}
 					final boolean last = runningTask == this;
@@ -597,7 +638,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					.getInt(DataProvider.Plans.INDEX_CACHE_PROGRESS_MAX);
 			final int cacheLimitPos = cursor
 					.getInt(DataProvider.Plans.INDEX_CACHE_PROGRESS_POS);
-			final String cacheStr = cursor
+			String cacheStr = cursor
 					.getString(DataProvider.Plans.INDEX_CACHE_STRING);
 			TextView twCache = null;
 			ProgressBar pbCache = null;
@@ -622,6 +663,12 @@ public class Plans extends ListActivity implements OnClickListener,
 						View.VISIBLE);
 				twCache = (TextView) view.findViewById(R.id.period);
 				pbCache = (ProgressBar) view.findViewById(R.id.period_pb);
+
+				final float cost = cursor
+						.getFloat(DataProvider.Plans.INDEX_CACHE_COST);
+				if (cost >= 0) {
+					cacheStr += "\n" + String.format(currencyFormat, cost);
+				}
 			} else {
 				view.findViewById(R.id.bigtitle).setVisibility(View.GONE);
 				view.findViewById(R.id.spacer).setVisibility(View.GONE);

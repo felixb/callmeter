@@ -62,7 +62,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 14;
+	private static final int DATABASE_VERSION = 15;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -346,10 +346,12 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_CACHE_PROGRESS_MAX = 21;
 		/** Index in projection: cache row for main: progressbar position. */
 		public static final int INDEX_CACHE_PROGRESS_POS = 22;
+		/** Index in projection: cache row for main: cost. */
+		public static final int INDEX_CACHE_COST = 23;
 		/** Index in projection: id of billperiod. */
-		public static final int INDEX_BILLPERIOD_ID = 23;
+		public static final int INDEX_BILLPERIOD_ID = 24;
 		/** Index in projection: next alert. */
-		public static final int INDEX_NEXT_ALERT = 24;
+		public static final int INDEX_NEXT_ALERT = 25;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -402,6 +404,8 @@ public final class DataProvider extends ContentProvider {
 		public static final String CACHE_PROGRESS_MAX = "_cache_prg_max";
 		/** Cache row for main: progressbar position. */
 		public static final String CACHE_PROGRESS_POS = "_cache_prg_pos";
+		/** Cache row for main: cost. */
+		public static final String CACHE_COST = "_cache_cost";
 		/** Next alert. */
 		public static final String NEXT_ALERT = "_next_alert";
 
@@ -412,8 +416,8 @@ public final class DataProvider extends ContentProvider {
 				COST_PER_ITEM_IN_LIMIT, COST_PER_AMOUNT_IN_LIMIT1,
 				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN, MIXED_UNITS_CALL,
 				MIXED_UNITS_SMS, MIXED_UNITS_MMS, CACHE_STRING,
-				CACHE_PROGRESS_MAX, CACHE_PROGRESS_POS, BILLPERIOD_ID,
-				NEXT_ALERT };
+				CACHE_PROGRESS_MAX, CACHE_PROGRESS_POS, CACHE_COST,
+				BILLPERIOD_ID, NEXT_ALERT };
 
 		/** Select only real plans. */
 		public static final String WHERE_REALPLANS = TYPE + " != "
@@ -463,6 +467,7 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(CACHE_STRING, CACHE_STRING);
 			PROJECTION_MAP.put(CACHE_PROGRESS_MAX, CACHE_PROGRESS_MAX);
 			PROJECTION_MAP.put(CACHE_PROGRESS_POS, CACHE_PROGRESS_POS);
+			PROJECTION_MAP.put(CACHE_COST, CACHE_COST);
 			PROJECTION_MAP.put(NEXT_ALERT, NEXT_ALERT);
 		}
 
@@ -500,6 +505,7 @@ public final class DataProvider extends ContentProvider {
 					+ CACHE_STRING + " TEXT," // .
 					+ CACHE_PROGRESS_MAX + " INTEGER," // .
 					+ CACHE_PROGRESS_POS + " INTEGER," // .
+					+ CACHE_COST + " FLOAT," // .
 					+ NEXT_ALERT + " LONG" // .
 					+ ");");
 		}
