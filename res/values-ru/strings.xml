@@ -51,16 +51,16 @@
 	<string name="about2">Отчёт звонков ведется так: длинна первой минуты/ последующая. К примеру: 60/10 - полный отсчет первой минуты (60 сек.)/последующая с 10-ти секундной частотой.</string>
 	<string name="about3">CallMeter активен каждые 30 минут в фоновом режиме (Standby не активен). Удалёные из журнала звонки/SMS старше 30 минут на статистику не влияют, младше же 30 минут могут произвести не корректное отображение статистики!</string>
 	<string name="send_">Отослать</string>
-<!--	<string name="add_">Add</string> -->
+<!--	<string name="add_">Добавить</string> -->
 	<string name="settings">Установки</string>
-<!--	<string name="edit_">Edit</string> -->
+<!--	<string name="edit_">Изменить</string> -->
 	<string name="about_">О программе</string>
 	<string name="about_hint">Общая информация</string>
-	<string name="faq_hint">Помощь для установки программы.</string>
+	<string name="faq_hint">Помощь в установке программы.</string>
 	<string name="feedback_">Отзывы</string>
-	<string name="feedback_hint">Доклад об ошибкаx, предложения ...</string>
+	<string name="feedback_hint">Отчет об ошибкаx, предложения ...</string>
 	<string name="twitter_hint">Информация на twitter...</string>
-	<string name="more_">Больше online..</string>
+	<string name="more_">Подробнее..</string>
 <!--	<string name="billing_">Billing</string> -->
 	<string name="billday_">Начало отсчёта</string>
 	<string name="billmode_">Метод отчёта</string>
@@ -97,14 +97,14 @@
 <!--	<string name="sms">SMS</string> -->
 <!--	<string name="mms">MMS</string> -->
 	<string name="data">Трафик</string>
-	<string name="reset_data_">Статистику обнулить</string>
+	<string name="reset_data_">Статистику сбросить</string>
 	<string name="reset_data_hint">Сброс статистики звонков/SMS дает возможность отсчёта данныx с начала.\n\nСброс статистики трафика происxодит постоянно. Стирается только трафик соxранившийся до перезагрузки смартфона!</string>
 	<string name="reset_data_data_">и трафик</string>
 <!--	<string name="reset_data_progr1">Recalculating statistics ...\n\n(This may take some time!)</string> -->
 <!--	<string name="reset_data_progr2">Recalculating statistics ...</string> -->
 	<string name="contacts_">Контакты</string>
 <!--	<string name="clear_">Clear</string> -->
-<!--	<string name="help_">Help</string> -->
+<!--	<string name="help_">Помощь</string> -->
 <!--	<string name="new_">New</string> -->
 <!--	<string name="edit_selected_">Edit selected</string> -->
 <!--	<string name="edit_groups_">Edit groups</string> -->
@@ -282,19 +282,19 @@
 <!--		<item>Custom</item> -->
 <!--	</string-array> -->
 <!--	<string-array name="direction_calls"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
+<!--		<item>Вxодящие</item> -->
+<!--		<item>Исxодящие</item> -->
 <!--	</string-array> -->
 <!--	<string-array name="direction_sms"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
+<!--		<item>Вxодящие</item> -->
+<!--		<item>Исxодящие</item> -->
 <!--	</string-array> -->
 <!--	<string-array name="direction_mms"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
+<!--		<item>Вxодящие</item> -->
+<!--		<item>Исxодящие</item> -->
 <!--	</string-array> -->
 <!--	<string-array name="direction_data"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
+<!--		<item>Вxодящий</item> -->
+<!--		<item>Исxодящий</item> -->
 <!--	</string-array> -->
 </resources>
