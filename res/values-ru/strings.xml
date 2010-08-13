@@ -42,9 +42,9 @@
 	<string name="load_hash_">Загружаю <i>noADS</i> код</string>
 	<string name="sig_loaded">Реклама удалена!</string>
 	<string name="sig_failed">Попытка удалить рекламу не удалась!</string>
-	<string name="accept_">Условия соглашения</string>
-<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
-<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
+	<string name="accept_">Согласиться с условиями</string>
+<!--	<string name="accept_missing">Пожалуйсто подтвердите условия согласием.</string> -->
+<!--	<string name="terms">Программа отошлёт адрес вашей электронной почты и номер IMEI на сервер (http://ub0r.de/donation/). Эти данные нужны только для подтверждения пожертвования.\nИ они ни когда не пейдут в руки третьим.\n\nЕсли вы смените телефон, <i>noADS</i> код придет в негодность. В этом случае обратитесь к нам для получения нового кода бесплатно.</string> -->
 	<string name="about0_">Следи за своими бесплатными: минутами, SMS и трафиком!</string>
 	<string name="about0">CallMeter создает из данныx о звонкаx, SMS и трафикa отчёт. Поддерживаются разные меторы отчёта.</string>
 	<string name="about1">Форма отчёта: Пользование / Время или Колличество в месяц / Время или просто Колличество (Минуты/SMS/Трафик).</string>
