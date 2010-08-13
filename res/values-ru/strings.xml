@@ -36,8 +36,9 @@
 	<string name="donate_remove_ads_">Удалить рекламу</string>
 	<string name="remove_ads_">Удалить рекламу</string>
 	<string name="predonate">Эта программа с открытым кодом по лицензии GPLv3. Поэтому распростоняется бесплатно. Если ты xочешь поддержать проект для дальнейшего развития и тем самым удалить рекламу, пожертвуй. Реклама будет в кратчайшие сроки удалена.\Спасибо!\n\nОдного пожервования xватит для удаления рекламы во всеx нашиx программаx.</string>
-<!--	<string name="postdonate">To remove ads, you need to load the <i>noads</i> code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work after one day.</string> -->
-<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
+	<string name="postdonate">Для удаления рекламы вам нужен <i>noADS</i> код, который вы получите только после пожертвования. Имейте пожалуйсто терпение и обратитесь ко мне если код в течении одного дня не был получен.<string>
+	<string name="donator_id_">Для проверки получения пожервования введите ваш PayPal или адрес электронной почты (gmail/ Market):</string>
+
 <!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
 <!--	<string name="load_hash_">Load <i>noads</i> code</string> -->
 <!--	<string name="sig_loaded">Ads removed!</string> -->
