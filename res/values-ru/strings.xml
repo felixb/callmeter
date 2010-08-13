@@ -224,17 +224,17 @@
 <!--	</string-array> -->
 <!--	<string-array name="dialog_edit_delete"> -->
 <!--		<item>Edit</item> -->
-<!--		<item>Delete</item> -->
+<!--		<item>Deletehttp://github.com/felixb/callmeter/blob/translation/res/values-ru/strings.xml</item> -->
 <!--	</string-array> -->
 <!--	<string-array name="plans_type"> -->
-<!--		<item>Title</item> -->
-<!--		<item>Spacer</item> -->
-<!--		<item>Bill period</item> -->
-<!--		<item>Mixed</item> -->
-<!--		<item>Звонок</item> -->
-<!--		<item>SMS</item> -->
-<!--		<item>MMS</item> -->
-<!--		<item>Передача данныx</item> -->
+		<item>Название</item>
+		<item>Разделитель</item> -->
+		<item>Отчётный перион</item>
+		<item>Смешанный</item>
+		<item>Звонок</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Передача данныx</item> -->
 <!--	</string-array> -->
 <!--	<string-array name="rules_type"> -->
 <!--		<item>Is Call</item> -->
