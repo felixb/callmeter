@@ -24,7 +24,7 @@
 	<string name="license">GPLv3 - читайте http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Исxодный код:</string>
 	<string name="website_">Интернетстраница:</string>
-	<string name="debug_">Отладка</string> -->
+	<string name="debug_">Отладка</string>
 	<string name="send_logs_">Отослать протокол</string>
 	<string name="send_logs_hint">Отчёт о действияx программы на телефоне.\nОтсылайте только по просьбе программиста.</string>
 <!--	<string name="sendlog_run_">Run SendLog</string> -->
@@ -183,8 +183,8 @@
 <!--		<item>Friday</item> -->
 <!--		<item>Saturday</item> -->
 <!--		<item>Sunday</item> -->
-	</string-array>
-	<string-array name="hours_all"> -->
+<!--	</string-array> -->
+	<string-array name="hours_all">
 		<item>Весь день</item>
 		<item>0:00 - 0:59</item>
 		<item>1:00 - 1:59</item>
@@ -251,7 +251,7 @@
 <!--		<item>unlimited</item> -->
 <!--		<item>units</item> -->
 <!--		<item>cost</item> -->
-	</string-array>
+<!--	</string-array> -->
 	<string-array name="billperiod">
 		<item>1 день</item>
 		<item>1 неделя</item>

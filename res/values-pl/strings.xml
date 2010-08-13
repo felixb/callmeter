@@ -226,16 +226,16 @@
 		<item>Edytuj</item>
 		<item>Usuń</item>
 	</string-array>
-	<string-array name="plans_type">
+<!--	<string-array name="plans_type"> -->
 <!--		<item>Title</item> -->
 <!--		<item>Spacer</item> -->
 <!--		<item>Bill period</item> -->
 <!--		<item>Mixed</item> -->
-		<item>Połączenia</item>
-		<item>SMS</item>
-		<item>MMS</item>
-		<item>Dane</item>
-	</string-array>
+<!--		<item>Połączenia</item> -->
+<!--		<item>SMS</item> -->
+<!--		<item>MMS</item> -->
+<!--		<item>Dane</item> -->
+<!--	</string-array> -->
 <!--	<string-array name="rules_type"> -->
 <!--		<item>Is Call</item> -->
 <!--		<item>Is SMS</item> -->
