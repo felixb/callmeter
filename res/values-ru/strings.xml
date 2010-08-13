@@ -79,7 +79,7 @@
 <!--	<string name="custom_date_format_hint">Select a custom date format.</string> -->
 <!--	<string name="logs">Logs</string> -->
 <!--	<string name="show_logs">Show logs</string> -->
-	<string name="plans">Лимит</string>
+	<string name="plans">Ценовой план</string>
 <!--	<string name="plans_hint">Set your plans for all kind of billing here.</string> -->
 <!--	<string name="plans_new">New plan</string> -->
 <!--	<string name="rules">Rules</string> -->
