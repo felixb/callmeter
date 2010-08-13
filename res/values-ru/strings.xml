@@ -280,21 +280,21 @@
 <!--		<item>60/30</item> -->
 <!--		<item>60/60</item> -->
 <!--		<item>Custom</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="direction_calls"> -->
-<!--		<item>Вxодящие</item> -->
-<!--		<item>Исxодящие</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="direction_sms"> -->
-<!--		<item>Вxодящие</item> -->
-<!--		<item>Исxодящие</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="direction_mms"> -->
-<!--		<item>Вxодящие</item> -->
-<!--		<item>Исxодящие</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="direction_data"> -->
-<!--		<item>Вxодящий</item> -->
-<!--		<item>Исxодящий</item> -->
-<!--	</string-array> -->
+	</string-array>
+	<string-array name="direction_calls">
+		<item>Вxодящие</item>
+		<item>Исxодящие</item>
+	</string-array>
+	<string-array name="direction_sms">
+		<item>Вxодящие</item>
+		<item>Исxодящие</item>
+	</string-array>
+	<string-array name="direction_mms">
+		<item>Вxодящие</item>
+		<item>Исxодящие</item>
+	</string-array>
+	<string-array name="direction_data">
+		<item>Вxодящий</item>
+		<item>Исxодящий</item>
+	</string-array>
 </resources>
