@@ -251,34 +251,34 @@
 <!--		<item>unlimited</item> -->
 <!--		<item>units</item> -->
 <!--		<item>cost</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="billperiod"> -->
-<!--		<item>One day</item> -->
-<!--		<item>One week</item> -->
-<!--		<item>30 days</item> -->
-<!--		<item>60 days</item> -->
-<!--		<item>90 days</item> -->
-<!--		<item>One month</item> -->
-<!--		<item>Two month</item> -->
-<!--		<item>Three month</item> -->
-<!--		<item>Infinite</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="billmodes"> -->
-<!--		<item>1/1</item> -->
-<!--		<item>6/6</item> -->
-<!--		<item>10/10</item> -->
-<!--		<item>30/1</item> -->
-<!--		<item>30/6</item> -->
-<!--		<item>30/10</item> -->
-<!--		<item>30/30</item> -->
-<!--		<item>30/60</item> -->
-<!--		<item>45/1</item> -->
-<!--		<item>60/0</item> -->
-<!--		<item>60/1</item> -->
-<!--		<item>60/6</item> -->
-<!--		<item>60/10</item> -->
-<!--		<item>60/30</item> -->
-<!--		<item>60/60</item> -->
+	</string-array>
+	<string-array name="billperiod">
+		<item>1 день</item>
+		<item>1 неделя</item>
+		<item>30 дней</item>
+		<item>60 дней</item>
+		<item>90 дней</item>
+		<item>1 месяц</item>
+		<item>2 месяца</item>
+		<item>3 месяца</item>
+		<item>Бесконечно</item>
+	</string-array>
+	<string-array name="billmodes">
+		<item>1/1</item>
+		<item>6/6</item>
+		<item>10/10</item>
+		<item>30/1</item>
+		<item>30/6</item>
+		<item>30/10</item>
+		<item>30/30</item>
+		<item>30/60</item>
+		<item>45/1</item>
+		<item>60/0</item>
+		<item>60/1</item>
+		<item>60/6</item>
+		<item>60/10</item>
+		<item>60/30</item>
+		<item>60/60</item>
 		<item>Пользовательский</item>
 	</string-array>
 	<string-array name="direction_calls">
