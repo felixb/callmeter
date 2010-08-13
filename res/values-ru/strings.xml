@@ -174,16 +174,16 @@
 <!--	<string name="alerts_100_">Notify at 100%</string> -->
 <!--	<string name="alerts_100_hint">Notify if a plan passes 100% of it\'s limit.</string> -->
 <!--	<string name="widget_config_">Widget config</string> -->
-<!--	<string-array name="weekdays_all"> -->
-<!--		<item>All week</item> -->
-<!--		<item>Monday</item> -->
-<!--		<item>Tuesday</item> -->
-<!--		<item>Wednesday</item> -->
-<!--		<item>Thursday</item> -->
-<!--		<item>Friday</item> -->
-<!--		<item>Saturday</item> -->
-<!--		<item>Sunday</item> -->
-<!--	</string-array> -->
+	<string-array name="weekdays_all">
+		<item>Вся неделя</item>
+		<item>Понедельник</item>
+		<item>Вторник</item>
+		<item>Среда</item>
+		<item>Четверг</item>
+		<item>Пятница</item>
+		<item>Суббота</item>
+		<item>Воскресение</item>
+	</string-array>
 	<string-array name="hours_all">
 		<item>Весь день</item>
 		<item>0:00 - 0:59</item>
@@ -219,16 +219,16 @@
 		<item>Мелкий</item>
 		<item>Средний</item>
 	</string-array>
-<!--	<string-array name="dialog_edit_plan"> -->
-<!--		<item>Edit plan</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="dialog_edit_delete"> -->
-<!--		<item>Edit</item> -->
-<!--		<item>Deletehttp://github.com/felixb/callmeter/blob/translation/res/values-ru/strings.xml</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="plans_type"> -->
+	<string-array name="dialog_edit_plan">
+		<item>Изменить план</item>
+	</string-array>
+	<string-array name="dialog_edit_delete">
+		<item>Изменить</item>
+		<item>Удалить</item>
+	</string-array>
+	<string-array name="plans_type">
 		<item>Название</item>
-		<item>Разделитель</item> -->
+		<item>Разделитель</item>
 		<item>Отчётный перион</item>
 		<item>Смешанный</item>
 		<item>Звонок</item>
