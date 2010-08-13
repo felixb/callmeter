@@ -231,14 +231,14 @@
 <!--		<item>Spacer</item> -->
 <!--		<item>Bill period</item> -->
 <!--		<item>Mixed</item> -->
-<!--		<item>Call</item> -->
+<!--		<item>Звонок</item> -->
 <!--		<item>SMS</item> -->
 <!--		<item>MMS</item> -->
-<!--		<item>Data</item> -->
+<!--		<item>Передача данныx</item> -->
 <!--	</string-array> -->
 <!--	<string-array name="rules_type"> -->
 <!--		<item>Is Call</item> -->
-<!--		<item>Is SMS</item> -->
+<!--		<item>Is SMS<http://github.com/felixb/callmeter/blob/translation/res/values-ru/strings.xml/item> -->
 <!--		<item>Is MMS</item> -->
 <!--		<item>Is Data</item> -->
 <!--		<item>Is Incoming</item> -->
