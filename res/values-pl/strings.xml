@@ -91,7 +91,7 @@
 	<string name="add_number">Dodaj numer</string>
 	<string name="hours">Godziny</string>
 <!--	<string name="hourgroup_help">Add some hours a given rule should match.</string> -->
-	<string name="new_hourgroup"Nowa grupa godzin</string>
+	<string name="new_hourgroup">Nowa grupa godzin</string>
 	<string name="add_hour">Dodaj godzinę</string>
 	<string name="calls">Połączenia</string>
 	<string name="sms">SMS</string>
