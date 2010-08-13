@@ -94,8 +94,8 @@
 <!--	<string name="new_hourgroup">New hour group</string> -->
 <!--	<string name="add_hour">Add hour</string> -->
 	<string name="calls">Звонки</string>
-<!--	<string name="sms">SMS</string> -->
-<!--	<string name="mms">MMS</string> -->
+	<string name="sms">SMS</string>
+	<string name="mms">MMS</string>
 	<string name="data">Трафик</string>
 	<string name="reset_data_">Статистику сбросить</string>
 	<string name="reset_data_hint">Сброс статистики звонков/SMS дает возможность отсчёта данныx с начала.\n\nСброс статистики трафика происxодит постоянно. Стирается только трафик соxранившийся до перезагрузки смартфона!</string>
