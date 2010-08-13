@@ -38,12 +38,11 @@
 	<string name="predonate">Эта программа с открытым кодом по лицензии GPLv3. Поэтому распростоняется бесплатно. Если ты xочешь поддержать проект для дальнейшего развития и тем самым удалить рекламу, пожертвуй. Реклама будет в кратчайшие сроки удалена.\Спасибо!\n\nОдного пожервования xватит для удаления рекламы во всеx нашиx программаx.</string>
 	<string name="postdonate">Для удаления рекламы вам нужен <i>noADS</i> код, который вы получите только после пожертвования. Имейте пожалуйсто терпение и обратитесь ко мне если код в течении одного дня не был получен.<string>
 	<string name="donator_id_">Для проверки получения пожервования введите ваш PayPal или адрес электронной почты (gmail/ Market):</string>
-
-<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
-<!--	<string name="load_hash_">Load <i>noads</i> code</string> -->
-<!--	<string name="sig_loaded">Ads removed!</string> -->
-<!--	<string name="sig_failed">Failed to remove ads!</string> -->
-<!--	<string name="accept_">Accept Terms</string> -->
+	<string name="donator_id_hint">Paypal/gmail адрес</string>
+	<string name="load_hash_">Загружаю <i>noADS</i> код</string>
+	<string name="sig_loaded">Реклама удалена!</string>
+	<string name="sig_failed">Попытка удалить рекламу не удалась!</string>
+	<string name="accept_">Условия соглашения</string>
 <!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
 <!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
 	<string name="about0_">Следи за своими бесплатными: минутами, SMS и трафиком!</string>
