@@ -59,8 +59,8 @@
 	<string name="faq_hint">Помощь в установке программы.</string>
 	<string name="feedback_">Отзывы</string>
 	<string name="feedback_hint">Отчёт об ошибкаx, предложения ...</string>
-	<string name="twitter_hint">Информация на twitter...</string>
-	<string name="more_">Подробнее..</string>
+	<string name="twitter_hint">twitter</string>
+	<string name="more_">Подробнее...</string>
 	<string name="billing_">Отчёт</string>
 	<string name="billday_">Начало отсчёта</string>
 	<string name="billmode_">Метод отчёта</string>
