@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Felix Bechstein, Łukasz Malicki, Dariusz Więckiewicz
+		Copyright (C) 2010 Felix Bechstein, Dariusz Więckiewicz, Łukasz Malicki
 	-->
 	<!--
 		This file is part of Call Meter 3G. This program is free software; you
@@ -51,9 +51,9 @@
 	<string name="about2">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
 	<string name="about3">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
 	<string name="send_">Wyślij</string>
-<!--	<string name="add_">Add</string> -->
+	<string name="add_">Dodaj</string>
 	<string name="settings">Ustawienia</string>
-<!--	<string name="edit_">Edit</string> -->
+	<string name="edit_">Edytuj</string>
 	<string name="about_">O programie</string>
 	<string name="about_hint">Informacje o programie i twórcy</string>
 	<string name="faq_hint">Kilka informacji, jak skonfigurować aplikację</string>
@@ -61,62 +61,62 @@
 	<string name="feedback_hint">Zgłoś problemy, sugestię...</string>
 	<string name="twitter_hint">Obserwuj mojego twittera.\nOtrzymasz informacje o aktualizacjach, itp.</string>
 	<string name="more_">Więcej aplikacji...</string>
-<!--	<string name="billing_">Billing</string> -->
+	<string name="billing_">Rachunek</string>
 	<string name="billday_">Pierwszy dzień rachunku</string>
 	<string name="billmode_">Rodzaj cyklu</string>
 	<string name="billdate_">Pierwszy dzień rachunku:</string>
 	<string name="appearance_">Wygląd</string>
 	<string name="theme_">Styl</string>
 	<string name="textsize_">Wielkość czcionki</string>
-<!--	<string name="show_time_">Switch to date</string> -->
-<!--	<string name="show_hours_">Show hours</string> -->
-<!--	<string name="show_hours_hint">Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and hours are shown.</string> -->
+	<string name="show_time_">Przełącz do daty</string>
+	<string name="show_hours_">Pokaż godziny</string>
+	<string name="show_hours_hint">Pokaż czas w sekundach, minutach, godzinach i dniach.\nJeżeli niezaznaczone, tylko sekundy i godziny będą pokazane.</string>
 <!--	<string name="custom_currency_symbol_">Custom currency symbol</string> -->
 <!--	<string name="custom_currency_symbol_hint">Set a custom currency symbol, leave empty for system default.</string> -->
 <!--	<string name="custom_currency_format_">Custom currency format</string> -->
 <!--	<string name="custom_currency_format_hint">Select a custom currency format.</string> -->
-<!--	<string name="custom_date_format_">Custom date format</string> -->
-<!--	<string name="custom_date_format_hint">Select a custom date format.</string> -->
-<!--	<string name="logs">Logs</string> -->
-<!--	<string name="show_logs">Show logs</string> -->
+	<string name="custom_date_format_">Niestandardowy format day</string>
+	<string name="custom_date_format_hint">Wybierz niestandardowy format daty</string>
+	<string name="logs">Logi</string>
+	<string name="show_logs">Pokaż logi</string>
 	<string name="plans">Plany</string>
 <!--	<string name="plans_hint">Set your plans for all kind of billing here.</string> -->
-<!--	<string name="plans_new">New plan</string> -->
-<!--	<string name="rules">Rules</string> -->
+	<string name="plans_new">Nowy plan</string>
+	<string name="rules">Reguły</string>
 <!--	<string name="rules_hint">Set your billing rules here.</string> -->
-<!--	<string name="rules_new">New Rule</string> -->
-<!--	<string name="numbers">Numbers</string> -->
+	<string name="rules_new">Nowa reguła</string>
+	<string name="numbers">Numery</string>
 <!--	<string name="numberergroup_help">Add some numbers a given rule should match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
 <!--	<string name="new_numbergroup">New number group</string> -->
-<!--	<string name="add_number">Add number</string> -->
-<!--	<string name="hours">Hours</string> -->
+	<string name="add_number">Dodaj numer</string>
+	<string name="hours">Godziny</string>
 <!--	<string name="hourgroup_help">Add some hours a given rule should match.</string> -->
-<!--	<string name="new_hourgroup">New hour group</string> -->
-<!--	<string name="add_hour">Add hour</string> -->
+	<string name="new_hourgroup"Nowa grupa godzin</string>
+	<string name="add_hour">Dodaj godzinę</string>
 	<string name="calls">Połączenia</string>
 	<string name="sms">SMS</string>
-<!--	<string name="mms">MMS</string> -->
+	<string name="mms">MMS</string>
 	<string name="data">Dane</string>
 	<string name="reset_data_">Resetuj statystyki</string>
 	<string name="reset_data_hint">Resetowanie danych połączeń/smsów spowoduje ponowne obliczenie statystyk.\n\nUsunięcie statystyk ruchu jest nieodwracalne. Zresetowane zostają wyłącznie statystyki z przed uruchomienia urządzenia.</string>
 	<string name="reset_data_data_">Dane również</string>
-<!--	<string name="reset_data_progr1">Recalculating statistics ...\n\n(This may take some time!)</string> -->
-<!--	<string name="reset_data_progr2">Recalculating statistics ...</string> -->
+	<string name="reset_data_progr1">Przeliczenie statystyk ...\n\n(To może trochę potrwać!)</string>
+	<string name="reset_data_progr2">Przeliczenie statystyk ...</string>
 	<string name="contacts_">Kontakty</string>
-<!--	<string name="clear_">Clear</string> -->
-<!--	<string name="help_">Help</string> -->
-<!--	<string name="new_">New</string> -->
-<!--	<string name="edit_selected_">Edit selected</string> -->
-<!--	<string name="edit_groups_">Edit groups</string> -->
-<!--	<string name="name_">Name</string> -->
+	<string name="clear_">Wyczyść</string>
+	<string name="help_">Pomoc</string>
+	<string name="new_">Nowa</string>
+	<string name="edit_selected_">Edytuj zaznaczone</string>
+	<string name="edit_groups_">Edytuj grupy</string>
+	<string name="name_">Nazwa</string>
 <!--	<string name="name_help">Set a name here.</string> -->
-<!--	<string name="shortname_">Short name</string> -->
+	<string name="shortname_">Skrócona nazwa</string>
 <!--	<string name="shortname_help">Set a short name here. It is displayed in compact layouts.</string> -->
-<!--	<string name="type_">Type</string> -->
+	<string name="type_">Typ</string>
 <!--	<string name="type_help">Select a type.</string> -->
 <!--	<string name="limit_type_">Limit type</string> -->
 <!--	<string name="limit_type_help">Set the type of your limit here.</string> -->
-<!--	<string name="limit_">Limit</string> -->
+	<string name="limit_">Limit</string>
 <!--	<string name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string> -->
 	<string name="billmode_">Rodzaj cyklu</string>
 <!--	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string> -->
@@ -144,7 +144,7 @@
 <!--	<string name="mixed_units_mms_help">Set the units billed for a single mms.</string> -->
 <!--	<string name="mixed_units_call_">Units for a call</string> -->
 <!--	<string name="mixed_units_call_help">Set the units billed for a one minute call.\nBill mode is taken into account here.</string> -->
-<!--	<string name="plan_">Plan</string> -->
+	<string name="plan_">Plan</string>
 <!--	<string name="plan_help">Choose the plan this rule should fit.</string> -->
 <!--	<string name="negate_">Negate</string> -->
 <!--	<string name="negate_help">Reverse the condition.</string> -->
@@ -155,62 +155,62 @@
 <!--	<string name="what1_">And ... rule</string> -->
 <!--	<string name="what1_help">Choose a rule which must match too.</string> -->
 <!--	<string name="none">None</string> -->
-<!--	<string name="value">Value</string> -->
+	<string name="value">Wartość</string>
 <!--	<string name="export_rules_">Export rule set</string> -->
 <!--	<string name="export_rules_hint">Export rule set.</string> -->
 <!--	<string name="export_rules_progr">Exporting rule set ...</string> -->
-<!--	<string name="export_rules_descr">Description</string> -->
+<!--	<string name="export_rules_descr">Opis</string> -->
 <!--	<string name="import_rules_">Import rule set</string> -->
 <!--	<string name="import_rules_hint">Import rule set.</string> -->
 <!--	<string name="import_rules_progr">Import rule set ...</string> -->
 <!--	<string name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.</string> -->
 <!--	<string name="err_export_write">Error writing export file</string> -->
 <!--	<string name="err_export_read">Error reading export file</string> -->
-<!--	<string name="alerts_">Alerts</string> -->
-<!--	<string name="alerts_title">Call Meter 3G alert</string> -->
+	<string name="alerts_">Powiadomienia</string>
+<!--	<string name="alerts_title">Powiadomienia Call Meter 3G</string> -->
 <!--	<string name="alerts_message">Plan %s has reached %d%% usage!</string> -->
-<!--	<string name="alerts_80_">Notify at 80%</string> -->
+	<string name="alerts_80_">Powiadom przy 80%</string>
 <!--	<string name="alerts_80_hint">Notify if a plan passes 80% of it\'s limit.</string> -->
-<!--	<string name="alerts_100_">Notify at 100%</string> -->
+	<string name="alerts_100_">Powiadom przy 100%</string>
 <!--	<string name="alerts_100_hint">Notify if a plan passes 100% of it\'s limit.</string> -->
-<!--	<string name="widget_config_">Widget config</string> -->
-<!--	<string-array name="weekdays_all"> -->
-<!--		<item>All week</item> -->
-<!--		<item>Monday</item> -->
-<!--		<item>Tuesday</item> -->
-<!--		<item>Wednesday</item> -->
-<!--		<item>Thursday</item> -->
-<!--		<item>Friday</item> -->
-<!--		<item>Saturday</item> -->
-<!--		<item>Sunday</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="hours_all"> -->
-<!--		<item>All day</item> -->
-<!--		<item>0:00 - 0:59</item> -->
-<!--		<item>1:00 - 1:59</item> -->
-<!--		<item>2:00 - 2:59</item> -->
-<!--		<item>3:00 - 3:59</item> -->
-<!--		<item>4:00 - 4:59</item> -->
-<!--		<item>5:00 - 5:59</item> -->
-<!--		<item>6:00 - 6:59</item> -->
-<!--		<item>7:00 - 7:59</item> -->
-<!--		<item>8:00 - 8:59</item> -->
-<!--		<item>9:00 - 9:59</item> -->
-<!--		<item>10:00 - 10:59</item> -->
-<!--		<item>11:00 - 11:59</item> -->
-<!--		<item>12:00 - 12:59</item> -->
-<!--		<item>13:00 - 13:59</item> -->
-<!--		<item>14:00 - 14:59</item> -->
-<!--		<item>15:00 - 15:59</item> -->
-<!--		<item>16:00 - 16:59</item> -->
-<!--		<item>17:00 - 17:59</item> -->
-<!--		<item>18:00 - 18:59</item> -->
-<!--		<item>19:00 - 19:59</item> -->
-<!--		<item>20:00 - 20:59</item> -->
-<!--		<item>21:00 - 21:59</item> -->
-<!--		<item>22:00 - 22:59</item> -->
-<!--		<item>23:00 - 23:59</item> -->
-<!--	</string-array> -->
+	<string name="widget_config_">Konfiguracja Widgetu</string>
+	<string-array name="weekdays_all">
+		<item>Cały tydzień</item>
+		<item>Poniedziałek</item>
+		<item>Wtorek</item>
+		<item>Środa</item>
+		<item>Czwartek</item>
+		<item>Piątek</item>
+		<item>Sobota</item>
+		<item>Niedziela</item>
+	</string-array>
+	<string-array name="hours_all">
+		<item>Cały dzień</item>
+		<item>0:00 - 0:59</item>
+		<item>1:00 - 1:59</item>
+		<item>2:00 - 2:59</item>
+		<item>3:00 - 3:59</item>
+		<item>4:00 - 4:59</item>
+		<item>5:00 - 5:59</item>
+		<item>6:00 - 6:59</item>
+		<item>7:00 - 7:59</item>
+		<item>8:00 - 8:59</item>
+		<item>9:00 - 9:59</item>
+		<item>10:00 - 10:59</item>
+		<item>11:00 - 11:59</item>
+		<item>12:00 - 12:59</item>
+		<item>13:00 - 13:59</item>
+		<item>14:00 - 14:59</item>
+		<item>15:00 - 15:59</item>
+		<item>16:00 - 16:59</item>
+		<item>17:00 - 17:59</item>
+		<item>18:00 - 18:59</item>
+		<item>19:00 - 19:59</item>
+		<item>20:00 - 20:59</item>
+		<item>21:00 - 21:59</item>
+		<item>22:00 - 22:59</item>
+		<item>23:00 - 23:59</item>
+	</string-array>
 	<string-array name="themes">
 		<item>Ciemny</item>
 		<item>Jasny</item>
@@ -219,23 +219,23 @@
 		<item>Mały</item>
 		<item>Średni</item>
 	</string-array>
-<!--	<string-array name="dialog_edit_plan"> -->
-<!--		<item>Edit plan</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="dialog_edit_delete"> -->
-<!--		<item>Edit</item> -->
-<!--		<item>Delete</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="plans_type"> -->
+	<string-array name="dialog_edit_plan">
+		<item>Edytuj plan</item>
+	</string-array>
+	<string-array name="dialog_edit_delete">
+		<item>Edytuj</item>
+		<item>Usuń</item>
+	</string-array>
+	<string-array name="plans_type">
 <!--		<item>Title</item> -->
 <!--		<item>Spacer</item> -->
 <!--		<item>Bill period</item> -->
 <!--		<item>Mixed</item> -->
-<!--		<item>Call</item> -->
-<!--		<item>SMS</item> -->
-<!--		<item>MMS</item> -->
-<!--		<item>Data</item> -->
-<!--	</string-array> -->
+		<item>Połączenia</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Dane</item>
+	</string-array>
 <!--	<string-array name="rules_type"> -->
 <!--		<item>Is Call</item> -->
 <!--		<item>Is SMS</item> -->
@@ -252,35 +252,35 @@
 <!--		<item>units</item> -->
 <!--		<item>cost</item> -->
 <!--	</string-array> -->
-<!--	<string-array name="billperiod"> -->
-<!--		<item>One day</item> -->
-<!--		<item>One week</item> -->
-<!--		<item>30 days</item> -->
-<!--		<item>60 days</item> -->
-<!--		<item>90 days</item> -->
-<!--		<item>One month</item> -->
-<!--		<item>Two month</item> -->
-<!--		<item>Three month</item> -->
-<!--		<item>Infinite</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="billmodes"> -->
-<!--		<item>1/1</item> -->
-<!--		<item>6/6</item> -->
-<!--		<item>10/10</item> -->
-<!--		<item>30/1</item> -->
-<!--		<item>30/6</item> -->
-<!--		<item>30/10</item> -->
-<!--		<item>30/30</item> -->
-<!--		<item>30/60</item> -->
-<!--		<item>45/1</item> -->
-<!--		<item>60/0</item> -->
-<!--		<item>60/1</item> -->
-<!--		<item>60/6</item> -->
-<!--		<item>60/10</item> -->
-<!--		<item>60/30</item> -->
-<!--		<item>60/60</item> -->
-<!--		<item>Custom</item> -->
-<!--	</string-array> -->
+	<string-array name="billperiod">
+		<item>Jeden dzień=</item>
+		<item>Jeden tydzień</item>
+		<item>30 dni</item>
+		<item>60 dni</item>
+		<item>90 dni</item>
+		<item>Jeden miesiąc</item>
+		<item>Dwa miesiące</item>
+		<item>Trzy miesiące</item>
+		<item>Nieskończony</item>
+	</string-array>
+	<string-array name="billmodes">
+		<item>1/1</item>
+		<item>6/6</item>
+		<item>10/10</item>
+		<item>30/1</item>
+		<item>30/6</item>
+		<item>30/10</item>
+		<item>30/30</item>
+		<item>30/60</item>
+		<item>45/1</item>
+		<item>60/0</item>
+		<item>60/1</item>
+		<item>60/6</item>
+		<item>60/10</item>
+		<item>60/30</item>
+		<item>60/60</item>
+		<item>Niestandardowy</item>
+	</string-array>
 <!--	<string-array name="direction_calls"> -->
 <!--		<item>in</item> -->
 <!--		<item>out</item> -->
