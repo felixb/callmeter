@@ -138,19 +138,19 @@
 <!--	<string name="cost_per_amount_in_limit_help2">Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.</string> -->
 <!--	<string name="cost_per_plan_">Cost per plan</string> -->
 <!--	<string name="cost_per_plan_help">Set the cost of the plan for one billing period as is.</string> -->
-<!--	<string name="mixed_units_sms_">Units for a sms</string> -->
-<!--	<string name="mixed_units_sms_help">Set the units billed for a single sms.</string> -->
-<!--	<string name="mixed_units_mms_">Units for a mms</string> -->
-<!--	<string name="mixed_units_mms_help">Set the units billed for a single mms.</string> -->
-<!--	<string name="mixed_units_call_">Units for a call</string> -->
-<!--	<string name="mixed_units_call_help">Set the units billed for a one minute call.\nBill mode is taken into account here.</string> -->
+	<string name="mixed_units_sms_">Jednostki za SMS</string>
+	<string name="mixed_units_sms_help">Wprowadź liczbę jednostek naliczonych za jednego SMSa</string>
+	<string name="mixed_units_mms_">Jednostki za MMS</string>
+	<string name="mixed_units_mms_help">Wprowadź liczbę jednostek naliczonych za jednego MMSa</string>
+	<string name="mixed_units_call_">Jednostek za połączenie</string>
+<!--	<string name="mixed_units_call_help">Wprowadź liczbę jednostek naliczonych za jedną minutę połączenia.\nBill mode is taken into account here.</string> -->
 	<string name="plan_">Plan</string>
-<!--	<string name="plan_help">Choose the plan this rule should fit.</string> -->
+	<string name="plan_help">Wybierz plan do którego reguła będzie pasować</string>
 <!--	<string name="negate_">Negate</string> -->
 <!--	<string name="negate_help">Reverse the condition.</string> -->
 <!--	<string name="what_">Condition</string> -->
 <!--	<string name="what_help">Choose a condition here.</string> -->
-<!--	<string name="what0_">Argument</string> -->
+	<string name="what0_">Argument</string>
 <!--	<string name="what0_help">This condition needs an arguments to set.</string> -->
 <!--	<string name="what1_">And ... rule</string> -->
 <!--	<string name="what1_help">Choose a rule which must match too.</string> -->
@@ -163,16 +163,16 @@
 	<string name="import_rules_">Importuj ustawienia reguł</string>
 	<string name="import_rules_hint">Importuj ustawienia reguł</string>
 	<string name="import_rules_progr">Importuję ustawienia reguł</string>
-<!--	<string name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.</string> -->
+	<string name="import_rules_empty">Żaden plan/reguła nie jest ustawiona. Kliknij ten tekst aby zimportować domyślny zestaw reguł.\n\nLub dodaj plan i reguły ręcznie w ustawieniach</string>
 	<string name="err_export_write">Błąd podczas zapisu eksportowanego pliku</string>
 	<string name="err_export_read">Błąd podczas odczytu eksportowanego pliku</string>
 	<string name="alerts_">Powiadomienia</string>
 	<string name="alerts_title">Powiadomienia Call Meter 3G</string>
-<!--	<string name="alerts_message">Plan %s has reached %d%% usage!</string> -->
+	<string name="alerts_message">Plan %s osiągnął %d%% zużycia!</string>
 	<string name="alerts_80_">Powiadom przy 80%</string>
-<!--	<string name="alerts_80_hint">Notify if a plan passes 80% of it\'s limit.</string> -->
+	<string name="alerts_80_hint">Powiadom, jeżeli plan przekroczy 80% ustalonego limitu</string>
 	<string name="alerts_100_">Powiadom przy 100%</string>
-<!--	<string name="alerts_100_hint">Notify if a plan passes 100% of it\'s limit.</string> -->
+	<string name="alerts_100_hint">Powiadom, jeżeli plan przekroczy 100% ustalonego limitu</string>
 	<string name="widget_config_">Konfiguracja Widgetu</string>
 	<string-array name="weekdays_all">
 		<item>Cały tydzień</item>
@@ -226,17 +226,17 @@
 		<item>Edytuj</item>
 		<item>Usuń</item>
 	</string-array>
-<!--	<string-array name="plans_type"> -->
+	<string-array name="plans_type"> 
 <!--		<item>Title</item> -->
 <!--		<item>Spacer</item> -->
-<!--		<item>Bill period</item> -->
+		<item>Okres rozliczenia</item>
 <!--		<item>Mixed</item> -->
-<!--		<item>Połączenia</item> -->
-<!--		<item>SMS</item> -->
-<!--		<item>MMS</item> -->
-<!--		<item>Dane</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="rules_type"> -->
+		<item>Połączenia</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Dane</item>
+	</string-array>
+	<string-array name="rules_type">
 <!--		<item>Is Call</item> -->
 <!--		<item>Is SMS</item> -->
 <!--		<item>Is MMS</item> -->
@@ -245,13 +245,13 @@
 <!--		<item>Is Roaming</item> -->
 <!--		<item>Match Numbers</item> -->
 <!--		<item>Match Hours</item> -->
-<!--		<item>Limit reached</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="limit_type"> -->
-<!--		<item>unlimited</item> -->
-<!--		<item>units</item> -->
-<!--		<item>cost</item> -->
-<!--	</string-array> -->
+		<item>Limit osiągnięty</item>
+	</string-array>
+	<string-array name="limit_type">
+		<item>nielimitowany</item>
+		<item>jednostki</item>
+		<item>koszt</item>
+	</string-array>
 	<string-array name="billperiod">
 		<item>Jeden dzień=</item>
 		<item>Jeden tydzień</item>
@@ -281,20 +281,20 @@
 		<item>60/60</item>
 		<item>Niestandardowy</item>
 	</string-array>
-<!--	<string-array name="direction_calls"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="direction_sms"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="direction_mms"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="direction_data"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
-<!--	</string-array> -->
+	<string-array name="direction_calls">
+		<item>przychodzące</item>
+		<item>wychodzące</item>
+	</string-array>
+	<string-array name="direction_sms">
+		<item>przychodzące</item>
+		<item>wychodzące</item>
+	</string-array>
+	<string-array name="direction_mms">
+		<item>przychodzące</item>
+		<item>wychodzące</item>
+	</string-array>
+	<string-array name="direction_data">
+		<item>przychodzące</item>
+		<item>wychodzące</item>
+	</string-array>
 </resources>
