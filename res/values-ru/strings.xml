@@ -85,10 +85,10 @@
 	<string name="plans_hint">Настойка ценового плана.</string>
 	<string name="plans_new">Новый план</string>
 	<string name="rules">Правила</string>
-<!--	<string name="rules_hint">Настройка правил учёта.</string> -->
+	<string name="rules_hint">Настройка правил учёта.</string>
 	<string name="rules_new">Новые правила</string>
 	<string name="numbers">Номера</string>
-<!--	<string name="numberergroup_help">Add some numbers a given rule should match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
+	<string name="numberergroup_help">Внести номера, которые касаются данныx правил.\n\nШаблоны (\"%\") на обоиx концы номеров разрешены.\nК примеру: %34 касается 1234, 12% касается 1234 и %23% касается 12345.</string>
 <!--	<string name="new_numbergroup">New number group</string> -->
 <!--	<string name="add_number">Add number</string> -->
 <!--	<string name="hours">Hours</string> -->
