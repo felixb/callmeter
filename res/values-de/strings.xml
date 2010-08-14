@@ -69,6 +69,8 @@
 	<string name="theme_">Theme</string>
 	<string name="textsize_">Schriftgrad</string>
 	<string name="show_time_">Zu Datum</string>
+	<string name="show_titlebar_">Zeige Titelleiste</string>
+	<string name="show_titlebar_hint">Zeige Titelleiste im Hauptbildschirm. Ohne Titelleiste wirst du nicht mehr auf Hintergrundaktivitäten hingewiesen.</string>
 	<string name="show_hours_">Stunden zeigen</string>
 	<string name="show_hours_hint">Zeige Zeit in Sekunden, Minuten, Stunden und Tagen.\nSonst werden nur Sekunden und Stunden gezeigt.</string>
 	<string name="custom_currency_symbol_">Benutzerdefiniertes Währungssymbol</string>
@@ -113,7 +115,7 @@
 	<string name="shortname_">Kurzname</string>
 	<string name="shortname_help">Setze hier einen Namen. Dieser wird in kompakten Layouts benutzt.</string>
 	<string name="type_">Typ</string>
-	<string name="type_help">Wähle einen Typ aus.</string>
+	<string name="type_help">Wähle einen Typ aus.\n\"Titel\" zeigt einfach nur eine Titelzeile an.\nEin \"Abstandshalter\" zeigt nichts an.\nDer \"Abrechnungszeitraum\" hält Inforamtionen über deinen Abrechnungszeitrau. Die meisten Nutzer benötigen genau einen.\nIn einem \"Mixed\" Kontingent können Anrufe und Nachrichten gleichzeitig abgerechnet werden.\n"Anrufe\", \"SMS\", \"MMS\" oder \"Daten\" Kontingente sind für die Abrechnung der jeweiligen Typen bestimmt.</string>
 	<string name="limit_type_">Limittyp</string>
 	<string name="limit_type_help">Wähle hier einen Typ des Limits aus.</string>
 	<string name="limit_">Limit</string>
@@ -123,7 +125,7 @@
 	<string name="billday_">Erster Rechnungstag</string>
 	<string name="billday_help">Wähle hier den ersten Tag deines Abrechnungszeitraums aus.</string>
 	<string name="billperiodid_">Abrechnungszeitraum</string>
-	<string name="billperiodid_help">Wähle hier deinen Abrechnungszeitraum (als extra Kontingent erstellt).</string>
+	<string name="billperiodid_help">Wähle hier deinen Abrechnungszeitraum.\nEvtl. musst du vorher einen extra Plan des mit dem Typ \"Abrechnungszeitraum\" anlegen.</string>
 	<string name="billperiod_">Länge des Abrechnungszeitraums</string>
 	<string name="billperiod_help">Wähle hier die Länge deines Abrechnungszeitraums.</string>
 	<string name="cost_per_item_">Kosten pro Logeintrag</string>
@@ -167,6 +169,7 @@
 	<string name="err_export_write">Fehler beim Schreiben der Exportdatei</string>
 	<string name="err_export_read">Fehler beim Lesen der Exportdatei</string>
 	<string name="alerts_">Alarme</string>
+	<string name="alerts_hint">Stelle Alarme basierend auf der Nutzung der Kontingente ein.</string>
 	<string name="alerts_title">Call Meter 3G Alarm</string>
 	<string name="alerts_message">Kontingent %s hat %d%% Benutzung erreicht!</string>
 	<string name="alerts_80_">Alarm bei 80%</string>

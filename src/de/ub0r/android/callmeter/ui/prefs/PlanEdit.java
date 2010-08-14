@@ -110,11 +110,11 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 		final PreferenceAdapter ret = new PreferenceAdapter(this);
 		ret.add(new TextPreference(this, DataProvider.Plans.NAME, this
 				.getString(R.string.plans_new), R.string.name_,
-				R.string.name_help, InputType.TYPE_NULL));
+				R.string.name_help, InputType.TYPE_CLASS_TEXT));
 		ret.add(new TextPreference(this, DataProvider.Plans.SHORTNAME, this
 				.getString(R.string.plans_new).replaceAll(" ", ""),
 				R.string.shortname_, R.string.shortname_help,
-				InputType.TYPE_NULL));
+				InputType.TYPE_CLASS_TEXT));
 		ret.add(new ListPreference(this, DataProvider.Plans.TYPE,
 				DataProvider.TYPE_CALL, R.string.type_, R.string.type_help,
 				R.array.plans_type));
@@ -246,6 +246,9 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 		switch (t) {
 		case DataProvider.TYPE_SPACING:
 			this.adapter.hide(DataProvider.Plans.SHORTNAME, true);
+			this.adapter.hide(DataProvider.Plans.BILLDAY, true);
+			this.adapter.hide(DataProvider.Plans.BILLMODE, true);
+			this.adapter.hide(DataProvider.Plans.BILLPERIOD, true);
 			this.adapter.hide(DataProvider.Plans.BILLPERIOD_ID, true);
 			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
 			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
@@ -259,12 +262,6 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
 			this.adapter.hide(DataProvider.Plans.LIMIT, true);
 			break;
-		default:
-			this.adapter.hide(DataProvider.Plans.SHORTNAME, false);
-			break;
-		}
-
-		switch (t) {
 		case DataProvider.TYPE_BILLPERIOD:
 			this.adapter.hide(DataProvider.Plans.BILLPERIOD, false);
 			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, false);
@@ -280,11 +277,14 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
 			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
 			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
+			this.adapter.hide(DataProvider.Plans.SHORTNAME, false);
 			break;
 		default:
+			this.adapter.hide(DataProvider.Plans.SHORTNAME, false);
+			this.adapter.hide(DataProvider.Plans.BILLPERIOD_ID, false);
+
 			this.adapter.hide(DataProvider.Plans.BILLDAY, true);
 			this.adapter.hide(DataProvider.Plans.BILLPERIOD, true);
-			this.adapter.hide(DataProvider.Plans.BILLPERIOD_ID, false);
 			break;
 		}
 

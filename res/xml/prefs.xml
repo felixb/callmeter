@@ -19,25 +19,31 @@
 	-->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 	<PreferenceCategory android:title="@string/appearance_">
-		<ListPreference android:title="@string/theme_"
-			android:key="theme" android:entries="@array/themes"
-			android:entryValues="@array/themes_values" />
-		<!--
-			<ListPreference android:title="@string/textsize_"
-			android:key="textsize" android:entries="@array/textsize"
-			android:entryValues="@array/textsize_values" />
-		-->
-		<CheckBoxPreference android:key="show_hours"
-			android:defaultValue="true" android:title="@string/show_hours_"
-			android:summary="@string/show_hours_hint" />
-		<EditTextPreference android:title="@string/custom_currency_symbol_"
-			android:key="currency_symbol" android:summary="@string/custom_currency_symbol_hint" />
-		<ListPreference android:title="@string/custom_currency_format_"
-			android:key="currency_format" android:entries="@array/currency_formats"
-			android:entryValues="@array/currency_formats_values" android:summary="@string/custom_currency_format_hint" />
-		<ListPreference android:title="@string/custom_date_format_"
-			android:key="date_format" android:entries="@array/date_formats"
-			android:entryValues="@array/date_formats_values" android:summary="@string/custom_date_format_hint" />
+		<PreferenceScreen android:title="@string/appearance_">
+			<ListPreference android:title="@string/theme_"
+				android:key="theme" android:entries="@array/themes"
+				android:entryValues="@array/themes_values" />
+			<!--
+				<ListPreference android:title="@string/textsize_"
+				android:key="textsize" android:entries="@array/textsize"
+				android:entryValues="@array/textsize_values" />
+			-->
+			<CheckBoxPreference android:key="show_titlebar"
+				android:defaultValue="true" android:title="@string/show_titlebar_"
+				android:summary="@string/show_titlebar_hint" />
+			<CheckBoxPreference android:key="show_hours"
+				android:defaultValue="true" android:title="@string/show_hours_"
+				android:summary="@string/show_hours_hint" />
+			<EditTextPreference android:title="@string/custom_currency_symbol_"
+				android:key="currency_symbol" android:summary="@string/custom_currency_symbol_hint" />
+			<ListPreference android:title="@string/custom_currency_format_"
+				android:key="currency_format" android:entries="@array/currency_formats"
+				android:entryValues="@array/currency_formats_values"
+				android:summary="@string/custom_currency_format_hint" />
+			<ListPreference android:title="@string/custom_date_format_"
+				android:key="date_format" android:entries="@array/date_formats"
+				android:entryValues="@array/date_formats_values" android:summary="@string/custom_date_format_hint" />
+		</PreferenceScreen>
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/billing_">
@@ -64,7 +70,8 @@
 		android:title="@string/import_rules_" android:summary="@string/import_rules_hint" />
 
 	<PreferenceCategory android:title="@string/alerts_">
-		<PreferenceScreen android:title="@string/alerts_">
+		<PreferenceScreen android:title="@string/alerts_"
+			android:summary="@string/alerts_hint">
 			<CheckBoxPreference android:key="alert_80"
 				android:title="@string/alerts_80_" android:summary="@string/alerts_80_hint"
 				android:defaultValue="true" />

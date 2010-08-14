@@ -179,7 +179,7 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 		final PreferenceAdapter ret = new PreferenceAdapter(this);
 		ret.add(new TextPreference(this, DataProvider.Rules.NAME, this
 				.getString(R.string.rules_new), R.string.name_,
-				R.string.name_help, InputType.TYPE_NULL));
+				R.string.name_help, InputType.TYPE_CLASS_TEXT));
 		ret.add(new ListPreference(this, DataProvider.Rules.WHAT,
 				DataProvider.Rules.WHAT_CALL, R.string.what_,
 				R.string.what_help, R.array.rules_type));

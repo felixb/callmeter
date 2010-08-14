@@ -878,10 +878,16 @@ public class Plans extends ListActivity implements OnClickListener,
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		currentHandler = this.handler;
-		this.setTheme(Preferences.getTheme(this));
-		this.setContentView(R.layout.plans);
 		// get prefs.
 		this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		final boolean showTitlebar = this.preferences.getBoolean(
+				Preferences.PREFS_SHOWTITLEBAR, true);
+		if (!showTitlebar) {
+			this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		}
+		this.setTheme(Preferences.getTheme(this));
+		this.setContentView(R.layout.plans);
+
 		String v0 = this.preferences.getString(PREFS_LAST_RUN, "");
 		String v1 = this.getString(R.string.app_version);
 		if (!v0.equals(v1)) {
@@ -890,6 +896,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			editor.commit();
 			this.showDialog(DIALOG_UPDATE);
 		}
+
 		prefsNoAds = DonationHelper.hideAds(this);
 		this.findViewById(R.id.import_default).setOnClickListener(this);
 		this.getListView().setOnItemLongClickListener(this);

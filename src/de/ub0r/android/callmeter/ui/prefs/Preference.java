@@ -995,9 +995,9 @@ abstract class Preference {
 		// TODO: use convertView
 		final View ret = inflater.inflate(this.resLayout, null);
 		((TextView) ret.findViewById(android.R.id.text1)).setText(this.resText);
-		final String s = this.context.getString(this.getHelp()) + "\n"
-				+ this.context.getString(R.string.value) + ": "
-				+ this.getHint();
+		final String s = this.context.getString(R.string.value) + ": "
+				+ this.getHint() + "\n"
+				+ this.context.getString(this.getHelp());
 		((TextView) ret.findViewById(android.R.id.text2)).setText(s);
 		return ret;
 	}
