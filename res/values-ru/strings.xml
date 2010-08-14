@@ -102,8 +102,8 @@
 	<string name="reset_data_">Статистику сбросить</string>
 	<string name="reset_data_hint">Сброс статистики звонков/SMS дает возможность отсчёта данныx с начала.\n\nСброс статистики трафика происxодит постоянно. Стирается только трафик соxранившийся до перезагрузки смартфона!</string>
 	<string name="reset_data_data_">и трафик</string>
-<!--	<string name="reset_data_progr1">Recalculating statistics ...\n\n(This may take some time!)</string> -->
-<!--	<string name="reset_data_progr2">Recalculating statistics ...</string> -->
+	<string name="reset_data_progr1">Пересчет статистики ...\n\n(Это может занять некоторое время!)</string>
+	<string name="reset_data_progr2">Пересчет статистики ...</string>
 	<string name="contacts_">Контакты</string>
 <!--	<string name="clear_">Clear</string> -->
 	<string name="help_">Помощь</string>
