@@ -69,6 +69,8 @@
 	<string name="theme_">Styl</string>
 	<string name="textsize_">Wielkość czcionki</string>
 	<string name="show_time_">Przełącz do daty</string>
+<!--	<string name="show_titlebar_">Show title bar</string> -->
+<!--	<string name="show_titlebar_hint">Show title bar in main view. Without title bar, there is no way to see background activity.</string> -->
 	<string name="show_hours_">Pokaż godziny</string>
 	<string name="show_hours_hint">Pokaż czas w sekundach, minutach, godzinach i dniach.\nJeżeli niezaznaczone, tylko sekundy i godziny będą pokazane.</string>
 	<string name="custom_currency_symbol_">Niestandardowy symbol waluty</string>
@@ -113,9 +115,9 @@
 	<string name="shortname_">Skrócona nazwa</string>
 	<string name="shortname_help">Wprowadź nazwę skróconą. Będzie wyświetlona w widoku kompaktowym.</string>
 	<string name="type_">Typ</string>
-	<string name="type_help">Wybierz typ</string>
+<!--	<string name="type_help">Select a type.\n\"Title\" will just display a title in main view.\n\"Spacer\" will display nothing but empty space.\n\"Bill period\" will hold any information about your billing period. Most users will need exactly one.\nA \"mixed\" plan can take calls and messages at once. It will combine billing of all those items.\nA \"call\" plan does only take calls. \"SMS\" and \"MMS\" plans will just take the messages.\nA \"data\" plan may hold information about your data traffic.</string> -->
 	<string name="limit_type_">Typ limitów</string>
-	<string name="limit_type_help">Wprowadź typy limitów</string>
+<!--	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"cost\" limit will limit your plan based on cost produced by the items billed in this plan.</string> -->
 	<string name="limit_">Limit</string>
 <!--	<string name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string> -->
 	<string name="billmode_">Rodzaj cyklu</string>
@@ -123,7 +125,7 @@
 	<string name="billday_">Pierwszy dzień rachunku</string>
 <!--	<string name="billday_help">Set this to the first day of the bill of the current billing period.</string> -->
 	<string name="billperiodid_">Okres rozliczeniowy</string>
-<!--	<string name="billperiodid_help">Ustaw swój okres rozliczeniowy (set as extra plan).</string> -->
+<!--	<string name="billperiodid_help">Select your billing period.\nYou may need to create one as extra plan.</string> -->
 <!--	<string name="billperiod_">Length of the billing period</string> -->
 <!--	<string name="billperiod_help">Set the length of your billing period.</string> -->
 <!--	<string name="cost_per_item_">Cost per item</string> -->
@@ -143,7 +145,7 @@
 	<string name="mixed_units_mms_">Jednostki za MMS</string>
 	<string name="mixed_units_mms_help">Wprowadź liczbę jednostek naliczonych za jednego MMSa</string>
 	<string name="mixed_units_call_">Jednostek za połączenie</string>
-<!--	<string name="mixed_units_call_help">Wprowadź liczbę jednostek naliczonych za jedną minutę połączenia.\nBill mode is taken into account here.</string> -->
+	<string name="mixed_units_call_help">Wprowadź liczbę jednostek naliczonych za jedną minutę połączenia.\nBill mode is taken into account here.</string>
 	<string name="plan_">Plan</string>
 	<string name="plan_help">Wybierz plan do którego reguła będzie pasować</string>
 <!--	<string name="negate_">Negate</string> -->
@@ -167,6 +169,7 @@
 	<string name="err_export_write">Błąd podczas zapisu eksportowanego pliku</string>
 	<string name="err_export_read">Błąd podczas odczytu eksportowanego pliku</string>
 	<string name="alerts_">Powiadomienia</string>
+<!--	<string name="alerts_hint">Set alerts based on plan usage.</string> -->
 	<string name="alerts_title">Powiadomienia Call Meter 3G</string>
 	<string name="alerts_message">Plan %s osiągnął %d%% zużycia!</string>
 	<string name="alerts_80_">Powiadom przy 80%</string>
@@ -226,17 +229,17 @@
 		<item>Edytuj</item>
 		<item>Usuń</item>
 	</string-array>
-	<string-array name="plans_type"> 
+<!--	<string-array name="plans_type"> -->
 <!--		<item>Title</item> -->
 <!--		<item>Spacer</item> -->
-		<item>Okres rozliczenia</item>
+<!--		<item>Okres rozliczenia</item> -->
 <!--		<item>Mixed</item> -->
-		<item>Połączenia</item>
-		<item>SMS</item>
-		<item>MMS</item>
-		<item>Dane</item>
-	</string-array>
-	<string-array name="rules_type">
+<!--		<item>Połączenia</item> -->
+<!--		<item>SMS</item> -->
+<!--		<item>MMS</item> -->
+<!--		<item>Dane</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="rules_type"> -->
 <!--		<item>Is Call</item> -->
 <!--		<item>Is SMS</item> -->
 <!--		<item>Is MMS</item> -->
@@ -245,8 +248,8 @@
 <!--		<item>Is Roaming</item> -->
 <!--		<item>Match Numbers</item> -->
 <!--		<item>Match Hours</item> -->
-		<item>Limit osiągnięty</item>
-	</string-array>
+<!--		<item>Limit osiągnięty</item> -->
+<!--	</string-array> -->
 	<string-array name="limit_type">
 		<item>nielimitowany</item>
 		<item>jednostki</item>

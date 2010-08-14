@@ -69,6 +69,8 @@
 	<string name="theme_">Θέμα</string>
 	<string name="textsize_">Μέγεθος κειμένου</string>
 <!--	<string name="show_time_">Switch to date</string> -->
+<!--	<string name="show_titlebar_">Show title bar</string> -->
+<!--	<string name="show_titlebar_hint">Show title bar in main view. Without title bar, there is no way to see background activity.</string> -->
 <!--	<string name="show_hours_">Show hours</string> -->
 <!--	<string name="show_hours_hint">Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and hours are shown.</string> -->
 <!--	<string name="custom_currency_symbol_">Custom currency symbol</string> -->
@@ -113,9 +115,9 @@
 <!--	<string name="shortname_">Short name</string> -->
 <!--	<string name="shortname_help">Set a short name here. It is displayed in compact layouts.</string> -->
 <!--	<string name="type_">Type</string> -->
-<!--	<string name="type_help">Select a type.</string> -->
+<!--	<string name="type_help">Select a type.\n\"Title\" will just display a title in main view.\n\"Spacer\" will display nothing but empty space.\n\"Bill period\" will hold any information about your billing period. Most users will need exactly one.\nA \"mixed\" plan can take calls and messages at once. It will combine billing of all those items.\nA \"call\" plan does only take calls. \"SMS\" and \"MMS\" plans will just take the messages.\nA \"data\" plan may hold information about your data traffic.</string> -->
 <!--	<string name="limit_type_">Limit type</string> -->
-<!--	<string name="limit_type_help">Set the type of your limit here.</string> -->
+<!--	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"cost\" limit will limit your plan based on cost produced by the items billed in this plan.</string> -->
 <!--	<string name="limit_">Limit</string> -->
 <!--	<string name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string> -->
 	<string name="billmode_">Τύπος χρέωσης</string>
@@ -123,7 +125,7 @@
 	<string name="billday_">Αρχική μέρα χρέωσης</string>
 <!--	<string name="billday_help">Set this to the first day of the bill of the current billing period.</string> -->
 <!--	<string name="billperiodid_">Billing period</string> -->
-<!--	<string name="billperiodid_help">Select your billing period (set as extra plan).</string> -->
+<!--	<string name="billperiodid_help">Select your billing period.\nYou may need to create one as extra plan.</string> -->
 <!--	<string name="billperiod_">Length of the billing period</string> -->
 <!--	<string name="billperiod_help">Set the length of your billing period.</string> -->
 <!--	<string name="cost_per_item_">Cost per item</string> -->
@@ -167,6 +169,7 @@
 <!--	<string name="err_export_write">Error writing export file</string> -->
 <!--	<string name="err_export_read">Error reading export file</string> -->
 <!--	<string name="alerts_">Alerts</string> -->
+<!--	<string name="alerts_hint">Set alerts based on plan usage.</string> -->
 <!--	<string name="alerts_title">Call Meter 3G alert</string> -->
 <!--	<string name="alerts_message">Plan %s has reached %d%% usage!</string> -->
 <!--	<string name="alerts_80_">Notify at 80%</string> -->

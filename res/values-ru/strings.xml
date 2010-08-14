@@ -35,8 +35,8 @@
 	<string name="donate_market_">Пожертвовать (Market)</string>
 	<string name="donate_remove_ads_">Удалить рекламу</string>
 	<string name="remove_ads_">Удалить рекламу</string>
-	<string name="predonate">Эта программа с открытым кодом по лицензии GPLv3. Поэтому распростоняется бесплатно. Если ты xочешь поддержать проект для дальнейшего развития и тем самым удалить рекламу, пожертвуй. Реклама будет в кратчайшие сроки удалена.\Спасибо!\n\nОдного пожервования xватит для удаления рекламы во всеx нашиx программаx.</string>
-	<string name="postdonate">Для удаления рекламы вам нужен <i>noADS</i> код, который вы получите только после пожертвования. Имейте пожалуйсто терпение и обратитесь ко мне если код в течении одного дня не был получен.<string>
+	<string name="predonate">Эта программа с открытым кодом по лицензии GPLv3. Поэтому распростоняется бесплатно. Если ты xочешь поддержать проект для дальнейшего развития и тем самым удалить рекламу, пожертвуй. Реклама будет в кратчайшие сроки удалена.Спасибо!\n\nОдного пожервования xватит для удаления рекламы во всеx нашиx программаx.</string>
+	<string name="postdonate">Для удаления рекламы вам нужен <i>noADS</i> код, который вы получите только после пожертвования. Имейте пожалуйсто терпение и обратитесь ко мне если код в течении одного дня не был получен.</string>
 	<string name="donator_id_">Для проверки получения пожервования введите ваш PayPal или адрес электронной почты (gmail/ Market):</string>
 	<string name="donator_id_hint">Paypal/gmail адрес</string>
 	<string name="load_hash_">Загружаю <i>noADS</i> код</string>
@@ -69,6 +69,8 @@
 	<string name="theme_">Тема</string>
 	<string name="textsize_">Размер шрифта</string>
 	<string name="show_time_">Перейти по дате</string>
+<!--	<string name="show_titlebar_">Show title bar</string> -->
+<!--	<string name="show_titlebar_hint">Show title bar in main view. Without title bar, there is no way to see background activity.</string> -->
 	<string name="show_hours_">Показ времени подробно</string>
 	<string name="show_hours_hint">Подробный отчет: секунды, минуты, часы и дни.\nИначе только: секунды и часы.</string>
 <!--	<string name="custom_currency_symbol_">Custom currency symbol</string> -->
@@ -104,7 +106,7 @@
 <!--	<string name="reset_data_progr2">Recalculating statistics ...</string> -->
 	<string name="contacts_">Контакты</string>
 <!--	<string name="clear_">Clear</string> -->
-<!--	<string name="help_">Помощь</string> -->
+	<string name="help_">Помощь</string>
 <!--	<string name="new_">New</string> -->
 <!--	<string name="edit_selected_">Edit selected</string> -->
 <!--	<string name="edit_groups_">Edit groups</string> -->
@@ -113,9 +115,9 @@
 <!--	<string name="shortname_">Short name</string> -->
 <!--	<string name="shortname_help">Set a short name here. It is displayed in compact layouts.</string> -->
 <!--	<string name="type_">Type</string> -->
-<!--	<string name="type_help">Select a type.</string> -->
+<!--	<string name="type_help">Select a type.\n\"Title\" will just display a title in main view.\n\"Spacer\" will display nothing but empty space.\n\"Bill period\" will hold any information about your billing period. Most users will need exactly one.\nA \"mixed\" plan can take calls and messages at once. It will combine billing of all those items.\nA \"call\" plan does only take calls. \"SMS\" and \"MMS\" plans will just take the messages.\nA \"data\" plan may hold information about your data traffic.</string> -->
 <!--	<string name="limit_type_">Limit type</string> -->
-<!--	<string name="limit_type_help">Set the type of your limit here.</string> -->
+<!--	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"cost\" limit will limit your plan based on cost produced by the items billed in this plan.</string> -->
 <!--	<string name="limit_">Limit</string> -->
 <!--	<string name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string> -->
 	<string name="billmode_">Метод отчёта</string>
@@ -123,7 +125,7 @@
 	<string name="billday_">Начало отсчёта</string>
 <!--	<string name="billday_help">Set this to the first day of the bill of the current billing period.</string> -->
 <!--	<string name="billperiodid_">Billing period</string> -->
-<!--	<string name="billperiodid_help">Select your billing period (set as extra plan).</string> -->
+<!--	<string name="billperiodid_help">Select your billing period.\nYou may need to create one as extra plan.</string> -->
 <!--	<string name="billperiod_">Length of the billing period</string> -->
 <!--	<string name="billperiod_help">Set the length of your billing period.</string> -->
 <!--	<string name="cost_per_item_">Cost per item</string> -->
@@ -167,6 +169,7 @@
 <!--	<string name="err_export_write">Error writing export file</string> -->
 <!--	<string name="err_export_read">Error reading export file</string> -->
 <!--	<string name="alerts_">Alerts</string> -->
+<!--	<string name="alerts_hint">Set alerts based on plan usage.</string> -->
 <!--	<string name="alerts_title">Call Meter 3G alert</string> -->
 <!--	<string name="alerts_message">Plan %s has reached %d%% usage!</string> -->
 <!--	<string name="alerts_80_">Notify at 80%</string> -->
@@ -234,11 +237,11 @@
 		<item>Звонок</item>
 		<item>SMS</item>
 		<item>MMS</item>
-		<item>Передача данныx</item> -->
-<!--	</string-array> -->
+		<item>Передача данныx</item>
+	</string-array>
 <!--	<string-array name="rules_type"> -->
 <!--		<item>Is Call</item> -->
-<!--		<item>Is SMS<http://github.com/felixb/callmeter/blob/translation/res/values-ru/strings.xml/item> -->
+<!--		<item>Is SMS</item> -->
 <!--		<item>Is MMS</item> -->
 <!--		<item>Is Data</item> -->
 <!--		<item>Is Incoming</item> -->
