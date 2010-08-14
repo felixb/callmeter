@@ -84,6 +84,8 @@ public class Preferences extends PreferenceActivity {
 	private static final String TEXTSIZE_SMALL = "small";
 	/** Text size: medium. */
 	private static final String TEXTSIZE_MEDIUM = "medium";
+	/** Preference's name: show titlebar. */
+	public static final String PREFS_SHOWTITLEBAR = "show_titlebar";
 	/** Preference's name: show hours. */
 	public static final String PREFS_SHOWHOURS = "show_hours";
 	/** Preference's name: currency symbol. */
