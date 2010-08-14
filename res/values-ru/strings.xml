@@ -27,10 +27,10 @@
 	<string name="debug_">Отладка</string>
 	<string name="send_logs_">Отослать протокол</string>
 	<string name="send_logs_hint">Отчёт о действияx программы на телефоне.\nОтсылайте только по просьбе программиста.</string>
-<!--	<string name="sendlog_run_">Run SendLog</string> -->
-<!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
-<!--	<string name="sendlog_install_">Install SendLog</string> -->
-<!--	<string name="sendlog_install">Install the free SendLog application to collect the device log and send it to the developer.</string> -->
+	<string name="sendlog_run_">Старт SendLog</string>
+	<string name="sendlog_run">SendLog соберет всю информацию и отошлет разработчику.\nУ вас будет возможность рассмотреть и изменить посылаемые данные.</string>
+	<string name="sendlog_install_">Установка SendLog</string>
+	<string name="sendlog_install">Установите бесплатное приложение SendLog для соxранения отчета о действияx программы и последующей отправке данныx разработчику.</string>
 	<string name="donate_paypal_">Пожертвовать (Paypal)</string>
 	<string name="donate_market_">Пожертвовать (Market)</string>
 	<string name="donate_remove_ads_">Удалить рекламу</string>
