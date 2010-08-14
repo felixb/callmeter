@@ -69,8 +69,8 @@
 	<string name="theme_">Styl</string>
 	<string name="textsize_">Wielkość czcionki</string>
 	<string name="show_time_">Przełącz do daty</string>
-<!--	<string name="show_titlebar_">Show title bar</string> -->
-<!--	<string name="show_titlebar_hint">Show title bar in main view. Without title bar, there is no way to see background activity.</string> -->
+	<string name="show_titlebar_">Pokazuj pasek tytułowy</string>
+	<string name="show_titlebar_hint">Pokazuj pasek tytułowy w oknie głównym. Bez paska tytułowego nie ma możliwości zobaczenia aktywności w tle.</string>
 	<string name="show_hours_">Pokaż godziny</string>
 	<string name="show_hours_hint">Pokaż czas w sekundach, minutach, godzinach i dniach.\nJeżeli niezaznaczone, tylko sekundy i godziny będą pokazane.</string>
 	<string name="custom_currency_symbol_">Niestandardowy symbol waluty</string>
@@ -125,9 +125,9 @@
 	<string name="billday_">Pierwszy dzień rachunku</string>
 <!--	<string name="billday_help">Set this to the first day of the bill of the current billing period.</string> -->
 	<string name="billperiodid_">Okres rozliczeniowy</string>
-<!--	<string name="billperiodid_help">Select your billing period.\nYou may need to create one as extra plan.</string> -->
-<!--	<string name="billperiod_">Length of the billing period</string> -->
-<!--	<string name="billperiod_help">Set the length of your billing period.</string> -->
+	<string name="billperiodid_help">Wybierz twój okres rozliczeniowy.\nMożesz potrzebować stworzyć jeden dodatkowy plan.</string>
+	<string name="billperiod_">Długość okresu rozliczeniowego</string>
+	<string name="billperiod_help">Wprowadź długość twojego okresu rozliczeniowego</string>
 <!--	<string name="cost_per_item_">Cost per item</string> -->
 <!--	<string name="cost_per_item_help">Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.</string> -->
 <!--	<string name="cost_per_item_in_limit_">Cost per item in limit</string> -->
@@ -165,11 +165,11 @@
 	<string name="import_rules_">Importuj ustawienia reguł</string>
 	<string name="import_rules_hint">Importuj ustawienia reguł</string>
 	<string name="import_rules_progr">Importuję ustawienia reguł</string>
-	<string name="import_rules_empty">Żaden plan/reguła nie jest ustawiona. Kliknij ten tekst aby zimportować domyślny zestaw reguł.\n\nLub dodaj plan i reguły ręcznie w ustawieniach</string>
+	<string name="import_rules_empty">Żaden plan/reguła nie jest ustawiona. Kliknij ten tekst aby zimportować domyślny zestaw reguł.\n\nMożesz również dodać plan i reguły ręcznie w ustawieniach.</string>
 	<string name="err_export_write">Błąd podczas zapisu eksportowanego pliku</string>
 	<string name="err_export_read">Błąd podczas odczytu eksportowanego pliku</string>
 	<string name="alerts_">Powiadomienia</string>
-<!--	<string name="alerts_hint">Set alerts based on plan usage.</string> -->
+	<string name="alerts_hint">Ustaw powiadomienia bazując na stopniu zużycia planu.</string>
 	<string name="alerts_title">Powiadomienia Call Meter 3G</string>
 	<string name="alerts_message">Plan %s osiągnął %d%% zużycia!</string>
 	<string name="alerts_80_">Powiadom przy 80%</string>
