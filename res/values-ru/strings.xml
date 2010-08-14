@@ -82,10 +82,10 @@
 	<string name="logs">Журнал</string>
 	<string name="show_logs">Открыть журнал</string>
 	<string name="plans">Ценовой план</string>
-<!--	<string name="plans_hint">Set your plans for all kind of billing here.</string> -->
+	<string name="plans_hint">Настойка ценового плана.</string>
 	<string name="plans_new">Новый план</string>
 	<string name="rules">Правила</string>
-<!--	<string name="rules_hint">Set your billing rules here.</string> -->
+<!--	<string name="rules_hint">Настройка правил учёта.</string> -->
 	<string name="rules_new">Новые правила</string>
 	<string name="numbers">Номера</string>
 <!--	<string name="numberergroup_help">Add some numbers a given rule should match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
