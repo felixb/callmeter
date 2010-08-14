@@ -251,10 +251,10 @@
 		<item>Ценовой план достигнут</item>
 	</string-array>
 	<string-array name="limit_type">
-<!--		<item>Безграничный</item> -->
-<!--		<item>Единицы</item> -->
-<!--		<item>Стоимость</item> -->
-<!--	</string-array> -->
+		<item>Безграничный</item>
+		<item>Единицы</item>
+		<item>Стоимость</item>
+	</string-array>
 	<string-array name="billperiod">
 		<item>1 день</item>
 		<item>1 неделя</item>
