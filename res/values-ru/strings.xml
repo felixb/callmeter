@@ -239,18 +239,18 @@
 		<item>MMS</item>
 		<item>Передача данныx</item>
 	</string-array>
-<!--	<string-array name="rules_type"> -->
-<!--		<item>Is Call</item> -->
-<!--		<item>Is SMS</item> -->
-<!--		<item>Is MMS</item> -->
-<!--		<item>Is Data</item> -->
-<!--		<item>Is Incoming</item> -->
-<!--		<item>Is Roaming</item> -->
-<!--		<item>Match Numbers</item> -->
-<!--		<item>Match Hours</item> -->
-<!--		<item>Limit reached</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="limit_type"> -->
+	<string-array name="rules_type">
+		<item>Звонок</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Передача данныx</item>
+		<item>Вxодящие</item>
+		<item>Роуминг</item>
+		<item>На определенные номера</item>
+		<item>В определённое время</item>
+		<item>Ценовой план достигнут</item>
+	</string-array>
+	<string-array name="limit_type">
 <!--		<item>unlimited</item> -->
 <!--		<item>units</item> -->
 <!--		<item>cost</item> -->
