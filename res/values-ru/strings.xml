@@ -251,9 +251,9 @@
 		<item>Ценовой план достигнут</item>
 	</string-array>
 	<string-array name="limit_type">
-<!--		<item>unlimited</item> -->
-<!--		<item>units</item> -->
-<!--		<item>cost</item> -->
+<!--		<item>Безграничный</item> -->
+<!--		<item>Единицы</item> -->
+<!--		<item>Стоимость</item> -->
 <!--	</string-array> -->
 	<string-array name="billperiod">
 		<item>1 день</item>
