@@ -517,6 +517,9 @@ abstract class Preference {
 		 */
 		private int getChecked() {
 			final String v = this.value;
+			if (v == null) {
+				return -1;
+			}
 			final int l = this.strValues.length - 1;
 			for (int i = 0; i < l; i++) {
 				if (v.equals(this.strValues[i])) {

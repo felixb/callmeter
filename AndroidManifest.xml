@@ -19,7 +19,7 @@
 	-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="de.ub0r.android.callmeter" android:versionName="2.7.3 alpha3"
-	android:versionCode="2703" android:installLocation="auto">
+	android:versionCode="2704" android:installLocation="auto">
 	<application android:name=".CallMeter" android:icon="@drawable/icon"
 		android:label="@string/app_name" android:debuggable="true">
 		<activity android:name=".ui.Plans" android:label="@string/app_name"
