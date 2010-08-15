@@ -19,6 +19,7 @@
 package de.ub0r.android.callmeter.data;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import android.app.IntentService;
 import android.content.ContentResolver;
@@ -46,6 +47,9 @@ import de.ub0r.android.lib.apis.TelephonyWrapper;
 public final class LogRunnerService extends IntentService {
 	/** Tag for output. */
 	private static final String TAG = "lrs";
+
+	/** Empty array of {@link ContentValues} to convert a list to array. */
+	private static final ContentValues[] TO_ARRAY = new ContentValues[] {};
 
 	/** Prefix for store of last data. */
 	private static final String PREFS_LASTDATA_PREFIX = "last_data_";
@@ -194,7 +198,7 @@ public final class LogRunnerService extends IntentService {
 					baseCv.put(DataProvider.Logs.DATE, System
 							.currentTimeMillis());
 					if (roaming) {
-						baseCv.put(DataProvider.Logs.ROAMED, true);
+						baseCv.put(DataProvider.Logs.ROAMED, 1);
 					}
 
 					ContentValues cv = new ContentValues(baseCv);
@@ -236,7 +240,8 @@ public final class LogRunnerService extends IntentService {
 			final int idDate = cursor.getColumnIndex(Calls.DATE);
 			final int idNumber = cursor.getColumnIndex(Calls.NUMBER);
 
-			int count = 0;
+			final ArrayList<ContentValues> cvalues = // .
+			new ArrayList<ContentValues>(CallMeter.HUNDRET);
 			do {
 				final ContentValues cv = new ContentValues();
 				final int t = cursor.getInt(idType);
@@ -260,12 +265,21 @@ public final class LogRunnerService extends IntentService {
 				cv.put(DataProvider.Logs.REMOTE, cursor.getLong(idNumber));
 				cv.put(DataProvider.Logs.AMOUNT, d);
 				if (roaming) {
-					cv.put(DataProvider.Logs.ROAMED, true);
+					cv.put(DataProvider.Logs.ROAMED, 1);
 				}
-				cr.insert(DataProvider.Logs.CONTENT_URI, cv);
-				++count;
+				cvalues.add(cv);
+				if (cvalues.size() >= CallMeter.HUNDRET) {
+					cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues
+							.toArray(TO_ARRAY));
+					Log.d(TAG, "new calls: " + cvalues.size());
+					cvalues.clear();
+				}
 			} while (cursor.moveToNext());
-			Log.d(TAG, "new calls: " + count);
+			if (cvalues.size() > 0) {
+				cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues
+						.toArray(TO_ARRAY));
+				Log.d(TAG, "new calls: " + cvalues.size());
+			}
 		}
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
@@ -292,7 +306,8 @@ public final class LogRunnerService extends IntentService {
 			final int idBody = cursor.getColumnIndex("body");
 			final TelephonyWrapper wrapper = TelephonyWrapper.getInstance();
 
-			int count = 0;
+			final ArrayList<ContentValues> cvalues = // .
+			new ArrayList<ContentValues>(CallMeter.HUNDRET);
 			do {
 				final ContentValues cv = new ContentValues();
 				final int t = cursor.getInt(idType);
@@ -313,12 +328,21 @@ public final class LogRunnerService extends IntentService {
 				cv.put(DataProvider.Logs.AMOUNT, wrapper.calculateLength(cursor
 						.getString(idBody), false)[0]);
 				if (roaming) {
-					cv.put(DataProvider.Logs.ROAMED, true);
+					cv.put(DataProvider.Logs.ROAMED, 1);
 				}
-				cr.insert(DataProvider.Logs.CONTENT_URI, cv);
-				++count;
+				cvalues.add(cv);
+				if (cvalues.size() >= CallMeter.HUNDRET) {
+					cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues
+							.toArray(TO_ARRAY));
+					Log.d(TAG, "new sms: " + cvalues.size());
+					cvalues.clear();
+				}
 			} while (cursor.moveToNext());
-			Log.d(TAG, "new sms: " + count);
+			if (cvalues.size() > 0) {
+				cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues
+						.toArray(TO_ARRAY));
+				Log.d(TAG, "new sms: " + cvalues.size());
+			}
 		}
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
@@ -346,7 +370,8 @@ public final class LogRunnerService extends IntentService {
 			final int idType = cursor.getColumnIndex(MMS_TYPE);
 			// FIXME: final int idAddress = cursor.getColumnIndex("address");
 
-			int count = 0;
+			final ArrayList<ContentValues> cvalues = // .
+			new ArrayList<ContentValues>(CallMeter.HUNDRET);
 			do {
 				final ContentValues cv = new ContentValues();
 				final int t = cursor.getInt(idType);
@@ -368,12 +393,21 @@ public final class LogRunnerService extends IntentService {
 				// cursor.getLong(idAddress));
 				cv.put(DataProvider.Logs.AMOUNT, 1);
 				if (roaming) {
-					cv.put(DataProvider.Logs.ROAMED, true);
+					cv.put(DataProvider.Logs.ROAMED, 1);
 				}
-				cr.insert(DataProvider.Logs.CONTENT_URI, cv);
-				++count;
+				cvalues.add(cv);
+				if (cvalues.size() >= CallMeter.HUNDRET) {
+					cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues
+							.toArray(TO_ARRAY));
+					Log.d(TAG, "new mms: " + cvalues.size());
+					cvalues.clear();
+				}
 			} while (cursor.moveToNext());
-			Log.d(TAG, "new mms: " + count);
+			if (cvalues.size() > 0) {
+				cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues
+						.toArray(TO_ARRAY));
+				Log.d(TAG, "new mms: " + cvalues.size());
+			}
 		}
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();

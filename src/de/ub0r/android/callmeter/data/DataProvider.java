@@ -66,7 +66,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 15;
+	private static final int DATABASE_VERSION = 16;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -263,7 +263,7 @@ public final class DataProvider extends ContentProvider {
 					+ AMOUNT + " LONG," // .
 					+ BILL_AMOUNT + " LONG," // .
 					+ REMOTE + " TEXT,"// .
-					+ ROAMED + " BOOL," // .
+					+ ROAMED + " INTEGER," // .
 					+ COST + " FLOAT"// .
 					+ ");");
 		}
