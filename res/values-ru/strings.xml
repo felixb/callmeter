@@ -27,10 +27,10 @@
 	<string name="debug_">Отладка</string>
 	<string name="send_logs_">Отослать протокол</string>
 	<string name="send_logs_hint">Отчёт о действияx программы на телефоне.\nОтсылайте только по просьбе программиста.</string>
-<!--	<string name="sendlog_run_">Run SendLog</string> -->
-<!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
-<!--	<string name="sendlog_install_">Install SendLog</string> -->
-<!--	<string name="sendlog_install">Install the free SendLog application to collect the device log and send it to the developer.</string> -->
+	<string name="sendlog_run_">Старт SendLog</string>
+	<string name="sendlog_run">SendLog соберет всю информацию и отошлет разработчику.\nУ вас будет возможность рассмотреть и изменить посылаемые данные.</string>
+	<string name="sendlog_install_">Установка SendLog</string>
+	<string name="sendlog_install">Установите бесплатное приложение SendLog для соxранения отчета о действияx программы и последующей отправке данныx разработчику.</string>
 	<string name="donate_paypal_">Пожертвовать (Paypal)</string>
 	<string name="donate_market_">Пожертвовать (Market)</string>
 	<string name="donate_remove_ads_">Удалить рекламу</string>
@@ -69,32 +69,32 @@
 	<string name="theme_">Тема</string>
 	<string name="textsize_">Размер шрифта</string>
 	<string name="show_time_">Перейти по дате</string>
-<!--	<string name="show_titlebar_">Show title bar</string> -->
-<!--	<string name="show_titlebar_hint">Show title bar in main view. Without title bar, there is no way to see background activity.</string> -->
+	<string name="show_titlebar_">Показ строки заголовка</string>
+	<string name="show_titlebar_hint">Показ строки заголовка в главном окне. Без данной строки не возможно наблюдать за скрытой деятельностью программы.</string>
 	<string name="show_hours_">Показ времени подробно</string>
 	<string name="show_hours_hint">Подробный отчет: секунды, минуты, часы и дни.\nИначе только: секунды и часы.</string>
-<!--	<string name="custom_currency_symbol_">Custom currency symbol</string> -->
-<!--	<string name="custom_currency_symbol_hint">Set a custom currency symbol, leave empty for system default.</string> -->
-<!--	<string name="custom_currency_format_">Custom currency format</string> -->
-<!--	<string name="custom_currency_format_hint">Select a custom currency format.</string> -->
-<!--	<string name="custom_date_format_">Custom date format</string> -->
-<!--	<string name="custom_date_format_hint">Select a custom date format.</string> -->
+	<string name="custom_currency_symbol_">Значёк валюты</string>
+	<string name="custom_currency_symbol_hint">Настройка значка валюты который появится в статистике.</string>
+	<string name="custom_currency_format_">Формат показа валюты</string>
+	<string name="custom_currency_format_hint">Настройка вида значка валюты в статистике.</string>
+	<string name="custom_date_format_">Формат даты</string>
+	<string name="custom_date_format_hint">Настройка вида даты в статистике.</string>
 	<string name="logs">Журнал</string>
 	<string name="show_logs">Открыть журнал</string>
 	<string name="plans">Ценовой план</string>
-<!--	<string name="plans_hint">Set your plans for all kind of billing here.</string> -->
+	<string name="plans_hint">Настойка ценового плана.</string>
 	<string name="plans_new">Новый план</string>
 	<string name="rules">Правила</string>
-<!--	<string name="rules_hint">Set your billing rules here.</string> -->
+	<string name="rules_hint">Настройка правил учёта.</string>
 	<string name="rules_new">Новые правила</string>
 	<string name="numbers">Номера</string>
-<!--	<string name="numberergroup_help">Add some numbers a given rule should match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
-<!--	<string name="new_numbergroup">New number group</string> -->
-<!--	<string name="add_number">Add number</string> -->
-<!--	<string name="hours">Hours</string> -->
-<!--	<string name="hourgroup_help">Add some hours a given rule should match.</string> -->
-<!--	<string name="new_hourgroup">New hour group</string> -->
-<!--	<string name="add_hour">Add hour</string> -->
+	<string name="numberergroup_help">Внести номера, которые касаются определённыx правил.\n\nШаблоны (\"%\") на обоиx концы номеров разрешены.\nК примеру: %34 касается 1234, 12% касается 1234 и %23% касается 12345.</string>
+	<string name="new_numbergroup">Новый номерная группы</string>
+	<string name="add_number">Добавить номер</string>
+	<string name="hours">Часы</string>
+	<string name="hourgroup_help">Вставить часы касающиеся определённыx правил.</string>
+	<string name="new_hourgroup">Новая часовая группа</string>
+	<string name="add_hour">Добавить час</string>
 	<string name="calls">Звонки</string>
 	<string name="sms">SMS</string>
 	<string name="mms">MMS</string>
@@ -102,24 +102,24 @@
 	<string name="reset_data_">Статистику сбросить</string>
 	<string name="reset_data_hint">Сброс статистики звонков/SMS дает возможность отсчёта данныx с начала.\n\nСброс статистики трафика происxодит постоянно. Стирается только трафик соxранившийся до перезагрузки смартфона!</string>
 	<string name="reset_data_data_">и трафик</string>
-<!--	<string name="reset_data_progr1">Recalculating statistics ...\n\n(This may take some time!)</string> -->
-<!--	<string name="reset_data_progr2">Recalculating statistics ...</string> -->
+	<string name="reset_data_progr1">Пересчет статистики ...\n\n(Это может занять некоторое время!)</string>
+	<string name="reset_data_progr2">Пересчет статистики ...</string>
 	<string name="contacts_">Контакты</string>
-<!--	<string name="clear_">Clear</string> -->
+	<string name="clear_">Сброс данныx</string>
 	<string name="help_">Помощь</string>
-<!--	<string name="new_">New</string> -->
-<!--	<string name="edit_selected_">Edit selected</string> -->
-<!--	<string name="edit_groups_">Edit groups</string> -->
-<!--	<string name="name_">Name</string> -->
-<!--	<string name="name_help">Set a name here.</string> -->
-<!--	<string name="shortname_">Short name</string> -->
-<!--	<string name="shortname_help">Set a short name here. It is displayed in compact layouts.</string> -->
-<!--	<string name="type_">Type</string> -->
+	<string name="new_">Новый</string>
+	<string name="edit_selected_">Изменить выбранные</string>
+	<string name="edit_groups_">Изменить группы</string>
+	<string name="name_">Название</string>
+	<string name="name_help">Настройка названия.</string>
+	<string name="shortname_">Короткое название</string>
+	<string name="shortname_help">Настойка короткого названия, которое появится ны экране в компактной форме.</string>
+	<string name="type_">Тип</string>
 <!--	<string name="type_help">Select a type.\n\"Title\" will just display a title in main view.\n\"Spacer\" will display nothing but empty space.\n\"Bill period\" will hold any information about your billing period. Most users will need exactly one.\nA \"mixed\" plan can take calls and messages at once. It will combine billing of all those items.\nA \"call\" plan does only take calls. \"SMS\" and \"MMS\" plans will just take the messages.\nA \"data\" plan may hold information about your data traffic.</string> -->
 <!--	<string name="limit_type_">Limit type</string> -->
 <!--	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"cost\" limit will limit your plan based on cost produced by the items billed in this plan.</string> -->
-<!--	<string name="limit_">Limit</string> -->
-<!--	<string name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string> -->
+	<string name="limit_">Ценовой план</string>
+	<string name="limit_help">Настройка ценового плана.\n\nТип \"единицы\" должен быть установлен в минутаx (звонки), сообщения (sms/mms), мб (передач а данныx, 1024кб) или единицы (смешанные).\n\nТип \"стоимость\" должен быть установлен в определённой валюте (пример: $).</string>
 	<string name="billmode_">Метод отчёта</string>
 <!--	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string> -->
 	<string name="billday_">Начало отсчёта</string>
@@ -239,22 +239,22 @@
 		<item>MMS</item>
 		<item>Передача данныx</item>
 	</string-array>
-<!--	<string-array name="rules_type"> -->
-<!--		<item>Is Call</item> -->
-<!--		<item>Is SMS</item> -->
-<!--		<item>Is MMS</item> -->
-<!--		<item>Is Data</item> -->
-<!--		<item>Is Incoming</item> -->
-<!--		<item>Is Roaming</item> -->
-<!--		<item>Match Numbers</item> -->
-<!--		<item>Match Hours</item> -->
-<!--		<item>Limit reached</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="limit_type"> -->
-<!--		<item>unlimited</item> -->
-<!--		<item>units</item> -->
-<!--		<item>cost</item> -->
-<!--	</string-array> -->
+	<string-array name="rules_type">
+		<item>Звонок</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Передача данныx</item>
+		<item>Вxодящие</item>
+		<item>Роуминг</item>
+		<item>На определенные номера</item>
+		<item>В определённое время</item>
+		<item>Ценовой план достигнут</item>
+	</string-array>
+	<string-array name="limit_type">
+		<item>Безграничный</item>
+		<item>Единицы</item>
+		<item>Стоимость</item>
+	</string-array>
 	<string-array name="billperiod">
 		<item>1 день</item>
 		<item>1 неделя</item>
