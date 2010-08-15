@@ -40,7 +40,8 @@
 			android:layout_height="fill_parent" android:drawSelectorOnTop="false"
 			android:scrollingCache="true" android:fastScrollEnabled="true"
 			android:choiceMode="singleChoice" tlv:normal_height="@dimen/touchlist_height"
-			tlv:grabber="@+id/grabber" tlv:remove_mode="none" />
+			tlv:grabber="@+id/grabber" tlv:remove_mode="none"
+			android:divider="?android:attr/listDivider" />
 		<TextView android:id="@+id/import_default"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
 			android:gravity="center" android:singleLine="false"

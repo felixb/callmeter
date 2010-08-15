@@ -34,5 +34,6 @@
 	<ListView android:id="@id/android:list" android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:drawSelectorOnTop="false"
 		android:scrollingCache="true" android:fastScrollEnabled="true"
-		android:choiceMode="singleChoice" android:layout_above="@id/ok_cancel" />
+		android:choiceMode="singleChoice" android:layout_above="@id/ok_cancel"
+		android:dividerHeight="0px" android:divider="?android:attr/colorBackground" />
 </RelativeLayout>
