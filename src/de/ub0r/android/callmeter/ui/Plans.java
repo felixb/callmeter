@@ -117,7 +117,7 @@ public class Plans extends ListActivity implements OnClickListener,
 	private static final String PREFS_LAST_RUN = "lastrun";
 
 	/** Show hours and days. */
-	private static boolean showHours = true;
+	private static boolean pShowHours = true;
 
 	/** Selected currency format. */
 	private static String currencyFormat = "$%.2f";
@@ -152,9 +152,10 @@ public class Plans extends ListActivity implements OnClickListener,
 				inProgressPlanadapter = false;
 				break;
 			case MSG_BACKGROUND_PROGRESS_MATCHER:
-				if (statusMatcher != null && statusMatcher.isShowing()) {
+				if (statusMatcher != null && (!statusMatcherProgress || // .
+						statusMatcher.isShowing())) {
 					Log.d(TAG, "matcher progress: " + msg.arg1);
-					if (msg.arg1 == 0) {
+					if (!statusMatcherProgress) {
 						final ProgressDialog dold = statusMatcher;
 						statusMatcher = new ProgressDialog(Plans.this);
 						statusMatcher.setCancelable(true);
@@ -164,11 +165,11 @@ public class Plans extends ListActivity implements OnClickListener,
 								ProgressDialog.STYLE_HORIZONTAL);
 						statusMatcher.setMax(msg.arg2);
 						statusMatcher.setIndeterminate(false);
+						statusMatcherProgress = true;
 						statusMatcher.show();
 						dold.dismiss();
 					}
 					statusMatcher.setProgress(msg.arg1);
-					// statusMatcher.show();
 				}
 				break;
 			default:
@@ -184,12 +185,14 @@ public class Plans extends ListActivity implements OnClickListener,
 			Plans.this.setProgressBarIndeterminateVisibility(inProgressMatcher
 					|| inProgressPlanadapter);
 			if (inProgressRunner) {
-				if (statusMatcher == null || !statusMatcher.isShowing()) {
+				if (statusMatcher == null
+						|| (msg.arg1 <= 0 && !statusMatcher.isShowing())) {
 					statusMatcher = new ProgressDialog(Plans.this);
 					statusMatcher.setCancelable(true);
 					statusMatcher.setMessage(Plans.this
 							.getString(R.string.reset_data_progr1));
 					statusMatcher.setIndeterminate(true);
+					statusMatcherProgress = false;
 					statusMatcher.show();
 				}
 			} else {
@@ -211,6 +214,8 @@ public class Plans extends ListActivity implements OnClickListener,
 	private static boolean inProgressPlanadapter = false;
 	/** {@link ProgressDialog} showing LogMatcher's status. */
 	private static ProgressDialog statusMatcher = null;
+	/** Is statusMatcher a {@link ProgressDialog}? */
+	private static boolean statusMatcherProgress = false;
 
 	/**
 	 * Adapter binding plans to View.
@@ -420,7 +425,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					cv.put(DataProvider.Plans.CACHE_COST, cost);
 					cv.put(DataProvider.Plans.CACHE_STRING, getString(this,
 							used, count, billedAmount, cost, allBilledAmount,
-							allCount, showHours));
+							allCount, pShowHours));
 				}
 				this.ctx.getContentResolver().update(uri, cv, null, null);
 			}
@@ -615,8 +620,6 @@ public class Plans extends ListActivity implements OnClickListener,
 		 *            billed amount all time
 		 * @param allCount
 		 *            count all time
-		 * @param showHours
-		 *            show hours and days
 		 * @return {@link String} holding all the data
 		 */
 		private static String getString(final Plan p, final int used,
@@ -916,7 +919,7 @@ public class Plans extends ListActivity implements OnClickListener,
 	@Override
 	protected final void onResume() {
 		super.onResume();
-		showHours = PreferenceManager.getDefaultSharedPreferences(this)
+		pShowHours = PreferenceManager.getDefaultSharedPreferences(this)
 				.getBoolean(Preferences.PREFS_SHOWHOURS, true);
 		currentHandler = this.handler;
 		Plans.this.setProgressBarIndeterminateVisibility(inProgressMatcher);
