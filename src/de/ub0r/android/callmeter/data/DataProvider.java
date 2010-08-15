@@ -18,8 +18,11 @@
  */
 package de.ub0r.android.callmeter.data;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -43,6 +46,7 @@ import android.os.ParcelFileDescriptor;
 import android.provider.OpenableColumns;
 import android.text.TextUtils;
 import de.ub0r.android.callmeter.CallMeter;
+import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
 
@@ -1410,6 +1414,9 @@ public final class DataProvider extends ContentProvider {
 	 * This class helps open, create, and upgrade the database file.
 	 */
 	private static class DatabaseHelper extends SQLiteOpenHelper {
+		/** {@link Context} . */
+		private final Context ctx;
+
 		/**
 		 * Default Constructor.
 		 * 
@@ -1418,6 +1425,7 @@ public final class DataProvider extends ContentProvider {
 		 */
 		DatabaseHelper(final Context context) {
 			super(context, DATABASE_NAME, null, DATABASE_VERSION);
+			this.ctx = context;
 		}
 
 		/**
@@ -1433,6 +1441,21 @@ public final class DataProvider extends ContentProvider {
 			NumbersGroup.onCreate(db);
 			Hours.onCreate(db);
 			HoursGroup.onCreate(db);
+			// import default
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					this.ctx.getResources()
+							.openRawResource(R.raw.default_setup)));
+			final ArrayList<String> sb = new ArrayList<String>();
+			try {
+				String line = reader.readLine();
+				while (line != null) {
+					sb.add(line);
+					line = reader.readLine();
+				}
+			} catch (IOException e) {
+				Log.e(TAG, "error reading raw data", e);
+			}
+			importData(db, sb.toArray(new String[] {}));
 		}
 
 		/**
@@ -1538,29 +1561,27 @@ public final class DataProvider extends ContentProvider {
 	}
 
 	/**
-	 * Import rule set from {@link String}.
+	 * Import data from lines into {@link SQLiteDatabase}.
 	 * 
-	 * @param context
-	 *            {@link Context}
-	 * @param ruleSet
-	 *            rule set as {@link String}
+	 * @param db
+	 *            {@link SQLiteDatabase}
+	 * @param lines
+	 *            data
 	 */
-	public static void importRuleSet(final Context context, // .
-			final String ruleSet) {
-		if (ruleSet == null || ruleSet.length() == 0) {
-			return;
-		}
-		final String[] lines = ruleSet.split("\n");
-		if (lines.length <= 2) {
-			return;
-		}
-		final SQLiteDatabase db = new DatabaseHelper(context)
-				.getWritableDatabase();
+	private static void importData(final SQLiteDatabase db, // .
+			final String[] lines) {
 		final int l = lines.length;
 		String table = null;
 		ArrayList<ContentValues> cvs = null;
 		for (int i = 2; i < l; i++) {
-			String[] ti = lines[i].split(" ", 2);
+			final String s = lines[i];
+			if (s == null || s.length() == 0) {
+				continue;
+			}
+			final String[] ti = lines[i].split(" ", 2);
+			if (ti[0].length() == 0) {
+				continue;
+			}
 			if (table == null) {
 				table = ti[0];
 				cvs = new ArrayList<ContentValues>();
@@ -1587,11 +1608,33 @@ public final class DataProvider extends ContentProvider {
 			}
 			cvs.add(cv);
 		}
-		if (table != null) {
+		if (table != null && table.length() > 0) {
 			// reload table
 			db.delete(table, null, null);
 			reload(db, table, cvs.toArray(new ContentValues[1]));
 		}
+	}
+
+	/**
+	 * Import rule set from {@link String}.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param ruleSet
+	 *            rule set as {@link String}
+	 */
+	public static void importRuleSet(final Context context, // .
+			final String ruleSet) {
+		if (ruleSet == null || ruleSet.length() == 0) {
+			return;
+		}
+		final String[] lines = ruleSet.split("\n");
+		if (lines.length <= 2) {
+			return;
+		}
+		final SQLiteDatabase db = new DatabaseHelper(context)
+				.getWritableDatabase();
+		importData(db, lines);
 		db.close();
 	}
 
