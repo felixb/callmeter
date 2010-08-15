@@ -66,6 +66,8 @@
 	<string name="billmode_">Mode de facturation d\'appels</string>
 	<string name="billdate_">Début de la période de facturation:</string>
 	<string name="appearance_">Apparence</string>
+<!--	<string name="advanced_preferences_">Advanced preferences</string> -->
+<!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
 	<string name="theme_">Thème</string>
 	<string name="textsize_">Taille du texte</string>
 <!--	<string name="show_time_">Switch to date</string> -->

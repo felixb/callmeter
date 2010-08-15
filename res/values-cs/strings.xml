@@ -66,6 +66,8 @@
 	<string name="billmode_">Tarifikace</string>
 	<string name="billdate_">Začátek účetního období:</string>
 	<string name="appearance_">Přizpůsobení vzhledu</string>
+<!--	<string name="advanced_preferences_">Advanced preferences</string> -->
+<!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
 	<string name="theme_">Motiv</string>
 	<string name="textsize_">Velikost textu</string>
 <!--	<string name="show_time_">Switch to date</string> -->

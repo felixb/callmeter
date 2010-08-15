@@ -66,6 +66,8 @@
 	<string name="billmode_">Facturatie modus</string>
 	<string name="billdate_">Begin facturatie periode:</string>
 	<string name="appearance_">Uiterlijk</string>
+<!--	<string name="advanced_preferences_">Advanced preferences</string> -->
+<!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
 	<string name="theme_">Thema</string>
 	<string name="textsize_">Text grootte</string>
 <!--	<string name="show_time_">Switch to date</string> -->

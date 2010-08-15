@@ -66,6 +66,8 @@
 	<string name="billmode_">Számlázás módja</string>
 	<string name="billdate_">Számlázási időszak kezdete:</string>
 	<string name="appearance_">Megjelenés</string>
+<!--	<string name="advanced_preferences_">Advanced preferences</string> -->
+<!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
 	<string name="theme_">Téma</string>
 	<string name="textsize_">Betűméret</string>
 <!--	<string name="show_time_">Switch to date</string> -->

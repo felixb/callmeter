@@ -66,6 +66,8 @@
 	<string name="billmode_">Τύπος χρέωσης</string>
 	<string name="billdate_">Πρώτη μέρα χρέωσης:</string>
 	<string name="appearance_">Εμφάνιση</string>
+<!--	<string name="advanced_preferences_">Advanced preferences</string> -->
+<!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
 	<string name="theme_">Θέμα</string>
 	<string name="textsize_">Μέγεθος κειμένου</string>
 <!--	<string name="show_time_">Switch to date</string> -->

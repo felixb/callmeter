@@ -47,6 +47,8 @@
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/billing_">
+		<CheckBoxPreference android:key="advanced_preferences"
+			android:title="@string/advanced_preferences_" android:summary="@string/advanced_preferences_hint" />
 		<PreferenceScreen android:title="@string/plans"
 			android:summary="@string/plans_hint">
 			<intent android:action="android.intent.action.MAIN"
@@ -54,20 +56,18 @@
 				android:targetClass="de.ub0r.android.callmeter.ui.prefs.Plans" />
 		</PreferenceScreen>
 		<PreferenceScreen android:title="@string/rules"
-			android:summary="@string/rules_hint">
+			android:summary="@string/rules_hint" android:dependency="advanced_preferences">
 			<intent android:action="android.intent.action.MAIN"
 				android:targetPackage="de.ub0r.android.callmeter"
 				android:targetClass="de.ub0r.android.callmeter.ui.prefs.Rules" />
 		</PreferenceScreen>
+		<PreferenceScreen android:key="export_rules"
+			android:title="@string/export_rules_" android:summary="@string/export_rules_hint" />
+		<PreferenceScreen android:key="import_rules"
+			android:title="@string/import_rules_" android:summary="@string/import_rules_hint" />
+		<PreferenceScreen android:key="reset_data"
+			android:title="@string/reset_data_" android:summary="@string/reset_data_hint" />
 	</PreferenceCategory>
-
-	<PreferenceScreen android:key="reset_data"
-		android:title="@string/reset_data_" android:summary="@string/reset_data_hint" />
-
-	<PreferenceScreen android:key="export_rules"
-		android:title="@string/export_rules_" android:summary="@string/export_rules_hint" />
-	<PreferenceScreen android:key="import_rules"
-		android:title="@string/import_rules_" android:summary="@string/import_rules_hint" />
 
 	<PreferenceCategory android:title="@string/alerts_">
 		<PreferenceScreen android:title="@string/alerts_"

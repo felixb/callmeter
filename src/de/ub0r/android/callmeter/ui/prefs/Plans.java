@@ -27,9 +27,11 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -136,6 +138,13 @@ public class Plans extends ListActivity implements OnClickListener,
 	protected final void onResume() {
 		super.onResume();
 		this.showImportHint();
+		final SharedPreferences prefs = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		if (prefs.getBoolean(Preferences.PREFS_ADVANCED, false)) {
+			this.findViewById(R.id.ok_add).setVisibility(View.VISIBLE);
+		} else {
+			this.findViewById(R.id.ok_add).setVisibility(View.GONE);
+		}
 	}
 
 	/**

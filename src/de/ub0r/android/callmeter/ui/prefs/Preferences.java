@@ -67,6 +67,8 @@ public class Preferences extends PreferenceActivity {
 	/** Standard buffer size. */
 	public static final int BUFSIZE = 1024;
 
+	/** Preference's name: show advanced preferences. */
+	public static final String PREFS_ADVANCED = "advanced_preferences";
 	/** Preference's name: alert at 80% usage. */
 	public static final String PREFS_ALERT80 = "alert_80";
 	/** Preference's name: alert at 100% usage. */

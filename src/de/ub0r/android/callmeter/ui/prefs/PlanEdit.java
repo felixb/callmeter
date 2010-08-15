@@ -22,10 +22,12 @@ import android.app.ListActivity;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.DialogInterface.OnDismissListener;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.InputType;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -56,6 +58,9 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 
 	/** Id of edited filed. */
 	private long pid = -1;
+
+	/** Show advanced settings. */
+	private boolean showAdvanced = false;
 
 	/**
 	 * {@inheritDoc}
@@ -90,6 +95,9 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 	@Override
 	protected final void onResume() {
 		super.onResume();
+		final SharedPreferences prefs = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		this.showAdvanced = prefs.getBoolean(Preferences.PREFS_ADVANCED, false);
 		this.showHideFileds();
 	}
 
@@ -241,124 +249,119 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 	 * Show or hide fields based on data in there.
 	 */
 	private void showHideFileds() {
-		final int t = ((ListPreference) this.adapter
+		final PreferenceAdapter a = this.adapter;
+		a.hide(DataProvider.Plans.TYPE, !this.showAdvanced);
+		final int t = ((ListPreference) a
 				.getPreference(DataProvider.Plans.TYPE)).getValue();
 		switch (t) {
 		case DataProvider.TYPE_SPACING:
-			this.adapter.hide(DataProvider.Plans.SHORTNAME, true);
-			this.adapter.hide(DataProvider.Plans.BILLDAY, true);
-			this.adapter.hide(DataProvider.Plans.BILLMODE, true);
-			this.adapter.hide(DataProvider.Plans.BILLPERIOD, true);
-			this.adapter.hide(DataProvider.Plans.BILLPERIOD_ID, true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
-					true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, true);
-			this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
-			this.adapter.hide(DataProvider.Plans.LIMIT, true);
+			a.hide(DataProvider.Plans.SHORTNAME, true);
+			a.hide(DataProvider.Plans.BILLDAY, true);
+			a.hide(DataProvider.Plans.BILLMODE, true);
+			a.hide(DataProvider.Plans.BILLPERIOD, true);
+			a.hide(DataProvider.Plans.BILLPERIOD_ID, true);
+			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
+			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
+			a.hide(DataProvider.Plans.COST_PER_ITEM, true);
+			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
+			a.hide(DataProvider.Plans.COST_PER_PLAN, true);
+			a.hide(DataProvider.Plans.LIMIT_TYPE, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
+			a.hide(DataProvider.Plans.LIMIT, true);
 			break;
 		case DataProvider.TYPE_BILLPERIOD:
-			this.adapter.hide(DataProvider.Plans.BILLPERIOD, false);
-			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, false);
-			this.adapter.hide(DataProvider.Plans.BILLMODE, true);
-			this.adapter.hide(DataProvider.Plans.BILLPERIOD_ID, true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
-					true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
-			this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, true);
-			this.adapter.hide(DataProvider.Plans.LIMIT, true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
-			this.adapter.hide(DataProvider.Plans.SHORTNAME, false);
+			a.hide(DataProvider.Plans.BILLPERIOD, false);
+			a.hide(DataProvider.Plans.COST_PER_PLAN, false);
+			a.hide(DataProvider.Plans.BILLMODE, true);
+			a.hide(DataProvider.Plans.BILLPERIOD_ID, true);
+			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
+			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
+			a.hide(DataProvider.Plans.COST_PER_ITEM, true);
+			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
+			a.hide(DataProvider.Plans.LIMIT_TYPE, true);
+			a.hide(DataProvider.Plans.LIMIT, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
+			a.hide(DataProvider.Plans.SHORTNAME, false);
 			break;
 		default:
-			this.adapter.hide(DataProvider.Plans.SHORTNAME, false);
-			this.adapter.hide(DataProvider.Plans.BILLPERIOD_ID, false);
+			a.hide(DataProvider.Plans.SHORTNAME, false);
+			a.hide(DataProvider.Plans.BILLPERIOD_ID, false);
 
-			this.adapter.hide(DataProvider.Plans.BILLDAY, true);
-			this.adapter.hide(DataProvider.Plans.BILLPERIOD, true);
+			a.hide(DataProvider.Plans.BILLDAY, true);
+			a.hide(DataProvider.Plans.BILLPERIOD, true);
 			break;
 		}
 
 		switch (t) {
 		case DataProvider.TYPE_MMS:
 		case DataProvider.TYPE_SMS:
-			this.adapter.hide(DataProvider.Plans.BILLMODE, true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
-					true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
+			a.hide(DataProvider.Plans.BILLMODE, true);
+			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
+			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
 
-			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, false);
-			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
-			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, false);
-			this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, false);
+			a.hide(DataProvider.Plans.COST_PER_ITEM, false);
+			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
+			a.hide(DataProvider.Plans.COST_PER_PLAN, false);
+			a.hide(DataProvider.Plans.LIMIT_TYPE, false);
 			break;
 		case DataProvider.TYPE_DATA:
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
-			this.adapter.hide(DataProvider.Plans.BILLMODE, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
+			a.hide(DataProvider.Plans.BILLMODE, true);
 
-			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, false);
-			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
-					false);
-			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, false);
-			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
-			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, false);
-			this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, false);
+			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, false);
+			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, false);
+			a.hide(DataProvider.Plans.COST_PER_ITEM, false);
+			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
+			a.hide(DataProvider.Plans.COST_PER_PLAN, false);
+			a.hide(DataProvider.Plans.LIMIT_TYPE, false);
 			break;
 		case DataProvider.TYPE_CALL:
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
 
-			this.adapter.hide(DataProvider.Plans.BILLPERIOD_ID, false);
-			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, false);
-			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
-					false);
-			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, false);
-			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
-			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, false);
-			this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, false);
+			a.hide(DataProvider.Plans.BILLPERIOD_ID, false);
+			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, false);
+			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, false);
+			a.hide(DataProvider.Plans.COST_PER_ITEM, false);
+			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
+			a.hide(DataProvider.Plans.COST_PER_PLAN, false);
+			a.hide(DataProvider.Plans.LIMIT_TYPE, false);
 			break;
 		case DataProvider.TYPE_MIXED:
-			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
-					true);
+			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
+			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
 
-			this.adapter.hide(DataProvider.Plans.BILLMODE, false);
-			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, false);
-			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
-			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, false);
-			this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, false);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_CALL, false);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_SMS, false);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_MMS, false);
+			a.hide(DataProvider.Plans.BILLMODE, false);
+			a.hide(DataProvider.Plans.COST_PER_ITEM, false);
+			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
+			a.hide(DataProvider.Plans.COST_PER_PLAN, false);
+			a.hide(DataProvider.Plans.LIMIT_TYPE, false);
+			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, false);
+			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, false);
+			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, false);
 			break;
 		case DataProvider.TYPE_TITLE:
-			this.adapter.hide(DataProvider.Plans.BILLMODE, true);
-			this.adapter.hide(DataProvider.Plans.BILLPERIOD_ID, true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
-					true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
-			this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, true);
-			this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
-			this.adapter.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
+			a.hide(DataProvider.Plans.BILLMODE, true);
+			a.hide(DataProvider.Plans.BILLPERIOD_ID, true);
+			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
+			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
+			a.hide(DataProvider.Plans.COST_PER_ITEM, true);
+			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
+			a.hide(DataProvider.Plans.COST_PER_PLAN, true);
+			a.hide(DataProvider.Plans.LIMIT_TYPE, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
+			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
 			break;
 		default:
 			break;

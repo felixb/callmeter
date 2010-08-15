@@ -66,6 +66,8 @@
 	<string name="billmode_">Метод отчёта</string>
 	<string name="billdate_">Начало отсчёта:</string>
 	<string name="appearance_">Вид</string>
+<!--	<string name="advanced_preferences_">Advanced preferences</string> -->
+<!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
 	<string name="theme_">Тема</string>
 	<string name="textsize_">Размер шрифта</string>
 	<string name="show_time_">Перейти по дате</string>

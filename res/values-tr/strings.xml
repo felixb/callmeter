@@ -66,6 +66,8 @@
 <!--	<string name="billmode_">Billing mode</string> -->
 <!--	<string name="billdate_">Start of billing period:</string> -->
 <!--	<string name="appearance_">Appearance</string> -->
+<!--	<string name="advanced_preferences_">Advanced preferences</string> -->
+<!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
 <!--	<string name="theme_">Theme</string> -->
 <!--	<string name="textsize_">Text size</string> -->
 <!--	<string name="show_time_">Switch to date</string> -->

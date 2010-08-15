@@ -66,6 +66,8 @@
 	<string name="billmode_">Rodzaj cyklu</string>
 	<string name="billdate_">Pierwszy dzień rachunku:</string>
 	<string name="appearance_">Wygląd</string>
+<!--	<string name="advanced_preferences_">Advanced preferences</string> -->
+<!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
 	<string name="theme_">Styl</string>
 	<string name="textsize_">Wielkość czcionki</string>
 	<string name="show_time_">Przełącz do daty</string>

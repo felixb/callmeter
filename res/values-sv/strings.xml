@@ -66,6 +66,8 @@
 	<string name="billmode_">Kostnadsläge </string>
 	<string name="billdate_">Första faktureringsdatum:</string>
 	<string name="appearance_">Visning</string>
+<!--	<string name="advanced_preferences_">Advanced preferences</string> -->
+<!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
 	<string name="theme_">Tema</string>
 	<string name="textsize_"> Text-storlek </string>
 <!--	<string name="show_time_">Switch to date</string> -->

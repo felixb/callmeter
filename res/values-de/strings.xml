@@ -66,6 +66,8 @@
 	<string name="billmode_">Abrechnungsmodus</string>
 	<string name="billdate_">Erster Rechnungstag:</string>
 	<string name="appearance_">Erscheinung</string>
+	<string name="advanced_preferences_">Erweiterte Einstellungen</string>
+	<string name="advanced_preferences_hint">Damit kannst du viel komplexere Abrechnungen abbilden. Die meisten Benutzer werden das nicht brauchen.</string>
 	<string name="theme_">Theme</string>
 	<string name="textsize_">Schriftgrad</string>
 	<string name="show_time_">Zu Datum</string>
