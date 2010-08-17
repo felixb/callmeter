@@ -894,10 +894,10 @@ public class Plans extends ListActivity implements OnClickListener,
 		String v0 = this.preferences.getString(PREFS_LAST_RUN, "");
 		String v1 = this.getString(R.string.app_version);
 		if (!v0.equals(v1)) {
-			SharedPreferences.Editor editor = this.preferences.edit();
-			editor.putString(PREFS_LAST_RUN, v1);
-			editor.commit();
-			this.showDialog(DIALOG_UPDATE);
+			this.preferences.edit().putString(PREFS_LAST_RUN, v1).commit();
+			if (v0.length() > 0) {
+				this.showDialog(DIALOG_UPDATE);
+			}
 		}
 
 		prefsNoAds = DonationHelper.hideAds(this);
