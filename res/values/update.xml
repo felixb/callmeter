@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
+		<item>HEAD: Fix NPEs</item>
 		<item>v2.8.1: Add default rule sets, reduce complexity for simple setups, some changes to gui, force internal install</item>
 		<item>v2.7.3: Fix unediable fields, fix FC for empty bill modes, allow to hide title bar, readd polish+russion translation</item>
 		<item>v2.7.2: History, alert, widget, total expense, ... </item>

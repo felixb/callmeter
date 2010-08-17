@@ -521,9 +521,15 @@ public final class RuleMatcher {
 				now.setTimeInMillis(d);
 				this.currentBillday = DataProvider.Plans.getBillDay(
 						this.billperiod, this.billday, now, false);
-				this.nextBillday = DataProvider.Plans.getBillDay(
-						this.billperiod, this.billday, now, true)
-						.getTimeInMillis();
+				if (this.currentBillday == null) {
+					return;
+				}
+				final Calendar nbd = DataProvider.Plans.getBillDay(
+						this.billperiod, this.billday, now, true);
+				if (nbd == null) {
+					return;
+				}
+				this.nextBillday = nbd.getTimeInMillis();
 
 				// load old stats
 				final String where = DbUtils.sqlAnd(DataProvider.Plans
