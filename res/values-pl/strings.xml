@@ -241,17 +241,17 @@
 		<item>MMS</item>
 		<item>Dane</item>
 	</string-array>
-<!--	<string-array name="rules_type"> -->
-<!--		<item>Is Call</item> -->
-<!--		<item>Is SMS</item> -->
-<!--		<item>Is MMS</item> -->
-<!--		<item>Is Data</item> -->
-<!--		<item>Is Incoming</item> -->
-<!--		<item>Is Roaming</item> -->
-<!--		<item>Match Numbers</item> -->
-<!--		<item>Match Hours</item> -->
-<!--		<item>Limit osiągnięty</item> -->
-<!--	</string-array> -->
+	<string-array name="rules_type">
+		<item>dla Połączenia</item>
+		<item>dla SMS</item>
+		<item>dla MMS</item>
+		<item>dla Dane</item>
+		<item>dla Przychodzących</item>
+		<item>dla Roamingu</item>
+		<item>Dopasuj do numeru</item>
+		<item>Dopasuj do godzin</item>
+		<item>Limit osiągnięty</item>
+	</string-array> -->
 	<string-array name="limit_type">
 		<item>nielimitowany</item>
 		<item>jednostki</item>
