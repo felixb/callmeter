@@ -66,8 +66,8 @@
 	<string name="billmode_">Rodzaj cyklu</string>
 	<string name="billdate_">Pierwszy dzień rachunku:</string>
 	<string name="appearance_">Wygląd</string>
-<!--	<string name="advanced_preferences_">Advanced preferences</string> -->
-<!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
+	<string name="advanced_preferences_">Ustawienia zaawansowane</string>
+	<string name="advanced_preferences_hint">Zaznacz, aby uaktywnić dodatkowe ustawienia. Głównie dla zaawansowanych użytkowników.</string>
 	<string name="theme_">Styl</string>
 	<string name="textsize_">Wielkość czcionki</string>
 	<string name="show_time_">Przełącz do daty</string>
@@ -75,11 +75,11 @@
 	<string name="show_titlebar_hint">Pokazuj pasek tytułowy w oknie głównym. Bez paska tytułowego nie ma możliwości zobaczenia aktywności w tle.</string>
 	<string name="show_hours_">Pokaż godziny</string>
 	<string name="show_hours_hint">Pokaż czas w sekundach, minutach, godzinach i dniach.\nJeżeli niezaznaczone, tylko sekundy i godziny będą pokazane.</string>
-	<string name="custom_currency_symbol_">Niestandardowy symbol waluty</string>
-	<string name="custom_currency_symbol_hint">Wprowadź symbol waluty, pozostaw puste dla ustawień domyślnych.</string>
-	<string name="custom_currency_format_">Niestandardowy format waluty</string>
+	<string name="custom_currency_symbol_">Symbol waluty</string>
+	<string name="custom_currency_symbol_hint">Wprowadź niestandardowy symbol waluty, jeżeli potrzeba.</string>
+	<string name="custom_currency_format_">Format waluty</string>
 	<string name="custom_currency_format_hint">Wybierz niestandardowy format waluty</string>
-	<string name="custom_date_format_">Niestandardowy format daty</string>
+	<string name="custom_date_format_">Format daty</string>
 	<string name="custom_date_format_hint">Wybierz niestandardowy format daty</string>
 	<string name="logs">Logi</string>
 	<string name="show_logs">Pokaż logi</string>
@@ -232,8 +232,8 @@
 		<item>Usuń</item>
 	</string-array>
 <!--	<string-array name="plans_type"> -->
-<!--		<item>Title</item> -->
-<!--		<item>Spacer</item> -->
+<!--		<item>Nagłówek</item> -->
+<!--		<item>Odstęp</item> -->
 <!--		<item>Okres rozliczenia</item> -->
 <!--		<item>Mixed</item> -->
 <!--		<item>Połączenia</item> -->
