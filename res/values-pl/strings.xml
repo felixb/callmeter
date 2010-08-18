@@ -115,9 +115,9 @@
 	<string name="name_">Nazwa</string>
 	<string name="name_help">Wprowadź nazwę</string>
 	<string name="shortname_">Skrócona nazwa</string>
-	<string name="shortname_help">Wprowadź nazwę skróconą. Będzie wyświetlona w widoku kompaktowym.</string>
+	<string name="shortname_help">Wprowadź nazwę skróconą. Będzie ona wyświetlona w widoku kompaktowym.</string>
 	<string name="type_">Typ</string>
-<!--	<string name="type_help">Select a type.\n\"Title\" will just display a title in main view.\n\"Spacer\" will display nothing but empty space.\n\"Bill period\" will hold any information about your billing period. Most users will need exactly one.\nA \"mixed\" plan can take calls and messages at once. It will combine billing of all those items.\nA \"call\" plan does only take calls. \"SMS\" and \"MMS\" plans will just take the messages.\nA \"data\" plan may hold information about your data traffic.</string> -->
+	<string name="type_help">Wybierz typ.\n\"Nagłówek\" wyświetla tytuł w oknie głównym.\n\"Odstęp\" wstawia odstęp pomiędzy elementami.\n\"Okres rozliczeniowy\" wyświetla informacje o długości okresu. Dla większości użytkowników potrzebny jest tylko jeden.\nA \"Mieszane\" pokazuje połączenia i wiadomości razem. Połączy rozliczenia wszystkich elementów.\nA \"Połączenia\" wyświetla tylko połączenia. \"SMS\" i \"MMS\" wyświetla informacje o wiadomościach.\nA \"Dane\" przedstawia informacje o transferze danych.</string>
 	<string name="limit_type_">Typ limitów</string>
 <!--	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"cost\" limit will limit your plan based on cost produced by the items billed in this plan.</string> -->
 	<string name="limit_">Limit</string>
@@ -158,7 +158,7 @@
 <!--	<string name="what0_help">This condition needs an arguments to set.</string> -->
 <!--	<string name="what1_">And ... rule</string> -->
 <!--	<string name="what1_help">Choose a rule which must match too.</string> -->
-<!--	<string name="none">None</string> -->
+	<string name="none">Brak</string>
 	<string name="value">Wartość</string>
 	<string name="export_rules_">Eksportuj ustawienia reguł</string>
 	<string name="export_rules_hint">Eksportuj ustawienia reguł</string>
@@ -231,16 +231,16 @@
 		<item>Edytuj</item>
 		<item>Usuń</item>
 	</string-array>
-<!--	<string-array name="plans_type"> -->
-<!--		<item>Nagłówek</item> -->
-<!--		<item>Odstęp</item> -->
-<!--		<item>Okres rozliczenia</item> -->
-<!--		<item>Mixed</item> -->
-<!--		<item>Połączenia</item> -->
-<!--		<item>SMS</item> -->
-<!--		<item>MMS</item> -->
-<!--		<item>Dane</item> -->
-<!--	</string-array> -->
+	<string-array name="plans_type">
+		<item>Nagłówek</item>
+		<item>Odstęp</item>
+		<item>Okres rozliczenia</item>
+		<item>Mieszane</item>
+		<item>Połączenia</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Dane</item>
+	</string-array>
 <!--	<string-array name="rules_type"> -->
 <!--		<item>Is Call</item> -->
 <!--		<item>Is SMS</item> -->
