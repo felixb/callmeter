@@ -389,7 +389,7 @@ abstract class Preference {
 		/** Current value. */
 		private int value = -1;
 		/** List of values. */
-		private final String[] strValues;
+		private String[] strValues;
 
 		/**
 		 * Default Constructor.
@@ -413,6 +413,30 @@ abstract class Preference {
 			super(ctx, prefName, R.layout.prefadapter_item, text, help);
 			this.defaultValue = defValue;
 			this.strValues = ctx.getResources().getStringArray(values);
+		}
+
+		/**
+		 * Default Constructor.
+		 * 
+		 * @param ctx
+		 *            {@link Context}
+		 * @param prefName
+		 *            name of {@link Preference}
+		 * @param defValue
+		 *            default value of {@link Preference}
+		 * @param text
+		 *            resource id of the title text
+		 * @param help
+		 *            resource id of the help text
+		 * @param values
+		 *            string array of values
+		 */
+		protected ListPreference(final Context ctx, final String prefName,
+				final int defValue, final int text, final int help,
+				final String[] values) {
+			super(ctx, prefName, R.layout.prefadapter_item, text, help);
+			this.defaultValue = defValue;
+			this.strValues = values;
 		}
 
 		@Override
@@ -448,6 +472,16 @@ abstract class Preference {
 		@Override
 		void updateDialog(final Dialog d) {
 			((AlertDialog) d).getListView().setSelection(this.value);
+		}
+
+		/**
+		 * Set a new array of values.
+		 * 
+		 * @param values
+		 *            new values
+		 */
+		void setValues(final String[] values) {
+			this.strValues = values;
 		}
 
 		@Override

@@ -62,6 +62,78 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	/** Data for is child. */
 	private boolean isChild = false;
 
+	/** Array holding {@link String}s. */
+	private String[] inOutNomatterCalls = null;
+	/** Array holding {@link String}s. */
+	private String[] inOutNomatterSms = null;
+	/** Array holding {@link String}s. */
+	private String[] inOutNomatterMms = null;
+	/** Array holding {@link String}s. */
+	private String[] inOutNomatterData = null;
+	/** Array holding {@link String}s. */
+	private String[] yesNoNomatter = null;
+
+	/**
+	 * Get a {@link String}-Array for ListView.
+	 * 
+	 * @param base
+	 *            base array without no_matter_
+	 * @return array with no_matter_
+	 */
+	private String[] getStrings(final int base) {
+		switch (base) {
+		case R.array.direction_calls:
+			if (this.inOutNomatterCalls == null) {
+				final String[] tmp1 = new String[3];
+				final String[] tmp2 = this.getResources().getStringArray(base);
+				tmp1[0] = tmp2[0];
+				tmp1[1] = tmp2[1];
+				tmp1[2] = this.getString(R.string.no_matter_);
+				this.inOutNomatterCalls = tmp1;
+			}
+			return this.inOutNomatterCalls;
+		case R.array.direction_sms:
+			if (this.inOutNomatterSms == null) {
+				final String[] tmp1 = new String[3];
+				final String[] tmp2 = this.getResources().getStringArray(base);
+				tmp1[0] = tmp2[0];
+				tmp1[1] = tmp2[1];
+				tmp1[2] = this.getString(R.string.no_matter_);
+				this.inOutNomatterSms = tmp1;
+			}
+			return this.inOutNomatterSms;
+		case R.array.direction_mms:
+			if (this.inOutNomatterMms == null) {
+				final String[] tmp1 = new String[3];
+				final String[] tmp2 = this.getResources().getStringArray(base);
+				tmp1[0] = tmp2[0];
+				tmp1[1] = tmp2[1];
+				tmp1[2] = this.getString(R.string.no_matter_);
+				this.inOutNomatterMms = tmp1;
+			}
+			return this.inOutNomatterMms;
+		case R.array.direction_data:
+			if (this.inOutNomatterData == null) {
+				final String[] tmp1 = new String[3];
+				final String[] tmp2 = this.getResources().getStringArray(base);
+				tmp1[0] = tmp2[0];
+				tmp1[1] = tmp2[1];
+				tmp1[2] = this.getString(R.string.no_matter_);
+				this.inOutNomatterData = tmp1;
+			}
+			return this.inOutNomatterData;
+		default:
+			if (this.yesNoNomatter == null) {
+				final String[] tmp1 = new String[3];
+				tmp1[0] = this.getString(R.string.yes);
+				tmp1[1] = this.getString(R.string.no);
+				tmp1[2] = this.getString(R.string.no_matter_);
+				this.yesNoNomatter = tmp1;
+			}
+			return this.yesNoNomatter;
+		}
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -108,7 +180,8 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 					w = ContentUris.parseId(uri);
 				}
 				((CursorPreference) this.adapter
-						.getPreference(DataProvider.Rules.WHAT1)).setValue(w);
+						.getPreference(DataProvider.Rules.AND_PLAN))
+						.setValue(w);
 				break;
 			default:
 				break;
@@ -140,29 +213,8 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 					+ DataProvider.TYPE_MMS + " OR " + DataProvider.Plans.TYPE
 					+ " = " + DataProvider.TYPE_MIXED;
 			break;
-		case DataProvider.Rules.WHAT_NUMBERS:
-			where = DataProvider.Plans.WHERE_REALPLANS + " AND "
-					+ DataProvider.Plans.TYPE + " != " + DataProvider.TYPE_DATA;
-			break;
 		default:
 			where = DataProvider.Plans.WHERE_REALPLANS;
-			break;
-		}
-
-		final CursorPreference w0 = (CursorPreference) this.adapter
-				.getPreference(DataProvider.Rules.WHAT0);
-		switch (t) {
-		case DataProvider.Rules.WHAT_HOURS:
-			w0.setCursor(DataProvider.HoursGroup.CONTENT_URI,
-					DataProvider.HoursGroup.ID, DataProvider.HoursGroup.NAME,
-					null);
-			break;
-		case DataProvider.Rules.WHAT_NUMBERS:
-			w0.setCursor(DataProvider.NumbersGroup.CONTENT_URI,
-					DataProvider.NumbersGroup.ID,
-					DataProvider.NumbersGroup.NAME, null);
-			break;
-		default:
 			break;
 		}
 
@@ -183,52 +235,73 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 		ret.add(new ListPreference(this, DataProvider.Rules.WHAT,
 				DataProvider.Rules.WHAT_CALL, R.string.what_,
 				R.string.what_help, R.array.rules_type));
-		ret.add(new CursorPreference(this, DataProvider.Rules.WHAT0,
-				R.string.what0_, R.string.what0_help, R.string.edit_groups_,
-				-1, -1, DataProvider.HoursGroup.CONTENT_URI,
-				DataProvider.HoursGroup.ID, DataProvider.HoursGroup.NAME, null,
-				new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(final DialogInterface dialog,
-							final int which) {
-						final int t = ((ListPreference) RuleEdit.// .
-						this.adapter.getPreference(DataProvider.Rules.WHAT))
-								.getValue();
-						Intent intent;
-						if (t == DataProvider.Rules.WHAT_NUMBERS) {
-							intent = new Intent(RuleEdit.this,
-									NumberGroups.class);
-						} else if (t == DataProvider.Rules.WHAT_HOURS) {
-							intent = new Intent(RuleEdit.this, // .
-									HourGroups.class);
-						} else {
-							intent = null;
-						}
-						if (intent != null) {
-							RuleEdit.this.startActivity(intent);
-						}
-					}
-				}, null, null));
 		ret.add(new BoolPreference(this, DataProvider.Rules.NOT,
 				R.string.negate_, R.string.negate_help, this));
 		ret.add(new CursorPreference(this, DataProvider.Rules.PLAN_ID,
 				R.string.plan_, R.string.plan_help, -1, -1, -1,
 				DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID,
 				DataProvider.Plans.NAME, null, null, null, null));
-		ret.add(new CursorPreference(this, DataProvider.Rules.WHAT1,
+		ret.add(new ListPreference(this, DataProvider.Rules.DIRECTION,
+				DataProvider.Rules.NO_MATTER, R.string.direction_,
+				R.string.direction_help, this
+						.getStrings(R.array.direction_calls)));
+		ret.add(new ListPreference(this, DataProvider.Rules.ROAMED,
+				DataProvider.Rules.NO_MATTER, R.string.roamed_,
+				R.string.roamed_help, this.getStrings(-1)));
+		final DialogInterface.OnClickListener editHours = // .
+		new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(final DialogInterface dialog, final int which) {
+				RuleEdit.this.startActivity(new Intent(RuleEdit.this, // .
+						HourGroups.class));
+			}
+		};
+		ret.add(new CursorPreference(this, DataProvider.Rules.INHOURS_ID,
+				R.string.hourgroup_, R.string.hourgroup_help,
+				R.string.edit_groups_, -1, -1,
+				DataProvider.HoursGroup.CONTENT_URI,
+				DataProvider.HoursGroup.ID, DataProvider.HoursGroup.NAME, null,
+				editHours, null, null));
+		ret.add(new CursorPreference(this, DataProvider.Rules.EXHOURS_ID,
+				R.string.exhourgroup_, R.string.exhourgroup_help,
+				R.string.edit_groups_, -1, -1,
+				DataProvider.HoursGroup.CONTENT_URI,
+				DataProvider.HoursGroup.ID, DataProvider.HoursGroup.NAME, null,
+				editHours, null, null));
+		final DialogInterface.OnClickListener editNumbers = // .
+		new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(final DialogInterface dialog, final int which) {
+				RuleEdit.this.startActivity(new Intent(RuleEdit.this, // .
+						NumberGroups.class));
+			}
+		};
+		ret.add(new CursorPreference(this, DataProvider.Rules.INNUMBERS_ID,
+				R.string.numbergroup_, R.string.numbergroup_help,
+				R.string.edit_groups_, -1, -1,
+				DataProvider.NumbersGroup.CONTENT_URI,
+				DataProvider.NumbersGroup.ID, DataProvider.NumbersGroup.NAME,
+				null, editNumbers, null, null));
+		ret.add(new CursorPreference(this, DataProvider.Rules.EXNUMBERS_ID,
+				R.string.numbergroup_, R.string.numbergroup_help,
+				R.string.edit_groups_, -1, -1,
+				DataProvider.NumbersGroup.CONTENT_URI,
+				DataProvider.NumbersGroup.ID, DataProvider.NumbersGroup.NAME,
+				null, editNumbers, null, null));
+		ret.add(new CursorPreference(this, DataProvider.Rules.AND_PLAN,
 				R.string.what1_, R.string.what1_help, R.string.edit_selected_,
 				R.string.new_, R.string.clear_, DataProvider.Rules.CONTENT_URI,
 				DataProvider.Rules.ID, DataProvider.Rules.NAME, DbUtils.sqlAnd(
 						DataProvider.Rules.ISCHILD + " = 1",
 						DataProvider.Rules.ID + " != "
-								+ DataProvider.Rules.WHAT1),
+								+ DataProvider.Rules.AND_PLAN),
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(final DialogInterface dialog,
 							final int which) {
 						final long sel = ((CursorPreference) // .
 						RuleEdit.this.adapter.getPreference(DataProvider.// .
-								Rules.WHAT1)).getValue();
+								Rules.AND_PLAN)).getValue();
 						if (sel < 0) {
 							return;
 						}
@@ -254,7 +327,7 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 							final int which) {
 						((CursorPreference) RuleEdit.this.adapter
 								.getPreference(DataProvider.// .
-								Rules.WHAT1)).clearValue();
+								Rules.AND_PLAN)).clearValue();
 					}
 				}));
 		return ret;
@@ -294,41 +367,11 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	 * Show or hide fields based on data in there.
 	 */
 	private void showHideFileds() {
-		final int t = ((ListPreference) this.adapter
-				.getPreference(DataProvider.Rules.WHAT)).getValue();
-
-		boolean v;
-		switch (t) {
-		case DataProvider.Rules.WHAT_HOURS:
-		case DataProvider.Rules.WHAT_NUMBERS:
-			v = false;
-			break;
-		default:
-			v = true;
-			break;
-		}
-		this.adapter.hide(DataProvider.Rules.WHAT0, v);
-
-		switch (t) {
-		case DataProvider.Rules.WHAT_INCOMMING:
-		case DataProvider.Rules.WHAT_HOURS:
-		case DataProvider.Rules.WHAT_LIMIT_REACHED:
-		case DataProvider.Rules.WHAT_NUMBERS:
-		case DataProvider.Rules.WHAT_ROAMING:
-			v = false;
-			break;
-		default:
-			v = true;
-			break;
-		}
-		this.adapter.hide(DataProvider.Rules.NOT, v);
-
-		if (this.isChild) {
-			v = true;
-		} else {
-			v = false;
-		}
-		this.adapter.hide(DataProvider.Rules.PLAN_ID, v);
+		// FIXME
+		this.adapter.hide(DataProvider.Rules.WHAT0, true);
+		// FIXME
+		this.adapter.hide(DataProvider.Rules.NOT, true);
+		this.adapter.hide(DataProvider.Rules.PLAN_ID, this.isChild);
 	}
 
 	/**

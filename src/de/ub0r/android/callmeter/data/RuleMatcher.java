@@ -82,22 +82,39 @@ public final class RuleMatcher {
 			 * 
 			 * @param cr
 			 *            {@link ContentResolver}
-			 * @param what
-			 *            Kind of rule
-			 * @param what0
-			 *            argument
+			 * @param gid
+			 *            id of group
 			 * @return {@link Group}
 			 */
-			static Group getGroup(final ContentResolver cr, final int what,
-					final long what0) {
-				if (what0 < 0) {
+			static NumbersGroup getNumberGroup(final ContentResolver cr,
+					final long gid) {
+				if (gid < 0) {
 					return null;
 				}
-				Group ret = null;
-				if (what == DataProvider.Rules.WHAT_HOURS) {
-					ret = new HoursGroup(cr, what0);
-				} else if (what == DataProvider.Rules.WHAT_NUMBERS) {
-					ret = new NumbersGroup(cr, what0);
+				final NumbersGroup ret = new NumbersGroup(cr, gid);
+				if (ret.numbers.size() == 0) {
+					return null;
+				}
+				return ret;
+			}
+
+			/**
+			 * Get the {@link Group}.
+			 * 
+			 * @param cr
+			 *            {@link ContentResolver}
+			 * @param gid
+			 *            id of group
+			 * @return {@link Group}
+			 */
+			static HoursGroup getHourGroup(final ContentResolver cr,
+					final long gid) {
+				if (gid < 0) {
+					return null;
+				}
+				final HoursGroup ret = new HoursGroup(cr, gid);
+				if (ret.hours.size() == 0) {
+					return null;
 				}
 				return ret;
 			}
@@ -241,10 +258,16 @@ public final class RuleMatcher {
 		private final boolean negate;
 		/** Kind of rule. */
 		private final int what;
-		/** Target 0. */
-		private final Group what0;
 		/** Rule to "and". */
-		private final Rule what1;
+		private final Rule andPlan;
+		/** Is roamed? */
+		private final int roamed;
+		/** Is direction? */
+		private final int direction;
+		/** Match hours? */
+		private final HoursGroup inhours, exhours;
+		/** Match numbers? */
+		private final NumbersGroup innumbers, exnumbers;
 
 		/**
 		 * Load a {@link Rule} by id.
@@ -295,10 +318,18 @@ public final class RuleMatcher {
 			}
 			this.negate = cursor.getInt(DataProvider.Rules.INDEX_NOT) > 0;
 			this.what = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
-			this.what0 = Group.getGroup(cr, this.what, cursor
-					.getLong(DataProvider.Rules.INDEX_WHAT0));
-			this.what1 = getRule(cr, cursor
-					.getLong(DataProvider.Rules.INDEX_WHAT1), this.planId);
+			this.andPlan = getRule(cr, cursor
+					.getLong(DataProvider.Rules.INDEX_AND_PLAN), this.planId);
+			this.direction = cursor.getInt(DataProvider.Rules.INDEX_DIRECTION);
+			this.roamed = cursor.getInt(DataProvider.Rules.INDEX_ROAMED);
+			this.inhours = Group.getHourGroup(cr, cursor
+					.getLong(DataProvider.Rules.INDEX_INHOURS_ID));
+			this.exhours = Group.getHourGroup(cr, cursor
+					.getLong(DataProvider.Rules.INDEX_EXHOURS_ID));
+			this.innumbers = Group.getNumberGroup(cr, cursor
+					.getLong(DataProvider.Rules.INDEX_INNUMBERS_ID));
+			this.exnumbers = Group.getNumberGroup(cr, cursor
+					.getLong(DataProvider.Rules.INDEX_EXNUMBERS_ID));
 		}
 
 		/**
@@ -332,14 +363,6 @@ public final class RuleMatcher {
 			case DataProvider.Rules.WHAT_DATA:
 				ret = (t == DataProvider.TYPE_DATA);
 				break;
-			case DataProvider.Rules.WHAT_INCOMMING:
-				ret = log.getInt(DataProvider.Logs.INDEX_DIRECTION) == // .
-				DataProvider.DIRECTION_IN;
-				break;
-			case DataProvider.Rules.WHAT_HOURS:
-			case DataProvider.Rules.WHAT_NUMBERS:
-				ret = this.what0 != null && this.what0.match(log);
-				break;
 			case DataProvider.Rules.WHAT_LIMIT_REACHED:
 				final Plan p = plans.get(this.planId);
 				if (p != null) {
@@ -353,9 +376,6 @@ public final class RuleMatcher {
 			case DataProvider.Rules.WHAT_MMS:
 				ret = (t == DataProvider.TYPE_MMS);
 				break;
-			case DataProvider.Rules.WHAT_ROAMING:
-				ret = log.getInt(DataProvider.Logs.INDEX_ROAMED) > 0;
-				break;
 			case DataProvider.Rules.WHAT_SMS:
 				ret = (t == DataProvider.TYPE_SMS);
 				break;
@@ -365,8 +385,32 @@ public final class RuleMatcher {
 			if (this.negate) {
 				ret ^= true;
 			}
-			if (ret && this.what1 != null) {
-				return this.what1.match(log);
+			if (ret && this.roamed != DataProvider.Rules.NO_MATTER) {
+				// rule.roamed=0: yes
+				// rule.roamed=1: no
+				// log.roamed=0: not roamed
+				// log.roamed=1: roamed
+				ret &= log.getInt(DataProvider.Logs.INDEX_ROAMED) // .
+				!= this.roamed;
+			}
+			if (ret && this.direction != DataProvider.Rules.NO_MATTER) {
+				ret &= log.getInt(DataProvider.Logs.INDEX_DIRECTION) // .
+				== this.direction;
+			}
+			if (ret && this.inhours != null) {
+				ret &= this.inhours.match(log);
+			}
+			if (ret && this.exhours != null) {
+				ret &= !this.exhours.match(log);
+			}
+			if (ret && this.innumbers != null) {
+				ret &= this.innumbers.match(log);
+			}
+			if (ret && this.exnumbers != null) {
+				ret &= !this.exnumbers.match(log);
+			}
+			if (ret && this.andPlan != null) {
+				return this.andPlan.match(log);
 			}
 			return ret;
 		}

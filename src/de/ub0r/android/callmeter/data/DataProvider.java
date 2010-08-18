@@ -66,7 +66,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 16;
+	private static final int DATABASE_VERSION = 19;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -777,6 +777,9 @@ public final class DataProvider extends ContentProvider {
 	 * @author flx
 	 */
 	public static final class Rules {
+		/** Condition does not matter. */
+		public static final int NO_MATTER = 2;
+
 		/** Condition type: match call. */
 		public static final int WHAT_CALL = 0;
 		/** Condition type: match sms. */
@@ -785,15 +788,8 @@ public final class DataProvider extends ContentProvider {
 		public static final int WHAT_MMS = 2;
 		/** Condition type: match data. */
 		public static final int WHAT_DATA = 3;
-		/** Condition type: is incomming. */
-		public static final int WHAT_INCOMMING = 4;
-		/** Condition type: is roaming. */
-		public static final int WHAT_ROAMING = 5;
-		/** Condition type: match numbers. */
-		public static final int WHAT_NUMBERS = 6;
-		/** Condition type: match hours. */
-		public static final int WHAT_HOURS = 7;
 		/** Condition type: is limit reached. */
+		// TODO: merge into new layout
 		public static final int WHAT_LIMIT_REACHED = 8;
 
 		/** Table name. */
@@ -810,15 +806,30 @@ public final class DataProvider extends ContentProvider {
 		/** Index in projection: Name. */
 		public static final int INDEX_NAME = 3;
 		/** Index in projection: Negate rule? */
+		// TODO: delete me?
 		public static final int INDEX_NOT = 4;
 		/** Index in projection: Kind of rule. */
 		public static final int INDEX_WHAT = 5;
 		/** Index in projection: Target 0. */
+		// TODO: delete me
 		public static final int INDEX_WHAT0 = 6;
 		/** Index in projection: Target 1. */
-		public static final int INDEX_WHAT1 = 7;
+		// TODO: delete me?
+		public static final int INDEX_AND_PLAN = 7;
 		/** Index in projection: is child? */
 		public static final int INDEX_ISCHILD = 8;
+		/** Index in projection: is roamed? */
+		public static final int INDEX_ROAMED = 9;
+		/** Index in projection: is direction? */
+		public static final int INDEX_DIRECTION = 10;
+		/** Index in projection: is hours? */
+		public static final int INDEX_INHOURS_ID = 11;
+		/** Index in projection: is not hours? */
+		public static final int INDEX_EXHOURS_ID = 12;
+		/** Index in projection: is number? */
+		public static final int INDEX_INNUMBERS_ID = 13;
+		/** Index in projection: is not number? */
+		public static final int INDEX_EXNUMBERS_ID = 14;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -829,19 +840,35 @@ public final class DataProvider extends ContentProvider {
 		/** Name. */
 		public static final String NAME = "_rule_name";
 		/** Negate rule? */
+		// TODO: delete me ?
 		public static final String NOT = "_not";
 		/** Kind of rule. */
 		public static final String WHAT = "_what";
 		/** Target 0. */
+		// TODO: delete me
 		public static final String WHAT0 = "_what0";
 		/** Target 1. */
-		public static final String WHAT1 = "_what1";
+		// TODO: delete me?
+		public static final String AND_PLAN = "_what1";
 		/** Is child? */
 		public static final String ISCHILD = "_ischild";
+		/** Is roamed? */
+		public static final String ROAMED = "_roamed";
+		/** Is direction? */
+		public static final String DIRECTION = "_direction";
+		/** Is hours? */
+		public static final String INHOURS_ID = "_inhourgroup_id";
+		/** Is not hours? */
+		public static final String EXHOURS_ID = "_exhourgroup_id";
+		/** Is number? */
+		public static final String INNUMBERS_ID = "_innumbergroup_id";
+		/** Is not number? */
+		public static final String EXNUMBERS_ID = "_exnumbergroup_id";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, ORDER,
-				PLAN_ID, NAME, NOT, WHAT, WHAT0, WHAT1, ISCHILD };
+				PLAN_ID, NAME, NOT, WHAT, WHAT0, AND_PLAN, ISCHILD, ROAMED,
+				DIRECTION, INHOURS_ID, EXHOURS_ID, INNUMBERS_ID, EXNUMBERS_ID };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -867,8 +894,14 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(NOT, NOT);
 			PROJECTION_MAP.put(WHAT, WHAT);
 			PROJECTION_MAP.put(WHAT0, WHAT0);
-			PROJECTION_MAP.put(WHAT1, WHAT1);
+			PROJECTION_MAP.put(AND_PLAN, AND_PLAN);
 			PROJECTION_MAP.put(ISCHILD, ISCHILD);
+			PROJECTION_MAP.put(ROAMED, ROAMED);
+			PROJECTION_MAP.put(DIRECTION, DIRECTION);
+			PROJECTION_MAP.put(INHOURS_ID, INHOURS_ID);
+			PROJECTION_MAP.put(EXHOURS_ID, EXHOURS_ID);
+			PROJECTION_MAP.put(INNUMBERS_ID, INNUMBERS_ID);
+			PROJECTION_MAP.put(EXNUMBERS_ID, EXNUMBERS_ID);
 		}
 
 		/**
@@ -888,8 +921,14 @@ public final class DataProvider extends ContentProvider {
 					+ NOT + " INTEGER,"// .
 					+ WHAT + " INTEGER,"// .
 					+ WHAT0 + " LONG,"// .
-					+ WHAT1 + " LONG,"// .
-					+ ISCHILD + " INTEGER" // .
+					+ AND_PLAN + " LONG,"// .
+					+ ISCHILD + " INTEGER," // .
+					+ ROAMED + " INTEGER,"// .
+					+ DIRECTION + " INTEGER,"// .
+					+ INHOURS_ID + " LONG,"// .
+					+ EXHOURS_ID + " LONG,"// .
+					+ INNUMBERS_ID + " LONG,"// .
+					+ EXNUMBERS_ID + " LONG"// .
 					+ ");");
 		}
 

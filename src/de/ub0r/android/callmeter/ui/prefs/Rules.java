@@ -27,6 +27,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -104,8 +105,46 @@ public class Rules extends ListActivity implements OnClickListener,
 			if (cursor.getInt(DataProvider.Rules.INDEX_NOT) > 0) {
 				w = "\u00AC ";
 			}
-			w += this.types[cursor.getInt(DataProvider.Rules.INDEX_WHAT)];
-			if (cursor.getLong(DataProvider.Rules.INDEX_WHAT1) >= 0L) {
+			final int t = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
+			if (t >= 0 && t < this.types.length) {
+				w += this.types[t];
+			} else {
+				w += "???";
+			}
+			int i = cursor.getInt(DataProvider.Rules.INDEX_ROAMED);
+			if (i == 0) {
+				w += " & " + ctxt.getString(R.string.roamed_);
+			} else if (i == 1) {
+				w += " & \u00AC " + ctxt.getString(R.string.roamed_);
+			}
+			i = cursor.getInt(DataProvider.Rules.INDEX_DIRECTION);
+			if (i >= 0 && i < DataProvider.Rules.NO_MATTER) {
+				String[] strs;
+				final Resources r = ctxt.getResources();
+				if (t == DataProvider.TYPE_SMS) {
+					strs = r.getStringArray(R.array.direction_sms);
+				} else if (t == DataProvider.TYPE_MMS) {
+					strs = r.getStringArray(R.array.direction_mms);
+				} else if (t == DataProvider.TYPE_DATA) {
+					strs = r.getStringArray(R.array.direction_data);
+				} else {
+					strs = r.getStringArray(R.array.direction_calls);
+				}
+				w += " & " + strs[i];
+			}
+			if (cursor.getLong(DataProvider.Rules.INDEX_INHOURS_ID) > 0) {
+				w += " & " + ctxt.getString(R.string.hourgroup_);
+			}
+			if (cursor.getLong(DataProvider.Rules.INDEX_EXHOURS_ID) > 0) {
+				w += " & " + ctxt.getString(R.string.exhourgroup_);
+			}
+			if (cursor.getLong(DataProvider.Rules.INDEX_INNUMBERS_ID) > 0) {
+				w += " & " + ctxt.getString(R.string.numbergroup_);
+			}
+			if (cursor.getLong(DataProvider.Rules.INDEX_EXNUMBERS_ID) > 0) {
+				w += " & " + ctxt.getString(R.string.exnumbergroup_);
+			}
+			if (cursor.getLong(DataProvider.Rules.INDEX_AND_PLAN) >= 0L) {
 				w += " & ...";
 			}
 			twType.setText(w);
