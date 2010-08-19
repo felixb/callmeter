@@ -129,14 +129,10 @@
 	<string name="mixed_units_call_help">Set the units billed for a one minute call.\nBill mode is taken into account here.</string>
 	<string name="plan_">Plan</string>
 	<string name="plan_help">Choose the plan this rule should fit.</string>
-	<string name="negate_">Negate</string>
-	<string name="negate_help">Reverse the condition.</string>
-	<string name="what_">Condition</string>
-	<string name="what_help">Choose a condition here.</string>
-	<string name="what0_">Argument</string>
-	<string name="what0_help">This condition needs an arguments to set.</string>
-	<string name="what1_">And ... rule</string>
-	<string name="what1_help">Choose a rule which must match too.</string>
+	<string name="limitnotreached_">Limit not reached</string>
+	<string name="limitnotreached_help">Match only if target plan has not reached it\'s limit yet.</string>
+	<string name="what_">Target type</string>
+	<string name="what_help">Choose a target type here.</string>
 	<string name="direction_">Direction</string>
 	<string name="direction_help">Choose a direction the given log has to be.</string>
 	<string name="roamed_">Roamed</string>
@@ -228,15 +224,10 @@
 		<item>Data</item>
 	</string-array>
 	<string-array name="rules_type">
-		<item>Is Call</item>
-		<item>Is SMS</item>
-		<item>Is MMS</item>
-		<item>Is Data</item>
-		<item>Is Incoming</item>
-		<item>Is Roaming</item>
-		<item>Match Numbers</item>
-		<item>Match Hours</item>
-		<item>Limit reached</item>
+		<item>Calls</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Data</item>
 	</string-array>
 	<string-array name="limit_type">
 		<item>unlimited</item>

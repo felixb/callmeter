@@ -254,12 +254,8 @@ public final class RuleMatcher {
 		private final long id;
 		/** ID of plan referred by this rule. */
 		private final long planId;
-		/** Negate rule? */
-		private final boolean negate;
 		/** Kind of rule. */
 		private final int what;
-		/** Rule to "and". */
-		private final Rule andPlan;
 		/** Is roamed? */
 		private final int roamed;
 		/** Is direction? */
@@ -268,35 +264,8 @@ public final class RuleMatcher {
 		private final HoursGroup inhours, exhours;
 		/** Match numbers? */
 		private final NumbersGroup innumbers, exnumbers;
-
-		/**
-		 * Load a {@link Rule} by id.
-		 * 
-		 * @param cr
-		 *            {@link ContentResolver}
-		 * @param id
-		 *            ID of {@link Rule}
-		 * @param overwritePlanId
-		 *            overwrite plan id
-		 * @return {@link Rule}
-		 */
-		private static Rule getRule(final ContentResolver cr, final long id,
-				final long overwritePlanId) {
-			if (id < 0) {
-				return null;
-			}
-			Rule ret = null;
-			final Cursor cursor = cr.query(ContentUris.withAppendedId(
-					DataProvider.Rules.CONTENT_URI, id),
-					DataProvider.Rules.PROJECTION, null, null, null);
-			if (cursor != null && cursor.moveToFirst()) {
-				ret = new Rule(cr, cursor, overwritePlanId);
-			}
-			if (cursor != null && !cursor.isClosed()) {
-				cursor.close();
-			}
-			return ret;
-		}
+		/** Match only if limit is not reached? */
+		private final boolean limitNotReached;
 
 		/**
 		 * Load a {@link Rule}.
@@ -316,10 +285,7 @@ public final class RuleMatcher {
 			} else {
 				this.planId = cursor.getLong(DataProvider.Rules.INDEX_PLAN_ID);
 			}
-			this.negate = cursor.getInt(DataProvider.Rules.INDEX_NOT) > 0;
 			this.what = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
-			this.andPlan = getRule(cr, cursor
-					.getLong(DataProvider.Rules.INDEX_AND_PLAN), this.planId);
 			this.direction = cursor.getInt(DataProvider.Rules.INDEX_DIRECTION);
 			this.roamed = cursor.getInt(DataProvider.Rules.INDEX_ROAMED);
 			this.inhours = Group.getHourGroup(cr, cursor
@@ -330,6 +296,8 @@ public final class RuleMatcher {
 					.getLong(DataProvider.Rules.INDEX_INNUMBERS_ID));
 			this.exnumbers = Group.getNumberGroup(cr, cursor
 					.getLong(DataProvider.Rules.INDEX_EXNUMBERS_ID));
+			this.limitNotReached = cursor
+					.getInt(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED) > 0;
 		}
 
 		/**
@@ -363,16 +331,6 @@ public final class RuleMatcher {
 			case DataProvider.Rules.WHAT_DATA:
 				ret = (t == DataProvider.TYPE_DATA);
 				break;
-			case DataProvider.Rules.WHAT_LIMIT_REACHED:
-				final Plan p = plans.get(this.planId);
-				if (p != null) {
-					p.checkBillday(log);
-					ret = !p.isInLimit();
-				}
-				if (ret) {
-					Log.d(TAG, "limit reached: " + this.planId);
-				}
-				break;
 			case DataProvider.Rules.WHAT_MMS:
 				ret = (t == DataProvider.TYPE_MMS);
 				break;
@@ -382,35 +340,40 @@ public final class RuleMatcher {
 			default:
 				break;
 			}
-			if (this.negate) {
-				ret ^= true;
+			if (ret && this.limitNotReached) {
+				final Plan p = plans.get(this.planId);
+				if (p != null) {
+					p.checkBillday(log);
+					ret = p.isInLimit();
+				}
+				if (!ret) {
+					Log.d(TAG, "limit reached: " + this.planId);
+				}
 			}
+
 			if (ret && this.roamed != DataProvider.Rules.NO_MATTER) {
 				// rule.roamed=0: yes
 				// rule.roamed=1: no
 				// log.roamed=0: not roamed
 				// log.roamed=1: roamed
-				ret &= log.getInt(DataProvider.Logs.INDEX_ROAMED) // .
+				ret = log.getInt(DataProvider.Logs.INDEX_ROAMED) // .
 				!= this.roamed;
 			}
 			if (ret && this.direction != DataProvider.Rules.NO_MATTER) {
-				ret &= log.getInt(DataProvider.Logs.INDEX_DIRECTION) // .
+				ret = log.getInt(DataProvider.Logs.INDEX_DIRECTION) // .
 				== this.direction;
 			}
 			if (ret && this.inhours != null) {
-				ret &= this.inhours.match(log);
+				ret = this.inhours.match(log);
 			}
 			if (ret && this.exhours != null) {
-				ret &= !this.exhours.match(log);
+				ret = !this.exhours.match(log);
 			}
 			if (ret && this.innumbers != null) {
-				ret &= this.innumbers.match(log);
+				ret = this.innumbers.match(log);
 			}
 			if (ret && this.exnumbers != null) {
-				ret &= !this.exnumbers.match(log);
-			}
-			if (ret && this.andPlan != null) {
-				return this.andPlan.match(log);
+				ret = !this.exnumbers.match(log);
 			}
 			return ret;
 		}
@@ -771,8 +734,8 @@ public final class RuleMatcher {
 		// load rules
 		rules = new ArrayList<Rule>();
 		Cursor cursor = cr.query(DataProvider.Rules.CONTENT_URI,
-				DataProvider.Rules.PROJECTION, DataProvider.Rules.ISCHILD
-						+ " = 0", null, DataProvider.Rules.ORDER);
+				DataProvider.Rules.PROJECTION, null, null,
+				DataProvider.Rules.ORDER);
 		if (cursor != null && cursor.moveToFirst()) {
 			do {
 				rules.add(new Rule(cr, cursor, -1));

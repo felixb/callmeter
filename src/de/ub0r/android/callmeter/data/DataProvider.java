@@ -66,7 +66,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 19;
+	private static final int DATABASE_VERSION = 20;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -788,9 +788,6 @@ public final class DataProvider extends ContentProvider {
 		public static final int WHAT_MMS = 2;
 		/** Condition type: match data. */
 		public static final int WHAT_DATA = 3;
-		/** Condition type: is limit reached. */
-		// TODO: merge into new layout
-		public static final int WHAT_LIMIT_REACHED = 8;
 
 		/** Table name. */
 		private static final String TABLE = "rules";
@@ -805,31 +802,22 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_PLAN_ID = 2;
 		/** Index in projection: Name. */
 		public static final int INDEX_NAME = 3;
-		/** Index in projection: Negate rule? */
-		// TODO: delete me?
-		public static final int INDEX_NOT = 4;
 		/** Index in projection: Kind of rule. */
-		public static final int INDEX_WHAT = 5;
-		/** Index in projection: Target 0. */
-		// TODO: delete me
-		public static final int INDEX_WHAT0 = 6;
-		/** Index in projection: Target 1. */
-		// TODO: delete me?
-		public static final int INDEX_AND_PLAN = 7;
-		/** Index in projection: is child? */
-		public static final int INDEX_ISCHILD = 8;
+		public static final int INDEX_WHAT = 4;
 		/** Index in projection: is roamed? */
-		public static final int INDEX_ROAMED = 9;
+		public static final int INDEX_ROAMED = 5;
 		/** Index in projection: is direction? */
-		public static final int INDEX_DIRECTION = 10;
+		public static final int INDEX_DIRECTION = 6;
 		/** Index in projection: is hours? */
-		public static final int INDEX_INHOURS_ID = 11;
+		public static final int INDEX_INHOURS_ID = 7;
 		/** Index in projection: is not hours? */
-		public static final int INDEX_EXHOURS_ID = 12;
+		public static final int INDEX_EXHOURS_ID = 8;
 		/** Index in projection: is number? */
-		public static final int INDEX_INNUMBERS_ID = 13;
+		public static final int INDEX_INNUMBERS_ID = 9;
 		/** Index in projection: is not number? */
-		public static final int INDEX_EXNUMBERS_ID = 14;
+		public static final int INDEX_EXNUMBERS_ID = 10;
+		/** Index in projection: limit not reached? */
+		public static final int INDEX_LIMIT_NOT_REACHED = 11;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -839,19 +827,8 @@ public final class DataProvider extends ContentProvider {
 		public static final String PLAN_ID = "_plan_id";
 		/** Name. */
 		public static final String NAME = "_rule_name";
-		/** Negate rule? */
-		// TODO: delete me ?
-		public static final String NOT = "_not";
 		/** Kind of rule. */
 		public static final String WHAT = "_what";
-		/** Target 0. */
-		// TODO: delete me
-		public static final String WHAT0 = "_what0";
-		/** Target 1. */
-		// TODO: delete me?
-		public static final String AND_PLAN = "_what1";
-		/** Is child? */
-		public static final String ISCHILD = "_ischild";
 		/** Is roamed? */
 		public static final String ROAMED = "_roamed";
 		/** Is direction? */
@@ -864,11 +841,13 @@ public final class DataProvider extends ContentProvider {
 		public static final String INNUMBERS_ID = "_innumbergroup_id";
 		/** Is not number? */
 		public static final String EXNUMBERS_ID = "_exnumbergroup_id";
+		/** Limit not reached? */
+		public static final String LIMIT_NOT_REACHED = "_limit_not_reached";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, ORDER,
-				PLAN_ID, NAME, NOT, WHAT, WHAT0, AND_PLAN, ISCHILD, ROAMED,
-				DIRECTION, INHOURS_ID, EXHOURS_ID, INNUMBERS_ID, EXNUMBERS_ID };
+				PLAN_ID, NAME, WHAT, ROAMED, DIRECTION, INHOURS_ID, EXHOURS_ID,
+				INNUMBERS_ID, EXNUMBERS_ID, LIMIT_NOT_REACHED };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -891,17 +870,14 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(ORDER, ORDER);
 			PROJECTION_MAP.put(NAME, NAME);
 			PROJECTION_MAP.put(PLAN_ID, PLAN_ID);
-			PROJECTION_MAP.put(NOT, NOT);
 			PROJECTION_MAP.put(WHAT, WHAT);
-			PROJECTION_MAP.put(WHAT0, WHAT0);
-			PROJECTION_MAP.put(AND_PLAN, AND_PLAN);
-			PROJECTION_MAP.put(ISCHILD, ISCHILD);
 			PROJECTION_MAP.put(ROAMED, ROAMED);
 			PROJECTION_MAP.put(DIRECTION, DIRECTION);
 			PROJECTION_MAP.put(INHOURS_ID, INHOURS_ID);
 			PROJECTION_MAP.put(EXHOURS_ID, EXHOURS_ID);
 			PROJECTION_MAP.put(INNUMBERS_ID, INNUMBERS_ID);
 			PROJECTION_MAP.put(EXNUMBERS_ID, EXNUMBERS_ID);
+			PROJECTION_MAP.put(LIMIT_NOT_REACHED, LIMIT_NOT_REACHED);
 		}
 
 		/**
@@ -918,17 +894,14 @@ public final class DataProvider extends ContentProvider {
 					+ ORDER + " INTEGER," // .
 					+ NAME + " TEXT,"// .
 					+ PLAN_ID + " INTEGER,"// .
-					+ NOT + " INTEGER,"// .
 					+ WHAT + " INTEGER,"// .
-					+ WHAT0 + " LONG,"// .
-					+ AND_PLAN + " LONG,"// .
-					+ ISCHILD + " INTEGER," // .
 					+ ROAMED + " INTEGER,"// .
 					+ DIRECTION + " INTEGER,"// .
 					+ INHOURS_ID + " LONG,"// .
 					+ EXHOURS_ID + " LONG,"// .
 					+ INNUMBERS_ID + " LONG,"// .
-					+ EXNUMBERS_ID + " LONG"// .
+					+ EXNUMBERS_ID + " LONG,"// .
+					+ LIMIT_NOT_REACHED + " INTEGER" // .
 					+ ");");
 		}
 

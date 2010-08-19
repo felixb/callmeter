@@ -19,7 +19,6 @@
 package de.ub0r.android.callmeter.ui.prefs;
 
 import android.app.ListActivity;
-import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -38,7 +37,6 @@ import de.ub0r.android.callmeter.ui.prefs.Preference.BoolPreference;
 import de.ub0r.android.callmeter.ui.prefs.Preference.CursorPreference;
 import de.ub0r.android.callmeter.ui.prefs.Preference.ListPreference;
 import de.ub0r.android.callmeter.ui.prefs.Preference.TextPreference;
-import de.ub0r.android.lib.DbUtils;
 
 /**
  * Edit a single Plan.
@@ -50,17 +48,8 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	/** {@link PreferenceAdapter}. */
 	private PreferenceAdapter adapter = null;
 
-	/** Activity result request id: rule. */
-	private static final int REQUEST_RULE = 0;
-
-	/** Extra for {@link Intent}: is child? */
-	static final String EXTRA_ISCHILD = "is_child";
-
 	/** Id of edited filed. */
 	private long rid = -1;
-
-	/** Data for is child. */
-	private boolean isChild = false;
 
 	/** Array holding {@link String}s. */
 	private String[] inOutNomatterCalls = null;
@@ -164,33 +153,6 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	}
 
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void onActivityResult(final int requestCode,
-			final int resultCode, final Intent data) {
-		long w = -1L;
-		if (resultCode == RESULT_OK) {
-			final Uri uri = data.getData();
-			switch (requestCode) {
-			case REQUEST_RULE:
-				if (uri == null) {
-					w = -1L;
-				} else {
-					w = ContentUris.parseId(uri);
-				}
-				((CursorPreference) this.adapter
-						.getPreference(DataProvider.Rules.AND_PLAN))
-						.setValue(w);
-				break;
-			default:
-				break;
-			}
-			this.adapter.notifyDataSetInvalidated();
-		}
-	}
-
-	/**
 	 * Set plan's and what0 value.
 	 */
 	private void fillPlan() {
@@ -235,12 +197,15 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 		ret.add(new ListPreference(this, DataProvider.Rules.WHAT,
 				DataProvider.Rules.WHAT_CALL, R.string.what_,
 				R.string.what_help, R.array.rules_type));
-		ret.add(new BoolPreference(this, DataProvider.Rules.NOT,
-				R.string.negate_, R.string.negate_help, this));
 		ret.add(new CursorPreference(this, DataProvider.Rules.PLAN_ID,
 				R.string.plan_, R.string.plan_help, -1, -1, -1,
 				DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID,
 				DataProvider.Plans.NAME, null, null, null, null));
+		ret
+				.add(new BoolPreference(this,
+						DataProvider.Rules.LIMIT_NOT_REACHED,
+						R.string.limitnotreached_,
+						R.string.limitnotreached_help, this));
 		ret.add(new ListPreference(this, DataProvider.Rules.DIRECTION,
 				DataProvider.Rules.NO_MATTER, R.string.direction_,
 				R.string.direction_help, this
@@ -288,48 +253,6 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 				DataProvider.NumbersGroup.CONTENT_URI,
 				DataProvider.NumbersGroup.ID, DataProvider.NumbersGroup.NAME,
 				null, editNumbers, null, null));
-		ret.add(new CursorPreference(this, DataProvider.Rules.AND_PLAN,
-				R.string.what1_, R.string.what1_help, R.string.edit_selected_,
-				R.string.new_, R.string.clear_, DataProvider.Rules.CONTENT_URI,
-				DataProvider.Rules.ID, DataProvider.Rules.NAME, DbUtils.sqlAnd(
-						DataProvider.Rules.ISCHILD + " = 1",
-						DataProvider.Rules.ID + " != "
-								+ DataProvider.Rules.AND_PLAN),
-				new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(final DialogInterface dialog,
-							final int which) {
-						final long sel = ((CursorPreference) // .
-						RuleEdit.this.adapter.getPreference(DataProvider.// .
-								Rules.AND_PLAN)).getValue();
-						if (sel < 0) {
-							return;
-						}
-						final Intent fi = new Intent(Intent.ACTION_VIEW,
-								ContentUris.withAppendedId(
-										DataProvider.Rules.CONTENT_URI, sel),
-								RuleEdit.this, RuleEdit.class);
-						fi.putExtra(EXTRA_ISCHILD, true);
-						RuleEdit.this.startActivityForResult(fi, REQUEST_RULE);
-					}
-				}, new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(final DialogInterface dialog,
-							final int which) {
-						final Intent fi = new Intent(RuleEdit.this,
-								RuleEdit.class);
-						fi.putExtra(EXTRA_ISCHILD, true);
-						RuleEdit.this.startActivityForResult(fi, REQUEST_RULE);
-					}
-				}, new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(final DialogInterface dialog,
-							final int which) {
-						((CursorPreference) RuleEdit.this.adapter
-								.getPreference(DataProvider.// .
-								Rules.AND_PLAN)).clearValue();
-					}
-				}));
 		return ret;
 	}
 
@@ -337,7 +260,6 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	 * Fill the fields with data from the cursor.
 	 */
 	private void fillFields() {
-		this.isChild = this.getIntent().getBooleanExtra(EXTRA_ISCHILD, false);
 		final Uri uri = this.getIntent().getData();
 		int nid = -1;
 		Cursor cursor = null;
@@ -367,11 +289,19 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	 * Show or hide fields based on data in there.
 	 */
 	private void showHideFileds() {
-		// FIXME
-		this.adapter.hide(DataProvider.Rules.WHAT0, true);
-		// FIXME
-		this.adapter.hide(DataProvider.Rules.NOT, true);
-		this.adapter.hide(DataProvider.Rules.PLAN_ID, this.isChild);
+		final int t = ((ListPreference) this.adapter
+				.getPreference(DataProvider.Rules.WHAT)).getValue();
+		switch (t) {
+		case DataProvider.Rules.WHAT_DATA:
+		case DataProvider.Rules.WHAT_MMS:
+			this.adapter.hide(DataProvider.Rules.INNUMBERS_ID, true);
+			this.adapter.hide(DataProvider.Rules.EXNUMBERS_ID, true);
+			break;
+		default:
+			this.adapter.hide(DataProvider.Rules.INNUMBERS_ID, false);
+			this.adapter.hide(DataProvider.Rules.EXNUMBERS_ID, false);
+			break;
+		}
 	}
 
 	/**
@@ -382,8 +312,6 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 		switch (v.getId()) {
 		case R.id.ok:
 			final ContentValues cv = this.adapter.save();
-			cv.put(DataProvider.Rules.ISCHILD, this.isChild);
-
 			Uri uri = this.getIntent().getData();
 			if (uri == null) {
 				uri = this.getContentResolver().insert(

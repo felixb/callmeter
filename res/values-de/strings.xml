@@ -90,11 +90,17 @@
 	<string name="rules_hint">Hier kannst du deine Abrechnungsregeln definieren.</string>
 <!--	<string name="rules_new">New Rule</string> -->
 	<string name="numbers">Nummern</string>
-	<string name="numberergroup_help">Füge hier die Nummern hinzu, die die Regel treffen soll.\n\nPlatzhalter (\"%\") sind and beiden Enden der Nummer erlaubt.\nZ.B. trifft %34 1234, 12% trifft 1234 und %23% trifft 12345.</string>
+	<string name="numbergroup_">Nummern einschließen</string>
+	<string name="numberergroup_help">Füge hier die Nummern hinzu, die diese Regel treffen muss.\n\nPlatzhalter (\"%\") sind and beiden Enden der Nummer erlaubt.\nZ.B. trifft %34 1234, 12% trifft 1234 und %23% trifft 12345.</string>
+	<string name="exnumbergroup_">Nummern ausschließen</string>
+	<string name="exnumbergroup_help">Füge hier die nummern hinzu, die diese Regel nicht treffen darf.\nAnalog zu oben.</string>
 	<string name="new_numbergroup">Neue Nummerngruppe</string>
 	<string name="add_number">Nummer hinzufügen</string>
 	<string name="hours">Stunden</string>
-	<string name="hourgroup_help">Füge hier die Stunden hinzu, die die Regel treffen soll.</string>
+	<string name="hourgroup_">Stunden einschließen</string>
+	<string name="hourgroup_help">Füge hier die Stunden hinzu, die diese Regel treffen muss.</string>
+	<string name="exhourgroup_">Stunden ausschließen</string>
+	<string name="exhourgroup_help">Füge hier die Stunden hinzu, die diese Regel nicht treffen darf.</string>
 	<string name="new_hourgroup">Neue Stundengruppe</string>
 	<string name="add_hour">Stunde Hinzufügen</string>
 	<string name="calls">Anrufe</string>
@@ -150,14 +156,17 @@
 	<string name="mixed_units_call_help">Stelle hier die Einheiten ein, die für eine einzelne Minute Anruf berechnet werden.\Der Abrechnungsmodus wird hier beachtet.</string>
 	<string name="plan_">Kontingent</string>
 	<string name="plan_help">Wähle hier einen Plan aus, in dem die Logs berechnet werden sollen.</string>
-	<string name="negate_">Negieren</string>
-	<string name="negate_help">Bedingung umkehren.</string>
-	<string name="what_">Bedingung</string>
-	<string name="what_help">Wähle eine Bedinung aus.</string>
-<!--	<string name="what0_">Argument</string> -->
-	<string name="what0_help">Diese Bedingung braucht ein Argument.</string>
-	<string name="what1_">Und ... Regel</string>
-	<string name="what1_help">Wähle eine Regel aus, die ebenfalls zutreffen muss.</string>
+	<string name="limitnotreached_">Limit nicht erreicht</string>
+	<string name="limitnotreached_help">Diese regel trifft nur zu, wenn der Plan sein Limit noch nicht erreicht hat.</string>
+	<string name="what_">Typ</string>
+	<string name="what_help">Wähle den Typ der Logs aus.</string>
+	<string name="direction_">Richtung</string>
+	<string name="direction_help">Wähle eine Richtung die die Logs haben müssen.</string>
+	<string name="roamed_">Roaming</string>
+	<string name="roamed_help">Wähle, ob die Logs im roaming liegen müssen.</string>
+	<string name="no_matter_">Egal</string>
+	<string name="yes">Yes</string>
+	<string name="no">No</string>
 	<string name="none">Keine</string>
 	<string name="value">Wert</string>
 	<string name="export_rules_">Exportiere Regelwerk</string>
@@ -242,15 +251,10 @@
 		<item>Daten</item>
 	</string-array>
 	<string-array name="rules_type">
-		<item>Ist Anruf</item>
-		<item>Ist SMS</item>
-		<item>Ist MMS</item>
-		<item>Ist Daten</item>
-		<item>Ist eingehend</item>
-		<item>Ist Roaming</item>
-		<item>Ist an bestimmte Numbern</item>
-		<item>Ist in bestimmter Zeit</item>
-		<item>Limit erreicht</item>
+		<item>Anrufe</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Daten</item>
 	</string-array>
 	<string-array name="limit_type">
 		<item>Unbegrenzt</item>

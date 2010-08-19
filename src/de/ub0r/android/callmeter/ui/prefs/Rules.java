@@ -84,8 +84,7 @@ public class Rules extends ListActivity implements OnClickListener,
 		public RuleAdapter(final Context context) {
 			super(context, R.layout.prefs_rules_item, context
 					.getContentResolver().query(DataProvider.Rules.CONTENT_URI,
-							DataProvider.Rules.PROJECTION,
-							DataProvider.Rules.ISCHILD + " = 0", null,
+							DataProvider.Rules.PROJECTION, null, null,
 							DataProvider.Rules.ORDER), true);
 			this.types = context.getResources().getStringArray(
 					R.array.rules_type);
@@ -102,16 +101,17 @@ public class Rules extends ListActivity implements OnClickListener,
 			twTitle.setText(cursor.getString(DataProvider.Rules.INDEX_NAME));
 			final TextView twType = ((TextView) view.findViewById(R.id.type));
 			String w = "";
-			if (cursor.getInt(DataProvider.Rules.INDEX_NOT) > 0) {
-				w = "\u00AC ";
-			}
 			final int t = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
 			if (t >= 0 && t < this.types.length) {
 				w += this.types[t];
 			} else {
 				w += "???";
 			}
-			int i = cursor.getInt(DataProvider.Rules.INDEX_ROAMED);
+			int i = cursor.getInt(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED);
+			if (i == 1) {
+				w += " & " + ctxt.getString(R.string.limitnotreached_);
+			}
+			i = cursor.getInt(DataProvider.Rules.INDEX_ROAMED);
 			if (i == 0) {
 				w += " & " + ctxt.getString(R.string.roamed_);
 			} else if (i == 1) {
@@ -143,9 +143,6 @@ public class Rules extends ListActivity implements OnClickListener,
 			}
 			if (cursor.getLong(DataProvider.Rules.INDEX_EXNUMBERS_ID) > 0) {
 				w += " & " + ctxt.getString(R.string.exnumbergroup_);
-			}
-			if (cursor.getLong(DataProvider.Rules.INDEX_AND_PLAN) >= 0L) {
-				w += " & ...";
 			}
 			twType.setText(w);
 		}
