@@ -66,8 +66,8 @@
 	<string name="billmode_">Rodzaj cyklu</string>
 	<string name="billdate_">Pierwszy dzień rachunku:</string>
 	<string name="appearance_">Wygląd</string>
-<!--	<string name="advanced_preferences_">Advanced preferences</string> -->
-<!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
+	<string name="advanced_preferences_">Ustawienia zaawansowane</string>
+	<string name="advanced_preferences_hint">Zaznacz, aby uaktywnić dodatkowe ustawienia. Głównie dla zaawansowanych użytkowników.</string>
 	<string name="theme_">Styl</string>
 	<string name="textsize_">Wielkość czcionki</string>
 	<string name="show_time_">Przełącz do daty</string>
@@ -75,11 +75,11 @@
 	<string name="show_titlebar_hint">Pokazuj pasek tytułowy w oknie głównym. Bez paska tytułowego nie ma możliwości zobaczenia aktywności w tle.</string>
 	<string name="show_hours_">Pokaż godziny</string>
 	<string name="show_hours_hint">Pokaż czas w sekundach, minutach, godzinach i dniach.\nJeżeli niezaznaczone, tylko sekundy i godziny będą pokazane.</string>
-	<string name="custom_currency_symbol_">Niestandardowy symbol waluty</string>
-	<string name="custom_currency_symbol_hint">Wprowadź symbol waluty, pozostaw puste dla ustawień domyślnych.</string>
-	<string name="custom_currency_format_">Niestandardowy format waluty</string>
+	<string name="custom_currency_symbol_">Symbol waluty</string>
+	<string name="custom_currency_symbol_hint">Wprowadź niestandardowy symbol waluty, jeżeli potrzeba.</string>
+	<string name="custom_currency_format_">Format waluty</string>
 	<string name="custom_currency_format_hint">Wybierz niestandardowy format waluty</string>
-	<string name="custom_date_format_">Niestandardowy format daty</string>
+	<string name="custom_date_format_">Format daty</string>
 	<string name="custom_date_format_hint">Wybierz niestandardowy format daty</string>
 	<string name="logs">Logi</string>
 	<string name="show_logs">Pokaż logi</string>
@@ -90,11 +90,11 @@
 	<string name="rules_hint">Wprowadź regułę dla twojego rachunku</string>
 	<string name="rules_new">Nowa reguła</string>
 	<string name="numbers">Numery</string>
-<!--	<string name="numberergroup_help">Add some numbers a given rule should match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
+	<string name="numberergroup_help">Dodaj numery, dla których reguła znajdzie zastosowanie.\n\nWzorce (\"%\") są dozwolone na obu końcach numeru\nNp.: %34 będzie odpowiadać 1234, 12% będzie odpowiadać 1234 and %23% będzie odpowiadać 12345.</string>
 	<string name="new_numbergroup">Nowa grupa numerów</string>
 	<string name="add_number">Dodaj numer</string>
 	<string name="hours">Godziny</string>
-<!--	<string name="hourgroup_help">Add some hours a given rule should match.</string> -->
+	<string name="hourgroup_help">Dodaj godziny, dla których reguła znajdzie zastosowanie</string>
 	<string name="new_hourgroup">Nowa grupa godzin</string>
 	<string name="add_hour">Dodaj godzinę</string>
 	<string name="calls">Połączenia</string>
@@ -115,33 +115,33 @@
 	<string name="name_">Nazwa</string>
 	<string name="name_help">Wprowadź nazwę</string>
 	<string name="shortname_">Skrócona nazwa</string>
-	<string name="shortname_help">Wprowadź nazwę skróconą. Będzie wyświetlona w widoku kompaktowym.</string>
+	<string name="shortname_help">Wprowadź nazwę skróconą. Będzie ona wyświetlona w widoku kompaktowym.</string>
 	<string name="type_">Typ</string>
-<!--	<string name="type_help">Select a type.\n\"Title\" will just display a title in main view.\n\"Spacer\" will display nothing but empty space.\n\"Bill period\" will hold any information about your billing period. Most users will need exactly one.\nA \"mixed\" plan can take calls and messages at once. It will combine billing of all those items.\nA \"call\" plan does only take calls. \"SMS\" and \"MMS\" plans will just take the messages.\nA \"data\" plan may hold information about your data traffic.</string> -->
+	<string name="type_help">Wybierz typ.\n\"Nagłówek\" wyświetla tytuł w oknie głównym.\n\"Odstęp\" wstawia odstęp pomiędzy elementami.\n\"Okres rozliczeniowy\" wyświetla informacje o długości okresu. Dla większości użytkowników potrzebny jest tylko jeden.\nA \"Mieszane\" pokazuje połączenia i wiadomości razem. Połączy rozliczenia wszystkich elementów.\nA \"Połączenia\" wyświetla tylko połączenia. \"SMS\" i \"MMS\" wyświetla informacje o wiadomościach.\nA \"Dane\" przedstawia informacje o transferze danych.</string>
 	<string name="limit_type_">Typ limitów</string>
-<!--	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"cost\" limit will limit your plan based on cost produced by the items billed in this plan.</string> -->
+	<string name="limit_type_help">Wprowadź typ twojego limitu.\nLimit \"jednostek\" ograniczy twój plan bazując na minutach, wiadomościach, ...\nLimit \"kosztu\" ograniczy twój plan bazując na koszcie przedstawionym przez pozycje rozliczone w tym planie.</string>
 	<string name="limit_">Limit</string>
-<!--	<string name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string> -->
+	<string name="limit_help">Ustaw limit twojego planu.\n\nTyp \"jednostek\" musi być ustawiony w minutach (połączeniach), wiadomościach (sms/mms), megabajtach (dane, 1024kB) lub jednostkach (Mieszane).\n\nTyp \"kosztu\" musi być ustawiony w twojej walucie (np.: zł).</string>
 	<string name="billmode_">Rodzaj cyklu</string>
-<!--	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string> -->
+	<string name="billmode_help">Wprowadź typ rozliczenia połączeń.\nPierwsza część to minimalna długość naliczana przez operatora. Każde połączenie o krótszej długości jest zaokrąglane do tego.\nDruga część to minimalna długość następujących bloków sekund.\nPrzeczytaj FAQ dla szczegółowych informacji.</string>
 	<string name="billday_">Pierwszy dzień rachunku</string>
-<!--	<string name="billday_help">Set this to the first day of the bill of the current billing period.</string> -->
+	<string name="billday_help">Ustaw tutaj pierwszy dzień twojego rachunku - okresu rozliczeniowego.</string>
 	<string name="billperiodid_">Okres rozliczeniowy</string>
 	<string name="billperiodid_help">Wybierz twój okres rozliczeniowy.\nMożesz potrzebować stworzyć jeden dodatkowy plan.</string>
 	<string name="billperiod_">Długość okresu rozliczeniowego</string>
 	<string name="billperiod_help">Wprowadź długość twojego okresu rozliczeniowego</string>
-<!--	<string name="cost_per_item_">Cost per item</string> -->
-<!--	<string name="cost_per_item_help">Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.</string> -->
-<!--	<string name="cost_per_item_in_limit_">Cost per item in limit</string> -->
-<!--	<string name="cost_per_item_in_limit_help">Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.</string> -->
-<!--	<string name="cost_per_amount_">Cost per length</string> -->
-<!--	<string name="cost_per_amount_help1">Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.</string> -->
-<!--	<string name="cost_per_amount_help2">Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.</string> -->
-<!--	<string name="cost_per_amount_in_limit_">Cost per length in limit</string> -->
-<!--	<string name="cost_per_amount_in_limit_help1">Set the cost billed per length for a single log item (e.g. for 1kB data) before the limit is exceeded.</string> -->
-<!--	<string name="cost_per_amount_in_limit_help2">Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.</string> -->
-<!--	<string name="cost_per_plan_">Cost per plan</string> -->
-<!--	<string name="cost_per_plan_help">Set the cost of the plan for one billing period as is.</string> -->
+	<string name="cost_per_item_">Koszt za pozycję</string>
+	<string name="cost_per_item_help">Wprowadź koszt naliczony dla pojedynczej pozycji (np.: dla połączenia lub wiadomości) po wyczerpaniu limitu.</string>
+	<string name="cost_per_item_in_limit_">Koszt za pozycję w limicie</string>
+	<string name="cost_per_item_in_limit_help">Wprowadź koszt naliczony dla pojedynczej pozycji (np.: dla połączenia lub wiadomości) przed wyczerpaniem limitu.</string>
+	<string name="cost_per_amount_">Koszt za długość</string>
+	<string name="cost_per_amount_help1">Wprowadź koszt naliczany w zależności od długości pojedynczej pozycji (np.: dla 1kB danych) po wyczerpaniu limitu.</string>
+	<string name="cost_per_amount_help2">Wprowadź koszt naliczany w zależności od długości pojedynczej pozycji (np.: dla 1min połączenia) po wyczerpaniu limitu.\nPierwsze pole odpowiada za koszt dla pierwszych kilku sekund połączenia, następne - dla następujących sekund (oba są ustawione w zł/minutę; zobacz tryb rozliczeń).\nJeśli masz wątpliwość, wprowadź obie wartości odpowiadające wartości za minutę.</string>
+	<string name="cost_per_amount_in_limit_">Koszt za długość w limicie</string>
+	<string name="cost_per_amount_in_limit_help1">Wprowadź koszt naliczany w zależności od długości pojedynczej pozycji (np.: dla 1kB danych) przed wyczerpaniem limitu.</string>
+	<string name="cost_per_amount_in_limit_help2">Wprowadź koszt naliczany w zależności od długości pojedynczej pozycji (np.: dla 1min połączenia, 1kB danych) przed wyczerpaniem limitu.\nPierwsze pole odpowiada za koszt dla pierwszych kilku sekund połączenia, następne - dla następujących sekund (oba są ustawione w zł/minutę; zobacz tryb rozliczeń).\nJeśli masz wątpliwość, wprowadź obie wartości odpowiadające wartości za minutę.</string>
+	<string name="cost_per_plan_">Koszt za Plan</string>
+	<string name="cost_per_plan_help">Wprowadź koszt planu dla jednego okresu rozliczeniowego.</string>
 	<string name="mixed_units_sms_">Jednostki za SMS</string>
 	<string name="mixed_units_sms_help">Wprowadź liczbę jednostek naliczonych za jednego SMSa</string>
 	<string name="mixed_units_mms_">Jednostki za MMS</string>
@@ -150,15 +150,15 @@
 	<string name="mixed_units_call_help">Wprowadź liczbę jednostek naliczonych za jedną minutę połączenia.\nBill mode is taken into account here.</string>
 	<string name="plan_">Plan</string>
 	<string name="plan_help">Wybierz plan do którego reguła będzie pasować</string>
-<!--	<string name="negate_">Negate</string> -->
-<!--	<string name="negate_help">Reverse the condition.</string> -->
-<!--	<string name="what_">Condition</string> -->
-<!--	<string name="what_help">Choose a condition here.</string> -->
+	<string name="negate_">Negacja</string>
+	<string name="negate_help">Odwróć warunek</string>
+	<string name="what_">Warunek</string>
+	<string name="what_help">Wybierz warunek</string>
 	<string name="what0_">Argument</string>
-<!--	<string name="what0_help">This condition needs an arguments to set.</string> -->
-<!--	<string name="what1_">And ... rule</string> -->
-<!--	<string name="what1_help">Choose a rule which must match too.</string> -->
-<!--	<string name="none">None</string> -->
+	<string name="what0_help">Ten warunek potrzebuje wprowadzenia określonej wartości.</string>
+	<string name="what1_">I ... reguła</string>
+	<string name="what1_help">Wybierz regułę która która musi również pasować</string>
+	<string name="none">Brak</string>
 	<string name="value">Wartość</string>
 	<string name="export_rules_">Eksportuj ustawienia reguł</string>
 	<string name="export_rules_hint">Eksportuj ustawienia reguł</string>
@@ -231,27 +231,27 @@
 		<item>Edytuj</item>
 		<item>Usuń</item>
 	</string-array>
-<!--	<string-array name="plans_type"> -->
-<!--		<item>Title</item> -->
-<!--		<item>Spacer</item> -->
-<!--		<item>Okres rozliczenia</item> -->
-<!--		<item>Mixed</item> -->
-<!--		<item>Połączenia</item> -->
-<!--		<item>SMS</item> -->
-<!--		<item>MMS</item> -->
-<!--		<item>Dane</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="rules_type"> -->
-<!--		<item>Is Call</item> -->
-<!--		<item>Is SMS</item> -->
-<!--		<item>Is MMS</item> -->
-<!--		<item>Is Data</item> -->
-<!--		<item>Is Incoming</item> -->
-<!--		<item>Is Roaming</item> -->
-<!--		<item>Match Numbers</item> -->
-<!--		<item>Match Hours</item> -->
-<!--		<item>Limit osiągnięty</item> -->
-<!--	</string-array> -->
+	<string-array name="plans_type">
+		<item>Nagłówek</item>
+		<item>Odstęp</item>
+		<item>Okres rozliczenia</item>
+		<item>Mieszane</item>
+		<item>Połączenia</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Dane</item>
+	</string-array>
+	<string-array name="rules_type">
+		<item>dla Połączenia</item>
+		<item>dla SMS</item>
+		<item>dla MMS</item>
+		<item>dla Dane</item>
+		<item>dla Przychodzących</item>
+		<item>dla Roamingu</item>
+		<item>Dopasuj do numeru</item>
+		<item>Dopasuj do godzin</item>
+		<item>Limit osiągnięty</item>
+	</string-array>
 	<string-array name="limit_type">
 		<item>nielimitowany</item>
 		<item>jednostki</item>
