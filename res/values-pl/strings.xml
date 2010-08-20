@@ -251,7 +251,7 @@
 		<item>Dopasuj do numeru</item>
 		<item>Dopasuj do godzin</item>
 		<item>Limit osiągnięty</item>
-	</string-array> -->
+	</string-array>
 	<string-array name="limit_type">
 		<item>nielimitowany</item>
 		<item>jednostki</item>
