@@ -42,7 +42,7 @@
 	<string name="load_hash_">Laad <i>noads</i>-code</string>
 	<string name="sig_loaded">Advertenties verwijderd!</string>
 	<string name="sig_failed">Verwijderden advertenties mislukt!</string>
-<!--	<string name="accept_">Accept Terms</string> -->
+	<string name="accept_">Accepteer Voorwaarden</string>
 <!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
 <!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
 	<string name="about0_">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
@@ -51,23 +51,23 @@
 	<string name="about2">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
 	<string name="about3">CallMeter werkt zich elke 30 minuten op de achtergrond bij (alleen wanneer niet in standby). Dit betekent dat het verwijderen van gesprekken of berichten ouder dan 30 min. de statistieken niet wijzigt. Het verwijderen van gesprekken of berichten jonger dan 30 min. kan resulteren in onjuiste statistieken.</string>
 	<string name="send_">Verstuur</string>
-<!--	<string name="add_">Add</string> -->
+	<string name="add_">Toevoegen</string>
 	<string name="settings">Voorkeuren</string>
-<!--	<string name="edit_">Edit</string> -->
+	<string name="edit_">Wijzigen</string>
 	<string name="about_">Over</string>
 	<string name="about_hint">Over deze app</string>
-	<string name="faq_hint">Tips &amp; trucks hoe deze app in te stellen.</string>
+	<string name="faq_hint">Tips &amp; trucs hoe deze app in te stellen.</string>
 	<string name="feedback_">Feedback</string>
 	<string name="feedback_hint">Meld bugs, suggesties ...</string>
 	<string name="twitter_hint">Volg mij op twitter.\nKrijg update notificaties etc.</string>
 	<string name="more_">Meer apps..</string>
-<!--	<string name="billing_">Billing</string> -->
+	<string name="billing_">Facturatie</string>
 	<string name="billday_">Eerste dag van facturatie</string>
 	<string name="billmode_">Facturatie modus</string>
 	<string name="billdate_">Begin facturatie periode:</string>
 	<string name="appearance_">Uiterlijk</string>
-<!--	<string name="advanced_preferences_">Advanced preferences</string> -->
-<!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
+	<string name="advanced_preferences_">Geavanceerde voorkeuren</string>
+	<string name="advanced_preferences_hint">Dit stelt je in staat om een veel complexere setup te maken. De meeste gebruikers zullen het niet nodig hebben.</string>
 	<string name="theme_">Thema</string>
 	<string name="textsize_">Text grootte</string>
 <!--	<string name="show_time_">Switch to date</string> -->
@@ -81,7 +81,7 @@
 <!--	<string name="custom_currency_format_hint">Select a custom currency format.</string> -->
 <!--	<string name="custom_date_format_">Custom date format</string> -->
 <!--	<string name="custom_date_format_hint">Select a custom date format.</string> -->
-<!--	<string name="logs">Logs</string> -->
+	<string name="logs">Logs</string>
 <!--	<string name="show_logs">Show logs</string> -->
 	<string name="plans">Schema</string>
 <!--	<string name="plans_hint">Set your plans for all kind of billing here.</string> -->
@@ -96,47 +96,47 @@
 <!--	<string name="exnumbergroup_help">Add some numbers this rule must not match.\nSee above.</string> -->
 <!--	<string name="new_numbergroup">New number group</string> -->
 <!--	<string name="add_number">Add number</string> -->
-<!--	<string name="hours">Hours</string> -->
+	<string name="hours">Uren</string>
 <!--	<string name="hourgroup_">Include hours</string> -->
 <!--	<string name="hourgroup_help">Add some hours this rule must match.</string> -->
 <!--	<string name="exhourgroup_">Exclude hours</string> -->
 <!--	<string name="exhourgroup_help">Add some hours this rule must not match.</string> -->
 <!--	<string name="new_hourgroup">New hour group</string> -->
-<!--	<string name="add_hour">Add hour</string> -->
+	<string name="add_hour">Uur toevoegen</string>
 	<string name="calls">Gesprekken</string>
 	<string name="sms">SMS</string>
-<!--	<string name="mms">MMS</string> -->
+	<string name="mms">MMS</string>
 	<string name="data">Data</string>
 	<string name="reset_data_">Reset statistieken</string>
 	<string name="reset_data_hint">Resetten van gesprek/sms data zorgt voor het opnieuw berekenen van de statistieken. \n\nResetten van data statistieken is permanent. Alleen data voordat het programma gestart is wordt gereset!</string>
 	<string name="reset_data_data_">Reset ook dataverkeer.</string>
-<!--	<string name="reset_data_progr1">Recalculating statistics ...\n\n(This may take some time!)</string> -->
-<!--	<string name="reset_data_progr2">Recalculating statistics ...</string> -->
+	<string name="reset_data_progr1">Herberekenen statistieken ...\n\n(Dit kan even duren!)</string>
+	<string name="reset_data_progr2">Herberekenen statistieken ...</string>
 	<string name="contacts_">Contacten</string>
 <!--	<string name="clear_">Clear</string> -->
-<!--	<string name="help_">Help</string> -->
-<!--	<string name="new_">New</string> -->
-<!--	<string name="edit_selected_">Edit selected</string> -->
-<!--	<string name="edit_groups_">Edit groups</string> -->
-<!--	<string name="name_">Name</string> -->
-<!--	<string name="name_help">Set a name here.</string> -->
-<!--	<string name="shortname_">Short name</string> -->
+	<string name="help_">Help</string>
+	<string name="new_">Nieuw</string>
+	<string name="edit_selected_">Wijzig geselecteerde</string>
+	<string name="edit_groups_">Wijzig groepen</string>
+	<string name="name_">Naam</string>
+	<string name="name_help">Stel hier een naam in.</string>
+	<string name="shortname_">Verkorte naam</string>
 <!--	<string name="shortname_help">Set a short name here. It is displayed in compact layouts.</string> -->
-<!--	<string name="type_">Type</string> -->
+	<string name="type_">Type</string>
 <!--	<string name="type_help">Select a type.\n\"Title\" will just display a title in main view.\n\"Spacer\" will display nothing but empty space.\n\"Bill period\" will hold any information about your billing period. Most users will need exactly one.\nA \"mixed\" plan can take calls and messages at once. It will combine billing of all those items.\nA \"call\" plan does only take calls. \"SMS\" and \"MMS\" plans will just take the messages.\nA \"data\" plan may hold information about your data traffic.</string> -->
-<!--	<string name="limit_type_">Limit type</string> -->
+	<string name="limit_type_">Limiet type</string>
 <!--	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"cost\" limit will limit your plan based on cost produced by the items billed in this plan.</string> -->
-<!--	<string name="limit_">Limit</string> -->
+	<string name="limit_">Limiet</string>
 <!--	<string name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string> -->
 	<string name="billmode_">Facturatie modus</string>
 <!--	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string> -->
 	<string name="billday_">Eerste dag van facturatie</string>
 <!--	<string name="billday_help">Set this to the first day of the bill of the current billing period.</string> -->
-<!--	<string name="billperiodid_">Billing period</string> -->
+	<string name="billperiodid_">Facturatie periode</string>
 <!--	<string name="billperiodid_help">Select your billing period.\nYou may need to create one as extra plan.</string> -->
-<!--	<string name="billperiod_">Length of the billing period</string> -->
-<!--	<string name="billperiod_help">Set the length of your billing period.</string> -->
-<!--	<string name="cost_per_item_">Cost per item</string> -->
+	<string name="billperiod_">Lengte van de facturatie periode</string>
+	<string name="billperiod_help">Zet de lengte van de facturatie periode.</string>
+	<string name="cost_per_item_">Kosten per item</string>
 <!--	<string name="cost_per_item_help">Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.</string> -->
 <!--	<string name="cost_per_item_in_limit_">Cost per item in limit</string> -->
 <!--	<string name="cost_per_item_in_limit_help">Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.</string> -->
@@ -188,43 +188,43 @@
 <!--	<string name="alerts_100_">Notify at 100%</string> -->
 <!--	<string name="alerts_100_hint">Notify if a plan passes 100% of it\'s limit.</string> -->
 <!--	<string name="widget_config_">Widget config</string> -->
-<!--	<string-array name="weekdays_all"> -->
-<!--		<item>All week</item> -->
-<!--		<item>Monday</item> -->
-<!--		<item>Tuesday</item> -->
-<!--		<item>Wednesday</item> -->
-<!--		<item>Thursday</item> -->
-<!--		<item>Friday</item> -->
-<!--		<item>Saturday</item> -->
-<!--		<item>Sunday</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="hours_all"> -->
-<!--		<item>All day</item> -->
-<!--		<item>0:00 - 0:59</item> -->
-<!--		<item>1:00 - 1:59</item> -->
-<!--		<item>2:00 - 2:59</item> -->
-<!--		<item>3:00 - 3:59</item> -->
-<!--		<item>4:00 - 4:59</item> -->
-<!--		<item>5:00 - 5:59</item> -->
-<!--		<item>6:00 - 6:59</item> -->
-<!--		<item>7:00 - 7:59</item> -->
-<!--		<item>8:00 - 8:59</item> -->
-<!--		<item>9:00 - 9:59</item> -->
-<!--		<item>10:00 - 10:59</item> -->
-<!--		<item>11:00 - 11:59</item> -->
-<!--		<item>12:00 - 12:59</item> -->
-<!--		<item>13:00 - 13:59</item> -->
-<!--		<item>14:00 - 14:59</item> -->
-<!--		<item>15:00 - 15:59</item> -->
-<!--		<item>16:00 - 16:59</item> -->
-<!--		<item>17:00 - 17:59</item> -->
-<!--		<item>18:00 - 18:59</item> -->
-<!--		<item>19:00 - 19:59</item> -->
-<!--		<item>20:00 - 20:59</item> -->
-<!--		<item>21:00 - 21:59</item> -->
-<!--		<item>22:00 - 22:59</item> -->
-<!--		<item>23:00 - 23:59</item> -->
-<!--	</string-array> -->
+	<string-array name="weekdays_all">
+		<item>Hele week</item>
+		<item>Maandag</item>
+		<item>Dinsdag</item>
+		<item>Woensdag</item>
+		<item>Donderdag</item>
+		<item>Vrijdag</item>
+		<item>Zaterdag</item>
+		<item>Zondag</item>
+	</string-array> -->
+	<string-array name="hours_all">
+		<item>Hele dag</item>
+		<item>0:00 - 0:59</item>
+		<item>1:00 - 1:59</item>
+		<item>2:00 - 2:59</item>
+		<item>3:00 - 3:59</item>
+		<item>4:00 - 4:59</item>
+		<item>5:00 - 5:59</item>
+		<item>6:00 - 6:59</item>
+		<item>7:00 - 7:59</item>
+		<item>8:00 - 8:59</item>
+		<item>9:00 - 9:59</item>
+		<item>10:00 - 10:59</item>
+		<item>11:00 - 11:59</item>
+		<item>12:00 - 12:59</item>
+		<item>13:00 - 13:59</item>
+		<item>14:00 - 14:59</item>
+		<item>15:00 - 15:59</item>
+		<item>16:00 - 16:59</item>
+		<item>17:00 - 17:59</item>
+		<item>18:00 - 18:59</item>
+		<item>19:00 - 19:59</item>
+		<item>20:00 - 20:59</item>
+		<item>21:00 - 21:59</item>
+		<item>22:00 - 22:59</item>
+		<item>23:00 - 23:59</item>
+	</string-array>
 	<string-array name="themes">
 		<item>Zwart</item>
 		<item>Licht</item>
