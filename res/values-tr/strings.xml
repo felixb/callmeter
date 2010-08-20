@@ -18,32 +18,32 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-<!--	<string name="author_">Yazar:</string> -->
-<!--	<string name="version_">Versiyon:</string> -->
-<!--	<string name="license_">Lisans:</string> -->
-<!--	<string name="license">GPLv3 Lisansıyla üretilmiştir - http://www.gnu.org/licenses/gpl-3.0.txt</string> -->
-<!--	<string name="source_">Kaynak Kodları:</string> -->
+<!--	<string name="author_">Author:</string> -->
+<!--	<string name="version_">Version:</string> -->
+<!--	<string name="license_">License:</string> -->
+<!--	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string> -->
+<!--	<string name="source_">Sourcescode:</string> -->
 <!--	<string name="website_">Website:</string> -->
 <!--	<string name="debug_">Debug</string> -->
-<!--	<string name="send_logs_">Logları Gönder</string> -->
-<!--	<string name="send_logs_hint">Telefonunun loglarını yazara gönder.\nBunu sadece sizden istendiyse yapınız.</string> -->
-<!--	<string name="sendlog_run_">Sendlog çalıştır</string> -->
-<!--	<string name="sendlog_run">SendLog cihazın loglarını toplayıp yazara gönderefcektir.\nVe siz gönderilmeden önce datayı inceleme forsatına sahip olacaksınız.</string> -->
-<!--	<string name="sendlog_install_">Sendlog Yükle</string> -->
-<!--	<string name="sendlog_install"Ücretsiz sendlog yüklemesi. Bu hizmet cihazınızın loglarını yazara göndermek içindir..</string> -->
-<!--	<string name="donate_paypal_">Bağışta bulun (Paypal)</string> -->
-<!--	<string name="donate_market_">Bağışta bulun (Market)</string> -->
-<!--	<string name="donate_remove_ads_">Bağışta bulun/Reklamları kaldır</string> -->
-<!--	<string name="remove_ads_">Reklamları kaldır</string> -->
-<!--	<string name="predonate">Bu yazılım açık kaynak kodlu GPLv3 lisansı ile üretilmiştir. Bedavadır ve bedava kalacaktır. Eğer gerçekten sevdiyseniz veya reklamlardan sıkıldıysanız bağışta bulunmayı düşünebilirsiniz. Reklamları olabildiğince çabuk sileceğiz.\nTeşekkürler!\n\nBağış reklamları silecektir.</string> -->
-<!--	<string name="postdonate">Reklamları silebilmeniz için  <i>noads</i> Koduna ihtiyacınız var. Bağış yapar yapmaz bu kod size ulaşacaktır. Lütfen sabırlı olunuz ve eğer ulaşmazsa bana bir mail atınız.</string> -->
-<!--	<string name="donator_id_">Bağışınızın kontrol edilebilmesi için (paypal için paypal mail adresiniz; market için gmail adresiniz) gereklidir:</string> -->
-<!--	<string name="donator_id_hint">Paypal/Gmail adres</string> -->
-<!--	<string name="load_hash_"><i>noads</i> Kodunu yükle</string> -->
-<!--	<string name="sig_loaded">Reklamlar Kaldırıldı!</string> -->
-<!--	<string name="sig_failed">Reklamlar kaldırılamadı!</string> -->
-<!--	<string name="accept_">Kuralları kabul ediyorum.</string> -->
-<!--	<string name="accept_missing">Lütfen data yollamadan önce kuralları kabul ediniz..</string> -->
+<!--	<string name="send_logs_">Send logs</string> -->
+<!--	<string name="send_logs_hint">Send your device\'s logs to the developer.\nDo this only if you was asked to do so.</string> -->
+<!--	<string name="sendlog_run_">Run SendLog</string> -->
+<!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
+<!--	<string name="sendlog_install_">Install SendLog</string> -->
+<!--	<string name="sendlog_install">Install the free SendLog application to collect the device log and send it to the developer.</string> -->
+<!--	<string name="donate_paypal_">Donate (Paypal)</string> -->
+<!--	<string name="donate_market_">Donate (Market)</string> -->
+<!--	<string name="donate_remove_ads_">Donate/remove ads</string> -->
+<!--	<string name="remove_ads_">Remove ads</string> -->
+<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
+<!--	<string name="postdonate">To remove ads, you need to load the <i>noads</i> code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work after one day.</string> -->
+<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
+<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
+<!--	<string name="load_hash_">Load <i>noads</i> code</string> -->
+<!--	<string name="sig_loaded">Ads removed!</string> -->
+<!--	<string name="sig_failed">Failed to remove ads!</string> -->
+<!--	<string name="accept_">Accept Terms</string> -->
+<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
 <!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
 <!--	<string name="about0_">Watch your call, message and data plans!</string> -->
 <!--	<string name="about0">CallMeter generates reports from call, message and data logs. It supports several modes of billing.</string> -->
@@ -90,11 +90,17 @@
 <!--	<string name="rules_hint">Set your billing rules here.</string> -->
 <!--	<string name="rules_new">New Rule</string> -->
 <!--	<string name="numbers">Numbers</string> -->
-<!--	<string name="numberergroup_help">Add some numbers a given rule should match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
+<!--	<string name="numbergroup_">Include numbers</string> -->
+<!--	<string name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
+<!--	<string name="exnumbergroup_">Exclude numbers</string> -->
+<!--	<string name="exnumbergroup_help">Add some numbers this rule must not match.\nSee above.</string> -->
 <!--	<string name="new_numbergroup">New number group</string> -->
 <!--	<string name="add_number">Add number</string> -->
 <!--	<string name="hours">Hours</string> -->
-<!--	<string name="hourgroup_help">Add some hours a given rule should match.</string> -->
+<!--	<string name="hourgroup_">Include hours</string> -->
+<!--	<string name="hourgroup_help">Add some hours this rule must match.</string> -->
+<!--	<string name="exhourgroup_">Exclude hours</string> -->
+<!--	<string name="exhourgroup_help">Add some hours this rule must not match.</string> -->
 <!--	<string name="new_hourgroup">New hour group</string> -->
 <!--	<string name="add_hour">Add hour</string> -->
 <!--	<string name="calls">Calls</string> -->
@@ -150,18 +156,21 @@
 <!--	<string name="mixed_units_call_help">Set the units billed for a one minute call.\nBill mode is taken into account here.</string> -->
 <!--	<string name="plan_">Plan</string> -->
 <!--	<string name="plan_help">Choose the plan this rule should fit.</string> -->
-<!--	<string name="negate_">Negate</string> -->
-<!--	<string name="negate_help">Reverse the condition.</string> -->
-<!--	<string name="what_">Condition</string> -->
-<!--	<string name="what_help">Choose a condition here.</string> -->
-<!--	<string name="what0_">Argument</string> -->
-<!--	<string name="what0_help">This condition needs an arguments to set.</string> -->
-<!--	<string name="what1_">And ... rule</string> -->
-<!--	<string name="what1_help">Choose a rule which must match too.</string> -->
+<!--	<string name="limitnotreached_">Limit not reached</string> -->
+<!--	<string name="limitnotreached_help">Match only if target plan has not reached it\'s limit yet.</string> -->
+<!--	<string name="what_">Target type</string> -->
+<!--	<string name="what_help">Choose a target type here.</string> -->
+<!--	<string name="direction_">Direction</string> -->
+<!--	<string name="direction_help">Choose a direction the given log has to be.</string> -->
+<!--	<string name="roamed_">Roamed</string> -->
+<!--	<string name="roamed_help">Choose whether the given log has to be roamed.</string> -->
+<!--	<string name="no_matter_">Does not matter</string> -->
+<!--	<string name="yes">Yes</string> -->
+<!--	<string name="no">No</string> -->
 <!--	<string name="none">None</string> -->
 <!--	<string name="value">Value</string> -->
 <!--	<string name="export_rules_">Export rule set</string> -->
-<!--	<string name="export_rules_hint">Export rule set.</string> -->
+<!--	<string name="export_rules_hint">Export rule set as mail.</string> -->
 <!--	<string name="export_rules_progr">Exporting rule set ...</string> -->
 <!--	<string name="export_rules_descr">Description</string> -->
 <!--	<string name="import_rules_">Import rule set</string> -->
@@ -242,15 +251,10 @@
 <!--		<item>Data</item> -->
 <!--	</string-array> -->
 <!--	<string-array name="rules_type"> -->
-<!--		<item>Is Call</item> -->
-<!--		<item>Is SMS</item> -->
-<!--		<item>Is MMS</item> -->
-<!--		<item>Is Data</item> -->
-<!--		<item>Is Incoming</item> -->
-<!--		<item>Is Roaming</item> -->
-<!--		<item>Match Numbers</item> -->
-<!--		<item>Match Hours</item> -->
-<!--		<item>Limit reached</item> -->
+<!--		<item>Calls</item> -->
+<!--		<item>SMS</item> -->
+<!--		<item>MMS</item> -->
+<!--		<item>Data</item> -->
 <!--	</string-array> -->
 <!--	<string-array name="limit_type"> -->
 <!--		<item>unlimited</item> -->

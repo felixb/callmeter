@@ -90,11 +90,17 @@
 	<string name="rules_hint">Wprowadź regułę dla twojego rachunku</string>
 	<string name="rules_new">Nowa reguła</string>
 	<string name="numbers">Numery</string>
-	<string name="numberergroup_help">Dodaj numery, dla których reguła znajdzie zastosowanie.\n\nWzorce (\"%\") są dozwolone na obu końcach numeru\nNp.: %34 będzie odpowiadać 1234, 12% będzie odpowiadać 1234 and %23% będzie odpowiadać 12345.</string>
+<!--	<string name="numbergroup_">Include numbers</string> -->
+<!--	<string name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
+<!--	<string name="exnumbergroup_">Exclude numbers</string> -->
+<!--	<string name="exnumbergroup_help">Add some numbers this rule must not match.\nSee above.</string> -->
 	<string name="new_numbergroup">Nowa grupa numerów</string>
 	<string name="add_number">Dodaj numer</string>
 	<string name="hours">Godziny</string>
-	<string name="hourgroup_help">Dodaj godziny, dla których reguła znajdzie zastosowanie</string>
+<!--	<string name="hourgroup_">Include hours</string> -->
+<!--	<string name="hourgroup_help">Add some hours this rule must match.</string> -->
+<!--	<string name="exhourgroup_">Exclude hours</string> -->
+<!--	<string name="exhourgroup_help">Add some hours this rule must not match.</string> -->
 	<string name="new_hourgroup">Nowa grupa godzin</string>
 	<string name="add_hour">Dodaj godzinę</string>
 	<string name="calls">Połączenia</string>
@@ -150,18 +156,21 @@
 	<string name="mixed_units_call_help">Wprowadź liczbę jednostek naliczonych za jedną minutę połączenia.\nBill mode is taken into account here.</string>
 	<string name="plan_">Plan</string>
 	<string name="plan_help">Wybierz plan do którego reguła będzie pasować</string>
-	<string name="negate_">Negacja</string>
-	<string name="negate_help">Odwróć warunek</string>
-	<string name="what_">Warunek</string>
-	<string name="what_help">Wybierz warunek</string>
-	<string name="what0_">Argument</string>
-	<string name="what0_help">Ten warunek potrzebuje wprowadzenia określonej wartości.</string>
-	<string name="what1_">I ... reguła</string>
-	<string name="what1_help">Wybierz regułę która która musi również pasować</string>
+<!--	<string name="limitnotreached_">Limit not reached</string> -->
+<!--	<string name="limitnotreached_help">Match only if target plan has not reached it\'s limit yet.</string> -->
+<!--	<string name="what_">Target type</string> -->
+<!--	<string name="what_help">Choose a target type here.</string> -->
+<!--	<string name="direction_">Direction</string> -->
+<!--	<string name="direction_help">Choose a direction the given log has to be.</string> -->
+<!--	<string name="roamed_">Roamed</string> -->
+<!--	<string name="roamed_help">Choose whether the given log has to be roamed.</string> -->
+<!--	<string name="no_matter_">Does not matter</string> -->
+<!--	<string name="yes">Yes</string> -->
+<!--	<string name="no">No</string> -->
 	<string name="none">Brak</string>
 	<string name="value">Wartość</string>
 	<string name="export_rules_">Eksportuj ustawienia reguł</string>
-	<string name="export_rules_hint">Eksportuj ustawienia reguł</string>
+<!--	<string name="export_rules_hint">Export rule set as mail.</string> -->
 	<string name="export_rules_progr">Eksportuję ustawienia reguł ...</string>
 	<string name="export_rules_descr">Opis</string>
 	<string name="import_rules_">Importuj ustawienia reguł</string>
@@ -242,15 +251,10 @@
 		<item>Dane</item>
 	</string-array>
 	<string-array name="rules_type">
-		<item>dla Połączenia</item>
-		<item>dla SMS</item>
-		<item>dla MMS</item>
-		<item>dla Dane</item>
-		<item>dla Przychodzących</item>
-		<item>dla Roamingu</item>
-		<item>Dopasuj do numeru</item>
-		<item>Dopasuj do godzin</item>
-		<item>Limit osiągnięty</item>
+		<item>Połączenia</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Dane</item>
 	</string-array>
 	<string-array name="limit_type">
 		<item>nielimitowany</item>

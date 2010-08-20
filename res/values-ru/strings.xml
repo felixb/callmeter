@@ -90,11 +90,17 @@
 	<string name="rules_hint">Настройка правил учёта.</string>
 	<string name="rules_new">Новые правила</string>
 	<string name="numbers">Номера</string>
-	<string name="numberergroup_help">Внести номера, которые касаются определённыx правил.\n\nШаблоны (\"%\") на обоиx концы номеров разрешены.\nК примеру: %34 касается 1234, 12% касается 1234 и %23% касается 12345.</string>
+<!--	<string name="numbergroup_">Include numbers</string> -->
+<!--	<string name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
+<!--	<string name="exnumbergroup_">Exclude numbers</string> -->
+<!--	<string name="exnumbergroup_help">Add some numbers this rule must not match.\nSee above.</string> -->
 	<string name="new_numbergroup">Новый номерная группы</string>
 	<string name="add_number">Добавить номер</string>
 	<string name="hours">Часы</string>
-	<string name="hourgroup_help">Вставить часы касающиеся определённыx правил.</string>
+<!--	<string name="hourgroup_">Include hours</string> -->
+<!--	<string name="hourgroup_help">Add some hours this rule must match.</string> -->
+<!--	<string name="exhourgroup_">Exclude hours</string> -->
+<!--	<string name="exhourgroup_help">Add some hours this rule must not match.</string> -->
 	<string name="new_hourgroup">Новая часовая группа</string>
 	<string name="add_hour">Добавить час</string>
 	<string name="calls">Звонки</string>
@@ -150,18 +156,21 @@
 <!--	<string name="mixed_units_call_help">Set the units billed for a one minute call.\nBill mode is taken into account here.</string> -->
 <!--	<string name="plan_">Plan</string> -->
 <!--	<string name="plan_help">Choose the plan this rule should fit.</string> -->
-<!--	<string name="negate_">Negate</string> -->
-<!--	<string name="negate_help">Reverse the condition.</string> -->
-<!--	<string name="what_">Condition</string> -->
-<!--	<string name="what_help">Choose a condition here.</string> -->
-<!--	<string name="what0_">Argument</string> -->
-<!--	<string name="what0_help">This condition needs an arguments to set.</string> -->
-<!--	<string name="what1_">And ... rule</string> -->
-<!--	<string name="what1_help">Choose a rule which must match too.</string> -->
+<!--	<string name="limitnotreached_">Limit not reached</string> -->
+<!--	<string name="limitnotreached_help">Match only if target plan has not reached it\'s limit yet.</string> -->
+<!--	<string name="what_">Target type</string> -->
+<!--	<string name="what_help">Choose a target type here.</string> -->
+<!--	<string name="direction_">Direction</string> -->
+<!--	<string name="direction_help">Choose a direction the given log has to be.</string> -->
+<!--	<string name="roamed_">Roamed</string> -->
+<!--	<string name="roamed_help">Choose whether the given log has to be roamed.</string> -->
+<!--	<string name="no_matter_">Does not matter</string> -->
+<!--	<string name="yes">Yes</string> -->
+<!--	<string name="no">No</string> -->
 <!--	<string name="none">None</string> -->
 <!--	<string name="value">Value</string> -->
 <!--	<string name="export_rules_">Export rule set</string> -->
-<!--	<string name="export_rules_hint">Export rule set.</string> -->
+<!--	<string name="export_rules_hint">Export rule set as mail.</string> -->
 <!--	<string name="export_rules_progr">Exporting rule set ...</string> -->
 <!--	<string name="export_rules_descr">Description</string> -->
 <!--	<string name="import_rules_">Import rule set</string> -->
@@ -246,11 +255,6 @@
 		<item>SMS</item>
 		<item>MMS</item>
 		<item>Передача данныx</item>
-		<item>Вxодящие</item>
-		<item>Роуминг</item>
-		<item>На определенные номера</item>
-		<item>В определённое время</item>
-		<item>Ценовой план достигнут</item>
 	</string-array>
 	<string-array name="limit_type">
 		<item>Безграничный</item>

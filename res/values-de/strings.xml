@@ -91,7 +91,7 @@
 <!--	<string name="rules_new">New Rule</string> -->
 	<string name="numbers">Nummern</string>
 	<string name="numbergroup_">Nummern einschließen</string>
-	<string name="numberergroup_help">Füge hier die Nummern hinzu, die diese Regel treffen muss.\n\nPlatzhalter (\"%\") sind and beiden Enden der Nummer erlaubt.\nZ.B. trifft %34 1234, 12% trifft 1234 und %23% trifft 12345.</string>
+	<string name="numbergroup_help">Füge hier die Nummern hinzu, die diese Regel treffen muss.\n\nPlatzhalter (\"%\") sind and beiden Enden der Nummer erlaubt.\nZ.B. trifft %34 1234, 12% trifft 1234 und %23% trifft 12345.</string>
 	<string name="exnumbergroup_">Nummern ausschließen</string>
 	<string name="exnumbergroup_help">Füge hier die nummern hinzu, die diese Regel nicht treffen darf.\nAnalog zu oben.</string>
 	<string name="new_numbergroup">Neue Nummerngruppe</string>
