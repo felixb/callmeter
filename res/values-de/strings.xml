@@ -170,7 +170,7 @@
 	<string name="none">Keine</string>
 	<string name="value">Wert</string>
 	<string name="export_rules_">Exportiere Regelwerk</string>
-	<string name="export_rules_hint">Exportiere Regelwerk.</string>
+	<string name="export_rules_hint">Exportiere Regelwerk als Mail.</string>
 	<string name="export_rules_progr">Exportiere Regelwerk ...</string>
 	<string name="export_rules_descr">Beschreibung</string>
 	<string name="import_rules_">Importiere Regelwerk</string>

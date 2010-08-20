@@ -1694,9 +1694,17 @@ public final class DataProvider extends ContentProvider {
 			return backup(db, table, proj, str);
 		}
 		if (cursor != null && cursor.moveToFirst()) {
+			final boolean stripCache = table.equals(Plans.TABLE);
 			do {
 				final ContentValues cv = new ContentValues();
 				for (int i = 0; i < l; i++) {
+					if (stripCache
+							&& (i == Plans.INDEX_CACHE_COST
+									|| i == Plans.INDEX_CACHE_PROGRESS_MAX
+									|| i == Plans.INDEX_CACHE_PROGRESS_POS // .
+							|| i == Plans.INDEX_CACHE_STRING)) {
+						continue;
+					}
 					final String s = cursor.getString(i);
 					if (s != null) {
 						cv.put(proj[i], s);

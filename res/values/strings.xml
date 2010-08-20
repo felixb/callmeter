@@ -143,7 +143,7 @@
 	<string name="none">None</string>
 	<string name="value">Value</string>
 	<string name="export_rules_">Export rule set</string>
-	<string name="export_rules_hint">Export rule set.</string>
+	<string name="export_rules_hint">Export rule set as mail.</string>
 	<string name="export_rules_progr">Exporting rule set ...</string>
 	<string name="export_rules_descr">Description</string>
 	<string name="import_rules_">Import rule set</string>
