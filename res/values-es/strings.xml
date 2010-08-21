@@ -80,32 +80,32 @@
 	<string name="custom_currency_format_">Formato personalizado de moneda</string>
 	<string name="custom_currency_format_hint">Selecciona un formato personalizado de moneda.</string>
 	<string name="custom_date_format_">Formato personalizado de fecha</string>
-<!--	<string name="custom_date_format_hint">Select a custom date format.</string> -->
-<!--	<string name="logs">Logs</string> -->
-<!--	<string name="show_logs">Show logs</string> -->
+	<string name="custom_date_format_hint">Selecciona un formato personalizado de fecha.</string>
+	<string name="logs">Logs</string>
+	<string name="show_logs">Mostrar logs</string>
 	<string name="plans">Planes</string>
-<!--	<string name="plans_hint">Set your plans for all kind of billing here.</string> -->
-<!--	<string name="plans_new">New plan</string> -->
-<!--	<string name="rules">Rules</string> -->
-<!--	<string name="rules_hint">Set your billing rules here.</string> -->
-<!--	<string name="rules_new">New Rule</string> -->
-<!--	<string name="numbers">Numbers</string> -->
+	<string name="plans_hint">Configura aquí tus planes para todo tipo de facturaciones.</string>
+	<string name="plans_new">Nuevo plan</string>
+	<string name="rules">Reglas</string>
+	<string name="rules_hint">Configura aquí las reglas de facturación.</string>
+	<string name="rules_new">Nueva regla</string>
+	<string name="numbers">Números</string>
 <!--	<string name="numbergroup_">Include numbers</string> -->
 <!--	<string name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
 <!--	<string name="exnumbergroup_">Exclude numbers</string> -->
 <!--	<string name="exnumbergroup_help">Add some numbers this rule must not match.\nSee above.</string> -->
 <!--	<string name="new_numbergroup">New number group</string> -->
-<!--	<string name="add_number">Add number</string> -->
-<!--	<string name="hours">Hours</string> -->
-<!--	<string name="hourgroup_">Include hours</string> -->
+	<string name="add_number">Añadir número</string>
+	<string name="hours">Horas</string> 
+	<string name="hourgroup_">Incluir horas</string>
 <!--	<string name="hourgroup_help">Add some hours this rule must match.</string> -->
-<!--	<string name="exhourgroup_">Exclude hours</string> -->
+	<string name="exhourgroup_">Excluir horas</string>
 <!--	<string name="exhourgroup_help">Add some hours this rule must not match.</string> -->
 <!--	<string name="new_hourgroup">New hour group</string> -->
 <!--	<string name="add_hour">Add hour</string> -->
 	<string name="calls">Llamadas</string>
 	<string name="sms">SMS</string>
-<!--	<string name="mms">MMS</string> -->
+	<string name="mms">MMS</string>
 	<string name="data">Datos</string>
 	<string name="reset_data_">Poner a cero estadisticas</string>
 	<string name="reset_data_hint">Resetear los datos de llamadas y sms fuerza el recálculo las estadísticas.\n\nLa puesta a cero del tráfico de datos es permanente. Sólo resetea el tráfico producido antes del arranque!</string>
@@ -113,14 +113,14 @@
 <!--	<string name="reset_data_progr1">Recalculating statistics ...\n\n(This may take some time!)</string> -->
 <!--	<string name="reset_data_progr2">Recalculating statistics ...</string> -->
 	<string name="contacts_">Contactos</string>
-<!--	<string name="clear_">Clear</string> -->
-<!--	<string name="help_">Help</string> -->
-<!--	<string name="new_">New</string> -->
+	<string name="clear_">Borrar</string>
+	<string name="help_">Ayuda</string>
+	<string name="new_">Nuevo</string>
 <!--	<string name="edit_selected_">Edit selected</string> -->
 <!--	<string name="edit_groups_">Edit groups</string> -->
-<!--	<string name="name_">Name</string> -->
+	<string name="name_">Nombre</string>
 <!--	<string name="name_help">Set a name here.</string> -->
-<!--	<string name="shortname_">Short name</string> -->
+	<string name="shortname_">Nombre corto</string>
 <!--	<string name="shortname_help">Set a short name here. It is displayed in compact layouts.</string> -->
 <!--	<string name="type_">Type</string> -->
 <!--	<string name="type_help">Select a type.\n\"Title\" will just display a title in main view.\n\"Spacer\" will display nothing but empty space.\n\"Bill period\" will hold any information about your billing period. Most users will need exactly one.\nA \"mixed\" plan can take calls and messages at once. It will combine billing of all those items.\nA \"call\" plan does only take calls. \"SMS\" and \"MMS\" plans will just take the messages.\nA \"data\" plan may hold information about your data traffic.</string> -->
@@ -176,7 +176,7 @@
 <!--	<string name="import_rules_">Import rule set</string> -->
 <!--	<string name="import_rules_hint">Import rule set.</string> -->
 <!--	<string name="import_rules_progr">Import rule set ...</string> -->
-<!--	<string name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.</string> -->
+	<string name="import_rules_empty">No hay planes/reglas configuradas. Haz click aquí para importar una regla por defecto.\n\nO añade planes y reglas manualmente en preferencias.</string>
 <!--	<string name="err_export_write">Error writing export file</string> -->
 <!--	<string name="err_export_read">Error reading export file</string> -->
 <!--	<string name="alerts_">Alerts</string> -->
@@ -199,32 +199,32 @@
 <!--		<item>Sunday</item> -->
 <!--	</string-array> -->
 <!--	<string-array name="hours_all"> -->
-<!--		<item>All day</item> -->
-<!--		<item>0:00 - 0:59</item> -->
-<!--		<item>1:00 - 1:59</item> -->
-<!--		<item>2:00 - 2:59</item> -->
-<!--		<item>3:00 - 3:59</item> -->
-<!--		<item>4:00 - 4:59</item> -->
-<!--		<item>5:00 - 5:59</item> -->
-<!--		<item>6:00 - 6:59</item> -->
-<!--		<item>7:00 - 7:59</item> -->
-<!--		<item>8:00 - 8:59</item> -->
-<!--		<item>9:00 - 9:59</item> -->
-<!--		<item>10:00 - 10:59</item> -->
-<!--		<item>11:00 - 11:59</item> -->
-<!--		<item>12:00 - 12:59</item> -->
-<!--		<item>13:00 - 13:59</item> -->
-<!--		<item>14:00 - 14:59</item> -->
-<!--		<item>15:00 - 15:59</item> -->
-<!--		<item>16:00 - 16:59</item> -->
-<!--		<item>17:00 - 17:59</item> -->
-<!--		<item>18:00 - 18:59</item> -->
-<!--		<item>19:00 - 19:59</item> -->
-<!--		<item>20:00 - 20:59</item> -->
-<!--		<item>21:00 - 21:59</item> -->
-<!--		<item>22:00 - 22:59</item> -->
-<!--		<item>23:00 - 23:59</item> -->
-<!--	</string-array> -->
+		<item>Todo el día</item>
+		<item>0:00 - 0:59</item>
+		<item>1:00 - 1:59</item>
+		<item>2:00 - 2:59</item>
+		<item>3:00 - 3:59</item>
+		<item>4:00 - 4:59</item>
+		<item>5:00 - 5:59</item>
+		<item>6:00 - 6:59</item>
+		<item>7:00 - 7:59</item>
+		<item>8:00 - 8:59</item>
+		<item>9:00 - 9:59</item>
+		<item>10:00 - 10:59</item>
+		<item>11:00 - 11:59</item>
+		<item>12:00 - 12:59</item>
+		<item>13:00 - 13:59</item>
+		<item>14:00 - 14:59</item>
+		<item>15:00 - 15:59</item>
+		<item>16:00 - 16:59</item>
+		<item>17:00 - 17:59</item>
+		<item>18:00 - 18:59</item>
+		<item>19:00 - 19:59</item>
+		<item>20:00 - 20:59</item>
+		<item>21:00 - 21:59</item>
+		<item>22:00 - 22:59</item>
+		<item>23:00 - 23:59</item>
+	</string-array>
 	<string-array name="themes">
 		<item>Oscuro</item>
 		<item>Claro</item>
@@ -233,30 +233,30 @@
 		<item>Pequeño</item>
 		<item>Mediano</item>
 	</string-array>
-<!--	<string-array name="dialog_edit_plan"> -->
-<!--		<item>Edit plan</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="dialog_edit_delete"> -->
-<!--		<item>Edit</item> -->
-<!--		<item>Delete</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="plans_type"> -->
-<!--		<item>Title</item> -->
+	<string-array name="dialog_edit_plan">
+		<item>Editar plan</item>
+	</string-array>
+	<string-array name="dialog_edit_delete"> 
+		<item>Editar</item> 
+		<item>Borrar</item>
+	</string-array>
+	<string-array name="plans_type">
+		<item>Título</item>
 <!--		<item>Spacer</item> -->
 <!--		<item>Bill period</item> -->
 <!--		<item>Mixed</item> -->
 <!--		<item>Call</item> -->
-<!--		<item>SMS</item> -->
-<!--		<item>MMS</item> -->
-<!--		<item>Data</item> -->
-<!--	</string-array> -->
+		<item>SMS</item> 
+		<item>MMS</item>
+	        <item>Datos</item>
+	</string-array>
 <!--	<string-array name="rules_type"> -->
 <!--		<item>Calls</item> -->
-<!--		<item>SMS</item> -->
-<!--		<item>MMS</item> -->
-<!--		<item>Data</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="limit_type"> -->
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Datos</item>
+	</string-array>
+	<string-array name="limit_type">
 <!--		<item>unlimited</item> -->
 <!--		<item>units</item> -->
 <!--		<item>cost</item> -->
@@ -298,12 +298,12 @@
 <!--		<item>in</item> -->
 <!--		<item>out</item> -->
 <!--	</string-array> -->
-<!--	<string-array name="direction_mms"> -->
+	<string-array name="direction_mms">
 <!--		<item>in</item> -->
 <!--		<item>out</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="direction_data"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
-<!--	</string-array> -->
+	</string-array>
+	<string-array name="direction_data"> 
+		<item>entrada</item>
+		<item>salida</item>
+	</string-array>
 </resources>
