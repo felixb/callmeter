@@ -283,7 +283,8 @@
 	<string-array name="direction_data">
 		<item>in</item>
 		<item>out</item>
-	</string-array><string-array name="currency_formats">
+	</string-array>
+	<string-array name="currency_formats">
 		<item>Default</item>
 		<item>$1.00</item>
 		<item>$1000</item>

@@ -53,6 +53,11 @@
 	<string name="send_">Enviar</string>
 	<string name="add_">Añadir</string>
 	<string name="settings">Preferencias</string>
+<!--	<string name="update_interval_">Update interval</string> -->
+<!--	<string name="update_interval_hint">Shorter period will use more battery.</string> -->
+<!--	<string name="date_begin_">Beginning of records</string> -->
+<!--	<string name="date_begin_hint">Ignore any logs before this date.</string> -->
+<!--	<string name="common_prefs_">Common preferences</string> -->
 	<string name="edit_">Editar</string>
 	<string name="about_">Acerca de</string>
 	<string name="about_hint">Acerca de la aplicación</string>
@@ -76,7 +81,7 @@
 	<string name="show_hours_">Mostrar horas</string>
 	<string name="show_hours_hint">Muestra el tiempo en segundos, minutos, horas y días.\nSin marcar sólo muestra horas y segundos.</string>
 	<string name="custom_currency_symbol_">Símbolo personalizado de moneda</string>
-	<string name="custom_currency_symbol_hint">Aplica un símbolo personalizado de moneda, déjalo en blanco para mantener el del sistema.</string> 
+	<string name="custom_currency_symbol_hint">Aplica un símbolo personalizado de moneda, déjalo en blanco para mantener el del sistema.</string>
 	<string name="custom_currency_format_">Formato personalizado de moneda</string>
 	<string name="custom_currency_format_hint">Selecciona un formato personalizado de moneda.</string>
 	<string name="custom_date_format_">Formato personalizado de fecha</string>
@@ -96,7 +101,7 @@
 <!--	<string name="exnumbergroup_help">Add some numbers this rule must not match.\nSee above.</string> -->
 <!--	<string name="new_numbergroup">New number group</string> -->
 	<string name="add_number">Añadir número</string>
-	<string name="hours">Horas</string> 
+	<string name="hours">Horas</string>
 	<string name="hourgroup_">Incluir horas</string>
 <!--	<string name="hourgroup_help">Add some hours this rule must match.</string> -->
 	<string name="exhourgroup_">Excluir horas</string>
@@ -198,7 +203,7 @@
 <!--		<item>Saturday</item> -->
 <!--		<item>Sunday</item> -->
 <!--	</string-array> -->
-<!--	<string-array name="hours_all"> -->
+	<string-array name="hours_all">
 		<item>Todo el día</item>
 		<item>0:00 - 0:59</item>
 		<item>1:00 - 1:59</item>
@@ -236,27 +241,27 @@
 	<string-array name="dialog_edit_plan">
 		<item>Editar plan</item>
 	</string-array>
-	<string-array name="dialog_edit_delete"> 
-		<item>Editar</item> 
+	<string-array name="dialog_edit_delete">
+		<item>Editar</item>
 		<item>Borrar</item>
 	</string-array>
-	<string-array name="plans_type">
-		<item>Título</item>
+<!--	<string-array name="plans_type"> -->
+<!--		<item>Title</item> -->
 <!--		<item>Spacer</item> -->
 <!--		<item>Bill period</item> -->
 <!--		<item>Mixed</item> -->
 <!--		<item>Call</item> -->
-		<item>SMS</item> 
-		<item>MMS</item>
-	        <item>Datos</item>
-	</string-array>
-<!--	<string-array name="rules_type"> -->
-<!--		<item>Calls</item> -->
+<!--		<item>SMS</item> -->
+<!--		<item>MMS</item> -->
+<!--		<item>Data</item> -->
+<!--	</string-array> -->
+	<string-array name="rules_type">
+		<item>Llamadas</item>
 		<item>SMS</item>
 		<item>MMS</item>
 		<item>Datos</item>
 	</string-array>
-	<string-array name="limit_type">
+<!--	<string-array name="limit_type"> -->
 <!--		<item>unlimited</item> -->
 <!--		<item>units</item> -->
 <!--		<item>cost</item> -->
@@ -298,12 +303,34 @@
 <!--		<item>in</item> -->
 <!--		<item>out</item> -->
 <!--	</string-array> -->
-	<string-array name="direction_mms">
+<!--	<string-array name="direction_mms"> -->
 <!--		<item>in</item> -->
 <!--		<item>out</item> -->
-	</string-array>
-	<string-array name="direction_data"> 
+<!--	</string-array> -->
+	<string-array name="direction_data">
 		<item>entrada</item>
 		<item>salida</item>
 	</string-array>
+<!--	<string-array name="currency_formats"> -->
+<!--		<item>Default</item> -->
+<!--		<item>$1.00</item> -->
+<!--		<item>$1000</item> -->
+<!--		<item>1.00$</item> -->
+<!--		<item>1000$</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="date_formats"> -->
+<!--		<item>Default</item> -->
+<!--		<item>MM/DD/YY</item> -->
+<!--		<item>DD/MM/YYYY</item> -->
+<!--		<item>DD.MM.YYYY</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="update_interval"> -->
+<!--		<item>5 minutes</item> -->
+<!--		<item>10 minutes</item> -->
+<!--		<item>15 minutes</item> -->
+<!--		<item>30 minutes</item> -->
+<!--		<item>One hour</item> -->
+<!--		<item>Two hours</item> -->
+<!--		<item>Manually only</item> -->
+<!--	</string-array> -->
 </resources>

@@ -310,14 +310,15 @@
 	<string-array name="direction_data">
 		<item>Ein</item>
 		<item>Aus</item>
-	</string-array><string-array name="currency_formats">
+	</string-array>
+	<string-array name="currency_formats">
 		<item>Standard</item>
 		<item>€1.00</item>
 		<item>€1000</item>
 		<item>1.00€</item>
 		<item>1000€</item>
 	</string-array>
-		<string-array name="date_formats">
+	<string-array name="date_formats">
 		<item>Standard</item>
 		<item>MM/DD/YY</item>
 		<item>DD/MM/YYYY</item>
