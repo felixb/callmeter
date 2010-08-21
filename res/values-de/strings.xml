@@ -53,6 +53,11 @@
 	<string name="send_">Senden</string>
 	<string name="add_">Hinzufügen</string>
 	<string name="settings">Einstellungen</string>
+	<string name="update_interval_">Update Intervall</string>
+	<string name="update_interval_hint">Eine kürzere Periode verbreucht mehr Akku.</string>
+	<string name="date_begin_">Start der Aufzeichnungen</string>
+	<string name="date_begin_hint">Ignoriere alle Logs for diesem Datum.</string>
+	<string name="common_prefs_">Allgemeine Einstellungen</string>
 	<string name="edit_">Ändern</string>
 	<string name="about_">Über</string>
 	<string name="about_hint">Über diese App</string>
@@ -305,5 +310,26 @@
 	<string-array name="direction_data">
 		<item>Ein</item>
 		<item>Aus</item>
+	</string-array><string-array name="currency_formats">
+		<item>Standard</item>
+		<item>€1.00</item>
+		<item>€1000</item>
+		<item>1.00€</item>
+		<item>1000€</item>
+	</string-array>
+		<string-array name="date_formats">
+		<item>Standard</item>
+		<item>MM/DD/YY</item>
+		<item>DD/MM/YYYY</item>
+		<item>DD.MM.YYYY</item>
+	</string-array>
+	<string-array name="update_interval">
+		<item>5 Minuten</item>
+		<item>10 Minuten</item>
+		<item>15 Minuten</item>
+		<item>30 Minuten</item>
+		<item>Eine Stunde</item>
+		<item>Zwei Stunden</item>
+		<item>Nur manuell</item>
 	</string-array>
 </resources>

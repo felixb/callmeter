@@ -30,11 +30,13 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Handler;
+import android.preference.DatePreference;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
 import android.telephony.TelephonyManager;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.ui.Plans;
+import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.apis.TelephonyWrapper;
@@ -63,6 +65,9 @@ public final class LogRunnerService extends IntentService {
 
 	/** Is phone roaming? */
 	private static boolean roaming = false;
+
+	/** Ignore logs before. */
+	private static long dateStart = 0;
 
 	/**
 	 * Default Constructor.
@@ -119,7 +124,10 @@ public final class LogRunnerService extends IntentService {
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
 		}
-		return maxdate;
+		if (maxdate > dateStart) {
+			return maxdate;
+		}
+		return dateStart;
 	}
 
 	/**
@@ -430,6 +438,9 @@ public final class LogRunnerService extends IntentService {
 		roaming = ((TelephonyManager) this
 				.getSystemService(Context.TELEPHONY_SERVICE))
 				.isNetworkRoaming();
+		dateStart = PreferenceManager.getDefaultSharedPreferences(this)
+				.getLong(Preferences.PREFS_DATE_BEGIN,
+						DatePreference.DEFAULT_VALUE);
 
 		boolean shortRun = a != null
 				&& (a.equals(Intent.ACTION_BOOT_COMPLETED)

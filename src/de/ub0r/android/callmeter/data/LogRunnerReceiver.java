@@ -24,7 +24,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
+import android.preference.PreferenceManager;
+import de.ub0r.android.callmeter.CallMeter;
+import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * {@link BroadcastReceiver} running updates and postboot checks.
@@ -36,7 +40,10 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	private static final String TAG = "lrr";
 
 	/** Time between to update checks. */
-	private static final long DELAY = 30 * 60 * 1000; // 30min
+	private static final long DELAY = 30; // 30min
+	/** Factor for time between update checks. */
+	private static final long DELAY_FACTOR = CallMeter.SECONDS_MINUTE
+			* CallMeter.MILLIS;
 
 	/** Force update. */
 	public static final String ACTION_FORCE_UPDATE = // .
@@ -51,7 +58,11 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	public static void schedNext(final Context context) {
 		final Intent i = new Intent(context, LogRunnerReceiver.class);
 		final PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
-		final long t = SystemClock.elapsedRealtime() + DELAY;
+		final long t = SystemClock.elapsedRealtime()
+				+ Utils.parseLong(PreferenceManager
+						.getDefaultSharedPreferences(context).getString(
+								Preferences.PREFS_UPDATE_INTERVAL,
+								String.valueOf(DELAY)), DELAY) * DELAY_FACTOR;
 		final AlarmManager mgr = (AlarmManager) context
 				.getSystemService(Context.ALARM_SERVICE);
 		mgr.set(AlarmManager.ELAPSED_REALTIME, t, pi);

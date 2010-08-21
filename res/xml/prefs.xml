@@ -65,11 +65,9 @@
 			android:title="@string/export_rules_" android:summary="@string/export_rules_hint" />
 		<PreferenceScreen android:key="import_rules"
 			android:title="@string/import_rules_" android:summary="@string/import_rules_hint" />
-		<PreferenceScreen android:key="reset_data"
-			android:title="@string/reset_data_" android:summary="@string/reset_data_hint" />
 	</PreferenceCategory>
 
-	<PreferenceCategory android:title="@string/alerts_">
+	<PreferenceCategory android:title="@string/common_prefs_">
 		<PreferenceScreen android:title="@string/alerts_"
 			android:summary="@string/alerts_hint">
 			<CheckBoxPreference android:key="alert_80"
@@ -79,6 +77,14 @@
 				android:title="@string/alerts_100_" android:summary="@string/alerts_100_hint"
 				android:defaultValue="true" />
 		</PreferenceScreen>
+		<ListPreference android:key="update_interval"
+			android:title="@string/update_interval_" android:summary="@string/update_interval_hint"
+			android:entries="@array/update_interval" android:entryValues="@array/update_interval_values"
+			android:defaultValue="30" />
+		<DatePreference android:key="date_begin" android:title="@string/date_begin_"
+			android:summary="@string/date_begin_hint" />
+		<PreferenceScreen android:key="reset_data"
+			android:title="@string/reset_data_" android:summary="@string/reset_data_hint" />
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/about_">

@@ -33,11 +33,12 @@
 			android:layout_weight="1" />
 	</LinearLayout>
 	<ScrollView android:layout_above="@id/ok_cancel"
-		android:layout_height="fill_parent" android:layout_width="fill_parent">
+		android:layout_height="fill_parent" android:layout_width="fill_parent"
+		android:padding="10dip">
 		<LinearLayout android:layout_height="wrap_content"
 			android:layout_width="fill_parent" android:orientation="vertical">
 			<TextView android:text="@string/plan_" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" />
+				android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" />
 			<Spinner android:id="@+id/spinner" android:layout_width="fill_parent"
 				android:layout_height="wrap_content" />
 		</LinearLayout>
