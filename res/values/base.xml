@@ -44,25 +44,12 @@
 
 	<string name="url_rulesets">http://www.4.ub0r.de/android/callmeter/rulesets/</string>
 
-	<string-array name="currency_formats">
-		<item>Default</item>
-		<item>$1.00</item>
-		<item>$1000</item>
-		<item>1.00$</item>
-		<item>1000$</item>
-	</string-array>
 	<string-array name="currency_formats_values">
 		<item></item>
 		<item>$%.2f"</item>
 		<item>$%.0f</item>
 		<item>%.2f$</item>
 		<item>%.0f$</item>
-	</string-array>
-	<string-array name="date_formats">
-		<item>Default</item>
-		<item>MM/DD/YY</item>
-		<item>DD/MM/YYYY</item>
-		<item>DD.MM.YYYY</item>
 	</string-array>
 	<string-array name="date_formats_values">
 		<item></item>
@@ -96,6 +83,15 @@
 	<string-array name="textsize_values">
 		<item>small</item>
 		<item>medium</item>
+	</string-array>
+	<string-array name="update_interval_values">
+		<item>5</item>
+		<item>10</item>
+		<item>15</item>
+		<item>30</item>
+		<item>60</item>
+		<item>120</item>
+		<item>0</item>
 	</string-array>
 
 	<dimen name="touchlist_height">30dip</dimen>

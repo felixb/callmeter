@@ -203,7 +203,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 			this.showHelp(R.string.name_help);
 			break;
 		case R.id.help:
-			this.showHelp(R.string.numberergroup_help);
+			this.showHelp(R.string.numbergroup_help);
 			break;
 		default:
 			break;

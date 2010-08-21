@@ -73,6 +73,10 @@ public class Preferences extends PreferenceActivity {
 	public static final String PREFS_ALERT80 = "alert_80";
 	/** Preference's name: alert at 100% usage. */
 	public static final String PREFS_ALERT100 = "alert_100";
+	/** Preference's name: update interval. */
+	public static final String PREFS_UPDATE_INTERVAL = "update_interval";
+	/** Preference's name: beginning of record. */
+	public static final String PREFS_DATE_BEGIN = "date_begin";
 
 	/** Preference's name: theme. */
 	private static final String PREFS_THEME = "theme";
