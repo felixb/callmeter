@@ -351,7 +351,8 @@ public final class RuleMatcher {
 				}
 			}
 
-			if (ret && this.roamed != DataProvider.Rules.NO_MATTER) {
+			if (ret && this.roamed >= 0
+					&& this.roamed != DataProvider.Rules.NO_MATTER) {
 				// rule.roamed=0: yes
 				// rule.roamed=1: no
 				// log.roamed=0: not roamed
@@ -359,7 +360,8 @@ public final class RuleMatcher {
 				ret = log.getInt(DataProvider.Logs.INDEX_ROAMED) // .
 				!= this.roamed;
 			}
-			if (ret && this.direction != DataProvider.Rules.NO_MATTER) {
+			if (ret && this.direction >= 0
+					&& this.direction != DataProvider.Rules.NO_MATTER) {
 				ret = log.getInt(DataProvider.Logs.INDEX_DIRECTION) // .
 				== this.direction;
 			}
