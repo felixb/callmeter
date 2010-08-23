@@ -43,10 +43,10 @@
 	<string name="sig_loaded">Advertenties verwijderd!</string>
 	<string name="sig_failed">Verwijderden advertenties mislukt!</string>
 	<string name="accept_">Accepteer Voorwaarden</string>
-<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
+	<string name="accept_missing">Accepteer aub de voorwaarden voor het verzenden van de data.</string>
 	<string name="terms">Deze app zal je donatie id tezamen met de md5-hash van je IMEI naar de server versturen (http://ub0r.de/donation/). Deze data is nodig om je donatie te verifieren.\nDe data zal nooit aan een derde partij gegeven worden en wordt alleen gebruikt om je donatie te verifieren\n\nAls je telefoon wijzigd, the <i>noads</i> code zal niet meer werken. Stuur me een mail on een nieuwe te krijgen.</string>
-<!--	<string name="notify_">Forgot to remove the ads?</string> -->
-<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
+	<string name="notify_">Vergeten ads te verwijderen?</string>
+	<string name="notify_text">Om uiteindelijk de ads te verwijderen, moet je de <b>noads</b> Code laden. Klik om verder te gaan.</string>
 	<string name="about0_">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
 	<string name="about0">CallMeter genereert rapporten uit de gesprek, berichten en data log van je telefoon. Het ondersteunt meerdere manieren van factureren.</string>
 	<string name="about1">Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
@@ -57,9 +57,9 @@
 	<string name="settings">Voorkeuren</string>
 	<string name="update_interval_">Update interval</string>
 	<string name="update_interval_hint">Kortere periode verbruikt meer batterij.</string>
-<!--	<string name="date_begin_">Beginning of records</string> -->
-<!--	<string name="date_begin_hint">Ignore any logs before this date.</string> -->
-<!--	<string name="common_prefs_">Common preferences</string> -->
+	<string name="date_begin_">Begin van records</string>
+	<string name="date_begin_hint">Negeer alle logs voor deze datum.</string>
+	<string name="common_prefs_">Normale voorkeuren</string>
 	<string name="edit_">Wijzigen</string>
 	<string name="about_">Over</string>
 	<string name="about_hint">Over deze app</string>
@@ -76,11 +76,11 @@
 	<string name="advanced_preferences_">Geavanceerde voorkeuren</string>
 	<string name="advanced_preferences_hint">Dit stelt je in staat om een veel complexere setup te maken. De meeste gebruikers zullen het niet nodig hebben.</string>
 	<string name="theme_">Thema</string>
-	<string name="textsize_">Text grootte</string>
-<!--	<string name="show_time_">Switch to date</string> -->
-	<string name="show_titlebar_">Toon titel balk</string>
-<!--	<string name="show_titlebar_hint">Show title bar in main view. Without title bar, there is no way to see background activity.</string> -->
-	<string name="show_hours_">Toon uren</string>
+	<string name="textsize_">Tekst grootte</string>
+	<string name="show_time_">Wijzig naar datum</string>
+	<string name="show_titlebar_">Toon titelbalk</string>
+	<string name="show_titlebar_hint">Toon titelbalk in hoofd venster. Zonder titelbalk kan je geen achtergrond activiteit zien.</string>
+	<string name="show_hours_">Toon uren</string> 
 	<string name="show_hours_hint">Toon tijd in seconden, minuten, uren en dagen.\nIndien uitgevinkt alleen seconden en uren worden getoond.</string>
 	<string name="custom_currency_symbol_">Aangepast valuta symbool</string>
 	<string name="custom_currency_symbol_hint">Stel een aangepast valuta symbool in, laat leeg voor systeem standaard.</string>
@@ -91,24 +91,24 @@
 	<string name="logs">Logs</string>
 	<string name="show_logs">Toon logs</string>
 	<string name="plans">Schema</string>
-<!--	<string name="plans_hint">Set your plans for all kind of billing here.</string> -->
+	<string name="plans_hint">Stel hier je schema\'s voor alle soorten facturatie in.</string>
 	<string name="plans_new">Nieuw schema</string>
-<!--	<string name="rules">Rules</string> -->
-<!--	<string name="rules_hint">Set your billing rules here.</string> -->
-<!--	<string name="rules_new">New Rule</string> -->
+	<string name="rules">Regels</string>
+	<string name="rules_hint">Stel hier je facturatie regels in.</string>
+	<string name="rules_new">Nieuwe Regel</string>
 	<string name="numbers">Nummers</string>
-<!--	<string name="numbergroup_">Include numbers</string> -->
-<!--	<string name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
-<!--	<string name="exnumbergroup_">Exclude numbers</string> -->
-<!--	<string name="exnumbergroup_help">Add some numbers this rule must not match.\nSee above.</string> -->
-<!--	<string name="new_numbergroup">New number group</string> -->
-<!--	<string name="add_number">Add number</string> -->
+	<string name="numbergroup_">Insluiten nummers</string>
+	<string name="numbergroup_help">Voeg nummers toe die deze regel moeten matchen.\n\nWildcards (\"%\") zijn toegestaan aan allebei de einden van het nummer.\nBv. %34 matched 1234, 12% matched 1234 en %23% matched 12345.</string>
+	<string name="exnumbergroup_">Uitsluiten nummers</string>
+	<string name="exnumbergroup_help">Voeg nummers toe die deze regel niet moeten matchen.\nZie hierboven.</string>
+	<string name="new_numbergroup">Nieuwe nummer groep</string>
+	<string name="add_number">Nummer toevoegen</string>
 	<string name="hours">Uren</string>
-<!--	<string name="hourgroup_">Include hours</string> -->
-<!--	<string name="hourgroup_help">Add some hours this rule must match.</string> -->
-<!--	<string name="exhourgroup_">Exclude hours</string> -->
-<!--	<string name="exhourgroup_help">Add some hours this rule must not match.</string> -->
-<!--	<string name="new_hourgroup">New hour group</string> -->
+	<string name="hourgroup_">Insluiten uren</string>
+	<string name="hourgroup_help">Voegen uren toe die deze regel moeten matchen.</string>
+	<string name="exhourgroup_">Uitsluiten uren</string>
+	<string name="exhourgroup_help">Voeg uren toe die deze regel niet moeten matchen.</string>
+	<string name="new_hourgroup">Nieuwe uur groep</string>
 	<string name="add_hour">Uur toevoegen</string>
 	<string name="calls">Gesprekken</string>
 	<string name="sms">SMS</string>
@@ -130,71 +130,71 @@
 	<string name="shortname_">Verkorte naam</string>
 	<string name="shortname_help">Stel een verkorte naam in. Deze wordt getoond in compacte layouts.</string>
 	<string name="type_">Type</string>
-<!--	<string name="type_help">Select a type.\n\"Title\" will just display a title in main view.\n\"Spacer\" will display nothing but empty space.\n\"Bill period\" will hold any information about your billing period. Most users will need exactly one.\nA \"mixed\" plan can take calls and messages at once. It will combine billing of all those items.\nA \"call\" plan does only take calls. \"SMS\" and \"MMS\" plans will just take the messages.\nA \"data\" plan may hold information about your data traffic.</string> -->
+	<string name="type_help">Selecteer een type.\n"Titel\" laat een titel in het hoofdvenster zien.\n\"Witruimte\" laat niets zien alleen lege ruimte.\n\"Facturatie periode\" bevat informatie over je facturatie periode. Meeste gebruikers hebben er precies een nodig.\nEen \"gemixed\" schema kan gesprekken en berichten bevatten. Het zal ze al die items gecombineerd factureren.\nEen \"gesprek\" schema pakt alleen gesprekken. \"SMS\" en \"MMS\" schema\'s pakt alleen de berichten.\nEen \"data\" schema bevat informatie over je data verkeer.</string>
 	<string name="limit_type_">Limiet type</string>
-<!--	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"cost\" limit will limit your plan based on cost produced by the items billed in this plan.</string> -->
+	<string name="limit_type_help">Stel het type van je limiet hier in.\n Een \"eenheden\" limiet limiteerd je schema gebaseerd op minuten, berichten, ...\nEen \"kosten\" limiet limiteerd je schema gebaseerd op kosten geproduceerd door items gefactureerd in dit schema.</string>
 	<string name="limit_">Limiet</string>
-<!--	<string name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string> -->
+	<string name="limit_help">Stel hier het limiet van je schema.\n\nType \"eenheden\" moeten ingesteld zijn in minuten (gesprekken), berichten (sms/mms), megabytes (data, 1024kB) of eenheden (gemixed).\n\nType \"kosten\" moeten ingesteld zijn in je hoofd valuta (bv. €).</string>
 	<string name="billmode_">Facturatie modus</string>
-<!--	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string> -->
+	<string name="billmode_help">Stel de wijze van facturering gespreken.\nHet eerste deel is de minimum lengte gefactureerd door je provider. Elk gesprek met een kortere lengte is hiernaar afgerond.\nHet tweede deel is de minimum lengte van de volgende blokken van seconden.\nLees aub de FAQ voor verdere hulp.</string>
 	<string name="billday_">Eerste dag van facturatie</string>
-<!--	<string name="billday_help">Set this to the first day of the bill of the current billing period.</string> -->
+	<string name="billday_help">Stel dit als de eerst dag van de rekening van de huidige facturatie periode in.</string>
 	<string name="billperiodid_">Facturatie periode</string>
-<!--	<string name="billperiodid_help">Select your billing period.\nYou may need to create one as extra plan.</string> -->
+	<string name="billperiodid_help">Selecteer je facturatie periode.\nHet kan nodig zijn om er te maken als extra schema.</string>
 	<string name="billperiod_">Lengte van de facturatie periode</string>
 	<string name="billperiod_help">Zet de lengte van de facturatie periode.</string>
 	<string name="cost_per_item_">Kosten per item</string>
-<!--	<string name="cost_per_item_help">Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.</string> -->
-<!--	<string name="cost_per_item_in_limit_">Cost per item in limit</string> -->
-<!--	<string name="cost_per_item_in_limit_help">Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.</string> -->
-<!--	<string name="cost_per_amount_">Cost per length</string> -->
-<!--	<string name="cost_per_amount_help1">Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.</string> -->
-<!--	<string name="cost_per_amount_help2">Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.</string> -->
-<!--	<string name="cost_per_amount_in_limit_">Cost per length in limit</string> -->
-<!--	<string name="cost_per_amount_in_limit_help1">Set the cost billed per length for a single log item (e.g. for 1kB data) before the limit is exceeded.</string> -->
-<!--	<string name="cost_per_amount_in_limit_help2">Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.</string> -->
-<!--	<string name="cost_per_plan_">Cost per plan</string> -->
-<!--	<string name="cost_per_plan_help">Set the cost of the plan for one billing period as is.</string> -->
-<!--	<string name="mixed_units_sms_">Units for a sms</string> -->
-<!--	<string name="mixed_units_sms_help">Set the units billed for a single sms.</string> -->
-<!--	<string name="mixed_units_mms_">Units for a mms</string> -->
-<!--	<string name="mixed_units_mms_help">Set the units billed for a single mms.</string> -->
-<!--	<string name="mixed_units_call_">Units for a call</string> -->
-<!--	<string name="mixed_units_call_help">Set the units billed for a one minute call.\nBill mode is taken into account here.</string> -->
-<!--	<string name="plan_">Plan</string> -->
-<!--	<string name="plan_help">Choose the plan this rule should fit.</string> -->
-<!--	<string name="limitnotreached_">Limit not reached</string> -->
-<!--	<string name="limitnotreached_help">Match only if target plan has not reached it\'s limit yet.</string> -->
-<!--	<string name="what_">Target type</string> -->
-<!--	<string name="what_help">Choose a target type here.</string> -->
-<!--	<string name="direction_">Direction</string> -->
-<!--	<string name="direction_help">Choose a direction the given log has to be.</string> -->
-<!--	<string name="roamed_">Roamed</string> -->
-<!--	<string name="roamed_help">Choose whether the given log has to be roamed.</string> -->
-<!--	<string name="no_matter_">Does not matter</string> -->
+	<string name="cost_per_item_help">Stel de kosten gefactureerd voor een log item in (bv. een gesprek of een bericht) nadat de limiet is overschreden.</string>
+	<string name="cost_per_item_in_limit_">Kosten per item binnen limiet</string>
+	<string name="cost_per_item_in_limit_help">Stel de kosten gefactureerd voor een log item in (bv. a gesprek of een bericht) voordat de limiet is overschreden.</string>
+	<string name="cost_per_amount_">Kosten per lengte buiten limiet</string>
+	<string name="cost_per_amount_help1">Stel de kosten gefactureerd per lengte voor een log item in. (bv. voor 1kB data) nadat de limiet is overschreden.</string>
+	<string name="cost_per_amount_help2">Stel de kosten gefactureerd per lengte voor een log item in (bv. voor 1min gesprek, 1kB data) nadat de limiet is overschreden.\nHet eerste veld bevat de kosten voor de eerste paar sec. van het gesprek, het tweede bevat de kosten voor de volgende sec. (beide zijn in $/minuten; zie facturatie mode).\nBij twijfel, zet ze allebei op je minuut kosten.</string>
+	<string name="cost_per_amount_in_limit_">Kosten per lengte binnen limiet</string>
+	<string name="cost_per_amount_in_limit_help1">Stel de kosten gefactureerd per lengte voor een log item in. (bv. voor 1kB data) voordat de limiet is overschreden.</string>
+	<string name="cost_per_amount_in_limit_help2">Stel de kosten gefactureerd per lengte voor een log item in (bv. voor 1min gesprek, 1kB data) voordat de limiet is overschreden.\nHet eerste veld bevat de kosten voor de eerste paar sec. van het gesprek, het tweede bevat de kosten voor de volgende sec. (beide zijn in $/minuten; zie facturatie mode).\nBij twijfel, zet ze allebei op je minuut kosten.</string>
+	<string name="cost_per_plan_">Kosten per schema</string>
+	<string name="cost_per_plan_help">Stel de kosten van het schema voor een facturatie periode vast.</string>
+	<string name="mixed_units_sms_">Eenheden voor een sms</string>
+	<string name="mixed_units_sms_help">Stel de eenheden in gefactureerd voor een sms.</string>
+	<string name="mixed_units_mms_">Eenheden voor een mms</string>
+	<string name="mixed_units_mms_help">Stel de eenheden in gefactureerd voor een mms.</string>
+	<string name="mixed_units_call_">Eenheden voor een gesprek</string>
+	<string name="mixed_units_call_help">Stel de eenheden gefactureerd voor een 1 minuut gesprek.\nMet facturatie mode wordt hier rekening gehouden.</string>
+	<string name="plan_">Schema</string>
+	<string name="plan_help">Kies het schema waarin deze regel past.</string>
+	<string name="limitnotreached_">Limiet niet bereikt</string>
+	<string name="limitnotreached_help">Match alleen als doel schema het limiet nog niet bereikt heeft.</string>
+	<string name="what_">Doel type</string>
+	<string name="what_help">Kies hier een doel type.</string>
+	<string name="direction_">Richting</string>
+	<string name="direction_help">Kies een richting de gegeven log moet zijn.</string>
+	<string name="roamed_">Zwevend</string>
+	<string name="roamed_help">Kies of de gegeven log zwevend moet zijn.</string>
+	<string name="no_matter_">Maakt niet uit</string>
 	<string name="yes">Ja</string>
 	<string name="no">Nee</string>
 	<string name="none">Geen</string>
 	<string name="value">Waarde</string>
-<!--	<string name="export_rules_">Export rule set</string> -->
-<!--	<string name="export_rules_hint">Export rule set as mail.</string> -->
-<!--	<string name="export_rules_progr">Exporting rule set ...</string> -->
+	<string name="export_rules_">Exporteer regel set</string>
+	<string name="export_rules_hint">Exporteer regel set als mail.</string>
+	<string name="export_rules_progr">Exporteren regel set ...</string>
 	<string name="export_rules_descr">Omschrijving</string>
-<!--	<string name="import_rules_">Import rule set</string> -->
-<!--	<string name="import_rules_hint">Import rule set.</string> -->
-<!--	<string name="import_rules_progr">Import rule set ...</string> -->
-<!--	<string name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.</string> -->
-<!--	<string name="err_export_write">Error writing export file</string> -->
-<!--	<string name="err_export_read">Error reading export file</string> -->
+	<string name="import_rules_">Importeer regel set</string>
+	<string name="import_rules_hint">Importeer regel set.</string>
+	<string name="import_rules_progr">Importeren regel set ...</string>
+	<string name="import_rules_empty">Geen schema/regel set. Klik deze tekst om een standaard regel set te importeren.\n\nOf voeg handmatig schema\'s en regels in voorkeuren toe.</string>
+	<string name="err_export_write">Error schrijven export file</string>
+	<string name="err_export_read">Error lezen export file</string>
 	<string name="alerts_">Waarschuwingen</string>
-<!--	<string name="alerts_hint">Set alerts based on plan usage.</string> -->
+	<string name="alerts_hint">Stel waarschuwingen in gebaseerd op schema verbruik.</string>
 	<string name="alerts_title">Call Meter 3G waarschuwing</string>
-<!--	<string name="alerts_message">Plan %s has reached %d%% usage!</string> -->
+	<string name="alerts_message">Schema %s heeft %d%% verbruik bereikt!</string>
 	<string name="alerts_80_">Notificatie op 80%</string>
-<!--	<string name="alerts_80_hint">Notify if a plan passes 80% of it\'s limit.</string> -->
+	<string name="alerts_80_hint">Notificatie als een schema over 80% van limiet gaat.</string>
 	<string name="alerts_100_">Notificatie op 100%</string>
-<!--	<string name="alerts_100_hint">Notify if a plan passes 100% of it\'s limit.</string> -->
-<!--	<string name="widget_config_">Widget config</string> -->
+	<string name="alerts_100_hint">Notificatie als een schema over 100% van limiet gaat.</string>
+	<string name="widget_config_">Widget config</string>
 	<string-array name="weekdays_all">
 		<item>Hele week</item>
 		<item>Maandag</item>
@@ -247,27 +247,27 @@
 		<item>Wijzig</item>
 		<item>Verwijderen</item>
 	</string-array>
-<!--	<string-array name="plans_type"> -->
-<!--		<item>Title</item> -->
-<!--		<item>Spacer</item> -->
-<!--		<item>Bill period</item> -->
-<!--		<item>Mixed</item> -->
-<!--		<item>Call</item> -->
-<!--		<item>SMS</item> -->
-<!--		<item>MMS</item> -->
-<!--		<item>Data</item> -->
-<!--	</string-array> -->
+	<string-array name="plans_type">
+		<item>Titel</item>
+		<item>Witruimte</item>
+		<item>Factuur periode</item>
+		<item>Gemixed</item>
+		<item>Gesprek</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Data</item>
+	</string-array>
 	<string-array name="rules_type">
 		<item>Gesprekken</item>
 		<item>SMS</item>
 		<item>MMS</item>
 		<item>Data</item>
 	</string-array>
-<!--	<string-array name="limit_type"> -->
-<!--		<item>unlimited</item> -->
-<!--		<item>units</item> -->
-<!--		<item>cost</item> -->
-<!--	</string-array> -->
+	<string-array name="limit_type">
+		<item>ongelimiteerd</item>
+		<item>eenheden</item>
+		<item>kosten</item>
+	</string-array>
 	<string-array name="billperiod">
 		<item>Een dag</item>
 		<item>Een week</item>
@@ -297,22 +297,22 @@
 		<item>60/60</item>
 		<item>Aangepast</item>
 	</string-array>
-<!--	<string-array name="direction_calls"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="direction_sms"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="direction_mms"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="direction_data"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
-<!--	</string-array> -->
+	<string-array name="direction_calls">
+		<item>in</item>
+		<item>uit</item>
+	</string-array>
+	<string-array name="direction_sms">
+		<item>in</item>
+		<item>uit</item>
+	</string-array>
+	<string-array name="direction_mms">
+		<item>in</item>
+		<item>uit</item>
+	</string-array>
+	<string-array name="direction_data">
+		<item>in</item>
+		<item>uit</item>
+	</string-array>
 	<string-array name="currency_formats">
 		<item>Standaard</item>
 		<item>€1.00</item>
