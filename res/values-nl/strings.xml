@@ -35,16 +35,16 @@
 	<string name="donate_market_">Doneer (Market)</string>
 	<string name="donate_remove_ads_">Doneer/verwijder ads</string>
 	<string name="remove_ads_">Verwijder ads</string>
-<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
+	<string name="predonate">Dit is een open-source applicatie vrijgegeven onder de GPLv3 licentie. Het is gratis en zal gratis blijven. Als je het waardeerd of je bent geirriteerd door de ads, overweeg aub donatie. Ik verwijderd dan de ads zo snel als mogelijk voor je.\nDank je!\n\nDe donatie zal alle ads verwijderen in alle door mij verstrekte apps.</string>
 	<string name="postdonate">Om advertenties te verwijderen, heb je de <i>noads</i>-code nodig. Je ontvangt deze zodra de donatie aangekomen is. Heb geduld en mail mij wanneer het niet werkt na 1 dag.</string>
-<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
-<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
+	<string name="donator_id_">Om je donatie te verifieren je donatie id (paypal mail adres voor paypal; gmail adres voor market) is nodig:</string>
+	<string name="donator_id_hint">Paypal/gmail adres</string>
 	<string name="load_hash_">Laad <i>noads</i>-code</string>
 	<string name="sig_loaded">Advertenties verwijderd!</string>
 	<string name="sig_failed">Verwijderden advertenties mislukt!</string>
 	<string name="accept_">Accepteer Voorwaarden</string>
 <!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
-<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
+	<string name="terms">Deze app zal je donatie id tezamen met de md5-hash van je IMEI naar de server versturen (http://ub0r.de/donation/). Deze data is nodig om je donatie te verifieren.\nDe data zal nooit aan een derde partij gegeven worden en wordt alleen gebruikt om je donatie te verifieren\n\nAls je telefoon wijzigd, the <i>noads</i> code zal niet meer werken. Stuur me een mail on een nieuwe te krijgen.</string>
 	<string name="about0_">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
 	<string name="about0">CallMeter genereert rapporten uit de gesprek, berichten en data log van je telefoon. Het ondersteunt meerdere manieren van factureren.</string>
 	<string name="about1">Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
@@ -53,8 +53,8 @@
 	<string name="send_">Verstuur</string>
 	<string name="add_">Toevoegen</string>
 	<string name="settings">Voorkeuren</string>
-<!--	<string name="update_interval_">Update interval</string> -->
-<!--	<string name="update_interval_hint">Shorter period will use more battery.</string> -->
+	<string name="update_interval_">Update interval</string>
+	<string name="update_interval_hint">Kortere periode verbruikt meer batterij.</string>
 <!--	<string name="date_begin_">Beginning of records</string> -->
 <!--	<string name="date_begin_hint">Ignore any logs before this date.</string> -->
 <!--	<string name="common_prefs_">Common preferences</string> -->
@@ -76,25 +76,25 @@
 	<string name="theme_">Thema</string>
 	<string name="textsize_">Text grootte</string>
 <!--	<string name="show_time_">Switch to date</string> -->
-<!--	<string name="show_titlebar_">Show title bar</string> -->
+	<string name="show_titlebar_">Toon titel balk</string>
 <!--	<string name="show_titlebar_hint">Show title bar in main view. Without title bar, there is no way to see background activity.</string> -->
-<!--	<string name="show_hours_">Show hours</string> -->
-<!--	<string name="show_hours_hint">Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and hours are shown.</string> -->
-<!--	<string name="custom_currency_symbol_">Custom currency symbol</string> -->
-<!--	<string name="custom_currency_symbol_hint">Set a custom currency symbol, leave empty for system default.</string> -->
-<!--	<string name="custom_currency_format_">Custom currency format</string> -->
-<!--	<string name="custom_currency_format_hint">Select a custom currency format.</string> -->
-<!--	<string name="custom_date_format_">Custom date format</string> -->
-<!--	<string name="custom_date_format_hint">Select a custom date format.</string> -->
+	<string name="show_hours_">Toon uren</string> 
+	<string name="show_hours_hint">Toon tijd in seconden, minuten, uren en dagen.\nIndien uitgevinkt alleen seconden en uren worden getoond.</string>
+	<string name="custom_currency_symbol_">Aangepast valuta symbool</string>
+	<string name="custom_currency_symbol_hint">Stel een aangepast valuta symbool in, laat leeg voor systeem standaard.</string>
+	<string name="custom_currency_format_">Aangepast valuta formaat</string>
+	<string name="custom_currency_format_hint">Selecteer een aangepast valuta formaat.</string>
+	<string name="custom_date_format_">Aangepast datum formaat</string>
+	<string name="custom_date_format_hint">Selecteer een aangepast datum formaat.</string>
 	<string name="logs">Logs</string>
-<!--	<string name="show_logs">Show logs</string> -->
+	<string name="show_logs">Toon logs</string>
 	<string name="plans">Schema</string>
 <!--	<string name="plans_hint">Set your plans for all kind of billing here.</string> -->
-<!--	<string name="plans_new">New plan</string> -->
+	<string name="plans_new">Nieuw schema</string>
 <!--	<string name="rules">Rules</string> -->
 <!--	<string name="rules_hint">Set your billing rules here.</string> -->
 <!--	<string name="rules_new">New Rule</string> -->
-<!--	<string name="numbers">Numbers</string> -->
+	<string name="numbers">Nummers</string>
 <!--	<string name="numbergroup_">Include numbers</string> -->
 <!--	<string name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
 <!--	<string name="exnumbergroup_">Exclude numbers</string> -->
@@ -118,7 +118,7 @@
 	<string name="reset_data_progr1">Herberekenen statistieken ...\n\n(Dit kan even duren!)</string>
 	<string name="reset_data_progr2">Herberekenen statistieken ...</string>
 	<string name="contacts_">Contacten</string>
-<!--	<string name="clear_">Clear</string> -->
+	<string name="clear_">Wissen</string>
 	<string name="help_">Help</string>
 	<string name="new_">Nieuw</string>
 	<string name="edit_selected_">Wijzig geselecteerde</string>
@@ -126,7 +126,7 @@
 	<string name="name_">Naam</string>
 	<string name="name_help">Stel hier een naam in.</string>
 	<string name="shortname_">Verkorte naam</string>
-<!--	<string name="shortname_help">Set a short name here. It is displayed in compact layouts.</string> -->
+	<string name="shortname_help">Stel een verkorte naam in. Deze wordt getoond in compacte layouts.</string>
 	<string name="type_">Type</string>
 <!--	<string name="type_help">Select a type.\n\"Title\" will just display a title in main view.\n\"Spacer\" will display nothing but empty space.\n\"Bill period\" will hold any information about your billing period. Most users will need exactly one.\nA \"mixed\" plan can take calls and messages at once. It will combine billing of all those items.\nA \"call\" plan does only take calls. \"SMS\" and \"MMS\" plans will just take the messages.\nA \"data\" plan may hold information about your data traffic.</string> -->
 	<string name="limit_type_">Limiet type</string>
@@ -170,27 +170,27 @@
 <!--	<string name="roamed_">Roamed</string> -->
 <!--	<string name="roamed_help">Choose whether the given log has to be roamed.</string> -->
 <!--	<string name="no_matter_">Does not matter</string> -->
-<!--	<string name="yes">Yes</string> -->
-<!--	<string name="no">No</string> -->
-<!--	<string name="none">None</string> -->
-<!--	<string name="value">Value</string> -->
+	<string name="yes">Ja</string>
+	<string name="no">Nee</string>
+	<string name="none">Geen</string>
+	<string name="value">Waarde</string>
 <!--	<string name="export_rules_">Export rule set</string> -->
 <!--	<string name="export_rules_hint">Export rule set as mail.</string> -->
 <!--	<string name="export_rules_progr">Exporting rule set ...</string> -->
-<!--	<string name="export_rules_descr">Description</string> -->
+	<string name="export_rules_descr">Omschrijving</string>
 <!--	<string name="import_rules_">Import rule set</string> -->
 <!--	<string name="import_rules_hint">Import rule set.</string> -->
 <!--	<string name="import_rules_progr">Import rule set ...</string> -->
 <!--	<string name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.</string> -->
 <!--	<string name="err_export_write">Error writing export file</string> -->
 <!--	<string name="err_export_read">Error reading export file</string> -->
-<!--	<string name="alerts_">Alerts</string> -->
+	<string name="alerts_">Waarschuwingen</string>
 <!--	<string name="alerts_hint">Set alerts based on plan usage.</string> -->
-<!--	<string name="alerts_title">Call Meter 3G alert</string> -->
+	<string name="alerts_title">Call Meter 3G waarschuwing</string>
 <!--	<string name="alerts_message">Plan %s has reached %d%% usage!</string> -->
-<!--	<string name="alerts_80_">Notify at 80%</string> -->
+	<string name="alerts_80_">Notificatie op 80%</string>
 <!--	<string name="alerts_80_hint">Notify if a plan passes 80% of it\'s limit.</string> -->
-<!--	<string name="alerts_100_">Notify at 100%</string> -->
+	<string name="alerts_100_">Notificatie op 100%</string>
 <!--	<string name="alerts_100_hint">Notify if a plan passes 100% of it\'s limit.</string> -->
 <!--	<string name="widget_config_">Widget config</string> -->
 	<string-array name="weekdays_all">
@@ -238,13 +238,13 @@
 		<item>Klein</item>
 		<item>Medium</item>
 	</string-array>
-<!--	<string-array name="dialog_edit_plan"> -->
-<!--		<item>Edit plan</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="dialog_edit_delete"> -->
-<!--		<item>Edit</item> -->
-<!--		<item>Delete</item> -->
-<!--	</string-array> -->
+	<string-array name="dialog_edit_plan">
+		<item>Wijzig schem</item>
+	</string-array>
+	<string-array name="dialog_edit_delete">
+		<item>Wijzig</item>
+		<item>Verwijderen</item>
+	</string-array>
 <!--	<string-array name="plans_type"> -->
 <!--		<item>Title</item> -->
 <!--		<item>Spacer</item> -->
@@ -255,46 +255,46 @@
 <!--		<item>MMS</item> -->
 <!--		<item>Data</item> -->
 <!--	</string-array> -->
-<!--	<string-array name="rules_type"> -->
-<!--		<item>Calls</item> -->
-<!--		<item>SMS</item> -->
-<!--		<item>MMS</item> -->
-<!--		<item>Data</item> -->
-<!--	</string-array> -->
+	<string-array name="rules_type">
+		<item>Gesprekken</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Data</item>
+	</string-array>
 <!--	<string-array name="limit_type"> -->
 <!--		<item>unlimited</item> -->
 <!--		<item>units</item> -->
 <!--		<item>cost</item> -->
 <!--	</string-array> -->
-<!--	<string-array name="billperiod"> -->
-<!--		<item>One day</item> -->
-<!--		<item>One week</item> -->
-<!--		<item>30 days</item> -->
-<!--		<item>60 days</item> -->
-<!--		<item>90 days</item> -->
-<!--		<item>One month</item> -->
-<!--		<item>Two month</item> -->
-<!--		<item>Three month</item> -->
-<!--		<item>Infinite</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="billmodes"> -->
-<!--		<item>1/1</item> -->
-<!--		<item>6/6</item> -->
-<!--		<item>10/10</item> -->
-<!--		<item>30/1</item> -->
-<!--		<item>30/6</item> -->
-<!--		<item>30/10</item> -->
-<!--		<item>30/30</item> -->
-<!--		<item>30/60</item> -->
-<!--		<item>45/1</item> -->
-<!--		<item>60/0</item> -->
-<!--		<item>60/1</item> -->
-<!--		<item>60/6</item> -->
-<!--		<item>60/10</item> -->
-<!--		<item>60/30</item> -->
-<!--		<item>60/60</item> -->
-<!--		<item>Custom</item> -->
-<!--	</string-array> -->
+	<string-array name="billperiod">
+		<item>Een dag</item>
+		<item>Een week</item>
+		<item>30 dagen</item>
+		<item>60 dagen</item>
+		<item>90 dagen</item>
+		<item>Een maand</item>
+		<item>Twee maand</item>
+		<item>Drie maand</item>
+		<item>Oneindig</item>
+	</string-array>
+	<string-array name="billmodes">
+		<item>1/1</item>
+		<item>6/6</item>
+		<item>10/10</item>
+		<item>30/1</item>
+		<item>30/6</item>
+		<item>30/10</item>
+		<item>30/30</item>
+		<item>30/60</item>
+		<item>45/1</item>
+		<item>60/0</item>
+		<item>60/1</item>
+		<item>60/6</item>
+		<item>60/10</item>
+		<item>60/30</item>
+		<item>60/60</item>
+		<item>Aangepast</item>
+	</string-array>
 <!--	<string-array name="direction_calls"> -->
 <!--		<item>in</item> -->
 <!--		<item>out</item> -->
@@ -311,26 +311,26 @@
 <!--		<item>in</item> -->
 <!--		<item>out</item> -->
 <!--	</string-array> -->
-<!--	<string-array name="currency_formats"> -->
-<!--		<item>Default</item> -->
-<!--		<item>$1.00</item> -->
-<!--		<item>$1000</item> -->
-<!--		<item>1.00$</item> -->
-<!--		<item>1000$</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="date_formats"> -->
-<!--		<item>Default</item> -->
-<!--		<item>MM/DD/YY</item> -->
-<!--		<item>DD/MM/YYYY</item> -->
-<!--		<item>DD.MM.YYYY</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="update_interval"> -->
-<!--		<item>5 minutes</item> -->
-<!--		<item>10 minutes</item> -->
-<!--		<item>15 minutes</item> -->
-<!--		<item>30 minutes</item> -->
-<!--		<item>One hour</item> -->
-<!--		<item>Two hours</item> -->
-<!--		<item>Manually only</item> -->
-<!--	</string-array> -->
+	<string-array name="currency_formats">
+		<item>Standaard</item>
+		<item>$1.00</item>
+		<item>$1000</item>
+		<item>1.00$</item>
+		<item>1000$</item>
+	</string-array>
+	<string-array name="date_formats">
+		<item>Standaard</item>
+		<item>MM/DD/YY</item>
+		<item>DD/MM/YYYY</item>
+		<item>DD.MM.YYYY</item>
+	</string-array>
+	<string-array name="update_interval">
+		<item>5 minuten</item>
+		<item>10 minuten</item>
+		<item>15 minuten</item>
+		<item>30 minuten</item>
+		<item>Een uur</item>
+		<item>Twee uren</item>
+		<item>Alleen handmatig</item>
+	</string-array>
 </resources>
