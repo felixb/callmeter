@@ -45,6 +45,8 @@
 	<string name="accept_">Aceptar Términos</string>
 	<string name="accept_missing">Por favor, acepta los términos antes de enviar los datos.</string>
 	<string name="terms">La aplicación enviará tu identificador de donación junto con el código hash de tu IMEI al servidor (http://ub0r.de/donation/). Estos datos son necesarios para verificar tu donativo.\nLos datos nunca se ceden a terceros y se usan sólo para verificar tu donativo.\n\nSi cambias de teléfono, el código <i>sinpubli</i> dejará de funcionar. En tal caso envíame un email para conseguir uno nuevo.</string>
+<!--	<string name="notify_">Forgot to remove the ads?</string> -->
+<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
 	<string name="about0_">¡Controla tus planes de llamadas, mensajes y datos!</string>
 	<string name="about0">CallMeter genera informes de tus registros de llamadas, mensajes y datos. Permite muchos tipos de tarificación.</string>
 	<string name="about1">La presentación es: minutos usados en el ciclo de facturación/ minutos totales. El cómputo mensual de llamadas tiene en cuenta el modo de tarificación. Los totales no.</string>
