@@ -248,7 +248,7 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 				DataProvider.NumbersGroup.ID, DataProvider.NumbersGroup.NAME,
 				null, editNumbers, null, null));
 		ret.add(new CursorPreference(this, DataProvider.Rules.EXNUMBERS_ID,
-				R.string.numbergroup_, R.string.numbergroup_help,
+				R.string.exnumbergroup_, R.string.exnumbergroup_help,
 				R.string.edit_groups_, -1, -1,
 				DataProvider.NumbersGroup.CONTENT_URI,
 				DataProvider.NumbersGroup.ID, DataProvider.NumbersGroup.NAME,
