@@ -45,8 +45,8 @@
 	<string name="accept_">Akceptuję postanowienia</string>
 	<string name="accept_missing">Zaakceptuj postanowienia przed wysłaniem danych</string>
 	<string name="terms">Aplikacja wyśle twój identyfikator datku wraz z md5-hash twojego numeru IMEI na serwer (http://ub0r.de/donation/). Dane te są niezbędne do weryfikacji twojego datku.\nNie zostaną one nigdy udostępnione osobom trzecim oraz będą wykorzystane tylko do weryfikacji datku.\n\nJeżeli zmienisz telefon, twój kod usuwający reklamy przestanie działać. Powiadom mnie o tym, a otrzymasz nowy.</string>
-<!--	<string name="notify_">Forgot to remove the ads?</string> -->
-<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
+	<string name="notify_">Zapomniałeś usunąć reklamy?</string>
+	<string name="notify_text">Aby usunąć reklamy ostatecznie, musisz wgrać kod <b>noads</b>. Kliknij aby rozpocząć.</string>
 	<string name="about0_">Obserwuj swoje połączenia, wiadomości oraz pakiet rozmów!</string>
 	<string name="about0">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych..</string>
 	<string name="about1">Format wyjściowy wykorzystuje /czas, całość wykorzystanego rachunku /czas, całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>
@@ -55,11 +55,11 @@
 	<string name="send_">Wyślij</string>
 	<string name="add_">Dodaj</string>
 	<string name="settings">Ustawienia</string>
-<!--	<string name="update_interval_">Update interval</string> -->
-<!--	<string name="update_interval_hint">Shorter period will use more battery.</string> -->
-<!--	<string name="date_begin_">Beginning of records</string> -->
-<!--	<string name="date_begin_hint">Ignore any logs before this date.</string> -->
-<!--	<string name="common_prefs_">Common preferences</string> -->
+	<string name="update_interval_">Częstotliwość aktualizacji</string>
+	<string name="update_interval_hint">Krótszy okres skraca czas pracy na baterii</string>
+	<string name="date_begin_">Początek zapisów</string>
+	<string name="date_begin_hint">Ignoruj logi przed tą datą</string>
+	<string name="common_prefs_">Ustawienia ogólne</string>
 	<string name="edit_">Edytuj</string>
 	<string name="about_">O programie</string>
 	<string name="about_hint">Informacje o programie i twórcy</string>
@@ -97,17 +97,17 @@
 	<string name="rules_hint">Wprowadź regułę dla twojego rachunku</string>
 	<string name="rules_new">Nowa reguła</string>
 	<string name="numbers">Numery</string>
-<!--	<string name="numbergroup_">Include numbers</string> -->
-<!--	<string name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
-<!--	<string name="exnumbergroup_">Exclude numbers</string> -->
-<!--	<string name="exnumbergroup_help">Add some numbers this rule must not match.\nSee above.</string> -->
+	<string name="numbergroup_">Wliczaj numery</string>
+	<string name="numbergroup_help">Dodaj godziny które będą zastosowane do reguły.\n\nWzorce (\"%\") są dopuszczalne na obach końcach numeru.\nNp.: %34 będzie pasować do 1234, 12% do 1234 i %23% do 12345.</string>
+	<string name="exnumbergroup_">Wykluczaj numery</string>
+	<string name="exnumbergroup_help">Dodaj godziny które będą zastosowane do reguły.\nPatrz powyżej.</string>
 	<string name="new_numbergroup">Nowa grupa numerów</string>
 	<string name="add_number">Dodaj numer</string>
 	<string name="hours">Godziny</string>
-<!--	<string name="hourgroup_">Include hours</string> -->
-<!--	<string name="hourgroup_help">Add some hours this rule must match.</string> -->
-<!--	<string name="exhourgroup_">Exclude hours</string> -->
-<!--	<string name="exhourgroup_help">Add some hours this rule must not match.</string> -->
+	<string name="hourgroup_">Wliczaj godziny</string>
+	<string name="hourgroup_help">Dodaj godziny które będą zastosowane do reguły.</string>
+	<string name="exhourgroup_">Wykluczaj godziny</string>
+	<string name="exhourgroup_help">Dodaj godziny które będą zastosowane do reguły.</string>
 	<string name="new_hourgroup">Nowa grupa godzin</string>
 	<string name="add_hour">Dodaj godzinę</string>
 	<string name="calls">Połączenia</string>
@@ -163,21 +163,21 @@
 	<string name="mixed_units_call_help">Wprowadź liczbę jednostek naliczonych za jedną minutę połączenia.\nBill mode is taken into account here.</string>
 	<string name="plan_">Plan</string>
 	<string name="plan_help">Wybierz plan do którego reguła będzie pasować</string>
-<!--	<string name="limitnotreached_">Limit not reached</string> -->
-<!--	<string name="limitnotreached_help">Match only if target plan has not reached it\'s limit yet.</string> -->
-<!--	<string name="what_">Target type</string> -->
-<!--	<string name="what_help">Choose a target type here.</string> -->
-<!--	<string name="direction_">Direction</string> -->
-<!--	<string name="direction_help">Choose a direction the given log has to be.</string> -->
-<!--	<string name="roamed_">Roamed</string> -->
-<!--	<string name="roamed_help">Choose whether the given log has to be roamed.</string> -->
-<!--	<string name="no_matter_">Does not matter</string> -->
-<!--	<string name="yes">Yes</string> -->
-<!--	<string name="no">No</string> -->
+	<string name="limitnotreached_">Limit nie osiągnięty</string>
+	<string name="limitnotreached_help">Dopasuj tylko, jeżeli plan docelowy nie osiągnął jeszcze limitu.</string>
+	<string name="what_">Typ celu</string>
+	<string name="what_help">Wybierz tutaj typ celu</string>
+	<string name="direction_">Kierunek</string>
+	<string name="direction_help">Wybierz kierunek, który musi być zapisany</string>
+	<string name="roamed_">Roamingowe</string>
+	<string name="roamed_help">Wybierz, czy zapis ma być roamingowany</string>
+	<string name="no_matter_">Nie ma znaczenia</string>
+	<string name="yes">Tak</string>
+	<string name="no">Nie</string>
 	<string name="none">Brak</string>
 	<string name="value">Wartość</string>
 	<string name="export_rules_">Eksportuj ustawienia reguł</string>
-<!--	<string name="export_rules_hint">Export rule set as mail.</string> -->
+	<string name="export_rules_hint">Eksportuj ustawienia mailem</string>
 	<string name="export_rules_progr">Eksportuję ustawienia reguł ...</string>
 	<string name="export_rules_descr">Opis</string>
 	<string name="import_rules_">Importuj ustawienia reguł</string>
@@ -313,26 +313,26 @@
 		<item>przychodzące</item>
 		<item>wychodzące</item>
 	</string-array>
-<!--	<string-array name="currency_formats"> -->
-<!--		<item>Default</item> -->
-<!--		<item>$1.00</item> -->
-<!--		<item>$1000</item> -->
-<!--		<item>1.00$</item> -->
-<!--		<item>1000$</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="date_formats"> -->
-<!--		<item>Default</item> -->
-<!--		<item>MM/DD/YY</item> -->
-<!--		<item>DD/MM/YYYY</item> -->
-<!--		<item>DD.MM.YYYY</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="update_interval"> -->
-<!--		<item>5 minutes</item> -->
-<!--		<item>10 minutes</item> -->
-<!--		<item>15 minutes</item> -->
-<!--		<item>30 minutes</item> -->
-<!--		<item>One hour</item> -->
-<!--		<item>Two hours</item> -->
-<!--		<item>Manually only</item> -->
-<!--	</string-array> -->
+	<string-array name="currency_formats">
+		<item>Domyślny</item>
+		<item>$1.00</item>
+		<item>$1000</item>
+		<item>1.00$</item>
+		<item>1000$</item>
+	</string-array>
+	<string-array name="date_formats">
+		<item>Domyślny</item>
+		<item>MM/DD/YY</item>
+		<item>DD/MM/YYYY</item>
+		<item>DD.MM.YYYY</item>
+	</string-array>
+	<string-array name="update_interval">
+		<item>5 minut</item>
+		<item>10 minut</item>
+		<item>15 minut</item>
+		<item>30 minut</item>
+		<item>Jedna godzina</item>
+		<item>Dwie godziny</item>
+		<item>Tylko ręcznie</item>
+	</string-array>
 </resources>
