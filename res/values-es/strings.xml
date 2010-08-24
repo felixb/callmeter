@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-	
+	<!--
 		Copyright (C) 2010 Angel Martinez, Felix Bechstein
-	
-	        Este archivo forma parte de Call Meter 3G. Este programa es software libre;
-		puedes redistribuirlo y/o modificarlo bajo los términos de licencia GNU
-		General Public License publicados por Free Software Foundation; bien la
-		version 3 de la Licencia, y (a elegir) cualquier otra posterior.
-		Este programa se distribuye con la intención de ser útil, pero SIN NINGUN TIPO
-                DE GARANTÍA; ni siquiera la garantía implícita de COMERCIALIZACIÓN o ADECUACION 
-                PARA UN FIN CONCRETO. Véase la GNU General Public License para más detalles. Debes
-                de haber recibido una copia de la GNU General Public License junto con este programa:
-                si no es así, visita <http://www.gnu.org/licenses/>.
+	-->
+	<!--
+		This file is part of Call Meter 3G. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
 <resources>
 	<string name="author_">Autor:</string>
 	<string name="version_">Versión:</string>
@@ -20,7 +26,7 @@
 	<string name="website_">Web:</string>
 	<string name="debug_">Depurar</string>
 	<string name="send_logs_">Enviar logs</string>
-	<string name="send_logs_hint">Envía los logs de tu dispositivo al desarrollador.\n Sólo si te han pedido que lo                              hagas.</string>
+	<string name="send_logs_hint">Envía los logs de tu dispositivo al desarrollador.\n Sólo si te han pedido que lo hagas.</string>
 	<string name="sendlog_run_">Ejecutar envío de log</string>
 	<string name="sendlog_run">SendLog envía el log de tu dispositivo al desarrollador.\nTendrás la oportunidad de revisar y modificar los datos antes de enviarlos.</string>
 	<string name="sendlog_install_">Instalar SendLog</string>
@@ -273,7 +279,7 @@
 <!--		<item>Three month</item> -->
 <!--		<item>Infinite</item> -->
 <!--	</string-array> -->
-<!--	<string-array name="billmodes"> -->
+	<string-array name="billmodes">
 		<item>1/1</item> 
 		<item>6/6</item> 
 		<item>10/10</item>
