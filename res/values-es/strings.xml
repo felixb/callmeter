@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
+	
 		Copyright (C) 2010 Angel Martinez, Felix Bechstein
-	-->
-	<!--
-		This file is part of Call Meter 3G. This program is free software; you
-		can redistribute it and/or modify it under the terms of the GNU
-		General Public License as published by the Free Software Foundation;
-		either version 3 of the License, or (at your option) any later
-		version.
-	-->
-	<!--
-		This program is distributed in the hope that it will be useful, but
-		WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-		General Public License for more details. You should have received a
-		copy of the GNU General Public License along with this program; If
-		not, see <http://www.gnu.org/licenses/>.
-	-->
+	
+	        Este archivo forma parte de Call Meter 3G. Este programa es software libre;
+		puedes redistribuirlo y/o modificarlo bajo los términos de licencia GNU
+		General Public License publicados por Free Software Foundation; bien la
+		version 3 de la Licencia, y (a elegir) cualquier otra posterior.
+		Este programa se distribuye con la intención de ser útil, pero SIN NINGUN TIPO
+                DE GARANTÍA; ni siquiera la garantía implícita de COMERCIALIZACIÓN o ADECUACION 
+                PARA UN FIN CONCRETO. Véase la GNU General Public License para más detalles. Debes
+                de haber recibido una copia de la GNU General Public License junto con este programa:
+                si no es así, visita <http://www.gnu.org/licenses/>.
 <resources>
 	<string name="author_">Autor:</string>
 	<string name="version_">Versión:</string>
@@ -26,7 +20,7 @@
 	<string name="website_">Web:</string>
 	<string name="debug_">Depurar</string>
 	<string name="send_logs_">Enviar logs</string>
-	<string name="send_logs_hint">Envía los logs de tu dispositivo al desarrollador.\n Sólo si te han pedido que lo hagas.</string>
+	<string name="send_logs_hint">Envía los logs de tu dispositivo al desarrollador.\n Sólo si te han pedido que lo                              hagas.</string>
 	<string name="sendlog_run_">Ejecutar envío de log</string>
 	<string name="sendlog_run">SendLog envía el log de tu dispositivo al desarrollador.\nTendrás la oportunidad de revisar y modificar los datos antes de enviarlos.</string>
 	<string name="sendlog_install_">Instalar SendLog</string>
@@ -45,8 +39,8 @@
 	<string name="accept_">Aceptar Términos</string>
 	<string name="accept_missing">Por favor, acepta los términos antes de enviar los datos.</string>
 	<string name="terms">La aplicación enviará tu identificador de donación junto con el código hash de tu IMEI al servidor (http://ub0r.de/donation/). Estos datos son necesarios para verificar tu donativo.\nLos datos nunca se ceden a terceros y se usan sólo para verificar tu donativo.\n\nSi cambias de teléfono, el código <i>sinpubli</i> dejará de funcionar. En tal caso envíame un email para conseguir uno nuevo.</string>
-<!--	<string name="notify_">Forgot to remove the ads?</string> -->
-<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
+	<string name="notify_">Olvidaste quitar la publi?</string>
+	<string name="notify_text">Para quitar definitivamente la publicidad, necesitas cargar el código <b>sinpubli</b>. Haz click para proceder.</string>
 	<string name="about0_">¡Controla tus planes de llamadas, mensajes y datos!</string>
 	<string name="about0">CallMeter genera informes de tus registros de llamadas, mensajes y datos. Permite muchos tipos de tarificación.</string>
 	<string name="about1">La presentación es: minutos usados en el ciclo de facturación/ minutos totales. El cómputo mensual de llamadas tiene en cuenta el modo de tarificación. Los totales no.</string>
@@ -55,11 +49,11 @@
 	<string name="send_">Enviar</string>
 	<string name="add_">Añadir</string>
 	<string name="settings">Preferencias</string>
-<!--	<string name="update_interval_">Update interval</string> -->
-<!--	<string name="update_interval_hint">Shorter period will use more battery.</string> -->
-<!--	<string name="date_begin_">Beginning of records</string> -->
-<!--	<string name="date_begin_hint">Ignore any logs before this date.</string> -->
-<!--	<string name="common_prefs_">Common preferences</string> -->
+	<string name="update_interval_">Intervalo de actulización</string>
+	<string name="update_interval_hint">Periodos cortos usan más batería.</string>
+	<string name="date_begin_">Inicio de registros</string> 
+	<string name="date_begin_hint">Ignorar cualquier log anterior a esta fecha.</string>
+	<string name="common_prefs_">Preferencias comunes</string>
 	<string name="edit_">Editar</string>
 	<string name="about_">Acerca de</string>
 	<string name="about_hint">Acerca de la aplicación</string>
@@ -97,19 +91,19 @@
 	<string name="rules_hint">Configura aquí las reglas de facturación.</string>
 	<string name="rules_new">Nueva regla</string>
 	<string name="numbers">Números</string>
-<!--	<string name="numbergroup_">Include numbers</string> -->
-<!--	<string name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
-<!--	<string name="exnumbergroup_">Exclude numbers</string> -->
-<!--	<string name="exnumbergroup_help">Add some numbers this rule must not match.\nSee above.</string> -->
-<!--	<string name="new_numbergroup">New number group</string> -->
+	<string name="numbergroup_">Incluir números</string>
+	<string name="numbergroup_help">Añade números que se ajusten a esta regla.\n\nSe permiten comodines (\"%\") a ambos extremos del número.\nE.g. %34 mostrará 1234, 12% mostrará 1234 y %23% mostrará 12345.</string>
+	<string name="exnumbergroup_">Excluir números</string>
+	<string name="exnumbergroup_help">Añade números que no se ajusten a esta regla.\nVer más arriba.</string>
+	<string name="new_numbergroup">Nuevo grupo de números</string>
 	<string name="add_number">Añadir número</string>
 	<string name="hours">Horas</string>
 	<string name="hourgroup_">Incluir horas</string>
-<!--	<string name="hourgroup_help">Add some hours this rule must match.</string> -->
+	<string name="hourgroup_help">Añade horas que se ajusten a esta regla.</string>
 	<string name="exhourgroup_">Excluir horas</string>
-<!--	<string name="exhourgroup_help">Add some hours this rule must not match.</string> -->
-<!--	<string name="new_hourgroup">New hour group</string> -->
-<!--	<string name="add_hour">Add hour</string> -->
+	<string name="exhourgroup_help">Añade horas que no se ajusten a esta regla..</string>
+	<string name="new_hourgroup">Nuevo grupo de horas</string>
+	<string name="add_hour">Añadir hora</string>
 	<string name="calls">Llamadas</string>
 	<string name="sms">SMS</string>
 	<string name="mms">MMS</string>
@@ -117,24 +111,24 @@
 	<string name="reset_data_">Poner a cero estadisticas</string>
 	<string name="reset_data_hint">Resetear los datos de llamadas y sms fuerza el recálculo las estadísticas.\n\nLa puesta a cero del tráfico de datos es permanente. Sólo resetea el tráfico producido antes del arranque!</string>
 	<string name="reset_data_data_">Pone a cero también el tráfico de datos.</string>
-<!--	<string name="reset_data_progr1">Recalculating statistics ...\n\n(This may take some time!)</string> -->
-<!--	<string name="reset_data_progr2">Recalculating statistics ...</string> -->
+	<string name="reset_data_progr1">Recalculando estadísticas ...\n\n(¡Puede tardar un poco!)</string>
+	<string name="reset_data_progr2">Recalculando estadísticas ...</string>
 	<string name="contacts_">Contactos</string>
 	<string name="clear_">Borrar</string>
 	<string name="help_">Ayuda</string>
 	<string name="new_">Nuevo</string>
-<!--	<string name="edit_selected_">Edit selected</string> -->
-<!--	<string name="edit_groups_">Edit groups</string> -->
+	<string name="edit_selected_">Editar seleccionados</string>
+	<string name="edit_groups_">Editar grupos</string>
 	<string name="name_">Nombre</string>
-<!--	<string name="name_help">Set a name here.</string> -->
+	<string name="name_help">Asigna aquí un nombre.</string>
 	<string name="shortname_">Nombre corto</string>
-<!--	<string name="shortname_help">Set a short name here. It is displayed in compact layouts.</string> -->
-<!--	<string name="type_">Type</string> -->
-<!--	<string name="type_help">Select a type.\n\"Title\" will just display a title in main view.\n\"Spacer\" will display nothing but empty space.\n\"Bill period\" will hold any information about your billing period. Most users will need exactly one.\nA \"mixed\" plan can take calls and messages at once. It will combine billing of all those items.\nA \"call\" plan does only take calls. \"SMS\" and \"MMS\" plans will just take the messages.\nA \"data\" plan may hold information about your data traffic.</string> -->
-<!--	<string name="limit_type_">Limit type</string> -->
-<!--	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"cost\" limit will limit your plan based on cost produced by the items billed in this plan.</string> -->
-<!--	<string name="limit_">Limit</string> -->
-<!--	<string name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string> -->
+	<string name="shortname_help">Asigna aquí un nombre corto. Se mostrará en la presentación compacta.</string>
+	<string name="type_">Tipo</string>
+	<string name="type_help">Selecciona un tipo.\n\"Título\" sólo mostrará un título en la vista principal.\n\"Espaciador\" mostrará sólo un espacio vacío.\n\"Periodo de factura\" contendrá la información sobre el periodo de facturación. La mayoría de usuarios necesitarán únicamente uno.\nUn plan \"mixto\" tiene en cuenta llamadas y mensajes a la vez. Combinará la facturación de todos ellos.\nUn plan de  \"llamadas\" sólo tiene en cuenta llamadas. Los planes \"SMS\" y \"MMS\" sólo tienen en cuenta mensajes.\nUn plan de \"datos\" contendrán información sobre el tráfico de datos.</string>
+	<string name="limit_type_">Tipo de límite</string>
+	<string name="limit_type_help">Ajusta el tipo de límite aquí.\nUn límite de \"unidades\" limitará el plan basándose en minutos, mensajes, ...\nUn límite de \"coste\" limitará el plan basándose en el coste generado por los productos facturados en este plan.</string> 
+	<string name="limit_">Límite</string>
+	<string name="limit_help">Ajusta el límite de tu plan aquí.\n\nEl tipo \"unidades\" puede indicarse en minutos (llamdas), mensajes (sms/mms), megabytes (datos, 1024kB) or unidades (mixto).\n\nEl tipo \"coste\" tiene que indicarse en la moneda local (e.g. €).</string> 
 	<string name="billmode_">Tarificación</string>
 <!--	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string> -->
 	<string name="billday_">Primer día de tu factura</string>
@@ -280,23 +274,23 @@
 <!--		<item>Infinite</item> -->
 <!--	</string-array> -->
 <!--	<string-array name="billmodes"> -->
-<!--		<item>1/1</item> -->
-<!--		<item>6/6</item> -->
-<!--		<item>10/10</item> -->
-<!--		<item>30/1</item> -->
-<!--		<item>30/6</item> -->
-<!--		<item>30/10</item> -->
-<!--		<item>30/30</item> -->
-<!--		<item>30/60</item> -->
-<!--		<item>45/1</item> -->
-<!--		<item>60/0</item> -->
-<!--		<item>60/1</item> -->
-<!--		<item>60/6</item> -->
-<!--		<item>60/10</item> -->
-<!--		<item>60/30</item> -->
-<!--		<item>60/60</item> -->
-<!--		<item>Custom</item> -->
-<!--	</string-array> -->
+		<item>1/1</item> 
+		<item>6/6</item> 
+		<item>10/10</item>
+		<item>30/1</item> 
+		<item>30/6</item> 
+		<item>30/10</item>
+		<item>30/30</item> 
+		<item>30/60</item> 
+		<item>45/1</item> 
+		<item>60/0</item> 
+		<item>60/1</item> 
+		<item>60/6</item> 
+		<item>60/10</item>
+		<item>60/30</item> 
+		<item>60/60</item> 
+		<item>Personalizado</item> 
+	</string-array>
 <!--	<string-array name="direction_calls"> -->
 <!--		<item>in</item> -->
 <!--		<item>out</item> -->
@@ -313,26 +307,26 @@
 		<item>entrada</item>
 		<item>salida</item>
 	</string-array>
-<!--	<string-array name="currency_formats"> -->
-<!--		<item>Default</item> -->
-<!--		<item>$1.00</item> -->
-<!--		<item>$1000</item> -->
-<!--		<item>1.00$</item> -->
-<!--		<item>1000$</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="date_formats"> -->
-<!--		<item>Default</item> -->
-<!--		<item>MM/DD/YY</item> -->
-<!--		<item>DD/MM/YYYY</item> -->
-<!--		<item>DD.MM.YYYY</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="update_interval"> -->
-<!--		<item>5 minutes</item> -->
-<!--		<item>10 minutes</item> -->
-<!--		<item>15 minutes</item> -->
-<!--		<item>30 minutes</item> -->
-<!--		<item>One hour</item> -->
-<!--		<item>Two hours</item> -->
-<!--		<item>Manually only</item> -->
-<!--	</string-array> -->
+        <string-array name="currency_formats">
+		<item>Por defecto</item>
+		<item>$1.00</item>
+		<item>$1000</item>
+		<item>1.00$</item>
+		<item>1000$</item>
+	</string-array> 
+	<string-array name="date_formats"> 
+		<item>Por defecto</item> 
+		<item>MM/DD/AA</item> 
+		<item>DD/MM/AAAA</item>
+		<item>DD.MM.AAAA</item>
+	</string-array>
+	<string-array name="Intervalo de actualización">
+		<item>5 minutos</item>
+		<item>10 minutos</item>
+		<item>15 minutos</item>
+		<item>30 minutos</item>
+		<item>Una hora</item>
+		<item>Dos horas</item>
+		<item>Sólo manual</item>
+	</string-array>
 </resources>
