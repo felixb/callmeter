@@ -291,6 +291,27 @@ public final class DataProvider extends ContentProvider {
 		private Logs() {
 			// nothing here.
 		}
+
+		/**
+		 * Clean a number from all but [?*#+0-9].
+		 * 
+		 * @param number
+		 *            dirty number
+		 * @param pattern
+		 *            if true, '%' is added to list of allowed chars
+		 * @return cleaned number
+		 */
+		public static String cleanNumber(final String number,
+				final boolean pattern) {
+			if (number == null) {
+				return null;
+			}
+			if (pattern) {
+				return number.replaceAll("[^?*#+0-9%]", "");
+			} else {
+				return number.replaceAll("[^?*#+0-9]", "");
+			}
+		}
 	}
 
 	/**

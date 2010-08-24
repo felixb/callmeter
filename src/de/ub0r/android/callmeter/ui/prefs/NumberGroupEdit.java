@@ -99,7 +99,10 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 					.findViewById(android.R.id.text1));
 			final String number = cursor
 					.getString(DataProvider.Numbers.INDEX_NUMBER);
-			final String name = CWRAPPER.getNameForNumber(this.cr, number);
+			String name = null;
+			if (!number.contains("%")) {
+				name = CWRAPPER.getNameForNumber(this.cr, number);
+			}
 			if (name != null && name.length() > 0) {
 				twTitle.setText(name + " <" + number + ">");
 			} else {
@@ -154,7 +157,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		if (number == null) {
 			number = "???";
 		} else {
-			number = number.replaceAll("[^+0-9]", "");
+			number = number;
 		}
 		this.setNumber(requestCode - 1, number);
 	}
@@ -252,7 +255,8 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	private void setNumber(final long nid, final String number) {
 		final ContentValues cv = new ContentValues();
 		cv.put(DataProvider.Numbers.GID, this.gid);
-		cv.put(DataProvider.Numbers.NUMBER, number);
+		cv.put(DataProvider.Numbers.NUMBER, DataProvider.Logs.cleanNumber(
+				number, true));
 		if (nid < 0) {
 			this.getContentResolver().insert(DataProvider.Numbers.CONTENT_URI,
 					cv);

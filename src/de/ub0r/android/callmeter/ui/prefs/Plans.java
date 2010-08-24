@@ -93,8 +93,12 @@ public class Plans extends ListActivity implements OnClickListener,
 					.findViewById(R.id.normtitle));
 			twTitle.setText(cursor.getString(DataProvider.Plans.INDEX_NAME));
 			final TextView twType = ((TextView) view.findViewById(R.id.type));
-			twType.setText(this.types[cursor
-					.getInt(DataProvider.Plans.INDEX_TYPE)]);
+			final int i = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
+			if (i >= 0 && i < this.types.length) {
+				twType.setText(this.types[i]);
+			} else {
+				twType.setText("???");
+			}
 		}
 	}
 

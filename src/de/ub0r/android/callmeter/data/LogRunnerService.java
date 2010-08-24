@@ -270,7 +270,8 @@ public final class LogRunnerService extends IntentService {
 				cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_CALL);
 				cv.put(DataProvider.Logs.DATE, cursor.getLong(idDate));
-				cv.put(DataProvider.Logs.REMOTE, cursor.getString(idNumber));
+				cv.put(DataProvider.Logs.REMOTE, DataProvider.Logs.cleanNumber(
+						cursor.getString(idNumber), false));
 				cv.put(DataProvider.Logs.AMOUNT, d);
 				if (roaming) {
 					cv.put(DataProvider.Logs.ROAMED, 1);
@@ -332,7 +333,8 @@ public final class LogRunnerService extends IntentService {
 				cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_SMS);
 				cv.put(DataProvider.Logs.DATE, cursor.getLong(idDate));
-				cv.put(DataProvider.Logs.REMOTE, cursor.getString(idAddress));
+				cv.put(DataProvider.Logs.REMOTE, DataProvider.Logs.cleanNumber(
+						cursor.getString(idAddress), false));
 				cv.put(DataProvider.Logs.AMOUNT, wrapper.calculateLength(cursor
 						.getString(idBody), false)[0]);
 				if (roaming) {
@@ -398,7 +400,8 @@ public final class LogRunnerService extends IntentService {
 				cv.put(DataProvider.Logs.DATE, this.fixDate(cursor
 						.getLong(idDate)));
 				// FIXME: cv.put(DataProvider.Logs.REMOTE,
-				// cursor.getLong(idAddress));
+				// DataProvider.Logs.cleanNumber(
+				// cursor.getLong(idAddress), false));
 				cv.put(DataProvider.Logs.AMOUNT, 1);
 				if (roaming) {
 					cv.put(DataProvider.Logs.ROAMED, 1);

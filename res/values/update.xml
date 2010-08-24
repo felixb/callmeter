@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
+		<item>HEAD: Fix some FCs, fix number groups with more than one entry</item>
 		<item>v2.8.3: Fix exclude numbers</item>
 		<item>v2.8.2: Simplify rules (You must reset them!), fix export, fix NPEs, set update interval, set beginning of record</item>
 		<item>v2.8.1: Add default rule sets, reduce complexity for simple setups, some changes to gui, force internal install</item>

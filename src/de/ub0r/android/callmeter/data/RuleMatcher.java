@@ -63,65 +63,48 @@ public final class RuleMatcher {
 	 */
 	private static class Rule {
 		/**
-		 * Group of arguments.
+		 * Get the {@link NumbersGroup}.
 		 * 
-		 * @author flx
+		 * @param cr
+		 *            {@link ContentResolver}
+		 * @param gid
+		 *            id of group
+		 * @return {@link NumbersGroup}
 		 */
-		private abstract static class Group {
-			/**
-			 * Math a log.
-			 * 
-			 * @param log
-			 *            {@link Cursor} representing the log.
-			 * @return matched?
-			 */
-			abstract boolean match(final Cursor log);
-
-			/**
-			 * Get the {@link Group}.
-			 * 
-			 * @param cr
-			 *            {@link ContentResolver}
-			 * @param gid
-			 *            id of group
-			 * @return {@link Group}
-			 */
-			static NumbersGroup getNumberGroup(final ContentResolver cr,
-					final long gid) {
-				if (gid < 0) {
-					return null;
-				}
-				final NumbersGroup ret = new NumbersGroup(cr, gid);
-				if (ret.numbers.size() == 0) {
-					return null;
-				}
-				return ret;
+		static NumbersGroup getNumberGroup(final ContentResolver cr,
+				final long gid) {
+			if (gid < 0) {
+				return null;
 			}
-
-			/**
-			 * Get the {@link Group}.
-			 * 
-			 * @param cr
-			 *            {@link ContentResolver}
-			 * @param gid
-			 *            id of group
-			 * @return {@link Group}
-			 */
-			static HoursGroup getHourGroup(final ContentResolver cr,
-					final long gid) {
-				if (gid < 0) {
-					return null;
-				}
-				final HoursGroup ret = new HoursGroup(cr, gid);
-				if (ret.hours.size() == 0) {
-					return null;
-				}
-				return ret;
+			final NumbersGroup ret = new NumbersGroup(cr, gid);
+			if (ret.numbers.size() == 0) {
+				return null;
 			}
+			return ret;
+		}
+
+		/**
+		 * Get the {@link HoursGroup}.
+		 * 
+		 * @param cr
+		 *            {@link ContentResolver}
+		 * @param gid
+		 *            id of group
+		 * @return {@link HoursGroup}
+		 */
+		static HoursGroup getHourGroup(final ContentResolver cr, final long gid) {
+			if (gid < 0) {
+				return null;
+			}
+			final HoursGroup ret = new HoursGroup(cr, gid);
+			if (ret.hours.size() == 0) {
+				return null;
+			}
+			return ret;
 		}
 
 		/** Group of numbers. */
-		private static final class NumbersGroup extends Group {
+		private static final class NumbersGroup {
 			/** List of numbers. */
 			private final ArrayList<String> numbers = new ArrayList<String>();
 
@@ -149,9 +132,12 @@ public final class RuleMatcher {
 			}
 
 			/**
-			 * {@inheritDoc}
+			 * Match a given log.
+			 * 
+			 * @param log
+			 *            {@link Cursor} representing log
+			 * @return true if log matches
 			 */
-			@Override
 			boolean match(final Cursor log) {
 				String number = log.getString(DataProvider.Logs.INDEX_REMOTE);
 				if (number == null || number.length() == 0) {
@@ -174,14 +160,19 @@ public final class RuleMatcher {
 					}
 					if (n.startsWith("%")) {
 						if (n.endsWith("%")) {
-							return number.contains(n.substring(1,
-									n.length() - 1));
+							if (number.contains(n.substring(1, // .
+									n.length() - 1))) {
+								return true;
+							}
 						} else {
-							return number.endsWith(n.substring(1));
+							if (number.endsWith(n.substring(1))) {
+								return true;
+							}
 						}
 					} else if (n.endsWith("%")) {
-						return number
-								.startsWith(n.substring(0, n.length() - 1));
+						if (number.startsWith(n.substring(0, n.length() - 1))) {
+							return true;
+						}
 					}
 				}
 				return false;
@@ -189,7 +180,7 @@ public final class RuleMatcher {
 		}
 
 		/** Group of hours. */
-		private static final class HoursGroup extends Group {
+		private static final class HoursGroup {
 			/** List of hours. */
 			private final HashMap<Integer, HashSet<Integer>> hours = // .
 			new HashMap<Integer, HashSet<Integer>>();
@@ -227,9 +218,12 @@ public final class RuleMatcher {
 			}
 
 			/**
-			 * {@inheritDoc}
+			 * Match a given log.
+			 * 
+			 * @param log
+			 *            {@link Cursor} representing log
+			 * @return true if log matches
 			 */
-			@Override
 			boolean match(final Cursor log) {
 				long date = log.getLong(DataProvider.Logs.INDEX_DATE);
 				final Calendar cal = Calendar.getInstance();
@@ -288,13 +282,13 @@ public final class RuleMatcher {
 			this.what = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
 			this.direction = cursor.getInt(DataProvider.Rules.INDEX_DIRECTION);
 			this.roamed = cursor.getInt(DataProvider.Rules.INDEX_ROAMED);
-			this.inhours = Group.getHourGroup(cr, cursor
+			this.inhours = getHourGroup(cr, cursor
 					.getLong(DataProvider.Rules.INDEX_INHOURS_ID));
-			this.exhours = Group.getHourGroup(cr, cursor
+			this.exhours = getHourGroup(cr, cursor
 					.getLong(DataProvider.Rules.INDEX_EXHOURS_ID));
-			this.innumbers = Group.getNumberGroup(cr, cursor
+			this.innumbers = getNumberGroup(cr, cursor
 					.getLong(DataProvider.Rules.INDEX_INNUMBERS_ID));
-			this.exnumbers = Group.getNumberGroup(cr, cursor
+			this.exnumbers = getNumberGroup(cr, cursor
 					.getLong(DataProvider.Rules.INDEX_EXNUMBERS_ID));
 			this.limitNotReached = cursor
 					.getInt(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED) > 0;
@@ -805,13 +799,17 @@ public final class RuleMatcher {
 	 */
 	private static boolean matchLog(final ContentResolver cr, // .
 			final Cursor log) {
+		if (log == null) {
+			Log.d(TAG, "matchLog(cr, null)");
+			return false;
+		}
 		final long lid = log.getLong(DataProvider.Logs.INDEX_ID);
 		Log.d(TAG, "matchLog(cr, " + lid + ")");
 		boolean matched = false;
 		final int l = rules.size();
 		for (int i = 0; i < l; i++) {
 			final Rule r = rules.get(i);
-			if (!r.match(log)) {
+			if (r == null || !r.match(log)) {
 				continue;
 			}
 			final Plan p = plans.get(r.getPlanId());
