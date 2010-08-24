@@ -35,7 +35,7 @@
 	<string name="donate_market_">Doneer (Market)</string>
 	<string name="donate_remove_ads_">Doneer/verwijder ads</string>
 	<string name="remove_ads_">Verwijder ads</string>
-	<string name="predonate">Dit is een open-source applicatie vrijgegeven onder de GPLv3 licentie. Het is gratis en zal gratis blijven. Als je het waardeerd of je bent geirriteerd door de ads, overweeg aub donatie. Ik verwijderd dan de ads zo snel als mogelijk voor je.\nDank je!\n\nDe donatie zal alle ads verwijderen in alle door mij verstrekte apps.</string>
+	<string name="predonate">Dit is een open-source applicatie vrijgegeven onder de GPLv3 licentie. Het is gratis en zal gratis blijven. Als je het waardeerd of je bent geirriteerd door de ads, overweeg aub donatie. Ik verwijderd dan de ads zo snel mogelijk voor je.\nDank je!\n\nDe donatie zal alle ads verwijderen in alle door mij verstrekte apps.</string>
 	<string name="postdonate">Om advertenties te verwijderen, heb je de <i>noads</i>-code nodig. Je ontvangt deze zodra de donatie aangekomen is. Heb geduld en mail mij wanneer het niet werkt na 1 dag.</string>
 	<string name="donator_id_">Om je donatie te verifieren je donatie id (paypal mail adres voor paypal; gmail adres voor market) is nodig:</string>
 	<string name="donator_id_hint">Paypal/gmail adres</string>
@@ -43,10 +43,10 @@
 	<string name="sig_loaded">Advertenties verwijderd!</string>
 	<string name="sig_failed">Verwijderden advertenties mislukt!</string>
 	<string name="accept_">Accepteer Voorwaarden</string>
-	<string name="accept_missing">Accepteer aub de voorwaarden voor het verzenden van de data.</string>
-	<string name="terms">Deze app zal je donatie id tezamen met de md5-hash van je IMEI naar de server versturen (http://ub0r.de/donation/). Deze data is nodig om je donatie te verifieren.\nDe data zal nooit aan een derde partij gegeven worden en wordt alleen gebruikt om je donatie te verifieren\n\nAls je telefoon wijzigd, the <i>noads</i> code zal niet meer werken. Stuur me een mail on een nieuwe te krijgen.</string>
+	<string name="accept_missing">Accepteer aub de voorwaarden voor je de data verzend.</string>
+	<string name="terms">Deze app zal je donatie id tezamen met de md5-hash van je IMEI naar de server versturen (http://ub0r.de/donation/). Deze data is nodig om je donatie te verifieren.\nDe data zal nooit aan een derde partij gegeven worden en wordt alleen gebruikt om je donatie te verifieren\n\nAls je telefoon wijzigd, zal de <i>noads</i> code niet meer werken. Stuur me een mail on een nieuwe te krijgen.</string>
 	<string name="notify_">Vergeten ads te verwijderen?</string>
-	<string name="notify_text">Om uiteindelijk de ads te verwijderen, moet je de <b>noads</b> Code laden. Klik om verder te gaan.</string>
+	<string name="notify_text">Om uiteindelijk de ads te verwijderen, moet je de <b>noads</b> code laden. Klik om verder te gaan.</string>
 	<string name="about0_">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
 	<string name="about0">CallMeter genereert rapporten uit de gesprek, berichten en data log van je telefoon. Het ondersteunt meerdere manieren van factureren.</string>
 	<string name="about1">Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
@@ -59,7 +59,7 @@
 	<string name="update_interval_hint">Kortere periode verbruikt meer batterij.</string>
 	<string name="date_begin_">Begin van records</string>
 	<string name="date_begin_hint">Negeer alle logs voor deze datum.</string>
-	<string name="common_prefs_">Normale voorkeuren</string>
+	<string name="common_prefs_">Algemene voorkeuren</string>
 	<string name="edit_">Wijzigen</string>
 	<string name="about_">Over</string>
 	<string name="about_hint">Over deze app</string>
@@ -98,7 +98,7 @@
 	<string name="rules_new">Nieuwe Regel</string>
 	<string name="numbers">Nummers</string>
 	<string name="numbergroup_">Insluiten nummers</string>
-	<string name="numbergroup_help">Voeg nummers toe die deze regel moeten matchen.\n\nWildcards (\"%\") zijn toegestaan aan allebei de einden van het nummer.\nBv. %34 matched 1234, 12% matched 1234 en %23% matched 12345.</string>
+	<string name="numbergroup_help">Voeg nummers toe die deze regel moeten matchen.\n\nWildcards (\"%\") zijn toegestaan aan allebei de uiteinden van het nummer.\nBv. %34 matched 1234, 12% matched 1234 en %23% matched 12345.</string>
 	<string name="exnumbergroup_">Uitsluiten nummers</string>
 	<string name="exnumbergroup_help">Voeg nummers toe die deze regel niet moeten matchen.\nZie hierboven.</string>
 	<string name="new_numbergroup">Nieuwe nummer groep</string>
@@ -130,7 +130,7 @@
 	<string name="shortname_">Verkorte naam</string>
 	<string name="shortname_help">Stel een verkorte naam in. Deze wordt getoond in compacte layouts.</string>
 	<string name="type_">Type</string>
-	<string name="type_help">Selecteer een type.\n"Titel\" laat een titel in het hoofdvenster zien.\n\"Witruimte\" laat niets zien alleen lege ruimte.\n\"Facturatie periode\" bevat informatie over je facturatie periode. Meeste gebruikers hebben er precies een nodig.\nEen \"gemixed\" schema kan gesprekken en berichten bevatten. Het zal ze al die items gecombineerd factureren.\nEen \"gesprek\" schema pakt alleen gesprekken. \"SMS\" en \"MMS\" schema\'s pakt alleen de berichten.\nEen \"data\" schema bevat informatie over je data verkeer.</string>
+	<string name="type_help">Selecteer een type.\n"Titel\" laat een titel in het hoofdvenster zien.\n\"Witruimte\" laat niets zien alleen lege ruimte.\n\"Facturatie periode\" bevat informatie over je facturatie periode. Meeste gebruikers hebben er precies een nodig.\nEen \"gemixed\" schema kan gesprekken en berichten bevatten. Het zal al die items gecombineerd factureren.\nEen \"gesprek\" schema pakt alleen gesprekken. \"SMS\" en \"MMS\" schema\'s pakt alleen de berichten.\nEen \"data\" schema bevat informatie over je data verkeer.</string>
 	<string name="limit_type_">Limiet type</string>
 	<string name="limit_type_help">Stel het type van je limiet hier in.\n Een \"eenheden\" limiet limiteerd je schema gebaseerd op minuten, berichten, ...\nEen \"kosten\" limiet limiteerd je schema gebaseerd op kosten geproduceerd door items gefactureerd in dit schema.</string>
 	<string name="limit_">Limiet</string>
@@ -140,19 +140,19 @@
 	<string name="billday_">Eerste dag van facturatie</string>
 	<string name="billday_help">Stel dit als de eerst dag van de rekening van de huidige facturatie periode in.</string>
 	<string name="billperiodid_">Facturatie periode</string>
-	<string name="billperiodid_help">Selecteer je facturatie periode.\nHet kan nodig zijn om er te maken als extra schema.</string>
+	<string name="billperiodid_help">Selecteer je facturatie periode.\nHet kan nodig zijn om er een te maken als extra schema.</string>
 	<string name="billperiod_">Lengte van de facturatie periode</string>
 	<string name="billperiod_help">Zet de lengte van de facturatie periode.</string>
-	<string name="cost_per_item_">Kosten per item</string>
+	<string name="cost_per_item_">Kosten per item buiten limiet</string>
 	<string name="cost_per_item_help">Stel de kosten gefactureerd voor een log item in (bv. een gesprek of een bericht) nadat de limiet is overschreden.</string>
 	<string name="cost_per_item_in_limit_">Kosten per item binnen limiet</string>
 	<string name="cost_per_item_in_limit_help">Stel de kosten gefactureerd voor een log item in (bv. a gesprek of een bericht) voordat de limiet is overschreden.</string>
 	<string name="cost_per_amount_">Kosten per lengte buiten limiet</string>
-	<string name="cost_per_amount_help1">Stel de kosten gefactureerd per lengte voor een log item in. (bv. voor 1kB data) nadat de limiet is overschreden.</string>
-	<string name="cost_per_amount_help2">Stel de kosten gefactureerd per lengte voor een log item in (bv. voor 1min gesprek, 1kB data) nadat de limiet is overschreden.\nHet eerste veld bevat de kosten voor de eerste paar sec. van het gesprek, het tweede bevat de kosten voor de volgende sec. (beide zijn in $/minuten; zie facturatie mode).\nBij twijfel, zet ze allebei op je minuut kosten.</string>
+	<string name="cost_per_amount_help1">Stel de kosten gefactureerd per lengte voor een log item in (bv. voor 1kB data) nadat de limiet is overschreden.</string>
+	<string name="cost_per_amount_help2">Stel de kosten gefactureerd per lengte voor een log item in (bv. voor 1min gesprek, 1kB data) nadat de limiet is overschreden.\nHet eerste veld bevat de kosten voor de eerste paar sec. van het gesprek, het tweede bevat de kosten voor de volgende sec. (beide zijn in €/minuten; zie facturatie mode).\nBij twijfel, zet ze allebei op je minuut kosten.</string>
 	<string name="cost_per_amount_in_limit_">Kosten per lengte binnen limiet</string>
 	<string name="cost_per_amount_in_limit_help1">Stel de kosten gefactureerd per lengte voor een log item in. (bv. voor 1kB data) voordat de limiet is overschreden.</string>
-	<string name="cost_per_amount_in_limit_help2">Stel de kosten gefactureerd per lengte voor een log item in (bv. voor 1min gesprek, 1kB data) voordat de limiet is overschreden.\nHet eerste veld bevat de kosten voor de eerste paar sec. van het gesprek, het tweede bevat de kosten voor de volgende sec. (beide zijn in $/minuten; zie facturatie mode).\nBij twijfel, zet ze allebei op je minuut kosten.</string>
+	<string name="cost_per_amount_in_limit_help2">Stel de kosten gefactureerd per lengte voor een log item in (bv. voor 1min gesprek, 1kB data) voordat de limiet is overschreden.\nHet eerste veld bevat de kosten voor de eerste paar sec. van het gesprek, het tweede bevat de kosten voor de volgende sec. (beide zijn in €/minuten; zie facturatie mode).\nBij twijfel, zet ze allebei op je minuut kosten.</string>
 	<string name="cost_per_plan_">Kosten per schema</string>
 	<string name="cost_per_plan_help">Stel de kosten van het schema voor een facturatie periode vast.</string>
 	<string name="mixed_units_sms_">Eenheden voor een sms</string>
@@ -241,7 +241,7 @@
 		<item>Medium</item>
 	</string-array>
 	<string-array name="dialog_edit_plan">
-		<item>Wijzig schem</item>
+		<item>Wijzig schema</item>
 	</string-array>
 	<string-array name="dialog_edit_delete">
 		<item>Wijzig</item>
