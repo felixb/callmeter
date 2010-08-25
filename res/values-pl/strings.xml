@@ -269,7 +269,7 @@
 		<item>koszt</item>
 	</string-array>
 	<string-array name="billperiod">
-		<item>Jeden dzień=</item>
+		<item>Jeden dzień</item>
 		<item>Jeden tydzień</item>
 		<item>30 dni</item>
 		<item>60 dni</item>
