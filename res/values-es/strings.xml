@@ -326,7 +326,7 @@
 		<item>DD/MM/AAAA</item>
 		<item>DD.MM.AAAA</item>
 	</string-array>
-	<string-array name="Intervalo de actualización">
+	<string-array name="update_interval">
 		<item>5 minutos</item>
 		<item>10 minutos</item>
 		<item>15 minutos</item>
