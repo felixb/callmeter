@@ -45,6 +45,8 @@
 <!--	<string name="accept_">Accept Terms</string> -->
 <!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
 <!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
+<!--	<string name="notify_">Forgot to remove the ads?</string> -->
+<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
 	<string name="about0_">Surveillez votre forfait d\'appels, de messages et de données !</string>
 	<string name="about0">CallMeter crée le rapport du décompte de vos appels, de vos SMS et de vos données sur votre forfait téléphonique. Il permet également de paramétrer plusieurs plans de facturations différents.</string>
 	<string name="about1">Il affiche le compte / le décompte du forfait pour une période de facturation / une période quelconque ou le décompte global. Le calcul du temps restant par mois prend en compte votre forfait, contrairement au décompte global.</string>
@@ -53,6 +55,11 @@
 	<string name="send_">Envoyer</string>
 <!--	<string name="add_">Add</string> -->
 	<string name="settings">Préférences</string>
+<!--	<string name="update_interval_">Update interval</string> -->
+<!--	<string name="update_interval_hint">Shorter period will use more battery.</string> -->
+<!--	<string name="date_begin_">Beginning of records</string> -->
+<!--	<string name="date_begin_hint">Ignore any logs before this date.</string> -->
+<!--	<string name="common_prefs_">Common preferences</string> -->
 <!--	<string name="edit_">Edit</string> -->
 	<string name="about_">A propos de</string>
 	<string name="about_hint">A propos de cette application</string>
@@ -305,5 +312,27 @@
 <!--	<string-array name="direction_data"> -->
 <!--		<item>in</item> -->
 <!--		<item>out</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="currency_formats"> -->
+<!--		<item>Default</item> -->
+<!--		<item>$1.00</item> -->
+<!--		<item>$1000</item> -->
+<!--		<item>1.00$</item> -->
+<!--		<item>1000$</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="date_formats"> -->
+<!--		<item>Default</item> -->
+<!--		<item>MM/DD/YY</item> -->
+<!--		<item>DD/MM/YYYY</item> -->
+<!--		<item>DD.MM.YYYY</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="update_interval"> -->
+<!--		<item>5 minutes</item> -->
+<!--		<item>10 minutes</item> -->
+<!--		<item>15 minutes</item> -->
+<!--		<item>30 minutes</item> -->
+<!--		<item>One hour</item> -->
+<!--		<item>Two hours</item> -->
+<!--		<item>Manually only</item> -->
 <!--	</string-array> -->
 </resources>

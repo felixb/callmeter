@@ -45,6 +45,8 @@
 	<string name="accept_">Согласиться с условиями</string>
 	<string name="accept_missing">Пожалуйсто подтвердите условия согласием.</string>
 	<string name="terms">Программа отошлёт адрес вашей электронной почты и номер IMEI на сервер (http://ub0r.de/donation/). Эти данные нужны только для подтверждения пожертвования.\nИ они ни когда не пейдут в руки третьим.\n\nЕсли вы смените телефон, <i>noADS</i> код придет в негодность. В этом случае обратитесь к нам для получения нового кода бесплатно.</string>
+<!--	<string name="notify_">Forgot to remove the ads?</string> -->
+<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
 	<string name="about0_">Следи за своими бесплатными: минутами, SMS и трафиком!</string>
 	<string name="about0">CallMeter создает из данныx о звонкаx, SMS и трафикa отчёт. Поддерживаются разные меторы отчёта.</string>
 	<string name="about1">Форма отчёта: Пользование / Время или Колличество в месяц / Время или просто Колличество (Минуты/SMS/Трафик).</string>
@@ -53,6 +55,11 @@
 	<string name="send_">Отослать</string>
 	<string name="add_">Добавить</string>
 	<string name="settings">Установки</string>
+<!--	<string name="update_interval_">Update interval</string> -->
+<!--	<string name="update_interval_hint">Shorter period will use more battery.</string> -->
+<!--	<string name="date_begin_">Beginning of records</string> -->
+<!--	<string name="date_begin_hint">Ignore any logs before this date.</string> -->
+<!--	<string name="common_prefs_">Common preferences</string> -->
 	<string name="edit_">Изменить</string>
 	<string name="about_">О программе</string>
 	<string name="about_hint">Общая информация</string>
@@ -306,4 +313,26 @@
 		<item>Вxодящий</item>
 		<item>Исxодящий</item>
 	</string-array>
+<!--	<string-array name="currency_formats"> -->
+<!--		<item>Default</item> -->
+<!--		<item>$1.00</item> -->
+<!--		<item>$1000</item> -->
+<!--		<item>1.00$</item> -->
+<!--		<item>1000$</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="date_formats"> -->
+<!--		<item>Default</item> -->
+<!--		<item>MM/DD/YY</item> -->
+<!--		<item>DD/MM/YYYY</item> -->
+<!--		<item>DD.MM.YYYY</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="update_interval"> -->
+<!--		<item>5 minutes</item> -->
+<!--		<item>10 minutes</item> -->
+<!--		<item>15 minutes</item> -->
+<!--		<item>30 minutes</item> -->
+<!--		<item>One hour</item> -->
+<!--		<item>Two hours</item> -->
+<!--		<item>Manually only</item> -->
+<!--	</string-array> -->
 </resources>
