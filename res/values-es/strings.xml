@@ -164,18 +164,18 @@
 	<string name="plan_">Plan</string>
 	<string name="plan_help">Escoge el plan que se ajusta a esta regla.</string>
 	<string name="limitnotreached_">Límite no alcanzado</string>
-	<string name="limitnotreached_help">Match only if target plan has not reached it\'s limit yet.</string> -->
-<!--	<string name="what_">Target type</string> -->
-<!--	<string name="what_help">Choose a target type here.</string> -->
-<!--	<string name="direction_">Direction</string> -->
-<!--	<string name="direction_help">Choose a direction the given log has to be.</string> -->
-<!--	<string name="roamed_">Roamed</string> -->
-<!--	<string name="roamed_help">Choose whether the given log has to be roamed.</string> -->
-<!--	<string name="no_matter_">Does not matter</string> -->
-<!--	<string name="yes">Yes</string> -->
-<!--	<string name="no">No</string> -->
-<!--	<string name="none">None</string> -->
-<!--	<string name="value">Value</string> -->
+	<string name="limitnotreached_help">Marcar solo si el tipo de plan no ha alcanzado aún el límite.</string>
+	<string name="what_">Tipo de plan</string>
+	<string name="what_help">Escoge un tipo de plan.</string>
+	<string name="direction_">Dirección</string>
+	<string name="direction_help">Escoge la dirección que debe tener el log (entrada/salida).</string>
+	<string name="roamed_">En Roaming</string>
+	<string name="roamed_help">Escoge si el log puede contener roaming.</string>
+	<string name="no_matter_">Indiferente</string>
+	<string name="yes">Sí</string>
+	<string name="no">No</string>
+	<string name="none">Ninguno</string>
+	<string name="value">Valor</string>
 	<string name="export_rules_">Exportar conjunto de reglas</string>
 	<string name="export_rules_hint">Exportar reglas en email.</string>
 	<string name="export_rules_progr">Exportando reglas ...</string> 
@@ -184,27 +184,27 @@
 	<string name="import_rules_hint">Importa un conjunto de reglas.</string>
 	<string name="import_rules_progr">Importando reglas ...</string>
 	<string name="import_rules_empty">No hay planes/reglas configuradas. Haz click aquí para importar una regla por defecto.\n\nO añade planes y reglas manualmente en preferencias.</string>
-<!--	<string name="err_export_write">Error writing export file</string> -->
-<!--	<string name="err_export_read">Error reading export file</string> -->
-<!--	<string name="alerts_">Alerts</string> -->
-<!--	<string name="alerts_hint">Set alerts based on plan usage.</string> -->
-<!--	<string name="alerts_title">Call Meter 3G alert</string> -->
-<!--	<string name="alerts_message">Plan %s has reached %d%% usage!</string> -->
-<!--	<string name="alerts_80_">Notify at 80%</string> -->
-<!--	<string name="alerts_80_hint">Notify if a plan passes 80% of it\'s limit.</string> -->
-<!--	<string name="alerts_100_">Notify at 100%</string> -->
-<!--	<string name="alerts_100_hint">Notify if a plan passes 100% of it\'s limit.</string> -->
-<!--	<string name="widget_config_">Widget config</string> -->
-<!--	<string-array name="weekdays_all"> -->
-<!--		<item>All week</item> -->
-<!--		<item>Monday</item> -->
-<!--		<item>Tuesday</item> -->
-<!--		<item>Wednesday</item> -->
-<!--		<item>Thursday</item> -->
-<!--		<item>Friday</item> -->
-<!--		<item>Saturday</item> -->
-<!--		<item>Sunday</item> -->
-<!--	</string-array> -->
+	<string name="err_export_write">Error escribiendo archivo de exportación</string>
+	<string name="err_export_read">Error leyendo archivo de exportación</string>
+	<string name="alerts_">Alertas</string>
+	<string name="alerts_hint">Configura alertas según el uso del plan.</string>
+	<string name="alerts_title">Alerta Call Meter 3G</string>
+	<string name="alerts_message">El plan %s ha alcanzado el límite del %d%%!</string>
+	<string name="alerts_80_">Avisar al 80%</string>
+	<string name="alerts_80_hint">Avisa si el plan sobrepasa el 80% del límite.</string>
+	<string name="alerts_100_">Avisar al 100%</string>
+	<string name="alerts_100_hint">Avisa si el plan sobrepasa el 100% del límite.</string>
+	<string name="widget_config_">Configuración del widget</string>
+	<string-array name="weekdays_all"> 
+		<item>Toda la semana</item> 
+		<item>Lunes</item>
+		<item>Martes</item>
+		<item>Miércoles</item>
+		<item>Jueves</item> 
+		<item>Viernes</item> 
+		<item>Sábado</item>
+		<item>Domingo</item> 
+	</string-array> -->
 	<string-array name="hours_all">
 		<item>Todo el día</item>
 		<item>0:00 - 0:59</item>
@@ -247,38 +247,38 @@
 		<item>Editar</item>
 		<item>Borrar</item>
 	</string-array>
-<!--	<string-array name="plans_type"> -->
-<!--		<item>Title</item> -->
-<!--		<item>Spacer</item> -->
-<!--		<item>Bill period</item> -->
-<!--		<item>Mixed</item> -->
-<!--		<item>Call</item> -->
-<!--		<item>SMS</item> -->
-<!--		<item>MMS</item> -->
-<!--		<item>Data</item> -->
-<!--	</string-array> -->
+	<string-array name="plans_type">
+		<item>Título</item> 
+		<item>Espaciador</item>
+		<item>Periodo de facturación</item> 
+		<item>Mixto</item>
+		<item>Llamadas</item> 
+		<item>SMS</item> 
+		<item>MMS</item> 
+		<item>Datos</item>
+	</string-array>
 	<string-array name="rules_type">
 		<item>Llamadas</item>
 		<item>SMS</item>
 		<item>MMS</item>
 		<item>Datos</item>
 	</string-array>
-<!--	<string-array name="limit_type"> -->
-<!--		<item>unlimited</item> -->
-<!--		<item>units</item> -->
-<!--		<item>cost</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="billperiod"> -->
-<!--		<item>One day</item> -->
-<!--		<item>One week</item> -->
-<!--		<item>30 days</item> -->
-<!--		<item>60 days</item> -->
-<!--		<item>90 days</item> -->
-<!--		<item>One month</item> -->
-<!--		<item>Two month</item> -->
-<!--		<item>Three month</item> -->
-<!--		<item>Infinite</item> -->
-<!--	</string-array> -->
+	<string-array name="limit_type"> 
+		<item>Sin límite</item> 
+                <item>unidades</item> 
+		<item>coste</item> 
+	</string-array>
+	<string-array name="billperiod"> 
+		<item>Un día</item>
+		<item>Una semana</item>
+		<item>30 días</item>
+		<item>60 días</item> 
+		<item>90 días</item> 
+		<item>Un mes</item>
+		<item>Dos meses</item>
+		<item>Tres meses</item>
+		<item>Infinito</item>
+	</string-array>
 	<string-array name="billmodes">
 		<item>1/1</item> 
 		<item>6/6</item> 
@@ -297,18 +297,18 @@
 		<item>60/60</item> 
 		<item>Personalizado</item> 
 	</string-array>
-<!--	<string-array name="direction_calls"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="direction_sms"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="direction_mms"> -->
-<!--		<item>in</item> -->
-<!--		<item>out</item> -->
-<!--	</string-array> -->
+	<string-array name="direction_calls">
+		<item>entrada</item>
+		<item>salida</item> 
+	</string-array>
+	<string-array name="direction_sms">
+		<item>entrada</item>
+		<item>salida</item>
+	</string-array>
+	<string-array name="direction_mms">
+		<item>entrada</item>
+		<item>salida</item>
+	</string-array>
 	<string-array name="direction_data">
 		<item>entrada</item>
 		<item>salida</item>
