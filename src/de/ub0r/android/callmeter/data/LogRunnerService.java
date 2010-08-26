@@ -335,8 +335,19 @@ public final class LogRunnerService extends IntentService {
 				cv.put(DataProvider.Logs.DATE, cursor.getLong(idDate));
 				cv.put(DataProvider.Logs.REMOTE, DataProvider.Logs.cleanNumber(
 						cursor.getString(idAddress), false));
-				cv.put(DataProvider.Logs.AMOUNT, wrapper.calculateLength(cursor
-						.getString(idBody), false)[0]);
+				final String body = cursor.getString(idBody);
+				if (body != null && body.length() > 0) {
+					try {
+						cv.put(DataProvider.Logs.AMOUNT, wrapper
+								.calculateLength(body, false)[0]);
+					} catch (NullPointerException e) {
+						Log.e(TAG, "error getting length for message: " + body,
+								e);
+						cv.put(DataProvider.Logs.AMOUNT, 1);
+					}
+				} else {
+					cv.put(DataProvider.Logs.AMOUNT, 1);
+				}
 				if (roaming) {
 					cv.put(DataProvider.Logs.ROAMED, 1);
 				}
