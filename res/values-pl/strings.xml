@@ -269,7 +269,7 @@
 		<item>koszt</item>
 	</string-array>
 	<string-array name="billperiod">
-		<item>Jeden dzień=</item>
+		<item>Jeden dzień</item>
 		<item>Jeden tydzień</item>
 		<item>30 dni</item>
 		<item>60 dni</item>
@@ -322,9 +322,9 @@
 	</string-array>
 	<string-array name="date_formats">
 		<item>Domyślny</item>
-		<item>MM/DD/YY</item>
-		<item>DD/MM/YYYY</item>
-		<item>DD.MM.YYYY</item>
+		<item>MM/DD/RR</item>
+		<item>DD/MM/RRRR</item>
+		<item>DD.MM.RRRR</item>
 	</string-array>
 	<string-array name="update_interval">
 		<item>5 minut</item>
