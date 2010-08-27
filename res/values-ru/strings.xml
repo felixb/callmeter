@@ -141,6 +141,7 @@ not, see <http://www.gnu.org/licenses/>.
 <string name="billperiodid_help">Установка отрезка времени для отчёта.\nВозможно нужно установить план с типом \"Время отчёта\".</string>
 <string name="billperiod_">Длительность времени отчёта</string>
 <string name="billperiod_help">Вабор длительности для времени отчёта.</string>
+
 <!--	<string name="cost_per_item_">Cost per item</string> -->
 <!--	<string name="cost_per_item_help">Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.</string> -->
 <!--	<string name="cost_per_item_in_limit_">Cost per item in limit</string> -->
@@ -159,15 +160,15 @@ not, see <http://www.gnu.org/licenses/>.
 <!--	<string name="mixed_units_mms_help">Set the units billed for a single mms.</string> -->
 <!--	<string name="mixed_units_call_">Units for a call</string> -->
 <!--	<string name="mixed_units_call_help">Set the units billed for a one minute call.\nBill mode is taken into account here.</string> -->
-<!--	<string name="plan_">Plan</string> -->
-<!--	<string name="plan_help">Choose the plan this rule should fit.</string> -->
-<!--	<string name="limitnotreached_">Limit not reached</string> -->
-<!--	<string name="limitnotreached_help">Match only if target plan has not reached it\'s limit yet.</string> -->
-<!--	<string name="what_">Target type</string> -->
-<!--	<string name="what_help">Choose a target type here.</string> -->
-<!--	<string name="direction_">Direction</string> -->
-<!--	<string name="direction_help">Choose a direction the given log has to be.</string> -->
 
+<string name="plan_">Ценовой план</string>
+<string name="plan_help">Выбор ценового плана в котором будет идти отчёт.</string>
+<string name="limitnotreached_">Лимит не достигнут</string>
+<string name="limitnotreached_help">Это правило только для того, если лимит плана еще не достигнут.</string>
+<string name="what_">Tip</string>
+<string name="what_help">Тип отчёта.</string>
+<string name="direction_">Направление</string>
+<string name="direction_help">Выбор направления, которое должен иметь отчёт.</string>
 <string name="roamed_">Роуминг</string>
 <string name="roamed_help">Осуществлять отчёт в роуминге?</string>
 <string name="no_matter_">Неважно</string>
