@@ -162,8 +162,11 @@ abstract class Preference {
 
 		@Override
 		void save(final ContentValues values) {
-			values.put(this.name, this.value);
-
+			if (this.value != null) {
+				values.put(this.name, this.value);
+			} else {
+				values.put(this.name, this.defaultValue);
+			}
 		}
 
 		@Override
@@ -273,11 +276,23 @@ abstract class Preference {
 
 		@Override
 		void save(final ContentValues values) {
-			values.put(this.name, this.value1);
-			if (this.singleMode) {
-				values.put(this.name2, this.value1);
+			if (this.value1 != null) {
+				values.put(this.name, this.value1);
 			} else {
-				values.put(this.name2, this.value2);
+				values.put(this.name, this.defaultValue1);
+			}
+			if (this.singleMode) {
+				if (this.value1 != null) {
+					values.put(this.name2, this.value1);
+				} else {
+					values.put(this.name2, this.defaultValue1);
+				}
+			} else {
+				if (this.value1 != null) {
+					values.put(this.name2, this.value2);
+				} else {
+					values.put(this.name2, this.defaultValue2);
+				}
 			}
 
 		}
@@ -446,8 +461,11 @@ abstract class Preference {
 
 		@Override
 		void save(final ContentValues values) {
-			values.put(this.name, this.value);
-
+			if (this.value >= 0) {
+				values.put(this.name, this.value);
+			} else {
+				values.put(this.name, this.defaultValue);
+			}
 		}
 
 		@Override
@@ -543,7 +561,6 @@ abstract class Preference {
 		@Override
 		void save(final ContentValues values) {
 			values.put(this.name, this.value);
-
 		}
 
 		/**
@@ -770,7 +787,6 @@ abstract class Preference {
 		@Override
 		void save(final ContentValues values) {
 			values.put(this.name, this.value);
-
 		}
 
 		@Override
@@ -915,7 +931,6 @@ abstract class Preference {
 		@Override
 		void save(final ContentValues values) {
 			values.put(this.name, this.value.getTimeInMillis());
-
 		}
 
 		@Override
