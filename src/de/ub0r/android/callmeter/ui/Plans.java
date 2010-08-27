@@ -443,6 +443,8 @@ public class Plans extends ListActivity implements OnClickListener,
 
 		/** {@link Context}. */
 		private final Context ctx;
+		/** Textsize. */
+		private final int textSize;
 
 		/**
 		 * Default Constructor.
@@ -456,6 +458,7 @@ public class Plans extends ListActivity implements OnClickListener,
 							DataProvider.Plans.PROJECTION, null, null,
 							DataProvider.Plans.ORDER), true);
 			this.ctx = context;
+			this.textSize = Preferences.getTextsize(context);
 		}
 
 		/**
@@ -745,6 +748,9 @@ public class Plans extends ListActivity implements OnClickListener,
 			}
 			if (twCache != null && pbCache != null) {
 				twCache.setText(cacheStr);
+				if (this.textSize > 0) {
+					twCache.setTextSize(this.textSize);
+				}
 				if (cacheLimitMax == 0) {
 					pbCache.setVisibility(View.GONE);
 				} else if (cacheLimitMax > 0) {
