@@ -134,14 +134,13 @@ not, see <http://www.gnu.org/licenses/>.
 <string name="limit_">Лимит</string>
 <string name="limit_help">Установка лимита данного ценового плана.\n\nТип \"Единицы\" должен быть в минутаx (Звонки), сообщенияx (СМС/ММС), мегабайтаx (Данные, 1024кБ) или единицаx (Смешанный).\n\nТип \"Стоимость\" должен содержать валюту (пример: руб.).</string>
 <string name="billmode_">Метод отчёта</string>
-
-<!--	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string> -->
-	<string name="billday_">Начало отсчёта</string>
-<!--	<string name="billday_help">Set this to the first day of the bill of the current billing period.</string> -->
-<!--	<string name="billperiodid_">Billing period</string> -->
-<!--	<string name="billperiodid_help">Select your billing period.\nYou may need to create one as extra plan.</string> -->
-<!--	<string name="billperiod_">Length of the billing period</string> -->
-<!--	<string name="billperiod_help">Set the length of your billing period.</string> -->
+<string name="billmode_help">Установка метода отчёта для звонков.\nПервая часть равна минимальной длительности звонка, которую учитывает твой провайдер. Каждый звонок который короче этого отрезка времени будет округлён этой длинне.\nВторая часть равна минимальной длительности последующего интервала времени.\nПодробнее в "Помощь".</string>
+<string name="billday_">Начало отсчёта</string>
+<string name="billday_help">Первый день отчёта.</string>
+<string name="billperiodid_">Время отчёта</string>
+<string name="billperiodid_help">Установка отрезка времени для отчёта.\nВозможно нужно установить план с типом \"Время отчёта\".</string>
+<string name="billperiod_">Длительность времени отчёта</string>
+<string name="billperiod_help">Вабор длительности для времени отчёта.</string>
 <!--	<string name="cost_per_item_">Cost per item</string> -->
 <!--	<string name="cost_per_item_help">Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.</string> -->
 <!--	<string name="cost_per_item_in_limit_">Cost per item in limit</string> -->
