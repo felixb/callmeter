@@ -86,6 +86,10 @@
 	<string name="sms">SMS</string>
 	<string name="mms">MMS</string>
 	<string name="data">Data</string>
+	<string name="prepaid_">Prepaid plan</string>
+	<string name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string>
+	<string name="balance_">Balance</string>
+	<string name="balance_help">Balance of your account at this given date.</string>
 	<string name="reset_data_">Reset statistics</string>
 	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string>
 	<string name="reset_data_data_">Reset traffic too.</string>

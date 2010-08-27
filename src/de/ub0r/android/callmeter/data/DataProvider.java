@@ -682,6 +682,9 @@ public final class DataProvider extends ContentProvider {
 			if (bd == null) {
 				return null;
 			}
+			if (period == BILLPERIOD_INFINITE) {
+				return DataProvider.Logs.DATE + " > " + bd.getTimeInMillis();
+			}
 			final Calendar nbd = getBillDay(period, start, now, true);
 			return DataProvider.Logs.DATE + " > " + bd.getTimeInMillis()
 					+ " AND " + DataProvider.Logs.DATE + " < "
@@ -727,7 +730,7 @@ public final class DataProvider extends ContentProvider {
 			int v;
 			switch (period) {
 			case BILLPERIOD_INFINITE:
-				return null;
+				return start;
 			case BILLPERIOD_DAY:
 				Calendar ret;
 				if (now == null) {

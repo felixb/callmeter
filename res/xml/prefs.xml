@@ -44,6 +44,8 @@
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/billing_">
+		<CheckBoxPreference android:key="prepaid"
+			android:title="@string/prepaid_" android:summary="@string/prepaid_hint" />
 		<CheckBoxPreference android:key="advanced_preferences"
 			android:title="@string/advanced_preferences_" android:summary="@string/advanced_preferences_hint" />
 		<PreferenceScreen android:title="@string/plans"

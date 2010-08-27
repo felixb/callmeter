@@ -144,9 +144,17 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				InputType.TYPE_CLASS_NUMBER));
 		ret.add(new BillmodePreference(this, DataProvider.Plans.BILLMODE,
 				R.string.billmode_, R.string.billmode_help));
+		int t, th;
+		if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+				Preferences.PREFS_PREPAID, false)) {
+			t = R.string.balance_;
+			th = R.string.balance_help;
+		} else {
+			t = R.string.cost_per_plan_;
+			th = R.string.cost_per_plan_help;
+		}
 		ret.add(new TextPreference(this, DataProvider.Plans.COST_PER_PLAN, "0",
-				R.string.cost_per_plan_, R.string.cost_per_plan_help,
-				InputType.TYPE_CLASS_NUMBER
+				t, th, InputType.TYPE_CLASS_NUMBER
 						| InputType.TYPE_NUMBER_FLAG_DECIMAL));
 		ret.add(new TextPreference(this,
 				DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, "0",
@@ -225,8 +233,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 					.getPreference(DataProvider.Plans.BILLPERIOD);
 			final int i = p.getValue();
 			this.adapter.hide(DataProvider.Plans.BILLDAY,
-					i == DataProvider.BILLPERIOD_INFINITE
-							|| i == DataProvider.BILLPERIOD_DAY);
+					i == DataProvider.BILLPERIOD_DAY);
 		} else if (t != DataProvider.TYPE_SPACING
 				&& t != DataProvider.TYPE_TITLE) {
 			final ListPreference p = (ListPreference) this.adapter

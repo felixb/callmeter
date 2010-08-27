@@ -115,6 +115,10 @@
 <!--	<string name="sms">SMS</string> -->
 <!--	<string name="mms">MMS</string> -->
 	<string name="data">Daten</string>
+	<string name="prepaid_">Prepaid Abrechnung</string>
+	<string name="prepaid_hint">Prepaid Vertrag. Kosten werden vom Guthaben abgezogen.</string>
+	<string name="balance_">Guthaben</string>
+	<string name="balance_help">Guthaben deines Account an diesem Datum.</string>
 	<string name="reset_data_">Statistik zurück setzen</string>
 	<string name="reset_data_hint">Anruf/SMS Statistik zurück setzen sorgt dafür, dass die Statistik neu berechnet wird.\n\nZurücksetzen der Traffic Statistik ist permanent. Es wird nur der Traffic vor dem letzten Reboot gelöscht!</string>
 	<string name="reset_data_data_">Auch Daten zurücksetzen</string>

@@ -317,7 +317,20 @@ public class Plans extends ListActivity implements OnClickListener,
 					if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
 						cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, -1);
 						cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, 1);
-						cv.put(DataProvider.Plans.CACHE_STRING, "\u221E");
+						if (this.billday <= 0 || billDay == null) {
+							cv.put(DataProvider.Plans.CACHE_STRING, "\u221E");
+						} else {
+							String formatedDate;
+							if (dateFormat == null) {
+								formatedDate = DateFormat.getDateFormat(
+										this.ctx).format(billDay.getTime());
+							} else {
+								formatedDate = String.format(dateFormat,
+										billDay, billDay, billDay);
+							}
+							cv.put(DataProvider.Plans.CACHE_STRING,
+									formatedDate);
+						}
 					} else {
 						final Calendar nextBillDay = DataProvider.Plans
 								.getBillDay(this.billperiod, billDay, lnow,
@@ -445,6 +458,8 @@ public class Plans extends ListActivity implements OnClickListener,
 		private final Context ctx;
 		/** Textsize. */
 		private final int textSize;
+		/** Prepaid plan? */
+		private final boolean prepaid;
 
 		/**
 		 * Default Constructor.
@@ -459,6 +474,8 @@ public class Plans extends ListActivity implements OnClickListener,
 							DataProvider.Plans.ORDER), true);
 			this.ctx = context;
 			this.textSize = Preferences.getTextsize(context);
+			this.prepaid = PreferenceManager.getDefaultSharedPreferences(
+					context).getBoolean(Preferences.PREFS_PREPAID, false);
 		}
 
 		/**
@@ -533,7 +550,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					new String[] { DataProvider.Plans.CACHE_COST },
 					DataProvider.Plans.BILLPERIOD_ID + " == " + p.id, null,
 					null);
-			float cost = p.cpp;
+			float cost = 0;
 			if (cursor != null && cursor.moveToFirst()) {
 				do {
 					final float c = cursor.getFloat(0);
@@ -544,6 +561,11 @@ public class Plans extends ListActivity implements OnClickListener,
 			}
 			if (cursor != null && !cursor.isClosed()) {
 				cursor.close();
+			}
+			if (this.prepaid) {
+				cost = p.cpp - cost;
+			} else {
+				cost += p.cpp;
 			}
 			final ContentValues cv = new ContentValues();
 			cv.put(DataProvider.Plans.CACHE_COST, cost);

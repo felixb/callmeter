@@ -78,6 +78,8 @@ public class Preferences extends PreferenceActivity {
 	public static final String PREFS_UPDATE_INTERVAL = "update_interval";
 	/** Preference's name: beginning of record. */
 	public static final String PREFS_DATE_BEGIN = "date_begin";
+	/** Preference's name: prepaid plan. */
+	public static final String PREFS_PREPAID = "prepaid";
 
 	/** Preference's name: theme. */
 	private static final String PREFS_THEME = "theme";
