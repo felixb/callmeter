@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Tom Nuss, Felix Bechstein
+		Copyright (C) 2010 Tom Nuss, Felix Bechstein, Jumi Vlot
 	-->
 	<!--
-		This file is part of Call Meter 3G. This program is free software; you
-		can redistribute it and/or modify it under the terms of the GNU
-		General Public License as published by the Free Software Foundation;
-		either version 3 of the License, or (at your option) any later
-		version.
+		Dit bestand is een onderdeel van Call Meter 3G. Dit programma is gratis software; u
+		kunt het herdistribueren en / of wijzigen onder de voorwaarden van de GNU
+		General Public License zoals gepubliceerd bij de Free Software Foundation;
+		ofwel versie 3 van de Licentie, of (naar keuze) een latere
+		versie
 	-->
 	<!--
-		This program is distributed in the hope that it will be useful, but
-		WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-		General Public License for more details. You should have received a
-		copy of the GNU General Public License along with this program; If
-		not, see <http://www.gnu.org/licenses/>.
+		Dit programma is gedistribueerd in de hoop dat het nuttig zal zijn, maar
+		ZONDER ENIGE GARANTIE, zelfs zonder de impliciete garantie van
+		VERKOOPBAARHEID of GESCHIKTHEID VOOR EEN BEPAALD DOEL. Zie de GNU
+		General Public License voor meer details. Je had een kopie van de GNU 
+		General Public License samen met dit programma moeten onvangen. Als 
+		dit niet het geval is, zie <http://www.gnu.org/licenses/>.
 	-->
 <resources>
 	<string name="author_">Auteur:</string>
@@ -74,14 +74,14 @@
 	<string name="billdate_">Begin facturatie periode:</string>
 	<string name="appearance_">Uiterlijk</string>
 	<string name="advanced_preferences_">Geavanceerde voorkeuren</string>
-	<string name="advanced_preferences_hint">Dit stelt je in staat om een veel complexere setup te maken. De meeste gebruikers zullen het niet nodig hebben.</string>
+	<string name="advanced_preferences_hint">Stelt je in staat om een complexe setup te maken. Meeste gebruikers hebben het niet nodig.</string>
 	<string name="theme_">Thema</string>
 	<string name="textsize_">Tekst grootte</string>
 	<string name="show_time_">Wijzig naar datum</string>
 	<string name="show_titlebar_">Toon titelbalk</string>
-	<string name="show_titlebar_hint">Toon titelbalk in hoofd venster. Zonder titelbalk kan je geen achtergrond activiteit zien.</string>
-	<string name="show_hours_">Toon uren</string> 
-	<string name="show_hours_hint">Toon tijd in seconden, minuten, uren en dagen.\nIndien uitgevinkt alleen seconden en uren worden getoond.</string>
+	<string name="show_titlebar_hint">Toon titelbalk in startscherm. Zonder titelbalk kan je geen achtergrond activiteit zien.</string>
+	<string name="show_hours_">Toon uren</string>
+	<string name="show_hours_hint">Toon tijd in sec, min, uren en dgn.\nIndien uitgevinkt alleen sec. en uren worden getoond.</string>
 	<string name="custom_currency_symbol_">Aangepast valuta symbool</string>
 	<string name="custom_currency_symbol_hint">Stel een aangepast valuta symbool in, laat leeg voor systeem standaard.</string>
 	<string name="custom_currency_format_">Aangepast valuta formaat</string>
@@ -105,7 +105,7 @@
 	<string name="add_number">Nummer toevoegen</string>
 	<string name="hours">Uren</string>
 	<string name="hourgroup_">Insluiten uren</string>
-	<string name="hourgroup_help">Voegen uren toe die deze regel moeten matchen.</string>
+	<string name="hourgroup_help">Voeg uren toe die deze regel moeten matchen.</string>
 	<string name="exhourgroup_">Uitsluiten uren</string>
 	<string name="exhourgroup_help">Voeg uren toe die deze regel niet moeten matchen.</string>
 	<string name="new_hourgroup">Nieuwe uur groep</string>
@@ -115,7 +115,7 @@
 	<string name="mms">MMS</string>
 	<string name="data">Data</string>
 	<string name="reset_data_">Reset statistieken</string>
-	<string name="reset_data_hint">Resetten van gesprek/sms data zorgt voor het opnieuw berekenen van de statistieken. \n\nResetten van data statistieken is permanent. Alleen data voordat het programma gestart is wordt gereset!</string>
+	<string name="reset_data_hint">Resetten van gesprek/sms data zorgt voor het opnieuw berekenen van de statistieken.\n\nResetten van data statistieken is permanent. Alleen data voordat het programma gestart is wordt gereset!</string>
 	<string name="reset_data_data_">Reset ook dataverkeer.</string>
 	<string name="reset_data_progr1">Herberekenen statistieken ...\n\n(Dit kan even duren!)</string>
 	<string name="reset_data_progr2">Herberekenen statistieken ...</string>
@@ -132,29 +132,29 @@
 	<string name="type_">Type</string>
 	<string name="type_help">Selecteer een type.\n"Titel\" laat een titel in het hoofdvenster zien.\n\"Witruimte\" laat niets zien alleen lege ruimte.\n\"Facturatie periode\" bevat informatie over je facturatie periode. Meeste gebruikers hebben er precies een nodig.\nEen \"gemixed\" schema kan gesprekken en berichten bevatten. Het zal al die items gecombineerd factureren.\nEen \"gesprek\" schema pakt alleen gesprekken. \"SMS\" en \"MMS\" schema\'s pakt alleen de berichten.\nEen \"data\" schema bevat informatie over je data verkeer.</string>
 	<string name="limit_type_">Limiet type</string>
-	<string name="limit_type_help">Stel het type van je limiet hier in.\n Een \"eenheden\" limiet limiteerd je schema gebaseerd op minuten, berichten, ...\nEen \"kosten\" limiet limiteerd je schema gebaseerd op kosten geproduceerd door items gefactureerd in dit schema.</string>
+	<string name="limit_type_help">Stel het type van je limiet hier in.\nEen \"eenheden\" limiet limiteerd je schema gebaseerd op minuten, berichten, ...\nEen \"kosten\" limiet limiteerd je schema gebaseerd op kosten geproduceerd door items gefactureerd in dit schema.</string>
 	<string name="limit_">Limiet</string>
 	<string name="limit_help">Stel hier het limiet van je schema.\n\nType \"eenheden\" moeten ingesteld zijn in minuten (gesprekken), berichten (sms/mms), megabytes (data, 1024kB) of eenheden (gemixed).\n\nType \"kosten\" moeten ingesteld zijn in je hoofd valuta (bv. €).</string>
 	<string name="billmode_">Facturatie modus</string>
 	<string name="billmode_help">Stel de wijze van facturering gespreken.\nHet eerste deel is de minimum lengte gefactureerd door je provider. Elk gesprek met een kortere lengte is hiernaar afgerond.\nHet tweede deel is de minimum lengte van de volgende blokken van seconden.\nLees aub de FAQ voor verdere hulp.</string>
 	<string name="billday_">Eerste dag van facturatie</string>
-	<string name="billday_help">Stel dit als de eerst dag van de rekening van de huidige facturatie periode in.</string>
+	<string name="billday_help">Stel dit in als de eerst dag van de rekening van de huidige facturatie periode.</string>
 	<string name="billperiodid_">Facturatie periode</string>
 	<string name="billperiodid_help">Selecteer je facturatie periode.\nHet kan nodig zijn om er een te maken als extra schema.</string>
 	<string name="billperiod_">Lengte van de facturatie periode</string>
-	<string name="billperiod_help">Zet de lengte van de facturatie periode.</string>
-	<string name="cost_per_item_">Kosten per item buiten limiet</string>
-	<string name="cost_per_item_help">Stel de kosten gefactureerd voor een log item in (bv. een gesprek of een bericht) nadat de limiet is overschreden.</string>
-	<string name="cost_per_item_in_limit_">Kosten per item binnen limiet</string>
-	<string name="cost_per_item_in_limit_help">Stel de kosten gefactureerd voor een log item in (bv. a gesprek of een bericht) voordat de limiet is overschreden.</string>
-	<string name="cost_per_amount_">Kosten per lengte buiten limiet</string>
-	<string name="cost_per_amount_help1">Stel de kosten gefactureerd per lengte voor een log item in (bv. voor 1kB data) nadat de limiet is overschreden.</string>
-	<string name="cost_per_amount_help2">Stel de kosten gefactureerd per lengte voor een log item in (bv. voor 1min gesprek, 1kB data) nadat de limiet is overschreden.\nHet eerste veld bevat de kosten voor de eerste paar sec. van het gesprek, het tweede bevat de kosten voor de volgende sec. (beide zijn in €/minuten; zie facturatie mode).\nBij twijfel, zet ze allebei op je minuut kosten.</string>
-	<string name="cost_per_amount_in_limit_">Kosten per lengte binnen limiet</string>
+	<string name="billperiod_help">Stel de lengte van de facturatie periode in.</string>
+	<string name="cost_per_item_">Kosten/item buiten limiet</string>
+	<string name="cost_per_item_help">Stel de kosten gefactureerd voor een log item in (bv. gesprek of bericht) nadat de limiet is overschreden.</string>
+	<string name="cost_per_item_in_limit_">Kosten/item binnen limiet</string>
+	<string name="cost_per_item_in_limit_help">Stel de kosten gefactureerd voor een log item in (bv. gesprek of bericht) voordat de limiet is overschreden.</string>
+	<string name="cost_per_amount_">Kosten/lengte buiten limiet</string>
+	<string name="cost_per_amount_help1">Stel de kosten gefactureerd per lengte voor een log item in (bv. 1kB data) nadat de limiet is overschreden.</string>
+	<string name="cost_per_amount_help2">Stel de kosten gefactureerd per lengte voor een log item in (bv. 1min gesprek, 1kB data) nadat de limiet is overschreden.\nHet eerste veld bevat de kosten voor de eerste paar sec. van het gesprek, het tweede bevat de kosten voor de volgende sec. (beide zijn in €/minuten; zie facturatie mode).\nBij twijfel, zet ze allebei op je minuut kosten.</string>
+	<string name="cost_per_amount_in_limit_">Kosten/lengte binnen limiet</string>
 	<string name="cost_per_amount_in_limit_help1">Stel de kosten gefactureerd per lengte voor een log item in. (bv. voor 1kB data) voordat de limiet is overschreden.</string>
 	<string name="cost_per_amount_in_limit_help2">Stel de kosten gefactureerd per lengte voor een log item in (bv. voor 1min gesprek, 1kB data) voordat de limiet is overschreden.\nHet eerste veld bevat de kosten voor de eerste paar sec. van het gesprek, het tweede bevat de kosten voor de volgende sec. (beide zijn in €/minuten; zie facturatie mode).\nBij twijfel, zet ze allebei op je minuut kosten.</string>
 	<string name="cost_per_plan_">Kosten per schema</string>
-	<string name="cost_per_plan_help">Stel de kosten van het schema voor een facturatie periode vast.</string>
+	<string name="cost_per_plan_help">Stel de vaste kosten van het schema in voor een facturatie periode.</string>
 	<string name="mixed_units_sms_">Eenheden voor een sms</string>
 	<string name="mixed_units_sms_help">Stel de eenheden in gefactureerd voor een sms.</string>
 	<string name="mixed_units_mms_">Eenheden voor een mms</string>
@@ -168,9 +168,9 @@
 	<string name="what_">Doel type</string>
 	<string name="what_help">Kies hier een doel type.</string>
 	<string name="direction_">Richting</string>
-	<string name="direction_help">Kies een richting de gegeven log moet zijn.</string>
+	<string name="direction_help">Kies een richting die hij moet loggen.</string>
 	<string name="roamed_">Zwevend</string>
-	<string name="roamed_help">Kies of de gegeven log zwevend moet zijn.</string>
+	<string name="roamed_help">Kies of de log zwevend moet zijn.</string>
 	<string name="no_matter_">Maakt niet uit</string>
 	<string name="yes">Ja</string>
 	<string name="no">Nee</string>
@@ -322,9 +322,9 @@
 	</string-array>
 	<string-array name="date_formats">
 		<item>Standaard</item>
-		<item>MM/DD/YY</item>
-		<item>DD/MM/YYYY</item>
-		<item>DD.MM.YYYY</item>
+		<item>MM/DD/JJ</item>
+		<item>DD/MM/JJJJ</item>
+		<item>DD.MM.JJJJ</item>
 	</string-array>
 	<string-array name="update_interval">
 		<item>5 minuten</item>
