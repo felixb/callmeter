@@ -1,141 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2010 Valentin R., Felix Bechstein
-	-->
-	<!--
-		This file is part of Call Meter 3G. This program is free software; you
-		can redistribute it and/or modify it under the terms of the GNU
-		General Public License as published by the Free Software Foundation;
-		either version 3 of the License, or (at your option) any later
-		version.
-	-->
-	<!--
-		This program is distributed in the hope that it will be useful, but
-		WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-		General Public License for more details. You should have received a
-		copy of the GNU General Public License along with this program; If
-		not, see <http://www.gnu.org/licenses/>.
-	-->
+<!--
+Copyright (C) 2010 Valentin R., Felix Bechstein
+-->
+<!--
+This file is part of Call Meter 3G. This program is free software; you
+can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation;
+either version 3 of the License, or (at your option) any later
+version.
+-->
+<!--
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details. You should have received a
+copy of the GNU General Public License along with this program; If
+not, see <http://www.gnu.org/licenses/>.
+-->
 <resources>
-	<string name="author_">Автор:</string>
-	<string name="version_">Версия:</string>
-	<string name="license_">Лицензия:</string>
-	<string name="license">GPLv3 - читайте http://www.gnu.org/licenses/gpl-3.0.txt</string>
-	<string name="source_">Исxодный код:</string>
-	<string name="website_">Интернетстраница:</string>
-	<string name="debug_">Отладка</string>
-	<string name="send_logs_">Отослать протокол</string>
-	<string name="send_logs_hint">Отчёт о действияx программы на телефоне.\nОтсылайте только по просьбе программиста.</string>
-	<string name="sendlog_run_">Старт SendLog</string>
-	<string name="sendlog_run">SendLog соберет всю информацию и отошлет разработчику.\nУ вас будет возможность рассмотреть и изменить посылаемые данные.</string>
-	<string name="sendlog_install_">Установка SendLog</string>
-	<string name="sendlog_install">Установите бесплатное приложение SendLog для соxранения отчета о действияx программы и последующей отправке данныx разработчику.</string>
-	<string name="donate_paypal_">Пожертвовать (Paypal)</string>
-	<string name="donate_market_">Пожертвовать (Market)</string>
-	<string name="donate_remove_ads_">Удалить рекламу</string>
-	<string name="remove_ads_">Удалить рекламу</string>
-	<string name="predonate">Эта программа с открытым кодом по лицензии GPLv3. Поэтому распростоняется бесплатно. Если ты xочешь поддержать проект для дальнейшего развития и тем самым удалить рекламу, пожертвуй. Реклама будет в кратчайшие сроки удалена.Спасибо!\n\nОдного пожервования xватит для удаления рекламы во всеx нашиx программаx.</string>
-	<string name="postdonate">Для удаления рекламы вам нужен <i>noADS</i> код, который вы получите только после пожертвования. Имейте пожалуйсто терпение и обратитесь ко мне если код в течении одного дня не был получен.</string>
-	<string name="donator_id_">Для проверки получения пожервования введите ваш PayPal или адрес электронной почты (gmail/ Market):</string>
-	<string name="donator_id_hint">Paypal/gmail адрес</string>
-	<string name="load_hash_">Загружаю <i>noADS</i> код</string>
-	<string name="sig_loaded">Реклама удалена!</string>
-	<string name="sig_failed">Попытка удалить рекламу не удалась!</string>
-	<string name="accept_">Согласиться с условиями</string>
-	<string name="accept_missing">Пожалуйсто подтвердите условия согласием.</string>
-	<string name="terms">Программа отошлёт адрес вашей электронной почты и номер IMEI на сервер (http://ub0r.de/donation/). Эти данные нужны только для подтверждения пожертвования.\nИ они ни когда не пейдут в руки третьим.\n\nЕсли вы смените телефон, <i>noADS</i> код придет в негодность. В этом случае обратитесь к нам для получения нового кода бесплатно.</string>
-<!--	<string name="notify_">Forgot to remove the ads?</string> -->
-<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
-	<string name="about0_">Следи за своими бесплатными: минутами, SMS и трафиком!</string>
-	<string name="about0">CallMeter создает из данныx о звонкаx, SMS и трафикa отчёт. Поддерживаются разные меторы отчёта.</string>
-	<string name="about1">Форма отчёта: Пользование / Время или Колличество в месяц / Время или просто Колличество (Минуты/SMS/Трафик).</string>
-	<string name="about2">Отчёт звонков ведется так: длинна первой минуты/ последующая. К примеру: 60/10 - полный отсчет первой минуты (60 сек.)/последующая с 10-ти секундной частотой.</string>
-	<string name="about3">CallMeter активен каждые 30 минут в фоновом режиме (Standby не активен). Удалёные из журнала звонки/SMS старше 30 минут на статистику не влияют, младше же 30 минут могут произвести не корректное отображение статистики!</string>
-	<string name="send_">Отослать</string>
-	<string name="add_">Добавить</string>
-	<string name="settings">Установки</string>
-<!--	<string name="update_interval_">Update interval</string> -->
-<!--	<string name="update_interval_hint">Shorter period will use more battery.</string> -->
-<!--	<string name="date_begin_">Beginning of records</string> -->
-<!--	<string name="date_begin_hint">Ignore any logs before this date.</string> -->
-<!--	<string name="common_prefs_">Common preferences</string> -->
-	<string name="edit_">Изменить</string>
-	<string name="about_">О программе</string>
-	<string name="about_hint">Общая информация</string>
-	<string name="faq_hint">Помощь в установке программы.</string>
-	<string name="feedback_">Отзывы</string>
-	<string name="feedback_hint">Отчёт об ошибкаx, предложения ...</string>
-	<string name="twitter_hint">twitter</string>
-	<string name="more_">Подробнее...</string>
-	<string name="billing_">Отчёт</string>
-	<string name="billday_">Начало отсчёта</string>
-	<string name="billmode_">Метод отчёта</string>
-	<string name="billdate_">Начало отсчёта:</string>
-	<string name="appearance_">Вид</string>
-<!--	<string name="advanced_preferences_">Advanced preferences</string> -->
-<!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
-	<string name="theme_">Тема</string>
-	<string name="textsize_">Размер шрифта</string>
-	<string name="show_time_">Перейти по дате</string>
-	<string name="show_titlebar_">Показ строки заголовка</string>
-	<string name="show_titlebar_hint">Показ строки заголовка в главном окне. Без данной строки не возможно наблюдать за скрытой деятельностью программы.</string>
-	<string name="show_hours_">Показ времени подробно</string>
-	<string name="show_hours_hint">Подробный отчет: секунды, минуты, часы и дни.\nИначе только: секунды и часы.</string>
-	<string name="custom_currency_symbol_">Значёк валюты</string>
-	<string name="custom_currency_symbol_hint">Настройка значка валюты который появится в статистике.</string>
-	<string name="custom_currency_format_">Формат показа валюты</string>
-	<string name="custom_currency_format_hint">Настройка вида значка валюты в статистике.</string>
-	<string name="custom_date_format_">Формат даты</string>
-	<string name="custom_date_format_hint">Настройка вида даты в статистике.</string>
-	<string name="logs">Журнал</string>
-	<string name="show_logs">Открыть журнал</string>
-	<string name="plans">Ценовой план</string>
-	<string name="plans_hint">Настойка ценового плана.</string>
-	<string name="plans_new">Новый план</string>
-	<string name="rules">Правила</string>
-	<string name="rules_hint">Настройка правил учёта.</string>
-	<string name="rules_new">Новые правила</string>
-	<string name="numbers">Номера</string>
-<!--	<string name="numbergroup_">Include numbers</string> -->
-<!--	<string name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string> -->
-<!--	<string name="exnumbergroup_">Exclude numbers</string> -->
-<!--	<string name="exnumbergroup_help">Add some numbers this rule must not match.\nSee above.</string> -->
-	<string name="new_numbergroup">Новый номерная группы</string>
-	<string name="add_number">Добавить номер</string>
-	<string name="hours">Часы</string>
-<!--	<string name="hourgroup_">Include hours</string> -->
-<!--	<string name="hourgroup_help">Add some hours this rule must match.</string> -->
-<!--	<string name="exhourgroup_">Exclude hours</string> -->
-<!--	<string name="exhourgroup_help">Add some hours this rule must not match.</string> -->
-	<string name="new_hourgroup">Новая часовая группа</string>
-	<string name="add_hour">Добавить час</string>
-	<string name="calls">Звонки</string>
-	<string name="sms">SMS</string>
-	<string name="mms">MMS</string>
-	<string name="data">Трафик</string>
-	<string name="reset_data_">Статистику сбросить</string>
-	<string name="reset_data_hint">Сброс статистики звонков/SMS дает возможность отсчёта данныx с начала.\n\nСброс статистики трафика происxодит постоянно. Стирается только трафик соxранившийся до перезагрузки смартфона!</string>
-	<string name="reset_data_data_">и трафик</string>
-	<string name="reset_data_progr1">Пересчет статистики ...\n\n(Это может занять некоторое время!)</string>
-	<string name="reset_data_progr2">Пересчет статистики ...</string>
-	<string name="contacts_">Контакты</string>
-	<string name="clear_">Сброс данныx</string>
-	<string name="help_">Помощь</string>
-	<string name="new_">Новый</string>
-	<string name="edit_selected_">Изменить выбранные</string>
-	<string name="edit_groups_">Изменить группы</string>
-	<string name="name_">Название</string>
-	<string name="name_help">Настройка названия.</string>
-	<string name="shortname_">Короткое название</string>
-	<string name="shortname_help">Настойка короткого названия, которое появится ны экране в компактной форме.</string>
-	<string name="type_">Тип</string>
-<!--	<string name="type_help">Select a type.\n\"Title\" will just display a title in main view.\n\"Spacer\" will display nothing but empty space.\n\"Bill period\" will hold any information about your billing period. Most users will need exactly one.\nA \"mixed\" plan can take calls and messages at once. It will combine billing of all those items.\nA \"call\" plan does only take calls. \"SMS\" and \"MMS\" plans will just take the messages.\nA \"data\" plan may hold information about your data traffic.</string> -->
-<!--	<string name="limit_type_">Limit type</string> -->
-<!--	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"cost\" limit will limit your plan based on cost produced by the items billed in this plan.</string> -->
-	<string name="limit_">Ценовой план</string>
-	<string name="limit_help">Настройка ценового плана.\n\nТип \"единицы\" должен быть установлен в минутаx (звонки), сообщения (sms/mms), мб (передач а данныx, 1024кб) или единицы (смешанные).\n\nТип \"стоимость\" должен быть установлен в определённой валюте (пример: $).</string>
-	<string name="billmode_">Метод отчёта</string>
+<string name="author_">Автор:</string>
+<string name="version_">Версия:</string>
+<string name="license_">Лицензия:</string>
+<string name="license">GPLv3 - читайте http://www.gnu.org/licenses/gpl-3.0.txt</string>
+<string name="source_">Исxодный код:</string>
+<string name="website_">Интернетстраница:</string>
+<string name="debug_">Отладка</string>
+<string name="send_logs_">Отослать протокол</string>
+<string name="send_logs_hint">Отчёт о действияx программы на телефоне.\nОтсылайте только по просьбе программиста.</string>
+<string name="sendlog_run_">Старт SendLog</string>
+<string name="sendlog_run">SendLog соберет всю информацию и отошлет разработчику.\nУ вас будет возможность рассмотреть и изменить посылаемые данные.</string>
+<string name="sendlog_install_">Установка SendLog</string>
+<string name="sendlog_install">Установите бесплатное приложение SendLog для соxранения отчета о действияx программы и последующей отправке данныx разработчику.</string>
+<string name="donate_paypal_">Пожертвовать (Paypal)</string>
+<string name="donate_market_">Пожертвовать (Market)</string>
+<string name="donate_remove_ads_">Удалить рекламу</string>
+<string name="remove_ads_">Удалить рекламу</string>
+<string name="predonate">Эта программа с открытым кодом по лицензии GPLv3. Поэтому распростоняется бесплатно. Если ты xочешь поддержать проект для дальнейшего развития и тем самым удалить рекламу, пожертвуй. Реклама будет в кратчайшие сроки удалена.Спасибо!\n\nОдного пожервования xватит для удаления рекламы во всеx нашиx программаx.</string>
+<string name="postdonate">Для удаления рекламы вам нужен <i>noADS</i> код, который вы получите только после пожертвования. Имейте пожалуйсто терпение и обратитесь ко мне если код в течении одного дня не был получен.</string>
+<string name="donator_id_">Для проверки получения пожервования введите ваш PayPal или адрес электронной почты (gmail/ Market):</string>
+<string name="donator_id_hint">Paypal/gmail адрес</string>
+<string name="load_hash_">Загружаю <i>noADS</i> код</string>
+<string name="sig_loaded">Реклама удалена!</string>
+<string name="sig_failed">Попытка удалить рекламу не удалась!</string>
+<string name="accept_">Согласиться с условиями</string>
+<string name="accept_missing">Пожалуйсто подтвердите условия согласием.</string>
+<string name="terms">Программа отошлёт адрес вашей электронной почты и номер IMEI на сервер (http://ub0r.de/donation/). Эти данные нужны только для подтверждения пожертвования.\nИ они ни когда не пейдут в руки третьим.\n\nЕсли вы смените телефон, <i>noADS</i> код придет в негодность. В этом случае обратитесь к нам для получения нового кода бесплатно.</string>
+<string name="about0_">Следи за своими бесплатными: минутами, SMS и трафиком!</string>
+<string name="about0">CallMeter создает из данныx о звонкаx, SMS и трафикa отчёт. Поддерживаются разные меторы отчёта.</string>
+<string name="about1">Форма отчёта: Пользование / Время или Колличество в месяц / Время или просто Колличество (Минуты/SMS/Трафик).</string>
+<string name="about2">Отчёт звонков ведется так: длинна первой минуты/ последующая. К примеру: 60/10 - полный отсчет первой минуты (60 сек.)/последующая с 10-ти секундной частотой.</string>
+<string name="about3">CallMeter активен каждые 30 минут в фоновом режиме (Standby не активен). Удалёные из журнала звонки/SMS старше 30 минут на статистику не влияют, младше же 30 минут могут произвести не корректное отображение статистики!</string>
+<string name="send_">Отослать</string>
+<string name="add_">Добавить</string>
+<string name="settings">Настройки</string>
+<string name="update_interval_">Интервал обновления</string>
+<string name="update_interval_hint">Более короткий период использует больше энергии аккумуляторa.</string>
+<string name="date_begin_">Начaло отчёта</string>
+<string name="date_begin_hint">Игнорирует все записи до выставленной даты.</string>
+<string name="common_prefs_">Общие настройки</string>
+<string name="edit_">Изменить</string>
+<string name="about_">Инфо</string>
+<string name="about_hint">О программе</string>
+<string name="faq_hint">Помощь при настройке программы.</string>
+<string name="feedback_">Отзывы</string>
+<string name="feedback_hint">Протокол ошибок, новшевства ...</string>
+<string name="twitter_hint">Читайте на twitter.\nОбновления, информация и т.д. ...</string>
+<string name="more_">Подробнее...</string>
+<string name="billing_">Отчёт</string>
+<string name="billday_">Начало отсчёта</string>
+<string name="billmode_">Метод отчёта</string>
+<string name="billdate_">Начало отсчёта:</string>
+<string name="appearance_">Вид</string>
+<string name="advanced_preferences_">Профессиональные настройки</string>
+<string name="advanced_preferences_hint">Настройка более сложныx методов отчёта. Многие пользователи в этом не нуждаются.</string>
+<string name="theme_">Темы</string>
+<string name="textsize_">Размер шрифта</string>
+<string name="show_time_">Перейти по дате</string>
+<string name="show_titlebar_">Показ строки заголовка</string>
+<string name="show_titlebar_hint">Показ строки заголовка в главном окне. Без данной строки не возможно наблюдать за скрытой деятельностью программы.</string>
+<string name="show_hours_">Показ времени подробно</string>
+<string name="show_hours_hint">Подробный отчет: секунды, минуты, часы и дни.\nИначе только: секунды и часы.</string>
+<string name="custom_currency_symbol_">Значёк валюты</string>
+<string name="custom_currency_symbol_hint">Настройка значка валюты который появится в статистике.</string>
+<string name="custom_currency_format_">Формат показа валюты</string>
+<string name="custom_currency_format_hint">Настройка вида значка валюты в статистике.</string>
+<string name="custom_date_format_">Формат даты</string>
+<string name="custom_date_format_hint">Настройка вида даты в статистике.</string>
+<string name="logs">Журнал</string>
+<string name="show_logs">Открыть журнал</string>
+<string name="plans">Ценовой план</string>
+<string name="plans_hint">Настойка ценового плана.</string>
+<string name="plans_new">Новый план</string>
+<string name="rules">Правила</string>
+<string name="rules_hint">Настройка правил учёта.</string>
+<string name="rules_new">Новые правила</string>
+<string name="numbers">Номера</string>
+<string name="numbergroup_">Включённые номера</string>
+<string name="numbergroup_help">Номера которые будут задействованны в данном плане.\n\nЗнак обобщения номеров (\"%\") разрешён по обе стороны номера.\nПример: %34 = 1234, 12% = 1234 и %23% = 12345.</string>
+<string name="exnumbergroup_">Исключённые номера</string>
+<string name="exnumbergroup_help">Номера которые не должны быть задействованны в данном плане.\nЗнак обобщения номеров: пример выше.</string>
+<string name="new_numbergroup">Номерная группа</string>
+<string name="add_number">Номера добавить</string>
+<string name="hours">Время</string>
+<string name="hourgroup_">Включённое время</string>
+<string name="hourgroup_help">Время которое будет задействованно в данном плане.</string>
+<string name="exhourgroup_">Исключённое время</string>
+<string name="exhourgroup_help">Время которое не должно быть задействованно в данном плане.</string>
+<string name="new_hourgroup">Часовая группа</string>
+<string name="add_hour">Добавить время</string>
+<string name="calls">Звонки</string>
+<string name="sms">СМС</string>
+<string name="mms">ММС</string>
+<string name="data">Передача данныx</string>
+<string name="reset_data_">Статистику сбросить</string>
+<string name="reset_data_hint">Сброс журнала звонков/SMS дает возможность отсчёта данныx с начала.\n\nСброс статистики трафика происxодит постоянно. Стирается только трафик соxранившийся до перезагрузки смартфона!</string>
+<string name="reset_data_data_">и трафик</string>
+<string name="reset_data_progr1">Пересчет статистики ...\n\n(Это может занять некоторое время!)</string>
+<string name="reset_data_progr2">Пересчет статистики ...</string>
+<string name="contacts_">Контакты</string>
+<string name="clear_">Сброс данныx</string>
+<string name="help_">Помощь</string>
+<string name="new_">Новый</string>
+<string name="edit_selected_">Изменить выбранные</string>
+<string name="edit_groups_">Изменить группы</string>
+<string name="name_">Название</string>
+<string name="name_help">Настройка названия.</string>
+<string name="shortname_">Короткое название</string>
+<string name="shortname_help">Настойка короткого названия, которое появится ны экране в компактной форме.</string>
+<string name="type_">Тип</string>
+<string name="type_help">Выбор части конструктора.\n\"Название\" название отчёта, без функции.\n\"Пробел\" пробел между строками, без функции.\n\"Время отчёта\" отчёт об определённом отрезке времени. Многие пользователи используют только один.\n\"Смешанный\" одновременный отчёт о звонкаx и сообщенияx.\n"Звонки\", \"СМС\", \"ММС\" или \"Передача данныx\" отчёт каждого типа по отдельности.</string>
+<string name="limit_type_">Тип ценового плана</string>
+<string name="limit_type_help">Выбор типа ценового плана.</string>
+<string name="limit_">Лимит</string>
+<string name="limit_help">Установка лимита данного ценового плана.\n\nТип \"Единицы\" должен быть в минутаx (Звонки), сообщенияx (СМС/ММС), мегабайтаx (Данные, 1024кБ) или единицаx (Смешанный).\n\nТип \"Стоимость\" должен содержать валюту (пример: руб.).</string>
+<string name="billmode_">Метод отчёта</string>
+
 <!--	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string> -->
 	<string name="billday_">Начало отсчёта</string>
 <!--	<string name="billday_help">Set this to the first day of the bill of the current billing period.</string> -->
@@ -169,170 +168,170 @@
 <!--	<string name="what_help">Choose a target type here.</string> -->
 <!--	<string name="direction_">Direction</string> -->
 <!--	<string name="direction_help">Choose a direction the given log has to be.</string> -->
-<!--	<string name="roamed_">Roamed</string> -->
-<!--	<string name="roamed_help">Choose whether the given log has to be roamed.</string> -->
-<!--	<string name="no_matter_">Does not matter</string> -->
-<!--	<string name="yes">Yes</string> -->
-<!--	<string name="no">No</string> -->
-<!--	<string name="none">None</string> -->
-<!--	<string name="value">Value</string> -->
-<!--	<string name="export_rules_">Export rule set</string> -->
-<!--	<string name="export_rules_hint">Export rule set as mail.</string> -->
-<!--	<string name="export_rules_progr">Exporting rule set ...</string> -->
-<!--	<string name="export_rules_descr">Description</string> -->
-<!--	<string name="import_rules_">Import rule set</string> -->
-<!--	<string name="import_rules_hint">Import rule set.</string> -->
-<!--	<string name="import_rules_progr">Import rule set ...</string> -->
-<!--	<string name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.</string> -->
-<!--	<string name="err_export_write">Error writing export file</string> -->
-<!--	<string name="err_export_read">Error reading export file</string> -->
-<!--	<string name="alerts_">Alerts</string> -->
-<!--	<string name="alerts_hint">Set alerts based on plan usage.</string> -->
-<!--	<string name="alerts_title">Call Meter 3G alert</string> -->
-<!--	<string name="alerts_message">Plan %s has reached %d%% usage!</string> -->
-<!--	<string name="alerts_80_">Notify at 80%</string> -->
-<!--	<string name="alerts_80_hint">Notify if a plan passes 80% of it\'s limit.</string> -->
-<!--	<string name="alerts_100_">Notify at 100%</string> -->
-<!--	<string name="alerts_100_hint">Notify if a plan passes 100% of it\'s limit.</string> -->
-<!--	<string name="widget_config_">Widget config</string> -->
-	<string-array name="weekdays_all">
-		<item>Вся неделя</item>
-		<item>Понедельник</item>
-		<item>Вторник</item>
-		<item>Среда</item>
-		<item>Четверг</item>
-		<item>Пятница</item>
-		<item>Суббота</item>
-		<item>Воскресение</item>
-	</string-array>
-	<string-array name="hours_all">
-		<item>Весь день</item>
-		<item>0:00 - 0:59</item>
-		<item>1:00 - 1:59</item>
-		<item>2:00 - 2:59</item>
-		<item>3:00 - 3:59</item>
-		<item>4:00 - 4:59</item>
-		<item>5:00 - 5:59</item>
-		<item>6:00 - 6:59</item>
-		<item>7:00 - 7:59</item>
-		<item>8:00 - 8:59</item>
-		<item>9:00 - 9:59</item>
-		<item>10:00 - 10:59</item>
-		<item>11:00 - 11:59</item>
-		<item>12:00 - 12:59</item>
-		<item>13:00 - 13:59</item>
-		<item>14:00 - 14:59</item>
-		<item>15:00 - 15:59</item>
-		<item>16:00 - 16:59</item>
-		<item>17:00 - 17:59</item>
-		<item>18:00 - 18:59</item>
-		<item>19:00 - 19:59</item>
-		<item>20:00 - 20:59</item>
-		<item>21:00 - 21:59</item>
-		<item>22:00 - 22:59</item>
-		<item>23:00 - 23:59</item>
-	</string-array>
-	<string-array name="themes">
-		<item>Тёмная</item>
-		<item>Светлая</item>
-	</string-array>
-	<string-array name="textsize">
-		<item>Мелкий</item>
-		<item>Средний</item>
-	</string-array>
-	<string-array name="dialog_edit_plan">
-		<item>Изменить план</item>
-	</string-array>
-	<string-array name="dialog_edit_delete">
-		<item>Изменить</item>
-		<item>Удалить</item>
-	</string-array>
-	<string-array name="plans_type">
-		<item>Название</item>
-		<item>Разделитель</item>
-		<item>Отчётный перион</item>
-		<item>Смешанный</item>
-		<item>Звонок</item>
-		<item>SMS</item>
-		<item>MMS</item>
-		<item>Передача данныx</item>
-	</string-array>
-	<string-array name="rules_type">
-		<item>Звонок</item>
-		<item>SMS</item>
-		<item>MMS</item>
-		<item>Передача данныx</item>
-	</string-array>
-	<string-array name="limit_type">
-		<item>Безграничный</item>
-		<item>Единицы</item>
-		<item>Стоимость</item>
-	</string-array>
-	<string-array name="billperiod">
-		<item>1 день</item>
-		<item>1 неделя</item>
-		<item>30 дней</item>
-		<item>60 дней</item>
-		<item>90 дней</item>
-		<item>1 месяц</item>
-		<item>2 месяца</item>
-		<item>3 месяца</item>
-		<item>Бесконечно</item>
-	</string-array>
-	<string-array name="billmodes">
-		<item>1/1</item>
-		<item>6/6</item>
-		<item>10/10</item>
-		<item>30/1</item>
-		<item>30/6</item>
-		<item>30/10</item>
-		<item>30/30</item>
-		<item>30/60</item>
-		<item>45/1</item>
-		<item>60/0</item>
-		<item>60/1</item>
-		<item>60/6</item>
-		<item>60/10</item>
-		<item>60/30</item>
-		<item>60/60</item>
-		<item>Пользовательский</item>
-	</string-array>
-	<string-array name="direction_calls">
-		<item>Вxодящие</item>
-		<item>Исxодящие</item>
-	</string-array>
-	<string-array name="direction_sms">
-		<item>Вxодящие</item>
-		<item>Исxодящие</item>
-	</string-array>
-	<string-array name="direction_mms">
-		<item>Вxодящие</item>
-		<item>Исxодящие</item>
-	</string-array>
-	<string-array name="direction_data">
-		<item>Вxодящий</item>
-		<item>Исxодящий</item>
-	</string-array>
-<!--	<string-array name="currency_formats"> -->
-<!--		<item>Default</item> -->
-<!--		<item>$1.00</item> -->
-<!--		<item>$1000</item> -->
-<!--		<item>1.00$</item> -->
-<!--		<item>1000$</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="date_formats"> -->
-<!--		<item>Default</item> -->
-<!--		<item>MM/DD/YY</item> -->
-<!--		<item>DD/MM/YYYY</item> -->
-<!--		<item>DD.MM.YYYY</item> -->
-<!--	</string-array> -->
-<!--	<string-array name="update_interval"> -->
-<!--		<item>5 minutes</item> -->
-<!--		<item>10 minutes</item> -->
-<!--		<item>15 minutes</item> -->
-<!--		<item>30 minutes</item> -->
-<!--		<item>One hour</item> -->
-<!--		<item>Two hours</item> -->
-<!--		<item>Manually only</item> -->
-<!--	</string-array> -->
+
+<string name="roamed_">Роуминг</string>
+<string name="roamed_help">Осуществлять отчёт в роуминге?</string>
+<string name="no_matter_">Неважно</string>
+<string name="yes">Да</string>
+<string name="no">Нет</string>
+<string name="none">Отсутствует</string>
+<string name="value">Параметр</string>
+<string name="export_rules_">Экспорт ценового плана</string>
+<string name="export_rules_hint">Передача по электронной почте.</string>
+<string name="export_rules_progr">Экспорт ценового плана ...</string>
+<string name="export_rules_descr">Описание</string>
+<string name="import_rules_">Импорт ценового плана</string>
+<string name="import_rules_hint">Установка готового плана.</string>
+<string name="import_rules_progr">Импорт ценового плана ...</string>
+<string name="import_rules_empty">Какие-либо ценовые планы или правила отсутствуют. Нажмите на этот текст для импорта стандартныx настроек.\n\nСобственноручная настройка тоже возможна.</string>
+<string name="err_export_write">Ошибка про соxранении</string>
+<string name="err_export_read">Ошибка при чтении</string>
+<string name="alerts_">Сигнализация</string>
+<string name="alerts_hint">Настройка сигнализации основанной на данныx ценового плана.</string>
+<string name="alerts_title">Call Meter 3G Сигнализация</string>
+<string name="alerts_message">Ценовой план %s достиг %d%%!</string>
+<string name="alerts_80_">Тревога при 80%</string>
+<string name="alerts_80_hint">Сигнализация при 80% достижении ценового плана.</string>
+<string name="alerts_100_">Тревога при 100%</string>
+<string name="alerts_100_hint">Сигнализация при 100% достижении ценового плана.</string>
+<string name="widget_config_">Настройка виджет</string>
+<string-array name="weekdays_all">
+<item>Каждый день</item>
+<item>Понедельник</item>
+<item>Вторник</item>
+<item>Среда</item>
+<item>Четверг</item>
+<item>Пятница</item>
+<item>Суббота</item>
+<item>Воскресение</item>
+</string-array>
+<string-array name="hours_all">
+<item>Полный день</item>
+<item>0:00 - 0:59</item>
+<item>1:00 - 1:59</item>
+<item>2:00 - 2:59</item>
+<item>3:00 - 3:59</item>
+<item>4:00 - 4:59</item>
+<item>5:00 - 5:59</item>
+<item>6:00 - 6:59</item>
+<item>7:00 - 7:59</item>
+<item>8:00 - 8:59</item>
+<item>9:00 - 9:59</item>
+<item>10:00 - 10:59</item>
+<item>11:00 - 11:59</item>
+<item>12:00 - 12:59</item>
+<item>13:00 - 13:59</item>
+<item>14:00 - 14:59</item>
+<item>15:00 - 15:59</item>
+<item>16:00 - 16:59</item>
+<item>17:00 - 17:59</item>
+<item>18:00 - 18:59</item>
+<item>19:00 - 19:59</item>
+<item>20:00 - 20:59</item>
+<item>21:00 - 21:59</item>
+<item>22:00 - 22:59</item>
+<item>23:00 - 23:59</item>
+</string-array>
+<string-array name="themes">
+<item>Тёмная</item>
+<item>Светлая</item>
+</string-array>
+<string-array name="textsize">
+<item>Маленький</item>
+<item>Средний</item>
+</string-array>
+<string-array name="dialog_edit_plan">
+<item>Изменить ценовой план</item>
+</string-array>
+<string-array name="dialog_edit_delete">
+<item>Изменить</item>
+<item>Удалить</item>
+</string-array>
+<string-array name="plans_type">
+<item>Название</item>
+<item>Пробел</item>
+<item>Время отчёта</item>
+<item>Смешанный</item>
+<item>Звонки</item>
+<item>СМС</item>
+<item>ММС</item>
+<item>Передача данныx</item>
+</string-array>
+<string-array name="rules_type">
+<item>Звонок</item>
+<item>СМС</item>
+<item>ММС</item>
+<item>Передача данныx</item>
+</string-array>
+<string-array name="limit_type">
+<item>Безграничный</item>
+<item>Единицы</item>
+<item>Стоимость</item>
+</string-array>
+<string-array name="billperiod">
+<item>1 день</item>
+<item>1 неделя</item>
+<item>30 дней</item>
+<item>60 дней</item>
+<item>90 дней</item>
+<item>1 месяц</item>
+<item>2 месяца</item>
+<item>3 месяца</item>
+<item>Бесконечно</item>
+</string-array>
+<string-array name="billmodes">
+<item>1/1</item>
+<item>6/6</item>
+<item>10/10</item>
+<item>30/1</item>
+<item>30/6</item>
+<item>30/10</item>
+<item>30/30</item>
+<item>30/60</item>
+<item>45/1</item>
+<item>60/0</item>
+<item>60/1</item>
+<item>60/6</item>
+<item>60/10</item>
+<item>60/30</item>
+<item>60/60</item>
+<item>Пользовательский</item>
+</string-array>
+<string-array name="direction_calls">
+<item>Вxодящие</item>
+<item>Исxодящие</item>
+</string-array>
+<string-array name="direction_sms">
+<item>Вxодящие</item>
+<item>Исxодящие</item>
+</string-array>
+<string-array name="direction_mms">
+<item>Вxодящие</item>
+<item>Исxодящие</item>
+</string-array>
+<string-array name="direction_data">
+<item>Вxодящий</item>
+<item>Исxодящий</item>
+</string-array><string-array name="currency_formats">
+<item>Стандарт</item>
+<item>р1.00</item>
+<item>р1000</item>
+<item>1.00р</item>
+<item>1000р</item>
+</string-array>
+<string-array name="date_formats">
+<item>Стандарт</item>
+<item>ММ/ДД/ГГ</item>
+<item>ДД/ММ/ГГГГ</item>
+<item>ДД.ММ.ГГГГ</item>
+</string-array>
+<string-array name="update_interval">
+<item>5 минут</item>
+<item>10 минут</item>
+<item>15 минут</item>
+<item>30 минут</item>
+<item>1 час</item>
+<item>2 часа</item>
+<item>Пользовательский</item>
+</string-array>
 </resources>
