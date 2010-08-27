@@ -294,7 +294,6 @@ abstract class Preference {
 					values.put(this.name2, this.defaultValue2);
 				}
 			}
-
 		}
 
 		@Override
@@ -343,9 +342,9 @@ abstract class Preference {
 			this.etDialog1.setText(this.value1);
 			this.etDialog2.setText(this.value2);
 			if (this.singleMode) {
-				this.etDialog1.setVisibility(View.GONE);
+				this.etDialog2.setVisibility(View.GONE);
 			} else {
-				this.etDialog1.setVisibility(View.VISIBLE);
+				this.etDialog2.setVisibility(View.VISIBLE);
 			}
 		}
 
