@@ -54,6 +54,9 @@
 	<string name="about3">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string>
 	<string name="send_">Senden</string>
 	<string name="add_">Hinzufügen</string>
+	<string name="add_log">Log Eintrag hinzufügen</string>
+	<string name="length_hint_call">Dauer in Sekunden</string>
+	<string name="length_hint_data">Traffic in kB</string>
 	<string name="settings">Einstellungen</string>
 	<string name="update_interval_">Update Intervall</string>
 	<string name="update_interval_hint">Eine kürzere Periode verbreucht mehr Akku.</string>
@@ -177,6 +180,7 @@
 	<string name="roamed_">Roaming</string>
 	<string name="roamed_help">Wähle, ob die Logs im roaming liegen müssen.</string>
 	<string name="no_matter_">Egal</string>
+	<string name="remote_hint">Andere Nummer</string>
 	<string name="yes">Yes</string>
 	<string name="no">No</string>
 	<string name="none">Keine</string>
@@ -247,6 +251,9 @@
 	</string-array>
 	<string-array name="dialog_edit_plan">
 		<item>Kontingent bearbeiten</item>
+	</string-array>
+	<string-array name="dialog_delete">
+		<item>Löschen</item>
 	</string-array>
 	<string-array name="dialog_edit_delete">
 		<item>Bearbeiten</item>

@@ -1089,7 +1089,7 @@ public class Plans extends ListActivity implements OnClickListener,
 	@Override
 	public final boolean onCreateOptionsMenu(final Menu menu) {
 		MenuInflater inflater = this.getMenuInflater();
-		inflater.inflate(R.menu.menu, menu);
+		inflater.inflate(R.menu.menu_main, menu);
 		if (prefsNoAds) {
 			menu.removeItem(R.id.item_donate);
 		}

@@ -19,8 +19,8 @@
 	-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent" android:layout_height="wrap_content"
-	android:orientation="vertical" android:background="?android:attr/colorBackground"
-	android:paddingLeft="5dip" android:paddingRight="5dip">
+	android:orientation="vertical" android:paddingLeft="5dip"
+	android:paddingRight="5dip">
 	<TextView android:id="@+id/bigtitle" android:text="bigtitle"
 		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
