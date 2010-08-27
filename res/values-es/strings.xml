@@ -57,7 +57,7 @@
 	<string name="settings">Preferencias</string>
 	<string name="update_interval_">Intervalo de actualización</string>
 	<string name="update_interval_hint">Periodos cortos usan más batería.</string>
-	<string name="date_begin_">Inicio de registros</string> 
+	<string name="date_begin_">Inicio de registros</string>
 	<string name="date_begin_hint">Ignorar cualquier log anterior a esta fecha.</string>
 	<string name="common_prefs_">Preferencias comunes</string>
 	<string name="edit_">Editar</string>
@@ -132,9 +132,9 @@
 	<string name="type_">Tipo</string>
 	<string name="type_help">Selecciona un tipo.\n\"Título\" sólo mostrará un título en la vista principal.\n\"Espaciador\" mostrará sólo un espacio vacío.\n\"Periodo de factura\" contendrá la información sobre el periodo de facturación. La mayoría de usuarios necesitarán únicamente uno.\nUn plan \"mixto\" tiene en cuenta llamadas y mensajes a la vez. Combinará la facturación de todos ellos.\nUn plan de  \"llamadas\" sólo tiene en cuenta llamadas. Los planes \"SMS\" y \"MMS\" sólo tienen en cuenta mensajes.\nUn plan de \"datos\" contendrán información sobre el tráfico de datos.</string>
 	<string name="limit_type_">Tipo de límite</string>
-	<string name="limit_type_help">Ajusta el tipo de límite aquí.\nUn límite de \"unidades\" limitará el plan basándose en minutos, mensajes, ...\nUn límite de \"coste\" limitará el plan basándose en el coste generado por los productos facturados en este plan.</string> 
+	<string name="limit_type_help">Ajusta el tipo de límite aquí.\nUn límite de \"unidades\" limitará el plan basándose en minutos, mensajes, ...\nUn límite de \"coste\" limitará el plan basándose en el coste generado por los productos facturados en este plan.</string>
 	<string name="limit_">Límite</string>
-	<string name="limit_help">Ajusta el límite de tu plan aquí.\n\nEl tipo \"unidades\" puede indicarse en minutos (llamadas), mensajes (SMS/MMS), megabytes (datos, 1024kB) or unidades (mixto).\n\nEl tipo \"coste\" tiene que indicarse en la moneda local (e.g. €).</string> 
+	<string name="limit_help">Ajusta el límite de tu plan aquí.\n\nEl tipo \"unidades\" puede indicarse en minutos (llamadas), mensajes (SMS/MMS), megabytes (datos, 1024kB) or unidades (mixto).\n\nEl tipo \"coste\" tiene que indicarse en la moneda local (e.g. €).</string>
 	<string name="billmode_">Tarificación</string>
 	<string name="billmode_help">Ajustar el modo de facturar llamadas.\nLa primera parte es la duración mínima facturada por tu proveedor. A cualquier llamada más corta se le aplicará este mínimo.\nLa segunda parte es la duración en segundos de cada uno de los bloques de facturación siguientes.\nConsulta la sección FAQ para más información.</string>
 	<string name="billday_">Primer día de tu factura</string>
@@ -144,12 +144,12 @@
 	<string name="billperiod_">Duración del periodo de facturación</string>
 	<string name="billperiod_help">Ajusta la duración del periodo de facturación.</string>
 	<string name="cost_per_item_">Coste por elemento</string>
-	<string name="cost_per_item_help">Ajusta el coste facturado por cada elemento del log (ej. una llamada o un mensaje) una vez excedido el límite.</string> 
+	<string name="cost_per_item_help">Ajusta el coste facturado por cada elemento del log (ej. una llamada o un mensaje) una vez excedido el límite.</string>
 	<string name="cost_per_item_in_limit_">Coste por elemento dentro del límite</string>
 	<string name="cost_per_item_in_limit_help">Ajusta el coste facturado por cada elemento del log (ej. una llamada o un mensaje) antes de exceder el límite.</string>
 	<string name="cost_per_amount_">Coste por duración</string>
-	<string name="cost_per_amount_help1">Ajusta el coste facturado por duración de un elemento del log (ej. por 1kB de datos) después de excedido el límite.</string> 
-	<string name="cost_per_amount_help2">Ajuste el coste facturado por duración de un elemento del log )ej. por 1 min. de llamada) después de excedido el límite).\nEl primer campo es el coste de los primeros segundos de llamada, el segundo es el coste de los siguientes (ambos están en €/minuto; ver modo de facturación).\nEn caso de duda, ajusta ambos a tu coste por minuto.</string> 
+	<string name="cost_per_amount_help1">Ajusta el coste facturado por duración de un elemento del log (ej. por 1kB de datos) después de excedido el límite.</string>
+	<string name="cost_per_amount_help2">Ajuste el coste facturado por duración de un elemento del log )ej. por 1 min. de llamada) después de excedido el límite).\nEl primer campo es el coste de los primeros segundos de llamada, el segundo es el coste de los siguientes (ambos están en €/minuto; ver modo de facturación).\nEn caso de duda, ajusta ambos a tu coste por minuto.</string>
 	<string name="cost_per_amount_in_limit_">Coste por duración dentro del límite</string>
 	<string name="cost_per_amount_in_limit_help1">Introduce el coste facturado por duración de un elemento del log (ej. para 1kB de datos) antes de sobrepasar el límite.</string>
 	<string name="cost_per_amount_in_limit_help2">Introduce el coste facturado por duración de un elemento del log (ej. 1 min de llamada, 1kB de datos) antes de sobrepasar el límite.\nEl primer campo es el coste de los primeros segundos de llamada, El segundo es el coste de los siguientes (ambos están en €/minuto; ver modo de facturación).\nEn caso de duda, ajusta ambos a tu coste por minuto.</string>
@@ -178,7 +178,7 @@
 	<string name="value">Valor</string>
 	<string name="export_rules_">Exportar conjunto de reglas</string>
 	<string name="export_rules_hint">Exportar reglas en email.</string>
-	<string name="export_rules_progr">Exportando reglas ...</string> 
+	<string name="export_rules_progr">Exportando reglas ...</string>
 	<string name="export_rules_descr">Descripción</string>
 	<string name="import_rules_">Importar conjunto de reglas</string>
 	<string name="import_rules_hint">Importa un conjunto de reglas.</string>
@@ -195,15 +195,15 @@
 	<string name="alerts_100_">Avisar al 100%</string>
 	<string name="alerts_100_hint">Avisa si el plan sobrepasa el 100% del límite.</string>
 	<string name="widget_config_">Configuración del widget</string>
-	<string-array name="weekdays_all"> 
-		<item>Toda la semana</item> 
+	<string-array name="weekdays_all">
+		<item>Toda la semana</item>
 		<item>Lunes</item>
 		<item>Martes</item>
 		<item>Miércoles</item>
-		<item>Jueves</item> 
-		<item>Viernes</item> 
+		<item>Jueves</item>
+		<item>Viernes</item>
 		<item>Sábado</item>
-		<item>Domingo</item> 
+		<item>Domingo</item>
 	</string-array>
 	<string-array name="hours_all">
 		<item>Todo el día</item>
@@ -248,13 +248,13 @@
 		<item>Borrar</item>
 	</string-array>
 	<string-array name="plans_type">
-		<item>Título</item> 
+		<item>Título</item>
 		<item>Espaciador</item>
-		<item>Periodo de facturación</item> 
+		<item>Periodo de facturación</item>
 		<item>Mixto</item>
-		<item>Llamadas</item> 
-		<item>SMS</item> 
-		<item>MMS</item> 
+		<item>Llamadas</item>
+		<item>SMS</item>
+		<item>MMS</item>
 		<item>Datos</item>
 	</string-array>
 	<string-array name="rules_type">
@@ -263,43 +263,43 @@
 		<item>MMS</item>
 		<item>Datos</item>
 	</string-array>
-	<string-array name="limit_type"> 
-		<item>Sin límite</item> 
-                <item>unidades</item> 
-		<item>coste</item> 
+	<string-array name="limit_type">
+		<item>Sin límite</item>
+		<item>unidades</item>
+		<item>coste</item>
 	</string-array>
-	<string-array name="billperiod"> 
+	<string-array name="billperiod">
 		<item>Un día</item>
 		<item>Una semana</item>
 		<item>30 días</item>
-		<item>60 días</item> 
-		<item>90 días</item> 
+		<item>60 días</item>
+		<item>90 días</item>
 		<item>Un mes</item>
 		<item>Dos meses</item>
 		<item>Tres meses</item>
 		<item>Infinito</item>
 	</string-array>
 	<string-array name="billmodes">
-		<item>1/1</item> 
-		<item>6/6</item> 
+		<item>1/1</item>
+		<item>6/6</item>
 		<item>10/10</item>
-		<item>30/1</item> 
-		<item>30/6</item> 
+		<item>30/1</item>
+		<item>30/6</item>
 		<item>30/10</item>
-		<item>30/30</item> 
-		<item>30/60</item> 
-		<item>45/1</item> 
-		<item>60/0</item> 
-		<item>60/1</item> 
-		<item>60/6</item> 
+		<item>30/30</item>
+		<item>30/60</item>
+		<item>45/1</item>
+		<item>60/0</item>
+		<item>60/1</item>
+		<item>60/6</item>
 		<item>60/10</item>
-		<item>60/30</item> 
-		<item>60/60</item> 
-		<item>Personalizado</item> 
+		<item>60/30</item>
+		<item>60/60</item>
+		<item>Personalizado</item>
 	</string-array>
 	<string-array name="direction_calls">
 		<item>entrada</item>
-		<item>salida</item> 
+		<item>salida</item>
 	</string-array>
 	<string-array name="direction_sms">
 		<item>entrada</item>
@@ -313,16 +313,16 @@
 		<item>entrada</item>
 		<item>salida</item>
 	</string-array>
-        <string-array name="currency_formats">
+	<string-array name="currency_formats">
 		<item>Por defecto</item>
 		<item>$1.00</item>
 		<item>$1000</item>
 		<item>1.00$</item>
 		<item>1000$</item>
-	</string-array> 
-	<string-array name="date_formats"> 
-		<item>Por defecto</item> 
-		<item>MM/DD/AA</item> 
+	</string-array>
+	<string-array name="date_formats">
+		<item>Por defecto</item>
+		<item>MM/DD/AA</item>
 		<item>DD/MM/AAAA</item>
 		<item>DD.MM.AAAA</item>
 	</string-array>

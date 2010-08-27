@@ -79,9 +79,9 @@
 	<string name="textsize_">Tekst grootte</string>
 	<string name="show_time_">Wijzig naar datum</string>
 	<string name="show_titlebar_">Toon titelbalk</string>
-	<string name="show_titlebar_hint">Toon titelbalk in startscherm. Zonder titelbalk kan je geen achtergrond activiteit zien.</string>
+	<string name="show_titlebar_hint">Toon titelbalk in hoofd venster. Zonder titelbalk kan je geen achtergrond activiteit zien.</string>
 	<string name="show_hours_">Toon uren</string>
-	<string name="show_hours_hint">Toon tijd in sec, min, uren en dgn.\nIndien uitgevinkt alleen sec. en uren worden getoond.</string>
+	<string name="show_hours_hint">Toon tijd in seconden, minuten, uren en dagen.\nIndien uitgevinkt alleen seconden en uren worden getoond.</string>
 	<string name="custom_currency_symbol_">Aangepast valuta symbool</string>
 	<string name="custom_currency_symbol_hint">Stel een aangepast valuta symbool in, laat leeg voor systeem standaard.</string>
 	<string name="custom_currency_format_">Aangepast valuta formaat</string>
