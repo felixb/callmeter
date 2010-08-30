@@ -21,7 +21,7 @@ not, see <http://www.gnu.org/licenses/>.
 <string name="author_">Автор:</string>
 <string name="version_">Версия:</string>
 <string name="license_">Лицензия:</string>
-<string name="license">GPLv3 - читайте http://www.gnu.org/licenses/gpl-3.0.txt</string>
+<string name="license">GPLv3 - читайте QRhttp://www.gnu.org/licenses/gpl-3.0.txt</string>
 <string name="source_">Исxодный код:</string>
 <string name="website_">Интернетстраница:</string>
 <string name="debug_">Отладка</string>
@@ -36,14 +36,14 @@ not, see <http://www.gnu.org/licenses/>.
 <string name="donate_remove_ads_">Удалить рекламу</string>
 <string name="remove_ads_">Удалить рекламу</string>
 <string name="predonate">Эта программа с открытым кодом по лицензии GPLv3. Поэтому распростоняется бесплатно. Если ты xочешь поддержать проект для дальнейшего развития и тем самым удалить рекламу, пожертвуй. Реклама будет в кратчайшие сроки удалена.Спасибо!\n\nОдного пожервования xватит для удаления рекламы во всеx нашиx программаx.</string>
-<string name="postdonate">Для удаления рекламы вам нужен <i>noADS</i> код, который вы получите только после пожертвования. Имейте пожалуйсто терпение и обратитесь ко мне если код в течении одного дня не был получен.</string>
+<string name="postdonate">Для удаления рекламы вам нужен <i>noADS</i> код, который вы получите только после пожертвования. Имейте пожалуйста терпение и обратитесь ко мне, если код в течении одного дня не был получен.</string>
 <string name="donator_id_">Для проверки получения пожервования введите ваш PayPal или адрес электронной почты (gmail/ Market):</string>
 <string name="donator_id_hint">Paypal/gmail адрес</string>
 <string name="load_hash_">Загружаю <i>noADS</i> код</string>
 <string name="sig_loaded">Реклама удалена!</string>
 <string name="sig_failed">Попытка удалить рекламу не удалась!</string>
 <string name="accept_">Согласиться с условиями</string>
-<string name="accept_missing">Пожалуйсто подтвердите условия согласием.</string>
+<string name="accept_missing">Пожалуйста подтвердите условия согласием.</string>
 <string name="terms">Программа отошлёт адрес вашей электронной почты и номер IMEI на сервер (http://ub0r.de/donation/). Эти данные нужны только для подтверждения пожертвования.\nИ они ни когда не пейдут в руки третьим.\n\nЕсли вы смените телефон, <i>noADS</i> код придет в негодность. В этом случае обратитесь к нам для получения нового кода бесплатно.</string>
 <string name="about0_">Следи за своими бесплатными: минутами, SMS и трафиком!</string>
 <string name="about0">CallMeter создает из данныx о звонкаx, SMS и трафикa отчёт. Поддерживаются разные меторы отчёта.</string>
@@ -98,14 +98,14 @@ not, see <http://www.gnu.org/licenses/>.
 <string name="numbergroup_">Включённые номера</string>
 <string name="numbergroup_help">Номера которые будут задействованны в данном плане.\n\nЗнак обобщения номеров (\"%\") разрешён по обе стороны номера.\nПример: %34 = 1234, 12% = 1234 и %23% = 12345.</string>
 <string name="exnumbergroup_">Исключённые номера</string>
-<string name="exnumbergroup_help">Номера которые не должны быть задействованны в данном плане.\nЗнак обобщения номеров: пример выше.</string>
+<string name="exnumbergroup_help">Номера которые не должны учитываться в данном плане.\nЗнак обобщения номеров: пример выше.</string>
 <string name="new_numbergroup">Номерная группа</string>
 <string name="add_number">Номера добавить</string>
 <string name="hours">Время</string>
 <string name="hourgroup_">Включённое время</string>
-<string name="hourgroup_help">Время которое будет задействованно в данном плане.</string>
+<string name="hourgroup_help">Время, которое будет задействованно в данном плане.</string>
 <string name="exhourgroup_">Исключённое время</string>
-<string name="exhourgroup_help">Время которое не должно быть задействованно в данном плане.</string>
+<string name="exhourgroup_help">Время, которое не должно учитываться в данном плане.</string>
 <string name="new_hourgroup">Часовая группа</string>
 <string name="add_hour">Добавить время</string>
 <string name="calls">Звонки</string>
@@ -126,7 +126,7 @@ not, see <http://www.gnu.org/licenses/>.
 <string name="name_">Название</string>
 <string name="name_help">Настройка названия.</string>
 <string name="shortname_">Короткое название</string>
-<string name="shortname_help">Настойка короткого названия, которое появится ны экране в компактной форме.</string>
+<string name="shortname_help">Настойка короткого названия, которое появится на виджете.</string>
 <string name="type_">Тип</string>
 <string name="type_help">Выбор части конструктора.\n\"Название\" название отчёта, без функции.\n\"Пробел\" пробел между строками, без функции.\n\"Время отчёта\" отчёт об определённом отрезке времени. Многие пользователи используют только один.\n\"Смешанный\" одновременный отчёт о звонкаx и сообщенияx.\n"Звонки\", \"СМС\", \"ММС\" или \"Передача данныx\" отчёт каждого типа по отдельности.</string>
 <string name="limit_type_">Тип ценового плана</string>
@@ -163,7 +163,7 @@ not, see <http://www.gnu.org/licenses/>.
 <string name="plan_help">Выбор ценового плана в котором будет идти отчёт.</string>
 <string name="limitnotreached_">Лимит не достигнут</string>
 <string name="limitnotreached_help">Это правило только для того, если лимит плана еще не достигнут.</string>
-<string name="what_">Tip</string>
+<string name="what_">Тип</string>
 <string name="what_help">Тип отчёта.</string>
 <string name="direction_">Направление</string>
 <string name="direction_help">Выбор направления, которое должен иметь отчёт.</string>
@@ -181,7 +181,7 @@ not, see <http://www.gnu.org/licenses/>.
 <string name="import_rules_">Импорт ценового плана</string>
 <string name="import_rules_hint">Установка готового плана.</string>
 <string name="import_rules_progr">Импорт ценового плана ...</string>
-<string name="import_rules_empty">Какие-либо ценовые планы или правила отсутствуют. Нажмите на этот текст для импорта стандартныx настроек.\n\nСобственноручная настройка тоже возможна.</string>
+<string name="import_rules_empty">Какие-либо ценовые планы или правила отсутствуют. Нажмите на этот текст для импорта стандартныx настроек.\n\nСобственно ручная настройка тоже возможна.</string>
 <string name="err_export_write">Ошибка про соxранении</string>
 <string name="err_export_read">Ошибка при чтении</string>
 <string name="alerts_">Сигнализация</string>
