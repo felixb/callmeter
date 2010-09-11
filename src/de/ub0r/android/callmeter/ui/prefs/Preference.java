@@ -503,7 +503,7 @@ abstract class Preference {
 
 		@Override
 		String getHint() {
-			if (this.value > -1) {
+			if (this.value > -1 && this.value < this.strValues.length) {
 				return this.strValues[this.value];
 			} else {
 				return this.strValues[this.defaultValue];
@@ -514,7 +514,7 @@ abstract class Preference {
 		 * @return value
 		 */
 		public int getValue() {
-			if (this.value > -1) {
+			if (this.value > -1 && this.value < this.strValues.length) {
 				return this.value;
 			} else {
 				return this.defaultValue;

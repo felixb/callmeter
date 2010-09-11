@@ -776,7 +776,12 @@ public final class DataProvider extends ContentProvider {
 				return null;
 			}
 
-			final Calendar ret = (Calendar) start.clone();
+			Calendar ret;
+			if (start != null) {
+				ret = (Calendar) start.clone();
+			} else {
+				ret = Calendar.getInstance();
+			}
 			Calendar n = now;
 			if (n == null) {
 				n = Calendar.getInstance();
