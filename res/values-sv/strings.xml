@@ -54,6 +54,9 @@
 	<string name="about3">CallMeter körs i bakgrunden var 30:e minut (om telefonen inte är i stand-by). Detta menar att om du raderar samtal eller SMS som är äldre än 30 minuter kommer de inte att förändra din uträkning. Raderar du samtal eller meddelanden som är nyare än 30 min riskerar du att få fel i uträkningen.</string>
 	<string name="send_">Skicka</string>
 <!--	<string name="add_">Add</string> -->
+<!--	<string name="add_log">Add log entry</string> -->
+<!--	<string name="length_hint_call">Length in seconds</string> -->
+<!--	<string name="length_hint_data">Length in kB</string> -->
 	<string name="settings">Alternativ</string>
 <!--	<string name="update_interval_">Update interval</string> -->
 <!--	<string name="update_interval_hint">Shorter period will use more battery.</string> -->
@@ -77,6 +80,9 @@
 <!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
 	<string name="theme_">Tema</string>
 	<string name="textsize_"> Text-storlek </string>
+<!--	<string name="textsize_hint">Text size in pixels; leave empty for default</string> -->
+<!--	<string name="show_total_">Show total</string> -->
+<!--	<string name="show_total_hint">Show total stats, disable to see current only.</string> -->
 <!--	<string name="show_time_">Switch to date</string> -->
 <!--	<string name="show_titlebar_">Show title bar</string> -->
 <!--	<string name="show_titlebar_hint">Show title bar in main view. Without title bar, there is no way to see background activity.</string> -->
@@ -114,6 +120,10 @@
 	<string name="sms">SMS</string>
 <!--	<string name="mms">MMS</string> -->
 	<string name="data">Datatrafik</string>
+<!--	<string name="prepaid_">Prepaid plan</string> -->
+<!--	<string name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string> -->
+<!--	<string name="balance_">Balance</string> -->
+<!--	<string name="balance_help">Balance of your account at this given date.</string> -->
 	<string name="reset_data_">Nollställ statistik</string>
 	<string name="reset_data_hint">Nollställning av statistik resulterar i en omräkning av statistiken.\n\nNollställningen är permanent. Den nollställer bara trafik gjord före senaste start av telefonen!</string>
 	<string name="reset_data_data_">Nollställ datatrafik</string>
@@ -171,6 +181,7 @@
 <!--	<string name="direction_help">Choose a direction the given log has to be.</string> -->
 <!--	<string name="roamed_">Roamed</string> -->
 <!--	<string name="roamed_help">Choose whether the given log has to be roamed.</string> -->
+<!--	<string name="remote_hint">Remote number</string> -->
 <!--	<string name="no_matter_">Does not matter</string> -->
 <!--	<string name="yes">Yes</string> -->
 <!--	<string name="no">No</string> -->
@@ -236,12 +247,11 @@
 		<item>Mörk</item>
 		<item>Ljus</item>
 	</string-array>
-	<string-array name="textsize">
-		<item>Liten</item>
-		<item>Mellan</item>
-	</string-array>
 <!--	<string-array name="dialog_edit_plan"> -->
 <!--		<item>Edit plan</item> -->
+<!--	</string-array> -->
+<!--	<string-array name="dialog_delete"> -->
+<!--		<item>Delete</item> -->
 <!--	</string-array> -->
 <!--	<string-array name="dialog_edit_delete"> -->
 <!--		<item>Edit</item> -->

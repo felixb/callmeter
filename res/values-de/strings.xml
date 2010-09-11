@@ -26,7 +26,7 @@
 <!--	<string name="website_">Website:</string> -->
 <!--	<string name="debug_">Debug</string> -->
 <!--	<string name="send_logs_">Send logs</string> -->
-<!--	<string name="send_logs_hint">Send your device\'s logs to the developer.\nDo this only if you was asked to do so.</string> -->
+<!--	<string name="send_logs_hint">Send your device\'s logs to the developer.\nDo this only if you were asked to do so.</string> -->
 <!--	<string name="sendlog_run_">Run SendLog</string> -->
 <!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
 <!--	<string name="sendlog_install_">Install SendLog</string> -->
@@ -80,7 +80,7 @@
 	<string name="advanced_preferences_hint">Damit kannst du viel komplexere Abrechnungen abbilden. Die meisten Benutzer werden das nicht brauchen.</string>
 	<string name="theme_">Theme</string>
 	<string name="textsize_">Schriftgrad</string>
-	<string name="textsize_">Schriftgrad in Punkten; leer lassen für Standard</string>
+	<string name="textsize_hint">Schriftgrad in Punkten; leer lassen für Standard.</string>
 	<string name="show_total_">Zeige Gesamtstatistik</string>
 	<string name="show_total_hint">Deaktivieren um nur die aktuellen Statistiken zu sehen.</string>
 	<string name="show_time_">Zu Datum</string>
@@ -181,8 +181,8 @@
 	<string name="direction_help">Wähle eine Richtung die die Logs haben müssen.</string>
 	<string name="roamed_">Roaming</string>
 	<string name="roamed_help">Wähle, ob die Logs im roaming liegen müssen.</string>
-	<string name="no_matter_">Egal</string>
 	<string name="remote_hint">Andere Nummer</string>
+	<string name="no_matter_">Egal</string>
 	<string name="yes">Yes</string>
 	<string name="no">No</string>
 	<string name="none">Keine</string>
@@ -246,10 +246,6 @@
 	<string-array name="themes">
 		<item>Dunkel</item>
 		<item>Hell</item>
-	</string-array>
-	<string-array name="textsize">
-		<item>Klein</item>
-		<item>Mittel</item>
 	</string-array>
 	<string-array name="dialog_edit_plan">
 		<item>Kontingent bearbeiten</item>

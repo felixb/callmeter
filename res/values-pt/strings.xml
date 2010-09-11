@@ -54,6 +54,9 @@
 	<string name="about3">O CallMeter roda oculto a cada 30min (se não estiver em repouso). Isto quer dizer, que apagar ligações ou mensagens com mais de 30min não alterará sua estatística acumulada. Apagar ligações ou mensagens em até 30min poderá resultar em uma estatística errônea.</string>
 	<string name="send_">Enviar</string>
 	<string name="add_">Adicionar</string>
+<!--	<string name="add_log">Add log entry</string> -->
+<!--	<string name="length_hint_call">Length in seconds</string> -->
+<!--	<string name="length_hint_data">Length in kB</string> -->
 	<string name="settings">Preferências</string>
 	<string name="update_interval_">Intervalo de Atualização</string>
 	<string name="update_interval_hint">Períodos curtos consomem mais bateria.</string>
@@ -77,6 +80,9 @@
 	<string name="advanced_preferences_hint">Permite configuração complexa do sistema. A maioria dos usuários não precisa disso.</string>
 	<string name="theme_">Fundo de Tela</string>
 	<string name="textsize_">Tamanho do texto</string>
+<!--	<string name="textsize_hint">Text size in pixels; leave empty for default</string> -->
+<!--	<string name="show_total_">Show total</string> -->
+<!--	<string name="show_total_hint">Show total stats, disable to see current only.</string> -->
 	<string name="show_time_">Trocar para a data</string>
 	<string name="show_titlebar_">Mostrar barra de título</string>
 	<string name="show_titlebar_hint">Mostra a barra de títulos na tela principal. Sem a barra de título, não existe nenhuma maneira de ver a atividade de fundo.</string>
@@ -114,6 +120,10 @@
 	<string name="sms">SMS</string>
 	<string name="mms">MMS</string>
 	<string name="data">Dados</string>
+<!--	<string name="prepaid_">Prepaid plan</string> -->
+<!--	<string name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string> -->
+<!--	<string name="balance_">Balance</string> -->
+<!--	<string name="balance_help">Balance of your account at this given date.</string> -->
 	<string name="reset_data_">Apagar estatísticas</string>
 	<string name="reset_data_hint">Apagar os dados das chamadas ou SMS irão resultar no recálculo das estatísticas.\n\nO cancelamento das estatísticas de tráfego é permanente. Só será visualizado após o boot!</string>
 	<string name="reset_data_data_">Apagar os Dados também.</string>
@@ -171,6 +181,7 @@
 	<string name="direction_help">Selecione a direção que o relatório deve ter.</string>
 	<string name="roamed_">Cruzado</string>
 	<string name="roamed_help">Selecione somente se o relatório deva ser cruzado.</string>
+<!--	<string name="remote_hint">Remote number</string> -->
 	<string name="no_matter_">Não importa</string>
 	<string name="yes">Sim</string>
 	<string name="no">Não</string>
@@ -236,13 +247,12 @@
 		<item>Escuro</item>
 		<item>Claro</item>
 	</string-array>
-	<string-array name="textsize">
-		<item>Pequeno</item>
-		<item>Médio</item>
-	</string-array>
 	<string-array name="dialog_edit_plan">
 		<item>Editar o plano</item>
 	</string-array>
+<!--	<string-array name="dialog_delete"> -->
+<!--		<item>Delete</item> -->
+<!--	</string-array> -->
 	<string-array name="dialog_edit_delete">
 		<item>Editar</item>
 		<item>Apagar</item>

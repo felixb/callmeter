@@ -54,6 +54,9 @@
 	<string name="about3">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
 	<string name="send_">Wyślij</string>
 	<string name="add_">Dodaj</string>
+<!--	<string name="add_log">Add log entry</string> -->
+<!--	<string name="length_hint_call">Length in seconds</string> -->
+<!--	<string name="length_hint_data">Length in kB</string> -->
 	<string name="settings">Ustawienia</string>
 	<string name="update_interval_">Częstotliwość aktualizacji</string>
 	<string name="update_interval_hint">Krótszy okres skraca czas pracy na baterii</string>
@@ -77,6 +80,9 @@
 	<string name="advanced_preferences_hint">Zaznacz, aby uaktywnić dodatkowe ustawienia. Głównie dla zaawansowanych użytkowników.</string>
 	<string name="theme_">Styl</string>
 	<string name="textsize_">Wielkość czcionki</string>
+<!--	<string name="textsize_hint">Text size in pixels; leave empty for default</string> -->
+<!--	<string name="show_total_">Show total</string> -->
+<!--	<string name="show_total_hint">Show total stats, disable to see current only.</string> -->
 	<string name="show_time_">Przełącz do daty</string>
 	<string name="show_titlebar_">Pokazuj pasek tytułowy</string>
 	<string name="show_titlebar_hint">Pokazuj pasek tytułowy w oknie głównym. Bez paska tytułowego nie ma możliwości zobaczenia aktywności w tle.</string>
@@ -114,6 +120,10 @@
 	<string name="sms">SMS</string>
 	<string name="mms">MMS</string>
 	<string name="data">Dane</string>
+<!--	<string name="prepaid_">Prepaid plan</string> -->
+<!--	<string name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string> -->
+<!--	<string name="balance_">Balance</string> -->
+<!--	<string name="balance_help">Balance of your account at this given date.</string> -->
 	<string name="reset_data_">Resetuj statystyki</string>
 	<string name="reset_data_hint">Resetowanie danych połączeń/smsów spowoduje ponowne obliczenie statystyk.\n\nUsunięcie statystyk ruchu jest nieodwracalne. Zresetowane zostają wyłącznie statystyki z przed uruchomienia urządzenia.</string>
 	<string name="reset_data_data_">Dane również</string>
@@ -171,6 +181,7 @@
 	<string name="direction_help">Wybierz kierunek, który musi być zapisany</string>
 	<string name="roamed_">Roamingowe</string>
 	<string name="roamed_help">Wybierz, czy zapis ma być roamingowany</string>
+<!--	<string name="remote_hint">Remote number</string> -->
 	<string name="no_matter_">Nie ma znaczenia</string>
 	<string name="yes">Tak</string>
 	<string name="no">Nie</string>
@@ -236,13 +247,12 @@
 		<item>Ciemny</item>
 		<item>Jasny</item>
 	</string-array>
-	<string-array name="textsize">
-		<item>Mały</item>
-		<item>Średni</item>
-	</string-array>
 	<string-array name="dialog_edit_plan">
 		<item>Edytuj plan</item>
 	</string-array>
+<!--	<string-array name="dialog_delete"> -->
+<!--		<item>Delete</item> -->
+<!--	</string-array> -->
 	<string-array name="dialog_edit_delete">
 		<item>Edytuj</item>
 		<item>Usuń</item>

@@ -3,19 +3,19 @@
 		Copyright (C) 2010 Tom Nuss, Felix Bechstein, Jumi Vlot
 	-->
 	<!--
-		Dit bestand is een onderdeel van Call Meter 3G. Dit programma is gratis software; u
-		kunt het herdistribueren en / of wijzigen onder de voorwaarden van de GNU
-		General Public License zoals gepubliceerd bij de Free Software Foundation;
-		ofwel versie 3 van de Licentie, of (naar keuze) een latere
-		versie
+		This file is part of Call Meter 3G. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
 	-->
 	<!--
-		Dit programma is gedistribueerd in de hoop dat het nuttig zal zijn, maar
-		ZONDER ENIGE GARANTIE, zelfs zonder de impliciete garantie van
-		VERKOOPBAARHEID of GESCHIKTHEID VOOR EEN BEPAALD DOEL. Zie de GNU
-		General Public License voor meer details. Je had een kopie van de GNU 
-		General Public License samen met dit programma moeten onvangen. Als 
-		dit niet het geval is, zie <http://www.gnu.org/licenses/>.
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
 	<string name="author_">Auteur:</string>
@@ -54,6 +54,9 @@
 	<string name="about3">CallMeter werkt zich elke 30 minuten op de achtergrond bij (alleen wanneer niet in standby). Dit betekent dat het verwijderen van gesprekken of berichten ouder dan 30 min. de statistieken niet wijzigt. Het verwijderen van gesprekken of berichten jonger dan 30 min. kan resulteren in onjuiste statistieken.</string>
 	<string name="send_">Verstuur</string>
 	<string name="add_">Toevoegen</string>
+<!--	<string name="add_log">Add log entry</string> -->
+<!--	<string name="length_hint_call">Length in seconds</string> -->
+<!--	<string name="length_hint_data">Length in kB</string> -->
 	<string name="settings">Voorkeuren</string>
 	<string name="update_interval_">Update interval</string>
 	<string name="update_interval_hint">Kortere periode verbruikt meer batterij.</string>
@@ -77,6 +80,9 @@
 	<string name="advanced_preferences_hint">Stelt je in staat om een complexe setup te maken. Meeste gebruikers hebben het niet nodig.</string>
 	<string name="theme_">Thema</string>
 	<string name="textsize_">Tekst grootte</string>
+<!--	<string name="textsize_hint">Text size in pixels; leave empty for default</string> -->
+<!--	<string name="show_total_">Show total</string> -->
+<!--	<string name="show_total_hint">Show total stats, disable to see current only.</string> -->
 	<string name="show_time_">Wijzig naar datum</string>
 	<string name="show_titlebar_">Toon titelbalk</string>
 	<string name="show_titlebar_hint">Toon titelbalk in hoofd venster. Zonder titelbalk kan je geen achtergrond activiteit zien.</string>
@@ -114,6 +120,10 @@
 	<string name="sms">SMS</string>
 	<string name="mms">MMS</string>
 	<string name="data">Data</string>
+<!--	<string name="prepaid_">Prepaid plan</string> -->
+<!--	<string name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string> -->
+<!--	<string name="balance_">Balance</string> -->
+<!--	<string name="balance_help">Balance of your account at this given date.</string> -->
 	<string name="reset_data_">Reset statistieken</string>
 	<string name="reset_data_hint">Resetten van gesprek/sms data zorgt voor het opnieuw berekenen van de statistieken.\n\nResetten van data statistieken is permanent. Alleen data voordat het programma gestart is wordt gereset!</string>
 	<string name="reset_data_data_">Reset ook dataverkeer.</string>
@@ -171,6 +181,7 @@
 	<string name="direction_help">Kies een richting die hij moet loggen.</string>
 	<string name="roamed_">Zwevend</string>
 	<string name="roamed_help">Kies of de log zwevend moet zijn.</string>
+<!--	<string name="remote_hint">Remote number</string> -->
 	<string name="no_matter_">Maakt niet uit</string>
 	<string name="yes">Ja</string>
 	<string name="no">Nee</string>
@@ -236,13 +247,12 @@
 		<item>Zwart</item>
 		<item>Licht</item>
 	</string-array>
-	<string-array name="textsize">
-		<item>Klein</item>
-		<item>Medium</item>
-	</string-array>
 	<string-array name="dialog_edit_plan">
 		<item>Wijzig schema</item>
 	</string-array>
+<!--	<string-array name="dialog_delete"> -->
+<!--		<item>Delete</item> -->
+<!--	</string-array> -->
 	<string-array name="dialog_edit_delete">
 		<item>Wijzig</item>
 		<item>Verwijderen</item>
