@@ -127,6 +127,9 @@ public class Plans extends ListActivity implements OnClickListener,
 	/** Force adapter to reload the list. */
 	private static boolean reloadList = false;
 
+	/** Show total stats. */
+	private static boolean showTotal = true;
+
 	/** {@link Handler} for handling messages from background process. */
 	private final Handler handler = new Handler() {
 		@Override
@@ -414,20 +417,27 @@ public class Plans extends ListActivity implements OnClickListener,
 						c.close();
 					}
 					// get all time
-					c = this.ctx.getContentResolver().query(
-							DataProvider.Logs.SUM_URI,
-							DataProvider.Logs.PROJECTION_SUM,
-							DataProvider.Logs.PLAN_ID + " = " + this.id, null,
-							null);
-					if (c != null && c.moveToFirst()) {
-						allBilledAmount = c.getLong(DataProvider.Logs.// .
-								INDEX_SUM_BILL_AMOUNT);
-						allCount = c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
-					}
-					if (c != null && !c.isClosed()) {
-						c.close();
+					if (showTotal) {
+						c = this.ctx.getContentResolver().query(
+								DataProvider.Logs.SUM_URI,
+								DataProvider.Logs.PROJECTION_SUM,
+								DataProvider.Logs.PLAN_ID + " = " + this.id,
+								null, null);
+						if (c != null && c.moveToFirst()) {
+							allBilledAmount = c.getLong(DataProvider.Logs.// .
+									INDEX_SUM_BILL_AMOUNT);
+							allCount = c
+									.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+						}
+						if (c != null && !c.isClosed()) {
+							c.close();
+						}
+					} else {
+						allBilledAmount = -1;
+						allCount = -1;
 					}
 
+					// cost per plan
 					if (this.cpp > 0) {
 						if (cost <= 0) {
 							cost = this.cpp;
@@ -645,6 +655,8 @@ public class Plans extends ListActivity implements OnClickListener,
 		 *            billed amount all time
 		 * @param allCount
 		 *            count all time
+		 * @param showHours
+		 *            show hours
 		 * @return {@link String} holding all the data
 		 */
 		private static String getString(final Plan p, final int used,
@@ -666,17 +678,20 @@ public class Plans extends ListActivity implements OnClickListener,
 			if (p.type == DataProvider.TYPE_CALL) {
 				ret.append(" (" + count + ")");
 			}
-			ret.append(SEP);
 
-			// amount all time
-			ret.append(formatAmount(p.type, allAmount, showHours));
-			// count all time
-			if (p.type == DataProvider.TYPE_CALL) {
-				ret.append(" (" + allCount + ")");
+			if (showTotal) {
+				ret.append(SEP);
+
+				// amount all time
+				ret.append(formatAmount(p.type, allAmount, showHours));
+				// count all time
+				if (p.type == DataProvider.TYPE_CALL) {
+					ret.append(" (" + allCount + ")");
+				}
 			}
 
 			// cost
-			if (cost >= 0) {
+			if (cost > 0) {
 				ret.append("\n");
 				ret.append(String.format(currencyFormat, cost));
 			}
@@ -947,13 +962,15 @@ public class Plans extends ListActivity implements OnClickListener,
 	@Override
 	protected final void onResume() {
 		super.onResume();
-		pShowHours = PreferenceManager.getDefaultSharedPreferences(this)
-				.getBoolean(Preferences.PREFS_SHOWHOURS, true);
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		pShowHours = p.getBoolean(Preferences.PREFS_SHOWHOURS, true);
 		currentHandler = this.handler;
 		Plans.this.setProgressBarIndeterminateVisibility(inProgressMatcher);
 
 		currencyFormat = Preferences.getCurrencyFormat(this);
 		dateFormat = Preferences.getDateFormat(this);
+		showTotal = p.getBoolean(Preferences.PREFS_SHOWTOTAL, true);
 
 		if (reloadList) {
 			this.adapter = new PlanAdapter(this);

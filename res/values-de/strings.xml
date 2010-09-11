@@ -81,6 +81,8 @@
 	<string name="theme_">Theme</string>
 	<string name="textsize_">Schriftgrad</string>
 	<string name="textsize_">Schriftgrad in Punkten; leer lassen für Standard</string>
+	<string name="show_total_">Zeige Gesamtstatistik</string>
+	<string name="show_total_hint">Deaktivieren um nur die aktuellen Statistiken zu sehen.</string>
 	<string name="show_time_">Zu Datum</string>
 	<string name="show_titlebar_">Zeige Titelleiste</string>
 	<string name="show_titlebar_hint">Zeige Titelleiste im Hauptbildschirm. Ohne Titelleiste wirst du nicht mehr auf Hintergrundaktivitäten hingewiesen.</string>

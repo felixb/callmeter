@@ -99,6 +99,8 @@ public class Preferences extends PreferenceActivity {
 	private static final String PREFS_CURRENCY_FORMAT = "currency_format";
 	/** Preference's name: date format. */
 	private static final String PREFS_DATE_FORMAT = "date_format";
+	/** Preference's name: show total. */
+	public static final String PREFS_SHOWTOTAL = "show_total";
 
 	/** {@link Currency} symbol. */
 	private static String defaultCurrencySymbol = null;
