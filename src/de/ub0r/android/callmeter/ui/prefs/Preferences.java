@@ -179,7 +179,8 @@ public class Preferences extends PreferenceActivity {
 			return "%." + defaultCurrencyDigits + "f"
 					+ getCurrencySymbol(context);
 		} else {
-			return pcs.replaceAll("$", getCurrencySymbol(context));
+			final String c = getCurrencySymbol(context);
+			return pcs.replaceAll("\\$", c).replaceAll("\\€", c);
 		}
 	}
 
