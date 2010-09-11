@@ -520,6 +520,16 @@ abstract class Preference {
 				return this.defaultValue;
 			}
 		}
+
+		/**
+		 * Set a value.
+		 * 
+		 * @param which
+		 *            value
+		 */
+		public void setValue(final int which) {
+			this.value = which;
+		}
 	}
 
 	/**
