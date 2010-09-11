@@ -54,6 +54,7 @@ import android.widget.Toast;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * Preferences.
@@ -77,6 +78,8 @@ public class Preferences extends PreferenceActivity {
 	public static final String PREFS_UPDATE_INTERVAL = "update_interval";
 	/** Preference's name: beginning of record. */
 	public static final String PREFS_DATE_BEGIN = "date_begin";
+	/** Preference's name: prepaid plan. */
+	public static final String PREFS_PREPAID = "prepaid";
 
 	/** Preference's name: theme. */
 	private static final String PREFS_THEME = "theme";
@@ -86,10 +89,6 @@ public class Preferences extends PreferenceActivity {
 	private static final String THEME_LIGHT = "light";
 	/** Preference's name: text size. */
 	private static final String PREFS_TEXTSIZE = "textsize";
-	/** Text size: small. */
-	private static final String TEXTSIZE_SMALL = "small";
-	/** Text size: medium. */
-	private static final String TEXTSIZE_MEDIUM = "medium";
 	/** Preference's name: show titlebar. */
 	public static final String PREFS_SHOWTITLEBAR = "show_titlebar";
 	/** Preference's name: show hours. */
@@ -100,10 +99,8 @@ public class Preferences extends PreferenceActivity {
 	private static final String PREFS_CURRENCY_FORMAT = "currency_format";
 	/** Preference's name: date format. */
 	private static final String PREFS_DATE_FORMAT = "date_format";
-	/** Textsize: small. */
-	public static float textSizeSmall = 14;
-	/** Textsize: medium. */
-	public static float textSizeMedium = 18;
+	/** Preference's name: show total. */
+	public static final String PREFS_SHOWTOTAL = "show_total";
 
 	/** {@link Currency} symbol. */
 	private static String defaultCurrencySymbol = null;
@@ -132,16 +129,13 @@ public class Preferences extends PreferenceActivity {
 	 * 
 	 * @param context
 	 *            {@link Context}
-	 * @return text size
+	 * @return theme
 	 */
-	static final float getTextsize(final Context context) {
+	public static final int getTextsize(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
-		final String s = p.getString(PREFS_TEXTSIZE, TEXTSIZE_SMALL);
-		if (s != null && TEXTSIZE_MEDIUM.equals(s)) {
-			return textSizeMedium;
-		}
-		return textSizeSmall;
+		final String s = p.getString(PREFS_TEXTSIZE, null);
+		return Utils.parseInt(s, 0);
 	}
 
 	/**
@@ -187,7 +181,8 @@ public class Preferences extends PreferenceActivity {
 			return "%." + defaultCurrencyDigits + "f"
 					+ getCurrencySymbol(context);
 		} else {
-			return pcs.replaceAll("$", getCurrencySymbol(context));
+			final String c = getCurrencySymbol(context);
+			return pcs.replaceAll("\\$", c).replaceAll("\\€", c);
 		}
 	}
 

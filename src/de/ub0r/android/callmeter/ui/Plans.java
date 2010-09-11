@@ -127,6 +127,9 @@ public class Plans extends ListActivity implements OnClickListener,
 	/** Force adapter to reload the list. */
 	private static boolean reloadList = false;
 
+	/** Show total stats. */
+	private static boolean showTotal = true;
+
 	/** {@link Handler} for handling messages from background process. */
 	private final Handler handler = new Handler() {
 		@Override
@@ -317,7 +320,20 @@ public class Plans extends ListActivity implements OnClickListener,
 					if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
 						cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, -1);
 						cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, 1);
-						cv.put(DataProvider.Plans.CACHE_STRING, "\u221E");
+						if (this.billday <= 0 || billDay == null) {
+							cv.put(DataProvider.Plans.CACHE_STRING, "\u221E");
+						} else {
+							String formatedDate;
+							if (dateFormat == null) {
+								formatedDate = DateFormat.getDateFormat(
+										this.ctx).format(billDay.getTime());
+							} else {
+								formatedDate = String.format(dateFormat,
+										billDay, billDay, billDay);
+							}
+							cv.put(DataProvider.Plans.CACHE_STRING,
+									formatedDate);
+						}
 					} else {
 						final Calendar nextBillDay = DataProvider.Plans
 								.getBillDay(this.billperiod, billDay, lnow,
@@ -401,20 +417,27 @@ public class Plans extends ListActivity implements OnClickListener,
 						c.close();
 					}
 					// get all time
-					c = this.ctx.getContentResolver().query(
-							DataProvider.Logs.SUM_URI,
-							DataProvider.Logs.PROJECTION_SUM,
-							DataProvider.Logs.PLAN_ID + " = " + this.id, null,
-							null);
-					if (c != null && c.moveToFirst()) {
-						allBilledAmount = c.getLong(DataProvider.Logs.// .
-								INDEX_SUM_BILL_AMOUNT);
-						allCount = c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
-					}
-					if (c != null && !c.isClosed()) {
-						c.close();
+					if (showTotal) {
+						c = this.ctx.getContentResolver().query(
+								DataProvider.Logs.SUM_URI,
+								DataProvider.Logs.PROJECTION_SUM,
+								DataProvider.Logs.PLAN_ID + " = " + this.id,
+								null, null);
+						if (c != null && c.moveToFirst()) {
+							allBilledAmount = c.getLong(DataProvider.Logs.// .
+									INDEX_SUM_BILL_AMOUNT);
+							allCount = c
+									.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+						}
+						if (c != null && !c.isClosed()) {
+							c.close();
+						}
+					} else {
+						allBilledAmount = -1;
+						allCount = -1;
 					}
 
+					// cost per plan
 					if (this.cpp > 0) {
 						if (cost <= 0) {
 							cost = this.cpp;
@@ -443,6 +466,10 @@ public class Plans extends ListActivity implements OnClickListener,
 
 		/** {@link Context}. */
 		private final Context ctx;
+		/** Textsize. */
+		private final int textSize;
+		/** Prepaid plan? */
+		private final boolean prepaid;
 
 		/**
 		 * Default Constructor.
@@ -456,6 +483,9 @@ public class Plans extends ListActivity implements OnClickListener,
 							DataProvider.Plans.PROJECTION, null, null,
 							DataProvider.Plans.ORDER), true);
 			this.ctx = context;
+			this.textSize = Preferences.getTextsize(context);
+			this.prepaid = PreferenceManager.getDefaultSharedPreferences(
+					context).getBoolean(Preferences.PREFS_PREPAID, false);
 		}
 
 		/**
@@ -530,7 +560,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					new String[] { DataProvider.Plans.CACHE_COST },
 					DataProvider.Plans.BILLPERIOD_ID + " == " + p.id, null,
 					null);
-			float cost = p.cpp;
+			float cost = 0;
 			if (cursor != null && cursor.moveToFirst()) {
 				do {
 					final float c = cursor.getFloat(0);
@@ -541,6 +571,11 @@ public class Plans extends ListActivity implements OnClickListener,
 			}
 			if (cursor != null && !cursor.isClosed()) {
 				cursor.close();
+			}
+			if (this.prepaid) {
+				cost = p.cpp - cost;
+			} else {
+				cost += p.cpp;
 			}
 			final ContentValues cv = new ContentValues();
 			cv.put(DataProvider.Plans.CACHE_COST, cost);
@@ -620,6 +655,8 @@ public class Plans extends ListActivity implements OnClickListener,
 		 *            billed amount all time
 		 * @param allCount
 		 *            count all time
+		 * @param showHours
+		 *            show hours
 		 * @return {@link String} holding all the data
 		 */
 		private static String getString(final Plan p, final int used,
@@ -641,17 +678,20 @@ public class Plans extends ListActivity implements OnClickListener,
 			if (p.type == DataProvider.TYPE_CALL) {
 				ret.append(" (" + count + ")");
 			}
-			ret.append(SEP);
 
-			// amount all time
-			ret.append(formatAmount(p.type, allAmount, showHours));
-			// count all time
-			if (p.type == DataProvider.TYPE_CALL) {
-				ret.append(" (" + allCount + ")");
+			if (showTotal) {
+				ret.append(SEP);
+
+				// amount all time
+				ret.append(formatAmount(p.type, allAmount, showHours));
+				// count all time
+				if (p.type == DataProvider.TYPE_CALL) {
+					ret.append(" (" + allCount + ")");
+				}
 			}
 
 			// cost
-			if (cost >= 0) {
+			if (cost > 0) {
 				ret.append("\n");
 				ret.append(String.format(currencyFormat, cost));
 			}
@@ -745,6 +785,9 @@ public class Plans extends ListActivity implements OnClickListener,
 			}
 			if (twCache != null && pbCache != null) {
 				twCache.setText(cacheStr);
+				if (this.textSize > 0) {
+					twCache.setTextSize(this.textSize);
+				}
 				if (cacheLimitMax == 0) {
 					pbCache.setVisibility(View.GONE);
 				} else if (cacheLimitMax > 0) {
@@ -919,13 +962,15 @@ public class Plans extends ListActivity implements OnClickListener,
 	@Override
 	protected final void onResume() {
 		super.onResume();
-		pShowHours = PreferenceManager.getDefaultSharedPreferences(this)
-				.getBoolean(Preferences.PREFS_SHOWHOURS, true);
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		pShowHours = p.getBoolean(Preferences.PREFS_SHOWHOURS, true);
 		currentHandler = this.handler;
 		Plans.this.setProgressBarIndeterminateVisibility(inProgressMatcher);
 
 		currencyFormat = Preferences.getCurrencyFormat(this);
 		dateFormat = Preferences.getDateFormat(this);
+		showTotal = p.getBoolean(Preferences.PREFS_SHOWTOTAL, true);
 
 		if (reloadList) {
 			this.adapter = new PlanAdapter(this);
@@ -1061,7 +1106,7 @@ public class Plans extends ListActivity implements OnClickListener,
 	@Override
 	public final boolean onCreateOptionsMenu(final Menu menu) {
 		MenuInflater inflater = this.getMenuInflater();
-		inflater.inflate(R.menu.menu, menu);
+		inflater.inflate(R.menu.menu_main, menu);
 		if (prefsNoAds) {
 			menu.removeItem(R.id.item_donate);
 		}

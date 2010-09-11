@@ -92,7 +92,8 @@ public final class RuleMatcher {
 		 *            id of group
 		 * @return {@link HoursGroup}
 		 */
-		static HoursGroup getHourGroup(final ContentResolver cr, final long gid) {
+		static HoursGroup getHourGroup(final ContentResolver cr, // .
+				final long gid) {
 			if (gid < 0) {
 				return null;
 			}
@@ -799,13 +800,25 @@ public final class RuleMatcher {
 	 */
 	private static boolean matchLog(final ContentResolver cr, // .
 			final Cursor log) {
+		if (cr == null) {
+			Log.e(TAG, "matchLog(null, log)");
+			return false;
+		}
 		if (log == null) {
-			Log.d(TAG, "matchLog(cr, null)");
+			Log.e(TAG, "matchLog(cr, null)");
 			return false;
 		}
 		final long lid = log.getLong(DataProvider.Logs.INDEX_ID);
 		Log.d(TAG, "matchLog(cr, " + lid + ")");
 		boolean matched = false;
+		if (rules == null) {
+			Log.e(TAG, "rules = null");
+			return false;
+		}
+		if (plans == null) {
+			Log.e(TAG, "plans = null");
+			return false;
+		}
 		final int l = rules.size();
 		for (int i = 0; i < l; i++) {
 			final Rule r = rules.get(i);

@@ -25,6 +25,9 @@
 	<string name="about3">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string>
 	<string name="send_">Send</string>
 	<string name="add_">Add</string>
+	<string name="add_log">Add log entry</string>
+	<string name="length_hint_call">Length in seconds</string>
+	<string name="length_hint_data">Length in kB</string>
 	<string name="settings">Preferences</string>
 	<string name="update_interval_">Update interval</string>
 	<string name="update_interval_hint">Shorter period will use more battery.</string>
@@ -48,6 +51,9 @@
 	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string>
 	<string name="theme_">Theme</string>
 	<string name="textsize_">Text size</string>
+	<string name="textsize_hint">Text size in pixels; leave empty for default</string>
+	<string name="show_total_">Show total</string>
+	<string name="show_total_hint">Show total stats, disable to see current only.</string>
 	<string name="show_time_">Switch to date</string>
 	<string name="show_titlebar_">Show title bar</string>
 	<string name="show_titlebar_hint">Show title bar in main view. Without title bar, there is no way to see background activity.</string>
@@ -85,6 +91,10 @@
 	<string name="sms">SMS</string>
 	<string name="mms">MMS</string>
 	<string name="data">Data</string>
+	<string name="prepaid_">Prepaid plan</string>
+	<string name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string>
+	<string name="balance_">Balance</string>
+	<string name="balance_help">Balance of your account at this given date.</string>
 	<string name="reset_data_">Reset statistics</string>
 	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string>
 	<string name="reset_data_data_">Reset traffic too.</string>
@@ -142,6 +152,7 @@
 	<string name="direction_help">Choose a direction the given log has to be.</string>
 	<string name="roamed_">Roamed</string>
 	<string name="roamed_help">Choose whether the given log has to be roamed.</string>
+	<string name="remote_hint">Remote number</string>
 	<string name="no_matter_">Does not matter</string>
 	<string name="yes">Yes</string>
 	<string name="no">No</string>
@@ -207,12 +218,11 @@
 		<item>Black</item>
 		<item>Light</item>
 	</string-array>
-	<string-array name="textsize">
-		<item>Small</item>
-		<item>Medium</item>
-	</string-array>
 	<string-array name="dialog_edit_plan">
 		<item>Edit plan</item>
+	</string-array>
+	<string-array name="dialog_delete">
+		<item>Delete</item>
 	</string-array>
 	<string-array name="dialog_edit_delete">
 		<item>Edit</item>

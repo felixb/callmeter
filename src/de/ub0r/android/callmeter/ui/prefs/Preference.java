@@ -294,7 +294,6 @@ abstract class Preference {
 					values.put(this.name2, this.defaultValue2);
 				}
 			}
-
 		}
 
 		@Override
@@ -343,9 +342,9 @@ abstract class Preference {
 			this.etDialog1.setText(this.value1);
 			this.etDialog2.setText(this.value2);
 			if (this.singleMode) {
-				this.etDialog1.setVisibility(View.GONE);
+				this.etDialog2.setVisibility(View.GONE);
 			} else {
-				this.etDialog1.setVisibility(View.VISIBLE);
+				this.etDialog2.setVisibility(View.VISIBLE);
 			}
 		}
 
@@ -504,7 +503,7 @@ abstract class Preference {
 
 		@Override
 		String getHint() {
-			if (this.value > -1) {
+			if (this.value > -1 && this.value < this.strValues.length) {
 				return this.strValues[this.value];
 			} else {
 				return this.strValues[this.defaultValue];
@@ -515,11 +514,21 @@ abstract class Preference {
 		 * @return value
 		 */
 		public int getValue() {
-			if (this.value > -1) {
+			if (this.value > -1 && this.value < this.strValues.length) {
 				return this.value;
 			} else {
 				return this.defaultValue;
 			}
+		}
+
+		/**
+		 * Set a value.
+		 * 
+		 * @param which
+		 *            value
+		 */
+		public void setValue(final int which) {
+			this.value = which;
 		}
 	}
 
