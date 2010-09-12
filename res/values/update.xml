@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: Fix some FCs, hide total stats, prepaid plans, set textsize, manipulate logs by hand</item>
+		<item>v2.8.6: Fix some FCs, hide total stats, prepaid plans, set textsize, manipulate logs by hand</item>
 		<item>v2.8.5: Fix default displaying values for pans/rules</item>
 		<item>v2.8.4: Fix some FCs, fix number groups with more than one entry, readd druch, spanish and portuguese translations</item>
 		<item>v2.8.3: Fix exclude numbers</item>
