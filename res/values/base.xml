@@ -115,6 +115,7 @@
 		<item>60/1</item>
 		<item>60/6</item>
 		<item>60/10</item>
+		<item>60/15</item>
 		<item>60/30</item>
 		<item>60/60</item>
 	</string-array>
@@ -132,6 +133,7 @@
 		<item>60_1</item>
 		<item>60_6</item>
 		<item>60_10</item>
+		<item>60_15</item>
 		<item>60_30</item>
 		<item>60_60</item>
 	</string-array>
