@@ -17,6 +17,27 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 	-->
+
+	<!--
+		Copyright (C) 2010 Yusuf Yıldız, Felix Bechstein
+	-->
+	<!--
+		Bu dosya Call Meter NG’nin bir parçasıdır. Bu program ücretsiz bir yazılımdır;
+		Free Software Foundation tarafından yayınlanan GNU Genel Kamu Lisansı
+		şartları altında (Lisansın 3. versiyonu ya da seçiminize bağlı olarak daha sonraki
+		versiyonları)  bu programı yeniden dağıtabilir ve/veya değiştirebilirsiniz.
+
+	-->
+	<!—
+		Bu program yararlı olacağı umuduyla; ancak HERHANGİ BİR GARANTİSİ
+		OLMADAN;ayrıca ORTALAMA KALİTE GARANTİSİ ya da BELİRLİ BİR AMACA
+		UYGUNLUĞUNUN GARANTİSİ OLMADAN dağıtılmaktadır. Daha fazla ayrıntı için GNU
+		Genel Kamu Lisansı’nı gözden geçirin. Bu programla birlikte GNU Genel Kamu
+		Lisansı’nın da bir kopyasını almış olmalısınız. Eğer almadıysanız bkz:
+		<http://www.gnu.org/licenses/>.
+		
+	-->
+
 <resources>
 <string name="author_">Yazar:</string>
 <string name="version_">Versiyon:</string>
