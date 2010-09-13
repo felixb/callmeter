@@ -45,6 +45,8 @@
 	<string name="accept_">Aceitar os Termos</string>
 	<string name="accept_missing">Por favor aceite os termos antes de enviar os dados.</string>
 	<string name="terms">O aplicativo irá enviar a sua identificação da doação junto com o hash md5 de seu IMEI para o servidor (http://ub0r.de/donation/). Os dados são necessários para verificar a sua doação.\nOs dados nunca serão dados a terceiros e são utilizados apenas para verificar a sua doação.\n\nSe houver mudaça de telefone, o código NoAds não irá funcionar mais. Por favor, me mande um e-mail para obter um novo código.</string>
+<!--	<string name="notify_">Forgot to remove the ads?</string> -->
+<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
 	<string name="about0_">Acompanhe suas ligações, mensagens e plano de dados!</string>
 	<string name="about0">O CallMeter gera relatórios de ligações, mensagens e dados. Ele suporta vários tipos de cobrança.</string>
 	<string name="about1">Os formatos de saída são: uso / tempo ou soma utilizada neste período / tempo ou soma total. O cálculo de tempo utiliza a forma de cobrança de seu plano. A soma total não.</string>

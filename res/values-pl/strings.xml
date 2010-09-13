@@ -45,6 +45,8 @@
 	<string name="accept_">Akceptuję postanowienia</string>
 	<string name="accept_missing">Zaakceptuj postanowienia przed wysłaniem danych</string>
 	<string name="terms">Aplikacja wyśle twój identyfikator datku wraz z md5-hash twojego numeru IMEI na serwer (http://ub0r.de/donation/). Dane te są niezbędne do weryfikacji twojego datku.\nNie zostaną one nigdy udostępnione osobom trzecim oraz będą wykorzystane tylko do weryfikacji datku.\n\nJeżeli zmienisz telefon, twój kod usuwający reklamy przestanie działać. Powiadom mnie o tym, a otrzymasz nowy.</string>
+<!--	<string name="notify_">Forgot to remove the ads?</string> -->
+<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
 	<string name="about0_">Obserwuj swoje połączenia, wiadomości oraz pakiet rozmów!</string>
 	<string name="about0">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych..</string>
 	<string name="about1">Format wyjściowy wykorzystuje /czas, całość wykorzystanego rachunku /czas, całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>
