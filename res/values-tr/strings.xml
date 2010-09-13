@@ -30,7 +30,7 @@
 <string name="sendlog_run_">Sendlog çalıştır</string>
 <string name="sendlog_run">SendLog cihazın loglarını toplayıp yazara gönderecektir.\nGönderilmeden önce datayları inceleme ve değişiklik yapma imkanınız olacaktır.</string>
 <string name="sendlog_install_">Sendlog Yükle</string>
-<string name="sendlog_install"Ücretsiz sendlog yüklemesi. Bu hizmet cihazınızın loglarını yazara göndermek içindir.</string>
+<string name="sendlog_install">Ücretsiz sendlog yüklemesi. Bu hizmet cihazınızın loglarını yazara göndermek içindir.</string>
 <string name="donate_paypal_">Bağışta bulun (Paypal)</string>
 <string name="donate_market_">Bağışta bulun (Market)</string>
 <string name="donate_remove_ads_">Bağışta bulun/Reklamları kaldır</string>
@@ -155,11 +155,11 @@
 <string name="reset_data_data_">Trafiği de sıfırla.</string>
 <string name="contacts_">Kişiler</string>
 <string-array name="themes">
-<!--		<item>Siyah</item>
-<!--		<item>Beyaz</item>
+<item>Siyah</item>
+<item>Beyaz</item>
 </string-array>
 <string-array name="textsize">
-<!--		<item>Küçük</item>
-<!--		<item>Orta</item>
+<item>Küçük</item>
+<item>Orta</item>
 </string-array>
 </resources>
