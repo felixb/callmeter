@@ -18,7 +18,7 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="app_version">2.8.6 beta6</string>
+	<string name="app_version">2.8.7 beta7</string>
 	<string name="app_name">Call Meter 3G</string>
 	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt; (Code, German) </string>
 	<string name="author_nc">Cyril Jaquier &lt;netcounter@jaqpot.net&gt; (NetCounter)</string>
