@@ -290,8 +290,11 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			final boolean prepaid = p.getBoolean(Preferences.PREFS_PREPAID,
 					false);
 			a.hide(DataProvider.Plans.BILLPERIOD, prepaid);
-			((ListPreference) a.getPreference(DataProvider.Plans.BILLPERIOD))
-					.setValue(DataProvider.BILLPERIOD_INFINITE);
+			if (prepaid) {
+				((ListPreference) a
+						.getPreference(DataProvider.Plans.BILLPERIOD))
+						.setValue(DataProvider.BILLPERIOD_INFINITE);
+			}
 			// TODO: set billperiod on enabling prepaid plans?
 			a.hide(DataProvider.Plans.COST_PER_PLAN, false);
 			a.hide(DataProvider.Plans.BILLMODE, true);
