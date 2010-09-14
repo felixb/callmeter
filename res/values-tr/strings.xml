@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Yusuf Yıldız, Felix Bechstein
+		Copyright (C) 2010 Sinan Cem KILIÇKAPLAN, Yusuf Yıldız, Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter 3G. This program is free software; you
@@ -18,68 +18,68 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-<!--	<string name="author_">Author:</string> -->
-<!--	<string name="version_">Version:</string> -->
-<!--	<string name="license_">License:</string> -->
-<!--	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string> -->
-<!--	<string name="source_">Sourcescode:</string> -->
-<!--	<string name="website_">Website:</string> -->
-<!--	<string name="debug_">Debug</string> -->
-<!--	<string name="send_logs_">Send logs</string> -->
-<!--	<string name="send_logs_hint">Send your device\'s logs to the developer.\nDo this only if you were asked to do so.</string> -->
-<!--	<string name="sendlog_run_">Run SendLog</string> -->
-<!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
-<!--	<string name="sendlog_install_">Install SendLog</string> -->
-<!--	<string name="sendlog_install">Install the free SendLog application to collect the device log and send it to the developer.</string> -->
-<!--	<string name="donate_paypal_">Donate (Paypal)</string> -->
-<!--	<string name="donate_market_">Donate (Market)</string> -->
-<!--	<string name="donate_remove_ads_">Donate/remove ads</string> -->
-<!--	<string name="remove_ads_">Remove ads</string> -->
-<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
-<!--	<string name="postdonate">To remove ads, you need to load the <i>noads</i> code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work after one day.</string> -->
-<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
-<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
-<!--	<string name="load_hash_">Load <i>noads</i> code</string> -->
-<!--	<string name="sig_loaded">Ads removed!</string> -->
-<!--	<string name="sig_failed">Failed to remove ads!</string> -->
-<!--	<string name="accept_">Accept Terms</string> -->
-<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
-<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
+	<string name="author_">Yazar:</string>
+	<string name="version_">Versiyon:</string>
+	<string name="license_">Lisans:</string>
+	<string name="license">GPLv3 Lisansıyla üretilmiştir - http://www.gnu.org/licenses/gpl-3.0.txt</string>
+	<string name="source_">Kaynak Kodları:</string>
+	<string name="website_">Web Sitesi:</string>
+	<string name="debug_">Hata Ayıklama</string>
+	<string name="send_logs_">Logları Gönder</string>
+	<string name="send_logs_hint">Telefonunun loglarını yazara gönder.\nBunu sadece sizden istendiyse yapın.</string>
+	<string name="sendlog_run_">Sendlog çalıştır</string>
+	<string name="sendlog_run">SendLog cihazın loglarını toplayıp yazara gönderecektir.\nGönderilmeden önce datayları inceleme ve değişiklik yapma imkanınız olacaktır.</string>
+	<string name="sendlog_install_">Sendlog Yükle</string>
+	<string name="sendlog_install">Ücretsiz sendlog yüklemesi. Bu hizmet cihazınızın loglarını yazara göndermek içindir.</string>
+	<string name="donate_paypal_">Bağışta bulun (Paypal)</string>
+	<string name="donate_market_">Bağışta bulun (Market)</string>
+	<string name="donate_remove_ads_">Bağışta bulun/Reklamları kaldır</string>
+	<string name="remove_ads_">Reklamları kaldır</string>
+	<string name="predonate">Bu yazılım açık kaynak kodlu GPLv3 lisansı ile üretilmiştir. Bedavadır ve bedava kalacaktır. Eğer gerçekten sevdiyseniz veya reklamlardan sıkıldıysanız bağışta bulunmayı düşünebilirsiniz. Reklamları olabildiğince çabuk kaldıracağız.\nTeşekkürler!\n\nBağış, benim tarafımdan sağlanan tüm uygulamalardaki reklamları silecektir.</string>
+	<string name="postdonate">Reklamları kaldırabilmeniz için  <i>noads</i> kodununu yüklemeniz gerekmektedir. Bağış tarafımıza ulaşır ulaşmaz bu kod size gönderilecektir. Lütfen sabırlı olun ve eğer ulaşmazsa bana bir e-posta gönderin.</string>
+	<string name="donator_id_">Bağışınızın kontrol edilebilmesi için (paypal için paypal e-posta adresiniz; market için gmail adresiniz) gereklidir:</string>
+	<string name="donator_id_hint">Paypal/Gmail adres</string>
+	<string name="load_hash_"><i>noads</i> Kodunu yükle</string>
+	<string name="sig_loaded">Reklamlar kaldırıldı!</string>
+	<string name="sig_failed">Reklamlar kaldırılamadı!</string>
+	<string name="accept_">Kuralları kabul ediyorum.</string>
+	<string name="accept_missing">Lütfen yollamadan önce kuralları kabul edin.</string>
+	<string name="terms">Uygulama bağış kimliğinizi IMEI numaranıza ait md5-hash ile birlikte (http://ub0r.de/donation/)sunucusuna gönderecektir. Bu veri bağışınızın doğrulanması için gereklidir.\nVeriler asla üçüncü taraflarla paylaşılmaz ve yalnızca bağışınızın doğrulanması için kullanılır.\n\nEğer telefonunuz değişirse <i>noads</i> kodu bir daha çalışmayacaktır. Lütfen, yenisini almak için bana bir e-posta gönderiniz.</string>
 <!--	<string name="notify_">Forgot to remove the ads?</string> -->
 <!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
-<!--	<string name="about0_">Watch your call, message and data plans!</string> -->
-<!--	<string name="about0">CallMeter generates reports from call, message and data logs. It supports several modes of billing.</string> -->
-<!--	<string name="about1">The output format is usage | time or count used this billing period | time or count overall.</string> -->
-<!--	<string name="about2">The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.</string> -->
-<!--	<string name="about3">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string> -->
-<!--	<string name="send_">Send</string> -->
+	<string name="about0_">Görüşme kayıtlarınızı, mesajlarınızı ve internet paketlerinizi izleyin!</string>
+	<string name="about0">CallMeter görüşme, mesaj ve veri loglarından raporlar oluşturur. Birden fazla ücretlendirme biçimini destekler.</string>
+	<string name="about1">Kullanım bilgilerinizi, fatura dönemi içerisinde kullanım / süre veya görüşme sayısı olarak veya toplam görüşme sayısı olarak verir. Aylık süre hesabı, ücretlendirme biçimi dikkate alınarak, toplam ise ücretlendirme biçimi dikkate alınmadan yapılır.</string>
+	<string name="about2">Ücretlendirme biçimi ilk / bir sonraki ücretlendirme aralıklarını belirler. Örneğin, 60/10, her bir görüşme en az 60 saniye için ücretlendirilir, daha uzun görüşmelerse bir sonraki 10 saniyeye tamamlanır anlamındadır.</string>
+	<string name="about3">Görüşme ya da mesaj paketlerinizi en fazla ikiye bölebilirsiniz. Her bir paket tamamen ücretsiz, belirli bir miktarla sınırlı ya da sınırsız olarak ayarlanabilir.</string>
+	<string name="send_">Gönder</string>
 <!--	<string name="add_">Add</string> -->
 <!--	<string name="add_log">Add log entry</string> -->
 <!--	<string name="length_hint_call">Length in seconds</string> -->
 <!--	<string name="length_hint_data">Length in kB</string> -->
-<!--	<string name="settings">Preferences</string> -->
+	<string name="settings">Tercihler</string>
 <!--	<string name="update_interval_">Update interval</string> -->
 <!--	<string name="update_interval_hint">Shorter period will use more battery.</string> -->
 <!--	<string name="date_begin_">Beginning of records</string> -->
 <!--	<string name="date_begin_hint">Ignore any logs before this date.</string> -->
 <!--	<string name="common_prefs_">Common preferences</string> -->
 <!--	<string name="edit_">Edit</string> -->
-<!--	<string name="about_">About</string> -->
-<!--	<string name="about_hint">About this app</string> -->
-<!--	<string name="faq_hint">Some tips and tricks, how to set up this app.</string> -->
-<!--	<string name="feedback_">Feedback</string> -->
-<!--	<string name="feedback_hint">Report bugs, request features ...</string> -->
-<!--	<string name="twitter_hint">Follow me on twitter.\nGet update notifications etc.</string> -->
-<!--	<string name="more_">More Apps..</string> -->
+	<string name="about_">Hakkında</string>
+	<string name="about_hint">Bu uygulama hakkında</string>
+	<string name="faq_hint">Bu uygulamanın ayarlarını yapmak için bazı ipuçları.</string>
+	<string name="feedback_">Geribildirim</string>
+	<string name="feedback_hint">Hata bildirin, özellik eklenmesini talep edin..</string>
+	<string name="twitter_hint">Beni twitter\'da takip et.\nGüncelleme bildirimlerini al vb.</string>
+	<string name="more_">Daha fazla uygulama..</string>
 <!--	<string name="billing_">Billing</string> -->
-<!--	<string name="billday_">First day of the billing period</string> -->
-<!--	<string name="billmode_">Billing mode</string> -->
-<!--	<string name="billdate_">Start of billing period:</string> -->
-<!--	<string name="appearance_">Appearance</string> -->
+	<string name="billday_">Fatura başlangıç günü</string>
+	<string name="billmode_">Ücretlendirme biçimi</string>
+	<string name="billdate_">Ücretlendirme periyodu başlangıcı:</string>
+	<string name="appearance_">Görünüm</string>
 <!--	<string name="advanced_preferences_">Advanced preferences</string> -->
 <!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
-<!--	<string name="theme_">Theme</string> -->
-<!--	<string name="textsize_">Text size</string> -->
+	<string name="theme_">Tema</string>
+	<string name="textsize_">Metin boyutu</string>
 <!--	<string name="textsize_hint">Text size in pixels; leave empty for default</string> -->
 <!--	<string name="show_total_">Show total</string> -->
 <!--	<string name="show_total_hint">Show total stats, disable to see current only.</string> -->
@@ -96,7 +96,7 @@
 <!--	<string name="custom_date_format_hint">Select a custom date format.</string> -->
 <!--	<string name="logs">Logs</string> -->
 <!--	<string name="show_logs">Show logs</string> -->
-<!--	<string name="plans">Plans</string> -->
+	<string name="plans">Paketler</string>
 <!--	<string name="plans_hint">Set your plans for all kind of billing here.</string> -->
 <!--	<string name="plans_new">New plan</string> -->
 <!--	<string name="rules">Rules</string> -->
@@ -116,20 +116,20 @@
 <!--	<string name="exhourgroup_help">Add some hours this rule must not match.</string> -->
 <!--	<string name="new_hourgroup">New hour group</string> -->
 <!--	<string name="add_hour">Add hour</string> -->
-<!--	<string name="calls">Calls</string> -->
-<!--	<string name="sms">SMS</string> -->
+	<string name="calls">Aramalar</string>
+	<string name="sms">SMS</string>
 <!--	<string name="mms">MMS</string> -->
-<!--	<string name="data">Data</string> -->
+	<string name="data">Data</string>
 <!--	<string name="prepaid_">Prepaid plan</string> -->
 <!--	<string name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string> -->
 <!--	<string name="balance_">Balance</string> -->
 <!--	<string name="balance_help">Balance of your account at this given date.</string> -->
-<!--	<string name="reset_data_">Reset statistics</string> -->
-<!--	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string> -->
-<!--	<string name="reset_data_data_">Reset traffic too.</string> -->
+	<string name="reset_data_">İstatistikleri sıfırla</string>
+	<string name="reset_data_hint">Görüşme/SMS verilerinin sıfırlanması istatistiklerin yeniden hesaplanmasına yol açar.\n\nTrafik istatistiklerinin sıfırlanması kalıcıdır. Yalnızca boot öncesi trafik sıfırlanır!</string>
+	<string name="reset_data_data_">Trafiği de sıfırla.</string>
 <!--	<string name="reset_data_progr1">Recalculating statistics ...\n\n(This may take some time!)</string> -->
 <!--	<string name="reset_data_progr2">Recalculating statistics ...</string> -->
-<!--	<string name="contacts_">Contacts</string> -->
+	<string name="contacts_">Kişiler</string>
 <!--	<string name="clear_">Clear</string> -->
 <!--	<string name="help_">Help</string> -->
 <!--	<string name="new_">New</string> -->
@@ -145,9 +145,9 @@
 <!--	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"cost\" limit will limit your plan based on cost produced by the items billed in this plan.</string> -->
 <!--	<string name="limit_">Limit</string> -->
 <!--	<string name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string> -->
-<!--	<string name="billmode_">Billing mode</string> -->
+	<string name="billmode_">Ücretlendirme biçimi</string>
 <!--	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string> -->
-<!--	<string name="billday_">First day of the billing period</string> -->
+	<string name="billday_">Fatura başlangıç günü</string>
 <!--	<string name="billday_help">Set this to the first day of the bill of the current billing period.</string> -->
 <!--	<string name="billperiodid_">Billing period</string> -->
 <!--	<string name="billperiodid_help">Select your billing period.\nYou may need to create one as extra plan.</string> -->
@@ -243,10 +243,10 @@
 <!--		<item>22:00 - 22:59</item> -->
 <!--		<item>23:00 - 23:59</item> -->
 <!--	</string-array> -->
-<!--	<string-array name="themes"> -->
-<!--		<item>Black</item> -->
-<!--		<item>Light</item> -->
-<!--	</string-array> -->
+	<string-array name="themes">
+		<item>Siyah</item>
+		<item>Beyaz</item>
+	</string-array>
 <!--	<string-array name="dialog_edit_plan"> -->
 <!--		<item>Edit plan</item> -->
 <!--	</string-array> -->
@@ -303,6 +303,7 @@
 <!--		<item>60/1</item> -->
 <!--		<item>60/6</item> -->
 <!--		<item>60/10</item> -->
+<!--		<item>60/15</item> -->
 <!--		<item>60/30</item> -->
 <!--		<item>60/60</item> -->
 <!--		<item>Custom</item> -->
