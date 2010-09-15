@@ -44,7 +44,7 @@
 	<string name="sig_failed">Reklamlar kaldırılamadı!</string>
 	<string name="accept_">Kuralları kabul ediyorum.</string>
 	<string name="accept_missing">Lütfen yollamadan önce kuralları kabul edin.</string>
-	<string name="terms">Uygulama bağış kimliğinizi IMEI numaranıza ait md5-hash ile birlikte (http://ub0r.de/donation/)sunucusuna gönderecektir. Bu veri bağışınızın doğrulanması için gereklidir.\nVeriler asla üçüncü taraflarla paylaşılmaz ve yalnızca bağışınızın doğrulanması için kullanılır.\n\nEğer telefonunuz değişirse <i>noads</i> kodu bir daha çalışmayacaktır. Lütfen, yenisini almak için bana bir e-posta gönderiniz.</string>
+	<string name="terms">Uygulama, bağış kimliğinizi IMEI numaranıza ait md5-hash ile birlikte (http://ub0r.de/donation/)sunucusuna gönderecektir. Bu veri bağışınızın doğrulanması için gereklidir.\nVeriler asla üçüncü taraflarla paylaşılmaz ve yalnızca bağışınızın doğrulanması için kullanılır.\n\nEğer telefonunuz değişirse <i>noads</i> kodu bir daha çalışmayacaktır. Lütfen, yenisini almak için bana bir e-posta gönderiniz.</string>
         <string name="notify_">Reklamları kaldırmayı unuttunuz mu?</string>
 	<string name="notify_text">Reklamları kaldırabilmeniz için <b>noads</b> Kodunu yüklemeniz gerekmektedir. Devam etmek için tıklayın.</string>
 	<string name="about0_">Görüşme kayıtlarınızı, mesajlarınızı ve internet paketlerinizi izleyin!</string>
