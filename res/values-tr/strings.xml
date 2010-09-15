@@ -51,7 +51,7 @@
 	<string name="about0">CallMeter görüşme, mesaj ve veri loglarından raporlar oluşturur. Birden fazla ücretlendirme biçimini destekler.</string>
 	<string name="about1">Kullanım bilgilerinizi, fatura dönemi içerisinde kullanım / süre veya görüşme sayısı olarak veya toplam görüşme sayısı olarak verir. Aylık süre hesabı, ücretlendirme biçimi dikkate alınarak, toplam ise ücretlendirme biçimi dikkate alınmadan yapılır.</string>
 	<string name="about2">Ücretlendirme biçimi ilk / bir sonraki ücretlendirme aralıklarını belirler. Örneğin, 60/10, her bir görüşme en az 60 saniye için ücretlendirilir, daha uzun görüşmelerse bir sonraki 10 saniyeye tamamlanır anlamındadır.</string>
-	<string name="about3">Görüşme ya da mesaj paketlerinizi en fazla ikiye bölebilirsiniz. Her bir paket tamamen ücretsiz, belirli bir miktarla sınırlı ya da sınırsız olarak ayarlanabilir.</string>
+<!--	<string name="about3">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string> -->
 	<string name="send_">Gönder</string>
 <!--	<string name="add_">Add</string> -->
 <!--	<string name="add_log">Add log entry</string> -->
