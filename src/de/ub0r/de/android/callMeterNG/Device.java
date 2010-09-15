@@ -186,14 +186,16 @@ class DiscoverableDevice extends Device {
 	public String getCell() {
 		if (this.mCell == null) {
 			for (String inter : CELL_INTERFACES) {
+				if ("GT-I5500".equals(Build.DEVICE)) {
+					this.mCell = "pdp0";
+					break;
+				}
 				if (SysClassNet.isUp(inter)) {
-					Log
-							.i(this.getClass().getName(), "Cell interface: "
-									+ inter);
 					this.mCell = inter;
 					break;
 				}
 			}
+			Log.i(this.getClass().getName(), "Cell interface: " + this.mCell);
 		}
 		return this.mCell;
 	}
