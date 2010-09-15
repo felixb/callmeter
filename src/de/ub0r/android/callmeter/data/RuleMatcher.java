@@ -882,12 +882,12 @@ public final class RuleMatcher {
 		Log.d(TAG, "match(ctx, " + showStatus + ")");
 		boolean ret = false;
 		load(context);
-		final Cursor cursor = context.getContentResolver().query(
-				DataProvider.Logs.CONTENT_URI, DataProvider.Logs.PROJECTION,
-				DataProvider.Logs.PLAN_ID + " = " + DataProvider.NO_ID, null,
-				DataProvider.Logs.DATE + " ASC");
+		final ContentResolver cr = context.getContentResolver();
+		final Cursor cursor = cr.query(DataProvider.Logs.CONTENT_URI,
+				DataProvider.Logs.PROJECTION, DataProvider.Logs.PLAN_ID + " = "
+						+ DataProvider.NO_ID, null, DataProvider.Logs.DATE
+						+ " ASC");
 		if (cursor != null && cursor.moveToFirst()) {
-			final ContentResolver cr = context.getContentResolver();
 			final int l = cursor.getCount();
 			Handler h = null;
 			if (showStatus) {
@@ -924,12 +924,15 @@ public final class RuleMatcher {
 			final boolean a80 = p.getBoolean(Preferences.PREFS_ALERT80, true);
 			final boolean a100 = p.getBoolean(Preferences.PREFS_ALERT100, true);
 			// check for alerts
-			if (a80 || a100) {
+			if (a80 || a100 && (plans != null && plans.size() > 0)) {
 				final long now = System.currentTimeMillis();
 				int alert = 0;
 				Plan alertPlan = null;
 				for (long pid : plans.keySet()) {
 					final Plan plan = plans.get(pid);
+					if (plan == null) {
+						continue;
+					}
 					if (plan.nextAlert > now) {
 						continue;
 					}
@@ -963,10 +966,9 @@ public final class RuleMatcher {
 					cv
 							.put(DataProvider.Plans.NEXT_ALERT,
 									alertPlan.nextBillday);
-					context.getContentResolver().update(
-							ContentUris.withAppendedId(
-									DataProvider.Plans.CONTENT_URI,
-									alertPlan.id), cv, null, null);
+					cr.update(ContentUris.withAppendedId(
+							DataProvider.Plans.CONTENT_URI, alertPlan.id), cv,
+							null, null);
 				}
 			}
 		}
