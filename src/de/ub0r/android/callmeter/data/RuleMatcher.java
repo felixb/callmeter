@@ -141,28 +141,43 @@ public final class RuleMatcher {
 			 */
 			boolean match(final Cursor log) {
 				String number = log.getString(DataProvider.Logs.INDEX_REMOTE);
-				if (number == null || number.length() == 0) {
+				if (number == null) {
 					return false;
 				}
-				if (number.startsWith("+")) {
+				final int numl = number.length();
+				if (numl == 0) {
+					return false;
+				}
+				if (number.startsWith("+") && numl > 1) {
 					number = number.substring(1);
 				}
 				final int l = this.numbers.size();
 				for (int i = 0; i < l; i++) {
 					String n = this.numbers.get(i);
-					if (n == null || n.length() == 0) {
+					if (n == null) {
 						return false;
 					}
-					if (n.startsWith("+")) {
+					final int nl = n.length();
+					if (nl == 0) {
+						return false;
+					}
+
+					if (n.startsWith("+") && numl > 1) {
 						n = n.substring(1);
 					}
 					if (number.equals(n)) {
 						return true;
 					}
+					if (nl == 1) {
+						return false;
+					}
 					if (n.startsWith("%")) {
 						if (n.endsWith("%")) {
+							if (nl == 2) {
+								return false;
+							}
 							if (number.contains(n.substring(1, // .
-									n.length() - 1))) {
+									nl - 1))) {
 								return true;
 							}
 						} else {
@@ -171,7 +186,7 @@ public final class RuleMatcher {
 							}
 						}
 					} else if (n.endsWith("%")) {
-						if (number.startsWith(n.substring(0, n.length() - 1))) {
+						if (number.startsWith(n.substring(0, nl - 1))) {
 							return true;
 						}
 					}
