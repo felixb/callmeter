@@ -23,6 +23,7 @@
 	<string name="about1">The output format is usage | time or count used this billing period | time or count overall.</string>
 	<string name="about2">The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.</string>
 	<string name="about3">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string>
+	<string name="note_cm3">Data stats can not be fetched from before last boot!\nKilling this app may result in wrong data stats.</string>
 	<string name="send_">Send</string>
 	<string name="add_">Add</string>
 	<string name="add_log">Add log entry</string>

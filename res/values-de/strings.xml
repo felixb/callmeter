@@ -52,6 +52,7 @@
 	<string name="about1">Das Ausgabeformat ist: Nutzung | Zeit oder Anzahl in diesem Monat | Zeit oder Anzahl überhaupt.</string>
 	<string name="about2">Der Abrechnungszeitraum bezeichnet die länge des ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s aufgerundet.</string>
 	<string name="about3">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string>
+	<string name="note_cm3">Daten Stats vor dem letzten Booten können nicht geladen werden!\nKillen dieser App kann die Daten Stats verfälschen.</string>
 	<string name="send_">Senden</string>
 	<string name="add_">Hinzufügen</string>
 	<string name="add_log">Log Eintrag hinzufügen</string>
