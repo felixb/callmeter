@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: fix for GT-5500</item>
+		<item>HEAD: fix for GT-5500, fix cost for data</item>
 		<item>v2.8.7: Fix length of billing period</item>
 		<item>v2.8.6: Fix some FCs, hide total stats, prepaid plans, set textsize, manipulate logs by hand</item>
 		<item>v2.8.5: Fix default displaying values for pans/rules</item>

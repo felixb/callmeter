@@ -338,12 +338,12 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
 			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
 			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
+			a.hide(DataProvider.Plans.COST_PER_ITEM, true);
+			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
 			a.hide(DataProvider.Plans.BILLMODE, true);
 
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, false);
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, false);
-			a.hide(DataProvider.Plans.COST_PER_ITEM, false);
-			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
 			a.hide(DataProvider.Plans.COST_PER_PLAN, false);
 			a.hide(DataProvider.Plans.LIMIT_TYPE, false);
 			break;
