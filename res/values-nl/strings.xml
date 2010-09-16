@@ -79,7 +79,7 @@
 	<string name="advanced_preferences_">Geavanceerde voorkeuren</string>
 	<string name="advanced_preferences_hint">Stelt je in staat om een complexe setup te maken. Meeste gebruikers hebben dit niet nodig.</string>
 	<string name="theme_">Thema</string>
-	<string name="textsize_">Tekst grootte</string>">tv </a> <br />
+	<string name="textsize_">Tekst grootte</string>
 	<string name="textsize_hint">Tekst grootte in pixels; laat leeg voor standaard</string>
 	<string name="show_total_">Toon totaal</string>
 	<string name="show_total_hint">Toon totaal stats, uitzetten om alleen huidige te zien.</string>
