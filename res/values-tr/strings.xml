@@ -45,7 +45,7 @@
 	<string name="accept_">Kuralları kabul ediyorum.</string>
 	<string name="accept_missing">Lütfen yollamadan önce kuralları kabul edin.</string>
 	<string name="terms">Uygulama, bağış kimliğinizi IMEI numaranıza ait md5-hash ile birlikte (http://ub0r.de/donation/)sunucusuna gönderecektir. Bu veri bağışınızın doğrulanması için gereklidir.\nVeriler asla üçüncü taraflarla paylaşılmaz ve yalnızca bağışınızın doğrulanması için kullanılır.\n\nEğer telefonunuz değişirse <i>noads</i> kodu bir daha çalışmayacaktır. Lütfen, yenisini almak için bana bir e-posta gönderiniz.</string>
-        <string name="notify_">Reklamları kaldırmayı unuttunuz mu?</string>
+	<string name="notify_">Reklamları kaldırmayı unuttunuz mu?</string>
 	<string name="notify_text">Reklamları kaldırabilmeniz için <b>noads</b> Kodunu yüklemeniz gerekmektedir. Devam etmek için tıklayın.</string>
 	<string name="about0_">Görüşme kayıtlarınızı, mesajlarınızı ve internet paketlerinizi izleyin!</string>
 	<string name="about0">CallMeter görüşme, mesaj ve veri loglarından raporlar oluşturur. Birden fazla ücretlendirme biçimini destekler.</string>
@@ -56,10 +56,10 @@
 	<string name="add_">Ekle</string>
 	<string name="add_log">Log\'a girdi ekle</string>
 	<string name="length_hint_call">Saniye olarak süre</string>
-	<string name="length_hint_data">kB olarak miktar</string> 
+	<string name="length_hint_data">kB olarak miktar</string>
 	<string name="settings">Tercihler</string>
-	<string name="update_interval_">Güncelleme aralığı</string> 
-	<string name="update_interval_hint">Aralık kısaldıkça pil ömrü azalır.<string>
+	<string name="update_interval_">Güncelleme aralığı</string>
+	<string name="update_interval_hint">Aralık kısaldıkça pil ömrü azalır.</string>
 	<string name="date_begin_">Kayıtların başlangıcı</string>
 	<string name="date_begin_hint">Bu tarihten önceki logları dikkate alma.</string>
 	<string name="common_prefs_">Genel tercihler</string>
@@ -76,33 +76,33 @@
 	<string name="billmode_">Ücretlendirme biçimi</string>
 	<string name="billdate_">Ücretlendirme periyodu başlangıcı:</string>
 	<string name="appearance_">Görünüm</string>
-	<string name="advanced_preferences_">Gelişmiş tercihler<string>
+	<string name="advanced_preferences_">Gelişmiş tercihler</string>
 	<string name="advanced_preferences_hint">Daha karmaşık ayarlar yapmanızı sağlar. Birçok kullanıcı buna ihtiyaç duymaz.</string>
 	<string name="theme_">Tema</string>
 	<string name="textsize_">Metin boyutu</string>
-	<string name="textsize_hint">Piksel olarak metin boyutu; varsayılan için boş bırakın</string> 
-	<string name="show_total_">Toplamı göster<string> 
+	<string name="textsize_hint">Piksel olarak metin boyutu; varsayılan için boş bırakın</string>
+	<string name="show_total_">Toplamı göster</string>
 	<string name="show_total_hint">Tüm istatistikleri göster. Yalnızca günceli görmek için seçimi kaldırın.</string>
-	<string name="show_time_">Tarihe git<string> 
-	<string name="show_titlebar_">Başlık çubuğunu göster</string> 
-	<string name="show_titlebar_hint">Ana görünümde başlık çubuğunu gösterir. Başlık çubuğu olmadan arkaplandaki işlemler görülemez.<string> 
-	<string name="show_hours_">Saatleri göster</string> 
-	<string name="show_hours_hint">Zamanı saniye, dakika, saat ve gün olarak göster.\nSeçilmediğinde sadece saniye ve saat görüntülenir.</string> 
-	<string name="custom_currency_symbol_">Özel para birimi sembolü</string> 
-	<string name="custom_currency_symbol_hint">Özel bir para birimi sembolü belirleyin. Varsayılan için boş bırakın.</string> 
-	<string name="custom_currency_format_">Özel para birimi biçimi</string> 
-	<string name="custom_currency_format_hint">Özel bir para birimi biçimi seçin.</string> 
-	<string name="custom_date_format_">Özel tarih biçimi</string> 
-	<string name="custom_date_format_hint">Özel bir tarih biçimi seçin.</string> 
-	<string name="logs">Loglar</string> 
+	<string name="show_time_">Tarihe git</string>
+	<string name="show_titlebar_">Başlık çubuğunu göster</string>
+	<string name="show_titlebar_hint">Ana görünümde başlık çubuğunu gösterir. Başlık çubuğu olmadan arkaplandaki işlemler görülemez.</string>
+	<string name="show_hours_">Saatleri göster</string>
+	<string name="show_hours_hint">Zamanı saniye, dakika, saat ve gün olarak göster.\nSeçilmediğinde sadece saniye ve saat görüntülenir.</string>
+	<string name="custom_currency_symbol_">Özel para birimi sembolü</string>
+	<string name="custom_currency_symbol_hint">Özel bir para birimi sembolü belirleyin. Varsayılan için boş bırakın.</string>
+	<string name="custom_currency_format_">Özel para birimi biçimi</string>
+	<string name="custom_currency_format_hint">Özel bir para birimi biçimi seçin.</string>
+	<string name="custom_date_format_">Özel tarih biçimi</string>
+	<string name="custom_date_format_hint">Özel bir tarih biçimi seçin.</string>
+	<string name="logs">Loglar</string>
 	<string name="show_logs">Logları göster</string>
 	<string name="plans">Paketler</string>
-	<string name="plans_hint">Her tür ücretlendirme için paketlerinizi burada ayarlayın..</string> 
-	<string name="plans_new">Yeni paket</string> 
+	<string name="plans_hint">Her tür ücretlendirme için paketlerinizi burada ayarlayın..</string>
+	<string name="plans_new">Yeni paket</string>
 	<string name="rules">Kurallar</string>
-	<string name="rules_hint">Ücretlendirme kurallarını burada ayarlayın.<string>
+	<string name="rules_hint">Ücretlendirme kurallarını burada ayarlayın.</string>
 	<string name="rules_new">Yeni Kural</string>
-	<string name="numbers">Numaralar</string> 
+	<string name="numbers">Numaralar</string>
 	<string name="numbergroup_">Numaraları dahil et</string>
 	<string name="numbergroup_help">Bu kurala dahil olacak numaraları ekleyin.\n\nArama karakteri (\"%\") numaranın her iki tarafında kullanılabilir.\nÖr: %34 ve 12%, 1234\'e; ve %23%, 12345\'e karşılık gelir.</string>
 	<string name="exnumbergroup_">Numaraları hariç tut</string>
@@ -111,7 +111,7 @@
 	<string name="add_number">Numara ekle</string>
 	<string name="hours">Saatler</string>
 	<string name="hourgroup_">Saatleri dahil et</string>
-	<string name="hourgroup_help">Bu kurala dahil edilecek saatleri ekleyin.<string>
+	<string name="hourgroup_help">Bu kurala dahil edilecek saatleri ekleyin.</string>
 	<string name="exhourgroup_">Saatleri hariç tut</string>
 	<string name="exhourgroup_help">Bu kurala dahil olmayacak saatleri ekleyin.</string>
 	<string name="new_hourgroup">Yeni saat grubu</string>
@@ -123,7 +123,7 @@
 	<string name="prepaid_">Ön ödemeli paket</string>
 	<string name="prepaid_hint">Ön ödemeli ücretlendirme. Hat kullanıldıkça kullanım ücreti hesabınızdan düşülür.</string>
 	<string name="balance_">Kalan</string>
-	<string name="balance_help">Belirlenen tarihte hesabınızda kalan miktar.<string>
+	<string name="balance_help">Belirlenen tarihte hesabınızda kalan miktar.</string>
 	<string name="reset_data_">İstatistikleri sıfırla</string>
 	<string name="reset_data_hint">Görüşme/SMS verilerinin sıfırlanması istatistiklerin yeniden hesaplanmasına yol açar.\n\nTrafik istatistiklerinin sıfırlanması kalıcıdır. Yalnızca boot öncesi trafik sıfırlanır!</string>
 	<string name="reset_data_data_">Trafiği de sıfırla.</string>
@@ -146,27 +146,27 @@
 	<string name="limit_">Sınır</string>
 	<string name="limit_help">Pakedinizin sınırını burada belirleyin.\n\n\\"birim\", dakika (aramalar), mesajlar (sms/mms), MB (data, 1024kB) veya birimler (karışık) olarak ayarlanmalıdır.\n\n\"ücret\", para biriminize göre ayarlanmalıdır (Ör. TRY).</string>
 	<string name="billmode_">Ücretlendirme biçimi</string>
-	<string name="billmode_help">Aramalar için ücretlendirme biçimini belirleyin.\nİlk kısım, operatörünüzce ücretlendirilen minimum süredir. Bu süreden kısa her arama bu süreye yuvarlanır.\nİkinci kısım ise takip eden minimum süredir (saniye).\nDaha detaylı yardım için SSS'yi okuyunuz.</string>
+	<string name="billmode_help">Aramalar için ücretlendirme biçimini belirleyin.\nİlk kısım, operatörünüzce ücretlendirilen minimum süredir. Bu süreden kısa her arama bu süreye yuvarlanır.\nİkinci kısım ise takip eden minimum süredir (saniye).\nDaha detaylı yardım için SSS\'yi okuyunuz.</string>
 	<string name="billday_">Fatura başlangıç günü</string>
 	<string name="billday_help">Mevcut ücretlendirme periyodunuzun fatura başlangıç tarihine ayarlayın.</string>
-	<string name="billperiodid_">Ücretlendirme periyodu<string>
+	<string name="billperiodid_">Ücretlendirme periyodu</string>
 	<string name="billperiodid_help">Ücretlendirme periyodunuzu seçin.\nEk bir plan olarak oluşturabilirsiniz.</string>
 	<string name="billperiod_">Ücretlendirme periyod uzunluğu</string>
 	<string name="billperiod_help">Ücretlendirme periyod uzunluğunu belirleyin.</string>
 	<string name="cost_per_item_">Görüşme/mesaj ücreti</string>
-	<string name="cost_per_item_help">Sınır aşıldıktan sonraki tek bir log girdisi (Ör. arama veya mesaj) başına ücreti belirleyin.<string>
+	<string name="cost_per_item_help">Sınır aşıldıktan sonraki tek bir log girdisi (Ör. arama veya mesaj) başına ücreti belirleyin.</string>
 	<string name="cost_per_item_in_limit_">Sınır içinde gör./mes. ücreti</string>
 	<string name="cost_per_item_in_limit_help">Sınır aşılmadan önceki tek bir log girdisi (Ör. arama veya mesaj) başına ücreti belirleyin.</string>
 	<string name="cost_per_amount_">Uzunluk başına ücret</string>
 	<string name="cost_per_amount_help1">Sınır aşıldıktan sonraki tek bir log girdisi (Ör. 1 kB data) için uzunluk başına ücreti belirleyin.</string>
-	<string name="cost_per_amount_help2">Sınır aşıldıktan sonraki tek bir log girdisi (Ör. 1 dk.lık konuşma) için uzunluk başına ücreti belirleyin.\nİlk alan aramanın ilk saniyeleri için ücreti, ikincisi ise takip eden saniyeler için ücreti içerir (her ikisi de TRY/dk\'dır; bkz. Ücretlendirme biçimi).\nEmin değilseniz her ikisini de dakika ücretinize ayarlayın.<string>
+	<string name="cost_per_amount_help2">Sınır aşıldıktan sonraki tek bir log girdisi (Ör. 1 dk.lık konuşma) için uzunluk başına ücreti belirleyin.\nİlk alan aramanın ilk saniyeleri için ücreti, ikincisi ise takip eden saniyeler için ücreti içerir (her ikisi de TRY/dk\'dır; bkz. Ücretlendirme biçimi).\nEmin değilseniz her ikisini de dakika ücretinize ayarlayın.</string>
 	<string name="cost_per_amount_in_limit_">Sınır içinde uzun. baş. ücr.</string>
 	<string name="cost_per_amount_in_limit_help1">Sınır aşılmadan önceki tek bir log girdisi (Ör. 1 kB data) için uzunluk başına ücreti belirleyin.</string>
 	<string name="cost_per_amount_in_limit_help2">Sınır aşıldıktan sonraki tek bir log girdisi (Ör. 1 dk.lık konuşma, 1 kB data) için uzunluk başına ücreti belirleyin.\nİlk alan aramanın ilk saniyeleri için ücreti, ikincisi ise takip eden saniyeler için ücreti içerir (her ikisi de TRY/dk\'dır; bkz. Ücretlendirme biçimi).\nEmin değilseniz her ikisini de dakika ücretinize ayarlayın.</string>
 	<string name="cost_per_plan_">Paket ücretleri</string>
 	<string name="cost_per_plan_help">Bir ücretlendirme periyodu için paket ücretlerini belirleyin.</string>
 	<string name="mixed_units_sms_">SMS ücreti</string>
-	<string name="mixed_units_sms_help">Bir SMS için alınan birim ücreti belirleyin.<string>
+	<string name="mixed_units_sms_help">Bir SMS için alınan birim ücreti belirleyin.</string>
 	<string name="mixed_units_mms_">MMS ücreti</string>
 	<string name="mixed_units_mms_help">Bir MMS için alınan birim ücreti belirleyin.</string>
 	<string name="mixed_units_call_">Arama ücreti</string>
@@ -202,15 +202,15 @@
 	<string name="alerts_title">Call Meter 3G uyarısı</string>
 	<string name="alerts_message">Paket %s %%d% kullanıldı!</string>
 	<string name="alerts_80_">%80 kullanımda bildir</string>
-	<string name="alerts_80_hint">Bir planın %80\'i kullanıldığında bildir.<string>
+	<string name="alerts_80_hint">Bir planın %80\'i kullanıldığında bildir.</string>
 	<string name="alerts_100_">%100 kullanımda bildir</string>
 	<string name="alerts_100_hint">Bir planın %100\'ü kullanıldığında bildir.</string>
 	<string name="widget_config_">Widget yapılandırması</string>
 	<string-array name="weekdays_all">
 		<item>Tüm hafta</item>
 		<item>Pazartesi</item>
-		<item>Salı</item> 
-		<item>Çarşamba</item> 
+		<item>Salı</item>
+		<item>Çarşamba</item>
 		<item>Perşembe</item>
 		<item>Cuma</item>
 		<item>Cumartesi</item>
