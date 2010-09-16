@@ -53,7 +53,7 @@
 	<string name="about2">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
 	<string name="about3">CallMeter werkt zich elke 30 minuten op de achtergrond bij (alleen wanneer niet in standby). Dit betekent dat het verwijderen van gesprekken of berichten ouder dan 30 min. de statistieken niet wijzigt. Het verwijderen van gesprekken of berichten jonger dan 30 min. kan resulteren in onjuiste statistieken.</string>
 	<string name="send_">Verstuur</string>
-	<string name="add_">Toevoegen</string>						   
+	<string name="add_">Toevoegen</string>
 	<string name="add_log">Toevoegen log regel</string>
 	<string name="length_hint_call">Lengte in seconden</string>
 	<string name="length_hint_data">Lengte in kB</string>
@@ -79,9 +79,9 @@
 	<string name="advanced_preferences_">Geavanceerde voorkeuren</string>
 	<string name="advanced_preferences_hint">Stelt je in staat om een complexe setup te maken. Meeste gebruikers hebben dit niet nodig.</string>
 	<string name="theme_">Thema</string>
-	<string name="textsize_">Tekst grootte</string>			  
+	<string name="textsize_">Tekst grootte</string>">tv </a> <br />
 	<string name="textsize_hint">Tekst grootte in pixels; laat leeg voor standaard</string>
-	<string name="show_total_">Toon totaal</string>									   
+	<string name="show_total_">Toon totaal</string>
 	<string name="show_total_hint">Toon totaal stats, uitzetten om alleen huidige te zien.</string>
 	<string name="show_time_">Wijzig naar datum</string>
 	<string name="show_titlebar_">Toon titelbalk</string>
@@ -120,10 +120,10 @@
 	<string name="sms">SMS</string>
 	<string name="mms">MMS</string>
 	<string name="data">Data</string>
-	<string name="prepaid_">Prepaid schema</string>									
+	<string name="prepaid_">Prepaid schema</string>
 	<string name="prepaid_hint">Factureer op prepaid basis. Kosten worden afgetrokken van balans als je belt etc.</string>
-	<string name="balance_">Balans</string>									
-	<string name="balance_help">Balans van je account op deze datum.</string> 
+	<string name="balance_">Balans</string>
+	<string name="balance_help">Balans van je account op deze datum.</string>
 	<string name="reset_data_">Reset statistieken</string>
 	<string name="reset_data_hint">Resetten van gesprek/sms data zorgt voor het opnieuw berekenen van de statistieken.\n\nResetten van data statistieken is permanent. Alleen data voordat het programma gestart is wordt gereset!</string>
 	<string name="reset_data_data_">Reset ook dataverkeer.</string>
