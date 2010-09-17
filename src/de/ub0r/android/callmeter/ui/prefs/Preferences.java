@@ -451,6 +451,7 @@ public class Preferences extends PreferenceActivity {
 	 *            {@link Uri}
 	 */
 	private void importRuleSet(final Context context, final Uri uri) {
+		Log.d(TAG, "importRuleSet(ctx, " + uri + ")");
 		final ProgressDialog d1 = new ProgressDialog(this);
 		d1.setCancelable(true);
 		d1.setMessage(this.getString(R.string.import_rules_progr));
