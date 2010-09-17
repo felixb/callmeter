@@ -141,7 +141,8 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				R.string.limit_type_help, R.array.limit_type));
 		ret.add(new TextPreference(this, DataProvider.Plans.LIMIT, "0",
 				R.string.limit_, R.string.limit_help,
-				InputType.TYPE_CLASS_NUMBER));
+				InputType.TYPE_CLASS_NUMBER
+						| InputType.TYPE_NUMBER_FLAG_DECIMAL));
 		ret.add(new BillmodePreference(this, DataProvider.Plans.BILLMODE,
 				R.string.billmode_, R.string.billmode_help));
 		int t, th;
