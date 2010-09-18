@@ -332,8 +332,8 @@
 	</string-array>
 	<string-array name="date_formats">
 		<item>Domyślny</item>
-		<item>MM/DD/RR</item>
-		<item>DD/MM/RRRR</item>
+		<item>MM.DD.RR</item>
+		<item>DD.MM.RRRR</item>
 		<item>DD.MM.RRRR</item>
 	</string-array>
 	<string-array name="update_interval">
