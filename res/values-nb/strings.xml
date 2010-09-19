@@ -52,6 +52,7 @@
 	<string name="about1">Oversikt over bruk/tid eller antall denne perioden/tid eller totaloversikt hele perioden. Månedlig beregning i samsvar med dine preferanser for avregning. Ingen beregning for totalforbruk.</string>
 	<string name="about2">Takseringsintervall spesifiserer lengden på de første/neste takseringene. F.eks. 60/10 betyr at enhver samtale blir taksert for minimum 60s, og tid over dette rundes opp til nærmeste fulle 10s.</string>
 	<string name="about3">CallMeter oppdaterer seg hvert 30. min. (ikke i stand-by). Dette betyr at det ikke vil påvirke din statistikk hvis du sletter samtaler eller meldinger som er eldre en 30 min. Hvis du sletter samtaler eller meldinger som er nyere enn 30 minutter, kan din statistikk/oversikt bli feil.</string>
+<!--	<string name="note_cm3">Data stats can not be fetched from before last boot!\nKilling this app may result in wrong data stats.</string> -->
 	<string name="send_">Send</string>
 <!--	<string name="add_">Add</string> -->
 <!--	<string name="add_log">Add log entry</string> -->
@@ -87,7 +88,7 @@
 <!--	<string name="show_titlebar_">Show title bar</string> -->
 <!--	<string name="show_titlebar_hint">Show title bar in main view. Without title bar, there is no way to see background activity.</string> -->
 <!--	<string name="show_hours_">Show hours</string> -->
-<!--	<string name="show_hours_hint">Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and hours are shown.</string> -->
+<!--	<string name="show_hours_hint">Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.</string> -->
 <!--	<string name="custom_currency_symbol_">Custom currency symbol</string> -->
 <!--	<string name="custom_currency_symbol_hint">Set a custom currency symbol, leave empty for system default.</string> -->
 <!--	<string name="custom_currency_format_">Custom currency format</string> -->

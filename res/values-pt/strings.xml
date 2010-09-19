@@ -52,6 +52,7 @@
 	<string name="about1">Os formatos de saída são: uso / tempo ou soma utilizada neste período / tempo ou soma total. O cálculo de tempo utiliza a forma de cobrança de seu plano. A soma total não.</string>
 	<string name="about2">O modo de cobrança utiliza o tamanho do primeiro e posteriores tempos de cobrança. Ex. 30/10 diz que cada ligação é taxada com o mínimo de 30s, e após este período será taxado de 10 em 10 segundos de utilização (sendo esse o período mínimo) sucessivamente até o final da chamada.</string>
 	<string name="about3">O CallMeter roda oculto a cada 30min (se não estiver em repouso). Isto quer dizer, que apagar ligações ou mensagens com mais de 30min não alterará sua estatística acumulada. Apagar ligações ou mensagens em até 30min poderá resultar em uma estatística errônea.</string>
+<!--	<string name="note_cm3">Data stats can not be fetched from before last boot!\nKilling this app may result in wrong data stats.</string> -->
 	<string name="send_">Enviar</string>
 	<string name="add_">Adicionar</string>
 <!--	<string name="add_log">Add log entry</string> -->

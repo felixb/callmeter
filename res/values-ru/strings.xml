@@ -52,6 +52,7 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 	<string name="about1">Форма отчёта: Пользование / Время или Колличество в месяц / Время или просто Колличество (Минуты/SMS/Трафик).</string>
 	<string name="about2">Отчёт звонков ведется так: длинна первой минуты/ последующая. К примеру: 60/10 - полный отсчет первой минуты (60 сек.)/последующая с 10-ти секундной частотой.</string>
 	<string name="about3">CallMeter активен каждые 30 минут в фоновом режиме (Standby не активен). Удалёные из журнала звонки/SMS старше 30 минут на статистику не влияют, младше же 30 минут могут произвести не корректное отображение статистики!</string>
+<!--	<string name="note_cm3">Data stats can not be fetched from before last boot!\nKilling this app may result in wrong data stats.</string> -->
 	<string name="send_">Отослать</string>
 	<string name="add_">Добавить</string>
 <!--	<string name="add_log">Add log entry</string> -->

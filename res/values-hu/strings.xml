@@ -52,6 +52,7 @@
 	<string name="about1">A kimeneti formátum a következő: felhasznált mennyiség százalékosan / hívásidő, SMS-, vagy adatmennyiség az aktuális számlázási időszakra / összesített hívásidő, SMS-, vagy adatmennyiség. A havi számítás figyelembe veszi a számlázási módot, míg az összegzett nem.</string>
 	<string name="about2">A számlázási mód az első / azt követő számlázott híváshosszt határozza meg. Pl.: A 60/10 azt jelenti, hogy minden hívás 60 másodpercig számlázott, az ennél hosszabb hívások 10 másodperces pontosságra lesznek felfelé kerekítve. Tehát a 60/60: perc alapú számlázást, 1/1: másodperc alapú számlázást jelent.</string>
 	<string name="about3">A Call Meter NG alkalmazás 30 percenként fut le a háttérben, kivéve standby állapotban. Ez azt jelenti, hogy a 30 percnél régebbi hívások vagy SMS üzenetek törlése a statisztikát nem befolyásolja. Azonban a 30 percen belül történt hívások és SMS-ek törlése hibás adatokat eredményezhet.</string>
+<!--	<string name="note_cm3">Data stats can not be fetched from before last boot!\nKilling this app may result in wrong data stats.</string> -->
 	<string name="send_">Küldés</string>
 <!--	<string name="add_">Add</string> -->
 <!--	<string name="add_log">Add log entry</string> -->
@@ -87,7 +88,7 @@
 <!--	<string name="show_titlebar_">Show title bar</string> -->
 <!--	<string name="show_titlebar_hint">Show title bar in main view. Without title bar, there is no way to see background activity.</string> -->
 <!--	<string name="show_hours_">Show hours</string> -->
-<!--	<string name="show_hours_hint">Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and hours are shown.</string> -->
+<!--	<string name="show_hours_hint">Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.</string> -->
 <!--	<string name="custom_currency_symbol_">Custom currency symbol</string> -->
 <!--	<string name="custom_currency_symbol_hint">Set a custom currency symbol, leave empty for system default.</string> -->
 <!--	<string name="custom_currency_format_">Custom currency format</string> -->

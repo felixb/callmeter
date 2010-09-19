@@ -52,6 +52,7 @@
 	<string name="about1">Format wyjściowy wykorzystuje /czas, całość wykorzystanego rachunku /czas, całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>
 	<string name="about2">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
 	<string name="about3">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
+<!--	<string name="note_cm3">Data stats can not be fetched from before last boot!\nKilling this app may result in wrong data stats.</string> -->
 	<string name="send_">Wyślij</string>
 	<string name="add_">Dodaj</string>
 <!--	<string name="add_log">Add log entry</string> -->
