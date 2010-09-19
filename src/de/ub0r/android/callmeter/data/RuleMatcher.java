@@ -452,8 +452,15 @@ public final class RuleMatcher {
 			this.name = cursor.getString(DataProvider.Plans.INDEX_NAME);
 			this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			this.limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
-			this.limit = DataProvider.Plans.getLimit(this.type, this.limitType,
-					cursor.getLong(DataProvider.Plans.INDEX_LIMIT));
+			final long l = DataProvider.Plans.getLimit(this.type,
+					this.limitType, cursor
+							.getLong(DataProvider.Plans.INDEX_LIMIT));
+			if (this.type == DataProvider.TYPE_DATA) {
+				// normality amount is saved as kB, here it is plan B
+				this.limit = l * CallMeter.BYTE_KB;
+			} else {
+				this.limit = l;
+			}
 
 			this.costPerItem = cursor
 					.getFloat(DataProvider.Plans.INDEX_COST_PER_ITEM);

@@ -141,7 +141,8 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				R.string.limit_type_help, R.array.limit_type));
 		ret.add(new TextPreference(this, DataProvider.Plans.LIMIT, "0",
 				R.string.limit_, R.string.limit_help,
-				InputType.TYPE_CLASS_NUMBER));
+				InputType.TYPE_CLASS_NUMBER
+						| InputType.TYPE_NUMBER_FLAG_DECIMAL));
 		ret.add(new BillmodePreference(this, DataProvider.Plans.BILLMODE,
 				R.string.billmode_, R.string.billmode_help));
 		int t, th;
@@ -338,12 +339,12 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
 			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
 			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
+			a.hide(DataProvider.Plans.COST_PER_ITEM, true);
+			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
 			a.hide(DataProvider.Plans.BILLMODE, true);
 
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, false);
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, false);
-			a.hide(DataProvider.Plans.COST_PER_ITEM, false);
-			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
 			a.hide(DataProvider.Plans.COST_PER_PLAN, false);
 			a.hide(DataProvider.Plans.LIMIT_TYPE, false);
 			break;

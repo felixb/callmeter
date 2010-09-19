@@ -115,6 +115,8 @@ public class Plans extends ListActivity implements OnClickListener,
 
 	/** Prefs: name for last version run. */
 	private static final String PREFS_LAST_RUN = "lastrun";
+	/** Prefs: name for read notes. */
+	private static final String PREFS_NOTES_READ = "notes_read";
 
 	/** Show hours and days. */
 	private static boolean pShowHours = true;
@@ -942,9 +944,13 @@ public class Plans extends ListActivity implements OnClickListener,
 				this.showDialog(DIALOG_UPDATE);
 			}
 		}
+		if (!this.preferences.getBoolean(PREFS_NOTES_READ, false)) {
+			this.findViewById(R.id.note).setVisibility(View.VISIBLE);
+		}
 
 		prefsNoAds = DonationHelper.hideAds(this);
 		this.findViewById(R.id.import_default).setOnClickListener(this);
+		this.findViewById(R.id.close_note).setOnClickListener(this);
 		this.getListView().setOnItemLongClickListener(this);
 
 		// TextView tv = (TextView) this.findViewById(R.id.calls_);
@@ -1154,6 +1160,10 @@ public class Plans extends ListActivity implements OnClickListener,
 						Toast.LENGTH_LONG).show();
 			}
 			break;
+		case R.id.close_note:
+			this.findViewById(R.id.note).setVisibility(View.GONE);
+			PreferenceManager.getDefaultSharedPreferences(this).edit()
+					.putBoolean(PREFS_NOTES_READ, true).commit();
 		default:
 			break;
 		}
