@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>v2.8.8: fix for GT-I5500, fix cost for data, decimal limit</item>
+		<item>v2.8.8: fix for GT-I5500, fix cost for data, decimal limit, add turkish translation</item>
 		<item>v2.8.7: Fix length of billing period</item>
 		<item>v2.8.6: Fix some FCs, hide total stats, prepaid plans, set textsize, manipulate logs by hand</item>
 		<item>v2.8.5: Fix default displaying values for pans/rules</item>
