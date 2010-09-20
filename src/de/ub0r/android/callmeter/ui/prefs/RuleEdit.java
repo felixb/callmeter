@@ -45,6 +45,39 @@ import de.ub0r.android.callmeter.ui.prefs.Preference.TextPreference;
  */
 public class RuleEdit extends ListActivity implements OnClickListener,
 		OnItemClickListener, OnDismissListener {
+
+	/**
+	 * {@link android.content.DialogInterface.OnClickListener} clearing a group.
+	 * 
+	 * @author flx
+	 */
+	private static class OnClickClear implements
+			DialogInterface.OnClickListener {
+		/** {@link PreferenceAdapter}. */
+		private final PreferenceAdapter adapter;
+		/** Name of field to clear. */
+		private final String field;
+
+		/**
+		 * Build a OnClickClear Listener.
+		 * 
+		 * @param adpt
+		 *            {@link PreferenceAdapter}
+		 * @param fld
+		 *            filed name
+		 */
+		OnClickClear(final PreferenceAdapter adpt, final String fld) {
+			this.adapter = adpt;
+			this.field = fld;
+		}
+
+		@Override
+		public void onClick(final DialogInterface dialog, final int which) {
+			((CursorPreference) this.adapter.getPreference(this.field))
+					.clearValue();
+		}
+	}
+
 	/** {@link PreferenceAdapter}. */
 	private PreferenceAdapter adapter = null;
 
@@ -223,16 +256,18 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 		};
 		ret.add(new CursorPreference(this, DataProvider.Rules.INHOURS_ID,
 				R.string.hourgroup_, R.string.hourgroup_help,
-				R.string.edit_groups_, -1, -1,
+				R.string.edit_groups_, R.string.clear_, -1,
 				DataProvider.HoursGroup.CONTENT_URI,
 				DataProvider.HoursGroup.ID, DataProvider.HoursGroup.NAME, null,
-				editHours, null, null));
+				editHours, new OnClickClear(this.adapter,
+						DataProvider.Rules.INHOURS_ID), null));
 		ret.add(new CursorPreference(this, DataProvider.Rules.EXHOURS_ID,
 				R.string.exhourgroup_, R.string.exhourgroup_help,
-				R.string.edit_groups_, -1, -1,
+				R.string.edit_groups_, R.string.clear_, -1,
 				DataProvider.HoursGroup.CONTENT_URI,
 				DataProvider.HoursGroup.ID, DataProvider.HoursGroup.NAME, null,
-				editHours, null, null));
+				editHours, new OnClickClear(this.adapter,
+						DataProvider.Rules.EXHOURS_ID), null));
 		final DialogInterface.OnClickListener editNumbers = // .
 		new DialogInterface.OnClickListener() {
 			@Override
@@ -243,16 +278,18 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 		};
 		ret.add(new CursorPreference(this, DataProvider.Rules.INNUMBERS_ID,
 				R.string.numbergroup_, R.string.numbergroup_help,
-				R.string.edit_groups_, -1, -1,
+				R.string.edit_groups_, R.string.clear_, -1,
 				DataProvider.NumbersGroup.CONTENT_URI,
 				DataProvider.NumbersGroup.ID, DataProvider.NumbersGroup.NAME,
-				null, editNumbers, null, null));
+				null, editNumbers, new OnClickClear(this.adapter,
+						DataProvider.Rules.INNUMBERS_ID), null));
 		ret.add(new CursorPreference(this, DataProvider.Rules.EXNUMBERS_ID,
 				R.string.exnumbergroup_, R.string.exnumbergroup_help,
-				R.string.edit_groups_, -1, -1,
+				R.string.edit_groups_, R.string.clear_, -1,
 				DataProvider.NumbersGroup.CONTENT_URI,
 				DataProvider.NumbersGroup.ID, DataProvider.NumbersGroup.NAME,
-				null, editNumbers, null, null));
+				null, editNumbers, new OnClickClear(this.adapter,
+						DataProvider.Rules.EXNUMBERS_ID), null));
 		return ret;
 	}
 
