@@ -39,6 +39,7 @@ import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 import de.ub0r.android.lib.apis.TelephonyWrapper;
 
 /**
@@ -171,11 +172,26 @@ public final class LogRunnerService extends IntentService {
 	 * 
 	 * @param context
 	 *            {@link Context}
+	 * @param forceUpdate
+	 *            force update
 	 */
-	private void updateData(final Context context) {
+	private void updateData(final Context context, final boolean forceUpdate) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final ContentResolver cr = context.getContentResolver();
+
+		if (!forceUpdate) {
+			final long maxdate = this.getMaxDate(cr, DataProvider.TYPE_DATA);
+			final long updateinterval = Utils.parseLong(p.getString(
+					Preferences.PREFS_UPDATE_INTERVAL, String
+							.valueOf(LogRunnerReceiver.DELAY)),
+					LogRunnerReceiver.DELAY)
+					* LogRunnerReceiver.DELAY_FACTOR;
+			if (System.currentTimeMillis() < maxdate + (updateinterval / 2)) {
+				return; // skip update
+			}
+		}
+
 		final long lastRx = this.getLastData(p, DataProvider.TYPE_DATA,
 				DataProvider.DIRECTION_IN);
 		final long lastTx = this.getLastData(p, DataProvider.TYPE_DATA,
@@ -498,7 +514,7 @@ public final class LogRunnerService extends IntentService {
 				c.close();
 			}
 		}
-		this.updateData(this);
+		this.updateData(this, shortRun);
 		if (!shortRun) {
 			this.updateCalls(cr);
 			this.updateSMS(cr);

@@ -40,9 +40,9 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	private static final String TAG = "lrr";
 
 	/** Time between to update checks. */
-	private static final long DELAY = 30; // 30min
+	static final long DELAY = 30; // 30min
 	/** Factor for time between update checks. */
-	private static final long DELAY_FACTOR = CallMeter.SECONDS_MINUTE
+	static final long DELAY_FACTOR = CallMeter.SECONDS_MINUTE
 			* CallMeter.MILLIS;
 
 	/** Force update. */
