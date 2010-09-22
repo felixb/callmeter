@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: clean groups in rules</item>
+		<item>HEAD: clean groups in rules, fix numbergroups, fix adding logs</item>
 		<item>v2.8.8: fix for GT-I5500, fix cost for data, decimal limit, add turkish translation</item>
 		<item>v2.8.7: Fix length of billing period</item>
 		<item>v2.8.6: Fix some FCs, hide total stats, prepaid plans, set textsize, manipulate logs by hand</item>

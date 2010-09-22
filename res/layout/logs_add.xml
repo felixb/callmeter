@@ -29,8 +29,7 @@
 			android:layout_height="wrap_content" android:hint="@string/length_hint_call"
 			android:inputType="number" />
 		<EditText android:id="@+id/remote" android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:hint="@string/remote_hint"
-			android:inputType="number" />
+			android:layout_height="wrap_content" android:hint="@string/remote_hint" />
 		<DatePicker android:id="@+id/date" android:layout_width="fill_parent"
 			android:layout_height="wrap_content" />
 		<TimePicker android:id="@+id/time" android:layout_width="fill_parent"

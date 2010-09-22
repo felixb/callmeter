@@ -144,12 +144,13 @@ public final class RuleMatcher {
 				if (number == null) {
 					return false;
 				}
-				final int numl = number.length();
+				int numl = number.length();
 				if (numl == 0) {
 					return false;
 				}
 				if (number.startsWith("+") && numl > 1) {
 					number = number.substring(1);
+					numl = number.length();
 				}
 				final int l = this.numbers.size();
 				for (int i = 0; i < l; i++) {
@@ -157,13 +158,14 @@ public final class RuleMatcher {
 					if (n == null) {
 						return false;
 					}
-					final int nl = n.length();
+					int nl = n.length();
 					if (nl == 0) {
 						return false;
 					}
 
 					if (n.startsWith("+") && numl > 1) {
 						n = n.substring(1);
+						nl = n.length();
 					}
 					if (number.equals(n)) {
 						return true;
