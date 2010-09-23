@@ -95,8 +95,9 @@ abstract class Preference {
 		}
 
 		@Override
-		View getView(final View convertView, final ViewGroup parent) {
-			final View ret = super.getView(convertView, parent);
+		View getView(final View convertView, final ViewGroup parent,
+				final boolean showHelp) {
+			final View ret = super.getView(convertView, parent, showHelp);
 			if (ret != null) {
 				final CheckBox cb = (CheckBox) ret
 						.findViewById(android.R.id.checkbox);
@@ -1043,9 +1044,12 @@ abstract class Preference {
 	 *            the correct data, this method can create a new view.
 	 * @param parent
 	 *            The parent that this view will eventually be attached to
+	 * @param showHelp
+	 *            show help
 	 * @return A View corresponding to the data at the specified position.
 	 */
-	View getView(final View convertView, final ViewGroup parent) {
+	View getView(final View convertView, final ViewGroup parent,
+			final boolean showHelp) {
 		final LayoutInflater inflater = (LayoutInflater) this.context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		if (this.hide) {
@@ -1056,9 +1060,11 @@ abstract class Preference {
 		// TODO: use convertView
 		final View ret = inflater.inflate(this.resLayout, null);
 		((TextView) ret.findViewById(android.R.id.text1)).setText(this.resText);
-		final String s = this.context.getString(R.string.value) + ": "
-				+ this.getHint() + "\n"
-				+ this.context.getString(this.getHelp());
+		String s = this.context.getString(R.string.value) + ": "
+				+ this.getHint();
+		if (showHelp) {
+			s += "\n" + this.context.getString(this.getHelp());
+		}
 		((TextView) ret.findViewById(android.R.id.text2)).setText(s);
 		return ret;
 	}

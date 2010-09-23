@@ -101,6 +101,8 @@ public class Preferences extends PreferenceActivity {
 	private static final String PREFS_DATE_FORMAT = "date_format";
 	/** Preference's name: show total. */
 	public static final String PREFS_SHOWTOTAL = "show_total";
+	/** Preference's name: show help. */
+	public static final String PREFS_SHOWHELP = "show_help";
 
 	/** {@link Currency} symbol. */
 	private static String defaultCurrencySymbol = null;

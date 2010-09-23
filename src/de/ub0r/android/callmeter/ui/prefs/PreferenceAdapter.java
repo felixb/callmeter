@@ -3,6 +3,7 @@ package de.ub0r.android.callmeter.ui.prefs;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -13,6 +14,9 @@ import android.widget.ArrayAdapter;
  * @author flx
  */
 final class PreferenceAdapter extends ArrayAdapter<Preference> {
+	/** Show help. */
+	private final boolean showHelp;
+
 	/**
 	 * Default constructor.
 	 * 
@@ -21,6 +25,8 @@ final class PreferenceAdapter extends ArrayAdapter<Preference> {
 	 */
 	PreferenceAdapter(final Context context) {
 		super(context, 0);
+		this.showHelp = PreferenceManager.getDefaultSharedPreferences(context)
+				.getBoolean(Preferences.PREFS_SHOWHELP, true);
 	}
 
 	/**
@@ -76,7 +82,8 @@ final class PreferenceAdapter extends ArrayAdapter<Preference> {
 	@Override
 	public View getView(final int position, final View convertView,
 			final ViewGroup parent) {
-		return this.getItem(position).getView(convertView, parent);
+		return this.getItem(position).getView(convertView, parent,
+				this.showHelp);
 	}
 
 	/**

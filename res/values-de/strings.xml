@@ -89,6 +89,8 @@
 	<string name="show_titlebar_hint">Zeige Titelleiste im Hauptbildschirm. Ohne Titelleiste wirst du nicht mehr auf Hintergrundaktivitäten hingewiesen.</string>
 	<string name="show_hours_">Stunden zeigen</string>
 	<string name="show_hours_hint">Zeige Zeit in Sekunden, Minuten, Stunden und Tagen.\nSonst werden nur Sekunden und Stunden gezeigt.</string>
+	<string name="show_help_">Zeige Hilfe</string>
+	<string name="show_help_hint">Zeige Hilfe in Kontingent/Regel Setup.</string>
 	<string name="custom_currency_symbol_">Benutzerdefiniertes Währungssymbol</string>
 	<string name="custom_currency_symbol_hint">Stell hier ein benutzerdefiniertes Währungssymbol ein. Wenn leer, wird das Systemstandardsymbol genutzt.</string>
 	<string name="custom_currency_format_">Benutzerdefiniertes Währungsformat</string>
