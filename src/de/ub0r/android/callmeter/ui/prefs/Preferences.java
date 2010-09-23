@@ -182,7 +182,8 @@ public class Preferences extends PreferenceActivity {
 					+ getCurrencySymbol(context);
 		} else {
 			final String c = getCurrencySymbol(context);
-			return pcs.replaceAll("\\$", c).replaceAll("\u20AC", c).replaceAll("р", c);
+			return pcs.replaceAll("\\$", c).replaceAll("\u20AC", c).replaceAll(
+					"\u0440", c);
 		}
 	}
 
@@ -430,7 +431,8 @@ public class Preferences extends PreferenceActivity {
 				Log.e(TAG, "error in reading export: " + url, e);
 				return null;
 			}
-		} else if (uri.toString().startsWith("content://")) {
+		} else if (uri.toString().startsWith("content://")
+				|| uri.toString().startsWith("file://")) {
 			try {
 				return cr.openInputStream(uri);
 			} catch (IOException e) {
