@@ -440,6 +440,18 @@ public class Plans extends ListActivity implements OnClickListener,
 					}
 
 					// cost per plan
+					float free = 0;
+					if (cost > 0
+							&& this.limittype == DataProvider.LIMIT_TYPE_COST) {
+						final float lmt = this.limit / CallMeter.HUNDRET;
+						if (cost <= lmt) {
+							free = cost;
+							cost = 0;
+						} else {
+							free = lmt;
+							cost -= lmt;
+						}
+					}
 					if (this.cpp > 0) {
 						if (cost <= 0) {
 							cost = this.cpp;
@@ -447,10 +459,11 @@ public class Plans extends ListActivity implements OnClickListener,
 							cost += this.cpp;
 						}
 					}
+
 					cv.put(DataProvider.Plans.CACHE_COST, cost);
 					cv.put(DataProvider.Plans.CACHE_STRING, getString(this,
-							used, count, billedAmount, cost, allBilledAmount,
-							allCount, pShowHours));
+							used, count, billedAmount, cost, free,
+							allBilledAmount, allCount, pShowHours));
 				}
 				this.ctx.getContentResolver().update(uri, cv, null, null);
 			}
@@ -653,6 +666,8 @@ public class Plans extends ListActivity implements OnClickListener,
 		 *            billed amount
 		 * @param cost
 		 *            cost
+		 * @param free
+		 *            cost not actual billed
 		 * @param allAmount
 		 *            billed amount all time
 		 * @param allCount
@@ -663,7 +678,7 @@ public class Plans extends ListActivity implements OnClickListener,
 		 */
 		private static String getString(final Plan p, final int used,
 				final long count, final long amount, final float cost,
-				final long allAmount, final long allCount,
+				final float free, final long allAmount, final long allCount,
 				final boolean showHours) {
 			final StringBuilder ret = new StringBuilder();
 
@@ -693,9 +708,19 @@ public class Plans extends ListActivity implements OnClickListener,
 			}
 
 			// cost
-			if (cost > 0) {
+			if (cost > 0 || free > 0) {
 				ret.append("\n");
-				ret.append(String.format(currencyFormat, cost));
+				if (free > 0) {
+					ret.append("(");
+					ret.append(String.format(currencyFormat, free));
+					ret.append(")");
+					if (cost > 0) {
+						ret.append(" + ");
+					}
+				}
+				if (cost > 0) {
+					ret.append(String.format(currencyFormat, cost));
+				}
 			}
 			return ret.toString();
 		}
