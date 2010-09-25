@@ -89,6 +89,8 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 	<string name="show_titlebar_hint">Показ строки заголовка в главном окне. Без данной строки не возможно наблюдать за скрытой деятельностью программы.</string>
 	<string name="show_hours_">Показ времени подробно</string>
 	<string name="show_hours_hint">Подробный отчет: секунды, минуты, часы и дни.\nИначе только: секунды и часы.</string>
+<!--	<string name="show_help_">Show help</string> -->
+<!--	<string name="show_help_hint">Show help in Plans/Rules setup view.</string> -->
 	<string name="custom_currency_symbol_">Значёк валюты</string>
 	<string name="custom_currency_symbol_hint">Настройка значка валюты который появится в статистике.</string>
 	<string name="custom_currency_format_">Формат показа валюты</string>

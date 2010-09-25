@@ -89,6 +89,8 @@
 	<string name="show_titlebar_hint">Pokazuj pasek tytułowy w oknie głównym. Bez paska tytułowego nie ma możliwości zobaczenia aktywności w tle.</string>
 	<string name="show_hours_">Pokaż godziny</string>
 	<string name="show_hours_hint">Pokaż czas w sekundach, minutach, godzinach i dniach.\nJeżeli niezaznaczone, tylko sekundy i godziny będą pokazane.</string>
+<!--	<string name="show_help_">Show help</string> -->
+<!--	<string name="show_help_hint">Show help in Plans/Rules setup view.</string> -->
 	<string name="custom_currency_symbol_">Symbol waluty</string>
 	<string name="custom_currency_symbol_hint">Wprowadź niestandardowy symbol waluty, jeżeli potrzeba.</string>
 	<string name="custom_currency_format_">Format waluty</string>

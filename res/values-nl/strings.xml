@@ -89,6 +89,8 @@
 	<string name="show_titlebar_hint">Toon titelbalk in hoofdvenster. Zonder titelbalk kan je geen achtergrond activiteit zien.</string>
 	<string name="show_hours_">Toon uren</string>
 	<string name="show_hours_hint">Toon tijd in sec, min, uren en dgn.\nIndien uitgevinkt alleen sec en uren worden getoond.</string>
+<!--	<string name="show_help_">Show help</string> -->
+<!--	<string name="show_help_hint">Show help in Plans/Rules setup view.</string> -->
 	<string name="custom_currency_symbol_">Aangepast valuta symbool</string>
 	<string name="custom_currency_symbol_hint">Stel een aangepast valuta symbool in, laat leeg voor systeem standaard.</string>
 	<string name="custom_currency_format_">Aangepast valuta formaat</string>

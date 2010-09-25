@@ -89,6 +89,8 @@
 <!--	<string name="show_titlebar_hint">Show title bar in main view. Without title bar, there is no way to see background activity.</string> -->
 <!--	<string name="show_hours_">Show hours</string> -->
 <!--	<string name="show_hours_hint">Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.</string> -->
+<!--	<string name="show_help_">Show help</string> -->
+<!--	<string name="show_help_hint">Show help in Plans/Rules setup view.</string> -->
 <!--	<string name="custom_currency_symbol_">Custom currency symbol</string> -->
 <!--	<string name="custom_currency_symbol_hint">Set a custom currency symbol, leave empty for system default.</string> -->
 <!--	<string name="custom_currency_format_">Custom currency format</string> -->

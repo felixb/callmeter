@@ -89,6 +89,8 @@
 	<string name="show_titlebar_hint">Ana görünümde başlık çubuğunu gösterir. Başlık çubuğu olmadan arkaplandaki işlemler görülemez.</string>
 	<string name="show_hours_">Saatleri göster</string>
 	<string name="show_hours_hint">Zamanı saniye, dakika, saat ve gün olarak göster.\nSeçilmediğinde sadece saniye ve saat görüntülenir.</string>
+<!--	<string name="show_help_">Show help</string> -->
+<!--	<string name="show_help_hint">Show help in Plans/Rules setup view.</string> -->
 	<string name="custom_currency_symbol_">Özel para birimi sembolü</string>
 	<string name="custom_currency_symbol_hint">Özel bir para birimi sembolü belirleyin. Varsayılan için boş bırakın.</string>
 	<string name="custom_currency_format_">Özel para birimi biçimi</string>

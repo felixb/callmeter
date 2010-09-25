@@ -89,6 +89,8 @@
 	<string name="show_titlebar_hint">Muestra la barra de título en la vista principal. Sin barra de título no se puede ver la actividad en segundo plano.</string>
 	<string name="show_hours_">Mostrar horas</string>
 	<string name="show_hours_hint">Muestra el tiempo en segundos, minutos, horas y días.\nSin marcar sólo muestra horas y segundos.</string>
+<!--	<string name="show_help_">Show help</string> -->
+<!--	<string name="show_help_hint">Show help in Plans/Rules setup view.</string> -->
 	<string name="custom_currency_symbol_">Símbolo personalizado de moneda</string>
 	<string name="custom_currency_symbol_hint">Aplica un símbolo personalizado de moneda, déjalo en blanco para mantener el del sistema.</string>
 	<string name="custom_currency_format_">Formato personalizado de moneda</string>
