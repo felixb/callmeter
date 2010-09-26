@@ -25,6 +25,8 @@
 	<string name="source_">Kod źródłowy:</string>
 	<string name="website_">Strona:</string>
 	<string name="debug_">Debugowanie</string>
+<!--	<string name="custom_language_">Custom language</stirng> -->
+<!--	<string name="custom_language_hint">Set a custom language.</stirng> -->
 	<string name="send_logs_">Wyślij logi</string>
 	<string name="send_logs_hint">Wyślij log z twojego urządzenia do autora\n(tylko, gdy zostaniesz o to poproszony)</string>
 	<string name="sendlog_run_">Uruchom SendLog</string>

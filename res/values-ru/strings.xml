@@ -25,6 +25,8 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 	<string name="source_">Исxодный код:</string>
 	<string name="website_">Интернетстраница:</string>
 	<string name="debug_">Отладка</string>
+<!--	<string name="custom_language_">Custom language</stirng> -->
+<!--	<string name="custom_language_hint">Set a custom language.</stirng> -->
 	<string name="send_logs_">Отослать протокол</string>
 	<string name="send_logs_hint">Отчёт о действияx программы на телефоне.\nОтсылайте только по просьбе программиста.</string>
 	<string name="sendlog_run_">Старт SendLog</string>

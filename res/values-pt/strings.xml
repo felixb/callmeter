@@ -25,6 +25,8 @@
 	<string name="source_">Códigos fontes:</string>
 	<string name="website_">Website:</string>
 	<string name="debug_">Debugar</string>
+<!--	<string name="custom_language_">Custom language</stirng> -->
+<!--	<string name="custom_language_hint">Set a custom language.</stirng> -->
 	<string name="send_logs_">Enviar os logs</string>
 	<string name="send_logs_hint">Envie os logs de seu dispositivo  para o desenvolvedor. Faça isso apenas se você foi convidado a fazê-lo.</string>
 	<string name="sendlog_run_">Acionar o envio dos logs </string>
