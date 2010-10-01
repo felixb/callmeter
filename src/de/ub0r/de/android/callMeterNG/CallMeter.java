@@ -33,6 +33,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 import de.ub0r.android.lib.DonationHelper;
+import de.ub0r.android.lib.Utils;
 
 /**
  * The main Activity, holding all data.
@@ -72,6 +73,7 @@ public class CallMeter extends Activity {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		this.setTheme(Preferences.getTheme(this));
+		Utils.setLocale(this);
 		this.setContentView(R.layout.main);
 		// get prefs.
 		this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
