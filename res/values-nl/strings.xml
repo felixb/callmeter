@@ -25,6 +25,8 @@
 	<string name="source_">Broncode:</string>
 	<string name="website_">Website:</string>
 	<string name="debug_">Debug</string>
+<!--	<string name="custom_language_">Custom language</string> -->
+<!--	<string name="custom_language_hint">Set a custom language.</string> -->
 	<string name="send_logs_">Stuur logs</string>
 	<string name="send_logs_hint">Stuur je toestel logs naar de maker.\nDoe dit alleen wanneer je hier naar gevraagd is.</string>
 	<string name="sendlog_run_">Draai SendLog</string>

@@ -25,6 +25,8 @@
 	<string name="source_">Källkod:</string>
 	<string name="website_">Hemsida:</string>
 	<string name="debug_">Felsökningsläge (debug)</string>
+<!--	<string name="custom_language_">Custom language</string> -->
+<!--	<string name="custom_language_hint">Set a custom language.</string> -->
 	<string name="send_logs_">Skicka loggar</string>
 	<string name="send_logs_hint">Skicka loggar till tillverkaren av programmet. Gör endast detta om du blir ombedd av tillverkaren.</string>
 	<string name="sendlog_run_">Kör SendLog</string>
