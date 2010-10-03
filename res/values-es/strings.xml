@@ -25,8 +25,8 @@
 	<string name="source_">Código fuente:</string>
 	<string name="website_">Web:</string>
 	<string name="debug_">Depurar</string>
-<!--	<string name="custom_language_">Custom language</stirng> -->
-<!--	<string name="custom_language_hint">Set a custom language.</stirng> -->
+<!--	<string name="custom_language_">Custom language</string> -->
+<!--	<string name="custom_language_hint">Set a custom language.</string> -->
 	<string name="send_logs_">Enviar logs</string>
 	<string name="send_logs_hint">Envía los logs de tu dispositivo al desarrollador.\n Sólo si te han pedido que lo hagas.</string>
 	<string name="sendlog_run_">Ejecutar envío de log</string>

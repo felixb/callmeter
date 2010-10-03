@@ -25,8 +25,8 @@
 	<string name="source_">Kaynak Kodları:</string>
 	<string name="website_">Web Sitesi:</string>
 	<string name="debug_">Hata Ayıklama</string>
-<!--	<string name="custom_language_">Custom language</stirng> -->
-<!--	<string name="custom_language_hint">Set a custom language.</stirng> -->
+<!--	<string name="custom_language_">Custom language</string> -->
+<!--	<string name="custom_language_hint">Set a custom language.</string> -->
 	<string name="send_logs_">Logları Gönder</string>
 	<string name="send_logs_hint">Telefonunun loglarını yazara gönder.\nBunu sadece sizden istendiyse yapın.</string>
 	<string name="sendlog_run_">Sendlog çalıştır</string>

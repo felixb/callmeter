@@ -18,12 +18,12 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="author_">Autoři:</string>
-	<string name="version_">Verze:</string>
-	<string name="license_">Licence:</string>
-	<string name="license">GPLv3 - viz http://www.gnu.org/licenses/gpl-3.0.txt</string>
-	<string name="source_">Zdrojový kód:</string>
-	<string name="website_">Web:</string>
+<!--	<string name="author_">Author:</string> -->
+<!--	<string name="version_">Version:</string> -->
+<!--	<string name="license_">License:</string> -->
+<!--	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string> -->
+<!--	<string name="source_">Sourcescode:</string> -->
+<!--	<string name="website_">Website:</string> -->
 <!--	<string name="debug_">Debug</string> -->
 <!--	<string name="custom_language_">Custom language</string> -->
 <!--	<string name="custom_language_hint">Set a custom language.</string> -->
@@ -33,10 +33,10 @@
 <!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
 <!--	<string name="sendlog_install_">Install SendLog</string> -->
 <!--	<string name="sendlog_install">Install the free SendLog application to collect the device log and send it to the developer.</string> -->
-	<string name="donate_paypal_">Chci přispět (Paypal)</string>
-	<string name="donate_market_">Chci přispět (Market)</string>
-	<string name="donate_remove_ads_">Přispět/odstranit inzerci</string>
-	<string name="remove_ads_">Odstranit inzerci</string>
+<!--	<string name="donate_paypal_">Donate (Paypal)</string> -->
+<!--	<string name="donate_market_">Donate (Market)</string> -->
+<!--	<string name="donate_remove_ads_">Donate/remove ads</string> -->
+<!--	<string name="remove_ads_">Remove ads</string> -->
 <!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
 <!--	<string name="postdonate">To remove ads, you need to load the <i>noads</i> code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work after one day.</string> -->
 <!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
@@ -49,40 +49,40 @@
 <!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
 <!--	<string name="notify_">Forgot to remove the ads?</string> -->
 <!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
-	<string name="about0_">Call Meter slouží ke sledování stavu čerpání hovorného, SMS zpráv a datových přenosů v rámci měsíčního paušálu.</string>
-	<string name="about0">Aplikace tvoří statistiku na základě logů o hovorech, SMS zprávách a datových přenosech a podporuje několik způsobů účtování/tarifikace.</string>
-	<string name="about1">Výstupem je celkový počet využitých minut/sms/dat od nainstalování aplikace, a počet těchto jednotek případně ukazatel využití volných minut/sms/dat za aktuální účetní období. Výpočet měsíční spotřeby bere v potaz vybranou tarifikaci. V celkovém výpočtu není tarifikace zohledněna.\n\nLegenda zobrazování statistik:\nPříchozí hovory: délka a počet v aktuálním období / délka všech hovorů\nOdchozí hovory: [% využití volných minut akt. období] / délka a počet v akt. období / délka všech hovorů\nPříchozí SMS: počet SMS akt. období / celkový počet SMS\nOdchozí SMS: cena za SMS akt. období / [% využití volných SMS akt. období] / počet SMS akt. období / celkový počet SMS </string>
-	<string name="about2">Režim tarifikace určuje způsob zpoplatnění prvního a následujícího intervalu hlasových hovorů. Např. 60/10 znamená, že u hovoru se vždy započte min. 60 vteřin a čas nad rámec prvního intervalu je zaokrouhlen nahoru na nejbližších 10 vteřin.</string>
-	<string name="about3">Call Meter se spouští každých 30 minut (pokud není telefon v pohotovostním režimu), což znamená, že smazání záznamů o hovorech/sms/datech za posledních 30 minut ovlivní vypočtenou statistiku.</string>
+<!--	<string name="about0_">Watch your call, message and data plans!</string> -->
+<!--	<string name="about0">CallMeter generates reports from call, message and data logs. It supports several modes of billing.</string> -->
+<!--	<string name="about1">The output format is usage | time or count used this billing period | time or count overall.</string> -->
+<!--	<string name="about2">The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.</string> -->
+<!--	<string name="about3">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string> -->
 <!--	<string name="note_cm3">Data stats can not be fetched from before last boot!\nKilling this app may result in wrong data stats.</string> -->
-	<string name="send_">Odeslat</string>
+<!--	<string name="send_">Send</string> -->
 <!--	<string name="add_">Add</string> -->
 <!--	<string name="add_log">Add log entry</string> -->
 <!--	<string name="length_hint_call">Length in seconds</string> -->
 <!--	<string name="length_hint_data">Length in kB</string> -->
-	<string name="settings">Nastavení</string>
+<!--	<string name="settings">Preferences</string> -->
 <!--	<string name="update_interval_">Update interval</string> -->
 <!--	<string name="update_interval_hint">Shorter period will use more battery.</string> -->
 <!--	<string name="date_begin_">Beginning of records</string> -->
 <!--	<string name="date_begin_hint">Ignore any logs before this date.</string> -->
 <!--	<string name="common_prefs_">Common preferences</string> -->
 <!--	<string name="edit_">Edit</string> -->
-	<string name="about_">Nápověda</string>
-	<string name="about_hint">Nápověda. O autorech.</string>
+<!--	<string name="about_">About</string> -->
+<!--	<string name="about_hint">About this app</string> -->
 <!--	<string name="faq_hint">Some tips and tricks, how to set up this app.</string> -->
-	<string name="feedback_">Feedback</string>
-	<string name="feedback_hint">Ohlásit chybu, zaslat požadavek na funčknost.</string>
+<!--	<string name="feedback_">Feedback</string> -->
+<!--	<string name="feedback_hint">Report bugs, request features ...</string> -->
 <!--	<string name="twitter_hint">Follow me on twitter.\nGet update notifications etc.</string> -->
-	<string name="more_">Další aplikace autora..</string>
+<!--	<string name="more_">More Apps..</string> -->
 <!--	<string name="billing_">Billing</string> -->
-	<string name="billday_">Začátek účetního období</string>
-	<string name="billmode_">Tarifikace</string>
-	<string name="billdate_">Začátek účetního období:</string>
-	<string name="appearance_">Přizpůsobení vzhledu</string>
+<!--	<string name="billday_">First day of the billing period</string> -->
+<!--	<string name="billmode_">Billing mode</string> -->
+<!--	<string name="billdate_">Start of billing period:</string> -->
+<!--	<string name="appearance_">Appearance</string> -->
 <!--	<string name="advanced_preferences_">Advanced preferences</string> -->
 <!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
-	<string name="theme_">Motiv</string>
-	<string name="textsize_">Velikost textu</string>
+<!--	<string name="theme_">Theme</string> -->
+<!--	<string name="textsize_">Text size</string> -->
 <!--	<string name="textsize_hint">Text size in pixels; leave empty for default</string> -->
 <!--	<string name="show_total_">Show total</string> -->
 <!--	<string name="show_total_hint">Show total stats, disable to see current only.</string> -->
@@ -101,7 +101,7 @@
 <!--	<string name="custom_date_format_hint">Select a custom date format.</string> -->
 <!--	<string name="logs">Logs</string> -->
 <!--	<string name="show_logs">Show logs</string> -->
-	<string name="plans">Paušály</string>
+<!--	<string name="plans">Plans</string> -->
 <!--	<string name="plans_hint">Set your plans for all kind of billing here.</string> -->
 <!--	<string name="plans_new">New plan</string> -->
 <!--	<string name="rules">Rules</string> -->
@@ -121,10 +121,10 @@
 <!--	<string name="exhourgroup_help">Add some hours this rule must not match.</string> -->
 <!--	<string name="new_hourgroup">New hour group</string> -->
 <!--	<string name="add_hour">Add hour</string> -->
-	<string name="calls">Hovory</string>
-	<string name="sms">SMS</string>
+<!--	<string name="calls">Calls</string> -->
+<!--	<string name="sms">SMS</string> -->
 <!--	<string name="mms">MMS</string> -->
-	<string name="data">Data</string>
+<!--	<string name="data">Data</string> -->
 <!--	<string name="prepaid_">Prepaid plan</string> -->
 <!--	<string name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string> -->
 <!--	<string name="balance_">Balance</string> -->
@@ -134,7 +134,7 @@
 <!--	<string name="reset_data_data_">Reset traffic too.</string> -->
 <!--	<string name="reset_data_progr1">Recalculating statistics ...\n\n(This may take some time!)</string> -->
 <!--	<string name="reset_data_progr2">Recalculating statistics ...</string> -->
-	<string name="contacts_">Z kontaktů</string>
+<!--	<string name="contacts_">Contacts</string> -->
 <!--	<string name="clear_">Clear</string> -->
 <!--	<string name="help_">Help</string> -->
 <!--	<string name="new_">New</string> -->
@@ -150,9 +150,9 @@
 <!--	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"cost\" limit will limit your plan based on cost produced by the items billed in this plan.</string> -->
 <!--	<string name="limit_">Limit</string> -->
 <!--	<string name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string> -->
-	<string name="billmode_">Tarifikace</string>
+<!--	<string name="billmode_">Billing mode</string> -->
 <!--	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string> -->
-	<string name="billday_">Začátek účetního období</string>
+<!--	<string name="billday_">First day of the billing period</string> -->
 <!--	<string name="billday_help">Set this to the first day of the bill of the current billing period.</string> -->
 <!--	<string name="billperiodid_">Billing period</string> -->
 <!--	<string name="billperiodid_help">Select your billing period.\nYou may need to create one as extra plan.</string> -->
@@ -248,10 +248,10 @@
 <!--		<item>22:00 - 22:59</item> -->
 <!--		<item>23:00 - 23:59</item> -->
 <!--	</string-array> -->
-	<string-array name="themes">
-		<item>Tmavý</item>
-		<item>Světlý</item>
-	</string-array>
+<!--	<string-array name="themes"> -->
+<!--		<item>Black</item> -->
+<!--		<item>Light</item> -->
+<!--	</string-array> -->
 <!--	<string-array name="dialog_edit_plan"> -->
 <!--		<item>Edit plan</item> -->
 <!--	</string-array> -->

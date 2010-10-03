@@ -25,8 +25,8 @@
 	<string name="source_">Codice sorgente:</string>
 	<string name="website_">Sito web:</string>
 	<string name="debug_">Debug</string>
-<!--	<string name="custom_language_">Custom language</stirng> -->
-<!--	<string name="custom_language_hint">Set a custom language.</stirng> -->
+<!--	<string name="custom_language_">Custom language</string> -->
+<!--	<string name="custom_language_hint">Set a custom language.</string> -->
 	<string name="send_logs_">Invia log</string>
 	<string name="send_logs_hint">Manda i log del tuo dispositivo agli sviluppatori.\nEffettua questa operazione solo se ti è stato chiesto!</string>
 	<string name="sendlog_run_">Esegui SendLog</string>
