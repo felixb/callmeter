@@ -68,6 +68,7 @@ import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.DonationHelper;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * Callmeter's Main {@link ListActivity}.
@@ -998,6 +999,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		}
 		this.setTheme(Preferences.getTheme(this));
+		Utils.setLocale(this);
 		this.setContentView(R.layout.plans);
 
 		String v0 = this.preferences.getString(PREFS_LAST_RUN, "");

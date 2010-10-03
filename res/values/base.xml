@@ -95,5 +95,42 @@
 		<item>0</item>
 	</string-array>
 
+	<string-array name="lang_values">
+		<item></item>
+		<item>en</item>
+		<item>cs</item>
+		<item>de</item>
+		<item>el</item>
+		<item>es</item>
+		<item>fr</item>
+		<item>hu</item>
+		<item>it</item>
+		<item>nb</item>
+		<item>nl</item>
+		<item>pl</item>
+		<item>pt</item>
+		<item>ru</item>
+		<item>sv</item>
+		<item>tr</item>
+	</string-array>
+	<string-array name="lang_">
+		<item>Default language</item>
+		<item>English</item>
+		<item>Czech</item>
+		<item>German</item>
+		<item>Greek</item>
+		<item>Spanish</item>
+		<item>French</item>
+		<item>Hungarian</item>
+		<item>Italian</item>
+		<item>Norwegian</item>
+		<item>Dutch</item>
+		<item>Polish</item>
+		<item>Portuguese (Brasil)</item>
+		<item>Russian</item>
+		<item>Swedish</item>
+		<item>Turkish</item>
+	</string-array>
+
 	<dimen name="touchlist_height">30dip</dimen>
 </resources>
