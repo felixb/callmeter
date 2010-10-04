@@ -165,6 +165,7 @@
 		<item>ru</item>
 		<item>sv</item>
 		<item>tr</item>
+		<item>zh</item>
 	</string-array>
 	<string-array name="lang_">
 		<item>Default language</item>
@@ -183,5 +184,6 @@
 		<item>Russian</item>
 		<item>Swedish</item>
 		<item>Turkish</item>
+		<item>Chinese</item>
 	</string-array>
 </resources>
