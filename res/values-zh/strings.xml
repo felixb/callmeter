@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Felix Bechstein
+		Copyright (C) 2010 蔡杰伦, Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter 3G. This program is free software; you
@@ -18,71 +18,71 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-<!--	<string name="author_">Author:</string> -->
-<!--	<string name="version_">Version:</string> -->
-<!--	<string name="license_">License:</string> -->
-<!--	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string> -->
-<!--	<string name="source_">Sourcescode:</string> -->
-<!--	<string name="website_">Website:</string> -->
-<!--	<string name="debug_">Debug</string> -->
-<!--	<string name="custom_language_">Custom language</string> -->
-<!--	<string name="custom_language_hint">Set a custom language.</string> -->
-<!--	<string name="send_logs_">Send logs</string> -->
-<!--	<string name="send_logs_hint">Send your device\'s logs to the developer.\nDo this only if you were asked to do so.</string> -->
-<!--	<string name="sendlog_run_">Run SendLog</string> -->
-<!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
-<!--	<string name="sendlog_install_">Install SendLog</string> -->
-<!--	<string name="sendlog_install">Install the free SendLog application to collect the device log and send it to the developer.</string> -->
-<!--	<string name="donate_paypal_">Donate (Paypal)</string> -->
-<!--	<string name="donate_market_">Donate (Market)</string> -->
-<!--	<string name="donate_remove_ads_">Donate/remove ads</string> -->
-<!--	<string name="remove_ads_">Remove ads</string> -->
-<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
-<!--	<string name="postdonate">To remove ads, you need to load the <i>noads</i> code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work after one day.</string> -->
-<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
-<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
-<!--	<string name="load_hash_">Load <i>noads</i> code</string> -->
-<!--	<string name="sig_loaded">Ads removed!</string> -->
-<!--	<string name="sig_failed">Failed to remove ads!</string> -->
-<!--	<string name="accept_">Accept Terms</string> -->
-<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
-<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
-<!--	<string name="notify_">Forgot to remove the ads?</string> -->
-<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
-<!--	<string name="about0_">Watch your call, message and data plans!</string> -->
-<!--	<string name="about0">CallMeter generates reports from call, message and data logs. It supports several modes of billing.</string> -->
-<!--	<string name="about1">The output format is usage | time or count used this billing period | time or count overall.</string> -->
-<!--	<string name="about2">The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.</string> -->
-<!--	<string name="about3">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string> -->
+	<string name="author_">作者:</string>
+	<string name="version_">版本:</string>
+	<string name="license_">许可证:</string>
+	<string name="license">GPLv3 - 详见 http://www.gnu.org/licenses/gpl-3.0.txt</string>
+	<string name="source_">源代码:</string>
+	<string name="website_">程序主页:</string>
+	<string name="debug_">调试</string>
+	<string name="custom_language_">自定义语言</string>
+	<string name="custom_language_hint">设置自定义语言.</string>
+	<string name="send_logs_">发送程序日志</string>
+	<string name="send_logs_hint">发送程序日志给程序开发者.\n仅需要时发送.</string>
+	<string name="sendlog_run_">发送程序日志</string>
+	<string name="sendlog_run">程序日志会包含您的设备信息并将其发送至程序开发者.\n您可以在发送前查看或修改程序日志.</string>
+	<string name="sendlog_install_">安装程序日志发送软件(SendLog)</string>
+	<string name="sendlog_install">安装免费的程序日志发送软件(SendLog)用于收集设备信息并发送至程序开发者.</string>
+	<string name="donate_paypal_">捐赠 (Paypal)</string>
+	<string name="donate_market_">捐赠 (电子市场)</string>
+	<string name="donate_remove_ads_">捐赠/移除广告</string>
+	<string name="remove_ads_">移除广告</string>
+	<string name="predonate">这是一个在GPLv3许可证下创建的开源程序.它是永久免费的.如果您觉得这个程序不错或者不想为广告所扰,请捐赠给我,我会尽快移除广告.\n感激不尽!\n\n捐赠后所有我创建的程序都将没有广告.</string>
+	<string name="postdonate">您需要<i>零广告</i>编号用于去除广告. 收到捐赠后,我会尽快给您发送"零广告"编码.如果您捐赠后一天仍未收到"零广告"编码请给我发电子邮件.</string>
+	<string name="donator_id_">捐赠编号(Paypal的Paypal邮件地址;电子市场的Gmail邮件地址)将用于验证您的捐赠:</string>
+	<string name="donator_id_hint">Paypal或Gmail地址</string>
+	<string name="load_hash_">加载<i>零广告</i>编号</string>
+	<string name="sig_loaded">广告成功移除！</string>
+	<string name="sig_failed">广告移除失败!</string>
+	<string name="accept_">接受条款</string>
+	<string name="accept_missing">发送数据前请确保您了解条款内容.</string>
+	<string name="terms">您手机的IMEI码的md5哈希值和捐赠编号（电子邮件地址）将会发送至服务器(http://ub0r.de/donation/). 这些数据用于验证您的捐赠.\n这些数据仅用于验证您的捐赠而不会移作他用,也不会泄露给第三方.\n\n如果您更换手机了,<i>零广告</i>编号将会失效.请用电子邮件跟我索要新的"零广告"编号.</string>
+	<string name="notify_">移除广告?</string>
+	<string name="notify_text">要完全移除广告,您需要加载<b>零广告</b>编号.点击继续.</string>
+	<string name="about0_">查看电话,短信,数据连接方案!</string>
+	<string name="about0">CallMeter根据电话,短信,数据连接记录生成报告.它支持多种支付方案.</string>
+	<string name="about1">账单输出模式是 一次通讯/次 或者 账单周期/次 或者 全部累加统计. 一个月（账单周期/次）一次的统计可以每月看到您实际消费的金额. 全部累加统计的无法看到每个月的消费金额.</string>
+	<string name="about2">入账模式为 首×分钟/每×分钟. 例如. 60/10 意味着首分钟不足60秒按60秒计算,以后每10秒计算一次.</string>
+	<string name="about3">CallMeter每30分钟统计一次数据(除非程序不在背景运行). 这意味着删除30分钟前的数据不会影响统计结果. 删除之后的数据则会导致错误的统计结果.</string>
 <!--	<string name="note_cm3">Data stats can not be fetched from before last boot!\nKilling this app may result in wrong data stats.</string> -->
-<!--	<string name="send_">Send</string> -->
+	<string name="send_">发送</string>
 <!--	<string name="add_">Add</string> -->
 <!--	<string name="add_log">Add log entry</string> -->
 <!--	<string name="length_hint_call">Length in seconds</string> -->
 <!--	<string name="length_hint_data">Length in kB</string> -->
-<!--	<string name="settings">Preferences</string> -->
+	<string name="settings">选项</string>
 <!--	<string name="update_interval_">Update interval</string> -->
 <!--	<string name="update_interval_hint">Shorter period will use more battery.</string> -->
 <!--	<string name="date_begin_">Beginning of records</string> -->
 <!--	<string name="date_begin_hint">Ignore any logs before this date.</string> -->
 <!--	<string name="common_prefs_">Common preferences</string> -->
 <!--	<string name="edit_">Edit</string> -->
-<!--	<string name="about_">About</string> -->
-<!--	<string name="about_hint">About this app</string> -->
-<!--	<string name="faq_hint">Some tips and tricks, how to set up this app.</string> -->
-<!--	<string name="feedback_">Feedback</string> -->
-<!--	<string name="feedback_hint">Report bugs, request features ...</string> -->
-<!--	<string name="twitter_hint">Follow me on twitter.\nGet update notifications etc.</string> -->
-<!--	<string name="more_">More Apps..</string> -->
+	<string name="about_">关于</string>
+	<string name="about_hint">关于这个程序</string>
+	<string name="faq_hint">设置这个程序的小贴士.</string>
+	<string name="feedback_">反馈</string>
+	<string name="feedback_hint">报告漏洞,建议添加新功能...</string>
+	<string name="twitter_hint">在twitter上跟随我.\n获取升级通知.</string>
+	<string name="more_">更多程序..</string>
 <!--	<string name="billing_">Billing</string> -->
-<!--	<string name="billday_">First day of the billing period</string> -->
-<!--	<string name="billmode_">Billing mode</string> -->
-<!--	<string name="billdate_">Start of billing period:</string> -->
-<!--	<string name="appearance_">Appearance</string> -->
+	<string name="billday_">账单周期开始日</string>
+	<string name="billmode_">支付模式</string>
+	<string name="billdate_">账单周期开始于:</string>
+	<string name="appearance_">外观</string>
 <!--	<string name="advanced_preferences_">Advanced preferences</string> -->
 <!--	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string> -->
-<!--	<string name="theme_">Theme</string> -->
-<!--	<string name="textsize_">Text size</string> -->
+	<string name="theme_">主题</string>
+	<string name="textsize_">文字大小</string>
 <!--	<string name="textsize_hint">Text size in pixels; leave empty for default</string> -->
 <!--	<string name="show_total_">Show total</string> -->
 <!--	<string name="show_total_hint">Show total stats, disable to see current only.</string> -->
@@ -101,7 +101,7 @@
 <!--	<string name="custom_date_format_hint">Select a custom date format.</string> -->
 <!--	<string name="logs">Logs</string> -->
 <!--	<string name="show_logs">Show logs</string> -->
-<!--	<string name="plans">Plans</string> -->
+	<string name="plans">方案</string>
 <!--	<string name="plans_hint">Set your plans for all kind of billing here.</string> -->
 <!--	<string name="plans_new">New plan</string> -->
 <!--	<string name="rules">Rules</string> -->
@@ -121,20 +121,20 @@
 <!--	<string name="exhourgroup_help">Add some hours this rule must not match.</string> -->
 <!--	<string name="new_hourgroup">New hour group</string> -->
 <!--	<string name="add_hour">Add hour</string> -->
-<!--	<string name="calls">Calls</string> -->
-<!--	<string name="sms">SMS</string> -->
+	<string name="calls">电话</string>
+	<string name="sms">短信</string>
 <!--	<string name="mms">MMS</string> -->
-<!--	<string name="data">Data</string> -->
+	<string name="data">数据连接</string>
 <!--	<string name="prepaid_">Prepaid plan</string> -->
 <!--	<string name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string> -->
 <!--	<string name="balance_">Balance</string> -->
 <!--	<string name="balance_help">Balance of your account at this given date.</string> -->
-<!--	<string name="reset_data_">Reset statistics</string> -->
-<!--	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string> -->
-<!--	<string name="reset_data_data_">Reset traffic too.</string> -->
+	<string name="reset_data_">重置统计数据</string>
+	<string name="reset_data_hint">重置电话/短信记录会导致重新计算统计数据.\n\n重置统计数据是不可恢复的.只有重启前的数据会被重置!</string>
+	<string name="reset_data_data_">重置数据连接记录.</string>
 <!--	<string name="reset_data_progr1">Recalculating statistics ...\n\n(This may take some time!)</string> -->
 <!--	<string name="reset_data_progr2">Recalculating statistics ...</string> -->
-<!--	<string name="contacts_">Contacts</string> -->
+	<string name="contacts_">联系人</string>
 <!--	<string name="clear_">Clear</string> -->
 <!--	<string name="help_">Help</string> -->
 <!--	<string name="new_">New</string> -->
@@ -150,9 +150,9 @@
 <!--	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"cost\" limit will limit your plan based on cost produced by the items billed in this plan.</string> -->
 <!--	<string name="limit_">Limit</string> -->
 <!--	<string name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string> -->
-<!--	<string name="billmode_">Billing mode</string> -->
+	<string name="billmode_">支付模式</string>
 <!--	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string> -->
-<!--	<string name="billday_">First day of the billing period</string> -->
+	<string name="billday_">账单周期开始日</string>
 <!--	<string name="billday_help">Set this to the first day of the bill of the current billing period.</string> -->
 <!--	<string name="billperiodid_">Billing period</string> -->
 <!--	<string name="billperiodid_help">Select your billing period.\nYou may need to create one as extra plan.</string> -->
@@ -248,10 +248,10 @@
 <!--		<item>22:00 - 22:59</item> -->
 <!--		<item>23:00 - 23:59</item> -->
 <!--	</string-array> -->
-<!--	<string-array name="themes"> -->
-<!--		<item>Black</item> -->
-<!--		<item>Light</item> -->
-<!--	</string-array> -->
+	<string-array name="themes">
+		<item>黑</item>
+		<item>白</item>
+	</string-array>
 <!--	<string-array name="dialog_edit_plan"> -->
 <!--		<item>Edit plan</item> -->
 <!--	</string-array> -->
