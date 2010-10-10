@@ -412,6 +412,9 @@ public final class LogRunnerService extends IntentService {
 			do {
 				final ContentValues cv = new ContentValues();
 				final int t = cursor.getInt(idType);
+				final long d = cursor.getLong(idDate);
+				Log.d(TAG, "mms date: " + d);
+				Log.d(TAG, "mms type: " + t);
 				if (t == MMS_IN) {
 					cv.put(DataProvider.Logs.DIRECTION,
 							DataProvider.DIRECTION_IN);
@@ -424,8 +427,7 @@ public final class LogRunnerService extends IntentService {
 				cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
 				cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_MMS);
-				cv.put(DataProvider.Logs.DATE, this.fixDate(cursor
-						.getLong(idDate)));
+				cv.put(DataProvider.Logs.DATE, this.fixDate(d));
 				// FIXME: cv.put(DataProvider.Logs.REMOTE,
 				// DataProvider.Logs.cleanNumber(
 				// cursor.getLong(idAddress), false));
