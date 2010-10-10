@@ -21,6 +21,7 @@ package de.ub0r.android.callmeter.data;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
@@ -49,6 +50,14 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	public static final String ACTION_FORCE_UPDATE = // .
 	"de.ub0r.android.callmeter.FORCE_UPDATE";
 
+	/** ACTION for publishing information about sent websms. */
+	private static final String ACTION_CM_WEBSMS = // .
+	"de.ub0r.android.callmeter.SAVE_WEBSMS";
+	/** Extra holding uri of sent sms. */
+	private static final String EXTRA_WEBSMS_URI = "uri";
+	/** Extra holding name of connector. */
+	private static final String EXTRA_WEBSMS_CONNECTOR = "connector";
+
 	/**
 	 * Schedule next update.
 	 * 
@@ -69,11 +78,44 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	}
 
 	/**
+	 * Save sent WebSMS to db.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param mid
+	 *            message id
+	 * @param connector
+	 *            connector name
+	 */
+	private void saveWebSMS(final Context context, final long mid,
+			final String connector) {
+		final ContentValues cv = new ContentValues(2);
+		cv.put(DataProvider.WebSMS.ID, mid);
+		cv.put(DataProvider.WebSMS.CONNECTOR, connector);
+		context.getContentResolver()
+				.insert(DataProvider.WebSMS.CONTENT_URI, cv);
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void onReceive(final Context context, final Intent intent) {
 		Log.d(TAG, "wakeup");
+		final String a = intent.getAction();
+		Log.d(TAG, "action: " + a);
+		if (a != null && a.equals(ACTION_CM_WEBSMS)) {
+			final String su = intent.getStringExtra(EXTRA_WEBSMS_URI);
+			if (su != null && su.length() > 0) {
+				final long si = Utils.parseLong(su.replaceAll(".*/", ""), -1);
+				final String sc = intent.getStringExtra(EXTRA_WEBSMS_CONNECTOR);
+				Log.d(TAG, "websms id:  " + si);
+				Log.d(TAG, "websms con: " + sc);
+				if (si >= 0) {
+					this.saveWebSMS(context, si, sc);
+				}
+			}
+		}
 		// run LogRunnerService
 		LogRunnerService.update(context, intent.getAction());
 		// schedule next update

@@ -66,7 +66,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 20;
+	private static final int DATABASE_VERSION = 21;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -311,6 +311,97 @@ public final class DataProvider extends ContentProvider {
 			} else {
 				return number.replaceAll("[^?*#+0-9]", "");
 			}
+		}
+	}
+
+	/**
+	 *WebSMS.
+	 * 
+	 * @author flx
+	 */
+	public static final class WebSMS {
+		/** Table name. */
+		private static final String TABLE = "websms";
+		/** {@link HashMap} for projection. */
+		private static final HashMap<String, String> PROJECTION_MAP;
+
+		/** Index in projection: ID. */
+		public static final int INDEX_ID = 0;
+		/** Index in projection: Connector's name. */
+		public static final int INDEX_CONNECTOR = 1;
+		/** Index in projection: date. */
+		public static final int INDEX_DATE = 2;
+
+		/** ID. */
+		public static final String ID = "_id";
+		/** Connector's name. */
+		public static final String CONNECTOR = "_connector";
+		/** Date. */
+		public static final String DATE = "_date";
+
+		/** Projection used for query. */
+		public static final String[] PROJECTION = new String[] { // .
+		ID, CONNECTOR, DATE };
+
+		/** Content {@link Uri}. */
+		public static final Uri CONTENT_URI = Uri.parse("content://"
+				+ AUTHORITY + "/websms");
+		/**
+		 * The MIME type of {@link #CONTENT_URI} providing a list.
+		 */
+		public static final String CONTENT_TYPE = // .
+		"vnd.android.cursor.dir/vnd.ub0r.websms";
+
+		/**
+		 * The MIME type of a {@link #CONTENT_URI} single entry.
+		 */
+		public static final String CONTENT_ITEM_TYPE = // .
+		"vnd.android.cursor.item/vnd.ub0r.websms";
+
+		static {
+			PROJECTION_MAP = new HashMap<String, String>();
+			PROJECTION_MAP.put(ID, ID);
+			PROJECTION_MAP.put(CONNECTOR, CONNECTOR);
+			PROJECTION_MAP.put(DATE, DATE);
+		}
+
+		/**
+		 * Create table in {@link SQLiteDatabase}.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 */
+		public static void onCreate(final SQLiteDatabase db) {
+			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
+			db.execSQL("CREATE TABLE " + TABLE + " (" // .
+					+ ID + " LONG, " // .
+					+ CONNECTOR + " TEXT,"// .
+					+ DATE + " LONG"// .
+					+ ");");
+		}
+
+		/**
+		 * Upgrade table.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 * @param oldVersion
+		 *            old version
+		 * @param newVersion
+		 *            new version
+		 */
+		public static void onUpgrade(final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) {
+			Log.w(TAG, "Upgrading table: " + TABLE);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
+			onCreate(db);
+			reload(db, TABLE, values);
+		}
+
+		/** Default constructor. */
+		private WebSMS() {
+			// nothing here.
 		}
 	}
 
@@ -1423,6 +1514,8 @@ public final class DataProvider extends ContentProvider {
 	private static final int HOURS_GROUP_ID = 16;
 	/** Internal id: sum of logs. */
 	private static final int LOGS_SUM = 17;
+	/** Internal id: websms. */
+	private static final int WEBSMS = 18;
 	/** Internal id: export. */
 	private static final int EXPORT = 200;
 
@@ -1448,6 +1541,7 @@ public final class DataProvider extends ContentProvider {
 		URI_MATCHER.addURI(AUTHORITY, "hours/group/#", HOURS_GID);
 		URI_MATCHER.addURI(AUTHORITY, "hours/groups/", HOURS_GROUP);
 		URI_MATCHER.addURI(AUTHORITY, "hours/groups/#", HOURS_GROUP_ID);
+		URI_MATCHER.addURI(AUTHORITY, "websms", WEBSMS);
 		URI_MATCHER.addURI(AUTHORITY, "export", EXPORT);
 	}
 
@@ -1476,6 +1570,7 @@ public final class DataProvider extends ContentProvider {
 		public void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create database");
 			Logs.onCreate(db);
+			WebSMS.onCreate(db);
 			Plans.onCreate(db);
 			Rules.onCreate(db);
 			Numbers.onCreate(db);
@@ -1508,6 +1603,7 @@ public final class DataProvider extends ContentProvider {
 			Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
 					+ newVersion + ", which will destroy all old data");
 			Logs.onUpgrade(db, oldVersion, newVersion);
+			WebSMS.onUpgrade(db, oldVersion, newVersion);
 			Plans.onUpgrade(db, oldVersion, newVersion);
 			Rules.onUpgrade(db, oldVersion, newVersion);
 			Numbers.onUpgrade(db, oldVersion, newVersion);
@@ -1910,6 +2006,9 @@ public final class DataProvider extends ContentProvider {
 		switch (URI_MATCHER.match(uri)) {
 		case LOGS:
 			ret = db.insert(Logs.TABLE, null, values);
+			break;
+		case WEBSMS:
+			ret = db.insert(WebSMS.TABLE, null, values);
 			break;
 		case PLANS:
 			if (!values.containsKey(Plans.ORDER)) {
