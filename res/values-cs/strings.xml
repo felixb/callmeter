@@ -24,63 +24,93 @@
 	<string name="license">GPLv3 - viz http://www.gnu.org/licenses/gpl-3.0.txt</string>
 	<string name="source_">Zdrojový kód:</string>
 	<string name="website_">Web:</string>
-<!--	<string name="debug_">Debug</string> -->
-<!--	<string name="custom_language_">Custom language</string> -->
-<!--	<string name="custom_language_hint">Set a custom language.</string> -->
-<!--	<string name="send_logs_">Send logs</string> -->
-<!--	<string name="send_logs_hint">Send your device\'s logs to the developer.\nDo this only if you were asked to do so.</string> -->
-<!--	<string name="sendlog_run_">Run SendLog</string> -->
-<!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
-<!--	<string name="sendlog_install_">Install SendLog</string> -->
-<!--	<string name="sendlog_install">Install the free SendLog application to collect the device log and send it to the developer.</string> -->
+	<string name="debug_">Debug</string>
+	<string name="custom_language_">Výběr jazyka</string>
+	<string name="custom_language_hint">Vybrat jazykovou verzi programu.</string>
+	<string name="send_logs_">Odeslat logy</string>
+	<string name="send_logs_hint">Odeslat aplikační logy vývojáři (jen po předchozí domluvě).</string>
+	<string name="sendlog_run_">Spustit SendLog</string>
+	<string name="sendlog_run">Program SendLog posbírá informace z vašeho zařízení a pošle je vývojáři.\nPřed odesláním můžete log ještě 
+
+upravit.</string>
+	<string name="sendlog_install_">Instalovat SendLog</string>
+	<string name="sendlog_install">SendLog je freewarová aplikace na sběr informací z vašeho zařízení, které poslouží pro ladění této aplikace.</string>
 	<string name="donate_paypal_">Chci přispět (Paypal)</string>
 	<string name="donate_market_">Chci přispět (Market)</string>
 	<string name="donate_remove_ads_">Přispět/odstranit inzerci</string>
 	<string name="remove_ads_">Odstranit inzerci</string>
-<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
-<!--	<string name="postdonate">To remove ads, you need to load the <i>noads</i> code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work after one day.</string> -->
-<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
-<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
-<!--	<string name="load_hash_">Load <i>noads</i> code</string> -->
-<!--	<string name="sig_loaded">Ads removed!</string> -->
-<!--	<string name="sig_failed">Failed to remove ads!</string> -->
-<!--	<string name="accept_">Accept Terms</string> -->
-<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
-<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
-<!--	<string name="notify_">Forgot to remove the ads?</string> -->
-<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
+	<string name="predonate">Call Meter je open-source aplikací vydanou pod licencí GPLv3. Využití aplikace není a nebude zpoplatněné. Pokud jste s ní 
+
+spokojení, nebo pokud vám vadí inzerce, zvažte možnost přispět přes PayPal na její vývoj. Kromě dobrého pocitu z podpory získá dárce aplikaci bez inzerce.
+
+\nPředem díky! (příspěvek odstraní inzerci ze všech mých aplikací)</string>
+	<string name="postdonate">Inzerce je odstraněna po zadání <i>no-ads</i> kódu, který dorazí jakmile obdržím příspěvek. Buďte trpěliví! Pokud kód 
+
+nepřijde během jednoho dne, pošlete mi email.</string>
+	<string name="donator_id_">Pro ověření vašeho příspěvku je třeba zadat buď vaší PayPal emailovou adresu [pro platbu přes PayPal], nebo @gmail pro 
+
+platby přes Market:</string> 
+	<string name="donator_id_hint">PayPal/Gmail adresa</string>
+	<string name="load_hash_">Nahrát <i>no-ads</i> kód</string>
+	<string name="sig_loaded">Inzerce už není :-)</string>
+	<string name="sig_failed">Inzerci se nepodařilo odstranit :-(</string>
+	<string name="accept_">Přijmout podmínky</string>
+	<string name="accept_missing">Je třeba přijmout podmínky před odesláním dat...</string>
+	<string name="terms">Aplikace pošle identifikátor vaší platby spolu s MD5 hashem vašeho IMEI na server http://ub0r.de/donation/. Tyto informace 
+
+potřebuji pro ověření vaší platby\n\nPři výměně telefonu přestane <i>no-ads</i> kód platit, ale když mi napíšete email, pošlu vám nový.</string>
+	<string name="notify_">Nezapomněl/a jsi odstranit inzerci?</string>
+	<string name="notify_text">Pro odstranění inzerce je třeba nahrát <i>no-ads</i> kód.</string>
 	<string name="about0_">Call Meter slouží ke sledování stavu čerpání hovorného, SMS zpráv a datových přenosů v rámci měsíčního paušálu.</string>
-	<string name="about0">Aplikace tvoří statistiku na základě logů o hovorech, SMS zprávách a datových přenosech a podporuje několik způsobů účtování/tarifikace.</string>
-	<string name="about1">Výstupem je celkový počet využitých minut/sms/dat od nainstalování aplikace, a počet těchto jednotek případně ukazatel využití volných minut/sms/dat za aktuální účetní období. Výpočet měsíční spotřeby bere v potaz vybranou tarifikaci. V celkovém výpočtu není tarifikace zohledněna.\n\nLegenda zobrazování statistik:\nPříchozí hovory: délka a počet v aktuálním období / délka všech hovorů\nOdchozí hovory: [% využití volných minut akt. období] / délka a počet v akt. období / délka všech hovorů\nPříchozí SMS: počet SMS akt. období / celkový počet SMS\nOdchozí SMS: cena za SMS akt. období / [% využití volných SMS akt. období] / počet SMS akt. období / celkový počet SMS </string>
-	<string name="about2">Režim tarifikace určuje způsob zpoplatnění prvního a následujícího intervalu hlasových hovorů. Např. 60/10 znamená, že u hovoru se vždy započte min. 60 vteřin a čas nad rámec prvního intervalu je zaokrouhlen nahoru na nejbližších 10 vteřin.</string>
-	<string name="about3">Účtování hovorů a SMS zpráv lze rozdělit do dvou paušálů (např. pro různou tarifikaci, cenu hovorů a zpráv ve špičce a mimo špičku). Každý z paušálů pak může mít své individuální nastavení (různá cena hovorů, počet volných minut / sms, apod.).</string>
+	<string name="about0">Aplikace tvoří statistiku na základě logů o hovorech, SMS zprávách a datových přenosech a podporuje několik způsobů 
+
+účtování/tarifikace.</string>
+	<string name="about1">Výstupem je celkový počet využitých minut/sms/dat od nainstalování aplikace, a počet těchto jednotek případně ukazatel využití 
+
+volných minut/sms/dat za aktuální účetní období. Výpočet měsíční spotřeby bere v potaz vybranou tarifikaci. V celkovém výpočtu není tarifikace zohledněna.\n
+
+\nLegenda zobrazování statistik:\nPříchozí hovory: délka a počet v aktuálním období / délka všech hovorů\nOdchozí hovory: [% využití volných minut akt. 
+
+období] / délka a počet v akt. období / délka všech hovorů\nPříchozí SMS: počet SMS akt. období / celkový počet SMS\nOdchozí SMS: cena za SMS akt. období / 
+
+[% využití volných SMS akt. období] / počet SMS akt. období / celkový počet SMS </string>
+	<string name="about2">Režim tarifikace určuje způsob zpoplatnění prvního a následujícího intervalu hlasových hovorů. Např. 60/10 znamená, že u hovoru 
+
+se vždy započte min. 60 vteřin a čas nad rámec prvního intervalu je zaokrouhlen nahoru na nejbližších 10 vteřin.</string>
+	<string name="about3">Účtování hovorů a SMS zpráv lze rozdělit do dvou paušálů (např. pro různou tarifikaci, cenu hovorů a zpráv ve špičce a mimo 
+
+špičku). Každý z paušálů pak může mít své individuální nastavení (různá cena hovorů, počet volných minut / sms, apod.).</string>
 	<string name="about4">Textové zprávy lze započítávat jako horovy - např. každá zpráva může být započítána jako 15 vteřin hovorného.</string>
-	<string name="about5">Call Meter se spouští každých 30 minut (pokud není telefon v pohotovostním režimu), což znamená, že smazání záznamů o hovorech/sms/datech za posledních 30 minut ovlivní vypočtenou statistiku.</string>
+	<string name="about5">Call Meter se spouští každých 30 minut (pokud není telefon v pohotovostním režimu), což znamená, že smazání záznamů o 
+
+hovorech/sms/datech za posledních 30 minut ovlivní vypočtenou statistiku.</string>
 	<string name="about6_">Co Call Meter neumí:</string>
-	<string name="about6">Díky úzké integraci technologie SIP a odesílání SMS přes webovou bránu v Androidu, nedokáže aplikace rozlišit mezi způsobem uskutečnění hovorů a odesílání sms, které jsou proto bez ohledu na využitý kanál započteny dohromady.</string>
+	<string name="about6">Díky úzké integraci technologie SIP a odesílání SMS přes webovou bránu v Androidu, nedokáže aplikace rozlišit mezi způsobem 
+
+uskutečnění hovorů a odesílání sms, které jsou proto bez ohledu na využitý kanál započteny dohromady.</string>
 	<string name="send_">Odeslat</string>
 	<string name="settings">Nastavení</string>
 	<string name="about_">Nápověda</string>
 	<string name="about_hint">Nápověda. O autorech.</string>
-<!--	<string name="faq_hint">Some tips and tricks, how to set up this app.</string> -->
+	<string name="faq_hint">Tipy a triky jak nastavit aplikaci.</string>
 	<string name="feedback_">Feedback</string>
 	<string name="feedback_hint">Ohlásit chybu, zaslat požadavek na funčknost.</string>
-<!--	<string name="twitter_hint">Follow me on twitter.\nGet update notifications etc.</string> -->
+	<string name="twitter_hint">Následuj mě na Twitteru\nInfo o nových verzích apod.</string>
 	<string name="more_">Další aplikace autora..</string>
 	<string name="billday_">Začátek účetního období</string>
 	<string name="billmode_">Tarifikace</string>
 	<string name="billmode_hint">Způsob výpočtu ceny volání.</string>
 	<string name="billdate_">Začátek účetního období:</string>
 	<string name="smsperiod_">Stejné účetní období pro SMS</string>
-<!--	<string name="smsperiod_hint">Set SMS\'s billing period to calls\' period.</string> -->
+	<string name="smsperiod_hint">Nastavit stejné účetní období jako pro volání.</string>
 	<string name="smsbillday_">První den účtování SMS</string>
-<!--	<string name="dataperiod_">Same Period for data</string> -->
-<!--	<string name="dataperiod_hint">Set data\'s billing period to calls\' period.</string> -->
-<!--	<string name="databillday_">First day of your data bill</string> -->
+	<string name="dataperiod_">Stejné účetní období pro data</string>
+	<string name="dataperiod_hint">Nastavit stejné účetní období jako pro volání.</string>
+	<string name="databillday_">První den účtování dat</string>
 	<string name="appearance_">Přizpůsobení vzhledu</string>
 	<string name="theme_">Motiv</string>
 	<string name="textsize_">Velikost textu</string>
-<!--	<string name="advanced_">Advanced</string> -->
+	<string name="advanced_">Pokročilé nastavení</string>
 	<string name="exclude_people_">Vyloučit tel. čísla</string>
 	<string name="exclude_people_hint">Nezohledňovat volání na čísla a předvolby. Zástupné znaky: *555, 555* or *555*</string>
 	<string name="exclude_people_add">Přidat číslo</string>
@@ -88,12 +118,12 @@
 	<string name="exclude_people_delete">Smazat</string>
 	<string name="exclude_people_to_plan1_">Nevylučovat z Paušálu 1</string>
 	<string name="exclude_people_to_plan2_">Nevylučovat z Paušálu 2</string>
-<!--	<string name="exclude_people_calls_">Enable for Calls</string> -->
-<!--	<string name="exclude_people_calls_to_plan1_hint">Bill calls to/from excluded numbers in plan #1</string> -->
-<!--	<string name="exclude_people_calls_to_plan2_hint">Bill calls to/from excluded numbers in plan #2</string> -->
-<!--	<string name="exclude_people_sms_">Enable for SMS</string> -->
-<!--	<string name="exclude_people_sms_to_plan1_hint">Bill messages to/from excluded numbers in plan #1</string> -->
-<!--	<string name="exclude_people_sms_to_plan2_hint">Bill messages to/from excluded numbers in plan #2</string> -->
+	<string name="exclude_people_calls_">Povolit pro volání</string>
+	<string name="exclude_people_calls_to_plan1_hint">Účtovat hovory z/na vyloučená čísla do Paušálu 1</string>
+	<string name="exclude_people_calls_to_plan2_hint">Účtovat hovoty z/na vyloučená čísla do Paušálu 2</string>
+	<string name="exclude_people_sms_">Povolit pro SMS</string>
+	<string name="exclude_people_sms_to_plan1_hint">Účtovat SMS na vyloučená čísla do Paušálu 1</string>
+	<string name="exclude_people_sms_to_plan2_hint">Účtovat SMS na vyloučená čísla do Paušálu 2</string>
 	<string name="plans">Paušály</string>
 	<string name="plans_split">Rozdělit účetní období</string>
 	<string name="plans_merge">Sloučit paušály</string>
@@ -119,15 +149,15 @@
 	<string name="cost_per_minute_hint">Pro výpočet ceny volání.</string>
 	<string name="cost_per_sms_">Cena za SMS</string>
 	<string name="cost_per_sms_hint">Pro výpočet ceny SMS.</string>
-<!--	<string name="cost_per_mb_">Cost per MB</string> -->
-<!--	<string name="cost_per_mb_hint">Each MB of the traffic will be billed with this.</string> -->
+	<string name="cost_per_mb_">Cena za MB</string>
+	<string name="cost_per_mb_hint">Pro výpočet ceny za data.</string>
 	<string name="merge_sms_calls_">Slučovat SMS do volání</string>
 	<string name="merge_sms_calls_hint">Účtovat cenu SMS jako hovorné.</string>
 	<string name="merge_sms_calls_sec_">Vteřin / SMS</string>
 	<string name="merge_sms_calls_sec_hint">Počet vteřin, které se započítají místo jedné SMS.</string>
 	<string name="merge_sms_plan1_">Sloučit s Paušálem 1</string>
 	<string name="merge_sms_plan1_hint">Zrušte volbu pro sloučení s Paušálem 2.</string>
-<!--	<string name="data_hint">WLAN stats are not collected here!</string> -->
+	<string name="data_hint">Data z WiFi nejsou započítávána!</string>
 	<string name="data_enable_">Zobrazit statistiku</string>
 	<string name="data_enable_hint">Data jsou sbírána v reálném čase. Výpočet za 1. měsíc nemusí být přesný!</string>
 	<string name="data_each_day">Účtovat po dnech</string>
@@ -154,9 +184,11 @@
 	<string name="plan_name1_">Paušál 1</string>
 	<string name="plan_name2_">Paušál 2</string>
 	<string name="plan_name_hint">Uživatelský název paušálu.</string>
-<!--	<string name="reset_data_">Reset statistics</string> -->
-<!--	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string> -->
-<!--	<string name="reset_data_data_">Reset traffic too.</string> -->
+	<string name="reset_data_">Resetovat paměť</string>
+	<string name="reset_data_hint">Reset paměti aplikace vynutí přepočet statistiky.\nReset paměti o datovém provozu je permanentní - smaže pouze data 
+
+přenesená před startem zařízení.</string>
+	<string name="reset_data_data_">Reset paměti o přenosu dat.</string>
 	<string name="contacts_">Z kontaktů</string>
 	<string-array name="themes">
 		<item>Tmavý</item>
