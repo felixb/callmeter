@@ -30,64 +30,34 @@
 	<string name="send_logs_">Odeslat logy</string>
 	<string name="send_logs_hint">Odeslat aplikační logy vývojáři (jen po předchozí domluvě).</string>
 	<string name="sendlog_run_">Spustit SendLog</string>
-	<string name="sendlog_run">Program SendLog posbírá informace z vašeho zařízení a pošle je vývojáři.\nPřed odesláním můžete log ještě 
-
-upravit.</string>
+	<string name="sendlog_run">Program SendLog posbírá informace z vašeho zařízení a pošle je vývojáři.\nPřed odesláním můžete log ještě upravit.</string>
 	<string name="sendlog_install_">Instalovat SendLog</string>
 	<string name="sendlog_install">SendLog je freewarová aplikace na sběr informací z vašeho zařízení, které poslouží pro ladění této aplikace.</string>
 	<string name="donate_paypal_">Chci přispět (Paypal)</string>
 	<string name="donate_market_">Chci přispět (Market)</string>
 	<string name="donate_remove_ads_">Přispět/odstranit inzerci</string>
 	<string name="remove_ads_">Odstranit inzerci</string>
-	<string name="predonate">Call Meter je open-source aplikací vydanou pod licencí GPLv3. Využití aplikace není a nebude zpoplatněné. Pokud jste s ní 
-
-spokojení, nebo pokud vám vadí inzerce, zvažte možnost přispět přes PayPal na její vývoj. Kromě dobrého pocitu z podpory získá dárce aplikaci bez inzerce.
-
-\nPředem díky! (příspěvek odstraní inzerci ze všech mých aplikací)</string>
-	<string name="postdonate">Inzerce je odstraněna po zadání <i>no-ads</i> kódu, který dorazí jakmile obdržím příspěvek. Buďte trpěliví! Pokud kód 
-
-nepřijde během jednoho dne, pošlete mi email.</string>
-	<string name="donator_id_">Pro ověření vašeho příspěvku je třeba zadat buď vaší PayPal emailovou adresu [pro platbu přes PayPal], nebo @gmail pro 
-
-platby přes Market:</string> 
+	<string name="predonate">Call Meter je open-source aplikací vydanou pod licencí GPLv3. Využití aplikace není a nebude zpoplatněné. Pokud jste s ní spokojení, nebo pokud vám vadí inzerce, zvažte možnost přispět přes PayPal na její vývoj. Kromě dobrého pocitu z podpory získá dárce aplikaci bez inzerce.\nPředem díky! (příspěvek odstraní inzerci ze všech mých aplikací)</string>
+	<string name="postdonate">Inzerce je odstraněna po zadání <i>no-ads</i> kódu, který dorazí jakmile obdržím příspěvek. Buďte trpěliví! Pokud kód nepřijde během jednoho dne, pošlete mi email.</string>
+	<string name="donator_id_">Pro ověření vašeho příspěvku je třeba zadat buď vaší PayPal emailovou adresu [pro platbu přes PayPal], nebo @gmail pro platby přes Market:</string>
 	<string name="donator_id_hint">PayPal/Gmail adresa</string>
 	<string name="load_hash_">Nahrát <i>no-ads</i> kód</string>
 	<string name="sig_loaded">Inzerce už není :-)</string>
 	<string name="sig_failed">Inzerci se nepodařilo odstranit :-(</string>
 	<string name="accept_">Přijmout podmínky</string>
 	<string name="accept_missing">Je třeba přijmout podmínky před odesláním dat...</string>
-	<string name="terms">Aplikace pošle identifikátor vaší platby spolu s MD5 hashem vašeho IMEI na server http://ub0r.de/donation/. Tyto informace 
-
-potřebuji pro ověření vaší platby\n\nPři výměně telefonu přestane <i>no-ads</i> kód platit, ale když mi napíšete email, pošlu vám nový.</string>
+	<string name="terms">Aplikace pošle identifikátor vaší platby spolu s MD5 hashem vašeho IMEI na server http://ub0r.de/donation/. Tyto informace potřebuji pro ověření vaší platby\n\nPři výměně telefonu přestane <i>no-ads</i> kód platit, ale když mi napíšete email, pošlu vám nový.</string>
 	<string name="notify_">Nezapomněl/a jsi odstranit inzerci?</string>
 	<string name="notify_text">Pro odstranění inzerce je třeba nahrát <i>no-ads</i> kód.</string>
 	<string name="about0_">Call Meter slouží ke sledování stavu čerpání hovorného, SMS zpráv a datových přenosů v rámci měsíčního paušálu.</string>
-	<string name="about0">Aplikace tvoří statistiku na základě logů o hovorech, SMS zprávách a datových přenosech a podporuje několik způsobů 
-
-účtování/tarifikace.</string>
-	<string name="about1">Výstupem je celkový počet využitých minut/sms/dat od nainstalování aplikace, a počet těchto jednotek případně ukazatel využití 
-
-volných minut/sms/dat za aktuální účetní období. Výpočet měsíční spotřeby bere v potaz vybranou tarifikaci. V celkovém výpočtu není tarifikace zohledněna.\n
-
-\nLegenda zobrazování statistik:\nPříchozí hovory: délka a počet v aktuálním období / délka všech hovorů\nOdchozí hovory: [% využití volných minut akt. 
-
-období] / délka a počet v akt. období / délka všech hovorů\nPříchozí SMS: počet SMS akt. období / celkový počet SMS\nOdchozí SMS: cena za SMS akt. období / 
-
-[% využití volných SMS akt. období] / počet SMS akt. období / celkový počet SMS </string>
-	<string name="about2">Režim tarifikace určuje způsob zpoplatnění prvního a následujícího intervalu hlasových hovorů. Např. 60/10 znamená, že u hovoru 
-
-se vždy započte min. 60 vteřin a čas nad rámec prvního intervalu je zaokrouhlen nahoru na nejbližších 10 vteřin.</string>
-	<string name="about3">Účtování hovorů a SMS zpráv lze rozdělit do dvou paušálů (např. pro různou tarifikaci, cenu hovorů a zpráv ve špičce a mimo 
-
-špičku). Každý z paušálů pak může mít své individuální nastavení (různá cena hovorů, počet volných minut / sms, apod.).</string>
+	<string name="about0">Aplikace tvoří statistiku na základě logů o hovorech, SMS zprávách a datových přenosech a podporuje několik způsobů účtování/tarifikace.</string>
+	<string name="about1">Výstupem je celkový počet využitých minut/sms/dat od nainstalování aplikace, a počet těchto jednotek případně ukazatel využití volných minut/sms/dat za aktuální účetní období. Výpočet měsíční spotřeby bere v potaz vybranou tarifikaci. V celkovém výpočtu není tarifikace zohledněna.\n\nLegenda zobrazování statistik:\nPříchozí hovory: délka a počet v aktuálním období / délka všech hovorů\nOdchozí hovory: [% využití volných minut akt. období] / délka a počet v akt. období / délka všech hovorů\nPříchozí SMS: počet SMS akt. období / celkový počet SMS\nOdchozí SMS: cena za SMS akt. období / [% využití volných SMS akt. období] / počet SMS akt. období / celkový počet SMS </string>
+	<string name="about2">Režim tarifikace určuje způsob zpoplatnění prvního a následujícího intervalu hlasových hovorů. Např. 60/10 znamená, že u hovoru se vždy započte min. 60 vteřin a čas nad rámec prvního intervalu je zaokrouhlen nahoru na nejbližších 10 vteřin.</string>
+	<string name="about3">Účtování hovorů a SMS zpráv lze rozdělit do dvou paušálů (např. pro různou tarifikaci, cenu hovorů a zpráv ve špičce a mimo špičku). Každý z paušálů pak může mít své individuální nastavení (různá cena hovorů, počet volných minut / sms, apod.).</string>
 	<string name="about4">Textové zprávy lze započítávat jako horovy - např. každá zpráva může být započítána jako 15 vteřin hovorného.</string>
-	<string name="about5">Call Meter se spouští každých 30 minut (pokud není telefon v pohotovostním režimu), což znamená, že smazání záznamů o 
-
-hovorech/sms/datech za posledních 30 minut ovlivní vypočtenou statistiku.</string>
+	<string name="about5">Call Meter se spouští každých 30 minut (pokud není telefon v pohotovostním režimu), což znamená, že smazání záznamů o hovorech/sms/datech za posledních 30 minut ovlivní vypočtenou statistiku.</string>
 	<string name="about6_">Co Call Meter neumí:</string>
-	<string name="about6">Díky úzké integraci technologie SIP a odesílání SMS přes webovou bránu v Androidu, nedokáže aplikace rozlišit mezi způsobem 
-
-uskutečnění hovorů a odesílání sms, které jsou proto bez ohledu na využitý kanál započteny dohromady.</string>
+	<string name="about6">Díky úzké integraci technologie SIP a odesílání SMS přes webovou bránu v Androidu, nedokáže aplikace rozlišit mezi způsobem uskutečnění hovorů a odesílání sms, které jsou proto bez ohledu na využitý kanál započteny dohromady.</string>
 	<string name="send_">Odeslat</string>
 	<string name="settings">Nastavení</string>
 	<string name="about_">Nápověda</string>
@@ -185,9 +155,7 @@ uskutečnění hovorů a odesílání sms, které jsou proto bez ohledu na využ
 	<string name="plan_name2_">Paušál 2</string>
 	<string name="plan_name_hint">Uživatelský název paušálu.</string>
 	<string name="reset_data_">Resetovat paměť</string>
-	<string name="reset_data_hint">Reset paměti aplikace vynutí přepočet statistiky.\nReset paměti o datovém provozu je permanentní - smaže pouze data 
-
-přenesená před startem zařízení.</string>
+	<string name="reset_data_hint">Reset paměti aplikace vynutí přepočet statistiky.\nReset paměti o datovém provozu je permanentní - smaže pouze data přenesená před startem zařízení.</string>
 	<string name="reset_data_data_">Reset paměti o přenosu dat.</string>
 	<string name="contacts_">Z kontaktů</string>
 	<string-array name="themes">
