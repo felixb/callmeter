@@ -66,7 +66,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 20;
+	private static final int DATABASE_VERSION = 22;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -311,6 +311,97 @@ public final class DataProvider extends ContentProvider {
 			} else {
 				return number.replaceAll("[^?*#+0-9]", "");
 			}
+		}
+	}
+
+	/**
+	 *WebSMS.
+	 * 
+	 * @author flx
+	 */
+	public static final class WebSMS {
+		/** Table name. */
+		private static final String TABLE = "websms";
+		/** {@link HashMap} for projection. */
+		private static final HashMap<String, String> PROJECTION_MAP;
+
+		/** Index in projection: ID. */
+		public static final int INDEX_ID = 0;
+		/** Index in projection: Connector's name. */
+		public static final int INDEX_CONNECTOR = 1;
+		/** Index in projection: date. */
+		public static final int INDEX_DATE = 2;
+
+		/** ID. */
+		public static final String ID = "_id";
+		/** Connector's name. */
+		public static final String CONNECTOR = "_connector";
+		/** Date. */
+		public static final String DATE = "_date";
+
+		/** Projection used for query. */
+		public static final String[] PROJECTION = new String[] { // .
+		ID, CONNECTOR, DATE };
+
+		/** Content {@link Uri}. */
+		public static final Uri CONTENT_URI = Uri.parse("content://"
+				+ AUTHORITY + "/websms");
+		/**
+		 * The MIME type of {@link #CONTENT_URI} providing a list.
+		 */
+		public static final String CONTENT_TYPE = // .
+		"vnd.android.cursor.dir/vnd.ub0r.websms";
+
+		/**
+		 * The MIME type of a {@link #CONTENT_URI} single entry.
+		 */
+		public static final String CONTENT_ITEM_TYPE = // .
+		"vnd.android.cursor.item/vnd.ub0r.websms";
+
+		static {
+			PROJECTION_MAP = new HashMap<String, String>();
+			PROJECTION_MAP.put(ID, ID);
+			PROJECTION_MAP.put(CONNECTOR, CONNECTOR);
+			PROJECTION_MAP.put(DATE, DATE);
+		}
+
+		/**
+		 * Create table in {@link SQLiteDatabase}.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 */
+		public static void onCreate(final SQLiteDatabase db) {
+			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
+			db.execSQL("CREATE TABLE " + TABLE + " (" // .
+					+ ID + " LONG, " // .
+					+ CONNECTOR + " TEXT,"// .
+					+ DATE + " LONG"// .
+					+ ");");
+		}
+
+		/**
+		 * Upgrade table.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 * @param oldVersion
+		 *            old version
+		 * @param newVersion
+		 *            new version
+		 */
+		public static void onUpgrade(final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) {
+			Log.w(TAG, "Upgrading table: " + TABLE);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
+			onCreate(db);
+			reload(db, TABLE, values);
+		}
+
+		/** Default constructor. */
+		private WebSMS() {
+			// nothing here.
 		}
 	}
 
@@ -847,6 +938,10 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_EXNUMBERS_ID = 10;
 		/** Index in projection: limit not reached? */
 		public static final int INDEX_LIMIT_NOT_REACHED = 11;
+		/** Index in projection: is websms. */
+		public static final int INDEX_IS_WEBSMS = 12;
+		/** Index in projection: is websms connector. */
+		public static final int INDEX_IS_WEBSMS_CONNETOR = 13;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -872,11 +967,16 @@ public final class DataProvider extends ContentProvider {
 		public static final String EXNUMBERS_ID = "_exnumbergroup_id";
 		/** Limit not reached? */
 		public static final String LIMIT_NOT_REACHED = "_limit_not_reached";
+		/** Is websms. */
+		public static final String IS_WEBSMS = "_is_websms";
+		/** Is websms connector. */
+		public static final String IS_WEBSMS_CONNETOR = "_is_websms_connector";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, ORDER,
 				PLAN_ID, NAME, WHAT, ROAMED, DIRECTION, INHOURS_ID, EXHOURS_ID,
-				INNUMBERS_ID, EXNUMBERS_ID, LIMIT_NOT_REACHED };
+				INNUMBERS_ID, EXNUMBERS_ID, LIMIT_NOT_REACHED, IS_WEBSMS,
+				IS_WEBSMS_CONNETOR };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -907,6 +1007,8 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(INNUMBERS_ID, INNUMBERS_ID);
 			PROJECTION_MAP.put(EXNUMBERS_ID, EXNUMBERS_ID);
 			PROJECTION_MAP.put(LIMIT_NOT_REACHED, LIMIT_NOT_REACHED);
+			PROJECTION_MAP.put(IS_WEBSMS, IS_WEBSMS);
+			PROJECTION_MAP.put(IS_WEBSMS_CONNETOR, IS_WEBSMS_CONNETOR);
 		}
 
 		/**
@@ -930,7 +1032,9 @@ public final class DataProvider extends ContentProvider {
 					+ EXHOURS_ID + " LONG,"// .
 					+ INNUMBERS_ID + " LONG,"// .
 					+ EXNUMBERS_ID + " LONG,"// .
-					+ LIMIT_NOT_REACHED + " INTEGER" // .
+					+ LIMIT_NOT_REACHED + " INTEGER," // .
+					+ IS_WEBSMS + " INTEGER," // .
+					+ IS_WEBSMS_CONNETOR + " TEXT" // .
 					+ ");");
 		}
 
@@ -1423,6 +1527,8 @@ public final class DataProvider extends ContentProvider {
 	private static final int HOURS_GROUP_ID = 16;
 	/** Internal id: sum of logs. */
 	private static final int LOGS_SUM = 17;
+	/** Internal id: websms. */
+	private static final int WEBSMS = 18;
 	/** Internal id: export. */
 	private static final int EXPORT = 200;
 
@@ -1448,6 +1554,7 @@ public final class DataProvider extends ContentProvider {
 		URI_MATCHER.addURI(AUTHORITY, "hours/group/#", HOURS_GID);
 		URI_MATCHER.addURI(AUTHORITY, "hours/groups/", HOURS_GROUP);
 		URI_MATCHER.addURI(AUTHORITY, "hours/groups/#", HOURS_GROUP_ID);
+		URI_MATCHER.addURI(AUTHORITY, "websms", WEBSMS);
 		URI_MATCHER.addURI(AUTHORITY, "export", EXPORT);
 	}
 
@@ -1476,6 +1583,7 @@ public final class DataProvider extends ContentProvider {
 		public void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create database");
 			Logs.onCreate(db);
+			WebSMS.onCreate(db);
 			Plans.onCreate(db);
 			Rules.onCreate(db);
 			Numbers.onCreate(db);
@@ -1508,6 +1616,7 @@ public final class DataProvider extends ContentProvider {
 			Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
 					+ newVersion + ", which will destroy all old data");
 			Logs.onUpgrade(db, oldVersion, newVersion);
+			WebSMS.onUpgrade(db, oldVersion, newVersion);
 			Plans.onUpgrade(db, oldVersion, newVersion);
 			Rules.onUpgrade(db, oldVersion, newVersion);
 			Numbers.onUpgrade(db, oldVersion, newVersion);
@@ -1911,6 +2020,9 @@ public final class DataProvider extends ContentProvider {
 		case LOGS:
 			ret = db.insert(Logs.TABLE, null, values);
 			break;
+		case WEBSMS:
+			ret = db.insert(WebSMS.TABLE, null, values);
+			break;
 		case PLANS:
 			if (!values.containsKey(Plans.ORDER)) {
 				final Cursor c = db.query(Plans.TABLE,
@@ -1996,6 +2108,10 @@ public final class DataProvider extends ContentProvider {
 			groupBy = Logs.PLAN_ID;
 			return db.query(Logs.TABLE, projection, selection, selectionArgs,
 					groupBy, null, null);
+		case WEBSMS:
+			qb.setTables(WebSMS.TABLE);
+			qb.setProjectionMap(WebSMS.PROJECTION_MAP);
+			break;
 		case PLANS_ID:
 			qb.appendWhere(Plans.ID + "=" + ContentUris.parseId(uri));
 		case PLANS:

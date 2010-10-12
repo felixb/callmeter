@@ -153,9 +153,16 @@ public class Preferences extends PreferenceActivity {
 		final String pcs = p.getString(PREFS_CURRENCY_SYMBOL, "");
 		if (pcs.length() == 0) {
 			if (defaultCurrencySymbol == null) {
-				final Currency cur = Currency.getInstance(Locale.getDefault());
-				defaultCurrencySymbol = cur.getSymbol();
-				defaultCurrencyDigits = cur.getDefaultFractionDigits();
+				try {
+					final Currency cur = Currency.getInstance(Locale
+							.getDefault());
+					defaultCurrencySymbol = cur.getSymbol();
+					defaultCurrencyDigits = cur.getDefaultFractionDigits();
+				} catch (IllegalArgumentException e) {
+					Log.e(TAG, "error getting currency", e);
+					defaultCurrencySymbol = "$";
+					defaultCurrencyDigits = 2;
+				}
 			}
 			return defaultCurrencySymbol;
 		} else {
@@ -176,9 +183,16 @@ public class Preferences extends PreferenceActivity {
 		final String pcs = p.getString(PREFS_CURRENCY_FORMAT, "");
 		if (pcs.length() == 0) {
 			if (defaultCurrencySymbol == null) {
-				final Currency cur = Currency.getInstance(Locale.getDefault());
-				defaultCurrencySymbol = cur.getSymbol();
-				defaultCurrencyDigits = cur.getDefaultFractionDigits();
+				try {
+					final Currency cur = Currency.getInstance(Locale
+							.getDefault());
+					defaultCurrencySymbol = cur.getSymbol();
+					defaultCurrencyDigits = cur.getDefaultFractionDigits();
+				} catch (IllegalArgumentException e) {
+					Log.e(TAG, "error getting currency", e);
+					defaultCurrencySymbol = "$";
+					defaultCurrencyDigits = 2;
+				}
 			}
 			return "%." + defaultCurrencyDigits + "f"
 					+ getCurrencySymbol(context);

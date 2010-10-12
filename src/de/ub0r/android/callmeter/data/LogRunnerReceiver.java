@@ -21,8 +21,12 @@ package de.ub0r.android.callmeter.data;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import de.ub0r.android.callmeter.CallMeter;
@@ -49,6 +53,14 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	public static final String ACTION_FORCE_UPDATE = // .
 	"de.ub0r.android.callmeter.FORCE_UPDATE";
 
+	/** ACTION for publishing information about sent websms. */
+	private static final String ACTION_CM_WEBSMS = // .
+	"de.ub0r.android.callmeter.SAVE_WEBSMS";
+	/** Extra holding uri of sent sms. */
+	private static final String EXTRA_WEBSMS_URI = "uri";
+	/** Extra holding name of connector. */
+	private static final String EXTRA_WEBSMS_CONNECTOR = "connector";
+
 	/**
 	 * Schedule next update.
 	 * 
@@ -69,11 +81,56 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	}
 
 	/**
+	 * Save sent WebSMS to db.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param uri
+	 *            {@link Uri} to sent message
+	 * @param mid
+	 *            message id
+	 * @param connector
+	 *            connector name
+	 */
+	private void saveWebSMS(final Context context, final String uri,
+			final long mid, final String connector) {
+		final ContentResolver cr = context.getContentResolver();
+		final Cursor c = cr.query(Uri.parse(uri), new String[] { "date" },
+				null, null, null);
+		long date = -1;
+		if (c != null && c.moveToFirst()) {
+			date = c.getLong(0);
+		}
+		if (c != null && !c.isClosed()) {
+			c.close();
+		}
+		final ContentValues cv = new ContentValues();
+		cv.put(DataProvider.WebSMS.ID, mid);
+		cv.put(DataProvider.WebSMS.CONNECTOR, connector);
+		cv.put(DataProvider.WebSMS.DATE, date);
+		cr.insert(DataProvider.WebSMS.CONTENT_URI, cv);
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void onReceive(final Context context, final Intent intent) {
 		Log.d(TAG, "wakeup");
+		final String a = intent.getAction();
+		Log.d(TAG, "action: " + a);
+		if (a != null && a.equals(ACTION_CM_WEBSMS)) {
+			final String su = intent.getStringExtra(EXTRA_WEBSMS_URI);
+			if (su != null && su.length() > 0) {
+				final long si = Utils.parseLong(su.replaceAll(".*/", ""), -1);
+				final String sc = intent.getStringExtra(EXTRA_WEBSMS_CONNECTOR);
+				Log.d(TAG, "websms id:  " + si);
+				Log.d(TAG, "websms con: " + sc);
+				if (si >= 0) {
+					this.saveWebSMS(context, su, si, sc);
+				}
+			}
+		}
 		// run LogRunnerService
 		LogRunnerService.update(context, intent.getAction());
 		// schedule next update

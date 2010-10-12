@@ -509,6 +509,16 @@ public class Plans extends ListActivity implements OnClickListener,
 		}
 
 		/**
+		 * Close inner {@link Cursor}.
+		 */
+		private void close() {
+			final Cursor c = this.getCursor();
+			if (c != null && !c.isClosed()) {
+				c.close();
+			}
+		}
+
+		/**
 		 * Set date of now.
 		 * 
 		 * @param time
@@ -981,6 +991,15 @@ public class Plans extends ListActivity implements OnClickListener,
 		default:
 			return String.valueOf(amount);
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void onDestroy() {
+		super.onDestroy();
+		this.adapter.close();
 	}
 
 	/**

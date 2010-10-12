@@ -278,6 +278,10 @@ public final class RuleMatcher {
 		private final NumbersGroup innumbers, exnumbers;
 		/** Match only if limit is not reached? */
 		private final boolean limitNotReached;
+		/** Match only websms. */
+		private final int iswebsms;
+		/** Match only specific websms connector. */
+		private final String iswebsmsConnector;
 
 		/**
 		 * Load a {@link Rule}.
@@ -310,6 +314,25 @@ public final class RuleMatcher {
 					.getLong(DataProvider.Rules.INDEX_EXNUMBERS_ID));
 			this.limitNotReached = cursor
 					.getInt(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED) > 0;
+			if (cursor.isNull(DataProvider.Rules.INDEX_IS_WEBSMS)) {
+				this.iswebsms = DataProvider.Rules.NO_MATTER;
+			} else {
+				final int i = cursor.getInt(DataProvider.Rules.INDEX_IS_WEBSMS);
+				if (i >= 0) {
+					this.iswebsms = i;
+				} else {
+					this.iswebsms = DataProvider.Rules.NO_MATTER;
+				}
+			}
+			final String s = cursor
+					.getString(DataProvider.Rules.INDEX_IS_WEBSMS_CONNETOR);
+			if (s == null || s.length() == 0) {
+				this.iswebsmsConnector = "";
+			} else {
+				this.iswebsmsConnector = " AND "
+						+ DataProvider.WebSMS.CONNECTOR + " LIKE '%"
+						+ s.toLowerCase() + "%'";
+			}
 		}
 
 		/**
@@ -329,11 +352,13 @@ public final class RuleMatcher {
 		/**
 		 * Math a log.
 		 * 
+		 * @param cr
+		 *            {@link ContentResolver}
 		 * @param log
 		 *            {@link Cursor} representing the log.
 		 * @return matched?
 		 */
-		boolean match(final Cursor log) {
+		boolean match(final ContentResolver cr, final Cursor log) {
 			final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
 			boolean ret = false;
 			switch (this.what) {
@@ -348,6 +373,36 @@ public final class RuleMatcher {
 				break;
 			case DataProvider.Rules.WHAT_SMS:
 				ret = (t == DataProvider.TYPE_SMS);
+				if (ret && this.iswebsms != DataProvider.Rules.NO_MATTER) {
+					final long d = log.getLong(DataProvider.Logs.INDEX_DATE);
+					Log.d(TAG, "match websms: " + this.iswebsms);
+					if (this.iswebsms == 1) {
+						// match no websms
+						final Cursor c = cr.query(
+								DataProvider.WebSMS.CONTENT_URI,
+								DataProvider.WebSMS.PROJECTION,
+								DataProvider.WebSMS.DATE + " = " + d, null,
+								null);
+						if (c != null && c.getCount() > 0) {
+							ret = false;
+						}
+						if (c != null && !c.isClosed()) {
+							c.close();
+						}
+					} else {
+						// match only websms
+						final Cursor c = cr.query(
+								DataProvider.WebSMS.CONTENT_URI,
+								DataProvider.WebSMS.PROJECTION,
+								DataProvider.WebSMS.DATE + " = " + d
+										+ this.iswebsmsConnector, null, null);
+						ret = c != null && c.getCount() > 0;
+						if (c != null && !c.isClosed()) {
+							c.close();
+						}
+					}
+					Log.d(TAG, "match websms: " + this.iswebsms + "; " + ret);
+				}
 				break;
 			default:
 				break;
@@ -846,7 +901,7 @@ public final class RuleMatcher {
 		final int l = rules.size();
 		for (int i = 0; i < l; i++) {
 			final Rule r = rules.get(i);
-			if (r == null || !r.match(log)) {
+			if (r == null || !r.match(cr, log)) {
 				continue;
 			}
 			final Plan p = plans.get(r.getPlanId());

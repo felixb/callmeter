@@ -149,6 +149,10 @@
 	<string name="plan_help">Choose the plan this rule should fit.</string>
 	<string name="limitnotreached_">Limit not reached</string>
 	<string name="limitnotreached_help">Match only if target plan has not reached it\'s limit yet.</string>
+	<string name="iswebsms_">Is WebSMS</string>
+	<string name="iswebsms_help">Message sent with WebSMS.</string>
+	<string name="iswebsms_connector_">Is WebSMS Connector</string>
+	<string name="iswebsms_connector_help">Sent with specific WebSMS Connector, leave empty to match any.</string>
 	<string name="what_">Target type</string>
 	<string name="what_help">Choose a target type here.</string>
 	<string name="direction_">Direction</string>
