@@ -180,6 +180,10 @@
 	<string name="plan_help">Escoge el plan que se ajusta a esta regla.</string>
 	<string name="limitnotreached_">Límite no alcanzado</string>
 	<string name="limitnotreached_help">Marcar solo si el tipo de plan no ha alcanzado aún el límite.</string>
+<!--	<string name="iswebsms_">Is WebSMS</string> -->
+<!--	<string name="iswebsms_help">Message sent with WebSMS.</string> -->
+<!--	<string name="iswebsms_connector_">Is WebSMS Connector</string> -->
+<!--	<string name="iswebsms_connector_help">Sent with specific WebSMS Connector, leave empty to match any.</string> -->
 	<string name="what_">Tipo de plan</string>
 	<string name="what_help">Escoge un tipo de plan.</string>
 	<string name="direction_">Dirección</string>

@@ -180,6 +180,10 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 	<string name="plan_help">Выбор ценового плана в котором будет идти отчёт.</string>
 	<string name="limitnotreached_">Лимит не достигнут</string>
 	<string name="limitnotreached_help">Это правило только для того, если лимит плана еще не достигнут.</string>
+<!--	<string name="iswebsms_">Is WebSMS</string> -->
+<!--	<string name="iswebsms_help">Message sent with WebSMS.</string> -->
+<!--	<string name="iswebsms_connector_">Is WebSMS Connector</string> -->
+<!--	<string name="iswebsms_connector_help">Sent with specific WebSMS Connector, leave empty to match any.</string> -->
 	<string name="what_">Тип</string>
 	<string name="what_help">Тип отчёта.</string>
 	<string name="direction_">Направление</string>

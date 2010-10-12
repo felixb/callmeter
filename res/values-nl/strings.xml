@@ -180,6 +180,10 @@
 	<string name="plan_help">Kies het schema waarin deze regel past.</string>
 	<string name="limitnotreached_">Limiet niet bereikt</string>
 	<string name="limitnotreached_help">Match alleen als doel schema het limiet nog niet bereikt heeft.</string>
+<!--	<string name="iswebsms_">Is WebSMS</string> -->
+<!--	<string name="iswebsms_help">Message sent with WebSMS.</string> -->
+<!--	<string name="iswebsms_connector_">Is WebSMS Connector</string> -->
+<!--	<string name="iswebsms_connector_help">Sent with specific WebSMS Connector, leave empty to match any.</string> -->
 	<string name="what_">Doel type</string>
 	<string name="what_help">Kies hier een doel type.</string>
 	<string name="direction_">Richting</string>

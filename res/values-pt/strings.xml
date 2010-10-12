@@ -180,6 +180,10 @@
 	<string name="plan_help">Escolha o plano em que esta regra deve valer.</string>
 	<string name="limitnotreached_">Limite não alcançado</string>
 	<string name="limitnotreached_help">Mostra somente se o limite do plano não tiver sido alcançado.</string>
+<!--	<string name="iswebsms_">Is WebSMS</string> -->
+<!--	<string name="iswebsms_help">Message sent with WebSMS.</string> -->
+<!--	<string name="iswebsms_connector_">Is WebSMS Connector</string> -->
+<!--	<string name="iswebsms_connector_help">Sent with specific WebSMS Connector, leave empty to match any.</string> -->
 	<string name="what_">Condições</string>
 	<string name="what_help">Escolha uma condição aqui.</string>
 	<string name="direction_">Direções</string>
