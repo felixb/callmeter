@@ -27,6 +27,7 @@ import android.widget.TextView;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.DbUtils;
+import de.ub0r.android.lib.Log;
 
 /**
  * Hold Preferences saved to / loaded from a database.
@@ -34,6 +35,9 @@ import de.ub0r.android.lib.DbUtils;
  * @author flx
  */
 abstract class Preference {
+	/** Tag for output. */
+	private static final String TAG = "pref";
+
 	/**
 	 * Preference holding a {@link TextView}.
 	 * 
@@ -114,6 +118,13 @@ abstract class Preference {
 				final boolean isChecked) {
 			this.value = isChecked;
 			this.dl.onDismiss(null);
+		}
+
+		/**
+		 * @return value
+		 */
+		public boolean getValue() {
+			return this.value;
 		}
 	}
 
@@ -456,7 +467,13 @@ abstract class Preference {
 
 		@Override
 		void load(final Cursor cursor) {
-			this.value = cursor.getInt(cursor.getColumnIndex(this.name));
+			final int i = cursor.getColumnIndex(this.name);
+			if (cursor.isNull(i)) {
+				this.value = -1;
+			} else {
+				this.value = cursor.getInt(i);
+				Log.d(TAG, "load(" + this.name + "):" + this.value);
+			}
 		}
 
 		@Override

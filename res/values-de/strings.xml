@@ -177,7 +177,11 @@
 	<string name="plan_">Kontingent</string>
 	<string name="plan_help">Wähle hier einen Plan aus, in dem die Logs berechnet werden sollen.</string>
 	<string name="limitnotreached_">Limit nicht erreicht</string>
-	<string name="limitnotreached_help">Diese regel trifft nur zu, wenn der Plan sein Limit noch nicht erreicht hat.</string>
+	<string name="limitnotreached_help">Diese Regel trifft nur zu, wenn der Plan sein Limit noch nicht erreicht hat.</string>
+	<string name="iswebsms_">Ist WebSMS</string>
+	<string name="iswebsms_help">Nachricht wurde mit WebSMS gesendet.</string>
+	<string name="iswebsms_connector_">Ist WebSMS Connector</string>
+	<string name="iswebsms_connector_help">Wurde mit bestimmten WebSMS Connector gesendet. Für beliebigen leer lassen.</string>
 	<string name="what_">Typ</string>
 	<string name="what_help">Wähle den Typ der Logs aus.</string>
 	<string name="direction_">Richtung</string>

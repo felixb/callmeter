@@ -21,9 +21,12 @@ package de.ub0r.android.callmeter.data;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import de.ub0r.android.callmeter.CallMeter;
@@ -82,18 +85,30 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	 * 
 	 * @param context
 	 *            {@link Context}
+	 * @param uri
+	 *            {@link Uri} to sent message
 	 * @param mid
 	 *            message id
 	 * @param connector
 	 *            connector name
 	 */
-	private void saveWebSMS(final Context context, final long mid,
-			final String connector) {
-		final ContentValues cv = new ContentValues(2);
+	private void saveWebSMS(final Context context, final String uri,
+			final long mid, final String connector) {
+		final ContentResolver cr = context.getContentResolver();
+		final Cursor c = cr.query(Uri.parse(uri), new String[] { "date" },
+				null, null, null);
+		long date = -1;
+		if (c != null && c.moveToFirst()) {
+			date = c.getLong(0);
+		}
+		if (c != null && !c.isClosed()) {
+			c.close();
+		}
+		final ContentValues cv = new ContentValues();
 		cv.put(DataProvider.WebSMS.ID, mid);
 		cv.put(DataProvider.WebSMS.CONNECTOR, connector);
-		context.getContentResolver()
-				.insert(DataProvider.WebSMS.CONTENT_URI, cv);
+		cv.put(DataProvider.WebSMS.DATE, date);
+		cr.insert(DataProvider.WebSMS.CONTENT_URI, cv);
 	}
 
 	/**
@@ -112,7 +127,7 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 				Log.d(TAG, "websms id:  " + si);
 				Log.d(TAG, "websms con: " + sc);
 				if (si >= 0) {
-					this.saveWebSMS(context, si, sc);
+					this.saveWebSMS(context, su, si, sc);
 				}
 			}
 		}

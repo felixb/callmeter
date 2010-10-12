@@ -246,6 +246,12 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 		ret.add(new ListPreference(this, DataProvider.Rules.ROAMED,
 				DataProvider.Rules.NO_MATTER, R.string.roamed_,
 				R.string.roamed_help, this.getStrings(-1)));
+		ret.add(new ListPreference(this, DataProvider.Rules.IS_WEBSMS,
+				DataProvider.Rules.NO_MATTER, R.string.iswebsms_,
+				R.string.iswebsms_help, this.getStrings(-1)));
+		ret.add(new TextPreference(this, DataProvider.Rules.IS_WEBSMS_CONNETOR,
+				"", R.string.iswebsms_connector_,
+				R.string.iswebsms_connector_help, InputType.TYPE_CLASS_TEXT));
 		final DialogInterface.OnClickListener editHours = // .
 		new DialogInterface.OnClickListener() {
 			@Override
@@ -328,6 +334,20 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	private void showHideFileds() {
 		final int t = ((ListPreference) this.adapter
 				.getPreference(DataProvider.Rules.WHAT)).getValue();
+		switch (t) {
+		case DataProvider.Rules.WHAT_SMS:
+			this.adapter.hide(DataProvider.Rules.IS_WEBSMS, false);
+			this.adapter.hide(DataProvider.Rules.IS_WEBSMS_CONNETOR,
+					((ListPreference) this.adapter
+							.getPreference(DataProvider.Rules.IS_WEBSMS))
+							.getValue() != 0);
+			break;
+		default:
+			this.adapter.hide(DataProvider.Rules.IS_WEBSMS, true);
+			this.adapter.hide(DataProvider.Rules.IS_WEBSMS_CONNETOR, true);
+			break;
+		}
+
 		switch (t) {
 		case DataProvider.Rules.WHAT_DATA:
 		case DataProvider.Rules.WHAT_MMS:

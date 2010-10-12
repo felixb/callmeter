@@ -66,7 +66,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 21;
+	private static final int DATABASE_VERSION = 22;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -938,6 +938,10 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_EXNUMBERS_ID = 10;
 		/** Index in projection: limit not reached? */
 		public static final int INDEX_LIMIT_NOT_REACHED = 11;
+		/** Index in projection: is websms. */
+		public static final int INDEX_IS_WEBSMS = 12;
+		/** Index in projection: is websms connector. */
+		public static final int INDEX_IS_WEBSMS_CONNETOR = 13;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -963,11 +967,16 @@ public final class DataProvider extends ContentProvider {
 		public static final String EXNUMBERS_ID = "_exnumbergroup_id";
 		/** Limit not reached? */
 		public static final String LIMIT_NOT_REACHED = "_limit_not_reached";
+		/** Is websms. */
+		public static final String IS_WEBSMS = "_is_websms";
+		/** Is websms connector. */
+		public static final String IS_WEBSMS_CONNETOR = "_is_websms_connector";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, ORDER,
 				PLAN_ID, NAME, WHAT, ROAMED, DIRECTION, INHOURS_ID, EXHOURS_ID,
-				INNUMBERS_ID, EXNUMBERS_ID, LIMIT_NOT_REACHED };
+				INNUMBERS_ID, EXNUMBERS_ID, LIMIT_NOT_REACHED, IS_WEBSMS,
+				IS_WEBSMS_CONNETOR };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -998,6 +1007,8 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(INNUMBERS_ID, INNUMBERS_ID);
 			PROJECTION_MAP.put(EXNUMBERS_ID, EXNUMBERS_ID);
 			PROJECTION_MAP.put(LIMIT_NOT_REACHED, LIMIT_NOT_REACHED);
+			PROJECTION_MAP.put(IS_WEBSMS, IS_WEBSMS);
+			PROJECTION_MAP.put(IS_WEBSMS_CONNETOR, IS_WEBSMS_CONNETOR);
 		}
 
 		/**
@@ -1021,7 +1032,9 @@ public final class DataProvider extends ContentProvider {
 					+ EXHOURS_ID + " LONG,"// .
 					+ INNUMBERS_ID + " LONG,"// .
 					+ EXNUMBERS_ID + " LONG,"// .
-					+ LIMIT_NOT_REACHED + " INTEGER" // .
+					+ LIMIT_NOT_REACHED + " INTEGER," // .
+					+ IS_WEBSMS + " INTEGER," // .
+					+ IS_WEBSMS_CONNETOR + " TEXT" // .
 					+ ");");
 		}
 
@@ -2095,6 +2108,10 @@ public final class DataProvider extends ContentProvider {
 			groupBy = Logs.PLAN_ID;
 			return db.query(Logs.TABLE, projection, selection, selectionArgs,
 					groupBy, null, null);
+		case WEBSMS:
+			qb.setTables(WebSMS.TABLE);
+			qb.setProjectionMap(WebSMS.PROJECTION_MAP);
+			break;
 		case PLANS_ID:
 			qb.appendWhere(Plans.ID + "=" + ContentUris.parseId(uri));
 		case PLANS:
