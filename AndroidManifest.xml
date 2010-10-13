@@ -18,8 +18,8 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="de.ub0r.android.callmeter" android:versionName="2.8.9 beta9"
-	android:versionCode="2809" android:installLocation="internalOnly">
+	package="de.ub0r.android.callmeter" android:versionName="2.8.10 beta10"
+	android:versionCode="2810" android:installLocation="internalOnly">
 	<application android:name=".CallMeter" android:icon="@drawable/icon"
 		android:label="@string/app_name" android:debuggable="true">
 		<activity android:name=".ui.Plans" android:label="@string/app_name"
