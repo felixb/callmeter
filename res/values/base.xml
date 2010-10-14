@@ -36,6 +36,7 @@
 	<string name="author_nb">Tor-Erik Selvik &lt;teselvik@gmail.com&gt; (Norwegian)</string>
 	<string name="author_it">Samuel Algisi &lt;samuel.algisi@gmail.com&gt; (Italian)</string>
 	<string name="author_ru">Valentin R. &lt;rvs2008@gmail.com&gt; (Russian)</string>
+	<string name="author_sk">Adrian Kolencik &lt;kolencik.adrian@gmail.com&gt; (Slovakian)</string>
 	<string name="author_tr">Sinan Cem KILIÇKAPLAN &lt;bluesman80@gmail.com&gt; (Turkish)</string>
 	<string name="source">http://github.com/felixb/callmeter</string>
 	<string name="website">http://code.google.com/p/callmeter/</string>
@@ -110,6 +111,7 @@
 		<item>pl</item>
 		<item>pt</item>
 		<item>ru</item>
+		<item>sk</item>
 		<item>sv</item>
 		<item>tr</item>
 	</string-array>
@@ -128,6 +130,7 @@
 		<item>Polish</item>
 		<item>Portuguese (Brasil)</item>
 		<item>Russian</item>
+		<item>Slovakian</item>
 		<item>Swedish</item>
 		<item>Turkish</item>
 	</string-array>
