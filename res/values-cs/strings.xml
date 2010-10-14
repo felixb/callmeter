@@ -54,7 +54,7 @@
 	<string name="about1">Výstupem je celkový počet využitých minut/sms/dat od nainstalování aplikace, a počet těchto jednotek případně ukazatel využití volných minut/sms/dat za aktuální účetní období. Výpočet měsíční spotřeby bere v potaz vybranou tarifikaci. V celkovém výpočtu není tarifikace zohledněna.\n\nLegenda zobrazování statistik:\nPříchozí hovory: délka a počet v aktuálním období / délka všech hovorů\nOdchozí hovory: [% využití volných minut akt. období] / délka a počet v akt. období / délka všech hovorů\nPříchozí SMS: počet SMS akt. období / celkový počet SMS\nOdchozí SMS: cena za SMS akt. období / [% využití volných SMS akt. období] / počet SMS akt. období / celkový počet SMS </string>
 	<string name="about2">Režim tarifikace určuje způsob zpoplatnění prvního a následujícího intervalu hlasových hovorů. Např. 60/10 znamená, že u hovoru se vždy započte min. 60 vteřin a čas nad rámec prvního intervalu je zaokrouhlen nahoru na nejbližších 10 vteřin.</string>
 	<string name="about3">Účtování hovorů a SMS zpráv lze rozdělit do dvou paušálů (např. pro různou tarifikaci, cenu hovorů a zpráv ve špičce a mimo špičku). Každý z paušálů pak může mít své individuální nastavení (různá cena hovorů, počet volných minut / sms, apod.).</string>
-	<string name="about4">Textové zprávy lze započítávat jako horovy - např. každá zpráva může být započítána jako 15 vteřin hovorného.</string>
+	<string name="about4">Textové zprávy lze započítávat jako hovory - např. každá zpráva může být započítána jako 15 vteřin hovorného.</string>
 	<string name="about5">Call Meter se spouští každých 30 minut (pokud není telefon v pohotovostním režimu), což znamená, že smazání záznamů o hovorech/sms/datech za posledních 30 minut ovlivní vypočtenou statistiku.</string>
 	<string name="about6_">Co Call Meter neumí:</string>
 	<string name="about6">Díky úzké integraci technologie SIP a odesílání SMS přes webovou bránu v Androidu, nedokáže aplikace rozlišit mezi způsobem uskutečnění hovorů a odesílání sms, které jsou proto bez ohledu na využitý kanál započteny dohromady.</string>
@@ -64,7 +64,7 @@
 	<string name="about_hint">Nápověda. O autorech.</string>
 	<string name="faq_hint">Tipy a triky jak nastavit aplikaci.</string>
 	<string name="feedback_">Feedback</string>
-	<string name="feedback_hint">Ohlásit chybu, zaslat požadavek na funčknost.</string>
+	<string name="feedback_hint">Ohlásit chybu, zaslat požadavek na funkčnosť.</string>
 	<string name="twitter_hint">Následuj mě na Twitteru\nInfo o nových verzích apod.</string>
 	<string name="more_">Další aplikace autora..</string>
 	<string name="billday_">Začátek účetního období</string>
