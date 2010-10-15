@@ -25,8 +25,8 @@
 	<string name="source_">Broncode:</string>
 	<string name="website_">Website:</string>
 	<string name="debug_">Debug</string>
-<!--	<string name="custom_language_">Custom language</string> -->
-<!--	<string name="custom_language_hint">Set a custom language.</string> -->
+	<string name="custom_language_">Aangepaste taal</string>
+	<string name="custom_language_hint">Stel een aangepaste taal in.</string>
 	<string name="send_logs_">Stuur logs</string>
 	<string name="send_logs_hint">Stuur je toestel logs naar de maker.\nDoe dit alleen wanneer je hier naar gevraagd is.</string>
 	<string name="sendlog_run_">Draai SendLog</string>
@@ -54,7 +54,7 @@
 	<string name="about1">Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
 	<string name="about2">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
 	<string name="about3">CallMeter werkt zich elke 30 minuten op de achtergrond bij (alleen wanneer niet in standby). Dit betekent dat het verwijderen van gesprekken of berichten ouder dan 30 min. de statistieken niet wijzigt. Het verwijderen van gesprekken of berichten jonger dan 30 min. kan resulteren in onjuiste statistieken.</string>
-<!--	<string name="note_cm3">Data stats can not be fetched from before last boot!\nKilling this app may result in wrong data stats.</string> -->
+	<string name="note_cm3">Data stats kunnen niet worden opgehaald van voor de laaste boot!\nHet killen van deze app kan resulteren in foutive data stats.</string>
 	<string name="send_">Verstuur</string>
 	<string name="add_">Toevoegen</string>
 	<string name="add_log">Toevoegen log regel</string>
@@ -91,8 +91,8 @@
 	<string name="show_titlebar_hint">Toon titelbalk in hoofdvenster. Zonder titelbalk kan je geen achtergrond activiteit zien.</string>
 	<string name="show_hours_">Toon uren</string>
 	<string name="show_hours_hint">Toon tijd in sec, min, uren en dgn.\nIndien uitgevinkt alleen sec en uren worden getoond.</string>
-<!--	<string name="show_help_">Show help</string> -->
-<!--	<string name="show_help_hint">Show help in Plans/Rules setup view.</string> -->
+	<string name="show_help_">Toon help</string>
+	<string name="show_help_hint">Toon help in setup van Schema's/Regels.</string>
 	<string name="custom_currency_symbol_">Aangepast valuta symbool</string>
 	<string name="custom_currency_symbol_hint">Stel een aangepast valuta symbool in, laat leeg voor systeem standaard.</string>
 	<string name="custom_currency_format_">Aangepast valuta formaat</string>
@@ -180,10 +180,10 @@
 	<string name="plan_help">Kies het schema waarin deze regel past.</string>
 	<string name="limitnotreached_">Limiet niet bereikt</string>
 	<string name="limitnotreached_help">Match alleen als doel schema het limiet nog niet bereikt heeft.</string>
-<!--	<string name="iswebsms_">Is WebSMS</string> -->
-<!--	<string name="iswebsms_help">Message sent with WebSMS.</string> -->
-<!--	<string name="iswebsms_connector_">Is WebSMS Connector</string> -->
-<!--	<string name="iswebsms_connector_help">Sent with specific WebSMS Connector, leave empty to match any.</string> -->
+	<string name="iswebsms_">Is WebSMS</string>
+	<string name="iswebsms_help">Bericht verzonden met WebSMS.</string>
+	<string name="iswebsms_connector_">Is WebSMS Connector</string>
+	<string name="iswebsms_connector_help">Verzonden met specifieke WebSMS Connector, laat leeg om alles te matchen.</string>
 	<string name="what_">Doel type</string>
 	<string name="what_help">Kies hier een doel type.</string>
 	<string name="direction_">Richting</string>
