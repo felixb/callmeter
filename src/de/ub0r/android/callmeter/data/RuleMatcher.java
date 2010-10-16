@@ -750,9 +750,14 @@ public final class RuleMatcher {
 				cpa2 = this.costPerAmount2;
 			}
 
-			ret += cpi;
-
 			final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
+
+			if (t == DataProvider.TYPE_SMS) {
+				ret += cpi * bAmount;
+			} else {
+				ret += cpi;
+			}
+
 			switch (t) {
 			case DataProvider.TYPE_CALL:
 				if (bAmount <= this.billModeFirstLength) {
@@ -939,7 +944,7 @@ public final class RuleMatcher {
 	 *            {@link Context}
 	 * @param showStatus
 	 *            post status to dialog/handler
-	 * @return true if a log was matcheds
+	 * @return true if a log was matched
 	 */
 	static synchronized boolean match(final Context context,
 			final boolean showStatus) {
