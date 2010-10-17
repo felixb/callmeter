@@ -25,6 +25,8 @@
 <!--	<string name="source_">Sourcescode:</string> -->
 <!--	<string name="website_">Website:</string> -->
 <!--	<string name="debug_">Debug</string> -->
+<!--	<string name="custom_language_">Custom language</string> -->
+<!--	<string name="custom_language_hint">Set a custom language.</string> -->
 <!--	<string name="send_logs_">Send logs</string> -->
 <!--	<string name="send_logs_hint">Send your device\'s logs to the developer.\nDo this only if you were asked to do so.</string> -->
 <!--	<string name="sendlog_run_">Run SendLog</string> -->
@@ -91,6 +93,9 @@
 	<string name="show_hours_hint">Zeige Zeit in Sekunden, Minuten, Stunden und Tagen.\nSonst werden nur Sekunden und Stunden gezeigt.</string>
 	<string name="show_help_">Zeige Hilfe</string>
 	<string name="show_help_hint">Zeige Hilfe in Kontingent/Regel Setup.</string>
+	<string name="show_shortname_">Zeige Kurzname anstatt langem Namen</string>
+	<string name="show_cost_">Zeige Kosten</string>
+	<string name="show_billperiod_">Zeige Fortschritt des Abrechnungszeitraums</string>
 	<string name="custom_currency_symbol_">Benutzerdefiniertes Währungssymbol</string>
 	<string name="custom_currency_symbol_hint">Stell hier ein benutzerdefiniertes Währungssymbol ein. Wenn leer, wird das Systemstandardsymbol genutzt.</string>
 	<string name="custom_currency_format_">Benutzerdefiniertes Währungsformat</string>
