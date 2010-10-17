@@ -84,6 +84,16 @@
 	<string name="theme_">Tema</string>
 	<string name="textsize_"> Text-storlek </string>
 <!--	<string name="textsize_hint">Text size in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_title_">Title\'s text size</string> -->
+<!--	<string name="textsize_title_hint">Text size for titles in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_bigtitle_">Big title\'s text size</string> -->
+<!--	<string name="textsize_bigtitle_hint">Text size for big titles in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_spacer_">Spacer\'s size</string> -->
+<!--	<string name="textsize_spacer_hint">Size for spacers in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_pbar_">Progress bar\'s size</string> -->
+<!--	<string name="textsize_pbar_hint">Size for progress bars in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_pbarbp_">Bill period\'s progress bar\'s size</string> -->
+<!--	<string name="textsize_pbarbp_hint">Size for bill period\'s progress bars in pixels; leave empty for default</string> -->
 <!--	<string name="show_total_">Show total</string> -->
 <!--	<string name="show_total_hint">Show total stats, disable to see current only.</string> -->
 <!--	<string name="show_time_">Switch to date</string> -->
@@ -93,6 +103,9 @@
 <!--	<string name="show_hours_hint">Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.</string> -->
 <!--	<string name="show_help_">Show help</string> -->
 <!--	<string name="show_help_hint">Show help in Plans/Rules setup view.</string> -->
+<!--	<string name="show_shortname_">Show short name instead of long name</string> -->
+<!--	<string name="show_cost_">Show cost</string> -->
+<!--	<string name="show_billperiod_">Show progress of billing period</string> -->
 <!--	<string name="custom_currency_symbol_">Custom currency symbol</string> -->
 <!--	<string name="custom_currency_symbol_hint">Set a custom currency symbol, leave empty for system default.</string> -->
 <!--	<string name="custom_currency_format_">Custom currency format</string> -->

@@ -84,6 +84,16 @@
 	<string name="theme_">Tema</string>
 	<string name="textsize_">Metin boyutu</string>
 	<string name="textsize_hint">Piksel olarak metin boyutu; varsayılan için boş bırakın</string>
+<!--	<string name="textsize_title_">Title\'s text size</string> -->
+<!--	<string name="textsize_title_hint">Text size for titles in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_bigtitle_">Big title\'s text size</string> -->
+<!--	<string name="textsize_bigtitle_hint">Text size for big titles in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_spacer_">Spacer\'s size</string> -->
+<!--	<string name="textsize_spacer_hint">Size for spacers in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_pbar_">Progress bar\'s size</string> -->
+<!--	<string name="textsize_pbar_hint">Size for progress bars in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_pbarbp_">Bill period\'s progress bar\'s size</string> -->
+<!--	<string name="textsize_pbarbp_hint">Size for bill period\'s progress bars in pixels; leave empty for default</string> -->
 	<string name="show_total_">Toplamı göster</string>
 	<string name="show_total_hint">Tüm istatistikleri göster. Yalnızca günceli görmek için seçimi kaldırın.</string>
 	<string name="show_time_">Tarihe git</string>
@@ -93,6 +103,9 @@
 	<string name="show_hours_hint">Zamanı saniye, dakika, saat ve gün olarak göster.\nSeçilmediğinde sadece saniye ve saat görüntülenir.</string>
 <!--	<string name="show_help_">Show help</string> -->
 <!--	<string name="show_help_hint">Show help in Plans/Rules setup view.</string> -->
+<!--	<string name="show_shortname_">Show short name instead of long name</string> -->
+<!--	<string name="show_cost_">Show cost</string> -->
+<!--	<string name="show_billperiod_">Show progress of billing period</string> -->
 	<string name="custom_currency_symbol_">Özel para birimi sembolü</string>
 	<string name="custom_currency_symbol_hint">Özel bir para birimi sembolü belirleyin. Varsayılan için boş bırakın.</string>
 	<string name="custom_currency_format_">Özel para birimi biçimi</string>

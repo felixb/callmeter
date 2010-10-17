@@ -84,6 +84,16 @@
 	<string name="theme_">Styl</string>
 	<string name="textsize_">Wielkość czcionki</string>
 	<string name="textsize_hint">Rozmiar tekstu w pikselach; zostaw puste dla domyślnego</string>
+<!--	<string name="textsize_title_">Title\'s text size</string> -->
+<!--	<string name="textsize_title_hint">Text size for titles in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_bigtitle_">Big title\'s text size</string> -->
+<!--	<string name="textsize_bigtitle_hint">Text size for big titles in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_spacer_">Spacer\'s size</string> -->
+<!--	<string name="textsize_spacer_hint">Size for spacers in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_pbar_">Progress bar\'s size</string> -->
+<!--	<string name="textsize_pbar_hint">Size for progress bars in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_pbarbp_">Bill period\'s progress bar\'s size</string> -->
+<!--	<string name="textsize_pbarbp_hint">Size for bill period\'s progress bars in pixels; leave empty for default</string> -->
 	<string name="show_total_">Pokaż ogółem</string>
 	<string name="show_total_hint">Pokaż ogół statystyk, wyłącz aby wyświetlić tylko aktualne</string>
 	<string name="show_time_">Przełącz do daty</string>
@@ -93,6 +103,9 @@
 	<string name="show_hours_hint">Pokaż czas w sekundach, minutach, godzinach i dniach.\nJeżeli niezaznaczone, tylko sekundy i godziny będą pokazane.</string>
 <!--	<string name="show_help_">Show help</string> -->
 <!--	<string name="show_help_hint">Show help in Plans/Rules setup view.</string> -->
+<!--	<string name="show_shortname_">Show short name instead of long name</string> -->
+<!--	<string name="show_cost_">Show cost</string> -->
+<!--	<string name="show_billperiod_">Show progress of billing period</string> -->
 	<string name="custom_currency_symbol_">Symbol waluty</string>
 	<string name="custom_currency_symbol_hint">Wprowadź niestandardowy symbol waluty, jeżeli potrzeba.</string>
 	<string name="custom_currency_format_">Format waluty</string>
