@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: Fix cost for long sms, fix cost when reaching limit</item>
+		<item>HEAD: Fix cost for long sms, fix cost when reaching limit, set name/shortname for widget</item>
 		<item>v2.8.10: Integration with WebSMS, set custom locale</item>
 		<item>v2.8.9: clean groups in rules, fix numbergroups, fix adding logs, fix import from file, reduce collected traffic data</item>
 		<item>v2.8.8: fix for GT-I5500, fix cost for data, decimal limit, add turkish translation</item>

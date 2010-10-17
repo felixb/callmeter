@@ -41,6 +41,9 @@
 				android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" />
 			<Spinner android:id="@+id/spinner" android:layout_width="fill_parent"
 				android:layout_height="wrap_content" />
+			<CheckBox android:id="@+id/shortname" android:text="@string/show_shortname_"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:singleLine="false" />
 		</LinearLayout>
 	</ScrollView>
 </RelativeLayout>

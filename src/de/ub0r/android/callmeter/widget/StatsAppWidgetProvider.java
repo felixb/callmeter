@@ -51,6 +51,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 
 	/** Plan.id for widget. */
 	static final String WIDGET_PLANID = "widget_planid_";
+	/** Show short name for widget. */
+	static final String WIDGET_SHORTNAME = "widget_shortname_";
 
 	/**
 	 * {@inheritDoc}
@@ -100,6 +102,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final long pid = p.getLong(WIDGET_PLANID + appWidgetId, -1L);
+		final boolean showShortname = p.getBoolean(WIDGET_SHORTNAME
+				+ appWidgetId, false);
 		Log.d(TAG, "planid: " + pid);
 		ContentResolver cr = context.getContentResolver();
 
@@ -117,7 +121,11 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		Cursor cursor = cr.query(puri, DataProvider.Plans.PROJECTION, null,
 				null, null);
 		if (cursor != null && cursor.moveToFirst()) {
-			pname = cursor.getString(DataProvider.Plans.INDEX_SHORTNAME);
+			if (showShortname) {
+				pname = cursor.getString(DataProvider.Plans.INDEX_SHORTNAME);
+			} else {
+				pname = cursor.getString(DataProvider.Plans.INDEX_NAME);
+			}
 			ptype = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			bid = cursor.getLong(DataProvider.Plans.INDEX_BILLPERIOD_ID);
 			ltype = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
