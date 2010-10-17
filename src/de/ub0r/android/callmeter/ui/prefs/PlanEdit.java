@@ -145,6 +145,9 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 						| InputType.TYPE_NUMBER_FLAG_DECIMAL));
 		ret.add(new BillmodePreference(this, DataProvider.Plans.BILLMODE,
 				R.string.billmode_, R.string.billmode_help));
+		ret.add(new TextPreference(this, DataProvider.Plans.STRIP_SECONDS, "0",
+				R.string.strip_seconds_, R.string.strip_seconds_help,
+				InputType.TYPE_CLASS_NUMBER));
 		int t, th;
 		if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
 				Preferences.PREFS_PREPAID, false)) {
@@ -272,6 +275,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			a.hide(DataProvider.Plans.SHORTNAME, true);
 			a.hide(DataProvider.Plans.BILLDAY, true);
 			a.hide(DataProvider.Plans.BILLMODE, true);
+			a.hide(DataProvider.Plans.STRIP_SECONDS, true);
 			a.hide(DataProvider.Plans.BILLPERIOD, true);
 			a.hide(DataProvider.Plans.BILLPERIOD_ID, true);
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
@@ -299,6 +303,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			// TODO: set billperiod on enabling prepaid plans?
 			a.hide(DataProvider.Plans.COST_PER_PLAN, false);
 			a.hide(DataProvider.Plans.BILLMODE, true);
+			a.hide(DataProvider.Plans.STRIP_SECONDS, true);
 			a.hide(DataProvider.Plans.BILLPERIOD_ID, true);
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
@@ -324,6 +329,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 		case DataProvider.TYPE_MMS:
 		case DataProvider.TYPE_SMS:
 			a.hide(DataProvider.Plans.BILLMODE, true);
+			a.hide(DataProvider.Plans.STRIP_SECONDS, true);
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
 			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
@@ -343,6 +349,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			a.hide(DataProvider.Plans.COST_PER_ITEM, true);
 			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
 			a.hide(DataProvider.Plans.BILLMODE, true);
+			a.hide(DataProvider.Plans.STRIP_SECONDS, true);
 
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, false);
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, false);
@@ -355,6 +362,8 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
 			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
 
+			a.hide(DataProvider.Plans.BILLMODE, false);
+			a.hide(DataProvider.Plans.STRIP_SECONDS, false);
 			a.hide(DataProvider.Plans.BILLPERIOD_ID, false);
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, false);
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, false);
@@ -369,6 +378,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
 
 			a.hide(DataProvider.Plans.BILLMODE, false);
+			a.hide(DataProvider.Plans.STRIP_SECONDS, false);
 			a.hide(DataProvider.Plans.COST_PER_ITEM, false);
 			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
 			a.hide(DataProvider.Plans.COST_PER_PLAN, false);
@@ -380,6 +390,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			break;
 		case DataProvider.TYPE_TITLE:
 			a.hide(DataProvider.Plans.BILLMODE, true);
+			a.hide(DataProvider.Plans.STRIP_SECONDS, true);
 			a.hide(DataProvider.Plans.BILLPERIOD_ID, true);
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
 			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);

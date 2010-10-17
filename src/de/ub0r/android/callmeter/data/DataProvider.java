@@ -66,7 +66,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 22;
+	private static final int DATABASE_VERSION = 23;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -468,6 +468,8 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_BILLPERIOD_ID = 24;
 		/** Index in projection: next alert. */
 		public static final int INDEX_NEXT_ALERT = 25;
+		/** Index in projection: strip first seconds. */
+		public static final int INDEX_STRIP_SECONDS = 26;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -524,6 +526,8 @@ public final class DataProvider extends ContentProvider {
 		public static final String CACHE_COST = "_cache_cost";
 		/** Next alert. */
 		public static final String NEXT_ALERT = "_next_alert";
+		/** Strip first seconds. */
+		public static final String STRIP_SECONDS = "_strip_seconds";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, ORDER,
@@ -533,7 +537,7 @@ public final class DataProvider extends ContentProvider {
 				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN, MIXED_UNITS_CALL,
 				MIXED_UNITS_SMS, MIXED_UNITS_MMS, CACHE_STRING,
 				CACHE_PROGRESS_MAX, CACHE_PROGRESS_POS, CACHE_COST,
-				BILLPERIOD_ID, NEXT_ALERT };
+				BILLPERIOD_ID, NEXT_ALERT, STRIP_SECONDS };
 
 		/** Select only real plans. */
 		public static final String WHERE_REALPLANS = TYPE + " != "
@@ -585,6 +589,7 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(CACHE_PROGRESS_POS, CACHE_PROGRESS_POS);
 			PROJECTION_MAP.put(CACHE_COST, CACHE_COST);
 			PROJECTION_MAP.put(NEXT_ALERT, NEXT_ALERT);
+			PROJECTION_MAP.put(STRIP_SECONDS, STRIP_SECONDS);
 		}
 
 		/**
@@ -622,7 +627,8 @@ public final class DataProvider extends ContentProvider {
 					+ CACHE_PROGRESS_MAX + " INTEGER," // .
 					+ CACHE_PROGRESS_POS + " INTEGER," // .
 					+ CACHE_COST + " FLOAT," // .
-					+ NEXT_ALERT + " LONG" // .
+					+ NEXT_ALERT + " LONG," // .
+					+ STRIP_SECONDS + " INTEGER" // .
 					+ ");");
 		}
 
