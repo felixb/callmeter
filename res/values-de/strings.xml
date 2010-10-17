@@ -84,6 +84,16 @@
 	<string name="theme_">Theme</string>
 	<string name="textsize_">Schriftgrad</string>
 	<string name="textsize_hint">Schriftgrad in Punkten; leer lassen für Standard.</string>
+	<string name="textsize_title_">Schriftgrad für Überschriften</string>
+	<string name="textsize_title_hint">Schriftgrad für Überschriften in Punkten; leer lassen für Standard.</string>
+	<string name="textsize_bigtitle_">Schriftgrad für große Überschriften</string>
+	<string name="textsize_bigtitle_hint">Schriftgrad für große Überschriften in Punkten; leer lassen für Standard.</string>
+	<string name="textsize_spacer_">Höhe für Abstandshalter</string>
+	<string name="textsize_spacer_hint">Höhe für Abstandshalter in Punkten; leer lassen für Standard.</string>
+	<string name="textsize_pbar_">Höhe für Progressbars</string>
+	<string name="textsize_pbar_hint">Höhe für Progressbars in Punkten; leer lassen für Standard.</string>
+	<string name="textsize_pbarbp_">Höhe für Progressbars der Abrechnungszeiträume</string>
+	<string name="textsize_pbarbp_hint">Höhe für Progressbars der Abrechnungszeiträume in Punkten; leer lassen für Standard.</string>
 	<string name="show_total_">Zeige Gesamtstatistik</string>
 	<string name="show_total_hint">Deaktivieren um nur die aktuellen Statistiken zu sehen.</string>
 	<string name="show_time_">Zu Datum</string>
@@ -93,6 +103,9 @@
 	<string name="show_hours_hint">Zeige Zeit in Sekunden, Minuten, Stunden und Tagen.\nSonst werden nur Sekunden und Stunden gezeigt.</string>
 	<string name="show_help_">Zeige Hilfe</string>
 	<string name="show_help_hint">Zeige Hilfe in Kontingent/Regel Setup.</string>
+	<string name="show_shortname_">Zeige Kurzname anstatt langem Namen</string>
+	<string name="show_cost_">Zeige Kosten</string>
+	<string name="show_billperiod_">Zeige Fortschritt des Abrechnungszeitraums</string>
 	<string name="custom_currency_symbol_">Benutzerdefiniertes Währungssymbol</string>
 	<string name="custom_currency_symbol_hint">Stell hier ein benutzerdefiniertes Währungssymbol ein. Wenn leer, wird das Systemstandardsymbol genutzt.</string>
 	<string name="custom_currency_format_">Benutzerdefiniertes Währungsformat</string>

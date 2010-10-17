@@ -682,15 +682,26 @@ public final class RuleMatcher {
 		}
 
 		/**
+		 * Update {@link Plan}.
+		 * 
+		 * @param amount
+		 *            billed amount
+		 * @param cost
+		 *            billed cost
+		 */
+		void updatePlan(final long amount, final float cost) {
+			this.billedAmount += amount;
+			this.billedCost += cost;
+		}
+
+		/**
 		 * Get billed amount for amount.
 		 * 
 		 * @param log
 		 *            {@link Cursor} pointing to log
-		 * @param updatePlan
-		 *            update {@link Plan}'s fields
 		 * @return billed amount.
 		 */
-		long getBilledAmount(final Cursor log, final boolean updatePlan) {
+		long getBilledAmount(final Cursor log) {
 			long ret = log.getLong(DataProvider.Logs.INDEX_AMOUNT);
 			final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
 			switch (t) {
@@ -717,10 +728,6 @@ public final class RuleMatcher {
 					break;
 				}
 			}
-
-			if (updatePlan) {
-				this.billedAmount += ret;
-			}
 			return ret;
 		}
 
@@ -731,12 +738,9 @@ public final class RuleMatcher {
 		 *            {@link Cursor} pointing to log
 		 * @param bAmount
 		 *            billed amount
-		 * @param updatePlan
-		 *            update {@link Plan}'s fields
 		 * @return cost
 		 */
-		float getCost(final Cursor log, final long bAmount,
-				final boolean updatePlan) {
+		float getCost(final Cursor log, final long bAmount) {
 			float ret = 0;
 			float cpi, cpa1, cpa2;
 			if (this.limitType != DataProvider.LIMIT_TYPE_NONE
@@ -750,9 +754,14 @@ public final class RuleMatcher {
 				cpa2 = this.costPerAmount2;
 			}
 
-			ret += cpi;
-
 			final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
+
+			if (t == DataProvider.TYPE_SMS) {
+				ret += cpi * bAmount;
+			} else {
+				ret += cpi;
+			}
+
 			switch (t) {
 			case DataProvider.TYPE_CALL:
 				if (bAmount <= this.billModeFirstLength) {
@@ -770,10 +779,6 @@ public final class RuleMatcher {
 				break;
 			default:
 				break;
-			}
-
-			if (updatePlan) {
-				this.billedCost += ret;
 			}
 			return ret;
 		}
@@ -912,10 +917,11 @@ public final class RuleMatcher {
 				final ContentValues cv = new ContentValues();
 				cv.put(DataProvider.Logs.PLAN_ID, pid);
 				cv.put(DataProvider.Logs.RULE_ID, rid);
-				final long ba = p.getBilledAmount(log, true);
+				final long ba = p.getBilledAmount(log);
 				cv.put(DataProvider.Logs.BILL_AMOUNT, ba);
-				final float bc = p.getCost(log, ba, true);
+				final float bc = p.getCost(log, ba);
 				cv.put(DataProvider.Logs.COST, bc);
+				p.updatePlan(ba, bc);
 				cr.update(ContentUris.withAppendedId(
 						DataProvider.Logs.CONTENT_URI, lid), cv, null, null);
 				matched = true;
@@ -939,7 +945,7 @@ public final class RuleMatcher {
 	 *            {@link Context}
 	 * @param showStatus
 	 *            post status to dialog/handler
-	 * @return true if a log was matcheds
+	 * @return true if a log was matched
 	 */
 	static synchronized boolean match(final Context context,
 			final boolean showStatus) {

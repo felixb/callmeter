@@ -27,8 +27,11 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 
@@ -38,11 +41,19 @@ import de.ub0r.android.callmeter.data.DataProvider;
  * @author flx
  */
 public final class StatsAppWidgetConfigure extends Activity implements
-		OnClickListener {
+		OnClickListener, OnCheckedChangeListener {
 	/** Widget id. */
 	private int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
 	/** {@link Spinner} holding the plan. */
 	private Spinner spinner;
+
+	/** {@link CheckBox}s. */
+	private CheckBox cbShowShortname, cbShowCost, cbShowBillp;
+
+	/** Projection for {@link SimpleCursorAdapter} query. */
+	private static final String[] PROJ_ADAPTER = new String[] {
+			DataProvider.Plans.ID, DataProvider.Plans.NAME,
+			DataProvider.Plans.SHORTNAME };
 
 	/**
 	 * {@inheritDoc}
@@ -54,20 +65,35 @@ public final class StatsAppWidgetConfigure extends Activity implements
 				+ this.getString(R.string.widget_config_));
 		this.setContentView(R.layout.stats_appwidget_config);
 		this.spinner = (Spinner) this.findViewById(R.id.spinner);
-		final Cursor c = this.getContentResolver()
-				.query(
-						DataProvider.Plans.CONTENT_URI,
-						new String[] { DataProvider.Plans.ID,
-								DataProvider.Plans.NAME },
-						DataProvider.Plans.WHERE_REALPLANS, null,
-						DataProvider.Plans.NAME);
-		final SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
-				android.R.layout.simple_spinner_item, c,
-				new String[] { DataProvider.Plans.NAME },
-				new int[] { android.R.id.text1 });
-		this.spinner.setAdapter(adapter);
+		this.cbShowShortname = (CheckBox) this.findViewById(R.id.shortname);
+		this.cbShowShortname.setOnCheckedChangeListener(this);
+		this.cbShowCost = (CheckBox) this.findViewById(R.id.cost);
+		this.cbShowBillp = (CheckBox) this.findViewById(R.id.pbillp);
+		this.setAdapter();
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.cancel).setOnClickListener(this);
+	}
+
+	/** Set {@link SimpleCursorAdapter} for {@link Spinner}. */
+	private void setAdapter() {
+		final Cursor c = this.getContentResolver().query(
+				DataProvider.Plans.CONTENT_URI, PROJ_ADAPTER,
+				DataProvider.Plans.WHERE_REALPLANS, null,
+				DataProvider.Plans.NAME);
+		String[] fieldName;
+		if (this.cbShowShortname.isChecked()) {
+			fieldName = new String[] { DataProvider.Plans.SHORTNAME };
+		} else {
+			fieldName = new String[] { DataProvider.Plans.NAME };
+		}
+		final SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
+				android.R.layout.simple_spinner_item, c, fieldName,
+				new int[] { android.R.id.text1 });
+		final int pos = this.spinner.getSelectedItemPosition();
+		this.spinner.setAdapter(adapter);
+		if (pos >= 0 && pos < this.spinner.getCount()) {
+			this.spinner.setSelection(pos);
+		}
 	}
 
 	/**
@@ -96,6 +122,12 @@ public final class StatsAppWidgetConfigure extends Activity implements
 					.getDefaultSharedPreferences(this).edit();
 			editor.putLong(StatsAppWidgetProvider.WIDGET_PLANID
 					+ this.mAppWidgetId, this.spinner.getSelectedItemId());
+			editor.putBoolean(StatsAppWidgetProvider.WIDGET_SHORTNAME
+					+ this.mAppWidgetId, this.cbShowShortname.isChecked());
+			editor.putBoolean(StatsAppWidgetProvider.WIDGET_COST
+					+ this.mAppWidgetId, this.cbShowCost.isChecked());
+			editor.putBoolean(StatsAppWidgetProvider.WIDGET_BILLPERIOD
+					+ this.mAppWidgetId, this.cbShowBillp.isChecked());
 			editor.commit();
 
 			final AppWidgetManager appWidgetManager = AppWidgetManager
@@ -114,6 +146,21 @@ public final class StatsAppWidgetConfigure extends Activity implements
 			break;
 		default:
 			break;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onCheckedChanged(final CompoundButton buttonView,
+			final boolean isChecked) {
+		switch (buttonView.getId()) {
+		case R.id.shortname:
+			this.setAdapter();
+			return;
+		default:
+			return;
 		}
 	}
 }
