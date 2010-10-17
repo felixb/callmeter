@@ -197,6 +197,8 @@
 <!--	<string name="iswebsms_help">Message sent with WebSMS.</string> -->
 <!--	<string name="iswebsms_connector_">Is WebSMS Connector</string> -->
 <!--	<string name="iswebsms_connector_help">Sent with specific WebSMS Connector, leave empty to match any.</string> -->
+<!--	<string name="strip_seconds_">Do not bill first seconds</string> -->
+<!--	<string name="strip_seconds_help">Do not bill first x seconds of a call.</string> -->
 	<string name="what_">Hedef türü</string>
 	<string name="what_help">Hedef türünü seçin.</string>
 	<string name="direction_">Yön</string>

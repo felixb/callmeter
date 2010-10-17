@@ -197,6 +197,8 @@
 	<string name="iswebsms_help">Bericht verzonden met WebSMS.</string>
 	<string name="iswebsms_connector_">Is WebSMS Connector</string>
 	<string name="iswebsms_connector_help">Verzonden met specifieke WebSMS Connector, laat leeg om alles te matchen.</string>
+<!--	<string name="strip_seconds_">Do not bill first seconds</string> -->
+<!--	<string name="strip_seconds_help">Do not bill first x seconds of a call.</string> -->
 	<string name="what_">Doel type</string>
 	<string name="what_help">Kies hier een doel type.</string>
 	<string name="direction_">Richting</string>
