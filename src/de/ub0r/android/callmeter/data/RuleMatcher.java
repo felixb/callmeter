@@ -480,6 +480,8 @@ public final class RuleMatcher {
 		private final float costPerAmountInLimit1, costPerAmountInLimit2;
 		/** Units for mixed plans. */
 		private final int mixedUnitsCall, mixedUnitsSMS, mixedUnitsMMS;
+		/** Strip first x seconds. */
+		private final int stripSeconds;
 		/** Time of next alert. */
 		private long nextAlert = 0;
 
@@ -539,6 +541,8 @@ public final class RuleMatcher {
 					.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_MMS);
 			this.nextAlert = cursor
 					.getLong(DataProvider.Plans.INDEX_NEXT_ALERT);
+			this.stripSeconds = cursor
+					.getInt(DataProvider.Plans.INDEX_STRIP_SECONDS);
 
 			final long bp = cursor
 					.getLong(DataProvider.Plans.INDEX_BILLPERIOD_ID);
@@ -707,6 +711,9 @@ public final class RuleMatcher {
 			switch (t) {
 			case DataProvider.TYPE_CALL:
 				ret = this.roundTime(ret);
+				if (this.stripSeconds > 0) {
+					ret -= this.stripSeconds;
+				}
 				break;
 			default:
 				break;
