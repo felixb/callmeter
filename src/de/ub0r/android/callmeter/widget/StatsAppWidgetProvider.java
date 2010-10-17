@@ -18,6 +18,8 @@
  */
 package de.ub0r.android.callmeter.widget;
 
+import java.util.Calendar;
+
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -55,6 +57,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	static final String WIDGET_SHORTNAME = "widget_shortname_";
 	/** Show cost for widget. */
 	static final String WIDGET_COST = "widget_cost_";
+	/** Show progress of billing period for widget. */
+	static final String WIDGET_BILLPERIOD = "widget_billp_";
 
 	/**
 	 * {@inheritDoc}
@@ -107,6 +111,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		final boolean showShortname = p.getBoolean(WIDGET_SHORTNAME
 				+ appWidgetId, false);
 		final boolean showCost = p.getBoolean(WIDGET_COST + appWidgetId, false);
+		final boolean showBillPeriod = p.getBoolean(WIDGET_BILLPERIOD
+				+ appWidgetId, false);
 		Log.d(TAG, "planid: " + pid);
 		ContentResolver cr = context.getContentResolver();
 
@@ -139,20 +145,44 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
 		}
+		int bpos = 0;
+		int bmax = -1;
 		if (bid >= 0L) {
 			cursor = cr.query(ContentUris.withAppendedId(
 					DataProvider.Plans.CONTENT_URI, bid),
 					DataProvider.Plans.PROJECTION, null, null, null);
 			if (cursor != null && cursor.moveToFirst()) {
-				billdayWhere = DataProvider.Plans.getBilldayWhere(cursor
-						.getInt(// .
-						DataProvider.Plans.INDEX_BILLPERIOD), cursor
-						.getLong(DataProvider.Plans.INDEX_BILLDAY), null);
+				final int bp = cursor
+						.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
+				final long bday = cursor
+						.getLong(DataProvider.Plans.INDEX_BILLDAY);
+				billdayWhere = DataProvider.Plans.getBilldayWhere(bp, bday,
+						null);
+				if (showBillPeriod && bp != DataProvider.BILLPERIOD_INFINITE) {
+					Calendar billDay = Calendar.getInstance();
+					billDay.setTimeInMillis(bday);
+					billDay = DataProvider.Plans.getBillDay(bp, billDay, null,
+							false);
+					final Calendar nextBillDay = DataProvider.Plans.getBillDay(
+							bp, billDay, null, true);
+
+					final long pr = billDay.getTimeInMillis()
+							/ CallMeter.MILLIS;
+					final long nx = (nextBillDay.getTimeInMillis() // .
+							/ CallMeter.MILLIS)
+							- pr;
+					long nw = System.currentTimeMillis();
+					nw = (nw / CallMeter.MILLIS) - pr;
+
+					bmax = (int) nx;
+					bpos = (int) nw;
+				}
 			}
 			if (cursor != null && !cursor.isClosed()) {
 				cursor.close();
 			}
 		}
+		Log.d(TAG, "bpos/bmax: " + bpos + "/" + bmax);
 		billdayWhere = DbUtils.sqlAnd(billdayWhere, DataProvider.Logs.PLAN_ID
 				+ " = " + pid);
 		cursor = cr.query(DataProvider.Logs.SUM_URI,
@@ -190,7 +220,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			stats += "\n" + (used * CallMeter.HUNDRET / limit) + "%";
 		}
 		if (showCost && cost > 0F) {
-			stats += "\n "
+			stats += "\n"
 					+ String.format(Preferences.getCurrencyFormat(context),
 							cost);
 		}
@@ -211,6 +241,13 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		views.setOnClickPendingIntent(R.id.widget, pendingIntent);
 		views.setTextViewText(R.id.plan, pname);
 		views.setTextViewText(R.id.stats, stats);
+		if (bmax > 0) {
+			views.setProgressBar(R.id.appwidget_bg_top_progress, bmax, bpos,
+					false);
+		} else {
+			views.setViewVisibility(R.id.appwidget_bg_top_bg, View.GONE);
+			views.setProgressBar(R.id.appwidget_bg_top_progress, 1, 0, false);
+		}
 		if (limit > 0) {
 			views.setViewVisibility(R.id.appwidget_bg_bottom_bg, View.VISIBLE);
 			final int u = (int) ((used * CallMeter.HUNDRET) / limit);

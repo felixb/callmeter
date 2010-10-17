@@ -48,7 +48,7 @@ public final class StatsAppWidgetConfigure extends Activity implements
 	private Spinner spinner;
 
 	/** {@link CheckBox}s. */
-	private CheckBox cbShowShortname, cbShowCost;
+	private CheckBox cbShowShortname, cbShowCost, cbShowBillp;
 
 	/** Projection for {@link SimpleCursorAdapter} query. */
 	private static final String[] PROJ_ADAPTER = new String[] {
@@ -68,6 +68,7 @@ public final class StatsAppWidgetConfigure extends Activity implements
 		this.cbShowShortname = (CheckBox) this.findViewById(R.id.shortname);
 		this.cbShowShortname.setOnCheckedChangeListener(this);
 		this.cbShowCost = (CheckBox) this.findViewById(R.id.cost);
+		this.cbShowBillp = (CheckBox) this.findViewById(R.id.pbillp);
 		this.setAdapter();
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.cancel).setOnClickListener(this);
@@ -125,6 +126,8 @@ public final class StatsAppWidgetConfigure extends Activity implements
 					+ this.mAppWidgetId, this.cbShowShortname.isChecked());
 			editor.putBoolean(StatsAppWidgetProvider.WIDGET_COST
 					+ this.mAppWidgetId, this.cbShowCost.isChecked());
+			editor.putBoolean(StatsAppWidgetProvider.WIDGET_BILLPERIOD
+					+ this.mAppWidgetId, this.cbShowBillp.isChecked());
 			editor.commit();
 
 			final AppWidgetManager appWidgetManager = AppWidgetManager

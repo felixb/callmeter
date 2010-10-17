@@ -47,6 +47,9 @@
 			<CheckBox android:id="@+id/cost" android:text="@string/show_cost_"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:singleLine="false" />
+			<CheckBox android:id="@+id/pbillp" android:text="@string/show_billperiod_"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:singleLine="false" />
 		</LinearLayout>
 	</ScrollView>
 </RelativeLayout>
