@@ -53,6 +53,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	static final String WIDGET_PLANID = "widget_planid_";
 	/** Show short name for widget. */
 	static final String WIDGET_SHORTNAME = "widget_shortname_";
+	/** Show cost for widget. */
+	static final String WIDGET_COST = "widget_cost_";
 
 	/**
 	 * {@inheritDoc}
@@ -104,19 +106,21 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		final long pid = p.getLong(WIDGET_PLANID + appWidgetId, -1L);
 		final boolean showShortname = p.getBoolean(WIDGET_SHORTNAME
 				+ appWidgetId, false);
+		final boolean showCost = p.getBoolean(WIDGET_COST + appWidgetId, false);
 		Log.d(TAG, "planid: " + pid);
 		ContentResolver cr = context.getContentResolver();
 
-		if (pid < 0) {
+		if (pid < 0L) {
 			return;
 		}
 		final Uri puri = ContentUris.withAppendedId(
 				DataProvider.Plans.CONTENT_URI, pid);
-		long bid = -1;
+		long bid = -1L;
 		String pname = null;
 		int ltype = DataProvider.LIMIT_TYPE_NONE;
-		long limit = 0;
+		long limit = 0L;
 		int ptype = -1;
+		// float cost = 0F;
 		String billdayWhere = null;
 		Cursor cursor = cr.query(puri, DataProvider.Plans.PROJECTION, null,
 				null, null);
@@ -135,7 +139,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
 		}
-		if (bid >= 0) {
+		if (bid >= 0L) {
 			cursor = cr.query(ContentUris.withAppendedId(
 					DataProvider.Plans.CONTENT_URI, bid),
 					DataProvider.Plans.PROJECTION, null, null, null);
@@ -184,6 +188,11 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		}
 		if (limit > 0) {
 			stats += "\n" + (used * CallMeter.HUNDRET / limit) + "%";
+		}
+		if (showCost && cost > 0F) {
+			stats += "\n "
+					+ String.format(Preferences.getCurrencyFormat(context),
+							cost);
 		}
 
 		Log.d(TAG, "limit: " + limit);
