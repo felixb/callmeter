@@ -89,7 +89,17 @@ public class Preferences extends PreferenceActivity {
 	private static final String THEME_LIGHT = "light";
 	/** Preference's name: text size. */
 	private static final String PREFS_TEXTSIZE = "textsize";
-	/** Preference's name: show titlebar. */
+	/** Preference's name: text size for big titles. */
+	private static final String PREFS_TEXTSIZE_BIGTITLE = "textsize_bigtitle";
+	/** Preference's name: text size for titles. */
+	private static final String PREFS_TEXTSIZE_TITLE = "textsize_title";
+	/** Preference's name: text size for spacers. */
+	private static final String PREFS_TEXTSIZE_SPACER = "textsize_spacer";
+	/** Preference's name: text size for progress bars. */
+	private static final String PREFS_TEXTSIZE_PBAR = "textsize_pbar";
+	/** Preference's name: text size for progress bars of billing periods. */
+	private static final String PREFS_TEXTSIZE_PBARBP = "textsize_pbarbp";
+	/** Preference's name: show title bar. */
 	public static final String PREFS_SHOWTITLEBAR = "show_titlebar";
 	/** Preference's name: show hours. */
 	public static final String PREFS_SHOWHOURS = "show_hours";
@@ -127,16 +137,86 @@ public class Preferences extends PreferenceActivity {
 	}
 
 	/**
-	 * Get Textsize from Preferences.
+	 * Get Text size from Preferences.
 	 * 
 	 * @param context
 	 *            {@link Context}
-	 * @return theme
+	 * @return text size
 	 */
 	public static final int getTextsize(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_TEXTSIZE, null);
+		return Utils.parseInt(s, 0);
+	}
+
+	/**
+	 * Get Text size for big titles from Preferences.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @return text size
+	 */
+	public static final int getTextsizeBigTitle(final Context context) {
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(context);
+		final String s = p.getString(PREFS_TEXTSIZE_BIGTITLE, null);
+		return Utils.parseInt(s, 0);
+	}
+
+	/**
+	 * Get Text size for titles from Preferences.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @return text size
+	 */
+	public static final int getTextsizeTitle(final Context context) {
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(context);
+		final String s = p.getString(PREFS_TEXTSIZE_TITLE, null);
+		return Utils.parseInt(s, 0);
+	}
+
+	/**
+	 * Get Text size for spacers from Preferences.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @return text size
+	 */
+	public static final int getTextsizeSpacer(final Context context) {
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(context);
+		final String s = p.getString(PREFS_TEXTSIZE_SPACER, null);
+		return Utils.parseInt(s, 0);
+	}
+
+	/**
+	 * Get Text size for progress bars from Preferences.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @return text size
+	 */
+	public static final int getTextsizeProgressBar(final Context context) {
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(context);
+		final String s = p.getString(PREFS_TEXTSIZE_PBAR, null);
+		return Utils.parseInt(s, 0);
+	}
+
+	/**
+	 * Get Text size for progress bars of billing periods from Preferences.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @return text size
+	 */
+	public static final int getTextsizeProgressBarBP(final Context context) {
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(context);
+		final String s = p.getString(PREFS_TEXTSIZE_PBARBP, null);
 		return Utils.parseInt(s, 0);
 	}
 
@@ -404,8 +484,8 @@ public class Preferences extends PreferenceActivity {
 						public boolean onPreferenceClick(
 								final Preference preference) {
 							Preferences.this.startActivity(new Intent(
-									Intent.ACTION_VIEW, Uri
-											.parse(Preferences.this.getString(// .
+									Intent.ACTION_VIEW, Uri.parse(// .
+											Preferences.this.getString(// .
 													R.string.url_rulesets))));
 							return true;
 						}

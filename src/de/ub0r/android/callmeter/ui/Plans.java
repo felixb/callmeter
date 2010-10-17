@@ -51,6 +51,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.ProgressBar;
@@ -486,10 +487,11 @@ public class Plans extends ListActivity implements OnClickListener,
 
 		/** {@link Context}. */
 		private final Context ctx;
-		/** Textsize. */
-		private final int textSize;
+		/** Textsizes. */
+		private int textSize, textSizeBigTitle, textSizeTitle, textSizeSpacer,
+				textSizePBar, textSizePBarBP;
 		/** Prepaid plan? */
-		private final boolean prepaid;
+		private boolean prepaid;
 
 		/**
 		 * Default Constructor.
@@ -503,9 +505,22 @@ public class Plans extends ListActivity implements OnClickListener,
 							DataProvider.Plans.PROJECTION, null, null,
 							DataProvider.Plans.ORDER), true);
 			this.ctx = context;
-			this.textSize = Preferences.getTextsize(context);
+			this.updateGUI();
+		}
+
+		/**
+		 * Update GUI parameters.
+		 */
+		private void updateGUI() {
+			final Context context = this.ctx;
 			this.prepaid = PreferenceManager.getDefaultSharedPreferences(
 					context).getBoolean(Preferences.PREFS_PREPAID, false);
+			this.textSize = Preferences.getTextsize(context);
+			this.textSizeBigTitle = Preferences.getTextsizeBigTitle(context);
+			this.textSizeTitle = Preferences.getTextsizeTitle(context);
+			this.textSizeSpacer = Preferences.getTextsizeSpacer(context);
+			this.textSizePBar = Preferences.getTextsizeProgressBar(context);
+			this.textSizePBarBP = Preferences.getTextsizeProgressBarBP(context);
 		}
 
 		/**
@@ -651,6 +666,7 @@ public class Plans extends ListActivity implements OnClickListener,
 		/** Update all {@link Plan}s in background. */
 		void updatePlans() {
 			Log.d(TAG, "updatePlans()");
+			this.updateGUI();
 			new AsyncTask<Void, Void, Void>() {
 				@Override
 				protected Void doInBackground(final Void... params) {
@@ -791,7 +807,13 @@ public class Plans extends ListActivity implements OnClickListener,
 			TextView twCache = null;
 			ProgressBar pbCache = null;
 			if (t == DataProvider.TYPE_SPACING) {
-				view.findViewById(R.id.spacer).setVisibility(View.INVISIBLE);
+				final View v = view.findViewById(R.id.spacer);
+				if (this.textSizeSpacer > 0) {
+					final LayoutParams lp = v.getLayoutParams();
+					lp.height = this.textSizeSpacer;
+					v.setLayoutParams(lp);
+				}
+				v.setVisibility(View.INVISIBLE);
 				view.findViewById(R.id.bigtitle).setVisibility(View.GONE);
 				view.findViewById(R.id.content).setVisibility(View.GONE);
 				view.findViewById(R.id.period_layout).setVisibility(View.GONE);
@@ -799,6 +821,9 @@ public class Plans extends ListActivity implements OnClickListener,
 				final TextView tw = ((TextView) view
 						.findViewById(R.id.bigtitle));
 				tw.setText(cursor.getString(DataProvider.Plans.INDEX_NAME));
+				if (this.textSizeBigTitle > 0) {
+					tw.setTextSize(this.textSizeBigTitle);
+				}
 				tw.setVisibility(View.VISIBLE);
 				view.findViewById(R.id.spacer).setVisibility(View.GONE);
 				view.findViewById(R.id.content).setVisibility(View.GONE);
@@ -811,18 +836,17 @@ public class Plans extends ListActivity implements OnClickListener,
 						View.VISIBLE);
 				twCache = (TextView) view.findViewById(R.id.period);
 				pbCache = (ProgressBar) view.findViewById(R.id.period_pb);
-
-				// final float cost = cursor
-				// .getFloat(DataProvider.Plans.INDEX_CACHE_COST);
-				// if (cost >= 0) {
-				// cacheStr += "\n" + String.format(currencyFormat, cost);
-				// }
 			} else {
 				view.findViewById(R.id.bigtitle).setVisibility(View.GONE);
 				view.findViewById(R.id.spacer).setVisibility(View.GONE);
 				view.findViewById(R.id.content).setVisibility(View.VISIBLE);
 				view.findViewById(R.id.period_layout).setVisibility(View.GONE);
-				((TextView) view.findViewById(R.id.normtitle)).setText(cursor
+				final TextView twNormTitle = (TextView) view
+						.findViewById(R.id.normtitle);
+				if (this.textSizeTitle > 0) {
+					twNormTitle.setTextSize(this.textSizeTitle);
+				}
+				twNormTitle.setText(cursor
 						.getString(DataProvider.Plans.INDEX_NAME));
 				twCache = (TextView) view.findViewById(R.id.data);
 				int usage = 0;
@@ -871,8 +895,18 @@ public class Plans extends ListActivity implements OnClickListener,
 					pbCache.setIndeterminate(false);
 					pbCache.setMax(cacheLimitMax);
 					pbCache.setProgress(cacheLimitPos);
-
 					pbCache.setVisibility(View.VISIBLE);
+					int pbs = 0;
+					if (t == DataProvider.TYPE_BILLPERIOD) {
+						pbs = this.textSizePBarBP;
+					} else {
+						pbs = this.textSizePBar;
+					}
+					if (pbs > 0) {
+						final LayoutParams lp = pbCache.getLayoutParams();
+						lp.height = pbs;
+						pbCache.setLayoutParams(lp);
+					}
 				} else {
 					pbCache.setIndeterminate(true);
 					pbCache.setVisibility(View.VISIBLE);
