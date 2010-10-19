@@ -103,6 +103,8 @@ public class Preferences extends PreferenceActivity {
 	public static final String PREFS_SHOWTITLEBAR = "show_titlebar";
 	/** Preference's name: show hours. */
 	public static final String PREFS_SHOWHOURS = "show_hours";
+	/** Preference's name: hide zero. */
+	public static final String PREFS_HIDE_ZERO = "hide_zero";
 	/** Preference's name: currency symbol. */
 	private static final String PREFS_CURRENCY_SYMBOL = "currency_symbol";
 	/** Preference's name: currency format. */
