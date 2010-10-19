@@ -106,6 +106,8 @@
 <!--	<string name="show_shortname_">Show short name instead of long name</string> -->
 <!--	<string name="show_cost_">Show cost</string> -->
 <!--	<string name="show_billperiod_">Show progress of billing period</string> -->
+<!--	<string name="hide_zero_">Hide empty plans</string> -->
+<!--	<string name="hide_zero_hint">Hide plans containing no item.</string> -->
 	<string name="custom_currency_symbol_">Özel para birimi sembolü</string>
 	<string name="custom_currency_symbol_hint">Özel bir para birimi sembolü belirleyin. Varsayılan için boş bırakın.</string>
 	<string name="custom_currency_format_">Özel para birimi biçimi</string>

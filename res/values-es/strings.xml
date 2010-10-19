@@ -106,6 +106,8 @@
 <!--	<string name="show_shortname_">Show short name instead of long name</string> -->
 <!--	<string name="show_cost_">Show cost</string> -->
 <!--	<string name="show_billperiod_">Show progress of billing period</string> -->
+<!--	<string name="hide_zero_">Hide empty plans</string> -->
+<!--	<string name="hide_zero_hint">Hide plans containing no item.</string> -->
 	<string name="custom_currency_symbol_">Símbolo personalizado de moneda</string>
 	<string name="custom_currency_symbol_hint">Aplica un símbolo personalizado de moneda, déjalo en blanco para mantener el del sistema.</string>
 	<string name="custom_currency_format_">Formato personalizado de moneda</string>
