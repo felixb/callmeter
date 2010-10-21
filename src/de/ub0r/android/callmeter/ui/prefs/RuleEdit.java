@@ -233,7 +233,7 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 		ret.add(new CursorPreference(this, DataProvider.Rules.PLAN_ID,
 				R.string.plan_, R.string.plan_help, -1, -1, -1,
 				DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID,
-				DataProvider.Plans.NAME, null, null, null, null));
+				DataProvider.Plans.NAME, null, false, null, null, null));
 		ret
 				.add(new BoolPreference(this,
 						DataProvider.Rules.LIMIT_NOT_REACHED,
@@ -265,15 +265,15 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 				R.string.edit_groups_, R.string.clear_, -1,
 				DataProvider.HoursGroup.CONTENT_URI,
 				DataProvider.HoursGroup.ID, DataProvider.HoursGroup.NAME, null,
-				editHours,
-				new OnClickClear(ret, DataProvider.Rules.INHOURS_ID), null));
+				false, editHours, new OnClickClear(ret,
+						DataProvider.Rules.INHOURS_ID), null));
 		ret.add(new CursorPreference(this, DataProvider.Rules.EXHOURS_ID,
 				R.string.exhourgroup_, R.string.exhourgroup_help,
 				R.string.edit_groups_, R.string.clear_, -1,
 				DataProvider.HoursGroup.CONTENT_URI,
 				DataProvider.HoursGroup.ID, DataProvider.HoursGroup.NAME, null,
-				editHours,
-				new OnClickClear(ret, DataProvider.Rules.EXHOURS_ID), null));
+				false, editHours, new OnClickClear(ret,
+						DataProvider.Rules.EXHOURS_ID), null));
 		final DialogInterface.OnClickListener editNumbers = // .
 		new DialogInterface.OnClickListener() {
 			@Override
@@ -287,14 +287,14 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 				R.string.edit_groups_, R.string.clear_, -1,
 				DataProvider.NumbersGroup.CONTENT_URI,
 				DataProvider.NumbersGroup.ID, DataProvider.NumbersGroup.NAME,
-				null, editNumbers, new OnClickClear(ret,
+				null, false, editNumbers, new OnClickClear(ret,
 						DataProvider.Rules.INNUMBERS_ID), null));
 		ret.add(new CursorPreference(this, DataProvider.Rules.EXNUMBERS_ID,
 				R.string.exnumbergroup_, R.string.exnumbergroup_help,
 				R.string.edit_groups_, R.string.clear_, -1,
 				DataProvider.NumbersGroup.CONTENT_URI,
 				DataProvider.NumbersGroup.ID, DataProvider.NumbersGroup.NAME,
-				null, editNumbers, new OnClickClear(ret,
+				null, false, editNumbers, new OnClickClear(ret,
 						DataProvider.Rules.EXNUMBERS_ID), null));
 		return ret;
 	}

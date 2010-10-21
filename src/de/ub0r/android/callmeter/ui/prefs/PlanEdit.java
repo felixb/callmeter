@@ -131,11 +131,19 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				R.string.billperiod_help, R.array.billperiod));
 		ret.add(new DatePreference(this, DataProvider.Plans.BILLDAY,
 				R.string.billday_, R.string.billday_help));
-		ret.add(new CursorPreference(this, DataProvider.Plans.BILLPERIOD_ID,
-				R.string.billperiodid_, R.string.billperiodid_help, -1, -1, -1,
+		ret
+				.add(new CursorPreference(this,
+						DataProvider.Plans.BILLPERIOD_ID,
+						R.string.billperiodid_, R.string.billperiodid_help, -1,
+						-1, -1, DataProvider.Plans.CONTENT_URI,
+						DataProvider.Plans.ID, DataProvider.Plans.NAME,
+						DataProvider.Plans.TYPE + " == "
+								+ DataProvider.TYPE_BILLPERIOD, false, null,
+						null, null));
+		ret.add(new CursorPreference(this, DataProvider.Plans.MERGED_PLANS,
+				R.string.merge_plans_, R.string.merge_plans_help, -1, -1, -1,
 				DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID,
-				DataProvider.Plans.NAME, DataProvider.Plans.TYPE + " == "
-						+ DataProvider.TYPE_BILLPERIOD, null, null, null));
+				DataProvider.Plans.NAME, null, true, null, null, null));
 		ret.add(new ListPreference(this, DataProvider.Plans.LIMIT_TYPE,
 				DataProvider.LIMIT_TYPE_NONE, R.string.limit_type_,
 				R.string.limit_type_help, R.array.limit_type));
@@ -193,6 +201,23 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				R.string.cost_per_amount_help2, InputType.TYPE_CLASS_NUMBER
 						| InputType.TYPE_NUMBER_FLAG_DECIMAL));
 		return ret;
+	}
+
+	/**
+	 * Set selection for merged plans field.
+	 */
+	private void setMergePlansSelection() {
+		final int t = ((ListPreference) this.adapter
+				.getPreference(DataProvider.Plans.TYPE)).getValue();
+		final long bp = ((CursorPreference) this.adapter
+				.getPreference(DataProvider.Plans.BILLPERIOD_ID)).getValue();
+		final String sel = DataProvider.Plans.TYPE + " = " + t + " AND "
+				+ DataProvider.Plans.ID + " != " + this.pid + " AND "
+				+ DataProvider.Plans.BILLPERIOD_ID + " = " + bp;
+		// TODO: LINE is to long
+		// + " AND " + DataProvider.Plans.MERGED_PLANS + " != ''";
+		((CursorPreference) this.adapter
+				.getPreference(DataProvider.Plans.MERGED_PLANS)).setCursor(sel);
 	}
 
 	/**
@@ -288,6 +313,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
 			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
 			a.hide(DataProvider.Plans.LIMIT, true);
+			a.hide(DataProvider.Plans.MERGED_PLANS, true);
 			break;
 		case DataProvider.TYPE_BILLPERIOD:
 			final SharedPreferences p = PreferenceManager
@@ -314,11 +340,13 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
 			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
 			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
+			a.hide(DataProvider.Plans.MERGED_PLANS, true);
 			a.hide(DataProvider.Plans.SHORTNAME, false);
 			break;
 		default:
 			a.hide(DataProvider.Plans.SHORTNAME, false);
 			a.hide(DataProvider.Plans.BILLPERIOD_ID, false);
+			a.hide(DataProvider.Plans.MERGED_PLANS, false);
 
 			a.hide(DataProvider.Plans.BILLDAY, true);
 			a.hide(DataProvider.Plans.BILLPERIOD, true);
@@ -402,11 +430,13 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
 			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
 			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
+			a.hide(DataProvider.Plans.MERGED_PLANS, true);
 			break;
 		default:
 			break;
 		}
 		this.showHideExtraFileds(t);
+		this.setMergePlansSelection();
 	}
 
 	/**

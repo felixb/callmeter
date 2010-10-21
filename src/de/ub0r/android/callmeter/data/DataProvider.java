@@ -66,7 +66,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 23;
+	private static final int DATABASE_VERSION = 25;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -470,6 +470,8 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_NEXT_ALERT = 25;
 		/** Index in projection: strip first seconds. */
 		public static final int INDEX_STRIP_SECONDS = 26;
+		/** Index in projection: merged plans. */
+		public static final int INDEX_MERGED_PLANS = 27;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -528,6 +530,8 @@ public final class DataProvider extends ContentProvider {
 		public static final String NEXT_ALERT = "_next_alert";
 		/** Strip first seconds. */
 		public static final String STRIP_SECONDS = "_strip_seconds";
+		/** Merged plans. */
+		public static final String MERGED_PLANS = "_merged_plans";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, ORDER,
@@ -537,7 +541,7 @@ public final class DataProvider extends ContentProvider {
 				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN, MIXED_UNITS_CALL,
 				MIXED_UNITS_SMS, MIXED_UNITS_MMS, CACHE_STRING,
 				CACHE_PROGRESS_MAX, CACHE_PROGRESS_POS, CACHE_COST,
-				BILLPERIOD_ID, NEXT_ALERT, STRIP_SECONDS };
+				BILLPERIOD_ID, NEXT_ALERT, STRIP_SECONDS, MERGED_PLANS };
 
 		/** Select only real plans. */
 		public static final String WHERE_REALPLANS = TYPE + " != "
@@ -590,6 +594,7 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(CACHE_COST, CACHE_COST);
 			PROJECTION_MAP.put(NEXT_ALERT, NEXT_ALERT);
 			PROJECTION_MAP.put(STRIP_SECONDS, STRIP_SECONDS);
+			PROJECTION_MAP.put(MERGED_PLANS, MERGED_PLANS);
 		}
 
 		/**
@@ -628,7 +633,8 @@ public final class DataProvider extends ContentProvider {
 					+ CACHE_PROGRESS_POS + " INTEGER," // .
 					+ CACHE_COST + " FLOAT," // .
 					+ NEXT_ALERT + " LONG," // .
-					+ STRIP_SECONDS + " INTEGER" // .
+					+ STRIP_SECONDS + " INTEGER," // .
+					+ MERGED_PLANS + " TEXT" // .
 					+ ");");
 		}
 
@@ -2111,7 +2117,7 @@ public final class DataProvider extends ContentProvider {
 		case LOGS_SUM:
 			qb.setTables(Logs.TABLE);
 			qb.setProjectionMap(Logs.PROJECTION_MAP);
-			groupBy = Logs.PLAN_ID;
+			// groupBy = Logs.PLAN_ID;
 			return db.query(Logs.TABLE, projection, selection, selectionArgs,
 					groupBy, null, null);
 		case WEBSMS:

@@ -189,6 +189,8 @@
 	<string name="mixed_units_mms_help">Stelle hier die Einheiten ein, die für eine einzelne MMS berechnet werden.</string>
 	<string name="mixed_units_call_">Einheiten für Anrufe</string>
 	<string name="mixed_units_call_help">Stelle hier die Einheiten ein, die für eine einzelne Minute Anruf berechnet werden.\Der Abrechnungsmodus wird hier beachtet.</string>
+	<string name="merge_plans_">Kontingente zusammenführen</string>
+	<string name="merge_plans_help">Führe andere Kontingente mit diesem zusammen und rechne sie hier (auch) ab.</string>
 	<string name="plan_">Kontingent</string>
 	<string name="plan_help">Wähle hier einen Plan aus, in dem die Logs berechnet werden sollen.</string>
 	<string name="limitnotreached_">Limit nicht erreicht</string>

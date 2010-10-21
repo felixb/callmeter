@@ -242,6 +242,8 @@ public class Plans extends ListActivity implements OnClickListener,
 			private final int type;
 			/** Id of plan. */
 			private final long id;
+			/** Where clause for updating the plan. */
+			private final String where;
 			/** Bill period. */
 			private final int billperiod;
 			/** Bill period id. */
@@ -284,6 +286,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					this.limittype = -1;
 					this.limit = -1;
 					this.cpp = 0;
+					this.where = null;
 				} else if (this.type == DataProvider.TYPE_BILLPERIOD) {
 					this.billday = cursor
 							.getLong(DataProvider.Plans.INDEX_BILLDAY);
@@ -293,6 +296,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					this.limit = -1;
 					this.cpp = cursor
 							.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
+					this.where = null;
 				} else {
 					this.billday = -1;
 					this.billdayc = null;
@@ -303,7 +307,188 @@ public class Plans extends ListActivity implements OnClickListener,
 									.getLong(DataProvider.Plans.INDEX_LIMIT));
 					this.cpp = cursor
 							.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
+					final String s = cursor
+							.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
+					if (s == null || s.length() == 0) {
+						this.where = DataProvider.Logs.PLAN_ID + " = "
+								+ this.id;
+					} else {
+						StringBuilder sb = new StringBuilder(
+								DataProvider.Logs.PLAN_ID + " = " + this.id);
+						for (String ss : s.split(",")) {
+							sb.append(" OR " + DataProvider.Logs.PLAN_ID
+									+ " = " + ss);
+						}
+						this.where = sb.toString();
+					}
 				}
+			}
+
+			/**
+			 * Update bill period.
+			 * 
+			 * @param lnow
+			 *            local "now"
+			 * @param cv
+			 *            {@link ContentValues} to save cached data
+			 */
+			private void updateBillPeriod(final Calendar lnow,
+					final ContentValues cv) {
+				Calendar billDay = Calendar.getInstance();
+				billDay.setTimeInMillis(this.billday);
+				billDay = DataProvider.Plans.getBillDay(this.billperiod,
+						billDay, lnow, false);
+
+				String formatedDate;
+				if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
+					cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, -1);
+					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, 1);
+					if (this.billday <= 0 || billDay == null) {
+						formatedDate = "\u221E";
+					} else {
+						if (dateFormat == null) {
+							formatedDate = DateFormat.getDateFormat(this.ctx)
+									.format(billDay.getTime());
+						} else {
+							formatedDate = String.format(dateFormat, billDay,
+									billDay, billDay);
+						}
+					}
+				} else {
+					final Calendar nextBillDay = DataProvider.Plans.getBillDay(
+							this.billperiod, billDay, lnow, true);
+					final long pr = billDay.getTimeInMillis()
+							/ CallMeter.MILLIS;
+					final long nx = (nextBillDay.getTimeInMillis() // .
+							/ CallMeter.MILLIS)
+							- pr;
+					long nw;
+					if (lnow == null) {
+						nw = System.currentTimeMillis();
+					} else {
+						nw = lnow.getTimeInMillis();
+					}
+					nw = (nw / CallMeter.MILLIS) - pr;
+
+					cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, nx);
+					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, nw);
+					if (dateFormat == null) {
+						formatedDate = DateFormat.getDateFormat(this.ctx)
+								.format(billDay.getTime());
+					} else {
+						formatedDate = String.format(dateFormat, billDay,
+								billDay, billDay);
+					}
+				}
+				this.currentCacheString = formatedDate;
+				cv.put(DataProvider.Plans.CACHE_STRING, formatedDate);
+			}
+
+			/**
+			 * Update non bill period plans.
+			 * 
+			 * @param lnow
+			 *            local "now"
+			 * @param cv
+			 *            {@link ContentValues} to save cached data
+			 */
+			private void updateStandardPlans(final Calendar lnow,
+					final ContentValues cv) {
+				int used = 0;
+				if (this.limit > 0) {
+					cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, this.limit);
+				} else {
+					cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, 0);
+				}
+				if (this.id < 0) {
+					return;
+				}
+				final Plan billp = PlanAdapter.this.getPlan(this.billperiodid);
+				String w = null;
+				if (billp != null) {
+					w = DataProvider.Plans.getBilldayWhere(billp.billperiod,
+							billp.billdayc, lnow);
+				}
+				w = DbUtils.sqlAnd(w, this.where);
+				Log.d(TAG, "where: " + w);
+
+				float cost = -1;
+				long billedAmount = 0;
+				int count = 0;
+				long allBilledAmount = 0;
+				int allCount = 0;
+
+				Cursor c = this.ctx.getContentResolver().query(
+						DataProvider.Logs.SUM_URI,
+						DataProvider.Logs.PROJECTION_SUM, w, null, null);
+				if (c != null && c.moveToFirst()) {
+					cost = c.getFloat(DataProvider.Logs.INDEX_SUM_COST);
+					billedAmount = c.getLong(DataProvider.Logs.// .
+							INDEX_SUM_BILL_AMOUNT);
+					count = c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+
+					Log.d(TAG, "plan: " + this.id);
+					Log.d(TAG, "count: " + count);
+					Log.d(TAG, "cost: " + cost);
+					Log.d(TAG, "billedAmount: " + billedAmount);
+
+					used = DataProvider.Plans.getUsed(this.type,
+							this.limittype, billedAmount, cost);
+
+					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, used);
+				} else {
+					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, -1);
+				}
+				if (c != null && !c.isClosed()) {
+					c.close();
+				}
+				// get all time
+				if (showTotal) {
+					c = this.ctx.getContentResolver().query(
+							DataProvider.Logs.SUM_URI,
+							DataProvider.Logs.PROJECTION_SUM, this.where, null,
+							null);
+					if (c != null && c.moveToFirst()) {
+						allBilledAmount = c.getLong(DataProvider.Logs.// .
+								INDEX_SUM_BILL_AMOUNT);
+						allCount = c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+					}
+					if (c != null && !c.isClosed()) {
+						c.close();
+					}
+				} else {
+					allBilledAmount = -1;
+					allCount = -1;
+				}
+
+				// cost per plan
+				float free = 0;
+				if (cost > 0 && this.limittype == // .
+						DataProvider.LIMIT_TYPE_COST) {
+					final float lmt = this.limit / CallMeter.HUNDRET;
+					if (cost <= lmt) {
+						free = cost;
+						cost = 0;
+					} else {
+						free = lmt;
+						cost -= lmt;
+					}
+				}
+				if (this.cpp > 0) {
+					if (cost <= 0) {
+						cost = this.cpp;
+					} else {
+						cost += this.cpp;
+					}
+				}
+
+				cv.put(DataProvider.Plans.CACHE_COST, cost + free);
+				this.currentCacheString = getString(this, used, count,
+						billedAmount, cost, free, allBilledAmount, allCount,
+						pShowHours);
+				cv
+						.put(DataProvider.Plans.CACHE_STRING,
+								this.currentCacheString);
 			}
 
 			/**
@@ -320,156 +505,9 @@ public class Plans extends ListActivity implements OnClickListener,
 				final ContentValues cv = new ContentValues();
 
 				if (this.type == DataProvider.TYPE_BILLPERIOD) {
-					Calendar billDay = Calendar.getInstance();
-					billDay.setTimeInMillis(this.billday);
-					billDay = DataProvider.Plans.getBillDay(this.billperiod,
-							billDay, lnow, false);
-
-					String formatedDate;
-					if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
-						cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, -1);
-						cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, 1);
-						if (this.billday <= 0 || billDay == null) {
-							formatedDate = "\u221E";
-						} else {
-							if (dateFormat == null) {
-								formatedDate = DateFormat.getDateFormat(
-										this.ctx).format(billDay.getTime());
-							} else {
-								formatedDate = String.format(dateFormat,
-										billDay, billDay, billDay);
-							}
-						}
-					} else {
-						final Calendar nextBillDay = DataProvider.Plans
-								.getBillDay(this.billperiod, billDay, lnow,
-										true);
-						final long pr = billDay.getTimeInMillis()
-								/ CallMeter.MILLIS;
-						final long nx = (nextBillDay.getTimeInMillis() // .
-								/ CallMeter.MILLIS)
-								- pr;
-						long nw;
-						if (lnow == null) {
-							nw = System.currentTimeMillis();
-						} else {
-							nw = lnow.getTimeInMillis();
-						}
-						nw = (nw / CallMeter.MILLIS) - pr;
-
-						cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, nx);
-						cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, nw);
-						if (dateFormat == null) {
-							formatedDate = DateFormat.getDateFormat(this.ctx)
-									.format(billDay.getTime());
-						} else {
-							formatedDate = String.format(dateFormat, billDay,
-									billDay, billDay);
-						}
-					}
-					this.currentCacheString = formatedDate;
-					cv.put(DataProvider.Plans.CACHE_STRING, formatedDate);
+					this.updateBillPeriod(lnow, cv);
 				} else {
-					int used = 0;
-					if (this.limit > 0) {
-						cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX,
-								this.limit);
-					} else {
-						cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, 0);
-					}
-					if (this.id < 0) {
-						return;
-					}
-					final Plan billp = PlanAdapter.this
-							.getPlan(this.billperiodid);
-					String where = null;
-					if (billp != null) {
-						where = DataProvider.Plans.getBilldayWhere(
-								billp.billperiod, billp.billdayc, lnow);
-					}
-					where = DbUtils.sqlAnd(where, DataProvider.Logs.PLAN_ID
-							+ " = " + this.id);
-					Log.d(TAG, "where: " + where);
-
-					float cost = -1;
-					long billedAmount = 0;
-					int count = 0;
-					long allBilledAmount = 0;
-					int allCount = 0;
-
-					Cursor c = this.ctx.getContentResolver()
-							.query(DataProvider.Logs.SUM_URI,
-									DataProvider.Logs.PROJECTION_SUM, where,
-									null, null);
-					if (c != null && c.moveToFirst()) {
-						cost = c.getFloat(DataProvider.Logs.INDEX_SUM_COST);
-						billedAmount = c.getLong(DataProvider.Logs.// .
-								INDEX_SUM_BILL_AMOUNT);
-						count = c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
-
-						Log.d(TAG, "plan: " + this.id);
-						Log.d(TAG, "count: " + count);
-						Log.d(TAG, "cost: " + cost);
-						Log.d(TAG, "billedAmount: " + billedAmount);
-
-						used = DataProvider.Plans.getUsed(this.type,
-								this.limittype, billedAmount, cost);
-
-						cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, used);
-					} else {
-						cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, -1);
-					}
-					if (c != null && !c.isClosed()) {
-						c.close();
-					}
-					// get all time
-					if (showTotal) {
-						c = this.ctx.getContentResolver().query(
-								DataProvider.Logs.SUM_URI,
-								DataProvider.Logs.PROJECTION_SUM,
-								DataProvider.Logs.PLAN_ID + " = " + this.id,
-								null, null);
-						if (c != null && c.moveToFirst()) {
-							allBilledAmount = c.getLong(DataProvider.Logs.// .
-									INDEX_SUM_BILL_AMOUNT);
-							allCount = c
-									.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
-						}
-						if (c != null && !c.isClosed()) {
-							c.close();
-						}
-					} else {
-						allBilledAmount = -1;
-						allCount = -1;
-					}
-
-					// cost per plan
-					float free = 0;
-					if (cost > 0
-							&& this.limittype == DataProvider.LIMIT_TYPE_COST) {
-						final float lmt = this.limit / CallMeter.HUNDRET;
-						if (cost <= lmt) {
-							free = cost;
-							cost = 0;
-						} else {
-							free = lmt;
-							cost -= lmt;
-						}
-					}
-					if (this.cpp > 0) {
-						if (cost <= 0) {
-							cost = this.cpp;
-						} else {
-							cost += this.cpp;
-						}
-					}
-
-					cv.put(DataProvider.Plans.CACHE_COST, cost + free);
-					this.currentCacheString = getString(this, used, count,
-							billedAmount, cost, free, allBilledAmount,
-							allCount, pShowHours);
-					cv.put(DataProvider.Plans.CACHE_STRING,
-							this.currentCacheString);
+					this.updateStandardPlans(lnow, cv);
 				}
 				this.ctx.getContentResolver().update(uri, cv, null, null);
 			}
