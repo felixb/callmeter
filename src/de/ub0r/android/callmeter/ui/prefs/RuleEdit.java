@@ -37,6 +37,8 @@ import de.ub0r.android.callmeter.ui.prefs.Preference.BoolPreference;
 import de.ub0r.android.callmeter.ui.prefs.Preference.CursorPreference;
 import de.ub0r.android.callmeter.ui.prefs.Preference.ListPreference;
 import de.ub0r.android.callmeter.ui.prefs.Preference.TextPreference;
+import de.ub0r.android.lib.DbUtils;
+import de.ub0r.android.lib.Log;
 
 /**
  * Edit a single Plan.
@@ -45,6 +47,8 @@ import de.ub0r.android.callmeter.ui.prefs.Preference.TextPreference;
  */
 public class RuleEdit extends ListActivity implements OnClickListener,
 		OnItemClickListener, OnDismissListener {
+	/** Tag for debug out. */
+	private static final String TAG = "re";
 
 	/**
 	 * {@link android.content.DialogInterface.OnClickListener} clearing a group.
@@ -212,7 +216,9 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 			where = DataProvider.Plans.WHERE_REALPLANS;
 			break;
 		}
-
+		where = DbUtils.sqlAnd(where, DataProvider.Plans.MERGED_PLANS
+				+ " IS NULL");
+		Log.d(TAG, "plans.where: " + where);
 		((CursorPreference) this.adapter
 				.getPreference(DataProvider.Rules.PLAN_ID)).setCursor(where);
 	}

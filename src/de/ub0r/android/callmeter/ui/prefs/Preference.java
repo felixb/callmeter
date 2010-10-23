@@ -846,6 +846,7 @@ abstract class Preference {
 		void save(final ContentValues values) {
 			if (this.multiSelect) {
 				values.put(this.name, this.multiValue);
+				Log.d(TAG, "save multi: " + this.multiValue);
 			} else {
 				values.put(this.name, this.value);
 			}
@@ -922,8 +923,8 @@ abstract class Preference {
 						final StringBuilder vs = new StringBuilder();
 						for (int i = 0; i < l; i++) {
 							if (sba.get(i)) {
+								v.append(",");
 								if (v.length() > 0) {
-									v.append(",");
 									vs.append(", ");
 									CursorPreference.this.// .
 									multiItemsChecked[i] = true;
@@ -936,6 +937,7 @@ abstract class Preference {
 							}
 						}
 						if (v.length() > 0) {
+							v.append(",");
 							CursorPreference.this.multiValue = v.toString();
 							CursorPreference.this.multiValueName = vs
 									.toString();
@@ -1022,6 +1024,9 @@ abstract class Preference {
 						if (sb.length() > 0) {
 							sb.append(", ");
 						}
+						if (s.length() == 0) {
+							continue;
+						}
 						final Cursor c = this.context.getContentResolver()
 								.query(this.uri, this.projection,
 										this.projection[0] + " = " + s, null,
@@ -1070,6 +1075,17 @@ abstract class Preference {
 				return -1L;
 			} else {
 				return this.value;
+			}
+		}
+
+		/**
+		 * @return multiValue
+		 */
+		public String getMultiValue() {
+			if (this.multiSelect) {
+				return this.multiValue;
+			} else {
+				return null;
 			}
 		}
 

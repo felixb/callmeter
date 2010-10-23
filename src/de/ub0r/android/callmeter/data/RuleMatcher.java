@@ -482,6 +482,10 @@ public final class RuleMatcher {
 		private final int mixedUnitsCall, mixedUnitsSMS, mixedUnitsMMS;
 		/** Strip first x seconds. */
 		private final int stripSeconds;
+		/** Parent plan id. */
+		private final long ppid;
+		/** PArent plan. Set in RuleMatcher.load(). */
+		private Plan parent = null;
 		/** Time of next alert. */
 		private long nextAlert = 0;
 
@@ -577,6 +581,7 @@ public final class RuleMatcher {
 				this.billModeFirstLength = 1;
 				this.billModeNextLength = 1;
 			}
+			this.ppid = DataProvider.Plans.getParent(cr, this.id);
 		}
 
 		/**
@@ -639,6 +644,9 @@ public final class RuleMatcher {
 					c.close();
 				}
 			}
+			if (this.parent != null) {
+				this.parent.checkBillday(log);
+			}
 		}
 
 		/**
@@ -647,13 +655,17 @@ public final class RuleMatcher {
 		 * @return true if billed cost/amount is in limit
 		 */
 		boolean isInLimit() {
-			switch (this.limitType) {
-			case DataProvider.LIMIT_TYPE_COST:
-				return this.billedCost < this.limit;
-			case DataProvider.LIMIT_TYPE_UNITS:
-				return this.billedAmount < this.limit;
-			default:
-				return true;
+			if (this.parent != null) {
+				return this.parent.isInLimit();
+			} else {
+				switch (this.limitType) {
+				case DataProvider.LIMIT_TYPE_COST:
+					return this.billedCost < this.limit;
+				case DataProvider.LIMIT_TYPE_UNITS:
+					return this.billedAmount < this.limit;
+				default:
+					return true;
+				}
 			}
 		}
 
@@ -696,6 +708,11 @@ public final class RuleMatcher {
 		void updatePlan(final long amount, final float cost) {
 			this.billedAmount += amount;
 			this.billedCost += cost;
+			if (this.parent != null) {
+				// TODO: modify by type?
+				this.parent.billedAmount += amount;
+				this.parent.billedCost += cost;
+			}
 		}
 
 		/**
@@ -750,8 +767,13 @@ public final class RuleMatcher {
 		float getCost(final Cursor log, final long bAmount) {
 			float ret = 0;
 			float cpi, cpa1, cpa2;
-			if (this.limitType != DataProvider.LIMIT_TYPE_NONE
-					&& this.isInLimit()) {
+			Plan p;
+			if (this.parent == null) {
+				p = this;
+			} else {
+				p = this.parent;
+			}
+			if (p.limitType != DataProvider.LIMIT_TYPE_NONE && p.isInLimit()) {
 				cpi = this.costPerItemInLimit;
 				cpa1 = this.costPerAmountInLimit1;
 				cpa2 = this.costPerAmountInLimit2;
@@ -760,7 +782,6 @@ public final class RuleMatcher {
 				cpa1 = this.costPerAmount1;
 				cpa2 = this.costPerAmount2;
 			}
-
 			final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
 
 			if (t == DataProvider.TYPE_SMS) {
@@ -848,6 +869,10 @@ public final class RuleMatcher {
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
 			cursor = null;
+		}
+		// update parent references
+		for (Plan p : plans.values()) {
+			p.parent = plans.get(p.ppid);
 		}
 	}
 

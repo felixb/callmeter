@@ -119,6 +119,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		if (pid < 0L) {
 			return;
 		}
+		final long ppid = DataProvider.Plans.getParent(cr, pid);
 		final Uri puri = ContentUris.withAppendedId(
 				DataProvider.Plans.CONTENT_URI, pid);
 		long bid = -1L;
@@ -126,6 +127,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		int ltype = DataProvider.LIMIT_TYPE_NONE;
 		long limit = 0L;
 		int ptype = -1;
+		String where;
 		// float cost = 0F;
 		String billdayWhere = null;
 		Cursor cursor = cr.query(puri, DataProvider.Plans.PROJECTION, null,
@@ -141,6 +143,25 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			ltype = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 			limit = DataProvider.Plans.getLimit(ptype, ltype, cursor
 					.getLong(DataProvider.Plans.INDEX_LIMIT));
+
+			final String s = cursor
+					.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
+
+			if (s == null || s.length() == 0) {
+				where = DataProvider.Logs.PLAN_ID + " = " + pid;
+			} else {
+				StringBuilder sb = new StringBuilder(DataProvider.Logs.PLAN_ID
+						+ " = " + pid);
+				for (String ss : s.split(",")) {
+					if (ss.length() == 0) {
+						continue;
+					}
+					sb.append(" OR " + DataProvider.Logs.PLAN_ID + " = " + ss);
+				}
+				where = sb.toString();
+			}
+		} else {
+			return;
 		}
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
@@ -183,19 +204,23 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			}
 		}
 		Log.d(TAG, "bpos/bmax: " + bpos + "/" + bmax);
-		billdayWhere = DbUtils.sqlAnd(billdayWhere, DataProvider.Logs.PLAN_ID
-				+ " = " + pid);
+		billdayWhere = DbUtils.sqlAnd(billdayWhere, where);
 		cursor = cr.query(DataProvider.Logs.SUM_URI,
 				DataProvider.Logs.PROJECTION_SUM, billdayWhere, null, null);
-		float cost = -1;
+		float cost = 0;
 		long billedAmount = 0;
 		int count = 0;
 		int used = 0;
-		if (cursor != null && cursor.moveToFirst()) {
-			cost = cursor.getFloat(DataProvider.Logs.INDEX_SUM_COST);
-			billedAmount = cursor.getLong(DataProvider.Logs.// .
-					INDEX_SUM_BILL_AMOUNT);
-			count = cursor.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+		if (cursor == null || !cursor.moveToFirst()) {
+			used = 0;
+		} else {
+			do {
+				// TODO: modify by type
+				cost += cursor.getFloat(DataProvider.Logs.INDEX_SUM_COST);
+				billedAmount += cursor.getLong(DataProvider.Logs.// .
+						INDEX_SUM_BILL_AMOUNT);
+				count += cursor.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+			} while (cursor.moveToNext());
 
 			Log.d(TAG, "plan: " + pid);
 			Log.d(TAG, "count: " + count);
@@ -203,11 +228,12 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			Log.d(TAG, "billedAmount: " + billedAmount);
 
 			used = DataProvider.Plans.getUsed(ptype, ltype, billedAmount, cost);
-		} else {
-			used = 0;
 		}
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
+		}
+		if (ppid >= 0L) {
+			cost = 0F;
 		}
 
 		String stats = Plans.formatAmount(ptype, billedAmount,

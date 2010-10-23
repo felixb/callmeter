@@ -94,11 +94,18 @@ public class Plans extends ListActivity implements OnClickListener,
 			twTitle.setText(cursor.getString(DataProvider.Plans.INDEX_NAME));
 			final TextView twType = ((TextView) view.findViewById(R.id.type));
 			final int i = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
+			String hint;
 			if (i >= 0 && i < this.types.length) {
-				twType.setText(this.types[i]);
+				hint = this.types[i];
 			} else {
-				twType.setText("???");
+				hint = "???";
 			}
+			final String s = cursor
+					.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
+			if (s != null && s.length() > 0) {
+				hint += ", " + ctxt.getString(R.string.merge_plans_);
+			}
+			twType.setText(hint);
 		}
 	}
 

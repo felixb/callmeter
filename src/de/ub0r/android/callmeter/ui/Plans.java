@@ -244,6 +244,8 @@ public class Plans extends ListActivity implements OnClickListener,
 			private final int type;
 			/** Id of plan. */
 			private final long id;
+			/** Id of parent plan. */
+			private final long ppid;
 			/** Where clause for updating the plan. */
 			private final String where;
 			/** Bill period. */
@@ -260,6 +262,8 @@ public class Plans extends ListActivity implements OnClickListener,
 			private final long limit;
 			/** Cost per plan. */
 			private final float cpp;
+			/** Units per call, sms, mms. */
+			private final int upc, ups, upm;
 			/** Current cache String. */
 			private String currentCacheString = "";
 
@@ -289,6 +293,10 @@ public class Plans extends ListActivity implements OnClickListener,
 					this.limit = -1;
 					this.cpp = 0;
 					this.where = null;
+					this.ppid = -1L;
+					this.upc = 0;
+					this.upm = 0;
+					this.ups = 0;
 				} else if (this.type == DataProvider.TYPE_BILLPERIOD) {
 					this.billday = cursor
 							.getLong(DataProvider.Plans.INDEX_BILLDAY);
@@ -299,14 +307,25 @@ public class Plans extends ListActivity implements OnClickListener,
 					this.cpp = cursor
 							.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
 					this.where = null;
+					this.ppid = -1L;
+					this.upc = 0;
+					this.upm = 0;
+					this.ups = 0;
 				} else {
 					this.billday = -1;
 					this.billdayc = null;
-					this.limittype = cursor
-							.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
-					this.limit = DataProvider.Plans.getLimit(this.type,
-							this.limittype, cursor
-									.getLong(DataProvider.Plans.INDEX_LIMIT));
+					this.ppid = DataProvider.Plans.getParent(context
+							.getContentResolver(), this.id);
+					if (this.ppid >= 0L) {
+						this.limittype = DataProvider.LIMIT_TYPE_NONE;
+						this.limit = -1;
+					} else {
+						this.limittype = cursor
+								.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
+						this.limit = DataProvider.Plans.getLimit(this.type,
+								this.limittype,
+								cursor.getLong(DataProvider.Plans.INDEX_LIMIT));
+					}
 					this.cpp = cursor
 							.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
 					final String s = cursor
@@ -318,10 +337,25 @@ public class Plans extends ListActivity implements OnClickListener,
 						StringBuilder sb = new StringBuilder(
 								DataProvider.Logs.PLAN_ID + " = " + this.id);
 						for (String ss : s.split(",")) {
+							if (ss.length() == 0) {
+								continue;
+							}
 							sb.append(" OR " + DataProvider.Logs.PLAN_ID
 									+ " = " + ss);
 						}
 						this.where = sb.toString();
+					}
+					if (this.type == DataProvider.TYPE_MIXED) {
+						this.upc = cursor.getInt(// .
+								DataProvider.Plans.INDEX_MIXED_UNITS_CALL);
+						this.upm = cursor.getInt(// .
+								DataProvider.Plans.INDEX_MIXED_UNITS_MMS);
+						this.ups = cursor.getInt(// .
+								DataProvider.Plans.INDEX_MIXED_UNITS_SMS);
+					} else {
+						this.upc = 0;
+						this.upm = 0;
+						this.ups = 0;
 					}
 				}
 			}
@@ -414,7 +448,7 @@ public class Plans extends ListActivity implements OnClickListener,
 				w = DbUtils.sqlAnd(w, this.where);
 				Log.d(TAG, "where: " + w);
 
-				float cost = -1;
+				float cost = 0;
 				long billedAmount = 0;
 				int count = 0;
 				long allBilledAmount = 0;
@@ -423,11 +457,17 @@ public class Plans extends ListActivity implements OnClickListener,
 				Cursor c = this.ctx.getContentResolver().query(
 						DataProvider.Logs.SUM_URI,
 						DataProvider.Logs.PROJECTION_SUM, w, null, null);
-				if (c != null && c.moveToFirst()) {
-					cost = c.getFloat(DataProvider.Logs.INDEX_SUM_COST);
-					billedAmount = c.getLong(DataProvider.Logs.// .
-							INDEX_SUM_BILL_AMOUNT);
-					count = c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+				if (c == null || !c.moveToFirst()) {
+					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, -1);
+				} else {
+					do {
+						cost += c.getFloat(DataProvider.Logs.INDEX_SUM_COST);
+						// TODO: modify by type
+						final long ba = c.getLong(DataProvider.Logs.// .
+								INDEX_SUM_BILL_AMOUNT);
+						billedAmount += ba;
+						count += c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+					} while (c.moveToNext());
 
 					Log.d(TAG, "plan: " + this.id);
 					Log.d(TAG, "count: " + count);
@@ -438,19 +478,19 @@ public class Plans extends ListActivity implements OnClickListener,
 							this.limittype, billedAmount, cost);
 
 					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, used);
-				} else {
-					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, -1);
 				}
 				if (c != null && !c.isClosed()) {
 					c.close();
+				}
+				if (this.ppid >= 0L) {
+					cost = 0F;
 				}
 
 				// get all time
 				if (showTotal) {
 					c = this.ctx.getContentResolver().query(
 							DataProvider.Logs.SUM_URI,
-							DataProvider.Logs.PROJECTION_SUM,
-							DataProvider.Logs.PLAN_ID + " = " + this.id, null,
+							DataProvider.Logs.PROJECTION_SUM, this.where, null,
 							null);
 					if (c != null && c.moveToFirst()) {
 						allBilledAmount = c.getLong(DataProvider.Logs.// .

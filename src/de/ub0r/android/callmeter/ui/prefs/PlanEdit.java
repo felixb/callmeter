@@ -42,6 +42,7 @@ import de.ub0r.android.callmeter.ui.prefs.Preference.DatePreference;
 import de.ub0r.android.callmeter.ui.prefs.Preference.ListPreference;
 import de.ub0r.android.callmeter.ui.prefs.Preference.Text2Preference;
 import de.ub0r.android.callmeter.ui.prefs.Preference.TextPreference;
+import de.ub0r.android.lib.Log;
 
 /**
  * Edit a single Plan.
@@ -51,13 +52,13 @@ import de.ub0r.android.callmeter.ui.prefs.Preference.TextPreference;
 public class PlanEdit extends ListActivity implements OnClickListener,
 		OnItemClickListener, OnDismissListener {
 	/** Tag for debug out. */
-	// private static final String TAG = "pe";
+	private static final String TAG = "pe";
 
 	/** {@link PreferenceAdapter}. */
 	private PreferenceAdapter adapter = null;
 
 	/** Id of edited filed. */
-	private long pid = -1;
+	private long pid = -1L;
 
 	/** Show advanced settings. */
 	private boolean showAdvanced = false;
@@ -211,11 +212,20 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				.getPreference(DataProvider.Plans.TYPE)).getValue();
 		final long bp = ((CursorPreference) this.adapter
 				.getPreference(DataProvider.Plans.BILLPERIOD_ID)).getValue();
-		final String sel = DataProvider.Plans.TYPE + " = " + t + " AND "
-				+ DataProvider.Plans.ID + " != " + this.pid + " AND "
-				+ DataProvider.Plans.BILLPERIOD_ID + " = " + bp;
-		// TODO: LINE is to long
-		// + " AND " + DataProvider.Plans.MERGED_PLANS + " != ''";
+		String sel;
+		if (t == DataProvider.TYPE_MIXED) {
+			sel = "(" + DataProvider.Plans.TYPE + " = " + t + " OR "
+					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_CALL
+					+ " OR " + DataProvider.Plans.TYPE + " = "
+					+ DataProvider.TYPE_SMS + " OR " + DataProvider.Plans.TYPE
+					+ " = " + DataProvider.TYPE_MMS + ")";
+		} else {
+			sel = DataProvider.Plans.TYPE + " = " + t;
+		}
+		sel += " AND " + DataProvider.Plans.ID + " != " + this.pid + " AND "
+				+ DataProvider.Plans.BILLPERIOD_ID + " = " + bp + " AND "
+				+ DataProvider.Plans.MERGED_PLANS + " IS NULL";
+		Log.d(TAG, "selection: " + sel);
 		((CursorPreference) this.adapter
 				.getPreference(DataProvider.Plans.MERGED_PLANS)).setCursor(sel);
 	}
@@ -265,16 +275,36 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 					i == DataProvider.BILLPERIOD_DAY);
 		} else if (t != DataProvider.TYPE_SPACING
 				&& t != DataProvider.TYPE_TITLE) {
+			final long ppid = DataProvider.Plans.getParent(this
+					.getContentResolver(), this.pid);
 			final ListPreference p = (ListPreference) this.adapter
 					.getPreference(DataProvider.Plans.LIMIT_TYPE);
 			final int lt = p.getValue();
 			final boolean nolimit = lt == DataProvider.LIMIT_TYPE_NONE;
 			this.adapter.hide(DataProvider.Plans.LIMIT, nolimit);
-			if (nolimit) {
+			if (nolimit && ppid < 0L) {
 				this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
 						true);
 				this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT,
 						true);
+			}
+			final String mergedPlans = ((CursorPreference) this.adapter
+					.getPreference(DataProvider.Plans.MERGED_PLANS))
+					.getMultiValue();
+			if (mergedPlans != null && mergedPlans.length() > 0) {
+				this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
+						true);
+				this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT,
+						true);
+				this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, true);
+				this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
+				this.adapter.hide(DataProvider.Plans.BILLMODE, true);
+			}
+			if (ppid >= 0) {
+				this.adapter.hide(DataProvider.Plans.LIMIT, true);
+				this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, true);
+				this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, true);
+				this.adapter.hide(DataProvider.Plans.MERGED_PLANS, true);
 			}
 
 			final Text2Preference pil = (Text2Preference) this.adapter

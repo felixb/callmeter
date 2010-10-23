@@ -418,12 +418,12 @@ public final class DataProvider extends ContentProvider {
 
 		/** Index in projection: id. */
 		public static final int INDEX_ID = 0;
-		/** Index in projection: order. */
-		public static final int INDEX_ORDER = 1;
 		/** Index in projection: name. */
-		public static final int INDEX_NAME = 2;
+		public static final int INDEX_NAME = 1;
 		/** Index in projection: short name. */
-		public static final int INDEX_SHORTNAME = 3;
+		public static final int INDEX_SHORTNAME = 2;
+		/** Index in projection: order. */
+		public static final int INDEX_ORDER = 3;
 		/** Index in projection: type. */
 		public static final int INDEX_TYPE = 4;
 		/** Index in projection: Type of limit. */
@@ -534,14 +534,18 @@ public final class DataProvider extends ContentProvider {
 		public static final String MERGED_PLANS = "_merged_plans";
 
 		/** Projection used for query. */
-		public static final String[] PROJECTION = new String[] { ID, ORDER,
-				NAME, SHORTNAME, TYPE, LIMIT_TYPE, LIMIT, BILLMODE, BILLDAY,
+		public static final String[] PROJECTION = new String[] { ID, NAME,
+				SHORTNAME, ORDER, TYPE, LIMIT_TYPE, LIMIT, BILLMODE, BILLDAY,
 				BILLPERIOD, COST_PER_ITEM, COST_PER_AMOUNT1, COST_PER_AMOUNT2,
 				COST_PER_ITEM_IN_LIMIT, COST_PER_AMOUNT_IN_LIMIT1,
 				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN, MIXED_UNITS_CALL,
 				MIXED_UNITS_SMS, MIXED_UNITS_MMS, CACHE_STRING,
 				CACHE_PROGRESS_MAX, CACHE_PROGRESS_POS, CACHE_COST,
 				BILLPERIOD_ID, NEXT_ALERT, STRIP_SECONDS, MERGED_PLANS };
+
+		/** Projection used for query id and (short)name. */
+		public static final String[] PROJECTION_NAME = new String[] { ID, NAME,
+				SHORTNAME };
 
 		/** Select only real plans. */
 		public static final String WHERE_REALPLANS = TYPE + " != "
@@ -675,10 +679,36 @@ public final class DataProvider extends ContentProvider {
 				return null;
 			}
 			final Cursor cursor = cr.query(ContentUris.withAppendedId(
-					CONTENT_URI, id), new String[] { NAME }, null, null, null);
+					CONTENT_URI, id), PROJECTION_NAME, null, null, null);
 			String ret = null;
 			if (cursor != null && cursor.moveToFirst()) {
-				ret = cursor.getString(0);
+				ret = cursor.getString(INDEX_NAME);
+			}
+			if (cursor != null && !cursor.isClosed()) {
+				cursor.close();
+			}
+			return ret;
+		}
+
+		/**
+		 * Get parent's id for id.
+		 * 
+		 * @param cr
+		 *            {@link ContentResolver}
+		 * @param id
+		 *            id
+		 * @return parent's id
+		 */
+		public static long getParent(final ContentResolver cr, final long id) {
+			if (id < 0) {
+				return -1L;
+			}
+			final Cursor cursor = cr.query(CONTENT_URI, PROJECTION_NAME,
+					DataProvider.Plans.MERGED_PLANS + " LIKE '%," + id + ",%'",
+					null, null);
+			long ret = -1L;
+			if (cursor != null && cursor.moveToFirst()) {
+				ret = cursor.getLong(0);
 			}
 			if (cursor != null && !cursor.isClosed()) {
 				cursor.close();
@@ -2118,9 +2148,7 @@ public final class DataProvider extends ContentProvider {
 			qb.setProjectionMap(Logs.PROJECTION_MAP);
 			break;
 		case LOGS_SUM:
-			qb.setTables(Logs.TABLE);
-			qb.setProjectionMap(Logs.PROJECTION_MAP);
-			// groupBy = Logs.PLAN_ID;
+			groupBy = DataProvider.Logs.TYPE;
 			return db.query(Logs.TABLE, projection, selection, selectionArgs,
 					groupBy, null, null);
 		case WEBSMS:
