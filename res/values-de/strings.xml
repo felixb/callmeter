@@ -106,6 +106,8 @@
 	<string name="show_shortname_">Zeige Kurzname anstatt langem Namen</string>
 	<string name="show_cost_">Zeige Kosten</string>
 	<string name="show_billperiod_">Zeige Fortschritt des Abrechnungszeitraums</string>
+	<string name="hide_zero_">Verstecke leere Kontingente</string>
+	<string name="hide_zero_hint">Verstecke Kontingente ohne Inhalte.</string>
 	<string name="custom_currency_symbol_">Benutzerdefiniertes Währungssymbol</string>
 	<string name="custom_currency_symbol_hint">Stell hier ein benutzerdefiniertes Währungssymbol ein. Wenn leer, wird das Systemstandardsymbol genutzt.</string>
 	<string name="custom_currency_format_">Benutzerdefiniertes Währungsformat</string>

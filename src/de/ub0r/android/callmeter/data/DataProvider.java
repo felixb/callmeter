@@ -705,14 +705,17 @@ public final class DataProvider extends ContentProvider {
 			case DataProvider.LIMIT_TYPE_COST:
 				return (int) (cost * CallMeter.HUNDRET);
 			case DataProvider.LIMIT_TYPE_UNITS:
-				switch (pType) {
-				case DataProvider.TYPE_DATA:
+				if (pType == DataProvider.TYPE_DATA) {
 					return (int) (amount / CallMeter.BYTE_KB);
-				default:
+				} else {
 					return (int) amount;
 				}
 			default:
-				return 0;
+				if (amount > 0L) {
+					return -1;
+				} else {
+					return 0;
+				}
 			}
 		}
 
