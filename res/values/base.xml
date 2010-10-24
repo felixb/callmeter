@@ -38,6 +38,7 @@
 	<string name="author_ru">Valentin R. &lt;rvs2008@gmail.com&gt; (Russian)</string>
 	<string name="author_sk">Adrian Kolencik &lt;kolencik.adrian@gmail.com&gt; (Slovak)</string>
 	<string name="author_tr">Sinan Cem KILIÇKAPLAN &lt;bluesman80@gmail.com&gt; (Turkish)</string>
+	<string name="author_zh">蔡杰伦 &lt;case3526@gmail.com&gt; (Chinese)</string>
 	<string name="source">http://github.com/felixb/callmeter</string>
 	<string name="website">http://code.google.com/p/callmeter/</string>
 	<string name="donate_url">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=5832809</string>
@@ -114,6 +115,7 @@
 		<item>sk</item>
 		<item>sv</item>
 		<item>tr</item>
+		<item>zh</item>
 	</string-array>
 	<string-array name="lang_">
 		<item>Default language</item>
@@ -133,6 +135,7 @@
 		<item>Slovak</item>
 		<item>Swedish</item>
 		<item>Turkish</item>
+		<item>Chinese</item>
 	</string-array>
 
 	<dimen name="touchlist_height">30dip</dimen>
