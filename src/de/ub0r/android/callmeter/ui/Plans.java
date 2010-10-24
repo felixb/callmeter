@@ -422,8 +422,17 @@ public class Plans extends ListActivity implements OnClickListener,
 								billDay, billDay);
 					}
 				}
-				this.currentCacheString = formatedDate;
-				cv.put(DataProvider.Plans.CACHE_STRING, formatedDate);
+				String ccs;
+				if (this.currentCacheString.contains("\n")) {
+					ccs = formatedDate + "\n"
+							+ this.currentCacheString.split("\n", 2)[1];
+				} else {
+					ccs = formatedDate;
+				}
+				if (!ccs.equals(this.currentCacheString)) {
+					this.currentCacheString = ccs;
+					cv.put(DataProvider.Plans.CACHE_STRING, ccs);
+				}
 			}
 
 			/**
