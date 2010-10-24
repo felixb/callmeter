@@ -128,6 +128,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		long limit = 0L;
 		int ptype = -1;
 		String where;
+		int upc, upm, ups;
+		boolean isMerger;
 		// float cost = 0F;
 		String billdayWhere = null;
 		Cursor cursor = cr.query(puri, DataProvider.Plans.PROJECTION, null,
@@ -143,12 +145,16 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			ltype = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 			limit = DataProvider.Plans.getLimit(ptype, ltype, cursor
 					.getLong(DataProvider.Plans.INDEX_LIMIT));
+			upc = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_CALL);
+			upm = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_MMS);
+			ups = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_SMS);
 
 			final String s = cursor
 					.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
 
 			if (s == null || s.length() == 0) {
 				where = DataProvider.Logs.PLAN_ID + " = " + pid;
+				isMerger = false;
 			} else {
 				StringBuilder sb = new StringBuilder(DataProvider.Logs.PLAN_ID
 						+ " = " + pid);
@@ -159,6 +165,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 					sb.append(" OR " + DataProvider.Logs.PLAN_ID + " = " + ss);
 				}
 				where = sb.toString();
+				isMerger = true;
 			}
 		} else {
 			return;
@@ -215,10 +222,27 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			used = 0;
 		} else {
 			do {
-				// TODO: modify by type
 				cost += cursor.getFloat(DataProvider.Logs.INDEX_SUM_COST);
-				billedAmount += cursor.getLong(DataProvider.Logs.// .
-						INDEX_SUM_BILL_AMOUNT);
+				long ba = cursor.getLong(// .
+						DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
+				if (isMerger && ptype == DataProvider.TYPE_MIXED) {
+					final int t = cursor
+							.getInt(DataProvider.Logs.INDEX_SUM_TYPE);
+					switch (t) {
+					case DataProvider.TYPE_CALL:
+						ba = (ba * upc) / CallMeter.SECONDS_MINUTE;
+						break;
+					case DataProvider.TYPE_MMS:
+						ba *= upm;
+						break;
+					case DataProvider.TYPE_SMS:
+						ba *= ups;
+						break;
+					default:
+						break;
+					}
+				}
+				billedAmount += ba;
 				count += cursor.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
 			} while (cursor.moveToNext());
 

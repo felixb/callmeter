@@ -214,11 +214,11 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				.getPreference(DataProvider.Plans.BILLPERIOD_ID)).getValue();
 		String sel;
 		if (t == DataProvider.TYPE_MIXED) {
-			sel = "(" + DataProvider.Plans.TYPE + " = " + t + " OR "
-					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_CALL
-					+ " OR " + DataProvider.Plans.TYPE + " = "
-					+ DataProvider.TYPE_SMS + " OR " + DataProvider.Plans.TYPE
-					+ " = " + DataProvider.TYPE_MMS + ")";
+			sel = "(" + DataProvider.Plans.TYPE + " = "
+					+ DataProvider.TYPE_CALL + " OR " + DataProvider.Plans.TYPE
+					+ " = " + DataProvider.TYPE_SMS + " OR "
+					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_MMS
+					+ ")";
 		} else {
 			sel = DataProvider.Plans.TYPE + " = " + t;
 		}

@@ -168,15 +168,15 @@ public final class DataProvider extends ContentProvider {
 		/** Index in projection: Cost. */
 		public static final int INDEX_COST = 10;
 
-		/** Index in projection - sum: ID of plan this log is billed in. */
-		public static final int INDEX_SUM_PLAN_ID = 0;
+		/** Index in projection - sum: Type of log. */
+		public static final int INDEX_SUM_TYPE = 0;
 		/** Index in projection - sum: Amount. */
 		public static final int INDEX_SUM_AMOUNT = 1;
 		/** Index in projection - sum: Billed amount. */
 		public static final int INDEX_SUM_BILL_AMOUNT = 2;
 		/** Index in projection - sum: Cost. */
 		public static final int INDEX_SUM_COST = 3;
-		/** Index in projection - count. */
+		/** Index in projection - sum: count. */
 		public static final int INDEX_SUM_COUNT = 4;
 
 		/** ID. */
@@ -207,7 +207,7 @@ public final class DataProvider extends ContentProvider {
 				RULE_ID, TYPE, DIRECTION, DATE, AMOUNT, BILL_AMOUNT, REMOTE,
 				ROAMED, COST };
 		/** Projection used for query - sum. */
-		public static final String[] PROJECTION_SUM = new String[] { PLAN_ID,
+		public static final String[] PROJECTION_SUM = new String[] { TYPE,
 				"sum(" + AMOUNT + ")", "sum(" + BILL_AMOUNT + ")",
 				"sum(" + COST + ")", "count(" + PLAN_ID + ")" };
 

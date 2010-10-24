@@ -246,6 +246,8 @@ public class Plans extends ListActivity implements OnClickListener,
 			private final long id;
 			/** Id of parent plan. */
 			private final long ppid;
+			/** True for plans merging other plans. */
+			private final boolean isMerger;
 			/** Where clause for updating the plan. */
 			private final String where;
 			/** Bill period. */
@@ -297,6 +299,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					this.upc = 0;
 					this.upm = 0;
 					this.ups = 0;
+					this.isMerger = false;
 				} else if (this.type == DataProvider.TYPE_BILLPERIOD) {
 					this.billday = cursor
 							.getLong(DataProvider.Plans.INDEX_BILLDAY);
@@ -311,6 +314,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					this.upc = 0;
 					this.upm = 0;
 					this.ups = 0;
+					this.isMerger = false;
 				} else {
 					this.billday = -1;
 					this.billdayc = null;
@@ -331,9 +335,11 @@ public class Plans extends ListActivity implements OnClickListener,
 					final String s = cursor
 							.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
 					if (s == null || s.length() == 0) {
+						this.isMerger = false;
 						this.where = DataProvider.Logs.PLAN_ID + " = "
 								+ this.id;
 					} else {
+						this.isMerger = true;
 						StringBuilder sb = new StringBuilder(
 								DataProvider.Logs.PLAN_ID + " = " + this.id);
 						for (String ss : s.split(",")) {
@@ -462,9 +468,26 @@ public class Plans extends ListActivity implements OnClickListener,
 				} else {
 					do {
 						cost += c.getFloat(DataProvider.Logs.INDEX_SUM_COST);
-						// TODO: modify by type
-						final long ba = c.getLong(DataProvider.Logs.// .
+						long ba = c.getLong(DataProvider.Logs.// .
 								INDEX_SUM_BILL_AMOUNT);
+						if (this.isMerger
+								&& this.type == DataProvider.TYPE_MIXED) {
+							final int t = c
+									.getInt(DataProvider.Logs.INDEX_SUM_TYPE);
+							switch (t) {
+							case DataProvider.TYPE_CALL:
+								ba = (ba * this.upc) / CallMeter.SECONDS_MINUTE;
+								break;
+							case DataProvider.TYPE_MMS:
+								ba *= this.upm;
+								break;
+							case DataProvider.TYPE_SMS:
+								ba *= this.ups;
+								break;
+							default:
+								break;
+							}
+						}
 						billedAmount += ba;
 						count += c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
 					} while (c.moveToNext());
@@ -493,9 +516,32 @@ public class Plans extends ListActivity implements OnClickListener,
 							DataProvider.Logs.PROJECTION_SUM, this.where, null,
 							null);
 					if (c != null && c.moveToFirst()) {
-						allBilledAmount = c.getLong(DataProvider.Logs.// .
-								INDEX_SUM_BILL_AMOUNT);
-						allCount = c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+						do {
+							long ba = c.getLong(DataProvider.Logs.// .
+									INDEX_SUM_BILL_AMOUNT);
+							if (this.isMerger
+									&& this.type == DataProvider.TYPE_MIXED) {
+								final int t = c.getInt(// .
+										DataProvider.Logs.INDEX_SUM_TYPE);
+								switch (t) {
+								case DataProvider.TYPE_CALL:
+									ba = (ba * this.upc)
+											/ CallMeter.SECONDS_MINUTE;
+									break;
+								case DataProvider.TYPE_MMS:
+									ba *= this.upm;
+									break;
+								case DataProvider.TYPE_SMS:
+									ba *= this.ups;
+									break;
+								default:
+									break;
+								}
+							}
+							allBilledAmount += ba;
+							allCount += c
+									.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+						} while (c.moveToNext());
 					}
 					if (c != null && !c.isClosed()) {
 						c.close();
