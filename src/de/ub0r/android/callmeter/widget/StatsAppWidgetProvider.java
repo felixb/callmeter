@@ -124,6 +124,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 				DataProvider.Plans.CONTENT_URI, pid);
 		long bid = -1L;
 		String pname = null;
+		float cpp = 0F;
 		int ltype = DataProvider.LIMIT_TYPE_NONE;
 		long limit = 0L;
 		int ptype = -1;
@@ -148,6 +149,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			upc = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_CALL);
 			upm = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_MMS);
 			ups = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_SMS);
+			cpp = cursor.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
 
 			final String s = cursor
 					.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
@@ -214,7 +216,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		billdayWhere = DbUtils.sqlAnd(billdayWhere, where);
 		cursor = cr.query(DataProvider.Logs.SUM_URI,
 				DataProvider.Logs.PROJECTION_SUM, billdayWhere, null, null);
-		float cost = 0;
+		float cost = cpp;
 		long billedAmount = 0;
 		int count = 0;
 		int used = 0;
