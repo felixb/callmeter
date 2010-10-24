@@ -119,13 +119,18 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		if (pid < 0L) {
 			return;
 		}
+		final long ppid = DataProvider.Plans.getParent(cr, pid);
 		final Uri puri = ContentUris.withAppendedId(
 				DataProvider.Plans.CONTENT_URI, pid);
 		long bid = -1L;
 		String pname = null;
+		float cpp = 0F;
 		int ltype = DataProvider.LIMIT_TYPE_NONE;
 		long limit = 0L;
 		int ptype = -1;
+		String where;
+		int upc, upm, ups;
+		boolean isMerger;
 		// float cost = 0F;
 		String billdayWhere = null;
 		Cursor cursor = cr.query(puri, DataProvider.Plans.PROJECTION, null,
@@ -141,6 +146,31 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			ltype = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 			limit = DataProvider.Plans.getLimit(ptype, ltype, cursor
 					.getLong(DataProvider.Plans.INDEX_LIMIT));
+			upc = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_CALL);
+			upm = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_MMS);
+			ups = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_SMS);
+			cpp = cursor.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
+
+			final String s = cursor
+					.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
+
+			if (s == null || s.length() == 0) {
+				where = DataProvider.Logs.PLAN_ID + " = " + pid;
+				isMerger = false;
+			} else {
+				StringBuilder sb = new StringBuilder(DataProvider.Logs.PLAN_ID
+						+ " = " + pid);
+				for (String ss : s.split(",")) {
+					if (ss.length() == 0) {
+						continue;
+					}
+					sb.append(" OR " + DataProvider.Logs.PLAN_ID + " = " + ss);
+				}
+				where = sb.toString();
+				isMerger = true;
+			}
+		} else {
+			return;
 		}
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
@@ -183,19 +213,40 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			}
 		}
 		Log.d(TAG, "bpos/bmax: " + bpos + "/" + bmax);
-		billdayWhere = DbUtils.sqlAnd(billdayWhere, DataProvider.Logs.PLAN_ID
-				+ " = " + pid);
+		billdayWhere = DbUtils.sqlAnd(billdayWhere, where);
 		cursor = cr.query(DataProvider.Logs.SUM_URI,
 				DataProvider.Logs.PROJECTION_SUM, billdayWhere, null, null);
-		float cost = -1;
+		float cost = cpp;
 		long billedAmount = 0;
 		int count = 0;
 		int used = 0;
-		if (cursor != null && cursor.moveToFirst()) {
-			cost = cursor.getFloat(DataProvider.Logs.INDEX_SUM_COST);
-			billedAmount = cursor.getLong(DataProvider.Logs.// .
-					INDEX_SUM_BILL_AMOUNT);
-			count = cursor.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+		if (cursor == null || !cursor.moveToFirst()) {
+			used = 0;
+		} else {
+			do {
+				cost += cursor.getFloat(DataProvider.Logs.INDEX_SUM_COST);
+				long ba = cursor.getLong(// .
+						DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
+				if (isMerger && ptype == DataProvider.TYPE_MIXED) {
+					final int t = cursor
+							.getInt(DataProvider.Logs.INDEX_SUM_TYPE);
+					switch (t) {
+					case DataProvider.TYPE_CALL:
+						ba = (ba * upc) / CallMeter.SECONDS_MINUTE;
+						break;
+					case DataProvider.TYPE_MMS:
+						ba *= upm;
+						break;
+					case DataProvider.TYPE_SMS:
+						ba *= ups;
+						break;
+					default:
+						break;
+					}
+				}
+				billedAmount += ba;
+				count += cursor.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+			} while (cursor.moveToNext());
 
 			Log.d(TAG, "plan: " + pid);
 			Log.d(TAG, "count: " + count);
@@ -203,11 +254,12 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			Log.d(TAG, "billedAmount: " + billedAmount);
 
 			used = DataProvider.Plans.getUsed(ptype, ltype, billedAmount, cost);
-		} else {
-			used = 0;
 		}
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
+		}
+		if (ppid >= 0L) {
+			cost = 0F;
 		}
 
 		String stats = Plans.formatAmount(ptype, billedAmount,

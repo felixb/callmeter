@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2009-2010 Felix Bechstein
  * 
- * This file is part of NetCounter.
+ * This file is part of Call Meter 3G.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -479,9 +479,13 @@ public final class RuleMatcher {
 		/** Cost per amount in limit. */
 		private final float costPerAmountInLimit1, costPerAmountInLimit2;
 		/** Units for mixed plans. */
-		private final int mixedUnitsCall, mixedUnitsSMS, mixedUnitsMMS;
+		private final int upc, ups, upm;
 		/** Strip first x seconds. */
 		private final int stripSeconds;
+		/** Parent plan id. */
+		private final long ppid;
+		/** PArent plan. Set in RuleMatcher.load(). */
+		private Plan parent = null;
 		/** Time of next alert. */
 		private long nextAlert = 0;
 
@@ -533,12 +537,9 @@ public final class RuleMatcher {
 					INDEX_COST_PER_AMOUNT_IN_LIMIT1);
 			this.costPerAmountInLimit2 = cursor.getFloat(DataProvider.Plans.// .
 					INDEX_COST_PER_AMOUNT_IN_LIMIT2);
-			this.mixedUnitsCall = cursor
-					.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_CALL);
-			this.mixedUnitsSMS = cursor
-					.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_SMS);
-			this.mixedUnitsMMS = cursor
-					.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_MMS);
+			this.upc = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_CALL);
+			this.ups = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_SMS);
+			this.upm = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_MMS);
 			this.nextAlert = cursor
 					.getLong(DataProvider.Plans.INDEX_NEXT_ALERT);
 			this.stripSeconds = cursor
@@ -577,6 +578,7 @@ public final class RuleMatcher {
 				this.billModeFirstLength = 1;
 				this.billModeNextLength = 1;
 			}
+			this.ppid = DataProvider.Plans.getParent(cr, this.id);
 		}
 
 		/**
@@ -639,6 +641,9 @@ public final class RuleMatcher {
 					c.close();
 				}
 			}
+			if (this.parent != null) {
+				this.parent.checkBillday(log);
+			}
 		}
 
 		/**
@@ -647,13 +652,17 @@ public final class RuleMatcher {
 		 * @return true if billed cost/amount is in limit
 		 */
 		boolean isInLimit() {
-			switch (this.limitType) {
-			case DataProvider.LIMIT_TYPE_COST:
-				return this.billedCost < this.limit;
-			case DataProvider.LIMIT_TYPE_UNITS:
-				return this.billedAmount < this.limit;
-			default:
-				return true;
+			if (this.parent != null) {
+				return this.parent.isInLimit();
+			} else {
+				switch (this.limitType) {
+				case DataProvider.LIMIT_TYPE_COST:
+					return this.billedCost < this.limit;
+				case DataProvider.LIMIT_TYPE_UNITS:
+					return this.billedAmount < this.limit;
+				default:
+					return true;
+				}
 			}
 		}
 
@@ -692,10 +701,34 @@ public final class RuleMatcher {
 		 *            billed amount
 		 * @param cost
 		 *            billed cost
+		 * @param t
+		 *            type of log
 		 */
-		void updatePlan(final long amount, final float cost) {
+		void updatePlan(final long amount, final float cost, final int t) {
 			this.billedAmount += amount;
 			this.billedCost += cost;
+			final Plan pp = this.parent;
+			if (pp != null) {
+				if (pp.type == DataProvider.TYPE_MIXED) {
+					switch (t) {
+					case DataProvider.TYPE_CALL:
+						pp.billedAmount += (amount * this.upc)
+								/ CallMeter.SECONDS_MINUTE;
+						break;
+					case DataProvider.TYPE_MMS:
+						pp.billedAmount += amount * this.upm;
+						break;
+					case DataProvider.TYPE_SMS:
+						pp.billedAmount += amount * this.ups;
+						break;
+					default:
+						break;
+					}
+				} else {
+					pp.billedAmount += amount;
+				}
+				this.parent.billedCost += cost;
+			}
 		}
 
 		/**
@@ -722,14 +755,13 @@ public final class RuleMatcher {
 			if (this.type == DataProvider.TYPE_MIXED) {
 				switch (t) {
 				case DataProvider.TYPE_CALL:
-					ret = (ret * this.mixedUnitsCall)
-							/ CallMeter.SECONDS_MINUTE;
+					ret = (ret * this.upc) / CallMeter.SECONDS_MINUTE;
 					break;
 				case DataProvider.TYPE_SMS:
-					ret = ret * this.mixedUnitsSMS;
+					ret = ret * this.ups;
 					break;
 				case DataProvider.TYPE_MMS:
-					ret = ret * this.mixedUnitsMMS;
+					ret = ret * this.upm;
 					break;
 				default:
 					break;
@@ -750,8 +782,13 @@ public final class RuleMatcher {
 		float getCost(final Cursor log, final long bAmount) {
 			float ret = 0;
 			float cpi, cpa1, cpa2;
-			if (this.limitType != DataProvider.LIMIT_TYPE_NONE
-					&& this.isInLimit()) {
+			Plan p;
+			if (this.parent == null) {
+				p = this;
+			} else {
+				p = this.parent;
+			}
+			if (p.limitType != DataProvider.LIMIT_TYPE_NONE && p.isInLimit()) {
 				cpi = this.costPerItemInLimit;
 				cpa1 = this.costPerAmountInLimit1;
 				cpa2 = this.costPerAmountInLimit2;
@@ -760,7 +797,6 @@ public final class RuleMatcher {
 				cpa1 = this.costPerAmount1;
 				cpa2 = this.costPerAmount2;
 			}
-
 			final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
 
 			if (t == DataProvider.TYPE_SMS) {
@@ -849,6 +885,10 @@ public final class RuleMatcher {
 			cursor.close();
 			cursor = null;
 		}
+		// update parent references
+		for (Plan p : plans.values()) {
+			p.parent = plans.get(p.ppid);
+		}
 	}
 
 	/**
@@ -900,6 +940,7 @@ public final class RuleMatcher {
 			return false;
 		}
 		final long lid = log.getLong(DataProvider.Logs.INDEX_ID);
+		final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
 		Log.d(TAG, "matchLog(cr, " + lid + ")");
 		boolean matched = false;
 		if (rules == null) {
@@ -928,7 +969,7 @@ public final class RuleMatcher {
 				cv.put(DataProvider.Logs.BILL_AMOUNT, ba);
 				final float bc = p.getCost(log, ba);
 				cv.put(DataProvider.Logs.COST, bc);
-				p.updatePlan(ba, bc);
+				p.updatePlan(ba, bc, t);
 				cr.update(ContentUris.withAppendedId(
 						DataProvider.Logs.CONTENT_URI, lid), cv, null, null);
 				matched = true;

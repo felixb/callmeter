@@ -11,9 +11,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.DialogInterface.OnDismissListener;
+import android.content.DialogInterface.OnMultiChoiceClickListener;
 import android.database.Cursor;
 import android.net.Uri;
 import android.text.format.DateFormat;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +30,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * Hold Preferences saved to / loaded from a database.
@@ -688,18 +691,30 @@ abstract class Preference {
 	static final class CursorPreference extends Preference {
 		/** Current value. */
 		private long value = -1;
+		/** Current value for multi selection. */
+		private String multiValue = null;
 		/** Name of current value. */
 		private String valueName = null;
+		/** Name of current value for multi selection. */
+		private String multiValueName = null;
 		/** {@link Uri} to data. */
 		private Uri uri;
 		/** Projection. 0: _id, 1: _name */
 		private final String[] projection = new String[2];
 		/** Selection for query. */
 		private String selection;
+		/** Allow multi selection. */
+		private final boolean multiSelect;
+		/** For mutli selection: Item ids. */
+		private long[] multiItemsIds;
+		/** For mutli selection: Item names. */
+		private String[] multiItemsNames;
+		/** For mutli selection: Item checked. */
+		private boolean[] multiItemsChecked;
 		/** Resource id for new item. */
 		private final int resNewItem;
 		/** {@link OnClickListener} for new item button. */
-		private final DialogInterface.OnClickListener lsrNewItem;
+		private DialogInterface.OnClickListener lsrNewItem;
 		/** Resource id for edit selected item. */
 		private final int resEditSelected;
 		/** {@link OnClickListener} for edit selected item. */
@@ -734,6 +749,8 @@ abstract class Preference {
 		 *            name in projection
 		 * @param sel
 		 *            selection for query
+		 * @param multiSelection
+		 *            allow multi selection
 		 * @param editSelectedListener
 		 *            {@link OnClickListener} for edit selected button
 		 * @param newItemListener
@@ -745,6 +762,7 @@ abstract class Preference {
 				final int text, final int help, final int editSelceted,
 				final int newItem, final int cancel, final Uri u,
 				final String id, final String name, final String sel,
+				final boolean multiSelection,
 				final DialogInterface.OnClickListener editSelectedListener,
 				final DialogInterface.OnClickListener newItemListener,
 				final DialogInterface.OnClickListener cancelListener) {
@@ -753,24 +771,32 @@ abstract class Preference {
 			this.projection[0] = id;
 			this.projection[1] = name;
 			this.selection = sel;
+			this.multiSelect = multiSelection;
 			this.resEditSelected = editSelceted;
 			if (this.resEditSelected > 0) {
 				this.lsrEditSelected = editSelectedListener;
 			} else {
 				this.lsrEditSelected = null;
 			}
-			this.resNewItem = newItem;
-			if (this.resNewItem > 0) {
-				this.lsrNewItem = newItemListener;
-			} else {
-				this.lsrNewItem = null;
-			}
-			if (cancel > 0) {
-				this.resCancel = cancel;
-				this.lsrCancel = cancelListener;
-			} else {
+			if (multiSelection) {
+				this.resNewItem = android.R.string.ok;
 				this.resCancel = android.R.string.cancel;
+				this.lsrNewItem = null;
 				this.lsrCancel = null;
+			} else {
+				this.resNewItem = newItem;
+				if (this.resNewItem > 0) {
+					this.lsrNewItem = newItemListener;
+				} else {
+					this.lsrNewItem = null;
+				}
+				if (cancel > 0) {
+					this.resCancel = cancel;
+					this.lsrCancel = cancelListener;
+				} else {
+					this.resCancel = android.R.string.cancel;
+					this.lsrCancel = null;
+				}
 			}
 		}
 
@@ -808,12 +834,55 @@ abstract class Preference {
 
 		@Override
 		void load(final Cursor cursor) {
-			this.value = cursor.getLong(cursor.getColumnIndex(this.name));
+			if (this.multiSelect) {
+				this.multiValue = cursor.getString(cursor
+						.getColumnIndex(this.name));
+			} else {
+				this.value = cursor.getLong(cursor.getColumnIndex(this.name));
+			}
 		}
 
 		@Override
 		void save(final ContentValues values) {
-			values.put(this.name, this.value);
+			if (this.multiSelect) {
+				values.put(this.name, this.multiValue);
+				Log.d(TAG, "save multi: " + this.multiValue);
+			} else {
+				values.put(this.name, this.value);
+			}
+		}
+
+		/**
+		 * Update arrays for multi selection dialog.
+		 * 
+		 * @param cursor
+		 *            {@link Cursor}
+		 */
+		private void loadMultiArrays(final Cursor cursor) {
+			final int l = cursor.getCount();
+			this.multiItemsIds = new long[l];
+			this.multiItemsNames = new String[l];
+			this.multiItemsChecked = new boolean[l];
+			String[] selected = null;
+			if (this.multiValue != null) {
+				selected = this.multiValue.split(",");
+			}
+			for (int i = 0; i < l; i++) {
+				cursor.moveToPosition(i);
+				final long ili = cursor.getLong(0);
+				this.multiItemsIds[i] = ili;
+				this.multiItemsNames[i] = cursor.getString(1);
+				this.multiItemsChecked[i] = false;
+				if (selected != null) {
+					for (String s : selected) {
+						final long li = Utils.parseLong(s, -1L);
+						if (ili == li && li >= 0L) {
+							this.multiItemsChecked[i] = true;
+							break;
+						}
+					}
+				}
+			}
 		}
 
 		@Override
@@ -836,19 +905,73 @@ abstract class Preference {
 					this.context);
 			builder.setCancelable(true);
 			builder.setTitle(this.resText);
-			builder.setSingleChoiceItems(cursor, sel, this.projection[1],
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(final DialogInterface dialog,
-								final int which) {
-							final ListView lv = ((AlertDialog) dialog)
-									.getListView();
-							CursorPreference.this.value = lv.getAdapter()
-									.getItemId(which);
-							CursorPreference.this.valueName = null;
-							CursorPreference.this.dismissDialog();
+			if (this.multiSelect) {
+				this.loadMultiArrays(cursor);
+				cursor.close();
+				final long[] fMultiItemsIds = this.multiItemsIds;
+				final String[] fMultiItemsNames = this.multiItemsNames;
+				this.lsrNewItem = new OnClickListener() {
+					@Override
+					public void onClick(final DialogInterface dialog,
+							final int which) {
+						final ListView lv = ((AlertDialog) dialog)
+								.getListView();
+						final SparseBooleanArray sba = lv
+								.getCheckedItemPositions();
+						final int l = lv.getCount();
+						final StringBuilder v = new StringBuilder();
+						final StringBuilder vs = new StringBuilder();
+						for (int i = 0; i < l; i++) {
+							if (sba.get(i)) {
+								v.append(",");
+								if (v.length() > 0) {
+									vs.append(", ");
+									CursorPreference.this.// .
+									multiItemsChecked[i] = true;
+								} else {
+									CursorPreference.this.// .
+									multiItemsChecked[i] = false;
+								}
+								v.append(fMultiItemsIds[i]);
+								vs.append(fMultiItemsNames[i]);
+							}
 						}
-					});
+						if (v.length() > 0) {
+							v.append(",");
+							CursorPreference.this.multiValue = v.toString();
+							CursorPreference.this.multiValueName = vs
+									.toString();
+						} else {
+							CursorPreference.this.multiValue = null;
+							CursorPreference.this.multiValueName = null;
+						}
+					}
+				};
+				builder.setMultiChoiceItems(this.multiItemsNames,
+						this.multiItemsChecked,
+						new OnMultiChoiceClickListener() {
+							@Override
+							public void onClick(final DialogInterface dialog,
+									final int which, final boolean isChecked) {
+								CursorPreference.this.// .
+								multiItemsChecked[which] = isChecked;
+							}
+						});
+			} else {
+				builder.setSingleChoiceItems(cursor, sel, this.projection[1],
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(final DialogInterface dialog,
+									final int which) {
+								final ListView lv = ((AlertDialog) dialog)
+										.getListView();
+								CursorPreference.this.value = lv.getAdapter()
+										.getItemId(which);
+								CursorPreference.this.valueName = null;
+								CursorPreference.this.dismissDialog();
+							}
+						});
+			}
 			if (this.lsrEditSelected != null) {
 				builder.setPositiveButton(this.resEditSelected,
 						this.lsrEditSelected);
@@ -865,43 +988,93 @@ abstract class Preference {
 		void updateDialog(final Dialog d) {
 			final ListView lv = ((AlertDialog) d).getListView();
 			final ListAdapter a = lv.getAdapter();
-			final int l = a.getCount();
-			for (int i = 0; i < l; i++) {
-				if (this.value == a.getItemId(i)) {
-					lv.setSelection(i);
-					return;
+			if (!this.multiSelect) {
+				final int l = a.getCount();
+				for (int i = 0; i < l; i++) {
+					if (this.value == a.getItemId(i)) {
+						lv.setSelection(i);
+						return;
+					}
 				}
+				lv.setSelection(-1);
+				lv.setSelected(false);
 			}
-			lv.setSelection(-1);
-			lv.setSelected(false);
 		}
 
 		@Override
 		String getHint() {
-			if (this.valueName == null && this.value >= 0L) {
-				Cursor cursor = this.context.getContentResolver().query(
-						this.uri,
-						this.projection,
-						DbUtils.sqlAnd(this.selection, this.projection[0]
-								+ " == " + this.value), null, null);
-				if (cursor != null && cursor.moveToFirst()) {
-					this.valueName = cursor.getString(1);
+			if (this.multiSelect) {
+				if (this.multiValue == null) {
+					this.multiValueName = null;
+				} else {
+					final StringBuilder sb = new StringBuilder();
+					for (String s : this.multiValue.split(",")) {
+						if (sb.length() > 0) {
+							sb.append(", ");
+						}
+						if (s.length() == 0) {
+							continue;
+						}
+						final Cursor c = this.context.getContentResolver()
+								.query(this.uri, this.projection,
+										this.projection[0] + " = " + s, null,
+										null);
+						if (c != null && c.moveToFirst()) {
+							sb.append(c.getString(1));
+						} else {
+							sb.append("?");
+						}
+						if (c != null && !c.isClosed()) {
+							c.close();
+						}
+					}
+					this.multiValueName = sb.toString();
 				}
-				if (cursor != null && !cursor.isClosed()) {
-					cursor.close();
+				if (this.multiValueName == null) {
+					return this.context.getString(R.string.none);
 				}
+				return this.multiValueName;
+			} else {
+				if (this.valueName == null && this.value >= 0L) {
+					Cursor cursor = this.context.getContentResolver().query(
+							this.uri,
+							this.projection,
+							DbUtils.sqlAnd(this.selection, this.projection[0]
+									+ " == " + this.value), null, null);
+					if (cursor != null && cursor.moveToFirst()) {
+						this.valueName = cursor.getString(1);
+					}
+					if (cursor != null && !cursor.isClosed()) {
+						cursor.close();
+					}
+				}
+				if (this.valueName == null) {
+					this.valueName = this.context.getString(R.string.none);
+				}
+				return this.valueName;
 			}
-			if (this.valueName == null) {
-				this.valueName = this.context.getString(R.string.none);
-			}
-			return this.valueName;
 		}
 
 		/**
 		 * @return value
 		 */
 		public long getValue() {
-			return this.value;
+			if (this.multiSelect) {
+				return -1L;
+			} else {
+				return this.value;
+			}
+		}
+
+		/**
+		 * @return multiValue
+		 */
+		public String getMultiValue() {
+			if (this.multiSelect) {
+				return this.multiValue;
+			} else {
+				return null;
+			}
 		}
 
 		/**
@@ -911,8 +1084,10 @@ abstract class Preference {
 		 *            value
 		 */
 		public void setValue(final long val) {
-			this.value = val;
-			this.valueName = null;
+			if (!this.multiSelect) {
+				this.value = val;
+				this.valueName = null;
+			}
 		}
 
 		/**
