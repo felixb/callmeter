@@ -486,8 +486,6 @@ public final class RuleMatcher {
 		private final long ppid;
 		/** PArent plan. Set in RuleMatcher.load(). */
 		private Plan parent = null;
-		/** True for plans merging other plans. */
-		private boolean isMerger = false;
 		/** Time of next alert. */
 		private long nextAlert = 0;
 
@@ -657,10 +655,6 @@ public final class RuleMatcher {
 			if (this.parent != null) {
 				return this.parent.isInLimit();
 			} else {
-				if (this.id == 26L) {
-					Log.d(TAG, "limit: " + this.limit);
-					Log.d(TAG, "ba: " + this.billedAmount);
-				}
 				switch (this.limitType) {
 				case DataProvider.LIMIT_TYPE_COST:
 					return this.billedCost < this.limit;
@@ -893,11 +887,7 @@ public final class RuleMatcher {
 		}
 		// update parent references
 		for (Plan p : plans.values()) {
-			final Plan pp = plans.get(p.ppid);
-			if (pp != null) {
-				p.parent = pp;
-				pp.isMerger = true;
-			}
+			p.parent = plans.get(p.ppid);
 		}
 	}
 
