@@ -447,6 +447,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, false);
 			break;
 		case DataProvider.TYPE_TITLE:
+			a.hide(DataProvider.Plans.SHORTNAME, true);
 			a.hide(DataProvider.Plans.BILLMODE, true);
 			a.hide(DataProvider.Plans.STRIP_SECONDS, true);
 			a.hide(DataProvider.Plans.BILLPERIOD_ID, true);
