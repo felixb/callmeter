@@ -191,6 +191,8 @@
 <!--	<string name="mixed_units_mms_help">Set the units billed for a single mms.</string> -->
 <!--	<string name="mixed_units_call_">Units for a call</string> -->
 <!--	<string name="mixed_units_call_help">Set the units billed for a one minute call.\nBill mode is taken into account here.</string> -->
+<!--	<string name="merge_plans_">Merge plans</string> -->
+<!--	<string name="merge_plans_help">Merge other plans into this one and bill them here (too).</string> -->
 <!--	<string name="plan_">Plan</string> -->
 <!--	<string name="plan_help">Choose the plan this rule should fit.</string> -->
 <!--	<string name="limitnotreached_">Limit not reached</string> -->

@@ -191,6 +191,8 @@
 	<string name="mixed_units_mms_help">Unidades facturadas por un MMS.</string>
 	<string name="mixed_units_call_">Unidades por llamada</string>
 	<string name="mixed_units_call_help">Unidades facturadas por un minuto de llamada.\nAquí se tiene en cuenta el modo de facturación.</string>
+<!--	<string name="merge_plans_">Merge plans</string> -->
+<!--	<string name="merge_plans_help">Merge other plans into this one and bill them here (too).</string> -->
 	<string name="plan_">Plan</string>
 	<string name="plan_help">Escoge el plan que se ajusta a esta regla.</string>
 	<string name="limitnotreached_">Límite no alcanzado</string>

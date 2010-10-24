@@ -191,6 +191,8 @@
 	<string name="mixed_units_mms_help">Bir MMS için alınan birim ücreti belirleyin.</string>
 	<string name="mixed_units_call_">Arama ücreti</string>
 	<string name="mixed_units_call_help">1 dk.\'lık bir arama için alınan birim ücreti belirleyin.\nBurada Ücretlendirme biçimi dikkate alınır..</string>
+<!--	<string name="merge_plans_">Merge plans</string> -->
+<!--	<string name="merge_plans_help">Merge other plans into this one and bill them here (too).</string> -->
 	<string name="plan_">Paket</string>
 	<string name="plan_help">Bu kuralın dahil edileceği pakedi seçin.</string>
 	<string name="limitnotreached_">Sınır aşılmadı</string>

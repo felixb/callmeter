@@ -191,6 +191,8 @@
 	<string name="mixed_units_mms_help">Wprowadź liczbę jednostek naliczonych za jednego MMSa</string>
 	<string name="mixed_units_call_">Jednostek za połączenie</string>
 	<string name="mixed_units_call_help">Wprowadź liczbę jednostek naliczonych za jedną minutę połączenia.\nBill mode is taken into account here.</string>
+<!--	<string name="merge_plans_">Merge plans</string> -->
+<!--	<string name="merge_plans_help">Merge other plans into this one and bill them here (too).</string> -->
 	<string name="plan_">Plan</string>
 	<string name="plan_help">Wybierz plan do którego reguła będzie pasować</string>
 	<string name="limitnotreached_">Limit nie osiągnięty</string>

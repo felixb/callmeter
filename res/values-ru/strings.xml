@@ -191,6 +191,8 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 	<string name="mixed_units_mms_help"> Установите количество предоплаченных ММС.</string>
 	<string name="mixed_units_call_"> Количество предоплаченных вызовов</string>
 	<string name="mixed_units_call_help"> Установите количество предоплаченных вызовов.\nС учетом метода отчета.</string>
+<!--	<string name="merge_plans_">Merge plans</string> -->
+<!--	<string name="merge_plans_help">Merge other plans into this one and bill them here (too).</string> -->
 	<string name="plan_">Ценовой план</string>
 	<string name="plan_help">Выбор ценового плана в котором будет идти отчёт.</string>
 	<string name="limitnotreached_">Лимит не достигнут</string>

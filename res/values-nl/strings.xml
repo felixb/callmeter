@@ -191,6 +191,8 @@
 	<string name="mixed_units_mms_help">Stel de eenheden in gefactureerd voor een mms.</string>
 	<string name="mixed_units_call_">Eenheden voor een gesprek</string>
 	<string name="mixed_units_call_help">Stel de eenheden gefactureerd voor een 1 minuut gesprek.\nMet facturatie mode wordt hier rekening gehouden.</string>
+<!--	<string name="merge_plans_">Merge plans</string> -->
+<!--	<string name="merge_plans_help">Merge other plans into this one and bill them here (too).</string> -->
 	<string name="plan_">Schema</string>
 	<string name="plan_help">Kies het schema waarin deze regel past.</string>
 	<string name="limitnotreached_">Limiet niet bereikt</string>

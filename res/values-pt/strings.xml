@@ -191,6 +191,8 @@
 	<string name="mixed_units_mms_help">Defina a unidade de cobrança para um simples mms.</string>
 	<string name="mixed_units_call_">Unidades para chamadas </string>
 	<string name="mixed_units_call_help">Defina a unidade de cobrança para uma chamada.\nO modo de cobrança é considerado aqui.</string>
+<!--	<string name="merge_plans_">Merge plans</string> -->
+<!--	<string name="merge_plans_help">Merge other plans into this one and bill them here (too).</string> -->
 	<string name="plan_">Plano</string>
 	<string name="plan_help">Escolha o plano em que esta regra deve valer.</string>
 	<string name="limitnotreached_">Limite não alcançado</string>
