@@ -102,7 +102,7 @@
 	<string name="show_hours_">Toon uren</string>
 	<string name="show_hours_hint">Toon tijd in sec, min, uren en dgn.\nIndien uitgevinkt alleen sec en uren worden getoond.</string>
 	<string name="show_help_">Toon help</string>
-	<string name="show_help_hint">Toon help in setup van Schema's/Regels.</string>
+	<string name="show_help_hint">Toon help in setup van Schema\'s/Regels.</string>
 <!--	<string name="show_shortname_">Show short name instead of long name</string> -->
 <!--	<string name="show_cost_">Show cost</string> -->
 <!--	<string name="show_billperiod_">Show progress of billing period</string> -->
