@@ -981,13 +981,6 @@ abstract class Preference {
 			}
 			builder.setNegativeButton(this.resCancel, this.lsrCancel);
 			final AlertDialog d = builder.create();
-			// if (this.multiSelect) {
-			// final ListView lv = d.getListView();
-			// final int l = lv.getCount();
-			// for (int ii = 0; ii < l; ii++) {
-			// lv.setItemChecked(ii, this.multiItemsChecked[ii]);
-			// }
-			// }
 			return d;
 		}
 
@@ -995,12 +988,7 @@ abstract class Preference {
 		void updateDialog(final Dialog d) {
 			final ListView lv = ((AlertDialog) d).getListView();
 			final ListAdapter a = lv.getAdapter();
-			if (this.multiSelect) {
-				// final int l = lv.getCount();
-				// for (int ii = 0; ii < l; ii++) {
-				// lv.setItemChecked(ii, this.multiItemsChecked[ii]);
-				// }
-			} else {
+			if (!this.multiSelect) {
 				final int l = a.getCount();
 				for (int i = 0; i < l; i++) {
 					if (this.value == a.getItemId(i)) {

@@ -423,7 +423,8 @@ public class Plans extends ListActivity implements OnClickListener,
 					}
 				}
 				String ccs;
-				if (this.currentCacheString.contains("\n")) {
+				if (this.currentCacheString != null
+						&& this.currentCacheString.contains("\n")) {
 					ccs = formatedDate + "\n"
 							+ this.currentCacheString.split("\n", 2)[1];
 				} else {
