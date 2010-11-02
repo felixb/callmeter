@@ -65,6 +65,8 @@
 	<string name="update_interval_hint">Eine kürzere Periode verbreucht mehr Akku.</string>
 	<string name="date_begin_">Start der Aufzeichnungen</string>
 	<string name="date_begin_hint">Ignoriere alle Logs for diesem Datum.</string>
+	<string name="delete_old_logs_">Logs älter als .. löschen</string>
+	<string name="delete_old_logs_help">Lösche Logs älter als x Tage aus der internen Datenbank. Leer lassen zum deaktivieren.</string>
 	<string name="common_prefs_">Allgemeine Einstellungen</string>
 	<string name="edit_">Ändern</string>
 	<string name="about_">Über</string>

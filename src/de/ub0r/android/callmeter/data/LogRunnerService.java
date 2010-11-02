@@ -68,7 +68,10 @@ public final class LogRunnerService extends IntentService {
 	private static boolean roaming = false;
 
 	/** Ignore logs before. */
-	private static long dateStart = 0;
+	private static long dateStart = 0L;
+
+	/** Delete logs before that date. */
+	private static long deleteBefore = -1L;
 
 	/**
 	 * Default Constructor.
@@ -118,7 +121,7 @@ public final class LogRunnerService extends IntentService {
 		final Cursor cursor = cr.query(DataProvider.Logs.CONTENT_URI,
 				new String[] { DataProvider.Logs.DATE }, DataProvider.Logs.TYPE
 						+ " = " + type, null, DataProvider.Logs.DATE + " DESC");
-		long maxdate = -1;
+		long maxdate = deleteBefore;
 		if (cursor != null && cursor.moveToFirst()) {
 			maxdate = cursor.getLong(0);
 		}
@@ -455,6 +458,19 @@ public final class LogRunnerService extends IntentService {
 	}
 
 	/**
+	 * Delete old logs to make this app fast.
+	 * 
+	 * @param cr
+	 *            {@link ContentResolver}
+	 */
+	private void deleteOldLogs(final ContentResolver cr) {
+		Log.d(TAG, "delete old logs: date < " + deleteBefore);
+		final int ret = cr.delete(DataProvider.Logs.CONTENT_URI,
+				DataProvider.Logs.DATE + " < " + deleteBefore, null);
+		Log.i(TAG, "deleted old logs from internal database: " + ret);
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -470,9 +486,11 @@ public final class LogRunnerService extends IntentService {
 		roaming = ((TelephonyManager) this
 				.getSystemService(Context.TELEPHONY_SERVICE))
 				.isNetworkRoaming();
-		dateStart = PreferenceManager.getDefaultSharedPreferences(this)
-				.getLong(Preferences.PREFS_DATE_BEGIN,
-						DatePreference.DEFAULT_VALUE);
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		dateStart = p.getLong(Preferences.PREFS_DATE_BEGIN,
+				DatePreference.DEFAULT_VALUE);
+		deleteBefore = Preferences.getDeleteLogsBefore(p);
 
 		boolean shortRun = a != null
 				&& (a.equals(Intent.ACTION_BOOT_COMPLETED)
@@ -518,6 +536,9 @@ public final class LogRunnerService extends IntentService {
 		}
 		this.updateData(this, shortRun);
 		if (!shortRun) {
+			if (deleteBefore > 0L) {
+				this.deleteOldLogs(cr);
+			}
 			this.updateCalls(cr);
 			this.updateSMS(cr);
 			this.updateMMS(cr);

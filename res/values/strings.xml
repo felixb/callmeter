@@ -34,6 +34,8 @@
 	<string name="update_interval_hint">Shorter period will use more battery.</string>
 	<string name="date_begin_">Beginning of records</string>
 	<string name="date_begin_hint">Ignore any logs before this date.</string>
+	<string name="delete_old_logs_">Delete logs older than</string>
+	<string name="delete_old_logs_help">Delete logs older than x days from internal database. Leave empty to disable.</string>
 	<string name="common_prefs_">Common preferences</string>
 	<string name="edit_">Edit</string>
 	<string name="about_">About</string>

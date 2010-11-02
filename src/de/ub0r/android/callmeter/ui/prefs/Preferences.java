@@ -51,6 +51,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.widget.EditText;
 import android.widget.Toast;
+import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Log;
@@ -78,6 +79,8 @@ public class Preferences extends PreferenceActivity {
 	public static final String PREFS_UPDATE_INTERVAL = "update_interval";
 	/** Preference's name: beginning of record. */
 	public static final String PREFS_DATE_BEGIN = "date_begin";
+	/** Preference's name: delete old logs before x days. */
+	public static final String PREFS_DELETE_OLD_LOGS = "delete_old_logs";
 	/** Preference's name: prepaid plan. */
 	public static final String PREFS_PREPAID = "prepaid";
 
@@ -120,6 +123,26 @@ public class Preferences extends PreferenceActivity {
 	private static String defaultCurrencySymbol = null;
 	/** {@link Currency} fraction digits. */
 	private static int defaultCurrencyDigits = 2;
+
+	/**
+	 * Get timestamp to delete logs before that date.
+	 * 
+	 * @param p
+	 *            {@link SharedPreferences}
+	 * @return time in milliseconds
+	 */
+	public static final long getDeleteLogsBefore(final SharedPreferences p) {
+		if (p == null) {
+			return -1L;
+		}
+		final long dlb = Utils.parseLong(p.getString(PREFS_DELETE_OLD_LOGS,
+				"90"), -1L);
+		if (dlb < 0L) {
+			return dlb;
+		}
+		return System.currentTimeMillis()
+				- (dlb * CallMeter.MILLIS * CallMeter.SECONDS_DAY);
+	}
 
 	/**
 	 * Get Theme from Preferences.

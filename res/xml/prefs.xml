@@ -105,6 +105,9 @@
 			android:defaultValue="30" />
 		<DatePreference android:key="date_begin" android:title="@string/date_begin_"
 			android:summary="@string/date_begin_hint" />
+		<EditTextPreference android:key="delete_old_logs"
+			android:title="@string/delete_old_logs_" android:summary="@string/delete_old_logs_help"
+			android:defaultValue="90" />
 		<PreferenceScreen android:key="reset_data"
 			android:title="@string/reset_data_" android:summary="@string/reset_data_hint" />
 	</PreferenceCategory>
