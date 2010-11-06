@@ -65,6 +65,8 @@
 	<string name="update_interval_hint">Kortere periode verbruikt meer batterij.</string>
 	<string name="date_begin_">Begin van records</string>
 	<string name="date_begin_hint">Negeer alle logs voor deze datum.</string>
+<!--	<string name="delete_old_logs_">Delete logs older than</string> -->
+<!--	<string name="delete_old_logs_help">Delete logs older than x days from internal database. Leave empty to disable.</string> -->
 	<string name="common_prefs_">Algemene voorkeuren</string>
 	<string name="edit_">Wijzigen</string>
 	<string name="about_">Over</string>
@@ -215,6 +217,8 @@
 	<string name="no">Nee</string>
 	<string name="none">Geen</string>
 	<string name="value">Waarde</string>
+<!--	<string name="empty_groups_">Please press "Add" to add a group.</string> -->
+<!--	<string name="empty_group_">Please press "Add" to add an item to this group.</string> -->
 	<string name="export_rules_">Exporteer regel set</string>
 	<string name="export_rules_hint">Exporteer regel set als mail.</string>
 	<string name="export_rules_progr">Exporteren regel set ...</string>

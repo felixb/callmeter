@@ -65,6 +65,8 @@
 <!--	<string name="update_interval_hint">Shorter period will use more battery.</string> -->
 <!--	<string name="date_begin_">Beginning of records</string> -->
 <!--	<string name="date_begin_hint">Ignore any logs before this date.</string> -->
+<!--	<string name="delete_old_logs_">Delete logs older than</string> -->
+<!--	<string name="delete_old_logs_help">Delete logs older than x days from internal database. Leave empty to disable.</string> -->
 <!--	<string name="common_prefs_">Common preferences</string> -->
 <!--	<string name="edit_">Edit</string> -->
 	<string name="about_">A propos de</string>
@@ -215,6 +217,8 @@
 <!--	<string name="no">No</string> -->
 <!--	<string name="none">None</string> -->
 <!--	<string name="value">Value</string> -->
+<!--	<string name="empty_groups_">Please press "Add" to add a group.</string> -->
+<!--	<string name="empty_group_">Please press "Add" to add an item to this group.</string> -->
 <!--	<string name="export_rules_">Export rule set</string> -->
 <!--	<string name="export_rules_hint">Export rule set as mail.</string> -->
 <!--	<string name="export_rules_progr">Exporting rule set ...</string> -->

@@ -65,6 +65,8 @@
 	<string name="update_interval_hint">Periodos cortos usan más batería.</string>
 	<string name="date_begin_">Inicio de registros</string>
 	<string name="date_begin_hint">Ignorar cualquier log anterior a esta fecha.</string>
+<!--	<string name="delete_old_logs_">Delete logs older than</string> -->
+<!--	<string name="delete_old_logs_help">Delete logs older than x days from internal database. Leave empty to disable.</string> -->
 	<string name="common_prefs_">Preferencias comunes</string>
 	<string name="edit_">Editar</string>
 	<string name="about_">Acerca de</string>
@@ -215,6 +217,8 @@
 	<string name="no">No</string>
 	<string name="none">Ninguno</string>
 	<string name="value">Valor</string>
+<!--	<string name="empty_groups_">Please press "Add" to add a group.</string> -->
+<!--	<string name="empty_group_">Please press "Add" to add an item to this group.</string> -->
 	<string name="export_rules_">Exportar conjunto de reglas</string>
 	<string name="export_rules_hint">Exportar reglas en email.</string>
 	<string name="export_rules_progr">Exportando reglas ...</string>

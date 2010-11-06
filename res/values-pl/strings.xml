@@ -65,6 +65,8 @@
 	<string name="update_interval_hint">Krótszy okres skraca czas pracy na baterii</string>
 	<string name="date_begin_">Początek zapisów</string>
 	<string name="date_begin_hint">Ignoruj logi przed tą datą</string>
+<!--	<string name="delete_old_logs_">Delete logs older than</string> -->
+<!--	<string name="delete_old_logs_help">Delete logs older than x days from internal database. Leave empty to disable.</string> -->
 	<string name="common_prefs_">Ustawienia ogólne</string>
 	<string name="edit_">Edytuj</string>
 	<string name="about_">O programie</string>
@@ -215,6 +217,8 @@
 	<string name="no">Nie</string>
 	<string name="none">Brak</string>
 	<string name="value">Wartość</string>
+<!--	<string name="empty_groups_">Please press "Add" to add a group.</string> -->
+<!--	<string name="empty_group_">Please press "Add" to add an item to this group.</string> -->
 	<string name="export_rules_">Eksportuj ustawienia reguł</string>
 	<string name="export_rules_hint">Eksportuj ustawienia mailem</string>
 	<string name="export_rules_progr">Eksportuję ustawienia reguł ...</string>

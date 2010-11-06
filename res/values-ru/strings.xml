@@ -65,6 +65,8 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 	<string name="update_interval_hint">Более короткий период использует больше энергии аккумуляторa.</string>
 	<string name="date_begin_">Начaло отчёта</string>
 	<string name="date_begin_hint">Игнорирует все записи до выставленной даты.</string>
+<!--	<string name="delete_old_logs_">Delete logs older than</string> -->
+<!--	<string name="delete_old_logs_help">Delete logs older than x days from internal database. Leave empty to disable.</string> -->
 	<string name="common_prefs_">Общие настройки</string>
 	<string name="edit_">Изменить</string>
 	<string name="about_">Инфо</string>
@@ -215,6 +217,8 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 	<string name="no">Нет</string>
 	<string name="none">Отсутствует</string>
 	<string name="value">Параметр</string>
+<!--	<string name="empty_groups_">Please press "Add" to add a group.</string> -->
+<!--	<string name="empty_group_">Please press "Add" to add an item to this group.</string> -->
 	<string name="export_rules_">Экспорт ценового плана</string>
 	<string name="export_rules_hint">Передача по электронной почте.</string>
 	<string name="export_rules_progr">Экспорт ценового плана ...</string>
