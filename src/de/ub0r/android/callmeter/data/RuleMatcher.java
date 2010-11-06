@@ -1090,7 +1090,7 @@ public final class RuleMatcher {
 			final boolean a80 = p.getBoolean(Preferences.PREFS_ALERT80, true);
 			final boolean a100 = p.getBoolean(Preferences.PREFS_ALERT100, true);
 			// check for alerts
-			if (a80 || a100 && (plans != null && plans.size() > 0)) {
+			if ((a80 || a100) && plans != null && plans.size() > 0) {
 				final long now = System.currentTimeMillis();
 				int alert = 0;
 				Plan alertPlan = null;
