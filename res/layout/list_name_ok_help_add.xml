@@ -49,8 +49,15 @@
 				android:layout_weight="1" />
 		</LinearLayout>
 	</LinearLayout>
-	<ListView android:id="@id/android:list" android:layout_width="fill_parent"
-		android:layout_height="fill_parent" android:drawSelectorOnTop="false"
-		android:scrollingCache="true" android:fastScrollEnabled="true"
-		android:choiceMode="singleChoice" android:layout_above="@id/ok_add" />
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:layout_above="@id/ok_add">
+		<ListView android:id="@id/android:list" android:layout_width="fill_parent"
+			android:layout_height="fill_parent" android:drawSelectorOnTop="false"
+			android:scrollingCache="true" android:fastScrollEnabled="true"
+			android:choiceMode="singleChoice" />
+		<TextView android:id="@+id/empty_list" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:gravity="center"
+			android:singleLine="false" android:text="@string/empty_group_"
+			android:layout_centerInParent="true" android:visibility="gone" />
+	</RelativeLayout>
 </RelativeLayout>

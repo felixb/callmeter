@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.DataSetObserver;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -67,7 +68,7 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 	 * 
 	 * @author flx
 	 */
-	private static class HourAdapter extends ResourceCursorAdapter {
+	private class HourAdapter extends ResourceCursorAdapter {
 		/** List of weekdays. */
 		private final String[] resDays;
 		/** List of hours. */
@@ -95,6 +96,13 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 					R.array.weekdays_all);
 			this.resHours = context.getResources().getStringArray(
 					R.array.hours_all);
+			this.registerDataSetObserver(new DataSetObserver() {
+				@Override
+				public void onChanged() {
+					super.onChanged();
+					HourGroupEdit.this.showEmptyHint();
+				}
+			});
 		}
 
 		/**
@@ -140,6 +148,25 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 		this.etName = (EditText) this.findViewById(R.id.name_et);
 		this.etName.setText(DataProvider.HoursGroup.getName(this
 				.getContentResolver(), this.gid));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void onResume() {
+		super.onResume();
+		this.showEmptyHint();
+	}
+
+	/** Set the visibility for the empty groups hint. */
+	private void showEmptyHint() {
+		int v = View.GONE;
+		if (this.getListAdapter().getCount() == 0) {
+			v = View.VISIBLE;
+		}
+		TextView tv = (TextView) this.findViewById(R.id.empty_list);
+		tv.setVisibility(v);
 	}
 
 	/**
@@ -213,6 +240,7 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 							HourGroupEdit.this.getContentResolver().delete(
 									ContentUris.withAppendedId(DataProvider.// .
 											Hours.CONTENT_URI, id), null, null);
+							HourGroupEdit.this.showEmptyHint();
 							break;
 						default:
 							break;
@@ -300,9 +328,16 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 						HourGroupEdit.this.setHour(nid, spDays
 								.getSelectedItemPosition(), spHours
 								.getSelectedItemPosition());
+						HourGroupEdit.this.showEmptyHint();
 					}
 				});
-		builder.setNegativeButton(android.R.string.cancel, null);
+		builder.setNegativeButton(android.R.string.cancel,
+				new DialogInterface.OnClickListener() {
+					public void onClick(final DialogInterface dialog,
+							final int id) {
+						HourGroupEdit.this.showEmptyHint();
+					}
+				});
 		builder.show();
 	}
 }

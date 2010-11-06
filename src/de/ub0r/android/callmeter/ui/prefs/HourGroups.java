@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.DataSetObserver;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -50,7 +51,7 @@ public class HourGroups extends ListActivity implements OnClickListener,
 	 * 
 	 * @author flx
 	 */
-	private static class HourGroupAdapter extends ResourceCursorAdapter {
+	private class HourGroupAdapter extends ResourceCursorAdapter {
 		/**
 		 * Default Constructor.
 		 * 
@@ -63,6 +64,13 @@ public class HourGroups extends ListActivity implements OnClickListener,
 							DataProvider.HoursGroup.CONTENT_URI,
 							DataProvider.HoursGroup.PROJECTION, null, null,
 							null), true);
+			this.registerDataSetObserver(new DataSetObserver() {
+				@Override
+				public void onChanged() {
+					super.onChanged();
+					HourGroups.this.showEmptyHint();
+				}
+			});
 		}
 
 		/**
@@ -99,6 +107,26 @@ public class HourGroups extends ListActivity implements OnClickListener,
 		this.getListView().setOnItemLongClickListener(this);
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.add).setOnClickListener(this);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void onResume() {
+		super.onResume();
+		this.showEmptyHint();
+	}
+
+	/** Set the visibility for the empty groups hint. */
+	private void showEmptyHint() {
+		int v = View.GONE;
+		if (this.getListAdapter().getCount() == 0) {
+			v = View.VISIBLE;
+		}
+		TextView tv = (TextView) this.findViewById(R.id.import_default);
+		tv.setText(R.string.empty_groups_);
+		tv.setVisibility(v);
 	}
 
 	/**
@@ -163,6 +191,7 @@ public class HourGroups extends ListActivity implements OnClickListener,
 									ContentUris.withAppendedId(
 											DataProvider.HoursGroup.// .
 											CONTENT_URI, id), null, null);
+							HourGroups.this.showEmptyHint();
 							break;
 						default:
 							break;

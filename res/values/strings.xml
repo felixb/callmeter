@@ -186,6 +186,8 @@
 	<string name="no">No</string>
 	<string name="none">None</string>
 	<string name="value">Value</string>
+	<string name="empty_groups_">Please press "Add" to add a group.</string>
+	<string name="empty_group_">Please press "Add" to add an item to this group.</string>
 	<string name="export_rules_">Export rule set</string>
 	<string name="export_rules_hint">Export rule set as mail.</string>
 	<string name="export_rules_progr">Exporting rule set ...</string>

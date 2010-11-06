@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.DataSetObserver;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -67,7 +68,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	 * 
 	 * @author flx
 	 */
-	private static class NumberAdapter extends ResourceCursorAdapter {
+	private class NumberAdapter extends ResourceCursorAdapter {
 		/** {@link ContentResolver} for internal querys. */
 		private final ContentResolver cr;
 
@@ -87,6 +88,13 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 							DataProvider.Numbers.PROJECTION, null, null,
 							DataProvider.Numbers.NUMBER), true);
 			this.cr = context.getContentResolver();
+			this.registerDataSetObserver(new DataSetObserver() {
+				@Override
+				public void onChanged() {
+					super.onChanged();
+					NumberGroupEdit.this.showEmptyHint();
+				}
+			});
 		}
 
 		/**
@@ -140,6 +148,25 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		this.etName = (EditText) this.findViewById(R.id.name_et);
 		this.etName.setText(DataProvider.NumbersGroup.getName(this
 				.getContentResolver(), this.gid));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void onResume() {
+		super.onResume();
+		this.showEmptyHint();
+	}
+
+	/** Set the visibility for the empty groups hint. */
+	private void showEmptyHint() {
+		int v = View.GONE;
+		if (this.getListAdapter().getCount() == 0) {
+			v = View.VISIBLE;
+		}
+		TextView tv = (TextView) this.findViewById(R.id.empty_list);
+		tv.setVisibility(v);
 	}
 
 	/**

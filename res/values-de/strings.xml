@@ -217,6 +217,8 @@
 	<string name="no">No</string>
 	<string name="none">Keine</string>
 	<string name="value">Wert</string>
+	<string name="empty_groups_">Bitte drücke "hinzufügen" um eine Gruppe hinzuzufügen.</string>
+	<string name="empty_group_">Bitte drücke "hinzufügen" um einen Eintrag hinzuzufügen.</string>
 	<string name="export_rules_">Exportiere Regelwerk</string>
 	<string name="export_rules_hint">Exportiere Regelwerk als Mail.</string>
 	<string name="export_rules_progr">Exportiere Regelwerk ...</string>

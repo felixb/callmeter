@@ -244,7 +244,7 @@ public class Plans extends ListActivity implements OnClickListener,
 		return true;
 	}
 
-	/** Set the visability fo the import hint. */
+	/** Set the visibility for the import hint. */
 	private void showImportHint() {
 		int v = View.GONE;
 		if (this.getListView().getCount() == 0) {
