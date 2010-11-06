@@ -837,6 +837,13 @@ abstract class Preference {
 			if (this.multiSelect) {
 				this.multiValue = cursor.getString(cursor
 						.getColumnIndex(this.name));
+				if (this.multiValue != null && this.multiValue.length() > 0
+						&& !this.multiValue.startsWith(",")) {
+					this.multiValue = "," + this.multiValue + ",";
+				}
+				if (this.multiValue != null && this.multiValue.equals(",-1,")) {
+					this.multiValue = null;
+				}
 			} else {
 				this.value = cursor.getLong(cursor.getColumnIndex(this.name));
 			}

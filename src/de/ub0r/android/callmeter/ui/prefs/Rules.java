@@ -132,16 +132,20 @@ public class Rules extends ListActivity implements OnClickListener,
 				}
 				w += " & " + strs[i];
 			}
-			if (cursor.getLong(DataProvider.Rules.INDEX_INHOURS_ID) > 0) {
+			String s = cursor.getString(DataProvider.Rules.INDEX_INHOURS_ID);
+			if (s != null && !s.equals("-1")) {
 				w += " & " + ctxt.getString(R.string.hourgroup_);
 			}
-			if (cursor.getLong(DataProvider.Rules.INDEX_EXHOURS_ID) > 0) {
+			s = cursor.getString(DataProvider.Rules.INDEX_EXHOURS_ID);
+			if (s != null && !s.equals("-1")) {
 				w += " & " + ctxt.getString(R.string.exhourgroup_);
 			}
-			if (cursor.getLong(DataProvider.Rules.INDEX_INNUMBERS_ID) > 0) {
+			s = cursor.getString(DataProvider.Rules.INDEX_INNUMBERS_ID);
+			if (s != null && !s.equals("-1")) {
 				w += " & " + ctxt.getString(R.string.numbergroup_);
 			}
-			if (cursor.getLong(DataProvider.Rules.INDEX_EXNUMBERS_ID) > 0) {
+			s = cursor.getString(DataProvider.Rules.INDEX_EXNUMBERS_ID);
+			if (s != null && !s.equals("-1")) {
 				w += " & " + ctxt.getString(R.string.exnumbergroup_);
 			}
 			twType.setText(w);

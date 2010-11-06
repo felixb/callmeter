@@ -50,38 +50,6 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	/** Tag for debug out. */
 	private static final String TAG = "re";
 
-	/**
-	 * {@link android.content.DialogInterface.OnClickListener} clearing a group.
-	 * 
-	 * @author flx
-	 */
-	private static class OnClickClear implements
-			DialogInterface.OnClickListener {
-		/** {@link PreferenceAdapter}. */
-		private final PreferenceAdapter adapter;
-		/** Name of field to clear. */
-		private final String field;
-
-		/**
-		 * Build a OnClickClear Listener.
-		 * 
-		 * @param adpt
-		 *            {@link PreferenceAdapter}
-		 * @param fld
-		 *            filed name
-		 */
-		OnClickClear(final PreferenceAdapter adpt, final String fld) {
-			this.adapter = adpt;
-			this.field = fld;
-		}
-
-		@Override
-		public void onClick(final DialogInterface dialog, final int which) {
-			((CursorPreference) this.adapter.getPreference(this.field))
-					.clearValue();
-		}
-	}
-
 	/** {@link PreferenceAdapter}. */
 	private PreferenceAdapter adapter = null;
 
@@ -271,15 +239,13 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 				R.string.edit_groups_, R.string.clear_, -1,
 				DataProvider.HoursGroup.CONTENT_URI,
 				DataProvider.HoursGroup.ID, DataProvider.HoursGroup.NAME, null,
-				false, editHours, new OnClickClear(ret,
-						DataProvider.Rules.INHOURS_ID), null));
+				true, editHours, null, null));
 		ret.add(new CursorPreference(this, DataProvider.Rules.EXHOURS_ID,
 				R.string.exhourgroup_, R.string.exhourgroup_help,
 				R.string.edit_groups_, R.string.clear_, -1,
 				DataProvider.HoursGroup.CONTENT_URI,
 				DataProvider.HoursGroup.ID, DataProvider.HoursGroup.NAME, null,
-				false, editHours, new OnClickClear(ret,
-						DataProvider.Rules.EXHOURS_ID), null));
+				true, editHours, null, null));
 		final DialogInterface.OnClickListener editNumbers = // .
 		new DialogInterface.OnClickListener() {
 			@Override
@@ -290,18 +256,16 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 		};
 		ret.add(new CursorPreference(this, DataProvider.Rules.INNUMBERS_ID,
 				R.string.numbergroup_, R.string.numbergroup_help,
-				R.string.edit_groups_, R.string.clear_, -1,
+				R.string.edit_groups_, -1, -1,
 				DataProvider.NumbersGroup.CONTENT_URI,
 				DataProvider.NumbersGroup.ID, DataProvider.NumbersGroup.NAME,
-				null, false, editNumbers, new OnClickClear(ret,
-						DataProvider.Rules.INNUMBERS_ID), null));
+				null, true, editNumbers, null, null));
 		ret.add(new CursorPreference(this, DataProvider.Rules.EXNUMBERS_ID,
 				R.string.exnumbergroup_, R.string.exnumbergroup_help,
 				R.string.edit_groups_, R.string.clear_, -1,
 				DataProvider.NumbersGroup.CONTENT_URI,
 				DataProvider.NumbersGroup.ID, DataProvider.NumbersGroup.NAME,
-				null, false, editNumbers, new OnClickClear(ret,
-						DataProvider.Rules.EXNUMBERS_ID), null));
+				null, true, editNumbers, null, null));
 		return ret;
 	}
 

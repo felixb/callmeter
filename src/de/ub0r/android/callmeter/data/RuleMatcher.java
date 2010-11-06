@@ -67,20 +67,31 @@ public final class RuleMatcher {
 		 * 
 		 * @param cr
 		 *            {@link ContentResolver}
-		 * @param gid
-		 *            id of group
-		 * @return {@link NumbersGroup}
+		 * @param gids
+		 *            ids of group
+		 * @return {@link NumbersGroup}s
 		 */
-		static NumbersGroup getNumberGroup(final ContentResolver cr,
-				final long gid) {
-			if (gid < 0) {
+		static NumbersGroup[] getNumberGroups(final ContentResolver cr,
+				final String gids) {
+			if (gids == null) {
 				return null;
 			}
-			final NumbersGroup ret = new NumbersGroup(cr, gid);
-			if (ret.numbers.size() == 0) {
+			final String[] split = gids.split(",");
+			ArrayList<NumbersGroup> list = new ArrayList<NumbersGroup>();
+			for (String s : split) {
+				if (s == null || s.length() == 0 || s.equals("-1")) {
+					continue;
+				}
+				final NumbersGroup ng = new NumbersGroup(cr, Utils.parseLong(s,
+						-1L));
+				if (ng != null && ng.numbers.size() > 0) {
+					list.add(ng);
+				}
+			}
+			if (list.size() == 0) {
 				return null;
 			}
-			return ret;
+			return list.toArray(new NumbersGroup[] {});
 		}
 
 		/**
@@ -88,20 +99,31 @@ public final class RuleMatcher {
 		 * 
 		 * @param cr
 		 *            {@link ContentResolver}
-		 * @param gid
+		 * @param gids
 		 *            id of group
-		 * @return {@link HoursGroup}
+		 * @return {@link HoursGroup}s
 		 */
-		static HoursGroup getHourGroup(final ContentResolver cr, // .
-				final long gid) {
-			if (gid < 0) {
+		static HoursGroup[] getHourGroups(final ContentResolver cr, // .
+				final String gids) {
+			if (gids == null) {
 				return null;
 			}
-			final HoursGroup ret = new HoursGroup(cr, gid);
-			if (ret.hours.size() == 0) {
+			final String[] split = gids.split(",");
+			ArrayList<HoursGroup> list = new ArrayList<HoursGroup>();
+			for (String s : split) {
+				if (s == null || s.length() == 0 || s.equals("-1")) {
+					continue;
+				}
+				final HoursGroup ng = new HoursGroup(cr, Utils
+						.parseLong(s, -1L));
+				if (ng != null && ng.hours.size() > 0) {
+					list.add(ng);
+				}
+			}
+			if (list.size() == 0) {
 				return null;
 			}
-			return ret;
+			return list.toArray(new HoursGroup[] {});
 		}
 
 		/** Group of numbers. */
@@ -273,9 +295,9 @@ public final class RuleMatcher {
 		/** Is direction? */
 		private final int direction;
 		/** Match hours? */
-		private final HoursGroup inhours, exhours;
+		private final HoursGroup[] inhours, exhours;
 		/** Match numbers? */
-		private final NumbersGroup innumbers, exnumbers;
+		private final NumbersGroup[] innumbers, exnumbers;
 		/** Match only if limit is not reached? */
 		private final boolean limitNotReached;
 		/** Match only websms. */
@@ -304,14 +326,14 @@ public final class RuleMatcher {
 			this.what = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
 			this.direction = cursor.getInt(DataProvider.Rules.INDEX_DIRECTION);
 			this.roamed = cursor.getInt(DataProvider.Rules.INDEX_ROAMED);
-			this.inhours = getHourGroup(cr, cursor
-					.getLong(DataProvider.Rules.INDEX_INHOURS_ID));
-			this.exhours = getHourGroup(cr, cursor
-					.getLong(DataProvider.Rules.INDEX_EXHOURS_ID));
-			this.innumbers = getNumberGroup(cr, cursor
-					.getLong(DataProvider.Rules.INDEX_INNUMBERS_ID));
-			this.exnumbers = getNumberGroup(cr, cursor
-					.getLong(DataProvider.Rules.INDEX_EXNUMBERS_ID));
+			this.inhours = getHourGroups(cr, cursor
+					.getString(DataProvider.Rules.INDEX_INHOURS_ID));
+			this.exhours = getHourGroups(cr, cursor
+					.getString(DataProvider.Rules.INDEX_EXHOURS_ID));
+			this.innumbers = getNumberGroups(cr, cursor
+					.getString(DataProvider.Rules.INDEX_INNUMBERS_ID));
+			this.exnumbers = getNumberGroups(cr, cursor
+					.getString(DataProvider.Rules.INDEX_EXNUMBERS_ID));
 			this.limitNotReached = cursor
 					.getInt(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED) > 0;
 			if (cursor.isNull(DataProvider.Rules.INDEX_IS_WEBSMS)) {
@@ -433,16 +455,42 @@ public final class RuleMatcher {
 				== this.direction;
 			}
 			if (ret && this.inhours != null) {
-				ret = this.inhours.match(log);
+				final int l = this.inhours.length;
+				ret = false;
+				for (int i = 0; i < l; i++) {
+					ret |= this.inhours[i].match(log);
+					if (ret) {
+						break;
+					}
+				}
 			}
 			if (ret && this.exhours != null) {
-				ret = !this.exhours.match(log);
+				final int l = this.exhours.length;
+				for (int i = 0; i < l; i++) {
+					ret = !this.exhours[i].match(log);
+					if (!ret) {
+						break;
+					}
+				}
 			}
 			if (ret && this.innumbers != null) {
-				ret = this.innumbers.match(log);
+				final int l = this.innumbers.length;
+				ret = false;
+				for (int i = 0; i < l; i++) {
+					ret |= this.innumbers[i].match(log);
+					if (ret) {
+						break;
+					}
+				}
 			}
 			if (ret && this.exnumbers != null) {
-				ret = !this.exnumbers.match(log);
+				final int l = this.exnumbers.length;
+				for (int i = 0; i < l; i++) {
+					ret = !this.exnumbers[i].match(log);
+					if (!ret) {
+						break;
+					}
+				}
 			}
 			return ret;
 		}
