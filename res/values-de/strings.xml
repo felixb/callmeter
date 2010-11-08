@@ -203,6 +203,8 @@
 	<string name="iswebsms_help">Nachricht wurde mit WebSMS gesendet.</string>
 	<string name="iswebsms_connector_">Ist WebSMS Connector</string>
 	<string name="iswebsms_connector_help">Wurde mit bestimmten WebSMS Connector gesendet. Für beliebigen leer lassen.</string>
+	<string name="issipcall_">Ist SIP-Anruf</string>
+	<string name="issipcall_help">Anruf über SIP. Zur Zeit wird sipdroid >1.6.1 unterstützt.</string>
 	<string name="strip_seconds_">Ersten Sekunden nicht abrechnen</string>
 	<string name="strip_seconds_help">Rechne die ersten x Sekunden eines Anrufes nicht ab.</string>
 	<string name="what_">Typ</string>

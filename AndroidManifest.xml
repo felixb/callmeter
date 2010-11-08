@@ -97,6 +97,9 @@
 			<intent-filter>
 				<action android:name="de.ub0r.android.callmeter.SAVE_WEBSMS" />
 			</intent-filter>
+			<intent-filter>
+				<action android:name="de.ub0r.android.callmeter.SAVE_SIPCALL" />
+			</intent-filter>
 		</receiver>
 		<service android:name=".data.LogRunnerService" />
 		<provider android:name=".data.DataProvider"

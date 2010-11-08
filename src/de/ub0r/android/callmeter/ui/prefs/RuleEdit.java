@@ -226,6 +226,9 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 		ret.add(new TextPreference(this, DataProvider.Rules.IS_WEBSMS_CONNETOR,
 				"", R.string.iswebsms_connector_,
 				R.string.iswebsms_connector_help, InputType.TYPE_CLASS_TEXT));
+		ret.add(new ListPreference(this, DataProvider.Rules.IS_SIPCALL,
+				DataProvider.Rules.NO_MATTER, R.string.issipcall_,
+				R.string.issipcall_help, this.getStrings(-1)));
 		final DialogInterface.OnClickListener editHours = // .
 		new DialogInterface.OnClickListener() {
 			@Override
@@ -311,6 +314,12 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 					((ListPreference) this.adapter
 							.getPreference(DataProvider.Rules.IS_WEBSMS))
 							.getValue() != 0);
+			this.adapter.hide(DataProvider.Rules.IS_SIPCALL, true);
+			break;
+		case DataProvider.Rules.WHAT_CALL:
+			this.adapter.hide(DataProvider.Rules.IS_SIPCALL, false);
+			this.adapter.hide(DataProvider.Rules.IS_WEBSMS, true);
+			this.adapter.hide(DataProvider.Rules.IS_WEBSMS_CONNETOR, true);
 			break;
 		default:
 			this.adapter.hide(DataProvider.Rules.IS_WEBSMS, true);

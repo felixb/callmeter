@@ -66,7 +66,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 26;
+	private static final int DATABASE_VERSION = 27;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -315,7 +315,7 @@ public final class DataProvider extends ContentProvider {
 	}
 
 	/**
-	 *WebSMS.
+	 * WebSMS.
 	 * 
 	 * @author flx
 	 */
@@ -401,6 +401,97 @@ public final class DataProvider extends ContentProvider {
 
 		/** Default constructor. */
 		private WebSMS() {
+			// nothing here.
+		}
+	}
+
+	/**
+	 * WebSMS.
+	 * 
+	 * @author flx
+	 */
+	public static final class SipCall {
+		/** Table name. */
+		private static final String TABLE = "sipcall";
+		/** {@link HashMap} for projection. */
+		private static final HashMap<String, String> PROJECTION_MAP;
+
+		/** Index in projection: ID. */
+		public static final int INDEX_ID = 0;
+		/** Index in projection: Provider's name. */
+		public static final int INDEX_PROVIDER = 1;
+		/** Index in projection: date. */
+		public static final int INDEX_DATE = 2;
+
+		/** ID. */
+		public static final String ID = "_id";
+		/** Provider's name. */
+		public static final String PROVIDER = "_connector";
+		/** Date. */
+		public static final String DATE = "_date";
+
+		/** Projection used for query. */
+		public static final String[] PROJECTION = new String[] { // .
+		ID, PROVIDER, DATE };
+
+		/** Content {@link Uri}. */
+		public static final Uri CONTENT_URI = Uri.parse("content://"
+				+ AUTHORITY + "/sipcall");
+		/**
+		 * The MIME type of {@link #CONTENT_URI} providing a list.
+		 */
+		public static final String CONTENT_TYPE = // .
+		"vnd.android.cursor.dir/vnd.ub0r.sipcall";
+
+		/**
+		 * The MIME type of a {@link #CONTENT_URI} single entry.
+		 */
+		public static final String CONTENT_ITEM_TYPE = // .
+		"vnd.android.cursor.item/vnd.ub0r.sipcall";
+
+		static {
+			PROJECTION_MAP = new HashMap<String, String>();
+			PROJECTION_MAP.put(ID, ID);
+			PROJECTION_MAP.put(PROVIDER, PROVIDER);
+			PROJECTION_MAP.put(DATE, DATE);
+		}
+
+		/**
+		 * Create table in {@link SQLiteDatabase}.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 */
+		public static void onCreate(final SQLiteDatabase db) {
+			Log.i(TAG, "create table: " + TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
+			db.execSQL("CREATE TABLE " + TABLE + " (" // .
+					+ ID + " LONG, " // .
+					+ PROVIDER + " TEXT,"// .
+					+ DATE + " LONG"// .
+					+ ");");
+		}
+
+		/**
+		 * Upgrade table.
+		 * 
+		 * @param db
+		 *            {@link SQLiteDatabase}
+		 * @param oldVersion
+		 *            old version
+		 * @param newVersion
+		 *            new version
+		 */
+		public static void onUpgrade(final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) {
+			Log.w(TAG, "Upgrading table: " + TABLE);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
+			onCreate(db);
+			reload(db, TABLE, values);
+		}
+
+		/** Default constructor. */
+		private SipCall() {
 			// nothing here.
 		}
 	}
@@ -987,6 +1078,10 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_IS_WEBSMS = 12;
 		/** Index in projection: is websms connector. */
 		public static final int INDEX_IS_WEBSMS_CONNETOR = 13;
+		/** Index in projection: is sipcall. */
+		public static final int INDEX_IS_SIPCALL = 14;
+		/** Index in projection: is sipcall provider. */
+		// public static final int INDEX_IS_SIPCALL_PROVIDER = 15;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -1016,12 +1111,16 @@ public final class DataProvider extends ContentProvider {
 		public static final String IS_WEBSMS = "_is_websms";
 		/** Is websms connector. */
 		public static final String IS_WEBSMS_CONNETOR = "_is_websms_connector";
+		/** Is sipcall. */
+		public static final String IS_SIPCALL = "_is_sipcall";
+		/** Is sipcall provider. */
+		public static final String IS_SIPCALL_PROVIDER = "_is_sipcall_provider";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, ORDER,
 				PLAN_ID, NAME, WHAT, ROAMED, DIRECTION, INHOURS_ID, EXHOURS_ID,
 				INNUMBERS_ID, EXNUMBERS_ID, LIMIT_NOT_REACHED, IS_WEBSMS,
-				IS_WEBSMS_CONNETOR };
+				IS_WEBSMS_CONNETOR, IS_SIPCALL, IS_SIPCALL_PROVIDER };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -1054,6 +1153,8 @@ public final class DataProvider extends ContentProvider {
 			PROJECTION_MAP.put(LIMIT_NOT_REACHED, LIMIT_NOT_REACHED);
 			PROJECTION_MAP.put(IS_WEBSMS, IS_WEBSMS);
 			PROJECTION_MAP.put(IS_WEBSMS_CONNETOR, IS_WEBSMS_CONNETOR);
+			PROJECTION_MAP.put(IS_SIPCALL, IS_SIPCALL);
+			PROJECTION_MAP.put(IS_SIPCALL_PROVIDER, IS_SIPCALL_PROVIDER);
 		}
 
 		/**
@@ -1079,7 +1180,9 @@ public final class DataProvider extends ContentProvider {
 					+ EXNUMBERS_ID + " TEXT,"// .
 					+ LIMIT_NOT_REACHED + " INTEGER," // .
 					+ IS_WEBSMS + " INTEGER," // .
-					+ IS_WEBSMS_CONNETOR + " TEXT" // .
+					+ IS_WEBSMS_CONNETOR + " TEXT," // .
+					+ IS_SIPCALL + " INTEGER," // .
+					+ IS_SIPCALL_PROVIDER + " TEXT" // .
 					+ ");");
 		}
 
@@ -1574,6 +1677,8 @@ public final class DataProvider extends ContentProvider {
 	private static final int LOGS_SUM = 17;
 	/** Internal id: websms. */
 	private static final int WEBSMS = 18;
+	/** Internal id: sipcall. */
+	private static final int SIPCALL = 19;
 	/** Internal id: export. */
 	private static final int EXPORT = 200;
 
@@ -1600,6 +1705,7 @@ public final class DataProvider extends ContentProvider {
 		URI_MATCHER.addURI(AUTHORITY, "hours/groups/", HOURS_GROUP);
 		URI_MATCHER.addURI(AUTHORITY, "hours/groups/#", HOURS_GROUP_ID);
 		URI_MATCHER.addURI(AUTHORITY, "websms", WEBSMS);
+		URI_MATCHER.addURI(AUTHORITY, "sipcall", SIPCALL);
 		URI_MATCHER.addURI(AUTHORITY, "export", EXPORT);
 	}
 
@@ -1629,6 +1735,7 @@ public final class DataProvider extends ContentProvider {
 			Log.i(TAG, "create database");
 			Logs.onCreate(db);
 			WebSMS.onCreate(db);
+			SipCall.onCreate(db);
 			Plans.onCreate(db);
 			Rules.onCreate(db);
 			Numbers.onCreate(db);
@@ -1662,6 +1769,7 @@ public final class DataProvider extends ContentProvider {
 					+ newVersion + ", which will destroy all old data");
 			Logs.onUpgrade(db, oldVersion, newVersion);
 			WebSMS.onUpgrade(db, oldVersion, newVersion);
+			SipCall.onUpgrade(db, oldVersion, newVersion);
 			Plans.onUpgrade(db, oldVersion, newVersion);
 			Rules.onUpgrade(db, oldVersion, newVersion);
 			Numbers.onUpgrade(db, oldVersion, newVersion);
@@ -2021,6 +2129,10 @@ public final class DataProvider extends ContentProvider {
 			return Logs.CONTENT_TYPE;
 		case LOGS_ID:
 			return Logs.CONTENT_ITEM_TYPE;
+		case WEBSMS:
+			return WebSMS.CONTENT_TYPE;
+		case SIPCALL:
+			return SipCall.CONTENT_TYPE;
 		case PLANS:
 			return Plans.CONTENT_TYPE;
 		case PLANS_ID:
@@ -2067,6 +2179,9 @@ public final class DataProvider extends ContentProvider {
 			break;
 		case WEBSMS:
 			ret = db.insert(WebSMS.TABLE, null, values);
+			break;
+		case SIPCALL:
+			ret = db.insert(SipCall.TABLE, null, values);
 			break;
 		case PLANS:
 			if (!values.containsKey(Plans.ORDER)) {
@@ -2154,6 +2269,10 @@ public final class DataProvider extends ContentProvider {
 		case WEBSMS:
 			qb.setTables(WebSMS.TABLE);
 			qb.setProjectionMap(WebSMS.PROJECTION_MAP);
+			break;
+		case SIPCALL:
+			qb.setTables(SipCall.TABLE);
+			qb.setProjectionMap(SipCall.PROJECTION_MAP);
 			break;
 		case PLANS_ID:
 			qb.appendWhere(Plans.ID + "=" + ContentUris.parseId(uri));
