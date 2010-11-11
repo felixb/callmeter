@@ -44,7 +44,7 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	private static final String TAG = "lrr";
 
 	/** Time between to update checks. */
-	static final long DELAY = 30; // 30min
+	static final long DELAY = 60; // 30min
 	/** Factor for time between update checks. */
 	static final long DELAY_FACTOR = CallMeter.SECONDS_MINUTE
 			* CallMeter.MILLIS;
@@ -60,6 +60,14 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	private static final String EXTRA_WEBSMS_URI = "uri";
 	/** Extra holding name of connector. */
 	private static final String EXTRA_WEBSMS_CONNECTOR = "connector";
+
+	/** ACTION for publishing information about calls. */
+	private static final String ACTION_CM_SIP = // .
+	"de.ub0r.android.callmeter.SAVE_SIPCALL";
+	/** Extra holding uri of done call. */
+	private static final String EXTRA_SIP_URI = "uri";
+	/** Extra holding name of provider. */
+	private static final String EXTRA_SIP_PROVIDER = "provider";
 
 	/**
 	 * Schedule next update.
@@ -112,6 +120,37 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	}
 
 	/**
+	 * Save call via SIP to db.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param uri
+	 *            {@link Uri} to call
+	 * @param cid
+	 *            call id
+	 * @param provicer
+	 *            provider name
+	 */
+	private void saveSipCall(final Context context, final String uri,
+			final long cid, final String provider) {
+		final ContentResolver cr = context.getContentResolver();
+		final Cursor c = cr.query(Uri.parse(uri), new String[] { "date" },
+				null, null, null);
+		long date = -1;
+		if (c != null && c.moveToFirst()) {
+			date = c.getLong(0);
+		}
+		if (c != null && !c.isClosed()) {
+			c.close();
+		}
+		final ContentValues cv = new ContentValues();
+		cv.put(DataProvider.SipCall.ID, cid);
+		cv.put(DataProvider.SipCall.PROVIDER, provider);
+		cv.put(DataProvider.SipCall.DATE, date);
+		cr.insert(DataProvider.SipCall.CONTENT_URI, cv);
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -119,15 +158,31 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 		Log.d(TAG, "wakeup");
 		final String a = intent.getAction();
 		Log.d(TAG, "action: " + a);
-		if (a != null && a.equals(ACTION_CM_WEBSMS)) {
-			final String su = intent.getStringExtra(EXTRA_WEBSMS_URI);
-			if (su != null && su.length() > 0) {
-				final long si = Utils.parseLong(su.replaceAll(".*/", ""), -1);
-				final String sc = intent.getStringExtra(EXTRA_WEBSMS_CONNECTOR);
-				Log.d(TAG, "websms id:  " + si);
-				Log.d(TAG, "websms con: " + sc);
-				if (si >= 0) {
-					this.saveWebSMS(context, su, si, sc);
+		if (a != null) {
+			if (a.equals(ACTION_CM_WEBSMS)) {
+				final String su = intent.getStringExtra(EXTRA_WEBSMS_URI);
+				if (su != null && su.length() > 0) {
+					final long si = Utils.parseLong(su.replaceAll(".*/", ""),
+							-1);
+					final String sc = intent
+							.getStringExtra(EXTRA_WEBSMS_CONNECTOR);
+					Log.d(TAG, "websms id:  " + si);
+					Log.d(TAG, "websms con: " + sc);
+					if (si >= 0L) {
+						this.saveWebSMS(context, su, si, sc);
+					}
+				}
+			} else if (a.equals(ACTION_CM_SIP)) {
+				final String su = intent.getStringExtra(EXTRA_SIP_URI);
+				if (su != null && su.length() > 0) {
+					final long si = Utils.parseLong(su.replaceAll(".*/", ""),
+							-1);
+					final String sc = intent.getStringExtra(EXTRA_SIP_PROVIDER);
+					Log.d(TAG, "sip call id:  " + si);
+					Log.d(TAG, "sip call con: " + sc);
+					if (si >= 0L) {
+						this.saveSipCall(context, su, si, sc);
+					}
 				}
 			}
 		}

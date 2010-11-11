@@ -474,7 +474,7 @@ public class Plans extends ListActivity implements OnClickListener,
 						DataProvider.Logs.SUM_URI,
 						DataProvider.Logs.PROJECTION_SUM, w, null, null);
 				if (c == null || !c.moveToFirst()) {
-					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, -1);
+					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, 0);
 				} else {
 					do {
 						cost += c.getFloat(DataProvider.Logs.INDEX_SUM_COST);
@@ -814,36 +814,50 @@ public class Plans extends ListActivity implements OnClickListener,
 						currentHandler.sendEmptyMessage(// .
 								MSG_BACKGROUND_START_PLANADAPTER);
 					}
-					final int l = PlanAdapter.this.plansList.size();
+					int l = PlanAdapter.this.plansList.size();
 					// update bill periods
-					for (int i = 0; i < l; i++) {
-						if (runningTask != this) {
-							break;
+					try {
+						for (int i = 0; i < l; i++) {
+							if (runningTask != this) {
+								break;
+							}
+							final Plan p = PlanAdapter.this.plansList.get(i);
+							if (p.type == DataProvider.TYPE_BILLPERIOD) {
+								p.update();
+							}
 						}
-						final Plan p = PlanAdapter.this.plansList.get(i);
-						if (p.type == DataProvider.TYPE_BILLPERIOD) {
-							p.update();
-						}
+					} catch (IndexOutOfBoundsException e) {
+						Log.w(TAG, "array size changed!", e);
+						l = PlanAdapter.this.plansList.size();
 					}
 					// update rest
-					for (int i = 0; i < l; i++) {
-						if (runningTask != this) {
-							break;
+					try {
+						for (int i = 0; i < l; i++) {
+							if (runningTask != this) {
+								break;
+							}
+							final Plan p = PlanAdapter.this.plansList.get(i);
+							if (p.type != DataProvider.TYPE_BILLPERIOD) {
+								p.update();
+							}
 						}
-						final Plan p = PlanAdapter.this.plansList.get(i);
-						if (p.type != DataProvider.TYPE_BILLPERIOD) {
-							p.update();
-						}
+					} catch (IndexOutOfBoundsException e) {
+						Log.w(TAG, "array size changed!", e);
+						l = PlanAdapter.this.plansList.size();
 					}
 					// update cost in bill periods
-					for (int i = 0; i < l; i++) {
-						if (runningTask != this) {
-							break;
+					try {
+						for (int i = 0; i < l; i++) {
+							if (runningTask != this) {
+								break;
+							}
+							final Plan p = PlanAdapter.this.plansList.get(i);
+							if (p.type == DataProvider.TYPE_BILLPERIOD) {
+								PlanAdapter.this.updateBillperiodCost(p);
+							}
 						}
-						final Plan p = PlanAdapter.this.plansList.get(i);
-						if (p.type == DataProvider.TYPE_BILLPERIOD) {
-							PlanAdapter.this.updateBillperiodCost(p);
-						}
+					} catch (IndexOutOfBoundsException e) {
+						Log.w(TAG, "array size changed!", e);
 					}
 					final boolean last = runningTask == this;
 					if (last && currentHandler != null) {

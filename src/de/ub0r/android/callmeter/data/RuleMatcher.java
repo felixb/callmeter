@@ -304,6 +304,8 @@ public final class RuleMatcher {
 		private final int iswebsms;
 		/** Match only specific websms connector. */
 		private final String iswebsmsConnector;
+		/** Match only sipcalls. */
+		private final int issipcall;
 
 		/**
 		 * Load a {@link Rule}.
@@ -355,6 +357,17 @@ public final class RuleMatcher {
 						+ DataProvider.WebSMS.CONNECTOR + " LIKE '%"
 						+ s.toLowerCase() + "%'";
 			}
+			if (cursor.isNull(DataProvider.Rules.INDEX_IS_SIPCALL)) {
+				this.issipcall = DataProvider.Rules.NO_MATTER;
+			} else {
+				final int i = cursor
+						.getInt(DataProvider.Rules.INDEX_IS_SIPCALL);
+				if (i >= 0) {
+					this.issipcall = i;
+				} else {
+					this.issipcall = DataProvider.Rules.NO_MATTER;
+				}
+			}
 		}
 
 		/**
@@ -386,6 +399,36 @@ public final class RuleMatcher {
 			switch (this.what) {
 			case DataProvider.Rules.WHAT_CALL:
 				ret = (t == DataProvider.TYPE_CALL);
+				if (ret && this.issipcall != DataProvider.Rules.NO_MATTER) {
+					final long d = log.getLong(DataProvider.Logs.INDEX_DATE);
+					Log.d(TAG, "match sipcall: " + this.issipcall);
+					if (this.issipcall == 1) {
+						// match no sipcall
+						final Cursor c = cr.query(
+								DataProvider.SipCall.CONTENT_URI,
+								DataProvider.SipCall.PROJECTION,
+								DataProvider.SipCall.DATE + " = " + d, null,
+								null);
+						if (c != null && c.getCount() > 0) {
+							ret = false;
+						}
+						if (c != null && !c.isClosed()) {
+							c.close();
+						}
+					} else {
+						// match only sipcall
+						final Cursor c = cr.query(
+								DataProvider.SipCall.CONTENT_URI,
+								DataProvider.SipCall.PROJECTION,
+								DataProvider.SipCall.DATE + " = " + d, null,
+								null);
+						ret = c != null && c.getCount() > 0;
+						if (c != null && !c.isClosed()) {
+							c.close();
+						}
+					}
+					Log.d(TAG, "match sipcall: " + this.issipcall + "; " + ret);
+				}
 				break;
 			case DataProvider.Rules.WHAT_DATA:
 				ret = (t == DataProvider.TYPE_DATA);
@@ -1090,7 +1133,7 @@ public final class RuleMatcher {
 			final boolean a80 = p.getBoolean(Preferences.PREFS_ALERT80, true);
 			final boolean a100 = p.getBoolean(Preferences.PREFS_ALERT100, true);
 			// check for alerts
-			if (a80 || a100 && (plans != null && plans.size() > 0)) {
+			if ((a80 || a100) && plans != null && plans.size() > 0) {
 				final long now = System.currentTimeMillis();
 				int alert = 0;
 				Plan alertPlan = null;

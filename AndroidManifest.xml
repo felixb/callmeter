@@ -18,8 +18,8 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="de.ub0r.android.callmeter" android:versionName="2.9.1 rc1"
-	android:versionCode="2812" android:installLocation="internalOnly">
+	package="de.ub0r.android.callmeter" android:versionName="2.9.2 rc2"
+	android:versionCode="2814" android:installLocation="internalOnly">
 	<application android:name=".CallMeter" android:icon="@drawable/icon"
 		android:label="@string/app_name" android:debuggable="true">
 		<activity android:name=".ui.Plans" android:label="@string/app_name"
@@ -96,6 +96,9 @@
 			</intent-filter>
 			<intent-filter>
 				<action android:name="de.ub0r.android.callmeter.SAVE_WEBSMS" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="de.ub0r.android.callmeter.SAVE_SIPCALL" />
 			</intent-filter>
 		</receiver>
 		<service android:name=".data.LogRunnerService" />
