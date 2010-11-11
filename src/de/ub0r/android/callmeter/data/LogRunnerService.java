@@ -396,12 +396,15 @@ public final class LogRunnerService extends IntentService {
 	 *            {@link ContentResolver}
 	 */
 	private void updateMMS(final ContentResolver cr) {
-		final long maxdate = this.getMaxDate(cr, DataProvider.TYPE_SMS);
+		final long maxdate = this.getMaxDate(cr, DataProvider.TYPE_MMS);
 		final Uri mmsUri = Uri.parse("content://mms/");
 		final String[] mmsProjection = new String[] { Calls.DATE, MMS_TYPE, };
 		Cursor cursor = cr.query(mmsUri, mmsProjection, Calls.DATE + " > "
 				+ maxdate, null, Calls.DATE + " DESC");
 		if (cursor == null || !cursor.moveToFirst()) {
+			if (cursor != null && !cursor.isClosed()) {
+				cursor.close();
+			}
 			cursor = cr.query(mmsUri, mmsProjection, Calls.DATE + " > "
 					+ (maxdate / CallMeter.MILLIS), null, Calls.DATE + " DESC");
 		}
