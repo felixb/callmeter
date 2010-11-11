@@ -474,7 +474,7 @@ public class Plans extends ListActivity implements OnClickListener,
 						DataProvider.Logs.SUM_URI,
 						DataProvider.Logs.PROJECTION_SUM, w, null, null);
 				if (c == null || !c.moveToFirst()) {
-					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, -1);
+					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, 0);
 				} else {
 					do {
 						cost += c.getFloat(DataProvider.Logs.INDEX_SUM_COST);
