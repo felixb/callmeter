@@ -120,10 +120,13 @@
 	<string name="show_logs">Logs zeigen</string>
 	<string name="plans">Kontingente</string>
 	<string name="plans_hint">Stelle hier deine verschiedenen Kontingente ein.</string>
-<!--	<string name="plans_new">New plan</string> -->
+	<string name="plans_new">Neues Kontingent</string>
+	<string name="rule_">Regel</string>
 	<string name="rules">Regeln</string>
 	<string name="rules_hint">Hier kannst du deine Abrechnungsregeln definieren.</string>
-<!--	<string name="rules_new">New Rule</string> -->
+	<string name="rules_new">Neue Regel</string>
+	<string name="length_">Länge</string>
+	<string name="remote_">Absender/Empfänger</string>
 	<string name="numbers">Nummern</string>
 	<string name="numbergroup_">Nummern einschließen</string>
 	<string name="numbergroup_help">Füge hier die Nummern hinzu, die diese Regel treffen muss.\n\nPlatzhalter (\"%\") sind and beiden Enden der Nummer erlaubt.\nZ.B. trifft %34 1234, 12% trifft 1234 und %23% trifft 12345.</string>
