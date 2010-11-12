@@ -121,9 +121,12 @@
 	<string name="plans">Planos</string>
 	<string name="plans_hint">Defina seus planos para todo tipo de cobrança aqui.</string>
 	<string name="plans_new">Novo plano</string>
+<!--	<string name="rule_">Rule</string> -->
 	<string name="rules">Regras</string>
 	<string name="rules_hint">Defina as regras de cobrança aqui.</string>
 	<string name="rules_new">Novas Regras</string>
+<!--	<string name="length_">Length</string> -->
+<!--	<string name="remote_">Remote number</string> -->
 	<string name="numbers">Números</string>
 	<string name="numbergroup_">Inclui números</string>
 	<string name="numbergroup_help">Os números adicionados de uma determinada regra deve corresponder. \n\nCuringas (\"%\") são permitidos em ambas as extremidades do número. \nEx. %34 corresponderá a 1234, 12% corresponderá a 1234 e %23% corresponderá a 12345.</string>

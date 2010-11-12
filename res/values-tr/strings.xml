@@ -121,9 +121,12 @@
 	<string name="plans">Paketler</string>
 	<string name="plans_hint">Her tür ücretlendirme için paketlerinizi burada ayarlayın..</string>
 	<string name="plans_new">Yeni paket</string>
+<!--	<string name="rule_">Rule</string> -->
 	<string name="rules">Kurallar</string>
 	<string name="rules_hint">Ücretlendirme kurallarını burada ayarlayın.</string>
 	<string name="rules_new">Yeni Kural</string>
+<!--	<string name="length_">Length</string> -->
+<!--	<string name="remote_">Remote number</string> -->
 	<string name="numbers">Numaralar</string>
 	<string name="numbergroup_">Numaraları dahil et</string>
 	<string name="numbergroup_help">Bu kurala dahil olacak numaraları ekleyin.\n\nArama karakteri (\"%\") numaranın her iki tarafında kullanılabilir.\nÖr: %34 ve 12%, 1234\'e; ve %23%, 12345\'e karşılık gelir.</string>

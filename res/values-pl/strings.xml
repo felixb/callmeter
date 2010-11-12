@@ -121,9 +121,12 @@
 	<string name="plans">Plany</string>
 	<string name="plans_hint">Pokaż twoje plany dla wszystkich rachunków</string>
 	<string name="plans_new">Nowy plan</string>
+<!--	<string name="rule_">Rule</string> -->
 	<string name="rules">Reguły</string>
 	<string name="rules_hint">Wprowadź regułę dla twojego rachunku</string>
 	<string name="rules_new">Nowa reguła</string>
+<!--	<string name="length_">Length</string> -->
+<!--	<string name="remote_">Remote number</string> -->
 	<string name="numbers">Numery</string>
 	<string name="numbergroup_">Wliczaj numery</string>
 	<string name="numbergroup_help">Dodaj godziny które będą zastosowane do reguły.\n\nWzorce (\"%\") są dopuszczalne na obach końcach numeru.\nNp.: %34 będzie pasować do 1234, 12% do 1234 i %23% do 12345.</string>

@@ -121,9 +121,12 @@
 	<string name="plans">Planes</string>
 	<string name="plans_hint">Configura aquí tus planes para todo tipo de facturaciones.</string>
 	<string name="plans_new">Nuevo plan</string>
+<!--	<string name="rule_">Rule</string> -->
 	<string name="rules">Reglas</string>
 	<string name="rules_hint">Configura aquí las reglas de facturación.</string>
 	<string name="rules_new">Nueva regla</string>
+<!--	<string name="length_">Length</string> -->
+<!--	<string name="remote_">Remote number</string> -->
 	<string name="numbers">Números</string>
 	<string name="numbergroup_">Incluir números</string>
 	<string name="numbergroup_help">Añade números que se ajusten a esta regla.\n\nSe permiten comodines (\"%\") a ambos extremos del número.\nE.g. %34 mostrará 1234, 12% mostrará 1234 y %23% mostrará 12345.</string>

@@ -121,9 +121,12 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 	<string name="plans">Ценовой план</string>
 	<string name="plans_hint">Настойка ценового плана.</string>
 	<string name="plans_new">Новый план</string>
+<!--	<string name="rule_">Rule</string> -->
 	<string name="rules">Правила</string>
 	<string name="rules_hint">Настройка правил учёта.</string>
 	<string name="rules_new">Новые правила</string>
+<!--	<string name="length_">Length</string> -->
+<!--	<string name="remote_">Remote number</string> -->
 	<string name="numbers">Номера</string>
 	<string name="numbergroup_">Включённые номера</string>
 	<string name="numbergroup_help">Номера которые будут задействованны в данном плане.\n\nЗнак обобщения номеров (\"%\") разрешён по обе стороны номера.\nПример: %34 = 1234, 12% = 1234 и %23% = 12345.</string>
