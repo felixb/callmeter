@@ -90,9 +90,12 @@
 	<string name="plans">Plans</string>
 	<string name="plans_hint">Set your plans for all kind of billing here.</string>
 	<string name="plans_new">New plan</string>
+	<string name="rule_">Rule</string>
 	<string name="rules">Rules</string>
 	<string name="rules_hint">Set your billing rules here.</string>
 	<string name="rules_new">New Rule</string>
+	<string name="length_">Length</string>
+	<string name="remote_">Remote number</string>
 	<string name="numbers">Numbers</string>
 	<string name="numbergroup_">Include numbers</string>
 	<string name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string>

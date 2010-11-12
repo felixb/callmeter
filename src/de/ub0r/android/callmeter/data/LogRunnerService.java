@@ -73,6 +73,9 @@ public final class LogRunnerService extends IntentService {
 	/** Delete logs before that date. */
 	private static long deleteBefore = -1L;
 
+	/** Minimal difference of traffic which will get saved. */
+	private static long DATA_MIN_DIFF = 1024L * 250L;
+
 	/**
 	 * Default Constructor.
 	 */
@@ -217,7 +220,8 @@ public final class LogRunnerService extends IntentService {
 				Log.d(TAG, "rrx: " + rrx);
 				Log.d(TAG, "ttx: " + rtx);
 
-				if (rrx > 0 || rtx > 0) { // save data to db
+				if (forceUpdate || rrx > DATA_MIN_DIFF || rtx > DATA_MIN_DIFF) {
+					// save data to db
 					final ContentValues baseCv = new ContentValues();
 					baseCv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
 					baseCv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
@@ -228,20 +232,29 @@ public final class LogRunnerService extends IntentService {
 						baseCv.put(DataProvider.Logs.ROAMED, 1);
 					}
 
-					ContentValues cv = new ContentValues(baseCv);
-					cv.put(DataProvider.Logs.DIRECTION,
-							DataProvider.DIRECTION_IN);
-					cv.put(DataProvider.Logs.AMOUNT, rrx);
-					cr.insert(DataProvider.Logs.CONTENT_URI, cv);
-					cv = new ContentValues(baseCv);
-					cv.put(DataProvider.Logs.DIRECTION,
-							DataProvider.DIRECTION_OUT);
-					cv.put(DataProvider.Logs.AMOUNT, rtx);
-					cr.insert(DataProvider.Logs.CONTENT_URI, cv);
-					this.setLastData(p, DataProvider.TYPE_DATA,
-							DataProvider.DIRECTION_IN, rx);
-					this.setLastData(p, DataProvider.TYPE_DATA,
-							DataProvider.DIRECTION_OUT, tx);
+					ContentValues cv;
+					if ((forceUpdate && rrx > 0) || rrx > DATA_MIN_DIFF) {
+						cv = new ContentValues(baseCv);
+						cv.put(DataProvider.Logs.DIRECTION,
+								DataProvider.DIRECTION_IN);
+						cv.put(DataProvider.Logs.AMOUNT, rrx);
+						cr.insert(DataProvider.Logs.CONTENT_URI, cv);
+						this.setLastData(p, DataProvider.TYPE_DATA,
+								DataProvider.DIRECTION_IN, rx);
+					} else {
+						Log.d(TAG, "skip rx: " + rrx);
+					}
+					if ((forceUpdate && rtx > 0) || rtx > DATA_MIN_DIFF) {
+						cv = new ContentValues(baseCv);
+						cv.put(DataProvider.Logs.DIRECTION,
+								DataProvider.DIRECTION_OUT);
+						cv.put(DataProvider.Logs.AMOUNT, rtx);
+						cr.insert(DataProvider.Logs.CONTENT_URI, cv);
+						this.setLastData(p, DataProvider.TYPE_DATA,
+								DataProvider.DIRECTION_OUT, tx);
+					} else {
+						Log.d(TAG, "skip tx: " + rtx);
+					}
 				}
 			} catch (IOException e) {
 				Log.e(TAG, "I/O Error", e);

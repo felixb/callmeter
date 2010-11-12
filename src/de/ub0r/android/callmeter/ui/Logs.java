@@ -128,20 +128,39 @@ public final class Logs extends ListActivity implements OnClickListener,
 			buf
 					.append(DateFormat.getTimeFormat(context).format(
 							new Date(date)));
-			buf.append("\n");
-			buf.append(DataProvider.Plans.getName(cr, cursor
-					.getLong(DataProvider.Logs.INDEX_PLAN_ID)));
-			buf.append("\t");
-			buf.append(DataProvider.Rules.getName(cr, cursor
-					.getLong(DataProvider.Logs.INDEX_RULE_ID)));
-			buf.append("\t");
-			buf.append(cursor.getString(DataProvider.Logs.INDEX_REMOTE));
-			buf.append("\t");
-			long amount = cursor.getLong(DataProvider.Logs.INDEX_AMOUNT);
-			buf.append(Plans.formatAmount(t, amount, showHours));
-
 			((TextView) view.findViewById(android.R.id.text1)).setText(buf
 					.toString());
+
+			((TextView) view.findViewById(R.id.plan))
+					.setText(DataProvider.Plans.getName(cr, cursor
+							.getLong(DataProvider.Logs.INDEX_PLAN_ID)));
+
+			((TextView) view.findViewById(R.id.rule))
+					.setText(DataProvider.Rules.getName(cr, cursor
+							.getLong(DataProvider.Logs.INDEX_RULE_ID)));
+
+			String s = cursor.getString(DataProvider.Logs.INDEX_REMOTE);
+			if (s == null || s.trim().length() == 0) {
+				view.findViewById(R.id.remote).setVisibility(View.GONE);
+				view.findViewById(R.id.remote_).setVisibility(View.GONE);
+			} else {
+				final TextView tw = (TextView) view.findViewById(R.id.remote);
+				tw.setVisibility(View.VISIBLE);
+				view.findViewById(R.id.remote_).setVisibility(View.VISIBLE);
+				tw.setText(s);
+			}
+
+			long amount = cursor.getLong(DataProvider.Logs.INDEX_AMOUNT);
+			s = Plans.formatAmount(t, amount, showHours);
+			if (s == null || s.trim().length() == 0 || s.equals("1")) {
+				view.findViewById(R.id.length).setVisibility(View.GONE);
+				view.findViewById(R.id.length_).setVisibility(View.GONE);
+			} else {
+				final TextView tw = (TextView) view.findViewById(R.id.length);
+				tw.setVisibility(View.VISIBLE);
+				view.findViewById(R.id.length_).setVisibility(View.VISIBLE);
+				tw.setText(s);
+			}
 		}
 	}
 
