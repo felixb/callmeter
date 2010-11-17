@@ -32,6 +32,7 @@ import android.text.InputType;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
@@ -201,6 +202,16 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				R.string.cost_per_amount_, R.string.cost_per_amount_help1,
 				R.string.cost_per_amount_help2, InputType.TYPE_CLASS_NUMBER
 						| InputType.TYPE_NUMBER_FLAG_DECIMAL));
+
+		((TextPreference) ret.getPreference(DataProvider.Plans.COST_PER_PLAN))
+				.setHint(R.string.units_cost);
+		((TextPreference) ret
+				.getPreference(DataProvider.Plans.MIXED_UNITS_CALL))
+				.setHint(R.string.units_units_per_minute);
+		((TextPreference) ret.getPreference(DataProvider.Plans.MIXED_UNITS_MMS))
+				.setHint(R.string.units_units_per_message);
+		((TextPreference) ret.getPreference(DataProvider.Plans.MIXED_UNITS_SMS))
+				.setHint(R.string.units_units_per_message);
 		return ret;
 	}
 
@@ -208,9 +219,14 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 	 * Set selection for merged plans field.
 	 */
 	private void setMergePlansSelection() {
-		final int t = ((ListPreference) this.adapter
+		final PreferenceAdapter a = this.adapter;
+		if (a == null) {
+			return;
+		}
+
+		final int t = ((ListPreference) a
 				.getPreference(DataProvider.Plans.TYPE)).getValue();
-		final long bp = ((CursorPreference) this.adapter
+		final long bp = ((CursorPreference) a
 				.getPreference(DataProvider.Plans.BILLPERIOD_ID)).getValue();
 		String sel;
 		if (t == DataProvider.TYPE_MIXED) {
@@ -226,8 +242,8 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				+ DataProvider.Plans.BILLPERIOD_ID + " = " + bp + " AND "
 				+ DataProvider.Plans.MERGED_PLANS + " IS NULL";
 		Log.d(TAG, "selection: " + sel);
-		((CursorPreference) this.adapter
-				.getPreference(DataProvider.Plans.MERGED_PLANS)).setCursor(sel);
+		((CursorPreference) a.getPreference(DataProvider.Plans.MERGED_PLANS))
+				.setCursor(sel);
 	}
 
 	/**
@@ -267,50 +283,52 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 	 *            type of plan
 	 */
 	private void showHideExtraFileds(final int t) {
+		final PreferenceAdapter a = this.adapter;
+		if (a == null) {
+			return;
+		}
+
 		if (t == DataProvider.TYPE_BILLPERIOD) {
-			final ListPreference p = (ListPreference) this.adapter
+			final ListPreference p = (ListPreference) a
 					.getPreference(DataProvider.Plans.BILLPERIOD);
 			final int i = p.getValue();
-			this.adapter.hide(DataProvider.Plans.BILLDAY,
-					i == DataProvider.BILLPERIOD_DAY);
+			a
+					.hide(DataProvider.Plans.BILLDAY,
+							i == DataProvider.BILLPERIOD_DAY);
 		} else if (t != DataProvider.TYPE_SPACING
 				&& t != DataProvider.TYPE_TITLE) {
 			final long ppid = DataProvider.Plans.getParent(this
 					.getContentResolver(), this.pid);
-			final ListPreference p = (ListPreference) this.adapter
+			final ListPreference p = (ListPreference) a
 					.getPreference(DataProvider.Plans.LIMIT_TYPE);
 			final int lt = p.getValue();
 			final boolean nolimit = lt == DataProvider.LIMIT_TYPE_NONE;
-			this.adapter.hide(DataProvider.Plans.LIMIT, nolimit);
+			a.hide(DataProvider.Plans.LIMIT, nolimit);
 			if (nolimit && ppid < 0L) {
-				this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
-						true);
-				this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT,
-						true);
+				a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
+				a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
 			}
-			final String mergedPlans = ((CursorPreference) this.adapter
+			final String mergedPlans = ((CursorPreference) a
 					.getPreference(DataProvider.Plans.MERGED_PLANS))
 					.getMultiValue();
 			if (mergedPlans != null && mergedPlans.length() > 0) {
-				this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
-						true);
-				this.adapter.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT,
-						true);
-				this.adapter.hide(DataProvider.Plans.COST_PER_ITEM, true);
-				this.adapter.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
-				this.adapter.hide(DataProvider.Plans.BILLMODE, true);
+				a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
+				a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
+				a.hide(DataProvider.Plans.COST_PER_ITEM, true);
+				a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
+				a.hide(DataProvider.Plans.BILLMODE, true);
+				a.hide(DataProvider.Plans.STRIP_SECONDS, true);
 			}
 			if (ppid >= 0) {
-				this.adapter.hide(DataProvider.Plans.LIMIT, true);
-				this.adapter.hide(DataProvider.Plans.LIMIT_TYPE, true);
-				this.adapter.hide(DataProvider.Plans.COST_PER_PLAN, true);
-				this.adapter.hide(DataProvider.Plans.MERGED_PLANS, true);
+				a.hide(DataProvider.Plans.LIMIT, true);
+				a.hide(DataProvider.Plans.LIMIT_TYPE, true);
+				a.hide(DataProvider.Plans.MERGED_PLANS, true);
 			}
 
-			final Text2Preference pil = (Text2Preference) this.adapter
+			final Text2Preference pil = (Text2Preference) a
 					.getPreference(DataProvider.Plans.// .
 					COST_PER_AMOUNT_IN_LIMIT1);
-			final Text2Preference pol = (Text2Preference) this.adapter
+			final Text2Preference pol = (Text2Preference) a
 					.getPreference(DataProvider.Plans.COST_PER_AMOUNT1);
 			pil.setSingleMode(t != DataProvider.TYPE_CALL);
 			pol.setSingleMode(t != DataProvider.TYPE_CALL);
@@ -468,6 +486,90 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 		}
 		this.showHideExtraFileds(t);
 		this.setMergePlansSelection();
+		this.setHint(t);
+	}
+
+	/**
+	 * Set hint for {@link EditText}s.
+	 * 
+	 * @param t
+	 *            type of plan
+	 */
+	private void setHint(final int t) {
+		final PreferenceAdapter a = this.adapter;
+		if (a == null) {
+			return;
+		}
+		final ListPreference p = (ListPreference) a
+				.getPreference(DataProvider.Plans.LIMIT_TYPE);
+		final int lt = p.getValue();
+		TextPreference tp0 = (TextPreference) a
+				.getPreference(DataProvider.Plans.LIMIT);
+		switch (lt) {
+		case DataProvider.LIMIT_TYPE_COST:
+			tp0.setHint(R.string.units_cost);
+			break;
+		case DataProvider.LIMIT_TYPE_UNITS:
+			switch (t) {
+			case DataProvider.TYPE_CALL:
+				tp0.setHint(R.string.units_minutes);
+				break;
+			case DataProvider.TYPE_DATA:
+				tp0.setHint(R.string.units_mbyte);
+				break;
+			case DataProvider.TYPE_MIXED:
+				tp0.setHint(R.string.units_units);
+				break;
+			case DataProvider.TYPE_MMS:
+			case DataProvider.TYPE_SMS:
+				tp0.setHint(R.string.units_num_msg);
+				break;
+			default:
+				tp0.setHint(-1);
+				break;
+			}
+			break;
+		default:
+			tp0.setHint(-1);
+			break;
+		}
+
+		tp0 = (TextPreference) a
+				.getPreference(DataProvider.Plans.COST_PER_ITEM);
+		TextPreference tp1 = (TextPreference) a
+				.getPreference(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT);
+		Text2Preference tp2 = (Text2Preference) a
+				.getPreference(DataProvider.Plans.COST_PER_AMOUNT1);
+		Text2Preference tp3 = (Text2Preference) a
+				.getPreference(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1);
+
+		switch (t) {
+		case DataProvider.TYPE_CALL:
+			tp0.setHint(R.string.units_cost_per_call);
+			tp1.setHint(R.string.units_cost_per_call);
+			tp2.setHint(R.string.units_cost_per_minute);
+			tp3.setHint(R.string.units_cost_per_minute);
+			break;
+		case DataProvider.TYPE_DATA:
+			tp2.setHint(R.string.units_cost_per_mbyte);
+			tp3.setHint(R.string.units_cost_per_mbyte);
+			break;
+		case DataProvider.TYPE_MIXED:
+			tp0.setHint(R.string.units_cost_per_unit);
+			tp1.setHint(R.string.units_cost_per_unit);
+			break;
+		case DataProvider.TYPE_MMS:
+		case DataProvider.TYPE_SMS:
+			tp0.setHint(R.string.units_cost_per_message);
+			tp1.setHint(R.string.units_cost_per_message);
+			break;
+		default:
+			tp0.setHint(-1);
+			tp1.setHint(-1);
+			tp2.setHint(-1);
+			tp3.setHint(-1);
+			break;
+		}
 	}
 
 	/**

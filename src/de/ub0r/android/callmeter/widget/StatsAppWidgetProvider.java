@@ -303,10 +303,11 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		if (limit > 0) {
 			views.setViewVisibility(R.id.appwidget_bg_bottom_bg, View.VISIBLE);
 			final int u = (int) ((used * CallMeter.HUNDRET) / limit);
-			if (u > CallMeter.HUNDRET) {
+			if (u >= CallMeter.HUNDRET) {
 				views.setProgressBar(R.id.appwidget_bg_bottom_progress_red,
 						(int) limit, used, false);
-			} else if (u > CallMeter.EIGHTY) {
+			} else if (bmax < 0 && u >= CallMeter.EIGHTY || bmax > 0
+					&& (float) used / limit > (float) bpos / bmax) {
 				views.setProgressBar(R.id.appwidget_bg_bottom_progress_red,
 						(int) limit, 0, false);
 				views.setProgressBar(R.id.appwidget_bg_bottom_progress_yellow,

@@ -146,6 +146,11 @@ abstract class Preference {
 		/** {@link EditText}'s inputType. */
 		private final int iType;
 
+		/** Hint as resource. */
+		private int resHint = -1;
+		/** Hint as String. */
+		private String resHints = null;
+
 		/**
 		 * Default Constructor.
 		 * 
@@ -168,6 +173,34 @@ abstract class Preference {
 			super(ctx, prefName, R.layout.prefadapter_item, text, help);
 			this.defaultValue = defValue;
 			this.iType = inputType;
+		}
+
+		/**
+		 * Set {@link Preference}'s hint.
+		 * 
+		 * @param hint
+		 *            hint
+		 */
+		void setHint(final int hint) {
+			this.resHints = null;
+			this.resHint = hint;
+			if (this.etDialog != null) {
+				this.etDialog.setHint(hint);
+			}
+		}
+
+		/**
+		 * Set {@link Preference}'s hint.
+		 * 
+		 * @param hint
+		 *            hint
+		 */
+		void setHint(final String hint) {
+			this.resHints = hint;
+			this.resHint = -1;
+			if (this.etDialog != null) {
+				this.etDialog.setHint(hint);
+			}
 		}
 
 		@Override
@@ -194,6 +227,11 @@ abstract class Preference {
 			this.etDialog = et;
 			et.setInputType(this.iType);
 			et.setText(this.value);
+			if (this.resHint > 0) {
+				et.setHint(this.resHint);
+			} else {
+				et.setHint(this.resHints);
+			}
 			builder.setView(et);
 			builder.setNegativeButton(android.R.string.cancel, null);
 			builder.setPositiveButton(android.R.string.ok,
@@ -249,6 +287,11 @@ abstract class Preference {
 		/** Dialog is in single mode? . */
 		private boolean singleMode = true;
 
+		/** Hint as resource. */
+		private int resHint = -1;
+		/** Hint as String. */
+		private String resHints = null;
+
 		/**
 		 * Default Constructor.
 		 * 
@@ -281,6 +324,40 @@ abstract class Preference {
 			this.defaultValue1 = defValue1;
 			this.defaultValue2 = defValue2;
 			this.iType = inputType;
+		}
+
+		/**
+		 * Set {@link Preference}'s hint.
+		 * 
+		 * @param hint
+		 *            hint
+		 */
+		void setHint(final int hint) {
+			this.resHints = null;
+			this.resHint = hint;
+			if (this.etDialog1 != null) {
+				this.etDialog1.setHint(hint);
+			}
+			if (this.etDialog2 != null) {
+				this.etDialog2.setHint(hint);
+			}
+		}
+
+		/**
+		 * Set {@link Preference}'s hint.
+		 * 
+		 * @param hint
+		 *            hint
+		 */
+		void setHint(final String hint) {
+			this.resHints = hint;
+			this.resHint = -1;
+			if (this.etDialog1 != null) {
+				this.etDialog1.setHint(hint);
+			}
+			if (this.etDialog2 != null) {
+				this.etDialog2.setHint(hint);
+			}
 		}
 
 		@Override
@@ -325,6 +402,13 @@ abstract class Preference {
 			et1.setInputType(this.iType);
 			final EditText et2 = this.etDialog2;
 			et2.setInputType(this.iType);
+			if (this.resHint > 0) {
+				et1.setHint(this.resHint);
+				et2.setHint(this.resHint);
+			} else {
+				et1.setHint(this.resHints);
+				et2.setHint(this.resHints);
+			}
 			this.updateDialog(null);
 			builder.setView(root);
 			builder.setNegativeButton(android.R.string.cancel, null);

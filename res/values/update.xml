@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: Integrate with sipdroid &gt;1.6.1, default update interval: 60m, fix MMS counter</item>
+		<item>HEAD: Integrate with sipdroid &gt;1.6.1, default update interval: 60m, fix MMS counter, fix mixed+merged limits, progressbar color</item>
 		<item>v2.9.2: Delete old logs (default: 90d), multiselection on groups, fix NPE</item>
 		<item>v2.9.1: Fix cost for long sms, fix cost when reaching limit, set name/shortname for widget, show cost in widget, show billperiod in widget, settable sizes, don\'t bill first x seconds, merge plans, hide empty plans</item>
 		<item>v2.8.10: Integration with WebSMS, set custom locale</item>
