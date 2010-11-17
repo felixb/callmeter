@@ -436,6 +436,10 @@ public class Plans extends ListActivity implements OnClickListener,
 				} else {
 					ccs = formatedDate;
 				}
+				if (this.used >= 0f) {
+					ccs = (int) (this.used * CallMeter.HUNDRET) + "%" + SEP
+							+ ccs;
+				}
 				if (!ccs.equals(this.currentCacheString)) {
 					this.currentCacheString = ccs;
 					cv.put(DataProvider.Plans.CACHE_STRING, ccs);
@@ -452,7 +456,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			 */
 			private void updateStandardPlans(final Calendar lnow,
 					final ContentValues cv) {
-				int used = 0;
+				int u = 0;
 				if (this.limit > 0) {
 					cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, this.limit);
 				} else {
@@ -513,11 +517,11 @@ public class Plans extends ListActivity implements OnClickListener,
 					Log.d(TAG, "cost: " + cost);
 					Log.d(TAG, "billedAmount: " + billedAmount);
 
-					used = DataProvider.Plans.getUsed(this.type,
-							this.limittype, billedAmount, cost);
+					u = DataProvider.Plans.getUsed(this.type, this.limittype,
+							billedAmount, cost);
 
-					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, used);
-					this.used = (float) used / this.limit;
+					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, u);
+					this.used = (float) u / this.limit;
 				}
 				if (c != null && !c.isClosed()) {
 					c.close();
@@ -590,12 +594,12 @@ public class Plans extends ListActivity implements OnClickListener,
 				}
 
 				cv.put(DataProvider.Plans.CACHE_COST, cost + free);
-				this.currentCacheString = getString(this, used, count,
-						billedAmount, cost, free, allBilledAmount, allCount,
-						pShowHours);
-				cv
-						.put(DataProvider.Plans.CACHE_STRING,
-								this.currentCacheString);
+				final String ccs = getString(this, u, count, billedAmount,
+						cost, free, allBilledAmount, allCount, pShowHours);
+				if (!ccs.equals(this.currentCacheString)) {
+					this.currentCacheString = ccs;
+					cv.put(DataProvider.Plans.CACHE_STRING, ccs);
+				}
 			}
 
 			/**
