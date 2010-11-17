@@ -1272,6 +1272,16 @@ abstract class Preference {
 		public Calendar getValue() {
 			return this.value;
 		}
+
+		/**
+		 * Set value.
+		 * 
+		 * @param v
+		 *            value
+		 */
+		public void setValue(final Calendar v) {
+			this.value.setTimeInMillis(v.getTimeInMillis());
+		}
 	}
 
 	/** {@link Context}. */
