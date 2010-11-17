@@ -1051,9 +1051,6 @@ public class Plans extends ListActivity implements OnClickListener,
 							view.findViewById(R.id.progressbarLimitRed)
 									.setVisibility(View.GONE);
 						} else {
-							Log.d(TAG, "bpos: " + bpos);
-							Log.d(TAG, "pos: " + (float) cacheLimitPos
-									/ cacheLimitMax);
 							pbCache = (ProgressBar) view
 									.findViewById(R.id.progressbarLimitGreen);
 							view.findViewById(R.id.progressbarLimitYellow)
