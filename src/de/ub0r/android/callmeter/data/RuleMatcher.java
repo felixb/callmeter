@@ -752,7 +752,7 @@ public final class RuleMatcher {
 				case DataProvider.LIMIT_TYPE_UNITS:
 					return this.billedAmount < this.limit;
 				default:
-					return true;
+					return false;
 				}
 			}
 		}
@@ -803,14 +803,14 @@ public final class RuleMatcher {
 				if (pp.type == DataProvider.TYPE_MIXED) {
 					switch (t) {
 					case DataProvider.TYPE_CALL:
-						pp.billedAmount += (amount * this.upc)
+						pp.billedAmount += (amount * pp.upc)
 								/ CallMeter.SECONDS_MINUTE;
 						break;
 					case DataProvider.TYPE_MMS:
-						pp.billedAmount += amount * this.upm;
+						pp.billedAmount += amount * pp.upm;
 						break;
 					case DataProvider.TYPE_SMS:
-						pp.billedAmount += amount * this.ups;
+						pp.billedAmount += amount * pp.ups;
 						break;
 					default:
 						break;
@@ -879,7 +879,7 @@ public final class RuleMatcher {
 			} else {
 				p = this.parent;
 			}
-			if (p.limitType != DataProvider.LIMIT_TYPE_NONE && p.isInLimit()) {
+			if (p.isInLimit()) {
 				cpi = this.costPerItemInLimit;
 				cpa1 = this.costPerAmountInLimit1;
 				cpa2 = this.costPerAmountInLimit2;

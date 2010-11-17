@@ -246,6 +246,10 @@ public class Plans extends ListActivity implements OnClickListener,
 			private final long id;
 			/** Id of parent plan. */
 			private final long ppid;
+			/** Parent plan. */
+			private Plan parent;
+			/** Bill period. */
+			private Plan bperiod;
 			/** True for plans merging other plans. */
 			private final boolean isMerger;
 			/** Where clause for updating the plan. */
@@ -268,6 +272,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			private final int upc, ups, upm;
 			/** Current cache String. */
 			private String currentCacheString = "";
+			private float used = -1f;
 
 			/**
 			 * Default Constructor from {@link Cursor}.
@@ -414,6 +419,7 @@ public class Plans extends ListActivity implements OnClickListener,
 
 					cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, nx);
 					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, nw);
+					this.used = (float) nw / nx;
 					if (dateFormat == null) {
 						formatedDate = DateFormat.getDateFormat(this.ctx)
 								.format(billDay.getTime());
@@ -511,6 +517,7 @@ public class Plans extends ListActivity implements OnClickListener,
 							this.limittype, billedAmount, cost);
 
 					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, used);
+					this.used = (float) used / this.limit;
 				}
 				if (c != null && !c.isClosed()) {
 					c.close();
@@ -729,6 +736,12 @@ public class Plans extends ListActivity implements OnClickListener,
 			do {
 				this.appendPlan(new Plan(this.ctx, cursor));
 			} while (cursor.moveToNext());
+			int l = this.plansList.size();
+			for (int i = 0; i < l; i++) {
+				final Plan p = this.plansList.get(i);
+				p.parent = this.plansMap.get(p.ppid);
+				p.bperiod = this.plansMap.get(p.billperiodid);
+			}
 		}
 
 		/**
@@ -1008,6 +1021,15 @@ public class Plans extends ListActivity implements OnClickListener,
 					if (cacheLimitMax > 0) {
 						usage = (cacheLimitPos * CallMeter.HUNDRET)
 								/ cacheLimitMax;
+						float bpos = -1f;
+						final long bpid = cursor.getLong(DataProvider.// .
+								Plans.INDEX_BILLPERIOD_ID);
+						if (bpid >= 0 && bpid < this.plansList.size()) {
+							final Plan p = this.plansMap.get(bpid);
+							if (p != null) {
+								bpos = p.used;
+							}
+						}
 						if (usage >= CallMeter.HUNDRET) {
 							pbCache = (ProgressBar) view
 									.findViewById(R.id.progressbarLimitRed);
@@ -1015,7 +1037,9 @@ public class Plans extends ListActivity implements OnClickListener,
 									.setVisibility(View.GONE);
 							view.findViewById(R.id.progressbarLimitYellow)
 									.setVisibility(View.GONE);
-						} else if (usage > CallMeter.EIGHTY) {
+						} else if (bpos >= 0f
+								&& (float) cacheLimitPos / cacheLimitMax // .
+								> bpos) {
 							pbCache = (ProgressBar) view
 									.findViewById(R.id.progressbarLimitYellow);
 							view.findViewById(R.id.progressbarLimitGreen)
@@ -1023,6 +1047,9 @@ public class Plans extends ListActivity implements OnClickListener,
 							view.findViewById(R.id.progressbarLimitRed)
 									.setVisibility(View.GONE);
 						} else {
+							Log.d(TAG, "bpos: " + bpos);
+							Log.d(TAG, "pos: " + (float) cacheLimitPos
+									/ cacheLimitMax);
 							pbCache = (ProgressBar) view
 									.findViewById(R.id.progressbarLimitGreen);
 							view.findViewById(R.id.progressbarLimitYellow)
