@@ -62,9 +62,9 @@
 	<string name="length_hint_data">Traffic in kB</string>
 	<string name="settings">Einstellungen</string>
 	<string name="update_interval_">Update Intervall</string>
-	<string name="update_interval_hint">Eine kürzere Periode verbreucht mehr Akku.</string>
+	<string name="update_interval_hint">Eine kürzere Periode verbraucht mehr Akku.</string>
 	<string name="date_begin_">Start der Aufzeichnungen</string>
-	<string name="date_begin_hint">Ignoriere alle Logs for diesem Datum.</string>
+	<string name="date_begin_hint">Ignoriere alle Logs vor diesem Datum.</string>
 	<string name="delete_old_logs_">Logs älter als .. löschen</string>
 	<string name="delete_old_logs_help">Lösche Logs älter als x Tage aus der internen Datenbank. Leer lassen zum deaktivieren.</string>
 	<string name="common_prefs_">Allgemeine Einstellungen</string>
