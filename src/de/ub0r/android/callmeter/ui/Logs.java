@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein, The Android Open Source Project
+ * Copyright (C) 2009-2010 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -318,7 +318,7 @@ public final class Logs extends ListActivity implements OnClickListener,
 								final int which) {
 							final int t = spType.getSelectedItemPosition();
 							final int d = spDirection.getSelectedItemPosition();
-							final int l = Utils.parseInt(etLength.getText()
+							int l = Utils.parseInt(etLength.getText()
 									.toString(), 0);
 							final String r = etRemote.getText().toString();
 							final boolean roamed = cbRoamed.isChecked();
@@ -340,10 +340,12 @@ public final class Logs extends ListActivity implements OnClickListener,
 							case DataProvider.Rules.WHAT_MMS:
 								cv.put(DataProvider.Logs.TYPE,
 										DataProvider.TYPE_MMS);
+								l = 1;
 								break;
 							case DataProvider.Rules.WHAT_SMS:
 								cv.put(DataProvider.Logs.TYPE,
 										DataProvider.TYPE_SMS);
+								l = 1;
 								break;
 							default:
 								return;
