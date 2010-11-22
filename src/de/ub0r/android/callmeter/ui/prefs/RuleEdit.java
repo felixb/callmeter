@@ -155,6 +155,7 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	protected final void onResume() {
 		super.onResume();
 		this.showHideFileds();
+		// TODO: reload number-/hourgroups
 	}
 
 	/**
