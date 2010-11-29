@@ -54,6 +54,8 @@
 			<CheckBoxPreference android:key="show_hours"
 				android:defaultValue="true" android:title="@string/show_hours_"
 				android:summary="@string/show_hours_hint" />
+			<CheckBoxPreference android:key="hide_progressbars"
+				android:title="@string/hide_progressbars_" android:summary="@string/hide_progressbars_hint" />
 			<CheckBoxPreference android:key="show_help"
 				android:defaultValue="true" android:title="@string/show_help_"
 				android:summary="@string/show_help_hint" />

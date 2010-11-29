@@ -272,6 +272,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			private final int upc, ups, upm;
 			/** Current cache String. */
 			private String currentCacheString = "";
+			/** Current "used". */
 			private float used = -1f;
 
 			/**
@@ -641,6 +642,8 @@ public class Plans extends ListActivity implements OnClickListener,
 				textSizePBar, textSizePBarBP;
 		/** Prepaid plan? */
 		private boolean prepaid;
+		/** Visability for {@link ProgressBar}s. */
+		private final int progressBarVisability;
 
 		/**
 		 * Default Constructor.
@@ -654,6 +657,13 @@ public class Plans extends ListActivity implements OnClickListener,
 							DataProvider.Plans.PROJECTION, null, null,
 							DataProvider.Plans.ORDER), true);
 			this.ctx = context;
+			final SharedPreferences p = PreferenceManager
+					.getDefaultSharedPreferences(context);
+			if (p.getBoolean(Preferences.PREFS_HIDE_PROGRESSBARS, false)) {
+				this.progressBarVisability = View.GONE;
+			} else {
+				this.progressBarVisability = View.VISIBLE;
+			}
 			this.updateGUI();
 		}
 
@@ -1079,7 +1089,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					pbCache.setIndeterminate(false);
 					pbCache.setMax(cacheLimitMax);
 					pbCache.setProgress(cacheLimitPos);
-					pbCache.setVisibility(View.VISIBLE);
+					pbCache.setVisibility(this.progressBarVisability);
 					int pbs = 0;
 					if (t == DataProvider.TYPE_BILLPERIOD) {
 						pbs = this.textSizePBarBP;
@@ -1093,7 +1103,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					}
 				} else {
 					pbCache.setIndeterminate(true);
-					pbCache.setVisibility(View.VISIBLE);
+					pbCache.setVisibility(this.progressBarVisability);
 				}
 			}
 		}
