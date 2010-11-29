@@ -110,6 +110,8 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 <!--	<string name="show_billperiod_">Show progress of billing period</string> -->
 <!--	<string name="hide_zero_">Hide empty plans</string> -->
 <!--	<string name="hide_zero_hint">Hide plans containing no item.</string> -->
+<!--	<string name="hide_progressbars_">Hide progress bars</string> -->
+<!--	<string name="hide_progressbars_hint">Hide progress bars in main view.</string> -->
 	<string name="custom_currency_symbol_">Значёк валюты</string>
 	<string name="custom_currency_symbol_hint">Настройка значка валюты который появится в статистике.</string>
 	<string name="custom_currency_format_">Формат показа валюты</string>

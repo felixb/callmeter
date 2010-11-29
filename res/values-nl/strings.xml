@@ -110,6 +110,8 @@ Copyright (C) 2010 Tom Nuss, Felix Bechstein, Jumi Vlot
 	<string name="show_billperiod_">Toon voortgang van facturatie periode</string>
 	<string name="hide_zero_">Verberg lege schema\'s</string>
 	<string name="hide_zero_hint">Verberg schema\'s zonder items.</string>
+<!--	<string name="hide_progressbars_">Hide progress bars</string> -->
+<!--	<string name="hide_progressbars_hint">Hide progress bars in main view.</string> -->
 	<string name="custom_currency_symbol_">Aangepast valuta symbool</string>
 	<string name="custom_currency_symbol_hint">Stel een aangepast valuta symbool in, laat leeg voor systeem standaard.</string>
 	<string name="custom_currency_format_">Aangepast valuta formaat</string>

@@ -110,6 +110,8 @@
 	<string name="show_billperiod_">显示账单周期进度</string>
 	<string name="hide_zero_">隐藏空白套餐</string>
 	<string name="hide_zero_hint">隐藏不包含项目的套餐.</string>
+<!--	<string name="hide_progressbars_">Hide progress bars</string> -->
+<!--	<string name="hide_progressbars_hint">Hide progress bars in main view.</string> -->
 	<string name="custom_currency_symbol_">显示自定义货币符号</string>
 	<string name="custom_currency_symbol_hint">设置自定义货币符号,留空使用默认值.</string>
 	<string name="custom_currency_format_">自定义货币格式</string>
