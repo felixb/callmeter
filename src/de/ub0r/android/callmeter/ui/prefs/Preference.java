@@ -185,7 +185,11 @@ abstract class Preference {
 			this.resHints = null;
 			this.resHint = hint;
 			if (this.etDialog != null) {
-				this.etDialog.setHint(hint);
+				if (hint > 0) {
+					this.etDialog.setHint(hint);
+				} else {
+					this.etDialog.setHint(null);
+				}
 			}
 		}
 
@@ -336,10 +340,18 @@ abstract class Preference {
 			this.resHints = null;
 			this.resHint = hint;
 			if (this.etDialog1 != null) {
-				this.etDialog1.setHint(hint);
+				if (hint > 0) {
+					this.etDialog1.setHint(hint);
+				} else {
+					this.etDialog1.setHint(null);
+				}
 			}
 			if (this.etDialog2 != null) {
-				this.etDialog2.setHint(hint);
+				if (hint > 0) {
+					this.etDialog2.setHint(hint);
+				} else {
+					this.etDialog2.setHint(null);
+				}
 			}
 		}
 
@@ -1271,6 +1283,16 @@ abstract class Preference {
 		 */
 		public Calendar getValue() {
 			return this.value;
+		}
+
+		/**
+		 * Set value.
+		 * 
+		 * @param v
+		 *            value
+		 */
+		public void setValue(final Calendar v) {
+			this.value.setTimeInMillis(v.getTimeInMillis());
 		}
 	}
 

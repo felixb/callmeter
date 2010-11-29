@@ -272,6 +272,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			private final int upc, ups, upm;
 			/** Current cache String. */
 			private String currentCacheString = "";
+			/** Current "used". */
 			private float used = -1f;
 
 			/**
@@ -436,6 +437,10 @@ public class Plans extends ListActivity implements OnClickListener,
 				} else {
 					ccs = formatedDate;
 				}
+				if (this.used >= 0f) {
+					ccs = (int) (this.used * CallMeter.HUNDRET) + "%" + SEP
+							+ ccs;
+				}
 				if (!ccs.equals(this.currentCacheString)) {
 					this.currentCacheString = ccs;
 					cv.put(DataProvider.Plans.CACHE_STRING, ccs);
@@ -452,7 +457,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			 */
 			private void updateStandardPlans(final Calendar lnow,
 					final ContentValues cv) {
-				int used = 0;
+				int u = 0;
 				if (this.limit > 0) {
 					cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, this.limit);
 				} else {
@@ -513,11 +518,11 @@ public class Plans extends ListActivity implements OnClickListener,
 					Log.d(TAG, "cost: " + cost);
 					Log.d(TAG, "billedAmount: " + billedAmount);
 
-					used = DataProvider.Plans.getUsed(this.type,
-							this.limittype, billedAmount, cost);
+					u = DataProvider.Plans.getUsed(this.type, this.limittype,
+							billedAmount, cost);
 
-					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, used);
-					this.used = (float) used / this.limit;
+					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, u);
+					this.used = (float) u / this.limit;
 				}
 				if (c != null && !c.isClosed()) {
 					c.close();
@@ -590,12 +595,12 @@ public class Plans extends ListActivity implements OnClickListener,
 				}
 
 				cv.put(DataProvider.Plans.CACHE_COST, cost + free);
-				this.currentCacheString = getString(this, used, count,
-						billedAmount, cost, free, allBilledAmount, allCount,
-						pShowHours);
-				cv
-						.put(DataProvider.Plans.CACHE_STRING,
-								this.currentCacheString);
+				final String ccs = getString(this, u, count, billedAmount,
+						cost, free, allBilledAmount, allCount, pShowHours);
+				if (!ccs.equals(this.currentCacheString)) {
+					this.currentCacheString = ccs;
+					cv.put(DataProvider.Plans.CACHE_STRING, ccs);
+				}
 			}
 
 			/**
@@ -637,6 +642,8 @@ public class Plans extends ListActivity implements OnClickListener,
 				textSizePBar, textSizePBarBP;
 		/** Prepaid plan? */
 		private boolean prepaid;
+		/** Visability for {@link ProgressBar}s. */
+		private final int progressBarVisability;
 
 		/**
 		 * Default Constructor.
@@ -650,6 +657,13 @@ public class Plans extends ListActivity implements OnClickListener,
 							DataProvider.Plans.PROJECTION, null, null,
 							DataProvider.Plans.ORDER), true);
 			this.ctx = context;
+			final SharedPreferences p = PreferenceManager
+					.getDefaultSharedPreferences(context);
+			if (p.getBoolean(Preferences.PREFS_HIDE_PROGRESSBARS, false)) {
+				this.progressBarVisability = View.GONE;
+			} else {
+				this.progressBarVisability = View.VISIBLE;
+			}
 			this.updateGUI();
 		}
 
@@ -1047,9 +1061,6 @@ public class Plans extends ListActivity implements OnClickListener,
 							view.findViewById(R.id.progressbarLimitRed)
 									.setVisibility(View.GONE);
 						} else {
-							Log.d(TAG, "bpos: " + bpos);
-							Log.d(TAG, "pos: " + (float) cacheLimitPos
-									/ cacheLimitMax);
 							pbCache = (ProgressBar) view
 									.findViewById(R.id.progressbarLimitGreen);
 							view.findViewById(R.id.progressbarLimitYellow)
@@ -1078,7 +1089,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					pbCache.setIndeterminate(false);
 					pbCache.setMax(cacheLimitMax);
 					pbCache.setProgress(cacheLimitPos);
-					pbCache.setVisibility(View.VISIBLE);
+					pbCache.setVisibility(this.progressBarVisability);
 					int pbs = 0;
 					if (t == DataProvider.TYPE_BILLPERIOD) {
 						pbs = this.textSizePBarBP;
@@ -1092,7 +1103,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					}
 				} else {
 					pbCache.setIndeterminate(true);
-					pbCache.setVisibility(View.VISIBLE);
+					pbCache.setVisibility(this.progressBarVisability);
 				}
 			}
 		}

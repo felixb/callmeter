@@ -155,6 +155,7 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	protected final void onResume() {
 		super.onResume();
 		this.showHideFileds();
+		// TODO: reload number-/hourgroups
 	}
 
 	/**
@@ -322,6 +323,7 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 			this.adapter.hide(DataProvider.Rules.IS_WEBSMS_CONNETOR, true);
 			break;
 		default:
+			this.adapter.hide(DataProvider.Rules.IS_SIPCALL, true);
 			this.adapter.hide(DataProvider.Rules.IS_WEBSMS, true);
 			this.adapter.hide(DataProvider.Rules.IS_WEBSMS_CONNETOR, true);
 			break;

@@ -18,8 +18,8 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="de.ub0r.android.callmeter" android:versionName="2.9.2 rc2"
-	android:versionCode="2814" android:installLocation="internalOnly">
+	package="de.ub0r.android.callmeter" android:versionName="2.9.3 rc3"
+	android:versionCode="2816" android:installLocation="internalOnly">
 	<application android:name=".CallMeter" android:icon="@drawable/icon"
 		android:label="@string/app_name" android:debuggable="true">
 		<activity android:name=".ui.Plans" android:label="@string/app_name"
@@ -34,7 +34,7 @@
 			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />
 		<activity android:name=".ui.prefs.Preferences"
 			android:configChanges="orientation|keyboardHidden"
-			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize">
+			android:launchMode="singleTask" android:windowSoftInputMode="adjustResize">
 			<intent-filter>
 				<action android:name="android.intent.action.VIEW" />
 				<category android:name="android.intent.category.DEFAULT" />

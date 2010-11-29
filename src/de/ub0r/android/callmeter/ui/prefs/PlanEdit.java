@@ -18,6 +18,8 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
+import java.util.Calendar;
+
 import android.app.ListActivity;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -273,6 +275,22 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 		if (cursor != null && !cursor.isClosed()) {
 			this.adapter.load(cursor);
 			cursor.close();
+		}
+		final PreferenceAdapter a = this.adapter;
+		final int t = ((ListPreference) a
+				.getPreference(DataProvider.Plans.TYPE)).getValue();
+		if (t == DataProvider.TYPE_BILLPERIOD) {
+			final int bp = ((ListPreference) a
+					.getPreference(DataProvider.Plans.BILLPERIOD)).getValue();
+			if (bp != DataProvider.BILLPERIOD_INFINITE) {
+				final DatePreference dp = (DatePreference) a
+						.getPreference(DataProvider.Plans.BILLDAY);
+				Calendar bd = dp.getValue();
+				bd = DataProvider.Plans.getBillDay(bp, bd, null, false);
+				if (bd != null) {
+					dp.setValue(bd);
+				}
+			}
 		}
 	}
 
