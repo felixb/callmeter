@@ -912,10 +912,13 @@ public final class DataProvider extends ContentProvider {
 			if (period == BILLPERIOD_INFINITE) {
 				return DataProvider.Logs.DATE + " > " + bd.getTimeInMillis();
 			}
-			final Calendar nbd = getBillDay(period, start, now, true);
-			return DataProvider.Logs.DATE + " > " + bd.getTimeInMillis()
-					+ " AND " + DataProvider.Logs.DATE + " < "
-					+ nbd.getTimeInMillis();
+			String next = "";
+			if (now != null) {
+				next = " AND " + DataProvider.Logs.DATE + " < "
+						+ now.getTimeInMillis();
+			}
+			// final Calendar nbd = getBillDay(period, start, now, true);
+			return DataProvider.Logs.DATE + " > " + bd.getTimeInMillis() + next;
 		}
 
 		/**

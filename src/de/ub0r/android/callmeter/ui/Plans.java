@@ -27,8 +27,10 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.app.AlertDialog.Builder;
 import android.app.DatePickerDialog.OnDateSetListener;
+import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -57,6 +59,7 @@ import android.widget.DatePicker;
 import android.widget.ProgressBar;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemLongClickListener;
 import de.ub0r.android.callmeter.CallMeter;
@@ -77,7 +80,7 @@ import de.ub0r.android.lib.Utils;
  * @author flx
  */
 public class Plans extends ListActivity implements OnClickListener,
-		OnItemLongClickListener, OnDateSetListener {
+		OnItemLongClickListener, OnDateSetListener, OnTimeSetListener {
 	/** Tag for output. */
 	public static final String TAG = "main";
 
@@ -97,8 +100,10 @@ public class Plans extends ListActivity implements OnClickListener,
 
 	/** Dialog: update. */
 	private static final int DIALOG_UPDATE = 0;
+	/** Dialog: show date. */
+	private static final int DIALOG_SHOW_DATE = 1;
 	/** Dialog: show time. */
-	private static final int DIALOG_SHOW_TIME = 1;
+	private static final int DIALOG_SHOW_TIME = 2;
 
 	/** {@link Message} for {@link Handler}: start background: LogMatcher. */
 	public static final int MSG_BACKGROUND_START_MATCHER = 1;
@@ -1307,7 +1312,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			}
 		}
 		// reload plan configuration
-		this.getNow(this.getIntent(), false);
+		this.getNowFromIntent(this.getIntent(), false);
 		this.adapter.reloadPlans(this.getContentResolver(), this.adapter
 				.getCursor());
 		// start LogRunner
@@ -1324,22 +1329,44 @@ public class Plans extends ListActivity implements OnClickListener,
 	 * @param updatePlans
 	 *            update plans after setting "now"
 	 */
-	private void getNow(final Intent intent, final boolean updatePlans) {
+	private void getNowFromIntent(final Intent intent, final boolean updatePlans) {
 		final long now = intent.getLongExtra(EXTRA_NOW, -1);
 		if (now >= 0) {
-			this.adapter.setNow(now);
-			String formatedDate;
-			if (dateFormat == null) {
-				formatedDate = DateFormat.getDateFormat(this).format(now);
-			} else {
-				final Calendar n = this.adapter.now;
-				formatedDate = String.format(dateFormat, n, n, n);
-			}
-			String t = this.getString(R.string.app_name) + " - " + formatedDate;
-			this.setTitle(t);
+			this.setNow(now, updatePlans, false);
 		} else {
 			this.adapter.now = null;
 			this.setTitle(R.string.app_name);
+			if (updatePlans) {
+				this.adapter.updatePlans();
+			}
+		}
+	}
+
+	/**
+	 * Set "now" to main view.
+	 * 
+	 * @param now
+	 *            now as milliseconds
+	 * @param updatePlans
+	 *            update plans after setting "now"
+	 * @param fromTime
+	 *            time set too?
+	 */
+	private void setNow(final long now, final boolean updatePlans,
+			final boolean fromTime) {
+		this.adapter.setNow(now);
+		final Calendar cal = this.adapter.now;
+		String formatedDate;
+		if (dateFormat == null) {
+			formatedDate = DateFormat.getDateFormat(this).format(now);
+		} else {
+			formatedDate = String.format(dateFormat, cal, cal, cal);
+		}
+		String t = this.getString(R.string.app_name) + " - " + formatedDate;
+		t += String.format(" %tR", cal);
+		this.setTitle(t);
+		if (!fromTime) {
+			this.showDialog(DIALOG_SHOW_TIME);
 		}
 		if (updatePlans) {
 			this.adapter.updatePlans();
@@ -1408,13 +1435,29 @@ public class Plans extends ListActivity implements OnClickListener,
 						}
 					});
 			return builder.create();
-		case DIALOG_SHOW_TIME:
+		case DIALOG_SHOW_DATE:
 			Calendar cal = this.adapter.now;
 			if (cal == null) {
 				cal = Calendar.getInstance();
 			}
 			return new DatePickerDialog(this, this, cal.get(Calendar.YEAR), cal
 					.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
+		case DIALOG_SHOW_TIME:
+			cal = this.adapter.now;
+			int h;
+			int m;
+			if (cal == null) {
+				h = 23;
+				m = 59;
+			} else {
+				h = cal.get(Calendar.HOUR_OF_DAY);
+				m = cal.get(Calendar.MINUTE);
+				if (h == 0 && m == 0) {
+					h = 23;
+					m = 59;
+				}
+			}
+			return new TimePickerDialog(this, this, h, m, true);
 		default:
 			return null;
 		}
@@ -1449,7 +1492,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			this.startActivity(new Intent(this, Logs.class));
 			return true;
 		case R.id.item_show_time:
-			this.showDialog(DIALOG_SHOW_TIME);
+			this.showDialog(DIALOG_SHOW_DATE);
 			return true;
 		default:
 			return false;
@@ -1519,12 +1562,26 @@ public class Plans extends ListActivity implements OnClickListener,
 	public final void onDateSet(final DatePicker view, final int year,
 			final int monthOfYear, final int dayOfMonth) {
 		final Calendar date = Calendar.getInstance();
-		date.set(year, monthOfYear, dayOfMonth);
+		date.set(year, monthOfYear, dayOfMonth, 0, 0, 0);
 		final Intent intent = new Intent(this, Plans.class);
 		intent.putExtra(EXTRA_NOW, date.getTimeInMillis());
 		if (this.adapter.now != null) {
 			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		}
 		this.startActivity(intent);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public final void onTimeSet(final TimePicker view, final int hourOfDay,
+			final int minute) {
+		Calendar cal = this.adapter.now;
+		if (cal == null) {
+			cal = Calendar.getInstance();
+		}
+		cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal
+				.get(Calendar.DAY_OF_MONTH), hourOfDay, minute);
+		this.setNow(cal.getTimeInMillis(), true, true);
 	}
 }
