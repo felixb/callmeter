@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: hide progress bars, add bill periods: 4,5,6,12 month, strip leading zeros</item>
+		<item>HEAD: hide progress bars, add bill periods: 4,5,6,12 month, strip leading zeros, hide no cost plans</item>
 		<item>v2.9.3: Integrate with sipdroid, default update interval: 60m, fix MMS counter, fix mixed+merged limits, progressbar color, add chinese translation</item>
 		<item>v2.9.2: Delete old logs (default: 90d), multiselection on groups, fix NPE</item>
 		<item>v2.9.1: Fix cost for long sms, fix cost when reaching limit, set name/shortname for widget, show cost in widget, show billperiod in widget, settable sizes, don\'t bill first x seconds, merge plans, hide empty plans</item>

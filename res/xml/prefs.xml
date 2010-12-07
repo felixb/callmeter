@@ -45,6 +45,8 @@
 			</PreferenceScreen>
 			<CheckBoxPreference android:key="hide_zero"
 				android:title="@string/hide_zero_" android:summary="@string/hide_zero_hint" />
+			<CheckBoxPreference android:key="hide_nocost"
+				android:title="@string/hide_nocost_" android:summary="@string/hide_nocost_hint" />
 			<CheckBoxPreference android:key="show_total"
 				android:title="@string/show_total_" android:summary="@string/show_total_hint"
 				android:defaultValue="true" />

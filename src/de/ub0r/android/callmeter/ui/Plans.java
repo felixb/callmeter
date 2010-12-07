@@ -140,6 +140,8 @@ public class Plans extends ListActivity implements OnClickListener,
 	private static boolean showTotal = true;
 	/** Hide zero plans. */
 	private static boolean hideZero = false;
+	/** Hide no cost plans. */
+	private static boolean hideNoCost = false;
 
 	/** {@link Handler} for handling messages from background process. */
 	private final Handler handler = new Handler() {
@@ -988,6 +990,8 @@ public class Plans extends ListActivity implements OnClickListener,
 					.getInt(DataProvider.Plans.INDEX_CACHE_PROGRESS_POS);
 			String cacheStr = cursor
 					.getString(DataProvider.Plans.INDEX_CACHE_STRING);
+			final float cacheCost = cursor
+					.getFloat(DataProvider.Plans.INDEX_CACHE_COST);
 			TextView twCache = null;
 			ProgressBar pbCache = null;
 			if (t == DataProvider.TYPE_SPACING) {
@@ -1025,6 +1029,8 @@ public class Plans extends ListActivity implements OnClickListener,
 				view.findViewById(R.id.spacer).setVisibility(View.GONE);
 				view.findViewById(R.id.period_layout).setVisibility(View.GONE);
 				if (hideZero && cacheLimitPos == 0) {
+					view.findViewById(R.id.content).setVisibility(View.GONE);
+				} else if (hideNoCost && cacheCost == 0f) {
 					view.findViewById(R.id.content).setVisibility(View.GONE);
 				} else {
 					view.findViewById(R.id.content).setVisibility(View.VISIBLE);
@@ -1296,6 +1302,7 @@ public class Plans extends ListActivity implements OnClickListener,
 		dateFormat = Preferences.getDateFormat(this);
 		showTotal = p.getBoolean(Preferences.PREFS_SHOWTOTAL, true);
 		hideZero = p.getBoolean(Preferences.PREFS_HIDE_ZERO, false);
+		hideNoCost = p.getBoolean(Preferences.PREFS_HIDE_NOCOST, false);
 
 		if (reloadList) {
 			this.adapter = new PlanAdapter(this);

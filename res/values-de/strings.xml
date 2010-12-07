@@ -110,6 +110,8 @@
 	<string name="show_billperiod_">Zeige Fortschritt des Abrechnungszeitraums</string>
 	<string name="hide_zero_">Verstecke leere Kontingente</string>
 	<string name="hide_zero_hint">Verstecke Kontingente ohne Inhalte.</string>
+	<string name="hide_nocost_">Verstecke kostenlose Kontingente</string>
+	<string name="hide_nocost_hint">Verstecke Kontingente ohne Kosten.</string>
 	<string name="hide_progressbars_">Verstecke Fortschrittsbalken</string>
 	<string name="hide_progressbars_hint">Verstecke Fortschrittsbalken im Hauptfenster.</string>
 	<string name="custom_currency_symbol_">Benutzerdefiniertes Währungssymbol</string>
