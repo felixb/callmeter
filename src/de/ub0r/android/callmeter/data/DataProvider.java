@@ -231,17 +231,9 @@ public final class DataProvider extends ContentProvider {
 
 		static {
 			PROJECTION_MAP = new HashMap<String, String>();
-			PROJECTION_MAP.put(ID, ID);
-			PROJECTION_MAP.put(PLAN_ID, PLAN_ID);
-			PROJECTION_MAP.put(RULE_ID, RULE_ID);
-			PROJECTION_MAP.put(TYPE, TYPE);
-			PROJECTION_MAP.put(DIRECTION, DIRECTION);
-			PROJECTION_MAP.put(DATE, DATE);
-			PROJECTION_MAP.put(AMOUNT, AMOUNT);
-			PROJECTION_MAP.put(BILL_AMOUNT, BILL_AMOUNT);
-			PROJECTION_MAP.put(REMOTE, REMOTE);
-			PROJECTION_MAP.put(ROAMED, ROAMED);
-			PROJECTION_MAP.put(COST, COST);
+			for (String s : PROJECTION) {
+				PROJECTION_MAP.put(s, s);
+			}
 		}
 
 		/**
@@ -360,9 +352,9 @@ public final class DataProvider extends ContentProvider {
 
 		static {
 			PROJECTION_MAP = new HashMap<String, String>();
-			PROJECTION_MAP.put(ID, ID);
-			PROJECTION_MAP.put(CONNECTOR, CONNECTOR);
-			PROJECTION_MAP.put(DATE, DATE);
+			for (String s : PROJECTION) {
+				PROJECTION_MAP.put(s, s);
+			}
 		}
 
 		/**
@@ -451,9 +443,9 @@ public final class DataProvider extends ContentProvider {
 
 		static {
 			PROJECTION_MAP = new HashMap<String, String>();
-			PROJECTION_MAP.put(ID, ID);
-			PROJECTION_MAP.put(PROVIDER, PROVIDER);
-			PROJECTION_MAP.put(DATE, DATE);
+			for (String s : PROJECTION) {
+				PROJECTION_MAP.put(s, s);
+			}
 		}
 
 		/**
@@ -660,36 +652,9 @@ public final class DataProvider extends ContentProvider {
 
 		static {
 			PROJECTION_MAP = new HashMap<String, String>();
-			PROJECTION_MAP.put(ID, ID);
-			PROJECTION_MAP.put(ORDER, ORDER);
-			PROJECTION_MAP.put(NAME, NAME);
-			PROJECTION_MAP.put(SHORTNAME, SHORTNAME);
-			PROJECTION_MAP.put(TYPE, TYPE);
-			PROJECTION_MAP.put(LIMIT_TYPE, LIMIT_TYPE);
-			PROJECTION_MAP.put(LIMIT, LIMIT);
-			PROJECTION_MAP.put(BILLMODE, BILLMODE);
-			PROJECTION_MAP.put(BILLDAY, BILLDAY);
-			PROJECTION_MAP.put(BILLPERIOD, BILLPERIOD);
-			PROJECTION_MAP.put(BILLPERIOD_ID, BILLPERIOD_ID);
-			PROJECTION_MAP.put(COST_PER_ITEM, COST_PER_ITEM);
-			PROJECTION_MAP.put(COST_PER_AMOUNT1, COST_PER_AMOUNT1);
-			PROJECTION_MAP.put(COST_PER_AMOUNT2, COST_PER_AMOUNT2);
-			PROJECTION_MAP.put(COST_PER_ITEM_IN_LIMIT, COST_PER_ITEM_IN_LIMIT);
-			PROJECTION_MAP.put(COST_PER_AMOUNT_IN_LIMIT1,
-					COST_PER_AMOUNT_IN_LIMIT1);
-			PROJECTION_MAP.put(COST_PER_AMOUNT_IN_LIMIT2,
-					COST_PER_AMOUNT_IN_LIMIT2);
-			PROJECTION_MAP.put(COST_PER_PLAN, COST_PER_PLAN);
-			PROJECTION_MAP.put(MIXED_UNITS_CALL, MIXED_UNITS_CALL);
-			PROJECTION_MAP.put(MIXED_UNITS_SMS, MIXED_UNITS_SMS);
-			PROJECTION_MAP.put(MIXED_UNITS_MMS, MIXED_UNITS_MMS);
-			PROJECTION_MAP.put(CACHE_STRING, CACHE_STRING);
-			PROJECTION_MAP.put(CACHE_PROGRESS_MAX, CACHE_PROGRESS_MAX);
-			PROJECTION_MAP.put(CACHE_PROGRESS_POS, CACHE_PROGRESS_POS);
-			PROJECTION_MAP.put(CACHE_COST, CACHE_COST);
-			PROJECTION_MAP.put(NEXT_ALERT, NEXT_ALERT);
-			PROJECTION_MAP.put(STRIP_SECONDS, STRIP_SECONDS);
-			PROJECTION_MAP.put(MERGED_PLANS, MERGED_PLANS);
+			for (String s : PROJECTION) {
+				PROJECTION_MAP.put(s, s);
+			}
 		}
 
 		/**
@@ -1142,22 +1107,9 @@ public final class DataProvider extends ContentProvider {
 
 		static {
 			PROJECTION_MAP = new HashMap<String, String>();
-			PROJECTION_MAP.put(ID, ID);
-			PROJECTION_MAP.put(ORDER, ORDER);
-			PROJECTION_MAP.put(NAME, NAME);
-			PROJECTION_MAP.put(PLAN_ID, PLAN_ID);
-			PROJECTION_MAP.put(WHAT, WHAT);
-			PROJECTION_MAP.put(ROAMED, ROAMED);
-			PROJECTION_MAP.put(DIRECTION, DIRECTION);
-			PROJECTION_MAP.put(INHOURS_ID, INHOURS_ID);
-			PROJECTION_MAP.put(EXHOURS_ID, EXHOURS_ID);
-			PROJECTION_MAP.put(INNUMBERS_ID, INNUMBERS_ID);
-			PROJECTION_MAP.put(EXNUMBERS_ID, EXNUMBERS_ID);
-			PROJECTION_MAP.put(LIMIT_NOT_REACHED, LIMIT_NOT_REACHED);
-			PROJECTION_MAP.put(IS_WEBSMS, IS_WEBSMS);
-			PROJECTION_MAP.put(IS_WEBSMS_CONNETOR, IS_WEBSMS_CONNETOR);
-			PROJECTION_MAP.put(IS_SIPCALL, IS_SIPCALL);
-			PROJECTION_MAP.put(IS_SIPCALL_PROVIDER, IS_SIPCALL_PROVIDER);
+			for (String s : PROJECTION) {
+				PROJECTION_MAP.put(s, s);
+			}
 		}
 
 		/**
@@ -1287,9 +1239,9 @@ public final class DataProvider extends ContentProvider {
 
 		static {
 			PROJECTION_MAP = new HashMap<String, String>();
-			PROJECTION_MAP.put(ID, ID);
-			PROJECTION_MAP.put(GID, GID);
-			PROJECTION_MAP.put(NUMBER, NUMBER);
+			for (String s : PROJECTION) {
+				PROJECTION_MAP.put(s, s);
+			}
 		}
 
 		/**
@@ -1373,8 +1325,9 @@ public final class DataProvider extends ContentProvider {
 
 		static {
 			PROJECTION_MAP = new HashMap<String, String>();
-			PROJECTION_MAP.put(ID, ID);
-			PROJECTION_MAP.put(NAME, NAME);
+			for (String s : PROJECTION) {
+				PROJECTION_MAP.put(s, s);
+			}
 		}
 
 		/**
@@ -1491,10 +1444,9 @@ public final class DataProvider extends ContentProvider {
 
 		static {
 			PROJECTION_MAP = new HashMap<String, String>();
-			PROJECTION_MAP.put(ID, ID);
-			PROJECTION_MAP.put(GID, GID);
-			PROJECTION_MAP.put(DAY, DAY);
-			PROJECTION_MAP.put(HOUR, HOUR);
+			for (String s : PROJECTION) {
+				PROJECTION_MAP.put(s, s);
+			}
 		}
 
 		/**
@@ -1579,8 +1531,9 @@ public final class DataProvider extends ContentProvider {
 
 		static {
 			PROJECTION_MAP = new HashMap<String, String>();
-			PROJECTION_MAP.put(ID, ID);
-			PROJECTION_MAP.put(NAME, NAME);
+			for (String s : PROJECTION) {
+				PROJECTION_MAP.put(s, s);
+			}
 		}
 
 		/**
