@@ -116,6 +116,8 @@
 		<EditTextPreference android:key="delete_old_logs"
 			android:title="@string/delete_old_logs_" android:summary="@string/delete_old_logs_help"
 			android:defaultValue="90" android:inputType="number" />
+		<CheckBoxPreference android:key="strip_leading_zeros"
+			android:title="@string/strip_leading_zeros_" android:summary="@string/strip_leading_zeros_hint" />
 		<PreferenceScreen android:key="reset_data"
 			android:title="@string/reset_data_" android:summary="@string/reset_data_hint" />
 	</PreferenceCategory>

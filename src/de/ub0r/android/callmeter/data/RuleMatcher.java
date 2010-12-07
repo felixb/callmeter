@@ -55,6 +55,8 @@ public final class RuleMatcher {
 
 	/** Steps for updating the GUI. */
 	private static final int PROGRESS_STEPS = 50;
+	/** Strip leading zeros. */
+	private static boolean stripLeadingZeros = false;
 
 	/**
 	 * A single Rule.
@@ -145,8 +147,15 @@ public final class RuleMatcher {
 						DataProvider.Numbers.PROJECTION, null, null, null);
 				if (cursor != null && cursor.moveToFirst()) {
 					do {
-						this.numbers.add(cursor
-								.getString(DataProvider.Numbers.INDEX_NUMBER));
+						String s = cursor
+								.getString(DataProvider.Numbers.INDEX_NUMBER);
+						if (s == null || s.length() == 0) {
+							continue;
+						}
+						if (stripLeadingZeros) {
+							s = s.replaceFirst("^00*", "");
+						}
+						this.numbers.add(s);
 					} while (cursor.moveToNext());
 				}
 				if (cursor != null && !cursor.isClosed()) {
@@ -170,9 +179,14 @@ public final class RuleMatcher {
 				if (numl == 0) {
 					return false;
 				}
-				if (number.startsWith("+") && numl > 1) {
-					number = number.substring(1);
-					numl = number.length();
+				if (numl > 1) {
+					if (number.startsWith("+")) {
+						number = number.substring(1);
+						numl = number.length();
+					} else if (stripLeadingZeros) {
+						number = number.replaceFirst("^00*", "");
+						numl = number.length();
+					}
 				}
 				final int l = this.numbers.size();
 				for (int i = 0; i < l; i++) {
@@ -944,6 +958,9 @@ public final class RuleMatcher {
 		if (rules != null && plans != null) {
 			return;
 		}
+		stripLeadingZeros = PreferenceManager.getDefaultSharedPreferences(
+				context).getBoolean(Preferences.PREFS_STRIP_LEADING_ZEROS,
+				false);
 		final ContentResolver cr = context.getContentResolver();
 
 		// load rules

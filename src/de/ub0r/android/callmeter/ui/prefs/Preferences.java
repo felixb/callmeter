@@ -120,6 +120,9 @@ public class Preferences extends PreferenceActivity {
 	public static final String PREFS_SHOWTOTAL = "show_total";
 	/** Preference's name: show help. */
 	public static final String PREFS_SHOWHELP = "show_help";
+	/** Preference's name: strip leading zeros. */
+	public static final String PREFS_STRIP_LEADING_ZEROS = // .
+	"strip_leading_zeros";
 
 	/** {@link Currency} symbol. */
 	private static String defaultCurrencySymbol = null;
