@@ -133,7 +133,7 @@
 	<string name="remote_">Absender/Empfänger</string>
 	<string name="numbers">Nummern</string>
 	<string name="numbergroup_">Nummern einschließen</string>
-	<string name="numbergroup_help">Füge hier die Nummern hinzu, die diese Regel treffen muss.\n\nPlatzhalter (\"%\") sind and beiden Enden der Nummer erlaubt.\nZ.B. trifft %34 1234, 12% trifft 1234 und %23% trifft 12345.</string>
+	<string name="numbergroup_help" formatted="false">Füge hier die Nummern hinzu, die diese Regel treffen muss.\n\nPlatzhalter (\"%\") sind and beiden Enden der Nummer erlaubt.\nZ.B. trifft %34 1234, 12% trifft 1234 und %23% trifft 12345.</string>
 	<string name="exnumbergroup_">Nummern ausschließen</string>
 	<string name="exnumbergroup_help">Füge hier die nummern hinzu, die diese Regel nicht treffen darf.\nAnalog zu oben.</string>
 	<string name="new_numbergroup">Neue Nummerngruppe</string>
@@ -176,9 +176,7 @@
 	<string name="limit_type_help">Wähle hier einen Typ des Limits aus.</string>
 	<string name="limit_">Limit</string>
 	<string name="limit_help">Stelle hier ein Limit für dein Kontingent.\n\nTyp \"Einheiten\" muss in Minuten (Anrufe), Nachrichten (SMS/MMS), Megabytes (Daten, 1024kB) oder Einheiten (Mixed) gesetzt werden.\n\nTyp \"Costen\" muss in deiner Hauptwährung (z.B. €) gesetzt werden.</string>
-	<string name="billmode_">Abrechnungsmodus</string>
 	<string name="billmode_help">Stelle hier den Abrechnungsmodus für Anrufe ein.\nDer erste Teil ist die minimale Länge eines Anrufes die dein Provider abrechnet. Jeder Anruf kürzer als diese Zeit wird auf genau diese Zeit aufgerundet.\nDer zweite Teil ist die minimale Länge der folgenden Zeitblöcke.\nBitte lies die FAQ für genauere Beschreibung.</string>
-	<string name="billday_">Erster Rechnungstag</string>
 	<string name="billday_help">Wähle hier den ersten Tag deines Abrechnungszeitraums aus.</string>
 	<string name="billperiodid_">Abrechnungszeitraum</string>
 	<string name="billperiodid_help">Wähle hier deinen Abrechnungszeitraum.\nEvtl. musst du vorher einen extra Plan des mit dem Typ \"Abrechnungszeitraum\" anlegen.</string>
@@ -255,7 +253,7 @@
 	<string name="alerts_">Alarme</string>
 	<string name="alerts_hint">Stelle Alarme basierend auf der Nutzung der Kontingente ein.</string>
 	<string name="alerts_title">Call Meter 3G Alarm</string>
-	<string name="alerts_message">Kontingent %s hat %d%% Benutzung erreicht!</string>
+	<string name="alerts_message" formatted="false">Kontingent %s hat %d%% Benutzung erreicht!</string>
 	<string name="alerts_80_">Alarm bei 80%</string>
 	<string name="alerts_80_hint">Alarmiere mich, wenn ein Kontingent 80% des Limits erreicht hat.</string>
 	<string name="alerts_100_">Alarm bei 100%</string>

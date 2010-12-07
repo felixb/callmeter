@@ -131,7 +131,7 @@
 <!--	<string name="remote_">Remote number</string> -->
 	<string name="numbers">Números</string>
 	<string name="numbergroup_">Inclui números</string>
-	<string name="numbergroup_help">Os números adicionados de uma determinada regra deve corresponder. \n\nCuringas (\"%\") são permitidos em ambas as extremidades do número. \nEx. %34 corresponderá a 1234, 12% corresponderá a 1234 e %23% corresponderá a 12345.</string>
+	<string name="numbergroup_help" formatted="false">Os números adicionados de uma determinada regra deve corresponder. \n\nCuringas (\"%\") são permitidos em ambas as extremidades do número. \nEx. %34 corresponderá a 1234, 12% corresponderá a 1234 e %23% corresponderá a 12345.</string>
 	<string name="exnumbergroup_">Elimina números</string>
 	<string name="exnumbergroup_help">A adição de alguns números nessa regra não deve corresponder.\nVeja abaixo.</string>
 	<string name="new_numbergroup">Novo grupo de números</string>
@@ -172,9 +172,7 @@
 	<string name="limit_type_help">Defina o tipo do seu limite aqui. .\nA \"unidades\" limite irá limitar o seu plano com base em minutos, mensagens, ...\nA \"custo\" limite irá limitar o seu plano com base nos custos produzidos pelos itens faturados neste plano.</string>
 	<string name="limit_">Limite</string>
 	<string name="limit_help">Defina o limite do seu plano aqui.\n\nTipo \"unidades\" devem ser em minutos (chamadas), mensagens (sms/mms), megabytes (dados, 1024kB) ou unidades (combinadas).\n\nTipo \"custo\" devem ser adicionadas no seu padrão monetário (ex. R$).</string>
-	<string name="billmode_">Modo de cobrança</string>
 	<string name="billmode_help">Defina o modo de cobrança de suas chamadas.\nA primeira parte é o tempo mínimo cobrado. Cada ligação por menor que seja será cobrada por este tempo.\nA segunda parte são os tempos cobrados após o tempo mínimo.\nLeia no FAQ para maior ajuda.</string>
-	<string name="billday_">Primeiro dia da conta</string>
 	<string name="billday_help">Defina o primeiro dia de cobrança da conta atual.</string>
 	<string name="billperiodid_">Período de cobrança</string>
 	<string name="billperiodid_help">Selecione o seu período de cobrança (Defina como um plano extra).</string>
@@ -251,7 +249,7 @@
 	<string name="alerts_">Alertas</string>
 	<string name="alerts_hint">Ajuste os alertas baseados no uso do plano.</string>
 	<string name="alerts_title">Alerta do Call Meter 3G </string>
-	<string name="alerts_message">O plano %s atingiu %d%% do uso!</string>
+	<string name="alerts_message" formatted="false">O plano %s atingiu %d%% do uso!</string>
 	<string name="alerts_80_">Notificar em 80%</string>
 	<string name="alerts_80_hint">Notificar se o plano passou 80% do seu limite.</string>
 	<string name="alerts_100_">Notificar em 100%</string>

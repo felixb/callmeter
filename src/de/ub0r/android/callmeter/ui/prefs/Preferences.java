@@ -325,7 +325,8 @@ public class Preferences extends PreferenceActivity {
 	public static final String getDateFormat(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
-		final String pcs = p.getString(PREFS_DATE_FORMAT, "");
+		final String pcs = p.getString(PREFS_DATE_FORMAT, "").replaceAll("\\$",
+				"%");
 		if (pcs.length() == 0) {
 			return null;
 		} else {

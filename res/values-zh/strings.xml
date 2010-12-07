@@ -131,7 +131,7 @@
 <!--	<string name="remote_">Remote number</string> -->
 	<string name="numbers">号码</string>
 	<string name="numbergroup_">有效号码</string>
-	<string name="numbergroup_help">添加使用本规则的号码.\n\n号码首尾均允许使用通配符(\"%\").\n例如. %34 包含 1234, 12% 包含 1234, %23% 包含 12345.</string>
+	<string name="numbergroup_help" formatted="false">添加使用本规则的号码.\n\n号码首尾均允许使用通配符(\"%\").\n例如. %34 包含 1234, 12% 包含 1234, %23% 包含 12345.</string>
 	<string name="exnumbergroup_">无效的号码</string>
 	<string name="exnumbergroup_help">添加不使用本规则的号码.\n详情如上.</string>
 	<string name="new_numbergroup">新号码组</string>
@@ -172,9 +172,7 @@
 	<string name="limit_type_help">设置套餐类型.\n\"单元\"根据时长、短信条数提示...\nA \"花费\"根据您设置的预计花费总额提示.</string>
 	<string name="limit_">套餐内</string>
 	<string name="limit_help">设置套餐包含项目.\n\n\"单元\"类必须设定为y分钟(电话),y条短信(短信/彩信),MB(数据连接,1024kB)或者\"单元\"型 (混合模式).\n\n\"话费\"类请设定为您常用的货币类型(e.g. ￥).</string>
-	<string name="billmode_">支付模式</string>
 	<string name="billmode_help">设置对电话账单的支付模式.\n第一是设置最小付费值.即设置每一则电话的最短通话时间.\n第二是以后每隔多长时间计算一次.\n详见FAQ.</string>
-	<string name="billday_">账单周期开始日</string>
 	<string name="billday_help">设置当前账单周期开始的第一天.</string>
 	<string name="billperiodid_">账单周期</string>
 	<string name="billperiodid_help">选择您的账单周期.\n您可能需要创建多个账单周期.</string>
@@ -251,7 +249,7 @@
 	<string name="alerts_">警报</string>
 	<string name="alerts_hint">根据方案使用情况发出警报.</string>
 	<string name="alerts_title">Call Meter 3G 警报</string>
-	<string name="alerts_message">方案%s已经使用%d%%!</string>
+	<string name="alerts_message" formatted="false">方案%s已经使用%d%%!</string>
 	<string name="alerts_80_">剩余到达80\'%时提示</string>
 	<string name="alerts_80_hint">剩余超过80\'%时提示.</string>
 	<string name="alerts_100_">剩余到达100\'%时提示</string>

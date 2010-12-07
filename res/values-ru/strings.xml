@@ -131,7 +131,7 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 <!--	<string name="remote_">Remote number</string> -->
 	<string name="numbers">Номера</string>
 	<string name="numbergroup_">Включённые номера</string>
-	<string name="numbergroup_help">Номера которые будут задействованны в данном плане.\n\nЗнак обобщения номеров (\"%\") разрешён по обе стороны номера.\nПример: %34 = 1234, 12% = 1234 и %23% = 12345.</string>
+	<string name="numbergroup_help" formatted="false">Номера которые будут задействованны в данном плане.\n\nЗнак обобщения номеров (\"%\") разрешён по обе стороны номера.\nПример: %34 = 1234, 12% = 1234 и %23% = 12345.</string>
 	<string name="exnumbergroup_">Исключённые номера</string>
 	<string name="exnumbergroup_help">Номера которые не должны учитываться в данном плане.\nЗнак обобщения номеров: пример выше.</string>
 	<string name="new_numbergroup">Номерная группа</string>
@@ -172,9 +172,7 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 	<string name="limit_type_help">Выбор типа ценового плана.</string>
 	<string name="limit_">Лимит</string>
 	<string name="limit_help">Установка лимита данного ценового плана.\n\nТип \"Единицы\" должен быть в минутаx (Звонки), сообщенияx (СМС/ММС), мегабайтаx (Данные, 1024кБ) или единицаx (Смешанный).\n\nТип \"Стоимость\" должен содержать валюту (пример: руб.).</string>
-	<string name="billmode_">Метод отчёта</string>
 	<string name="billmode_help">Установка метода отчёта для звонков.\nПервая часть равна минимальной длительности звонка, которую учитывает твой провайдер. Каждый звонок который короче этого отрезка времени будет округлён этой длинне.\nВторая часть равна минимальной длительности последующего интервала времени.\nПодробнее в \"Помощь\".</string>
-	<string name="billday_">Начало отсчёта</string>
 	<string name="billday_help">Первый день отчёта.</string>
 	<string name="billperiodid_">Время отчёта</string>
 	<string name="billperiodid_help">Установка отрезка времени для отчёта.\nВозможно нужно установить план с типом \"Время отчёта\".</string>
@@ -251,7 +249,7 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 	<string name="alerts_">Сигнализация</string>
 	<string name="alerts_hint">Настройка сигнализации основанной на данныx ценового плана.</string>
 	<string name="alerts_title">Call Meter 3G Сигнализация</string>
-	<string name="alerts_message">Ценовой план %s достиг %d%%!</string>
+	<string name="alerts_message" formatted="false">Ценовой план %s достиг %d%%!</string>
 	<string name="alerts_80_">Тревога при 80%</string>
 	<string name="alerts_80_hint">Сигнализация при 80% достижении ценового плана.</string>
 	<string name="alerts_100_">Тревога при 100%</string>

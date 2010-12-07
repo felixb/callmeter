@@ -172,9 +172,7 @@
 	<string name="limit_type_help">Ajusta el tipo de límite aquí.\nUn límite de \"unidades\" limitará el plan basándose en minutos, mensajes, ...\nUn límite de \"coste\" limitará el plan basándose en el coste generado por los productos facturados en este plan.</string>
 	<string name="limit_">Límite</string>
 	<string name="limit_help">Ajusta el límite de tu plan aquí.\n\nEl tipo \"unidades\" puede indicarse en minutos (llamadas), mensajes (SMS/MMS), megabytes (datos, 1024kB) or unidades (mixto).\n\nEl tipo \"coste\" tiene que indicarse en la moneda local (e.g. €).</string>
-	<string name="billmode_">Tarificación</string>
 	<string name="billmode_help">Ajustar el modo de facturar llamadas.\nLa primera parte es la duración mínima facturada por tu proveedor. A cualquier llamada más corta se le aplicará este mínimo.\nLa segunda parte es la duración en segundos de cada uno de los bloques de facturación siguientes.\nConsulta la sección FAQ para más información.</string>
-	<string name="billday_">Primer día de tu factura</string>
 	<string name="billday_help">Ajústalo al primer día de facturación.</string>
 	<string name="billperiodid_">Periodo de facturación</string>
 	<string name="billperiodid_help">Selecciona el periodo de facturación.\nPuede que necesites crear uno como un plan extra.</string>
@@ -251,7 +249,7 @@
 	<string name="alerts_">Alertas</string>
 	<string name="alerts_hint">Configura alertas según el uso del plan.</string>
 	<string name="alerts_title">Alerta Call Meter 3G</string>
-	<string name="alerts_message">El plan %s ha alcanzado el límite del %d%%!</string>
+	<string name="alerts_message" formatted="false">El plan %s ha alcanzado el límite del %d%%!</string>
 	<string name="alerts_80_">Avisar al 80%</string>
 	<string name="alerts_80_hint">Avisa si el plan sobrepasa el 80% del límite.</string>
 	<string name="alerts_100_">Avisar al 100%</string>

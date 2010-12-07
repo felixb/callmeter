@@ -172,9 +172,7 @@
 <!--	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"cost\" limit will limit your plan based on cost produced by the items billed in this plan.</string> -->
 <!--	<string name="limit_">Limit</string> -->
 <!--	<string name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string> -->
-	<string name="billmode_">Modalità di conteggio</string>
 <!--	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string> -->
-	<string name="billday_">Primo giorno del conteggio</string>
 <!--	<string name="billday_help">Set this to the first day of the bill of the current billing period.</string> -->
 <!--	<string name="billperiodid_">Billing period</string> -->
 <!--	<string name="billperiodid_help">Select your billing period.\nYou may need to create one as extra plan.</string> -->

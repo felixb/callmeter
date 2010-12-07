@@ -131,7 +131,7 @@
 <!--	<string name="remote_">Remote number</string> -->
 	<string name="numbers">Numaralar</string>
 	<string name="numbergroup_">Numaraları dahil et</string>
-	<string name="numbergroup_help">Bu kurala dahil olacak numaraları ekleyin.\n\nArama karakteri (\"%\") numaranın her iki tarafında kullanılabilir.\nÖr: %34 ve 12%, 1234\'e; ve %23%, 12345\'e karşılık gelir.</string>
+	<string name="numbergroup_help" formatted="false">Bu kurala dahil olacak numaraları ekleyin.\n\nArama karakteri (\"%\") numaranın her iki tarafında kullanılabilir.\nÖr: %34 ve 12%, 1234\'e; ve %23%, 12345\'e karşılık gelir.</string>
 	<string name="exnumbergroup_">Numaraları hariç tut</string>
 	<string name="exnumbergroup_help">Bu kurala dahil olmayacak numaraları ekleyin.\nYukarıdaki açıklamaya bakın.</string>
 	<string name="new_numbergroup">Yeni numara grubu</string>
@@ -172,9 +172,7 @@
 	<string name="limit_type_help">Sınırlama şeklini burada belirleyin.\nA \"birim\" pakediniz dakikalar, mesajlar vb. ile sınırlanır\nA \"ücret\" pakediniz, bu pakette ücretlendirilen arama, SMS vb. ile oluşan ücrete göre sınırlanır. </string>
 	<string name="limit_">Sınır</string>
 	<string name="limit_help">Pakedinizin sınırını burada belirleyin.\n\n\\"birim\", dakika (aramalar), mesajlar (sms/mms), MB (data, 1024kB) veya birimler (karışık) olarak ayarlanmalıdır.\n\n\"ücret\", para biriminize göre ayarlanmalıdır (Ör. TRY).</string>
-	<string name="billmode_">Ücretlendirme biçimi</string>
 	<string name="billmode_help">Aramalar için ücretlendirme biçimini belirleyin.\nİlk kısım, operatörünüzce ücretlendirilen minimum süredir. Bu süreden kısa her arama bu süreye yuvarlanır.\nİkinci kısım ise takip eden minimum süredir (saniye).\nDaha detaylı yardım için SSS\'yi okuyunuz.</string>
-	<string name="billday_">Fatura başlangıç günü</string>
 	<string name="billday_help">Mevcut ücretlendirme periyodunuzun fatura başlangıç tarihine ayarlayın.</string>
 	<string name="billperiodid_">Ücretlendirme periyodu</string>
 	<string name="billperiodid_help">Ücretlendirme periyodunuzu seçin.\nEk bir plan olarak oluşturabilirsiniz.</string>

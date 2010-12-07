@@ -131,7 +131,7 @@
 <!--	<string name="remote_">Remote number</string> -->
 	<string name="numbers">Numery</string>
 	<string name="numbergroup_">Wliczaj numery</string>
-	<string name="numbergroup_help">Dodaj godziny które będą zastosowane do reguły.\n\nWzorce (\"%\") są dopuszczalne na obach końcach numeru.\nNp.: %34 będzie pasować do 1234, 12% do 1234 i %23% do 12345.</string>
+	<string name="numbergroup_help" formatted="false">Dodaj godziny które będą zastosowane do reguły.\n\nWzorce (\"%\") są dopuszczalne na obach końcach numeru.\nNp.: %34 będzie pasować do 1234, 12% do 1234 i %23% do 12345.</string>
 	<string name="exnumbergroup_">Wykluczaj numery</string>
 	<string name="exnumbergroup_help">Dodaj godziny które będą zastosowane do reguły.\nPatrz powyżej.</string>
 	<string name="new_numbergroup">Nowa grupa numerów</string>
@@ -172,9 +172,7 @@
 	<string name="limit_type_help">Wprowadź typ twojego limitu.\nLimit \"jednostek\" ograniczy twój plan bazując na minutach, wiadomościach, ...\nLimit \"kosztu\" ograniczy twój plan bazując na koszcie przedstawionym przez pozycje rozliczone w tym planie.</string>
 	<string name="limit_">Limit</string>
 	<string name="limit_help">Ustaw limit twojego planu.\n\nTyp \"jednostek\" musi być ustawiony w minutach (połączeniach), wiadomościach (sms/mms), megabajtach (dane, 1024kB) lub jednostkach (Mieszane).\n\nTyp \"kosztu\" musi być ustawiony w twojej walucie (np.: zł).</string>
-	<string name="billmode_">Rodzaj cyklu</string>
 	<string name="billmode_help">Wprowadź typ rozliczenia połączeń.\nPierwsza część to minimalna długość naliczana przez operatora. Każde połączenie o krótszej długości jest zaokrąglane do tego.\nDruga część to minimalna długość następujących bloków sekund.\nPrzeczytaj FAQ dla szczegółowych informacji.</string>
-	<string name="billday_">Pierwszy dzień rachunku</string>
 	<string name="billday_help">Ustaw tutaj pierwszy dzień twojego rachunku - okresu rozliczeniowego.</string>
 	<string name="billperiodid_">Okres rozliczeniowy</string>
 	<string name="billperiodid_help">Wybierz twój okres rozliczeniowy.\nMożesz potrzebować stworzyć jeden dodatkowy plan.</string>
@@ -251,7 +249,7 @@
 	<string name="alerts_">Powiadomienia</string>
 	<string name="alerts_hint">Ustaw powiadomienia bazując na stopniu zużycia planu.</string>
 	<string name="alerts_title">Powiadomienia Call Meter 3G</string>
-	<string name="alerts_message">Plan %s osiągnął %d%% zużycia!</string>
+	<string name="alerts_message" formatted="false">Plan %s osiągnął %d%% zużycia!</string>
 	<string name="alerts_80_">Powiadom przy 80%</string>
 	<string name="alerts_80_hint">Powiadom, jeżeli plan przekroczy 80% ustalonego limitu</string>
 	<string name="alerts_100_">Powiadom przy 100%</string>
