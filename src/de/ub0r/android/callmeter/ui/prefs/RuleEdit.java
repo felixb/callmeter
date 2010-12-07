@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein, The Android Open Source Project
+ * Copyright (C) 2009-2010 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -155,7 +155,11 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	protected final void onResume() {
 		super.onResume();
 		this.showHideFileds();
-		// TODO: reload number-/hourgroups
+		final PreferenceAdapter a = this.adapter;
+		a.getPreference(DataProvider.Rules.INHOURS_ID).refreshDialog();
+		a.getPreference(DataProvider.Rules.EXHOURS_ID).refreshDialog();
+		a.getPreference(DataProvider.Rules.INNUMBERS_ID).refreshDialog();
+		a.getPreference(DataProvider.Rules.EXNUMBERS_ID).refreshDialog();
 	}
 
 	/**
