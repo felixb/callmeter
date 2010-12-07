@@ -338,6 +338,10 @@
 		<item>一个月</item>
 		<item>两个月</item>
 		<item>三个月</item>
+		<item>Four month</item>
+		<item>Five month</item>
+		<item>Six month</item>
+		<item>One year</item>
 		<item>无限</item>
 	</string-array>
 	<string-array name="billmodes">

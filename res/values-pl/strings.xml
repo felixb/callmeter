@@ -338,6 +338,10 @@
 		<item>Jeden miesiąc</item>
 		<item>Dwa miesiące</item>
 		<item>Trzy miesiące</item>
+		<item>Cztery miesiące</item>
+		<item>Pięć miesięcy</item>
+		<item>Sześć miesięcy</item>
+		<item>Roku</item>
 		<item>Nieskończony</item>
 	</string-array>
 	<string-array name="billmodes">

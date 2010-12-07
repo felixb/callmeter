@@ -338,6 +338,10 @@
 		<item>Un mes</item>
 		<item>Dos meses</item>
 		<item>Tres meses</item>
+		<item>Cuatro meses</item>
+		<item>Cinco meses</item>
+		<item>Seis meses</item>
+		<item>Un año</item>
 		<item>Infinito</item>
 	</string-array>
 	<string-array name="billmodes">

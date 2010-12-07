@@ -126,8 +126,16 @@ public final class DataProvider extends ContentProvider {
 	public static final int BILLPERIOD_2MONTH = 6;
 	/** Bill period: 3 month. */
 	public static final int BILLPERIOD_3MONTH = 7;
+	/** Bill period: 4 month. */
+	public static final int BILLPERIOD_4MONTH = 8;
+	/** Bill period: 5 month. */
+	public static final int BILLPERIOD_5MONTH = 9;
+	/** Bill period: 6 month. */
+	public static final int BILLPERIOD_6MONTH = 10;
+	/** Bill period: 12 month. */
+	public static final int BILLPERIOD_12MONTH = 11;
 	/** Bill period: infinite. */
-	public static final int BILLPERIOD_INFINITE = 8;
+	public static final int BILLPERIOD_INFINITE = 12;
 
 	/** Plan/rule id: not yet calculated. */
 	public static final int NO_ID = -1;
@@ -962,6 +970,22 @@ public final class DataProvider extends ContentProvider {
 			case BILLPERIOD_3MONTH:
 				f = Calendar.MONTH;
 				v = 3;
+				break;
+			case BILLPERIOD_4MONTH:
+				f = Calendar.MONTH;
+				v = 4;
+				break;
+			case BILLPERIOD_5MONTH:
+				f = Calendar.MONTH;
+				v = 5;
+				break;
+			case BILLPERIOD_6MONTH:
+				f = Calendar.MONTH;
+				v = 6;
+				break;
+			case BILLPERIOD_12MONTH:
+				f = Calendar.YEAR;
+				v = 1;
 				break;
 			case BILLPERIOD_WEEK:
 				f = Calendar.DAY_OF_MONTH;

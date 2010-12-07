@@ -338,6 +338,10 @@
 		<item>Bir ay</item>
 		<item>İki ay</item>
 		<item>Üç ay</item>
+		<item>Dört ay</item>
+		<item>Beş ay</item>
+		<item>Altı ay</item>
+		<item>Bir yıl</item>
 		<item>Sonsuz</item>
 	</string-array>
 	<string-array name="billmodes">

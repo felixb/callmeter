@@ -338,6 +338,10 @@ Copyright (C) 2010 Tom Nuss, Felix Bechstein, Jumi Vlot
 		<item>Een maand</item>
 		<item>Twee maand</item>
 		<item>Drie maand</item>
+		<item>Vier maanden</item>
+		<item>Vijf maanden</item>
+		<item>Zes maanden</item>
+		<item>Een jaar</item>
 		<item>Oneindig</item>
 	</string-array>
 	<string-array name="billmodes">

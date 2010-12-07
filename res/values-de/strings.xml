@@ -336,8 +336,12 @@
 		<item>60 Tage</item>
 		<item>90 Tage</item>
 		<item>Ein Monat</item>
-		<item>Zwei Monat</item>
-		<item>Drei Monat</item>
+		<item>Zwei Monate</item>
+		<item>Drei Monate</item>
+		<item>Vier Monate</item>
+		<item>Fünf Monate</item>
+		<item>Sechs Monate</item>
+		<item>Ein Jahr</item>
 		<item>Unendlich</item>
 	</string-array>
 	<string-array name="billmodes">

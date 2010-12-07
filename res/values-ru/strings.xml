@@ -338,6 +338,10 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 		<item>1 месяц</item>
 		<item>2 месяца</item>
 		<item>3 месяца</item>
+		<item>4 месяца</item>
+		<item>5 месяца</item>
+		<item>6 месяца</item>
+		<item>Год</item>
 		<item>Бесконечно</item>
 	</string-array>
 	<string-array name="billmodes">
