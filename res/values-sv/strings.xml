@@ -110,6 +110,8 @@
 <!--	<string name="show_billperiod_">Show progress of billing period</string> -->
 <!--	<string name="hide_zero_">Hide empty plans</string> -->
 <!--	<string name="hide_zero_hint">Hide plans containing no item.</string> -->
+<!--	<string name="hide_nocost_">Hide no cost plans</string> -->
+<!--	<string name="hide_nocost_hint">Hide plans with no cost.</string> -->
 <!--	<string name="hide_progressbars_">Hide progress bars</string> -->
 <!--	<string name="hide_progressbars_hint">Hide progress bars in main view.</string> -->
 <!--	<string name="custom_currency_symbol_">Custom currency symbol</string> -->
@@ -151,6 +153,8 @@
 <!--	<string name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string> -->
 <!--	<string name="balance_">Balance</string> -->
 <!--	<string name="balance_help">Balance of your account at this given date.</string> -->
+<!--	<string name="strip_leading_zeros_">Strip leading zeros</string> -->
+<!--	<string name="strip_leading_zeros_hint">Strip leading zeros when comparing numbers.</string> -->
 	<string name="reset_data_">Nollställ statistik</string>
 	<string name="reset_data_hint">Nollställning av statistik resulterar i en omräkning av statistiken.\n\nNollställningen är permanent. Den nollställer bara trafik gjord före senaste start av telefonen!</string>
 	<string name="reset_data_data_">Nollställ datatrafik</string>
@@ -249,7 +253,8 @@
 <!--	<string name="alerts_">Alerts</string> -->
 <!--	<string name="alerts_hint">Set alerts based on plan usage.</string> -->
 <!--	<string name="alerts_title">Call Meter 3G alert</string> -->
-<!--	<string name="alerts_message">Plan %s has reached %d%% usage!</string> -->
+<!--	<string name="alerts_message" formatted="false">Plan %s has reached %d%% usage!</string> -->
+<!--	<string name="alerts_message" formatted="false">Plan %s has reached %d%% usage!</string> -->
 <!--	<string name="alerts_80_">Notify at 80%</string> -->
 <!--	<string name="alerts_80_hint">Notify if a plan passes 80% of it\'s limit.</string> -->
 <!--	<string name="alerts_100_">Notify at 100%</string> -->
@@ -336,6 +341,10 @@
 <!--		<item>One month</item> -->
 <!--		<item>Two month</item> -->
 <!--		<item>Three month</item> -->
+<!--		<item>Four month</item> -->
+<!--		<item>Five month</item> -->
+<!--		<item>Six month</item> -->
+<!--		<item>One year</item> -->
 <!--		<item>Infinite</item> -->
 <!--	</string-array> -->
 <!--	<string-array name="billmodes"> -->

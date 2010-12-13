@@ -110,6 +110,8 @@
 <!--	<string name="show_billperiod_">Show progress of billing period</string> -->
 <!--	<string name="hide_zero_">Hide empty plans</string> -->
 <!--	<string name="hide_zero_hint">Hide plans containing no item.</string> -->
+<!--	<string name="hide_nocost_">Hide no cost plans</string> -->
+<!--	<string name="hide_nocost_hint">Hide plans with no cost.</string> -->
 <!--	<string name="hide_progressbars_">Hide progress bars</string> -->
 <!--	<string name="hide_progressbars_hint">Hide progress bars in main view.</string> -->
 	<string name="custom_currency_symbol_">Symbol waluty</string>
@@ -151,6 +153,8 @@
 	<string name="prepaid_hint">Podstawowe rozliczenie prepaid. Koszt jest odejmowany od salda jak wykonasz połączenie itp.</string>
 	<string name="balance_">Stan</string>
 	<string name="balance_help">Stan twojego konta względem wskazanej daty</string>
+<!--	<string name="strip_leading_zeros_">Strip leading zeros</string> -->
+<!--	<string name="strip_leading_zeros_hint">Strip leading zeros when comparing numbers.</string> -->
 	<string name="reset_data_">Resetuj statystyki</string>
 	<string name="reset_data_hint">Resetowanie danych połączeń/smsów spowoduje ponowne obliczenie statystyk.\n\nUsunięcie statystyk ruchu jest nieodwracalne. Zresetowane zostają wyłącznie statystyki z przed uruchomienia urządzenia.</string>
 	<string name="reset_data_data_">Dane również</string>
@@ -250,6 +254,7 @@
 	<string name="alerts_hint">Ustaw powiadomienia bazując na stopniu zużycia planu.</string>
 	<string name="alerts_title">Powiadomienia Call Meter 3G</string>
 	<string name="alerts_message" formatted="false">Plan %s osiągnął %d%% zużycia!</string>
+	<string name="numbergroup_help" formatted="false">Dodaj godziny które będą zastosowane do reguły.\n\nWzorce (\"%\") są dopuszczalne na obach końcach numeru.\nNp.: %34 będzie pasować do 1234, 12% do 1234 i %23% do 12345.</string>
 	<string name="alerts_80_">Powiadom przy 80%</string>
 	<string name="alerts_80_hint">Powiadom, jeżeli plan przekroczy 80% ustalonego limitu</string>
 	<string name="alerts_100_">Powiadom przy 100%</string>

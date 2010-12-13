@@ -110,6 +110,8 @@
 <!--	<string name="show_billperiod_">Show progress of billing period</string> -->
 <!--	<string name="hide_zero_">Hide empty plans</string> -->
 <!--	<string name="hide_zero_hint">Hide plans containing no item.</string> -->
+<!--	<string name="hide_nocost_">Hide no cost plans</string> -->
+<!--	<string name="hide_nocost_hint">Hide plans with no cost.</string> -->
 <!--	<string name="hide_progressbars_">Hide progress bars</string> -->
 <!--	<string name="hide_progressbars_hint">Hide progress bars in main view.</string> -->
 	<string name="custom_currency_symbol_">Símbolo personalizado de moneda</string>
@@ -151,6 +153,8 @@
 <!--	<string name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string> -->
 <!--	<string name="balance_">Balance</string> -->
 <!--	<string name="balance_help">Balance of your account at this given date.</string> -->
+<!--	<string name="strip_leading_zeros_">Strip leading zeros</string> -->
+<!--	<string name="strip_leading_zeros_hint">Strip leading zeros when comparing numbers.</string> -->
 	<string name="reset_data_">Poner a cero estadísticas</string>
 	<string name="reset_data_hint">Resetear los datos de llamadas y SMS fuerza el recálculo las estadísticas.\n\nLa puesta a cero del tráfico de datos es permanente. Sólo resetea el tráfico producido antes del arranque!</string>
 	<string name="reset_data_data_">Pone a cero también el tráfico de datos.</string>
@@ -249,6 +253,7 @@
 	<string name="alerts_">Alertas</string>
 	<string name="alerts_hint">Configura alertas según el uso del plan.</string>
 	<string name="alerts_title">Alerta Call Meter 3G</string>
+	<string name="alerts_message" formatted="false">El plan %s ha alcanzado el límite del %d%%!</string>
 	<string name="alerts_message" formatted="false">El plan %s ha alcanzado el límite del %d%%!</string>
 	<string name="alerts_80_">Avisar al 80%</string>
 	<string name="alerts_80_hint">Avisa si el plan sobrepasa el 80% del límite.</string>

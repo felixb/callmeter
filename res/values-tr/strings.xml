@@ -110,6 +110,8 @@
 <!--	<string name="show_billperiod_">Show progress of billing period</string> -->
 <!--	<string name="hide_zero_">Hide empty plans</string> -->
 <!--	<string name="hide_zero_hint">Hide plans containing no item.</string> -->
+<!--	<string name="hide_nocost_">Hide no cost plans</string> -->
+<!--	<string name="hide_nocost_hint">Hide plans with no cost.</string> -->
 <!--	<string name="hide_progressbars_">Hide progress bars</string> -->
 <!--	<string name="hide_progressbars_hint">Hide progress bars in main view.</string> -->
 	<string name="custom_currency_symbol_">Özel para birimi sembolü</string>
@@ -151,6 +153,8 @@
 	<string name="prepaid_hint">Ön ödemeli ücretlendirme. Hat kullanıldıkça kullanım ücreti hesabınızdan düşülür.</string>
 	<string name="balance_">Kalan</string>
 	<string name="balance_help">Belirlenen tarihte hesabınızda kalan miktar.</string>
+<!--	<string name="strip_leading_zeros_">Strip leading zeros</string> -->
+<!--	<string name="strip_leading_zeros_hint">Strip leading zeros when comparing numbers.</string> -->
 	<string name="reset_data_">İstatistikleri sıfırla</string>
 	<string name="reset_data_hint">Görüşme/SMS verilerinin sıfırlanması istatistiklerin yeniden hesaplanmasına yol açar.\n\nTrafik istatistiklerinin sıfırlanması kalıcıdır. Yalnızca boot öncesi trafik sıfırlanır!</string>
 	<string name="reset_data_data_">Trafiği de sıfırla.</string>
@@ -250,6 +254,7 @@
 	<string name="alerts_hint">Paket kullanımına göre uyarılar belirleyin.</string>
 	<string name="alerts_title">Call Meter 3G uyarısı</string>
 	<string name="alerts_message">Paket %s %%d% kullanıldı!</string>
+	<string name="numbergroup_help" formatted="false">Bu kurala dahil olacak numaraları ekleyin.\n\nArama karakteri (\"%\") numaranın her iki tarafında kullanılabilir.\nÖr: %34 ve 12%, 1234\'e; ve %23%, 12345\'e karşılık gelir.</string>
 	<string name="alerts_80_">%80 kullanımda bildir</string>
 	<string name="alerts_80_hint">Bir planın %80\'i kullanıldığında bildir.</string>
 	<string name="alerts_100_">%100 kullanımda bildir</string>

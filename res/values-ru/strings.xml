@@ -110,6 +110,8 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 <!--	<string name="show_billperiod_">Show progress of billing period</string> -->
 <!--	<string name="hide_zero_">Hide empty plans</string> -->
 <!--	<string name="hide_zero_hint">Hide plans containing no item.</string> -->
+<!--	<string name="hide_nocost_">Hide no cost plans</string> -->
+<!--	<string name="hide_nocost_hint">Hide plans with no cost.</string> -->
 <!--	<string name="hide_progressbars_">Hide progress bars</string> -->
 <!--	<string name="hide_progressbars_hint">Hide progress bars in main view.</string> -->
 	<string name="custom_currency_symbol_">Значёк валюты</string>
@@ -151,6 +153,8 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 <!--	<string name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string> -->
 <!--	<string name="balance_">Balance</string> -->
 <!--	<string name="balance_help">Balance of your account at this given date.</string> -->
+<!--	<string name="strip_leading_zeros_">Strip leading zeros</string> -->
+<!--	<string name="strip_leading_zeros_hint">Strip leading zeros when comparing numbers.</string> -->
 	<string name="reset_data_">Статистику сбросить</string>
 	<string name="reset_data_hint">Сброс журнала звонков/SMS дает возможность отсчёта данныx с начала.\n\nСброс статистики трафика происxодит постоянно. Стирается только трафик соxранившийся до перезагрузки смартфона!</string>
 	<string name="reset_data_data_">и трафик</string>
@@ -250,6 +254,7 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 	<string name="alerts_hint">Настройка сигнализации основанной на данныx ценового плана.</string>
 	<string name="alerts_title">Call Meter 3G Сигнализация</string>
 	<string name="alerts_message" formatted="false">Ценовой план %s достиг %d%%!</string>
+	<string name="numbergroup_help" formatted="false">Номера которые будут задействованны в данном плане.\n\nЗнак обобщения номеров (\"%\") разрешён по обе стороны номера.\nПример: %34 = 1234, 12% = 1234 и %23% = 12345.</string>
 	<string name="alerts_80_">Тревога при 80%</string>
 	<string name="alerts_80_hint">Сигнализация при 80% достижении ценового плана.</string>
 	<string name="alerts_100_">Тревога при 100%</string>

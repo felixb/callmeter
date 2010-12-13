@@ -110,6 +110,8 @@ Copyright (C) 2010 Tom Nuss, Felix Bechstein, Jumi Vlot
 	<string name="show_billperiod_">Toon voortgang van facturatie periode</string>
 	<string name="hide_zero_">Verberg lege schema\'s</string>
 	<string name="hide_zero_hint">Verberg schema\'s zonder items.</string>
+<!--	<string name="hide_nocost_">Hide no cost plans</string> -->
+<!--	<string name="hide_nocost_hint">Hide plans with no cost.</string> -->
 <!--	<string name="hide_progressbars_">Hide progress bars</string> -->
 <!--	<string name="hide_progressbars_hint">Hide progress bars in main view.</string> -->
 	<string name="custom_currency_symbol_">Aangepast valuta symbool</string>
@@ -151,6 +153,8 @@ Copyright (C) 2010 Tom Nuss, Felix Bechstein, Jumi Vlot
 	<string name="prepaid_hint">Factureer op prepaid basis. Kosten worden afgetrokken van balans als je belt etc.</string>
 	<string name="balance_">Balans</string>
 	<string name="balance_help">Balans van je account op deze datum.</string>
+<!--	<string name="strip_leading_zeros_">Strip leading zeros</string> -->
+<!--	<string name="strip_leading_zeros_hint">Strip leading zeros when comparing numbers.</string> -->
 	<string name="reset_data_">Reset statistieken</string>
 	<string name="reset_data_hint">Resetten van gesprek/sms data zorgt voor het opnieuw berekenen van de statistieken.\n\nResetten van data statistieken is permanent. Alleen data voordat het programma gestart is wordt gereset!</string>
 	<string name="reset_data_data_">Reset ook dataverkeer.</string>
@@ -249,6 +253,7 @@ Copyright (C) 2010 Tom Nuss, Felix Bechstein, Jumi Vlot
 	<string name="alerts_">Waarschuwingen</string>
 	<string name="alerts_hint">Stel waarschuwingen in gebaseerd op schema verbruik.</string>
 	<string name="alerts_title">Call Meter 3G waarschuwing</string>
+	<string name="alerts_message" formatted="false">Schema %s heeft %d%% verbruik bereikt!</string>
 	<string name="alerts_message" formatted="false">Schema %s heeft %d%% verbruik bereikt!</string>
 	<string name="alerts_80_">Notificatie op 80%</string>
 	<string name="alerts_80_hint">Notificatie als een schema over 80% van limiet gaat.</string>

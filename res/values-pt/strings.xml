@@ -110,6 +110,8 @@
 <!--	<string name="show_billperiod_">Show progress of billing period</string> -->
 <!--	<string name="hide_zero_">Hide empty plans</string> -->
 <!--	<string name="hide_zero_hint">Hide plans containing no item.</string> -->
+<!--	<string name="hide_nocost_">Hide no cost plans</string> -->
+<!--	<string name="hide_nocost_hint">Hide plans with no cost.</string> -->
 <!--	<string name="hide_progressbars_">Hide progress bars</string> -->
 <!--	<string name="hide_progressbars_hint">Hide progress bars in main view.</string> -->
 	<string name="custom_currency_symbol_">Símbolo monetário</string>
@@ -151,6 +153,8 @@
 <!--	<string name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string> -->
 <!--	<string name="balance_">Balance</string> -->
 <!--	<string name="balance_help">Balance of your account at this given date.</string> -->
+<!--	<string name="strip_leading_zeros_">Strip leading zeros</string> -->
+<!--	<string name="strip_leading_zeros_hint">Strip leading zeros when comparing numbers.</string> -->
 	<string name="reset_data_">Apagar estatísticas</string>
 	<string name="reset_data_hint">Apagar os dados das chamadas ou SMS irão resultar no recálculo das estatísticas.\n\nO cancelamento das estatísticas de tráfego é permanente. Só será visualizado após o boot!</string>
 	<string name="reset_data_data_">Apagar os Dados também.</string>
@@ -250,6 +254,7 @@
 	<string name="alerts_hint">Ajuste os alertas baseados no uso do plano.</string>
 	<string name="alerts_title">Alerta do Call Meter 3G </string>
 	<string name="alerts_message" formatted="false">O plano %s atingiu %d%% do uso!</string>
+	<string name="numbergroup_help" formatted="false">Os números adicionados de uma determinada regra deve corresponder. \n\nCuringas (\"%\") são permitidos em ambas as extremidades do número. \nEx. %34 corresponderá a 1234, 12% corresponderá a 1234 e %23% corresponderá a 12345.</string>
 	<string name="alerts_80_">Notificar em 80%</string>
 	<string name="alerts_80_hint">Notificar se o plano passou 80% do seu limite.</string>
 	<string name="alerts_100_">Notificar em 100%</string>
