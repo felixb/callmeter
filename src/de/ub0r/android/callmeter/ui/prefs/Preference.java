@@ -5,7 +5,9 @@ import java.util.Calendar;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
+import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -26,6 +28,7 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.DbUtils;
@@ -1210,6 +1213,9 @@ abstract class Preference {
 		/** Current value. */
 		private final Calendar value = Calendar.getInstance();
 
+		/** Show date+time instead of date only. */
+		private final boolean showTime;
+
 		/**
 		 * Default Constructor.
 		 * 
@@ -1221,10 +1227,13 @@ abstract class Preference {
 		 *            resource id of the title text
 		 * @param help
 		 *            resource id of the help text
+		 * @param showDateAndTime
+		 *            show date+time instead of date only
 		 */
 		protected DatePreference(final Context ctx, final String prefName,
-				final int text, final int help) {
+				final int text, final int help, final boolean showDateAndTime) {
 			super(ctx, prefName, R.layout.prefadapter_item, text, help);
+			this.showTime = showDateAndTime;
 		}
 
 		@Override
@@ -1240,7 +1249,7 @@ abstract class Preference {
 
 		@Override
 		Dialog createDialog() {
-			final DatePickerDialog d = new DatePickerDialog(this.context,
+			final DatePickerDialog dd = new DatePickerDialog(this.context,
 					new OnDateSetListener() {
 						@Override
 						public void onDateSet(final DatePicker view,
@@ -1248,15 +1257,39 @@ abstract class Preference {
 								final int dayOfMonth) {
 							DatePreference.this.value.set(year, monthOfYear,
 									dayOfMonth);
+							if (DatePreference.this.showTime) {
+								final TimePickerDialog dt = // .
+								new TimePickerDialog(
+										DatePreference.this.context,
+										new OnTimeSetListener() {
+											@Override
+											public void onTimeSet(
+													final TimePicker view,
+													final int hourOfDay, // .
+													final int minute) {
+												DatePreference.this.value.set(
+														Calendar.HOUR_OF_DAY,
+														hourOfDay);
+												DatePreference.this.value
+														.set(Calendar.MINUTE,
+																minute);
+											}
+										}, DatePreference.this.value
+												.get(Calendar.HOUR_OF_DAY),
+										DatePreference.this.value
+												.get(Calendar.MINUTE), true);
+								dt.setCancelable(true);
+								dt.show();
+							}
 						}
 					}, this.value.get(Calendar.YEAR), this.value
 							.get(Calendar.MONTH), this.value
 							.get(Calendar.DAY_OF_MONTH));
 
-			d.setCancelable(true);
-			d.setTitle(this.resText);
+			dd.setCancelable(true);
+			dd.setTitle(this.resText);
 
-			return d;
+			return dd;
 		}
 
 		@Override

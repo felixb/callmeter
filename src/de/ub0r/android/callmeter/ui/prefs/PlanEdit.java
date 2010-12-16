@@ -134,7 +134,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				DataProvider.BILLPERIOD_1MONTH, R.string.billperiod_,
 				R.string.billperiod_help, R.array.billperiod));
 		ret.add(new DatePreference(this, DataProvider.Plans.BILLDAY,
-				R.string.billday_, R.string.billday_help));
+				R.string.billday_, R.string.billday_help, true));
 		ret
 				.add(new CursorPreference(this,
 						DataProvider.Plans.BILLPERIOD_ID,
