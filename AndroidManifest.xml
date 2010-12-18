@@ -89,6 +89,7 @@
 				<action android:name="android.intent.action.ACTION_SHUTDOWN" />
 				<action android:name="android.intent.action.REBOOT" />
 				<action android:name="android.intent.action.DATE_CHANGED" />
+				<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 				<action android:name="android.provider.Telephony.SMS_RECEIVED" />
 				<category android:name="android.intent.category.DEFAULT" />
 				<category android:name="android.intent.category.HOME" />

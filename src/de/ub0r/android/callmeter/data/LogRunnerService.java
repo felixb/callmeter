@@ -28,6 +28,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.preference.DatePreference;
@@ -597,6 +598,14 @@ public final class LogRunnerService extends IntentService {
 						|| a.equals(Intent.ACTION_SHUTDOWN) // .
 						|| a.equals(Intent.ACTION_REBOOT) // .
 				|| a.equals(Intent.ACTION_DATE_CHANGED));
+
+		if (!shortRun && a.equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
+			if (intent.getBooleanExtra(ConnectivityManager.EXTRA_IS_FAILOVER,
+					false)) {
+				return;
+			}
+			shortRun = true;
+		}
 
 		final ContentResolver cr = this.getContentResolver();
 		boolean showDialog = false;
