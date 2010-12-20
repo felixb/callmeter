@@ -57,6 +57,8 @@ public final class RuleMatcher {
 	private static final int PROGRESS_STEPS = 50;
 	/** Strip leading zeros. */
 	private static boolean stripLeadingZeros = false;
+	/** International number prefix. */
+	private static String intPrefix = "";
 
 	/**
 	 * A single Rule.
@@ -146,6 +148,7 @@ public final class RuleMatcher {
 						DataProvider.Numbers.GROUP_URI, what0),
 						DataProvider.Numbers.PROJECTION, null, null, null);
 				if (cursor != null && cursor.moveToFirst()) {
+					final boolean doPrefix = intPrefix.length() > 1;
 					do {
 						String s = cursor
 								.getString(DataProvider.Numbers.INDEX_NUMBER);
@@ -155,12 +158,37 @@ public final class RuleMatcher {
 						if (stripLeadingZeros) {
 							s = s.replaceFirst("^00*", "");
 						}
+						if (doPrefix && !s.startsWith("%")) {
+							s = national2international(intPrefix, s);
+						}
 						this.numbers.add(s);
 					} while (cursor.moveToNext());
 				}
 				if (cursor != null && !cursor.isClosed()) {
 					cursor.close();
 				}
+			}
+
+			/**
+			 * Convert national number to international. Old format
+			 * internationals were converted to new format.
+			 * 
+			 * @param defPrefix
+			 *            default prefix
+			 * @param number
+			 *            national number
+			 * @return international number
+			 */
+			private static String national2international(
+					final String defPrefix, final String number) {
+				if (number.startsWith("+")) {
+					return number;
+				} else if (number.startsWith("00")) {
+					return "+" + number.substring(2);
+				} else if (number.startsWith("0")) {
+					return defPrefix + number.substring(1);
+				}
+				return defPrefix + number;
 			}
 
 			/**
@@ -183,9 +211,18 @@ public final class RuleMatcher {
 					if (number.startsWith("+")) {
 						number = number.substring(1);
 						numl = number.length();
-					} else if (stripLeadingZeros) {
-						number = number.replaceFirst("^00*", "");
-						numl = number.length();
+					} else {
+						if (stripLeadingZeros) {
+							number = number.replaceFirst("^00*", "");
+							numl = number.length();
+						}
+						if (intPrefix.length() > 1) {
+							number = national2international(intPrefix, number);
+							if (number.startsWith("+")) {
+								number = number.substring(1);
+							}
+							numl = number.length();
+						}
 					}
 				}
 				final int l = this.numbers.size();
@@ -958,9 +995,13 @@ public final class RuleMatcher {
 		if (rules != null && plans != null) {
 			return;
 		}
-		stripLeadingZeros = PreferenceManager.getDefaultSharedPreferences(
-				context).getBoolean(Preferences.PREFS_STRIP_LEADING_ZEROS,
-				false);
+		SharedPreferences prefs = PreferenceManager
+				.getDefaultSharedPreferences(context);
+		stripLeadingZeros = prefs.getBoolean(// .
+				Preferences.PREFS_STRIP_LEADING_ZEROS, false);
+		intPrefix = prefs.getString(Preferences.PREFS_INT_PREFIX, "");
+		prefs = null;
+
 		final ContentResolver cr = context.getContentResolver();
 
 		// load rules

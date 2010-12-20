@@ -124,6 +124,8 @@
 	<string name="balance_help">Balance of your account at this given date.</string>
 	<string name="strip_leading_zeros_">Strip leading zeros</string>
 	<string name="strip_leading_zeros_hint">Strip leading zeros when comparing numbers.</string>
+	<string name="number_prefix_">International prefix</string>
+	<string name="number_prefix_hint">Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..</string>
 	<string name="reset_data_">Reset statistics</string>
 	<string name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string>
 	<string name="reset_data_data_">Reset traffic too.</string>

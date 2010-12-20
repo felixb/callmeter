@@ -125,6 +125,8 @@ public class Preferences extends PreferenceActivity {
 	/** Preference's name: strip leading zeros. */
 	public static final String PREFS_STRIP_LEADING_ZEROS = // .
 	"strip_leading_zeros";
+	/** Preference's name: international prefix. */
+	public static final String PREFS_INT_PREFIX = "intPrefix";
 
 	/** {@link Currency} symbol. */
 	private static String defaultCurrencySymbol = null;

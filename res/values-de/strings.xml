@@ -155,6 +155,8 @@
 	<string name="balance_help">Guthaben deines Account an diesem Datum.</string>
 	<string name="strip_leading_zeros_">Führende Nullen streichen</string>
 	<string name="strip_leading_zeros_hint">Beim Vergleichen von Nummern die führenden Nullen ignorieren.</string>
+	<string name="number_prefix_">Internationales Prefix</string>
+	<string name="number_prefix_hint">Dein internationales Prefix im Format +49. Es wird zum vergleichen der Nummern wie +49170 mit 0170 benutzt.</string>
 	<string name="reset_data_">Statistik zurück setzen</string>
 	<string name="reset_data_hint">Anruf/SMS Statistik zurück setzen sorgt dafür, dass die Statistik neu berechnet wird.\n\nZurücksetzen der Traffic Statistik ist permanent. Es wird nur der Traffic vor dem letzten Reboot gelöscht!</string>
 	<string name="reset_data_data_">Auch Daten zurücksetzen</string>
