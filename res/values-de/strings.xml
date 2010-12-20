@@ -111,7 +111,7 @@
 	<string name="show_cost_">Zeige Kosten</string>
 	<string name="show_billperiod_">Zeige Fortschritt des Abrechnungszeitraums</string>
 	<string name="show_calllength_">Zeige Infos nach dem Auflegen</string>
-	<string name="show_calllength_">Zeige Länge/Kosten des Anrufs nach dem Auflegen.</string>
+	<string name="show_calllength_hint">Zeige Länge/Kosten des Anrufs nach dem Auflegen.</string>
 	<string name="hide_zero_">Verstecke leere Kontingente</string>
 	<string name="hide_zero_hint">Verstecke Kontingente ohne Inhalte.</string>
 	<string name="hide_nocost_">Verstecke kostenlose Kontingente</string>

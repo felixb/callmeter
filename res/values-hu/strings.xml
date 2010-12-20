@@ -96,6 +96,8 @@
 <!--	<string name="textsize_pbar_hint">Size for progress bars in pixels; leave empty for default</string> -->
 <!--	<string name="textsize_pbarbp_">Bill period\'s progress bar\'s size</string> -->
 <!--	<string name="textsize_pbarbp_hint">Size for bill period\'s progress bars in pixels; leave empty for default</string> -->
+<!--	<string name="show_today_">Show today</string> -->
+<!--	<string name="show_today_hint">Show today stats</string> -->
 <!--	<string name="show_total_">Show total</string> -->
 <!--	<string name="show_total_hint">Show total stats, disable to see current only.</string> -->
 <!--	<string name="show_time_">Switch to date</string> -->
@@ -108,6 +110,8 @@
 <!--	<string name="show_shortname_">Show short name instead of long name</string> -->
 <!--	<string name="show_cost_">Show cost</string> -->
 <!--	<string name="show_billperiod_">Show progress of billing period</string> -->
+<!--	<string name="show_calllength_">Show info after hanging up</string> -->
+<!--	<string name="show_calllength_hint">Show length/cost of a call after hanging up.</string> -->
 <!--	<string name="hide_zero_">Hide empty plans</string> -->
 <!--	<string name="hide_zero_hint">Hide plans containing no item.</string> -->
 <!--	<string name="hide_nocost_">Hide no cost plans</string> -->
@@ -155,6 +159,8 @@
 <!--	<string name="balance_help">Balance of your account at this given date.</string> -->
 <!--	<string name="strip_leading_zeros_">Strip leading zeros</string> -->
 <!--	<string name="strip_leading_zeros_hint">Strip leading zeros when comparing numbers.</string> -->
+<!--	<string name="number_prefix_">International prefix</string> -->
+<!--	<string name="number_prefix_hint">Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..</string> -->
 	<string name="reset_data_">Számlálók nullázása</string>
 	<string name="reset_data_hint">A hívások és SMS-ek nullázása a statisztikák újraszámolását vonja maguk után.\n\nAz adatforgalmi mérők nullázása nem vonható vissza. Csak a telefon bekapcsolása (bootolása) előtti forgalmat nullázza!</string>
 	<string name="reset_data_data_">Adatforgalmi számlálók is legyenek nullázva</string>
