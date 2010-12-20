@@ -79,6 +79,9 @@ public final class LogRunnerService extends IntentService {
 	/** Minimal difference of traffic which will get saved. */
 	private static final long DATA_MIN_DIFF = 1024L * 512L;
 
+	/** Service's {@link Handler}. */
+	private Handler handler = null;
+
 	/**
 	 * Default Constructor.
 	 */
@@ -573,8 +576,6 @@ public final class LogRunnerService extends IntentService {
 		Log.i(TAG, "deleted old logs from internal database: " + ret);
 	}
 
-	private Handler handler = null;
-
 	@Override
 	public void onCreate() {
 		super.onCreate();
@@ -616,7 +617,8 @@ public final class LogRunnerService extends IntentService {
 						|| a.equals(Intent.ACTION_REBOOT) // .
 				|| a.equals(Intent.ACTION_DATE_CHANGED));
 
-		if (!shortRun && a.equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
+		if (!shortRun && a != null
+				&& a.equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
 			if (intent.getBooleanExtra(ConnectivityManager.EXTRA_IS_FAILOVER,
 					false)) {
 				return;
