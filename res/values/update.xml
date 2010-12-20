@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: set date+time for start of billing period, improve data logging, match (inter-)national numbers (enter your prefix in preferences), show today\'s stats, allow multi bill period merger, show call info after hanging up</item>
+		<item>v2.9.5: set date+time for start of billing period, improve data logging, match (inter-)national numbers (enter your prefix in preferences), show today\'s stats, allow multi bill period merger, show call info after hanging up</item>
 		<item>v2.9.4: hide progress bars, add bill periods: 4,5,6,12 month, strip leading zeros, hide no cost plans</item>
 		<item>v2.9.3: Integrate with sipdroid, default update interval: 60m, fix MMS counter, fix mixed+merged limits, progressbar color, add chinese translation</item>
 		<item>v2.9.2: Delete old logs (default: 90d), multiselection on groups, fix NPE</item>

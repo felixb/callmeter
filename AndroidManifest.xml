@@ -18,10 +18,10 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="de.ub0r.android.callmeter" android:versionName="2.9.4 rc4"
-	android:versionCode="2817" android:installLocation="internalOnly">
+	package="de.ub0r.android.callmeter" android:versionName="2.9.5 rc5"
+	android:versionCode="2819" android:installLocation="internalOnly">
 	<application android:name=".CallMeter" android:icon="@drawable/icon"
-		android:label="@string/app_name" android:debuggable="true">
+		android:label="@string/app_name">
 		<activity android:name=".ui.Plans" android:label="@string/app_name"
 			android:configChanges="orientation|keyboardHidden"
 			android:windowSoftInputMode="adjustResize">
