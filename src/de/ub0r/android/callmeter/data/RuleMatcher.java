@@ -794,7 +794,8 @@ public final class RuleMatcher {
 		 * @return true if billed cost/amount is in limit
 		 */
 		boolean isInLimit() {
-			if (this.parent != null) {
+			if (this.parent != null
+					&& this.limitType == DataProvider.LIMIT_TYPE_NONE) {
 				return this.parent.isInLimit();
 			} else {
 				switch (this.limitType) {
@@ -925,10 +926,11 @@ public final class RuleMatcher {
 			float ret = 0;
 			float cpi, cpa1, cpa2;
 			Plan p;
-			if (this.parent == null) {
-				p = this;
-			} else {
+			if (this.parent != null
+					&& this.limitType == DataProvider.LIMIT_TYPE_NONE) {
 				p = this.parent;
+			} else {
+				p = this;
 			}
 			if (p.isInLimit()) {
 				cpi = this.costPerItemInLimit;

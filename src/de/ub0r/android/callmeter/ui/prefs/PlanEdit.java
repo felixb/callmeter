@@ -228,8 +228,6 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 
 		final int t = ((ListPreference) a
 				.getPreference(DataProvider.Plans.TYPE)).getValue();
-		final long bp = ((CursorPreference) a
-				.getPreference(DataProvider.Plans.BILLPERIOD_ID)).getValue();
 		String sel;
 		if (t == DataProvider.TYPE_MIXED) {
 			sel = "(" + DataProvider.Plans.TYPE + " = "
@@ -241,7 +239,6 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			sel = DataProvider.Plans.TYPE + " = " + t;
 		}
 		sel += " AND " + DataProvider.Plans.ID + " != " + this.pid + " AND "
-				+ DataProvider.Plans.BILLPERIOD_ID + " = " + bp + " AND "
 				+ DataProvider.Plans.MERGED_PLANS + " IS NULL";
 		Log.d(TAG, "selection: " + sel);
 		((CursorPreference) a.getPreference(DataProvider.Plans.MERGED_PLANS))
@@ -338,8 +335,6 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				a.hide(DataProvider.Plans.STRIP_SECONDS, true);
 			}
 			if (ppid >= 0) {
-				a.hide(DataProvider.Plans.LIMIT, true);
-				a.hide(DataProvider.Plans.LIMIT_TYPE, true);
 				a.hide(DataProvider.Plans.MERGED_PLANS, true);
 			}
 

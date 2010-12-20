@@ -336,16 +336,11 @@ public class Plans extends ListActivity implements OnClickListener,
 					this.billdayc = null;
 					this.ppid = DataProvider.Plans.getParent(context
 							.getContentResolver(), this.id);
-					if (this.ppid >= 0L) {
-						this.limittype = DataProvider.LIMIT_TYPE_NONE;
-						this.limit = -1;
-					} else {
-						this.limittype = cursor
-								.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
-						this.limit = DataProvider.Plans.getLimit(this.type,
-								this.limittype,
-								cursor.getLong(DataProvider.Plans.INDEX_LIMIT));
-					}
+					this.limittype = cursor
+							.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
+					this.limit = DataProvider.Plans.getLimit(this.type,
+							this.limittype, cursor
+									.getLong(DataProvider.Plans.INDEX_LIMIT));
 					this.cpp = cursor
 							.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
 					final String s = cursor

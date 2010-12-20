@@ -941,8 +941,10 @@ public final class DataProvider extends ContentProvider {
 				} else {
 					ret = (Calendar) now.clone();
 				}
-				ret.set(ret.get(Calendar.YEAR), ret.get(Calendar.MONTH), ret
-						.get(Calendar.DAY_OF_MONTH), 0, 0, 0);
+				ret.set(Calendar.HOUR_OF_DAY, 0);
+				ret.set(Calendar.MINUTE, 0);
+				ret.set(Calendar.SECOND, 0);
+				ret.set(Calendar.MILLISECOND, 0);
 				if (next) {
 					ret.add(Calendar.DAY_OF_MONTH, 1);
 				}
