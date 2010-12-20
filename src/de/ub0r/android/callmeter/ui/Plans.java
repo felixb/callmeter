@@ -87,6 +87,8 @@ public class Plans extends ListActivity implements OnClickListener,
 
 	/** Extra for setting now. */
 	public static final String EXTRA_NOW = "now";
+	/** Separator for the data. */
+	public static final String SEP = " | ";
 
 	/** Byte units. */
 	private static final String BYTE_UNITS_B = "B";
@@ -689,8 +691,6 @@ public class Plans extends ListActivity implements OnClickListener,
 
 		/** Now. */
 		private Calendar now;
-		/** Separator for the data. */
-		private static final String SEP = " | ";
 
 		/** List of plans. */
 		private ArrayList<Plan> plansList = new ArrayList<Plan>();

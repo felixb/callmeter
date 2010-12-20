@@ -31,10 +31,12 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Handler;
+import android.os.Message;
 import android.preference.DatePreference;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
 import android.telephony.TelephonyManager;
+import android.widget.Toast;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
@@ -571,6 +573,19 @@ public final class LogRunnerService extends IntentService {
 		Log.i(TAG, "deleted old logs from internal database: " + ret);
 	}
 
+	private Handler handler = null;
+
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		this.handler = new Handler() {
+			@Override
+			public void handleMessage(final Message msg) {
+				Log.i(TAG, "In handleMessage...");
+			}
+		};
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -592,6 +607,8 @@ public final class LogRunnerService extends IntentService {
 		dateStart = p.getLong(Preferences.PREFS_DATE_BEGIN,
 				DatePreference.DEFAULT_VALUE);
 		deleteBefore = Preferences.getDeleteLogsBefore(p);
+		boolean showCallInfo = p.getBoolean(Preferences.PREFS_SHOWCALLINFO,
+				false);
 
 		boolean shortRun = a != null
 				&& (a.equals(Intent.ACTION_BOOT_COMPLETED)
@@ -654,6 +671,43 @@ public final class LogRunnerService extends IntentService {
 			this.updateMMS(cr);
 			if (RuleMatcher.match(this, showDialog)) {
 				StatsAppWidgetProvider.updateWidgets(this);
+			}
+		}
+
+		if (showCallInfo && a != null && a.equals(// .
+				TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
+			final Cursor c = cr.query(DataProvider.Logs.CONTENT_URI,
+					DataProvider.Logs.PROJECTION, DataProvider.Logs.TYPE
+							+ " = " + DataProvider.TYPE_CALL, null,
+					DataProvider.Logs.DATE + " DESC");
+			if (c != null && c.moveToFirst()) {
+				final long amount = c.getLong(DataProvider.Logs.INDEX_AMOUNT);
+				final float cost = c.getFloat(DataProvider.Logs.INDEX_COST);
+				final String planname = DataProvider.Plans.getName(cr, c
+						.getLong(DataProvider.Logs.INDEX_PLAN_ID));
+				StringBuffer sb = new StringBuffer();
+				sb.append(Plans.prettySeconds(amount, false));
+				if (cost > 0) {
+					String currencyFormat = Preferences.getCurrencyFormat(this);
+					sb.append(Plans.SEP + String.format(currencyFormat, cost));
+				}
+				if (planname != null) {
+					sb.insert(0, planname + ": ");
+				}
+				final String s = sb.toString();
+				Log.i(TAG, "Toast: " + s);
+				this.handler.post(new Runnable() {
+					@Override
+					public void run() {
+						final Toast toast = Toast.makeText(
+								LogRunnerService.this, s, Toast.LENGTH_LONG);
+						toast.show();
+					}
+				});
+
+			}
+			if (c != null && !c.isClosed()) {
+				c.close();
 			}
 		}
 

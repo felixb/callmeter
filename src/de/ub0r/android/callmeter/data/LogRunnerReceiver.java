@@ -29,6 +29,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
+import android.telephony.TelephonyManager;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.Log;
@@ -186,8 +187,18 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 				}
 			}
 		}
+		String action = intent.getAction();
+		if (action != null
+				&& action.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
+			final String state = intent
+					.getStringExtra(TelephonyManager.EXTRA_STATE);
+			if (state != null
+					&& !state.equals(TelephonyManager.EXTRA_STATE_IDLE)) {
+				return;
+			}
+		}
 		// run LogRunnerService
-		LogRunnerService.update(context, intent.getAction());
+		LogRunnerService.update(context, a);
 		// schedule next update
 		LogRunnerReceiver.schedNext(context);
 	}

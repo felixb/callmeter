@@ -79,6 +79,8 @@
 	<string name="show_shortname_">Show short name instead of long name</string>
 	<string name="show_cost_">Show cost</string>
 	<string name="show_billperiod_">Show progress of billing period</string>
+	<string name="show_calllength_">Show info after hanging up</string>
+	<string name="show_calllength_">Show length/cost of a call after hanging up.</string>
 	<string name="hide_zero_">Hide empty plans</string>
 	<string name="hide_zero_hint">Hide plans containing no item.</string>
 	<string name="hide_nocost_">Hide no cost plans</string>

@@ -124,6 +124,8 @@ public class Preferences extends PreferenceActivity {
 	public static final String PREFS_SHOWTOTAL = "show_total";
 	/** Preference's name: show help. */
 	public static final String PREFS_SHOWHELP = "show_help";
+	/** Preference's name: show length/cost of call. */
+	public static final String PREFS_SHOWCALLINFO = "show_callinfo";
 	/** Preference's name: strip leading zeros. */
 	public static final String PREFS_STRIP_LEADING_ZEROS = // .
 	"strip_leading_zeros";
