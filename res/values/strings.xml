@@ -65,6 +65,8 @@
 	<string name="textsize_pbar_hint">Size for progress bars in pixels; leave empty for default</string>
 	<string name="textsize_pbarbp_">Bill period\'s progress bar\'s size</string>
 	<string name="textsize_pbarbp_hint">Size for bill period\'s progress bars in pixels; leave empty for default</string>
+	<string name="show_today_">Show today</string>
+	<string name="show_today_hint">Show today stats</string>
 	<string name="show_total_">Show total</string>
 	<string name="show_total_hint">Show total stats, disable to see current only.</string>
 	<string name="show_time_">Switch to date</string>

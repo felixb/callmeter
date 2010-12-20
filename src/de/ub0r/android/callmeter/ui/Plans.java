@@ -46,6 +46,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.text.Html;
 import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -136,6 +137,8 @@ public class Plans extends ListActivity implements OnClickListener,
 	/** Force adapter to reload the list. */
 	private static boolean reloadList = false;
 
+	/** Show today stats. */
+	private static boolean showToday = false;
 	/** Show total stats. */
 	private static boolean showTotal = true;
 	/** Hide zero plans. */
@@ -485,6 +488,8 @@ public class Plans extends ListActivity implements OnClickListener,
 				float cost = 0;
 				long billedAmount = 0;
 				int count = 0;
+				long todayBilledAmount = 0;
+				int todayCount = 0;
 				long allBilledAmount = 0;
 				int allCount = 0;
 
@@ -536,6 +541,60 @@ public class Plans extends ListActivity implements OnClickListener,
 				}
 				if (this.ppid >= 0L) {
 					cost = 0F;
+				}
+
+				// get all time
+				if (showToday) {
+					Calendar cal = null;
+					if (lnow != null) {
+						cal = (Calendar) lnow.clone();
+					}
+					if (cal == null) {
+						cal = Calendar.getInstance();
+					}
+					cal.set(Calendar.HOUR_OF_DAY, 0);
+					cal.set(Calendar.MINUTE, 0);
+					cal.set(Calendar.SECOND, 0);
+					cal.set(Calendar.MILLISECOND, 0);
+					w = DbUtils.sqlAnd(this.where, DataProvider.Logs.DATE
+							+ " > " + cal.getTimeInMillis());
+					c = this.ctx.getContentResolver().query(
+							DataProvider.Logs.SUM_URI,
+							DataProvider.Logs.PROJECTION_SUM, w, null, null);
+					if (c != null && c.moveToFirst()) {
+						do {
+							long ba = c.getLong(DataProvider.Logs.// .
+									INDEX_SUM_BILL_AMOUNT);
+							if (this.isMerger
+									&& this.type == DataProvider.TYPE_MIXED) {
+								final int t = c.getInt(// .
+										DataProvider.Logs.INDEX_SUM_TYPE);
+								switch (t) {
+								case DataProvider.TYPE_CALL:
+									ba = (ba * this.upc)
+											/ CallMeter.SECONDS_MINUTE;
+									break;
+								case DataProvider.TYPE_MMS:
+									ba *= this.upm;
+									break;
+								case DataProvider.TYPE_SMS:
+									ba *= this.ups;
+									break;
+								default:
+									break;
+								}
+							}
+							todayBilledAmount += ba;
+							todayCount += c
+									.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+						} while (c.moveToNext());
+					}
+					if (c != null && !c.isClosed()) {
+						c.close();
+					}
+				} else {
+					todayBilledAmount = -1;
+					todayCount = -1;
 				}
 
 				// get all time
@@ -603,7 +662,8 @@ public class Plans extends ListActivity implements OnClickListener,
 
 				cv.put(DataProvider.Plans.CACHE_COST, cost + free);
 				final String ccs = getString(this, u, count, billedAmount,
-						cost, free, allBilledAmount, allCount, pShowHours);
+						cost, free, todayBilledAmount, todayCount,
+						allBilledAmount, allCount, pShowHours);
 				if (!ccs.equals(this.currentCacheString)) {
 					this.currentCacheString = ccs;
 					cv.put(DataProvider.Plans.CACHE_STRING, ccs);
@@ -920,8 +980,12 @@ public class Plans extends ListActivity implements OnClickListener,
 		 *            cost
 		 * @param free
 		 *            cost not actual billed
+		 * @param todayAmount
+		 *            billed amount today
+		 * @param todayCount
+		 *            count all time
 		 * @param allAmount
-		 *            billed amount all time
+		 *            billed amount today
 		 * @param allCount
 		 *            count all time
 		 * @param showHours
@@ -930,9 +994,25 @@ public class Plans extends ListActivity implements OnClickListener,
 		 */
 		private static String getString(final Plan p, final int used,
 				final long count, final long amount, final float cost,
-				final float free, final long allAmount, final long allCount,
-				final boolean showHours) {
+				final float free, final long todayAmount,
+				final long todayCount, final long allAmount,
+				final long allCount, final boolean showHours) {
 			final StringBuilder ret = new StringBuilder();
+
+			if (showToday) {
+				// amount today
+				ret.append(formatAmount(p.type, todayAmount, showHours));
+				// count today
+				if (p.type == DataProvider.TYPE_CALL) {
+					ret.append(" (" + todayCount + ")");
+				}
+
+				ret.append(SEP);
+			}
+
+			if (showToday || showTotal) {
+				ret.append("<b>");
+			}
 
 			// usage
 			if (p.limittype != DataProvider.LIMIT_TYPE_NONE && p.limit > 0) {
@@ -946,6 +1026,10 @@ public class Plans extends ListActivity implements OnClickListener,
 			// count
 			if (p.type == DataProvider.TYPE_CALL) {
 				ret.append(" (" + count + ")");
+			}
+
+			if (showToday || showTotal) {
+				ret.append("</b>");
 			}
 
 			if (showTotal) {
@@ -1090,7 +1174,11 @@ public class Plans extends ListActivity implements OnClickListener,
 				}
 			}
 			if (twCache != null && pbCache != null) {
-				twCache.setText(cacheStr);
+				if (cacheStr != null) {
+					twCache.setText(Html.fromHtml(cacheStr));
+				} else {
+					twCache.setText(null);
+				}
 				if (this.textSize > 0) {
 					twCache.setTextSize(this.textSize);
 				}
@@ -1300,6 +1388,7 @@ public class Plans extends ListActivity implements OnClickListener,
 
 		currencyFormat = Preferences.getCurrencyFormat(this);
 		dateFormat = Preferences.getDateFormat(this);
+		showToday = p.getBoolean(Preferences.PREFS_SHOWTODAY, false);
 		showTotal = p.getBoolean(Preferences.PREFS_SHOWTOTAL, true);
 		hideZero = p.getBoolean(Preferences.PREFS_HIDE_ZERO, false);
 		hideNoCost = p.getBoolean(Preferences.PREFS_HIDE_NOCOST, false);

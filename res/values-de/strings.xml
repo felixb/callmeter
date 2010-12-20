@@ -96,8 +96,10 @@
 	<string name="textsize_pbar_hint">Höhe für Progressbars in Punkten; leer lassen für Standard.</string>
 	<string name="textsize_pbarbp_">Höhe für Progressbars der Abrechnungszeiträume</string>
 	<string name="textsize_pbarbp_hint">Höhe für Progressbars der Abrechnungszeiträume in Punkten; leer lassen für Standard.</string>
+	<string name="show_today_">Zeige Tagesstatistik</string>
+	<string name="show_today_hint">Deaktivieren, um nur die aktuellen Statistiken zu sehen.</string>
 	<string name="show_total_">Zeige Gesamtstatistik</string>
-	<string name="show_total_hint">Deaktivieren um nur die aktuellen Statistiken zu sehen.</string>
+	<string name="show_total_hint">Deaktivieren, um nur die aktuellen Statistiken zu sehen.</string>
 	<string name="show_time_">Zu Datum</string>
 	<string name="show_titlebar_">Zeige Titelleiste</string>
 	<string name="show_titlebar_hint">Zeige Titelleiste im Hauptbildschirm. Ohne Titelleiste wirst du nicht mehr auf Hintergrundaktivitäten hingewiesen.</string>
