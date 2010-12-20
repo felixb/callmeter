@@ -79,11 +79,15 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	public static void schedNext(final Context context) {
 		final Intent i = new Intent(context, LogRunnerReceiver.class);
 		final PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
-		final long t = SystemClock.elapsedRealtime()
-				+ Utils.parseLong(PreferenceManager
-						.getDefaultSharedPreferences(context).getString(
-								Preferences.PREFS_UPDATE_INTERVAL,
-								String.valueOf(DELAY)), DELAY) * DELAY_FACTOR;
+		final long l = Utils.parseLong(PreferenceManager
+				.getDefaultSharedPreferences(context).getString(
+						Preferences.PREFS_UPDATE_INTERVAL,
+						String.valueOf(DELAY)), DELAY)
+				* DELAY_FACTOR;
+		if (l == 0L) {
+			return;
+		}
+		final long t = SystemClock.elapsedRealtime() + l;
 		final AlarmManager mgr = (AlarmManager) context
 				.getSystemService(Context.ALARM_SERVICE);
 		mgr.set(AlarmManager.ELAPSED_REALTIME, t, pi);
