@@ -415,7 +415,7 @@ public class Preferences extends PreferenceActivity {
 		} else {
 			final ProgressDialog d = new ProgressDialog(this);
 			d.setIndeterminate(true);
-			d.setMessage(this.getString(R.string.export_rules_progr));
+			d.setMessage(this.getString(R.string.export_progr));
 			d.setCancelable(false);
 			d.show();
 
@@ -654,7 +654,7 @@ public class Preferences extends PreferenceActivity {
 		Log.d(TAG, "importData(ctx, " + uri + ")");
 		final ProgressDialog d1 = new ProgressDialog(this);
 		d1.setCancelable(true);
-		d1.setMessage(this.getString(R.string.import_rules_progr));
+		d1.setMessage(this.getString(R.string.import_progr));
 		d1.setIndeterminate(true);
 		d1.show();
 
