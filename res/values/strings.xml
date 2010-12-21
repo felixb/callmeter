@@ -120,6 +120,7 @@
 	<string name="exhourgroup_help">Add some hours this rule must not match.</string>
 	<string name="new_hourgroup">New hour group</string>
 	<string name="add_hour">Add hour</string>
+	<string name="empty_group">Empty groups won\'t match anything. Please go back and add at least one item.</string>
 	<string name="calls">Calls</string>
 	<string name="sms">SMS</string>
 	<string name="mms">MMS</string>

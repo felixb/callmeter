@@ -36,6 +36,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
@@ -157,6 +158,18 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	protected final void onResume() {
 		super.onResume();
 		this.showEmptyHint();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void onPause() {
+		super.onPause();
+		if (this.getListAdapter().getCount() == 0) {
+			Toast.makeText(this, R.string.empty_group, Toast.LENGTH_LONG)
+					.show();
+		}
 	}
 
 	/** Set the visibility for the empty groups hint. */
