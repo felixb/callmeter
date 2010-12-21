@@ -34,7 +34,8 @@
 			android:text="@string/billday_" />
 		<TextView android:id="@+id/period" android:layout_width="wrap_content"
 			android:text=" ???" android:layout_height="wrap_content"
-			android:layout_alignParentRight="true" android:gravity="right" />
+			android:layout_alignParentRight="true" android:gravity="right"
+			android:singleLine="false" />
 		<ProgressBar android:id="@+id/period_pb"
 			android:layout_width="fill_parent" android:layout_height="5dip"
 			android:layout_alignParentRight="true"

@@ -112,6 +112,8 @@ public class Preferences extends PreferenceActivity {
 	public static final String PREFS_HIDE_NOCOST = "hide_nocost";
 	/** Preference's name: hide progress bars in main view. */
 	public static final String PREFS_HIDE_PROGRESSBARS = "hide_progressbars";
+	/** Preference's name: custom delimiter. */
+	public static final String PREFS_DELIMITER = "custom_delimiter";
 	/** Preference's name: currency symbol. */
 	private static final String PREFS_CURRENCY_SYMBOL = "currency_symbol";
 	/** Preference's name: currency format. */
@@ -385,12 +387,14 @@ public class Preferences extends PreferenceActivity {
 	}
 
 	/**
-	 * Export Rules.
+	 * Export data.
 	 * 
 	 * @param descr
 	 *            description of the exported rule set
+	 * @param fn
+	 *            one of the predefined file names from {@link DataProvider}.
 	 */
-	private void exportRules(final String descr) {
+	private void exportData(final String descr, final String fn) {
 		if (descr == null) {
 			final EditText et = new EditText(this);
 			Builder builder = new Builder(this);
@@ -403,8 +407,8 @@ public class Preferences extends PreferenceActivity {
 						@Override
 						public void onClick(final DialogInterface dialog,
 								final int which) {
-							Preferences.this.exportRules(et.getText()
-									.toString());
+							Preferences.this.exportData(
+									et.getText().toString(), fn);
 						}
 					});
 			builder.show();
@@ -420,9 +424,19 @@ public class Preferences extends PreferenceActivity {
 			new AsyncTask<Void, Void, String>() {
 				@Override
 				protected String doInBackground(final Void... params) {
-					final String ret = DataProvider.backupRuleSet(
-							Preferences.this, descr);
-					return ret;
+					if (fn.equals(DataProvider.EXPORT_RULESET_FILE)) {
+						return DataProvider.backupRuleSet(Preferences.this,
+								descr);
+					} else if (fn.equals(DataProvider.EXPORT_LOGS_FILE)) {
+						return DataProvider.backupLogs(Preferences.this, descr);
+					} else if (fn.equals(DataProvider.EXPORT_NUMGROUPS_FILE)) {
+						return DataProvider.backupNumGroups(Preferences.this,
+								descr);
+					} else if (fn.equals(DataProvider.EXPORT_HOURGROUPS_FILE)) {
+						return DataProvider.backupHourGroups(Preferences.this,
+								descr);
+					}
+					return null;
 				}
 
 				@Override
@@ -431,10 +445,26 @@ public class Preferences extends PreferenceActivity {
 					System.out.println("\n" + result);
 					d.dismiss();
 					if (result != null && result.length() > 0) {
+						Uri uri = null;
+						int resChooser = -1;
+						if (fn.equals(DataProvider.EXPORT_RULESET_FILE)) {
+							uri = DataProvider.EXPORT_RULESET_URI;
+							resChooser = R.string.export_rules_;
+						} else if (fn.equals(DataProvider.EXPORT_LOGS_FILE)) {
+							uri = DataProvider.EXPORT_LOGS_URI;
+							resChooser = R.string.export_logs_;
+						} else if (fn
+								.equals(DataProvider.EXPORT_NUMGROUPS_FILE)) {
+							uri = DataProvider.EXPORT_NUMGROUPS_URI;
+							resChooser = R.string.export_numgroups_;
+						} else if (fn
+								.equals(DataProvider.EXPORT_HOURGROUPS_FILE)) {
+							uri = DataProvider.EXPORT_HOURGROUPS_URI;
+							resChooser = R.string.export_hourgroups_;
+						}
 						final Intent intent = new Intent(Intent.ACTION_SEND);
 						intent.setType(DataProvider.EXPORT_MIMETYPE);
-						intent.putExtra(Intent.EXTRA_STREAM,
-								DataProvider.EXPORT_URI);
+						intent.putExtra(Intent.EXTRA_STREAM, uri);
 						intent.putExtra(Intent.EXTRA_SUBJECT, // .
 								"Call Meter 3G export");
 						intent.addCategory(Intent.CATEGORY_DEFAULT);
@@ -443,8 +473,7 @@ public class Preferences extends PreferenceActivity {
 							final File d = Environment
 									.getExternalStorageDirectory();
 							final File f = new File(d, DataProvider.PACKAGE
-									+ File.separator + // .
-									DataProvider.EXPORT_FILE);
+									+ File.separator + fn);
 							f.mkdirs();
 							if (f.exists()) {
 								f.delete();
@@ -457,8 +486,7 @@ public class Preferences extends PreferenceActivity {
 							// preferences
 							Preferences.this.startActivity(Intent
 									.createChooser(intent, Preferences.this
-											.getString(// .
-											R.string.export_rules_)));
+											.getString(resChooser)));
 						} catch (IOException e) {
 							Log.e(TAG, "error writing export file", e);
 							Toast.makeText(Preferences.this,
@@ -480,8 +508,6 @@ public class Preferences extends PreferenceActivity {
 		super.onCreate(savedInstanceState);
 		this.setTitle(R.string.settings);
 		this.addPreferencesFromResource(R.xml.prefs);
-		// final SharedPreferences prefs = PreferenceManager
-		// .getDefaultSharedPreferences(this);
 
 		Preference p = this.findPreference("send_logs");
 		if (p != null) {
@@ -511,7 +537,44 @@ public class Preferences extends PreferenceActivity {
 					new Preference.OnPreferenceClickListener() {
 						public boolean onPreferenceClick(
 								final Preference preference) {
-							Preferences.this.exportRules(null);
+							Preferences.this.exportData(null,
+									DataProvider.EXPORT_RULESET_FILE);
+							return true;
+						}
+					});
+		}
+		p = this.findPreference("export_logs");
+		if (p != null) {
+			p.setOnPreferenceClickListener(// .
+					new Preference.OnPreferenceClickListener() {
+						public boolean onPreferenceClick(
+								final Preference preference) {
+							Preferences.this.exportData(null,
+									DataProvider.EXPORT_LOGS_FILE);
+							return true;
+						}
+					});
+		}
+		p = this.findPreference("export_numgroups");
+		if (p != null) {
+			p.setOnPreferenceClickListener(// .
+					new Preference.OnPreferenceClickListener() {
+						public boolean onPreferenceClick(
+								final Preference preference) {
+							Preferences.this.exportData(null,
+									DataProvider.EXPORT_NUMGROUPS_FILE);
+							return true;
+						}
+					});
+		}
+		p = this.findPreference("export_hourgroups");
+		if (p != null) {
+			p.setOnPreferenceClickListener(// .
+					new Preference.OnPreferenceClickListener() {
+						public boolean onPreferenceClick(
+								final Preference preference) {
+							Preferences.this.exportData(null,
+									DataProvider.EXPORT_HOURGROUPS_FILE);
 							return true;
 						}
 					});
@@ -580,15 +643,15 @@ public class Preferences extends PreferenceActivity {
 	}
 
 	/**
-	 * Import a given rule set.
+	 * Import data previously exported.
 	 * 
 	 * @param context
 	 *            {@link Context}
 	 * @param uri
 	 *            {@link Uri}
 	 */
-	private void importRuleSet(final Context context, final Uri uri) {
-		Log.d(TAG, "importRuleSet(ctx, " + uri + ")");
+	private void importData(final Context context, final Uri uri) {
+		Log.d(TAG, "importData(ctx, " + uri + ")");
 		final ProgressDialog d1 = new ProgressDialog(this);
 		d1.setCancelable(true);
 		d1.setMessage(this.getString(R.string.import_rules_progr));
@@ -652,7 +715,7 @@ public class Preferences extends PreferenceActivity {
 									@Override
 									protected Void doInBackground(
 											final Void... params) {
-										DataProvider.importRuleSet(
+										DataProvider.importData(
 												Preferences.this, result);
 										return null;
 									}
@@ -684,7 +747,7 @@ public class Preferences extends PreferenceActivity {
 		Log.d(TAG, "intent: " + intent.getData());
 		if (uri != null) {
 			Log.d(TAG, "importing: " + uri.toString());
-			this.importRuleSet(this, uri);
+			this.importData(this, uri);
 		}
 	}
 }

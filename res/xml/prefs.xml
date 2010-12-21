@@ -63,14 +63,17 @@
 			<CheckBoxPreference android:key="show_help"
 				android:defaultValue="true" android:title="@string/show_help_"
 				android:summary="@string/show_help_hint" />
-			<EditTextPreference android:title="@string/custom_currency_symbol_"
-				android:key="currency_symbol" android:summary="@string/custom_currency_symbol_hint" />
-			<ListPreference android:title="@string/custom_currency_format_"
-				android:key="currency_format" android:entries="@array/currency_formats"
+			<EditTextPreference android:key="custom_delimiter"
+				android:title="@string/custom_delimiter_" android:summary="@string/custom_delimiter_hint"
+				android:defaultValue=" | " />
+			<EditTextPreference android:key="currency_symbol"
+				android:title="@string/custom_currency_symbol_" android:summary="@string/custom_currency_symbol_hint" />
+			<ListPreference android:key="currency_format"
+				android:title="@string/custom_currency_format_" android:entries="@array/currency_formats"
 				android:entryValues="@array/currency_formats_values"
 				android:summary="@string/custom_currency_format_hint" />
-			<ListPreference android:title="@string/custom_date_format_"
-				android:key="date_format" android:entries="@array/date_formats"
+			<ListPreference android:key="date_format"
+				android:title="@string/custom_date_format_" android:entries="@array/date_formats"
 				android:entryValues="@array/date_formats_values" android:summary="@string/custom_date_format_hint" />
 			<ListPreference android:key="morelocale"
 				android:title="@string/custom_language_" android:summary="@string/custom_language_hint"
@@ -98,10 +101,19 @@
 				android:targetPackage="de.ub0r.android.callmeter"
 				android:targetClass="de.ub0r.android.callmeter.ui.prefs.Rules" />
 		</PreferenceScreen>
-		<PreferenceScreen android:key="export_rules"
-			android:title="@string/export_rules_" android:summary="@string/export_rules_hint" />
 		<PreferenceScreen android:key="import_rules"
 			android:title="@string/import_rules_" android:summary="@string/import_rules_hint" />
+		<PreferenceScreen android:title="@string/export_"
+			android:summary="@string/export_hint">
+			<PreferenceScreen android:key="export_rules"
+				android:title="@string/export_rules_" android:summary="@string/export_rules_hint" />
+			<PreferenceScreen android:key="export_logs"
+				android:title="@string/export_logs_" android:summary="@string/export_logs_hint" />
+			<PreferenceScreen android:key="export_numgroups"
+				android:title="@string/export_numgroups_" android:summary="@string/export_numgroups_hint" />
+			<PreferenceScreen android:key="export_hourgroups"
+				android:title="@string/export_hourgroups_" android:summary="@string/export_hourgroups_hint" />
+		</PreferenceScreen>
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/common_prefs_">

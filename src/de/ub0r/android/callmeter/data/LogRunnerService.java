@@ -691,7 +691,8 @@ public final class LogRunnerService extends IntentService {
 				sb.append(Plans.prettySeconds(amount, false));
 				if (cost > 0) {
 					String currencyFormat = Preferences.getCurrencyFormat(this);
-					sb.append(Plans.SEP + String.format(currencyFormat, cost));
+					sb.append(Plans.delimiter
+							+ String.format(currencyFormat, cost));
 				}
 				if (planname != null) {
 					sb.insert(0, planname + ": ");
@@ -706,7 +707,6 @@ public final class LogRunnerService extends IntentService {
 						toast.show();
 					}
 				});
-
 			}
 			if (c != null && !c.isClosed()) {
 				c.close();

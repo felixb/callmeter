@@ -76,10 +76,25 @@ public final class DataProvider extends ContentProvider {
 	public static final String EXPORT_MIMETYPE = // .
 	"application/android.callmeter.export";
 	/** {@link Uri} for export Content. */
-	public static final Uri EXPORT_URI = Uri.parse("content://" + AUTHORITY
-			+ "/export");
-	/** {@link Uri} for the actual export file. */
-	public static final String EXPORT_FILE = "ruleset.export";
+	public static final Uri EXPORT_RULESET_URI = // .
+	Uri.parse("content://" + AUTHORITY + "/export/ruleset");
+	/** {@link Uri} for export Content. */
+	public static final Uri EXPORT_LOGS_URI = Uri.parse("content://"
+			+ AUTHORITY + "/export/logs");
+	/** {@link Uri} for export Content. */
+	public static final Uri EXPORT_NUMGROUPS_URI = Uri.parse("content://"
+			+ AUTHORITY + "/export/numgroups");
+	/** {@link Uri} for export Content. */
+	public static final Uri EXPORT_HOURGROUPS_URI = Uri.parse("content://"
+			+ AUTHORITY + "/export/hourgroups");
+	/** Filename for the actual export file. */
+	public static final String EXPORT_RULESET_FILE = "ruleset.export";
+	/** Filename for the actual logs file. */
+	public static final String EXPORT_LOGS_FILE = "logs.export";
+	/** Filename for the actual number groups file. */
+	public static final String EXPORT_NUMGROUPS_FILE = "numgroups.export";
+	/** Filename for the actual hour groups file. */
+	public static final String EXPORT_HOURGROUPS_FILE = "hourgroups.export";
 
 	/** Type of log: title. */
 	public static final int TYPE_TITLE = 0;
@@ -1662,7 +1677,13 @@ public final class DataProvider extends ContentProvider {
 	/** Internal id: sipcall. */
 	private static final int SIPCALL = 19;
 	/** Internal id: export. */
-	private static final int EXPORT = 200;
+	private static final int EXPORT_RULESET = 200;
+	/** Internal id: export. */
+	private static final int EXPORT_LOGS = 201;
+	/** Internal id: export. */
+	private static final int EXPORT_NUMGROUPS = 202;
+	/** Internal id: export. */
+	private static final int EXPORT_HOURGROUPS = 203;
 
 	/** {@link UriMatcher}. */
 	private static final UriMatcher URI_MATCHER;
@@ -1688,7 +1709,10 @@ public final class DataProvider extends ContentProvider {
 		URI_MATCHER.addURI(AUTHORITY, "hours/groups/#", HOURS_GROUP_ID);
 		URI_MATCHER.addURI(AUTHORITY, "websms", WEBSMS);
 		URI_MATCHER.addURI(AUTHORITY, "sipcall", SIPCALL);
-		URI_MATCHER.addURI(AUTHORITY, "export", EXPORT);
+		URI_MATCHER.addURI(AUTHORITY, "export/ruleset", EXPORT_RULESET);
+		URI_MATCHER.addURI(AUTHORITY, "export/logs", EXPORT_LOGS);
+		URI_MATCHER.addURI(AUTHORITY, "export/numgroups", EXPORT_NUMGROUPS);
+		URI_MATCHER.addURI(AUTHORITY, "export/hourgroups", EXPORT_HOURGROUPS);
 	}
 
 	/**
@@ -1846,6 +1870,78 @@ public final class DataProvider extends ContentProvider {
 	}
 
 	/**
+	 * Backup logs to String.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param descr
+	 *            description of the logs
+	 * @return {@link String} representing {@link Logs}
+	 */
+	public static String backupLogs(final Context context, // .
+			final String descr) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(EXPORT_VERSION + "\n");
+		sb.append(URLEncoder.encode(descr) + "\n");
+		final SQLiteDatabase db = new DatabaseHelper(context)
+				.getReadableDatabase();
+
+		backupRuleSetSub(sb, db, Logs.TABLE, Logs.PROJECTION, null);
+		backupRuleSetSub(sb, db, WebSMS.TABLE, WebSMS.PROJECTION, null);
+		backupRuleSetSub(sb, db, SipCall.TABLE, SipCall.PROJECTION, null);
+		db.close();
+		return sb.toString();
+	}
+
+	/**
+	 * Backup number groups to String.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param descr
+	 *            description of the number groups
+	 * @return {@link String} representing {@link NumbersGroup} and
+	 *         {@link Numbers}
+	 */
+	public static String backupNumGroups(final Context context, // .
+			final String descr) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(EXPORT_VERSION + "\n");
+		sb.append(URLEncoder.encode(descr) + "\n");
+		final SQLiteDatabase db = new DatabaseHelper(context)
+				.getReadableDatabase();
+
+		backupRuleSetSub(sb, db, NumbersGroup.TABLE, NumbersGroup.PROJECTION,
+				null);
+		backupRuleSetSub(sb, db, Numbers.TABLE, Numbers.PROJECTION, null);
+		db.close();
+		return sb.toString();
+	}
+
+	/**
+	 * Backup hour groups to String.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param descr
+	 *            description of the hour groups
+	 * @return {@link String} representing {@link HoursGroup} and {@link Hours}
+	 */
+	public static String backupHourGroups(final Context context, // .
+			final String descr) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(EXPORT_VERSION + "\n");
+		sb.append(URLEncoder.encode(descr) + "\n");
+		final SQLiteDatabase db = new DatabaseHelper(context)
+				.getReadableDatabase();
+
+		backupRuleSetSub(sb, db, HoursGroup.TABLE, HoursGroup.PROJECTION, null);
+		backupRuleSetSub(sb, db, Hours.TABLE, Hours.PROJECTION, null);
+		db.close();
+		return sb.toString();
+	}
+
+	/**
 	 * Import data from lines into {@link SQLiteDatabase}.
 	 * 
 	 * @param db
@@ -1901,14 +1997,14 @@ public final class DataProvider extends ContentProvider {
 	}
 
 	/**
-	 * Import rule set from {@link String}.
+	 * Import data from {@link String}.
 	 * 
 	 * @param context
 	 *            {@link Context}
 	 * @param ruleSet
-	 *            rule set as {@link String}
+	 *            data as {@link String}
 	 */
-	public static void importRuleSet(final Context context, // .
+	public static void importData(final Context context, // .
 			final String ruleSet) {
 		if (ruleSet == null || ruleSet.length() == 0) {
 			return;
@@ -2141,7 +2237,10 @@ public final class DataProvider extends ContentProvider {
 			return HoursGroup.CONTENT_TYPE;
 		case HOURS_GROUP_ID:
 			return HoursGroup.CONTENT_ITEM_TYPE;
-		case EXPORT:
+		case EXPORT_RULESET:
+		case EXPORT_LOGS:
+		case EXPORT_NUMGROUPS:
+		case EXPORT_HOURGROUPS:
 			return EXPORT_MIMETYPE;
 		default:
 			throw new IllegalArgumentException("Unknown URI: " + uri);
@@ -2302,17 +2401,36 @@ public final class DataProvider extends ContentProvider {
 			qb.setTables(HoursGroup.TABLE);
 			qb.setProjectionMap(HoursGroup.PROJECTION_MAP);
 			break;
-		case EXPORT:
+		case EXPORT_RULESET:
+		case EXPORT_LOGS:
+		case EXPORT_NUMGROUPS:
+		case EXPORT_HOURGROUPS:
 			Log.d(TAG, "export proj: + " + projection);
 			final int l = projection.length;
+			String fn = null;
+			switch (uid) {
+			case EXPORT_RULESET:
+				fn = EXPORT_RULESET_FILE;
+				break;
+			case EXPORT_LOGS:
+				fn = EXPORT_LOGS_FILE;
+				break;
+			case EXPORT_NUMGROUPS:
+				fn = EXPORT_NUMGROUPS_FILE;
+				break;
+			case EXPORT_HOURGROUPS:
+				fn = EXPORT_HOURGROUPS_FILE;
+				break;
+			default:
+				break;
+			}
 			Object[] retArray = new Object[l];
 			for (int i = 0; i < l; i++) {
 				if (projection[i].equals(OpenableColumns.DISPLAY_NAME)) {
-					retArray[i] = EXPORT_FILE;
+					retArray[i] = fn;
 				} else if (projection[i].equals(OpenableColumns.SIZE)) {
 					final File d = Environment.getExternalStorageDirectory();
-					final File f = new File(d, PACKAGE + File.separator
-							+ DataProvider.EXPORT_FILE);
+					final File f = new File(d, PACKAGE + File.separator + fn);
 					retArray[i] = f.length();
 				}
 			}
@@ -2421,8 +2539,20 @@ public final class DataProvider extends ContentProvider {
 			throws FileNotFoundException {
 		Log.d(TAG, "openFile(" + uri.toString() + ")");
 		final File d = Environment.getExternalStorageDirectory();
-		final File f = new File(d, PACKAGE + File.separator
-				+ DataProvider.EXPORT_FILE);
+		String fn = null;
+		if (uri.equals(EXPORT_RULESET_URI)) {
+			fn = DataProvider.EXPORT_RULESET_FILE;
+		} else if (uri.equals(EXPORT_LOGS_URI)) {
+			fn = DataProvider.EXPORT_LOGS_FILE;
+		} else if (uri.equals(EXPORT_NUMGROUPS_URI)) {
+			fn = DataProvider.EXPORT_NUMGROUPS_FILE;
+		} else if (uri.equals(EXPORT_HOURGROUPS_URI)) {
+			fn = DataProvider.EXPORT_HOURGROUPS_FILE;
+		}
+		if (fn == null) {
+			return null;
+		}
+		final File f = new File(d, PACKAGE + File.separator + fn);
 		return ParcelFileDescriptor
 				.open(f, ParcelFileDescriptor.MODE_READ_ONLY);
 	}

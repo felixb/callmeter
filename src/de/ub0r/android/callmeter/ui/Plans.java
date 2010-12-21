@@ -88,7 +88,7 @@ public class Plans extends ListActivity implements OnClickListener,
 	/** Extra for setting now. */
 	public static final String EXTRA_NOW = "now";
 	/** Separator for the data. */
-	public static final String SEP = " | ";
+	public static String delimiter = " | ";
 
 	/** Byte units. */
 	private static final String BYTE_UNITS_B = "B";
@@ -445,7 +445,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					ccs = formatedDate;
 				}
 				if (this.used >= 0f) {
-					ccs = (int) (this.used * CallMeter.HUNDRET) + "%" + SEP
+					ccs = (int) (this.used * CallMeter.HUNDRET) + "%" + delimiter
 							+ ccs;
 				}
 				if (!ccs.equals(this.currentCacheString)) {
@@ -1002,7 +1002,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					ret.append(" (" + todayCount + ")");
 				}
 
-				ret.append(SEP);
+				ret.append(delimiter);
 			}
 
 			if (showToday || showTotal) {
@@ -1013,7 +1013,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			if (p.limittype != DataProvider.LIMIT_TYPE_NONE && p.limit > 0) {
 				ret.append((used * CallMeter.HUNDRET) / p.limit);
 				ret.append("%");
-				ret.append(SEP);
+				ret.append(delimiter);
 			}
 
 			// amount
@@ -1028,7 +1028,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			}
 
 			if (showTotal) {
-				ret.append(SEP);
+				ret.append(delimiter);
 
 				// amount all time
 				ret.append(formatAmount(p.type, allAmount, showHours));
@@ -1170,7 +1170,8 @@ public class Plans extends ListActivity implements OnClickListener,
 			}
 			if (twCache != null && pbCache != null) {
 				if (cacheStr != null) {
-					twCache.setText(Html.fromHtml(cacheStr));
+					twCache.setText(Html.fromHtml(cacheStr.replaceAll("\n",
+							"<br>")));
 				} else {
 					twCache.setText(null);
 				}
@@ -1387,6 +1388,7 @@ public class Plans extends ListActivity implements OnClickListener,
 		showTotal = p.getBoolean(Preferences.PREFS_SHOWTOTAL, true);
 		hideZero = p.getBoolean(Preferences.PREFS_HIDE_ZERO, false);
 		hideNoCost = p.getBoolean(Preferences.PREFS_HIDE_NOCOST, false);
+		delimiter = p.getString(Preferences.PREFS_DELIMITER, " | ");
 
 		if (reloadList) {
 			this.adapter = new PlanAdapter(this);

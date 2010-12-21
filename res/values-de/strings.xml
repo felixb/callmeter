@@ -248,11 +248,11 @@
 	<string name="empty_group_">Bitte drücke "hinzufügen" um einen Eintrag hinzuzufügen.</string>
 	<string name="export_rules_">Exportiere Regelwerk</string>
 	<string name="export_rules_hint">Exportiere Regelwerk als Mail.</string>
-	<string name="export_rules_progr">Exportiere Regelwerk ...</string>
+	<string name="export_rules_progr">Exportiere Daten ...</string>
 	<string name="export_rules_descr">Beschreibung</string>
 	<string name="import_rules_">Importiere Regelwerk</string>
 	<string name="import_rules_hint">Importiere Regelwerk.</string>
-	<string name="import_rules_progr">Importiere Regelwerk ...</string>
+	<string name="import_rules_progr">Importiere Daten ...</string>
 	<string name="import_rules_empty">Es sind keine Kontingente/Regeln definiert. Klicke diesen Text an, um standard Regelwerke zu importieren.\n\nOder füge manuell Kontingente und Regeln in den Einstellungen hinzu.</string>
 	<string name="err_export_write">Fehler beim Schreiben der Exportdatei</string>
 	<string name="err_export_read">Fehler beim Lesen der Exportdatei</string>
