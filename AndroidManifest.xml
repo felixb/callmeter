@@ -46,6 +46,7 @@
 			<intent-filter>
 				<action android:name="android.intent.action.VIEW" />
 				<category android:name="android.intent.category.DEFAULT" />
+				<data android:mimeType="application/android.callmeter.export" />
 				<data android:mimeType="application/android.callmeter.ruleset" />
 			</intent-filter>
 		</activity>
