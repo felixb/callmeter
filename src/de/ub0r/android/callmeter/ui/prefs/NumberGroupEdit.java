@@ -40,6 +40,7 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.lib.apis.ContactsWrapper;
 
 /**
@@ -237,6 +238,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 			intent = new Intent(this, NumberGroupEdit.class);
 			intent.setData(uri);
 			this.setResult(RESULT_OK, new Intent(intent));
+			RuleMatcher.unmatch(this);
 			this.finish();
 			break;
 		case R.id.add:

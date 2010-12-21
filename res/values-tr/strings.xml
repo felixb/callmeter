@@ -275,6 +275,7 @@
 		<item>Cuma</item>
 		<item>Cumartesi</item>
 		<item>Pazar</item>
+		<item>Pazartesi - Cuma</item>
 	</string-array>
 	<string-array name="hours_all">
 		<item>Tüm gün</item>

@@ -275,6 +275,7 @@ Copyright (C) 2010 Valentin R., Felix Bechstein
 		<item>Пятница</item>
 		<item>Суббота</item>
 		<item>Воскресение</item>
+		<item>Понедельник - Пятница</item>
 	</string-array>
 	<string-array name="hours_all">
 		<item>Полный день</item>

@@ -275,6 +275,7 @@
 		<item>Freitag</item>
 		<item>Samstag</item>
 		<item>Sonntag</item>
+		<item>Montag - Freitag</item>
 	</string-array>
 	<string-array name="hours_all">
 		<item>Den ganzen Tag</item>

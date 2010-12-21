@@ -275,6 +275,7 @@
 		<item>星期五</item>
 		<item>星期六</item>
 		<item>星期日</item>
+		<item>星期一 - 星期五</item>
 	</string-array>
 	<string-array name="hours_all">
 		<item>全天</item>

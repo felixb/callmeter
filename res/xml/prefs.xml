@@ -101,6 +101,18 @@
 				android:targetPackage="de.ub0r.android.callmeter"
 				android:targetClass="de.ub0r.android.callmeter.ui.prefs.Rules" />
 		</PreferenceScreen>
+		<PreferenceScreen android:title="@string/numbergroups_edit_"
+			android:summary="@string/numbergroups_edit_hint" >
+			<intent android:action="android.intent.action.MAIN"
+				android:targetPackage="de.ub0r.android.callmeter"
+				android:targetClass="de.ub0r.android.callmeter.ui.prefs.NumberGroups" />
+		</PreferenceScreen>
+		<PreferenceScreen android:title="@string/hourgroups_edit_"
+			android:summary="@string/hourgroups_edit_hint" >
+			<intent android:action="android.intent.action.MAIN"
+				android:targetPackage="de.ub0r.android.callmeter"
+				android:targetClass="de.ub0r.android.callmeter.ui.prefs.HourGroups" />
+		</PreferenceScreen>
 		<PreferenceScreen android:key="import_rules"
 			android:title="@string/import_rules_" android:summary="@string/import_rules_hint" />
 		<PreferenceScreen android:title="@string/export_"

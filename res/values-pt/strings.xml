@@ -275,6 +275,7 @@
 		<item>Sexta</item>
 		<item>Sábado</item>
 		<item>Domingo</item>
+		<item>Segunda - Sexta</item>
 	</string-array>
 	<string-array name="hours_all">
 		<item>Todo o dia</item>

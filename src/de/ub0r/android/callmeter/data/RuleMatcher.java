@@ -276,6 +276,25 @@ public final class RuleMatcher {
 			private final HashMap<Integer, HashSet<Integer>> hours = // .
 			new HashMap<Integer, HashSet<Integer>>();
 
+			/** Entry for monday - sunday. */
+			private static final int ALL_WEEK = 0;
+			/** Entry for monday. */
+			private static final int MON = 1;
+			/** Entry for tuesday. */
+			private static final int TUE = 2;
+			/** Entry for wednesday. */
+			private static final int WED = 3;
+			/** Entry for thrusday. */
+			private static final int THU = 4;
+			/** Entry for friday. */
+			private static final int FRI = 5;
+			/** Entry for satadurday. */
+			private static final int SAT = 6;
+			/** Entry for sunday. */
+			private static final int SUN = 7;
+			/** Entry for monday - friday. */
+			private static final int MON_FRI = 8;
+
 			/**
 			 * Default Constructor.
 			 * 
@@ -323,7 +342,7 @@ public final class RuleMatcher {
 						% Calendar.SATURDAY;
 				final int h = cal.get(Calendar.HOUR_OF_DAY) + 1;
 				for (int k : this.hours.keySet()) {
-					if (k == 0 || k == d) {
+					if (k == 0 || k == d || (k == MON_FRI && d < SAT)) {
 						for (int v : this.hours.get(k)) {
 							if (v == 0 || v == h) {
 								return true;

@@ -275,6 +275,7 @@
 		<item>Viernes</item>
 		<item>Sábado</item>
 		<item>Domingo</item>
+		<item>Lunes - Viernes</item>
 	</string-array>
 	<string-array name="hours_all">
 		<item>Todo el día</item>
