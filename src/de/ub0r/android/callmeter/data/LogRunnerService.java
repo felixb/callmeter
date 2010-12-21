@@ -79,6 +79,11 @@ public final class LogRunnerService extends IntentService {
 	/** Minimal difference of traffic which will get saved. */
 	private static final long DATA_MIN_DIFF = 1024L * 512L;
 
+	/** Time to wait for logs after hanging up. */
+	private static final long WAIT_FOR_LOGS = 1000L;
+	/** Maximum gap for logs. */
+	private static final long GAP_FOR_LOGS = 5000L;
+
 	/** Service's {@link Handler}. */
 	private Handler handler = null;
 
@@ -594,6 +599,17 @@ public final class LogRunnerService extends IntentService {
 	protected void onHandleIntent(final Intent intent) {
 		final String a = intent.getAction();
 		Log.d(TAG, "onHandleIntent(" + a + ")");
+
+		if (a != null && a.equals(// .
+				TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
+			Log.i(TAG, "sleep for " + WAIT_FOR_LOGS + "ms");
+			try {
+				Thread.sleep(WAIT_FOR_LOGS);
+			} catch (InterruptedException e) {
+				Log.e(TAG, "interrupted while waiting for logs", e);
+			}
+		}
+
 		final Handler h = Plans.getHandler();
 		if (h != null) {
 			h.sendEmptyMessage(Plans.MSG_BACKGROUND_START_MATCHER);
@@ -683,30 +699,46 @@ public final class LogRunnerService extends IntentService {
 							+ " = " + DataProvider.TYPE_CALL, null,
 					DataProvider.Logs.DATE + " DESC");
 			if (c != null && c.moveToFirst()) {
+				final long date = c.getLong(DataProvider.Logs.INDEX_DATE);
 				final long amount = c.getLong(DataProvider.Logs.INDEX_AMOUNT);
-				final float cost = c.getFloat(DataProvider.Logs.INDEX_COST);
-				final String planname = DataProvider.Plans.getName(cr, c
-						.getLong(DataProvider.Logs.INDEX_PLAN_ID));
-				StringBuffer sb = new StringBuffer();
-				sb.append(Plans.prettySeconds(amount, false));
-				if (cost > 0) {
-					String currencyFormat = Preferences.getCurrencyFormat(this);
-					sb.append(Plans.delimiter
-							+ String.format(currencyFormat, cost));
-				}
-				if (planname != null) {
-					sb.insert(0, planname + ": ");
-				}
-				final String s = sb.toString();
-				Log.i(TAG, "Toast: " + s);
-				this.handler.post(new Runnable() {
-					@Override
-					public void run() {
-						final Toast toast = Toast.makeText(
-								LogRunnerService.this, s, Toast.LENGTH_LONG);
-						toast.show();
+
+				final long now = System.currentTimeMillis();
+				if (amount > 0L
+						&& date + amount * CallMeter.MILLIS + GAP_FOR_LOGS // .
+						>= now) {
+					// only show real calls
+					// only show calls made just now
+					final float cost = c.getFloat(DataProvider.Logs.INDEX_COST);
+					final String planname = DataProvider.Plans.getName(cr, c
+							.getLong(DataProvider.Logs.INDEX_PLAN_ID));
+					StringBuffer sb = new StringBuffer();
+					sb.append(Plans.prettySeconds(amount, false));
+					if (cost > 0) {
+						String currencyFormat = Preferences
+								.getCurrencyFormat(this);
+						sb.append(Plans.delimiter
+								+ String.format(currencyFormat, cost));
 					}
-				});
+					if (planname != null) {
+						sb.insert(0, planname + ": ");
+					}
+					final String s = sb.toString();
+					Log.i(TAG, "Toast: " + s);
+					this.handler.post(new Runnable() {
+						@Override
+						public void run() {
+							final Toast toast = Toast
+									.makeText(LogRunnerService.this, s,
+											Toast.LENGTH_LONG);
+							toast.show();
+						}
+					});
+				} else {
+					Log.i(TAG, "skip Toast: amount=" + amount);
+					Log.i(TAG, "skip Toast: date+amount+gap=" + (// .
+							date + amount * CallMeter.MILLIS + GAP_FOR_LOGS));
+					Log.i(TAG, "skip Toast: now            =" + now);
+				}
 			}
 			if (c != null && !c.isClosed()) {
 				c.close();
