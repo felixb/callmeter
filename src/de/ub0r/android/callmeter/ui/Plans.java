@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
@@ -70,6 +69,7 @@ import de.ub0r.android.callmeter.data.LogRunnerReceiver;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.PlanEdit;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
+import de.ub0r.android.lib.Changelog;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.DonationHelper;
 import de.ub0r.android.lib.Log;
@@ -101,8 +101,6 @@ public class Plans extends ListActivity implements OnClickListener,
 	/** Byte units: TB. */
 	private static final String BYTE_UNITS_TB = "TB";
 
-	/** Dialog: update. */
-	private static final int DIALOG_UPDATE = 0;
 	/** Dialog: show date. */
 	private static final int DIALOG_SHOW_DATE = 1;
 	/** Dialog: show time. */
@@ -123,11 +121,6 @@ public class Plans extends ListActivity implements OnClickListener,
 	/** {@link Message} for {@link Handler}: progress: LogMatcher. */
 	public static final int MSG_BACKGROUND_PROGRESS_MATCHER = 7;
 
-	/** Prefs: name for last version run. */
-	private static final String PREFS_LAST_RUN = "lastrun";
-	/** Prefs: name for read notes. */
-	private static final String PREFS_NOTES_READ = "notes_read";
-
 	/** Show hours and days. */
 	private static boolean pShowHours = true;
 
@@ -147,6 +140,12 @@ public class Plans extends ListActivity implements OnClickListener,
 	private static boolean hideZero = false;
 	/** Hide no cost plans. */
 	private static boolean hideNoCost = false;
+
+	/** Display ads? */
+	private static boolean prefsNoAds;
+
+	/** Plans. */
+	private PlanAdapter adapter = null;
 
 	/** {@link Handler} for handling messages from background process. */
 	private final Handler handler = new Handler() {
@@ -445,8 +444,8 @@ public class Plans extends ListActivity implements OnClickListener,
 					ccs = formatedDate;
 				}
 				if (this.used >= 0f) {
-					ccs = (int) (this.used * CallMeter.HUNDRET) + "%" + delimiter
-							+ ccs;
+					ccs = (int) (this.used * CallMeter.HUNDRET) + "%"
+							+ delimiter + ccs;
 				}
 				if (!ccs.equals(this.currentCacheString)) {
 					this.currentCacheString = ccs;
@@ -1204,14 +1203,6 @@ public class Plans extends ListActivity implements OnClickListener,
 		}
 	}
 
-	/** Display ads? */
-	private static boolean prefsNoAds;
-
-	/** SharedPreferences. */
-	private SharedPreferences preferences;
-	/** Plans. */
-	private PlanAdapter adapter = null;
-
 	/**
 	 * Return pretty bytes.
 	 * 
@@ -1334,8 +1325,9 @@ public class Plans extends ListActivity implements OnClickListener,
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		currentHandler = this.handler;
 		// get prefs.
-		this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
-		final boolean showTitlebar = this.preferences.getBoolean(
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		final boolean showTitlebar = p.getBoolean(
 				Preferences.PREFS_SHOWTITLEBAR, true);
 		if (!showTitlebar) {
 			this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -1344,27 +1336,12 @@ public class Plans extends ListActivity implements OnClickListener,
 		Utils.setLocale(this);
 		this.setContentView(R.layout.plans);
 
-		String v0 = this.preferences.getString(PREFS_LAST_RUN, "");
-		String v1 = this.getString(R.string.app_version);
-		if (!v0.equals(v1)) {
-			this.preferences.edit().putString(PREFS_LAST_RUN, v1).commit();
-			if (v0.length() > 0) {
-				this.showDialog(DIALOG_UPDATE);
-			}
-		}
-		if (!this.preferences.getBoolean(PREFS_NOTES_READ, false)) {
-			this.findViewById(R.id.note).setVisibility(View.VISIBLE);
-		}
+		Changelog.showChangelog(this);
+		Changelog.showNotes(this, null, null, null);
 
 		prefsNoAds = DonationHelper.hideAds(this);
 		this.findViewById(R.id.import_default).setOnClickListener(this);
-		this.findViewById(R.id.close_note).setOnClickListener(this);
 		this.getListView().setOnItemLongClickListener(this);
-
-		// TextView tv = (TextView) this.findViewById(R.id.calls_);
-		// Preferences.textSizeMedium = tv.getTextSize();
-		// tv = (TextView) this.findViewById(R.id.calls1_in_);
-		// Preferences.textSizeSmall = tv.getTextSize();
 
 		this.adapter = new PlanAdapter(this);
 		this.setListAdapter(this.adapter);
@@ -1422,7 +1399,8 @@ public class Plans extends ListActivity implements OnClickListener,
 	 * @param updatePlans
 	 *            update plans after setting "now"
 	 */
-	private void getNowFromIntent(final Intent intent, final boolean updatePlans) {
+	private void getNowFromIntent(final Intent intent, // .
+			final boolean updatePlans) {
 		final long now = intent.getLongExtra(EXTRA_NOW, -1);
 		if (now >= 0) {
 			this.setNow(now, updatePlans, false);
@@ -1502,32 +1480,7 @@ public class Plans extends ListActivity implements OnClickListener,
 	 */
 	@Override
 	protected final Dialog onCreateDialog(final int id) {
-		AlertDialog.Builder builder;
 		switch (id) {
-		case DIALOG_UPDATE:
-			builder = new AlertDialog.Builder(this);
-			builder.setTitle(R.string.changelog_);
-			final String[] changes = this.getResources().getStringArray(
-					R.array.updates);
-			StringBuilder buf = new StringBuilder();
-
-			buf.append(changes[0]);
-			for (int i = 1; i < changes.length; i++) {
-				buf.append("\n\n");
-				buf.append(changes[i]);
-			}
-			builder.setIcon(android.R.drawable.ic_menu_info_details);
-			builder.setMessage(buf.toString());
-			buf = null;
-			builder.setCancelable(true);
-			builder.setPositiveButton(android.R.string.ok,
-					new DialogInterface.OnClickListener() {
-						public void onClick(final DialogInterface dialog,
-								final int id) {
-							dialog.cancel();
-						}
-					});
-			return builder.create();
 		case DIALOG_SHOW_DATE:
 			Calendar cal = this.adapter.now;
 			if (cal == null) {
@@ -1610,10 +1563,6 @@ public class Plans extends ListActivity implements OnClickListener,
 						Toast.LENGTH_LONG).show();
 			}
 			break;
-		case R.id.close_note:
-			this.findViewById(R.id.note).setVisibility(View.GONE);
-			PreferenceManager.getDefaultSharedPreferences(this).edit()
-					.putBoolean(PREFS_NOTES_READ, true).commit();
 		default:
 			break;
 		}
