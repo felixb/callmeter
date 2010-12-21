@@ -79,8 +79,7 @@
 				android:title="@string/custom_language_" android:summary="@string/custom_language_hint"
 				android:entries="@array/lang_" android:entryValues="@array/lang_values" />
 			<CheckBoxPreference android:key="show_callinfo"
-				android:defaultValue="true" android:title="@string/show_calllength_"
-				android:summary="@string/show_calllength_" />
+				android:title="@string/show_calllength_" android:summary="@string/show_calllength_" />
 		</PreferenceScreen>
 	</PreferenceCategory>
 
@@ -102,13 +101,13 @@
 				android:targetClass="de.ub0r.android.callmeter.ui.prefs.Rules" />
 		</PreferenceScreen>
 		<PreferenceScreen android:title="@string/numbergroups_edit_"
-			android:summary="@string/numbergroups_edit_hint" >
+			android:summary="@string/numbergroups_edit_hint">
 			<intent android:action="android.intent.action.MAIN"
 				android:targetPackage="de.ub0r.android.callmeter"
 				android:targetClass="de.ub0r.android.callmeter.ui.prefs.NumberGroups" />
 		</PreferenceScreen>
 		<PreferenceScreen android:title="@string/hourgroups_edit_"
-			android:summary="@string/hourgroups_edit_hint" >
+			android:summary="@string/hourgroups_edit_hint">
 			<intent android:action="android.intent.action.MAIN"
 				android:targetPackage="de.ub0r.android.callmeter"
 				android:targetClass="de.ub0r.android.callmeter.ui.prefs.HourGroups" />
