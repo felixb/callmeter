@@ -3,7 +3,7 @@
 		Copyright (C) 2010 Felix Bechstein
 	-->
 	<!--
-		This file is part of Call Meter NG. This program is free software; you
+		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
@@ -51,15 +51,23 @@
 <!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
 	<string name="about0_">Pass auf deine Freiminuten, FreiSMS und dein Datenvolumen auf!</string>
 	<string name="about0">CallMeter erzeugt aus deinen Anruf-, SMS- und Daten-Logs Berichte. Es unterstützt viele verschiedene Abrechnungsmodi.</string>
-	<string name="about1">Das Ausgabeformat ist: Nutzung / Zeit oder Anzahl in diesem Monat / Zeit oder Anzahl überhaupt. Monatliche Anrufe werden nach Abrechnungsmodus berechnet. Die Gesamtzeit nicht.</string>
+	<string name="about1">Das Ausgabeformat ist: Nutzung | Zeit oder Anzahl in diesem Monat | Zeit oder Anzahl überhaupt.</string>
 	<string name="about2">Der Abrechnungszeitraum bezeichnet die länge des ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s aufgerundet.</string>
-	<string name="about3">Du kannst deine Anruf- oder SMS-Kontingente trennen. In jedem Kontingent kannst du dann folgendes einstelen: keine Abrechnung, auf ein bestimmtes Limit begrenzt oder keine Grenzen.</string>
-	<string name="about4">Deine SMS können über die Anrufe abgerechnet werden. Z.B. jede SMS als ein 60s Anruf.</string>
-	<string name="about5">CallMeter läuft alle 30min im Hintergrund (sofern das Gerät nicht im Standby ist). Werden Anrufe oder Nachrichten älter als 30min gelöscht, ändert das die Statistik nicht. Werden neuere Anrufe/Nachrichten gelöscht, kann es je nach Zeitpunkt die Statistiken verfälschen!</string>
-	<string name="about6_">Was CallMeter NG nicht tut:</string>
-	<string name="about6">Es ist nicht möglich zwischen Anrufen aus Sipdroid und echten Anrufen bzw. WebSMS und echten SMS zu unterscheiden. Androids nahtlose Integration dieser Apps lässt eine spätere Unterscheidung der Logs nicht mehr zu.</string>
+	<string name="about3">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string>
 	<string name="send_">Senden</string>
+	<string name="add_">Hinzufügen</string>
+	<string name="add_log">Log Eintrag hinzufügen</string>
+	<string name="length_hint_call">Dauer in Sekunden</string>
+	<string name="length_hint_data">Traffic in kB</string>
 	<string name="settings">Einstellungen</string>
+	<string name="update_interval_">Update Intervall</string>
+	<string name="update_interval_hint">Eine kürzere Periode verbraucht mehr Akku.</string>
+	<string name="date_begin_">Start der Aufzeichnungen</string>
+	<string name="date_begin_hint">Ignoriere alle Logs vor diesem Datum.</string>
+	<string name="delete_old_logs_">Logs älter als .. löschen</string>
+	<string name="delete_old_logs_help">Lösche Logs älter als x Tage aus der internen Datenbank. Leer lassen zum deaktivieren.</string>
+	<string name="common_prefs_">Allgemeine Einstellungen</string>
+	<string name="edit_">Ändern</string>
 	<string name="about_">Über</string>
 	<string name="about_hint">Über diese App</string>
 	<string name="faq_hint">Ein paar Tipps und Tricks, wie man diese App einstellt.</string>
@@ -67,103 +75,342 @@
 	<string name="feedback_hint">Bugreports, feature requests ...</string>
 	<string name="twitter_hint">Follow auf twitter.\nUpdate Infos etc...</string>
 	<string name="more_">Mehr Apps..</string>
+	<string name="billing_">Abrechnung</string>
 	<string name="billday_">Erster Rechnungstag</string>
 	<string name="billmode_">Abrechnungsmodus</string>
-	<string name="billmode_hint">Länge der Takte (erster/folgende)</string>
 	<string name="billdate_">Erster Rechnungstag:</string>
-	<string name="smsperiod_">Gleiche Rechnung für SMS</string>
-	<string name="smsperiod_hint">Anruf Rechnungstag auch für SMS setzen.</string>
-	<string name="smsbillday_">Erster Rechnungstag für SMS</string>
-	<string name="dataperiod_">Gleiche Rechnung für Daten</string>
-	<string name="dataperiod_hint">Anruf Rechnungstag auch für Daten setzen.</string>
-	<string name="databillday_">Erster Rechnungstag für Daten</string>
 	<string name="appearance_">Erscheinung</string>
+	<string name="advanced_preferences_">Erweiterte Einstellungen</string>
+	<string name="advanced_preferences_hint">Damit kannst du viel komplexere Abrechnungen abbilden. Die meisten Benutzer werden das nicht brauchen.</string>
 	<string name="theme_">Theme</string>
 	<string name="textsize_">Schriftgrad</string>
-	<string name="advanced_">Erweitert</string>
-	<string name="exclude_people_">Nummern ausschließen</string>
-	<string name="exclude_people_hint">Nummern nicht abrechnen\nWildcards erlaubt: *555, 555* oder *555*</string>
-	<string name="exclude_people_add">Nummer hinzufügen</string>
-	<string name="exclude_people_edit">Ändern</string>
-	<string name="exclude_people_delete">Löschen</string>
-	<string name="exclude_people_to_plan1_">Ausgeschlossene Nummern nach Plan #1</string>
-	<string name="exclude_people_to_plan2_">Ausgeschlossene Nummern nach Plan #2</string>
-	<string name="exclude_people_calls_">Für Anrufe einschalten</string>
-	<string name="exclude_people_calls_to_plan1_hint">Anrufe zu/von ausgeschlossene nummern in Plan #1 abrechnen.</string>
-	<string name="exclude_people_calls_to_plan2_hint">Anrufe zu/von ausgeschlossene nummern in Plan #2 abrechnen.</string>
-	<string name="exclude_people_sms_">Für SMS einschalten</string>
-	<string name="exclude_people_sms_to_plan1_hint">SMS zu/von ausgeschlossene nummern in Plan #1 abrechnen.</string>
-	<string name="exclude_people_sms_to_plan2_hint">SMS zu/von ausgeschlossene nummern in Plan #2 abrechnen.</string>
+	<string name="textsize_hint">Schriftgrad in Punkten; leer lassen für Standard.</string>
+	<string name="textsize_title_">Schriftgrad für Überschriften</string>
+	<string name="textsize_title_hint">Schriftgrad für Überschriften in Punkten; leer lassen für Standard.</string>
+	<string name="textsize_bigtitle_">Schriftgrad für große Überschriften</string>
+	<string name="textsize_bigtitle_hint">Schriftgrad für große Überschriften in Punkten; leer lassen für Standard.</string>
+	<string name="textsize_spacer_">Höhe für Abstandshalter</string>
+	<string name="textsize_spacer_hint">Höhe für Abstandshalter in Punkten; leer lassen für Standard.</string>
+	<string name="textsize_pbar_">Höhe für Progressbars</string>
+	<string name="textsize_pbar_hint">Höhe für Progressbars in Punkten; leer lassen für Standard.</string>
+	<string name="textsize_pbarbp_">Höhe für Progressbars der Abrechnungszeiträume</string>
+	<string name="textsize_pbarbp_hint">Höhe für Progressbars der Abrechnungszeiträume in Punkten; leer lassen für Standard.</string>
+	<string name="show_today_">Zeige Tagesstatistik</string>
+	<string name="show_today_hint">Deaktivieren, um nur die aktuellen Statistiken zu sehen.</string>
+	<string name="show_total_">Zeige Gesamtstatistik</string>
+	<string name="show_total_hint">Deaktivieren, um nur die aktuellen Statistiken zu sehen.</string>
+	<string name="show_time_">Zu Datum</string>
+	<string name="show_titlebar_">Zeige Titelleiste</string>
+	<string name="show_titlebar_hint">Zeige Titelleiste im Hauptbildschirm. Ohne Titelleiste wirst du nicht mehr auf Hintergrundaktivitäten hingewiesen.</string>
+	<string name="show_hours_">Stunden zeigen</string>
+	<string name="show_hours_hint">Zeige Zeit in Sekunden, Minuten, Stunden und Tagen.\nSonst werden nur Sekunden und Stunden gezeigt.</string>
+	<string name="show_help_">Zeige Hilfe</string>
+	<string name="show_help_hint">Zeige Hilfe in Kontingent/Regel Setup.</string>
+	<string name="show_shortname_">Zeige Kurzname anstatt langem Namen</string>
+	<string name="show_cost_">Zeige Kosten</string>
+	<string name="show_billperiod_">Zeige Fortschritt des Abrechnungszeitraums</string>
+	<string name="show_calllength_">Zeige Infos nach dem Auflegen</string>
+	<string name="show_calllength_hint">Zeige Länge/Kosten des Anrufs nach dem Auflegen.</string>
+	<string name="hide_zero_">Verstecke leere Kontingente</string>
+	<string name="hide_zero_hint">Verstecke Kontingente ohne Inhalte.</string>
+	<string name="hide_nocost_">Verstecke kostenlose Kontingente</string>
+	<string name="hide_nocost_hint">Verstecke Kontingente ohne Kosten.</string>
+	<string name="hide_progressbars_">Verstecke Fortschrittsbalken</string>
+	<string name="hide_progressbars_hint">Verstecke Fortschrittsbalken im Hauptfenster.</string>
+	<string name="custom_currency_symbol_">Benutzerdefiniertes Währungssymbol</string>
+	<string name="custom_currency_symbol_hint">Stell hier ein benutzerdefiniertes Währungssymbol ein. Wenn leer, wird das Systemstandardsymbol genutzt.</string>
+	<string name="custom_currency_format_">Benutzerdefiniertes Währungsformat</string>
+	<string name="custom_currency_format_hint">Wähle ein benutzerdefiniertes Währungsformat aus.</string>
+	<string name="custom_date_format_">Benutzerdefiniertes Datumformat</string>
+	<string name="custom_date_format_hint">Wähle ein benutzerdefiniertes Datumformat aus.</string>
+<!--	<string name="logs">Logs</string> -->
+	<string name="show_logs">Logs zeigen</string>
 	<string name="plans">Kontingente</string>
-	<string name="plans_split">2 Kontingente</string>
-	<string name="plans_merge">Kontingente verschmelzen</string>
-	<string name="plans_split_hint">Abrechnung in 2 verschiedene Kontingente trennen.</string>
-	<string name="plan1">Kontingent 1</string>
-	<string name="plan2">Kontingent 2</string>
-	<string name="plan1_hint">Wähle die Stunden, die im Kontingent 1 abgerechnet werden.</string>
-	<string name="plan_free_">Keine Abrechnung</string>
-	<string name="plan_freemin_">Freiminuten</string>
-	<string name="plan_freesms_">FreiSMS</string>
-	<string name="free_hint">Absolut keine Kosten</string>
-	<string name="freemin_hint">Freiminuten / Monat</string>
-	<string name="freesms_hint">FreiSMS / Monat</string>
-	<string name="bill_calls_incoming_">Eingehende abrechnen</string>
-	<string name="bill_calls_incoming_hint">Eingehende Anrufe auch abrechnen.</string>
-	<string name="bill_sms_incoming_">Eingehende abrechnen</string>
-	<string name="bill_sms_incoming_hint">Eingehende SMS auch abrechnen.</string>
-	<string name="bill_data_incoming_only_">Nur eingehender Traffic</string>
-	<string name="bill_data_incoming_only_hint">Nur eingehenden Traffic abrechnen.</string>
-	<string name="cost_per_call_">Kosten pro Anruf</string>
-	<string name="cost_per_call_hint">Jeder Anruf wird berechnet.</string>
-	<string name="cost_per_minute_">Kosten pro Minute</string>
-	<string name="cost_per_minute_hint">Jede Minute wird berechnet.</string>
-	<string name="cost_per_sms_">Kosten pro SMS</string>
-	<string name="cost_per_sms_hint">Jede SMS wird berechnet.</string>
-	<string name="cost_per_mb_">Kosten pro MB</string>
-	<string name="cost_per_mb_hint">Jedes MB Traffic wird berechnet.</string>
-	<string name="merge_sms_calls_">SMS als Anrufe abrechnen</string>
-	<string name="merge_sms_calls_hint">Rechne SMS als Anrufe ab.</string>
-	<string name="merge_sms_calls_sec_">Sekunden / SMS</string>
-	<string name="merge_sms_calls_sec_hint">Anzahl der Sekunden, die für jede SMS abgerechnet werden.</string>
-	<string name="merge_sms_plan1_">In Kontingent 1 abrechnen</string>
-	<string name="merge_sms_plan1_hint">Abwählen, um im Kontingent 2 abzurechnen.</string>
-	<string name="data_hint">WLAN stats werden hier nicht gesammelt!</string>
-	<string name="data_enable_">Zeige Datenstatistik</string>
-	<string name="data_enable_hint">Daten werden in Echtzeit gesammelt. Im ersten Monat ist das Ergebnis evtl. falsch.</string>
-	<string name="data_each_day">Jeden Tag einzeln abrechnen</string>
-	<string name="data_each_day_hint">Der Abrechnungszeitraum wird mit jedem Tag neu gestartet.</string>
-	<string name="data_limit_">Freivolumen</string>
-	<string name="data_limit_hint">Freivolumen in MB/Monat</string>
-	<string name="monday">Montag</string>
-	<string name="tuesday">Dienstag</string>
-	<string name="wednesday">Mittwoch</string>
-	<string name="thursday">Donnerstag</string>
-	<string name="friday">Freitag</string>
-	<string name="saturday">Samstag</string>
-	<string name="sunday">Sonntag</string>
+	<string name="plans_hint">Stelle hier deine verschiedenen Kontingente ein.</string>
+	<string name="plans_new">Neues Kontingent</string>
+	<string name="rule_">Regel</string>
+	<string name="rules">Regeln</string>
+	<string name="rules_hint">Hier kannst du deine Abrechnungsregeln definieren.</string>
+	<string name="rules_new">Neue Regel</string>
+	<string name="length_">Länge</string>
+	<string name="remote_">Absender/Empfänger</string>
+	<string name="numbers">Nummern</string>
+	<string name="numbergroup_">Nummern einschließen</string>
+	<string name="numbergroup_help" formatted="false">Füge hier die Nummern hinzu, die diese Regel treffen muss.\n\nPlatzhalter (\"%\") sind and beiden Enden der Nummer erlaubt.\nZ.B. trifft %34 1234, 12% trifft 1234 und %23% trifft 12345.</string>
+	<string name="exnumbergroup_">Nummern ausschließen</string>
+	<string name="exnumbergroup_help">Füge hier die nummern hinzu, die diese Regel nicht treffen darf.\nAnalog zu oben.</string>
+	<string name="new_numbergroup">Neue Nummerngruppe</string>
+	<string name="add_number">Nummer hinzufügen</string>
+	<string name="hours">Stunden</string>
+	<string name="hourgroup_">Stunden einschließen</string>
+	<string name="hourgroup_help">Füge hier die Stunden hinzu, die diese Regel treffen muss.</string>
+	<string name="exhourgroup_">Stunden ausschließen</string>
+	<string name="exhourgroup_help">Füge hier die Stunden hinzu, die diese Regel nicht treffen darf.</string>
+	<string name="new_hourgroup">Neue Stundengruppe</string>
+	<string name="add_hour">Stunde Hinzufügen</string>
 	<string name="calls">Anrufe</string>
 <!--	<string name="sms">SMS</string> -->
+<!--	<string name="mms">MMS</string> -->
 	<string name="data">Daten</string>
-	<string name="calls_sms">Anrufe/SMS</string>
-	<string name="in_calls">Ein%s:</string>
-	<string name="in_sms">Ein%s:</string>
-	<string name="in_data">Ein:</string>
-	<string name="out_calls">Aus%s:</string>
-	<string name="out_sms">Aus%s:</string>
-	<string name="out_data">Aus:</string>
-	<string name="plan_name1_">Kontingent 1: Name</string>
-	<string name="plan_name2_">Kontingent 2: Name</string>
-	<string name="plan_name_hint">Eigener Name</string>
+	<string name="prepaid_">Prepaid Abrechnung</string>
+	<string name="prepaid_hint">Prepaid Vertrag. Kosten werden vom Guthaben abgezogen.</string>
+	<string name="balance_">Guthaben</string>
+	<string name="balance_help">Guthaben deines Account an diesem Datum.</string>
+	<string name="strip_leading_zeros_">Führende Nullen streichen</string>
+	<string name="strip_leading_zeros_hint">Beim Vergleichen von Nummern die führenden Nullen ignorieren.</string>
+	<string name="number_prefix_">Internationales Prefix</string>
+	<string name="number_prefix_hint">Dein internationales Prefix im Format +49. Es wird zum vergleichen der Nummern wie +49170 mit 0170 benutzt.</string>
 	<string name="reset_data_">Statistik zurück setzen</string>
 	<string name="reset_data_hint">Anruf/SMS Statistik zurück setzen sorgt dafür, dass die Statistik neu berechnet wird.\n\nZurücksetzen der Traffic Statistik ist permanent. Es wird nur der Traffic vor dem letzten Reboot gelöscht!</string>
 	<string name="reset_data_data_">Auch Daten zurücksetzen</string>
+	<string name="reset_data_progr1">Berechne Statistiken neu ...\n\n(Das kann eine Weile dauern!)</string>
+	<string name="reset_data_progr2">Berechne Statistiken neu ...</string>
 	<string name="contacts_">Kontakte</string>
+	<string name="clear_">Zurücksetzen</string>
+	<string name="help_">Hilfe</string>
+	<string name="new_">Neu</string>
+	<string name="edit_selected_">Ausg. bearb.</string>
+	<string name="edit_groups_">Gr. bearb.</string>
+<!--	<string name="name_">Name</string> -->
+	<string name="name_help">Setze hier einen Namen.</string>
+	<string name="shortname_">Kurzname</string>
+	<string name="shortname_help">Setze hier einen Namen. Dieser wird in kompakten Layouts benutzt.</string>
+	<string name="type_">Typ</string>
+	<string name="type_help">Wähle einen Typ aus.\n\"Titel\" zeigt einfach nur eine Titelzeile an.\nEin \"Abstandshalter\" zeigt nichts an.\nDer \"Abrechnungszeitraum\" hält Inforamtionen über deinen Abrechnungszeitrau. Die meisten Nutzer benötigen genau einen.\nIn einem \"Mixed\" Kontingent können Anrufe und Nachrichten gleichzeitig abgerechnet werden.\n"Anrufe\", \"SMS\", \"MMS\" oder \"Daten\" Kontingente sind für die Abrechnung der jeweiligen Typen bestimmt.</string>
+	<string name="limit_type_">Limittyp</string>
+	<string name="limit_type_help">Wähle hier einen Typ des Limits aus.</string>
+	<string name="limit_">Limit</string>
+	<string name="limit_help">Stelle hier ein Limit für dein Kontingent.\n\nTyp \"Einheiten\" muss in Minuten (Anrufe), Nachrichten (SMS/MMS), Megabytes (Daten, 1024kB) oder Einheiten (Mixed) gesetzt werden.\n\nTyp \"Costen\" muss in deiner Hauptwährung (z.B. €) gesetzt werden.</string>
+	<string name="billmode_help">Stelle hier den Abrechnungsmodus für Anrufe ein.\nDer erste Teil ist die minimale Länge eines Anrufes die dein Provider abrechnet. Jeder Anruf kürzer als diese Zeit wird auf genau diese Zeit aufgerundet.\nDer zweite Teil ist die minimale Länge der folgenden Zeitblöcke.\nBitte lies die FAQ für genauere Beschreibung.</string>
+	<string name="billday_help">Wähle hier den ersten Tag deines Abrechnungszeitraums aus.</string>
+	<string name="billperiodid_">Abrechnungszeitraum</string>
+	<string name="billperiodid_help">Wähle hier deinen Abrechnungszeitraum.\nEvtl. musst du vorher einen extra Plan des mit dem Typ \"Abrechnungszeitraum\" anlegen.</string>
+	<string name="billperiod_">Länge des Abrechnungszeitraums</string>
+	<string name="billperiod_help">Wähle hier die Länge deines Abrechnungszeitraums.</string>
+	<string name="cost_per_item_">Kosten pro Logeintrag</string>
+	<string name="cost_per_item_help">Stelle hier die Kosten ein, die ein einzelner Logeintrag (z.B. ein Anruf oder eine Nachricht) erzeugt, wenn das Limit erreicht ist.</string>
+	<string name="cost_per_item_in_limit_">Kosten pro Logeintrag im Limit</string>
+	<string name="cost_per_item_in_limit_help">Stelle hier die Kosten ein, die ein einzelner Logeintrag (z.B. ein Anruf oder eine Nachricht) erzeugt, bevor das Limit erreicht ist.</string>
+	<string name="cost_per_amount_">Kosten pro Länge</string>
+	<string name="cost_per_amount_help1">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1kB Daten), wenn das Limit erreicht ist.</string>
+	<string name="cost_per_amount_help2">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1min Anruf), wenn das Limit erreicht ist.\nDas erste Feld bestimmt die Kosten für die ersten Sekunden deines Anrufes, das zweite für die folgenden (Beide Felder sind in €/Minute; mehr Infos beim Abrechnungsmodus).\n Im Zweifel setze beides als Kosten/Minute.</string>
+	<string name="cost_per_amount_in_limit_">Kosten pro Länge im limit</string>
+	<string name="cost_per_amount_in_limit_help1">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1kB Daten), bevor das Limit erreicht ist.</string>
+	<string name="cost_per_amount_in_limit_help2">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1min Anruf), bevor das Limit erreicht ist.\nDas erste Feld bestimmt die Kosten für die ersten Sekunden deines Anrufes, das zweite für die folgenden (Beide Felder sind in €/Minute; mehr Infos beim Abrechnungsmodus).\n Im Zweifel setze beides als Kosten/Minute.</string>
+	<string name="cost_per_plan_">Kosten pro Kontingent</string>
+	<string name="cost_per_plan_help">Stelle hier die Kosten für dieses Kontingent ein.</string>
+	<string name="mixed_units_sms_">Einheiten für SMS</string>
+	<string name="mixed_units_sms_help">Stelle hier die Einheiten ein, die für eine einzelne SMS berechnet werden.</string>
+	<string name="mixed_units_mms_">Einheiten für MMS</string>
+	<string name="mixed_units_mms_help">Stelle hier die Einheiten ein, die für eine einzelne MMS berechnet werden.</string>
+	<string name="mixed_units_call_">Einheiten für Anrufe</string>
+	<string name="mixed_units_call_help">Stelle hier die Einheiten ein, die für eine einzelne Minute Anruf berechnet werden.\Der Abrechnungsmodus wird hier beachtet.</string>
+	<string name="merge_plans_">Kontingente zusammenführen</string>
+	<string name="merge_plans_help">Führe andere Kontingente mit diesem zusammen und rechne sie hier (auch) ab.</string>
+	<string name="units_cost">€</string>
+	<string name="units_num_msg"># Nachrichten</string>
+	<string name="units_minutes">Minuten</string>
+	<string name="units_mbyte">MBytes</string>
+	<string name="units_units">Einheiten</string>
+	<string name="units_units_per_minute">Einheiten/Minute</string>
+	<string name="units_units_per_message">Einheiten/Nachricht</string>
+	<string name="units_cost_per_call">€/Anruf</string>
+	<string name="units_cost_per_minute">€/Minute</string>
+	<string name="units_cost_per_message">€/Nachricht</string>
+	<string name="units_cost_per_mbyte">€/MByte</string>
+	<string name="units_cost_per_unit">€/Einheit</string>
+	<string name="plan_">Kontingent</string>
+	<string name="plan_help">Wähle hier einen Plan aus, in dem die Logs berechnet werden sollen.</string>
+	<string name="limitnotreached_">Limit nicht erreicht</string>
+	<string name="limitnotreached_help">Diese Regel trifft nur zu, wenn der Plan sein Limit noch nicht erreicht hat.</string>
+	<string name="iswebsms_">Ist WebSMS</string>
+	<string name="iswebsms_help">Nachricht wurde mit WebSMS gesendet.</string>
+	<string name="iswebsms_connector_">Ist WebSMS Connector</string>
+	<string name="iswebsms_connector_help">Wurde mit bestimmten WebSMS Connector gesendet. Für beliebigen leer lassen.</string>
+	<string name="issipcall_">Ist SIP-Anruf</string>
+	<string name="issipcall_help">Anruf über SIP. Zur Zeit wird sipdroid >1.6.1 unterstützt.</string>
+	<string name="strip_seconds_">Ersten Sekunden nicht abrechnen</string>
+	<string name="strip_seconds_help">Rechne die ersten x Sekunden eines Anrufes nicht ab.</string>
+	<string name="what_">Typ</string>
+	<string name="what_help">Wähle den Typ der Logs aus.</string>
+	<string name="direction_">Richtung</string>
+	<string name="direction_help">Wähle eine Richtung die die Logs haben müssen.</string>
+	<string name="roamed_">Roaming</string>
+	<string name="roamed_help">Wähle, ob die Logs im roaming liegen müssen.</string>
+	<string name="remote_hint">Andere Nummer</string>
+	<string name="no_matter_">Egal</string>
+	<string name="yes">Yes</string>
+	<string name="no">No</string>
+	<string name="none">Keine</string>
+	<string name="value">Wert</string>
+	<string name="empty_groups_">Bitte drücke "hinzufügen" um eine Gruppe hinzuzufügen.</string>
+	<string name="empty_group_">Bitte drücke "hinzufügen" um einen Eintrag hinzuzufügen.</string>
+	<string name="export_progr">Exportiere Daten ...</string>
+	<string name="import_progr">Importiere Daten ...</string>
+	<string name="export_rules_">Exportiere Regelwerk</string>
+	<string name="export_rules_hint">Exportiere Regelwerk als Mail.</string>
+	<string name="export_rules_descr">Beschreibung</string>
+	<string name="import_rules_">Importiere Regelwerk</string>
+	<string name="import_rules_hint">Importiere Regelwerk.</string>
+	<string name="import_rules_empty">Es sind keine Kontingente/Regeln definiert. Klicke diesen Text an, um standard Regelwerke zu importieren.\n\nOder füge manuell Kontingente und Regeln in den Einstellungen hinzu.</string>
+	<string name="err_export_write">Fehler beim Schreiben der Exportdatei</string>
+	<string name="err_export_read">Fehler beim Lesen der Exportdatei</string>
+	<string name="alerts_">Alarme</string>
+	<string name="alerts_hint">Stelle Alarme basierend auf der Nutzung der Kontingente ein.</string>
+	<string name="alerts_title">Call Meter 3G Alarm</string>
+	<string name="alerts_message" formatted="false">Kontingent %s hat %d%% Benutzung erreicht!</string>
+	<string name="numbergroup_help" formatted="false">Füge hier die Nummern hinzu, die diese Regel treffen muss.\n\nPlatzhalter (\"%\") sind and beiden Enden der Nummer erlaubt.\nZ.B. trifft %34 1234, 12% trifft 1234 und %23% trifft 12345.</string>
+	<string name="alerts_80_">Alarm bei 80%</string>
+	<string name="alerts_80_hint">Alarmiere mich, wenn ein Kontingent 80% des Limits erreicht hat.</string>
+	<string name="alerts_100_">Alarm bei 100%</string>
+	<string name="alerts_100_hint">Alarmiere mich, wenn ein Kontingent 100% des Limits erreicht hat.</string>
+	<string name="widget_config_">Widget Einstellungen</string>
+	<string-array name="weekdays_all">
+		<item>Jeden Tag</item>
+		<item>Montag</item>
+		<item>Dienstag</item>
+		<item>Mittwoch</item>
+		<item>Donnerstag</item>
+		<item>Freitag</item>
+		<item>Samstag</item>
+		<item>Sonntag</item>
+		<item>Montag - Freitag</item>
+	</string-array>
+	<string-array name="hours_all">
+		<item>Den ganzen Tag</item>
+		<item>0:00 - 0:59</item>
+		<item>1:00 - 1:59</item>
+		<item>2:00 - 2:59</item>
+		<item>3:00 - 3:59</item>
+		<item>4:00 - 4:59</item>
+		<item>5:00 - 5:59</item>
+		<item>6:00 - 6:59</item>
+		<item>7:00 - 7:59</item>
+		<item>8:00 - 8:59</item>
+		<item>9:00 - 9:59</item>
+		<item>10:00 - 10:59</item>
+		<item>11:00 - 11:59</item>
+		<item>12:00 - 12:59</item>
+		<item>13:00 - 13:59</item>
+		<item>14:00 - 14:59</item>
+		<item>15:00 - 15:59</item>
+		<item>16:00 - 16:59</item>
+		<item>17:00 - 17:59</item>
+		<item>18:00 - 18:59</item>
+		<item>19:00 - 19:59</item>
+		<item>20:00 - 20:59</item>
+		<item>21:00 - 21:59</item>
+		<item>22:00 - 22:59</item>
+		<item>23:00 - 23:59</item>
+	</string-array>
 	<string-array name="themes">
 		<item>Dunkel</item>
 		<item>Hell</item>
 	</string-array>
-	<string-array name="textsize">
-		<item>Klein</item>
-		<item>Mittel</item>
+	<string-array name="dialog_edit_plan">
+		<item>Kontingent bearbeiten</item>
+	</string-array>
+	<string-array name="dialog_delete">
+		<item>Löschen</item>
+	</string-array>
+	<string-array name="dialog_edit_delete">
+		<item>Bearbeiten</item>
+		<item>Löschen</item>
+	</string-array>
+	<string-array name="plans_type">
+		<item>Titel</item>
+		<item>Abstandhalter</item>
+		<item>Abrechnungszeitraum</item>
+		<item>Mixed</item>
+		<item>Anrufe</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Daten</item>
+	</string-array>
+	<string-array name="rules_type">
+		<item>Anrufe</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Daten</item>
+	</string-array>
+	<string-array name="limit_type">
+		<item>Unbegrenzt</item>
+		<item>Einheiten</item>
+		<item>Kosten</item>
+	</string-array>
+	<string-array name="billperiod">
+		<item>Ein Tag</item>
+		<item>Eine Woche</item>
+		<item>30 Tage</item>
+		<item>60 Tage</item>
+		<item>90 Tage</item>
+		<item>Ein Monat</item>
+		<item>Zwei Monate</item>
+		<item>Drei Monate</item>
+		<item>Vier Monate</item>
+		<item>Fünf Monate</item>
+		<item>Sechs Monate</item>
+		<item>Ein Jahr</item>
+		<item>Unendlich</item>
+	</string-array>
+	<string-array name="billmodes">
+		<item>1/1</item>
+		<item>6/6</item>
+		<item>10/10</item>
+		<item>30/1</item>
+		<item>30/6</item>
+		<item>30/10</item>
+		<item>30/30</item>
+		<item>30/60</item>
+		<item>45/1</item>
+		<item>60/0</item>
+		<item>60/1</item>
+		<item>60/6</item>
+		<item>60/10</item>
+		<item>60/30</item>
+		<item>60/60</item>
+		<item>Benutzerdefiniert</item>
+	</string-array>
+	<string-array name="direction_calls">
+		<item>Ein</item>
+		<item>Aus</item>
+	</string-array>
+	<string-array name="direction_sms">
+		<item>Ein</item>
+		<item>Aus</item>
+	</string-array>
+	<string-array name="direction_mms">
+		<item>Ein</item>
+		<item>Aus</item>
+	</string-array>
+	<string-array name="direction_data">
+		<item>Ein</item>
+		<item>Aus</item>
+	</string-array>
+	<string-array name="currency_formats">
+		<item>Standard</item>
+		<item>€1.00</item>
+		<item>€1000</item>
+		<item>1.00€</item>
+		<item>1000€</item>
+	</string-array>
+	<string-array name="date_formats">
+		<item>Standard</item>
+		<item>MM/DD/YY</item>
+		<item>DD/MM/YYYY</item>
+		<item>DD.MM.YYYY</item>
+	</string-array>
+	<string-array name="update_interval">
+		<item>5 Minuten</item>
+		<item>10 Minuten</item>
+		<item>15 Minuten</item>
+		<item>30 Minuten</item>
+		<item>Eine Stunde</item>
+		<item>Zwei Stunden</item>
+		<item>Nur manuell</item>
+	</string-array>
+	<string-array name="notes_from_dev">
+		<item>Dez. 2010 Denk daran: Killen dieser App kann die Daten Statistiken verfälschen.</item>
+		<item>Dez. 2010 Denk daran: Vergangene Daten Statistiken von vor der Installation können nicht geladen werden!</item>
 	</string-array>
 </resources>

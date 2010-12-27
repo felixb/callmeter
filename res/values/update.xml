@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Felix Bechstein
+		Copyright (C) 2009-2010 Felix Bechstein
 	-->
 	<!--
-		This file is part of Call Meter NG. This program is free software; you
+		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
@@ -19,16 +19,25 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>v2.3.14: Add Slovak translation, fix czech tanslation</item>
-		<item>v2.3.13: Add chinese translation, set custom locale</item>
-		<item>v2.3.12: Add turkish translation, support for Samsung Galaxy GT-I5500</item>
-		<item>v2.3.9: Support any other device, fix some FC</item>
-		<item>v2.3.8: Support Samsung Galxy S GT-I9000</item>
-		<item>v2.3.7: Add italian and norwegian translation</item>
-		<item>v2.3.5: New icon, new billing modes 6/6,30/60 and 60/6, fix some bugs</item>
-		<item>v2.3: Fix counting incoming calls, change separator, show contacts name in excluded numbers, allow *555* wildcards, allow to exclude numbers for sms, allow to set separate billing period for data plan, allow to reset traffic stats, add cost to traffic stats, show progressbar for billing cycle, fix some more bugs</item>
-		<item>v2.2: Allow to bill incoming calls/messages across two plans, minor changes to gui</item>
-		<item>v2.1: Allow to set cost for calls/messages, allow to bill incoming traffic only, set excluded numbers from contacts</item>
-		<item>v2.0: Run callmeter every 30min in background to save logs, add 60/30 billing mode, allow to bill inbound calls/messages, change donator check</item>
+		<item>HEAD: set custom delimiter, add mon-fri for hour groups</item>
+		<item>v2.9.5: set date+time for start of billing period, improve data logging, match (inter-)national numbers (enter your prefix in preferences), show today\'s stats, allow multi bill period merger, show call info after hanging up</item>
+		<item>v2.9.4: hide progress bars, add bill periods: 4,5,6,12 month, strip leading zeros, hide no cost plans</item>
+		<item>v2.9.3: Integrate with sipdroid, default update interval: 60m, fix MMS counter, fix mixed+merged limits, progressbar color, add chinese translation</item>
+		<item>v2.9.2: Delete old logs (default: 90d), multiselection on groups, fix NPE</item>
+		<item>v2.9.1: Fix cost for long sms, fix cost when reaching limit, set name/shortname for widget, show cost in widget, show billperiod in widget, settable sizes, don\'t bill first x seconds, merge plans, hide empty plans</item>
+		<item>v2.8.10: Integration with WebSMS, set custom locale</item>
+		<item>v2.8.9: clean groups in rules, fix numbergroups, fix adding logs, fix import from file, reduce collected traffic data</item>
+		<item>v2.8.8: fix for GT-I5500, fix cost for data, decimal limit, add turkish translation</item>
+		<item>v2.8.7: Fix length of billing period</item>
+		<item>v2.8.6: Fix some FCs, hide total stats, prepaid plans, set textsize, manipulate logs by hand</item>
+		<item>v2.8.5: Fix default displaying values for pans/rules</item>
+		<item>v2.8.4: Fix some FCs, fix number groups with more than one entry, readd druch, spanish and portuguese translations</item>
+		<item>v2.8.3: Fix exclude numbers</item>
+		<item>v2.8.2: Simplify rules (You must reset them!), fix export, fix NPEs, set update interval, set beginning of record</item>
+		<item>v2.8.1: Add default rule sets, reduce complexity for simple setups, some changes to gui, force internal install</item>
+		<item>v2.7.3: Fix uneditable fields, fix FC for empty bill modes, allow to hide title bar, readd polish+russion translation</item>
+		<item>v2.7.2: History, alert, widget, total expense, ... </item>
+		<item>v2.7.1: Custom date format, currency format/symbol; speedup boot/shutdown process, changing color of limit bars, new screens for plans/rules</item>
+		<item>v2.7.0: Initial alpha of Call Meter 3G\n\tMajor architecture refactoring</item>
 	</string-array>
 </resources>

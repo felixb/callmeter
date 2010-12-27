@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2009-2010 Felix Bechstein
+	-->
+	<!--
+		This file is part of Call Meter 3G. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<RelativeLayout android:id="@+id/widget"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:layout_height="match_parent"
+	android:background="@drawable/appwidget_bg" android:clickable="true"
+	android:orientation="vertical">
+	<ImageView android:id="@+id/appwidget_bg_top_bg"
+		android:layout_width="fill_parent" android:layout_height="5dip"
+		android:src="@drawable/appwidget_bg_top_progress_background"
+		android:scaleType="fitXY" android:layout_centerHorizontal="true"
+		android:layout_alignParentTop="true" />
+	<ProgressBar android:id="@+id/appwidget_bg_top_progress"
+		android:layout_width="fill_parent" android:layout_height="5dip"
+		style="?android:attr/progressBarStyleHorizontal"
+		android:progressDrawable="@drawable/appwidget_bg_top_progressbar_yellow"
+		android:layout_centerHorizontal="true" android:layout_alignParentTop="true" />
+	<ImageView android:id="@+id/appwidget_bg_bottom_bg"
+		android:layout_width="fill_parent" android:layout_height="8dip"
+		android:src="@drawable/appwidget_bg_bottom_progress_background"
+		android:scaleType="fitXY" android:layout_centerHorizontal="true"
+		android:layout_alignParentBottom="true" />
+	<ProgressBar android:id="@+id/appwidget_bg_bottom_progress_green"
+		android:layout_width="fill_parent" android:layout_height="8dip"
+		style="?android:attr/progressBarStyleHorizontal"
+		android:progressDrawable="@drawable/appwidget_bg_bottom_progressbar_green"
+		android:layout_centerHorizontal="true"
+		android:layout_alignParentBottom="true" />
+	<ProgressBar android:id="@+id/appwidget_bg_bottom_progress_yellow"
+		android:layout_width="fill_parent" android:layout_height="8dip"
+		style="?android:attr/progressBarStyleHorizontal"
+		android:progressDrawable="@drawable/appwidget_bg_bottom_progressbar_yellow"
+		android:layout_centerHorizontal="true"
+		android:layout_alignParentBottom="true" />
+	<ProgressBar android:id="@+id/appwidget_bg_bottom_progress_red"
+		android:layout_width="fill_parent" android:layout_height="8dip"
+		style="?android:attr/progressBarStyleHorizontal"
+		android:progressDrawable="@drawable/appwidget_bg_bottom_progressbar_red"
+		android:layout_centerHorizontal="true"
+		android:layout_alignParentBottom="true" />
+	<TextView android:id="@+id/plan" android:text="@+id/plan"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:paddingTop="5dip" android:textColor="#FFFFFFFF"
+		android:textStyle="bold" android:textSize="10dip" android:gravity="center_horizontal"
+		android:layout_centerHorizontal="true" android:layout_alignParentTop="true" />
+	<TextView android:id="@+id/stats" android:text="@+id/stats"
+		android:layout_width="wrap_content" android:layout_height="fill_parent"
+		android:textColor="#FFFFFFFF" android:textSize="10dip"
+		android:gravity="center" android:layout_centerHorizontal="true"
+		android:layout_below="@id/plan" android:layout_above="@id/appwidget_bg_bottom_progress_green" />
+</RelativeLayout>

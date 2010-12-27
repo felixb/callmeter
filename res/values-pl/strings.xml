@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Felix Bechstein, Łukasz Malicki, Dariusz Więckiewicz
+		Copyright (C) 2010 Felix Bechstein, Dariusz Więckiewicz, Łukasz Malicki
 	-->
 	<!--
-		This file is part of Call Meter NG. This program is free software; you
+		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
@@ -47,19 +47,28 @@
 	<string name="accept_">Akceptuję postanowienia</string>
 	<string name="accept_missing">Zaakceptuj postanowienia przed wysłaniem danych</string>
 	<string name="terms">Aplikacja wyśle twój identyfikator datku wraz z md5-hash twojego numeru IMEI na serwer (http://ub0r.de/donation/). Dane te są niezbędne do weryfikacji twojego datku.\nNie zostaną one nigdy udostępnione osobom trzecim oraz będą wykorzystane tylko do weryfikacji datku.\n\nJeżeli zmienisz telefon, twój kod usuwający reklamy przestanie działać. Powiadom mnie o tym, a otrzymasz nowy.</string>
-<!--	<string name="notify_">Forgot to remove the ads?</string> -->
-<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
+	<string name="notify_">Zapomniałeś usunąć reklamy?</string>
+	<string name="notify_text">Aby usunąć reklamy ostatecznie, musisz wgrać kod <b>noads</b>. Kliknij aby rozpocząć.</string>
 	<string name="about0_">Obserwuj swoje połączenia, wiadomości oraz pakiet rozmów!</string>
 	<string name="about0">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych..</string>
 	<string name="about1">Format wyjściowy wykorzystuje /czas, całość wykorzystanego rachunku /czas, całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>
 	<string name="about2">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
-	<string name="about3">Możesz podzielić swoje połączenia lub sms na dwa plany. Oba plany mogą być ustawione na całodobowe darmowe połączenia lub w określonych godzinach.</string>
-	<string name="about4">Wiadomości mogą być brane pod uwagę w Twoim planie. Np. zliczać każdy wysłany sms jako 15s. połączenie.</string>
-	<string name="about5">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
-	<string name="about6_">Czego CallMeter NIE robi:</string>
-	<string name="about6">Nie da się odróżnić połączeń SIP od realnych połączeń lub WebSMS od SMS wysłanych \"z telefonu\". Android \'s bezproblemową integrację tych. Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości żeby je odróżnić.</string>
+	<string name="about3">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
+<!--	<string name="note_cm3">Data stats can not be fetched from before last boot!\nKilling this app may result in wrong data stats.</string> -->
 	<string name="send_">Wyślij</string>
+	<string name="add_">Dodaj</string>
+	<string name="add_log">Dodaj wpis (log)</string>
+	<string name="length_hint_call">Długość w sekundach</string>
+	<string name="length_hint_data">Długość w kB</string>
 	<string name="settings">Ustawienia</string>
+	<string name="update_interval_">Częstotliwość aktualizacji</string>
+	<string name="update_interval_hint">Krótszy okres skraca czas pracy na baterii</string>
+	<string name="date_begin_">Początek zapisów</string>
+	<string name="date_begin_hint">Ignoruj logi przed tą datą</string>
+<!--	<string name="delete_old_logs_">Delete logs older than</string> -->
+<!--	<string name="delete_old_logs_help">Delete logs older than x days from internal database. Leave empty to disable.</string> -->
+	<string name="common_prefs_">Ustawienia ogólne</string>
+	<string name="edit_">Edytuj</string>
 	<string name="about_">O programie</string>
 	<string name="about_hint">Informacje o programie i twórcy</string>
 	<string name="faq_hint">Kilka informacji, jak skonfigurować aplikację</string>
@@ -67,103 +76,338 @@
 	<string name="feedback_hint">Zgłoś problemy, sugestię...</string>
 	<string name="twitter_hint">Obserwuj mojego twittera.\nOtrzymasz informacje o aktualizacjach, itp.</string>
 	<string name="more_">Więcej aplikacji...</string>
+	<string name="billing_">Rachunek</string>
 	<string name="billday_">Pierwszy dzień rachunku</string>
 	<string name="billmode_">Rodzaj cyklu</string>
-	<string name="billmode_hint">Długość pierwszego/kolejnych cyklów płatności</string>
 	<string name="billdate_">Pierwszy dzień rachunku:</string>
-	<string name="smsperiod_">Ten sam okres dla SMS</string>
-	<string name="smsperiod_hint">Okres rozliczeniowy wiadomości SMS taki sam jak dla Połączeń</string>
-	<string name="smsbillday_">Pierwszy dzień rachunku SMS</string>
-	<string name="dataperiod_">Ten sam przedział dla danych</string>
-	<string name="dataperiod_hint">Okres rozliczeniowy danych taki sam jak dla Połączeń</string>
-	<string name="databillday_">Pierwszy dzień rachunku za dane</string>
 	<string name="appearance_">Wygląd</string>
+	<string name="advanced_preferences_">Ustawienia zaawansowane</string>
+	<string name="advanced_preferences_hint">Zaznacz, aby uaktywnić dodatkowe ustawienia. Głównie dla zaawansowanych użytkowników.</string>
 	<string name="theme_">Styl</string>
 	<string name="textsize_">Wielkość czcionki</string>
-	<string name="advanced_">Zaawansowane</string>
-	<string name="exclude_people_">Wykluczaj numery</string>
-	<string name="exclude_people_hint">Nie wlicza numerów do statystyk</string>
-	<string name="exclude_people_add">Dodaj numer</string>
-	<string name="exclude_people_edit">Edytuj</string>
-	<string name="exclude_people_delete">Usuń</string>
-	<string name="exclude_people_to_plan1_">Wykluczone numery do planu 1</string>
-	<string name="exclude_people_to_plan2_">Wykluczone numery do planu 2</string>
-	<string name="exclude_people_calls_">Włącz dla Połączeń</string>
-	<string name="exclude_people_calls_to_plan1_hint">Wliczaj połączenia do/od wykluczonych numerów w planie 1</string>
-	<string name="exclude_people_calls_to_plan2_hint">Wliczaj połączenia do/od wykluczonych numerów w planie 2</string>
-	<string name="exclude_people_sms_">Włącz dla SMS</string>
-	<string name="exclude_people_sms_to_plan1_hint">Wliczaj wiadomości od/do wykluczonych numerów w planie 1</string>
-	<string name="exclude_people_sms_to_plan2_hint">Wliczaj wiadomości od/do wykluczonych numerów w planie 2</string>
+	<string name="textsize_hint">Rozmiar tekstu w pikselach; zostaw puste dla domyślnego</string>
+<!--	<string name="textsize_title_">Title\'s text size</string> -->
+<!--	<string name="textsize_title_hint">Text size for titles in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_bigtitle_">Big title\'s text size</string> -->
+<!--	<string name="textsize_bigtitle_hint">Text size for big titles in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_spacer_">Spacer\'s size</string> -->
+<!--	<string name="textsize_spacer_hint">Size for spacers in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_pbar_">Progress bar\'s size</string> -->
+<!--	<string name="textsize_pbar_hint">Size for progress bars in pixels; leave empty for default</string> -->
+<!--	<string name="textsize_pbarbp_">Bill period\'s progress bar\'s size</string> -->
+<!--	<string name="textsize_pbarbp_hint">Size for bill period\'s progress bars in pixels; leave empty for default</string> -->
+<!--	<string name="show_today_">Show today</string> -->
+<!--	<string name="show_today_hint">Show today stats</string> -->
+	<string name="show_total_">Pokaż ogółem</string>
+	<string name="show_total_hint">Pokaż ogół statystyk, wyłącz aby wyświetlić tylko aktualne</string>
+	<string name="show_time_">Przełącz do daty</string>
+	<string name="show_titlebar_">Pokazuj pasek tytułowy</string>
+	<string name="show_titlebar_hint">Pokazuj pasek tytułowy w oknie głównym. Bez paska tytułowego nie ma możliwości zobaczenia aktywności w tle.</string>
+	<string name="show_hours_">Pokaż godziny</string>
+	<string name="show_hours_hint">Pokaż czas w sekundach, minutach, godzinach i dniach.\nJeżeli niezaznaczone, tylko sekundy i godziny będą pokazane.</string>
+<!--	<string name="show_help_">Show help</string> -->
+<!--	<string name="show_help_hint">Show help in Plans/Rules setup view.</string> -->
+<!--	<string name="show_shortname_">Show short name instead of long name</string> -->
+<!--	<string name="show_cost_">Show cost</string> -->
+<!--	<string name="show_billperiod_">Show progress of billing period</string> -->
+<!--	<string name="show_calllength_">Show info after hanging up</string> -->
+<!--	<string name="show_calllength_hint">Show length/cost of a call after hanging up.</string> -->
+<!--	<string name="hide_zero_">Hide empty plans</string> -->
+<!--	<string name="hide_zero_hint">Hide plans containing no item.</string> -->
+<!--	<string name="hide_nocost_">Hide no cost plans</string> -->
+<!--	<string name="hide_nocost_hint">Hide plans with no cost.</string> -->
+<!--	<string name="hide_progressbars_">Hide progress bars</string> -->
+<!--	<string name="hide_progressbars_hint">Hide progress bars in main view.</string> -->
+	<string name="custom_currency_symbol_">Symbol waluty</string>
+	<string name="custom_currency_symbol_hint">Wprowadź niestandardowy symbol waluty, jeżeli potrzeba.</string>
+	<string name="custom_currency_format_">Format waluty</string>
+	<string name="custom_currency_format_hint">Wybierz niestandardowy format waluty</string>
+	<string name="custom_date_format_">Format daty</string>
+	<string name="custom_date_format_hint">Wybierz niestandardowy format daty</string>
+	<string name="logs">Logi</string>
+	<string name="show_logs">Pokaż logi</string>
 	<string name="plans">Plany</string>
-	<string name="plans_split">Rozdziel plany</string>
-	<string name="plans_merge">Połącz plany</string>
-	<string name="plans_split_hint">Podziel rachunek na dwa różne plany taryfowe</string>
-	<string name="plan1">Plan 1</string>
-	<string name="plan2">Plan 2</string>
-	<string name="plan1_hint">Zaznacz godziny by wliczać połączenia/sms w Plan 1. Pozostałe będą w Planie 2</string>
-	<string name="plan_free_">Brak rachunku</string>
-	<string name="plan_freemin_">Darmowe minuty</string>
-	<string name="plan_freesms_">Darmowe SMS</string>
-	<string name="free_hint">Koszt nie jest uwzględniany na rachunku</string>
-	<string name="freemin_hint">Darmowe minuty w planie taryfowym</string>
-	<string name="freesms_hint">Liczba darmowych SMSów w miesiącu</string>
-	<string name="bill_calls_incoming_">Wliczaj przychodzące</string>
-	<string name="bill_calls_incoming_hint">Wliczaj połączenia przychodzące w rachunek</string>
-	<string name="bill_sms_incoming_">Wliczaj przychodzące</string>
-	<string name="bill_sms_incoming_hint">Wliczaj SMSy przychodzące w rachunek</string>
-	<string name="bill_data_incoming_only_">Wliczaj tylko przychodzący</string>
-	<string name="bill_data_incoming_only_hint">Wliczaj tylko transfer przychodzący</string>
-	<string name="cost_per_call_">Koszt za połączenie</string>
-	<string name="cost_per_call_hint">Wprowadź stawkę za połączenie w złotych (PLN)</string>
-	<string name="cost_per_minute_">Koszt za minutę</string>
-	<string name="cost_per_minute_hint">Wprowadź stawkę za minutę połączenia w złotych (PLN)</string>
-	<string name="cost_per_sms_">Koszt za SMS</string>
-	<string name="cost_per_sms_hint">Wprowadź stawkę za SMS w złotych (PLN)</string>
-	<string name="cost_per_mb_">Koszt za MB</string>
-	<string name="cost_per_mb_hint">Wprowadź stawkę równą 1 MB transferu w złotych (PLN)</string>
-	<string name="merge_sms_calls_">Wliczaj SMS w połączenie</string>
-	<string name="merge_sms_calls_hint">Koszt wiadomości SMS jest częścią kosztu za Połączenie</string>
-	<string name="merge_sms_calls_sec_">Sekunda / SMS</string>
-	<string name="merge_sms_calls_sec_hint">Liczba sekund Połączenia przeliczana na jeden SMS</string>
-	<string name="merge_sms_plan1_">Wliczaj SMS w Plan 1</string>
-	<string name="merge_sms_plan1_hint">Odznacz aby wliczać w Plan 2</string>
-	<string name="data_hint">Transfer danych WLAN nie jest tutaj wliczany!</string>
-	<string name="data_enable_">Pokaż statystyki</string>
-	<string name="data_enable_hint">Dane są zbierane automatycznie. Pierwszy miesiąc może się różnić!</string>
-	<string name="data_each_day">Rachunek za każdy dzień osobno</string>
-	<string name="data_each_day_hint">Okres rozliczeniowy danych rozpoczyna się każdego dnia</string>
-	<string name="data_limit_">Limit</string>
-	<string name="data_limit_hint">Limit danych w planie taryfowym\n(MB/miesiąc)</string>
-	<string name="monday">Poniedziałek</string>
-	<string name="tuesday">Wtorek</string>
-	<string name="wednesday">Środa</string>
-	<string name="thursday">Czwartek</string>
-	<string name="friday">Piątek</string>
-	<string name="saturday">Sobota</string>
-	<string name="sunday">Niedziela</string>
+	<string name="plans_hint">Pokaż twoje plany dla wszystkich rachunków</string>
+	<string name="plans_new">Nowy plan</string>
+<!--	<string name="rule_">Rule</string> -->
+	<string name="rules">Reguły</string>
+	<string name="rules_hint">Wprowadź regułę dla twojego rachunku</string>
+	<string name="rules_new">Nowa reguła</string>
+<!--	<string name="length_">Length</string> -->
+<!--	<string name="remote_">Remote number</string> -->
+	<string name="numbers">Numery</string>
+	<string name="numbergroup_">Wliczaj numery</string>
+	<string name="numbergroup_help" formatted="false">Dodaj godziny które będą zastosowane do reguły.\n\nWzorce (\"%\") są dopuszczalne na obach końcach numeru.\nNp.: %34 będzie pasować do 1234, 12% do 1234 i %23% do 12345.</string>
+	<string name="exnumbergroup_">Wykluczaj numery</string>
+	<string name="exnumbergroup_help">Dodaj godziny które będą zastosowane do reguły.\nPatrz powyżej.</string>
+	<string name="new_numbergroup">Nowa grupa numerów</string>
+	<string name="add_number">Dodaj numer</string>
+	<string name="hours">Godziny</string>
+	<string name="hourgroup_">Wliczaj godziny</string>
+	<string name="hourgroup_help">Dodaj godziny które będą zastosowane do reguły.</string>
+	<string name="exhourgroup_">Wykluczaj godziny</string>
+	<string name="exhourgroup_help">Dodaj godziny które będą zastosowane do reguły.</string>
+	<string name="new_hourgroup">Nowa grupa godzin</string>
+	<string name="add_hour">Dodaj godzinę</string>
 	<string name="calls">Połączenia</string>
 	<string name="sms">SMS</string>
+	<string name="mms">MMS</string>
 	<string name="data">Dane</string>
-	<string name="calls_sms">Połączenia/SMS</string>
-	<string name="in_calls">Przychodzące%s:</string>
-	<string name="in_sms">Przychodzące%s:</string>
-	<string name="in_data">Przychodzące:</string>
-	<string name="out_calls">Wychodzące%s:</string>
-	<string name="out_sms">Wychodzące%s:</string>
-	<string name="out_data">Wychodzące:</string>
-	<string name="plan_name1_">Plan 1: nazwa</string>
-	<string name="plan_name2_">Plan 2: nazwa</string>
-	<string name="plan_name_hint">Własna nazwa</string>
+	<string name="prepaid_">Plan Prepaid</string>
+	<string name="prepaid_hint">Podstawowe rozliczenie prepaid. Koszt jest odejmowany od salda jak wykonasz połączenie itp.</string>
+	<string name="balance_">Stan</string>
+	<string name="balance_help">Stan twojego konta względem wskazanej daty</string>
+<!--	<string name="strip_leading_zeros_">Strip leading zeros</string> -->
+<!--	<string name="strip_leading_zeros_hint">Strip leading zeros when comparing numbers.</string> -->
+<!--	<string name="number_prefix_">International prefix</string> -->
+<!--	<string name="number_prefix_hint">Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..</string> -->
 	<string name="reset_data_">Resetuj statystyki</string>
 	<string name="reset_data_hint">Resetowanie danych połączeń/smsów spowoduje ponowne obliczenie statystyk.\n\nUsunięcie statystyk ruchu jest nieodwracalne. Zresetowane zostają wyłącznie statystyki z przed uruchomienia urządzenia.</string>
 	<string name="reset_data_data_">Dane również</string>
+	<string name="reset_data_progr1">Przeliczenie statystyk ...\n\n(To może trochę potrwać!)</string>
+	<string name="reset_data_progr2">Przeliczenie statystyk ...</string>
 	<string name="contacts_">Kontakty</string>
+	<string name="clear_">Wyczyść</string>
+	<string name="help_">Pomoc</string>
+	<string name="new_">Nowa</string>
+	<string name="edit_selected_">Edytuj zaznaczone</string>
+	<string name="edit_groups_">Edytuj grupy</string>
+	<string name="name_">Nazwa</string>
+	<string name="name_help">Wprowadź nazwę</string>
+	<string name="shortname_">Skrócona nazwa</string>
+	<string name="shortname_help">Wprowadź nazwę skróconą. Będzie ona wyświetlona w widoku kompaktowym.</string>
+	<string name="type_">Typ</string>
+	<string name="type_help">Wybierz typ.\n\"Nagłówek\" wyświetla tytuł w oknie głównym.\n\"Odstęp\" wstawia odstęp pomiędzy elementami.\n\"Okres rozliczeniowy\" wyświetla informacje o długości okresu. Dla większości użytkowników potrzebny jest tylko jeden.\nA \"Mieszane\" pokazuje połączenia i wiadomości razem. Połączy rozliczenia wszystkich elementów.\nA \"Połączenia\" wyświetla tylko połączenia. \"SMS\" i \"MMS\" wyświetla informacje o wiadomościach.\nA \"Dane\" przedstawia informacje o transferze danych.</string>
+	<string name="limit_type_">Typ limitów</string>
+	<string name="limit_type_help">Wprowadź typ twojego limitu.\nLimit \"jednostek\" ograniczy twój plan bazując na minutach, wiadomościach, ...\nLimit \"kosztu\" ograniczy twój plan bazując na koszcie przedstawionym przez pozycje rozliczone w tym planie.</string>
+	<string name="limit_">Limit</string>
+	<string name="limit_help">Ustaw limit twojego planu.\n\nTyp \"jednostek\" musi być ustawiony w minutach (połączeniach), wiadomościach (sms/mms), megabajtach (dane, 1024kB) lub jednostkach (Mieszane).\n\nTyp \"kosztu\" musi być ustawiony w twojej walucie (np.: zł).</string>
+	<string name="billmode_help">Wprowadź typ rozliczenia połączeń.\nPierwsza część to minimalna długość naliczana przez operatora. Każde połączenie o krótszej długości jest zaokrąglane do tego.\nDruga część to minimalna długość następujących bloków sekund.\nPrzeczytaj FAQ dla szczegółowych informacji.</string>
+	<string name="billday_help">Ustaw tutaj pierwszy dzień twojego rachunku - okresu rozliczeniowego.</string>
+	<string name="billperiodid_">Okres rozliczeniowy</string>
+	<string name="billperiodid_help">Wybierz twój okres rozliczeniowy.\nMożesz potrzebować stworzyć jeden dodatkowy plan.</string>
+	<string name="billperiod_">Długość okresu rozliczeniowego</string>
+	<string name="billperiod_help">Wprowadź długość twojego okresu rozliczeniowego</string>
+	<string name="cost_per_item_">Koszt za pozycję</string>
+	<string name="cost_per_item_help">Wprowadź koszt naliczony dla pojedynczej pozycji (np.: dla połączenia lub wiadomości) po wyczerpaniu limitu.</string>
+	<string name="cost_per_item_in_limit_">Koszt za pozycję w limicie</string>
+	<string name="cost_per_item_in_limit_help">Wprowadź koszt naliczony dla pojedynczej pozycji (np.: dla połączenia lub wiadomości) przed wyczerpaniem limitu.</string>
+	<string name="cost_per_amount_">Koszt za długość</string>
+	<string name="cost_per_amount_help1">Wprowadź koszt naliczany w zależności od długości pojedynczej pozycji (np.: dla 1kB danych) po wyczerpaniu limitu.</string>
+	<string name="cost_per_amount_help2">Wprowadź koszt naliczany w zależności od długości pojedynczej pozycji (np.: dla 1min połączenia) po wyczerpaniu limitu.\nPierwsze pole odpowiada za koszt dla pierwszych kilku sekund połączenia, następne - dla następujących sekund (oba są ustawione w zł/minutę; zobacz tryb rozliczeń).\nJeśli masz wątpliwość, wprowadź obie wartości odpowiadające wartości za minutę.</string>
+	<string name="cost_per_amount_in_limit_">Koszt za długość w limicie</string>
+	<string name="cost_per_amount_in_limit_help1">Wprowadź koszt naliczany w zależności od długości pojedynczej pozycji (np.: dla 1kB danych) przed wyczerpaniem limitu.</string>
+	<string name="cost_per_amount_in_limit_help2">Wprowadź koszt naliczany w zależności od długości pojedynczej pozycji (np.: dla 1min połączenia, 1kB danych) przed wyczerpaniem limitu.\nPierwsze pole odpowiada za koszt dla pierwszych kilku sekund połączenia, następne - dla następujących sekund (oba są ustawione w zł/minutę; zobacz tryb rozliczeń).\nJeśli masz wątpliwość, wprowadź obie wartości odpowiadające wartości za minutę.</string>
+	<string name="cost_per_plan_">Koszt za Plan</string>
+	<string name="cost_per_plan_help">Wprowadź koszt planu dla jednego okresu rozliczeniowego.</string>
+	<string name="mixed_units_sms_">Jednostki za SMS</string>
+	<string name="mixed_units_sms_help">Wprowadź liczbę jednostek naliczonych za jednego SMSa</string>
+	<string name="mixed_units_mms_">Jednostki za MMS</string>
+	<string name="mixed_units_mms_help">Wprowadź liczbę jednostek naliczonych za jednego MMSa</string>
+	<string name="mixed_units_call_">Jednostek za połączenie</string>
+	<string name="mixed_units_call_help">Wprowadź liczbę jednostek naliczonych za jedną minutę połączenia.\nBill mode is taken into account here.</string>
+<!--	<string name="merge_plans_">Merge plans</string> -->
+<!--	<string name="merge_plans_help">Merge other plans into this one and bill them here (too).</string> -->
+<!--	<string name="units_cost">$</string> -->
+<!--	<string name="units_num_msg"># Messages</string> -->
+<!--	<string name="units_minutes">Minutes</string> -->
+<!--	<string name="units_mbyte">MBytes</string> -->
+<!--	<string name="units_units">Units</string> -->
+<!--	<string name="units_units_per_minute">Units/Minute</string> -->
+<!--	<string name="units_units_per_message">Units/Message</string> -->
+<!--	<string name="units_cost_per_call">$/Call</string> -->
+<!--	<string name="units_cost_per_minute">$/Minute</string> -->
+<!--	<string name="units_cost_per_message">$/Message</string> -->
+<!--	<string name="units_cost_per_mbyte">$/MByte</string> -->
+<!--	<string name="units_cost_per_unit">$/Unit</string> -->
+	<string name="plan_">Plan</string>
+	<string name="plan_help">Wybierz plan do którego reguła będzie pasować</string>
+	<string name="limitnotreached_">Limit nie osiągnięty</string>
+	<string name="limitnotreached_help">Dopasuj tylko, jeżeli plan docelowy nie osiągnął jeszcze limitu.</string>
+<!--	<string name="iswebsms_">Is WebSMS</string> -->
+<!--	<string name="iswebsms_help">Message sent with WebSMS.</string> -->
+<!--	<string name="iswebsms_connector_">Is WebSMS Connector</string> -->
+<!--	<string name="iswebsms_connector_help">Sent with specific WebSMS Connector, leave empty to match any.</string> -->
+<!--	<string name="issipcall_">Is SIP call</string> -->
+<!--	<string name="issipcall_help">Call made via SIP. Currently sipdroid >1.6.1 is supported.</string> -->
+<!--	<string name="strip_seconds_">Do not bill first seconds</string> -->
+<!--	<string name="strip_seconds_help">Do not bill first x seconds of a call.</string> -->
+	<string name="what_">Typ celu</string>
+	<string name="what_help">Wybierz tutaj typ celu</string>
+	<string name="direction_">Kierunek</string>
+	<string name="direction_help">Wybierz kierunek, który musi być zapisany</string>
+	<string name="roamed_">Roamingowe</string>
+	<string name="roamed_help">Wybierz, czy zapis ma być roamingowany</string>
+	<string name="remote_hint">Zdalny numer</string>
+	<string name="no_matter_">Nie ma znaczenia</string>
+	<string name="yes">Tak</string>
+	<string name="no">Nie</string>
+	<string name="none">Brak</string>
+	<string name="value">Wartość</string>
+<!--	<string name="empty_groups_">Please press "Add" to add a group.</string> -->
+<!--	<string name="empty_group_">Please press "Add" to add an item to this group.</string> -->
+	<string name="export_rules_">Eksportuj ustawienia reguł</string>
+	<string name="export_rules_hint">Eksportuj ustawienia mailem</string>
+	<string name="export_rules_progr">Eksportuję ustawienia reguł ...</string>
+	<string name="export_rules_descr">Opis</string>
+	<string name="import_rules_">Importuj ustawienia reguł</string>
+	<string name="import_rules_hint">Importuj ustawienia reguł</string>
+	<string name="import_rules_progr">Importuję ustawienia reguł</string>
+	<string name="import_rules_empty">Żaden plan/reguła nie jest ustawiona. Kliknij ten tekst aby zimportować domyślny zestaw reguł.\n\nMożesz również dodać plan i reguły ręcznie w ustawieniach.</string>
+	<string name="err_export_write">Błąd podczas zapisu eksportowanego pliku</string>
+	<string name="err_export_read">Błąd podczas odczytu eksportowanego pliku</string>
+	<string name="alerts_">Powiadomienia</string>
+	<string name="alerts_hint">Ustaw powiadomienia bazując na stopniu zużycia planu.</string>
+	<string name="alerts_title">Powiadomienia Call Meter 3G</string>
+	<string name="alerts_message" formatted="false">Plan %s osiągnął %d%% zużycia!</string>
+	<string name="numbergroup_help" formatted="false">Dodaj godziny które będą zastosowane do reguły.\n\nWzorce (\"%\") są dopuszczalne na obach końcach numeru.\nNp.: %34 będzie pasować do 1234, 12% do 1234 i %23% do 12345.</string>
+	<string name="alerts_80_">Powiadom przy 80%</string>
+	<string name="alerts_80_hint">Powiadom, jeżeli plan przekroczy 80% ustalonego limitu</string>
+	<string name="alerts_100_">Powiadom przy 100%</string>
+	<string name="alerts_100_hint">Powiadom, jeżeli plan przekroczy 100% ustalonego limitu</string>
+	<string name="widget_config_">Konfiguracja Widgetu</string>
+	<string-array name="weekdays_all">
+		<item>Cały tydzień</item>
+		<item>Poniedziałek</item>
+		<item>Wtorek</item>
+		<item>Środa</item>
+		<item>Czwartek</item>
+		<item>Piątek</item>
+		<item>Sobota</item>
+		<item>Niedziela</item>
+		<item>Poniedziałek - Piątek</item>
+	</string-array>
+	<string-array name="hours_all">
+		<item>Cały dzień</item>
+		<item>0:00 - 0:59</item>
+		<item>1:00 - 1:59</item>
+		<item>2:00 - 2:59</item>
+		<item>3:00 - 3:59</item>
+		<item>4:00 - 4:59</item>
+		<item>5:00 - 5:59</item>
+		<item>6:00 - 6:59</item>
+		<item>7:00 - 7:59</item>
+		<item>8:00 - 8:59</item>
+		<item>9:00 - 9:59</item>
+		<item>10:00 - 10:59</item>
+		<item>11:00 - 11:59</item>
+		<item>12:00 - 12:59</item>
+		<item>13:00 - 13:59</item>
+		<item>14:00 - 14:59</item>
+		<item>15:00 - 15:59</item>
+		<item>16:00 - 16:59</item>
+		<item>17:00 - 17:59</item>
+		<item>18:00 - 18:59</item>
+		<item>19:00 - 19:59</item>
+		<item>20:00 - 20:59</item>
+		<item>21:00 - 21:59</item>
+		<item>22:00 - 22:59</item>
+		<item>23:00 - 23:59</item>
+	</string-array>
 	<string-array name="themes">
 		<item>Ciemny</item>
 		<item>Jasny</item>
 	</string-array>
-	<string-array name="textsize">
-		<item>Mały</item>
-		<item>Średni</item>
+	<string-array name="dialog_edit_plan">
+		<item>Edytuj plan</item>
+	</string-array>
+	<string-array name="dialog_delete">
+		<item>Usuń</item>
+	</string-array>
+	<string-array name="dialog_edit_delete">
+		<item>Edytuj</item>
+		<item>Usuń</item>
+	</string-array>
+	<string-array name="plans_type">
+		<item>Nagłówek</item>
+		<item>Odstęp</item>
+		<item>Okres rozliczenia</item>
+		<item>Mieszane</item>
+		<item>Połączenia</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Dane</item>
+	</string-array>
+	<string-array name="rules_type">
+		<item>Połączenia</item>
+		<item>SMS</item>
+		<item>MMS</item>
+		<item>Dane</item>
+	</string-array>
+	<string-array name="limit_type">
+		<item>nielimitowany</item>
+		<item>jednostki</item>
+		<item>koszt</item>
+	</string-array>
+	<string-array name="billperiod">
+		<item>Jeden dzień</item>
+		<item>Jeden tydzień</item>
+		<item>30 dni</item>
+		<item>60 dni</item>
+		<item>90 dni</item>
+		<item>Jeden miesiąc</item>
+		<item>Dwa miesiące</item>
+		<item>Trzy miesiące</item>
+		<item>Cztery miesiące</item>
+		<item>Pięć miesięcy</item>
+		<item>Sześć miesięcy</item>
+		<item>Roku</item>
+		<item>Nieskończony</item>
+	</string-array>
+	<string-array name="billmodes">
+		<item>1/1</item>
+		<item>6/6</item>
+		<item>10/10</item>
+		<item>30/1</item>
+		<item>30/6</item>
+		<item>30/10</item>
+		<item>30/30</item>
+		<item>30/60</item>
+		<item>45/1</item>
+		<item>60/0</item>
+		<item>60/1</item>
+		<item>60/6</item>
+		<item>60/10</item>
+		<item>60/30</item>
+		<item>60/60</item>
+		<item>Niestandardowy</item>
+	</string-array>
+	<string-array name="direction_calls">
+		<item>przychodzące</item>
+		<item>wychodzące</item>
+	</string-array>
+	<string-array name="direction_sms">
+		<item>przychodzące</item>
+		<item>wychodzące</item>
+	</string-array>
+	<string-array name="direction_mms">
+		<item>przychodzące</item>
+		<item>wychodzące</item>
+	</string-array>
+	<string-array name="direction_data">
+		<item>przychodzące</item>
+		<item>wychodzące</item>
+	</string-array>
+	<string-array name="currency_formats">
+		<item>Domyślny</item>
+		<item>$1.00</item>
+		<item>$1000</item>
+		<item>1.00$</item>
+		<item>1000$</item>
+	</string-array>
+	<string-array name="date_formats">
+		<item>Domyślny</item>
+		<item>MM.DD.RR</item>
+		<item>DD.MM.RRRR</item>
+		<item>DD.MM.RRRR</item>
+	</string-array>
+	<string-array name="update_interval">
+		<item>5 minut</item>
+		<item>10 minut</item>
+		<item>15 minut</item>
+		<item>30 minut</item>
+		<item>Jedna godzina</item>
+		<item>Dwie godziny</item>
+		<item>Tylko ręcznie</item>
 	</string-array>
 </resources>

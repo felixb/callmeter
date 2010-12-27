@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Felix Bechstein
+		Copyright (C) 2009-2010 Felix Bechstein
 	-->
 	<!--
-		This file is part of Call Meter NG. This program is free software; you
+		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
@@ -18,9 +18,9 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="app_version">2.3.14</string>
-	<string name="app_name">Call Meter NG</string>
-	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt; (Code, German)</string>
+	<string name="app_version">2.9.5 rc5</string>
+	<string name="app_name">Call Meter 3G</string>
+	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt; (Code, German) </string>
 	<string name="author_nc">Cyril Jaquier &lt;netcounter@jaqpot.net&gt; (NetCounter)</string>
 	<string name="author_icon">Christoph Rado &lt;christoph.rado@gmail.com&gt; (Icon)</string>
 	<string name="author_nl">Tom Nuss &lt;tomnuss@gmail.com&gt; (Dutch)</string>
@@ -42,68 +42,25 @@
 	<string name="source">http://github.com/felixb/callmeter</string>
 	<string name="website">http://code.google.com/p/callmeter/</string>
 	<string name="donate_url">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=5832809</string>
-	<string name="see_about">Please consult the about dialog for information on what CallMeter NG does and does not do.</string>
 	<string name="faq_">FAQ</string>
 	<string name="twitter_">twitter</string>
 
-	<string name="hours_0">0:00 - 0:59</string>
-	<string name="hours_1">1:00 - 1:59</string>
-	<string name="hours_2">2:00 - 2:59</string>
-	<string name="hours_3">3:00 - 3:59</string>
-	<string name="hours_4">4:00 - 4:59</string>
-	<string name="hours_5">5:00 - 5:59</string>
-	<string name="hours_6">6:00 - 6:59</string>
-	<string name="hours_7">7:00 - 7:59</string>
-	<string name="hours_8">8:00 - 8:59</string>
-	<string name="hours_9">9:00 - 9:59</string>
-	<string name="hours_10">10:00 - 10:59</string>
-	<string name="hours_11">11:00 - 11:59</string>
-	<string name="hours_12">12:00 - 12:59</string>
-	<string name="hours_13">13:00 - 13:59</string>
-	<string name="hours_14">14:00 - 14:59</string>
-	<string name="hours_15">15:00 - 15:59</string>
-	<string name="hours_16">16:00 - 16:59</string>
-	<string name="hours_17">17:00 - 17:59</string>
-	<string name="hours_18">18:00 - 18:59</string>
-	<string name="hours_19">19:00 - 19:59</string>
-	<string name="hours_20">20:00 - 20:59</string>
-	<string name="hours_21">21:00 - 21:59</string>
-	<string name="hours_22">22:00 - 22:59</string>
-	<string name="hours_23">23:00 - 23:59</string>
+	<string name="url_rulesets">http://www.4.ub0r.de/android/callmeter/rulesets/</string>
 
-	<string-array name="days">
-		<item>1</item>
-		<item>2</item>
-		<item>3</item>
-		<item>4</item>
-		<item>5</item>
-		<item>6</item>
-		<item>7</item>
-		<item>8</item>
-		<item>9</item>
-		<item>10</item>
-		<item>11</item>
-		<item>12</item>
-		<item>13</item>
-		<item>14</item>
-		<item>15</item>
-		<item>16</item>
-		<item>17</item>
-		<item>18</item>
-		<item>19</item>
-		<item>20</item>
-		<item>21</item>
-		<item>22</item>
-		<item>23</item>
-		<item>24</item>
-		<item>25</item>
-		<item>26</item>
-		<item>27</item>
-		<item>28</item>
-		<item>29</item>
-		<item>30</item>
-		<item>31</item>
+	<string-array name="currency_formats_values">
+		<item></item>
+		<item>$%.2f"</item>
+		<item>$%.0f</item>
+		<item>%.2f$</item>
+		<item>%.0f$</item>
 	</string-array>
+	<string-array name="date_formats_values">
+		<item></item>
+		<item>$tD</item>
+		<item>$te/$tm/$tY</item>
+		<item>$te.$tm.$tY</item>
+	</string-array>
+
 	<string-array name="modes_">
 		<item>1/1</item>
 		<item>6/6</item>
@@ -118,27 +75,8 @@
 		<item>60/1</item>
 		<item>60/6</item>
 		<item>60/10</item>
-		<item>60/15</item>
 		<item>60/30</item>
 		<item>60/60</item>
-	</string-array>
-	<string-array name="modes">
-		<item>1_1</item>
-		<item>6_6</item>
-		<item>10_10</item>
-		<item>30_1</item>
-		<item>30_6</item>
-		<item>30_10</item>
-		<item>30_30</item>
-		<item>30_60</item>
-		<item>45_1</item>
-		<item>60_0</item>
-		<item>60_1</item>
-		<item>60_6</item>
-		<item>60_10</item>
-		<item>60_15</item>
-		<item>60_30</item>
-		<item>60_60</item>
 	</string-array>
 
 	<string-array name="themes_values">
@@ -149,7 +87,16 @@
 		<item>small</item>
 		<item>medium</item>
 	</string-array>
-	
+	<string-array name="update_interval_values">
+		<item>5</item>
+		<item>10</item>
+		<item>15</item>
+		<item>30</item>
+		<item>60</item>
+		<item>120</item>
+		<item>0</item>
+	</string-array>
+
 	<string-array name="lang_values">
 		<item></item>
 		<item>en</item>
@@ -190,4 +137,6 @@
 		<item>Turkish</item>
 		<item>Chinese</item>
 	</string-array>
+
+	<dimen name="touchlist_height">30dip</dimen>
 </resources>

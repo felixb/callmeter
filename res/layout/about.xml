@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Felix Bechstein
+		Copyright (C) 2009-2010 Felix Bechstein
 	-->
 	<!--
-		This file is part of Call Meter NG. This program is free software; you
+		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
@@ -36,18 +36,6 @@
 			android:layout_height="wrap_content" android:paddingTop="2dip" />
 		<TextView android:text="@string/about3" android:layout_width="wrap_content"
 			android:layout_height="wrap_content" android:paddingTop="2dip" />
-		<TextView android:text="@string/about4" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:paddingTop="2dip" />
-		<TextView android:text="@string/about5" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:paddingLeft="5dip"
-			android:paddingTop="2dip" />
-
-		<TextView android:text="@string/about6_"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:paddingTop="5dip" />
-		<TextView android:text="@string/about6" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:paddingLeft="5dip"
-			android:paddingTop="2dip" />
 
 		<TextView android:text="@string/license_"
 			android:layout_width="wrap_content" android:layout_height="wrap_content" />
@@ -108,10 +96,10 @@
 		<TextView android:text="@string/author_tr"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
 			android:paddingLeft="10dip" android:autoLink="email" />
-		<TextView android:text="@string/author_zh"
+		<TextView android:text="@string/author_sk"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
 			android:paddingLeft="10dip" android:autoLink="email" />
-		<TextView android:text="@string/author_sk"
+		<TextView android:text="@string/author_zh"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
 			android:paddingLeft="10dip" android:autoLink="email" />
 

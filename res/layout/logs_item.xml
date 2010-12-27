@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2009-2010 Felix Bechstein
+	-->
+	<!--
+		This file is part of Call Meter 3G. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:padding="5dip">
+	<TextView android:id="@android:id/text1" android:text="text1"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:singleLine="false" android:textStyle="bold" />
+	<TextView android:id="@+id/plan_" android:layout_below="@android:id/text1"
+		android:text="@string/plan_" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" />
+	<TextView android:id="@+id/rule_" android:layout_below="@id/plan_"
+		android:text="@string/rule_" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" />
+	<TextView android:id="@+id/remote_" android:layout_below="@id/rule_"
+		android:text="@string/remote_" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" />
+	<TextView android:id="@+id/length_" android:layout_below="@id/remote_"
+		android:text="@string/length_" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" />
+
+	<TextView android:id="@+id/plan" android:layout_below="@android:id/text1"
+		android:text="string/plan" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+	<TextView android:id="@+id/rule" android:layout_below="@id/plan_"
+		android:text="string/rule" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+	<TextView android:id="@+id/remote" android:layout_below="@id/rule_"
+		android:text="string/remote" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+	<TextView android:id="@+id/length" android:layout_below="@id/remote_"
+		android:text="string/length" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+</RelativeLayout>
