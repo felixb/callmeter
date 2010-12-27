@@ -165,7 +165,7 @@
 		<PreferenceScreen android:title="@string/faq_"
 			android:summary="@string/faq_hint">
 			<intent android:action="android.intent.action.VIEW"
-				android:data="http://code.google.com/p/callmeter/wiki/FAQ" />
+				android:data="http://code.google.com/p/callmeter/wiki/FAQCM3" />
 		</PreferenceScreen>
 		<PreferenceScreen android:title="@string/feedback_"
 			android:summary="@string/feedback_hint">
