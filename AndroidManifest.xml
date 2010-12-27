@@ -32,6 +32,10 @@
 		</activity>
 		<activity android:name=".ui.Logs" android:configChanges="orientation|keyboardHidden"
 			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />
+		<activity android:name=".ui.AskForPlan"
+			android:configChanges="orientation|keyboardHidden"
+			android:windowSoftInputMode="adjustResize"
+			android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 		<activity android:name=".ui.prefs.Preferences"
 			android:configChanges="orientation|keyboardHidden"
 			android:launchMode="singleTask" android:windowSoftInputMode="adjustResize">

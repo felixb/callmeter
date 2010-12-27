@@ -151,6 +151,13 @@
 		<EditTextPreference android:key="intPrefix"
 			android:title="@string/number_prefix_" android:summary="@string/number_prefix_hint"
 			android:inputType="phone" />
+		<PreferenceScreen android:title="@string/ask_for_plan_">
+			<CheckBoxPreference android:key="ask_for_plan"
+				android:title="@string/ask_for_plan_" android:summary="@string/ask_for_plan_hint" />
+			<EditTextPreference android:key="autohide"
+				android:title="@string/autohide_" android:summary="@string/autohide_hint"
+				android:inputType="number" />
+		</PreferenceScreen>
 		<PreferenceScreen android:key="reset_data"
 			android:title="@string/reset_data_" android:summary="@string/reset_data_hint" />
 	</PreferenceCategory>

@@ -99,6 +99,13 @@
 	<string name="custom_date_format_hint">Select a custom date format.</string>
 	<string name="custom_delimiter_">Custom delimiter</string>
 	<string name="custom_delimiter_hint">Set a custom delimiter separating the blocks of statistics.</string>
+	<string name="ask_for_plan_">Ask for plan</string>
+	<string name="ask_for_plan_hint">Ask for plan for unmatched calls after hanging up.</string>
+	<string name="autohide_">Auto hide</string>
+	<string name="autohide_hint">Hide dialog after .. seconds. Leave empty to deactivate auto hide.</string>
+	<string name="select_plan_">Select a plan</string>
+	<string name="set_selected_as_default_">Set selected plan as default</string>
+	<string name="autohide_in_">Auto hide dialog in: %ds</string>
 	<string name="logs">Logs</string>
 	<string name="show_logs">Show logs</string>
 	<string name="plans">Plans</string>

@@ -38,6 +38,7 @@ import android.provider.CallLog.Calls;
 import android.telephony.TelephonyManager;
 import android.widget.Toast;
 import de.ub0r.android.callmeter.CallMeter;
+import de.ub0r.android.callmeter.ui.AskForPlan;
 import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
@@ -80,9 +81,9 @@ public final class LogRunnerService extends IntentService {
 	private static final long DATA_MIN_DIFF = 1024L * 512L;
 
 	/** Time to wait for logs after hanging up. */
-	private static final long WAIT_FOR_LOGS = 1000L;
+	private static final long WAIT_FOR_LOGS = 1500L;
 	/** Maximum gap for logs. */
-	private static final long GAP_FOR_LOGS = 5000L;
+	private static final long GAP_FOR_LOGS = 10000L;
 
 	/** Service's {@link Handler}. */
 	private Handler handler = null;
@@ -624,7 +625,9 @@ public final class LogRunnerService extends IntentService {
 		dateStart = p.getLong(Preferences.PREFS_DATE_BEGIN,
 				DatePreference.DEFAULT_VALUE);
 		deleteBefore = Preferences.getDeleteLogsBefore(p);
-		boolean showCallInfo = p.getBoolean(Preferences.PREFS_SHOWCALLINFO,
+		final boolean showCallInfo = p.getBoolean(
+				Preferences.PREFS_SHOWCALLINFO, false);
+		final boolean askForPlan = p.getBoolean(Preferences.PREFS_ASK_FOR_PLAN,
 				false);
 
 		boolean shortRun = a != null
@@ -692,13 +695,14 @@ public final class LogRunnerService extends IntentService {
 			}
 		}
 
-		if (showCallInfo && a != null && a.equals(// .
+		if ((showCallInfo || askForPlan) && a != null && a.equals(// .
 				TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
 			final Cursor c = cr.query(DataProvider.Logs.CONTENT_URI,
 					DataProvider.Logs.PROJECTION, DataProvider.Logs.TYPE
 							+ " = " + DataProvider.TYPE_CALL, null,
 					DataProvider.Logs.DATE + " DESC");
 			if (c != null && c.moveToFirst()) {
+				final long id = c.getLong(DataProvider.Logs.INDEX_ID);
 				final long date = c.getLong(DataProvider.Logs.INDEX_DATE);
 				final long amount = c.getLong(DataProvider.Logs.INDEX_AMOUNT);
 
@@ -721,18 +725,35 @@ public final class LogRunnerService extends IntentService {
 					}
 					if (planname != null) {
 						sb.insert(0, planname + ": ");
+					} else if (askForPlan) {
+						this.handler.post(new Runnable() {
+							@Override
+							public void run() {
+								Log.i(TAG, "launching ask for plan dialog");
+								final Intent i = new Intent(
+										LogRunnerService.this, // .
+										AskForPlan.class);
+								i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+								i.putExtra(AskForPlan.EXTRA_ID, id);
+								i.putExtra(AskForPlan.EXTRA_DATE, date);
+								i.putExtra(AskForPlan.EXTRA_AMOUNT, amount);
+								LogRunnerService.this.startActivity(i);
+							}
+						});
 					}
-					final String s = sb.toString();
-					Log.i(TAG, "Toast: " + s);
-					this.handler.post(new Runnable() {
-						@Override
-						public void run() {
-							final Toast toast = Toast
-									.makeText(LogRunnerService.this, s,
-											Toast.LENGTH_LONG);
-							toast.show();
-						}
-					});
+					if (showCallInfo) {
+						final String s = sb.toString();
+						Log.i(TAG, "Toast: " + s);
+						this.handler.post(new Runnable() {
+							@Override
+							public void run() {
+								final Toast toast = Toast.makeText(
+										LogRunnerService.this, s,
+										Toast.LENGTH_LONG);
+								toast.show();
+							}
+						});
+					}
 				} else {
 					Log.i(TAG, "skip Toast: amount=" + amount);
 					Log.i(TAG, "skip Toast: date+amount+gap=" + (// .

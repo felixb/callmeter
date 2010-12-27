@@ -133,6 +133,13 @@ public class Preferences extends PreferenceActivity {
 	"strip_leading_zeros";
 	/** Preference's name: international prefix. */
 	public static final String PREFS_INT_PREFIX = "intPrefix";
+	/** Preference's name: ask for plan. */
+	public static final String PREFS_ASK_FOR_PLAN = "ask_for_plan";
+	/** Preference's name: ask for plan, auto hide. */
+	public static final String PREFS_ASK_FOR_PLAN_AUTOHIDE = "autohide";
+	/** Preference's name: default plan for ask for plan. */
+	public static final String PREFS_ASK_FOR_PLAN_DEFAULT = // .
+	"ask_for_plan_default";
 
 	/** {@link Currency} symbol. */
 	private static String defaultCurrencySymbol = null;

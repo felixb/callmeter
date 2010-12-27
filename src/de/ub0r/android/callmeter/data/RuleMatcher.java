@@ -1082,7 +1082,8 @@ public final class RuleMatcher {
 		cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
 		cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 		context.getContentResolver().update(DataProvider.Logs.CONTENT_URI, cv,
-				null, null);
+				DataProvider.Logs.RULE_ID + " != " + DataProvider.NOT_FOUND,
+				null);
 		cv.clear();
 		cv.put(DataProvider.Plans.NEXT_ALERT, 0);
 		context.getContentResolver().update(DataProvider.Plans.CONTENT_URI, cv,
@@ -1154,6 +1155,61 @@ public final class RuleMatcher {
 					lid), cv, null, null);
 		}
 		return matched;
+	}
+
+	/**
+	 * Match a log.
+	 * 
+	 * @param cr
+	 *            {@link ContentResolver}
+	 * @param lid
+	 *            id of log item
+	 * @param pid
+	 *            id of plan
+	 */
+	public static void matchLog(final ContentResolver cr, final long lid,
+			final long pid) {
+		if (cr == null) {
+			Log.e(TAG, "matchLog(null, lid, pid)");
+			return;
+		}
+		if (lid < 0L || pid < 0L) {
+			Log.e(TAG, "matchLog(cr, " + lid + "," + pid + ")");
+			return;
+		}
+		Log.d(TAG, "matchLog(cr, " + lid + "," + pid + ")");
+
+		if (plans == null) {
+			Log.e(TAG, "plans = null");
+			return;
+		}
+		final Plan p = plans.get(pid);
+		if (p == null) {
+			Log.e(TAG, "plan=null");
+			return;
+		}
+		final Cursor log = cr.query(DataProvider.Logs.CONTENT_URI,
+				DataProvider.Logs.PROJECTION, DataProvider.Logs.ID + " = "
+						+ lid, null, null);
+		if (log == null || !log.moveToFirst()) {
+			Log.e(TAG, "no log: " + log);
+			return;
+		}
+		final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
+		p.checkBillday(log);
+		final ContentValues cv = new ContentValues();
+		cv.put(DataProvider.Logs.PLAN_ID, pid);
+		final long ba = p.getBilledAmount(log);
+		cv.put(DataProvider.Logs.BILL_AMOUNT, ba);
+		final float bc = p.getCost(log, ba);
+		cv.put(DataProvider.Logs.COST, bc);
+		p.updatePlan(ba, bc, t);
+		cr.update(ContentUris
+				.withAppendedId(DataProvider.Logs.CONTENT_URI, lid), cv, null,
+				null);
+		if (!log.isClosed()) {
+			log.close();
+		}
 	}
 
 	/**
