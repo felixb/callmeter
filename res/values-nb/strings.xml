@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Tor-Erik Selvik, Felix Bechstein
+		Copyright (C) 2010 Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter NG. This program is free software; you
@@ -18,152 +18,121 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="author_">Forfatter:</string>
-	<string name="version_">Versjon:</string>
-	<string name="license_">Lisens:</string>
-	<string name="license">GPLv3 - se http://www.gnu.org/licenses/gpl-3.0.txt</string>
-	<string name="source_">Kildekode:</string>
-	<string name="website_">Nettside:</string>
-	<string name="debug_">Feilsøking</string>
-<!--	<string name="custom_language_">Custom language</string> -->
-<!--	<string name="custom_language_hint">Set a custom language.</string> -->
-	<string name="send_logs_">Send logg</string>
-	<string name="send_logs_hint">Send din enhets logg til utvikler.\nGjør dette KUN hvis du er bedt om å gjøre det.</string>
-	<string name="sendlog_run_">Run SendLog</string>
-	<string name="sendlog_run">SendLog vil samle inn enhetens logg og sende den til utvikler. \nDu vil ha mulighet til å se gjennom og gjøre endringer før loggen blir sendt.</string>
-	<string name="sendlog_install_">Installer SendLog</string>
-	<string name="sendlog_install">Installer SendLog applikasjonen for å samle inn enhetens log og sende den til utvikler.</string>
-	<string name="donate_paypal_">Donasjon (Paypal)</string>
-	<string name="donate_market_">Donasjon (Market)</string>
-	<string name="donate_remove_ads_">Donasjon/Fjern reklame</string>
-	<string name="remove_ads_">Fjern reklame</string>
-<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
-	<string name="postdonate">For å fjerne reklamen trenger du en kode. Den vil være tilgjengelig så snart donasjonen er registrert mottatt. Vennligst vær tålmodig, og send meg gjerne en mail hvis den ikke er fjernet etter en dag.</string>
-<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
-<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
-	<string name="load_hash_">Laster reklamefri kode</string>
-	<string name="sig_loaded">Reklame fjernet!</string>
-	<string name="sig_failed">Mislykket forsøk på å fjerne reklame!</string>
-<!--	<string name="accept_">Accept Terms</string> -->
-<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
-<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
-<!--	<string name="notify_">Forgot to remove the ads?</string> -->
-<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
-	<string name="about0_">Følg med på dine samtaler, meldinger og data trafikk!</string>
-	<string name="about0">CallMeter lager rapporter fra samtale-, meldings- og dataloggen. Det er støtte for flere metoder av taksering.</string>
-	<string name="about1">Oversikt over bruk/tid eller antall denne perioden/tid eller totaloversikt hele perioden. Månedlig beregning i samsvar med dine preferanser for avregning. Ingen beregning for totalforbruk.</string>
-	<string name="about2">Takseringsintervall spesifiserer lengden på de første/neste takseringene. F.eks. 60/10 betyr at enhver samtale blir taksert for minimum 60s, og tid over dette rundes opp til nærmeste fulle 10s.</string>
-	<string name="about3">Du kan dele opp dine samtaler/sms i to forskjellige takst-avtaler. Hver avtale kan settes opp uavhengig av den andre, med begrensninger eller helt fri.</string>
-	<string name="about4">Din emeldinger kan bli slått sammen i din takst-avtale. F.eks. kan hver sms telles som en 15s samtale.</string>
-	<string name="about5">CallMeter oppdaterer seg hvert 30. min. (ikke i stand-by). Dette betyr at det ikke vil påvirke din statistikk hvis du sletter samtaler eller meldinger som er eldre en 30 min. Hvis du sletter samtaler eller meldinger som er nyere enn 30 minutter, kan din statistikk/oversikt bli feil.</string>
-	<string name="about6_">Hva er det CallMeter NG ikke gjør:</string>
-	<string name="about6">Det er ingen mulighet å skille mellom sipdroid og reelle samtaler eller websms og vanlige sms. Android\'s sømløse integrering av slike applikasjoner gjør det umulig å hente data fra spesifikke applikasjoners telleverk.</string>
-	<string name="send_">Send</string>
-	<string name="settings">Innstillinger</string>
-	<string name="about_">Om</string>
-	<string name="about_hint">Om denne applikasjonen</string>
-	<string name="faq_hint">Tips og triks, hvordan sette opp denne applikasjonen.</string>
-	<string name="feedback_">Tilbakemelding</string>
-	<string name="feedback_hint">Meld feil, etterspør funksjoner ...</string>
-	<string name="twitter_hint">Følg på twitter.\nFå info om oppdateringer o.l.</string>
-	<string name="more_">Flere Applikasjoner..</string>
-	<string name="billday_">Første dag i perioden</string>
-	<string name="billmode_">Takst-type</string>
-	<string name="billmode_hint">Lengde på første/etterfølgene takseringsintervall.</string>
-	<string name="billdate_">Oppstart for takseringsintervall:</string>
-	<string name="smsperiod_">Samme periode for SMS</string>
-	<string name="smsperiod_hint">Sette SMS\'s takseringsperiode til samme som samtaleperiode.</string>
-	<string name="smsbillday_">Første dag i sms-takseringsperiode</string>
-	<string name="dataperiod_">Samme periode for data</string>
-	<string name="dataperiod_hint">Sette data-takseringsperiode til samme som samtaleperiode.</string>
-	<string name="databillday_">Første dag i data-takseringsperiode</string>
-	<string name="appearance_">Utseende</string>
-	<string name="theme_">Tema</string>
-	<string name="textsize_">Tekst størrelse</string>
-	<string name="advanced_">Avansert</string>
-	<string name="exclude_people_">Ekskluder nummer</string>
-	<string name="exclude_people_hint">Ikke takser noen nummer\nwildcards tillatt: *800, 800* eller *800*</string>
-	<string name="exclude_people_add">Legg til nummer</string>
-	<string name="exclude_people_edit">Endre</string>
-	<string name="exclude_people_delete">Slette</string>
-	<string name="exclude_people_to_plan1_">Ekskluder nummer i plan nr 1</string>
-	<string name="exclude_people_to_plan2_">Ekskluder nummer i plan nr 2</string>
-	<string name="exclude_people_calls_">Aktiviser for samtaler</string>
-	<string name="exclude_people_calls_to_plan1_hint">Takser samtaler til/fra ekskluderte nummer i plan nr 1</string>
-	<string name="exclude_people_calls_to_plan2_hint">Takser samtaler til/fra ekskluderte nummer i plan nr 2</string>
-	<string name="exclude_people_sms_">Aktiviser for SMS</string>
-	<string name="exclude_people_sms_to_plan1_hint">Takser meldinger til/fra ekskluderte nummer i plan nr 1</string>
-	<string name="exclude_people_sms_to_plan2_hint">Takser meldinger til/fra ekskluderte nummer i plan nr 2</string>
-	<string name="plans">Planer</string>
-	<string name="plans_split">Del planer</string>
-	<string name="plans_merge">Sammenslå planer</string>
-	<string name="plans_split_hint">Del plan i to separate takseringsplaner.</string>
-	<string name="plan1">Plan 1</string>
-	<string name="plan2">Plan 2</string>
-	<string name="plan1_hint">Huk av tidspunkt for å inkludere samtaler/sms i plan 1. Resten vil gå inn i plan 2.</string>
-	<string name="plan_free_">Ingen taksering(gratis)</string>
-	<string name="plan_freemin_">Gratis minutter</string>
-	<string name="plan_freesms_">Gratis sms</string>
-	<string name="free_hint">Helt gratis, ingen taksering</string>
-	<string name="freemin_hint">Gratis minutter / Mnd</string>
-	<string name="freesms_hint">Gratis SMS / Mnd</string>
-	<string name="bill_calls_incoming_">Takser innkommende</string>
-	<string name="bill_calls_incoming_hint">Takser innkommende samtaler.</string>
-	<string name="bill_sms_incoming_">Takser innkommende</string>
-	<string name="bill_sms_incoming_hint">Takser innkommende sms.</string>
-	<string name="bill_data_incoming_only_">Takser bare innkommende</string>
-	<string name="bill_data_incoming_only_hint">Takser bare innkommende trafikk.</string>
-	<string name="cost_per_call_">Oppstartskostnad pr samtale</string>
-	<string name="cost_per_call_hint">Hver samtale vil bli tillagt dette.</string>
-	<string name="cost_per_minute_">Kostnad pr. minutt</string>
-	<string name="cost_per_minute_hint">Hvert minutt av samtalen vil bli tillagt dette.</string>
-	<string name="cost_per_sms_">Kostnad pr SMS</string>
-	<string name="cost_per_sms_hint">Hver SMS vil bli tillagt med dette.</string>
-	<string name="cost_per_mb_">Kostnad pr MB</string>
-	<string name="cost_per_mb_hint">Hver MB datatrafikk vil bli tillagt dette.</string>
-	<string name="merge_sms_calls_">Sammenslå SMS med samtaler</string>
-	<string name="merge_sms_calls_hint">Takser SMS som en del av samtalekostnadene.</string>
-	<string name="merge_sms_calls_sec_">Sekunder / SMS</string>
-	<string name="merge_sms_calls_sec_hint">Antall sekunder for taksering av en sms.</string>
-	<string name="merge_sms_plan1_">Sammenslå SMS i plan 1</string>
-	<string name="merge_sms_plan1_hint">Fjern hake for å sammenslå i plan 2.</string>
-	<string name="data_hint">WLAN trafikk er ikke medregnet!</string>
-	<string name="data_enable_">Vis data statistikk</string>
-	<string name="data_enable_hint">Data er registrert i sanntid. Den første måneden kan vise feil!</string>
-	<string name="data_each_day">Takser hver dag individuelt</string>
-	<string name="data_each_day_hint">Din takseringsperiode starter på nytt hver dag.</string>
-	<string name="data_limit_">Grense</string>
-	<string name="data_limit_hint">Grense for datatrafikk (MB/mnd)</string>
-	<string name="monday">Mandag</string>
-	<string name="tuesday">Tirsdag</string>
-	<string name="wednesday">Onsdag</string>
-	<string name="thursday">Torsdag</string>
-	<string name="friday">Fredag</string>
-	<string name="saturday">Lørdag</string>
-	<string name="sunday">Søndag</string>
-	<string name="calls">Samtaler</string>
-	<string name="sms">SMS</string>
-	<string name="data">Data</string>
-	<string name="calls_sms">Samtaler/SMS</string>
-	<string name="in_calls">Inn%s:</string>
-	<string name="in_sms">Inn%s:</string>
-	<string name="in_data">Inn:</string>
-	<string name="out_calls">Ut%s:</string>
-	<string name="out_sms">Ut%s:</string>
-	<string name="out_data">Ut:</string>
-	<string name="plan_name1_">Plan 1: navn</string>
-	<string name="plan_name2_">Plan 2: navn</string>
-	<string name="plan_name_hint">Selvvalgt navn</string>
-	<string name="reset_data_">Nullstill statistikk</string>
-	<string name="reset_data_hint">Nullstilling av samtaler/sms vil rekalkulere statistikk.\n\nNullstilling av tellere er permanent. Nullstilling gjelder bare samtaler før boot!</string>
-	<string name="reset_data_data_">Nullstill datatrafikk også.</string>
-	<string name="contacts_">Kontakter</string>
-	<string-array name="themes">
-		<item>Sort</item>
-		<item>Lys</item>
-	</string-array>
-	<string-array name="textsize">
-		<item>Liten</item>
-		<item>Medium</item>
-	</string-array>
+  <string formatted="false" name="about0_">Følg med på dine samtaler, meldinger og data trafikk!</string>
+  <string formatted="false" name="about0">CallMeter lager rapporter fra samtale-, meldings- og dataloggen. Det er støtte for flere metoder av taksering.</string>
+  <string formatted="false" name="about1">Oversikt over bruk/tid eller antall denne perioden/tid eller totaloversikt hele perioden. Månedlig beregning i samsvar med dine preferanser for avregning. Ingen beregning for totalforbruk.</string>
+  <string formatted="false" name="about2">Takseringsintervall spesifiserer lengden på de første/neste takseringene. F.eks. 60/10 betyr at enhver samtale blir taksert for minimum 60s, og tid over dette rundes opp til nærmeste fulle 10s.</string>
+  <string formatted="false" name="about3">Du kan dele opp dine samtaler/sms i to forskjellige takst-avtaler. Hver avtale kan settes opp uavhengig av den andre, med begrensninger eller helt fri.</string>
+  <string formatted="false" name="about4">Din emeldinger kan bli slått sammen i din takst-avtale. F.eks. kan hver sms telles som en 15s samtale.</string>
+  <string formatted="false" name="about5">CallMeter oppdaterer seg hvert 30. min. (ikke i stand-by). Dette betyr at det ikke vil påvirke din statistikk hvis du sletter samtaler eller meldinger som er eldre en 30 min. Hvis du sletter samtaler eller meldinger som er nyere enn 30 minutter, kan din statistikk/oversikt bli feil.</string>
+  <string formatted="false" name="about6_">Hva er det CallMeter NG ikke gjør:</string>
+  <string formatted="false" name="about6">Det er ingen mulighet å skille mellom sipdroid og reelle samtaler eller websms og vanlige sms. Android\'s sømløse integrering av slike applikasjoner gjør det umulig å hente data fra spesifikke applikasjoners telleverk.</string>
+  <string formatted="false" name="send_">Send</string>
+  <string formatted="false" name="settings">Innstillinger</string>
+  <string formatted="false" name="about_">Om</string>
+  <string formatted="false" name="about_hint">Om denne applikasjonen</string>
+  <string formatted="false" name="faq_hint">Tips og triks, hvordan sette opp denne applikasjonen.</string>
+  <string formatted="false" name="feedback_">Tilbakemelding</string>
+  <string formatted="false" name="feedback_hint">Meld feil, etterspør funksjoner ...</string>
+  <string formatted="false" name="twitter_hint">Følg på twitter.\nFå info om oppdateringer o.l.</string>
+  <string formatted="false" name="more_">Flere Applikasjoner..</string>
+  <string formatted="false" name="billday_">Første dag i perioden</string>
+  <string formatted="false" name="billmode_">Takst-type</string>
+  <string formatted="false" name="billmode_hint">Lengde på første/etterfølgene takseringsintervall.</string>
+  <string formatted="false" name="billdate_">Oppstart for takseringsintervall:</string>
+  <string formatted="false" name="smsperiod_">Samme periode for SMS</string>
+  <string formatted="false" name="smsperiod_hint">Sette SMS\'s takseringsperiode til samme som samtaleperiode.</string>
+  <string formatted="false" name="smsbillday_">Første dag i sms-takseringsperiode</string>
+  <string formatted="false" name="dataperiod_">Samme periode for data</string>
+  <string formatted="false" name="dataperiod_hint">Sette data-takseringsperiode til samme som samtaleperiode.</string>
+  <string formatted="false" name="databillday_">Første dag i data-takseringsperiode</string>
+  <string formatted="false" name="appearance_">Utseende</string>
+  <string formatted="false" name="theme_">Tema</string>
+  <string formatted="false" name="textsize_">Tekst størrelse</string>
+  <string formatted="false" name="advanced_">Avansert</string>
+  <string formatted="false" name="exclude_people_">Ekskluder nummer</string>
+  <string formatted="false" name="exclude_people_hint">Ikke takser noen nummer\nwildcards tillatt: *800, 800* eller *800*</string>
+  <string formatted="false" name="exclude_people_add">Legg til nummer</string>
+  <string formatted="false" name="exclude_people_edit">Endre</string>
+  <string formatted="false" name="exclude_people_delete">Slette</string>
+  <string formatted="false" name="exclude_people_to_plan1_">Ekskluder nummer i plan nr 1</string>
+  <string formatted="false" name="exclude_people_to_plan2_">Ekskluder nummer i plan nr 2</string>
+  <string formatted="false" name="exclude_people_calls_">Aktiviser for samtaler</string>
+  <string formatted="false" name="exclude_people_calls_to_plan1_hint">Takser samtaler til/fra ekskluderte nummer i plan nr 1</string>
+  <string formatted="false" name="exclude_people_calls_to_plan2_hint">Takser samtaler til/fra ekskluderte nummer i plan nr 2</string>
+  <string formatted="false" name="exclude_people_sms_">Aktiviser for SMS</string>
+  <string formatted="false" name="exclude_people_sms_to_plan1_hint">Takser meldinger til/fra ekskluderte nummer i plan nr 1</string>
+  <string formatted="false" name="exclude_people_sms_to_plan2_hint">Takser meldinger til/fra ekskluderte nummer i plan nr 2</string>
+  <string formatted="false" name="plans">Planer</string>
+  <string formatted="false" name="plans_split">Del planer</string>
+  <string formatted="false" name="plans_merge">Sammenslå planer</string>
+  <string formatted="false" name="plans_split_hint">Del plan i to separate takseringsplaner.</string>
+  <string formatted="false" name="plan1">Plan 1</string>
+  <string formatted="false" name="plan2">Plan 2</string>
+  <string formatted="false" name="plan1_hint">Huk av tidspunkt for å inkludere samtaler/sms i plan 1. Resten vil gå inn i plan 2.</string>
+  <string formatted="false" name="plan_free_">Ingen taksering(gratis)</string>
+  <string formatted="false" name="plan_freemin_">Gratis minutter</string>
+  <string formatted="false" name="plan_freesms_">Gratis sms</string>
+  <string formatted="false" name="free_hint">Helt gratis, ingen taksering</string>
+  <string formatted="false" name="freemin_hint">Gratis minutter / Mnd</string>
+  <string formatted="false" name="freesms_hint">Gratis SMS / Mnd</string>
+  <string formatted="false" name="bill_calls_incoming_">Takser innkommende</string>
+  <string formatted="false" name="bill_calls_incoming_hint">Takser innkommende samtaler.</string>
+  <string formatted="false" name="bill_sms_incoming_">Takser innkommende</string>
+  <string formatted="false" name="bill_sms_incoming_hint">Takser innkommende sms.</string>
+  <string formatted="false" name="bill_data_incoming_only_">Takser bare innkommende</string>
+  <string formatted="false" name="bill_data_incoming_only_hint">Takser bare innkommende trafikk.</string>
+  <string formatted="false" name="cost_per_call_">Oppstartskostnad pr samtale</string>
+  <string formatted="false" name="cost_per_call_hint">Hver samtale vil bli tillagt dette.</string>
+  <string formatted="false" name="cost_per_minute_">Kostnad pr. minutt</string>
+  <string formatted="false" name="cost_per_minute_hint">Hvert minutt av samtalen vil bli tillagt dette.</string>
+  <string formatted="false" name="cost_per_sms_">Kostnad pr SMS</string>
+  <string formatted="false" name="cost_per_sms_hint">Hver SMS vil bli tillagt med dette.</string>
+  <string formatted="false" name="cost_per_mb_">Kostnad pr MB</string>
+  <string formatted="false" name="cost_per_mb_hint">Hver MB datatrafikk vil bli tillagt dette.</string>
+  <string formatted="false" name="merge_sms_calls_">Sammenslå SMS med samtaler</string>
+  <string formatted="false" name="merge_sms_calls_hint">Takser SMS som en del av samtalekostnadene.</string>
+  <string formatted="false" name="merge_sms_calls_sec_">Sekunder / SMS</string>
+  <string formatted="false" name="merge_sms_calls_sec_hint">Antall sekunder for taksering av en sms.</string>
+  <string formatted="false" name="merge_sms_plan1_">Sammenslå SMS i plan 1</string>
+  <string formatted="false" name="merge_sms_plan1_hint">Fjern hake for å sammenslå i plan 2.</string>
+  <string formatted="false" name="data_hint">WLAN trafikk er ikke medregnet!</string>
+  <string formatted="false" name="data_enable_">Vis data statistikk</string>
+  <string formatted="false" name="data_enable_hint">Data er registrert i sanntid. Den første måneden kan vise feil!</string>
+  <string formatted="false" name="data_each_day">Takser hver dag individuelt</string>
+  <string formatted="false" name="data_each_day_hint">Din takseringsperiode starter på nytt hver dag.</string>
+  <string formatted="false" name="data_limit_">Grense</string>
+  <string formatted="false" name="data_limit_hint">Grense for datatrafikk (MB/mnd)</string>
+  <string formatted="false" name="monday">Mandag</string>
+  <string formatted="false" name="tuesday">Tirsdag</string>
+  <string formatted="false" name="wednesday">Onsdag</string>
+  <string formatted="false" name="thursday">Torsdag</string>
+  <string formatted="false" name="friday">Fredag</string>
+  <string formatted="false" name="saturday">Lørdag</string>
+  <string formatted="false" name="sunday">Søndag</string>
+  <string formatted="false" name="calls">Samtaler</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="data">Data</string>
+  <string formatted="false" name="calls_sms">Samtaler/SMS</string>
+  <string formatted="false" name="in_calls">Inn%s:</string>
+  <string formatted="false" name="in_sms">Inn%s:</string>
+  <string formatted="false" name="in_data">Inn:</string>
+  <string formatted="false" name="out_calls">Ut%s:</string>
+  <string formatted="false" name="out_sms">Ut%s:</string>
+  <string formatted="false" name="out_data">Ut:</string>
+  <string formatted="false" name="plan_name1_">Plan 1: navn</string>
+  <string formatted="false" name="plan_name2_">Plan 2: navn</string>
+  <string formatted="false" name="plan_name_hint">Selvvalgt navn</string>
+  <string formatted="false" name="reset_data_">Nullstill statistikk</string>
+  <string formatted="false" name="reset_data_hint">Nullstilling av samtaler/sms vil rekalkulere statistikk.\n\nNullstilling av tellere er permanent. Nullstilling gjelder bare samtaler før boot!</string>
+  <string formatted="false" name="reset_data_data_">Nullstill datatrafikk også.</string>
+  <string formatted="false" name="contacts_">Kontakter</string>
+  <string-array name="themes">
+    <item>Sort</item>
+    <item>Lys</item>
+  </string-array>
+  <string-array name="textsize">
+    <item>Liten</item>
+    <item>Medium</item>
+  </string-array>
 </resources>

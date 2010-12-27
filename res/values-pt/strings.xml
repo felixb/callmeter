@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Renato Picozzi, Felix Bechstein
+		Copyright (C) 2010 Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter NG. This program is free software; you
@@ -18,152 +18,121 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="author_">Autor:</string>
-	<string name="version_">Versão:</string>
-	<string name="license_">Licença:</string>
-	<string name="license">GPLv3 - veja http://www.gnu.org/licenses/gpl-3.0.txt</string>
-	<string name="source_">Códigos fontes:</string>
-	<string name="website_">Website:</string>
-	<string name="debug_">Debugar</string>
-<!--	<string name="custom_language_">Custom language</string> -->
-<!--	<string name="custom_language_hint">Set a custom language.</string> -->
-	<string name="send_logs_">Enviar os logs</string>
-	<string name="send_logs_hint">Envie os logs de seu dispositivo  para o desenvolvedor. Faça isso apenas se você foi convidado a fazê-lo.</string>
-	<string name="sendlog_run_">Acionar o envio dos logs </string>
-	<string name="sendlog_run">O envio irá coletar os dados do log de seu aparelho e enviá-los ao desenvolvedor.\nVocê terá a oportunidade de rever e modificar os dados antes de enviá-los.</string>
-	<string name="sendlog_install_">Instalar o enviador de logs </string>
-	<string name="sendlog_install">Instalar a aplicação, gratuita, que irá coletar e enviar os logs para o desenvolvedor.</string>
-	<string name="donate_paypal_">Doação (Paypal)</string>
-	<string name="donate_market_">Doação (Market)</string>
-	<string name="donate_remove_ads_">Doar/remover anúncios</string>
-	<string name="remove_ads_">Remova anúncios</string>
-	<string name="predonate">Esta é uma aplicação open-source realizada sob a licença GPLv3. É gratuita e permanecerá gratuita. Se você realmente gosta dela ou quer retirar as propagandas, por favor considere uma doação (via  paypal). Eu irei remover as propagandas para você o mais rápido possível.\nObrigado!\n\nCom a Doação, eu irei remover as propagandas de todos os applicativos feitos por mim.</string>
-	<string name="postdonate">Para remover os anúncios, você precisa carregar o código NoAds . Ele estará disponível tão logo que a doação chegar. Por favor, seja paciente e me mande um e-mail se ele não funcionar depois de um dia.</string>
-	<string name="donator_id_">Para que eu consiga verificar sua doação, necessito de sua Identificação (e-mail cadastrado no Paypal ou e-mail do gmail maket):</string>
-	<string name="donator_id_hint">Paypal/Gmail e-mail</string>
-	<string name="load_hash_">Código NoAds.</string>
-	<string name="sig_loaded">Anúncios removidos!</string>
-	<string name="sig_failed">Falha ao remover os anúncios!</string>
-	<string name="accept_">Aceitar os Termos</string>
-	<string name="accept_missing">Por favor aceite os termos antes de enviar os dados.</string>
-	<string name="terms">O aplicativo irá enviar a sua identificação da doação junto com o hash md5 de seu IMEI para o servidor (http://ub0r.de/donation/). Os dados são necessários para verificar a sua doação.\nOs dados nunca serão dados a terceiros e são utilizados apenas para verificar a sua doação.\n\nSe houver mudaça de telefone, o código NoAds não irá funcionar mais. Por favor, me mande um e-mail para obter um novo código.</string>
-<!--	<string name="notify_">Forgot to remove the ads?</string> -->
-<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
-	<string name="about0_">Acompanhe suas ligações, mensagens e plano de dados!</string>
-	<string name="about0">O CallMeter gera relatórios de ligações, mensagens e dados. Ele suporta vários tipos de cobrança.</string>
-	<string name="about1">Os formatos de saída são: uso / tempo ou soma utilizada neste período / tempo ou soma total. O cálculo de tempo utiliza a forma de cobrança de seu plano. A soma total não.</string>
-	<string name="about2">O modo de cobrança utiliza o tamanho do primeiro e posteriores tempos de cobrança. Ex. 30/10 diz que cada ligação é taxada com o mínimo de 30s, e após este período será taxado de 10 em 10 segundos de utilização (sendo esse o período mínimo) sucessivamente até o final da chamada.</string>
-	<string name="about3">Você pode separar os planos de ligações e mensagens em até dois planos. Cada plano pode ser configurado livremente, limitado a um período ou ilimitado.</string>
-	<string name="about4">Suas mensagens podem ser mescladas em seu plano de chamada. Ex. contar cada mensagem como 15s de chamada.</string>
-	<string name="about5">O CallMeter roda oculto a cada 30min (se não estiver em repouso). Isto quer dizer, que apagar ligações ou mensagens com mais de 30min não alterará sua estatística acumulada. Apagar ligações ou mensagens em até 30min poderá resultar em uma estatística errônea.</string>
-	<string name="about6_">O que CallMeter NG não faz:</string>
-	<string name="about6">Não há nenhuma maneira de distinguir entre Sipdroid (ligações feitas por Voip, tipo Skype) e uma chamada real, ou entre MMS e um SMS. O Android faz uma integração destas aplicações que torna impossível distinguir depois os dados para cálculo.</string>
-	<string name="send_">Enviar</string>
-	<string name="settings">Preferências</string>
-	<string name="about_">Sobre</string>
-	<string name="about_hint">Sobre este aplicativo</string>
-	<string name="faq_hint">Algumas dicas e truques de como ajustar este aplicativo.</string>
-	<string name="feedback_">Retorno</string>
-	<string name="feedback_hint">Relate problemas, solicite recursos ...</string>
-	<string name="twitter_hint">Siga-me no twitter (http://twitter.com/flx_b).\nReceba notificações de atualizações,etc.</string>
-	<string name="more_">Outras Aplicações...</string>
-	<string name="billday_">Primeiro dia da conta</string>
-	<string name="billmode_">Modo de cobrança</string>
-	<string name="billmode_hint">Tamanho do primeiro/seguintes períodos de cobrança.</string>
-	<string name="billdate_">Início do período de cobrança:</string>
-	<string name="smsperiod_">Mesmo período para SMS</string>
-	<string name="smsperiod_hint">Iguala o período de cobrança dos SMS com o período das ligações.</string>
-	<string name="smsbillday_">Primeiro dia da conta SMS</string>
-	<string name="dataperiod_">Igual período de Dados</string>
-	<string name="dataperiod_hint">Iguala o período de cobrança dos Dados com o período das ligações.</string>
-	<string name="databillday_">Primeiro dia da conta Dados</string>
-	<string name="appearance_">Aparência</string>
-	<string name="theme_">Fundo de Tela</string>
-	<string name="textsize_">Tamanho do texto</string>
-	<string name="advanced_">Avançado</string>
-	<string name="exclude_people_">Números não tarifados</string>
-	<string name="exclude_people_hint">Números gratuitos,\ncuringas são aceitos: *555, 555* ou *555*</string>
-	<string name="exclude_people_add">Toque para adicionar um número</string>
-	<string name="exclude_people_edit">Edição</string>
-	<string name="exclude_people_delete">Apagar</string>
-	<string name="exclude_people_to_plan1_">Excluir números do plano #1</string>
-	<string name="exclude_people_to_plan2_">Excluir números do plano #2</string>
-	<string name="exclude_people_calls_">Habilitado em Chamadas </string>
-	<string name="exclude_people_calls_to_plan1_hint">Conta das chamadas de/para números excluídos no plano #1</string>
-	<string name="exclude_people_calls_to_plan2_hint">Conta das chamadas de/para números excluídos no plano #2</string>
-	<string name="exclude_people_sms_">Habilitado em SMS</string>
-	<string name="exclude_people_sms_to_plan1_hint">Conta das mensagens de/para números excluídos no plano #1</string>
-	<string name="exclude_people_sms_to_plan2_hint">Conta das mensagens de/para números excluídos no plano #2</string>
-	<string name="plans">Planos</string>
-	<string name="plans_split">Planos divididos</string>
-	<string name="plans_merge">Planos juntos</string>
-	<string name="plans_split_hint">Planos divididos em contas separadas.</string>
-	<string name="plan1">Plano 1</string>
-	<string name="plan2">Plano 2</string>
-	<string name="plan1_hint">Selecione as horas incluídas nas chamadas/SMS no primeiro plano. Todas as outras irão para o segundo plano.</string>
-	<string name="plan_free_">Sem cobrança</string>
-	<string name="plan_freemin_">Minutos do plano</string>
-	<string name="plan_freesms_">SMS do plano</string>
-	<string name="free_hint">Plano gratuito</string>
-	<string name="freemin_hint">Minutos/mês incluídos no plano</string>
-	<string name="freesms_hint">SMS/mês incluídos no plano</string>
-	<string name="bill_calls_incoming_">Conta de recebimento</string>
-	<string name="bill_calls_incoming_hint">Cobrança pelo recebimento de ligações.</string>
-	<string name="bill_sms_incoming_">Conta de recebimento</string>
-	<string name="bill_sms_incoming_hint">Cobrança pelo recebimento de SMS.</string>
-	<string name="bill_data_incoming_only_">Cobrança de recebimento</string>
-	<string name="bill_data_incoming_only_hint">Cobrança pelo tráfego de recebimento de Dados.</string>
-	<string name="cost_per_call_">Custo por ligação</string>
-	<string name="cost_per_call_hint">Valor por ligação além do plano</string>
-	<string name="cost_per_minute_">Custo por minuto</string>
-	<string name="cost_per_minute_hint">Valor por minuto além do plano</string>
-	<string name="cost_per_sms_">Custo por SMS</string>
-	<string name="cost_per_sms_hint">Valor por cada SMS além do plano</string>
-	<string name="cost_per_mb_">Custo por MB</string>
-	<string name="cost_per_mb_hint">Valor por MB de tráfego</string>
-	<string name="merge_sms_calls_">Juntar SMS com chamadas</string>
-	<string name="merge_sms_calls_hint">Cobrar SMS como parte das chamadas.</string>
-	<string name="merge_sms_calls_sec_">Segundos / SMS</string>
-	<string name="merge_sms_calls_sec_hint">Número de segundos cobrados em um SMS.</string>
-	<string name="merge_sms_plan1_">Juntar os SMS ao plano 1</string>
-	<string name="merge_sms_plan1_hint">Desmarcar a junção com o plano 2.</string>
-	<string name="data_hint">As estatísticas da WLAN não são coletadas aqui!</string>
-	<string name="data_enable_">Mostrar os dados estatísticos</string>
-	<string name="data_enable_hint">Dados coletados em tempo real. O primeiro mês pode estar incorreto!</string>
-	<string name="data_each_day">Cobrar cada dia separado </string>
-	<string name="data_each_day_hint">Seu período de cobrança inicia hoje.</string>
-	<string name="data_limit_">Limite</string>
-	<string name="data_limit_hint">Limite do plano de dados (MB/mês)</string>
-	<string name="monday">Segunda</string>
-	<string name="tuesday">Terça</string>
-	<string name="wednesday">Quarta</string>
-	<string name="thursday">Quinta</string>
-	<string name="friday">Sexta</string>
-	<string name="saturday">Sábado</string>
-	<string name="sunday">Domingo</string>
-	<string name="calls">Ligações</string>
-	<string name="sms">SMS</string>
-	<string name="data">Dados</string>
-	<string name="calls_sms">Ligações/SMS</string>
-	<string name="in_calls">Recebidas%s:</string>
-	<string name="in_sms">Recebidos%s:</string>
-	<string name="in_data">Recebidos:</string>
-	<string name="out_calls">Feitas%s:</string>
-	<string name="out_sms">Enviados%s:</string>
-	<string name="out_data">Enviados:</string>
-	<string name="plan_name1_">Plano 1: nome</string>
-	<string name="plan_name2_">Plano 2: nome</string>
-	<string name="plan_name_hint">Nome do Usuário</string>
-	<string name="reset_data_">Apagar estatísticas</string>
-	<string name="reset_data_hint">Apagar os dados das chamadas ou SMS irão resultar no recálculo das estatísticas.\n\nO cancelamento das estatísticas de tráfego é permanente. Só será visualizado após o boot!</string>
-	<string name="reset_data_data_">Apagar os Dados também.</string>
-	<string name="contacts_">Contatos</string>
-	<string-array name="themes">
-		<item>Escuro</item>
-		<item>Claro</item>
-	</string-array>
-	<string-array name="textsize">
-		<item>Pequeno</item>
-		<item>Médio</item>
-	</string-array>
+  <string formatted="false" name="about0_">Acompanhe suas ligações, mensagens e plano de dados!</string>
+  <string formatted="false" name="about0">O CallMeter gera relatórios de ligações, mensagens e dados. Ele suporta vários tipos de cobrança.</string>
+  <string formatted="false" name="about1">Os formatos de saída são: uso / tempo ou soma utilizada neste período / tempo ou soma total. O cálculo de tempo utiliza a forma de cobrança de seu plano. A soma total não.</string>
+  <string formatted="false" name="about2">O modo de cobrança utiliza o tamanho do primeiro e posteriores tempos de cobrança. Ex. 30/10 diz que cada ligação é taxada com o mínimo de 30s, e após este período será taxado de 10 em 10 segundos de utilização (sendo esse o período mínimo) sucessivamente até o final da chamada.</string>
+  <string formatted="false" name="about3">Você pode separar os planos de ligações e mensagens em até dois planos. Cada plano pode ser configurado livremente, limitado a um período ou ilimitado.</string>
+  <string formatted="false" name="about4">Suas mensagens podem ser mescladas em seu plano de chamada. Ex. contar cada mensagem como 15s de chamada.</string>
+  <string formatted="false" name="about5">O CallMeter roda oculto a cada 30min (se não estiver em repouso). Isto quer dizer, que apagar ligações ou mensagens com mais de 30min não alterará sua estatística acumulada. Apagar ligações ou mensagens em até 30min poderá resultar em uma estatística errônea.</string>
+  <string formatted="false" name="about6_">O que CallMeter NG não faz:</string>
+  <string formatted="false" name="about6">Não há nenhuma maneira de distinguir entre Sipdroid (ligações feitas por Voip, tipo Skype) e uma chamada real, ou entre MMS e um SMS. O Android faz uma integração destas aplicações que torna impossível distinguir depois os dados para cálculo.</string>
+  <string formatted="false" name="send_">Enviar</string>
+  <string formatted="false" name="settings">Preferências</string>
+  <string formatted="false" name="about_">Sobre</string>
+  <string formatted="false" name="about_hint">Sobre este aplicativo</string>
+  <string formatted="false" name="faq_hint">Algumas dicas e truques de como ajustar este aplicativo.</string>
+  <string formatted="false" name="feedback_">Retorno</string>
+  <string formatted="false" name="feedback_hint">Relate problemas, solicite recursos ...</string>
+  <string formatted="false" name="twitter_hint">Siga-me no twitter (http://twitter.com/flx_b).\nReceba notificações de atualizações,etc.</string>
+  <string formatted="false" name="more_">Outras Aplicações...</string>
+  <string formatted="false" name="billday_">Primeiro dia da conta</string>
+  <string formatted="false" name="billmode_">Modo de cobrança</string>
+  <string formatted="false" name="billmode_hint">Tamanho do primeiro/seguintes períodos de cobrança.</string>
+  <string formatted="false" name="billdate_">Início do período de cobrança:</string>
+  <string formatted="false" name="smsperiod_">Mesmo período para SMS</string>
+  <string formatted="false" name="smsperiod_hint">Iguala o período de cobrança dos SMS com o período das ligações.</string>
+  <string formatted="false" name="smsbillday_">Primeiro dia da conta SMS</string>
+  <string formatted="false" name="dataperiod_">Igual período de Dados</string>
+  <string formatted="false" name="dataperiod_hint">Iguala o período de cobrança dos Dados com o período das ligações.</string>
+  <string formatted="false" name="databillday_">Primeiro dia da conta Dados</string>
+  <string formatted="false" name="appearance_">Aparência</string>
+  <string formatted="false" name="theme_">Fundo de Tela</string>
+  <string formatted="false" name="textsize_">Tamanho do texto</string>
+  <string formatted="false" name="advanced_">Avançado</string>
+  <string formatted="false" name="exclude_people_">Números não tarifados</string>
+  <string formatted="false" name="exclude_people_hint">Números gratuitos,\ncuringas são aceitos: *555, 555* ou *555*</string>
+  <string formatted="false" name="exclude_people_add">Toque para adicionar um número</string>
+  <string formatted="false" name="exclude_people_edit">Edição</string>
+  <string formatted="false" name="exclude_people_delete">Apagar</string>
+  <string formatted="false" name="exclude_people_to_plan1_">Excluir números do plano #1</string>
+  <string formatted="false" name="exclude_people_to_plan2_">Excluir números do plano #2</string>
+  <string formatted="false" name="exclude_people_calls_">Habilitado em Chamadas </string>
+  <string formatted="false" name="exclude_people_calls_to_plan1_hint">Conta das chamadas de/para números excluídos no plano #1</string>
+  <string formatted="false" name="exclude_people_calls_to_plan2_hint">Conta das chamadas de/para números excluídos no plano #2</string>
+  <string formatted="false" name="exclude_people_sms_">Habilitado em SMS</string>
+  <string formatted="false" name="exclude_people_sms_to_plan1_hint">Conta das mensagens de/para números excluídos no plano #1</string>
+  <string formatted="false" name="exclude_people_sms_to_plan2_hint">Conta das mensagens de/para números excluídos no plano #2</string>
+  <string formatted="false" name="plans">Planos</string>
+  <string formatted="false" name="plans_split">Planos divididos</string>
+  <string formatted="false" name="plans_merge">Planos juntos</string>
+  <string formatted="false" name="plans_split_hint">Planos divididos em contas separadas.</string>
+  <string formatted="false" name="plan1">Plano 1</string>
+  <string formatted="false" name="plan2">Plano 2</string>
+  <string formatted="false" name="plan1_hint">Selecione as horas incluídas nas chamadas/SMS no primeiro plano. Todas as outras irão para o segundo plano.</string>
+  <string formatted="false" name="plan_free_">Sem cobrança</string>
+  <string formatted="false" name="plan_freemin_">Minutos do plano</string>
+  <string formatted="false" name="plan_freesms_">SMS do plano</string>
+  <string formatted="false" name="free_hint">Plano gratuito</string>
+  <string formatted="false" name="freemin_hint">Minutos/mês incluídos no plano</string>
+  <string formatted="false" name="freesms_hint">SMS/mês incluídos no plano</string>
+  <string formatted="false" name="bill_calls_incoming_">Conta de recebimento</string>
+  <string formatted="false" name="bill_calls_incoming_hint">Cobrança pelo recebimento de ligações.</string>
+  <string formatted="false" name="bill_sms_incoming_">Conta de recebimento</string>
+  <string formatted="false" name="bill_sms_incoming_hint">Cobrança pelo recebimento de SMS.</string>
+  <string formatted="false" name="bill_data_incoming_only_">Cobrança de recebimento</string>
+  <string formatted="false" name="bill_data_incoming_only_hint">Cobrança pelo tráfego de recebimento de Dados.</string>
+  <string formatted="false" name="cost_per_call_">Custo por ligação</string>
+  <string formatted="false" name="cost_per_call_hint">Valor por ligação além do plano</string>
+  <string formatted="false" name="cost_per_minute_">Custo por minuto</string>
+  <string formatted="false" name="cost_per_minute_hint">Valor por minuto além do plano</string>
+  <string formatted="false" name="cost_per_sms_">Custo por SMS</string>
+  <string formatted="false" name="cost_per_sms_hint">Valor por cada SMS além do plano</string>
+  <string formatted="false" name="cost_per_mb_">Custo por MB</string>
+  <string formatted="false" name="cost_per_mb_hint">Valor por MB de tráfego</string>
+  <string formatted="false" name="merge_sms_calls_">Juntar SMS com chamadas</string>
+  <string formatted="false" name="merge_sms_calls_hint">Cobrar SMS como parte das chamadas.</string>
+  <string formatted="false" name="merge_sms_calls_sec_">Segundos / SMS</string>
+  <string formatted="false" name="merge_sms_calls_sec_hint">Número de segundos cobrados em um SMS.</string>
+  <string formatted="false" name="merge_sms_plan1_">Juntar os SMS ao plano 1</string>
+  <string formatted="false" name="merge_sms_plan1_hint">Desmarcar a junção com o plano 2.</string>
+  <string formatted="false" name="data_hint">As estatísticas da WLAN não são coletadas aqui!</string>
+  <string formatted="false" name="data_enable_">Mostrar os dados estatísticos</string>
+  <string formatted="false" name="data_enable_hint">Dados coletados em tempo real. O primeiro mês pode estar incorreto!</string>
+  <string formatted="false" name="data_each_day">Cobrar cada dia separado </string>
+  <string formatted="false" name="data_each_day_hint">Seu período de cobrança inicia hoje.</string>
+  <string formatted="false" name="data_limit_">Limite</string>
+  <string formatted="false" name="data_limit_hint">Limite do plano de dados (MB/mês)</string>
+  <string formatted="false" name="monday">Segunda</string>
+  <string formatted="false" name="tuesday">Terça</string>
+  <string formatted="false" name="wednesday">Quarta</string>
+  <string formatted="false" name="thursday">Quinta</string>
+  <string formatted="false" name="friday">Sexta</string>
+  <string formatted="false" name="saturday">Sábado</string>
+  <string formatted="false" name="sunday">Domingo</string>
+  <string formatted="false" name="calls">Ligações</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="data">Dados</string>
+  <string formatted="false" name="calls_sms">Ligações/SMS</string>
+  <string formatted="false" name="in_calls">Recebidas%s:</string>
+  <string formatted="false" name="in_sms">Recebidos%s:</string>
+  <string formatted="false" name="in_data">Recebidos:</string>
+  <string formatted="false" name="out_calls">Feitas%s:</string>
+  <string formatted="false" name="out_sms">Enviados%s:</string>
+  <string formatted="false" name="out_data">Enviados:</string>
+  <string formatted="false" name="plan_name1_">Plano 1: nome</string>
+  <string formatted="false" name="plan_name2_">Plano 2: nome</string>
+  <string formatted="false" name="plan_name_hint">Nome do Usuário</string>
+  <string formatted="false" name="reset_data_">Apagar estatísticas</string>
+  <string formatted="false" name="reset_data_hint">Apagar os dados das chamadas ou SMS irão resultar no recálculo das estatísticas.\n\nO cancelamento das estatísticas de tráfego é permanente. Só será visualizado após o boot!</string>
+  <string formatted="false" name="reset_data_data_">Apagar os Dados também.</string>
+  <string formatted="false" name="contacts_">Contatos</string>
+  <string-array name="themes">
+    <item>Escuro</item>
+    <item>Claro</item>
+  </string-array>
+  <string-array name="textsize">
+    <item>Pequeno</item>
+    <item>Médio</item>
+  </string-array>
 </resources>

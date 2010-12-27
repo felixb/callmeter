@@ -18,152 +18,121 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-<!--	<string name="author_">Author:</string> -->
-<!--	<string name="version_">Version:</string> -->
-<!--	<string name="license_">License:</string> -->
-<!--	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string> -->
-<!--	<string name="source_">Sourcescode:</string> -->
-<!--	<string name="website_">Website:</string> -->
-<!--	<string name="debug_">Debug</string> -->
-<!--	<string name="custom_language_">Custom language</string> -->
-<!--	<string name="custom_language_hint">Set a custom language.</string> -->
-<!--	<string name="send_logs_">Send logs</string> -->
-<!--	<string name="send_logs_hint">Send your device\'s logs to the developer.\nDo this only if you were asked to do so.</string> -->
-<!--	<string name="sendlog_run_">Run SendLog</string> -->
-<!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
-<!--	<string name="sendlog_install_">Install SendLog</string> -->
-<!--	<string name="sendlog_install">Install the free SendLog application to collect the device log and send it to the developer.</string> -->
-<!--	<string name="donate_paypal_">Donate (Paypal)</string> -->
-<!--	<string name="donate_market_">Donate (Market)</string> -->
-<!--	<string name="donate_remove_ads_">Donate/remove ads</string> -->
-<!--	<string name="remove_ads_">Remove ads</string> -->
-<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
-<!--	<string name="postdonate">To remove ads, you need to load the <i>noads</i> code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work after one day.</string> -->
-<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
-<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
-<!--	<string name="load_hash_">Load <i>noads</i> code</string> -->
-<!--	<string name="sig_loaded">Ads removed!</string> -->
-<!--	<string name="sig_failed">Failed to remove ads!</string> -->
-<!--	<string name="accept_">Accept Terms</string> -->
-<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
-<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
-<!--	<string name="notify_">Forgot to remove the ads?</string> -->
-<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
-	<string name="about0_">Pass auf deine Freiminuten, FreiSMS und dein Datenvolumen auf!</string>
-	<string name="about0">CallMeter erzeugt aus deinen Anruf-, SMS- und Daten-Logs Berichte. Es unterstützt viele verschiedene Abrechnungsmodi.</string>
-	<string name="about1">Das Ausgabeformat ist: Nutzung / Zeit oder Anzahl in diesem Monat / Zeit oder Anzahl überhaupt. Monatliche Anrufe werden nach Abrechnungsmodus berechnet. Die Gesamtzeit nicht.</string>
-	<string name="about2">Der Abrechnungszeitraum bezeichnet die länge des ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s aufgerundet.</string>
-	<string name="about3">Du kannst deine Anruf- oder SMS-Kontingente trennen. In jedem Kontingent kannst du dann folgendes einstelen: keine Abrechnung, auf ein bestimmtes Limit begrenzt oder keine Grenzen.</string>
-	<string name="about4">Deine SMS können über die Anrufe abgerechnet werden. Z.B. jede SMS als ein 60s Anruf.</string>
-	<string name="about5">CallMeter läuft alle 30min im Hintergrund (sofern das Gerät nicht im Standby ist). Werden Anrufe oder Nachrichten älter als 30min gelöscht, ändert das die Statistik nicht. Werden neuere Anrufe/Nachrichten gelöscht, kann es je nach Zeitpunkt die Statistiken verfälschen!</string>
-	<string name="about6_">Was CallMeter NG nicht tut:</string>
-	<string name="about6">Es ist nicht möglich zwischen Anrufen aus Sipdroid und echten Anrufen bzw. WebSMS und echten SMS zu unterscheiden. Androids nahtlose Integration dieser Apps lässt eine spätere Unterscheidung der Logs nicht mehr zu.</string>
-	<string name="send_">Senden</string>
-	<string name="settings">Einstellungen</string>
-	<string name="about_">Über</string>
-	<string name="about_hint">Über diese App</string>
-	<string name="faq_hint">Ein paar Tipps und Tricks, wie man diese App einstellt.</string>
-	<string name="feedback_">Feedback</string>
-	<string name="feedback_hint">Bugreports, feature requests ...</string>
-	<string name="twitter_hint">Follow auf twitter.\nUpdate Infos etc...</string>
-	<string name="more_">Mehr Apps..</string>
-	<string name="billday_">Erster Rechnungstag</string>
-	<string name="billmode_">Abrechnungsmodus</string>
-	<string name="billmode_hint">Länge der Takte (erster/folgende)</string>
-	<string name="billdate_">Erster Rechnungstag:</string>
-	<string name="smsperiod_">Gleiche Rechnung für SMS</string>
-	<string name="smsperiod_hint">Anruf Rechnungstag auch für SMS setzen.</string>
-	<string name="smsbillday_">Erster Rechnungstag für SMS</string>
-	<string name="dataperiod_">Gleiche Rechnung für Daten</string>
-	<string name="dataperiod_hint">Anruf Rechnungstag auch für Daten setzen.</string>
-	<string name="databillday_">Erster Rechnungstag für Daten</string>
-	<string name="appearance_">Erscheinung</string>
-	<string name="theme_">Theme</string>
-	<string name="textsize_">Schriftgrad</string>
-	<string name="advanced_">Erweitert</string>
-	<string name="exclude_people_">Nummern ausschließen</string>
-	<string name="exclude_people_hint">Nummern nicht abrechnen\nWildcards erlaubt: *555, 555* oder *555*</string>
-	<string name="exclude_people_add">Nummer hinzufügen</string>
-	<string name="exclude_people_edit">Ändern</string>
-	<string name="exclude_people_delete">Löschen</string>
-	<string name="exclude_people_to_plan1_">Ausgeschlossene Nummern nach Plan #1</string>
-	<string name="exclude_people_to_plan2_">Ausgeschlossene Nummern nach Plan #2</string>
-	<string name="exclude_people_calls_">Für Anrufe einschalten</string>
-	<string name="exclude_people_calls_to_plan1_hint">Anrufe zu/von ausgeschlossene nummern in Plan #1 abrechnen.</string>
-	<string name="exclude_people_calls_to_plan2_hint">Anrufe zu/von ausgeschlossene nummern in Plan #2 abrechnen.</string>
-	<string name="exclude_people_sms_">Für SMS einschalten</string>
-	<string name="exclude_people_sms_to_plan1_hint">SMS zu/von ausgeschlossene nummern in Plan #1 abrechnen.</string>
-	<string name="exclude_people_sms_to_plan2_hint">SMS zu/von ausgeschlossene nummern in Plan #2 abrechnen.</string>
-	<string name="plans">Kontingente</string>
-	<string name="plans_split">2 Kontingente</string>
-	<string name="plans_merge">Kontingente verschmelzen</string>
-	<string name="plans_split_hint">Abrechnung in 2 verschiedene Kontingente trennen.</string>
-	<string name="plan1">Kontingent 1</string>
-	<string name="plan2">Kontingent 2</string>
-	<string name="plan1_hint">Wähle die Stunden, die im Kontingent 1 abgerechnet werden.</string>
-	<string name="plan_free_">Keine Abrechnung</string>
-	<string name="plan_freemin_">Freiminuten</string>
-	<string name="plan_freesms_">FreiSMS</string>
-	<string name="free_hint">Absolut keine Kosten</string>
-	<string name="freemin_hint">Freiminuten / Monat</string>
-	<string name="freesms_hint">FreiSMS / Monat</string>
-	<string name="bill_calls_incoming_">Eingehende abrechnen</string>
-	<string name="bill_calls_incoming_hint">Eingehende Anrufe auch abrechnen.</string>
-	<string name="bill_sms_incoming_">Eingehende abrechnen</string>
-	<string name="bill_sms_incoming_hint">Eingehende SMS auch abrechnen.</string>
-	<string name="bill_data_incoming_only_">Nur eingehender Traffic</string>
-	<string name="bill_data_incoming_only_hint">Nur eingehenden Traffic abrechnen.</string>
-	<string name="cost_per_call_">Kosten pro Anruf</string>
-	<string name="cost_per_call_hint">Jeder Anruf wird berechnet.</string>
-	<string name="cost_per_minute_">Kosten pro Minute</string>
-	<string name="cost_per_minute_hint">Jede Minute wird berechnet.</string>
-	<string name="cost_per_sms_">Kosten pro SMS</string>
-	<string name="cost_per_sms_hint">Jede SMS wird berechnet.</string>
-	<string name="cost_per_mb_">Kosten pro MB</string>
-	<string name="cost_per_mb_hint">Jedes MB Traffic wird berechnet.</string>
-	<string name="merge_sms_calls_">SMS als Anrufe abrechnen</string>
-	<string name="merge_sms_calls_hint">Rechne SMS als Anrufe ab.</string>
-	<string name="merge_sms_calls_sec_">Sekunden / SMS</string>
-	<string name="merge_sms_calls_sec_hint">Anzahl der Sekunden, die für jede SMS abgerechnet werden.</string>
-	<string name="merge_sms_plan1_">In Kontingent 1 abrechnen</string>
-	<string name="merge_sms_plan1_hint">Abwählen, um im Kontingent 2 abzurechnen.</string>
-	<string name="data_hint">WLAN stats werden hier nicht gesammelt!</string>
-	<string name="data_enable_">Zeige Datenstatistik</string>
-	<string name="data_enable_hint">Daten werden in Echtzeit gesammelt. Im ersten Monat ist das Ergebnis evtl. falsch.</string>
-	<string name="data_each_day">Jeden Tag einzeln abrechnen</string>
-	<string name="data_each_day_hint">Der Abrechnungszeitraum wird mit jedem Tag neu gestartet.</string>
-	<string name="data_limit_">Freivolumen</string>
-	<string name="data_limit_hint">Freivolumen in MB/Monat</string>
-	<string name="monday">Montag</string>
-	<string name="tuesday">Dienstag</string>
-	<string name="wednesday">Mittwoch</string>
-	<string name="thursday">Donnerstag</string>
-	<string name="friday">Freitag</string>
-	<string name="saturday">Samstag</string>
-	<string name="sunday">Sonntag</string>
-	<string name="calls">Anrufe</string>
-<!--	<string name="sms">SMS</string> -->
-	<string name="data">Daten</string>
-	<string name="calls_sms">Anrufe/SMS</string>
-	<string name="in_calls">Ein%s:</string>
-	<string name="in_sms">Ein%s:</string>
-	<string name="in_data">Ein:</string>
-	<string name="out_calls">Aus%s:</string>
-	<string name="out_sms">Aus%s:</string>
-	<string name="out_data">Aus:</string>
-	<string name="plan_name1_">Kontingent 1: Name</string>
-	<string name="plan_name2_">Kontingent 2: Name</string>
-	<string name="plan_name_hint">Eigener Name</string>
-	<string name="reset_data_">Statistik zurück setzen</string>
-	<string name="reset_data_hint">Anruf/SMS Statistik zurück setzen sorgt dafür, dass die Statistik neu berechnet wird.\n\nZurücksetzen der Traffic Statistik ist permanent. Es wird nur der Traffic vor dem letzten Reboot gelöscht!</string>
-	<string name="reset_data_data_">Auch Daten zurücksetzen</string>
-	<string name="contacts_">Kontakte</string>
-	<string-array name="themes">
-		<item>Dunkel</item>
-		<item>Hell</item>
-	</string-array>
-	<string-array name="textsize">
-		<item>Klein</item>
-		<item>Mittel</item>
-	</string-array>
+  <string formatted="false" name="about0_">Pass auf deine Freiminuten, FreiSMS und dein Datenvolumen auf!</string>
+  <string formatted="false" name="about0">CallMeter erzeugt aus deinen Anruf-, SMS- und Daten-Logs Berichte. Es unterstützt viele verschiedene Abrechnungsmodi.</string>
+  <string formatted="false" name="about1">Das Ausgabeformat ist: Nutzung / Zeit oder Anzahl in diesem Monat / Zeit oder Anzahl überhaupt. Monatliche Anrufe werden nach Abrechnungsmodus berechnet. Die Gesamtzeit nicht.</string>
+  <string formatted="false" name="about2">Der Abrechnungszeitraum bezeichnet die länge des ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s aufgerundet.</string>
+  <string formatted="false" name="about3">Du kannst deine Anruf- oder SMS-Kontingente trennen. In jedem Kontingent kannst du dann folgendes einstelen: keine Abrechnung, auf ein bestimmtes Limit begrenzt oder keine Grenzen.</string>
+  <string formatted="false" name="about4">Deine SMS können über die Anrufe abgerechnet werden. Z.B. jede SMS als ein 60s Anruf.</string>
+  <string formatted="false" name="about5">CallMeter läuft alle 30min im Hintergrund (sofern das Gerät nicht im Standby ist). Werden Anrufe oder Nachrichten älter als 30min gelöscht, ändert das die Statistik nicht. Werden neuere Anrufe/Nachrichten gelöscht, kann es je nach Zeitpunkt die Statistiken verfälschen!</string>
+  <string formatted="false" name="about6_">Was CallMeter NG nicht tut:</string>
+  <string formatted="false" name="about6">Es ist nicht möglich zwischen Anrufen aus Sipdroid und echten Anrufen bzw. WebSMS und echten SMS zu unterscheiden. Androids nahtlose Integration dieser Apps lässt eine spätere Unterscheidung der Logs nicht mehr zu.</string>
+  <string formatted="false" name="send_">Senden</string>
+  <string formatted="false" name="settings">Einstellungen</string>
+  <string formatted="false" name="about_">Über</string>
+  <string formatted="false" name="about_hint">Über diese App</string>
+  <string formatted="false" name="faq_hint">Ein paar Tipps und Tricks, wie man diese App einstellt.</string>
+  <string formatted="false" name="feedback_">Feedback</string>
+  <string formatted="false" name="feedback_hint">Bugreports, feature requests ...</string>
+  <string formatted="false" name="twitter_hint">Follow auf twitter.\nUpdate Infos etc...</string>
+  <string formatted="false" name="more_">Mehr Apps..</string>
+  <string formatted="false" name="billday_">Erster Rechnungstag</string>
+  <string formatted="false" name="billmode_">Abrechnungsmodus</string>
+  <string formatted="false" name="billmode_hint">Länge der Takte (erster/folgende)</string>
+  <string formatted="false" name="billdate_">Erster Rechnungstag:</string>
+  <string formatted="false" name="smsperiod_">Gleiche Rechnung für SMS</string>
+  <string formatted="false" name="smsperiod_hint">Anruf Rechnungstag auch für SMS setzen.</string>
+  <string formatted="false" name="smsbillday_">Erster Rechnungstag für SMS</string>
+  <string formatted="false" name="dataperiod_">Gleiche Rechnung für Daten</string>
+  <string formatted="false" name="dataperiod_hint">Anruf Rechnungstag auch für Daten setzen.</string>
+  <string formatted="false" name="databillday_">Erster Rechnungstag für Daten</string>
+  <string formatted="false" name="appearance_">Darstellung</string>
+  <string formatted="false" name="theme_">Theme</string>
+  <string formatted="false" name="textsize_">Schriftgrad</string>
+  <string formatted="false" name="advanced_">Erweitert</string>
+  <string formatted="false" name="exclude_people_">Nummern ausschließen</string>
+  <string formatted="false" name="exclude_people_hint">Nummern nicht abrechnen\nWildcards erlaubt: *555, 555* oder *555*</string>
+  <string formatted="false" name="exclude_people_add">Nummer hinzufügen</string>
+  <string formatted="false" name="exclude_people_edit">Ändern</string>
+  <string formatted="false" name="exclude_people_delete">Löschen</string>
+  <string formatted="false" name="exclude_people_to_plan1_">Ausgeschlossene Nummern nach Plan #1</string>
+  <string formatted="false" name="exclude_people_to_plan2_">Ausgeschlossene Nummern nach Plan #2</string>
+  <string formatted="false" name="exclude_people_calls_">Für Anrufe einschalten</string>
+  <string formatted="false" name="exclude_people_calls_to_plan1_hint">Anrufe zu/von ausgeschlossene nummern in Plan #1 abrechnen.</string>
+  <string formatted="false" name="exclude_people_calls_to_plan2_hint">Anrufe zu/von ausgeschlossene nummern in Plan #2 abrechnen.</string>
+  <string formatted="false" name="exclude_people_sms_">Für SMS einschalten</string>
+  <string formatted="false" name="exclude_people_sms_to_plan1_hint">SMS zu/von ausgeschlossene nummern in Plan #1 abrechnen.</string>
+  <string formatted="false" name="exclude_people_sms_to_plan2_hint">SMS zu/von ausgeschlossene nummern in Plan #2 abrechnen.</string>
+  <string formatted="false" name="plans">Kontingente</string>
+  <string formatted="false" name="plans_split">2 Kontingente</string>
+  <string formatted="false" name="plans_merge">Kontingente verschmelzen</string>
+  <string formatted="false" name="plans_split_hint">Abrechnung in 2 verschiedene Kontingente trennen.</string>
+  <string formatted="false" name="plan1">Kontingent 1</string>
+  <string formatted="false" name="plan2">Kontingent 2</string>
+  <string formatted="false" name="plan1_hint">Wähle die Stunden, die im Kontingent 1 abgerechnet werden.</string>
+  <string formatted="false" name="plan_free_">Keine Abrechnung</string>
+  <string formatted="false" name="plan_freemin_">Freiminuten</string>
+  <string formatted="false" name="plan_freesms_">FreiSMS</string>
+  <string formatted="false" name="free_hint">Absolut keine Kosten</string>
+  <string formatted="false" name="freemin_hint">Freiminuten / Monat</string>
+  <string formatted="false" name="freesms_hint">FreiSMS / Monat</string>
+  <string formatted="false" name="bill_calls_incoming_">Eingehende abrechnen</string>
+  <string formatted="false" name="bill_calls_incoming_hint">Eingehende Anrufe auch abrechnen.</string>
+  <string formatted="false" name="bill_sms_incoming_">Eingehende abrechnen</string>
+  <string formatted="false" name="bill_sms_incoming_hint">Eingehende SMS auch abrechnen.</string>
+  <string formatted="false" name="bill_data_incoming_only_">Nur eingehender Traffic</string>
+  <string formatted="false" name="bill_data_incoming_only_hint">Nur eingehenden Traffic abrechnen.</string>
+  <string formatted="false" name="cost_per_call_">Kosten pro Anruf</string>
+  <string formatted="false" name="cost_per_call_hint">Jeder Anruf wird berechnet.</string>
+  <string formatted="false" name="cost_per_minute_">Kosten pro Minute</string>
+  <string formatted="false" name="cost_per_minute_hint">Jede Minute wird berechnet.</string>
+  <string formatted="false" name="cost_per_sms_">Kosten pro SMS</string>
+  <string formatted="false" name="cost_per_sms_hint">Jede SMS wird berechnet.</string>
+  <string formatted="false" name="cost_per_mb_">Kosten pro MB</string>
+  <string formatted="false" name="cost_per_mb_hint">Jedes MB Traffic wird berechnet.</string>
+  <string formatted="false" name="merge_sms_calls_">SMS als Anrufe abrechnen</string>
+  <string formatted="false" name="merge_sms_calls_hint">Rechne SMS als Anrufe ab.</string>
+  <string formatted="false" name="merge_sms_calls_sec_">Sekunden / SMS</string>
+  <string formatted="false" name="merge_sms_calls_sec_hint">Anzahl der Sekunden, die für jede SMS abgerechnet werden.</string>
+  <string formatted="false" name="merge_sms_plan1_">In Kontingent 1 abrechnen</string>
+  <string formatted="false" name="merge_sms_plan1_hint">Abwählen, um im Kontingent 2 abzurechnen.</string>
+  <string formatted="false" name="data_hint">WLAN stats werden hier nicht gesammelt!</string>
+  <string formatted="false" name="data_enable_">Zeige Datenstatistik</string>
+  <string formatted="false" name="data_enable_hint">Daten werden in Echtzeit gesammelt. Im ersten Monat ist das Ergebnis evtl. falsch.</string>
+  <string formatted="false" name="data_each_day">Jeden Tag einzeln abrechnen</string>
+  <string formatted="false" name="data_each_day_hint">Der Abrechnungszeitraum wird mit jedem Tag neu gestartet.</string>
+  <string formatted="false" name="data_limit_">Freivolumen</string>
+  <string formatted="false" name="data_limit_hint">Freivolumen in MB/Monat</string>
+  <string formatted="false" name="monday">Montag</string>
+  <string formatted="false" name="tuesday">Dienstag</string>
+  <string formatted="false" name="wednesday">Mittwoch</string>
+  <string formatted="false" name="thursday">Donnerstag</string>
+  <string formatted="false" name="friday">Freitag</string>
+  <string formatted="false" name="saturday">Samstag</string>
+  <string formatted="false" name="sunday">Sonntag</string>
+  <string formatted="false" name="calls">Anrufe</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="data">Daten</string>
+  <string formatted="false" name="calls_sms">Anrufe/SMS</string>
+  <string formatted="false" name="in_calls">Ein%s:</string>
+  <string formatted="false" name="in_sms">Ein%s:</string>
+  <string formatted="false" name="in_data">Ein:</string>
+  <string formatted="false" name="out_calls">Aus%s:</string>
+  <string formatted="false" name="out_sms">Aus%s:</string>
+  <string formatted="false" name="out_data">Aus:</string>
+  <string formatted="false" name="plan_name1_">Kontingent 1: Name</string>
+  <string formatted="false" name="plan_name2_">Kontingent 2: Name</string>
+  <string formatted="false" name="plan_name_hint">Eigener Name</string>
+  <string formatted="false" name="reset_data_">Statistik zurück setzen</string>
+  <string formatted="false" name="reset_data_hint">Anruf/SMS Statistik zurück setzen sorgt dafür, dass die Statistik neu berechnet wird.\n\nZurücksetzen der Traffic Statistik ist permanent. Es wird nur der Traffic vor dem letzten Reboot gelöscht!</string>
+  <string formatted="false" name="reset_data_data_">Auch Daten zurücksetzen</string>
+  <string formatted="false" name="contacts_">Kontakte</string>
+  <string-array name="themes">
+    <item>Dunkel</item>
+    <item>Hell</item>
+  </string-array>
+  <string-array name="textsize">
+    <item>Klein</item>
+    <item>Mittel</item>
+  </string-array>
 </resources>

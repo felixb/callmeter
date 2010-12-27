@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Lóránt Szabó, Béla Durucz, Felix Bechstein
+		Copyright (C) 2010 Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter NG. This program is free software; you
@@ -18,152 +18,121 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="author_">Készítő:</string>
-	<string name="version_">Verzió:</string>
-	<string name="license_">Licenc:</string>
-	<string name="license">GPLv3 - bővebben: http://www.gnu.org/licenses/gpl-3.0.txt</string>
-	<string name="source_">Forráskód:</string>
-	<string name="website_">Weboldal:</string>
-	<string name="debug_">Debug</string>
-<!--	<string name="custom_language_">Custom language</string> -->
-<!--	<string name="custom_language_hint">Set a custom language.</string> -->
-	<string name="send_logs_">Napló küldése</string>
-	<string name="send_logs_hint">A fejlesztőnek elküldi a program logját.\nKérlek csak akkor küldd el, ha külön kérést kaptál erre.</string>
-	<string name="sendlog_run_">LogKüldés (SendLog) indítása</string>
-	<string name="sendlog_run">A LogKüldés (SendLog) összegyűjti a készüléked logját és a fejlesztőnek elküldi.\nLehetőség van a küldendő adatok megtekintésére és módosítására.</string>
-	<string name="sendlog_install_">LogKüldés (SendLog) telepítése</string>
-	<string name="sendlog_install">Az ingyenes LogKüldés (SendLog) program telepítése lehetőséget biztosít arra, hogy a fejlesztőnek elküldd a készüléked logját.</string>
-	<string name="donate_paypal_">Támogatás adománnyal (Paypal)</string>
-	<string name="donate_market_">Támogatás adománnyal (Market)</string>
-	<string name="donate_remove_ads_">Támogatás/hirdetések eltávolítása</string>
-	<string name="remove_ads_">Hirdetések eltávolítása</string>
-<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
-	<string name="postdonate">Ha el akarod távolítani a reklámokat, akkor be kell írnod a reklámeltávolító <i>noads</i> kódot. Az adományod megérkezése után nem sokkal elérhetővé válik. Legyél türelemmel, de ha egy munkanapon belül nem érkezik meg, akkord írj egy e-mailt.</string>
-<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
-<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
-	<string name="load_hash_">Reklámeltávolító <i>noads</i> kód betöltése</string>
-	<string name="sig_loaded">Reklámok sikeresen eltávolítva!</string>
-	<string name="sig_failed">Reklámok eltávolítása sikertelen!</string>
-<!--	<string name="accept_">Accept Terms</string> -->
-<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
-<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
-<!--	<string name="notify_">Forgot to remove the ads?</string> -->
-<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
-	<string name="about0_">Kövesd nyomon a hívás-, SMS-, és adatforgalmadat!</string>
-	<string name="about0">A Call Meter NG statisztikát készít a hívás-, SMS-, és adatforgalomból. Mindezt többféle számlázási mód támogatásával.</string>
-	<string name="about1">A kimeneti formátum a következő: felhasznált mennyiség százalékosan / hívásidő, SMS-, vagy adatmennyiség az aktuális számlázási időszakra / összesített hívásidő, SMS-, vagy adatmennyiség. A havi számítás figyelembe veszi a számlázási módot, míg az összegzett nem.</string>
-	<string name="about2">A számlázási mód az első / azt követő számlázott híváshosszt határozza meg. Pl.: A 60/10 azt jelenti, hogy minden hívás 60 másodpercig számlázott, az ennél hosszabb hívások 10 másodperces pontosságra lesznek felfelé kerekítve. Tehát a 60/60: perc alapú számlázást, 1/1: másodperc alapú számlázást jelent.</string>
-	<string name="about3">Két különálló hívás és SMS tarifa hozható létre. Mindegyik tarifa beállítható teljesen díjmentesre, vagy egy bizonyos korlátig díjmentesre.</string>
-	<string name="about4">Az SMS-ek elszámolhatók hívásként is. Pl.: Minden elküldött SMS-ért 15 másodpercnyi hívást számláz.</string>
-	<string name="about5">A Call Meter NG alkalmazás 30 percenként fut le a háttérben, kivéve standby állapotban. Ez azt jelenti, hogy a 30 percnél régebbi hívások vagy SMS üzenetek törlése a statisztikát nem befolyásolja. Azonban a 30 percen belül történt hívások és SMS-ek törlése hibás adatokat eredményezhet.</string>
-	<string name="about6_">Mire nem alkalmas a Call Meter NG alkalmazás:</string>
-	<string name="about6">Nincs lehetőség a VOIP alapú, pl. sipdroid és normál hívások, valamint a websms és normál SMS üzenetek megkülönböztetésére. Az Android teljesen átlátszó módon kezeli az említett alkalmazásokat, ezért ezeket lehetetlen kiszűrni a hagyományos hívás- és SMS-naplókból.</string>
-	<string name="send_">Küldés</string>
-	<string name="settings">Beállítások</string>
-	<string name="about_">Névjegy</string>
-	<string name="about_hint">A Call Meter NG-ről.</string>
-	<string name="faq_hint">Tippek és trükkök, avagy hogyan állítsuk be a programot?</string>
-	<string name="feedback_">Visszajelzés/Feedback</string>
-	<string name="feedback_hint">Hibajelentés, fejlesztési ötletek küldése a fejlesztőnek...</string>
-	<string name="twitter_hint">Kövess Twitteren!\nÉrtesülj frissítésekről, egyebekről.</string>
-	<string name="more_">További alkalmazások...</string>
-	<string name="billday_">A számlázás első napja</string>
-	<string name="billmode_">Számlázás módja</string>
-	<string name="billmode_hint">Az első és azt követő számlázási egységek másodpercben.</string>
-	<string name="billdate_">Számlázási időszak kezdete:</string>
-	<string name="smsperiod_">Azonos számlázási időszak SMS-re</string>
-	<string name="smsperiod_hint">Ha az SMS-ek számlázási időszaka megegyezik a hívások számlázási időszakával, pipáld be.</string>
-	<string name="smsbillday_">Az SMS számlázás első napja</string>
-	<string name="dataperiod_">Azonos számlázási időszak adatkapcsolatra</string>
-	<string name="dataperiod_hint">Ha az adatkapcsolat számlázási időszaka megegyezik a hívások számlázási időszakával, akkor pipáld be.</string>
-	<string name="databillday_">Adatkapcsolat számlájának első napja</string>
-	<string name="appearance_">Megjelenés</string>
-	<string name="theme_">Téma</string>
-	<string name="textsize_">Betűméret</string>
-	<string name="advanced_">Haladó beállítások</string>
-	<string name="exclude_people_">Kivételek hozzáadása</string>
-	<string name="exclude_people_hint">Az adott számok nem kerülnek számlázásra\nwildcard-ok használhatók: *555, 555* vagy *555*</string>
-	<string name="exclude_people_add">Szám hozzáadása</string>
-	<string name="exclude_people_edit">Szerkesztés</string>
-	<string name="exclude_people_delete">Törlés</string>
-	<string name="exclude_people_to_plan1_">Kivételek az 1-es tarifa alól</string>
-	<string name="exclude_people_to_plan2_">Kivételek az 2-es tarifa alól</string>
-	<string name="exclude_people_calls_">Hívások számlázásának engedélyezése</string>
-	<string name="exclude_people_calls_to_plan1_hint">Ha szeretnéd, hogy a kivételek 1-es tarifával kerüljenek számlázásra, pipáld be.</string>
-	<string name="exclude_people_calls_to_plan2_hint">Ha szeretnéd, hogy a kivételek 2-es tarifával kerüljenek számlázásra, pipáld be.</string>
-	<string name="exclude_people_sms_">SMS-ek számlázásának bekapcsolása</string>
-	<string name="exclude_people_sms_to_plan1_hint">Ha szeretnéd, hogy az SMS-ek 1-es tarifával kerüljenek számlázásra, pipáld be.</string>
-	<string name="exclude_people_sms_to_plan2_hint">Ha szeretnéd, hogy az SMS-ek 2-es tarifával kerüljenek számlázásra, pipáld be.</string>
-	<string name="plans">Díjcsomagok, tarifák</string>
-	<string name="plans_split">Különböző tarifák használata</string>
-	<string name="plans_merge">Tarifák összevonása</string>
-	<string name="plans_split_hint">Két különálló tarifa használata.</string>
-	<string name="plan1">1-es tarifa</string>
-	<string name="plan2">2-es tarifa</string>
-	<string name="plan1_hint">A megjelölt órák az 1-es, míg a jelöletlenek a 2-es tarifával kerülnek számlázásra.</string>
-	<string name="plan_free_">Nincs számlázás</string>
-	<string name="plan_freemin_">Ingyenes percek</string>
-	<string name="plan_freesms_">Ingyenes SMS-ek</string>
-	<string name="free_hint">Teljesen díjmentes</string>
-	<string name="freemin_hint">Ingyenes percek száma havonta</string>
-	<string name="freesms_hint">Ingyenes SMS-ek száma havonta</string>
-	<string name="bill_calls_incoming_">Bejövő hívások számlázása</string>
-	<string name="bill_calls_incoming_hint">Számlázás a fogadott hívásokért is.</string>
-	<string name="bill_sms_incoming_">Fogadott SMS-ek számlázása</string>
-	<string name="bill_sms_incoming_hint">Számlázás a fogadott SMS-ekért is.</string>
-	<string name="bill_data_incoming_only_">Számlázás csak adatforgalom után</string>
-	<string name="bill_data_incoming_only_hint">Kizárólag a letöltött adatmennyiséget veszi figyelembe.</string>
-	<string name="cost_per_call_">Hívásonkénti/kapcsolási díj</string>
-	<string name="cost_per_call_hint">Hívásonként kiszámlázott összeg, kapcsolási díj.</string>
-	<string name="cost_per_minute_">Percdíj</string>
-	<string name="cost_per_minute_hint">Percenként kiszámlázott összeg.</string>
-	<string name="cost_per_sms_">SMS díj</string>
-	<string name="cost_per_sms_hint">SMS-enként kiszámlázott díj.</string>
-	<string name="cost_per_mb_">Ár megabyteonként</string>
-	<string name="cost_per_mb_hint">Minden megabytenyi adatforgalom díja</string>
-	<string name="merge_sms_calls_">SMS-ek hívásként számlázása</string>
-	<string name="merge_sms_calls_hint">Bejelölés esetén az SMS-ek hívásként kerülnek számlázásra.</string>
-	<string name="merge_sms_calls_sec_">Másodperc / SMS</string>
-	<string name="merge_sms_calls_sec_hint">SMS-enként elkönyvelt másodpercek száma.</string>
-	<string name="merge_sms_plan1_">SMS-ek számlázása hívásként 1-es tarifa szerint</string>
-	<string name="merge_sms_plan1_hint">A jelölést törölve az SMS-ek a 2-es tarifa szerint kerülnek számlázásra.</string>
-	<string name="data_hint">WLAN/wifi forgalma nem számít bele!</string>
-	<string name="data_enable_">Adatforgalom statisztikák</string>
-	<string name="data_enable_hint">Az adatgyűjtés valós időben történik. Az első hónap pontatlan lehet!</string>
-	<string name="data_each_day">Naponként kerül számlázásra</string>
-	<string name="data_each_day_hint">A számlázási periódus egy nap.</string>
-	<string name="data_limit_">Limit</string>
-	<string name="data_limit_hint">Adatforgalom limit (MB/hónap)</string>
-	<string name="monday">hétfő</string>
-	<string name="tuesday">kedd</string>
-	<string name="wednesday">szerda</string>
-	<string name="thursday">csütörtök</string>
-	<string name="friday">péntek</string>
-	<string name="saturday">szombat</string>
-	<string name="sunday">vasárnap</string>
-	<string name="calls">Hívások</string>
-	<string name="sms">SMS</string>
-	<string name="data">Adatforgalom</string>
-	<string name="calls_sms">Hívás/SMS</string>
-	<string name="in_calls">Bejövő%s:</string>
-	<string name="in_sms">Bejövő%s:</string>
-	<string name="in_data">Bejövő:</string>
-	<string name="out_calls">Kimenő%s:</string>
-	<string name="out_sms">Kimenő%s:</string>
-	<string name="out_data">Kimenő:</string>
-	<string name="plan_name1_">1-es tarifa: név</string>
-	<string name="plan_name2_">2-es tarifa: név</string>
-	<string name="plan_name_hint">Egyedi név</string>
-	<string name="reset_data_">Számlálók nullázása</string>
-	<string name="reset_data_hint">A hívások és SMS-ek nullázása a statisztikák újraszámolását vonja maguk után.\n\nAz adatforgalmi mérők nullázása nem vonható vissza. Csak a telefon bekapcsolása (bootolása) előtti forgalmat nullázza!</string>
-	<string name="reset_data_data_">Adatforgalmi számlálók is legyenek nullázva</string>
-	<string name="contacts_">Névjegyek</string>
-	<string-array name="themes">
-		<item>Fekete</item>
-		<item>Világos</item>
-	</string-array>
-	<string-array name="textsize">
-		<item>Kicsi</item>
-		<item>Közepes</item>
-	</string-array>
+  <string formatted="false" name="about0_">Kövesd nyomon a hívás-, SMS-, és adatforgalmadat!</string>
+  <string formatted="false" name="about0">A Call Meter NG statisztikát készít a hívás-, SMS-, és adatforgalomból. Mindezt többféle számlázási mód támogatásával.</string>
+  <string formatted="false" name="about1">A kimeneti formátum a következő: felhasznált mennyiség százalékosan / hívásidő, SMS-, vagy adatmennyiség az aktuális számlázási időszakra / összesített hívásidő, SMS-, vagy adatmennyiség. A havi számítás figyelembe veszi a számlázási módot, míg az összegzett nem.</string>
+  <string formatted="false" name="about2">A számlázási mód az első / azt követő számlázott híváshosszt határozza meg. Pl.: A 60/10 azt jelenti, hogy minden hívás 60 másodpercig számlázott, az ennél hosszabb hívások 10 másodperces pontosságra lesznek felfelé kerekítve. Tehát a 60/60: perc alapú számlázást, 1/1: másodperc alapú számlázást jelent.</string>
+  <string formatted="false" name="about3">Két különálló hívás és SMS tarifa hozható létre. Mindegyik tarifa beállítható teljesen díjmentesre, vagy egy bizonyos korlátig díjmentesre.</string>
+  <string formatted="false" name="about4">Az SMS-ek elszámolhatók hívásként is. Pl.: Minden elküldött SMS-ért 15 másodpercnyi hívást számláz.</string>
+  <string formatted="false" name="about5">A Call Meter NG alkalmazás 30 percenként fut le a háttérben, kivéve standby állapotban. Ez azt jelenti, hogy a 30 percnél régebbi hívások vagy SMS üzenetek törlése a statisztikát nem befolyásolja. Azonban a 30 percen belül történt hívások és SMS-ek törlése hibás adatokat eredményezhet.</string>
+  <string formatted="false" name="about6_">Mire nem alkalmas a Call Meter NG alkalmazás:</string>
+  <string formatted="false" name="about6">Nincs lehetőség a VOIP alapú, pl. sipdroid és normál hívások, valamint a websms és normál SMS üzenetek megkülönböztetésére. Az Android teljesen átlátszó módon kezeli az említett alkalmazásokat, ezért ezeket lehetetlen kiszűrni a hagyományos hívás- és SMS-naplókból.</string>
+  <string formatted="false" name="send_">Küldés</string>
+  <string formatted="false" name="settings">Beállítások</string>
+  <string formatted="false" name="about_">Névjegy</string>
+  <string formatted="false" name="about_hint">A Call Meter NG-ről.</string>
+  <string formatted="false" name="faq_hint">Tippek és trükkök, avagy hogyan állítsuk be a programot?</string>
+  <string formatted="false" name="feedback_">Visszajelzés/Feedback</string>
+  <string formatted="false" name="feedback_hint">Hibajelentés, fejlesztési ötletek küldése a fejlesztőnek...</string>
+  <string formatted="false" name="twitter_hint">Kövess Twitteren!\nÉrtesülj frissítésekről, egyebekről.</string>
+  <string formatted="false" name="more_">További alkalmazások...</string>
+  <string formatted="false" name="billday_">A számlázás első napja</string>
+  <string formatted="false" name="billmode_">Számlázás módja</string>
+  <string formatted="false" name="billmode_hint">Az első és azt követő számlázási egységek másodpercben.</string>
+  <string formatted="false" name="billdate_">Számlázási időszak kezdete:</string>
+  <string formatted="false" name="smsperiod_">Azonos számlázási időszak SMS-re</string>
+  <string formatted="false" name="smsperiod_hint">Ha az SMS-ek számlázási időszaka megegyezik a hívások számlázási időszakával, pipáld be.</string>
+  <string formatted="false" name="smsbillday_">Az SMS számlázás első napja</string>
+  <string formatted="false" name="dataperiod_">Azonos számlázási időszak adatkapcsolatra</string>
+  <string formatted="false" name="dataperiod_hint">Ha az adatkapcsolat számlázási időszaka megegyezik a hívások számlázási időszakával, akkor pipáld be.</string>
+  <string formatted="false" name="databillday_">Adatkapcsolat számlájának első napja</string>
+  <string formatted="false" name="appearance_">Megjelenés</string>
+  <string formatted="false" name="theme_">Téma</string>
+  <string formatted="false" name="textsize_">Betűméret</string>
+  <string formatted="false" name="advanced_">Haladó beállítások</string>
+  <string formatted="false" name="exclude_people_">Kivételek hozzáadása</string>
+  <string formatted="false" name="exclude_people_hint">Az adott számok nem kerülnek számlázásra\nwildcard-ok használhatók: *555, 555* vagy *555*</string>
+  <string formatted="false" name="exclude_people_add">Szám hozzáadása</string>
+  <string formatted="false" name="exclude_people_edit">Szerkesztés</string>
+  <string formatted="false" name="exclude_people_delete">Törlés</string>
+  <string formatted="false" name="exclude_people_to_plan1_">Kivételek az 1-es tarifa alól</string>
+  <string formatted="false" name="exclude_people_to_plan2_">Kivételek az 2-es tarifa alól</string>
+  <string formatted="false" name="exclude_people_calls_">Hívások számlázásának engedélyezése</string>
+  <string formatted="false" name="exclude_people_calls_to_plan1_hint">Ha szeretnéd, hogy a kivételek 1-es tarifával kerüljenek számlázásra, pipáld be.</string>
+  <string formatted="false" name="exclude_people_calls_to_plan2_hint">Ha szeretnéd, hogy a kivételek 2-es tarifával kerüljenek számlázásra, pipáld be.</string>
+  <string formatted="false" name="exclude_people_sms_">SMS-ek számlázásának bekapcsolása</string>
+  <string formatted="false" name="exclude_people_sms_to_plan1_hint">Ha szeretnéd, hogy az SMS-ek 1-es tarifával kerüljenek számlázásra, pipáld be.</string>
+  <string formatted="false" name="exclude_people_sms_to_plan2_hint">Ha szeretnéd, hogy az SMS-ek 2-es tarifával kerüljenek számlázásra, pipáld be.</string>
+  <string formatted="false" name="plans">Díjcsomagok, tarifák</string>
+  <string formatted="false" name="plans_split">Különböző tarifák használata</string>
+  <string formatted="false" name="plans_merge">Tarifák összevonása</string>
+  <string formatted="false" name="plans_split_hint">Két különálló tarifa használata.</string>
+  <string formatted="false" name="plan1">1-es tarifa</string>
+  <string formatted="false" name="plan2">2-es tarifa</string>
+  <string formatted="false" name="plan1_hint">A megjelölt órák az 1-es, míg a jelöletlenek a 2-es tarifával kerülnek számlázásra.</string>
+  <string formatted="false" name="plan_free_">Nincs számlázás</string>
+  <string formatted="false" name="plan_freemin_">Ingyenes percek</string>
+  <string formatted="false" name="plan_freesms_">Ingyenes SMS-ek</string>
+  <string formatted="false" name="free_hint">Teljesen díjmentes</string>
+  <string formatted="false" name="freemin_hint">Ingyenes percek száma havonta</string>
+  <string formatted="false" name="freesms_hint">Ingyenes SMS-ek száma havonta</string>
+  <string formatted="false" name="bill_calls_incoming_">Bejövő hívások számlázása</string>
+  <string formatted="false" name="bill_calls_incoming_hint">Számlázás a fogadott hívásokért is.</string>
+  <string formatted="false" name="bill_sms_incoming_">Fogadott SMS-ek számlázása</string>
+  <string formatted="false" name="bill_sms_incoming_hint">Számlázás a fogadott SMS-ekért is.</string>
+  <string formatted="false" name="bill_data_incoming_only_">Számlázás csak adatforgalom után</string>
+  <string formatted="false" name="bill_data_incoming_only_hint">Kizárólag a letöltött adatmennyiséget veszi figyelembe.</string>
+  <string formatted="false" name="cost_per_call_">Hívásonkénti/kapcsolási díj</string>
+  <string formatted="false" name="cost_per_call_hint">Hívásonként kiszámlázott összeg, kapcsolási díj.</string>
+  <string formatted="false" name="cost_per_minute_">Percdíj</string>
+  <string formatted="false" name="cost_per_minute_hint">Percenként kiszámlázott összeg.</string>
+  <string formatted="false" name="cost_per_sms_">SMS díj</string>
+  <string formatted="false" name="cost_per_sms_hint">SMS-enként kiszámlázott díj.</string>
+  <string formatted="false" name="cost_per_mb_">Ár megabyteonként</string>
+  <string formatted="false" name="cost_per_mb_hint">Minden megabytenyi adatforgalom díja</string>
+  <string formatted="false" name="merge_sms_calls_">SMS-ek hívásként számlázása</string>
+  <string formatted="false" name="merge_sms_calls_hint">Bejelölés esetén az SMS-ek hívásként kerülnek számlázásra.</string>
+  <string formatted="false" name="merge_sms_calls_sec_">Másodperc / SMS</string>
+  <string formatted="false" name="merge_sms_calls_sec_hint">SMS-enként elkönyvelt másodpercek száma.</string>
+  <string formatted="false" name="merge_sms_plan1_">SMS-ek számlázása hívásként 1-es tarifa szerint</string>
+  <string formatted="false" name="merge_sms_plan1_hint">A jelölést törölve az SMS-ek a 2-es tarifa szerint kerülnek számlázásra.</string>
+  <string formatted="false" name="data_hint">WLAN/wifi forgalma nem számít bele!</string>
+  <string formatted="false" name="data_enable_">Adatforgalom statisztikák</string>
+  <string formatted="false" name="data_enable_hint">Az adatgyűjtés valós időben történik. Az első hónap pontatlan lehet!</string>
+  <string formatted="false" name="data_each_day">Naponként kerül számlázásra</string>
+  <string formatted="false" name="data_each_day_hint">A számlázási periódus egy nap.</string>
+  <string formatted="false" name="data_limit_">Limit</string>
+  <string formatted="false" name="data_limit_hint">Adatforgalom limit (MB/hónap)</string>
+  <string formatted="false" name="monday">hétfő</string>
+  <string formatted="false" name="tuesday">kedd</string>
+  <string formatted="false" name="wednesday">szerda</string>
+  <string formatted="false" name="thursday">csütörtök</string>
+  <string formatted="false" name="friday">péntek</string>
+  <string formatted="false" name="saturday">szombat</string>
+  <string formatted="false" name="sunday">vasárnap</string>
+  <string formatted="false" name="calls">Hívások</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="data">Adatforgalom</string>
+  <string formatted="false" name="calls_sms">Hívás/SMS</string>
+  <string formatted="false" name="in_calls">Bejövő%s:</string>
+  <string formatted="false" name="in_sms">Bejövő%s:</string>
+  <string formatted="false" name="in_data">Bejövő:</string>
+  <string formatted="false" name="out_calls">Kimenő%s:</string>
+  <string formatted="false" name="out_sms">Kimenő%s:</string>
+  <string formatted="false" name="out_data">Kimenő:</string>
+  <string formatted="false" name="plan_name1_">1-es tarifa: név</string>
+  <string formatted="false" name="plan_name2_">2-es tarifa: név</string>
+  <string formatted="false" name="plan_name_hint">Egyedi név</string>
+  <string formatted="false" name="reset_data_">Számlálók nullázása</string>
+  <string formatted="false" name="reset_data_hint">A hívások és SMS-ek nullázása a statisztikák újraszámolását vonja maguk után.\n\nAz adatforgalmi mérők nullázása nem vonható vissza. Csak a telefon bekapcsolása (bootolása) előtti forgalmat nullázza!</string>
+  <string formatted="false" name="reset_data_data_">Adatforgalmi számlálók is legyenek nullázva</string>
+  <string formatted="false" name="contacts_">Névjegyek</string>
+  <string-array name="themes">
+    <item>Fekete</item>
+    <item>Világos</item>
+  </string-array>
+  <string-array name="textsize">
+    <item>Kicsi</item>
+    <item>Közepes</item>
+  </string-array>
 </resources>

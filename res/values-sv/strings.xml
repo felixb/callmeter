@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 David Hulth, Felix Bechstein
+		Copyright (C) 2010 Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter NG. This program is free software; you
@@ -18,152 +18,121 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="author_">Upphovsman:</string>
-	<string name="version_">Version:</string>
-	<string name="license_">Licens:</string>
-	<string name="license">GPLv3 - läs mer på http://www.gnu.org/licenses/gpl-3.0.txt</string>
-	<string name="source_">Källkod:</string>
-	<string name="website_">Hemsida:</string>
-	<string name="debug_">Felsökningsläge (debug)</string>
-<!--	<string name="custom_language_">Custom language</string> -->
-<!--	<string name="custom_language_hint">Set a custom language.</string> -->
-	<string name="send_logs_">Skicka loggar</string>
-	<string name="send_logs_hint">Skicka loggar till tillverkaren av programmet. Gör endast detta om du blir ombedd av tillverkaren.</string>
-	<string name="sendlog_run_">Kör SendLog</string>
-	<string name="sendlog_run">SendLog samlar in enhetens loggdata och skickar det till utvecklaren.\nDu har möjligheten att se och ändra informationen innan den skickas.</string>
-	<string name="sendlog_install_">Installera SendLog</string>
-	<string name="sendlog_install">Installera gratis SendLog-program för att samla in enhetens logg och skicka till utvecklaren.</string>
-	<string name="donate_paypal_">Donera (Paypal)</string>
-	<string name="donate_market_">Donera (Market)</string>
-	<string name="donate_remove_ads_">Donera/ta bort reklam</string>
-	<string name="remove_ads_">Ta bort reklam</string>
-<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
-	<string name="postdonate">För att ta bort reklamen behöver vi din upplåsningskod. Den är tillgänglig så fort din donation är registrerad. Vänligen ha tålamod och skicka ett mail om det inte fungerar efter en dag.</string>
-<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
-<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
-	<string name="load_hash_">Läs in upplåsningskod</string>
-	<string name="sig_loaded">Reklam bortplockad!</string>
-	<string name="sig_failed">Kunde inte ta bort reklam!</string>
-<!--	<string name="accept_">Accept Terms</string> -->
-<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
-<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
-<!--	<string name="notify_">Forgot to remove the ads?</string> -->
-<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
-	<string name="about0_">Håll koll på dina samtals, sms och datakostnader!</string>
-	<string name="about0">CallMeter genererar rapporter ifrån samtal, meddelanden och dataloggar. Det stöder flera kostnadslägen.</string>
-	<string name="about1">Visningsformatet är användning / tid eller uträknad kostnad med hjälp av prislistan eller total uträkning. Månadsuträkningen använder prislistan men total uträkning gör det inte.</string>
-	<string name="about2">Kostnadsläge innebär att du ställer in hur samtal debiteras. Tex 60/10 menar att varje samtal räknas som minst 60 sekunder, samtal längre än så avrundas till nästa 10-sekunders period.</string>
-	<string name="about3">Du kan dela upp din prislista för samtal/SMS till två listor. Listorna kan vara prisbaserade eller obegränsade (fria).</string>
-	<string name="about4">Meddelanden kan räknas som samtalskostnad. Tex kan du ange att varje meddelande ska räknas som 15 sekunders samtalstid.</string>
-	<string name="about5">CallMeter körs i bakgrunden var 30:e minut (om telefonen inte är i stand-by). Detta menar att om du raderar samtal eller SMS som är äldre än 30 minuter kommer de inte att förändra din uträkning. Raderar du samtal eller meddelanden som är nyare än 30 min riskerar du att få fel i uträkningen.</string>
-	<string name="about6_">Vad CallMeter NG inte gör:</string>
-	<string name="about6">Det finns inget sätt att särskilja mellan sipdroid och riktiga samtal eller websms och riktiga SMS. På grund av hur Android är programmerat går det inte att spåra om ett samtal är "vanligt" eller via tex voip.</string>
-	<string name="send_">Skicka</string>
-	<string name="settings">Alternativ</string>
-	<string name="about_">Om</string>
-	<string name="about_hint">Mer information om det här programmet</string>
-	<string name="faq_hint">Några tips och trix för att ställa in programmet.</string>
-	<string name="feedback_">Feedback</string>
-	<string name="feedback_hint">Rapportera buggar, föreslå funktioner ...</string>
-	<string name="twitter_hint">Följ mig på twitter.\nFå notifieringar om uppdateringar mm.</string>
-	<string name="more_">Fler program...</string>
-	<string name="billday_">Första kostnadsdag </string>
-	<string name="billmode_">Kostnadsläge </string>
-	<string name="billmode_hint">Ange hur samtalskostnad ska beräknas (första/intervall i sekunder).</string>
-	<string name="billdate_">Första faktureringsdatum:</string>
-	<string name="smsperiod_">Samma period för SMS</string>
-	<string name="smsperiod_hint">Använd samma period för sms som för samtal.</string>
-	<string name="smsbillday_">Första faktureringssdag för SMS </string>
-	<string name="dataperiod_">Samma period för data</string>
-	<string name="dataperiod_hint">Använd samma period för data som för samtal.</string>
-	<string name="databillday_">Första faktureringsdag för data</string>
-	<string name="appearance_">Visning</string>
-	<string name="theme_">Tema</string>
-	<string name="textsize_"> Text-storlek </string>
-	<string name="advanced_">Avancerat</string>
-	<string name="exclude_people_">Exkludera nummer</string>
-	<string name="exclude_people_hint">Räkna inte vissa samtal (från nummer)\nwildcards är tillåtna: *555, 555* eller *555*</string>
-	<string name="exclude_people_add">Lägg till nummer</string>
-	<string name="exclude_people_edit">Redigera</string>
-	<string name="exclude_people_delete">Radera</string>
-	<string name="exclude_people_to_plan1_">Exkluderade nummer för prislista #1</string>
-	<string name="exclude_people_to_plan2_">Exkluderade nummer för prislista #2</string>
-	<string name="exclude_people_calls_">Aktivera för samtal</string>
-	<string name="exclude_people_calls_to_plan1_hint">Räkna med samtal till/från exkluderade nummer i prislista #1</string>
-	<string name="exclude_people_calls_to_plan2_hint">Räkna med samtal till/från exkluderade nummer i prislista #2</string>
-	<string name="exclude_people_sms_">Aktivera för SMS</string>
-	<string name="exclude_people_sms_to_plan1_hint">Räkna med sms till/från exkluderade nummer i prislista #1</string>
-	<string name="exclude_people_sms_to_plan2_hint">Räkna med sms till/från exkluderade nummer i prislista #2</string>
-	<string name="plans">Prislistor</string>
-	<string name="plans_split">Dela prislistor</string>
-	<string name="plans_merge">Slå ihop prislistor</string>
-	<string name="plans_split_hint">Använd två olika prislistor.</string>
-	<string name="plan1">Prislista 1</string>
-	<string name="plan2">Prislista 2</string>
-	<string name="plan1_hint">Välj vilka samtal/sms som ska hamna i prislista 1. Övriga kommer hamna i prislista 2.</string>
-	<string name="plan_free_">Ingen kostnad</string>
-	<string name="plan_freemin_">Fria Minuter</string>
-	<string name="plan_freesms_">Fria SMS</string>
-	<string name="free_hint">Samtal/SMS som inte kostar något</string>
-	<string name="freemin_hint">Fria Minuter / Månad</string>
-	<string name="freesms_hint">Fria SMS / Månad</string>
-	<string name="bill_calls_incoming_">Räkna inkommande samtal</string>
-	<string name="bill_calls_incoming_hint">Räkna på kostnad för inkommande samtal.</string>
-	<string name="bill_sms_incoming_">Räkna inkommande SMS </string>
-	<string name="bill_sms_incoming_hint">Räkna på kostnad för inkommande sms.</string>
-	<string name="bill_data_incoming_only_">Räkna bara inkommande datatrafik</string>
-	<string name="bill_data_incoming_only_hint">Räkna endast på inkommande datatrafik.</string>
-	<string name="cost_per_call_">Öppningsavgift samtal</string>
-	<string name="cost_per_call_hint">Fast kostnad för varje samtal.</string>
-	<string name="cost_per_minute_">Minutavgift</string>
-	<string name="cost_per_minute_hint">Minutkostnad på varje samtal.</string>
-	<string name="cost_per_sms_">Kostnad per SMS</string>
-	<string name="cost_per_sms_hint">Vad varje SMS kostar.</string>
-	<string name="cost_per_mb_">Kostnad per MB</string>
-	<string name="cost_per_mb_hint">Vad varje MB datatrafik kostar.</string>
-	<string name="merge_sms_calls_">Räkna SMS som samtal</string>
-	<string name="merge_sms_calls_hint">Räkna varje SMS som ett samtal.</string>
-	<string name="merge_sms_calls_sec_">Sekunder / SMS</string>
-	<string name="merge_sms_calls_sec_hint">Antal samtalssekunder ett SMS ska räknas som.</string>
-	<string name="merge_sms_plan1_">Räkna SMS i prislista 1</string>
-	<string name="merge_sms_plan1_hint">Kryssa ur för att räkna SMS till prislista 2.</string>
-	<string name="data_hint">OBS! Räknar endast på datatrafik via 3G/GSM, ej WLAN!</string>
-	<string name="data_enable_">Visa data-trafik</string>
-	<string name="data_enable_hint">Datatrafiken räknas i realtid. Kan bli lite knasigt första månaden du använder programmet.</string>
-	<string name="data_each_day">Räkna varje dag för sig</string>
-	<string name="data_each_day_hint">Varje dag startas uträkningen om.</string>
-	<string name="data_limit_">Gräns</string>
-	<string name="data_limit_hint">Gräns på datatrafik (MB/månad)</string>
-	<string name="monday">Måndag</string>
-	<string name="tuesday">Tisdag</string>
-	<string name="wednesday">Onsdag</string>
-	<string name="thursday">Torsdag</string>
-	<string name="friday">Fredag</string>
-	<string name="saturday">Lördag</string>
-	<string name="sunday">Söndag</string>
-	<string name="calls">Samtal</string>
-	<string name="sms">SMS</string>
-	<string name="data">Datatrafik</string>
-	<string name="calls_sms">Samtal/SMS</string>
-	<string name="in_calls">Mottagna%s:</string>
-	<string name="in_sms">Mottagna%s:</string>
-	<string name="in_data">Nerladdat:</string>
-	<string name="out_calls">Utgående%s:</string>
-	<string name="out_sms">Skickat%s:</string>
-	<string name="out_data">Uppladdat:</string>
-	<string name="plan_name1_">Prislista 1: namn</string>
-	<string name="plan_name2_">Prislista 2: namn</string>
-	<string name="plan_name_hint">Eget namn på prislistan</string>
-	<string name="reset_data_">Nollställ statistik</string>
-	<string name="reset_data_hint">Nollställning av statistik resulterar i en omräkning av statistiken.\n\nNollställningen är permanent. Den nollställer bara trafik gjord före senaste start av telefonen!</string>
-	<string name="reset_data_data_">Nollställ datatrafik</string>
-	<string name="contacts_">Kontakter</string>
-	<string-array name="themes">
-		<item>Mörk</item>
-		<item>Ljus</item>
-	</string-array>
-	<string-array name="textsize">
-		<item>Liten</item>
-		<item>Mellan</item>
-	</string-array>
+  <string formatted="false" name="about0_">Håll koll på dina samtals, sms och datakostnader!</string>
+  <string formatted="false" name="about0">CallMeter genererar rapporter ifrån samtal, meddelanden och dataloggar. Det stöder flera kostnadslägen.</string>
+  <string formatted="false" name="about1">Visningsformatet är användning / tid eller uträknad kostnad med hjälp av prislistan eller total uträkning. Månadsuträkningen använder prislistan men total uträkning gör det inte.</string>
+  <string formatted="false" name="about2">Kostnadsläge innebär att du ställer in hur samtal debiteras. Tex 60/10 menar att varje samtal räknas som minst 60 sekunder, samtal längre än så avrundas till nästa 10-sekunders period.</string>
+  <string formatted="false" name="about3">Du kan dela dina prislistor för samtal eller meddelande i upp till två listor. Varje lista kan vara helt fri, maximerad till en viss gräns eller obegränsad.</string>
+  <string formatted="false" name="about4">Meddelanden kan räknas som samtalskostnad. Tex kan du ange att varje meddelande ska räknas som 15 sekunders samtalstid.</string>
+  <string formatted="false" name="about5">CallMeter körs i bakgrunden var 30:e minut (om telefonen inte är i stand-by). Detta menar att om du raderar samtal eller SMS som är äldre än 30 minuter kommer de inte att förändra din uträkning. Raderar du samtal eller meddelanden som är nyare än 30 min riskerar du att få fel i uträkningen.</string>
+  <string formatted="false" name="about6_">Vad CallMeter NG inte gör:</string>
+  <string formatted="false" name="about6">Det finns inget sätt att särskilja mellan sipdroid och riktiga samtal eller websms och riktiga SMS. På grund av hur Android är programmerat går det inte att spåra om ett samtal är "vanligt" eller via tex voip.</string>
+  <string formatted="false" name="send_">Skicka</string>
+  <string formatted="false" name="settings">Alternativ</string>
+  <string formatted="false" name="about_">Om</string>
+  <string formatted="false" name="about_hint">Mer information om det här programmet</string>
+  <string formatted="false" name="faq_hint">Några tips och trix för att ställa in programmet.</string>
+  <string formatted="false" name="feedback_">Feedback</string>
+  <string formatted="false" name="feedback_hint">Rapportera buggar, föreslå funktioner ...</string>
+  <string formatted="false" name="twitter_hint">Följ mig på twitter.\nFå notifieringar om uppdateringar mm.</string>
+  <string formatted="false" name="more_">Fler program...</string>
+  <string formatted="false" name="billday_">Första kostnadsdag </string>
+  <string formatted="false" name="billmode_">Kostnadsläge </string>
+  <string formatted="false" name="billmode_hint">Ange hur samtalskostnad ska beräknas (första/intervall i sekunder).</string>
+  <string formatted="false" name="billdate_">Första faktureringsdatum:</string>
+  <string formatted="false" name="smsperiod_">Samma period för SMS</string>
+  <string formatted="false" name="smsperiod_hint">Använd samma period för sms som för samtal.</string>
+  <string formatted="false" name="smsbillday_">Första faktureringssdag för SMS </string>
+  <string formatted="false" name="dataperiod_">Samma period för data</string>
+  <string formatted="false" name="dataperiod_hint">Använd samma period för data som för samtal.</string>
+  <string formatted="false" name="databillday_">Första faktureringsdag för data</string>
+  <string formatted="false" name="appearance_">Utseende</string>
+  <string formatted="false" name="theme_">Tema</string>
+  <string formatted="false" name="textsize_">Textstorlek</string>
+  <string formatted="false" name="advanced_">Avancerat</string>
+  <string formatted="false" name="exclude_people_">Exkludera nummer</string>
+  <string formatted="false" name="exclude_people_hint">Räkna inte vissa samtal (från nummer)\nwildcards är tillåtna: *555, 555* eller *555*</string>
+  <string formatted="false" name="exclude_people_add">Lägg till nummer</string>
+  <string formatted="false" name="exclude_people_edit">Redigera</string>
+  <string formatted="false" name="exclude_people_delete">Radera</string>
+  <string formatted="false" name="exclude_people_to_plan1_">Exkluderade nummer för prislista #1</string>
+  <string formatted="false" name="exclude_people_to_plan2_">Exkluderade nummer för prislista #2</string>
+  <string formatted="false" name="exclude_people_calls_">Aktivera för samtal</string>
+  <string formatted="false" name="exclude_people_calls_to_plan1_hint">Räkna med samtal till/från exkluderade nummer i prislista #1</string>
+  <string formatted="false" name="exclude_people_calls_to_plan2_hint">Räkna med samtal till/från exkluderade nummer i prislista #2</string>
+  <string formatted="false" name="exclude_people_sms_">Aktivera för SMS</string>
+  <string formatted="false" name="exclude_people_sms_to_plan1_hint">Räkna med sms till/från exkluderade nummer i prislista #1</string>
+  <string formatted="false" name="exclude_people_sms_to_plan2_hint">Räkna med sms till/från exkluderade nummer i prislista #2</string>
+  <string formatted="false" name="plans">Prislistor</string>
+  <string formatted="false" name="plans_split">Dela prislistor</string>
+  <string formatted="false" name="plans_merge">Slå ihop prislistor</string>
+  <string formatted="false" name="plans_split_hint">Använd två olika prislistor.</string>
+  <string formatted="false" name="plan1">Prislista 1</string>
+  <string formatted="false" name="plan2">Prislista 2</string>
+  <string formatted="false" name="plan1_hint">Välj vilka samtal/sms som ska hamna i prislista 1. Övriga kommer hamna i prislista 2.</string>
+  <string formatted="false" name="plan_free_">Ingen kostnad</string>
+  <string formatted="false" name="plan_freemin_">Fria Minuter</string>
+  <string formatted="false" name="plan_freesms_">Fria SMS</string>
+  <string formatted="false" name="free_hint">Samtal/SMS som inte kostar något</string>
+  <string formatted="false" name="freemin_hint">Fria Minuter / Månad</string>
+  <string formatted="false" name="freesms_hint">Fria SMS / Månad</string>
+  <string formatted="false" name="bill_calls_incoming_">Räkna inkommande samtal</string>
+  <string formatted="false" name="bill_calls_incoming_hint">Räkna på kostnad för inkommande samtal.</string>
+  <string formatted="false" name="bill_sms_incoming_">Räkna inkommande SMS </string>
+  <string formatted="false" name="bill_sms_incoming_hint">Räkna på kostnad för inkommande sms.</string>
+  <string formatted="false" name="bill_data_incoming_only_">Räkna bara inkommande datatrafik</string>
+  <string formatted="false" name="bill_data_incoming_only_hint">Räkna endast på inkommande datatrafik.</string>
+  <string formatted="false" name="cost_per_call_">Öppningsavgift samtal</string>
+  <string formatted="false" name="cost_per_call_hint">Fast kostnad för varje samtal.</string>
+  <string formatted="false" name="cost_per_minute_">Minutavgift</string>
+  <string formatted="false" name="cost_per_minute_hint">Minutkostnad på varje samtal.</string>
+  <string formatted="false" name="cost_per_sms_">Kostnad per SMS</string>
+  <string formatted="false" name="cost_per_sms_hint">Vad varje SMS kostar.</string>
+  <string formatted="false" name="cost_per_mb_">Kostnad per MB</string>
+  <string formatted="false" name="cost_per_mb_hint">Vad varje MB datatrafik kostar.</string>
+  <string formatted="false" name="merge_sms_calls_">Räkna SMS som samtal</string>
+  <string formatted="false" name="merge_sms_calls_hint">Räkna varje SMS som ett samtal.</string>
+  <string formatted="false" name="merge_sms_calls_sec_">Sekunder / SMS</string>
+  <string formatted="false" name="merge_sms_calls_sec_hint">Antal samtalssekunder ett SMS ska räknas som.</string>
+  <string formatted="false" name="merge_sms_plan1_">Räkna SMS i prislista 1</string>
+  <string formatted="false" name="merge_sms_plan1_hint">Kryssa ur för att räkna SMS till prislista 2.</string>
+  <string formatted="false" name="data_hint">OBS! Räknar endast på datatrafik via 3G/GSM, ej WLAN!</string>
+  <string formatted="false" name="data_enable_">Visa data-trafik</string>
+  <string formatted="false" name="data_enable_hint">Datatrafiken räknas i realtid. Kan bli lite knasigt första månaden du använder programmet.</string>
+  <string formatted="false" name="data_each_day">Räkna varje dag för sig</string>
+  <string formatted="false" name="data_each_day_hint">Varje dag startas uträkningen om.</string>
+  <string formatted="false" name="data_limit_">Gräns</string>
+  <string formatted="false" name="data_limit_hint">Gräns på datatrafik (MB/månad)</string>
+  <string formatted="false" name="monday">Måndag</string>
+  <string formatted="false" name="tuesday">Tisdag</string>
+  <string formatted="false" name="wednesday">Onsdag</string>
+  <string formatted="false" name="thursday">Torsdag</string>
+  <string formatted="false" name="friday">Fredag</string>
+  <string formatted="false" name="saturday">Lördag</string>
+  <string formatted="false" name="sunday">Söndag</string>
+  <string formatted="false" name="calls">Samtal</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="data">Datatrafik</string>
+  <string formatted="false" name="calls_sms">Samtal/SMS</string>
+  <string formatted="false" name="in_calls">Mottagna%s:</string>
+  <string formatted="false" name="in_sms">Mottagna%s:</string>
+  <string formatted="false" name="in_data">Nerladdat:</string>
+  <string formatted="false" name="out_calls">Utgående%s:</string>
+  <string formatted="false" name="out_sms">Skickat%s:</string>
+  <string formatted="false" name="out_data">Uppladdat:</string>
+  <string formatted="false" name="plan_name1_">Prislista 1: namn</string>
+  <string formatted="false" name="plan_name2_">Prislista 2: namn</string>
+  <string formatted="false" name="plan_name_hint">Eget namn på prislistan</string>
+  <string formatted="false" name="reset_data_">Nollställ statistik</string>
+  <string formatted="false" name="reset_data_hint">Nollställning av statistik resulterar i en omräkning av statistiken.\n\nNollställningen är permanent. Den nollställer bara trafik gjord före senaste start av telefonen!</string>
+  <string formatted="false" name="reset_data_data_">Nollställ datatrafik</string>
+  <string formatted="false" name="contacts_">Kontakter</string>
+  <string-array name="themes">
+    <item>Mörk</item>
+    <item>Ljus</item>
+  </string-array>
+  <string-array name="textsize">
+    <item>Liten</item>
+    <item>Mellan</item>
+  </string-array>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 蔡杰伦, Felix Bechstein
+		Copyright (C) 2010 Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter NG. This program is free software; you
@@ -18,152 +18,121 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="author_">作者:</string>
-	<string name="version_">版本:</string>
-	<string name="license_">许可证:</string>
-	<string name="license">GPLv3 - 详见 http://www.gnu.org/licenses/gpl-3.0.txt</string>
-	<string name="source_">源代码:</string>
-	<string name="website_">程序主页:</string>
-	<string name="debug_">调试</string>
-	<string name="custom_language_">自定义语言</string>
-	<string name="custom_language_hint">设置自定义语言.</string>
-	<string name="send_logs_">发送程序日志</string>
-	<string name="send_logs_hint">发送程序日志给程序开发者.\n仅需要时发送.</string>
-	<string name="sendlog_run_">发送程序日志</string>
-	<string name="sendlog_run">程序日志会包含您的设备信息并将其发送至程序开发者.\n您可以在发送前查看或修改程序日志.</string>
-	<string name="sendlog_install_">安装程序日志发送软件(SendLog)</string>
-	<string name="sendlog_install">安装免费的程序日志发送软件(SendLog)用于收集设备信息并发送至程序开发者.</string>
-	<string name="donate_paypal_">捐赠 (Paypal)</string>
-	<string name="donate_market_">捐赠 (电子市场)</string>
-	<string name="donate_remove_ads_">捐赠(移除广告)</string>
-	<string name="remove_ads_">移除广告</string>
-	<string name="predonate">这是一个在GPLv3许可证下创建的开源程序.它将永久免费.如果您觉得这个程序不错或者不想为广告所扰,请捐赠我,我会尽快移除您程序上的广告.\n\n捐赠后，所有我创建的程序都将没有广告.</string>
-	<string name="postdonate">去除广告，需要我给您的设备发送一个<i>零广告</i>编号. 在收到您的捐赠后,我会尽快给您的设备发送"零广告"编码.如果您捐赠后一天仍未收到"零广告"编码，请与我联系(电子邮件).</string>
-	<string name="donator_id_">捐赠编号(Paypal捐赠方式为您的Paypal邮件地址;电子市场捐赠方式为您的Gmail邮件地址)将用于校验您的捐赠:</string>
-	<string name="donator_id_hint">Paypal或Gmail地址</string>
-	<string name="load_hash_">加载<i>零广告</i>编号</string>
-	<string name="sig_loaded">广告成功移除！</string>
-	<string name="sig_failed">广告移除失败!</string>
-	<string name="accept_">接受条款</string>
-	<string name="accept_missing">发送数据前请确保您了解条款内容.</string>
-	<string name="terms">您手机的IMEI码的md5哈希值和捐赠编号（电子邮件地址）将会发送至服务器(http://ub0r.de/donation/).\n这些数据仅用于验证您的捐赠而不会移作他用,更不会泄露给第三方.\n\n如果您更换手机了,原来的<i>零广告</i>编号将会失效.请联系我索要新的"零广告"编号.</string>
-	<string name="notify_">移除广告?</string>
-	<string name="notify_text">要完全移除广告,您需要加载<b>零广告</b>编号.点击继续.</string>
-	<string name="about0_">查看电话,短信,数据连接方案!</string>
-	<string name="about0">CallMeter根据电话,短信,数据连接记录生成报告.它支持多种支付方案.</string>
-	<string name="about1">账单输出模式是 一次通讯/次 或者 账单周期/次 或者 全部累加统计. 一个月（账单周期/次）一次的统计可以每月看到您实际消费的金额. 全部累加统计的无法看到每个月的消费金额.</string>
-	<string name="about2">入账模式为 首×分钟/每×分钟. 例如. 60/10 意味着首分钟不足60秒按60秒计算,以后每10秒计算一次.</string>
-	<string name="about3">您可以分两部分分别统计短信及电话. 任意一个套餐都可以设置为完全免费,或设置使用上限或无上限.</string>
-	<string name="about4">您的短信可以统计入通话记录中. 例如. 将每一条短信按15s语音通话入账.</string>
-	<string name="about5">CallMeter每30分钟统计一次数据(除非程序不在背景运行). 这意味着删除30分钟前的系统统计数据不会影响统计结果. 删除之后的数据则会导致错误的统计结果.</string>
-	<string name="about6_">CallMeter NG不能做什么:</string>
-	<string name="about6">无法区分SIP呼叫和普通呼叫、无法区分网络（网页）短信和普通短信. 由于在Android系统中,程序无缝整体运行,所以无法单独获取某一程序所使用的流量.</string>
-	<string name="send_">发送</string>
-	<string name="settings">选项</string>
-	<string name="about_">关于</string>
-	<string name="about_hint">关于这个程序</string>
-	<string name="faq_hint">设置这个程序的小贴士.</string>
-	<string name="feedback_">反馈</string>
-	<string name="feedback_hint">报告漏洞,建议添加新功能...</string>
-	<string name="twitter_hint">在twitter上关注我.\n获取升级通知.</string>
-	<string name="more_">更多程序..</string>
-	<string name="billday_">账单周期开始日</string>
-	<string name="billmode_">支付模式</string>
-	<string name="billmode_hint">首×分钟/每×分钟 入账间隔.</string>
-	<string name="billdate_">账单周期开始于:</string>
-	<string name="smsperiod_">短信周期同步</string>
-	<string name="smsperiod_hint">设置为周期同步（与电话账单周期同步）.</string>
-	<string name="smsbillday_">短信账单开始于：</string>
-	<string name="dataperiod_">数据连接周期同步</string>
-	<string name="dataperiod_hint">设置为周期同步（与电话账单周期同步）.</string>
-	<string name="databillday_">数据连接账单开始于：</string>
-	<string name="appearance_">外观</string>
-	<string name="theme_">主题</string>
-	<string name="textsize_">文字大小</string>
-	<string name="advanced_">高级</string>
-	<string name="exclude_people_">免费号码</string>
-	<string name="exclude_people_hint">免费号码\n允许使用通配符: *555, 555* or *555*</string>
-	<string name="exclude_people_add">添加号码</string>
-	<string name="exclude_people_edit">编辑</string>
-	<string name="exclude_people_delete">删除</string>
-	<string name="exclude_people_to_plan1_">方案1中免费的号码</string>
-	<string name="exclude_people_to_plan2_">方案2中免费的号码</string>
-	<string name="exclude_people_calls_">对电话生效</string>
-	<string name="exclude_people_calls_to_plan1_hint">在方案1中启用免费号码</string>
-	<string name="exclude_people_calls_to_plan2_hint">在方案2中启用免费号码</string>
-	<string name="exclude_people_sms_">对短信生效</string>
-	<string name="exclude_people_sms_to_plan1_hint">在方案1中启用免费号码</string>
-	<string name="exclude_people_sms_to_plan2_hint">在方案2中启用免费号码</string>
-	<string name="plans">方案</string>
-	<string name="plans_split">使用不同方案</string>
-	<string name="plans_merge">合并所有方案</string>
-	<string name="plans_split_hint">使用两个不同方案.</string>
-	<string name="plan1">方案1</string>
-	<string name="plan2">方案2</string>
-	<string name="plan1_hint">根据特定时间将短信/通话统计在方案1中.其他时间的通讯则统计在方案2中.</string>
-	<string name="plan_free_">套餐内账单</string>
-	<string name="plan_freemin_">套餐内通话时长</string>
-	<string name="plan_freesms_">套餐内短信</string>
-	<string name="free_hint">完全免费</string>
-	<string name="freemin_hint">套餐内通话分钟数 分钟/月</string>
-	<string name="freesms_hint">套餐内短信条数 条/月</string>
-	<string name="bill_calls_incoming_">接听电话也需要收费</string>
-	<string name="bill_calls_incoming_hint">接听电话也需要收费.</string>
-	<string name="bill_sms_incoming_">接收短信也需要收费</string>
-	<string name="bill_sms_incoming_hint">接收短信也需要收费.</string>
-	<string name="bill_data_incoming_only_">上行数据免费</string>
-	<string name="bill_data_incoming_only_hint">上行数据免费.</string>
-	<string name="cost_per_call_">每则通话费用</string>
-	<string name="cost_per_call_hint">每则通话费用.</string>
-	<string name="cost_per_minute_">每分钟通话费用</string>
-	<string name="cost_per_minute_hint">每分钟通话费用.</string>
-	<string name="cost_per_sms_">每条短信费用</string>
-	<string name="cost_per_sms_hint">套餐外每条短信费用.</string>
-	<string name="cost_per_mb_">每MB流量费用</string>
-	<string name="cost_per_mb_hint">套餐外流量每MB流量费用.</string>
-	<string name="merge_sms_calls_">合并统计短信及电话</string>
-	<string name="merge_sms_calls_hint">合并支付短信与电话.</string>
-	<string name="merge_sms_calls_sec_">秒 / 短信</string>
-	<string name="merge_sms_calls_sec_hint">每一条短信相当于多少秒通话.</string>
-	<string name="merge_sms_plan1_">合并短信至方案1</string>
-	<string name="merge_sms_plan1_hint">不选中即合并至方案2.</string>
-	<string name="data_hint">WLAN流量不会被统计!</string>
-	<string name="data_enable_">显示数据连接使用状况</string>
-	<string name="data_enable_hint">数据连接流量实时统计,第一个月统计结果可能不准确!</string>
-	<string name="data_each_day">每天分别计算账单</string>
-	<string name="data_each_day_hint">每天分别计算账单.</string>
-	<string name="data_limit_">套餐</string>
-	<string name="data_limit_hint">数据连接套餐(MB/月)</string>
-	<string name="monday">星期一</string>
-	<string name="tuesday">星期二</string>
-	<string name="wednesday">星期三</string>
-	<string name="thursday">星期四</string>
-	<string name="friday">星期五</string>
-	<string name="saturday">星期六</string>
-	<string name="sunday">星期天</string>
-	<string name="calls">电话</string>
-	<string name="sms">短信</string>
-	<string name="data">数据连接</string>
-	<string name="calls_sms">电话/短信</string>
-	<string name="in_calls">拨入%s:</string>
-	<string name="in_sms">接收%s:</string>
-	<string name="in_data">下行:</string>
-	<string name="out_calls">拨出%s:</string>
-	<string name="out_sms">发送%s:</string>
-	<string name="out_data">上行:</string>
-	<string name="plan_name1_">方案1:名称</string>
-	<string name="plan_name2_">方案2:名称</string>
-	<string name="plan_name_hint">自定义名称</string>
-	<string name="reset_data_">重置统计数据</string>
-	<string name="reset_data_hint">重置电话/短信记录后会重新计算统计数据.\n\n且重置统计数据操作是不可逆的.只有本次启动过程中产生的数据会被重置!</string>
-	<string name="reset_data_data_">重置数据连接记录.</string>
-	<string name="contacts_">联系人</string>
-	<string-array name="themes">
-		<item>黑</item>
-		<item>白</item>
-	</string-array>
-	<string-array name="textsize">
-		<item>小</item>
-		<item>中</item>
-	</string-array>
+  <string formatted="false" name="about0_">查看电话,短信,数据连接方案!</string>
+  <string formatted="false" name="about0">CallMeter根据电话,短信,数据连接记录生成报告.它支持多种支付方案.</string>
+  <string formatted="false" name="about1">账单输出模式是 一次通讯/次 或者 账单周期/次 或者 全部累加统计. 一个月（账单周期/次）一次的统计可以每月看到您实际消费的金额. 全部累加统计的无法看到每个月的消费金额.</string>
+  <string formatted="false" name="about2">入账模式为 首×分钟/每×分钟. 例如. 60/10 意味着首分钟不足60秒按60秒计算,以后每10秒计算一次.</string>
+  <string formatted="false" name="about3">您可以分两部分分别统计短信及电话. 任意一个套餐都可以设置为完全免费,或设置使用上限或无上限.</string>
+  <string formatted="false" name="about4">您的短信可以统计入通话记录中. 例如. 将每一条短信按15s语音通话入账.</string>
+  <string formatted="false" name="about5">CallMeter每30分钟统计一次数据(除非程序不在背景运行). 这意味着删除30分钟前的系统统计数据不会影响统计结果. 删除之后的数据则会导致错误的统计结果.</string>
+  <string formatted="false" name="about6_">CallMeter NG不能做什么:</string>
+  <string formatted="false" name="about6">无法区分SIP呼叫和普通呼叫、无法区分网络（网页）短信和普通短信. 由于在Android系统中,程序无缝整体运行,所以无法单独获取某一程序所使用的流量.</string>
+  <string formatted="false" name="send_">发送</string>
+  <string formatted="false" name="settings">选项</string>
+  <string formatted="false" name="about_">关于</string>
+  <string formatted="false" name="about_hint">关于这个程序</string>
+  <string formatted="false" name="faq_hint">设置这个程序的小贴士.</string>
+  <string formatted="false" name="feedback_">反馈</string>
+  <string formatted="false" name="feedback_hint">报告漏洞,建议添加新功能...</string>
+  <string formatted="false" name="twitter_hint">在twitter上关注我.\n获取升级通知.</string>
+  <string formatted="false" name="more_">更多程序..</string>
+  <string formatted="false" name="billday_">账单周期开始日</string>
+  <string formatted="false" name="billmode_">支付模式</string>
+  <string formatted="false" name="billmode_hint">首×分钟/每×分钟 入账间隔.</string>
+  <string formatted="false" name="billdate_">账单周期开始于:</string>
+  <string formatted="false" name="smsperiod_">短信周期同步</string>
+  <string formatted="false" name="smsperiod_hint">设置为周期同步（与电话账单周期同步）.</string>
+  <string formatted="false" name="smsbillday_">短信账单开始于：</string>
+  <string formatted="false" name="dataperiod_">数据连接周期同步</string>
+  <string formatted="false" name="dataperiod_hint">设置为周期同步（与电话账单周期同步）.</string>
+  <string formatted="false" name="databillday_">数据连接账单开始于：</string>
+  <string formatted="false" name="appearance_">外观</string>
+  <string formatted="false" name="theme_">主题</string>
+  <string formatted="false" name="textsize_">文字大小</string>
+  <string formatted="false" name="advanced_">高级</string>
+  <string formatted="false" name="exclude_people_">免费号码</string>
+  <string formatted="false" name="exclude_people_hint">免费号码\n允许使用通配符: *555, 555* or *555*</string>
+  <string formatted="false" name="exclude_people_add">添加号码</string>
+  <string formatted="false" name="exclude_people_edit">编辑</string>
+  <string formatted="false" name="exclude_people_delete">删除</string>
+  <string formatted="false" name="exclude_people_to_plan1_">方案1中免费的号码</string>
+  <string formatted="false" name="exclude_people_to_plan2_">方案2中免费的号码</string>
+  <string formatted="false" name="exclude_people_calls_">对电话生效</string>
+  <string formatted="false" name="exclude_people_calls_to_plan1_hint">在方案1中启用免费号码</string>
+  <string formatted="false" name="exclude_people_calls_to_plan2_hint">在方案2中启用免费号码</string>
+  <string formatted="false" name="exclude_people_sms_">对短信生效</string>
+  <string formatted="false" name="exclude_people_sms_to_plan1_hint">在方案1中启用免费号码</string>
+  <string formatted="false" name="exclude_people_sms_to_plan2_hint">在方案2中启用免费号码</string>
+  <string formatted="false" name="plans">方案</string>
+  <string formatted="false" name="plans_split">使用不同方案</string>
+  <string formatted="false" name="plans_merge">合并所有方案</string>
+  <string formatted="false" name="plans_split_hint">使用两个不同方案.</string>
+  <string formatted="false" name="plan1">方案1</string>
+  <string formatted="false" name="plan2">方案2</string>
+  <string formatted="false" name="plan1_hint">根据特定时间将短信/通话统计在方案1中.其他时间的通讯则统计在方案2中.</string>
+  <string formatted="false" name="plan_free_">套餐内账单</string>
+  <string formatted="false" name="plan_freemin_">套餐内通话时长</string>
+  <string formatted="false" name="plan_freesms_">套餐内短信</string>
+  <string formatted="false" name="free_hint">完全免费</string>
+  <string formatted="false" name="freemin_hint">套餐内通话分钟数 分钟/月</string>
+  <string formatted="false" name="freesms_hint">套餐内短信条数 条/月</string>
+  <string formatted="false" name="bill_calls_incoming_">接听电话也需要收费</string>
+  <string formatted="false" name="bill_calls_incoming_hint">接听电话也需要收费.</string>
+  <string formatted="false" name="bill_sms_incoming_">接收短信也需要收费</string>
+  <string formatted="false" name="bill_sms_incoming_hint">接收短信也需要收费.</string>
+  <string formatted="false" name="bill_data_incoming_only_">上行数据免费</string>
+  <string formatted="false" name="bill_data_incoming_only_hint">上行数据免费.</string>
+  <string formatted="false" name="cost_per_call_">每则通话费用</string>
+  <string formatted="false" name="cost_per_call_hint">每则通话费用.</string>
+  <string formatted="false" name="cost_per_minute_">每分钟通话费用</string>
+  <string formatted="false" name="cost_per_minute_hint">每分钟通话费用.</string>
+  <string formatted="false" name="cost_per_sms_">每条短信费用</string>
+  <string formatted="false" name="cost_per_sms_hint">套餐外每条短信费用.</string>
+  <string formatted="false" name="cost_per_mb_">每MB流量费用</string>
+  <string formatted="false" name="cost_per_mb_hint">套餐外流量每MB流量费用.</string>
+  <string formatted="false" name="merge_sms_calls_">合并统计短信及电话</string>
+  <string formatted="false" name="merge_sms_calls_hint">合并支付短信与电话.</string>
+  <string formatted="false" name="merge_sms_calls_sec_">秒 / 短信</string>
+  <string formatted="false" name="merge_sms_calls_sec_hint">每一条短信相当于多少秒通话.</string>
+  <string formatted="false" name="merge_sms_plan1_">合并短信至方案1</string>
+  <string formatted="false" name="merge_sms_plan1_hint">不选中即合并至方案2.</string>
+  <string formatted="false" name="data_hint">WLAN流量不会被统计!</string>
+  <string formatted="false" name="data_enable_">显示数据连接使用状况</string>
+  <string formatted="false" name="data_enable_hint">数据连接流量实时统计,第一个月统计结果可能不准确!</string>
+  <string formatted="false" name="data_each_day">每天分别计算账单</string>
+  <string formatted="false" name="data_each_day_hint">每天分别计算账单.</string>
+  <string formatted="false" name="data_limit_">套餐</string>
+  <string formatted="false" name="data_limit_hint">数据连接套餐(MB/月)</string>
+  <string formatted="false" name="monday">星期一</string>
+  <string formatted="false" name="tuesday">星期二</string>
+  <string formatted="false" name="wednesday">星期三</string>
+  <string formatted="false" name="thursday">星期四</string>
+  <string formatted="false" name="friday">星期五</string>
+  <string formatted="false" name="saturday">星期六</string>
+  <string formatted="false" name="sunday">星期天</string>
+  <string formatted="false" name="calls">电话</string>
+  <string formatted="false" name="sms">短信</string>
+  <string formatted="false" name="data">数据连接</string>
+  <string formatted="false" name="calls_sms">电话/短信</string>
+  <string formatted="false" name="in_calls">拨入%s:</string>
+  <string formatted="false" name="in_sms">接收%s:</string>
+  <string formatted="false" name="in_data">下行:</string>
+  <string formatted="false" name="out_calls">拨出%s:</string>
+  <string formatted="false" name="out_sms">发送%s:</string>
+  <string formatted="false" name="out_data">上行:</string>
+  <string formatted="false" name="plan_name1_">方案1:名称</string>
+  <string formatted="false" name="plan_name2_">方案2:名称</string>
+  <string formatted="false" name="plan_name_hint">自定义名称</string>
+  <string formatted="false" name="reset_data_">重置统计数据</string>
+  <string formatted="false" name="reset_data_hint">重置电话/短信记录后会重新计算统计数据.\n\n且重置统计数据操作是不可逆的.只有本次启动过程中产生的数据会被重置!</string>
+  <string formatted="false" name="reset_data_data_">重置数据连接记录.</string>
+  <string formatted="false" name="contacts_">联系人</string>
+  <string-array name="themes">
+    <item>黑</item>
+    <item>白</item>
+  </string-array>
+  <string-array name="textsize">
+    <item>小</item>
+    <item>中</item>
+  </string-array>
 </resources>

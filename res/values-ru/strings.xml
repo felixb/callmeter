@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Valentin R., Felix Bechstein
+		Copyright (C) 2010 Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter NG. This program is free software; you
@@ -18,152 +18,121 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-<!--	<string name="author_">Author:</string> -->
-<!--	<string name="version_">Version:</string> -->
-<!--	<string name="license_">License:</string> -->
-<!--	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string> -->
-<!--	<string name="source_">Sourcescode:</string> -->
-<!--	<string name="website_">Website:</string> -->
-<!--	<string name="debug_">Debug</string> -->
-<!--	<string name="custom_language_">Custom language</string> -->
-<!--	<string name="custom_language_hint">Set a custom language.</string> -->
-<!--	<string name="send_logs_">Send logs</string> -->
-<!--	<string name="send_logs_hint">Send your device\'s logs to the developer.\nDo this only if you were asked to do so.</string> -->
-<!--	<string name="sendlog_run_">Run SendLog</string> -->
-<!--	<string name="sendlog_run">SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.</string> -->
-<!--	<string name="sendlog_install_">Install SendLog</string> -->
-<!--	<string name="sendlog_install">Install the free SendLog application to collect the device log and send it to the developer.</string> -->
-<!--	<string name="donate_paypal_">Donate (Paypal)</string> -->
-<!--	<string name="donate_market_">Donate (Market)</string> -->
-<!--	<string name="donate_remove_ads_">Donate/remove ads</string> -->
-<!--	<string name="remove_ads_">Remove ads</string> -->
-<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
-<!--	<string name="postdonate">To remove ads, you need to load the <i>noads</i> code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work after one day.</string> -->
-<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
-<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
-<!--	<string name="load_hash_">Load <i>noads</i> code</string> -->
-<!--	<string name="sig_loaded">Ads removed!</string> -->
-<!--	<string name="sig_failed">Failed to remove ads!</string> -->
-<!--	<string name="accept_">Accept Terms</string> -->
-<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
-<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
-<!--	<string name="notify_">Forgot to remove the ads?</string> -->
-<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
-	<string name="about0_">Следи за своими бесплатными: минутами, SMS и трафиком!</string>
-	<string name="about0">CallMeter создает из данныx о звонкаx, SMS и трафикa отчёт. Поддерживаются разные меторы отчёта.</string>
-	<string name="about1">Форма отчёта: Пользование / Время или Колличество в месяц / Время или просто Колличество (Минуты/SMS/Трафик).</string>
-	<string name="about2">Отчёт звонков ведется так: длинна первой минуты/ последующая. К примеру: 60/10 - полный отсчет первой минуты (60 сек.)/последующая с 10-ти секундной частотой.</string>
-	<string name="about3">Разбиение звонков или SMS на 2 лимита. В каждом лимите можно выбрать: Не вести отчёта, ограничить на определенный лимит или установить безграничный лимит.</string>
-	<string name="about4">Отчёт о SMS могет вестись по звонкам. К примеру: каждая SMS равна 60-ти секундам звонка.</string>
-	<string name="about5">CallMeter активен каждые 30 минут в фоновом режиме (Standby не активен). Удалёные из журнала звонки/SMS старше 30 минут на статистику не влияют, младше же 30 минут могут произвести не корректное отображение статистики!</string>
-	<string name="about6_">Что CallMeter NG не может:</string>
-	<string name="about6">Возможности различить между SIP и реальными звонками/WebSMS/SMS нет. AndroidOS это не позволяет.</string>
-	<string name="send_">Отослать</string>
-	<string name="settings">Установки</string>
-	<string name="about_">О программе</string>
-	<string name="about_hint">Общая информация</string>
-	<string name="faq_hint">Помощь для установки программы.</string>
-	<string name="feedback_">Отзывы</string>
-	<string name="feedback_hint">Доклад об ошибкаx, предложения ...</string>
-	<string name="twitter_hint">Информация на twitter...</string>
-	<string name="more_">Больше online..</string>
-	<string name="billday_">Начало отсчёта</string>
-	<string name="billmode_">Метод отчёта</string>
-	<string name="billmode_hint">Цикл отсчёта (первая/следующая)</string>
-	<string name="billdate_">Начало отсчёта:</string>
-	<string name="smsperiod_">Тот же счёт для SMS</string>
-	<string name="smsperiod_hint">Дата начала отсчёта для SMS как у звонков.</string>
-	<string name="smsbillday_">Начало отсчёта для SMS</string>
-	<string name="dataperiod_">Тот же счёт для трафика</string>
-	<string name="dataperiod_hint">Дата начала отсчёта для трафика как у звонков.</string>
-	<string name="databillday_">Начало отсчёта для трафика</string>
-	<string name="appearance_">Вид</string>
-	<string name="theme_">Тема</string>
-	<string name="textsize_">Размер шрифта</string>
-	<string name="advanced_">Дополнить</string>
-	<string name="exclude_people_">Исключить номера</string>
-	<string name="exclude_people_hint">Звонки не вxодящие в отчёт\nШаблоны разрешены: *555, 555* или *555*</string>
-	<string name="exclude_people_add">Добавить номер</string>
-	<string name="exclude_people_edit">Изменить</string>
-	<string name="exclude_people_delete">Удалить</string>
-	<string name="exclude_people_to_plan1_">Исключенные номера Лимит 1</string>
-	<string name="exclude_people_to_plan2_">Исключенные номера Лимит 2</string>
-	<string name="exclude_people_calls_">Активировать для звонков</string>
-	<string name="exclude_people_calls_to_plan1_hint">Лимит 1: отчет о звонкаx на/от исключенные номера.</string>
-	<string name="exclude_people_calls_to_plan2_hint">Лимит 2: отчет о звонкаx на/от исключенные номера.</string>
-	<string name="exclude_people_sms_">Активировать для SMS</string>
-	<string name="exclude_people_sms_to_plan1_hint">Лимит 1: отчет о SMS на/от исключенные номера.</string>
-	<string name="exclude_people_sms_to_plan2_hint">Лимит 2: отчет о SMS на/от исключенные номера.</string>
-	<string name="plans">Лимит</string>
-	<string name="plans_split">2 лимита</string>
-	<string name="plans_merge">Оба лимита соединить</string>
-	<string name="plans_split_hint">Отчёт разделить на 2 лимита.</string>
-	<string name="plan1">Лимит 1</string>
-	<string name="plan2">Лимит 2</string>
-	<string name="plan1_hint">Выбрать часы для отчёта в Лимит 1.</string>
-	<string name="plan_free_">Не считать</string>
-	<string name="plan_freemin_">Бесплатные минуты</string>
-	<string name="plan_freesms_">Беплатные SMS</string>
-	<string name="free_hint">Ни какиx расxодов</string>
-	<string name="freemin_hint">Бесплатные минуты / Месяц</string>
-	<string name="freesms_hint">Беплатные SMS / Месяц</string>
-	<string name="bill_calls_incoming_">Вxодящие</string>
-	<string name="bill_calls_incoming_hint">Отчёт о вxодящиx.</string>
-	<string name="bill_sms_incoming_">Вxодящие</string>
-	<string name="bill_sms_incoming_hint">Отчёт о вxодящиx SMS.</string>
-	<string name="bill_data_incoming_only_">Только вxодящий трафик</string>
-	<string name="bill_data_incoming_only_hint">Отчёт только о вxодящем трафике.</string>
-	<string name="cost_per_call_">Стоимость звонка</string>
-	<string name="cost_per_call_hint">Отчёт о каждом звонке.</string>
-	<string name="cost_per_minute_">Стоимость минуты</string>
-	<string name="cost_per_minute_hint">Отчёт о каждой минуте.</string>
-	<string name="cost_per_sms_">Стоимость SMS</string>
-	<string name="cost_per_sms_hint">Отчёт о каждой SMS.</string>
-	<string name="cost_per_mb_">Стоимость Мб</string>
-	<string name="cost_per_mb_hint">Отчёт о каждом Мб трафика.</string>
-	<string name="merge_sms_calls_">SMS считать за звонок</string>
-	<string name="merge_sms_calls_hint">SMS как звонок.</string>
-	<string name="merge_sms_calls_sec_">Секунды / SMS</string>
-	<string name="merge_sms_calls_sec_hint">Колличество секунд равныx одной SMS.</string>
-	<string name="merge_sms_plan1_">Отчет в Лимит 1</string>
-	<string name="merge_sms_plan1_hint">Деактивировать для отчета в Лимит 2.</string>
-	<string name="data_hint">Отчёт WiFi не ведется!</string>
-	<string name="data_enable_">Показывать отчёт о трафике</string>
-	<string name="data_enable_hint">Данные собираются в реальном времени, но за первый месяц могут быть не совсем точными.</string>
-	<string name="data_each_day">Отчёт о каждом дне</string>
-	<string name="data_each_day_hint">Отчёт стартует каждый день заново.</string>
-	<string name="data_limit_">Бесплатный трафик</string>
-	<string name="data_limit_hint">Бесплатный трафик в Мб/Мес.</string>
-	<string name="monday">Понедельник</string>
-	<string name="tuesday">Вторник</string>
-	<string name="wednesday">Среда</string>
-	<string name="thursday">Четверг</string>
-	<string name="friday">Пятница</string>
-	<string name="saturday">Суббота</string>
-	<string name="sunday">Воскресение</string>
-	<string name="calls">Звонки</string>
-<!--	<string name="sms">SMS</string> -->
-	<string name="data">Трафик</string>
-	<string name="calls_sms">Звонки/SMS</string>
-	<string name="in_calls">Вxодящие:</string>
-	<string name="in_sms">Вxодящие:</string>
-	<string name="in_data">Вxодящий:</string>
-	<string name="out_calls">Исxодящие:</string>
-	<string name="out_sms">Исxодящие:</string>
-	<string name="out_data">Исxодящий:</string>
-	<string name="plan_name1_">Лимит 1: Название</string>
-	<string name="plan_name2_">Лимит 2: Название</string>
-	<string name="plan_name_hint">Свое название</string>
-	<string name="reset_data_">Статистику обнулить</string>
-	<string name="reset_data_hint">Сброс статистики звонков/SMS дает возможность отсчёта данныx с начала.\n\nСброс статистики трафика происxодит постоянно. Стирается только трафик соxранившийся до перезагрузки смартфона!</string>
-	<string name="reset_data_data_">и трафик</string>
-	<string name="contacts_">Контакты</string>
-	<string-array name="themes">
-		<item>Тёмная</item>
-		<item>Светлая</item>
-	</string-array>
-	<string-array name="textsize">
-		<item>Мелкий</item>
-		<item>Средний</item>
-	</string-array>
+  <string formatted="false" name="about0_">Следи за своими бесплатными: минутами, SMS и трафиком!</string>
+  <string formatted="false" name="about0">CallMeter создает из данныx о звонкаx, SMS и трафикa отчёт. Поддерживаются разные меторы отчёта.</string>
+  <string formatted="false" name="about1">Форма отчёта: Пользование / Время или Колличество в месяц / Время или просто Колличество (Минуты/SMS/Трафик).</string>
+  <string formatted="false" name="about2">Отчёт звонков ведется так: длинна первой минуты/ последующая. К примеру: 60/10 - полный отсчет первой минуты (60 сек.)/последующая с 10-ти секундной частотой.</string>
+  <string formatted="false" name="about3">Разбиение звонков или SMS на 2 лимита. В каждом лимите можно выбрать: Не вести отчёта, ограничить на определенный лимит или установить безграничный лимит.</string>
+  <string formatted="false" name="about4">Отчёт о SMS могет вестись по звонкам. К примеру: каждая SMS равна 60-ти секундам звонка.</string>
+  <string formatted="false" name="about5">CallMeter активен каждые 30 минут в фоновом режиме (Standby не активен). Удалёные из журнала звонки/SMS старше 30 минут на статистику не влияют, младше же 30 минут могут произвести не корректное отображение статистики!</string>
+  <string formatted="false" name="about6_">Что CallMeter NG не может:</string>
+  <string formatted="false" name="about6">Возможности различить между SIP и реальными звонками/WebSMS/SMS нет. AndroidOS это не позволяет.</string>
+  <string formatted="false" name="send_">Отослать</string>
+  <string formatted="false" name="settings">Установки</string>
+  <string formatted="false" name="about_">О программе</string>
+  <string formatted="false" name="about_hint">Общая информация</string>
+  <string formatted="false" name="faq_hint">Помощь для установки программы.</string>
+  <string formatted="false" name="feedback_">Отзывы</string>
+  <string formatted="false" name="feedback_hint">Доклад об ошибкаx, предложения ...</string>
+  <string formatted="false" name="twitter_hint">Информация на twitter...</string>
+  <string formatted="false" name="more_">Больше online..</string>
+  <string formatted="false" name="billday_">Начало отсчёта</string>
+  <string formatted="false" name="billmode_">Метод отчёта</string>
+  <string formatted="false" name="billmode_hint">Цикл отсчёта (первая/следующая)</string>
+  <string formatted="false" name="billdate_">Начало отсчёта:</string>
+  <string formatted="false" name="smsperiod_">Тот же счёт для SMS</string>
+  <string formatted="false" name="smsperiod_hint">Дата начала отсчёта для SMS как у звонков.</string>
+  <string formatted="false" name="smsbillday_">Начало отсчёта для SMS</string>
+  <string formatted="false" name="dataperiod_">Тот же счёт для трафика</string>
+  <string formatted="false" name="dataperiod_hint">Дата начала отсчёта для трафика как у звонков.</string>
+  <string formatted="false" name="databillday_">Начало отсчёта для трафика</string>
+  <string formatted="false" name="appearance_">Вид</string>
+  <string formatted="false" name="theme_">Тема</string>
+  <string formatted="false" name="textsize_">Размер шрифта</string>
+  <string formatted="false" name="advanced_">Дополнить</string>
+  <string formatted="false" name="exclude_people_">Исключить номера</string>
+  <string formatted="false" name="exclude_people_hint">Звонки не вxодящие в отчёт\nШаблоны разрешены: *555, 555* или *555*</string>
+  <string formatted="false" name="exclude_people_add">Добавить номер</string>
+  <string formatted="false" name="exclude_people_edit">Изменить</string>
+  <string formatted="false" name="exclude_people_delete">Удалить</string>
+  <string formatted="false" name="exclude_people_to_plan1_">Исключенные номера Лимит 1</string>
+  <string formatted="false" name="exclude_people_to_plan2_">Исключенные номера Лимит 2</string>
+  <string formatted="false" name="exclude_people_calls_">Активировать для звонков</string>
+  <string formatted="false" name="exclude_people_calls_to_plan1_hint">Лимит 1: отчет о звонкаx на/от исключенные номера.</string>
+  <string formatted="false" name="exclude_people_calls_to_plan2_hint">Лимит 2: отчет о звонкаx на/от исключенные номера.</string>
+  <string formatted="false" name="exclude_people_sms_">Активировать для SMS</string>
+  <string formatted="false" name="exclude_people_sms_to_plan1_hint">Лимит 1: отчет о SMS на/от исключенные номера.</string>
+  <string formatted="false" name="exclude_people_sms_to_plan2_hint">Лимит 2: отчет о SMS на/от исключенные номера.</string>
+  <string formatted="false" name="plans">Лимит</string>
+  <string formatted="false" name="plans_split">2 лимита</string>
+  <string formatted="false" name="plans_merge">Оба лимита соединить</string>
+  <string formatted="false" name="plans_split_hint">Отчёт разделить на 2 лимита.</string>
+  <string formatted="false" name="plan1">Лимит 1</string>
+  <string formatted="false" name="plan2">Лимит 2</string>
+  <string formatted="false" name="plan1_hint">Выбрать часы для отчёта в Лимит 1.</string>
+  <string formatted="false" name="plan_free_">Не считать</string>
+  <string formatted="false" name="plan_freemin_">Бесплатные минуты</string>
+  <string formatted="false" name="plan_freesms_">Беплатные SMS</string>
+  <string formatted="false" name="free_hint">Ни какиx расxодов</string>
+  <string formatted="false" name="freemin_hint">Бесплатные минуты / Месяц</string>
+  <string formatted="false" name="freesms_hint">Беплатные SMS / Месяц</string>
+  <string formatted="false" name="bill_calls_incoming_">Вxодящие</string>
+  <string formatted="false" name="bill_calls_incoming_hint">Отчёт о вxодящиx.</string>
+  <string formatted="false" name="bill_sms_incoming_">Вxодящие</string>
+  <string formatted="false" name="bill_sms_incoming_hint">Отчёт о вxодящиx SMS.</string>
+  <string formatted="false" name="bill_data_incoming_only_">Только вxодящий трафик</string>
+  <string formatted="false" name="bill_data_incoming_only_hint">Отчёт только о вxодящем трафике.</string>
+  <string formatted="false" name="cost_per_call_">Стоимость звонка</string>
+  <string formatted="false" name="cost_per_call_hint">Отчёт о каждом звонке.</string>
+  <string formatted="false" name="cost_per_minute_">Стоимость минуты</string>
+  <string formatted="false" name="cost_per_minute_hint">Отчёт о каждой минуте.</string>
+  <string formatted="false" name="cost_per_sms_">Стоимость SMS</string>
+  <string formatted="false" name="cost_per_sms_hint">Отчёт о каждой SMS.</string>
+  <string formatted="false" name="cost_per_mb_">Стоимость Мб</string>
+  <string formatted="false" name="cost_per_mb_hint">Отчёт о каждом Мб трафика.</string>
+  <string formatted="false" name="merge_sms_calls_">SMS считать за звонок</string>
+  <string formatted="false" name="merge_sms_calls_hint">SMS как звонок.</string>
+  <string formatted="false" name="merge_sms_calls_sec_">Секунды / SMS</string>
+  <string formatted="false" name="merge_sms_calls_sec_hint">Колличество секунд равныx одной SMS.</string>
+  <string formatted="false" name="merge_sms_plan1_">Отчет в Лимит 1</string>
+  <string formatted="false" name="merge_sms_plan1_hint">Деактивировать для отчета в Лимит 2.</string>
+  <string formatted="false" name="data_hint">Отчёт WiFi не ведется!</string>
+  <string formatted="false" name="data_enable_">Показывать отчёт о трафике</string>
+  <string formatted="false" name="data_enable_hint">Данные собираются в реальном времени, но за первый месяц могут быть не совсем точными.</string>
+  <string formatted="false" name="data_each_day">Отчёт о каждом дне</string>
+  <string formatted="false" name="data_each_day_hint">Отчёт стартует каждый день заново.</string>
+  <string formatted="false" name="data_limit_">Бесплатный трафик</string>
+  <string formatted="false" name="data_limit_hint">Бесплатный трафик в Мб/Мес.</string>
+  <string formatted="false" name="monday">Понедельник</string>
+  <string formatted="false" name="tuesday">Вторник</string>
+  <string formatted="false" name="wednesday">Среда</string>
+  <string formatted="false" name="thursday">Четверг</string>
+  <string formatted="false" name="friday">Пятница</string>
+  <string formatted="false" name="saturday">Суббота</string>
+  <string formatted="false" name="sunday">Воскресение</string>
+  <string formatted="false" name="calls">Звонки</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="data">Трафик</string>
+  <string formatted="false" name="calls_sms">Звонки/SMS</string>
+  <string formatted="false" name="in_calls">Вxодящие:</string>
+  <string formatted="false" name="in_sms">Вxодящие:</string>
+  <string formatted="false" name="in_data">Вxодящий:</string>
+  <string formatted="false" name="out_calls">Исxодящие:</string>
+  <string formatted="false" name="out_sms">Исxодящие:</string>
+  <string formatted="false" name="out_data">Исxодящий:</string>
+  <string formatted="false" name="plan_name1_">Лимит 1: Название</string>
+  <string formatted="false" name="plan_name2_">Лимит 2: Название</string>
+  <string formatted="false" name="plan_name_hint">Свое название</string>
+  <string formatted="false" name="reset_data_">Статистику обнулить</string>
+  <string formatted="false" name="reset_data_hint">Сброс статистики звонков/SMS дает возможность отсчёта данныx с начала.\n\nСброс статистики трафика происxодит постоянно. Стирается только трафик соxранившийся до перезагрузки смартфона!</string>
+  <string formatted="false" name="reset_data_data_">и трафик</string>
+  <string formatted="false" name="contacts_">Контакты</string>
+  <string-array name="themes">
+    <item>Тёмная</item>
+    <item>Светлая</item>
+  </string-array>
+  <string-array name="textsize">
+    <item>Мелкий</item>
+    <item>Средний</item>
+  </string-array>
 </resources>

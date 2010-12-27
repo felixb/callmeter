@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Johann Vandromme, Felix Bechstein
+		Copyright (C) 2010 Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter NG. This program is free software; you
@@ -18,152 +18,121 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="author_">Auteur:</string>
-	<string name="version_">Version:</string>
-	<string name="license_">License:</string>
-	<string name="license">GPLv3 - voir http://www.gnu.org/licenses/gpl-3.0.txt</string>
-	<string name="source_">Code source:</string>
-	<string name="website_">Site web:</string>
-	<string name="debug_">Debug</string>
-<!--	<string name="custom_language_">Custom language</string> -->
-<!--	<string name="custom_language_hint">Set a custom language.</string> -->
-	<string name="send_logs_">Envoyer les logs</string>
-	<string name="send_logs_hint">Envoyer les logs de votre téléphone au développeur.\nN\'effectuez cette action que s\'il vous l\'a été demandé.</string>
-	<string name="sendlog_run_">Mettre en place le SendLog</string>
-	<string name="sendlog_run">Le SendLog va collecter les logs de votre téléphone et les envoyer au développeur.\nVous pourrez vérifier et modifier les données de log envoyées.</string>
-	<string name="sendlog_install_">Installer SendLog</string>
-	<string name="sendlog_install">Installer l\'application gratuite SendLog pour récupérer les logs du téléphone pour les envoyer au développeur.</string>
-	<string name="donate_paypal_">Contribuer (Paypal)</string>
-	<string name="donate_market_">Contribuer (Market)</string>
-	<string name="donate_remove_ads_">Contribuer/Supprimer les pubs</string>
-	<string name="remove_ads_">Supprimer les pubs</string>
-<!--	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> -->
-	<string name="postdonate">Pour supprimer les publicités, voud devez entrer un code qui vous sera délivré lorsque que votre don sera validé. Veuillez, s\'il vous plait, être patient et m\'envoyer un mail si cela ne fonctionne pas après un jour.</string>
-<!--	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> -->
-<!--	<string name="donator_id_hint">Paypal/gmail address</string> -->
-	<string name="load_hash_">Entrer votre code</string>
-	<string name="sig_loaded">Publicités supprimées!</string>
-	<string name="sig_failed">Tentative de suppression des publicités échouée!</string>
-<!--	<string name="accept_">Accept Terms</string> -->
-<!--	<string name="accept_missing">Please accept terms before sending the data.</string> -->
-<!--	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> -->
-<!--	<string name="notify_">Forgot to remove the ads?</string> -->
-<!--	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> -->
-	<string name="about0_">Surveillez votre forfait d\'appels, de messages et de données !</string>
-	<string name="about0">CallMeter crée le rapport du décompte de vos appels, de vos SMS et de vos données sur votre forfait téléphonique. Il permet également de paramétrer plusieurs plans de facturations différents.</string>
-	<string name="about1">Il affiche le compte / le décompte du forfait pour une période de facturation / une période quelconque ou le décompte global. Le calcul du temps restant par mois prend en compte votre forfait, contrairement au décompte global.</string>
-	<string name="about2">Le mode de facturation des appels permet de définir les durées minimales facturées (la première / les suivantes). Ces deux durées sont exprimées en seconde. Par exemple, 60/10 signifie que chaque appel est facturé au minimum 60 secondes, pour ensuite être facturé par tranche de 10 secondes.</string>
-	<string name="about3">Vous pouvez séparer la facturation des appels ou des messages en deux planifications distinctes. Chaque plan de facturation peut être configuré comme étant totalement gratuit, plafonné ou illimité.</string>
-	<string name="about4">Vos messages SMS peuvent être inclus dans votre temps d\'appel. Par exemple, en facturant chaque message comme 15s d\'appels.</string>
-	<string name="about5">CallMeter se lance en arrière plan toutes les 30 minutes (uniquement lorsque le téléphone n\'est pas en veille). Cela signifie que les appels supprimés ou les messages datés de plus de 30 minutes ne modifieront pas vos statistiques. La suppression d\'appels ou de messages datés de moins de 30 minutes peut donc générer de fausses statistiques.</string>
-	<string name="about6_">Ce que CallMeter NG ne fait pas:</string>
-	<string name="about6">Il n\'existe aucun de moyen de distinguer les appels émis par sipdroid (VOIP) des appels réels et les websms des SMS réels. Le manque d\'intégration de ces applications au système Android rend leur logs impossibles à distinguer.</string>
-	<string name="send_">Envoyer</string>
-	<string name="settings">Préférences</string>
-	<string name="about_">A propos de</string>
-	<string name="about_hint">A propos de cette application</string>
-	<string name="faq_hint">Quelques astuce pour paramétrer cette application.</string>
-	<string name="feedback_">Contact</string>
-	<string name="feedback_hint">Rapporter un bug, demander de nouvelles fonctionnalités ...</string>
-	<string name="twitter_hint">Suivez moi sur twitter.\nObtenez des informations sur les mises à jour, etc.</string>
-	<string name="more_">Plus d\'applications..</string>
-	<string name="billday_">Premier jour du forfait</string>
-	<string name="billmode_">Mode de facturation d\'appels</string>
-	<string name="billmode_hint">Durées minimales facturées (première / suivantes-en secondes)</string>
-	<string name="billdate_">Début de la période de facturation:</string>
-	<string name="smsperiod_">Même période pour les SMS</string>
-	<string name="smsperiod_hint">Le forfait SMS débute le même jour que le forfait d\'appels.</string>
-	<string name="smsbillday_">Premier jour de facturation SMS</string>
-	<string name="dataperiod_">Même période pour les données</string>
-	<string name="dataperiod_hint">Le forfait de données débute le même jour que le forfait d\'appels.</string>
-	<string name="databillday_">Premier jour de votre forfait de données</string>
-	<string name="appearance_">Apparence</string>
-	<string name="theme_">Thème</string>
-	<string name="textsize_">Taille du texte</string>
-	<string name="advanced_">Avancé</string>
-	<string name="exclude_people_">Numéros gratuits</string>
-	<string name="exclude_people_hint">Appels non facturés (chiffres et joker acceptés : *555, 555* ou *555*)</string>
-	<string name="exclude_people_add">Ajouter un numéro</string>
-	<string name="exclude_people_edit">Modifier</string>
-	<string name="exclude_people_delete">Supprimer</string>
-	<string name="exclude_people_to_plan1_">Numéros gratuits de la planification #1</string>
-	<string name="exclude_people_to_plan2_">Numéros gratuits de la planification #2</string>
-	<string name="exclude_people_calls_">Activer pour les appels</string>
-	<string name="exclude_people_calls_to_plan1_hint">Facturation des appels pour les numéros exclus du plan #1</string>
-	<string name="exclude_people_calls_to_plan2_hint">acturation des appels pour les numéros exclus du plan #2</string>
-	<string name="exclude_people_sms_">Activer pour les SMS</string>
-	<string name="exclude_people_sms_to_plan1_hint">Facturation des messages pour les numéros exclus du plan #1</string>
-	<string name="exclude_people_sms_to_plan2_hint">Facturation des messages pour les numéros exclus du plan #2</string>
-	<string name="plans">Plans</string>
-	<string name="plans_split">Séparer les planifications</string>
-	<string name="plans_merge">Rassembler les planifications</string>
-	<string name="plans_split_hint">Sépare la planification en deux plans différents.</string>
-	<string name="plan1">Planification 1</string>
-	<string name="plan2">Planification 2</string>
-	<string name="plan1_hint">Cocher les heures pour lesquelles les appels et SMS sont comptabilisés dans le premier plan. Les autres seront comptabilisées dans le second plan.</string>
-	<string name="plan_free_">Non facturé</string>
-	<string name="plan_freemin_">Minutes gratuites</string>
-	<string name="plan_freesms_">SMS gratuits</string>
-	<string name="free_hint">Complètement gratuit</string>
-	<string name="freemin_hint">Minutes gratuites / Mois</string>
-	<string name="freesms_hint">SMS gratuits / Mois</string>
-	<string name="bill_calls_incoming_">Facturation des appels reçus</string>
-	<string name="bill_calls_incoming_hint">Les appels reçus sur votre téléphone sont facturés par l\'opérateur.</string>
-	<string name="bill_sms_incoming_">Facturation des SMS reçus</string>
-	<string name="bill_sms_incoming_hint">Les SMS reçus sur votre téléphone sont facturés par l\'opérateur.</string>
-	<string name="bill_data_incoming_only_">Facturation des données entrantes</string>
-	<string name="bill_data_incoming_only_hint">Facturation uniquement des données entrantes.</string>
-	<string name="cost_per_call_">Coût d\'un appel</string>
-	<string name="cost_per_call_hint">Prix de facturation de l\'appel.</string>
-	<string name="cost_per_minute_">Coût d\'une minute</string>
-	<string name="cost_per_minute_hint">Prix de facturation d\'une minute.</string>
-	<string name="cost_per_sms_">Coût d\'un SMS</string>
-	<string name="cost_per_sms_hint">Prix de facturation de chaque SMS.</string>
-	<string name="cost_per_mb_">Coût par MB</string>
-	<string name="cost_per_mb_hint">Prix de chaque MB.</string>
-	<string name="merge_sms_calls_">Inclure les SMS aux appels</string>
-	<string name="merge_sms_calls_hint">Facturation des SMS comme un temps d\'appel.</string>
-	<string name="merge_sms_calls_sec_">Secondes / SMS</string>
-	<string name="merge_sms_calls_sec_hint">Nombre de secondes facturées pour un SMS.</string>
-	<string name="merge_sms_plan1_">Inclure les SMS dans la planification 1</string>
-	<string name="merge_sms_plan1_hint">Décocher pour les inclure à la planification 2.</string>
-	<string name="data_hint">Les statistiques WIFI ne sont pas collectées ici !</string>
-	<string name="data_enable_">Afficher les statistiques des données</string>
-	<string name="data_enable_hint">Les données sont collectées en temps réel. Le premier mois peut être incorrect !</string>
-	<string name="data_each_day">Facture de chaque jour séparément</string>
-	<string name="data_each_day_hint">Votre période de facturation débute chaque nouveau jour.</string>
-	<string name="data_limit_">Limite</string>
-	<string name="data_limit_hint">Limites du forfait des données (Mo/mois)</string>
-	<string name="monday">Lundi</string>
-	<string name="tuesday">Mardi</string>
-	<string name="wednesday">Mercredi</string>
-	<string name="thursday">Jeudi</string>
-	<string name="friday">Vendredi</string>
-	<string name="saturday">Samedi</string>
-	<string name="sunday">Dimanche</string>
-	<string name="calls">Appels</string>
-	<string name="sms">SMS</string>
-	<string name="data">Données</string>
-	<string name="calls_sms">Appels/SMS</string>
-	<string name="in_calls">Entrants%s:</string>
-	<string name="in_sms">Entrants%s:</string>
-	<string name="in_data">Entrants:</string>
-	<string name="out_calls">Sortants%s:</string>
-	<string name="out_sms">Sortants%s:</string>
-	<string name="out_data">Sortants:</string>
-	<string name="plan_name1_">Planification 1: nom</string>
-	<string name="plan_name2_">Planification 2: nom</string>
-	<string name="plan_name_hint">Nom personnalisé</string>
-	<string name="reset_data_">Réinitialisation des statistiques</string>
-	<string name="reset_data_hint">Réinitialiser les statistiques des appels/SMS va nécessiter le recalcule de ces statistiques.\n\nPar contre, la réinitialisation des statistiques de consommation internet est permanente : les statistiques du traffic effectué avant le dernier démarrage seront perdues!</string>
-	<string name="reset_data_data_">Réinitialiser le traffic de données.</string>
-	<string name="contacts_">Contacts</string>
-	<string-array name="themes">
-		<item>Noir</item>
-		<item>Clair</item>
-	</string-array>
-	<string-array name="textsize">
-		<item>Petit</item>
-		<item>Moyen</item>
-	</string-array>
+  <string formatted="false" name="about0_">Surveillez votre forfait d\'appels, de messages et de données !</string>
+  <string formatted="false" name="about0">CallMeter crée le rapport du décompte de vos appels, de vos SMS et de vos données sur votre forfait téléphonique. Il permet également de paramétrer plusieurs plans de facturations différents.</string>
+  <string formatted="false" name="about1">Il affiche le compte / le décompte du forfait pour une période de facturation / une période quelconque ou le décompte global. Le calcul du temps restant par mois prend en compte votre forfait, contrairement au décompte global.</string>
+  <string formatted="false" name="about2">Le mode de facturation des appels permet de définir les durées minimales facturées (la première / les suivantes). Ces deux durées sont exprimées en seconde. Par exemple, 60/10 signifie que chaque appel est facturé au minimum 60 secondes, pour ensuite être facturé par tranche de 10 secondes.</string>
+  <string formatted="false" name="about3">Vous pouvez séparer la facturation des appels ou des messages en deux planifications distinctes. Chaque plan de facturation peut être configuré comme étant totalement gratuit, plafonné ou illimité.</string>
+  <string formatted="false" name="about4">Vos messages SMS peuvent être inclus dans votre temps d\'appel. Par exemple, en facturant chaque message comme 15s d\'appels.</string>
+  <string formatted="false" name="about5">CallMeter se lance en arrière plan toutes les 30 minutes (uniquement lorsque le téléphone n\'est pas en veille). Cela signifie que les appels supprimés ou les messages datés de plus de 30 minutes ne modifieront pas vos statistiques. La suppression d\'appels ou de messages datés de moins de 30 minutes peut donc générer de fausses statistiques.</string>
+  <string formatted="false" name="about6_">Ce que CallMeter NG ne fait pas:</string>
+  <string formatted="false" name="about6">Il n\'existe aucun de moyen de distinguer les appels émis par sipdroid (VOIP) des appels réels et les websms des SMS réels. Le manque d\'intégration de ces applications au système Android rend leur logs impossibles à distinguer.</string>
+  <string formatted="false" name="send_">Envoyer</string>
+  <string formatted="false" name="settings">Préférences</string>
+  <string formatted="false" name="about_">A propos de</string>
+  <string formatted="false" name="about_hint">A propos de cette application</string>
+  <string formatted="false" name="faq_hint">Quelques astuce pour paramétrer cette application.</string>
+  <string formatted="false" name="feedback_">Contact</string>
+  <string formatted="false" name="feedback_hint">Rapporter un bug, demander de nouvelles fonctionnalités ...</string>
+  <string formatted="false" name="twitter_hint">Suivez moi sur twitter.\nObtenez des informations sur les mises à jour, etc.</string>
+  <string formatted="false" name="more_">Plus d\'applications..</string>
+  <string formatted="false" name="billday_">Premier jour du forfait</string>
+  <string formatted="false" name="billmode_">Mode de facturation d\'appels</string>
+  <string formatted="false" name="billmode_hint">Durées minimales facturées (première / suivantes-en secondes)</string>
+  <string formatted="false" name="billdate_">Début de la période de facturation:</string>
+  <string formatted="false" name="smsperiod_">Même période pour les SMS</string>
+  <string formatted="false" name="smsperiod_hint">Le forfait SMS débute le même jour que le forfait d\'appels.</string>
+  <string formatted="false" name="smsbillday_">Premier jour de facturation SMS</string>
+  <string formatted="false" name="dataperiod_">Même période pour les données</string>
+  <string formatted="false" name="dataperiod_hint">Le forfait de données débute le même jour que le forfait d\'appels.</string>
+  <string formatted="false" name="databillday_">Premier jour de votre forfait de données</string>
+  <string formatted="false" name="appearance_">Apparence</string>
+  <string formatted="false" name="theme_">Thème</string>
+  <string formatted="false" name="textsize_">Taille du texte</string>
+  <string formatted="false" name="advanced_">Avancé</string>
+  <string formatted="false" name="exclude_people_">Numéros gratuits</string>
+  <string formatted="false" name="exclude_people_hint">Appels non facturés (chiffres et joker acceptés : *555, 555* ou *555*)</string>
+  <string formatted="false" name="exclude_people_add">Ajouter un numéro</string>
+  <string formatted="false" name="exclude_people_edit">Modifier</string>
+  <string formatted="false" name="exclude_people_delete">Supprimer</string>
+  <string formatted="false" name="exclude_people_to_plan1_">Numéros gratuits de la planification #1</string>
+  <string formatted="false" name="exclude_people_to_plan2_">Numéros gratuits de la planification #2</string>
+  <string formatted="false" name="exclude_people_calls_">Activer pour les appels</string>
+  <string formatted="false" name="exclude_people_calls_to_plan1_hint">Facturation des appels pour les numéros exclus du plan #1</string>
+  <string formatted="false" name="exclude_people_calls_to_plan2_hint">acturation des appels pour les numéros exclus du plan #2</string>
+  <string formatted="false" name="exclude_people_sms_">Activer pour les SMS</string>
+  <string formatted="false" name="exclude_people_sms_to_plan1_hint">Facturation des messages pour les numéros exclus du plan #1</string>
+  <string formatted="false" name="exclude_people_sms_to_plan2_hint">Facturation des messages pour les numéros exclus du plan #2</string>
+  <string formatted="false" name="plans">Plans</string>
+  <string formatted="false" name="plans_split">Séparer les planifications</string>
+  <string formatted="false" name="plans_merge">Rassembler les planifications</string>
+  <string formatted="false" name="plans_split_hint">Sépare la planification en deux plans différents.</string>
+  <string formatted="false" name="plan1">Planification 1</string>
+  <string formatted="false" name="plan2">Planification 2</string>
+  <string formatted="false" name="plan1_hint">Cocher les heures pour lesquelles les appels et SMS sont comptabilisés dans le premier plan. Les autres seront comptabilisées dans le second plan.</string>
+  <string formatted="false" name="plan_free_">Non facturé</string>
+  <string formatted="false" name="plan_freemin_">Minutes gratuites</string>
+  <string formatted="false" name="plan_freesms_">SMS gratuits</string>
+  <string formatted="false" name="free_hint">Complètement gratuit</string>
+  <string formatted="false" name="freemin_hint">Minutes gratuites / Mois</string>
+  <string formatted="false" name="freesms_hint">SMS gratuits / Mois</string>
+  <string formatted="false" name="bill_calls_incoming_">Facturation des appels reçus</string>
+  <string formatted="false" name="bill_calls_incoming_hint">Les appels reçus sur votre téléphone sont facturés par l\'opérateur.</string>
+  <string formatted="false" name="bill_sms_incoming_">Facturation des SMS reçus</string>
+  <string formatted="false" name="bill_sms_incoming_hint">Les SMS reçus sur votre téléphone sont facturés par l\'opérateur.</string>
+  <string formatted="false" name="bill_data_incoming_only_">Facturation des données entrantes</string>
+  <string formatted="false" name="bill_data_incoming_only_hint">Facturation uniquement des données entrantes.</string>
+  <string formatted="false" name="cost_per_call_">Coût d\'un appel</string>
+  <string formatted="false" name="cost_per_call_hint">Prix de facturation de l\'appel.</string>
+  <string formatted="false" name="cost_per_minute_">Coût d\'une minute</string>
+  <string formatted="false" name="cost_per_minute_hint">Prix de facturation d\'une minute.</string>
+  <string formatted="false" name="cost_per_sms_">Coût d\'un SMS</string>
+  <string formatted="false" name="cost_per_sms_hint">Prix de facturation de chaque SMS.</string>
+  <string formatted="false" name="cost_per_mb_">Coût par MB</string>
+  <string formatted="false" name="cost_per_mb_hint">Prix de chaque MB.</string>
+  <string formatted="false" name="merge_sms_calls_">Inclure les SMS aux appels</string>
+  <string formatted="false" name="merge_sms_calls_hint">Facturation des SMS comme un temps d\'appel.</string>
+  <string formatted="false" name="merge_sms_calls_sec_">Secondes / SMS</string>
+  <string formatted="false" name="merge_sms_calls_sec_hint">Nombre de secondes facturées pour un SMS.</string>
+  <string formatted="false" name="merge_sms_plan1_">Inclure les SMS dans la planification 1</string>
+  <string formatted="false" name="merge_sms_plan1_hint">Décocher pour les inclure à la planification 2.</string>
+  <string formatted="false" name="data_hint">Les statistiques WIFI ne sont pas collectées ici !</string>
+  <string formatted="false" name="data_enable_">Afficher les statistiques des données</string>
+  <string formatted="false" name="data_enable_hint">Les données sont collectées en temps réel. Le premier mois peut être incorrect !</string>
+  <string formatted="false" name="data_each_day">Facture de chaque jour séparément</string>
+  <string formatted="false" name="data_each_day_hint">Votre période de facturation débute chaque nouveau jour.</string>
+  <string formatted="false" name="data_limit_">Limite</string>
+  <string formatted="false" name="data_limit_hint">Limites du forfait des données (Mo/mois)</string>
+  <string formatted="false" name="monday">Lundi</string>
+  <string formatted="false" name="tuesday">Mardi</string>
+  <string formatted="false" name="wednesday">Mercredi</string>
+  <string formatted="false" name="thursday">Jeudi</string>
+  <string formatted="false" name="friday">Vendredi</string>
+  <string formatted="false" name="saturday">Samedi</string>
+  <string formatted="false" name="sunday">Dimanche</string>
+  <string formatted="false" name="calls">Appels</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="data">Données</string>
+  <string formatted="false" name="calls_sms">Appels/SMS</string>
+  <string formatted="false" name="in_calls">Entrants%s:</string>
+  <string formatted="false" name="in_sms">Entrants%s:</string>
+  <string formatted="false" name="in_data">Entrants:</string>
+  <string formatted="false" name="out_calls">Sortants%s:</string>
+  <string formatted="false" name="out_sms">Sortants%s:</string>
+  <string formatted="false" name="out_data">Sortants:</string>
+  <string formatted="false" name="plan_name1_">Planification 1: nom</string>
+  <string formatted="false" name="plan_name2_">Planification 2: nom</string>
+  <string formatted="false" name="plan_name_hint">Nom personnalisé</string>
+  <string formatted="false" name="reset_data_">Réinitialisation des statistiques</string>
+  <string formatted="false" name="reset_data_hint">Réinitialiser les statistiques des appels/SMS va nécessiter le recalcule de ces statistiques.\n\nPar contre, la réinitialisation des statistiques de consommation internet est permanente : les statistiques du traffic effectué avant le dernier démarrage seront perdues!</string>
+  <string formatted="false" name="reset_data_data_">Réinitialiser le traffic de données.</string>
+  <string formatted="false" name="contacts_">Contacts</string>
+  <string-array name="themes">
+    <item>Noir</item>
+    <item>Clair</item>
+  </string-array>
+  <string-array name="textsize">
+    <item>Petit</item>
+    <item>Moyen</item>
+  </string-array>
 </resources>

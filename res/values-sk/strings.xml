@@ -18,152 +18,121 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="author_">Autori:</string>
-	<string name="version_">Verzia:</string>
-	<string name="license_">Licencia:</string>
-	<string name="license">GPLv3 - viď http://www.gnu.org/licenses/gpl-3.0.txt</string>
-	<string name="source_">Zdrojový kód:</string>
-	<string name="website_">Web:</string>
-	<string name="debug_">Debug</string>
-	<string name="custom_language_">Výber jazyka</string>
-	<string name="custom_language_hint">Vybrať jazykovú verziu programu.</string>
-	<string name="send_logs_">Odoslať logy</string>
-	<string name="send_logs_hint">Odoslať aplikačné logy vývojárovi (iba po predchodzej dohode).</string>
-	<string name="sendlog_run_">Spustiť SendLog</string>
-	<string name="sendlog_run">Program SendLog pozbiera informácie z vášho zariadenia a pošle ich vývojárovi.\nPred odeslaním môžete log eště upraviť.</string>
-	<string name="sendlog_install_">Inštalovať SendLog</string>
-	<string name="sendlog_install">SendLog je freewarová aplikácia na zber informácií z vašeho zariadenia, které posloužia pre ladenie tejto aplikácie.</string>
-	<string name="donate_paypal_">Chcem prispieť (Paypal)</string>
-	<string name="donate_market_">Chcem prispieť (Market)</string>
-	<string name="donate_remove_ads_">Prispieť/odstrániť inzerciu</string>
-	<string name="remove_ads_">Odstrániť inzerciu</string>
-	<string name="predonate">Call Meter je open-source aplikáciou vydanou pod licenciou GPLv3. Využitie aplikácie nie je a nebude zpoplatnené. Pokiaľ ste s ňou spokojní, alebo Vám vadí inzercia, zvážte možnosť prispieť cez PayPal na jej vývoj. Okrem dobrého pocitu z podpory získa darca aplikáciu bez inzercie.\nPredom ďakujem! (príspevok odstráni inzerciu zo všetkých mojich aplikácií)</string>
-	<string name="postdonate">Inzercia je odstranená po vložení <i>no-ads</i> kódu, ktorý dorazí hneď ako obdržím príspevok. Buďte trpezliví! Pokiaľ kód nepríde v priebehu jedného dňa, pošlite mi email.</string>
-	<string name="donator_id_">Pre overenie vašeho príspevku je treba zadať buď váš PayPal emailovú adresu [pre platbu cez PayPal], alebo @gmail pre platby cez Market:</string>
-	<string name="donator_id_hint">PayPal/Gmail adresa</string>
-	<string name="load_hash_">Nahrať <i>no-ads</i> kód</string>
-	<string name="sig_loaded">Inzercia už nie je :-)</string>
-	<string name="sig_failed">Inzerciu sa nepodarilo odstráňiť :-(</string>
-	<string name="accept_">Prijať podmienky</string>
-	<string name="accept_missing">Je treba prijať podmienky pred odoslaním dát...</string>
-	<string name="terms">Aplikáce pošle identifikátor vašej platby spolu s MD5 hashem vašeho IMEI na server http://ub0r.de/donation/. Tieto informacie potrebujem pre overenie vašej platby\n\nPri výmeňe telefónu prestane <i>no-ads</i> kód platiť, ale keď mi napíšete email, pošlem Vám nový.</string>
-	<string name="notify_">Nezabudol/a si odstrániť inzerciu?</string>
-	<string name="notify_text">Pre odstránenie inzercie je treba nahrať <i>no-ads</i> kód.</string>
-	<string name="about0_">Call Meter slúži k sledovaniu stavu čerpania hovorného, SMS správ a dátových prenosov v rámci mesačného paušálu.</string>
-	<string name="about0">Aplikácia tvorí štatistiku na základe logov o hovoroch, SMS správach a dátových prenosoch a podporuje niekoľko spôsobov účtovania/tarifikácie.</string>
-	<string name="about1">Výstupom je celkový počet využitých minút/sms/dát od nainštalovania aplikácie, a počet týchto jednotiek prípadne ukazatel využitia voľných minút/sms/dát za aktuálne zúčtovacie obdobie. Výpočet mesačnej spotreby berie na vedomie vybranú tarifikáciu. V celkovom výpočte nie je tarifikácia zohladnená.\n\nLegenda zobrazovania štatistík:\nPríchodzie hovory: dĺžka a počet v aktuálnom období / dĺžka všetkých hovorov\nOdchádzajúce hovory: [% využitie voľných minút akt. obdobia] / dĺžka a počet v akt. období / dĺžka všetkých hovorov\nPríchodzie SMS: počet SMS v akt. období / celkový počet SMS\nOdchodzie SMS: cena za SMS v akt. období / [% využitie voľných SMS v akt. období] / počet SMS v akt. období / celkový počet SMS </string>
-	<string name="about2">Režim tarifikácie určuje spôsob spoplatnenia prvého a nasledujúceho intervalu hlasových hovorov. Napr. 60/10 znamená, že u hovoru sa vždy započíta min. 60 sekúnd a čas nad rámec prvého intervalu je zaokrúhlený nahor na najbližších 10 sekúnd.</string>
-	<string name="about3">Účtovanie hovorov a SMS správ možno rozdeliť do dvoch paušálov (napr. pre rôznu tarifikácu, cenu hovorov a správ v špičke a mimo špičku). Každý z paušálov tak môže mať svoje individuálne nastavenia (rôzna cena hovorov, počet voľných minút / sms, apod.).</string>
-	<string name="about4">Textové správy možno započítať ako hovory - napr. každá správa môže byť započítaná ako 15 sekúnd hovorného.</string>
-	<string name="about5">Call Meter sa spúšťa každých 30 minút (pokiaľ nie je telefón v pohotovostnom režime), čo znamená, že zmazaní záznamov o hovoroch/sms/dátach za posledných 30 minút ovplyvní vypočetnú štatistiku.</string>
-	<string name="about6_">Čo Call Meter nevie:</string>
-	<string name="about6">Kvôli úzkej integrácii technologie SIP a odosielaniu SMS cez webovú bránu v Androide, nedokáže aplikácia rozlíšiť medzi spôsobom uskutočnenia hovorov a odoslaniu sms, ktoré sú preto bez ohľadu na využitý kanál započítané dokopy.</string>
-	<string name="send_">Odoslať</string>
-	<string name="settings">Nastavenia</string>
-	<string name="about_">Nápoveda</string>
-	<string name="about_hint">Nápoveda. O autoroch.</string>
-	<string name="faq_hint">Tipy a triky ako nastaviť aplikáciu.</string>
-	<string name="feedback_">Feedback</string>
-	<string name="feedback_hint">Ohlásiť chybu, poslať požiadavku na funkčnosť.</string>
-	<string name="twitter_hint">Následuj ma na Twitteri\nInfo o nových verziách apod.</string>
-	<string name="more_">Daľšie aplikácie autora..</string>
-	<string name="billday_">Začiatok zúčtovacieho obdobia</string>
-	<string name="billmode_">Tarifikácia</string>
-	<string name="billmode_hint">Spôsob výpočtu ceny volaní.</string>
-	<string name="billdate_">Začiatok zúčtovacieho obdobia:</string>
-	<string name="smsperiod_">Rovnaké zúčtovacie obdobie pre SMS</string>
-	<string name="smsperiod_hint">Nastaviť rovnaké zúčtovacie obdobie ako pre volania.</string>
-	<string name="smsbillday_">Prvý deň účtovania SMS</string>
-	<string name="dataperiod_">Rovnaké zúčtovacie obdobie pre dáta</string>
-	<string name="dataperiod_hint">Nastaviť rovnaké zúčtovacie obdobia ako pre volania.</string>
-	<string name="databillday_">Prvý deň účtovania dát</string>
-	<string name="appearance_">Prispôsobiť vzhľad</string>
-	<string name="theme_">Motív</string>
-	<string name="textsize_">Veľkosť textu</string>
-	<string name="advanced_">Pokročilé nastavenia</string>
-	<string name="exclude_people_">Vylúčiť tel. čísla</string>
-	<string name="exclude_people_hint">Nezohladňovať volánia na čísla a predvoľby. Zastupné znaky: *555, 555* alebo *555*</string>
-	<string name="exclude_people_add">Pridať číslo</string>
-	<string name="exclude_people_edit">Upraviť</string>
-	<string name="exclude_people_delete">Zmazať</string>
-	<string name="exclude_people_to_plan1_">Nevylučovať z Paušálu 1</string>
-	<string name="exclude_people_to_plan2_">Nevylučovať z Paušálu 2</string>
-	<string name="exclude_people_calls_">Povoliť pre volania</string>
-	<string name="exclude_people_calls_to_plan1_hint">Účtovať hovory z/na vylúčené čísla do Paušálu 1</string>
-	<string name="exclude_people_calls_to_plan2_hint">Účtovať hovory z/na vylúčené čísla do Paušálu 2</string>
-	<string name="exclude_people_sms_">Povoliť pro SMS</string>
-	<string name="exclude_people_sms_to_plan1_hint">Účtovať SMS na vylúčené čísla do Paušálu 1</string>
-	<string name="exclude_people_sms_to_plan2_hint">Účtovať SMS na vylúčené čísla do Paušálu 2</string>
-	<string name="plans">Paušály</string>
-	<string name="plans_split">Rozdeliť zúčtovacie obdobie</string>
-	<string name="plans_merge">Zlúčiť paušály</string>
-	<string name="plans_split_hint">Rozdeliť zúčtovacie obdobie do dvoch paušálov.</string>
-	<string name="plan1">Paušál 1</string>
-	<string name="plan2">Paušál 2</string>
-	<string name="plan1_hint">Nastavte časy, ktoré spadajú do Paušálu 1. Nezaškrtnuté budú zahrnuté do Paušálu 2.</string>
-	<string name="plan_free_">Žiadne účtovanie</string>
-	<string name="plan_freemin_">Počet voľných minút</string>
-	<string name="plan_freesms_">Počet voľných SMS</string>
-	<string name="free_hint">Volania/SMS zdarma.</string>
-	<string name="freemin_hint">Voľné minúty v rámci paušálu.</string>
-	<string name="freesms_hint">Voľné SMS v rámci paušálu.</string>
-	<string name="bill_calls_incoming_">Účtovať príchodzie</string>
-	<string name="bill_calls_incoming_hint">Spoplatnenie prichádzajúcich hovorov.</string>
-	<string name="bill_sms_incoming_">Účtovať príchodzie</string>
-	<string name="bill_sms_incoming_hint">Spoplatnenie prichádzajúcich správ.</string>
-	<string name="bill_data_incoming_only_">Účtovať iba download</string>
-	<string name="bill_data_incoming_only_hint">Platenie iba za stiahnuté dáta.</string>
-	<string name="cost_per_call_">Cena za hovor</string>
-	<string name="cost_per_call_hint">Paušálne spoplatnenie každého hovoru.</string>
-	<string name="cost_per_minute_">Cena za minútu</string>
-	<string name="cost_per_minute_hint">Pre výpočet ceny volaní.</string>
-	<string name="cost_per_sms_">Cena za SMS</string>
-	<string name="cost_per_sms_hint">Pre výpočet ceny SMS.</string>
-	<string name="cost_per_mb_">Cena za MB</string>
-	<string name="cost_per_mb_hint">Pre výpočet ceny za dáta.</string>
-	<string name="merge_sms_calls_">Zlučovať SMS do volaní</string>
-	<string name="merge_sms_calls_hint">Účtovat cenu SMS ako hovorné.</string>
-	<string name="merge_sms_calls_sec_">Sekundy / SMS</string>
-	<string name="merge_sms_calls_sec_hint">Počet sekúnd, ktoré sa započítajú miesto jednej SMS.</string>
-	<string name="merge_sms_plan1_">Zlúčiť s Paušálom 1</string>
-	<string name="merge_sms_plan1_hint">Zrušiť voľbu pre zlúčenie s Paušálom 2.</string>
-	<string name="data_hint">Dáta z WiFi nie sú započítané!</string>
-	<string name="data_enable_">Zobraziť štatistiku</string>
-	<string name="data_enable_hint">Dáta sú zbierané v reálnom čase. Výpočet za 1. mesiac nemusí byť presný!</string>
-	<string name="data_each_day">Účtovať po dňoch</string>
-	<string name="data_each_day_hint">Každý deň je novým účtovacím obdobím.</string>
-	<string name="data_limit_">Limit</string>
-	<string name="data_limit_hint">Mesačný limit dátového paušálu (MB/mesiac).</string>
-	<string name="monday">Pondelok</string>
-	<string name="tuesday">Utorok</string>
-	<string name="wednesday">Streda</string>
-	<string name="thursday">Štvrtok</string>
-	<string name="friday">Piatok</string>
-	<string name="saturday">Sobota</string>
-	<string name="sunday">Nedela</string>
-	<string name="calls">Hovory</string>
-	<string name="sms">SMS</string>
-	<string name="data">Dáta</string>
-	<string name="calls_sms">Hovory/SMS</string>
-	<string name="in_calls">Príchodzie%s:</string>
-	<string name="in_sms">Príchodzie%s:</string>
-	<string name="in_data">Príchodzie:</string>
-	<string name="out_calls">Odchádzajúce%s:</string>
-	<string name="out_sms">Odchádzajúce%s:</string>
-	<string name="out_data">Odchádzajúce:</string>
-	<string name="plan_name1_">Paušál 1</string>
-	<string name="plan_name2_">Paušál 2</string>
-	<string name="plan_name_hint">Uživateľský názov paušálu.</string>
-	<string name="reset_data_">Resetovať pamäť</string>
-	<string name="reset_data_hint">Reset pamäti aplikácie vynúti prepočet štatistiky.\nReset pamäti o dátovom prenose je permanentný - zmaže iba dáta prenesené pred štartom zariadenia.</string>
-	<string name="reset_data_data_">Reset pamäti o prenose dát.</string>
-	<string name="contacts_">Z kontaktov</string>
-	<string-array name="themes">
-		<item>Tmavý</item>
-		<item>Svetlý</item>
-	</string-array>
-	<string-array name="textsize">
-		<item>Malý</item>
-		<item>Veľký</item>
-	</string-array>
+  <string formatted="false" name="about0_">Call Meter slúži k sledovaniu stavu čerpania hovorného, SMS správ a dátových prenosov v rámci mesačného paušálu.</string>
+  <string formatted="false" name="about0">Aplikácia tvorí štatistiku na základe logov o hovoroch, SMS správach a dátových prenosoch a podporuje niekoľko spôsobov účtovania/tarifikácie.</string>
+  <string formatted="false" name="about1">Výstupom je celkový počet využitých minút/sms/dát od nainštalovania aplikácie, a počet týchto jednotiek prípadne ukazatel využitia voľných minút/sms/dát za aktuálne zúčtovacie obdobie. Výpočet mesačnej spotreby berie na vedomie vybranú tarifikáciu. V celkovom výpočte nie je tarifikácia zohladnená.\n\nLegenda zobrazovania štatistík:\nPríchodzie hovory: dĺžka a počet v aktuálnom období / dĺžka všetkých hovorov\nOdchádzajúce hovory: [% využitie voľných minút akt. obdobia] / dĺžka a počet v akt. období / dĺžka všetkých hovorov\nPríchodzie SMS: počet SMS v akt. období / celkový počet SMS\nOdchodzie SMS: cena za SMS v akt. období / [% využitie voľných SMS v akt. období] / počet SMS v akt. období / celkový počet SMS </string>
+  <string formatted="false" name="about2">Režim tarifikácie určuje spôsob spoplatnenia prvého a nasledujúceho intervalu hlasových hovorov. Napr. 60/10 znamená, že u hovoru sa vždy započíta min. 60 sekúnd a čas nad rámec prvého intervalu je zaokrúhlený nahor na najbližších 10 sekúnd.</string>
+  <string formatted="false" name="about3">Účtovanie hovorov a SMS správ možno rozdeliť do dvoch paušálov (napr. pre rôznu tarifikácu, cenu hovorov a správ v špičke a mimo špičku). Každý z paušálov tak môže mať svoje individuálne nastavenia (rôzna cena hovorov, počet voľných minút / sms, apod.).</string>
+  <string formatted="false" name="about4">Textové správy možno započítať ako hovory - napr. každá správa môže byť započítaná ako 15 sekúnd hovorného.</string>
+  <string formatted="false" name="about5">Call Meter sa spúšťa každých 30 minút (pokiaľ nie je telefón v pohotovostnom režime), čo znamená, že zmazaní záznamov o hovoroch/sms/dátach za posledných 30 minút ovplyvní vypočetnú štatistiku.</string>
+  <string formatted="false" name="about6_">Čo Call Meter nevie:</string>
+  <string formatted="false" name="about6">Kvôli úzkej integrácii technologie SIP a odosielaniu SMS cez webovú bránu v Androide, nedokáže aplikácia rozlíšiť medzi spôsobom uskutočnenia hovorov a odoslaniu sms, ktoré sú preto bez ohľadu na využitý kanál započítané dokopy.</string>
+  <string formatted="false" name="send_">Odoslať</string>
+  <string formatted="false" name="settings">Nastavenia</string>
+  <string formatted="false" name="about_">Nápoveda</string>
+  <string formatted="false" name="about_hint">Nápoveda. O autoroch.</string>
+  <string formatted="false" name="faq_hint">Tipy a triky ako nastaviť aplikáciu.</string>
+  <string formatted="false" name="feedback_">Feedback</string>
+  <string formatted="false" name="feedback_hint">Ohlásiť chybu, poslať požiadavku na funkčnosť.</string>
+  <string formatted="false" name="twitter_hint">Následuj ma na Twitteri\nInfo o nových verziách apod.</string>
+  <string formatted="false" name="more_">Daľšie aplikácie autora..</string>
+  <string formatted="false" name="billday_">Začiatok zúčtovacieho obdobia</string>
+  <string formatted="false" name="billmode_">Tarifikácia</string>
+  <string formatted="false" name="billmode_hint">Spôsob výpočtu ceny volaní.</string>
+  <string formatted="false" name="billdate_">Začiatok zúčtovacieho obdobia:</string>
+  <string formatted="false" name="smsperiod_">Rovnaké zúčtovacie obdobie pre SMS</string>
+  <string formatted="false" name="smsperiod_hint">Nastaviť rovnaké zúčtovacie obdobie ako pre volania.</string>
+  <string formatted="false" name="smsbillday_">Prvý deň účtovania SMS</string>
+  <string formatted="false" name="dataperiod_">Rovnaké zúčtovacie obdobie pre dáta</string>
+  <string formatted="false" name="dataperiod_hint">Nastaviť rovnaké zúčtovacie obdobia ako pre volania.</string>
+  <string formatted="false" name="databillday_">Prvý deň účtovania dát</string>
+  <string formatted="false" name="appearance_">Prispôsobiť vzhľad</string>
+  <string formatted="false" name="theme_">Motív</string>
+  <string formatted="false" name="textsize_">Veľkosť textu</string>
+  <string formatted="false" name="advanced_">Pokročilé nastavenia</string>
+  <string formatted="false" name="exclude_people_">Vylúčiť tel. čísla</string>
+  <string formatted="false" name="exclude_people_hint">Nezohladňovať volánia na čísla a predvoľby. Zastupné znaky: *555, 555* alebo *555*</string>
+  <string formatted="false" name="exclude_people_add">Pridať číslo</string>
+  <string formatted="false" name="exclude_people_edit">Upraviť</string>
+  <string formatted="false" name="exclude_people_delete">Zmazať</string>
+  <string formatted="false" name="exclude_people_to_plan1_">Nevylučovať z Paušálu 1</string>
+  <string formatted="false" name="exclude_people_to_plan2_">Nevylučovať z Paušálu 2</string>
+  <string formatted="false" name="exclude_people_calls_">Povoliť pre volania</string>
+  <string formatted="false" name="exclude_people_calls_to_plan1_hint">Účtovať hovory z/na vylúčené čísla do Paušálu 1</string>
+  <string formatted="false" name="exclude_people_calls_to_plan2_hint">Účtovať hovory z/na vylúčené čísla do Paušálu 2</string>
+  <string formatted="false" name="exclude_people_sms_">Povoliť pro SMS</string>
+  <string formatted="false" name="exclude_people_sms_to_plan1_hint">Účtovať SMS na vylúčené čísla do Paušálu 1</string>
+  <string formatted="false" name="exclude_people_sms_to_plan2_hint">Účtovať SMS na vylúčené čísla do Paušálu 2</string>
+  <string formatted="false" name="plans">Paušály</string>
+  <string formatted="false" name="plans_split">Rozdeliť zúčtovacie obdobie</string>
+  <string formatted="false" name="plans_merge">Zlúčiť paušály</string>
+  <string formatted="false" name="plans_split_hint">Rozdeliť zúčtovacie obdobie do dvoch paušálov.</string>
+  <string formatted="false" name="plan1">Paušál 1</string>
+  <string formatted="false" name="plan2">Paušál 2</string>
+  <string formatted="false" name="plan1_hint">Nastavte časy, ktoré spadajú do Paušálu 1. Nezaškrtnuté budú zahrnuté do Paušálu 2.</string>
+  <string formatted="false" name="plan_free_">Žiadne účtovanie</string>
+  <string formatted="false" name="plan_freemin_">Počet voľných minút</string>
+  <string formatted="false" name="plan_freesms_">Počet voľných SMS</string>
+  <string formatted="false" name="free_hint">Volania/SMS zdarma.</string>
+  <string formatted="false" name="freemin_hint">Voľné minúty v rámci paušálu.</string>
+  <string formatted="false" name="freesms_hint">Voľné SMS v rámci paušálu.</string>
+  <string formatted="false" name="bill_calls_incoming_">Účtovať príchodzie</string>
+  <string formatted="false" name="bill_calls_incoming_hint">Spoplatnenie prichádzajúcich hovorov.</string>
+  <string formatted="false" name="bill_sms_incoming_">Účtovať príchodzie</string>
+  <string formatted="false" name="bill_sms_incoming_hint">Spoplatnenie prichádzajúcich správ.</string>
+  <string formatted="false" name="bill_data_incoming_only_">Účtovať iba download</string>
+  <string formatted="false" name="bill_data_incoming_only_hint">Platenie iba za stiahnuté dáta.</string>
+  <string formatted="false" name="cost_per_call_">Cena za hovor</string>
+  <string formatted="false" name="cost_per_call_hint">Paušálne spoplatnenie každého hovoru.</string>
+  <string formatted="false" name="cost_per_minute_">Cena za minútu</string>
+  <string formatted="false" name="cost_per_minute_hint">Pre výpočet ceny volaní.</string>
+  <string formatted="false" name="cost_per_sms_">Cena za SMS</string>
+  <string formatted="false" name="cost_per_sms_hint">Pre výpočet ceny SMS.</string>
+  <string formatted="false" name="cost_per_mb_">Cena za MB</string>
+  <string formatted="false" name="cost_per_mb_hint">Pre výpočet ceny za dáta.</string>
+  <string formatted="false" name="merge_sms_calls_">Zlučovať SMS do volaní</string>
+  <string formatted="false" name="merge_sms_calls_hint">Účtovat cenu SMS ako hovorné.</string>
+  <string formatted="false" name="merge_sms_calls_sec_">Sekundy / SMS</string>
+  <string formatted="false" name="merge_sms_calls_sec_hint">Počet sekúnd, ktoré sa započítajú miesto jednej SMS.</string>
+  <string formatted="false" name="merge_sms_plan1_">Zlúčiť s Paušálom 1</string>
+  <string formatted="false" name="merge_sms_plan1_hint">Zrušiť voľbu pre zlúčenie s Paušálom 2.</string>
+  <string formatted="false" name="data_hint">Dáta z WiFi nie sú započítané!</string>
+  <string formatted="false" name="data_enable_">Zobraziť štatistiku</string>
+  <string formatted="false" name="data_enable_hint">Dáta sú zbierané v reálnom čase. Výpočet za 1. mesiac nemusí byť presný!</string>
+  <string formatted="false" name="data_each_day">Účtovať po dňoch</string>
+  <string formatted="false" name="data_each_day_hint">Každý deň je novým účtovacím obdobím.</string>
+  <string formatted="false" name="data_limit_">Limit</string>
+  <string formatted="false" name="data_limit_hint">Mesačný limit dátového paušálu (MB/mesiac).</string>
+  <string formatted="false" name="monday">Pondelok</string>
+  <string formatted="false" name="tuesday">Utorok</string>
+  <string formatted="false" name="wednesday">Streda</string>
+  <string formatted="false" name="thursday">Štvrtok</string>
+  <string formatted="false" name="friday">Piatok</string>
+  <string formatted="false" name="saturday">Sobota</string>
+  <string formatted="false" name="sunday">Nedela</string>
+  <string formatted="false" name="calls">Hovory</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="data">Dáta</string>
+  <string formatted="false" name="calls_sms">Hovory/SMS</string>
+  <string formatted="false" name="in_calls">Príchodzie%s:</string>
+  <string formatted="false" name="in_sms">Príchodzie%s:</string>
+  <string formatted="false" name="in_data">Príchodzie:</string>
+  <string formatted="false" name="out_calls">Odchádzajúce%s:</string>
+  <string formatted="false" name="out_sms">Odchádzajúce%s:</string>
+  <string formatted="false" name="out_data">Odchádzajúce:</string>
+  <string formatted="false" name="plan_name1_">Paušál 1</string>
+  <string formatted="false" name="plan_name2_">Paušál 2</string>
+  <string formatted="false" name="plan_name_hint">Uživateľský názov paušálu.</string>
+  <string formatted="false" name="reset_data_">Resetovať pamäť</string>
+  <string formatted="false" name="reset_data_hint">Reset pamäti aplikácie vynúti prepočet štatistiky.\nReset pamäti o dátovom prenose je permanentný - zmaže iba dáta prenesené pred štartom zariadenia.</string>
+  <string formatted="false" name="reset_data_data_">Reset pamäti o prenose dát.</string>
+  <string formatted="false" name="contacts_">Z kontaktov</string>
+  <string-array name="themes">
+    <item>Tmavý</item>
+    <item>Svetlý</item>
+  </string-array>
+  <string-array name="textsize">
+    <item>Malý</item>
+    <item>Veľký</item>
+  </string-array>
 </resources>
