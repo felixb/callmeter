@@ -29,7 +29,7 @@
 			<TextView android:text="@string/name_" android:layout_width="wrap_content"
 				android:layout_height="wrap_content" android:singleLine="false"
 				android:paddingRight="5dip" />
-			<EditText android:id="@+id/name_et" android:layout_width="fill_parent"
+			<EditText android:id="@+id/name_et" android:layout_width="0dip"
 				android:layout_height="wrap_content" android:singleLine="true"
 				android:layout_weight="1" />
 			<Button android:id="@+id/name_help" android:text="@string/help_"

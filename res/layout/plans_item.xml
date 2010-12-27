@@ -29,13 +29,13 @@
 		android:layout_height="15dip" />
 	<RelativeLayout android:id="@+id/period_layout"
 		android:layout_width="fill_parent" android:layout_height="wrap_content">
-		<TextView android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_alignParentLeft="true"
-			android:text="@string/billday_" />
 		<TextView android:id="@+id/period" android:layout_width="wrap_content"
 			android:text=" ???" android:layout_height="wrap_content"
 			android:layout_alignParentRight="true" android:gravity="right"
 			android:singleLine="false" />
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+			android:text="@string/billday_" android:layout_toLeftOf="@id/period" />
 		<ProgressBar android:id="@+id/period_pb"
 			android:layout_width="fill_parent" android:layout_height="5dip"
 			android:layout_alignParentRight="true"
