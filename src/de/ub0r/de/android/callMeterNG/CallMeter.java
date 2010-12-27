@@ -19,19 +19,15 @@
 package de.ub0r.de.android.callMeterNG;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+import de.ub0r.android.lib.Changelog;
 import de.ub0r.android.lib.DonationHelper;
 import de.ub0r.android.lib.Utils;
 
@@ -44,26 +40,11 @@ public class CallMeter extends Activity {
 	/** Tag for output. */
 	public static final String TAG = "main";
 
-	/** Flurry's API key. */
-	public static final String FLURRYKEY = "DF1BECT8IJDIJ82NA3S8";
-
 	/** 100. */
 	static final int HUNDRET = 100;
 
-	/** Dialog: update. */
-	private static final int DIALOG_UPDATE = 0;
-
-	/** Prefs: name for last version run. */
-	private static final String PREFS_LAST_RUN = "lastrun";
-
-	/** SharedPreferences. */
-	private SharedPreferences preferences;
-
 	/** Display ads? */
 	private static boolean prefsNoAds;
-
-	/** Path to file containing signatures of UID Hash. */
-	private static final String NOADS_SIGNATURES = "/sdcard/callmeter.noads";
 
 	/**
 	 * {@inheritDoc}
@@ -75,16 +56,10 @@ public class CallMeter extends Activity {
 		this.setTheme(Preferences.getTheme(this));
 		Utils.setLocale(this);
 		this.setContentView(R.layout.main);
-		// get prefs.
-		this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
-		String v0 = this.preferences.getString(PREFS_LAST_RUN, "");
-		String v1 = this.getString(R.string.app_version);
-		if (!v0.equals(v1)) {
-			SharedPreferences.Editor editor = this.preferences.edit();
-			editor.putString(PREFS_LAST_RUN, v1);
-			editor.commit();
-			this.showDialog(DIALOG_UPDATE);
-		}
+
+		Changelog.showChangelog(this);
+		Changelog.showNotes(this, null, null, null);
+
 		prefsNoAds = DonationHelper.hideAds(this);
 
 		TextView tv = (TextView) this.findViewById(R.id.calls_);
@@ -108,43 +83,6 @@ public class CallMeter extends Activity {
 		new UpdaterData(this).execute((Void[]) null);
 		// schedule next update
 		CMBroadcastReceiver.schedNext(this);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final Dialog onCreateDialog(final int id) {
-		AlertDialog.Builder builder;
-		switch (id) {
-		case DIALOG_UPDATE:
-			builder = new AlertDialog.Builder(this);
-			builder.setTitle(R.string.changelog_);
-			final String[] changes = this.getResources().getStringArray(
-					R.array.updates);
-			StringBuilder buf = new StringBuilder();
-
-			buf.append(this.getString(R.string.see_about));
-
-			for (int i = 0; i < changes.length; i++) {
-				buf.append("\n\n");
-				buf.append(changes[i]);
-			}
-			builder.setIcon(android.R.drawable.ic_menu_info_details);
-			builder.setMessage(buf.toString());
-			buf = null;
-			builder.setCancelable(true);
-			builder.setPositiveButton(android.R.string.ok,
-					new DialogInterface.OnClickListener() {
-						public void onClick(final DialogInterface dialog,
-								final int id) {
-							dialog.cancel();
-						}
-					});
-			return builder.create();
-		default:
-			return null;
-		}
 	}
 
 	/**
