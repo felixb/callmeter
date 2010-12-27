@@ -829,8 +829,8 @@ public class Plans extends ListActivity implements OnClickListener,
 			final ContentResolver cr = this.ctx.getContentResolver();
 			final Cursor cursor = cr.query(DataProvider.Plans.CONTENT_URI,
 					DataProvider.Plans.PROJECTION,
-					DataProvider.Plans.BILLPERIOD_ID + " == " + p.id, null,
-					null);
+					DataProvider.Plans.BILLPERIOD_ID + " = ?",
+					new String[] { String.valueOf(p.id) }, null);
 			float cost = 0;
 			float free = 0;
 			if (cursor != null && cursor.moveToFirst()) {

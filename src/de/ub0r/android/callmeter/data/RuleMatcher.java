@@ -477,8 +477,8 @@ public final class RuleMatcher {
 						final Cursor c = cr.query(
 								DataProvider.SipCall.CONTENT_URI,
 								DataProvider.SipCall.PROJECTION,
-								DataProvider.SipCall.DATE + " = " + d, null,
-								null);
+								DataProvider.SipCall.DATE + " = ?",
+								new String[] { String.valueOf(d) }, null);
 						if (c != null && c.getCount() > 0) {
 							ret = false;
 						}
@@ -490,8 +490,8 @@ public final class RuleMatcher {
 						final Cursor c = cr.query(
 								DataProvider.SipCall.CONTENT_URI,
 								DataProvider.SipCall.PROJECTION,
-								DataProvider.SipCall.DATE + " = " + d, null,
-								null);
+								DataProvider.SipCall.DATE + " = ?",
+								new String[] { String.valueOf(d) }, null);
 						ret = c != null && c.getCount() > 0;
 						if (c != null && !c.isClosed()) {
 							c.close();
@@ -516,8 +516,8 @@ public final class RuleMatcher {
 						final Cursor c = cr.query(
 								DataProvider.WebSMS.CONTENT_URI,
 								DataProvider.WebSMS.PROJECTION,
-								DataProvider.WebSMS.DATE + " = " + d, null,
-								null);
+								DataProvider.WebSMS.DATE + " = ?",
+								new String[] { String.valueOf(d) }, null);
 						if (c != null && c.getCount() > 0) {
 							ret = false;
 						}
@@ -529,8 +529,9 @@ public final class RuleMatcher {
 						final Cursor c = cr.query(
 								DataProvider.WebSMS.CONTENT_URI,
 								DataProvider.WebSMS.PROJECTION,
-								DataProvider.WebSMS.DATE + " = " + d
-										+ this.iswebsmsConnector, null, null);
+								DataProvider.WebSMS.DATE + " = ? "
+										+ this.iswebsmsConnector,
+								new String[] { String.valueOf(d) }, null);
 						ret = c != null && c.getCount() > 0;
 						if (c != null && !c.isClosed()) {
 							c.close();
@@ -1079,15 +1080,17 @@ public final class RuleMatcher {
 	public static void unmatch(final Context context) {
 		Log.d(TAG, "unmatch()");
 		ContentValues cv = new ContentValues();
+		final ContentResolver cr = context.getContentResolver();
 		cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
 		cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
-		context.getContentResolver().update(DataProvider.Logs.CONTENT_URI, cv,
-				DataProvider.Logs.RULE_ID + " != " + DataProvider.NOT_FOUND,
-				null);
+		// reset all but manually set plans
+		cr.update(DataProvider.Logs.CONTENT_URI, cv, "NOT ("
+				+ DataProvider.Logs.RULE_ID + " = " + DataProvider.NOT_FOUND
+				+ " AND " + DataProvider.Logs.PLAN_ID + " != "
+				+ DataProvider.NOT_FOUND + ")", null);
 		cv.clear();
 		cv.put(DataProvider.Plans.NEXT_ALERT, 0);
-		context.getContentResolver().update(DataProvider.Plans.CONTENT_URI, cv,
-				null, null);
+		cr.update(DataProvider.Plans.CONTENT_URI, cv, null, null);
 		flush();
 	}
 
@@ -1141,8 +1144,9 @@ public final class RuleMatcher {
 				final float bc = p.getCost(log, ba);
 				cv.put(DataProvider.Logs.COST, bc);
 				p.updatePlan(ba, bc, t);
-				cr.update(ContentUris.withAppendedId(
-						DataProvider.Logs.CONTENT_URI, lid), cv, null, null);
+				cr.update(DataProvider.Logs.CONTENT_URI, cv,
+						DataProvider.Logs.ID + " = ?", new String[] { String
+								.valueOf(lid) });
 				matched = true;
 				break;
 			}
@@ -1151,8 +1155,8 @@ public final class RuleMatcher {
 			final ContentValues cv = new ContentValues();
 			cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NOT_FOUND);
 			cv.put(DataProvider.Logs.RULE_ID, DataProvider.NOT_FOUND);
-			cr.update(ContentUris.withAppendedId(DataProvider.Logs.CONTENT_URI,
-					lid), cv, null, null);
+			cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID
+					+ " = ?", new String[] { String.valueOf(lid) });
 		}
 		return matched;
 	}
@@ -1204,9 +1208,8 @@ public final class RuleMatcher {
 		final float bc = p.getCost(log, ba);
 		cv.put(DataProvider.Logs.COST, bc);
 		p.updatePlan(ba, bc, t);
-		cr.update(ContentUris
-				.withAppendedId(DataProvider.Logs.CONTENT_URI, lid), cv, null,
-				null);
+		cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID
+				+ " = ?", new String[] { String.valueOf(lid) });
 		if (!log.isClosed()) {
 			log.close();
 		}
@@ -1310,9 +1313,9 @@ public final class RuleMatcher {
 					cv
 							.put(DataProvider.Plans.NEXT_ALERT,
 									alertPlan.nextBillday);
-					cr.update(ContentUris.withAppendedId(
-							DataProvider.Plans.CONTENT_URI, alertPlan.id), cv,
-							null, null);
+					cr.update(DataProvider.Plans.CONTENT_URI, cv,
+							DataProvider.Plans.ID + " = ?",
+							new String[] { String.valueOf(alertPlan.id) });
 				}
 			}
 		}

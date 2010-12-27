@@ -650,7 +650,7 @@ public final class LogRunnerService extends IntentService {
 		if (!shortRun && h != null) {
 			final Cursor c = cr.query(DataProvider.Logs.CONTENT_URI,
 					new String[] { DataProvider.Logs.PLAN_ID },
-					DataProvider.Logs.PLAN_ID + " != " + DataProvider.NO_ID
+					DataProvider.Logs.RULE_ID + " != " + DataProvider.NO_ID
 							+ " AND " + DataProvider.Logs.TYPE + " != "
 							+ DataProvider.TYPE_DATA, null, null);
 			if (c != null && c.getCount() <= 0) {
