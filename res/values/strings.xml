@@ -135,7 +135,4 @@
 		<item>Small</item>
 		<item>Medium</item>
 	</string-array>
-	<string-array name="notes_from_dev">
-		<item>Dec. 2010, Call Meter 3G is available: Call Meter 3G alias CM3 is available in market. Give it a try and post comments on project\'s page.</item>
-	</string-array>
 </resources>
