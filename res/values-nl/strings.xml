@@ -18,6 +18,11 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string formatted="false" name="changelog_notification_">Recent changes:</string>
+  <string formatted="false" name="changelog_notification_text">Click here to show recent changes of</string>
+  <string formatted="false" name="never_show_again">Never show changelog again</string>
+  <string formatted="false" name="notes_from_developer_">Notes from developer</string>
+  <string formatted="false" name="notes_from_developer_text">Click here to show recent news from the developer</string>
   <string formatted="false" name="about0_">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
   <string formatted="false" name="about0">CallMeter genereert rapporten uit de gesprek, berichten en data log van je telefoon. Het ondersteunt meerdere manieren van factureren.</string>
   <string formatted="false" name="about1">Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
@@ -92,6 +97,16 @@
   <string formatted="false" name="custom_currency_format_hint">Selecteer een aangepast valuta formaat.</string>
   <string formatted="false" name="custom_date_format_">Aangepast datum formaat</string>
   <string formatted="false" name="custom_date_format_hint">Selecteer een aangepast datum formaat.</string>
+  <string formatted="false" name="custom_delimiter_">Custom delimiter</string>
+  <string formatted="false" name="custom_delimiter_hint">Set a custom delimiter separating the blocks of statistics.</string>
+  <string formatted="false" name="ask_for_plan_">Ask for plan</string>
+  <string formatted="false" name="ask_for_plan_hint">Ask for plan for unmatched calls after hanging up.</string>
+  <string formatted="false" name="autohide_">Auto hide</string>
+  <string formatted="false" name="autohide_hint">Hide dialog after .. seconds. Leave empty to deactivate auto hide.</string>
+  <string formatted="false" name="select_plan_">Select a plan</string>
+  <string formatted="false" name="set_selected_as_default_">Set selected plan as default</string>
+  <string formatted="false" name="autohide_in_">Auto hide dialog in: %ds</string>
+  <string formatted="false" name="logs">Logs</string>
   <string formatted="false" name="show_logs">Toon logs</string>
   <string formatted="false" name="plans">Schema</string>
   <string formatted="false" name="plans_hint">Stel hier je schema\'s voor alle soorten facturatie in.</string>
@@ -102,6 +117,10 @@
   <string formatted="false" name="rules_new">Nieuwe Regel</string>
   <string formatted="false" name="length_">Lengte</string>
   <string formatted="false" name="remote_">Remote nummer</string>
+  <string formatted="false" name="numbergroups_edit_">Number groups</string>
+  <string formatted="false" name="numbergroups_edit_hint">Edit number groups here.</string>
+  <string formatted="false" name="hourgroups_edit_">Hour groups</string>
+  <string formatted="false" name="hourgroups_edit_hint">Edit hour groups here.</string>
   <string formatted="false" name="numbers">Nummers</string>
   <string formatted="false" name="numbergroup_">Insluiten nummers</string>
   <string formatted="false" name="numbergroup_help">Voeg nummers toe die deze regel moeten matchen.\n\nWildcards (\"%\") zijn toegestaan aan allebei de uiteinden van het nummer.\nBv. %34 matched 1234, 12% matched 1234 en %23% matched 12345.</string>
@@ -116,7 +135,10 @@
   <string formatted="false" name="exhourgroup_help">Voeg uren toe die deze regel niet moeten matchen.</string>
   <string formatted="false" name="new_hourgroup">Nieuwe uur groep</string>
   <string formatted="false" name="add_hour">Uur toevoegen</string>
+  <string formatted="false" name="empty_group">Empty groups won\'t match anything. Please go back and add at least one item.</string>
   <string formatted="false" name="calls">Gesprekken</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="mms">MMS</string>
   <string formatted="false" name="data">Data</string>
   <string formatted="false" name="prepaid_">Prepaid schema</string>
   <string formatted="false" name="prepaid_hint">Factureer op prepaid basis. Kosten worden afgetrokken van balans als je belt etc.</string>
@@ -137,6 +159,7 @@
   <string formatted="false" name="new_">Nieuw</string>
   <string formatted="false" name="edit_selected_">Wijzig geselecteerde</string>
   <string formatted="false" name="edit_groups_">Wijzig groepen</string>
+  <string formatted="false" name="name_">Name</string>
   <string formatted="false" name="name_help">Stel hier een naam in.</string>
   <string formatted="false" name="shortname_">Verkorte naam</string>
   <string formatted="false" name="shortname_help">Stel een verkorte naam in. Deze wordt getoond in compacte layouts.</string>
@@ -212,9 +235,17 @@
   <string formatted="false" name="empty_group_">Druk op "Toevoegen" om een item aan deze groep toe te voegen.</string>
   <string formatted="false" name="export_progr">Exporting data ...</string>
   <string formatted="false" name="import_progr">Import data ...</string>
+  <string formatted="false" name="export_">Export ...</string>
+  <string formatted="false" name="export_hint">Export rule sets, logs or groups</string>
   <string formatted="false" name="export_rules_">Exporteer regel set</string>
   <string formatted="false" name="export_rules_hint">Exporteer regel set als mail.</string>
   <string formatted="false" name="export_rules_descr">Omschrijving</string>
+  <string formatted="false" name="export_logs_">Backup logs</string>
+  <string formatted="false" name="export_logs_hint">Backup logs as mail.</string>
+  <string formatted="false" name="export_numgroups_">Export number groups</string>
+  <string formatted="false" name="export_numgroups_hint">Export number groups as mail.</string>
+  <string formatted="false" name="export_hourgroups_">Export hour groups</string>
+  <string formatted="false" name="export_hourgroups_hint">Export hour groups as mail.</string>
   <string formatted="false" name="import_rules_">Importeer regel set</string>
   <string formatted="false" name="import_rules_hint">Importeer regel set.</string>
   <string formatted="false" name="import_rules_empty">Geen schema/regel set. Klik deze tekst om een standaard regel set te importeren.\n\nOf voeg handmatig schema\'s en regels in voorkeuren toe.</string>
@@ -224,7 +255,6 @@
   <string formatted="false" name="alerts_hint">Stel waarschuwingen in gebaseerd op schema verbruik.</string>
   <string formatted="false" name="alerts_title">Call Meter 3G waarschuwing</string>
   <string formatted="false" name="alerts_message">Schema %s heeft %d%% verbruik bereikt!</string>
-  <string formatted="false" name="numbergroup_help">Voeg nummers toe die deze regel moeten matchen.\n\nWildcards (\"%\") zijn toegestaan aan allebei de uiteinden van het nummer.\nBv. %34 matched 1234, 12% matched 1234 en %23% matched 12345.</string>
   <string formatted="false" name="alerts_80_">Notificatie op 80%</string>
   <string formatted="false" name="alerts_80_hint">Notificatie als een schema over 80% van limiet gaat.</string>
   <string formatted="false" name="alerts_100_">Notificatie op 100%</string>
@@ -332,6 +362,7 @@
     <item>60/1</item>
     <item>60/6</item>
     <item>60/10</item>
+    <item>60/15</item>
     <item>60/30</item>
     <item>60/60</item>
     <item>Aangepast</item>
@@ -373,9 +404,5 @@
     <item>Een uur</item>
     <item>Twee uren</item>
     <item>Alleen handmatig</item>
-  </string-array>
-  <string-array name="notes_from_dev">
-    <item>Dec. 2010 Keep in mind: Killing this app may result in wrong data statistics.</item>
-    <item>Dec. 2010 Keep in mind: Past data statistics can not be fetched from before installation of this app!</item>
   </string-array>
 </resources>

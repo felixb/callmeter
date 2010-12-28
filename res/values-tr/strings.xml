@@ -18,6 +18,11 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string formatted="false" name="changelog_notification_">Recent changes:</string>
+  <string formatted="false" name="changelog_notification_text">Click here to show recent changes of</string>
+  <string formatted="false" name="never_show_again">Never show changelog again</string>
+  <string formatted="false" name="notes_from_developer_">Notes from developer</string>
+  <string formatted="false" name="notes_from_developer_text">Click here to show recent news from the developer</string>
   <string formatted="false" name="about0_">Görüşme kayıtlarınızı, mesajlarınızı ve internet paketlerinizi izleyin!</string>
   <string formatted="false" name="about0">CallMeter görüşme, mesaj ve veri loglarından raporlar oluşturur. Birden fazla ücretlendirme biçimini destekler.</string>
   <string formatted="false" name="about1">Kullanım bilgilerinizi, fatura dönemi içerisinde kullanım / süre veya görüşme sayısı olarak veya toplam görüşme sayısı olarak verir. Aylık süre hesabı, ücretlendirme biçimi dikkate alınarak, toplam ise ücretlendirme biçimi dikkate alınmadan yapılır.</string>
@@ -92,6 +97,16 @@
   <string formatted="false" name="custom_currency_format_hint">Özel bir para birimi biçimi seçin.</string>
   <string formatted="false" name="custom_date_format_">Özel tarih biçimi</string>
   <string formatted="false" name="custom_date_format_hint">Özel bir tarih biçimi seçin.</string>
+  <string formatted="false" name="custom_delimiter_">Custom delimiter</string>
+  <string formatted="false" name="custom_delimiter_hint">Set a custom delimiter separating the blocks of statistics.</string>
+  <string formatted="false" name="ask_for_plan_">Ask for plan</string>
+  <string formatted="false" name="ask_for_plan_hint">Ask for plan for unmatched calls after hanging up.</string>
+  <string formatted="false" name="autohide_">Auto hide</string>
+  <string formatted="false" name="autohide_hint">Hide dialog after .. seconds. Leave empty to deactivate auto hide.</string>
+  <string formatted="false" name="select_plan_">Select a plan</string>
+  <string formatted="false" name="set_selected_as_default_">Set selected plan as default</string>
+  <string formatted="false" name="autohide_in_">Auto hide dialog in: %ds</string>
+  <string formatted="false" name="logs">Logs</string>
   <string formatted="false" name="show_logs">Logları göster</string>
   <string formatted="false" name="plans">Paketler</string>
   <string formatted="false" name="plans_hint">Her tür ücretlendirme için paketlerinizi burada ayarlayın..</string>
@@ -102,6 +117,10 @@
   <string formatted="false" name="rules_new">Yeni Kural</string>
   <string formatted="false" name="length_">Length</string>
   <string formatted="false" name="remote_">Remote number</string>
+  <string formatted="false" name="numbergroups_edit_">Number groups</string>
+  <string formatted="false" name="numbergroups_edit_hint">Edit number groups here.</string>
+  <string formatted="false" name="hourgroups_edit_">Hour groups</string>
+  <string formatted="false" name="hourgroups_edit_hint">Edit hour groups here.</string>
   <string formatted="false" name="numbers">Numaralar</string>
   <string formatted="false" name="numbergroup_">Numaraları dahil et</string>
   <string formatted="false" name="numbergroup_help">Bu kurala dahil olacak numaraları ekleyin.\n\nArama karakteri (\"%\") numaranın her iki tarafında kullanılabilir.\nÖr: %34 ve 12%, 1234\'e; ve %23%, 12345\'e karşılık gelir.</string>
@@ -116,7 +135,10 @@
   <string formatted="false" name="exhourgroup_help">Bu kurala dahil olmayacak saatleri ekleyin.</string>
   <string formatted="false" name="new_hourgroup">Yeni saat grubu</string>
   <string formatted="false" name="add_hour">Saat ekle</string>
+  <string formatted="false" name="empty_group">Empty groups won\'t match anything. Please go back and add at least one item.</string>
   <string formatted="false" name="calls">Aramalar</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="mms">MMS</string>
   <string formatted="false" name="data">Data</string>
   <string formatted="false" name="prepaid_">Ön ödemeli paket</string>
   <string formatted="false" name="prepaid_hint">Ön ödemeli ücretlendirme. Hat kullanıldıkça kullanım ücreti hesabınızdan düşülür.</string>
@@ -137,6 +159,7 @@
   <string formatted="false" name="new_">Yeni</string>
   <string formatted="false" name="edit_selected_">Seçilenleri düzenle</string>
   <string formatted="false" name="edit_groups_">Grupları düzenle</string>
+  <string formatted="false" name="name_">Name</string>
   <string formatted="false" name="name_help">Burada bir isim belirleyin.</string>
   <string formatted="false" name="shortname_">Kısa isim</string>
   <string formatted="false" name="shortname_help">Burada kısa bir isim belirleyin. Kısa görünümlerde bu isim gösterilir.</string>
@@ -145,7 +168,7 @@
   <string formatted="false" name="limit_type_">Sınırlama şekli</string>
   <string formatted="false" name="limit_type_help">Sınırlama şeklini burada belirleyin.\nA \"birim\" pakediniz dakikalar, mesajlar vb. ile sınırlanır\nA \"ücret\" pakediniz, bu pakette ücretlendirilen arama, SMS vb. ile oluşan ücrete göre sınırlanır. </string>
   <string formatted="false" name="limit_">Sınır</string>
-  <string formatted="false" name="limit_help">Pakedinizin sınırını burada belirleyin.\n\n\\"birim\", dakika (aramalar), mesajlar (sms/mms), MB (data, 1024kB) veya birimler (karışık) olarak ayarlanmalıdır.\n\n\"ücret\", para biriminize göre ayarlanmalıdır (Ör. TRY).</string>
+  <string formatted="false" name="limit_help">Pakedinizin sınırını burada belirleyin.\n\n\"birim\", dakika (aramalar), mesajlar (sms/mms), MB (data, 1024kB) veya birimler (karışık) olarak ayarlanmalıdır.\n\n\"ücret\", para biriminize göre ayarlanmalıdır (Ör. TRY).</string>
   <string formatted="false" name="billmode_help">Aramalar için ücretlendirme biçimini belirleyin.\nİlk kısım, operatörünüzce ücretlendirilen minimum süredir. Bu süreden kısa her arama bu süreye yuvarlanır.\nİkinci kısım ise takip eden minimum süredir (saniye).\nDaha detaylı yardım için SSS\'yi okuyunuz.</string>
   <string formatted="false" name="billday_help">Mevcut ücretlendirme periyodunuzun fatura başlangıç tarihine ayarlayın.</string>
   <string formatted="false" name="billperiodid_">Ücretlendirme periyodu</string>
@@ -200,7 +223,7 @@
   <string formatted="false" name="what_help">Hedef türünü seçin.</string>
   <string formatted="false" name="direction_">Yön</string>
   <string formatted="false" name="direction_help">Log\'un yönünü seçin.</string>
-  <string formatted="false" name="roamed_">Roaming</string>
+  <string formatted="false" name="roamed_">Roamed</string>
   <string formatted="false" name="roamed_help">Verilen log\'un roaming\'de olup olmayacağını seçin</string>
   <string formatted="false" name="remote_hint">Uzak numara</string>
   <string formatted="false" name="no_matter_">Farketmez</string>
@@ -212,9 +235,17 @@
   <string formatted="false" name="empty_group_">Please press "Add" to add an item to this group.</string>
   <string formatted="false" name="export_progr">Exporting data ...</string>
   <string formatted="false" name="import_progr">Import data ...</string>
+  <string formatted="false" name="export_">Export ...</string>
+  <string formatted="false" name="export_hint">Export rule sets, logs or groups</string>
   <string formatted="false" name="export_rules_">Kural dışa aktar</string>
   <string formatted="false" name="export_rules_hint">Kuralları posta yoluyla dışa aktarın.</string>
   <string formatted="false" name="export_rules_descr">Tanımlama</string>
+  <string formatted="false" name="export_logs_">Backup logs</string>
+  <string formatted="false" name="export_logs_hint">Backup logs as mail.</string>
+  <string formatted="false" name="export_numgroups_">Export number groups</string>
+  <string formatted="false" name="export_numgroups_hint">Export number groups as mail.</string>
+  <string formatted="false" name="export_hourgroups_">Export hour groups</string>
+  <string formatted="false" name="export_hourgroups_hint">Export hour groups as mail.</string>
   <string formatted="false" name="import_rules_">Kural içe aktar</string>
   <string formatted="false" name="import_rules_hint">Kuralları içe aktarın.</string>
   <string formatted="false" name="import_rules_empty">Paket/kural ayarlanmadı. Varsayılan kuralları içe aktarmak için bu metne dokunun\n\nveya Tercihler menüsünden paket ve kural ekleyin.</string>
@@ -224,7 +255,6 @@
   <string formatted="false" name="alerts_hint">Paket kullanımına göre uyarılar belirleyin.</string>
   <string formatted="false" name="alerts_title">Call Meter 3G uyarısı</string>
   <string formatted="false" name="alerts_message">Paket %s %%d% kullanıldı!</string>
-  <string formatted="false" name="numbergroup_help">Bu kurala dahil olacak numaraları ekleyin.\n\nArama karakteri (\"%\") numaranın her iki tarafında kullanılabilir.\nÖr: %34 ve 12%, 1234\'e; ve %23%, 12345\'e karşılık gelir.</string>
   <string formatted="false" name="alerts_80_">%80 kullanımda bildir</string>
   <string formatted="false" name="alerts_80_hint">Bir planın %80\'i kullanıldığında bildir.</string>
   <string formatted="false" name="alerts_100_">%100 kullanımda bildir</string>
@@ -335,6 +365,7 @@
     <item>60/15</item>
     <item>60/30</item>
     <item>60/60</item>
+    <item>Custom</item>
   </string-array>
   <string-array name="direction_calls">
     <item>gelen</item>
@@ -373,9 +404,5 @@
     <item>1 saat</item>
     <item>2 saat</item>
     <item>Yalnızca elle</item>
-  </string-array>
-  <string-array name="notes_from_dev">
-    <item>Dec. 2010 Keep in mind: Killing this app may result in wrong data statistics.</item>
-    <item>Dec. 2010 Keep in mind: Past data statistics can not be fetched from before installation of this app!</item>
   </string-array>
 </resources>

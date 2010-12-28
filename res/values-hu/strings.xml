@@ -18,6 +18,11 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string formatted="false" name="changelog_notification_">Recent changes:</string>
+  <string formatted="false" name="changelog_notification_text">Click here to show recent changes of</string>
+  <string formatted="false" name="never_show_again">Never show changelog again</string>
+  <string formatted="false" name="notes_from_developer_">Notes from developer</string>
+  <string formatted="false" name="notes_from_developer_text">Click here to show recent news from the developer</string>
   <string formatted="false" name="about0_">Kövesd nyomon a hívás-, SMS-, és adatforgalmadat!</string>
   <string formatted="false" name="about0">A Call Meter NG statisztikát készít a hívás-, SMS-, és adatforgalomból. Mindezt többféle számlázási mód támogatásával.</string>
   <string formatted="false" name="about1">A kimeneti formátum a következő: felhasznált mennyiség százalékosan / hívásidő, SMS-, vagy adatmennyiség az aktuális számlázási időszakra / összesített hívásidő, SMS-, vagy adatmennyiség. A havi számítás figyelembe veszi a számlázási módot, míg az összegzett nem.</string>
@@ -38,7 +43,7 @@
   <string formatted="false" name="common_prefs_">Általános beállítások</string>
   <string formatted="false" name="edit_">Szerkesztés</string>
   <string formatted="false" name="about_">Névjegy</string>
-  <string formatted="false" name="about_hint">A Call Meter NG-ről.</string>
+  <string formatted="false" name="about_hint">A Call Meter-ről.</string>
   <string formatted="false" name="faq_hint">Tippek és trükkök, avagy hogyan állítsuk be a programot?</string>
   <string formatted="false" name="feedback_">Visszajelzés/Feedback</string>
   <string formatted="false" name="feedback_hint">Hibajelentés, fejlesztési ötletek küldése a fejlesztőnek...</string>
@@ -92,6 +97,16 @@
   <string formatted="false" name="custom_currency_format_hint">Select a custom currency format.</string>
   <string formatted="false" name="custom_date_format_">Custom date format</string>
   <string formatted="false" name="custom_date_format_hint">Select a custom date format.</string>
+  <string formatted="false" name="custom_delimiter_">Custom delimiter</string>
+  <string formatted="false" name="custom_delimiter_hint">Set a custom delimiter separating the blocks of statistics.</string>
+  <string formatted="false" name="ask_for_plan_">Ask for plan</string>
+  <string formatted="false" name="ask_for_plan_hint">Ask for plan for unmatched calls after hanging up.</string>
+  <string formatted="false" name="autohide_">Auto hide</string>
+  <string formatted="false" name="autohide_hint">Hide dialog after .. seconds. Leave empty to deactivate auto hide.</string>
+  <string formatted="false" name="select_plan_">Select a plan</string>
+  <string formatted="false" name="set_selected_as_default_">Set selected plan as default</string>
+  <string formatted="false" name="autohide_in_">Auto hide dialog in: %ds</string>
+  <string formatted="false" name="logs">Logs</string>
   <string formatted="false" name="show_logs">Show logs</string>
   <string formatted="false" name="plans">Díjcsomagok, tarifák</string>
   <string formatted="false" name="plans_hint">Set your plans for all kind of billing here.</string>
@@ -102,6 +117,10 @@
   <string formatted="false" name="rules_new">New Rule</string>
   <string formatted="false" name="length_">Length</string>
   <string formatted="false" name="remote_">Remote number</string>
+  <string formatted="false" name="numbergroups_edit_">Number groups</string>
+  <string formatted="false" name="numbergroups_edit_hint">Edit number groups here.</string>
+  <string formatted="false" name="hourgroups_edit_">Hour groups</string>
+  <string formatted="false" name="hourgroups_edit_hint">Edit hour groups here.</string>
   <string formatted="false" name="numbers">Numbers</string>
   <string formatted="false" name="numbergroup_">Include numbers</string>
   <string formatted="false" name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string>
@@ -116,7 +135,10 @@
   <string formatted="false" name="exhourgroup_help">Add some hours this rule must not match.</string>
   <string formatted="false" name="new_hourgroup">New hour group</string>
   <string formatted="false" name="add_hour">Add hour</string>
+  <string formatted="false" name="empty_group">Empty groups won\'t match anything. Please go back and add at least one item.</string>
   <string formatted="false" name="calls">Hívások</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="mms">MMS</string>
   <string formatted="false" name="data">Adatforgalom</string>
   <string formatted="false" name="prepaid_">Prepaid plan</string>
   <string formatted="false" name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string>
@@ -137,6 +159,7 @@
   <string formatted="false" name="new_">New</string>
   <string formatted="false" name="edit_selected_">Edit selected</string>
   <string formatted="false" name="edit_groups_">Edit groups</string>
+  <string formatted="false" name="name_">Name</string>
   <string formatted="false" name="name_help">Set a name here.</string>
   <string formatted="false" name="shortname_">Short name</string>
   <string formatted="false" name="shortname_help">Set a short name here. It is displayed in compact layouts.</string>
@@ -212,9 +235,17 @@
   <string formatted="false" name="empty_group_">Nyomd meg a "Hozzáadás"-t új elem hozzáadásához a csoportba.</string>
   <string formatted="false" name="export_progr">Adatok exportálása...</string>
   <string formatted="false" name="import_progr">Adatok importálása ...</string>
+  <string formatted="false" name="export_">Export ...</string>
+  <string formatted="false" name="export_hint">Export rule sets, logs or groups</string>
   <string formatted="false" name="export_rules_">Exportálási szabály</string>
   <string formatted="false" name="export_rules_hint">Export rule set as mail.</string>
   <string formatted="false" name="export_rules_descr">Leírás</string>
+  <string formatted="false" name="export_logs_">Backup logs</string>
+  <string formatted="false" name="export_logs_hint">Backup logs as mail.</string>
+  <string formatted="false" name="export_numgroups_">Export number groups</string>
+  <string formatted="false" name="export_numgroups_hint">Export number groups as mail.</string>
+  <string formatted="false" name="export_hourgroups_">Export hour groups</string>
+  <string formatted="false" name="export_hourgroups_hint">Export hour groups as mail.</string>
   <string formatted="false" name="import_rules_">Importálási szabály</string>
   <string formatted="false" name="import_rules_hint">Importálási szabály.</string>
   <string formatted="false" name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.</string>
@@ -224,7 +255,6 @@
   <string formatted="false" name="alerts_hint">Állítsd be figyelmeztetést a tarifa használat alapján.</string>
   <string formatted="false" name="alerts_title">Call Meter 3G alert</string>
   <string formatted="false" name="alerts_message">Plan %s has reached %d%% usage!</string>
-  <string formatted="false" name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string>
   <string formatted="false" name="alerts_80_">Notify at 80%</string>
   <string formatted="false" name="alerts_80_hint">Notify if a plan passes 80% of it\'s limit.</string>
   <string formatted="false" name="alerts_100_">Notify at 100%</string>
@@ -335,6 +365,7 @@
     <item>60/15</item>
     <item>60/30</item>
     <item>60/60</item>
+    <item>Custom</item>
   </string-array>
   <string-array name="direction_calls">
     <item>Be</item>
@@ -373,9 +404,5 @@
     <item>Egy óra</item>
     <item>Két óra</item>
     <item>Csak manuálisan</item>
-  </string-array>
-  <string-array name="notes_from_dev">
-    <item>Dec. 2010 Tartsd észben: a program lekapcsolása hibás számlázást vonhat maga után!</item>
-    <item>Dec. 2010 Tartsd észben: régebbi statisztikák nem importálhatók a régebbi programverziókból!</item>
   </string-array>
 </resources>

@@ -18,6 +18,11 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string formatted="false" name="changelog_notification_">Recent changes:</string>
+  <string formatted="false" name="changelog_notification_text">Click here to show recent changes of</string>
+  <string formatted="false" name="never_show_again">Never show changelog again</string>
+  <string formatted="false" name="notes_from_developer_">Notes from developer</string>
+  <string formatted="false" name="notes_from_developer_text">Click here to show recent news from the developer</string>
   <string formatted="false" name="about0_">Verifique e monitorize os seus consumos e uso dos planos/tarifários de Voz, SMS e Ligação de dados!</string>
   <string formatted="false" name="about0">O CallMeter gera relatórios de ligações, mensagens e dados. Ele suporta vários tipos de cobrança.</string>
   <string formatted="false" name="about1">O formato de exibição é: Utilização(atual)|Utilização(total), sendo que Utilização(total) pode ser definido em total geral de tempo(ou n.º de SMS/MMS) baseado num determinado período ou ciclo de faturação do seu tarifário.</string>
@@ -92,6 +97,16 @@
   <string formatted="false" name="custom_currency_format_hint">Selecione um formato da moeda do usuário.</string>
   <string formatted="false" name="custom_date_format_">Formato da data do usuário</string>
   <string formatted="false" name="custom_date_format_hint">Selecione um formato da data do usuário.</string>
+  <string formatted="false" name="custom_delimiter_">Custom delimiter</string>
+  <string formatted="false" name="custom_delimiter_hint">Set a custom delimiter separating the blocks of statistics.</string>
+  <string formatted="false" name="ask_for_plan_">Ask for plan</string>
+  <string formatted="false" name="ask_for_plan_hint">Ask for plan for unmatched calls after hanging up.</string>
+  <string formatted="false" name="autohide_">Auto hide</string>
+  <string formatted="false" name="autohide_hint">Hide dialog after .. seconds. Leave empty to deactivate auto hide.</string>
+  <string formatted="false" name="select_plan_">Select a plan</string>
+  <string formatted="false" name="set_selected_as_default_">Set selected plan as default</string>
+  <string formatted="false" name="autohide_in_">Auto hide dialog in: %ds</string>
+  <string formatted="false" name="logs">Logs</string>
   <string formatted="false" name="show_logs">Mostrar logs</string>
   <string formatted="false" name="plans">Planos</string>
   <string formatted="false" name="plans_hint">Defina seus planos para todo tipo de cobrança aqui.</string>
@@ -102,9 +117,13 @@
   <string formatted="false" name="rules_new">Novas Regras</string>
   <string formatted="false" name="length_">Duração</string>
   <string formatted="false" name="remote_">Número remoto</string>
+  <string formatted="false" name="numbergroups_edit_">Number groups</string>
+  <string formatted="false" name="numbergroups_edit_hint">Edit number groups here.</string>
+  <string formatted="false" name="hourgroups_edit_">Hour groups</string>
+  <string formatted="false" name="hourgroups_edit_hint">Edit hour groups here.</string>
   <string formatted="false" name="numbers">Números</string>
   <string formatted="false" name="numbergroup_">Inclui números</string>
-  <string formatted="false" name="numbergroup_help">Os números adicionados de uma determinada regra deve corresponder. \n\nCuringas (\"%\") são permitidos em ambas as extremidades do número. \nEx. %34 corresponderá a 1234, 12% corresponderá a 1234 e %23% corresponderá a 12345.</string>
+  <string formatted="false" name="numbergroup_help">Os números adicionados de uma determinada regra deve corresponder.\n\nCuringas (\"%\") são permitidos em ambas as extremidades do número.\nEx. %34 corresponderá a 1234, 12% corresponderá a 1234 e %23% corresponderá a 12345.</string>
   <string formatted="false" name="exnumbergroup_">Elimina números</string>
   <string formatted="false" name="exnumbergroup_help">A adição de alguns números nessa regra não deve corresponder.\nVeja abaixo.</string>
   <string formatted="false" name="new_numbergroup">Novo grupo de números</string>
@@ -116,7 +135,10 @@
   <string formatted="false" name="exhourgroup_help">A adição de algumas horas nessa regra não deve corresponder.</string>
   <string formatted="false" name="new_hourgroup">Novo grupo de horas</string>
   <string formatted="false" name="add_hour">Adicione horas</string>
+  <string formatted="false" name="empty_group">Empty groups won\'t match anything. Please go back and add at least one item.</string>
   <string formatted="false" name="calls">Ligações</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="mms">MMS</string>
   <string formatted="false" name="data">Dados</string>
   <string formatted="false" name="prepaid_">Plano pré-pago</string>
   <string formatted="false" name="prepaid_hint">Custo do plano pré-pago. O valor das chamadas é descontado do seu saldo.</string>
@@ -137,6 +159,7 @@
   <string formatted="false" name="new_">Novo</string>
   <string formatted="false" name="edit_selected_">Editar selecionados</string>
   <string formatted="false" name="edit_groups_">Editar grupos</string>
+  <string formatted="false" name="name_">Name</string>
   <string formatted="false" name="name_help">Defina um nome aqui.</string>
   <string formatted="false" name="shortname_">Nome curto</string>
   <string formatted="false" name="shortname_help">Defina um nome curto aqui. Ele será exibido em layouts compactos.</string>
@@ -161,7 +184,7 @@
   <string formatted="false" name="cost_per_amount_help2">Defina o custo de uma unidade tempo de cobrança (ex. ligação de 1 min) após o seu limite ter sido excedido.\nO primeiro campo tem o custo para os primeiros segundos da chamada, o segundo tem o custo para os segundos seguintes (ambos são fixados em R $ por minuto; veja no modo de cobrança).\nSe tiver dúvidas, apenas defina ambos com o custo por minuto.</string>
   <string formatted="false" name="cost_per_amount_in_limit_">Custo de uma unidade tempo dentro do limite </string>
   <string formatted="false" name="cost_per_amount_in_limit_help1">Defina o custo de uma unidade tempo de cobrança (ex. 1kB de dados) antes do seu limite ter sido excedido.</string>
-  <string formatted="false" name="cost_per_amount_in_limit_help2">Defina o custo de uma unidade tempo de cobrança (ex. ligação de 1 min., 1kB de dados) antes do seu limite ter sido excedido. \nO primeiro campo tem o custo para os primeiros segundos da chamada, o segundo tem o custo para os segundos seguintes (ambos são fixados em R $ por minuto; veja no modo de cobrança). \nSe tiver dúvidas, apenas defina ambos com o custo por minuto.</string>
+  <string formatted="false" name="cost_per_amount_in_limit_help2">Defina o custo de uma unidade tempo de cobrança (ex. ligação de 1 min., 1kB de dados) antes do seu limite ter sido excedido.\nO primeiro campo tem o custo para os primeiros segundos da chamada, o segundo tem o custo para os segundos seguintes (ambos são fixados em R $ por minuto; veja no modo de cobrança).\nSe tiver dúvidas, apenas defina ambos com o custo por minuto.</string>
   <string formatted="false" name="cost_per_plan_">Custo por plano</string>
   <string formatted="false" name="cost_per_plan_help">Defina o custo do plano para um período de cobrança.</string>
   <string formatted="false" name="mixed_units_sms_">Unidades para um sms</string>
@@ -172,7 +195,7 @@
   <string formatted="false" name="mixed_units_call_help">Defina a unidade de cobrança para uma chamada.\nO modo de cobrança é considerado aqui.</string>
   <string formatted="false" name="merge_plans_">Englobar tarifários</string>
   <string formatted="false" name="merge_plans_help">Englobar outros tarifários ou planos de preços neste e contabilizá-los nesta conta.</string>
-  <string formatted="false" name="units_cost">€</string>
+  <string formatted="false" name="units_cost">$</string>
   <string formatted="false" name="units_num_msg"># Mensagens</string>
   <string formatted="false" name="units_minutes">minutos</string>
   <string formatted="false" name="units_mbyte">MBytes</string>
@@ -182,7 +205,7 @@
   <string formatted="false" name="units_cost_per_call">€/Chamada</string>
   <string formatted="false" name="units_cost_per_minute">€/Minuto</string>
   <string formatted="false" name="units_cost_per_message">€/Mensagem</string>
-  <string formatted="false" name="units_cost_per_mbyte">€/MByte</string>
+  <string formatted="false" name="units_cost_per_mbyte">$/MByte</string>
   <string formatted="false" name="units_cost_per_unit">€/Unidade</string>
   <string formatted="false" name="plan_">Plano</string>
   <string formatted="false" name="plan_help">Escolha o plano em que esta regra deve valer.</string>
@@ -212,9 +235,17 @@
   <string formatted="false" name="empty_group_">Por favor, pressione "Adicionar" para adicionar um item a este grupo.</string>
   <string formatted="false" name="export_progr">Exporting data ...</string>
   <string formatted="false" name="import_progr">Import data ...</string>
+  <string formatted="false" name="export_">Export ...</string>
+  <string formatted="false" name="export_hint">Export rule sets, logs or groups</string>
   <string formatted="false" name="export_rules_">Exportar conjunto de regras</string>
   <string formatted="false" name="export_rules_hint">Exportar conjunto de regras.</string>
   <string formatted="false" name="export_rules_descr">Descrição</string>
+  <string formatted="false" name="export_logs_">Backup logs</string>
+  <string formatted="false" name="export_logs_hint">Backup logs as mail.</string>
+  <string formatted="false" name="export_numgroups_">Export number groups</string>
+  <string formatted="false" name="export_numgroups_hint">Export number groups as mail.</string>
+  <string formatted="false" name="export_hourgroups_">Export hour groups</string>
+  <string formatted="false" name="export_hourgroups_hint">Export hour groups as mail.</string>
   <string formatted="false" name="import_rules_">Importar conjunto de regras</string>
   <string formatted="false" name="import_rules_hint">Importar conjunto de regras.</string>
   <string formatted="false" name="import_rules_empty">Sem planos/regras estabelecidas. Clique neste texto para importar um conjunto de regras padrão.\n\nOu adicione planos e as regras nas preferências manualmente.</string>
@@ -224,7 +255,6 @@
   <string formatted="false" name="alerts_hint">Ajuste os alertas baseados no uso do plano.</string>
   <string formatted="false" name="alerts_title">Alerta do Call Meter 3G </string>
   <string formatted="false" name="alerts_message">O plano %s atingiu %d%% do uso!</string>
-  <string formatted="false" name="numbergroup_help">Os números adicionados de uma determinada regra deve corresponder. \n\nCuringas (\"%\") são permitidos em ambas as extremidades do número. \nEx. %34 corresponderá a 1234, 12% corresponderá a 1234 e %23% corresponderá a 12345.</string>
   <string formatted="false" name="alerts_80_">Notificar em 80%</string>
   <string formatted="false" name="alerts_80_hint">Notificar se o plano passou 80% do seu limite.</string>
   <string formatted="false" name="alerts_100_">Notificar em 100%</string>
@@ -332,6 +362,7 @@
     <item>60/1</item>
     <item>60/6</item>
     <item>60/10</item>
+    <item>60/15</item>
     <item>60/30</item>
     <item>60/60</item>
     <item>Personalizado</item>
@@ -373,9 +404,5 @@
     <item>Uma hora</item>
     <item>Duas horas</item>
     <item>Somente manual</item>
-  </string-array>
-  <string-array name="notes_from_dev">
-    <item>Dec. 2010 Keep in mind: Killing this app may result in wrong data statistics.</item>
-    <item>Dec. 2010 Keep in mind: Past data statistics can not be fetched from before installation of this app!</item>
   </string-array>
 </resources>

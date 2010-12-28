@@ -18,6 +18,11 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string formatted="false" name="changelog_notification_">Recent changes:</string>
+  <string formatted="false" name="changelog_notification_text">Click here to show recent changes of</string>
+  <string formatted="false" name="never_show_again">Never show changelog again</string>
+  <string formatted="false" name="notes_from_developer_">Notes from developer</string>
+  <string formatted="false" name="notes_from_developer_text">Click here to show recent news from the developer</string>
   <string formatted="false" name="about0_">查看电话,短信,数据连接方案!</string>
   <string formatted="false" name="about0">CallMeter根据电话,短信,数据连接记录生成报告.它支持多种支付方案.</string>
   <string formatted="false" name="about1">账单输出模式是 一次通讯/次 或者 账单周期/次 或者 全部累加统计. 一个月（账单周期/次）一次的统计可以每月看到您实际消费的金额. 全部累加统计的无法看到每个月的消费金额.</string>
@@ -92,6 +97,16 @@
   <string formatted="false" name="custom_currency_format_hint">选择自定义货币格式.</string>
   <string formatted="false" name="custom_date_format_">自定义日期格式</string>
   <string formatted="false" name="custom_date_format_hint">设置自定义日期格式.</string>
+  <string formatted="false" name="custom_delimiter_">Custom delimiter</string>
+  <string formatted="false" name="custom_delimiter_hint">Set a custom delimiter separating the blocks of statistics.</string>
+  <string formatted="false" name="ask_for_plan_">Ask for plan</string>
+  <string formatted="false" name="ask_for_plan_hint">Ask for plan for unmatched calls after hanging up.</string>
+  <string formatted="false" name="autohide_">Auto hide</string>
+  <string formatted="false" name="autohide_hint">Hide dialog after .. seconds. Leave empty to deactivate auto hide.</string>
+  <string formatted="false" name="select_plan_">Select a plan</string>
+  <string formatted="false" name="set_selected_as_default_">Set selected plan as default</string>
+  <string formatted="false" name="autohide_in_">Auto hide dialog in: %ds</string>
+  <string formatted="false" name="logs">Logs</string>
   <string formatted="false" name="show_logs">显示日志</string>
   <string formatted="false" name="plans">方案</string>
   <string formatted="false" name="plans_hint">设置全局方案.</string>
@@ -102,6 +117,10 @@
   <string formatted="false" name="rules_new">新规则</string>
   <string formatted="false" name="length_">长度</string>
   <string formatted="false" name="remote_">Remote number</string>
+  <string formatted="false" name="numbergroups_edit_">Number groups</string>
+  <string formatted="false" name="numbergroups_edit_hint">Edit number groups here.</string>
+  <string formatted="false" name="hourgroups_edit_">Hour groups</string>
+  <string formatted="false" name="hourgroups_edit_hint">Edit hour groups here.</string>
   <string formatted="false" name="numbers">号码</string>
   <string formatted="false" name="numbergroup_">有效号码</string>
   <string formatted="false" name="numbergroup_help">添加使用本规则的号码.\n\n号码首尾均允许使用通配符(\"%\").\n例如. %34 包含 1234, 12% 包含 1234, %23% 包含 12345.</string>
@@ -116,7 +135,10 @@
   <string formatted="false" name="exhourgroup_help">添加使用本规则的时段.</string>
   <string formatted="false" name="new_hourgroup">新时段组</string>
   <string formatted="false" name="add_hour">添加时段</string>
+  <string formatted="false" name="empty_group">Empty groups won\'t match anything. Please go back and add at least one item.</string>
   <string formatted="false" name="calls">电话</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="mms">MMS</string>
   <string formatted="false" name="data">数据连接</string>
   <string formatted="false" name="prepaid_">预付费方案</string>
   <string formatted="false" name="prepaid_hint">基于预付费的方案,直接显示您当前余额.</string>
@@ -137,6 +159,7 @@
   <string formatted="false" name="new_">新建</string>
   <string formatted="false" name="edit_selected_">编辑已选</string>
   <string formatted="false" name="edit_groups_">编辑组</string>
+  <string formatted="false" name="name_">Name</string>
   <string formatted="false" name="name_help">设置名称.</string>
   <string formatted="false" name="shortname_">短名称</string>
   <string formatted="false" name="shortname_help">设置一个短名称,让显示格局更紧凑.</string>
@@ -212,9 +235,17 @@
   <string formatted="false" name="empty_group_">点击 添加 按钮为本组添加一个新项.</string>
   <string formatted="false" name="export_progr">Exporting data ...</string>
   <string formatted="false" name="import_progr">Import data ...</string>
+  <string formatted="false" name="export_">Export ...</string>
+  <string formatted="false" name="export_hint">Export rule sets, logs or groups</string>
   <string formatted="false" name="export_rules_">导出规则设置</string>
   <string formatted="false" name="export_rules_hint">通过邮件导出规则设置.</string>
   <string formatted="false" name="export_rules_descr">描述</string>
+  <string formatted="false" name="export_logs_">Backup logs</string>
+  <string formatted="false" name="export_logs_hint">Backup logs as mail.</string>
+  <string formatted="false" name="export_numgroups_">Export number groups</string>
+  <string formatted="false" name="export_numgroups_hint">Export number groups as mail.</string>
+  <string formatted="false" name="export_hourgroups_">Export hour groups</string>
+  <string formatted="false" name="export_hourgroups_hint">Export hour groups as mail.</string>
   <string formatted="false" name="import_rules_">导入规则设置</string>
   <string formatted="false" name="import_rules_hint">导入规则设置.</string>
   <string formatted="false" name="import_rules_empty">无有效方案/规则.点击本处导入默认设置.\n\n或者请您在选项中手动添加.</string>
@@ -224,7 +255,6 @@
   <string formatted="false" name="alerts_hint">根据方案使用情况发出警报.</string>
   <string formatted="false" name="alerts_title">Call Meter 3G 警报</string>
   <string formatted="false" name="alerts_message">方案%s已经使用%d%%!</string>
-  <string formatted="false" name="numbergroup_help">添加使用本规则的号码.\n\n号码首尾均允许使用通配符(\"%\").\n例如. %34 包含 1234, 12% 包含 1234, %23% 包含 12345.</string>
   <string formatted="false" name="alerts_80_">剩余到达80\'%时提示</string>
   <string formatted="false" name="alerts_80_hint">剩余超过80\'%时提示.</string>
   <string formatted="false" name="alerts_100_">剩余到达100\'%时提示</string>
@@ -335,6 +365,7 @@
     <item>60/15</item>
     <item>60/30</item>
     <item>60/60</item>
+    <item>Custom</item>
   </string-array>
   <string-array name="direction_calls">
     <item>接听</item>
@@ -373,9 +404,5 @@
     <item>一个小时</item>
     <item>两个小时</item>
     <item>仅手动操作</item>
-  </string-array>
-  <string-array name="notes_from_dev">
-    <item>Dec. 2010 Keep in mind: Killing this app may result in wrong data statistics.</item>
-    <item>Dec. 2010 Keep in mind: Past data statistics can not be fetched from before installation of this app!</item>
   </string-array>
 </resources>

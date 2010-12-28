@@ -18,6 +18,11 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string formatted="false" name="changelog_notification_">Recent changes:</string>
+  <string formatted="false" name="changelog_notification_text">Click here to show recent changes of</string>
+  <string formatted="false" name="never_show_again">Never show changelog again</string>
+  <string formatted="false" name="notes_from_developer_">Notes from developer</string>
+  <string formatted="false" name="notes_from_developer_text">Click here to show recent news from the developer</string>
   <string formatted="false" name="about0_">Obserwuj swoje połączenia, wiadomości oraz pakiet rozmów!</string>
   <string formatted="false" name="about0">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych..</string>
   <string formatted="false" name="about1">Format wyjściowy wykorzystuje /czas, całość wykorzystanego rachunku /czas, całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>
@@ -92,6 +97,16 @@
   <string formatted="false" name="custom_currency_format_hint">Wybierz niestandardowy format waluty</string>
   <string formatted="false" name="custom_date_format_">Format daty</string>
   <string formatted="false" name="custom_date_format_hint">Wybierz niestandardowy format daty</string>
+  <string formatted="false" name="custom_delimiter_">Custom delimiter</string>
+  <string formatted="false" name="custom_delimiter_hint">Set a custom delimiter separating the blocks of statistics.</string>
+  <string formatted="false" name="ask_for_plan_">Ask for plan</string>
+  <string formatted="false" name="ask_for_plan_hint">Ask for plan for unmatched calls after hanging up.</string>
+  <string formatted="false" name="autohide_">Auto hide</string>
+  <string formatted="false" name="autohide_hint">Hide dialog after .. seconds. Leave empty to deactivate auto hide.</string>
+  <string formatted="false" name="select_plan_">Select a plan</string>
+  <string formatted="false" name="set_selected_as_default_">Set selected plan as default</string>
+  <string formatted="false" name="autohide_in_">Auto hide dialog in: %ds</string>
+  <string formatted="false" name="logs">Logs</string>
   <string formatted="false" name="show_logs">Pokaż logi</string>
   <string formatted="false" name="plans">Plany</string>
   <string formatted="false" name="plans_hint">Pokaż twoje plany dla wszystkich rachunków</string>
@@ -102,6 +117,10 @@
   <string formatted="false" name="rules_new">Nowa reguła</string>
   <string formatted="false" name="length_">Length</string>
   <string formatted="false" name="remote_">Remote number</string>
+  <string formatted="false" name="numbergroups_edit_">Number groups</string>
+  <string formatted="false" name="numbergroups_edit_hint">Edit number groups here.</string>
+  <string formatted="false" name="hourgroups_edit_">Hour groups</string>
+  <string formatted="false" name="hourgroups_edit_hint">Edit hour groups here.</string>
   <string formatted="false" name="numbers">Numery</string>
   <string formatted="false" name="numbergroup_">Wliczaj numery</string>
   <string formatted="false" name="numbergroup_help">Dodaj godziny które będą zastosowane do reguły.\n\nWzorce (\"%\") są dopuszczalne na obach końcach numeru.\nNp.: %34 będzie pasować do 1234, 12% do 1234 i %23% do 12345.</string>
@@ -116,7 +135,10 @@
   <string formatted="false" name="exhourgroup_help">Dodaj godziny które będą zastosowane do reguły.</string>
   <string formatted="false" name="new_hourgroup">Nowa grupa godzin</string>
   <string formatted="false" name="add_hour">Dodaj godzinę</string>
+  <string formatted="false" name="empty_group">Empty groups won\'t match anything. Please go back and add at least one item.</string>
   <string formatted="false" name="calls">Połączenia</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="mms">MMS</string>
   <string formatted="false" name="data">Dane</string>
   <string formatted="false" name="prepaid_">Plan Prepaid</string>
   <string formatted="false" name="prepaid_hint">Podstawowe rozliczenie prepaid. Koszt jest odejmowany od salda jak wykonasz połączenie itp.</string>
@@ -137,6 +159,7 @@
   <string formatted="false" name="new_">Nowa</string>
   <string formatted="false" name="edit_selected_">Edytuj zaznaczone</string>
   <string formatted="false" name="edit_groups_">Edytuj grupy</string>
+  <string formatted="false" name="name_">Name</string>
   <string formatted="false" name="name_help">Wprowadź nazwę</string>
   <string formatted="false" name="shortname_">Skrócona nazwa</string>
   <string formatted="false" name="shortname_help">Wprowadź nazwę skróconą. Będzie ona wyświetlona w widoku kompaktowym.</string>
@@ -212,9 +235,17 @@
   <string formatted="false" name="empty_group_">Please press "Add" to add an item to this group.</string>
   <string formatted="false" name="export_progr">Exporting data ...</string>
   <string formatted="false" name="import_progr">Import data ...</string>
+  <string formatted="false" name="export_">Export ...</string>
+  <string formatted="false" name="export_hint">Export rule sets, logs or groups</string>
   <string formatted="false" name="export_rules_">Eksportuj ustawienia reguł</string>
   <string formatted="false" name="export_rules_hint">Eksportuj ustawienia mailem</string>
   <string formatted="false" name="export_rules_descr">Opis</string>
+  <string formatted="false" name="export_logs_">Backup logs</string>
+  <string formatted="false" name="export_logs_hint">Backup logs as mail.</string>
+  <string formatted="false" name="export_numgroups_">Export number groups</string>
+  <string formatted="false" name="export_numgroups_hint">Export number groups as mail.</string>
+  <string formatted="false" name="export_hourgroups_">Export hour groups</string>
+  <string formatted="false" name="export_hourgroups_hint">Export hour groups as mail.</string>
   <string formatted="false" name="import_rules_">Importuj ustawienia reguł</string>
   <string formatted="false" name="import_rules_hint">Importuj ustawienia reguł</string>
   <string formatted="false" name="import_rules_empty">Żaden plan/reguła nie jest ustawiona. Kliknij ten tekst aby zimportować domyślny zestaw reguł.\n\nMożesz również dodać plan i reguły ręcznie w ustawieniach.</string>
@@ -224,7 +255,6 @@
   <string formatted="false" name="alerts_hint">Ustaw powiadomienia bazując na stopniu zużycia planu.</string>
   <string formatted="false" name="alerts_title">Powiadomienia Call Meter 3G</string>
   <string formatted="false" name="alerts_message">Plan %s osiągnął %d%% zużycia!</string>
-  <string formatted="false" name="numbergroup_help">Dodaj godziny które będą zastosowane do reguły.\n\nWzorce (\"%\") są dopuszczalne na obach końcach numeru.\nNp.: %34 będzie pasować do 1234, 12% do 1234 i %23% do 12345.</string>
   <string formatted="false" name="alerts_80_">Powiadom przy 80%</string>
   <string formatted="false" name="alerts_80_hint">Powiadom, jeżeli plan przekroczy 80% ustalonego limitu</string>
   <string formatted="false" name="alerts_100_">Powiadom przy 100%</string>
@@ -332,6 +362,7 @@
     <item>60/1</item>
     <item>60/6</item>
     <item>60/10</item>
+    <item>60/15</item>
     <item>60/30</item>
     <item>60/60</item>
     <item>Niestandardowy</item>
@@ -373,9 +404,5 @@
     <item>Jedna godzina</item>
     <item>Dwie godziny</item>
     <item>Tylko ręcznie</item>
-  </string-array>
-  <string-array name="notes_from_dev">
-    <item>Dec. 2010 Keep in mind: Killing this app may result in wrong data statistics.</item>
-    <item>Dec. 2010 Keep in mind: Past data statistics can not be fetched from before installation of this app!</item>
   </string-array>
 </resources>

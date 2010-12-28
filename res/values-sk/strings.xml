@@ -18,6 +18,11 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string formatted="false" name="changelog_notification_">Recent changes:</string>
+  <string formatted="false" name="changelog_notification_text">Click here to show recent changes of</string>
+  <string formatted="false" name="never_show_again">Never show changelog again</string>
+  <string formatted="false" name="notes_from_developer_">Notes from developer</string>
+  <string formatted="false" name="notes_from_developer_text">Click here to show recent news from the developer</string>
   <string formatted="false" name="about0_">Call Meter slúži k sledovaniu stavu čerpania hovorného, SMS správ a dátových prenosov v rámci mesačného paušálu.</string>
   <string formatted="false" name="about0">Aplikácia tvorí štatistiku na základe logov o hovoroch, SMS správach a dátových prenosoch a podporuje niekoľko spôsobov účtovania/tarifikácie.</string>
   <string formatted="false" name="about1">Výstupom je celkový počet využitých minút/sms/dát od nainštalovania aplikácie, a počet týchto jednotiek prípadne ukazatel využitia voľných minút/sms/dát za aktuálne zúčtovacie obdobie. Výpočet mesačnej spotreby berie na vedomie vybranú tarifikáciu. V celkovom výpočte nie je tarifikácia zohladnená.\n\nLegenda zobrazovania štatistík:\nPríchodzie hovory: dĺžka a počet v aktuálnom období / dĺžka všetkých hovorov\nOdchádzajúce hovory: [% využitie voľných minút akt. obdobia] / dĺžka a počet v akt. období / dĺžka všetkých hovorov\nPríchodzie SMS: počet SMS v akt. období / celkový počet SMS\nOdchodzie SMS: cena za SMS v akt. období / [% využitie voľných SMS v akt. období] / počet SMS v akt. období / celkový počet SMS </string>
@@ -92,8 +97,18 @@
   <string formatted="false" name="custom_currency_format_hint">Select a custom currency format.</string>
   <string formatted="false" name="custom_date_format_">Custom date format</string>
   <string formatted="false" name="custom_date_format_hint">Select a custom date format.</string>
+  <string formatted="false" name="custom_delimiter_">Custom delimiter</string>
+  <string formatted="false" name="custom_delimiter_hint">Set a custom delimiter separating the blocks of statistics.</string>
+  <string formatted="false" name="ask_for_plan_">Ask for plan</string>
+  <string formatted="false" name="ask_for_plan_hint">Ask for plan for unmatched calls after hanging up.</string>
+  <string formatted="false" name="autohide_">Auto hide</string>
+  <string formatted="false" name="autohide_hint">Hide dialog after .. seconds. Leave empty to deactivate auto hide.</string>
+  <string formatted="false" name="select_plan_">Select a plan</string>
+  <string formatted="false" name="set_selected_as_default_">Set selected plan as default</string>
+  <string formatted="false" name="autohide_in_">Auto hide dialog in: %ds</string>
+  <string formatted="false" name="logs">Logs</string>
   <string formatted="false" name="show_logs">Show logs</string>
-  <string formatted="false" name="plans">Paušály</string>
+  <string formatted="false" name="plans">Plans</string>
   <string formatted="false" name="plans_hint">Set your plans for all kind of billing here.</string>
   <string formatted="false" name="plans_new">New plan</string>
   <string formatted="false" name="rule_">Rule</string>
@@ -102,6 +117,10 @@
   <string formatted="false" name="rules_new">New Rule</string>
   <string formatted="false" name="length_">Length</string>
   <string formatted="false" name="remote_">Remote number</string>
+  <string formatted="false" name="numbergroups_edit_">Number groups</string>
+  <string formatted="false" name="numbergroups_edit_hint">Edit number groups here.</string>
+  <string formatted="false" name="hourgroups_edit_">Hour groups</string>
+  <string formatted="false" name="hourgroups_edit_hint">Edit hour groups here.</string>
   <string formatted="false" name="numbers">Numbers</string>
   <string formatted="false" name="numbergroup_">Include numbers</string>
   <string formatted="false" name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string>
@@ -116,7 +135,10 @@
   <string formatted="false" name="exhourgroup_help">Add some hours this rule must not match.</string>
   <string formatted="false" name="new_hourgroup">New hour group</string>
   <string formatted="false" name="add_hour">Add hour</string>
-  <string formatted="false" name="calls">Hovory</string>
+  <string formatted="false" name="empty_group">Empty groups won\'t match anything. Please go back and add at least one item.</string>
+  <string formatted="false" name="calls">Calls</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="mms">MMS</string>
   <string formatted="false" name="data">Dáta</string>
   <string formatted="false" name="prepaid_">Prepaid plan</string>
   <string formatted="false" name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string>
@@ -137,6 +159,7 @@
   <string formatted="false" name="new_">New</string>
   <string formatted="false" name="edit_selected_">Edit selected</string>
   <string formatted="false" name="edit_groups_">Edit groups</string>
+  <string formatted="false" name="name_">Name</string>
   <string formatted="false" name="name_help">Set a name here.</string>
   <string formatted="false" name="shortname_">Short name</string>
   <string formatted="false" name="shortname_help">Set a short name here. It is displayed in compact layouts.</string>
@@ -212,9 +235,17 @@
   <string formatted="false" name="empty_group_">Please press "Add" to add an item to this group.</string>
   <string formatted="false" name="export_progr">Exporting data ...</string>
   <string formatted="false" name="import_progr">Import data ...</string>
+  <string formatted="false" name="export_">Export ...</string>
+  <string formatted="false" name="export_hint">Export rule sets, logs or groups</string>
   <string formatted="false" name="export_rules_">Export rule set</string>
   <string formatted="false" name="export_rules_hint">Export rule set as mail.</string>
   <string formatted="false" name="export_rules_descr">Description</string>
+  <string formatted="false" name="export_logs_">Backup logs</string>
+  <string formatted="false" name="export_logs_hint">Backup logs as mail.</string>
+  <string formatted="false" name="export_numgroups_">Export number groups</string>
+  <string formatted="false" name="export_numgroups_hint">Export number groups as mail.</string>
+  <string formatted="false" name="export_hourgroups_">Export hour groups</string>
+  <string formatted="false" name="export_hourgroups_hint">Export hour groups as mail.</string>
   <string formatted="false" name="import_rules_">Import rule set</string>
   <string formatted="false" name="import_rules_hint">Import rule set.</string>
   <string formatted="false" name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.</string>
@@ -224,7 +255,6 @@
   <string formatted="false" name="alerts_hint">Set alerts based on plan usage.</string>
   <string formatted="false" name="alerts_title">Call Meter 3G alert</string>
   <string formatted="false" name="alerts_message">Plan %s has reached %d%% usage!</string>
-  <string formatted="false" name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string>
   <string formatted="false" name="alerts_80_">Notify at 80%</string>
   <string formatted="false" name="alerts_80_hint">Notify if a plan passes 80% of it\'s limit.</string>
   <string formatted="false" name="alerts_100_">Notify at 100%</string>
@@ -335,6 +365,7 @@
     <item>60/15</item>
     <item>60/30</item>
     <item>60/60</item>
+    <item>Custom</item>
   </string-array>
   <string-array name="direction_calls">
     <item>in</item>
@@ -373,9 +404,5 @@
     <item>One hour</item>
     <item>Two hours</item>
     <item>Manually only</item>
-  </string-array>
-  <string-array name="notes_from_dev">
-    <item>Dec. 2010 Keep in mind: Killing this app may result in wrong data statistics.</item>
-    <item>Dec. 2010 Keep in mind: Past data statistics can not be fetched from before installation of this app!</item>
   </string-array>
 </resources>

@@ -18,6 +18,11 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string formatted="false" name="changelog_notification_">Recent changes:</string>
+  <string formatted="false" name="changelog_notification_text">Click here to show recent changes of</string>
+  <string formatted="false" name="never_show_again">Never show changelog again</string>
+  <string formatted="false" name="notes_from_developer_">Notes from developer</string>
+  <string formatted="false" name="notes_from_developer_text">Click here to show recent news from the developer</string>
   <string formatted="false" name="about0_">Следи за своими бесплатными: минутами, SMS и трафиком!</string>
   <string formatted="false" name="about0">CallMeter создает из данныx о звонкаx, SMS и трафикa отчёт. Поддерживаются разные меторы отчёта.</string>
   <string formatted="false" name="about1">Форма отчёта: Пользование / Время или Колличество в месяц / Время или просто Колличество (Минуты/SMS/Трафик).</string>
@@ -92,6 +97,16 @@
   <string formatted="false" name="custom_currency_format_hint">Настройка вида значка валюты в статистике.</string>
   <string formatted="false" name="custom_date_format_">Формат даты</string>
   <string formatted="false" name="custom_date_format_hint">Настройка вида даты в статистике.</string>
+  <string formatted="false" name="custom_delimiter_">Custom delimiter</string>
+  <string formatted="false" name="custom_delimiter_hint">Set a custom delimiter separating the blocks of statistics.</string>
+  <string formatted="false" name="ask_for_plan_">Ask for plan</string>
+  <string formatted="false" name="ask_for_plan_hint">Ask for plan for unmatched calls after hanging up.</string>
+  <string formatted="false" name="autohide_">Auto hide</string>
+  <string formatted="false" name="autohide_hint">Hide dialog after .. seconds. Leave empty to deactivate auto hide.</string>
+  <string formatted="false" name="select_plan_">Select a plan</string>
+  <string formatted="false" name="set_selected_as_default_">Set selected plan as default</string>
+  <string formatted="false" name="autohide_in_">Auto hide dialog in: %ds</string>
+  <string formatted="false" name="logs">Logs</string>
   <string formatted="false" name="show_logs">Открыть журнал</string>
   <string formatted="false" name="plans">Ценовой план</string>
   <string formatted="false" name="plans_hint">Настойка ценового плана.</string>
@@ -102,6 +117,10 @@
   <string formatted="false" name="rules_new">Новые правила</string>
   <string formatted="false" name="length_">Length</string>
   <string formatted="false" name="remote_">Remote number</string>
+  <string formatted="false" name="numbergroups_edit_">Number groups</string>
+  <string formatted="false" name="numbergroups_edit_hint">Edit number groups here.</string>
+  <string formatted="false" name="hourgroups_edit_">Hour groups</string>
+  <string formatted="false" name="hourgroups_edit_hint">Edit hour groups here.</string>
   <string formatted="false" name="numbers">Номера</string>
   <string formatted="false" name="numbergroup_">Включённые номера</string>
   <string formatted="false" name="numbergroup_help">Номера которые будут задействованны в данном плане.\n\nЗнак обобщения номеров (\"%\") разрешён по обе стороны номера.\nПример: %34 = 1234, 12% = 1234 и %23% = 12345.</string>
@@ -116,7 +135,10 @@
   <string formatted="false" name="exhourgroup_help">Время, которое не должно учитываться в данном плане.</string>
   <string formatted="false" name="new_hourgroup">Часовая группа</string>
   <string formatted="false" name="add_hour">Добавить время</string>
+  <string formatted="false" name="empty_group">Empty groups won\'t match anything. Please go back and add at least one item.</string>
   <string formatted="false" name="calls">Звонки</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="mms">MMS</string>
   <string formatted="false" name="data">Передача данныx</string>
   <string formatted="false" name="prepaid_">Prepaid plan</string>
   <string formatted="false" name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string>
@@ -137,6 +159,7 @@
   <string formatted="false" name="new_">Новый</string>
   <string formatted="false" name="edit_selected_">Изменить выбранные</string>
   <string formatted="false" name="edit_groups_">Изменить группы</string>
+  <string formatted="false" name="name_">Name</string>
   <string formatted="false" name="name_help">Настройка названия.</string>
   <string formatted="false" name="shortname_">Короткое название</string>
   <string formatted="false" name="shortname_help">Настойка короткого названия, которое появится на виджете.</string>
@@ -212,9 +235,17 @@
   <string formatted="false" name="empty_group_">Please press "Add" to add an item to this group.</string>
   <string formatted="false" name="export_progr">Exporting data ...</string>
   <string formatted="false" name="import_progr">Import data ...</string>
+  <string formatted="false" name="export_">Export ...</string>
+  <string formatted="false" name="export_hint">Export rule sets, logs or groups</string>
   <string formatted="false" name="export_rules_">Экспорт ценового плана</string>
   <string formatted="false" name="export_rules_hint">Передача по электронной почте.</string>
   <string formatted="false" name="export_rules_descr">Описание</string>
+  <string formatted="false" name="export_logs_">Backup logs</string>
+  <string formatted="false" name="export_logs_hint">Backup logs as mail.</string>
+  <string formatted="false" name="export_numgroups_">Export number groups</string>
+  <string formatted="false" name="export_numgroups_hint">Export number groups as mail.</string>
+  <string formatted="false" name="export_hourgroups_">Export hour groups</string>
+  <string formatted="false" name="export_hourgroups_hint">Export hour groups as mail.</string>
   <string formatted="false" name="import_rules_">Импорт ценового плана</string>
   <string formatted="false" name="import_rules_hint">Установка готового плана.</string>
   <string formatted="false" name="import_rules_empty">Какие-либо ценовые планы или правила отсутствуют. Нажмите на этот текст для импорта стандартныx настроек.\n\nСобственно ручная настройка тоже возможна.</string>
@@ -224,7 +255,6 @@
   <string formatted="false" name="alerts_hint">Настройка сигнализации основанной на данныx ценового плана.</string>
   <string formatted="false" name="alerts_title">Call Meter 3G Сигнализация</string>
   <string formatted="false" name="alerts_message">Ценовой план %s достиг %d%%!</string>
-  <string formatted="false" name="numbergroup_help">Номера которые будут задействованны в данном плане.\n\nЗнак обобщения номеров (\"%\") разрешён по обе стороны номера.\nПример: %34 = 1234, 12% = 1234 и %23% = 12345.</string>
   <string formatted="false" name="alerts_80_">Тревога при 80%</string>
   <string formatted="false" name="alerts_80_hint">Сигнализация при 80% достижении ценового плана.</string>
   <string formatted="false" name="alerts_100_">Тревога при 100%</string>
@@ -332,6 +362,7 @@
     <item>60/1</item>
     <item>60/6</item>
     <item>60/10</item>
+    <item>60/15</item>
     <item>60/30</item>
     <item>60/60</item>
     <item>Пользовательский</item>
@@ -373,9 +404,5 @@
     <item>1 час</item>
     <item>2 часа</item>
     <item>Пользовательский</item>
-  </string-array>
-  <string-array name="notes_from_dev">
-    <item>Dec. 2010 Keep in mind: Killing this app may result in wrong data statistics.</item>
-    <item>Dec. 2010 Keep in mind: Past data statistics can not be fetched from before installation of this app!</item>
   </string-array>
 </resources>

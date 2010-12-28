@@ -18,11 +18,16 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string formatted="false" name="changelog_notification_">Letzte Änderungen:</string>
+  <string formatted="false" name="changelog_notification_text">Klicke hier, um die letzten Änderungen anzuzeigen</string>
+  <string formatted="false" name="never_show_again">Nie wieder Changelog anzeigen</string>
+  <string formatted="false" name="notes_from_developer_">Hinweise vom Entwickler</string>
+  <string formatted="false" name="notes_from_developer_text">Klicken Sie hier, um neue Nachrichten des Entwicklers zu zeigen</string>
   <string formatted="false" name="about0_">Pass auf deine Freiminuten, FreiSMS und dein Datenvolumen auf!</string>
   <string formatted="false" name="about0">CallMeter erzeugt aus deinen Anruf-, SMS- und Daten-Logs Berichte. Es unterstützt viele verschiedene Abrechnungsmodi.</string>
   <string formatted="false" name="about1">Das Ausgabeformat ist: Nutzung | Zeit oder Anzahl in diesem Monat | Zeit oder Anzahl überhaupt.</string>
   <string formatted="false" name="about2">Der Abrechnungszeitraum bezeichnet die länge des ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s aufgerundet.</string>
-  <string formatted="false" name="about3">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string>
+  <string formatted="false" name="about3">CallMeter läuft im Hintergrund alle 30min (nur wenn nicht im Standby). Dies bedeutet, dass das Löschen Anrufe oder Nachrichten älter als 30min wird die Statistiken nicht ändern. Das löschen von Anrufe oder Nachrichten jünger als 30 Minuten kann zu falschen Statistiken führen.</string>
   <string formatted="false" name="send_">Senden</string>
   <string formatted="false" name="add_">Hinzufügen</string>
   <string formatted="false" name="add_log">Log Eintrag hinzufügen</string>
@@ -92,6 +97,16 @@
   <string formatted="false" name="custom_currency_format_hint">Wähle ein benutzerdefiniertes Währungsformat aus.</string>
   <string formatted="false" name="custom_date_format_">Benutzerdefiniertes Datumformat</string>
   <string formatted="false" name="custom_date_format_hint">Wähle ein benutzerdefiniertes Datumformat aus.</string>
+  <string formatted="false" name="custom_delimiter_">Benutzerdefiniertes Trennzeichen</string>
+  <string formatted="false" name="custom_delimiter_hint">Setze einen benutzerdefiniertes Trennzeichen für Blöcke in den Statistiken.</string>
+  <string formatted="false" name="ask_for_plan_">Nach Kontingent Fragen</string>
+  <string formatted="false" name="ask_for_plan_hint">Nach Kontingent fragen, wenn nach dem Auflegen keins zugeordnet werden kann.</string>
+  <string formatted="false" name="autohide_">Autom. Beenden</string>
+  <string formatted="false" name="autohide_hint">Schließe Dialog automatisch nach .. Sekunden. Leer lassen zum deaktivieren.</string>
+  <string formatted="false" name="select_plan_">Wähle ein Kontingent</string>
+  <string formatted="false" name="set_selected_as_default_">Kontingent als Standard festlegen</string>
+  <string formatted="false" name="autohide_in_">Dialog automatisch in schließen in: %ds</string>
+  <string formatted="false" name="logs">Logs</string>
   <string formatted="false" name="show_logs">Logs zeigen</string>
   <string formatted="false" name="plans">Kontingente</string>
   <string formatted="false" name="plans_hint">Stelle hier deine verschiedenen Kontingente ein.</string>
@@ -102,6 +117,10 @@
   <string formatted="false" name="rules_new">Neue Regel</string>
   <string formatted="false" name="length_">Länge</string>
   <string formatted="false" name="remote_">Absender/Empfänger</string>
+  <string formatted="false" name="numbergroups_edit_">Nummern Gruppen</string>
+  <string formatted="false" name="numbergroups_edit_hint">Bearbeite Nummerngruppen hier.</string>
+  <string formatted="false" name="hourgroups_edit_">Stunden Gruppen</string>
+  <string formatted="false" name="hourgroups_edit_hint">Bearbeite Stunden Gruppen hier.</string>
   <string formatted="false" name="numbers">Nummern</string>
   <string formatted="false" name="numbergroup_">Nummern einschließen</string>
   <string formatted="false" name="numbergroup_help">Füge hier die Nummern hinzu, die diese Regel treffen muss.\n\nPlatzhalter (\"%\") sind and beiden Enden der Nummer erlaubt.\nZ.B. trifft %34 1234, 12% trifft 1234 und %23% trifft 12345.</string>
@@ -116,7 +135,10 @@
   <string formatted="false" name="exhourgroup_help">Füge hier die Stunden hinzu, die diese Regel nicht treffen darf.</string>
   <string formatted="false" name="new_hourgroup">Neue Stundengruppe</string>
   <string formatted="false" name="add_hour">Stunde Hinzufügen</string>
+  <string formatted="false" name="empty_group">Leere Gruppen greifen nie. Bitte gehe zurück und füge mindestens ein Element hinzu.</string>
   <string formatted="false" name="calls">Anrufe</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="mms">MMS</string>
   <string formatted="false" name="data">Daten</string>
   <string formatted="false" name="prepaid_">Prepaid Abrechnung</string>
   <string formatted="false" name="prepaid_hint">Prepaid Vertrag. Kosten werden vom Guthaben abgezogen.</string>
@@ -137,6 +159,7 @@
   <string formatted="false" name="new_">Neu</string>
   <string formatted="false" name="edit_selected_">Ausg. bearb.</string>
   <string formatted="false" name="edit_groups_">Gr. bearb.</string>
+  <string formatted="false" name="name_">Name</string>
   <string formatted="false" name="name_help">Setze hier einen Namen.</string>
   <string formatted="false" name="shortname_">Kurzname</string>
   <string formatted="false" name="shortname_help">Setze hier einen Namen. Dieser wird in kompakten Layouts benutzt.</string>
@@ -212,9 +235,17 @@
   <string formatted="false" name="empty_group_">Bitte drücke "hinzufügen" um einen Eintrag hinzuzufügen.</string>
   <string formatted="false" name="export_progr">Daten exportieren ...</string>
   <string formatted="false" name="import_progr">Daten importieren ...</string>
+  <string formatted="false" name="export_">Exportieren ...</string>
+  <string formatted="false" name="export_hint">Exportiere Regelsätze, Logs oder Gruppen</string>
   <string formatted="false" name="export_rules_">Exportiere Regelwerk</string>
   <string formatted="false" name="export_rules_hint">Exportiere Regelwerk als Mail.</string>
   <string formatted="false" name="export_rules_descr">Beschreibung</string>
+  <string formatted="false" name="export_logs_">Logs sichern</string>
+  <string formatted="false" name="export_logs_hint">Logs als Mail sichern.</string>
+  <string formatted="false" name="export_numgroups_">Stunden Nummern exportieren</string>
+  <string formatted="false" name="export_numgroups_hint">Stunden Nummern als Mail exportieren.</string>
+  <string formatted="false" name="export_hourgroups_">Stunden Gruppen exportieren</string>
+  <string formatted="false" name="export_hourgroups_hint">Stunden Gruppen als Mail exportieren.</string>
   <string formatted="false" name="import_rules_">Importiere Regelwerk</string>
   <string formatted="false" name="import_rules_hint">Importiere Regelwerk.</string>
   <string formatted="false" name="import_rules_empty">Es sind keine Kontingente/Regeln definiert. Klicke diesen Text an, um standard Regelwerke zu importieren.\n\nOder füge manuell Kontingente und Regeln in den Einstellungen hinzu.</string>
@@ -224,7 +255,6 @@
   <string formatted="false" name="alerts_hint">Stelle Alarme basierend auf der Nutzung der Kontingente ein.</string>
   <string formatted="false" name="alerts_title">Call Meter 3G Alarm</string>
   <string formatted="false" name="alerts_message">Kontingent %s hat %d%% Benutzung erreicht!</string>
-  <string formatted="false" name="numbergroup_help">Füge hier die Nummern hinzu, die diese Regel treffen muss.\n\nPlatzhalter (\"%\") sind and beiden Enden der Nummer erlaubt.\nZ.B. trifft %34 1234, 12% trifft 1234 und %23% trifft 12345.</string>
   <string formatted="false" name="alerts_80_">Alarm bei 80%</string>
   <string formatted="false" name="alerts_80_hint">Alarmiere mich, wenn ein Kontingent 80% des Limits erreicht hat.</string>
   <string formatted="false" name="alerts_100_">Alarm bei 100%</string>
@@ -316,7 +346,7 @@
     <item>Fünf Monate</item>
     <item>Sechs Monate</item>
     <item>Ein Jahr</item>
-    <item>Unbegrenzt</item>
+    <item>Unendlich</item>
   </string-array>
   <string-array name="billmodes">
     <item>1/1</item>
@@ -361,9 +391,9 @@
   </string-array>
   <string-array name="date_formats">
     <item>Standard</item>
-    <item>MM/DD/YY</item>
-    <item>DD/MM/YYYY</item>
-    <item>DD.MM.YYYY</item>
+    <item>MM/TT/JJ</item>
+    <item>TT/MM/JJJJ</item>
+    <item>TT.MM.JJJJ</item>
   </string-array>
   <string-array name="update_interval">
     <item>5 Minuten</item>
@@ -373,9 +403,5 @@
     <item>Eine Stunde</item>
     <item>Zwei Stunden</item>
     <item>Nur manuell</item>
-  </string-array>
-  <string-array name="notes_from_dev">
-    <item>Dez. 2010 Denk daran: Killen dieser App kann die Daten Statistiken verfälschen.</item>
-    <item>Dez. 2010 Denk daran: Vergangene Daten Statistiken von vor der Installation können nicht geladen werden!</item>
   </string-array>
 </resources>
