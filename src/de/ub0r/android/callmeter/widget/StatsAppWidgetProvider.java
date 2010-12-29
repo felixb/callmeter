@@ -217,7 +217,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		cursor = cr.query(DataProvider.Logs.SUM_URI,
 				DataProvider.Logs.PROJECTION_SUM, billdayWhere, null, null);
 		float cost = cpp;
-		long billedAmount = 0;
+		float billedAmount = 0f;
 		int count = 0;
 		int used = 0;
 		if (cursor == null || !cursor.moveToFirst()) {
@@ -225,14 +225,14 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		} else {
 			do {
 				cost += cursor.getFloat(DataProvider.Logs.INDEX_SUM_COST);
-				long ba = cursor.getLong(// .
+				float ba = cursor.getFloat(// .
 						DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
 				if (isMerger && ptype == DataProvider.TYPE_MIXED) {
 					final int t = cursor
 							.getInt(DataProvider.Logs.INDEX_SUM_TYPE);
 					switch (t) {
 					case DataProvider.TYPE_CALL:
-						ba = (ba * upc) / CallMeter.SECONDS_MINUTE;
+						ba = ba * upc / CallMeter.SECONDS_MINUTE;
 						break;
 					case DataProvider.TYPE_MMS:
 						ba *= upm;

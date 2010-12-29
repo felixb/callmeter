@@ -481,12 +481,12 @@ public class Plans extends ListActivity implements OnClickListener,
 				w = DbUtils.sqlAnd(w, this.where);
 				Log.d(TAG, "where: " + w);
 
-				float cost = 0;
-				long billedAmount = 0;
+				float cost = 0f;
+				float billedAmount = 0f;
 				int count = 0;
-				long todayBilledAmount = 0;
+				float todayBilledAmount = 0f;
 				int todayCount = 0;
-				long allBilledAmount = 0;
+				float allBilledAmount = 0f;
 				int allCount = 0;
 
 				Cursor c = this.ctx.getContentResolver().query(
@@ -497,7 +497,7 @@ public class Plans extends ListActivity implements OnClickListener,
 				} else {
 					do {
 						cost += c.getFloat(DataProvider.Logs.INDEX_SUM_COST);
-						long ba = c.getLong(DataProvider.Logs.// .
+						float ba = c.getFloat(DataProvider.Logs.// .
 								INDEX_SUM_BILL_AMOUNT);
 						if (this.isMerger
 								&& this.type == DataProvider.TYPE_MIXED) {
@@ -505,7 +505,7 @@ public class Plans extends ListActivity implements OnClickListener,
 									.getInt(DataProvider.Logs.INDEX_SUM_TYPE);
 							switch (t) {
 							case DataProvider.TYPE_CALL:
-								ba = (ba * this.upc) / CallMeter.SECONDS_MINUTE;
+								ba = ba * this.upc / CallMeter.SECONDS_MINUTE;
 								break;
 							case DataProvider.TYPE_MMS:
 								ba *= this.upm;
@@ -559,7 +559,7 @@ public class Plans extends ListActivity implements OnClickListener,
 							DataProvider.Logs.PROJECTION_SUM, w, null, null);
 					if (c != null && c.moveToFirst()) {
 						do {
-							long ba = c.getLong(DataProvider.Logs.// .
+							float ba = c.getFloat(DataProvider.Logs.// .
 									INDEX_SUM_BILL_AMOUNT);
 							if (this.isMerger
 									&& this.type == DataProvider.TYPE_MIXED) {
@@ -567,7 +567,7 @@ public class Plans extends ListActivity implements OnClickListener,
 										DataProvider.Logs.INDEX_SUM_TYPE);
 								switch (t) {
 								case DataProvider.TYPE_CALL:
-									ba = (ba * this.upc)
+									ba = ba * this.upc
 											/ CallMeter.SECONDS_MINUTE;
 									break;
 								case DataProvider.TYPE_MMS:
@@ -601,7 +601,7 @@ public class Plans extends ListActivity implements OnClickListener,
 							null);
 					if (c != null && c.moveToFirst()) {
 						do {
-							long ba = c.getLong(DataProvider.Logs.// .
+							float ba = c.getFloat(DataProvider.Logs.// .
 									INDEX_SUM_BILL_AMOUNT);
 							if (this.isMerger
 									&& this.type == DataProvider.TYPE_MIXED) {
@@ -609,7 +609,7 @@ public class Plans extends ListActivity implements OnClickListener,
 										DataProvider.Logs.INDEX_SUM_TYPE);
 								switch (t) {
 								case DataProvider.TYPE_CALL:
-									ba = (ba * this.upc)
+									ba = ba * this.upc
 											/ CallMeter.SECONDS_MINUTE;
 									break;
 								case DataProvider.TYPE_MMS:
@@ -987,9 +987,9 @@ public class Plans extends ListActivity implements OnClickListener,
 		 * @return {@link String} holding all the data
 		 */
 		private static String getString(final Plan p, final int used,
-				final long count, final long amount, final float cost,
-				final float free, final long todayAmount,
-				final long todayCount, final long allAmount,
+				final long count, final float amount, final float cost,
+				final float free, final float todayAmount,
+				final long todayCount, final float allAmount,
 				final long allCount, final boolean showHours) {
 			final StringBuilder ret = new StringBuilder();
 
@@ -1206,27 +1206,27 @@ public class Plans extends ListActivity implements OnClickListener,
 	/**
 	 * Return pretty bytes.
 	 * 
-	 * @author Cyril Jaquier
+	 * @author Cyril Jaquier, flx
 	 * @param value
 	 *            bytes
 	 * @return pretty bytes
 	 */
-	public static final String prettyBytes(final long value) {
+	public static final String prettyBytes(final float value) {
 		StringBuilder sb = new StringBuilder();
 		if (value < CallMeter.BYTE_KB) {
 			sb.append(String.valueOf(value));
 			sb.append(BYTE_UNITS_B);
 		} else if (value < CallMeter.BYTE_MB) {
-			sb.append(String.format("%.1f", value / (CallMeter.BYTE_KB * 1.0)));
+			sb.append(String.format("%.1f", value / CallMeter.BYTE_KB));
 			sb.append(BYTE_UNITS_KB);
 		} else if (value < CallMeter.BYTE_GB) {
-			sb.append(String.format("%.2f", value / (CallMeter.BYTE_MB * 1.0)));
+			sb.append(String.format("%.2f", value / CallMeter.BYTE_MB));
 			sb.append(BYTE_UNITS_MB);
 		} else if (value < CallMeter.BYTE_TB) {
-			sb.append(String.format("%.3f", value / (CallMeter.BYTE_GB * 1.0)));
+			sb.append(String.format("%.3f", value / CallMeter.BYTE_GB));
 			sb.append(BYTE_UNITS_GB);
 		} else {
-			sb.append(String.format("%.4f", value / (CallMeter.BYTE_TB * 1.0)));
+			sb.append(String.format("%.4f", value / CallMeter.BYTE_TB));
 			sb.append(BYTE_UNITS_TB);
 		}
 		return sb.toString();
@@ -1241,23 +1241,22 @@ public class Plans extends ListActivity implements OnClickListener,
 	 *            show hours and days
 	 * @return parsed string
 	 */
-	public static final String prettySeconds(final long seconds,
+	public static final String prettySeconds(final float seconds,
 			final boolean showHours) {
 		String ret;
-		int d, h, m;
+		final long ls = (long) seconds;
+		long d, h, m;
 		if (showHours) {
-			d = (int) (seconds / CallMeter.SECONDS_DAY);
-			h = (int) ((seconds % CallMeter.SECONDS_DAY) / // .
-			CallMeter.SECONDS_HOUR);
-			m = (int) ((seconds % CallMeter.SECONDS_HOUR) / // .
-			CallMeter.SECONDS_MINUTE);
+			d = ls / CallMeter.SECONDS_DAY;
+			h = (ls % CallMeter.SECONDS_DAY) / CallMeter.SECONDS_HOUR;
+			m = (ls % CallMeter.SECONDS_HOUR) / CallMeter.SECONDS_MINUTE;
 		} else {
-			d = 0;
-			h = 0;
-			m = (int) (seconds / CallMeter.SECONDS_MINUTE);
+			d = 0L;
+			h = 0L;
+			m = ls / CallMeter.SECONDS_MINUTE;
 		}
-		final int s = (int) (seconds % CallMeter.SECONDS_MINUTE);
-		if (d > 0) {
+		final long s = ls % CallMeter.SECONDS_MINUTE;
+		if (d > 0L) {
 			ret = d + "d ";
 		} else {
 			ret = "";
@@ -1296,14 +1295,17 @@ public class Plans extends ListActivity implements OnClickListener,
 	 * @return {@link String} representing amount
 	 */
 	public static final String formatAmount(final int pType, // .
-			final long amount, final boolean showHours) {
+			final float amount, final boolean showHours) {
 		switch (pType) {
 		case DataProvider.TYPE_DATA:
 			return prettyBytes(amount);
 		case DataProvider.TYPE_CALL:
 			return prettySeconds(amount, showHours);
+		case DataProvider.TYPE_MMS:
+		case DataProvider.TYPE_SMS:
+			return String.valueOf((long) amount);
 		default:
-			return String.valueOf(amount);
+			return String.format("%.2f", amount).replaceAll("[\\.,]?0*$", "");
 		}
 	}
 

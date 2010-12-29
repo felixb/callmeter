@@ -654,11 +654,11 @@ public final class RuleMatcher {
 		/** Last valid billday. */
 		private Calendar currentBillday = null;
 		/** Time of nextBillday. */
-		private long nextBillday = -1;
+		private long nextBillday = -1L;
 		/** Amount billed this period. */
-		private long billedAmount = 0;
+		private float billedAmount = 0f;
 		/** Cost billed this period. */
-		private float billedCost = 0;
+		private float billedCost = 0f;
 
 		/** {@link ContentResolver}. */
 		private final ContentResolver cResolver;
@@ -792,12 +792,12 @@ public final class RuleMatcher {
 						DataProvider.Logs.PROJECTION_SUM, where, null, null);
 				if (c != null && c.moveToFirst()) {
 					this.billedAmount = c
-							.getLong(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
+							.getFloat(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
 					this.billedCost = c
 							.getFloat(DataProvider.Logs.INDEX_SUM_COST);
 				} else {
-					this.billedAmount = 0;
-					this.billedCost = 0;
+					this.billedAmount = 0f;
+					this.billedCost = 0f;
 				}
 				if (c != null && !c.isClosed()) {
 					c.close();
@@ -867,7 +867,7 @@ public final class RuleMatcher {
 		 * @param t
 		 *            type of log
 		 */
-		void updatePlan(final long amount, final float cost, final int t) {
+		void updatePlan(final float amount, final float cost, final int t) {
 			this.billedAmount += amount;
 			this.billedCost += cost;
 			final Plan pp = this.parent;
@@ -875,7 +875,7 @@ public final class RuleMatcher {
 				if (pp.type == DataProvider.TYPE_MIXED) {
 					switch (t) {
 					case DataProvider.TYPE_CALL:
-						pp.billedAmount += (amount * pp.upc)
+						pp.billedAmount += amount * pp.upc
 								/ CallMeter.SECONDS_MINUTE;
 						break;
 					case DataProvider.TYPE_MMS:
@@ -901,24 +901,26 @@ public final class RuleMatcher {
 		 *            {@link Cursor} pointing to log
 		 * @return billed amount.
 		 */
-		long getBilledAmount(final Cursor log) {
-			long ret = log.getLong(DataProvider.Logs.INDEX_AMOUNT);
+		float getBilledAmount(final Cursor log) {
+			long amount = log.getLong(DataProvider.Logs.INDEX_AMOUNT);
 			final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
+			float ret = 0f;
 			switch (t) {
 			case DataProvider.TYPE_CALL:
-				ret = this.roundTime(ret);
+				ret = this.roundTime(amount);
 				if (this.stripSeconds > 0) {
 					ret -= this.stripSeconds;
 				}
 				break;
 			default:
+				ret = amount;
 				break;
 			}
 
 			if (this.type == DataProvider.TYPE_MIXED) {
 				switch (t) {
 				case DataProvider.TYPE_CALL:
-					ret = (ret * this.upc) / CallMeter.SECONDS_MINUTE;
+					ret = ret * this.upc / CallMeter.SECONDS_MINUTE;
 					break;
 				case DataProvider.TYPE_SMS:
 					ret = ret * this.ups;
@@ -942,8 +944,8 @@ public final class RuleMatcher {
 		 *            billed amount
 		 * @return cost
 		 */
-		float getCost(final Cursor log, final long bAmount) {
-			float ret = 0;
+		float getCost(final Cursor log, final float bAmount) {
+			float ret = 0f;
 			float cpi, cpa1, cpa2;
 			Plan p;
 			if (this.parent != null
@@ -1139,7 +1141,7 @@ public final class RuleMatcher {
 				final ContentValues cv = new ContentValues();
 				cv.put(DataProvider.Logs.PLAN_ID, pid);
 				cv.put(DataProvider.Logs.RULE_ID, rid);
-				final long ba = p.getBilledAmount(log);
+				final float ba = p.getBilledAmount(log);
 				cv.put(DataProvider.Logs.BILL_AMOUNT, ba);
 				final float bc = p.getCost(log, ba);
 				cv.put(DataProvider.Logs.COST, bc);
@@ -1203,7 +1205,7 @@ public final class RuleMatcher {
 		p.checkBillday(log);
 		final ContentValues cv = new ContentValues();
 		cv.put(DataProvider.Logs.PLAN_ID, pid);
-		final long ba = p.getBilledAmount(log);
+		final float ba = p.getBilledAmount(log);
 		cv.put(DataProvider.Logs.BILL_AMOUNT, ba);
 		final float bc = p.getCost(log, ba);
 		cv.put(DataProvider.Logs.COST, bc);

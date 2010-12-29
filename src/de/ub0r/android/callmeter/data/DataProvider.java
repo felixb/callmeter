@@ -66,7 +66,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 27;
+	private static final int DATABASE_VERSION = 28;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -276,7 +276,7 @@ public final class DataProvider extends ContentProvider {
 					+ DIRECTION + " INTEGER," // .
 					+ DATE + " LONG," // .
 					+ AMOUNT + " LONG," // .
-					+ BILL_AMOUNT + " LONG," // .
+					+ BILL_AMOUNT + " FLOAT," // .
 					+ REMOTE + " TEXT,"// .
 					+ ROAMED + " INTEGER," // .
 					+ COST + " FLOAT"// .
@@ -297,7 +297,8 @@ public final class DataProvider extends ContentProvider {
 				final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, new String[] {
-					AMOUNT, DATE, DIRECTION, REMOTE, ROAMED, TYPE }, null);
+					AMOUNT, DATE, DIRECTION, REMOTE, ROAMED, TYPE, PLAN_ID },
+					null);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -809,7 +810,7 @@ public final class DataProvider extends ContentProvider {
 		 * @return get used
 		 */
 		public static int getUsed(final int pType, final int lType,
-				final long amount, final float cost) {
+				final float amount, final float cost) {
 			switch (lType) {
 			case DataProvider.LIMIT_TYPE_COST:
 				return (int) (cost * CallMeter.HUNDRET);
@@ -820,7 +821,7 @@ public final class DataProvider extends ContentProvider {
 					return (int) amount;
 				}
 			default:
-				if (amount > 0L) {
+				if (amount > 0f) {
 					return -1;
 				} else {
 					return 0;
