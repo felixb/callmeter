@@ -620,6 +620,7 @@ public final class LogRunnerService extends IntentService {
 		roaming = ((TelephonyManager) this
 				.getSystemService(Context.TELEPHONY_SERVICE))
 				.isNetworkRoaming();
+		Log.d(TAG, "roaming: " + roaming);
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		dateStart = p.getLong(Preferences.PREFS_DATE_BEGIN,
@@ -693,6 +694,10 @@ public final class LogRunnerService extends IntentService {
 			if (RuleMatcher.match(this, showDialog)) {
 				StatsAppWidgetProvider.updateWidgets(this);
 			}
+		} else if (roaming) {
+			this.updateCalls(cr);
+			this.updateSMS(cr);
+			this.updateMMS(cr);
 		}
 
 		if ((showCallInfo || askForPlan) && a != null && a.equals(// .
