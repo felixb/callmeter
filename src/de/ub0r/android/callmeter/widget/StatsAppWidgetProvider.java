@@ -38,6 +38,7 @@ import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.ui.Plans;
+import de.ub0r.android.callmeter.ui.Plans.PlanStatus;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
@@ -214,67 +215,41 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		}
 		Log.d(TAG, "bpos/bmax: " + bpos + "/" + bmax);
 		billdayWhere = DbUtils.sqlAnd(billdayWhere, where);
-		cursor = cr.query(DataProvider.Logs.SUM_URI,
-				DataProvider.Logs.PROJECTION_SUM, billdayWhere, null, null);
-		float cost = cpp;
-		float billedAmount = 0f;
-		int count = 0;
+
 		int used = 0;
-		if (cursor == null || !cursor.moveToFirst()) {
-			used = 0;
+		PlanStatus ps = PlanStatus.get(cr, billdayWhere, isMerger
+				&& ptype == DataProvider.TYPE_MIXED, upc, upm, ups);
+
+		if (ps == null) {
+			ps = new PlanStatus();
 		} else {
-			do {
-				cost += cursor.getFloat(DataProvider.Logs.INDEX_SUM_COST);
-				float ba = cursor.getFloat(// .
-						DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
-				if (isMerger && ptype == DataProvider.TYPE_MIXED) {
-					final int t = cursor
-							.getInt(DataProvider.Logs.INDEX_SUM_TYPE);
-					switch (t) {
-					case DataProvider.TYPE_CALL:
-						ba = ba * upc / CallMeter.SECONDS_MINUTE;
-						break;
-					case DataProvider.TYPE_MMS:
-						ba *= upm;
-						break;
-					case DataProvider.TYPE_SMS:
-						ba *= ups;
-						break;
-					default:
-						break;
-					}
-				}
-				billedAmount += ba;
-				count += cursor.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
-			} while (cursor.moveToNext());
-
 			Log.d(TAG, "plan: " + pid);
-			Log.d(TAG, "count: " + count);
-			Log.d(TAG, "cost: " + cost);
-			Log.d(TAG, "billedAmount: " + billedAmount);
+			Log.d(TAG, "count: " + ps.count);
+			Log.d(TAG, "cost: " + ps.cost);
+			Log.d(TAG, "billedAmount: " + ps.billedAmount);
 
-			used = DataProvider.Plans.getUsed(ptype, ltype, billedAmount, cost);
-		}
-		if (cursor != null && !cursor.isClosed()) {
-			cursor.close();
+			used = DataProvider.Plans.getUsed(ptype, ltype, ps.billedAmount,
+					ps.cost);
 		}
 		if (ppid >= 0L) {
-			cost = 0F;
+			ps.cost = 0F;
+		} else {
+			ps.cost += cpp;
 		}
 
-		String stats = Plans.formatAmount(ptype, billedAmount,
+		String stats = Plans.formatAmount(ptype, ps.billedAmount,
 				PreferenceManager.getDefaultSharedPreferences(context)
 						.getBoolean(Preferences.PREFS_SHOWHOURS, true));
 		if (ptype == DataProvider.TYPE_CALL) {
-			stats += " (" + count + ")";
+			stats += " (" + ps.count + ")";
 		}
 		if (limit > 0) {
 			stats += "\n" + (used * CallMeter.HUNDRET / limit) + "%";
 		}
-		if (showCost && cost > 0F) {
+		if (showCost && ps.cost > 0F) {
 			stats += "\n"
 					+ String.format(Preferences.getCurrencyFormat(context),
-							cost);
+							ps.cost);
 		}
 
 		Log.d(TAG, "limit: " + limit);

@@ -193,14 +193,18 @@ public final class DataProvider extends ContentProvider {
 
 		/** Index in projection - sum: Type of log. */
 		public static final int INDEX_SUM_TYPE = 0;
+		/** Index in projection - sum: id of plan. */
+		public static final int INDEX_SUM_PLAN_ID = 1;
+		/** Index in projection - sum: type of plan. */
+		public static final int INDEX_SUM_PLAN_TYPE = 2;
 		/** Index in projection - sum: Amount. */
-		public static final int INDEX_SUM_AMOUNT = 1;
+		public static final int INDEX_SUM_AMOUNT = 3;
 		/** Index in projection - sum: Billed amount. */
-		public static final int INDEX_SUM_BILL_AMOUNT = 2;
+		public static final int INDEX_SUM_BILL_AMOUNT = 4;
 		/** Index in projection - sum: Cost. */
-		public static final int INDEX_SUM_COST = 3;
+		public static final int INDEX_SUM_COST = 5;
 		/** Index in projection - sum: count. */
-		public static final int INDEX_SUM_COUNT = 4;
+		public static final int INDEX_SUM_COUNT = 6;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -224,6 +228,8 @@ public final class DataProvider extends ContentProvider {
 		public static final String ROAMED = "_roamed";
 		/** Cost. */
 		public static final String COST = "_logs_cost";
+		/** Type of plan. Only available in sum query. */
+		public static final String PLAN_TYPE = "_plan_type";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, PLAN_ID,
@@ -231,6 +237,7 @@ public final class DataProvider extends ContentProvider {
 				ROAMED, COST };
 		/** Projection used for query - sum. */
 		public static final String[] PROJECTION_SUM = new String[] { TYPE,
+				PLAN_ID, Plans.TABLE + "." + Plans.TYPE + " AS " + PLAN_TYPE,
 				"sum(" + AMOUNT + ")", "sum(" + BILL_AMOUNT + ")",
 				"sum(" + COST + ")", "count(" + PLAN_ID + ")" };
 
@@ -2345,9 +2352,11 @@ public final class DataProvider extends ContentProvider {
 			qb.setProjectionMap(Logs.PROJECTION_MAP);
 			break;
 		case LOGS_SUM:
-			groupBy = DataProvider.Logs.TYPE;
-			return db.query(Logs.TABLE, projection, selection, selectionArgs,
-					groupBy, null, null);
+			groupBy = DataProvider.Logs.PLAN_ID;
+			return db.query(Logs.TABLE + " INNER JOIN " + Plans.TABLE + " ON ("
+					+ Logs.TABLE + "." + Logs.PLAN_ID + " = " + Plans.TABLE
+					+ "." + Plans.ID + ")", projection, selection,
+					selectionArgs, groupBy, null, null);
 		case WEBSMS:
 			qb.setTables(WebSMS.TABLE);
 			qb.setProjectionMap(WebSMS.PROJECTION_MAP);

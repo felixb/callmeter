@@ -238,6 +238,84 @@ public class Plans extends ListActivity implements OnClickListener,
 	private static boolean statusMatcherProgress = false;
 
 	/**
+	 * Class holding Status of a {@link Plan}.
+	 * 
+	 * @author flx
+	 */
+	public static final class PlanStatus {
+		/** Id of plan. */
+		public long id = -1L;
+		/** Count of items. */
+		public int count = 0;
+		/** Billed amount. */
+		public float billedAmount = 0f;
+		/** Cost. */
+		public float cost = 0f;
+
+		/**
+		 * Get {@link PlanStatus} from database.
+		 * 
+		 * @param cr
+		 *            {@link ContentResolver}
+		 * @param where
+		 *            where clause on DataProvider.Logs.SUM_URI
+		 * @param mixedMerger
+		 *            isMerger && type == mixed
+		 * @param upc
+		 *            units per minute
+		 * @param upm
+		 *            units per mms
+		 * @param ups
+		 *            units per sms
+		 * @return {@link PlanStatus}
+		 */
+		public static PlanStatus get(final ContentResolver cr,
+				final String where, final boolean mixedMerger, final long upc,
+				final long upm, final long ups) {
+
+			final Cursor c = cr.query(DataProvider.Logs.SUM_URI,
+					DataProvider.Logs.PROJECTION_SUM, where, null, null);
+			if (c == null || !c.moveToFirst()) {
+				if (c != null && !c.isClosed()) {
+					c.close();
+				}
+				return null;
+			}
+			final PlanStatus ret = new PlanStatus();
+			ret.id = c.getLong(DataProvider.Logs.INDEX_SUM_PLAN_ID);
+			do {
+				ret.cost += c.getFloat(DataProvider.Logs.INDEX_SUM_COST);
+				float ba = c.getFloat(DataProvider.Logs.// .
+						INDEX_SUM_BILL_AMOUNT);
+				if (mixedMerger) {
+					final int t = c.getInt(// .
+							DataProvider.Logs.INDEX_SUM_PLAN_TYPE);
+					switch (t) {
+					case DataProvider.TYPE_CALL:
+						ba = ba * upc / CallMeter.SECONDS_MINUTE;
+						break;
+					case DataProvider.TYPE_MMS:
+						ba *= upm;
+						break;
+					case DataProvider.TYPE_SMS:
+						ba *= ups;
+						break;
+					default:
+						break;
+					}
+				}
+				ret.billedAmount += ba;
+				ret.count += c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
+			} while (c.moveToNext());
+
+			if (!c.isClosed()) {
+				c.close();
+			}
+			return ret;
+		}
+	}
+
+	/**
 	 * Adapter binding plans to View.
 	 * 
 	 * @author flx
@@ -481,65 +559,35 @@ public class Plans extends ListActivity implements OnClickListener,
 				w = DbUtils.sqlAnd(w, this.where);
 				Log.d(TAG, "where: " + w);
 
-				float cost = 0f;
-				float billedAmount = 0f;
-				int count = 0;
-				float todayBilledAmount = 0f;
-				int todayCount = 0;
-				float allBilledAmount = 0f;
-				int allCount = 0;
+				final ContentResolver cr = this.ctx.getContentResolver();
 
-				Cursor c = this.ctx.getContentResolver().query(
-						DataProvider.Logs.SUM_URI,
-						DataProvider.Logs.PROJECTION_SUM, w, null, null);
-				if (c == null || !c.moveToFirst()) {
+				PlanStatus thisBP = PlanStatus.get(cr, w, this.isMerger
+						&& this.type == DataProvider.TYPE_MIXED, this.upc,
+						this.upm, this.ups);
+				PlanStatus today = null;
+				PlanStatus allTime = null;
+
+				if (thisBP == null) {
 					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, 0);
+					thisBP = new PlanStatus();
 				} else {
-					do {
-						cost += c.getFloat(DataProvider.Logs.INDEX_SUM_COST);
-						float ba = c.getFloat(DataProvider.Logs.// .
-								INDEX_SUM_BILL_AMOUNT);
-						if (this.isMerger
-								&& this.type == DataProvider.TYPE_MIXED) {
-							final int t = c
-									.getInt(DataProvider.Logs.INDEX_SUM_TYPE);
-							switch (t) {
-							case DataProvider.TYPE_CALL:
-								ba = ba * this.upc / CallMeter.SECONDS_MINUTE;
-								break;
-							case DataProvider.TYPE_MMS:
-								ba *= this.upm;
-								break;
-							case DataProvider.TYPE_SMS:
-								ba *= this.ups;
-								break;
-							default:
-								break;
-							}
-						}
-						billedAmount += ba;
-						count += c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
-					} while (c.moveToNext());
-
 					Log.d(TAG, "plan: " + this.id);
-					Log.d(TAG, "count: " + count);
-					Log.d(TAG, "cost: " + cost);
-					Log.d(TAG, "billedAmount: " + billedAmount);
+					Log.d(TAG, "count: " + thisBP.count);
+					Log.d(TAG, "cost: " + thisBP.cost);
+					Log.d(TAG, "billedAmount: " + thisBP.billedAmount);
 
 					u = DataProvider.Plans.getUsed(this.type, this.limittype,
-							billedAmount, cost);
+							thisBP.billedAmount, thisBP.cost);
 
 					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, u);
 					this.used = (float) u / this.limit;
-				}
-				if (c != null && !c.isClosed()) {
-					c.close();
-				}
-				if (this.ppid >= 0L) {
-					cost = 0F;
+
+					if (this.ppid >= 0L) {
+						thisBP.cost = 0f;
+					}
 				}
 
-				// get all time
+				// get today
 				if (showToday) {
 					Calendar cal = null;
 					if (lnow != null) {
@@ -554,112 +602,57 @@ public class Plans extends ListActivity implements OnClickListener,
 					cal.set(Calendar.MILLISECOND, 0);
 					w = DbUtils.sqlAnd(this.where, DataProvider.Logs.DATE
 							+ " > " + cal.getTimeInMillis());
-					c = this.ctx.getContentResolver().query(
-							DataProvider.Logs.SUM_URI,
-							DataProvider.Logs.PROJECTION_SUM, w, null, null);
-					if (c != null && c.moveToFirst()) {
-						do {
-							float ba = c.getFloat(DataProvider.Logs.// .
-									INDEX_SUM_BILL_AMOUNT);
-							if (this.isMerger
-									&& this.type == DataProvider.TYPE_MIXED) {
-								final int t = c.getInt(// .
-										DataProvider.Logs.INDEX_SUM_TYPE);
-								switch (t) {
-								case DataProvider.TYPE_CALL:
-									ba = ba * this.upc
-											/ CallMeter.SECONDS_MINUTE;
-									break;
-								case DataProvider.TYPE_MMS:
-									ba *= this.upm;
-									break;
-								case DataProvider.TYPE_SMS:
-									ba *= this.ups;
-									break;
-								default:
-									break;
-								}
-							}
-							todayBilledAmount += ba;
-							todayCount += c
-									.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
-						} while (c.moveToNext());
-					}
-					if (c != null && !c.isClosed()) {
-						c.close();
+					today = PlanStatus.get(cr, w, this.isMerger
+							&& this.type == DataProvider.TYPE_MIXED, this.upc,
+							this.upm, this.ups);
+					if (today == null) {
+						today = new PlanStatus();
 					}
 				} else {
-					todayBilledAmount = -1;
-					todayCount = -1;
+					today = new PlanStatus();
+					today.billedAmount = -1f;
+					today.count = -1;
 				}
 
 				// get all time
 				if (showTotal) {
-					c = this.ctx.getContentResolver().query(
-							DataProvider.Logs.SUM_URI,
-							DataProvider.Logs.PROJECTION_SUM, this.where, null,
-							null);
-					if (c != null && c.moveToFirst()) {
-						do {
-							float ba = c.getFloat(DataProvider.Logs.// .
-									INDEX_SUM_BILL_AMOUNT);
-							if (this.isMerger
-									&& this.type == DataProvider.TYPE_MIXED) {
-								final int t = c.getInt(// .
-										DataProvider.Logs.INDEX_SUM_TYPE);
-								switch (t) {
-								case DataProvider.TYPE_CALL:
-									ba = ba * this.upc
-											/ CallMeter.SECONDS_MINUTE;
-									break;
-								case DataProvider.TYPE_MMS:
-									ba *= this.upm;
-									break;
-								case DataProvider.TYPE_SMS:
-									ba *= this.ups;
-									break;
-								default:
-									break;
-								}
-							}
-							allBilledAmount += ba;
-							allCount += c
-									.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
-						} while (c.moveToNext());
-					}
-					if (c != null && !c.isClosed()) {
-						c.close();
+					allTime = PlanStatus.get(cr, this.where,
+							this.isMerger
+									&& this.type == DataProvider.TYPE_MIXED,
+							this.upc, this.upm, this.ups);
+					if (allTime == null) {
+						allTime = new PlanStatus();
 					}
 				} else {
-					allBilledAmount = -1;
-					allCount = -1;
+					allTime = new PlanStatus();
+					allTime.billedAmount = -1f;
+					allTime.count = -1;
 				}
 
 				// cost per plan
 				float free = 0;
-				if (cost > 0 && this.limittype == // .
+				if (thisBP.cost > 0 && this.limittype == // .
 						DataProvider.LIMIT_TYPE_COST) {
 					final float lmt = this.limit / CallMeter.HUNDRET;
-					if (cost <= lmt) {
-						free = cost;
-						cost = 0;
+					if (thisBP.cost <= lmt) {
+						free = thisBP.cost;
+						thisBP.cost = 0;
 					} else {
 						free = lmt;
-						cost -= lmt;
+						thisBP.cost -= lmt;
 					}
 				}
 				if (this.cpp > 0) {
-					if (cost <= 0) {
-						cost = this.cpp;
+					if (thisBP.cost <= 0) {
+						thisBP.cost = this.cpp;
 					} else {
-						cost += this.cpp;
+						thisBP.cost += this.cpp;
 					}
 				}
 
-				cv.put(DataProvider.Plans.CACHE_COST, cost + free);
-				final String ccs = getString(this, u, count, billedAmount,
-						cost, free, todayBilledAmount, todayCount,
-						allBilledAmount, allCount, pShowHours);
+				cv.put(DataProvider.Plans.CACHE_COST, thisBP.cost + free);
+				final String ccs = getString(this, u, thisBP, free, today,
+						allTime, pShowHours);
 				if (!ccs.equals(this.currentCacheString)) {
 					this.currentCacheString = ccs;
 					cv.put(DataProvider.Plans.CACHE_STRING, ccs);
@@ -966,39 +959,30 @@ public class Plans extends ListActivity implements OnClickListener,
 		 *            {@link Plan}
 		 * @param used
 		 *            used limit
-		 * @param count
-		 *            count
-		 * @param amount
-		 *            billed amount
-		 * @param cost
-		 *            cost
+		 * @param thisBP
+		 *            {@link PlanStatus} for this bill period
 		 * @param free
 		 *            cost not actual billed
-		 * @param todayAmount
-		 *            billed amount today
-		 * @param todayCount
-		 *            count all time
-		 * @param allAmount
-		 *            billed amount today
-		 * @param allCount
-		 *            count all time
+		 * @param today
+		 *            {@link PlanStatus} for today
+		 * @param allTime
+		 *            {@link PlanStatus} for all time
 		 * @param showHours
 		 *            show hours
 		 * @return {@link String} holding all the data
 		 */
 		private static String getString(final Plan p, final int used,
-				final long count, final float amount, final float cost,
-				final float free, final float todayAmount,
-				final long todayCount, final float allAmount,
-				final long allCount, final boolean showHours) {
+				final PlanStatus thisBP, final float free,
+				final PlanStatus today, final PlanStatus allTime,
+				final boolean showHours) {
 			final StringBuilder ret = new StringBuilder();
 
 			if (showToday) {
 				// amount today
-				ret.append(formatAmount(p.type, todayAmount, showHours));
+				ret.append(formatAmount(p.type, today.billedAmount, showHours));
 				// count today
 				if (p.type == DataProvider.TYPE_CALL) {
-					ret.append(" (" + todayCount + ")");
+					ret.append(" (" + today.count + ")");
 				}
 
 				ret.append(delimiter);
@@ -1016,10 +1000,10 @@ public class Plans extends ListActivity implements OnClickListener,
 			}
 
 			// amount
-			ret.append(formatAmount(p.type, amount, showHours));
+			ret.append(formatAmount(p.type, thisBP.billedAmount, showHours));
 			// count
 			if (p.type == DataProvider.TYPE_CALL) {
-				ret.append(" (" + count + ")");
+				ret.append(" (" + thisBP.count + ")");
 			}
 
 			if (showToday || showTotal) {
@@ -1030,26 +1014,28 @@ public class Plans extends ListActivity implements OnClickListener,
 				ret.append(delimiter);
 
 				// amount all time
-				ret.append(formatAmount(p.type, allAmount, showHours));
+				ret
+						.append(formatAmount(p.type, allTime.billedAmount,
+								showHours));
 				// count all time
 				if (p.type == DataProvider.TYPE_CALL) {
-					ret.append(" (" + allCount + ")");
+					ret.append(" (" + allTime.count + ")");
 				}
 			}
 
 			// cost
-			if (cost > 0 || free > 0) {
+			if (thisBP.cost > 0 || free > 0) {
 				ret.append("\n");
 				if (free > 0) {
 					ret.append("(");
 					ret.append(String.format(currencyFormat, free));
 					ret.append(")");
-					if (cost > 0) {
+					if (thisBP.cost > 0) {
 						ret.append(" + ");
 					}
 				}
-				if (cost > 0) {
-					ret.append(String.format(currencyFormat, cost));
+				if (thisBP.cost > 0) {
+					ret.append(String.format(currencyFormat, thisBP.cost));
 				}
 			}
 			return ret.toString();

@@ -872,7 +872,8 @@ public final class RuleMatcher {
 			this.billedCost += cost;
 			final Plan pp = this.parent;
 			if (pp != null) {
-				if (pp.type == DataProvider.TYPE_MIXED) {
+				if (this.type != DataProvider.TYPE_MIXED
+						&& pp.type == DataProvider.TYPE_MIXED) {
 					switch (t) {
 					case DataProvider.TYPE_CALL:
 						pp.billedAmount += amount * pp.upc
@@ -964,8 +965,9 @@ public final class RuleMatcher {
 				cpa2 = this.costPerAmount2;
 			}
 			final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
+			final int pt = this.type;
 
-			if (t == DataProvider.TYPE_SMS) {
+			if (t == DataProvider.TYPE_SMS || pt == DataProvider.TYPE_MIXED) {
 				ret += cpi * bAmount;
 			} else {
 				ret += cpi;
@@ -974,17 +976,18 @@ public final class RuleMatcher {
 			switch (t) {
 			case DataProvider.TYPE_CALL:
 				if (bAmount <= this.billModeFirstLength) {
-					ret += (cpa1 * bAmount) / CallMeter.SECONDS_MINUTE;
+					ret += cpa1 * bAmount / CallMeter.SECONDS_MINUTE;
 				} else {
-					ret += (cpa1 * this.billModeFirstLength)
+					ret += cpa1 * this.billModeFirstLength
 							/ CallMeter.SECONDS_MINUTE;
-					ret += (cpa2 * (bAmount - // .
-							this.billModeFirstLength))
+					ret += cpa2
+							* (bAmount - // .
+							this.billModeFirstLength)
 							/ CallMeter.SECONDS_MINUTE;
 				}
 				break;
 			case DataProvider.TYPE_DATA:
-				ret += (cpa1 * bAmount) / CallMeter.BYTE_MB;
+				ret += cpa1 * bAmount / CallMeter.BYTE_MB;
 				break;
 			default:
 				break;
