@@ -261,18 +261,18 @@
   <string formatted="false" name="alerts_100_hint">Notify if a plan passes 100% of it\'s limit.</string>
   <string formatted="false" name="widget_config_">Widget config</string>
   <string-array name="weekdays_all">
-    <item>All week</item>
-    <item>Monday</item>
-    <item>Tuesday</item>
-    <item>Wednesday</item>
-    <item>Thursday</item>
-    <item>Friday</item>
-    <item>Saturday</item>
-    <item>Sunday</item>
-    <item>Monday - Friday</item>
+    <item>Hele uken</item>
+    <item>Mandag</item>
+    <item>Tirsdag</item>
+    <item>Onsdag</item>
+    <item>Torsdag</item>
+    <item>Fredag</item>
+    <item>Lørdag</item>
+    <item>Søndag</item>
+    <item>Mandag - fredag</item>
   </string-array>
   <string-array name="hours_all">
-    <item>All day</item>
+    <item>Hele dagen</item>
     <item>0:00 - 0:59</item>
     <item>1:00 - 1:59</item>
     <item>2:00 - 2:59</item>
@@ -365,7 +365,7 @@
     <item>60/15</item>
     <item>60/30</item>
     <item>60/60</item>
-    <item>Custom</item>
+    <item>Egendefinert</item>
   </string-array>
   <string-array name="direction_calls">
     <item>in</item>

@@ -108,7 +108,7 @@
   <string formatted="false" name="autohide_in_">Auto hide dialog in: %ds</string>
   <string formatted="false" name="logs">Logs</string>
   <string formatted="false" name="show_logs">Show logs</string>
-  <string formatted="false" name="plans">Plans</string>
+  <string formatted="false" name="plans">Paušály</string>
   <string formatted="false" name="plans_hint">Set your plans for all kind of billing here.</string>
   <string formatted="false" name="plans_new">New plan</string>
   <string formatted="false" name="rule_">Rule</string>
@@ -136,7 +136,7 @@
   <string formatted="false" name="new_hourgroup">New hour group</string>
   <string formatted="false" name="add_hour">Add hour</string>
   <string formatted="false" name="empty_group">Empty groups won\'t match anything. Please go back and add at least one item.</string>
-  <string formatted="false" name="calls">Calls</string>
+  <string formatted="false" name="calls">Hovory</string>
   <string formatted="false" name="sms">SMS</string>
   <string formatted="false" name="mms">MMS</string>
   <string formatted="false" name="data">Dáta</string>
@@ -323,7 +323,7 @@
     <item>Data</item>
   </string-array>
   <string-array name="rules_type">
-    <item>Calls</item>
+    <item>Hovory</item>
     <item>SMS</item>
     <item>MMS</item>
     <item>Data</item>

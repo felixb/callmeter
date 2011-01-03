@@ -346,7 +346,7 @@
     <item>Fünf Monate</item>
     <item>Sechs Monate</item>
     <item>Ein Jahr</item>
-    <item>Unendlich</item>
+    <item>Unbegrenzt</item>
   </string-array>
   <string-array name="billmodes">
     <item>1/1</item>
@@ -362,6 +362,7 @@
     <item>60/1</item>
     <item>60/6</item>
     <item>60/10</item>
+    <item>60/15</item>
     <item>60/30</item>
     <item>60/60</item>
     <item>Benutzerdefiniert</item>

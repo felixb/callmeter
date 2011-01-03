@@ -269,7 +269,7 @@
     <item>Vrijdag</item>
     <item>Zaterdag</item>
     <item>Zondag</item>
-    <item>Monday - Friday</item>
+    <item>Maandag - vrijdag</item>
   </string-array>
   <string-array name="hours_all">
     <item>Hele dag</item>
