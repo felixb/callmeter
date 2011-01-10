@@ -126,6 +126,12 @@
 			</intent-filter>
 		</activity>
 		<!-- The application's publisher ID assigned by AdMob -->
+		<receiver android:name="com.admob.android.ads.analytics.InstallReceiver"
+			android:exported="true">
+			<intent-filter>
+				<action android:name="com.android.vending.INSTALL_REFERRER" />
+			</intent-filter>
+		</receiver>
 		<meta-data android:value="a14c185ce8841c6" android:name="ADMOB_PUBLISHER_ID" />
 		<meta-data android:value="true" android:name="ADMOB_ALLOW_LOCATION_FOR_ADS" />
 	</application>
