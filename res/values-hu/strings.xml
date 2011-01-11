@@ -18,25 +18,25 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-  <string formatted="false" name="changelog_notification_">Recent changes:</string>
-  <string formatted="false" name="changelog_notification_text">Click here to show recent changes of</string>
-  <string formatted="false" name="never_show_again">Never show changelog again</string>
-  <string formatted="false" name="notes_from_developer_">Notes from developer</string>
-  <string formatted="false" name="notes_from_developer_text">Click here to show recent news from the developer</string>
+  <string formatted="false" name="changelog_notification_">Legfrissebb változások:</string>
+  <string formatted="false" name="changelog_notification_text">Ide kattintva a program újdonságairól és változásairól tájékozódhatsz.</string>
+  <string formatted="false" name="never_show_again">A változások naplójának elrejtése ezen túl</string>
+  <string formatted="false" name="notes_from_developer_">Fejlesztő üzenetei</string>
+  <string formatted="false" name="notes_from_developer_text">Kattints ide, hogy megnyisd a legfrissebb híreket a fejlesztőtől.</string>
   <string formatted="false" name="about0_">Kövesd nyomon a hívás-, SMS-, és adatforgalmadat!</string>
   <string formatted="false" name="about0">A Call Meter NG statisztikát készít a hívás-, SMS-, és adatforgalomból. Mindezt többféle számlázási mód támogatásával.</string>
   <string formatted="false" name="about1">A kimeneti formátum a következő: felhasznált mennyiség százalékosan / hívásidő, SMS-, vagy adatmennyiség az aktuális számlázási időszakra / összesített hívásidő, SMS-, vagy adatmennyiség. A havi számítás figyelembe veszi a számlázási módot, míg az összegzett nem.</string>
   <string formatted="false" name="about2">A számlázási mód az első / azt követő számlázott híváshosszt határozza meg. Pl.: A 60/10 azt jelenti, hogy minden hívás 60 másodpercig számlázott, az ennél hosszabb hívások 10 másodperces pontosságra lesznek felfelé kerekítve. Tehát a 60/60: perc alapú számlázást, 1/1: másodperc alapú számlázást jelent.</string>
   <string formatted="false" name="about3">A Call Meter NG alkalmazás 30 percenként fut le a háttérben, kivéve standby állapotban. Ez azt jelenti, hogy a 30 percnél régebbi hívások vagy SMS üzenetek törlése a statisztikát nem befolyásolja. Azonban a 30 percen belül történt hívások és SMS-ek törlése hibás adatokat eredményezhet.</string>
   <string formatted="false" name="send_">Küldés</string>
-  <string formatted="false" name="add_">Add</string>
+  <string formatted="false" name="add_">Hozzáadás</string>
   <string formatted="false" name="add_log">Naplóba bejegyzés hozzáadása</string>
   <string formatted="false" name="length_hint_call">Hossz másodpercben</string>
   <string formatted="false" name="length_hint_data">Adatforgalom kilobyte-ban</string>
   <string formatted="false" name="settings">Beállítások</string>
   <string formatted="false" name="update_interval_">Frissítés gyakorisága</string>
   <string formatted="false" name="update_interval_hint">A rövidebb frissítési idő jobban meríti az akkumulátort.</string>
-  <string formatted="false" name="date_begin_">Beginning of records</string>
+  <string formatted="false" name="date_begin_">Mérés kezdete</string>
   <string formatted="false" name="date_begin_hint">E dátum előtti naplók figyelmen kívül lesznek hagyva.</string>
   <string formatted="false" name="delete_old_logs_">Törli az ennél régebbi naplókat</string>
   <string formatted="false" name="delete_old_logs_help">Törli az x napnál régebbi naplókat a belső adatbázisból.</string>
@@ -61,8 +61,8 @@
   <string formatted="false" name="textsize_hint">Szöveg mérete pixelekben; hagyd üresen az alapértelmezés használatához</string>
   <string formatted="false" name="textsize_title_">Cím betűmérete</string>
   <string formatted="false" name="textsize_title_hint">A cím betűmérete pixelben; hagyd üresen az alapértelmezés használatához</string>
-  <string formatted="false" name="textsize_bigtitle_">Nagy cím betűmérete</string>
-  <string formatted="false" name="textsize_bigtitle_hint">A nagy címek betűmérete pixelben; hagyd üresen az alapértelmezés használatához</string>
+  <string formatted="false" name="textsize_bigtitle_">Főcím betűmérete</string>
+  <string formatted="false" name="textsize_bigtitle_hint">A címek betűmérete pixelben; hagyd üresen az alapértelmezés használatához</string>
   <string formatted="false" name="textsize_spacer_">Elválasztó mérete</string>
   <string formatted="false" name="textsize_spacer_hint">Elválasztó mérete pixelben; hagyd üresen az alapértelmezés használatához</string>
   <string formatted="false" name="textsize_pbar_">Folyamatjelző mérete</string>
@@ -71,13 +71,13 @@
   <string formatted="false" name="textsize_pbarbp_hint">Számlázási időszak folyamatjelzőjének mérete pixelben; hagyd üresen az alapértelmezés használatához</string>
   <string formatted="false" name="show_today_">Mai nap</string>
   <string formatted="false" name="show_today_hint">Megjeleníti a mai nap statisztikáit</string>
-  <string formatted="false" name="show_total_">Összes</string>
+  <string formatted="false" name="show_total_">Összes statisztika</string>
   <string formatted="false" name="show_total_hint">Az összes statisztikát mutatja, kapcsold ki ha csak az aktuálisra vagy kíváncsi.</string>
   <string formatted="false" name="show_time_">Ugrás dátumra</string>
   <string formatted="false" name="show_titlebar_">Címsor megjelenítése</string>
   <string formatted="false" name="show_titlebar_hint">Címsor mutatása a fő nézetben. Címsor nélkül nem látszódnak a háttérben futó programok.</string>
-  <string formatted="false" name="show_hours_">Show hours</string>
-  <string formatted="false" name="show_hours_hint">Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.</string>
+  <string formatted="false" name="show_hours_">Órák mutatása</string>
+  <string formatted="false" name="show_hours_hint">Az időt másodpercekben, percekben, órákban és napokban mutatja.\nHa nincs bepipálva, akkor csak a másodperceket és perceket mutatja!</string>
   <string formatted="false" name="show_help_">Súgó megjelenítése</string>
   <string formatted="false" name="show_help_hint">Súgó megjelenítése a Tarifák/Szabályok beállításában.</string>
   <string formatted="false" name="show_shortname_">Rövid név használata hosszú helyett.</string>
@@ -91,84 +91,84 @@
   <string formatted="false" name="hide_nocost_hint">Azok tarifák elrejtése, amelyek díjmentesek.</string>
   <string formatted="false" name="hide_progressbars_">Folyamatjelzők elrejtése</string>
   <string formatted="false" name="hide_progressbars_hint">A fő nézetben elrejti a folyamatjelző csíkokat.</string>
-  <string formatted="false" name="custom_currency_symbol_">Egyedi valuta jele</string>
-  <string formatted="false" name="custom_currency_symbol_hint">Itt adhatsz meg egyedi számlázási pénznemet, hagyd üresen az alapértelmezés használatához.</string>
-  <string formatted="false" name="custom_currency_format_">Custom currency format</string>
-  <string formatted="false" name="custom_currency_format_hint">Select a custom currency format.</string>
-  <string formatted="false" name="custom_date_format_">Custom date format</string>
-  <string formatted="false" name="custom_date_format_hint">Select a custom date format.</string>
-  <string formatted="false" name="custom_delimiter_">Custom delimiter</string>
-  <string formatted="false" name="custom_delimiter_hint">Set a custom delimiter separating the blocks of statistics.</string>
-  <string formatted="false" name="ask_for_plan_">Ask for plan</string>
-  <string formatted="false" name="ask_for_plan_hint">Ask for plan for unmatched calls after hanging up.</string>
-  <string formatted="false" name="autohide_">Auto hide</string>
-  <string formatted="false" name="autohide_hint">Hide dialog after .. seconds. Leave empty to deactivate auto hide.</string>
-  <string formatted="false" name="select_plan_">Select a plan</string>
-  <string formatted="false" name="set_selected_as_default_">Set selected plan as default</string>
-  <string formatted="false" name="autohide_in_">Auto hide dialog in: %ds</string>
-  <string formatted="false" name="logs">Logs</string>
-  <string formatted="false" name="show_logs">Show logs</string>
+  <string formatted="false" name="custom_currency_symbol_">Saját valuta jele</string>
+  <string formatted="false" name="custom_currency_symbol_hint">Itt adhatsz meg számlázási pénznemet, hagyd üresen az alapértelmezés használatához.</string>
+  <string formatted="false" name="custom_currency_format_">Pénznem formátuma</string>
+  <string formatted="false" name="custom_currency_format_hint">Itt adhatod meg, hogy a pénznem milyen formátumban jelenjen meg.</string>
+  <string formatted="false" name="custom_date_format_">Dátumformátum</string>
+  <string formatted="false" name="custom_date_format_hint">Itt választhatsz dátumformátumot.</string>
+  <string formatted="false" name="custom_delimiter_">Egyéni elválasztó</string>
+  <string formatted="false" name="custom_delimiter_hint">Saját statisztikák közötti Elválasztót adhatsz meg itt.</string>
+  <string formatted="false" name="ask_for_plan_">Tarifa kiválasztásának kérése</string>
+  <string formatted="false" name="ask_for_plan_hint">Hívás után Tarifa kiválasztása, ha egyik Tarifába se illett bele a hívás.</string>
+  <string formatted="false" name="autohide_">Automatikus elrejtés</string>
+  <string formatted="false" name="autohide_hint">Párbeszédablak elrejtése ennyi másodperc után. Üresen hagyva kikapcsolod az automata elrejtést.</string>
+  <string formatted="false" name="select_plan_">Válassz egy Tarifát</string>
+  <string formatted="false" name="set_selected_as_default_">Kiválasztott Tarifa alapértelmezetté tétele</string>
+  <string formatted="false" name="autohide_in_">Párbeszéd automatikus elrejtése %d másodpercen belül</string>
+  <string formatted="false" name="logs">Naplók</string>
+  <string formatted="false" name="show_logs">Naplók megjelenítése</string>
   <string formatted="false" name="plans">Díjcsomagok, tarifák</string>
-  <string formatted="false" name="plans_hint">Set your plans for all kind of billing here.</string>
-  <string formatted="false" name="plans_new">New plan</string>
-  <string formatted="false" name="rule_">Rule</string>
-  <string formatted="false" name="rules">Rules</string>
-  <string formatted="false" name="rules_hint">Set your billing rules here.</string>
-  <string formatted="false" name="rules_new">New Rule</string>
-  <string formatted="false" name="length_">Length</string>
-  <string formatted="false" name="remote_">Remote number</string>
-  <string formatted="false" name="numbergroups_edit_">Number groups</string>
-  <string formatted="false" name="numbergroups_edit_hint">Edit number groups here.</string>
-  <string formatted="false" name="hourgroups_edit_">Hour groups</string>
-  <string formatted="false" name="hourgroups_edit_hint">Edit hour groups here.</string>
-  <string formatted="false" name="numbers">Numbers</string>
-  <string formatted="false" name="numbergroup_">Include numbers</string>
-  <string formatted="false" name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string>
-  <string formatted="false" name="exnumbergroup_">Exclude numbers</string>
-  <string formatted="false" name="exnumbergroup_help">Add some numbers this rule must not match.\nSee above.</string>
-  <string formatted="false" name="new_numbergroup">New number group</string>
-  <string formatted="false" name="add_number">Add number</string>
-  <string formatted="false" name="hours">Hours</string>
-  <string formatted="false" name="hourgroup_">Include hours</string>
-  <string formatted="false" name="hourgroup_help">Add some hours this rule must match.</string>
-  <string formatted="false" name="exhourgroup_">Exclude hours</string>
-  <string formatted="false" name="exhourgroup_help">Add some hours this rule must not match.</string>
-  <string formatted="false" name="new_hourgroup">New hour group</string>
-  <string formatted="false" name="add_hour">Add hour</string>
-  <string formatted="false" name="empty_group">Empty groups won\'t match anything. Please go back and add at least one item.</string>
+  <string formatted="false" name="plans_hint">Itt állíthatsz be Tarifákat.</string>
+  <string formatted="false" name="plans_new">Új Tarifa</string>
+  <string formatted="false" name="rule_">Szabály</string>
+  <string formatted="false" name="rules">Szabályok</string>
+  <string formatted="false" name="rules_hint">Itt állíthatod be a tarifák szabályait.</string>
+  <string formatted="false" name="rules_new">Új szabály</string>
+  <string formatted="false" name="length_">Hossz</string>
+  <string formatted="false" name="remote_">Távoli szám</string>
+  <string formatted="false" name="numbergroups_edit_">Számcsoportok</string>
+  <string formatted="false" name="numbergroups_edit_hint">A Számcsoportokat itt lehet szerkeszteni.</string>
+  <string formatted="false" name="hourgroups_edit_">Időtartamok</string>
+  <string formatted="false" name="hourgroups_edit_hint">Az Időtartamokat itt lehet szerkeszteni.</string>
+  <string formatted="false" name="numbers">Számok</string>
+  <string formatted="false" name="numbergroup_">Tartalmazott számok</string>
+  <string formatted="false" name="numbergroup_help">Adj hozzá számokat, amikre a szabály vonatkozik.\n\nHelyettesítő (\"%\") karakter használható a számok elején és végén. %34 esetén 1234-re vonatkozni fog, 12% esetén is,  %23% esetén is. </string>
+  <string formatted="false" name="exnumbergroup_">Kizárt számok</string>
+  <string formatted="false" name="exnumbergroup_help">Adj hozzá számokat, amikre a szabály nem vonatkozik.</string>
+  <string formatted="false" name="new_numbergroup">Új számcsoport</string>
+  <string formatted="false" name="add_number">Szám hozzáadása</string>
+  <string formatted="false" name="hours">Órák</string>
+  <string formatted="false" name="hourgroup_">Vonatkozó időtartam</string>
+  <string formatted="false" name="hourgroup_help">Adj hozzá egy időtartamot, amire a szabály vonatkozik.</string>
+  <string formatted="false" name="exhourgroup_">Kizárt órák</string>
+  <string formatted="false" name="exhourgroup_help">Adj hozzá egy időtartamot, amire a szabály nem vonatkozik.</string>
+  <string formatted="false" name="new_hourgroup">Időtartam hozzáadása</string>
+  <string formatted="false" name="add_hour">Órák hozzáadása</string>
+  <string formatted="false" name="empty_group">Van üres csoport. Legalább egy elemet adj hozzá az üres csoport(ok)hoz.</string>
   <string formatted="false" name="calls">Hívások</string>
   <string formatted="false" name="sms">SMS</string>
   <string formatted="false" name="mms">MMS</string>
   <string formatted="false" name="data">Adatforgalom</string>
-  <string formatted="false" name="prepaid_">Prepaid plan</string>
-  <string formatted="false" name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string>
-  <string formatted="false" name="balance_">Balance</string>
-  <string formatted="false" name="balance_help">Balance of your account at this given date.</string>
-  <string formatted="false" name="strip_leading_zeros_">Strip leading zeros</string>
-  <string formatted="false" name="strip_leading_zeros_hint">Strip leading zeros when comparing numbers.</string>
-  <string formatted="false" name="number_prefix_">International prefix</string>
-  <string formatted="false" name="number_prefix_hint">Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..</string>
+  <string formatted="false" name="prepaid_">Kártyás előfizetés</string>
+  <string formatted="false" name="prepaid_hint">Feltöltőkártyás (előre fizetett) előfizetés. A költségeket az egyenlegedből kerülnek levonásra.</string>
+  <string formatted="false" name="balance_">Egyenleg</string>
+  <string formatted="false" name="balance_help">Számlád egyenlege az adott napon.</string>
+  <string formatted="false" name="strip_leading_zeros_">Kezdő nullák levásása</string>
+  <string formatted="false" name="strip_leading_zeros_hint">Szám eleji nullák levágása számok összehasonlításakor.</string>
+  <string formatted="false" name="number_prefix_">Nemzetközi előhívó</string>
+  <string formatted="false" name="number_prefix_hint">A nemzetközi előhívód formája ilyesmi: +36 vagy +49. Az ilyesmi esetekben szükséges: 0620xxx és +3620xxx.</string>
   <string formatted="false" name="reset_data_">Számlálók nullázása</string>
   <string formatted="false" name="reset_data_hint">A hívások és SMS-ek nullázása a statisztikák újraszámolását vonja maguk után.\n\nAz adatforgalmi mérők nullázása nem vonható vissza. Csak a telefon bekapcsolása (bootolása) előtti forgalmat nullázza!</string>
   <string formatted="false" name="reset_data_data_">Adatforgalmi számlálók is legyenek nullázva</string>
-  <string formatted="false" name="reset_data_progr1">Recalculating statistics ...\n\n(This may take some time!)</string>
-  <string formatted="false" name="reset_data_progr2">Recalculating statistics ...</string>
+  <string formatted="false" name="reset_data_progr1">Statisztikák újraszámolása...\n\n(Egy kis időt igénybe vehet!)</string>
+  <string formatted="false" name="reset_data_progr2">Statisztikák újraszámolása</string>
   <string formatted="false" name="contacts_">Névjegyek</string>
-  <string formatted="false" name="clear_">Clear</string>
-  <string formatted="false" name="help_">Help</string>
-  <string formatted="false" name="new_">New</string>
-  <string formatted="false" name="edit_selected_">Edit selected</string>
-  <string formatted="false" name="edit_groups_">Edit groups</string>
-  <string formatted="false" name="name_">Name</string>
-  <string formatted="false" name="name_help">Set a name here.</string>
-  <string formatted="false" name="shortname_">Short name</string>
-  <string formatted="false" name="shortname_help">Set a short name here. It is displayed in compact layouts.</string>
+  <string formatted="false" name="clear_">Törlés</string>
+  <string formatted="false" name="help_">Súgó</string>
+  <string formatted="false" name="new_">Új</string>
+  <string formatted="false" name="edit_selected_">Kiválasztottak módosítása</string>
+  <string formatted="false" name="edit_groups_">Csoportok szerkesztése</string>
+  <string formatted="false" name="name_">Név</string>
+  <string formatted="false" name="name_help">Adj meg itt egy nevet.</string>
+  <string formatted="false" name="shortname_">Rövid név</string>
+  <string formatted="false" name="shortname_help">A rövid név itt adható meg. Kis felületeken jelenik meg.</string>
   <string formatted="false" name="type_">Típus</string>
   <string formatted="false" name="type_help">Válasszon egy típust.\n A \"Title\" módosítja a fő nézet nevét.\nA \"Spacer\" egy üres rész.\nA \"Bill period\" tartalmaz minden információt a számlázási időszakról. A legtöbb felhasználónak elég egy.\n A \"mixed\" tarifa egyszerre kezeli az üzenetek és a hívások tarifáit.\nA \"call\" tarifa csak hangívásokat kezel. \"SMS\" és \"MMS\" tarifák csak az üzeneteket kezelik.\nAz \"data\" tarifa az adatforgalommal kapcsolatos információkat tartalmazza.</string>
-  <string formatted="false" name="limit_type_">Korlát típusa</string>
-  <string formatted="false" name="limit_type_help">A korlát típusát állíthatod be itt.\nAz \"units\" korlát a hívások, üzenetek, egyebek alapján korlátoz.\nA \"cost\" korlát pedig a hívások, üzenetek és egyebek költsége alapján korlátoz.</string>
-  <string formatted="false" name="limit_">Korlát</string>
-  <string formatted="false" name="limit_help">A tarifád korlátai állíthatók be itt.\n\nAz \"units\"et percekben(hívások), üzenetek számában (sms/mms), megabyteokban (adat, 1024 kB) vagy egységekben (vegyesen) állíthatod be.\n\nA \"cost\" a fő pénznemben kell legyen beállítva (pl. Ft).</string>
+  <string formatted="false" name="limit_type_">Keret típusa</string>
+  <string formatted="false" name="limit_type_help">A keret típusát állíthatod be itt.\nAz \"Egység\" korlát a hívások, üzenetek, egyebek darabszáma alapján számol.\nA \"Költség\" korlát pedig a hívások, üzenetek és egyebek költsége alapján számol.</string>
+  <string formatted="false" name="limit_">Keret</string>
+  <string formatted="false" name="limit_help">A tarifád keretei állíthatók be itt.\n\nAz \"Egység\"et percekben(hívások), üzenetek számában (sms/mms), megabyteokban (adat, 1024 kB) vagy egységekben (vegyesen) állíthatod be.\n\nA \"Költség\" a fő pénznemben kell legyen beállítva (pl. Ft).</string>
   <string formatted="false" name="billmode_help">A hívások számlázási módját állítja be.\nAz első rész a számlázási egység; minden hívás hossza ez alapján lesz felkerekítve.\nA második rész a minimum másodpercek száma.\nKérlek olvasd el a GYIK-ot, ha további segítségre van szükséged.</string>
   <string formatted="false" name="billday_help">A számlázási forduló napját adja meg.</string>
   <string formatted="false" name="billperiodid_">Számlázási időszak</string>
@@ -192,73 +192,73 @@
   <string formatted="false" name="mixed_units_mms_">MMS díja</string>
   <string formatted="false" name="mixed_units_mms_help">Megadja, mennyit számlázzon egy MMS-ért.</string>
   <string formatted="false" name="mixed_units_call_">Percdíj</string>
-  <string formatted="false" name="mixed_units_call_help">Set the units billed for a one minute call.\nBill mode is taken into account here.</string>
+  <string formatted="false" name="mixed_units_call_help">Beállítja, hány egység kerül számlázásra egy perc hívásért.\nA számlázási mód itt kerül meghatározásra.</string>
   <string formatted="false" name="merge_plans_">Tarifák összevonása</string>
   <string formatted="false" name="merge_plans_help">Egyéb tarifák egyesítése és számlázása ide.</string>
-  <string formatted="false" name="units_cost">$</string>
+  <string formatted="false" name="units_cost">Ft</string>
   <string formatted="false" name="units_num_msg"># üzenet</string>
   <string formatted="false" name="units_minutes">Perc</string>
   <string formatted="false" name="units_mbyte">Megabájt</string>
   <string formatted="false" name="units_units">Egységek</string>
-  <string formatted="false" name="units_units_per_minute">Egységek/Perc</string>
-  <string formatted="false" name="units_units_per_message">Egységek/Üzenet</string>
-  <string formatted="false" name="units_cost_per_call">$/Hívás</string>
-  <string formatted="false" name="units_cost_per_minute">$/ Perc</string>
-  <string formatted="false" name="units_cost_per_message">$/ Üzenet</string>
-  <string formatted="false" name="units_cost_per_mbyte">$/ MByte</string>
-  <string formatted="false" name="units_cost_per_unit">$/Egység</string>
+  <string formatted="false" name="units_units_per_minute">Egység/Perc</string>
+  <string formatted="false" name="units_units_per_message">Egység/Üzenet</string>
+  <string formatted="false" name="units_cost_per_call">Ft/Hívás</string>
+  <string formatted="false" name="units_cost_per_minute">Ft/Perc</string>
+  <string formatted="false" name="units_cost_per_message">Ft/Üzenet</string>
+  <string formatted="false" name="units_cost_per_mbyte">$/MByte</string>
+  <string formatted="false" name="units_cost_per_unit">Ft/Egység</string>
   <string formatted="false" name="plan_">Tarifa</string>
-  <string formatted="false" name="plan_help">Choose the plan this rule should fit.</string>
-  <string formatted="false" name="limitnotreached_">Limit not reached</string>
-  <string formatted="false" name="limitnotreached_help">Match only if target plan has not reached it\'s limit yet.</string>
-  <string formatted="false" name="iswebsms_">Is WebSMS</string>
-  <string formatted="false" name="iswebsms_help">Üzenet elküldve WebSMS -el.</string>
-  <string formatted="false" name="iswebsms_connector_">Is WebSMS Connector</string>
-  <string formatted="false" name="iswebsms_connector_help">Sent with specific WebSMS Connector, leave empty to match any.</string>
-  <string formatted="false" name="issipcall_">Is SIP call</string>
-  <string formatted="false" name="issipcall_help">Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.</string>
-  <string formatted="false" name="strip_seconds_">Ne számlázd az első másodpercet</string>
+  <string formatted="false" name="plan_help">Válaszd ki, hogy melyik tarifára legyen alkalmazva ez a szabály!</string>
+  <string formatted="false" name="limitnotreached_">Keret nincs túllépve</string>
+  <string formatted="false" name="limitnotreached_help">Csak akkor érvényes, ha a Tarifa nem lépte túl a keretet.</string>
+  <string formatted="false" name="iswebsms_">WebSMS?</string>
+  <string formatted="false" name="iswebsms_help">Az üzenet WebSMS-sel lett elküldve.</string>
+  <string formatted="false" name="iswebsms_connector_">WebSMS Connector?</string>
+  <string formatted="false" name="iswebsms_connector_help">WebSMS Connector-ok szűrése; hagyd üresen, ha mindegyikre vonatkozik a szűrő.</string>
+  <string formatted="false" name="issipcall_">SIP hívás?</string>
+  <string formatted="false" name="issipcall_help">SIP-en keresztüli hívás esetén jelöld be. Jelenleg a sipdroid 1.6.1-es verziója felett támogatott.</string>
+  <string formatted="false" name="strip_seconds_">Ne számlázd az első másodperceket</string>
   <string formatted="false" name="strip_seconds_help">Ne számlázd a hívás első x másodpercét.</string>
-  <string formatted="false" name="what_">Cél típus</string>
+  <string formatted="false" name="what_">Cél típusa</string>
   <string formatted="false" name="what_help">Válaszd ki a cél típusát itt.</string>
   <string formatted="false" name="direction_">Irány</string>
-  <string formatted="false" name="direction_help">Choose a direction the given log has to be.</string>
-  <string formatted="false" name="roamed_">Roamed</string>
-  <string formatted="false" name="roamed_help">Choose whether the given log has to be roamed.</string>
+  <string formatted="false" name="direction_help">Válaszd ki, hogy melyik irányba menő forgalmat kell naplózni!</string>
+  <string formatted="false" name="roamed_">Költöztetés</string>
+  <string formatted="false" name="roamed_help">Válaszd ki, ha a Naplót költöztetni kell.</string>
   <string formatted="false" name="remote_hint">Távoli szám</string>
   <string formatted="false" name="no_matter_">Nem számít</string>
   <string formatted="false" name="yes">Igen</string>
   <string formatted="false" name="no">Nem</string>
   <string formatted="false" name="none">Egyik sem</string>
   <string formatted="false" name="value">Érték</string>
-  <string formatted="false" name="empty_groups_">Nyomd meg a "Hozzáadás"-t új csoport hozzáadásához.</string>
+  <string formatted="false" name="empty_groups_">Nyomd meg a "Hozzáadás"-t csoport hozzáadásához.</string>
   <string formatted="false" name="empty_group_">Nyomd meg a "Hozzáadás"-t új elem hozzáadásához a csoportba.</string>
   <string formatted="false" name="export_progr">Adatok exportálása...</string>
   <string formatted="false" name="import_progr">Adatok importálása ...</string>
-  <string formatted="false" name="export_">Export ...</string>
-  <string formatted="false" name="export_hint">Export rule sets, logs or groups</string>
+  <string formatted="false" name="export_">Exportálás</string>
+  <string formatted="false" name="export_hint">A Szabályokat, Naplókat, Hívócsoportokat és Időtartományokat exportálhatod.</string>
   <string formatted="false" name="export_rules_">Exportálási szabály</string>
-  <string formatted="false" name="export_rules_hint">Export rule set as mail.</string>
+  <string formatted="false" name="export_rules_hint">A Szabályokat levélként exportálja.</string>
   <string formatted="false" name="export_rules_descr">Leírás</string>
-  <string formatted="false" name="export_logs_">Backup logs</string>
-  <string formatted="false" name="export_logs_hint">Backup logs as mail.</string>
-  <string formatted="false" name="export_numgroups_">Export number groups</string>
-  <string formatted="false" name="export_numgroups_hint">Export number groups as mail.</string>
-  <string formatted="false" name="export_hourgroups_">Export hour groups</string>
-  <string formatted="false" name="export_hourgroups_hint">Export hour groups as mail.</string>
-  <string formatted="false" name="import_rules_">Importálási szabály</string>
-  <string formatted="false" name="import_rules_hint">Importálási szabály.</string>
-  <string formatted="false" name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.</string>
-  <string formatted="false" name="err_export_write">Hiba az exportálási fájl írása során</string>
-  <string formatted="false" name="err_export_read">Hiba az exportálási fájl olvasása során</string>
+  <string formatted="false" name="export_logs_">Naplók biztonsági mentése</string>
+  <string formatted="false" name="export_logs_hint">A naplófileokat levélként menti.</string>
+  <string formatted="false" name="export_numgroups_">Számcsoportok exportálása</string>
+  <string formatted="false" name="export_numgroups_hint">A Számcsoportokat levélként exportálja.</string>
+  <string formatted="false" name="export_hourgroups_">Időtartományok exportálása</string>
+  <string formatted="false" name="export_hourgroups_hint">Az Időtartományokat levélként exportálja.</string>
+  <string formatted="false" name="import_rules_">Szabályok importálása</string>
+  <string formatted="false" name="import_rules_hint">Tarifák szabályainak importálása.</string>
+  <string formatted="false" name="import_rules_empty">Nincsenek tarifák és szabályaik beállítva. Kattints erre a szövegre, hogy az alapértelmezett szabályokat betöltse.\n\nVagy adj hozzá magad tarifákat és szabályaikat a Beállítások menüben.</string>
+  <string formatted="false" name="err_export_write">Hiba az exportált fájl írása során</string>
+  <string formatted="false" name="err_export_read">Hiba az exportált fájl olvasása során</string>
   <string formatted="false" name="alerts_">Figyelmeztetések</string>
-  <string formatted="false" name="alerts_hint">Állítsd be figyelmeztetést a tarifa használat alapján.</string>
-  <string formatted="false" name="alerts_title">Call Meter 3G alert</string>
-  <string formatted="false" name="alerts_message">Plan %s has reached %d%% usage!</string>
-  <string formatted="false" name="alerts_80_">Notify at 80%</string>
-  <string formatted="false" name="alerts_80_hint">Notify if a plan passes 80% of it\'s limit.</string>
-  <string formatted="false" name="alerts_100_">Notify at 100%</string>
-  <string formatted="false" name="alerts_100_hint">Notify if a plan passes 100% of it\'s limit.</string>
+  <string formatted="false" name="alerts_hint">Figyelmeztetések beállítása a Tarifa használata alapján.</string>
+  <string formatted="false" name="alerts_title">Call Meter 3G figyelmeztetés</string>
+  <string formatted="false" name="alerts_message">A következő tarifa elérte a keret %d%%-át: %s</string>
+  <string formatted="false" name="alerts_80_">Értesítés 80%-nál</string>
+  <string formatted="false" name="alerts_80_hint">Értesít, ha egy tarifa átlépi a keret 80%-át.</string>
+  <string formatted="false" name="alerts_100_">Értesítés 100%-nál</string>
+  <string formatted="false" name="alerts_100_hint">Értesít, ha egy tarifa átlépi a keret 100%-át.</string>
   <string formatted="false" name="widget_config_">Widget beállítása</string>
   <string-array name="weekdays_all">
     <item>Minden hét</item>
@@ -269,7 +269,7 @@
     <item>Péntek</item>
     <item>Szombat</item>
     <item>Vasárnap</item>
-    <item>Hétfőtől- péntekig</item>
+    <item>Hétfőtől péntekig</item>
   </string-array>
   <string-array name="hours_all">
     <item>Egész nap</item>
@@ -282,21 +282,21 @@
     <item>6:00-06:59</item>
     <item>7:00-07:59</item>
     <item>8:00-08:59</item>
-    <item>9:00 - 9:59</item>
-    <item>10:00 - 10:59</item>
-    <item>11:00 - 11:59</item>
-    <item>12:00 - 12:59</item>
-    <item>13:00 - 13:59</item>
-    <item>14:00 - 14:59</item>
-    <item>15:00 - 15:59</item>
-    <item>16:00 - 16:59</item>
-    <item>17:00 - 17:59</item>
-    <item>18:00 - 18:59</item>
-    <item>19:00 - 19:59</item>
-    <item>20:00 - 20:59</item>
-    <item>21:00 - 21:59</item>
-    <item>22:00 - 22:59</item>
-    <item>23:00 - 23:59</item>
+    <item>9:00-09:59</item>
+    <item>10:00-10:59</item>
+    <item>11:00-11:59</item>
+    <item>12:00-12:59</item>
+    <item>13:00-13:59</item>
+    <item>14:00-14:59</item>
+    <item>15:00-15:59</item>
+    <item>16:00-16:59</item>
+    <item>17:00-17:59</item>
+    <item>18:00-18:59</item>
+    <item>19:00-19:59</item>
+    <item>20:00-20:59</item>
+    <item>21:00-21:59</item>
+    <item>22:00-22:59</item>
+    <item>23:00-23:59</item>
   </string-array>
   <string-array name="themes">
     <item>Fekete</item>
@@ -310,7 +310,7 @@
   </string-array>
   <string-array name="dialog_edit_delete">
     <item>Szerkesztés</item>
-    <item>Delete</item>
+    <item>Törlés</item>
   </string-array>
   <string-array name="plans_type">
     <item>Cím</item>
@@ -349,35 +349,35 @@
     <item>Korlátlan</item>
   </string-array>
   <string-array name="billmodes">
-    <item>1/1</item>
-    <item>6/6</item>
-    <item>10/10</item>
-    <item>30/1</item>
-    <item>30/6</item>
-    <item>30/10</item>
-    <item>30/30</item>
-    <item>30/60</item>
-    <item>45/1</item>
-    <item>60/0</item>
-    <item>60/1</item>
-    <item>60/6</item>
-    <item>60/10</item>
-    <item>60/15</item>
-    <item>60/30</item>
-    <item>60/60</item>
-    <item>Custom</item>
+    <item>1 / 1</item>
+    <item>6 / 6</item>
+    <item>10 / 10</item>
+    <item>30 / 1</item>
+    <item>30 / 6</item>
+    <item>30 / 10</item>
+    <item>Félperc alapú</item>
+    <item>30 / 60</item>
+    <item>45 / 1</item>
+    <item>60 / 0</item>
+    <item>60 / 1</item>
+    <item>60 / 6</item>
+    <item>60 / 10</item>
+    <item>60 / 15</item>
+    <item>60 / 30</item>
+    <item>Percalapú</item>
+    <item>Egyéni</item>
   </string-array>
   <string-array name="direction_calls">
-    <item>Be</item>
-    <item>Ki</item>
+    <item>Bejövő</item>
+    <item>Kimenő</item>
   </string-array>
   <string-array name="direction_sms">
-    <item>Be</item>
-    <item>Ki</item>
+    <item>Bejövő</item>
+    <item>Elküldött</item>
   </string-array>
   <string-array name="direction_mms">
-    <item>Be</item>
-    <item>Ki</item>
+    <item>Bejövő</item>
+    <item>Elküldött</item>
   </string-array>
   <string-array name="direction_data">
     <item>Be</item>
@@ -386,9 +386,9 @@
   <string-array name="currency_formats">
     <item>Alapértelmezett</item>
     <item>1,00 $</item>
-    <item>$1000</item>
-    <item>1.00$</item>
-    <item>1000$</item>
+    <item>Ft 1000</item>
+    <item>1,00 Ft</item>
+    <item>1000 Ft</item>
   </string-array>
   <string-array name="date_formats">
     <item>Alapértelmezett</item>
