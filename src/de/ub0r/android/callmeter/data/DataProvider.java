@@ -1042,6 +1042,33 @@ public final class DataProvider extends ContentProvider {
 			}
 			return ret;
 		}
+
+		/**
+		 * Parse the MERGED_PLANS filed to a WHERE clause matching all merged
+		 * plans.
+		 * 
+		 * @param pid
+		 *            the plan itself
+		 * @param merged
+		 *            merge plans
+		 * @return WHERE clause
+		 */
+		public static String parseMergerWhere(final long pid,
+				final String merged) {
+			final String self = DataProvider.Logs.PLAN_ID + " = " + pid;
+			if (merged == null) {
+				return self;
+			}
+			final StringBuilder sb = new StringBuilder(self);
+
+			for (String ss : merged.split(",")) {
+				if (ss.length() == 0) {
+					continue;
+				}
+				sb.append(" OR " + DataProvider.Logs.PLAN_ID + " = " + ss);
+			}
+			return sb.toString();
+		}
 	}
 
 	/**

@@ -37,6 +37,7 @@ import android.widget.RemoteViews;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.callmeter.ui.Plans.PlanStatus;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
@@ -67,6 +68,10 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	@Override
 	public void onUpdate(final Context context,
 			final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
+		Log.d(TAG, "onUpdate()");
+		// Update logs and run rule matcher
+		LogRunnerService.update(context, LogRunnerService.ACTION_RUN_MATCHER);
+
 		final int count = appWidgetIds.length;
 
 		// Perform this loop procedure for each App Widget that belongs to this
@@ -83,6 +88,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	 *            {@link Context}
 	 */
 	public static void updateWidgets(final Context context) {
+		Log.d(TAG, "updateWidgets()");
 		final AppWidgetManager appWidgetManager = AppWidgetManager
 				.getInstance(context);
 		final int[] appWidgetIds = appWidgetManager
@@ -106,7 +112,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	 */
 	static void updateWidget(final Context context,
 			final AppWidgetManager appWidgetManager, final int appWidgetId) {
-		SharedPreferences p = PreferenceManager
+		Log.d(TAG, "updateWidget(" + appWidgetId + ")");
+		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final long pid = p.getLong(WIDGET_PLANID + appWidgetId, -1L);
 		final boolean showShortname = p.getBoolean(WIDGET_SHORTNAME
@@ -115,7 +122,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		final boolean showBillPeriod = p.getBoolean(WIDGET_BILLPERIOD
 				+ appWidgetId, false);
 		Log.d(TAG, "planid: " + pid);
-		ContentResolver cr = context.getContentResolver();
+		final ContentResolver cr = context.getContentResolver();
 
 		if (pid < 0L) {
 			return;
@@ -136,7 +143,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		String billdayWhere = null;
 		Cursor cursor = cr.query(puri, DataProvider.Plans.PROJECTION, null,
 				null, null);
-		if (cursor != null && cursor.moveToFirst()) {
+		if (cursor.moveToFirst()) {
 			if (showShortname) {
 				pname = cursor.getString(DataProvider.Plans.INDEX_SHORTNAME);
 			} else {
@@ -159,8 +166,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 				where = DataProvider.Logs.PLAN_ID + " = " + pid;
 				isMerger = false;
 			} else {
-				StringBuilder sb = new StringBuilder(DataProvider.Logs.PLAN_ID
-						+ " = " + pid);
+				final StringBuilder sb = new StringBuilder(
+						DataProvider.Logs.PLAN_ID + " = " + pid);
 				for (String ss : s.split(",")) {
 					if (ss.length() == 0) {
 						continue;
@@ -173,16 +180,15 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		} else {
 			return;
 		}
-		if (cursor != null && !cursor.isClosed()) {
-			cursor.close();
-		}
+		cursor.close();
+
 		int bpos = 0;
 		int bmax = -1;
 		if (bid >= 0L) {
 			cursor = cr.query(ContentUris.withAppendedId(
 					DataProvider.Plans.CONTENT_URI, bid),
 					DataProvider.Plans.PROJECTION, null, null, null);
-			if (cursor != null && cursor.moveToFirst()) {
+			if (cursor.moveToFirst()) {
 				final int bp = cursor
 						.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
 				final long bday = cursor
@@ -209,9 +215,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 					bpos = (int) nw;
 				}
 			}
-			if (cursor != null && !cursor.isClosed()) {
-				cursor.close();
-			}
+			cursor.close();
 		}
 		Log.d(TAG, "bpos/bmax: " + bpos + "/" + bmax);
 		billdayWhere = DbUtils.sqlAnd(billdayWhere, where);
@@ -257,13 +261,13 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		Log.d(TAG, "stats: " + stats);
 
 		// Create an Intent to launch Plans
-		Intent intent = new Intent(context, Plans.class);
-		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0,
-				intent, 0);
+		final Intent intent = new Intent(context, Plans.class);
+		final PendingIntent pendingIntent = PendingIntent.getActivity(context,
+				0, intent, 0);
 
 		// Get the layout for the App Widget and attach an on-click listener
 		// to the button
-		RemoteViews views = new RemoteViews(context.getPackageName(),
+		final RemoteViews views = new RemoteViews(context.getPackageName(),
 				R.layout.stats_appwidget);
 		views.setOnClickPendingIntent(R.id.widget, pendingIntent);
 		views.setTextViewText(R.id.plan, pname);

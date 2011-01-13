@@ -426,20 +426,12 @@ public class Plans extends ListActivity implements OnClickListener,
 							.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
 					if (s == null || s.length() == 0) {
 						this.isMerger = false;
-						this.where = DataProvider.Logs.PLAN_ID + " = "
-								+ this.id;
+						this.where = DataProvider.Plans.parseMergerWhere(
+								this.id, null);
 					} else {
 						this.isMerger = true;
-						StringBuilder sb = new StringBuilder(
-								DataProvider.Logs.PLAN_ID + " = " + this.id);
-						for (String ss : s.split(",")) {
-							if (ss.length() == 0) {
-								continue;
-							}
-							sb.append(" OR " + DataProvider.Logs.PLAN_ID
-									+ " = " + ss);
-						}
-						this.where = sb.toString();
+						this.where = DataProvider.Plans.parseMergerWhere(
+								this.id, s);
 					}
 					if (this.type == DataProvider.TYPE_MIXED) {
 						this.upc = cursor.getInt(// .

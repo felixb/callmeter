@@ -55,6 +55,10 @@ public final class LogRunnerService extends IntentService {
 	/** Tag for output. */
 	private static final String TAG = "lrs";
 
+	/** Run matcher. */
+	public static final String ACTION_RUN_MATCHER = // .
+	"de.ub0r.android.callmeter.RUN_MATCHER";
+
 	/** Empty array of {@link ContentValues} to convert a list to array. */
 	private static final ContentValues[] TO_ARRAY = new ContentValues[] {};
 
@@ -104,6 +108,7 @@ public final class LogRunnerService extends IntentService {
 	 *            {@link Context}
 	 */
 	public static void update(final Context context, final String action) {
+		Log.d(TAG, "update(" + action + ")");
 		context.startService(new Intent(action, null, context,
 				LogRunnerService.class));
 	}
@@ -648,7 +653,9 @@ public final class LogRunnerService extends IntentService {
 		final boolean askForPlan = p.getBoolean(Preferences.PREFS_ASK_FOR_PLAN,
 				false);
 
-		boolean shortRun = a != null
+		final boolean runMatcher = a == ACTION_RUN_MATCHER;
+		boolean shortRun = runMatcher
+				|| a != null
 				&& (a.equals(Intent.ACTION_BOOT_COMPLETED)
 						|| a.equals(Intent.ACTION_SHUTDOWN) // .
 						|| a.equals(Intent.ACTION_REBOOT) // .
@@ -700,8 +707,8 @@ public final class LogRunnerService extends IntentService {
 				c.close();
 			}
 		}
-		updateData(this, shortRun);
-		if (!shortRun) {
+		updateData(this, shortRun && !runMatcher);
+		if (!shortRun || runMatcher) {
 			if (deleteBefore > 0L) {
 				deleteOldLogs(cr);
 			}

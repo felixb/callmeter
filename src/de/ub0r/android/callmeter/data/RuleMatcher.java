@@ -464,7 +464,10 @@ public final class RuleMatcher {
 		 * @return matched?
 		 */
 		boolean match(final ContentResolver cr, final Cursor log) {
+			Log.d(TAG, "match()");
+			Log.d(TAG, "what: " + this.what);
 			final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
+			Log.d(TAG, "type: " + t);
 			boolean ret = false;
 			switch (this.what) {
 			case DataProvider.Rules.WHAT_CALL:
@@ -543,7 +546,11 @@ public final class RuleMatcher {
 			default:
 				break;
 			}
-			if (ret && this.limitNotReached) {
+			Log.d(TAG, "ret after type: " + ret);
+			if (!ret) {
+				return false;
+			}
+			if (this.limitNotReached) {
 				final Plan p = plans.get(this.planId);
 				if (p != null) {
 					p.checkBillday(log);
@@ -553,9 +560,12 @@ public final class RuleMatcher {
 					Log.d(TAG, "limit reached: " + this.planId);
 				}
 			}
+			Log.d(TAG, "ret after limit: " + ret);
+			if (!ret) {
+				return false;
+			}
 
-			if (ret && this.roamed >= 0
-					&& this.roamed != DataProvider.Rules.NO_MATTER) {
+			if (this.roamed >= 0 && this.roamed != DataProvider.Rules.NO_MATTER) {
 				// rule.roamed=0: yes
 				// rule.roamed=1: no
 				// log.roamed=0: not roamed
@@ -563,12 +573,20 @@ public final class RuleMatcher {
 				ret = log.getInt(DataProvider.Logs.INDEX_ROAMED) // .
 				!= this.roamed;
 			}
-			if (ret && this.direction >= 0
+			Log.d(TAG, "ret after romaing: " + ret);
+			if (!ret) {
+				return false;
+			}
+			if (this.direction >= 0
 					&& this.direction != DataProvider.Rules.NO_MATTER) {
 				ret = log.getInt(DataProvider.Logs.INDEX_DIRECTION) // .
 				== this.direction;
 			}
-			if (ret && this.inhours != null) {
+			Log.d(TAG, "ret after direction: " + ret);
+			if (!ret) {
+				return false;
+			}
+			if (this.inhours != null) {
 				final int l = this.inhours.length;
 				ret = false;
 				for (int i = 0; i < l; i++) {
@@ -578,7 +596,11 @@ public final class RuleMatcher {
 					}
 				}
 			}
-			if (ret && this.exhours != null) {
+			Log.d(TAG, "ret after inhours: " + ret);
+			if (!ret) {
+				return false;
+			}
+			if (this.exhours != null) {
 				final int l = this.exhours.length;
 				for (int i = 0; i < l; i++) {
 					ret = !this.exhours[i].match(log);
@@ -587,7 +609,11 @@ public final class RuleMatcher {
 					}
 				}
 			}
-			if (ret && this.innumbers != null) {
+			Log.d(TAG, "ret after exhours: " + ret);
+			if (!ret) {
+				return false;
+			}
+			if (this.innumbers != null) {
 				final int l = this.innumbers.length;
 				ret = false;
 				for (int i = 0; i < l; i++) {
@@ -597,7 +623,11 @@ public final class RuleMatcher {
 					}
 				}
 			}
-			if (ret && this.exnumbers != null) {
+			Log.d(TAG, "ret after innumbers: " + ret);
+			if (!ret) {
+				return false;
+			}
+			if (this.exnumbers != null) {
 				final int l = this.exnumbers.length;
 				for (int i = 0; i < l; i++) {
 					ret = !this.exnumbers[i].match(log);
@@ -606,6 +636,7 @@ public final class RuleMatcher {
 					}
 				}
 			}
+			Log.d(TAG, "ret after exnumbers: " + ret);
 			return ret;
 		}
 	}
@@ -659,6 +690,8 @@ public final class RuleMatcher {
 		private float billedAmount = 0f;
 		/** Cost billed this period. */
 		private float billedCost = 0f;
+		/** Where clause matching logs of this plan. */
+		private final String pwhere;
 
 		/** {@link ContentResolver}. */
 		private final ContentResolver cResolver;
@@ -674,6 +707,9 @@ public final class RuleMatcher {
 		Plan(final ContentResolver cr, final Cursor cursor) {
 			this.cResolver = cr;
 			this.id = cursor.getLong(DataProvider.Plans.INDEX_ID);
+			final String m = cursor
+					.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
+			this.pwhere = DataProvider.Plans.parseMergerWhere(this.id, m);
 			this.name = cursor.getString(DataProvider.Plans.INDEX_NAME);
 			this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			this.limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
@@ -744,9 +780,9 @@ public final class RuleMatcher {
 		}
 
 		/**
-		 * Get {@link Plan}s id.
+		 * Get {@link Plan}'s id.
 		 * 
-		 * @return {@link Plan}s id
+		 * @return {@link Plan}'s id
 		 */
 		long getId() {
 			return this.id;
@@ -785,8 +821,7 @@ public final class RuleMatcher {
 				// load old stats
 				final String where = DbUtils.sqlAnd(DataProvider.Plans
 						.getBilldayWhere(this.billperiod, this.currentBillday,
-								now), DataProvider.Logs.PLAN_ID + " = "
-						+ this.id);
+								now), this.pwhere);
 				final Cursor c = this.cResolver.query(
 						DataProvider.Logs.SUM_URI,
 						DataProvider.Logs.PROJECTION_SUM, where, null, null);
@@ -814,14 +849,19 @@ public final class RuleMatcher {
 		 * @return true if billed cost/amount is in limit
 		 */
 		boolean isInLimit() {
+			Log.d(TAG, "isInLimit(): " + this.id);
 			if (this.parent != null
 					&& this.limitType == DataProvider.LIMIT_TYPE_NONE) {
+				Log.d(TAG, "check parent");
 				return this.parent.isInLimit();
 			} else {
+				Log.d(TAG, "ltype: " + this.limitType);
 				switch (this.limitType) {
 				case DataProvider.LIMIT_TYPE_COST:
+					Log.d(TAG, "bc<lt" + this.billedCost + "<" + this.limit);
 					return this.billedCost < this.limit;
 				case DataProvider.LIMIT_TYPE_UNITS:
+					Log.d(TAG, "ba<lt" + this.billedAmount + "<" + this.limit);
 					return this.billedAmount < this.limit;
 				default:
 					return false;
@@ -1119,6 +1159,7 @@ public final class RuleMatcher {
 			return false;
 		}
 		final long lid = log.getLong(DataProvider.Logs.INDEX_ID);
+		final String[] lids = new String[] { String.valueOf(lid) };
 		final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
 		Log.d(TAG, "matchLog(cr, " + lid + ")");
 		boolean matched = false;
@@ -1136,10 +1177,12 @@ public final class RuleMatcher {
 			if (r == null || !r.match(cr, log)) {
 				continue;
 			}
+			Log.d(TAG, "matched rule: " + r.getId());
 			final Plan p = plans.get(r.getPlanId());
 			if (p != null) {
 				final long pid = p.getId();
 				final long rid = r.getId();
+				Log.d(TAG, "found plan: " + pid);
 				p.checkBillday(log);
 				final ContentValues cv = new ContentValues();
 				cv.put(DataProvider.Logs.PLAN_ID, pid);
@@ -1149,9 +1192,9 @@ public final class RuleMatcher {
 				final float bc = p.getCost(log, ba);
 				cv.put(DataProvider.Logs.COST, bc);
 				p.updatePlan(ba, bc, t);
-				cr.update(DataProvider.Logs.CONTENT_URI, cv,
-						DataProvider.Logs.ID + " = ?", new String[] { String
-								.valueOf(lid) });
+				final int ret = cr.update(DataProvider.Logs.CONTENT_URI, cv,
+						DataProvider.Logs.ID + " = ?", lids);
+				Log.d(TAG, "update logs: " + ret);
 				matched = true;
 				break;
 			}
@@ -1160,8 +1203,9 @@ public final class RuleMatcher {
 			final ContentValues cv = new ContentValues();
 			cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NOT_FOUND);
 			cv.put(DataProvider.Logs.RULE_ID, DataProvider.NOT_FOUND);
-			cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID
-					+ " = ?", new String[] { String.valueOf(lid) });
+			final int ret = cr.update(DataProvider.Logs.CONTENT_URI, cv,
+					DataProvider.Logs.ID + " = ?", lids);
+			Log.d(TAG, "update logs: " + ret);
 		}
 		return matched;
 	}
