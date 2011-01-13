@@ -20,6 +20,7 @@ package de.ub0r.android.callmeter.data;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import android.app.IntentService;
 import android.content.ContentResolver;
@@ -44,6 +45,7 @@ import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.lib.apis.Contact;
 import de.ub0r.android.lib.apis.TelephonyWrapper;
 
 /**
@@ -55,6 +57,23 @@ public final class LogRunnerService extends IntentService {
 	/** Tag for output. */
 	private static final String TAG = "lrs";
 
+	/** {@link Uri} to all threads. */
+	private static final Uri URI_THREADS = Uri.parse(
+			"content://mms-sms/conversations").buildUpon()
+			.appendQueryParameter("simple", "true").build();
+	/** {@link Uri} to all sms. */
+	private static final Uri URI_SMS = Uri.parse("content://sms/");
+	/** {@link Uri} to all mms. */
+	private static final Uri URI_MMS = Uri.parse("content://mms/");
+
+	/** Projection for threads table. */
+	private static final String[] THREADS_PROJ = // .
+	new String[] { "recipient_ids" };
+
+	/** {@link HashMap} mapping threads to numbers. */
+	private static final HashMap<Long, String> THREAD_TO_NUMBER = // .
+	new HashMap<Long, String>();
+
 	/** Run matcher. */
 	public static final String ACTION_RUN_MATCHER = // .
 	"de.ub0r.android.callmeter.RUN_MATCHER";
@@ -65,6 +84,8 @@ public final class LogRunnerService extends IntentService {
 	/** Prefix for store of last data. */
 	private static final String PREFS_LASTDATA_PREFIX = "last_data_";
 
+	/** Thread Id. */
+	private static final String THRADID = "thread_id";
 	/** Type for mms. */
 	private static final String MMS_TYPE = "m_type";
 	/** Type for incoming mms. */
@@ -455,10 +476,9 @@ public final class LogRunnerService extends IntentService {
 	 */
 	private static void updateSMS(final ContentResolver cr) {
 		final long maxdate = getMaxDate(cr, DataProvider.TYPE_SMS);
-		final Uri smsUri = Uri.parse("content://sms/");
 		final String[] smsProjection = new String[] { Calls.DATE, Calls.TYPE,
 				"address", "body" };
-		final Cursor cursor = cr.query(smsUri, smsProjection, Calls.DATE
+		final Cursor cursor = cr.query(URI_SMS, smsProjection, Calls.DATE
 				+ " > ?", new String[] { String.valueOf(maxdate) }, Calls.DATE
 				+ " DESC");
 		if (cursor.moveToFirst()) {
@@ -524,26 +544,25 @@ public final class LogRunnerService extends IntentService {
 	/**
 	 * Run logs: mms.
 	 * 
-	 * @param cr
-	 *            {@link ContentResolver}
+	 * @param context
+	 *            {@link Context}
 	 */
-	private static void updateMMS(final ContentResolver cr) {
+	private static void updateMMS(final Context context) {
+		final ContentResolver cr = context.getContentResolver();
 		final long maxdate = getMaxDate(cr, DataProvider.TYPE_MMS);
-		final Uri mmsUri = Uri.parse("content://mms/");
-		final String[] mmsProjection = new String[] { Calls.DATE, MMS_TYPE, };
-		Cursor cursor = cr.query(mmsUri, mmsProjection, Calls.DATE + " > ?",
+		final String[] mmsProjection = new String[] { Calls.DATE, MMS_TYPE,
+				THRADID };
+		Cursor cursor = cr.query(URI_MMS, mmsProjection, Calls.DATE + " > ?",
 				new String[] { String.valueOf(maxdate) }, Calls.DATE + " DESC");
-		if (cursor == null || !cursor.moveToFirst()) {
-			if (cursor != null && !cursor.isClosed()) {
-				cursor.close();
-			}
-			cursor = cr.query(mmsUri, mmsProjection, Calls.DATE + " > "
+		if (!cursor.moveToFirst()) {
+			cursor.close();
+			cursor = cr.query(URI_MMS, mmsProjection, Calls.DATE + " > "
 					+ (maxdate / CallMeter.MILLIS), null, Calls.DATE + " DESC");
 		}
 		if (cursor.moveToFirst()) {
 			final int idDate = cursor.getColumnIndex(Calls.DATE);
 			final int idType = cursor.getColumnIndex(MMS_TYPE);
-			// FIXME: final int idAddress = cursor.getColumnIndex("address");
+			final int idThId = cursor.getColumnIndex(THRADID);
 
 			final ArrayList<ContentValues> cvalues = // .
 			new ArrayList<ContentValues>(CallMeter.HUNDRET);
@@ -562,13 +581,35 @@ public final class LogRunnerService extends IntentService {
 				} else {
 					continue;
 				}
+				final long tid = cursor.getLong(idThId);
+				Log.d(TAG, "thread_id: " + tid);
+				if (tid >= 0L) {
+					String n = THREAD_TO_NUMBER.get(tid);
+					if (n == null) {
+						final Cursor c = cr.query(URI_THREADS, THREADS_PROJ,
+								"_id = ?",
+								new String[] { String.valueOf(tid) }, null);
+						if (c.moveToFirst()) {
+							final String rid = c.getString(0);
+							Log.d(TAG, "recipient_ids: " + rid);
+							final Contact con = new Contact(Utils.parseLong(
+									rid, -1));
+							con.update(context, true, false);
+							n = DataProvider.Logs.cleanNumber(con.getNumber(),
+									false);
+							THREAD_TO_NUMBER.put(tid, n);
+						}
+						c.close();
+					}
+					if (n != null) {
+						cv.put(DataProvider.Logs.REMOTE, n);
+					}
+				}
+
 				cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
 				cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_MMS);
 				cv.put(DataProvider.Logs.DATE, fixDate(d));
-				// FIXME: cv.put(DataProvider.Logs.REMOTE,
-				// DataProvider.Logs.cleanNumber(
-				// cursor.getLong(idAddress), false));
 				cv.put(DataProvider.Logs.AMOUNT, 1);
 				if (roaming) {
 					cv.put(DataProvider.Logs.ROAMED, 1);
@@ -714,14 +755,14 @@ public final class LogRunnerService extends IntentService {
 			}
 			updateCalls(cr);
 			updateSMS(cr);
-			updateMMS(cr);
+			updateMMS(this);
 			if (RuleMatcher.match(this, showDialog)) {
 				StatsAppWidgetProvider.updateWidgets(this);
 			}
 		} else if (roaming) {
 			updateCalls(cr);
 			updateSMS(cr);
-			updateMMS(cr);
+			updateMMS(this);
 		}
 
 		if ((showCallInfo || askForPlan) && a != null && a.equals(// .

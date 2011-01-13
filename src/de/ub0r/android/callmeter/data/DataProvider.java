@@ -329,11 +329,16 @@ public final class DataProvider extends ContentProvider {
 			if (number == null) {
 				return null;
 			}
+			String n;
 			if (pattern) {
-				return number.replaceAll("[^?*#+0-9%]", "");
+				n = number.replaceAll("[^?*#+0-9%]", "");
 			} else {
-				return number.replaceAll("[^?*#+0-9]", "");
+				n = number.replaceAll("[^?*#+0-9]", "");
 			}
+			if (n.startsWith("00")) {
+				return n.replaceFirst("^00", "+");
+			}
+			return n;
 		}
 	}
 

@@ -335,7 +335,6 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 
 		switch (t) {
 		case DataProvider.Rules.WHAT_DATA:
-		case DataProvider.Rules.WHAT_MMS:
 			this.adapter.hide(DataProvider.Rules.INNUMBERS_ID, true);
 			this.adapter.hide(DataProvider.Rules.EXNUMBERS_ID, true);
 			break;
