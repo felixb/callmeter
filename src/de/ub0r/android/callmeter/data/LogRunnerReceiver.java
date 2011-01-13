@@ -105,7 +105,7 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	 * @param connector
 	 *            connector name
 	 */
-	private void saveWebSMS(final Context context, final String uri,
+	private static void saveWebSMS(final Context context, final String uri,
 			final long mid, final String connector) {
 		final ContentResolver cr = context.getContentResolver();
 		final Cursor c = cr.query(Uri.parse(uri), new String[] { "date" },
@@ -133,10 +133,10 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	 *            {@link Uri} to call
 	 * @param cid
 	 *            call id
-	 * @param provicer
+	 * @param provider
 	 *            provider name
 	 */
-	private void saveSipCall(final Context context, final String uri,
+	private static void saveSipCall(final Context context, final String uri,
 			final long cid, final String provider) {
 		final ContentResolver cr = context.getContentResolver();
 		final Cursor c = cr.query(Uri.parse(uri), new String[] { "date" },
@@ -174,7 +174,7 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 					Log.d(TAG, "websms id:  " + si);
 					Log.d(TAG, "websms con: " + sc);
 					if (si >= 0L) {
-						this.saveWebSMS(context, su, si, sc);
+						saveWebSMS(context, su, si, sc);
 					}
 				}
 			} else if (a.equals(ACTION_CM_SIP)) {
@@ -186,19 +186,16 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 					Log.d(TAG, "sip call id:  " + si);
 					Log.d(TAG, "sip call con: " + sc);
 					if (si >= 0L) {
-						this.saveSipCall(context, su, si, sc);
+						saveSipCall(context, su, si, sc);
 					}
 				}
-			}
-		}
-		String action = intent.getAction();
-		if (action != null
-				&& action.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
-			final String state = intent
-					.getStringExtra(TelephonyManager.EXTRA_STATE);
-			if (state != null
-					&& !state.equals(TelephonyManager.EXTRA_STATE_IDLE)) {
-				return;
+			} else if (a.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
+				final String state = intent
+						.getStringExtra(TelephonyManager.EXTRA_STATE);
+				if (state != null
+						&& !state.equals(TelephonyManager.EXTRA_STATE_IDLE)) {
+					return;
+				}
 			}
 		}
 		// run LogRunnerService

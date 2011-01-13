@@ -1089,10 +1089,10 @@ public final class RuleMatcher {
 		cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
 		cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 		// reset all but manually set plans
+		final String notfound = String.valueOf(DataProvider.NOT_FOUND);
 		cr.update(DataProvider.Logs.CONTENT_URI, cv, "NOT ("
-				+ DataProvider.Logs.RULE_ID + " = " + DataProvider.NOT_FOUND
-				+ " AND " + DataProvider.Logs.PLAN_ID + " != "
-				+ DataProvider.NOT_FOUND + ")", null);
+				+ DataProvider.Logs.RULE_ID + " = " + notfound + " AND "
+				+ DataProvider.Logs.PLAN_ID + " != " + notfound + ")", null);
 		cv.clear();
 		cv.put(DataProvider.Plans.NEXT_ALERT, 0);
 		cr.update(DataProvider.Plans.CONTENT_URI, cv, null, null);
@@ -1198,10 +1198,11 @@ public final class RuleMatcher {
 			return;
 		}
 		final Cursor log = cr.query(DataProvider.Logs.CONTENT_URI,
-				DataProvider.Logs.PROJECTION, DataProvider.Logs.ID + " = "
-						+ lid, null, null);
-		if (log == null || !log.moveToFirst()) {
+				DataProvider.Logs.PROJECTION, DataProvider.Logs.ID + " = ?",
+				new String[] { String.valueOf(lid) }, null);
+		if (!log.moveToFirst()) {
 			Log.e(TAG, "no log: " + log);
+			log.close();
 			return;
 		}
 		final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
@@ -1215,9 +1216,7 @@ public final class RuleMatcher {
 		p.updatePlan(ba, bc, t);
 		cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID
 				+ " = ?", new String[] { String.valueOf(lid) });
-		if (!log.isClosed()) {
-			log.close();
-		}
+		log.close();
 	}
 
 	/**
@@ -1239,7 +1238,7 @@ public final class RuleMatcher {
 				DataProvider.Logs.PROJECTION, DataProvider.Logs.PLAN_ID + " = "
 						+ DataProvider.NO_ID, null, DataProvider.Logs.DATE
 						+ " ASC");
-		if (cursor != null && cursor.moveToFirst()) {
+		if (cursor.moveToFirst()) {
 			final int l = cursor.getCount();
 			Handler h = null;
 			if (showStatus) {
@@ -1266,9 +1265,7 @@ public final class RuleMatcher {
 				++i;
 			} while (cursor.moveToNext());
 		}
-		if (cursor != null && !cursor.isClosed()) {
-			cursor.close();
-		}
+		cursor.close();
 
 		if (ret) {
 			final SharedPreferences p = PreferenceManager
