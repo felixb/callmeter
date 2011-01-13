@@ -220,8 +220,13 @@ public final class LogRunnerService extends IntentService {
 							+ " = ? AND " + DataProvider.Logs.DIRECTION
 							+ " = ?", sel, DataProvider.Logs.DATE + " DESC");
 			if (cursor.moveToFirst()) {
+				final int roamed = cursor
+						.getInt(DataProvider.Logs.INDEX_ROAMED);
 				dateLastRx = cursor.getLong(DataProvider.Logs.INDEX_DATE);
 				amountLastRx = cursor.getLong(DataProvider.Logs.INDEX_AMOUNT);
+				if (roamed != 0) {
+					doUpdate = true;
+				}
 				if (cursor.moveToNext()) {
 					final long d = cursor.getLong(DataProvider.Logs.INDEX_DATE);
 					if (dateLastRx - d > updateinterval / 2) {
@@ -241,8 +246,13 @@ public final class LogRunnerService extends IntentService {
 							+ " = ? AND " + DataProvider.Logs.DIRECTION
 							+ " = ?", sel, DataProvider.Logs.DATE + " DESC");
 			if (cursor.moveToFirst()) {
+				final int roamed = cursor
+						.getInt(DataProvider.Logs.INDEX_ROAMED);
 				dateLastTx = cursor.getLong(DataProvider.Logs.INDEX_DATE);
 				amountLastTx = cursor.getLong(DataProvider.Logs.INDEX_AMOUNT);
+				if (roamed != 0) {
+					doUpdate = true;
+				}
 				if (cursor.moveToNext()) {
 					final long d = cursor.getLong(DataProvider.Logs.INDEX_DATE);
 					if (dateLastTx - d > updateinterval / 2) {
@@ -265,6 +275,7 @@ public final class LogRunnerService extends IntentService {
 		final Device d = Device.getDevice();
 		final String inter = d.getCell();
 		if (inter != null) {
+			Log.d(TAG, "interface: " + inter);
 			try {
 				final long rx = SysClassNet.getRxBytes(inter);
 				final long tx = SysClassNet.getTxBytes(inter);
@@ -319,36 +330,46 @@ public final class LogRunnerService extends IntentService {
 					final long cd = System.currentTimeMillis();
 					final ContentValues values = new ContentValues(2);
 					values.put(DataProvider.Logs.DATE, cd);
-					values.put(DataProvider.Logs.AMOUNT, amountLastRx + rrx);
 					final String[] sel = new String[] {
 							String.valueOf(dateLastRx),
-							String.valueOf(DataProvider.TYPE_DATA),
 							String.valueOf(DataProvider.DIRECTION_IN) };
-					int i = cr
-							.update(DataProvider.Logs.CONTENT_URI, values,
-									DataProvider.Logs.DATE + " = ? AND "
-											+ DataProvider.Logs.TYPE
-											+ " = ? AND "
-											+ DataProvider.Logs.DIRECTION
-											+ " = ?", sel);
-					if (i > 0) {
-						LogRunnerService.setLastData(p, DataProvider.TYPE_DATA,
-								DataProvider.DIRECTION_IN, rx);
+					if (rrx > 0) {
+						values
+								.put(DataProvider.Logs.AMOUNT, amountLastRx
+										+ rrx);
+						final int i = cr.update(DataProvider.Logs.CONTENT_URI,
+								values, DataProvider.Logs.DATE + " = ? AND "
+										+ DataProvider.Logs.TYPE + " = "
+										+ DataProvider.TYPE_DATA + " AND "
+										+ DataProvider.Logs.DIRECTION + " = ?",
+								sel);
+						if (i > 0) {
+							LogRunnerService.setLastData(p,
+									DataProvider.TYPE_DATA,
+									DataProvider.DIRECTION_IN, rx);
+						} else {
+							Log.d(TAG, "update rrx failed: " + rrx);
+						}
 					}
-
-					values.put(DataProvider.Logs.AMOUNT, amountLastTx + rtx);
-					sel[0] = String.valueOf(dateLastTx);
-					sel[2] = String.valueOf(DataProvider.DIRECTION_OUT);
-					i = cr
-							.update(DataProvider.Logs.CONTENT_URI, values,
-									DataProvider.Logs.DATE + " = ? AND "
-											+ DataProvider.Logs.TYPE
-											+ " = ? AND "
-											+ DataProvider.Logs.DIRECTION
-											+ " = ?", sel);
-					if (i > 0) {
-						LogRunnerService.setLastData(p, DataProvider.TYPE_DATA,
-								DataProvider.DIRECTION_OUT, tx);
+					if (rtx > 0) {
+						values
+								.put(DataProvider.Logs.AMOUNT, amountLastTx
+										+ rtx);
+						sel[0] = String.valueOf(dateLastTx);
+						sel[1] = String.valueOf(DataProvider.DIRECTION_OUT);
+						final int i = cr.update(DataProvider.Logs.CONTENT_URI,
+								values, DataProvider.Logs.DATE + " = ? AND "
+										+ DataProvider.Logs.TYPE + " = "
+										+ DataProvider.TYPE_DATA + " AND "
+										+ DataProvider.Logs.DIRECTION + " = ?",
+								sel);
+						if (i > 0) {
+							LogRunnerService.setLastData(p,
+									DataProvider.TYPE_DATA,
+									DataProvider.DIRECTION_OUT, tx);
+						} else {
+							Log.d(TAG, "update rtx failed: " + rtx);
+						}
 					}
 				}
 			} catch (IOException e) {

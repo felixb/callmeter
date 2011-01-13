@@ -616,10 +616,9 @@ public class Plans extends ListActivity implements OnClickListener,
 
 				// get all time
 				if (showTotal) {
-					allTime = PlanStatus.get(cr, this.where,
-							this.isMerger
-									&& this.type == DataProvider.TYPE_MIXED,
-							this.upc, this.upm, this.ups);
+					allTime = PlanStatus.get(cr, this.where, this.isMerger
+							&& this.type == DataProvider.TYPE_MIXED, this.upc,
+							this.upm, this.ups);
 					if (allTime == null) {
 						allTime = new PlanStatus();
 					}
@@ -1200,7 +1199,7 @@ public class Plans extends ListActivity implements OnClickListener,
 	public static final String prettyBytes(final float value) {
 		StringBuilder sb = new StringBuilder();
 		if (value < CallMeter.BYTE_KB) {
-			sb.append(String.valueOf(value));
+			sb.append(String.format("%.1f", value));
 			sb.append(BYTE_UNITS_B);
 		} else if (value < CallMeter.BYTE_MB) {
 			sb.append(String.format("%.1f", value / CallMeter.BYTE_KB));
