@@ -38,7 +38,7 @@
   <string formatted="false" name="update_interval_hint">A rövidebb frissítési idő jobban meríti az akkumulátort.</string>
   <string formatted="false" name="date_begin_">Mérés kezdete</string>
   <string formatted="false" name="date_begin_hint">E dátum előtti naplók figyelmen kívül lesznek hagyva.</string>
-  <string formatted="false" name="delete_old_logs_">Törli az ennél régebbi naplókat</string>
+  <string formatted="false" name="delete_old_logs_">Napló törlése</string>
   <string formatted="false" name="delete_old_logs_help">Törli az x napnál régebbi naplókat a belső adatbázisból.</string>
   <string formatted="false" name="common_prefs_">Általános beállítások</string>
   <string formatted="false" name="edit_">Szerkesztés</string>
@@ -144,7 +144,7 @@
   <string formatted="false" name="prepaid_hint">Feltöltőkártyás (előre fizetett) előfizetés. A költségeket az egyenlegedből kerülnek levonásra.</string>
   <string formatted="false" name="balance_">Egyenleg</string>
   <string formatted="false" name="balance_help">Számlád egyenlege az adott napon.</string>
-  <string formatted="false" name="strip_leading_zeros_">Kezdő nullák levásása</string>
+  <string formatted="false" name="strip_leading_zeros_">Kezdő nullák levágása</string>
   <string formatted="false" name="strip_leading_zeros_hint">Szám eleji nullák levágása számok összehasonlításakor.</string>
   <string formatted="false" name="number_prefix_">Nemzetközi előhívó</string>
   <string formatted="false" name="number_prefix_hint">A nemzetközi előhívód formája ilyesmi: +36 vagy +49. Az ilyesmi esetekben szükséges: 0620xxx és +3620xxx.</string>
@@ -202,7 +202,7 @@
   <string formatted="false" name="units_units">Egységek</string>
   <string formatted="false" name="units_units_per_minute">Egység/Perc</string>
   <string formatted="false" name="units_units_per_message">Egység/Üzenet</string>
-  <string formatted="false" name="units_cost_per_call">Ft/Hívás</string>
+  <string formatted="false" name="units_cost_per_call">Ft/Hívás (kapcsolási díj)</string>
   <string formatted="false" name="units_cost_per_minute">Ft/Perc</string>
   <string formatted="false" name="units_cost_per_message">Ft/Üzenet</string>
   <string formatted="false" name="units_cost_per_mbyte">$/MByte</string>
@@ -223,8 +223,8 @@
   <string formatted="false" name="what_help">Válaszd ki a cél típusát itt.</string>
   <string formatted="false" name="direction_">Irány</string>
   <string formatted="false" name="direction_help">Válaszd ki, hogy melyik irányba menő forgalmat kell naplózni!</string>
-  <string formatted="false" name="roamed_">Költöztetés</string>
-  <string formatted="false" name="roamed_help">Válaszd ki, ha a Naplót költöztetni kell.</string>
+  <string formatted="false" name="roamed_">Roaming hívás</string>
+  <string formatted="false" name="roamed_help">Állítsd be, hogy a Romaing (Barangolás) hívásokat is számlázza-e ide.</string>
   <string formatted="false" name="remote_hint">Távoli szám</string>
   <string formatted="false" name="no_matter_">Nem számít</string>
   <string formatted="false" name="yes">Igen</string>
@@ -237,7 +237,7 @@
   <string formatted="false" name="import_progr">Adatok importálása ...</string>
   <string formatted="false" name="export_">Exportálás</string>
   <string formatted="false" name="export_hint">A Szabályokat, Naplókat, Hívócsoportokat és Időtartományokat exportálhatod.</string>
-  <string formatted="false" name="export_rules_">Exportálási szabály</string>
+  <string formatted="false" name="export_rules_">Szabályok exportálása</string>
   <string formatted="false" name="export_rules_hint">A Szabályokat levélként exportálja.</string>
   <string formatted="false" name="export_rules_descr">Leírás</string>
   <string formatted="false" name="export_logs_">Naplók biztonsági mentése</string>
@@ -355,7 +355,7 @@
     <item>30 / 1</item>
     <item>30 / 6</item>
     <item>30 / 10</item>
-    <item>Félperc alapú</item>
+    <item>30/30</item>
     <item>30 / 60</item>
     <item>45 / 1</item>
     <item>60 / 0</item>
@@ -364,7 +364,7 @@
     <item>60 / 10</item>
     <item>60 / 15</item>
     <item>60 / 30</item>
-    <item>Percalapú</item>
+    <item>60/60</item>
     <item>Egyéni</item>
   </string-array>
   <string-array name="direction_calls">
@@ -385,7 +385,7 @@
   </string-array>
   <string-array name="currency_formats">
     <item>Alapértelmezett</item>
-    <item>1,00 $</item>
+    <item>1,00 Ft</item>
     <item>Ft 1000</item>
     <item>1,00 Ft</item>
     <item>1000 Ft</item>

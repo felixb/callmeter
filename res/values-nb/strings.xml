@@ -58,7 +58,7 @@
   <string formatted="false" name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string>
   <string formatted="false" name="theme_">Tema</string>
   <string formatted="false" name="textsize_">Tekst størrelse</string>
-  <string formatted="false" name="textsize_hint">Text size in pixels; leave empty for default</string>
+  <string formatted="false" name="textsize_hint">Tekststørrelse i piksler; la stå tom for standard</string>
   <string formatted="false" name="textsize_title_">Title\'s text size</string>
   <string formatted="false" name="textsize_title_hint">Text size for titles in pixels; leave empty for default</string>
   <string formatted="false" name="textsize_bigtitle_">Big title\'s text size</string>
@@ -255,10 +255,10 @@
   <string formatted="false" name="alerts_hint">Set alerts based on plan usage.</string>
   <string formatted="false" name="alerts_title">Call Meter 3G alert</string>
   <string formatted="false" name="alerts_message">Plan %s has reached %d%% usage!</string>
-  <string formatted="false" name="alerts_80_">Notify at 80%</string>
-  <string formatted="false" name="alerts_80_hint">Notify if a plan passes 80% of it\'s limit.</string>
-  <string formatted="false" name="alerts_100_">Notify at 100%</string>
-  <string formatted="false" name="alerts_100_hint">Notify if a plan passes 100% of it\'s limit.</string>
+  <string formatted="false" name="alerts_80_">Varsle ved 80%</string>
+  <string formatted="false" name="alerts_80_hint">Varsle hvis en plan passerer 80% av grensen.</string>
+  <string formatted="false" name="alerts_100_">Varsle ved 100%</string>
+  <string formatted="false" name="alerts_100_hint">Varsle hvis en plan passerer 100% av grensen.</string>
   <string formatted="false" name="widget_config_">Widget config</string>
   <string-array name="weekdays_all">
     <item>Hele uken</item>
@@ -306,16 +306,16 @@
     <item>Edit plan</item>
   </string-array>
   <string-array name="dialog_delete">
-    <item>Delete</item>
+    <item>Slett</item>
   </string-array>
   <string-array name="dialog_edit_delete">
-    <item>Edit</item>
-    <item>Delete</item>
+    <item>Rediger</item>
+    <item>Slett</item>
   </string-array>
   <string-array name="plans_type">
     <item>Title</item>
     <item>Spacer</item>
-    <item>Bill period</item>
+    <item>Fakturaperiode</item>
     <item>Mixed</item>
     <item>Call</item>
     <item>SMS</item>
@@ -323,29 +323,29 @@
     <item>Data</item>
   </string-array>
   <string-array name="rules_type">
-    <item>Calls</item>
+    <item>Samtaler</item>
     <item>SMS</item>
     <item>MMS</item>
     <item>Data</item>
   </string-array>
   <string-array name="limit_type">
-    <item>unlimited</item>
-    <item>units</item>
-    <item>cost</item>
+    <item>ubegrenset</item>
+    <item>enheter</item>
+    <item>kostnad</item>
   </string-array>
   <string-array name="billperiod">
-    <item>One day</item>
-    <item>One week</item>
-    <item>30 days</item>
-    <item>60 days</item>
-    <item>90 days</item>
+    <item>En dag</item>
+    <item>En uke</item>
+    <item>30 dager</item>
+    <item>60 dager</item>
+    <item>90 dager</item>
     <item>One month</item>
     <item>Two month</item>
     <item>Three month</item>
     <item>Four month</item>
-    <item>Five month</item>
+    <item>Fem måneder</item>
     <item>Six month</item>
-    <item>One year</item>
+    <item>Ett år</item>
     <item>Infinite</item>
   </string-array>
   <string-array name="billmodes">
