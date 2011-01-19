@@ -171,6 +171,7 @@ public final class Logs extends ListActivity implements OnClickListener,
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setTheme(Preferences.getTheme(this));
+		Utils.setLocale(this);
 		this.setContentView(R.layout.logs);
 		this.setTitle(R.string.logs);
 		this.tbCall = (ToggleButton) this.findViewById(R.id.calls);
@@ -197,6 +198,7 @@ public final class Logs extends ListActivity implements OnClickListener,
 	@Override
 	protected void onResume() {
 		super.onResume();
+		Utils.setLocale(this);
 		showHours = PreferenceManager.getDefaultSharedPreferences(this)
 				.getBoolean(Preferences.PREFS_SHOWHOURS, true);
 	}

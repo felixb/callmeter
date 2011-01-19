@@ -41,6 +41,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
+import de.ub0r.android.lib.Utils;
 import de.ub0r.android.lib.apis.ContactsWrapper;
 
 /**
@@ -128,6 +129,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	@Override
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Utils.setLocale(this);
 		this.setTitle(this.getString(R.string.settings) + " > "
 				+ this.getString(R.string.rules) + " > "
 				+ this.getString(R.string.numbers) + " > "
@@ -158,6 +160,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	@Override
 	protected final void onResume() {
 		super.onResume();
+		Utils.setLocale(this);
 		this.showEmptyHint();
 	}
 

@@ -20,6 +20,7 @@ package de.ub0r.android.callmeter;
 
 import android.app.Application;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * @author flx
@@ -64,5 +65,6 @@ public final class CallMeter extends Application {
 	public void onCreate() {
 		super.onCreate();
 		Log.init("CallMeter3G");
+		Utils.setLocale(this);
 	}
 }

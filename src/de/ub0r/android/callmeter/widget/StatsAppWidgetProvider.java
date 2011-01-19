@@ -43,6 +43,7 @@ import de.ub0r.android.callmeter.ui.Plans.PlanStatus;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * Stats Widget.
@@ -69,6 +70,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	public void onUpdate(final Context context,
 			final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
 		Log.d(TAG, "onUpdate()");
+		Utils.setLocale(context);
 		// Update logs and run rule matcher
 		LogRunnerService.update(context, LogRunnerService.ACTION_RUN_MATCHER);
 

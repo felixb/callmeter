@@ -34,6 +34,7 @@ import android.widget.Spinner;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.lib.Utils;
 
 /**
  * Configure a stats widget.
@@ -61,6 +62,7 @@ public final class StatsAppWidgetConfigure extends Activity implements
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Utils.setLocale(this);
 		this.setTitle(this.getString(R.string.app_name) + " > "
 				+ this.getString(R.string.widget_config_));
 		this.setContentView(R.layout.stats_appwidget_config);
@@ -102,6 +104,7 @@ public final class StatsAppWidgetConfigure extends Activity implements
 	@Override
 	protected void onResume() {
 		super.onResume();
+		Utils.setLocale(this);
 
 		final Intent intent = this.getIntent();
 		final Bundle extras = intent.getExtras();

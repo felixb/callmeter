@@ -91,6 +91,7 @@ public final class AskForPlan extends Activity implements OnClickListener,
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Utils.setLocale(this);
 		this.d = new Dialog(this);
 		this.d.setTitle(R.string.select_plan_);
 		this.d.setContentView(R.layout.ask_for_plan);

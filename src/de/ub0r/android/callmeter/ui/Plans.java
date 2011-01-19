@@ -1332,6 +1332,7 @@ public class Plans extends ListActivity implements OnClickListener,
 	@Override
 	protected final void onResume() {
 		super.onResume();
+		Utils.setLocale(this);
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		pShowHours = p.getBoolean(Preferences.PREFS_SHOWHOURS, true);

@@ -46,6 +46,7 @@ import de.ub0r.android.callmeter.ui.prefs.Preference.ListPreference;
 import de.ub0r.android.callmeter.ui.prefs.Preference.Text2Preference;
 import de.ub0r.android.callmeter.ui.prefs.Preference.TextPreference;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * Edit a single Plan.
@@ -72,6 +73,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 	@Override
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Utils.setLocale(this);
 		this.setTitle(this.getString(R.string.settings) + " > "
 				+ this.getString(R.string.plans) + " > "
 				+ this.getString(R.string.edit_));
@@ -99,6 +101,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 	@Override
 	protected final void onResume() {
 		super.onResume();
+		Utils.setLocale(this);
 		final SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		this.showAdvanced = prefs.getBoolean(Preferences.PREFS_ADVANCED, false);

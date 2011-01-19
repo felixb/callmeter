@@ -513,6 +513,7 @@ public class Preferences extends PreferenceActivity {
 	@Override
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Utils.setLocale(this);
 		this.setTitle(R.string.settings);
 		this.addPreferencesFromResource(R.xml.prefs);
 

@@ -39,6 +39,7 @@ import de.ub0r.android.callmeter.ui.prefs.Preference.ListPreference;
 import de.ub0r.android.callmeter.ui.prefs.Preference.TextPreference;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * Edit a single Plan.
@@ -134,6 +135,7 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	@Override
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Utils.setLocale(this);
 		this.setTitle(this.getString(R.string.settings) + " > "
 				+ this.getString(R.string.rules) + " > "
 				+ this.getString(R.string.edit_));
@@ -154,6 +156,7 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	@Override
 	protected final void onResume() {
 		super.onResume();
+		Utils.setLocale(this);
 		this.showHideFileds();
 		final PreferenceAdapter a = this.adapter;
 		a.getPreference(DataProvider.Rules.INHOURS_ID).refreshDialog();
