@@ -175,6 +175,38 @@ public final class LogRunnerService extends IntentService {
 	}
 
 	/**
+	 * Get maximum date of logs type %.
+	 * 
+	 * @param cr
+	 *            {@link ContentResolver}
+	 * @param type
+	 *            type
+	 * @param direction
+	 *            direction
+	 * @return maximum date found. -1 if nothing was found.
+	 */
+	private static long getMaxDate(final ContentResolver cr, final int type,
+			final int direction) {
+		final Cursor cursor = cr
+				.query(DataProvider.Logs.CONTENT_URI,
+						new String[] { DataProvider.Logs.DATE },
+						DataProvider.Logs.TYPE + " = ? AND "
+								+ DataProvider.Logs.DIRECTION + " = ?",
+						new String[] { String.valueOf(type),
+								String.valueOf(direction) },
+						DataProvider.Logs.DATE + " DESC");
+		long maxdate = deleteBefore;
+		if (cursor.moveToFirst()) {
+			maxdate = cursor.getLong(0);
+		}
+		cursor.close();
+		if (maxdate > dateStart) {
+			return maxdate;
+		}
+		return dateStart;
+	}
+
+	/**
 	 * Get last amount from Logs.
 	 * 
 	 * @param p
@@ -225,72 +257,23 @@ public final class LogRunnerService extends IntentService {
 				.getDefaultSharedPreferences(context);
 		final ContentResolver cr = context.getContentResolver();
 
-		long dateLastRx = -1L;
-		long dateLastTx = -1L;
-		long amountLastRx = 0L;
-		long amountLastTx = 0L;
-
 		if (!doUpdate) {
+			long dateLastRx = getMaxDate(cr, DataProvider.TYPE_DATA,
+					DataProvider.DIRECTION_IN);
+			long dateLastTx = getMaxDate(cr, DataProvider.TYPE_DATA,
+					DataProvider.DIRECTION_OUT);
 			final long updateinterval = Utils.parseLong(p.getString(
 					Preferences.PREFS_UPDATE_INTERVAL, String
 							.valueOf(LogRunnerReceiver.DELAY)),
 					LogRunnerReceiver.DELAY)
 					* LogRunnerReceiver.DELAY_FACTOR;
-
-			final String[] sel = new String[] {
-					String.valueOf(DataProvider.TYPE_DATA),
-					String.valueOf(DataProvider.DIRECTION_IN) };
-
-			Cursor cursor = cr.query(DataProvider.Logs.CONTENT_URI,
-					DataProvider.Logs.PROJECTION, DataProvider.Logs.TYPE
-							+ " = ? AND " + DataProvider.Logs.DIRECTION
-							+ " = ?", sel, DataProvider.Logs.DATE + " DESC");
-			if (cursor.moveToFirst()) {
-				final int roamed = cursor
-						.getInt(DataProvider.Logs.INDEX_ROAMED);
-				dateLastRx = cursor.getLong(DataProvider.Logs.INDEX_DATE);
-				amountLastRx = cursor.getLong(DataProvider.Logs.INDEX_AMOUNT);
-				if (roamed != 0) {
-					doUpdate = true;
-				}
-				if (cursor.moveToNext()) {
-					final long d = cursor.getLong(DataProvider.Logs.INDEX_DATE);
-					if (dateLastRx - d > updateinterval / 2) {
-						doUpdate = true;
-					}
-				} else {
-					doUpdate = true;
-				}
-			} else {
+			final long n = System.currentTimeMillis();
+			if (n - dateLastRx > updateinterval / 2) {
 				doUpdate = true;
 			}
-			cursor.close();
-
-			sel[1] = String.valueOf(DataProvider.DIRECTION_OUT);
-			cursor = cr.query(DataProvider.Logs.CONTENT_URI,
-					DataProvider.Logs.PROJECTION, DataProvider.Logs.TYPE
-							+ " = ? AND " + DataProvider.Logs.DIRECTION
-							+ " = ?", sel, DataProvider.Logs.DATE + " DESC");
-			if (cursor.moveToFirst()) {
-				final int roamed = cursor
-						.getInt(DataProvider.Logs.INDEX_ROAMED);
-				dateLastTx = cursor.getLong(DataProvider.Logs.INDEX_DATE);
-				amountLastTx = cursor.getLong(DataProvider.Logs.INDEX_AMOUNT);
-				if (roamed != 0) {
-					doUpdate = true;
-				}
-				if (cursor.moveToNext()) {
-					final long d = cursor.getLong(DataProvider.Logs.INDEX_DATE);
-					if (dateLastTx - d > updateinterval / 2) {
-						doUpdate = true;
-					}
-				} else {
-					doUpdate = true;
-				}
-			} else {
+			if (n - dateLastTx > updateinterval / 2) {
 				doUpdate = true;
 			}
-			cursor.close();
 		}
 
 		final long lastRx = getLastData(p, DataProvider.TYPE_DATA,
@@ -316,8 +299,7 @@ public final class LogRunnerService extends IntentService {
 				Log.d(TAG, "rrx: " + rrx);
 				Log.d(TAG, "ttx: " + rtx);
 
-				if (doUpdate || rrx + amountLastRx > DATA_MIN_DIFF
-						|| rtx + amountLastTx > DATA_MIN_DIFF) {
+				if (doUpdate || rrx > DATA_MIN_DIFF || rtx > DATA_MIN_DIFF) {
 					// save data to db
 					final ContentValues baseCv = new ContentValues();
 					baseCv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
@@ -351,51 +333,6 @@ public final class LogRunnerService extends IntentService {
 								DataProvider.DIRECTION_OUT, tx);
 					} else {
 						Log.d(TAG, "skip tx: " + rtx);
-					}
-				} else if (rrx > 0 || rtx > 0) {
-					final long cd = System.currentTimeMillis();
-					final ContentValues values = new ContentValues(2);
-					values.put(DataProvider.Logs.DATE, cd);
-					final String[] sel = new String[] {
-							String.valueOf(dateLastRx),
-							String.valueOf(DataProvider.DIRECTION_IN) };
-					if (rrx > 0) {
-						values
-								.put(DataProvider.Logs.AMOUNT, amountLastRx
-										+ rrx);
-						final int i = cr.update(DataProvider.Logs.CONTENT_URI,
-								values, DataProvider.Logs.DATE + " = ? AND "
-										+ DataProvider.Logs.TYPE + " = "
-										+ DataProvider.TYPE_DATA + " AND "
-										+ DataProvider.Logs.DIRECTION + " = ?",
-								sel);
-						if (i > 0) {
-							LogRunnerService.setLastData(p,
-									DataProvider.TYPE_DATA,
-									DataProvider.DIRECTION_IN, rx);
-						} else {
-							Log.d(TAG, "update rrx failed: " + rrx);
-						}
-					}
-					if (rtx > 0) {
-						values
-								.put(DataProvider.Logs.AMOUNT, amountLastTx
-										+ rtx);
-						sel[0] = String.valueOf(dateLastTx);
-						sel[1] = String.valueOf(DataProvider.DIRECTION_OUT);
-						final int i = cr.update(DataProvider.Logs.CONTENT_URI,
-								values, DataProvider.Logs.DATE + " = ? AND "
-										+ DataProvider.Logs.TYPE + " = "
-										+ DataProvider.TYPE_DATA + " AND "
-										+ DataProvider.Logs.DIRECTION + " = ?",
-								sel);
-						if (i > 0) {
-							LogRunnerService.setLastData(p,
-									DataProvider.TYPE_DATA,
-									DataProvider.DIRECTION_OUT, tx);
-						} else {
-							Log.d(TAG, "update rtx failed: " + rtx);
-						}
 					}
 				}
 			} catch (IOException e) {

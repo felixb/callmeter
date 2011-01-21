@@ -335,10 +335,6 @@ public class Plans extends ListActivity implements OnClickListener,
 			private final long id;
 			/** Id of parent plan. */
 			private final long ppid;
-			/** Parent plan. */
-			private Plan parent;
-			/** Bill period. */
-			private Plan bperiod;
 			/** True for plans merging other plans. */
 			private final boolean isMerger;
 			/** Where clause for updating the plan. */
@@ -786,21 +782,12 @@ public class Plans extends ListActivity implements OnClickListener,
 				final Cursor cursor) {
 			this.plansList.clear();
 			this.plansMap.clear();
-			if (cursor == null) {
-				return;
-			}
 			if (!cursor.moveToFirst()) {
 				return;
 			}
 			do {
 				this.appendPlan(new Plan(this.ctx, cursor));
 			} while (cursor.moveToNext());
-			int l = this.plansList.size();
-			for (int i = 0; i < l; i++) {
-				final Plan p = this.plansList.get(i);
-				p.parent = this.plansMap.get(p.ppid);
-				p.bperiod = this.plansMap.get(p.billperiodid);
-			}
 		}
 
 		/**

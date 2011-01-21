@@ -36,9 +36,11 @@ import android.database.Cursor;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.Plans;
+import de.ub0r.android.callmeter.ui.Plans.PlanStatus;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
@@ -679,6 +681,8 @@ public final class RuleMatcher {
 		private final long ppid;
 		/** PArent plan. Set in RuleMatcher.load(). */
 		private Plan parent = null;
+		/** True for plans merging other plans. */
+		private final boolean isMerger;
 		/** Time of next alert. */
 		private long nextAlert = 0;
 
@@ -710,6 +714,7 @@ public final class RuleMatcher {
 			final String m = cursor
 					.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
 			this.pwhere = DataProvider.Plans.parseMergerWhere(this.id, m);
+			this.isMerger = !TextUtils.isEmpty(m);
 			this.name = cursor.getString(DataProvider.Plans.INDEX_NAME);
 			this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			this.limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
@@ -822,20 +827,14 @@ public final class RuleMatcher {
 				final String where = DbUtils.sqlAnd(DataProvider.Plans
 						.getBilldayWhere(this.billperiod, this.currentBillday,
 								now), this.pwhere);
-				final Cursor c = this.cResolver.query(
-						DataProvider.Logs.SUM_URI,
-						DataProvider.Logs.PROJECTION_SUM, where, null, null);
-				if (c != null && c.moveToFirst()) {
-					this.billedAmount = c
-							.getFloat(DataProvider.Logs.INDEX_SUM_BILL_AMOUNT);
-					this.billedCost = c
-							.getFloat(DataProvider.Logs.INDEX_SUM_COST);
-				} else {
+				final PlanStatus ps = PlanStatus.get(this.cResolver, where,
+						this.isMerger, this.upc, this.upm, this.ups);
+				if (ps == null) {
 					this.billedAmount = 0f;
 					this.billedCost = 0f;
-				}
-				if (c != null && !c.isClosed()) {
-					c.close();
+				} else {
+					this.billedAmount = ps.billedAmount;
+					this.billedCost = ps.cost;
 				}
 			}
 			if (this.parent != null) {
