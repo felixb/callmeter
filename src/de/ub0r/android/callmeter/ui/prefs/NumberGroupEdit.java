@@ -200,8 +200,6 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 				.getData());
 		if (number == null) {
 			number = "???";
-		} else {
-			number = number;
 		}
 		this.setNumber(requestCode - 1, number);
 	}
