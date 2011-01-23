@@ -341,10 +341,11 @@ public final class RuleMatcher {
 				final Calendar cal = Calendar.getInstance();
 				cal.setTimeInMillis(date);
 				final int d = (cal.get(Calendar.DAY_OF_WEEK) - Calendar.SUNDAY)
-						% Calendar.SATURDAY;
+						% SUN;
 				final int h = cal.get(Calendar.HOUR_OF_DAY) + 1;
 				for (int k : this.hours.keySet()) {
-					if (k == 0 || k == d || (k == MON_FRI && d < SAT)) {
+					if (k == ALL_WEEK || (k == MON_FRI && d < SAT)
+							|| k % SUN == d) {
 						for (int v : this.hours.get(k)) {
 							if (v == 0 || v == h) {
 								return true;
