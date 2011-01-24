@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2009-2011 Felix Bechstein
+	-->
+	<!--
+		This file is part of Call Meter 3G. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<resources>
+	<string name="help_title_">Please read the following to understand the concept of <b>logs</b>, <b>plans</b> and <b>rules</b>:</string>
+
+	<string name="help_import_">A good starting point are some preconfigured rule sets available on the website. Just import them via import menu and play around.</string>
+	<string name="help_export_">If you managed to set up a common plan for your country, do not hesitate to export your rule set to me by mail. I will put it on the website to make it available for all the users.</string>
+
+	<string name="help_logs_plans_rules_">There are three kinds of data structures:</string>
+	<string name="help_logs_"><b>Logs</b> to save informations about your calls, messages and traffic statistics.</string>
+	<string name="help_plans_"><b>Plans</b> to describe all kinds of aspects of your bill.</string>
+	<string name="help_rules_"><b>Rules</b> to match the <b>logs</b> and move them to a particular <b>plan</b>.</string>
+		
+	<string name="help_plans_detail0_">You can add or delete <b>plans</b> just as you want. You can set the order by dragging them around with the handle on the right of the list view.</string>
+	<string name="help_plans_detail1_">To edit a <b>plan</b>, you just need to click it. At the next screen, you can set all kind of settings. There are a few, most users won\'t need. But some do. A short help for each setting is displayed in this view. Most settings you do not understand are not used in your country. Just leave them as they are. ;)</string>
+	<string name="help_plans_merge_">You can merge <b>plans</b> to aggregate their <b>log items</b> to a combined cost and limit.</string>
+	
+	<string name="help_rules_detail0_">Edit the <b>rules</b> in the same way. Each <b>rule</b> does match some <b>log items</b> and move them to a <b>plan</b> in which the <b>logs</b> should be billed in.</string>
+	<string name="help_rules_detail1_">But keep in mind, that order is important for <b>rules</b>:</string>
+	<string name="help_rules_detail2_"><b>Logs</b> are matched <b>top-down</b>, means: the first <b>rule</b> that matches will stop processing of this particular <b>log item</b>.</string>
+	<string name="help_rules_detail3_">E.g.: If you match all calls to 0800% numbers to a \"free\" <b>plan</b> with the first <b>rule</b>, there is no need to exclude these numbers in the second.</string>
+</resources>

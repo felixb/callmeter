@@ -49,11 +49,13 @@ import android.os.Environment;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.widget.EditText;
 import android.widget.Toast;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.callmeter.ui.Help;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
@@ -517,7 +519,21 @@ public class Preferences extends PreferenceActivity {
 		this.setTitle(R.string.settings);
 		this.addPreferencesFromResource(R.xml.prefs);
 
-		Preference p = this.findPreference("send_logs");
+		Preference p = this.findPreference(PREFS_ADVANCED);
+		if (p != null) {
+			p.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+				@Override
+				public boolean onPreferenceChange(final Preference preference,
+						final Object newValue) {
+					if (newValue.equals(true)) {
+						Preferences.this.startActivity(new Intent(
+								Preferences.this, Help.class));
+					}
+					return true;
+				}
+			});
+		}
+		p = this.findPreference("send_logs");
 		if (p != null) {
 			p.setOnPreferenceClickListener(// .
 					new Preference.OnPreferenceClickListener() {
