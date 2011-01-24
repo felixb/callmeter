@@ -36,6 +36,7 @@ import android.database.Cursor;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
@@ -210,21 +211,13 @@ public final class RuleMatcher {
 					return false;
 				}
 				if (numl > 1) {
-					if (number.startsWith("+")) {
-						number = number.substring(1);
+					if (stripLeadingZeros) {
+						number = number.replaceFirst("^00*", "");
 						numl = number.length();
-					} else {
-						if (stripLeadingZeros) {
-							number = number.replaceFirst("^00*", "");
-							numl = number.length();
-						}
-						if (intPrefix.length() > 1) {
-							number = national2international(intPrefix, number);
-							if (number.startsWith("+")) {
-								number = number.substring(1);
-							}
-							numl = number.length();
-						}
+					}
+					if (intPrefix.length() > 1) {
+						number = national2international(intPrefix, number);
+						numl = number.length();
 					}
 				}
 				final int l = this.numbers.size();
@@ -234,20 +227,10 @@ public final class RuleMatcher {
 						return false;
 					}
 					int nl = n.length();
-					if (nl == 0) {
+					if (nl <= 1) {
 						return false;
 					}
 
-					if (n.startsWith("+") && numl > 1) {
-						n = n.substring(1);
-						nl = n.length();
-					}
-					if (number.equals(n)) {
-						return true;
-					}
-					if (nl == 1) {
-						return false;
-					}
 					if (n.startsWith("%")) {
 						if (n.endsWith("%")) {
 							if (nl == 2) {
@@ -266,6 +249,8 @@ public final class RuleMatcher {
 						if (number.startsWith(n.substring(0, nl - 1))) {
 							return true;
 						}
+					} else if (PhoneNumberUtils.compare(number, n)) {
+						return true;
 					}
 				}
 				return false;
