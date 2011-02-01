@@ -18,7 +18,7 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-	<PreferenceCategory android:title="@string/appearance_">
+	<PreferenceCategory android:title="@string/appearance_and_behavior_">
 		<PreferenceScreen android:title="@string/appearance_">
 			<ListPreference android:title="@string/theme_"
 				android:key="theme" android:entries="@array/themes"
@@ -81,6 +81,38 @@
 			<CheckBoxPreference android:key="show_callinfo"
 				android:title="@string/show_calllength_" android:summary="@string/show_calllength_" />
 		</PreferenceScreen>
+		<PreferenceScreen android:title="@string/behavior_">
+			<PreferenceScreen android:title="@string/alerts_"
+				android:summary="@string/alerts_hint">
+				<CheckBoxPreference android:key="alert_80"
+					android:title="@string/alerts_80_" android:summary="@string/alerts_80_hint"
+					android:defaultValue="true" />
+				<CheckBoxPreference android:key="alert_100"
+					android:title="@string/alerts_100_" android:summary="@string/alerts_100_hint"
+					android:defaultValue="true" />
+			</PreferenceScreen>
+			<ListPreference android:key="update_interval"
+				android:title="@string/update_interval_" android:summary="@string/update_interval_hint"
+				android:entries="@array/update_interval" android:entryValues="@array/update_interval_values"
+				android:defaultValue="60" />
+			<DatePreference android:key="date_begin"
+				android:title="@string/date_begin_" android:summary="@string/date_begin_hint" />
+			<EditTextPreference android:key="delete_old_logs"
+				android:title="@string/delete_old_logs_" android:summary="@string/delete_old_logs_help"
+				android:defaultValue="90" android:inputType="number" />
+			<CheckBoxPreference android:key="strip_leading_zeros"
+				android:title="@string/strip_leading_zeros_" android:summary="@string/strip_leading_zeros_hint" />
+			<EditTextPreference android:key="intPrefix"
+				android:title="@string/number_prefix_" android:summary="@string/number_prefix_hint"
+				android:inputType="phone" />
+			<PreferenceScreen android:title="@string/ask_for_plan_">
+				<CheckBoxPreference android:key="ask_for_plan"
+					android:title="@string/ask_for_plan_" android:summary="@string/ask_for_plan_hint" />
+				<EditTextPreference android:key="autohide"
+					android:title="@string/autohide_" android:summary="@string/autohide_hint"
+					android:inputType="number" />
+			</PreferenceScreen>
+		</PreferenceScreen>
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/billing_">
@@ -125,41 +157,11 @@
 			<PreferenceScreen android:key="export_hourgroups"
 				android:title="@string/export_hourgroups_" android:summary="@string/export_hourgroups_hint" />
 		</PreferenceScreen>
-	</PreferenceCategory>
-
-	<PreferenceCategory android:title="@string/common_prefs_">
-		<PreferenceScreen android:title="@string/alerts_"
-			android:summary="@string/alerts_hint">
-			<CheckBoxPreference android:key="alert_80"
-				android:title="@string/alerts_80_" android:summary="@string/alerts_80_hint"
-				android:defaultValue="true" />
-			<CheckBoxPreference android:key="alert_100"
-				android:title="@string/alerts_100_" android:summary="@string/alerts_100_hint"
-				android:defaultValue="true" />
+		<PreferenceScreen android:title="@string/help_">
+			<intent android:action="android.intent.action.MAIN"
+				android:targetPackage="de.ub0r.android.callmeter"
+				android:targetClass="de.ub0r.android.callmeter.ui.Help" />
 		</PreferenceScreen>
-		<ListPreference android:key="update_interval"
-			android:title="@string/update_interval_" android:summary="@string/update_interval_hint"
-			android:entries="@array/update_interval" android:entryValues="@array/update_interval_values"
-			android:defaultValue="60" />
-		<DatePreference android:key="date_begin" android:title="@string/date_begin_"
-			android:summary="@string/date_begin_hint" />
-		<EditTextPreference android:key="delete_old_logs"
-			android:title="@string/delete_old_logs_" android:summary="@string/delete_old_logs_help"
-			android:defaultValue="90" android:inputType="number" />
-		<CheckBoxPreference android:key="strip_leading_zeros"
-			android:title="@string/strip_leading_zeros_" android:summary="@string/strip_leading_zeros_hint" />
-		<EditTextPreference android:key="intPrefix"
-			android:title="@string/number_prefix_" android:summary="@string/number_prefix_hint"
-			android:inputType="phone" />
-		<PreferenceScreen android:title="@string/ask_for_plan_">
-			<CheckBoxPreference android:key="ask_for_plan"
-				android:title="@string/ask_for_plan_" android:summary="@string/ask_for_plan_hint" />
-			<EditTextPreference android:key="autohide"
-				android:title="@string/autohide_" android:summary="@string/autohide_hint"
-				android:inputType="number" />
-		</PreferenceScreen>
-		<PreferenceScreen android:key="reset_data"
-			android:title="@string/reset_data_" android:summary="@string/reset_data_hint" />
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/about_">
@@ -191,6 +193,8 @@
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/debug_">
+		<PreferenceScreen android:key="reset_data"
+			android:title="@string/reset_data_" android:summary="@string/reset_data_hint" />
 		<PreferenceScreen android:key="send_logs"
 			android:title="@string/send_logs_" android:summary="@string/send_logs_hint" />
 	</PreferenceCategory>

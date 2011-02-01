@@ -54,6 +54,8 @@
   <string formatted="false" name="billmode_">Abrechnungsmodus</string>
   <string formatted="false" name="billdate_">Erster Rechnungstag:</string>
   <string formatted="false" name="appearance_">Darstellung</string>
+  <string formatted="false" name="behavior_">Verhalten</string>
+  <string formatted="false" name="appearance_and_behavior_">Darstellung &amp; Verhalten</string>
   <string formatted="false" name="advanced_preferences_">Erweiterte Einstellungen</string>
   <string formatted="false" name="advanced_preferences_hint">Damit kannst du viel komplexere Abrechnungen abbilden. Die meisten Benutzer werden das nicht brauchen.</string>
   <string formatted="false" name="theme_">Theme</string>
