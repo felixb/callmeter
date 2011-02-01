@@ -25,12 +25,10 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.ContentResolver;
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -130,8 +128,6 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			return;
 		}
 		final long ppid = DataProvider.Plans.getParent(cr, pid);
-		final Uri puri = ContentUris.withAppendedId(
-				DataProvider.Plans.CONTENT_URI, pid);
 		long bid = -1L;
 		String pname = null;
 		float cpp = 0F;
@@ -143,8 +139,9 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		boolean isMerger;
 		// float cost = 0F;
 		String billdayWhere = null;
-		Cursor cursor = cr.query(puri, DataProvider.Plans.PROJECTION, null,
-				null, null);
+		Cursor cursor = cr.query(DataProvider.Plans.CONTENT_URI,
+				DataProvider.Plans.PROJECTION, DataProvider.Plans.ID + " = ?",
+				new String[] { String.valueOf(pid) }, null);
 		if (cursor.moveToFirst()) {
 			if (showShortname) {
 				pname = cursor.getString(DataProvider.Plans.INDEX_SHORTNAME);
@@ -163,20 +160,10 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 
 			final String s = cursor
 					.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
-
+			where = DataProvider.Plans.parseMergerWhere(pid, s);
 			if (s == null || s.length() == 0) {
-				where = DataProvider.Logs.PLAN_ID + " = " + pid;
 				isMerger = false;
 			} else {
-				final StringBuilder sb = new StringBuilder(
-						DataProvider.Logs.PLAN_ID + " = " + pid);
-				for (String ss : s.split(",")) {
-					if (ss.length() == 0) {
-						continue;
-					}
-					sb.append(" OR " + DataProvider.Logs.PLAN_ID + " = " + ss);
-				}
-				where = sb.toString();
 				isMerger = true;
 			}
 		} else {
@@ -187,9 +174,10 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		int bpos = 0;
 		int bmax = -1;
 		if (bid >= 0L) {
-			cursor = cr.query(ContentUris.withAppendedId(
-					DataProvider.Plans.CONTENT_URI, bid),
-					DataProvider.Plans.PROJECTION, null, null, null);
+			cursor = cr.query(DataProvider.Plans.CONTENT_URI,
+					DataProvider.Plans.PROJECTION, DataProvider.Plans.ID
+							+ " = ?", new String[] { String.valueOf(bid) },
+					null);
 			if (cursor.moveToFirst()) {
 				final int bp = cursor
 						.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
