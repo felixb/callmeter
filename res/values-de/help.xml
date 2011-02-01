@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2009-2011 Felix Bechstein
+	-->
+	<!--
+		This file is part of Call Meter 3G. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<resources>
+	<string name="help_title_">Bitte lies folgendes um das Konzept der <b>Logs</b>, <b>Kontingente</b> and <b>Regeln</b> zu verstehen:</string>
+
+	<string name="help_import_">Ein guter Anfangspunkt sind fertige Rgelsätze. Sie sind über die Website erhältlich. Importiere sie einfach über das Import Menü und spiele mit ihnen rum.</string>
+	<string name="help_export_">Wenn du es geschafft hast ein für dein Land typischen Regelsatz zu erstellen, kannst du ihn gern per Mail exportieren und mir schicken. Ich werde den Regelsatz dann auf der Website für alle Benutzer zugänglich machen.</string>
+
+	<string name="help_logs_plans_rules_">Es gibt drei Arten der Datenstrukturen:</string>
+	<string name="help_logs_"><b>Logs</b> um Informationen über Anrufe, Nachrichten und Datenverkehr zu speichern.</string>
+	<string name="help_plans_"><b>Plans</b> um alle Aspekte deiner Rechnung zu beschreiben.</string>
+	<string name="help_rules_"><b>Rules</b> um die <b>Logs</b> in bestimmte <b>Kontingente</b> zu sortieren.</string>
+		
+	<string name="help_plans_detail0_">Du kannst jederzeit <b>Kontingente</b> hinzufügen oder löschen. Die Reihenfolge kannst du mit dem Handle an der Rechten Site per Drag &amp; Drop verändern.</string>
+	<string name="help_plans_detail1_">Um ein <b>Kontingent</b> zu bearbeiten musst du es nur einfach anklicken. Im nächsten Fenster kannst du alle möglichen Einstellungen verändern. Ein paar dieser einstellungen werden von den meisten Benutzern nicht gebraucht. Von einigen aber schon. Eine kurze Hilfe wird zu jeder Einstelung angezeigt. Die meisten Einstellungen, die du nicht verstehst, werden in deinem Land nicht benutzt. Lass sie einfach wie sie sind. ;)</string>
+	<string name="help_plans_merge_">Du kannst <b>Kontingente</b> zusammen führen um ihre <b>Logs</b> zu aggregieren. Dabei werden Kosten und das Limit kombiniert/aufsummiert.</string>
+	
+	<string name="help_rules_detail0_"><b>Regeln</b> lassen sich auf die gleiche weise bearbeiten. Jede <b>Regel</b> passt auf einige <b>Logs</b> und sortiert diese in das <b>Kontingent</b> mit welchem die <b>Logs</b> abgerechnet werden sollen.</string>
+	<string name="help_rules_detail1_">Beachte aber, dass für <b>Regeln</b> die Reihenfolge wichtig ist.:</string>
+	<string name="help_rules_detail2_"><b>Logs</b> werden <b>top-down</b> bearbeitet. D.h.: Die erste <b>Regel</b>, die trifft, beendet die Bearbeitung für diesen <b>Logeintrag</b>.</string>
+	<string name="help_rules_detail3_">Z.B.: Wenn du mit der obersten <b>Regel</b> alle Anrufe zu 0800% Nummern in ein <b>Kontingent</b> \"free\" sortierst, musst du diese Nummern in weiteren <b>Regeln</b> nicht mehr ausschließen.</string>
+</resources>
