@@ -18,8 +18,8 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-  <string formatted="false" name="changelog_notification_">Recent changes:</string>
-  <string formatted="false" name="changelog_notification_text">Click here to show recent changes of</string>
+  <string formatted="false" name="changelog_notification_">Последние изменения:</string>
+  <string formatted="false" name="changelog_notification_text">Нажмите здесь, чтобы показать последние изменения</string>
   <string formatted="false" name="never_show_again">Never show changelog again</string>
   <string formatted="false" name="notes_from_developer_">Notes from developer</string>
   <string formatted="false" name="notes_from_developer_text">Click here to show recent news from the developer</string>
@@ -58,7 +58,7 @@
   <string formatted="false" name="advanced_preferences_hint">Настройка более сложныx методов отчёта. Многие пользователи в этом не нуждаются.</string>
   <string formatted="false" name="theme_">Темы</string>
   <string formatted="false" name="textsize_">Размер шрифта</string>
-  <string formatted="false" name="textsize_hint">Text size in pixels; leave empty for default</string>
+  <string formatted="false" name="textsize_hint">Размер текста в пикселях; оставьте пустым для значения по умолчанию</string>
   <string formatted="false" name="textsize_title_">Title\'s text size</string>
   <string formatted="false" name="textsize_title_hint">Text size for titles in pixels; leave empty for default</string>
   <string formatted="false" name="textsize_bigtitle_">Big title\'s text size</string>
@@ -244,8 +244,8 @@
   <string formatted="false" name="export_logs_hint">Backup logs as mail.</string>
   <string formatted="false" name="export_numgroups_">Export number groups</string>
   <string formatted="false" name="export_numgroups_hint">Export number groups as mail.</string>
-  <string formatted="false" name="export_hourgroups_">Export hour groups</string>
-  <string formatted="false" name="export_hourgroups_hint">Export hour groups as mail.</string>
+  <string formatted="false" name="export_hourgroups_">Экспорт часовых групп</string>
+  <string formatted="false" name="export_hourgroups_hint">Экспорт часовых групп по почте.</string>
   <string formatted="false" name="import_rules_">Импорт ценового плана</string>
   <string formatted="false" name="import_rules_hint">Установка готового плана.</string>
   <string formatted="false" name="import_rules_empty">Какие-либо ценовые планы или правила отсутствуют. Нажмите на этот текст для импорта стандартныx настроек.\n\nСобственно ручная настройка тоже возможна.</string>
@@ -269,7 +269,7 @@
     <item>Пятница</item>
     <item>Суббота</item>
     <item>Воскресение</item>
-    <item>Monday - Friday</item>
+    <item>Понедельник - пятница</item>
   </string-array>
   <string-array name="hours_all">
     <item>Полный день</item>
@@ -306,7 +306,7 @@
     <item>Изменить ценовой план</item>
   </string-array>
   <string-array name="dialog_delete">
-    <item>Delete</item>
+    <item>Удалить</item>
   </string-array>
   <string-array name="dialog_edit_delete">
     <item>Изменить</item>
