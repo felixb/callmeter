@@ -796,8 +796,8 @@ public final class DataProvider extends ContentProvider {
 				return -1L;
 			}
 			final Cursor cursor = cr.query(CONTENT_URI, PROJECTION_NAME,
-					DataProvider.Plans.MERGED_PLANS + " LIKE '%,?,%'",
-					new String[] { String.valueOf(id) }, null);
+					DataProvider.Plans.MERGED_PLANS + " LIKE '%," + id + ",%'",
+					null, null);
 			long ret = -1L;
 			if (cursor.moveToFirst()) {
 				ret = cursor.getLong(0);
