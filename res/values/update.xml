@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: fix data logs, fix sunday, fix limit+cost for merged+mixed plans, add remote number for MMS, update translations, add help</item>
+		<item>v3.0: fix data logs, fix sunday, fix limit+cost for merged+mixed plans, add remote number for MMS, update translations, add help</item>
 		<item>v2.9.6: set custom delimiter, add mon-fri for hour groups, allow smaller than 1 units in mixed plans</item>
 		<item>v2.9.5: set date+time for start of billing period, improve data logging, match (inter-)national numbers (enter your prefix in preferences), show today\'s stats, allow multi bill period merger, show call info after hanging up</item>
 		<item>v2.9.4: hide progress bars, add bill periods: 4,5,6,12 month, strip leading zeros, hide no cost plans</item>
