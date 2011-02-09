@@ -124,7 +124,7 @@
   <string formatted="false" name="plan_name2_">Schema 2: naam</string>
   <string formatted="false" name="plan_name_hint">Gekozen naam</string>
   <string formatted="false" name="reset_data_">Reset statistieken</string>
-  <string formatted="false" name="reset_data_hint">Resetten van gesprek/sms data zorgt voor het opnieuw berekenen van de statistieken. \n\nResetten van data statistieken is permanent. Alleen data voordat het programma gestart is wordt gereset!</string>
+  <string formatted="false" name="reset_data_hint">Resetten van gesprek/sms data zorgt voor het opnieuw berekenen van de statistieken.\n\nResetten van data statistieken is permanent. Alleen data voordat het programma gestart is wordt gereset!</string>
   <string formatted="false" name="reset_data_data_">Reset ook dataverkeer.</string>
   <string formatted="false" name="contacts_">Contacten</string>
   <string-array name="themes">
