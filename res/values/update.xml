@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: Inner changes, translation update</item>
+		<item>HEAD: Inner changes, translation update, add hebrew translation</item>
 		<item>v2.3.14: Add Slovak translation, fix czech tanslation</item>
 		<item>v2.3.13: Add chinese translation, set custom locale</item>
 		<item>v2.3.12: Add turkish translation, support for Samsung Galaxy GT-I5500</item>

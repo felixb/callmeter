@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2010 Felix Bechstein
+	-->
+	<!--
+		This file is part of Call Meter NG. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<resources>
+  <string formatted="false" name="about0_">Watch your call, message and data plans!</string>
+  <string formatted="false" name="about0">CallMeter generates reports from call, message and data logs. It supports several modes of billing.</string>
+  <string formatted="false" name="about1">The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not.</string>
+  <string formatted="false" name="about2">The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.</string>
+  <string formatted="false" name="about3">You can split your call or message plan into up to two plans. Each plan can be set to be totally free, capped to a set limit or unlimited.</string>
+  <string formatted="false" name="about4">Your messages can be merged into your call plan. E.g. counting every message as a 15s call.</string>
+  <string formatted="false" name="about5">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string>
+  <string formatted="false" name="about6_">What does CallMeter NG not do:</string>
+  <string formatted="false" name="about6">There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs.</string>
+  <string formatted="false" name="send_">Send</string>
+  <string formatted="false" name="settings">Preferences</string>
+  <string formatted="false" name="about_">About</string>
+  <string formatted="false" name="about_hint">About this app</string>
+  <string formatted="false" name="faq_hint">Some tips and tricks, how to set up this app.</string>
+  <string formatted="false" name="feedback_">Feedback</string>
+  <string formatted="false" name="feedback_hint">Report bugs, request features ...</string>
+  <string formatted="false" name="twitter_hint">Follow me on twitter.\nGet update notifications etc.</string>
+  <string formatted="false" name="more_">More Apps..</string>
+  <string formatted="false" name="billday_">First day of your bill</string>
+  <string formatted="false" name="billmode_">Mode of billing</string>
+  <string formatted="false" name="billmode_hint">Length of first/following billing intervals.</string>
+  <string formatted="false" name="billdate_">Start of billing period:</string>
+  <string formatted="false" name="smsperiod_">Same Period for SMS</string>
+  <string formatted="false" name="smsperiod_hint">Set SMS\'s billing period to calls\' period.</string>
+  <string formatted="false" name="smsbillday_">First day of your SMS bill</string>
+  <string formatted="false" name="dataperiod_">Same Period for data</string>
+  <string formatted="false" name="dataperiod_hint">Set data\'s billing period to calls\' period.</string>
+  <string formatted="false" name="databillday_">First day of your data bill</string>
+  <string formatted="false" name="appearance_">Appearance</string>
+  <string formatted="false" name="theme_">Theme</string>
+  <string formatted="false" name="textsize_">Text size</string>
+  <string formatted="false" name="advanced_">Advanced</string>
+  <string formatted="false" name="exclude_people_">Exclude numbers</string>
+  <string formatted="false" name="exclude_people_hint">Don\'t bill some numbers\nwildcards allowed: *555, 555* or *555*</string>
+  <string formatted="false" name="exclude_people_add">Add number</string>
+  <string formatted="false" name="exclude_people_edit">Edit</string>
+  <string formatted="false" name="exclude_people_delete">Delete</string>
+  <string formatted="false" name="exclude_people_to_plan1_">Excluded numbers to plan #1</string>
+  <string formatted="false" name="exclude_people_to_plan2_">Excluded numbers to plan #2</string>
+  <string formatted="false" name="exclude_people_calls_">Enable for Calls</string>
+  <string formatted="false" name="exclude_people_calls_to_plan1_hint">Bill calls to/from excluded numbers in plan #1</string>
+  <string formatted="false" name="exclude_people_calls_to_plan2_hint">Bill calls to/from excluded numbers in plan #2</string>
+  <string formatted="false" name="exclude_people_sms_">Enable for SMS</string>
+  <string formatted="false" name="exclude_people_sms_to_plan1_hint">Bill messages to/from excluded numbers in plan #1</string>
+  <string formatted="false" name="exclude_people_sms_to_plan2_hint">Bill messages to/from excluded numbers in plan #2</string>
+  <string formatted="false" name="plans">Plans</string>
+  <string formatted="false" name="plans_split">Split plans</string>
+  <string formatted="false" name="plans_merge">Merge plans</string>
+  <string formatted="false" name="plans_split_hint">Split plan into two different billed plans.</string>
+  <string formatted="false" name="plan1">Plan 1</string>
+  <string formatted="false" name="plan2">Plan 2</string>
+  <string formatted="false" name="plan1_hint">Check hours to include calls/sms into first plan. All others will go into second plan.</string>
+  <string formatted="false" name="plan_free_">No billing</string>
+  <string formatted="false" name="plan_freemin_">Free Minutes</string>
+  <string formatted="false" name="plan_freesms_">Free SMS</string>
+  <string formatted="false" name="free_hint">Totally free</string>
+  <string formatted="false" name="freemin_hint">Free Minutes / Month</string>
+  <string formatted="false" name="freesms_hint">Free SMS / Month</string>
+  <string formatted="false" name="bill_calls_incoming_">Bill incoming</string>
+  <string formatted="false" name="bill_calls_incoming_hint">Bill incoming calls as well.</string>
+  <string formatted="false" name="bill_sms_incoming_">Bill incoming</string>
+  <string formatted="false" name="bill_sms_incoming_hint">Bill incoming sms as well.</string>
+  <string formatted="false" name="bill_data_incoming_only_">Bill incoming only</string>
+  <string formatted="false" name="bill_data_incoming_only_hint">Bill only incoming traffic.</string>
+  <string formatted="false" name="cost_per_call_">Cost per call</string>
+  <string formatted="false" name="cost_per_call_hint">Each call will be billed with this.</string>
+  <string formatted="false" name="cost_per_minute_">Cost per minute</string>
+  <string formatted="false" name="cost_per_minute_hint">Each minute of a call will be billed with this.</string>
+  <string formatted="false" name="cost_per_sms_">Cost per SMS</string>
+  <string formatted="false" name="cost_per_sms_hint">Each SMS will be billed with this.</string>
+  <string formatted="false" name="cost_per_mb_">Cost per MB</string>
+  <string formatted="false" name="cost_per_mb_hint">Each MB of the traffic will be billed with this.</string>
+  <string formatted="false" name="merge_sms_calls_">Merge SMS into calls</string>
+  <string formatted="false" name="merge_sms_calls_hint">Bill SMS as part of calls.</string>
+  <string formatted="false" name="merge_sms_calls_sec_">Seconds / SMS</string>
+  <string formatted="false" name="merge_sms_calls_sec_hint">Number of seconds billed for a single sms.</string>
+  <string formatted="false" name="merge_sms_plan1_">Merge SMS into plan 1</string>
+  <string formatted="false" name="merge_sms_plan1_hint">Uncheck to merge them into plan 2.</string>
+  <string formatted="false" name="data_hint">WLAN stats are not collected here!</string>
+  <string formatted="false" name="data_enable_">Show data stats</string>
+  <string formatted="false" name="data_enable_hint">Data is collected in realtime. First month may be incorrect!</string>
+  <string formatted="false" name="data_each_day">Bill each day separately</string>
+  <string formatted="false" name="data_each_day_hint">Your billing period starts with each day.</string>
+  <string formatted="false" name="data_limit_">Limit</string>
+  <string formatted="false" name="data_limit_hint">Limit of data plan (MB/month)</string>
+  <string formatted="false" name="monday">Monday</string>
+  <string formatted="false" name="tuesday">Tuesday</string>
+  <string formatted="false" name="wednesday">Wednesday</string>
+  <string formatted="false" name="thursday">Thursday</string>
+  <string formatted="false" name="friday">Friday</string>
+  <string formatted="false" name="saturday">Saturday</string>
+  <string formatted="false" name="sunday">Sunday</string>
+  <string formatted="false" name="calls">Calls</string>
+  <string formatted="false" name="sms">SMS</string>
+  <string formatted="false" name="data">Data</string>
+  <string formatted="false" name="calls_sms">Calls/SMS</string>
+  <string formatted="false" name="in_calls">In%s:</string>
+  <string formatted="false" name="in_sms">In%s:</string>
+  <string formatted="false" name="in_data">In:</string>
+  <string formatted="false" name="out_calls">Out%s:</string>
+  <string formatted="false" name="out_sms">Out%s:</string>
+  <string formatted="false" name="out_data">Out:</string>
+  <string formatted="false" name="plan_name1_">Plan 1: name</string>
+  <string formatted="false" name="plan_name2_">Plan 2: name</string>
+  <string formatted="false" name="plan_name_hint">Custom Name</string>
+  <string formatted="false" name="reset_data_">Reset statistics</string>
+  <string formatted="false" name="reset_data_hint">Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!</string>
+  <string formatted="false" name="reset_data_data_">Reset traffic too.</string>
+  <string formatted="false" name="contacts_">Contacts</string>
+  <string-array name="themes">
+    <item>Black</item>
+    <item>Light</item>
+  </string-array>
+  <string-array name="textsize">
+    <item>Small</item>
+    <item>Medium</item>
+  </string-array>
+</resources>
