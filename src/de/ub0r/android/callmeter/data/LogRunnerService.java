@@ -415,17 +415,25 @@ public final class LogRunnerService extends IntentService {
 	 * 
 	 * @param cr
 	 *            {@link ContentResolver}
+	 * @param direction
+	 *            direction
 	 */
-	private static void updateSMS(final ContentResolver cr) {
-		final long maxdate = getMaxDate(cr, DataProvider.TYPE_SMS);
+	private static void updateSMS(final ContentResolver cr, // .
+			final int direction) {
+		int type = Calls.OUTGOING_TYPE;
+		if (direction == DataProvider.DIRECTION_IN) {
+			type = Calls.INCOMING_TYPE;
+		}
+
+		final long maxdate = getMaxDate(cr, DataProvider.TYPE_SMS, direction);
 		final String[] smsProjection = new String[] { Calls.DATE, Calls.TYPE,
 				"address", "body" };
 		final Cursor cursor = cr.query(URI_SMS, smsProjection, Calls.DATE
-				+ " > ?", new String[] { String.valueOf(maxdate) }, Calls.DATE
+				+ " > ? and " + Calls.TYPE + " = ?", new String[] {
+				String.valueOf(maxdate), String.valueOf(type) }, Calls.DATE
 				+ " DESC");
 		if (cursor.moveToFirst()) {
 			final int idDate = cursor.getColumnIndex(Calls.DATE);
-			final int idType = cursor.getColumnIndex(Calls.TYPE);
 			final int idAddress = cursor.getColumnIndex("address");
 			final int idBody = cursor.getColumnIndex("body");
 			final TelephonyWrapper wrapper = TelephonyWrapper.getInstance();
@@ -434,16 +442,7 @@ public final class LogRunnerService extends IntentService {
 			new ArrayList<ContentValues>(CallMeter.HUNDRET);
 			do {
 				final ContentValues cv = new ContentValues();
-				final int t = cursor.getInt(idType);
-				if (t == Calls.INCOMING_TYPE) {
-					cv.put(DataProvider.Logs.DIRECTION,
-							DataProvider.DIRECTION_IN);
-				} else if (t == Calls.OUTGOING_TYPE) {
-					cv.put(DataProvider.Logs.DIRECTION,
-							DataProvider.DIRECTION_OUT);
-				} else {
-					continue;
-				}
+				cv.put(DataProvider.Logs.DIRECTION, direction);
 				cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
 				cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_SMS);
@@ -702,14 +701,16 @@ public final class LogRunnerService extends IntentService {
 				deleteOldLogs(cr);
 			}
 			updateCalls(cr);
-			updateSMS(cr);
+			updateSMS(cr, DataProvider.DIRECTION_IN);
+			updateSMS(cr, DataProvider.DIRECTION_OUT);
 			updateMMS(this);
 			if (RuleMatcher.match(this, showDialog)) {
 				StatsAppWidgetProvider.updateWidgets(this);
 			}
 		} else if (roaming) {
 			updateCalls(cr);
-			updateSMS(cr);
+			updateSMS(cr, DataProvider.DIRECTION_IN);
+			updateSMS(cr, DataProvider.DIRECTION_OUT);
 			updateMMS(this);
 		}
 
