@@ -101,6 +101,8 @@
 	<string name="custom_date_format_hint">Select a custom date format.</string>
 	<string name="custom_delimiter_">Custom delimiter</string>
 	<string name="custom_delimiter_hint">Set a custom delimiter separating the blocks of statistics.</string>
+	<string name="split_sms_at_160_">Split text messages at 160 chars</string>
+	<string name="split_sms_at_160_hint">Disable to use android\'s system method.</string>
 	<string name="ask_for_plan_">Ask for plan</string>
 	<string name="ask_for_plan_hint">Ask for plan for unmatched calls after hanging up.</string>
 	<string name="autohide_">Auto hide</string>

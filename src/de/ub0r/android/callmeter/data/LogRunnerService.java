@@ -93,8 +93,13 @@ public final class LogRunnerService extends IntentService {
 	/** Type for outgoing mms. */
 	private static final int MMS_OUT = 128;
 
+	/** Length of an SMS. */
+	private static final int SMS_LENGTH = 160;
+
 	/** Is phone roaming? */
 	private static boolean roaming = false;
+	/** Split messages at 160chars. */
+	private static boolean splitAt160 = false;
 
 	/** Ignore logs before. */
 	private static long dateStart = 0L;
@@ -447,13 +452,18 @@ public final class LogRunnerService extends IntentService {
 						cursor.getString(idAddress), false));
 				final String body = cursor.getString(idBody);
 				if (body != null && body.length() > 0) {
-					try {
-						cv.put(DataProvider.Logs.AMOUNT, wrapper
-								.calculateLength(body, false)[0]);
-					} catch (NullPointerException e) {
-						Log.e(TAG, "error getting length for message: " + body,
-								e);
-						cv.put(DataProvider.Logs.AMOUNT, 1);
+					if (splitAt160) {
+						int l = ((body.length() - 1) / SMS_LENGTH) + 1;
+						cv.put(DataProvider.Logs.AMOUNT, l);
+					} else {
+						try {
+							cv.put(DataProvider.Logs.AMOUNT, wrapper
+									.calculateLength(body, false)[0]);
+						} catch (NullPointerException e) {
+							Log.e(TAG, "error getting length for message: "
+									+ body, e);
+							cv.put(DataProvider.Logs.AMOUNT, 1);
+						}
 					}
 				} else {
 					cv.put(DataProvider.Logs.AMOUNT, 1);
@@ -626,6 +636,7 @@ public final class LogRunnerService extends IntentService {
 		dateStart = p.getLong(Preferences.PREFS_DATE_BEGIN,
 				DatePreference.DEFAULT_VALUE);
 		deleteBefore = Preferences.getDeleteLogsBefore(p);
+		splitAt160 = p.getBoolean(Preferences.PREFS_SPLIT_SMS_AT_160, false);
 		final boolean showCallInfo = p.getBoolean(
 				Preferences.PREFS_SHOWCALLINFO, false);
 		final boolean askForPlan = p.getBoolean(Preferences.PREFS_ASK_FOR_PLAN,

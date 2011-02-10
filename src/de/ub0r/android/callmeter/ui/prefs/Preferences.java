@@ -73,6 +73,8 @@ public class Preferences extends PreferenceActivity {
 
 	/** Preference's name: show advanced preferences. */
 	public static final String PREFS_ADVANCED = "advanced_preferences";
+	/** Preference's name: split messages at 160chars. */
+	public static final String PREFS_SPLIT_SMS_AT_160 = "split_at_160";
 	/** Preference's name: alert at 80% usage. */
 	public static final String PREFS_ALERT80 = "alert_80";
 	/** Preference's name: alert at 100% usage. */

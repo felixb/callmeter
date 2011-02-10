@@ -84,6 +84,8 @@
 		<PreferenceScreen android:title="@string/behavior_">
 			<PreferenceScreen android:title="@string/alerts_"
 				android:summary="@string/alerts_hint">
+				<CheckBoxPreference android:key="split_at_160"
+					android:title="@string/split_sms_at_160_" android:summary="@string/split_sms_at_160_hint" />
 				<CheckBoxPreference android:key="alert_80"
 					android:title="@string/alerts_80_" android:summary="@string/alerts_80_hint"
 					android:defaultValue="true" />
