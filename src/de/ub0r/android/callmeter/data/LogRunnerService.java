@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein
+ * Copyright (C) 2009-2011 Felix Bechstein
  * 
  * This file is part of CallMeter 3G.
  * 
@@ -359,6 +359,9 @@ public final class LogRunnerService extends IntentService {
 		final Cursor cursor = cr.query(Calls.CONTENT_URI, callsProjection,
 				Calls.DATE + " > ?", new String[] { String.valueOf(maxdate) },
 				Calls.DATE + " DESC");
+		if (cursor == null) {
+			return;
+		}
 		if (cursor.moveToFirst()) {
 			final int idType = cursor.getColumnIndex(Calls.TYPE);
 			final int idDuration = cursor.getColumnIndex(Calls.DURATION);
@@ -432,6 +435,9 @@ public final class LogRunnerService extends IntentService {
 				+ " > ? and " + Calls.TYPE + " = ?", new String[] {
 				String.valueOf(maxdate), String.valueOf(type) }, Calls.DATE
 				+ " DESC");
+		if (cursor == null) {
+			return;
+		}
 		if (cursor.moveToFirst()) {
 			final int idDate = cursor.getColumnIndex(Calls.DATE);
 			final int idAddress = cursor.getColumnIndex("address");
@@ -500,10 +506,16 @@ public final class LogRunnerService extends IntentService {
 				THRADID };
 		Cursor cursor = cr.query(URI_MMS, mmsProjection, Calls.DATE + " > ?",
 				new String[] { String.valueOf(maxdate) }, Calls.DATE + " DESC");
+		if (cursor == null) {
+			return;
+		}
 		if (!cursor.moveToFirst()) {
 			cursor.close();
 			cursor = cr.query(URI_MMS, mmsProjection, Calls.DATE + " > "
 					+ (maxdate / CallMeter.MILLIS), null, Calls.DATE + " DESC");
+		}
+		if (cursor == null) {
+			return;
 		}
 		if (cursor.moveToFirst()) {
 			final int idDate = cursor.getColumnIndex(Calls.DATE);
