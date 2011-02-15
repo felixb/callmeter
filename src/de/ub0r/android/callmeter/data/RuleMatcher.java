@@ -329,7 +329,7 @@ public final class RuleMatcher {
 						% SUN;
 				final int h = cal.get(Calendar.HOUR_OF_DAY) + 1;
 				for (int k : this.hours.keySet()) {
-					if (k == ALL_WEEK || (k == MON_FRI && d < SAT)
+					if (k == ALL_WEEK || (k == MON_FRI && d < SAT && d >= MON)
 							|| k % SUN == d) {
 						for (int v : this.hours.get(k)) {
 							if (v == 0 || v == h) {
