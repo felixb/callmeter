@@ -35,6 +35,12 @@
 	<TextView android:id="@+id/length_" android:layout_below="@id/remote_"
 		android:text="@string/length_" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" />
+	<TextView android:id="@+id/blength_" android:layout_below="@id/length_"
+		android:text="@string/blength_" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" />
+	<TextView android:id="@+id/cost_" android:layout_below="@id/blength_"
+		android:text="@string/cost_" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" />
 
 	<TextView android:id="@+id/plan" android:layout_below="@android:id/text1"
 		android:text="string/plan" android:layout_width="wrap_content"
@@ -47,5 +53,11 @@
 		android:layout_height="wrap_content" android:layout_alignParentRight="true" />
 	<TextView android:id="@+id/length" android:layout_below="@id/remote_"
 		android:text="string/length" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+	<TextView android:id="@+id/blength" android:layout_below="@id/length"
+		android:text="string/blength" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+	<TextView android:id="@+id/cost" android:layout_below="@id/blength"
+		android:text="string/cost" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:layout_alignParentRight="true" />
 </RelativeLayout>

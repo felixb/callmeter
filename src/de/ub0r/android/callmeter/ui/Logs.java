@@ -88,6 +88,8 @@ public final class Logs extends ListActivity implements OnClickListener,
 	 * @author flx
 	 */
 	public class LogAdapter extends ResourceCursorAdapter {
+		/** Currency format. */
+		private final String cformat;
 
 		/**
 		 * Default Constructor.
@@ -102,6 +104,7 @@ public final class Logs extends ListActivity implements OnClickListener,
 					.query(DataProvider.Logs.CONTENT_URI,
 							DataProvider.Logs.PROJECTION, where, null,
 							DataProvider.Logs.DATE + " DESC"), true);
+			this.cformat = Preferences.getCurrencyFormat(context);
 		}
 
 		/**
@@ -150,7 +153,7 @@ public final class Logs extends ListActivity implements OnClickListener,
 				tw.setText(s);
 			}
 
-			long amount = cursor.getLong(DataProvider.Logs.INDEX_AMOUNT);
+			final long amount = cursor.getLong(DataProvider.Logs.INDEX_AMOUNT);
 			s = Plans.formatAmount(t, amount, showHours);
 			if (s == null || s.trim().length() == 0 || s.equals("1")) {
 				view.findViewById(R.id.length).setVisibility(View.GONE);
@@ -160,6 +163,27 @@ public final class Logs extends ListActivity implements OnClickListener,
 				tw.setVisibility(View.VISIBLE);
 				view.findViewById(R.id.length_).setVisibility(View.VISIBLE);
 				tw.setText(s);
+			}
+			final float ba = cursor
+					.getFloat(DataProvider.Logs.INDEX_BILL_AMOUNT);
+			TextView tw = (TextView) view.findViewById(R.id.blength);
+			if (amount != ba) {
+				tw.setText(Plans.formatAmount(t, ba, showHours));
+				tw.setVisibility(View.VISIBLE);
+				view.findViewById(R.id.blength_).setVisibility(View.VISIBLE);
+			} else {
+				tw.setVisibility(View.GONE);
+				view.findViewById(R.id.blength_).setVisibility(View.GONE);
+			}
+			final float c = cursor.getFloat(DataProvider.Logs.INDEX_COST);
+			tw = (TextView) view.findViewById(R.id.cost);
+			if (c > 0f) {
+				tw.setText(String.format(this.cformat, c));
+				tw.setVisibility(View.VISIBLE);
+				view.findViewById(R.id.cost_).setVisibility(View.VISIBLE);
+			} else {
+				tw.setVisibility(View.GONE);
+				view.findViewById(R.id.cost_).setVisibility(View.GONE);
 			}
 		}
 	}
