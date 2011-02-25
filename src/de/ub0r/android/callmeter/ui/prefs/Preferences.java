@@ -328,9 +328,20 @@ public class Preferences extends PreferenceActivity {
 			return "%." + defaultCurrencyDigits + "f"
 					+ getCurrencySymbol(context);
 		} else {
-			final String c = getCurrencySymbol(context);
-			return pcs.replaceAll("\\$", c).replaceAll("\u20AC", c).replaceAll(
-					"\u0440", c);
+			Log.d(TAG, "custom currency format: " + pcs);
+			String c = getCurrencySymbol(context);
+			Log.d(TAG, "custom currency symbol: " + c);
+			if (c.equals("$")) {
+				c = "\\$";
+				Log.d(TAG, "custom currency symbol: " + c);
+			} else if (c.equals("%")) {
+				c = "%%";
+				Log.d(TAG, "custom currency symbol: " + c);
+			}
+			final String ret = pcs.replaceAll("\\$", c).replaceAll("\u20AC", c)
+					.replaceAll("\u0440", c);
+			Log.d(TAG, "custom currency format: " + ret);
+			return ret;
 		}
 	}
 
