@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2009-2010 Felix Bechstein
+		Copyright (C) 2009-2011 Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter 3G. This program is free software; you
@@ -18,22 +18,18 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string formatted="false" name="help_title_">Bitte lies folgendes um das Konzept der <b>Logs</b>, <b>Kontingente</b> and <b>Regeln</b> zu verstehen:</string>
-
-	<string formatted="false" name="help_import_">Ein guter Anfangspunkt sind fertige Rgelsätze. Sie sind über die Website erhältlich. Importiere sie einfach über das Import Menü und spiele mit ihnen rum.</string>
-	<string formatted="false" name="help_export_">Wenn du es geschafft hast ein für dein Land typischen Regelsatz zu erstellen, kannst du ihn gern per Mail exportieren und mir schicken. Ich werde den Regelsatz dann auf der Website für alle Benutzer zugänglich machen.</string>
-
-	<string formatted="false" name="help_logs_plans_rules_">Es gibt drei Arten der Datenstrukturen:</string>
-	<string formatted="false" name="help_logs_"><b>Logs</b> um Informationen über Anrufe, Nachrichten und Datenverkehr zu speichern.</string>
-	<string formatted="false" name="help_plans_"><b>Plans</b> um alle Aspekte deiner Rechnung zu beschreiben.</string>
-	<string formatted="false" name="help_rules_"><b>Rules</b> um die <b>Logs</b> in bestimmte <b>Kontingente</b> zu sortieren.</string>
-		
-	<string formatted="false" name="help_plans_detail0_">Du kannst jederzeit <b>Kontingente</b> hinzufügen oder löschen. Die Reihenfolge kannst du mit dem Handle an der Rechten Site per Drag &amp; Drop verändern.</string>
-	<string formatted="false" name="help_plans_detail1_">Um ein <b>Kontingent</b> zu bearbeiten musst du es nur einfach anklicken. Im nächsten Fenster kannst du alle möglichen Einstellungen verändern. Ein paar dieser einstellungen werden von den meisten Benutzern nicht gebraucht. Von einigen aber schon. Eine kurze Hilfe wird zu jeder Einstelung angezeigt. Die meisten Einstellungen, die du nicht verstehst, werden in deinem Land nicht benutzt. Lass sie einfach wie sie sind. ;)</string>
-	<string formatted="false" name="help_plans_merge_">Du kannst <b>Kontingente</b> zusammen führen um ihre <b>Logs</b> zu aggregieren. Dabei werden Kosten und das Limit kombiniert/aufsummiert.</string>
-	
-	<string formatted="false" name="help_rules_detail0_"><b>Regeln</b> lassen sich auf die gleiche weise bearbeiten. Jede <b>Regel</b> passt auf einige <b>Logs</b> und sortiert diese in das <b>Kontingent</b> mit welchem die <b>Logs</b> abgerechnet werden sollen.</string>
-	<string formatted="false" name="help_rules_detail1_">Beachte aber, dass für <b>Regeln</b> die Reihenfolge wichtig ist.:</string>
-	<string formatted="false" name="help_rules_detail2_"><b>Logs</b> werden <b>top-down</b> bearbeitet. D.h.: Die erste <b>Regel</b>, die trifft, beendet die Bearbeitung für diesen <b>Logeintrag</b>.</string>
-	<string formatted="false" name="help_rules_detail3_">Z.B.: Wenn du mit der obersten <b>Regel</b> alle Anrufe zu 0800% Nummern in ein <b>Kontingent</b> \"free\" sortierst, musst du diese Nummern in weiteren <b>Regeln</b> nicht mehr ausschließen.</string>
+  <string formatted="false" name="help_title_">Bitte lies folgendes um das Konzept der &lt;b&gt;Logs&lt;/b&gt;, &lt;b&gt;Kontingente&lt;/b&gt; and &lt;b&gt;Regeln&lt;/b&gt; zu verstehen:</string>
+  <string formatted="false" name="help_import_">Ein guter Anfangspunkt sind fertige Rgelsätze. Sie sind über die Website erhältlich. Importiere sie einfach über das Import Menü und spiele mit ihnen rum.</string>
+  <string formatted="false" name="help_export_">Wenn du es geschafft hast ein für dein Land typischen Regelsatz zu erstellen, kannst du ihn gern per Mail exportieren und mir schicken. Ich werde den Regelsatz dann auf der Website für alle Benutzer zugänglich machen.</string>
+  <string formatted="false" name="help_logs_plans_rules_">Es gibt drei Arten der Datenstrukturen:</string>
+  <string formatted="false" name="help_logs_">&lt;b&gt;Logs&lt;/b&gt; um Informationen über Anrufe, Nachrichten und Datenverkehr zu speichern.</string>
+  <string formatted="false" name="help_plans_">&lt;b&gt;Plans&lt;/b&gt; um alle Aspekte deiner Rechnung zu beschreiben.</string>
+  <string formatted="false" name="help_rules_">&lt;b&gt;Rules&lt;/b&gt; um die &lt;b&gt;Logs&lt;/b&gt; in bestimmte &lt;b&gt;Kontingente&lt;/b&gt; zu sortieren.</string>
+  <string formatted="false" name="help_plans_detail0_">Du kannst jederzeit &lt;b&gt;Kontingente&lt;/b&gt; hinzufügen oder löschen. Die Reihenfolge kannst du mit dem Handle an der Rechten Site per Drag &amp; Drop verändern.</string>
+  <string formatted="false" name="help_plans_detail1_">Um ein &lt;b&gt;Kontingent&lt;/b&gt; zu bearbeiten musst du es nur einfach anklicken. Im nächsten Fenster kannst du alle möglichen Einstellungen verändern. Ein paar dieser einstellungen werden von den meisten Benutzern nicht gebraucht. Von einigen aber schon. Eine kurze Hilfe wird zu jeder Einstelung angezeigt. Die meisten Einstellungen, die du nicht verstehst, werden in deinem Land nicht benutzt. Lass sie einfach wie sie sind. ;)</string>
+  <string formatted="false" name="help_plans_merge_">Du kannst &lt;b&gt;Kontingente&lt;/b&gt; zusammen führen um ihre &lt;b&gt;Logs&lt;/b&gt; zu aggregieren. Dabei werden Kosten und das Limit kombiniert/aufsummiert.</string>
+  <string formatted="false" name="help_rules_detail0_">&lt;b&gt;Regeln&lt;/b&gt; lassen sich auf die gleiche weise bearbeiten. Jede &lt;b&gt;Regel&lt;/b&gt; passt auf einige &lt;b&gt;Logs&lt;/b&gt; und sortiert diese in das &lt;b&gt;Kontingent&lt;/b&gt; mit welchem die &lt;b&gt;Logs&lt;/b&gt; abgerechnet werden sollen.</string>
+  <string formatted="false" name="help_rules_detail1_">Beachte aber, dass für &lt;b&gt;Regeln&lt;/b&gt; die Reihenfolge wichtig ist.:</string>
+  <string formatted="false" name="help_rules_detail2_">&lt;b&gt;Logs&lt;/b&gt; werden &lt;b&gt;top-down&lt;/b&gt; bearbeitet. D.h.: Die erste &lt;b&gt;Regel&lt;/b&gt;, die trifft, beendet die Bearbeitung für diesen &lt;b&gt;Logeintrag&lt;/b&gt;.</string>
+  <string formatted="false" name="help_rules_detail3_">Z.B.: Wenn du mit der obersten &lt;b&gt;Regel&lt;/b&gt; alle Anrufe zu 0800% Nummern in ein &lt;b&gt;Kontingent&lt;/b&gt; \"free\" sortierst, musst du diese Nummern in weiteren &lt;b&gt;Regeln&lt;/b&gt; nicht mehr ausschließen.</string>
 </resources>

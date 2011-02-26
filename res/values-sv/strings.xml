@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2009-2010 Felix Bechstein
+		Copyright (C) 2009-2011 Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter 3G. This program is free software; you
@@ -54,6 +54,8 @@
   <string formatted="false" name="billmode_">Kostnadsläge </string>
   <string formatted="false" name="billdate_">Första faktureringsdatum:</string>
   <string formatted="false" name="appearance_">Visning</string>
+  <string formatted="false" name="behavior_">Behavior</string>
+  <string formatted="false" name="appearance_and_behavior_">Appearance &amp; behavior</string>
   <string formatted="false" name="advanced_preferences_">Avancerade inställningar</string>
   <string formatted="false" name="advanced_preferences_hint">Här kan du ställa in komplicerade inställningar. De flesta användare behöver inte göra detta.</string>
   <string formatted="false" name="theme_">Tema</string>
