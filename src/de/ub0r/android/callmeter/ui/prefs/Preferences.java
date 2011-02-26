@@ -57,6 +57,7 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.ui.Help;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Market;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -546,6 +547,9 @@ public class Preferences extends PreferenceActivity {
 				}
 			});
 		}
+		Market.setOnPreferenceClickListener(this, this
+				.findPreference("more_apps"), null, "Felix+Bechstein",
+				"http://code.google.com/u/felix.bechstein/");
 		p = this.findPreference("send_logs");
 		if (p != null) {
 			p.setOnPreferenceClickListener(// .

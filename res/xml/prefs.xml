@@ -188,10 +188,7 @@
 			<intent android:action="android.intent.action.VIEW"
 				android:data="http://twitter.com/flx_b" />
 		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/more_">
-			<intent android:action="android.intent.action.VIEW"
-				android:data="market://search?q=pub:&quot;Felix Bechstein&quot;" />
-		</PreferenceScreen>
+		<PreferenceScreen android:key="more_apps" android:title="@string/more_" />
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/debug_">
