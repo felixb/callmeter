@@ -58,7 +58,7 @@ public class CallMeter extends Activity {
 		this.setContentView(R.layout.main);
 
 		Changelog.showChangelog(this);
-		Changelog.showNotes(this, null, null, null);
+		// TODO: Changelog.showNotes(this, null, null, null);
 
 		prefsNoAds = DonationHelper.hideAds(this);
 
