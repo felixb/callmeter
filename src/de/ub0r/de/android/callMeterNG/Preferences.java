@@ -7,6 +7,7 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Market;
 
 /**
  * Preferences.
@@ -113,6 +114,9 @@ public class Preferences extends PreferenceActivity implements
 		this.onSharedPreferenceChanged(prefs, Updater.PREFS_SPLIT_PLANS);
 		this.onSharedPreferenceChanged(prefs, Updater.PREFS_PLAN1_FREEMIN);
 		this.onSharedPreferenceChanged(prefs, Updater.PREFS_PLAN2_FREEMIN);
+		Market.setOnPreferenceClickListener(this, this
+				.findPreference("more_apps"), null, "Felix+Bechstein",
+				"http://code.google.com/u/felix.bechstein/");
 		Preference p = this.findPreference("send_logs");
 		if (p != null) {
 			p.setOnPreferenceClickListener(// .
