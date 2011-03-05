@@ -1,132 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2010 Felix Bechstein
-	-->
-	<!--
-		This file is part of Call Meter NG. This program is free software; you
-		can redistribute it and/or modify it under the terms of the GNU
-		General Public License as published by the Free Software Foundation;
-		either version 3 of the License, or (at your option) any later
-		version.
-	-->
-	<!--
-		This program is distributed in the hope that it will be useful, but
-		WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-		General Public License for more details. You should have received a
-		copy of the GNU General Public License along with this program; If
-		not, see <http://www.gnu.org/licenses/>.
-	-->
+       <!--
+               Copyright (C) 2009-2011 Felix Bechstein
+       -->
+       <!--
+               This file is part of Call Meter NG. This program is free software; you can
+               redistribute it and/or modify it under the terms of the GNU General
+               Public License as published by the Free Software Foundation; either
+               version 3 of the License, or (at your option) any later version.
+       -->
+       <!--
+               This program is distributed in the hope that it will be useful, but
+               WITHOUT ANY WARRANTY; without even the implied warranty of
+               MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+               General Public License for more details. You should have received a
+               copy of the GNU General Public License along with this program; If
+               not, see <http://www.gnu.org/licenses/>.
+       -->
+      <!--
+               This file is generated automatically by ub0rlib/php.
+               Visit http://ub0r.de/translate/cm2/edit.php?lang=it&file=strings.xml to edit the file.
+       -->
 <resources>
-  <string formatted="false" name="about0_">Controlla le tue chiamate, messaggi e piani tariffari!</string>
-  <string formatted="false" name="about0">CallMeter genera report sulle chiamate, messaggi e sul traffico dati. Supporta diverse modalità di conteggio o tariffazione.</string>
-  <string formatted="false" name="about1">Il formato delle statistiche è uso / tempo o conteggio usato dal periodo / tempo di fatturazione rispetto al totale.</string>
-  <string formatted="false" name="about2">La modalità di tariffazione specifica la lunghezza del primo / successivi intervalli di tariffazione. Ad esempio, 60/10 significa che ogni chiamata è conteggiata minimo 60 secondi, e poi è arrotondata ai successivi 10 secondi.</string>
-  <string formatted="false" name="about3">Si può suddividere il piano tariffario chiamate/SMS in due piani differenti. Ciascun piano può essere configurato completamente gratuito, con una serie di limiti o senza.</string>
-  <string formatted="false" name="about4">I messaggi possono essere uniti al piano tariffario delle chiamate, ad esempio conteggiando ogni messaggio come una chiamata di 15 secondi.</string>
-  <string formatted="false" name="about5">CallMeter gira silenziosamente ogni 30 minuti (solo quando il telefono non è in standby). Questo implica che la cancellazione di chiamate o messaggi precedenti ai 30 minuti non cambia le statistiche. Cancellare chiamate o messaggi più recenti può invece alterare le statistiche.</string>
-  <string formatted="false" name="about6_">Ciò che CallMeter NG non fa:</string>
-  <string formatted="false" name="about6">Non c\'è modo di distinguere fra chiamate reali e chiamate sipdroid o fra SMS reali e websms. L\'integrazione di Android fra queste applicazioni rende impossibile ottenere i dati al dettaglio.</string>
-  <string formatted="false" name="send_">Invia</string>
-  <string formatted="false" name="settings">Impostazioni</string>
-  <string formatted="false" name="about_">Informazioni</string>
-  <string formatted="false" name="about_hint">Informazioni sull\'applicazione</string>
-  <string formatted="false" name="faq_hint">Suggerimenti per impostare questa applicazione.</string>
-  <string formatted="false" name="feedback_">Commenti</string>
-  <string formatted="false" name="feedback_hint">Segnala anomalie, richiedi nuove funzioni...</string>
-  <string formatted="false" name="twitter_hint">Seguimi su twitter.\nRimani informato sugli aggiornamenti, ecc.</string>
-  <string formatted="false" name="more_">Altre applicazioni...</string>
-  <string formatted="false" name="billday_">Primo giorno del conteggio</string>
-  <string formatted="false" name="billmode_">Modalità di conteggio</string>
-  <string formatted="false" name="billmode_hint">Dimensione intervalli di conteggio, primo/seguenti.</string>
-  <string formatted="false" name="billdate_">Inizio conteggio:</string>
-  <string formatted="false" name="smsperiod_">Stesso periodo SMS</string>
-  <string formatted="false" name="smsperiod_hint">Usa lo stesso periodo usato per le chiamate al conteggio degli SMS.</string>
-  <string formatted="false" name="smsbillday_">Primo giorno del conteggio SMS</string>
-  <string formatted="false" name="dataperiod_">Stesso periodo dati</string>
-  <string formatted="false" name="dataperiod_hint">Usa lo stesso periodo usato per le chiamate al conteggio del traffico dati.</string>
-  <string formatted="false" name="databillday_">Primo giorno del conteggio dati</string>
-  <string formatted="false" name="appearance_">Aspetto</string>
-  <string formatted="false" name="theme_">Tema</string>
-  <string formatted="false" name="textsize_">Dimensione testo</string>
-  <string formatted="false" name="advanced_">Avanzate</string>
-  <string formatted="false" name="exclude_people_">Esclude numeri</string>
-  <string formatted="false" name="exclude_people_hint">Non conteggia i numeri scelti\nSi possono usare caratteri jolly: *555, 555* o *555*</string>
-  <string formatted="false" name="exclude_people_add">Aggiungi numero</string>
-  <string formatted="false" name="exclude_people_edit">Modifica</string>
-  <string formatted="false" name="exclude_people_delete">Elimina</string>
-  <string formatted="false" name="exclude_people_to_plan1_">Piano 1</string>
-  <string formatted="false" name="exclude_people_to_plan2_">Piano 2</string>
-  <string formatted="false" name="exclude_people_calls_">Abilita per le chiamate</string>
-  <string formatted="false" name="exclude_people_calls_to_plan1_hint">Conteggia chiamate escludendo i numeri per il piano #1</string>
-  <string formatted="false" name="exclude_people_calls_to_plan2_hint">Conteggia chiamate escludendo i numeri per il piano #2</string>
-  <string formatted="false" name="exclude_people_sms_">Abilita per gli SMS</string>
-  <string formatted="false" name="exclude_people_sms_to_plan1_hint">Conteggia messaggi escludendo i numeri per il piano #1</string>
-  <string formatted="false" name="exclude_people_sms_to_plan2_hint">Conteggia messaggi escludendo i numeri per il piano #2</string>
-  <string formatted="false" name="plans">Piani</string>
-  <string formatted="false" name="plans_split">Dividi piani</string>
-  <string formatted="false" name="plans_merge">Unisci piani</string>
-  <string formatted="false" name="plans_split_hint">Suddividi il piano tariffario in due diversi piani.</string>
-  <string formatted="false" name="plan1">Piano 1</string>
-  <string formatted="false" name="plan2">Piano 2</string>
-  <string formatted="false" name="plan1_hint">Verifica gli orari da includere nel primo; il resto sarà incluso nel secondo piano.</string>
-  <string formatted="false" name="plan_free_">Nessuna tariffazione</string>
-  <string formatted="false" name="plan_freemin_">Minuti inclusi</string>
-  <string formatted="false" name="plan_freesms_">SMS inclusi</string>
-  <string formatted="false" name="free_hint">Tutto incluso</string>
-  <string formatted="false" name="freemin_hint">Minuti inclusi/mese</string>
-  <string formatted="false" name="freesms_hint">SMS inclusi/mese</string>
-  <string formatted="false" name="bill_calls_incoming_">Conteggia entranti</string>
-  <string formatted="false" name="bill_calls_incoming_hint">Conteggia anche le chiamate entranti.</string>
-  <string formatted="false" name="bill_sms_incoming_">Conteggia ricevuti</string>
-  <string formatted="false" name="bill_sms_incoming_hint">Conteggia anche gli SMS ricevuti.</string>
-  <string formatted="false" name="bill_data_incoming_only_">Conteggia solo entrante</string>
-  <string formatted="false" name="bill_data_incoming_only_hint">Conteggia solo il traffico dati entrante.</string>
-  <string formatted="false" name="cost_per_call_">Costo a chiamata</string>
-  <string formatted="false" name="cost_per_call_hint">Conteggia ciascuna chiamata con questo importo.</string>
-  <string formatted="false" name="cost_per_minute_">Costo al minuto</string>
-  <string formatted="false" name="cost_per_minute_hint">Ogni minuto di chiamate sarà conteggiato con questo importo.</string>
-  <string formatted="false" name="cost_per_sms_">Costo SMS</string>
-  <string formatted="false" name="cost_per_sms_hint">Conteggia ciascun SMS con questo importo.</string>
-  <string formatted="false" name="cost_per_mb_">Costo per MB</string>
-  <string formatted="false" name="cost_per_mb_hint">Ogni MB di traffico dati sarà conteggiato con questo importo.</string>
-  <string formatted="false" name="merge_sms_calls_">Unisci SMS alle chiamate</string>
-  <string formatted="false" name="merge_sms_calls_hint">Conteggia gli SMS come parte di chiamate.</string>
-  <string formatted="false" name="merge_sms_calls_sec_">Secondi / SMS</string>
-  <string formatted="false" name="merge_sms_calls_sec_hint">Numero di secondi conteggiati per ciascun SMS.</string>
-  <string formatted="false" name="merge_sms_plan1_">Unisci SMS al piano 1</string>
-  <string formatted="false" name="merge_sms_plan1_hint">Deseleziona per unirli al piano 2</string>
-  <string formatted="false" name="data_hint">Le statistiche WLAN non sono conteggiate!</string>
-  <string formatted="false" name="data_enable_">Mostra statistiche</string>
-  <string formatted="false" name="data_enable_hint">Il traffico dati è in tempo reale. Il primo mese può non essere preciso!</string>
-  <string formatted="false" name="data_each_day">Conteggia giorno separatamente</string>
-  <string formatted="false" name="data_each_day_hint">Il periodo di conteggio inizia ogni giorno.</string>
-  <string formatted="false" name="data_limit_">Limite</string>
-  <string formatted="false" name="data_limit_hint">Limite del traffico dati (MB/mese)</string>
-  <string formatted="false" name="monday">Lunedì</string>
-  <string formatted="false" name="tuesday">Martedì</string>
-  <string formatted="false" name="wednesday">Mercoledì</string>
-  <string formatted="false" name="thursday">Giovedì</string>
-  <string formatted="false" name="friday">Venerdì</string>
-  <string formatted="false" name="saturday">Sabato</string>
-  <string formatted="false" name="sunday">Domenica</string>
-  <string formatted="false" name="calls">Chiamate</string>
-  <string formatted="false" name="sms">SMS</string>
-  <string formatted="false" name="data">Dati</string>
-  <string formatted="false" name="calls_sms">Chiamate/SMS</string>
-  <string formatted="false" name="in_calls">Ricevute%s:</string>
-  <string formatted="false" name="in_sms">Ricevuti%s:</string>
-  <string formatted="false" name="in_data">In entrata:</string>
-  <string formatted="false" name="out_calls">Effettuate%s:</string>
-  <string formatted="false" name="out_sms">Inviati%s:</string>
-  <string formatted="false" name="out_data">In uscita:</string>
-  <string formatted="false" name="plan_name1_">Piano 1: nome</string>
-  <string formatted="false" name="plan_name2_">Piano 2: nome</string>
-  <string formatted="false" name="plan_name_hint">Nome personalizzato</string>
-  <string formatted="false" name="reset_data_">Azzera statistiche</string>
-  <string formatted="false" name="reset_data_hint">Azzerando chiamane/SMS le statistiche saranno ricalcolate.\n\nL\'azzeramento del traffico invece è permanente. Azzera il traffico fatto prima dell\'accensione!</string>
-  <string formatted="false" name="reset_data_data_">Traffico</string>
-  <string formatted="false" name="contacts_">Contatti</string>
+  <string name="about0_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Watch your call, message and data plans!">Controlla le tue chiamate, messaggi e piani tariffari!</string>
+  <string name="about0" formatted="false">CallMeter genera report sulle chiamate, messaggi e sul traffico dati. Supporta diverse modalità di conteggio o tariffazione.</string>
+  <string name="about1" formatted="false">Il formato delle statistiche è uso / tempo o conteggio usato dal periodo / tempo di fatturazione rispetto al totale.</string>
+  <string name="about2" formatted="false">La modalità di tariffazione specifica la lunghezza del primo / successivi intervalli di tariffazione. Ad esempio, 60/10 significa che ogni chiamata è conteggiata minimo 60 secondi, e poi è arrotondata ai successivi 10 secondi.</string>
+  <string name="about3" formatted="false">Si può suddividere il piano tariffario chiamate/SMS in due piani differenti. Ciascun piano può essere configurato completamente gratuito, con una serie di limiti o senza.</string>
+  <string name="about4" formatted="false">I messaggi possono essere uniti al piano tariffario delle chiamate, ad esempio conteggiando ogni messaggio come una chiamata di 15 secondi.</string>
+  <string name="about5" formatted="false">CallMeter gira silenziosamente ogni 30 minuti (solo quando il telefono non è in standby). Questo implica che la cancellazione di chiamate o messaggi precedenti ai 30 minuti non cambia le statistiche. Cancellare chiamate o messaggi più recenti può invece alterare le statistiche.</string>
+  <string name="about6_" formatted="false">Ciò che CallMeter NG non fa:</string>
+  <string name="about6" formatted="false">Non c\'è modo di distinguere fra chiamate reali e chiamate sipdroid o fra SMS reali e websms. L\'integrazione di Android fra queste applicazioni rende impossibile ottenere i dati al dettaglio.</string>
+  <string name="send_" formatted="false">Invia</string>
+  <string name="settings" formatted="false">Impostazioni</string>
+  <string name="about_" formatted="false">Informazioni</string>
+  <string name="about_hint" formatted="false">Informazioni sull\'applicazione</string>
+  <string name="faq_hint" formatted="false">Suggerimenti per impostare questa applicazione.</string>
+  <string name="feedback_" formatted="false">Commenti</string>
+  <string name="feedback_hint" formatted="false">Segnala anomalie, richiedi nuove funzioni...</string>
+  <string name="twitter_hint" formatted="false">Seguimi su twitter.\nRimani informato sugli aggiornamenti, ecc.</string>
+  <string name="more_" formatted="false">Altre applicazioni...</string>
+  <string name="billday_" formatted="false">Primo giorno del conteggio</string>
+  <string name="billmode_" formatted="false">Modalità di conteggio</string>
+  <string name="billmode_hint" formatted="false">Dimensione intervalli di conteggio, primo/seguenti.</string>
+  <string name="billdate_" formatted="false">Inizio conteggio:</string>
+  <string name="smsperiod_" formatted="false">Stesso periodo SMS</string>
+  <string name="smsperiod_hint" formatted="false">Usa lo stesso periodo usato per le chiamate al conteggio degli SMS.</string>
+  <string name="smsbillday_" formatted="false">Primo giorno del conteggio SMS</string>
+  <string name="dataperiod_" formatted="false">Stesso periodo dati</string>
+  <string name="dataperiod_hint" formatted="false">Usa lo stesso periodo usato per le chiamate al conteggio del traffico dati.</string>
+  <string name="databillday_" formatted="false">Primo giorno del conteggio dati</string>
+  <string name="appearance_" formatted="false">Aspetto</string>
+  <string name="theme_" formatted="false">Tema</string>
+  <string name="textsize_" formatted="false">Dimensione testo</string>
+  <string name="advanced_" formatted="false">Avanzate</string>
+  <string name="exclude_people_" formatted="false">Esclude numeri</string>
+  <string name="exclude_people_hint" formatted="false">Non conteggia i numeri scelti\nSi possono usare caratteri jolly: *555, 555* o *555*</string>
+  <string name="exclude_people_add" formatted="false">Aggiungi numero</string>
+  <string name="exclude_people_edit" formatted="false">Modifica</string>
+  <string name="exclude_people_delete" formatted="false">Elimina</string>
+  <string name="exclude_people_to_plan1_" formatted="false">Piano 1</string>
+  <string name="exclude_people_to_plan2_" formatted="false">Piano 2</string>
+  <string name="exclude_people_calls_" formatted="false">Abilita per le chiamate</string>
+  <string name="exclude_people_calls_to_plan1_hint" formatted="false">Conteggia chiamate escludendo i numeri per il piano #1</string>
+  <string name="exclude_people_calls_to_plan2_hint" formatted="false">Conteggia chiamate escludendo i numeri per il piano #2</string>
+  <string name="exclude_people_sms_" formatted="false">Abilita per gli SMS</string>
+  <string name="exclude_people_sms_to_plan1_hint" formatted="false">Conteggia messaggi escludendo i numeri per il piano #1</string>
+  <string name="exclude_people_sms_to_plan2_hint" formatted="false">Conteggia messaggi escludendo i numeri per il piano #2</string>
+  <string name="plans" formatted="false">Piani</string>
+  <string name="plans_split" formatted="false">Dividi piani</string>
+  <string name="plans_merge" formatted="false">Unisci piani</string>
+  <string name="plans_split_hint" formatted="false">Suddividi il piano tariffario in due diversi piani.</string>
+  <string name="plan1" formatted="false">Piano 1</string>
+  <string name="plan2" formatted="false">Piano 2</string>
+  <string name="plan1_hint" formatted="false">Verifica gli orari da includere nel primo; il resto sarà incluso nel secondo piano.</string>
+  <string name="plan_free_" formatted="false">Nessuna tariffazione</string>
+  <string name="plan_freemin_" formatted="false">Minuti inclusi</string>
+  <string name="plan_freesms_" formatted="false">SMS inclusi</string>
+  <string name="free_hint" formatted="false">Tutto incluso</string>
+  <string name="freemin_hint" formatted="false">Minuti inclusi/mese</string>
+  <string name="freesms_hint" formatted="false">SMS inclusi/mese</string>
+  <string name="bill_calls_incoming_" formatted="false">Conteggia entranti</string>
+  <string name="bill_calls_incoming_hint" formatted="false">Conteggia anche le chiamate entranti.</string>
+  <string name="bill_sms_incoming_" formatted="false">Conteggia ricevuti</string>
+  <string name="bill_sms_incoming_hint" formatted="false">Conteggia anche gli SMS ricevuti.</string>
+  <string name="bill_data_incoming_only_" formatted="false">Conteggia solo entrante</string>
+  <string name="bill_data_incoming_only_hint" formatted="false">Conteggia solo il traffico dati entrante.</string>
+  <string name="cost_per_call_" formatted="false">Costo a chiamata</string>
+  <string name="cost_per_call_hint" formatted="false">Conteggia ciascuna chiamata con questo importo.</string>
+  <string name="cost_per_minute_" formatted="false">Costo al minuto</string>
+  <string name="cost_per_minute_hint" formatted="false">Ogni minuto di chiamate sarà conteggiato con questo importo.</string>
+  <string name="cost_per_sms_" formatted="false">Costo SMS</string>
+  <string name="cost_per_sms_hint" formatted="false">Conteggia ciascun SMS con questo importo.</string>
+  <string name="cost_per_mb_" formatted="false">Costo per MB</string>
+  <string name="cost_per_mb_hint" formatted="false">Ogni MB di traffico dati sarà conteggiato con questo importo.</string>
+  <string name="merge_sms_calls_" formatted="false">Unisci SMS alle chiamate</string>
+  <string name="merge_sms_calls_hint" formatted="false">Conteggia gli SMS come parte di chiamate.</string>
+  <string name="merge_sms_calls_sec_" formatted="false">Secondi / SMS</string>
+  <string name="merge_sms_calls_sec_hint" formatted="false">Numero di secondi conteggiati per ciascun SMS.</string>
+  <string name="merge_sms_plan1_" formatted="false">Unisci SMS al piano 1</string>
+  <string name="merge_sms_plan1_hint" formatted="false">Deseleziona per unirli al piano 2</string>
+  <string name="data_hint" formatted="false">Le statistiche WLAN non sono conteggiate!</string>
+  <string name="data_enable_" formatted="false">Mostra statistiche</string>
+  <string name="data_enable_hint" formatted="false">Il traffico dati è in tempo reale. Il primo mese può non essere preciso!</string>
+  <string name="data_each_day" formatted="false">Conteggia giorno separatamente</string>
+  <string name="data_each_day_hint" formatted="false">Il periodo di conteggio inizia ogni giorno.</string>
+  <string name="data_limit_" formatted="false">Limite</string>
+  <string name="data_limit_hint" formatted="false">Limite del traffico dati (MB/mese)</string>
+  <string name="monday" formatted="false">Lunedì</string>
+  <string name="tuesday" formatted="false">Martedì</string>
+  <string name="wednesday" formatted="false">Mercoledì</string>
+  <string name="thursday" formatted="false">Giovedì</string>
+  <string name="friday" formatted="false">Venerdì</string>
+  <string name="saturday" formatted="false">Sabato</string>
+  <string name="sunday" formatted="false">Domenica</string>
+  <string name="calls" formatted="false">Chiamate</string>
+  <string name="sms" formatted="false">SMS</string>
+  <string name="data" formatted="false">Dati</string>
+  <string name="calls_sms" formatted="false">Chiamate/SMS</string>
+  <string name="in_calls" formatted="false">Ricevute%s:</string>
+  <string name="in_sms" formatted="false">Ricevuti%s:</string>
+  <string name="in_data" formatted="false">In entrata:</string>
+  <string name="out_calls" formatted="false">Effettuate%s:</string>
+  <string name="out_sms" formatted="false">Inviati%s:</string>
+  <string name="out_data" formatted="false">In uscita:</string>
+  <string name="plan_name1_" formatted="false">Piano 1: nome</string>
+  <string name="plan_name2_" formatted="false">Piano 2: nome</string>
+  <string name="plan_name_hint" formatted="false">Nome personalizzato</string>
+  <string name="reset_data_" formatted="false">Azzera statistiche</string>
+  <string name="reset_data_hint" formatted="false">Azzerando chiamane/SMS le statistiche saranno ricalcolate.\n\nL\'azzeramento del traffico invece è permanente. Azzera il traffico fatto prima dell\'accensione!</string>
+  <string name="reset_data_data_" formatted="false">Traffico</string>
+  <string name="contacts_" formatted="false">Contatti</string>
   <string-array name="themes">
     <item>Nero</item>
     <item>Chiaro</item>

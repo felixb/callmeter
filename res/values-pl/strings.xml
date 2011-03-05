@@ -1,132 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2010 Felix Bechstein
-	-->
-	<!--
-		This file is part of Call Meter NG. This program is free software; you
-		can redistribute it and/or modify it under the terms of the GNU
-		General Public License as published by the Free Software Foundation;
-		either version 3 of the License, or (at your option) any later
-		version.
-	-->
-	<!--
-		This program is distributed in the hope that it will be useful, but
-		WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-		General Public License for more details. You should have received a
-		copy of the GNU General Public License along with this program; If
-		not, see <http://www.gnu.org/licenses/>.
-	-->
+       <!--
+               Copyright (C) 2009-2011 Felix Bechstein
+       -->
+       <!--
+               This file is part of Call Meter NG. This program is free software; you can
+               redistribute it and/or modify it under the terms of the GNU General
+               Public License as published by the Free Software Foundation; either
+               version 3 of the License, or (at your option) any later version.
+       -->
+       <!--
+               This program is distributed in the hope that it will be useful, but
+               WITHOUT ANY WARRANTY; without even the implied warranty of
+               MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+               General Public License for more details. You should have received a
+               copy of the GNU General Public License along with this program; If
+               not, see <http://www.gnu.org/licenses/>.
+       -->
+      <!--
+               This file is generated automatically by ub0rlib/php.
+               Visit http://ub0r.de/translate/cm2/edit.php?lang=pl&file=strings.xml to edit the file.
+       -->
 <resources>
-  <string formatted="false" name="about0_">Obserwuj swoje połączenia, wiadomości oraz pakiet rozmów!</string>
-  <string formatted="false" name="about0">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych..</string>
-  <string formatted="false" name="about1">Format wyjściowy wykorzystuje /czas, całość wykorzystanego rachunku /czas, całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>
-  <string formatted="false" name="about2">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
-  <string formatted="false" name="about3">Możesz podzielić swoje połączenia lub sms na dwa plany. Oba plany mogą być ustawione na całodobowe darmowe połączenia lub w określonych godzinach.</string>
-  <string formatted="false" name="about4">Wiadomości mogą być brane pod uwagę w Twoim planie. Np. zliczać każdy wysłany sms jako 15s. połączenie.</string>
-  <string formatted="false" name="about5">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
-  <string formatted="false" name="about6_">Czego CallMeter NIE robi:</string>
-  <string formatted="false" name="about6">Nie da się odróżnić połączeń SIP od realnych połączeń lub WebSMS od SMS wysłanych \"z telefonu\". Android \'s bezproblemową integrację tych. Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości żeby je odróżnić.</string>
-  <string formatted="false" name="send_">Wyślij</string>
-  <string formatted="false" name="settings">Ustawienia</string>
-  <string formatted="false" name="about_">O programie</string>
-  <string formatted="false" name="about_hint">Informacje o programie i twórcy</string>
-  <string formatted="false" name="faq_hint">Kilka informacji, jak skonfigurować aplikację</string>
-  <string formatted="false" name="feedback_">Kontakt</string>
-  <string formatted="false" name="feedback_hint">Zgłoś problemy, sugestię...</string>
-  <string formatted="false" name="twitter_hint">Obserwuj mojego twittera.\nOtrzymasz informacje o aktualizacjach, itp.</string>
-  <string formatted="false" name="more_">Więcej aplikacji...</string>
-  <string formatted="false" name="billday_">Pierwszy dzień rachunku</string>
-  <string formatted="false" name="billmode_">Rodzaj cyklu</string>
-  <string formatted="false" name="billmode_hint">Długość pierwszego/kolejnych cyklów płatności</string>
-  <string formatted="false" name="billdate_">Pierwszy dzień rachunku:</string>
-  <string formatted="false" name="smsperiod_">Ten sam okres dla SMS</string>
-  <string formatted="false" name="smsperiod_hint">Okres rozliczeniowy wiadomości SMS taki sam jak dla Połączeń</string>
-  <string formatted="false" name="smsbillday_">Pierwszy dzień rachunku SMS</string>
-  <string formatted="false" name="dataperiod_">Ten sam przedział dla danych</string>
-  <string formatted="false" name="dataperiod_hint">Okres rozliczeniowy danych taki sam jak dla Połączeń</string>
-  <string formatted="false" name="databillday_">Pierwszy dzień rachunku za dane</string>
-  <string formatted="false" name="appearance_">Wygląd</string>
-  <string formatted="false" name="theme_">Styl</string>
-  <string formatted="false" name="textsize_">Wielkość czcionki</string>
-  <string formatted="false" name="advanced_">Zaawansowane</string>
-  <string formatted="false" name="exclude_people_">Wykluczaj numery</string>
-  <string formatted="false" name="exclude_people_hint">Nie wlicza numerów do statystyk</string>
-  <string formatted="false" name="exclude_people_add">Dodaj numer</string>
-  <string formatted="false" name="exclude_people_edit">Edytuj</string>
-  <string formatted="false" name="exclude_people_delete">Usuń</string>
-  <string formatted="false" name="exclude_people_to_plan1_">Wykluczone numery do planu 1</string>
-  <string formatted="false" name="exclude_people_to_plan2_">Wykluczone numery do planu 2</string>
-  <string formatted="false" name="exclude_people_calls_">Włącz dla Połączeń</string>
-  <string formatted="false" name="exclude_people_calls_to_plan1_hint">Wliczaj połączenia do/od wykluczonych numerów w planie 1</string>
-  <string formatted="false" name="exclude_people_calls_to_plan2_hint">Wliczaj połączenia do/od wykluczonych numerów w planie 2</string>
-  <string formatted="false" name="exclude_people_sms_">Włącz dla SMS</string>
-  <string formatted="false" name="exclude_people_sms_to_plan1_hint">Wliczaj wiadomości od/do wykluczonych numerów w planie 1</string>
-  <string formatted="false" name="exclude_people_sms_to_plan2_hint">Wliczaj wiadomości od/do wykluczonych numerów w planie 2</string>
-  <string formatted="false" name="plans">Plany</string>
-  <string formatted="false" name="plans_split">Rozdziel plany</string>
-  <string formatted="false" name="plans_merge">Połącz plany</string>
-  <string formatted="false" name="plans_split_hint">Podziel rachunek na dwa różne plany taryfowe</string>
-  <string formatted="false" name="plan1">Plan 1</string>
-  <string formatted="false" name="plan2">Plan 2</string>
-  <string formatted="false" name="plan1_hint">Zaznacz godziny by wliczać połączenia/sms w Plan 1. Pozostałe będą w Planie 2</string>
-  <string formatted="false" name="plan_free_">Brak rachunku</string>
-  <string formatted="false" name="plan_freemin_">Darmowe minuty</string>
-  <string formatted="false" name="plan_freesms_">Darmowe SMS</string>
-  <string formatted="false" name="free_hint">Koszt nie jest uwzględniany na rachunku</string>
-  <string formatted="false" name="freemin_hint">Darmowe minuty w planie taryfowym</string>
-  <string formatted="false" name="freesms_hint">Liczba darmowych SMSów w miesiącu</string>
-  <string formatted="false" name="bill_calls_incoming_">Wliczaj przychodzące</string>
-  <string formatted="false" name="bill_calls_incoming_hint">Wliczaj połączenia przychodzące w rachunek</string>
-  <string formatted="false" name="bill_sms_incoming_">Wliczaj przychodzące</string>
-  <string formatted="false" name="bill_sms_incoming_hint">Wliczaj SMSy przychodzące w rachunek</string>
-  <string formatted="false" name="bill_data_incoming_only_">Wliczaj tylko przychodzący</string>
-  <string formatted="false" name="bill_data_incoming_only_hint">Wliczaj tylko transfer przychodzący</string>
-  <string formatted="false" name="cost_per_call_">Koszt za połączenie</string>
-  <string formatted="false" name="cost_per_call_hint">Wprowadź stawkę za połączenie w złotych (PLN)</string>
-  <string formatted="false" name="cost_per_minute_">Koszt za minutę</string>
-  <string formatted="false" name="cost_per_minute_hint">Wprowadź stawkę za minutę połączenia w złotych (PLN)</string>
-  <string formatted="false" name="cost_per_sms_">Koszt za SMS</string>
-  <string formatted="false" name="cost_per_sms_hint">Wprowadź stawkę za SMS w złotych (PLN)</string>
-  <string formatted="false" name="cost_per_mb_">Koszt za MB</string>
-  <string formatted="false" name="cost_per_mb_hint">Wprowadź stawkę równą 1 MB transferu w złotych (PLN)</string>
-  <string formatted="false" name="merge_sms_calls_">Wliczaj SMS w połączenie</string>
-  <string formatted="false" name="merge_sms_calls_hint">Koszt wiadomości SMS jest częścią kosztu za Połączenie</string>
-  <string formatted="false" name="merge_sms_calls_sec_">Sekunda / SMS</string>
-  <string formatted="false" name="merge_sms_calls_sec_hint">Liczba sekund Połączenia przeliczana na jeden SMS</string>
-  <string formatted="false" name="merge_sms_plan1_">Wliczaj SMS w Plan 1</string>
-  <string formatted="false" name="merge_sms_plan1_hint">Odznacz aby wliczać w Plan 2</string>
-  <string formatted="false" name="data_hint">Transfer danych WLAN nie jest tutaj wliczany!</string>
-  <string formatted="false" name="data_enable_">Pokaż statystyki</string>
-  <string formatted="false" name="data_enable_hint">Dane są zbierane automatycznie. Pierwszy miesiąc może się różnić!</string>
-  <string formatted="false" name="data_each_day">Rachunek za każdy dzień osobno</string>
-  <string formatted="false" name="data_each_day_hint">Okres rozliczeniowy danych rozpoczyna się każdego dnia</string>
-  <string formatted="false" name="data_limit_">Limit</string>
-  <string formatted="false" name="data_limit_hint">Limit danych w planie taryfowym\n(MB/miesiąc)</string>
-  <string formatted="false" name="monday">Poniedziałek</string>
-  <string formatted="false" name="tuesday">Wtorek</string>
-  <string formatted="false" name="wednesday">Środa</string>
-  <string formatted="false" name="thursday">Czwartek</string>
-  <string formatted="false" name="friday">Piątek</string>
-  <string formatted="false" name="saturday">Sobota</string>
-  <string formatted="false" name="sunday">Niedziela</string>
-  <string formatted="false" name="calls">Połączenia</string>
-  <string formatted="false" name="sms">SMS</string>
-  <string formatted="false" name="data">Dane</string>
-  <string formatted="false" name="calls_sms">Połączenia/SMS</string>
-  <string formatted="false" name="in_calls">Przychodzące%s:</string>
-  <string formatted="false" name="in_sms">Przychodzące%s:</string>
-  <string formatted="false" name="in_data">Przychodzące:</string>
-  <string formatted="false" name="out_calls">Wychodzące%s:</string>
-  <string formatted="false" name="out_sms">Wychodzące%s:</string>
-  <string formatted="false" name="out_data">Wychodzące:</string>
-  <string formatted="false" name="plan_name1_">Plan 1: nazwa</string>
-  <string formatted="false" name="plan_name2_">Plan 2: nazwa</string>
-  <string formatted="false" name="plan_name_hint">Własna nazwa</string>
-  <string formatted="false" name="reset_data_">Resetuj statystyki</string>
-  <string formatted="false" name="reset_data_hint">Resetowanie danych połączeń/smsów spowoduje ponowne obliczenie statystyk.\n\nUsunięcie statystyk ruchu jest nieodwracalne. Zresetowane zostają wyłącznie statystyki z przed uruchomienia urządzenia.</string>
-  <string formatted="false" name="reset_data_data_">Dane również</string>
-  <string formatted="false" name="contacts_">Kontakty</string>
+  <string name="about0_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Watch your call, message and data plans!">Obserwuj swoje połączenia, wiadomości oraz pakiet rozmów!</string>
+  <string name="about0" formatted="false">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych..</string>
+  <string name="about1" formatted="false">Format wyjściowy wykorzystuje /czas, całość wykorzystanego rachunku /czas, całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>
+  <string name="about2" formatted="false">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
+  <string name="about3" formatted="false">Możesz podzielić swoje połączenia lub sms na dwa plany. Oba plany mogą być ustawione na całodobowe darmowe połączenia lub w określonych godzinach.</string>
+  <string name="about4" formatted="false">Wiadomości mogą być brane pod uwagę w Twoim planie. Np. zliczać każdy wysłany sms jako 15s. połączenie.</string>
+  <string name="about5" formatted="false">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
+  <string name="about6_" formatted="false">Czego CallMeter NIE robi:</string>
+  <string name="about6" formatted="false">Nie da się odróżnić połączeń SIP od realnych połączeń lub WebSMS od SMS wysłanych \"z telefonu\". Android \'s bezproblemową integrację tych. Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości żeby je odróżnić.</string>
+  <string name="send_" formatted="false">Wyślij</string>
+  <string name="settings" formatted="false">Ustawienia</string>
+  <string name="about_" formatted="false">O programie</string>
+  <string name="about_hint" formatted="false">Informacje o programie i twórcy</string>
+  <string name="faq_hint" formatted="false">Kilka informacji, jak skonfigurować aplikację</string>
+  <string name="feedback_" formatted="false">Kontakt</string>
+  <string name="feedback_hint" formatted="false">Zgłoś problemy, sugestię...</string>
+  <string name="twitter_hint" formatted="false">Obserwuj mojego twittera.\nOtrzymasz informacje o aktualizacjach, itp.</string>
+  <string name="more_" formatted="false">Więcej aplikacji...</string>
+  <string name="billday_" formatted="false">Pierwszy dzień rachunku</string>
+  <string name="billmode_" formatted="false">Rodzaj cyklu</string>
+  <string name="billmode_hint" formatted="false">Długość pierwszego/kolejnych cyklów płatności</string>
+  <string name="billdate_" formatted="false">Pierwszy dzień rachunku:</string>
+  <string name="smsperiod_" formatted="false">Ten sam okres dla SMS</string>
+  <string name="smsperiod_hint" formatted="false">Okres rozliczeniowy wiadomości SMS taki sam jak dla Połączeń</string>
+  <string name="smsbillday_" formatted="false">Pierwszy dzień rachunku SMS</string>
+  <string name="dataperiod_" formatted="false">Ten sam przedział dla danych</string>
+  <string name="dataperiod_hint" formatted="false">Okres rozliczeniowy danych taki sam jak dla Połączeń</string>
+  <string name="databillday_" formatted="false">Pierwszy dzień rachunku za dane</string>
+  <string name="appearance_" formatted="false">Wygląd</string>
+  <string name="theme_" formatted="false">Styl</string>
+  <string name="textsize_" formatted="false">Wielkość czcionki</string>
+  <string name="advanced_" formatted="false">Zaawansowane</string>
+  <string name="exclude_people_" formatted="false">Wykluczaj numery</string>
+  <string name="exclude_people_hint" formatted="false">Nie wlicza numerów do statystyk</string>
+  <string name="exclude_people_add" formatted="false">Dodaj numer</string>
+  <string name="exclude_people_edit" formatted="false">Edytuj</string>
+  <string name="exclude_people_delete" formatted="false">Usuń</string>
+  <string name="exclude_people_to_plan1_" formatted="false">Wykluczone numery do planu 1</string>
+  <string name="exclude_people_to_plan2_" formatted="false">Wykluczone numery do planu 2</string>
+  <string name="exclude_people_calls_" formatted="false">Włącz dla Połączeń</string>
+  <string name="exclude_people_calls_to_plan1_hint" formatted="false">Wliczaj połączenia do/od wykluczonych numerów w planie 1</string>
+  <string name="exclude_people_calls_to_plan2_hint" formatted="false">Wliczaj połączenia do/od wykluczonych numerów w planie 2</string>
+  <string name="exclude_people_sms_" formatted="false">Włącz dla SMS</string>
+  <string name="exclude_people_sms_to_plan1_hint" formatted="false">Wliczaj wiadomości od/do wykluczonych numerów w planie 1</string>
+  <string name="exclude_people_sms_to_plan2_hint" formatted="false">Wliczaj wiadomości od/do wykluczonych numerów w planie 2</string>
+  <string name="plans" formatted="false">Plany</string>
+  <string name="plans_split" formatted="false">Rozdziel plany</string>
+  <string name="plans_merge" formatted="false">Połącz plany</string>
+  <string name="plans_split_hint" formatted="false">Podziel rachunek na dwa różne plany taryfowe</string>
+  <string name="plan1" formatted="false">Plan 1</string>
+  <string name="plan2" formatted="false">Plan 2</string>
+  <string name="plan1_hint" formatted="false">Zaznacz godziny by wliczać połączenia/sms w Plan 1. Pozostałe będą w Planie 2</string>
+  <string name="plan_free_" formatted="false">Brak rachunku</string>
+  <string name="plan_freemin_" formatted="false">Darmowe minuty</string>
+  <string name="plan_freesms_" formatted="false">Darmowe SMS</string>
+  <string name="free_hint" formatted="false">Koszt nie jest uwzględniany na rachunku</string>
+  <string name="freemin_hint" formatted="false">Darmowe minuty w planie taryfowym</string>
+  <string name="freesms_hint" formatted="false">Liczba darmowych SMSów w miesiącu</string>
+  <string name="bill_calls_incoming_" formatted="false">Wliczaj przychodzące</string>
+  <string name="bill_calls_incoming_hint" formatted="false">Wliczaj połączenia przychodzące w rachunek</string>
+  <string name="bill_sms_incoming_" formatted="false">Wliczaj przychodzące</string>
+  <string name="bill_sms_incoming_hint" formatted="false">Wliczaj SMSy przychodzące w rachunek</string>
+  <string name="bill_data_incoming_only_" formatted="false">Wliczaj tylko przychodzący</string>
+  <string name="bill_data_incoming_only_hint" formatted="false">Wliczaj tylko transfer przychodzący</string>
+  <string name="cost_per_call_" formatted="false">Koszt za połączenie</string>
+  <string name="cost_per_call_hint" formatted="false">Wprowadź stawkę za połączenie w złotych (PLN)</string>
+  <string name="cost_per_minute_" formatted="false">Koszt za minutę</string>
+  <string name="cost_per_minute_hint" formatted="false">Wprowadź stawkę za minutę połączenia w złotych (PLN)</string>
+  <string name="cost_per_sms_" formatted="false">Koszt za SMS</string>
+  <string name="cost_per_sms_hint" formatted="false">Wprowadź stawkę za SMS w złotych (PLN)</string>
+  <string name="cost_per_mb_" formatted="false">Koszt za MB</string>
+  <string name="cost_per_mb_hint" formatted="false">Wprowadź stawkę równą 1 MB transferu w złotych (PLN)</string>
+  <string name="merge_sms_calls_" formatted="false">Wliczaj SMS w połączenie</string>
+  <string name="merge_sms_calls_hint" formatted="false">Koszt wiadomości SMS jest częścią kosztu za Połączenie</string>
+  <string name="merge_sms_calls_sec_" formatted="false">Sekunda / SMS</string>
+  <string name="merge_sms_calls_sec_hint" formatted="false">Liczba sekund Połączenia przeliczana na jeden SMS</string>
+  <string name="merge_sms_plan1_" formatted="false">Wliczaj SMS w Plan 1</string>
+  <string name="merge_sms_plan1_hint" formatted="false">Odznacz aby wliczać w Plan 2</string>
+  <string name="data_hint" formatted="false">Transfer danych WLAN nie jest tutaj wliczany!</string>
+  <string name="data_enable_" formatted="false">Pokaż statystyki</string>
+  <string name="data_enable_hint" formatted="false">Dane są zbierane automatycznie. Pierwszy miesiąc może się różnić!</string>
+  <string name="data_each_day" formatted="false">Rachunek za każdy dzień osobno</string>
+  <string name="data_each_day_hint" formatted="false">Okres rozliczeniowy danych rozpoczyna się każdego dnia</string>
+  <string name="data_limit_" formatted="false">Limit</string>
+  <string name="data_limit_hint" formatted="false">Limit danych w planie taryfowym\n(MB/miesiąc)</string>
+  <string name="monday" formatted="false">Poniedziałek</string>
+  <string name="tuesday" formatted="false">Wtorek</string>
+  <string name="wednesday" formatted="false">Środa</string>
+  <string name="thursday" formatted="false">Czwartek</string>
+  <string name="friday" formatted="false">Piątek</string>
+  <string name="saturday" formatted="false">Sobota</string>
+  <string name="sunday" formatted="false">Niedziela</string>
+  <string name="calls" formatted="false">Połączenia</string>
+  <string name="sms" formatted="false">SMS</string>
+  <string name="data" formatted="false">Dane</string>
+  <string name="calls_sms" formatted="false">Połączenia/SMS</string>
+  <string name="in_calls" formatted="false">Przychodzące%s:</string>
+  <string name="in_sms" formatted="false">Przychodzące%s:</string>
+  <string name="in_data" formatted="false">Przychodzące:</string>
+  <string name="out_calls" formatted="false">Wychodzące%s:</string>
+  <string name="out_sms" formatted="false">Wychodzące%s:</string>
+  <string name="out_data" formatted="false">Wychodzące:</string>
+  <string name="plan_name1_" formatted="false">Plan 1: nazwa</string>
+  <string name="plan_name2_" formatted="false">Plan 2: nazwa</string>
+  <string name="plan_name_hint" formatted="false">Własna nazwa</string>
+  <string name="reset_data_" formatted="false">Resetuj statystyki</string>
+  <string name="reset_data_hint" formatted="false">Resetowanie danych połączeń/smsów spowoduje ponowne obliczenie statystyk.\n\nUsunięcie statystyk ruchu jest nieodwracalne. Zresetowane zostają wyłącznie statystyki z przed uruchomienia urządzenia.</string>
+  <string name="reset_data_data_" formatted="false">Dane również</string>
+  <string name="contacts_" formatted="false">Kontakty</string>
   <string-array name="themes">
     <item>Ciemny</item>
     <item>Jasny</item>
