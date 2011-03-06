@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2009-2011 Felix Bechstein
-	-->
-	<!--
-		This file is part of Call Meter 3G. This program is free software; you
-		can redistribute it and/or modify it under the terms of the GNU
-		General Public License as published by the Free Software Foundation;
-		either version 3 of the License, or (at your option) any later
-		version.
-	-->
-	<!--
-		This program is distributed in the hope that it will be useful, but
-		WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-		General Public License for more details. You should have received a
-		copy of the GNU General Public License along with this program; If
-		not, see <http://www.gnu.org/licenses/>.
-	-->
+       <!--
+               Copyright (C) 2009-2011 Felix Bechstein
+       -->
+       <!--
+               This file is part of Call Meter 3G. This program is free software; you can
+               redistribute it and/or modify it under the terms of the GNU General
+               Public License as published by the Free Software Foundation; either
+               version 3 of the License, or (at your option) any later version.
+       -->
+       <!--
+               This program is distributed in the hope that it will be useful, but
+               WITHOUT ANY WARRANTY; without even the implied warranty of
+               MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+               General Public License for more details. You should have received a
+               copy of the GNU General Public License along with this program; If
+               not, see <http://www.gnu.org/licenses/>.
+       -->
+      <!--
+               This file is generated automatically by ub0rlib/php.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=hu&file=help.xml to edit the file.
+       -->
 <resources>
-  <string formatted="false" name="help_title_">Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:</string>
-  <string formatted="false" name="help_import_">A good starting point are some preconfigured rule sets available on the website. Just import them via import menu and play around.</string>
-  <string formatted="false" name="help_export_">If you managed to set up a common plan for your country, do not hesitate to export your rule set to me by mail. I will put it on the website to make it available for all the users.</string>
-  <string formatted="false" name="help_logs_plans_rules_">There are three kinds of data structures:</string>
-  <string formatted="false" name="help_logs_">&lt;b&gt;Logs&lt;/b&gt; to save informations about your calls, messages and traffic statistics.</string>
-  <string formatted="false" name="help_plans_">&lt;b&gt;Plans&lt;/b&gt; to describe all kinds of aspects of your bill.</string>
-  <string formatted="false" name="help_rules_">&lt;b&gt;Rules&lt;/b&gt; to match the &lt;b&gt;logs&lt;/b&gt; and move them to a particular &lt;b&gt;plan&lt;/b&gt;.</string>
-  <string formatted="false" name="help_plans_detail0_">You can add or delete &lt;b&gt;plans&lt;/b&gt; just as you want. You can set the order by dragging them around with the handle on the right of the list view.</string>
-  <string formatted="false" name="help_plans_detail1_">To edit a &lt;b&gt;plan&lt;/b&gt;, you just need to click it. At the next screen, you can set all kind of settings. There are a few, most users won\'t need. But some do. A short help for each setting is displayed in this view. Most settings you do not understand are not used in your country. Just leave them as they are. ;)</string>
-  <string formatted="false" name="help_plans_merge_">You can merge &lt;b&gt;plans&lt;/b&gt; to aggregate their &lt;b&gt;log items&lt;/b&gt; to a combined cost and limit.</string>
-  <string formatted="false" name="help_rules_detail0_">Edit the &lt;b&gt;rules&lt;/b&gt; in the same way. Each &lt;b&gt;rule&lt;/b&gt; does match some &lt;b&gt;log items&lt;/b&gt; and move them to a &lt;b&gt;plan&lt;/b&gt; in which the &lt;b&gt;logs&lt;/b&gt; should be billed in.</string>
-  <string formatted="false" name="help_rules_detail1_">But keep in mind, that order is important for &lt;b&gt;rules&lt;/b&gt;:</string>
-  <string formatted="false" name="help_rules_detail2_">&lt;b&gt;Logs&lt;/b&gt; are matched &lt;b&gt;top-down&lt;/b&gt;, means: the first &lt;b&gt;rule&lt;/b&gt; that matches will stop processing of this particular &lt;b&gt;log item&lt;/b&gt;.</string>
-  <string formatted="false" name="help_rules_detail3_">E.g.: If you match all calls to 0800% numbers to a \"free\" &lt;b&gt;plan&lt;/b&gt; with the first &lt;b&gt;rule&lt;/b&gt;, there is no need to exclude these numbers in the second.</string>
+  <string name="help_title_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">Kérlek olvasd el a következő sorokat, hogy megértsd a naplók, tarifák és szabályok (tehát a program) működését.</string>
+  <string name="help_import_" formatted="false">Kezdésnek nem rossz, ha előre beállított szabályokat importálsz a program wikijéről vagy a magyar CallMeter oldalról. Azokon kedvedre kísérletezhetsz és ízekre szedheted.</string>
+  <string name="help_export_" formatted="false">Ha egy Tarifacsomagot jó alaposan beállítottál, akkor ne habozz elküldeni a fejlesztőknek e-mailben, mert akkor kiteszik a honlapra, hogy másoknak (és esetleg Neked is) könnyebb legyen. (ezt az exportálás e-mailben menüpontban ejtheted meg)</string>
+  <string name="help_logs_plans_rules_" formatted="false">Három fajta adatstruktúra van:</string>
+  <string name="help_logs_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="&lt;b&gt;Logs&lt;/b&gt; to save informations about your calls, messages and traffic statistics.">A &lt;b&gt;Naplók&lt;/b&gt; a hívás, üzenet és adatforgalmadat rögzítik.</string>
+  <string name="help_plans_" formatted="false">A &lt;b&gt;Tarifák&lt;/b&gt; tartalmazzák a számlázási adatokat. </string>
+  <string name="help_rules_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="&lt;b&gt;Rules&lt;/b&gt; to match the &lt;b&gt;logs&lt;/b&gt; and move them to a particular &lt;b&gt;plan&lt;/b&gt;.">A &lt;b&gt;Szabályok&lt;/b&gt; alapján lesznek a &lt;b&gt;Naplókban&lt;/b&gt; rögzített események a &lt;b&gt;Tarifákhoz&lt;/b&gt; rendelve.</string>
+  <string name="help_plans_detail0_" formatted="false">Szabadon adhatsz hozzá és törölhetsz &lt;b&gt;Tarifákat&lt;/b&gt;. A kijelző jobb szélén levő kis bigyóval lehet sorrendbe rendezni azokat.</string>
+  <string name="help_plans_detail1_" formatted="false">Egy &lt;b&gt;Tarifa&lt;/b&gt; szerkesztéséhez elég rákattintani. A szerkesztő menüben sok-sok beállítás van, aminek egy része nem is ismert és használt kis hazánkban. Mindenhez van egy kis leírás, de ha valamit nem értesz, akkor hagyd úgy, ahogy van, vagy olvasd el a beállítási útmutatót.</string>
+  <string name="help_plans_merge_" formatted="false">Összevonhatsz Tarifákat, hogy együtt számolja a díjukat és a keretüket.</string>
+  <string name="help_rules_detail0_" formatted="false">Ugyanúgy szerkeszd a &lt;b&gt;Szabályokat&lt;/b&gt;. Ha egy szabály egy naplózott elemre (hívás, SMS, adatforgalom) vonatkozik, akkor a szabály által definiált &lt;b&gt;Tarifával&lt;/b&gt; kerül elszámolásra.</string>
+  <string name="help_rules_detail1_" formatted="false">De ne feledd: a &lt;b&gt;Szabályok&lt;/b&gt; sorrendje is fontos!</string>
+  <string name="help_rules_detail2_" formatted="false">&lt;b&gt;FENTRŐL LEFELE&lt;/b&gt; választja ki a Szabályt a program, tehát az első Szabály, amelyik passzol a Naplózott elemhez, az alkalmazódik rá!</string>
+  <string name="help_rules_detail3_" formatted="false">Például ha minden 06 20 %-al kezdődő számot kiszűrünk az első Szabállyal, akkor nem kell az utána következő Szabályokban kivételként hozzáadni a 0620%-al kezdődő számokat. Tehát felülre a speciális, lentebb az általánosabb Szabályok kerüljenek.</string>
 </resources>

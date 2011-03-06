@@ -1,265 +1,268 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2009-2010 Felix Bechstein
-	-->
-	<!--
-		This file is part of Call Meter 3G. This program is free software; you
-		can redistribute it and/or modify it under the terms of the GNU
-		General Public License as published by the Free Software Foundation;
-		either version 3 of the License, or (at your option) any later
-		version.
-	-->
-	<!--
-		This program is distributed in the hope that it will be useful, but
-		WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-		General Public License for more details. You should have received a
-		copy of the GNU General Public License along with this program; If
-		not, see <http://www.gnu.org/licenses/>.
-	-->
+       <!--
+               Copyright (C) 2009-2011 Felix Bechstein
+       -->
+       <!--
+               This file is part of Call Meter 3G. This program is free software; you can
+               redistribute it and/or modify it under the terms of the GNU General
+               Public License as published by the Free Software Foundation; either
+               version 3 of the License, or (at your option) any later version.
+       -->
+       <!--
+               This program is distributed in the hope that it will be useful, but
+               WITHOUT ANY WARRANTY; without even the implied warranty of
+               MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+               General Public License for more details. You should have received a
+               copy of the GNU General Public License along with this program; If
+               not, see <http://www.gnu.org/licenses/>.
+       -->
+      <!--
+               This file is generated automatically by ub0rlib/php.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=it&file=strings.xml to edit the file.
+       -->
 <resources>
-  <string formatted="false" name="changelog_notification_">Ultime modifiche:</string>
-  <string formatted="false" name="changelog_notification_text">Clicca qui per visualizzare le ultime modifiche</string>
-  <string formatted="false" name="never_show_again">Non mostrare più l\'elenco delle modifiche</string>
-  <string formatted="false" name="notes_from_developer_">Note dallo sviluppatore</string>
-  <string formatted="false" name="notes_from_developer_text">Clicca qui per mostrare le ultime notizie da parte dello sviluppatore</string>
-  <string formatted="false" name="about0_">Controlla le tue chiamate, messaggi e piani tariffari!</string>
-  <string formatted="false" name="about0">CallMeter genera report sulle chiamate, messaggi e sul traffico dati. Supporta diverse modalità di conteggio o tariffazione.</string>
-  <string formatted="false" name="about1">Il formato delle statistiche è uso / tempo o conteggio usato dal periodo / tempo di fatturazione rispetto al totale.</string>
-  <string formatted="false" name="about2">La modalità di tariffazione specifica la lunghezza del primo / successivi intervalli di tariffazione. Ad esempio, 60/10 significa che ogni chiamata è conteggiata minimo 60 secondi, e poi è arrotondata ai successivi 10 secondi.</string>
-  <string formatted="false" name="about3">CallMeter gira silenziosamente ogni 30 minuti (solo quando il telefono non è in standby). Questo implica che la cancellazione di chiamate o messaggi precedenti ai 30 minuti non cambia le statistiche. Cancellare chiamate o messaggi più recenti può invece alterare le statistiche.</string>
-  <string formatted="false" name="send_">Invia</string>
-  <string formatted="false" name="add_">Nuovo</string>
-  <string formatted="false" name="add_log">Aggiungi elemento/log</string>
-  <string formatted="false" name="length_hint_call">Durata in secondi</string>
-  <string formatted="false" name="length_hint_data">Dimensione in KB</string>
-  <string formatted="false" name="settings">Impostazioni</string>
-  <string formatted="false" name="update_interval_">Frequenza controllo</string>
-  <string formatted="false" name="update_interval_hint">Frequenze più corte useranno più batteria.</string>
-  <string formatted="false" name="date_begin_">Inizio record</string>
-  <string formatted="false" name="date_begin_hint">Ignora i log precedenti a questa data.</string>
-  <string formatted="false" name="delete_old_logs_">Elimina log precedenti</string>
-  <string formatted="false" name="delete_old_logs_help">Elimina i log precedenti alla data immessa. Lasciare vuota per disabilitare.</string>
-  <string formatted="false" name="common_prefs_">Impostazioni generali</string>
-  <string formatted="false" name="edit_">Modifica</string>
-  <string formatted="false" name="about_">Informazioni</string>
-  <string formatted="false" name="about_hint">Informazioni sull\'applicazione</string>
-  <string formatted="false" name="faq_hint">Suggerimenti per impostare questa applicazione.</string>
-  <string formatted="false" name="feedback_">Commenti</string>
-  <string formatted="false" name="feedback_hint">Segnala anomalie, richiedi nuove funzioni...</string>
-  <string formatted="false" name="twitter_hint">Seguimi su twitter.\nRimani informato sugli aggiornamenti, ecc.</string>
-  <string formatted="false" name="more_">Altre applicazioni...</string>
-  <string formatted="false" name="billing_">Conteggio</string>
-  <string formatted="false" name="billday_">Primo giorno del conteggio</string>
-  <string formatted="false" name="billmode_">Modalità di conteggio</string>
-  <string formatted="false" name="billdate_">Inizio conteggio:</string>
-  <string formatted="false" name="appearance_">Aspetto</string>
-  <string formatted="false" name="advanced_preferences_">Avanzate</string>
-  <string formatted="false" name="advanced_preferences_hint">Permette di impostare più nel dettaglio alcune opzioni. La maggior parte degli utenti non ne ha bisogno.</string>
-  <string formatted="false" name="theme_">Tema</string>
-  <string formatted="false" name="textsize_">Dimensione testo</string>
-  <string formatted="false" name="textsize_hint">Dimensione del testo in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
-  <string formatted="false" name="textsize_title_">Dimensione testo titolo</string>
-  <string formatted="false" name="textsize_title_hint">Dimensione del testo titolo in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
-  <string formatted="false" name="textsize_bigtitle_">Dimensione testo titolo princ.</string>
-  <string formatted="false" name="textsize_bigtitle_hint">Dimensione del testo titolo principale in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
-  <string formatted="false" name="textsize_spacer_">Dimensione spazio</string>
-  <string formatted="false" name="textsize_spacer_hint">Dimensione dello spazio in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
-  <string formatted="false" name="textsize_pbar_">Dimensione barra avanzamento</string>
-  <string formatted="false" name="textsize_pbar_hint">Dimensione della barra in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
-  <string formatted="false" name="textsize_pbarbp_">Dimensione barra conteggio</string>
-  <string formatted="false" name="textsize_pbarbp_hint">Dimensione della barra in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
-  <string formatted="false" name="show_today_">Mostra oggi</string>
-  <string formatted="false" name="show_today_hint">Mostra le statistiche di oggi</string>
-  <string formatted="false" name="show_total_">Mostra totali</string>
-  <string formatted="false" name="show_total_hint">Mostra i totali, disabilita per vedere soltanto le statistiche correnti.</string>
-  <string formatted="false" name="show_time_">Vai a ...</string>
-  <string formatted="false" name="show_titlebar_">Mostra barra titolo</string>
-  <string formatted="false" name="show_titlebar_hint">Mostra la barra del titolo nella vista principale. Senza non sarà possibile vedere le attività in corso.</string>
-  <string formatted="false" name="show_hours_">Mostra ora</string>
-  <string formatted="false" name="show_hours_hint">Mostra il tempo in secondi, menuti, ore e giorni.\nSe non selezionato saranno visualizzati soltanto i secondi e i minuti.</string>
-  <string formatted="false" name="show_help_">Mostra guida</string>
-  <string formatted="false" name="show_help_hint">Mostra la guida nella finestra di impostazione dei piani tariffari e regole.</string>
-  <string formatted="false" name="show_shortname_">Mostra nomi corti invece che lunghi</string>
-  <string formatted="false" name="show_cost_">Mostra costo</string>
-  <string formatted="false" name="show_billperiod_">Mostra avanzamento del periodo di fatturazione</string>
-  <string formatted="false" name="show_calllength_">Mostra info dopo chiusura</string>
-  <string formatted="false" name="show_calllength_hint">Mostra durata/costo di una chiamata dopo la sua chiusura.</string>
-  <string formatted="false" name="hide_zero_">Nascondi piani vuoti</string>
-  <string formatted="false" name="hide_zero_hint">Nascondi i piani tariffari che non hanno elementi.</string>
-  <string formatted="false" name="hide_nocost_">Nascondi piani senza costi</string>
-  <string formatted="false" name="hide_nocost_hint">Nascondi i piani tariffari che non prevedono costi.</string>
-  <string formatted="false" name="hide_progressbars_">Nascondi barre avanzamento</string>
-  <string formatted="false" name="hide_progressbars_hint">Nascondi le barre di avanzamento nella vista principale.</string>
-  <string formatted="false" name="custom_currency_symbol_">Simbolo valuta</string>
-  <string formatted="false" name="custom_currency_symbol_hint">Imposta un simbolo personalizzato per la valuta, lasciare vuoto per quello predefinito di sistema.</string>
-  <string formatted="false" name="custom_currency_format_">Formato valuta</string>
-  <string formatted="false" name="custom_currency_format_hint">Seleziona un formato personalizzato per la valuta.</string>
-  <string formatted="false" name="custom_date_format_">Formato data</string>
-  <string formatted="false" name="custom_date_format_hint">Seleziona un formato personalizzato per la data.</string>
-  <string formatted="false" name="custom_delimiter_">Delimitatore personalizzato</string>
-  <string formatted="false" name="custom_delimiter_hint">Impostare un delimitatore personalizzato che separa i blocchi di statistiche.</string>
-  <string formatted="false" name="ask_for_plan_">Richiedi piano</string>
-  <string formatted="false" name="ask_for_plan_hint">Richiedi piano per le chiamate non identificate dopo aver riagganciato.</string>
-  <string formatted="false" name="autohide_">Nascondi automaticamente</string>
-  <string formatted="false" name="autohide_hint">Nascondi finestra dopo \"x\" secondi. Lasciare vuoto per disattivare Nascondi automaticamente.</string>
-  <string formatted="false" name="select_plan_">Selezionare un piano</string>
-  <string formatted="false" name="set_selected_as_default_">Impostare il piano selezionato come predefinito</string>
-  <string formatted="false" name="autohide_in_">Nascondi automaticamente finestra in: %d sec.</string>
-  <string formatted="false" name="logs">Log</string>
-  <string formatted="false" name="show_logs">Mostra log</string>
-  <string formatted="false" name="plans">Piani</string>
-  <string formatted="false" name="plans_hint">Configura i piani tariffari per ogni tipo di conteggio.</string>
-  <string formatted="false" name="plans_new">Nuovo piano</string>
-  <string formatted="false" name="rule_">Regola</string>
-  <string formatted="false" name="rules">Regole</string>
-  <string formatted="false" name="rules_hint">Configura le regole di conteggio.</string>
-  <string formatted="false" name="rules_new">Nuova regola</string>
-  <string formatted="false" name="length_">Durata</string>
-  <string formatted="false" name="remote_">Numero remoto</string>
-  <string formatted="false" name="numbergroups_edit_">Gruppi numeri</string>
-  <string formatted="false" name="numbergroups_edit_hint">Modifica gruppi di numeri.</string>
-  <string formatted="false" name="hourgroups_edit_">Gruppi orari</string>
-  <string formatted="false" name="hourgroups_edit_hint">Modifica i gruppi orari.</string>
-  <string formatted="false" name="numbers">Numeri</string>
-  <string formatted="false" name="numbergroup_">Includi numeri</string>
-  <string formatted="false" name="numbergroup_help">Aggiungi dei numeri per cui questa regola sarà applicata.\n\nI caratteri jolly (\"%\") sono permessi all\'inizio e alla fine del numero.</string>
-  <string formatted="false" name="exnumbergroup_">Escludi numeri</string>
-  <string formatted="false" name="exnumbergroup_help">Aggiungi dei numeri per cui questa regola non sarà presa in considerazione.</string>
-  <string formatted="false" name="new_numbergroup">Nuovo gruppo numeri</string>
-  <string formatted="false" name="add_number">Aggiungi numero</string>
-  <string formatted="false" name="hours">Orari</string>
-  <string formatted="false" name="hourgroup_">Includi orari</string>
-  <string formatted="false" name="hourgroup_help">Aggiungi degli orari in cui questa regola sarà applicata.</string>
-  <string formatted="false" name="exhourgroup_">Escludi orari</string>
-  <string formatted="false" name="exhourgroup_help">Aggiungi degli orari in cui questa regola non sarà presa in considerazione.</string>
-  <string formatted="false" name="new_hourgroup">Nuovo gruppo orari</string>
-  <string formatted="false" name="add_hour">Aggiungi orario</string>
-  <string formatted="false" name="empty_group">I gruppi vuoti non corrispondono a nulla. Si prega di tornare indietro e aggiungere almeno un elemento.</string>
-  <string formatted="false" name="calls">Chiamate</string>
-  <string formatted="false" name="sms">SMS</string>
-  <string formatted="false" name="mms">MMS</string>
-  <string formatted="false" name="data">Dati</string>
-  <string formatted="false" name="prepaid_">Piani prepagati</string>
-  <string formatted="false" name="prepaid_hint">Fattura sulla base di piani prepagati.</string>
-  <string formatted="false" name="balance_">Saldo</string>
-  <string formatted="false" name="balance_help">Saldo in un dato momento.</string>
-  <string formatted="false" name="strip_leading_zeros_">Rimuovi zeri in testa</string>
-  <string formatted="false" name="strip_leading_zeros_hint">Rimuove gli zero prefissi ai numeri quando questi saranno confrontati.</string>
-  <string formatted="false" name="number_prefix_">Prefisso internazionale</string>
-  <string formatted="false" name="number_prefix_hint">Il tuo prefisso internazionale con formato tipo +1 o +39. Questo prefisso è usato per l\'identificazione di numeri come +391223...</string>
-  <string formatted="false" name="reset_data_">Azzera statistiche</string>
-  <string formatted="false" name="reset_data_hint">Azzerando chiamane/SMS le statistiche saranno ricalcolate.\n\nL\'azzeramento del traffico invece è permanente. Azzera il traffico fatto prima dell\'accensione!</string>
-  <string formatted="false" name="reset_data_data_">Traffico</string>
-  <string formatted="false" name="reset_data_progr1">Ricalcolo statistiche ...\n\n(Può volerci un certo tempo!)</string>
-  <string formatted="false" name="reset_data_progr2">Ricalcolo statistiche ...</string>
-  <string formatted="false" name="contacts_">Contatti</string>
-  <string formatted="false" name="clear_">Pulisci</string>
-  <string formatted="false" name="help_">Aiuto</string>
-  <string formatted="false" name="new_">Nuovo</string>
-  <string formatted="false" name="edit_selected_">Modifica selezionato</string>
-  <string formatted="false" name="edit_groups_">Modifica gruppi</string>
-  <string formatted="false" name="name_">Nome</string>
-  <string formatted="false" name="name_help">Imposta un nome.</string>
-  <string formatted="false" name="shortname_">Nome corto</string>
-  <string formatted="false" name="shortname_help">Imposta un nome corto che sarà visualizzato con il layout ridotto.</string>
-  <string formatted="false" name="type_">Tipo</string>
-  <string formatted="false" name="type_help">Seleziona un tipo.\n\"Titolo\" mostrerà semplicemente un titolo nella vista principale.\n\"Spazio\" serve a distanziare il prossimo elemento.\n\"Periodo conteggio\" manterrà ogni informazione circa il conteggio del tuo periodo di fatturazione. La maggior parte degli utenti avranno bisogno esattamente di un periodo.\nUn \"mix\" di piani che può gestire chiamate e messaggi insieme. Combina il conteggio di qualsiasi elemento.\nUn piano \"chiamate\" raccoglie i dati solo delle chiamate. I piani \"SMS\" e \"MMS\" si occuperanno solo dei messaggi.\nIl piano \"dati\" può raccogliere informazioni sul traffico dati.</string>
-  <string formatted="false" name="limit_type_">Tipo limite</string>
-  <string formatted="false" name="limit_type_help">Imposta il tipo di limite. Il limite "unità" limiterà il piano sulla base dei minuti, messaggi, ecc.\nIl limite \"costo\" limiterà il piano sulla base del costo generato dagli elementi raccolti in questo piano.</string>
-  <string formatted="false" name="limit_">Limite</string>
-  <string formatted="false" name="limit_help">Imposta il limite del piano.\n\nPer il tipo \"unità\" bisogna usare i minuti (chiamate), messaggi (sms/mms), megabyte (per i dati, 1024kB) o le unità (mix).\n\nPer il tipo \"costo\" bisogna usare la valuta principale (ad es. €).</string>
-  <string formatted="false" name="billmode_help">Imposta la modalità di fatturazione.\nLa prima parte è la durata minima conteggiata dall\'operatore. Ciascuna chiamata di durata minore sarà comunque arrotodonata a questo valore minimo.\nLa seconda parte è la durata minima dei blocchi di secondi seguenti.\nLeggere la FAQ per saperne di più.</string>
-  <string formatted="false" name="billday_help">Imposta il primo giorno del periodo di fatturazione.</string>
-  <string formatted="false" name="billperiodid_">Periodo fatturazione</string>
-  <string formatted="false" name="billperiodid_help">Imposta il periodo di fatturazione.\nPuò essere necessario crearne un altro come piano extra.</string>
-  <string formatted="false" name="billperiod_">Lunghezza periodo fatturazione</string>
-  <string formatted="false" name="billperiod_help">Imposta la lunghezza del periodo di fatturazione.</string>
-  <string formatted="false" name="cost_per_item_">Costo per elemento</string>
-  <string formatted="false" name="cost_per_item_help">Imposta il costo fatturato per ogni singolo elemento (chiamata o messaggio) dopo che è stato raggiunto il limite.</string>
-  <string formatted="false" name="cost_per_item_in_limit_">Costo entro limite</string>
-  <string formatted="false" name="cost_per_item_in_limit_help">Imposta il costo fatturato per ogni singolo elemento (chiamata o messaggio) prima che sia stato raggiunto il limite.</string>
-  <string formatted="false" name="cost_per_amount_">Costo lunghezza</string>
-  <string formatted="false" name="cost_per_amount_help1">Imposta il costo fatturato per una certa dimensione di un singolo elemento (es. per 1kB di dati) dopo che è stato raggiunto il limite.</string>
-  <string formatted="false" name="cost_per_amount_help2">Imposta il costo fatturato per una certa lunghezza di un singolo elemento (es. per 1 min. di chiamata) dopo che è stato raggiunto il limite.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.</string>
-  <string formatted="false" name="cost_per_amount_in_limit_">Costo lunghezza entro limite</string>
-  <string formatted="false" name="cost_per_amount_in_limit_help1">Imposta il costo fatturato per una certa dimensione di un singolo elemento (es. per 1kB di dati) prima che sia stato raggiunto il limite.</string>
-  <string formatted="false" name="cost_per_amount_in_limit_help2">Imposta il costo fatturato per una certa lunghezza di un singolo elemento (es. per 1 min. di chiamata) prima che sia stato raggiunto il limite.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.</string>
-  <string formatted="false" name="cost_per_plan_">Costo per piano</string>
-  <string formatted="false" name="cost_per_plan_help">Imposta il costo del piano tariffario per il periodo di fatturazione stabilito.</string>
-  <string formatted="false" name="mixed_units_sms_">Elementi per SMS</string>
-  <string formatted="false" name="mixed_units_sms_help">Imposta gli elementi fatturati per un singolo SMS.</string>
-  <string formatted="false" name="mixed_units_mms_">Elementi per MMS</string>
-  <string formatted="false" name="mixed_units_mms_help">Imposta gli elementi fatturati per un singolo MMS.</string>
-  <string formatted="false" name="mixed_units_call_">Elementi per chiamata</string>
-  <string formatted="false" name="mixed_units_call_help">Imposta gli elementi fatturati per un minuto di chiamata.\nLa modalità di fatturazione è presa dall\'account.</string>
-  <string formatted="false" name="merge_plans_">Unisci piani</string>
-  <string formatted="false" name="merge_plans_help">Unisce altri piani in questo e li fattura insieme.</string>
-  <string formatted="false" name="units_cost">€</string>
-  <string formatted="false" name="units_num_msg"># Messaggi</string>
-  <string formatted="false" name="units_minutes">Minuti</string>
-  <string formatted="false" name="units_mbyte">MB</string>
-  <string formatted="false" name="units_units">Elementi</string>
-  <string formatted="false" name="units_units_per_minute">Elementi/Minuto</string>
-  <string formatted="false" name="units_units_per_message">Elementi/Messaggio</string>
-  <string formatted="false" name="units_cost_per_call">€/Chiamata</string>
-  <string formatted="false" name="units_cost_per_minute">€/Minuto</string>
-  <string formatted="false" name="units_cost_per_message">€/Messaggio</string>
-  <string formatted="false" name="units_cost_per_mbyte">€/MB</string>
-  <string formatted="false" name="units_cost_per_unit">€/Elemento</string>
-  <string formatted="false" name="plan_">Piano</string>
-  <string formatted="false" name="plan_help">Scegliere il piano per cui vale questa regola.</string>
-  <string formatted="false" name="limitnotreached_">Limite non raggiunto</string>
-  <string formatted="false" name="limitnotreached_help">La regola vale solo se il piano target non ha ancora raggiunto il limite.</string>
-  <string formatted="false" name="iswebsms_">SMS via Web</string>
-  <string formatted="false" name="iswebsms_help">Messaggio inviato via web.</string>
-  <string formatted="false" name="iswebsms_connector_">Adapter SMS</string>
-  <string formatted="false" name="iswebsms_connector_help">Inviato con uno specifico adapter/connector, lasciare vuoto per includerli tutti.</string>
-  <string formatted="false" name="issipcall_">Chiamata SIP</string>
-  <string formatted="false" name="issipcall_help">Chiamata effettuata via SIP. Attualmente è supportato sipdroid &gt;1.6.1.</string>
-  <string formatted="false" name="strip_seconds_">Non conteggia i primi secondi</string>
-  <string formatted="false" name="strip_seconds_help">Non conteggia i primi \"x\" secondi di una chiamata.</string>
-  <string formatted="false" name="what_">Target</string>
-  <string formatted="false" name="what_help">Scegliere un target della regola.</string>
-  <string formatted="false" name="direction_">Direzione</string>
-  <string formatted="false" name="direction_help">Scegliere una direzione dell\'elemento o log.</string>
-  <string formatted="false" name="roamed_">Inoltrato</string>
-  <string formatted="false" name="roamed_help">Scegliere se il log o elemento dato deve essere inoltrato.</string>
-  <string formatted="false" name="remote_hint">Numero remoto</string>
-  <string formatted="false" name="no_matter_">Non importa</string>
-  <string formatted="false" name="yes">Si</string>
-  <string formatted="false" name="no">No</string>
-  <string formatted="false" name="none">Vuoto</string>
-  <string formatted="false" name="value">Valore</string>
-  <string formatted="false" name="empty_groups_">Premere "Nuovo" per aggiungere un gruppo.</string>
-  <string formatted="false" name="empty_group_">Premere "Aggiungi" per aggiungere un elemento a questo gruppo.</string>
-  <string formatted="false" name="export_progr">Salvataggio dei dati ...</string>
-  <string formatted="false" name="import_progr">Importazione dei dati ...</string>
-  <string formatted="false" name="export_">Esporta ...</string>
-  <string formatted="false" name="export_hint">Esporta le regole, log o gruppi</string>
-  <string formatted="false" name="export_rules_">Esporta regole</string>
-  <string formatted="false" name="export_rules_hint">Esporta le regole sotto forma di mail.</string>
-  <string formatted="false" name="export_rules_descr">Descrizione</string>
-  <string formatted="false" name="export_logs_">Backup dei log</string>
-  <string formatted="false" name="export_logs_hint">Backup dei log come email.</string>
-  <string formatted="false" name="export_numgroups_">Esporta gruppi numeri</string>
-  <string formatted="false" name="export_numgroups_hint">Esportare gruppi numeri come email.</string>
-  <string formatted="false" name="export_hourgroups_">Esportare gruppi orari</string>
-  <string formatted="false" name="export_hourgroups_hint">Esportare gruppi orari come email.</string>
-  <string formatted="false" name="import_rules_">Importa regole</string>
-  <string formatted="false" name="import_rules_hint">Importa le regole.</string>
-  <string formatted="false" name="import_rules_empty">Nessun piano/regole. Fare clic su questo testo per importare un set di regole predefinite.\n\nOppure aggiungere piani e regole manualmente.</string>
-  <string formatted="false" name="err_export_write">Errore nella scrittura del file</string>
-  <string formatted="false" name="err_export_read">Errore nella lettura del file</string>
-  <string formatted="false" name="alerts_">Notifiche</string>
-  <string formatted="false" name="alerts_hint">Imposta notifiche sulla base dell\'utilizzo del piano tariffario.</string>
-  <string formatted="false" name="alerts_title">Call Meter 3G</string>
-  <string formatted="false" name="alerts_message">Il piano %s ha raggiunto il %d%% del suo utilizzo!</string>
-  <string formatted="false" name="alerts_80_">Notifica all\'80%</string>
-  <string formatted="false" name="alerts_80_hint">Notifica se il piano passa l\'80% del suo limite.</string>
-  <string formatted="false" name="alerts_100_">Notifica al 100%</string>
-  <string formatted="false" name="alerts_100_hint">Notifica se il piano passa il 100% del suo limite.</string>
-  <string formatted="false" name="widget_config_">Configura Widget</string>
+  <string name="changelog_notification_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Recent changes:">Ultime modifiche:</string>
+  <string name="changelog_notification_text" formatted="false">Clicca qui per visualizzare le ultime modifiche</string>
+  <string name="never_show_again" formatted="false">Non mostrare più l\'elenco delle modifiche</string>
+  <string name="notes_from_developer_" formatted="false">Note dallo sviluppatore</string>
+  <string name="notes_from_developer_text" formatted="false">Clicca qui per mostrare le ultime notizie da parte dello sviluppatore</string>
+  <string name="about0_" formatted="false">Controlla le tue chiamate, messaggi e piani tariffari!</string>
+  <string name="about0" formatted="false">CallMeter genera report sulle chiamate, messaggi e sul traffico dati. Supporta diverse modalità di conteggio o tariffazione.</string>
+  <string name="about1" formatted="false">Il formato delle statistiche è uso / tempo o conteggio usato dal periodo / tempo di fatturazione rispetto al totale.</string>
+  <string name="about2" formatted="false">La modalità di tariffazione specifica la lunghezza del primo / successivi intervalli di tariffazione. Ad esempio, 60/10 significa che ogni chiamata è conteggiata minimo 60 secondi, e poi è arrotondata ai successivi 10 secondi.</string>
+  <string name="about3" formatted="false">CallMeter gira silenziosamente ogni 30 minuti (solo quando il telefono non è in standby). Questo implica che la cancellazione di chiamate o messaggi precedenti ai 30 minuti non cambia le statistiche. Cancellare chiamate o messaggi più recenti può invece alterare le statistiche.</string>
+  <string name="send_" formatted="false">Invia</string>
+  <string name="add_" formatted="false">Nuovo</string>
+  <string name="add_log" formatted="false">Aggiungi elemento/log</string>
+  <string name="length_hint_call" formatted="false">Durata in secondi</string>
+  <string name="length_hint_data" formatted="false">Dimensione in KB</string>
+  <string name="settings" formatted="false">Impostazioni</string>
+  <string name="update_interval_" formatted="false">Frequenza controllo</string>
+  <string name="update_interval_hint" formatted="false">Frequenze più corte useranno più batteria.</string>
+  <string name="date_begin_" formatted="false">Inizio record</string>
+  <string name="date_begin_hint" formatted="false">Ignora i log precedenti a questa data.</string>
+  <string name="delete_old_logs_" formatted="false">Elimina log precedenti</string>
+  <string name="delete_old_logs_help" formatted="false">Elimina i log precedenti alla data immessa. Lasciare vuota per disabilitare.</string>
+  <string name="common_prefs_" formatted="false">Impostazioni generali</string>
+  <string name="edit_" formatted="false">Modifica</string>
+  <string name="about_" formatted="false">Informazioni</string>
+  <string name="about_hint" formatted="false">Informazioni sull\'applicazione</string>
+  <string name="faq_hint" formatted="false">Suggerimenti per impostare questa applicazione.</string>
+  <string name="feedback_" formatted="false">Commenti</string>
+  <string name="feedback_hint" formatted="false">Segnala anomalie, richiedi nuove funzioni...</string>
+  <string name="twitter_hint" formatted="false">Seguimi su twitter.\nRimani informato sugli aggiornamenti, ecc.</string>
+  <string name="more_" formatted="false">Altre applicazioni...</string>
+  <string name="billing_" formatted="false">Conteggio</string>
+  <string name="billday_" formatted="false">Primo giorno del conteggio</string>
+  <string name="billmode_" formatted="false">Modalità di conteggio</string>
+  <string name="billdate_" formatted="false">Inizio conteggio:</string>
+  <string name="appearance_" formatted="false">Aspetto</string>
+  <string name="advanced_preferences_" formatted="false">Avanzate</string>
+  <string name="advanced_preferences_hint" formatted="false">Permette di impostare più nel dettaglio alcune opzioni. La maggior parte degli utenti non ne ha bisogno.</string>
+  <string name="theme_" formatted="false">Tema</string>
+  <string name="textsize_" formatted="false">Dimensione testo</string>
+  <string name="textsize_hint" formatted="false">Dimensione del testo in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
+  <string name="textsize_title_" formatted="false">Dimensione testo titolo</string>
+  <string name="textsize_title_hint" formatted="false">Dimensione del testo titolo in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
+  <string name="textsize_bigtitle_" formatted="false">Dimensione testo titolo princ.</string>
+  <string name="textsize_bigtitle_hint" formatted="false">Dimensione del testo titolo principale in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
+  <string name="textsize_spacer_" formatted="false">Dimensione spazio</string>
+  <string name="textsize_spacer_hint" formatted="false">Dimensione dello spazio in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
+  <string name="textsize_pbar_" formatted="false">Dimensione barra avanzamento</string>
+  <string name="textsize_pbar_hint" formatted="false">Dimensione della barra in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
+  <string name="textsize_pbarbp_" formatted="false">Dimensione barra conteggio</string>
+  <string name="textsize_pbarbp_hint" formatted="false">Dimensione della barra in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
+  <string name="show_today_" formatted="false">Mostra oggi</string>
+  <string name="show_today_hint" formatted="false">Mostra le statistiche di oggi</string>
+  <string name="show_total_" formatted="false">Mostra totali</string>
+  <string name="show_total_hint" formatted="false">Mostra i totali, disabilita per vedere soltanto le statistiche correnti.</string>
+  <string name="show_time_" formatted="false">Vai a ...</string>
+  <string name="show_titlebar_" formatted="false">Mostra barra titolo</string>
+  <string name="show_titlebar_hint" formatted="false">Mostra la barra del titolo nella vista principale. Senza non sarà possibile vedere le attività in corso.</string>
+  <string name="show_hours_" formatted="false">Mostra ora</string>
+  <string name="show_hours_hint" formatted="false">Mostra il tempo in secondi, menuti, ore e giorni.\nSe non selezionato saranno visualizzati soltanto i secondi e i minuti.</string>
+  <string name="show_help_" formatted="false">Mostra guida</string>
+  <string name="show_help_hint" formatted="false">Mostra la guida nella finestra di impostazione dei piani tariffari e regole.</string>
+  <string name="show_shortname_" formatted="false">Mostra nomi corti invece che lunghi</string>
+  <string name="show_cost_" formatted="false">Mostra costo</string>
+  <string name="show_billperiod_" formatted="false">Mostra avanzamento del periodo di fatturazione</string>
+  <string name="show_calllength_" formatted="false">Mostra info dopo chiusura</string>
+  <string name="show_calllength_hint" formatted="false">Mostra durata/costo di una chiamata dopo la sua chiusura.</string>
+  <string name="hide_zero_" formatted="false">Nascondi piani vuoti</string>
+  <string name="hide_zero_hint" formatted="false">Nascondi i piani tariffari che non hanno elementi.</string>
+  <string name="hide_nocost_" formatted="false">Nascondi piani senza costi</string>
+  <string name="hide_nocost_hint" formatted="false">Nascondi i piani tariffari che non prevedono costi.</string>
+  <string name="hide_progressbars_" formatted="false">Nascondi barre avanzamento</string>
+  <string name="hide_progressbars_hint" formatted="false">Nascondi le barre di avanzamento nella vista principale.</string>
+  <string name="custom_currency_symbol_" formatted="false">Simbolo valuta</string>
+  <string name="custom_currency_symbol_hint" formatted="false">Imposta un simbolo personalizzato per la valuta, lasciare vuoto per quello predefinito di sistema.</string>
+  <string name="custom_currency_format_" formatted="false">Formato valuta</string>
+  <string name="custom_currency_format_hint" formatted="false">Seleziona un formato personalizzato per la valuta.</string>
+  <string name="custom_date_format_" formatted="false">Formato data</string>
+  <string name="custom_date_format_hint" formatted="false">Seleziona un formato personalizzato per la data.</string>
+  <string name="custom_delimiter_" formatted="false">Delimitatore personalizzato</string>
+  <string name="custom_delimiter_hint" formatted="false">Impostare un delimitatore personalizzato che separa i blocchi di statistiche.</string>
+  <string name="ask_for_plan_" formatted="false">Richiedi piano</string>
+  <string name="ask_for_plan_hint" formatted="false">Richiedi piano per le chiamate non identificate dopo aver riagganciato.</string>
+  <string name="autohide_" formatted="false">Nascondi automaticamente</string>
+  <string name="autohide_hint" formatted="false">Nascondi finestra dopo \"x\" secondi. Lasciare vuoto per disattivare Nascondi automaticamente.</string>
+  <string name="select_plan_" formatted="false">Selezionare un piano</string>
+  <string name="set_selected_as_default_" formatted="false">Impostare il piano selezionato come predefinito</string>
+  <string name="autohide_in_" formatted="false">Nascondi automaticamente finestra in: %d sec.</string>
+  <string name="logs" formatted="false">Log</string>
+  <string name="show_logs" formatted="false">Mostra log</string>
+  <string name="plans" formatted="false">Piani</string>
+  <string name="plans_hint" formatted="false">Configura i piani tariffari per ogni tipo di conteggio.</string>
+  <string name="plans_new" formatted="false">Nuovo piano</string>
+  <string name="rule_" formatted="false">Regola</string>
+  <string name="rules" formatted="false">Regole</string>
+  <string name="rules_hint" formatted="false">Configura le regole di conteggio.</string>
+  <string name="rules_new" formatted="false">Nuova regola</string>
+  <string name="length_" formatted="false">Durata</string>
+  <string name="remote_" formatted="false">Numero remoto</string>
+  <string name="numbergroups_edit_" formatted="false">Gruppi numeri</string>
+  <string name="numbergroups_edit_hint" formatted="false">Modifica gruppi di numeri.</string>
+  <string name="hourgroups_edit_" formatted="false">Gruppi orari</string>
+  <string name="hourgroups_edit_hint" formatted="false">Modifica i gruppi orari.</string>
+  <string name="numbers" formatted="false">Numeri</string>
+  <string name="numbergroup_" formatted="false">Includi numeri</string>
+  <string name="numbergroup_help" formatted="false">Aggiungi dei numeri per cui questa regola sarà applicata.\n\nI caratteri jolly (\"%\") sono permessi all\'inizio e alla fine del numero.</string>
+  <string name="exnumbergroup_" formatted="false">Escludi numeri</string>
+  <string name="exnumbergroup_help" formatted="false">Aggiungi dei numeri per cui questa regola non sarà presa in considerazione.</string>
+  <string name="new_numbergroup" formatted="false">Nuovo gruppo numeri</string>
+  <string name="add_number" formatted="false">Aggiungi numero</string>
+  <string name="hours" formatted="false">Orari</string>
+  <string name="hourgroup_" formatted="false">Includi orari</string>
+  <string name="hourgroup_help" formatted="false">Aggiungi degli orari in cui questa regola sarà applicata.</string>
+  <string name="exhourgroup_" formatted="false">Escludi orari</string>
+  <string name="exhourgroup_help" formatted="false">Aggiungi degli orari in cui questa regola non sarà presa in considerazione.</string>
+  <string name="new_hourgroup" formatted="false">Nuovo gruppo orari</string>
+  <string name="add_hour" formatted="false">Aggiungi orario</string>
+  <string name="empty_group" formatted="false">I gruppi vuoti non corrispondono a nulla. Si prega di tornare indietro e aggiungere almeno un elemento.</string>
+  <string name="calls" formatted="false">Chiamate</string>
+  <string name="sms" formatted="false">SMS</string>
+  <string name="mms" formatted="false">MMS</string>
+  <string name="data" formatted="false">Dati</string>
+  <string name="prepaid_" formatted="false">Piani prepagati</string>
+  <string name="prepaid_hint" formatted="false">Fattura sulla base di piani prepagati.</string>
+  <string name="balance_" formatted="false">Saldo</string>
+  <string name="balance_help" formatted="false">Saldo in un dato momento.</string>
+  <string name="strip_leading_zeros_" formatted="false">Rimuovi zeri in testa</string>
+  <string name="strip_leading_zeros_hint" formatted="false">Rimuove gli zero prefissi ai numeri quando questi saranno confrontati.</string>
+  <string name="number_prefix_" formatted="false">Prefisso internazionale</string>
+  <string name="number_prefix_hint" formatted="false">Il tuo prefisso internazionale con formato tipo +1 o +39. Questo prefisso è usato per l\'identificazione di numeri come +391223...</string>
+  <string name="reset_data_" formatted="false">Azzera statistiche</string>
+  <string name="reset_data_hint" formatted="false">Azzerando chiamane/SMS le statistiche saranno ricalcolate.\n\nL\'azzeramento del traffico invece è permanente. Azzera il traffico fatto prima dell\'accensione!</string>
+  <string name="reset_data_data_" formatted="false">Traffico</string>
+  <string name="reset_data_progr1" formatted="false">Ricalcolo statistiche ...\n\n(Può volerci un certo tempo!)</string>
+  <string name="reset_data_progr2" formatted="false">Ricalcolo statistiche ...</string>
+  <string name="contacts_" formatted="false">Contatti</string>
+  <string name="clear_" formatted="false">Pulisci</string>
+  <string name="help_" formatted="false">Aiuto</string>
+  <string name="new_" formatted="false">Nuovo</string>
+  <string name="edit_selected_" formatted="false">Modifica selezionato</string>
+  <string name="edit_groups_" formatted="false">Modifica gruppi</string>
+  <string name="name_" formatted="false">Nome</string>
+  <string name="name_help" formatted="false">Imposta un nome.</string>
+  <string name="shortname_" formatted="false">Nome corto</string>
+  <string name="shortname_help" formatted="false">Imposta un nome corto che sarà visualizzato con il layout ridotto.</string>
+  <string name="type_" formatted="false">Tipo</string>
+  <string name="type_help" formatted="false">Seleziona un tipo.\n\"Titolo\" mostrerà semplicemente un titolo nella vista principale.\n\"Spazio\" serve a distanziare il prossimo elemento.\n\"Periodo conteggio\" manterrà ogni informazione circa il conteggio del tuo periodo di fatturazione. La maggior parte degli utenti avranno bisogno esattamente di un periodo.\nUn \"mix\" di piani che può gestire chiamate e messaggi insieme. Combina il conteggio di qualsiasi elemento.\nUn piano \"chiamate\" raccoglie i dati solo delle chiamate. I piani \"SMS\" e \"MMS\" si occuperanno solo dei messaggi.\nIl piano \"dati\" può raccogliere informazioni sul traffico dati.</string>
+  <string name="limit_type_" formatted="false">Tipo limite</string>
+  <string name="limit_type_help" formatted="false">Imposta il tipo di limite. Il limite "unità" limiterà il piano sulla base dei minuti, messaggi, ecc.\nIl limite \"costo\" limiterà il piano sulla base del costo generato dagli elementi raccolti in questo piano.</string>
+  <string name="limit_" formatted="false">Limite</string>
+  <string name="limit_help" formatted="false">Imposta il limite del piano.\n\nPer il tipo \"unità\" bisogna usare i minuti (chiamate), messaggi (sms/mms), megabyte (per i dati, 1024kB) o le unità (mix).\n\nPer il tipo \"costo\" bisogna usare la valuta principale (ad es. €).</string>
+  <string name="billmode_help" formatted="false">Imposta la modalità di fatturazione.\nLa prima parte è la durata minima conteggiata dall\'operatore. Ciascuna chiamata di durata minore sarà comunque arrotodonata a questo valore minimo.\nLa seconda parte è la durata minima dei blocchi di secondi seguenti.\nLeggere la FAQ per saperne di più.</string>
+  <string name="billday_help" formatted="false">Imposta il primo giorno del periodo di fatturazione.</string>
+  <string name="billperiodid_" formatted="false">Periodo fatturazione</string>
+  <string name="billperiodid_help" formatted="false">Imposta il periodo di fatturazione.\nPuò essere necessario crearne un altro come piano extra.</string>
+  <string name="billperiod_" formatted="false">Lunghezza periodo fatturazione</string>
+  <string name="billperiod_help" formatted="false">Imposta la lunghezza del periodo di fatturazione.</string>
+  <string name="cost_per_item_" formatted="false">Costo per elemento</string>
+  <string name="cost_per_item_help" formatted="false">Imposta il costo fatturato per ogni singolo elemento (chiamata o messaggio) dopo che è stato raggiunto il limite.</string>
+  <string name="cost_per_item_in_limit_" formatted="false">Costo entro limite</string>
+  <string name="cost_per_item_in_limit_help" formatted="false">Imposta il costo fatturato per ogni singolo elemento (chiamata o messaggio) prima che sia stato raggiunto il limite.</string>
+  <string name="cost_per_amount_" formatted="false">Costo lunghezza</string>
+  <string name="cost_per_amount_help1" formatted="false">Imposta il costo fatturato per una certa dimensione di un singolo elemento (es. per 1kB di dati) dopo che è stato raggiunto il limite.</string>
+  <string name="cost_per_amount_help2" formatted="false">Imposta il costo fatturato per una certa lunghezza di un singolo elemento (es. per 1 min. di chiamata) dopo che è stato raggiunto il limite.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.</string>
+  <string name="cost_per_amount_in_limit_" formatted="false">Costo lunghezza entro limite</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false">Imposta il costo fatturato per una certa dimensione di un singolo elemento (es. per 1kB di dati) prima che sia stato raggiunto il limite.</string>
+  <string name="cost_per_amount_in_limit_help2" formatted="false">Imposta il costo fatturato per una certa lunghezza di un singolo elemento (es. per 1 min. di chiamata) prima che sia stato raggiunto il limite.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.</string>
+  <string name="cost_per_plan_" formatted="false">Costo per piano</string>
+  <string name="cost_per_plan_help" formatted="false">Imposta il costo del piano tariffario per il periodo di fatturazione stabilito.</string>
+  <string name="mixed_units_sms_" formatted="false">Elementi per SMS</string>
+  <string name="mixed_units_sms_help" formatted="false">Imposta gli elementi fatturati per un singolo SMS.</string>
+  <string name="mixed_units_mms_" formatted="false">Elementi per MMS</string>
+  <string name="mixed_units_mms_help" formatted="false">Imposta gli elementi fatturati per un singolo MMS.</string>
+  <string name="mixed_units_call_" formatted="false">Elementi per chiamata</string>
+  <string name="mixed_units_call_help" formatted="false">Imposta gli elementi fatturati per un minuto di chiamata.\nLa modalità di fatturazione è presa dall\'account.</string>
+  <string name="merge_plans_" formatted="false">Unisci piani</string>
+  <string name="merge_plans_help" formatted="false">Unisce altri piani in questo e li fattura insieme.</string>
+  <string name="units_cost" formatted="false">€</string>
+  <string name="units_num_msg" formatted="false"># Messaggi</string>
+  <string name="units_minutes" formatted="false">Minuti</string>
+  <string name="units_mbyte" formatted="false">MB</string>
+  <string name="units_units" formatted="false">Elementi</string>
+  <string name="units_units_per_minute" formatted="false">Elementi/Minuto</string>
+  <string name="units_units_per_message" formatted="false">Elementi/Messaggio</string>
+  <string name="units_cost_per_call" formatted="false">€/Chiamata</string>
+  <string name="units_cost_per_minute" formatted="false">€/Minuto</string>
+  <string name="units_cost_per_message" formatted="false">€/Messaggio</string>
+  <string name="units_cost_per_mbyte" formatted="false">€/MB</string>
+  <string name="units_cost_per_unit" formatted="false">€/Elemento</string>
+  <string name="plan_" formatted="false">Piano</string>
+  <string name="plan_help" formatted="false">Scegliere il piano per cui vale questa regola.</string>
+  <string name="limitnotreached_" formatted="false">Limite non raggiunto</string>
+  <string name="limitnotreached_help" formatted="false">La regola vale solo se il piano target non ha ancora raggiunto il limite.</string>
+  <string name="iswebsms_" formatted="false">SMS via Web</string>
+  <string name="iswebsms_help" formatted="false">Messaggio inviato via web.</string>
+  <string name="iswebsms_connector_" formatted="false">Adapter SMS</string>
+  <string name="iswebsms_connector_help" formatted="false">Inviato con uno specifico adapter/connector, lasciare vuoto per includerli tutti.</string>
+  <string name="issipcall_" formatted="false">Chiamata SIP</string>
+  <string name="issipcall_help" formatted="false">Chiamata effettuata via SIP. Attualmente è supportato sipdroid &gt;1.6.1.</string>
+  <string name="strip_seconds_" formatted="false">Non conteggia i primi secondi</string>
+  <string name="strip_seconds_help" formatted="false">Non conteggia i primi \"x\" secondi di una chiamata.</string>
+  <string name="what_" formatted="false">Target</string>
+  <string name="what_help" formatted="false">Scegliere un target della regola.</string>
+  <string name="direction_" formatted="false">Direzione</string>
+  <string name="direction_help" formatted="false">Scegliere una direzione dell\'elemento o log.</string>
+  <string name="roamed_" formatted="false">Inoltrato</string>
+  <string name="roamed_help" formatted="false">Scegliere se il log o elemento dato deve essere inoltrato.</string>
+  <string name="remote_hint" formatted="false">Numero remoto</string>
+  <string name="no_matter_" formatted="false">Non importa</string>
+  <string name="yes" formatted="false">Si</string>
+  <string name="no" formatted="false">No</string>
+  <string name="none" formatted="false">Vuoto</string>
+  <string name="value" formatted="false">Valore</string>
+  <string name="empty_groups_" formatted="false">Premere "Nuovo" per aggiungere un gruppo.</string>
+  <string name="empty_group_" formatted="false">Premere "Aggiungi" per aggiungere un elemento a questo gruppo.</string>
+  <string name="export_progr" formatted="false">Salvataggio dei dati ...</string>
+  <string name="import_progr" formatted="false">Importazione dei dati ...</string>
+  <string name="export_" formatted="false">Esporta ...</string>
+  <string name="export_hint" formatted="false">Esporta le regole, log o gruppi</string>
+  <string name="export_rules_" formatted="false">Esporta regole</string>
+  <string name="export_rules_hint" formatted="false">Esporta le regole sotto forma di mail.</string>
+  <string name="export_rules_descr" formatted="false">Descrizione</string>
+  <string name="export_logs_" formatted="false">Backup dei log</string>
+  <string name="export_logs_hint" formatted="false">Backup dei log come email.</string>
+  <string name="export_numgroups_" formatted="false">Esporta gruppi numeri</string>
+  <string name="export_numgroups_hint" formatted="false">Esportare gruppi numeri come email.</string>
+  <string name="export_hourgroups_" formatted="false">Esportare gruppi orari</string>
+  <string name="export_hourgroups_hint" formatted="false">Esportare gruppi orari come email.</string>
+  <string name="import_rules_" formatted="false">Importa regole</string>
+  <string name="import_rules_hint" formatted="false">Importa le regole.</string>
+  <string name="import_rules_empty" formatted="false">Nessun piano/regole. Fare clic su questo testo per importare un set di regole predefinite.\n\nOppure aggiungere piani e regole manualmente.</string>
+  <string name="err_export_write" formatted="false">Errore nella scrittura del file</string>
+  <string name="err_export_read" formatted="false">Errore nella lettura del file</string>
+  <string name="alerts_" formatted="false">Notifiche</string>
+  <string name="alerts_hint" formatted="false">Imposta notifiche sulla base dell\'utilizzo del piano tariffario.</string>
+  <string name="alerts_title" formatted="false">Call Meter 3G</string>
+  <string name="alerts_message" formatted="false">Il piano %s ha raggiunto il %d%% del suo utilizzo!</string>
+  <string name="alerts_80_" formatted="false">Notifica all\'80%</string>
+  <string name="alerts_80_hint" formatted="false">Notifica se il piano passa l\'80% del suo limite.</string>
+  <string name="alerts_100_" formatted="false">Notifica al 100%</string>
+  <string name="alerts_100_hint" formatted="false">Notifica se il piano passa il 100% del suo limite.</string>
+  <string name="widget_config_" formatted="false">Configura Widget</string>
   <string-array name="weekdays_all">
     <item>Tutta la settimana</item>
     <item>Lunedì</item>

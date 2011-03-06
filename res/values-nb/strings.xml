@@ -1,267 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2009-2011 Felix Bechstein
-	-->
-	<!--
-		This file is part of Call Meter 3G. This program is free software; you
-		can redistribute it and/or modify it under the terms of the GNU
-		General Public License as published by the Free Software Foundation;
-		either version 3 of the License, or (at your option) any later
-		version.
-	-->
-	<!--
-		This program is distributed in the hope that it will be useful, but
-		WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-		General Public License for more details. You should have received a
-		copy of the GNU General Public License along with this program; If
-		not, see <http://www.gnu.org/licenses/>.
-	-->
+       <!--
+               Copyright (C) 2009-2011 Felix Bechstein
+       -->
+       <!--
+               This file is part of Call Meter 3G. This program is free software; you can
+               redistribute it and/or modify it under the terms of the GNU General
+               Public License as published by the Free Software Foundation; either
+               version 3 of the License, or (at your option) any later version.
+       -->
+       <!--
+               This program is distributed in the hope that it will be useful, but
+               WITHOUT ANY WARRANTY; without even the implied warranty of
+               MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+               General Public License for more details. You should have received a
+               copy of the GNU General Public License along with this program; If
+               not, see <http://www.gnu.org/licenses/>.
+       -->
+      <!--
+               This file is generated automatically by ub0rlib/php.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=nb&file=strings.xml to edit the file.
+       -->
 <resources>
-  <string formatted="false" name="changelog_notification_">Recent changes:</string>
-  <string formatted="false" name="changelog_notification_text">Click here to show recent changes of</string>
-  <string formatted="false" name="never_show_again">Never show changelog again</string>
-  <string formatted="false" name="notes_from_developer_">Notes from developer</string>
-  <string formatted="false" name="notes_from_developer_text">Click here to show recent news from the developer</string>
-  <string formatted="false" name="about0_">Følg med på dine samtaler, meldinger og data trafikk!</string>
-  <string formatted="false" name="about0">CallMeter lager rapporter fra samtale-, meldings- og dataloggen. Det er støtte for flere metoder av taksering.</string>
-  <string formatted="false" name="about1">Oversikt over bruk/tid eller antall denne perioden/tid eller totaloversikt hele perioden. Månedlig beregning i samsvar med dine preferanser for avregning. Ingen beregning for totalforbruk.</string>
-  <string formatted="false" name="about2">Takseringsintervall spesifiserer lengden på de første/neste takseringene. F.eks. 60/10 betyr at enhver samtale blir taksert for minimum 60s, og tid over dette rundes opp til nærmeste fulle 10s.</string>
-  <string formatted="false" name="about3">CallMeter oppdaterer seg hvert 30. min. (ikke i stand-by). Dette betyr at det ikke vil påvirke din statistikk hvis du sletter samtaler eller meldinger som er eldre en 30 min. Hvis du sletter samtaler eller meldinger som er nyere enn 30 minutter, kan din statistikk/oversikt bli feil.</string>
-  <string formatted="false" name="send_">Send</string>
-  <string formatted="false" name="add_">Add</string>
-  <string formatted="false" name="add_log">Add log entry</string>
-  <string formatted="false" name="length_hint_call">Length in seconds</string>
-  <string formatted="false" name="length_hint_data">Length in kB</string>
-  <string formatted="false" name="settings">Innstillinger</string>
-  <string formatted="false" name="update_interval_">Update interval</string>
-  <string formatted="false" name="update_interval_hint">Shorter period will use more battery.</string>
-  <string formatted="false" name="date_begin_">Beginning of records</string>
-  <string formatted="false" name="date_begin_hint">Ignore any logs before this date.</string>
-  <string formatted="false" name="delete_old_logs_">Delete logs older than</string>
-  <string formatted="false" name="delete_old_logs_help">Delete logs older than x days from internal database. Leave empty to disable.</string>
-  <string formatted="false" name="common_prefs_">Common preferences</string>
-  <string formatted="false" name="edit_">Edit</string>
-  <string formatted="false" name="about_">Om</string>
-  <string formatted="false" name="about_hint">Om denne applikasjonen</string>
-  <string formatted="false" name="faq_hint">Tips og triks, hvordan sette opp denne applikasjonen.</string>
-  <string formatted="false" name="feedback_">Tilbakemelding</string>
-  <string formatted="false" name="feedback_hint">Meld feil, etterspør funksjoner ...</string>
-  <string formatted="false" name="twitter_hint">Følg på twitter.\nFå info om oppdateringer o.l.</string>
-  <string formatted="false" name="more_">Flere Applikasjoner..</string>
-  <string formatted="false" name="billing_">Billing</string>
-  <string formatted="false" name="billday_">Første dag i perioden</string>
-  <string formatted="false" name="billmode_">Takst-type</string>
-  <string formatted="false" name="billdate_">Oppstart for takseringsintervall:</string>
-  <string formatted="false" name="appearance_">Utseende</string>
-  <string formatted="false" name="behavior_">Behavior</string>
-  <string formatted="false" name="appearance_and_behavior_">Appearance &amp; behavior</string>
-  <string formatted="false" name="advanced_preferences_">Advanced preferences</string>
-  <string formatted="false" name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string>
-  <string formatted="false" name="theme_">Tema</string>
-  <string formatted="false" name="textsize_">Tekst størrelse</string>
-  <string formatted="false" name="textsize_hint">Tekststørrelse i piksler; la stå tom for standard</string>
-  <string formatted="false" name="textsize_title_">Title\'s text size</string>
-  <string formatted="false" name="textsize_title_hint">Text size for titles in pixels; leave empty for default</string>
-  <string formatted="false" name="textsize_bigtitle_">Big title\'s text size</string>
-  <string formatted="false" name="textsize_bigtitle_hint">Text size for big titles in pixels; leave empty for default</string>
-  <string formatted="false" name="textsize_spacer_">Spacer\'s size</string>
-  <string formatted="false" name="textsize_spacer_hint">Size for spacers in pixels; leave empty for default</string>
-  <string formatted="false" name="textsize_pbar_">Progress bar\'s size</string>
-  <string formatted="false" name="textsize_pbar_hint">Size for progress bars in pixels; leave empty for default</string>
-  <string formatted="false" name="textsize_pbarbp_">Bill period\'s progress bar\'s size</string>
-  <string formatted="false" name="textsize_pbarbp_hint">Size for bill period\'s progress bars in pixels; leave empty for default</string>
-  <string formatted="false" name="show_today_">Show today</string>
-  <string formatted="false" name="show_today_hint">Show today stats</string>
-  <string formatted="false" name="show_total_">Show total</string>
-  <string formatted="false" name="show_total_hint">Show total stats, disable to see current only.</string>
-  <string formatted="false" name="show_time_">Switch to date</string>
-  <string formatted="false" name="show_titlebar_">Show title bar</string>
-  <string formatted="false" name="show_titlebar_hint">Show title bar in main view. Without title bar, there is no way to see background activity.</string>
-  <string formatted="false" name="show_hours_">Show hours</string>
-  <string formatted="false" name="show_hours_hint">Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.</string>
-  <string formatted="false" name="show_help_">Show help</string>
-  <string formatted="false" name="show_help_hint">Show help in Plans/Rules setup view.</string>
-  <string formatted="false" name="show_shortname_">Show short name instead of long name</string>
-  <string formatted="false" name="show_cost_">Show cost</string>
-  <string formatted="false" name="show_billperiod_">Show progress of billing period</string>
-  <string formatted="false" name="show_calllength_">Show info after hanging up</string>
-  <string formatted="false" name="show_calllength_hint">Show length/cost of a call after hanging up.</string>
-  <string formatted="false" name="hide_zero_">Hide empty plans</string>
-  <string formatted="false" name="hide_zero_hint">Hide plans containing no item.</string>
-  <string formatted="false" name="hide_nocost_">Hide no cost plans</string>
-  <string formatted="false" name="hide_nocost_hint">Hide plans with no cost.</string>
-  <string formatted="false" name="hide_progressbars_">Hide progress bars</string>
-  <string formatted="false" name="hide_progressbars_hint">Hide progress bars in main view.</string>
-  <string formatted="false" name="custom_currency_symbol_">Custom currency symbol</string>
-  <string formatted="false" name="custom_currency_symbol_hint">Set a custom currency symbol, leave empty for system default.</string>
-  <string formatted="false" name="custom_currency_format_">Custom currency format</string>
-  <string formatted="false" name="custom_currency_format_hint">Select a custom currency format.</string>
-  <string formatted="false" name="custom_date_format_">Custom date format</string>
-  <string formatted="false" name="custom_date_format_hint">Select a custom date format.</string>
-  <string formatted="false" name="custom_delimiter_">Custom delimiter</string>
-  <string formatted="false" name="custom_delimiter_hint">Set a custom delimiter separating the blocks of statistics.</string>
-  <string formatted="false" name="ask_for_plan_">Ask for plan</string>
-  <string formatted="false" name="ask_for_plan_hint">Ask for plan for unmatched calls after hanging up.</string>
-  <string formatted="false" name="autohide_">Auto hide</string>
-  <string formatted="false" name="autohide_hint">Hide dialog after .. seconds. Leave empty to deactivate auto hide.</string>
-  <string formatted="false" name="select_plan_">Select a plan</string>
-  <string formatted="false" name="set_selected_as_default_">Set selected plan as default</string>
-  <string formatted="false" name="autohide_in_">Auto hide dialog in: %ds</string>
-  <string formatted="false" name="logs">Logs</string>
-  <string formatted="false" name="show_logs">Show logs</string>
-  <string formatted="false" name="plans">Planer</string>
-  <string formatted="false" name="plans_hint">Set your plans for all kind of billing here.</string>
-  <string formatted="false" name="plans_new">New plan</string>
-  <string formatted="false" name="rule_">Rule</string>
-  <string formatted="false" name="rules">Rules</string>
-  <string formatted="false" name="rules_hint">Set your billing rules here.</string>
-  <string formatted="false" name="rules_new">New Rule</string>
-  <string formatted="false" name="length_">Length</string>
-  <string formatted="false" name="remote_">Remote number</string>
-  <string formatted="false" name="numbergroups_edit_">Number groups</string>
-  <string formatted="false" name="numbergroups_edit_hint">Edit number groups here.</string>
-  <string formatted="false" name="hourgroups_edit_">Hour groups</string>
-  <string formatted="false" name="hourgroups_edit_hint">Edit hour groups here.</string>
-  <string formatted="false" name="numbers">Numbers</string>
-  <string formatted="false" name="numbergroup_">Include numbers</string>
-  <string formatted="false" name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string>
-  <string formatted="false" name="exnumbergroup_">Exclude numbers</string>
-  <string formatted="false" name="exnumbergroup_help">Add some numbers this rule must not match.\nSee above.</string>
-  <string formatted="false" name="new_numbergroup">New number group</string>
-  <string formatted="false" name="add_number">Add number</string>
-  <string formatted="false" name="hours">Hours</string>
-  <string formatted="false" name="hourgroup_">Include hours</string>
-  <string formatted="false" name="hourgroup_help">Add some hours this rule must match.</string>
-  <string formatted="false" name="exhourgroup_">Exclude hours</string>
-  <string formatted="false" name="exhourgroup_help">Add some hours this rule must not match.</string>
-  <string formatted="false" name="new_hourgroup">New hour group</string>
-  <string formatted="false" name="add_hour">Add hour</string>
-  <string formatted="false" name="empty_group">Empty groups won\'t match anything. Please go back and add at least one item.</string>
-  <string formatted="false" name="calls">Samtaler</string>
-  <string formatted="false" name="sms">SMS</string>
-  <string formatted="false" name="mms">MMS</string>
-  <string formatted="false" name="data">Data</string>
-  <string formatted="false" name="prepaid_">Prepaid plan</string>
-  <string formatted="false" name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string>
-  <string formatted="false" name="balance_">Balance</string>
-  <string formatted="false" name="balance_help">Balance of your account at this given date.</string>
-  <string formatted="false" name="strip_leading_zeros_">Strip leading zeros</string>
-  <string formatted="false" name="strip_leading_zeros_hint">Strip leading zeros when comparing numbers.</string>
-  <string formatted="false" name="number_prefix_">International prefix</string>
-  <string formatted="false" name="number_prefix_hint">Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..</string>
-  <string formatted="false" name="reset_data_">Nullstill statistikk</string>
-  <string formatted="false" name="reset_data_hint">Nullstilling av samtaler/sms vil rekalkulere statistikk.\n\nNullstilling av tellere er permanent. Nullstilling gjelder bare samtaler før boot!</string>
-  <string formatted="false" name="reset_data_data_">Nullstill datatrafikk også.</string>
-  <string formatted="false" name="reset_data_progr1">Recalculating statistics ...\n\n(This may take some time!)</string>
-  <string formatted="false" name="reset_data_progr2">Recalculating statistics ...</string>
-  <string formatted="false" name="contacts_">Kontakter</string>
-  <string formatted="false" name="clear_">Clear</string>
-  <string formatted="false" name="help_">Help</string>
-  <string formatted="false" name="new_">New</string>
-  <string formatted="false" name="edit_selected_">Edit selected</string>
-  <string formatted="false" name="edit_groups_">Edit groups</string>
-  <string formatted="false" name="name_">Name</string>
-  <string formatted="false" name="name_help">Set a name here.</string>
-  <string formatted="false" name="shortname_">Short name</string>
-  <string formatted="false" name="shortname_help">Set a short name here. It is displayed in compact layouts.</string>
-  <string formatted="false" name="type_">Type</string>
-  <string formatted="false" name="type_help">Select a type.\n\"Title\" will just display a title in main view.\n\"Spacer\" will display nothing but empty space.\n\"Bill period\" will hold any information about your billing period. Most users will need exactly one.\nA \"mixed\" plan can take calls and messages at once. It will combine billing of all those items.\nA \"call\" plan does only take calls. \"SMS\" and \"MMS\" plans will just take the messages.\nA \"data\" plan may hold information about your data traffic.</string>
-  <string formatted="false" name="limit_type_">Limit type</string>
-  <string formatted="false" name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"cost\" limit will limit your plan based on cost produced by the items billed in this plan.</string>
-  <string formatted="false" name="limit_">Limit</string>
-  <string formatted="false" name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string>
-  <string formatted="false" name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string>
-  <string formatted="false" name="billday_help">Set this to the first day of the bill of the current billing period.</string>
-  <string formatted="false" name="billperiodid_">Billing period</string>
-  <string formatted="false" name="billperiodid_help">Select your billing period.\nYou may need to create one as extra plan.</string>
-  <string formatted="false" name="billperiod_">Length of the billing period</string>
-  <string formatted="false" name="billperiod_help">Set the length of your billing period.</string>
-  <string formatted="false" name="cost_per_item_">Cost per item</string>
-  <string formatted="false" name="cost_per_item_help">Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.</string>
-  <string formatted="false" name="cost_per_item_in_limit_">Cost per item in limit</string>
-  <string formatted="false" name="cost_per_item_in_limit_help">Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.</string>
-  <string formatted="false" name="cost_per_amount_">Cost per length</string>
-  <string formatted="false" name="cost_per_amount_help1">Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.</string>
-  <string formatted="false" name="cost_per_amount_help2">Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.</string>
-  <string formatted="false" name="cost_per_amount_in_limit_">Cost per length in limit</string>
-  <string formatted="false" name="cost_per_amount_in_limit_help1">Set the cost billed per length for a single log item (e.g. for 1kB data) before the limit is exceeded.</string>
-  <string formatted="false" name="cost_per_amount_in_limit_help2">Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.</string>
-  <string formatted="false" name="cost_per_plan_">Cost per plan</string>
-  <string formatted="false" name="cost_per_plan_help">Set the cost of the plan for one billing period as is.</string>
-  <string formatted="false" name="mixed_units_sms_">Units for a sms</string>
-  <string formatted="false" name="mixed_units_sms_help">Set the units billed for a single sms.</string>
-  <string formatted="false" name="mixed_units_mms_">Units for a mms</string>
-  <string formatted="false" name="mixed_units_mms_help">Set the units billed for a single mms.</string>
-  <string formatted="false" name="mixed_units_call_">Units for a call</string>
-  <string formatted="false" name="mixed_units_call_help">Set the units billed for a one minute call.\nBill mode is taken into account here.</string>
-  <string formatted="false" name="merge_plans_">Merge plans</string>
-  <string formatted="false" name="merge_plans_help">Merge other plans into this one and bill them here (too).</string>
-  <string formatted="false" name="units_cost">$</string>
-  <string formatted="false" name="units_num_msg"># Messages</string>
-  <string formatted="false" name="units_minutes">Minutes</string>
-  <string formatted="false" name="units_mbyte">MBytes</string>
-  <string formatted="false" name="units_units">Units</string>
-  <string formatted="false" name="units_units_per_minute">Units/Minute</string>
-  <string formatted="false" name="units_units_per_message">Units/Message</string>
-  <string formatted="false" name="units_cost_per_call">$/Call</string>
-  <string formatted="false" name="units_cost_per_minute">$/Minute</string>
-  <string formatted="false" name="units_cost_per_message">$/Message</string>
-  <string formatted="false" name="units_cost_per_mbyte">$/MByte</string>
-  <string formatted="false" name="units_cost_per_unit">$/Unit</string>
-  <string formatted="false" name="plan_">Plan</string>
-  <string formatted="false" name="plan_help">Choose the plan this rule should fit.</string>
-  <string formatted="false" name="limitnotreached_">Limit not reached</string>
-  <string formatted="false" name="limitnotreached_help">Match only if target plan has not reached it\'s limit yet.</string>
-  <string formatted="false" name="iswebsms_">Is WebSMS</string>
-  <string formatted="false" name="iswebsms_help">Message sent with WebSMS.</string>
-  <string formatted="false" name="iswebsms_connector_">Is WebSMS Connector</string>
-  <string formatted="false" name="iswebsms_connector_help">Sent with specific WebSMS Connector, leave empty to match any.</string>
-  <string formatted="false" name="issipcall_">Is SIP call</string>
-  <string formatted="false" name="issipcall_help">Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.</string>
-  <string formatted="false" name="strip_seconds_">Do not bill first seconds</string>
-  <string formatted="false" name="strip_seconds_help">Do not bill first x seconds of a call.</string>
-  <string formatted="false" name="what_">Target type</string>
-  <string formatted="false" name="what_help">Choose a target type here.</string>
-  <string formatted="false" name="direction_">Direction</string>
-  <string formatted="false" name="direction_help">Choose a direction the given log has to be.</string>
-  <string formatted="false" name="roamed_">Roamed</string>
-  <string formatted="false" name="roamed_help">Choose whether the given log has to be roamed.</string>
-  <string formatted="false" name="remote_hint">Remote number</string>
-  <string formatted="false" name="no_matter_">Does not matter</string>
-  <string formatted="false" name="yes">Yes</string>
-  <string formatted="false" name="no">No</string>
-  <string formatted="false" name="none">None</string>
-  <string formatted="false" name="value">Value</string>
-  <string formatted="false" name="empty_groups_">Please press "Add" to add a group.</string>
-  <string formatted="false" name="empty_group_">Please press "Add" to add an item to this group.</string>
-  <string formatted="false" name="export_progr">Exporting data ...</string>
-  <string formatted="false" name="import_progr">Import data ...</string>
-  <string formatted="false" name="export_">Export ...</string>
-  <string formatted="false" name="export_hint">Export rule sets, logs or groups</string>
-  <string formatted="false" name="export_rules_">Export rule set</string>
-  <string formatted="false" name="export_rules_hint">Export rule set as mail.</string>
-  <string formatted="false" name="export_rules_descr">Description</string>
-  <string formatted="false" name="export_logs_">Backup logs</string>
-  <string formatted="false" name="export_logs_hint">Backup logs as mail.</string>
-  <string formatted="false" name="export_numgroups_">Export number groups</string>
-  <string formatted="false" name="export_numgroups_hint">Export number groups as mail.</string>
-  <string formatted="false" name="export_hourgroups_">Export hour groups</string>
-  <string formatted="false" name="export_hourgroups_hint">Export hour groups as mail.</string>
-  <string formatted="false" name="import_rules_">Import rule set</string>
-  <string formatted="false" name="import_rules_hint">Import rule set.</string>
-  <string formatted="false" name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.</string>
-  <string formatted="false" name="err_export_write">Error writing export file</string>
-  <string formatted="false" name="err_export_read">Error reading export file</string>
-  <string formatted="false" name="alerts_">Alerts</string>
-  <string formatted="false" name="alerts_hint">Set alerts based on plan usage.</string>
-  <string formatted="false" name="alerts_title">Call Meter 3G alert</string>
-  <string formatted="false" name="alerts_message">Plan %s has reached %d%% usage!</string>
-  <string formatted="false" name="alerts_80_">Varsle ved 80%</string>
-  <string formatted="false" name="alerts_80_hint">Varsle hvis en plan passerer 80% av grensen.</string>
-  <string formatted="false" name="alerts_100_">Varsle ved 100%</string>
-  <string formatted="false" name="alerts_100_hint">Varsle hvis en plan passerer 100% av grensen.</string>
-  <string formatted="false" name="widget_config_">Widget config</string>
+  <string name="about0_" formatted="false">Følg med på dine samtaler, meldinger og data trafikk!</string>
+  <string name="about0" formatted="false">CallMeter lager rapporter fra samtale-, meldings- og dataloggen. Det er støtte for flere metoder av taksering.</string>
+  <string name="about1" formatted="false">Oversikt over bruk/tid eller antall denne perioden/tid eller totaloversikt hele perioden. Månedlig beregning i samsvar med dine preferanser for avregning. Ingen beregning for totalforbruk.</string>
+  <string name="about2" formatted="false">Takseringsintervall spesifiserer lengden på de første/neste takseringene. F.eks. 60/10 betyr at enhver samtale blir taksert for minimum 60s, og tid over dette rundes opp til nærmeste fulle 10s.</string>
+  <string name="about3" formatted="false">CallMeter oppdaterer seg hvert 30. min. (ikke i stand-by). Dette betyr at det ikke vil påvirke din statistikk hvis du sletter samtaler eller meldinger som er eldre en 30 min. Hvis du sletter samtaler eller meldinger som er nyere enn 30 minutter, kan din statistikk/oversikt bli feil.</string>
+  <string name="settings" formatted="false">Innstillinger</string>
+  <string name="update_interval_" formatted="false">Update interval</string>
+  <string name="update_interval_hint" formatted="false">Shorter period will use more battery.</string>
+  <string name="about_" formatted="false">Om</string>
+  <string name="about_hint" formatted="false">Om denne applikasjonen</string>
+  <string name="faq_hint" formatted="false">Tips og triks, hvordan sette opp denne applikasjonen.</string>
+  <string name="feedback_" formatted="false">Tilbakemelding</string>
+  <string name="feedback_hint" formatted="false">Meld feil, etterspør funksjoner ...</string>
+  <string name="twitter_hint" formatted="false">Følg på twitter.\nFå info om oppdateringer o.l.</string>
+  <string name="more_" formatted="false">Flere Applikasjoner..</string>
+  <string name="billing_" formatted="false">Billing</string>
+  <string name="billday_" formatted="false">Første dag i perioden</string>
+  <string name="billmode_" formatted="false">Takst-type</string>
+  <string name="billdate_" formatted="false">Oppstart for takseringsintervall:</string>
+  <string name="appearance_" formatted="false">Utseende</string>
+  <string name="theme_" formatted="false">Tema</string>
+  <string name="textsize_" formatted="false">Tekst størrelse</string>
+  <string name="textsize_hint" formatted="false">Tekststørrelse i piksler; la stå tom for standard</string>
   <string-array name="weekdays_all">
     <item>Hele uken</item>
     <item>Mandag</item>
@@ -368,43 +150,5 @@
     <item>60/30</item>
     <item>60/60</item>
     <item>Egendefinert</item>
-  </string-array>
-  <string-array name="direction_calls">
-    <item>in</item>
-    <item>out</item>
-  </string-array>
-  <string-array name="direction_sms">
-    <item>in</item>
-    <item>out</item>
-  </string-array>
-  <string-array name="direction_mms">
-    <item>in</item>
-    <item>out</item>
-  </string-array>
-  <string-array name="direction_data">
-    <item>in</item>
-    <item>out</item>
-  </string-array>
-  <string-array name="currency_formats">
-    <item>Default</item>
-    <item>$1.00</item>
-    <item>$1000</item>
-    <item>1.00$</item>
-    <item>1000$</item>
-  </string-array>
-  <string-array name="date_formats">
-    <item>Default</item>
-    <item>MM/DD/YY</item>
-    <item>DD/MM/YYYY</item>
-    <item>DD.MM.YYYY</item>
-  </string-array>
-  <string-array name="update_interval">
-    <item>5 minutes</item>
-    <item>10 minutes</item>
-    <item>15 minutes</item>
-    <item>30 minutes</item>
-    <item>One hour</item>
-    <item>Two hours</item>
-    <item>Manually only</item>
   </string-array>
 </resources>

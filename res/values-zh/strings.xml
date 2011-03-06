@@ -1,265 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2009-2010 Felix Bechstein
-	-->
-	<!--
-		This file is part of Call Meter 3G. This program is free software; you
-		can redistribute it and/or modify it under the terms of the GNU
-		General Public License as published by the Free Software Foundation;
-		either version 3 of the License, or (at your option) any later
-		version.
-	-->
-	<!--
-		This program is distributed in the hope that it will be useful, but
-		WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-		General Public License for more details. You should have received a
-		copy of the GNU General Public License along with this program; If
-		not, see <http://www.gnu.org/licenses/>.
-	-->
+       <!--
+               Copyright (C) 2009-2011 Felix Bechstein
+       -->
+       <!--
+               This file is part of Call Meter 3G. This program is free software; you can
+               redistribute it and/or modify it under the terms of the GNU General
+               Public License as published by the Free Software Foundation; either
+               version 3 of the License, or (at your option) any later version.
+       -->
+       <!--
+               This program is distributed in the hope that it will be useful, but
+               WITHOUT ANY WARRANTY; without even the implied warranty of
+               MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+               General Public License for more details. You should have received a
+               copy of the GNU General Public License along with this program; If
+               not, see <http://www.gnu.org/licenses/>.
+       -->
+      <!--
+               This file is generated automatically by ub0rlib/php.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=zh&file=strings.xml to edit the file.
+       -->
 <resources>
-  <string formatted="false" name="changelog_notification_">Recent changes:</string>
-  <string formatted="false" name="changelog_notification_text">Click here to show recent changes of</string>
-  <string formatted="false" name="never_show_again">Never show changelog again</string>
-  <string formatted="false" name="notes_from_developer_">Notes from developer</string>
-  <string formatted="false" name="notes_from_developer_text">Click here to show recent news from the developer</string>
-  <string formatted="false" name="about0_">查看电话,短信,数据连接方案!</string>
-  <string formatted="false" name="about0">CallMeter根据电话,短信,数据连接记录生成报告.它支持多种支付方案.</string>
-  <string formatted="false" name="about1">账单输出模式是 一次通讯/次 或者 账单周期/次 或者 全部累加统计. 一个月（账单周期/次）一次的统计可以每月看到您实际消费的金额. 全部累加统计的无法看到每个月的消费金额.</string>
-  <string formatted="false" name="about2">入账模式为 首×分钟/每×分钟. 例如. 60/10 意味着首分钟不足60秒按60秒计算,以后每10秒计算一次.</string>
-  <string formatted="false" name="about3">CallMeter每30分钟统计一次数据(除非程序不在背景运行). 这意味着删除30分钟前的数据不会影响统计结果. 删除之后的数据则会导致错误的统计结果.</string>
-  <string formatted="false" name="send_">发送</string>
-  <string formatted="false" name="add_">添加</string>
-  <string formatted="false" name="add_log">添加日志项</string>
-  <string formatted="false" name="length_hint_call">持续时间</string>
-  <string formatted="false" name="length_hint_data">流量大小</string>
-  <string formatted="false" name="settings">选项</string>
-  <string formatted="false" name="update_interval_">更新间隔</string>
-  <string formatted="false" name="update_interval_hint">间隔越小需要使用更多电量.</string>
-  <string formatted="false" name="date_begin_">开始统计的日期</string>
-  <string formatted="false" name="date_begin_hint">忽略此日期前的所有记录.</string>
-  <string formatted="false" name="delete_old_logs_">删除本日之前的日志</string>
-  <string formatted="false" name="delete_old_logs_help">删除数据库中x日前的记录，留空不启用此功能.</string>
-  <string formatted="false" name="common_prefs_">基本设置</string>
-  <string formatted="false" name="edit_">编辑</string>
-  <string formatted="false" name="about_">关于</string>
-  <string formatted="false" name="about_hint">关于这个程序</string>
-  <string formatted="false" name="faq_hint">设置这个程序的小贴士.</string>
-  <string formatted="false" name="feedback_">反馈</string>
-  <string formatted="false" name="feedback_hint">报告漏洞,建议添加新功能...</string>
-  <string formatted="false" name="twitter_hint">在twitter上关注我.\n获取升级通知.</string>
-  <string formatted="false" name="more_">更多程序..</string>
-  <string formatted="false" name="billing_">付账</string>
-  <string formatted="false" name="billday_">账单周期开始日</string>
-  <string formatted="false" name="billmode_">支付模式</string>
-  <string formatted="false" name="billdate_">账单周期开始于:</string>
-  <string formatted="false" name="appearance_">外观</string>
-  <string formatted="false" name="advanced_preferences_">高级选项</string>
-  <string formatted="false" name="advanced_preferences_hint">使用更复杂的设置页面.大多数用户不需要使用.</string>
-  <string formatted="false" name="theme_">主题</string>
-  <string formatted="false" name="textsize_">文字大小</string>
-  <string formatted="false" name="textsize_hint">字体大小(像素),留空使用默认值.</string>
-  <string formatted="false" name="textsize_title_">标题文字大小</string>
-  <string formatted="false" name="textsize_title_hint">设置标题文字大小（像素），留空使用默认值.</string>
-  <string formatted="false" name="textsize_bigtitle_">大标题文字大小</string>
-  <string formatted="false" name="textsize_bigtitle_hint">设置大标题文字大小（像素），留空使用默认值.</string>
-  <string formatted="false" name="textsize_spacer_">空白大小</string>
-  <string formatted="false" name="textsize_spacer_hint">设置空白大小（像素），留空使用默认值.</string>
-  <string formatted="false" name="textsize_pbar_">进度条粗细</string>
-  <string formatted="false" name="textsize_pbar_hint">设置进度条粗细（像素），留空使用默认值.</string>
-  <string formatted="false" name="textsize_pbarbp_">账单周期进度条粗细</string>
-  <string formatted="false" name="textsize_pbarbp_hint">设置账单周期进度条粗细（像素），留空使用默认值.</string>
-  <string formatted="false" name="show_today_">Show today</string>
-  <string formatted="false" name="show_today_hint">Show today stats</string>
-  <string formatted="false" name="show_total_">总数</string>
-  <string formatted="false" name="show_total_hint">选中即查看总数,否则查看当前数据.</string>
-  <string formatted="false" name="show_time_">跳到指定日</string>
-  <string formatted="false" name="show_titlebar_">在标题栏显示</string>
-  <string formatted="false" name="show_titlebar_hint">在主页面显示标题栏.标题栏会提示后台进行的操作.</string>
-  <string formatted="false" name="show_hours_">时间格式</string>
-  <string formatted="false" name="show_hours_hint">显示天、时、分、秒.\n否则仅显示分、秒.</string>
-  <string formatted="false" name="show_help_">帮助</string>
-  <string formatted="false" name="show_help_hint">在 方案/规则 中显示帮助信息.</string>
-  <string formatted="false" name="show_shortname_">使用短名称</string>
-  <string formatted="false" name="show_cost_">显示花费</string>
-  <string formatted="false" name="show_billperiod_">显示账单周期进度</string>
-  <string formatted="false" name="show_calllength_">Show info after hanging up</string>
-  <string formatted="false" name="show_calllength_hint">Show length/cost of a call after hanging up.</string>
-  <string formatted="false" name="hide_zero_">隐藏空白套餐</string>
-  <string formatted="false" name="hide_zero_hint">隐藏不包含项目的套餐.</string>
-  <string formatted="false" name="hide_nocost_">Hide no cost plans</string>
-  <string formatted="false" name="hide_nocost_hint">Hide plans with no cost.</string>
-  <string formatted="false" name="hide_progressbars_">Hide progress bars</string>
-  <string formatted="false" name="hide_progressbars_hint">Hide progress bars in main view.</string>
-  <string formatted="false" name="custom_currency_symbol_">显示自定义货币符号</string>
-  <string formatted="false" name="custom_currency_symbol_hint">设置自定义货币符号,留空使用默认值.</string>
-  <string formatted="false" name="custom_currency_format_">自定义货币格式</string>
-  <string formatted="false" name="custom_currency_format_hint">选择自定义货币格式.</string>
-  <string formatted="false" name="custom_date_format_">自定义日期格式</string>
-  <string formatted="false" name="custom_date_format_hint">设置自定义日期格式.</string>
-  <string formatted="false" name="custom_delimiter_">Custom delimiter</string>
-  <string formatted="false" name="custom_delimiter_hint">Set a custom delimiter separating the blocks of statistics.</string>
-  <string formatted="false" name="ask_for_plan_">Ask for plan</string>
-  <string formatted="false" name="ask_for_plan_hint">Ask for plan for unmatched calls after hanging up.</string>
-  <string formatted="false" name="autohide_">Auto hide</string>
-  <string formatted="false" name="autohide_hint">Hide dialog after .. seconds. Leave empty to deactivate auto hide.</string>
-  <string formatted="false" name="select_plan_">Select a plan</string>
-  <string formatted="false" name="set_selected_as_default_">Set selected plan as default</string>
-  <string formatted="false" name="autohide_in_">Auto hide dialog in: %ds</string>
-  <string formatted="false" name="logs">Logs</string>
-  <string formatted="false" name="show_logs">显示日志</string>
-  <string formatted="false" name="plans">方案</string>
-  <string formatted="false" name="plans_hint">设置全局方案.</string>
-  <string formatted="false" name="plans_new">新方案</string>
-  <string formatted="false" name="rule_">规则</string>
-  <string formatted="false" name="rules">规则</string>
-  <string formatted="false" name="rules_hint">设置付费规则.</string>
-  <string formatted="false" name="rules_new">新规则</string>
-  <string formatted="false" name="length_">长度</string>
-  <string formatted="false" name="remote_">Remote number</string>
-  <string formatted="false" name="numbergroups_edit_">Number groups</string>
-  <string formatted="false" name="numbergroups_edit_hint">Edit number groups here.</string>
-  <string formatted="false" name="hourgroups_edit_">Hour groups</string>
-  <string formatted="false" name="hourgroups_edit_hint">Edit hour groups here.</string>
-  <string formatted="false" name="numbers">号码</string>
-  <string formatted="false" name="numbergroup_">有效号码</string>
-  <string formatted="false" name="numbergroup_help">添加使用本规则的号码.\n\n号码首尾均允许使用通配符(\"%\").\n例如. %34 包含 1234, 12% 包含 1234, %23% 包含 12345.</string>
-  <string formatted="false" name="exnumbergroup_">无效的号码</string>
-  <string formatted="false" name="exnumbergroup_help">添加不使用本规则的号码.\n详情如上.</string>
-  <string formatted="false" name="new_numbergroup">新号码组</string>
-  <string formatted="false" name="add_number">添加号码</string>
-  <string formatted="false" name="hours">时段</string>
-  <string formatted="false" name="hourgroup_">有效时段</string>
-  <string formatted="false" name="hourgroup_help">添加使用本规则的时段.</string>
-  <string formatted="false" name="exhourgroup_">无效时段</string>
-  <string formatted="false" name="exhourgroup_help">添加使用本规则的时段.</string>
-  <string formatted="false" name="new_hourgroup">新时段组</string>
-  <string formatted="false" name="add_hour">添加时段</string>
-  <string formatted="false" name="empty_group">Empty groups won\'t match anything. Please go back and add at least one item.</string>
-  <string formatted="false" name="calls">电话</string>
-  <string formatted="false" name="sms">SMS</string>
-  <string formatted="false" name="mms">MMS</string>
-  <string formatted="false" name="data">数据连接</string>
-  <string formatted="false" name="prepaid_">预付费方案</string>
-  <string formatted="false" name="prepaid_hint">基于预付费的方案,直接显示您当前余额.</string>
-  <string formatted="false" name="balance_">余额</string>
-  <string formatted="false" name="balance_help">当前您的帐户余额.</string>
-  <string formatted="false" name="strip_leading_zeros_">Strip leading zeros</string>
-  <string formatted="false" name="strip_leading_zeros_hint">Strip leading zeros when comparing numbers.</string>
-  <string formatted="false" name="number_prefix_">International prefix</string>
-  <string formatted="false" name="number_prefix_hint">Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..</string>
-  <string formatted="false" name="reset_data_">重置统计数据</string>
-  <string formatted="false" name="reset_data_hint">重置电话/短信记录会导致重新计算统计数据.\n\n重置数据连接统计数据是不可恢复的.只有重启前的流量信息会被重置!</string>
-  <string formatted="false" name="reset_data_data_">重置数据连接记录.</string>
-  <string formatted="false" name="reset_data_progr1">重新统计中 ...\n\n(需要一定时间!)</string>
-  <string formatted="false" name="reset_data_progr2">重新统计中 ...</string>
-  <string formatted="false" name="contacts_">联系人</string>
-  <string formatted="false" name="clear_">清除</string>
-  <string formatted="false" name="help_">帮助</string>
-  <string formatted="false" name="new_">新建</string>
-  <string formatted="false" name="edit_selected_">编辑已选</string>
-  <string formatted="false" name="edit_groups_">编辑组</string>
-  <string formatted="false" name="name_">Name</string>
-  <string formatted="false" name="name_help">设置名称.</string>
-  <string formatted="false" name="shortname_">短名称</string>
-  <string formatted="false" name="shortname_help">设置一个短名称,让显示格局更紧凑.</string>
-  <string formatted="false" name="type_">呈现样式</string>
-  <string formatted="false" name="type_help">选择呈现样式.\n\"标题\" 将只显示标题.\n\"空白\" 将只显示空白.\n\"账单周期\" 将显示所有有关您账单的信息（推荐）.\n \"混合\" 联合显示所有消费项目.\n \"电话\" 将只显示电话的账单信息. \"短信\" 和 \"彩信\" 将显示短信和彩信的账单信息.\n \"数据连接\" 将只显示数据连接的账单信息.</string>
-  <string formatted="false" name="limit_type_">套餐类型</string>
-  <string formatted="false" name="limit_type_help">设置套餐类型.\n\"单元\"根据时长、短信条数提示...\nA \"花费\"根据您设置的预计花费总额提示.</string>
-  <string formatted="false" name="limit_">套餐内</string>
-  <string formatted="false" name="limit_help">设置套餐包含项目.\n\n\"单元\"类必须设定为y分钟(电话),y条短信(短信/彩信),MB(数据连接,1024kB)或者\"单元\"型 (混合模式).\n\n\"话费\"类请设定为您常用的货币类型(e.g. ￥).</string>
-  <string formatted="false" name="billmode_help">设置对电话账单的支付模式.\n第一是设置最小付费值.即设置每一则电话的最短通话时间.\n第二是以后每隔多长时间计算一次.\n详见FAQ.</string>
-  <string formatted="false" name="billday_help">设置当前账单周期开始的第一天.</string>
-  <string formatted="false" name="billperiodid_">账单周期</string>
-  <string formatted="false" name="billperiodid_help">选择您的账单周期.\n您可能需要创建多个账单周期.</string>
-  <string formatted="false" name="billperiod_">账单周期长度</string>
-  <string formatted="false" name="billperiod_help">设置账单周期长度.</string>
-  <string formatted="false" name="cost_per_item_">套餐外每一项的花费</string>
-  <string formatted="false" name="cost_per_item_help">设置每一项的套餐外花费(例如. 一则电话 或 一条短信).</string>
-  <string formatted="false" name="cost_per_item_in_limit_">套餐内每一项的花费</string>
-  <string formatted="false" name="cost_per_item_in_limit_help">设置每一项的套餐内花费(例如. 一则电话 或 一条短信).</string>
-  <string formatted="false" name="cost_per_amount_">每单位时长话费</string>
-  <string formatted="false" name="cost_per_amount_help1">设置套餐使用完后每单位数据流量的花费.</string>
-  <string formatted="false" name="cost_per_amount_help2">设置套餐使用完后每单位通话时长的花费.\n第一个空填写的是首×分钟的通话时长花费, 第二个空填写的是每×分钟后续通话时长花费.\n如果不清楚运营商的扣费模式，请直接把两个空都设置成每×分钟通话时长花费.</string>
-  <string formatted="false" name="cost_per_amount_in_limit_">套餐内每单位时长话费</string>
-  <string formatted="false" name="cost_per_amount_in_limit_help1">设置套餐内每单位数据流量的花费.</string>
-  <string formatted="false" name="cost_per_amount_in_limit_help2">设置套餐内每单位通话时长的花费.\n第一个空填写的是首×分钟的通话时长花费, 第二个空填写的是每×分钟后续通话时长花费.\n如果不清楚运营商的扣费模式，请直接把两个空都设置成每×分钟通话时长花费.</string>
-  <string formatted="false" name="cost_per_plan_">套餐话费</string>
-  <string formatted="false" name="cost_per_plan_help">设置您所有套餐（短信+通话+上网等套餐总花费）总的花费.</string>
-  <string formatted="false" name="mixed_units_sms_">短信计费单位</string>
-  <string formatted="false" name="mixed_units_sms_help">如：条.</string>
-  <string formatted="false" name="mixed_units_mms_">彩信计费单位</string>
-  <string formatted="false" name="mixed_units_mms_help">如：条.</string>
-  <string formatted="false" name="mixed_units_call_">通话计费单位</string>
-  <string formatted="false" name="mixed_units_call_help">Set the units billed for a one minute call.\nBill mode is taken into account here.</string>
-  <string formatted="false" name="merge_plans_">合并套餐</string>
-  <string formatted="false" name="merge_plans_help">合并其他套餐并在此入账统计.</string>
-  <string formatted="false" name="units_cost">$</string>
-  <string formatted="false" name="units_num_msg"># Messages</string>
-  <string formatted="false" name="units_minutes">Minutes</string>
-  <string formatted="false" name="units_mbyte">MBytes</string>
-  <string formatted="false" name="units_units">Units</string>
-  <string formatted="false" name="units_units_per_minute">Units/Minute</string>
-  <string formatted="false" name="units_units_per_message">Units/Message</string>
-  <string formatted="false" name="units_cost_per_call">$/Call</string>
-  <string formatted="false" name="units_cost_per_minute">$/Minute</string>
-  <string formatted="false" name="units_cost_per_message">$/Message</string>
-  <string formatted="false" name="units_cost_per_mbyte">$/MByte</string>
-  <string formatted="false" name="units_cost_per_unit">$/Unit</string>
-  <string formatted="false" name="plan_">方案</string>
-  <string formatted="false" name="plan_help">选择适用本规则的方案.</string>
-  <string formatted="false" name="limitnotreached_">套餐剩余</string>
-  <string formatted="false" name="limitnotreached_help">仅在套餐仍有剩余时生效.</string>
-  <string formatted="false" name="iswebsms_">是否使用网络（网页）短信</string>
-  <string formatted="false" name="iswebsms_help">通过网络（网页）发送的短信.</string>
-  <string formatted="false" name="iswebsms_connector_">是否使用某一个 网络（网页）短信 链接器</string>
-  <string formatted="false" name="iswebsms_connector_help">选定一个 网络（网页）短信 链接器，留空自动匹配.</string>
-  <string formatted="false" name="issipcall_">是否使用SIP呼叫</string>
-  <string formatted="false" name="issipcall_help">通过SIP发生的呼叫. 当前支持版本大于1.6.1的sipdroid.</string>
-  <string formatted="false" name="strip_seconds_">前x秒免费</string>
-  <string formatted="false" name="strip_seconds_help">呼叫中前x秒免费.</string>
-  <string formatted="false" name="what_">目标类型</string>
-  <string formatted="false" name="what_help">请选择一个目标类型.</string>
-  <string formatted="false" name="direction_">流量方向</string>
-  <string formatted="false" name="direction_help">选择给定日志的流量上下行方向.</string>
-  <string formatted="false" name="roamed_">漫游</string>
-  <string formatted="false" name="roamed_help">选择漫游时是否选定日志.</string>
-  <string formatted="false" name="remote_hint">远程号码</string>
-  <string formatted="false" name="no_matter_">无所谓</string>
-  <string formatted="false" name="yes">是</string>
-  <string formatted="false" name="no">否</string>
-  <string formatted="false" name="none">无</string>
-  <string formatted="false" name="value">数值</string>
-  <string formatted="false" name="empty_groups_">点击 添加 按钮添加一个组.</string>
-  <string formatted="false" name="empty_group_">点击 添加 按钮为本组添加一个新项.</string>
-  <string formatted="false" name="export_progr">Exporting data ...</string>
-  <string formatted="false" name="import_progr">Import data ...</string>
-  <string formatted="false" name="export_">Export ...</string>
-  <string formatted="false" name="export_hint">Export rule sets, logs or groups</string>
-  <string formatted="false" name="export_rules_">导出规则设置</string>
-  <string formatted="false" name="export_rules_hint">通过邮件导出规则设置.</string>
-  <string formatted="false" name="export_rules_descr">描述</string>
-  <string formatted="false" name="export_logs_">Backup logs</string>
-  <string formatted="false" name="export_logs_hint">Backup logs as mail.</string>
-  <string formatted="false" name="export_numgroups_">Export number groups</string>
-  <string formatted="false" name="export_numgroups_hint">Export number groups as mail.</string>
-  <string formatted="false" name="export_hourgroups_">Export hour groups</string>
-  <string formatted="false" name="export_hourgroups_hint">Export hour groups as mail.</string>
-  <string formatted="false" name="import_rules_">导入规则设置</string>
-  <string formatted="false" name="import_rules_hint">导入规则设置.</string>
-  <string formatted="false" name="import_rules_empty">无有效方案/规则.点击本处导入默认设置.\n\n或者请您在选项中手动添加.</string>
-  <string formatted="false" name="err_export_write">文件写出错误</string>
-  <string formatted="false" name="err_export_read">文件读取错误</string>
-  <string formatted="false" name="alerts_">警报</string>
-  <string formatted="false" name="alerts_hint">根据方案使用情况发出警报.</string>
-  <string formatted="false" name="alerts_title">Call Meter 3G 警报</string>
-  <string formatted="false" name="alerts_message">方案%s已经使用%d%%!</string>
-  <string formatted="false" name="alerts_80_">剩余到达80\'%时提示</string>
-  <string formatted="false" name="alerts_80_hint">剩余超过80\'%时提示.</string>
-  <string formatted="false" name="alerts_100_">剩余到达100\'%时提示</string>
-  <string formatted="false" name="alerts_100_hint">剩余超过100\'%时提示.</string>
-  <string formatted="false" name="widget_config_">小部件配置</string>
+  <string name="about0_" formatted="false">查看电话,短信,数据连接方案!</string>
+  <string name="about0" formatted="false">CallMeter根据电话,短信,数据连接记录生成报告.它支持多种支付方案.</string>
+  <string name="about1" formatted="false">账单输出模式是 一次通讯/次 或者 账单周期/次 或者 全部累加统计. 一个月（账单周期/次）一次的统计可以每月看到您实际消费的金额. 全部累加统计的无法看到每个月的消费金额.</string>
+  <string name="about2" formatted="false">入账模式为 首×分钟/每×分钟. 例如. 60/10 意味着首分钟不足60秒按60秒计算,以后每10秒计算一次.</string>
+  <string name="about3" formatted="false">CallMeter每30分钟统计一次数据(除非程序不在背景运行). 这意味着删除30分钟前的数据不会影响统计结果. 删除之后的数据则会导致错误的统计结果.</string>
+  <string name="send_" formatted="false">发送</string>
+  <string name="add_" formatted="false">添加</string>
+  <string name="add_log" formatted="false">添加日志项</string>
+  <string name="length_hint_call" formatted="false">持续时间</string>
+  <string name="length_hint_data" formatted="false">流量大小</string>
+  <string name="settings" formatted="false">选项</string>
+  <string name="update_interval_" formatted="false">更新间隔</string>
+  <string name="update_interval_hint" formatted="false">间隔越小需要使用更多电量.</string>
+  <string name="date_begin_" formatted="false">开始统计的日期</string>
+  <string name="date_begin_hint" formatted="false">忽略此日期前的所有记录.</string>
+  <string name="delete_old_logs_" formatted="false">删除本日之前的日志</string>
+  <string name="delete_old_logs_help" formatted="false">删除数据库中x日前的记录，留空不启用此功能.</string>
+  <string name="common_prefs_" formatted="false">基本设置</string>
+  <string name="edit_" formatted="false">编辑</string>
+  <string name="about_" formatted="false">关于</string>
+  <string name="about_hint" formatted="false">关于这个程序</string>
+  <string name="faq_hint" formatted="false">设置这个程序的小贴士.</string>
+  <string name="feedback_" formatted="false">反馈</string>
+  <string name="feedback_hint" formatted="false">报告漏洞,建议添加新功能...</string>
+  <string name="twitter_hint" formatted="false">在twitter上关注我.\n获取升级通知.</string>
+  <string name="more_" formatted="false">更多程序..</string>
+  <string name="billing_" formatted="false">付账</string>
+  <string name="billday_" formatted="false">账单周期开始日</string>
+  <string name="billmode_" formatted="false">支付模式</string>
+  <string name="billdate_" formatted="false">账单周期开始于:</string>
+  <string name="appearance_" formatted="false">外观</string>
+  <string name="advanced_preferences_" formatted="false">高级选项</string>
+  <string name="advanced_preferences_hint" formatted="false">使用更复杂的设置页面.大多数用户不需要使用.</string>
+  <string name="theme_" formatted="false">主题</string>
+  <string name="textsize_" formatted="false">文字大小</string>
+  <string name="textsize_hint" formatted="false">字体大小(像素),留空使用默认值.</string>
+  <string name="textsize_title_" formatted="false">标题文字大小</string>
+  <string name="textsize_title_hint" formatted="false">设置标题文字大小（像素），留空使用默认值.</string>
+  <string name="textsize_bigtitle_" formatted="false">大标题文字大小</string>
+  <string name="textsize_bigtitle_hint" formatted="false">设置大标题文字大小（像素），留空使用默认值.</string>
+  <string name="textsize_spacer_" formatted="false">空白大小</string>
+  <string name="textsize_spacer_hint" formatted="false">设置空白大小（像素），留空使用默认值.</string>
+  <string name="textsize_pbar_" formatted="false">进度条粗细</string>
+  <string name="textsize_pbar_hint" formatted="false">设置进度条粗细（像素），留空使用默认值.</string>
+  <string name="textsize_pbarbp_" formatted="false">账单周期进度条粗细</string>
+  <string name="textsize_pbarbp_hint" formatted="false">设置账单周期进度条粗细（像素），留空使用默认值.</string>
+  <string name="show_total_" formatted="false">总数</string>
+  <string name="show_total_hint" formatted="false">选中即查看总数,否则查看当前数据.</string>
+  <string name="show_time_" formatted="false">跳到指定日</string>
+  <string name="show_titlebar_" formatted="false">在标题栏显示</string>
+  <string name="show_titlebar_hint" formatted="false">在主页面显示标题栏.标题栏会提示后台进行的操作.</string>
+  <string name="show_hours_" formatted="false">时间格式</string>
+  <string name="show_hours_hint" formatted="false">显示天、时、分、秒.\n否则仅显示分、秒.</string>
+  <string name="show_help_" formatted="false">帮助</string>
+  <string name="show_help_hint" formatted="false">在 方案/规则 中显示帮助信息.</string>
+  <string name="show_shortname_" formatted="false">使用短名称</string>
+  <string name="show_cost_" formatted="false">显示花费</string>
+  <string name="show_billperiod_" formatted="false">显示账单周期进度</string>
+  <string name="hide_zero_" formatted="false">隐藏空白套餐</string>
+  <string name="hide_zero_hint" formatted="false">隐藏不包含项目的套餐.</string>
+  <string name="custom_currency_symbol_" formatted="false">显示自定义货币符号</string>
+  <string name="custom_currency_symbol_hint" formatted="false">设置自定义货币符号,留空使用默认值.</string>
+  <string name="custom_currency_format_" formatted="false">自定义货币格式</string>
+  <string name="custom_currency_format_hint" formatted="false">选择自定义货币格式.</string>
+  <string name="custom_date_format_" formatted="false">自定义日期格式</string>
+  <string name="custom_date_format_hint" formatted="false">设置自定义日期格式.</string>
+  <string name="show_logs" formatted="false">显示日志</string>
+  <string name="plans" formatted="false">方案</string>
+  <string name="plans_hint" formatted="false">设置全局方案.</string>
+  <string name="plans_new" formatted="false">新方案</string>
+  <string name="rule_" formatted="false">规则</string>
+  <string name="rules" formatted="false">规则</string>
+  <string name="rules_hint" formatted="false">设置付费规则.</string>
+  <string name="rules_new" formatted="false">新规则</string>
+  <string name="length_" formatted="false">长度</string>
+  <string name="numbers" formatted="false">号码</string>
+  <string name="numbergroup_" formatted="false">有效号码</string>
+  <string name="numbergroup_help" formatted="false">添加使用本规则的号码.\n\n号码首尾均允许使用通配符(\"%\").\n例如. %34 包含 1234, 12% 包含 1234, %23% 包含 12345.</string>
+  <string name="exnumbergroup_" formatted="false">无效的号码</string>
+  <string name="exnumbergroup_help" formatted="false">添加不使用本规则的号码.\n详情如上.</string>
+  <string name="new_numbergroup" formatted="false">新号码组</string>
+  <string name="add_number" formatted="false">添加号码</string>
+  <string name="hours" formatted="false">时段</string>
+  <string name="hourgroup_" formatted="false">有效时段</string>
+  <string name="hourgroup_help" formatted="false">添加使用本规则的时段.</string>
+  <string name="exhourgroup_" formatted="false">无效时段</string>
+  <string name="exhourgroup_help" formatted="false">添加使用本规则的时段.</string>
+  <string name="new_hourgroup" formatted="false">新时段组</string>
+  <string name="add_hour" formatted="false">添加时段</string>
+  <string name="calls" formatted="false">电话</string>
+  <string name="data" formatted="false">数据连接</string>
+  <string name="prepaid_" formatted="false">预付费方案</string>
+  <string name="prepaid_hint" formatted="false">基于预付费的方案,直接显示您当前余额.</string>
+  <string name="balance_" formatted="false">余额</string>
+  <string name="balance_help" formatted="false">当前您的帐户余额.</string>
+  <string name="reset_data_" formatted="false">重置统计数据</string>
+  <string name="reset_data_hint" formatted="false">重置电话/短信记录会导致重新计算统计数据.\n\n重置数据连接统计数据是不可恢复的.只有重启前的流量信息会被重置!</string>
+  <string name="reset_data_data_" formatted="false">重置数据连接记录.</string>
+  <string name="reset_data_progr1" formatted="false">重新统计中 ...\n\n(需要一定时间!)</string>
+  <string name="reset_data_progr2" formatted="false">重新统计中 ...</string>
+  <string name="contacts_" formatted="false">联系人</string>
+  <string name="clear_" formatted="false">清除</string>
+  <string name="help_" formatted="false">帮助</string>
+  <string name="new_" formatted="false">新建</string>
+  <string name="edit_selected_" formatted="false">编辑已选</string>
+  <string name="edit_groups_" formatted="false">编辑组</string>
+  <string name="name_help" formatted="false">设置名称.</string>
+  <string name="shortname_" formatted="false">短名称</string>
+  <string name="shortname_help" formatted="false">设置一个短名称,让显示格局更紧凑.</string>
+  <string name="type_" formatted="false">呈现样式</string>
+  <string name="type_help" formatted="false">选择呈现样式.\n\"标题\" 将只显示标题.\n\"空白\" 将只显示空白.\n\"账单周期\" 将显示所有有关您账单的信息（推荐）.\n \"混合\" 联合显示所有消费项目.\n \"电话\" 将只显示电话的账单信息. \"短信\" 和 \"彩信\" 将显示短信和彩信的账单信息.\n \"数据连接\" 将只显示数据连接的账单信息.</string>
+  <string name="limit_type_" formatted="false">套餐类型</string>
+  <string name="limit_type_help" formatted="false">设置套餐类型.\n\"单元\"根据时长、短信条数提示...\nA \"花费\"根据您设置的预计花费总额提示.</string>
+  <string name="limit_" formatted="false">套餐内</string>
+  <string name="limit_help" formatted="false">设置套餐包含项目.\n\n\"单元\"类必须设定为y分钟(电话),y条短信(短信/彩信),MB(数据连接,1024kB)或者\"单元\"型 (混合模式).\n\n\"话费\"类请设定为您常用的货币类型(e.g. ￥).</string>
+  <string name="billmode_help" formatted="false">设置对电话账单的支付模式.\n第一是设置最小付费值.即设置每一则电话的最短通话时间.\n第二是以后每隔多长时间计算一次.\n详见FAQ.</string>
+  <string name="billday_help" formatted="false">设置当前账单周期开始的第一天.</string>
+  <string name="billperiodid_" formatted="false">账单周期</string>
+  <string name="billperiodid_help" formatted="false">选择您的账单周期.\n您可能需要创建多个账单周期.</string>
+  <string name="billperiod_" formatted="false">账单周期长度</string>
+  <string name="billperiod_help" formatted="false">设置账单周期长度.</string>
+  <string name="cost_per_item_" formatted="false">套餐外每一项的花费</string>
+  <string name="cost_per_item_help" formatted="false">设置每一项的套餐外花费(例如. 一则电话 或 一条短信).</string>
+  <string name="cost_per_item_in_limit_" formatted="false">套餐内每一项的花费</string>
+  <string name="cost_per_item_in_limit_help" formatted="false">设置每一项的套餐内花费(例如. 一则电话 或 一条短信).</string>
+  <string name="cost_per_amount_" formatted="false">每单位时长话费</string>
+  <string name="cost_per_amount_help1" formatted="false">设置套餐使用完后每单位数据流量的花费.</string>
+  <string name="cost_per_amount_help2" formatted="false">设置套餐使用完后每单位通话时长的花费.\n第一个空填写的是首×分钟的通话时长花费, 第二个空填写的是每×分钟后续通话时长花费.\n如果不清楚运营商的扣费模式，请直接把两个空都设置成每×分钟通话时长花费.</string>
+  <string name="cost_per_amount_in_limit_" formatted="false">套餐内每单位时长话费</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false">设置套餐内每单位数据流量的花费.</string>
+  <string name="cost_per_amount_in_limit_help2" formatted="false">设置套餐内每单位通话时长的花费.\n第一个空填写的是首×分钟的通话时长花费, 第二个空填写的是每×分钟后续通话时长花费.\n如果不清楚运营商的扣费模式，请直接把两个空都设置成每×分钟通话时长花费.</string>
+  <string name="cost_per_plan_" formatted="false">套餐话费</string>
+  <string name="cost_per_plan_help" formatted="false">设置您所有套餐（短信+通话+上网等套餐总花费）总的花费.</string>
+  <string name="mixed_units_sms_" formatted="false">短信计费单位</string>
+  <string name="mixed_units_sms_help" formatted="false">如：条.</string>
+  <string name="mixed_units_mms_" formatted="false">彩信计费单位</string>
+  <string name="mixed_units_mms_help" formatted="false">如：条.</string>
+  <string name="mixed_units_call_" formatted="false">通话计费单位</string>
+  <string name="merge_plans_" formatted="false">合并套餐</string>
+  <string name="merge_plans_help" formatted="false">合并其他套餐并在此入账统计.</string>
+  <string name="plan_" formatted="false">方案</string>
+  <string name="plan_help" formatted="false">选择适用本规则的方案.</string>
+  <string name="limitnotreached_" formatted="false">套餐剩余</string>
+  <string name="limitnotreached_help" formatted="false">仅在套餐仍有剩余时生效.</string>
+  <string name="iswebsms_" formatted="false">是否使用网络（网页）短信</string>
+  <string name="iswebsms_help" formatted="false">通过网络（网页）发送的短信.</string>
+  <string name="iswebsms_connector_" formatted="false">是否使用某一个 网络（网页）短信 链接器</string>
+  <string name="iswebsms_connector_help" formatted="false">选定一个 网络（网页）短信 链接器，留空自动匹配.</string>
+  <string name="issipcall_" formatted="false">是否使用SIP呼叫</string>
+  <string name="issipcall_help" formatted="false">通过SIP发生的呼叫. 当前支持版本大于1.6.1的sipdroid.</string>
+  <string name="strip_seconds_" formatted="false">前x秒免费</string>
+  <string name="strip_seconds_help" formatted="false">呼叫中前x秒免费.</string>
+  <string name="what_" formatted="false">目标类型</string>
+  <string name="what_help" formatted="false">请选择一个目标类型.</string>
+  <string name="direction_" formatted="false">流量方向</string>
+  <string name="direction_help" formatted="false">选择给定日志的流量上下行方向.</string>
+  <string name="roamed_" formatted="false">漫游</string>
+  <string name="roamed_help" formatted="false">选择漫游时是否选定日志.</string>
+  <string name="remote_hint" formatted="false">远程号码</string>
+  <string name="no_matter_" formatted="false">无所谓</string>
+  <string name="yes" formatted="false">是</string>
+  <string name="no" formatted="false">否</string>
+  <string name="none" formatted="false">无</string>
+  <string name="value" formatted="false">数值</string>
+  <string name="empty_groups_" formatted="false">点击 添加 按钮添加一个组.</string>
+  <string name="empty_group_" formatted="false">点击 添加 按钮为本组添加一个新项.</string>
+  <string name="export_rules_" formatted="false">导出规则设置</string>
+  <string name="export_rules_hint" formatted="false">通过邮件导出规则设置.</string>
+  <string name="export_rules_descr" formatted="false">描述</string>
+  <string name="import_rules_" formatted="false">导入规则设置</string>
+  <string name="import_rules_hint" formatted="false">导入规则设置.</string>
+  <string name="import_rules_empty" formatted="false">无有效方案/规则.点击本处导入默认设置.\n\n或者请您在选项中手动添加.</string>
+  <string name="err_export_write" formatted="false">文件写出错误</string>
+  <string name="err_export_read" formatted="false">文件读取错误</string>
+  <string name="alerts_" formatted="false">警报</string>
+  <string name="alerts_hint" formatted="false">根据方案使用情况发出警报.</string>
+  <string name="alerts_title" formatted="false">Call Meter 3G 警报</string>
+  <string name="alerts_message" formatted="false">方案%s已经使用%d%%!</string>
+  <string name="alerts_80_" formatted="false">剩余到达80\'%时提示</string>
+  <string name="alerts_80_hint" formatted="false">剩余超过80\'%时提示.</string>
+  <string name="alerts_100_" formatted="false">剩余到达100\'%时提示</string>
+  <string name="alerts_100_hint" formatted="false">剩余超过100\'%时提示.</string>
+  <string name="widget_config_" formatted="false">小部件配置</string>
   <string-array name="weekdays_all">
     <item>整周</item>
     <item>星期一</item>
