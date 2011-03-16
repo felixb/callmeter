@@ -18,10 +18,11 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm2/edit.php?lang=cs&file=notes.xml to edit the file.
+               Visit http://www.4.ub0r.de/translate/cm2/edit.php?lang=cs&file=notes.xml to edit the file.
        -->
 <resources>
-  <string-array name="notes_from_dev" username="flx &lt;f+translator@ub0r.de&gt;">
+  <string-array name="notes_from_dev" username="Felix Bechstein &lt;f+translator@ub0r.de&gt;">
     <item>Prosinec 2010: Call Meter 3G je ke stažení: Call Meter 3G (také CM3) je k dispozici v Marketu. Vyzkoušejte jej a zašlete své připomínky přes webovou stránku projektu.</item>
+    <item notranslation="true">Mar. 2011, Settings: Don\'t forget to clear statistics after changing settings to apply the new rules for past log items too.</item>
   </string-array>
 </resources>
