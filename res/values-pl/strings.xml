@@ -23,6 +23,8 @@
 <resources>
   <string name="changelog_notification_" formatted="false">Ostatnie zmiany:</string>
   <string name="changelog_notification_text" formatted="false">Kliknij tutaj, aby wyświetlić ostatnie zmiany</string>
+  <string name="never_show_again" formatted="false" orig="Never show changelog again">Nie pokazuj więcej.</string>
+  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Informacje od twórcy</string>
   <string name="notes_from_developer_text" formatted="false">Click here to show recent news from the developer</string>
   <string name="about0_" formatted="false">Obserwuj swoje połączenia, wiadomości oraz pakiet rozmów!</string>
   <string name="about0" formatted="false">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych..</string>
@@ -53,11 +55,14 @@
   <string name="billmode_" formatted="false">Rodzaj cyklu</string>
   <string name="billdate_" formatted="false">Pierwszy dzień rachunku:</string>
   <string name="appearance_" formatted="false">Wygląd</string>
+  <string name="behavior_" formatted="false" orig="Behavior">Zachowanie</string>
   <string name="advanced_preferences_" formatted="false">Ustawienia zaawansowane</string>
   <string name="advanced_preferences_hint" formatted="false">Zaznacz, aby uaktywnić dodatkowe ustawienia. Głównie dla zaawansowanych użytkowników.</string>
   <string name="theme_" formatted="false">Styl</string>
   <string name="textsize_" formatted="false">Wielkość czcionki</string>
   <string name="textsize_hint" formatted="false">Rozmiar tekstu w pikselach; zostaw puste dla domyślnego</string>
+  <string name="show_today_" formatted="false" orig="Show today">Pokaż dzisiejsze</string>
+  <string name="show_today_hint" formatted="false" orig="Show today stats">Pokaż dzisiejsze statystyki</string>
   <string name="show_total_" formatted="false">Pokaż ogółem</string>
   <string name="show_total_hint" formatted="false">Pokaż ogół statystyk, wyłącz aby wyświetlić tylko aktualne</string>
   <string name="show_time_" formatted="false">Przełącz do daty</string>
@@ -65,6 +70,7 @@
   <string name="show_titlebar_hint" formatted="false">Pokazuj pasek tytułowy w oknie głównym. Bez paska tytułowego nie ma możliwości zobaczenia aktywności w tle.</string>
   <string name="show_hours_" formatted="false">Pokaż godziny</string>
   <string name="show_hours_hint" formatted="false">Pokaż czas w sekundach, minutach, godzinach i dniach.\nJeżeli niezaznaczone, tylko sekundy i godziny będą pokazane.</string>
+  <string name="show_help_" formatted="false" orig="Show help">Pokaż pomoc</string>
   <string name="custom_currency_symbol_" formatted="false">Symbol waluty</string>
   <string name="custom_currency_symbol_hint" formatted="false">Wprowadź niestandardowy symbol waluty, jeżeli potrzeba.</string>
   <string name="custom_currency_format_" formatted="false">Format waluty</string>
