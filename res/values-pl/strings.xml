@@ -23,11 +23,11 @@
 <resources>
   <string name="changelog_notification_" formatted="false">Ostatnie zmiany:</string>
   <string name="changelog_notification_text" formatted="false">Kliknij tutaj, aby wyświetlić ostatnie zmiany</string>
-  <string name="never_show_again" formatted="false" orig="Never show changelog again">Nie pokazuj więcej.</string>
+  <string name="never_show_again" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Never show changelog again">Nie pokazuj więcej changelog\'a</string>
   <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Informacje od twórcy</string>
   <string name="notes_from_developer_text" formatted="false">Click here to show recent news from the developer</string>
   <string name="about0_" formatted="false">Obserwuj swoje połączenia, wiadomości oraz pakiet rozmów!</string>
-  <string name="about0" formatted="false">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych..</string>
+  <string name="about0" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych.</string>
   <string name="about1" formatted="false">Format wyjściowy wykorzystuje /czas, całość wykorzystanego rachunku /czas, całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>
   <string name="about2" formatted="false">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
   <string name="about3" formatted="false">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
@@ -41,6 +41,8 @@
   <string name="update_interval_hint" formatted="false">Krótszy okres skraca czas pracy na baterii</string>
   <string name="date_begin_" formatted="false">Początek zapisów</string>
   <string name="date_begin_hint" formatted="false">Ignoruj logi przed tą datą</string>
+  <string name="delete_old_logs_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Delete logs older than">Usuń logi starsze niż</string>
+  <string name="delete_old_logs_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Delete logs older than x days from internal database. Leave empty to disable.">Usuń logi starsze niż x dni z wewnętrznej bazy. Pozostaw puste aby wyłączyć.</string>
   <string name="common_prefs_" formatted="false">Ustawienia ogólne</string>
   <string name="edit_" formatted="false">Edytuj</string>
   <string name="about_" formatted="false">O programie</string>
@@ -56,11 +58,15 @@
   <string name="billdate_" formatted="false">Pierwszy dzień rachunku:</string>
   <string name="appearance_" formatted="false">Wygląd</string>
   <string name="behavior_" formatted="false" orig="Behavior">Zachowanie</string>
+  <string name="appearance_and_behavior_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Appearance &amp;amp; behavior">Wygląd i zachowanie</string>
   <string name="advanced_preferences_" formatted="false">Ustawienia zaawansowane</string>
   <string name="advanced_preferences_hint" formatted="false">Zaznacz, aby uaktywnić dodatkowe ustawienia. Głównie dla zaawansowanych użytkowników.</string>
   <string name="theme_" formatted="false">Styl</string>
   <string name="textsize_" formatted="false">Wielkość czcionki</string>
   <string name="textsize_hint" formatted="false">Rozmiar tekstu w pikselach; zostaw puste dla domyślnego</string>
+  <string name="textsize_spacer_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Spacer\'s size">Wielkość odstępu</string>
+  <string name="textsize_pbar_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Progress bar\'s size">Wielkość paska postępu</string>
+  <string name="textsize_pbarbp_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Bill period\'s progress bar\'s size">Wielkość paska postępu okresu rozliczeniowego</string>
   <string name="show_today_" formatted="false" orig="Show today">Pokaż dzisiejsze</string>
   <string name="show_today_hint" formatted="false" orig="Show today stats">Pokaż dzisiejsze statystyki</string>
   <string name="show_total_" formatted="false">Pokaż ogółem</string>
@@ -71,12 +77,25 @@
   <string name="show_hours_" formatted="false">Pokaż godziny</string>
   <string name="show_hours_hint" formatted="false">Pokaż czas w sekundach, minutach, godzinach i dniach.\nJeżeli niezaznaczone, tylko sekundy i godziny będą pokazane.</string>
   <string name="show_help_" formatted="false" orig="Show help">Pokaż pomoc</string>
+  <string name="show_cost_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Show cost">Pokaż koszt</string>
+  <string name="show_billperiod_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Show progress of billing period">Pokazuj postęp okresu rozliczeniowego</string>
+  <string name="show_calllength_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Show info after hanging up">Pokaż informację po rozłączeniu</string>
+  <string name="hide_zero_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Hide empty plans">Ukryj puste plany</string>
+  <string name="hide_nocost_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Hide no cost plans">Ukryj plany bezkosztowe</string>
+  <string name="hide_nocost_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Hide plans with no cost.">Ukryj plany bezkosztowe</string>
+  <string name="hide_progressbars_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Hide progress bars">Ukryj pasek postępu</string>
   <string name="custom_currency_symbol_" formatted="false">Symbol waluty</string>
   <string name="custom_currency_symbol_hint" formatted="false">Wprowadź niestandardowy symbol waluty, jeżeli potrzeba.</string>
   <string name="custom_currency_format_" formatted="false">Format waluty</string>
   <string name="custom_currency_format_hint" formatted="false">Wybierz niestandardowy format waluty</string>
   <string name="custom_date_format_" formatted="false">Format daty</string>
   <string name="custom_date_format_hint" formatted="false">Wybierz niestandardowy format daty</string>
+  <string name="split_sms_at_160_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Split text messages at 160 chars">Podziel wiadomość po 160 znaków</string>
+  <string name="ask_for_plan_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Ask for plan">Zapytaj o plan</string>
+  <string name="autohide_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Auto hide">Autoukrywanie</string>
+  <string name="select_plan_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Select a plan">Wybierz plan</string>
+  <string name="set_selected_as_default_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Set selected plan as default">Ustaw wybrany plan jako domyślny</string>
+  <string name="logs" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Logs">Logi</string>
   <string name="show_logs" formatted="false">Pokaż logi</string>
   <string name="plans" formatted="false">Plany</string>
   <string name="plans_hint" formatted="false">Pokaż twoje plany dla wszystkich rachunków</string>
@@ -85,6 +104,14 @@
   <string name="rules" formatted="false">Reguły</string>
   <string name="rules_hint" formatted="false">Wprowadź regułę dla twojego rachunku</string>
   <string name="rules_new" formatted="false">Nowa reguła</string>
+  <string name="length_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Length">Długość</string>
+  <string name="blength_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Billed length">Naliczona długość</string>
+  <string name="cost_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Cost">Koszt</string>
+  <string name="remote_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Remote number">Zdalny numer</string>
+  <string name="numbergroups_edit_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Number groups">Grupy numerów</string>
+  <string name="numbergroups_edit_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Edit number groups here.">Edytuj grupy numerów.</string>
+  <string name="hourgroups_edit_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Hour groups">Grupy godzin</string>
+  <string name="hourgroups_edit_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Edit hour groups here.">Edytuj grupy godzin.</string>
   <string name="numbers" formatted="false">Numery</string>
   <string name="numbergroup_" formatted="false">Wliczaj numery</string>
   <string name="numbergroup_help" formatted="false">Dodaj godziny które będą zastosowane do reguły.\n\nWzorce (\"%\") są dopuszczalne na obach końcach numeru.\nNp.: %34 będzie pasować do 1234, 12% do 1234 i %23% do 12345.</string>
