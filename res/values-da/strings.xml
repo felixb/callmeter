@@ -23,4 +23,68 @@
 <resources>
   <string name="about0_" formatted="false" username="basse1996" orig="Watch your call, message and data plans!">Tjek dine opkald, SMS\'er og dit data forbrug.</string>
   <string name="about0" formatted="false" username="basse1996" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter genererer rapporter fra opkald, SMS\'er og data. Den understøtter flere former for faktureringer.</string>
+  <string name="about5" formatted="false" username="basse1996" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter kører i baggrunden hvert 30 minut (kun vis mobilen ikke er i standby). Det betyder, at slette opkald eller SMS\'er som er mere en 30 minutter gamle, vil ikke ændre i statusen. Hvis man sletter opkald og SMS\'er der er mindre end 30 minutter gamle kan det resultere i at statistikerne ikke passer</string>
+  <string name="send_" formatted="false" username="basse1996" orig="Send">Send</string>
+  <string name="settings" formatted="false" username="basse1996" orig="Preferences">Indstillinger</string>
+  <string name="about_" formatted="false" username="basse1996" orig="About">Om</string>
+  <string name="about_hint" formatted="false" username="basse1996" orig="About this app">Omkring denne app</string>
+  <string name="faq_hint" formatted="false" username="basse1996" orig="Some tips and tricks, how to set up this app.">Tips og triks, om hvordan man indstiller denne app</string>
+  <string name="feedback_" formatted="false" username="basse1996" orig="Feedback">Kommentarer</string>
+  <string name="feedback_hint" formatted="false" username="basse1996" orig="Report bugs, request features ...">Rapporter fejl, Foreslå nogen forbedringer</string>
+  <string name="twitter_hint" formatted="false" username="basse1996" orig="Follow me on twitter.\nGet update notifications etc.">Følg mig på twitter.\nFå opdaterings informationer osv.</string>
+  <string name="more_" formatted="false" username="basse1996" orig="More Apps..">Flere Apps..</string>
+  <string name="billday_" formatted="false" username="basse1996" orig="First day of your bill">Første dag for din faktura</string>
+  <string name="billmode_" formatted="false" username="basse1996" orig="Mode of billing">Faktura metode</string>
+  <string name="billmode_hint" formatted="false" username="basse1996" orig="Length of first/following billing intervals.">Længde for første/følgende faktura intervaller.</string>
+  <string name="billdate_" formatted="false" username="basse1996" orig="Start of billing period:">Start af faktura periode:</string>
+  <string name="smsperiod_" formatted="false" username="basse1996" orig="Same Period for SMS">Samme periode til SMS\'er</string>
+  <string name="smsperiod_hint" formatted="false" username="basse1996" orig="Set SMS\'s billing period to calls\' period.">Sæt SMS faktura perioden sammen med opkalds perioden.</string>
+  <string name="smsbillday_" formatted="false" username="basse1996" orig="First day of your SMS bill">Første dag for din SMS faktura</string>
+  <string name="dataperiod_" formatted="false" username="basse1996" orig="Same Period for data">Samme periode for data</string>
+  <string name="dataperiod_hint" formatted="false" username="basse1996" orig="Set data\'s billing period to calls\' period.">Sæt data fakturaen til samme periode som opkalds perioden.</string>
+  <string name="databillday_" formatted="false" username="basse1996" orig="First day of your data bill">Første dag for din data faktura</string>
+  <string name="appearance_" formatted="false" username="basse1996" orig="Appearance">Udseende</string>
+  <string name="theme_" formatted="false" username="basse1996" orig="Theme">Tema</string>
+  <string name="textsize_" formatted="false" username="basse1996" orig="Text size">Tekst størrelse </string>
+  <string name="advanced_" formatted="false" username="basse1996" orig="Advanced">Avanceret </string>
+  <string name="exclude_people_" formatted="false" username="basse1996" orig="Exclude numbers">Udelukke numre</string>
+  <string name="exclude_people_add" formatted="false" username="basse1996" orig="Add number">Tilføj nummer</string>
+  <string name="exclude_people_edit" formatted="false" username="basse1996" orig="Edit">Ændre</string>
+  <string name="exclude_people_delete" formatted="false" username="basse1996" orig="Delete">Slet</string>
+  <string name="exclude_people_to_plan1_" formatted="false" username="basse1996" orig="Excluded numbers to plan #1">Udeluk numre til plan #1</string>
+  <string name="exclude_people_to_plan2_" formatted="false" username="basse1996" orig="Excluded numbers to plan #2">Udeluk numre til plan #2</string>
+  <string name="exclude_people_calls_" formatted="false" username="basse1996" orig="Enable for Calls">aktiver til opkald</string>
+  <string name="data_limit_" formatted="false" username="basse1996" orig="Limit">Grænse</string>
+  <string name="data_limit_hint" formatted="false" username="basse1996" orig="Limit of data plan (MB/month)">Grænse for data plan (MB/Måneden)</string>
+  <string name="monday" formatted="false" username="basse1996" orig="Monday">Mandag</string>
+  <string name="tuesday" formatted="false" username="basse1996" orig="Tuesday">Tirsdag</string>
+  <string name="wednesday" formatted="false" username="basse1996" orig="Wednesday">Onsdag</string>
+  <string name="thursday" formatted="false" username="basse1996" orig="Thursday">Torsdag</string>
+  <string name="friday" formatted="false" username="basse1996" orig="Friday">Fredag</string>
+  <string name="saturday" formatted="false" username="basse1996" orig="Saturday">Lørdag</string>
+  <string name="sunday" formatted="false" username="basse1996" orig="Sunday">Søndag</string>
+  <string name="calls" formatted="false" username="basse1996" orig="Calls">Opkald</string>
+  <string name="sms" formatted="false" username="basse1996" orig="SMS">SMS\'er</string>
+  <string name="data" formatted="false" username="basse1996" orig="Data">Data</string>
+  <string name="calls_sms" formatted="false" username="basse1996" orig="Calls/SMS">Opkald/SMS</string>
+  <string name="in_calls" formatted="false" username="basse1996" orig="In%s:">Ind:</string>
+  <string name="in_sms" formatted="false" username="basse1996" orig="In%s:">Ind:</string>
+  <string name="in_data" formatted="false" username="basse1996" orig="In:">Ind:</string>
+  <string name="out_calls" formatted="false" username="basse1996" orig="Out%s:">Ud:</string>
+  <string name="out_sms" formatted="false" username="basse1996" orig="Out%s:">ud:</string>
+  <string name="out_data" formatted="false" username="basse1996" orig="Out:">Ud:</string>
+  <string name="plan_name1_" formatted="false" username="basse1996" orig="Plan 1: name">Plan 1: navn</string>
+  <string name="plan_name2_" formatted="false" username="basse1996" orig="Plan 2: name">Plan 2: navn</string>
+  <string name="plan_name_hint" formatted="false" username="basse1996" orig="Custom Name">Vælg navn</string>
+  <string name="reset_data_" formatted="false" username="basse1996" orig="Reset statistics">Nulstil statistiker</string>
+  <string name="reset_data_data_" formatted="false" username="basse1996" orig="Reset traffic too.">Nulstil også Data trafik.</string>
+  <string name="contacts_" formatted="false" username="basse1996" orig="Contacts">kontakter</string>
+  <string-array name="themes" username="basse1996">
+    <item>Sort</item>
+    <item>Hvid</item>
+  </string-array>
+  <string-array name="textsize" username="basse1996">
+    <item>Lille</item>
+    <item>Mellem</item>
+  </string-array>
 </resources>
