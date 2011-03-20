@@ -57,6 +57,38 @@
   <string name="exclude_people_to_plan1_" formatted="false" username="basse1996" orig="Excluded numbers to plan #1">Udeluk numre til plan #1</string>
   <string name="exclude_people_to_plan2_" formatted="false" username="basse1996" orig="Excluded numbers to plan #2">Udeluk numre til plan #2</string>
   <string name="exclude_people_calls_" formatted="false" username="basse1996" orig="Enable for Calls">aktiver til opkald</string>
+  <string name="exclude_people_calls_to_plan1_hint" formatted="false" username="basse1996" orig="Bill calls to/from excluded numbers in plan #1">Fakturer opkald til/fra eksklusive numre i plan #1</string>
+  <string name="exclude_people_calls_to_plan2_hint" formatted="false" username="basse1996" orig="Bill calls to/from excluded numbers in plan #2">Fakturer opkald til/fra eksklusive numre i plan #2</string>
+  <string name="exclude_people_sms_" formatted="false" username="basse1996" orig="Enable for SMS">Aktiver for SMS</string>
+  <string name="plans" formatted="false" username="basse1996" orig="Plans">Planer</string>
+  <string name="plans_split" formatted="false" username="basse1996" orig="Split plans">Del planer op</string>
+  <string name="plans_merge" formatted="false" username="basse1996" orig="Merge plans">saml planer</string>
+  <string name="plans_split_hint" formatted="false" username="basse1996" orig="Split plan into two different billed plans.">Del planen ind i to forskellige fakturerede planer.</string>
+  <string name="plan1" formatted="false" username="basse1996" orig="Plan 1">Plan 1</string>
+  <string name="plan2" formatted="false" username="basse1996" orig="Plan 2">Plan 2</string>
+  <string name="plan_free_" formatted="false" username="basse1996" orig="No billing">Ingen Fakturering</string>
+  <string name="plan_freemin_" formatted="false" username="basse1996" orig="Free Minutes">Gratis minnuter</string>
+  <string name="plan_freesms_" formatted="false" username="basse1996" orig="Free SMS">Gratis SMS\'er</string>
+  <string name="free_hint" formatted="false" username="basse1996" orig="Totally free">Helt gratis</string>
+  <string name="freemin_hint" formatted="false" username="basse1996" orig="Free Minutes / Month">Gratis minnuter pr. minut</string>
+  <string name="freesms_hint" formatted="false" username="basse1996" orig="Free SMS / Month">Gratis SMS\'er pr. måned</string>
+  <string name="bill_calls_incoming_" formatted="false" username="basse1996" orig="Bill incoming">indkomende faktura</string>
+  <string name="bill_calls_incoming_hint" formatted="false" username="basse1996" orig="Bill incoming calls as well.">Fakturer også indkomende opkald</string>
+  <string name="bill_sms_incoming_" formatted="false" username="basse1996" orig="Bill incoming">Indkomende faktura</string>
+  <string name="bill_sms_incoming_hint" formatted="false" username="basse1996" orig="Bill incoming sms as well.">Fakturer også indkomende SMS\'er.</string>
+  <string name="bill_data_incoming_only_" formatted="false" username="basse1996" orig="Bill incoming only">Fakturer kun indgående</string>
+  <string name="bill_data_incoming_only_hint" formatted="false" username="basse1996" orig="Bill only incoming traffic.">Fakturer kun indgående data trafik.</string>
+  <string name="cost_per_call_" formatted="false" username="basse1996" orig="Cost per call">Pris pr. opkald</string>
+  <string name="cost_per_minute_" formatted="false" username="basse1996" orig="Cost per minute">Pris pr. minut</string>
+  <string name="cost_per_sms_" formatted="false" username="basse1996" orig="Cost per SMS">Pris pr. SMS</string>
+  <string name="cost_per_mb_" formatted="false" username="basse1996" orig="Cost per MB">Pris pr. MB</string>
+  <string name="merge_sms_calls_" formatted="false" username="basse1996" orig="Merge SMS into calls">flet SMS\'er sammen med opkald</string>
+  <string name="merge_sms_calls_sec_" formatted="false" username="basse1996" orig="Seconds / SMS">Sekunder / SMS\'er</string>
+  <string name="merge_sms_plan1_" formatted="false" username="basse1996" orig="Merge SMS into plan 1">Saml SMS\'er i plan 1</string>
+  <string name="data_hint" formatted="false" username="basse1996" orig="WLAN stats are not collected here!">WLAN statistiker er ikke medregnet her!</string>
+  <string name="data_enable_" formatted="false" username="basse1996" orig="Show data stats">Vis data statistik</string>
+  <string name="data_each_day" formatted="false" username="basse1996" orig="Bill each day separately">Fakturer hver dag serverat </string>
+  <string name="data_each_day_hint" formatted="false" username="basse1996" orig="Your billing period starts with each day.">Din fakturerings periode starter hver dag.</string>
   <string name="data_limit_" formatted="false" username="basse1996" orig="Limit">Grænse</string>
   <string name="data_limit_hint" formatted="false" username="basse1996" orig="Limit of data plan (MB/month)">Grænse for data plan (MB/Måneden)</string>
   <string name="monday" formatted="false" username="basse1996" orig="Monday">Mandag</string>
