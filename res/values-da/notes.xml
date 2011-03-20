@@ -18,7 +18,11 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://www.4.ub0r.de/translate/cm2/edit.php?lang=dk&file=notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm2/edit.php?lang=da&file=notes.xml to edit the file.
        -->
 <resources>
+  <string-array name="notes_from_dev" username="basse1996">
+    <item>Dec. 2010, CallMeter 3G er tilgængelig: CallMeter 3G alias CM3 er tilgængelig på market. giv den et forsøg og smid nogle kommentarer på Projektets hjemmeside.</item>
+    <item>Mar. 2011, Indstillinger: Glem ikke at slette statistiker efter du har ændret noget for at igangsætte de nye regler for sidste logs emner.</item>
+  </string-array>
 </resources>
