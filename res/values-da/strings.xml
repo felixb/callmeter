@@ -49,20 +49,20 @@
   <string name="theme_" formatted="false" username="basse1996" orig="Theme">Tema</string>
   <string name="textsize_" formatted="false" username="basse1996" orig="Text size">Tekst størrelse </string>
   <string name="advanced_" formatted="false" username="basse1996" orig="Advanced">Avanceret </string>
-  <string name="exclude_people_" formatted="false" username="basse1996" orig="Exclude numbers">Udelukke numre</string>
-  <string name="exclude_people_hint" formatted="false" username="basse1996" orig="Don\'t bill some numbers\nwildcards allowed: *555, 555* or *555*">Ladvære med at fakturere nogle numre\nWildcards er tilladt: *555, 555* eller *555*</string>
+  <string name="exclude_people_" formatted="false" username="basse1996" orig="Exclude numbers">Udeluk nummerer</string>
+  <string name="exclude_people_hint" formatted="false" username="basse1996" orig="Don\'t bill some numbers\nwildcards allowed: *555, 555* or *555*">Lad være med at fakturere nogle nummerer\nWildcards er tilladt: *555, 555* eller *555*</string>
   <string name="exclude_people_add" formatted="false" username="basse1996" orig="Add number">Tilføj nummer</string>
   <string name="exclude_people_edit" formatted="false" username="basse1996" orig="Edit">Ændre</string>
   <string name="exclude_people_delete" formatted="false" username="basse1996" orig="Delete">Slet</string>
-  <string name="exclude_people_to_plan1_" formatted="false" username="basse1996" orig="Excluded numbers to plan #1">Udeluk numre til plan #1</string>
-  <string name="exclude_people_to_plan2_" formatted="false" username="basse1996" orig="Excluded numbers to plan #2">Udeluk numre til plan #2</string>
+  <string name="exclude_people_to_plan1_" formatted="false" username="basse1996" orig="Excluded numbers to plan #1">Udeluk nummerer til plan #1</string>
+  <string name="exclude_people_to_plan2_" formatted="false" username="basse1996" orig="Excluded numbers to plan #2">Udeluk nummerer til plan #2</string>
   <string name="exclude_people_calls_" formatted="false" username="basse1996" orig="Enable for Calls">aktiver til opkald</string>
-  <string name="exclude_people_calls_to_plan1_hint" formatted="false" username="basse1996" orig="Bill calls to/from excluded numbers in plan #1">Fakturer opkald til/fra eksklusive numre i plan #1</string>
-  <string name="exclude_people_calls_to_plan2_hint" formatted="false" username="basse1996" orig="Bill calls to/from excluded numbers in plan #2">Fakturer opkald til/fra eksklusive numre i plan #2</string>
+  <string name="exclude_people_calls_to_plan1_hint" formatted="false" username="basse1996" orig="Bill calls to/from excluded numbers in plan #1">Fakturer opkald til/fra eksklusive nummerer i plan #1</string>
+  <string name="exclude_people_calls_to_plan2_hint" formatted="false" username="basse1996" orig="Bill calls to/from excluded numbers in plan #2">Fakturer opkald til/fra eksklusive nummerer i plan #2</string>
   <string name="exclude_people_sms_" formatted="false" username="basse1996" orig="Enable for SMS">Aktiver for SMS</string>
   <string name="plans" formatted="false" username="basse1996" orig="Plans">Planer</string>
   <string name="plans_split" formatted="false" username="basse1996" orig="Split plans">Del planer op</string>
-  <string name="plans_merge" formatted="false" username="basse1996" orig="Merge plans">saml planer</string>
+  <string name="plans_merge" formatted="false" username="basse1996" orig="Merge plans">sammel planer</string>
   <string name="plans_split_hint" formatted="false" username="basse1996" orig="Split plan into two different billed plans.">Del planen ind i to forskellige fakturerede planer.</string>
   <string name="plan1" formatted="false" username="basse1996" orig="Plan 1">Plan 1</string>
   <string name="plan2" formatted="false" username="basse1996" orig="Plan 2">Plan 2</string>
