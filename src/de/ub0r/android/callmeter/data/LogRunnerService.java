@@ -77,6 +77,9 @@ public final class LogRunnerService extends IntentService {
 	/** Run matcher. */
 	public static final String ACTION_RUN_MATCHER = // .
 	"de.ub0r.android.callmeter.RUN_MATCHER";
+	/** Intent.action for receiving SMS. */
+	private static final String ACTION_SMS = // .
+	"android.provider.Telephony.SMS_RECEIVED";
 
 	/** Empty array of {@link ContentValues} to convert a list to array. */
 	private static final ContentValues[] TO_ARRAY = new ContentValues[] {};
@@ -623,7 +626,8 @@ public final class LogRunnerService extends IntentService {
 		Log.d(TAG, "onHandleIntent(" + a + ")");
 
 		if (a != null && a.equals(// .
-				TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
+				TelephonyManager.ACTION_PHONE_STATE_CHANGED)
+				|| a.equals(ACTION_SMS)) {
 			Log.i(TAG, "sleep for " + WAIT_FOR_LOGS + "ms");
 			try {
 				Thread.sleep(WAIT_FOR_LOGS);

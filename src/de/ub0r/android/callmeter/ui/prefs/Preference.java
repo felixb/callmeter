@@ -1092,8 +1092,17 @@ abstract class Preference {
 
 		@Override
 		void updateDialog(final Dialog d) {
+			if (d == null) {
+				return;
+			}
 			final ListView lv = ((AlertDialog) d).getListView();
+			if (lv == null) {
+				return;
+			}
 			final ListAdapter a = lv.getAdapter();
+			if (a == null) {
+				return;
+			}
 			if (!this.multiSelect) {
 				final int l = a.getCount();
 				for (int i = 0; i < l; i++) {
