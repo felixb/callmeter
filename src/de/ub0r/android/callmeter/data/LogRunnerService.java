@@ -33,6 +33,7 @@ import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PowerManager;
 import android.preference.DatePreference;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
@@ -625,6 +626,13 @@ public final class LogRunnerService extends IntentService {
 		final String a = intent.getAction();
 		Log.d(TAG, "onHandleIntent(" + a + ")");
 
+		final PowerManager pm = (PowerManager) this
+				.getSystemService(Context.POWER_SERVICE);
+		final PowerManager.WakeLock wakelock = pm.newWakeLock(
+				PowerManager.PARTIAL_WAKE_LOCK, TAG);
+		wakelock.acquire();
+		Log.i(TAG, "got wakelock");
+
 		if (a != null && a.equals(// .
 				TelephonyManager.ACTION_PHONE_STATE_CHANGED)
 				|| a.equals(ACTION_SMS)) {
@@ -806,5 +814,7 @@ public final class LogRunnerService extends IntentService {
 		if (h != null) {
 			h.sendEmptyMessage(Plans.MSG_BACKGROUND_STOP_MATCHER);
 		}
+		wakelock.release();
+		Log.i(TAG, "wakelock released");
 	}
 }
