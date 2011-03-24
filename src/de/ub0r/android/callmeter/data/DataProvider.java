@@ -49,6 +49,7 @@ import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * @author flx
@@ -1759,6 +1760,46 @@ public final class DataProvider extends ContentProvider {
 	 * This class helps open, create, and upgrade the database file.
 	 */
 	private static class DatabaseHelper extends SQLiteOpenHelper {
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public synchronized SQLiteDatabase getReadableDatabase() {
+			Log.d(TAG, "get readble db");
+			SQLiteDatabase ret;
+			try {
+				ret = super.getReadableDatabase();
+			} catch (IllegalStateException e) {
+				Log.e(TAG, "could not open databse, try again", e);
+				ret = super.getReadableDatabase();
+			}
+			if (!ret.isOpen()) { // a restore closes the db. retry.
+				Log.w(TAG, "got closed database, try again");
+				ret = super.getReadableDatabase();
+			}
+			return ret;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public synchronized SQLiteDatabase getWritableDatabase() {
+			Log.d(TAG, "get writable db");
+			SQLiteDatabase ret;
+			try {
+				ret = super.getWritableDatabase();
+			} catch (IllegalStateException e) {
+				Log.e(TAG, "could not open databse, try again", e);
+				ret = super.getWritableDatabase();
+			}
+			if (!ret.isOpen()) { // a restore closes the db. retry.
+				Log.w(TAG, "got closed database, try again");
+				ret = super.getWritableDatabase();
+			}
+			return ret;
+		}
+
 		/** {@link Context} . */
 		private final Context ctx;
 
@@ -1779,6 +1820,9 @@ public final class DataProvider extends ContentProvider {
 		@Override
 		public void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create database");
+			if (doRestore(db)) {
+				return; // skip create
+			}
 			Logs.onCreate(db);
 			WebSMS.onCreate(db);
 			SipCall.onCreate(db);
@@ -2597,5 +2641,56 @@ public final class DataProvider extends ContentProvider {
 		final File f = new File(d, PACKAGE + File.separator + fn);
 		return ParcelFileDescriptor
 				.open(f, ParcelFileDescriptor.MODE_READ_ONLY);
+	}
+
+	/**
+	 * Backup {@link SQLiteDatabase} on file system level.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @return backup successful?
+	 */
+	public static boolean doBackup(final Context context) {
+		Log.i(TAG, "doBackup()");
+		boolean ret = true;
+		final SQLiteDatabase db = new DatabaseHelper(context)
+				.getWritableDatabase();
+		final String path = db.getPath();
+		try {
+			Log.d(TAG, "cp " + path + " " + path + ".bak");
+			Utils.copyFile(path, path + ".bak");
+		} catch (IOException e) {
+			ret = false;
+			Log.e(TAG, "could not backup databse", e);
+		}
+		db.close();
+		return ret;
+	}
+
+	/**
+	 * Try to restore backup of {@link SQLiteDatabase}.
+	 * 
+	 * @param db
+	 *            {@link SQLiteDatabase}
+	 * @return restored successfully?
+	 */
+	private static boolean doRestore(final SQLiteDatabase db) {
+		Log.i(TAG, "doRestore()");
+		boolean ret = false;
+		final String path = db.getPath();
+		final File bak = new File(path + ".bak");
+		if (bak.exists()) {
+			try {
+				db.close();
+				Utils.copyFile(bak.getAbsolutePath(), path);
+				ret = true;
+				Log.w(TAG, "backup restored");
+			} catch (IOException e) {
+				Log.e(TAG, "failed restoring backup", e);
+			}
+		} else {
+			Log.w(TAG, "no backup found");
+		}
+		return ret;
 	}
 }

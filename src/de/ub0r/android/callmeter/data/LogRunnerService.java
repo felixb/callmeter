@@ -82,6 +82,9 @@ public final class LogRunnerService extends IntentService {
 	private static final String ACTION_SMS = // .
 	"android.provider.Telephony.SMS_RECEIVED";
 
+	/** Preference's name: last backup. */
+	private static final String PREFS_LASTBACKUP = "lastbackup";
+
 	/** Empty array of {@link ContentValues} to convert a list to array. */
 	private static final ContentValues[] TO_ARRAY = new ContentValues[] {};
 
@@ -118,6 +121,9 @@ public final class LogRunnerService extends IntentService {
 	private static final long WAIT_FOR_LOGS = 1500L;
 	/** Maximum gap for logs. */
 	private static final long GAP_FOR_LOGS = 10000L;
+
+	/** Persiod for backups. */
+	private static final long BACKUP_PERIOD = 1000 * 60 * 60 * 24;
 
 	/** Service's {@link Handler}. */
 	private Handler handler = null;
@@ -656,6 +662,12 @@ public final class LogRunnerService extends IntentService {
 		Log.d(TAG, "roaming: " + roaming);
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(this);
+		if (System.currentTimeMillis() - p.getLong(PREFS_LASTBACKUP, 0L) > BACKUP_PERIOD) {
+			if (DataProvider.doBackup(this)) {
+				p.edit().putLong(PREFS_LASTBACKUP, System.currentTimeMillis())
+						.commit();
+			}
+		}
 		dateStart = p.getLong(Preferences.PREFS_DATE_BEGIN,
 				DatePreference.DEFAULT_VALUE);
 		deleteBefore = Preferences.getDeleteLogsBefore(p);
