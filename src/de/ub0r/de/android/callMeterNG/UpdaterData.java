@@ -220,7 +220,8 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 					+ prettyBytes(currentIn);
 			this.dataOut = prettyBytes(currentOut - preBillingOut) + " | "
 					+ prettyBytes(currentOut);
-			final int limit = Utils.parseInt(this.prefs.getString(PREFS_DATA_LIMIT, null), 0);
+			final int limit = Utils.parseInt(this.prefs.getString(
+					PREFS_DATA_LIMIT, null), 0);
 
 			ret[0] = thisBillingIn;
 			if (!this.prefs.getBoolean(PREFS_DATA_INCOMING_ONLY, false)) {
@@ -274,7 +275,7 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 			String cost = this.prefs.getString(PREFS_DATA_COST, "0");
 			float cpmb;
 			if (cost.length() > 0) {
-				cpmb = Float.parseFloat(cost);
+				cpmb = Utils.parseFloat(cost, 0f);
 			} else {
 				cpmb = 0;
 			}

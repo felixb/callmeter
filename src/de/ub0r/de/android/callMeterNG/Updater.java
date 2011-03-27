@@ -818,12 +818,14 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		if (this.prefs.getBoolean(PREFS_PLAN1_T_FREE_CALLS, false)) {
 			free1 = -1;
 		} else {
-			free1 = Utils.parseInt(this.prefs.getString(PREFS_PLAN1_FREEMIN, "0"), 0);
+			free1 = Utils.parseInt(this.prefs.getString(PREFS_PLAN1_FREEMIN,
+					"0"), 0);
 		}
 		if (this.prefs.getBoolean(PREFS_PLAN2_T_FREE_CALLS, false)) {
 			free2 = -1;
 		} else {
-			free2 = Utils.parseInt(this.prefs.getString(PREFS_PLAN2_FREEMIN, "0"), 0);
+			free2 = Utils.parseInt(this.prefs.getString(PREFS_PLAN2_FREEMIN,
+					"0"), 0);
 		}
 		// walk through log
 		if (cur.moveToFirst()) {
@@ -998,12 +1000,14 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		if (this.prefs.getBoolean(PREFS_PLAN1_T_FREE_SMS, false)) {
 			free1 = -1;
 		} else {
-			free1 = Utils.parseInt(this.prefs.getString(PREFS_PLAN1_FREESMS, "0"), 0);
+			free1 = Utils.parseInt(this.prefs.getString(PREFS_PLAN1_FREESMS,
+					"0"), 0);
 		}
 		if (this.prefs.getBoolean(PREFS_PLAN2_T_FREE_SMS, false)) {
 			free2 = -1;
 		} else {
-			free2 = Utils.parseInt(this.prefs.getString(PREFS_PLAN2_FREESMS, "0"), 0);
+			free2 = Utils.parseInt(this.prefs.getString(PREFS_PLAN2_FREESMS,
+					"0"), 0);
 		}
 
 		int iSMSIn = this.prefs.getInt(PREFS_SMS_ALL_IN, 0);
@@ -1272,29 +1276,21 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 			if (result[RESULT_CALLS1_LIMIT] <= 0) {
 				final String s = this.prefs.getString(
 						PREFS_PLAN1_COST_PER_CALL, "");
-				if (s.length() > 0) {
-					costPerCall1 = Float.parseFloat(s);
-				}
+				costPerCall1 = Utils.parseFloat(s, 0f);
 			}
 			final String s = this.prefs.getString(PREFS_PLAN1_COST_PER_MINUTE,
 					"");
-			if (s.length() > 0) {
-				costPerMinute1 = Float.parseFloat(s);
-			}
+			costPerMinute1 = Utils.parseFloat(s, 0f);
 		}
 		if (!this.prefs.getBoolean(PREFS_PLAN2_T_FREE_CALLS, false)) {
 			if (result[RESULT_CALLS2_LIMIT] <= 0) {
 				final String s = this.prefs.getString(
 						PREFS_PLAN2_COST_PER_CALL, "");
-				if (s.length() > 0) {
-					costPerCall2 = Float.parseFloat(s);
-				}
+				costPerCall2 = Utils.parseFloat(s, 0f);
 			}
 			final String s = this.prefs.getString(PREFS_PLAN2_COST_PER_MINUTE,
 					"");
-			if (s.length() > 0) {
-				costPerMinute2 = Float.parseFloat(s);
-			}
+			costPerMinute2 = Utils.parseFloat(s, 0f);
 		}
 		boolean billIn = this.prefs
 				.getBoolean(PREFS_CALLS_BILL_INCOMING, false);
@@ -1363,15 +1359,11 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		float costPerSMS2 = 0;
 		if (!this.prefs.getBoolean(PREFS_PLAN1_T_FREE_SMS, false)) {
 			final String s = this.prefs.getString(PREFS_PLAN1_COST_PER_SMS, "");
-			if (s.length() > 0) {
-				costPerSMS1 = Float.parseFloat(s);
-			}
+			costPerSMS1 = Utils.parseFloat(s, 0f);
 		}
 		if (!this.prefs.getBoolean(PREFS_PLAN2_T_FREE_SMS, false)) {
 			final String s = this.prefs.getString(PREFS_PLAN2_COST_PER_SMS, "");
-			if (s.length() > 0) {
-				costPerSMS2 = Float.parseFloat(s);
-			}
+			costPerSMS2 = Utils.parseFloat(s, 0f);
 		}
 		billIn = this.prefs.getBoolean(PREFS_SMS_BILL_INCOMING, false);
 		if (costPerSMS1 > 0) {
