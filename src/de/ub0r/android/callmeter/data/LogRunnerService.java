@@ -629,6 +629,10 @@ public final class LogRunnerService extends IntentService {
 	 */
 	@Override
 	protected void onHandleIntent(final Intent intent) {
+		if (intent == null) {
+			Log.w(TAG, "onHandleIntent(null)");
+			return;
+		}
 		final String a = intent.getAction();
 		Log.d(TAG, "onHandleIntent(" + a + ")");
 
@@ -639,9 +643,9 @@ public final class LogRunnerService extends IntentService {
 		wakelock.acquire();
 		Log.i(TAG, "got wakelock");
 
-		if (a != null && a.equals(// .
-				TelephonyManager.ACTION_PHONE_STATE_CHANGED)
-				|| a.equals(ACTION_SMS)) {
+		if (a != null && (// .
+				a.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED) // .
+				|| a.equals(ACTION_SMS))) {
 			Log.i(TAG, "sleep for " + WAIT_FOR_LOGS + "ms");
 			try {
 				Thread.sleep(WAIT_FOR_LOGS);
@@ -662,7 +666,8 @@ public final class LogRunnerService extends IntentService {
 		Log.d(TAG, "roaming: " + roaming);
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(this);
-		if (System.currentTimeMillis() - p.getLong(PREFS_LASTBACKUP, 0L) > BACKUP_PERIOD) {
+		if (System.currentTimeMillis() - // .
+				p.getLong(PREFS_LASTBACKUP, 0L) > BACKUP_PERIOD) {
 			if (DataProvider.doBackup(this)) {
 				p.edit().putLong(PREFS_LASTBACKUP, System.currentTimeMillis())
 						.commit();
