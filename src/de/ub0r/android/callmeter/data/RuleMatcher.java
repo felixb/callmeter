@@ -1229,6 +1229,9 @@ public final class RuleMatcher {
 		final Cursor log = cr.query(DataProvider.Logs.CONTENT_URI,
 				DataProvider.Logs.PROJECTION, DataProvider.Logs.ID + " = ?",
 				new String[] { String.valueOf(lid) }, null);
+		if (log == null) {
+			return;
+		}
 		if (!log.moveToFirst()) {
 			Log.e(TAG, "no log: " + log);
 			log.close();
