@@ -21,8 +21,8 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=hu&file=help.xml to edit the file.
        -->
 <resources>
-  <string name="help_title_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">Kérlek olvasd el a következő sorokat, hogy megértsd a naplók, tarifák és szabályok (tehát a program) működését.</string>
-  <string name="help_import_" formatted="false">Kezdésnek nem rossz, ha előre beállított szabályokat importálsz a program wikijéről vagy a magyar CallMeter oldalról. Azokon kedvedre kísérletezhetsz és ízekre szedheted.</string>
+  <string name="help_title_" formatted="false" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">Kérlek olvasd el a következő sorokat, hogy megértsd a naplók, tarifák és szabályok (tehát a program) működését.</string>
+  <string name="help_import_" formatted="false" orig="A good starting point are some preconfigured rule sets available on the website. Just import them via import menu and play around.">Kezdésnek nem rossz, ha előre beállított szabályokat importálsz a program wikijéről vagy a magyar CallMeter oldalról. Azokon kedvedre kísérletezhetsz és ízekre szedheted.</string>
   <string name="help_export_" formatted="false">Ha egy Tarifacsomagot jó alaposan beállítottál, akkor ne habozz elküldeni a fejlesztőknek e-mailben, mert akkor kiteszik a honlapra, hogy másoknak (és esetleg Neked is) könnyebb legyen. (ezt az exportálás e-mailben menüpontban ejtheted meg)</string>
   <string name="help_logs_plans_rules_" formatted="false">Három fajta adatstruktúra van:</string>
   <string name="help_logs_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="&lt;b&gt;Logs&lt;/b&gt; to save informations about your calls, messages and traffic statistics.">A &lt;b&gt;Naplók&lt;/b&gt; a hívás, üzenet és adatforgalmadat rögzítik.</string>
