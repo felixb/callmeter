@@ -828,7 +828,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 					"0"), 0);
 		}
 		// walk through log
-		if (cur.moveToFirst()) {
+		if (cur != null && cur.moveToFirst()) {
 			int type;
 			long d;
 			final int idType = cur.getColumnIndex(Calls.TYPE);
@@ -894,6 +894,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 			} while (cur.moveToNext());
 		}
+		if (cur != null && cur.isClosed()) {
+			cur.close();
+		}
+		cur = null;
 		status[RESULT_CALLS1_VAL] = durOut1Month;
 		status[RESULT_CALLS1_LIMIT] = free1 * SECONDS_MINUTE;
 		status[RESULT_CALLS2_VAL] = durOut2Month;
@@ -992,7 +996,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		long lastWalk = this.prefs.getLong(PREFS_SMS_WALK_LASTCHECK, 0);
 		Log.d(TAG, "last walk sms: " + lastWalk);
 
-		final Cursor cur = this.context.getContentResolver().query(
+		Cursor cur = this.context.getContentResolver().query(
 				Uri.parse("content://sms"), projection,
 				Calls.DATE + " > " + lastWalk, null, Calls.DATE + " DESC");
 		int free1 = 0;
@@ -1017,7 +1021,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 		int smsOut1Month = this.prefs.getInt(PREFS_SMS_PERIOD_OUT1, 0);
 		int smsOut2Month = this.prefs.getInt(PREFS_SMS_PERIOD_OUT2, 0);
 
-		if (cur.moveToFirst()) {
+		if (cur != null && cur.moveToFirst()) {
 			int type;
 			long d;
 			final int idType = cur.getColumnIndex(Calls.TYPE);
@@ -1077,7 +1081,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 			} while (cur.moveToNext());
 		}
-
+		if (cur != null && !cur.isClosed()) {
+			cur.close();
+		}
+		cur = null;
 		status[RESULT_SMS1_VAL] = smsOut1Month;
 		status[RESULT_SMS1_LIMIT] = free1;
 		status[RESULT_SMS2_VAL] = smsOut2Month;
