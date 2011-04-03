@@ -33,6 +33,7 @@ import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PowerManager;
 import android.preference.DatePreference;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
@@ -81,6 +82,9 @@ public final class LogRunnerService extends IntentService {
 	private static final String ACTION_SMS = // .
 	"android.provider.Telephony.SMS_RECEIVED";
 
+	/** Preference's name: last backup. */
+	private static final String PREFS_LASTBACKUP = "lastbackup";
+
 	/** Empty array of {@link ContentValues} to convert a list to array. */
 	private static final ContentValues[] TO_ARRAY = new ContentValues[] {};
 
@@ -117,6 +121,9 @@ public final class LogRunnerService extends IntentService {
 	private static final long WAIT_FOR_LOGS = 1500L;
 	/** Maximum gap for logs. */
 	private static final long GAP_FOR_LOGS = 10000L;
+
+	/** Persiod for backups. */
+	private static final long BACKUP_PERIOD = 1000 * 60 * 60 * 24;
 
 	/** Service's {@link Handler}. */
 	private Handler handler = null;
@@ -622,12 +629,23 @@ public final class LogRunnerService extends IntentService {
 	 */
 	@Override
 	protected void onHandleIntent(final Intent intent) {
+		if (intent == null) {
+			Log.w(TAG, "onHandleIntent(null)");
+			return;
+		}
 		final String a = intent.getAction();
 		Log.d(TAG, "onHandleIntent(" + a + ")");
 
-		if (a != null && a.equals(// .
-				TelephonyManager.ACTION_PHONE_STATE_CHANGED)
-				|| a.equals(ACTION_SMS)) {
+		final PowerManager pm = (PowerManager) this
+				.getSystemService(Context.POWER_SERVICE);
+		final PowerManager.WakeLock wakelock = pm.newWakeLock(
+				PowerManager.PARTIAL_WAKE_LOCK, TAG);
+		wakelock.acquire();
+		Log.i(TAG, "got wakelock");
+
+		if (a != null && (// .
+				a.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED) // .
+				|| a.equals(ACTION_SMS))) {
 			Log.i(TAG, "sleep for " + WAIT_FOR_LOGS + "ms");
 			try {
 				Thread.sleep(WAIT_FOR_LOGS);
@@ -648,6 +666,13 @@ public final class LogRunnerService extends IntentService {
 		Log.d(TAG, "roaming: " + roaming);
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(this);
+		if (System.currentTimeMillis() - // .
+				p.getLong(PREFS_LASTBACKUP, 0L) > BACKUP_PERIOD) {
+			if (DataProvider.doBackup(this)) {
+				p.edit().putLong(PREFS_LASTBACKUP, System.currentTimeMillis())
+						.commit();
+			}
+		}
 		dateStart = p.getLong(Preferences.PREFS_DATE_BEGIN,
 				DatePreference.DEFAULT_VALUE);
 		deleteBefore = Preferences.getDeleteLogsBefore(p);
@@ -806,5 +831,7 @@ public final class LogRunnerService extends IntentService {
 		if (h != null) {
 			h.sendEmptyMessage(Plans.MSG_BACKGROUND_STOP_MATCHER);
 		}
+		wakelock.release();
+		Log.i(TAG, "wakelock released");
 	}
 }
