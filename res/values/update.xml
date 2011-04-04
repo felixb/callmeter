@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: Add support for GT-S5830, inner changes</item>
+		<item>HEAD: Add support for GT-S5830 and possible all future samsung devices, inner changes</item>
 		<item>v3.0rc8: fix an other sunday bug, allow to split messages at fixed 160 chars, fix messages to yourself, add support for GT-I5510, fix custom currency symbol</item>
 		<item>v3.0rc7: fix data logs, fix sunday, fix limit+cost for merged+mixed plans, add remote number for MMS, update translations, add help</item>
 		<item>v2.9.6: set custom delimiter, add mon-fri for hour groups, allow smaller than 1 units in mixed plans</item>
