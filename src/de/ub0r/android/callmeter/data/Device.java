@@ -185,9 +185,7 @@ class DiscoverableDevice extends Device {
 	@Override
 	public String getCell() {
 		if (this.mCell == null) {
-			if ("GT-I5500".equals(Build.DEVICE)
-					|| "GT-I5510".equals(Build.DEVICE)
-					|| "GT-S5830".equals(Build.DEVICE)) {
+			if (Build.DEVICE.startsWith("GT-")) {
 				this.mCell = "pdp0";
 			} else if ("sdk".equals(Build.PRODUCT)) {
 				this.mCell = "eth0";
