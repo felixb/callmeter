@@ -104,6 +104,8 @@
   <string name="custom_date_format_hint" formatted="false">Wähle ein benutzerdefiniertes Datumformat aus.</string>
   <string name="custom_delimiter_" formatted="false">Benutzerdefiniertes Trennzeichen</string>
   <string name="custom_delimiter_hint" formatted="false">Setze einen benutzerdefiniertes Trennzeichen für Blöcke in den Statistiken.</string>
+  <string name="split_sms_at_160_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Split text messages at 160 chars">SMS bei 160 Zeichen trennen</string>
+  <string name="split_sms_at_160_hint" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Disable to use android\'s system method.">Deaktivieren, um die Android Methode zum Berechnen der Länge zu benutzen.</string>
   <string name="ask_for_plan_" formatted="false">Nach Kontingent Fragen</string>
   <string name="ask_for_plan_hint" formatted="false">Nach Kontingent fragen, wenn nach dem Auflegen keins zugeordnet werden kann.</string>
   <string name="autohide_" formatted="false">Autom. Beenden</string>
@@ -121,6 +123,8 @@
   <string name="rules_hint" formatted="false">Hier kannst du deine Abrechnungsregeln definieren.</string>
   <string name="rules_new" formatted="false">Neue Regel</string>
   <string name="length_" formatted="false">Länge</string>
+  <string name="blength_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Billed length">Abgerechnete Länge</string>
+  <string name="cost_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Cost">Kosten</string>
   <string name="remote_" formatted="false">Absender/Empfänger</string>
   <string name="numbergroups_edit_" formatted="false">Nummern Gruppen</string>
   <string name="numbergroups_edit_hint" formatted="false">Bearbeite Nummerngruppen hier.</string>

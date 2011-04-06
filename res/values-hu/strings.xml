@@ -104,6 +104,8 @@
   <string name="custom_date_format_hint" formatted="false">Itt választhatsz dátumformátumot.</string>
   <string name="custom_delimiter_" formatted="false">Egyéni elválasztó</string>
   <string name="custom_delimiter_hint" formatted="false">Saját statisztikák közötti Elválasztót adhatsz meg itt.</string>
+  <string name="split_sms_at_160_" formatted="false" username="Tamás Béres &lt;berestamas2@gmail.com&gt;" orig="Split text messages at 160 chars">Sms üzenetek tördelése...</string>
+  <string name="split_sms_at_160_hint" formatted="false" username="Tamás Béres &lt;berestamas2@gmail.com&gt;" orig="Disable to use android\'s system method.">Sms üzenetek tördelése 160 karakternél</string>
   <string name="ask_for_plan_" formatted="false">Tarifa kiválasztásának kérése</string>
   <string name="ask_for_plan_hint" formatted="false">Hívás után Tarifa kiválasztása, ha egyik Tarifába se illett bele a hívás.</string>
   <string name="autohide_" formatted="false">Automatikus elrejtés</string>
@@ -121,6 +123,8 @@
   <string name="rules_hint" formatted="false">Itt állíthatod be a tarifák szabályait.</string>
   <string name="rules_new" formatted="false">Új szabály</string>
   <string name="length_" formatted="false">Hossz</string>
+  <string name="blength_" formatted="false" username="Tamás Béres &lt;berestamas2@gmail.com&gt;" orig="Billed length">Kiszámlázott mennyiség</string>
+  <string name="cost_" formatted="false" username="Tamás Béres &lt;berestamas2@gmail.com&gt;" orig="Cost">Díj</string>
   <string name="remote_" formatted="false">Távoli szám</string>
   <string name="numbergroups_edit_" formatted="false">Számcsoportok</string>
   <string name="numbergroups_edit_hint" formatted="false">A Számcsoportokat itt lehet szerkeszteni.</string>

@@ -3,7 +3,7 @@
                Copyright (C) 2009-2011 Felix Bechstein
        -->
        <!--
-               This file is part of Call Meter 3G. This program is free software; you can
+               This file is part of Call Meter NG. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
@@ -18,9 +18,7 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=pl&file=help.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php to edit the file.
        -->
 <resources>
-  <string name="help_logs_plans_rules_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="There are three kinds of data structures:">Występują trzy rodzaje struktur danych:</string>
-  <string name="help_plans_merge_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="You can merge &lt;b&gt;plans&lt;/b&gt; to aggregate their &lt;b&gt;log items&lt;/b&gt; to a combined cost and limit.">Możesz scalić &lt;b&gt;plany&lt;/b&gt; aby połączyć ich &lt;b&gt;elementy&lt;/b&gt; w celu określenia łącznego kosztu i limitów.</string>
 </resources>
