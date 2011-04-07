@@ -113,6 +113,7 @@
   <string name="rules_hint" formatted="false">Defina as regras de cobrança aqui.</string>
   <string name="rules_new" formatted="false">Novas Regras</string>
   <string name="length_" formatted="false">Duração</string>
+  <string name="blength_" formatted="false" username="Eduardo Farias &lt;eaff.pt@gmail.com&gt;" orig="Billed length">Período de facturação</string>
   <string name="remote_" formatted="false">Número remoto</string>
   <string name="numbergroups_edit_" formatted="false">Number groups</string>
   <string name="numbergroups_edit_hint" formatted="false">Edit number groups here.</string>
@@ -233,6 +234,8 @@
   <string name="export_rules_" formatted="false">Exportar conjunto de regras</string>
   <string name="export_rules_hint" formatted="false">Exportar conjunto de regras.</string>
   <string name="export_rules_descr" formatted="false">Descrição</string>
+  <string name="export_logs_" formatted="false" orig="Backup logs">Exporta registos</string>
+  <string name="export_logs_hint" formatted="false" orig="Backup logs as mail.">Exporta registos por email</string>
   <string name="import_rules_" formatted="false">Importar conjunto de regras</string>
   <string name="import_rules_hint" formatted="false">Importar conjunto de regras.</string>
   <string name="import_rules_empty" formatted="false">Sem planos/regras estabelecidas. Clique neste texto para importar um conjunto de regras padrão.\n\nOu adicione planos e as regras nas preferências manualmente.</string>
