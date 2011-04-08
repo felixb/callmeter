@@ -48,7 +48,7 @@
   <string name="smsbillday_" formatted="false">První den účtování SMS</string>
   <string name="dataperiod_" formatted="false">Stejné účetní období pro data</string>
   <string name="dataperiod_hint" formatted="false">Nastavit stejné účetní období jako pro volání.</string>
-  <string name="databillday_" formatted="false">První den účtování dat</string>
+  <string name="databillday_" formatted="false" orig="First day of your data bill">První den účtování dat</string>
   <string name="appearance_" formatted="false">Přizpůsobení vzhledu</string>
   <string name="theme_" formatted="false">Motiv</string>
   <string name="textsize_" formatted="false">Velikost textu</string>
