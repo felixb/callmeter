@@ -50,6 +50,20 @@
 			<CheckBox android:id="@+id/pbillp" android:text="@string/show_billperiod_"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:singleLine="false" />
+			<TextView android:text="@string/widget_plan_textsize"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceLarge" />
+			<EditText android:id="@+id/widget_plan_textsize"
+				android:text="" android:layout_width="match_parent"
+				android:layout_height="wrap_content" android:singleLine="true" />
+			<TextView android:text="@string/widget_cost_textsize"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceLarge"
+				android:inputType="number" android:focusable="false" />
+			<EditText android:id="@+id/widget_stats_textsize"
+				android:text="" android:layout_width="match_parent"
+				android:layout_height="wrap_content" android:singleLine="true"
+				android:inputType="number" android:focusable="false" />
 		</LinearLayout>
 	</ScrollView>
 </RelativeLayout>

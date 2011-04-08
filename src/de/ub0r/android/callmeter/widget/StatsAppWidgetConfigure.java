@@ -29,6 +29,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.CompoundButton.OnCheckedChangeListener;
@@ -50,6 +51,8 @@ public final class StatsAppWidgetConfigure extends Activity implements
 
 	/** {@link CheckBox}s. */
 	private CheckBox cbShowShortname, cbShowCost, cbShowBillp;
+	/** {@link EditText}s */
+	private EditText planTextSize, statsTextSize;
 
 	/** Projection for {@link SimpleCursorAdapter} query. */
 	private static final String[] PROJ_ADAPTER = new String[] {
@@ -71,6 +74,10 @@ public final class StatsAppWidgetConfigure extends Activity implements
 		this.cbShowShortname.setOnCheckedChangeListener(this);
 		this.cbShowCost = (CheckBox) this.findViewById(R.id.cost);
 		this.cbShowBillp = (CheckBox) this.findViewById(R.id.pbillp);
+		this.planTextSize = (EditText) this
+				.findViewById(R.id.widget_plan_textsize);
+		this.statsTextSize = (EditText) this
+				.findViewById(R.id.widget_stats_textsize);
 		this.setAdapter();
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.cancel).setOnClickListener(this);
@@ -131,6 +138,12 @@ public final class StatsAppWidgetConfigure extends Activity implements
 					+ this.mAppWidgetId, this.cbShowCost.isChecked());
 			editor.putBoolean(StatsAppWidgetProvider.WIDGET_BILLPERIOD
 					+ this.mAppWidgetId, this.cbShowBillp.isChecked());
+			editor.putFloat(StatsAppWidgetProvider.WIDGET_STATS_TEXTSIZE
+					+ this.mAppWidgetId, Utils.parseFloat(this.statsTextSize
+					.getText().toString(), 10f));
+			editor.putFloat(StatsAppWidgetProvider.WIDGET_PLAN_TEXTSIZE
+					+ this.mAppWidgetId, Utils.parseFloat(this.planTextSize
+					.getText().toString(), 10f));
 			editor.commit();
 
 			final AppWidgetManager appWidgetManager = AppWidgetManager
