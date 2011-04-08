@@ -269,6 +269,8 @@
   <string name="alerts_100_" formatted="false">Értesítés 100%-nál</string>
   <string name="alerts_100_hint" formatted="false">Értesít, ha egy tarifa átlépi a keret 100%-át.</string>
   <string name="widget_config_" formatted="false">Widget beállítása</string>
+  <string name="widget_plan_textsize">Tarifa szöveg betűmérete</string>
+	<string name="widget_cost_textsize">Statisztika szöveg betűmérete</string>
   <string-array name="weekdays_all">
     <item>Minden hét</item>
     <item>Hétfő</item>

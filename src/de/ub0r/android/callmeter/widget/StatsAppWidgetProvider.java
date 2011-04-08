@@ -60,6 +60,10 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	static final String WIDGET_COST = "widget_cost_";
 	/** Show progress of billing period for widget. */
 	static final String WIDGET_BILLPERIOD = "widget_billp_";
+	/** Size of the plan name text. */
+	static final String WIDGET_PLAN_TEXTSIZE = "widget_plan_textsize_";
+	/** Size of the statistics text. */
+	static final String WIDGET_STATS_TEXTSIZE = "widget_stats_textsize_";
 
 	/**
 	 * {@inheritDoc}
@@ -121,6 +125,10 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		final boolean showCost = p.getBoolean(WIDGET_COST + appWidgetId, false);
 		final boolean showBillPeriod = p.getBoolean(WIDGET_BILLPERIOD
 				+ appWidgetId, false);
+		final Float statsTextSize = p.getFloat(WIDGET_STATS_TEXTSIZE
+				+ appWidgetId, 10f);
+		final Float planTextSize = p.getFloat(WIDGET_PLAN_TEXTSIZE
+				+ appWidgetId, 10f);
 		Log.d(TAG, "planid: " + pid);
 		final ContentResolver cr = context.getContentResolver();
 
@@ -262,6 +270,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		views.setOnClickPendingIntent(R.id.widget, pendingIntent);
 		views.setTextViewText(R.id.plan, pname);
 		views.setTextViewText(R.id.stats, stats);
+		views.setFloat(R.id.plan, "setTextSize", planTextSize);
+		views.setFloat(R.id.stats, "setTextSize", statsTextSize);
 		if (bmax > 0) {
 			views.setProgressBar(R.id.appwidget_bg_top_progress, bmax, bpos,
 					false);
