@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
+		<item>HEAD: set text size in widget</item>
 		<item>v3.0rc9: Add support for GT-S5830 and possible all future samsung devices, major inner changes, update translations</item>
 		<item>v3.0rc8: fix an other sunday bug, allow to split messages at fixed 160 chars, fix messages to yourself, add support for GT-I5510, fix custom currency symbol</item>
 		<item>v3.0rc7: fix data logs, fix sunday, fix limit+cost for merged+mixed plans, add remote number for MMS, update translations, add help</item>

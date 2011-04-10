@@ -36,6 +36,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.app.AlertDialog.Builder;
+import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -55,6 +56,7 @@ import android.widget.Toast;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.callmeter.data.Device;
 import de.ub0r.android.callmeter.ui.Help;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Market;
@@ -557,6 +559,34 @@ public class Preferences extends PreferenceActivity {
 						public boolean onPreferenceClick(
 								final Preference preference) {
 							Log.collectAndSendLog(Preferences.this);
+							return true;
+						}
+					});
+		}
+		p = this.findPreference("send_devices");
+		if (p != null) {
+			p.setOnPreferenceClickListener(// .
+					new Preference.OnPreferenceClickListener() {
+						@Override
+						public boolean onPreferenceClick(
+								final Preference preference) {
+							final Intent intent = new Intent(// .
+									Intent.ACTION_SEND);
+							intent.setType("text/plain");
+							intent.putExtra(Intent.EXTRA_EMAIL, new String[] {
+									"android+callmeter@ub0r.de", "" });
+							intent.putExtra(Intent.EXTRA_TEXT, Device
+									.debugDeviceList());
+							intent.putExtra(Intent.EXTRA_SUBJECT,
+									"Call Meter 3G: Device List");
+							try {
+								Preferences.this.startActivity(intent);
+							} catch (ActivityNotFoundException e) {
+								Log.e(TAG, "no mail", e);
+								Toast.makeText(Preferences.this,
+										"no mail app found", Toast.LENGTH_LONG)
+										.show();
+							}
 							return true;
 						}
 					});

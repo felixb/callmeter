@@ -268,6 +268,8 @@
 	<string name="widget_config_">Widget config</string>
 	<string name="widget_plan_textsize">Plan Text Size</string>
 	<string name="widget_cost_textsize">Cost Text Size</string>
+	<string name="send_devices_">Send devices</string>
+	<string name="send_devices_hint">Send list of devices to the developer. This is only needed if your data stats are zero.</string>
 	<string-array name="weekdays_all">
 		<item>All week</item>
 		<item>Monday</item>
