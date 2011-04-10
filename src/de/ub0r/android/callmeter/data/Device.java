@@ -51,7 +51,6 @@ public abstract class Device {
 		Log.d(TAG, "Device: " + Build.DEVICE);
 		if (instance == null) {
 			Log.d(TAG, "Device: " + Build.DEVICE);
-			Log.d(TAG, "DEBUG: " + debugDeviceList());
 			instance = new DiscoverableDevice();
 		}
 		Log.d(TAG, instance.getClass().getName());
@@ -84,21 +83,41 @@ public abstract class Device {
 	 * 
 	 * @return some info
 	 */
-	private static String debugDeviceList() {
+	public static String debugDeviceList() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("product: ");
+		sb.append(Build.PRODUCT);
+		sb.append("\nmodel: ");
+		sb.append(Build.MODEL);
+		sb.append("\n");
 		try {
-			File f = new File(SysClassNet.SYS_CLASS_NET);
-			String[] devices = f.list();
+			final File f = new File(SysClassNet.SYS_CLASS_NET);
+			final String[] devices = f.list();
+			sb.append("\n#devices: ");
+			sb.append(devices.length);
 			for (String d : devices) {
-				String dev = SysClassNet.SYS_CLASS_NET + d;
-				Log.i(TAG, readFile(dev + "/type"));
-				Log.i(TAG, readFile(dev + SysClassNet.CARRIER));
-				Log.i(TAG, readFile(dev + SysClassNet.RX_BYTES));
-				Log.i(TAG, readFile(dev + SysClassNet.TX_BYTES));
+				final String dev = SysClassNet.SYS_CLASS_NET + d;
+				try {
+					sb.append("\n\ndevice: ");
+					sb.append(dev);
+					sb.append("\ntype: ");
+					sb.append(readFile(dev + "/type"));
+					sb.append("\ncarrier: ");
+					sb.append(readFile(dev + SysClassNet.CARRIER));
+					sb.append("\nrx: ");
+					sb.append(readFile(dev + SysClassNet.RX_BYTES));
+					sb.append("\ntx: ");
+					sb.append(readFile(dev + SysClassNet.TX_BYTES));
+				} catch (Exception e) {
+					sb.append("\nERROR: " + e + "\n");
+					Log.e(TAG, "ERROR reading " + dev, e);
+				}
 			}
 		} catch (Exception e) {
+			sb.append("\nERROR: " + e + "\n");
 			Log.e(TAG, "error reading /sys/", e);
 		}
-		return Build.PRODUCT + ":" + Build.MODEL;
+		return sb.toString();
 	}
 
 	/**

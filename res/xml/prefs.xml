@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2009-2010 Felix Bechstein
+		Copyright (C) 2009-2011 Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter 3G. This program is free software; you
@@ -188,7 +188,8 @@
 			<intent android:action="android.intent.action.VIEW"
 				android:data="http://twitter.com/flx_b" />
 		</PreferenceScreen>
-		<PreferenceScreen android:key="more_apps" android:title="@string/more_" />
+		<PreferenceScreen android:key="more_apps"
+			android:title="@string/more_" />
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/debug_">
@@ -196,5 +197,7 @@
 			android:title="@string/reset_data_" android:summary="@string/reset_data_hint" />
 		<PreferenceScreen android:key="send_logs"
 			android:title="@string/send_logs_" android:summary="@string/send_logs_hint" />
+		<PreferenceScreen android:key="send_devices"
+			android:title="@string/send_devices_" android:summary="@string/send_devices_hint" />
 	</PreferenceCategory>
 </PreferenceScreen>
