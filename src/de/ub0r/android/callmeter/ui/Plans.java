@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein, The Android Open Source Project
+ * Copyright (C) 2009-2011 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -21,6 +21,7 @@ package de.ub0r.android.callmeter.ui;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.HashSet;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -62,6 +63,13 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemLongClickListener;
+
+import com.google.ads.Ad;
+import com.google.ads.AdListener;
+import com.google.ads.AdRequest;
+import com.google.ads.AdView;
+import com.google.ads.AdRequest.ErrorCode;
+
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
@@ -84,6 +92,27 @@ public class Plans extends ListActivity implements OnClickListener,
 		OnItemLongClickListener, OnDateSetListener, OnTimeSetListener {
 	/** Tag for output. */
 	public static final String TAG = "main";
+
+	/** Ad's keywords. */
+	public static final HashSet<String> AD_KEYWORDS = new HashSet<String>();
+	static {
+		AD_KEYWORDS.add("android");
+		AD_KEYWORDS.add("mobile");
+		AD_KEYWORDS.add("handy");
+		AD_KEYWORDS.add("cellphone");
+		AD_KEYWORDS.add("google");
+		AD_KEYWORDS.add("htc");
+		AD_KEYWORDS.add("samsung");
+		AD_KEYWORDS.add("motorola");
+		AD_KEYWORDS.add("market");
+		AD_KEYWORDS.add("app");
+		AD_KEYWORDS.add("report");
+		AD_KEYWORDS.add("calls");
+		AD_KEYWORDS.add("game");
+		AD_KEYWORDS.add("traffic");
+		AD_KEYWORDS.add("data");
+		AD_KEYWORDS.add("amazon");
+	}
 
 	/** Extra for setting now. */
 	public static final String EXTRA_NOW = "now";
@@ -1345,7 +1374,7 @@ public class Plans extends ListActivity implements OnClickListener,
 		} else {
 			this.findViewById(R.id.import_default).setVisibility(View.GONE);
 			if (!prefsNoAds) {
-				this.findViewById(R.id.ad).setVisibility(View.VISIBLE);
+				this.loadAd();
 			}
 		}
 		// reload plan configuration
@@ -1592,5 +1621,41 @@ public class Plans extends ListActivity implements OnClickListener,
 		cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal
 				.get(Calendar.DAY_OF_MONTH), hourOfDay, minute);
 		this.setNow(cal.getTimeInMillis(), true, true);
+	}
+
+	/** Load ads. */
+	private void loadAd() {
+		final AdView adv = (AdView) this.findViewById(R.id.ad);
+		final AdRequest ar = new AdRequest();
+		ar.setKeywords(AD_KEYWORDS);
+
+		adv.loadAd(ar);
+		adv.setAdListener(new AdListener() {
+			@Override
+			public void onReceiveAd(final Ad ad) {
+				Log.d(TAG, "got ad: " + ad.toString());
+				adv.setVisibility(View.VISIBLE);
+			}
+
+			@Override
+			public void onPresentScreen(final Ad ad) {
+				// nothing todo
+			}
+
+			@Override
+			public void onLeaveApplication(final Ad ad) {
+				// nothing todo
+			}
+
+			@Override
+			public void onFailedToReceiveAd(final Ad ad, final ErrorCode err) {
+				Log.i(TAG, "failed to load ad: " + err);
+			}
+
+			@Override
+			public void onDismissScreen(final Ad arg0) {
+				// nothing todo
+			}
+		});
 	}
 }
