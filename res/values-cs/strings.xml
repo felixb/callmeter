@@ -23,6 +23,7 @@
 <resources>
   <string name="changelog_notification_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Recent changes:">Poslední změny:</string>
   <string name="changelog_notification_text" formatted="false">Klikněte zde pro zobrazení nedávných změn</string>
+  <string name="never_show_again" formatted="false" orig="Never show changelog again">Changelog již nezobrazovat</string>
   <string name="notes_from_developer_" formatted="false">Poznámky od autora</string>
   <string name="notes_from_developer_text" formatted="false">Klikněte zde pro zobrazení posledních novinek od autora</string>
   <string name="about0_" formatted="false">Call Meter slouží ke sledování stavu čerpání hovorného, SMS zpráv a datových přenosů v rámci měsíčního paušálu.</string>
@@ -32,9 +33,13 @@
   <string name="about3" formatted="false">Call Meter se spouští každých 30 minut (pokud není telefon v pohotovostním režimu), což znamená, že smazání záznamů o hovorech/sms/datech za posledních 30 minut ovlivní vypočtenou statistiku.</string>
   <string name="send_" formatted="false">Odeslat</string>
   <string name="add_" formatted="false">Přidat</string>
+  <string name="add_log" formatted="false" orig="Add log entry">Přidat záznam do logu</string>
+  <string name="length_hint_call" formatted="false" orig="Length in seconds">Délka v sekundách</string>
+  <string name="length_hint_data" formatted="false" orig="Length in kB">Velikost v kB</string>
   <string name="settings" formatted="false">Nastavení</string>
   <string name="update_interval_" formatted="false">Interval aktualizace</string>
   <string name="update_interval_hint" formatted="false">Kratší interval zvýší spotřebu baterie.</string>
+  <string name="date_begin_" formatted="false" orig="Beginning of records">Počátek záznamů</string>
   <string name="date_begin_hint" formatted="false">Ignorovat všechny záznamy před tímto datem.</string>
   <string name="delete_old_logs_" formatted="false">Odstranit záznamy starší než</string>
   <string name="delete_old_logs_help" formatted="false">Odstranit záznamy starší než x dní z interní databáze. Nevyplňujte pro neodstraňování.</string>
@@ -52,16 +57,28 @@
   <string name="billmode_" formatted="false">Tarifikace</string>
   <string name="billdate_" formatted="false">Začátek zúčtovacího období:</string>
   <string name="appearance_" formatted="false">Přizpůsobení vzhledu</string>
+  <string name="behavior_" formatted="false" orig="Behavior">Chování</string>
+  <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp;amp; behavior">Vzhled a chování</string>
   <string name="advanced_preferences_" formatted="false">Pokročilá nastavení</string>
+  <string name="advanced_preferences_hint" formatted="false" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Umožní vám zadat složitější nastavení. Většina uživatelů to však nevyužije.</string>
   <string name="theme_" formatted="false">Motiv</string>
   <string name="textsize_" formatted="false">Velikost textu</string>
   <string name="textsize_hint" formatted="false">Velikost textu v pixelech, ponechte prázdné pro výchozí</string>
+  <string name="textsize_title_" formatted="false" orig="Title\'s text size">Velikost písma titulku</string>
+  <string name="textsize_title_hint" formatted="false" orig="Text size for titles in pixels; leave empty for default">Velikost písma titulku v pixelech. Pro výchozí hodnoty ponechte prázdné.</string>
+  <string name="textsize_bigtitle_" formatted="false" orig="Big title\'s text size">Velikost písma velkých titulků</string>
+  <string name="textsize_bigtitle_hint" formatted="false" orig="Text size for big titles in pixels; leave empty for default">Velikost písma velkých titulků v pixelech. Pro výchozí hodnoty ponechte prázdné.</string>
   <string name="textsize_spacer_" formatted="false">Velikost oddělovače</string>
   <string name="textsize_spacer_hint" formatted="false">Size for spacers in pixels; leave empty for default</string>
+  <string name="textsize_pbar_" formatted="false" orig="Progress bar\'s size">Velikost indikátoru průběhu</string>
+  <string name="textsize_pbar_hint" formatted="false" orig="Size for progress bars in pixels; leave empty for default">Velikost indikátoru průběhu v pixelech. Pro výchozí hodnoty ponechte prázdné.</string>
+  <string name="show_today_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Show today">Zobrazit dnešek</string>
   <string name="show_today_hint" formatted="false">Zobrazit dnešní statistiky</string>
+  <string name="show_total_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Show total">Zobrazit souhrn všeho</string>
   <string name="show_time_" formatted="false">Přejít na datum</string>
   <string name="show_titlebar_" formatted="false">Zobrazit záhlaví</string>
   <string name="show_titlebar_hint" formatted="false">Zobrazit záhlaví v hlavním okně. Bez záhlaví nelze zjistit aktivitu na pozadí.</string>
+  <string name="show_hours_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Show hours">Zobrazit hodiny</string>
   <string name="show_help_" formatted="false">Zobrazit nápovědu</string>
   <string name="show_cost_" formatted="false">Zobrazit cenu</string>
   <string name="show_calllength_" formatted="false">Zobrazit informace po zavěšení</string>
@@ -69,6 +86,7 @@
   <string name="hide_zero_hint" formatted="false">Skrýt tarify bez položek.</string>
   <string name="hide_nocost_" formatted="false">Skrýt tarify zdarma</string>
   <string name="hide_nocost_hint" formatted="false">Skrýt tarify zdarma.</string>
+  <string name="hide_progressbars_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Hide progress bars">Skrýt indikátory průběhu</string>
   <string name="custom_currency_symbol_" formatted="false">Vlastní symbol měny</string>
   <string name="custom_currency_symbol_hint" formatted="false">Nastavit vlastní symbol měny, ponechte prázdné pro výchozí nastavení systému.</string>
   <string name="custom_currency_format_" formatted="false">Vlastní formát měny</string>
@@ -90,6 +108,7 @@
   <string name="rules" formatted="false">Pravidla</string>
   <string name="rules_hint" formatted="false">Zde nastavte pravidla pro zúčtování.</string>
   <string name="rules_new" formatted="false">Nové pravidlo</string>
+  <string name="length_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Length">Délka</string>
   <string name="numbergroups_edit_" formatted="false">Skupiny čísel</string>
   <string name="hourgroups_edit_" formatted="false">Skupiny hodin</string>
   <string name="numbers" formatted="false">Čísla</string>
