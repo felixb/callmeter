@@ -24,6 +24,7 @@
 	<LinearLayout android:id="@+id/ok_cancel"
 		android:layout_alignParentBottom="true" android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:orientation="horizontal"
+		android:focusable="true" android:focusableInTouchMode="true"
 		style="@android:style/ButtonBar">
 		<Button android:id="@+id/ok" android:text="@android:string/ok"
 			android:layout_width="fill_parent" android:layout_height="wrap_content"
@@ -54,16 +55,16 @@
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:textAppearance="?android:attr/textAppearanceLarge" />
 			<EditText android:id="@+id/widget_plan_textsize"
-				android:text="" android:layout_width="match_parent"
+				android:text="10" android:layout_width="match_parent"
 				android:layout_height="wrap_content" android:singleLine="true" />
 			<TextView android:text="@string/widget_cost_textsize"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:textAppearance="?android:attr/textAppearanceLarge"
-				android:inputType="number" android:focusable="false" />
+				android:inputType="number" />
 			<EditText android:id="@+id/widget_stats_textsize"
-				android:text="" android:layout_width="match_parent"
+				android:text="10" android:layout_width="match_parent"
 				android:layout_height="wrap_content" android:singleLine="true"
-				android:inputType="number" android:focusable="false" />
+				android:inputType="number" />
 		</LinearLayout>
 	</ScrollView>
 </RelativeLayout>
