@@ -69,7 +69,7 @@ public abstract class Device {
 		try {
 			BufferedReader r = new BufferedReader(new FileReader(f), BUFSIZE);
 			sb.append("read: " + f);
-			sb.append("\n");
+			sb.append("\t");
 			sb.append(r.readLine());
 			r.close();
 		} catch (IOException e) {
@@ -100,13 +100,9 @@ public abstract class Device {
 				try {
 					sb.append("\n\ndevice: ");
 					sb.append(dev);
-					sb.append("\ntype: ");
 					sb.append(readFile(dev + "/type"));
-					sb.append("\ncarrier: ");
 					sb.append(readFile(dev + SysClassNet.CARRIER));
-					sb.append("\nrx: ");
 					sb.append(readFile(dev + SysClassNet.RX_BYTES));
-					sb.append("\ntx: ");
 					sb.append(readFile(dev + SysClassNet.TX_BYTES));
 				} catch (Exception e) {
 					sb.append("\nERROR: " + e + "\n");
@@ -169,7 +165,7 @@ class DiscoverableDevice extends Device {
 
 	/** List of possible cell interfaces. */
 	private static final String[] CELL_INTERFACES = { //
-	"rmnet0", "pdp0", "ppp0" //
+	"rmnet0", "pdp0", "ppp0", "vsnet0" //
 	};
 
 	/** List of possible wifi interfaces. */
