@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 Felix Bechstein
+ * Copyright (C) 2009-2011 Felix Bechstein
  * 
  * This file is part of Call Meter NG.
  * 
@@ -18,6 +18,8 @@
  */
 package de.ub0r.de.android.callMeterNG;
 
+import java.util.HashSet;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,8 +29,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+
+import com.google.ads.Ad;
+import com.google.ads.AdListener;
+import com.google.ads.AdRequest;
+import com.google.ads.AdView;
+import com.google.ads.AdRequest.ErrorCode;
+
 import de.ub0r.android.lib.Changelog;
 import de.ub0r.android.lib.DonationHelper;
+import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -39,6 +49,27 @@ import de.ub0r.android.lib.Utils;
 public class CallMeter extends Activity {
 	/** Tag for output. */
 	public static final String TAG = "main";
+
+	/** Ad's keywords. */
+	public static final HashSet<String> AD_KEYWORDS = new HashSet<String>();
+	static {
+		AD_KEYWORDS.add("android");
+		AD_KEYWORDS.add("mobile");
+		AD_KEYWORDS.add("handy");
+		AD_KEYWORDS.add("cellphone");
+		AD_KEYWORDS.add("google");
+		AD_KEYWORDS.add("htc");
+		AD_KEYWORDS.add("samsung");
+		AD_KEYWORDS.add("motorola");
+		AD_KEYWORDS.add("market");
+		AD_KEYWORDS.add("app");
+		AD_KEYWORDS.add("report");
+		AD_KEYWORDS.add("calls");
+		AD_KEYWORDS.add("game");
+		AD_KEYWORDS.add("traffic");
+		AD_KEYWORDS.add("data");
+		AD_KEYWORDS.add("amazon");
+	}
 
 	/** 100. */
 	static final int HUNDRET = 100;
@@ -75,7 +106,7 @@ public class CallMeter extends Activity {
 	protected final void onResume() {
 		super.onResume();
 		if (!prefsNoAds) {
-			this.findViewById(R.id.ad).setVisibility(View.VISIBLE);
+			this.loadAd();
 		}
 		// get call/sms stats
 		new Updater(this).execute((Void[]) null);
@@ -113,5 +144,41 @@ public class CallMeter extends Activity {
 		default:
 			return false;
 		}
+	}
+
+	/** Load ads. */
+	private void loadAd() {
+		final AdView adv = (AdView) this.findViewById(R.id.ad);
+		final AdRequest ar = new AdRequest();
+		ar.setKeywords(AD_KEYWORDS);
+
+		adv.loadAd(ar);
+		adv.setAdListener(new AdListener() {
+			@Override
+			public void onReceiveAd(final Ad ad) {
+				Log.d(TAG, "got ad: " + ad.toString());
+				adv.setVisibility(View.VISIBLE);
+			}
+
+			@Override
+			public void onPresentScreen(final Ad ad) {
+				// nothing todo
+			}
+
+			@Override
+			public void onLeaveApplication(final Ad ad) {
+				// nothing todo
+			}
+
+			@Override
+			public void onFailedToReceiveAd(final Ad ad, final ErrorCode err) {
+				Log.i(TAG, "failed to load ad: " + err);
+			}
+
+			@Override
+			public void onDismissScreen(final Ad arg0) {
+				// nothing todo
+			}
+		});
 	}
 }
