@@ -21,7 +21,7 @@
                Visit http://ub0r.de/translate/cm2/edit.php?lang=it&file=strings.xml to edit the file.
        -->
 <resources>
-  <string name="about0_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Watch your call, message and data plans!">Controlla le tue chiamate, messaggi e piani tariffari!</string>
+  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Controlla le tue chiamate, messaggi e piani tariffari!</string>
   <string name="about0" formatted="false">CallMeter genera report sulle chiamate, messaggi e sul traffico dati. Supporta diverse modalità di conteggio o tariffazione.</string>
   <string name="about1" formatted="false">Il formato delle statistiche è uso / tempo o conteggio usato dal periodo / tempo di fatturazione rispetto al totale.</string>
   <string name="about2" formatted="false">La modalità di tariffazione specifica la lunghezza del primo / successivi intervalli di tariffazione. Ad esempio, 60/10 significa che ogni chiamata è conteggiata minimo 60 secondi, e poi è arrotondata ai successivi 10 secondi.</string>

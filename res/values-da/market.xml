@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+       <!--
+               Copyright (C) 2009-2011 Felix Bechstein
+       -->
+       <!--
+               This file is part of Call Meter NG. This program is free software; you can
+               redistribute it and/or modify it under the terms of the GNU General
+               Public License as published by the Free Software Foundation; either
+               version 3 of the License, or (at your option) any later version.
+       -->
+       <!--
+               This program is distributed in the hope that it will be useful, but
+               WITHOUT ANY WARRANTY; without even the implied warranty of
+               MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+               General Public License for more details. You should have received a
+               copy of the GNU General Public License along with this program; If
+               not, see <http://www.gnu.org/licenses/>.
+       -->
+      <!--
+               This file is generated automatically by ub0rlib/php.
+               Visit http://ub0r.de/translate/cm2/edit.php?lang=da&file=market.xml to edit the file.
+       -->
+<resources>
+  <string name="market_about" formatted="false" username="basse1996" orig="Call Meter let\'s you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and let\'s you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.">CallMeter Gør det muligt at holde øje med dit mobil forbrug.\n\nDen viser statistiker om opkald/SMS\'er/data trafik og sætte grænser for hver af disse ting.\nCallMeter understøtter et stort udvalg af fakturerings metoder, så du kan indstille efter dit eget behov.</string>
+  <string name="market_oss" formatted="false" username="basse1996" orig="This app is open source software build in spare time. Adding bad comments in market won't help much to make it better.\nPlease add your issues with this app on the app\'s website.">Denne app er en åben kilde, bygget i fritiden. Tilføjelse af dårlige kommentarer på market hjælper ikke meget, med at gøre den bedre.\nVær venlig at stille spørgsmål/Forbedring omkring denne app på dens hjemmeside.</string>
+  <string name="market_translation" formatted="false" username="basse1996" orig="Feel free to help translating this app to your language here: http://ub0r.de/translate/cm2/">Føl dig fri til at oversætte denne app to dit sprog her:\nhttp://ub0r.de/translate/cm2/</string>
+</resources>

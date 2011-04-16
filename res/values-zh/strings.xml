@@ -24,7 +24,7 @@
   <string name="about0_" formatted="false">查看电话,短信,数据连接方案!</string>
   <string name="about0" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter根据电话,短信,数据连接记录生成报告.它支持多种支付方案.</string>
   <string name="about1" formatted="false">账单输出模式是 一次通讯/次 或者 账单周期/次 或者 全部累加统计. 一个月（账单周期/次）一次的统计可以每月看到您实际消费的金额. 全部累加统计的无法看到每个月的消费金额.</string>
-  <string name="about2" formatted="false">入账模式为 首×分钟/每×分钟. 例如. 60/10 意味着首分钟不足60秒按60秒计算,以后每10秒计算一次.</string>
+  <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">入账模式为 首×分钟/每×分钟. 例如. 60/10 意味着首分钟不足60秒按60秒计算,以后每10秒计算一次.</string>
   <string name="about3" formatted="false">您可以分两部分分别统计短信及电话. 任意一个套餐都可以设置为完全免费,或设置使用上限或无上限.</string>
   <string name="about4" formatted="false">您的短信可以统计入通话记录中. 例如. 将每一条短信按15s语音通话入账.</string>
   <string name="about5" formatted="false">CallMeter每30分钟统计一次数据(除非程序不在背景运行). 这意味着删除30分钟前的系统统计数据不会影响统计结果. 删除之后的数据则会导致错误的统计结果.</string>

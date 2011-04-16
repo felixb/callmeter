@@ -29,7 +29,7 @@
   <string name="about4" formatted="false">Wiadomości mogą być brane pod uwagę w Twoim planie. Np. zliczać każdy wysłany sms jako 15s. połączenie.</string>
   <string name="about5" formatted="false">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
   <string name="about6_" formatted="false">Czego CallMeter NIE robi:</string>
-  <string name="about6" formatted="false">Nie da się odróżnić połączeń SIP od realnych połączeń lub WebSMS od SMS wysłanych \"z telefonu\". Android \'s bezproblemową integrację tych. Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości żeby je odróżnić.</string>
+  <string name="about6" formatted="false" orig="There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs.">Nie da się odróżnić połączeń SIP od realnych połączeń lub WebSMS od SMS wysłanych "z telefonu". Android \'s bezproblemową integrację tych. Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości żeby je odróżnić.</string>
   <string name="send_" formatted="false">Wyślij</string>
   <string name="settings" formatted="false">Ustawienia</string>
   <string name="about_" formatted="false">O programie</string>
