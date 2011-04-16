@@ -72,18 +72,25 @@ public final class Ads {
 			Log.e(TAG, "adframe=null");
 			return;
 		}
-		AdSize as = AdSize.BANNER;
-		// TODO
-		// DisplayMetrics metrics = new DisplayMetrics();
-		// this.getWindowManager().getDefaultDisplay().getMetrics(metrics);
-		// if (metrics.heightPixels > AD_HSIZE && metrics.widthPixels >
-		// AD_HSIZE) {
-		// as = AdSize.IAB_LEADERBOARD;
-		// }
-		// metrics = null;
-		final AdView adv = new AdView(activity, as, unitId);
-		as = null;
-		adframe.addView(adv);
+
+		AdView adv;
+		View v = adframe.getChildAt(0);
+		if (v != null && v instanceof AdView) {
+			adv = (AdView) v;
+		} else {
+			AdSize as = AdSize.BANNER;
+			// TODO
+			// final DisplayMetrics metrics = new DisplayMetrics();
+			// this.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+			// if (metrics.heightPixels > AD_HSIZE && metrics.widthPixels >
+			// AD_HSIZE) {
+			// as = AdSize.IAB_LEADERBOARD;
+			// }
+			// metrics = null;
+			adv = new AdView(activity, as, unitId);
+			adframe.addView(adv);
+		}
+
 		final AdRequest ar = new AdRequest();
 		if (keywords != null) {
 			ar.setKeywords(keywords);
