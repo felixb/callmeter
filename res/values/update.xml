@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: add support for LG-P990, minor fiexes</item>
+		<item>HEAD: add support for LG-P990, minor fixes</item>
 		<item>v2.3.16: Add support for GT-S5830, move to new translation system</item>
 		<item>v2.3.15: Inner changes, translation update, add hebrew translation, add support for GT-I5510</item>
 		<item>v2.3.14: Add Slovak translation, fix czech tanslation</item>
