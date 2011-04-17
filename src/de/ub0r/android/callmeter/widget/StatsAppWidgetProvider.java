@@ -29,6 +29,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -272,6 +276,19 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		views.setTextViewText(R.id.stats, stats);
 		views.setFloat(R.id.plan, "setTextSize", planTextSize);
 		views.setFloat(R.id.stats, "setTextSize", statsTextSize);
+		// FIXME
+		Bitmap bitmap = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888);
+		Canvas canvas = new Canvas(bitmap);
+		Paint paint = new Paint();
+		paint.setAntiAlias(true);
+		paint.setStyle(Paint.Style.FILL);
+		paint.setColor(0xFF000000);
+		paint.setAlpha(128);
+		canvas.drawRoundRect(new RectF(0, 0, 100, 100), 10, 10, paint);
+
+		views.setImageViewBitmap(R.id.widget_bg, bitmap);
+		bitmap = null;
+
 		if (bmax > 0) {
 			views.setProgressBar(R.id.appwidget_bg_top_progress, bmax, bpos,
 					false);
