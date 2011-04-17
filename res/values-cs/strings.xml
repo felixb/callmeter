@@ -75,13 +75,16 @@
   <string name="show_today_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Show today">Zobrazit dnešek</string>
   <string name="show_today_hint" formatted="false">Zobrazit dnešní statistiky</string>
   <string name="show_total_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Show total">Zobrazit souhrn všeho</string>
+  <string name="show_total_hint" formatted="false" orig="Show total stats, disable to see current only.">Zobrazit kompletní statistiky, vypnutím zobrazíte pouze současné.</string>
   <string name="show_time_" formatted="false">Přejít na datum</string>
   <string name="show_titlebar_" formatted="false">Zobrazit záhlaví</string>
   <string name="show_titlebar_hint" formatted="false">Zobrazit záhlaví v hlavním okně. Bez záhlaví nelze zjistit aktivitu na pozadí.</string>
   <string name="show_hours_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Show hours">Zobrazit hodiny</string>
+  <string name="show_hours_hint" formatted="false" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Zobrazit čas ve vteřinách, minutách, hodinách a dnech.\nPokud je nezaškrtnuto, zobrazí se pouze vteřiny a minuty.</string>
   <string name="show_help_" formatted="false">Zobrazit nápovědu</string>
   <string name="show_shortname_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Show short name instead of long name">Zobrazit krátké jméno místo dlouhého</string>
   <string name="show_cost_" formatted="false">Zobrazit cenu</string>
+  <string name="show_billperiod_" formatted="false" orig="Show progress of billing period">Zobrazit vývoj zúčtovacího období</string>
   <string name="show_calllength_" formatted="false">Zobrazit informace po zavěšení</string>
   <string name="show_calllength_hint" formatted="false">Zobrazit délku/cenu volání po zavěšení.</string>
   <string name="hide_zero_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Hide empty plans">Skrýt prázdné tarify</string>
@@ -89,6 +92,7 @@
   <string name="hide_nocost_" formatted="false">Skrýt tarify zdarma</string>
   <string name="hide_nocost_hint" formatted="false">Skrýt tarify zdarma.</string>
   <string name="hide_progressbars_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Hide progress bars">Skrýt indikátory průběhu</string>
+  <string name="hide_progressbars_hint" formatted="false" orig="Hide progress bars in main view.">Skrýt indikátor průběhu v hlavním náhledu.</string>
   <string name="custom_currency_symbol_" formatted="false">Vlastní symbol měny</string>
   <string name="custom_currency_symbol_hint" formatted="false">Nastavit vlastní symbol měny, ponechte prázdné pro výchozí nastavení systému.</string>
   <string name="custom_currency_format_" formatted="false">Vlastní formát měny</string>
