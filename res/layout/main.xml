@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Felix Bechstein
+		Copyright (C) 2009-2011 Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter NG. This program is free software; you
@@ -18,15 +18,14 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res/de.ub0r.de.android.callMeterNG"
 	android:layout_height="fill_parent" android:layout_width="fill_parent"
 	android:background="?android:attr/colorBackground">
 
-	<com.admob.android.ads.AdView android:id="@+id/ad"
+	<LinearLayout android:id="@+id/ad"
 		android:layout_alignParentBottom="true" android:visibility="gone"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:gravity="bottom"
-		app:keywords="android mobile handy cellphone google htc market app report calls game" />
+		android:cacheColorHint="?android:attr/colorBackground"
+		android:gravity="center_horizontal" />
 
 	<ScrollView android:layout_height="fill_parent"
 		android:layout_width="fill_parent" android:layout_above="@+id/ad">

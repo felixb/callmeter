@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 Felix Bechstein
+ * Copyright (C) 2009-2011 Felix Bechstein
  * 
  * This file is part of Call Meter NG.
  * 
@@ -18,13 +18,14 @@
  */
 package de.ub0r.de.android.callMeterNG;
 
+import java.util.HashSet;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 import de.ub0r.android.lib.Changelog;
@@ -39,6 +40,30 @@ import de.ub0r.android.lib.Utils;
 public class CallMeter extends Activity {
 	/** Tag for output. */
 	public static final String TAG = "main";
+
+	/** Ad's unit id. */
+	private static final String AD_UNITID = "a14c74c2173de45";
+
+	/** Ad's keywords. */
+	private static final HashSet<String> AD_KEYWORDS = new HashSet<String>();
+	static {
+		AD_KEYWORDS.add("android");
+		AD_KEYWORDS.add("mobile");
+		AD_KEYWORDS.add("handy");
+		AD_KEYWORDS.add("cellphone");
+		AD_KEYWORDS.add("google");
+		AD_KEYWORDS.add("htc");
+		AD_KEYWORDS.add("samsung");
+		AD_KEYWORDS.add("motorola");
+		AD_KEYWORDS.add("market");
+		AD_KEYWORDS.add("app");
+		AD_KEYWORDS.add("report");
+		AD_KEYWORDS.add("calls");
+		AD_KEYWORDS.add("game");
+		AD_KEYWORDS.add("traffic");
+		AD_KEYWORDS.add("data");
+		AD_KEYWORDS.add("amazon");
+	}
 
 	/** 100. */
 	static final int HUNDRET = 100;
@@ -75,7 +100,7 @@ public class CallMeter extends Activity {
 	protected final void onResume() {
 		super.onResume();
 		if (!prefsNoAds) {
-			this.findViewById(R.id.ad).setVisibility(View.VISIBLE);
+			Ads.loadAd(this, R.id.ad, AD_UNITID, AD_KEYWORDS);
 		}
 		// get call/sms stats
 		new Updater(this).execute((Void[]) null);
