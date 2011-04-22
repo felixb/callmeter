@@ -73,6 +73,11 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	/** Widget's background color. */
 	static final String WIDGET_BGCOLOR = "widget_bgcolor_";
 
+	/** Width of the widget. */
+	private static final int WIDGET_WIDTH = 100;
+	/** Round corners. */
+	private static final float WIDGET_RCORNER = 10f;
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -157,7 +162,6 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		String where;
 		int upc, upm, ups;
 		boolean isMerger;
-		// float cost = 0F;
 		String billdayWhere = null;
 		Cursor cursor = cr.query(DataProvider.Plans.CONTENT_URI,
 				DataProvider.Plans.PROJECTION, DataProvider.Plans.ID + " = ?",
@@ -241,7 +245,6 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			Log.d(TAG, "count: " + ps.count);
 			Log.d(TAG, "cost: " + ps.cost);
 			Log.d(TAG, "billedAmount: " + ps.billedAmount);
-
 			used = DataProvider.Plans.getUsed(ptype, ltype, ps.billedAmount,
 					ps.cost);
 		}
@@ -251,9 +254,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			ps.cost += cpp;
 		}
 
-		String stats = Plans.formatAmount(ptype, ps.billedAmount,
-				PreferenceManager.getDefaultSharedPreferences(context)
-						.getBoolean(Preferences.PREFS_SHOWHOURS, true));
+		String stats = Plans.formatAmount(ptype, ps.billedAmount, p.getBoolean(
+				Preferences.PREFS_SHOWHOURS, true));
 		if (ptype == DataProvider.TYPE_CALL) {
 			stats += " (" + ps.count + ")";
 		}
@@ -270,35 +272,37 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		Log.d(TAG, "used: " + used);
 		Log.d(TAG, "stats: " + stats);
 
-		// Create an Intent to launch Plans
-		final Intent intent = new Intent(context, Plans.class);
-		final PendingIntent pendingIntent = PendingIntent.getActivity(context,
-				0, intent, 0);
-
-		// Get the layout for the App Widget and attach an on-click listener
-		// to the button
 		final RemoteViews views = new RemoteViews(context.getPackageName(),
 				R.layout.stats_appwidget);
-		views.setOnClickPendingIntent(R.id.widget, pendingIntent);
+		views.setImageViewBitmap(R.id.widget_bg, getBackground(bgColor));
 		views.setTextViewText(R.id.plan, pname);
 		views.setTextViewText(R.id.stats, stats);
 		views.setFloat(R.id.plan, "setTextSize", planTextSize);
 		views.setFloat(R.id.stats, "setTextSize", statsTextSize);
 		views.setTextColor(R.id.plan, textColor);
 		views.setTextColor(R.id.stats, textColor);
-		// FIXME
-		Bitmap bitmap = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888);
-		Canvas canvas = new Canvas(bitmap);
-		Paint paint = new Paint();
-		paint.setAntiAlias(true);
-		paint.setStyle(Paint.Style.FILL);
-		paint.setColor(bgColor);
-		// paint.setAlpha(128);
-		canvas.drawRoundRect(new RectF(0, 0, 100, 100), 10, 10, paint);
+		setProgress(views, bmax, bpos, limit, used);
+		views.setOnClickPendingIntent(R.id.widget, PendingIntent.getActivity(
+				context, 0, new Intent(context, Plans.class), 0));
+		appWidgetManager.updateAppWidget(appWidgetId, views);
+	}
 
-		views.setImageViewBitmap(R.id.widget_bg, bitmap);
-		bitmap = null;
-
+	/**
+	 * Set ProgressBars for bill period and usage.
+	 * 
+	 * @param views
+	 *            {@link RemoteViews}
+	 * @param bmax
+	 *            max position of bill period ProgressBar
+	 * @param bpos
+	 *            position of bill period ProgressBar
+	 * @param limit
+	 *            limit
+	 * @param used
+	 *            usage
+	 */
+	private static void setProgress(final RemoteViews views, final int bmax,
+			final int bpos, final long limit, final int used) {
 		if (bmax > 0) {
 			views.setProgressBar(R.id.appwidget_bg_top_progress, bmax, bpos,
 					false);
@@ -335,9 +339,25 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			views.setProgressBar(R.id.appwidget_bg_bottom_progress_red, 1, 0,
 					false);
 		}
+	}
 
-		// Tell the AppWidgetManager to perform an update on the current App
-		// Widget
-		appWidgetManager.updateAppWidget(appWidgetId, views);
+	/**
+	 * Get {@link Bitmap} for background.
+	 * 
+	 * @param bgColor
+	 *            background color
+	 * @return {@link Bitmap}
+	 */
+	private static Bitmap getBackground(final int bgColor) {
+		final Bitmap bitmap = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH,
+				Bitmap.Config.ARGB_8888);
+		Canvas canvas = new Canvas(bitmap);
+		final Paint paint = new Paint();
+		paint.setAntiAlias(true);
+		paint.setStyle(Paint.Style.FILL);
+		paint.setColor(bgColor);
+		canvas.drawRoundRect(new RectF(0f, 0f, WIDGET_WIDTH, WIDGET_WIDTH),
+				WIDGET_RCORNER, WIDGET_RCORNER, paint);
+		return bitmap;
 	}
 }
