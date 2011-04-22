@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 Felix Bechstein
+ * Copyright (C) 2010-2011 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -18,6 +18,8 @@
  */
 package de.ub0r.android.callmeter.widget;
 
+import yuku.ambilwarna.AmbilWarnaDialog;
+import yuku.ambilwarna.AmbilWarnaDialog.OnAmbilWarnaListener;
 import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
@@ -27,14 +29,18 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -43,7 +49,10 @@ import de.ub0r.android.lib.Utils;
  * @author flx
  */
 public final class StatsAppWidgetConfigure extends Activity implements
-		OnClickListener, OnCheckedChangeListener {
+		OnClickListener, OnCheckedChangeListener, OnSeekBarChangeListener {
+	/** Tag for logging. */
+	private static final String TAG = "wdgtcfg";
+
 	/** Widget id. */
 	private int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
 	/** {@link Spinner} holding the plan. */
@@ -51,8 +60,25 @@ public final class StatsAppWidgetConfigure extends Activity implements
 
 	/** {@link CheckBox}s. */
 	private CheckBox cbShowShortname, cbShowCost, cbShowBillp;
-	/** {@link EditText}s */
-	private EditText planTextSize, statsTextSize;
+	/** {@link EditText}s. */
+	private EditText etPlanTextSize, etStatsTextSize;
+	/** {@link Button}s. */
+	private Button btnTextColor, btnBgColor;
+	/** {@link View}s. */
+	private View vTextColor, vBgColor;
+	/** {@link SeekBar}. */
+	private SeekBar sbBgTransparency;
+
+	/** Default text size. */
+	static final float DEFAULT_TEXTSIZE = 10f;
+	/** Default text color. */
+	static final int DEFAULT_TEXTCOLOR = 0xffffffff;
+	/** Default background color. */
+	static final int DEFAULT_BGCOLOR = 0x80000000;
+	/** Bit mask for colors. */
+	private static final int BITMASK_COLOR = 0x00FFFFFF;
+	/** Shift for transparency. */
+	private static final int BITSHIFT_TRANSPARENCY = 24;
 
 	/** Projection for {@link SimpleCursorAdapter} query. */
 	private static final String[] PROJ_ADAPTER = new String[] {
@@ -74,13 +100,24 @@ public final class StatsAppWidgetConfigure extends Activity implements
 		this.cbShowShortname.setOnCheckedChangeListener(this);
 		this.cbShowCost = (CheckBox) this.findViewById(R.id.cost);
 		this.cbShowBillp = (CheckBox) this.findViewById(R.id.pbillp);
-		this.planTextSize = (EditText) this
+		this.etPlanTextSize = (EditText) this
 				.findViewById(R.id.widget_plan_textsize);
-		this.statsTextSize = (EditText) this
+		this.etStatsTextSize = (EditText) this
 				.findViewById(R.id.widget_stats_textsize);
+		this.btnTextColor = (Button) this.findViewById(R.id.textcolor);
+		this.btnBgColor = (Button) this.findViewById(R.id.bgcolor);
+		this.vTextColor = this.findViewById(R.id.textcolorfield);
+		this.vBgColor = this.findViewById(R.id.bgcolorfield);
+		this.sbBgTransparency = (SeekBar) this
+				.findViewById(R.id.bgtransparency);
 		this.setAdapter();
 		this.findViewById(R.id.ok).setOnClickListener(this);
 		this.findViewById(R.id.cancel).setOnClickListener(this);
+		this.btnTextColor.setOnClickListener(this);
+		this.btnBgColor.setOnClickListener(this);
+		this.sbBgTransparency.setOnSeekBarChangeListener(this);
+		this.setTextColor(DEFAULT_TEXTCOLOR);
+		this.setBgColor(DEFAULT_BGCOLOR, false);
 	}
 
 	/** Set {@link SimpleCursorAdapter} for {@link Spinner}. */
@@ -139,11 +176,15 @@ public final class StatsAppWidgetConfigure extends Activity implements
 			editor.putBoolean(StatsAppWidgetProvider.WIDGET_BILLPERIOD
 					+ this.mAppWidgetId, this.cbShowBillp.isChecked());
 			editor.putFloat(StatsAppWidgetProvider.WIDGET_STATS_TEXTSIZE
-					+ this.mAppWidgetId, Utils.parseFloat(this.statsTextSize
-					.getText().toString(), 10f));
+					+ this.mAppWidgetId, Utils.parseFloat(this.etStatsTextSize
+					.getText().toString(), DEFAULT_TEXTSIZE));
 			editor.putFloat(StatsAppWidgetProvider.WIDGET_PLAN_TEXTSIZE
-					+ this.mAppWidgetId, Utils.parseFloat(this.planTextSize
-					.getText().toString(), 10f));
+					+ this.mAppWidgetId, Utils.parseFloat(this.etPlanTextSize
+					.getText().toString(), DEFAULT_TEXTSIZE));
+			editor.putInt(StatsAppWidgetProvider.WIDGET_TEXTCOLOR, this
+					.getTextColor());
+			editor.putInt(StatsAppWidgetProvider.WIDGET_BGCOLOR, this
+					.getBgColor());
 			editor.commit();
 
 			final AppWidgetManager appWidgetManager = AppWidgetManager
@@ -159,6 +200,47 @@ public final class StatsAppWidgetConfigure extends Activity implements
 			break;
 		case R.id.cancel:
 			this.finish();
+			break;
+		case R.id.textcolor:
+			new AmbilWarnaDialog(this, this.getBgColor(),
+					new OnAmbilWarnaListener() {
+						@Override
+						public void onOk(final AmbilWarnaDialog dialog, // .
+								final int color) {
+							StatsAppWidgetConfigure.this.setTextColor(color);
+						}
+
+						@Override
+						public void onCancel(final AmbilWarnaDialog dialog) {
+							// nothing to do
+						}
+
+						public void onReset(final AmbilWarnaDialog dialog) {
+							StatsAppWidgetConfigure.this
+									.setTextColor(DEFAULT_TEXTCOLOR);
+						}
+					}).show();
+			break;
+		case R.id.bgcolor:
+			new AmbilWarnaDialog(this, this.getBgColor(),
+					new OnAmbilWarnaListener() {
+						@Override
+						public void onOk(final AmbilWarnaDialog dialog, // .
+								final int color) {
+							StatsAppWidgetConfigure.this.setBgColor(color,
+									false);
+						}
+
+						@Override
+						public void onCancel(final AmbilWarnaDialog dialog) {
+							// nothing to do
+						}
+
+						public void onReset(final AmbilWarnaDialog dialog) {
+							StatsAppWidgetConfigure.this.setBgColor(
+									DEFAULT_BGCOLOR, false);
+						}
+					}).show();
 			break;
 		default:
 			break;
@@ -178,5 +260,104 @@ public final class StatsAppWidgetConfigure extends Activity implements
 		default:
 			return;
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onProgressChanged(final SeekBar seekBar, final int progress,
+			final boolean fromUser) {
+		Log.d(TAG, "onProgressChanged(" + progress + ")");
+		int c = this.getBgColor();
+		Log.d(TAG, "color: " + c);
+		c = c & BITMASK_COLOR;
+		Log.d(TAG, "color: " + c);
+		Log.i(TAG, "transparency: "
+				+ Integer.toHexString(progress << BITSHIFT_TRANSPARENCY));
+		c = c | progress << BITSHIFT_TRANSPARENCY;
+		Log.d(TAG, "color: " + c);
+		this.setBgColor(c, true);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onStartTrackingTouch(final SeekBar seekBar) {
+		// nothing todo
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onStopTrackingTouch(final SeekBar seekBar) {
+		// nothing todo
+	}
+
+	/**
+	 * Get background color currently set.
+	 * 
+	 * @return color
+	 */
+	private int getBgColor() {
+		return Long.decode(this.btnBgColor.getText().toString()).intValue();
+	}
+
+	/**
+	 * Set the background color to btnBgColor and vBgColorField.
+	 * 
+	 * @param color
+	 *            color to set
+	 * @param fromProgressBar
+	 *            true, if setColor is called from onProgessChanged()
+	 */
+	private void setBgColor(final int color, final boolean fromProgressBar) {
+		Log.d(TAG, "setBgColor(" + color + ", " + fromProgressBar + ")");
+		String hex = "#" + Integer.toHexString(color);
+		Log.d(TAG, "color: " + hex);
+		while (hex.length() < 9) {
+			hex = "#0" + hex.substring(1);
+			Log.d(TAG, "color: " + hex);
+		}
+		this.btnBgColor.setText(hex);
+		this.vBgColor.setBackgroundColor(color);
+		if (!fromProgressBar) {
+			int trans = color >> BITSHIFT_TRANSPARENCY;
+			Log.d(TAG, "transparency: " + trans);
+			if (trans < 0) {
+				trans = 256 + trans;
+				Log.d(TAG, "transparency: " + trans);
+			}
+			this.sbBgTransparency.setProgress(trans);
+		}
+	}
+
+	/**
+	 * Get text color currently set.
+	 * 
+	 * @return color
+	 */
+	private int getTextColor() {
+		return Long.decode(this.btnTextColor.getText().toString()).intValue();
+	}
+
+	/**
+	 * Set the text color to btnTextColor and vTextColorField.
+	 * 
+	 * @param color
+	 *            color to set
+	 */
+	private void setTextColor(final int color) {
+		Log.d(TAG, "setTextColor(" + color + ")");
+		String hex = "#" + Integer.toHexString(color);
+		Log.d(TAG, "color: " + hex);
+		while (hex.length() < 9) {
+			hex = "#0" + hex.substring(1);
+			Log.d(TAG, "color: " + hex);
+		}
+		this.btnTextColor.setText(hex);
+		this.vTextColor.setBackgroundColor(color);
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 Felix Bechstein
+ * Copyright (C) 2010-2011 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -68,6 +68,10 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	static final String WIDGET_PLAN_TEXTSIZE = "widget_plan_textsize_";
 	/** Size of the statistics text. */
 	static final String WIDGET_STATS_TEXTSIZE = "widget_stats_textsize_";
+	/** Widget's text color. */
+	static final String WIDGET_TEXTCOLOR = "widget_textcolor_";
+	/** Widget's background color. */
+	static final String WIDGET_BGCOLOR = "widget_bgcolor_";
 
 	/**
 	 * {@inheritDoc}
@@ -130,9 +134,13 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		final boolean showBillPeriod = p.getBoolean(WIDGET_BILLPERIOD
 				+ appWidgetId, false);
 		final Float statsTextSize = p.getFloat(WIDGET_STATS_TEXTSIZE
-				+ appWidgetId, 10f);
+				+ appWidgetId, StatsAppWidgetConfigure.DEFAULT_TEXTSIZE);
 		final Float planTextSize = p.getFloat(WIDGET_PLAN_TEXTSIZE
-				+ appWidgetId, 10f);
+				+ appWidgetId, StatsAppWidgetConfigure.DEFAULT_TEXTSIZE);
+		final int textColor = p.getInt(WIDGET_TEXTCOLOR,
+				StatsAppWidgetConfigure.DEFAULT_TEXTCOLOR);
+		final int bgColor = p.getInt(WIDGET_BGCOLOR,
+				StatsAppWidgetConfigure.DEFAULT_BGCOLOR);
 		Log.d(TAG, "planid: " + pid);
 		final ContentResolver cr = context.getContentResolver();
 
@@ -276,14 +284,16 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		views.setTextViewText(R.id.stats, stats);
 		views.setFloat(R.id.plan, "setTextSize", planTextSize);
 		views.setFloat(R.id.stats, "setTextSize", statsTextSize);
+		views.setTextColor(R.id.plan, textColor);
+		views.setTextColor(R.id.stats, textColor);
 		// FIXME
 		Bitmap bitmap = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888);
 		Canvas canvas = new Canvas(bitmap);
 		Paint paint = new Paint();
 		paint.setAntiAlias(true);
 		paint.setStyle(Paint.Style.FILL);
-		paint.setColor(0xFF000000);
-		paint.setAlpha(128);
+		paint.setColor(bgColor);
+		// paint.setAlpha(128);
 		canvas.drawRoundRect(new RectF(0, 0, 100, 100), 10, 10, paint);
 
 		views.setImageViewBitmap(R.id.widget_bg, bitmap);
