@@ -1367,12 +1367,8 @@ public class Plans extends ListActivity implements OnClickListener,
 
 		if (this.getListView().getCount() == 0) {
 			this.findViewById(R.id.import_default).setVisibility(View.VISIBLE);
-			this.findViewById(R.id.ad).setVisibility(View.GONE);
 		} else {
 			this.findViewById(R.id.import_default).setVisibility(View.GONE);
-			if (!prefsNoAds) {
-				Ads.loadAd(this, R.id.ad, AD_UNITID, AD_KEYWORDS);
-			}
 		}
 		// reload plan configuration
 		this.getNowFromIntent(this.getIntent(), false);
@@ -1382,6 +1378,11 @@ public class Plans extends ListActivity implements OnClickListener,
 		LogRunnerService.update(this, LogRunnerReceiver.ACTION_FORCE_UPDATE);
 		// schedule next update
 		LogRunnerReceiver.schedNext(this);
+		if (this.getListView().getCount() > 0 && !prefsNoAds) {
+			Ads.loadAd(this, R.id.ad, AD_UNITID, AD_KEYWORDS);
+		} else {
+			this.findViewById(R.id.ad).setVisibility(View.GONE);
+		}
 	}
 
 	/**

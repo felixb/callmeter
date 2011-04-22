@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 Felix Bechstein
+ * Copyright (C) 2010-2011 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -32,9 +32,9 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.preference.PreferenceManager;
-import android.view.View;
 import android.widget.RemoteViews;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
@@ -68,6 +68,27 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	static final String WIDGET_PLAN_TEXTSIZE = "widget_plan_textsize_";
 	/** Size of the statistics text. */
 	static final String WIDGET_STATS_TEXTSIZE = "widget_stats_textsize_";
+	/** Widget's text color. */
+	static final String WIDGET_TEXTCOLOR = "widget_textcolor_";
+	/** Widget's background color. */
+	static final String WIDGET_BGCOLOR = "widget_bgcolor_";
+
+	/** Width of the widget. */
+	private static final int WIDGET_WIDTH = 100;
+	/** Height of progress bars. */
+	private static final int PB_HEIGHT = 4;
+	/** Round corners. */
+	private static final float WIDGET_RCORNER = 10f;
+	/** Red color for progress bars. */
+	private static final int PB_COLOR_GREY = 0xD0D0D0D0;
+	/** Red light color for progress bars. */
+	private static final int PB_COLOR_LGREY = 0x50D0D0D0;
+	/** Red color for progress bars. */
+	private static final int PB_COLOR_RED = 0xFFFF0000;
+	/** Yellow color for progress bars. */
+	private static final int PB_COLOR_YELLOW = 0xFFFFD000;
+	/** Green color for progress bars. */
+	private static final int PB_COLOR_GREEN = 0xFF00FF00;
 
 	/**
 	 * {@inheritDoc}
@@ -130,9 +151,13 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		final boolean showBillPeriod = p.getBoolean(WIDGET_BILLPERIOD
 				+ appWidgetId, false);
 		final Float statsTextSize = p.getFloat(WIDGET_STATS_TEXTSIZE
-				+ appWidgetId, 10f);
+				+ appWidgetId, StatsAppWidgetConfigure.DEFAULT_TEXTSIZE);
 		final Float planTextSize = p.getFloat(WIDGET_PLAN_TEXTSIZE
-				+ appWidgetId, 10f);
+				+ appWidgetId, StatsAppWidgetConfigure.DEFAULT_TEXTSIZE);
+		final int textColor = p.getInt(WIDGET_TEXTCOLOR + appWidgetId,
+				StatsAppWidgetConfigure.DEFAULT_TEXTCOLOR);
+		final int bgColor = p.getInt(WIDGET_BGCOLOR + appWidgetId,
+				StatsAppWidgetConfigure.DEFAULT_BGCOLOR);
 		Log.d(TAG, "planid: " + pid);
 		final ContentResolver cr = context.getContentResolver();
 
@@ -149,7 +174,6 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		String where;
 		int upc, upm, ups;
 		boolean isMerger;
-		// float cost = 0F;
 		String billdayWhere = null;
 		Cursor cursor = cr.query(DataProvider.Plans.CONTENT_URI,
 				DataProvider.Plans.PROJECTION, DataProvider.Plans.ID + " = ?",
@@ -233,7 +257,6 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			Log.d(TAG, "count: " + ps.count);
 			Log.d(TAG, "cost: " + ps.cost);
 			Log.d(TAG, "billedAmount: " + ps.billedAmount);
-
 			used = DataProvider.Plans.getUsed(ptype, ltype, ps.billedAmount,
 					ps.cost);
 		}
@@ -243,9 +266,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			ps.cost += cpp;
 		}
 
-		String stats = Plans.formatAmount(ptype, ps.billedAmount,
-				PreferenceManager.getDefaultSharedPreferences(context)
-						.getBoolean(Preferences.PREFS_SHOWHOURS, true));
+		String stats = Plans.formatAmount(ptype, ps.billedAmount, p.getBoolean(
+				Preferences.PREFS_SHOWHOURS, true));
 		if (ptype == DataProvider.TYPE_CALL) {
 			stats += " (" + ps.count + ")";
 		}
@@ -262,72 +284,106 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		Log.d(TAG, "used: " + used);
 		Log.d(TAG, "stats: " + stats);
 
-		// Create an Intent to launch Plans
-		final Intent intent = new Intent(context, Plans.class);
-		final PendingIntent pendingIntent = PendingIntent.getActivity(context,
-				0, intent, 0);
-
-		// Get the layout for the App Widget and attach an on-click listener
-		// to the button
 		final RemoteViews views = new RemoteViews(context.getPackageName(),
 				R.layout.stats_appwidget);
-		views.setOnClickPendingIntent(R.id.widget, pendingIntent);
+		views.setImageViewBitmap(R.id.widget_bg, getBackground(bgColor, bmax,
+				bpos, limit, used));
 		views.setTextViewText(R.id.plan, pname);
 		views.setTextViewText(R.id.stats, stats);
 		views.setFloat(R.id.plan, "setTextSize", planTextSize);
 		views.setFloat(R.id.stats, "setTextSize", statsTextSize);
-		// FIXME
-		Bitmap bitmap = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888);
-		Canvas canvas = new Canvas(bitmap);
-		Paint paint = new Paint();
+		views.setTextColor(R.id.plan, textColor);
+		views.setTextColor(R.id.stats, textColor);
+		views.setOnClickPendingIntent(R.id.widget, PendingIntent.getActivity(
+				context, 0, new Intent(context, Plans.class), 0));
+		appWidgetManager.updateAppWidget(appWidgetId, views);
+	}
+
+	/**
+	 * Get {@link Bitmap} for background.
+	 * 
+	 * @param bgColor
+	 *            background color
+	 * @param bmax
+	 *            max position of bill period ProgressBar
+	 * @param bpos
+	 *            position of bill period ProgressBar
+	 * @param limit
+	 *            limit
+	 * @param used
+	 *            usage
+	 * @return {@link Bitmap}
+	 */
+	private static Bitmap getBackground(final int bgColor, final int bmax,
+			final int bpos, final long limit, final int used) {
+		final Bitmap bitmap = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH,
+				Bitmap.Config.ARGB_8888);
+		final Canvas canvas = new Canvas(bitmap);
+		final Paint paint = new Paint();
 		paint.setAntiAlias(true);
 		paint.setStyle(Paint.Style.FILL);
-		paint.setColor(0xFF000000);
-		paint.setAlpha(128);
-		canvas.drawRoundRect(new RectF(0, 0, 100, 100), 10, 10, paint);
-
-		views.setImageViewBitmap(R.id.widget_bg, bitmap);
-		bitmap = null;
-
+		paint.setColor(bgColor);
+		final RectF base = new RectF(0f, 0f, WIDGET_WIDTH, WIDGET_WIDTH);
+		canvas.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER, paint);
 		if (bmax > 0) {
-			views.setProgressBar(R.id.appwidget_bg_top_progress, bmax, bpos,
-					false);
-		} else {
-			views.setViewVisibility(R.id.appwidget_bg_top_bg, View.GONE);
-			views.setProgressBar(R.id.appwidget_bg_top_progress, 1, 0, false);
+			// paint progress bar background
+			Bitmap bitmapPb = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH,
+					Bitmap.Config.ARGB_8888);
+			Canvas canvasPb = new Canvas(bitmapPb);
+			final Paint paintPb = new Paint();
+			paintPb.setAntiAlias(true);
+			paintPb.setStyle(Paint.Style.FILL);
+			paintPb.setColor(PB_COLOR_LGREY);
+			canvasPb.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER,
+					paintPb);
+			Rect copy = new Rect(0, 0, WIDGET_WIDTH, PB_HEIGHT);
+			canvas.drawBitmap(bitmapPb, copy, copy, null);
+			// paint progress bar
+			bitmapPb = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH,
+					Bitmap.Config.ARGB_8888);
+			canvasPb = new Canvas(bitmapPb);
+			paintPb.setColor(PB_COLOR_GREY);
+			canvasPb.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER,
+					paintPb);
+			copy = new Rect(0, 0, (WIDGET_WIDTH * bpos) / bmax, PB_HEIGHT);
+			canvas.drawBitmap(bitmapPb, copy, copy, null);
 		}
-		if (limit > 0) {
-			views.setViewVisibility(R.id.appwidget_bg_bottom_bg, View.VISIBLE);
-			final int u = (int) ((used * CallMeter.HUNDRET) / limit);
-			if (u >= CallMeter.HUNDRET) {
-				views.setProgressBar(R.id.appwidget_bg_bottom_progress_red,
-						(int) limit, used, false);
+		if (limit > 0L) {
+			// paint progress bar background
+			Bitmap bitmapPb = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH,
+					Bitmap.Config.ARGB_8888);
+			Canvas canvasPb = new Canvas(bitmapPb);
+			final Paint paintPb = new Paint();
+			paintPb.setAntiAlias(true);
+			paintPb.setStyle(Paint.Style.FILL);
+			paintPb.setColor(PB_COLOR_LGREY);
+			canvasPb.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER,
+					paintPb);
+			Rect copy = new Rect(0, WIDGET_WIDTH - PB_HEIGHT, WIDGET_WIDTH,
+					WIDGET_WIDTH);
+			canvas.drawBitmap(bitmapPb, copy, copy, null);
+			// paint progress bar
+			bitmapPb = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH,
+					Bitmap.Config.ARGB_8888);
+			canvasPb = new Canvas(bitmapPb);
+			int u = (int) ((used * CallMeter.HUNDRET) / limit);
+			if (u > CallMeter.HUNDRET) {
+				paintPb.setColor(PB_COLOR_RED);
 			} else if (bmax < 0 && u >= CallMeter.EIGHTY || bmax > 0
 					&& (float) used / limit > (float) bpos / bmax) {
-				views.setProgressBar(R.id.appwidget_bg_bottom_progress_red,
-						(int) limit, 0, false);
-				views.setProgressBar(R.id.appwidget_bg_bottom_progress_yellow,
-						(int) limit, used, false);
+				paintPb.setColor(PB_COLOR_YELLOW);
 			} else {
-				views.setProgressBar(R.id.appwidget_bg_bottom_progress_red,
-						(int) limit, 0, false);
-				views.setProgressBar(R.id.appwidget_bg_bottom_progress_yellow,
-						(int) limit, 0, false);
-				views.setProgressBar(R.id.appwidget_bg_bottom_progress_green,
-						(int) limit, used, false);
+				paintPb.setColor(PB_COLOR_GREEN);
 			}
-		} else {
-			views.setViewVisibility(R.id.appwidget_bg_bottom_bg, View.GONE);
-			views.setProgressBar(R.id.appwidget_bg_bottom_progress_green, 1, 0,
-					false);
-			views.setProgressBar(R.id.appwidget_bg_bottom_progress_yellow, 1,
-					0, false);
-			views.setProgressBar(R.id.appwidget_bg_bottom_progress_red, 1, 0,
-					false);
+			if (u > CallMeter.HUNDRET) {
+				u = CallMeter.HUNDRET;
+			}
+			canvasPb.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER,
+					paintPb);
+			copy = new Rect(0, WIDGET_WIDTH - PB_HEIGHT, (WIDGET_WIDTH * u)
+					/ CallMeter.HUNDRET, WIDGET_WIDTH);
+			canvas.drawBitmap(bitmapPb, copy, copy, null);
 		}
-
-		// Tell the AppWidgetManager to perform an update on the current App
-		// Widget
-		appWidgetManager.updateAppWidget(appWidgetId, views);
+		return bitmap;
 	}
 }
