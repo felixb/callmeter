@@ -99,15 +99,15 @@ public class CallMeter extends Activity {
 	@Override
 	protected final void onResume() {
 		super.onResume();
-		if (!prefsNoAds) {
-			Ads.loadAd(this, R.id.ad, AD_UNITID, AD_KEYWORDS);
-		}
 		// get call/sms stats
 		new Updater(this).execute((Void[]) null);
 		// get data stats
 		new UpdaterData(this).execute((Void[]) null);
 		// schedule next update
 		CMBroadcastReceiver.schedNext(this);
+		if (!prefsNoAds) {
+			Ads.loadAd(this, R.id.ad, AD_UNITID, AD_KEYWORDS);
+		}
 	}
 
 	/**

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 Felix Bechstein
+ * Copyright (C) 2010-2011 Felix Bechstein
  * 
  * This file is part of Call Meter NG.
  * 
@@ -894,7 +894,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 				}
 			} while (cur.moveToNext());
 		}
-		if (cur != null && cur.isClosed()) {
+		if (cur != null && !cur.isClosed()) {
 			cur.close();
 		}
 		cur = null;
@@ -1275,10 +1275,10 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
 	 */
 	private void updateCost(final Integer[] result) {
 		// calls
-		float costPerCall1 = 0;
-		float costPerCall2 = 0;
-		float costPerMinute1 = 0;
-		float costPerMinute2 = 0;
+		float costPerCall1 = 0f;
+		float costPerCall2 = 0f;
+		float costPerMinute1 = 0f;
+		float costPerMinute2 = 0f;
 		if (!this.prefs.getBoolean(PREFS_PLAN1_T_FREE_CALLS, false)) {
 			if (result[RESULT_CALLS1_LIMIT] <= 0) {
 				final String s = this.prefs.getString(
