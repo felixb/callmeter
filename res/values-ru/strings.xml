@@ -23,6 +23,7 @@
 <resources>
   <string name="changelog_notification_" formatted="false">Последние изменения:</string>
   <string name="changelog_notification_text" formatted="false">Нажмите здесь, чтобы показать последние изменения</string>
+  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Примечания разработчика</string>
   <string name="about0_" formatted="false">Следи за своими бесплатными: минутами, SMS и трафиком!</string>
   <string name="about0" formatted="false">CallMeter создает из данныx о звонкаx, SMS и трафикa отчёт. Поддерживаются разные меторы отчёта.</string>
   <string name="about1" formatted="false">Форма отчёта: Пользование / Время или Колличество в месяц / Время или просто Колличество (Минуты/SMS/Трафик).</string>

@@ -269,6 +269,8 @@
   <string name="alerts_100_" formatted="false">Alarm bei 100%</string>
   <string name="alerts_100_hint" formatted="false">Alarmiere mich, wenn ein Kontingent 100% des Limits erreicht hat.</string>
   <string name="widget_config_" formatted="false">Widget Einstellungen</string>
+  <string name="widget_plan_textsize" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Plan Text Size">Schriftgrad für Kontingentnamen</string>
+  <string name="widget_cost_textsize" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Cost Text Size">Schriftgrad für Kosten</string>
   <string-array name="weekdays_all">
     <item>Jeden Tag</item>
     <item>Montag</item>

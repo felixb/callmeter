@@ -267,6 +267,7 @@
   <string name="alerts_100_" formatted="false">Powiadom przy 100%</string>
   <string name="alerts_100_hint" formatted="false">Powiadom, jeżeli plan przekroczy 100% ustalonego limitu</string>
   <string name="widget_config_" formatted="false">Konfiguracja Widgetu</string>
+  <string name="send_devices_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Send devices">Wyślij urządzenia</string>
   <string-array name="weekdays_all">
     <item>Cały tydzień</item>
     <item>Poniedziałek</item>
