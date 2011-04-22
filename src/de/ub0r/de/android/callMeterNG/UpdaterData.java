@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 Felix Bechstein
+ * Copyright (C) 2010-2011 Felix Bechstein
  * 
  * This file is part of Call Meter NG.
  * 
@@ -273,13 +273,8 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 			final boolean onlyIn = this.prefs.getBoolean(
 					PREFS_DATA_INCOMING_ONLY, false);
 			String cost = this.prefs.getString(PREFS_DATA_COST, "0");
-			float cpmb;
-			if (cost.length() > 0) {
-				cpmb = Utils.parseFloat(cost, 0f);
-			} else {
-				cpmb = 0;
-			}
-			if (cpmb > 0) {
+			final float cpmb = Utils.parseFloat(cost, 0f);
+			if (cpmb > 0f) {
 				long i = result[0] - result[1];
 				if (i < 0L) {
 					i = 0L;
