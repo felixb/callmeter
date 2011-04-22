@@ -181,10 +181,10 @@ public final class StatsAppWidgetConfigure extends Activity implements
 			editor.putFloat(StatsAppWidgetProvider.WIDGET_PLAN_TEXTSIZE
 					+ this.mAppWidgetId, Utils.parseFloat(this.etPlanTextSize
 					.getText().toString(), DEFAULT_TEXTSIZE));
-			editor.putInt(StatsAppWidgetProvider.WIDGET_TEXTCOLOR, this
-					.getTextColor());
-			editor.putInt(StatsAppWidgetProvider.WIDGET_BGCOLOR, this
-					.getBgColor());
+			editor.putInt(StatsAppWidgetProvider.WIDGET_TEXTCOLOR
+					+ this.mAppWidgetId, this.getTextColor());
+			editor.putInt(StatsAppWidgetProvider.WIDGET_BGCOLOR
+					+ this.mAppWidgetId, this.getBgColor());
 			editor.commit();
 
 			final AppWidgetManager appWidgetManager = AppWidgetManager

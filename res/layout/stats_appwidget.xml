@@ -29,39 +29,6 @@
 		android:scaleType="fitXY" android:layout_centerInParent="true" />
 	<RelativeLayout android:layout_width="fill_parent"
 		android:layout_height="fill_parent">
-		<ImageView android:id="@+id/appwidget_bg_top_bg"
-			android:layout_width="fill_parent" android:layout_height="5dip"
-			android:src="@drawable/appwidget_bg_top_progress_background"
-			android:scaleType="fitXY" android:layout_centerHorizontal="true"
-			android:layout_alignParentTop="true" />
-		<ProgressBar android:id="@+id/appwidget_bg_top_progress"
-			android:layout_width="fill_parent" android:layout_height="5dip"
-			style="?android:attr/progressBarStyleHorizontal"
-			android:progressDrawable="@drawable/appwidget_bg_top_progressbar_yellow"
-			android:layout_centerHorizontal="true" android:layout_alignParentTop="true" />
-		<ImageView android:id="@+id/appwidget_bg_bottom_bg"
-			android:layout_width="fill_parent" android:layout_height="8dip"
-			android:src="@drawable/appwidget_bg_bottom_progress_background"
-			android:scaleType="fitXY" android:layout_centerHorizontal="true"
-			android:layout_alignParentBottom="true" />
-		<ProgressBar android:id="@+id/appwidget_bg_bottom_progress_green"
-			android:layout_width="fill_parent" android:layout_height="8dip"
-			style="?android:attr/progressBarStyleHorizontal"
-			android:progressDrawable="@drawable/appwidget_bg_bottom_progressbar_green"
-			android:layout_centerHorizontal="true"
-			android:layout_alignParentBottom="true" />
-		<ProgressBar android:id="@+id/appwidget_bg_bottom_progress_yellow"
-			android:layout_width="fill_parent" android:layout_height="8dip"
-			style="?android:attr/progressBarStyleHorizontal"
-			android:progressDrawable="@drawable/appwidget_bg_bottom_progressbar_yellow"
-			android:layout_centerHorizontal="true"
-			android:layout_alignParentBottom="true" />
-		<ProgressBar android:id="@+id/appwidget_bg_bottom_progress_red"
-			android:layout_width="fill_parent" android:layout_height="8dip"
-			style="?android:attr/progressBarStyleHorizontal"
-			android:progressDrawable="@drawable/appwidget_bg_bottom_progressbar_red"
-			android:layout_centerHorizontal="true"
-			android:layout_alignParentBottom="true" />
 		<TextView android:id="@+id/plan" android:text="@+id/plan"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
 			android:paddingTop="5dip" android:textColor="#FFFFFFFF"
@@ -71,6 +38,6 @@
 			android:layout_width="wrap_content" android:layout_height="fill_parent"
 			android:textColor="#FFFFFFFF" android:textSize="10dip"
 			android:gravity="center" android:layout_centerHorizontal="true"
-			android:layout_below="@id/plan" android:layout_above="@id/appwidget_bg_bottom_progress_green" />
+			android:layout_below="@id/plan" />
 	</RelativeLayout>
 </RelativeLayout>
