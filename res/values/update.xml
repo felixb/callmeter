@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
+		<item>HEAD: Fix language selection for german+danish</item>
 		<item>v2.3.17.4: Fix for android 1.5</item>
 		<item>v2.3.17: add support for LG-P990, minor fixes, translation updates, add (not yet finished) danish translation</item>
 		<item>v2.3.16: Add support for GT-S5830, move to new translation system</item>
