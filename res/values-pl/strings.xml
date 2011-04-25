@@ -22,7 +22,7 @@
        -->
 <resources>
   <string name="changelog_notification_" formatted="false">Ostatnie zmiany:</string>
-  <string name="changelog_notification_text" formatted="false">Kliknij tutaj, aby wyświetlić ostatnie zmiany</string>
+  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Kliknij tutaj, aby wyświetlić ostatnie zmiany</string>
   <string name="never_show_again" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Never show changelog again">Nie pokazuj więcej changelog\'a</string>
   <string name="notes_from_developer_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Notes from developer">Informacje od autora programu</string>
   <string name="notes_from_developer_text" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Click here to show recent news from the developer">Kliknij aby zobaczyć najświeższe informacje od autora programu</string>
