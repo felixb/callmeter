@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Felix Bechstein
+		Copyright (C) 2009-2011 Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter NG. This program is free software; you
@@ -96,9 +96,11 @@
 	<string name="merge_sms_calls_sec_hint">Number of seconds billed for a single sms.</string>
 	<string name="merge_sms_plan1_">Merge SMS into plan 1</string>
 	<string name="merge_sms_plan1_hint">Uncheck to merge them into plan 2.</string>
-	<string name="data_hint">WLAN stats are not collected here!</string>
+	<string name="data_hint">WLAN/WIFI stats are not collected here!</string>
 	<string name="data_enable_">Show data stats</string>
-	<string name="data_enable_hint">Data is collected in realtime. First month may be incorrect!</string>
+	<string name="data_enable_hint">Data is collected in real time. First month may be incorrect!</string>
+	<string name="data_show_simple_">Show only \"Data\" as title</string>
+	<string name="data_show_simple_hint">Hide \"(2G/3G/4G)\" in title. This does not affect stats.</string>
 	<string name="data_each_day">Bill each day separately</string>
 	<string name="data_each_day_hint">Your billing period starts with each day.</string>
 	<string name="data_limit_">Limit</string>
@@ -113,6 +115,7 @@
 	<string name="calls">Calls</string>
 	<string name="sms">SMS</string>
 	<string name="data">Data</string>
+	<string name="data_">Data (2G/3G/4G)</string>
 	<string name="calls_sms">Calls/SMS</string>
 	<string name="in_calls">In%s:</string>
 	<string name="in_sms">In%s:</string>

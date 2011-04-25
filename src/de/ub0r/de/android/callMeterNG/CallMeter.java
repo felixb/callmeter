@@ -23,6 +23,7 @@ import java.util.HashSet;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -68,6 +69,9 @@ public class CallMeter extends Activity {
 	/** 100. */
 	static final int HUNDRET = 100;
 
+	/** Preference's name: show short title for data. */
+	private static final String PREFS_DATA_SHORT = "data_short";
+
 	/** Display ads? */
 	private static boolean prefsNoAds;
 
@@ -105,6 +109,12 @@ public class CallMeter extends Activity {
 		new UpdaterData(this).execute((Void[]) null);
 		// schedule next update
 		CMBroadcastReceiver.schedNext(this);
+		if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+				PREFS_DATA_SHORT, false)) {
+			((TextView) this.findViewById(R.id.data_)).setText(R.string.data);
+		} else {
+			((TextView) this.findViewById(R.id.data_)).setText(R.string.data_);
+		}
 		if (!prefsNoAds) {
 			Ads.loadAd(this, R.id.ad, AD_UNITID, AD_KEYWORDS);
 		}

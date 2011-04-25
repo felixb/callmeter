@@ -100,6 +100,8 @@
   <string name="merge_sms_plan1_" formatted="false">In Kontingent 1 abrechnen</string>
   <string name="merge_sms_plan1_hint" formatted="false">Abwählen, um im Kontingent 2 abzurechnen.</string>
   <string name="data_hint" formatted="false">WLAN stats werden hier nicht gesammelt!</string>
+  <string name="data_show_simple_">Nur \"Daten\" als Titel anzeigen</string>
+  <string name="data_show_simple_hint">\"(2G/3G/4G)\" im Titel ausblenden. Das beeinflusst die Statistik nicht.</string>
   <string name="data_enable_" formatted="false">Zeige Datenstatistik</string>
   <string name="data_enable_hint" formatted="false">Daten werden in Echtzeit gesammelt. Im ersten Monat ist das Ergebnis evtl. falsch.</string>
   <string name="data_each_day" formatted="false">Jeden Tag einzeln abrechnen</string>
@@ -116,6 +118,7 @@
   <string name="calls" formatted="false">Anrufe</string>
   <string name="sms" formatted="false">SMS</string>
   <string name="data" formatted="false">Daten</string>
+  <string name="data_" formatted="false">Daten (2G/3G/4G)</string>
   <string name="calls_sms" formatted="false">Anrufe/SMS</string>
   <string name="in_calls" formatted="false">Ein%s:</string>
   <string name="in_sms" formatted="false">Ein%s:</string>

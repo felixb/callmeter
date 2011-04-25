@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Felix Bechstein
+		Copyright (C) 2010-2011 Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter NG. This program is free software; you
@@ -503,6 +503,9 @@
 			<CheckBoxPreference android:key="data_enable"
 				android:title="@string/data_enable_" android:summary="@string/data_enable_hint"
 				android:defaultValue="true" />
+			<CheckBoxPreference android:key="data_short"
+				android:title="@string/data_show_simple_" android:summary="@string/data_show_simple_hint"
+				android:dependency="data_enable" android:disableDependentsState="true" />
 			<CheckBoxPreference android:key="data_eachday"
 				android:title="@string/data_each_day" android:summary="@string/data_each_day_hint"
 				android:dependency="data_enable" android:disableDependentsState="true" />
