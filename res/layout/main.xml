@@ -194,7 +194,7 @@
 			<!-- end sms -->
 			<!--  data common-->
 
-			<TextView android:id="@+id/data_" android:text="@string/data"
+			<TextView android:id="@+id/data_" android:text="@string/data_"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
 				android:paddingTop="10dip" android:gravity="center"
 				android:textStyle="bold" android:visibility="gone"

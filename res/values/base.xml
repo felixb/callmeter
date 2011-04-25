@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2010 Felix Bechstein
+		Copyright (C) 2010-2011 Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter NG. This program is free software; you
@@ -178,8 +178,8 @@
 		<item>Default language</item>
 		<item>English</item>
 		<item>Czech</item>
-		<item>German</item>
 		<item>Danish</item>
+		<item>German</item>
 		<item>Greek</item>
 		<item>Spanish</item>
 		<item>French</item>
