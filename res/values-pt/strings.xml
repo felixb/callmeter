@@ -24,7 +24,7 @@
   <string name="changelog_notification_" formatted="false" username="Henrique Boaventura &lt;hboaventura@gmail.com&gt;" orig="Recent changes:">Alterações recentes:</string>
   <string name="changelog_notification_text" formatted="false" username="Henrique Boaventura &lt;hboaventura@gmail.com&gt;" orig="Click here to show recent changes of">clique aqui para mostrar as alterações recentes de</string>
   <string name="never_show_again" formatted="false" username="Henrique Boaventura &lt;hboaventura@gmail.com&gt;" orig="Never show changelog again">Nunca mostrar o changelog de novo</string>
-  <string name="notes_from_developer_" formatted="false" username="Henrique Boaventura &lt;hboaventura@gmail.com&gt;" orig="Notes from developer">Notas para o desenvolvedor</string>
+  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Notas do desenvolvedor</string>
   <string name="notes_from_developer_text" formatted="false" username="Henrique Boaventura &lt;hboaventura@gmail.com&gt;" orig="Click here to show recent news from the developer">Clique aqui para mostrar as noticias recentes do desenvolvedor</string>
   <string name="about0_" formatted="false">Verifique e monitorize os seus consumos e uso dos planos/tarifários de Voz, SMS e Ligação de dados!</string>
   <string name="about0" formatted="false">O CallMeter gera relatórios de ligações, mensagens e dados. Ele suporta vários tipos de cobrança.</string>
