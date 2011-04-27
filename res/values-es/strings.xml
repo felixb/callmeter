@@ -22,6 +22,10 @@
        -->
 <resources>
   <string name="changelog_notification_" formatted="false">Cambios recientes:</string>
+  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Haz click aquí para ver los cambios recientes de</string>
+  <string name="never_show_again" formatted="false" orig="Never show changelog again">No volver a mostrar changelog</string>
+  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Notas del desarrollador</string>
+  <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Haz click aquí para leer noticias recientes del desarrollador</string>
   <string name="about0_" formatted="false">¡Controla tus planes de llamadas, mensajes y datos!</string>
   <string name="about0" formatted="false">CallMeter genera informes de tus registros de llamadas, mensajes y datos. Permite muchos tipos de tarificación.</string>
   <string name="about1" formatted="false">La presentación es: minutos usados en el ciclo de facturación/ minutos totales. El cómputo mensual de llamadas tiene en cuenta el modo de tarificación. Los totales no.</string>
@@ -29,11 +33,15 @@
   <string name="about3" formatted="false">CallMeter se ejecuta en segundo plano cada 30min (si no está en modo espera). Por lo que borrar llamadas o mensajes anteriores a 30min no cambiará las estadísticas. Borrar mensajes o llamadas de los últimos 30min puede dar estadísticas erróneas.</string>
   <string name="send_" formatted="false">Enviar</string>
   <string name="add_" formatted="false">Añadir</string>
+  <string name="add_log" formatted="false" orig="Add log entry">Añadir entrada al log</string>
+  <string name="length_hint_call" formatted="false" orig="Length in seconds">Duración en segundos</string>
+  <string name="length_hint_data" formatted="false" orig="Length in kB">Tamañon en KB</string>
   <string name="settings" formatted="false">Preferencias</string>
   <string name="update_interval_" formatted="false">Intervalo de actualización</string>
   <string name="update_interval_hint" formatted="false">Periodos cortos usan más batería.</string>
   <string name="date_begin_" formatted="false">Inicio de registros</string>
   <string name="date_begin_hint" formatted="false">Ignorar cualquier log anterior a esta fecha.</string>
+  <string name="delete_old_logs_" formatted="false" orig="Delete logs older than">Borrar los logas anteriores a</string>
   <string name="common_prefs_" formatted="false">Preferencias comunes</string>
   <string name="edit_" formatted="false">Editar</string>
   <string name="about_" formatted="false">Acerca de</string>
