@@ -21,93 +21,93 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=it&file=strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Recent changes:">Ultime modifiche:</string>
-  <string name="changelog_notification_text" formatted="false">Clicca qui per visualizzare le ultime modifiche</string>
-  <string name="never_show_again" formatted="false">Non mostrare più l\'elenco delle modifiche</string>
-  <string name="notes_from_developer_" formatted="false">Note dallo sviluppatore</string>
-  <string name="notes_from_developer_text" formatted="false">Clicca qui per mostrare le ultime notizie da parte dello sviluppatore</string>
-  <string name="about0_" formatted="false">Controlla le tue chiamate, messaggi e piani tariffari!</string>
-  <string name="about0" formatted="false">CallMeter genera report sulle chiamate, messaggi e sul traffico dati. Supporta diverse modalità di conteggio o tariffazione.</string>
-  <string name="about1" formatted="false">Il formato delle statistiche è uso / tempo o conteggio usato dal periodo / tempo di fatturazione rispetto al totale.</string>
-  <string name="about2" formatted="false">La modalità di tariffazione specifica la lunghezza del primo / successivi intervalli di tariffazione. Ad esempio, 60/10 significa che ogni chiamata è conteggiata minimo 60 secondi, e poi è arrotondata ai successivi 10 secondi.</string>
-  <string name="about3" formatted="false">CallMeter gira silenziosamente ogni 30 minuti (solo quando il telefono non è in standby). Questo implica che la cancellazione di chiamate o messaggi precedenti ai 30 minuti non cambia le statistiche. Cancellare chiamate o messaggi più recenti può invece alterare le statistiche.</string>
-  <string name="send_" formatted="false">Invia</string>
-  <string name="add_" formatted="false">Nuovo</string>
-  <string name="add_log" formatted="false">Aggiungi elemento/log</string>
-  <string name="length_hint_call" formatted="false">Durata in secondi</string>
-  <string name="length_hint_data" formatted="false">Dimensione in KB</string>
-  <string name="settings" formatted="false">Impostazioni</string>
-  <string name="update_interval_" formatted="false">Frequenza controllo</string>
-  <string name="update_interval_hint" formatted="false">Frequenze più corte useranno più batteria.</string>
-  <string name="date_begin_" formatted="false">Inizio record</string>
-  <string name="date_begin_hint" formatted="false">Ignora i log precedenti a questa data.</string>
-  <string name="delete_old_logs_" formatted="false">Elimina log precedenti</string>
-  <string name="delete_old_logs_help" formatted="false">Elimina i log precedenti alla data immessa. Lasciare vuota per disabilitare.</string>
-  <string name="common_prefs_" formatted="false">Impostazioni generali</string>
-  <string name="edit_" formatted="false">Modifica</string>
-  <string name="about_" formatted="false">Informazioni</string>
-  <string name="about_hint" formatted="false">Informazioni sull\'applicazione</string>
-  <string name="faq_hint" formatted="false">Suggerimenti per impostare questa applicazione.</string>
-  <string name="feedback_" formatted="false">Commenti</string>
-  <string name="feedback_hint" formatted="false">Segnala anomalie, richiedi nuove funzioni...</string>
-  <string name="twitter_hint" formatted="false">Seguimi su twitter.\nRimani informato sugli aggiornamenti, ecc.</string>
-  <string name="more_" formatted="false">Altre applicazioni...</string>
-  <string name="billing_" formatted="false">Conteggio</string>
-  <string name="billday_" formatted="false">Primo giorno del conteggio</string>
-  <string name="billmode_" formatted="false">Modalità di conteggio</string>
-  <string name="billdate_" formatted="false">Inizio conteggio:</string>
-  <string name="appearance_" formatted="false">Aspetto</string>
-  <string name="behavior_" formatted="false" orig="Behavior">Comportamento</string>
-  <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp;amp; behavior">Aspetto e comportamento</string>
-  <string name="advanced_preferences_" formatted="false">Avanzate</string>
-  <string name="advanced_preferences_hint" formatted="false">Permette di impostare più nel dettaglio alcune opzioni. La maggior parte degli utenti non ne ha bisogno.</string>
-  <string name="theme_" formatted="false">Tema</string>
-  <string name="textsize_" formatted="false">Dimensione testo</string>
-  <string name="textsize_hint" formatted="false">Dimensione del testo in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
-  <string name="textsize_title_" formatted="false">Dimensione testo titolo</string>
-  <string name="textsize_title_hint" formatted="false">Dimensione del testo titolo in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
-  <string name="textsize_bigtitle_" formatted="false">Dimensione testo titolo princ.</string>
-  <string name="textsize_bigtitle_hint" formatted="false">Dimensione del testo titolo principale in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
-  <string name="textsize_spacer_" formatted="false">Dimensione spazio</string>
-  <string name="textsize_spacer_hint" formatted="false">Dimensione dello spazio in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
-  <string name="textsize_pbar_" formatted="false">Dimensione barra avanzamento</string>
-  <string name="textsize_pbar_hint" formatted="false">Dimensione della barra in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
-  <string name="textsize_pbarbp_" formatted="false">Dimensione barra conteggio</string>
-  <string name="textsize_pbarbp_hint" formatted="false">Dimensione della barra in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
-  <string name="show_today_" formatted="false">Mostra oggi</string>
-  <string name="show_today_hint" formatted="false">Mostra le statistiche di oggi</string>
-  <string name="show_total_" formatted="false">Mostra totali</string>
-  <string name="show_total_hint" formatted="false">Mostra i totali, disabilita per vedere soltanto le statistiche correnti.</string>
-  <string name="show_time_" formatted="false">Vai a ...</string>
-  <string name="show_titlebar_" formatted="false">Mostra barra titolo</string>
-  <string name="show_titlebar_hint" formatted="false">Mostra la barra del titolo nella vista principale. Senza non sarà possibile vedere le attività in corso.</string>
-  <string name="show_hours_" formatted="false">Mostra ora</string>
-  <string name="show_hours_hint" formatted="false">Mostra il tempo in secondi, menuti, ore e giorni.\nSe non selezionato saranno visualizzati soltanto i secondi e i minuti.</string>
-  <string name="show_help_" formatted="false">Mostra guida</string>
-  <string name="show_help_hint" formatted="false">Mostra la guida nella finestra di impostazione dei piani tariffari e regole.</string>
-  <string name="show_shortname_" formatted="false">Mostra nomi corti invece che lunghi</string>
-  <string name="show_cost_" formatted="false">Mostra costo</string>
-  <string name="show_billperiod_" formatted="false">Mostra avanzamento del periodo di fatturazione</string>
-  <string name="show_calllength_" formatted="false">Mostra info dopo chiusura</string>
-  <string name="show_calllength_hint" formatted="false">Mostra durata/costo di una chiamata dopo la sua chiusura.</string>
-  <string name="hide_zero_" formatted="false">Nascondi piani vuoti</string>
-  <string name="hide_zero_hint" formatted="false">Nascondi i piani tariffari che non hanno elementi.</string>
-  <string name="hide_nocost_" formatted="false">Nascondi piani senza costi</string>
-  <string name="hide_nocost_hint" formatted="false">Nascondi i piani tariffari che non prevedono costi.</string>
-  <string name="hide_progressbars_" formatted="false">Nascondi barre avanzamento</string>
-  <string name="hide_progressbars_hint" formatted="false">Nascondi le barre di avanzamento nella vista principale.</string>
-  <string name="custom_currency_symbol_" formatted="false">Simbolo valuta</string>
-  <string name="custom_currency_symbol_hint" formatted="false">Imposta un simbolo personalizzato per la valuta, lasciare vuoto per quello predefinito di sistema.</string>
-  <string name="custom_currency_format_" formatted="false">Formato valuta</string>
-  <string name="custom_currency_format_hint" formatted="false">Seleziona un formato personalizzato per la valuta.</string>
-  <string name="custom_date_format_" formatted="false">Formato data</string>
-  <string name="custom_date_format_hint" formatted="false">Seleziona un formato personalizzato per la data.</string>
-  <string name="custom_delimiter_" formatted="false">Delimitatore personalizzato</string>
-  <string name="custom_delimiter_hint" formatted="false">Impostare un delimitatore personalizzato che separa i blocchi di statistiche.</string>
-  <string name="split_sms_at_160_" formatted="false" orig="Split text messages at 160 chars">Dividi i messaggi a 160 caratteri</string>
-  <string name="split_sms_at_160_hint" formatted="false" orig="Disable to use android\'s system method.">Disabilita per usare il metodo Android</string>
-  <string name="ask_for_plan_" formatted="false">Richiedi piano</string>
-  <string name="ask_for_plan_hint" formatted="false">Richiedi piano per le chiamate non identificate dopo aver riagganciato.</string>
+  <string name="changelog_notification_" formatted="false" username="fireb33" orig="Recent changes:">Ultime modifiche:</string>
+  <string name="changelog_notification_text" formatted="false" username="fireb33" orig="Click here to show recent changes of">Clicca qui per visualizzare le ultime modifiche</string>
+  <string name="never_show_again" formatted="false" username="fireb33" orig="Never show changelog again">Non mostrare più l\'elenco delle modifiche</string>
+  <string name="notes_from_developer_" formatted="false" username="fireb33" orig="Notes from developer">Note dallo sviluppatore</string>
+  <string name="notes_from_developer_text" formatted="false" username="fireb33" orig="Click here to show recent news from the developer">Clicca qui per mostrare le ultime notizie da parte dello sviluppatore</string>
+  <string name="about0_" formatted="false" username="fireb33" orig="Watch your call, message and data plans!">Controlla le tue chiamate, messaggi e piani tariffari!</string>
+  <string name="about0" formatted="false" username="fireb33" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter genera report sulle chiamate, messaggi e sul traffico dati. Supporta diverse modalità di tariffazione.</string>
+  <string name="about1" formatted="false" username="fireb33" orig="The output format is usage | time or count used this billing period | time or count overall.">Il formato delle statistiche è utilizzo/tempo o conteggio usato dal periodo/tempo di fatturazione rispetto al totale.</string>
+  <string name="about2" formatted="false" username="fireb33" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">La modalità di tariffazione specifica la lunghezza del primo/successivi intervalli di tariffazione. Ad esempio, 60/10 significa che ogni chiamata è conteggiata minimo 60 secondi, e poi è arrotondata ai successivi 10 secondi.</string>
+  <string name="about3" formatted="false" username="fireb33" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter viene eseguito in background ogni 30 minuti (solo quando il telefono non è in standby). Questo implica che la cancellazione di chiamate o messaggi precedenti ai 30 minuti non cambia le statistiche. Cancellare chiamate o messaggi più recenti può invece alterare le statistiche.</string>
+  <string name="send_" formatted="false" username="fireb33" orig="Send">Invia</string>
+  <string name="add_" formatted="false" username="fireb33" orig="Add">Nuovo</string>
+  <string name="add_log" formatted="false" username="fireb33" orig="Add log entry">Aggiungi elemento registro</string>
+  <string name="length_hint_call" formatted="false" username="fireb33" orig="Length in seconds">Durata in secondi</string>
+  <string name="length_hint_data" formatted="false" username="fireb33" orig="Length in kB">Dimensione in KB</string>
+  <string name="settings" formatted="false" username="fireb33" orig="Preferences">Impostazioni</string>
+  <string name="update_interval_" formatted="false" username="fireb33" orig="Update interval">Frequenza aggiornamento</string>
+  <string name="update_interval_hint" formatted="false" username="fireb33" orig="Shorter period will use more battery.">Aggiornamenti più frequenti utilizzeranno più batteria.</string>
+  <string name="date_begin_" formatted="false" username="fireb33" orig="Beginning of records">Inizio conteggio</string>
+  <string name="date_begin_hint" formatted="false" username="fireb33" orig="Ignore any logs before this date.">Ignora i registri precedenti a questa data.</string>
+  <string name="delete_old_logs_" formatted="false" username="fireb33" orig="Delete logs older than">Elimina registri precedenti</string>
+  <string name="delete_old_logs_help" formatted="false" username="fireb33" orig="Delete logs older than x days from internal database. Leave empty to disable.">Elimina i registri precedenti alla data immessa (lasciare vuota per disabilitare).</string>
+  <string name="common_prefs_" formatted="false" username="fireb33" orig="Common preferences">Impostazioni generali</string>
+  <string name="edit_" formatted="false" username="fireb33" orig="Edit">Modifica</string>
+  <string name="about_" formatted="false" username="fireb33" orig="About">Informazioni</string>
+  <string name="about_hint" formatted="false" username="fireb33" orig="About this app">Informazioni sull\'applicazione</string>
+  <string name="faq_hint" formatted="false" username="fireb33" orig="Some tips and tricks, how to set up this app.">Suggerimenti per impostare questa applicazione.</string>
+  <string name="feedback_" formatted="false" username="fireb33" orig="Feedback">Commenti</string>
+  <string name="feedback_hint" formatted="false" username="fireb33" orig="Report bugs, request features ...">Segnala anomalie, richiedi nuove funzioni...</string>
+  <string name="twitter_hint" formatted="false" username="fireb33" orig="Follow me on twitter.\nGet update notifications etc.">Seguimi su twitter.\nRimani informato sugli aggiornamenti, ecc.</string>
+  <string name="more_" formatted="false" username="fireb33" orig="More Apps..">Altre applicazioni...</string>
+  <string name="billing_" formatted="false" username="fireb33" orig="Billing">Tariffazione</string>
+  <string name="billday_" formatted="false" username="fireb33" orig="First day of your bill">Primo giorno della tariffazione</string>
+  <string name="billmode_" formatted="false" username="fireb33" orig="Mode of billing">Modalità di tariffazione</string>
+  <string name="billdate_" formatted="false" username="fireb33" orig="Start of billing period:">Inizio periodo di tariffazione:</string>
+  <string name="appearance_" formatted="false" username="fireb33" orig="Appearance">Aspetto</string>
+  <string name="behavior_" formatted="false" username="fireb33" orig="Behavior">Comportamento</string>
+  <string name="appearance_and_behavior_" formatted="false" username="fireb33" orig="Appearance &amp;amp; behavior">Aspetto e comportamento</string>
+  <string name="advanced_preferences_" formatted="false" username="fireb33" orig="Advanced preferences">Impostazioni avanzate</string>
+  <string name="advanced_preferences_hint" formatted="false" username="fireb33" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Permette di impostare più in dettaglio alcune opzioni (la maggior parte degli utenti non ne ha bisogno).</string>
+  <string name="theme_" formatted="false" username="fireb33" orig="Theme">Tema</string>
+  <string name="textsize_" formatted="false" username="fireb33" orig="Text size">Dimensione testo</string>
+  <string name="textsize_hint" formatted="false" username="fireb33" orig="Text size in pixels; leave empty for default">Dimensione del testo in pixel (lasciare vuoto per l\'impostazione predefinita).</string>
+  <string name="textsize_title_" formatted="false" username="fireb33" orig="Title\'s text size">Dimensione testo titolo princ.</string>
+  <string name="textsize_title_hint" formatted="false" username="fireb33" orig="Text size for titles in pixels; leave empty for default">Dimensione del testo titolo in pixel (lasciare vuoto per l\'impostazione predefinita).</string>
+  <string name="textsize_bigtitle_" formatted="false" username="fireb33" orig="Big title\'s text size">Dimensione testo titolo grande.</string>
+  <string name="textsize_bigtitle_hint" formatted="false" username="fireb33" orig="Text size for big titles in pixels; leave empty for default">Dimensione del testo titolo principale in pixel (lasciare vuoto per l\'impostazione predefinita).</string>
+  <string name="textsize_spacer_" formatted="false" username="fireb33" orig="Spacer\'s size">Dimensione spazio</string>
+  <string name="textsize_spacer_hint" formatted="false" username="fireb33" orig="Size for spacers in pixels; leave empty for default">Dimensione dello spazio in pixel (lasciare vuoto per l\'impostazione predefinita).</string>
+  <string name="textsize_pbar_" formatted="false" username="fireb33" orig="Progress bar\'s size">Dimensione barra avanzamento</string>
+  <string name="textsize_pbar_hint" formatted="false" username="fireb33" orig="Size for progress bars in pixels; leave empty for default">Dimensione della barra in pixel (lasciare vuoto per l\'impostazione predefinita).</string>
+  <string name="textsize_pbarbp_" formatted="false" username="fireb33" orig="Bill period\'s progress bar\'s size">Dimensione barra conteggio</string>
+  <string name="textsize_pbarbp_hint" formatted="false" username="fireb33" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Dimensione della barra in pixel; lasciare vuoto per l\'impostazione predefinita.</string>
+  <string name="show_today_" formatted="false" username="fireb33" orig="Show today">Mostra oggi</string>
+  <string name="show_today_hint" formatted="false" username="fireb33" orig="Show today stats">Mostra le statistiche di oggi</string>
+  <string name="show_total_" formatted="false" username="fireb33" orig="Show total">Mostra totali</string>
+  <string name="show_total_hint" formatted="false" username="fireb33" orig="Show total stats, disable to see current only.">Mostra i totali (disabilita per vedere soltanto le statistiche correnti).</string>
+  <string name="show_time_" formatted="false" username="fireb33" orig="Switch to date">Vai alla data</string>
+  <string name="show_titlebar_" formatted="false" username="fireb33" orig="Show title bar">Mostra barra titolo</string>
+  <string name="show_titlebar_hint" formatted="false" username="fireb33" orig="Show title bar in main view. Without title bar, there is no way to see background activity.">Mostra la barra del titolo nella vista principale (senza barra non sarà possibile vedere le attività in corso).</string>
+  <string name="show_hours_" formatted="false" username="fireb33" orig="Show hours">Mostra ore</string>
+  <string name="show_hours_hint" formatted="false" username="fireb33" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Mostra il tempo in secondi, minuti, ore e giorni (se non selezionato saranno visualizzati soltanto secondi e minuti).</string>
+  <string name="show_help_" formatted="false" username="fireb33" orig="Show help">Mostra guida</string>
+  <string name="show_help_hint" formatted="false" username="fireb33" orig="Show help in Plans/Rules setup view.">Mostra la guida nella finestra di impostazione dei piani tariffari e regole.</string>
+  <string name="show_shortname_" formatted="false" username="fireb33" orig="Show short name instead of long name">Mostra nomi corti invece che lunghi</string>
+  <string name="show_cost_" formatted="false" username="fireb33" orig="Show cost">Mostra costo</string>
+  <string name="show_billperiod_" formatted="false" username="fireb33" orig="Show progress of billing period">Mostra avanzamento del periodo di fatturazione</string>
+  <string name="show_calllength_" formatted="false" username="fireb33" orig="Show info after hanging up">Mostra info dopo chiusura</string>
+  <string name="show_calllength_hint" formatted="false" username="fireb33" orig="Show length/cost of a call after hanging up.">Mostra durata/costo di una chiamata dopo aver riagganciato.</string>
+  <string name="hide_zero_" formatted="false" username="fireb33" orig="Hide empty plans">Nascondi piani vuoti</string>
+  <string name="hide_zero_hint" formatted="false" username="fireb33" orig="Hide plans containing no item.">Nascondi i piani tariffari che non hanno elementi.</string>
+  <string name="hide_nocost_" formatted="false" username="fireb33" orig="Hide no cost plans">Nascondi piani senza costi</string>
+  <string name="hide_nocost_hint" formatted="false" username="fireb33" orig="Hide plans with no cost.">Nascondi i piani tariffari che non prevedono costi.</string>
+  <string name="hide_progressbars_" formatted="false" username="fireb33" orig="Hide progress bars">Nascondi barre avanzamento</string>
+  <string name="hide_progressbars_hint" formatted="false" username="fireb33" orig="Hide progress bars in main view.">Nascondi le barre di avanzamento nella vista principale.</string>
+  <string name="custom_currency_symbol_" formatted="false" username="fireb33" orig="Custom currency symbol">Simbolo valuta</string>
+  <string name="custom_currency_symbol_hint" formatted="false" username="fireb33" orig="Set a custom currency symbol, leave empty for system default.">Imposta un simbolo personalizzato per la valuta (lasciare vuoto per quello predefinito di sistema).</string>
+  <string name="custom_currency_format_" formatted="false" username="fireb33" orig="Custom currency format">Formato valuta</string>
+  <string name="custom_currency_format_hint" formatted="false" username="fireb33" orig="Select a custom currency format.">Seleziona un formato personalizzato per la valuta.</string>
+  <string name="custom_date_format_" formatted="false" username="fireb33" orig="Custom date format">Formato data</string>
+  <string name="custom_date_format_hint" formatted="false" username="fireb33" orig="Select a custom date format.">Seleziona un formato personalizzato per la data.</string>
+  <string name="custom_delimiter_" formatted="false" username="fireb33" orig="Custom delimiter">Separatore personalizzato</string>
+  <string name="custom_delimiter_hint" formatted="false" username="fireb33" orig="Set a custom delimiter separating the blocks of statistics.">Impostare un separatore personalizzato per i blocchi di statistiche.</string>
+  <string name="split_sms_at_160_" formatted="false" username="fireb33" orig="Split text messages at 160 chars">Dividi i messaggi a 160 caratteri</string>
+  <string name="split_sms_at_160_hint" formatted="false" username="fireb33" orig="Disable to use android\'s system method.">Disabilita per usare il metodo Android</string>
+  <string name="ask_for_plan_" formatted="false" username="fireb33" orig="Ask for plan">Richiedi piano</string>
+  <string name="ask_for_plan_hint" formatted="false" username="fireb33" orig="Ask for plan for unmatched calls after hanging up.">Richiedi piano per le chiamate non identificate dopo aver riagganciato.</string>
   <string name="autohide_" formatted="false">Nascondi automaticamente</string>
   <string name="autohide_hint" formatted="false">Nascondi finestra dopo \"x\" secondi. Lasciare vuoto per disattivare Nascondi automaticamente.</string>
   <string name="select_plan_" formatted="false">Selezionare un piano</string>
