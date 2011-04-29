@@ -57,6 +57,8 @@
   <string name="billmode_" formatted="false">Modalità di conteggio</string>
   <string name="billdate_" formatted="false">Inizio conteggio:</string>
   <string name="appearance_" formatted="false">Aspetto</string>
+  <string name="behavior_" formatted="false" orig="Behavior">Comportamento</string>
+  <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp;amp; behavior">Aspetto e comportamento</string>
   <string name="advanced_preferences_" formatted="false">Avanzate</string>
   <string name="advanced_preferences_hint" formatted="false">Permette di impostare più nel dettaglio alcune opzioni. La maggior parte degli utenti non ne ha bisogno.</string>
   <string name="theme_" formatted="false">Tema</string>
@@ -102,6 +104,8 @@
   <string name="custom_date_format_hint" formatted="false">Seleziona un formato personalizzato per la data.</string>
   <string name="custom_delimiter_" formatted="false">Delimitatore personalizzato</string>
   <string name="custom_delimiter_hint" formatted="false">Impostare un delimitatore personalizzato che separa i blocchi di statistiche.</string>
+  <string name="split_sms_at_160_" formatted="false" orig="Split text messages at 160 chars">Dividi i messaggi a 160 caratteri</string>
+  <string name="split_sms_at_160_hint" formatted="false" orig="Disable to use android\'s system method.">Disabilita per usare il metodo Android</string>
   <string name="ask_for_plan_" formatted="false">Richiedi piano</string>
   <string name="ask_for_plan_hint" formatted="false">Richiedi piano per le chiamate non identificate dopo aver riagganciato.</string>
   <string name="autohide_" formatted="false">Nascondi automaticamente</string>
@@ -119,6 +123,8 @@
   <string name="rules_hint" formatted="false">Configura le regole di conteggio.</string>
   <string name="rules_new" formatted="false">Nuova regola</string>
   <string name="length_" formatted="false">Durata</string>
+  <string name="blength_" formatted="false" orig="Billed length">Lunghezza tariffata</string>
+  <string name="cost_" formatted="false" orig="Cost">Costo</string>
   <string name="remote_" formatted="false">Numero remoto</string>
   <string name="numbergroups_edit_" formatted="false">Gruppi numeri</string>
   <string name="numbergroups_edit_hint" formatted="false">Modifica gruppi di numeri.</string>
@@ -263,6 +269,13 @@
   <string name="alerts_100_" formatted="false">Notifica al 100%</string>
   <string name="alerts_100_hint" formatted="false">Notifica se il piano passa il 100% del suo limite.</string>
   <string name="widget_config_" formatted="false">Configura Widget</string>
+  <string name="widget_plan_textsize" formatted="false" orig="Plan Text Size">Dimensione testo piano</string>
+  <string name="widget_cost_textsize" formatted="false" orig="Cost Text Size">Dimensione testo costo</string>
+  <string name="widget_text_color_" formatted="false" orig="Text color">Colore testo</string>
+  <string name="widget_backgroud_color_" formatted="false" orig="Background color">Colore sfondo</string>
+  <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency">Trasparenza sfondo</string>
+  <string name="send_devices_" formatted="false" orig="Send devices">Invia dispositivi</string>
+  <string name="send_devices_hint" formatted="false" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Invia una lista di dispositivi allo sviluppatore. E\' necessario solo se le statistiche dati restano a zero.</string>
   <string-array name="weekdays_all">
     <item>Tutta la settimana</item>
     <item>Lunedì</item>

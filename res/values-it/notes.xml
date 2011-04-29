@@ -21,8 +21,8 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=it&file=notes.xml to edit the file.
        -->
 <resources>
-  <string-array name="notes_from_dev" username="flx &lt;f+translator@ub0r.de&gt;">
+  <string-array name="notes_from_dev">
     <item>Dicembre 2010 - NB: le statistiche sul traffico dati non possono essere recuperate prima dell\'installazione di questa applicazione!</item>
-    <item>Dicembre 2010 - NB: Forzare la chiusura di questa applicazione potrebbe causare un computo errato del traffico dati.</item>
+    <item>Dicembre 2010 - NB: Forzare la chiusura di questa applicazione potrebbe causare un calcolo errato del traffico dati.</item>
   </string-array>
 </resources>
