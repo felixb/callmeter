@@ -28,7 +28,7 @@
   <string name="notes_from_developer_text" formatted="false" username="fireb33" orig="Click here to show recent news from the developer">Clicca qui per mostrare le ultime notizie da parte dello sviluppatore</string>
   <string name="about0_" formatted="false" username="fireb33" orig="Watch your call, message and data plans!">Controlla le tue chiamate, messaggi e piani tariffari!</string>
   <string name="about0" formatted="false" username="fireb33" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter genera report sulle chiamate, messaggi e sul traffico dati. Supporta diverse modalità di tariffazione.</string>
-  <string name="about1" formatted="false" username="fireb33" orig="The output format is usage | time or count used this billing period | time or count overall.">Il formato delle statistiche è utilizzo/tempo o conteggio usato dal periodo/tempo di fatturazione rispetto al totale.</string>
+  <string name="about1" formatted="false" username="fireb33" orig="The output format is usage | time or count used this billing period | time or count overall.">Il formato delle statistiche è utilizzo/tempo o conteggio usato dal periodo/tempo di tariffazione rispetto al totale.</string>
   <string name="about2" formatted="false" username="fireb33" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">La modalità di tariffazione specifica la lunghezza del primo/successivi intervalli di tariffazione. Ad esempio, 60/10 significa che ogni chiamata è conteggiata minimo 60 secondi, e poi è arrotondata ai successivi 10 secondi.</string>
   <string name="about3" formatted="false" username="fireb33" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter viene eseguito in background ogni 30 minuti (solo quando il telefono non è in standby). Questo implica che la cancellazione di chiamate o messaggi precedenti ai 30 minuti non cambia le statistiche. Cancellare chiamate o messaggi più recenti può invece alterare le statistiche.</string>
   <string name="send_" formatted="false" username="fireb33" orig="Send">Invia</string>
@@ -87,9 +87,9 @@
   <string name="show_help_hint" formatted="false" username="fireb33" orig="Show help in Plans/Rules setup view.">Mostra la guida nella finestra di impostazione dei piani tariffari e regole.</string>
   <string name="show_shortname_" formatted="false" username="fireb33" orig="Show short name instead of long name">Mostra nomi corti invece che lunghi</string>
   <string name="show_cost_" formatted="false" username="fireb33" orig="Show cost">Mostra costo</string>
-  <string name="show_billperiod_" formatted="false" username="fireb33" orig="Show progress of billing period">Mostra avanzamento del periodo di fatturazione</string>
+  <string name="show_billperiod_" formatted="false" username="fireb33" orig="Show progress of billing period">Mostra avanzamento del periodo di tariffazione</string>
   <string name="show_calllength_" formatted="false" username="fireb33" orig="Show info after hanging up">Mostra info dopo chiusura</string>
-  <string name="show_calllength_hint" formatted="false" username="fireb33" orig="Show length/cost of a call after hanging up.">Mostra durata/costo di una chiamata dopo aver riagganciato.</string>
+  <string name="show_calllength_hint" formatted="false" username="fireb33" orig="Show length/cost of a call after hanging up.">Mostra durata/costo della chiamata dopo aver riagganciato.</string>
   <string name="hide_zero_" formatted="false" username="fireb33" orig="Hide empty plans">Nascondi piani vuoti</string>
   <string name="hide_zero_hint" formatted="false" username="fireb33" orig="Hide plans containing no item.">Nascondi i piani tariffari che non hanno elementi.</string>
   <string name="hide_nocost_" formatted="false" username="fireb33" orig="Hide no cost plans">Nascondi piani senza costi</string>
@@ -108,175 +108,175 @@
   <string name="split_sms_at_160_hint" formatted="false" username="fireb33" orig="Disable to use android\'s system method.">Disabilita per usare il metodo Android</string>
   <string name="ask_for_plan_" formatted="false" username="fireb33" orig="Ask for plan">Richiedi piano</string>
   <string name="ask_for_plan_hint" formatted="false" username="fireb33" orig="Ask for plan for unmatched calls after hanging up.">Richiedi piano per le chiamate non identificate dopo aver riagganciato.</string>
-  <string name="autohide_" formatted="false">Nascondi automaticamente</string>
-  <string name="autohide_hint" formatted="false">Nascondi finestra dopo \"x\" secondi. Lasciare vuoto per disattivare Nascondi automaticamente.</string>
-  <string name="select_plan_" formatted="false">Selezionare un piano</string>
-  <string name="set_selected_as_default_" formatted="false">Impostare il piano selezionato come predefinito</string>
-  <string name="autohide_in_" formatted="false">Nascondi automaticamente finestra in: %d sec.</string>
-  <string name="logs" formatted="false">Log</string>
-  <string name="show_logs" formatted="false">Mostra log</string>
-  <string name="plans" formatted="false">Piani</string>
-  <string name="plans_hint" formatted="false">Configura i piani tariffari per ogni tipo di conteggio.</string>
-  <string name="plans_new" formatted="false">Nuovo piano</string>
-  <string name="rule_" formatted="false">Regola</string>
-  <string name="rules" formatted="false">Regole</string>
-  <string name="rules_hint" formatted="false">Configura le regole di conteggio.</string>
-  <string name="rules_new" formatted="false">Nuova regola</string>
-  <string name="length_" formatted="false">Durata</string>
-  <string name="blength_" formatted="false" orig="Billed length">Lunghezza tariffata</string>
-  <string name="cost_" formatted="false" orig="Cost">Costo</string>
-  <string name="remote_" formatted="false">Numero remoto</string>
-  <string name="numbergroups_edit_" formatted="false">Gruppi numeri</string>
-  <string name="numbergroups_edit_hint" formatted="false">Modifica gruppi di numeri.</string>
-  <string name="hourgroups_edit_" formatted="false">Gruppi orari</string>
-  <string name="hourgroups_edit_hint" formatted="false">Modifica i gruppi orari.</string>
-  <string name="numbers" formatted="false">Numeri</string>
-  <string name="numbergroup_" formatted="false">Includi numeri</string>
-  <string name="numbergroup_help" formatted="false">Aggiungi dei numeri per cui questa regola sarà applicata.\n\nI caratteri jolly (\"%\") sono permessi all\'inizio e alla fine del numero.</string>
-  <string name="exnumbergroup_" formatted="false">Escludi numeri</string>
-  <string name="exnumbergroup_help" formatted="false">Aggiungi dei numeri per cui questa regola non sarà presa in considerazione.</string>
-  <string name="new_numbergroup" formatted="false">Nuovo gruppo numeri</string>
-  <string name="add_number" formatted="false">Aggiungi numero</string>
-  <string name="hours" formatted="false">Orari</string>
-  <string name="hourgroup_" formatted="false">Includi orari</string>
-  <string name="hourgroup_help" formatted="false">Aggiungi degli orari in cui questa regola sarà applicata.</string>
-  <string name="exhourgroup_" formatted="false">Escludi orari</string>
-  <string name="exhourgroup_help" formatted="false">Aggiungi degli orari in cui questa regola non sarà presa in considerazione.</string>
-  <string name="new_hourgroup" formatted="false">Nuovo gruppo orari</string>
-  <string name="add_hour" formatted="false">Aggiungi orario</string>
-  <string name="empty_group" formatted="false">I gruppi vuoti non corrispondono a nulla. Si prega di tornare indietro e aggiungere almeno un elemento.</string>
-  <string name="calls" formatted="false">Chiamate</string>
-  <string name="sms" formatted="false">SMS</string>
-  <string name="mms" formatted="false">MMS</string>
-  <string name="data" formatted="false">Dati</string>
-  <string name="prepaid_" formatted="false">Piani prepagati</string>
-  <string name="prepaid_hint" formatted="false">Fattura sulla base di piani prepagati.</string>
-  <string name="balance_" formatted="false">Saldo</string>
-  <string name="balance_help" formatted="false">Saldo in un dato momento.</string>
-  <string name="strip_leading_zeros_" formatted="false">Rimuovi zeri in testa</string>
-  <string name="strip_leading_zeros_hint" formatted="false">Rimuove gli zero prefissi ai numeri quando questi saranno confrontati.</string>
-  <string name="number_prefix_" formatted="false">Prefisso internazionale</string>
-  <string name="number_prefix_hint" formatted="false">Il tuo prefisso internazionale con formato tipo +1 o +39. Questo prefisso è usato per l\'identificazione di numeri come +391223...</string>
-  <string name="reset_data_" formatted="false">Azzera statistiche</string>
-  <string name="reset_data_hint" formatted="false">Azzerando chiamane/SMS le statistiche saranno ricalcolate.\n\nL\'azzeramento del traffico invece è permanente. Azzera il traffico fatto prima dell\'accensione!</string>
-  <string name="reset_data_data_" formatted="false">Traffico</string>
-  <string name="reset_data_progr1" formatted="false">Ricalcolo statistiche ...\n\n(Può volerci un certo tempo!)</string>
-  <string name="reset_data_progr2" formatted="false">Ricalcolo statistiche ...</string>
-  <string name="contacts_" formatted="false">Contatti</string>
-  <string name="clear_" formatted="false">Pulisci</string>
-  <string name="help_" formatted="false">Aiuto</string>
-  <string name="new_" formatted="false">Nuovo</string>
-  <string name="edit_selected_" formatted="false">Modifica selezionato</string>
-  <string name="edit_groups_" formatted="false">Modifica gruppi</string>
-  <string name="name_" formatted="false">Nome</string>
-  <string name="name_help" formatted="false">Imposta un nome.</string>
-  <string name="shortname_" formatted="false">Nome corto</string>
-  <string name="shortname_help" formatted="false">Imposta un nome corto che sarà visualizzato con il layout ridotto.</string>
-  <string name="type_" formatted="false">Tipo</string>
-  <string name="type_help" formatted="false">Seleziona un tipo.\n\"Titolo\" mostrerà semplicemente un titolo nella vista principale.\n\"Spazio\" serve a distanziare il prossimo elemento.\n\"Periodo conteggio\" manterrà ogni informazione circa il conteggio del tuo periodo di fatturazione. La maggior parte degli utenti avranno bisogno esattamente di un periodo.\nUn \"mix\" di piani che può gestire chiamate e messaggi insieme. Combina il conteggio di qualsiasi elemento.\nUn piano \"chiamate\" raccoglie i dati solo delle chiamate. I piani \"SMS\" e \"MMS\" si occuperanno solo dei messaggi.\nIl piano \"dati\" può raccogliere informazioni sul traffico dati.</string>
-  <string name="limit_type_" formatted="false">Tipo limite</string>
-  <string name="limit_type_help" formatted="false">Imposta il tipo di limite. Il limite "unità" limiterà il piano sulla base dei minuti, messaggi, ecc.\nIl limite \"costo\" limiterà il piano sulla base del costo generato dagli elementi raccolti in questo piano.</string>
-  <string name="limit_" formatted="false">Limite</string>
-  <string name="limit_help" formatted="false">Imposta il limite del piano.\n\nPer il tipo \"unità\" bisogna usare i minuti (chiamate), messaggi (sms/mms), megabyte (per i dati, 1024kB) o le unità (mix).\n\nPer il tipo \"costo\" bisogna usare la valuta principale (ad es. €).</string>
-  <string name="billmode_help" formatted="false">Imposta la modalità di fatturazione.\nLa prima parte è la durata minima conteggiata dall\'operatore. Ciascuna chiamata di durata minore sarà comunque arrotodonata a questo valore minimo.\nLa seconda parte è la durata minima dei blocchi di secondi seguenti.\nLeggere la FAQ per saperne di più.</string>
-  <string name="billday_help" formatted="false">Imposta il primo giorno del periodo di fatturazione.</string>
-  <string name="billperiodid_" formatted="false">Periodo fatturazione</string>
-  <string name="billperiodid_help" formatted="false">Imposta il periodo di fatturazione.\nPuò essere necessario crearne un altro come piano extra.</string>
-  <string name="billperiod_" formatted="false">Lunghezza periodo fatturazione</string>
-  <string name="billperiod_help" formatted="false">Imposta la lunghezza del periodo di fatturazione.</string>
-  <string name="cost_per_item_" formatted="false">Costo per elemento</string>
-  <string name="cost_per_item_help" formatted="false">Imposta il costo fatturato per ogni singolo elemento (chiamata o messaggio) dopo che è stato raggiunto il limite.</string>
-  <string name="cost_per_item_in_limit_" formatted="false">Costo entro limite</string>
-  <string name="cost_per_item_in_limit_help" formatted="false">Imposta il costo fatturato per ogni singolo elemento (chiamata o messaggio) prima che sia stato raggiunto il limite.</string>
-  <string name="cost_per_amount_" formatted="false">Costo lunghezza</string>
-  <string name="cost_per_amount_help1" formatted="false">Imposta il costo fatturato per una certa dimensione di un singolo elemento (es. per 1kB di dati) dopo che è stato raggiunto il limite.</string>
-  <string name="cost_per_amount_help2" formatted="false">Imposta il costo fatturato per una certa lunghezza di un singolo elemento (es. per 1 min. di chiamata) dopo che è stato raggiunto il limite.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.</string>
-  <string name="cost_per_amount_in_limit_" formatted="false">Costo lunghezza entro limite</string>
-  <string name="cost_per_amount_in_limit_help1" formatted="false">Imposta il costo fatturato per una certa dimensione di un singolo elemento (es. per 1kB di dati) prima che sia stato raggiunto il limite.</string>
-  <string name="cost_per_amount_in_limit_help2" formatted="false">Imposta il costo fatturato per una certa lunghezza di un singolo elemento (es. per 1 min. di chiamata) prima che sia stato raggiunto il limite.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.</string>
-  <string name="cost_per_plan_" formatted="false">Costo per piano</string>
-  <string name="cost_per_plan_help" formatted="false">Imposta il costo del piano tariffario per il periodo di fatturazione stabilito.</string>
-  <string name="mixed_units_sms_" formatted="false">Elementi per SMS</string>
-  <string name="mixed_units_sms_help" formatted="false">Imposta gli elementi fatturati per un singolo SMS.</string>
-  <string name="mixed_units_mms_" formatted="false">Elementi per MMS</string>
-  <string name="mixed_units_mms_help" formatted="false">Imposta gli elementi fatturati per un singolo MMS.</string>
-  <string name="mixed_units_call_" formatted="false">Elementi per chiamata</string>
-  <string name="mixed_units_call_help" formatted="false">Imposta gli elementi fatturati per un minuto di chiamata.\nLa modalità di fatturazione è presa dall\'account.</string>
-  <string name="merge_plans_" formatted="false">Unisci piani</string>
-  <string name="merge_plans_help" formatted="false">Unisce altri piani in questo e li fattura insieme.</string>
-  <string name="units_cost" formatted="false">€</string>
-  <string name="units_num_msg" formatted="false"># Messaggi</string>
-  <string name="units_minutes" formatted="false">Minuti</string>
-  <string name="units_mbyte" formatted="false">MB</string>
+  <string name="autohide_" formatted="false" username="fireb33" orig="Auto hide">Nascondi automaticamente</string>
+  <string name="autohide_hint" formatted="false" username="fireb33" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Nascondi finestra dopo "x" secondi (lasciare vuoto per disattivare).</string>
+  <string name="select_plan_" formatted="false" username="fireb33" orig="Select a plan">Seleziona un piano</string>
+  <string name="set_selected_as_default_" formatted="false" username="fireb33" orig="Set selected plan as default">Imposta il piano selezionato come predefinito</string>
+  <string name="autohide_in_" formatted="false" username="fireb33" orig="Auto hide dialog in: %ds">Nascondi automaticamente finestra in: %d sec.</string>
+  <string name="logs" formatted="false" username="fireb33" orig="Logs">Registri</string>
+  <string name="show_logs" formatted="false" username="fireb33" orig="Show logs">Mostra registri</string>
+  <string name="plans" formatted="false" username="fireb33" orig="Plans">Piani</string>
+  <string name="plans_hint" formatted="false" username="fireb33" orig="Set your plans for all kind of billing here.">Configura i piani per ogni tipo di tariffazione.</string>
+  <string name="plans_new" formatted="false" username="fireb33" orig="New plan">Nuovo piano</string>
+  <string name="rule_" formatted="false" username="fireb33" orig="Rule">Regola</string>
+  <string name="rules" formatted="false" username="fireb33" orig="Rules">Regole</string>
+  <string name="rules_hint" formatted="false" username="fireb33" orig="Set your billing rules here.">Configura le regole di tariffazione.</string>
+  <string name="rules_new" formatted="false" username="fireb33" orig="New Rule">Nuova regola</string>
+  <string name="length_" formatted="false" username="fireb33" orig="Length">Durata</string>
+  <string name="blength_" formatted="false" username="fireb33" orig="Billed length">Lunghezza tariffata</string>
+  <string name="cost_" formatted="false" username="fireb33" orig="Cost">Costo</string>
+  <string name="remote_" formatted="false" username="fireb33" orig="Remote number">Numero remoto</string>
+  <string name="numbergroups_edit_" formatted="false" username="fireb33" orig="Number groups">Gruppi numeri</string>
+  <string name="numbergroups_edit_hint" formatted="false" username="fireb33" orig="Edit number groups here.">Modifica gruppi di numeri.</string>
+  <string name="hourgroups_edit_" formatted="false" username="fireb33" orig="Hour groups">Gruppi orari</string>
+  <string name="hourgroups_edit_hint" formatted="false" username="fireb33" orig="Edit hour groups here.">Modifica i gruppi orari.</string>
+  <string name="numbers" formatted="false" username="fireb33" orig="Numbers">Numeri</string>
+  <string name="numbergroup_" formatted="false" username="fireb33" orig="Include numbers">Includi numeri</string>
+  <string name="numbergroup_help" formatted="false" username="fireb33" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Aggiungi dei numeri per cui questa regola sarà applicata.\n\nI caratteri jolly ("%") sono permessi all\'inizio e alla fine del numero.\n</string>
+  <string name="exnumbergroup_" formatted="false" username="fireb33" orig="Exclude numbers">Escludi numeri</string>
+  <string name="exnumbergroup_help" formatted="false" username="fireb33" orig="Add some numbers this rule must not match.\nSee above.">Aggiungi dei numeri per cui questa regola non sarà applicata.</string>
+  <string name="new_numbergroup" formatted="false" username="fireb33" orig="New number group">Nuovo gruppo numeri</string>
+  <string name="add_number" formatted="false" username="fireb33" orig="Add number">Aggiungi numero</string>
+  <string name="hours" formatted="false" username="fireb33" orig="Hours">Orari</string>
+  <string name="hourgroup_" formatted="false" username="fireb33" orig="Include hours">Includi orari</string>
+  <string name="hourgroup_help" formatted="false" username="fireb33" orig="Add some hours this rule must match.">Aggiungi degli orari in cui questa regola sarà applicata.</string>
+  <string name="exhourgroup_" formatted="false" username="fireb33" orig="Exclude hours">Escludi orari</string>
+  <string name="exhourgroup_help" formatted="false" username="fireb33" orig="Add some hours this rule must not match.">Aggiungi degli orari in cui questa regola non sarà applicata.</string>
+  <string name="new_hourgroup" formatted="false" username="fireb33" orig="New hour group">Nuovo gruppo orari</string>
+  <string name="add_hour" formatted="false" username="fireb33" orig="Add hour">Aggiungi orario</string>
+  <string name="empty_group" formatted="false" username="fireb33" orig="Empty groups won\'t match anything. Please go back and add at least one item.">I gruppi vuoti non hanno alcun effetto. Si prega di tornare indietro e aggiungere almeno un elemento.</string>
+  <string name="calls" formatted="false" username="fireb33" orig="Calls">Chiamate</string>
+  <string name="sms" formatted="false" username="fireb33" orig="SMS">SMS</string>
+  <string name="mms" formatted="false" username="fireb33" orig="MMS">MMS</string>
+  <string name="data" formatted="false" username="fireb33" orig="Data">Dati</string>
+  <string name="prepaid_" formatted="false" username="fireb33" orig="Prepaid plan">Piani prepagati</string>
+  <string name="prepaid_hint" formatted="false" username="fireb33" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Tariffaa sulla base di piani prepagati.</string>
+  <string name="balance_" formatted="false" username="fireb33" orig="Balance">Saldo</string>
+  <string name="balance_help" formatted="false" username="fireb33" orig="Balance of your account at this given date.">Saldo in un dato momento.</string>
+  <string name="strip_leading_zeros_" formatted="false" username="fireb33" orig="Strip leading zeros">Rimuovi zeri in testa</string>
+  <string name="strip_leading_zeros_hint" formatted="false" username="fireb33" orig="Strip leading zeros when comparing numbers.">Rimuove gli zero prefissi ai numeri quando questi saranno confrontati.</string>
+  <string name="number_prefix_" formatted="false" username="fireb33" orig="International prefix">Prefisso internazionale</string>
+  <string name="number_prefix_hint" formatted="false" username="fireb33" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">Il tuo prefisso internazionale con formato tipo +1 o +39.</string>
+  <string name="reset_data_" formatted="false" username="fireb33" orig="Reset statistics">Azzera statistiche</string>
+  <string name="reset_data_hint" formatted="false" username="fireb33" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Azzerando i dati di chiamate/SMS le statistiche verranno ricalcolate.\n\nL\'azzeramento del traffico invece è permanente. Azzera il traffico effettuato prima del boot!</string>
+  <string name="reset_data_data_" formatted="false" username="fireb33" orig="Reset traffic too.">Resetta il traffico</string>
+  <string name="reset_data_progr1" formatted="false" username="fireb33" orig="Recalculating statistics ...\n\n(This may take some time!)">Ricalcolo statistiche...\n\n(potrebbe volerci del tempo!)</string>
+  <string name="reset_data_progr2" formatted="false" username="fireb33" orig="Recalculating statistics ...">Ricalcolo statistiche...</string>
+  <string name="contacts_" formatted="false" username="fireb33" orig="Contacts">Contatti</string>
+  <string name="clear_" formatted="false" username="fireb33" orig="Clear">Pulisci</string>
+  <string name="help_" formatted="false" username="fireb33" orig="Help">Aiuto</string>
+  <string name="new_" formatted="false" username="fireb33" orig="New">Nuovo</string>
+  <string name="edit_selected_" formatted="false" username="fireb33" orig="Edit selected">Modifica selezionato</string>
+  <string name="edit_groups_" formatted="false" username="fireb33" orig="Edit groups">Modifica gruppi</string>
+  <string name="name_" formatted="false" username="fireb33" orig="Name">Nome</string>
+  <string name="name_help" formatted="false" username="fireb33" orig="Set a name here.">Imposta un nome.</string>
+  <string name="shortname_" formatted="false" username="fireb33" orig="Short name">Nome breve</string>
+  <string name="shortname_help" formatted="false" username="fireb33" orig="Set a short name here. It is displayed in compact layouts.">Imposta un nome breve che sarà visualizzato con il layout ridotto.</string>
+  <string name="type_" formatted="false" username="fireb33" orig="Type">Tipo</string>
+  <string name="type_help" formatted="false" username="fireb33" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Seleziona un tipo.\n"titolo" mostrerà semplicemente un titolo nella vista principale.\n"spazio" serve a distanziare il prossimo elemento.\n"periodo tariffazione" manterrà ogni informazione circa la tariffazione del tuo periodo (la maggior parte degli utenti avrà bisogno di un solo periodo).\nUn "mix" di piani che può gestire chiamate e messaggi insieme. Combina il conteggio di qualsiasi elemento.\nUn piano "chiamate" raccoglie i dati solo delle chiamate. I piani "SMS" e "MMS" si occuperanno solo dei messaggi.\nIl piano "dati" può raccogliere informazioni sul traffico dati.</string>
+  <string name="limit_type_" formatted="false" username="fireb33" orig="Limit type">Tipo limite</string>
+  <string name="limit_type_help" formatted="false" username="fireb33" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;cost\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Imposta il tipo di limite. Il limite "unità" limiterà il piano sulla base dei minuti, messaggi, ecc.\nIl limite "costo" limiterà il piano sulla base del costo generato dagli elementi tariffati in questo piano.</string>
+  <string name="limit_" formatted="false" username="fireb33" orig="Limit">Limite</string>
+  <string name="limit_help" formatted="false" username="fireb33" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">Imposta il limite del piano.\n\nPer il tipo "unità" bisogna usare i minuti (chiamate), messaggi (SMS/MMS), MegaByte (per i dati, 1024KB) o le unità (mix).\n\nPer il tipo "costo" bisogna usare la valuta principale ($,€).</string>
+  <string name="billmode_help" formatted="false" username="fireb33" orig="Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.">Imposta la modalità di tariffazione.\nLa prima parte è la durata minima conteggiata dall\'operatore. Ciascuna chiamata di durata minore sarà comunque arrotodonata a questo valore minimo.\nLa seconda parte è la durata minima dei blocchi di secondi seguenti.\nLeggi la FAQ per ulteriori informazioni.</string>
+  <string name="billday_help" formatted="false" username="fireb33" orig="Set this to the first day of the bill of the current billing period.">Imposta il primo giorno del periodo di tariffazione.</string>
+  <string name="billperiodid_" formatted="false" username="fireb33" orig="Billing period">Periodo tariffazione</string>
+  <string name="billperiodid_help" formatted="false" username="fireb33" orig="Select your billing period.\nYou may need to create one as extra plan.">Imposta il periodo di tariffazione (potrebbe essere necessario creare un piano extra).</string>
+  <string name="billperiod_" formatted="false" username="fireb33" orig="Length of the billing period">Lunghezza periodo tariffazione</string>
+  <string name="billperiod_help" formatted="false" username="fireb33" orig="Set the length of your billing period.">Imposta la lunghezza del periodo di tariffazione.</string>
+  <string name="cost_per_item_" formatted="false" username="fireb33" orig="Cost per item">Costo per elemento</string>
+  <string name="cost_per_item_help" formatted="false" username="fireb33" orig="Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.">Imposta il costo fatturato per ogni singolo elemento (chiamata o messaggio) dopo che è stato raggiunto il limite.</string>
+  <string name="cost_per_item_in_limit_" formatted="false" username="fireb33" orig="Cost per item in limit">Costo entro limite</string>
+  <string name="cost_per_item_in_limit_help" formatted="false" username="fireb33" orig="Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.">Imposta il costo fatturato per ogni singolo elemento (chiamata o messaggio) prima che sia stato raggiunto il limite.</string>
+  <string name="cost_per_amount_" formatted="false" username="fireb33" orig="Cost per length">Costo lunghezza</string>
+  <string name="cost_per_amount_help1" formatted="false" username="fireb33" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Imposta il costo fatturato per una certa dimensione di un singolo elemento (es. per 1KB di dati) dopo che è stato raggiunto il limite.</string>
+  <string name="cost_per_amount_help2" formatted="false" username="fireb33" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Imposta il costo fatturato per una certa lunghezza di un singolo elemento (es. per 1 min. di chiamata) dopo che è stato raggiunto il limite.\nIl primo campo contiene il costo dei primi secondi di chiamata, il secondo contiene il costo per i secondi successivi.</string>
+  <string name="cost_per_amount_in_limit_" formatted="false" username="fireb33" orig="Cost per length in limit">Costo lunghezza entro limite</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false" username="fireb33" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) before the limit is exceeded.">Imposta il costo fatturato per una certa dimensione di un singolo elemento (es. per 1KB di dati) prima che sia stato raggiunto il limite.</string>
+  <string name="cost_per_amount_in_limit_help2" formatted="false" username="fireb33" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Imposta il costo fatturato per una certa lunghezza di un singolo elemento (es. per 1 min. di chiamata) prima che sia stato raggiunto il limite.\nIl primo campo contiene il costo dei primi secondi di chiamata, il secondo contiene il costo per i secondi successivi.</string>
+  <string name="cost_per_plan_" formatted="false" username="fireb33" orig="Cost per plan">Costo per piano</string>
+  <string name="cost_per_plan_help" formatted="false" username="fireb33" orig="Set the cost of the plan for one billing period as is.">Imposta il costo del piano tariffario per il periodo di tariffazione stabilito.</string>
+  <string name="mixed_units_sms_" formatted="false" username="fireb33" orig="Units for a sms">Unità per SMS</string>
+  <string name="mixed_units_sms_help" formatted="false" username="fireb33" orig="Set the units billed for a single sms.">Imposta le unità fatturate per un singolo SMS.</string>
+  <string name="mixed_units_mms_" formatted="false" username="fireb33" orig="Units for a mms">Unità per MMS</string>
+  <string name="mixed_units_mms_help" formatted="false" username="fireb33" orig="Set the units billed for a single mms.">Imposta le unità fatturate per un singolo MMS.</string>
+  <string name="mixed_units_call_" formatted="false" username="fireb33" orig="Units for a call">Unità per chiamata</string>
+  <string name="mixed_units_call_help" formatted="false" username="fireb33" orig="Set the units billed for a one minute call.\nBill mode is taken into account here.">Imposta le unità fatturate per un minuto di chiamata.\nLa modalità di tariffazione è presa dall\'account.</string>
+  <string name="merge_plans_" formatted="false" username="fireb33" orig="Merge plans">Unisci piani</string>
+  <string name="merge_plans_help" formatted="false" username="fireb33" orig="Merge other plans into this one and bill them here (too).">Unisce altri piani in questo e li fattura insieme.</string>
+  <string name="units_cost" formatted="false" username="fireb33" orig="$">€</string>
+  <string name="units_num_msg" formatted="false" username="fireb33" orig="# Messages"># Messaggi</string>
+  <string name="units_minutes" formatted="false" username="fireb33" orig="Minutes">Minuti</string>
+  <string name="units_mbyte" formatted="false" username="fireb33" orig="MBytes">MB</string>
   <string name="units_units" formatted="false">Elementi</string>
-  <string name="units_units_per_minute" formatted="false">Elementi/Minuto</string>
-  <string name="units_units_per_message" formatted="false">Elementi/Messaggio</string>
-  <string name="units_cost_per_call" formatted="false">€/Chiamata</string>
-  <string name="units_cost_per_minute" formatted="false">€/Minuto</string>
-  <string name="units_cost_per_message" formatted="false">€/Messaggio</string>
-  <string name="units_cost_per_mbyte" formatted="false">€/MB</string>
-  <string name="units_cost_per_unit" formatted="false">€/Elemento</string>
-  <string name="plan_" formatted="false">Piano</string>
-  <string name="plan_help" formatted="false">Scegliere il piano per cui vale questa regola.</string>
-  <string name="limitnotreached_" formatted="false">Limite non raggiunto</string>
-  <string name="limitnotreached_help" formatted="false">La regola vale solo se il piano target non ha ancora raggiunto il limite.</string>
-  <string name="iswebsms_" formatted="false">SMS via Web</string>
-  <string name="iswebsms_help" formatted="false">Messaggio inviato via web.</string>
-  <string name="iswebsms_connector_" formatted="false">Adapter SMS</string>
-  <string name="iswebsms_connector_help" formatted="false">Inviato con uno specifico adapter/connector, lasciare vuoto per includerli tutti.</string>
-  <string name="issipcall_" formatted="false">Chiamata SIP</string>
-  <string name="issipcall_help" formatted="false">Chiamata effettuata via SIP. Attualmente è supportato sipdroid &gt;1.6.1.</string>
-  <string name="strip_seconds_" formatted="false">Non conteggia i primi secondi</string>
-  <string name="strip_seconds_help" formatted="false">Non conteggia i primi \"x\" secondi di una chiamata.</string>
-  <string name="what_" formatted="false">Target</string>
-  <string name="what_help" formatted="false">Scegliere un target della regola.</string>
-  <string name="direction_" formatted="false">Direzione</string>
-  <string name="direction_help" formatted="false">Scegliere una direzione dell\'elemento o log.</string>
-  <string name="roamed_" formatted="false">Inoltrato</string>
-  <string name="roamed_help" formatted="false">Scegliere se il log o elemento dato deve essere inoltrato.</string>
-  <string name="remote_hint" formatted="false">Numero remoto</string>
-  <string name="no_matter_" formatted="false">Non importa</string>
-  <string name="yes" formatted="false">Si</string>
-  <string name="no" formatted="false">No</string>
-  <string name="none" formatted="false">Vuoto</string>
-  <string name="value" formatted="false">Valore</string>
-  <string name="empty_groups_" formatted="false">Premere "Nuovo" per aggiungere un gruppo.</string>
-  <string name="empty_group_" formatted="false">Premere "Aggiungi" per aggiungere un elemento a questo gruppo.</string>
-  <string name="export_progr" formatted="false">Salvataggio dei dati ...</string>
-  <string name="import_progr" formatted="false">Importazione dei dati ...</string>
-  <string name="export_" formatted="false">Esporta ...</string>
-  <string name="export_hint" formatted="false">Esporta le regole, log o gruppi</string>
-  <string name="export_rules_" formatted="false">Esporta regole</string>
-  <string name="export_rules_hint" formatted="false">Esporta le regole sotto forma di mail.</string>
-  <string name="export_rules_descr" formatted="false">Descrizione</string>
-  <string name="export_logs_" formatted="false">Backup dei log</string>
-  <string name="export_logs_hint" formatted="false">Backup dei log come email.</string>
-  <string name="export_numgroups_" formatted="false">Esporta gruppi numeri</string>
-  <string name="export_numgroups_hint" formatted="false">Esportare gruppi numeri come email.</string>
-  <string name="export_hourgroups_" formatted="false">Esportare gruppi orari</string>
-  <string name="export_hourgroups_hint" formatted="false">Esportare gruppi orari come email.</string>
-  <string name="import_rules_" formatted="false">Importa regole</string>
-  <string name="import_rules_hint" formatted="false">Importa le regole.</string>
-  <string name="import_rules_empty" formatted="false">Nessun piano/regole. Fare clic su questo testo per importare un set di regole predefinite.\n\nOppure aggiungere piani e regole manualmente.</string>
-  <string name="err_export_write" formatted="false">Errore nella scrittura del file</string>
-  <string name="err_export_read" formatted="false">Errore nella lettura del file</string>
-  <string name="alerts_" formatted="false">Notifiche</string>
-  <string name="alerts_hint" formatted="false">Imposta notifiche sulla base dell\'utilizzo del piano tariffario.</string>
-  <string name="alerts_title" formatted="false">Call Meter 3G</string>
-  <string name="alerts_message" formatted="false">Il piano %s ha raggiunto il %d%% del suo utilizzo!</string>
-  <string name="alerts_80_" formatted="false">Notifica all\'80%</string>
-  <string name="alerts_80_hint" formatted="false">Notifica se il piano passa l\'80% del suo limite.</string>
-  <string name="alerts_100_" formatted="false">Notifica al 100%</string>
-  <string name="alerts_100_hint" formatted="false">Notifica se il piano passa il 100% del suo limite.</string>
-  <string name="widget_config_" formatted="false">Configura Widget</string>
-  <string name="widget_plan_textsize" formatted="false" orig="Plan Text Size">Dimensione testo piano</string>
-  <string name="widget_cost_textsize" formatted="false" orig="Cost Text Size">Dimensione testo costo</string>
-  <string name="widget_text_color_" formatted="false" orig="Text color">Colore testo</string>
-  <string name="widget_backgroud_color_" formatted="false" orig="Background color">Colore sfondo</string>
-  <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency">Trasparenza sfondo</string>
-  <string name="send_devices_" formatted="false" orig="Send devices">Invia dispositivi</string>
-  <string name="send_devices_hint" formatted="false" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Invia una lista di dispositivi allo sviluppatore. E\' necessario solo se le statistiche dati restano a zero.</string>
-  <string-array name="weekdays_all">
+  <string name="units_units_per_minute" formatted="false" username="fireb33" orig="Units/Minute">Unità/minuto</string>
+  <string name="units_units_per_message" formatted="false" username="fireb33" orig="Units/Message">Unità/messaggio</string>
+  <string name="units_cost_per_call" formatted="false" username="fireb33" orig="$/Call">€/chiamata</string>
+  <string name="units_cost_per_minute" formatted="false" username="fireb33" orig="$/Minute">€/minuto</string>
+  <string name="units_cost_per_message" formatted="false" username="fireb33" orig="$/Message">€/messaggio</string>
+  <string name="units_cost_per_mbyte" formatted="false" username="fireb33" orig="$/MByte">€/MB</string>
+  <string name="units_cost_per_unit" formatted="false" username="fireb33" orig="$/Unit">€/unità</string>
+  <string name="plan_" formatted="false" username="fireb33" orig="Plan">Piano</string>
+  <string name="plan_help" formatted="false" username="fireb33" orig="Choose the plan this rule should fit.">Scegliere il piano per cui vale questa regola.</string>
+  <string name="limitnotreached_" formatted="false" username="fireb33" orig="Limit not reached">Limite non raggiunto</string>
+  <string name="limitnotreached_help" formatted="false" username="fireb33" orig="Match only if target plan has not reached it\'s limit yet.">La regola vale solo se il piano non ha ancora raggiunto il limite.</string>
+  <string name="iswebsms_" formatted="false" username="fireb33" orig="Is WebSMS">WebSMS</string>
+  <string name="iswebsms_help" formatted="false" username="fireb33" orig="Message sent with WebSMS.">Messaggio inviato con WebSMS.</string>
+  <string name="iswebsms_connector_" formatted="false" username="fireb33" orig="Is WebSMS Connector">WebSMS Connector</string>
+  <string name="iswebsms_connector_help" formatted="false" username="fireb33" orig="Sent with specific WebSMS Connector, leave empty to match any.">Inviato con uno specifico WebSMS Connector (lasciare vuoto per includerli tutti).</string>
+  <string name="issipcall_" formatted="false" username="fireb33" orig="Is SIP call">Chiamata SIP</string>
+  <string name="issipcall_help" formatted="false" username="fireb33" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Chiamata effettuata via SIP (attualmente è supportato sipdroid &gt;1.6.1).</string>
+  <string name="strip_seconds_" formatted="false" username="fireb33" orig="Do not bill first seconds">Non tariffare i primi secondi</string>
+  <string name="strip_seconds_help" formatted="false" username="fireb33" orig="Do not bill first x seconds of a call.">Non tariffa i primi "x" secondi di una chiamata.</string>
+  <string name="what_" formatted="false" username="fireb33" orig="Target type">Target</string>
+  <string name="what_help" formatted="false" username="fireb33" orig="Choose a target type here.">Scegliere un target della regola.</string>
+  <string name="direction_" formatted="false" username="fireb33" orig="Direction">Direzione</string>
+  <string name="direction_help" formatted="false" username="fireb33" orig="Choose a direction the given log has to be.">Scegliere una direzione del registro.</string>
+  <string name="roamed_" formatted="false" username="fireb33" orig="Roamed">Inoltrato</string>
+  <string name="roamed_help" formatted="false" username="fireb33" orig="Choose whether the given log has to be roamed.">Scegliere se il registro deve essere inoltrato.</string>
+  <string name="remote_hint" formatted="false" username="fireb33" orig="Remote number">Numero remoto</string>
+  <string name="no_matter_" formatted="false" username="fireb33" orig="Does not matter">Non importa</string>
+  <string name="yes" formatted="false" username="fireb33" orig="Yes">Sì</string>
+  <string name="no" formatted="false" username="fireb33" orig="No">No</string>
+  <string name="none" formatted="false" username="fireb33" orig="None">Vuoto</string>
+  <string name="value" formatted="false" username="fireb33" orig="Value">Valore</string>
+  <string name="empty_groups_" formatted="false" username="fireb33" orig="Please press &quot;Add&quot; to add a group.">Premi "Nuovo" per aggiungere un gruppo.</string>
+  <string name="empty_group_" formatted="false" username="fireb33" orig="Please press &quot;Add&quot; to add an item to this group.">Premi "Aggiungi" per aggiungere un elemento a questo gruppo.</string>
+  <string name="export_progr" formatted="false" username="fireb33" orig="Exporting data ...">Esportazione dei dati...</string>
+  <string name="import_progr" formatted="false" username="fireb33" orig="Import data ...">Importazione dei dati...</string>
+  <string name="export_" formatted="false" username="fireb33" orig="Export ...">Esporta...</string>
+  <string name="export_hint" formatted="false" username="fireb33" orig="Export rule sets, logs or groups">Esporta le regole, i registri o i gruppi</string>
+  <string name="export_rules_" formatted="false" username="fireb33" orig="Export rule set">Esporta regole</string>
+  <string name="export_rules_hint" formatted="false" username="fireb33" orig="Export rule set as mail.">Esporta le regole via mail.</string>
+  <string name="export_rules_descr" formatted="false" username="fireb33" orig="Description">Descrizione</string>
+  <string name="export_logs_" formatted="false" username="fireb33" orig="Backup logs">Backup dei registri</string>
+  <string name="export_logs_hint" formatted="false" username="fireb33" orig="Backup logs as mail.">Backup dei registri via mail.</string>
+  <string name="export_numgroups_" formatted="false" username="fireb33" orig="Export number groups">Esporta gruppi numeri</string>
+  <string name="export_numgroups_hint" formatted="false" username="fireb33" orig="Export number groups as mail.">Esportar gruppi numeri via email.</string>
+  <string name="export_hourgroups_" formatted="false" username="fireb33" orig="Export hour groups">Esporta gruppi orari</string>
+  <string name="export_hourgroups_hint" formatted="false" username="fireb33" orig="Export hour groups as mail.">Esporta gruppi orari via mail.</string>
+  <string name="import_rules_" formatted="false" username="fireb33" orig="Import rule set">Importa regole</string>
+  <string name="import_rules_hint" formatted="false" username="fireb33" orig="Import rule set.">Importa le regole.</string>
+  <string name="import_rules_empty" formatted="false" username="fireb33" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Nessun piano/regole. Fare clic su questo testo per importare un set di regole predefinite.\n\nOppure aggiungere piani e regole manualmente.</string>
+  <string name="err_export_write" formatted="false" username="fireb33" orig="Error writing export file">Errore nella scrittura del file</string>
+  <string name="err_export_read" formatted="false" username="fireb33" orig="Error reading export file">Errore nella lettura del file</string>
+  <string name="alerts_" formatted="false" username="fireb33" orig="Alerts">Notifiche</string>
+  <string name="alerts_hint" formatted="false" username="fireb33" orig="Set alerts based on plan usage.">Imposta notifiche sulla base dell\'utilizzo del piano.</string>
+  <string name="alerts_title" formatted="false" username="fireb33" orig="Call Meter 3G alert">Call Meter 3G</string>
+  <string name="alerts_message" formatted="false" username="fireb33" orig="Plan %s has reached %d%% usage!">Il piano %s ha raggiunto il %d%% del suo utilizzo!</string>
+  <string name="alerts_80_" formatted="false" username="fireb33" orig="Notify at 80%">Notifica all\'80%</string>
+  <string name="alerts_80_hint" formatted="false" username="fireb33" orig="Notify if a plan passes 80% of it\'s limit.">Notifica se il piano passa l\'80% del suo limite.</string>
+  <string name="alerts_100_" formatted="false" username="fireb33" orig="Notify at 100%">Notifica al 100%</string>
+  <string name="alerts_100_hint" formatted="false" username="fireb33" orig="Notify if a plan passes 100% of it\'s limit.">Notifica se il piano passa il 100% del suo limite.</string>
+  <string name="widget_config_" formatted="false" username="fireb33" orig="Widget config">Configura widget</string>
+  <string name="widget_plan_textsize" formatted="false" username="fireb33" orig="Plan Text Size">Dimensione testo piano</string>
+  <string name="widget_cost_textsize" formatted="false" username="fireb33" orig="Cost Text Size">Dimensione testo costo</string>
+  <string name="widget_text_color_" formatted="false" username="fireb33" orig="Text color">Colore testo</string>
+  <string name="widget_backgroud_color_" formatted="false" username="fireb33" orig="Background color">Colore sfondo</string>
+  <string name="widget_backgroud_transparency_" formatted="false" username="fireb33" orig="Background transparency">Trasparenza sfondo</string>
+  <string name="send_devices_" formatted="false" username="fireb33" orig="Send devices">Invia dispositivi</string>
+  <string name="send_devices_hint" formatted="false" username="fireb33" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Invia una lista di dispositivi allo sviluppatore (è necessario solo se le statistiche dati restano a zero)</string>
+  <string-array name="weekdays_all" username="fireb33">
     <item>Tutta la settimana</item>
     <item>Lunedì</item>
     <item>Martedì</item>
@@ -287,7 +287,7 @@
     <item>Domenica</item>
     <item>Lunedì - Venerdì</item>
   </string-array>
-  <string-array name="hours_all">
+  <string-array name="hours_all" username="fireb33">
     <item>Tutto il giorno</item>
     <item>0:00 - 0:59</item>
     <item>1:00 - 1:59</item>
@@ -314,42 +314,42 @@
     <item>22:00 - 22:59</item>
     <item>23:00 - 23:59</item>
   </string-array>
-  <string-array name="themes">
+  <string-array name="themes" username="fireb33">
     <item>Nero</item>
     <item>Chiaro</item>
   </string-array>
-  <string-array name="dialog_edit_plan">
+  <string-array name="dialog_edit_plan" username="fireb33">
     <item>Modifica piano</item>
   </string-array>
-  <string-array name="dialog_delete">
+  <string-array name="dialog_delete" username="fireb33">
     <item>Elimina</item>
   </string-array>
-  <string-array name="dialog_edit_delete">
+  <string-array name="dialog_edit_delete" username="fireb33">
     <item>Modifica</item>
     <item>Elimina</item>
   </string-array>
-  <string-array name="plans_type">
+  <string-array name="plans_type" username="fireb33">
     <item>Titolo</item>
     <item>Spazio</item>
-    <item>Periodo fatturazione</item>
+    <item>Periodo tariffazione</item>
     <item>Mix</item>
     <item>Chiamate</item>
     <item>SMS</item>
     <item>MMS</item>
     <item>Dati</item>
   </string-array>
-  <string-array name="rules_type">
+  <string-array name="rules_type" username="fireb33">
     <item>Chiamate</item>
     <item>SMS</item>
     <item>MMS</item>
     <item>Dati</item>
   </string-array>
-  <string-array name="limit_type">
+  <string-array name="limit_type" username="fireb33">
     <item>nessuno</item>
     <item>unità</item>
     <item>costo</item>
   </string-array>
-  <string-array name="billperiod">
+  <string-array name="billperiod" username="fireb33">
     <item>Un giorno</item>
     <item>Una settimana</item>
     <item>30 giorni</item>
@@ -364,7 +364,7 @@
     <item>Un anno</item>
     <item>Infinito</item>
   </string-array>
-  <string-array name="billmodes">
+  <string-array name="billmodes" username="fireb33">
     <item>1/1</item>
     <item>6/6</item>
     <item>10/10</item>
@@ -383,36 +383,36 @@
     <item>60/60</item>
     <item>Personalizza</item>
   </string-array>
-  <string-array name="direction_calls">
+  <string-array name="direction_calls" username="fireb33">
     <item>ricevute</item>
     <item>effettuate</item>
   </string-array>
-  <string-array name="direction_sms">
+  <string-array name="direction_sms" username="fireb33">
     <item>ricevuti</item>
     <item>inviati</item>
   </string-array>
-  <string-array name="direction_mms">
+  <string-array name="direction_mms" username="fireb33">
     <item>ricevuti</item>
     <item>inviati</item>
   </string-array>
-  <string-array name="direction_data">
+  <string-array name="direction_data" username="fireb33">
     <item>ingresso</item>
     <item>uscita</item>
   </string-array>
-  <string-array name="currency_formats">
+  <string-array name="currency_formats" username="fireb33">
     <item>Predefinito</item>
     <item>€1.00</item>
     <item>€1000</item>
     <item>1.00€</item>
     <item>1000€</item>
   </string-array>
-  <string-array name="date_formats">
+  <string-array name="date_formats" username="fireb33">
     <item>Predefinito</item>
     <item>MM/GG/AA</item>
     <item>GG/MM/AAAA</item>
     <item>GG.MM.AAAA</item>
   </string-array>
-  <string-array name="update_interval">
+  <string-array name="update_interval" username="fireb33">
     <item>5 minuti</item>
     <item>10 minuti</item>
     <item>15 minuti</item>
