@@ -100,10 +100,15 @@ public abstract class Device {
 				try {
 					sb.append("\n\ndevice: ");
 					sb.append(dev);
+					sb.append("\n");
 					sb.append(readFile(dev + "/type"));
+					sb.append("\n");
 					sb.append(readFile(dev + SysClassNet.CARRIER));
+					sb.append("\n");
 					sb.append(readFile(dev + SysClassNet.RX_BYTES));
+					sb.append("\n");
 					sb.append(readFile(dev + SysClassNet.TX_BYTES));
+					sb.append("\n");
 				} catch (Exception e) {
 					sb.append("\nERROR: " + e + "\n");
 					Log.e(TAG, "ERROR reading " + dev, e);
