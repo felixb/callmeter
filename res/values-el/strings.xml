@@ -42,14 +42,18 @@
   <string name="smsperiod_" formatted="false">Ίδια περίοδος για SMS</string>
   <string name="smsperiod_hint" formatted="false">Set SMS\'s billing period to calls\' period.</string>
   <string name="smsbillday_" formatted="false">Πρώτη ημέρα των SMS</string>
+  <string name="dataperiod_" formatted="false" orig="Same Period for data">Ίδια περίοδας για δεδομένα</string>
   <string name="appearance_" formatted="false">Εμφάνιση</string>
   <string name="theme_" formatted="false">Θέμα</string>
   <string name="textsize_" formatted="false">Μέγεθος κειμένου</string>
+  <string name="advanced_" formatted="false" orig="Advanced">Για προχωρημένους</string>
   <string name="exclude_people_" formatted="false">Εξαίρεση αριθμών</string>
   <string name="exclude_people_hint" formatted="false">Μη χρέωση αριθμών (Κλήσεις)\nμπαλαντέρ επιτρέπονται: *555, 555* ή *555*</string>
   <string name="exclude_people_add" formatted="false">Προσθήκη αριθμού</string>
   <string name="exclude_people_edit" formatted="false">Επεξεργασία</string>
   <string name="exclude_people_delete" formatted="false">Διαγραφή</string>
+  <string name="exclude_people_calls_" formatted="false" orig="Enable for Calls">Ενεργοποίηση για Κλήσεις</string>
+  <string name="exclude_people_sms_" formatted="false" orig="Enable for SMS">Ενεργοποίηση για SMS</string>
   <string name="plans" formatted="false">Πλάνο Χρέωσης</string>
   <string name="plans_split" formatted="false">Διαχωρισμός Πλάνου</string>
   <string name="plans_merge" formatted="false">Ένωση Πλάνων</string>
@@ -86,6 +90,7 @@
   <string name="data_hint" formatted="false">WLAN stats are not collected here!</string>
   <string name="data_enable_" formatted="false">Εμφάνιση στοιχείων δεδομένων</string>
   <string name="data_enable_hint" formatted="false">Τα δεδομένα συλλέγονται σε πραγματικό χρόνο. Ο πρώτος μήνας ίσως να είναι λάθος!</string>
+  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Προβολή μόνο "Δεδομενα" ως τίτλο</string>
   <string name="data_each_day" formatted="false">Ξεχωριστή χρέωση κάθε ημέρας</string>
   <string name="data_each_day_hint" formatted="false">Η περίοδος χρέωσης ξεκινάει κάθε μέρα.</string>
   <string name="data_limit_" formatted="false">Όριο</string>
