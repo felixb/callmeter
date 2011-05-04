@@ -22,7 +22,7 @@
        -->
 <resources>
   <string name="help_title_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">Bitte lies folgendes um das Konzept der &lt;b&gt;Logs&lt;/b&gt;, &lt;b&gt;Kontingente&lt;/b&gt; and &lt;b&gt;Regeln&lt;/b&gt; zu verstehen:</string>
-  <string name="help_import_" formatted="false">Ein guter Anfangspunkt sind fertige Rgelsätze. Sie sind über die Website erhältlich. Importiere sie einfach über das Import Menü und spiele mit ihnen rum.</string>
+  <string name="help_import_" formatted="false" orig="A good starting point are some preconfigured rule sets available on the website. Just import them via import menu and play around.">Ein guter Anfangspunkt sind fertige Regelsätze. Sie sind über die Website erhältlich. Importiere sie einfach über das Import Menü und spiele mit ihnen rum.</string>
   <string name="help_export_" formatted="false">Wenn du es geschafft hast ein für dein Land typischen Regelsatz zu erstellen, kannst du ihn gern per Mail exportieren und mir schicken. Ich werde den Regelsatz dann auf der Website für alle Benutzer zugänglich machen.</string>
   <string name="help_logs_plans_rules_" formatted="false">Es gibt drei Arten der Datenstrukturen:</string>
   <string name="help_logs_" formatted="false">&lt;b&gt;Logs&lt;/b&gt; um Informationen über Anrufe, Nachrichten und Datenverkehr zu speichern.</string>
