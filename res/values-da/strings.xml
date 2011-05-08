@@ -87,6 +87,7 @@
   <string name="merge_sms_plan1_" formatted="false" username="basse1996" orig="Merge SMS into plan 1">Saml SMS\'er i plan 1</string>
   <string name="data_hint" formatted="false" username="basse1996" orig="WLAN stats are not collected here!">WLAN statistiker er ikke medregnet her!</string>
   <string name="data_enable_" formatted="false" username="basse1996" orig="Show data stats">Vis data statistik</string>
+  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Skjul "2G/3G/4G" i titel. Dette har ikke indflydelse på indsamling af data</string>
   <string name="data_each_day" formatted="false" username="basse1996" orig="Bill each day separately">Fakturer hver dag serverat </string>
   <string name="data_each_day_hint" formatted="false" username="basse1996" orig="Your billing period starts with each day.">Din fakturerings periode starter hver dag.</string>
   <string name="data_limit_" formatted="false" username="basse1996" orig="Limit">Grænse</string>
@@ -101,6 +102,7 @@
   <string name="calls" formatted="false" username="basse1996" orig="Calls">Opkald</string>
   <string name="sms" formatted="false" username="basse1996" orig="SMS">SMS\'er</string>
   <string name="data" formatted="false" username="basse1996" orig="Data">Data</string>
+  <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Data (2G/3G/4G)</string>
   <string name="calls_sms" formatted="false" username="basse1996" orig="Calls/SMS">Opkald/SMS</string>
   <string name="in_calls" formatted="false" username="basse1996" orig="In%s:">Ind:</string>
   <string name="in_sms" formatted="false" username="basse1996" orig="In%s:">Ind:</string>
