@@ -3,7 +3,7 @@
                Copyright (C) 2009-2011 Felix Bechstein
        -->
        <!--
-               This file is part of Call Meter NG. This program is free software; you can
+               This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
@@ -18,7 +18,11 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=el&file=market.xml to edit the file.
        -->
 <resources>
+  <string name="market_oss" formatted="false" orig="This app is open source software build in spare time. Adding bad comments in market won\'t help much to make it better.\nPlease add your issues with this app on the app\'s website.">Αυτή η εφαρμογή είναι ανοιχτού κώδικα και φτιάχνεται στον ελεύθερο χρόνο. Βάζοντας αρνητικά σχόλια στο μάρκετ δεν βοηθάτε στο να την κάνετε καλύτερη.</string>
+  <string name="merket_cm2" formatted="false" orig="This is a complete rebuild of Call Meter NG. It has a huge amount of new features like widgets and alerts.\nIt\'s new architecure allows more complex plans.\nFeel free to test it and help me make it more userfriendly as it is currently. ;)">Αυτή είναι μια πλήρης ανακατασκευή του Call Meter NG. Έχει ένα μεγάλο αριθμό νέων λειτουργιών όπως widgets και alerts.  </string>
+  <string name="market_translation" formatted="false" orig="Feel free to help translating this app to your language here: http://ub0r.de/translate/cm3/">Βοηθήστε στην μετάφραση αυτής της εφαρμογής στην γλώσσα σας εδώ:\nhttp://ub0r.de/translate/cm3/</string>
+  <string name="market_keywords" formatted="false" orig="Keywords: minutes calls sms txt text data traffic counter log phone usage watchdog alert widget statistics at&amp;amp;t verizon three o2 t-mobile vodafone orange">Ετικέτες: λεπτά κλήσεις μηνύματα κείμενο δεδομένα όγκος μετρητής καταγραφή τηλέφωνο χρήση στατιστικά cosmote vodafone wind q qtelecom momad frog minutes calls sms txt text data traffic counter log phone usage watchdog alert widget statistics</string>
 </resources>

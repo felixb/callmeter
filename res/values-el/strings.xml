@@ -119,6 +119,8 @@
   <string name="rules_hint" formatted="false">Ρυθμίστε τους κανόνες τιμολόγησης εδώ.</string>
   <string name="rules_new" formatted="false">Νέος κανόνας</string>
   <string name="length_" formatted="false">Διάρκεια/Μέγεθος</string>
+  <string name="blength_" formatted="false" orig="Billed length">Μήκος κοστολογημένου</string>
+  <string name="cost_" formatted="false" orig="Cost">Κόστος</string>
   <string name="remote_" formatted="false">Απομακρυσμένος αριθμός</string>
   <string name="numbergroups_edit_" formatted="false">Ομάδες αριθμών</string>
   <string name="numbergroups_edit_hint" formatted="false">Επεξεργαστείτε τις ομάδες αριθμών εδώ.</string>
@@ -263,6 +265,13 @@
   <string name="alerts_100_" formatted="false">Ειδοποιήση στο 100%</string>
   <string name="alerts_100_hint" formatted="false">Ειδοποιήση εάν ένα πλάνο περάσει το 100% του ορίου του.</string>
   <string name="widget_config_" formatted="false">Ρυθμίσεις widget</string>
+  <string name="widget_plan_textsize" formatted="false" orig="Plan Text Size">Μέγεθος Γραμματοσειράς Πλάνου</string>
+  <string name="widget_cost_textsize" formatted="false" orig="Cost Text Size">Μέγεθος Γραμματοσειράς Κόστους</string>
+  <string name="widget_text_color_" formatted="false" orig="Text color">Χρώμα Γραμματοσειράς</string>
+  <string name="widget_backgroud_color_" formatted="false" orig="Background color">Χρώμα Φόντου</string>
+  <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency">Διαφάνεια Φόντου</string>
+  <string name="send_devices_" formatted="false" orig="Send devices">Στείλε συσκευές</string>
+  <string name="send_devices_hint" formatted="false" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Στείλε λίστα με συσκευές στον προγραμματιστή. Αυτό είναι απαραίτητο μόνο αν τα στατιστικά δεδομένων είναι μηδέν.</string>
   <string-array name="weekdays_all">
     <item>Όλη την εβδομάδα</item>
     <item>Δευτέρα</item>
