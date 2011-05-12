@@ -53,7 +53,7 @@
   <string name="theme_" formatted="false">Téma</string>
   <string name="textsize_" formatted="false">Betűméret</string>
   <string name="advanced_" formatted="false">Haladó beállítások</string>
-  <string name="exclude_people_" formatted="false">Kivételek hozzáadása</string>
+  <string name="exclude_people_" formatted="false" orig="Exclude numbers">Kivételek hozzáadása</string>
   <string name="exclude_people_hint" formatted="false">Az adott számok nem kerülnek számlázásra\nwildcard-ok használhatók: *555, 555* vagy *555*</string>
   <string name="exclude_people_add" formatted="false">Szám hozzáadása</string>
   <string name="exclude_people_edit" formatted="false">Szerkesztés</string>
