@@ -103,7 +103,14 @@
   <string name="custom_date_format_" formatted="false">Formato da data do usuário</string>
   <string name="custom_date_format_hint" formatted="false">Selecione um formato da data do usuário.</string>
   <string name="custom_delimiter_" formatted="false" username="Henrique Boaventura &lt;hboaventura@gmail.com&gt;" orig="Custom delimiter">Delimitador personalizado</string>
+  <string name="custom_delimiter_hint" formatted="false" orig="Set a custom delimiter separating the blocks of statistics.">Defina um delimitador de usuário separando os blocos estatísticos.</string>
   <string name="split_sms_at_160_" formatted="false" username="Henrique Boaventura &lt;hboaventura@gmail.com&gt;" orig="Split text messages at 160 chars">Separe as mensagens de texto ao atingir 160 caracteres</string>
+  <string name="split_sms_at_160_hint" formatted="false" orig="Disable to use android\'s system method.">Desative para usar o método do sistema Android.</string>
+  <string name="ask_for_plan_" formatted="false" orig="Ask for plan">Pergunte sobre um plano</string>
+  <string name="ask_for_plan_hint" formatted="false" orig="Ask for plan for unmatched calls after hanging up.">Pergunte sobre um plano de ligações inigualável depois de desligar.</string>
+  <string name="autohide_" formatted="false" orig="Auto hide">Auto ocultar</string>
+  <string name="autohide_hint" formatted="false" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Oculta o diálogo após .. segundos. Deixe vazio para desativar ou Auto ocultar.</string>
+  <string name="select_plan_" formatted="false" orig="Select a plan">Selecione um plano</string>
   <string name="show_logs" formatted="false">Mostrar logs</string>
   <string name="plans" formatted="false">Planos</string>
   <string name="plans_hint" formatted="false">Defina seus planos para todo tipo de cobrança aqui.</string>
