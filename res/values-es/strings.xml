@@ -35,13 +35,14 @@
   <string name="add_" formatted="false">Añadir</string>
   <string name="add_log" formatted="false" orig="Add log entry">Añadir entrada al log</string>
   <string name="length_hint_call" formatted="false" orig="Length in seconds">Duración en segundos</string>
-  <string name="length_hint_data" formatted="false" orig="Length in kB">Tamañon en KB</string>
+  <string name="length_hint_data" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Length in kB">Tamaño en KB</string>
   <string name="settings" formatted="false">Preferencias</string>
   <string name="update_interval_" formatted="false">Intervalo de actualización</string>
   <string name="update_interval_hint" formatted="false">Periodos cortos usan más batería.</string>
   <string name="date_begin_" formatted="false">Inicio de registros</string>
-  <string name="date_begin_hint" formatted="false">Ignorar cualquier log anterior a esta fecha.</string>
-  <string name="delete_old_logs_" formatted="false" orig="Delete logs older than">Borrar los logas anteriores a</string>
+  <string name="date_begin_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Ignore any logs before this date.">Ignorar cualquier bitácora anterior a esta fecha.</string>
+  <string name="delete_old_logs_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Delete logs older than">Borrar las bitácoras anteriores a</string>
+  <string name="delete_old_logs_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Delete logs older than x days from internal database. Leave empty to disable.">Borrar las bitácoras más antiguas que x días de la base de datos interna. Deje en blanco para deshabilitar.</string>
   <string name="common_prefs_" formatted="false">Preferencias comunes</string>
   <string name="edit_" formatted="false">Editar</string>
   <string name="about_" formatted="false">Acerca de</string>
@@ -56,18 +57,43 @@
   <string name="billmode_" formatted="false">Tarificación</string>
   <string name="billdate_" formatted="false">Inicio de facturación:</string>
   <string name="appearance_" formatted="false">Apariencia</string>
+  <string name="behavior_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Behavior">Comportamiento</string>
+  <string name="appearance_and_behavior_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Appearance &amp;amp; behavior">Apariencia y comportamiento</string>
   <string name="advanced_preferences_" formatted="false">Preferencias avanzadas</string>
   <string name="advanced_preferences_hint" formatted="false">Te permite una configuración más avanzada. No es necesario para la mayoría de usuarios.</string>
   <string name="theme_" formatted="false">Tema</string>
   <string name="textsize_" formatted="false">Tamaño texto</string>
   <string name="textsize_hint" formatted="false">Tamaño del texto en píxeles; deje en blanco para predeterminado</string>
+  <string name="textsize_title_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Title\'s text size">Tamaño del texto del título</string>
+  <string name="textsize_title_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Text size for titles in pixels; leave empty for default">Tamaño del texto para títulos en píxeles; deje en blanco para el valor predeterminado</string>
+  <string name="textsize_bigtitle_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Big title\'s text size">Tamaño del texto para un título grande</string>
+  <string name="textsize_bigtitle_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Text size for big titles in pixels; leave empty for default">Tamaño del texto para títulos grandes en píxeles; deje en blanco para el valor predeterminado</string>
+  <string name="textsize_spacer_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Spacer\'s size">Tamaño del espaciamiento</string>
+  <string name="textsize_spacer_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Size for spacers in pixels; leave empty for default">Tamaño de los espaciadores en píxeles; deje en blanco para utilizar el valor predeterminado</string>
+  <string name="textsize_pbar_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Progress bar\'s size">Tamaño de la barra de progreso</string>
+  <string name="textsize_pbar_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Size for progress bars in pixels; leave empty for default">Tamaño de la barra de progreso en píxeles; deje en blanco para utilizar el valor predeterminado</string>
+  <string name="textsize_pbarbp_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Bill period\'s progress bar\'s size">Tamaño de la barra de progreso del período de facturación</string>
+  <string name="textsize_pbarbp_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Tamaño de la barra de progreso del período de facturación en píxeles; deje en blanco para utilizar el valor predeterminado</string>
+  <string name="show_today_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show today">Mostrar "hoy"</string>
+  <string name="show_today_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show today stats">Mostrar estadísticas de hoy</string>
+  <string name="show_total_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show total">Mostrar "total"</string>
+  <string name="show_total_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show total stats, disable to see current only.">Mostrar estadísticas totales, deshabilite para ver las actuales únicamente.</string>
   <string name="show_time_" formatted="false">Cambiar a fecha</string>
   <string name="show_titlebar_" formatted="false">Mostrar barra de título</string>
   <string name="show_titlebar_hint" formatted="false">Muestra la barra de título en la vista principal. Sin barra de título no se puede ver la actividad en segundo plano.</string>
   <string name="show_hours_" formatted="false">Mostrar horas</string>
   <string name="show_hours_hint" formatted="false">Muestra el tiempo en segundos, minutos, horas y días.\nSin marcar sólo muestra horas y segundos.</string>
+  <string name="show_help_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show help">Mostrar la ayuda</string>
+  <string name="show_help_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show help in Plans/Rules setup view.">Mostrar la ayuda en la vista de configuración de Planes/Reglas.</string>
   <string name="show_shortname_" formatted="false">Mostrar nombre corto en lugar de nombre largo</string>
+  <string name="show_cost_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show cost">Mostrar "costo"</string>
+  <string name="show_billperiod_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show progress of billing period">Mostrar el avance del período de facturación</string>
   <string name="show_calllength_" formatted="false">Mostrar información después de colgar</string>
+  <string name="show_calllength_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show length/cost of a call after hanging up.">Mostrar duración/costo de una llamada después de colgar.</string>
+  <string name="hide_zero_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Hide empty plans">Ocultar planes vacíos</string>
+  <string name="hide_zero_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Hide plans containing no item.">Ocultar planes que no contienen información.</string>
+  <string name="hide_nocost_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Hide no cost plans">Ocultar planes sin costo</string>
+  <string name="hide_nocost_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Hide plans with no cost.">Ocultar planes sin costo.</string>
   <string name="hide_progressbars_" formatted="false">Ocultar barras de progreso</string>
   <string name="hide_progressbars_hint" formatted="false">Ocultar barras de progreso en la vista principal.</string>
   <string name="custom_currency_symbol_" formatted="false">Símbolo personalizado de moneda</string>
@@ -78,7 +104,16 @@
   <string name="custom_date_format_hint" formatted="false">Selecciona un formato personalizado de fecha.</string>
   <string name="custom_delimiter_" formatted="false">Delimitador personalizado</string>
   <string name="custom_delimiter_hint" formatted="false">Set a custom delimiter separating the blocks of statistics.</string>
+  <string name="split_sms_at_160_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Split text messages at 160 chars">Dividir los mensajes de texto en 160 caracteres</string>
+  <string name="split_sms_at_160_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Disable to use android\'s system method.">Deshabilitar el uso del método del sistema android.</string>
+  <string name="ask_for_plan_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Ask for plan">Preguntar por plan</string>
+  <string name="ask_for_plan_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Ask for plan for unmatched calls after hanging up.">Preguntar por plan de llamadas sin identificar después de colgar.</string>
   <string name="autohide_" formatted="false">Ocultar automáticamente</string>
+  <string name="autohide_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Ocultar la ventana de diálogo después de .. segundos. Deje en blanco para desactivar "auto esconderse".</string>
+  <string name="select_plan_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Select a plan">Seleccionar un plan</string>
+  <string name="set_selected_as_default_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Set selected plan as default">Utilizar el plan seleccionado como predeterminado</string>
+  <string name="autohide_in_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Auto hide dialog in: %ds">Auto esconder la ventana de diálogo en: %ds</string>
+  <string name="logs" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Logs">Bitácoras</string>
   <string name="show_logs" formatted="false">Mostrar logs</string>
   <string name="plans" formatted="false">Planes</string>
   <string name="plans_hint" formatted="false">Configura aquí tus planes para todo tipo de facturaciones.</string>
@@ -87,9 +122,14 @@
   <string name="rules" formatted="false">Reglas</string>
   <string name="rules_hint" formatted="false">Configura aquí las reglas de facturación.</string>
   <string name="rules_new" formatted="false">Nueva regla</string>
+  <string name="length_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Length">Duración</string>
+  <string name="blength_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Billed length">Duración facturada</string>
+  <string name="cost_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Cost">Costo</string>
   <string name="remote_" formatted="false">Número remoto</string>
   <string name="numbergroups_edit_" formatted="false">Grupos de números</string>
-  <string name="hourgroups_edit_" formatted="false">Hour groups</string>
+  <string name="numbergroups_edit_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Edit number groups here.">Editar aquí los grupos de números.</string>
+  <string name="hourgroups_edit_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Hour groups">Grupos horarios</string>
+  <string name="hourgroups_edit_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Edit hour groups here.">Editar aquí los grupos horarios.</string>
   <string name="numbers" formatted="false">Números</string>
   <string name="numbergroup_" formatted="false">Incluir números</string>
   <string name="numbergroup_help" formatted="false">Añade números que se ajusten a esta regla.\n\nSe permiten comodines (\"%\") a ambos extremos del número.\nE.g. %34 mostrará 1234, 12% mostrará 1234 y %23% mostrará 12345.</string>
@@ -104,15 +144,19 @@
   <string name="exhourgroup_help" formatted="false">Añade horas que no se ajusten a esta regla..</string>
   <string name="new_hourgroup" formatted="false">Nuevo grupo de horas</string>
   <string name="add_hour" formatted="false">Añadir hora</string>
-  <string name="empty_group" formatted="false">Empty groups won\'t match anything. Please go back and add at least one item.</string>
+  <string name="empty_group" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Grupos vacíos no calzan con nada. Por favor regrese y agregue al menos un ítem.</string>
   <string name="calls" formatted="false">Llamadas</string>
   <string name="sms" formatted="false">SMS</string>
   <string name="mms" formatted="false">MMS</string>
   <string name="data" formatted="false">Datos</string>
   <string name="prepaid_" formatted="false">Plan prepago</string>
-  <string name="prepaid_hint" formatted="false">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string>
+  <string name="prepaid_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Factura en base prepago. El costo se sustrae del balance mientras llama etc.</string>
+  <string name="balance_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Balance">Balance</string>
+  <string name="balance_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Balance of your account at this given date.">Balance de su cuenta a este día.</string>
+  <string name="strip_leading_zeros_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Strip leading zeros">Eliminar ceros al inicio</string>
+  <string name="strip_leading_zeros_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Strip leading zeros when comparing numbers.">Eliminar ceros al inicio al comparar números.</string>
   <string name="number_prefix_" formatted="false">Prefijo internacional</string>
-  <string name="number_prefix_hint" formatted="false">Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..</string>
+  <string name="number_prefix_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">Su prefijo internacional en un formato como +1 o +49. Se utiliza para identificar números como +49170.. y 0179..</string>
   <string name="reset_data_" formatted="false">Poner a cero estadísticas</string>
   <string name="reset_data_hint" formatted="false">Resetear los datos de llamadas y SMS fuerza el recálculo las estadísticas.\n\nLa puesta a cero del tráfico de datos es permanente. Sólo resetea el tráfico producido antes del arranque!</string>
   <string name="reset_data_data_" formatted="false">Pone a cero también el tráfico de datos.</string>
@@ -158,41 +202,59 @@
   <string name="mixed_units_mms_help" formatted="false">Unidades facturadas por un MMS.</string>
   <string name="mixed_units_call_" formatted="false">Unidades por llamada</string>
   <string name="mixed_units_call_help" formatted="false">Unidades facturadas por un minuto de llamada.\nAquí se tiene en cuenta el modo de facturación.</string>
+  <string name="merge_plans_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Merge plans">Unir planes</string>
+  <string name="merge_plans_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Merge other plans into this one and bill them here (too).">Unir otros planes con este y facturarlos aquí (también).</string>
   <string name="units_cost" formatted="false">$</string>
   <string name="units_num_msg" formatted="false"># Mensajes</string>
   <string name="units_minutes" formatted="false">Minutos</string>
   <string name="units_mbyte" formatted="false">MBytes</string>
   <string name="units_units" formatted="false">Units</string>
+  <string name="units_units_per_minute" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Units/Minute">Unidades/Minutos</string>
+  <string name="units_units_per_message" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Units/Message">Unidades/Mensaje</string>
   <string name="units_cost_per_call" formatted="false">$/Llamada</string>
   <string name="units_cost_per_minute" formatted="false">$/Minuto</string>
   <string name="units_cost_per_message" formatted="false">$/Mensaje</string>
   <string name="units_cost_per_mbyte" formatted="false">$/MByte</string>
   <string name="units_cost_per_unit" formatted="false">$/Unidad</string>
+  <string name="plan_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Plan">Plan</string>
   <string name="plan_help" formatted="false">Escoge el plan que se ajusta a esta regla.</string>
   <string name="limitnotreached_" formatted="false">Límite no alcanzado</string>
   <string name="limitnotreached_help" formatted="false">Marcar solo si el tipo de plan no ha alcanzado aún el límite.</string>
+  <string name="iswebsms_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Is WebSMS">Es WebSMS</string>
+  <string name="iswebsms_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Message sent with WebSMS.">Mensaje enviado con WebSMS.</string>
+  <string name="iswebsms_connector_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Is WebSMS Connector">Es conector WebSMS</string>
+  <string name="iswebsms_connector_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Sent with specific WebSMS Connector, leave empty to match any.">Enviar con conector WebSMS específico, dejar en blanco para aplicar cualquiera.</string>
   <string name="issipcall_" formatted="false">Es llamada SIP</string>
-  <string name="issipcall_help" formatted="false">Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.</string>
+  <string name="issipcall_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Llamada hecha vía SIP. En este momento sipdroid &gt;1.6.1 está soportado.</string>
+  <string name="strip_seconds_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Do not bill first seconds">No facturar los primeros segundos</string>
+  <string name="strip_seconds_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Do not bill first x seconds of a call.">No facturar los primeros x segundos de una llamada.</string>
   <string name="what_" formatted="false">Tipo de plan</string>
   <string name="what_help" formatted="false">Escoge un tipo de plan.</string>
   <string name="direction_" formatted="false">Dirección</string>
   <string name="direction_help" formatted="false">Escoge la dirección que debe tener el log (entrada/salida).</string>
   <string name="roamed_" formatted="false">En Roaming</string>
-  <string name="roamed_help" formatted="false">Escoge si el log puede contener roaming.</string>
+  <string name="roamed_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Choose whether the given log has to be roamed.">Escoge si la bitácora puede contener roaming.</string>
+  <string name="remote_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Remote number">Número remoto</string>
   <string name="no_matter_" formatted="false">Indiferente</string>
   <string name="yes" formatted="false">Sí</string>
   <string name="no" formatted="false">No</string>
   <string name="none" formatted="false">Ninguno</string>
   <string name="value" formatted="false">Valor</string>
+  <string name="empty_groups_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Please press &quot;Add&quot; to add a group.">Por favor presione "Agregar" para agregar un grupo.</string>
+  <string name="empty_group_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Por favor presione "Agregar" para agregar un ítem a este grupo.</string>
+  <string name="export_progr" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Exporting data ...">Exportando datos ...</string>
   <string name="import_progr" formatted="false">Importar datos ...</string>
   <string name="export_" formatted="false">Exportar ...</string>
+  <string name="export_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Export rule sets, logs or groups">Exportar conjuntos de reglas, bitácoras o grupos</string>
   <string name="export_rules_" formatted="false">Exportar conjunto de reglas</string>
   <string name="export_rules_hint" formatted="false">Exportar reglas en email.</string>
   <string name="export_rules_descr" formatted="false">Descripción</string>
+  <string name="export_logs_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Backup logs">Respaldar bitácoras</string>
+  <string name="export_logs_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Backup logs as mail.">Respaldar bitácoras como correo.</string>
   <string name="export_numgroups_" formatted="false">Exportar grupos de números</string>
   <string name="export_numgroups_hint" formatted="false">Exportar grupos de números como correo.</string>
-  <string name="export_hourgroups_" formatted="false">Export hour groups</string>
-  <string name="export_hourgroups_hint" formatted="false">Export hour groups as mail.</string>
+  <string name="export_hourgroups_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Export hour groups">Exportar grupos horarios</string>
+  <string name="export_hourgroups_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Export hour groups as mail.">Exportar grupos horarios como correo.</string>
   <string name="import_rules_" formatted="false">Importar conjunto de reglas</string>
   <string name="import_rules_hint" formatted="false">Importa un conjunto de reglas.</string>
   <string name="import_rules_empty" formatted="false">No hay planes/reglas configuradas. Haz click aquí para importar una regla por defecto.\n\nO añade planes y reglas manualmente en preferencias.</string>
@@ -207,6 +269,13 @@
   <string name="alerts_100_" formatted="false">Avisar al 100%</string>
   <string name="alerts_100_hint" formatted="false">Avisa si el plan sobrepasa el 100% del límite.</string>
   <string name="widget_config_" formatted="false">Configuración del widget</string>
+  <string name="widget_plan_textsize" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Plan Text Size">Tamaño del texto del plan</string>
+  <string name="widget_cost_textsize" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Cost Text Size">Tamaño del texto del costo</string>
+  <string name="widget_text_color_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Text color">Color del texto</string>
+  <string name="widget_backgroud_color_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Background color">Color de fondo</string>
+  <string name="widget_backgroud_transparency_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Background transparency">Transparencia del fondo</string>
+  <string name="send_devices_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Send devices">Enviar dispositivos</string>
+  <string name="send_devices_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Enviar lista de dispositivos al programador. Esto solo es necesario si las estadísticas son cero.</string>
   <string-array name="weekdays_all">
     <item>Toda la semana</item>
     <item>Lunes</item>
@@ -337,8 +406,8 @@
     <item>1.00$</item>
     <item>1000$</item>
   </string-array>
-  <string-array name="date_formats">
-    <item>Por defecto</item>
+  <string-array name="date_formats" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;">
+    <item>Predeterminado</item>
     <item>MM/DD/AA</item>
     <item>DD/MM/AAAA</item>
     <item>DD.MM.AAAA</item>
