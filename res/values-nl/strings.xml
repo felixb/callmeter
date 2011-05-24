@@ -21,6 +21,7 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=nl&file=strings.xml to edit the file.
        -->
 <resources>
+  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Recente wijzigingen:</string>
   <string name="about0_" formatted="false">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
   <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter genereert rapporten van gesprekken, berichten en data logs. Het ondersteunt diverse facturatiemogelijkheden.</string>
   <string name="about1" formatted="false">Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
@@ -29,7 +30,10 @@
   <string name="send_" formatted="false">Verstuur</string>
   <string name="add_" formatted="false">Toevoegen</string>
   <string name="add_log" formatted="false">Toevoegen log regel</string>
+  <string name="length_hint_call" formatted="false" orig="Length in seconds">Lengte in seconden</string>
+  <string name="length_hint_data" formatted="false" orig="Length in kB">Lengte in kB</string>
   <string name="settings" formatted="false">Voorkeuren</string>
+  <string name="update_interval_" formatted="false" orig="Update interval">Update interval</string>
   <string name="update_interval_hint" formatted="false">Kortere periode verbruikt meer batterij.</string>
   <string name="date_begin_" formatted="false">Begin van records</string>
   <string name="date_begin_hint" formatted="false">Negeer alle logs voor deze datum.</string>
@@ -49,6 +53,7 @@
   <string name="billmode_" formatted="false">Facturatie modus</string>
   <string name="billdate_" formatted="false">Begin facturatie periode:</string>
   <string name="appearance_" formatted="false">Uiterlijk</string>
+  <string name="behavior_" formatted="false" orig="Behavior">Gedrag</string>
   <string name="advanced_preferences_" formatted="false">Geavanceerde voorkeuren</string>
   <string name="advanced_preferences_hint" formatted="false">Stelt je in staat om een complexe setup te maken. Meeste gebruikers hebben dit niet nodig.</string>
   <string name="theme_" formatted="false">Thema</string>
@@ -64,6 +69,7 @@
   <string name="textsize_pbar_hint" formatted="false">Grootte in pixels voor voortgangsbalk; laat leeg voor standaard</string>
   <string name="textsize_pbarbp_" formatted="false">Grootte voortgangsbalk facturatie periode</string>
   <string name="textsize_pbarbp_hint" formatted="false">Grootte in pixels voor voortgangsbalk facturatie periode; laat leeg voor standaard</string>
+  <string name="show_today_" formatted="false" orig="Show today">Toon vandaag</string>
   <string name="show_total_" formatted="false">Toon totaal</string>
   <string name="show_total_hint" formatted="false">Toon totaal stats, uitzetten om alleen huidige te zien.</string>
   <string name="show_time_" formatted="false">Wijzig naar datum</string>
