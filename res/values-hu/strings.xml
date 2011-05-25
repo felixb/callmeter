@@ -21,7 +21,7 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=hu&file=strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Recent changes:">Legfrissebb változások:</string>
+  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Legfrissebb változások:</string>
   <string name="changelog_notification_text" formatted="false">Ide kattintva a program újdonságairól és változásairól tájékozódhatsz.</string>
   <string name="never_show_again" formatted="false">A változások naplójának elrejtése ezen túl</string>
   <string name="notes_from_developer_" formatted="false">Fejlesztő üzenetei</string>
