@@ -26,7 +26,7 @@
   <string name="never_show_again" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Never show changelog again">Nie pokazuj więcej changelog\'a</string>
   <string name="notes_from_developer_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Notes from developer">Informacje od autora programu</string>
   <string name="notes_from_developer_text" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Click here to show recent news from the developer">Kliknij aby zobaczyć najświeższe informacje od autora programu</string>
-  <string name="about0_" formatted="false">Obserwuj swoje połączenia, wiadomości oraz pakiet rozmów!</string>
+  <string name="about0_" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Watch your call, message and data plans!">Obserwuj swoje połączenia, wiadomości oraz pakiety danych!</string>
   <string name="about0" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych.</string>
   <string name="about1" formatted="false">Format wyjściowy wykorzystuje /czas, całość wykorzystanego rachunku /czas, całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>
   <string name="about2" formatted="false">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
@@ -132,7 +132,7 @@
   <string name="hourgroups_edit_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Edit hour groups here.">Edytuj grupy godzin.</string>
   <string name="numbers" formatted="false">Numery</string>
   <string name="numbergroup_" formatted="false">Wliczaj numery</string>
-  <string name="numbergroup_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Dodaj godziny które będą zastosowane do reguły.\n\nWzorce ("%") są dopuszczalne na obu końcach numeru.\nNp.: %34 będzie pasować do 1234, 12% do 1234 i %23% do 12345.</string>
+  <string name="numbergroup_help" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Dodaj numery które będą zastosowane do reguły.\n\nWzorce ("%") są dopuszczalne na obu końcach numeru.\nNp.: %34 będzie pasować do 1234, 12% do 1234 i %23% do 12345.</string>
   <string name="exnumbergroup_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Exclude numbers">Wyklucz numery</string>
   <string name="exnumbergroup_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Add some numbers this rule must not match.\nSee above.">Dodaj numery które nie będą pasowały do tej reguły.\nPatrz powyżej.</string>
   <string name="new_numbergroup" formatted="false">Nowa grupa numerów</string>
@@ -153,6 +153,8 @@
   <string name="prepaid_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Podstawowe rozliczenie pre-paid. Koszt jest odejmowany od salda jak wykonasz połączenie itp.</string>
   <string name="balance_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Balance">Bilans</string>
   <string name="balance_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Balance of your account at this given date.">Bilans twojego konta względem wskazanej daty</string>
+  <string name="strip_leading_zeros_" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Strip leading zeros">Pomiń początkowe zera</string>
+  <string name="strip_leading_zeros_hint" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Strip leading zeros when comparing numbers.">Pomiń początkowe zera przy porównywaniu numerów</string>
   <string name="number_prefix_" formatted="false">Prefiks międzynarodowy</string>
   <string name="number_prefix_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">Twój prefiks międzynarodowy w formacie +1 lub +49. Używane w celu dopasowania numerów takich jak +49170.. i 0179..</string>
   <string name="reset_data_" formatted="false">Resetuj statystyki</string>
@@ -267,6 +269,11 @@
   <string name="alerts_100_" formatted="false">Powiadom przy 100%</string>
   <string name="alerts_100_hint" formatted="false">Powiadom, jeżeli plan przekroczy 100% ustalonego limitu</string>
   <string name="widget_config_" formatted="false">Konfiguracja Widgetu</string>
+  <string name="widget_plan_textsize" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Plan Text Size">Rozmiar tekstu Planu</string>
+  <string name="widget_cost_textsize" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Cost Text Size">Rozmiar tekstu Kosztu</string>
+  <string name="widget_text_color_" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Text color">Kolor tekstu</string>
+  <string name="widget_backgroud_color_" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Background color">Kolor tła</string>
+  <string name="widget_backgroud_transparency_" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Background transparency">Przeźroczystość tła</string>
   <string name="send_devices_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Send devices">Wyślij urządzenia</string>
   <string-array name="weekdays_all">
     <item>Cały tydzień</item>

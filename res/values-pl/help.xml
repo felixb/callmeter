@@ -21,6 +21,8 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=pl&file=help.xml to edit the file.
        -->
 <resources>
+  <string name="help_title_" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">Proszę przeczytaj poniższe aby zrozumieć zasady &lt;b&gt;logów&lt;/b&gt;, &lt;b&gt;planów&lt;/b&gt; i &lt;b&gt;reguł&lt;/b&gt;:</string>
+  <string name="help_import_" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="A good starting point are some preconfigured rule sets available on the website. Just import them via import menu and play around.">Na początku możesz skorzystać ze wstępnie ustawionych reguł dostępnych na stronie internetowej. Po prostu zaimportuj je za pomocą menu import.</string>
   <string name="help_logs_plans_rules_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="There are three kinds of data structures:">Występują trzy rodzaje struktur danych:</string>
   <string name="help_plans_merge_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="You can merge &lt;b&gt;plans&lt;/b&gt; to aggregate their &lt;b&gt;log items&lt;/b&gt; to a combined cost and limit.">Możesz scalić &lt;b&gt;plany&lt;/b&gt; aby połączyć ich &lt;b&gt;elementy&lt;/b&gt; w celu określenia łącznego kosztu i limitów.</string>
   <string name="help_rules_detail1_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="But keep in mind, that order is important for &lt;b&gt;rules&lt;/b&gt;:">Miej na uwadze, że kolejność jest ważna dla &lt;b&gt;reguł&lt;/b&gt;:</string>
