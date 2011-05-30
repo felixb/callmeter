@@ -18,7 +18,12 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=cs&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=bg&file=strings.xml to edit the file.
        -->
 <resources>
+  <string name="changelog_notification_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Recent changes:">Последни промени:</string>
+  <string name="changelog_notification_text" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Click here to show recent changes of">Кликнете тук за да видите последните промени на</string>
+  <string name="never_show_again" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Never show changelog again">Не показвай промените отново</string>
+  <string name="notes_from_developer_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Notes from developer">Бележки от разработчика</string>
+  <string name="notes_from_developer_text" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Click here to show recent news from the developer">Кликнете тук за да видите последните бележки от разработчика</string>
 </resources>
