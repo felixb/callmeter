@@ -37,11 +37,25 @@
   <string name="edit_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Edit">Редактирай</string>
   <string name="about_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="About">Относно</string>
   <string name="about_hint" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="About this app">Относно това приложение</string>
+  <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app.">Някой съвети и трикове за настройка на приложението</string>
   <string name="feedback_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Feedback">Обратна връзка</string>
+  <string name="feedback_hint" formatted="false" orig="Report bugs, request features ...">Съобщете за проблем, изискайте нова функционалност...</string>
+  <string name="twitter_hint" formatted="false" orig="Follow me on twitter.\nGet update notifications etc.">Следете информация за мен в Twitter.\nПолучете информация за обновления и тн.</string>
   <string name="more_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="More Apps..">Още приложения...</string>
   <string name="billday_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="First day of your bill">Първи ден на сметката Ви</string>
+  <string name="appearance_" formatted="false" orig="Appearance">Изглед</string>
+  <string name="behavior_" formatted="false" orig="Behavior">Поведение</string>
+  <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp;amp; behavior">Изглед и поведение</string>
   <string name="advanced_preferences_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Advanced preferences">Разширени настройки</string>
+  <string name="advanced_preferences_hint" formatted="false" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Това Ви позволява да променяте по-сложни настройки. Повечето хора няма да имат нужда от тях.</string>
+  <string name="theme_" formatted="false" orig="Theme">Тема</string>
   <string name="textsize_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Text size">Размер на текста</string>
+  <string name="textsize_hint" formatted="false" orig="Text size in pixels; leave empty for default">Размер на текста в пиксели; оставете полето празно за настройка по подразбиране</string>
+  <string name="textsize_title_" formatted="false" orig="Title\'s text size">Размер на текста на заглавието</string>
+  <string name="textsize_title_hint" formatted="false" orig="Text size for titles in pixels; leave empty for default">Размер на текста на заглавията в пиксели; оставете полето празно за настройка по подразбиране</string>
+  <string name="textsize_bigtitle_" formatted="false" orig="Big title\'s text size">Размер на текста на голямото заглавие</string>
+  <string name="textsize_bigtitle_hint" formatted="false" orig="Text size for big titles in pixels; leave empty for default">Размер на текста за големите заглавия в пиксели; оставете полето празно за настройка по подразбиране</string>
+  <string name="show_today_hint" formatted="false" orig="Show today stats">Показвай статистика за текущия ден</string>
   <string-array name="billmodes" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;">
     <item>1/1</item>
     <item>6/6</item>
