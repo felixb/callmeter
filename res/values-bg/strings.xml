@@ -56,6 +56,22 @@
   <string name="textsize_bigtitle_" formatted="false" orig="Big title\'s text size">Размер на текста на голямото заглавие</string>
   <string name="textsize_bigtitle_hint" formatted="false" orig="Text size for big titles in pixels; leave empty for default">Размер на текста за големите заглавия в пиксели; оставете полето празно за настройка по подразбиране</string>
   <string name="show_today_hint" formatted="false" orig="Show today stats">Показвай статистика за текущия ден</string>
+  <string name="length_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Length">Дължина</string>
+  <string name="cost_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Cost">Цена</string>
+  <string name="numbergroups_edit_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Number groups">Групи от номера</string>
+  <string name="numbergroups_edit_hint" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Edit number groups here.">Редактирайте групите от номера тук.</string>
+  <string name="hourgroups_edit_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Hour groups">Часови групи</string>
+  <string name="hourgroups_edit_hint" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Edit hour groups here.">Редактирайте часовите групи тук.</string>
+  <string name="numbers" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Numbers">Номера</string>
+  <string name="numbergroup_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Include numbers">Включи номера</string>
+  <string name="exnumbergroup_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Exclude numbers">Изключи номера</string>
+  <string name="new_numbergroup" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="New number group">Нова група от номера</string>
+  <string name="add_number" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Add number">Добави номер</string>
+  <string name="hours" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Hours">Часове</string>
+  <string name="hourgroup_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Include hours">Включи часове</string>
+  <string name="exhourgroup_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Exclude hours">Изключи часове</string>
+  <string name="new_hourgroup" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="New hour group">Нова часова група</string>
+  <string name="add_hour" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Add hour">Добави час</string>
   <string-array name="billmodes" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;">
     <item>1/1</item>
     <item>6/6</item>
