@@ -72,6 +72,10 @@
   <string name="exhourgroup_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Exclude hours">Изключи часове</string>
   <string name="new_hourgroup" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="New hour group">Нова часова група</string>
   <string name="add_hour" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Add hour">Добави час</string>
+  <string name="calls" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Calls">Разговори</string>
+  <string name="sms" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="SMS">СМС</string>
+  <string name="mms" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="MMS">ММС</string>
+  <string name="balance_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Balance">Баланс</string>
   <string-array name="billmodes" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;">
     <item>1/1</item>
     <item>6/6</item>
