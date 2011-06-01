@@ -54,6 +54,9 @@
 			<CheckBox android:singleLine="false" android:layout_width="wrap_content"
 				android:layout_height="wrap_content" android:text="@string/show_icon_"
 				android:id="@+id/show_icon"></CheckBox>
+			<CheckBox android:singleLine="false" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="@string/small_widget_"
+				android:id="@+id/small_widget"></CheckBox>
 			<TextView android:text="@string/widget_plan_textsize"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:textAppearance="?android:attr/textAppearanceLarge" />

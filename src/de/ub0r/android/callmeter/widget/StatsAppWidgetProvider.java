@@ -74,6 +74,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	static final String WIDGET_BGCOLOR = "widget_bgcolor_";
 	/** Widget's icon */
 	static final String WIDGET_ICON = "widget_icon_";
+	/** Must widget be small? */
+	static final String WIDGET_SMALL = "widget_small_";
 
 	/** Width of the widget. */
 	private static final int WIDGET_WIDTH = 100;
@@ -153,6 +155,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		final boolean showBillPeriod = p.getBoolean(WIDGET_BILLPERIOD
 				+ appWidgetId, false);
 		final boolean showIcon = p.getBoolean(WIDGET_ICON + appWidgetId, false);
+		final boolean smallWidget = p.getBoolean(WIDGET_SMALL + appWidgetId,
+				false);
 		final Float statsTextSize = p.getFloat(WIDGET_STATS_TEXTSIZE
 				+ appWidgetId, StatsAppWidgetConfigure.DEFAULT_TEXTSIZE);
 		final Float planTextSize = p.getFloat(WIDGET_PLAN_TEXTSIZE
@@ -287,8 +291,10 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		Log.d(TAG, "used: " + used);
 		Log.d(TAG, "stats: " + stats);
 
+		final int widgetLayout = smallWidget ? R.layout.stats_appwidget_small
+				: R.layout.stats_appwidget;
 		final RemoteViews views = new RemoteViews(context.getPackageName(),
-				R.layout.stats_appwidget);
+				widgetLayout);
 		views.setImageViewBitmap(R.id.widget_bg, getBackground(bgColor, bmax,
 				bpos, limit, used));
 		views.setTextViewText(R.id.plan, pname);
