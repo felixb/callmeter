@@ -59,7 +59,7 @@ public final class StatsAppWidgetConfigure extends Activity implements
 	private Spinner spinner;
 
 	/** {@link CheckBox}s. */
-	private CheckBox cbShowShortname, cbShowCost, cbShowBillp;
+	private CheckBox cbShowShortname, cbShowCost, cbShowBillp, cbShowIcon;
 	/** {@link EditText}s. */
 	private EditText etPlanTextSize, etStatsTextSize;
 	/** {@link Button}s. */
@@ -100,6 +100,7 @@ public final class StatsAppWidgetConfigure extends Activity implements
 		this.cbShowShortname.setOnCheckedChangeListener(this);
 		this.cbShowCost = (CheckBox) this.findViewById(R.id.cost);
 		this.cbShowBillp = (CheckBox) this.findViewById(R.id.pbillp);
+		this.cbShowIcon = (CheckBox) this.findViewById(R.id.show_icon);
 		this.etPlanTextSize = (EditText) this
 				.findViewById(R.id.widget_plan_textsize);
 		this.etStatsTextSize = (EditText) this
@@ -175,6 +176,8 @@ public final class StatsAppWidgetConfigure extends Activity implements
 					+ this.mAppWidgetId, this.cbShowCost.isChecked());
 			editor.putBoolean(StatsAppWidgetProvider.WIDGET_BILLPERIOD
 					+ this.mAppWidgetId, this.cbShowBillp.isChecked());
+			editor.putBoolean(StatsAppWidgetProvider.WIDGET_ICON
+					+ this.mAppWidgetId, this.cbShowIcon.isChecked());
 			editor.putFloat(StatsAppWidgetProvider.WIDGET_STATS_TEXTSIZE
 					+ this.mAppWidgetId, Utils.parseFloat(this.etStatsTextSize
 					.getText().toString(), DEFAULT_TEXTSIZE));

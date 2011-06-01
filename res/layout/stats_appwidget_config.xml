@@ -51,6 +51,9 @@
 			<CheckBox android:id="@+id/pbillp" android:text="@string/show_billperiod_"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:singleLine="false" />
+			<CheckBox android:singleLine="false" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="@string/show_icon_"
+				android:id="@+id/show_icon"></CheckBox>
 			<TextView android:text="@string/widget_plan_textsize"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:textAppearance="?android:attr/textAppearanceLarge" />

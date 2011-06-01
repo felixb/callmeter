@@ -72,6 +72,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	static final String WIDGET_TEXTCOLOR = "widget_textcolor_";
 	/** Widget's background color. */
 	static final String WIDGET_BGCOLOR = "widget_bgcolor_";
+	/** Widget's icon */
+	static final String WIDGET_ICON = "widget_icon_";
 
 	/** Width of the widget. */
 	private static final int WIDGET_WIDTH = 100;
@@ -150,6 +152,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		final boolean showCost = p.getBoolean(WIDGET_COST + appWidgetId, false);
 		final boolean showBillPeriod = p.getBoolean(WIDGET_BILLPERIOD
 				+ appWidgetId, false);
+		final boolean showIcon = p.getBoolean(WIDGET_ICON + appWidgetId, false);
 		final Float statsTextSize = p.getFloat(WIDGET_STATS_TEXTSIZE
 				+ appWidgetId, StatsAppWidgetConfigure.DEFAULT_TEXTSIZE);
 		final Float planTextSize = p.getFloat(WIDGET_PLAN_TEXTSIZE
@@ -296,6 +299,25 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		views.setTextColor(R.id.stats, textColor);
 		views.setOnClickPendingIntent(R.id.widget, PendingIntent.getActivity(
 				context, 0, new Intent(context, Plans.class), 0));
+		if (showIcon) {
+			views.setViewVisibility(R.id.widget_icon, android.view.View.VISIBLE);
+			switch (ptype) {
+			case DataProvider.TYPE_DATA:
+				views.setImageViewResource(R.id.widget_icon, R.drawable.data);
+				break;
+			case DataProvider.TYPE_CALL:
+				views.setImageViewResource(R.id.widget_icon, R.drawable.phone);
+				break;
+			case DataProvider.TYPE_SMS:
+			case DataProvider.TYPE_MMS:
+				views.setImageViewResource(R.id.widget_icon, R.drawable.message);
+				break;
+			case DataProvider.TYPE_MIXED:
+				views.setImageViewResource(R.id.widget_icon, R.drawable.phone);
+				break;
+			}
+		}
+
 		appWidgetManager.updateAppWidget(appWidgetId, views);
 	}
 

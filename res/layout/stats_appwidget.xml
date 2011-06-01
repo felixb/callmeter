@@ -34,10 +34,11 @@
 			android:paddingTop="5dip" android:textColor="#FFFFFFFF"
 			android:textStyle="bold" android:textSize="10dip" android:gravity="center_horizontal"
 			android:layout_centerHorizontal="true" android:layout_alignParentTop="true" />
+		<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/plan" android:layout_centerHorizontal="true" android:id="@+id/widget_icon" android:visibility="gone"></ImageView>	
 		<TextView android:id="@+id/stats" android:text="@+id/stats"
 			android:layout_width="wrap_content" android:layout_height="fill_parent"
 			android:textColor="#FFFFFFFF" android:textSize="10dip"
 			android:gravity="center" android:layout_centerHorizontal="true"
-			android:layout_below="@id/plan" />
+			android:layout_below="@id/widget_icon" />
 	</RelativeLayout>
 </RelativeLayout>
