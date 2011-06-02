@@ -275,6 +275,7 @@
   <string name="widget_backgroud_color_" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Background color">Kolor tła</string>
   <string name="widget_backgroud_transparency_" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Background transparency">Przeźroczystość tła</string>
   <string name="send_devices_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Send devices">Wyślij urządzenia</string>
+  <string name="send_devices_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Wyślij listę urządzeń do autora programu. Potrzebne tylko wtedy, gdy statystyki wskazują zero.</string>
   <string-array name="weekdays_all">
     <item>Cały tydzień</item>
     <item>Poniedziałek</item>
