@@ -3,7 +3,7 @@
                Copyright (C) 2009-2011 Felix Bechstein
        -->
        <!--
-               This file is part of Call Meter NG. This program is free software; you can
+               This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
@@ -18,7 +18,12 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=cs&file=market.xml to edit the file.
        -->
 <resources>
+  <string name="market_about" formatted="false" orig="Call Meter let\'s you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and let\'s you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.">Call Meter vám umožní mít přehled o vašem tarifu.\n\nZobrazuje statistiky hovorů/SMS/TXT/datových přenosů a umožňuje nastavit limit pro každý z těchto plánů.\nCall Meter podporuje velké množství platebních plánů a umožňuje upravit chování podle účtování operátora.</string>
+  <string name="market_oss" formatted="false" username="David Kejzlar &lt;kejly@kejly.cz&gt;" orig="This app is open source software build in spare time. Adding bad comments in market won\'t help much to make it better.\nPlease add your issues with this app on the app\'s website.">Tato aplikace je open source tvořený ve volném čase. Negativním hodnocením v Marketu nepomůžete jejímu zlepšení.\nNahlašte prosím problémy na domovské stránce aplikace.</string>
+  <string name="merket_cm2" formatted="false" username="David Kejzlar &lt;kejly@kejly.cz&gt;" orig="This is a complete rebuild of Call Meter NG. It has a huge amount of new features like widgets and alerts.\nIt\'s new architecure allows more complex plans.\nFeel free to test it and help me make it more userfriendly as it is currently. ;)">Toto je kompletně předělaný Call Meter NG. Má mnoho nových vlastností, jako widgety a výstrahy.\nNová architektura umožňuje komplexnější plány.\nPomozte ji otestovat a udělat ji uživatelsky příjemnější než nyní. ;)</string>
+  <string name="market_translation" formatted="false" username="David Kejzlar &lt;kejly@kejly.cz&gt;" orig="Feel free to help translating this app to your language here: http://ub0r.de/translate/cm3/">Nebojte se pomoci překládat do vašeho jazyka zde: http://ub0r.de/translate/cm3/</string>
+  <string name="market_keywords" formatted="false" username="David Kejzlar &lt;kejly@kejly.cz&gt;" orig="Keywords: minutes calls sms txt text data traffic counter log phone usage watchdog alert widget statistics at&amp;amp;t verizon three o2 t-mobile vodafone orange">Klíčová slova: minuty volání sms txt čítač datových přenosů používání telefonu varování widget statistiky o2 t-mobile vodafone</string>
 </resources>
