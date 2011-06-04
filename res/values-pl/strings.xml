@@ -23,22 +23,22 @@
 <resources>
   <string name="changelog_notification_" formatted="false">Ostatnie zmiany:</string>
   <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Kliknij tutaj, aby wyświetlić ostatnie zmiany</string>
-  <string name="never_show_again" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Never show changelog again">Nie pokazuj więcej changelog\'a</string>
+  <string name="never_show_again" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Never show changelog again">Nie pokazuj więcej dziennika zmian</string>
   <string name="notes_from_developer_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Notes from developer">Informacje od autora programu</string>
   <string name="notes_from_developer_text" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Click here to show recent news from the developer">Kliknij aby zobaczyć najświeższe informacje od autora programu</string>
   <string name="about0_" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Watch your call, message and data plans!">Obserwuj swoje połączenia, wiadomości oraz pakiety danych!</string>
-  <string name="about0" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych.</string>
+  <string name="about0" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter generuje raport na podstawie zapisów z połączeń, wiadomości i danych. Wspiera wiele typów planów taryfowych.</string>
   <string name="about1" formatted="false">Format wyjściowy wykorzystuje /czas, całość wykorzystanego rachunku /czas, całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>
   <string name="about2" formatted="false">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
   <string name="about3" formatted="false">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
   <string name="send_" formatted="false">Wyślij</string>
   <string name="add_" formatted="false">Dodaj</string>
-  <string name="add_log" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Add log entry">Dodaj element log\'a</string>
+  <string name="add_log" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Add log entry">Dodaj element dziennika zmian</string>
   <string name="length_hint_call" formatted="false">Długość w sekundach</string>
   <string name="length_hint_data" formatted="false">Długość w kB</string>
   <string name="settings" formatted="false">Ustawienia</string>
   <string name="update_interval_" formatted="false">Częstotliwość aktualizacji</string>
-  <string name="update_interval_hint" formatted="false">Krótszy okres skraca czas pracy na baterii</string>
+  <string name="update_interval_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Shorter period will use more battery.">Krótszy okres zużywa więcej baterii.</string>
   <string name="date_begin_" formatted="false">Początek zapisów</string>
   <string name="date_begin_hint" formatted="false">Ignoruj logi przed tą datą</string>
   <string name="delete_old_logs_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Delete logs older than">Usuń logi starsze niż</string>
