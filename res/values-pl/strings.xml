@@ -40,15 +40,15 @@
   <string name="update_interval_" formatted="false">Częstotliwość aktualizacji</string>
   <string name="update_interval_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Shorter period will use more battery.">Krótszy okres zużywa więcej baterii.</string>
   <string name="date_begin_" formatted="false">Początek zapisów</string>
-  <string name="date_begin_hint" formatted="false">Ignoruj logi przed tą datą</string>
-  <string name="delete_old_logs_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Delete logs older than">Usuń logi starsze niż</string>
-  <string name="delete_old_logs_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Delete logs older than x days from internal database. Leave empty to disable.">Usuń logi starsze niż x dni z wewnętrznej bazy. Pozostaw puste aby wyłączyć.</string>
+  <string name="date_begin_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Ignore any logs before this date.">Ignoruj zapisy przed tą datą</string>
+  <string name="delete_old_logs_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Delete logs older than">Usuń zapisy starsze niż</string>
+  <string name="delete_old_logs_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Delete logs older than x days from internal database. Leave empty to disable.">Usuń zapisy starsze niż x dni z wewnętrznej bazy. Pozostaw puste aby wyłączyć.</string>
   <string name="common_prefs_" formatted="false">Ustawienia ogólne</string>
   <string name="edit_" formatted="false">Edytuj</string>
   <string name="about_" formatted="false">O programie</string>
-  <string name="about_hint" formatted="false">Informacje o programie i twórcy</string>
+  <string name="about_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="About this app">Informacje o programie</string>
   <string name="faq_hint" formatted="false">Kilka informacji, jak skonfigurować aplikację</string>
-  <string name="feedback_" formatted="false">Kontakt</string>
+  <string name="feedback_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Feedback">Opinie</string>
   <string name="feedback_hint" formatted="false">Zgłoś problemy, sugestię...</string>
   <string name="twitter_hint" formatted="false">Obserwuj mojego twittera.\nOtrzymasz informacje o aktualizacjach, itp.</string>
   <string name="more_" formatted="false">Więcej aplikacji...</string>
