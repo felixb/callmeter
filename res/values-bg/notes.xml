@@ -18,9 +18,7 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=cs&file=help.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=cs&file=notes.xml to edit the file.
        -->
 <resources>
-  <string name="help_title_" formatted="false" username="David Kejzlar &lt;kejly@kejly.cz&gt;" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">Přečtěte si prosím následující nápovědu pro pochopení konceptu &lt;b&gt;výpisů&lt;/b&gt;, &lt;b&gt;plánů&lt;/b&gt; a &lt;b&gt;pravidel&lt;/b&gt;:</string>
-  <string name="help_import_" formatted="false" username="David Kejzlar &lt;kejly@kejly.cz&gt;" orig="A good starting point are some preconfigured rule sets available on the website. Just import them via import menu and play around.">Dobré je začít s nějakými předdefinovanými pravidly z domovské stránky. Prostě je naimportujte přes import menu a upravte.</string>
 </resources>

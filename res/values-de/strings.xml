@@ -88,6 +88,9 @@
   <string name="show_shortname_" formatted="false">Zeige Kurzname anstatt langem Namen</string>
   <string name="show_cost_" formatted="false">Zeige Kosten</string>
   <string name="show_billperiod_" formatted="false">Zeige Fortschritt des Abrechnungszeitraums</string>
+  <string name="show_icon_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Show icon">Zeige Icon</string>
+  <string name="hide_name_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Hide name of plan">Namen des Kontingents ausblenden</string>
+  <string name="small_widget_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Use small widget">Kleines Widget</string>
   <string name="show_calllength_" formatted="false">Zeige Infos nach dem Auflegen</string>
   <string name="show_calllength_hint" formatted="false">Zeige Länge/Kosten des Anrufs nach dem Auflegen.</string>
   <string name="hide_zero_" formatted="false">Verstecke leere Kontingente</string>
@@ -274,6 +277,8 @@
   <string name="widget_text_color_" formatted="false" orig="Text color">Textfarbe</string>
   <string name="widget_backgroud_color_" formatted="false" orig="Background color">Hintergrundfarbe</string>
   <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency">Hintergrund-Transparenz</string>
+  <string name="send_devices_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Send devices">Sende Devices</string>
+  <string name="send_devices_hint" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Sende eine Liste deiner Daten Devices zum Entwickler. Bitte nur senden, wenn deine Datenstatistik Null ist.</string>
   <string-array name="weekdays_all">
     <item>Jeden Tag</item>
     <item>Montag</item>
