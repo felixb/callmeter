@@ -59,8 +59,8 @@ public final class StatsAppWidgetConfigure extends Activity implements
 	private Spinner spinner;
 
 	/** {@link CheckBox}s. */
-	private CheckBox cbShowShortname, cbShowCost, cbShowBillp, cbShowIcon,
-			cbSmallWidget;
+	private CheckBox cbHideName, cbShowShortname, cbShowCost, cbShowBillp,
+			cbShowIcon, cbSmallWidget;
 	/** {@link EditText}s. */
 	private EditText etPlanTextSize, etStatsTextSize;
 	/** {@link Button}s. */
@@ -97,6 +97,17 @@ public final class StatsAppWidgetConfigure extends Activity implements
 				+ this.getString(R.string.widget_config_));
 		this.setContentView(R.layout.stats_appwidget_config);
 		this.spinner = (Spinner) this.findViewById(R.id.spinner);
+		this.cbHideName = (CheckBox) this.findViewById(R.id.hide_name);
+		this.cbHideName
+				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+					@Override
+					public void onCheckedChanged(
+							final CompoundButton buttonView,
+							final boolean isChecked) {
+						StatsAppWidgetConfigure.this.cbShowShortname
+								.setEnabled(!isChecked);
+					}
+				});
 		this.cbShowShortname = (CheckBox) this.findViewById(R.id.shortname);
 		this.cbShowShortname.setOnCheckedChangeListener(this);
 		this.cbShowCost = (CheckBox) this.findViewById(R.id.cost);
@@ -172,6 +183,8 @@ public final class StatsAppWidgetConfigure extends Activity implements
 					.getDefaultSharedPreferences(this).edit();
 			editor.putLong(StatsAppWidgetProvider.WIDGET_PLANID
 					+ this.mAppWidgetId, this.spinner.getSelectedItemId());
+			editor.putBoolean(StatsAppWidgetProvider.WIDGET_HIDETNAME
+					+ this.mAppWidgetId, this.cbHideName.isChecked());
 			editor.putBoolean(StatsAppWidgetProvider.WIDGET_SHORTNAME
 					+ this.mAppWidgetId, this.cbShowShortname.isChecked());
 			editor.putBoolean(StatsAppWidgetProvider.WIDGET_COST
