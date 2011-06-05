@@ -35,6 +35,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.preference.PreferenceManager;
+import android.view.View;
 import android.widget.RemoteViews;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
@@ -58,6 +59,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 
 	/** Plan.id for widget. */
 	static final String WIDGET_PLANID = "widget_planid_";
+	/** Hide name for widget. */
+	static final String WIDGET_HIDETNAME = "widget_hidename_";
 	/** Show short name for widget. */
 	static final String WIDGET_SHORTNAME = "widget_shortname_";
 	/** Show cost for widget. */
@@ -72,6 +75,10 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	static final String WIDGET_TEXTCOLOR = "widget_textcolor_";
 	/** Widget's background color. */
 	static final String WIDGET_BGCOLOR = "widget_bgcolor_";
+	/** Widget's icon. */
+	static final String WIDGET_ICON = "widget_icon_";
+	/** Must widget be small? */
+	static final String WIDGET_SMALL = "widget_small_";
 
 	/** Width of the widget. */
 	private static final int WIDGET_WIDTH = 100;
@@ -145,11 +152,16 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final long pid = p.getLong(WIDGET_PLANID + appWidgetId, -1L);
+		final boolean hideName = p.getBoolean(WIDGET_HIDETNAME + appWidgetId,
+				false);
 		final boolean showShortname = p.getBoolean(WIDGET_SHORTNAME
 				+ appWidgetId, false);
 		final boolean showCost = p.getBoolean(WIDGET_COST + appWidgetId, false);
 		final boolean showBillPeriod = p.getBoolean(WIDGET_BILLPERIOD
 				+ appWidgetId, false);
+		final boolean showIcon = p.getBoolean(WIDGET_ICON + appWidgetId, false);
+		final boolean smallWidget = p.getBoolean(WIDGET_SMALL + appWidgetId,
+				false);
 		final Float statsTextSize = p.getFloat(WIDGET_STATS_TEXTSIZE
 				+ appWidgetId, StatsAppWidgetConfigure.DEFAULT_TEXTSIZE);
 		final Float planTextSize = p.getFloat(WIDGET_PLAN_TEXTSIZE
@@ -284,11 +296,20 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		Log.d(TAG, "used: " + used);
 		Log.d(TAG, "stats: " + stats);
 
+		int widgetLayout = R.layout.stats_appwidget;
+		if (smallWidget) {
+			widgetLayout = R.layout.stats_appwidget_small;
+		}
 		final RemoteViews views = new RemoteViews(context.getPackageName(),
-				R.layout.stats_appwidget);
+				widgetLayout);
 		views.setImageViewBitmap(R.id.widget_bg, getBackground(bgColor, bmax,
 				bpos, limit, used));
-		views.setTextViewText(R.id.plan, pname);
+		if (hideName) {
+			views.setViewVisibility(R.id.plan, View.GONE);
+		} else {
+			views.setTextViewText(R.id.plan, pname);
+			views.setViewVisibility(R.id.plan, View.VISIBLE);
+		}
 		views.setTextViewText(R.id.stats, stats);
 		views.setFloat(R.id.plan, "setTextSize", planTextSize);
 		views.setFloat(R.id.stats, "setTextSize", statsTextSize);
@@ -296,6 +317,33 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		views.setTextColor(R.id.stats, textColor);
 		views.setOnClickPendingIntent(R.id.widget, PendingIntent.getActivity(
 				context, 0, new Intent(context, Plans.class), 0));
+		if (showIcon) {
+			views
+					.setViewVisibility(R.id.widget_icon,
+							android.view.View.VISIBLE);
+			switch (ptype) {
+			case DataProvider.TYPE_DATA:
+				views.setImageViewResource(R.id.widget_icon, R.drawable.data);
+				break;
+			case DataProvider.TYPE_CALL:
+				views.setImageViewResource(R.id.widget_icon, R.drawable.phone);
+				break;
+			case DataProvider.TYPE_SMS:
+			case DataProvider.TYPE_MMS:
+				views
+						.setImageViewResource(R.id.widget_icon,
+								R.drawable.message);
+				break;
+			case DataProvider.TYPE_MIXED:
+				views.setImageViewResource(R.id.widget_icon, R.drawable.phone);
+				break;
+			default:
+				views.setViewVisibility(R.id.widget_icon,
+						android.view.View.GONE);
+				break;
+			}
+		}
+
 		appWidgetManager.updateAppWidget(appWidgetId, views);
 	}
 

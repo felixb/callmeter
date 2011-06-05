@@ -19,19 +19,19 @@
 	-->
 <RelativeLayout android:id="@+id/widget"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent" android:layout_height="match_parent"
-	android:background="@android:color/transparent" android:clickable="true"
+	android:layout_width="match_parent" android:layout_height="80dip" android:background="@android:color/transparent" android:clickable="true"
 	android:orientation="vertical" android:paddingLeft="3dip"
-	android:paddingRight="3dip" android:paddingTop="5dip"
-	android:paddingBottom="5dip">
+	android:paddingRight="3dip" android:paddingTop="3dip"
+	android:paddingBottom="3dip" >
 	<ImageView android:id="@+id/widget_bg" android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:src="@android:color/black"
 		android:scaleType="fitXY" android:layout_centerInParent="true" />
 	<RelativeLayout android:layout_width="fill_parent"
-		android:layout_height="fill_parent">
+		android:layout_height="fill_parent"
+		android:id="@+id/fill_parent">
 		<TextView android:id="@+id/plan" android:text="@+id/plan"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:paddingTop="5dip" android:textColor="#FFFFFFFF"
+			android:paddingTop="1dip" android:textColor="#FFFFFFFF"
 			android:textStyle="bold" android:textSize="10dip" android:gravity="center_horizontal"
 			android:layout_centerHorizontal="true" android:layout_alignParentTop="true" />
 		<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/plan" android:layout_centerHorizontal="true" android:id="@+id/widget_icon" android:visibility="gone"></ImageView>	

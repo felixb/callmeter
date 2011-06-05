@@ -42,6 +42,9 @@
 				android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" />
 			<Spinner android:id="@+id/spinner" android:layout_width="fill_parent"
 				android:layout_height="wrap_content" />
+			<CheckBox android:id="@+id/hide_name" android:text="@string/hide_name_"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:singleLine="false" />
 			<CheckBox android:id="@+id/shortname" android:text="@string/show_shortname_"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:singleLine="false" />
@@ -51,6 +54,12 @@
 			<CheckBox android:id="@+id/pbillp" android:text="@string/show_billperiod_"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:singleLine="false" />
+			<CheckBox android:singleLine="false" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="@string/show_icon_"
+				android:id="@+id/show_icon" />
+			<CheckBox android:singleLine="false" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="@string/small_widget_"
+				android:id="@+id/small_widget" />
 			<TextView android:text="@string/widget_plan_textsize"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:textAppearance="?android:attr/textAppearanceLarge" />
