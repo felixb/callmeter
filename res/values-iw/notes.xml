@@ -18,11 +18,11 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://www.4.ub0r.de/translate/cm2/edit.php?lang=he&file=notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm2/edit.php?lang=iw&file=notes.xml to edit the file.
        -->
 <resources>
-  <string-array name="notes_from_dev" username="Felix Bechstein &lt;f+translator@ub0r.de&gt;">
+  <string-array name="notes_from_dev">
     <item>דצמבר 2010, Call Meter 3G זמין: Call Meter 3G alias CM3 זמין במרקט. נסה ופרסם את הערותייך באתר הפרוייקט.</item>
-    <item notranslation="true">Mar. 2011, Settings: Don\'t forget to clear statistics after changing settings to apply the new rules for past log items too.</item>
+    <item>מרץ 2011, הגדרות: אל תשכח לנקות את הסטטיסטיקה אחרי שינוי ההגדרות על מנת להחיל את הכללים החדשים עבור פריטי יומן ישנים.</item>
   </string-array>
 </resources>
