@@ -114,7 +114,7 @@
 		<TextView android:text="@string/author_sk"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
 			android:paddingLeft="10dip" android:autoLink="email" />
-		<TextView android:text="@string/author_he"
+		<TextView android:text="@string/author_iw"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
 			android:paddingLeft="10dip" android:autoLink="email" />
 		<TextView android:text="@string/author_da"

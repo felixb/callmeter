@@ -39,7 +39,7 @@
 	<string name="author_sk">Adrian Kolencik &lt;kolencik.adrian@gmail.com&gt; (Slovak)</string>
 	<string name="author_tr">Sinan Cem KILIÇKAPLAN &lt;bluesman80@gmail.com&gt; (Turkish)</string>
 	<string name="author_zh">蔡杰伦 &lt;case3526@gmail.com&gt; (Chinese)</string>
-	<string name="author_he">Aviad Hadarian &lt;aviad.hadarian@gmail.com&gt; (Hebrew)</string>
+	<string name="author_iw">Aviad Hadarian &lt;aviad.hadarian@gmail.com&gt; (Hebrew)</string>
 	<string name="author_da">Niklas &lt;k0n.ungdom@gmail.com&gt; (Danish)</string>
 	<string name="source">http://github.com/felixb/callmeter</string>
 	<string name="website">http://code.google.com/p/callmeter/</string>
@@ -172,7 +172,7 @@
 		<item>sv</item>
 		<item>tr</item>
 		<item>zh</item>
-		<item>he</item>
+		<item>iw</item>
 	</string-array>
 	<string-array name="lang_">
 		<item>Default language</item>

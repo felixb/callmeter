@@ -18,7 +18,7 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm2/edit.php?lang=he&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm2/edit.php?lang=iw&file=strings.xml to edit the file.
        -->
 <resources>
   <string name="about0_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Watch your call, message and data plans!">נטר את תוכניות השיחות, מסרונים והנתונים!</string>
@@ -102,6 +102,7 @@
   <string name="data_hint" formatted="false">נתוני אינטרנט אלחוטי לא נאספים כאן!</string>
   <string name="data_enable_" formatted="false">הראה נתוני גלישה</string>
   <string name="data_enable_hint" formatted="false">נתונים נאספים בזמן אמת. חודש ראשון עלול להיות שגוי!</string>
+  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">הראה רק את הכותרת נתונים</string>
   <string name="data_each_day" formatted="false">חייב כל יום בנפרד</string>
   <string name="data_each_day_hint" formatted="false">תקופת החיוב מתחילה בכל יום.</string>
   <string name="data_limit_" formatted="false">מגבלה</string>
