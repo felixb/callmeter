@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
+		<item>HEAD: add support for samsung galaxy 2</item>
 		<item>v3.0rc11: show icon, small widget (thanks to luca niccoli for both), update translations</item>
 		<item>v3.0rc10: set text size/color in widget, set background color in widget, add support for LG-P990, update translation, rename data stats by default</item>
 		<item>v3.0rc9: Add support for GT-S5830 and possible all future samsung devices, major inner changes, update translations</item>

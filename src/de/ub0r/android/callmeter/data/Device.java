@@ -170,7 +170,7 @@ class DiscoverableDevice extends Device {
 
 	/** List of possible cell interfaces. */
 	private static final String[] CELL_INTERFACES = { //
-	"rmnet0", "pdp0", "ppp0", "vsnet0" //
+	"rmnet0", "pdp0", "ppp0", "vsnet0", "svnet0" //
 	};
 
 	/** List of possible wifi interfaces. */
