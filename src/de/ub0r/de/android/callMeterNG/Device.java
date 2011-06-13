@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 Cyril Jaquier, Felix Bechstein
+ * Copyright (C) 2009-2011 Cyril Jaquier, Felix Bechstein
  * 
  * This file is part of NetCounter.
  * 
@@ -51,7 +51,6 @@ public abstract class Device {
 		Log.d(TAG, "Device: " + Build.DEVICE);
 		if (instance == null) {
 			Log.d(TAG, "Device: " + Build.DEVICE);
-			Log.d(TAG, "DEBUG: " + debugDeviceList());
 			instance = new DiscoverableDevice();
 		}
 		Log.d(TAG, instance.getClass().getName());
@@ -70,7 +69,7 @@ public abstract class Device {
 		try {
 			BufferedReader r = new BufferedReader(new FileReader(f), BUFSIZE);
 			sb.append("read: " + f);
-			sb.append("\n");
+			sb.append("\t");
 			sb.append(r.readLine());
 			r.close();
 		} catch (IOException e) {
@@ -84,21 +83,42 @@ public abstract class Device {
 	 * 
 	 * @return some info
 	 */
-	private static String debugDeviceList() {
+	public static String debugDeviceList() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("product: ");
+		sb.append(Build.PRODUCT);
+		sb.append("\nmodel: ");
+		sb.append(Build.MODEL);
+		sb.append("\n");
 		try {
-			File f = new File(SysClassNet.SYS_CLASS_NET);
-			String[] devices = f.list();
+			final File f = new File(SysClassNet.SYS_CLASS_NET);
+			final String[] devices = f.list();
+			sb.append("\n#devices: ");
+			sb.append(devices.length);
 			for (String d : devices) {
-				String dev = SysClassNet.SYS_CLASS_NET + d;
-				Log.i(TAG, readFile(dev + "/type"));
-				Log.i(TAG, readFile(dev + SysClassNet.CARRIER));
-				Log.i(TAG, readFile(dev + SysClassNet.RX_BYTES));
-				Log.i(TAG, readFile(dev + SysClassNet.TX_BYTES));
+				final String dev = SysClassNet.SYS_CLASS_NET + d;
+				try {
+					sb.append("\n\ndevice: ");
+					sb.append(dev);
+					sb.append("\n");
+					sb.append(readFile(dev + "/type"));
+					sb.append("\n");
+					sb.append(readFile(dev + SysClassNet.CARRIER));
+					sb.append("\n");
+					sb.append(readFile(dev + SysClassNet.RX_BYTES));
+					sb.append("\n");
+					sb.append(readFile(dev + SysClassNet.TX_BYTES));
+					sb.append("\n");
+				} catch (Exception e) {
+					sb.append("\nERROR: " + e + "\n");
+					Log.e(TAG, "ERROR reading " + dev, e);
+				}
 			}
 		} catch (Exception e) {
+			sb.append("\nERROR: " + e + "\n");
 			Log.e(TAG, "error reading /sys/", e);
 		}
-		return Build.PRODUCT + ":" + Build.MODEL;
+		return sb.toString();
 	}
 
 	/**
@@ -150,7 +170,7 @@ class DiscoverableDevice extends Device {
 
 	/** List of possible cell interfaces. */
 	private static final String[] CELL_INTERFACES = { //
-	"rmnet0", "pdp0", "ppp0", "vsnet0" //
+	"rmnet0", "pdp0", "ppp0", "vsnet0", "svnet0" //
 	};
 
 	/** List of possible wifi interfaces. */
@@ -185,10 +205,10 @@ class DiscoverableDevice extends Device {
 	@Override
 	public String getCell() {
 		if (this.mCell == null) {
-			if ("GT-I5500".equals(Build.DEVICE)
-					|| "GT-I5510".equals(Build.DEVICE)
-					|| "GT-S5830".equals(Build.DEVICE)) {
+			if (Build.DEVICE.startsWith("GT-") && SysClassNet.isUp("pdp0")) {
 				this.mCell = "pdp0";
+			} else if (Build.PRODUCT.equals("sdk")) {
+				this.mCell = "eth0";
 			} else {
 				for (String inter : CELL_INTERFACES) {
 					if (SysClassNet.isUp(inter)) {
