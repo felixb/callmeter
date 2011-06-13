@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Cyril Jaquier, Felix Bechstein
+ * Copyright (C) 2009-2011 Cyril Jaquier, Felix Bechstein
  * 
  * This file is part of NetCounter.
  * 
@@ -205,9 +205,9 @@ class DiscoverableDevice extends Device {
 	@Override
 	public String getCell() {
 		if (this.mCell == null) {
-			if (Build.DEVICE.startsWith("GT-")) {
+			if (Build.DEVICE.startsWith("GT-") && SysClassNet.isUp("pdp0")) {
 				this.mCell = "pdp0";
-			} else if ("sdk".equals(Build.PRODUCT)) {
+			} else if (Build.PRODUCT.equals("sdk")) {
 				this.mCell = "eth0";
 			} else {
 				for (String inter : CELL_INTERFACES) {
