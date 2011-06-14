@@ -18,7 +18,11 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://www.4.ub0r.de/translate/cm2/edit.php?lang=it&file=notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm2/edit.php?lang=it&file=notes.xml to edit the file.
        -->
 <resources>
+  <string-array name="notes_from_dev">
+    <item>Dic. 2010, Call Meter 3G é disponibile: Call Meter 3G alias CM3 é disponibile nel market. Provatelo e postate commenti nella pagina dell´applicazione</item>
+    <item>Mar. 2011, Settaggi: Non dimenticate di azzerare le statistiche dopo aver cambiato i settaggi per applicare le nuove regole anche ai log vecchi.</item>
+  </string-array>
 </resources>
