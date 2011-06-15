@@ -85,6 +85,9 @@
   <string name="show_shortname_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Show short name instead of long name">Zobrazit krátké jméno místo dlouhého</string>
   <string name="show_cost_" formatted="false">Zobrazit cenu</string>
   <string name="show_billperiod_" formatted="false" orig="Show progress of billing period">Zobrazit vývoj zúčtovacího období</string>
+  <string name="show_icon_" formatted="false" orig="Show icon">Zobrazit ikonu</string>
+  <string name="hide_name_" formatted="false" orig="Hide name of plan">Skrýt jméno plánu</string>
+  <string name="small_widget_" formatted="false" orig="Use small widget">Použít malý widget</string>
   <string name="show_calllength_" formatted="false">Zobrazit informace po zavěšení</string>
   <string name="show_calllength_hint" formatted="false">Zobrazit délku/cenu volání po zavěšení.</string>
   <string name="hide_zero_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Hide empty plans">Skrýt prázdné tarify</string>
