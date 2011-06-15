@@ -116,6 +116,7 @@
   <string name="calls" formatted="false">Połączenia</string>
   <string name="sms" formatted="false">SMS</string>
   <string name="data" formatted="false">Dane</string>
+  <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Dane (2G/3G/4G)</string>
   <string name="calls_sms" formatted="false">Połączenia/SMS</string>
   <string name="in_calls" formatted="false">Przychodzące%s:</string>
   <string name="in_sms" formatted="false">Przychodzące%s:</string>
