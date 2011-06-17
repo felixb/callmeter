@@ -28,7 +28,7 @@
   <string name="notes_from_developer_text" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Click here to show recent news from the developer">Kliknij aby zobaczyć najświeższe informacje od autora programu</string>
   <string name="about0_" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Watch your call, message and data plans!">Obserwuj swoje połączenia, wiadomości oraz pakiety danych!</string>
   <string name="about0" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter generuje raport na podstawie zapisów z połączeń, wiadomości i danych. Wspiera wiele typów planów taryfowych.</string>
-  <string name="about1" formatted="false">Format wyjściowy wykorzystuje /czas, całość wykorzystanego rachunku /czas, całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>
+  <string name="about1" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="The output format is usage | time or count used this billing period | time or count overall.">Format wyjściowy wykorzystuje | czas lub zlicza użycie z aktualnego okresu rozliczeniowego | czas lub całość ogółem.</string>
   <string name="about2" formatted="false">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
   <string name="about3" formatted="false">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
   <string name="send_" formatted="false">Wyślij</string>
@@ -88,6 +88,9 @@
   <string name="show_shortname_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Show short name instead of long name">Pokaż krótką nazwę zamiast długich</string>
   <string name="show_cost_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Show cost">Pokaż koszt</string>
   <string name="show_billperiod_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Show progress of billing period">Pokazuj postęp okresu rozliczeniowego</string>
+  <string name="show_icon_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Show icon">Pokazuj ikonę</string>
+  <string name="hide_name_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Hide name of plan">Ukryj nazwę planu</string>
+  <string name="small_widget_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Use small widget">Użyj małego widgetu</string>
   <string name="show_calllength_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Show info after hanging up">Pokaż informację po rozłączeniu</string>
   <string name="show_calllength_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Show length/cost of a call after hanging up.">Pokaż długość/koszt połączenia po rozłączeniu.</string>
   <string name="hide_zero_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Hide empty plans">Ukryj puste plany</string>

@@ -21,8 +21,8 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=pl&file=notes.xml to edit the file.
        -->
 <resources>
-  <string-array name="notes_from_dev" username="flx &lt;f+translator@ub0r.de&gt;">
-    <item>Grudzień 2010 Pamiętaj: Statystyki z przed instalacji tej aplikacji nie mogą być pobrane!</item>
-    <item>Grudzień 2010 Pamiętaj: Zamknięcie procesu tej aplikacji może skutkować błędnymi danymi w statystykach.</item>
+  <string-array name="notes_from_dev" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;">
+    <item>Gru. 2010 Pamiętaj: Statystyki z przed instalacji aplikacji nie mogą być użyte.</item>
+    <item>Gru. 2010 Pamiętaj: Zabicie procesu aplikacji może skutkować błędnymi danymi w statystykach.</item>
   </string-array>
 </resources>
