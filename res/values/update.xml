@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
+		<item>HEAD: Fix for samsung phones</item>
 		<item>v2.3.17.7: Fix Samsung Galaxy S 2, fix hebrew translation</item>
 		<item>v2.3.17.6: Translation updates</item>
 		<item>v2.3.17.5: Fix language selection for german+danish, add an other hint for data stats</item>
