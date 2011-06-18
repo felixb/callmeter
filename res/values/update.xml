@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: fix for samsung phones</item>
+		<item>HEAD: fix for samsung phones, translate inital rule set</item>
 		<item>v3.0rc12: fix for samsung galaxy 2</item>
 		<item>v3.0rc11: show icon, small widget (thanks to luca niccoli for both), update translations</item>
 		<item>v3.0rc10: set text size/color in widget, set background color in widget, add support for LG-P990, update translation, rename data stats by default</item>
