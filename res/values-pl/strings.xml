@@ -148,10 +148,28 @@
   <string name="new_hourgroup" formatted="false">Nowa grupa godzin</string>
   <string name="add_hour" formatted="false">Dodaj godzinę</string>
   <string name="empty_group" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Puste grupy nie będą pasować do niczego. Proszę powrócić i dodać co najmniej jeden element.</string>
+  <string name="billperiod_sn" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="BillPeriod">OkresRozliczeniowy</string>
   <string name="calls" formatted="false">Połączenia</string>
+  <string name="calls_in" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Calls In">Poł. Przych.</string>
+  <string name="calls_in_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="CallsIn">PołPrzych</string>
+  <string name="calls_out" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Calls Out">Poł. Wych.</string>
+  <string name="calls_out_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="CallsOut">PołWych</string>
+  <string name="messages" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Messages">Wiadomości</string>
+  <string name="messages_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="SMS/MMS">SMS/MMS</string>
   <string name="sms" formatted="false">SMS</string>
+  <string name="sms_in" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="SMS In">SMS Przych.</string>
+  <string name="sms_in_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="SMSIn">SMSPrzych</string>
+  <string name="sms_out" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="SMS Out">SMS Wych.</string>
+  <string name="sms_out_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="SMSOut">SMSWych</string>
   <string name="mms" formatted="false">MMS</string>
+  <string name="mms_in" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="MMS In">MMS Wych.</string>
+  <string name="mms_in_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="MMSIn">MMSPrzych</string>
+  <string name="mms_out" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="MMS Out">MMS Wych.</string>
+  <string name="mms_out_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="MMSOut">MMSWych</string>
   <string name="data" formatted="false">Dane</string>
+  <string name="data_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Data (2G/3G/4G)">Dane (2G/3G/4G)</string>
+  <string name="data_inout" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Data In/Out">Dane Przych./Wych.</string>
+  <string name="data_inout_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="DataInOut">DanePrzychWych</string>
   <string name="prepaid_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Prepaid plan">Plan pre-paid</string>
   <string name="prepaid_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Podstawowe rozliczenie pre-paid. Koszt jest odejmowany od salda jak wykonasz połączenie itp.</string>
   <string name="balance_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Balance">Bilans</string>
