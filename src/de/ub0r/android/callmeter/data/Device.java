@@ -50,10 +50,10 @@ public abstract class Device {
 	public static synchronized Device getDevice() {
 		Log.d(TAG, "Device: " + Build.DEVICE);
 		if (instance == null) {
-			Log.d(TAG, "Device: " + Build.DEVICE);
+			Log.i(TAG, "Device: " + Build.DEVICE);
+			Log.i(TAG, "Interface: " + instance.getCell());
 			instance = new DiscoverableDevice();
 		}
-		Log.d(TAG, instance.getClass().getName());
 		return instance;
 	}
 
