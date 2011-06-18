@@ -51,8 +51,8 @@ public abstract class Device {
 		Log.d(TAG, "Device: " + Build.DEVICE);
 		if (instance == null) {
 			Log.i(TAG, "Device: " + Build.DEVICE);
-			Log.i(TAG, "Interface: " + instance.getCell());
 			instance = new DiscoverableDevice();
+			Log.i(TAG, "Interface: " + instance.getCell());
 		}
 		return instance;
 	}
@@ -170,7 +170,7 @@ class DiscoverableDevice extends Device {
 
 	/** List of possible cell interfaces. */
 	private static final String[] CELL_INTERFACES = { //
-	"rmnet0", "pdp0", "ppp0", "vsnet0", "svnet0" //
+	"rmnet0", "pdp0", "ppp0", "vsnet0" //
 	};
 
 	/** List of possible wifi interfaces. */
