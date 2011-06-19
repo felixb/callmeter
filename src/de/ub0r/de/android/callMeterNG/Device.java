@@ -167,6 +167,8 @@ public abstract class Device {
  * different possible solutions.
  */
 class DiscoverableDevice extends Device {
+	/** Tag for output. */
+	private static final String TAG = "Device";
 
 	/** List of possible cell interfaces. */
 	private static final String[] CELL_INTERFACES = { //
@@ -205,7 +207,7 @@ class DiscoverableDevice extends Device {
 	@Override
 	public String getCell() {
 		if (this.mCell == null) {
-			if (Build.DEVICE.startsWith("GT-") && SysClassNet.isUp("pdp0")) {
+			if (Build.DEVICE.startsWith("GT-")) {
 				this.mCell = "pdp0";
 			} else if (Build.PRODUCT.equals("sdk")) {
 				this.mCell = "eth0";
@@ -217,7 +219,7 @@ class DiscoverableDevice extends Device {
 					}
 				}
 			}
-			Log.i(this.getClass().getName(), "Cell interface: " + this.mCell);
+			Log.i(TAG, "Cell interface: " + this.mCell);
 		}
 		return this.mCell;
 	}
