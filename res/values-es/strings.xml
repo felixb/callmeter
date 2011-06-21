@@ -88,6 +88,9 @@
   <string name="show_shortname_" formatted="false">Mostrar nombre corto en lugar de nombre largo</string>
   <string name="show_cost_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show cost">Mostrar "costo"</string>
   <string name="show_billperiod_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show progress of billing period">Mostrar el avance del período de facturación</string>
+  <string name="show_icon_" formatted="false" orig="Show icon">Mostrar icono</string>
+  <string name="hide_name_" formatted="false" orig="Hide name of plan">Ocultar nombre del plan</string>
+  <string name="small_widget_" formatted="false" orig="Use small widget">Usar widget pequeño</string>
   <string name="show_calllength_" formatted="false">Mostrar información después de colgar</string>
   <string name="show_calllength_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show length/cost of a call after hanging up.">Mostrar duración/costo de una llamada después de colgar.</string>
   <string name="hide_zero_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Hide empty plans">Ocultar planes vacíos</string>
@@ -145,7 +148,11 @@
   <string name="new_hourgroup" formatted="false">Nuevo grupo de horas</string>
   <string name="add_hour" formatted="false">Añadir hora</string>
   <string name="empty_group" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Grupos vacíos no calzan con nada. Por favor regrese y agregue al menos un ítem.</string>
+  <string name="billperiod_sn" formatted="false" orig="BillPeriod">Periodo de facturación</string>
   <string name="calls" formatted="false">Llamadas</string>
+  <string name="calls_in" formatted="false" orig="Calls In">Llamadas entrantes</string>
+  <string name="calls_in_" formatted="false" orig="CallsIn">Llamadas entrantes</string>
+  <string name="calls_out" formatted="false" orig="Calls Out">Llamadas salientes</string>
   <string name="sms" formatted="false">SMS</string>
   <string name="mms" formatted="false">MMS</string>
   <string name="data" formatted="false">Datos</string>
