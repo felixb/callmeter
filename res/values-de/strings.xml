@@ -148,10 +148,28 @@
   <string name="new_hourgroup" formatted="false">Neue Stundengruppe</string>
   <string name="add_hour" formatted="false">Stunde Hinzufügen</string>
   <string name="empty_group" formatted="false">Leere Gruppen greifen nie. Bitte gehe zurück und füge mindestens ein Element hinzu.</string>
+  <string name="billperiod_sn" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="BillPeriod">AbrechnungsZeitraum</string>
   <string name="calls" formatted="false">Anrufe</string>
+  <string name="calls_in" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Calls In">Eingehende Anrufe</string>
+  <string name="calls_in_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="CallsIn">AnrufeEin</string>
+  <string name="calls_out" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Calls Out">Ausgehende Anrufe</string>
+  <string name="calls_out_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="CallsOut">AnrufeAus</string>
+  <string name="messages" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Messages">Nachrichten</string>
+  <string name="messages_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="SMS/MMS">SMS/MMS</string>
   <string name="sms" formatted="false">SMS</string>
+  <string name="sms_in" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="SMS In">Eingehende SMS</string>
+  <string name="sms_in_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="SMSIn">SMSEin</string>
+  <string name="sms_out" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="SMS Out">Ausgehende SMS</string>
+  <string name="sms_out_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="SMSOut">SMSAus</string>
   <string name="mms" formatted="false">MMS</string>
+  <string name="mms_in" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="MMS In">Eingehende MMS</string>
+  <string name="mms_in_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="MMSIn">MMSEin</string>
+  <string name="mms_out" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="MMS Out">Ausgehende MMS</string>
+  <string name="mms_out_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="MMSOut">MMSAus</string>
   <string name="data" formatted="false">Daten</string>
+  <string name="data_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Data (2G/3G/4G)">Daten (2G/3G/4G)</string>
+  <string name="data_inout" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Data In/Out">Daten Ein/Aus</string>
+  <string name="data_inout_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="DataInOut">DatenEinAus</string>
   <string name="prepaid_" formatted="false">Prepaid Abrechnung</string>
   <string name="prepaid_hint" formatted="false">Prepaid Vertrag. Kosten werden vom Guthaben abgezogen.</string>
   <string name="balance_" formatted="false">Guthaben</string>
