@@ -51,7 +51,7 @@
   <string name="feedback_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Feedback">Opinie</string>
   <string name="feedback_hint" formatted="false">Zgłoś problemy, sugestię...</string>
   <string name="twitter_hint" formatted="false">Obserwuj mojego twittera.\nOtrzymasz informacje o aktualizacjach, itp.</string>
-  <string name="more_" formatted="false">Więcej aplikacji...</string>
+  <string name="more_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="More Apps..">Więcej aplikacji..</string>
   <string name="billing_" formatted="false">Rachunek</string>
   <string name="billday_" formatted="false">Pierwszy dzień rachunku</string>
   <string name="billmode_" formatted="false">Rodzaj cyklu</string>
@@ -67,7 +67,7 @@
   <string name="textsize_title_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Title\'s text size">Rozmiar tekstu tytułu</string>
   <string name="textsize_title_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Text size for titles in pixels; leave empty for default">Rozmiar tekstu dla tytułu w pikselach; pozostaw puste dla domyślnych</string>
   <string name="textsize_bigtitle_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Big title\'s text size">Rozmiar tekstu dużego tytułu</string>
-  <string name="textsize_bigtitle_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Text size for big titles in pixels; leave empty for default">Rozmiar tekstu dla dużego tytułu w pikselach; pozostaw puste dla domyślnych</string>
+  <string name="textsize_bigtitle_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Text size for big titles in pixels; leave empty for default">Rozmiar tekstu dla dużego tytułu w pikselach; pozostaw puste dla wartości domyślnych</string>
   <string name="textsize_spacer_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Spacer\'s size">Rozmiar odstępu</string>
   <string name="textsize_spacer_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Size for spacers in pixels; leave empty for default">Rozmiar dla odstępu w pikselach; pozostaw puste dla domyślnych</string>
   <string name="textsize_pbar_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Progress bar\'s size">Rozmiar paska postępu</string>
@@ -100,7 +100,7 @@
   <string name="hide_progressbars_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Hide progress bars">Ukryj pasek postępu</string>
   <string name="hide_progressbars_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Hide progress bars in main view.">Ukryj pasek postępu na ekranie głównym.</string>
   <string name="custom_currency_symbol_" formatted="false">Symbol waluty</string>
-  <string name="custom_currency_symbol_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Set a custom currency symbol, leave empty for system default.">Wprowadź niestandardowy symbol waluty, pozostaw puste dla domyślnych</string>
+  <string name="custom_currency_symbol_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Set a custom currency symbol, leave empty for system default.">Wprowadź niestandardowy symbol waluty, pozostaw puste dla wartości domyślnej.</string>
   <string name="custom_currency_format_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Custom currency format">Niestandardowy format waluty</string>
   <string name="custom_currency_format_hint" formatted="false">Wybierz niestandardowy format waluty</string>
   <string name="custom_date_format_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Custom date format">Niestandardowy format daty</string>
@@ -162,7 +162,7 @@
   <string name="sms_out" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="SMS Out">SMS Wych.</string>
   <string name="sms_out_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="SMSOut">SMSWych</string>
   <string name="mms" formatted="false">MMS</string>
-  <string name="mms_in" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="MMS In">MMS Wych.</string>
+  <string name="mms_in" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="MMS In">MMS Przych.</string>
   <string name="mms_in_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="MMSIn">MMSPrzych</string>
   <string name="mms_out" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="MMS Out">MMS Wych.</string>
   <string name="mms_out_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="MMSOut">MMSWych</string>
@@ -173,7 +173,7 @@
   <string name="prepaid_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Prepaid plan">Plan pre-paid</string>
   <string name="prepaid_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Podstawowe rozliczenie pre-paid. Koszt jest odejmowany od salda jak wykonasz połączenie itp.</string>
   <string name="balance_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Balance">Bilans</string>
-  <string name="balance_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Balance of your account at this given date.">Bilans twojego konta względem wskazanej daty</string>
+  <string name="balance_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Balance of your account at this given date.">Bilans twojego konta względem wskazanej daty.</string>
   <string name="strip_leading_zeros_" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Strip leading zeros">Pomiń początkowe zera</string>
   <string name="strip_leading_zeros_hint" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Strip leading zeros when comparing numbers.">Pomiń początkowe zera przy porównywaniu numerów</string>
   <string name="number_prefix_" formatted="false">Prefiks międzynarodowy</string>
@@ -198,7 +198,7 @@
   <string name="limit_type_" formatted="false">Typ limitów</string>
   <string name="limit_type_help" formatted="false">Wprowadź typ twojego limitu.\nLimit \"jednostek\" ograniczy twój plan bazując na minutach, wiadomościach, ...\nLimit \"kosztu\" ograniczy twój plan bazując na koszcie przedstawionym przez pozycje rozliczone w tym planie.</string>
   <string name="limit_" formatted="false">Limit</string>
-  <string name="limit_help" formatted="false">Ustaw limit twojego planu.\n\nTyp \"jednostek\" musi być ustawiony w minutach (połączeniach), wiadomościach (sms/mms), megabajtach (dane, 1024kB) lub jednostkach (Mieszane).\n\nTyp \"kosztu\" musi być ustawiony w twojej walucie (np.: zł).</string>
+  <string name="limit_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">Ustaw limit twojego planu.\n\nTyp "jednostek" musi być ustawiony w minutach (połączeniach), wiadomościach (sms/mms), megabajtach (dane, 1024kB) lub jednostkach (Mieszane).\n\nTyp "kosztu" musi być ustawiony w twojej walucie (np.: PLN).</string>
   <string name="billmode_help" formatted="false">Wprowadź typ rozliczenia połączeń.\nPierwsza część to minimalna długość naliczana przez operatora. Każde połączenie o krótszej długości jest zaokrąglane do tego.\nDruga część to minimalna długość następujących bloków sekund.\nPrzeczytaj FAQ dla szczegółowych informacji.</string>
   <string name="billday_help" formatted="false">Ustaw tutaj pierwszy dzień twojego rachunku - okresu rozliczeniowego.</string>
   <string name="billperiodid_" formatted="false">Okres rozliczeniowy</string>
@@ -222,7 +222,7 @@
   <string name="mixed_units_mms_" formatted="false">Jednostki za MMS</string>
   <string name="mixed_units_mms_help" formatted="false">Wprowadź liczbę jednostek naliczonych za jednego MMSa</string>
   <string name="mixed_units_call_" formatted="false">Jednostek za połączenie</string>
-  <string name="mixed_units_call_help" formatted="false">Wprowadź liczbę jednostek naliczonych za jedną minutę połączenia.\nBill mode is taken into account here.</string>
+  <string name="mixed_units_call_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Set the units billed for a one minute call.\nBill mode is taken into account here.">Wprowadź liczbę jednostek naliczonych za jedną minutę połączenia.\nTryb naliczania rachunku jest tutaj brany pod uwagę.</string>
   <string name="merge_plans_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Merge plans">Połącz plany</string>
   <string name="merge_plans_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Merge other plans into this one and bill them here (too).">Połącz inne plany w ten jeden i rozlicz je tutaj (również).</string>
   <string name="units_cost" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="$">PLN</string>
@@ -236,9 +236,9 @@
   <string name="units_cost_per_minute" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="$/Minute">PLN/Minutę</string>
   <string name="units_cost_per_message" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="$/Message">PLN/Wiadomość</string>
   <string name="units_cost_per_mbyte" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="$/MByte">PLN/MBajt</string>
-  <string name="units_cost_per_unit" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="$/Unit">PLN/Jednostkę</string>
+  <string name="units_cost_per_unit" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="$/Unit">PLN/Jednostka</string>
   <string name="plan_" formatted="false">Plan</string>
-  <string name="plan_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Choose the plan this rule should fit.">Wybierz plan do którego reguła będzie pasować.</string>
+  <string name="plan_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Choose the plan this rule should fit.">Wybierz plan do którego reguła powinna pasować.</string>
   <string name="limitnotreached_" formatted="false">Limit nie osiągnięty</string>
   <string name="limitnotreached_help" formatted="false">Dopasuj tylko, jeżeli plan docelowy nie osiągnął jeszcze limitu.</string>
   <string name="iswebsms_" formatted="false">Czy WebSMS</string>
@@ -246,7 +246,7 @@
   <string name="iswebsms_connector_" formatted="false">Czy WebSMS Connector</string>
   <string name="iswebsms_connector_help" formatted="false">Wysłane ze szczególnym WebSMS Connector, pozostawić puste jako dowolny.</string>
   <string name="issipcall_" formatted="false">Czy wywołanie SIP</string>
-  <string name="issipcall_help" formatted="false">Rozmowa przeprowadzona za pomocą SIP. Obecnie sipdroid&gt; 1.6.1 jest obsługiwany.</string>
+  <string name="issipcall_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Rozmowa przeprowadzona za pomocą SIP. Obecnie sipdroid &gt;1.6.1 jest obsługiwany.</string>
   <string name="strip_seconds_" formatted="false">Nie licz pierwszych sekund</string>
   <string name="strip_seconds_help" formatted="false">Nie licz pierwszych x sekund rozmowy.</string>
   <string name="what_" formatted="false">Typ celu</string>
@@ -268,7 +268,7 @@
   <string name="export_" formatted="false">Eksportuj ...</string>
   <string name="export_hint" formatted="false">Eksport ustawień reguł, logów lub grup</string>
   <string name="export_rules_" formatted="false">Eksportuj ustawienia reguł</string>
-  <string name="export_rules_hint" formatted="false">Eksportuj ustawienia mailem</string>
+  <string name="export_rules_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Export rule set as mail.">Eksportuj ustawienia mailem.</string>
   <string name="export_rules_descr" formatted="false">Opis</string>
   <string name="export_logs_" formatted="false">Kopia zapasowa logów</string>
   <string name="export_logs_hint" formatted="false">Kopia logów jako mail.</string>
@@ -277,7 +277,7 @@
   <string name="export_hourgroups_" formatted="false">Eksport grup godzinowych</string>
   <string name="export_hourgroups_hint" formatted="false">Eksport grup godzinowych jako mail.</string>
   <string name="import_rules_" formatted="false">Importuj ustawienia reguł</string>
-  <string name="import_rules_hint" formatted="false">Importuj ustawienia reguł</string>
+  <string name="import_rules_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Import rule set.">Importuj ustawienia reguł.</string>
   <string name="import_rules_empty" formatted="false">Żaden plan/reguła nie jest ustawiona. Kliknij ten tekst aby zimportować domyślny zestaw reguł.\n\nMożesz również dodać plan i reguły ręcznie w ustawieniach.</string>
   <string name="err_export_write" formatted="false">Błąd podczas zapisu eksportowanego pliku</string>
   <string name="err_export_read" formatted="false">Błąd podczas odczytu eksportowanego pliku</string>
@@ -297,7 +297,7 @@
   <string name="widget_backgroud_transparency_" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Background transparency">Przeźroczystość tła</string>
   <string name="send_devices_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Send devices">Wyślij urządzenia</string>
   <string name="send_devices_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Wyślij listę urządzeń do autora programu. Potrzebne tylko wtedy, gdy statystyki wskazują zero.</string>
-  <string-array name="weekdays_all">
+  <string-array name="weekdays_all" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;">
     <item>Cały tydzień</item>
     <item>Poniedziałek</item>
     <item>Wtorek</item>
@@ -306,7 +306,7 @@
     <item>Piątek</item>
     <item>Sobota</item>
     <item>Niedziela</item>
-    <item>Poniedziałek - piątek</item>
+    <item>Poniedziałek - Piątek</item>
   </string-array>
   <string-array name="hours_all">
     <item>Cały dzień</item>
