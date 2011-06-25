@@ -107,7 +107,7 @@
   <string name="custom_date_format_hint" formatted="false">Wähle ein benutzerdefiniertes Datumformat aus.</string>
   <string name="custom_delimiter_" formatted="false">Benutzerdefiniertes Trennzeichen</string>
   <string name="custom_delimiter_hint" formatted="false">Setze einen benutzerdefiniertes Trennzeichen für Blöcke in den Statistiken.</string>
-  <string name="split_sms_at_160_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Split text messages at 160 chars">SMS bei 160 Zeichen trennen</string>
+  <string name="split_sms_at_160_" formatted="false" orig="Split text messages at 160 chars">SMS bei 160 Zeichen trennen</string>
   <string name="split_sms_at_160_hint" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Disable to use android\'s system method.">Deaktivieren, um die Android Methode zum Berechnen der Länge zu benutzen.</string>
   <string name="ask_for_plan_" formatted="false">Nach Kontingent Fragen</string>
   <string name="ask_for_plan_hint" formatted="false">Nach Kontingent fragen, wenn nach dem Auflegen keins zugeordnet werden kann.</string>
