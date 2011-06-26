@@ -198,7 +198,7 @@
   <string name="limit_type_" formatted="false">Limittyp</string>
   <string name="limit_type_help" formatted="false">Wähle hier einen Typ des Limits aus.</string>
   <string name="limit_" formatted="false">Limit</string>
-  <string name="limit_help" formatted="false">Stelle hier ein Limit für dein Kontingent.\n\nTyp \"Einheiten\" muss in Minuten (Anrufe), Nachrichten (SMS/MMS), Megabytes (Daten, 1024kB) oder Einheiten (Mixed) gesetzt werden.\n\nTyp \"Costen\" muss in deiner Hauptwährung (z.B. €) gesetzt werden.</string>
+  <string name="limit_help" formatted="false" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">Stelle hier ein Limit für dein Kontingent.\n\nTyp "Einheiten" muss in Minuten (Anrufe), Nachrichten (SMS/MMS), Megabytes (Daten, 1024kB) oder Einheiten (Mixed) gesetzt werden.\n\nTyp "Kosten" muss in deiner Hauptwährung (z.B. €) gesetzt werden.</string>
   <string name="billmode_help" formatted="false">Stelle hier den Abrechnungsmodus für Anrufe ein.\nDer erste Teil ist die minimale Länge eines Anrufes die dein Provider abrechnet. Jeder Anruf kürzer als diese Zeit wird auf genau diese Zeit aufgerundet.\nDer zweite Teil ist die minimale Länge der folgenden Zeitblöcke.\nBitte lies die FAQ für genauere Beschreibung.</string>
   <string name="billday_help" formatted="false">Wähle hier den ersten Tag deines Abrechnungszeitraums aus.</string>
   <string name="billperiodid_" formatted="false">Abrechnungszeitraum</string>
