@@ -37,7 +37,7 @@
   <string name="faq_hint" formatted="false">Ein paar Tipps und Tricks, wie man diese App einstellt.</string>
   <string name="feedback_" formatted="false">Feedback</string>
   <string name="feedback_hint" formatted="false" orig="Report bugs, request features ...">Fehler melden, Funktionen wünschen ...</string>
-  <string name="twitter_hint" formatted="false" orig="Follow me on twitter.\nGet update notifications etc.">Folge auf Twitter für neuste Updates, Benachrichtigungen und mehr.</string>
+  <string name="twitter_hint" formatted="false" orig="Follow me on twitter.\nGet update notifications etc.">Folge mir auf Twitter für neuste Updates, Benachrichtigungen und mehr.</string>
   <string name="more_" formatted="false" orig="More Apps..">Mehr Anwendungen..</string>
   <string name="billday_" formatted="false">Erster Rechnungstag</string>
   <string name="billmode_" formatted="false">Abrechnungsmodus</string>
