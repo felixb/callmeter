@@ -102,6 +102,8 @@
   <string name="data_hint" formatted="false">Les statistiques WIFI ne sont pas collectées ici !</string>
   <string name="data_enable_" formatted="false">Afficher les statistiques des données</string>
   <string name="data_enable_hint" formatted="false">Les données sont collectées en temps réel. Le premier mois peut être incorrect !</string>
+  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Afficher seulement les "Données" en titre</string>
+  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Cacher "(2G/3G/4G)" dans le titre. Ceci n\'affecte pas les statistiques </string>
   <string name="data_each_day" formatted="false">Facture de chaque jour séparément</string>
   <string name="data_each_day_hint" formatted="false">Votre période de facturation débute chaque nouveau jour.</string>
   <string name="data_limit_" formatted="false">Limite</string>
@@ -116,6 +118,7 @@
   <string name="calls" formatted="false">Appels</string>
   <string name="sms" formatted="false">SMS</string>
   <string name="data" formatted="false">Données</string>
+  <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Données (2G/3G/4G)</string>
   <string name="calls_sms" formatted="false">Appels/SMS</string>
   <string name="in_calls" formatted="false">Entrants%s:</string>
   <string name="in_sms" formatted="false">Entrants%s:</string>
@@ -128,7 +131,7 @@
   <string name="plan_name_hint" formatted="false">Nom personnalisé</string>
   <string name="reset_data_" formatted="false">Réinitialisation des statistiques</string>
   <string name="reset_data_hint" formatted="false">Réinitialiser les statistiques des appels/SMS va nécessiter le recalcule de ces statistiques.\n\nPar contre, la réinitialisation des statistiques de consommation internet est permanente : les statistiques du traffic effectué avant le dernier démarrage seront perdues!</string>
-  <string name="reset_data_data_" formatted="false">Réinitialiser le traffic de données.</string>
+  <string name="reset_data_data_" formatted="false" orig="Reset traffic too.">Réinitialiser le trafic de données.</string>
   <string name="contacts_" formatted="false">Contacts</string>
   <string-array name="themes">
     <item>Noir</item>
