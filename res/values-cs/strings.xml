@@ -21,7 +21,7 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=cs&file=strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Recent changes:">Poslední změny:</string>
+  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Poslední změny:</string>
   <string name="changelog_notification_text" formatted="false">Klikněte zde pro zobrazení nedávných změn</string>
   <string name="never_show_again" formatted="false" orig="Never show changelog again">Changelog již nezobrazovat</string>
   <string name="notes_from_developer_" formatted="false">Poznámky od autora</string>
