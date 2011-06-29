@@ -187,10 +187,11 @@ public final class RuleMatcher {
 			 *            national number
 			 * @return international number
 			 */
-			private static String national2international(
-					final String iPrefix, final boolean zPrefix,
-					final String number) {
-				if (number.startsWith("+")) {
+			private static String national2international(final String iPrefix,
+					final boolean zPrefix, final String number) {
+				if (number.startsWith("00800")) {
+					return number;
+				} else if (number.startsWith("+")) {
 					return number;
 				} else if (number.startsWith("00")) {
 					return "+" + number.substring(2);

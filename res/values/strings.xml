@@ -137,6 +137,8 @@
 	<string name="exnumbergroup_help">Add some numbers this rule must not match.\nSee above.</string>
 	<string name="new_numbergroup">New number group</string>
 	<string name="add_number">Add number</string>
+	<string name="numbergroup_excalls">Exclude from calls</string>
+	<string name="numbergroup_exsms">Exclude from SMS</string>
 	<string name="hours">Hours</string>
 	<string name="hourgroup_">Include hours</string>
 	<string name="hourgroup_help">Add some hours this rule must match.</string>

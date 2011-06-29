@@ -338,8 +338,8 @@ public final class DataProvider extends ContentProvider {
 			} else {
 				n = number.replaceAll("[^?*#+0-9]", "");
 			}
-			if (n.startsWith("00")) {
-				return n.replaceFirst("^00", "+");
+			if (n.startsWith("00") && !n.startsWith("00800")) {
+				return "+" + n.substring(2);
 			}
 			return n;
 		}
@@ -2212,11 +2212,24 @@ public final class DataProvider extends ContentProvider {
 		cv.clear();
 		// mms in
 		cv.put(Rules.NAME, context.getString(R.string.mms_in));
-		db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "6" });
+		db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "7" });
 		cv.clear();
 		// mms out
 		cv.put(Rules.NAME, context.getString(R.string.mms_out));
-		db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "7" });
+		db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "8" });
+		cv.clear();
+		// exclude numbers from calls
+		cv.put(NumbersGroup.NAME, context
+				.getString(R.string.numbergroup_excalls));
+		db.update(NumbersGroup.TABLE, cv, NumbersGroup.ID + "=?",
+				new String[] { "1" });
+		cv.clear();
+		// exclude numbers from sms
+		cv.put(NumbersGroup.NAME, // .
+				context.getString(R.string.numbergroup_exsms));
+		db.update(NumbersGroup.TABLE, cv, NumbersGroup.ID + "=?",
+				new String[] { "2" });
+
 		PreferenceManager.getDefaultSharedPreferences(context).edit()
 				.putBoolean(Preferences.PREFS_ISDEFAULT, true).commit();
 	}
