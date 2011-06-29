@@ -30,12 +30,12 @@ import de.ub0r.android.callmeter.ui.prefs.Preferences;
  * 
  * @author flx
  */
-public class Help extends Activity implements OnClickListener {
+public final class Help extends Activity implements OnClickListener {
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void onCreate(final Bundle savedInstanceState) {
+	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setTheme(Preferences.getTheme(this));
 		this.setContentView(R.layout.help);

@@ -21,5 +21,5 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=ru&file=help.xml to edit the file.
        -->
 <resources>
-  <string name="help_title_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">Пожалуйста, прочтите следующее, чтобы понять &lt;b&gt;журналы&lt;/b&gt;, &lt;b&gt;планы&lt;/b&gt; и &lt;b&gt;правила&lt;/b&gt;:</string>
+  <string name="help_title_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">Пожалуйста, прочтите следующее, чтобы понять <b>журналы</b>, <b>планы</b> и <b>правила</b>:</string>
 </resources>
