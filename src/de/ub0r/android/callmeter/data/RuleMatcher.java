@@ -62,6 +62,8 @@ public final class RuleMatcher {
 	private static boolean stripLeadingZeros = false;
 	/** International number prefix. */
 	private static String intPrefix = "";
+	/** Concat prefix and number without leading zeros at number. */
+	private static boolean zeroPrefix = true;
 
 	/**
 	 * A single Rule.
@@ -162,7 +164,7 @@ public final class RuleMatcher {
 							s = s.replaceFirst("^00*", "");
 						}
 						if (doPrefix && !s.startsWith("%")) {
-							s = national2international(intPrefix, s);
+							s = national2international(intPrefix, zeroPrefix, s);
 						}
 						this.numbers.add(s);
 					} while (cursor.moveToNext());
@@ -176,22 +178,29 @@ public final class RuleMatcher {
 			 * Convert national number to international. Old format
 			 * internationals were converted to new format.
 			 * 
-			 * @param defPrefix
+			 * @param iPrefix
 			 *            default prefix
+			 * @param zPrefix
+			 *            concat prefix and number without leading zeros at
+			 *            number
 			 * @param number
 			 *            national number
 			 * @return international number
 			 */
 			private static String national2international(
-					final String defPrefix, final String number) {
+					final String iPrefix, final boolean zPrefix,
+					final String number) {
 				if (number.startsWith("+")) {
 					return number;
 				} else if (number.startsWith("00")) {
 					return "+" + number.substring(2);
 				} else if (number.startsWith("0")) {
-					return defPrefix + number.substring(1);
+					return iPrefix + number.substring(1);
+				} else if (zPrefix) {
+					return iPrefix + number;
+				} else {
+					return number;
 				}
-				return defPrefix + number;
 			}
 
 			/**
@@ -216,7 +225,8 @@ public final class RuleMatcher {
 						numl = number.length();
 					}
 					if (intPrefix.length() > 1) {
-						number = national2international(intPrefix, number);
+						number = national2international(intPrefix, zeroPrefix,
+								number);
 						numl = number.length();
 					}
 				}
@@ -1052,6 +1062,7 @@ public final class RuleMatcher {
 		stripLeadingZeros = prefs.getBoolean(// .
 				Preferences.PREFS_STRIP_LEADING_ZEROS, false);
 		intPrefix = prefs.getString(Preferences.PREFS_INT_PREFIX, "");
+		zeroPrefix = !intPrefix.equals("+44") && !intPrefix.equals("+49");
 		prefs = null;
 
 		final ContentResolver cr = context.getContentResolver();
