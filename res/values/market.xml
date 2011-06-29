@@ -18,7 +18,7 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="market_about">Call Meter let\'s you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and let\'s you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.</string>
+	<string name="market_about">Call Meter lets you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and lets you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.</string>
 	<string name="market_oss">This app is open source software build in spare time. Adding bad comments in market won\'t help much to make it better.\nPlease add your issues with this app on the app\'s website.</string>
 	<string name="market_cm3">There is a complete rebuild Call Meter 3G available in market. It has a huge amount of new features like widgets and alerts.\nIt\'s new architecure allows more complex plans.\nFeel free to test it and help me make it more userfriendly as it is currently. ;)</string>
 	<string name="market_translation">Feel free to help translating this app to your language here: http://ub0r.de/translate/cm2/</string>
