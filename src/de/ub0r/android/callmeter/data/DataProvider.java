@@ -43,10 +43,12 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.ParcelFileDescriptor;
+import android.preference.PreferenceManager;
 import android.provider.OpenableColumns;
 import android.text.TextUtils;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
@@ -1832,115 +1834,8 @@ public final class DataProvider extends ContentProvider {
 			NumbersGroup.onCreate(db);
 			Hours.onCreate(db);
 			HoursGroup.onCreate(db);
-			// import default
-			BufferedReader reader = new BufferedReader(new InputStreamReader(
-					this.ctx.getResources()
-							.openRawResource(R.raw.default_setup)));
-			final ArrayList<String> sb = new ArrayList<String>();
-			try {
-				String line = reader.readLine();
-				while (line != null) {
-					sb.add(line);
-					line = reader.readLine();
-				}
-			} catch (IOException e) {
-				Log.e(TAG, "error reading raw data", e);
-			}
-			importData(db, sb.toArray(new String[] {}));
-
-			// translate default rule set:
-			ContentValues cv = new ContentValues();
-			// bill period: 12
-			cv.put(Plans.NAME, this.ctx.getResources().getStringArray(
-					R.array.plans_type)[TYPE_BILLPERIOD]);
-			cv.put(Plans.SHORTNAME, this.ctx.getString(R.string.billperiod_sn));
-			db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "12" });
-			cv.clear();
-			// spacer: 13, 17, 21
-			cv.put(Plans.NAME, this.ctx.getResources().getStringArray(
-					R.array.plans_type)[TYPE_SPACING]);
-			db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "13" });
-			db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "17" });
-			db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "21" });
-			cv.clear();
-			// calls: 14
-			cv.put(Plans.NAME, this.ctx.getString(R.string.calls));
-			cv.put(Plans.SHORTNAME, this.ctx.getString(R.string.calls));
-			db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "14" });
-			cv.clear();
-			// calls in: 15
-			cv.put(Plans.NAME, this.ctx.getString(R.string.calls_in));
-			cv.put(Plans.SHORTNAME, this.ctx.getString(R.string.calls_in_));
-			db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "15" });
-			cv.clear();
-			// calls out: 16
-			cv.put(Plans.NAME, this.ctx.getString(R.string.calls_out));
-			cv.put(Plans.SHORTNAME, this.ctx.getString(R.string.calls_out_));
-			db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "16" });
-			cv.clear();
-			// messages: 18
-			cv.put(Plans.NAME, this.ctx.getString(R.string.messages));
-			cv.put(Plans.SHORTNAME, this.ctx.getString(R.string.messages_));
-			db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "18" });
-			cv.clear();
-			// sms in: 19
-			cv.put(Plans.NAME, this.ctx.getString(R.string.sms_in));
-			cv.put(Plans.SHORTNAME, this.ctx.getString(R.string.sms_in_));
-			db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "19" });
-			cv.clear();
-			// sms out: 20
-			cv.put(Plans.NAME, this.ctx.getString(R.string.sms_out));
-			cv.put(Plans.SHORTNAME, this.ctx.getString(R.string.sms_out_));
-			db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "20" });
-			cv.clear();
-			// mms in: 27
-			cv.put(Plans.NAME, this.ctx.getString(R.string.mms_in));
-			cv.put(Plans.SHORTNAME, this.ctx.getString(R.string.mms_in_));
-			db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "27" });
-			cv.clear();
-			// mms out: 28
-			cv.put(Plans.NAME, this.ctx.getString(R.string.mms_out));
-			cv.put(Plans.SHORTNAME, this.ctx.getString(R.string.mms_out_));
-			db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "28" });
-			cv.clear();
-			// data: 22
-			cv.put(Plans.NAME, this.ctx.getString(R.string.data_));
-			cv.put(Plans.SHORTNAME, this.ctx.getString(R.string.data));
-			db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "22" });
-			cv.clear();
-			// data in/out: 23
-			cv.put(Plans.NAME, this.ctx.getString(R.string.data_inout));
-			cv.put(Plans.SHORTNAME, this.ctx.getString(R.string.data_inout_));
-			db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "23" });
-			cv.clear();
-			// rules
-			// data
-			cv.put(Rules.NAME, this.ctx.getString(R.string.data));
-			db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "1" });
-			cv.clear();
-			// calls in
-			cv.put(Rules.NAME, this.ctx.getString(R.string.calls_in));
-			db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "2" });
-			cv.clear();
-			// calls out
-			cv.put(Rules.NAME, this.ctx.getString(R.string.calls_out));
-			db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "3" });
-			cv.clear();
-			// sms in
-			cv.put(Rules.NAME, this.ctx.getString(R.string.sms_in));
-			db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "4" });
-			cv.clear();
-			// sms out
-			cv.put(Rules.NAME, this.ctx.getString(R.string.sms_out));
-			db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "5" });
-			cv.clear();
-			// mms in
-			cv.put(Rules.NAME, this.ctx.getString(R.string.mms_in));
-			db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "6" });
-			cv.clear();
-			// mms out
-			cv.put(Rules.NAME, this.ctx.getString(R.string.mms_out));
-			db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "7" });
+			// import default rule set
+			importDefault(this.ctx, db);
 		}
 
 		/**
@@ -2180,21 +2075,150 @@ public final class DataProvider extends ContentProvider {
 	 * @param context
 	 *            {@link Context}
 	 * @param ruleSet
-	 *            data as {@link String}
+	 *            data as {@link String}; "DEFAULT" will import default rule set
 	 */
 	public static void importData(final Context context, // .
 			final String ruleSet) {
 		if (ruleSet == null || ruleSet.length() == 0) {
 			return;
 		}
-		final String[] lines = ruleSet.split("\n");
-		if (lines.length <= 2) {
-			return;
+		String[] lines = null;
+		if (!ruleSet.equals("DEFAULT")) {
+			lines = ruleSet.split("\n");
+			if (lines.length <= 2) {
+				return;
+			}
 		}
 		final SQLiteDatabase db = new DatabaseHelper(context)
 				.getWritableDatabase();
-		importData(db, lines);
+		if (lines != null) {
+			importData(db, lines);
+		} else {
+			importDefault(context, db);
+		}
 		db.close();
+	}
+
+	/**
+	 * Import default rule set.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param db
+	 *            {@link SQLiteDatabase}
+	 */
+	public static void importDefault(final Context context,
+			final SQLiteDatabase db) {
+		// import default
+		BufferedReader reader = new BufferedReader(new InputStreamReader(
+				context.getResources().openRawResource(R.raw.default_setup)));
+		final ArrayList<String> sb = new ArrayList<String>();
+		try {
+			String line = reader.readLine();
+			while (line != null) {
+				sb.add(line);
+				line = reader.readLine();
+			}
+		} catch (IOException e) {
+			Log.e(TAG, "error reading raw data", e);
+		}
+		importData(db, sb.toArray(new String[] {}));
+
+		// translate default rule set:
+		ContentValues cv = new ContentValues();
+		// bill period: 12
+		cv.put(Plans.NAME, context.getResources().getStringArray(
+				R.array.plans_type)[TYPE_BILLPERIOD]);
+		cv.put(Plans.SHORTNAME, context.getString(R.string.billperiod_sn));
+		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "12" });
+		cv.clear();
+		// spacer: 13, 17, 21
+		cv.put(Plans.NAME, context.getResources().getStringArray(
+				R.array.plans_type)[TYPE_SPACING]);
+		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "13" });
+		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "17" });
+		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "21" });
+		cv.clear();
+		// calls: 14
+		cv.put(Plans.NAME, context.getString(R.string.calls));
+		cv.put(Plans.SHORTNAME, context.getString(R.string.calls));
+		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "14" });
+		cv.clear();
+		// calls in: 15
+		cv.put(Plans.NAME, context.getString(R.string.calls_in));
+		cv.put(Plans.SHORTNAME, context.getString(R.string.calls_in_));
+		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "15" });
+		cv.clear();
+		// calls out: 16
+		cv.put(Plans.NAME, context.getString(R.string.calls_out));
+		cv.put(Plans.SHORTNAME, context.getString(R.string.calls_out_));
+		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "16" });
+		cv.clear();
+		// messages: 18
+		cv.put(Plans.NAME, context.getString(R.string.messages));
+		cv.put(Plans.SHORTNAME, context.getString(R.string.messages_));
+		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "18" });
+		cv.clear();
+		// sms in: 19
+		cv.put(Plans.NAME, context.getString(R.string.sms_in));
+		cv.put(Plans.SHORTNAME, context.getString(R.string.sms_in_));
+		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "19" });
+		cv.clear();
+		// sms out: 20
+		cv.put(Plans.NAME, context.getString(R.string.sms_out));
+		cv.put(Plans.SHORTNAME, context.getString(R.string.sms_out_));
+		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "20" });
+		cv.clear();
+		// mms in: 27
+		cv.put(Plans.NAME, context.getString(R.string.mms_in));
+		cv.put(Plans.SHORTNAME, context.getString(R.string.mms_in_));
+		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "27" });
+		cv.clear();
+		// mms out: 28
+		cv.put(Plans.NAME, context.getString(R.string.mms_out));
+		cv.put(Plans.SHORTNAME, context.getString(R.string.mms_out_));
+		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "28" });
+		cv.clear();
+		// data: 22
+		cv.put(Plans.NAME, context.getString(R.string.data_));
+		cv.put(Plans.SHORTNAME, context.getString(R.string.data));
+		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "22" });
+		cv.clear();
+		// data in/out: 23
+		cv.put(Plans.NAME, context.getString(R.string.data_inout));
+		cv.put(Plans.SHORTNAME, context.getString(R.string.data_inout_));
+		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "23" });
+		cv.clear();
+		// rules
+		// data
+		cv.put(Rules.NAME, context.getString(R.string.data));
+		db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "1" });
+		cv.clear();
+		// calls in
+		cv.put(Rules.NAME, context.getString(R.string.calls_in));
+		db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "2" });
+		cv.clear();
+		// calls out
+		cv.put(Rules.NAME, context.getString(R.string.calls_out));
+		db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "3" });
+		cv.clear();
+		// sms in
+		cv.put(Rules.NAME, context.getString(R.string.sms_in));
+		db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "4" });
+		cv.clear();
+		// sms out
+		cv.put(Rules.NAME, context.getString(R.string.sms_out));
+		db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "5" });
+		cv.clear();
+		// mms in
+		cv.put(Rules.NAME, context.getString(R.string.mms_in));
+		db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "6" });
+		cv.clear();
+		// mms out
+		cv.put(Rules.NAME, context.getString(R.string.mms_out));
+		db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "7" });
+		PreferenceManager.getDefaultSharedPreferences(context).edit()
+				.putBoolean(Preferences.PREFS_ISDEFAULT, true).commit();
 	}
 
 	/**

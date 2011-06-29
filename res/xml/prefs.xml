@@ -146,8 +146,13 @@
 				android:targetPackage="de.ub0r.android.callmeter"
 				android:targetClass="de.ub0r.android.callmeter.ui.prefs.HourGroups" />
 		</PreferenceScreen>
-		<PreferenceScreen android:key="import_rules"
-			android:title="@string/import_rules_" android:summary="@string/import_rules_hint" />
+		<PreferenceScreen android:title="@string/import_rules_"
+			android:summary="@string/import_rules_hint">
+			<PreferenceScreen android:key="import_rules_default"
+				android:title="@string/import_rules_default_" android:summary="@string/import_rules_default_hint" />
+			<PreferenceScreen android:key="import_rules"
+				android:title="@string/import_rules_" android:summary="@string/import_rules_hint" />
+		</PreferenceScreen>
 		<PreferenceScreen android:title="@string/export_"
 			android:summary="@string/export_hint">
 			<PreferenceScreen android:key="export_rules"

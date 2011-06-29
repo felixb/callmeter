@@ -274,7 +274,9 @@
 	<string name="export_hourgroups_">Export hour groups</string>
 	<string name="export_hourgroups_hint">Export hour groups as mail.</string>
 	<string name="import_rules_">Import rule set</string>
-	<string name="import_rules_hint">Import rule set.</string>
+	<string name="import_rules_hint">Import preconfigured rule set.</string>
+	<string name="import_rules_default_">Import default rule set</string>
+	<string name="import_rules_default_hint">Import default rule set shipped with the app.</string>
 	<string name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.</string>
 	<string name="err_export_write">Error writing export file</string>
 	<string name="err_export_read">Error reading export file</string>

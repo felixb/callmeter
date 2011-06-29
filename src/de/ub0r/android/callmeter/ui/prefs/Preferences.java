@@ -74,6 +74,8 @@ public class Preferences extends PreferenceActivity {
 	/** Standard buffer size. */
 	public static final int BUFSIZE = 1024;
 
+	/** Preference's name: is default rule set. */
+	public static final String PREFS_ISDEFAULT = "is_default_ruleset";
 	/** Preference's name: show advanced preferences. */
 	public static final String PREFS_ADVANCED = "advanced_preferences";
 	/** Preference's name: split messages at 160chars. */
@@ -148,13 +150,21 @@ public class Preferences extends PreferenceActivity {
 	public static final String PREFS_ASK_FOR_PLAN_DEFAULT = // .
 	"ask_for_plan_default";
 
+	/** Default rule set. */
+	private static final InputStream IS_DEFAULT = new InputStream() {
+		@Override
+		public int read() throws IOException {
+			return 0;
+		}
+	};
+
 	/** {@link Currency} symbol. */
 	private static String defaultCurrencySymbol = null;
 	/** {@link Currency} fraction digits. */
 	private static int defaultCurrencyDigits = 2;
 
 	/**
-	 * Get timestamp to delete logs before that date.
+	 * Get time stamp to delete logs before that date.
 	 * 
 	 * @param p
 	 *            {@link SharedPreferences}
@@ -183,11 +193,11 @@ public class Preferences extends PreferenceActivity {
 	public static final int getTheme(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
-		final String s = p.getString(PREFS_THEME, THEME_BLACK);
-		if (s != null && THEME_LIGHT.equals(s)) {
-			return android.R.style.Theme_Light;
+		final String s = p.getString(PREFS_THEME, THEME_LIGHT);
+		if (s != null && THEME_BLACK.equals(s)) {
+			return android.R.style.Theme_Black;
 		}
-		return android.R.style.Theme_Black;
+		return android.R.style.Theme_Light;
 	}
 
 	/**
@@ -664,6 +674,20 @@ public class Preferences extends PreferenceActivity {
 						}
 					});
 		}
+		p = this.findPreference("import_rules_default");
+		if (p != null) {
+			p.setOnPreferenceClickListener(// .
+					new Preference.OnPreferenceClickListener() {
+						public boolean onPreferenceClick(
+								final Preference preference) {
+							final Intent i = new Intent(Preferences.this,
+									Preferences.class);
+							i.setData(Uri.parse("content://default"));
+							Preferences.this.startActivity(i);
+							return true;
+						}
+					});
+		}
 
 		this.onNewIntent(this.getIntent());
 	}
@@ -678,7 +702,9 @@ public class Preferences extends PreferenceActivity {
 	 * @return {@link InputStream}
 	 */
 	private InputStream getStream(final ContentResolver cr, final Uri uri) {
-		if (uri.toString().startsWith("import")) {
+		if (uri.toString().equals("content://default")) {
+			return IS_DEFAULT;
+		} else if (uri.toString().startsWith("import")) {
 			String url;
 			if (uri.getScheme().equals("imports")) {
 				url = "https:/";
@@ -734,15 +760,20 @@ public class Preferences extends PreferenceActivity {
 			protected String doInBackground(final Void... params) {
 				StringBuilder sb = new StringBuilder();
 				try {
-					final BufferedReader bufferedReader = // .
-					new BufferedReader(new InputStreamReader(// .
-							Preferences.this.getStream(Preferences.this
-									.getContentResolver(), uri)), BUFSIZE);
-					String line = bufferedReader.readLine();
-					while (line != null) {
-						sb.append(line);
-						sb.append("\n");
-						line = bufferedReader.readLine();
+					final InputStream is = Preferences.this.getStream(
+							Preferences.this.getContentResolver(), uri);
+					if (is != IS_DEFAULT) {
+						final BufferedReader bufferedReader = // .
+						new BufferedReader(new InputStreamReader(// .
+								is), BUFSIZE);
+						String line = bufferedReader.readLine();
+						while (line != null) {
+							sb.append(line);
+							sb.append("\n");
+							line = bufferedReader.readLine();
+						}
+					} else {
+						sb.append("DEFAULT");
 					}
 				} catch (Exception e) {
 					Log.e(TAG, "error in reading export: " + e.toString(), e);
@@ -760,18 +791,23 @@ public class Preferences extends PreferenceActivity {
 							Toast.LENGTH_LONG).show();
 					return;
 				}
-				String[] lines = result.split("\n");
-				if (lines.length <= 2) {
-					Toast.makeText(Preferences.this, R.string.err_export_read,
-							Toast.LENGTH_LONG).show();
-					return;
-				}
 				Builder builder = new Builder(Preferences.this);
+				if (result.equals("DEFAULT")) {
+					builder.setMessage(R.string.import_rules_default_hint);
+				} else {
+					String[] lines = result.split("\n");
+					if (lines.length <= 2) {
+						Toast.makeText(Preferences.this,
+								R.string.err_export_read, Toast.LENGTH_LONG)
+								.show();
+						return;
+					}
+					builder.setMessage(Preferences.this
+							.getString(R.string.import_rules_hint)
+							+ "\n" + URLDecoder.decode(lines[1]));
+				}
 				builder.setCancelable(true);
 				builder.setTitle(R.string.import_rules_);
-				builder.setMessage(Preferences.this
-						.getString(R.string.import_rules_hint)
-						+ "\n" + URLDecoder.decode(lines[1]));
 				builder.setNegativeButton(android.R.string.cancel, null);
 				builder.setPositiveButton(android.R.string.ok,
 						new OnClickListener() {
@@ -782,7 +818,6 @@ public class Preferences extends PreferenceActivity {
 								d1.setIndeterminate(true);
 								d1.show();
 								new AsyncTask<Void, Void, Void>() {
-
 									@Override
 									protected Void doInBackground(
 											final Void... params) {
