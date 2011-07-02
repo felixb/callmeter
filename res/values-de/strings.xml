@@ -23,7 +23,7 @@
 <resources>
   <string name="changelog_notification_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Recent changes:">Letzte Änderungen:</string>
   <string name="changelog_notification_text" formatted="false">Klicke hier, um die letzten Änderungen anzuzeigen</string>
-  <string name="never_show_again" formatted="false">Nie wieder Changelog anzeigen</string>
+  <string name="never_show_again" formatted="false" orig="Never show changelog again">Changelog nicht mehr anzeigen</string>
   <string name="notes_from_developer_" formatted="false">Hinweise vom Entwickler</string>
   <string name="notes_from_developer_text" formatted="false">Klicken Sie hier, um neue Nachrichten des Entwicklers zu zeigen</string>
   <string name="about0_" formatted="false">Pass auf deine Freiminuten, FreiSMS und dein Datenvolumen auf!</string>
