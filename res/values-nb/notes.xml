@@ -21,4 +21,8 @@
                Visit http://ub0r.de/translate/cm2/edit.php?lang=nb&file=notes.xml to edit the file.
        -->
 <resources>
+  <string-array name="notes_from_dev" username="&quot;Olav&quot; &lt;olav@ogk.no&gt;">
+    <item>Desember 2010, Call Meter 3G er tilgjengelig: Call Meter 3G alias CM3 er tilgjengelig i Android Market. Prøv den og legg igjen kommentarer på appsiden.</item>
+    <item>Mars 2011, Innstillinger: Ikke glem å nullstille statistikken etter at du har endret innstillinger, slik at de nye reglene blir gjeldende for tidligere logginnslag også.</item>
+  </string-array>
 </resources>
