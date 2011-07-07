@@ -21,6 +21,8 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=nb&file=strings.xml to edit the file.
        -->
 <resources>
+  <string name="changelog_notification_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Recent changes:">Siste endringer:</string>
+  <string name="changelog_notification_text" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Click here to show recent changes of">Trykk her for å vise siste endringer av</string>
   <string name="about0_" formatted="false">Følg med på dine samtaler, meldinger og data trafikk!</string>
   <string name="about0" formatted="false">CallMeter lager rapporter fra samtale-, meldings- og dataloggen. Det er støtte for flere metoder av taksering.</string>
   <string name="about1" formatted="false">Oversikt over bruk/tid eller antall denne perioden/tid eller totaloversikt hele perioden. Månedlig beregning i samsvar med dine preferanser for avregning. Ingen beregning for totalforbruk.</string>
