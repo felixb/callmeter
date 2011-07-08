@@ -41,7 +41,7 @@
   <string name="more_" formatted="false">Więcej aplikacji...</string>
   <string name="billday_" formatted="false">Pierwszy dzień rachunku</string>
   <string name="billmode_" formatted="false">Rodzaj cyklu</string>
-  <string name="billmode_hint" formatted="false">Długość pierwszego/kolejnych cyklów płatności</string>
+  <string name="billmode_hint" formatted="false" orig="Length of first/following billing intervals.">Długość pierwszego/kolejnych cyklów płatności</string>
   <string name="billdate_" formatted="false">Pierwszy dzień rachunku:</string>
   <string name="smsperiod_" formatted="false">Ten sam okres dla SMS</string>
   <string name="smsperiod_hint" formatted="false">Okres rozliczeniowy wiadomości SMS taki sam jak dla Połączeń</string>
