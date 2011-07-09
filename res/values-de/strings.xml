@@ -23,7 +23,7 @@
 <resources>
   <string name="changelog_notification_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Recent changes:">Letzte Änderungen:</string>
   <string name="changelog_notification_text" formatted="false">Klicke hier, um die letzten Änderungen anzuzeigen</string>
-  <string name="never_show_again" formatted="false">Nie wieder Changelog anzeigen</string>
+  <string name="never_show_again" formatted="false" orig="Never show changelog again">Changelog nicht mehr anzeigen</string>
   <string name="notes_from_developer_" formatted="false">Hinweise vom Entwickler</string>
   <string name="notes_from_developer_text" formatted="false">Klicken Sie hier, um neue Nachrichten des Entwicklers zu zeigen</string>
   <string name="about0_" formatted="false">Pass auf deine Freiminuten, FreiSMS und dein Datenvolumen auf!</string>
@@ -107,7 +107,7 @@
   <string name="custom_date_format_hint" formatted="false">Wähle ein benutzerdefiniertes Datumformat aus.</string>
   <string name="custom_delimiter_" formatted="false">Benutzerdefiniertes Trennzeichen</string>
   <string name="custom_delimiter_hint" formatted="false">Setze einen benutzerdefiniertes Trennzeichen für Blöcke in den Statistiken.</string>
-  <string name="split_sms_at_160_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Split text messages at 160 chars">SMS bei 160 Zeichen trennen</string>
+  <string name="split_sms_at_160_" formatted="false" orig="Split text messages at 160 chars">SMS bei 160 Zeichen trennen</string>
   <string name="split_sms_at_160_hint" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Disable to use android\'s system method.">Deaktivieren, um die Android Methode zum Berechnen der Länge zu benutzen.</string>
   <string name="ask_for_plan_" formatted="false">Nach Kontingent Fragen</string>
   <string name="ask_for_plan_hint" formatted="false">Nach Kontingent fragen, wenn nach dem Auflegen keins zugeordnet werden kann.</string>
@@ -198,7 +198,7 @@
   <string name="limit_type_" formatted="false">Limittyp</string>
   <string name="limit_type_help" formatted="false">Wähle hier einen Typ des Limits aus.</string>
   <string name="limit_" formatted="false">Limit</string>
-  <string name="limit_help" formatted="false">Stelle hier ein Limit für dein Kontingent.\n\nTyp \"Einheiten\" muss in Minuten (Anrufe), Nachrichten (SMS/MMS), Megabytes (Daten, 1024kB) oder Einheiten (Mixed) gesetzt werden.\n\nTyp \"Costen\" muss in deiner Hauptwährung (z.B. €) gesetzt werden.</string>
+  <string name="limit_help" formatted="false" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">Stelle hier ein Limit für dein Kontingent.\n\nTyp "Einheiten" muss in Minuten (Anrufe), Nachrichten (SMS/MMS), Megabytes (Daten, 1024kB) oder Einheiten (Mixed) gesetzt werden.\n\nTyp "Kosten" muss in deiner Hauptwährung (z.B. €) gesetzt werden.</string>
   <string name="billmode_help" formatted="false">Stelle hier den Abrechnungsmodus für Anrufe ein.\nDer erste Teil ist die minimale Länge eines Anrufes die dein Provider abrechnet. Jeder Anruf kürzer als diese Zeit wird auf genau diese Zeit aufgerundet.\nDer zweite Teil ist die minimale Länge der folgenden Zeitblöcke.\nBitte lies die FAQ für genauere Beschreibung.</string>
   <string name="billday_help" formatted="false">Wähle hier den ersten Tag deines Abrechnungszeitraums aus.</string>
   <string name="billperiodid_" formatted="false">Abrechnungszeitraum</string>

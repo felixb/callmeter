@@ -21,14 +21,30 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=nb&file=strings.xml to edit the file.
        -->
 <resources>
+  <string name="changelog_notification_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Recent changes:">Siste endringer:</string>
+  <string name="changelog_notification_text" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Click here to show recent changes of">Trykk her for å vise siste endringer av</string>
+  <string name="never_show_again" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Never show changelog again">Ikke vis endringloggen flere ganger</string>
+  <string name="notes_from_developer_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Notes from developer">Notater fra utvikler</string>
+  <string name="notes_from_developer_text" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Click here to show recent news from the developer">Trykk her for å vise siste nytt fra utvikler</string>
   <string name="about0_" formatted="false">Følg med på dine samtaler, meldinger og data trafikk!</string>
   <string name="about0" formatted="false">CallMeter lager rapporter fra samtale-, meldings- og dataloggen. Det er støtte for flere metoder av taksering.</string>
   <string name="about1" formatted="false">Oversikt over bruk/tid eller antall denne perioden/tid eller totaloversikt hele perioden. Månedlig beregning i samsvar med dine preferanser for avregning. Ingen beregning for totalforbruk.</string>
   <string name="about2" formatted="false">Takseringsintervall spesifiserer lengden på de første/neste takseringene. F.eks. 60/10 betyr at enhver samtale blir taksert for minimum 60s, og tid over dette rundes opp til nærmeste fulle 10s.</string>
   <string name="about3" formatted="false">CallMeter oppdaterer seg hvert 30. min. (ikke i stand-by). Dette betyr at det ikke vil påvirke din statistikk hvis du sletter samtaler eller meldinger som er eldre en 30 min. Hvis du sletter samtaler eller meldinger som er nyere enn 30 minutter, kan din statistikk/oversikt bli feil.</string>
+  <string name="send_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Send">Send</string>
+  <string name="add_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Add">Legg til</string>
+  <string name="add_log" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Add log entry">Legg til loggoppføring</string>
+  <string name="length_hint_call" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Length in seconds">Lengde i sekunder</string>
+  <string name="length_hint_data" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Length in kB">Lengde i kB</string>
   <string name="settings" formatted="false">Innstillinger</string>
   <string name="update_interval_" formatted="false">Update interval</string>
   <string name="update_interval_hint" formatted="false">Shorter period will use more battery.</string>
+  <string name="date_begin_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Beginning of records">Begynnelsen av oppføringer</string>
+  <string name="date_begin_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Ignore any logs before this date.">Ignorer alle loggoppføringer før denne dato.</string>
+  <string name="delete_old_logs_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Delete logs older than">Slett loggoppføringer eldre enn</string>
+  <string name="delete_old_logs_help" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Delete logs older than x days from internal database. Leave empty to disable.">Slett loggoppføringer som er eldre enn x dager fra intern database. La det stå tomt for å deaktivere.</string>
+  <string name="common_prefs_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Common preferences">Felles innstillinger</string>
+  <string name="edit_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Edit">Rediger</string>
   <string name="about_" formatted="false">Om</string>
   <string name="about_hint" formatted="false">Om denne applikasjonen</string>
   <string name="faq_hint" formatted="false">Tips og triks, hvordan sette opp denne applikasjonen.</string>
@@ -41,9 +57,144 @@
   <string name="billmode_" formatted="false">Takst-type</string>
   <string name="billdate_" formatted="false">Oppstart for takseringsintervall:</string>
   <string name="appearance_" formatted="false">Utseende</string>
+  <string name="behavior_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Behavior">Oppførsel</string>
+  <string name="appearance_and_behavior_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Appearance &amp;amp; behavior">Utseende &amp; oppførsel</string>
+  <string name="advanced_preferences_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Advanced preferences">Avanserte innstillinger</string>
+  <string name="advanced_preferences_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Dette lar deg redigere mer avanserte innstillinger. De fleste brukere klarer seg uten.</string>
   <string name="theme_" formatted="false">Tema</string>
-  <string name="textsize_" formatted="false">Tekst størrelse</string>
+  <string name="textsize_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Text size">Tekststørrelse</string>
   <string name="textsize_hint" formatted="false">Tekststørrelse i piksler; la stå tom for standard</string>
+  <string name="textsize_title_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Title\'s text size">Tekststørrelse på tittel</string>
+  <string name="textsize_title_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Text size for titles in pixels; leave empty for default">Tekststørrelse for tittel i piksler; la stå tomt for standard</string>
+  <string name="textsize_bigtitle_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Big title\'s text size">Tekststørrelse på stor tittel</string>
+  <string name="textsize_bigtitle_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Text size for big titles in pixels; leave empty for default">Tekststørrelse på stor tittel i piksler; la stå tomt for standard</string>
+  <string name="textsize_spacer_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Spacer\'s size">Størrelse på mellomrom</string>
+  <string name="textsize_spacer_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Size for spacers in pixels; leave empty for default">Størrelse på mellomrom i piksler; la stå tomt for standard</string>
+  <string name="textsize_pbar_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Progress bar\'s size">Størrelse på fremdriftsindikator</string>
+  <string name="textsize_pbar_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Size for progress bars in pixels; leave empty for default">Størrelse på fremdriftsindikator i piksler; la stå tomt for standard</string>
+  <string name="textsize_pbarbp_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Bill period\'s progress bar\'s size">Størrelse på fremdriftsindikatoren for fakturaperiode</string>
+  <string name="textsize_pbarbp_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Størrelse på fremdriftsindikatoren for fakturaperiode i piksler; la stå tomt for standard</string>
+  <string name="show_today_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show today">Vis i dag</string>
+  <string name="show_today_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show today stats">Vis statistikk for i dag</string>
+  <string name="show_total_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show total">Vis total</string>
+  <string name="show_total_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show total stats, disable to see current only.">Vis totalstatistikk; deaktiver for å bare vise aktuell.</string>
+  <string name="show_time_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Switch to date">Bytt til dato</string>
+  <string name="show_titlebar_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show title bar">Vis tittellinje</string>
+  <string name="show_titlebar_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show title bar in main view. Without title bar, there is no way to see background activity.">Vis tittellinje i hovedvisning. Uten tittellinjen får man ikke sett bakgrunnsaktivitet.</string>
+  <string name="show_hours_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show hours">Vis timer</string>
+  <string name="show_hours_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Vis tid i sekunder, minutter, timer og dager. Uten avkryssing vises bare sekunder og minutter. </string>
+  <string name="show_help_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show help">Vis hjelp</string>
+  <string name="show_help_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show help in Plans/Rules setup view.">Vis hjelp i oppsettsvisning for Planer/Regler.</string>
+  <string name="show_shortname_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show short name instead of long name">Vis kort navn istedet for langt</string>
+  <string name="show_cost_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show cost">Vis pris</string>
+  <string name="show_billperiod_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show progress of billing period">Vis fremdriftindikator for fakturaperiode</string>
+  <string name="show_icon_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show icon">Vis ikon</string>
+  <string name="hide_name_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Hide name of plan">Skjul navn på plan</string>
+  <string name="small_widget_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Use small widget">Bruk liten widget</string>
+  <string name="show_calllength_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show info after hanging up">Vis info ved samtaleslutt</string>
+  <string name="show_calllength_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show length/cost of a call after hanging up.">Vis lengde/pris på samtalen ved slutt.</string>
+  <string name="hide_zero_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Hide empty plans">Skjul tommer planer</string>
+  <string name="hide_zero_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Hide plans containing no item.">Skjul planer med ingen elementer.</string>
+  <string name="hide_nocost_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Hide no cost plans">Skjul kostnadsfrie planer</string>
+  <string name="hide_nocost_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Hide plans with no cost.">Skjul planer uten kostnader.</string>
+  <string name="hide_progressbars_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Hide progress bars">Skjul fremdriftindikatorer</string>
+  <string name="hide_progressbars_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Hide progress bars in main view.">Skjul fremdriftindikatorer i hovedvisning.</string>
+  <string name="custom_currency_symbol_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Custom currency symbol">Egendefinert valutasymbol</string>
+  <string name="custom_currency_symbol_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Set a custom currency symbol, leave empty for system default.">Definer et eget valutasymbol; la stå tomt for systemstandard.</string>
+  <string name="custom_currency_format_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Custom currency format">Egendefinert valutaformat</string>
+  <string name="custom_currency_format_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Select a custom currency format.">Velg et egendefinert valutaformat.</string>
+  <string name="custom_date_format_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Custom date format">Egendefinert datoformat</string>
+  <string name="custom_date_format_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Select a custom date format.">Velg et egendefinert datoformat.</string>
+  <string name="custom_delimiter_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Custom delimiter">Egendefinert skilletegn</string>
+  <string name="custom_delimiter_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Set a custom delimiter separating the blocks of statistics.">Velg et egendefinert skilletegn for statistikkblokker.</string>
+  <string name="split_sms_at_160_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Split text messages at 160 chars">Del opp tekstmeldinger ved 160 tegn</string>
+  <string name="split_sms_at_160_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Disable to use android\'s system method.">Deaktiver for å bruke systemfunksjonen til Android.</string>
+  <string name="ask_for_plan_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Ask for plan">Spør etter en plan</string>
+  <string name="autohide_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Auto hide">Autoskjul</string>
+  <string name="autohide_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Skjul dialog etter .. sekunder. La stå tomt for å deaktivere autoskjul.</string>
+  <string name="select_plan_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Select a plan">Velg en plan</string>
+  <string name="set_selected_as_default_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Set selected plan as default">Sett valgt plan som standard</string>
+  <string name="autohide_in_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Auto hide dialog in: %ds">Autoskjuler dialog om: %ds</string>
+  <string name="logs" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Logs">Logger</string>
+  <string name="show_logs" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Show logs">Vis logger</string>
+  <string name="plans" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Plans">Planer</string>
+  <string name="plans_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Set your plans for all kind of billing here.">Sett opp egne planer for alle slags typer fakturering.</string>
+  <string name="plans_new" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="New plan">Ny plan</string>
+  <string name="rule_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Rule">Regel</string>
+  <string name="rules" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Rules">Regler</string>
+  <string name="rules_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Set your billing rules here.">Oppsett av regler for fakturering.</string>
+  <string name="rules_new" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="New Rule">Ny regel</string>
+  <string name="length_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Length">Lengde</string>
+  <string name="blength_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Billed length">Fakturert lengde</string>
+  <string name="cost_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Cost">Pris</string>
+  <string name="numbergroups_edit_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Number groups">Nummergrupper</string>
+  <string name="numbergroups_edit_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Edit number groups here.">Rediger nummergrupper her.</string>
+  <string name="hourgroups_edit_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Hour groups">Timegrupper</string>
+  <string name="hourgroups_edit_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Edit hour groups here.">Rediger timegrupper her.</string>
+  <string name="numbers" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Numbers">Nummer</string>
+  <string name="numbergroup_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Include numbers">Inkluder nummer</string>
+  <string name="numbergroup_help" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Legg til noen nummer denne regelen må samsvare med.\n\nJokertegn ("%") er tillat i begge ender av nummeret.\nF.eks: %34 vil stemme med 1234, %12 med 1234 og %23% med 12345.</string>
+  <string name="exnumbergroup_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Exclude numbers">Ekskluder nummer</string>
+  <string name="exnumbergroup_help" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Add some numbers this rule must not match.\nSee above.">Legg til noen nummer denne regelen ikke kan samsvare med.\nSe ovenfor.</string>
+  <string name="new_numbergroup" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="New number group">Ny nummergruppe</string>
+  <string name="add_number" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Add number">Legg til nummer</string>
+  <string name="hours" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Hours">Timer</string>
+  <string name="hourgroup_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Include hours">Inkluder nummer</string>
+  <string name="hourgroup_help" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Add some hours this rule must match.">Legg til noen klokketimer denne regelen må samsvare med.</string>
+  <string name="exhourgroup_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Exclude hours">Ekskluder klokketimer</string>
+  <string name="exhourgroup_help" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Add some hours this rule must not match.">Legg til klokketimer denne regelen ikke kan samsvare med.</string>
+  <string name="new_hourgroup" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="New hour group">Ny timegruppe</string>
+  <string name="add_hour" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Add hour">Legg til time</string>
+  <string name="empty_group" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Tomme grupper vil ikke samsvare med noe. Vennligst gå tilbake og legg til minst ett element.</string>
+  <string name="billperiod_sn" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="BillPeriod">Fakturaperiode</string>
+  <string name="calls" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Calls">Samtaler</string>
+  <string name="calls_in" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Calls In">Innkommende samtaler</string>
+  <string name="calls_in_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="CallsIn">SamtalerInn</string>
+  <string name="calls_out" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Calls Out">Utgående samtaler</string>
+  <string name="calls_out_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="CallsOut">SamtalerUt</string>
+  <string name="messages" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Messages">Meldinger</string>
+  <string name="messages_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="SMS/MMS">SMS/MMS</string>
+  <string name="sms" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="SMS">SMS</string>
+  <string name="sms_in" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="SMS In">SMS inn</string>
+  <string name="sms_in_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="SMSIn">SMSinn</string>
+  <string name="sms_out" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="SMS Out">SMS ut</string>
+  <string name="sms_out_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="SMSOut">SMSut</string>
+  <string name="mms" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="MMS">MMS</string>
+  <string name="mms_in" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="MMS In">MMS inn</string>
+  <string name="mms_in_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="MMSIn">MMSinn</string>
+  <string name="mms_out" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="MMS Out">MMS ut</string>
+  <string name="mms_out_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="MMSOut">MMSut</string>
+  <string name="data" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Data">Data</string>
+  <string name="data_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Data (2G/3G/4G)">Data (2G/3G/4G)</string>
+  <string name="data_inout" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Data In/Out">Data Inn/Ut</string>
+  <string name="data_inout_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="DataInOut">DataInnUt</string>
+  <string name="prepaid_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Prepaid plan">Forhåndsbetalt plan</string>
+  <string name="prepaid_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Fohåndsbetalt faktura. Prisen blir trukket fra saldo når du ringer osv.</string>
+  <string name="balance_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Balance">Saldo</string>
+  <string name="balance_help" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Balance of your account at this given date.">Saldo på konto ved gitte dato.</string>
+  <string name="strip_leading_zeros_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Strip leading zeros">Fjern nuller foran tall</string>
+  <string name="strip_leading_zeros_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Strip leading zeros when comparing numbers.">Fjerner nuller foran tall ved sammenligning.</string>
+  <string name="number_prefix_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="International prefix">Internasjonal prefiks</string>
+  <string name="number_prefix_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">Din internasjonale prefiks på format som +47 eller +1. Den brukes for å sammenligne og finne på nummer som +47987.. og 0179..</string>
+  <string name="reset_data_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Reset statistics">Nullstill statistikk</string>
+  <string name="reset_data_hint" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Nullstilling av samtale- og sms-data vil resultere i omkalkulering av statistikken.\n\nNullstilling av trafikkstatistikk er permanent. Den nullstiller bare trafikk gjort før oppstart!</string>
+  <string name="reset_data_data_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Reset traffic too.">Nullstill trafikk også.</string>
+  <string name="reset_data_progr1" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Recalculating statistics ...\n\n(This may take some time!)">Omkalkulerer statistikk ...\n\n(Dette kan ta litt tid!)</string>
+  <string name="reset_data_progr2" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Recalculating statistics ...">Omkalkulerer statistikk ...</string>
+  <string name="contacts_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Contacts">Kontakter</string>
+  <string name="clear_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Clear">Tøm</string>
+  <string name="help_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Help">Hjelp</string>
+  <string name="new_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="New">Ny</string>
+  <string name="edit_selected_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Edit selected">Rediger valgte</string>
+  <string name="edit_groups_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Edit groups">Rediger grupper</string>
+  <string name="name_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Name">Navn</string>
+  <string name="name_help" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Set a name here.">Skriv et navn her.</string>
+  <string name="shortname_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Short name">Kort navn</string>
+  <string name="shortname_help" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Set a short name here. It is displayed in compact layouts.">Skriv et kort navn her. Det brukes i kompaktvisning.</string>
+  <string name="type_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Type">Type</string>
+  <string name="type_help" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Velg en type.\n"Tittel" vil bare vise en tittel i hovedvisning.\n"Mellomrom" viser ikke noe annet enn tomrom.\n"Fakturaperiode" holder informasjon om din fakturaperiode. De fleste brukere trenger nøyaktig én.\nEn "blandet" plan kan håndtere samtaler og meldinger på en gang. Den vil kombinere faktureringen med de elementene.\nEn "samtale"-plan bruker kun samtaler. "SMS"- og "MMS"-planer tar seg kun av de meldingene.\nEn "data"-plan kan håndtere informasjon om din datatrafikk.</string>
+  <string name="limit_type_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Limit type">Grensetype</string>
+  <string name="limit_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Limit">Grense</string>
   <string-array name="weekdays_all">
     <item>Hele uken</item>
     <item>Mandag</item>
