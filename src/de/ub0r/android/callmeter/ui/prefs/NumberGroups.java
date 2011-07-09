@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein, The Android Open Source Project
+ * Copyright (C) 2009-2011 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -194,6 +194,8 @@ public class NumberGroups extends ListActivity implements OnClickListener,
 									ContentUris.withAppendedId(
 											DataProvider.NumbersGroup.// .
 											CONTENT_URI, id), null, null);
+							Preferences
+									.setDefaultPlan(NumberGroups.this, false);
 							NumberGroups.this.showEmptyHint();
 							break;
 						default:

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein, The Android Open Source Project
+ * Copyright (C) 2009-2011 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -195,6 +195,7 @@ public class HourGroups extends ListActivity implements OnClickListener,
 											DataProvider.HoursGroup.// .
 											CONTENT_URI, id), null, null);
 							HourGroups.this.showEmptyHint();
+							Preferences.setDefaultPlan(HourGroups.this, false);
 							break;
 						default:
 							break;

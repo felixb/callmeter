@@ -56,6 +56,8 @@
 	<string name="appearance_">Appearance</string>
 	<string name="behavior_">Behavior</string>
 	<string name="appearance_and_behavior_">Appearance &amp; behavior</string>
+	<string name="simple_preferences_">Simple preferences</string>
+	<string name="simple_preferences_hint">Very simple preferences, suitable for most users. Only available with default rule set.</string>
 	<string name="advanced_preferences_">Advanced preferences</string>
 	<string name="advanced_preferences_hint">This allows you to set a way more complex setup. Most Users won\'t need it.</string>
 	<string name="theme_">Theme</string>

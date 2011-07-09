@@ -43,7 +43,6 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.ParcelFileDescriptor;
-import android.preference.PreferenceManager;
 import android.provider.OpenableColumns;
 import android.text.TextUtils;
 import de.ub0r.android.callmeter.CallMeter;
@@ -2093,6 +2092,7 @@ public final class DataProvider extends ContentProvider {
 				.getWritableDatabase();
 		if (lines != null) {
 			importData(db, lines);
+			Preferences.setDefaultPlan(context, false);
 		} else {
 			importDefault(context, db);
 		}
@@ -2230,8 +2230,7 @@ public final class DataProvider extends ContentProvider {
 		db.update(NumbersGroup.TABLE, cv, NumbersGroup.ID + "=?",
 				new String[] { "2" });
 
-		PreferenceManager.getDefaultSharedPreferences(context).edit()
-				.putBoolean(Preferences.PREFS_ISDEFAULT, true).commit();
+		Preferences.setDefaultPlan(context, true);
 	}
 
 	/**

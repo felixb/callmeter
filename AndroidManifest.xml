@@ -61,6 +61,10 @@
 					android:pathPattern="*.export" />
 			</intent-filter>
 		</activity>
+		<activity android:name=".ui.prefs.SimplePreferences"
+			android:configChanges="orientation|keyboardHidden"
+			android:launchMode="singleTask" android:windowSoftInputMode="adjustResize">
+		</activity>
 		<activity android:name=".ui.prefs.Plans"
 			android:configChanges="orientation|keyboardHidden"
 			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein, The Android Open Source Project
+ * Copyright (C) 2009-2011 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -43,6 +43,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.DialogInterface.OnClickListener;
+import android.content.SharedPreferences.Editor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -51,6 +52,7 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.widget.EditText;
 import android.widget.Toast;
 import de.ub0r.android.callmeter.CallMeter;
@@ -67,7 +69,8 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public class Preferences extends PreferenceActivity {
+public final class Preferences extends PreferenceActivity implements
+		OnPreferenceChangeListener, OnPreferenceClickListener {
 	/** Tag for output. */
 	private static final String TAG = "prefs";
 
@@ -170,7 +173,7 @@ public class Preferences extends PreferenceActivity {
 	 *            {@link SharedPreferences}
 	 * @return time in milliseconds
 	 */
-	public static final long getDeleteLogsBefore(final SharedPreferences p) {
+	public static long getDeleteLogsBefore(final SharedPreferences p) {
 		if (p == null) {
 			return -1L;
 		}
@@ -190,7 +193,7 @@ public class Preferences extends PreferenceActivity {
 	 *            {@link Context}
 	 * @return theme
 	 */
-	public static final int getTheme(final Context context) {
+	public static int getTheme(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_THEME, THEME_LIGHT);
@@ -207,7 +210,7 @@ public class Preferences extends PreferenceActivity {
 	 *            {@link Context}
 	 * @return text size
 	 */
-	public static final int getTextsize(final Context context) {
+	public static int getTextsize(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_TEXTSIZE, null);
@@ -221,7 +224,7 @@ public class Preferences extends PreferenceActivity {
 	 *            {@link Context}
 	 * @return text size
 	 */
-	public static final int getTextsizeBigTitle(final Context context) {
+	public static int getTextsizeBigTitle(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_TEXTSIZE_BIGTITLE, null);
@@ -235,7 +238,7 @@ public class Preferences extends PreferenceActivity {
 	 *            {@link Context}
 	 * @return text size
 	 */
-	public static final int getTextsizeTitle(final Context context) {
+	public static int getTextsizeTitle(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_TEXTSIZE_TITLE, null);
@@ -249,7 +252,7 @@ public class Preferences extends PreferenceActivity {
 	 *            {@link Context}
 	 * @return text size
 	 */
-	public static final int getTextsizeSpacer(final Context context) {
+	public static int getTextsizeSpacer(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_TEXTSIZE_SPACER, null);
@@ -263,7 +266,7 @@ public class Preferences extends PreferenceActivity {
 	 *            {@link Context}
 	 * @return text size
 	 */
-	public static final int getTextsizeProgressBar(final Context context) {
+	public static int getTextsizeProgressBar(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_TEXTSIZE_PBAR, null);
@@ -277,7 +280,7 @@ public class Preferences extends PreferenceActivity {
 	 *            {@link Context}
 	 * @return text size
 	 */
-	public static final int getTextsizeProgressBarBP(final Context context) {
+	public static int getTextsizeProgressBarBP(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_TEXTSIZE_PBARBP, null);
@@ -291,7 +294,7 @@ public class Preferences extends PreferenceActivity {
 	 *            {@link Context}
 	 * @return currency symbol
 	 */
-	public static final String getCurrencySymbol(final Context context) {
+	public static String getCurrencySymbol(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final String pcs = p.getString(PREFS_CURRENCY_SYMBOL, "");
@@ -321,7 +324,7 @@ public class Preferences extends PreferenceActivity {
 	 *            {@link Context}
 	 * @return currency format
 	 */
-	public static final String getCurrencyFormat(final Context context) {
+	public static String getCurrencyFormat(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final String pcs = p.getString(PREFS_CURRENCY_FORMAT, "");
@@ -365,7 +368,7 @@ public class Preferences extends PreferenceActivity {
 	 *            {@link Context}
 	 * @return date format
 	 */
-	public static final String getDateFormat(final Context context) {
+	public static String getDateFormat(final Context context) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		final String pcs = p.getString(PREFS_DATE_FORMAT, "").replaceAll("\\$",
@@ -375,6 +378,22 @@ public class Preferences extends PreferenceActivity {
 		} else {
 			return pcs;
 		}
+	}
+
+	/**
+	 * Set available of "simple preferences".
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param isDefault
+	 *            true, if default rule set is loaded
+	 */
+	public static void setDefaultPlan(final Context context,
+			final boolean isDefault) {
+		final Editor e = PreferenceManager.getDefaultSharedPreferences(context)
+				.edit();
+		e.putBoolean(PREFS_ISDEFAULT, isDefault);
+		e.commit();
 	}
 
 	/**
@@ -539,7 +558,7 @@ public class Preferences extends PreferenceActivity {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void onCreate(final Bundle savedInstanceState) {
+	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
 		this.setTitle(R.string.settings);
@@ -547,149 +566,78 @@ public class Preferences extends PreferenceActivity {
 
 		Preference p = this.findPreference(PREFS_ADVANCED);
 		if (p != null) {
-			p.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-				@Override
-				public boolean onPreferenceChange(final Preference preference,
-						final Object newValue) {
-					if (newValue.equals(true)) {
-						Preferences.this.startActivity(new Intent(
-								Preferences.this, Help.class));
-					}
-					return true;
-				}
-			});
+			p.setOnPreferenceChangeListener(this);
 		}
+		p = this.findPreference(PREFS_PREPAID);
+		if (p != null) {
+			p.setOnPreferenceChangeListener(this);
+		}
+
 		Market.setOnPreferenceClickListener(this, this
 				.findPreference("more_apps"), null, "Felix+Bechstein",
 				"http://code.google.com/u/felix.bechstein/");
 		p = this.findPreference("send_logs");
 		if (p != null) {
-			p.setOnPreferenceClickListener(// .
-					new Preference.OnPreferenceClickListener() {
-						public boolean onPreferenceClick(
-								final Preference preference) {
-							Log.collectAndSendLog(Preferences.this);
-							return true;
-						}
-					});
+			p.setOnPreferenceClickListener(this);
 		}
 		p = this.findPreference("send_devices");
 		if (p != null) {
-			p.setOnPreferenceClickListener(// .
-					new Preference.OnPreferenceClickListener() {
-						@Override
-						public boolean onPreferenceClick(
-								final Preference preference) {
-							final Intent intent = new Intent(// .
-									Intent.ACTION_SEND);
-							intent.setType("text/plain");
-							intent.putExtra(Intent.EXTRA_EMAIL, new String[] {
-									"android+callmeter@ub0r.de", "" });
-							intent.putExtra(Intent.EXTRA_TEXT, Device
-									.debugDeviceList());
-							intent.putExtra(Intent.EXTRA_SUBJECT,
-									"Call Meter 3G: Device List");
-							try {
-								Preferences.this.startActivity(intent);
-							} catch (ActivityNotFoundException e) {
-								Log.e(TAG, "no mail", e);
-								Toast.makeText(Preferences.this,
-										"no mail app found", Toast.LENGTH_LONG)
-										.show();
-							}
-							return true;
-						}
-					});
+			p.setOnPreferenceClickListener(this);
 		}
 		p = this.findPreference("reset_data");
 		if (p != null) {
-			p.setOnPreferenceClickListener(// .
-					new Preference.OnPreferenceClickListener() {
-						public boolean onPreferenceClick(
-								final Preference preference) {
-							Preferences.this.resetDataDialog();
-							return true;
-						}
-					});
+			p.setOnPreferenceClickListener(this);
 		}
 		p = this.findPreference("export_rules");
 		if (p != null) {
-			p.setOnPreferenceClickListener(// .
-					new Preference.OnPreferenceClickListener() {
-						public boolean onPreferenceClick(
-								final Preference preference) {
-							Preferences.this.exportData(null,
-									DataProvider.EXPORT_RULESET_FILE);
-							return true;
-						}
-					});
+			p.setOnPreferenceClickListener(this);
 		}
 		p = this.findPreference("export_logs");
 		if (p != null) {
-			p.setOnPreferenceClickListener(// .
-					new Preference.OnPreferenceClickListener() {
-						public boolean onPreferenceClick(
-								final Preference preference) {
-							Preferences.this.exportData(null,
-									DataProvider.EXPORT_LOGS_FILE);
-							return true;
-						}
-					});
+			p.setOnPreferenceClickListener(this);
 		}
 		p = this.findPreference("export_numgroups");
 		if (p != null) {
-			p.setOnPreferenceClickListener(// .
-					new Preference.OnPreferenceClickListener() {
-						public boolean onPreferenceClick(
-								final Preference preference) {
-							Preferences.this.exportData(null,
-									DataProvider.EXPORT_NUMGROUPS_FILE);
-							return true;
-						}
-					});
+			p.setOnPreferenceClickListener(this);
 		}
 		p = this.findPreference("export_hourgroups");
 		if (p != null) {
-			p.setOnPreferenceClickListener(// .
-					new Preference.OnPreferenceClickListener() {
-						public boolean onPreferenceClick(
-								final Preference preference) {
-							Preferences.this.exportData(null,
-									DataProvider.EXPORT_HOURGROUPS_FILE);
-							return true;
-						}
-					});
+			p.setOnPreferenceClickListener(this);
 		}
 		p = this.findPreference("import_rules");
 		if (p != null) {
-			p.setOnPreferenceClickListener(// .
-					new Preference.OnPreferenceClickListener() {
-						public boolean onPreferenceClick(
-								final Preference preference) {
-							Preferences.this.startActivity(new Intent(
-									Intent.ACTION_VIEW, Uri.parse(// .
-											Preferences.this.getString(// .
-													R.string.url_rulesets))));
-							return true;
-						}
-					});
+			p.setOnPreferenceClickListener(this);
 		}
 		p = this.findPreference("import_rules_default");
 		if (p != null) {
-			p.setOnPreferenceClickListener(// .
-					new Preference.OnPreferenceClickListener() {
-						public boolean onPreferenceClick(
-								final Preference preference) {
-							final Intent i = new Intent(Preferences.this,
-									Preferences.class);
-							i.setData(Uri.parse("content://default"));
-							Preferences.this.startActivity(i);
-							return true;
-						}
-					});
+			p.setOnPreferenceClickListener(this);
 		}
 
 		this.onNewIntent(this.getIntent());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void onResume() {
+		super.onResume();
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		this.checkSimplePrefs(p.getBoolean(PREFS_PREPAID, false));
+	}
+
+	/**
+	 * Check availability of "simple preferences".
+	 * 
+	 * @param overrideNo
+	 *            override decision, true will disable "simple preferences"
+	 */
+	private void checkSimplePrefs(final boolean overrideNo) {
+		final SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		this.findPreference("simple_settings").setEnabled(
+				!overrideNo && p.getBoolean(PREFS_ISDEFAULT, true));
 	}
 
 	/**
@@ -847,7 +795,7 @@ public class Preferences extends PreferenceActivity {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void onNewIntent(final Intent intent) {
+	protected void onNewIntent(final Intent intent) {
 		final Uri uri = intent.getData();
 		Log.d(TAG, "new intent: " + intent.getAction());
 		Log.d(TAG, "intent: " + intent.getData());
@@ -855,5 +803,82 @@ public class Preferences extends PreferenceActivity {
 			Log.d(TAG, "importing: " + uri.toString());
 			this.importData(this, uri);
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean onPreferenceChange(final Preference preference,
+			final Object newValue) {
+		final String k = preference.getKey();
+		if (k.equals(PREFS_ADVANCED)) {
+			if (newValue.equals(true)) {
+				Preferences.this.startActivity(new Intent(Preferences.this,
+						Help.class));
+			}
+			return true;
+		} else if (k.equals(PREFS_PREPAID)) {
+			this.checkSimplePrefs((Boolean) newValue);
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean onPreferenceClick(final Preference preference) {
+		final String k = preference.getKey();
+		if (k.equals("send_logs")) {
+			Log.collectAndSendLog(Preferences.this);
+			return true;
+		} else if (k.equals("send_devices")) {
+			final Intent intent = new Intent(// .
+					Intent.ACTION_SEND);
+			intent.setType("text/plain");
+			intent.putExtra(Intent.EXTRA_EMAIL, new String[] {
+					"android+callmeter@ub0r.de", "" });
+			intent.putExtra(Intent.EXTRA_TEXT, Device.debugDeviceList());
+			intent.putExtra(Intent.EXTRA_SUBJECT, "Call Meter 3G: Device List");
+			try {
+				Preferences.this.startActivity(intent);
+			} catch (ActivityNotFoundException e) {
+				Log.e(TAG, "no mail", e);
+				Toast.makeText(Preferences.this, "no mail app found",
+						Toast.LENGTH_LONG).show();
+			}
+			return true;
+		} else if (k.equals("reset_data")) {
+			this.resetDataDialog();
+			return true;
+		} else if (k.equals("export_rules")) {
+			Preferences.this.exportData(null, DataProvider.EXPORT_RULESET_FILE);
+			return true;
+		} else if (k.equals("export_logs")) {
+			Preferences.this.exportData(null, DataProvider.EXPORT_LOGS_FILE);
+			return true;
+		} else if (k.equals("export_numgroups")) {
+			Preferences.this.exportData(null,
+					DataProvider.EXPORT_NUMGROUPS_FILE);
+			return true;
+		} else if (k.equals("export_hourgroups")) {
+			Preferences.this.exportData(null,
+					DataProvider.EXPORT_HOURGROUPS_FILE);
+			return true;
+		} else if (k.equals("import_rules")) {
+			Preferences.this.startActivity(new Intent(Intent.ACTION_VIEW, Uri
+					.parse(// .
+					Preferences.this.getString(// .
+							R.string.url_rulesets))));
+			return true;
+		} else if (k.equals("import_rules_default")) {
+			final Intent i = new Intent(Preferences.this, Preferences.class);
+			i.setData(Uri.parse("content://default"));
+			Preferences.this.startActivity(i);
+			return true;
+		}
+		return false;
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein
+ * Copyright (C) 2009-2011 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -363,6 +363,7 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 			} else {
 				this.getContentResolver().update(uri, cv, null, null);
 			}
+			Preferences.setDefaultPlan(this, false);
 			this.rid = -1;
 			final Intent intent = new Intent(this, RuleEdit.class);
 			intent.setData(uri);

@@ -118,33 +118,46 @@
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/billing_">
-		<CheckBoxPreference android:key="prepaid"
-			android:title="@string/prepaid_" android:summary="@string/prepaid_hint" />
-		<CheckBoxPreference android:key="advanced_preferences"
-			android:title="@string/advanced_preferences_" android:summary="@string/advanced_preferences_hint" />
-		<PreferenceScreen android:title="@string/plans"
-			android:summary="@string/plans_hint">
+		<PreferenceScreen android:key="simple_settings"
+			android:title="@string/simple_preferences_" android:summary="@string/simple_preferences_hint">
 			<intent android:action="android.intent.action.MAIN"
 				android:targetPackage="de.ub0r.android.callmeter"
-				android:targetClass="de.ub0r.android.callmeter.ui.prefs.Plans" />
+				android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferences" />
 		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/rules"
-			android:summary="@string/rules_hint" android:dependency="advanced_preferences">
-			<intent android:action="android.intent.action.MAIN"
-				android:targetPackage="de.ub0r.android.callmeter"
-				android:targetClass="de.ub0r.android.callmeter.ui.prefs.Rules" />
+		<PreferenceScreen android:title="@string/advanced_preferences_">
+			<CheckBoxPreference android:key="prepaid"
+				android:title="@string/prepaid_" android:summary="@string/prepaid_hint" />
+			<CheckBoxPreference android:key="advanced_preferences"
+				android:title="@string/advanced_preferences_" android:summary="@string/advanced_preferences_hint" />
+			<PreferenceScreen android:title="@string/plans"
+				android:summary="@string/plans_hint">
+				<intent android:action="android.intent.action.MAIN"
+					android:targetPackage="de.ub0r.android.callmeter"
+					android:targetClass="de.ub0r.android.callmeter.ui.prefs.Plans" />
+			</PreferenceScreen>
+			<PreferenceScreen android:title="@string/rules"
+				android:summary="@string/rules_hint" android:dependency="advanced_preferences">
+				<intent android:action="android.intent.action.MAIN"
+					android:targetPackage="de.ub0r.android.callmeter"
+					android:targetClass="de.ub0r.android.callmeter.ui.prefs.Rules" />
+			</PreferenceScreen>
+			<PreferenceScreen android:title="@string/numbergroups_edit_"
+				android:summary="@string/numbergroups_edit_hint">
+				<intent android:action="android.intent.action.MAIN"
+					android:targetPackage="de.ub0r.android.callmeter"
+					android:targetClass="de.ub0r.android.callmeter.ui.prefs.NumberGroups" />
+			</PreferenceScreen>
+			<PreferenceScreen android:title="@string/hourgroups_edit_"
+				android:summary="@string/hourgroups_edit_hint">
+				<intent android:action="android.intent.action.MAIN"
+					android:targetPackage="de.ub0r.android.callmeter"
+					android:targetClass="de.ub0r.android.callmeter.ui.prefs.HourGroups" />
+			</PreferenceScreen>
 		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/numbergroups_edit_"
-			android:summary="@string/numbergroups_edit_hint">
+		<PreferenceScreen android:title="@string/help_">
 			<intent android:action="android.intent.action.MAIN"
 				android:targetPackage="de.ub0r.android.callmeter"
-				android:targetClass="de.ub0r.android.callmeter.ui.prefs.NumberGroups" />
-		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/hourgroups_edit_"
-			android:summary="@string/hourgroups_edit_hint">
-			<intent android:action="android.intent.action.MAIN"
-				android:targetPackage="de.ub0r.android.callmeter"
-				android:targetClass="de.ub0r.android.callmeter.ui.prefs.HourGroups" />
+				android:targetClass="de.ub0r.android.callmeter.ui.Help" />
 		</PreferenceScreen>
 		<PreferenceScreen android:title="@string/import_rules_"
 			android:summary="@string/import_rules_hint">
@@ -164,13 +177,7 @@
 			<PreferenceScreen android:key="export_hourgroups"
 				android:title="@string/export_hourgroups_" android:summary="@string/export_hourgroups_hint" />
 		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/help_">
-			<intent android:action="android.intent.action.MAIN"
-				android:targetPackage="de.ub0r.android.callmeter"
-				android:targetClass="de.ub0r.android.callmeter.ui.Help" />
-		</PreferenceScreen>
 	</PreferenceCategory>
-
 	<PreferenceCategory android:title="@string/about_">
 		<PreferenceScreen android:title="@string/about_"
 			android:summary="@string/about_hint">

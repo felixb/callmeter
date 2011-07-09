@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein, The Android Open Source Project
+ * Copyright (C) 2009-2011 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -206,10 +206,12 @@ public class Rules extends ListActivity implements OnClickListener,
 	public final void onClick(final View v) {
 		switch (v.getId()) {
 		case R.id.add:
+			Preferences.setDefaultPlan(this, false);
 			Intent intent = new Intent(this, RuleEdit.class);
 			this.startActivity(intent);
 			break;
 		case R.id.ok:
+			Preferences.setDefaultPlan(this, false);
 			this.finish();
 			break;
 		case R.id.import_default:

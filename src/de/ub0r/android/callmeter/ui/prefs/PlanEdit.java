@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein, The Android Open Source Project
+ * Copyright (C) 2009-2011 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -611,6 +611,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 		switch (v.getId()) {
 		case R.id.ok:
 			this.savePlan();
+			Preferences.setDefaultPlan(this, false);
 		case R.id.cancel:
 			this.pid = -1;
 			this.finish();
