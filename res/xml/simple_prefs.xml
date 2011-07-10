@@ -18,23 +18,66 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-	<PreferenceCategory android:title="@string/common_prefs_">
-
-	</PreferenceCategory>
-	<PreferenceCategory android:title="@string/calls">
-		<ListPreference android:key="billmode" android:title="@string/billmode_"
-			android:summary="@string/billmode_help" android:entries="@array/billmodes"
-			android:entryValues="@array/billmodes" />
-		<EditTextPreference android:key="custom_billmode"
+	<PreferenceScreen android:title="@string/common_prefs_">
+		<ListPreference android:key="sp_billday" android:title="@string/billday_"
+			android:summary="@string/billday_help" android:entries="@array/billdays"
+			android:entryValues="@array/billdays" />
+	</PreferenceScreen>
+	<PreferenceScreen android:title="@string/calls">
+		<ListPreference android:key="sp_billmode"
+			android:title="@string/billmode_" android:summary="@string/billmode_help"
+			android:entries="@array/billmodes" android:entryValues="@array/billmodes" />
+		<EditTextPreference android:key="sp_custom_billmode"
 			android:title="@string/billmode_" />
-	</PreferenceCategory>
-	<PreferenceCategory android:title="@string/sms">
+		<EditTextPreference android:key="sp_freemin"
+			android:title="@string/freemin_" android:summary="@string/freemin_hint"
+			android:inputType="number" />
+		<EditTextPreference android:key="sp_cost_per_call"
+			android:title="@string/cost_per_call_" android:summary="@string/cost_per_call_hint"
+			android:inputType="number|numberDecimal" />
+		<EditTextPreference android:key="sp_cost_per_min"
+			android:title="@string/cost_per_min_" android:summary="@string/cost_per_min_hint"
+			android:inputType="number|numberDecimal" />
+		<PreferenceScreen android:title="@string/numbergroup_excalls"
+			android:summary="@string/exhourgroup_help">
+			<intent android:action="android.intent.action.VIEW"
+				android:targetPackage="de.ub0r.android.callmeter"
+				android:targetClass="de.ub0r.android.callmeter.ui.prefs.NumberGroupEdit"
+				android:data="content://de.ub0r.android.callmeter.provider/numbers/groups/1" />
+		</PreferenceScreen>
+	</PreferenceScreen>
 
-	</PreferenceCategory>
-	<PreferenceCategory android:title="@string/mms">
+	<PreferenceScreen android:title="@string/sms">
+		<EditTextPreference android:key="sp_freesms"
+			android:title="@string/freesms_" android:summary="@string/freesms_hint"
+			android:inputType="number" />
+		<EditTextPreference android:key="sp_cost_per_sms"
+			android:title="@string/cost_per_sms_" android:summary="@string/cost_per_sms_hint"
+			android:inputType="number|numberDecimal" />
+		<PreferenceScreen android:title="@string/numbergroup_exsms"
+			android:summary="@string/exhourgroup_help">
+			<intent android:action="android.intent.action.VIEW"
+				android:targetPackage="de.ub0r.android.callmeter"
+				android:targetClass="de.ub0r.android.callmeter.ui.prefs.NumberGroupEdit"
+				android:data="content://de.ub0r.android.callmeter.provider/numbers/groups/2" />
+		</PreferenceScreen>
+	</PreferenceScreen>
 
-	</PreferenceCategory>
-	<PreferenceCategory android:title="@string/data">
+	<PreferenceScreen android:title="@string/mms">
+		<EditTextPreference android:key="sp_freemms"
+			android:title="@string/freemms_" android:summary="@string/freemms_hint"
+			android:inputType="number" />
+		<EditTextPreference android:key="sp_cost_per_mms"
+			android:title="@string/cost_per_mms_" android:summary="@string/cost_per_mms_hint"
+			android:inputType="number|numberDecimal" />
+	</PreferenceScreen>
 
-	</PreferenceCategory>
+	<PreferenceScreen android:title="@string/data">
+		<EditTextPreference android:key="sp_freedata"
+			android:title="@string/freedata_" android:summary="@string/freedata_hint"
+			android:inputType="number" />
+		<EditTextPreference android:key="sp_cost_per_mb"
+			android:title="@string/cost_per_mb_" android:summary="@string/cost_per_mb_hint"
+			android:inputType="number|numberDecimal" />
+	</PreferenceScreen>
 </PreferenceScreen>

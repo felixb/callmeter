@@ -2681,6 +2681,7 @@ public final class DataProvider extends ContentProvider {
 	@Override
 	public int update(final Uri uri, final ContentValues values,
 			final String selection, final String[] selectionArgs) {
+		Log.d(TAG, "update(" + uri + "," + selection + "," + values + ")");
 		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
 		long i;
 		int ret = 0;
@@ -2745,6 +2746,7 @@ public final class DataProvider extends ContentProvider {
 		if (ret > 0) {
 			this.getContext().getContentResolver().notifyChange(uri, null);
 		}
+		Log.d(TAG, "updated: " + ret);
 		return ret;
 	}
 

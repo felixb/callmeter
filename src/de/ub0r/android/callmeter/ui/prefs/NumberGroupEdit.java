@@ -136,7 +136,8 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 				+ this.getString(R.string.edit_));
 		this.setContentView(R.layout.list_name_ok_help_add);
 
-		final Uri u = this.getIntent().getData();
+		final Intent i = this.getIntent();
+		final Uri u = i.getData();
 		if (u != null) {
 			this.gid = ContentUris.parseId(u);
 		}
@@ -152,6 +153,13 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		this.etName = (EditText) this.findViewById(R.id.name_et);
 		this.etName.setText(DataProvider.NumbersGroup.getName(this
 				.getContentResolver(), this.gid));
+
+		final String a = i.getAction();
+		if (a != null && a.equals(Intent.ACTION_VIEW)) {
+			this.etName.setVisibility(View.GONE);
+			this.findViewById(R.id.name).setVisibility(View.GONE);
+			this.findViewById(R.id.name_help).setVisibility(View.GONE);
+		}
 	}
 
 	/**
