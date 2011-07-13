@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,7 +16,7 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=de&file=strings.xml to edit the file.
        -->
@@ -442,4 +442,10 @@
     <item>Zwei Stunden</item>
     <item>Nur manuell</item>
   </string-array>
+  <string name="simple_preferences_" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Simple preferences">Einfache Einstellungen</string>
+  <string name="simple_preferences_hint" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Sehr einfache Einstellungen, ausreichend für die meisten Nutzer. Nur verfügbar, wenn der standard Regelsatz benutzt wird.</string>
+  <string name="numbergroup_excalls" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Exclude from calls">Von Anrufen ausschließen</string>
+  <string name="numbergroup_exsms" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Exclude from SMS">Von SMS ausschließen</string>
+  <string name="import_rules_default_" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Import default rule set">Standard Regelsatz importieren</string>
+  <string name="import_rules_default_hint" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Import default rule set shipped with the app.">Standard Regelsatz importieren, der mit der App mitgebracht wird.</string>
 </resources>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,13 +16,13 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=cs&file=strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Poslední změny:</string>
-  <string name="changelog_notification_text" formatted="false">Klikněte zde pro zobrazení nedávných změn</string>
+  <string name="changelog_notification_" formatted="false" orig="Recent changes:" username="">Poslední změny:</string>
+  <string name="changelog_notification_text" formatted="false" username="" orig="Click here to show recent changes of">Klikněte zde pro zobrazení nedávných změn</string>
   <string name="never_show_again" formatted="false" orig="Never show changelog again">Changelog již nezobrazovat</string>
   <string name="notes_from_developer_" formatted="false">Poznámky od autora</string>
   <string name="notes_from_developer_text" formatted="false">Klikněte zde pro zobrazení posledních novinek od autora</string>
