@@ -42,7 +42,7 @@
   <string name="date_begin_" formatted="false" orig="Beginning of records">Počátek záznamů</string>
   <string name="date_begin_hint" formatted="false">Ignorovat všechny záznamy před tímto datem.</string>
   <string name="delete_old_logs_" formatted="false">Odstranit záznamy starší než</string>
-  <string name="delete_old_logs_help" formatted="false">Odstranit záznamy starší než x dní z interní databáze. Nevyplňujte pro neodstraňování.</string>
+  <string name="delete_old_logs_help" formatted="false" username="" orig="Delete logs older than x days from internal database. Leave empty to disable.">Odstranit záznamy starší než x dní z interní databáze. Nevyplňujte pro neodstraňování.</string>
   <string name="common_prefs_" formatted="false">Společné předvolby</string>
   <string name="edit_" formatted="false">Upravit</string>
   <string name="about_" formatted="false">Nápověda</string>

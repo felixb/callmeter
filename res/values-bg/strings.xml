@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,17 +16,17 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=bg&file=strings.xml to edit the file.
        -->
 <resources>
   <string name="changelog_notification_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Recent changes:">Последни промени:</string>
-  <string name="changelog_notification_text" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Click here to show recent changes of">Кликнете тук за да видите последните промени на</string>
+  <string name="changelog_notification_text" formatted="false" username="" orig="Click here to show recent changes of">Натиснете тук за да видите последните промени на</string>
   <string name="never_show_again" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Never show changelog again">Не показвай промените отново</string>
   <string name="notes_from_developer_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Notes from developer">Бележки от разработчика</string>
-  <string name="notes_from_developer_text" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Click here to show recent news from the developer">Кликнете тук за да видите последните бележки от разработчика</string>
-  <string name="about0_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Watch your call, message and data plans!">Следете тарифните планове за разговори, съобщения и мобилен интернет!</string>
+  <string name="notes_from_developer_text" formatted="false" username="" orig="Click here to show recent news from the developer">Натиснете тук за да видите последните бележки от разработчика</string>
+  <string name="about0_" formatted="false" username="" orig="Watch your call, message and data plans!">Следете тарифните планове за разговори, съобщения и мобилен Интернет!</string>
   <string name="send_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Send">Изпрати</string>
   <string name="add_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Add">Добави</string>
   <string name="length_hint_data" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Length in kB">Дължина в kB</string>
@@ -45,7 +45,7 @@
   <string name="billday_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="First day of your bill">Първи ден на сметката Ви</string>
   <string name="appearance_" formatted="false" orig="Appearance">Изглед</string>
   <string name="behavior_" formatted="false" orig="Behavior">Поведение</string>
-  <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp;amp; behavior">Изглед и поведение</string>
+  <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp; behavior" username="">Изглед и поведение</string>
   <string name="advanced_preferences_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Advanced preferences">Разширени настройки</string>
   <string name="advanced_preferences_hint" formatted="false" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Това Ви позволява да променяте по-сложни настройки. Повечето хора няма да имат нужда от тях.</string>
   <string name="theme_" formatted="false" orig="Theme">Тема</string>
@@ -73,8 +73,8 @@
   <string name="new_hourgroup" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="New hour group">Нова часова група</string>
   <string name="add_hour" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Add hour">Добави час</string>
   <string name="calls" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Calls">Разговори</string>
-  <string name="sms" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="SMS">СМС</string>
-  <string name="mms" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="MMS">ММС</string>
+  <string name="sms" formatted="false" username="" orig="SMS">SMS</string>
+  <string name="mms" formatted="false" username="" orig="MMS">MMS</string>
   <string name="balance_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Balance">Баланс</string>
   <string-array name="billmodes" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;">
     <item>1/1</item>
@@ -133,4 +133,47 @@
     <item>Два часа</item>
     <item>Само ръчно</item>
   </string-array>
+  <string name="about0" formatted="false" username="" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter генерира доклади от повиквания, съобщения и данни. Той поддържа няколко режима на таксуване.</string>
+  <string name="length_hint_call" formatted="false" username="" orig="Length in seconds">Дължина в секунди</string>
+  <string name="add_log" formatted="false" username="" orig="Add log entry">Добави дневник на влизанията</string>
+  <string name="date_begin_" formatted="false" username="" orig="Beginning of records">Начало на документацията</string>
+  <string name="date_begin_hint" formatted="false" username="" orig="Ignore any logs before this date.">Игнорирай дневниците преди тази дата.</string>
+  <string name="delete_old_logs_" formatted="false" username="" orig="Delete logs older than">Изтриване на дневници по-стари от</string>
+  <string name="delete_old_logs_help" formatted="false" username="" orig="Delete logs older than x days from internal database. Leave empty to disable.">Изтриване на дневници по-стари от х дни от базата от данни. Оставете празно, за  да деактивирате.</string>
+  <string name="billdate_" formatted="false" username="" orig="Start of billing period:">Начало на отчетен период:</string>
+  <string name="billing_" formatted="false" username="" orig="Billing">Отчитане</string>
+  <string name="billmode_" formatted="false" username="" orig="Mode of billing">Начин на отчитане</string>
+  <string name="simple_preferences_" formatted="false" username="" orig="Simple preferences">Опростени настройки</string>
+  <string name="remote_" formatted="false" username="" orig="Remote number">Отдалечен номер</string>
+  <string name="numbergroup_excalls" formatted="false" username="" orig="Exclude from calls">Изключи от обажданията</string>
+  <string name="numbergroup_exsms" formatted="false" username="" orig="Exclude from SMS">Изключи от SMS</string>
+  <string name="calls_in" formatted="false" username="" orig="Calls In">Входящи разговори</string>
+  <string name="calls_out" formatted="false" username="" orig="Calls Out">Изходящи разговори</string>
+  <string name="messages" formatted="false" username="" orig="Messages">Съобщения</string>
+  <string name="messages_" formatted="false" username="" orig="SMS/MMS">SMS/MMS</string>
+  <string name="sms_in" formatted="false" username="" orig="SMS In">SMS входящи</string>
+  <string name="sms_out" formatted="false" username="" orig="SMS Out">SMS изходящи</string>
+  <string name="mms_out" formatted="false" username="" orig="MMS Out">MMS изходящи</string>
+  <string name="mms_in" formatted="false" username="" orig="MMS In">MMS входящи</string>
+  <string name="data_" formatted="false" username="" orig="Data (2G/3G/4G)">Данни (2G/3G/4G)</string>
+  <string name="data" formatted="false" username="" orig="Data">Данни</string>
+  <string name="data_inout" formatted="false" username="" orig="Data In/Out">Трафик</string>
+  <string name="prepaid_" formatted="false" username="" orig="Prepaid plan">Предплатени планове</string>
+  <string name="reset_data_progr2" formatted="false" username="" orig="Recalculating statistics ...">Преизчисляване ...</string>
+  <string name="contacts_" formatted="false" username="" orig="Contacts">Контакти</string>
+  <string name="help_" formatted="false" username="" orig="Help">Помощ</string>
+  <string name="new_" formatted="false" username="" orig="New">Ново</string>
+  <string name="clear_" formatted="false" username="" orig="Clear">Изчистване</string>
+  <string name="edit_groups_" formatted="false" username="" orig="Edit groups">Редакция на групи</string>
+  <string name="textsize_spacer_" formatted="false" username="" orig="Spacer\'s size">Размер на разделителя</string>
+  <string name="textsize_spacer_hint" formatted="false" username="" orig="Size for spacers in pixels; leave empty for default">Размер на разстоянията в пиксели; оставете празно по подразбиране</string>
+  <string name="textsize_pbar_" formatted="false" username="" orig="Progress bar\'s size">Размер на прогрес лентата </string>
+  <string name="textsize_pbar_hint" formatted="false" username="" orig="Size for progress bars in pixels; leave empty for default">Размер на прогрес лентата в пиксели; оставете празно по подразбиране</string>
+  <string name="textsize_pbarbp_" formatted="false" username="" orig="Bill period\'s progress bar\'s size">Размер на прогрес лентата за отчетния период</string>
+  <string name="textsize_pbarbp_hint" formatted="false" username="" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Размер на прогрес лентата за отчетния период в пиксели; оставете празно по подразбиране</string>
+  <string name="show_today_" formatted="false" username="" orig="Show today">Покажи за днес</string>
+  <string name="show_total_" formatted="false" username="" orig="Show total">Покажи общо</string>
+  <string name="show_total_hint" formatted="false" username="" orig="Show total stats, disable to see current only.">Покажи общи статистики, деактивирайте, за да видите само настоящите</string>
+  <string name="show_titlebar_" formatted="false" username="" orig="Show title bar">Покажи заглавната лента</string>
+  <string name="show_time_" formatted="false" username="" orig="Switch to date">Отиди на дата</string>
 </resources>
