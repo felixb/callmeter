@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,7 +16,7 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=hu&file=strings.xml to edit the file.
        -->
@@ -419,4 +419,23 @@
     <item>Két óra</item>
     <item>Csak manuálisan</item>
   </string-array>
+  <string name="simple_preferences_" formatted="false" username="" orig="Simple preferences">Alapbeállítások</string>
+  <string name="simple_preferences_hint" formatted="false" username="" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Nagyon egyszerű beállítások, megfelelő a legtöbb felhasználónak. Csak az alapértelmezett szabály beállítással érhető el.</string>
+  <string name="show_icon_" formatted="false" username="" orig="Show icon">Ikon mutatása</string>
+  <string name="hide_name_" formatted="false" username="" orig="Hide name of plan">Terv nevének elrejtése</string>
+  <string name="small_widget_" formatted="false" username="" orig="Use small widget">Kis widget használata</string>
+  <string name="numbergroup_excalls" formatted="false" username="" orig="Exclude from calls">Kivételek a hívásoknál</string>
+  <string name="numbergroup_exsms" formatted="false" username="" orig="Exclude from SMS">Kivételek az SMS-nél</string>
+  <string name="billperiod_sn" formatted="false" username="" orig="BillPeriod">Számlázási időszak</string>
+  <string name="calls_in" formatted="false" username="" orig="Calls In">Bejövő hívások</string>
+  <string name="calls_in_" formatted="false" username="" orig="CallsIn">Bejövő hívások</string>
+  <string name="calls_out" formatted="false" username="" orig="Calls Out">Kimenő hívások</string>
+  <string name="calls_out_" formatted="false" username="" orig="CallsOut">Kimenő hívások</string>
+  <string name="messages" formatted="false" username="" orig="Messages">Üzenetek</string>
+  <string name="messages_" formatted="false" username="" orig="SMS/MMS">SMS/MMS</string>
+  <string name="sms_in" formatted="false" username="" orig="SMS In">Bejövő SMS</string>
+  <string name="sms_in_" formatted="false" username="" orig="SMSIn">Bejövő SMS</string>
+  <string name="sms_out" formatted="false" username="" orig="SMS Out">Kimenő SMS</string>
+  <string name="sms_out_" formatted="false" username="" orig="SMSOut">Kimenő SMS</string>
+  <string name="data_" formatted="false" username="" orig="Data (2G/3G/4G)">Adat (2G/3G/4G)</string>
 </resources>
