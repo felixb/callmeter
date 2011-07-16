@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter NG. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,7 +16,7 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm2/edit.php?lang=hu&file=strings.xml to edit the file.
        -->
@@ -91,7 +91,7 @@
   <string name="cost_per_minute_hint" formatted="false">Percenként kiszámlázott összeg.</string>
   <string name="cost_per_sms_" formatted="false">SMS díj</string>
   <string name="cost_per_sms_hint" formatted="false">SMS-enként kiszámlázott díj.</string>
-  <string name="cost_per_mb_" formatted="false">Ár megabyteonként</string>
+  <string name="cost_per_mb_" formatted="false" username="" orig="Cost per MB">Ár / MB</string>
   <string name="cost_per_mb_hint" formatted="false">Minden megabytenyi adatforgalom díja</string>
   <string name="merge_sms_calls_" formatted="false">SMS-ek hívásként számlázása</string>
   <string name="merge_sms_calls_hint" formatted="false">Bejelölés esetén az SMS-ek hívásként kerülnek számlázásra.</string>
