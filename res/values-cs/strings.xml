@@ -370,4 +370,10 @@
     <item>Dvě hodiny</item>
     <item>Pouze ručně</item>
   </string-array>
+  <string name="simple_preferences_" formatted="false" username="" orig="Simple preferences">Jednoduchá nastavení</string>
+  <string name="simple_preferences_hint" formatted="false" username="" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Velni jednoducha nastavení vhodná pro většinu uživatelů. Dostupná pouze se základním nastavením pravidel.</string>
+  <string name="show_help_hint" formatted="false" username="" orig="Show help in Plans/Rules setup view.">Ukázat nápovědu při zadávání tarifů/pravidel</string>
+  <string name="numbergroup_excalls" formatted="false" username="" orig="Exclude from calls">Nezahrnovat do hovorů</string>
+  <string name="numbergroup_exsms" formatted="false" username="" orig="Exclude from SMS">Nezahrnovat do SMS zpráv</string>
+  <string name="billperiod_sn" formatted="false" username="" orig="BillPeriod">Účtovací období</string>
 </resources>
