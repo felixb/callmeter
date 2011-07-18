@@ -410,7 +410,7 @@
     <item>NN/HH/ÉÉÉÉ</item>
     <item>NN.HH.ÉÉÉÉ</item>
   </string-array>
-  <string-array name="update_interval">
+  <string-array name="update_interval" username="">
     <item>5 perc</item>
     <item>10 perc</item>
     <item>15 perc</item>
