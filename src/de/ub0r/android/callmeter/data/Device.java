@@ -26,7 +26,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
 import android.os.Build;
+import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.Log;
 
 /**
@@ -81,11 +83,17 @@ public abstract class Device {
 	/**
 	 * Get a list of possible devices.
 	 * 
+	 * @param context
+	 *            {@link Context}
 	 * @return some info
 	 */
-	public static String debugDeviceList() {
+	public static String debugDeviceList(final Context context) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("product: ");
+		sb.append("app: ");
+		sb.append(context.getString(R.string.app_name));
+		sb.append("\nversion: ");
+		sb.append(context.getString(R.string.app_version));
+		sb.append("\nproduct: ");
 		sb.append(Build.PRODUCT);
 		sb.append("\nmodel: ");
 		sb.append(Build.MODEL);

@@ -840,7 +840,7 @@ public final class Preferences extends PreferenceActivity implements
 			intent.setType("text/plain");
 			intent.putExtra(Intent.EXTRA_EMAIL, new String[] {
 					"android+callmeter@ub0r.de", "" });
-			intent.putExtra(Intent.EXTRA_TEXT, Device.debugDeviceList());
+			intent.putExtra(Intent.EXTRA_TEXT, Device.debugDeviceList(this));
 			intent.putExtra(Intent.EXTRA_SUBJECT, "Call Meter 3G: Device List");
 			try {
 				Preferences.this.startActivity(intent);
