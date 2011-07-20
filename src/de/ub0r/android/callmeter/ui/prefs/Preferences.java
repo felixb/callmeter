@@ -637,7 +637,7 @@ public final class Preferences extends PreferenceActivity implements
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		this.findPreference("simple_settings").setEnabled(
-				!overrideNo && p.getBoolean(PREFS_ISDEFAULT, true));
+				!overrideNo && p.getBoolean(PREFS_ISDEFAULT, false));
 	}
 
 	/**

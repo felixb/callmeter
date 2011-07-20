@@ -21,7 +21,7 @@
 	package="de.ub0r.android.callmeter" android:versionName="3.0rc14"
 	android:versionCode="2833" android:installLocation="internalOnly">
 	<application android:name=".CallMeter" android:icon="@drawable/icon"
-		android:label="@string/app_name">
+		android:label="@string/app_name" android:hardwareAccelerated="true">
 		<activity android:name=".ui.Plans" android:label="@string/app_name"
 			android:configChanges="orientation|keyboardHidden"
 			android:windowSoftInputMode="adjustResize">
@@ -137,7 +137,7 @@
 			android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
 			android:configChanges="keyboard|keyboardHidden|orientation" />
 	</application>
-	<uses-sdk android:minSdkVersion="3" android:targetSdkVersion="10" />
+	<uses-sdk android:minSdkVersion="3" android:targetSdkVersion="12" />
 	<supports-screens android:smallScreens="true"
 		android:normalScreens="true" android:largeScreens="true"
 		android:anyDensity="true" />
