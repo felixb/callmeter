@@ -53,7 +53,7 @@
   <string name="twitter_hint" formatted="false">Následuj mě na Twitteru\nInfo o nových verzích apod.</string>
   <string name="more_" formatted="false">Další aplikace autora..</string>
   <string name="billing_" formatted="false">Účtování</string>
-  <string name="billday_" formatted="false">První cen zúčtovacího období</string>
+  <string name="billday_" formatted="false" username="" orig="First day of your bill">První den zúčtovacího období</string>
   <string name="billmode_" formatted="false">Tarifikace</string>
   <string name="billdate_" formatted="false">Začátek zúčtovacího období:</string>
   <string name="appearance_" formatted="false">Přizpůsobení vzhledu</string>
