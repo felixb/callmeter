@@ -66,9 +66,14 @@ public final class SysClassNet {
 	 * @return true if interface is available
 	 */
 	public static boolean isAvail(final String inter) {
-		StringBuilder sb = new StringBuilder();
-		sb.append(SYS_CLASS_NET).append(inter).append(TYPE);
-		return new File(sb.toString()).canRead();
+		try {
+			if (getRxBytes(inter) > 0L || getTxBytes(inter) > 0L) {
+				return true;
+			}
+		} catch (Exception e) {
+			Log.i(TAG, "could not read device: " + inter);
+		}
+		return false;
 	}
 
 	/**

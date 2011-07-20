@@ -53,7 +53,13 @@ public abstract class Device {
 		Log.d(TAG, "Device: " + Build.DEVICE);
 		if (instance == null) {
 			Log.i(TAG, "Device: " + Build.DEVICE);
-			instance = new DiscoverableDevice();
+			if (Build.PRODUCT.equals("sdk")) {
+				instance = new EmulatorDevice();
+			} else if (Build.DEVICE.startsWith("GT-")) {
+				instance = new SamsungDevice();
+			} else {
+				instance = new DiscoverableDevice();
+			}
 			Log.i(TAG, "Interface: " + instance.getCell());
 		}
 		return instance;
@@ -98,6 +104,13 @@ public abstract class Device {
 		sb.append("\nmodel: ");
 		sb.append(Build.MODEL);
 		sb.append("\n");
+		sb.append("\ndevice: ");
+		sb.append(getDevice());
+		sb.append("\ndevice.cell: ");
+		sb.append(getDevice().getCell());
+		sb.append("\ndevice.wifi: ");
+		sb.append(getDevice().getWiFi());
+		sb.append("\n");
 		try {
 			final File f = new File(SysClassNet.SYS_CLASS_NET);
 			final String[] devices = f.list();
@@ -130,11 +143,6 @@ public abstract class Device {
 	}
 
 	/**
-	 * @return device's names
-	 */
-	public abstract String[] getNames();
-
-	/**
 	 * @return device's device file: cell
 	 */
 	public abstract String getCell();
@@ -143,11 +151,6 @@ public abstract class Device {
 	 * @return device's device file: wifi
 	 */
 	public abstract String getWiFi();
-
-	/**
-	 * @return device's device file: bluetooth
-	 */
-	public abstract String getBluetooth();
 
 	/**
 	 * @return device's interfaces
@@ -160,9 +163,6 @@ public abstract class Device {
 			}
 			if (this.getWiFi() != null) {
 				tmp.add(this.getWiFi());
-			}
-			if (this.getBluetooth() != null) {
-				tmp.add(this.getBluetooth());
 			}
 			this.mInterfaces = tmp.toArray(new String[tmp.size()]);
 		}
@@ -180,7 +180,7 @@ class DiscoverableDevice extends Device {
 
 	/** List of possible cell interfaces. */
 	private static final String[] CELL_INTERFACES = { //
-	"rmnet_sdio0", "rmnet0", "pdp0", "ppp0", "vsnet0", "pdp_ip0" //
+	"rmnet0", "pdp0", "ppp0", "vsnet0", "pdp_ip0", "rmnet_sdio0" //
 	};
 
 	/** List of possible wifi interfaces. */
@@ -197,35 +197,12 @@ class DiscoverableDevice extends Device {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String[] getNames() {
-		return null;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String getBluetooth() {
-		return "bnep0";
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public String getCell() {
 		if (this.mCell == null) {
-			if (Build.DEVICE.startsWith("GT-")) {
-				this.mCell = "pdp0";
-				Log.d(TAG, "availability: " + SysClassNet.isAvail("pdp0"));
-			} else if (Build.PRODUCT.equals("sdk")) {
-				this.mCell = "eth0";
-			} else {
-				for (String inter : CELL_INTERFACES) {
-					if (SysClassNet.isUp(inter)) {
-						this.mCell = inter;
-						break;
-					}
+			for (String inter : CELL_INTERFACES) {
+				if (SysClassNet.isAvail(inter)) {
+					this.mCell = inter;
+					break;
 				}
 			}
 			Log.i(TAG, "Cell interface: " + this.mCell);
@@ -250,5 +227,56 @@ class DiscoverableDevice extends Device {
 			}
 		}
 		return this.mWiFi;
+	}
+}
+
+/**
+ * Emulator Device showing all traffic on cell and wifi.
+ */
+final class EmulatorDevice extends Device {
+	/** Tag for output. */
+	private static final String TAG = "EmulatorDevice";
+
+	/** My cell interface. */
+	private final String mCell = "eth0";
+	/** My wifi interface. */
+	private final String mWiFi = "eth0";
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCell() {
+		Log.d(TAG, "Cell interface: " + this.mCell);
+		return this.mCell;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getWiFi() {
+		Log.d(TAG, "WiFi interface: " + this.mCell);
+		return this.mWiFi;
+	}
+}
+
+/**
+ * Samsung Device with fixed cell device.
+ */
+final class SamsungDevice extends DiscoverableDevice {
+	/** Tag for output. */
+	private static final String TAG = "EmulatorDevice";
+
+	/** My cell interface. */
+	private final String mCell = "pdp0";
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCell() {
+		Log.d(TAG, "Cell interface: " + this.mCell);
+		return this.mCell;
 	}
 }
