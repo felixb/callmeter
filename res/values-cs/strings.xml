@@ -42,7 +42,7 @@
   <string name="date_begin_" formatted="false" orig="Beginning of records">Počátek záznamů</string>
   <string name="date_begin_hint" formatted="false">Ignorovat všechny záznamy před tímto datem.</string>
   <string name="delete_old_logs_" formatted="false">Odstranit záznamy starší než</string>
-  <string name="delete_old_logs_help" formatted="false">Odstranit záznamy starší než x dní z interní databáze. Nevyplňujte pro neodstraňování.</string>
+  <string name="delete_old_logs_help" formatted="false" username="" orig="Delete logs older than x days from internal database. Leave empty to disable.">Odstranit záznamy starší než x dní z interní databáze. Nevyplňujte pro neodstraňování.</string>
   <string name="common_prefs_" formatted="false">Společné předvolby</string>
   <string name="edit_" formatted="false">Upravit</string>
   <string name="about_" formatted="false">Nápověda</string>
@@ -53,7 +53,7 @@
   <string name="twitter_hint" formatted="false">Následuj mě na Twitteru\nInfo o nových verzích apod.</string>
   <string name="more_" formatted="false">Další aplikace autora..</string>
   <string name="billing_" formatted="false">Účtování</string>
-  <string name="billday_" formatted="false">První cen zúčtovacího období</string>
+  <string name="billday_" formatted="false" username="" orig="First day of your bill">První den zúčtovacího období</string>
   <string name="billmode_" formatted="false">Tarifikace</string>
   <string name="billdate_" formatted="false">Začátek zúčtovacího období:</string>
   <string name="appearance_" formatted="false">Přizpůsobení vzhledu</string>
@@ -370,4 +370,10 @@
     <item>Dvě hodiny</item>
     <item>Pouze ručně</item>
   </string-array>
+  <string name="simple_preferences_" formatted="false" username="" orig="Simple preferences">Jednoduchá nastavení</string>
+  <string name="simple_preferences_hint" formatted="false" username="" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Velni jednoducha nastavení vhodná pro většinu uživatelů. Dostupná pouze se základním nastavením pravidel.</string>
+  <string name="show_help_hint" formatted="false" username="" orig="Show help in Plans/Rules setup view.">Ukázat nápovědu při zadávání tarifů/pravidel</string>
+  <string name="numbergroup_excalls" formatted="false" username="" orig="Exclude from calls">Nezahrnovat do hovorů</string>
+  <string name="numbergroup_exsms" formatted="false" username="" orig="Exclude from SMS">Nezahrnovat do SMS zpráv</string>
+  <string name="billperiod_sn" formatted="false" username="" orig="BillPeriod">Účtovací období</string>
 </resources>
