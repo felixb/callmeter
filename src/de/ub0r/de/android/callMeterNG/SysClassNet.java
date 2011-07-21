@@ -61,6 +61,22 @@ public final class SysClassNet {
 	/**
 	 * @param inter
 	 *            interface
+	 * @return true if interface is available
+	 */
+	public static boolean isAvail(final String inter) {
+		try {
+			if (getRxBytes(inter) > 0L || getTxBytes(inter) > 0L) {
+				return true;
+			}
+		} catch (Exception e) {
+			Log.i(TAG, "could not read device: " + inter);
+		}
+		return false;
+	}
+
+	/**
+	 * @param inter
+	 *            interface
 	 * @return bytes received
 	 * @throws IOException
 	 *             IOException
