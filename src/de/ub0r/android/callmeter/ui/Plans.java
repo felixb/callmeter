@@ -808,7 +808,11 @@ public class Plans extends ListActivity implements OnClickListener,
 				final Cursor cursor) {
 			this.plansList.clear();
 			this.plansMap.clear();
+			if (cursor == null) {
+				Log.e(TAG, "reloadPlans(cr, null)");
+			}
 			if (!cursor.moveToFirst()) {
+				Log.e(TAG, "reloadPlans(cr, cursor(0))");
 				return;
 			}
 			do {
