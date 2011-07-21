@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,12 +16,12 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=ru&file=strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false">Последние изменения:</string>
+  <string name="changelog_notification_" formatted="false" username="" orig="Recent changes:">Последние изменения:</string>
   <string name="changelog_notification_text" formatted="false">Нажмите здесь, чтобы показать последние изменения</string>
   <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Примечания разработчика</string>
   <string name="about0_" formatted="false">Следи за своими бесплатными: минутами, SMS и трафиком!</string>
