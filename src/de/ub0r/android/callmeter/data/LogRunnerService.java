@@ -179,10 +179,12 @@ public final class LogRunnerService extends IntentService {
 						+ " = ?", new String[] { String.valueOf(type) },
 				DataProvider.Logs.DATE + " DESC");
 		long maxdate = deleteBefore;
-		if (cursor.moveToFirst()) {
-			maxdate = cursor.getLong(0);
+		if (cursor != null) {
+			if (cursor.moveToFirst()) {
+				maxdate = cursor.getLong(0);
+			}
+			cursor.close();
 		}
-		cursor.close();
 		if (maxdate > dateStart) {
 			return maxdate;
 		}
@@ -211,10 +213,12 @@ public final class LogRunnerService extends IntentService {
 								String.valueOf(direction) },
 						DataProvider.Logs.DATE + " DESC");
 		long maxdate = deleteBefore;
-		if (cursor.moveToFirst()) {
-			maxdate = cursor.getLong(0);
+		if (cursor != null) {
+			if (cursor.moveToFirst()) {
+				maxdate = cursor.getLong(0);
+			}
+			cursor.close();
 		}
-		cursor.close();
 		if (maxdate > dateStart) {
 			return maxdate;
 		}

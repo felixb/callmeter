@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: fix data stats</item>
+		<item>HEAD: fix data stats, fix some minor FCs</item>
 		<item>v3.0rc14: simple preferences for default rule set, reimport default rule set, exlucde numbers for default rule set, add support for a601 and htc thunderbolt, update translations, minor fixes</item>
 		<item>v3.0rc13: fix for samsung phones, translate default rule set</item>
 		<item>v3.0rc12: fix for samsung galaxy 2</item>
