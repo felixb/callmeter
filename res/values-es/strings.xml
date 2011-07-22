@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter NG. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,14 +16,14 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm2/edit.php?lang=es&file=strings.xml to edit the file.
        -->
 <resources>
   <string name="about0_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Watch your call, message and data plans!">¡Controla tus planes de llamadas, mensajes y datos!</string>
   <string name="about0" formatted="false">CallMeter genera informes de tus registros de llamadas, mensajes y datos. Permite muchos tipos de tarificación.</string>
-  <string name="about1" formatted="false">La presentación es: minutos usados en el ciclo de facturación/ minutos totales. El cómputo mensual de llamadas tiene en cuenta el modo de tarificación. Los totales no.</string>
+  <string name="about1" formatted="false" username="m.chicobmx@gmail.com" orig="The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not.">La presentación es: minutos usados en el ciclo de facturación/minutos totales. El cómputo mensual de llamadas tiene en cuenta el modo de tarificación. Los totales no.</string>
   <string name="about2" formatted="false">El modo de tarificación especifica la longitud del primer/siguientes unidades de facturación. Ej. 60/10 significa que en cada llamada se factura el primer minuto completo y el resto se redondea en periodos de 10 s.</string>
   <string name="about3" formatted="false">Puedes dividir tu plan de llamadas en dos horarios. Cada uno de ellos puede configurarse como gratuito limitado a cierto número de minutos o ilimitado.</string>
   <string name="about4" formatted="false">También puedes incluir los SMS en el plan de llamadas. Por ejemplo, haciendo que cada mensaje cuente como una llamada de 15s.</string>
@@ -40,7 +40,7 @@
   <string name="twitter_hint" formatted="false">Sígueme en twitter.\nRecibe notificaciones etc.</string>
   <string name="more_" formatted="false">Más aplicaciones..</string>
   <string name="billday_" formatted="false">Primer día de tu factura</string>
-  <string name="billmode_" formatted="false" orig="Mode of billing">Tipo de rarificación</string>
+  <string name="billmode_" formatted="false" orig="Mode of billing" username="m.chicobmx@gmail.com">Tipo de facturación</string>
   <string name="billmode_hint" formatted="false">Duración de la primera/restantes unidades de tarificación.</string>
   <string name="billdate_" formatted="false">Inicio de facturación:</string>
   <string name="smsperiod_" formatted="false">Mismo periodo para SMS</string>
