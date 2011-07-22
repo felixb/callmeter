@@ -21,6 +21,4 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=bg&file=market.xml to edit the file.
        -->
 <resources>
-  <string name="market_about" formatted="false" username="" orig="Call Meter lets you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and lets you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.">
-  </string>
 </resources>
