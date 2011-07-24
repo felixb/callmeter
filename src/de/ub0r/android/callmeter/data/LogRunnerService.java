@@ -174,6 +174,7 @@ public final class LogRunnerService extends IntentService {
 	 * @return maximum date found. -1 if nothing was found.
 	 */
 	private static long getMaxDate(final ContentResolver cr, final int type) {
+		Log.d(TAG, "getMaxDate(" + type + ")");
 		final Cursor cursor = cr.query(DataProvider.Logs.CONTENT_URI,
 				new String[] { DataProvider.Logs.DATE }, DataProvider.Logs.TYPE
 						+ " = ?", new String[] { String.valueOf(type) },
@@ -186,8 +187,10 @@ public final class LogRunnerService extends IntentService {
 			cursor.close();
 		}
 		if (maxdate > dateStart) {
+			Log.d(TAG, "getMaxDate(): " + maxdate);
 			return maxdate;
 		}
+		Log.d(TAG, "getMaxDate(): " + dateStart);
 		return dateStart;
 	}
 
@@ -204,6 +207,7 @@ public final class LogRunnerService extends IntentService {
 	 */
 	private static long getMaxDate(final ContentResolver cr, final int type,
 			final int direction) {
+		Log.d(TAG, "getMaxDate(" + type + "," + direction + ")");
 		final Cursor cursor = cr
 				.query(DataProvider.Logs.CONTENT_URI,
 						new String[] { DataProvider.Logs.DATE },
@@ -220,8 +224,10 @@ public final class LogRunnerService extends IntentService {
 			cursor.close();
 		}
 		if (maxdate > dateStart) {
+			Log.d(TAG, "getMaxDate(): " + maxdate);
 			return maxdate;
 		}
+		Log.d(TAG, "getMaxDate(): " + dateStart);
 		return dateStart;
 	}
 
@@ -271,6 +277,7 @@ public final class LogRunnerService extends IntentService {
 	 */
 	private static void updateData(final Context context,
 			final boolean forceUpdate) {
+		Log.d(TAG, "updateData(" + forceUpdate + ")");
 		boolean doUpdate = forceUpdate;
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(context);
@@ -358,6 +365,7 @@ public final class LogRunnerService extends IntentService {
 				Log.e(TAG, "I/O Error", e);
 			}
 		}
+		Log.d(TAG, "updateData(): done");
 	}
 
 	/**
@@ -367,6 +375,7 @@ public final class LogRunnerService extends IntentService {
 	 *            {@link ContentResolver}
 	 */
 	private static void updateCalls(final ContentResolver cr) {
+		Log.d(TAG, "updateCalls()");
 		final long maxdate = getMaxDate(cr, DataProvider.TYPE_CALL);
 		final String[] callsProjection = new String[] { Calls.TYPE,
 				Calls.DURATION, Calls.DATE, Calls.NUMBER };
@@ -374,8 +383,10 @@ public final class LogRunnerService extends IntentService {
 				Calls.DATE + " > ?", new String[] { String.valueOf(maxdate) },
 				Calls.DATE + " DESC");
 		if (cursor == null) {
+			Log.d(TAG, "updateCalls(): null");
 			return;
 		}
+		Log.d(TAG, "cursor: " + cursor.getCount());
 		if (cursor.moveToFirst()) {
 			final int idType = cursor.getColumnIndex(Calls.TYPE);
 			final int idDuration = cursor.getColumnIndex(Calls.DURATION);
@@ -425,6 +436,7 @@ public final class LogRunnerService extends IntentService {
 			}
 		}
 		cursor.close();
+		Log.d(TAG, "updateCalls(): done");
 	}
 
 	/**
@@ -437,6 +449,7 @@ public final class LogRunnerService extends IntentService {
 	 */
 	private static void updateSMS(final ContentResolver cr, // .
 			final int direction) {
+		Log.d(TAG, "updateSMS(cr," + direction + ")");
 		int type = Calls.OUTGOING_TYPE;
 		if (direction == DataProvider.DIRECTION_IN) {
 			type = Calls.INCOMING_TYPE;
@@ -450,8 +463,10 @@ public final class LogRunnerService extends IntentService {
 				String.valueOf(maxdate), String.valueOf(type) }, Calls.DATE
 				+ " DESC");
 		if (cursor == null) {
+			Log.d(TAG, "updateSMS(): null");
 			return;
 		}
+		Log.d(TAG, "cursor: " + cursor.getCount());
 		if (cursor.moveToFirst()) {
 			final int idDate = cursor.getColumnIndex(Calls.DATE);
 			final int idAddress = cursor.getColumnIndex("address");
@@ -505,6 +520,7 @@ public final class LogRunnerService extends IntentService {
 			}
 		}
 		cursor.close();
+		Log.d(TAG, "updateSMS(): done");
 	}
 
 	/**
@@ -514,6 +530,7 @@ public final class LogRunnerService extends IntentService {
 	 *            {@link Context}
 	 */
 	private static void updateMMS(final Context context) {
+		Log.d(TAG, "updateMMS()");
 		final ContentResolver cr = context.getContentResolver();
 		final long maxdate = getMaxDate(cr, DataProvider.TYPE_MMS);
 		final String[] mmsProjection = new String[] { Calls.DATE, MMS_TYPE,
@@ -521,6 +538,7 @@ public final class LogRunnerService extends IntentService {
 		Cursor cursor = cr.query(URI_MMS, mmsProjection, Calls.DATE + " > ?",
 				new String[] { String.valueOf(maxdate) }, Calls.DATE + " DESC");
 		if (cursor == null) {
+			Log.d(TAG, "updateMMS(): null");
 			return;
 		}
 		if (!cursor.moveToFirst()) {
@@ -529,8 +547,10 @@ public final class LogRunnerService extends IntentService {
 					+ (maxdate / CallMeter.MILLIS), null, Calls.DATE + " DESC");
 		}
 		if (cursor == null) {
+			Log.d(TAG, "updateMMS(): null");
 			return;
 		}
+		Log.d(TAG, "cursor: " + cursor.getCount());
 		if (cursor.moveToFirst()) {
 			final int idDate = cursor.getColumnIndex(Calls.DATE);
 			final int idType = cursor.getColumnIndex(MMS_TYPE);
@@ -601,6 +621,7 @@ public final class LogRunnerService extends IntentService {
 			}
 		}
 		cursor.close();
+		Log.d(TAG, "updateMMS(): done");
 	}
 
 	/**

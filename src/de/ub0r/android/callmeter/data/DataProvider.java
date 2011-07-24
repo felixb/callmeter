@@ -2466,6 +2466,7 @@ public final class DataProvider extends ContentProvider {
 	 */
 	@Override
 	public Uri insert(final Uri uri, final ContentValues values) {
+		Log.d(TAG, "insert(" + uri + "," + values + ")");
 		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
 		long ret = -1;
 		switch (URI_MATCHER.match(uri)) {
@@ -2522,10 +2523,13 @@ public final class DataProvider extends ContentProvider {
 			throw new IllegalArgumentException("Unknown Uri " + uri);
 		}
 		if (ret < 0) {
+			Log.d(TAG, "insert(): null");
 			return null;
 		} else {
 			this.getContext().getContentResolver().notifyChange(uri, null);
-			return ContentUris.withAppendedId(uri, ret);
+			final Uri u = ContentUris.withAppendedId(uri, ret);
+			Log.d(TAG, "insert(): " + u);
+			return u;
 		}
 	}
 
@@ -2545,10 +2549,13 @@ public final class DataProvider extends ContentProvider {
 	public Cursor query(final Uri uri, final String[] projection,
 			final String selection, final String[] selectionArgs,
 			final String sortOrder) {
+		Log.d(TAG, "query(" + uri + "," + selection + ")");
 		final SQLiteDatabase db = this.mOpenHelper.getReadableDatabase();
 		SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 		final int uid = URI_MATCHER.match(uri);
 		String groupBy = null;
+
+		Cursor c = null;
 
 		switch (uid) {
 		case LOGS_ID:
@@ -2559,10 +2566,12 @@ public final class DataProvider extends ContentProvider {
 			break;
 		case LOGS_SUM:
 			groupBy = DataProvider.Logs.PLAN_ID;
-			return db.query(Logs.TABLE + " INNER JOIN " + Plans.TABLE + " ON ("
+			c = db.query(Logs.TABLE + " INNER JOIN " + Plans.TABLE + " ON ("
 					+ Logs.TABLE + "." + Logs.PLAN_ID + " = " + Plans.TABLE
 					+ "." + Plans.ID + ")", projection, selection,
 					selectionArgs, groupBy, null, null);
+			Log.d(TAG, "query(): " + c.getCount());
+			return c;
 		case WEBSMS:
 			qb.setTables(WebSMS.TABLE);
 			qb.setProjectionMap(WebSMS.PROJECTION_MAP);
@@ -2652,6 +2661,7 @@ public final class DataProvider extends ContentProvider {
 			}
 			final MatrixCursor ret = new MatrixCursor(projection, 1);
 			ret.addRow(retArray);
+			Log.d(TAG, "query(): " + ret.getCount());
 			return ret;
 		default:
 			throw new IllegalArgumentException("Unknown Uri " + uri);
@@ -2666,12 +2676,13 @@ public final class DataProvider extends ContentProvider {
 		}
 
 		// Run the query
-		final Cursor c = qb.query(db, projection, selection, selectionArgs,
-				groupBy, null, orderBy);
+		c = qb.query(db, projection, selection, selectionArgs, groupBy, null,
+				orderBy);
 
 		// Tell the cursor what uri to watch, so it knows when its source data
 		// changes
 		c.setNotificationUri(this.getContext().getContentResolver(), uri);
+		Log.d(TAG, "query(): " + c.getCount());
 		return c;
 	}
 
@@ -2746,7 +2757,7 @@ public final class DataProvider extends ContentProvider {
 		if (ret > 0) {
 			this.getContext().getContentResolver().notifyChange(uri, null);
 		}
-		Log.d(TAG, "updated: " + ret);
+		Log.d(TAG, "update(): " + ret);
 		return ret;
 	}
 
