@@ -96,9 +96,9 @@
   <string name="hide_nocost_hint" formatted="false">Azok tarifák elrejtése, amelyek díjmentesek.</string>
   <string name="hide_progressbars_" formatted="false">Folyamatjelzők elrejtése</string>
   <string name="hide_progressbars_hint" formatted="false">A fő nézetben elrejti a folyamatjelző csíkokat.</string>
-  <string name="custom_currency_symbol_" formatted="false">Saját valuta jele</string>
+  <string name="custom_currency_symbol_" formatted="false" username="" orig="Custom currency symbol">Saját valuta jele</string>
   <string name="custom_currency_symbol_hint" formatted="false">Itt adhatsz meg számlázási pénznemet, hagyd üresen az alapértelmezés használatához.</string>
-  <string name="custom_currency_format_" formatted="false">Pénznem formátuma</string>
+  <string name="custom_currency_format_" formatted="false" username="" orig="Custom currency format">Pénznem formátuma</string>
   <string name="custom_currency_format_hint" formatted="false">Itt adhatod meg, hogy a pénznem milyen formátumban jelenjen meg.</string>
   <string name="custom_date_format_" formatted="false">Dátumformátum</string>
   <string name="custom_date_format_hint" formatted="false">Itt választhatsz dátumformátumot.</string>
