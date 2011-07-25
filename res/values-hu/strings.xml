@@ -96,9 +96,9 @@
   <string name="hide_nocost_hint" formatted="false">Azok tarifák elrejtése, amelyek díjmentesek.</string>
   <string name="hide_progressbars_" formatted="false">Folyamatjelzők elrejtése</string>
   <string name="hide_progressbars_hint" formatted="false">A fő nézetben elrejti a folyamatjelző csíkokat.</string>
-  <string name="custom_currency_symbol_" formatted="false">Saját valuta jele</string>
+  <string name="custom_currency_symbol_" formatted="false" username="" orig="Custom currency symbol">Saját valuta jele</string>
   <string name="custom_currency_symbol_hint" formatted="false">Itt adhatsz meg számlázási pénznemet, hagyd üresen az alapértelmezés használatához.</string>
-  <string name="custom_currency_format_" formatted="false">Pénznem formátuma</string>
+  <string name="custom_currency_format_" formatted="false" username="" orig="Custom currency format">Pénznem formátuma</string>
   <string name="custom_currency_format_hint" formatted="false">Itt adhatod meg, hogy a pénznem milyen formátumban jelenjen meg.</string>
   <string name="custom_date_format_" formatted="false">Dátumformátum</string>
   <string name="custom_date_format_hint" formatted="false">Itt választhatsz dátumformátumot.</string>
@@ -438,4 +438,14 @@
   <string name="sms_out" formatted="false" username="" orig="SMS Out">Kimenő SMS</string>
   <string name="sms_out_" formatted="false" username="" orig="SMSOut">Kimenő SMS</string>
   <string name="data_" formatted="false" username="" orig="Data (2G/3G/4G)">Adat (2G/3G/4G)</string>
+  <string name="mms_in" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="MMS In">Bejövő MMS</string>
+  <string name="mms_in_" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="MMSIn">Bejövő MMS</string>
+  <string name="mms_out" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="MMS Out">Kimenő MMS</string>
+  <string name="mms_out_" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="MMSOut">Kimenő MMS</string>
+  <string name="data_inout" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Data In/Out">Bejövő/Kimenő adatforgalom</string>
+  <string name="data_inout_" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="DataInOut">Bejövő/Kimenő adatforgalom</string>
+  <string name="import_rules_default_" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Import default rule set">Alapértelmezett szabályok importálása</string>
+  <string name="import_rules_default_hint" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Import default rule set shipped with the app.">Gyári alapértelmezett szabályok importálása</string>
+  <string name="send_devices_hint" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Készülékek listájának elküldése a fejlesztőnek. Ez csak akkor szükséges ha az adatforgalmi statisztikák üresek.</string>
+  <string name="send_devices_" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Send devices">Készülékek elküldése</string>
 </resources>

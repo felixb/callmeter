@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter NG. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,13 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=hu&file=market.xml to edit the file.
        -->
 <resources>
+  <string name="market_about" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Call Meter lets you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and lets you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.">A Call Meter lehetővé teszi, hogy nyomon kövesse mobil költségeit.\n\nMegnézheti a hívások, SMS-ek, MMS-ek és az adatforgalmazás statisztikáit és lehetővé teszi limitek beállítását ezekhez.\nA Call Meter többféle számlázási módot támogat, így könnyedén hozzáigazítható mobilszolgáltatójának díjcsomagjaihoz.</string>
+  <string name="market_oss" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="This app is open source software build in spare time. Adding bad comments in market won\'t help much to make it better.\nPlease add your issues with this app on the app\'s website.">Ez a program egy nyílt forrású szoftver, amelyet a szabadidőmben fejlesztek. A market-re írt kritikus megjegyzések nem segítik a program fejlődését. Kérem hogy az észlelt hibákat a program honlapján jelezze.</string>
+  <string name="market_cm2" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="This is a complete rebuild of Call Meter NG. It has a huge amount of new features like widgets and alerts.\nIt\'s new architecure allows more complex plans.\nFeel free to test it and help me make it more userfriendly as it is currently. ;)">Ez a program a Call Meter NG teljesen újraírt változata. Rengeteg új képességgel rendelkezik, mint például a widget-ek és a riasztások.\nÚj felépítése még összetettebb tarifacsomagokat enged meg.\nTesztelje és segítsen nekem még felhasználóbarátabbá tenni ;)</string>
+  <string name="market_translation" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Feel free to help translating this app to your language here: http://ub0r.de/translate/cm3/">Segítsen lefordítani ezt a programot a saját nyelvére ezen az oldalon: http://ub0r.de/translate/cm3/</string>
 </resources>
