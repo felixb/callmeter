@@ -24,7 +24,7 @@
   <string name="changelog_notification_" formatted="false" username="" orig="Recent changes:">Последние изменения:</string>
   <string name="changelog_notification_text" formatted="false">Нажмите здесь, чтобы показать последние изменения</string>
   <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Примечания разработчика</string>
-  <string name="about0_" formatted="false">Следи за своими бесплатными: минутами, SMS и трафиком!</string>
+  <string name="about0_" formatted="false" username="" orig="Watch your call, message and data plans!">Следи за своими бесплатными: минутами, SMS и трафиком!</string>
   <string name="about0" formatted="false">CallMeter создает из данныx о звонкаx, SMS и трафикa отчёт. Поддерживаются разные меторы отчёта.</string>
   <string name="about1" formatted="false">Форма отчёта: Пользование / Время или Колличество в месяц / Время или просто Колличество (Минуты/SMS/Трафик).</string>
   <string name="about2" formatted="false">Отчёт звонков ведется так: длинна первой минуты/ последующая. К примеру: 60/10 - полный отсчет первой минуты (60 сек.)/последующая с 10-ти секундной частотой.</string>
