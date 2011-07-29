@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,12 +16,12 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=pl&file=strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false">Ostatnie zmiany:</string>
+  <string name="changelog_notification_" formatted="false" username="betqs" orig="Recent changes:">Ostatnie zmiany:</string>
   <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Kliknij tutaj, aby wyświetlić ostatnie zmiany</string>
   <string name="never_show_again" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Never show changelog again">Nie pokazuj więcej dziennika zmian</string>
   <string name="notes_from_developer_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Notes from developer">Informacje od autora programu</string>
