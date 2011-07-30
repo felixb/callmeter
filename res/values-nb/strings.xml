@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,7 +16,7 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=nb&file=strings.xml to edit the file.
        -->
@@ -268,20 +268,20 @@
     <item>enheter</item>
     <item>kostnad</item>
   </string-array>
-  <string-array name="billperiod">
+  <string-array name="billperiod" username="">
     <item>En dag</item>
     <item>En uke</item>
     <item>30 dager</item>
     <item>60 dager</item>
     <item>90 dager</item>
-    <item>One month</item>
-    <item>Two month</item>
-    <item>Three month</item>
-    <item>Four month</item>
+    <item>en måned</item>
+    <item>To måneder</item>
+    <item>Tre måneder</item>
+    <item>Fire måneder</item>
     <item>Fem måneder</item>
-    <item>Six month</item>
+    <item>Seks måneder</item>
     <item>Ett år</item>
-    <item>Infinite</item>
+    <item>Uendelig</item>
   </string-array>
   <string-array name="billmodes">
     <item>1/1</item>
@@ -302,4 +302,123 @@
     <item>60/60</item>
     <item>Egendefinert</item>
   </string-array>
+  <string name="simple_preferences_hint" formatted="false" username="" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Enkle instillinger, passende for de flester brukere. Kun tilgjenglig med standard regel sett</string>
+  <string name="simple_preferences_" formatted="false" username="" orig="Simple preferences">Enkle instillinger</string>
+  <string name="ask_for_plan_hint" formatted="false" username="" orig="Ask for plan for unmatched calls after hanging up.">Spørr etter plan for samtaler som ikke passer inn i planen etter at du legger på.</string>
+  <string name="remote_" formatted="false" username="" orig="Remote number">Mottager nummer</string>
+  <string name="numbergroup_excalls" formatted="false" username="" orig="Exclude from calls">Utelukke fra anrop</string>
+  <string name="numbergroup_exsms" formatted="false" username="" orig="Exclude from SMS">Utelukke fra SMS</string>
+  <string name="limit_type_help" formatted="false" username="" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;cost\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Sett type av begrensning her.\nEn "enhets" begrensning vil begrense basert på minutter, meldinger, ...\nEn "kost" begrensning vil begrense bassert på kostnad fra fakturerbare element i denne planen. </string>
+  <string name="limit_help" formatted="false" username="" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">Sett begrensningene i planen din her.\n\nType "enheter" må spesifiseres i minutter (for anrop), meldinger (sms/mms), megabytes ( data, 1024kb) eller enheter (blanding).\n\nType "kost" må settes i hoved valutaen din (f. eks. NOK).\n</string>
+  <string name="billday_help" formatted="false" username="" orig="Set this to the first day of the bill of the current billing period.">Sett denne til den første dagen for fakturaen for nåværende fakturerings perioden.</string>
+  <string name="billperiodid_" formatted="false" username="" orig="Billing period">Fakturerings periode</string>
+  <string name="billperiodid_help" formatted="false" username="" orig="Select your billing period.\nYou may need to create one as extra plan.">Velg din fakturerings periode.\nDu må kansje lage en som en ekstra plan.</string>
+  <string name="billperiod_" formatted="false" username="" orig="Length of the billing period">Lengden av faktura perioden</string>
+  <string name="billperiod_help" formatted="false" username="" orig="Set the length of your billing period.">Sett lengden av faktura perioden</string>
+  <string name="cost_per_item_" formatted="false" username="" orig="Cost per item">Kost per artikkel</string>
+  <string name="cost_per_item_help" formatted="false" username="" orig="Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.">Sett kost taksert for et enkelt logg innslag (f. eks. en samtale eller en melding) etter at begrensningen er overskredet.</string>
+  <string name="cost_per_item_in_limit_" formatted="false" username="" orig="Cost per item in limit">Kost per artikkel innenfor begrensningen</string>
+  <string name="cost_per_item_in_limit_help" formatted="false" username="" orig="Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.">Sett kost taksert for et enkelt logg innslag (f. eks. en samtale eller en melding) før begrensningen er overskredet.</string>
+  <string name="cost_per_amount_" formatted="false" username="" orig="Cost per length">Kost per innehold </string>
+  <string name="cost_per_amount_help1" formatted="false" username="" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Sett prisen som blir taksert per enhet for et enkelt logg innslag (f. eks. for 1 MB data) etter at begrensningen er overskredet.</string>
+  <string-array name="update_interval" username="">
+    <item>5 minutter</item>
+    <item>10 minutter</item>
+    <item>15 minutter</item>
+    <item>30 minutter</item>
+    <item>en time</item>
+    <item>to timer</item>
+    <item>Manuelt</item>
+  </string-array>
+  <string-array name="date_formats" username="">
+    <item>Standard</item>
+    <item>MM/DD/ÅÅ</item>
+    <item>DD/MM/ÅÅÅÅ</item>
+    <item>DD.MM.ÅÅÅÅ</item>
+  </string-array>
+  <string-array name="currency_formats" username="">
+    <item>Standard</item>
+    <item>kr 1.00</item>
+    <item>kr 1000</item>
+    <item>1.00 kr</item>
+    <item>1000 kr</item>
+  </string-array>
+  <string-array name="direction_data" username="">
+    <item>inn</item>
+    <item>ut</item>
+  </string-array>
+  <string-array name="direction_mms" username="">
+    <item>Mottatt</item>
+    <item>Sendt</item>
+  </string-array>
+  <string-array name="direction_calls" username="">
+    <item>Mottatt</item>
+    <item>Ringt</item>
+  </string-array>
+  <string-array name="direction_sms" username="">
+    <item>Mottatt</item>
+    <item>Sendt</item>
+  </string-array>
+  <string name="send_devices_hint" formatted="false" username="" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Send liste av enheter til utvikleren. Dette er kun nødvendig om data statestikken din viser null.</string>
+  <string name="send_devices_" formatted="false" username="" orig="Send devices">Send enheter</string>
+  <string name="widget_backgroud_transparency_" formatted="false" username="" orig="Background transparency">Bakgrunns gjennomsiktighet</string>
+  <string name="merge_plans_" formatted="false" username="" orig="Merge plans">Slå sammen planer</string>
+  <string name="merge_plans_help" formatted="false" username="" orig="Merge other plans into this one and bill them here (too).">Slå andre planer sammen med denne og takser dei her.</string>
+  <string name="units_cost" formatted="false" username="" orig="$">kr</string>
+  <string name="units_num_msg" formatted="false" username="" orig="# Messages">antal meldinger</string>
+  <string name="units_minutes" formatted="false" username="" orig="Minutes">Minutter</string>
+  <string name="units_units_per_minute" formatted="false" username="" orig="Units/Minute">Enheter/minutt</string>
+  <string name="units_units" formatted="false" username="" orig="Units">Enheter</string>
+  <string name="units_units_per_message" formatted="false" username="" orig="Units/Message">Enheter/Melding</string>
+  <string name="units_cost_per_call" formatted="false" username="" orig="$/Call">kr/Samtale</string>
+  <string name="units_cost_per_minute" formatted="false" username="" orig="$/Minute">kr/Minutt</string>
+  <string name="units_cost_per_message" formatted="false" username="" orig="$/Message">kr/Melding</string>
+  <string name="units_cost_per_mbyte" formatted="false" username="" orig="$/MByte">kr/MB</string>
+  <string name="units_cost_per_unit" formatted="false" username="" orig="$/Unit">kr/enhet</string>
+  <string name="plan_help" formatted="false" username="" orig="Choose the plan this rule should fit.">Velg planen som denne regelen skal passe til.</string>
+  <string name="limitnotreached_" formatted="false" username="" orig="Limit not reached">Grense ikke nådd</string>
+  <string name="iswebsms_help" formatted="false" username="" orig="Message sent with WebSMS.">Melding sendt med WebSMS</string>
+  <string name="strip_seconds_" formatted="false" username="" orig="Do not bill first seconds">Ikke takser første sekund</string>
+  <string name="strip_seconds_help" formatted="false" username="" orig="Do not bill first x seconds of a call.">Ikke takser første x sekunder av samtalen</string>
+  <string name="direction_" formatted="false" username="" orig="Direction">Retning</string>
+  <string name="direction_help" formatted="false" username="" orig="Choose a direction the given log has to be.">Velg en retning som den valgte log skal vere.</string>
+  <string name="yes" formatted="false" username="" orig="Yes">Ja</string>
+  <string name="no" formatted="false" username="" orig="No">Nei</string>
+  <string name="none" formatted="false" username="" orig="None">ingen</string>
+  <string name="value" formatted="false" username="" orig="Value">Verdi</string>
+  <string name="empty_groups_" formatted="false" username="" orig="Please press &quot;Add&quot; to add a group.">vennligst trykk "Legg til" for å legge til en gruppe.</string>
+  <string name="empty_group_" formatted="false" username="" orig="Please press &quot;Add&quot; to add an item to this group.">Vennligst trykk "Legg til" for å legge til et element i denne gruppen.</string>
+  <string name="export_progr" formatted="false" username="" orig="Exporting data ...">Eksporterer data ...</string>
+  <string name="export_" formatted="false" username="" orig="Export ...">Eksporterer ...</string>
+  <string name="export_hint" formatted="false" username="" orig="Export rule sets, logs or groups">Eksporterer regler, logger eller grupper</string>
+  <string name="export_rules_" formatted="false" username="" orig="Export rule set">Eksporterere regeler</string>
+  <string name="export_rules_hint" formatted="false" username="" orig="Export rule set as mail.">Eksporterer regler som mail. </string>
+  <string name="export_rules_descr" formatted="false" username="" orig="Description">Beskrivelse</string>
+  <string name="export_logs_" formatted="false" username="" orig="Backup logs">Sikkerhetskopierer logger</string>
+  <string name="export_logs_hint" formatted="false" username="" orig="Backup logs as mail.">Sikkerhetskopierer logger som mail.</string>
+  <string name="export_numgroups_" formatted="false" username="" orig="Export number groups">Eksporterere nummer grupper</string>
+  <string name="export_numgroups_hint" formatted="false" username="" orig="Export number groups as mail.">Eksporterere nummer grupper som mail.</string>
+  <string name="export_hourgroups_" formatted="false" username="" orig="Export hour groups">Eksporterer time grupper</string>
+  <string name="export_hourgroups_hint" formatted="false" username="" orig="Export hour groups as mail.">Eksporterer time grupper som mail.</string>
+  <string name="import_rules_" formatted="false" username="" orig="Import rule set">Importerer regler</string>
+  <string name="import_rules_hint" formatted="false" username="" orig="Import preconfigured rule set.">Importerer forhåndsdefinerte regler.</string>
+  <string name="import_rules_default_" formatted="false" username="" orig="Import default rule set">Importerer standard regeler</string>
+  <string name="import_rules_default_hint" formatted="false" username="" orig="Import default rule set shipped with the app.">Importerer standard regler som følgte med denne appen.</string>
+  <string name="err_export_write" formatted="false" username="" orig="Error writing export file">Feil ved skriving av eksport fil</string>
+  <string name="import_rules_empty" formatted="false" username="" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Ingen plan/regler. Klikk denne teksten for å importere standard regler.\n\nEller legg til planer og regler i instillinger manuelt.</string>
+  <string name="err_export_read" formatted="false" username="" orig="Error reading export file">Feil ved lesing av eksport fil</string>
+  <string name="alerts_" formatted="false" username="" orig="Alerts">Varsel</string>
+  <string name="alerts_hint" formatted="false" username="" orig="Set alerts based on plan usage.">Sett Varsel bassert på bruk</string>
+  <string name="alerts_title" formatted="false" username="" orig="Call Meter 3G alert">Call Meter 3G varsel</string>
+  <string name="alerts_80_" formatted="false" username="" orig="Notify at 80%">Informer ved 80%</string>
+  <string name="alerts_80_hint" formatted="false" username="" orig="Notify if a plan passes 80% of it\'s limit.">Informer om en plan ovregår 80% av sin grense</string>
+  <string name="alerts_100_" formatted="false" username="" orig="Notify at 100%">Informer ved 100%</string>
+  <string name="alerts_100_hint" formatted="false" username="" orig="Notify if a plan passes 100% of it\'s limit.">Informer om en plan ovregår 100% av sin grense</string>
+  <string name="widget_config_" formatted="false" username="" orig="Widget config">Widget konfigurering</string>
+  <string name="widget_plan_textsize" formatted="false" username="" orig="Plan Text Size">Plan tekst størrelse</string>
+  <string name="widget_cost_textsize" formatted="false" username="" orig="Cost Text Size">kostnads tekst størrelse</string>
+  <string name="widget_text_color_" formatted="false" username="" orig="Text color">Tekst farge</string>
+  <string name="widget_backgroud_color_" formatted="false" username="" orig="Background color">Bakgrunns farge</string>
+  <string name="no_matter_" formatted="false" username="" orig="Does not matter">Det har ingen betydning</string>
+  <string name="remote_hint" formatted="false" username="" orig="Remote number">Ringte nummer</string>
 </resources>
