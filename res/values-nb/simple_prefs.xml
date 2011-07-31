@@ -25,4 +25,19 @@
   <string name="freemin_" formatted="false" username="" orig="Free minutes">Inkluderte minutter</string>
   <string name="freemin_hint" formatted="false" username="" orig="Free minutes / month">Inkluderte minutter / måned</string>
   <string name="cost_per_call_" formatted="false" username="" orig="Cost / call">pris / samtale</string>
+  <string name="cost_per_call_hint" formatted="false" username="" orig="Each call get\'s billed.">Hver samtale blir fakturert.</string>
+  <string name="cost_per_min_" formatted="false" username="" orig="Cost / minute">Pris / minutt</string>
+  <string name="cost_per_min_hint" formatted="false" username="" orig="Each minute get\'s billed.">Hvert minutt bilr fakturert</string>
+  <string name="freesms_" formatted="false" username="" orig="Free SMS">Inkluderte SMS</string>
+  <string name="freesms_hint" formatted="false" username="" orig="Free SMS / month">Inkluderte SMS / måned</string>
+  <string name="cost_per_sms_" formatted="false" username="" orig="Cost / SMS">Pris / SMS</string>
+  <string name="cost_per_sms_hint" formatted="false" username="" orig="Each SMS get\'s billed.">Hver SMS blir fakturert</string>
+  <string name="freemms_" formatted="false" username="" orig="Free MMS">Inkluderte MMS</string>
+  <string name="freemms_hint" formatted="false" username="" orig="Free MMS / month">Inkluderte MMS / måned</string>
+  <string name="cost_per_mms_" formatted="false" username="" orig="Cost / MMS">Pris / MMS</string>
+  <string name="cost_per_mms_hint" formatted="false" username="" orig="Each MMS get\'s billed.">Hver MMS blir fakturert</string>
+  <string name="freedata_" formatted="false" username="" orig="Free traffic">Inkludert datatrafikk</string>
+  <string name="freedata_hint" formatted="false" username="" orig="Free 2G, 3G or 4G data traffic / month">Inkludert 2G, 3G eller 4G data trafikk / måned</string>
+  <string name="cost_per_mb_" formatted="false" username="" orig="Cost / MB">Pris / MB</string>
+  <string name="cost_per_mb_hint" formatted="false" username="" orig="Each MB get\'s billed.">Hver MB blir fakturert</string>
 </resources>
