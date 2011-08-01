@@ -21,6 +21,4 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=fr&file=market.xml to edit the file.
        -->
 <resources>
-  <string name="market_cm2" formatted="false" username="" orig="This is a complete rebuild of Call Meter NG. It has a huge amount of new features like widgets and alerts.\nIt\'s new architecure allows more complex plans.\nFeel free to test it and help me make it more userfriendly as it is currently. ;)">
-  </string>
 </resources>
