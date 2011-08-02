@@ -46,13 +46,13 @@
   <string name="smsperiod_" formatted="false">Mesmo período para SMS</string>
   <string name="smsperiod_hint" formatted="false">Iguala o período de cobrança dos SMS com o período das ligações.</string>
   <string name="smsbillday_" formatted="false">Primeiro dia da conta SMS</string>
-  <string name="dataperiod_" formatted="false">Igual período de Dados</string>
+  <string name="dataperiod_" formatted="false" username="" orig="Same Period for data">Igual período de Dados</string>
   <string name="dataperiod_hint" formatted="false">Iguala o período de cobrança dos Dados com o período das ligações.</string>
-  <string name="databillday_" formatted="false">Primeiro dia da conta Dados</string>
+  <string name="databillday_" formatted="false" username="" orig="First day of your data bill">Primeiro dia da conta Dados</string>
   <string name="appearance_" formatted="false">Aparência</string>
-  <string name="theme_" formatted="false">Fundo de Tela</string>
+  <string name="theme_" formatted="false" username="" orig="Theme">Fundo de Tela</string>
   <string name="textsize_" formatted="false">Tamanho do texto</string>
-  <string name="advanced_" formatted="false">Avançado</string>
+  <string name="advanced_" formatted="false" username="" orig="Advanced">Avançado</string>
   <string name="exclude_people_" formatted="false">Números não tarifados</string>
   <string name="exclude_people_hint" formatted="false">Números gratuitos,\ncuringas são aceitos: *555, 555* ou *555*</string>
   <string name="exclude_people_add" formatted="false">Toque para adicionar um número</string>
