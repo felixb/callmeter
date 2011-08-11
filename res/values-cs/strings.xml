@@ -211,7 +211,7 @@
   <string name="export_hourgroups_" formatted="false">Exportovat skupiny hodin</string>
   <string name="export_hourgroups_hint" formatted="false">Export hour groups as mail.</string>
   <string name="import_rules_" formatted="false">Importovat sadu pravidel</string>
-  <string name="import_rules_hint" formatted="false">Import pravidel.</string>
+  <string name="import_rules_hint" formatted="false" username="" orig="Import preconfigured rule set.">Import přednastavené sady pravidel.</string>
   <string name="err_export_write" formatted="false">Chyba při zápisu exportovaného souboru</string>
   <string name="err_export_read" formatted="false">Chyba při čtení exportovaného souboru</string>
   <string name="alerts_" formatted="false">Výstrahy</string>
@@ -376,4 +376,33 @@
   <string name="numbergroup_excalls" formatted="false" username="" orig="Exclude from calls">Nezahrnovat do hovorů</string>
   <string name="numbergroup_exsms" formatted="false" username="" orig="Exclude from SMS">Nezahrnovat do SMS zpráv</string>
   <string name="billperiod_sn" formatted="false" username="" orig="BillPeriod">Účtovací období</string>
+  <string name="export_rules_hint" formatted="false" username="" orig="Export rule set as mail.">Exportovat sadu pravidel v e-mailu</string>
+  <string name="export_logs_" formatted="false" username="" orig="Backup logs">Záloha logů</string>
+  <string name="export_hint" formatted="false" username="" orig="Export rule sets, logs or groups">Exportovat sadu pravidel, logů a skupin čísel</string>
+  <string name="no_matter_" formatted="false" username="" orig="Does not matter">Nezáleží</string>
+  <string name="none" formatted="false" username="" orig="None">Žádný</string>
+  <string name="plan_help" formatted="false" username="" orig="Choose the plan this rule should fit.">Vyberte tarif, na který má být aplikováno toto pravidlo</string>
+  <string name="cost_per_amount_help1" formatted="false" username="" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Nastavte cenu za jednotku (např. za 1kB dat) poté, co je překročen limit</string>
+  <string name="cost_per_amount_" formatted="false" username="" orig="Cost per length">Cena za jednotku</string>
+  <string name="cost_per_item_in_limit_help" formatted="false" username="" orig="Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.">Nastavte cenu za jednotku (např. za hovor či zprávu) před tím, než je dosažen limit</string>
+  <string name="cost_per_item_in_limit_" formatted="false" username="" orig="Cost per item in limit">Cena za jednotku v rámci limitu</string>
+  <string name="cost_per_item_help" formatted="false" username="" orig="Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.">Nastavte cenu za jednotku (např. za hovor či zprávu) poté, co je překročen limit</string>
+  <string name="billperiodid_help" formatted="false" username="" orig="Select your billing period.\nYou may need to create one as extra plan.">Vyberte vaše zúčtovací období.\nMožná ho budete muset vytvořit jako nový tarif.</string>
+  <string name="shortname_help" formatted="false" username="" orig="Set a short name here. It is displayed in compact layouts.">Zadejte krátké jméno. Bude zobrazeno v kompaktním rozvržení</string>
+  <string name="messages" formatted="false" username="" orig="Messages">Zprávy</string>
+  <string name="calls_out_" formatted="false" username="" orig="CallsOut">Odchozí hovory</string>
+  <string name="calls_out" formatted="false" username="" orig="Calls Out">Odchozí hovory</string>
+  <string name="calls_in_" formatted="false" username="" orig="CallsIn">Příchozí hovory</string>
+  <string name="calls_in" formatted="false" username="" orig="Calls In">Příchozí hovory</string>
+  <string name="exnumbergroup_help" formatted="false" username="" orig="Add some numbers this rule must not match.\nSee above.">Přidejte čísla, která nesmí vyhovovat tomuto pravidlu</string>
+  <string name="numbergroup_help" formatted="false" username="" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Přidejte čísla, která musí vyhovovat tomuto pravidlu.\n\nZnak "%" můžete použít na obou koncích zadávaného čísla.\nNapř. %34 zastoupí 1234, 12% zastoupí 1234 a %23% zastoupí 12345</string>
+  <string name="hourgroups_edit_hint" formatted="false" username="" orig="Edit hour groups here.">Upravte zde skupiny hodin</string>
+  <string name="split_sms_at_160_" formatted="false" username="" orig="Split text messages at 160 chars">Rozdělit zprávy po 160 znacích</string>
+  <string name="split_sms_at_160_hint" formatted="false" username="" orig="Disable to use android\'s system method.">Znemožnit použití systémové metody Androidu</string>
+  <string name="custom_delimiter_hint" formatted="false" username="" orig="Set a custom delimiter separating the blocks of statistics.">Zadejte vlastní znak pro oddělení jednotlivých částí statistik</string>
+  <string name="ask_for_plan_hint" formatted="false" username="" orig="Ask for plan for unmatched calls after hanging up.">Po zavěšení se zeptat na tarif u nezařazených hovorů</string>
+  <string name="import_rules_default_" formatted="false" username="" orig="Import default rule set">Import základní sady pravidel</string>
+  <string name="widget_text_color_" formatted="false" username="" orig="Text color">Barva textu</string>
+  <string name="widget_backgroud_color_" formatted="false" username="" orig="Background color">Barva pozadí</string>
+  <string name="widget_backgroud_transparency_" formatted="false" username="" orig="Background transparency">Průhlednost pozadí</string>
 </resources>
