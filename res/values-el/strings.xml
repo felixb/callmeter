@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter NG. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,7 +16,7 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm2/edit.php?lang=el&file=strings.xml to edit the file.
        -->
@@ -125,4 +125,8 @@
     <item>Μικρό</item>
     <item>Μεσαίο</item>
   </string-array>
+  <string name="faq_hint" formatted="false" username="" orig="Some tips and tricks, how to set up this app.">μερικές συμβουλές και κόλπα, πως να ρυθμίζεται αυτή η εφαρμογή</string>
+  <string name="feedback_" formatted="false" username="" orig="Feedback">ανατροφοδότηση</string>
+  <string name="twitter_hint" formatted="false" username="" orig="Follow me on twitter.\nGet update notifications etc.">Ακολουθείστε με στο twitter.\nΛηψη ειδοποιήσεων για ενημερώσεις</string>
+  <string name="reset_data_data_" formatted="false" username="" orig="Reset traffic too.">Επίσης, μηδενισμός της κίνησης.</string>
 </resources>
