@@ -147,7 +147,7 @@
   <string name="exhourgroup_help" formatted="false">Añade horas que no se ajusten a esta regla..</string>
   <string name="new_hourgroup" formatted="false">Nuevo grupo de horas</string>
   <string name="add_hour" formatted="false">Añadir hora</string>
-  <string name="empty_group" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Grupos vacíos no calzan con nada. Por favor regrese y agregue al menos un ítem.</string>
+  <string name="empty_group" formatted="false" username="" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Grupos vacíos no calzan con nada. Por favor regrese y agregue al menos un elemento.</string>
   <string name="billperiod_sn" formatted="false" orig="BillPeriod">Periodo de facturación</string>
   <string name="calls" formatted="false">Llamadas</string>
   <string name="calls_in" formatted="false" orig="Calls In">Llamadas entrantes</string>
