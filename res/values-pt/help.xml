@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,11 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=pt&file=help.xml to edit the file.
        -->
 <resources>
+  <string name="help_title_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">Leia abaixo para entender o conceito de <b>relatórios</b>, <b>planos</b> e <b>regras</b>:</string>
+  <string name="help_import_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="A good starting point are some preconfigured rule sets available on the website. Just import them via import menu and play around.">Um bom começo é usar as regras pré-configuradas disponível em nosso website.\nApenas importe as regras pelo menu e comece a utilizar.</string>
 </resources>
