@@ -428,4 +428,5 @@
     <item>Dos horas</item>
     <item>Sólo manual</item>
   </string-array>
+  <string name="messages" formatted="false" username="" orig="Messages">Mensajes</string>
 </resources>
