@@ -114,9 +114,9 @@
   <string name="set_selected_as_default_" formatted="false" orig="Set selected plan as default">Selecione um plano como padrão</string>
   <string name="autohide_in_" formatted="false" orig="Auto hide dialog in: %ds">Auto ocultar o diálogo em: %ds</string>
   <string name="logs" formatted="false" orig="Logs">Relatórios</string>
-  <string name="show_logs" formatted="false">Mostrar logs</string>
+  <string name="show_logs" formatted="false" username="" orig="Show logs">Mostrar relatórios</string>
   <string name="plans" formatted="false">Planos</string>
-  <string name="plans_hint" formatted="false" orig="Set your plans for all kind of billing here.">Defina seus planos para todos os tipos de cobrança aqui.</string>
+  <string name="plans_hint" formatted="false" orig="Set your plans for all kind of billing here." username="">Defina seus planos para todos os tipos de cobrança aqui.</string>
   <string name="plans_new" formatted="false">Novo plano</string>
   <string name="rule_" formatted="false">Regra</string>
   <string name="rules" formatted="false">Regras</string>
@@ -181,19 +181,19 @@
   <string name="billmode_help" formatted="false">Defina o modo de cobrança de suas chamadas.\nA primeira parte é o tempo mínimo cobrado. Cada ligação por menor que seja será cobrada por este tempo.\nA segunda parte são os tempos cobrados após o tempo mínimo.\nLeia no FAQ para maior ajuda.</string>
   <string name="billday_help" formatted="false" orig="Set this to the first day of the bill of the current billing period.">Defina o primeiro dia de cobrança de sua conta.</string>
   <string name="billperiodid_" formatted="false">Período de cobrança</string>
-  <string name="billperiodid_help" formatted="false" orig="Select your billing period.\nYou may need to create one as extra plan.">Selecione o seu período de cobrança (Defina como um plano extra).</string>
+  <string name="billperiodid_help" formatted="false" orig="Select your billing period.\nYou may need to create one as extra plan." username="">Selecione o seu período de cobrança.\nVocê pode precisar criar um plano como extra.</string>
   <string name="billperiod_" formatted="false">Comprimento do período de cobrança</string>
-  <string name="billperiod_help" formatted="false">Defina o comprimento do período de cobrança.</string>
+  <string name="billperiod_help" formatted="false" username="" orig="Set the length of your billing period.">Defina o tamanho do período de cobrança.</string>
   <string name="cost_per_item_" formatted="false">Custo por item</string>
   <string name="cost_per_item_help" formatted="false">Defina o custo cobrado para um único item (ex. uma chamada ou uma mensagem), depois que seu limite for ultrapassado.</string>
   <string name="cost_per_item_in_limit_" formatted="false">Custo por item dentro do limite</string>
   <string name="cost_per_item_in_limit_help" formatted="false">Defina o custo cobrado por um único item (ex. uma chamada ou uma mensagem) cobrado após o limite ter sido excedido.</string>
   <string name="cost_per_amount_" formatted="false">Custo por envio</string>
-  <string name="cost_per_amount_help1" formatted="false">Defina o custo cobrado pelo envio de dados (ex. para 1kB de dados) antes do limite ter sido excedido.</string>
-  <string name="cost_per_amount_help2" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute." username="rcp &lt;rhacius@gmail.com&gt;">Defina o custo de uma unidade tempo de cobrança (ex. ligação de 1 min) após o seu limite ter sido excedido.\nO primeiro campo tem o custo para os primeiros segundos da chamada, o segundo tem o custo para os segundos seguintes (ambos são fixados em $ por minuto; veja no modo de cobrança).\nSe tiver dúvidas, apenas defina ambos com o custo por minuto.</string>
+  <string name="cost_per_amount_help1" formatted="false" username="" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Defina o custo cobrado pelo envio de dados (ex. para 1Kb de dados) após o limite ter sido excedido.</string>
+  <string name="cost_per_amount_help2" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute." username="">Defina o custo de uma unidade tempo de cobrança (ex. ligação de 1 min) após o  limite ter sido excedido.\nO primeiro campo tem o custo para os primeiros segundos da chamada, o segundo tem o custo para os segundos seguintes (ambos são fixados em $/minuto; veja no modo de cobrança).\nSe tiver dúvidas, apenas defina ambos com o seu custo por minuto.</string>
   <string name="cost_per_amount_in_limit_" formatted="false">Custo de uma unidade tempo dentro do limite </string>
-  <string name="cost_per_amount_in_limit_help1" formatted="false">Defina o custo de uma unidade tempo de cobrança (ex. 1kB de dados) antes do seu limite ter sido excedido.</string>
-  <string name="cost_per_amount_in_limit_help2" formatted="false">Defina o custo de uma unidade tempo de cobrança (ex. ligação de 1 min., 1kB de dados) antes do seu limite ter sido excedido.\nO primeiro campo tem o custo para os primeiros segundos da chamada, o segundo tem o custo para os segundos seguintes (ambos são fixados em € por minuto; veja no modo de cobrança).\nSe tiver dúvidas, apenas defina ambos com o custo por minuto.</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false" username="" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) before the limit is exceeded.">Defina o custo de uma unidade tempo de cobrança (ex. 1Kb de dados) antes do seu limite ter sido excedido.</string>
+  <string name="cost_per_amount_in_limit_help2" formatted="false" username="" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Defina o custo de uma unidade tempo de cobrança simples (ex. ligação de 1 min., 1Kb de dados) antes do seu limite ter sido excedido.\nO primeiro campo tem o custo para os primeiros segundos da chamada, o segundo tem o custo para os segundos seguintes (ambos são fixados em $/minuto; veja no modo de cobrança).\nSe tiver dúvidas, apenas defina ambos com o seu custo por minuto.</string>
   <string name="cost_per_plan_" formatted="false">Custo por plano</string>
   <string name="cost_per_plan_help" formatted="false">Defina o custo do plano para um período de cobrança.</string>
   <string name="mixed_units_sms_" formatted="false">Unidades para um sms</string>
@@ -201,12 +201,12 @@
   <string name="mixed_units_mms_" formatted="false">Unidades para um mms</string>
   <string name="mixed_units_mms_help" formatted="false">Defina a unidade de cobrança para um simples mms.</string>
   <string name="mixed_units_call_" formatted="false">Unidades para chamadas </string>
-  <string name="mixed_units_call_help" formatted="false">Defina a unidade de cobrança para uma chamada.\nO modo de cobrança é considerado aqui.</string>
+  <string name="mixed_units_call_help" formatted="false" username="" orig="Set the units billed for a one minute call.\nBill mode is taken into account here.">Defina as unidades faturadas para uma chamada de um minuto.\nO modo de cobrança é levado em conta aqui.</string>
   <string name="merge_plans_" formatted="false" orig="Merge plans">Juntar planos</string>
-  <string name="merge_plans_help" formatted="false" orig="Merge other plans into this one and bill them here (too).">Englobar outros planos de preços neste e contabilizá-los nesta conta.</string>
-  <string name="units_cost" formatted="false" orig="$">€</string>
+  <string name="merge_plans_help" formatted="false" orig="Merge other plans into this one and bill them here (too)." username="">Englobar outros planos para este e cobrá-los aqui (também).</string>
+  <string name="units_cost" formatted="false" orig="$" username="">$</string>
   <string name="units_num_msg" formatted="false"># Mensagens</string>
-  <string name="units_minutes" formatted="false">minutos</string>
+  <string name="units_minutes" formatted="false" username="" orig="Minutes">Minutos</string>
   <string name="units_mbyte" formatted="false">MBytes</string>
   <string name="units_units" formatted="false">Unidades</string>
   <string name="units_units_per_minute" formatted="false">Unidade/Minuto</string>
@@ -221,16 +221,16 @@
   <string name="limitnotreached_" formatted="false">Limite não alcançado</string>
   <string name="limitnotreached_help" formatted="false">Mostra somente se o limite do plano não tiver sido alcançado.</string>
   <string name="iswebsms_" formatted="false" orig="Is WebSMS">É um WebSMS</string>
-  <string name="iswebsms_help" formatted="false">Mensagem enviada via o aplicativo WebSMS.</string>
-  <string name="iswebsms_connector_" formatted="false">Ligação WebSMS</string>
-  <string name="iswebsms_connector_help" formatted="false">Enviada por uma ligação especifica da WebSMS (Deixe em branco para qualquer).</string>
+  <string name="iswebsms_help" formatted="false" username="" orig="Message sent with WebSMS.">Mensagem enviada com WebSMS.</string>
+  <string name="iswebsms_connector_" formatted="false" username="" orig="Is WebSMS Connector">É um Conector WebSMS</string>
+  <string name="iswebsms_connector_help" formatted="false" username="" orig="Sent with specific WebSMS Connector, leave empty to match any.">Enviada por uma Conector especifico do WebSMS, deixe vazio para combinar com qualquer.</string>
   <string name="issipcall_" formatted="false">É uma chamada SIP/VOIP</string>
-  <string name="issipcall_help" formatted="false">Chamada efectuada por SIP/VOIP. Actualmente sipdroid &gt;1.6.1 é suportado.</string>
-  <string name="strip_seconds_" formatted="false">Não faturar segundos iniciais</string>
+  <string name="issipcall_help" formatted="false" username="" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Chamada efectuada por SIP/VOIP. Actualmente o sipdroid &gt;1.6.1 é suportado.</string>
+  <string name="strip_seconds_" formatted="false" username="" orig="Do not bill first seconds">Não faturar os primeiros segundos</string>
   <string name="strip_seconds_help" formatted="false">Não faturar os primeiros X segundos de uma chamada.</string>
   <string name="what_" formatted="false">Condições</string>
   <string name="what_help" formatted="false">Escolha uma condição aqui.</string>
-  <string name="direction_" formatted="false">Direções</string>
+  <string name="direction_" formatted="false" username="" orig="Direction">Direção</string>
   <string name="direction_help" formatted="false">Selecione a direção que o relatório deve ter.</string>
   <string name="roamed_" formatted="false">Cruzado</string>
   <string name="roamed_help" formatted="false">Selecione somente se o relatório deva ser cruzado.</string>
@@ -240,8 +240,8 @@
   <string name="no" formatted="false">Não</string>
   <string name="none" formatted="false">Nada</string>
   <string name="value" formatted="false">Valor</string>
-  <string name="empty_groups_" formatted="false">Por favor, pressione "Adicionar" para adicionar um grupo.</string>
-  <string name="empty_group_" formatted="false">Por favor, pressione "Adicionar" para adicionar um item a este grupo.</string>
+  <string name="empty_groups_" formatted="false" username="" orig="Please press &quot;Add&quot; to add a group.">Por favor, pressione "Adicionar" para acrescentar um grupo.</string>
+  <string name="empty_group_" formatted="false" username="" orig="Please press &quot;Add&quot; to add an item to this group.">Por favor, pressione "Adicionar" para acrescentar um item a este grupo.</string>
   <string name="export_progr" formatted="false" orig="Exporting data ...">Exportando dados ...</string>
   <string name="import_progr" formatted="false" orig="Import data ...">Importando dados ...</string>
   <string name="export_" formatted="false" orig="Export ...">Exportar ...</string>
@@ -249,12 +249,12 @@
   <string name="export_rules_" formatted="false">Exportar conjunto de regras</string>
   <string name="export_rules_hint" formatted="false">Exportar conjunto de regras.</string>
   <string name="export_rules_descr" formatted="false">Descrição</string>
-  <string name="export_logs_" formatted="false" orig="Backup logs">Exporta registos</string>
-  <string name="export_logs_hint" formatted="false" orig="Backup logs as mail.">Exporta registos por email</string>
+  <string name="export_logs_" formatted="false" orig="Backup logs" username="">Backup dos registos</string>
+  <string name="export_logs_hint" formatted="false" orig="Backup logs as mail." username="">Backup dos registos por email</string>
   <string name="export_numgroups_" formatted="false" orig="Export number groups">Exportar grupo de números</string>
-  <string name="export_numgroups_hint" formatted="false" orig="Export number groups as mail.">Exporta grupo de números por email.</string>
+  <string name="export_numgroups_hint" formatted="false" orig="Export number groups as mail." username="">Exporta grupo de números como email.</string>
   <string name="export_hourgroups_" formatted="false" orig="Export hour groups">Exportar grupo de horas</string>
-  <string name="export_hourgroups_hint" formatted="false" orig="Export hour groups as mail.">Exportar grupo de horas por email</string>
+  <string name="export_hourgroups_hint" formatted="false" orig="Export hour groups as mail." username="">Exportar grupo de horas como email</string>
   <string name="import_rules_" formatted="false">Importar conjunto de regras</string>
   <string name="import_rules_hint" formatted="false">Importar conjunto de regras.</string>
   <string name="import_rules_empty" formatted="false">Sem planos/regras estabelecidas. Clique neste texto para importar um conjunto de regras padrão.\n\nOu adicione planos e as regras nas preferências manualmente.</string>
@@ -273,10 +273,10 @@
   <string name="widget_cost_textsize" formatted="false" orig="Cost Text Size">Tamanho do texto de custo</string>
   <string name="widget_text_color_" formatted="false" orig="Text color">Cor do texto</string>
   <string name="widget_backgroud_color_" formatted="false" orig="Background color">Cor do fundo</string>
-  <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency">Transparencia do Fundo</string>
+  <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency" username="">Transparência do Fundo</string>
   <string name="send_devices_" formatted="false" orig="Send devices">Envia aparelhos</string>
   <string name="send_devices_hint" formatted="false" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Enviar lista de aparelhos para o desenvolvedor. Isso só é necessário se o seu sistema estiver zerado.</string>
-  <string-array name="weekdays_all">
+  <string-array name="weekdays_all" username="">
     <item>Toda Semana</item>
     <item>Segunda</item>
     <item>Terça</item>
@@ -285,7 +285,7 @@
     <item>Sexta</item>
     <item>Sábado</item>
     <item>Domingo</item>
-    <item>Monday - Friday</item>
+    <item>Segunda - Sexta</item>
   </string-array>
   <string-array name="hours_all">
     <item>Todo o dia</item>
@@ -349,7 +349,7 @@
     <item>unidades</item>
     <item>custo</item>
   </string-array>
-  <string-array name="billperiod">
+  <string-array name="billperiod" username="">
     <item>Um dia</item>
     <item>Uma semana</item>
     <item>30 dias</item>
@@ -362,7 +362,7 @@
     <item>Cinco meses</item>
     <item>Seis meses</item>
     <item>Um ano</item>
-    <item>Infinite</item>
+    <item>Infinito</item>
   </string-array>
   <string-array name="billmodes">
     <item>1/1</item>
@@ -406,11 +406,11 @@
     <item>1.00$</item>
     <item>1000$</item>
   </string-array>
-  <string-array name="date_formats">
-    <item> Do sistema </item>
-    <item>MM/DD/YY</item>
-    <item>DD/MM/YYYY</item>
-    <item>DD.MM.YYYY</item>
+  <string-array name="date_formats" username="">
+    <item>Do sistema </item>
+    <item>MM/DD/AA</item>
+    <item>DD/MM/AAAA</item>
+    <item>DD.MM.AAAA</item>
   </string-array>
   <string-array name="update_interval">
     <item>5 minutos</item>
@@ -447,5 +447,5 @@
   <string name="data_inout" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Data In/Out">Dados Entrada/Saída</string>
   <string name="data_inout_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="DataInOut">Dados Totais</string>
   <string name="import_rules_default_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Import default rule set">Importar regra padrão</string>
-  <string name="import_rules_default_hint" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Import default rule set shipped with the app.">Importar regra padrão do app.</string>
+  <string name="import_rules_default_hint" formatted="false" username="" orig="Import default rule set shipped with the app.">Importar regra padrão do original do app.</string>
 </resources>

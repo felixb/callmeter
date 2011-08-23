@@ -21,8 +21,8 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=pt&file=notes.xml to edit the file.
        -->
 <resources>
-  <string-array name="notes_from_dev" username="rcp &lt;rhacius@gmail.com&gt;">
-    <item>Dez, 2010. Nota: Estatísticas anteriores a instalação do aplicativo não podem ser coletadas!</item>
-    <item>Dez, 2010. Nota: Fechar o aplicativo pode causar erros na coleta dos dados. </item>
+  <string-array name="notes_from_dev" username="">
+    <item>Dez, 2010. Tenha em mente que as Estatísticas anteriores a instalação do aplicativo não podem ser coletadas!</item>
+    <item>Dez, 2010. Tenha em mente que Fechar o aplicativo pode causar erros na coleta dos dados. </item>
   </string-array>
 </resources>
