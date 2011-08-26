@@ -59,7 +59,7 @@
   <string name="exclude_people_edit" formatted="false">Edytuj</string>
   <string name="exclude_people_delete" formatted="false">Usuń</string>
   <string name="exclude_people_to_plan1_" formatted="false">Wykluczone numery do planu 1</string>
-  <string name="exclude_people_to_plan2_" formatted="false">Wykluczone numery do planu 2</string>
+  <string name="exclude_people_to_plan2_" formatted="false" username="" orig="Excluded numbers to plan #2">Wykluczone numery do planu 2</string>
   <string name="exclude_people_calls_" formatted="false">Włącz dla Połączeń</string>
   <string name="exclude_people_calls_to_plan1_hint" formatted="false">Wliczaj połączenia do/od wykluczonych numerów w planie 1</string>
   <string name="exclude_people_calls_to_plan2_hint" formatted="false">Wliczaj połączenia do/od wykluczonych numerów w planie 2</string>
