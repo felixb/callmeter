@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,7 +16,7 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=nl&file=strings.xml to edit the file.
        -->
@@ -372,4 +372,12 @@
     <item>Twee uren</item>
     <item>Alleen handmatig</item>
   </string-array>
+  <string name="changelog_notification_text" formatted="false" username="Gummie" orig="Click here to show recent changes of">Klik hier om de recente wijzigingen te zien van</string>
+  <string name="never_show_again" formatted="false" username="Gummie" orig="Never show changelog again">Laat changelog niet meer zien</string>
+  <string name="notes_from_developer_" formatted="false" username="Gummie" orig="Notes from developer">Notities van ontwikkelaar</string>
+  <string name="notes_from_developer_text" formatted="false" username="Gummie" orig="Click here to show recent news from the developer">Klik hier om recent nieuws van de ontwikkelaar te zien</string>
+  <string name="appearance_and_behavior_" formatted="false" username="Gummie" orig="Appearance &amp; behavior">Uiterlijk </string>
+  <string name="simple_preferences_" formatted="false" username="Gummie" orig="Simple preferences">Eenvoudige voorkeuren</string>
+  <string name="show_today_hint" formatted="false" username="Gummie" orig="Show today stats">Toon stats van vandaag</string>
+  <string name="show_icon_" formatted="false" username="Gummie" orig="Show icon">Toon icoon</string>
 </resources>
