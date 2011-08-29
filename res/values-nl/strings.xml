@@ -380,4 +380,8 @@
   <string name="simple_preferences_" formatted="false" username="Gummie" orig="Simple preferences">Eenvoudige voorkeuren</string>
   <string name="show_today_hint" formatted="false" username="Gummie" orig="Show today stats">Toon stats van vandaag</string>
   <string name="show_icon_" formatted="false" username="Gummie" orig="Show icon">Toon icoon</string>
+  <string name="hide_name_" formatted="false" username="Gummie" orig="Hide name of plan">Verberg naam van schema</string>
+  <string name="small_widget_" formatted="false" username="Gummie" orig="Use small widget">Gebruik smalle widget</string>
+  <string name="show_calllength_" formatted="false" username="Gummie" orig="Show info after hanging up">Toon info na ophangen</string>
+  <string name="show_calllength_hint" formatted="false" username="Gummie" orig="Show length/cost of a call after hanging up.">Toon lengte/kosten van een gesprek na ophangen.</string>
 </resources>
