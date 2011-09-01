@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,9 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=pt&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=pt-rBR&file=strings.xml to edit the file.
        -->
 <resources>
   <string name="limit_help" formatted="false">Defina o limite do seu plano aqui.\n\nTipo \"unidades\" devem ser em minutos (chamadas), mensagens (sms/mms), megabytes (dados, 1024kB) ou unidades (combinadas).\n\nTipo \"custo\" devem ser adicionadas no seu padrão monetário (ex. R$).</string>
@@ -30,4 +30,12 @@
   <string name="units_cost_per_message" formatted="false">R$/Mensagem</string>
   <string name="units_cost_per_mbyte" formatted="false" orig="$/MByte">R$/MByte</string>
   <string name="units_cost_per_unit" formatted="false" orig="$/Unit">R$/Unidade</string>
+  <string name="notes_from_developer_" formatted="false" username="" orig="Notes from developer">
+  </string>
+  <string name="changelog_notification_text" formatted="false" username="" orig="Click here to show recent changes of">
+  </string>
+  <string name="notes_from_developer_text" formatted="false" username="" orig="Click here to show recent news from the developer">
+  </string>
+  <string name="length_hint_call" formatted="false" username="" orig="Length in seconds">
+  </string>
 </resources>
