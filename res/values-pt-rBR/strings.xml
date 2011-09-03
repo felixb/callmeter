@@ -30,12 +30,4 @@
   <string name="units_cost_per_message" formatted="false">R$/Mensagem</string>
   <string name="units_cost_per_mbyte" formatted="false" orig="$/MByte">R$/MByte</string>
   <string name="units_cost_per_unit" formatted="false" orig="$/Unit">R$/Unidade</string>
-  <string name="notes_from_developer_" formatted="false" username="" orig="Notes from developer">
-  </string>
-  <string name="changelog_notification_text" formatted="false" username="" orig="Click here to show recent changes of">
-  </string>
-  <string name="notes_from_developer_text" formatted="false" username="" orig="Click here to show recent news from the developer">
-  </string>
-  <string name="length_hint_call" formatted="false" username="" orig="Length in seconds">
-  </string>
 </resources>
