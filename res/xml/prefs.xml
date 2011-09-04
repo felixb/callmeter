@@ -84,8 +84,6 @@
 		<PreferenceScreen android:title="@string/behavior_">
 			<PreferenceScreen android:title="@string/alerts_"
 				android:summary="@string/alerts_hint">
-				<CheckBoxPreference android:key="split_at_160"
-					android:title="@string/split_sms_at_160_" android:summary="@string/split_sms_at_160_hint" />
 				<CheckBoxPreference android:key="alert_80"
 					android:title="@string/alerts_80_" android:summary="@string/alerts_80_hint"
 					android:defaultValue="true" />
@@ -93,6 +91,8 @@
 					android:title="@string/alerts_100_" android:summary="@string/alerts_100_hint"
 					android:defaultValue="true" />
 			</PreferenceScreen>
+			<CheckBoxPreference android:key="split_at_160"
+				android:title="@string/split_sms_at_160_" android:summary="@string/split_sms_at_160_hint" />
 			<ListPreference android:key="update_interval"
 				android:title="@string/update_interval_" android:summary="@string/update_interval_hint"
 				android:entries="@array/update_interval" android:entryValues="@array/update_interval_values"
