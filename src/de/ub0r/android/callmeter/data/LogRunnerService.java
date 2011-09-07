@@ -308,14 +308,12 @@ public final class LogRunnerService extends IntentService {
 				DataProvider.DIRECTION_OUT);
 
 		final Device d = Device.getDevice();
-		final String inter = d.getCell();
-		if (inter != null) {
-			Log.d(TAG, "interface: " + inter);
-			try {
-				final long rx = SysClassNet.getRxBytes(inter);
-				final long tx = SysClassNet.getTxBytes(inter);
-				Log.d(TAG, "rx: " + rx);
-				Log.d(TAG, "tx: " + tx);
+		try {
+			final long rx = d.getCellRxBytes();
+			final long tx = d.getCellTxBytes();
+			Log.d(TAG, "rx: " + rx);
+			Log.d(TAG, "tx: " + tx);
+			if (rx > 0L || tx > 0L) {
 				long rrx = rx;
 				long rtx = tx;
 				if (rx >= lastRx && tx >= lastTx) {
@@ -361,9 +359,9 @@ public final class LogRunnerService extends IntentService {
 						Log.d(TAG, "skip tx: " + rtx);
 					}
 				}
-			} catch (IOException e) {
-				Log.e(TAG, "I/O Error", e);
 			}
+		} catch (IOException e) {
+			Log.e(TAG, "I/O Error", e);
 		}
 		Log.d(TAG, "updateData(): done");
 	}

@@ -27,9 +27,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.net.TrafficStats;
 import android.os.Build;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * Representation of a device.
@@ -55,6 +57,8 @@ public abstract class Device {
 			Log.i(TAG, "Device: " + Build.DEVICE);
 			if (Build.PRODUCT.equals("sdk")) {
 				instance = new EmulatorDevice();
+			} else if (Utils.isApi(Build.VERSION_CODES.FROYO)) {
+				instance = new FroyoDevice();
 			} else if (Build.DEVICE.startsWith("GT-")) {
 				instance = new SamsungDevice();
 			} else {
@@ -108,8 +112,26 @@ public abstract class Device {
 		sb.append(getDevice());
 		sb.append("\ndevice.cell: ");
 		sb.append(getDevice().getCell());
+		try {
+			sb.append("\ndevice.cell.rx: ");
+			sb.append(getDevice().getCellRxBytes());
+			sb.append("\ndevice.cell.tx: ");
+			sb.append(getDevice().getCellTxBytes());
+		} catch (IOException e) {
+			Log.e(TAG, "error reading devices", e);
+			sb.append(e);
+		}
 		sb.append("\ndevice.wifi: ");
 		sb.append(getDevice().getWiFi());
+		try {
+			sb.append("\ndevice.wifi.rx: ");
+			sb.append(getDevice().getWiFiRxBytes());
+			sb.append("\ndevice.wifi.tx: ");
+			sb.append(getDevice().getWiFiTxBytes());
+		} catch (IOException e) {
+			Log.e(TAG, "error reading devices", e);
+			sb.append(e);
+		}
 		sb.append("\n");
 		try {
 			final File f = new File(SysClassNet.SYS_CLASS_NET);
@@ -145,12 +167,40 @@ public abstract class Device {
 	/**
 	 * @return device's device file: cell
 	 */
-	public abstract String getCell();
+	protected abstract String getCell();
+
+	/**
+	 * @return received bytes on cell device
+	 * @throws IOException
+	 *             IOException
+	 */
+	public abstract long getCellRxBytes() throws IOException;
+
+	/**
+	 * @return transmitted bytes on cell device
+	 * @throws IOException
+	 *             IOException
+	 */
+	public abstract long getCellTxBytes() throws IOException;
 
 	/**
 	 * @return device's device file: wifi
 	 */
-	public abstract String getWiFi();
+	protected abstract String getWiFi();
+
+	/**
+	 * @return received bytes on wifi device
+	 * @throws IOException
+	 *             IOException
+	 */
+	public abstract long getWiFiRxBytes() throws IOException;
+
+	/**
+	 * @return transmitted bytes on wifi device
+	 * @throws IOException
+	 *             IOException
+	 */
+	public abstract long getWiFiTxBytes() throws IOException;
 
 	/**
 	 * @return device's interfaces
@@ -197,7 +247,7 @@ class DiscoverableDevice extends Device {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getCell() {
+	protected String getCell() {
 		if (this.mCell == null) {
 			for (String inter : CELL_INTERFACES) {
 				if (SysClassNet.isAvail(inter)) {
@@ -214,7 +264,7 @@ class DiscoverableDevice extends Device {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getWiFi() {
+	protected String getWiFi() {
 		if (this.mWiFi == null) {
 			for (String inter : WIFI_INTERFACES) {
 				if (SysClassNet.isUp(inter)) {
@@ -227,6 +277,54 @@ class DiscoverableDevice extends Device {
 			}
 		}
 		return this.mWiFi;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getCellRxBytes() throws IOException {
+		String dev = this.getCell();
+		if (dev == null) {
+			return 0L;
+		}
+		return SysClassNet.getRxBytes(dev);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getCellTxBytes() throws IOException {
+		String dev = this.getCell();
+		if (dev == null) {
+			return 0L;
+		}
+		return SysClassNet.getTxBytes(dev);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getWiFiRxBytes() throws IOException {
+		String dev = this.getWiFi();
+		if (dev == null) {
+			return 0L;
+		}
+		return SysClassNet.getRxBytes(dev);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getWiFiTxBytes() throws IOException {
+		String dev = this.getWiFi();
+		if (dev == null) {
+			return 0L;
+		}
+		return SysClassNet.getTxBytes(dev);
 	}
 }
 
@@ -246,7 +344,7 @@ final class EmulatorDevice extends Device {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getCell() {
+	protected String getCell() {
 		Log.d(TAG, "Cell interface: " + this.mCell);
 		return this.mCell;
 	}
@@ -255,9 +353,57 @@ final class EmulatorDevice extends Device {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getWiFi() {
+	protected String getWiFi() {
 		Log.d(TAG, "WiFi interface: " + this.mCell);
 		return this.mWiFi;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getCellRxBytes() throws IOException {
+		String dev = this.getCell();
+		if (dev == null) {
+			return 0L;
+		}
+		return SysClassNet.getRxBytes(dev);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getCellTxBytes() throws IOException {
+		String dev = this.getCell();
+		if (dev == null) {
+			return 0L;
+		}
+		return SysClassNet.getTxBytes(dev);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getWiFiRxBytes() throws IOException {
+		String dev = this.getWiFi();
+		if (dev == null) {
+			return 0L;
+		}
+		return SysClassNet.getRxBytes(dev);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getWiFiTxBytes() throws IOException {
+		String dev = this.getWiFi();
+		if (dev == null) {
+			return 0L;
+		}
+		return SysClassNet.getTxBytes(dev);
 	}
 }
 
@@ -275,8 +421,82 @@ final class SamsungDevice extends DiscoverableDevice {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getCell() {
+	protected String getCell() {
 		Log.d(TAG, "Cell interface: " + this.mCell);
 		return this.mCell;
+	}
+}
+
+/**
+ * Common Device for API>=8.
+ */
+final class FroyoDevice extends Device {
+	/** Tag for output. */
+	private static final String TAG = "FroyoDevice";
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected String getCell() {
+		return "TrafficStats";
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getCellRxBytes() throws IOException {
+		final long l = TrafficStats.getMobileRxBytes();
+		if (l < 0L) {
+			return 0L;
+		}
+		return l;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getCellTxBytes() throws IOException {
+		final long l = TrafficStats.getMobileTxBytes();
+		if (l < 0L) {
+			return 0L;
+		}
+		return l;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected String getWiFi() {
+		return "TrafficStats";
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getWiFiRxBytes() throws IOException {
+		final long l = TrafficStats.getMobileRxBytes();
+		final long la = TrafficStats.getTotalRxBytes();
+		if (la < 0L || la < l) {
+			return 0L;
+		}
+		return la - l;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getWiFiTxBytes() throws IOException {
+		final long l = TrafficStats.getMobileTxBytes();
+		final long la = TrafficStats.getTotalTxBytes();
+		if (la < 0L || la < l) {
+			return 0L;
+		}
+		return la - l;
 	}
 }
