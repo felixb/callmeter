@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,14 +16,14 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=es&file=market.xml to edit the file.
        -->
 <resources>
-  <string name="market_about" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Call Meter let\'s you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and let\'s you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.">Call Meter le permite estar atento a su plan móvil.\n\nMuestra las estadísticas de tráfico de sus llamadas/sms/txt/datos y le permite fijar límites para cada uno de estos planes.\nCall Meter soporta una vasta cantidad de modos de facturación y le permite adaptar su comportamiento a la facturación de su operador.</string>
+  <string name="market_about" formatted="false" username="" orig="Call Meter lets you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and lets you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.">Call Meter le permite estar atento a su plan móvil.\n\nMuestra las estadísticas de tráfico de sus llamadas/sms/txt/datos y le permite fijar límites para cada uno de estos planes.\nCall Meter soporta una vasta cantidad de modos de facturación y le permite adaptar su comportamiento a la facturación de su operador.</string>
   <string name="market_oss" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="This app is open source software build in spare time. Adding bad comments in market won\'t help much to make it better.\nPlease add your issues with this app on the app\'s website.">Esta aplicación es de código abierto, desarrollada en tiempo libre. Agregar malos comentarios en el mercado no ayudará mucho a mejorarla.\nPor favor agregue sus asuntos con esta aplicación en su sitio WEB.</string>
-  <string name="market_cm2" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="This is a complete rebuild of Call Meter NG. It has a huge amount of new features like widgets and alerts.\nIt\'s new architecure allows more complex plans.\nFeel free to test it and help me make it more userfriendly as it is currently. ;)">Esta es una reconstrucción completa de Call Meter NG. Tiene una vasta cantidad de nuevas funciones como widgets y alertas.\nSu nueva arquitectura permite planes más complejos.\nSiéntase en libertad de probarla y ayudarme a hacerla más amigable de lo que es actualmente. ;)</string>
-  <string name="market_translation" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Feel free to help translating this app to your language here: http://ub0r.de/translate/cm3/">Siéntase en libertad de ayudar a traducir esta aplicación en su propio idioma aquí: http/ub0r.de/translate/cm3</string>
-  <string name="market_keywords" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Keywords: minutes calls sms txt text data traffic counter log phone usage watchdog alert widget statistics at&amp;amp;t verizon three o2 t-mobile vodafone orange">Palabras clave: minutos llamadas sms txt text datos tráfico contador bitácora teléfono uso aleta widget estadísticas at&amp;t verizon three 02 t-mobile vodafone orange</string>
+  <string name="market_cm2" formatted="false" username="Pamemuro@gmail.com" orig="This is a complete rebuild of Call Meter NG. It has a huge amount of new features like widgets and alerts.\nIt\'s new architecure allows more complex plans.\nFeel free to test it and help me make it more userfriendly as it is currently. ;)">Esta es una reconstrucción completa de Call Meter NG. Tiene una vasta cantidad de nuevas funciones como widgets y alertas.\nSu nueva arquitectura permite planes más complejos.\nSiéntase en libertad de probarla y ayudarme a hacerla más amigable de lo que es actualmente. ;)</string>
+  <string name="market_translation" formatted="false" username="" orig="Feel free to help translating this app to your language here: http://ub0r.de/translate/cm3/">Siéntase en libertad de ayudar a traducir esta aplicación en su propio idioma aquí: http/ub0r.de/translate/cm3</string>
+  <string name="market_keywords" formatted="false" username="" orig="Keywords: minutes calls sms txt text data traffic counter log phone usage watchdog alert widget statistics at&amp;t verizon three o2 t-mobile vodafone orange">Palabras clave: minutos llamadas sms txt text datos tráfico contador bitácora teléfono uso aleta widget estadísticas at&amp;t verizon three 02 t-mobile vodafone orange</string>
 </resources>

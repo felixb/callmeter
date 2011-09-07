@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter NG. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,14 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=pt&file=market.xml to edit the file.
        -->
 <resources>
+  <string name="market_about" formatted="false" username="" orig="Call Meter lets you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and lets you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.">Call Meter deixa você de olho na sua conta de telefone.\n\nEle mostra as estatísticas das suas ligações/mensagens/mms/dados e permite que você defina um limite para cada um dos serviços. \nCall Meter suporta vários tipos de planos e você pode adaptar sua utilização ao plano de sua operadora.</string>
+  <string name="market_oss" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="This app is open source software build in spare time. Adding bad comments in market won\'t help much to make it better.\nPlease add your issues with this app on the app\'s website.">Este aplicativo é de código aberto e é desenvolvido no meu tempo livre. Enviar comentários desnecessários não ajudam no desenvolvimento do aplicativo.\nEnvie os erros encontrados e sugestões no site do aplicativo.</string>
+  <string name="market_translation" formatted="false" username="" orig="Feel free to help translating this app to your language here: http://ub0r.de/translate/cm3/">Sinta-se á vontade para ajudar na tradução deste aplicativo aqui: http://ub0r.de/translate/cm3/</string>
+  <string name="market_keywords" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Keywords: minutes calls sms txt text data traffic counter log phone usage watchdog alert widget statistics at&amp;t verizon three o2 t-mobile vodafone orange">Palavras chave: minutos ligações sms txt texto dados contador uso celular watchdog alerta widget estatísticas tim oi vivo claro brasiltelecom</string>
+  <string name="market_cm2" formatted="false" username="" orig="This is a complete rebuild of Call Meter NG. It has a huge amount of new features like widgets and alerts.\nIt\'s new architecure allows more complex plans.\nFeel free to test it and help me make it more userfriendly as it is currently. ;)">Esta é uma versão completamente refeita do Call Meter NG. Ela tem várias novidades e melhorias como widgets e alertas.\nCom uma nova arquitetura, permite planos mais complexos.\nSinta-se livre para testar e torná-lo cada vez melhor. ;)</string>
 </resources>

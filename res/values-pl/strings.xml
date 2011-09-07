@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,12 +16,12 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=pl&file=strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false">Ostatnie zmiany:</string>
+  <string name="changelog_notification_" formatted="false" username="betqs" orig="Recent changes:">Ostatnie zmiany:</string>
   <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Kliknij tutaj, aby wyświetlić ostatnie zmiany</string>
   <string name="never_show_again" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Never show changelog again">Nie pokazuj więcej dziennika zmian</string>
   <string name="notes_from_developer_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Notes from developer">Informacje od autora programu</string>
@@ -58,7 +58,7 @@
   <string name="billdate_" formatted="false">Pierwszy dzień rachunku:</string>
   <string name="appearance_" formatted="false">Wygląd</string>
   <string name="behavior_" formatted="false" orig="Behavior">Zachowanie</string>
-  <string name="appearance_and_behavior_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Appearance &amp;amp; behavior">Wygląd i zachowanie</string>
+  <string name="appearance_and_behavior_" formatted="false" username="" orig="Appearance &amp; behavior">Wygląd i zachowanie</string>
   <string name="advanced_preferences_" formatted="false">Ustawienia zaawansowane</string>
   <string name="advanced_preferences_hint" formatted="false">Zaznacz, aby uaktywnić dodatkowe ustawienia. Głównie dla zaawansowanych użytkowników.</string>
   <string name="theme_" formatted="false">Styl</string>
@@ -277,7 +277,7 @@
   <string name="export_hourgroups_" formatted="false">Eksport grup godzinowych</string>
   <string name="export_hourgroups_hint" formatted="false">Eksport grup godzinowych jako mail.</string>
   <string name="import_rules_" formatted="false">Importuj ustawienia reguł</string>
-  <string name="import_rules_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Import rule set.">Importuj ustawienia reguł.</string>
+  <string name="import_rules_hint" formatted="false" username="" orig="Import preconfigured rule set.">Importuj wstępne ustawienia reguł.</string>
   <string name="import_rules_empty" formatted="false">Żaden plan/reguła nie jest ustawiona. Kliknij ten tekst aby zimportować domyślny zestaw reguł.\n\nMożesz również dodać plan i reguły ręcznie w ustawieniach.</string>
   <string name="err_export_write" formatted="false">Błąd podczas zapisu eksportowanego pliku</string>
   <string name="err_export_read" formatted="false">Błąd podczas odczytu eksportowanego pliku</string>
@@ -442,4 +442,10 @@
     <item>Dwie godziny</item>
     <item>Tylko ręcznie</item>
   </string-array>
+  <string name="import_rules_default_" formatted="false" username="" orig="Import default rule set">Importuj standardowe ustawienia reguł.</string>
+  <string name="import_rules_default_hint" formatted="false" username="" orig="Import default rule set shipped with the app.">Importuj standardowe zestawienia reguł dostarczone z aplikacją.</string>
+  <string name="simple_preferences_hint" formatted="false" username="" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Ustawienia zwykłe, odpowiednie dla większości użytkowników. Dostępne tylko ze standardowymi ustawieniami reguł.</string>
+  <string name="simple_preferences_" formatted="false" username="" orig="Simple preferences">Ustawienia zwykłe</string>
+  <string name="numbergroup_excalls" formatted="false" username="" orig="Exclude from calls">Wykluczone z rozmów</string>
+  <string name="numbergroup_exsms" formatted="false" username="" orig="Exclude from SMS">Wykluczone z SMS</string>
 </resources>

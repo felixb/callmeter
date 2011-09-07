@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,17 +16,17 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=sk&file=strings.xml to edit the file.
        -->
 <resources>
-  <string name="about0_" formatted="false">Call Meter slúži k sledovaniu stavu čerpania hovorného, SMS správ a dátových prenosov v rámci mesačného paušálu.</string>
-  <string name="about0" formatted="false">Aplikácia tvorí štatistiku na základe logov o hovoroch, SMS správach a dátových prenosoch a podporuje niekoľko spôsobov účtovania/tarifikácie.</string>
-  <string name="about1" formatted="false">Výstupom je celkový počet využitých minút/sms/dát od nainštalovania aplikácie, a počet týchto jednotiek prípadne ukazatel využitia voľných minút/sms/dát za aktuálne zúčtovacie obdobie. Výpočet mesačnej spotreby berie na vedomie vybranú tarifikáciu. V celkovom výpočte nie je tarifikácia zohladnená.\n\nLegenda zobrazovania štatistík:\nPríchodzie hovory: dĺžka a počet v aktuálnom období / dĺžka všetkých hovorov\nOdchádzajúce hovory: [% využitie voľných minút akt. obdobia] / dĺžka a počet v akt. období / dĺžka všetkých hovorov\nPríchodzie SMS: počet SMS v akt. období / celkový počet SMS\nOdchodzie SMS: cena za SMS v akt. období / [% využitie voľných SMS v akt. období] / počet SMS v akt. období / celkový počet SMS </string>
-  <string name="about2" formatted="false">Režim tarifikácie určuje spôsob spoplatnenia prvého a nasledujúceho intervalu hlasových hovorov. Napr. 60/10 znamená, že u hovoru sa vždy započíta min. 60 sekúnd a čas nad rámec prvého intervalu je zaokrúhlený nahor na najbližších 10 sekúnd.</string>
-  <string name="about3" formatted="false">Call Meter sa spúšťa každých 30 minút (pokiaľ nie je telefón v pohotovostnom režime), čo znamená, že zmazaní záznamov o hovoroch/sms/dátach za posledných 30 minút ovplyvní vypočetnú štatistiku.</string>
-  <string name="send_" formatted="false">Odoslať</string>
+  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Call Meter slúži k sledovaniu stavu čerpania hovorného, SMS správ a dátových prenosov v rámci mesačného paušálu.</string>
+  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">Aplikácia tvorí štatistiku na základe logov o hovoroch, SMS správach a dátových prenosoch a podporuje niekoľko spôsobov účtovania/tarifikácie.</string>
+  <string name="about1" formatted="false" orig="The output format is usage | time or count used this billing period | time or count overall.">Výstupom je celkový počet využitých minút/sms/dát od nainštalovania aplikácie, a počet týchto jednotiek prípadne ukazatel využitia voľných minút/sms/dát za aktuálne zúčtovacie obdobie. Výpočet mesačnej spotreby berie na vedomie vybranú tarifikáciu. V celkovom výpočte nie je tarifikácia zohladnená.\n\nLegenda zobrazovania štatistík:\nPríchodzie hovory: dĺžka a počet v aktuálnom období / dĺžka všetkých hovorov\nOdchádzajúce hovory: [% využitie voľných minút akt. obdobia] / dĺžka a počet v akt. období / dĺžka všetkých hovorov\nPríchodzie SMS: počet SMS v akt. období / celkový počet SMS\nOdchodzie SMS: cena za SMS v akt. období / [% využitie voľných SMS v akt. období] / počet SMS v akt. období / celkový počet SMS</string>
+  <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">Režim tarifikácie určuje spôsob spoplatnenia prvého a nasledujúceho intervalu hlasových hovorov. Napr. 60/10 znamená, že u hovoru sa vždy započíta min. 60 sekúnd a čas nad rámec prvého intervalu je zaokrúhlený nahor na najbližších 10 sekúnd.</string>
+  <string name="about3" formatted="false" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">Call Meter sa spúšťa každých 30 minút (pokiaľ nie je telefón v pohotovostnom režime), čo znamená, že zmazaní záznamov o hovoroch/sms/dátach za posledných 30 minút ovplyvní vypočetnú štatistiku.</string>
+  <string name="send_" formatted="false" orig="Send">Odoslať</string>
   <string name="settings" formatted="false">Nastavenia</string>
   <string name="about_" formatted="false">Nápoveda</string>
   <string name="about_hint" formatted="false">Nápoveda. O autoroch.</string>

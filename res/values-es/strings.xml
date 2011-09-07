@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,7 +16,7 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=es&file=strings.xml to edit the file.
        -->
@@ -33,7 +33,7 @@
   <string name="about3" formatted="false">CallMeter se ejecuta en segundo plano cada 30min (si no está en modo espera). Por lo que borrar llamadas o mensajes anteriores a 30min no cambiará las estadísticas. Borrar mensajes o llamadas de los últimos 30min puede dar estadísticas erróneas.</string>
   <string name="send_" formatted="false">Enviar</string>
   <string name="add_" formatted="false">Añadir</string>
-  <string name="add_log" formatted="false" orig="Add log entry">Añadir entrada al log</string>
+  <string name="add_log" formatted="false" orig="Add log entry" username="">Añadir entrada al registro</string>
   <string name="length_hint_call" formatted="false" orig="Length in seconds">Duración en segundos</string>
   <string name="length_hint_data" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Length in kB">Tamaño en KB</string>
   <string name="settings" formatted="false">Preferencias</string>
@@ -106,7 +106,7 @@
   <string name="custom_date_format_" formatted="false">Formato personalizado de fecha</string>
   <string name="custom_date_format_hint" formatted="false">Selecciona un formato personalizado de fecha.</string>
   <string name="custom_delimiter_" formatted="false">Delimitador personalizado</string>
-  <string name="custom_delimiter_hint" formatted="false">Set a custom delimiter separating the blocks of statistics.</string>
+  <string name="custom_delimiter_hint" formatted="false" username="" orig="Set a custom delimiter separating the blocks of statistics.">Establecer un delimitador personalizado, separando los bloques de estadísticas.</string>
   <string name="split_sms_at_160_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Split text messages at 160 chars">Dividir los mensajes de texto en 160 caracteres</string>
   <string name="split_sms_at_160_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Disable to use android\'s system method.">Deshabilitar el uso del método del sistema android.</string>
   <string name="ask_for_plan_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Ask for plan">Preguntar por plan</string>
@@ -117,7 +117,7 @@
   <string name="set_selected_as_default_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Set selected plan as default">Utilizar el plan seleccionado como predeterminado</string>
   <string name="autohide_in_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Auto hide dialog in: %ds">Auto esconder la ventana de diálogo en: %ds</string>
   <string name="logs" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Logs">Bitácoras</string>
-  <string name="show_logs" formatted="false">Mostrar logs</string>
+  <string name="show_logs" formatted="false" username="" orig="Show logs">Mostrar registros</string>
   <string name="plans" formatted="false">Planes</string>
   <string name="plans_hint" formatted="false">Configura aquí tus planes para todo tipo de facturaciones.</string>
   <string name="plans_new" formatted="false">Nuevo plan</string>
@@ -147,7 +147,7 @@
   <string name="exhourgroup_help" formatted="false">Añade horas que no se ajusten a esta regla..</string>
   <string name="new_hourgroup" formatted="false">Nuevo grupo de horas</string>
   <string name="add_hour" formatted="false">Añadir hora</string>
-  <string name="empty_group" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Grupos vacíos no calzan con nada. Por favor regrese y agregue al menos un ítem.</string>
+  <string name="empty_group" formatted="false" username="" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Grupos vacíos no calzan con nada. Por favor regrese y agregue al menos un elemento.</string>
   <string name="billperiod_sn" formatted="false" orig="BillPeriod">Periodo de facturación</string>
   <string name="calls" formatted="false">Llamadas</string>
   <string name="calls_in" formatted="false" orig="Calls In">Llamadas entrantes</string>
@@ -192,15 +192,15 @@
   <string name="billperiod_" formatted="false">Duración del periodo de facturación</string>
   <string name="billperiod_help" formatted="false">Ajusta la duración del periodo de facturación.</string>
   <string name="cost_per_item_" formatted="false">Coste por elemento</string>
-  <string name="cost_per_item_help" formatted="false">Ajusta el coste facturado por cada elemento del log (ej. una llamada o un mensaje) una vez excedido el límite.</string>
+  <string name="cost_per_item_help" formatted="false" username="" orig="Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.">Ajusta el coste facturado por cada elemento del registro (ej. una llamada o un mensaje) una vez excedido el límite.</string>
   <string name="cost_per_item_in_limit_" formatted="false">Coste por elemento dentro del límite</string>
-  <string name="cost_per_item_in_limit_help" formatted="false">Ajusta el coste facturado por cada elemento del log (ej. una llamada o un mensaje) antes de exceder el límite.</string>
+  <string name="cost_per_item_in_limit_help" formatted="false" username="" orig="Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.">Ajusta el coste facturado por cada elemento del registro (ej. una llamada o un mensaje) antes de exceder el límite.</string>
   <string name="cost_per_amount_" formatted="false">Coste por duración</string>
-  <string name="cost_per_amount_help1" formatted="false">Ajusta el coste facturado por duración de un elemento del log (ej. por 1kB de datos) después de excedido el límite.</string>
-  <string name="cost_per_amount_help2" formatted="false">Ajuste el coste facturado por duración de un elemento del log )ej. por 1 min. de llamada) después de excedido el límite).\nEl primer campo es el coste de los primeros segundos de llamada, el segundo es el coste de los siguientes (ambos están en €/minuto; ver modo de facturación).\nEn caso de duda, ajusta ambos a tu coste por minuto.</string>
+  <string name="cost_per_amount_help1" formatted="false" username="" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Ajusta el coste facturado por duración de un elemento del registro (ej. por 1kB de datos) después de excedido el límite.</string>
+  <string name="cost_per_amount_help2" formatted="false" username="" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Ajuste el coste facturado por duración de un elemento del registro )ej. por 1 min. de llamada) después de excedido el límite).\nEl primer campo es el coste de los primeros segundos de llamada, el segundo es el coste de los siguientes (ambos están en €/minuto; ver modo de facturación).\nEn caso de duda, ajusta ambos a tu coste por minuto.</string>
   <string name="cost_per_amount_in_limit_" formatted="false">Coste por duración dentro del límite</string>
-  <string name="cost_per_amount_in_limit_help1" formatted="false">Introduce el coste facturado por duración de un elemento del log (ej. para 1kB de datos) antes de sobrepasar el límite.</string>
-  <string name="cost_per_amount_in_limit_help2" formatted="false">Introduce el coste facturado por duración de un elemento del log (ej. 1 min de llamada, 1kB de datos) antes de sobrepasar el límite.\nEl primer campo es el coste de los primeros segundos de llamada, El segundo es el coste de los siguientes (ambos están en €/minuto; ver modo de facturación).\nEn caso de duda, ajusta ambos a tu coste por minuto.</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false" username="" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) before the limit is exceeded.">Introduce el coste facturado por duración de un elemento del registro (ej. para 1kB de datos) antes de sobrepasar el límite.</string>
+  <string name="cost_per_amount_in_limit_help2" formatted="false" username="" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Introduce el coste facturado por duración de un elemento del registro (ej. 1 min de llamada, 1kB de datos) antes de sobrepasar el límite.\nEl primer campo es el coste de los primeros segundos de llamada, El segundo es el coste de los siguientes (ambos están en €/minuto; ver modo de facturación).\nEn caso de duda, ajusta ambos a tu coste por minuto.</string>
   <string name="cost_per_plan_" formatted="false">Coste por plan</string>
   <string name="cost_per_plan_help" formatted="false">Introduce el coste del plan por un periodo de facturación.</string>
   <string name="mixed_units_sms_" formatted="false">Unidades por SMS</string>
@@ -238,7 +238,7 @@
   <string name="what_" formatted="false">Tipo de plan</string>
   <string name="what_help" formatted="false">Escoge un tipo de plan.</string>
   <string name="direction_" formatted="false">Dirección</string>
-  <string name="direction_help" formatted="false">Escoge la dirección que debe tener el log (entrada/salida).</string>
+  <string name="direction_help" formatted="false" username="" orig="Choose a direction the given log has to be.">Escoge la dirección que debe tener el registro (entrada/salida).</string>
   <string name="roamed_" formatted="false">En Roaming</string>
   <string name="roamed_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Choose whether the given log has to be roamed.">Escoge si la bitácora puede contener roaming.</string>
   <string name="remote_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Remote number">Número remoto</string>
@@ -248,7 +248,7 @@
   <string name="none" formatted="false">Ninguno</string>
   <string name="value" formatted="false">Valor</string>
   <string name="empty_groups_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Please press &quot;Add&quot; to add a group.">Por favor presione "Agregar" para agregar un grupo.</string>
-  <string name="empty_group_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Por favor presione "Agregar" para agregar un ítem a este grupo.</string>
+  <string name="empty_group_" formatted="false" username="" orig="Please press &quot;Add&quot; to add an item to this group.">Por favor presione "Agregar" para agregar un elemento a este grupo.</string>
   <string name="export_progr" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Exporting data ...">Exportando datos ...</string>
   <string name="import_progr" formatted="false">Importar datos ...</string>
   <string name="export_" formatted="false">Exportar ...</string>
@@ -419,7 +419,7 @@
     <item>DD/MM/AAAA</item>
     <item>DD.MM.AAAA</item>
   </string-array>
-  <string-array name="update_interval">
+  <string-array name="update_interval" username="Pamemuro@gmail.com">
     <item>5 minutos</item>
     <item>10 minutos</item>
     <item>15 minutos</item>
@@ -428,4 +428,5 @@
     <item>Dos horas</item>
     <item>Sólo manual</item>
   </string-array>
+  <string name="messages" formatted="false" username="" orig="Messages">Mensajes</string>
 </resources>

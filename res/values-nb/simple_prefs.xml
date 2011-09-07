@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,28 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=de&file=notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=nb&file=simple_prefs.xml to edit the file.
        -->
 <resources>
+  <string name="missing_slash" formatted="false" username="" orig="Bill mode needs to be in seconds/seconds!">Faktura måte må vere i sekunder/sekunder!</string>
+  <string name="freemin_" formatted="false" username="" orig="Free minutes">Inkluderte minutter</string>
+  <string name="freemin_hint" formatted="false" username="" orig="Free minutes / month">Inkluderte minutter / måned</string>
+  <string name="cost_per_call_" formatted="false" username="" orig="Cost / call">pris / samtale</string>
+  <string name="cost_per_call_hint" formatted="false" username="" orig="Each call get\'s billed.">Hver samtale blir fakturert.</string>
+  <string name="cost_per_min_" formatted="false" username="" orig="Cost / minute">Pris / minutt</string>
+  <string name="cost_per_min_hint" formatted="false" username="" orig="Each minute get\'s billed.">Hvert minutt bilr fakturert</string>
+  <string name="freesms_" formatted="false" username="" orig="Free SMS">Inkluderte SMS</string>
+  <string name="freesms_hint" formatted="false" username="" orig="Free SMS / month">Inkluderte SMS / måned</string>
+  <string name="cost_per_sms_" formatted="false" username="" orig="Cost / SMS">Pris / SMS</string>
+  <string name="cost_per_sms_hint" formatted="false" username="" orig="Each SMS get\'s billed.">Hver SMS blir fakturert</string>
+  <string name="freemms_" formatted="false" username="" orig="Free MMS">Inkluderte MMS</string>
+  <string name="freemms_hint" formatted="false" username="" orig="Free MMS / month">Inkluderte MMS / måned</string>
+  <string name="cost_per_mms_" formatted="false" username="" orig="Cost / MMS">Pris / MMS</string>
+  <string name="cost_per_mms_hint" formatted="false" username="" orig="Each MMS get\'s billed.">Hver MMS blir fakturert</string>
+  <string name="freedata_" formatted="false" username="" orig="Free traffic">Inkludert datatrafikk</string>
+  <string name="freedata_hint" formatted="false" username="" orig="Free 2G, 3G or 4G data traffic / month">Inkludert 2G, 3G eller 4G data trafikk / måned</string>
+  <string name="cost_per_mb_" formatted="false" username="" orig="Cost / MB">Pris / MB</string>
+  <string name="cost_per_mb_hint" formatted="false" username="" orig="Each MB get\'s billed.">Hver MB blir fakturert</string>
 </resources>
