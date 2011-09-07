@@ -21,7 +21,7 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=nb&file=help.xml to edit the file.
        -->
 <resources>
-  <string name="help_title_" formatted="false" username="" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">Venneligst les følgande for å forstå begrepa <b>logger</b>, <b>planer&lt;/&gt; og <b>regler</b></string>
+  <string name="help_title_" formatted="false" username="" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">Venneligst les følgande for å forstå begrepa <b>logger</b>, <b>pla</b> og <b>regler</b></string>
   <string name="help_import_" formatted="false" username="" orig="A good starting point are some preconfigured rule sets available on the website. Just import them via import menu and play around.">Et godt sted å starte er noen forhånds konfigurerte regler som er tilgjenglig på websiden. Bare importer dem via import menyen og lek med dem.</string>
   <string name="help_export_" formatted="false" username="" orig="If you managed to set up a common plan for your country, do not hesitate to export your rule set to me by mail. I will put it on the website to make it available for all the users.">Om du klarer å sette opp en felles plan for hele landet ditt, så ikke nøl med å eksportere reglene til meg via mail. Jeg vil gjøre dem tilgjenglige for alle på min webside.</string>
   <string name="help_logs_plans_rules_" formatted="false" username="" orig="There are three kinds of data structures:">Der er tre typer data strukturer:</string>
