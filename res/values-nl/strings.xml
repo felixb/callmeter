@@ -392,4 +392,13 @@
   <string name="cost_" formatted="false" orig="Cost">Kosten</string>
   <string name="remote_" formatted="false" orig="Remote number">gebeld nummer</string>
   <string name="billperiod_sn" formatted="false" orig="BillPeriod">Rekening periode</string>
+  <string name="calls_in" formatted="false" orig="Calls In">inkomende gesprekken</string>
+  <string name="calls_in_" formatted="false" orig="CallsIn">inkomende gesprekken</string>
+  <string name="calls_out" formatted="false" orig="Calls Out">uitgaande gesprekken</string>
+  <string name="calls_out_" formatted="false" orig="CallsOut">uitgaande gesprekken</string>
+  <string name="messages_" formatted="false" orig="SMS/MMS">SMS/MMS</string>
+  <string name="messages" formatted="false" orig="Messages">Bericht</string>
+  <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Data (2G/3G/4G)</string>
+  <string name="data_inout" formatted="false" orig="Data In/Out">Data In/Uit</string>
+  <string name="export_" formatted="false" orig="Export ...">Exporteer ...</string>
 </resources>
