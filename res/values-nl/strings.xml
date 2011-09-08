@@ -36,7 +36,7 @@
   <string name="update_interval_" formatted="false" orig="Update interval">Update interval</string>
   <string name="update_interval_hint" formatted="false">Kortere periode verbruikt meer batterij.</string>
   <string name="date_begin_" formatted="false">Begin van records</string>
-  <string name="date_begin_hint" formatted="false">Negeer alle logs voor deze datum.</string>
+  <string name="date_begin_hint" formatted="false" orig="Ignore any logs before this date.">Negeer alle logs vóór deze datum.</string>
   <string name="delete_old_logs_" formatted="false">Verwijder logs ouder dan</string>
   <string name="delete_old_logs_help" formatted="false">Verwijder logs ouder dan x dagen van interne database. Leeg laten om het uit te zetten.</string>
   <string name="common_prefs_" formatted="false">Algemene voorkeuren</string>
@@ -384,4 +384,12 @@
   <string name="small_widget_" formatted="false" username="Gummie" orig="Use small widget">Gebruik smalle widget</string>
   <string name="show_calllength_" formatted="false" username="Gummie" orig="Show info after hanging up">Toon info na ophangen</string>
   <string name="show_calllength_hint" formatted="false" username="Gummie" orig="Show length/cost of a call after hanging up.">Toon lengte/kosten van een gesprek na ophangen.</string>
+  <string name="custom_delimiter_" formatted="false" orig="Custom delimiter">aangepast scheidingsteken</string>
+  <string name="split_sms_at_160_" formatted="false" orig="Split text messages at 160 chars">deel SMS bij 160 karakters</string>
+  <string name="autohide_" formatted="false" orig="Auto hide">automatisch verbergen</string>
+  <string name="logs" formatted="false" orig="Logs">Logboek</string>
+  <string name="length_" formatted="false" orig="Length">Lengte</string>
+  <string name="cost_" formatted="false" orig="Cost">Kosten</string>
+  <string name="remote_" formatted="false" orig="Remote number">gebeld nummer</string>
+  <string name="billperiod_sn" formatted="false" orig="BillPeriod">Rekening periode</string>
 </resources>
