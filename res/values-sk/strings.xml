@@ -25,7 +25,7 @@
   <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">Aplikácia tvorí štatistiku na základe logov o hovoroch, SMS správach a dátových prenosoch a podporuje niekoľko spôsobov účtovania/tarifikácie.</string>
   <string name="about1" formatted="false" orig="The output format is usage | time or count used this billing period | time or count overall.">Výstupom je celkový počet využitých minút/sms/dát od nainštalovania aplikácie, a počet týchto jednotiek prípadne ukazatel využitia voľných minút/sms/dát za aktuálne zúčtovacie obdobie. Výpočet mesačnej spotreby berie na vedomie vybranú tarifikáciu. V celkovom výpočte nie je tarifikácia zohladnená.\n\nLegenda zobrazovania štatistík:\nPríchodzie hovory: dĺžka a počet v aktuálnom období / dĺžka všetkých hovorov\nOdchádzajúce hovory: [% využitie voľných minút akt. obdobia] / dĺžka a počet v akt. období / dĺžka všetkých hovorov\nPríchodzie SMS: počet SMS v akt. období / celkový počet SMS\nOdchodzie SMS: cena za SMS v akt. období / [% využitie voľných SMS v akt. období] / počet SMS v akt. období / celkový počet SMS</string>
   <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">Režim tarifikácie určuje spôsob spoplatnenia prvého a nasledujúceho intervalu hlasových hovorov. Napr. 60/10 znamená, že u hovoru sa vždy započíta min. 60 sekúnd a čas nad rámec prvého intervalu je zaokrúhlený nahor na najbližších 10 sekúnd.</string>
-  <string name="about3" formatted="false" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">Call Meter sa spúšťa každých 30 minút (pokiaľ nie je telefón v pohotovostnom režime), čo znamená, že zmazaní záznamov o hovoroch/sms/dátach za posledných 30 minút ovplyvní vypočetnú štatistiku.</string>
+  <string name="about3" formatted="false" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics." username="kayle.sk &lt;kayle.sk@gmail.com&gt;">Call Meter sa spúšťa každých 30 minút (pokiaľ nie je telefón v pohotovostnom režime), čo znamená, že zmazaním záznamov o hovoroch/sms/dátach za posledných 30 minút sa ovplyvní výpočet štatistiky.</string>
   <string name="send_" formatted="false" orig="Send">Odoslať</string>
   <string name="settings" formatted="false">Nastavenia</string>
   <string name="about_" formatted="false">Nápoveda</string>
@@ -33,8 +33,8 @@
   <string name="faq_hint" formatted="false">Tipy a triky ako nastaviť aplikáciu.</string>
   <string name="feedback_" formatted="false">Feedback</string>
   <string name="feedback_hint" formatted="false">Ohlásiť chybu, poslať požiadavku na funkčnosť.</string>
-  <string name="twitter_hint" formatted="false">Následuj ma na Twitteri\nInfo o nových verziách apod.</string>
-  <string name="more_" formatted="false">Daľšie aplikácie autora..</string>
+  <string name="twitter_hint" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Follow me on twitter.\nGet update notifications etc.">Nasleduj ma na Twitteri\nInfo o nových verziách apod.</string>
+  <string name="more_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="More Apps..">Ďaľšie aplikácie autora..</string>
   <string name="billday_" formatted="false">Začiatok zúčtovacieho obdobia</string>
   <string name="billmode_" formatted="false">Tarifikácia</string>
   <string name="billdate_" formatted="false">Začiatok zúčtovacieho obdobia:</string>
@@ -46,16 +46,117 @@
   <string name="reset_data_hint" formatted="false">Reset pamäti aplikácie vynúti prepočet štatistiky.\nReset pamäti o dátovom prenose je permanentný - zmaže iba dáta prenesené pred štartom zariadenia.</string>
   <string name="reset_data_data_" formatted="false">Reset pamäti o prenose dát.</string>
   <string name="reset_data_progr1" formatted="false">Recalculating statistics ...\n\n(This may take some time!)</string>
-  <string name="reset_data_progr2" formatted="false">Recalculating statistics ...</string>
+  <string name="reset_data_progr2" formatted="false" orig="Recalculating statistics ...">Prepočítavam štatistiku...</string>
   <string name="contacts_" formatted="false">Z kontaktov</string>
   <string-array name="themes">
     <item>Tmavý</item>
     <item>Svetlý</item>
   </string-array>
-  <string-array name="rules_type">
+  <string-array name="rules_type" username="kayle.sk &lt;kayle.sk@gmail.com&gt;">
     <item>Hovory</item>
     <item>SMS</item>
     <item>MMS</item>
-    <item>Data</item>
+    <item>Dáta</item>
   </string-array>
+  <string-array name="update_interval">
+    <item>5 minút</item>
+    <item>10 minút</item>
+    <item>15 minút</item>
+    <item>30 minút</item>
+    <item>hodina</item>
+    <item>dve hodiny</item>
+    <item>Iba manuálne</item>
+  </string-array>
+  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Poznámka od vývojára</string>
+  <string name="add_" formatted="false" orig="Add">Pridať</string>
+  <string name="length_hint_call" formatted="false" orig="Length in seconds">Dĺžka v sekundách</string>
+  <string name="update_interval_" formatted="false" orig="Update interval">Interval obnovovania</string>
+  <string name="delete_old_logs_" formatted="false" orig="Delete logs older than">Zmazať logy staršie ako</string>
+  <string name="delete_old_logs_help" formatted="false" orig="Delete logs older than x days from internal database. Leave empty to disable.">Zmaže logy staršie ako x dní z internej databázy. Nechajte prázdne pre zakázanie.</string>
+  <string name="billing_" formatted="false" orig="Billing">Účtovanie</string>
+  <string name="textsize_hint" formatted="false" orig="Text size in pixels; leave empty for default">Veľkosť textu v pixeloch. Nechajte prázdne pre východziu veľkosť.</string>
+  <string name="show_hours_hint" formatted="false" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Ukázať čas v sekundách, minútach, hodinách a dňoch.\nAk je položka nezašktrnutá zobrazuje iba sekundy a minúty.</string>
+  <string name="number_prefix_" formatted="false" orig="International prefix">Medzinárodný prefix</string>
+  <string name="number_prefix_hint" formatted="false" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">Váš medzinárodný prefix vo formáte +1 alebo +421. Je použitý na porovnávanie čísiel ako +49170.. a 0179..</string>
+  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Posledné zmeny:</string>
+  <string-array name="billperiod">
+    <item>Deň</item>
+    <item>Týždeň</item>
+    <item>30 dní</item>
+    <item>60 dní</item>
+    <item>90 dní</item>
+    <item>Mesiac</item>
+    <item>2 mesiace</item>
+    <item>3 mesiace</item>
+    <item>4 mesiace</item>
+    <item>5 mesiacov</item>
+    <item>6 mesiacov</item>
+    <item>Rok</item>
+    <item>Bez obmedzenia</item>
+  </string-array>
+  <string name="yes" formatted="false" orig="Yes">Áno</string>
+  <string name="no" formatted="false" orig="No">Nie</string>
+  <string name="help_" formatted="false" orig="Help">Nápoveda</string>
+  <string name="common_prefs_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Common preferences">Spoločné nastavenia</string>
+  <string name="simple_preferences_hint" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Zjednodušené nastavenia vhodné pre väčšinu používateľov. Sú dostupné len s východzími pravidlami.</string>
+  <string name="simple_preferences_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Simple preferences">Zjednodušené nastavenia</string>
+  <string name="advanced_preferences_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Advanced preferences">Rozšírené nastavenia</string>
+  <string name="textsize_title_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Title\'s text size">Veľkosť nadpisu</string>
+  <string name="textsize_title_hint" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Text size for titles in pixels; leave empty for default">Veľkosť nadpisu v pixeloch. Nechajte prázdne pre východziu veľkosť.</string>
+  <string name="show_today_hint" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Show today stats">Zobrazí dnešnú štatistiku</string>
+  <string name="show_today_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Show today">Zobraziť dnešok</string>
+  <string-array name="hours_all" username="kayle.sk &lt;kayle.sk@gmail.com&gt;">
+    <item>Celý deň</item>
+    <item notranslation="true">0:00 - 0:59</item>
+    <item notranslation="true">1:00 - 1:59</item>
+    <item notranslation="true">2:00 - 2:59</item>
+    <item notranslation="true">3:00 - 3:59</item>
+    <item notranslation="true">4:00 - 4:59</item>
+    <item notranslation="true">5:00 - 5:59</item>
+    <item notranslation="true">6:00 - 6:59</item>
+    <item notranslation="true">7:00 - 7:59</item>
+    <item notranslation="true">8:00 - 8:59</item>
+    <item notranslation="true">9:00 - 9:59</item>
+    <item notranslation="true">10:00 - 10:59</item>
+    <item notranslation="true">11:00 - 11:59</item>
+    <item notranslation="true">12:00 - 12:59</item>
+    <item notranslation="true">13:00 - 13:59</item>
+    <item notranslation="true">14:00 - 14:59</item>
+    <item notranslation="true">15:00 - 15:59</item>
+    <item notranslation="true">16:00 - 16:59</item>
+    <item notranslation="true">17:00 - 17:59</item>
+    <item notranslation="true">18:00 - 18:59</item>
+    <item notranslation="true">19:00 - 19:59</item>
+    <item notranslation="true">20:00 - 20:59</item>
+    <item notranslation="true">21:00 - 21:59</item>
+    <item notranslation="true">22:00 - 22:59</item>
+    <item notranslation="true">23:00 - 23:59</item>
+  </string-array>
+  <string-array name="weekdays_all" username="kayle.sk &lt;kayle.sk@gmail.com&gt;">
+    <item>Celý týždeň</item>
+    <item>Pondelok</item>
+    <item>Utorok</item>
+    <item>Streda</item>
+    <item>Štvrtok</item>
+    <item>Piatok</item>
+    <item>Sobota</item>
+    <item>Nedeľa</item>
+    <item>Pondelok - Piatok</item>
+  </string-array>
+  <string name="widget_text_color_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Text color">Farba textu</string>
+  <string name="widget_backgroud_color_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Background color">Farba pozadia</string>
+  <string name="widget_backgroud_transparency_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Background transparency">Priesvitnosť pozadia</string>
+  <string name="alerts_100_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Notify at 100%">Pripomienka pri 100%</string>
+  <string name="alerts_80_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Notify at 80%">Pripomienka pri 80%</string>
+  <string name="export_rules_descr" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Description">Popis</string>
+  <string name="strip_seconds_help" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Do not bill first x seconds of a call.">Neúčtuje prvých x sekúnd hovoru.</string>
+  <string name="strip_seconds_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Do not bill first seconds">Neúčtovať prvé sekundy</string>
+  <string name="limit_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Limit">Limit</string>
+  <string name="data" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Data">Dáta</string>
+  <string name="data_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Data (2G/3G/4G)">Dáta (2G/3G/4G)</string>
+  <string name="add_number" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Add number">Pridať číslo</string>
+  <string name="advanced_preferences_hint" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Tu si môžete nastaviť komplexnejšie pravidlá. Väčšina používateľov ich nebude potrebovať.</string>
+  <string name="edit_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Edit">Upraviť</string>
+  <string name="update_interval_hint" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Shorter period will use more battery.">Kratší čas zvýši spotrebu batérie.</string>
+  <string name="notes_from_developer_text" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Click here to show recent news from the developer">Kliknite sem pre zobrazenie najnovších správ od vývojára.</string>
 </resources>

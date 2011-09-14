@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,27 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=de&file=notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=sk&file=simple_prefs.xml to edit the file.
        -->
 <resources>
+  <string name="freemin_" formatted="false" orig="Free minutes">Voľné minúty</string>
+  <string name="freemin_hint" formatted="false" orig="Free minutes / month">Voľné minúty za mesiac</string>
+  <string name="cost_per_call_" formatted="false" orig="Cost / call">Cena za hovor</string>
+  <string name="cost_per_min_" formatted="false" orig="Cost / minute">Cena za minútu</string>
+  <string name="freesms_" formatted="false" orig="Free SMS">Voľné SMS</string>
+  <string name="freesms_hint" formatted="false" orig="Free SMS / month">Voľné SMS za mesiac</string>
+  <string name="cost_per_sms_" formatted="false" orig="Cost / SMS">Cena za SMS</string>
+  <string name="cost_per_sms_hint" formatted="false" orig="Each SMS get\'s billed.">Každá SMS je účtovaná.</string>
+  <string name="freemms_" formatted="false" orig="Free MMS">Voľné MMS</string>
+  <string name="freemms_hint" formatted="false" orig="Free MMS / month">Voľné MMS za mesiac</string>
+  <string name="cost_per_mms_" formatted="false" orig="Cost / MMS">Cena za MMS</string>
+  <string name="cost_per_mms_hint" formatted="false" orig="Each MMS get\'s billed.">Každá MMS je účtovaná.</string>
+  <string name="freedata_" formatted="false" orig="Free traffic">Voľné dáta</string>
+  <string name="cost_per_mb_" formatted="false" orig="Cost / MB">Cena za MB</string>
+  <string name="cost_per_mb_hint" formatted="false" orig="Each MB get\'s billed.">Každý MB je účtovaný.</string>
+  <string name="freedata_hint" formatted="false" orig="Free 2G, 3G or 4G data traffic / month">Voľné dáta za mesiac</string>
+  <string name="cost_per_min_hint" formatted="false" orig="Each minute get\'s billed.">Každá minúta je účtovaná.</string>
+  <string name="cost_per_call_hint" formatted="false" orig="Each call get\'s billed.">Každý hovor je účtovaný.</string>
 </resources>
