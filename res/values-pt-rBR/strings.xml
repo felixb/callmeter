@@ -30,4 +30,146 @@
   <string name="units_cost_per_message" formatted="false">R$/Mensagem</string>
   <string name="units_cost_per_mbyte" formatted="false" orig="$/MByte">R$/MByte</string>
   <string name="units_cost_per_unit" formatted="false" orig="$/Unit">R$/Unidade</string>
+  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Mudanças recentes:</string>
+  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Clique aqui para mostrar as mudanças recentes de</string>
+  <string name="never_show_again" formatted="false" orig="Never show changelog again">Nunca mostrar log de mudanças novamente</string>
+  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Notas do desenvolvedor</string>
+  <string-array name="update_interval" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
+    <item>5 minutos</item>
+    <item>10 minutos</item>
+    <item>15 minutos</item>
+    <item>30 minutos</item>
+    <item>Uma hora</item>
+    <item>Duas horas</item>
+    <item>Manualmente apenas</item>
+  </string-array>
+  <string-array name="date_formats" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
+    <item>Padrão</item>
+    <item>MM/DD/AA</item>
+    <item>DD/MM/AAAA</item>
+    <item>DD.MM.AAAA</item>
+  </string-array>
+  <string-array name="currency_formats" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
+    <item>Padrão</item>
+    <item>R$1.00</item>
+    <item>R$1000</item>
+    <item>1.00R$</item>
+    <item>1000R$</item>
+  </string-array>
+  <string-array name="direction_data" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
+    <item>dentro</item>
+    <item>fora</item>
+  </string-array>
+  <string-array name="direction_mms" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
+    <item>dentro</item>
+    <item>fora</item>
+  </string-array>
+  <string-array name="billperiod" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
+    <item>Um dia</item>
+    <item>Uma semana</item>
+    <item>30 dias</item>
+    <item>60 dias</item>
+    <item>90 dias</item>
+    <item>Um mês</item>
+    <item>Dois meses</item>
+    <item>Três meses</item>
+    <item>Quatro meses</item>
+    <item>Cinco meses</item>
+    <item>Seis meses</item>
+    <item>Um ano</item>
+    <item>Infinito</item>
+  </string-array>
+  <string-array name="limit_type" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
+    <item>ilimitado</item>
+    <item>unidades</item>
+    <item>custo</item>
+  </string-array>
+  <string-array name="rules_type" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
+    <item>Ligações</item>
+    <item>SMS</item>
+    <item>MMS</item>
+    <item>Dados</item>
+  </string-array>
+  <string-array name="plans_type" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
+    <item>Título</item>
+    <item>Separador</item>
+    <item>Período da conta</item>
+    <item>Misturado</item>
+    <item>Ligação</item>
+    <item>SMS</item>
+    <item>MMS</item>
+    <item>Dados</item>
+  </string-array>
+  <string-array name="dialog_edit_delete" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
+    <item>Editar</item>
+    <item>Deletar</item>
+  </string-array>
+  <string-array name="dialog_delete" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
+    <item>Deletar</item>
+  </string-array>
+  <string-array name="dialog_edit_plan" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
+    <item>Editar plano</item>
+  </string-array>
+  <string-array name="themes" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
+    <item>Preto</item>
+    <item>Light</item>
+  </string-array>
+  <string-array name="hours_all" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
+    <item>Durante todo o dia</item>
+    <item notranslation="true">0:00 - 0:59</item>
+    <item notranslation="true">1:00 - 1:59</item>
+    <item notranslation="true">2:00 - 2:59</item>
+    <item notranslation="true">3:00 - 3:59</item>
+    <item notranslation="true">4:00 - 4:59</item>
+    <item notranslation="true">5:00 - 5:59</item>
+    <item notranslation="true">6:00 - 6:59</item>
+    <item notranslation="true">7:00 - 7:59</item>
+    <item notranslation="true">8:00 - 8:59</item>
+    <item notranslation="true">9:00 - 9:59</item>
+    <item notranslation="true">10:00 - 10:59</item>
+    <item notranslation="true">11:00 - 11:59</item>
+    <item notranslation="true">12:00 - 12:59</item>
+    <item notranslation="true">13:00 - 13:59</item>
+    <item notranslation="true">14:00 - 14:59</item>
+    <item notranslation="true">15:00 - 15:59</item>
+    <item notranslation="true">16:00 - 16:59</item>
+    <item notranslation="true">17:00 - 17:59</item>
+    <item notranslation="true">18:00 - 18:59</item>
+    <item notranslation="true">19:00 - 19:59</item>
+    <item notranslation="true">20:00 - 20:59</item>
+    <item notranslation="true">21:00 - 21:59</item>
+    <item notranslation="true">22:00 - 22:59</item>
+    <item notranslation="true">23:00 - 23:59</item>
+  </string-array>
+  <string-array name="weekdays_all" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
+    <item>Durante toda a semana</item>
+    <item notranslation="true">Monday</item>
+    <item notranslation="true">Tuesday</item>
+    <item notranslation="true">Wednesday</item>
+    <item notranslation="true">Thursday</item>
+    <item notranslation="true">Friday</item>
+    <item notranslation="true">Saturday</item>
+    <item notranslation="true">Sunday</item>
+    <item notranslation="true">Monday - Friday</item>
+  </string-array>
+  <string name="send_devices_hint" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Enviar a lista de dispositivos para o desenvolvedor. Isso só é necessário se seus status de dados são zero.</string>
+  <string name="send_devices_" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Send devices">Enviar dipositivos</string>
+  <string name="widget_backgroud_transparency_" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Background transparency">Transparência do plano de fundo</string>
+  <string name="widget_backgroud_color_" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Background color">Cor do plano de fundo</string>
+  <string name="widget_text_color_" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Text color">Cor do texto</string>
+  <string name="widget_cost_textsize" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Cost Text Size">Tamanho do texto do custo</string>
+  <string name="widget_plan_textsize" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Plan Text Size">Tamanho do texto do plano</string>
+  <string name="widget_config_" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Widget config">Configuração do Widget</string>
+  <string name="alerts_100_hint" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Notify if a plan passes 100% of it\'s limit.">Notificar se o plano passar de 100% do seu limite.</string>
+  <string name="alerts_100_" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Notify at 100%">Notificar aos 100%</string>
+  <string name="alerts_80_hint" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Notify if a plan passes 80% of it\'s limit.">Notificar se o plano passar de 80% do seu limite.</string>
+  <string name="alerts_80_" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Notify at 80%">Notificar aos 80%</string>
+  <string name="alerts_message" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Plan %s has reached %d%% usage!">Plano alcançou seu limite de uso!</string>
+  <string name="alerts_title" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Call Meter 3G alert">Alerta do Call Meter 3G</string>
+  <string name="alerts_hint" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Set alerts based on plan usage.">Definir alertas com base na utilização do plano</string>
+  <string name="alerts_" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Alerts">Alertas</string>
+  <string name="err_export_read" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Error reading export file">Erro na leitura do arquivo de exportação</string>
+  <string name="err_export_write" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Error writing export file">Erro escrevendo o arquivo de exportação</string>
+  <string name="import_rules_empty" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Sem planos/regras estabelecidas. Clique neste texto para importar um conjunto de regras padrão.\n\nOu adicionar planos e regras nas preferências manualmente.</string>
+  <string name="import_rules_default_hint" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Import default rule set shipped with the app.">Importar o conjunto de regras padrão que acompanha o aplicativo</string>
 </resources>
