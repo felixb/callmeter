@@ -96,9 +96,9 @@
   <string name="hide_nocost_hint" formatted="false">Azok tarifák elrejtése, amelyek díjmentesek.</string>
   <string name="hide_progressbars_" formatted="false">Folyamatjelzők elrejtése</string>
   <string name="hide_progressbars_hint" formatted="false">A fő nézetben elrejti a folyamatjelző csíkokat.</string>
-  <string name="custom_currency_symbol_" formatted="false" username="" orig="Custom currency symbol">Saját valuta jele</string>
+  <string name="custom_currency_symbol_" formatted="false" orig="Custom currency symbol">Saját valuta jele</string>
   <string name="custom_currency_symbol_hint" formatted="false">Itt adhatsz meg számlázási pénznemet, hagyd üresen az alapértelmezés használatához.</string>
-  <string name="custom_currency_format_" formatted="false" username="" orig="Custom currency format">Pénznem formátuma</string>
+  <string name="custom_currency_format_" formatted="false" orig="Custom currency format">Pénznem formátuma</string>
   <string name="custom_currency_format_hint" formatted="false">Itt adhatod meg, hogy a pénznem milyen formátumban jelenjen meg.</string>
   <string name="custom_date_format_" formatted="false">Dátumformátum</string>
   <string name="custom_date_format_hint" formatted="false">Itt választhatsz dátumformátumot.</string>
@@ -410,7 +410,7 @@
     <item>NN/HH/ÉÉÉÉ</item>
     <item>NN.HH.ÉÉÉÉ</item>
   </string-array>
-  <string-array name="update_interval" username="">
+  <string-array name="update_interval">
     <item>5 perc</item>
     <item>10 perc</item>
     <item>15 perc</item>
@@ -419,25 +419,25 @@
     <item>Két óra</item>
     <item>Csak manuálisan</item>
   </string-array>
-  <string name="simple_preferences_" formatted="false" username="" orig="Simple preferences">Alapbeállítások</string>
-  <string name="simple_preferences_hint" formatted="false" username="" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Nagyon egyszerű beállítások, megfelelő a legtöbb felhasználónak. Csak az alapértelmezett szabály beállítással érhető el.</string>
-  <string name="show_icon_" formatted="false" username="" orig="Show icon">Ikon mutatása</string>
-  <string name="hide_name_" formatted="false" username="" orig="Hide name of plan">Terv nevének elrejtése</string>
-  <string name="small_widget_" formatted="false" username="" orig="Use small widget">Kis widget használata</string>
-  <string name="numbergroup_excalls" formatted="false" username="" orig="Exclude from calls">Kivételek a hívásoknál</string>
-  <string name="numbergroup_exsms" formatted="false" username="" orig="Exclude from SMS">Kivételek az SMS-nél</string>
-  <string name="billperiod_sn" formatted="false" username="" orig="BillPeriod">Számlázási időszak</string>
-  <string name="calls_in" formatted="false" username="" orig="Calls In">Bejövő hívások</string>
-  <string name="calls_in_" formatted="false" username="" orig="CallsIn">Bejövő hívások</string>
-  <string name="calls_out" formatted="false" username="" orig="Calls Out">Kimenő hívások</string>
-  <string name="calls_out_" formatted="false" username="" orig="CallsOut">Kimenő hívások</string>
-  <string name="messages" formatted="false" username="" orig="Messages">Üzenetek</string>
-  <string name="messages_" formatted="false" username="" orig="SMS/MMS">SMS/MMS</string>
-  <string name="sms_in" formatted="false" username="" orig="SMS In">Bejövő SMS</string>
-  <string name="sms_in_" formatted="false" username="" orig="SMSIn">Bejövő SMS</string>
-  <string name="sms_out" formatted="false" username="" orig="SMS Out">Kimenő SMS</string>
-  <string name="sms_out_" formatted="false" username="" orig="SMSOut">Kimenő SMS</string>
-  <string name="data_" formatted="false" username="" orig="Data (2G/3G/4G)">Adat (2G/3G/4G)</string>
+  <string name="simple_preferences_" formatted="false" orig="Simple preferences">Alapbeállítások</string>
+  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Nagyon egyszerű beállítások, megfelelő a legtöbb felhasználónak. Csak az alapértelmezett szabály beállítással érhető el.</string>
+  <string name="show_icon_" formatted="false" orig="Show icon">Ikon mutatása</string>
+  <string name="hide_name_" formatted="false" orig="Hide name of plan">Terv nevének elrejtése</string>
+  <string name="small_widget_" formatted="false" orig="Use small widget">Kis widget használata</string>
+  <string name="numbergroup_excalls" formatted="false" orig="Exclude from calls">Kivételek a hívásoknál</string>
+  <string name="numbergroup_exsms" formatted="false" orig="Exclude from SMS">Kivételek az SMS-nél</string>
+  <string name="billperiod_sn" formatted="false" orig="BillPeriod">Számlázási időszak</string>
+  <string name="calls_in" formatted="false" orig="Calls In">Bejövő hívások</string>
+  <string name="calls_in_" formatted="false" orig="CallsIn">Bejövő hívások</string>
+  <string name="calls_out" formatted="false" orig="Calls Out">Kimenő hívások</string>
+  <string name="calls_out_" formatted="false" orig="CallsOut">Kimenő hívások</string>
+  <string name="messages" formatted="false" orig="Messages">Üzenetek</string>
+  <string name="messages_" formatted="false" orig="SMS/MMS">SMS/MMS</string>
+  <string name="sms_in" formatted="false" orig="SMS In">Bejövő SMS</string>
+  <string name="sms_in_" formatted="false" orig="SMSIn">Bejövő SMS</string>
+  <string name="sms_out" formatted="false" orig="SMS Out">Kimenő SMS</string>
+  <string name="sms_out_" formatted="false" orig="SMSOut">Kimenő SMS</string>
+  <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Adat (2G/3G/4G)</string>
   <string name="mms_in" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="MMS In">Bejövő MMS</string>
   <string name="mms_in_" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="MMSIn">Bejövő MMS</string>
   <string name="mms_out" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="MMS Out">Kimenő MMS</string>
