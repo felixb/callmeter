@@ -138,6 +138,6 @@
     <item>小</item>
     <item>中</item>
   </string-array>
-  <string name="data_show_simple_" formatted="false" username="" orig="Show only \&quot;Data\&quot; as title">標題僅顯示"資料"</string>
-  <string name="data_" formatted="false" username="" orig="Data (2G/3G/4G)">資料(2G/3G/4G)</string>
+  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">標題僅顯示"資料"</string>
+  <string name="data_" formatted="false" orig="Data (2G/3G/4G)">数据</string>
 </resources>
