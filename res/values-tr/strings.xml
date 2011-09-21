@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,7 +16,7 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=tr&file=strings.xml to edit the file.
        -->
@@ -325,4 +325,21 @@
     <item>2 saat</item>
     <item>Yalnızca elle</item>
   </string-array>
+  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Güncel değişiklikler:</string>
+  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Bu konudaki güncel değişiklikleri görmek için buraya tıklayın.</string>
+  <string name="never_show_again" formatted="false" orig="Never show changelog again">Değişiklik kayıtlarını bir daha gösterme</string>
+  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Uygulama geliştiricisinin notları</string>
+  <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Uygulama geliştiricisinden en son haberler için buraya tıklayın</string>
+  <string name="delete_old_logs_" formatted="false" orig="Delete logs older than">Bu tarihten önceki kayıtları sil</string>
+  <string name="delete_old_logs_help" formatted="false" orig="Delete logs older than x days from internal database. Leave empty to disable.">x günden daha eski kayıları iç veritabanından sil. Devre dışı bırakmak için boş bırakın.</string>
+  <string name="behavior_" formatted="false" orig="Behavior">Davranış</string>
+  <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp; behavior">Görünüm </string>
+  <string name="simple_preferences_" formatted="false" orig="Simple preferences">Temel tercihler</string>
+  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Çok basit tercihler. Birçok kullanıcı için uygundur. Yalnızca varsayılan kural kümesi ile kullanılabilir.</string>
+  <string name="textsize_title_" formatted="false" orig="Title\'s text size">Başlığın metin boyutu</string>
+  <string name="textsize_title_hint" formatted="false" orig="Text size for titles in pixels; leave empty for default">Başlıklar için piksel cinsinden metin boyutu; varsayılan için boş bırakın</string>
+  <string name="textsize_bigtitle_" formatted="false" orig="Big title\'s text size">Büyük başlığın metin boyutu</string>
+  <string name="textsize_bigtitle_hint" formatted="false" orig="Text size for big titles in pixels; leave empty for default">Büyük başlıklar için piksel cinsinden metin boyutu; varsayılan için boş bırakın</string>
+  <string name="textsize_spacer_" formatted="false" orig="Spacer\'s size">Boşluk büyüklüğü</string>
+  <string name="textsize_spacer_hint" formatted="false" orig="Size for spacers in pixels; leave empty for default">Boşluklar için piksel cinsinden büyüklük; varsayılan için boş bırakın</string>
 </resources>
