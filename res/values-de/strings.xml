@@ -22,7 +22,7 @@
        -->
 <resources>
   <string name="about0_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Watch your call, message and data plans!">Pass auf deine Freiminuten, FreiSMS und dein Datenvolumen auf!</string>
-  <string name="about0" formatted="false">CallMeter erzeugt aus deinen Anruf-, SMS- und Daten-Logs Berichte. Es unterstützt viele verschiedene Abrechnungsmodi.</string>
+  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter erzeugt aus deinen Anruf-, SMS- und Daten-Logs Berichte. Es unterstützt viele verschiedene Abrechnungsmodi.</string>
   <string name="about1" formatted="false">Das Ausgabeformat ist: Nutzung / Zeit oder Anzahl in diesem Monat / Zeit oder Anzahl überhaupt. Monatliche Anrufe werden nach Abrechnungsmodus berechnet. Die Gesamtzeit nicht.</string>
   <string name="about2" formatted="false">Der Abrechnungszeitraum bezeichnet die länge des ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s aufgerundet.</string>
   <string name="about3" formatted="false" orig="You can split your call or message plan into up to two plans. Each plan can be set to be totally free, capped to a set limit or unlimited.">Du kannst deine Anruf- oder SMS-Kontingente trennen. In jedem Kontingent kannst du dann folgendes einstellen: keine Abrechnung, auf ein bestimmtes Limit begrenzt oder keine Grenzen.</string>
@@ -39,7 +39,7 @@
   <string name="feedback_hint" formatted="false" orig="Report bugs, request features ...">Fehler melden, Funktionen wünschen ...</string>
   <string name="twitter_hint" formatted="false" orig="Follow me on twitter.\nGet update notifications etc.">Folge mir auf Twitter für neuste Updates, Benachrichtigungen und mehr.</string>
   <string name="more_" formatted="false" orig="More Apps..">Mehr Anwendungen..</string>
-  <string name="billday_" formatted="false" username="" orig="First day of your bill">Erster Rechnungstag</string>
+  <string name="billday_" formatted="false" orig="First day of your bill">Erster Rechnungstag</string>
   <string name="billmode_" formatted="false">Abrechnungsmodus</string>
   <string name="billmode_hint" formatted="false">Länge der Takte (erster/folgende)</string>
   <string name="billdate_" formatted="false">Erster Rechnungstag:</string>
