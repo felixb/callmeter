@@ -342,4 +342,45 @@
   <string name="textsize_bigtitle_hint" formatted="false" orig="Text size for big titles in pixels; leave empty for default">Büyük başlıklar için piksel cinsinden metin boyutu; varsayılan için boş bırakın</string>
   <string name="textsize_spacer_" formatted="false" orig="Spacer\'s size">Boşluk büyüklüğü</string>
   <string name="textsize_spacer_hint" formatted="false" orig="Size for spacers in pixels; leave empty for default">Boşluklar için piksel cinsinden büyüklük; varsayılan için boş bırakın</string>
+  <string name="textsize_pbar_" formatted="false" orig="Progress bar\'s size">İlerleme çubuğu boyutu</string>
+  <string name="textsize_pbar_hint" formatted="false" orig="Size for progress bars in pixels; leave empty for default">İlerleme çubuğu için piksel cinsinden büyüklük; varsayılan için boş bırakın</string>
+  <string name="textsize_pbarbp_" formatted="false" orig="Bill period\'s progress bar\'s size">Ücretlendirme periyodu ilerleme çubuğu boyutu</string>
+  <string name="textsize_pbarbp_hint" formatted="false" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Ücretlendirme periyodu ilerleme çubuğu boyutu için piksel cinsinden büyüklük; varsayılan için boş bırakın</string>
+  <string name="show_today_" formatted="false" orig="Show today">Bugünü göster</string>
+  <string name="show_today_hint" formatted="false" orig="Show today stats">Bugünün istatistiklerini göster</string>
+  <string name="show_help_" formatted="false" orig="Show help">Yardımı göster</string>
+  <string name="show_help_hint" formatted="false" orig="Show help in Plans/Rules setup view.">Paketler/Kurallar ayarlama görünümünde yardımı göster</string>
+  <string name="show_shortname_" formatted="false" orig="Show short name instead of long name">Uzun isim yerine kısa ismi göster</string>
+  <string name="rule_" formatted="false" orig="Rule">Kural</string>
+  <string name="show_cost_" formatted="false" orig="Show cost">Ücreti göster</string>
+  <string name="show_billperiod_" formatted="false" orig="Show progress of billing period">Ücretlendirme periyodu ilerlemesini göster</string>
+  <string name="show_icon_" formatted="false" orig="Show icon">İkonu göster</string>
+  <string name="hide_name_" formatted="false" orig="Hide name of plan">Pakedin ismini gizle</string>
+  <string name="small_widget_" formatted="false" orig="Use small widget">Küçük widget kullan</string>
+  <string name="show_calllength_" formatted="false" orig="Show info after hanging up">Görüşme sonlandıktan sonra görüşme bilgisini göster</string>
+  <string name="show_calllength_hint" formatted="false" orig="Show length/cost of a call after hanging up.">Görüşme sonlandıktan sonra görüşmenin süresini/ücretini göster.</string>
+  <string name="hide_zero_" formatted="false" orig="Hide empty plans">Boş paketleri gizle</string>
+  <string name="billperiod_sn" formatted="false" orig="BillPeriod">ÜcretlendirmePeriyodu</string>
+  <string name="calls_in" formatted="false" orig="Calls In">Gelen aramalar</string>
+  <string name="calls_in_" formatted="false" orig="CallsIn">GelenAramalar</string>
+  <string name="calls_out" formatted="false" orig="Calls Out">Giden Aramalar</string>
+  <string name="calls_out_" formatted="false" orig="CallsOut">GidenAramalar</string>
+  <string name="messages" formatted="false" orig="Messages">Mesajlar</string>
+  <string name="messages_" formatted="false" orig="SMS/MMS">SMS/MMS</string>
+  <string name="sms_in" formatted="false" orig="SMS In">Gelen SMS</string>
+  <string name="sms_in_" formatted="false" orig="SMSIn">GelenSMS</string>
+  <string name="sms_out" formatted="false" orig="SMS Out">Gönderilen SMS</string>
+  <string name="sms_out_" formatted="false" orig="SMSOut">GönderilenSMS</string>
+  <string name="mms_in" formatted="false" orig="MMS In">Gelen MMS</string>
+  <string name="mms_in_" formatted="false" orig="MMSIn">GelenMMS</string>
+  <string name="mms_out" formatted="false" orig="MMS Out">Gönderilen MMS</string>
+  <string name="mms_out_" formatted="false" orig="MMSOut">GönderilenMMS</string>
+  <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Data (2G/3G/4G)</string>
+  <string name="data_inout" formatted="false" orig="Data In/Out">Data Gelen/Giden</string>
+  <string name="data_inout_" formatted="false" orig="DataInOut">DataGelen/Giden</string>
+  <string name="hide_zero_hint" formatted="false" orig="Hide plans containing no item.">Hiçbir şey içermeyen paketleri gizle.</string>
+  <string name="hide_nocost_" formatted="false" orig="Hide no cost plans">Ücretsiz paketleri gizle</string>
+  <string name="hide_nocost_hint" formatted="false" orig="Hide plans with no cost.">Herhangi bir ücreti olmayan paketleri gizle.</string>
+  <string name="hide_progressbars_" formatted="false" orig="Hide progress bars">İlerleme çubuklarını gizle</string>
+  <string name="hide_progressbars_hint" formatted="false" orig="Hide progress bars in main view.">Ana ekrandaki ilerleme çubuklarını gizle.</string>
 </resources>

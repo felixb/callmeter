@@ -26,7 +26,7 @@
   <string name="never_show_again" formatted="false">A változások naplójának elrejtése ezen túl</string>
   <string name="notes_from_developer_" formatted="false">Fejlesztő üzenetei</string>
   <string name="notes_from_developer_text" formatted="false">Kattints ide, hogy megnyisd a legfrissebb híreket a fejlesztőtől.</string>
-  <string name="about0_" formatted="false">Kövesd nyomon a hívás-, SMS-, és adatforgalmadat!</string>
+  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Kövesd nyomon a hívás-, SMS-, és adatforgalmadat!</string>
   <string name="about0" formatted="false">A Call Meter 3G statisztikát készít a hívás-, SMS-, és adatforgalomból. Mindezt többféle számlázási mód támogatásával.</string>
   <string name="about1" formatted="false">A kimeneti formátum a következő: felhasznált mennyiség százalékosan / hívásidő, SMS-, vagy adatmennyiség az aktuális számlázási időszakra / összesített hívásidő, SMS-, vagy adatmennyiség. A havi számítás figyelembe veszi a számlázási módot, míg az összegzett nem.</string>
   <string name="about2" formatted="false">A számlázási mód az első / azt követő számlázott híváshosszt határozza meg. Pl.: A 60/10 azt jelenti, hogy minden hívás 60 másodpercig számlázott, az ennél hosszabb hívások 10 másodperces pontosságra lesznek felfelé kerekítve. Tehát a 60/60: perc alapú számlázást, 1/1: másodperc alapú számlázást jelent.</string>
