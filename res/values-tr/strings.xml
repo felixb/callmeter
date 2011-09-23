@@ -383,4 +383,37 @@
   <string name="hide_nocost_hint" formatted="false" orig="Hide plans with no cost.">Herhangi bir ücreti olmayan paketleri gizle.</string>
   <string name="hide_progressbars_" formatted="false" orig="Hide progress bars">İlerleme çubuklarını gizle</string>
   <string name="hide_progressbars_hint" formatted="false" orig="Hide progress bars in main view.">Ana ekrandaki ilerleme çubuklarını gizle.</string>
+  <string name="custom_delimiter_" formatted="false" orig="Custom delimiter">Özel ayraç</string>
+  <string name="custom_delimiter_hint" formatted="false" orig="Set a custom delimiter separating the blocks of statistics.">İstatistik bloklarını birbirinden ayıran özel bir ayraç oluştur.</string>
+  <string name="split_sms_at_160_" formatted="false" orig="Split text messages at 160 chars">Kısa mesajları 160 karakterden sonra böl</string>
+  <string name="split_sms_at_160_hint" formatted="false" orig="Disable to use android\'s system method.">Android sisteminin metodunu kullanmak için devre dışı bırakın.</string>
+  <string name="ask_for_plan_" formatted="false" orig="Ask for plan">Paket sor</string>
+  <string name="ask_for_plan_hint" formatted="false" orig="Ask for plan for unmatched calls after hanging up.">Görüşme sonlandıktan sonra herhangi bir pakede uymayan aramalar için paket sor.</string>
+  <string name="autohide_" formatted="false" orig="Auto hide">Otomatik gizle</string>
+  <string name="autohide_hint" formatted="false" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">İletiyi .. saniye sonra gizle. Otomatik gizlemeyi devre dışı bırakmak için boş bırakın.</string>
+  <string name="select_plan_" formatted="false" orig="Select a plan">Paket seç</string>
+  <string name="set_selected_as_default_" formatted="false" orig="Set selected plan as default">Seçilen pakedi varsayılan yap</string>
+  <string name="autohide_in_" formatted="false" orig="Auto hide dialog in: %ds">İletiyi %ds \'de otomatik gizle</string>
+  <string name="logs" formatted="false" orig="Logs">Loglar</string>
+  <string name="length_" formatted="false" orig="Length">Süre</string>
+  <string name="blength_" formatted="false" orig="Billed length">Faturalandırılmış süre</string>
+  <string name="cost_" formatted="false" orig="Cost">Tutar</string>
+  <string name="remote_" formatted="false" orig="Remote number">Uzak numara</string>
+  <string name="numbergroups_edit_" formatted="false" orig="Number groups">Numara grupları</string>
+  <string name="numbergroups_edit_hint" formatted="false" orig="Edit number groups here.">Numara gruplarını burada ayarlayın.</string>
+  <string name="hourgroups_edit_" formatted="false" orig="Hour groups">Saat grupları</string>
+  <string name="hourgroups_edit_hint" formatted="false" orig="Edit hour groups here.">Saat gruplarını burada ayarlayın.</string>
+  <string name="numbergroup_excalls" formatted="false" orig="Exclude from calls">Aramalardan hariç tut</string>
+  <string name="numbergroup_exsms" formatted="false" orig="Exclude from SMS">SMS\'lerden hariç tut</string>
+  <string name="merge_plans_" formatted="false" orig="Merge plans">Paketleri birleştir</string>
+  <string name="merge_plans_help" formatted="false" orig="Merge other plans into this one and bill them here (too).">Diğer paketleri bu paketle birleştir ve onları da burada faturalandır.</string>
+  <string name="units_cost" formatted="false" orig="$">TL</string>
+  <string name="units_num_msg" formatted="false" orig="# Messages"># Mesaj</string>
+  <string name="units_minutes" formatted="false" orig="Minutes">Dakika</string>
+  <string name="units_mbyte" formatted="false" orig="MBytes">MByte</string>
+  <string name="units_units" formatted="false" orig="Units">Birim</string>
+  <string name="units_units_per_minute" formatted="false" orig="Units/Minute">Birim/Dakika</string>
+  <string name="units_units_per_message" formatted="false" orig="Units/Message">Birim/Mesaj</string>
+  <string name="units_cost_per_call" formatted="false" orig="$/Call">TL/Arama</string>
+  <string name="units_cost_per_minute" formatted="false" orig="$/Minute">TL/Dakika</string>
 </resources>
