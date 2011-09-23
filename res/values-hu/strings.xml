@@ -22,10 +22,10 @@
        -->
 <resources>
   <string name="changelog_notification_" formatted="false" orig="Recent changes:">Legfrissebb változások:</string>
-  <string name="changelog_notification_text" formatted="false">Ide kattintva a program újdonságairól és változásairól tájékozódhatsz.</string>
-  <string name="never_show_again" formatted="false">A változások naplójának elrejtése ezen túl</string>
+  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Ide kattintva a program újdonságairól és változásairól tájékozódhatsz.</string>
+  <string name="never_show_again" formatted="false" orig="Never show changelog again">A változások naplójának elrejtése ezen túl</string>
   <string name="notes_from_developer_" formatted="false">Fejlesztő üzenetei</string>
-  <string name="notes_from_developer_text" formatted="false">Kattints ide, hogy megnyisd a legfrissebb híreket a fejlesztőtől.</string>
+  <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Kattints ide, hogy megnyisd a legfrissebb híreket a fejlesztőtől.</string>
   <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Kövesd nyomon a hívás-, SMS-, és adatforgalmadat!</string>
   <string name="about0" formatted="false">A Call Meter 3G statisztikát készít a hívás-, SMS-, és adatforgalomból. Mindezt többféle számlázási mód támogatásával.</string>
   <string name="about1" formatted="false">A kimeneti formátum a következő: felhasznált mennyiség százalékosan / hívásidő, SMS-, vagy adatmennyiség az aktuális számlázási időszakra / összesített hívásidő, SMS-, vagy adatmennyiség. A havi számítás figyelembe veszi a számlázási módot, míg az összegzett nem.</string>
@@ -36,7 +36,7 @@
   <string name="add_log" formatted="false">Naplóba bejegyzés hozzáadása</string>
   <string name="length_hint_call" formatted="false">Hossz másodpercben</string>
   <string name="length_hint_data" formatted="false">Adatforgalom kilobyte-ban</string>
-  <string name="settings" formatted="false">Beállítások</string>
+  <string name="settings" formatted="false" orig="Preferences">Beállítások</string>
   <string name="update_interval_" formatted="false">Frissítés gyakorisága</string>
   <string name="update_interval_hint" formatted="false">A rövidebb frissítési idő jobban meríti az akkumulátort.</string>
   <string name="date_begin_" formatted="false">Mérés kezdete</string>
@@ -89,7 +89,7 @@
   <string name="show_cost_" formatted="false">Egyenleg megjelenítése</string>
   <string name="show_billperiod_" formatted="false">A számlázási időszak állapotának megjelenítése</string>
   <string name="show_calllength_" formatted="false">Hívás után az infók megjelenítése</string>
-  <string name="show_calllength_hint" formatted="false">Hívás hosszának/díjának mutatása a hívás végeztével.</string>
+  <string name="show_calllength_hint" formatted="false" orig="Show length/cost of a call after hanging up.">Hívás hosszának/díjának mutatása a hívás végeztével.</string>
   <string name="hide_zero_" formatted="false">Üres tarifák elrejtése</string>
   <string name="hide_zero_hint" formatted="false">Elrejti azokat a tarifákat, amik nem tartalmaznak semmit se.</string>
   <string name="hide_nocost_" formatted="false">Díjmentes tarifák elrejtése</string>
@@ -106,7 +106,7 @@
   <string name="custom_delimiter_hint" formatted="false">Saját statisztikák közötti Elválasztót adhatsz meg itt.</string>
   <string name="split_sms_at_160_" formatted="false" username="Tamás Béres &lt;berestamas2@gmail.com&gt;" orig="Split text messages at 160 chars">Sms üzenetek tördelése...</string>
   <string name="split_sms_at_160_hint" formatted="false" username="Tamás Béres &lt;berestamas2@gmail.com&gt;" orig="Disable to use android\'s system method.">Sms üzenetek tördelése 160 karakternél</string>
-  <string name="ask_for_plan_" formatted="false">Tarifa kiválasztásának kérése</string>
+  <string name="ask_for_plan_" formatted="false" orig="Ask for plan">Tarifa kiválasztásának kérése</string>
   <string name="ask_for_plan_hint" formatted="false">Hívás után Tarifa kiválasztása, ha egyik Tarifába se illett bele a hívás.</string>
   <string name="autohide_" formatted="false">Automatikus elrejtés</string>
   <string name="autohide_hint" formatted="false">Párbeszédablak elrejtése ennyi másodperc után. Üresen hagyva kikapcsolod az automata elrejtést.</string>
@@ -117,8 +117,8 @@
   <string name="show_logs" formatted="false">Naplók megjelenítése</string>
   <string name="plans" formatted="false">Díjcsomagok, tarifák</string>
   <string name="plans_hint" formatted="false">Itt állíthatsz be Tarifákat.</string>
-  <string name="plans_new" formatted="false">Új Tarifa</string>
-  <string name="rule_" formatted="false">Szabály</string>
+  <string name="plans_new" formatted="false" orig="New plan">Új Tarifa</string>
+  <string name="rule_" formatted="false" orig="Rule">Szabály</string>
   <string name="rules" formatted="false">Szabályok</string>
   <string name="rules_hint" formatted="false">Itt állíthatod be a tarifák szabályait.</string>
   <string name="rules_new" formatted="false">Új szabály</string>
@@ -126,11 +126,11 @@
   <string name="blength_" formatted="false" username="Tamás Béres &lt;berestamas2@gmail.com&gt;" orig="Billed length">Kiszámlázott mennyiség</string>
   <string name="cost_" formatted="false" username="Tamás Béres &lt;berestamas2@gmail.com&gt;" orig="Cost">Díj</string>
   <string name="remote_" formatted="false">Távoli szám</string>
-  <string name="numbergroups_edit_" formatted="false">Számcsoportok</string>
-  <string name="numbergroups_edit_hint" formatted="false">A Számcsoportokat itt lehet szerkeszteni.</string>
+  <string name="numbergroups_edit_" formatted="false" orig="Number groups">Számcsoportok</string>
+  <string name="numbergroups_edit_hint" formatted="false" orig="Edit number groups here.">A Számcsoportokat itt lehet szerkeszteni.</string>
   <string name="hourgroups_edit_" formatted="false">Időszakok</string>
   <string name="hourgroups_edit_hint" formatted="false">Az Időszakokat itt lehet szerkeszteni.</string>
-  <string name="numbers" formatted="false">Számok</string>
+  <string name="numbers" formatted="false" orig="Numbers">Számok</string>
   <string name="numbergroup_" formatted="false">Tartalmazott számok</string>
   <string name="numbergroup_help" formatted="false">Adj hozzá számokat, amikre a szabály vonatkozik.\n\nHelyettesítő (\"%\") karakter használható a számok elején és végén. %34 esetén 1234-re vonatkozni fog, 12% esetén is,  %23% esetén is. </string>
   <string name="exnumbergroup_" formatted="false">Kizárt számok</string>
@@ -444,7 +444,7 @@
   <string name="mms_out_" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="MMSOut">Kimenő MMS</string>
   <string name="data_inout" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Data In/Out">Bejövő/Kimenő adatforgalom</string>
   <string name="data_inout_" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="DataInOut">Bejövő/Kimenő adatforgalom</string>
-  <string name="import_rules_default_" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Import default rule set">Alapértelmezett szabályok importálása</string>
+  <string name="import_rules_default_" formatted="false" orig="Import default rule set">Alapértelmezett szabályok importálása</string>
   <string name="import_rules_default_hint" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Import default rule set shipped with the app.">Gyári alapértelmezett szabályok importálása</string>
   <string name="send_devices_hint" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Készülékek listájának elküldése a fejlesztőnek. Ez csak akkor szükséges ha az adatforgalmi statisztikák üresek.</string>
   <string name="send_devices_" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Send devices">Készülékek elküldése</string>
