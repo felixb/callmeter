@@ -416,4 +416,20 @@
   <string name="units_units_per_message" formatted="false" orig="Units/Message">Birim/Mesaj</string>
   <string name="units_cost_per_call" formatted="false" orig="$/Call">TL/Arama</string>
   <string name="units_cost_per_minute" formatted="false" orig="$/Minute">TL/Dakika</string>
+  <string name="units_cost_per_message" formatted="false" orig="$/Message">TL/Mesaj</string>
+  <string name="units_cost_per_mbyte" formatted="false" orig="$/MByte">TL/MByte</string>
+  <string name="units_cost_per_unit" formatted="false" orig="$/Unit">TL/Birim</string>
+  <string name="iswebsms_" formatted="false" orig="Is WebSMS">WebSMS yap</string>
+  <string name="iswebsms_help" formatted="false" orig="Message sent with WebSMS.">Mesaj WebSMS olarak gönderilir.</string>
+  <string name="iswebsms_connector_" formatted="false" orig="Is WebSMS Connector">WebSMS Bağlayıcısı yap</string>
+  <string name="iswebsms_connector_help" formatted="false" orig="Sent with specific WebSMS Connector, leave empty to match any.">Özel bir WebSMS Bağlayıcısı ile gönderilir. Herhangi biri ile eşleştirmek için boş bırakın.</string>
+  <string name="issipcall_" formatted="false" orig="Is SIP call">SIP arama yap</string>
+  <string name="issipcall_help" formatted="false" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Arama SIP yoluyla yapılır. sipdroid 1.6.1 ve üstü desteklenmektedir.</string>
+  <string name="strip_seconds_" formatted="false" orig="Do not bill first seconds">İlk saniyeleri ücretlendirme</string>
+  <string name="strip_seconds_help" formatted="false" orig="Do not bill first x seconds of a call.">Görüşmenin ilk x saniyesini ücretlendirme.</string>
+  <string name="empty_groups_" formatted="false" orig="Please press &quot;Add&quot; to add a group.">Grup eklemek için "Ekle"ye tıklayınız.</string>
+  <string name="empty_group_" formatted="false" orig="Please press &quot;Add&quot; to add an item to this group.">Bu gruba bir eleman eklemek için "Ekle"ye tıklayınız.</string>
+  <string name="export_progr" formatted="false" orig="Exporting data ...">Veri içe aktarılıyor...</string>
+  <string name="import_progr" formatted="false" orig="Import data ...">Veri dışa aktarılıyor...</string>
+  <string name="export_" formatted="false" orig="Export ...">Dışa aktar...</string>
 </resources>
