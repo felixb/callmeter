@@ -432,4 +432,20 @@
   <string name="export_progr" formatted="false" orig="Exporting data ...">Veri içe aktarılıyor...</string>
   <string name="import_progr" formatted="false" orig="Import data ...">Veri dışa aktarılıyor...</string>
   <string name="export_" formatted="false" orig="Export ...">Dışa aktar...</string>
+  <string name="export_hint" formatted="false" orig="Export rule sets, logs or groups">Kural setleri, loglar veya grupları içe aktarır</string>
+  <string name="export_logs_" formatted="false" orig="Backup logs">Logları yedekle</string>
+  <string name="export_logs_hint" formatted="false" orig="Backup logs as mail.">Logları e-posta olarak yedekler.</string>
+  <string name="export_numgroups_" formatted="false" orig="Export number groups">Numara gruplarını dışa aktar</string>
+  <string name="export_numgroups_hint" formatted="false" orig="Export number groups as mail.">Numara gruplarını e-posta olarak dışa aktarır.</string>
+  <string name="export_hourgroups_" formatted="false" orig="Export hour groups">Saat gruplarını dışa aktar</string>
+  <string name="export_hourgroups_hint" formatted="false" orig="Export hour groups as mail.">Saat gruplarını e-posta olarak dışa aktar.</string>
+  <string name="import_rules_default_" formatted="false" orig="Import default rule set">Varsayılan kural setini içe aktar</string>
+  <string name="import_rules_default_hint" formatted="false" orig="Import default rule set shipped with the app.">Uygulama ile birlikte gelen varsayılan kural setini içe aktarır.</string>
+  <string name="widget_plan_textsize" formatted="false" orig="Plan Text Size">Paket için Metin Boyutu</string>
+  <string name="widget_cost_textsize" formatted="false" orig="Cost Text Size">Tutar için Metin Boyutu</string>
+  <string name="widget_text_color_" formatted="false" orig="Text color">Metin rengi</string>
+  <string name="widget_backgroud_color_" formatted="false" orig="Background color">Arkaplan rengi</string>
+  <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency">Arkaplan saydamlığı</string>
+  <string name="send_devices_" formatted="false" orig="Send devices">Cihazları gönder</string>
+  <string name="send_devices_hint" formatted="false" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Uygulama geliştiriciye cihazların listesini gönder. Bu, yalnızca istatistikleriniz sıfır olduğunda gereklidir.</string>
 </resources>
