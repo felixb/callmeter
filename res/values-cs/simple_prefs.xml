@@ -27,4 +27,17 @@
   <string name="cost_per_mms_" formatted="false" orig="Cost / MMS">Cena za MMS</string>
   <string name="freemms_hint" formatted="false" orig="Free MMS / month">Volné MMS za měsíc</string>
   <string name="freesms_hint" formatted="false" orig="Free SMS / month">Volné SMS za měsíc</string>
+  <string name="missing_slash" formatted="false" orig="Bill mode needs to be in seconds/seconds!">Typ účtování musí být uváděn v sekundy/sekundy !</string>
+  <string name="freemin_hint" formatted="false" orig="Free minutes / month">Volné minuty za měsíc</string>
+  <string name="cost_per_call_" formatted="false" orig="Cost / call">Cena za volání</string>
+  <string name="cost_per_call_hint" formatted="false" orig="Each call get\'s billed.">Každé volání bude zaúčtováno</string>
+  <string name="cost_per_min_" formatted="false" orig="Cost / minute">Cena za minutu</string>
+  <string name="cost_per_min_hint" formatted="false" orig="Each minute get\'s billed.">Každá minuta bude zaúčtována.</string>
+  <string name="freesms_" formatted="false" orig="Free SMS">Volné SMS</string>
+  <string name="cost_per_sms_" formatted="false" orig="Cost / SMS">Cena za SMS</string>
+  <string name="cost_per_sms_hint" formatted="false" orig="Each SMS get\'s billed.">Každá SMS bude zaúčtována.</string>
+  <string name="cost_per_mms_hint" formatted="false" orig="Each MMS get\'s billed.">Každá MMS bude zaúčtována.</string>
+  <string name="freedata_" formatted="false" orig="Free traffic">Volný datový přenos</string>
+  <string name="freedata_hint" formatted="false" orig="Free 2G, 3G or 4G data traffic / month">Volný 2G, 3G nebo 4G datový přenos za měsíc</string>
+  <string name="cost_per_mb_hint" formatted="false" orig="Each MB get\'s billed.">Každý MB nude zaúčtován.</string>
 </resources>
