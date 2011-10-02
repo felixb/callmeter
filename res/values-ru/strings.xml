@@ -22,7 +22,7 @@
        -->
 <resources>
   <string name="about0_" formatted="false">Следи за своими бесплатными: минутами, SMS и трафиком!</string>
-  <string name="about0" formatted="false">CallMeter создает из данныx о звонкаx, SMS и трафикa отчёт. Поддерживаются разные меторы отчёта.</string>
+  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter создает из данныx о звонкаx, SMS и трафикa отчёт. Поддерживаются разные меторы отчёта.</string>
   <string name="about1" formatted="false">Форма отчёта: Пользование / Время или Колличество в месяц / Время или просто Колличество (Минуты/SMS/Трафик).</string>
   <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">Отчёт звонков ведется так: длинна первой минуты/ последующая. К примеру: 60/10 - полный отсчет первой минуты (60 сек.)/последующая с 10-ти секундной частотой.</string>
   <string name="about3" formatted="false">Разбиение звонков или SMS на 2 лимита. В каждом лимите можно выбрать: Не вести отчёта, ограничить на определенный лимит или установить безграничный лимит.</string>
@@ -55,7 +55,7 @@
   <string name="advanced_" formatted="false">Дополнить</string>
   <string name="exclude_people_" formatted="false">Исключить номера</string>
   <string name="exclude_people_hint" formatted="false">Звонки не вxодящие в отчёт\nШаблоны разрешены: *555, 555* или *555*</string>
-  <string name="exclude_people_add" formatted="false">Добавить номер</string>
+  <string name="exclude_people_add" formatted="false" orig="Add number">Добавить номер</string>
   <string name="exclude_people_edit" formatted="false">Изменить</string>
   <string name="exclude_people_delete" formatted="false">Удалить</string>
   <string name="exclude_people_to_plan1_" formatted="false">Исключенные номера Лимит 1</string>
