@@ -35,7 +35,7 @@
   <string name="add_" formatted="false">Hozzáadás</string>
   <string name="add_log" formatted="false">Naplóba bejegyzés hozzáadása</string>
   <string name="length_hint_call" formatted="false">Hossz másodpercben</string>
-  <string name="length_hint_data" formatted="false">Adatforgalom kilobyte-ban</string>
+  <string name="length_hint_data" formatted="false" orig="Length in kB">Adatforgalom kilobyte-ban</string>
   <string name="settings" formatted="false" orig="Preferences">Beállítások</string>
   <string name="update_interval_" formatted="false">Frissítés gyakorisága</string>
   <string name="update_interval_hint" formatted="false">A rövidebb frissítési idő jobban meríti az akkumulátort.</string>
