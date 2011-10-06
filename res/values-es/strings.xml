@@ -68,10 +68,10 @@
   <string name="exclude_people_sms_to_plan2_hint" formatted="false">Mensajes excluidos del plan #2</string>
   <string name="plans" formatted="false">Planes</string>
   <string name="plans_split" formatted="false">Dividir planes</string>
-  <string name="plans_merge" formatted="false">Unir planes</string>
+  <string name="plans_merge" formatted="false" orig="Merge plans">Unir planes</string>
   <string name="plans_split_hint" formatted="false">Divide un plan en dos diferentes.</string>
   <string name="plan1" formatted="false">Plan 1</string>
-  <string name="plan2" formatted="false">Plan 2</string>
+  <string name="plan2" formatted="false" orig="Plan 2">Plan 2</string>
   <string name="plan1_hint" formatted="false">Marcar los horarios incluidos en el primer plan (llamadas/SMS). El resto se incluirá en el segundo plan.</string>
   <string name="plan_free_" formatted="false">Tarifa plana completa</string>
   <string name="plan_freemin_" formatted="false">Minutos gratis</string>
