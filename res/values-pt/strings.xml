@@ -33,7 +33,7 @@
   <string name="send_" formatted="false">Enviar</string>
   <string name="settings" formatted="false">Preferências</string>
   <string name="about_" formatted="false">Sobre</string>
-  <string name="about_hint" formatted="false">Sobre este aplicativo</string>
+  <string name="about_hint" formatted="false" orig="About this app">Sobre este aplicativo</string>
   <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app.">Algumas dicas e truques de como ajustar este aplicativo.</string>
   <string name="feedback_" formatted="false">Retorno</string>
   <string name="feedback_hint" formatted="false">Relate problemas, solicite recursos ...</string>
