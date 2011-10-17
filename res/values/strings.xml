@@ -267,6 +267,7 @@
 	<string name="export_progr">Exporting data ...</string>
 	<string name="import_progr">Import data ...</string>
 	<string name="export_">Export ...</string>
+	<string name="exported_">Exported:</string>
 	<string name="export_hint">Export rule sets, logs or groups</string>
 	<string name="export_rules_">Export rule set</string>
 	<string name="export_rules_hint">Export rule set as mail.</string>
@@ -279,6 +280,11 @@
 	<string name="export_hourgroups_hint">Export hour groups as mail.</string>
 	<string name="import_rules_">Import rule set</string>
 	<string name="import_rules_hint">Import preconfigured rule set.</string>
+	<string name="import_rules_sd_">Import from SD card</string>
+	<string name="import_rules_sd_hint">Import rule set directly from SD card.</string>
+	<string name="import_rules_sd_help">Place your file on your SD card and click it below</string>
+	<string name="import_rules_sd_files">Found files</string>
+	<string name="import_rules_sd_nofiles">No found files</string>
 	<string name="import_rules_default_">Import default rule set</string>
 	<string name="import_rules_default_hint">Import default rule set shipped with the app.</string>
 	<string name="import_rules_empty">No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.</string>

@@ -266,6 +266,7 @@
   <string name="export_progr" formatted="false">Daten exportieren ...</string>
   <string name="import_progr" formatted="false">Daten importieren ...</string>
   <string name="export_" formatted="false">Exportieren ...</string>
+  <string name="exported_" formatted="false">Exportiert:</string>
   <string name="export_hint" formatted="false">Exportiere Regelsätze, Logs oder Gruppen</string>
   <string name="export_rules_" formatted="false">Exportiere Regelwerk</string>
   <string name="export_rules_hint" formatted="false">Exportiere Regelwerk als Mail.</string>
@@ -279,6 +280,11 @@
   <string name="import_rules_" formatted="false">Importiere Regelwerk</string>
   <string name="import_rules_hint" formatted="false">Importiere Regelwerk.</string>
   <string name="import_rules_empty" formatted="false">Es sind keine Kontingente/Regeln definiert. Klicke diesen Text an, um standard Regelwerke zu importieren.\n\nOder füge manuell Kontingente und Regeln in den Einstellungen hinzu.</string>
+  <string name="import_rules_sd_" formated="false">Importiere von SD Karte</string>
+  <string name="import_rules_sd_hint" formated="false">Importiere direkt von der SD Karte.</string>
+  <string name="import_rules_sd_help" formated="false">Speichere deine Datei auf der SD Karte und klicke sie an</string>
+  <string name="import_rules_sd_files" formated="false">Gefundene Dateien</string>
+  <string name="import_rules_sd_nofiles" formated="false">Keine Dateien gefunden</string>
   <string name="err_export_write" formatted="false">Fehler beim Schreiben der Exportdatei</string>
   <string name="err_export_read" formatted="false">Fehler beim Lesen der Exportdatei</string>
   <string name="alerts_" formatted="false">Alarme</string>

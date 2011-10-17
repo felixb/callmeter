@@ -536,6 +536,11 @@ public final class Preferences extends PreferenceActivity implements
 							FileWriter fw = new FileWriter(f);
 							fw.append(result);
 							fw.close();
+							final String t = Preferences.this
+									.getString(R.string.exported_)
+									+ " " + f.getAbsolutePath();
+							Toast.makeText(Preferences.this, t,
+									Toast.LENGTH_LONG).show();
 							// call an exporting app with the uri to the
 							// preferences
 							Preferences.this.startActivity(Intent
@@ -574,8 +579,8 @@ public final class Preferences extends PreferenceActivity implements
 		}
 
 		Market.setOnPreferenceClickListener(this, this
-				.findPreference("more_apps"), null, "Felix+Bechstein",
-				"http://code.google.com/u/felix.bechstein/");
+				.findPreference("more_apps"), null, Market.SEARCH_APPS,
+				Market.ALT_APPS);
 		p = this.findPreference("send_logs");
 		if (p != null) {
 			p.setOnPreferenceClickListener(this);
