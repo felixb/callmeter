@@ -159,4 +159,5 @@
   <string name="edit_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Edit">Upraviť</string>
   <string name="update_interval_hint" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Shorter period will use more battery.">Kratší čas zvýši spotrebu batérie.</string>
   <string name="notes_from_developer_text" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Click here to show recent news from the developer">Kliknite sem pre zobrazenie najnovších správ od vývojára.</string>
+  <string name="hide_name_" formatted="false" orig="Hide name of plan">Skryť meno plánu</string>
 </resources>

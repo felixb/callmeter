@@ -24,7 +24,7 @@
   <string name="changelog_notification_" formatted="false" orig="Recent changes:">Poslední změny:</string>
   <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Klikněte zde pro zobrazení nedávných změn</string>
   <string name="never_show_again" formatted="false" orig="Never show changelog again">Changelog již nezobrazovat</string>
-  <string name="notes_from_developer_" formatted="false">Poznámky od autora</string>
+  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Poznámky autora</string>
   <string name="notes_from_developer_text" formatted="false">Klikněte zde pro zobrazení posledních novinek od autora</string>
   <string name="about0_" formatted="false">Call Meter slouží ke sledování stavu čerpání hovorného, SMS zpráv a datových přenosů v rámci měsíčního paušálu.</string>
   <string name="about0" formatted="false">Aplikace tvoří statistiku na základě logů o hovorech, SMS zprávách a datových přenosech a podporuje několik způsobů účtování/tarifikace.</string>
@@ -48,7 +48,7 @@
   <string name="about_" formatted="false">Nápověda</string>
   <string name="about_hint" formatted="false">Nápověda. O autorech.</string>
   <string name="faq_hint" formatted="false">Tipy a triky jak nastavit aplikaci.</string>
-  <string name="feedback_" formatted="false">Feedback</string>
+  <string name="feedback_" formatted="false" orig="Feedback">Zpětná odezva</string>
   <string name="feedback_hint" formatted="false">Ohlásit chybu, zaslat požadavek na funčknost.</string>
   <string name="twitter_hint" formatted="false">Následuj mě na Twitteru\nInfo o nových verzích apod.</string>
   <string name="more_" formatted="false">Další aplikace autora..</string>
@@ -58,7 +58,7 @@
   <string name="billdate_" formatted="false">Začátek zúčtovacího období:</string>
   <string name="appearance_" formatted="false">Přizpůsobení vzhledu</string>
   <string name="behavior_" formatted="false" orig="Behavior">Chování</string>
-  <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp;amp; behavior">Vzhled a chování</string>
+  <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp; behavior">Vzhled a chování</string>
   <string name="advanced_preferences_" formatted="false">Pokročilá nastavení</string>
   <string name="advanced_preferences_hint" formatted="false" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Umožní vám zadat složitější nastavení. Většina uživatelů to však nevyužije.</string>
   <string name="theme_" formatted="false">Motiv</string>
@@ -69,7 +69,7 @@
   <string name="textsize_bigtitle_" formatted="false" orig="Big title\'s text size">Velikost písma velkých titulků</string>
   <string name="textsize_bigtitle_hint" formatted="false" orig="Text size for big titles in pixels; leave empty for default">Velikost písma velkých titulků v pixelech. Pro výchozí hodnoty ponechte prázdné.</string>
   <string name="textsize_spacer_" formatted="false">Velikost oddělovače</string>
-  <string name="textsize_spacer_hint" formatted="false">Size for spacers in pixels; leave empty for default</string>
+  <string name="textsize_spacer_hint" formatted="false" orig="Size for spacers in pixels; leave empty for default">Velikost oddělovače v pixelech. Pro výchozí hodnoty ponechte prázdné.</string>
   <string name="textsize_pbar_" formatted="false" orig="Progress bar\'s size">Velikost indikátoru průběhu</string>
   <string name="textsize_pbar_hint" formatted="false" orig="Size for progress bars in pixels; leave empty for default">Velikost indikátoru průběhu v pixelech. Pro výchozí hodnoty ponechte prázdné.</string>
   <string name="show_today_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Show today">Zobrazit dnešek</string>
@@ -119,7 +119,7 @@
   <string name="rules_new" formatted="false">Nové pravidlo</string>
   <string name="length_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Length">Délka</string>
   <string name="blength_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Billed length">Fakturovaná délka</string>
-  <string name="cost_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Cost">Náklad</string>
+  <string name="cost_" formatted="false" orig="Cost">Cena</string>
   <string name="remote_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Remote number">Vzdálené číslo</string>
   <string name="numbergroups_edit_" formatted="false">Skupiny čísel</string>
   <string name="numbergroups_edit_hint" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Edit number groups here.">Zde upravte skupiny čísel</string>
@@ -131,12 +131,12 @@
   <string name="add_number" formatted="false">Přidat číslo</string>
   <string name="hours" formatted="false">Hodiny</string>
   <string name="hourgroup_" formatted="false">Zahrnuté hodiny</string>
-  <string name="hourgroup_help" formatted="false">Add some hours this rule must match.</string>
+  <string name="hourgroup_help" formatted="false" orig="Add some hours this rule must match.">Zadejte hodiny, které musí vyhovovat tomuto pravidlu.</string>
   <string name="exhourgroup_" formatted="false">Vyloučené hodiny</string>
-  <string name="exhourgroup_help" formatted="false">Add some hours this rule must not match.</string>
+  <string name="exhourgroup_help" formatted="false" orig="Add some hours this rule must not match.">Zadejte hodiny, které nemusí vyhovovat tomuto pravidlu.</string>
   <string name="new_hourgroup" formatted="false">Nová skupina hodin</string>
-  <string name="add_hour" formatted="false">Add hour</string>
-  <string name="empty_group" formatted="false">Empty groups won\'t match anything. Please go back and add at least one item.</string>
+  <string name="add_hour" formatted="false" orig="Add hour">Přidat hodinu</string>
+  <string name="empty_group" formatted="false" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Prázdná skupina nic neřeší. Prosím vraťte se a přidejte aspoň jednu položku.</string>
   <string name="calls" formatted="false">Hovory</string>
   <string name="sms" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="SMS">SMS</string>
   <string name="mms" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="MMS">MMS</string>
@@ -147,14 +147,14 @@
   <string name="balance_help" formatted="false">Zůstatek na vašem účtu k danému datu.</string>
   <string name="strip_leading_zeros_" formatted="false">Odstranit úvodní nuly</string>
   <string name="strip_leading_zeros_hint" formatted="false">Odstranit úvodní nuly při porovnávání čísel.</string>
-  <string name="number_prefix_" formatted="false">Mezinárodní prefix</string>
-  <string name="number_prefix_hint" formatted="false">Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..</string>
+  <string name="number_prefix_" formatted="false" orig="International prefix">Mezinárodní předvolba</string>
+  <string name="number_prefix_hint" formatted="false" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">Vaše mezinárodní předvolba ve formátu +1 nebo +49. Je použito k porovnávání čísle jako +49170.. a 0179..</string>
   <string name="reset_data_" formatted="false">Resetovat paměť</string>
   <string name="reset_data_hint" formatted="false">Reset paměti aplikace vynutí přepočet statistiky.\nReset paměti o datovém provozu je permanentní - smaže pouze data přenesená před startem zařízení.</string>
   <string name="reset_data_data_" formatted="false">Reset paměti o přenosu dat.</string>
   <string name="reset_data_progr1" formatted="false">Přepočítávání statistik ...\n\n(Může to chvíli trvat!)</string>
   <string name="reset_data_progr2" formatted="false">Přepočítávání statistik ...</string>
-  <string name="contacts_" formatted="false">Z kontaktů</string>
+  <string name="contacts_" formatted="false" orig="Contacts">Kontakty</string>
   <string name="clear_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Clear">Smazat</string>
   <string name="help_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Help">Nápověda</string>
   <string name="new_" formatted="false">Nový</string>
@@ -207,9 +207,9 @@
   <string name="export_rules_descr" formatted="false">Popis</string>
   <string name="export_logs_hint" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Backup logs as mail.">Záloha logů mailem.</string>
   <string name="export_numgroups_" formatted="false">Exportovat skupiny čísel</string>
-  <string name="export_numgroups_hint" formatted="false">Export number groups as mail.</string>
+  <string name="export_numgroups_hint" formatted="false" orig="Export number groups as mail.">Exportovat skupiny čísel mailem.</string>
   <string name="export_hourgroups_" formatted="false">Exportovat skupiny hodin</string>
-  <string name="export_hourgroups_hint" formatted="false">Export hour groups as mail.</string>
+  <string name="export_hourgroups_hint" formatted="false" orig="Export hour groups as mail.">Exportovat skupiny hodin mailem.</string>
   <string name="import_rules_" formatted="false">Importovat sadu pravidel</string>
   <string name="import_rules_hint" formatted="false" orig="Import preconfigured rule set.">Import přednastavené sady pravidel.</string>
   <string name="err_export_write" formatted="false">Chyba při zápisu exportovaného souboru</string>
@@ -220,7 +220,7 @@
   <string name="alerts_80_" formatted="false">Upozornit při 80%</string>
   <string name="alerts_80_hint" formatted="false">Notify if a plan passes 80% of it\'s limit.</string>
   <string name="alerts_100_" formatted="false">Upozornit při 100%</string>
-  <string name="alerts_100_hint" formatted="false">Notify if a plan passes 100% of it\'s limit.</string>
+  <string name="alerts_100_hint" formatted="false" orig="Notify if a plan passes 100% of it\'s limit.">Oznámit, když tarif dosáhne 100 % limitu.</string>
   <string name="widget_config_" formatted="false">Nastavení widgetu</string>
   <string name="widget_plan_textsize" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Plan Text Size">Velikost textu - prostý text</string>
   <string name="widget_cost_textsize" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Cost Text Size">Velikost textu - Náklady</string>
@@ -280,7 +280,7 @@
   <string-array name="plans_type">
     <item>Název</item>
     <item>Oddělovač</item>
-    <item>Zúètovací období</item>
+    <item>Zúčtovací období</item>
     <item>Smíšený</item>
     <item>Volání</item>
     <item>SMS</item>
@@ -371,7 +371,7 @@
     <item>Pouze ručně</item>
   </string-array>
   <string name="simple_preferences_" formatted="false" orig="Simple preferences">Jednoduchá nastavení</string>
-  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Velni jednoducha nastavení vhodná pro většinu uživatelů. Dostupná pouze se základním nastavením pravidel.</string>
+  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Velmi jednoduchá nastavení vhodná pro většinu uživatelů. Dostupná pouze se základním nastavením pravidel.</string>
   <string name="show_help_hint" formatted="false" orig="Show help in Plans/Rules setup view.">Ukázat nápovědu při zadávání tarifů/pravidel</string>
   <string name="numbergroup_excalls" formatted="false" orig="Exclude from calls">Nezahrnovat do hovorů</string>
   <string name="numbergroup_exsms" formatted="false" orig="Exclude from SMS">Nezahrnovat do SMS zpráv</string>
@@ -407,4 +407,34 @@
   <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency">Průhlednost pozadí</string>
   <string name="messages_" formatted="false" orig="SMS/MMS">SMS/MMS</string>
   <string name="import_rules_default_hint" formatted="false" orig="Import default rule set shipped with the app.">Importovat základní pravidla dodávaná s aplikací.</string>
+  <string name="sms_in" formatted="false" orig="SMS In">Příchozí SMS</string>
+  <string name="sms_in_" formatted="false" orig="SMSIn">Příchozí SMS</string>
+  <string name="sms_out" formatted="false" orig="SMS Out">Odchozí SMS</string>
+  <string name="sms_out_" formatted="false" orig="SMSOut">Odchozí SMS</string>
+  <string name="mms_in" formatted="false" orig="MMS In">Příchozí MMS</string>
+  <string name="mms_in_" formatted="false" orig="MMSIn">Příchozí MMS</string>
+  <string name="mms_out" formatted="false" orig="MMS Out">Odchozí MMS</string>
+  <string name="mms_out_" formatted="false" orig="MMSOut">Odchozí MMS</string>
+  <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Data (2G/3G/4G)</string>
+  <string name="data_inout" formatted="false" orig="Data In/Out">Příchozí/odchozí data</string>
+  <string name="data_inout_" formatted="false" orig="DataInOut">Příchozí/odchozí data</string>
+  <string name="textsize_pbarbp_" formatted="false" orig="Bill period\'s progress bar\'s size">Velikost indikátoru průběhu zúčtovacího období</string>
+  <string name="textsize_pbarbp_hint" formatted="false" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Velikost indikátoru průběhu zúčtovacího období v pixelech. Pro výchozí hodnoty ponechte prázdné.</string>
+  <string name="plans_hint" formatted="false" orig="Set your plans for all kind of billing here.">Zde nastavte své tarify pro všechny typy účtů.</string>
+  <string name="type_help" formatted="false" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Vyberte typ.\n"Název" zobrazí pouze název v hlavním pohledu\n"Oddělovač" nezobrazí nic, jen prázdné místo.\n"Zúčtovací období" zobrazí různé informace o vašem zúčtovacím období. Většina uživatelů si vystačí s tímto.\n"Smíšený" tarif zahrne volání a zprávy dohromady. Zkombinuje účty všech položek.\n"Hovorné" zahrne pouze volání. "SMS" a "MMS" zahrne pouze zprávy.\n"Data" zahrne pouze informace o stažených a odeslaných datech.</string>
+  <string name="limit_type_help" formatted="false" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;cost\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Zde zadejte typ vašeho omezení\n"Jednotky" značí omezení Vašeho tarifu počtem minut, zpráv, ...\n"Cena" značí omezení Vašeho tarifu účtovanou částkou.</string>
+  <string name="billday_help" formatted="false" orig="Set this to the first day of the bill of the current billing period.">Zadejte první den zúčtovacího období</string>
+  <string name="issipcall_" formatted="false" orig="Is SIP call">SIP volání</string>
+  <string name="what_help" formatted="false" orig="Choose a target type here.">Zde zvolte cílový typ.</string>
+  <string name="import_rules_empty" formatted="false" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Nejsou nastaveny žádné tarify/pravidla. Klepněte na tento text pro import výchozích pravidel.\n\nNebo přidejte terify a pravidla ročně v Nastavení.</string>
+  <string name="alerts_hint" formatted="false" orig="Set alerts based on plan usage.">Nastavit upozornění na základě využití tarifu.</string>
+  <string name="send_devices_hint" formatted="false" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Poslat seznam zařízení vývojáři. To je potřeba pouze pokud Vaše statistiky jsou nulové.</string>
+  <string name="mixed_units_sms_" formatted="false" orig="Units for a sms">Jednotek za sms</string>
+  <string name="mixed_units_sms_help" formatted="false" orig="Set the units billed for a single sms.">Nastavit počet jednotek účtovaných za jednu SMS.</string>
+  <string name="mixed_units_mms_help" formatted="false" orig="Set the units billed for a single mms.">Nastavit počet jednotek účtovaných za jednu MMS.</string>
+  <string name="mixed_units_call_" formatted="false" orig="Units for a call">Jednotky za volání</string>
+  <string name="mixed_units_call_help" formatted="false" orig="Set the units billed for a one minute call.\nBill mode is taken into account here.">Nastavit počet jednotek účtovaných za jednu minutu volání. Zde je využit zúčtovací mód Vašeho tarifu.</string>
+  <string name="limit_help" formatted="false" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">Zde nastavte limity Vašeho tarifu\n\nTyp "jednotky" musí být nastaven v minutách (volání), zprávy (mms/sms), megabyty (data, 1024 kB) nebo jednotky (smíšený).\n\nTyp "cena" musí být nastaven v hlavní měně (např. Kč).</string>
+  <string name="billmode_help" formatted="false" orig="Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.">Nastavení zúčtování hovorného.\nPrvní část je minimální délka účtovaná Vaším providerem. Každý kratší hovor je účtován, jako by byl takto dlouhý.\nDruhá část je minimální délka následujících bloků v sekundách.\nProsím přečtěte si FAQ pro další nápovědu.\n(Poznámka: v ČR O2 obvykle účtuje 60+60, T-Mobile 60+30, Vodafone 60+1, U:fon 60+1)</string>
+  <string name="roamed_" formatted="false" orig="Roamed">V roamingu</string>
 </resources>
