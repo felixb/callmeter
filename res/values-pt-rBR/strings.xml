@@ -172,23 +172,4 @@
   <string name="err_export_write" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Error writing export file">Erro escrevendo o arquivo de exportação</string>
   <string name="import_rules_empty" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Sem planos/regras estabelecidas. Clique neste texto para importar um conjunto de regras padrão.\n\nOu adicionar planos e regras nas preferências manualmente.</string>
   <string name="import_rules_default_hint" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Import default rule set shipped with the app.">Importar o conjunto de regras padrão que acompanha o aplicativo</string>
-  <string-array name="billmodes">
-    <item notranslation="true">1/1</item>
-    <item notranslation="true">6/6</item>
-    <item notranslation="true">10/10</item>
-    <item notranslation="true">30/1</item>
-    <item notranslation="true">30/6</item>
-    <item notranslation="true">30/10</item>
-    <item notranslation="true">30/30</item>
-    <item notranslation="true">30/60</item>
-    <item notranslation="true">45/1</item>
-    <item notranslation="true">60/0</item>
-    <item notranslation="true">60/1</item>
-    <item notranslation="true">60/6</item>
-    <item notranslation="true">60/10</item>
-    <item notranslation="true">60/15</item>
-    <item notranslation="true">60/30</item>
-    <item notranslation="true">60/60</item>
-    <item notranslation="true">Custom</item>
-  </string-array>
 </resources>
