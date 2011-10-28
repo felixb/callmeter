@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,7 +16,7 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=it&file=strings.xml to edit the file.
        -->
@@ -25,14 +25,14 @@
   <string name="changelog_notification_text" formatted="false" username="fireb33" orig="Click here to show recent changes of">Clicca qui per visualizzare le ultime modifiche</string>
   <string name="never_show_again" formatted="false" username="fireb33" orig="Never show changelog again">Non mostrare più l\'elenco delle modifiche</string>
   <string name="notes_from_developer_" formatted="false" username="fireb33" orig="Notes from developer">Note dallo sviluppatore</string>
-  <string name="notes_from_developer_text" formatted="false" username="fireb33" orig="Click here to show recent news from the developer">Clicca qui per mostrare le ultime notizie da parte dello sviluppatore</string>
+  <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Clicca qui per mostrare le ultime novità da parte dello sviluppatore</string>
   <string name="about0_" formatted="false" username="fireb33" orig="Watch your call, message and data plans!">Controlla le tue chiamate, messaggi e piani tariffari!</string>
   <string name="about0" formatted="false" username="fireb33" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter genera report sulle chiamate, messaggi e sul traffico dati. Supporta diverse modalità di tariffazione.</string>
   <string name="about1" formatted="false" username="fireb33" orig="The output format is usage | time or count used this billing period | time or count overall.">Il formato delle statistiche è utilizzo/tempo o conteggio usato dal periodo/tempo di tariffazione rispetto al totale.</string>
   <string name="about2" formatted="false" username="fireb33" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">La modalità di tariffazione specifica la lunghezza del primo/successivi intervalli di tariffazione. Ad esempio, 60/10 significa che ogni chiamata è conteggiata minimo 60 secondi, e poi è arrotondata ai successivi 10 secondi.</string>
   <string name="about3" formatted="false" username="fireb33" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter viene eseguito in background ogni 30 minuti (solo quando il telefono non è in standby). Questo implica che la cancellazione di chiamate o messaggi precedenti ai 30 minuti non cambia le statistiche. Cancellare chiamate o messaggi più recenti può invece alterare le statistiche.</string>
   <string name="send_" formatted="false" username="fireb33" orig="Send">Invia</string>
-  <string name="add_" formatted="false" username="fireb33" orig="Add">Nuovo</string>
+  <string name="add_" formatted="false" orig="Add">Aggiungi</string>
   <string name="add_log" formatted="false" username="fireb33" orig="Add log entry">Aggiungi elemento registro</string>
   <string name="length_hint_call" formatted="false" username="fireb33" orig="Length in seconds">Durata in secondi</string>
   <string name="length_hint_data" formatted="false" username="fireb33" orig="Length in kB">Dimensione in KB</string>
