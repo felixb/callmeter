@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,217 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=hr&file=strings.xml to edit the file.
        -->
 <resources>
+  <string name="changelog_notification_" formatted="false" username="lesart.mario@gmail.com" orig="Recent changes:">Skorašnje promene:</string>
+  <string name="changelog_notification_text" formatted="false" username="lesart.mario@gmail.com" orig="Click here to show recent changes of">Kliknite ovde za prikaz skorašnje promene</string>
+  <string name="notes_from_developer_" formatted="false" username="lesart.mario@gmail.com" orig="Notes from developer">Beleške programera</string>
+  <string name="about0_" formatted="false" username="lesart.mario@gmail.com" orig="Watch your call, message and data plans!">Pratite svoje pozive, poruke i podatke!</string>
+  <string name="never_show_again" formatted="false" username="lesart.mario@gmail.com" orig="Never show changelog again">Ne prikazuj više promenu</string>
+  <string name="notes_from_developer_text" formatted="false" username="lesart.mario@gmail.com" orig="Click here to show recent news from the developer">Klikni za prikaz skorašnjih vesti od programera</string>
+  <string name="about0" formatted="false" username="lesart.mario@gmail.com" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter generiše izveštaje za Vaše razgovore, poruke i prenešene podatke. Podržava nekoliko načina naplate.</string>
+  <string name="send_" formatted="false" username="lesart.mario@gmail.com" orig="Send">Pošalji</string>
+  <string name="add_" formatted="false" username="lesart.mario@gmail.com" orig="Add">Dodaj</string>
+  <string name="add_log" formatted="false" username="lesart.mario@gmail.com" orig="Add log entry">Dodaj upis u dnevnik</string>
+  <string name="length_hint_call" formatted="false" username="lesart.mario@gmail.com" orig="Length in seconds">Mera u sekundama</string>
+  <string name="length_hint_data" formatted="false" username="lesart.mario@gmail.com" orig="Length in kB">Mera u kB</string>
+  <string name="settings" formatted="false" username="lesart.mario@gmail.com" orig="Preferences">Postavke</string>
+  <string name="update_interval_" formatted="false" username="lesart.mario@gmail.com" orig="Update interval">Interval ažuriranja</string>
+  <string name="update_interval_hint" formatted="false" username="lesart.mario@gmail.com" orig="Shorter period will use more battery.">Kraći periodi će koristiti više energije baterije.</string>
+  <string name="date_begin_" formatted="false" username="lesart.mario@gmail.com" orig="Beginning of records">Početak snimanja</string>
+  <string name="date_begin_hint" formatted="false" username="lesart.mario@gmail.com" orig="Ignore any logs before this date.">Ignoriši sve unose pre ovih podataka.</string>
+  <string name="delete_old_logs_" formatted="false" username="lesart.mario@gmail.com" orig="Delete logs older than">Izbriši podatke starije od</string>
+  <string name="delete_old_logs_help" formatted="false" username="lesart.mario@gmail.com" orig="Delete logs older than x days from internal database. Leave empty to disable.">Izbriši podatke iz interne baze starije od x dana. Prazno je jednako "deaktivirano".</string>
+  <string name="common_prefs_" formatted="false" username="lesart.mario@gmail.com" orig="Common preferences">Zajedničke postavke</string>
+  <string name="edit_" formatted="false" username="lesart.mario@gmail.com" orig="Edit">Uredi</string>
+  <string name="about_" formatted="false" username="lesart.mario@gmail.com" orig="About">O</string>
+  <string name="about_hint" formatted="false" username="lesart.mario@gmail.com" orig="About this app">O ovoj aplikaciji</string>
+  <string name="faq_hint" formatted="false" username="lesart.mario@gmail.com" orig="Some tips and tricks, how to set up this app.">neki saveti i trikovi kako da podesite aplikaciju.</string>
+  <string name="feedback_" formatted="false" username="lesart.mario@gmail.com" orig="Feedback">Povratne informacije</string>
+  <string name="feedback_hint" formatted="false" username="lesart.mario@gmail.com" orig="Report bugs, request features ...">Prijava grešaka...</string>
+  <string name="twitter_hint" formatted="false" username="lesart.mario@gmail.com" orig="Follow me on twitter.\nGet update notifications etc.">Pratite me na tweeter-u\nDobijajte izveštaje o napretku i sl.</string>
+  <string name="more_" formatted="false" username="lesart.mario@gmail.com" orig="More Apps..">Još aplikacija...</string>
+  <string name="billing_" formatted="false" username="lesart.mario@gmail.com" orig="Billing">Naplata</string>
+  <string name="billday_" formatted="false" username="lesart.mario@gmail.com" orig="First day of your bill">Prvi dan za obračun naplate</string>
+  <string name="billmode_" formatted="false" username="lesart.mario@gmail.com" orig="Mode of billing">Način naplate</string>
+  <string name="billdate_" formatted="false" username="lesart.mario@gmail.com" orig="Start of billing period:">Pošetak perioda naplate:</string>
+  <string name="appearance_" formatted="false" username="lesart.mario@gmail.com" orig="Appearance">Izgled</string>
+  <string name="behavior_" formatted="false" username="lesart.mario@gmail.com" orig="Behavior">Ponašanje</string>
+  <string name="appearance_and_behavior_" formatted="false" username="lesart.mario@gmail.com" orig="Appearance &amp; behavior">Izgled i ponašanje</string>
+  <string name="simple_preferences_" formatted="false" username="lesart.mario@gmail.com" orig="Simple preferences">Jednostavna podešavanja</string>
+  <string name="simple_preferences_hint" formatted="false" username="lesart.mario@gmail.com" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Vrlo jednostavna podešavanja, pogodna za većinu korisnika. Dostupno samo sa osnovnim pravilima podešavanja.</string>
+  <string name="advanced_preferences_" formatted="false" username="lesart.mario@gmail.com" orig="Advanced preferences">Napredna podešavanja</string>
+  <string name="advanced_preferences_hint" formatted="false" username="lesart.mario@gmail.com" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Ovo Vam omogućava više kompleksna podešavanja. Većini korisnika neće biti potrebno.</string>
+  <string name="theme_" formatted="false" username="lesart.mario@gmail.com" orig="Theme">Teme</string>
+  <string name="textsize_" formatted="false" username="lesart.mario@gmail.com" orig="Text size">Veličina teksta</string>
+  <string name="textsize_hint" formatted="false" username="lesart.mario@gmail.com" orig="Text size in pixels; leave empty for default">Veličina teksta u pixelima; ostavite prazno za osnovna podešavanja</string>
+  <string name="textsize_title_" formatted="false" username="lesart.mario@gmail.com" orig="Title\'s text size">Veličina slova u naslovu</string>
+  <string name="textsize_title_hint" formatted="false" username="lesart.mario@gmail.com" orig="Text size for titles in pixels; leave empty for default">Veličina slova u naslovu u pixelima; ostavite prazno za osnovna podešavanja</string>
+  <string name="textsize_bigtitle_" formatted="false" username="lesart.mario@gmail.com" orig="Big title\'s text size">Veliki naslov</string>
+  <string name="textsize_bigtitle_hint" formatted="false" username="lesart.mario@gmail.com" orig="Text size for big titles in pixels; leave empty for default">Veličina slova u Velikom naslovu u pixelima; ostavite prazno za osnovna podešavanja</string>
+  <string name="textsize_spacer_" formatted="false" username="lesart.mario@gmail.com" orig="Spacer\'s size">Veličina razmaka</string>
+  <string name="textsize_spacer_hint" formatted="false" username="lesart.mario@gmail.com" orig="Size for spacers in pixels; leave empty for default">Veličina razmaka u pixelima; ostavite prazno za osnovna podešavanja</string>
+  <string-array name="billperiod" username="lesart.mario@gmail.com">
+    <item>Jedan dan</item>
+    <item>Jedna nedelja</item>
+    <item>30 dana</item>
+    <item>60 dana</item>
+    <item>90 dana</item>
+    <item>Jedan mesec</item>
+    <item>Dva meseca</item>
+    <item>Tri meseca</item>
+    <item>Četiri meseca</item>
+    <item>Pet meseci</item>
+    <item>Šest meseci</item>
+    <item>Jedna godina</item>
+    <item>Beskonačno</item>
+  </string-array>
+  <string-array name="rules_type" username="lesart.mario@gmail.com">
+    <item>Pozivi</item>
+    <item>SMS</item>
+    <item>MMS</item>
+    <item>Prenos podataka</item>
+  </string-array>
+  <string-array name="limit_type" username="lesart.mario@gmail.com">
+    <item>Neograničeno</item>
+    <item>jedinica</item>
+    <item>vrednost</item>
+  </string-array>
+  <string-array name="billmodes" username="lesart.mario@gmail.com">
+    <item>1/1</item>
+    <item>6/6</item>
+    <item>10/10</item>
+    <item>30/1</item>
+    <item>30/6</item>
+    <item>30/10</item>
+    <item>30/30</item>
+    <item>30/60</item>
+    <item>45/1</item>
+    <item>60/0</item>
+    <item>60/1</item>
+    <item>60/6</item>
+    <item>60/10</item>
+    <item>60/15</item>
+    <item>60/30</item>
+    <item>60/60</item>
+    <item>Proizvoljno</item>
+  </string-array>
+  <string-array name="direction_calls" username="lesart.mario@gmail.com">
+    <item>dolazni</item>
+    <item>odlazni</item>
+  </string-array>
+  <string-array name="direction_sms" username="lesart.mario@gmail.com">
+    <item>dolazni</item>
+    <item>odlazni</item>
+  </string-array>
+  <string-array name="direction_mms" username="lesart.mario@gmail.com">
+    <item>dolazni</item>
+    <item>odlazni</item>
+  </string-array>
+  <string-array name="direction_data" username="lesart.mario@gmail.com">
+    <item>dolazni</item>
+    <item>odlazni</item>
+  </string-array>
+  <string-array name="currency_formats" username="lesart.mario@gmail.com">
+    <item>Osnovni</item>
+    <item>1,00</item>
+    <item>1000</item>
+    <item>1,00</item>
+    <item>1000</item>
+  </string-array>
+  <string-array name="date_formats" username="lesart.mario@gmail.com">
+    <item>Osnovni</item>
+    <item>MM/DD/GGGG</item>
+    <item>DD/MM/GGGG</item>
+    <item>DD.MM.GGGG.</item>
+  </string-array>
+  <string-array name="update_interval" username="lesart.mario@gmail.com">
+    <item>5 minuta</item>
+    <item>10 minuta</item>
+    <item>15 minuta</item>
+    <item>30 minuta</item>
+    <item>1 sat</item>
+    <item>2 sata</item>
+    <item>Ručno podešavanje</item>
+  </string-array>
+  <string-array name="plans_type" username="lesart.mario@gmail.com">
+    <item>Naziv</item>
+    <item>Razmak</item>
+    <item>Period obračuna naplate</item>
+    <item>Mixovano</item>
+    <item>Pozivi</item>
+    <item>SMS</item>
+    <item>MMS</item>
+    <item>Prenos podataka</item>
+  </string-array>
+  <string-array name="dialog_edit_delete" username="lesart.mario@gmail.com">
+    <item>Uredi</item>
+    <item>Obriši</item>
+  </string-array>
+  <string-array name="dialog_delete" username="lesart.mario@gmail.com">
+    <item>Obriši</item>
+  </string-array>
+  <string-array name="dialog_edit_plan" username="lesart.mario@gmail.com">
+    <item>Uredi plan</item>
+  </string-array>
+  <string-array name="themes" username="lesart.mario@gmail.com">
+    <item>Tamno</item>
+    <item>Svetlo</item>
+  </string-array>
+  <string-array name="hours_all" username="lesart.mario@gmail.com">
+    <item>Ceo dan</item>
+    <item>0:00 - 0:59</item>
+    <item>1:00 - 1:59</item>
+    <item>2:00 - 2:59</item>
+    <item>3:00 - 3:59</item>
+    <item>4:00 - 4:59</item>
+    <item>5:00 - 5:59</item>
+    <item>6:00 - 6:59</item>
+    <item>7:00 - 7:59</item>
+    <item>8:00 - 8:59</item>
+    <item>9:00 - 9:59</item>
+    <item>10:00 - 10:59</item>
+    <item>11:00 - 11:59</item>
+    <item>12:00 - 12:59</item>
+    <item>13:00 - 13:59</item>
+    <item>14:00 - 14:59</item>
+    <item>15:00 - 15:59</item>
+    <item>16:00 - 16:59</item>
+    <item>17:00 - 17:59</item>
+    <item>18:00 - 18:59</item>
+    <item>19:00 - 19:59</item>
+    <item>20:00 - 20:59</item>
+    <item>21:00 - 21:59</item>
+    <item>22:00 - 22:59</item>
+    <item>23:00 - 23:59</item>
+  </string-array>
+  <string-array name="weekdays_all" username="lesart.mario@gmail.com">
+    <item>Cela nedelja</item>
+    <item>Ponedeljak</item>
+    <item>Utorak</item>
+    <item>Sreda</item>
+    <item>Četvrtak</item>
+    <item>Petak</item>
+    <item>Subota</item>
+    <item>Nedelja</item>
+    <item>Ponedeljka - petak</item>
+  </string-array>
+  <string name="send_devices_hint" formatted="false" username="lesart.mario@gmail.com" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Pošalji listu uređaja programeru. Ovo je potrebno samo ako su podaci statistike NULA.</string>
+  <string name="send_devices_" formatted="false" username="lesart.mario@gmail.com" orig="Send devices">Pošalji uređaj</string>
+  <string name="widget_backgroud_transparency_" formatted="false" username="lesart.mario@gmail.com" orig="Background transparency">Pozadina prozirna</string>
+  <string name="widget_backgroud_color_" formatted="false" username="lesart.mario@gmail.com" orig="Background color">Boja pozadine</string>
+  <string name="widget_text_color_" formatted="false" username="lesart.mario@gmail.com" orig="Text color">Boja teksta</string>
+  <string name="widget_cost_textsize" formatted="false" username="lesart.mario@gmail.com" orig="Cost Text Size">Veličina slova troška</string>
+  <string name="widget_plan_textsize" formatted="false" username="lesart.mario@gmail.com" orig="Plan Text Size">Veličina slova plana</string>
+  <string name="widget_config_" formatted="false" username="lesart.mario@gmail.com" orig="Widget config">Podešavanje Widget-a</string>
+  <string name="alerts_100_hint" formatted="false" username="lesart.mario@gmail.com" orig="Notify if a plan passes 100% of it\'s limit.">Obavesti ako je plan prešao 100% svog limita.</string>
+  <string name="alerts_100_" formatted="false" username="lesart.mario@gmail.com" orig="Notify at 100%">Obavesti na 100%</string>
+  <string name="alerts_80_hint" formatted="false" username="lesart.mario@gmail.com" orig="Notify if a plan passes 80% of it\'s limit.">Obavesti ako je plan prešao 80% svog limita.</string>
+  <string name="alerts_80_" formatted="false" username="lesart.mario@gmail.com" orig="Notify at 80%">Obavesti na 80%</string>
+  <string name="alerts_message" formatted="false" username="lesart.mario@gmail.com" orig="Plan %s has reached %d%% usage!">Plan %s je dostigao %d%% svoje upotrebljivosti!</string>
+  <string name="alerts_title" formatted="false" username="lesart.mario@gmail.com" orig="Call Meter 3G alert">CallMeter 3G upozorenje</string>
+  <string name="alerts_hint" formatted="false" username="lesart.mario@gmail.com" orig="Set alerts based on plan usage.">Podesi upozorenja na ograničenjima plana.</string>
 </resources>
