@@ -1,0 +1,23 @@
+0151 T-Mobil / D1 
+0152 Vodafone / D2 
+0157 E-Plus / BASE 
+0159 O2 
+0160 E-Plus / BASE 
+0160 T-Mobil / D1 
+0161 E-Plus / BASE 
+0162 E-Plus / BASE 
+0162 Vodafone / D2 
+0163 E-Plus / BASE 
+0163 E-Plus / BASE 
+0164 E-Plus / BASE 
+0170 T-Mobil / D1 
+0171 T-Mobil / D1 
+0172 Vodafone / D2 
+0173 Vodafone / D2 
+0174 Vodafone / D2 
+0175 T-Mobil / D1 
+0176 O2 
+0177 E-Plus / BASE 
+0178 E-Plus / BASE 
+0178 E-Plus / BASE 
+0179 O2
