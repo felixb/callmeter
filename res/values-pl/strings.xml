@@ -58,7 +58,7 @@
   <string name="billdate_" formatted="false">Pierwszy dzień rachunku:</string>
   <string name="appearance_" formatted="false">Wygląd</string>
   <string name="behavior_" formatted="false" orig="Behavior">Zachowanie</string>
-  <string name="appearance_and_behavior_" formatted="false" username="" orig="Appearance &amp; behavior">Wygląd i zachowanie</string>
+  <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp; behavior">Wygląd i zachowanie</string>
   <string name="advanced_preferences_" formatted="false">Ustawienia zaawansowane</string>
   <string name="advanced_preferences_hint" formatted="false">Zaznacz, aby uaktywnić dodatkowe ustawienia. Głównie dla zaawansowanych użytkowników.</string>
   <string name="theme_" formatted="false">Styl</string>
@@ -277,7 +277,7 @@
   <string name="export_hourgroups_" formatted="false">Eksport grup godzinowych</string>
   <string name="export_hourgroups_hint" formatted="false">Eksport grup godzinowych jako mail.</string>
   <string name="import_rules_" formatted="false">Importuj ustawienia reguł</string>
-  <string name="import_rules_hint" formatted="false" username="" orig="Import preconfigured rule set.">Importuj wstępne ustawienia reguł.</string>
+  <string name="import_rules_hint" formatted="false" orig="Import preconfigured rule set.">Importuj wstępne ustawienia reguł.</string>
   <string name="import_rules_empty" formatted="false">Żaden plan/reguła nie jest ustawiona. Kliknij ten tekst aby zimportować domyślny zestaw reguł.\n\nMożesz również dodać plan i reguły ręcznie w ustawieniach.</string>
   <string name="err_export_write" formatted="false">Błąd podczas zapisu eksportowanego pliku</string>
   <string name="err_export_read" formatted="false">Błąd podczas odczytu eksportowanego pliku</string>
@@ -442,10 +442,16 @@
     <item>Dwie godziny</item>
     <item>Tylko ręcznie</item>
   </string-array>
-  <string name="import_rules_default_" formatted="false" username="" orig="Import default rule set">Importuj standardowe ustawienia reguł.</string>
-  <string name="import_rules_default_hint" formatted="false" username="" orig="Import default rule set shipped with the app.">Importuj standardowe zestawienia reguł dostarczone z aplikacją.</string>
-  <string name="simple_preferences_hint" formatted="false" username="" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Ustawienia zwykłe, odpowiednie dla większości użytkowników. Dostępne tylko ze standardowymi ustawieniami reguł.</string>
-  <string name="simple_preferences_" formatted="false" username="" orig="Simple preferences">Ustawienia zwykłe</string>
-  <string name="numbergroup_excalls" formatted="false" username="" orig="Exclude from calls">Wykluczone z rozmów</string>
-  <string name="numbergroup_exsms" formatted="false" username="" orig="Exclude from SMS">Wykluczone z SMS</string>
+  <string name="import_rules_default_" formatted="false" orig="Import default rule set">Importuj standardowe ustawienia reguł.</string>
+  <string name="import_rules_default_hint" formatted="false" orig="Import default rule set shipped with the app.">Importuj standardowe zestawienia reguł dostarczone z aplikacją.</string>
+  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Ustawienia zwykłe, odpowiednie dla większości użytkowników. Dostępne tylko ze standardowymi ustawieniami reguł.</string>
+  <string name="simple_preferences_" formatted="false" orig="Simple preferences">Ustawienia zwykłe</string>
+  <string name="numbergroup_excalls" formatted="false" orig="Exclude from calls">Wykluczone z rozmów</string>
+  <string name="numbergroup_exsms" formatted="false" orig="Exclude from SMS">Wykluczone z SMS</string>
+  <string name="exported_" formatted="false" username="daniel@borek.me.uk" orig="Exported:">Wyeksportowano:</string>
+  <string name="import_rules_sd_" formatted="false" username="daniel@borek.me.uk" orig="Import from SD card">Importuj z karty SD</string>
+  <string name="import_rules_sd_files" formatted="false" username="daniel@borek.me.uk" orig="Found files">Znaleziono pliki</string>
+  <string name="import_rules_sd_nofiles" formatted="false" username="daniel@borek.me.uk" orig="No found files">Brak znalezionych plikow</string>
+  <string name="import_rules_sd_hint" formatted="false" username="daniel@borek.me.uk" orig="Import rule set directly from SD card.">Importuj zestaw reguł z karty SD.</string>
+  <string name="import_rules_sd_help" formatted="false" username="daniel@borek.me.uk" orig="Place your file on your SD card and click it below">Umieść swój plik na karcie SD i kliknij poniżej</string>
 </resources>

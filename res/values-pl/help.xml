@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,7 +16,7 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/edit.php?lang=pl&file=help.xml to edit the file.
        -->
@@ -30,4 +30,6 @@
   <string name="help_plans_merge_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="You can merge &lt;b&gt;plans&lt;/b&gt; to aggregate their &lt;b&gt;log items&lt;/b&gt; to a combined cost and limit.">Możesz scalić <b>plany</b> aby połączyć ich <b>elementy</b> w celu określenia łącznego kosztu i limitów.</string>
   <string name="help_rules_detail1_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="But keep in mind, that order is important for &lt;b&gt;rules&lt;/b&gt;:">Miej na uwadze, że kolejność jest ważna dla <b>reguł</b>:</string>
   <string name="help_rules_detail3_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="E.g.: If you match all calls to 0800% numbers to a \&quot;free\&quot; &lt;b&gt;plan&lt;/b&gt; with the first &lt;b&gt;rule&lt;/b&gt;, there is no need to exclude these numbers in the second.">Np.: Jeżeli dopasujesz wszystkie połączenia do numeru 0800% do "darmowego" <b>planu</b> z pierwszą <b>regułą</b>, nie ma potrzeby wykluczać tych numerów w drugiej.</string>
+  <string name="help_logs_" formatted="false" username="daniel@borek.me.uk" orig="&lt;b&gt;Logs&lt;/b&gt; to save informations about your calls, messages and traffic statistics."><b>Logi</b> aby zapisać informacje o statystykach Twoich rozmów, wiadomości i przesyłu danych.</string>
+  <string name="help_rules_" formatted="false" username="daniel@borek.me.uk" orig="&lt;b&gt;Rules&lt;/b&gt; to match the &lt;b&gt;logs&lt;/b&gt; and move them to a particular &lt;b&gt;plan&lt;/b&gt;."><b>Reguły</b> dla <b>logów</b> potrzebne do uzycia ich z <b>planami</b></string>
 </resources>
