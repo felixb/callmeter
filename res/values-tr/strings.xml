@@ -166,9 +166,9 @@
   <string name="export_rules_" formatted="false">Kural dışa aktar</string>
   <string name="export_rules_hint" formatted="false">Kuralları posta yoluyla dışa aktarın.</string>
   <string name="export_rules_descr" formatted="false">Tanımlama</string>
-  <string name="import_rules_" formatted="false">Kural içe aktar</string>
-  <string name="import_rules_hint" formatted="false">Kuralları içe aktarın.</string>
-  <string name="import_rules_empty" formatted="false">Paket/kural ayarlanmadı. Varsayılan kuralları içe aktarmak için bu metne dokunun\n\nveya Tercihler menüsünden paket ve kural ekleyin.</string>
+  <string name="import_rules_" formatted="false" orig="Import rule set">Kural setini içe aktar</string>
+  <string name="import_rules_hint" formatted="false" orig="Import preconfigured rule set.">Daha önceden ayarlanmış kurallar setini içe aktarın.</string>
+  <string name="import_rules_empty" formatted="false" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Hiçbir paket/kural ayarlanmadı. Varsayılan kuralları içe aktarmak için bu metne dokunun veya Tercihler menüsünden paket ve kural ekleyin.</string>
   <string name="err_export_write" formatted="false">Dışa aktarma dosyası yazılırken hata oluştu</string>
   <string name="err_export_read" formatted="false">Dışa aktarma dosyası okunurken hata oluştu</string>
   <string name="alerts_" formatted="false">Uyarılar</string>
@@ -448,4 +448,10 @@
   <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency">Arkaplan saydamlığı</string>
   <string name="send_devices_" formatted="false" orig="Send devices">Cihazları gönder</string>
   <string name="send_devices_hint" formatted="false" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Uygulama geliştiriciye cihazların listesini gönder. Bu, yalnızca istatistikleriniz sıfır olduğunda gereklidir.</string>
+  <string name="exported_" formatted="false" orig="Exported:">Dışa aktarılan:</string>
+  <string name="import_rules_sd_" formatted="false" orig="Import from SD card">SD karttan içe aktar</string>
+  <string name="import_rules_sd_hint" formatted="false" orig="Import rule set directly from SD card.">Kural setini SD karttan içe aktarma.</string>
+  <string name="import_rules_sd_help" formatted="false" orig="Place your file on your SD card and click it below">Dosyanızı SD kartınıza kopyalayın ve aşağıda tıklayın</string>
+  <string name="import_rules_sd_files" formatted="false" orig="Found files">Bulunan dosyalar</string>
+  <string name="import_rules_sd_nofiles" formatted="false" orig="No found files">Hiçbir dosya bulunamadı</string>
 </resources>
