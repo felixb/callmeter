@@ -139,4 +139,6 @@
     <item>Pequeno</item>
     <item>Médio</item>
   </string-array>
+  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats." username="Lucas Andrade &lt;lucas.rokam@gmail.com&gt;">Ocultar "(2G/3G/4G)" do título. Isto não afeta a estatística.</string>
+  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title" username="Lucas Andrade &lt;lucas.rokam@gmail.com&gt;">Mostrar apenas "Dados" como título</string>
 </resources>
