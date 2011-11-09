@@ -448,4 +448,6 @@
   <string name="import_rules_default_hint" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Import default rule set shipped with the app.">Gyári alapértelmezett szabályok importálása</string>
   <string name="send_devices_hint" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Készülékek listájának elküldése a fejlesztőnek. Ez csak akkor szükséges ha az adatforgalmi statisztikák üresek.</string>
   <string name="send_devices_" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Send devices">Készülékek elküldése</string>
+  <string name="exported_" formatted="false" orig="Exported:">Exportálva:</string>
+  <string name="import_rules_sd_" formatted="false" orig="Import from SD card">Importálás SD kártyáról</string>
 </resources>

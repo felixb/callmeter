@@ -111,7 +111,7 @@
   <string name="exhourgroup_help" formatted="false">Voeg uren toe die deze regel niet moeten matchen.</string>
   <string name="new_hourgroup" formatted="false">Nieuwe uur groep</string>
   <string name="add_hour" formatted="false">Uur toevoegen</string>
-  <string name="empty_group" formatted="false">Empty groups won\'t match anything. Please go back and add at least one item.</string>
+  <string name="empty_group" formatted="false" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Lege groepen komen nergens mee overeen. Ga terug en voeg minstens één item toe.</string>
   <string name="calls" formatted="false">Gesprekken</string>
   <string name="sms" formatted="false">SMS</string>
   <string name="mms" formatted="false">MMS</string>
@@ -120,7 +120,7 @@
   <string name="prepaid_hint" formatted="false">Factureer op prepaid basis. Kosten worden afgetrokken van balans als je belt etc.</string>
   <string name="balance_" formatted="false">Balans</string>
   <string name="balance_help" formatted="false">Balans van je account op deze datum.</string>
-  <string name="strip_leading_zeros_" formatted="false">Strip leading zeros</string>
+  <string name="strip_leading_zeros_" formatted="false" orig="Strip leading zeros">Verwijder voorloop nullen</string>
   <string name="strip_leading_zeros_hint" formatted="false">Strip leading zeros when comparing numbers.</string>
   <string name="number_prefix_" formatted="false">International prefix</string>
   <string name="number_prefix_hint" formatted="false">Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..</string>
@@ -135,7 +135,7 @@
   <string name="new_" formatted="false">Nieuw</string>
   <string name="edit_selected_" formatted="false">Wijzig geselecteerde</string>
   <string name="edit_groups_" formatted="false">Wijzig groepen</string>
-  <string name="name_" formatted="false">Name</string>
+  <string name="name_" formatted="false" orig="Name">Naam</string>
   <string name="name_help" formatted="false">Stel hier een naam in.</string>
   <string name="shortname_" formatted="false">Verkorte naam</string>
   <string name="shortname_help" formatted="false">Stel een verkorte naam in. Deze wordt getoond in compacte layouts.</string>
@@ -397,7 +397,7 @@
   <string name="calls_out" formatted="false" orig="Calls Out">uitgaande gesprekken</string>
   <string name="calls_out_" formatted="false" orig="CallsOut">uitgaande gesprekken</string>
   <string name="messages_" formatted="false" orig="SMS/MMS">SMS/MMS</string>
-  <string name="messages" formatted="false" orig="Messages">Bericht</string>
+  <string name="messages" formatted="false" orig="Messages">Berichten</string>
   <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Data (2G/3G/4G)</string>
   <string name="data_inout" formatted="false" orig="Data In/Out">Data In/Uit</string>
   <string name="export_" formatted="false" orig="Export ...">Exporteer ...</string>
