@@ -71,7 +71,7 @@ import de.ub0r.android.callmeter.data.LogRunnerReceiver;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.PlanEdit;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.lib.Changelog;
+import de.ub0r.android.lib.ChangelogHelper;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.DonationHelper;
 import de.ub0r.android.lib.Log;
@@ -435,13 +435,13 @@ public class Plans extends ListActivity implements OnClickListener,
 				} else {
 					this.billday = -1;
 					this.billdayc = null;
-					this.ppid = DataProvider.Plans.getParent(context
-							.getContentResolver(), this.id);
+					this.ppid = DataProvider.Plans.getParent(
+							context.getContentResolver(), this.id);
 					this.limittype = cursor
 							.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 					this.limit = DataProvider.Plans.getLimit(this.type,
-							this.limittype, cursor
-									.getLong(DataProvider.Plans.INDEX_LIMIT));
+							this.limittype,
+							cursor.getLong(DataProvider.Plans.INDEX_LIMIT));
 					this.cpp = cursor
 							.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
 					final String s = cursor
@@ -957,7 +957,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					return null;
 				}
 			} // .
-					.execute((Void) null);
+			.execute((Void) null);
 		}
 
 		/**
@@ -1022,9 +1022,7 @@ public class Plans extends ListActivity implements OnClickListener,
 				ret.append(delimiter);
 
 				// amount all time
-				ret
-						.append(formatAmount(p.type, allTime.billedAmount,
-								showHours));
+				ret.append(formatAmount(p.type, allTime.billedAmount, showHours));
 				// count all time
 				if (p.type == DataProvider.TYPE_CALL) {
 					ret.append(" (" + allTime.count + ")");
@@ -1332,8 +1330,8 @@ public class Plans extends ListActivity implements OnClickListener,
 		Utils.setLocale(this);
 		this.setContentView(R.layout.plans);
 
-		Changelog.showChangelog(this);
-		Changelog.showNotes(this, null, null, null);
+		ChangelogHelper.showChangelog(this, false);
+		ChangelogHelper.showNotes(this, false, null, null, null);
 
 		prefsNoAds = DonationHelper.hideAds(this);
 		this.findViewById(R.id.import_default).setOnClickListener(this);
@@ -1376,8 +1374,8 @@ public class Plans extends ListActivity implements OnClickListener,
 		}
 		// reload plan configuration
 		this.getNowFromIntent(this.getIntent(), false);
-		this.adapter.reloadPlans(this.getContentResolver(), this.adapter
-				.getCursor());
+		this.adapter.reloadPlans(this.getContentResolver(),
+				this.adapter.getCursor());
 		// start LogRunner
 		LogRunnerService.update(this, LogRunnerReceiver.ACTION_FORCE_UPDATE);
 		// schedule next update
@@ -1484,8 +1482,8 @@ public class Plans extends ListActivity implements OnClickListener,
 			if (cal == null) {
 				cal = Calendar.getInstance();
 			}
-			return new DatePickerDialog(this, this, cal.get(Calendar.YEAR), cal
-					.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
+			return new DatePickerDialog(this, this, cal.get(Calendar.YEAR),
+					cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 		case DIALOG_SHOW_TIME:
 			cal = this.adapter.now;
 			int h;
@@ -1530,7 +1528,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			this.startActivity(new Intent(this, Preferences.class));
 			return true;
 		case R.id.item_donate:
-			this.startActivity(new Intent(this, DonationHelper.class));
+			DonationHelper.startDonationActivity(this, false);
 			return true;
 		case R.id.item_logs:
 			this.startActivity(new Intent(this, Logs.class));
@@ -1620,8 +1618,8 @@ public class Plans extends ListActivity implements OnClickListener,
 		if (cal == null) {
 			cal = Calendar.getInstance();
 		}
-		cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal
-				.get(Calendar.DAY_OF_MONTH), hourOfDay, minute);
+		cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),
+				cal.get(Calendar.DAY_OF_MONTH), hourOfDay, minute);
 		this.setNow(cal.getTimeInMillis(), true, true);
 	}
 }

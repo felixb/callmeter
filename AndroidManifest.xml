@@ -96,9 +96,11 @@
 			android:windowSoftInputMode="adjustResize" />
 		<activity android:name=".ui.Help"
 			android:windowSoftInputMode="adjustResize" />
-		<activity android:name="de.ub0r.android.lib.DonationHelper"
+		<activity android:name="de.ub0r.android.lib.DonationActivity"
+			android:configChanges="orientation|keyboardHidden"
 			android:windowSoftInputMode="adjustResize" />
-		<activity android:name="de.ub0r.android.lib.Changelog"
+		<activity android:name="de.ub0r.android.lib.ChangelogActivity"
+			android:configChanges="orientation|keyboardHidden"
 			android:windowSoftInputMode="adjustResize" />
 		<receiver android:name=".data.LogRunnerReceiver">
 			<intent-filter>
