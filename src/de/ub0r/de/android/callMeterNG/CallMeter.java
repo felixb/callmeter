@@ -29,7 +29,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.Window;
 import android.widget.TextView;
-import de.ub0r.android.lib.Changelog;
+import de.ub0r.android.lib.ChangelogHelper;
 import de.ub0r.android.lib.DonationHelper;
 import de.ub0r.android.lib.Utils;
 
@@ -86,7 +86,7 @@ public class CallMeter extends Activity {
 		Utils.setLocale(this);
 		this.setContentView(R.layout.main);
 
-		Changelog.showChangelog(this);
+		ChangelogHelper.showChangelog(this, false);
 		// TODO: Changelog.showNotes(this, null, null, null);
 
 		prefsNoAds = DonationHelper.hideAds(this);
@@ -143,7 +143,7 @@ public class CallMeter extends Activity {
 			this.startActivity(new Intent(this, Preferences.class));
 			return true;
 		case R.id.item_donate:
-			this.startActivity(new Intent(this, DonationHelper.class));
+			DonationHelper.startDonationActivity(this, false);
 			return true;
 		default:
 			return false;
