@@ -173,8 +173,8 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 			this.callmeter.findViewById(R.id.data_out_layout).setVisibility(v);
 			this.pbBillDate.setVisibility(v);
 			if (v == View.VISIBLE) {
-				v = Updater.setVisableIfSet(this.prefs.getString(
-						PREFS_DATA_LIMIT, null), false);
+				v = Updater.setVisableIfSet(
+						this.prefs.getString(PREFS_DATA_LIMIT, null), false);
 			}
 
 			this.dataBillDate = "?";
@@ -220,8 +220,8 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 					+ prettyBytes(currentIn);
 			this.dataOut = prettyBytes(currentOut - preBillingOut) + " | "
 					+ prettyBytes(currentOut);
-			final int limit = Utils.parseInt(this.prefs.getString(
-					PREFS_DATA_LIMIT, null), 0);
+			final int limit = Utils.parseInt(
+					this.prefs.getString(PREFS_DATA_LIMIT, null), 0);
 
 			ret[0] = thisBillingIn;
 			if (!this.prefs.getBoolean(PREFS_DATA_INCOMING_ONLY, false)) {
@@ -383,11 +383,10 @@ class UpdaterData extends AsyncTask<Void, Void, Long[]> {
 		Log.d(TAG, "old tx: " + runningOut);
 
 		final Device d = Device.getDevice();
-		final String inter = d.getCell();
-		if (inter != null) {
+		if (d != null) {
 			try {
-				final long rx = SysClassNet.getRxBytes(inter);
-				final long tx = SysClassNet.getTxBytes(inter);
+				final long rx = d.getCellRxBytes();
+				final long tx = d.getCellTxBytes();
 				Log.d(TAG, "rx: " + rx);
 				Log.d(TAG, "tx: " + tx);
 				if (rx < runningIn || tx < runningOut) {

@@ -34,6 +34,8 @@ public final class SysClassNet {
 
 	/** Prefix of all interfaces. */
 	public static final String SYS_CLASS_NET = "/sys/class/net/";
+	/** type postfix. */
+	public static final String TYPE = "/type";
 	/** carrier postfix. */
 	public static final String CARRIER = "/carrier";
 	/** Postfix: received bytes. */
@@ -136,5 +138,4 @@ public final class SysClassNet {
 			}
 		}
 	}
-
 }
