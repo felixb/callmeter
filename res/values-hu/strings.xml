@@ -54,7 +54,7 @@
   <string name="more_" formatted="false">További alkalmazások...</string>
   <string name="billing_" formatted="false">Számlázás</string>
   <string name="billday_" formatted="false">A számlázás első napja</string>
-  <string name="billmode_" formatted="false">Számlázás módja</string>
+  <string name="billmode_" formatted="false" orig="Mode of billing">Számlázás módja</string>
   <string name="billdate_" formatted="false">Számlázási időszak kezdete:</string>
   <string name="appearance_" formatted="false">Megjelenés</string>
   <string name="behavior_" formatted="false">Működés</string>
