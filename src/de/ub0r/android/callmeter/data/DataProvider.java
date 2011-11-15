@@ -26,7 +26,6 @@ import java.io.InputStreamReader;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 
 import android.content.ContentProvider;
 import android.content.ContentResolver;
@@ -167,8 +166,6 @@ public final class DataProvider extends ContentProvider {
 	public static final class Logs {
 		/** Table name. */
 		private static final String TABLE = "logs";
-		/** {@link HashMap} for projection. */
-		private static final HashMap<String, String> PROJECTION_MAP;
 
 		/** Index in projection: ID. */
 		public static final int INDEX_ID = 0;
@@ -261,13 +258,6 @@ public final class DataProvider extends ContentProvider {
 		public static final String CONTENT_ITEM_TYPE = // .
 		"vnd.android.cursor.item/vnd.ub0r.log";
 
-		static {
-			PROJECTION_MAP = new HashMap<String, String>();
-			for (String s : PROJECTION) {
-				PROJECTION_MAP.put(s, s);
-			}
-		}
-
 		/**
 		 * Create table in {@link SQLiteDatabase}.
 		 * 
@@ -352,8 +342,6 @@ public final class DataProvider extends ContentProvider {
 	public static final class WebSMS {
 		/** Table name. */
 		private static final String TABLE = "websms";
-		/** {@link HashMap} for projection. */
-		private static final HashMap<String, String> PROJECTION_MAP;
 
 		/** Index in projection: ID. */
 		public static final int INDEX_ID = 0;
@@ -387,13 +375,6 @@ public final class DataProvider extends ContentProvider {
 		 */
 		public static final String CONTENT_ITEM_TYPE = // .
 		"vnd.android.cursor.item/vnd.ub0r.websms";
-
-		static {
-			PROJECTION_MAP = new HashMap<String, String>();
-			for (String s : PROJECTION) {
-				PROJECTION_MAP.put(s, s);
-			}
-		}
 
 		/**
 		 * Create table in {@link SQLiteDatabase}.
@@ -443,8 +424,6 @@ public final class DataProvider extends ContentProvider {
 	public static final class SipCall {
 		/** Table name. */
 		private static final String TABLE = "sipcall";
-		/** {@link HashMap} for projection. */
-		private static final HashMap<String, String> PROJECTION_MAP;
 
 		/** Index in projection: ID. */
 		public static final int INDEX_ID = 0;
@@ -478,13 +457,6 @@ public final class DataProvider extends ContentProvider {
 		 */
 		public static final String CONTENT_ITEM_TYPE = // .
 		"vnd.android.cursor.item/vnd.ub0r.sipcall";
-
-		static {
-			PROJECTION_MAP = new HashMap<String, String>();
-			for (String s : PROJECTION) {
-				PROJECTION_MAP.put(s, s);
-			}
-		}
 
 		/**
 		 * Create table in {@link SQLiteDatabase}.
@@ -534,8 +506,13 @@ public final class DataProvider extends ContentProvider {
 	public static final class Plans {
 		/** Table name. */
 		private static final String TABLE = "plans";
-		/** {@link HashMap} for projection. */
-		private static final HashMap<String, String> PROJECTION_MAP;
+
+		/** Parameter for query: date. */
+		public static final String PARAM_DATE = "date";
+		/** Parameter for query: hide zero plans. */
+		public static final String PARAM_HIDE_ZERO = "hide_zero";
+		/** Parameter for query: hide zero cost plans. */
+		public static final String PARAM_HIDE_NOCOST = "hide_nocost";
 
 		/** Index in projection: id. */
 		public static final int INDEX_ID = 0;
@@ -577,22 +554,34 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_MIXED_UNITS_SMS = 18;
 		/** Index in projection: Mixed units for mms. */
 		public static final int INDEX_MIXED_UNITS_MMS = 19;
-		/** Index in projection: cache row for main: string. */
-		public static final int INDEX_CACHE_STRING = 20;
-		/** Index in projection: cache row for main: progressbar maximum. */
-		public static final int INDEX_CACHE_PROGRESS_MAX = 21;
-		/** Index in projection: cache row for main: progressbar position. */
-		public static final int INDEX_CACHE_PROGRESS_POS = 22;
-		/** Index in projection: cache row for main: cost. */
-		public static final int INDEX_CACHE_COST = 23;
 		/** Index in projection: id of billperiod. */
-		public static final int INDEX_BILLPERIOD_ID = 24;
+		public static final int INDEX_BILLPERIOD_ID = 20;
 		/** Index in projection: next alert. */
-		public static final int INDEX_NEXT_ALERT = 25;
+		public static final int INDEX_NEXT_ALERT = 21;
 		/** Index in projection: strip first seconds. */
-		public static final int INDEX_STRIP_SECONDS = 26;
+		public static final int INDEX_STRIP_SECONDS = 22;
 		/** Index in projection: merged plans. */
-		public static final int INDEX_MERGED_PLANS = 27;
+		public static final int INDEX_MERGED_PLANS = 23;
+		/** Index in projection: sum, now. */
+		public static final int INDEX_SUM_NOW = 24;
+		/** Index in projection: sum, last bill day. */
+		public static final int INDEX_SUM_BILLDAY = 25;
+		/** Index in projection: sum, TODAY. */
+		public static final int INDEX_SUM_TODAY = 26;
+		/** Index in projection: sum count for this bill period. */
+		public static final int INDEX_SUM_BP_COUNT = 27;
+		/** Index in projection: sum billed amount for this bill period. */
+		public static final int INDEX_SUM_BP_BILLED_AMOUNT = 28;
+		/** Index in projection: sum count. */
+		public static final int INDEX_SUM_AT_COUNT = 29;
+		/** Index in projection: sum billed amount. */
+		public static final int INDEX_SUM_AT_BILLED_AMOUNT = 30;
+		/** Index in projection: sum count for today. */
+		public static final int INDEX_SUM_TD_COUNT = 31;
+		/** Index in projection: sum billed amount for today. */
+		public static final int INDEX_SUM_TD_BILLED_AMOUNT = 32;
+		/** Index in projection: sum cost for this bill period. */
+		public static final int INDEX_SUM_COST = 33;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -640,13 +629,14 @@ public final class DataProvider extends ContentProvider {
 		/** Mixed units for mms. */
 		public static final String MIXED_UNITS_MMS = "_mixed_units_mms";
 		/** Cache row for main: string. */
+		@Deprecated
 		public static final String CACHE_STRING = "_cache_str";
 		/** Cache row for main: progressbar maximum. */
+		@Deprecated
 		public static final String CACHE_PROGRESS_MAX = "_cache_prg_max";
 		/** Cache row for main: progressbar position. */
+		@Deprecated
 		public static final String CACHE_PROGRESS_POS = "_cache_prg_pos";
-		/** Cache row for main: cost. */
-		public static final String CACHE_COST = "_cache_cost";
 		/** Next alert. */
 		public static final String NEXT_ALERT = "_next_alert";
 		/** Strip first seconds. */
@@ -654,28 +644,140 @@ public final class DataProvider extends ContentProvider {
 		/** Merged plans. */
 		public static final String MERGED_PLANS = "_merged_plans";
 
+		/** Sum: now. */
+		public static final String SUM_NOW = "NOW";
+		/** Sum: last bill day. */
+		public static final String SUM_BILLDAY = "BILLDAY";
+		/** Sum: TODAY. */
+		public static final String SUM_TODAY = "TODAY";
+		/** Sum: count for this bill period. */
+		public static final String SUM_BP_COUNT = "SUM_BP_COUNT";
+		/** Sum: billed amount for this bill period. */
+		public static final String SUM_BP_BILLED_AMOUNT = "SUM_BP_BA";
+		/** Sum: count. */
+		public static final String SUM_AT_COUNT = "SUM_AT_COUNT";
+		/** Sum: billed amount. */
+		public static final String SUM_AT_BILLED_AMOUNT = "SUM_AT_BA";
+		/** Sum: count for today. */
+		public static final String SUM_TD_COUNT = "SUM_TD_COUNT";
+		/** Sum: billed amount for today. */
+		public static final String SUM_TD_BILLED_AMOUNT = "SUM_TD_BA";
+		/** Sum: cost for this bill period. */
+		public static final String SUM_COST = "SUM_COST";
+
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, NAME,
 				SHORTNAME, ORDER, TYPE, LIMIT_TYPE, LIMIT, BILLMODE, BILLDAY,
 				BILLPERIOD, COST_PER_ITEM, COST_PER_AMOUNT1, COST_PER_AMOUNT2,
 				COST_PER_ITEM_IN_LIMIT, COST_PER_AMOUNT_IN_LIMIT1,
 				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN, MIXED_UNITS_CALL,
-				MIXED_UNITS_SMS, MIXED_UNITS_MMS, CACHE_STRING,
-				CACHE_PROGRESS_MAX, CACHE_PROGRESS_POS, CACHE_COST,
-				BILLPERIOD_ID, NEXT_ALERT, STRIP_SECONDS, MERGED_PLANS };
+				MIXED_UNITS_SMS, MIXED_UNITS_MMS, BILLPERIOD_ID, NEXT_ALERT,
+				STRIP_SECONDS, MERGED_PLANS };
+
+		/** Projection used for sum query. */
+		public static final String[] PROJECTION_SUM = // .
+		new String[INDEX_SUM_COST + 1];
+		static {
+			final int l = PROJECTION.length;
+			for (int i = 0; i < l; i++) {
+				PROJECTION_SUM[i] = TABLE + "." + PROJECTION[i] + " AS "
+						+ PROJECTION[i];
+			}
+			PROJECTION_SUM[INDEX_SUM_NOW] = "{" + SUM_NOW + "} AS " + SUM_NOW;
+			PROJECTION_SUM[INDEX_SUM_TODAY] = "{" + SUM_TODAY + "} AS "
+					+ SUM_TODAY;
+			PROJECTION_SUM[INDEX_SUM_BILLDAY] = "{" + SUM_BILLDAY + "} AS "
+					+ SUM_BILLDAY;
+
+			PROJECTION_SUM[INDEX_SUM_TD_COUNT] = "sum(CASE WHEN " + Logs.TABLE
+					+ "." + Logs.DATE + " is null or " + Logs.TABLE + "."
+					+ Logs.DATE + "<{" + SUM_TODAY + "} or " + Logs.TABLE + "."
+					+ Logs.DATE + ">{" + SUM_NOW + "} THEN 0 ELSE 1 END) as "
+					+ SUM_TD_COUNT;
+			PROJECTION_SUM[INDEX_SUM_TD_BILLED_AMOUNT] = "sum(CASE WHEN "
+					+ Logs.TABLE + "." + Logs.DATE + "<{" + SUM_TODAY + "} or "
+					+ Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW
+					+ "} THEN 0 WHEN " + TABLE + "." + MERGED_PLANS
+					+ " is null or " + TABLE + "." + TYPE + "!=" + TYPE_MIXED
+					+ " THEN " + Logs.TABLE + "." + Logs.BILL_AMOUNT
+					+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "="
+					+ TYPE_CALL + " THEN " + Logs.TABLE + "."
+					+ Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_CALL
+					+ "/60" + " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "="
+					+ TYPE_SMS + " THEN " + Logs.TABLE + "." + Logs.BILL_AMOUNT
+					+ "*" + TABLE + "." + MIXED_UNITS_SMS + " WHEN  "
+					+ Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_MMS + " THEN "
+					+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
+					+ MIXED_UNITS_MMS + " ELSE " + Logs.TABLE + "."
+					+ Logs.BILL_AMOUNT + " END) AS " + SUM_TD_BILLED_AMOUNT;
+
+			PROJECTION_SUM[INDEX_SUM_BP_COUNT] = "sum(CASE WHEN " + Logs.TABLE
+					+ "." + Logs.DATE + " is null or " + Logs.TABLE + "."
+					+ Logs.DATE + "<{" + SUM_BILLDAY + "} or " + Logs.TABLE
+					+ "." + Logs.DATE + ">{" + SUM_NOW
+					+ "} THEN 0 ELSE 1 END) as " + SUM_BP_COUNT;
+			PROJECTION_SUM[INDEX_SUM_BP_BILLED_AMOUNT] = "sum(CASE WHEN "
+					+ Logs.TABLE + "." + Logs.DATE + "<{" + SUM_BILLDAY
+					+ "} or " + Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW
+					+ "} THEN 0 WHEN " + TABLE + "." + MERGED_PLANS
+					+ " is null or " + TABLE + "." + TYPE + "!=" + TYPE_MIXED
+					+ " THEN " + Logs.TABLE + "." + Logs.BILL_AMOUNT
+					+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "="
+					+ TYPE_CALL + " THEN " + Logs.TABLE + "."
+					+ Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_CALL
+					+ "/60" + " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "="
+					+ TYPE_SMS + " THEN " + Logs.TABLE + "." + Logs.BILL_AMOUNT
+					+ "*" + TABLE + "." + MIXED_UNITS_SMS + " WHEN  "
+					+ Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_MMS + " THEN "
+					+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
+					+ MIXED_UNITS_MMS + " ELSE " + Logs.TABLE + "."
+					+ Logs.BILL_AMOUNT + " END) AS " + SUM_BP_BILLED_AMOUNT;
+
+			PROJECTION_SUM[INDEX_SUM_AT_COUNT] = "sum(CASE WHEN " + Logs.TABLE
+					+ "." + Logs.DATE + " is null or " + Logs.TABLE + "."
+					+ Logs.DATE + ">{" + SUM_NOW + "} THEN 0 ELSE 1 END) as "
+					+ SUM_AT_COUNT;
+			PROJECTION_SUM[INDEX_SUM_AT_BILLED_AMOUNT] = "sum(CASE WHEN "
+					+ Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW
+					+ "} THEN 0 WHEN " + TABLE + "." + MERGED_PLANS
+					+ " is null or " + TABLE + "." + TYPE + "!=" + TYPE_MIXED
+					+ " THEN " + Logs.TABLE + "." + Logs.BILL_AMOUNT
+					+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "="
+					+ TYPE_CALL + " THEN " + Logs.TABLE + "."
+					+ Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_CALL
+					+ "/60" + " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "="
+					+ TYPE_SMS + " THEN " + Logs.TABLE + "." + Logs.BILL_AMOUNT
+					+ "*" + TABLE + "." + MIXED_UNITS_SMS + " WHEN  "
+					+ Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_MMS + " THEN "
+					+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
+					+ MIXED_UNITS_MMS + " ELSE " + Logs.TABLE + "."
+					+ Logs.BILL_AMOUNT + " END) AS " + SUM_AT_BILLED_AMOUNT;
+
+			PROJECTION_SUM[INDEX_SUM_COST] = "sum(CASE WHEN " + Logs.TABLE
+					+ "." + Logs.DATE + "<{" + SUM_BILLDAY + "} or "
+					+ Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW
+					+ "} THEN 0 ELSE " + Logs.TABLE + "." + Logs.COST
+					+ " END) as " + SUM_COST;
+		}
 
 		/** Projection used for query id and (short)name. */
 		public static final String[] PROJECTION_NAME = new String[] { ID, NAME,
 				SHORTNAME };
 
 		/** Select only real plans. */
-		public static final String WHERE_REALPLANS = TYPE + " != "
-				+ TYPE_BILLPERIOD + " AND " + TYPE + " != " + TYPE_SPACING
-				+ " AND " + TYPE + " != " + TYPE_TITLE;
+		public static final String WHERE_REALPLANS = TYPE + "!="
+				+ TYPE_BILLPERIOD + " and " + TYPE + "!=" + TYPE_SPACING
+				+ " and " + TYPE + "!=" + TYPE_TITLE;
+		/** Select only bill periods. */
+		public static final String WHERE_BILLPERIODS = TYPE + " = "
+				+ TYPE_BILLPERIOD;
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
 				+ AUTHORITY + "/plans");
+		/** Content {@link Uri}. */
+		public static final Uri CONTENT_URI_SUM = Uri.parse("content://"
+				+ AUTHORITY + "/plans/sum");
 		/**
 		 * The MIME type of {@link #CONTENT_URI} providing a list.
 		 */
@@ -687,13 +789,6 @@ public final class DataProvider extends ContentProvider {
 		 */
 		public static final String CONTENT_ITEM_TYPE = // .
 		"vnd.android.cursor.item/vnd.ub0r.plan";
-
-		static {
-			PROJECTION_MAP = new HashMap<String, String>();
-			for (String s : PROJECTION) {
-				PROJECTION_MAP.put(s, s);
-			}
-		}
 
 		/**
 		 * Create table in {@link SQLiteDatabase}.
@@ -726,10 +821,6 @@ public final class DataProvider extends ContentProvider {
 					+ MIXED_UNITS_CALL + " INTEGER,"// .
 					+ MIXED_UNITS_SMS + " INTEGER,"// .
 					+ MIXED_UNITS_MMS + " INTEGER,"// .
-					+ CACHE_STRING + " TEXT," // .
-					+ CACHE_PROGRESS_MAX + " INTEGER," // .
-					+ CACHE_PROGRESS_POS + " INTEGER," // .
-					+ CACHE_COST + " FLOAT," // .
 					+ NEXT_ALERT + " LONG," // .
 					+ STRIP_SECONDS + " INTEGER," // .
 					+ MERGED_PLANS + " TEXT" // .
@@ -772,8 +863,9 @@ public final class DataProvider extends ContentProvider {
 			if (id < 0) {
 				return null;
 			}
-			final Cursor cursor = cr.query(ContentUris.withAppendedId(
-					CONTENT_URI, id), PROJECTION_NAME, null, null, null);
+			final Cursor cursor = cr.query(
+					ContentUris.withAppendedId(CONTENT_URI, id),
+					PROJECTION_NAME, null, null, null);
 			String ret = null;
 			if (cursor != null && cursor.moveToFirst()) {
 				ret = cursor.getString(INDEX_NAME);
@@ -1041,7 +1133,7 @@ public final class DataProvider extends ContentProvider {
 			while (ret.after(n)) {
 				ret.add(f, v * -1);
 			}
-			while (ret.before(n)) {
+			while (!ret.after(n)) {
 				ret.add(f, v);
 			}
 			if (!next) {
@@ -1098,8 +1190,6 @@ public final class DataProvider extends ContentProvider {
 
 		/** Table name. */
 		private static final String TABLE = "rules";
-		/** {@link HashMap} for projection. */
-		private static final HashMap<String, String> PROJECTION_MAP;
 
 		/** Index in projection: id. */
 		public static final int INDEX_ID = 0;
@@ -1188,13 +1278,6 @@ public final class DataProvider extends ContentProvider {
 		public static final String CONTENT_ITEM_TYPE = // .
 		"vnd.android.cursor.item/vnd.ub0r.rule";
 
-		static {
-			PROJECTION_MAP = new HashMap<String, String>();
-			for (String s : PROJECTION) {
-				PROJECTION_MAP.put(s, s);
-			}
-		}
-
 		/**
 		 * Create table in {@link SQLiteDatabase}.
 		 * 
@@ -1260,8 +1343,9 @@ public final class DataProvider extends ContentProvider {
 			if (id < 0) {
 				return null;
 			}
-			final Cursor cursor = cr.query(ContentUris.withAppendedId(
-					CONTENT_URI, id), new String[] { NAME }, null, null, null);
+			final Cursor cursor = cr.query(
+					ContentUris.withAppendedId(CONTENT_URI, id),
+					new String[] { NAME }, null, null, null);
 			String ret = null;
 			if (cursor != null && cursor.moveToFirst()) {
 				ret = cursor.getString(0);
@@ -1281,8 +1365,6 @@ public final class DataProvider extends ContentProvider {
 	public static final class Numbers {
 		/** Table name. */
 		private static final String TABLE = "numbers";
-		/** {@link HashMap} for projection. */
-		private static final HashMap<String, String> PROJECTION_MAP;
 
 		/** Index in projection: ID. */
 		public static final int INDEX_ID = 0;
@@ -1319,13 +1401,6 @@ public final class DataProvider extends ContentProvider {
 		 */
 		public static final String CONTENT_ITEM_TYPE = // .
 		"vnd.android.cursor.item/vnd.ub0r.number";
-
-		static {
-			PROJECTION_MAP = new HashMap<String, String>();
-			for (String s : PROJECTION) {
-				PROJECTION_MAP.put(s, s);
-			}
-		}
 
 		/**
 		 * Create table in {@link SQLiteDatabase}.
@@ -1375,8 +1450,6 @@ public final class DataProvider extends ContentProvider {
 	public static final class NumbersGroup {
 		/** Table name. */
 		private static final String TABLE = "numbersgroup";
-		/** {@link HashMap} for projection. */
-		private static final HashMap<String, String> PROJECTION_MAP;
 
 		/** Index in projection: ID. */
 		public static final int INDEX_ID = 0;
@@ -1406,13 +1479,6 @@ public final class DataProvider extends ContentProvider {
 		public static final String CONTENT_ITEM_TYPE = // .
 		"vnd.android.cursor.item/vnd.ub0r.numbergroup";
 
-		static {
-			PROJECTION_MAP = new HashMap<String, String>();
-			for (String s : PROJECTION) {
-				PROJECTION_MAP.put(s, s);
-			}
-		}
-
 		/**
 		 * Get Name for id.
 		 * 
@@ -1423,8 +1489,9 @@ public final class DataProvider extends ContentProvider {
 		 * @return name
 		 */
 		public static String getName(final ContentResolver cr, final long id) {
-			final Cursor cursor = cr.query(ContentUris.withAppendedId(
-					CONTENT_URI, id), new String[] { NAME }, null, null, null);
+			final Cursor cursor = cr.query(
+					ContentUris.withAppendedId(CONTENT_URI, id),
+					new String[] { NAME }, null, null, null);
 			String ret = null;
 			if (cursor != null && cursor.moveToFirst()) {
 				ret = cursor.getString(0);
@@ -1482,8 +1549,6 @@ public final class DataProvider extends ContentProvider {
 	public static final class Hours {
 		/** Table name. */
 		private static final String TABLE = "hours";
-		/** {@link HashMap} for projection. */
-		private static final HashMap<String, String> PROJECTION_MAP;
 
 		/** Index in projection: ID. */
 		public static final int INDEX_ID = 0;
@@ -1524,13 +1589,6 @@ public final class DataProvider extends ContentProvider {
 		 */
 		public static final String CONTENT_ITEM_TYPE = // .
 		"vnd.android.cursor.item/vnd.ub0r.hour";
-
-		static {
-			PROJECTION_MAP = new HashMap<String, String>();
-			for (String s : PROJECTION) {
-				PROJECTION_MAP.put(s, s);
-			}
-		}
 
 		/**
 		 * Create table in {@link SQLiteDatabase}.
@@ -1581,8 +1639,6 @@ public final class DataProvider extends ContentProvider {
 	public static final class HoursGroup {
 		/** Table name. */
 		private static final String TABLE = "hoursgroup";
-		/** {@link HashMap} for projection. */
-		private static final HashMap<String, String> PROJECTION_MAP;
 
 		/** Index in projection: ID. */
 		public static final int INDEX_ID = 0;
@@ -1612,13 +1668,6 @@ public final class DataProvider extends ContentProvider {
 		public static final String CONTENT_ITEM_TYPE = // .
 		"vnd.android.cursor.item/vnd.ub0r.hourgroup";
 
-		static {
-			PROJECTION_MAP = new HashMap<String, String>();
-			for (String s : PROJECTION) {
-				PROJECTION_MAP.put(s, s);
-			}
-		}
-
 		/**
 		 * Get Name for id.
 		 * 
@@ -1629,8 +1678,9 @@ public final class DataProvider extends ContentProvider {
 		 * @return name
 		 */
 		public static String getName(final ContentResolver cr, final long id) {
-			final Cursor cursor = cr.query(ContentUris.withAppendedId(
-					CONTENT_URI, id), new String[] { NAME }, null, null, null);
+			final Cursor cursor = cr.query(
+					ContentUris.withAppendedId(CONTENT_URI, id),
+					new String[] { NAME }, null, null, null);
 			String ret = null;
 			if (cursor != null && cursor.moveToFirst()) {
 				ret = cursor.getString(0);
@@ -1718,6 +1768,10 @@ public final class DataProvider extends ContentProvider {
 	private static final int WEBSMS = 18;
 	/** Internal id: sipcall. */
 	private static final int SIPCALL = 19;
+	/** Internal id: plans outer joined with its logs. */
+	private static final int PLANS_SUM = 20;
+	/** Internal id: single plan outer joined with its logs. */
+	private static final int PLANS_SUM_ID = 21;
 	/** Internal id: export. */
 	private static final int EXPORT_RULESET = 200;
 	/** Internal id: export. */
@@ -1737,6 +1791,8 @@ public final class DataProvider extends ContentProvider {
 		URI_MATCHER.addURI(AUTHORITY, "logs/sum", LOGS_SUM);
 		URI_MATCHER.addURI(AUTHORITY, "plans", PLANS);
 		URI_MATCHER.addURI(AUTHORITY, "plans/#", PLANS_ID);
+		URI_MATCHER.addURI(AUTHORITY, "plans/sum", PLANS_SUM);
+		URI_MATCHER.addURI(AUTHORITY, "plans/sum/#", PLANS_SUM_ID);
 		URI_MATCHER.addURI(AUTHORITY, "rules", RULES);
 		URI_MATCHER.addURI(AUTHORITY, "rules/#", RULES_ID);
 		URI_MATCHER.addURI(AUTHORITY, "numbers", NUMBERS);
@@ -2127,14 +2183,14 @@ public final class DataProvider extends ContentProvider {
 		// translate default rule set:
 		ContentValues cv = new ContentValues();
 		// bill period: 12
-		cv.put(Plans.NAME, context.getResources().getStringArray(
-				R.array.plans_type)[TYPE_BILLPERIOD]);
+		cv.put(Plans.NAME,
+				context.getResources().getStringArray(R.array.plans_type)[TYPE_BILLPERIOD]);
 		cv.put(Plans.SHORTNAME, context.getString(R.string.billperiod_sn));
 		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "12" });
 		cv.clear();
 		// spacer: 13, 17, 21
-		cv.put(Plans.NAME, context.getResources().getStringArray(
-				R.array.plans_type)[TYPE_SPACING]);
+		cv.put(Plans.NAME,
+				context.getResources().getStringArray(R.array.plans_type)[TYPE_SPACING]);
 		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "13" });
 		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "17" });
 		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "21" });
@@ -2219,8 +2275,8 @@ public final class DataProvider extends ContentProvider {
 		db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "8" });
 		cv.clear();
 		// exclude numbers from calls
-		cv.put(NumbersGroup.NAME, context
-				.getString(R.string.numbergroup_excalls));
+		cv.put(NumbersGroup.NAME,
+				context.getString(R.string.numbergroup_excalls));
 		db.update(NumbersGroup.TABLE, cv, NumbersGroup.ID + "=?",
 				new String[] { "1" });
 		cv.clear();
@@ -2277,17 +2333,9 @@ public final class DataProvider extends ContentProvider {
 			return backup(db, table, proj, str);
 		}
 		if (cursor != null && cursor.moveToFirst()) {
-			final boolean stripCache = table.equals(Plans.TABLE);
 			do {
 				final ContentValues cv = new ContentValues();
 				for (int i = 0; i < l; i++) {
-					if (stripCache
-							&& (i == Plans.INDEX_CACHE_COST
-									|| i == Plans.INDEX_CACHE_PROGRESS_MAX
-									|| i == Plans.INDEX_CACHE_PROGRESS_POS // .
-							|| i == Plans.INDEX_CACHE_STRING)) {
-						continue;
-					}
 					final String s = cursor.getString(i);
 					if (s != null) {
 						cv.put(proj[i], s);
@@ -2359,9 +2407,11 @@ public final class DataProvider extends ContentProvider {
 					selectionArgs, null, null, null);
 			if (c != null && c.moveToFirst()) {
 				final long gid = c.getLong(0);
-				this.getContext().getContentResolver().notifyChange(
-						ContentUris.withAppendedId(Numbers.GROUP_URI, gid),
-						null);
+				this.getContext()
+						.getContentResolver()
+						.notifyChange(
+								ContentUris.withAppendedId(Numbers.GROUP_URI,
+										gid), null);
 			}
 			if (c != null && !c.isClosed()) {
 				c.close();
@@ -2372,8 +2422,9 @@ public final class DataProvider extends ContentProvider {
 		case NUMBERS_GID:
 		case NUMBERS_GROUP_ID:
 			id = ContentUris.parseId(uri);
-			ret = db.delete(Numbers.TABLE, DbUtils.sqlAnd(Numbers.GID + "="
-					+ id, selection), selectionArgs);
+			ret = db.delete(Numbers.TABLE,
+					DbUtils.sqlAnd(Numbers.GID + "=" + id, selection),
+					selectionArgs);
 			ret += db.delete(NumbersGroup.TABLE, NumbersGroup.ID + " = " + id,
 					null);
 			break;
@@ -2384,8 +2435,12 @@ public final class DataProvider extends ContentProvider {
 					selectionArgs, null, null, null);
 			if (c != null && c.moveToFirst()) {
 				final long gid = c.getLong(0);
-				this.getContext().getContentResolver().notifyChange(
-						ContentUris.withAppendedId(Hours.GROUP_URI, gid), null);
+				this.getContext()
+						.getContentResolver()
+						.notifyChange(
+								ContentUris
+										.withAppendedId(Hours.GROUP_URI, gid),
+								null);
 			}
 			if (c != null && !c.isClosed()) {
 				c.close();
@@ -2397,8 +2452,9 @@ public final class DataProvider extends ContentProvider {
 		case HOURS_GID:
 		case HOURS_GROUP_ID:
 			id = ContentUris.parseId(uri);
-			ret = db.delete(Hours.TABLE, DbUtils.sqlAnd(Hours.GID + "=" + id,
-					selection), selectionArgs);
+			ret = db.delete(Hours.TABLE,
+					DbUtils.sqlAnd(Hours.GID + "=" + id, selection),
+					selectionArgs);
 			ret += db
 					.delete(HoursGroup.TABLE, HoursGroup.ID + " = " + id, null);
 			break;
@@ -2426,8 +2482,10 @@ public final class DataProvider extends ContentProvider {
 		case SIPCALL:
 			return SipCall.CONTENT_TYPE;
 		case PLANS:
+		case PLANS_SUM:
 			return Plans.CONTENT_TYPE;
 		case PLANS_ID:
+		case PLANS_SUM_ID:
 			return Plans.CONTENT_ITEM_TYPE;
 		case RULES:
 			return Rules.CONTENT_TYPE;
@@ -2554,6 +2612,16 @@ public final class DataProvider extends ContentProvider {
 		SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 		final int uid = URI_MATCHER.match(uri);
 		String groupBy = null;
+		String having = null;
+		// If no sort order is specified use the default
+		String orderBy;
+		if (TextUtils.isEmpty(sortOrder)) {
+			orderBy = null;
+		} else {
+			orderBy = sortOrder;
+		}
+		String[] proj = null;
+		final int l = projection.length;
 
 		Cursor c = null;
 
@@ -2562,7 +2630,6 @@ public final class DataProvider extends ContentProvider {
 			qb.appendWhere(Logs.ID + "=" + ContentUris.parseId(uri));
 		case LOGS:
 			qb.setTables(Logs.TABLE);
-			qb.setProjectionMap(Logs.PROJECTION_MAP);
 			break;
 		case LOGS_SUM:
 			groupBy = DataProvider.Logs.PLAN_ID;
@@ -2574,64 +2641,128 @@ public final class DataProvider extends ContentProvider {
 			return c;
 		case WEBSMS:
 			qb.setTables(WebSMS.TABLE);
-			qb.setProjectionMap(WebSMS.PROJECTION_MAP);
 			break;
 		case SIPCALL:
 			qb.setTables(SipCall.TABLE);
-			qb.setProjectionMap(SipCall.PROJECTION_MAP);
 			break;
 		case PLANS_ID:
 			qb.appendWhere(Plans.ID + "=" + ContentUris.parseId(uri));
 		case PLANS:
 			qb.setTables(Plans.TABLE);
-			qb.setProjectionMap(Plans.PROJECTION_MAP);
+			break;
+		case PLANS_SUM_ID:
+			qb.appendWhere(Plans.TABLE + "." + Plans.ID + "="
+					+ ContentUris.parseId(uri));
+		case PLANS_SUM:
+			final boolean hideZero = uri.getQueryParameter(
+					Plans.PARAM_HIDE_ZERO).equals(String.valueOf(true));
+			final boolean hideNoCost = uri.getQueryParameter(
+					Plans.PARAM_HIDE_NOCOST).equals(String.valueOf(true));
+			final long date = Utils.parseLong(
+					uri.getQueryParameter(Plans.PARAM_DATE),
+					System.currentTimeMillis());
+			qb.setTables(Plans.TABLE + " left outer join " + Logs.TABLE
+					+ " on (" + Logs.TABLE + "." + Logs.PLAN_ID + "="
+					+ Plans.TABLE + "." + Plans.ID + " or " + Plans.TABLE + "."
+					+ Plans.MERGED_PLANS + " like '%,'||" + Logs.TABLE + "."
+					+ Logs.PLAN_ID + "||',%' or ( " + Plans.TABLE + "."
+					+ Plans.TYPE + "=" + TYPE_BILLPERIOD + " and " + Logs.TABLE
+					+ "." + Logs.PLAN_ID + " in ( select " + Plans.ID
+					+ " from " + Plans.TABLE + " as p where p."
+					+ Plans.BILLPERIOD_ID + "=" + Plans.TABLE + "." + Plans.ID
+					+ ")))");
+			groupBy = Plans.TABLE + "." + Plans.ID;
+			if (hideZero) {
+				having = Plans.TYPE + "=" + TYPE_BILLPERIOD + " or "
+						+ Plans.SUM_BP_BILLED_AMOUNT + ">0";
+			}
+			if (hideNoCost) {
+				if (!TextUtils.isEmpty(having)) {
+					having += " and ";
+				} else {
+					having = "";
+				}
+				having += Plans.TYPE + "=" + TYPE_BILLPERIOD + " or "
+						+ Plans.SUM_COST + ">0";
+			}
+			if (orderBy == null) {
+				orderBy = Plans.TABLE + "." + Plans.ORDER;
+			}
+			proj = new String[l];
+			final Calendar now = Calendar.getInstance();
+			now.setTimeInMillis(date);
+			final Calendar today = (Calendar) now.clone();
+			today.set(Calendar.MILLISECOND, 0);
+			today.set(Calendar.SECOND, 0);
+			today.set(Calendar.MINUTE, 0);
+			today.set(Calendar.HOUR_OF_DAY, 0);
+			String billps = "(CASE ";
+			Cursor cursor = db.query(Plans.TABLE, new String[] { Plans.ID,
+					Plans.BILLPERIOD, Plans.BILLDAY }, Plans.WHERE_BILLPERIODS,
+					null, null, null, null);
+			if (cursor.moveToFirst()) {
+				do {
+					Calendar bd = Plans.getBillDay(cursor.getInt(1),
+							cursor.getLong(2), now, false);
+					final long pid = cursor.getLong(0);
+					billps += " WHEN " + Plans.TABLE + "." + Plans.ID + "="
+							+ pid + " or " + Plans.TABLE + "."
+							+ Plans.BILLPERIOD_ID + "=" + pid;
+					billps += " THEN " + bd.getTimeInMillis();
+				} while (cursor.moveToNext());
+			}
+			cursor.close();
+			cursor = null;
+			billps += " ELSE 0 END)";
+			for (int i = 0; i < l; i++) {
+				proj[i] = projection[i].// .
+						replace("{" + Plans.SUM_BILLDAY + "}", // .
+								billps).// .
+						replace("{" + Plans.SUM_NOW + "}", // .
+								String.valueOf(date)).//
+						replace("{" + Plans.SUM_TODAY + "}", // .
+								String.valueOf(today.getTimeInMillis()));
+				Log.d(TAG, "proj[" + i + "]: " + proj[i]);
+			}
 			break;
 		case RULES_ID:
 			qb.appendWhere(Rules.ID + "=" + ContentUris.parseId(uri));
 		case RULES:
 			qb.setTables(Rules.TABLE);
-			qb.setProjectionMap(Rules.PROJECTION_MAP);
 			break;
 		case NUMBERS_GID:
 			qb.appendWhere(Numbers.GID + "=" + ContentUris.parseId(uri));
 			qb.setTables(Numbers.TABLE);
-			qb.setProjectionMap(Numbers.PROJECTION_MAP);
 			break;
 		case NUMBERS_ID:
 			qb.appendWhere(Numbers.ID + "=" + ContentUris.parseId(uri));
 		case NUMBERS:
 			qb.setTables(Numbers.TABLE);
-			qb.setProjectionMap(Numbers.PROJECTION_MAP);
 			break;
 		case NUMBERS_GROUP_ID:
 			qb.appendWhere(NumbersGroup.ID + "=" + ContentUris.parseId(uri));
 		case NUMBERS_GROUP:
 			qb.setTables(NumbersGroup.TABLE);
-			qb.setProjectionMap(NumbersGroup.PROJECTION_MAP);
 			break;
 		case HOURS_GID:
 			qb.appendWhere(Hours.GID + "=" + ContentUris.parseId(uri));
 			qb.setTables(Hours.TABLE);
-			qb.setProjectionMap(Hours.PROJECTION_MAP);
 			break;
 		case HOURS_ID:
 			qb.appendWhere(Hours.ID + "=" + ContentUris.parseId(uri));
 		case HOURS:
 			qb.setTables(Hours.TABLE);
-			qb.setProjectionMap(Hours.PROJECTION_MAP);
 			break;
 		case HOURS_GROUP_ID:
 			qb.appendWhere(HoursGroup.ID + "=" + ContentUris.parseId(uri));
 		case HOURS_GROUP:
 			qb.setTables(HoursGroup.TABLE);
-			qb.setProjectionMap(HoursGroup.PROJECTION_MAP);
 			break;
 		case EXPORT_RULESET:
 		case EXPORT_LOGS:
 		case EXPORT_NUMGROUPS:
 		case EXPORT_HOURGROUPS:
 			Log.d(TAG, "export proj: + " + projection);
-			final int l = projection.length;
 			String fn = null;
 			switch (uid) {
 			case EXPORT_RULESET:
@@ -2667,16 +2798,11 @@ public final class DataProvider extends ContentProvider {
 			throw new IllegalArgumentException("Unknown Uri " + uri);
 		}
 
-		// If no sort order is specified use the default
-		String orderBy;
-		if (TextUtils.isEmpty(sortOrder)) {
-			orderBy = null;
-		} else {
-			orderBy = sortOrder;
+		if (proj == null) {
+			proj = projection;
 		}
-
 		// Run the query
-		c = qb.query(db, projection, selection, selectionArgs, groupBy, null,
+		c = qb.query(db, proj, selection, selectionArgs, groupBy, having, // .
 				orderBy);
 
 		// Tell the cursor what uri to watch, so it knows when its source data
@@ -2716,22 +2842,23 @@ public final class DataProvider extends ContentProvider {
 					+ ContentUris.parseId(uri), selection), selectionArgs);
 			break;
 		case NUMBERS_ID:
-			ret = db
-					.update(Numbers.TABLE, values, DbUtils.sqlAnd(Numbers.ID
-							+ "=" + ContentUris.parseId(uri), selection),
-							selectionArgs);
+			ret = db.update(Numbers.TABLE, values, DbUtils.sqlAnd(Numbers.ID
+					+ "=" + ContentUris.parseId(uri), selection), selectionArgs);
 			if (ret > 0 && values != null) {
 				i = values.getAsLong(Numbers.GID);
 				if (i >= 0) {
-					this.getContext().getContentResolver().notifyChange(
-							ContentUris.withAppendedId(Numbers.GROUP_URI, i),
-							null);
+					this.getContext()
+							.getContentResolver()
+							.notifyChange(
+									ContentUris.withAppendedId(
+											Numbers.GROUP_URI, i), null);
 				}
 			}
 			break;
 		case NUMBERS_GROUP_ID:
-			ret = db.update(NumbersGroup.TABLE, values, DbUtils
-					.sqlAnd(NumbersGroup.ID + "=" + ContentUris.parseId(uri),
+			ret = db.update(NumbersGroup.TABLE, values,
+					DbUtils.sqlAnd(
+							NumbersGroup.ID + "=" + ContentUris.parseId(uri),
 							selection), selectionArgs);
 			break;
 		case HOURS_ID:
@@ -2740,9 +2867,11 @@ public final class DataProvider extends ContentProvider {
 			if (ret > 0 && values != null) {
 				i = values.getAsLong(Numbers.GID);
 				if (i >= 0) {
-					this.getContext().getContentResolver().notifyChange(
-							ContentUris.withAppendedId(Hours.GROUP_URI, i),
-							null);
+					this.getContext()
+							.getContentResolver()
+							.notifyChange(
+									ContentUris.withAppendedId(Hours.GROUP_URI,
+											i), null);
 				}
 			}
 			break;

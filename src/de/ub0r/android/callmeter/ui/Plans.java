@@ -23,15 +23,16 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import android.app.AlertDialog.Builder;
 import android.app.DatePickerDialog;
+import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
-import android.app.AlertDialog.Builder;
-import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.ActivityNotFoundException;
+import android.content.AsyncQueryHandler;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -40,6 +41,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -47,22 +49,23 @@ import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.text.Html;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.DatePicker;
 import android.widget.ProgressBar;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemLongClickListener;
 import de.ub0r.android.callmeter.Ads;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
@@ -268,6 +271,7 @@ public class Plans extends ListActivity implements OnClickListener,
 	 * 
 	 * @author flx
 	 */
+	@Deprecated
 	public static final class PlanStatus {
 		/** Id of plan. */
 		public long id = -1L;
@@ -347,10 +351,52 @@ public class Plans extends ListActivity implements OnClickListener,
 	 * @author flx
 	 */
 	private static class PlanAdapter extends ResourceCursorAdapter {
+		/** {@link BackgroundQueryHandler}. */
+		private final BackgroundQueryHandler queryHandler;
+		/** Token for {@link BackgroundQueryHandler}: plan summary query. */
+		private static final int PLAN_QUERY_TOKEN = 0;
+
+		/**
+		 * Handle queries in background.
+		 * 
+		 * @author flx
+		 */
+		private final class BackgroundQueryHandler extends AsyncQueryHandler {
+
+			/**
+			 * A helper class to help make handling asynchronous
+			 * {@link ContentResolver} queries easier.
+			 * 
+			 * @param cr
+			 *            {@link ContentResolver}
+			 */
+			public BackgroundQueryHandler(final ContentResolver cr) {
+				super(cr);
+			}
+
+			/**
+			 * {@inheritDoc}
+			 */
+			@Override
+			protected void onQueryComplete(final int token,
+					final Object cookie, final Cursor cursor) {
+				switch (token) {
+				case PLAN_QUERY_TOKEN:
+					PlanAdapter.this.changeCursor(cursor);
+					// FIXME PlanAdapter.this.activity
+					// .setProgressBarIndeterminateVisibility(Boolean.FALSE);
+					return;
+				default:
+					return;
+				}
+			}
+		}
+
 		/** Newest {@link AsyncTask} which should run. */
 		private static Object runningTask = null;
 
 		/** A plan. */
+		@Deprecated
 		private class Plan {
 			/** {@link Context}. */
 			private final Context ctx;
@@ -402,8 +448,7 @@ public class Plans extends ListActivity implements OnClickListener,
 						.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
 				this.billperiodid = cursor
 						.getLong(DataProvider.Plans.INDEX_BILLPERIOD_ID);
-				this.currentCacheString = cursor
-						.getString(DataProvider.Plans.INDEX_CACHE_STRING);
+				this.currentCacheString = null;
 				if (this.type == DataProvider.TYPE_SPACING
 						|| this.type == DataProvider.TYPE_TITLE) {
 					this.billday = -1;
@@ -663,7 +708,6 @@ public class Plans extends ListActivity implements OnClickListener,
 					}
 				}
 
-				cv.put(DataProvider.Plans.CACHE_COST, thisBP.cost + free);
 				final String ccs = getString(this, u, thisBP, free, today,
 						allTime, pShowHours);
 				if (!ccs.equals(this.currentCacheString)) {
@@ -717,13 +761,19 @@ public class Plans extends ListActivity implements OnClickListener,
 		 * 
 		 * @param context
 		 *            {@link Context}
+		 * @param lnow
+		 *            {@link Calendar} pointing to current time shown
+		 * @param lhideZero
+		 *            hide zero plans
+		 * @param lhideNoCost
+		 *            hide no cost plans
 		 */
-		public PlanAdapter(final Context context) {
-			super(context, R.layout.plans_item, context.getContentResolver()
-					.query(DataProvider.Plans.CONTENT_URI,
-							DataProvider.Plans.PROJECTION, null, null,
-							DataProvider.Plans.ORDER), true);
+		public PlanAdapter(final Context context, final Calendar lnow,
+				final boolean lhideZero, final boolean lhideNoCost) {
+			super(context, R.layout.plans_item, null, true);
 			this.ctx = context;
+			queryHandler = new BackgroundQueryHandler(
+					context.getContentResolver());
 			final SharedPreferences p = PreferenceManager
 					.getDefaultSharedPreferences(context);
 			if (p.getBoolean(Preferences.PREFS_HIDE_PROGRESSBARS, false)) {
@@ -731,7 +781,50 @@ public class Plans extends ListActivity implements OnClickListener,
 			} else {
 				this.progressBarVisability = View.VISIBLE;
 			}
-			this.updateGUI();
+			// this.updateGUI();
+		}
+
+		/**
+		 * Start ConversationList query.
+		 * 
+		 * @param lnow
+		 *            {@link Calendar} pointing to current time shown
+		 * @param lhideZero
+		 *            hide zero plans
+		 * @param lhideNoCost
+		 *            hide no cost plans
+		 */
+		public final void startPlanQuery(final Calendar lnow,
+				final boolean lhideZero, final boolean lhideNoCost) {
+			// Cancel any pending queries
+			this.queryHandler.cancelOperation(PLAN_QUERY_TOKEN);
+			try {
+				// Kick off the new query
+				// FIXME
+				// this.activity.setProgressBarIndeterminateVisibility(Boolean.TRUE);
+				Calendar n = lnow;
+				if (n == null) {
+					n = Calendar.getInstance();
+				}
+				this.queryHandler.startQuery(
+						PLAN_QUERY_TOKEN,
+						null,
+						DataProvider.Plans.CONTENT_URI_SUM
+								.buildUpon()
+								.appendQueryParameter(
+										DataProvider.Plans.PARAM_DATE,
+										String.valueOf(n.getTimeInMillis()))
+								.appendQueryParameter(
+										DataProvider.Plans.PARAM_HIDE_ZERO,
+										String.valueOf(lhideZero))
+								.appendQueryParameter(
+										DataProvider.Plans.PARAM_HIDE_NOCOST,
+										String.valueOf(lhideNoCost)).build(),
+						DataProvider.Plans.PROJECTION_SUM, null, null,
+						DataProvider.Plans.ORDER);
+			} catch (SQLiteException e) {
+				Log.e(TAG, "error starting query", e);
+			}
 		}
 
 		/**
@@ -820,76 +913,6 @@ public class Plans extends ListActivity implements OnClickListener,
 			} while (cursor.moveToNext());
 		}
 
-		/**
-		 * Update bill period's cost.
-		 * 
-		 * @param p
-		 *            bill period
-		 */
-		private void updateBillperiodCost(final Plan p) {
-			final ContentResolver cr = this.ctx.getContentResolver();
-			final Cursor cursor = cr.query(DataProvider.Plans.CONTENT_URI,
-					DataProvider.Plans.PROJECTION,
-					DataProvider.Plans.BILLPERIOD_ID + " = ?",
-					new String[] { String.valueOf(p.id) }, null);
-			float cost = 0;
-			float free = 0;
-			if (cursor != null && cursor.moveToFirst()) {
-				do {
-					float c = cursor
-							.getFloat(DataProvider.Plans.INDEX_CACHE_COST);
-					if (c > 0) {
-						final int lt = cursor
-								.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
-						if (lt == DataProvider.LIMIT_TYPE_COST) {
-							final float l = cursor
-									.getFloat(DataProvider.Plans.INDEX_LIMIT);
-							final float pcpp = cursor.getFloat(// .
-									DataProvider.Plans.INDEX_COST_PER_PLAN);
-							final float pc = c - pcpp;
-							if (pc > 0) {
-								if (pc > l) {
-									free += l;
-									c = pc - l + pcpp;
-								} else {
-									free += pc;
-									c = pcpp;
-								}
-							}
-						}
-						cost += c;
-					}
-				} while (cursor.moveToNext());
-			}
-			if (cursor != null && !cursor.isClosed()) {
-				cursor.close();
-			}
-			if (this.prepaid) {
-				cost = p.cpp - cost;
-			} else {
-				cost += p.cpp;
-			}
-			String cString = p.currentCacheString.split("\n")[0];
-			if (cost > 0 || free > 0) {
-				cString += "\n";
-				if (free > 0) {
-					cString += "(" + String.format(currencyFormat, free) + ")";
-					if (cost > 0) {
-						cString += " + ";
-					}
-				}
-				if (cost > 0) {
-					cString += String.format(currencyFormat, cost);
-				}
-			}
-			final ContentValues cv = new ContentValues();
-			cv.put(DataProvider.Plans.CACHE_COST, cost);
-			p.currentCacheString = cString;
-			cv.put(DataProvider.Plans.CACHE_STRING, cString);
-			cr.update(ContentUris.withAppendedId(
-					DataProvider.Plans.CONTENT_URI, p.id), cv, null, null);
-		}
-
 		/** Update all {@link Plan}s in background. */
 		void updatePlans() {
 			Log.d(TAG, "updatePlans()");
@@ -933,20 +956,6 @@ public class Plans extends ListActivity implements OnClickListener,
 					} catch (IndexOutOfBoundsException e) {
 						Log.w(TAG, "array size changed!", e);
 						l = PlanAdapter.this.plansList.size();
-					}
-					// update cost in bill periods
-					try {
-						for (int i = 0; i < l; i++) {
-							if (runningTask != this) {
-								break;
-							}
-							final Plan p = PlanAdapter.this.plansList.get(i);
-							if (p.type == DataProvider.TYPE_BILLPERIOD) {
-								PlanAdapter.this.updateBillperiodCost(p);
-							}
-						}
-					} catch (IndexOutOfBoundsException e) {
-						Log.w(TAG, "array size changed!", e);
 					}
 					final boolean last = runningTask == this;
 					if (last && currentHandler != null) {
@@ -1022,7 +1031,8 @@ public class Plans extends ListActivity implements OnClickListener,
 				ret.append(delimiter);
 
 				// amount all time
-				ret.append(formatAmount(p.type, allTime.billedAmount, showHours));
+				ret.append(formatAmount(p.type, allTime.billedAmount, // .
+						showHours));
 				// count all time
 				if (p.type == DataProvider.TYPE_CALL) {
 					ret.append(" (" + allTime.count + ")");
@@ -1054,14 +1064,83 @@ public class Plans extends ListActivity implements OnClickListener,
 		public final void bindView(final View view, final Context context,
 				final Cursor cursor) {
 			final int t = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
-			final int cacheLimitMax = cursor
-					.getInt(DataProvider.Plans.INDEX_CACHE_PROGRESS_MAX);
-			final int cacheLimitPos = cursor
-					.getInt(DataProvider.Plans.INDEX_CACHE_PROGRESS_POS);
-			String cacheStr = cursor
-					.getString(DataProvider.Plans.INDEX_CACHE_STRING);
-			final float cacheCost = cursor
-					.getFloat(DataProvider.Plans.INDEX_CACHE_COST);
+			final int lType = cursor
+					.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
+			int limit = (int) DataProvider.Plans.getLimit(t, lType,
+					cursor.getLong(DataProvider.Plans.INDEX_LIMIT));
+
+			final float cost = cursor
+					.getFloat(DataProvider.Plans.INDEX_SUM_COST);
+			final int tdCount = cursor
+					.getInt(DataProvider.Plans.INDEX_SUM_TD_COUNT);
+			final float tdBa = cursor
+					.getFloat(DataProvider.Plans.INDEX_SUM_TD_BILLED_AMOUNT);
+			final int bpCount = cursor
+					.getInt(DataProvider.Plans.INDEX_SUM_BP_COUNT);
+			final float bpBa = cursor
+					.getFloat(DataProvider.Plans.INDEX_SUM_BP_BILLED_AMOUNT);
+			final int atCount = cursor
+					.getInt(DataProvider.Plans.INDEX_SUM_AT_COUNT);
+			final float atBa = cursor
+					.getFloat(DataProvider.Plans.INDEX_SUM_AT_BILLED_AMOUNT);
+			final Calendar lnow = Calendar.getInstance();
+			lnow.setTimeInMillis(cursor
+					.getLong(DataProvider.Plans.INDEX_SUM_NOW));
+			final long billday = cursor
+					.getLong(DataProvider.Plans.INDEX_BILLDAY);
+			final int billperiod = cursor
+					.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
+			int limitPos = -1;
+			String cacheStr = null;
+			if (t != DataProvider.TYPE_SPACING // .
+					&& t != DataProvider.TYPE_TITLE) {
+				cacheStr = "<b>"
+						+ formatValues(this.ctx, lnow, t, bpCount, bpBa,
+								billperiod, billday) + "</b>";
+				if (t == DataProvider.TYPE_BILLPERIOD) {
+					final Calendar billDay = DataProvider.Plans.getBillDay(
+							billperiod, billday, lnow, false);
+					final Calendar nextBillDay = DataProvider.Plans.getBillDay(
+							billperiod, billDay, lnow, true);
+					if (billperiod == DataProvider.BILLPERIOD_INFINITE) {
+						limitPos = 0;
+						limit = 0;
+					} else {
+						limitPos = (int) ((lnow.getTimeInMillis() - billDay
+								.getTimeInMillis()) / Utils.MINUTES_IN_MILLIS);
+						limit = (int) ((nextBillDay.getTimeInMillis() - billDay
+								.getTimeInMillis()) / Utils.MINUTES_IN_MILLIS);
+					}
+				} else {
+					limitPos = DataProvider.Plans.getUsed(t, lType, bpBa, cost);
+					if (showTotal) {
+						cacheStr += delimiter;
+						cacheStr += formatValues(ctx, now, t, atCount, atBa,
+								billperiod, billday);
+					}
+					if (showToday) {
+						cacheStr = delimiter + cacheStr;
+						cacheStr = formatValues(ctx, now, t, tdCount, tdBa,
+								billperiod, billday) + cacheStr;
+					}
+				}
+				if (cost > 0f) { // TODO: migrate "free"
+					cacheStr += "\n" + String.format(currencyFormat, cost);
+				}
+				if (limit > 0) {
+					cacheStr = (limitPos * CallMeter.HUNDRET / limit) + "%"
+							+ delimiter + cacheStr;
+				}
+			}
+
+			Log.d(TAG, "planid: " + cursor.getInt(DataProvider.Plans.INDEX_ID));
+			Log.d(TAG, "n: " + cursor.getString(DataProvider.Plans.INDEX_NAME));
+			Log.d(TAG, "type: " + t);
+			Log.d(TAG, "cost: " + cost);
+			Log.d(TAG, "limit: " + limit);
+			Log.d(TAG, "limitPos: " + limitPos);
+			Log.d(TAG, "text: " + cacheStr);
+
 			TextView twCache = null;
 			ProgressBar pbCache = null;
 			if (t == DataProvider.TYPE_SPACING) {
@@ -1098,69 +1177,60 @@ public class Plans extends ListActivity implements OnClickListener,
 				view.findViewById(R.id.bigtitle).setVisibility(View.GONE);
 				view.findViewById(R.id.spacer).setVisibility(View.GONE);
 				view.findViewById(R.id.period_layout).setVisibility(View.GONE);
-				if (hideZero && cacheLimitPos == 0) {
-					view.findViewById(R.id.content).setVisibility(View.GONE);
-				} else if (hideNoCost && cacheCost == 0f) {
-					view.findViewById(R.id.content).setVisibility(View.GONE);
-				} else {
-					view.findViewById(R.id.content).setVisibility(View.VISIBLE);
-					final TextView twNormTitle = (TextView) view
-							.findViewById(R.id.normtitle);
-					if (this.textSizeTitle > 0) {
-						twNormTitle.setTextSize(this.textSizeTitle);
+				view.findViewById(R.id.content).setVisibility(View.VISIBLE);
+				final TextView twNormTitle = (TextView) view
+						.findViewById(R.id.normtitle);
+				if (this.textSizeTitle > 0) {
+					twNormTitle.setTextSize(this.textSizeTitle);
+				}
+				twNormTitle.setText(cursor
+						.getString(DataProvider.Plans.INDEX_NAME));
+				twCache = (TextView) view.findViewById(R.id.data);
+				int usage = 0;
+				if (limit > 0) {
+					usage = (limitPos * CallMeter.HUNDRET) / limit;
+					float bpos = -1f;
+					final long bpid = cursor.getLong(DataProvider.// .
+							Plans.INDEX_BILLPERIOD_ID);
+					if (bpid >= 0 && bpid < this.plansList.size()) {
+						final Plan p = this.plansMap.get(bpid);
+						if (p != null) {
+							bpos = p.used;
+						}
 					}
-					twNormTitle.setText(cursor
-							.getString(DataProvider.Plans.INDEX_NAME));
-					twCache = (TextView) view.findViewById(R.id.data);
-					int usage = 0;
-					if (cacheLimitMax > 0) {
-						usage = (cacheLimitPos * CallMeter.HUNDRET)
-								/ cacheLimitMax;
-						float bpos = -1f;
-						final long bpid = cursor.getLong(DataProvider.// .
-								Plans.INDEX_BILLPERIOD_ID);
-						if (bpid >= 0 && bpid < this.plansList.size()) {
-							final Plan p = this.plansMap.get(bpid);
-							if (p != null) {
-								bpos = p.used;
-							}
-						}
-						if (usage >= CallMeter.HUNDRET) {
-							pbCache = (ProgressBar) view
-									.findViewById(R.id.progressbarLimitRed);
-							view.findViewById(R.id.progressbarLimitGreen)
-									.setVisibility(View.GONE);
-							view.findViewById(R.id.progressbarLimitYellow)
-									.setVisibility(View.GONE);
-						} else if (bpos >= 0f
-								&& (float) cacheLimitPos / cacheLimitMax // .
-								> bpos) {
-							pbCache = (ProgressBar) view
-									.findViewById(R.id.progressbarLimitYellow);
-							view.findViewById(R.id.progressbarLimitGreen)
-									.setVisibility(View.GONE);
-							view.findViewById(R.id.progressbarLimitRed)
-									.setVisibility(View.GONE);
-						} else {
-							pbCache = (ProgressBar) view
-									.findViewById(R.id.progressbarLimitGreen);
-							view.findViewById(R.id.progressbarLimitYellow)
-									.setVisibility(View.GONE);
-							view.findViewById(R.id.progressbarLimitRed)
-									.setVisibility(View.GONE);
-						}
-					} else {
+					if (usage >= CallMeter.HUNDRET) {
+						pbCache = (ProgressBar) view
+								.findViewById(R.id.progressbarLimitRed);
+						view.findViewById(R.id.progressbarLimitGreen)
+								.setVisibility(View.GONE);
+						view.findViewById(R.id.progressbarLimitYellow)
+								.setVisibility(View.GONE);
+					} else if (bpos >= 0f && (float) limitPos / limit > bpos) {
 						pbCache = (ProgressBar) view
 								.findViewById(R.id.progressbarLimitYellow);
 						view.findViewById(R.id.progressbarLimitGreen)
 								.setVisibility(View.GONE);
 						view.findViewById(R.id.progressbarLimitRed)
 								.setVisibility(View.GONE);
+					} else {
+						pbCache = (ProgressBar) view
+								.findViewById(R.id.progressbarLimitGreen);
+						view.findViewById(R.id.progressbarLimitYellow)
+								.setVisibility(View.GONE);
+						view.findViewById(R.id.progressbarLimitRed)
+								.setVisibility(View.GONE);
 					}
+				} else {
+					pbCache = (ProgressBar) view
+							.findViewById(R.id.progressbarLimitYellow);
+					view.findViewById(R.id.progressbarLimitGreen)
+							.setVisibility(View.GONE);
+					view.findViewById(R.id.progressbarLimitRed).setVisibility(
+							View.GONE);
 				}
 			}
 			if (twCache != null && pbCache != null) {
-				if (cacheStr != null) {
+				if (!TextUtils.isEmpty(cacheStr)) {
 					twCache.setText(Html.fromHtml(cacheStr.replaceAll("\n",
 							"<br>")));
 				} else {
@@ -1169,12 +1239,12 @@ public class Plans extends ListActivity implements OnClickListener,
 				if (this.textSize > 0) {
 					twCache.setTextSize(this.textSize);
 				}
-				if (cacheLimitMax == 0) {
+				if (limit == 0) {
 					pbCache.setVisibility(View.GONE);
-				} else if (cacheLimitMax > 0) {
+				} else if (limit > 0) {
 					pbCache.setIndeterminate(false);
-					pbCache.setMax(cacheLimitMax);
-					pbCache.setProgress(cacheLimitPos);
+					pbCache.setMax(limit);
+					pbCache.setProgress(limitPos);
 					pbCache.setVisibility(this.progressBarVisability);
 					int pbs = 0;
 					if (t == DataProvider.TYPE_BILLPERIOD) {
@@ -1302,6 +1372,79 @@ public class Plans extends ListActivity implements OnClickListener,
 	}
 
 	/**
+	 * Format bill periods start date.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param billperiod
+	 *            bill period type
+	 * @param billDay
+	 *            {@link Calendar} for bill periods bill day
+	 * @return formated date
+	 */
+	public static String formatDate(final Context context,
+			final int billperiod, final Calendar billDay) {
+		if (billperiod == DataProvider.BILLPERIOD_INFINITE) {
+			if (billDay == null) {
+				return "\u221E";
+			} else {
+				if (dateFormat == null) {
+					return DateFormat.getDateFormat(context).format(
+							billDay.getTime());
+				} else {
+					return String.format(dateFormat, billDay, billDay, billDay);
+				}
+			}
+		} else {
+			if (dateFormat == null) {
+				return DateFormat.getDateFormat(context).format(
+						billDay.getTime());
+			} else {
+				return String.format(dateFormat, billDay, billDay, billDay);
+			}
+		}
+	}
+
+	/**
+	 * Format count/amount along with type.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param now
+	 *            {@link Calendar} for current time
+	 * @param pType
+	 *            type of plan
+	 * @param count
+	 *            count
+	 * @param amount
+	 *            amount
+	 * @param billperiod
+	 *            bill period type
+	 * @param billday
+	 *            bill period's bill day
+	 * @return string
+	 */
+	public static String formatValues(final Context context,
+			final Calendar now, final int pType, final long count,
+			final float amount, final int billperiod, final long billday) {
+		switch (pType) {
+		case DataProvider.TYPE_BILLPERIOD:
+			Calendar billDay = DataProvider.Plans.getBillDay(billperiod,
+					billday, now, false);
+			return formatDate(context, billperiod, billDay);
+		case DataProvider.TYPE_CALL:
+			return formatAmount(pType, amount, pShowHours) + " (" + count + ")";
+		case DataProvider.TYPE_DATA:
+		case DataProvider.TYPE_SMS:
+		case DataProvider.TYPE_MMS:
+		case DataProvider.TYPE_MIXED:
+			return formatAmount(pType, amount, pShowHours);
+		default:
+			return "";
+		}
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -1337,7 +1480,8 @@ public class Plans extends ListActivity implements OnClickListener,
 		this.findViewById(R.id.import_default).setOnClickListener(this);
 		this.getListView().setOnItemLongClickListener(this);
 
-		this.adapter = new PlanAdapter(this);
+		this.adapter = new PlanAdapter(this, Calendar.getInstance(), hideZero,
+				hideNoCost);
 		this.setListAdapter(this.adapter);
 	}
 
@@ -1362,10 +1506,11 @@ public class Plans extends ListActivity implements OnClickListener,
 		hideNoCost = p.getBoolean(Preferences.PREFS_HIDE_NOCOST, false);
 		delimiter = p.getString(Preferences.PREFS_DELIMITER, " | ");
 
-		if (reloadList) {
-			this.adapter = new PlanAdapter(this);
-			this.setListAdapter(this.adapter);
-		}
+		// FIXME if (reloadList) {
+		// this.adapter = new PlanAdapter(this, Calendar.getInstance(),
+		// hideZero, hideNoCost);
+		// this.setListAdapter(this.adapter);
+		// }
 
 		if (this.getListView().getCount() == 0) {
 			this.findViewById(R.id.import_default).setVisibility(View.VISIBLE);
@@ -1373,9 +1518,8 @@ public class Plans extends ListActivity implements OnClickListener,
 			this.findViewById(R.id.import_default).setVisibility(View.GONE);
 		}
 		// reload plan configuration
-		this.getNowFromIntent(this.getIntent(), false);
-		this.adapter.reloadPlans(this.getContentResolver(),
-				this.adapter.getCursor());
+		Calendar now = this.getNowFromIntent(this.getIntent(), false);
+		adapter.startPlanQuery(now, hideZero, hideNoCost);
 		// start LogRunner
 		LogRunnerService.update(this, LogRunnerReceiver.ACTION_FORCE_UPDATE);
 		// schedule next update
@@ -1394,11 +1538,12 @@ public class Plans extends ListActivity implements OnClickListener,
 	 *            {@link Intent}
 	 * @param updatePlans
 	 *            update plans after setting "now"
+	 * @return "now"
 	 */
-	private void getNowFromIntent(final Intent intent, // .
+	private Calendar getNowFromIntent(final Intent intent, // .
 			final boolean updatePlans) {
 		final long now = intent.getLongExtra(EXTRA_NOW, -1);
-		if (now >= 0) {
+		if (now >= 0L) {
 			this.setNow(now, updatePlans, false);
 		} else {
 			this.adapter.now = null;
@@ -1407,6 +1552,11 @@ public class Plans extends ListActivity implements OnClickListener,
 				this.adapter.updatePlans();
 			}
 		}
+		Calendar ret = Calendar.getInstance();
+		if (now >= 0L) {
+			ret.setTimeInMillis(now);
+		}
+		return ret;
 	}
 
 	/**
