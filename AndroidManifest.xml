@@ -139,7 +139,7 @@
 		<activity android:name="com.google.ads.AdActivity"
 			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 	</application>
-	<uses-sdk android:minSdkVersion="3" android:targetSdkVersion="13" />
+	<uses-sdk android:minSdkVersion="3" android:targetSdkVersion="10" />
 	<supports-screens android:anyDensity="true"
 			android:smallScreens="true" android:normalScreens="true"
 			android:largeScreens="true" android:xlargeScreens="true" />

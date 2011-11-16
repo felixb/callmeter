@@ -123,8 +123,8 @@ public final class RuleMatcher {
 				if (s == null || s.length() == 0 || s.equals("-1")) {
 					continue;
 				}
-				final HoursGroup ng = new HoursGroup(cr, Utils
-						.parseLong(s, -1L));
+				final HoursGroup ng = new HoursGroup(cr,
+						Utils.parseLong(s, -1L));
 				if (ng != null && ng.hours.size() > 0) {
 					list.add(ng);
 				}
@@ -397,14 +397,14 @@ public final class RuleMatcher {
 			this.what = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
 			this.direction = cursor.getInt(DataProvider.Rules.INDEX_DIRECTION);
 			this.roamed = cursor.getInt(DataProvider.Rules.INDEX_ROAMED);
-			this.inhours = getHourGroups(cr, cursor
-					.getString(DataProvider.Rules.INDEX_INHOURS_ID));
-			this.exhours = getHourGroups(cr, cursor
-					.getString(DataProvider.Rules.INDEX_EXHOURS_ID));
-			this.innumbers = getNumberGroups(cr, cursor
-					.getString(DataProvider.Rules.INDEX_INNUMBERS_ID));
-			this.exnumbers = getNumberGroups(cr, cursor
-					.getString(DataProvider.Rules.INDEX_EXNUMBERS_ID));
+			this.inhours = getHourGroups(cr,
+					cursor.getString(DataProvider.Rules.INDEX_INHOURS_ID));
+			this.exhours = getHourGroups(cr,
+					cursor.getString(DataProvider.Rules.INDEX_EXHOURS_ID));
+			this.innumbers = getNumberGroups(cr,
+					cursor.getString(DataProvider.Rules.INDEX_INNUMBERS_ID));
+			this.exnumbers = getNumberGroups(cr,
+					cursor.getString(DataProvider.Rules.INDEX_EXNUMBERS_ID));
 			this.limitNotReached = cursor
 					.getInt(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED) > 0;
 			if (cursor.isNull(DataProvider.Rules.INDEX_IS_WEBSMS)) {
@@ -716,8 +716,8 @@ public final class RuleMatcher {
 			this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			this.limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 			final long l = DataProvider.Plans.getLimit(this.type,
-					this.limitType, cursor
-							.getLong(DataProvider.Plans.INDEX_LIMIT));
+					this.limitType,
+					cursor.getLong(DataProvider.Plans.INDEX_LIMIT));
 			if (this.type == DataProvider.TYPE_DATA) {
 				// normality amount is saved as kB, here it is plan B
 				this.limit = l * CallMeter.BYTE_KB;
@@ -821,6 +821,7 @@ public final class RuleMatcher {
 				this.nextBillday = nbd.getTimeInMillis();
 
 				// load old stats
+				// FIXME: use DataProvider.Plans.Plan
 				final String where = DbUtils.sqlAnd(DataProvider.Plans
 						.getBilldayWhere(this.billperiod, this.currentBillday,
 								now), this.pwhere);
@@ -1344,8 +1345,8 @@ public final class RuleMatcher {
 					final NotificationManager mNotificationMgr = // .
 					(NotificationManager) context
 							.getSystemService(Context.NOTIFICATION_SERVICE);
-					final String t = String.format(context
-							.getString(R.string.alerts_message),
+					final String t = String.format(
+							context.getString(R.string.alerts_message),
 							alertPlan.name, alert);
 					final Notification n = new Notification(
 							android.R.drawable.stat_notify_error, t, now);
@@ -1356,9 +1357,7 @@ public final class RuleMatcher {
 									PendingIntent.FLAG_CANCEL_CURRENT));
 					mNotificationMgr.notify(0, n);
 					final ContentValues cv = new ContentValues();
-					cv
-							.put(DataProvider.Plans.NEXT_ALERT,
-									alertPlan.nextBillday);
+					cv.put(DataProvider.Plans.NEXT_ALERT, alertPlan.nextBillday);
 					cr.update(DataProvider.Plans.CONTENT_URI, cv,
 							DataProvider.Plans.ID + " = ?",
 							new String[] { String.valueOf(alertPlan.id) });

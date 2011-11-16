@@ -504,6 +504,204 @@ public final class DataProvider extends ContentProvider {
 	 * @author flx
 	 */
 	public static final class Plans {
+		/** A plan. */
+		public static final class Plan {
+			/** Id of plan. */
+			public final long id;
+			/** Type of plan. */
+			public final int type;
+			/** Plans's name. */
+			public final String name;
+			/** Plans's short name. */
+			public final String sname;
+			/** Id of parent plan. */
+			// private final long ppid;
+			/** True for plans merging other plans. */
+			private final boolean isMerger;
+			/** Where clause for updating the plan. */
+			private final String where;
+			/** Bill period. */
+			public final int billperiod;
+			/** Bill period id. */
+			private final long billperiodid;
+			/** Bill day. */
+			public final long billday;
+			/** Next bill day. */
+			public final long nextbillday;
+			/** Current time used for query. */
+			public final long now;
+			/** Type of limit. */
+			public final int limittype;
+			/** Limit. */
+			public final long limit;
+			/** Position in limit. */
+			public final long limitPos;
+			/** Percentage of used limit. */
+			public final float usage;
+			/** Cost per plan. */
+			private final float cpp;
+			/** Units per call, sms, mms. */
+			private final int upc, ups, upm;
+			/** Sum of cost. */
+			public final float cost;
+			/** Sum of todays count. */
+			public final int tdCount;
+			/** Sum of todays billed amount. */
+			public final float tdBa;
+			/** Sum of this bill period's count. */
+			public final int bpCount;
+			/** Sum of this bill period's billed amount. */
+			public final float bpBa;
+			/** Sum of this all time's count. */
+			public final int atCount;
+			/** Sum of this all time's billed amount. */
+			public final float atBa;
+
+			/**
+			 * Default Constructor from {@link Cursor}. Use this method only
+			 * with {@link Cursor}s against {@link Plan}.CONTENT_URI_SUM with
+			 * PROJECTION_SUM.
+			 * 
+			 * @param cursor
+			 *            {@link Cursor}
+			 */
+			public Plan(final Cursor cursor) {
+				this.id = cursor.getLong(INDEX_ID);
+				this.type = cursor.getInt(INDEX_TYPE);
+				this.name = cursor.getString(INDEX_NAME);
+				this.sname = cursor.getString(INDEX_SHORTNAME);
+				this.billperiod = cursor.getInt(INDEX_BILLPERIOD);
+				this.billperiodid = cursor.getLong(INDEX_BILLPERIOD_ID);
+				if (this.type == TYPE_SPACING || this.type == TYPE_TITLE) {
+					this.billday = -1;
+					this.nextbillday = -1;
+					this.limittype = -1;
+					this.limit = -1;
+					this.limitPos = -1;
+					this.cpp = 0;
+					this.where = null;
+					// this.ppid = -1L;
+					this.upc = 0;
+					this.upm = 0;
+					this.ups = 0;
+					this.isMerger = false;
+
+					this.cost = 0f;
+					this.tdCount = 0;
+					this.tdBa = 0f;
+					this.bpCount = 0;
+					this.bpBa = 0f;
+					this.atCount = 0;
+					this.atBa = 0f;
+					this.now = -1L;
+				} else {
+					this.cost = cursor.getFloat(INDEX_SUM_COST);
+					this.tdCount = cursor.getInt(INDEX_SUM_TD_COUNT);
+					this.tdBa = cursor.getFloat(INDEX_SUM_TD_BILLED_AMOUNT);
+					this.bpCount = cursor.getInt(INDEX_SUM_BP_COUNT);
+					this.bpBa = cursor.getFloat(INDEX_SUM_BP_BILLED_AMOUNT);
+					this.atCount = cursor.getInt(INDEX_SUM_AT_COUNT);
+					this.atBa = cursor.getFloat(INDEX_SUM_AT_BILLED_AMOUNT);
+					this.now = cursor.getLong(INDEX_SUM_NOW);
+					this.billday = cursor.getLong(INDEX_SUM_BILLDAY);
+					this.nextbillday = cursor.getLong(INDEX_SUM_NEXTBILLDAY);
+					if (this.type == TYPE_BILLPERIOD) {
+						this.limittype = -1;
+						if (billperiod == DataProvider.BILLPERIOD_INFINITE) {
+							this.limitPos = 0;
+							this.limit = 0;
+						} else {
+							this.limitPos = (this.now - this.billday)
+									/ Utils.MINUTES_IN_MILLIS;
+							this.limit = (this.nextbillday - this.billday)
+									/ Utils.MINUTES_IN_MILLIS;
+						}
+						this.cpp = cursor.getFloat(INDEX_COST_PER_PLAN);
+						this.where = null;
+						// this.ppid = -1L;
+						this.upc = 0;
+						this.upm = 0;
+						this.ups = 0;
+						this.isMerger = false;
+					} else {
+						// this.ppid = getParent(context.getContentResolver(),
+						// this.id);
+						this.limittype = cursor.getInt(INDEX_LIMIT_TYPE);
+						this.limit = getLimit(this.type, this.limittype,
+								cursor.getLong(INDEX_LIMIT));
+						this.limitPos = getUsed(this.type, this.limittype,
+								this.bpBa, this.cost);
+						this.cpp = cursor.getFloat(INDEX_COST_PER_PLAN);
+						final String s = cursor.getString(INDEX_MERGED_PLANS);
+						if (s == null || s.length() == 0) {
+							this.isMerger = false;
+							this.where = parseMergerWhere(this.id, null);
+						} else {
+							this.isMerger = true;
+							this.where = parseMergerWhere(this.id, s);
+						}
+						if (this.type == TYPE_MIXED) {
+							this.upc = cursor.getInt(INDEX_MIXED_UNITS_CALL);
+							this.upm = cursor.getInt(INDEX_MIXED_UNITS_MMS);
+							this.ups = cursor.getInt(INDEX_MIXED_UNITS_SMS);
+						} else {
+							this.upc = 0;
+							this.upm = 0;
+							this.ups = 0;
+						}
+					}
+				}
+				if (this.limitPos <= 0) {
+					this.usage = 0;
+				} else {
+					this.usage = this.limitPos * CallMeter.HUNDRET / this.limit;
+				}
+			}
+
+			/**
+			 * Get a {@link Plan} from plan's id.
+			 * 
+			 * @param cr
+			 *            {@link ContentResolver}
+			 * @param planid
+			 *            {@link Plan}'s id
+			 * @param now
+			 *            time of query
+			 * @return {@link Plan}
+			 */
+			public static Plan getPlan(final ContentResolver cr,
+					final long planid, final long now) {
+				Uri uri = CONTENT_URI_SUM;
+				if (now >= 0) {
+					uri = uri
+							.buildUpon()
+							.appendQueryParameter(PARAM_DATE,
+									String.valueOf(now)).build();
+				}
+				Cursor c = cr.query(uri, PROJECTION_SUM, ID + "=?",
+						new String[] { String.valueOf(planid) }, null);
+				Plan ret = null;
+				if (c.moveToFirst()) {
+					ret = new Plan(c);
+				}
+				c.close();
+				return ret;
+			}
+
+			/**
+			 * Get usage of {@link Plan}'s bill period.
+			 * 
+			 * @return usage of bill period
+			 */
+			public float getBillPlanUsage() {
+				long blength = this.nextbillday - this.billday;
+				if (blength <= 0L) {
+					return -1f;
+				}
+				return (this.now - this.billday) / blength;
+			}
+		}
+
 		/** Table name. */
 		private static final String TABLE = "plans";
 
@@ -566,22 +764,24 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_SUM_NOW = 24;
 		/** Index in projection: sum, last bill day. */
 		public static final int INDEX_SUM_BILLDAY = 25;
+		/** Index in projection: sum: next bill day. */
+		public static final int INDEX_SUM_NEXTBILLDAY = 26;
 		/** Index in projection: sum, TODAY. */
-		public static final int INDEX_SUM_TODAY = 26;
+		public static final int INDEX_SUM_TODAY = 27;
 		/** Index in projection: sum count for this bill period. */
-		public static final int INDEX_SUM_BP_COUNT = 27;
+		public static final int INDEX_SUM_BP_COUNT = 28;
 		/** Index in projection: sum billed amount for this bill period. */
-		public static final int INDEX_SUM_BP_BILLED_AMOUNT = 28;
+		public static final int INDEX_SUM_BP_BILLED_AMOUNT = 29;
 		/** Index in projection: sum count. */
-		public static final int INDEX_SUM_AT_COUNT = 29;
+		public static final int INDEX_SUM_AT_COUNT = 30;
 		/** Index in projection: sum billed amount. */
-		public static final int INDEX_SUM_AT_BILLED_AMOUNT = 30;
+		public static final int INDEX_SUM_AT_BILLED_AMOUNT = 31;
 		/** Index in projection: sum count for today. */
-		public static final int INDEX_SUM_TD_COUNT = 31;
+		public static final int INDEX_SUM_TD_COUNT = 32;
 		/** Index in projection: sum billed amount for today. */
-		public static final int INDEX_SUM_TD_BILLED_AMOUNT = 32;
+		public static final int INDEX_SUM_TD_BILLED_AMOUNT = 33;
 		/** Index in projection: sum cost for this bill period. */
-		public static final int INDEX_SUM_COST = 33;
+		public static final int INDEX_SUM_COST = 34;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -648,6 +848,8 @@ public final class DataProvider extends ContentProvider {
 		public static final String SUM_NOW = "NOW";
 		/** Sum: last bill day. */
 		public static final String SUM_BILLDAY = "BILLDAY";
+		/** Sum: next bill day. */
+		public static final String SUM_NEXTBILLDAY = "NEXTBILLDAY";
 		/** Sum: TODAY. */
 		public static final String SUM_TODAY = "TODAY";
 		/** Sum: count for this bill period. */
@@ -688,6 +890,8 @@ public final class DataProvider extends ContentProvider {
 					+ SUM_TODAY;
 			PROJECTION_SUM[INDEX_SUM_BILLDAY] = "{" + SUM_BILLDAY + "} AS "
 					+ SUM_BILLDAY;
+			PROJECTION_SUM[INDEX_SUM_NEXTBILLDAY] = "{" + SUM_NEXTBILLDAY
+					+ "} AS " + SUM_NEXTBILLDAY;
 
 			PROJECTION_SUM[INDEX_SUM_TD_COUNT] = "sum(CASE WHEN " + Logs.TABLE
 					+ "." + Logs.DATE + " is null or " + Logs.TABLE + "."
@@ -2183,14 +2387,14 @@ public final class DataProvider extends ContentProvider {
 		// translate default rule set:
 		ContentValues cv = new ContentValues();
 		// bill period: 12
-		cv.put(Plans.NAME,
-				context.getResources().getStringArray(R.array.plans_type)[TYPE_BILLPERIOD]);
+		cv.put(Plans.NAME, context.getResources().getStringArray(// .
+				R.array.plans_type)[TYPE_BILLPERIOD]);
 		cv.put(Plans.SHORTNAME, context.getString(R.string.billperiod_sn));
 		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "12" });
 		cv.clear();
 		// spacer: 13, 17, 21
-		cv.put(Plans.NAME,
-				context.getResources().getStringArray(R.array.plans_type)[TYPE_SPACING]);
+		cv.put(Plans.NAME, context.getResources().getStringArray(// .
+				R.array.plans_type)[TYPE_SPACING]);
 		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "13" });
 		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "17" });
 		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "21" });
@@ -2697,27 +2901,37 @@ public final class DataProvider extends ContentProvider {
 			today.set(Calendar.MINUTE, 0);
 			today.set(Calendar.HOUR_OF_DAY, 0);
 			String billps = "(CASE ";
+			String nbillps = "(CASE ";
 			Cursor cursor = db.query(Plans.TABLE, new String[] { Plans.ID,
 					Plans.BILLPERIOD, Plans.BILLDAY }, Plans.WHERE_BILLPERIODS,
 					null, null, null, null);
 			if (cursor.moveToFirst()) {
 				do {
-					Calendar bd = Plans.getBillDay(cursor.getInt(1),
-							cursor.getLong(2), now, false);
+					int period = cursor.getInt(1);
+					long bday = cursor.getLong(2);
+					Calendar bd = Plans.getBillDay(period, bday, now, false);
+					Calendar nbd = Plans.getBillDay(period, bd, now, true);
 					final long pid = cursor.getLong(0);
 					billps += " WHEN " + Plans.TABLE + "." + Plans.ID + "="
 							+ pid + " or " + Plans.TABLE + "."
-							+ Plans.BILLPERIOD_ID + "=" + pid;
-					billps += " THEN " + bd.getTimeInMillis();
+							+ Plans.BILLPERIOD_ID + "=" + pid + " THEN "
+							+ bd.getTimeInMillis();
+					nbillps += " WHEN " + Plans.TABLE + "." + Plans.ID + "="
+							+ pid + " or " + Plans.TABLE + "."
+							+ Plans.BILLPERIOD_ID + "=" + pid + " THEN "
+							+ nbd.getTimeInMillis();
 				} while (cursor.moveToNext());
 			}
 			cursor.close();
 			cursor = null;
 			billps += " ELSE 0 END)";
+			nbillps += " ELSE 0 END)";
 			for (int i = 0; i < l; i++) {
 				proj[i] = projection[i].// .
 						replace("{" + Plans.SUM_BILLDAY + "}", // .
 								billps).// .
+						replace("{" + Plans.SUM_NEXTBILLDAY + "}", // .
+								nbillps).// .
 						replace("{" + Plans.SUM_NOW + "}", // .
 								String.valueOf(date)).//
 						replace("{" + Plans.SUM_TODAY + "}", // .
@@ -2843,7 +3057,8 @@ public final class DataProvider extends ContentProvider {
 			break;
 		case NUMBERS_ID:
 			ret = db.update(Numbers.TABLE, values, DbUtils.sqlAnd(Numbers.ID
-					+ "=" + ContentUris.parseId(uri), selection), selectionArgs);
+					+ "=" + ContentUris.parseId(uri), selection), // .
+					selectionArgs);
 			if (ret > 0 && values != null) {
 				i = values.getAsLong(Numbers.GID);
 				if (i >= 0) {

@@ -18,8 +18,6 @@
  */
 package de.ub0r.android.callmeter.widget;
 
-import java.util.Calendar;
-
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -28,7 +26,6 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -40,11 +37,10 @@ import android.widget.RemoteViews;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.callmeter.data.DataProvider.Plans.Plan;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.Plans;
-import de.ub0r.android.callmeter.ui.Plans.PlanStatus;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
@@ -173,127 +169,43 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		Log.d(TAG, "planid: " + pid);
 		final ContentResolver cr = context.getContentResolver();
 
-		if (pid < 0L) {
+		Plan plan = Plan.getPlan(cr, pid, -1);
+		if (plan == null) {
 			return;
 		}
-		final long ppid = DataProvider.Plans.getParent(cr, pid);
-		long bid = -1L;
-		String pname = null;
-		float cpp = 0F;
-		int ltype = DataProvider.LIMIT_TYPE_NONE;
-		long limit = 0L;
-		int ptype = -1;
-		String where;
-		int upc, upm, ups;
-		boolean isMerger;
-		String billdayWhere = null;
-		Cursor cursor = cr.query(DataProvider.Plans.CONTENT_URI,
-				DataProvider.Plans.PROJECTION, DataProvider.Plans.ID + " = ?",
-				new String[] { String.valueOf(pid) }, null);
-		if (cursor.moveToFirst()) {
-			if (showShortname) {
-				pname = cursor.getString(DataProvider.Plans.INDEX_SHORTNAME);
-			} else {
-				pname = cursor.getString(DataProvider.Plans.INDEX_NAME);
-			}
-			ptype = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
-			bid = cursor.getLong(DataProvider.Plans.INDEX_BILLPERIOD_ID);
-			ltype = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
-			limit = DataProvider.Plans.getLimit(ptype, ltype, cursor
-					.getLong(DataProvider.Plans.INDEX_LIMIT));
-			upc = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_CALL);
-			upm = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_MMS);
-			ups = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_SMS);
-			cpp = cursor.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
 
-			final String s = cursor
-					.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
-			where = DataProvider.Plans.parseMergerWhere(pid, s);
-			if (s == null || s.length() == 0) {
-				isMerger = false;
-			} else {
-				isMerger = true;
-			}
+		Log.d(TAG, "plan: " + plan.id);
+		Log.d(TAG, "plan name: " + plan.name);
+		Log.d(TAG, "count: " + plan.bpCount);
+		Log.d(TAG, "cost: " + plan.cost);
+		Log.d(TAG, "billedAmount: " + plan.bpBa);
+
+		int bpos = (int) (plan.getBillPlanUsage() * CallMeter.HUNDRET);
+		int bmax;
+		if (!showBillPeriod || bpos < 0) {
+			bpos = 0;
+			bmax = -1;
+		} else if (bpos == 0) {
+			bpos = 0;
+			bmax = 0;
 		} else {
-			return;
-		}
-		cursor.close();
-
-		int bpos = 0;
-		int bmax = -1;
-		if (bid >= 0L) {
-			cursor = cr.query(DataProvider.Plans.CONTENT_URI,
-					DataProvider.Plans.PROJECTION, DataProvider.Plans.ID
-							+ " = ?", new String[] { String.valueOf(bid) },
-					null);
-			if (cursor.moveToFirst()) {
-				final int bp = cursor
-						.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
-				final long bday = cursor
-						.getLong(DataProvider.Plans.INDEX_BILLDAY);
-				billdayWhere = DataProvider.Plans.getBilldayWhere(bp, bday,
-						null);
-				if (showBillPeriod && bp != DataProvider.BILLPERIOD_INFINITE) {
-					Calendar billDay = Calendar.getInstance();
-					billDay.setTimeInMillis(bday);
-					billDay = DataProvider.Plans.getBillDay(bp, billDay, null,
-							false);
-					final Calendar nextBillDay = DataProvider.Plans.getBillDay(
-							bp, billDay, null, true);
-
-					final long pr = billDay.getTimeInMillis()
-							/ CallMeter.MILLIS;
-					final long nx = (nextBillDay.getTimeInMillis() // .
-							/ CallMeter.MILLIS)
-							- pr;
-					long nw = System.currentTimeMillis();
-					nw = (nw / CallMeter.MILLIS) - pr;
-
-					bmax = (int) nx;
-					bpos = (int) nw;
-				}
-			}
-			cursor.close();
+			bmax = CallMeter.HUNDRET;
 		}
 		Log.d(TAG, "bpos/bmax: " + bpos + "/" + bmax);
-		billdayWhere = DbUtils.sqlAnd(billdayWhere, where);
 
-		int used = 0;
-		PlanStatus ps = PlanStatus.get(cr, billdayWhere, isMerger
-				&& ptype == DataProvider.TYPE_MIXED, upc, upm, ups);
-
-		if (ps == null) {
-			ps = new PlanStatus();
-		} else {
-			Log.d(TAG, "plan: " + pid);
-			Log.d(TAG, "count: " + ps.count);
-			Log.d(TAG, "cost: " + ps.cost);
-			Log.d(TAG, "billedAmount: " + ps.billedAmount);
-			used = DataProvider.Plans.getUsed(ptype, ltype, ps.billedAmount,
-					ps.cost);
+		String stats = Plans.formatValues(context, -1, plan.type, plan.bpCount,
+				plan.bpBa, plan.billperiod, plan.billday);
+		if (plan.limit > 0) {
+			stats += "\n" + ((int) plan.usage) + "%";
 		}
-		if (ppid >= 0L) {
-			ps.cost = 0F;
-		} else {
-			ps.cost += cpp;
-		}
-
-		String stats = Plans.formatAmount(ptype, ps.billedAmount, p.getBoolean(
-				Preferences.PREFS_SHOWHOURS, true));
-		if (ptype == DataProvider.TYPE_CALL) {
-			stats += " (" + ps.count + ")";
-		}
-		if (limit > 0) {
-			stats += "\n" + (used * CallMeter.HUNDRET / limit) + "%";
-		}
-		if (showCost && ps.cost > 0F) {
+		if (showCost && plan.cost > 0F) {
 			stats += "\n"
 					+ String.format(Preferences.getCurrencyFormat(context),
-							ps.cost);
+							plan.cost);
 		}
 
-		Log.d(TAG, "limit: " + limit);
-		Log.d(TAG, "used: " + used);
+		Log.d(TAG, "limit: " + plan.limit);
+		Log.d(TAG, "used: " + plan.usage);
 		Log.d(TAG, "stats: " + stats);
 
 		int widgetLayout = R.layout.stats_appwidget;
@@ -302,12 +214,18 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		}
 		final RemoteViews views = new RemoteViews(context.getPackageName(),
 				widgetLayout);
-		views.setImageViewBitmap(R.id.widget_bg, getBackground(bgColor, bmax,
-				bpos, limit, used));
+		views.setImageViewBitmap(
+				R.id.widget_bg,
+				getBackground(bgColor, bmax, bpos, plan.limit,
+						(long) (plan.usage * plan.limit / CallMeter.HUNDRET)));
 		if (hideName) {
 			views.setViewVisibility(R.id.plan, View.GONE);
 		} else {
-			views.setTextViewText(R.id.plan, pname);
+			if (showShortname) {
+				views.setTextViewText(R.id.plan, plan.sname);
+			} else {
+				views.setTextViewText(R.id.plan, plan.name);
+			}
 			views.setViewVisibility(R.id.plan, View.VISIBLE);
 		}
 		views.setTextViewText(R.id.stats, stats);
@@ -318,10 +236,9 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		views.setOnClickPendingIntent(R.id.widget, PendingIntent.getActivity(
 				context, 0, new Intent(context, Plans.class), 0));
 		if (showIcon) {
-			views
-					.setViewVisibility(R.id.widget_icon,
-							android.view.View.VISIBLE);
-			switch (ptype) {
+			views.setViewVisibility(R.id.widget_icon, // .
+					android.view.View.VISIBLE);
+			switch (plan.type) {
 			case DataProvider.TYPE_DATA:
 				views.setImageViewResource(R.id.widget_icon, R.drawable.data);
 				break;
@@ -330,9 +247,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 				break;
 			case DataProvider.TYPE_SMS:
 			case DataProvider.TYPE_MMS:
-				views
-						.setImageViewResource(R.id.widget_icon,
-								R.drawable.message);
+				views.setImageViewResource(R.id.widget_icon, // .
+						R.drawable.message);
 				break;
 			case DataProvider.TYPE_MIXED:
 				views.setImageViewResource(R.id.widget_icon, R.drawable.phone);
@@ -363,7 +279,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	 * @return {@link Bitmap}
 	 */
 	private static Bitmap getBackground(final int bgColor, final int bmax,
-			final int bpos, final long limit, final int used) {
+			final int bpos, final long limit, final long used) {
 		final Bitmap bitmap = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH,
 				Bitmap.Config.ARGB_8888);
 		final Canvas canvas = new Canvas(bitmap);
