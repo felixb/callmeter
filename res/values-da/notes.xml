@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter NG. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,13 +16,13 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm2/edit.php?lang=da&file=notes.xml to edit the file.
        -->
 <resources>
-  <string-array name="notes_from_dev" username="basse1996">
-    <item>Dec. 2010, CallMeter 3G er tilgængelig: CallMeter 3G alias CM3 er tilgængelig på market. giv den et forsøg og smid nogle kommentarer på Projektets hjemmeside.</item>
+  <string-array name="notes_from_dev">
+    <item>Dec. 2010, CallMeter 3G er tilgængelig: CallMeter 3G alias CM3 er tilgængelig på market. Afprøv den og smid nogle kommentarer på programmets hjemmeside.</item>
     <item>Mar. 2011, Indstillinger: Glem ikke at slette statistiker efter du har ændret noget for at igangsætte de nye regler for sidste logs emner.</item>
   </string-array>
 </resources>
