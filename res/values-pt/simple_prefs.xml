@@ -21,11 +21,11 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=pt&file=simple_prefs.xml to edit the file.
        -->
 <resources>
-  <string name="missing_slash" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Bill mode needs to be in seconds/seconds!">Tipo de plano precisa estar em segundos!</string>
+  <string name="missing_slash" formatted="false" orig="Bill mode needs to be in seconds/seconds!">Tipo de plano precisa estar em segundos!</string>
   <string name="freemin_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Free minutes">Minutos Grátis</string>
   <string name="freemin_hint" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Free minutes / month">Minutos Grátis / Mês</string>
   <string name="cost_per_call_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Cost / call">Custo / Ligação</string>
-  <string name="cost_per_call_hint" formatted="false" username="" orig="Each call get\'s billed.">Cada ligação é cobrada.</string>
+  <string name="cost_per_call_hint" formatted="false" orig="Each call get\'s billed.">Cada ligação é cobrada.</string>
   <string name="cost_per_min_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Cost / minute">Custo / Minuto</string>
   <string name="cost_per_min_hint" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Each minute get\'s billed.">Cada minuto é cobrado.</string>
   <string name="freesms_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Free SMS">SMS Grátis</string>
