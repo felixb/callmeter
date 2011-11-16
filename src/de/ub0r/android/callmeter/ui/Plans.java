@@ -265,85 +265,6 @@ public class Plans extends ListActivity implements OnClickListener,
 	private static boolean statusMatcherProgress = false;
 
 	/**
-	 * Class holding Status of a {@link Plan}.
-	 * 
-	 * @author flx
-	 */
-	@Deprecated
-	public static final class PlanStatus {
-		/** Id of plan. */
-		public long id = -1L;
-		/** Count of items. */
-		public int count = 0;
-		/** Billed amount. */
-		public float billedAmount = 0f;
-		/** Cost. */
-		public float cost = 0f;
-
-		/**
-		 * Get {@link PlanStatus} from database.
-		 * 
-		 * @param cr
-		 *            {@link ContentResolver}
-		 * @param where
-		 *            where clause on DataProvider.Logs.SUM_URI
-		 * @param mixedMerger
-		 *            isMerger && type == mixed
-		 * @param upc
-		 *            units per minute
-		 * @param upm
-		 *            units per mms
-		 * @param ups
-		 *            units per sms
-		 * @return {@link PlanStatus}
-		 */
-		public static PlanStatus get(final ContentResolver cr,
-				final String where, final boolean mixedMerger, final long upc,
-				final long upm, final long ups) {
-
-			final Cursor c = cr.query(DataProvider.Logs.SUM_URI,
-					DataProvider.Logs.PROJECTION_SUM, where, null, null);
-			if (c == null || !c.moveToFirst()) {
-				if (c != null && !c.isClosed()) {
-					c.close();
-				}
-				return null;
-			}
-			final PlanStatus ret = new PlanStatus();
-			ret.id = c.getLong(DataProvider.Logs.INDEX_SUM_PLAN_ID);
-			do {
-				ret.cost += c.getFloat(DataProvider.Logs.INDEX_SUM_COST);
-				float ba = c.getFloat(DataProvider.Logs.// .
-						INDEX_SUM_BILL_AMOUNT);
-				if (mixedMerger) {
-					final int t = c.getInt(// .
-							DataProvider.Logs.INDEX_SUM_PLAN_TYPE);
-					switch (t) {
-					case DataProvider.TYPE_CALL:
-						ba = ba * upc / CallMeter.SECONDS_MINUTE;
-						break;
-					case DataProvider.TYPE_MMS:
-						ba *= upm;
-						break;
-					case DataProvider.TYPE_SMS:
-						ba *= ups;
-						break;
-					default:
-						break;
-					}
-				}
-				ret.billedAmount += ba;
-				ret.count += c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
-			} while (c.moveToNext());
-
-			if (!c.isClosed()) {
-				c.close();
-			}
-			return ret;
-		}
-	}
-
-	/**
 	 * Adapter binding plans to View.
 	 * 
 	 * @author flx
@@ -529,6 +450,7 @@ public class Plans extends ListActivity implements OnClickListener,
 					}
 				}
 				if (plan.cost > 0f) { // TODO: migrate "free"
+					// FIXME: add cpp
 					cacheStr += "\n" + String.format(currencyFormat, plan.cost);
 				}
 				if (plan.limit > 0) {
@@ -591,6 +513,7 @@ public class Plans extends ListActivity implements OnClickListener,
 				twCache = (TextView) view.findViewById(R.id.data);
 				if (plan.limit > 0) {
 					float bpos = plan.getBillPlanUsage();
+					// FIXME
 					if (plan.usage >= CallMeter.HUNDRET) {
 						pbCache = (ProgressBar) view
 								.findViewById(R.id.progressbarLimitRed);

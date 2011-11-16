@@ -678,14 +678,34 @@ public final class DataProvider extends ContentProvider {
 							.appendQueryParameter(PARAM_DATE,
 									String.valueOf(now)).build();
 				}
-				Cursor c = cr.query(uri, PROJECTION_SUM, ID + "=?",
-						new String[] { String.valueOf(planid) }, null);
+				Cursor c = cr.query(uri, PROJECTION_SUM, TABLE + "." + ID
+						+ "=?", new String[] { String.valueOf(planid) }, null);
 				Plan ret = null;
 				if (c.moveToFirst()) {
 					ret = new Plan(c);
 				}
 				c.close();
 				return ret;
+			}
+
+			/**
+			 * Get a {@link Plan} from plan's id.
+			 * 
+			 * @param cr
+			 *            {@link ContentResolver}
+			 * @param planid
+			 *            {@link Plan}'s id
+			 * @param now
+			 *            time of query
+			 * @return {@link Plan}
+			 */
+			public static Plan getPlan(final ContentResolver cr,
+					final long planid, final Calendar now) {
+				if (now == null) {
+					return getPlan(cr, planid, -1L);
+				} else {
+					return getPlan(cr, planid, now.getTimeInMillis());
+				}
 			}
 
 			/**
@@ -917,11 +937,11 @@ public final class DataProvider extends ContentProvider {
 
 			PROJECTION_SUM[INDEX_SUM_BP_COUNT] = "sum(CASE WHEN " + Logs.TABLE
 					+ "." + Logs.DATE + " is null or " + Logs.TABLE + "."
-					+ Logs.DATE + "<{" + SUM_BILLDAY + "} or " + Logs.TABLE
+					+ Logs.DATE + "<={" + SUM_BILLDAY + "} or " + Logs.TABLE
 					+ "." + Logs.DATE + ">{" + SUM_NOW
 					+ "} THEN 0 ELSE 1 END) as " + SUM_BP_COUNT;
 			PROJECTION_SUM[INDEX_SUM_BP_BILLED_AMOUNT] = "sum(CASE WHEN "
-					+ Logs.TABLE + "." + Logs.DATE + "<{" + SUM_BILLDAY
+					+ Logs.TABLE + "." + Logs.DATE + "<={" + SUM_BILLDAY
 					+ "} or " + Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW
 					+ "} THEN 0 WHEN " + TABLE + "." + MERGED_PLANS
 					+ " is null or " + TABLE + "." + TYPE + "!=" + TYPE_MIXED
@@ -2858,10 +2878,10 @@ public final class DataProvider extends ContentProvider {
 			qb.appendWhere(Plans.TABLE + "." + Plans.ID + "="
 					+ ContentUris.parseId(uri));
 		case PLANS_SUM:
-			final boolean hideZero = uri.getQueryParameter(
-					Plans.PARAM_HIDE_ZERO).equals(String.valueOf(true));
-			final boolean hideNoCost = uri.getQueryParameter(
-					Plans.PARAM_HIDE_NOCOST).equals(String.valueOf(true));
+			final boolean hideZero = Utils.parseBoolean(
+					uri.getQueryParameter(Plans.PARAM_HIDE_ZERO), false);
+			final boolean hideNoCost = Utils.parseBoolean(
+					uri.getQueryParameter(Plans.PARAM_HIDE_NOCOST), false);
 			final long date = Utils.parseLong(
 					uri.getQueryParameter(Plans.PARAM_DATE),
 					System.currentTimeMillis());
