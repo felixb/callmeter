@@ -428,6 +428,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			DataProvider.Plans.Plan plan = new DataProvider.Plans.Plan(cursor);
 
 			String cacheStr = null;
+			float cost = plan.getAccumCost();
 			if (plan.type != DataProvider.TYPE_SPACING // .
 					&& plan.type != DataProvider.TYPE_TITLE) {
 				cacheStr = "<b>"
@@ -449,9 +450,8 @@ public class Plans extends ListActivity implements OnClickListener,
 								+ cacheStr;
 					}
 				}
-				if (plan.cost > 0f) { // TODO: migrate "free"
-					// FIXME: add cpp
-					cacheStr += "\n" + String.format(currencyFormat, plan.cost);
+				if (cost > 0f) { // TODO: migrate "free"
+					cacheStr += "\n" + String.format(currencyFormat, cost);
 				}
 				if (plan.limit > 0) {
 					cacheStr = ((int) (plan.usage * CallMeter.HUNDRET)) + "%"
@@ -462,7 +462,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			Log.d(TAG, "plan id: " + plan.id);
 			Log.d(TAG, "plan name: " + plan.name);
 			Log.d(TAG, "type: " + plan.type);
-			Log.d(TAG, "cost: " + plan.cost);
+			Log.d(TAG, "cost: " + cost);
 			Log.d(TAG, "limit: " + plan.limit);
 			Log.d(TAG, "limitPos: " + plan.limitPos);
 			Log.d(TAG, "text: " + cacheStr);

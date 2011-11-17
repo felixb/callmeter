@@ -176,10 +176,11 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			return;
 		}
 
+		float cost = plan.getAccumCost();
 		Log.d(TAG, "plan: " + plan.id);
 		Log.d(TAG, "plan name: " + plan.name);
 		Log.d(TAG, "count: " + plan.bpCount);
-		Log.d(TAG, "cost: " + plan.cost);
+		Log.d(TAG, "cost: " + cost);
 		Log.d(TAG, "billedAmount: " + plan.bpBa);
 
 		int bpos = (int) (plan.getBillPlanUsage() * CallMeter.HUNDRET);
@@ -200,10 +201,10 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		if (plan.limit > 0) {
 			stats += "\n" + ((int) (plan.usage * CallMeter.HUNDRET)) + "%";
 		}
-		if (showCost && plan.cost > 0F) {
+		if (showCost && cost > 0F) {
 			stats += "\n"
 					+ String.format(Preferences.getCurrencyFormat(context),
-							plan.cost);
+							cost);
 		}
 
 		Log.d(TAG, "limit: " + plan.limit);

@@ -492,7 +492,7 @@ public final class DataProvider extends ContentProvider {
 			reload(db, TABLE, values);
 		}
 
-		/** Default constructor. */
+		/** Hide constructor. */
 		private SipCall() {
 			// nothing here.
 		}
@@ -514,16 +514,8 @@ public final class DataProvider extends ContentProvider {
 			public final String name;
 			/** Plans's short name. */
 			public final String sname;
-			/** Id of parent plan. */
-			// private final long ppid;
-			/** True for plans merging other plans. */
-			private final boolean isMerger;
-			/** Where clause for updating the plan. */
-			private final String where;
 			/** Bill period. */
 			public final int billperiod;
-			/** Bill period id. */
-			private final long billperiodid;
 			/** Bill day. */
 			public final long billday;
 			/** Next bill day. */
@@ -540,8 +532,6 @@ public final class DataProvider extends ContentProvider {
 			public final float usage;
 			/** Cost per plan. */
 			private final float cpp;
-			/** Units per call, sms, mms. */
-			private final int upc, ups, upm;
 			/** Sum of cost. */
 			public final float cost;
 			/** Sum of todays count. */
@@ -571,7 +561,6 @@ public final class DataProvider extends ContentProvider {
 				this.name = cursor.getString(INDEX_NAME);
 				this.sname = cursor.getString(INDEX_SHORTNAME);
 				this.billperiod = cursor.getInt(INDEX_BILLPERIOD);
-				this.billperiodid = cursor.getLong(INDEX_BILLPERIOD_ID);
 				if (this.type == TYPE_SPACING || this.type == TYPE_TITLE) {
 					this.billday = -1;
 					this.nextbillday = -1;
@@ -579,13 +568,6 @@ public final class DataProvider extends ContentProvider {
 					this.limit = -1;
 					this.limitPos = -1;
 					this.cpp = 0;
-					this.where = null;
-					// this.ppid = -1L;
-					this.upc = 0;
-					this.upm = 0;
-					this.ups = 0;
-					this.isMerger = false;
-
 					this.cost = 0f;
 					this.tdCount = 0;
 					this.tdBa = 0f;
@@ -605,6 +587,7 @@ public final class DataProvider extends ContentProvider {
 					this.now = cursor.getLong(INDEX_SUM_NOW);
 					this.billday = cursor.getLong(INDEX_SUM_BILLDAY);
 					this.nextbillday = cursor.getLong(INDEX_SUM_NEXTBILLDAY);
+					this.cpp = cursor.getFloat(INDEX_SUM_CPP);
 					if (this.type == TYPE_BILLPERIOD) {
 						this.limittype = -1;
 						if (billperiod == DataProvider.BILLPERIOD_INFINITE) {
@@ -616,39 +599,12 @@ public final class DataProvider extends ContentProvider {
 							this.limit = (this.nextbillday - this.billday)
 									/ Utils.MINUTES_IN_MILLIS;
 						}
-						this.cpp = cursor.getFloat(INDEX_COST_PER_PLAN);
-						this.where = null;
-						// this.ppid = -1L;
-						this.upc = 0;
-						this.upm = 0;
-						this.ups = 0;
-						this.isMerger = false;
 					} else {
-						// this.ppid = getParent(context.getContentResolver(),
-						// this.id);
 						this.limittype = cursor.getInt(INDEX_LIMIT_TYPE);
 						this.limit = getLimit(this.type, this.limittype,
 								cursor.getLong(INDEX_LIMIT));
 						this.limitPos = getUsed(this.type, this.limittype,
 								this.bpBa, this.cost);
-						this.cpp = cursor.getFloat(INDEX_COST_PER_PLAN);
-						final String s = cursor.getString(INDEX_MERGED_PLANS);
-						if (s == null || s.length() == 0) {
-							this.isMerger = false;
-							this.where = parseMergerWhere(this.id, null);
-						} else {
-							this.isMerger = true;
-							this.where = parseMergerWhere(this.id, s);
-						}
-						if (this.type == TYPE_MIXED) {
-							this.upc = cursor.getInt(INDEX_MIXED_UNITS_CALL);
-							this.upm = cursor.getInt(INDEX_MIXED_UNITS_MMS);
-							this.ups = cursor.getInt(INDEX_MIXED_UNITS_SMS);
-						} else {
-							this.upc = 0;
-							this.upm = 0;
-							this.ups = 0;
-						}
 					}
 				}
 				if (this.limitPos <= 0) {
@@ -709,6 +665,14 @@ public final class DataProvider extends ContentProvider {
 			}
 
 			/**
+			 * {@inheritDoc}
+			 */
+			@Override
+			public String toString() {
+				return "lan:" + this.id + ":" + this.name;
+			}
+
+			/**
 			 * Get usage of {@link Plan}'s bill period.
 			 * 
 			 * @return usage of bill period
@@ -719,6 +683,15 @@ public final class DataProvider extends ContentProvider {
 					return -1f;
 				}
 				return ((float) (this.now - this.billday)) / (float) blength;
+			}
+
+			/**
+			 * Get cost and cost per plan.
+			 * 
+			 * @return cost + cpp
+			 */
+			public float getAccumCost() {
+				return this.cost + this.cpp;
 			}
 		}
 
@@ -800,8 +773,10 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_SUM_TD_COUNT = 32;
 		/** Index in projection: sum billed amount for today. */
 		public static final int INDEX_SUM_TD_BILLED_AMOUNT = 33;
+		/** Index in projection: sum cost for all plans. */
+		public static final int INDEX_SUM_CPP = 34;
 		/** Index in projection: sum cost for this bill period. */
-		public static final int INDEX_SUM_COST = 34;
+		public static final int INDEX_SUM_COST = 35;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -848,15 +823,6 @@ public final class DataProvider extends ContentProvider {
 		public static final String MIXED_UNITS_SMS = "_mixed_units_sms";
 		/** Mixed units for mms. */
 		public static final String MIXED_UNITS_MMS = "_mixed_units_mms";
-		/** Cache row for main: string. */
-		@Deprecated
-		public static final String CACHE_STRING = "_cache_str";
-		/** Cache row for main: progressbar maximum. */
-		@Deprecated
-		public static final String CACHE_PROGRESS_MAX = "_cache_prg_max";
-		/** Cache row for main: progressbar position. */
-		@Deprecated
-		public static final String CACHE_PROGRESS_POS = "_cache_prg_pos";
 		/** Next alert. */
 		public static final String NEXT_ALERT = "_next_alert";
 		/** Strip first seconds. */
@@ -884,6 +850,8 @@ public final class DataProvider extends ContentProvider {
 		public static final String SUM_TD_COUNT = "SUM_TD_COUNT";
 		/** Sum: billed amount for today. */
 		public static final String SUM_TD_BILLED_AMOUNT = "SUM_TD_BA";
+		/** Sum: cost for all plans. */
+		public static final String SUM_CPP = "SUM_CPP";
 		/** Sum: cost for this bill period. */
 		public static final String SUM_COST = "SUM_COST";
 
@@ -977,6 +945,12 @@ public final class DataProvider extends ContentProvider {
 					+ MIXED_UNITS_MMS + " ELSE " + Logs.TABLE + "."
 					+ Logs.BILL_AMOUNT + " END) AS " + SUM_AT_BILLED_AMOUNT;
 
+			PROJECTION_SUM[INDEX_SUM_CPP] = "(CASE WHEN " + TABLE + "." + TYPE
+					+ "=" + TYPE_BILLPERIOD + " THEN " + TABLE + "."
+					+ COST_PER_PLAN + " + (select sum(p." + COST_PER_PLAN
+					+ ") from " + TABLE + " as p where p." + BILLPERIOD_ID
+					+ "=" + TABLE + "." + ID + ") ELSE " + TABLE + "."
+					+ COST_PER_PLAN + " END) as " + SUM_CPP;
 			PROJECTION_SUM[INDEX_SUM_COST] = "sum(CASE WHEN " + Logs.TABLE
 					+ "." + Logs.DATE + "<{" + SUM_BILLDAY + "} or "
 					+ Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW
