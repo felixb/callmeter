@@ -39,6 +39,7 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.DataProvider.Plans.Plan;
 import de.ub0r.android.callmeter.data.LogRunnerService;
+import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.Log;
@@ -101,6 +102,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
 		Log.d(TAG, "onUpdate()");
 		Utils.setLocale(context);
+		Common.setDateFormat(context);
 		// Update logs and run rule matcher
 		LogRunnerService.update(context, LogRunnerService.ACTION_RUN_MATCHER);
 
@@ -193,10 +195,10 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		}
 		Log.d(TAG, "bpos/bmax: " + bpos + "/" + bmax);
 
-		String stats = Plans.formatValues(context, -1, plan.type, plan.bpCount,
-				plan.bpBa, plan.billperiod, plan.billday);
+		String stats = Common.formatValues(context, -1, plan.type,
+				plan.bpCount, plan.bpBa, plan.billperiod, plan.billday, false);
 		if (plan.limit > 0) {
-			stats += "\n" + ((int) plan.usage) + "%";
+			stats += "\n" + ((int) (plan.usage * CallMeter.HUNDRET)) + "%";
 		}
 		if (showCost && plan.cost > 0F) {
 			stats += "\n"
@@ -217,7 +219,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		views.setImageViewBitmap(
 				R.id.widget_bg,
 				getBackground(bgColor, bmax, bpos, plan.limit,
-						(long) (plan.usage * plan.limit / CallMeter.HUNDRET)));
+						(long) (plan.usage * plan.limit)));
 		if (hideName) {
 			views.setViewVisibility(R.id.plan, View.GONE);
 		} else {

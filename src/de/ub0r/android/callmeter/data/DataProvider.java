@@ -536,7 +536,7 @@ public final class DataProvider extends ContentProvider {
 			public final long limit;
 			/** Position in limit. */
 			public final long limitPos;
-			/** Percentage of used limit. */
+			/** Used limit. */
 			public final float usage;
 			/** Cost per plan. */
 			private final float cpp;
@@ -654,7 +654,7 @@ public final class DataProvider extends ContentProvider {
 				if (this.limitPos <= 0) {
 					this.usage = 0;
 				} else {
-					this.usage = this.limitPos * CallMeter.HUNDRET / this.limit;
+					this.usage = (float) this.limitPos / (float) this.limit;
 				}
 			}
 
@@ -718,7 +718,7 @@ public final class DataProvider extends ContentProvider {
 				if (blength <= 0L) {
 					return -1f;
 				}
-				return (this.now - this.billday) / blength;
+				return ((float) (this.now - this.billday)) / (float) blength;
 			}
 		}
 

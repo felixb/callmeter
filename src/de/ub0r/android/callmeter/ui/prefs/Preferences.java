@@ -34,25 +34,25 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.app.AlertDialog.Builder;
+import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.DialogInterface.OnClickListener;
 import android.content.SharedPreferences.Editor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceManager;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.widget.EditText;
 import android.widget.Toast;
 import de.ub0r.android.callmeter.CallMeter;
@@ -177,8 +177,8 @@ public final class Preferences extends PreferenceActivity implements
 		if (p == null) {
 			return -1L;
 		}
-		final long dlb = Utils.parseLong(p.getString(PREFS_DELETE_OLD_LOGS,
-				"90"), -1L);
+		final long dlb = Utils.parseLong(
+				p.getString(PREFS_DELETE_OLD_LOGS, "90"), -1L);
 		if (dlb < 0L) {
 			return dlb;
 		}
@@ -538,7 +538,8 @@ public final class Preferences extends PreferenceActivity implements
 							fw.close();
 							final String t = Preferences.this
 									.getString(R.string.exported_)
-									+ " " + f.getAbsolutePath();
+									+ " "
+									+ f.getAbsolutePath();
 							Toast.makeText(Preferences.this, t,
 									Toast.LENGTH_LONG).show();
 							// call an exporting app with the uri to the
@@ -578,8 +579,8 @@ public final class Preferences extends PreferenceActivity implements
 			p.setOnPreferenceChangeListener(this);
 		}
 
-		Market.setOnPreferenceClickListener(this, this
-				.findPreference("more_apps"), null, Market.SEARCH_APPS,
+		Market.setOnPreferenceClickListener(this,
+				this.findPreference("more_apps"), null, Market.SEARCH_APPS,
 				Market.ALT_APPS);
 		p = this.findPreference("send_logs");
 		if (p != null) {
@@ -757,7 +758,8 @@ public final class Preferences extends PreferenceActivity implements
 					}
 					builder.setMessage(Preferences.this
 							.getString(R.string.import_rules_hint)
-							+ "\n" + URLDecoder.decode(lines[1]));
+							+ "\n"
+							+ URLDecoder.decode(lines[1]));
 				}
 				builder.setCancelable(true);
 				builder.setTitle(R.string.import_rules_);
@@ -782,18 +784,16 @@ public final class Preferences extends PreferenceActivity implements
 									@Override
 									protected void onPostExecute(
 											final Void result) {
-										de.ub0r.android.callmeter.ui.Plans
-												.reloadList();
 										d1.dismiss();
 									}
 								} // .
-										.execute((Void) null);
+								.execute((Void) null);
 							}
 						});
 				builder.show();
 			}
 		} // .
-				.execute((Void) null);
+		.execute((Void) null);
 	}
 
 	/**

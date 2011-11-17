@@ -285,6 +285,7 @@
   <string name="import_rules_sd_help" formated="false">Speichere deine Datei auf der SD Karte und klicke sie an</string>
   <string name="import_rules_sd_files" formated="false">Gefundene Dateien</string>
   <string name="import_rules_sd_nofiles" formated="false">Keine Dateien gefunden</string>
+  <string name="loading" formated="false">Lade ...</string>
   <string name="err_export_write" formatted="false">Fehler beim Schreiben der Exportdatei</string>
   <string name="err_export_read" formatted="false">Fehler beim Lesen der Exportdatei</string>
   <string name="alerts_" formatted="false">Alarme</string>

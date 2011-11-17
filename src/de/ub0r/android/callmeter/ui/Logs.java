@@ -124,23 +124,19 @@ public final class Logs extends ListActivity implements OnClickListener,
 					R.array.direction_calls);
 			buf.append(" (" + strs[dir] + "): ");
 			final long date = cursor.getLong(DataProvider.Logs.INDEX_DATE);
-			buf
-					.append(DateFormat.getDateFormat(context).format(
-							new Date(date)));
+			buf.append(DateFormat.getDateFormat(context).format(new Date(date)));
 			buf.append(" ");
-			buf
-					.append(DateFormat.getTimeFormat(context).format(
-							new Date(date)));
+			buf.append(DateFormat.getTimeFormat(context).format(new Date(date)));
 			((TextView) view.findViewById(android.R.id.text1)).setText(buf
 					.toString());
 
 			((TextView) view.findViewById(R.id.plan))
-					.setText(DataProvider.Plans.getName(cr, cursor
-							.getLong(DataProvider.Logs.INDEX_PLAN_ID)));
+					.setText(DataProvider.Plans.getName(cr,
+							cursor.getLong(DataProvider.Logs.INDEX_PLAN_ID)));
 
 			((TextView) view.findViewById(R.id.rule))
-					.setText(DataProvider.Rules.getName(cr, cursor
-							.getLong(DataProvider.Logs.INDEX_RULE_ID)));
+					.setText(DataProvider.Rules.getName(cr,
+							cursor.getLong(DataProvider.Logs.INDEX_RULE_ID)));
 
 			String s = cursor.getString(DataProvider.Logs.INDEX_REMOTE);
 			if (s == null || s.trim().length() == 0) {
@@ -154,7 +150,7 @@ public final class Logs extends ListActivity implements OnClickListener,
 			}
 
 			final long amount = cursor.getLong(DataProvider.Logs.INDEX_AMOUNT);
-			s = Plans.formatAmount(t, amount, showHours);
+			s = Common.formatAmount(t, amount, showHours);
 			if (s == null || s.trim().length() == 0 || s.equals("1")) {
 				view.findViewById(R.id.length).setVisibility(View.GONE);
 				view.findViewById(R.id.length_).setVisibility(View.GONE);
@@ -168,7 +164,7 @@ public final class Logs extends ListActivity implements OnClickListener,
 					.getFloat(DataProvider.Logs.INDEX_BILL_AMOUNT);
 			TextView tw = (TextView) view.findViewById(R.id.blength);
 			if (amount != ba) {
-				tw.setText(Plans.formatAmount(t, ba, showHours));
+				tw.setText(Common.formatAmount(t, ba, showHours));
 				tw.setVisibility(View.VISIBLE);
 				view.findViewById(R.id.blength_).setVisibility(View.VISIBLE);
 			} else {
@@ -349,10 +345,11 @@ public final class Logs extends ListActivity implements OnClickListener,
 							final String r = etRemote.getText().toString();
 							final boolean roamed = cbRoamed.isChecked();
 							final Calendar c = Calendar.getInstance();
-							c.set(dpDate.getYear(), dpDate.getMonth(), dpDate
-									.getDayOfMonth(), // .
-									tpTime.getCurrentHour(), tpTime
-											.getCurrentMinute());
+							c.set(dpDate.getYear(),
+									dpDate.getMonth(),
+									dpDate.getDayOfMonth(), // .
+									tpTime.getCurrentHour(),
+									tpTime.getCurrentMinute());
 							final ContentValues cv = new ContentValues();
 							switch (t) {
 							case DataProvider.Rules.WHAT_CALL:
