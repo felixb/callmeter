@@ -280,6 +280,8 @@ public final class DataProvider extends ContentProvider {
 					+ ROAMED + " INTEGER," // .
 					+ COST + " FLOAT"// .
 					+ ");");
+			db.execSQL("CREATE INDEX " + TABLE + "_idx on " + TABLE + " (" // .
+					+ ID + "," + PLAN_ID + "," + DATE + ")");
 		}
 
 		/**
@@ -1023,6 +1025,8 @@ public final class DataProvider extends ContentProvider {
 					+ STRIP_SECONDS + " INTEGER," // .
 					+ MERGED_PLANS + " TEXT" // .
 					+ ");");
+			db.execSQL("CREATE INDEX " + TABLE + "_idx on " + TABLE + " (" // .
+					+ ID + "," + ORDER + "," + TYPE + ")");
 		}
 
 		/**
@@ -1503,6 +1507,8 @@ public final class DataProvider extends ContentProvider {
 					+ IS_SIPCALL + " INTEGER," // .
 					+ IS_SIPCALL_PROVIDER + " TEXT" // .
 					+ ");");
+			db.execSQL("CREATE INDEX " + TABLE + "_idx on " + TABLE + " (" // .
+					+ ID + "," + ORDER + "," + PLAN_ID + "," + WHAT + ")");
 		}
 
 		/**
