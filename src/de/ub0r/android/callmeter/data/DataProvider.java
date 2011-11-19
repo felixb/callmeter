@@ -2914,19 +2914,24 @@ public final class DataProvider extends ContentProvider {
 					+ Plans.BILLPERIOD_ID + "=" + Plans.TABLE + "." + Plans.ID
 					+ ")))");
 			groupBy = Plans.TABLE + "." + Plans.ID;
-			if (hideZero) {
-				having = Plans.TYPE + "=" + TYPE_BILLPERIOD + " or "
-						+ Plans.SUM_BP_BILLED_AMOUNT + ">0";
-			}
-			if (hideNoCost) {
-				if (!TextUtils.isEmpty(having)) {
-					having += " and ";
-				} else {
-					having = "";
+			if (hideZero || hideNoCost) {
+				having = Plans.TYPE + " in(" + TYPE_BILLPERIOD + ","
+						+ TYPE_SPACING + "," + TYPE_TITLE + ")";
+
+				if (hideZero) {
+					having += " or " + Plans.SUM_BP_BILLED_AMOUNT + ">0";
 				}
-				having += Plans.TYPE + "=" + TYPE_BILLPERIOD + " or "
-						+ Plans.SUM_COST + ">0";
+
+				if (hideNoCost) {
+					if (hideZero) {
+						having += " and ";
+					} else {
+						having = " or ";
+					}
+					having += Plans.SUM_COST + ">0";
+				}
 			}
+
 			if (orderBy == null) {
 				orderBy = Plans.TABLE + "." + Plans.ORDER;
 			}
