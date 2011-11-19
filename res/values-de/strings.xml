@@ -249,6 +249,8 @@
   <string name="issipcall_help" formatted="false">Anruf über SIP. Zur Zeit wird sipdroid &gt;1.6.1 unterstützt.</string>
   <string name="strip_seconds_" formatted="false">Ersten Sekunden nicht abrechnen</string>
   <string name="strip_seconds_help" formatted="false">Rechne die ersten x Sekunden eines Anrufes nicht ab.</string>
+  <string name="active_">Aktiv</string>
+  <string name="active_help">Nur aktive Regeln werden benutzt um Logs zuzuordnen.</string>
   <string name="what_" formatted="false">Typ</string>
   <string name="what_help" formatted="false">Wähle den Typ der Logs aus.</string>
   <string name="direction_" formatted="false">Richtung</string>

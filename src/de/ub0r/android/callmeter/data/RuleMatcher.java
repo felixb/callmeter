@@ -1057,7 +1057,8 @@ public final class RuleMatcher {
 		// load rules
 		rules = new ArrayList<Rule>();
 		Cursor cursor = cr.query(DataProvider.Rules.CONTENT_URI,
-				DataProvider.Rules.PROJECTION, null, null,
+				DataProvider.Rules.PROJECTION,
+				DataProvider.Rules.ACTIVE + ">0", null,
 				DataProvider.Rules.ORDER);
 		if (cursor != null && cursor.moveToFirst()) {
 			do {

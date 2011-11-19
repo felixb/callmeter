@@ -67,7 +67,7 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 28;
+	private static final int DATABASE_VERSION = 30;
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 0;
@@ -189,6 +189,8 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_ROAMED = 9;
 		/** Index in projection: Cost. */
 		public static final int INDEX_COST = 10;
+		/** Index in projection: Cost (free). */
+		public static final int INDEX_FREE = 11;
 
 		/** Index in projection - sum: Type of log. */
 		public static final int INDEX_SUM_TYPE = 0;
@@ -202,8 +204,10 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_SUM_BILL_AMOUNT = 4;
 		/** Index in projection - sum: Cost. */
 		public static final int INDEX_SUM_COST = 5;
+		/** Index in projection - sum: Cost (free). */
+		public static final int INDEX_SUM_FREE = 6;
 		/** Index in projection - sum: count. */
-		public static final int INDEX_SUM_COUNT = 6;
+		public static final int INDEX_SUM_COUNT = 7;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -227,18 +231,21 @@ public final class DataProvider extends ContentProvider {
 		public static final String ROAMED = "_roamed";
 		/** Cost. */
 		public static final String COST = "_logs_cost";
+		/** Cost (free). */
+		public static final String FREE = "_logs_cost_free";
 		/** Type of plan. Only available in sum query. */
 		public static final String PLAN_TYPE = "_plan_type";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, PLAN_ID,
 				RULE_ID, TYPE, DIRECTION, DATE, AMOUNT, BILL_AMOUNT, REMOTE,
-				ROAMED, COST };
+				ROAMED, COST, FREE };
 		/** Projection used for query - sum. */
 		public static final String[] PROJECTION_SUM = new String[] { TYPE,
 				PLAN_ID, Plans.TABLE + "." + Plans.TYPE + " AS " + PLAN_TYPE,
 				"sum(" + AMOUNT + ")", "sum(" + BILL_AMOUNT + ")",
-				"sum(" + COST + ")", "count(" + PLAN_ID + ")" };
+				"sum(" + COST + ")", "sum(" + FREE + ")",
+				"count(" + PLAN_ID + ")" };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -269,16 +276,17 @@ public final class DataProvider extends ContentProvider {
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
 					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
-					+ PLAN_ID + " LONG," // .
-					+ RULE_ID + " LONG," // .
-					+ TYPE + " INTEGER," // .
-					+ DIRECTION + " INTEGER," // .
-					+ DATE + " LONG," // .
-					+ AMOUNT + " LONG," // .
-					+ BILL_AMOUNT + " FLOAT," // .
-					+ REMOTE + " TEXT,"// .
-					+ ROAMED + " INTEGER," // .
-					+ COST + " FLOAT"// .
+					+ PLAN_ID + " LONG, " // .
+					+ RULE_ID + " LONG, " // .
+					+ TYPE + " INTEGER, " // .
+					+ DIRECTION + " INTEGER, " // .
+					+ DATE + " LONG, " // .
+					+ AMOUNT + " LONG, " // .
+					+ BILL_AMOUNT + " FLOAT, " // .
+					+ REMOTE + " TEXT, "// .
+					+ ROAMED + " INTEGER, " // .
+					+ COST + " FLOAT, "// .
+					+ FREE + " FLOAT"// .
 					+ ");");
 			db.execSQL("CREATE INDEX " + TABLE + "_idx on " + TABLE + " (" // .
 					+ ID + "," + PLAN_ID + "," + DATE + ")");
@@ -1395,39 +1403,43 @@ public final class DataProvider extends ContentProvider {
 
 		/** Index in projection: id. */
 		public static final int INDEX_ID = 0;
+		/** Index in projection: active? */
+		public static final int INDEX_ACTIVE = 1;
 		/** Index in projection: order. */
-		public static final int INDEX_ORDER = 1;
+		public static final int INDEX_ORDER = 2;
 		/** Index in projection: ID of plan referred by this rule. */
-		public static final int INDEX_PLAN_ID = 2;
+		public static final int INDEX_PLAN_ID = 3;
 		/** Index in projection: Name. */
-		public static final int INDEX_NAME = 3;
+		public static final int INDEX_NAME = 4;
 		/** Index in projection: Kind of rule. */
-		public static final int INDEX_WHAT = 4;
+		public static final int INDEX_WHAT = 5;
 		/** Index in projection: is roamed? */
-		public static final int INDEX_ROAMED = 5;
+		public static final int INDEX_ROAMED = 6;
 		/** Index in projection: is direction? */
-		public static final int INDEX_DIRECTION = 6;
+		public static final int INDEX_DIRECTION = 7;
 		/** Index in projection: is hours? */
-		public static final int INDEX_INHOURS_ID = 7;
+		public static final int INDEX_INHOURS_ID = 8;
 		/** Index in projection: is not hours? */
-		public static final int INDEX_EXHOURS_ID = 8;
+		public static final int INDEX_EXHOURS_ID = 9;
 		/** Index in projection: is number? */
-		public static final int INDEX_INNUMBERS_ID = 9;
+		public static final int INDEX_INNUMBERS_ID = 10;
 		/** Index in projection: is not number? */
-		public static final int INDEX_EXNUMBERS_ID = 10;
+		public static final int INDEX_EXNUMBERS_ID = 11;
 		/** Index in projection: limit not reached? */
-		public static final int INDEX_LIMIT_NOT_REACHED = 11;
+		public static final int INDEX_LIMIT_NOT_REACHED = 12;
 		/** Index in projection: is websms. */
-		public static final int INDEX_IS_WEBSMS = 12;
+		public static final int INDEX_IS_WEBSMS = 13;
 		/** Index in projection: is websms connector. */
-		public static final int INDEX_IS_WEBSMS_CONNETOR = 13;
+		public static final int INDEX_IS_WEBSMS_CONNETOR = 14;
 		/** Index in projection: is sipcall. */
-		public static final int INDEX_IS_SIPCALL = 14;
+		public static final int INDEX_IS_SIPCALL = 15;
 		/** Index in projection: is sipcall provider. */
-		// public static final int INDEX_IS_SIPCALL_PROVIDER = 15;
+		// public static final int INDEX_IS_SIPCALL_PROVIDER = 16;
 
 		/** ID. */
 		public static final String ID = "_id";
+		/** Active? */
+		public static final String ACTIVE = "_active";
 		/** Order. */
 		public static final String ORDER = "_order";
 		/** ID of plan referred by this rule. */
@@ -1460,10 +1472,11 @@ public final class DataProvider extends ContentProvider {
 		public static final String IS_SIPCALL_PROVIDER = "_is_sipcall_provider";
 
 		/** Projection used for query. */
-		public static final String[] PROJECTION = new String[] { ID, ORDER,
-				PLAN_ID, NAME, WHAT, ROAMED, DIRECTION, INHOURS_ID, EXHOURS_ID,
-				INNUMBERS_ID, EXNUMBERS_ID, LIMIT_NOT_REACHED, IS_WEBSMS,
-				IS_WEBSMS_CONNETOR, IS_SIPCALL, IS_SIPCALL_PROVIDER };
+		public static final String[] PROJECTION = new String[] { ID, ACTIVE,
+				ORDER, PLAN_ID, NAME, WHAT, ROAMED, DIRECTION, INHOURS_ID,
+				EXHOURS_ID, INNUMBERS_ID, EXNUMBERS_ID, LIMIT_NOT_REACHED,
+				IS_WEBSMS, IS_WEBSMS_CONNETOR, IS_SIPCALL, // .
+				IS_SIPCALL_PROVIDER };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
@@ -1491,6 +1504,7 @@ public final class DataProvider extends ContentProvider {
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 			db.execSQL("CREATE TABLE " + TABLE + " (" // .
 					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
+					+ ACTIVE + " INTEGER DEFAULT 1," // .
 					+ ORDER + " INTEGER," // .
 					+ NAME + " TEXT,"// .
 					+ PLAN_ID + " INTEGER,"// .
@@ -1507,8 +1521,10 @@ public final class DataProvider extends ContentProvider {
 					+ IS_SIPCALL + " INTEGER," // .
 					+ IS_SIPCALL_PROVIDER + " TEXT" // .
 					+ ");");
-			db.execSQL("CREATE INDEX " + TABLE + "_idx on " + TABLE + " (" // .
-					+ ID + "," + ORDER + "," + PLAN_ID + "," + WHAT + ")");
+			db.execSQL("CREATE INDEX " + TABLE + "_idx on " + TABLE
+					+ " (" // .
+					+ ID + "," + ACTIVE + "," + ORDER + "," + PLAN_ID + ","
+					+ WHAT + ")");
 		}
 
 		/**

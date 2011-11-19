@@ -1291,9 +1291,9 @@ abstract class Preference {
 								dt.show();
 							}
 						}
-					}, this.value.get(Calendar.YEAR), this.value
-							.get(Calendar.MONTH), this.value
-							.get(Calendar.DAY_OF_MONTH));
+					}, this.value.get(Calendar.YEAR),
+					this.value.get(Calendar.MONTH),
+					this.value.get(Calendar.DAY_OF_MONTH));
 
 			dd.setCancelable(true);
 			dd.setTitle(this.resText);
@@ -1304,8 +1304,8 @@ abstract class Preference {
 		@Override
 		void updateDialog(final Dialog d) {
 			((DatePickerDialog) d).updateDate(this.value.get(Calendar.YEAR),
-					this.value.get(Calendar.MONTH), this.value
-							.get(Calendar.DAY_OF_MONTH));
+					this.value.get(Calendar.MONTH),
+					this.value.get(Calendar.DAY_OF_MONTH));
 		}
 
 		@Override

@@ -250,6 +250,8 @@
 	<string name="issipcall_help">Call made via SIP. Currently sipdroid >1.6.1 is supported.</string>
 	<string name="strip_seconds_">Do not bill first seconds</string>
 	<string name="strip_seconds_help">Do not bill first x seconds of a call.</string>
+	<string name="active_">Active</string>
+	<string name="active_help">Only active rules are used for matching logs.</string>
 	<string name="what_">Target type</string>
 	<string name="what_help">Choose a target type here.</string>
 	<string name="direction_">Direction</string>
