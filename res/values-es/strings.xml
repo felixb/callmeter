@@ -21,8 +21,8 @@
                Visit http://ub0r.de/translate/cm2/edit.php?lang=es&file=strings.xml to edit the file.
        -->
 <resources>
-  <string name="about0_" formatted="false" username="Xavier Morell&lt;xamohu@gmail.com&gt;" orig="Watch your call, message and data plans!">¡Controla tus planes de llamadas, sms, o datos!</string>
-  <string name="about0" formatted="false">CallMeter genera informes de tus registros de llamadas, mensajes y datos. Permite muchos tipos de tarificación.</string>
+  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">¡Controla tus llamadas, sms, o plan de datos!</string>
+  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter genera informes de tus registros de llamadas, mensajes y datos. Permite muchos tipos de facturacion.</string>
   <string name="about1" formatted="false" username="m.chicobmx@gmail.com" orig="The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not.">La presentación es: minutos usados en el ciclo de facturación/minutos totales. El cómputo mensual de llamadas tiene en cuenta el modo de tarificación. Los totales no.</string>
   <string name="about2" formatted="false">El modo de tarificación especifica la longitud del primer/siguientes unidades de facturación. Ej. 60/10 significa que en cada llamada se factura el primer minuto completo y el resto se redondea en periodos de 10 s.</string>
   <string name="about3" formatted="false">Puedes dividir tu plan de llamadas en dos horarios. Cada uno de ellos puede configurarse como gratuito limitado a cierto número de minutos o ilimitado.</string>
