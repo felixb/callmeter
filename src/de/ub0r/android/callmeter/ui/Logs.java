@@ -22,9 +22,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 import android.app.AlertDialog;
-import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
-import android.content.ContentResolver;
+import android.app.ListActivity;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
@@ -42,6 +41,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -50,8 +51,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.ToggleButton;
-import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
@@ -76,9 +75,13 @@ public final class Logs extends ListActivity implements OnClickListener,
 	private static final String PREF_MMS = "_logs_mms";
 	/** Prefs: {@link ToggleButton} state for data. */
 	private static final String PREF_DATA = "_logs_data";
+	/** Prefs: {@link ToggleButton} state for in. */
+	private static final String PREF_IN = "_in";
+	/** Prefs: {@link ToggleButton} state for out. */
+	private static final String PREF_OUT = "_out";
 
 	/** {@link ToggleButton}s. */
-	private ToggleButton tbCall, tbSMS, tbMMS, tbData;
+	private ToggleButton tbCall, tbSMS, tbMMS, tbData, tbIn, tbOut;
 	/** Show hours and days. */
 	private static boolean showHours = true;
 
@@ -91,6 +94,9 @@ public final class Logs extends ListActivity implements OnClickListener,
 		/** Currency format. */
 		private final String cformat;
 
+		/** Column ids. */
+		private int idPlanName, idRuleName;
+
 		/**
 		 * Default Constructor.
 		 * 
@@ -100,11 +106,25 @@ public final class Logs extends ListActivity implements OnClickListener,
 		 *            {@link Context}
 		 */
 		public LogAdapter(final Context context, final String where) {
-			super(context, R.layout.logs_item, context.getContentResolver()
-					.query(DataProvider.Logs.CONTENT_URI,
-							DataProvider.Logs.PROJECTION, where, null,
-							DataProvider.Logs.DATE + " DESC"), true);
+			super(context, R.layout.logs_item, null, true);
 			this.cformat = Preferences.getCurrencyFormat(context);
+			this.changeCursor(where);
+		}
+
+		/**
+		 * Set a new where clause.
+		 * 
+		 * @param where
+		 *            where clause
+		 */
+		private void changeCursor(final String where) {
+			Cursor c = getContentResolver().query(
+					DataProvider.Logs.CONTENT_URI_WITH_JOIN,
+					DataProvider.Logs.PROJECTION_JOIN, where, null,
+					DataProvider.Logs.DATE + " DESC");
+			idPlanName = c.getColumnIndex(DataProvider.Plans.NAME);
+			idRuleName = c.getColumnIndex(DataProvider.Rules.NAME);
+			this.changeCursor(c);
 		}
 
 		/**
@@ -113,7 +133,6 @@ public final class Logs extends ListActivity implements OnClickListener,
 		@Override
 		public final void bindView(final View view, final Context context,
 				final Cursor cursor) {
-			final ContentResolver cr = context.getContentResolver();
 			final StringBuilder buf = new StringBuilder();
 			final int t = cursor.getInt(DataProvider.Logs.INDEX_TYPE);
 			String[] strs = context.getResources().getStringArray(
@@ -124,23 +143,18 @@ public final class Logs extends ListActivity implements OnClickListener,
 					R.array.direction_calls);
 			buf.append(" (" + strs[dir] + "): ");
 			final long date = cursor.getLong(DataProvider.Logs.INDEX_DATE);
-			buf
-					.append(DateFormat.getDateFormat(context).format(
-							new Date(date)));
+			buf.append(DateFormat.getDateFormat(context).format(// .
+					new Date(date)));
 			buf.append(" ");
-			buf
-					.append(DateFormat.getTimeFormat(context).format(
-							new Date(date)));
+			buf.append(DateFormat.getTimeFormat(context).format(// .
+					new Date(date)));
 			((TextView) view.findViewById(android.R.id.text1)).setText(buf
 					.toString());
 
-			((TextView) view.findViewById(R.id.plan))
-					.setText(DataProvider.Plans.getName(cr, cursor
-							.getLong(DataProvider.Logs.INDEX_PLAN_ID)));
-
-			((TextView) view.findViewById(R.id.rule))
-					.setText(DataProvider.Rules.getName(cr, cursor
-							.getLong(DataProvider.Logs.INDEX_RULE_ID)));
+			((TextView) view.findViewById(R.id.plan)).setText(cursor
+					.getString(idPlanName));
+			((TextView) view.findViewById(R.id.rule)).setText(cursor
+					.getString(idRuleName));
 
 			String s = cursor.getString(DataProvider.Logs.INDEX_REMOTE);
 			if (s == null || s.trim().length() == 0) {
@@ -154,7 +168,7 @@ public final class Logs extends ListActivity implements OnClickListener,
 			}
 
 			final long amount = cursor.getLong(DataProvider.Logs.INDEX_AMOUNT);
-			s = Plans.formatAmount(t, amount, showHours);
+			s = Common.formatAmount(t, amount, showHours);
 			if (s == null || s.trim().length() == 0 || s.equals("1")) {
 				view.findViewById(R.id.length).setVisibility(View.GONE);
 				view.findViewById(R.id.length_).setVisibility(View.GONE);
@@ -168,7 +182,7 @@ public final class Logs extends ListActivity implements OnClickListener,
 					.getFloat(DataProvider.Logs.INDEX_BILL_AMOUNT);
 			TextView tw = (TextView) view.findViewById(R.id.blength);
 			if (amount != ba) {
-				tw.setText(Plans.formatAmount(t, ba, showHours));
+				tw.setText(Common.formatAmount(t, ba, showHours));
 				tw.setVisibility(View.VISIBLE);
 				view.findViewById(R.id.blength_).setVisibility(View.VISIBLE);
 			} else {
@@ -206,12 +220,28 @@ public final class Logs extends ListActivity implements OnClickListener,
 		this.tbMMS.setOnClickListener(this);
 		this.tbData = (ToggleButton) this.findViewById(R.id.data);
 		this.tbData.setOnClickListener(this);
+		this.tbIn = (ToggleButton) this.findViewById(R.id.in);
+		this.tbIn.setOnClickListener(this);
+		this.tbOut = (ToggleButton) this.findViewById(R.id.out);
+		this.tbOut.setOnClickListener(this);
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		this.tbCall.setChecked(p.getBoolean(PREF_CALL, true));
 		this.tbSMS.setChecked(p.getBoolean(PREF_SMS, true));
 		this.tbMMS.setChecked(p.getBoolean(PREF_MMS, true));
 		this.tbData.setChecked(p.getBoolean(PREF_DATA, true));
+		this.tbIn.setChecked(p.getBoolean(PREF_IN, true));
+		this.tbOut.setChecked(p.getBoolean(PREF_OUT, true));
+
+		String[] directions = getResources().getStringArray(
+				R.array.direction_calls);
+		tbIn.setText(directions[DataProvider.DIRECTION_IN]);
+		tbIn.setTextOn(directions[DataProvider.DIRECTION_IN]);
+		tbIn.setTextOff(directions[DataProvider.DIRECTION_IN]);
+		tbOut.setText(directions[DataProvider.DIRECTION_OUT]);
+		tbOut.setTextOn(directions[DataProvider.DIRECTION_OUT]);
+		tbOut.setTextOff(directions[DataProvider.DIRECTION_OUT]);
+		directions = null;
 
 		this.setAdapter();
 	}
@@ -239,30 +269,43 @@ public final class Logs extends ListActivity implements OnClickListener,
 		e.putBoolean(PREF_SMS, this.tbSMS.isChecked());
 		e.putBoolean(PREF_MMS, this.tbMMS.isChecked());
 		e.putBoolean(PREF_DATA, this.tbData.isChecked());
+		e.putBoolean(PREF_IN, this.tbIn.isChecked());
+		e.putBoolean(PREF_OUT, this.tbOut.isChecked());
 		e.commit();
 	}
 
 	/** Set Adapter. */
 	private void setAdapter() {
-		String where = DataProvider.Logs.TYPE + " < 0 ";
+		String where = DataProvider.Logs.TABLE + "." + DataProvider.Logs.TYPE
+				+ " in (-1";
 		if (this.tbCall.isChecked()) {
-			where += " OR " + DataProvider.Logs.TYPE + " = "
-					+ DataProvider.TYPE_CALL;
+			where += "," + DataProvider.TYPE_CALL;
 		}
 		if (this.tbSMS.isChecked()) {
-			where += " OR " + DataProvider.Logs.TYPE + " = "
-					+ DataProvider.TYPE_SMS;
+			where += "," + DataProvider.TYPE_SMS;
 		}
 		if (this.tbMMS.isChecked()) {
-			where += " OR " + DataProvider.Logs.TYPE + " = "
-					+ DataProvider.TYPE_MMS;
+			where += "," + DataProvider.TYPE_MMS;
 		}
 		if (this.tbData.isChecked()) {
-			where += " OR " + DataProvider.Logs.TYPE + " = "
-					+ DataProvider.TYPE_DATA;
+			where += "," + DataProvider.TYPE_DATA;
 		}
+		where += ") and " + DataProvider.Logs.TABLE + "."
+				+ DataProvider.Logs.DIRECTION + " in (-1";
+		if (this.tbIn.isChecked()) {
+			where += "," + DataProvider.DIRECTION_IN;
+		}
+		if (this.tbOut.isChecked()) {
+			where += "," + DataProvider.DIRECTION_OUT;
+		}
+		where += ")";
 
-		this.setListAdapter(new LogAdapter(this, where));
+		LogAdapter adapter = (LogAdapter) getListAdapter();
+		if (adapter == null) {
+			this.setListAdapter(new LogAdapter(this, where));
+		} else {
+			adapter.changeCursor(where);
+		}
 		this.getListView().setOnItemLongClickListener(this);
 	}
 
@@ -349,10 +392,11 @@ public final class Logs extends ListActivity implements OnClickListener,
 							final String r = etRemote.getText().toString();
 							final boolean roamed = cbRoamed.isChecked();
 							final Calendar c = Calendar.getInstance();
-							c.set(dpDate.getYear(), dpDate.getMonth(), dpDate
-									.getDayOfMonth(), // .
-									tpTime.getCurrentHour(), tpTime
-											.getCurrentMinute());
+							c.set(dpDate.getYear(),
+									dpDate.getMonth(),
+									dpDate.getDayOfMonth(), // .
+									tpTime.getCurrentHour(),
+									tpTime.getCurrentMinute());
 							final ContentValues cv = new ContentValues();
 							switch (t) {
 							case DataProvider.Rules.WHAT_CALL:

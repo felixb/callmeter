@@ -21,8 +21,8 @@ package de.ub0r.android.callmeter.ui.prefs;
 import android.app.ListActivity;
 import android.content.ContentValues;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnDismissListener;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -209,6 +209,8 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 		ret.add(new TextPreference(this, DataProvider.Rules.NAME, this
 				.getString(R.string.rules_new), R.string.name_,
 				R.string.name_help, InputType.TYPE_CLASS_TEXT));
+		ret.add(new BoolPreference(this, DataProvider.Rules.ACTIVE,
+				R.string.active_, R.string.active_help, this));
 		ret.add(new ListPreference(this, DataProvider.Rules.WHAT,
 				DataProvider.Rules.WHAT_CALL, R.string.what_,
 				R.string.what_help, R.array.rules_type));
@@ -216,11 +218,9 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 				R.string.plan_, R.string.plan_help, -1, -1, -1,
 				DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID,
 				DataProvider.Plans.NAME, null, false, null, null, null));
-		ret
-				.add(new BoolPreference(this,
-						DataProvider.Rules.LIMIT_NOT_REACHED,
-						R.string.limitnotreached_,
-						R.string.limitnotreached_help, this));
+		ret.add(new BoolPreference(this, DataProvider.Rules.LIMIT_NOT_REACHED,
+				R.string.limitnotreached_, R.string.limitnotreached_help, // .
+				this));
 		ret.add(new ListPreference(this, DataProvider.Rules.DIRECTION,
 				DataProvider.Rules.NO_MATTER, R.string.direction_,
 				R.string.direction_help, this

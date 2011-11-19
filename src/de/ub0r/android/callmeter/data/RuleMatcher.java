@@ -37,13 +37,10 @@ import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.telephony.PhoneNumberUtils;
-import android.text.TextUtils;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.Plans;
-import de.ub0r.android.callmeter.ui.Plans.PlanStatus;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
@@ -123,8 +120,8 @@ public final class RuleMatcher {
 				if (s == null || s.length() == 0 || s.equals("-1")) {
 					continue;
 				}
-				final HoursGroup ng = new HoursGroup(cr, Utils
-						.parseLong(s, -1L));
+				final HoursGroup ng = new HoursGroup(cr,
+						Utils.parseLong(s, -1L));
 				if (ng != null && ng.hours.size() > 0) {
 					list.add(ng);
 				}
@@ -279,13 +276,13 @@ public final class RuleMatcher {
 			/** Entry for monday. */
 			private static final int MON = 1;
 			/** Entry for tuesday. */
-			private static final int TUE = 2;
+			// private static final int TUE = 2;
 			/** Entry for wednesday. */
-			private static final int WED = 3;
+			// private static final int WED = 3;
 			/** Entry for thrusday. */
-			private static final int THU = 4;
+			// private static final int THU = 4;
 			/** Entry for friday. */
-			private static final int FRI = 5;
+			// private static final int FRI = 5;
 			/** Entry for satadurday. */
 			private static final int SAT = 6;
 			/** Entry for sunday. */
@@ -397,14 +394,14 @@ public final class RuleMatcher {
 			this.what = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
 			this.direction = cursor.getInt(DataProvider.Rules.INDEX_DIRECTION);
 			this.roamed = cursor.getInt(DataProvider.Rules.INDEX_ROAMED);
-			this.inhours = getHourGroups(cr, cursor
-					.getString(DataProvider.Rules.INDEX_INHOURS_ID));
-			this.exhours = getHourGroups(cr, cursor
-					.getString(DataProvider.Rules.INDEX_EXHOURS_ID));
-			this.innumbers = getNumberGroups(cr, cursor
-					.getString(DataProvider.Rules.INDEX_INNUMBERS_ID));
-			this.exnumbers = getNumberGroups(cr, cursor
-					.getString(DataProvider.Rules.INDEX_EXNUMBERS_ID));
+			this.inhours = getHourGroups(cr,
+					cursor.getString(DataProvider.Rules.INDEX_INHOURS_ID));
+			this.exhours = getHourGroups(cr,
+					cursor.getString(DataProvider.Rules.INDEX_EXHOURS_ID));
+			this.innumbers = getNumberGroups(cr,
+					cursor.getString(DataProvider.Rules.INDEX_INNUMBERS_ID));
+			this.exnumbers = getNumberGroups(cr,
+					cursor.getString(DataProvider.Rules.INDEX_EXNUMBERS_ID));
 			this.limitNotReached = cursor
 					.getInt(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED) > 0;
 			if (cursor.isNull(DataProvider.Rules.INDEX_IS_WEBSMS)) {
@@ -678,8 +675,6 @@ public final class RuleMatcher {
 		private final long ppid;
 		/** PArent plan. Set in RuleMatcher.load(). */
 		private Plan parent = null;
-		/** True for plans merging other plans. */
-		private final boolean isMerger;
 		/** Time of next alert. */
 		private long nextAlert = 0;
 
@@ -691,8 +686,6 @@ public final class RuleMatcher {
 		private float billedAmount = 0f;
 		/** Cost billed this period. */
 		private float billedCost = 0f;
-		/** Where clause matching logs of this plan. */
-		private final String pwhere;
 
 		/** {@link ContentResolver}. */
 		private final ContentResolver cResolver;
@@ -708,16 +701,12 @@ public final class RuleMatcher {
 		Plan(final ContentResolver cr, final Cursor cursor) {
 			this.cResolver = cr;
 			this.id = cursor.getLong(DataProvider.Plans.INDEX_ID);
-			final String m = cursor
-					.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
-			this.pwhere = DataProvider.Plans.parseMergerWhere(this.id, m);
-			this.isMerger = !TextUtils.isEmpty(m);
 			this.name = cursor.getString(DataProvider.Plans.INDEX_NAME);
 			this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			this.limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 			final long l = DataProvider.Plans.getLimit(this.type,
-					this.limitType, cursor
-							.getLong(DataProvider.Plans.INDEX_LIMIT));
+					this.limitType,
+					cursor.getLong(DataProvider.Plans.INDEX_LIMIT));
 			if (this.type == DataProvider.TYPE_DATA) {
 				// normality amount is saved as kB, here it is plan B
 				this.limit = l * CallMeter.BYTE_KB;
@@ -821,17 +810,14 @@ public final class RuleMatcher {
 				this.nextBillday = nbd.getTimeInMillis();
 
 				// load old stats
-				final String where = DbUtils.sqlAnd(DataProvider.Plans
-						.getBilldayWhere(this.billperiod, this.currentBillday,
-								now), this.pwhere);
-				final PlanStatus ps = PlanStatus.get(this.cResolver, where,
-						this.isMerger, this.upc, this.upm, this.ups);
-				if (ps == null) {
+				final DataProvider.Plans.Plan plan = DataProvider.Plans.Plan
+						.getPlan(cResolver, id, now);
+				if (plan == null) {
 					this.billedAmount = 0f;
 					this.billedCost = 0f;
 				} else {
-					this.billedAmount = ps.billedAmount;
-					this.billedCost = ps.cost;
+					this.billedAmount = plan.bpBa;
+					this.billedCost = plan.cost;
 				}
 			}
 			if (this.parent != null) {
@@ -1030,6 +1016,31 @@ public final class RuleMatcher {
 			}
 			return ret;
 		}
+
+		/**
+		 * Get amount of free cost.
+		 * 
+		 * @param log
+		 *            {@link Cursor} pointing to log
+		 * @param cost
+		 *            cost calculated by getCost()
+		 * @return free cost
+		 */
+		float getFree(final Cursor log, final float cost) {
+			if (this.limitType != DataProvider.LIMIT_TYPE_COST) {
+				if (this.parent != null) {
+					return this.parent.getFree(log, cost);
+				}
+				return 0f;
+			}
+			if (this.limit <= this.billedCost) {
+				return 0f;
+			}
+			if (this.limit >= this.billedCost + cost) {
+				return cost;
+			}
+			return this.limit - this.billedCost;
+		}
 	}
 
 	/**
@@ -1071,7 +1082,8 @@ public final class RuleMatcher {
 		// load rules
 		rules = new ArrayList<Rule>();
 		Cursor cursor = cr.query(DataProvider.Rules.CONTENT_URI,
-				DataProvider.Rules.PROJECTION, null, null,
+				DataProvider.Rules.PROJECTION,
+				DataProvider.Rules.ACTIVE + ">0", null,
 				DataProvider.Rules.ORDER);
 		if (cursor != null && cursor.moveToFirst()) {
 			do {
@@ -1137,7 +1149,7 @@ public final class RuleMatcher {
 	}
 
 	/**
-	 * Match a log.
+	 * Match a single log record given as {@link Cursor}.
 	 * 
 	 * @param cr
 	 *            {@link ContentResolver}
@@ -1188,6 +1200,7 @@ public final class RuleMatcher {
 				cv.put(DataProvider.Logs.BILL_AMOUNT, ba);
 				final float bc = p.getCost(log, ba);
 				cv.put(DataProvider.Logs.COST, bc);
+				cv.put(DataProvider.Logs.FREE, p.getFree(log, bc));
 				p.updatePlan(ba, bc, t);
 				final int ret = cr.update(DataProvider.Logs.CONTENT_URI, cv,
 						DataProvider.Logs.ID + " = ?", lids);
@@ -1208,7 +1221,7 @@ public final class RuleMatcher {
 	}
 
 	/**
-	 * Match a log.
+	 * Match a single log record.
 	 * 
 	 * @param cr
 	 *            {@link ContentResolver}
@@ -1257,6 +1270,7 @@ public final class RuleMatcher {
 		cv.put(DataProvider.Logs.BILL_AMOUNT, ba);
 		final float bc = p.getCost(log, ba);
 		cv.put(DataProvider.Logs.COST, bc);
+		cv.put(DataProvider.Logs.FREE, p.getFree(log, bc));
 		p.updatePlan(ba, bc, t);
 		cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID
 				+ " = ?", new String[] { String.valueOf(lid) });
@@ -1264,7 +1278,7 @@ public final class RuleMatcher {
 	}
 
 	/**
-	 * Math logs.
+	 * Match all unmatched logs.
 	 * 
 	 * @param context
 	 *            {@link Context}
@@ -1344,8 +1358,8 @@ public final class RuleMatcher {
 					final NotificationManager mNotificationMgr = // .
 					(NotificationManager) context
 							.getSystemService(Context.NOTIFICATION_SERVICE);
-					final String t = String.format(context
-							.getString(R.string.alerts_message),
+					final String t = String.format(
+							context.getString(R.string.alerts_message),
 							alertPlan.name, alert);
 					final Notification n = new Notification(
 							android.R.drawable.stat_notify_error, t, now);
@@ -1356,9 +1370,8 @@ public final class RuleMatcher {
 									PendingIntent.FLAG_CANCEL_CURRENT));
 					mNotificationMgr.notify(0, n);
 					final ContentValues cv = new ContentValues();
-					cv
-							.put(DataProvider.Plans.NEXT_ALERT,
-									alertPlan.nextBillday);
+					cv.put(DataProvider.Plans.NEXT_ALERT, // .
+							alertPlan.nextBillday);
 					cr.update(DataProvider.Plans.CONTENT_URI, cv,
 							DataProvider.Plans.ID + " = ?",
 							new String[] { String.valueOf(alertPlan.id) });

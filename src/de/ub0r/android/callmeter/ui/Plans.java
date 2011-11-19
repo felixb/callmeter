@@ -18,11 +18,10 @@
  */
 package de.ub0r.android.callmeter.ui;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.HashSet;
 
+import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
@@ -35,7 +34,6 @@ import android.content.ActivityNotFoundException;
 import android.content.AsyncQueryHandler;
 import android.content.ContentResolver;
 import android.content.ContentUris;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -43,14 +41,12 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.TextUtils;
-import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -75,7 +71,6 @@ import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.PlanEdit;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.ChangelogHelper;
-import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.DonationHelper;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
@@ -119,17 +114,6 @@ public class Plans extends ListActivity implements OnClickListener,
 	/** Separator for the data. */
 	public static String delimiter = " | ";
 
-	/** Byte units. */
-	private static final String BYTE_UNITS_B = "B";
-	/** Byte units: kB. */
-	private static final String BYTE_UNITS_KB = "kB";
-	/** Byte units: MB. */
-	private static final String BYTE_UNITS_MB = "MB";
-	/** Byte units: GB. */
-	private static final String BYTE_UNITS_GB = "GB";
-	/** Byte units: TB. */
-	private static final String BYTE_UNITS_TB = "TB";
-
 	/** Dialog: show date. */
 	private static final int DIALOG_SHOW_DATE = 1;
 	/** Dialog: show time. */
@@ -155,11 +139,6 @@ public class Plans extends ListActivity implements OnClickListener,
 
 	/** Selected currency format. */
 	private static String currencyFormat = "$%.2f";
-	/** Selected date format. */
-	private static String dateFormat = null;
-
-	/** Force adapter to reload the list. */
-	private static boolean reloadList = false;
 
 	/** Show today stats. */
 	private static boolean showToday = false;
@@ -191,8 +170,9 @@ public class Plans extends ListActivity implements OnClickListener,
 			case MSG_BACKGROUND_STOP_MATCHER:
 				inProgressRunner = false;
 				inProgressMatcher = false;
-
-				Plans.this.adapter.updatePlans();
+				Calendar now = Plans.this.getNowFromIntent(
+						Plans.this.getIntent(), false);
+				adapter.startPlanQuery(now, hideZero, hideNoCost);
 				break;
 			case MSG_BACKGROUND_START_PLANADAPTER:
 				inProgressPlanadapter = true;
@@ -224,13 +204,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			default:
 				break;
 			}
-			if (Plans.this.getListView().getCount() == 0) {
-				Plans.this.findViewById(R.id.import_default).setVisibility(
-						View.VISIBLE);
-			} else {
-				Plans.this.findViewById(R.id.import_default).setVisibility(
-						View.GONE);
-			}
+
 			Plans.this.setProgressBarIndeterminateVisibility(inProgressMatcher
 					|| inProgressPlanadapter);
 			if (inProgressRunner) {
@@ -267,85 +241,6 @@ public class Plans extends ListActivity implements OnClickListener,
 	private static boolean statusMatcherProgress = false;
 
 	/**
-	 * Class holding Status of a {@link Plan}.
-	 * 
-	 * @author flx
-	 */
-	@Deprecated
-	public static final class PlanStatus {
-		/** Id of plan. */
-		public long id = -1L;
-		/** Count of items. */
-		public int count = 0;
-		/** Billed amount. */
-		public float billedAmount = 0f;
-		/** Cost. */
-		public float cost = 0f;
-
-		/**
-		 * Get {@link PlanStatus} from database.
-		 * 
-		 * @param cr
-		 *            {@link ContentResolver}
-		 * @param where
-		 *            where clause on DataProvider.Logs.SUM_URI
-		 * @param mixedMerger
-		 *            isMerger && type == mixed
-		 * @param upc
-		 *            units per minute
-		 * @param upm
-		 *            units per mms
-		 * @param ups
-		 *            units per sms
-		 * @return {@link PlanStatus}
-		 */
-		public static PlanStatus get(final ContentResolver cr,
-				final String where, final boolean mixedMerger, final long upc,
-				final long upm, final long ups) {
-
-			final Cursor c = cr.query(DataProvider.Logs.SUM_URI,
-					DataProvider.Logs.PROJECTION_SUM, where, null, null);
-			if (c == null || !c.moveToFirst()) {
-				if (c != null && !c.isClosed()) {
-					c.close();
-				}
-				return null;
-			}
-			final PlanStatus ret = new PlanStatus();
-			ret.id = c.getLong(DataProvider.Logs.INDEX_SUM_PLAN_ID);
-			do {
-				ret.cost += c.getFloat(DataProvider.Logs.INDEX_SUM_COST);
-				float ba = c.getFloat(DataProvider.Logs.// .
-						INDEX_SUM_BILL_AMOUNT);
-				if (mixedMerger) {
-					final int t = c.getInt(// .
-							DataProvider.Logs.INDEX_SUM_PLAN_TYPE);
-					switch (t) {
-					case DataProvider.TYPE_CALL:
-						ba = ba * upc / CallMeter.SECONDS_MINUTE;
-						break;
-					case DataProvider.TYPE_MMS:
-						ba *= upm;
-						break;
-					case DataProvider.TYPE_SMS:
-						ba *= ups;
-						break;
-					default:
-						break;
-					}
-				}
-				ret.billedAmount += ba;
-				ret.count += c.getInt(DataProvider.Logs.INDEX_SUM_COUNT);
-			} while (c.moveToNext());
-
-			if (!c.isClosed()) {
-				c.close();
-			}
-			return ret;
-		}
-	}
-
-	/**
 	 * Adapter binding plans to View.
 	 * 
 	 * @author flx
@@ -362,16 +257,19 @@ public class Plans extends ListActivity implements OnClickListener,
 		 * @author flx
 		 */
 		private final class BackgroundQueryHandler extends AsyncQueryHandler {
+			/** Reference to {@link Activity}. */
+			final Activity activity;
 
 			/**
 			 * A helper class to help make handling asynchronous
 			 * {@link ContentResolver} queries easier.
 			 * 
-			 * @param cr
-			 *            {@link ContentResolver}
+			 * @param context
+			 *            {@link Activity}
 			 */
-			public BackgroundQueryHandler(final ContentResolver cr) {
-				super(cr);
+			public BackgroundQueryHandler(final Activity context) {
+				super(context.getContentResolver());
+				activity = context;
 			}
 
 			/**
@@ -382,372 +280,46 @@ public class Plans extends ListActivity implements OnClickListener,
 					final Object cookie, final Cursor cursor) {
 				switch (token) {
 				case PLAN_QUERY_TOKEN:
+					this.activity.findViewById(R.id.loading).setVisibility(
+							View.GONE);
 					PlanAdapter.this.changeCursor(cursor);
-					// FIXME PlanAdapter.this.activity
-					// .setProgressBarIndeterminateVisibility(Boolean.FALSE);
+					if (cursor != null && cursor.getCount() > 0) {
+						this.activity.findViewById(R.id.import_default)
+								.setVisibility(View.GONE);
+					} else {
+						this.activity.findViewById(R.id.import_default)
+								.setVisibility(View.VISIBLE);
+					}
+					this.activity.setProgressBarIndeterminateVisibility(// .
+							Boolean.FALSE);
 					return;
 				default:
 					return;
 				}
 			}
-		}
-
-		/** Newest {@link AsyncTask} which should run. */
-		private static Object runningTask = null;
-
-		/** A plan. */
-		@Deprecated
-		private class Plan {
-			/** {@link Context}. */
-			private final Context ctx;
-
-			/** Type of plan. */
-			private final int type;
-			/** Id of plan. */
-			private final long id;
-			/** Id of parent plan. */
-			private final long ppid;
-			/** True for plans merging other plans. */
-			private final boolean isMerger;
-			/** Where clause for updating the plan. */
-			private final String where;
-			/** Bill period. */
-			private final int billperiod;
-			/** Bill period id. */
-			private final long billperiodid;
-			/** Bill day. */
-			private final long billday;
-			/** Bill day as {@link Calendar}. */
-			private final Calendar billdayc;
-			/** Type of limit. */
-			private final int limittype;
-			/** Limit. */
-			private final long limit;
-			/** Cost per plan. */
-			private final float cpp;
-			/** Units per call, sms, mms. */
-			private final int upc, ups, upm;
-			/** Current cache String. */
-			private String currentCacheString = "";
-			/** Current "used". */
-			private float used = -1f;
 
 			/**
-			 * Default Constructor from {@link Cursor}.
-			 * 
-			 * @param context
-			 *            {@link Context}
-			 * @param cursor
-			 *            {@link Cursor}
+			 * {@inheritDoc}
 			 */
-			Plan(final Context context, final Cursor cursor) {
-				this.ctx = context;
-				this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
-				this.id = cursor.getLong(DataProvider.Plans.INDEX_ID);
-				this.billperiod = cursor
-						.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
-				this.billperiodid = cursor
-						.getLong(DataProvider.Plans.INDEX_BILLPERIOD_ID);
-				this.currentCacheString = null;
-				if (this.type == DataProvider.TYPE_SPACING
-						|| this.type == DataProvider.TYPE_TITLE) {
-					this.billday = -1;
-					this.billdayc = null;
-					this.limittype = -1;
-					this.limit = -1;
-					this.cpp = 0;
-					this.where = null;
-					this.ppid = -1L;
-					this.upc = 0;
-					this.upm = 0;
-					this.ups = 0;
-					this.isMerger = false;
-				} else if (this.type == DataProvider.TYPE_BILLPERIOD) {
-					this.billday = cursor
-							.getLong(DataProvider.Plans.INDEX_BILLDAY);
-					this.billdayc = Calendar.getInstance();
-					this.billdayc.setTimeInMillis(this.billday);
-					this.limittype = -1;
-					this.limit = -1;
-					this.cpp = cursor
-							.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
-					this.where = null;
-					this.ppid = -1L;
-					this.upc = 0;
-					this.upm = 0;
-					this.ups = 0;
-					this.isMerger = false;
-				} else {
-					this.billday = -1;
-					this.billdayc = null;
-					this.ppid = DataProvider.Plans.getParent(
-							context.getContentResolver(), this.id);
-					this.limittype = cursor
-							.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
-					this.limit = DataProvider.Plans.getLimit(this.type,
-							this.limittype,
-							cursor.getLong(DataProvider.Plans.INDEX_LIMIT));
-					this.cpp = cursor
-							.getFloat(DataProvider.Plans.INDEX_COST_PER_PLAN);
-					final String s = cursor
-							.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
-					if (s == null || s.length() == 0) {
-						this.isMerger = false;
-						this.where = DataProvider.Plans.parseMergerWhere(
-								this.id, null);
-					} else {
-						this.isMerger = true;
-						this.where = DataProvider.Plans.parseMergerWhere(
-								this.id, s);
-					}
-					if (this.type == DataProvider.TYPE_MIXED) {
-						this.upc = cursor.getInt(// .
-								DataProvider.Plans.INDEX_MIXED_UNITS_CALL);
-						this.upm = cursor.getInt(// .
-								DataProvider.Plans.INDEX_MIXED_UNITS_MMS);
-						this.ups = cursor.getInt(// .
-								DataProvider.Plans.INDEX_MIXED_UNITS_SMS);
-					} else {
-						this.upc = 0;
-						this.upm = 0;
-						this.ups = 0;
-					}
+			@Override
+			public void startQuery(final int token, final Object cookie,
+					final Uri uri, final String[] projection,
+					final String selection, final String[] selectionArgs,
+					final String orderBy) {
+				if (PlanAdapter.this.getCount() == 0) {
+					this.activity.findViewById(R.id.loading).setVisibility(
+							View.VISIBLE);
 				}
-			}
-
-			/**
-			 * Update bill period.
-			 * 
-			 * @param lnow
-			 *            local "now"
-			 * @param cv
-			 *            {@link ContentValues} to save cached data
-			 */
-			private void updateBillPeriod(final Calendar lnow,
-					final ContentValues cv) {
-				Calendar billDay = Calendar.getInstance();
-				billDay.setTimeInMillis(this.billday);
-				billDay = DataProvider.Plans.getBillDay(this.billperiod,
-						billDay, lnow, false);
-
-				String formatedDate;
-				if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
-					cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, -1);
-					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, 1);
-					if (this.billday <= 0 || billDay == null) {
-						formatedDate = "\u221E";
-					} else {
-						if (dateFormat == null) {
-							formatedDate = DateFormat.getDateFormat(this.ctx)
-									.format(billDay.getTime());
-						} else {
-							formatedDate = String.format(dateFormat, billDay,
-									billDay, billDay);
-						}
-					}
-				} else {
-					final Calendar nextBillDay = DataProvider.Plans.getBillDay(
-							this.billperiod, billDay, lnow, true);
-					final long pr = billDay.getTimeInMillis()
-							/ CallMeter.MILLIS;
-					final long nx = (nextBillDay.getTimeInMillis() // .
-							/ CallMeter.MILLIS)
-							- pr;
-					long nw;
-					if (lnow == null) {
-						nw = System.currentTimeMillis();
-					} else {
-						nw = lnow.getTimeInMillis();
-					}
-					nw = (nw / CallMeter.MILLIS) - pr;
-
-					cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, nx);
-					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, nw);
-					this.used = (float) nw / nx;
-					if (dateFormat == null) {
-						formatedDate = DateFormat.getDateFormat(this.ctx)
-								.format(billDay.getTime());
-					} else {
-						formatedDate = String.format(dateFormat, billDay,
-								billDay, billDay);
-					}
-				}
-				String ccs;
-				if (this.currentCacheString != null
-						&& this.currentCacheString.contains("\n")) {
-					ccs = formatedDate + "\n"
-							+ this.currentCacheString.split("\n", 2)[1];
-				} else {
-					ccs = formatedDate;
-				}
-				if (this.used >= 0f) {
-					ccs = (int) (this.used * CallMeter.HUNDRET) + "%"
-							+ delimiter + ccs;
-				}
-				if (!ccs.equals(this.currentCacheString)) {
-					this.currentCacheString = ccs;
-					cv.put(DataProvider.Plans.CACHE_STRING, ccs);
-				}
-			}
-
-			/**
-			 * Update non bill period plans.
-			 * 
-			 * @param lnow
-			 *            local "now"
-			 * @param cv
-			 *            {@link ContentValues} to save cached data
-			 */
-			private void updateStandardPlans(final Calendar lnow,
-					final ContentValues cv) {
-				int u = 0;
-				if (this.limit > 0) {
-					cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, this.limit);
-				} else {
-					cv.put(DataProvider.Plans.CACHE_PROGRESS_MAX, 0);
-				}
-				if (this.id < 0) {
-					return;
-				}
-				final Plan billp = PlanAdapter.this.getPlan(this.billperiodid);
-				String w = null;
-				if (billp != null) {
-					w = DataProvider.Plans.getBilldayWhere(billp.billperiod,
-							billp.billdayc, lnow);
-				}
-				w = DbUtils.sqlAnd(w, this.where);
-				Log.d(TAG, "where: " + w);
-
-				final ContentResolver cr = this.ctx.getContentResolver();
-
-				PlanStatus thisBP = PlanStatus.get(cr, w, this.isMerger
-						&& this.type == DataProvider.TYPE_MIXED, this.upc,
-						this.upm, this.ups);
-				PlanStatus today = null;
-				PlanStatus allTime = null;
-
-				if (thisBP == null) {
-					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, 0);
-					thisBP = new PlanStatus();
-				} else {
-					Log.d(TAG, "plan: " + this.id);
-					Log.d(TAG, "count: " + thisBP.count);
-					Log.d(TAG, "cost: " + thisBP.cost);
-					Log.d(TAG, "billedAmount: " + thisBP.billedAmount);
-
-					u = DataProvider.Plans.getUsed(this.type, this.limittype,
-							thisBP.billedAmount, thisBP.cost);
-
-					cv.put(DataProvider.Plans.CACHE_PROGRESS_POS, u);
-					this.used = (float) u / this.limit;
-
-					if (this.ppid >= 0L) {
-						thisBP.cost = 0f;
-					}
-				}
-
-				// get today
-				if (showToday) {
-					Calendar cal = null;
-					if (lnow != null) {
-						cal = (Calendar) lnow.clone();
-					}
-					if (cal == null) {
-						cal = Calendar.getInstance();
-					}
-					cal.set(Calendar.HOUR_OF_DAY, 0);
-					cal.set(Calendar.MINUTE, 0);
-					cal.set(Calendar.SECOND, 0);
-					cal.set(Calendar.MILLISECOND, 0);
-					w = DbUtils.sqlAnd(this.where, DataProvider.Logs.DATE
-							+ " > " + cal.getTimeInMillis());
-					today = PlanStatus.get(cr, w, this.isMerger
-							&& this.type == DataProvider.TYPE_MIXED, this.upc,
-							this.upm, this.ups);
-					if (today == null) {
-						today = new PlanStatus();
-					}
-				} else {
-					today = new PlanStatus();
-					today.billedAmount = -1f;
-					today.count = -1;
-				}
-
-				// get all time
-				if (showTotal) {
-					allTime = PlanStatus.get(cr, this.where, this.isMerger
-							&& this.type == DataProvider.TYPE_MIXED, this.upc,
-							this.upm, this.ups);
-					if (allTime == null) {
-						allTime = new PlanStatus();
-					}
-				} else {
-					allTime = new PlanStatus();
-					allTime.billedAmount = -1f;
-					allTime.count = -1;
-				}
-
-				// cost per plan
-				float free = 0;
-				if (thisBP.cost > 0 && this.limittype == // .
-						DataProvider.LIMIT_TYPE_COST) {
-					final float lmt = this.limit / CallMeter.HUNDRET;
-					if (thisBP.cost <= lmt) {
-						free = thisBP.cost;
-						thisBP.cost = 0;
-					} else {
-						free = lmt;
-						thisBP.cost -= lmt;
-					}
-				}
-				if (this.cpp > 0) {
-					if (thisBP.cost <= 0) {
-						thisBP.cost = this.cpp;
-					} else {
-						thisBP.cost += this.cpp;
-					}
-				}
-
-				final String ccs = getString(this, u, thisBP, free, today,
-						allTime, pShowHours);
-				if (!ccs.equals(this.currentCacheString)) {
-					this.currentCacheString = ccs;
-					cv.put(DataProvider.Plans.CACHE_STRING, ccs);
-				}
-			}
-
-			/**
-			 * Update the plan and write cached data to database.
-			 */
-			final void update() {
-				if (this.type == DataProvider.TYPE_SPACING
-						|| this.type == DataProvider.TYPE_TITLE) {
-					return;
-				}
-				final Calendar lnow = PlanAdapter.this.now;
-				final Uri uri = ContentUris.withAppendedId(
-						DataProvider.Plans.CONTENT_URI, this.id);
-				final ContentValues cv = new ContentValues();
-
-				if (this.type == DataProvider.TYPE_BILLPERIOD) {
-					this.updateBillPeriod(lnow, cv);
-				} else {
-					this.updateStandardPlans(lnow, cv);
-				}
-				this.ctx.getContentResolver().update(uri, cv, null, null);
+				this.activity.setProgressBarIndeterminateVisibility(// .
+						Boolean.TRUE);
+				super.startQuery(token, cookie, uri, projection, selection,
+						selectionArgs, orderBy);
 			}
 		}
 
 		/** Now. */
 		private Calendar now;
 
-		/** List of plans. */
-		private ArrayList<Plan> plansList = new ArrayList<Plan>();
-		/** Hash of plans. plan.id -> plan. */
-		private HashMap<Long, Plan> plansMap = new HashMap<Long, Plan>();
-
-		/** {@link Context}. */
-		private final Context ctx;
 		/** Textsizes. */
 		private int textSize, textSizeBigTitle, textSizeTitle, textSizeSpacer,
 				textSizePBar, textSizePBarBP;
@@ -760,7 +332,7 @@ public class Plans extends ListActivity implements OnClickListener,
 		 * Default Constructor.
 		 * 
 		 * @param context
-		 *            {@link Context}
+		 *            {@link Activity}
 		 * @param lnow
 		 *            {@link Calendar} pointing to current time shown
 		 * @param lhideZero
@@ -768,12 +340,10 @@ public class Plans extends ListActivity implements OnClickListener,
 		 * @param lhideNoCost
 		 *            hide no cost plans
 		 */
-		public PlanAdapter(final Context context, final Calendar lnow,
+		public PlanAdapter(final Activity context, final Calendar lnow,
 				final boolean lhideZero, final boolean lhideNoCost) {
 			super(context, R.layout.plans_item, null, true);
-			this.ctx = context;
-			queryHandler = new BackgroundQueryHandler(
-					context.getContentResolver());
+			queryHandler = new BackgroundQueryHandler(context);
 			final SharedPreferences p = PreferenceManager
 					.getDefaultSharedPreferences(context);
 			if (p.getBoolean(Preferences.PREFS_HIDE_PROGRESSBARS, false)) {
@@ -800,8 +370,6 @@ public class Plans extends ListActivity implements OnClickListener,
 			this.queryHandler.cancelOperation(PLAN_QUERY_TOKEN);
 			try {
 				// Kick off the new query
-				// FIXME
-				// this.activity.setProgressBarIndeterminateVisibility(Boolean.TRUE);
 				Calendar n = lnow;
 				if (n == null) {
 					n = Calendar.getInstance();
@@ -820,26 +388,10 @@ public class Plans extends ListActivity implements OnClickListener,
 								.appendQueryParameter(
 										DataProvider.Plans.PARAM_HIDE_NOCOST,
 										String.valueOf(lhideNoCost)).build(),
-						DataProvider.Plans.PROJECTION_SUM, null, null,
-						DataProvider.Plans.ORDER);
+						DataProvider.Plans.PROJECTION_SUM, null, null, null);
 			} catch (SQLiteException e) {
 				Log.e(TAG, "error starting query", e);
 			}
-		}
-
-		/**
-		 * Update GUI parameters.
-		 */
-		private void updateGUI() {
-			final Context context = this.ctx;
-			this.prepaid = PreferenceManager.getDefaultSharedPreferences(
-					context).getBoolean(Preferences.PREFS_PREPAID, false);
-			this.textSize = Preferences.getTextsize(context);
-			this.textSizeBigTitle = Preferences.getTextsizeBigTitle(context);
-			this.textSizeTitle = Preferences.getTextsizeTitle(context);
-			this.textSizeSpacer = Preferences.getTextsizeSpacer(context);
-			this.textSizePBar = Preferences.getTextsizeProgressBar(context);
-			this.textSizePBarBP = Preferences.getTextsizeProgressBarBP(context);
 		}
 
 		/**
@@ -868,282 +420,64 @@ public class Plans extends ListActivity implements OnClickListener,
 		}
 
 		/**
-		 * Get a {@link Plan} by id.
-		 * 
-		 * @param id
-		 *            id of {@link Plan}
-		 * @return {@link Plan}
-		 */
-		private Plan getPlan(final long id) {
-			return this.plansMap.get(id);
-		}
-
-		/**
-		 * Append a {@link Plan} to the list of plans.
-		 * 
-		 * @param plan
-		 *            {@link Plan}
-		 */
-		private void appendPlan(final Plan plan) {
-			this.plansList.add(plan);
-			this.plansMap.put(plan.id, plan);
-		}
-
-		/**
-		 * Reload all {@link Plan}s from {@link Cursor}.
-		 * 
-		 * @param cr
-		 *            {@link ContentResolver}
-		 * @param cursor
-		 *            {@link Cursor}
-		 */
-		synchronized void reloadPlans(final ContentResolver cr,
-				final Cursor cursor) {
-			this.plansList.clear();
-			this.plansMap.clear();
-			if (cursor == null) {
-				Log.e(TAG, "reloadPlans(cr, null)");
-			}
-			if (!cursor.moveToFirst()) {
-				Log.e(TAG, "reloadPlans(cr, cursor(0))");
-				return;
-			}
-			do {
-				this.appendPlan(new Plan(this.ctx, cursor));
-			} while (cursor.moveToNext());
-		}
-
-		/** Update all {@link Plan}s in background. */
-		void updatePlans() {
-			Log.d(TAG, "updatePlans()");
-			this.updateGUI();
-			new AsyncTask<Void, Void, Void>() {
-				@Override
-				protected Void doInBackground(final Void... params) {
-					Log.d(TAG, "updatePlans().task start");
-					runningTask = this;
-					if (currentHandler != null) {
-						currentHandler.sendEmptyMessage(// .
-								MSG_BACKGROUND_START_PLANADAPTER);
-					}
-					int l = PlanAdapter.this.plansList.size();
-					// update bill periods
-					try {
-						for (int i = 0; i < l; i++) {
-							if (runningTask != this) {
-								break;
-							}
-							final Plan p = PlanAdapter.this.plansList.get(i);
-							if (p.type == DataProvider.TYPE_BILLPERIOD) {
-								p.update();
-							}
-						}
-					} catch (IndexOutOfBoundsException e) {
-						Log.w(TAG, "array size changed!", e);
-						l = PlanAdapter.this.plansList.size();
-					}
-					// update rest
-					try {
-						for (int i = 0; i < l; i++) {
-							if (runningTask != this) {
-								break;
-							}
-							final Plan p = PlanAdapter.this.plansList.get(i);
-							if (p.type != DataProvider.TYPE_BILLPERIOD) {
-								p.update();
-							}
-						}
-					} catch (IndexOutOfBoundsException e) {
-						Log.w(TAG, "array size changed!", e);
-						l = PlanAdapter.this.plansList.size();
-					}
-					final boolean last = runningTask == this;
-					if (last && currentHandler != null) {
-						currentHandler.sendEmptyMessage(// .
-								MSG_BACKGROUND_STOP_PLANADAPTER);
-					}
-					Log.d(TAG, "updatePlans().task finished: " + last);
-					return null;
-				}
-			} // .
-			.execute((Void) null);
-		}
-
-		/**
-		 * Get a {@link String} showing all the data to the user.
-		 * 
-		 * @param p
-		 *            {@link Plan}
-		 * @param used
-		 *            used limit
-		 * @param thisBP
-		 *            {@link PlanStatus} for this bill period
-		 * @param free
-		 *            cost not actual billed
-		 * @param today
-		 *            {@link PlanStatus} for today
-		 * @param allTime
-		 *            {@link PlanStatus} for all time
-		 * @param showHours
-		 *            show hours
-		 * @return {@link String} holding all the data
-		 */
-		private static String getString(final Plan p, final int used,
-				final PlanStatus thisBP, final float free,
-				final PlanStatus today, final PlanStatus allTime,
-				final boolean showHours) {
-			final StringBuilder ret = new StringBuilder();
-
-			if (showToday) {
-				// amount today
-				ret.append(formatAmount(p.type, today.billedAmount, showHours));
-				// count today
-				if (p.type == DataProvider.TYPE_CALL) {
-					ret.append(" (" + today.count + ")");
-				}
-
-				ret.append(delimiter);
-			}
-
-			if (showToday || showTotal) {
-				ret.append("<b>");
-			}
-
-			// usage
-			if (p.limittype != DataProvider.LIMIT_TYPE_NONE && p.limit > 0) {
-				ret.append((used * CallMeter.HUNDRET) / p.limit);
-				ret.append("%");
-				ret.append(delimiter);
-			}
-
-			// amount
-			ret.append(formatAmount(p.type, thisBP.billedAmount, showHours));
-			// count
-			if (p.type == DataProvider.TYPE_CALL) {
-				ret.append(" (" + thisBP.count + ")");
-			}
-
-			if (showToday || showTotal) {
-				ret.append("</b>");
-			}
-
-			if (showTotal) {
-				ret.append(delimiter);
-
-				// amount all time
-				ret.append(formatAmount(p.type, allTime.billedAmount, // .
-						showHours));
-				// count all time
-				if (p.type == DataProvider.TYPE_CALL) {
-					ret.append(" (" + allTime.count + ")");
-				}
-			}
-
-			// cost
-			if (thisBP.cost > 0 || free > 0) {
-				ret.append("\n");
-				if (free > 0) {
-					ret.append("(");
-					ret.append(String.format(currencyFormat, free));
-					ret.append(")");
-					if (thisBP.cost > 0) {
-						ret.append(" + ");
-					}
-				}
-				if (thisBP.cost > 0) {
-					ret.append(String.format(currencyFormat, thisBP.cost));
-				}
-			}
-			return ret.toString();
-		}
-
-		/**
 		 * {@inheritDoc}
 		 */
 		@Override
 		public final void bindView(final View view, final Context context,
 				final Cursor cursor) {
-			final int t = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
-			final int lType = cursor
-					.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
-			int limit = (int) DataProvider.Plans.getLimit(t, lType,
-					cursor.getLong(DataProvider.Plans.INDEX_LIMIT));
+			DataProvider.Plans.Plan plan = new DataProvider.Plans.Plan(cursor);
 
-			final float cost = cursor
-					.getFloat(DataProvider.Plans.INDEX_SUM_COST);
-			final int tdCount = cursor
-					.getInt(DataProvider.Plans.INDEX_SUM_TD_COUNT);
-			final float tdBa = cursor
-					.getFloat(DataProvider.Plans.INDEX_SUM_TD_BILLED_AMOUNT);
-			final int bpCount = cursor
-					.getInt(DataProvider.Plans.INDEX_SUM_BP_COUNT);
-			final float bpBa = cursor
-					.getFloat(DataProvider.Plans.INDEX_SUM_BP_BILLED_AMOUNT);
-			final int atCount = cursor
-					.getInt(DataProvider.Plans.INDEX_SUM_AT_COUNT);
-			final float atBa = cursor
-					.getFloat(DataProvider.Plans.INDEX_SUM_AT_BILLED_AMOUNT);
-			final Calendar lnow = Calendar.getInstance();
-			lnow.setTimeInMillis(cursor
-					.getLong(DataProvider.Plans.INDEX_SUM_NOW));
-			final long billday = cursor
-					.getLong(DataProvider.Plans.INDEX_BILLDAY);
-			final int billperiod = cursor
-					.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
-			int limitPos = -1;
 			String cacheStr = null;
-			if (t != DataProvider.TYPE_SPACING // .
-					&& t != DataProvider.TYPE_TITLE) {
+			float cost = plan.getAccumCost();
+			float free = plan.getFree();
+			if (plan.type != DataProvider.TYPE_SPACING // .
+					&& plan.type != DataProvider.TYPE_TITLE) {
 				cacheStr = "<b>"
-						+ formatValues(this.ctx, lnow, t, bpCount, bpBa,
-								billperiod, billday) + "</b>";
-				if (t == DataProvider.TYPE_BILLPERIOD) {
-					final Calendar billDay = DataProvider.Plans.getBillDay(
-							billperiod, billday, lnow, false);
-					final Calendar nextBillDay = DataProvider.Plans.getBillDay(
-							billperiod, billDay, lnow, true);
-					if (billperiod == DataProvider.BILLPERIOD_INFINITE) {
-						limitPos = 0;
-						limit = 0;
-					} else {
-						limitPos = (int) ((lnow.getTimeInMillis() - billDay
-								.getTimeInMillis()) / Utils.MINUTES_IN_MILLIS);
-						limit = (int) ((nextBillDay.getTimeInMillis() - billDay
-								.getTimeInMillis()) / Utils.MINUTES_IN_MILLIS);
-					}
-				} else {
-					limitPos = DataProvider.Plans.getUsed(t, lType, bpBa, cost);
+						+ Common.formatValues(context, plan.now, plan.type,
+								plan.bpCount, plan.bpBa, plan.billperiod,
+								plan.billday, pShowHours) + "</b>";
+				if (plan.type != DataProvider.TYPE_BILLPERIOD) {
 					if (showTotal) {
 						cacheStr += delimiter;
-						cacheStr += formatValues(ctx, now, t, atCount, atBa,
-								billperiod, billday);
+						cacheStr += Common.formatValues(context, plan.now,
+								plan.type, plan.atCount, plan.atBa,
+								plan.billperiod, plan.billday, pShowHours);
 					}
 					if (showToday) {
 						cacheStr = delimiter + cacheStr;
-						cacheStr = formatValues(ctx, now, t, tdCount, tdBa,
-								billperiod, billday) + cacheStr;
+						cacheStr = Common.formatValues(context, plan.now,
+								plan.type, plan.tdCount, plan.tdBa,
+								plan.billperiod, plan.billday, pShowHours)
+								+ cacheStr;
 					}
 				}
-				if (cost > 0f) { // TODO: migrate "free"
-					cacheStr += "\n" + String.format(currencyFormat, cost);
+				if (free > 0f || cost > 0f) {
+					cacheStr += "\n";
+					if (free > 0f) {
+						cacheStr += "(" + String.format(currencyFormat, free)
+								+ ")";
+					}
+					if (cost > 0f) {
+						cacheStr += " " + String.format(currencyFormat, cost);
+					}
 				}
-				if (limit > 0) {
-					cacheStr = (limitPos * CallMeter.HUNDRET / limit) + "%"
+				if (plan.limit > 0) {
+					cacheStr = ((int) (plan.usage * CallMeter.HUNDRET)) + "%"
 							+ delimiter + cacheStr;
 				}
 			}
 
-			Log.d(TAG, "planid: " + cursor.getInt(DataProvider.Plans.INDEX_ID));
-			Log.d(TAG, "n: " + cursor.getString(DataProvider.Plans.INDEX_NAME));
-			Log.d(TAG, "type: " + t);
+			Log.d(TAG, "plan id: " + plan.id);
+			Log.d(TAG, "plan name: " + plan.name);
+			Log.d(TAG, "type: " + plan.type);
 			Log.d(TAG, "cost: " + cost);
-			Log.d(TAG, "limit: " + limit);
-			Log.d(TAG, "limitPos: " + limitPos);
+			Log.d(TAG, "limit: " + plan.limit);
+			Log.d(TAG, "limitPos: " + plan.limitPos);
 			Log.d(TAG, "text: " + cacheStr);
 
 			TextView twCache = null;
 			ProgressBar pbCache = null;
-			if (t == DataProvider.TYPE_SPACING) {
+			if (plan.type == DataProvider.TYPE_SPACING) {
 				final View v = view.findViewById(R.id.spacer);
 				if (this.textSizeSpacer > 0) {
 					final LayoutParams lp = v.getLayoutParams();
@@ -1154,7 +488,7 @@ public class Plans extends ListActivity implements OnClickListener,
 				view.findViewById(R.id.bigtitle).setVisibility(View.GONE);
 				view.findViewById(R.id.content).setVisibility(View.GONE);
 				view.findViewById(R.id.period_layout).setVisibility(View.GONE);
-			} else if (t == DataProvider.TYPE_TITLE) {
+			} else if (plan.type == DataProvider.TYPE_TITLE) {
 				final TextView tw = ((TextView) view
 						.findViewById(R.id.bigtitle));
 				tw.setText(cursor.getString(DataProvider.Plans.INDEX_NAME));
@@ -1165,7 +499,7 @@ public class Plans extends ListActivity implements OnClickListener,
 				view.findViewById(R.id.spacer).setVisibility(View.GONE);
 				view.findViewById(R.id.content).setVisibility(View.GONE);
 				view.findViewById(R.id.period_layout).setVisibility(View.GONE);
-			} else if (t == DataProvider.TYPE_BILLPERIOD) {
+			} else if (plan.type == DataProvider.TYPE_BILLPERIOD) {
 				view.findViewById(R.id.bigtitle).setVisibility(View.GONE);
 				view.findViewById(R.id.spacer).setVisibility(View.GONE);
 				view.findViewById(R.id.content).setVisibility(View.GONE);
@@ -1186,26 +520,16 @@ public class Plans extends ListActivity implements OnClickListener,
 				twNormTitle.setText(cursor
 						.getString(DataProvider.Plans.INDEX_NAME));
 				twCache = (TextView) view.findViewById(R.id.data);
-				int usage = 0;
-				if (limit > 0) {
-					usage = (limitPos * CallMeter.HUNDRET) / limit;
-					float bpos = -1f;
-					final long bpid = cursor.getLong(DataProvider.// .
-							Plans.INDEX_BILLPERIOD_ID);
-					if (bpid >= 0 && bpid < this.plansList.size()) {
-						final Plan p = this.plansMap.get(bpid);
-						if (p != null) {
-							bpos = p.used;
-						}
-					}
-					if (usage >= CallMeter.HUNDRET) {
+				if (plan.limit > 0) {
+					float bpos = plan.getBillPlanUsage();
+					if (plan.usage >= 1) {
 						pbCache = (ProgressBar) view
 								.findViewById(R.id.progressbarLimitRed);
 						view.findViewById(R.id.progressbarLimitGreen)
 								.setVisibility(View.GONE);
 						view.findViewById(R.id.progressbarLimitYellow)
 								.setVisibility(View.GONE);
-					} else if (bpos >= 0f && (float) limitPos / limit > bpos) {
+					} else if (bpos >= 0f && plan.usage > bpos) {
 						pbCache = (ProgressBar) view
 								.findViewById(R.id.progressbarLimitYellow);
 						view.findViewById(R.id.progressbarLimitGreen)
@@ -1239,15 +563,15 @@ public class Plans extends ListActivity implements OnClickListener,
 				if (this.textSize > 0) {
 					twCache.setTextSize(this.textSize);
 				}
-				if (limit == 0) {
+				if (plan.limit == 0) {
 					pbCache.setVisibility(View.GONE);
-				} else if (limit > 0) {
+				} else if (plan.limit > 0) {
 					pbCache.setIndeterminate(false);
-					pbCache.setMax(limit);
-					pbCache.setProgress(limitPos);
+					pbCache.setMax((int) plan.limit);
+					pbCache.setProgress((int) plan.limitPos);
 					pbCache.setVisibility(this.progressBarVisability);
 					int pbs = 0;
-					if (t == DataProvider.TYPE_BILLPERIOD) {
+					if (plan.type == DataProvider.TYPE_BILLPERIOD) {
 						pbs = this.textSizePBarBP;
 					} else {
 						pbs = this.textSizePBar;
@@ -1262,185 +586,6 @@ public class Plans extends ListActivity implements OnClickListener,
 					pbCache.setVisibility(this.progressBarVisability);
 				}
 			}
-		}
-	}
-
-	/**
-	 * Return pretty bytes.
-	 * 
-	 * @author Cyril Jaquier, flx
-	 * @param value
-	 *            bytes
-	 * @return pretty bytes
-	 */
-	public static final String prettyBytes(final float value) {
-		StringBuilder sb = new StringBuilder();
-		if (value < CallMeter.BYTE_KB) {
-			sb.append(String.format("%.1f", value));
-			sb.append(BYTE_UNITS_B);
-		} else if (value < CallMeter.BYTE_MB) {
-			sb.append(String.format("%.1f", value / CallMeter.BYTE_KB));
-			sb.append(BYTE_UNITS_KB);
-		} else if (value < CallMeter.BYTE_GB) {
-			sb.append(String.format("%.2f", value / CallMeter.BYTE_MB));
-			sb.append(BYTE_UNITS_MB);
-		} else if (value < CallMeter.BYTE_TB) {
-			sb.append(String.format("%.3f", value / CallMeter.BYTE_GB));
-			sb.append(BYTE_UNITS_GB);
-		} else {
-			sb.append(String.format("%.4f", value / CallMeter.BYTE_TB));
-			sb.append(BYTE_UNITS_TB);
-		}
-		return sb.toString();
-	}
-
-	/**
-	 * Parse number of seconds to a readable time format.
-	 * 
-	 * @param seconds
-	 *            seconds
-	 * @param showHours
-	 *            show hours and days
-	 * @return parsed string
-	 */
-	public static final String prettySeconds(final float seconds,
-			final boolean showHours) {
-		String ret;
-		final long ls = (long) seconds;
-		long d, h, m;
-		if (showHours) {
-			d = ls / CallMeter.SECONDS_DAY;
-			h = (ls % CallMeter.SECONDS_DAY) / CallMeter.SECONDS_HOUR;
-			m = (ls % CallMeter.SECONDS_HOUR) / CallMeter.SECONDS_MINUTE;
-		} else {
-			d = 0L;
-			h = 0L;
-			m = ls / CallMeter.SECONDS_MINUTE;
-		}
-		final long s = ls % CallMeter.SECONDS_MINUTE;
-		if (d > 0L) {
-			ret = d + "d ";
-		} else {
-			ret = "";
-		}
-		if (h > 0 || d > 0) {
-			if (h < CallMeter.TEN) {
-				ret += "0";
-			}
-			ret += h + ":";
-		}
-		if (m > 0 || h > 0 || d > 0) {
-			if (m < CallMeter.TEN && h > 0) {
-				ret += "0";
-			}
-			ret += m + ":";
-		}
-		if (s < CallMeter.TEN && (m > 0 || h > 0 || d > 0)) {
-			ret += "0";
-		}
-		ret += s;
-		if (d == 0 && h == 0 && m == 0) {
-			ret += "s";
-		}
-		return ret;
-	}
-
-	/**
-	 * Format amount regarding type of plan.
-	 * 
-	 * @param pType
-	 *            type of plan
-	 * @param amount
-	 *            amount
-	 * @param showHours
-	 *            show hours and days
-	 * @return {@link String} representing amount
-	 */
-	public static final String formatAmount(final int pType, // .
-			final float amount, final boolean showHours) {
-		switch (pType) {
-		case DataProvider.TYPE_DATA:
-			return prettyBytes(amount);
-		case DataProvider.TYPE_CALL:
-			return prettySeconds(amount, showHours);
-		case DataProvider.TYPE_MMS:
-		case DataProvider.TYPE_SMS:
-			return String.valueOf((long) amount);
-		default:
-			return String.format("%.2f", amount).replaceAll("[\\.,]?0*$", "");
-		}
-	}
-
-	/**
-	 * Format bill periods start date.
-	 * 
-	 * @param context
-	 *            {@link Context}
-	 * @param billperiod
-	 *            bill period type
-	 * @param billDay
-	 *            {@link Calendar} for bill periods bill day
-	 * @return formated date
-	 */
-	public static String formatDate(final Context context,
-			final int billperiod, final Calendar billDay) {
-		if (billperiod == DataProvider.BILLPERIOD_INFINITE) {
-			if (billDay == null) {
-				return "\u221E";
-			} else {
-				if (dateFormat == null) {
-					return DateFormat.getDateFormat(context).format(
-							billDay.getTime());
-				} else {
-					return String.format(dateFormat, billDay, billDay, billDay);
-				}
-			}
-		} else {
-			if (dateFormat == null) {
-				return DateFormat.getDateFormat(context).format(
-						billDay.getTime());
-			} else {
-				return String.format(dateFormat, billDay, billDay, billDay);
-			}
-		}
-	}
-
-	/**
-	 * Format count/amount along with type.
-	 * 
-	 * @param context
-	 *            {@link Context}
-	 * @param now
-	 *            {@link Calendar} for current time
-	 * @param pType
-	 *            type of plan
-	 * @param count
-	 *            count
-	 * @param amount
-	 *            amount
-	 * @param billperiod
-	 *            bill period type
-	 * @param billday
-	 *            bill period's bill day
-	 * @return string
-	 */
-	public static String formatValues(final Context context,
-			final Calendar now, final int pType, final long count,
-			final float amount, final int billperiod, final long billday) {
-		switch (pType) {
-		case DataProvider.TYPE_BILLPERIOD:
-			Calendar billDay = DataProvider.Plans.getBillDay(billperiod,
-					billday, now, false);
-			return formatDate(context, billperiod, billDay);
-		case DataProvider.TYPE_CALL:
-			return formatAmount(pType, amount, pShowHours) + " (" + count + ")";
-		case DataProvider.TYPE_DATA:
-		case DataProvider.TYPE_SMS:
-		case DataProvider.TYPE_MMS:
-		case DataProvider.TYPE_MIXED:
-			return formatAmount(pType, amount, pShowHours);
-		default:
-			return "";
 		}
 	}
 
@@ -1499,24 +644,13 @@ public class Plans extends ListActivity implements OnClickListener,
 		Plans.this.setProgressBarIndeterminateVisibility(inProgressMatcher);
 
 		currencyFormat = Preferences.getCurrencyFormat(this);
-		dateFormat = Preferences.getDateFormat(this);
+		Common.setDateFormat(this);
 		showToday = p.getBoolean(Preferences.PREFS_SHOWTODAY, false);
 		showTotal = p.getBoolean(Preferences.PREFS_SHOWTOTAL, true);
 		hideZero = p.getBoolean(Preferences.PREFS_HIDE_ZERO, false);
 		hideNoCost = p.getBoolean(Preferences.PREFS_HIDE_NOCOST, false);
 		delimiter = p.getString(Preferences.PREFS_DELIMITER, " | ");
 
-		// FIXME if (reloadList) {
-		// this.adapter = new PlanAdapter(this, Calendar.getInstance(),
-		// hideZero, hideNoCost);
-		// this.setListAdapter(this.adapter);
-		// }
-
-		if (this.getListView().getCount() == 0) {
-			this.findViewById(R.id.import_default).setVisibility(View.VISIBLE);
-		} else {
-			this.findViewById(R.id.import_default).setVisibility(View.GONE);
-		}
 		// reload plan configuration
 		Calendar now = this.getNowFromIntent(this.getIntent(), false);
 		adapter.startPlanQuery(now, hideZero, hideNoCost);
@@ -1548,9 +682,6 @@ public class Plans extends ListActivity implements OnClickListener,
 		} else {
 			this.adapter.now = null;
 			this.setTitle(R.string.app_name);
-			if (updatePlans) {
-				this.adapter.updatePlans();
-			}
 		}
 		Calendar ret = Calendar.getInstance();
 		if (now >= 0L) {
@@ -1573,21 +704,14 @@ public class Plans extends ListActivity implements OnClickListener,
 			final boolean fromTime) {
 		this.adapter.setNow(now);
 		final Calendar cal = this.adapter.now;
-		String formatedDate;
-		if (dateFormat == null) {
-			formatedDate = DateFormat.getDateFormat(this).format(now);
-		} else {
-			formatedDate = String.format(dateFormat, cal, cal, cal);
-		}
-		String t = this.getString(R.string.app_name) + " - " + formatedDate;
+		String t = this.getString(R.string.app_name) + " - "
+				+ Common.formatDate(this, cal);
 		t += String.format(" %tR", cal);
 		this.setTitle(t);
 		if (!fromTime) {
 			this.showDialog(DIALOG_SHOW_TIME);
 		}
-		if (updatePlans) {
-			this.adapter.updatePlans();
-		}
+		this.adapter.startPlanQuery(cal, hideZero, hideNoCost);
 	}
 
 	/**
@@ -1614,11 +738,6 @@ public class Plans extends ListActivity implements OnClickListener,
 	 */
 	public static final Handler getHandler() {
 		return currentHandler;
-	}
-
-	/** Force the Adapter to reload the list. */
-	public static final void reloadList() {
-		reloadList = true;
 	}
 
 	/**

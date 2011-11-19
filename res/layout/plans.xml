@@ -38,4 +38,13 @@
 		android:text="@string/import_rules_empty" android:layout_alignLeft="@id/android:list"
 		android:layout_alignRight="@id/android:list" android:layout_alignTop="@id/android:list"
 		android:layout_alignBottom="@id/android:list" android:visibility="gone" />
+	<LinearLayout android:id="@+id/loading" android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:gravity="center" android:layout_alignLeft="@id/android:list"
+		android:layout_alignRight="@id/android:list" android:layout_alignTop="@id/android:list"
+		android:layout_alignBottom="@id/android:list" >
+		<ProgressBar android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"  android:padding="5dip" />
+		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" 
+		    	android:text="@string/loading" />
+	</LinearLayout>
 </RelativeLayout>

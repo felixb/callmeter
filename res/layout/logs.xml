@@ -1,47 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2009-2010 Felix Bechstein
-	-->
-	<!--
+<!-- Copyright (C) 2009-2010 Felix Bechstein -->
+<!--
 		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
 		version.
-	-->
-	<!--
+-->
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 		General Public License for more details. You should have received a
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
-	-->
+-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res/de.ub0r.android.callmeter"
-	android:layout_height="fill_parent" android:layout_width="fill_parent">
-	<LinearLayout android:id="@+id/bar"
-		android:layout_alignParentBottom="true" android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:orientation="horizontal"
-		style="@android:style/ButtonBar">
-		<ToggleButton android:id="@+id/calls" android:textOn="@string/calls" android:textOff="@string/calls"
-			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:layout_weight="1" android:checked="true" />
-		<ToggleButton android:id="@+id/sms" android:textOn="@string/sms" android:textOff="@string/sms" 
-			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:layout_weight="1" android:checked="true" />
-		<ToggleButton android:id="@+id/mms" android:textOn="@string/mms" android:textOff="@string/mms"
-			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:layout_weight="1" android:checked="true" />
-		<ToggleButton android:id="@+id/data" android:textOn="@string/data" android:textOff="@string/data"
-			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:layout_weight="1" android:checked="true" />
-	</LinearLayout>
+    xmlns:app="http://schemas.android.com/apk/res/de.ub0r.android.callmeter"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
-	<ListView android:id="@id/android:list" android:layout_width="fill_parent"
-	android:layout_height="fill_parent" android:drawSelectorOnTop="false"
-	android:scrollingCache="true" android:fastScrollEnabled="true"
-	android:choiceMode="singleChoice" android:background="?android:attr/colorBackground"
-	android:cacheColorHint="?android:attr/colorBackground"
-	android:layout_above="@id/bar" />
+    <LinearLayout
+        android:id="@+id/bar"
+        style="@android:style/ButtonBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+<LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            
+            <ToggleButton
+            android:id="@+id/in"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:textOff="@string/calls_in"
+            android:textOn="@string/calls_in" />
+
+        <ToggleButton
+            android:id="@+id/out"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:textOff="@string/calls_out_"
+            android:textOn="@string/calls_out_" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            
+            <ToggleButton
+            android:id="@+id/calls"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:textOff="@string/calls"
+            android:textOn="@string/calls" />
+
+        <ToggleButton
+            android:id="@+id/sms"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:textOff="@string/sms"
+            android:textOn="@string/sms" />
+
+        <ToggleButton
+            android:id="@+id/mms"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:textOff="@string/mms"
+            android:textOn="@string/mms" />
+
+        <ToggleButton
+            android:id="@+id/data"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:textOff="@string/data"
+            android:textOn="@string/data" />
+        </LinearLayout>
+
+        
+    </LinearLayout>
+
+    <ListView
+        android:id="@id/android:list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/bar"
+        android:background="?android:attr/colorBackground"
+        android:cacheColorHint="?android:attr/colorBackground"
+        android:choiceMode="singleChoice"
+        android:drawSelectorOnTop="false"
+        android:fastScrollEnabled="true"
+        android:scrollingCache="true" />
+
 </RelativeLayout>

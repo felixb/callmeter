@@ -100,6 +100,9 @@ public class Rules extends ListActivity implements OnClickListener,
 			final TextView twTitle = ((TextView) view
 					.findViewById(R.id.normtitle));
 			twTitle.setText(cursor.getString(DataProvider.Rules.INDEX_NAME));
+			boolean active = cursor.getInt(DataProvider.Rules.INDEX_ACTIVE) > 0;
+			twTitle.setEnabled(active);
+
 			final TextView twType = ((TextView) view.findViewById(R.id.type));
 			String w = "";
 			final int t = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
