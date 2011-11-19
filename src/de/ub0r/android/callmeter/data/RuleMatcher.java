@@ -1028,6 +1028,9 @@ public final class RuleMatcher {
 		 */
 		float getFree(final Cursor log, final float cost) {
 			if (this.limitType != DataProvider.LIMIT_TYPE_COST) {
+				if (this.parent != null) {
+					return this.parent.getFree(log, cost);
+				}
 				return 0f;
 			}
 			if (this.limit <= this.billedCost) {
