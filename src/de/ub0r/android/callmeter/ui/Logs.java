@@ -22,8 +22,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 import android.app.AlertDialog;
-import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
+import android.app.ListActivity;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -42,6 +42,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -50,8 +52,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.ToggleButton;
-import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
@@ -76,9 +76,13 @@ public final class Logs extends ListActivity implements OnClickListener,
 	private static final String PREF_MMS = "_logs_mms";
 	/** Prefs: {@link ToggleButton} state for data. */
 	private static final String PREF_DATA = "_logs_data";
+	/** Prefs: {@link ToggleButton} state for in. */
+	private static final String PREF_IN = "_in";
+	/** Prefs: {@link ToggleButton} state for out. */
+	private static final String PREF_OUT = "_out";
 
 	/** {@link ToggleButton}s. */
-	private ToggleButton tbCall, tbSMS, tbMMS, tbData;
+	private ToggleButton tbCall, tbSMS, tbMMS, tbData, tbIn, tbOut;
 	/** Show hours and days. */
 	private static boolean showHours = true;
 
@@ -100,11 +104,24 @@ public final class Logs extends ListActivity implements OnClickListener,
 		 *            {@link Context}
 		 */
 		public LogAdapter(final Context context, final String where) {
-			super(context, R.layout.logs_item, context.getContentResolver()
-					.query(DataProvider.Logs.CONTENT_URI,
-							DataProvider.Logs.PROJECTION, where, null,
-							DataProvider.Logs.DATE + " DESC"), true);
+			super(context, R.layout.logs_item, null, true);
 			this.cformat = Preferences.getCurrencyFormat(context);
+			this.changeCursor(where);
+		}
+
+		/**
+		 * Set a new where clause.
+		 * 
+		 * @param where
+		 *            where clause
+		 */
+		private void changeCursor(final String where) {
+			// FIXME: use join for plans.name/rules.name
+			Cursor c = getContentResolver().query(
+					DataProvider.Logs.CONTENT_URI,
+					DataProvider.Logs.PROJECTION, where, null,
+					DataProvider.Logs.DATE + " DESC");
+			this.changeCursor(c);
 		}
 
 		/**
@@ -124,9 +141,11 @@ public final class Logs extends ListActivity implements OnClickListener,
 					R.array.direction_calls);
 			buf.append(" (" + strs[dir] + "): ");
 			final long date = cursor.getLong(DataProvider.Logs.INDEX_DATE);
-			buf.append(DateFormat.getDateFormat(context).format(new Date(date)));
+			buf.append(DateFormat.getDateFormat(context).format(// .
+					new Date(date)));
 			buf.append(" ");
-			buf.append(DateFormat.getTimeFormat(context).format(new Date(date)));
+			buf.append(DateFormat.getTimeFormat(context).format(// .
+					new Date(date)));
 			((TextView) view.findViewById(android.R.id.text1)).setText(buf
 					.toString());
 
@@ -202,12 +221,28 @@ public final class Logs extends ListActivity implements OnClickListener,
 		this.tbMMS.setOnClickListener(this);
 		this.tbData = (ToggleButton) this.findViewById(R.id.data);
 		this.tbData.setOnClickListener(this);
+		this.tbIn = (ToggleButton) this.findViewById(R.id.in);
+		this.tbIn.setOnClickListener(this);
+		this.tbOut = (ToggleButton) this.findViewById(R.id.out);
+		this.tbOut.setOnClickListener(this);
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		this.tbCall.setChecked(p.getBoolean(PREF_CALL, true));
 		this.tbSMS.setChecked(p.getBoolean(PREF_SMS, true));
 		this.tbMMS.setChecked(p.getBoolean(PREF_MMS, true));
 		this.tbData.setChecked(p.getBoolean(PREF_DATA, true));
+		this.tbIn.setChecked(p.getBoolean(PREF_IN, true));
+		this.tbOut.setChecked(p.getBoolean(PREF_OUT, true));
+
+		String[] directions = getResources().getStringArray(
+				R.array.direction_calls);
+		tbIn.setText(directions[DataProvider.DIRECTION_IN]);
+		tbIn.setTextOn(directions[DataProvider.DIRECTION_IN]);
+		tbIn.setTextOff(directions[DataProvider.DIRECTION_IN]);
+		tbOut.setText(directions[DataProvider.DIRECTION_OUT]);
+		tbOut.setTextOn(directions[DataProvider.DIRECTION_OUT]);
+		tbOut.setTextOff(directions[DataProvider.DIRECTION_OUT]);
+		directions = null;
 
 		this.setAdapter();
 	}
@@ -235,30 +270,41 @@ public final class Logs extends ListActivity implements OnClickListener,
 		e.putBoolean(PREF_SMS, this.tbSMS.isChecked());
 		e.putBoolean(PREF_MMS, this.tbMMS.isChecked());
 		e.putBoolean(PREF_DATA, this.tbData.isChecked());
+		e.putBoolean(PREF_IN, this.tbIn.isChecked());
+		e.putBoolean(PREF_OUT, this.tbOut.isChecked());
 		e.commit();
 	}
 
 	/** Set Adapter. */
 	private void setAdapter() {
-		String where = DataProvider.Logs.TYPE + " < 0 ";
+		String where = DataProvider.Logs.TYPE + " in (-1";
 		if (this.tbCall.isChecked()) {
-			where += " OR " + DataProvider.Logs.TYPE + " = "
-					+ DataProvider.TYPE_CALL;
+			where += "," + DataProvider.TYPE_CALL;
 		}
 		if (this.tbSMS.isChecked()) {
-			where += " OR " + DataProvider.Logs.TYPE + " = "
-					+ DataProvider.TYPE_SMS;
+			where += "," + DataProvider.TYPE_SMS;
 		}
 		if (this.tbMMS.isChecked()) {
-			where += " OR " + DataProvider.Logs.TYPE + " = "
-					+ DataProvider.TYPE_MMS;
+			where += "," + DataProvider.TYPE_MMS;
 		}
 		if (this.tbData.isChecked()) {
-			where += " OR " + DataProvider.Logs.TYPE + " = "
-					+ DataProvider.TYPE_DATA;
+			where += "," + DataProvider.TYPE_DATA;
 		}
+		where += ") and " + DataProvider.Logs.DIRECTION + " in (-1";
+		if (this.tbIn.isChecked()) {
+			where += "," + DataProvider.DIRECTION_IN;
+		}
+		if (this.tbOut.isChecked()) {
+			where += "," + DataProvider.DIRECTION_OUT;
+		}
+		where += ")";
 
-		this.setListAdapter(new LogAdapter(this, where));
+		LogAdapter adapter = (LogAdapter) getListAdapter();
+		if (adapter == null) {
+			this.setListAdapter(new LogAdapter(this, where));
+		} else {
+			adapter.changeCursor(where);
+		}
 		this.getListView().setOnItemLongClickListener(this);
 	}
 
