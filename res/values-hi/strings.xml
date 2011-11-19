@@ -21,4 +21,11 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=hi&file=strings.xml to edit the file.
        -->
 <resources>
+  <string name="changelog_notification_" formatted="false" orig="Recent changes:" username="Urvish Gohil &lt;gohilurvish@gmail.com&gt;">हाल के परिवर्तन:</string>
+  <string name="never_show_again" formatted="false" username="Urvish Gohil &lt;gohilurvish@gmail.com&gt;" orig="Never show changelog again">परिवर्तन की सूची फिर कभी ना दिखाए\nपरिवर्तन की सूची फिर कभी ना दिखाए\n</string>
+  <string name="notes_from_developer_" formatted="false" username="Urvish Gohil &lt;gohilurvish@gmail.com&gt;" orig="Notes from developer">कार्यक्रम उत्पादक के शब्द</string>
+  <string name="notes_from_developer_text" formatted="false" username="Urvish Gohil &lt;gohilurvish@gmail.com&gt;" orig="Click here to show recent news from the developer">कार्यक्रम उत्पादक के तत्कालीन समाचार देखने के लिए यहाँ दबाए</string>
+  <string name="about0_" formatted="false" username="Urvish Gohil &lt;gohilurvish@gmail.com&gt;" orig="Watch your call, message and data plans!">अपने कॉल, संदेश, और डेटा की योजना देखे!</string>
+  <string name="about0" formatted="false" username="Urvish Gohil &lt;gohilurvish@gmail.com&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter कॉल, संदेश, और डेटा लॉग से रिपोर्ट उत्पन्न करता है. यह बिलिंग के कई मोड का समर्थन करता है.</string>
+  <string name="about1" formatted="false" username="Urvish Gohil &lt;gohilurvish@gmail.com&gt;" orig="The output format is usage | time or count used this billing period | time or count overall.">द्रश्यमान स्वरूप : खपत | समय या परिक्रमण काल में उपयोग की गयी संख्या | समय या संपूर्ण संख्या.</string>
 </resources>
