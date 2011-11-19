@@ -24,7 +24,6 @@ import java.util.Date;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.ListActivity;
-import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
@@ -95,6 +94,9 @@ public final class Logs extends ListActivity implements OnClickListener,
 		/** Currency format. */
 		private final String cformat;
 
+		/** Column ids. */
+		private int idPlanName, idRuleName;
+
 		/**
 		 * Default Constructor.
 		 * 
@@ -116,11 +118,12 @@ public final class Logs extends ListActivity implements OnClickListener,
 		 *            where clause
 		 */
 		private void changeCursor(final String where) {
-			// FIXME: use join for plans.name/rules.name
 			Cursor c = getContentResolver().query(
-					DataProvider.Logs.CONTENT_URI,
-					DataProvider.Logs.PROJECTION, where, null,
+					DataProvider.Logs.CONTENT_URI_WITH_JOIN,
+					DataProvider.Logs.PROJECTION_JOIN, where, null,
 					DataProvider.Logs.DATE + " DESC");
+			idPlanName = c.getColumnIndex(DataProvider.Plans.NAME);
+			idRuleName = c.getColumnIndex(DataProvider.Rules.NAME);
 			this.changeCursor(c);
 		}
 
@@ -130,7 +133,6 @@ public final class Logs extends ListActivity implements OnClickListener,
 		@Override
 		public final void bindView(final View view, final Context context,
 				final Cursor cursor) {
-			final ContentResolver cr = context.getContentResolver();
 			final StringBuilder buf = new StringBuilder();
 			final int t = cursor.getInt(DataProvider.Logs.INDEX_TYPE);
 			String[] strs = context.getResources().getStringArray(
@@ -149,13 +151,10 @@ public final class Logs extends ListActivity implements OnClickListener,
 			((TextView) view.findViewById(android.R.id.text1)).setText(buf
 					.toString());
 
-			((TextView) view.findViewById(R.id.plan))
-					.setText(DataProvider.Plans.getName(cr,
-							cursor.getLong(DataProvider.Logs.INDEX_PLAN_ID)));
-
-			((TextView) view.findViewById(R.id.rule))
-					.setText(DataProvider.Rules.getName(cr,
-							cursor.getLong(DataProvider.Logs.INDEX_RULE_ID)));
+			((TextView) view.findViewById(R.id.plan)).setText(cursor
+					.getString(idPlanName));
+			((TextView) view.findViewById(R.id.rule)).setText(cursor
+					.getString(idRuleName));
 
 			String s = cursor.getString(DataProvider.Logs.INDEX_REMOTE);
 			if (s == null || s.trim().length() == 0) {
@@ -277,7 +276,8 @@ public final class Logs extends ListActivity implements OnClickListener,
 
 	/** Set Adapter. */
 	private void setAdapter() {
-		String where = DataProvider.Logs.TYPE + " in (-1";
+		String where = DataProvider.Logs.TABLE + "." + DataProvider.Logs.TYPE
+				+ " in (-1";
 		if (this.tbCall.isChecked()) {
 			where += "," + DataProvider.TYPE_CALL;
 		}
@@ -290,7 +290,8 @@ public final class Logs extends ListActivity implements OnClickListener,
 		if (this.tbData.isChecked()) {
 			where += "," + DataProvider.TYPE_DATA;
 		}
-		where += ") and " + DataProvider.Logs.DIRECTION + " in (-1";
+		where += ") and " + DataProvider.Logs.TABLE + "."
+				+ DataProvider.Logs.DIRECTION + " in (-1";
 		if (this.tbIn.isChecked()) {
 			where += "," + DataProvider.DIRECTION_IN;
 		}

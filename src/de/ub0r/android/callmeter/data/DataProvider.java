@@ -165,7 +165,7 @@ public final class DataProvider extends ContentProvider {
 	 */
 	public static final class Logs {
 		/** Table name. */
-		private static final String TABLE = "logs";
+		public static final String TABLE = "logs";
 
 		/** Index in projection: ID. */
 		public static final int INDEX_ID = 0;
@@ -240,6 +240,21 @@ public final class DataProvider extends ContentProvider {
 		public static final String[] PROJECTION = new String[] { ID, PLAN_ID,
 				RULE_ID, TYPE, DIRECTION, DATE, AMOUNT, BILL_AMOUNT, REMOTE,
 				ROAMED, COST, FREE };
+		/** Projection used for join query. */
+		public static final String[] PROJECTION_JOIN;
+		static {
+			final int l = PROJECTION.length;
+			PROJECTION_JOIN = new String[l + 2];
+			for (int i = 0; i < l; i++) {
+				PROJECTION_JOIN[i] = TABLE + "." + PROJECTION[i] + " as "
+						+ PROJECTION[i];
+			}
+			PROJECTION_JOIN[l - 2] = Plans.TABLE + "." + Plans.NAME + " as "
+					+ Plans.NAME;
+			PROJECTION_JOIN[l - 1] = Rules.TABLE + "." + Rules.NAME + " as "
+					+ Rules.NAME;
+		}
+
 		/** Projection used for query - sum. */
 		public static final String[] PROJECTION_SUM = new String[] { TYPE,
 				PLAN_ID, Plans.TABLE + "." + Plans.TYPE + " AS " + PLAN_TYPE,
@@ -250,6 +265,9 @@ public final class DataProvider extends ContentProvider {
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
 				+ AUTHORITY + "/logs");
+		/** Content {@link Uri} logs joined with plans and rules. */
+		public static final Uri CONTENT_URI_WITH_JOIN = Uri.parse("content://"
+				+ AUTHORITY + "/logs/join");
 		/** Content {@link Uri} - sum. */
 		public static final Uri SUM_URI = Uri.parse("content://" + AUTHORITY
 				+ "/logs/sum");
@@ -2006,14 +2024,16 @@ public final class DataProvider extends ContentProvider {
 	private static final int HOURS_GROUP_ID = 16;
 	/** Internal id: sum of logs. */
 	private static final int LOGS_SUM = 17;
+	/** Internal id: logs joined with rules and plans. */
+	private static final int LOGS_JOIN = 18;
 	/** Internal id: websms. */
-	private static final int WEBSMS = 18;
+	private static final int WEBSMS = 19;
 	/** Internal id: sipcall. */
-	private static final int SIPCALL = 19;
+	private static final int SIPCALL = 20;
 	/** Internal id: plans outer joined with its logs. */
-	private static final int PLANS_SUM = 20;
+	private static final int PLANS_SUM = 21;
 	/** Internal id: single plan outer joined with its logs. */
-	private static final int PLANS_SUM_ID = 21;
+	private static final int PLANS_SUM_ID = 22;
 	/** Internal id: export. */
 	private static final int EXPORT_RULESET = 200;
 	/** Internal id: export. */
@@ -2031,6 +2051,7 @@ public final class DataProvider extends ContentProvider {
 		URI_MATCHER.addURI(AUTHORITY, "logs", LOGS);
 		URI_MATCHER.addURI(AUTHORITY, "logs/#", LOGS_ID);
 		URI_MATCHER.addURI(AUTHORITY, "logs/sum", LOGS_SUM);
+		URI_MATCHER.addURI(AUTHORITY, "logs/join", LOGS_JOIN);
 		URI_MATCHER.addURI(AUTHORITY, "plans", PLANS);
 		URI_MATCHER.addURI(AUTHORITY, "plans/#", PLANS_ID);
 		URI_MATCHER.addURI(AUTHORITY, "plans/sum", PLANS_SUM);
@@ -2873,14 +2894,19 @@ public final class DataProvider extends ContentProvider {
 		case LOGS:
 			qb.setTables(Logs.TABLE);
 			break;
+		case LOGS_JOIN:
+			qb.setTables(Logs.TABLE + " LEFT OUTER JOIN " + Plans.TABLE
+					+ " ON (" + Logs.TABLE + "." + Logs.PLAN_ID + "="
+					+ Plans.TABLE + "." + Plans.ID + ") LEFT OUTER JOIN "
+					+ Rules.TABLE + " ON (" + Logs.TABLE + "." + Logs.RULE_ID
+					+ "=" + Rules.TABLE + "." + Rules.ID + ")");
+			break;
 		case LOGS_SUM:
+			qb.setTables(Logs.TABLE + " INNER JOIN " + Plans.TABLE + " ON ("
+					+ Logs.TABLE + "." + Logs.PLAN_ID + "=" + Plans.TABLE + "."
+					+ Plans.ID + ")");
 			groupBy = DataProvider.Logs.PLAN_ID;
-			c = db.query(Logs.TABLE + " INNER JOIN " + Plans.TABLE + " ON ("
-					+ Logs.TABLE + "." + Logs.PLAN_ID + " = " + Plans.TABLE
-					+ "." + Plans.ID + ")", projection, selection,
-					selectionArgs, groupBy, null, null);
-			Log.d(TAG, "query(): " + c.getCount());
-			return c;
+			break;
 		case WEBSMS:
 			qb.setTables(WebSMS.TABLE);
 			break;
