@@ -544,6 +544,8 @@ public final class DataProvider extends ContentProvider {
 			private final float cpp;
 			/** Sum of cost. */
 			public final float cost;
+			/** Sum of free cost. */
+			public final float free;
 			/** Sum of todays count. */
 			public final int tdCount;
 			/** Sum of todays billed amount. */
@@ -579,6 +581,7 @@ public final class DataProvider extends ContentProvider {
 					this.limitPos = -1;
 					this.cpp = 0;
 					this.cost = 0f;
+					this.free = 0f;
 					this.tdCount = 0;
 					this.tdBa = 0f;
 					this.bpCount = 0;
@@ -588,6 +591,7 @@ public final class DataProvider extends ContentProvider {
 					this.now = -1L;
 				} else {
 					this.cost = cursor.getFloat(INDEX_SUM_COST);
+					this.free = cursor.getFloat(INDEX_SUM_FREE);
 					this.tdCount = cursor.getInt(INDEX_SUM_TD_COUNT);
 					this.tdBa = cursor.getFloat(INDEX_SUM_TD_BILLED_AMOUNT);
 					this.bpCount = cursor.getInt(INDEX_SUM_BP_COUNT);
@@ -698,10 +702,19 @@ public final class DataProvider extends ContentProvider {
 			/**
 			 * Get cost and cost per plan.
 			 * 
-			 * @return cost + cpp
+			 * @return cost + cpp - free
 			 */
 			public float getAccumCost() {
-				return this.cost + this.cpp;
+				return this.cost + this.cpp - this.free;
+			}
+
+			/**
+			 * Get free cost.
+			 * 
+			 * @return free cost
+			 */
+			public float getFree() {
+				return this.free;
 			}
 		}
 
@@ -787,6 +800,8 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_SUM_CPP = 34;
 		/** Index in projection: sum cost for this bill period. */
 		public static final int INDEX_SUM_COST = 35;
+		/** Index in projection: sum free cost for this bill period. */
+		public static final int INDEX_SUM_FREE = 36;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -864,6 +879,8 @@ public final class DataProvider extends ContentProvider {
 		public static final String SUM_CPP = "SUM_CPP";
 		/** Sum: cost for this bill period. */
 		public static final String SUM_COST = "SUM_COST";
+		/** Sum: free cost for this bill period. */
+		public static final String SUM_FREE = "SUM_FREE";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, NAME,
@@ -876,7 +893,7 @@ public final class DataProvider extends ContentProvider {
 
 		/** Projection used for sum query. */
 		public static final String[] PROJECTION_SUM = // .
-		new String[INDEX_SUM_COST + 1];
+		new String[INDEX_SUM_FREE + 1];
 		static {
 			final int l = PROJECTION.length;
 			for (int i = 0; i < l; i++) {
@@ -966,6 +983,11 @@ public final class DataProvider extends ContentProvider {
 					+ Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW
 					+ "} THEN 0 ELSE " + Logs.TABLE + "." + Logs.COST
 					+ " END) as " + SUM_COST;
+			PROJECTION_SUM[INDEX_SUM_FREE] = "sum(CASE WHEN " + Logs.TABLE
+					+ "." + Logs.DATE + "<{" + SUM_BILLDAY + "} or "
+					+ Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW
+					+ "} THEN 0 ELSE " + Logs.TABLE + "." + Logs.FREE
+					+ " END) as " + SUM_FREE;
 		}
 
 		/** Projection used for query id and (short)name. */

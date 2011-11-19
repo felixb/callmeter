@@ -429,6 +429,7 @@ public class Plans extends ListActivity implements OnClickListener,
 
 			String cacheStr = null;
 			float cost = plan.getAccumCost();
+			float free = plan.getFree();
 			if (plan.type != DataProvider.TYPE_SPACING // .
 					&& plan.type != DataProvider.TYPE_TITLE) {
 				cacheStr = "<b>"
@@ -450,8 +451,15 @@ public class Plans extends ListActivity implements OnClickListener,
 								+ cacheStr;
 					}
 				}
-				if (cost > 0f) { // TODO: migrate "free"
-					cacheStr += "\n" + String.format(currencyFormat, cost);
+				if (free > 0f || cost > 0f) {
+					cacheStr += "\n";
+					if (free > 0f) {
+						cacheStr += "(" + String.format(currencyFormat, free)
+								+ ")";
+					}
+					if (cost > 0f) {
+						cacheStr += " " + String.format(currencyFormat, cost);
+					}
 				}
 				if (plan.limit > 0) {
 					cacheStr = ((int) (plan.usage * CallMeter.HUNDRET)) + "%"

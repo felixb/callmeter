@@ -276,13 +276,13 @@ public final class RuleMatcher {
 			/** Entry for monday. */
 			private static final int MON = 1;
 			/** Entry for tuesday. */
-			private static final int TUE = 2;
+			// private static final int TUE = 2;
 			/** Entry for wednesday. */
-			private static final int WED = 3;
+			// private static final int WED = 3;
 			/** Entry for thrusday. */
-			private static final int THU = 4;
+			// private static final int THU = 4;
 			/** Entry for friday. */
-			private static final int FRI = 5;
+			// private static final int FRI = 5;
 			/** Entry for satadurday. */
 			private static final int SAT = 6;
 			/** Entry for sunday. */
@@ -1016,6 +1016,28 @@ public final class RuleMatcher {
 			}
 			return ret;
 		}
+
+		/**
+		 * Get amount of free cost.
+		 * 
+		 * @param log
+		 *            {@link Cursor} pointing to log
+		 * @param cost
+		 *            cost calculated by getCost()
+		 * @return free cost
+		 */
+		float getFree(final Cursor log, final float cost) {
+			if (this.limitType != DataProvider.LIMIT_TYPE_COST) {
+				return 0f;
+			}
+			if (this.limit <= this.billedCost) {
+				return 0f;
+			}
+			if (this.limit >= this.billedCost + cost) {
+				return cost;
+			}
+			return this.limit - this.billedCost;
+		}
 	}
 
 	/**
@@ -1124,7 +1146,7 @@ public final class RuleMatcher {
 	}
 
 	/**
-	 * Match a log.
+	 * Match a single log record given as {@link Cursor}.
 	 * 
 	 * @param cr
 	 *            {@link ContentResolver}
@@ -1175,6 +1197,7 @@ public final class RuleMatcher {
 				cv.put(DataProvider.Logs.BILL_AMOUNT, ba);
 				final float bc = p.getCost(log, ba);
 				cv.put(DataProvider.Logs.COST, bc);
+				cv.put(DataProvider.Logs.FREE, p.getFree(log, bc));
 				p.updatePlan(ba, bc, t);
 				final int ret = cr.update(DataProvider.Logs.CONTENT_URI, cv,
 						DataProvider.Logs.ID + " = ?", lids);
@@ -1195,7 +1218,7 @@ public final class RuleMatcher {
 	}
 
 	/**
-	 * Match a log.
+	 * Match a single log record.
 	 * 
 	 * @param cr
 	 *            {@link ContentResolver}
@@ -1244,6 +1267,7 @@ public final class RuleMatcher {
 		cv.put(DataProvider.Logs.BILL_AMOUNT, ba);
 		final float bc = p.getCost(log, ba);
 		cv.put(DataProvider.Logs.COST, bc);
+		cv.put(DataProvider.Logs.FREE, p.getFree(log, bc));
 		p.updatePlan(ba, bc, t);
 		cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID
 				+ " = ?", new String[] { String.valueOf(lid) });
@@ -1251,7 +1275,7 @@ public final class RuleMatcher {
 	}
 
 	/**
-	 * Math logs.
+	 * Match all unmatched logs.
 	 * 
 	 * @param context
 	 *            {@link Context}
@@ -1343,7 +1367,8 @@ public final class RuleMatcher {
 									PendingIntent.FLAG_CANCEL_CURRENT));
 					mNotificationMgr.notify(0, n);
 					final ContentValues cv = new ContentValues();
-					cv.put(DataProvider.Plans.NEXT_ALERT, alertPlan.nextBillday);
+					cv.put(DataProvider.Plans.NEXT_ALERT, // .
+							alertPlan.nextBillday);
 					cr.update(DataProvider.Plans.CONTENT_URI, cv,
 							DataProvider.Plans.ID + " = ?",
 							new String[] { String.valueOf(alertPlan.id) });
