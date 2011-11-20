@@ -210,6 +210,7 @@
   </string-array>
   <string-array name="dialog_edit_plan">
     <item>Изменить ценовой план</item>
+    <item notranslation="true">View Logs</item>
   </string-array>
   <string-array name="dialog_delete">
     <item>Удалить</item>

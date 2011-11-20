@@ -269,6 +269,7 @@
   </string-array>
   <string-array name="dialog_edit_plan">
     <item>Upravit tarif</item>
+    <item notranslation="true">View Logs</item>
   </string-array>
   <string-array name="dialog_delete">
     <item>Odstranit</item>

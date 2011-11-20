@@ -266,7 +266,7 @@ public final class DataProvider extends ContentProvider {
 		public static final Uri CONTENT_URI = Uri.parse("content://"
 				+ AUTHORITY + "/logs");
 		/** Content {@link Uri} logs joined with plans and rules. */
-		public static final Uri CONTENT_URI_WITH_JOIN = Uri.parse("content://"
+		public static final Uri CONTENT_URI_JOIN = Uri.parse("content://"
 				+ AUTHORITY + "/logs/join");
 		/** Content {@link Uri} - sum. */
 		public static final Uri SUM_URI = Uri.parse("content://" + AUTHORITY

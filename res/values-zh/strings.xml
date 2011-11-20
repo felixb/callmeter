@@ -248,6 +248,7 @@
   </string-array>
   <string-array name="dialog_edit_plan">
     <item>编辑方案</item>
+    <item notranslation="true">View Logs</item>
   </string-array>
   <string-array name="dialog_delete">
     <item>删除</item>

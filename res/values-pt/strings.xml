@@ -320,6 +320,7 @@
   </string-array>
   <string-array name="dialog_edit_plan">
     <item>Editar o plano</item>
+    <item notranslation="true">View Logs</item>
   </string-array>
   <string-array name="dialog_delete">
     <item>Apagar</item>

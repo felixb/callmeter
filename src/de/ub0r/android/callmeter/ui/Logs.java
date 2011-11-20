@@ -31,8 +31,10 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -55,6 +57,8 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
+import de.ub0r.android.lib.DbUtils;
+import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -84,6 +88,9 @@ public final class Logs extends ListActivity implements OnClickListener,
 	private ToggleButton tbCall, tbSMS, tbMMS, tbData, tbIn, tbOut;
 	/** Show hours and days. */
 	private static boolean showHours = true;
+
+	/** Selection of logs given by Intent. */
+	private String selection = null;
 
 	/**
 	 * Adapter binding logs to View.
@@ -119,7 +126,7 @@ public final class Logs extends ListActivity implements OnClickListener,
 		 */
 		private void changeCursor(final String where) {
 			Cursor c = getContentResolver().query(
-					DataProvider.Logs.CONTENT_URI_WITH_JOIN,
+					DataProvider.Logs.CONTENT_URI_JOIN,
 					DataProvider.Logs.PROJECTION_JOIN, where, null,
 					DataProvider.Logs.DATE + " DESC");
 			idPlanName = c.getColumnIndex(DataProvider.Plans.NAME);
@@ -242,8 +249,6 @@ public final class Logs extends ListActivity implements OnClickListener,
 		tbOut.setTextOn(directions[DataProvider.DIRECTION_OUT]);
 		tbOut.setTextOff(directions[DataProvider.DIRECTION_OUT]);
 		directions = null;
-
-		this.setAdapter();
 	}
 
 	/**
@@ -255,6 +260,17 @@ public final class Logs extends ListActivity implements OnClickListener,
 		Utils.setLocale(this);
 		showHours = PreferenceManager.getDefaultSharedPreferences(this)
 				.getBoolean(Preferences.PREFS_SHOWHOURS, true);
+		final Uri uri = getIntent().getData();
+		Log.d(TAG, "got URI: " + uri);
+		if (uri != null) {
+			long pid = ContentUris.parseId(uri);
+			String pname = DataProvider.Plans
+					.getName(getContentResolver(), pid);
+			this.selection = DataProvider.Logs.TABLE + "."
+					+ DataProvider.Logs.PLAN_ID + "=" + pid;
+			setTitle(this.getString(R.string.logs) + " - " + pname);
+		}
+		this.setAdapter();
 	}
 
 	/**
@@ -274,7 +290,9 @@ public final class Logs extends ListActivity implements OnClickListener,
 		e.commit();
 	}
 
-	/** Set Adapter. */
+	/**
+	 * Set Adapter.
+	 */
 	private void setAdapter() {
 		String where = DataProvider.Logs.TABLE + "." + DataProvider.Logs.TYPE
 				+ " in (-1";
@@ -299,6 +317,10 @@ public final class Logs extends ListActivity implements OnClickListener,
 			where += "," + DataProvider.DIRECTION_OUT;
 		}
 		where += ")";
+
+		if (!TextUtils.isEmpty(this.selection)) {
+			where = DbUtils.sqlAnd(this.selection, where);
+		}
 
 		LogAdapter adapter = (LogAdapter) getListAdapter();
 		if (adapter == null) {

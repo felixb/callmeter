@@ -341,6 +341,7 @@
   </string-array>
   <string-array name="dialog_edit_plan">
     <item>Edytuj plan</item>
+    <item notranslation="true">View Logs</item>
   </string-array>
   <string-array name="dialog_delete">
     <item>Usuń</item>

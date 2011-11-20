@@ -320,6 +320,7 @@
   </string-array>
   <string-array name="dialog_edit_plan" username="fireb33">
     <item>Modifica piano</item>
+    <item notranslation="true">View Logs</item>
   </string-array>
   <string-array name="dialog_delete" username="fireb33">
     <item>Elimina</item>

@@ -845,16 +845,22 @@ public class Plans extends ListActivity implements OnClickListener,
 					@Override
 					public void onClick(final DialogInterface dialog,
 							final int which) {
+						Intent intent = null;
 						switch (which) {
 						case 0:
-							final Intent intent = new Intent(// .
-									Plans.this, PlanEdit.class);
+							intent = new Intent(Plans.this, PlanEdit.class);
 							intent.setData(ContentUris.withAppendedId(
 									DataProvider.Plans.CONTENT_URI, id));
-							Plans.this.startActivity(intent);
 							break;
+						case 1:
+							intent = new Intent(Plans.this, Logs.class);
+							intent.setData(ContentUris.withAppendedId(
+									DataProvider.Logs.CONTENT_URI, id));
 						default:
 							break;
+						}
+						if (intent != null) {
+							Plans.this.startActivity(intent);
 						}
 					}
 				});

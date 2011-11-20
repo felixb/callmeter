@@ -109,6 +109,7 @@
   </string-array>
   <string-array name="dialog_edit_plan" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
     <item>Editar plano</item>
+    <item notranslation="true">View Logs</item>
   </string-array>
   <string-array name="themes" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
     <item>Preto</item>

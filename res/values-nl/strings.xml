@@ -271,6 +271,7 @@
   </string-array>
   <string-array name="dialog_edit_plan">
     <item>Wijzig schema</item>
+    <item notranslation="true">View Logs</item>
   </string-array>
   <string-array name="dialog_delete">
     <item>Verwijderen</item>

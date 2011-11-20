@@ -237,9 +237,6 @@
     <item>Sort</item>
     <item>Lys</item>
   </string-array>
-  <string-array name="dialog_edit_plan">
-    <item>Edit plan</item>
-  </string-array>
   <string-array name="dialog_delete">
     <item>Slett</item>
   </string-array>

@@ -171,6 +171,7 @@
   </string-array>
   <string-array name="dialog_edit_plan" username="lesart.mario@gmail.com">
     <item>Uredi plan</item>
+    <item notranslation="true">View Logs</item>
   </string-array>
   <string-array name="themes" username="lesart.mario@gmail.com">
     <item>Tamno</item>
