@@ -23,7 +23,6 @@ import java.util.Date;
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
-import android.app.ListActivity;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
@@ -34,12 +33,12 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.Menu;
+import android.support.v4.view.MenuItem;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -48,6 +47,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -62,11 +62,11 @@ import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
- * Callmeter's Log {@link ListActivity}.
+ * Callmeter's Log {@link FragmentActivity}.
  * 
  * @author flx
  */
-public final class Logs extends ListActivity implements OnClickListener,
+public final class Logs extends FragmentActivity implements OnClickListener,
 		OnItemLongClickListener {
 	/** Tag for output. */
 	public static final String TAG = "logs";
@@ -210,13 +210,41 @@ public final class Logs extends ListActivity implements OnClickListener,
 	}
 
 	/**
+	 * Set {@link LogAdapter} to {@link ListView}.
+	 * 
+	 * @param a
+	 *            {@link LogAdapter}
+	 */
+	private void setListAdapter(final LogAdapter a) {
+		this.getListView().setAdapter(a);
+	}
+
+	/**
+	 * Get {@link ListView}.
+	 * 
+	 * @return {@link ListView}
+	 */
+	private ListView getListView() {
+		return (ListView) this.findViewById(android.R.id.list);
+	}
+
+	/**
+	 * Get {@link LogAdapter}.
+	 * 
+	 * @return {@link LogAdapter}
+	 */
+	private LogAdapter getListAdapter() {
+		return (LogAdapter) getListView().getAdapter();
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
 		this.setTheme(Preferences.getTheme(this));
 		Utils.setLocale(this);
+		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.logs);
 		this.setTitle(R.string.logs);
 		this.tbCall = (ToggleButton) this.findViewById(R.id.calls);
@@ -322,7 +350,7 @@ public final class Logs extends ListActivity implements OnClickListener,
 			where = DbUtils.sqlAnd(this.selection, where);
 		}
 
-		LogAdapter adapter = (LogAdapter) getListAdapter();
+		LogAdapter adapter = this.getListAdapter();
 		if (adapter == null) {
 			this.setListAdapter(new LogAdapter(this, where));
 		} else {
@@ -344,8 +372,7 @@ public final class Logs extends ListActivity implements OnClickListener,
 	 */
 	@Override
 	public boolean onCreateOptionsMenu(final Menu menu) {
-		MenuInflater inflater = this.getMenuInflater();
-		inflater.inflate(R.menu.menu_logs, menu);
+		this.getMenuInflater().inflate(R.menu.menu_logs, menu);
 		return true;
 	}
 
@@ -459,6 +486,9 @@ public final class Logs extends ListActivity implements OnClickListener,
 						}
 					});
 			b.show();
+			return true;
+		case android.R.id.home:
+			this.finish();
 			return true;
 		default:
 			return false;

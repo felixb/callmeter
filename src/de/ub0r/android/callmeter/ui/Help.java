@@ -18,26 +18,29 @@
  */
 package de.ub0r.android.callmeter.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
+import de.ub0r.android.lib.Utils;
 
 /**
- * Display Help {@link Activity}.
+ * Display Help {@link FragmentActivity}.
  * 
  * @author flx
  */
-public final class Help extends Activity implements OnClickListener {
+public final class Help extends FragmentActivity implements OnClickListener {
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
 		this.setTheme(Preferences.getTheme(this));
+		Utils.setLocale(this);
+		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.help);
 		this.setTitle(R.string.help_);
 		this.findViewById(R.id.ok).setOnClickListener(this);
@@ -54,6 +57,20 @@ public final class Help extends Activity implements OnClickListener {
 			break;
 		default:
 			break;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean onOptionsItemSelected(final MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			this.finish();
+			return true;
+		default:
+			return false;
 		}
 	}
 }

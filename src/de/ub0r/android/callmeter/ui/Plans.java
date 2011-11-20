@@ -45,11 +45,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.Menu;
+import android.support.v4.view.MenuItem;
 import android.text.Html;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
@@ -57,6 +57,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.DatePicker;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
@@ -76,11 +77,11 @@ import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
- * Callmeter's Main {@link ListActivity}.
+ * Callmeter's Main {@link FragmentActivity}.
  * 
  * @author flx
  */
-public class Plans extends ListActivity implements OnClickListener,
+public class Plans extends FragmentActivity implements OnClickListener,
 		OnItemLongClickListener, OnDateSetListener, OnTimeSetListener {
 	/** Tag for output. */
 	public static final String TAG = "main";
@@ -590,6 +591,25 @@ public class Plans extends ListActivity implements OnClickListener,
 	}
 
 	/**
+	 * Set {@link PlanAdapter} to {@link ListView}.
+	 * 
+	 * @param a
+	 *            {@link PlanAdapter}
+	 */
+	private void setListAdapter(final PlanAdapter a) {
+		this.getListView().setAdapter(a);
+	}
+
+	/**
+	 * Get {@link ListView}.
+	 * 
+	 * @return {@link ListView}
+	 */
+	private ListView getListView() {
+		return (ListView) this.findViewById(android.R.id.list);
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -603,6 +623,8 @@ public class Plans extends ListActivity implements OnClickListener,
 	 */
 	@Override
 	public final void onCreate(final Bundle savedInstanceState) {
+		this.setTheme(Preferences.getTheme(this));
+		Utils.setLocale(this);
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		currentHandler = this.handler;
@@ -614,12 +636,10 @@ public class Plans extends ListActivity implements OnClickListener,
 		if (!showTitlebar) {
 			this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		}
-		this.setTheme(Preferences.getTheme(this));
-		Utils.setLocale(this);
 		this.setContentView(R.layout.plans);
 
-		ChangelogHelper.showChangelog(this, false);
-		ChangelogHelper.showNotes(this, false, null, null, null);
+		ChangelogHelper.showChangelog(this, true);
+		ChangelogHelper.showNotes(this, true, null, null, null);
 
 		prefsNoAds = DonationHelper.hideAds(this);
 		this.findViewById(R.id.import_default).setOnClickListener(this);
@@ -779,8 +799,7 @@ public class Plans extends ListActivity implements OnClickListener,
 	 */
 	@Override
 	public final boolean onCreateOptionsMenu(final Menu menu) {
-		MenuInflater inflater = this.getMenuInflater();
-		inflater.inflate(R.menu.menu_main, menu);
+		this.getMenuInflater().inflate(R.menu.menu_main, menu);
 		if (prefsNoAds) {
 			menu.removeItem(R.id.item_donate);
 		}
