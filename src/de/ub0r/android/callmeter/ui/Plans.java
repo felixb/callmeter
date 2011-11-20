@@ -18,18 +18,14 @@
  */
 package de.ub0r.android.callmeter.ui;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashSet;
 
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
-import android.app.DatePickerDialog;
-import android.app.DatePickerDialog.OnDateSetListener;
-import android.app.Dialog;
-import android.app.ListActivity;
 import android.app.ProgressDialog;
-import android.app.TimePickerDialog;
-import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.ActivityNotFoundException;
 import android.content.AsyncQueryHandler;
 import android.content.ContentResolver;
@@ -45,23 +41,27 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.ListFragment;
 import android.support.v4.view.Menu;
 import android.support.v4.view.MenuItem;
+import android.support.v4.view.ViewPager;
 import android.text.Html;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.DatePicker;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 import de.ub0r.android.callmeter.Ads;
 import de.ub0r.android.callmeter.CallMeter;
@@ -82,7 +82,7 @@ import de.ub0r.android.lib.Utils;
  * @author flx
  */
 public class Plans extends FragmentActivity implements OnClickListener,
-		OnItemLongClickListener, OnDateSetListener, OnTimeSetListener {
+		OnItemLongClickListener {
 	/** Tag for output. */
 	public static final String TAG = "main";
 
@@ -114,11 +114,6 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	public static final String EXTRA_NOW = "now";
 	/** Separator for the data. */
 	public static String delimiter = " | ";
-
-	/** Dialog: show date. */
-	private static final int DIALOG_SHOW_DATE = 1;
-	/** Dialog: show time. */
-	private static final int DIALOG_SHOW_TIME = 2;
 
 	/** {@link Message} for {@link Handler}: start background: LogMatcher. */
 	public static final int MSG_BACKGROUND_START_MATCHER = 1;
@@ -153,9 +148,6 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	/** Display ads? */
 	private static boolean prefsNoAds;
 
-	/** Plans. */
-	private PlanAdapter adapter = null;
-
 	/** {@link Handler} for handling messages from background process. */
 	private final Handler handler = new Handler() {
 		@Override
@@ -171,9 +163,7 @@ public class Plans extends FragmentActivity implements OnClickListener,
 			case MSG_BACKGROUND_STOP_MATCHER:
 				inProgressRunner = false;
 				inProgressMatcher = false;
-				Calendar now = Plans.this.getNowFromIntent(
-						Plans.this.getIntent(), false);
-				adapter.startPlanQuery(now, hideZero, hideNoCost);
+				// FIXME adapter.startPlanQuery(now, hideZero, hideNoCost);
 				break;
 			case MSG_BACKGROUND_START_PLANADAPTER:
 				inProgressPlanadapter = true;
@@ -242,6 +232,163 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	private static boolean statusMatcherProgress = false;
 
 	/**
+	 * Show all {@link PlanFragment}s.
+	 * 
+	 * @author flx
+	 */
+	private static class PlanFragmentAdapter extends FragmentPagerAdapter {
+		/** List of positions. */
+		private final Long[] positions;
+
+		/**
+		 * Default constructor.
+		 * 
+		 * @param context
+		 *            {@link Context}
+		 * @param fm
+		 *            {@link FragmentManager}
+		 */
+		public PlanFragmentAdapter(final Context context,
+				final FragmentManager fm) {
+			super(fm);
+			ContentResolver cr = context.getContentResolver();
+			Cursor c = cr.query(DataProvider.Logs.CONTENT_URI,
+					new String[] { DataProvider.Logs.DATE }, null, null,
+					DataProvider.Logs.DATE + " ASC");
+			if (!c.moveToFirst()) {
+				positions = new Long[] { -1L };
+				c.close();
+			} else {
+				final long minDate = c.getLong(0);
+				c.close();
+				c = cr.query(DataProvider.Plans.CONTENT_URI,
+						DataProvider.Plans.PROJECTION, DataProvider.Plans.TYPE
+								+ "=?", new String[] { String
+								.valueOf(DataProvider.TYPE_BILLPERIOD) }, null);
+				if (minDate < 0L || !c.moveToFirst()) {
+					positions = new Long[] { -1L };
+					c.close();
+				} else {
+					ArrayList<Long> list = new ArrayList<Long>();
+					do { // walk all bill periods
+						Calendar lastBP = Calendar.getInstance();
+						lastBP.setTimeInMillis(c
+								.getLong(DataProvider.Plans.INDEX_BILLDAY));
+						Calendar now = Calendar.getInstance();
+						long billday = -1L;
+						do { // get all bill days
+							Calendar billDay = DataProvider.Plans.getBillDay(
+									c.getInt(// .
+									DataProvider.Plans.INDEX_BILLPERIOD),
+									lastBP, now, false);
+							billday = billDay.getTimeInMillis();
+							lastBP.setTimeInMillis(billday);
+							billday -= 1L;
+							now.setTimeInMillis(billday);
+							list.add(billday);
+						} while (billday > minDate);
+					} while (c.moveToNext());
+					c.close();
+					list.add(-1L);
+					positions = list.toArray(new Long[] {});
+					list = null;
+					Arrays.sort(positions, 0, positions.length - 1);
+				}
+			}
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public int getCount() {
+			return positions.length;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public Fragment getItem(final int position) {
+			return PlanFragment.newInstance(positions[position]);
+		}
+	}
+
+	/**
+	 * Show plans.
+	 * 
+	 * @author flx
+	 */
+	private static class PlanFragment extends ListFragment {
+		/** This fragments time stamp. */
+		private long now;
+
+		/** Handle for view. */
+		private View vLoading, vImport;
+
+		/**
+		 * Get new {@link PlanFragment}.
+		 * 
+		 * @param now
+		 *            This fragments current time
+		 * @return {@link PlanFragment}
+		 */
+		public static Fragment newInstance(final long now) {
+			PlanFragment f = new PlanFragment();
+			Bundle args = new Bundle();
+			args.putLong("now", now);
+			f.setArguments(args);
+			return f;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void onCreate(final Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);
+			if (this.getArguments() == null) {
+				now = -1L;
+			} else {
+				now = getArguments().getLong("now", -1L);
+			}
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public View onCreateView(final LayoutInflater inflater,
+				final ViewGroup container, final Bundle savedInstanceState) {
+			View v = inflater
+					.inflate(R.layout.plans_fragment, container, false);
+			this.vLoading = v.findViewById(R.id.loading);
+			this.vImport = v.findViewById(R.id.import_default);
+			return v;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void onActivityCreated(final Bundle savedInstanceState) {
+			super.onActivityCreated(savedInstanceState);
+			Calendar c = Calendar.getInstance();
+			if (this.now >= 0L) {
+				c.setTimeInMillis(now);
+			}
+			PlanAdapter adapter = new PlanAdapter(this.getActivity(), c, false,
+					false, this.vLoading, this.vImport);
+			this.setListAdapter(adapter);
+			this.getListView().setOnItemLongClickListener(
+					(OnItemLongClickListener) this.getActivity());
+			this.vImport.setOnClickListener((OnClickListener) this
+					.getActivity());
+			adapter.startPlanQuery(c);
+		}
+	}
+
+	/**
 	 * Adapter binding plans to View.
 	 * 
 	 * @author flx
@@ -259,18 +406,27 @@ public class Plans extends FragmentActivity implements OnClickListener,
 		 */
 		private final class BackgroundQueryHandler extends AsyncQueryHandler {
 			/** Reference to {@link Activity}. */
-			final Activity activity;
+			private final Activity activity;
+
+			/** Handle to views. */
+			private final View vLoading, vImport;
 
 			/**
-			 * A helper class to help make handling asynchronous
-			 * {@link ContentResolver} queries easier.
+			 * A helper class to help make handling asynchronous queries easier.
 			 * 
 			 * @param context
 			 *            {@link Activity}
+			 * @param loading
+			 *            Handle to view: loading.
+			 * @param imp
+			 *            Handle to view: import
 			 */
-			public BackgroundQueryHandler(final Activity context) {
+			public BackgroundQueryHandler(final Activity context,
+					final View loading, final View imp) {
 				super(context.getContentResolver());
-				activity = context;
+				this.activity = context;
+				this.vLoading = loading;
+				this.vImport = imp;
 			}
 
 			/**
@@ -281,15 +437,12 @@ public class Plans extends FragmentActivity implements OnClickListener,
 					final Object cookie, final Cursor cursor) {
 				switch (token) {
 				case PLAN_QUERY_TOKEN:
-					this.activity.findViewById(R.id.loading).setVisibility(
-							View.GONE);
+					this.vLoading.setVisibility(View.GONE);
 					PlanAdapter.this.changeCursor(cursor);
 					if (cursor != null && cursor.getCount() > 0) {
-						this.activity.findViewById(R.id.import_default)
-								.setVisibility(View.GONE);
+						this.vImport.setVisibility(View.GONE);
 					} else {
-						this.activity.findViewById(R.id.import_default)
-								.setVisibility(View.VISIBLE);
+						this.vImport.setVisibility(View.VISIBLE);
 					}
 					this.activity.setProgressBarIndeterminateVisibility(// .
 							Boolean.FALSE);
@@ -308,8 +461,7 @@ public class Plans extends FragmentActivity implements OnClickListener,
 					final String selection, final String[] selectionArgs,
 					final String orderBy) {
 				if (PlanAdapter.this.getCount() == 0) {
-					this.activity.findViewById(R.id.loading).setVisibility(
-							View.VISIBLE);
+					vLoading.setVisibility(View.VISIBLE);
 				}
 				this.activity.setProgressBarIndeterminateVisibility(// .
 						Boolean.TRUE);
@@ -318,15 +470,12 @@ public class Plans extends FragmentActivity implements OnClickListener,
 			}
 		}
 
-		/** Now. */
-		private Calendar now;
-
-		/** Textsizes. */
+		/** Text sizes. */
 		private int textSize, textSizeBigTitle, textSizeTitle, textSizeSpacer,
 				textSizePBar, textSizePBarBP;
 		/** Prepaid plan? */
 		private boolean prepaid;
-		/** Visability for {@link ProgressBar}s. */
+		/** Visibility for {@link ProgressBar}s. */
 		private final int progressBarVisability;
 
 		/**
@@ -340,11 +489,16 @@ public class Plans extends FragmentActivity implements OnClickListener,
 		 *            hide zero plans
 		 * @param lhideNoCost
 		 *            hide no cost plans
+		 * @param loading
+		 *            Handle to view: loading.
+		 * @param imp
+		 *            Handle to view: import
 		 */
 		public PlanAdapter(final Activity context, final Calendar lnow,
-				final boolean lhideZero, final boolean lhideNoCost) {
+				final boolean lhideZero, final boolean lhideNoCost,
+				final View loading, final View imp) {
 			super(context, R.layout.plans_item, null, true);
-			queryHandler = new BackgroundQueryHandler(context);
+			queryHandler = new BackgroundQueryHandler(context, loading, imp);
 			final SharedPreferences p = PreferenceManager
 					.getDefaultSharedPreferences(context);
 			if (p.getBoolean(Preferences.PREFS_HIDE_PROGRESSBARS, false)) {
@@ -352,7 +506,6 @@ public class Plans extends FragmentActivity implements OnClickListener,
 			} else {
 				this.progressBarVisability = View.VISIBLE;
 			}
-			// this.updateGUI();
 		}
 
 		/**
@@ -360,13 +513,8 @@ public class Plans extends FragmentActivity implements OnClickListener,
 		 * 
 		 * @param lnow
 		 *            {@link Calendar} pointing to current time shown
-		 * @param lhideZero
-		 *            hide zero plans
-		 * @param lhideNoCost
-		 *            hide no cost plans
 		 */
-		public final void startPlanQuery(final Calendar lnow,
-				final boolean lhideZero, final boolean lhideNoCost) {
+		public final void startPlanQuery(final Calendar lnow) {
 			// Cancel any pending queries
 			this.queryHandler.cancelOperation(PLAN_QUERY_TOKEN);
 			try {
@@ -385,39 +533,14 @@ public class Plans extends FragmentActivity implements OnClickListener,
 										String.valueOf(n.getTimeInMillis()))
 								.appendQueryParameter(
 										DataProvider.Plans.PARAM_HIDE_ZERO,
-										String.valueOf(lhideZero))
+										String.valueOf(hideZero))
 								.appendQueryParameter(
 										DataProvider.Plans.PARAM_HIDE_NOCOST,
-										String.valueOf(lhideNoCost)).build(),
+										String.valueOf(hideNoCost)).build(),
 						DataProvider.Plans.PROJECTION_SUM, null, null, null);
 			} catch (SQLiteException e) {
 				Log.e(TAG, "error starting query", e);
 			}
-		}
-
-		/**
-		 * Close inner {@link Cursor}.
-		 */
-		private void close() {
-			final Cursor c = this.getCursor();
-			if (c != null && !c.isClosed()) {
-				c.close();
-			}
-		}
-
-		/**
-		 * Set date of now.
-		 * 
-		 * @param time
-		 *            time in milliseconds
-		 */
-		private void setNow(final long time) {
-			if (time <= 0) {
-				this.now = null;
-			} else if (this.now == null) {
-				this.now = Calendar.getInstance();
-			}
-			this.now.setTimeInMillis(time);
 		}
 
 		/**
@@ -591,31 +714,11 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	}
 
 	/**
-	 * Set {@link PlanAdapter} to {@link ListView}.
-	 * 
-	 * @param a
-	 *            {@link PlanAdapter}
-	 */
-	private void setListAdapter(final PlanAdapter a) {
-		this.getListView().setAdapter(a);
-	}
-
-	/**
-	 * Get {@link ListView}.
-	 * 
-	 * @return {@link ListView}
-	 */
-	private ListView getListView() {
-		return (ListView) this.findViewById(android.R.id.list);
-	}
-
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void onDestroy() {
 		super.onDestroy();
-		this.adapter.close();
 	}
 
 	/**
@@ -642,12 +745,12 @@ public class Plans extends FragmentActivity implements OnClickListener,
 		ChangelogHelper.showNotes(this, true, null, null, null);
 
 		prefsNoAds = DonationHelper.hideAds(this);
-		this.findViewById(R.id.import_default).setOnClickListener(this);
-		this.getListView().setOnItemLongClickListener(this);
 
-		this.adapter = new PlanAdapter(this, Calendar.getInstance(), hideZero,
-				hideNoCost);
-		this.setListAdapter(this.adapter);
+		ViewPager pager = (ViewPager) findViewById(R.id.pager);
+		PlanFragmentAdapter fadapter = new PlanFragmentAdapter(this,
+				getSupportFragmentManager());
+		pager.setAdapter(fadapter);
+		pager.setCurrentItem(fadapter.getCount() - 1);
 	}
 
 	/**
@@ -672,66 +775,16 @@ public class Plans extends FragmentActivity implements OnClickListener,
 		delimiter = p.getString(Preferences.PREFS_DELIMITER, " | ");
 
 		// reload plan configuration
-		Calendar now = this.getNowFromIntent(this.getIntent(), false);
-		adapter.startPlanQuery(now, hideZero, hideNoCost);
+		// FIXME adapter.startPlanQuery(now, hideZero, hideNoCost);
 		// start LogRunner
 		LogRunnerService.update(this, LogRunnerReceiver.ACTION_FORCE_UPDATE);
 		// schedule next update
 		LogRunnerReceiver.schedNext(this);
-		if (this.getListView().getCount() > 0 && !prefsNoAds) {
+		if (!prefsNoAds) {
 			Ads.loadAd(this, R.id.ad, AD_UNITID, AD_KEYWORDS);
 		} else {
 			this.findViewById(R.id.ad).setVisibility(View.GONE);
 		}
-	}
-
-	/**
-	 * Get "now" from {@link Intent}.
-	 * 
-	 * @param intent
-	 *            {@link Intent}
-	 * @param updatePlans
-	 *            update plans after setting "now"
-	 * @return "now"
-	 */
-	private Calendar getNowFromIntent(final Intent intent, // .
-			final boolean updatePlans) {
-		final long now = intent.getLongExtra(EXTRA_NOW, -1);
-		if (now >= 0L) {
-			this.setNow(now, updatePlans, false);
-		} else {
-			this.adapter.now = null;
-			this.setTitle(R.string.app_name);
-		}
-		Calendar ret = Calendar.getInstance();
-		if (now >= 0L) {
-			ret.setTimeInMillis(now);
-		}
-		return ret;
-	}
-
-	/**
-	 * Set "now" to main view.
-	 * 
-	 * @param now
-	 *            now as milliseconds
-	 * @param updatePlans
-	 *            update plans after setting "now"
-	 * @param fromTime
-	 *            time set too?
-	 */
-	private void setNow(final long now, final boolean updatePlans,
-			final boolean fromTime) {
-		this.adapter.setNow(now);
-		final Calendar cal = this.adapter.now;
-		String t = this.getString(R.string.app_name) + " - "
-				+ Common.formatDate(this, cal);
-		t += String.format(" %tR", cal);
-		this.setTitle(t);
-		if (!fromTime) {
-			this.showDialog(DIALOG_SHOW_TIME);
-		}
-		this.adapter.startPlanQuery(cal, hideZero, hideNoCost);
 	}
 
 	/**
@@ -764,40 +817,6 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final Dialog onCreateDialog(final int id) {
-		switch (id) {
-		case DIALOG_SHOW_DATE:
-			Calendar cal = this.adapter.now;
-			if (cal == null) {
-				cal = Calendar.getInstance();
-			}
-			return new DatePickerDialog(this, this, cal.get(Calendar.YEAR),
-					cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
-		case DIALOG_SHOW_TIME:
-			cal = this.adapter.now;
-			int h;
-			int m;
-			if (cal == null) {
-				h = 23;
-				m = 59;
-			} else {
-				h = cal.get(Calendar.HOUR_OF_DAY);
-				m = cal.get(Calendar.MINUTE);
-				if (h == 0 && m == 0) {
-					h = 23;
-					m = 59;
-				}
-			}
-			return new TimePickerDialog(this, this, h, m, true);
-		default:
-			return null;
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public final boolean onCreateOptionsMenu(final Menu menu) {
 		this.getMenuInflater().inflate(R.menu.menu_main, menu);
 		if (prefsNoAds) {
@@ -820,9 +839,6 @@ public class Plans extends FragmentActivity implements OnClickListener,
 			return true;
 		case R.id.item_logs:
 			this.startActivity(new Intent(this, Logs.class));
-			return true;
-		case R.id.item_show_time:
-			this.showDialog(DIALOG_SHOW_DATE);
 			return true;
 		default:
 			return false;
@@ -888,32 +904,4 @@ public class Plans extends FragmentActivity implements OnClickListener,
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public final void onDateSet(final DatePicker view, final int year,
-			final int monthOfYear, final int dayOfMonth) {
-		final Calendar date = Calendar.getInstance();
-		date.set(year, monthOfYear, dayOfMonth, 0, 0, 0);
-		final Intent intent = new Intent(this, Plans.class);
-		intent.putExtra(EXTRA_NOW, date.getTimeInMillis());
-		if (this.adapter.now != null) {
-			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		}
-		this.startActivity(intent);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public final void onTimeSet(final TimePicker view, final int hourOfDay,
-			final int minute) {
-		Calendar cal = this.adapter.now;
-		if (cal == null) {
-			cal = Calendar.getInstance();
-		}
-		cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),
-				cal.get(Calendar.DAY_OF_MONTH), hourOfDay, minute);
-		this.setNow(cal.getTimeInMillis(), true, true);
-	}
 }

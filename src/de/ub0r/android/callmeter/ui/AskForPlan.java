@@ -21,9 +21,9 @@ package de.ub0r.android.callmeter.ui;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.DialogInterface.OnDismissListener;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.os.AsyncTask;
@@ -176,8 +176,9 @@ public final class AskForPlan extends Activity implements OnClickListener,
 
 				@Override
 				protected void onProgressUpdate(final Void... values) {
-					String s = String.format(AskForPlan.this
-							.getString(R.string.autohide_in_), this.count);
+					String s = String.format(
+							AskForPlan.this.getString(R.string.autohide_in_),
+							this.count);
 					AskForPlan.this.tvTimeout.setText(s);
 				}
 
@@ -188,9 +189,9 @@ public final class AskForPlan extends Activity implements OnClickListener,
 						final long pid = AskForPlan.this.defaultPlanId;
 						if (pid >= 0L) {
 							Log.i(TAG, "setPlan(" + pid + ")");
-							RuleMatcher.matchLog(AskForPlan.this
-									.getContentResolver(), AskForPlan.this.id,
-									pid);
+							RuleMatcher.matchLog(
+									AskForPlan.this.getContentResolver(),
+									AskForPlan.this.id, pid);
 						}
 						AskForPlan.this.d.cancel();
 						AskForPlan.this.finish();

@@ -296,7 +296,7 @@ public final class Logs extends FragmentActivity implements OnClickListener,
 					.getName(getContentResolver(), pid);
 			this.selection = DataProvider.Logs.TABLE + "."
 					+ DataProvider.Logs.PLAN_ID + "=" + pid;
-			setTitle(this.getString(R.string.logs) + " - " + pname);
+			this.getSupportActionBar().setSubtitle(pname);
 		}
 		this.setAdapter();
 	}
