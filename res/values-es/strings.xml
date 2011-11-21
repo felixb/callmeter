@@ -437,4 +437,8 @@
   <string name="calls_out_" formatted="false" orig="CallsOut">Lllamada salida</string>
   <string name="sms_in" formatted="false" orig="SMS In">Mensaje entrada</string>
   <string name="sms_out" formatted="false" orig="SMS Out">Mensaje salida</string>
+  <string name="mms_in" formatted="false" orig="MMS In">Mensaje multimedia entrada</string>
+  <string name="mms_out" formatted="false" orig="MMS Out">Mensaje multimedia salida</string>
+  <string name="active_" formatted="false" orig="Active">Activado</string>
+  <string name="loading" formatted="false" orig="Loading ...">Cargando....</string>
 </resources>

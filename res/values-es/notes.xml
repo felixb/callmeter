@@ -21,7 +21,7 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=es&file=notes.xml to edit the file.
        -->
 <resources>
-  <string-array name="notes_from_dev" username="">
+  <string-array name="notes_from_dev">
     <item>Dec. 2010 No olvide: Las estadísticas pasadas no pueden ser recuperadas de antes de la instalación de esta aplicación.</item>
     <item>Dec. 2010 No olvide: Cancelar esta aplicación puede resultar en estadísticas erróneas.</item>
   </string-array>
