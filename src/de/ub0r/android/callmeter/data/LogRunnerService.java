@@ -805,7 +805,7 @@ public final class LogRunnerService extends IntentService {
 					if (cost > 0) {
 						String currencyFormat = Preferences
 								.getCurrencyFormat(this);
-						sb.append(Plans.delimiter
+						sb.append(" | " // FIXME
 								+ String.format(currencyFormat, cost));
 					}
 					if (planname != null) {

@@ -67,7 +67,7 @@ import de.ub0r.android.lib.Utils;
 public final class LogsFragment extends ListFragment implements
 		OnClickListener, OnItemLongClickListener {
 	/** Tag for output. */
-	public static final String TAG = "logs";
+	// private static final String TAG = "logs";
 
 	/** Prefs: {@link ToggleButton} state for calls. */
 	private static final String PREF_CALL = "_logs_call";
