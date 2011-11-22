@@ -116,6 +116,7 @@
 	<string name="set_selected_as_default_">Set selected plan as default</string>
 	<string name="autohide_in_">Auto hide dialog in: %ds</string>
 	<string name="logs">Logs</string>
+	<string name="now">Now</string>
 	<string name="show_logs">Show logs</string>
 	<string name="plans">Plans</string>
 	<string name="plans_hint">Set your plans for all kind of billing here.</string>

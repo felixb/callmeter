@@ -43,6 +43,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.Window;
+
+import com.viewpagerindicator.TitlePageIndicator;
+import com.viewpagerindicator.TitlePageIndicator.IndicatorStyle;
+import com.viewpagerindicator.TitleProvider;
+
 import de.ub0r.android.callmeter.Ads;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
@@ -199,9 +204,12 @@ public final class Plans extends FragmentActivity implements
 	 * 
 	 * @author flx
 	 */
-	private static class PlansFragmentAdapter extends FragmentPagerAdapter {
+	private static class PlansFragmentAdapter extends FragmentPagerAdapter
+			implements TitleProvider {
 		/** List of positions. */
 		private final Long[] positions;
+		/** List of titles. */
+		private final String[] titles;
 		/** {@link LogsFragment}. */
 		private LogsFragment logs;
 
@@ -261,6 +269,14 @@ public final class Plans extends FragmentActivity implements
 					Arrays.sort(positions, 0, positions.length - 2);
 				}
 			}
+			Common.setDateFormat(context);
+			final int l = this.positions.length;
+			this.titles = new String[l];
+			for (int i = 0; i < l - 2; i++) {
+				this.titles[i] = Common.formatDate(context, this.positions[i]);
+			}
+			this.titles[l - 2] = context.getString(R.string.now);
+			this.titles[l - 1] = context.getString(R.string.logs);
 		}
 
 		/**
@@ -310,6 +326,14 @@ public final class Plans extends FragmentActivity implements
 		public LogsFragment getLogsFragment() {
 			return this.logs;
 		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getTitle(final int position) {
+			return this.titles[position];
+		}
 	}
 
 	/**
@@ -346,11 +370,18 @@ public final class Plans extends FragmentActivity implements
 		prefsNoAds = DonationHelper.hideAds(this);
 
 		this.pager = (ViewPager) findViewById(R.id.pager);
+
 		this.fadapter = new PlansFragmentAdapter(this,
 				getSupportFragmentManager());
 		this.pager.setAdapter(this.fadapter);
+
+		TitlePageIndicator indicator = (TitlePageIndicator) // .
+		findViewById(R.id.titles);
+		indicator.setViewPager(this.pager);
+		indicator.setFooterIndicatorStyle(IndicatorStyle.Underline);
+
 		this.pager.setCurrentItem(this.fadapter.getHomeFragmentPos());
-		this.pager.setOnPageChangeListener(this);
+		indicator.setOnPageChangeListener(this);
 	}
 
 	/**

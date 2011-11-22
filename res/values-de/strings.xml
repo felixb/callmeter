@@ -117,6 +117,7 @@
   <string name="set_selected_as_default_" formatted="false">Kontingent als Standard festlegen</string>
   <string name="autohide_in_" formatted="false">Dialog automatisch in schließen in: %ds</string>
   <string name="logs" formatted="false">Logs</string>
+  <string name="now" formatted="false">Jetzt</string>
   <string name="show_logs" formatted="false">Logs zeigen</string>
   <string name="plans" formatted="false">Kontingente</string>
   <string name="plans_hint" formatted="false">Stelle hier deine verschiedenen Kontingente ein.</string>

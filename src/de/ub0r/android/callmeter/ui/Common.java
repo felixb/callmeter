@@ -83,10 +83,25 @@ public final class Common {
 	 */
 	public static String formatDate(final Context context, final Calendar cal) {
 		if (dateFormat == null) {
-			return DateFormat.getDateFormat(context).format(cal);
+			return DateFormat.getDateFormat(context).format(cal.getTime());
 		} else {
 			return String.format(dateFormat, cal, cal, cal);
 		}
+	}
+
+	/**
+	 * Format a {@link Calendar}.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param date
+	 *            time in milliseconds
+	 * @return formated date
+	 */
+	public static String formatDate(final Context context, final long date) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTimeInMillis(date);
+		return formatDate(context, cal);
 	}
 
 	/**
@@ -128,24 +143,10 @@ public final class Common {
 	 */
 	public static String formatDate(final Context context,
 			final int billperiod, final Calendar billDay) {
-		if (billperiod == DataProvider.BILLPERIOD_INFINITE) {
-			if (billDay == null) {
-				return "\u221E";
-			} else {
-				if (dateFormat == null) {
-					return DateFormat.getDateFormat(context).format(
-							billDay.getTime());
-				} else {
-					return String.format(dateFormat, billDay, billDay, billDay);
-				}
-			}
+		if (billperiod == DataProvider.BILLPERIOD_INFINITE && billDay == null) {
+			return "\u221E";
 		} else {
-			if (dateFormat == null) {
-				return DateFormat.getDateFormat(context).format(
-						billDay.getTime());
-			} else {
-				return String.format(dateFormat, billDay, billDay, billDay);
-			}
+			return formatDate(context, billDay);
 		}
 	}
 
