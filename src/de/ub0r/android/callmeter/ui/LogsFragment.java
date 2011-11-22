@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein
+ * Copyright (C) 2009-2011 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -30,24 +30,23 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.ListFragment;
 import android.support.v4.view.Menu;
 import android.support.v4.view.MenuItem;
-import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -58,16 +57,15 @@ import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
-import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
- * Callmeter's Log {@link FragmentActivity}.
+ * Callmeter's Log {@link Fragment}.
  * 
  * @author flx
  */
-public final class Logs extends FragmentActivity implements OnClickListener,
-		OnItemLongClickListener {
+public final class LogsFragment extends ListFragment implements
+		OnClickListener, OnItemLongClickListener {
 	/** Tag for output. */
 	public static final String TAG = "logs";
 
@@ -89,8 +87,8 @@ public final class Logs extends FragmentActivity implements OnClickListener,
 	/** Show hours and days. */
 	private static boolean showHours = true;
 
-	/** Selection of logs given by Intent. */
-	private String selection = null;
+	/** Selected plan id. */
+	private long planId = -1;
 
 	/**
 	 * Adapter binding logs to View.
@@ -125,7 +123,7 @@ public final class Logs extends FragmentActivity implements OnClickListener,
 		 *            where clause
 		 */
 		private void changeCursor(final String where) {
-			Cursor c = getContentResolver().query(
+			Cursor c = getActivity().getContentResolver().query(
 					DataProvider.Logs.CONTENT_URI_JOIN,
 					DataProvider.Logs.PROJECTION_JOIN, where, null,
 					DataProvider.Logs.DATE + " DESC");
@@ -210,57 +208,35 @@ public final class Logs extends FragmentActivity implements OnClickListener,
 	}
 
 	/**
-	 * Set {@link LogAdapter} to {@link ListView}.
-	 * 
-	 * @param a
-	 *            {@link LogAdapter}
+	 * {@inheritDoc}
 	 */
-	private void setListAdapter(final LogAdapter a) {
-		this.getListView().setAdapter(a);
-	}
-
-	/**
-	 * Get {@link ListView}.
-	 * 
-	 * @return {@link ListView}
-	 */
-	private ListView getListView() {
-		return (ListView) this.findViewById(android.R.id.list);
-	}
-
-	/**
-	 * Get {@link LogAdapter}.
-	 * 
-	 * @return {@link LogAdapter}
-	 */
-	private LogAdapter getListAdapter() {
-		return (LogAdapter) getListView().getAdapter();
+	public void onCreate(final Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		this.setHasOptionsMenu(true);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void onCreate(final Bundle savedInstanceState) {
-		this.setTheme(Preferences.getTheme(this));
-		Utils.setLocale(this);
-		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.logs);
-		this.setTitle(R.string.logs);
-		this.tbCall = (ToggleButton) this.findViewById(R.id.calls);
+	public View onCreateView(final LayoutInflater inflater,
+			final ViewGroup container, final Bundle savedInstanceState) {
+		View v = inflater.inflate(R.layout.logs, container, false);
+		// FIXME this.setTitle(R.string.logs);
+		this.tbCall = (ToggleButton) v.findViewById(R.id.calls);
 		this.tbCall.setOnClickListener(this);
-		this.tbSMS = (ToggleButton) this.findViewById(R.id.sms);
+		this.tbSMS = (ToggleButton) v.findViewById(R.id.sms);
 		this.tbSMS.setOnClickListener(this);
-		this.tbMMS = (ToggleButton) this.findViewById(R.id.mms);
+		this.tbMMS = (ToggleButton) v.findViewById(R.id.mms);
 		this.tbMMS.setOnClickListener(this);
-		this.tbData = (ToggleButton) this.findViewById(R.id.data);
+		this.tbData = (ToggleButton) v.findViewById(R.id.data);
 		this.tbData.setOnClickListener(this);
-		this.tbIn = (ToggleButton) this.findViewById(R.id.in);
+		this.tbIn = (ToggleButton) v.findViewById(R.id.in);
 		this.tbIn.setOnClickListener(this);
-		this.tbOut = (ToggleButton) this.findViewById(R.id.out);
+		this.tbOut = (ToggleButton) v.findViewById(R.id.out);
 		this.tbOut.setOnClickListener(this);
 		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(this);
+				.getDefaultSharedPreferences(this.getActivity());
 		this.tbCall.setChecked(p.getBoolean(PREF_CALL, true));
 		this.tbSMS.setChecked(p.getBoolean(PREF_SMS, true));
 		this.tbMMS.setChecked(p.getBoolean(PREF_MMS, true));
@@ -277,27 +253,19 @@ public final class Logs extends FragmentActivity implements OnClickListener,
 		tbOut.setTextOn(directions[DataProvider.DIRECTION_OUT]);
 		tbOut.setTextOff(directions[DataProvider.DIRECTION_OUT]);
 		directions = null;
+
+		return v;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void onResume() {
+	public void onResume() {
 		super.onResume();
-		Utils.setLocale(this);
-		showHours = PreferenceManager.getDefaultSharedPreferences(this)
-				.getBoolean(Preferences.PREFS_SHOWHOURS, true);
-		final Uri uri = getIntent().getData();
-		Log.d(TAG, "got URI: " + uri);
-		if (uri != null) {
-			long pid = ContentUris.parseId(uri);
-			String pname = DataProvider.Plans
-					.getName(getContentResolver(), pid);
-			this.selection = DataProvider.Logs.TABLE + "."
-					+ DataProvider.Logs.PLAN_ID + "=" + pid;
-			this.getSupportActionBar().setSubtitle(pname);
-		}
+		showHours = PreferenceManager.getDefaultSharedPreferences(
+				this.getActivity()).getBoolean(Preferences.PREFS_SHOWHOURS,
+				true);
 		this.setAdapter();
 	}
 
@@ -305,10 +273,10 @@ public final class Logs extends FragmentActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void onStop() {
+	public void onPause() {
 		super.onStop();
-		final Editor e = PreferenceManager.getDefaultSharedPreferences(this)
-				.edit();
+		final Editor e = PreferenceManager.getDefaultSharedPreferences(
+				this.getActivity()).edit();
 		e.putBoolean(PREF_CALL, this.tbCall.isChecked());
 		e.putBoolean(PREF_SMS, this.tbSMS.isChecked());
 		e.putBoolean(PREF_MMS, this.tbMMS.isChecked());
@@ -346,17 +314,31 @@ public final class Logs extends FragmentActivity implements OnClickListener,
 		}
 		where += ")";
 
-		if (!TextUtils.isEmpty(this.selection)) {
-			where = DbUtils.sqlAnd(this.selection, where);
+		if (this.planId > 0L) {
+			where = DbUtils.sqlAnd(DataProvider.Logs.TABLE + "."
+					+ DataProvider.Logs.PLAN_ID + "=" + this.planId, where);
 		}
 
-		LogAdapter adapter = this.getListAdapter();
+		LogAdapter adapter = (LogAdapter) this.getListAdapter();
 		if (adapter == null) {
-			this.setListAdapter(new LogAdapter(this, where));
+			this.setListAdapter(new LogAdapter(this.getActivity(), where));
 		} else {
 			adapter.changeCursor(where);
 		}
 		this.getListView().setOnItemLongClickListener(this);
+	}
+
+	/**
+	 * Set filter to show only given plan. Set to -1 for no filter.
+	 * 
+	 * @param id
+	 *            plan's id
+	 */
+	public void setPlanId(final long id) {
+		this.planId = id;
+		if (this.isVisible()) {
+			this.setAdapter();
+		}
 	}
 
 	/**
@@ -371,9 +353,9 @@ public final class Logs extends FragmentActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean onCreateOptionsMenu(final Menu menu) {
-		this.getMenuInflater().inflate(R.menu.menu_logs, menu);
-		return true;
+	public void onCreateOptionsMenu(final Menu menu, // .
+			final MenuInflater inflater) {
+		inflater.inflate(R.menu.menu_logs, menu);
 	}
 
 	/**
@@ -383,11 +365,11 @@ public final class Logs extends FragmentActivity implements OnClickListener,
 	public boolean onOptionsItemSelected(final MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.item_add:
-			AlertDialog.Builder b = new AlertDialog.Builder(this);
+			AlertDialog.Builder b = new AlertDialog.Builder(this.getActivity());
 			b.setCancelable(true);
 			b.setTitle(R.string.add_log);
-			final View v = LayoutInflater.from(this).inflate(R.layout.logs_add,
-					null);
+			final View v = LayoutInflater.from(this.getActivity()).inflate(
+					R.layout.logs_add, null);
 			final Spinner spType = (Spinner) v.findViewById(R.id.type);
 			final Spinner spDirection = (Spinner) v
 					.findViewById(R.id.direction);
@@ -480,15 +462,14 @@ public final class Logs extends FragmentActivity implements OnClickListener,
 							if (roamed) {
 								cv.put(DataProvider.Logs.ROAMED, 1);
 							}
-							Logs.this.getContentResolver().insert(
-									DataProvider.Logs.CONTENT_URI, cv);
-							LogRunnerService.update(Logs.this, null);
+							LogsFragment.this.getActivity()
+									.getContentResolver()
+									.insert(DataProvider.Logs.CONTENT_URI, cv);
+							LogRunnerService.update(
+									LogsFragment.this.getActivity(), null);
 						}
 					});
 			b.show();
-			return true;
-		case android.R.id.home:
-			this.finish();
 			return true;
 		default:
 			return false;
@@ -501,17 +482,19 @@ public final class Logs extends FragmentActivity implements OnClickListener,
 	@Override
 	public boolean onItemLongClick(final AdapterView<?> parent,
 			final View view, final int position, final long id) {
-		final Builder b = new Builder(this);
+		final Builder b = new Builder(this.getActivity());
 		b.setCancelable(true);
 		b.setItems(R.array.dialog_delete,
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(final DialogInterface dialog,
 							final int which) {
-						Logs.this.getContentResolver().delete(
-								ContentUris.withAppendedId(
+						LogsFragment.this
+								.getActivity()
+								.getContentResolver()
+								.delete(ContentUris.withAppendedId(
 										DataProvider.Logs.CONTENT_URI, id),
-								null, null);
+										null, null);
 					}
 				});
 		b.setNegativeButton(android.R.string.cancel, null);

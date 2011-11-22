@@ -49,9 +49,11 @@ import android.support.v4.app.ListFragment;
 import android.support.v4.view.Menu;
 import android.support.v4.view.MenuItem;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -81,8 +83,8 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public class Plans extends FragmentActivity implements OnClickListener,
-		OnItemLongClickListener {
+public final class Plans extends FragmentActivity implements
+		OnPageChangeListener {
 	/** Tag for output. */
 	public static final String TAG = "main";
 
@@ -147,6 +149,11 @@ public class Plans extends FragmentActivity implements OnClickListener,
 
 	/** Display ads? */
 	private static boolean prefsNoAds;
+
+	/** {@link ViewPager}. */
+	private ViewPager pager;
+	/** {@link PlanFragmentAdapter}. */
+	private PlanFragmentAdapter fadapter;
 
 	/** {@link Handler} for handling messages from background process. */
 	private final Handler handler = new Handler() {
@@ -239,6 +246,8 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	private static class PlanFragmentAdapter extends FragmentPagerAdapter {
 		/** List of positions. */
 		private final Long[] positions;
+		/** {@link LogsFragment}. */
+		private LogsFragment logs;
 
 		/**
 		 * Default constructor.
@@ -256,7 +265,7 @@ public class Plans extends FragmentActivity implements OnClickListener,
 					new String[] { DataProvider.Logs.DATE }, null, null,
 					DataProvider.Logs.DATE + " ASC");
 			if (!c.moveToFirst()) {
-				positions = new Long[] { -1L };
+				positions = new Long[] { -1L, -1L };
 				c.close();
 			} else {
 				final long minDate = c.getLong(0);
@@ -266,7 +275,7 @@ public class Plans extends FragmentActivity implements OnClickListener,
 								+ "=?", new String[] { String
 								.valueOf(DataProvider.TYPE_BILLPERIOD) }, null);
 				if (minDate < 0L || !c.moveToFirst()) {
-					positions = new Long[] { -1L };
+					positions = new Long[] { -1L, -1L };
 					c.close();
 				} else {
 					ArrayList<Long> list = new ArrayList<Long>();
@@ -289,10 +298,11 @@ public class Plans extends FragmentActivity implements OnClickListener,
 						} while (billday > minDate);
 					} while (c.moveToNext());
 					c.close();
-					list.add(-1L);
+					list.add(-1L); // current time
+					list.add(-1L); // logs
 					positions = list.toArray(new Long[] {});
 					list = null;
-					Arrays.sort(positions, 0, positions.length - 1);
+					Arrays.sort(positions, 0, positions.length - 2);
 				}
 			}
 		}
@@ -310,7 +320,39 @@ public class Plans extends FragmentActivity implements OnClickListener,
 		 */
 		@Override
 		public Fragment getItem(final int position) {
-			return PlanFragment.newInstance(positions[position]);
+			if (position == getLogsFragmentPos()) {
+				this.logs = new LogsFragment();
+				return this.logs;
+			} else {
+				return PlanFragment.newInstance(positions[position]);
+			}
+		}
+
+		/**
+		 * Get position of home {@link Fragment}.
+		 * 
+		 * @return position of home {@link Fragment}
+		 */
+		public int getHomeFragmentPos() {
+			return positions.length - 2;
+		}
+
+		/**
+		 * Get position of Logs {@link Fragment}.
+		 * 
+		 * @return position of Logs {@link Fragment}
+		 */
+		public int getLogsFragmentPos() {
+			return positions.length - 1;
+		}
+
+		/**
+		 * Get Logs {@link Fragment}.
+		 * 
+		 * @return {@link LogsFragment}
+		 */
+		public LogsFragment getLogsFragment() {
+			return this.logs;
 		}
 	}
 
@@ -319,7 +361,9 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	 * 
 	 * @author flx
 	 */
-	private static class PlanFragment extends ListFragment {
+	public static final class PlanFragment extends ListFragment implements
+			OnClickListener, OnItemLongClickListener {
+
 		/** This fragments time stamp. */
 		private long now;
 
@@ -347,6 +391,7 @@ public class Plans extends FragmentActivity implements OnClickListener,
 		@Override
 		public void onCreate(final Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
+			this.setHasOptionsMenu(true);
 			if (this.getArguments() == null) {
 				now = -1L;
 			} else {
@@ -364,6 +409,7 @@ public class Plans extends FragmentActivity implements OnClickListener,
 					.inflate(R.layout.plans_fragment, container, false);
 			this.vLoading = v.findViewById(R.id.loading);
 			this.vImport = v.findViewById(R.id.import_default);
+			this.vImport.setOnClickListener(this);
 			return v;
 		}
 
@@ -380,11 +426,78 @@ public class Plans extends FragmentActivity implements OnClickListener,
 			PlanAdapter adapter = new PlanAdapter(this.getActivity(), c, false,
 					false, this.vLoading, this.vImport);
 			this.setListAdapter(adapter);
-			this.getListView().setOnItemLongClickListener(
-					(OnItemLongClickListener) this.getActivity());
-			this.vImport.setOnClickListener((OnClickListener) this
-					.getActivity());
+			this.getListView().setOnItemLongClickListener(this);
 			adapter.startPlanQuery(c);
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void onCreateOptionsMenu(final Menu menu,
+				final MenuInflater inflater) {
+			inflater.inflate(R.menu.menu_plans, menu);
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void onClick(final View v) {
+			switch (v.getId()) {
+			case R.id.import_default:
+				final Intent intent = new Intent(Intent.ACTION_VIEW,
+						Uri.parse(this.getString(R.string.url_rulesets)));
+				try {
+					this.startActivity(intent);
+				} catch (ActivityNotFoundException e) {
+					Log.e(TAG, "no activity to load url", e);
+					Toast.makeText(
+							this.getActivity(),
+							"no activity to load url: "
+									+ intent.getDataString(), Toast.LENGTH_LONG)
+							.show();
+				}
+				break;
+			default:
+				break;
+			}
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public boolean onItemLongClick(final AdapterView<?> parent,
+				final View view, final int position, final long id) {
+			final Builder builder = new Builder(this.getActivity());
+			builder.setItems(R.array.dialog_edit_plan,
+					new android.content.DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(final DialogInterface dialog,
+								final int which) {
+							Intent intent = null;
+							switch (which) {
+							case 0:
+								intent = new Intent(PlanFragment.this
+										.getActivity(), PlanEdit.class);
+								intent.setData(ContentUris.withAppendedId(
+										DataProvider.Plans.CONTENT_URI, id));
+								PlanFragment.this.getActivity().startActivity(
+										intent);
+								break;
+							case 1:
+								((Plans) PlanFragment.this.getActivity())
+										.showLogsFragment(id);
+								break;
+							default:
+								break;
+							}
+						}
+					});
+			builder.setNegativeButton(android.R.string.cancel, null);
+			builder.show();
+			return true;
 		}
 	}
 
@@ -473,6 +586,7 @@ public class Plans extends FragmentActivity implements OnClickListener,
 		/** Text sizes. */
 		private int textSize, textSizeBigTitle, textSizeTitle, textSizeSpacer,
 				textSizePBar, textSizePBarBP;
+
 		/** Prepaid plan? */
 		private boolean prepaid;
 		/** Visibility for {@link ProgressBar}s. */
@@ -547,7 +661,7 @@ public class Plans extends FragmentActivity implements OnClickListener,
 		 * {@inheritDoc}
 		 */
 		@Override
-		public final void bindView(final View view, final Context context,
+		public void bindView(final View view, final Context context,
 				final Cursor cursor) {
 			DataProvider.Plans.Plan plan = new DataProvider.Plans.Plan(cursor);
 
@@ -717,7 +831,7 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void onDestroy() {
+	public void onDestroy() {
 		super.onDestroy();
 	}
 
@@ -725,7 +839,7 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void onCreate(final Bundle savedInstanceState) {
+	public void onCreate(final Bundle savedInstanceState) {
 		this.setTheme(Preferences.getTheme(this));
 		Utils.setLocale(this);
 		super.onCreate(savedInstanceState);
@@ -746,18 +860,19 @@ public class Plans extends FragmentActivity implements OnClickListener,
 
 		prefsNoAds = DonationHelper.hideAds(this);
 
-		ViewPager pager = (ViewPager) findViewById(R.id.pager);
-		PlanFragmentAdapter fadapter = new PlanFragmentAdapter(this,
+		this.pager = (ViewPager) findViewById(R.id.pager);
+		this.fadapter = new PlanFragmentAdapter(this,
 				getSupportFragmentManager());
-		pager.setAdapter(fadapter);
-		pager.setCurrentItem(fadapter.getCount() - 1);
+		this.pager.setAdapter(this.fadapter);
+		this.pager.setCurrentItem(this.fadapter.getHomeFragmentPos());
+		this.pager.setOnPageChangeListener(this);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void onResume() {
+	protected void onResume() {
 		super.onResume();
 		Utils.setLocale(this);
 		final SharedPreferences p = PreferenceManager
@@ -791,7 +906,7 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void onNewIntent(final Intent intent) {
+	protected void onNewIntent(final Intent intent) {
 		this.setIntent(intent);
 	}
 
@@ -799,7 +914,7 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void onPause() {
+	protected void onPause() {
 		super.onPause();
 		currentHandler = null;
 	}
@@ -809,7 +924,7 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	 * 
 	 * @return {@link Handler}.
 	 */
-	public static final Handler getHandler() {
+	public static Handler getHandler() {
 		return currentHandler;
 	}
 
@@ -817,7 +932,7 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean onCreateOptionsMenu(final Menu menu) {
+	public boolean onCreateOptionsMenu(final Menu menu) {
 		this.getMenuInflater().inflate(R.menu.menu_main, menu);
 		if (prefsNoAds) {
 			menu.removeItem(R.id.item_donate);
@@ -829,7 +944,7 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean onOptionsItemSelected(final MenuItem item) {
+	public boolean onOptionsItemSelected(final MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.item_settings:
 			this.startActivity(new Intent(this, Preferences.class));
@@ -838,7 +953,14 @@ public class Plans extends FragmentActivity implements OnClickListener,
 			DonationHelper.startDonationActivity(this, false);
 			return true;
 		case R.id.item_logs:
-			this.startActivity(new Intent(this, Logs.class));
+			this.showLogsFragment(-1L);
+			return true;
+		case android.R.id.home:
+			this.pager.setCurrentItem(this.fadapter.getHomeFragmentPos(), true);
+			LogsFragment lf = this.fadapter.getLogsFragment();
+			if (lf != null) {
+				lf.setPlanId(-1L);
+			}
 			return true;
 		default:
 			return false;
@@ -848,23 +970,33 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	/**
 	 * {@inheritDoc}
 	 */
+	public void showLogsFragment(final long planId) {
+		LogsFragment lf = this.fadapter.getLogsFragment();
+		if (lf != null) {
+			lf.setPlanId(planId);
+		}
+		this.pager.setCurrentItem(this.fadapter.getLogsFragmentPos(), true);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	public final void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.import_default:
-			final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(this
-					.getString(R.string.url_rulesets)));
-			try {
-				this.startActivity(intent);
-			} catch (ActivityNotFoundException e) {
-				Log.e(TAG, "no activity to load url", e);
-				Toast.makeText(this,
-						"no activity to load url: " + intent.getDataString(),
-						Toast.LENGTH_LONG).show();
-			}
-			break;
-		default:
-			break;
+	public void onPageScrolled(final int position, final float positionOffset,
+			final int positionOffsetPixels) {
+		// nothing to do
+
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onPageSelected(final int position) {
+		if (position == this.fadapter.getLogsFragmentPos()) {
+			this.findViewById(R.id.ad).setVisibility(View.GONE);
+		} else if (!prefsNoAds) {
+			this.findViewById(R.id.ad).setVisibility(View.VISIBLE);
 		}
 	}
 
@@ -872,36 +1004,8 @@ public class Plans extends FragmentActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean onItemLongClick(final AdapterView<?> parent,
-			final View view, final int position, final long id) {
-		final Builder builder = new Builder(this);
-		builder.setItems(R.array.dialog_edit_plan,
-				new android.content.DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(final DialogInterface dialog,
-							final int which) {
-						Intent intent = null;
-						switch (which) {
-						case 0:
-							intent = new Intent(Plans.this, PlanEdit.class);
-							intent.setData(ContentUris.withAppendedId(
-									DataProvider.Plans.CONTENT_URI, id));
-							break;
-						case 1:
-							intent = new Intent(Plans.this, Logs.class);
-							intent.setData(ContentUris.withAppendedId(
-									DataProvider.Logs.CONTENT_URI, id));
-						default:
-							break;
-						}
-						if (intent != null) {
-							Plans.this.startActivity(intent);
-						}
-					}
-				});
-		builder.setNegativeButton(android.R.string.cancel, null);
-		builder.show();
-		return true;
+	public void onPageScrollStateChanged(final int state) {
+		// nothing to do
 	}
 
 }
