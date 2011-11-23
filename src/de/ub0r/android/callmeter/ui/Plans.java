@@ -45,7 +45,6 @@ import android.view.View;
 import android.view.Window;
 
 import com.viewpagerindicator.TitlePageIndicator;
-import com.viewpagerindicator.TitlePageIndicator.IndicatorStyle;
 import com.viewpagerindicator.TitleProvider;
 
 import de.ub0r.android.callmeter.Ads;
@@ -378,7 +377,6 @@ public final class Plans extends FragmentActivity implements
 		TitlePageIndicator indicator = (TitlePageIndicator) // .
 		findViewById(R.id.titles);
 		indicator.setViewPager(this.pager);
-		indicator.setFooterIndicatorStyle(IndicatorStyle.Underline);
 
 		this.pager.setCurrentItem(this.fadapter.getHomeFragmentPos());
 		indicator.setOnPageChangeListener(this);
@@ -394,10 +392,7 @@ public final class Plans extends FragmentActivity implements
 		currentHandler = this.handler;
 		Plans.this.setProgressBarIndeterminateVisibility(inProgressMatcher);
 		PlansFragment.reloadPreferences(this);
-		Common.setDateFormat(this);
 
-		// reload plan configuration
-		// FIXME adapter.startPlanQuery(now, hideZero, hideNoCost);
 		// start LogRunner
 		LogRunnerService.update(this, LogRunnerReceiver.ACTION_FORCE_UPDATE);
 		// schedule next update
@@ -470,7 +465,7 @@ public final class Plans extends FragmentActivity implements
 			}
 			return true;
 		default:
-			return false;
+			return super.onOptionsItemSelected(item);
 		}
 	}
 

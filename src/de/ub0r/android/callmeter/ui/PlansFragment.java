@@ -171,6 +171,7 @@ public final class PlansFragment extends ListFragment implements
 			if (!force && !needReloadPrefs) {
 				return;
 			}
+			Common.setDateFormat(context);
 			final SharedPreferences p = PreferenceManager
 					.getDefaultSharedPreferences(context);
 			pShowHours = p.getBoolean(Preferences.PREFS_SHOWHOURS, true);
@@ -479,9 +480,9 @@ public final class PlansFragment extends ListFragment implements
 				this.vLoading, this.vImport);
 		this.setListAdapter(adapter);
 		this.getListView().setOnItemLongClickListener(this);
-		if (this.isVisible()) {
-			adapter.startPlanQuery(this.now);
-		}
+		// if (this.isVisible()) {
+		// adapter.startPlanQuery(this.now);
+		// }
 	}
 
 	/**

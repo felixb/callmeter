@@ -55,7 +55,7 @@ public final class About extends FragmentActivity {
 			this.finish();
 			return true;
 		default:
-			return false;
+			return super.onOptionsItemSelected(item);
 		}
 	}
 }

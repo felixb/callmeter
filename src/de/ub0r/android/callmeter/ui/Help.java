@@ -70,7 +70,7 @@ public final class Help extends FragmentActivity implements OnClickListener {
 			this.finish();
 			return true;
 		default:
-			return false;
+			return super.onOptionsItemSelected(item);
 		}
 	}
 }

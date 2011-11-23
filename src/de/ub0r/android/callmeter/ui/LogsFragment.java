@@ -472,7 +472,7 @@ public final class LogsFragment extends ListFragment implements
 			b.show();
 			return true;
 		default:
-			return false;
+			return super.onOptionsItemSelected(item);
 		}
 	}
 
