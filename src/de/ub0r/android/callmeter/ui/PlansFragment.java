@@ -104,8 +104,7 @@ public final class PlansFragment extends ListFragment implements
 					} else {
 						this.vImport.setVisibility(View.VISIBLE);
 					}
-					this.activity.setProgressBarIndeterminateVisibility(// .
-							Boolean.FALSE);
+					((Plans) this.activity).setInProgress(-1);
 					return;
 				default:
 					return;
@@ -123,8 +122,8 @@ public final class PlansFragment extends ListFragment implements
 				if (PlansAdapter.this.getCount() == 0) {
 					vLoading.setVisibility(View.VISIBLE);
 				}
-				this.activity.setProgressBarIndeterminateVisibility(// .
-						Boolean.TRUE);
+
+				((Plans) this.activity).setInProgress(1);
 				super.startQuery(token, cookie, uri, projection, selection,
 						selectionArgs, orderBy);
 			}
@@ -424,7 +423,7 @@ public final class PlansFragment extends ListFragment implements
 	 *            This fragments current time
 	 * @return {@link PlansFragment}
 	 */
-	public static Fragment newInstance(final long now) {
+	public static PlansFragment newInstance(final long now) {
 		PlansFragment f = new PlansFragment();
 		Bundle args = new Bundle();
 		args.putLong("now", now);
@@ -480,9 +479,6 @@ public final class PlansFragment extends ListFragment implements
 				this.vLoading, this.vImport);
 		this.setListAdapter(adapter);
 		this.getListView().setOnItemLongClickListener(this);
-		// if (this.isVisible()) {
-		// adapter.startPlanQuery(this.now);
-		// }
 	}
 
 	/**
@@ -499,6 +495,14 @@ public final class PlansFragment extends ListFragment implements
 				adapter.startPlanQuery(this.now);
 			}
 		}
+	}
+
+	/**
+	 * Re-query database.
+	 */
+	public void requery() {
+		PlansAdapter adapter = (PlansAdapter) this.getListAdapter();
+		adapter.startPlanQuery(this.now);
 	}
 
 	/**

@@ -41,8 +41,8 @@ import android.support.v4.view.Menu;
 import android.support.v4.view.MenuItem;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.support.v4.view.Window;
 import android.view.View;
-import android.view.Window;
 
 import com.viewpagerindicator.TitlePageIndicator;
 import com.viewpagerindicator.TitleProvider;
@@ -96,16 +96,12 @@ public final class Plans extends FragmentActivity implements
 	public static final int MSG_BACKGROUND_START_MATCHER = 1;
 	/** {@link Message} for {@link Handler}: stop background: LogMatcher. */
 	public static final int MSG_BACKGROUND_STOP_MATCHER = 2;
-	/** {@link Message} for {@link Handler}: start background: PlanAdapter. */
-	public static final int MSG_BACKGROUND_START_PLANADAPTER = 3;
-	/** {@link Message} for {@link Handler}: stop background: PlanAdapter. */
-	public static final int MSG_BACKGROUND_STOP_PLANADAPTER = 4;
 	/** {@link Message} for {@link Handler}: start background: LogRunner. */
-	public static final int MSG_BACKGROUND_START_RUNNER = 5;
+	public static final int MSG_BACKGROUND_START_RUNNER = 3;
 	/** {@link Message} for {@link Handler}: stop background: LogRunner. */
-	public static final int MSG_BACKGROUND_STOP_RUNNER = 6;
+	public static final int MSG_BACKGROUND_STOP_RUNNER = 4;
 	/** {@link Message} for {@link Handler}: progress: LogMatcher. */
-	public static final int MSG_BACKGROUND_PROGRESS_MATCHER = 7;
+	public static final int MSG_BACKGROUND_PROGRESS_MATCHER = 5;
 
 	/** Display ads? */
 	private static boolean prefsNoAds;
@@ -120,23 +116,19 @@ public final class Plans extends FragmentActivity implements
 		@Override
 		public void handleMessage(final Message msg) {
 			switch (msg.what) {
-			case MSG_BACKGROUND_START_MATCHER:
-				inProgressMatcher = true;
-				break;
 			case MSG_BACKGROUND_START_RUNNER:
 				inProgressRunner = true;
+			case MSG_BACKGROUND_START_MATCHER:
+				Plans.this.setInProgress(1);
 				break;
 			case MSG_BACKGROUND_STOP_RUNNER:
-			case MSG_BACKGROUND_STOP_MATCHER:
 				inProgressRunner = false;
-				inProgressMatcher = false;
-				// FIXME adapter.startPlanQuery(now, hideZero, hideNoCost);
-				break;
-			case MSG_BACKGROUND_START_PLANADAPTER:
-				inProgressPlanadapter = true;
-				break;
-			case MSG_BACKGROUND_STOP_PLANADAPTER:
-				inProgressPlanadapter = false;
+			case MSG_BACKGROUND_STOP_MATCHER:
+				Plans.this.setInProgress(-1);
+				PlansFragment f = Plans.this.fadapter.getHomeFragment();
+				if (f != null) {
+					f.requery();
+				}
 				break;
 			case MSG_BACKGROUND_PROGRESS_MATCHER:
 				if (statusMatcher != null && (!statusMatcherProgress || // .
@@ -163,8 +155,6 @@ public final class Plans extends FragmentActivity implements
 				break;
 			}
 
-			Plans.this.setProgressBarIndeterminateVisibility(inProgressMatcher
-					|| inProgressPlanadapter);
 			if (inProgressRunner) {
 				if (statusMatcher == null
 						|| (msg.arg1 <= 0 && !statusMatcher.isShowing())) {
@@ -185,14 +175,13 @@ public final class Plans extends FragmentActivity implements
 		}
 	};
 
+	/** Number of background tasks. */
+	private int progressCount = 0;
+
 	/** {@link Handler} for outside. */
 	private static Handler currentHandler = null;
-	/** LogMatcher running in background? */
-	private static boolean inProgressMatcher = false;
 	/** LogRunner running in background? */
 	private static boolean inProgressRunner = false;
-	/** PlanAdapter running in background? */
-	private static boolean inProgressPlanadapter = false;
 	/** {@link ProgressDialog} showing LogMatcher's status. */
 	private static ProgressDialog statusMatcher = null;
 	/** Is statusMatcher a {@link ProgressDialog}? */
@@ -211,6 +200,8 @@ public final class Plans extends FragmentActivity implements
 		private final String[] titles;
 		/** {@link LogsFragment}. */
 		private LogsFragment logs;
+		/** Home {@link PlansFragment}. */
+		private PlansFragment home;
 
 		/**
 		 * Default constructor.
@@ -291,11 +282,16 @@ public final class Plans extends FragmentActivity implements
 		 */
 		@Override
 		public Fragment getItem(final int position) {
-			if (position == getLogsFragmentPos()) {
+			if (position == this.getLogsFragmentPos()) {
 				this.logs = new LogsFragment();
 				return this.logs;
 			} else {
-				return PlansFragment.newInstance(positions[position]);
+				PlansFragment f = PlansFragment
+						.newInstance(positions[position]);
+				if (position == this.getHomeFragmentPos()) {
+					this.home = f;
+				}
+				return f;
 			}
 		}
 
@@ -306,6 +302,15 @@ public final class Plans extends FragmentActivity implements
 		 */
 		public int getHomeFragmentPos() {
 			return positions.length - 2;
+		}
+
+		/**
+		 * Get Home {@link Fragment}.
+		 * 
+		 * @return {@link PlansFragment}
+		 */
+		public PlansFragment getHomeFragment() {
+			return this.home;
 		}
 
 		/**
@@ -353,14 +358,6 @@ public final class Plans extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		currentHandler = this.handler;
-		// get prefs.
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(this);
-		final boolean showTitlebar = p.getBoolean(
-				Preferences.PREFS_SHOWTITLEBAR, true);
-		if (!showTitlebar) {
-			this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		}
 		this.setContentView(R.layout.plans);
 
 		ChangelogHelper.showChangelog(this, true);
@@ -390,7 +387,7 @@ public final class Plans extends FragmentActivity implements
 		super.onResume();
 		Utils.setLocale(this);
 		currentHandler = this.handler;
-		Plans.this.setProgressBarIndeterminateVisibility(inProgressMatcher);
+		this.setInProgress(0);
 		PlansFragment.reloadPreferences(this);
 
 		// start LogRunner
@@ -510,4 +507,26 @@ public final class Plans extends FragmentActivity implements
 		// nothing to do
 	}
 
+	/**
+	 * Set progress indicator.
+	 * 
+	 * @param add
+	 *            add number of running tasks
+	 */
+	public synchronized void setInProgress(final int add) {
+		Log.d(TAG, "setInProgress(" + add + ")");
+		this.progressCount += add;
+
+		if (this.progressCount < 0) {
+			Log.w(TAG, "this.progressCount: " + this.progressCount);
+			this.progressCount = 0;
+		}
+
+		Log.d(TAG, "progressCount: " + this.progressCount);
+		if (this.progressCount == 0) {
+			this.setProgressBarIndeterminateVisibility(Boolean.FALSE);
+		} else {
+			this.setProgressBarIndeterminateVisibility(Boolean.TRUE);
+		}
+	}
 }

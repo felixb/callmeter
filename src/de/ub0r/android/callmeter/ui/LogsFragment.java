@@ -83,7 +83,7 @@ public final class LogsFragment extends ListFragment implements
 	private static final String PREF_OUT = "_out";
 
 	/** {@link ToggleButton}s. */
-	private ToggleButton tbCall, tbSMS, tbMMS, tbData, tbIn, tbOut;
+	private ToggleButton tbCall, tbSMS, tbMMS, tbData, tbIn, tbOut, tbPlan;
 	/** Show hours and days. */
 	private static boolean showHours = true;
 
@@ -222,7 +222,6 @@ public final class LogsFragment extends ListFragment implements
 	public View onCreateView(final LayoutInflater inflater,
 			final ViewGroup container, final Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.logs, container, false);
-		// FIXME this.setTitle(R.string.logs);
 		this.tbCall = (ToggleButton) v.findViewById(R.id.calls);
 		this.tbCall.setOnClickListener(this);
 		this.tbSMS = (ToggleButton) v.findViewById(R.id.sms);
@@ -235,6 +234,8 @@ public final class LogsFragment extends ListFragment implements
 		this.tbIn.setOnClickListener(this);
 		this.tbOut = (ToggleButton) v.findViewById(R.id.out);
 		this.tbOut.setOnClickListener(this);
+		this.tbPlan = (ToggleButton) v.findViewById(R.id.plan);
+		this.tbPlan.setOnClickListener(this);
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(this.getActivity());
 		this.tbCall.setChecked(p.getBoolean(PREF_CALL, true));
@@ -314,7 +315,7 @@ public final class LogsFragment extends ListFragment implements
 		}
 		where += ")";
 
-		if (this.planId > 0L) {
+		if (this.planId > 0L && this.tbPlan.isChecked()) {
 			where = DbUtils.sqlAnd(DataProvider.Logs.TABLE + "."
 					+ DataProvider.Logs.PLAN_ID + "=" + this.planId, where);
 		}
@@ -336,6 +337,16 @@ public final class LogsFragment extends ListFragment implements
 	 */
 	public void setPlanId(final long id) {
 		this.planId = id;
+		if (id < 0L) {
+			this.tbPlan.setVisibility(View.GONE);
+		} else {
+			String p = DataProvider.Plans.getName(this.getActivity()
+					.getContentResolver(), this.planId);
+			this.tbPlan.setText(p);
+			this.tbPlan.setTextOn(p);
+			this.tbPlan.setTextOff(p);
+			this.tbPlan.setVisibility(View.VISIBLE);
+		}
 		if (this.isVisible()) {
 			this.setAdapter();
 		}

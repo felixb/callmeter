@@ -732,34 +732,27 @@ public final class LogRunnerService extends IntentService {
 					DataProvider.Logs.RULE_ID + " != " + DataProvider.NO_ID
 							+ " AND " + DataProvider.Logs.TYPE + " != "
 							+ DataProvider.TYPE_DATA, null, null);
-			if (c != null && c.getCount() <= 0) {
+			if (c.getCount() <= 0) {
 				// skip if no plan is set up
 				Cursor c1 = cr.query(DataProvider.Plans.CONTENT_URI,
 						new String[] { DataProvider.Plans.ID }, null, null,
 						null);
-				if (c1 == null || c1.getCount() <= 0) {
+				if (c1.getCount() <= 0) {
 					shortRun = true;
 				}
-				if (!c1.isClosed()) {
-					c1.close();
-				}
+				c1.close();
 				// skip if no rule is set up
 				c1 = cr.query(DataProvider.Rules.CONTENT_URI,
 						new String[] { DataProvider.Rules.ID }, null, null,
 						null);
-				if (c1 == null || c1.getCount() <= 0) {
+				if (c1.getCount() <= 0) {
 					shortRun = true;
 				}
-				if (!c1.isClosed()) {
-					c1.close();
-				}
-
+				c1.close();
 				showDialog = true;
 				h.sendEmptyMessage(Plans.MSG_BACKGROUND_START_RUNNER);
 			}
-			if (c != null && !c.isClosed()) {
-				c.close();
-			}
+			c.close();
 		}
 		updateData(this, shortRun && !runMatcher);
 		if (!shortRun || runMatcher) {
@@ -778,6 +771,10 @@ public final class LogRunnerService extends IntentService {
 			updateSMS(cr, DataProvider.DIRECTION_IN);
 			updateSMS(cr, DataProvider.DIRECTION_OUT);
 			updateMMS(this);
+		}
+
+		if (showDialog) {
+			h.sendEmptyMessage(Plans.MSG_BACKGROUND_STOP_RUNNER);
 		}
 
 		if ((showCallInfo || askForPlan) && a != null && a.equals(// .
