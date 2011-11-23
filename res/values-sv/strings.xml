@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter NG. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,12 +16,12 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm2/edit.php?lang=sv&file=strings.xml to edit the file.
        -->
 <resources>
-  <string name="about0_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Watch your call, message and data plans!">Håll koll på dina samtals, sms och datakostnader!</string>
+  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Håll koll på dina samtals-, sms- och datakostnader!</string>
   <string name="about0" formatted="false">CallMeter genererar rapporter ifrån samtal, meddelanden och dataloggar. Det stöder flera kostnadslägen.</string>
   <string name="about1" formatted="false">Visningsformatet är användning / tid eller uträknad kostnad med hjälp av prislistan eller total uträkning. Månadsuträkningen använder prislistan men total uträkning gör det inte.</string>
   <string name="about2" formatted="false">Kostnadsläge innebär att du ställer in hur samtal debiteras. Tex 60/10 menar att varje samtal räknas som minst 60 sekunder, samtal längre än så avrundas till nästa 10-sekunders period.</string>
