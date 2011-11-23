@@ -360,6 +360,19 @@ public final class Plans extends FragmentActivity implements
 		currentHandler = this.handler;
 		this.setContentView(R.layout.plans);
 
+		SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		if (p.getAll().isEmpty()) {
+			// set date of recordings to beginning of last month
+			Calendar c = Calendar.getInstance();
+			c.set(Calendar.DAY_OF_MONTH, 0);
+			c.add(Calendar.MONTH, -1);
+			Log.i(TAG, "set date of recording: " + c);
+			p.edit().putLong(Preferences.PREFS_DATE_BEGIN, c.getTimeInMillis())
+					.commit();
+		}
+		p = null;
+
 		ChangelogHelper.showChangelog(this, true);
 		ChangelogHelper.showNotes(this, true, null, null, null);
 
