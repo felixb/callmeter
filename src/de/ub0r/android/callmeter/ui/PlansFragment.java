@@ -14,7 +14,6 @@ import android.database.sqlite.SQLiteException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.support.v4.view.Menu;
 import android.text.Html;
@@ -149,7 +148,7 @@ public final class PlansFragment extends ListFragment implements
 		private static boolean hideNoCost = false;
 
 		/** Prepaid plan? */
-		private static boolean prepaid; // FIXME
+		private static boolean prepaid;
 
 		/** Visibility for {@link ProgressBar}s. */
 		private final int progressBarVisability;
@@ -180,6 +179,7 @@ public final class PlansFragment extends ListFragment implements
 			hideZero = p.getBoolean(Preferences.PREFS_HIDE_ZERO, false);
 			hideNoCost = p.getBoolean(Preferences.PREFS_HIDE_NOCOST, false);
 			delimiter = p.getString(Preferences.PREFS_DELIMITER, " | ");
+			prepaid = p.getBoolean(Preferences.PREFS_PREPAID, false);
 		}
 
 		/**
@@ -249,8 +249,16 @@ public final class PlansFragment extends ListFragment implements
 			DataProvider.Plans.Plan plan = new DataProvider.Plans.Plan(cursor);
 
 			String cacheStr = null;
-			float cost = plan.getAccumCost();
-			float free = plan.getFree();
+			float cost;
+			float free;
+			if (prepaid) {
+				cost = plan.getAccumCostPrepaid();
+				free = 0;
+			} else {
+				cost = plan.getAccumCost();
+				free = plan.getFree();
+			}
+
 			if (plan.type != DataProvider.TYPE_SPACING // .
 					&& plan.type != DataProvider.TYPE_TITLE) {
 				cacheStr = "<b>"
@@ -384,7 +392,12 @@ public final class PlansFragment extends ListFragment implements
 				if (textSize > 0) {
 					twCache.setTextSize(textSize);
 				}
-				if (plan.limit == 0) {
+				if (plan.limit == 0
+						&& plan.type == DataProvider.TYPE_BILLPERIOD) {
+					pbCache.setIndeterminate(true);
+					pbCache.setVisibility(View.VISIBLE);
+				} else if (plan.limit == 0) {
+					// plan.type != DataProvider.TYPE_BILLPERIOD
 					pbCache.setVisibility(View.GONE);
 				} else if (plan.limit > 0) {
 					pbCache.setIndeterminate(false);

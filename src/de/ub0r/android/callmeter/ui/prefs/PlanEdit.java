@@ -23,9 +23,9 @@ import java.util.Calendar;
 import android.app.ListActivity;
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.DialogInterface.OnDismissListener;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -34,7 +34,6 @@ import android.text.InputType;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
@@ -63,6 +62,8 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 
 	/** Id of edited filed. */
 	private long pid = -1L;
+	/** Plan's type. */
+	private int ptype = -1;
 
 	/** Show advanced settings. */
 	private boolean showAdvanced = false;
@@ -138,15 +139,12 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				R.string.billperiod_help, R.array.billperiod));
 		ret.add(new DatePreference(this, DataProvider.Plans.BILLDAY,
 				R.string.billday_, R.string.billday_help, true));
-		ret
-				.add(new CursorPreference(this,
-						DataProvider.Plans.BILLPERIOD_ID,
-						R.string.billperiodid_, R.string.billperiodid_help, -1,
-						-1, -1, DataProvider.Plans.CONTENT_URI,
-						DataProvider.Plans.ID, DataProvider.Plans.NAME,
-						DataProvider.Plans.TYPE + " == "
-								+ DataProvider.TYPE_BILLPERIOD, false, null,
-						null, null));
+		ret.add(new CursorPreference(this, DataProvider.Plans.BILLPERIOD_ID,
+				R.string.billperiodid_, R.string.billperiodid_help, -1, -1, -1,
+				DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID,
+				DataProvider.Plans.NAME, DataProvider.Plans.TYPE + " == "
+						+ DataProvider.TYPE_BILLPERIOD, false, null, null, // .
+				null));
 		ret.add(new CursorPreference(this, DataProvider.Plans.MERGED_PLANS,
 				R.string.merge_plans_, R.string.merge_plans_help, -1, -1, -1,
 				DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID,
@@ -164,8 +162,9 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				R.string.strip_seconds_, R.string.strip_seconds_help,
 				InputType.TYPE_CLASS_NUMBER));
 		int t, th;
-		if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
-				Preferences.PREFS_PREPAID, false)) {
+		if (this.ptype == DataProvider.TYPE_BILLPERIOD
+				&& PreferenceManager.getDefaultSharedPreferences(this)
+						.getBoolean(Preferences.PREFS_PREPAID, false)) {
 			t = R.string.balance_;
 			th = R.string.balance_help;
 		} else {
@@ -269,6 +268,11 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 		}
 		if (this.pid == -1 || nid != this.pid) {
 			this.pid = nid;
+			if (cursor != null) {
+				cursor.getInt(DataProvider.Plans.INDEX_TYPE);
+			} else {
+				this.ptype = -1;
+			}
 			this.adapter = this.getAdapter();
 			this.setListAdapter(this.adapter);
 		}
@@ -277,9 +281,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			cursor.close();
 		}
 		final PreferenceAdapter a = this.adapter;
-		final int t = ((ListPreference) a
-				.getPreference(DataProvider.Plans.TYPE)).getValue();
-		if (t == DataProvider.TYPE_BILLPERIOD) {
+		if (this.ptype == DataProvider.TYPE_BILLPERIOD) {
 			final int bp = ((ListPreference) a
 					.getPreference(DataProvider.Plans.BILLPERIOD)).getValue();
 			if (bp != DataProvider.BILLPERIOD_INFINITE) {
@@ -310,13 +312,12 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			final ListPreference p = (ListPreference) a
 					.getPreference(DataProvider.Plans.BILLPERIOD);
 			final int i = p.getValue();
-			a
-					.hide(DataProvider.Plans.BILLDAY,
-							i == DataProvider.BILLPERIOD_DAY);
+			a.hide(DataProvider.Plans.BILLDAY, i == // .
+					DataProvider.BILLPERIOD_DAY);
 		} else if (t != DataProvider.TYPE_SPACING
 				&& t != DataProvider.TYPE_TITLE) {
-			final long ppid = DataProvider.Plans.getParent(this
-					.getContentResolver(), this.pid);
+			final long ppid = DataProvider.Plans.getParent(
+					this.getContentResolver(), this.pid);
 			final ListPreference p = (ListPreference) a
 					.getPreference(DataProvider.Plans.LIMIT_TYPE);
 			final int lt = p.getValue();
@@ -506,7 +507,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 	}
 
 	/**
-	 * Set hint for {@link EditText}s.
+	 * Set hint for EditTexts.
 	 * 
 	 * @param t
 	 *            type of plan

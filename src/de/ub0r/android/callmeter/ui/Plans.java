@@ -224,10 +224,15 @@ public final class Plans extends FragmentActivity implements
 			} else {
 				final long minDate = c.getLong(0);
 				c.close();
-				c = cr.query(DataProvider.Plans.CONTENT_URI,
-						DataProvider.Plans.PROJECTION, DataProvider.Plans.TYPE
-								+ "=?", new String[] { String
-								.valueOf(DataProvider.TYPE_BILLPERIOD) }, null);
+				c = cr.query(
+						DataProvider.Plans.CONTENT_URI,
+						DataProvider.Plans.PROJECTION,
+						DataProvider.Plans.TYPE + "=? and "
+								+ DataProvider.Plans.BILLPERIOD + "!=?",
+						new String[] {
+								String.valueOf(DataProvider.TYPE_BILLPERIOD),
+								String.valueOf(// .
+								DataProvider.BILLPERIOD_INFINITE) }, null);
 				if (minDate < 0L || !c.moveToFirst()) {
 					positions = new Long[] { -1L, -1L };
 					c.close();

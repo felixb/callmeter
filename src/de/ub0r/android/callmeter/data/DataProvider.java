@@ -727,6 +727,19 @@ public final class DataProvider extends ContentProvider {
 			}
 
 			/**
+			 * Get remaining balance.
+			 * 
+			 * @return balance - cost for bill periods; else cost + cpp
+			 */
+			public float getAccumCostPrepaid() {
+				if (this.type == TYPE_BILLPERIOD) {
+					return this.cpp - this.cost;
+				} else {
+					return this.cost + this.cpp;
+				}
+			}
+
+			/**
 			 * Get free cost.
 			 * 
 			 * @return free cost
