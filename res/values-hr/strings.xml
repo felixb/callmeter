@@ -359,4 +359,14 @@
   <string name="strip_seconds_help" formatted="false" orig="Do not bill first x seconds of a call.">Ne obračunavaj prvih x sekundi poziva.</string>
   <string name="active_" formatted="false" orig="Active">Aktivno</string>
   <string name="show_shortname_" formatted="false" orig="Show short name instead of long name">Prikaži kratka imena umjesto dugačkih</string>
+  <string name="show_calllength_hint" formatted="false" orig="Show length/cost of a call after hanging up.">Prikaži duljinu/cijenu poziva nakon prekida poziva.</string>
+  <string name="prepaid_hint" formatted="false" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Račun na temelju prepaida. Trošak se oduzima od balansa kad pozivate i sl.</string>
+  <string name="balance_help" formatted="false" orig="Balance of your account at this given date.">Balans vašeg računa datog dana.</string>
+  <string name="empty_groups_" formatted="false" orig="Please press &quot;Add&quot; to add a group.">Molim pritisnite "Dodaj" za dodavanje grupe.</string>
+  <string name="empty_group_" formatted="false" orig="Please press &quot;Add&quot; to add an item to this group.">Molim pritisnite "Dodaj" za dodavanje stavke u ovu grupu.</string>
+  <string name="export_logs_" formatted="false" orig="Backup logs">Izvezi zapisnike</string>
+  <string name="export_logs_hint" formatted="false" orig="Backup logs as mail.">Izvezi zapisnike kao mail.</string>
+  <string name="err_export_write" formatted="false" orig="Error writing export file">Greška pri pisanju izvozne datoteke</string>
+  <string name="err_export_read" formatted="false" orig="Error reading export file">Greška pri čitanju izvozne datoteke</string>
+  <string name="show_time_" formatted="false" orig="Switch to date">Prebaci na datum</string>
 </resources>
