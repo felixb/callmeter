@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: disable rules, more filters in logs view, major change in design, major change in database queries</item>
+		<item>HEAD: RECALCULATON OF STATS NEEDED: disable rules, more filters in logs view, major change in design, major change in database queries</item>
 		<item>v3.0: generic traffic for FroYo+ devices, import rule sets from sd card</item>
 		<item>v3.0rc15: fix data stats, fix some minor FCs</item>
 		<item>v3.0rc14: simple preferences for default rule set, reimport default rule set, exlucde numbers for default rule set, add support for a601 and htc thunderbolt, update translations, minor fixes</item>

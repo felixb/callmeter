@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein
+ * Copyright (C) 2009-2011 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -54,7 +54,7 @@ public final class RuleMatcher {
 	private static final String TAG = "rm";
 
 	/** Steps for updating the GUI. */
-	private static final int PROGRESS_STEPS = 50;
+	private static final int PROGRESS_STEPS = 25;
 	/** Strip leading zeros. */
 	private static boolean stripLeadingZeros = false;
 	/** International number prefix. */
@@ -161,7 +161,8 @@ public final class RuleMatcher {
 							s = s.replaceFirst("^00*", "");
 						}
 						if (doPrefix && !s.startsWith("%")) {
-							s = national2international(intPrefix, zeroPrefix, s);
+							s = national2international(// .
+									intPrefix, zeroPrefix, s);
 						}
 						this.numbers.add(s);
 					} while (cursor.moveToNext());
@@ -561,7 +562,8 @@ public final class RuleMatcher {
 				return false;
 			}
 
-			if (this.roamed >= 0 && this.roamed != DataProvider.Rules.NO_MATTER) {
+			if (this.roamed >= 0 && // .
+					this.roamed != DataProvider.Rules.NO_MATTER) {
 				// rule.roamed=0: yes
 				// rule.roamed=1: no
 				// log.roamed=0: not roamed
@@ -840,10 +842,10 @@ public final class RuleMatcher {
 				Log.d(TAG, "ltype: " + this.limitType);
 				switch (this.limitType) {
 				case DataProvider.LIMIT_TYPE_COST:
-					Log.d(TAG, "bc<lt" + this.billedCost + "<" + this.limit);
+					Log.d(TAG, "bc<lt " + this.billedCost + "<" + this.limit);
 					return this.billedCost < this.limit;
 				case DataProvider.LIMIT_TYPE_UNITS:
-					Log.d(TAG, "ba<lt" + this.billedAmount + "<" + this.limit);
+					Log.d(TAG, "ba<lt " + this.billedAmount + "<" + this.limit);
 					return this.billedAmount < this.limit;
 				default:
 					return false;
@@ -1312,13 +1314,26 @@ public final class RuleMatcher {
 			int i = 1;
 			do {
 				ret |= matchLog(cr, cursor);
-				if (h != null && (// .
-						i % PROGRESS_STEPS == 0 || // .
-						(i < PROGRESS_STEPS && i % CallMeter.TEN == 0))) {
-					final Message m = h.obtainMessage(// .
-							Plans.MSG_BACKGROUND_PROGRESS_MATCHER);
-					m.arg1 = i;
-					m.sendToTarget();
+				if (i % PROGRESS_STEPS == 0 || // .
+						(i < PROGRESS_STEPS && i % CallMeter.TEN == 0)) {
+					h = Plans.getHandler();
+					if (h != null) {
+						final Message m = h.obtainMessage(// .
+								Plans.MSG_BACKGROUND_PROGRESS_MATCHER);
+						m.arg1 = i;
+						m.arg2 = l;
+						Log.d(TAG, "send progress: " + i + "/" + l);
+						m.sendToTarget();
+					} else {
+						Log.d(TAG, "send progress: " + i + " handler=null");
+					}
+					Log.d(TAG, "sleeping..");
+					try {
+						Thread.sleep(CallMeter.MILLIS);
+					} catch (InterruptedException e) {
+						Log.e(TAG, "sleep interrupted", e);
+					}
+					Log.d(TAG, "sleep finished");
 				}
 				++i;
 			} while (cursor.moveToNext());

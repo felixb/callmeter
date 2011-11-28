@@ -113,43 +113,69 @@ public final class Plans extends FragmentActivity implements
 
 	/** {@link Handler} for handling messages from background process. */
 	private final Handler handler = new Handler() {
+		/** LogRunner running in background? */
+		private boolean inProgressRunner = false;
+		/** {@link ProgressDialog} showing LogMatcher's status. */
+		private ProgressDialog statusMatcher = null;
+		/** Is statusMatcher a {@link ProgressDialog}? */
+		private boolean statusMatcherProgress = false;
+
+		/** String for recalculate message. */
+		private String recalc = null;
+
 		@Override
 		public void handleMessage(final Message msg) {
 			switch (msg.what) {
 			case MSG_BACKGROUND_START_RUNNER:
 				inProgressRunner = true;
 			case MSG_BACKGROUND_START_MATCHER:
+				statusMatcherProgress = false;
 				Plans.this.setInProgress(1);
 				break;
 			case MSG_BACKGROUND_STOP_RUNNER:
 				inProgressRunner = false;
 			case MSG_BACKGROUND_STOP_MATCHER:
 				Plans.this.setInProgress(-1);
+				Plans.this.getSupportActionBar().setSubtitle(null);
 				PlansFragment f = Plans.this.fadapter.getHomeFragment();
 				if (f != null) {
 					f.requery();
 				}
 				break;
 			case MSG_BACKGROUND_PROGRESS_MATCHER:
-				if (statusMatcher != null && (!statusMatcherProgress || // .
+				if (Plans.this.progressCount == 0) {
+					Plans.this.setProgress(1);
+				}
+				if (statusMatcher == null || (!statusMatcherProgress || // .
 						statusMatcher.isShowing())) {
 					Log.d(TAG, "matcher progress: " + msg.arg1);
-					if (!statusMatcherProgress) {
+					if (statusMatcher == null || !statusMatcherProgress) {
 						final ProgressDialog dold = statusMatcher;
 						statusMatcher = new ProgressDialog(Plans.this);
 						statusMatcher.setCancelable(true);
-						statusMatcher.setMessage(Plans.this
-								.getString(R.string.reset_data_progr2));
+						if (recalc == null) {
+							recalc = Plans.this
+									.getString(R.string.reset_data_progr2);
+						}
+						statusMatcher.setMessage(recalc);
 						statusMatcher.setProgressStyle(// .
 								ProgressDialog.STYLE_HORIZONTAL);
 						statusMatcher.setMax(msg.arg2);
 						statusMatcher.setIndeterminate(false);
 						statusMatcherProgress = true;
+						Log.d(TAG, "showing dialog..");
 						statusMatcher.show();
-						dold.dismiss();
+						if (dold != null) {
+							dold.dismiss();
+						}
 					}
 					statusMatcher.setProgress(msg.arg1);
 				}
+				if (recalc == null) {
+					recalc = Plans.this.getString(R.string.reset_data_progr2);
+				}
+				Plans.this.getSupportActionBar().setSubtitle(
+						recalc + " " + msg.arg1 + "/" + msg.arg2);
 				break;
 			default:
 				break;
@@ -167,8 +193,12 @@ public final class Plans extends FragmentActivity implements
 					statusMatcher.show();
 				}
 			} else {
-				if (statusMatcher != null) {
-					statusMatcher.dismiss();
+				if (statusMatcher != null && statusMatcher.isShowing()) {
+					try {
+						statusMatcher.dismiss();
+					} catch (IllegalArgumentException e) {
+						Log.e(TAG, "error dismissing dialog", e);
+					}
 					statusMatcher = null;
 				}
 			}
@@ -180,12 +210,6 @@ public final class Plans extends FragmentActivity implements
 
 	/** {@link Handler} for outside. */
 	private static Handler currentHandler = null;
-	/** LogRunner running in background? */
-	private static boolean inProgressRunner = false;
-	/** {@link ProgressDialog} showing LogMatcher's status. */
-	private static ProgressDialog statusMatcher = null;
-	/** Is statusMatcher a {@link ProgressDialog}? */
-	private static boolean statusMatcherProgress = false;
 
 	/**
 	 * Show all {@link PlansFragment}s.
@@ -362,7 +386,6 @@ public final class Plans extends FragmentActivity implements
 		Utils.setLocale(this);
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-		currentHandler = this.handler;
 		this.setContentView(R.layout.plans);
 
 		SharedPreferences p = PreferenceManager

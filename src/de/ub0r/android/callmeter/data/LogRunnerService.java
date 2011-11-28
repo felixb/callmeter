@@ -59,6 +59,9 @@ public final class LogRunnerService extends IntentService {
 	/** Tag for output. */
 	private static final String TAG = "lrs";
 
+	/** Minimum amount of unmatched logs to start showing the dialog. */
+	private static final int UNMATHCEDLOGS_TO_SHOW_DIALOG = 50;
+
 	/** {@link Uri} to all threads. */
 	private static final Uri URI_THREADS = Uri
 			.parse("content://mms-sms/conversations").buildUpon()
@@ -732,13 +735,15 @@ public final class LogRunnerService extends IntentService {
 					DataProvider.Logs.RULE_ID + " != " + DataProvider.NO_ID
 							+ " AND " + DataProvider.Logs.TYPE + " != "
 							+ DataProvider.TYPE_DATA, null, null);
-			if (c.getCount() <= 0) {
+			if (c.getCount() < UNMATHCEDLOGS_TO_SHOW_DIALOG) {
+				showDialog = true;
 				// skip if no plan is set up
 				Cursor c1 = cr.query(DataProvider.Plans.CONTENT_URI,
 						new String[] { DataProvider.Plans.ID }, null, null,
 						null);
 				if (c1.getCount() <= 0) {
 					shortRun = true;
+					showDialog = false;
 				}
 				c1.close();
 				// skip if no rule is set up
@@ -747,10 +752,12 @@ public final class LogRunnerService extends IntentService {
 						null);
 				if (c1.getCount() <= 0) {
 					shortRun = true;
+					showDialog = false;
 				}
 				c1.close();
-				showDialog = true;
-				h.sendEmptyMessage(Plans.MSG_BACKGROUND_START_RUNNER);
+				if (showDialog) {
+					h.sendEmptyMessage(Plans.MSG_BACKGROUND_START_RUNNER);
+				}
 			}
 			c.close();
 		}
