@@ -21,5 +21,17 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=hu&file=simple_prefs.xml to edit the file.
        -->
 <resources>
-  <string name="freemin_" formatted="false" username="" orig="Free minutes">Ingyenes percek</string>
+  <string name="freemin_" formatted="false" orig="Free minutes">Ingyenes percek</string>
+  <string name="freemin_hint" formatted="false" orig="Free minutes / month">Ingyenes percek / hónap</string>
+  <string name="cost_per_min_" formatted="false" orig="Cost / minute">Költség / perc</string>
+  <string name="freesms_" formatted="false" orig="Free SMS">Ingyenes SMS</string>
+  <string name="freesms_hint" formatted="false" orig="Free SMS / month">Ingyenes SMS / hónap</string>
+  <string name="freedata_" formatted="false" orig="Free traffic">Ingyenes forgalom</string>
+  <string name="cost_per_mb_" formatted="false" orig="Cost / MB">Költség / MB</string>
+  <string name="freedata_hint" formatted="false" orig="Free 2G, 3G or 4G data traffic / month">Ingyenes 2G, 3G, 4G adatforgalom / hónap</string>
+  <string name="cost_per_mms_" formatted="false" orig="Cost / MMS">Költség / MMS</string>
+  <string name="freemms_" formatted="false" orig="Free MMS">Ingyenes MMS</string>
+  <string name="freemms_hint" formatted="false" orig="Free MMS / month">Ingyenes MMS / hónap</string>
+  <string name="cost_per_sms_" formatted="false" orig="Cost / SMS">Költség / SMS</string>
+  <string name="cost_per_call_" formatted="false" orig="Cost / call">Költség / hívás</string>
 </resources>
