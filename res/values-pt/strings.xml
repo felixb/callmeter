@@ -39,8 +39,8 @@
   <string name="settings" formatted="false">Preferências</string>
   <string name="update_interval_" formatted="false">Intervalo de Atualização</string>
   <string name="update_interval_hint" formatted="false">Períodos curtos consomem mais bateria.</string>
-  <string name="date_begin_" formatted="false">Início dos registros</string>
-  <string name="date_begin_hint" formatted="false">Ignore todos os registros anteriores a essa data.</string>
+  <string name="date_begin_" formatted="false" orig="Beginning of records">Início dos registos</string>
+  <string name="date_begin_hint" formatted="false" orig="Ignore any logs before this date.">Ignore todos os registos anteriores a essa data.</string>
   <string name="delete_old_logs_" formatted="false">Excluir registos mais antigos que</string>
   <string name="delete_old_logs_help" formatted="false">Excluir registos mais antigos que X dias a partir da base de dados interna. Deixar em branco para desativar.</string>
   <string name="common_prefs_" formatted="false">Preferências comuns</string>
@@ -132,13 +132,13 @@
   <string name="hourgroups_edit_hint" formatted="false" orig="Edit hour groups here.">Editar um grupo de horas aqui.</string>
   <string name="numbers" formatted="false">Números</string>
   <string name="numbergroup_" formatted="false" orig="Include numbers">Incluir números</string>
-  <string name="numbergroup_help" formatted="false">Os números adicionados de uma determinada regra deve corresponder.\n\nCuringas (\"%\") são permitidos em ambas as extremidades do número.\nEx. %34 corresponderá a 1234, 12% corresponderá a 1234 e %23% corresponderá a 12345.</string>
+  <string name="numbergroup_help" formatted="false" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Os números adicionados de uma determinada regra devem corresponder.\n\nCuringas ("%") são permitidos em ambas as extremidades do número.\nEx. %34 corresponderá a 1234, 12% corresponderá a 1234 e %23% corresponderá a 12345.</string>
   <string name="exnumbergroup_" formatted="false" orig="Exclude numbers">Eliminar números</string>
   <string name="exnumbergroup_help" formatted="false">A adição de alguns números nessa regra não deve corresponder.\nVeja abaixo.</string>
   <string name="new_numbergroup" formatted="false">Novo grupo de números</string>
   <string name="add_number" formatted="false">Adicione um número</string>
   <string name="hours" formatted="false">Horas</string>
-  <string name="hourgroup_" formatted="false">Inclui horas</string>
+  <string name="hourgroup_" formatted="false" orig="Include hours">Inclui horas</string>
   <string name="hourgroup_help" formatted="false">Adicione algumas horas a uma determinada regra correspondente.</string>
   <string name="exhourgroup_" formatted="false">Exclui horas</string>
   <string name="exhourgroup_help" formatted="false" orig="Add some hours this rule must not match.">A adição de algumas horas nessa regra não irá corresponder.</string>
@@ -162,7 +162,7 @@
   <string name="reset_data_data_" formatted="false">Apagar os Dados também.</string>
   <string name="reset_data_progr1" formatted="false">Recalculando estatísticas ...\n\n(Isso irá demorar algum tempo!)</string>
   <string name="reset_data_progr2" formatted="false">Recalculando estatísticas ...</string>
-  <string name="contacts_" formatted="false">Contatos</string>
+  <string name="contacts_" formatted="false" orig="Contacts">Contactos</string>
   <string name="clear_" formatted="false">Limpar</string>
   <string name="help_" formatted="false">Ajuda</string>
   <string name="new_" formatted="false">Novo</string>
@@ -181,13 +181,13 @@
   <string name="billmode_help" formatted="false">Defina o modo de cobrança de suas chamadas.\nA primeira parte é o tempo mínimo cobrado. Cada ligação por menor que seja será cobrada por este tempo.\nA segunda parte são os tempos cobrados após o tempo mínimo.\nLeia no FAQ para maior ajuda.</string>
   <string name="billday_help" formatted="false" orig="Set this to the first day of the bill of the current billing period.">Defina o primeiro dia de cobrança de sua conta.</string>
   <string name="billperiodid_" formatted="false">Período de cobrança</string>
-  <string name="billperiodid_help" formatted="false" orig="Select your billing period.\nYou may need to create one as extra plan.">Selecione o seu período de cobrança.\nVocê pode precisar criar um plano como extra.</string>
-  <string name="billperiod_" formatted="false">Comprimento do período de cobrança</string>
-  <string name="billperiod_help" formatted="false" orig="Set the length of your billing period.">Defina o tamanho do período de cobrança.</string>
+  <string name="billperiodid_help" formatted="false" orig="Select your billing period.\nYou may need to create one as extra plan.">Selecione o seu período de cobrança.\nVocê pode precisar criar um como plano extra.</string>
+  <string name="billperiod_" formatted="false" orig="Length of the billing period">Duração do período de cobrança</string>
+  <string name="billperiod_help" formatted="false" orig="Set the length of your billing period.">Defina a duração do período de cobrança.</string>
   <string name="cost_per_item_" formatted="false">Custo por item</string>
-  <string name="cost_per_item_help" formatted="false">Defina o custo cobrado para um único item (ex. uma chamada ou uma mensagem), depois que seu limite for ultrapassado.</string>
+  <string name="cost_per_item_help" formatted="false" orig="Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.">Defina o custo cobrado para um único item (ex. uma chamada ou uma mensagem) após o limite ter sido excedido.</string>
   <string name="cost_per_item_in_limit_" formatted="false">Custo por item dentro do limite</string>
-  <string name="cost_per_item_in_limit_help" formatted="false">Defina o custo cobrado por um único item (ex. uma chamada ou uma mensagem) cobrado após o limite ter sido excedido.</string>
+  <string name="cost_per_item_in_limit_help" formatted="false" orig="Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.">Defina o custo cobrado por um único item (ex. uma chamada ou uma mensagem) cobrado antes do limite ter sido excedido.</string>
   <string name="cost_per_amount_" formatted="false">Custo por envio</string>
   <string name="cost_per_amount_help1" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Defina o custo cobrado pelo envio de dados (ex. para 1Kb de dados) após o limite ter sido excedido.</string>
   <string name="cost_per_amount_help2" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Defina o custo de uma unidade tempo de cobrança (ex. ligação de 1 min) após o  limite ter sido excedido.\nO primeiro campo tem o custo para os primeiros segundos da chamada, o segundo tem o custo para os segundos seguintes (ambos são fixados em $/minuto; veja no modo de cobrança).\nSe tiver dúvidas, apenas defina ambos com o seu custo por minuto.</string>
@@ -431,7 +431,7 @@
   <string name="numbergroup_exsms" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Exclude from SMS">Excluir dos SMS</string>
   <string name="billperiod_sn" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="BillPeriod">Período da Conta</string>
   <string name="calls_in" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Calls In">Ligações Recebidas</string>
-  <string name="calls_in_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="CallsIn">Recebidas</string>
+  <string name="calls_in_" formatted="false" orig="CallsIn">Recebidas</string>
   <string name="calls_out" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Calls Out">Ligações Feitas</string>
   <string name="calls_out_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="CallsOut">Feitas</string>
   <string name="messages" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Messages">Mensagens</string>
@@ -449,4 +449,5 @@
   <string name="data_inout_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="DataInOut">Dados Totais</string>
   <string name="import_rules_default_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Import default rule set">Importar regra padrão</string>
   <string name="import_rules_default_hint" formatted="false" orig="Import default rule set shipped with the app.">Importar regra padrão do original do app.</string>
+  <string name="now" formatted="false" orig="Now">Agora</string>
 </resources>
