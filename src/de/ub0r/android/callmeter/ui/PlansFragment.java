@@ -180,6 +180,13 @@ public final class PlansFragment extends ListFragment implements
 			hideNoCost = p.getBoolean(Preferences.PREFS_HIDE_NOCOST, false);
 			delimiter = p.getString(Preferences.PREFS_DELIMITER, " | ");
 			prepaid = p.getBoolean(Preferences.PREFS_PREPAID, false);
+
+			textSize = Preferences.getTextsize(context);
+			textSizeBigTitle = Preferences.getTextsizeBigTitle(context);
+			textSizeTitle = Preferences.getTextsizeTitle(context);
+			textSizeSpacer = Preferences.getTextsizeSpacer(context);
+			textSizePBar = Preferences.getTextsizeProgressBar(context);
+			textSizePBarBP = Preferences.getTextsizeProgressBarBP(context);
 		}
 
 		/**
