@@ -21,7 +21,7 @@
                Visit http://ub0r.de/translate/cm2/edit.php?lang=pt&file=strings.xml to edit the file.
        -->
 <resources>
-  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Acompanhe suas ligações, mensagens e plano de dados!</string>
+  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Acompanhe as suas chamadas, mensagens e plano de dados!</string>
   <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">O CallMeter gera relatórios de ligações, mensagens e dados. Ele suporta vários tipos de cobrança.</string>
   <string name="about1" formatted="false">Os formatos de saída são: uso / tempo ou soma utilizada neste período / tempo ou soma total. O cálculo de tempo utiliza a forma de cobrança de seu plano. A soma total não.</string>
   <string name="about2" formatted="false">O modo de cobrança utiliza o tamanho do primeiro e posteriores tempos de cobrança. Ex. 30/10 diz que cada ligação é taxada com o mínimo de 30s, e após este período será taxado de 10 em 10 segundos de utilização (sendo esse o período mínimo) sucessivamente até o final da chamada.</string>
