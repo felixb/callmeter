@@ -47,7 +47,7 @@
   <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app.">neki savjeti i trikovi kako podesiti aplikaciju.</string>
   <string name="feedback_" formatted="false" username="lesart.mario@gmail.com" orig="Feedback">Povratne informacije</string>
   <string name="feedback_hint" formatted="false" username="lesart.mario@gmail.com" orig="Report bugs, request features ...">Prijava grešaka...</string>
-  <string name="twitter_hint" formatted="false" orig="Follow me on twitter.\nGet update notifications etc.">Pratite me na tweeter-u\nDobijajte izvješća o napretku i sl.</string>
+  <string name="twitter_hint" formatted="false" orig="Follow me on twitter.\nGet update notifications etc.">Pratite me na Tweeteru.\nDobijajte izvješća o napretku i sl.</string>
   <string name="more_" formatted="false" username="lesart.mario@gmail.com" orig="More Apps..">Još aplikacija...</string>
   <string name="billing_" formatted="false" username="lesart.mario@gmail.com" orig="Billing">Naplata</string>
   <string name="billday_" formatted="false" username="lesart.mario@gmail.com" orig="First day of your bill">Prvi dan za obračun naplate</string>
@@ -425,4 +425,5 @@
   <string name="import_rules_sd_hint" formatted="false" orig="Import rule set directly from SD card.">Uvezi postavke pravila direktno sa SD kartice.</string>
   <string name="import_rules_sd_help" formatted="false" orig="Place your file on your SD card and click it below">Stavite datoteku na vašu SD karticu i kliknite dolje</string>
   <string name="import_rules_empty" formatted="false" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Nema podešenih planova/pravila. Kliknite ovaj tekst kako bi uvezli postavke pravila.\n\nIli dodajte planove i pravila i postavke ručno.</string>
+  <string name="google_plus_hint" formatted="false" orig="Follow me on Google+.\nGet update notifications etc.">Pratite me na Google+.\nDobijajte izvješća o napretku i sl.</string>
 </resources>
