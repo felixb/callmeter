@@ -32,6 +32,8 @@ import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.MatrixCursor;
@@ -42,6 +44,7 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.ParcelFileDescriptor;
+import android.os.SystemClock;
 import android.provider.OpenableColumns;
 import android.text.TextUtils;
 import de.ub0r.android.callmeter.CallMeter;
@@ -534,6 +537,9 @@ public final class DataProvider extends ContentProvider {
 	public static final class Plans {
 		/** A plan. */
 		public static final class Plan {
+			/** Prefix for loading plans from {@link SharedPreferences}. */
+			private static final String PREF_PREFIX = "_plans_";
+
 			/** Id of plan. */
 			public final long id;
 			/** Type of plan. */
@@ -586,6 +592,8 @@ public final class DataProvider extends ContentProvider {
 			 *            {@link Cursor}
 			 */
 			public Plan(final Cursor cursor) {
+				Log.d(TAG, "new Plan(" + cursor + ")");
+				long ct = SystemClock.elapsedRealtime();
 				this.id = cursor.getLong(INDEX_ID);
 				this.type = cursor.getInt(INDEX_TYPE);
 				this.name = cursor.getString(INDEX_NAME);
@@ -644,6 +652,91 @@ public final class DataProvider extends ContentProvider {
 				} else {
 					this.usage = (float) this.limitPos / (float) this.limit;
 				}
+				Log.d(TAG, "new Plan()", ct);
+			}
+
+			/**
+			 * Default Constructor from {@link Cursor} supported by cached
+			 * values from {@link SharedPreferences}.
+			 * 
+			 * @param cursor
+			 *            {@link Cursor}
+			 * @param p
+			 *            {@link SharedPreferences}
+			 */
+			public Plan(final Cursor cursor, final SharedPreferences p) {
+				Log.d(TAG, "new Plan(" + cursor + ", " + p + ")");
+				long ct = SystemClock.elapsedRealtime();
+				this.id = cursor.getLong(INDEX_ID);
+				this.type = cursor.getInt(INDEX_TYPE);
+				this.name = cursor.getString(INDEX_NAME);
+				this.sname = cursor.getString(INDEX_SHORTNAME);
+				this.billperiod = cursor.getInt(INDEX_BILLPERIOD);
+				if (this.type == TYPE_SPACING || this.type == TYPE_TITLE) {
+					this.billday = -1;
+					this.nextbillday = -1;
+					this.limittype = -1;
+					this.limit = -1;
+					this.limitPos = -1;
+					this.cpp = 0;
+					this.cost = 0f;
+					this.free = 0f;
+					this.tdCount = 0;
+					this.tdBa = 0f;
+					this.bpCount = 0;
+					this.bpBa = 0f;
+					this.atCount = 0;
+					this.atBa = 0f;
+					this.now = -1L;
+				} else {
+					this.cost = p
+							.getFloat(PREF_PREFIX + SUM_COST + this.id, 0f);
+					this.free = p
+							.getFloat(PREF_PREFIX + SUM_FREE + this.id, 0f);
+					this.tdCount = p.getInt(PREF_PREFIX + SUM_TD_COUNT
+							+ this.id, 0);
+					this.tdBa = p.getFloat(PREF_PREFIX + SUM_TD_BILLED_AMOUNT
+							+ this.id, 0f);
+					this.bpCount = p.getInt(PREF_PREFIX + SUM_BP_COUNT
+							+ this.id, 0);
+					this.bpBa = p.getFloat(PREF_PREFIX + SUM_BP_BILLED_AMOUNT
+							+ this.id, 0f);
+					this.atCount = p.getInt(PREF_PREFIX + SUM_AT_COUNT
+							+ this.id, 0);
+					this.atBa = p.getFloat(PREF_PREFIX + SUM_AT_BILLED_AMOUNT
+							+ this.id, 0f);
+					this.now = p.getLong(PREF_PREFIX + SUM_NOW + this.id, -1L);
+					this.billday = p.getLong(PREF_PREFIX + SUM_BILLDAY
+							+ this.id, 0L);
+					this.nextbillday = p.getLong(PREF_PREFIX + SUM_NEXTBILLDAY
+							+ this.id, 0L);
+					this.cpp = p.getFloat(PREF_PREFIX + SUM_CPP + this.id, 0f);
+
+					if (this.type == TYPE_BILLPERIOD) {
+						this.limittype = -1;
+						if (billperiod == DataProvider.BILLPERIOD_INFINITE) {
+							this.limitPos = 0;
+							this.limit = 0;
+						} else {
+							this.limitPos = (this.now - this.billday)
+									/ Utils.MINUTES_IN_MILLIS;
+							this.limit = (this.nextbillday - this.billday)
+									/ Utils.MINUTES_IN_MILLIS;
+						}
+					} else {
+						this.limittype = cursor.getInt(INDEX_LIMIT_TYPE);
+						this.limit = getLimit(this.type, this.limittype,
+								cursor.getLong(INDEX_LIMIT));
+						this.limitPos = getUsed(this.type, this.limittype,
+								this.bpBa, this.cost);
+					}
+				}
+				if (this.limitPos <= 0) {
+					this.usage = 0;
+				} else {
+					this.usage = (float) this.limitPos / (float) this.limit;
+				}
+				Log.d(TAG, "new Plan()", ct);
 			}
 
 			/**
@@ -655,16 +748,25 @@ public final class DataProvider extends ContentProvider {
 			 *            {@link Plan}'s id
 			 * @param now
 			 *            time of query
+			 * @param needToday
+			 *            need today stats?
+			 * @param needAllTime
+			 *            need all time stats?
 			 * @return {@link Plan}
 			 */
 			public static Plan getPlan(final ContentResolver cr,
-					final long planid, final long now) {
+					final long planid, final long now, final boolean needToday,
+					final boolean needAllTime) {
 				Uri uri = CONTENT_URI_SUM;
 				if (now >= 0) {
 					uri = uri
 							.buildUpon()
 							.appendQueryParameter(PARAM_DATE,
-									String.valueOf(now)).build();
+									String.valueOf(now))
+							.appendQueryParameter(PARAM_HIDE_TODAY,
+									String.valueOf(needToday))
+							.appendQueryParameter(PARAM_HIDE_ALLTIME,
+									String.valueOf(needAllTime)).build();
 				}
 				Cursor c = cr.query(uri, PROJECTION_SUM, TABLE + "." + ID
 						+ "=?", new String[] { String.valueOf(planid) }, null);
@@ -685,15 +787,51 @@ public final class DataProvider extends ContentProvider {
 			 *            {@link Plan}'s id
 			 * @param now
 			 *            time of query
+			 * @param needToday
+			 *            need today stats?
+			 * @param needAllTime
+			 *            need all time stats?
 			 * @return {@link Plan}
 			 */
 			public static Plan getPlan(final ContentResolver cr,
-					final long planid, final Calendar now) {
+					final long planid, final Calendar now,
+					final boolean needToday, final boolean needAllTime) {
 				if (now == null) {
-					return getPlan(cr, planid, -1L);
+					return getPlan(cr, planid, -1L, needToday, needAllTime);
 				} else {
-					return getPlan(cr, planid, now.getTimeInMillis());
+					return getPlan(cr, planid, now.getTimeInMillis(),
+							needToday, needAllTime);
 				}
+			}
+
+			/**
+			 * Save Plan to {@link SharedPreferences} for caching.
+			 * 
+			 * @param e
+			 *            {@link Editor}
+			 * @return {@link Editor}
+			 */
+			public Editor save(final Editor e) {
+				Log.d(TAG, "save(): " + this.id);
+
+				e.putFloat(PREF_PREFIX + SUM_COST + this.id, this.cost);
+				e.putFloat(PREF_PREFIX + SUM_FREE + this.id, this.free);
+				e.putInt(PREF_PREFIX + SUM_TD_COUNT + this.id, this.tdCount);
+				e.putFloat(PREF_PREFIX + SUM_TD_BILLED_AMOUNT + this.id,
+						this.tdBa);
+				e.putInt(PREF_PREFIX + SUM_BP_COUNT + this.id, this.bpCount);
+				e.putFloat(PREF_PREFIX + SUM_BP_BILLED_AMOUNT + this.id,
+						this.bpBa);
+				e.putInt(PREF_PREFIX + SUM_AT_COUNT + this.id, this.atCount);
+				e.putFloat(PREF_PREFIX + SUM_AT_BILLED_AMOUNT + this.id,
+						this.atBa);
+				e.putLong(PREF_PREFIX + SUM_NOW + this.id, this.now);
+				e.putLong(PREF_PREFIX + SUM_BILLDAY + this.id, this.billday);
+				e.putLong(PREF_PREFIX + SUM_NEXTBILLDAY + this.id,
+						this.nextbillday);
+				e.putFloat(PREF_PREFIX + SUM_CPP + this.id, this.cpp);
+
+				return e;
 			}
 
 			/**
@@ -701,7 +839,7 @@ public final class DataProvider extends ContentProvider {
 			 */
 			@Override
 			public String toString() {
-				return "lan:" + this.id + ":" + this.name;
+				return "plan:" + this.id + ":" + this.name;
 			}
 
 			/**
@@ -758,6 +896,10 @@ public final class DataProvider extends ContentProvider {
 		public static final String PARAM_HIDE_ZERO = "hide_zero";
 		/** Parameter for query: hide zero cost plans. */
 		public static final String PARAM_HIDE_NOCOST = "hide_nocost";
+		/** Parameter for query: hide today stats. */
+		public static final String PARAM_HIDE_TODAY = "hide_today";
+		/** Parameter for query: hide all time stats. */
+		public static final String PARAM_HIDE_ALLTIME = "hide_alltime";
 
 		/** Index in projection: id. */
 		public static final int INDEX_ID = 0;
@@ -765,74 +907,70 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_NAME = 1;
 		/** Index in projection: short name. */
 		public static final int INDEX_SHORTNAME = 2;
-		/** Index in projection: order. */
-		public static final int INDEX_ORDER = 3;
 		/** Index in projection: type. */
-		public static final int INDEX_TYPE = 4;
+		public static final int INDEX_TYPE = 3;
 		/** Index in projection: Type of limit. */
-		public static final int INDEX_LIMIT_TYPE = 5;
+		public static final int INDEX_LIMIT_TYPE = 4;
 		/** Index in projection: limit. */
-		public static final int INDEX_LIMIT = 6;
+		public static final int INDEX_LIMIT = 5;
 		/** Index in projection: Billmode. */
-		public static final int INDEX_BILLMODE = 7;
+		public static final int INDEX_BILLMODE = 6;
 		/** Index in projection: Billday. */
-		public static final int INDEX_BILLDAY = 8;
+		public static final int INDEX_BILLDAY = 7;
 		/** Index in projection: type of billperiod. */
-		public static final int INDEX_BILLPERIOD = 9;
+		public static final int INDEX_BILLPERIOD = 8;
 		/** Index in projection: Cost per item. */
-		public static final int INDEX_COST_PER_ITEM = 10;
+		public static final int INDEX_COST_PER_ITEM = 9;
 		/** Index in projection: Cost per amount1. */
-		public static final int INDEX_COST_PER_AMOUNT1 = 11;
+		public static final int INDEX_COST_PER_AMOUNT1 = 10;
 		/** Index in projection: Cost per amount2. */
-		public static final int INDEX_COST_PER_AMOUNT2 = 12;
+		public static final int INDEX_COST_PER_AMOUNT2 = 11;
 		/** Index in projection: Cost per item in limit. */
-		public static final int INDEX_COST_PER_ITEM_IN_LIMIT = 13;
+		public static final int INDEX_COST_PER_ITEM_IN_LIMIT = 12;
 		/** Index in projection: Cost per amount1 in limit. */
-		public static final int INDEX_COST_PER_AMOUNT_IN_LIMIT1 = 14;
+		public static final int INDEX_COST_PER_AMOUNT_IN_LIMIT1 = 13;
 		/** Index in projection: Cost per amount2 in limit. */
-		public static final int INDEX_COST_PER_AMOUNT_IN_LIMIT2 = 15;
+		public static final int INDEX_COST_PER_AMOUNT_IN_LIMIT2 = 14;
 		/** Index in projection: Cost per plan. */
-		public static final int INDEX_COST_PER_PLAN = 16;
+		public static final int INDEX_COST_PER_PLAN = 15;
 		/** Index in projection: Mixed units for call. */
-		public static final int INDEX_MIXED_UNITS_CALL = 17;
+		public static final int INDEX_MIXED_UNITS_CALL = 16;
 		/** Index in projection: Mixed units for sms. */
-		public static final int INDEX_MIXED_UNITS_SMS = 18;
+		public static final int INDEX_MIXED_UNITS_SMS = 17;
 		/** Index in projection: Mixed units for mms. */
-		public static final int INDEX_MIXED_UNITS_MMS = 19;
+		public static final int INDEX_MIXED_UNITS_MMS = 18;
 		/** Index in projection: id of billperiod. */
-		public static final int INDEX_BILLPERIOD_ID = 20;
+		public static final int INDEX_BILLPERIOD_ID = 19;
 		/** Index in projection: next alert. */
-		public static final int INDEX_NEXT_ALERT = 21;
+		public static final int INDEX_NEXT_ALERT = 20;
 		/** Index in projection: strip first seconds. */
-		public static final int INDEX_STRIP_SECONDS = 22;
+		public static final int INDEX_STRIP_SECONDS = 21;
 		/** Index in projection: merged plans. */
-		public static final int INDEX_MERGED_PLANS = 23;
+		public static final int INDEX_MERGED_PLANS = 22;
 		/** Index in projection: sum, now. */
-		public static final int INDEX_SUM_NOW = 24;
+		public static final int INDEX_SUM_NOW = 9;
 		/** Index in projection: sum, last bill day. */
-		public static final int INDEX_SUM_BILLDAY = 25;
+		public static final int INDEX_SUM_BILLDAY = 10;
 		/** Index in projection: sum: next bill day. */
-		public static final int INDEX_SUM_NEXTBILLDAY = 26;
-		/** Index in projection: sum, TODAY. */
-		public static final int INDEX_SUM_TODAY = 27;
-		/** Index in projection: sum count for this bill period. */
-		public static final int INDEX_SUM_BP_COUNT = 28;
-		/** Index in projection: sum billed amount for this bill period. */
-		public static final int INDEX_SUM_BP_BILLED_AMOUNT = 29;
-		/** Index in projection: sum count. */
-		public static final int INDEX_SUM_AT_COUNT = 30;
-		/** Index in projection: sum billed amount. */
-		public static final int INDEX_SUM_AT_BILLED_AMOUNT = 31;
+		public static final int INDEX_SUM_NEXTBILLDAY = 11;
 		/** Index in projection: sum count for today. */
-		public static final int INDEX_SUM_TD_COUNT = 32;
+		public static final int INDEX_SUM_TD_COUNT = 12;
 		/** Index in projection: sum billed amount for today. */
-		public static final int INDEX_SUM_TD_BILLED_AMOUNT = 33;
+		public static final int INDEX_SUM_TD_BILLED_AMOUNT = 13;
+		/** Index in projection: sum count for this bill period. */
+		public static final int INDEX_SUM_BP_COUNT = 14;
+		/** Index in projection: sum billed amount for this bill period. */
+		public static final int INDEX_SUM_BP_BILLED_AMOUNT = 15;
+		/** Index in projection: sum count. */
+		public static final int INDEX_SUM_AT_COUNT = 16;
+		/** Index in projection: sum billed amount. */
+		public static final int INDEX_SUM_AT_BILLED_AMOUNT = 17;
 		/** Index in projection: sum cost for all plans. */
-		public static final int INDEX_SUM_CPP = 34;
+		public static final int INDEX_SUM_CPP = 18;
 		/** Index in projection: sum cost for this bill period. */
-		public static final int INDEX_SUM_COST = 35;
+		public static final int INDEX_SUM_COST = 19;
 		/** Index in projection: sum free cost for this bill period. */
-		public static final int INDEX_SUM_FREE = 36;
+		public static final int INDEX_SUM_FREE = 20;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -915,7 +1053,7 @@ public final class DataProvider extends ContentProvider {
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, NAME,
-				SHORTNAME, ORDER, TYPE, LIMIT_TYPE, LIMIT, BILLMODE, BILLDAY,
+				SHORTNAME, TYPE, LIMIT_TYPE, LIMIT, BILLMODE, BILLDAY,
 				BILLPERIOD, COST_PER_ITEM, COST_PER_AMOUNT1, COST_PER_AMOUNT2,
 				COST_PER_ITEM_IN_LIMIT, COST_PER_AMOUNT_IN_LIMIT1,
 				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN, MIXED_UNITS_CALL,
@@ -923,103 +1061,93 @@ public final class DataProvider extends ContentProvider {
 				STRIP_SECONDS, MERGED_PLANS };
 
 		/** Projection used for sum query. */
-		public static final String[] PROJECTION_SUM = // .
-		new String[INDEX_SUM_FREE + 1];
-		static {
-			final int l = PROJECTION.length;
-			for (int i = 0; i < l; i++) {
-				PROJECTION_SUM[i] = TABLE + "." + PROJECTION[i] + " AS "
-						+ PROJECTION[i];
-			}
-			PROJECTION_SUM[INDEX_SUM_NOW] = "{" + SUM_NOW + "} AS " + SUM_NOW;
-			PROJECTION_SUM[INDEX_SUM_TODAY] = "{" + SUM_TODAY + "} AS "
-					+ SUM_TODAY;
-			PROJECTION_SUM[INDEX_SUM_BILLDAY] = "{" + SUM_BILLDAY + "} AS "
-					+ SUM_BILLDAY;
-			PROJECTION_SUM[INDEX_SUM_NEXTBILLDAY] = "{" + SUM_NEXTBILLDAY
-					+ "} AS " + SUM_NEXTBILLDAY;
-
-			PROJECTION_SUM[INDEX_SUM_TD_COUNT] = "sum(CASE WHEN " + Logs.TABLE
-					+ "." + Logs.DATE + " is null or " + Logs.TABLE + "."
-					+ Logs.DATE + "<{" + SUM_TODAY + "} or " + Logs.TABLE + "."
-					+ Logs.DATE + ">{" + SUM_NOW + "} THEN 0 ELSE 1 END) as "
-					+ SUM_TD_COUNT;
-			PROJECTION_SUM[INDEX_SUM_TD_BILLED_AMOUNT] = "sum(CASE WHEN "
-					+ Logs.TABLE + "." + Logs.DATE + "<{" + SUM_TODAY + "} or "
-					+ Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW
-					+ "} THEN 0 WHEN " + TABLE + "." + MERGED_PLANS
-					+ " is null or " + TABLE + "." + TYPE + "!=" + TYPE_MIXED
-					+ " THEN " + Logs.TABLE + "." + Logs.BILL_AMOUNT
-					+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "="
-					+ TYPE_CALL + " THEN " + Logs.TABLE + "."
-					+ Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_CALL
-					+ "/60" + " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "="
-					+ TYPE_SMS + " THEN " + Logs.TABLE + "." + Logs.BILL_AMOUNT
-					+ "*" + TABLE + "." + MIXED_UNITS_SMS + " WHEN  "
-					+ Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_MMS + " THEN "
-					+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
-					+ MIXED_UNITS_MMS + " ELSE " + Logs.TABLE + "."
-					+ Logs.BILL_AMOUNT + " END) AS " + SUM_TD_BILLED_AMOUNT;
-
-			PROJECTION_SUM[INDEX_SUM_BP_COUNT] = "sum(CASE WHEN " + Logs.TABLE
-					+ "." + Logs.DATE + " is null or " + Logs.TABLE + "."
-					+ Logs.DATE + "<={" + SUM_BILLDAY + "} or " + Logs.TABLE
-					+ "." + Logs.DATE + ">{" + SUM_NOW
-					+ "} THEN 0 ELSE 1 END) as " + SUM_BP_COUNT;
-			PROJECTION_SUM[INDEX_SUM_BP_BILLED_AMOUNT] = "sum(CASE WHEN "
-					+ Logs.TABLE + "." + Logs.DATE + "<={" + SUM_BILLDAY
-					+ "} or " + Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW
-					+ "} THEN 0 WHEN " + TABLE + "." + MERGED_PLANS
-					+ " is null or " + TABLE + "." + TYPE + "!=" + TYPE_MIXED
-					+ " THEN " + Logs.TABLE + "." + Logs.BILL_AMOUNT
-					+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "="
-					+ TYPE_CALL + " THEN " + Logs.TABLE + "."
-					+ Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_CALL
-					+ "/60" + " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "="
-					+ TYPE_SMS + " THEN " + Logs.TABLE + "." + Logs.BILL_AMOUNT
-					+ "*" + TABLE + "." + MIXED_UNITS_SMS + " WHEN  "
-					+ Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_MMS + " THEN "
-					+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
-					+ MIXED_UNITS_MMS + " ELSE " + Logs.TABLE + "."
-					+ Logs.BILL_AMOUNT + " END) AS " + SUM_BP_BILLED_AMOUNT;
-
-			PROJECTION_SUM[INDEX_SUM_AT_COUNT] = "sum(CASE WHEN " + Logs.TABLE
-					+ "." + Logs.DATE + " is null or " + Logs.TABLE + "."
-					+ Logs.DATE + ">{" + SUM_NOW + "} THEN 0 ELSE 1 END) as "
-					+ SUM_AT_COUNT;
-			PROJECTION_SUM[INDEX_SUM_AT_BILLED_AMOUNT] = "sum(CASE WHEN "
-					+ Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW
-					+ "} THEN 0 WHEN " + TABLE + "." + MERGED_PLANS
-					+ " is null or " + TABLE + "." + TYPE + "!=" + TYPE_MIXED
-					+ " THEN " + Logs.TABLE + "." + Logs.BILL_AMOUNT
-					+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "="
-					+ TYPE_CALL + " THEN " + Logs.TABLE + "."
-					+ Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_CALL
-					+ "/60" + " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "="
-					+ TYPE_SMS + " THEN " + Logs.TABLE + "." + Logs.BILL_AMOUNT
-					+ "*" + TABLE + "." + MIXED_UNITS_SMS + " WHEN  "
-					+ Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_MMS + " THEN "
-					+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
-					+ MIXED_UNITS_MMS + " ELSE " + Logs.TABLE + "."
-					+ Logs.BILL_AMOUNT + " END) AS " + SUM_AT_BILLED_AMOUNT;
-
-			PROJECTION_SUM[INDEX_SUM_CPP] = "(CASE WHEN " + TABLE + "." + TYPE
-					+ "=" + TYPE_BILLPERIOD + " THEN " + TABLE + "."
-					+ COST_PER_PLAN + " + (select sum(p." + COST_PER_PLAN
-					+ ") from " + TABLE + " as p where p." + BILLPERIOD_ID
-					+ "=" + TABLE + "." + ID + ") ELSE " + TABLE + "."
-					+ COST_PER_PLAN + " END) as " + SUM_CPP;
-			PROJECTION_SUM[INDEX_SUM_COST] = "sum(CASE WHEN " + Logs.TABLE
-					+ "." + Logs.DATE + "<{" + SUM_BILLDAY + "} or "
-					+ Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW
-					+ "} THEN 0 ELSE " + Logs.TABLE + "." + Logs.COST
-					+ " END) as " + SUM_COST;
-			PROJECTION_SUM[INDEX_SUM_FREE] = "sum(CASE WHEN " + Logs.TABLE
-					+ "." + Logs.DATE + "<{" + SUM_BILLDAY + "} or "
-					+ Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW
-					+ "} THEN 0 ELSE " + Logs.TABLE + "." + Logs.FREE
-					+ " END) as " + SUM_FREE;
-		}
+		public static final String[] PROJECTION_SUM = new String[] {
+				TABLE + "." + ID + " AS " + ID,
+				TABLE + "." + NAME + " AS " + NAME,
+				TABLE + "." + SHORTNAME + " AS " + SHORTNAME,
+				TABLE + "." + TYPE + " AS " + TYPE,
+				TABLE + "." + LIMIT_TYPE + " AS " + LIMIT_TYPE,
+				TABLE + "." + LIMIT + " AS " + LIMIT,
+				TABLE + "." + BILLMODE + " AS " + BILLMODE,
+				TABLE + "." + BILLDAY + " AS " + BILLDAY,
+				TABLE + "." + BILLPERIOD + " AS " + BILLPERIOD,
+				"{" + SUM_NOW + "} AS " + SUM_NOW,
+				"{" + SUM_BILLDAY + "} AS " + SUM_BILLDAY,
+				"{" + SUM_NEXTBILLDAY + "} AS " + SUM_NEXTBILLDAY,
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE
+						+ " is null or " + Logs.TABLE + "." + Logs.DATE + "<{"
+						+ SUM_TODAY + "} or " + Logs.TABLE + "." + Logs.DATE
+						+ ">{" + SUM_NOW + "} THEN 0 ELSE 1 END) as "
+						+ SUM_TD_COUNT,
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + "<{"
+						+ SUM_TODAY + "} or " + Logs.TABLE + "." + Logs.DATE
+						+ ">{" + SUM_NOW + "} THEN 0 WHEN " + TABLE + "."
+						+ MERGED_PLANS + " is null or " + TABLE + "." + TYPE
+						+ "!=" + TYPE_MIXED + " THEN " + Logs.TABLE + "."
+						+ Logs.BILL_AMOUNT + " WHEN  " + Logs.TABLE + "."
+						+ Logs.TYPE + "=" + TYPE_CALL + " THEN " + Logs.TABLE
+						+ "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
+						+ MIXED_UNITS_CALL + "/60" + " WHEN  " + Logs.TABLE
+						+ "." + Logs.TYPE + "=" + TYPE_SMS + " THEN "
+						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE
+						+ "." + MIXED_UNITS_SMS + " WHEN  " + Logs.TABLE + "."
+						+ Logs.TYPE + "=" + TYPE_MMS + " THEN " + Logs.TABLE
+						+ "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
+						+ MIXED_UNITS_MMS + " ELSE " + Logs.TABLE + "."
+						+ Logs.BILL_AMOUNT + " END) AS " + SUM_TD_BILLED_AMOUNT,
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE
+						+ " is null or " + Logs.TABLE + "." + Logs.DATE + "<={"
+						+ SUM_BILLDAY + "} or " + Logs.TABLE + "." + Logs.DATE
+						+ ">{" + SUM_NOW + "} THEN 0 ELSE 1 END) as "
+						+ SUM_BP_COUNT,
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + "<={"
+						+ SUM_BILLDAY + "} or " + Logs.TABLE + "." + Logs.DATE
+						+ ">{" + SUM_NOW + "} THEN 0 WHEN " + TABLE + "."
+						+ MERGED_PLANS + " is null or " + TABLE + "." + TYPE
+						+ "!=" + TYPE_MIXED + " THEN " + Logs.TABLE + "."
+						+ Logs.BILL_AMOUNT + " WHEN  " + Logs.TABLE + "."
+						+ Logs.TYPE + "=" + TYPE_CALL + " THEN " + Logs.TABLE
+						+ "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
+						+ MIXED_UNITS_CALL + "/60" + " WHEN  " + Logs.TABLE
+						+ "." + Logs.TYPE + "=" + TYPE_SMS + " THEN "
+						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE
+						+ "." + MIXED_UNITS_SMS + " WHEN  " + Logs.TABLE + "."
+						+ Logs.TYPE + "=" + TYPE_MMS + " THEN " + Logs.TABLE
+						+ "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
+						+ MIXED_UNITS_MMS + " ELSE " + Logs.TABLE + "."
+						+ Logs.BILL_AMOUNT + " END) AS " + SUM_BP_BILLED_AMOUNT,
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE
+						+ " is null or " + Logs.TABLE + "." + Logs.DATE + ">{"
+						+ SUM_NOW + "} THEN 0 ELSE 1 END) as " + SUM_AT_COUNT,
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + ">{"
+						+ SUM_NOW + "} THEN 0 WHEN " + TABLE + "."
+						+ MERGED_PLANS + " is null or " + TABLE + "." + TYPE
+						+ "!=" + TYPE_MIXED + " THEN " + Logs.TABLE + "."
+						+ Logs.BILL_AMOUNT + " WHEN  " + Logs.TABLE + "."
+						+ Logs.TYPE + "=" + TYPE_CALL + " THEN " + Logs.TABLE
+						+ "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
+						+ MIXED_UNITS_CALL + "/60" + " WHEN  " + Logs.TABLE
+						+ "." + Logs.TYPE + "=" + TYPE_SMS + " THEN "
+						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE
+						+ "." + MIXED_UNITS_SMS + " WHEN  " + Logs.TABLE + "."
+						+ Logs.TYPE + "=" + TYPE_MMS + " THEN " + Logs.TABLE
+						+ "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
+						+ MIXED_UNITS_MMS + " ELSE " + Logs.TABLE + "."
+						+ Logs.BILL_AMOUNT + " END) AS " + SUM_AT_BILLED_AMOUNT,
+				"(CASE WHEN " + TABLE + "." + TYPE + "=" + TYPE_BILLPERIOD
+						+ " THEN " + TABLE + "." + COST_PER_PLAN
+						+ " + (select sum(p." + COST_PER_PLAN + ") from "
+						+ TABLE + " as p where p." + BILLPERIOD_ID + "="
+						+ TABLE + "." + ID + ") ELSE " + TABLE + "."
+						+ COST_PER_PLAN + " END) as " + SUM_CPP,
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + "<{"
+						+ SUM_BILLDAY + "} or " + Logs.TABLE + "." + Logs.DATE
+						+ ">{" + SUM_NOW + "} THEN 0 ELSE " + Logs.TABLE + "."
+						+ Logs.COST + " END) as " + SUM_COST,
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + "<{"
+						+ SUM_BILLDAY + "} or " + Logs.TABLE + "." + Logs.DATE
+						+ ">{" + SUM_NOW + "} THEN 0 ELSE " + Logs.TABLE + "."
+						+ Logs.FREE + " END) as " + SUM_FREE };
 
 		/** Projection used for query id and (short)name. */
 		public static final String[] PROJECTION_NAME = new String[] { ID, NAME,
@@ -1300,40 +1428,20 @@ public final class DataProvider extends ContentProvider {
 		}
 
 		/**
-		 * Get the first bill day of this period.
+		 * Get length of bill period.
 		 * 
 		 * @param period
-		 *            type of period
-		 * @param start
-		 *            first bill day set.
-		 * @param now
-		 *            move now to some other time, null == real now
-		 * @param next
-		 *            get the next, not the current one
-		 * @return {@link Calendar} with current first bill day
+		 *            period type
+		 * @return array of [Calendar.FIELD, amount]
 		 */
-		public static Calendar getBillDay(final int period, // .
-				final Calendar start, final Calendar now, final boolean next) {
+		private static int[] getPeriodSettings(final int period) {
 			int f;
 			int v;
 			switch (period) {
-			case BILLPERIOD_INFINITE:
-				return start;
 			case BILLPERIOD_DAY:
-				Calendar ret;
-				if (now == null) {
-					ret = Calendar.getInstance();
-				} else {
-					ret = (Calendar) now.clone();
-				}
-				ret.set(Calendar.HOUR_OF_DAY, 0);
-				ret.set(Calendar.MINUTE, 0);
-				ret.set(Calendar.SECOND, 0);
-				ret.set(Calendar.MILLISECOND, 0);
-				if (next) {
-					ret.add(Calendar.DAY_OF_MONTH, 1);
-				}
-				return ret;
+				f = Calendar.DAY_OF_MONTH;
+				v = 1;
+				break;
 			case BILLPERIOD_30D:
 				f = Calendar.DAY_OF_MONTH;
 				v = 30;
@@ -1382,6 +1490,54 @@ public final class DataProvider extends ContentProvider {
 				return null;
 			}
 
+			return new int[] { f, v };
+		}
+
+		/**
+		 * Get the first bill day of this period.
+		 * 
+		 * @param period
+		 *            type of period
+		 * @param start
+		 *            first bill day set
+		 * @param now
+		 *            move now to some other time, null == real now
+		 * @param next
+		 *            get the next, not the current one
+		 * @return {@link Calendar} with current first bill day
+		 */
+		public static Calendar getBillDay(final int period, // .
+				final Calendar start, final Calendar now, final boolean next) {
+			int f;
+			int v;
+			switch (period) {
+			case BILLPERIOD_INFINITE:
+				return start;
+			case BILLPERIOD_DAY:
+				Calendar ret;
+				if (now == null) {
+					ret = Calendar.getInstance();
+				} else {
+					ret = (Calendar) now.clone();
+				}
+				ret.set(Calendar.HOUR_OF_DAY, 0);
+				ret.set(Calendar.MINUTE, 0);
+				ret.set(Calendar.SECOND, 0);
+				ret.set(Calendar.MILLISECOND, 0);
+				if (next) {
+					ret.add(Calendar.DAY_OF_MONTH, 1);
+				}
+				return ret;
+			default:
+				int[] i = getPeriodSettings(period);
+				if (i == null) {
+					return null;
+				} else {
+					f = i[0];
+					v = i[1];
+				}
+			}
+
 			Calendar ret;
 			if (start != null) {
 				ret = (Calendar) start.clone();
@@ -1402,6 +1558,62 @@ public final class DataProvider extends ContentProvider {
 			if (!next) {
 				ret.add(f, v * -1);
 			}
+			return ret;
+		}
+
+		/**
+		 * Get the all first bill days of this period.
+		 * 
+		 * @param period
+		 *            type of period
+		 * @param start
+		 *            first bill day set
+		 * @param newerAs
+		 *            stop if bill day is older as this
+		 * @param offset
+		 *            offset for each bill day
+		 * @return {@link ArrayList} of bill days
+		 */
+		public static ArrayList<Long> getBillDays(final int period,
+				final long start, final long newerAs, final long offset) {
+			ArrayList<Long> ret = new ArrayList<Long>();
+
+			int f;
+			int v;
+			Calendar c = Calendar.getInstance();
+			final long now = System.currentTimeMillis();
+			switch (period) {
+			case BILLPERIOD_INFINITE:
+				return null;
+			case BILLPERIOD_DAY:
+				c.set(Calendar.HOUR_OF_DAY, 0);
+				c.set(Calendar.MINUTE, 0);
+				c.set(Calendar.SECOND, 0);
+				c.set(Calendar.MILLISECOND, 0);
+				long l = c.getTimeInMillis();
+				do {
+					ret.add(l + offset);
+					l -= Utils.DAY_IN_MILLIS;
+				} while (l > newerAs);
+				return ret;
+			default:
+				int[] i = getPeriodSettings(period);
+				if (i == null) {
+					return null;
+				}
+				f = i[0];
+				v = i[1];
+				c.setTimeInMillis(start);
+				while (c.getTimeInMillis() < now) {
+					c.add(f, v);
+				}
+				c.add(f, -1 * v);
+				while (c.getTimeInMillis() > newerAs) {
+					ret.add(c.getTimeInMillis() + offset);
+					c.add(f, -1 * v);
+				}
+			}
+
 			return ret;
 		}
 
@@ -2884,6 +3096,7 @@ public final class DataProvider extends ContentProvider {
 			final String selection, final String[] selectionArgs,
 			final String sortOrder) {
 		Log.d(TAG, "query(" + uri + "," + selection + ")");
+		long ct = SystemClock.elapsedRealtime();
 		final SQLiteDatabase db = this.mOpenHelper.getReadableDatabase();
 		SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 		final int uid = URI_MATCHER.match(uri);
@@ -2939,19 +3152,85 @@ public final class DataProvider extends ContentProvider {
 					uri.getQueryParameter(Plans.PARAM_HIDE_ZERO), false);
 			final boolean hideNoCost = Utils.parseBoolean(
 					uri.getQueryParameter(Plans.PARAM_HIDE_NOCOST), false);
-			final long date = Utils.parseLong(
-					uri.getQueryParameter(Plans.PARAM_DATE),
-					System.currentTimeMillis());
+			final boolean hideToday = Utils.parseBoolean(
+					uri.getQueryParameter(Plans.PARAM_HIDE_TODAY), false);
+			final boolean hideAllTime = Utils.parseBoolean(
+					uri.getQueryParameter(Plans.PARAM_HIDE_ALLTIME), false);
+			long date = Utils.parseLong(
+					uri.getQueryParameter(Plans.PARAM_DATE), -1L);
+			if (date < 0L) {
+				// round up minutes for SQL caching
+				date = ((System.currentTimeMillis() / CallMeter.HUNDRET) + 1)
+						* CallMeter.HUNDRET;
+			}
+			final Calendar now = Calendar.getInstance();
+			now.setTimeInMillis(date);
+			final Calendar today = (Calendar) now.clone();
+			today.set(Calendar.MILLISECOND, 0);
+			today.set(Calendar.SECOND, 0);
+			today.set(Calendar.MINUTE, 0);
+			today.set(Calendar.HOUR_OF_DAY, 0);
+			String billps;
+			String nbillps;
+			long lowBp = -1L;
+			long highBp = -1L;
+			Cursor cursor = db.query(Plans.TABLE, new String[] { Plans.ID,
+					Plans.BILLPERIOD, Plans.BILLDAY }, Plans.WHERE_BILLPERIODS,
+					null, null, null, null);
+			if (cursor.moveToFirst()) {
+				billps = "(CASE ";
+				nbillps = "(CASE ";
+				do {
+					int period = cursor.getInt(1);
+					long bday = cursor.getLong(2);
+					Calendar bd = Plans.getBillDay(period, bday, now, false);
+					Calendar nbd = Plans.getBillDay(period, bd, now, true);
+					final long pid = cursor.getLong(0);
+					final long lbtime = bd.getTimeInMillis();
+					final long hbtime = nbd.getTimeInMillis();
+					if (hideAllTime && (lowBp < 0L || lowBp > lbtime)) {
+						lowBp = lbtime;
+					}
+					if (highBp < 0L || highBp < hbtime) {
+						highBp = hbtime;
+					}
+					billps += " WHEN " + Plans.TABLE + "." + Plans.ID + "="
+							+ pid + " or " + Plans.TABLE + "."
+							+ Plans.BILLPERIOD_ID + "=" + pid + " THEN "
+							+ lbtime;
+					nbillps += " WHEN " + Plans.TABLE + "." + Plans.ID + "="
+							+ pid + " or " + Plans.TABLE + "."
+							+ Plans.BILLPERIOD_ID + "=" + pid + " THEN "
+							+ hbtime;
+				} while (cursor.moveToNext());
+				billps += " ELSE 0 END)";
+				nbillps += " ELSE 0 END)";
+			} else {
+				billps = "0";
+				nbillps = "0";
+			}
+			cursor.close();
+			cursor = null;
+			String logDate = "";
+			if (lowBp > 0L) {
+				logDate = Logs.TABLE + "." + Logs.DATE + ">" + lowBp + " and ";
+			}
+			if (highBp > 0L) {
+				logDate += Logs.TABLE + "." + Logs.DATE + "<" + highBp
+						+ " and ";
+			}
+
 			qb.setTables(Plans.TABLE + " left outer join " + Logs.TABLE
-					+ " on (" + Logs.TABLE + "." + Logs.PLAN_ID + "="
-					+ Plans.TABLE + "." + Plans.ID + " or " + Plans.TABLE + "."
-					+ Plans.MERGED_PLANS + " like '%,'||" + Logs.TABLE + "."
-					+ Logs.PLAN_ID + "||',%' or ( " + Plans.TABLE + "."
+					+ " on (" + logDate + "(" + Logs.TABLE + "." + Logs.PLAN_ID
+					+ "=" + Plans.TABLE + "." + Plans.ID + " or " + Plans.TABLE
+					+ "." + Plans.MERGED_PLANS + " like '%,'||" + Logs.TABLE
+					+ "." + Logs.PLAN_ID + "||',%' or ( " + Plans.TABLE + "."
 					+ Plans.TYPE + "=" + TYPE_BILLPERIOD + " and " + Logs.TABLE
 					+ "." + Logs.PLAN_ID + " in ( select " + Plans.ID
 					+ " from " + Plans.TABLE + " as p where p."
 					+ Plans.BILLPERIOD_ID + "=" + Plans.TABLE + "." + Plans.ID
-					+ ")))");
+					+ "))))");
+			logDate = null;
 			groupBy = Plans.TABLE + "." + Plans.ID;
 			if (hideZero || hideNoCost) {
 				having = Plans.TYPE + " in(" + TYPE_BILLPERIOD + ","
@@ -2975,50 +3254,40 @@ public final class DataProvider extends ContentProvider {
 				orderBy = Plans.TABLE + "." + Plans.ORDER;
 			}
 			proj = new String[l];
-			final Calendar now = Calendar.getInstance();
-			now.setTimeInMillis(date);
-			final Calendar today = (Calendar) now.clone();
-			today.set(Calendar.MILLISECOND, 0);
-			today.set(Calendar.SECOND, 0);
-			today.set(Calendar.MINUTE, 0);
-			today.set(Calendar.HOUR_OF_DAY, 0);
-			String billps = "(CASE ";
-			String nbillps = "(CASE ";
-			Cursor cursor = db.query(Plans.TABLE, new String[] { Plans.ID,
-					Plans.BILLPERIOD, Plans.BILLDAY }, Plans.WHERE_BILLPERIODS,
-					null, null, null, null);
-			if (cursor.moveToFirst()) {
-				do {
-					int period = cursor.getInt(1);
-					long bday = cursor.getLong(2);
-					Calendar bd = Plans.getBillDay(period, bday, now, false);
-					Calendar nbd = Plans.getBillDay(period, bd, now, true);
-					final long pid = cursor.getLong(0);
-					billps += " WHEN " + Plans.TABLE + "." + Plans.ID + "="
-							+ pid + " or " + Plans.TABLE + "."
-							+ Plans.BILLPERIOD_ID + "=" + pid + " THEN "
-							+ bd.getTimeInMillis();
-					nbillps += " WHEN " + Plans.TABLE + "." + Plans.ID + "="
-							+ pid + " or " + Plans.TABLE + "."
-							+ Plans.BILLPERIOD_ID + "=" + pid + " THEN "
-							+ nbd.getTimeInMillis();
-				} while (cursor.moveToNext());
+
+			int s = 0;
+			if (projection == Plans.PROJECTION_SUM) {
+				s = Plans.INDEX_SUM_NOW;
 			}
-			cursor.close();
-			cursor = null;
-			billps += " ELSE 0 END)";
-			nbillps += " ELSE 0 END)";
 			for (int i = 0; i < l; i++) {
-				proj[i] = projection[i].// .
-						replace("{" + Plans.SUM_BILLDAY + "}", // .
-								billps).// .
-						replace("{" + Plans.SUM_NEXTBILLDAY + "}", // .
-								nbillps).// .
-						replace("{" + Plans.SUM_NOW + "}", // .
-								String.valueOf(date)).//
-						replace("{" + Plans.SUM_TODAY + "}", // .
-								String.valueOf(today.getTimeInMillis()));
+				if (i >= s) {
+					proj[i] = projection[i].// .
+							replace("{" + Plans.SUM_BILLDAY + "}", // .
+									billps).// .
+							replace("{" + Plans.SUM_NEXTBILLDAY + "}", // .
+									nbillps).// .
+							replace("{" + Plans.SUM_NOW + "}", // .
+									String.valueOf(date)).//
+							replace("{" + Plans.SUM_TODAY + "}", // .
+									String.valueOf(today.getTimeInMillis()));
+				} else {
+					proj[i] = projection[i];
+				}
 				Log.d(TAG, "proj[" + i + "]: " + proj[i]);
+			}
+			if (projection == Plans.PROJECTION_SUM) {
+				if (hideToday) {
+					proj[Plans.INDEX_SUM_TD_BILLED_AMOUNT] = "0 AS "
+							+ Plans.SUM_TD_BILLED_AMOUNT;
+					proj[Plans.INDEX_SUM_TD_COUNT] = "0 AS "
+							+ Plans.SUM_TD_COUNT;
+				}
+				if (hideAllTime) {
+					proj[Plans.INDEX_SUM_AT_BILLED_AMOUNT] = "0 AS "
+							+ Plans.SUM_AT_BILLED_AMOUNT;
+					proj[Plans.INDEX_SUM_AT_COUNT] = "0 AS "
+							+ Plans.SUM_AT_COUNT;
+				}
 			}
 			break;
 		case RULES_ID:
@@ -3098,13 +3367,15 @@ public final class DataProvider extends ContentProvider {
 			proj = projection;
 		}
 		// Run the query
+		Log.d(TAG, "qb.query() start: " + selection, ct);
 		c = qb.query(db, proj, selection, selectionArgs, groupBy, having, // .
 				orderBy);
+		Log.d(TAG, "qb.query() end: " + selection, ct);
 
 		// Tell the cursor what uri to watch, so it knows when its source data
 		// changes
 		c.setNotificationUri(this.getContext().getContentResolver(), uri);
-		Log.d(TAG, "query(): " + c.getCount());
+		Log.d(TAG, "query(" + uri + "," + selection + "): " + c.getCount(), ct);
 		return c;
 	}
 

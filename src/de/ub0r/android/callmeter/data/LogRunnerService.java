@@ -182,7 +182,7 @@ public final class LogRunnerService extends IntentService {
 		final Cursor cursor = cr.query(DataProvider.Logs.CONTENT_URI,
 				new String[] { DataProvider.Logs.DATE }, DataProvider.Logs.TYPE
 						+ " = ?", new String[] { String.valueOf(type) },
-				DataProvider.Logs.DATE + " DESC");
+				DataProvider.Logs.DATE + " DESC LIMIT 1");
 		long maxdate = deleteBefore;
 		if (cursor != null) {
 			if (cursor.moveToFirst()) {
@@ -219,7 +219,7 @@ public final class LogRunnerService extends IntentService {
 								+ DataProvider.Logs.DIRECTION + " = ?",
 						new String[] { String.valueOf(type),
 								String.valueOf(direction) },
-						DataProvider.Logs.DATE + " DESC");
+						DataProvider.Logs.DATE + " DESC LIMIT 1");
 		long maxdate = deleteBefore;
 		if (cursor != null) {
 			if (cursor.moveToFirst()) {

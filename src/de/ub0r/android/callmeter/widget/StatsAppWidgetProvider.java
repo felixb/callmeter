@@ -171,7 +171,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		Log.d(TAG, "planid: " + pid);
 		final ContentResolver cr = context.getContentResolver();
 
-		Plan plan = Plan.getPlan(cr, pid, -1);
+		Plan plan = Plan.getPlan(cr, pid, -1, false, false);
 		if (plan == null) {
 			return;
 		}

@@ -1,3 +1,21 @@
+/*
+ * Copyright (C) 2009-2011 Felix Bechstein
+ * 
+ * This file is part of Call Meter 3G.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this program; If not, see <http://www.gnu.org/licenses/>.
+ */
 package de.ub0r.android.callmeter.ui;
 
 import android.app.Activity;
@@ -9,15 +27,18 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ListFragment;
 import android.support.v4.view.Menu;
-import android.text.Html;
-import android.text.TextUtils;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
@@ -46,6 +67,8 @@ public final class PlansFragment extends ListFragment implements
 		OnClickListener, OnItemLongClickListener {
 	/** Tag for output. */
 	private static final String TAG = "plans";
+	/** Run the dummy? */
+	private static boolean doDummy = true;
 
 	/**
 	 * Adapter binding plans to View.
@@ -57,6 +80,18 @@ public final class PlansFragment extends ListFragment implements
 		private final BackgroundQueryHandler queryHandler;
 		/** Token for {@link BackgroundQueryHandler}: plan summary query. */
 		private static final int PLAN_QUERY_TOKEN = 0;
+		/** Token for {@link BackgroundQueryHandler}: plan dummy query. */
+		private static final int PLAN_QUERY_TOKEN_DUMMY = 1;
+
+		/** {@link SharedPreferences}. */
+		private final SharedPreferences p;
+		/** {@link Editor}. */
+		private final Editor e;
+		/** Does the {@link Editor} needs commit? */
+		private boolean isDirty = false;
+
+		/** Now. */
+		private long now;
 
 		/**
 		 * Handle queries in background.
@@ -69,6 +104,8 @@ public final class PlansFragment extends ListFragment implements
 
 			/** Handle to views. */
 			private final View vLoading, vImport;
+			/** Ignore query requests. */
+			private boolean ignoreQuery = false;
 
 			/**
 			 * A helper class to help make handling asynchronous queries easier.
@@ -94,8 +131,11 @@ public final class PlansFragment extends ListFragment implements
 			@Override
 			protected void onQueryComplete(final int token,
 					final Object cookie, final Cursor cursor) {
+				ignoreQuery = false;
 				switch (token) {
+				case PLAN_QUERY_TOKEN_DUMMY:
 				case PLAN_QUERY_TOKEN:
+					PlansAdapter.this.save();
 					this.vLoading.setVisibility(View.GONE);
 					PlansAdapter.this.changeCursor(cursor);
 					if (cursor != null && cursor.getCount() > 0) {
@@ -118,6 +158,13 @@ public final class PlansFragment extends ListFragment implements
 					final Uri uri, final String[] projection,
 					final String selection, final String[] selectionArgs,
 					final String orderBy) {
+				if (this.ignoreQuery) {
+					return;
+				}
+				if (token == PLAN_QUERY_TOKEN_DUMMY) {
+					this.ignoreQuery = true;
+				}
+
 				if (PlansAdapter.this.getCount() == 0) {
 					vLoading.setVisibility(View.VISIBLE);
 				}
@@ -203,9 +250,9 @@ public final class PlansFragment extends ListFragment implements
 				final View imp) {
 			super(context, R.layout.plans_item, null, true);
 			queryHandler = new BackgroundQueryHandler(context, loading, imp);
-			final SharedPreferences p = PreferenceManager
-					.getDefaultSharedPreferences(context);
-			if (p.getBoolean(Preferences.PREFS_HIDE_PROGRESSBARS, false)) {
+			this.p = PreferenceManager.getDefaultSharedPreferences(context);
+			this.e = this.p.edit();
+			if (this.p.getBoolean(Preferences.PREFS_HIDE_PROGRESSBARS, false)) {
 				this.progressBarVisability = View.GONE;
 			} else {
 				this.progressBarVisability = View.VISIBLE;
@@ -217,31 +264,56 @@ public final class PlansFragment extends ListFragment implements
 		 * 
 		 * @param lnow
 		 *            current time shown
+		 * @param dummy
+		 *            use dummy query
 		 */
-		public final void startPlanQuery(final long lnow) {
+		public final void startPlanQuery(final long lnow, final boolean dummy) {
+			Log.d(TAG, "startPlanQuery(" + lnow + ")");
+			this.now = lnow;
 			// Cancel any pending queries
-			this.queryHandler.cancelOperation(PLAN_QUERY_TOKEN);
+			if (dummy) {
+				this.queryHandler.cancelOperation(PLAN_QUERY_TOKEN_DUMMY);
+			} else {
+				this.queryHandler.cancelOperation(PLAN_QUERY_TOKEN);
+			}
 			try {
 				// Kick off the new query
-				long n = lnow;
-				if (n < 0L) {
-					n = System.currentTimeMillis();
+				if (dummy) {
+					this.queryHandler.startQuery(PLAN_QUERY_TOKEN_DUMMY, null,
+							DataProvider.Plans.CONTENT_URI,
+							DataProvider.Plans.PROJECTION, null, null, null);
+				} else {
+					this.queryHandler
+							.startQuery(
+									PLAN_QUERY_TOKEN,
+									null,
+									DataProvider.Plans.CONTENT_URI_SUM
+											.buildUpon()
+											.appendQueryParameter(
+													DataProvider.// .
+													Plans.PARAM_DATE,
+													String.valueOf(lnow))
+											.appendQueryParameter(
+													DataProvider.// .
+													Plans.PARAM_HIDE_ZERO,
+													String.valueOf(hideZero))
+											.appendQueryParameter(
+													DataProvider.// .
+													Plans.PARAM_HIDE_NOCOST,
+													String.valueOf(hideNoCost))
+											.appendQueryParameter(
+													DataProvider.// .
+													Plans.PARAM_HIDE_TODAY,
+													String.valueOf(!showToday
+															|| lnow >= 0L))
+											.appendQueryParameter(
+													DataProvider.// .
+													Plans.PARAM_HIDE_ALLTIME,
+													String.valueOf(!showTotal))
+											.build(),
+									DataProvider.Plans.PROJECTION_SUM, null,
+									null, null);
 				}
-				this.queryHandler.startQuery(
-						PLAN_QUERY_TOKEN,
-						null,
-						DataProvider.Plans.CONTENT_URI_SUM
-								.buildUpon()
-								.appendQueryParameter(
-										DataProvider.Plans.PARAM_DATE,
-										String.valueOf(n))
-								.appendQueryParameter(
-										DataProvider.Plans.PARAM_HIDE_ZERO,
-										String.valueOf(hideZero))
-								.appendQueryParameter(
-										DataProvider.Plans.PARAM_HIDE_NOCOST,
-										String.valueOf(hideNoCost)).build(),
-						DataProvider.Plans.PROJECTION_SUM, null, null, null);
 			} catch (SQLiteException e) {
 				Log.e(TAG, "error starting query", e);
 			}
@@ -253,9 +325,16 @@ public final class PlansFragment extends ListFragment implements
 		@Override
 		public void bindView(final View view, final Context context,
 				final Cursor cursor) {
-			DataProvider.Plans.Plan plan = new DataProvider.Plans.Plan(cursor);
+			boolean savePlan = false;
+			DataProvider.Plans.Plan plan = null;
+			if (cursor.getColumnIndex(DataProvider.Plans.SUM_COST) > 0) {
+				plan = new DataProvider.Plans.Plan(cursor);
+				savePlan = true;
+			} else {
+				plan = new DataProvider.Plans.Plan(cursor, this.p);
+			}
 
-			String cacheStr = null;
+			SpannableStringBuilder spb = new SpannableStringBuilder();
 			float cost;
 			float free;
 			if (prepaid) {
@@ -268,38 +347,42 @@ public final class PlansFragment extends ListFragment implements
 
 			if (plan.type != DataProvider.TYPE_SPACING // .
 					&& plan.type != DataProvider.TYPE_TITLE) {
-				cacheStr = "<b>"
-						+ Common.formatValues(context, plan.now, plan.type,
-								plan.bpCount, plan.bpBa, plan.billperiod,
-								plan.billday, pShowHours) + "</b>";
+				spb.append(Common.formatValues(context, plan.now, plan.type,
+						plan.bpCount, plan.bpBa, plan.billperiod, plan.billday,
+						pShowHours));
+				spb.setSpan(new StyleSpan(Typeface.BOLD), 0, spb.length(),
+						Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 				if (plan.type != DataProvider.TYPE_BILLPERIOD) {
 					if (showTotal) {
-						cacheStr += delimiter;
-						cacheStr += Common.formatValues(context, plan.now,
-								plan.type, plan.atCount, plan.atBa,
-								plan.billperiod, plan.billday, pShowHours);
+						spb.append(delimiter
+								+ Common.formatValues(context, plan.now,
+										plan.type, plan.atCount, plan.atBa,
+										plan.billperiod, plan.billday,
+										pShowHours));
 					}
 					if (showToday) {
-						cacheStr = delimiter + cacheStr;
-						cacheStr = Common.formatValues(context, plan.now,
-								plan.type, plan.tdCount, plan.tdBa,
-								plan.billperiod, plan.billday, pShowHours)
-								+ cacheStr;
+						spb.insert(
+								0,
+								Common.formatValues(context, plan.now,
+										plan.type, plan.tdCount, plan.tdBa,
+										plan.billperiod, plan.billday,
+										pShowHours)
+										+ delimiter);
 					}
 				}
 				if (free > 0f || cost > 0f) {
-					cacheStr += "\n";
+					spb.append("\n");
 					if (free > 0f) {
-						cacheStr += "(" + String.format(currencyFormat, free)
-								+ ")";
+						spb.append("(" + String.format(currencyFormat, free)
+								+ ")");
 					}
 					if (cost > 0f) {
-						cacheStr += " " + String.format(currencyFormat, cost);
+						spb.append(" " + String.format(currencyFormat, cost));
 					}
 				}
 				if (plan.limit > 0) {
-					cacheStr = ((int) (plan.usage * CallMeter.HUNDRET)) + "%"
-							+ delimiter + cacheStr;
+					spb.insert(0, ((int) (plan.usage * CallMeter.HUNDRET))
+							+ "%" + delimiter);
 				}
 			}
 
@@ -309,7 +392,7 @@ public final class PlansFragment extends ListFragment implements
 			// Log.d(TAG, "cost: " + cost);
 			// Log.d(TAG, "limit: " + plan.limit);
 			// Log.d(TAG, "limitPos: " + plan.limitPos);
-			// Log.d(TAG, "text: " + cacheStr);
+			// Log.d(TAG, "text: " + spb);
 
 			TextView twCache = null;
 			ProgressBar pbCache = null;
@@ -390,9 +473,8 @@ public final class PlansFragment extends ListFragment implements
 				}
 			}
 			if (twCache != null && pbCache != null) {
-				if (!TextUtils.isEmpty(cacheStr)) {
-					twCache.setText(Html.fromHtml(cacheStr.replaceAll("\n",
-							"<br>")));
+				if (spb.length() > 0) {
+					twCache.setText(spb);
 				} else {
 					twCache.setText(null);
 				}
@@ -426,6 +508,23 @@ public final class PlansFragment extends ListFragment implements
 					pbCache.setIndeterminate(true);
 					pbCache.setVisibility(this.progressBarVisability);
 				}
+			}
+			if (savePlan && this.now < 0L
+					&& plan.type != DataProvider.TYPE_SPACING
+					&& plan.type != DataProvider.TYPE_TITLE) {
+				plan.save(this.e);
+				this.isDirty = true;
+			}
+		}
+
+		/**
+		 * Save current stats to {@link SharedPreferences}.
+		 */
+		public void save() {
+			if (this.isDirty) {
+				Log.d(TAG, "e.commit()");
+				e.commit();
+				this.isDirty = false;
 			}
 		}
 	}
@@ -479,6 +578,15 @@ public final class PlansFragment extends ListFragment implements
 	 * {@inheritDoc}
 	 */
 	@Override
+	public void onPause() {
+		super.onPause();
+		((PlansAdapter) this.getListAdapter()).save();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public View onCreateView(final LayoutInflater inflater,
 			final ViewGroup container, final Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.plans_fragment, container, false);
@@ -498,6 +606,10 @@ public final class PlansFragment extends ListFragment implements
 		PlansAdapter adapter = new PlansAdapter(this.getActivity(),
 				this.vLoading, this.vImport);
 		this.setListAdapter(adapter);
+		if (doDummy && this.now < 0L) {
+			doDummy = false;
+			adapter.startPlanQuery(this.now, true);
+		}
 		this.getListView().setOnItemLongClickListener(this);
 	}
 
@@ -505,24 +617,25 @@ public final class PlansFragment extends ListFragment implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void onResume() {
-		super.onResume();
-		Log.d(TAG, "onResume() - " + this.now);
-		if (this.isVisible()) {
-			PlansAdapter adapter = (PlansAdapter) this.getListAdapter();
-			if (this.now < 0L || adapter.isEmpty()) {
-				// update unloaded and current fragment only
-				adapter.startPlanQuery(this.now);
-			}
+	public void onStop() {
+		super.onStop();
+		if (this.now < 0L) {
+			this.doDummy = true;
 		}
 	}
 
 	/**
 	 * Re-query database.
+	 * 
+	 * @param forceUpdate
+	 *            force update
 	 */
-	public void requery() {
+	public void requery(final boolean forceUpdate) {
+		Log.d(TAG, "requery(" + forceUpdate + ")");
 		PlansAdapter adapter = (PlansAdapter) this.getListAdapter();
-		adapter.startPlanQuery(this.now);
+		if (forceUpdate || adapter.isEmpty()) {
+			adapter.startPlanQuery(this.now, false);
+		}
 	}
 
 	/**

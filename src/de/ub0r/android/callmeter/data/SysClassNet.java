@@ -126,7 +126,8 @@ public final class SysClassNet {
 			raf = getFile(sb.toString());
 			return Long.valueOf(raf.readLine());
 		} catch (Exception e) {
-			Log.e(TAG, "error readding long for inter: " + inter, e);
+			Log.e(TAG, e.getMessage() + " / error readding long for inter: "
+					+ inter);
 			return 0;
 		} finally {
 			if (raf != null) {

@@ -813,7 +813,7 @@ public final class RuleMatcher {
 
 				// load old stats
 				final DataProvider.Plans.Plan plan = DataProvider.Plans.Plan
-						.getPlan(cResolver, id, now);
+						.getPlan(cResolver, id, now, false, false);
 				if (plan == null) {
 					this.billedAmount = 0f;
 					this.billedCost = 0f;

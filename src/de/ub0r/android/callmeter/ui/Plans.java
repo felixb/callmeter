@@ -32,6 +32,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -51,7 +52,6 @@ import de.ub0r.android.callmeter.Ads;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerReceiver;
-import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.ChangelogHelper;
 import de.ub0r.android.lib.DonationHelper;
@@ -103,6 +103,9 @@ public final class Plans extends FragmentActivity implements
 	/** {@link Message} for {@link Handler}: progress: LogMatcher. */
 	public static final int MSG_BACKGROUND_PROGRESS_MATCHER = 5;
 
+	/** Delay for LogRunnerService to run. */
+	private static final long DELAY_LOGRUNNER = 5000;
+
 	/** Display ads? */
 	private static boolean prefsNoAds;
 
@@ -137,9 +140,11 @@ public final class Plans extends FragmentActivity implements
 			case MSG_BACKGROUND_STOP_MATCHER:
 				Plans.this.setInProgress(-1);
 				Plans.this.getSupportActionBar().setSubtitle(null);
-				PlansFragment f = Plans.this.fadapter.getHomeFragment();
-				if (f != null) {
-					f.requery();
+				Fragment f = Plans.this.fadapter.getActiveFragment(
+						Plans.this.pager,
+						Plans.this.fadapter.getHomeFragmentPos());
+				if (f != null && f instanceof PlansFragment) {
+					((PlansFragment) f).requery(true);
 				}
 				break;
 			case MSG_BACKGROUND_PROGRESS_MATCHER:
@@ -218,14 +223,14 @@ public final class Plans extends FragmentActivity implements
 	 */
 	private static class PlansFragmentAdapter extends FragmentPagerAdapter
 			implements TitleProvider {
+		/** {@link FragmentManager} . */
+		private final FragmentManager mFragmentManager;
 		/** List of positions. */
 		private final Long[] positions;
 		/** List of titles. */
 		private final String[] titles;
-		/** {@link LogsFragment}. */
-		private LogsFragment logs;
-		/** Home {@link PlansFragment}. */
-		private PlansFragment home;
+		/** {@link Context}. */
+		private final Context ctx;
 
 		/**
 		 * Default constructor.
@@ -238,10 +243,13 @@ public final class Plans extends FragmentActivity implements
 		public PlansFragmentAdapter(final Context context,
 				final FragmentManager fm) {
 			super(fm);
+			long ct = SystemClock.elapsedRealtime();
+			this.mFragmentManager = fm;
+			this.ctx = context;
 			ContentResolver cr = context.getContentResolver();
 			Cursor c = cr.query(DataProvider.Logs.CONTENT_URI,
 					new String[] { DataProvider.Logs.DATE }, null, null,
-					DataProvider.Logs.DATE + " ASC");
+					DataProvider.Logs.DATE + " ASC LIMIT 1");
 			if (!c.moveToFirst()) {
 				positions = new Long[] { -1L, -1L };
 				c.close();
@@ -256,46 +264,54 @@ public final class Plans extends FragmentActivity implements
 						new String[] {
 								String.valueOf(DataProvider.TYPE_BILLPERIOD),
 								String.valueOf(// .
-								DataProvider.BILLPERIOD_INFINITE) }, null);
+								DataProvider.BILLPERIOD_INFINITE) },
+						DataProvider.Plans.ORDER + " LIMIT 1");
 				if (minDate < 0L || !c.moveToFirst()) {
 					positions = new Long[] { -1L, -1L };
 					c.close();
 				} else {
 					ArrayList<Long> list = new ArrayList<Long>();
+					Log.d(TAG, "new PFA()", ct);
 					do { // walk all bill periods
-						Calendar lastBP = Calendar.getInstance();
-						lastBP.setTimeInMillis(c
-								.getLong(DataProvider.Plans.INDEX_BILLDAY));
-						Calendar now = Calendar.getInstance();
-						long billday = -1L;
-						do { // get all bill days
-							Calendar billDay = DataProvider.Plans.getBillDay(
-									c.getInt(// .
-									DataProvider.Plans.INDEX_BILLPERIOD),
-									lastBP, now, false);
-							billday = billDay.getTimeInMillis();
-							lastBP.setTimeInMillis(billday);
-							billday -= 1L;
-							now.setTimeInMillis(billday);
-							list.add(billday);
-						} while (billday > minDate);
+						list.addAll(DataProvider.Plans.getBillDays(
+								c.getInt(DataProvider.Plans.INDEX_BILLPERIOD),
+								c.getLong(DataProvider.Plans.INDEX_BILLDAY),
+								minDate, -1));
+						Log.d(TAG, "new PFA()", ct);
 					} while (c.moveToNext());
 					c.close();
 					list.add(-1L); // current time
 					list.add(-1L); // logs
+					Log.d(TAG, "new PFA() toArray start", ct);
 					positions = list.toArray(new Long[] {});
+					Log.d(TAG, "new PFA() toArray end", ct);
 					list = null;
+					Log.d(TAG, "new PFA() sort start", ct);
 					Arrays.sort(positions, 0, positions.length - 2);
+					Log.d(TAG, "new PFA() sort end", ct);
 				}
 			}
 			Common.setDateFormat(context);
 			final int l = this.positions.length;
 			this.titles = new String[l];
-			for (int i = 0; i < l - 2; i++) {
-				this.titles[i] = Common.formatDate(context, this.positions[i]);
-			}
 			this.titles[l - 2] = context.getString(R.string.now);
 			this.titles[l - 1] = context.getString(R.string.logs);
+			Log.d(TAG, "new PFA()", ct);
+		}
+
+		/**
+		 * Get an active fragment.
+		 * 
+		 * @param container
+		 *            {@link ViewPager}
+		 * @param position
+		 *            position in container
+		 * @return null if no fragment was initialized
+		 */
+		public Fragment getActiveFragment(final ViewPager container,
+				final int position) {
+			String name = makeFragmentName(container.getId(), position);
+			return this.mFragmentManager.findFragmentByTag(name);
 		}
 
 		/**
@@ -312,15 +328,9 @@ public final class Plans extends FragmentActivity implements
 		@Override
 		public Fragment getItem(final int position) {
 			if (position == this.getLogsFragmentPos()) {
-				this.logs = new LogsFragment();
-				return this.logs;
+				return new LogsFragment();
 			} else {
-				PlansFragment f = PlansFragment
-						.newInstance(positions[position]);
-				if (position == this.getHomeFragmentPos()) {
-					this.home = f;
-				}
-				return f;
+				return PlansFragment.newInstance(positions[position]);
 			}
 		}
 
@@ -334,15 +344,6 @@ public final class Plans extends FragmentActivity implements
 		}
 
 		/**
-		 * Get Home {@link Fragment}.
-		 * 
-		 * @return {@link PlansFragment}
-		 */
-		public PlansFragment getHomeFragment() {
-			return this.home;
-		}
-
-		/**
 		 * Get position of Logs {@link Fragment}.
 		 * 
 		 * @return position of Logs {@link Fragment}
@@ -352,20 +353,18 @@ public final class Plans extends FragmentActivity implements
 		}
 
 		/**
-		 * Get Logs {@link Fragment}.
-		 * 
-		 * @return {@link LogsFragment}
-		 */
-		public LogsFragment getLogsFragment() {
-			return this.logs;
-		}
-
-		/**
 		 * {@inheritDoc}
 		 */
 		@Override
 		public String getTitle(final int position) {
-			return this.titles[position];
+			String ret;
+			if (this.titles[position] == null) {
+				ret = Common.formatDate(ctx, this.positions[position]);
+				this.titles[position] = ret;
+			} else {
+				ret = this.titles[position];
+			}
+			return ret;
 		}
 	}
 
@@ -431,10 +430,9 @@ public final class Plans extends FragmentActivity implements
 		this.setInProgress(0);
 		PlansFragment.reloadPreferences(this);
 
-		// start LogRunner
-		LogRunnerService.update(this, LogRunnerReceiver.ACTION_FORCE_UPDATE);
 		// schedule next update
-		LogRunnerReceiver.schedNext(this);
+		LogRunnerReceiver.schedNext(this, DELAY_LOGRUNNER,
+				LogRunnerReceiver.ACTION_FORCE_UPDATE);
 		if (!prefsNoAds) {
 			Ads.loadAd(this, R.id.ad, AD_UNITID, AD_KEYWORDS);
 		} else {
@@ -497,9 +495,10 @@ public final class Plans extends FragmentActivity implements
 			return true;
 		case android.R.id.home:
 			this.pager.setCurrentItem(this.fadapter.getHomeFragmentPos(), true);
-			LogsFragment lf = this.fadapter.getLogsFragment();
-			if (lf != null) {
-				lf.setPlanId(-1L);
+			Fragment f = this.fadapter.getActiveFragment(this.pager,
+					this.fadapter.getLogsFragmentPos());
+			if (f != null && f instanceof LogsFragment) {
+				((LogsFragment) f).setPlanId(-1L);
 			}
 			return true;
 		default:
@@ -511,11 +510,12 @@ public final class Plans extends FragmentActivity implements
 	 * {@inheritDoc}
 	 */
 	public void showLogsFragment(final long planId) {
-		LogsFragment lf = this.fadapter.getLogsFragment();
-		if (lf != null) {
-			lf.setPlanId(planId);
+		int p = this.fadapter.getLogsFragmentPos();
+		Fragment f = this.fadapter.getActiveFragment(this.pager, p);
+		if (f != null && f instanceof LogsFragment) {
+			((LogsFragment) f).setPlanId(planId);
 		}
-		this.pager.setCurrentItem(this.fadapter.getLogsFragmentPos(), true);
+		this.pager.setCurrentItem(p, true);
 	}
 
 	/**
@@ -535,7 +535,18 @@ public final class Plans extends FragmentActivity implements
 	public void onPageSelected(final int position) {
 		if (position == this.fadapter.getLogsFragmentPos()) {
 			this.findViewById(R.id.ad).setVisibility(View.GONE);
-		} else if (!prefsNoAds) {
+			Fragment f = this.fadapter.getActiveFragment(this.pager,
+					this.fadapter.getLogsFragmentPos());
+			if (f != null && f instanceof LogsFragment) {
+				((LogsFragment) f).setAdapter(false);
+			}
+		} else {
+			Fragment f = this.fadapter.getActiveFragment(this.pager, position);
+			if (f != null && f instanceof PlansFragment) {
+				((PlansFragment) f).requery(false);
+			}
+		}
+		if (!prefsNoAds) {
 			this.findViewById(R.id.ad).setVisibility(View.VISIBLE);
 		}
 	}

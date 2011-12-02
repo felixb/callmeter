@@ -18,10 +18,10 @@
  */
 package de.ub0r.android.callmeter.ui;
 
+import java.text.DateFormat;
 import java.util.Calendar;
 
 import android.content.Context;
-import android.text.format.DateFormat;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
@@ -44,6 +44,8 @@ public final class Common {
 	private static final String BYTE_UNITS_TB = "TB";
 	/** Selected date format. */
 	private static String dateFormat = null;
+	/** {@link DateFormat}. */
+	private static java.text.DateFormat dateFormater = null;
 
 	/**
 	 * Hide Constructor.
@@ -83,7 +85,11 @@ public final class Common {
 	 */
 	public static String formatDate(final Context context, final Calendar cal) {
 		if (dateFormat == null) {
-			return DateFormat.getDateFormat(context).format(cal.getTime());
+			if (dateFormater == null) {
+				dateFormater = android.text.format.DateFormat
+						.getDateFormat(context);
+			}
+			return dateFormater.format(cal.getTime());
 		} else {
 			return String.format(dateFormat, cal, cal, cal);
 		}
@@ -99,9 +105,17 @@ public final class Common {
 	 * @return formated date
 	 */
 	public static String formatDate(final Context context, final long date) {
-		Calendar cal = Calendar.getInstance();
-		cal.setTimeInMillis(date);
-		return formatDate(context, cal);
+		if (dateFormat == null) {
+			if (dateFormater == null) {
+				dateFormater = android.text.format.DateFormat
+						.getDateFormat(context);
+			}
+			return dateFormater.format(date);
+		} else {
+			Calendar cal = Calendar.getInstance();
+			cal.setTimeInMillis(date);
+			return formatDate(context, cal);
+		}
 	}
 
 	/**

@@ -113,7 +113,6 @@ public final class LogsFragment extends ListFragment implements
 		public LogAdapter(final Context context, final String where) {
 			super(context, R.layout.logs_item, null, true);
 			this.cformat = Preferences.getCurrencyFormat(context);
-			this.changeCursor(where);
 		}
 
 		/**
@@ -278,14 +277,16 @@ public final class LogsFragment extends ListFragment implements
 		showHours = PreferenceManager.getDefaultSharedPreferences(
 				this.getActivity()).getBoolean(Preferences.PREFS_SHOWHOURS,
 				true);
-		this.setAdapter();
+		if (this.isVisible()) {
+			this.setAdapter(false);
+		}
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void onPause() {
+	public void onStop() {
 		super.onStop();
 		final Editor e = PreferenceManager.getDefaultSharedPreferences(
 				this.getActivity()).edit();
@@ -300,8 +301,16 @@ public final class LogsFragment extends ListFragment implements
 
 	/**
 	 * Set Adapter.
+	 * 
+	 * @param forceUpdate
+	 *            force update
 	 */
-	private void setAdapter() {
+	public void setAdapter(final boolean forceUpdate) {
+		LogAdapter adapter = (LogAdapter) this.getListAdapter();
+		if (!forceUpdate && adapter != null && !adapter.isEmpty()) {
+			return;
+		}
+
 		String where = DataProvider.Logs.TABLE + "." + DataProvider.Logs.TYPE
 				+ " in (-1";
 		if (this.tbCall.isChecked()) {
@@ -331,7 +340,6 @@ public final class LogsFragment extends ListFragment implements
 					+ DataProvider.Logs.PLAN_ID + "=" + this.planId, where);
 		}
 
-		LogAdapter adapter = (LogAdapter) this.getListAdapter();
 		if (adapter == null) {
 			this.setListAdapter(new LogAdapter(this.getActivity(), where));
 		} else {
@@ -359,7 +367,7 @@ public final class LogsFragment extends ListFragment implements
 			this.tbPlan.setVisibility(View.VISIBLE);
 		}
 		if (this.isVisible()) {
-			this.setAdapter();
+			this.setAdapter(true);
 		}
 	}
 
@@ -368,7 +376,7 @@ public final class LogsFragment extends ListFragment implements
 	 */
 	@Override
 	public void onClick(final View v) {
-		this.setAdapter();
+		this.setAdapter(true);
 	}
 
 	/**

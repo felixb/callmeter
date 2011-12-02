@@ -77,17 +77,35 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	 *            {@link Context}
 	 */
 	public static void schedNext(final Context context) {
-		final Intent i = new Intent(context, LogRunnerReceiver.class);
-		final PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
-		final long l = Utils.parseLong(PreferenceManager
-				.getDefaultSharedPreferences(context).getString(
-						Preferences.PREFS_UPDATE_INTERVAL,
-						String.valueOf(DELAY)), DELAY)
+		final long delay = Utils.parseLong(
+				PreferenceManager.getDefaultSharedPreferences(context)
+						.getString(Preferences.PREFS_UPDATE_INTERVAL,
+								String.valueOf(DELAY)), DELAY)
 				* DELAY_FACTOR;
-		if (l == 0L) {
+		if (delay == 0L) {
 			return;
 		}
-		final long t = SystemClock.elapsedRealtime() + l;
+		schedNext(context, delay, null);
+	}
+
+	/**
+	 * Schedule next update.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param delay
+	 *            delay in milliseconds
+	 * @param action
+	 *            {@link Intent}'s action
+	 */
+	public static void schedNext(final Context context, final long delay,
+			final String action) {
+		final Intent i = new Intent(context, LogRunnerReceiver.class);
+		if (action != null) {
+			i.setAction(action);
+		}
+		final PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
+		final long t = SystemClock.elapsedRealtime() + delay;
 		final AlarmManager mgr = (AlarmManager) context
 				.getSystemService(Context.ALARM_SERVICE);
 		mgr.set(AlarmManager.ELAPSED_REALTIME, t, pi);
