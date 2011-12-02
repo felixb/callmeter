@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: fix setting text size, fix donation view</item>
+		<item>HEAD: fix setting text size, fix donation view, fix date format in logs view</item>
 		<item>v3.1: RECALCULATON OF STATS NEEDED: disable rules, more filters in logs view, major change in design, major change in database queries, update translations</item>
 		<item>v3.0: generic traffic for FroYo+ devices, import rule sets from sd card</item>
 		<item>v3.0rc15: fix data stats, fix some minor FCs</item>

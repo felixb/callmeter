@@ -85,7 +85,7 @@ public final class LogsFragment extends ListFragment implements
 	/** {@link ToggleButton}s. */
 	private ToggleButton tbCall, tbSMS, tbMMS, tbData, tbIn, tbOut, tbPlan;
 	/** Show hours and days. */
-	private static boolean showHours = true;
+	private boolean showHours = true;
 
 	/** Selected plan id. */
 	private long planId = -1;
@@ -148,8 +148,7 @@ public final class LogsFragment extends ListFragment implements
 					R.array.direction_calls);
 			buf.append(" (" + strs[dir] + "): ");
 			final long date = cursor.getLong(DataProvider.Logs.INDEX_DATE);
-			buf.append(DateFormat.getDateFormat(context).format(// .
-					new Date(date)));
+			buf.append(Common.formatDate(context, date));
 			buf.append(" ");
 			buf.append(DateFormat.getTimeFormat(context).format(// .
 					new Date(date)));
@@ -264,6 +263,7 @@ public final class LogsFragment extends ListFragment implements
 	@Override
 	public void onResume() {
 		super.onResume();
+		Common.setDateFormat(this.getActivity());
 		showHours = PreferenceManager.getDefaultSharedPreferences(
 				this.getActivity()).getBoolean(Preferences.PREFS_SHOWHOURS,
 				true);
