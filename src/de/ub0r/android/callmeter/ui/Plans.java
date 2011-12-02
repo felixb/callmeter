@@ -490,7 +490,7 @@ public final class Plans extends FragmentActivity implements
 			this.startActivity(new Intent(this, Preferences.class));
 			return true;
 		case R.id.item_donate:
-			DonationHelper.startDonationActivity(this, false);
+			DonationHelper.startDonationActivity(this, true);
 			return true;
 		case R.id.item_logs:
 			this.showLogsFragment(-1L);
