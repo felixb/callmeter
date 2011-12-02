@@ -249,9 +249,9 @@ public final class DataProvider extends ContentProvider {
 				PROJECTION_JOIN[i] = TABLE + "." + PROJECTION[i] + " as "
 						+ PROJECTION[i];
 			}
-			PROJECTION_JOIN[l - 2] = Plans.TABLE + "." + Plans.NAME + " as "
+			PROJECTION_JOIN[l] = Plans.TABLE + "." + Plans.NAME + " as "
 					+ Plans.NAME;
-			PROJECTION_JOIN[l - 1] = Rules.TABLE + "." + Rules.NAME + " as "
+			PROJECTION_JOIN[l + 1] = Rules.TABLE + "." + Rules.NAME + " as "
 					+ Rules.NAME;
 		}
 

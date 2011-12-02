@@ -193,10 +193,21 @@ public final class LogsFragment extends ListFragment implements
 				tw.setVisibility(View.GONE);
 				view.findViewById(R.id.blength_).setVisibility(View.GONE);
 			}
-			final float c = cursor.getFloat(DataProvider.Logs.INDEX_COST);
+			final float cost = cursor.getFloat(DataProvider.Logs.INDEX_COST);
+			final float free = cursor.getFloat(DataProvider.Logs.INDEX_FREE);
 			tw = (TextView) view.findViewById(R.id.cost);
-			if (c > 0f) {
-				tw.setText(String.format(this.cformat, c));
+			if (cost > 0f) {
+				String c;
+				if (free == 0f) {
+					c = String.format(this.cformat, cost);
+				} else if (free >= cost) {
+					c = "(" + String.format(this.cformat, cost) + ")";
+				} else {
+					c = "(" + String.format(this.cformat, free) + ") "
+							+ String.format(this.cformat, cost - free);
+
+				}
+				tw.setText(c);
 				tw.setVisibility(View.VISIBLE);
 				view.findViewById(R.id.cost_).setVisibility(View.VISIBLE);
 			} else {
