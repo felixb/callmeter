@@ -39,8 +39,8 @@
   <string name="settings" formatted="false">Preferências</string>
   <string name="update_interval_" formatted="false">Intervalo de Atualização</string>
   <string name="update_interval_hint" formatted="false">Períodos curtos consomem mais bateria.</string>
-  <string name="date_begin_" formatted="false">Início dos registros</string>
-  <string name="date_begin_hint" formatted="false">Ignore todos os registros anteriores a essa data.</string>
+  <string name="date_begin_" formatted="false" orig="Beginning of records">Início dos registos</string>
+  <string name="date_begin_hint" formatted="false" orig="Ignore any logs before this date.">Ignore todos os registos anteriores a essa data.</string>
   <string name="delete_old_logs_" formatted="false">Excluir registos mais antigos que</string>
   <string name="delete_old_logs_help" formatted="false">Excluir registos mais antigos que X dias a partir da base de dados interna. Deixar em branco para desativar.</string>
   <string name="common_prefs_" formatted="false">Preferências comuns</string>
@@ -73,7 +73,7 @@
   <string name="textsize_pbar_" formatted="false">Tamanho da barra de progresso</string>
   <string name="textsize_pbar_hint" formatted="false">Tamanho das barras de progresso (Deixe em branco para o padrão)</string>
   <string name="textsize_pbarbp_" formatted="false" orig="Bill period\'s progress bar\'s size">Tamanho da barra de progresso do período de cobrança</string>
-  <string name="textsize_pbarbp_hint" formatted="false" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Tamanho das barras de progresso dos períodos de cobrança em pixels (Deixe em branco para padrão)</string>
+  <string name="textsize_pbarbp_hint" formatted="false" orig="Size for bill period\'s progress bars in pixels; leave empty for default" username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Tamanho das barras de progresso dos períodos de cobrança em pixels (deixe em branco para padrão)</string>
   <string name="show_today_" formatted="false">Mostrar hoje</string>
   <string name="show_today_hint" formatted="false">Mostrar estatísticas de hoje</string>
   <string name="show_total_" formatted="false">Mostrar total</string>
@@ -82,7 +82,7 @@
   <string name="show_titlebar_" formatted="false">Mostrar barra de título</string>
   <string name="show_titlebar_hint" formatted="false">Mostra a barra de títulos na tela principal. Sem a barra de título, não existe nenhuma maneira de ver a atividade de fundo.</string>
   <string name="show_hours_" formatted="false">Mostrar horas</string>
-  <string name="show_hours_hint" formatted="false" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Mostrar o tempo em segundos, minutos, horas e dias.\nSe não marcado só segundos e minutos são mostrados.</string>
+  <string name="show_hours_hint" formatted="false" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Mostrar o tempo em segundos, minutos, horas e dias.\nSe desmarcado só segundos e minutos são mostrados.</string>
   <string name="show_help_" formatted="false">Mostrar Ajuda</string>
   <string name="show_help_hint" formatted="false" orig="Show help in Plans/Rules setup view.">Mostrar ajuda na definição do modo de visualização dos Planos/Regras.</string>
   <string name="show_shortname_" formatted="false">Mostrar nome curto em vez do nome completo</string>
@@ -107,7 +107,7 @@
   <string name="split_sms_at_160_" formatted="false" username="Henrique Boaventura &lt;hboaventura@gmail.com&gt;" orig="Split text messages at 160 chars">Separe as mensagens de texto ao atingir 160 caracteres</string>
   <string name="split_sms_at_160_hint" formatted="false" orig="Disable to use android\'s system method.">Desative para usar o método do sistema Android.</string>
   <string name="ask_for_plan_" formatted="false" orig="Ask for plan">Pergunte sobre um plano</string>
-  <string name="ask_for_plan_hint" formatted="false" orig="Ask for plan for unmatched calls after hanging up.">Pergunte sobre um plano de ligações inigualável depois de desligar.</string>
+  <string name="ask_for_plan_hint" formatted="false" orig="Ask for plan for unmatched calls after hanging up." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Pergunte sobre um plano para ligações sem correspondência depois de desligar.</string>
   <string name="autohide_" formatted="false" orig="Auto hide">Auto ocultar</string>
   <string name="autohide_hint" formatted="false" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Oculta o diálogo após .. segundos. Deixe vazio para desativar ou Auto ocultar.</string>
   <string name="select_plan_" formatted="false" orig="Select a plan">Selecione um plano</string>
@@ -132,13 +132,13 @@
   <string name="hourgroups_edit_hint" formatted="false" orig="Edit hour groups here.">Editar um grupo de horas aqui.</string>
   <string name="numbers" formatted="false">Números</string>
   <string name="numbergroup_" formatted="false" orig="Include numbers">Incluir números</string>
-  <string name="numbergroup_help" formatted="false">Os números adicionados de uma determinada regra deve corresponder.\n\nCuringas (\"%\") são permitidos em ambas as extremidades do número.\nEx. %34 corresponderá a 1234, 12% corresponderá a 1234 e %23% corresponderá a 12345.</string>
+  <string name="numbergroup_help" formatted="false" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Os números adicionados de uma determinada regra devem corresponder.\n\nCuringas ("%") são permitidos em ambas as extremidades do número.\nEx. %34 corresponderá a 1234, 12% corresponderá a 1234 e %23% corresponderá a 12345.</string>
   <string name="exnumbergroup_" formatted="false" orig="Exclude numbers">Eliminar números</string>
   <string name="exnumbergroup_help" formatted="false">A adição de alguns números nessa regra não deve corresponder.\nVeja abaixo.</string>
   <string name="new_numbergroup" formatted="false">Novo grupo de números</string>
   <string name="add_number" formatted="false">Adicione um número</string>
   <string name="hours" formatted="false">Horas</string>
-  <string name="hourgroup_" formatted="false">Inclui horas</string>
+  <string name="hourgroup_" formatted="false" orig="Include hours">Inclui horas</string>
   <string name="hourgroup_help" formatted="false">Adicione algumas horas a uma determinada regra correspondente.</string>
   <string name="exhourgroup_" formatted="false">Exclui horas</string>
   <string name="exhourgroup_help" formatted="false" orig="Add some hours this rule must not match.">A adição de algumas horas nessa regra não irá corresponder.</string>
@@ -160,9 +160,9 @@
   <string name="reset_data_" formatted="false">Apagar estatísticas</string>
   <string name="reset_data_hint" formatted="false" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Apagar os dados das chamadas ou SMS irá resultar no recálculo das estatísticas.\n\nO cancelamento das estatísticas de tráfego é permanente. Só será visualizado após o boot!</string>
   <string name="reset_data_data_" formatted="false">Apagar os Dados também.</string>
-  <string name="reset_data_progr1" formatted="false">Recalculando estatísticas ...\n\n(Isso irá demorar algum tempo!)</string>
+  <string name="reset_data_progr1" formatted="false" username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;" orig="Recalculating statistics ...\n\n(This may take some time!)">Recalculando estatísticas ...\n\n(Poderá demorar algum tempo!)</string>
   <string name="reset_data_progr2" formatted="false">Recalculando estatísticas ...</string>
-  <string name="contacts_" formatted="false">Contatos</string>
+  <string name="contacts_" formatted="false" orig="Contacts" username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Contactos</string>
   <string name="clear_" formatted="false">Limpar</string>
   <string name="help_" formatted="false">Ajuda</string>
   <string name="new_" formatted="false">Novo</string>
@@ -173,21 +173,21 @@
   <string name="shortname_" formatted="false">Nome curto</string>
   <string name="shortname_help" formatted="false">Defina um nome curto aqui. Ele será exibido em layouts compactos.</string>
   <string name="type_" formatted="false">Tipo</string>
-  <string name="type_help" formatted="false" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Selecione um tipo.\n"Titulo" irá somente mostrar o título na tela principal.\n"Espaçador" não irá mostrar nada além de um espaço vazio.\n"Período de cobrança" manterá todas as informações sobre o seu período de cobrança. A maioria dos usuários necessita de exatidão.\nO plano "mixto" pode receber chamadas e mensagens de juntos. Irá combinar o faturamento de todos estes itens.\nO plano "chamadas" só recebe chamadas. O plano "SMS" e "MMS" só recebe mensagens.\nO plano "dados" manterá as informações sobre seu tráfego de dados.</string>
+  <string name="type_help" formatted="false" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Selecione um tipo.\n"Titulo" irá somente mostrar o título na tela principal.\n"Espaçador" não irá mostrar nada além de um espaço vazio.\n"Período de cobrança" manterá todas as informações sobre o seu período de cobrança. A maioria dos usuários necessita de exatidão.\nO plano "mixto" pode receber chamadas e mensagens juntas. Irá combinar o faturamento de todos estes itens.\nO plano "chamadas" só recebe chamadas. O plano "SMS" e "MMS" só recebe mensagens.\nO plano "dados" manterá as informações sobre seu tráfego de dados.</string>
   <string name="limit_type_" formatted="false">Tipo de limite</string>
-  <string name="limit_type_help" formatted="false" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;cost\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Defina o tipo do seu limite aqui. .\nA "unidade" limite irá limitar o seu plano com base em minutos, mensagens, ...\nO "custo" limite irá limitar o seu plano com base nos custos produzidos pelos itens faturados neste plano.</string>
+  <string name="limit_type_help" formatted="false" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;cost\&quot; limit will limit your plan based on cost produced by the items billed in this plan." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Defina o tipo do seu limite aqui.\nA "unidade" limite irá limitar o seu plano com base em minutos, mensagens, ...\nO "custo" limite irá limitar o seu plano com base nos custos produzidos pelos itens faturados neste plano.</string>
   <string name="limit_" formatted="false">Limite</string>
   <string name="limit_help" formatted="false">Defina o limite do seu plano aqui.\n\nTipo \"unidades\" devem ser em minutos (chamadas), mensagens (sms/mms), megabytes (dados, 1024kB) ou unidades (combinadas).\n\nTipo \"custo\" devem ser adicionadas no seu padrão monetário (ex. €).</string>
   <string name="billmode_help" formatted="false">Defina o modo de cobrança de suas chamadas.\nA primeira parte é o tempo mínimo cobrado. Cada ligação por menor que seja será cobrada por este tempo.\nA segunda parte são os tempos cobrados após o tempo mínimo.\nLeia no FAQ para maior ajuda.</string>
   <string name="billday_help" formatted="false" orig="Set this to the first day of the bill of the current billing period.">Defina o primeiro dia de cobrança de sua conta.</string>
   <string name="billperiodid_" formatted="false">Período de cobrança</string>
-  <string name="billperiodid_help" formatted="false" orig="Select your billing period.\nYou may need to create one as extra plan.">Selecione o seu período de cobrança.\nVocê pode precisar criar um plano como extra.</string>
-  <string name="billperiod_" formatted="false">Comprimento do período de cobrança</string>
-  <string name="billperiod_help" formatted="false" orig="Set the length of your billing period.">Defina o tamanho do período de cobrança.</string>
+  <string name="billperiodid_help" formatted="false" orig="Select your billing period.\nYou may need to create one as extra plan." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Selecione o seu período de cobrança.\nVocê pode precisar criar um como plano extra.</string>
+  <string name="billperiod_" formatted="false" orig="Length of the billing period">Duração do período de cobrança</string>
+  <string name="billperiod_help" formatted="false" orig="Set the length of your billing period.">Defina a duração do período de cobrança.</string>
   <string name="cost_per_item_" formatted="false">Custo por item</string>
-  <string name="cost_per_item_help" formatted="false">Defina o custo cobrado para um único item (ex. uma chamada ou uma mensagem), depois que seu limite for ultrapassado.</string>
+  <string name="cost_per_item_help" formatted="false" orig="Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Defina o custo cobrado para um único item (ex. uma chamada ou uma mensagem) após o limite ter sido excedido.</string>
   <string name="cost_per_item_in_limit_" formatted="false">Custo por item dentro do limite</string>
-  <string name="cost_per_item_in_limit_help" formatted="false">Defina o custo cobrado por um único item (ex. uma chamada ou uma mensagem) cobrado após o limite ter sido excedido.</string>
+  <string name="cost_per_item_in_limit_help" formatted="false" orig="Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.">Defina o custo cobrado por um único item (ex. uma chamada ou uma mensagem) cobrado antes do limite ter sido excedido.</string>
   <string name="cost_per_amount_" formatted="false">Custo por envio</string>
   <string name="cost_per_amount_help1" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Defina o custo cobrado pelo envio de dados (ex. para 1Kb de dados) após o limite ter sido excedido.</string>
   <string name="cost_per_amount_help2" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Defina o custo de uma unidade tempo de cobrança (ex. ligação de 1 min) após o  limite ter sido excedido.\nO primeiro campo tem o custo para os primeiros segundos da chamada, o segundo tem o custo para os segundos seguintes (ambos são fixados em $/minuto; veja no modo de cobrança).\nSe tiver dúvidas, apenas defina ambos com o seu custo por minuto.</string>
@@ -217,7 +217,7 @@
   <string name="units_cost_per_mbyte" formatted="false" orig="$/MByte" username="rcp &lt;rhacius@gmail.com&gt;">$/MByte</string>
   <string name="units_cost_per_unit" formatted="false" orig="$/Unit" username="rcp &lt;rhacius@gmail.com&gt;">$/Unidade</string>
   <string name="plan_" formatted="false">Plano</string>
-  <string name="plan_help" formatted="false">Escolha o plano em que esta regra deve valer.</string>
+  <string name="plan_help" formatted="false" username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;" orig="Choose the plan this rule should fit.">Escolha o plano em que esta regra deve actuar.</string>
   <string name="limitnotreached_" formatted="false">Limite não alcançado</string>
   <string name="limitnotreached_help" formatted="false">Mostra somente se o limite do plano não tiver sido alcançado.</string>
   <string name="iswebsms_" formatted="false" orig="Is WebSMS">É um WebSMS</string>
@@ -233,7 +233,7 @@
   <string name="direction_" formatted="false" orig="Direction">Direção</string>
   <string name="direction_help" formatted="false">Selecione a direção que o relatório deve ter.</string>
   <string name="roamed_" formatted="false">Cruzado</string>
-  <string name="roamed_help" formatted="false">Selecione somente se o relatório deva ser cruzado.</string>
+  <string name="roamed_help" formatted="false" orig="Choose whether the given log has to be roamed.">Selecione somente se o relatório deve ser cruzado.</string>
   <string name="remote_hint" formatted="false">Número remoto</string>
   <string name="no_matter_" formatted="false">Não importa</string>
   <string name="yes" formatted="false">Sim</string>
@@ -244,19 +244,19 @@
   <string name="empty_group_" formatted="false" orig="Please press &quot;Add&quot; to add an item to this group.">Por favor, pressione "Adicionar" para acrescentar um item a este grupo.</string>
   <string name="export_progr" formatted="false" orig="Exporting data ...">Exportando dados ...</string>
   <string name="import_progr" formatted="false" orig="Import data ...">Importando dados ...</string>
-  <string name="export_" formatted="false" orig="Export ...">Exportar ...</string>
+  <string name="export_" formatted="false" orig="Export ..." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Exportar ...</string>
   <string name="export_hint" formatted="false" orig="Export rule sets, logs or groups">Exportar conjunto de regras, relatórios ou grupos</string>
   <string name="export_rules_" formatted="false">Exportar conjunto de regras</string>
-  <string name="export_rules_hint" formatted="false">Exportar conjunto de regras.</string>
+  <string name="export_rules_hint" formatted="false" orig="Export rule set as mail.">Exportar conjunto de regras por email.</string>
   <string name="export_rules_descr" formatted="false">Descrição</string>
   <string name="export_logs_" formatted="false" orig="Backup logs">Backup dos registos</string>
   <string name="export_logs_hint" formatted="false" orig="Backup logs as mail.">Backup dos registos por email</string>
   <string name="export_numgroups_" formatted="false" orig="Export number groups">Exportar grupo de números</string>
-  <string name="export_numgroups_hint" formatted="false" orig="Export number groups as mail.">Exporta grupo de números como email.</string>
+  <string name="export_numgroups_hint" formatted="false" orig="Export number groups as mail.">Exporta grupo de números por email.</string>
   <string name="export_hourgroups_" formatted="false" orig="Export hour groups">Exportar grupo de horas</string>
-  <string name="export_hourgroups_hint" formatted="false" orig="Export hour groups as mail.">Exportar grupo de horas como email</string>
+  <string name="export_hourgroups_hint" formatted="false" orig="Export hour groups as mail.">Exportar grupo de horas por email</string>
   <string name="import_rules_" formatted="false">Importar conjunto de regras</string>
-  <string name="import_rules_hint" formatted="false">Importar conjunto de regras.</string>
+  <string name="import_rules_hint" formatted="false" orig="Import preconfigured rule set." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Importar conjunto preconfigurado de regras.</string>
   <string name="import_rules_empty" formatted="false">Sem planos/regras estabelecidas. Clique neste texto para importar um conjunto de regras padrão.\n\nOu adicione planos e as regras nas preferências manualmente.</string>
   <string name="err_export_write" formatted="false">Erro ao gravar o arquivo de exportação</string>
   <string name="err_export_read" formatted="false">Erro ao ler o arquivo de exportação </string>
@@ -268,14 +268,14 @@
   <string name="alerts_80_hint" formatted="false">Notificar se o plano passou 80% do seu limite.</string>
   <string name="alerts_100_" formatted="false">Notificar em 100%</string>
   <string name="alerts_100_hint" formatted="false">Notificar se o plano passou 100% do seu limite.</string>
-  <string name="widget_config_" formatted="false">Configuração do aplicativo</string>
-  <string name="widget_plan_textsize" formatted="false" orig="Plan Text Size">Tamanho do texto do plano</string>
+  <string name="widget_config_" formatted="false" orig="Widget config" username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Configuração do Widget</string>
+  <string name="widget_plan_textsize" formatted="false" orig="Plan Text Size">Tamanho do texto de plano</string>
   <string name="widget_cost_textsize" formatted="false" orig="Cost Text Size">Tamanho do texto de custo</string>
   <string name="widget_text_color_" formatted="false" orig="Text color">Cor do texto</string>
   <string name="widget_backgroud_color_" formatted="false" orig="Background color">Cor do fundo</string>
   <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency">Transparência do Fundo</string>
   <string name="send_devices_" formatted="false" orig="Send devices">Envia aparelhos</string>
-  <string name="send_devices_hint" formatted="false" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Enviar lista de aparelhos para o desenvolvedor. Isso só é necessário se o seu sistema estiver zerado.</string>
+  <string name="send_devices_hint" formatted="false" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Enviar lista de aparelhos para o desenvolvedor. Isso só é necessário se os dados estatísticos estiverem sem nada.</string>
   <string-array name="weekdays_all">
     <item>Toda Semana</item>
     <item>Segunda</item>
@@ -320,7 +320,7 @@
   </string-array>
   <string-array name="dialog_edit_plan">
     <item>Editar o plano</item>
-    <item notranslation="true">View Logs</item>
+    <item>Ver relatórios</item>
   </string-array>
   <string-array name="dialog_delete">
     <item>Apagar</item>
@@ -431,7 +431,7 @@
   <string name="numbergroup_exsms" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Exclude from SMS">Excluir dos SMS</string>
   <string name="billperiod_sn" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="BillPeriod">Período da Conta</string>
   <string name="calls_in" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Calls In">Ligações Recebidas</string>
-  <string name="calls_in_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="CallsIn">Recebidas</string>
+  <string name="calls_in_" formatted="false" orig="CallsIn">Recebidas</string>
   <string name="calls_out" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Calls Out">Ligações Feitas</string>
   <string name="calls_out_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="CallsOut">Feitas</string>
   <string name="messages" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Messages">Mensagens</string>
@@ -449,4 +449,14 @@
   <string name="data_inout_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="DataInOut">Dados Totais</string>
   <string name="import_rules_default_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Import default rule set">Importar regra padrão</string>
   <string name="import_rules_default_hint" formatted="false" orig="Import default rule set shipped with the app.">Importar regra padrão do original do app.</string>
+  <string name="now" formatted="false" orig="Now">Agora</string>
+  <string name="active_" formatted="false" orig="Active">Activo</string>
+  <string name="active_help" formatted="false" orig="Only active rules are used for matching logs." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Só regras activas são usadas para corresponder a relatórios.</string>
+  <string name="exported_" formatted="false" orig="Exported:" username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Exportado</string>
+  <string name="import_rules_sd_" formatted="false" orig="Import from SD card" username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Importar do cartão SD</string>
+  <string name="import_rules_sd_hint" formatted="false" orig="Import rule set directly from SD card." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Importar regras diretamente do cartão SD.</string>
+  <string name="import_rules_sd_help" formatted="false" orig="Place your file on your SD card and click it below" username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Coloque o seu ficheiro no cartão SD e clique por baixo.</string>
+  <string name="import_rules_sd_files" formatted="false" orig="Found files">Ficheiros encontrados</string>
+  <string name="import_rules_sd_nofiles" formatted="false" orig="No found files">Sem ficheiros encontrados</string>
+  <string name="loading" formatted="false" orig="Loading ..." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">A ler ...</string>
 </resources>

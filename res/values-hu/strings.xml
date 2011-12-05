@@ -451,4 +451,6 @@
   <string name="send_devices_" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Send devices">Készülékek elküldése</string>
   <string name="exported_" formatted="false" orig="Exported:">Exportálva:</string>
   <string name="import_rules_sd_" formatted="false" orig="Import from SD card">Importálás SD kártyáról</string>
+  <string name="google_plus_hint" formatted="false" orig="Follow me on Google+.\nGet update notifications etc.">Kövess minket a Google+ -on.\nÉrtesítések frissítésről stb.</string>
+  <string name="now" formatted="false" orig="Now">Most</string>
 </resources>
