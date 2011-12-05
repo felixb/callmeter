@@ -129,7 +129,7 @@
   <string name="reset_data_" formatted="false" username="KarloZ" orig="Reset statistics">Resetovat statistiku</string>
   <string name="reset_data_hint" formatted="false" username="KarloZ" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Resetování dat za volání/SMS způsobí přepočitání statistiky.\n\nResetování statistiky přenosů je permanentní. To pouze resetuje přenosy před spuštěním!</string>
   <string name="reset_data_data_" formatted="false" username="KarloZ" orig="Reset traffic too.">Resetovat také přenosy.</string>
-  <string name="contacts_" formatted="false" username="KarloZ" orig="Contacts">Kontakty</string>
+  <string name="contacts_" formatted="false" orig="Contacts" username="KarloZ">Kontakty</string>
   <string-array name="themes" username="KarloZ">
     <item>Tmavý</item>
     <item>Světlý</item>
