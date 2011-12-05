@@ -224,7 +224,7 @@
   </string-array>
   <string-array name="dialog_edit_plan">
     <item>Pakedi düzenle</item>
-    <item notranslation="true">View Logs</item>
+    <item>Logları görüntüle</item>
   </string-array>
   <string-array name="dialog_delete">
     <item>Sil</item>
@@ -455,4 +455,9 @@
   <string name="import_rules_sd_help" formatted="false" orig="Place your file on your SD card and click it below">Dosyanızı SD kartınıza kopyalayın ve aşağıda tıklayın</string>
   <string name="import_rules_sd_files" formatted="false" orig="Found files">Bulunan dosyalar</string>
   <string name="import_rules_sd_nofiles" formatted="false" orig="No found files">Hiçbir dosya bulunamadı</string>
+  <string name="google_plus_hint" formatted="false" orig="Follow me on Google+.\nGet update notifications etc.">Beni Google+\'ta takip et.\nGüncelleme bildirimleri vb. bilgileri alın.</string>
+  <string name="now" formatted="false" orig="Now">Şimdi</string>
+  <string name="active_" formatted="false" orig="Active">Aktif</string>
+  <string name="active_help" formatted="false" orig="Only active rules are used for matching logs.">Logların eşleştirilmesi için yalnızca aktif kurallar kullanılır.</string>
+  <string name="loading" formatted="false" orig="Loading ...">Yükleniyor ...</string>
 </resources>
