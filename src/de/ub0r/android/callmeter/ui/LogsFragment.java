@@ -33,6 +33,10 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ListFragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.app.LoaderManager.LoaderCallbacks;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.support.v4.view.Menu;
 import android.support.v4.view.MenuItem;
 import android.text.format.DateFormat;
@@ -45,6 +49,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.CheckBox;
+import android.widget.CursorAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ResourceCursorAdapter;
@@ -57,17 +62,18 @@ import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
+import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
- * Callmeter's Log {@link Fragment}.
+ * Callmeter's Log {@link LogFragment}.
  * 
  * @author flx
  */
 public final class LogsFragment extends ListFragment implements
-		OnClickListener, OnItemLongClickListener {
+		OnClickListener, OnItemLongClickListener, LoaderCallbacks<Cursor> {
 	/** Tag for output. */
-	// private static final String TAG = "logs";
+	private static final String TAG = "logs";
 
 	/** Prefs: {@link ToggleButton} state for calls. */
 	private static final String PREF_CALL = "_logs_call";
@@ -86,9 +92,14 @@ public final class LogsFragment extends ListFragment implements
 	private ToggleButton tbCall, tbSMS, tbMMS, tbData, tbIn, tbOut, tbPlan;
 	/** Show hours and days. */
 	private boolean showHours = true;
+	/** Currency format. */
+	private String cformat;
 
 	/** Selected plan id. */
 	private long planId = -1;
+
+	/** Unique id for this {@link LogFragment}s loader. */
+	private static final int LOADER_UID = -2;
 
 	/**
 	 * Adapter binding logs to View.
@@ -96,8 +107,6 @@ public final class LogsFragment extends ListFragment implements
 	 * @author flx
 	 */
 	public class LogAdapter extends ResourceCursorAdapter {
-		/** Currency format. */
-		private final String cformat;
 
 		/** Column ids. */
 		private int idPlanName, idRuleName;
@@ -105,30 +114,21 @@ public final class LogsFragment extends ListFragment implements
 		/**
 		 * Default Constructor.
 		 * 
-		 * @param where
-		 *            slection
 		 * @param context
 		 *            {@link Context}
 		 */
-		public LogAdapter(final Context context, final String where) {
+		public LogAdapter(final Context context) {
 			super(context, R.layout.logs_item, null, true);
-			this.cformat = Preferences.getCurrencyFormat(context);
 		}
 
 		/**
-		 * Set a new where clause.
-		 * 
-		 * @param where
-		 *            where clause
+		 * {@inheritDoc}
 		 */
-		private void changeCursor(final String where) {
-			Cursor c = getActivity().getContentResolver().query(
-					DataProvider.Logs.CONTENT_URI_JOIN,
-					DataProvider.Logs.PROJECTION_JOIN, where, null,
-					DataProvider.Logs.DATE + " DESC");
-			idPlanName = c.getColumnIndex(DataProvider.Plans.NAME);
-			idRuleName = c.getColumnIndex(DataProvider.Rules.NAME);
-			this.changeCursor(c);
+		@Override
+		public final void changeCursor(final Cursor cursor) {
+			super.changeCursor(cursor);
+			idPlanName = cursor.getColumnIndex(DataProvider.Plans.NAME);
+			idRuleName = cursor.getColumnIndex(DataProvider.Rules.NAME);
 		}
 
 		/**
@@ -198,13 +198,16 @@ public final class LogsFragment extends ListFragment implements
 			if (cost > 0f) {
 				String c;
 				if (free == 0f) {
-					c = String.format(this.cformat, cost);
+					c = String.format(LogsFragment.this.cformat, cost);
 				} else if (free >= cost) {
-					c = "(" + String.format(this.cformat, cost) + ")";
+					c = "(" + String.format(LogsFragment.this.cformat, cost)
+							+ ")";
 				} else {
-					c = "(" + String.format(this.cformat, free) + ") "
-							+ String.format(this.cformat, cost - free);
-
+					c = "("
+							+ String.format(LogsFragment.this.cformat, free)
+							+ ") "
+							+ String.format(LogsFragment.this.cformat, cost
+									- free);
 				}
 				tw.setText(c);
 				tw.setVisibility(View.VISIBLE);
@@ -222,6 +225,16 @@ public final class LogsFragment extends ListFragment implements
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setHasOptionsMenu(true);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onActivityCreated(final Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		this.setListAdapter(new LogAdapter(this.getActivity()));
+		this.getListView().setOnItemLongClickListener(this);
 	}
 
 	/**
@@ -274,12 +287,10 @@ public final class LogsFragment extends ListFragment implements
 	public void onResume() {
 		super.onResume();
 		Common.setDateFormat(this.getActivity());
-		showHours = PreferenceManager.getDefaultSharedPreferences(
+		this.showHours = PreferenceManager.getDefaultSharedPreferences(
 				this.getActivity()).getBoolean(Preferences.PREFS_SHOWHOURS,
 				true);
-		if (this.isVisible()) {
-			this.setAdapter(false);
-		}
+		this.cformat = Preferences.getCurrencyFormat(this.getActivity());
 	}
 
 	/**
@@ -339,13 +350,15 @@ public final class LogsFragment extends ListFragment implements
 			where = DbUtils.sqlAnd(DataProvider.Logs.TABLE + "."
 					+ DataProvider.Logs.PLAN_ID + "=" + this.planId, where);
 		}
+		Bundle args = new Bundle(1);
+		args.putString("where", where);
 
-		if (adapter == null) {
-			this.setListAdapter(new LogAdapter(this.getActivity(), where));
+		LoaderManager lm = this.getLoaderManager();
+		if (lm.getLoader(LOADER_UID) == null) {
+			lm.initLoader(LOADER_UID, args, this);
 		} else {
-			adapter.changeCursor(where);
+			lm.restartLoader(LOADER_UID, args, this);
 		}
-		this.getListView().setOnItemLongClickListener(this);
 	}
 
 	/**
@@ -530,5 +543,36 @@ public final class LogsFragment extends ListFragment implements
 		b.setNegativeButton(android.R.string.cancel, null);
 		b.show();
 		return true;
+	}
+
+	@Override
+	public Loader<Cursor> onCreateLoader(final int id, final Bundle args) {
+		Log.d(TAG, "onCreateLoader(" + id + "," + args + ")");
+		((Plans) this.getActivity()).setProgress(1);
+		String where = null;
+		if (args != null) {
+			where = args.getString("where");
+		}
+		return new CursorLoader(this.getActivity(),
+				DataProvider.Logs.CONTENT_URI_JOIN,
+				DataProvider.Logs.PROJECTION_JOIN, where, null,
+				DataProvider.Logs.DATE + " DESC");
+	}
+
+	@Override
+	public void onLoadFinished(final Loader<Cursor> loader, final Cursor data) {
+		Log.d(TAG, "onLoadFinished()");
+		((LogAdapter) getListAdapter()).changeCursor(data);
+		((Plans) this.getActivity()).setProgress(-1);
+	}
+
+	@Override
+	public void onLoaderReset(final Loader<Cursor> loader) {
+		Log.d(TAG, "onLoaderReset()");
+		try {
+			((CursorAdapter) this.getListAdapter()).changeCursor(null);
+		} catch (Exception e) {
+			Log.w(TAG, "error removing cursor", e);
+		}
 	}
 }

@@ -21,7 +21,6 @@ package de.ub0r.android.callmeter.ui;
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.ActivityNotFoundException;
-import android.content.AsyncQueryHandler;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -29,12 +28,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ListFragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.app.LoaderManager.LoaderCallbacks;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.support.v4.view.Menu;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -47,6 +49,7 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.CursorAdapter;
 import android.widget.ProgressBar;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
@@ -64,11 +67,24 @@ import de.ub0r.android.lib.Log;
  * @author flx
  */
 public final class PlansFragment extends ListFragment implements
-		OnClickListener, OnItemLongClickListener {
+		OnClickListener, OnItemLongClickListener, LoaderCallbacks<Cursor> {
 	/** Tag for output. */
 	private static final String TAG = "plans";
 	/** Run the dummy? */
 	private static boolean doDummy = true;
+	/** Show today stats. */
+	private static boolean showToday = false;
+	/** Show total stats. */
+	private static boolean showTotal = true;
+	/** Hide zero plans. */
+	private static boolean hideZero = false;
+	/** Hide no cost plans. */
+	private static boolean hideNoCost = false;
+	/** Ignore query requests. */
+	private boolean ignoreQuery = false;
+
+	/** Unique id for dummy loader. */
+	private static final int UID_DUMMY = -3;
 
 	/**
 	 * Adapter binding plans to View.
@@ -76,13 +92,6 @@ public final class PlansFragment extends ListFragment implements
 	 * @author flx
 	 */
 	private static class PlansAdapter extends ResourceCursorAdapter {
-		/** {@link BackgroundQueryHandler}. */
-		private final BackgroundQueryHandler queryHandler;
-		/** Token for {@link BackgroundQueryHandler}: plan summary query. */
-		private static final int PLAN_QUERY_TOKEN = 0;
-		/** Token for {@link BackgroundQueryHandler}: plan dummy query. */
-		private static final int PLAN_QUERY_TOKEN_DUMMY = 1;
-
 		/** {@link SharedPreferences}. */
 		private final SharedPreferences p;
 		/** {@link Editor}. */
@@ -91,89 +100,7 @@ public final class PlansFragment extends ListFragment implements
 		private boolean isDirty = false;
 
 		/** Now. */
-		private long now;
-
-		/**
-		 * Handle queries in background.
-		 * 
-		 * @author flx
-		 */
-		private final class BackgroundQueryHandler extends AsyncQueryHandler {
-			/** Reference to {@link Activity}. */
-			private final Activity activity;
-
-			/** Handle to views. */
-			private final View vLoading, vImport;
-			/** Ignore query requests. */
-			private boolean ignoreQuery = false;
-
-			/**
-			 * A helper class to help make handling asynchronous queries easier.
-			 * 
-			 * @param context
-			 *            {@link Activity}
-			 * @param loading
-			 *            Handle to view: loading.
-			 * @param imp
-			 *            Handle to view: import
-			 */
-			public BackgroundQueryHandler(final Activity context,
-					final View loading, final View imp) {
-				super(context.getContentResolver());
-				this.activity = context;
-				this.vLoading = loading;
-				this.vImport = imp;
-			}
-
-			/**
-			 * {@inheritDoc}
-			 */
-			@Override
-			protected void onQueryComplete(final int token,
-					final Object cookie, final Cursor cursor) {
-				ignoreQuery = false;
-				switch (token) {
-				case PLAN_QUERY_TOKEN_DUMMY:
-				case PLAN_QUERY_TOKEN:
-					PlansAdapter.this.save();
-					this.vLoading.setVisibility(View.GONE);
-					PlansAdapter.this.changeCursor(cursor);
-					if (cursor != null && cursor.getCount() > 0) {
-						this.vImport.setVisibility(View.GONE);
-					} else {
-						this.vImport.setVisibility(View.VISIBLE);
-					}
-					((Plans) this.activity).setInProgress(-1);
-					return;
-				default:
-					return;
-				}
-			}
-
-			/**
-			 * {@inheritDoc}
-			 */
-			@Override
-			public void startQuery(final int token, final Object cookie,
-					final Uri uri, final String[] projection,
-					final String selection, final String[] selectionArgs,
-					final String orderBy) {
-				if (this.ignoreQuery) {
-					return;
-				}
-				if (token == PLAN_QUERY_TOKEN_DUMMY) {
-					this.ignoreQuery = true;
-				}
-
-				if (PlansAdapter.this.getCount() == 0) {
-					vLoading.setVisibility(View.VISIBLE);
-				}
-
-				((Plans) this.activity).setInProgress(1);
-				super.startQuery(token, cookie, uri, projection, selection,
-						selectionArgs, orderBy);
-			}
-		}
+		private final long now;
 
 		/** Text sizes. */
 		private static int textSize, textSizeBigTitle, textSizeTitle,
@@ -185,14 +112,6 @@ public final class PlansFragment extends ListFragment implements
 		private static String currencyFormat = "$%.2f";
 		/** Show hours and days. */
 		private static boolean pShowHours = true;
-		/** Show today stats. */
-		private static boolean showToday = false;
-		/** Show total stats. */
-		private static boolean showTotal = true;
-		/** Hide zero plans. */
-		private static boolean hideZero = false;
-		/** Hide no cost plans. */
-		private static boolean hideNoCost = false;
 
 		/** Prepaid plan? */
 		private static boolean prepaid;
@@ -221,10 +140,6 @@ public final class PlansFragment extends ListFragment implements
 					.getDefaultSharedPreferences(context);
 			pShowHours = p.getBoolean(Preferences.PREFS_SHOWHOURS, true);
 			currencyFormat = Preferences.getCurrencyFormat(context);
-			showToday = p.getBoolean(Preferences.PREFS_SHOWTODAY, false);
-			showTotal = p.getBoolean(Preferences.PREFS_SHOWTOTAL, true);
-			hideZero = p.getBoolean(Preferences.PREFS_HIDE_ZERO, false);
-			hideNoCost = p.getBoolean(Preferences.PREFS_HIDE_NOCOST, false);
 			delimiter = p.getString(Preferences.PREFS_DELIMITER, " | ");
 			prepaid = p.getBoolean(Preferences.PREFS_PREPAID, false);
 
@@ -241,81 +156,18 @@ public final class PlansFragment extends ListFragment implements
 		 * 
 		 * @param context
 		 *            {@link Activity}
-		 * @param loading
-		 *            Handle to view: loading.
-		 * @param imp
-		 *            Handle to view: import
+		 * @param n
+		 *            now
 		 */
-		public PlansAdapter(final Activity context, final View loading,
-				final View imp) {
+		public PlansAdapter(final Activity context, final long n) {
 			super(context, R.layout.plans_item, null, true);
-			queryHandler = new BackgroundQueryHandler(context, loading, imp);
+			this.now = n;
 			this.p = PreferenceManager.getDefaultSharedPreferences(context);
 			this.e = this.p.edit();
 			if (this.p.getBoolean(Preferences.PREFS_HIDE_PROGRESSBARS, false)) {
 				this.progressBarVisability = View.GONE;
 			} else {
 				this.progressBarVisability = View.VISIBLE;
-			}
-		}
-
-		/**
-		 * Start ConversationList query.
-		 * 
-		 * @param lnow
-		 *            current time shown
-		 * @param dummy
-		 *            use dummy query
-		 */
-		public final void startPlanQuery(final long lnow, final boolean dummy) {
-			Log.d(TAG, "startPlanQuery(" + lnow + ")");
-			this.now = lnow;
-			// Cancel any pending queries
-			if (dummy) {
-				this.queryHandler.cancelOperation(PLAN_QUERY_TOKEN_DUMMY);
-			} else {
-				this.queryHandler.cancelOperation(PLAN_QUERY_TOKEN);
-			}
-			try {
-				// Kick off the new query
-				if (dummy) {
-					this.queryHandler.startQuery(PLAN_QUERY_TOKEN_DUMMY, null,
-							DataProvider.Plans.CONTENT_URI,
-							DataProvider.Plans.PROJECTION, null, null, null);
-				} else {
-					this.queryHandler
-							.startQuery(
-									PLAN_QUERY_TOKEN,
-									null,
-									DataProvider.Plans.CONTENT_URI_SUM
-											.buildUpon()
-											.appendQueryParameter(
-													DataProvider.// .
-													Plans.PARAM_DATE,
-													String.valueOf(lnow))
-											.appendQueryParameter(
-													DataProvider.// .
-													Plans.PARAM_HIDE_ZERO,
-													String.valueOf(hideZero))
-											.appendQueryParameter(
-													DataProvider.// .
-													Plans.PARAM_HIDE_NOCOST,
-													String.valueOf(hideNoCost))
-											.appendQueryParameter(
-													DataProvider.// .
-													Plans.PARAM_HIDE_TODAY,
-													String.valueOf(!showToday
-															|| lnow >= 0L))
-											.appendQueryParameter(
-													DataProvider.// .
-													Plans.PARAM_HIDE_ALLTIME,
-													String.valueOf(!showTotal))
-											.build(),
-									DataProvider.Plans.PROJECTION_SUM, null,
-									null, null);
-				}
-			} catch (SQLiteException e) {
-				Log.e(TAG, "error starting query", e);
 			}
 		}
 
@@ -531,6 +383,10 @@ public final class PlansFragment extends ListFragment implements
 
 	/** This fragments time stamp. */
 	private long now;
+	/** Unique id of this fragment. */
+	private int uid;
+	/** Is loader running? */
+	private boolean inProgress;
 
 	/** Handle for view. */
 	private View vLoading, vImport;
@@ -538,14 +394,17 @@ public final class PlansFragment extends ListFragment implements
 	/**
 	 * Get new {@link PlansFragment}.
 	 * 
+	 * @param uid
+	 *            unique id for this fragment
 	 * @param now
 	 *            This fragments current time
 	 * @return {@link PlansFragment}
 	 */
-	public static PlansFragment newInstance(final long now) {
+	public static PlansFragment newInstance(final int uid, final long now) {
 		PlansFragment f = new PlansFragment();
 		Bundle args = new Bundle();
 		args.putLong("now", now);
+		args.putInt("uid", uid);
 		f.setArguments(args);
 		return f;
 	}
@@ -558,6 +417,13 @@ public final class PlansFragment extends ListFragment implements
 	 */
 	static void reloadPreferences(final Context context) {
 		PlansAdapter.reloadPreferences(context, true);
+		SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(context);
+		showToday = p.getBoolean(Preferences.PREFS_SHOWTODAY, false);
+		showTotal = p.getBoolean(Preferences.PREFS_SHOWTOTAL, true);
+		hideZero = p.getBoolean(Preferences.PREFS_HIDE_ZERO, false);
+		hideNoCost = p.getBoolean(Preferences.PREFS_HIDE_NOCOST, false);
+
 	}
 
 	/**
@@ -567,10 +433,13 @@ public final class PlansFragment extends ListFragment implements
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setHasOptionsMenu(true);
-		if (this.getArguments() == null) {
+		Bundle args = this.getArguments();
+		if (args == null) {
 			this.now = -1L;
+			this.uid = -1;
 		} else {
-			this.now = this.getArguments().getLong("now", -1L);
+			this.now = args.getLong("now", -1L);
+			this.uid = args.getInt("uid", -1);
 		}
 	}
 
@@ -602,15 +471,17 @@ public final class PlansFragment extends ListFragment implements
 	@Override
 	public void onActivityCreated(final Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		PlansAdapter.reloadPreferences(this.getActivity(), false);
-		PlansAdapter adapter = new PlansAdapter(this.getActivity(),
-				this.vLoading, this.vImport);
+		PlansAdapter adapter = new PlansAdapter(this.getActivity(), this.now);
 		this.setListAdapter(adapter);
-		if (doDummy && this.now < 0L) {
-			doDummy = false;
-			adapter.startPlanQuery(this.now, true);
-		}
 		this.getListView().setOnItemLongClickListener(this);
+
+		LoaderManager lm = this.getLoaderManager();
+		if (lm.getLoader(this.uid) != null) {
+			this.getLoaderManager().initLoader(this.uid, null, this);
+		} else if (doDummy && this.now < 0L) {
+			doDummy = false;
+			this.getLoaderManager().initLoader(UID_DUMMY, null, this);
+		}
 	}
 
 	/**
@@ -620,7 +491,26 @@ public final class PlansFragment extends ListFragment implements
 	public void onStop() {
 		super.onStop();
 		if (this.now < 0L) {
-			this.doDummy = true;
+			doDummy = true;
+		}
+	}
+
+	/**
+	 * Set progress indicator.
+	 * 
+	 * @param add
+	 *            add number of running tasks
+	 */
+	private synchronized void setInProgress(final int add) {
+		Log.d(TAG, "setInProgress(" + add + ")");
+		if (add == 0) {
+			((Plans) this.getActivity()).setInProgress(add);
+		} else if (add > 0 && !this.inProgress) {
+			((Plans) this.getActivity()).setInProgress(add);
+			this.inProgress = true;
+		} else if (add < 0) {
+			((Plans) this.getActivity()).setInProgress(add);
+			this.inProgress = false;
 		}
 	}
 
@@ -632,9 +522,15 @@ public final class PlansFragment extends ListFragment implements
 	 */
 	public void requery(final boolean forceUpdate) {
 		Log.d(TAG, "requery(" + forceUpdate + ")");
-		PlansAdapter adapter = (PlansAdapter) this.getListAdapter();
-		if (forceUpdate || adapter.isEmpty()) {
-			adapter.startPlanQuery(this.now, false);
+		if (!this.ignoreQuery) {
+			LoaderManager lm = this.getLoaderManager();
+			if (forceUpdate && lm.getLoader(this.uid) != null) {
+				lm.restartLoader(this.uid, null, this);
+			} else {
+				lm.initLoader(this.uid, null, this);
+			}
+		} else {
+			Log.d(TAG, "requery(" + forceUpdate + "): ignore");
 		}
 	}
 
@@ -704,5 +600,88 @@ public final class PlansFragment extends ListFragment implements
 		builder.setNegativeButton(android.R.string.cancel, null);
 		builder.show();
 		return true;
+	}
+
+	@Override
+	public Loader<Cursor> onCreateLoader(final int id, final Bundle args) {
+		Log.d(TAG, "onCreateLoader(" + id + "," + args + ")");
+		this.setInProgress(1);
+		PlansAdapter adapter = (PlansAdapter) this.getListAdapter();
+		if (adapter.getCount() == 0) {
+			this.vLoading.setVisibility(View.VISIBLE);
+		}
+
+		if (id == UID_DUMMY) {
+			this.ignoreQuery = true;
+			final String where = PreferenceManager.getDefaultSharedPreferences(
+					this.getActivity()).getString("dummy_where", null);
+			return new CursorLoader(this.getActivity(),
+					DataProvider.Plans.CONTENT_URI,
+					DataProvider.Plans.PROJECTION, where, null,
+					DataProvider.Plans.ORDER + " ASC");
+		} else {
+			return new CursorLoader(this.getActivity(),
+					DataProvider.Plans.CONTENT_URI_SUM
+							.buildUpon()
+							.appendQueryParameter(
+									DataProvider.Plans.PARAM_DATE,
+									String.valueOf(this.now))
+							.appendQueryParameter(
+									DataProvider.Plans.PARAM_HIDE_ZERO,
+									String.valueOf(hideZero))
+							.appendQueryParameter(
+									DataProvider.Plans.PARAM_HIDE_NOCOST,
+									String.valueOf(hideNoCost))
+							.appendQueryParameter(
+									DataProvider.Plans.PARAM_HIDE_TODAY,
+									String.valueOf(!showToday || // .
+											this.now >= 0L))
+							.appendQueryParameter(
+									DataProvider.Plans.PARAM_HIDE_ALLTIME,
+									String.valueOf(!showTotal)).build(),
+					DataProvider.Plans.PROJECTION_SUM, null, null,
+					DataProvider.Plans.ORDER + " ASC");
+		}
+	}
+
+	@Override
+	public void onLoadFinished(final Loader<Cursor> loader, final Cursor data) {
+		Log.d(TAG, "onLoadFinished()");
+		this.ignoreQuery = false;
+		PlansAdapter adapter = (PlansAdapter) this.getListAdapter();
+		adapter.save();
+		if (data != null && data.getCount() > 0) {
+			if (this.now < 0L
+					&& data.getColumnIndex(DataProvider.Plans.SUM_COST) > 0) {
+				StringBuilder sb = new StringBuilder(DataProvider.Plans.ID
+						+ " in (-1");
+				if (data.moveToFirst()) {
+					do {
+						sb.append(","
+								+ data.getLong(DataProvider.Plans.INDEX_ID));
+					} while (data.moveToNext());
+				}
+				sb.append(")");
+				PreferenceManager
+						.getDefaultSharedPreferences(this.getActivity()).edit()
+						.putString("dummy_where", sb.toString()).commit();
+			}
+			this.vImport.setVisibility(View.GONE);
+		} else {
+			this.vImport.setVisibility(View.VISIBLE);
+		}
+		this.vLoading.setVisibility(View.GONE);
+		adapter.changeCursor(data);
+		this.setInProgress(-1);
+	}
+
+	@Override
+	public void onLoaderReset(final Loader<Cursor> loader) {
+		Log.d(TAG, "onLoaderReset()");
+		try {
+			((CursorAdapter) this.getListAdapter()).changeCursor(null);
+		} catch (Exception e) {
+			Log.w(TAG, "error removing cursor", e);
+		}
 	}
 }

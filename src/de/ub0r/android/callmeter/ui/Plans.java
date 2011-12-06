@@ -104,7 +104,7 @@ public final class Plans extends FragmentActivity implements
 	public static final int MSG_BACKGROUND_PROGRESS_MATCHER = 5;
 
 	/** Delay for LogRunnerService to run. */
-	private static final long DELAY_LOGRUNNER = 5000;
+	private static final long DELAY_LOGRUNNER = 1500;
 
 	/** Display ads? */
 	private static boolean prefsNoAds;
@@ -128,6 +128,7 @@ public final class Plans extends FragmentActivity implements
 
 		@Override
 		public void handleMessage(final Message msg) {
+			Log.d(TAG, "handleMessage(" + msg.what + ")");
 			switch (msg.what) {
 			case MSG_BACKGROUND_START_RUNNER:
 				inProgressRunner = true;
@@ -137,6 +138,9 @@ public final class Plans extends FragmentActivity implements
 				break;
 			case MSG_BACKGROUND_STOP_RUNNER:
 				inProgressRunner = false;
+				Plans.this.setInProgress(-1);
+				Plans.this.getSupportActionBar().setSubtitle(null);
+				break;
 			case MSG_BACKGROUND_STOP_MATCHER:
 				Plans.this.setInProgress(-1);
 				Plans.this.getSupportActionBar().setSubtitle(null);
@@ -330,7 +334,7 @@ public final class Plans extends FragmentActivity implements
 			if (position == this.getLogsFragmentPos()) {
 				return new LogsFragment();
 			} else {
-				return PlansFragment.newInstance(positions[position]);
+				return PlansFragment.newInstance(position, positions[position]);
 			}
 		}
 
@@ -533,6 +537,7 @@ public final class Plans extends FragmentActivity implements
 	 */
 	@Override
 	public void onPageSelected(final int position) {
+		Log.d(TAG, "onPageSelected(" + position + ")");
 		if (position == this.fadapter.getLogsFragmentPos()) {
 			this.findViewById(R.id.ad).setVisibility(View.GONE);
 			Fragment f = this.fadapter.getActiveFragment(this.pager,
