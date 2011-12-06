@@ -171,6 +171,8 @@
 		</PreferenceScreen>
 		<PreferenceScreen android:title="@string/export_"
 			android:summary="@string/export_hint">
+			<Preference android:title="@string/export_cancel" android:summary="@string/export_cancel_hint"
+			  android:enabled="false" />
 			<PreferenceScreen android:key="export_rules"
 				android:title="@string/export_rules_" android:summary="@string/export_rules_hint" />
 			<PreferenceScreen android:key="export_logs"

@@ -272,6 +272,8 @@
   <string name="export_" formatted="false">Exportieren ...</string>
   <string name="exported_" formatted="false">Exportiert:</string>
   <string name="export_hint" formatted="false">Exportiere Regelsätze, Logs oder Gruppen</string>
+	<string name="export_cancel" formatted="false">Export auf SD Karte</string>
+	<string name="export_cancel_hint" formatted="false">Um auf die SD Karte zu exportieren einfach den Mailclient abbrechen.</string>
   <string name="export_rules_" formatted="false">Exportiere Regelwerk</string>
   <string name="export_rules_hint" formatted="false">Exportiere Regelwerk als Mail.</string>
   <string name="export_rules_descr" formatted="false">Beschreibung</string>

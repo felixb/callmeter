@@ -273,6 +273,8 @@
 	<string name="export_">Export ...</string>
 	<string name="exported_">Exported:</string>
 	<string name="export_hint">Export rule sets, logs or groups</string>
+	<string name="export_cancel">Export to SD card</string>
+	<string name="export_cancel_hint">Cancel your mail client to export to SD card only.</string>
 	<string name="export_rules_">Export rule set</string>
 	<string name="export_rules_hint">Export rule set as mail.</string>
 	<string name="export_rules_descr">Description</string>
