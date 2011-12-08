@@ -652,6 +652,13 @@ public final class DataProvider extends ContentProvider {
 				} else {
 					this.usage = (float) this.limitPos / (float) this.limit;
 				}
+				Log.d(TAG, "new Plan(): pid" + this.id);
+				Log.d(TAG, "new Plan(): count" + this.bpCount);
+				Log.d(TAG, "new Plan(): ba" + this.bpBa);
+				Log.d(TAG, "new Plan(): at.count" + this.atCount);
+				Log.d(TAG, "new Plan(): at.ba" + this.atBa);
+				Log.d(TAG, "new Plan(): cost" + this.cost);
+				Log.d(TAG, "new Plan(): free" + this.free);
 				Log.d(TAG, "new Plan()", ct);
 			}
 
@@ -3191,10 +3198,12 @@ public final class DataProvider extends ContentProvider {
 					final long pid = cursor.getLong(0);
 					final long lbtime = bd.getTimeInMillis();
 					final long hbtime = nbd.getTimeInMillis();
-					if (hideAllTime && (lowBp < 0L || lowBp > lbtime)) {
+					if (hideAllTime && period != BILLPERIOD_INFINITE
+							&& (lowBp < 0L || lowBp > lbtime)) {
 						lowBp = lbtime;
 					}
-					if (highBp < 0L || highBp < hbtime) {
+					if (period != BILLPERIOD_INFINITE
+							&& (highBp < 0L || highBp < hbtime)) {
 						highBp = hbtime;
 					}
 					billps += " WHEN " + Plans.TABLE + "." + Plans.ID + "="
