@@ -37,6 +37,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.view.Menu;
 import android.support.v4.view.MenuItem;
+import android.support.v4.widget.ResourceCursorAdapter;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -46,7 +47,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.CursorAdapter;
-import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 import de.ub0r.android.callmeter.R;
@@ -116,10 +116,11 @@ public final class LogsFragment extends ListFragment implements
 		 * {@inheritDoc}
 		 */
 		@Override
-		public final void changeCursor(final Cursor cursor) {
-			super.changeCursor(cursor);
+		public final Cursor swapCursor(final Cursor cursor) {
+			Cursor c = super.swapCursor(cursor);
 			idPlanName = cursor.getColumnIndex(DataProvider.Plans.NAME);
 			idRuleName = cursor.getColumnIndex(DataProvider.Rules.NAME);
+			return c;
 		}
 
 		/**
@@ -453,7 +454,7 @@ public final class LogsFragment extends ListFragment implements
 	@Override
 	public void onLoadFinished(final Loader<Cursor> loader, final Cursor data) {
 		Log.d(TAG, "onLoadFinished()");
-		((LogAdapter) getListAdapter()).changeCursor(data);
+		((LogAdapter) getListAdapter()).swapCursor(data);
 		((Plans) this.getActivity()).setProgress(-1);
 	}
 
@@ -461,7 +462,7 @@ public final class LogsFragment extends ListFragment implements
 	public void onLoaderReset(final Loader<Cursor> loader) {
 		Log.d(TAG, "onLoaderReset()");
 		try {
-			((CursorAdapter) this.getListAdapter()).changeCursor(null);
+			((CursorAdapter) this.getListAdapter()).swapCursor(null);
 		} catch (Exception e) {
 			Log.w(TAG, "error removing cursor", e);
 		}

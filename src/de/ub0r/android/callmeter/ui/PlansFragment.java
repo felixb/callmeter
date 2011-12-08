@@ -38,6 +38,7 @@ import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.view.Menu;
+import android.support.v4.widget.ResourceCursorAdapter;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.StyleSpan;
@@ -51,7 +52,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.CursorAdapter;
 import android.widget.ProgressBar;
-import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 import de.ub0r.android.callmeter.CallMeter;
@@ -679,10 +679,10 @@ public final class PlansFragment extends ListFragment implements
 		}
 		this.vLoading.setVisibility(View.GONE);
 		try {
-			adapter.changeCursor(data);
+			adapter.swapCursor(data);
 		} catch (IllegalStateException ex) {
 			Log.e(TAG, "could not set coursor to adapter", ex);
-			adapter.changeCursor(null);
+			adapter.swapCursor(null);
 		}
 		this.setInProgress(-1);
 	}
@@ -691,7 +691,7 @@ public final class PlansFragment extends ListFragment implements
 	public void onLoaderReset(final Loader<Cursor> loader) {
 		Log.d(TAG, "onLoaderReset()");
 		try {
-			((CursorAdapter) this.getListAdapter()).changeCursor(null);
+			((CursorAdapter) this.getListAdapter()).swapCursor(null);
 		} catch (Exception e) {
 			Log.w(TAG, "error removing cursor", e);
 		}
