@@ -426,4 +426,29 @@
   <string name="import_rules_sd_help" formatted="false" orig="Place your file on your SD card and click it below">Stavite datoteku na vašu SD karticu i kliknite dolje</string>
   <string name="import_rules_empty" formatted="false" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Nema podešenih planova/pravila. Kliknite ovaj tekst kako bi uvezli postavke pravila.\n\nIli dodajte planove i pravila i postavke ručno.</string>
   <string name="google_plus_hint" formatted="false" orig="Follow me on Google+.\nGet update notifications etc.">Pratite me na Google+.\nDobijajte izvješća o napretku i sl.</string>
+  <string name="about1" formatted="false" orig="The output format is usage | time or count used this billing period | time or count overall.">Izlazni format je potrošnja | vrijeme ili brojač koristi taj obračunski period\n</string>
+  <string name="about2" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">Način obračuna određuje dužinu prvog / slijedećeg obračunskog intervala. Npr.60/10 znači svaki minimum poziva je 60s, sve duže od toga se zaokružuje po 10s</string>
+  <string name="about3" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter je pokrenut u pozadini svakih 30min (samo ako nije u mirovanju). To znači da brisanje popisa poziva ili poruka starijih od 30min neće promijeniti vašu statistiku.</string>
+  <string name="split_sms_at_160_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Split text messages at 160 chars">Podijeli tekstualbu poruku na 160 znakova</string>
+  <string name="split_sms_at_160_hint" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Disable to use android\'s system method.">Onemogući korištenje android sistemsku metodu</string>
+  <string name="ask_for_plan_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Ask for plan">Pitaj za plan</string>
+  <string name="ask_for_plan_hint" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Ask for plan for unmatched calls after hanging up.">Pitaj za plan za nepodesne pozive nakon prekida.</string>
+  <string name="autohide_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Auto hide">Automatski sakrij</string>
+  <string name="autohide_hint" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Sakrij dijalog .. sekundi. Ostavi prazno za deaktiviranje automatski sakrij.</string>
+  <string name="select_plan_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Select a plan">Odaberi plan</string>
+  <string name="set_selected_as_default_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Set selected plan as default">Postavi odabrani plabn kao zadani</string>
+  <string name="autohide_in_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Auto hide dialog in: %ds">Automatski sakrij dialog u: %ds</string>
+  <string name="iswebsms_connector_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Is WebSMS Connector">WebSMS konektor je</string>
+  <string name="iswebsms_connector_help" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Sent with specific WebSMS Connector, leave empty to match any.">Pošalji sa specifičnim WebSMS konektorom, ostavi prazno za slaganje sa svim konektorima.</string>
+  <string name="issipcall_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Is SIP call">SIP poziv je</string>
+  <string name="issipcall_help" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Ostvareni poziv preko SIP-a. Trenutno sipdroid &gt;1.6.1 je podržan.</string>
+  <string name="active_help" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Only active rules are used for matching logs.">Samo aktivna pravila se koriste za podudaranje zapisnika.</string>
+  <string name="what_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Target type">Vrsta cilja</string>
+  <string name="what_help" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Choose a target type here.">Odaberi vrstu cilja ovdje.</string>
+  <string name="direction_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Direction">Smjer</string>
+  <string name="direction_help" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Choose a direction the given log has to be.">Odaberi smjer kaka za dati zapisnik mora biti.</string>
+  <string name="roamed_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Roamed">Roamed</string>
+  <string name="roamed_help" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Choose whether the given log has to be roamed.">Odaberi dali je dati zapisnik roamed.</string>
+  <string name="export_cancel" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Export to SD card">Izvoz na SD karticu</string>
+  <string name="export_cancel_hint" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Cancel your mail client to export to SD card only.">Odustani od tvog mail kiljienta za izvoz samo na SD karticu</string>
 </resources>
