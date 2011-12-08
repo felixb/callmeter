@@ -18,15 +18,13 @@
  */
 package de.ub0r.android.callmeter.ui;
 
-import java.util.Calendar;
 import java.util.Date;
 
-import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.ContentUris;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
@@ -47,15 +45,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.CheckBox;
 import android.widget.CursorAdapter;
-import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ResourceCursorAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.ToggleButton;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
@@ -63,7 +55,6 @@ import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
-import de.ub0r.android.lib.Utils;
 
 /**
  * Callmeter's Log {@link LogFragment}.
@@ -408,111 +399,8 @@ public final class LogsFragment extends ListFragment implements
 	public boolean onOptionsItemSelected(final MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.item_add:
-			AlertDialog.Builder b = new AlertDialog.Builder(this.getActivity());
-			b.setCancelable(true);
-			b.setTitle(R.string.add_log);
-			final View v = LayoutInflater.from(this.getActivity()).inflate(
-					R.layout.logs_add, null);
-			final Spinner spType = (Spinner) v.findViewById(R.id.type);
-			final Spinner spDirection = (Spinner) v
-					.findViewById(R.id.direction);
-			final EditText etLength = (EditText) v.findViewById(R.id.length);
-			final EditText etRemote = (EditText) v.findViewById(R.id.remote);
-			final DatePicker dpDate = (DatePicker) v.findViewById(R.id.date);
-			final TimePicker tpTime = (TimePicker) v.findViewById(R.id.time);
-			final CheckBox cbRoamed = (CheckBox) v.findViewById(R.id.roamed);
-			spType.setOnItemSelectedListener(new OnItemSelectedListener() {
-				@Override
-				public void onItemSelected(final AdapterView<?> parent,
-						final View view, final int position, final long id) {
-					switch (position) {
-					case DataProvider.Rules.WHAT_CALL:
-						etLength.setHint(R.string.length_hint_call);
-						etLength.setVisibility(View.VISIBLE);
-						etRemote.setVisibility(View.VISIBLE);
-						break;
-					case DataProvider.Rules.WHAT_DATA:
-						etLength.setHint(R.string.length_hint_data);
-						etLength.setVisibility(View.VISIBLE);
-						etRemote.setVisibility(View.GONE);
-						break;
-					case DataProvider.Rules.WHAT_MMS:
-					case DataProvider.Rules.WHAT_SMS:
-						etLength.setVisibility(View.GONE);
-						etRemote.setVisibility(View.VISIBLE);
-						break;
-					default:
-						break;
-					}
-				}
-
-				@Override
-				public void onNothingSelected(final AdapterView<?> parent) {
-					// nothing to do
-				}
-			});
-
-			b.setView(v);
-			b.setNegativeButton(android.R.string.cancel, null);
-			b.setPositiveButton(android.R.string.ok,
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(final DialogInterface dialog,
-								final int which) {
-							final int t = spType.getSelectedItemPosition();
-							final int d = spDirection.getSelectedItemPosition();
-							int l = Utils.parseInt(etLength.getText()
-									.toString(), 0);
-							final String r = etRemote.getText().toString();
-							final boolean roamed = cbRoamed.isChecked();
-							final Calendar c = Calendar.getInstance();
-							c.set(dpDate.getYear(),
-									dpDate.getMonth(),
-									dpDate.getDayOfMonth(), // .
-									tpTime.getCurrentHour(),
-									tpTime.getCurrentMinute());
-							final ContentValues cv = new ContentValues();
-							switch (t) {
-							case DataProvider.Rules.WHAT_CALL:
-								cv.put(DataProvider.Logs.TYPE,
-										DataProvider.TYPE_CALL);
-								break;
-							case DataProvider.Rules.WHAT_DATA:
-								cv.put(DataProvider.Logs.TYPE,
-										DataProvider.TYPE_DATA);
-								break;
-							case DataProvider.Rules.WHAT_MMS:
-								cv.put(DataProvider.Logs.TYPE,
-										DataProvider.TYPE_MMS);
-								l = 1;
-								break;
-							case DataProvider.Rules.WHAT_SMS:
-								cv.put(DataProvider.Logs.TYPE,
-										DataProvider.TYPE_SMS);
-								l = 1;
-								break;
-							default:
-								return;
-							}
-							cv.put(DataProvider.Logs.DIRECTION, d);
-							cv.put(DataProvider.Logs.AMOUNT, l);
-							cv.put(DataProvider.Logs.PLAN_ID,
-									DataProvider.NO_ID);
-							cv.put(DataProvider.Logs.RULE_ID,
-									DataProvider.NO_ID);
-							cv.put(DataProvider.Logs.REMOTE, r);
-							cv.put(DataProvider.Logs.DATE, c.getTimeInMillis());
-							if (roamed) {
-								cv.put(DataProvider.Logs.ROAMED, 1);
-							}
-							LogsFragment.this.getActivity()
-									.getContentResolver()
-									.insert(DataProvider.Logs.CONTENT_URI, cv);
-							LogRunnerService.update(
-									LogsFragment.this.getActivity(), null);
-						}
-					});
-			b.show();
+			this.getActivity().startActivity(
+					new Intent(this.getActivity(), AddLogActivity.class));
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -538,6 +426,9 @@ public final class LogsFragment extends ListFragment implements
 								.delete(ContentUris.withAppendedId(
 										DataProvider.Logs.CONTENT_URI, id),
 										null, null);
+						LogsFragment.this.setAdapter(true);
+						LogRunnerService.update(
+								LogsFragment.this.getActivity(), null);
 					}
 				});
 		b.setNegativeButton(android.R.string.cancel, null);

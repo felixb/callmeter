@@ -617,7 +617,7 @@ public final class PlansFragment extends ListFragment implements
 					this.getActivity()).getString("dummy_where", null);
 			return new CursorLoader(this.getActivity(),
 					DataProvider.Plans.CONTENT_URI,
-					DataProvider.Plans.PROJECTION, where, null,
+					DataProvider.Plans.PROJECTION_BASIC, where, null,
 					DataProvider.Plans.ORDER + " ASC");
 		} else {
 			return new CursorLoader(this.getActivity(),
@@ -655,23 +655,35 @@ public final class PlansFragment extends ListFragment implements
 					&& data.getColumnIndex(DataProvider.Plans.SUM_COST) > 0) {
 				StringBuilder sb = new StringBuilder(DataProvider.Plans.ID
 						+ " in (-1");
-				if (data.moveToFirst()) {
-					do {
-						sb.append(","
-								+ data.getLong(DataProvider.Plans.INDEX_ID));
-					} while (data.moveToNext());
+				try {
+					if (!data.isClosed() && data.moveToFirst()) {
+						do {
+							sb.append("," + data.getLong(// .
+									DataProvider.Plans.INDEX_ID));
+						} while (data.moveToNext());
+					}
+					sb.append(")");
+					PreferenceManager
+							.getDefaultSharedPreferences(this.getActivity())
+							.edit().putString("dummy_where", sb.toString())
+							.commit();
+				} catch (IllegalStateException ex) {
+					Log.e(TAG,
+							"could not walk through cursor to save shown plans",
+							ex);
 				}
-				sb.append(")");
-				PreferenceManager
-						.getDefaultSharedPreferences(this.getActivity()).edit()
-						.putString("dummy_where", sb.toString()).commit();
 			}
 			this.vImport.setVisibility(View.GONE);
 		} else {
 			this.vImport.setVisibility(View.VISIBLE);
 		}
 		this.vLoading.setVisibility(View.GONE);
-		adapter.changeCursor(data);
+		try {
+			adapter.changeCursor(data);
+		} catch (IllegalStateException ex) {
+			Log.e(TAG, "could not set coursor to adapter", ex);
+			adapter.changeCursor(null);
+		}
 		this.setInProgress(-1);
 	}
 

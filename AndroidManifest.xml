@@ -30,6 +30,8 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
+		<activity android:name=".ui.AddLogActivity"
+			android:windowSoftInputMode="adjustResize" />
 		<activity android:name=".ui.AskForPlan"
 			android:configChanges="orientation|keyboardHidden"
 			android:windowSoftInputMode="adjustResize"
