@@ -185,7 +185,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 
 		int bpos = (int) (plan.getBillPlanUsage() * CallMeter.HUNDRET);
 		int bmax;
-		if (!showBillPeriod || bpos < 0) {
+		if (bpos < 0) {
 			bpos = 0;
 			bmax = -1;
 		} else if (bpos == 0) {
@@ -219,7 +219,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 				widgetLayout);
 		views.setImageViewBitmap(
 				R.id.widget_bg,
-				getBackground(bgColor, bmax, bpos, plan.limit,
+				getBackground(bgColor, bmax, bpos, showBillPeriod, plan.limit,
 						(long) (plan.usage * plan.limit)));
 		if (hideName) {
 			views.setViewVisibility(R.id.plan, View.GONE);
@@ -275,6 +275,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	 *            max position of bill period ProgressBar
 	 * @param bpos
 	 *            position of bill period ProgressBar
+	 * @param showBillPeriod
+	 *            show bill period
 	 * @param limit
 	 *            limit
 	 * @param used
@@ -282,7 +284,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	 * @return {@link Bitmap}
 	 */
 	private static Bitmap getBackground(final int bgColor, final int bmax,
-			final int bpos, final long limit, final long used) {
+			final int bpos, final boolean showBillPeriod, final long limit,
+			final long used) {
 		final Bitmap bitmap = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH,
 				Bitmap.Config.ARGB_8888);
 		final Canvas canvas = new Canvas(bitmap);
@@ -292,7 +295,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		paint.setColor(bgColor);
 		final RectF base = new RectF(0f, 0f, WIDGET_WIDTH, WIDGET_WIDTH);
 		canvas.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER, paint);
-		if (bmax > 0) {
+		if (showBillPeriod && bmax > 0) {
 			// paint progress bar background
 			Bitmap bitmapPb = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH,
 					Bitmap.Config.ARGB_8888);
