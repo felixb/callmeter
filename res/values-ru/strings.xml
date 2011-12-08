@@ -21,11 +21,11 @@
                Visit http://ub0r.de/translate/cm3/edit.php?lang=ru&file=strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false" username="" orig="Recent changes:">Последние изменения:</string>
+  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Последние изменения:</string>
   <string name="changelog_notification_text" formatted="false">Нажмите здесь, чтобы показать последние изменения</string>
   <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Примечания разработчика</string>
-  <string name="about0_" formatted="false" username="" orig="Watch your call, message and data plans!">Следи за расходом минут, SMS и трафика по своему тарифу!</string>
-  <string name="about0" formatted="false" username="" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter создает отчет из данныx о звонкаx, SMS и трафикa. Поддерживаются разные методы биллинга.</string>
+  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Следи за расходом минут, SMS и трафика по своему тарифу!</string>
+  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter создает отчет из данныx о звонкаx, SMS и трафикa. Поддерживаются разные методы биллинга.</string>
   <string name="about1" formatted="false">Форма отчёта: Пользование / Время или Колличество в месяц / Время или просто Колличество (Минуты/SMS/Трафик).</string>
   <string name="about2" formatted="false">Отчёт звонков ведется так: длинна первой минуты/ последующая. К примеру: 60/10 - полный отсчет первой минуты (60 сек.)/последующая с 10-ти секундной частотой.</string>
   <string name="about3" formatted="false">CallMeter активен каждые 30 минут в фоновом режиме (Standby не активен). Удалёные из журнала звонки/SMS старше 30 минут на статистику не влияют, младше же 30 минут могут произвести не корректное отображение статистики!</string>
@@ -312,23 +312,23 @@
     <item>2 часа</item>
     <item>Пользовательский</item>
   </string-array>
-  <string name="never_show_again" formatted="false" username="" orig="Never show changelog again">Больше не показывать журнал изменений</string>
-  <string name="notes_from_developer_text" formatted="false" username="" orig="Click here to show recent news from the developer">Нажмите тут для отображения последних изменений от разработчика</string>
-  <string name="add_log" formatted="false" username="" orig="Add log entry">Добавить позицию в журнал</string>
-  <string name="length_hint_call" formatted="false" username="" orig="Length in seconds">Продолжительность в секундах</string>
-  <string name="length_hint_data" formatted="false" username="" orig="Length in kB">Величина в kB</string>
-  <string name="delete_old_logs_" formatted="false" username="" orig="Delete logs older than">Удалить записи журнала старше, чем</string>
-  <string name="delete_old_logs_help" formatted="false" username="" orig="Delete logs older than x days from internal database. Leave empty to disable.">Удалить записи журнала старше х дней из внутренней базы данных. Для отключения оставить поле пустым.</string>
-  <string name="simple_preferences_" formatted="false" username="" orig="Simple preferences">Простые настройки</string>
-  <string name="textsize_title_" formatted="false" username="" orig="Title\'s text size">Размер шрифта заголовков</string>
-  <string name="simple_preferences_hint" formatted="false" username="" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Простые настройки, подходящие для большинства пользователей. Возможно изменение предустановленных наборов правил.</string>
-  <string name="behavior_" formatted="false" username="" orig="Behavior">Действия</string>
-  <string name="appearance_and_behavior_" formatted="false" username="" orig="Appearance &amp; behavior">Представление и действия</string>
-  <string name="textsize_title_hint" formatted="false" username="" orig="Text size for titles in pixels; leave empty for default">Размер шрифта заголовков в пикселах; оставить пустым для исходных значений</string>
-  <string name="textsize_bigtitle_" formatted="false" username="" orig="Big title\'s text size">Размер шрифта больших заголовков</string>
-  <string name="textsize_bigtitle_hint" formatted="false" username="" orig="Text size for big titles in pixels; leave empty for default">Размер шрифта больших заголовков в пикселах; оставить пустым для исходных значений</string>
-  <string name="textsize_spacer_" formatted="false" username="" orig="Spacer\'s size">Величина пробела</string>
-  <string name="textsize_spacer_hint" formatted="false" username="" orig="Size for spacers in pixels; leave empty for default">Величина пробела в пикселах; оставить пустым для исходных значений</string>
-  <string name="textsize_pbar_" formatted="false" username="" orig="Progress bar\'s size">Размер шкалы прогресса</string>
-  <string name="textsize_pbar_hint" formatted="false" username="" orig="Size for progress bars in pixels; leave empty for default">Размер шкалы прогресса в пикселах; оставить пустым для исходных значений</string>
+  <string name="never_show_again" formatted="false" orig="Never show changelog again">Больше не показывать журнал изменений</string>
+  <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Нажмите тут для отображения последних изменений от разработчика</string>
+  <string name="add_log" formatted="false" orig="Add log entry">Добавить позицию в журнал</string>
+  <string name="length_hint_call" formatted="false" orig="Length in seconds">Продолжительность в секундах</string>
+  <string name="length_hint_data" formatted="false" orig="Length in kB">Величина в kB</string>
+  <string name="delete_old_logs_" formatted="false" orig="Delete logs older than">Удалить записи журнала старше, чем</string>
+  <string name="delete_old_logs_help" formatted="false" orig="Delete logs older than x days from internal database. Leave empty to disable.">Удалить записи журнала старше х дней из внутренней базы данных. Для отключения оставить поле пустым.</string>
+  <string name="simple_preferences_" formatted="false" orig="Simple preferences">Простые настройки</string>
+  <string name="textsize_title_" formatted="false" orig="Title\'s text size">Размер шрифта заголовков</string>
+  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Простые настройки, подходящие для большинства пользователей. Возможно изменение предустановленных наборов правил.</string>
+  <string name="behavior_" formatted="false" orig="Behavior">Действия</string>
+  <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp; behavior">Представление и действия</string>
+  <string name="textsize_title_hint" formatted="false" orig="Text size for titles in pixels; leave empty for default">Размер шрифта заголовков в пикселах; оставить пустым для исходных значений</string>
+  <string name="textsize_bigtitle_" formatted="false" orig="Big title\'s text size">Размер шрифта больших заголовков</string>
+  <string name="textsize_bigtitle_hint" formatted="false" orig="Text size for big titles in pixels; leave empty for default">Размер шрифта больших заголовков в пикселах; оставить пустым для исходных значений</string>
+  <string name="textsize_spacer_" formatted="false" orig="Spacer\'s size">Величина пробела</string>
+  <string name="textsize_spacer_hint" formatted="false" orig="Size for spacers in pixels; leave empty for default">Величина пробела в пикселах; оставить пустым для исходных значений</string>
+  <string name="textsize_pbar_" formatted="false" orig="Progress bar\'s size">Размер шкалы прогресса</string>
+  <string name="textsize_pbar_hint" formatted="false" orig="Size for progress bars in pixels; leave empty for default">Размер шкалы прогресса в пикселах; оставить пустым для исходных значений</string>
 </resources>
