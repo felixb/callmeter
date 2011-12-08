@@ -34,6 +34,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
+import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
@@ -136,7 +137,7 @@ public final class AddLogActivity extends FragmentActivity {
 		case R.id.item_add:
 			final int t = this.spType.getSelectedItemPosition();
 			final int d = this.spDirection.getSelectedItemPosition();
-			int l = Utils.parseInt(this.etLength.getText().toString(), 0);
+			long l = Utils.parseLong(this.etLength.getText().toString(), 0L);
 			final String r = this.etRemote.getText().toString();
 			final boolean roamed = this.cbRoamed.isChecked();
 			final Calendar c = Calendar.getInstance();
@@ -152,6 +153,7 @@ public final class AddLogActivity extends FragmentActivity {
 				break;
 			case DataProvider.Rules.WHAT_DATA:
 				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_DATA);
+				l *= CallMeter.BYTE_KB;
 				break;
 			case DataProvider.Rules.WHAT_MMS:
 				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_MMS);
