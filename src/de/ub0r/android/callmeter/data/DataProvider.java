@@ -913,12 +913,12 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_LIMIT_TYPE = 4;
 		/** Index in projection: limit. */
 		public static final int INDEX_LIMIT = 5;
-		/** Index in projection: Billmode. */
-		public static final int INDEX_BILLMODE = 6;
-		/** Index in projection: Billday. */
-		public static final int INDEX_BILLDAY = 7;
 		/** Index in projection: type of billperiod. */
-		public static final int INDEX_BILLPERIOD = 8;
+		public static final int INDEX_BILLPERIOD = 6;
+		/** Index in projection: Billmode. */
+		public static final int INDEX_BILLMODE = 7;
+		/** Index in projection: Billday. */
+		public static final int INDEX_BILLDAY = 8;
 		/** Index in projection: Cost per item. */
 		public static final int INDEX_COST_PER_ITEM = 9;
 		/** Index in projection: Cost per amount1. */
@@ -986,12 +986,12 @@ public final class DataProvider extends ContentProvider {
 		public static final String LIMIT_TYPE = "_limit_type";
 		/** Limit. */
 		public static final String LIMIT = "_limit";
+		/** Type of billperiod. */
+		public static final String BILLPERIOD = "_billperiod";
 		/** Billmode. */
 		public static final String BILLMODE = "_billmode";
 		/** Billday. */
 		public static final String BILLDAY = "_billday";
-		/** Type of billperiod. */
-		public static final String BILLPERIOD = "_billperiod";
 		/** Id of billperiod. */
 		public static final String BILLPERIOD_ID = "_billperiod_id";
 		/** Cost per item. */
@@ -1053,12 +1053,15 @@ public final class DataProvider extends ContentProvider {
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, NAME,
-				SHORTNAME, TYPE, LIMIT_TYPE, LIMIT, BILLMODE, BILLDAY,
-				BILLPERIOD, COST_PER_ITEM, COST_PER_AMOUNT1, COST_PER_AMOUNT2,
+				SHORTNAME, TYPE, LIMIT_TYPE, LIMIT, BILLPERIOD, BILLMODE,
+				BILLDAY, COST_PER_ITEM, COST_PER_AMOUNT1, COST_PER_AMOUNT2,
 				COST_PER_ITEM_IN_LIMIT, COST_PER_AMOUNT_IN_LIMIT1,
 				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN, MIXED_UNITS_CALL,
 				MIXED_UNITS_SMS, MIXED_UNITS_MMS, BILLPERIOD_ID, NEXT_ALERT,
 				STRIP_SECONDS, MERGED_PLANS };
+		/** Projection used for basic query. */
+		public static final String[] PROJECTION_BASIC = new String[] { ID,
+				NAME, SHORTNAME, TYPE, LIMIT_TYPE, LIMIT, BILLPERIOD };
 
 		/** Projection used for sum query. */
 		public static final String[] PROJECTION_SUM = new String[] {
@@ -1068,9 +1071,9 @@ public final class DataProvider extends ContentProvider {
 				TABLE + "." + TYPE + " AS " + TYPE,
 				TABLE + "." + LIMIT_TYPE + " AS " + LIMIT_TYPE,
 				TABLE + "." + LIMIT + " AS " + LIMIT,
+				TABLE + "." + BILLPERIOD + " AS " + BILLPERIOD,
 				TABLE + "." + BILLMODE + " AS " + BILLMODE,
 				TABLE + "." + BILLDAY + " AS " + BILLDAY,
-				TABLE + "." + BILLPERIOD + " AS " + BILLPERIOD,
 				"{" + SUM_NOW + "} AS " + SUM_NOW,
 				"{" + SUM_BILLDAY + "} AS " + SUM_BILLDAY,
 				"{" + SUM_NEXTBILLDAY + "} AS " + SUM_NEXTBILLDAY,

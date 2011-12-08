@@ -103,6 +103,8 @@ public abstract class Device {
 		sb.append(context.getString(R.string.app_name));
 		sb.append("\nversion: ");
 		sb.append(context.getString(R.string.app_version));
+		sb.append("\nsdk version: ");
+		sb.append(Build.VERSION.SDK);
 		sb.append("\nproduct: ");
 		sb.append(Build.PRODUCT);
 		sb.append("\nmodel: ");
@@ -268,9 +270,7 @@ class DiscoverableDevice extends Device {
 		if (this.mWiFi == null) {
 			for (String inter : WIFI_INTERFACES) {
 				if (SysClassNet.isUp(inter)) {
-					Log
-							.i(this.getClass().getName(), "WiFi interface: "
-									+ inter);
+					Log.i(this.getClass().getName(), "WiFi interface: " + inter);
 					this.mWiFi = inter;
 					break;
 				}
