@@ -3256,7 +3256,7 @@ public final class DataProvider extends ContentProvider {
 					if (hideZero) {
 						having += " and ";
 					} else {
-						having = " or ";
+						having += " or ";
 					}
 					having += Plans.SUM_COST + ">0";
 				}
