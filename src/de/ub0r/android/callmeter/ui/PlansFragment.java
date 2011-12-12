@@ -639,8 +639,7 @@ public final class PlansFragment extends ListFragment implements
 							.appendQueryParameter(
 									DataProvider.Plans.PARAM_HIDE_ALLTIME,
 									String.valueOf(!showTotal)).build(),
-					DataProvider.Plans.PROJECTION_SUM, null, null,
-					DataProvider.Plans.ORDER + " ASC");
+					DataProvider.Plans.PROJECTION_SUM, null, null, null);
 		}
 	}
 

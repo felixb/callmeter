@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein, The Android Open Source Project
+ * Copyright (C) 2009-2011 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -3239,12 +3239,16 @@ public final class DataProvider extends ContentProvider {
 					+ " on (" + logDate + "(" + Logs.TABLE + "." + Logs.PLAN_ID
 					+ "=" + Plans.TABLE + "." + Plans.ID + " or " + Plans.TABLE
 					+ "." + Plans.MERGED_PLANS + " like '%,'||" + Logs.TABLE
-					+ "." + Logs.PLAN_ID + "||',%' or ( " + Plans.TABLE + "."
-					+ Plans.TYPE + "=" + TYPE_BILLPERIOD + " and " + Logs.TABLE
-					+ "." + Logs.PLAN_ID + " in ( select " + Plans.ID
-					+ " from " + Plans.TABLE + " as p where p."
+					+ "." + Logs.PLAN_ID + "||',%' or (" + Plans.TABLE + "."
+					+ Plans.TYPE + "=" + TYPE_BILLPERIOD + " and ("
+					+ Logs.TABLE + "." + Logs.PLAN_ID + " in (select "
+					+ Plans.ID + " from " + Plans.TABLE + " as p where p."
 					+ Plans.BILLPERIOD_ID + "=" + Plans.TABLE + "." + Plans.ID
-					+ "))))");
+					+ ") or 1 in (select 1 from " + Plans.TABLE
+					+ " as pp where pp." + Plans.MERGED_PLANS + " like '%,'||"
+					+ Logs.TABLE + "." + Logs.PLAN_ID + "||'%,'" + " and pp."
+					+ Plans.BILLPERIOD_ID + "=" + Plans.TABLE + "." + Plans.ID
+					+ ")))))");
 			logDate = null;
 			groupBy = Plans.TABLE + "." + Plans.ID;
 			if (hideZero || hideNoCost) {
