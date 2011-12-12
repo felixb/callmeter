@@ -3153,6 +3153,9 @@ public final class DataProvider extends ContentProvider {
 			qb.appendWhere(Plans.ID + "=" + ContentUris.parseId(uri));
 		case PLANS:
 			qb.setTables(Plans.TABLE);
+			if (orderBy == null) {
+				orderBy = Plans.ORDER;
+			}
 			break;
 		case PLANS_SUM_ID:
 			qb.appendWhere(Plans.TABLE + "." + Plans.ID + "="
@@ -3306,6 +3309,9 @@ public final class DataProvider extends ContentProvider {
 			qb.appendWhere(Rules.ID + "=" + ContentUris.parseId(uri));
 		case RULES:
 			qb.setTables(Rules.TABLE);
+			if (orderBy == null) {
+				orderBy = Rules.ORDER;
+			}
 			break;
 		case NUMBERS_GID:
 			qb.appendWhere(Numbers.GID + "=" + ContentUris.parseId(uri));

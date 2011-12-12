@@ -18,8 +18,8 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
+import android.app.ListActivity;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -35,11 +35,11 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
 
 import com.commonsware.cwac.tlv.TouchListView;
 import com.commonsware.cwac.tlv.TouchListView.DropListener;
@@ -265,16 +265,14 @@ public class Plans extends ListActivity implements OnClickListener,
 	 *            to
 	 */
 	private void move(final int from, final int to) {
+		Log.d(TAG, "move(" + from + "," + to + ")");
 		if (from == to) {
 			return;
 		}
 		final ContentResolver cr = this.getContentResolver();
-		final String[] proj = new String[] { DataProvider.Plans.ID,
-				DataProvider.Plans.ORDER };
-
-		final int l = Math.abs(from - to) + 1;
+		final int l = this.adapter.getCount();
+		Log.d(TAG, "move(): l=" + l);
 		long[] ids = new long[l];
-		int[] orders = new int[l];
 		int i = 0;
 		int dir;
 		if (from < to) {
@@ -282,33 +280,27 @@ public class Plans extends ListActivity implements OnClickListener,
 		} else {
 			dir = -1;
 		}
-		for (int p = from; (from < to && p <= to) || // .
-				(from > to && p >= to); p += dir) {
-			final long id = this.adapter.getItemId(p);
+		Log.d(TAG, "move(): dir=" + dir);
+		for (i = 0; i < l; i++) {
+			final long id = this.adapter.getItemId(i);
 			ids[i] = id;
-			final Cursor cursor = cr
-					.query(ContentUris.withAppendedId(
-							DataProvider.Plans.CONTENT_URI, id), proj, null,
-							null, null);
-			if (cursor == null || !cursor.moveToFirst()) {
-				orders[i] = 0;
-			} else {
-				orders[i] = cursor.getInt(1);
-			}
-			if (cursor != null && !cursor.isClosed()) {
-				cursor.close();
-			}
-			++i;
+			Log.d(TAG, "move(): ids[" + i + "]=" + ids[i]);
 		}
-		final int neworder = orders[l - 1];
-		for (i = l - 2; i >= 0; i--) {
-			orders[i + 1] = orders[i];
+
+		final long oldid = ids[from];
+		Log.d(TAG, "move(): oldid=" + oldid);
+		for (i = from + dir; (from < to && i <= to) || // .
+				(from > to && i >= to); i += dir) {
+			ids[i - dir] = ids[i];
+			Log.d(TAG, "move(): ids[" + (i - dir) + "]=" + ids[i - dir]);
 		}
-		orders[0] = neworder;
+		ids[to] = oldid;
+		Log.d(TAG, "move(): ids[" + to + "]=" + ids[to]);
+
 		ContentValues cv = new ContentValues();
 		for (i = 0; i < l; i++) {
 			cv.clear();
-			cv.put(DataProvider.Plans.ORDER, orders[i]);
+			cv.put(DataProvider.Plans.ORDER, i);
 			cr.update(ContentUris.withAppendedId(
 					DataProvider.Plans.CONTENT_URI, ids[i]), cv, null, null);
 		}
