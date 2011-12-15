@@ -45,7 +45,7 @@
   <string name="reset_data_" formatted="false">Resetovať pamäť</string>
   <string name="reset_data_hint" formatted="false">Reset pamäti aplikácie vynúti prepočet štatistiky.\nReset pamäti o dátovom prenose je permanentný - zmaže iba dáta prenesené pred štartom zariadenia.</string>
   <string name="reset_data_data_" formatted="false">Reset pamäti o prenose dát.</string>
-  <string name="reset_data_progr1" formatted="false">Recalculating statistics ...\n\n(This may take some time!)</string>
+  <string name="reset_data_progr1" formatted="false" orig="Recalculating statistics ...\n\n(This may take some time!)">Prepočítavam štatistiku...\n\n(Môže to chvíľu trvať!)</string>
   <string name="reset_data_progr2" formatted="false" orig="Recalculating statistics ...">Prepočítavam štatistiku...</string>
   <string name="contacts_" formatted="false">Z kontaktov</string>
   <string-array name="themes">
@@ -160,4 +160,34 @@
   <string name="update_interval_hint" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Shorter period will use more battery.">Kratší čas zvýši spotrebu batérie.</string>
   <string name="notes_from_developer_text" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Click here to show recent news from the developer">Kliknite sem pre zobrazenie najnovších správ od vývojára.</string>
   <string name="hide_name_" formatted="false" orig="Hide name of plan">Skryť meno plánu</string>
+  <string name="google_plus_hint" formatted="false" orig="Follow me on Google+.\nGet update notifications etc.">Nasleduj ma na Google+\nInfo o nových verziách apod.</string>
+  <string name="textsize_bigtitle_" formatted="false" orig="Big title\'s text size">Veľkosť veľkého nadpisu</string>
+  <string name="textsize_bigtitle_hint" formatted="false" orig="Text size for big titles in pixels; leave empty for default">Veľkosť veľkého nadpisu v pixeloch. Nechajte prázdne pre východziu veľkosť.</string>
+  <string-array name="date_formats">
+    <item>Východzí</item>
+    <item>MM/DD/RR</item>
+    <item>DD/MM/RRRR</item>
+    <item>DD.MM.RRRR</item>
+  </string-array>
+  <string-array name="direction_sms">
+    <item>prijaté</item>
+    <item>odoslané</item>
+  </string-array>
+  <string-array name="direction_mms">
+    <item>prijaté</item>
+    <item>odoslané</item>
+  </string-array>
+  <string name="alerts_80_hint" formatted="false" orig="Notify if a plan passes 80% of it\'s limit.">Varovanie ak paušál prekročí 80%.</string>
+  <string name="alerts_100_hint" formatted="false" orig="Notify if a plan passes 100% of it\'s limit.">Varovanie ak paušál prekročí 100%.</string>
+  <string name="issipcall_help" formatted="false" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Hovor cez SIP. Aktuálne je podporovaný sipdorid &gt;1.6.1.</string>
+  <string name="iswebsms_help" formatted="false" orig="Message sent with WebSMS.">Správa poslaná cez WebSMS.</string>
+  <string name="messages" formatted="false" orig="Messages">Správy</string>
+  <string name="calls" formatted="false" orig="Calls">Hovory</string>
+  <string name="calls_in" formatted="false" orig="Calls In">Hovory prichádzajúce</string>
+  <string name="calls_out" formatted="false" orig="Calls Out">Hovory odchádzajúce</string>
+  <string name="sms_in" formatted="false" orig="SMS In">SMS prijaté</string>
+  <string name="sms_out" formatted="false" orig="SMS Out">SMS odoslané</string>
+  <string name="mms_in" formatted="false" orig="MMS In">MMS prijaté</string>
+  <string name="mms_out" formatted="false" orig="MMS Out">MMS odoslané</string>
+  <string name="limit_type_" formatted="false" orig="Limit type">Typ limitu</string>
 </resources>
