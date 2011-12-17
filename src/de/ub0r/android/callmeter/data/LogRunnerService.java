@@ -34,6 +34,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import android.preference.DatePreference;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
@@ -662,36 +663,15 @@ public final class LogRunnerService extends IntentService {
 			return;
 		}
 		final String a = intent.getAction();
-		Log.d(TAG, "onHandleIntent(" + a + ")");
+		Log.d(TAG, "onHandleIntent(action=" + a + ")");
 
-		final PowerManager pm = (PowerManager) this
-				.getSystemService(Context.POWER_SERVICE);
-		final PowerManager.WakeLock wakelock = pm.newWakeLock(
-				PowerManager.PARTIAL_WAKE_LOCK, TAG);
-		wakelock.acquire();
-		Log.i(TAG, "got wakelock");
-
-		if (a != null && (// .
-				a.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED) // .
-				|| a.equals(ACTION_SMS))) {
-			Log.i(TAG, "sleep for " + WAIT_FOR_LOGS + "ms");
-			try {
-				Thread.sleep(WAIT_FOR_LOGS);
-			} catch (InterruptedException e) {
-				Log.e(TAG, "interrupted while waiting for logs", e);
-			}
-		}
+		final WakeLock wakelock = this.acquire(a);
 
 		final Handler h = Plans.getHandler();
 		if (h != null) {
 			h.sendEmptyMessage(Plans.MSG_BACKGROUND_START_MATCHER);
 		}
 
-		// update roaming info
-		roaming = ((TelephonyManager) this
-				.getSystemService(Context.TELEPHONY_SERVICE))
-				.isNetworkRoaming();
-		Log.d(TAG, "roaming: " + roaming);
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		if (System.currentTimeMillis() - // .
@@ -709,6 +689,8 @@ public final class LogRunnerService extends IntentService {
 				Preferences.PREFS_SHOWCALLINFO, false);
 		final boolean askForPlan = p.getBoolean(Preferences.PREFS_ASK_FOR_PLAN,
 				false);
+		final String deleimter = p
+				.getString(Preferences.PREFS_DELIMITER, " | ");
 
 		final boolean runMatcher = a == ACTION_RUN_MATCHER;
 		boolean shortRun = runMatcher
@@ -722,6 +704,7 @@ public final class LogRunnerService extends IntentService {
 				&& a.equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
 			if (intent.getBooleanExtra(ConnectivityManager.EXTRA_IS_FAILOVER,
 					false)) {
+				this.release(wakelock, h);
 				return;
 			}
 			shortRun = true;
@@ -761,6 +744,7 @@ public final class LogRunnerService extends IntentService {
 			}
 			c.close();
 		}
+
 		updateData(this, shortRun && !runMatcher);
 		if (!shortRun || runMatcher) {
 			if (deleteBefore > 0L) {
@@ -809,7 +793,7 @@ public final class LogRunnerService extends IntentService {
 					if (cost > 0) {
 						String currencyFormat = Preferences
 								.getCurrencyFormat(this);
-						sb.append(" | " // FIXME
+						sb.append(deleimter
 								+ String.format(currencyFormat, cost));
 					}
 					if (planname != null) {
@@ -855,6 +839,53 @@ public final class LogRunnerService extends IntentService {
 			}
 		}
 
+		this.release(wakelock, h);
+	}
+
+	/**
+	 * Acquire {@link WakeLock} and init service.
+	 * 
+	 * @param a
+	 *            action
+	 * @return {@link WakeLock}
+	 */
+	private WakeLock acquire(final String a) {
+		final PowerManager pm = (PowerManager) this
+				.getSystemService(Context.POWER_SERVICE);
+		final PowerManager.WakeLock wakelock = pm.newWakeLock(
+				PowerManager.PARTIAL_WAKE_LOCK, TAG);
+		wakelock.acquire();
+		Log.i(TAG, "got wakelock");
+
+		if (a != null && (// .
+				a.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED) // .
+				|| a.equals(ACTION_SMS))) {
+			Log.i(TAG, "sleep for " + WAIT_FOR_LOGS + "ms");
+			try {
+				Thread.sleep(WAIT_FOR_LOGS);
+			} catch (InterruptedException e) {
+				Log.e(TAG, "interrupted while waiting for logs", e);
+			}
+		}
+
+		// update roaming info
+		roaming = ((TelephonyManager) this
+				.getSystemService(Context.TELEPHONY_SERVICE))
+				.isNetworkRoaming();
+		Log.d(TAG, "roaming: " + roaming);
+
+		return wakelock;
+	}
+
+	/**
+	 * Release {@link WakeLock} and notify {@link Handler}.
+	 * 
+	 * @param wakelock
+	 *            {@link WakeLock}
+	 * @param h
+	 *            {@link Handler}
+	 */
+	private void release(final WakeLock wakelock, final Handler h) {
 		// schedule next update
 		LogRunnerReceiver.schedNext(this);
 		if (h != null) {
