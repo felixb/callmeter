@@ -45,7 +45,7 @@
 	<string name="twitter_">twitter</string>
 	<string name="google_plus_">Google+</string>
 
-	<string name="url_rulesets">http://www.4.ub0r.de/android/callmeter/rulesets/</string>
+	<string name="url_rulesets">http://www.ub0r.de/android/callmeter/rulesets/</string>
 
 	<string-array name="currency_formats_values">
 		<item></item>
