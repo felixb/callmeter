@@ -31,7 +31,8 @@
   <string name="about1" formatted="false">Das Ausgabeformat ist: Nutzung | Zeit oder Anzahl in diesem Monat | Zeit oder Anzahl überhaupt.</string>
   <string name="about2" formatted="false">Der Abrechnungszeitraum bezeichnet die länge des ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s aufgerundet.</string>
   <string name="about3" formatted="false">CallMeter läuft im Hintergrund alle 30min (nur wenn nicht im Standby). Dies bedeutet, dass das Löschen Anrufe oder Nachrichten älter als 30min wird die Statistiken nicht ändern. Das löschen von Anrufe oder Nachrichten jünger als 30 Minuten kann zu falschen Statistiken führen.</string>
-  <string name="send_" formatted="false">Senden</string>
+  <string name="author_and_many_more" formatted="false">und viele mehr...</string>
+	<string name="send_" formatted="false">Senden</string>
   <string name="add_" formatted="false">Hinzufügen</string>
   <string name="add_log" formatted="false">Log Eintrag hinzufügen</string>
   <string name="length_hint_call" formatted="false">Dauer in Sekunden</string>
