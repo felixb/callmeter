@@ -21,7 +21,9 @@
 	<string name="app_version">3.2.2</string>
 	<string name="app_name">Call Meter 3G</string>
 	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt; (Code, German) </string>
-	<string name="author_nc">Cyril Jaquier &lt;netcounter@jaqpot.net&gt; (NetCounter)</string>
+	<string name="author_ab">Jake Wharton &lt;https://github.com/JakeWharton/ActionBarSherlock/&gt; (ActionBar)</string>
+	<string name="author_vpi">Jake Wharton &lt;https://github.com/JakeWharton/Android-ViewPagerIndicator&gt; (ViewPageIndicator)</string>
+	<string name="author_nc">Cyril Jaquier &lt;http://www.jaqpot.net/netcounter/&gt; (NetCounter)</string>
 	<string name="author_icon">Christoph Rado &lt;christoph.rado@gmail.com&gt; (Icon)</string>
 	<string name="author_nl">Tom Nuss &lt;tomnuss@gmail.com&gt; (Dutch)</string>
 	<string name="author_pl1">Łukasz Malicki &lt;maalicki@gmail.com&gt; (Polish)</string>
@@ -45,7 +47,7 @@
 	<string name="twitter_">twitter</string>
 	<string name="google_plus_">Google+</string>
 
-	<string name="url_rulesets">http://www.4.ub0r.de/android/callmeter/rulesets/</string>
+	<string name="url_rulesets">http://www.ub0r.de/android/callmeter/rulesets/</string>
 
 	<string-array name="currency_formats_values">
 		<item></item>
@@ -154,4 +156,5 @@
 	</string-array>
 
 	<dimen name="touchlist_height">30dip</dimen>
+	<dimen name="widget_margin">5dp</dimen>
 </resources>

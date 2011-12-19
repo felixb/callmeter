@@ -31,7 +31,8 @@
   <string name="about1" formatted="false">Das Ausgabeformat ist: Nutzung | Zeit oder Anzahl in diesem Monat | Zeit oder Anzahl überhaupt.</string>
   <string name="about2" formatted="false">Der Abrechnungszeitraum bezeichnet die länge des ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s aufgerundet.</string>
   <string name="about3" formatted="false">CallMeter läuft im Hintergrund alle 30min (nur wenn nicht im Standby). Dies bedeutet, dass das Löschen Anrufe oder Nachrichten älter als 30min wird die Statistiken nicht ändern. Das löschen von Anrufe oder Nachrichten jünger als 30 Minuten kann zu falschen Statistiken führen.</string>
-  <string name="send_" formatted="false">Senden</string>
+  <string name="author_and_many_more" formatted="false">und viele mehr...</string>
+	<string name="send_" formatted="false">Senden</string>
   <string name="add_" formatted="false">Hinzufügen</string>
   <string name="add_log" formatted="false">Log Eintrag hinzufügen</string>
   <string name="length_hint_call" formatted="false">Dauer in Sekunden</string>
@@ -50,8 +51,8 @@
   <string name="faq_hint" formatted="false">Ein paar Tipps und Tricks, wie man diese App einstellt.</string>
   <string name="feedback_" formatted="false">Feedback</string>
   <string name="feedback_hint" formatted="false">Bugreports, feature requests ...</string>
-  <string name="google_plus_hint" formatted="false">Follow auf Google+.\nUpdate Infos etc...</string>
-  <string name="twitter_hint" formatted="false">Follow auf twitter.\nUpdate Infos etc...</string>
+  <string name="google_plus_hint" formatted="false">Folge mir auf Google+.\nErhalte Infos über Updates etc.</string>
+  <string name="twitter_hint" formatted="false" username="Schiri &lt;schirinowski@gmail.com&gt;" orig="Follow me on twitter.\nGet update notifications etc.">Folge mir auf Twitter.\nErhalte Infos über Updates etc.</string>
   <string name="more_" formatted="false">Mehr Apps..</string>
   <string name="billing_" formatted="false">Abrechnung</string>
   <string name="billday_" formatted="false">Erster Rechnungstag</string>
@@ -285,9 +286,10 @@
   <string name="export_hourgroups_hint" formatted="false">Stunden Gruppen als Mail exportieren.</string>
   <string name="import_rules_" formatted="false">Importiere Regelwerk</string>
   <string name="import_rules_hint" formatted="false">Importiere Regelwerk.</string>
+  <string name="import_rules_www_hint" formatted="false">Importiere vorkonfiguriertes Regelwerk von http://www.ub0r.de/.</string>
   <string name="import_rules_empty" formatted="false">Es sind keine Kontingente/Regeln definiert. Klicke diesen Text an, um standard Regelwerke zu importieren.\n\nOder füge manuell Kontingente und Regeln in den Einstellungen hinzu.</string>
   <string name="import_rules_sd_" formated="false">Importiere von SD Karte</string>
-  <string name="import_rules_sd_hint" formated="false">Importiere direkt von der SD Karte.</string>
+  <string name="import_rules_sd_hint" formated="false">Importiere Regelwerk direkt von der SD Karte.</string>
   <string name="import_rules_sd_help" formated="false">Speichere deine Datei auf der SD Karte und klicke sie an</string>
   <string name="import_rules_sd_files" formated="false">Gefundene Dateien</string>
   <string name="import_rules_sd_nofiles" formated="false">Keine Dateien gefunden</string>

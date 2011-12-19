@@ -19,14 +19,13 @@
 
     <item
         android:id="@+id/item_cancel"
-        android:icon="@android:drawable/ic_menu_close_clear_cancel"
-        android:showAsAction="ifRoom|withText"
+        android:icon="@drawable/ic_menu_close_clear_cancel"
+        android:showAsAction="ifRoom|never"
         android:title="@android:string/cancel"/>
-
     <item
         android:id="@+id/item_add"
-        android:icon="@android:drawable/ic_menu_add"
-        android:showAsAction="ifRoom|withText"
+        android:icon="@drawable/ic_menu_add"
+        android:showAsAction="ifRoom|never"
         android:title="@string/add_"/>
 
 </menu>

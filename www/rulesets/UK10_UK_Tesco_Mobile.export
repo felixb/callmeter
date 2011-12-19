@@ -1,0 +1,73 @@
+0
+Tesco+Mobile
+plans _id:12:#:_plan_name:Bill period:#:_shortname:bp:#:_order:2:#:_plan_type:2:#:_limit_type:0:#:_limit:0:#:_billmode:1/1:#:_billday:1305414000947:#:_billperiod:5:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:0:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:14:#:_plan_name:Tesco Mobile:#:_shortname:calls:#:_order:1:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billmode:1/1:#:_billday:0:#:_billperiod:5:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:15:#:_plan_name:Free credit usage:#:_shortname:Free Credit:#:_order:3:#:_plan_type:3:#:_limit_type:2:#:_limit:20:#:_billmode:24/1:#:_billday:0:#:_billperiod:12:#:_cost_per_item:0:#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call:1:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:_merged_plans:,32,31,38,28,34,20,35,:#:
+plans _id:16:#:_plan_name:Calls in:#:_shortname:CallsIn:#:_order:6:#:_plan_type:4:#:_limit_type:0:#:_limit:0:#:_billmode:1/1:#:_billday:0:#:_billperiod:12:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:19:#:_plan_name:SMS in:#:_shortname:SMSIn:#:_order:14:#:_plan_type:5:#:_limit_type:0:#:_limit:0:#:_billmode:1/1:#:_billday:0:#:_billperiod:12:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:20:#:_plan_name:SMS to other numbers:#:_shortname:SMSOut:#:_order:16:#:_plan_type:5:#:_limit_type:0:#:_limit:0:#:_billmode:1/1:#:_billday:0:#:_billperiod:12:#:_cost_per_item:0.1:#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit:0.1:#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:23:#:_plan_name:Data in/out:#:_shortname:Data:#:_order:23:#:_plan_type:7:#:_limit_type:1:#:_limit:500:#:_billmode:1/1:#:_billday:0:#:_billperiod:12:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:36:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:27:#:_plan_name:MMS in:#:_shortname:MMSIn:#:_order:17:#:_plan_type:6:#:_limit_type:0:#:_limit:0:#:_billday:1287927116450:#:_billperiod:5:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:28:#:_plan_name:MMS out:#:_shortname:MMSOut:#:_order:18:#:_plan_type:6:#:_limit_type:0:#:_limit:0:#:_billday:1287927174859:#:_billperiod:5:#:_cost_per_item:0.25:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0.25:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:30:#:_plan_name:Spacer:#:_shortname:Newplan:#:_order:4:#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billday:1305120110746:#:_billperiod:5:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:-1:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:31:#:_plan_name:Calls to other numbers:#:_shortname:CallsOut:#:_order:8:#:_plan_type:4:#:_limit_type:0:#:_limit:0:#:_billmode:24/4:#:_billday:1305120199434:#:_billperiod:5:#:_cost_per_item:0:#:_cost_per_amount1:0.25:#:_cost_per_amount2:0.25:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0.25:#:_cost_per_amount_in_limit2:0.25:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:32:#:_plan_name:Calls to fav numbers:#:_shortname:CallsOutF:#:_order:7:#:_plan_type:4:#:_limit_type:0:#:_limit:2000:#:_billmode:50/5:#:_billday:1305121005879:#:_billperiod:5:#:_cost_per_item:0:#:_cost_per_amount1:0.12:#:_cost_per_amount2:0.12:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0.12:#:_cost_per_amount_in_limit2:0.12:#:_cost_per_plan:0:#:_mixed_units_call:12:#:_mixed_units_sms:5:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:34:#:_plan_name:SMS to fav numbers:#:_shortname:SMSOutF:#:_order:15:#:_plan_type:5:#:_limit_type:0:#:_limit:0:#:_billday:1305136691241:#:_billperiod:5:#:_cost_per_item:0.05:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0.05:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:35:#:_plan_name:Voicemail:#:_shortname:Voicemail:#:_order:12:#:_plan_type:4:#:_limit_type:0:#:_limit:0:#:_billmode:40/4:#:_billday:1305146200693:#:_billperiod:5:#:_cost_per_item:0:#:_cost_per_amount1:0.15:#:_cost_per_amount2:0.15:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0.15:#:_cost_per_amount_in_limit2:0.15:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:36:#:_plan_name:Data period:#:_shortname:DataPeriod:#:_order:22:#:_plan_type:2:#:_limit_type:0:#:_limit:0:#:_billday:1305068441736:#:_billperiod:5:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:-1:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:37:#:_plan_name:Data:#:_shortname:Newplan:#:_order:21:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billday:1305156039608:#:_billperiod:5:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:-1:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:38:#:_plan_name:Customer care:#:_shortname:CustomerCare:#:_order:13:#:_plan_type:4:#:_limit_type:0:#:_limit:0:#:_billmode:1/1:#:_billday:1305221757669:#:_billperiod:5:#:_cost_per_item:0.2:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0.2:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+rules _id:1:#:_order:0:#:_plan_id:23:#:_rule_name:Data:#:_what:3:#:_roamed:1:#:_direction:2:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:2:#:_order:1:#:_plan_id:16:#:_rule_name:Calls in:#:_what:0:#:_roamed:2:#:_direction:0:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:3:#:_order:5:#:_plan_id:31:#:_rule_name:Calls out:#:_what:0:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,5,:#:_exnumbergroup_id:,7,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:1:#:
+rules _id:4:#:_order:6:#:_plan_id:19:#:_rule_name:SMS in:#:_what:1:#:_roamed:2:#:_direction:0:#:_inhourgroup_id:-1:#:_exhourgroup_id:-1:#:_innumbergroup_id:-1:#:_exnumbergroup_id:-1:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:
+rules _id:5:#:_order:8:#:_plan_id:20:#:_rule_name:SMS out:#:_what:1:#:_roamed:2:#:_direction:1:#:_innumbergroup_id:,5,:#:_exnumbergroup_id:,7,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:7:#:_order:9:#:_plan_id:27:#:_rule_name:MMS In:#:_what:2:#:_roamed:2:#:_direction:0:#:_inhourgroup_id:-1:#:_exhourgroup_id:-1:#:_innumbergroup_id:-1:#:_exnumbergroup_id:-1:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:
+rules _id:8:#:_order:10:#:_plan_id:28:#:_rule_name:MMS Out:#:_what:2:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,5,:#:_exnumbergroup_id:,7,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:9:#:_order:4:#:_plan_id:32:#:_rule_name:Calls out favourite:#:_what:0:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,2,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:1:#:
+rules _id:10:#:_order:7:#:_plan_id:34:#:_rule_name:SMS out favourite:#:_what:1:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,2,:#:_limit_not_reached:0:#:_is_websms:1:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:11:#:_order:3:#:_plan_id:35:#:_rule_name:Voicemail:#:_what:0:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,4,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:1:#:
+rules _id:12:#:_order:2:#:_plan_id:38:#:_rule_name:Customer care:#:_what:0:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,8,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:1:#:
+numbers _id:38:#:_gid:4:#:_number:905:#:
+numbers _id:39:#:_gid:5:#:_number:+441%:#:
+numbers _id:41:#:_gid:5:#:_number:+443%:#:
+numbers _id:42:#:_gid:5:#:_number:+4471%:#:
+numbers _id:43:#:_gid:5:#:_number:+4472%:#:
+numbers _id:44:#:_gid:5:#:_number:+4473%:#:
+numbers _id:45:#:_gid:5:#:_number:+4474%:#:
+numbers _id:46:#:_gid:5:#:_number:+4475%:#:
+numbers _id:47:#:_gid:5:#:_number:+4477%:#:
+numbers _id:48:#:_gid:5:#:_number:+4478%:#:
+numbers _id:49:#:_gid:5:#:_number:+4479%:#:
+numbers _id:52:#:_gid:7:#:_number:+447744%:#:
+numbers _id:53:#:_gid:7:#:_number:+4479112%:#:
+numbers _id:54:#:_gid:7:#:_number:+447755%:#:
+numbers _id:55:#:_gid:7:#:_number:+4479118%:#:
+numbers _id:56:#:_gid:7:#:_number:+4478255%:#:
+numbers _id:57:#:_gid:7:#:_number:+4479245%:#:
+numbers _id:58:#:_gid:7:#:_number:+4478730%:#:
+numbers _id:59:#:_gid:7:#:_number:+4477000%:#:
+numbers _id:60:#:_gid:7:#:_number:+4479246%:#:
+numbers _id:61:#:_gid:7:#:_number:+447892%:#:
+numbers _id:63:#:_gid:7:#:_number:+4479879%:#:
+numbers _id:64:#:_gid:7:#:_number:+4478930%:#:
+numbers _id:65:#:_gid:8:#:_number:4455:#:
+numbers _id:67:#:_gid:5:#:_number:+442%:#:
+numbers _id:73:#:_gid:5:#:_number:075%:#:
+numbers _id:75:#:_gid:5:#:_number:01%:#:
+numbers _id:76:#:_gid:5:#:_number:02%:#:
+numbers _id:77:#:_gid:5:#:_number:03%:#:
+numbers _id:78:#:_gid:5:#:_number:071%:#:
+numbers _id:79:#:_gid:5:#:_number:072%:#:
+numbers _id:80:#:_gid:5:#:_number:073%:#:
+numbers _id:81:#:_gid:5:#:_number:074%:#:
+numbers _id:82:#:_gid:5:#:_number:075%:#:
+numbers _id:83:#:_gid:5:#:_number:077%:#:
+numbers _id:84:#:_gid:5:#:_number:078%:#:
+numbers _id:85:#:_gid:5:#:_number:079%:#:
+numbersgroup _id:1:#:_name:New number group:#:
+numbersgroup _id:2:#:_name:Favourite numbers:#:
+numbersgroup _id:4:#:_name:Voicemail:#:
+numbersgroup _id:5:#:_name:Free credit:#:
+numbersgroup _id:7:#:_name:Free credit exclusions:#:
+numbersgroup _id:8:#:_name:Customer care:#:
