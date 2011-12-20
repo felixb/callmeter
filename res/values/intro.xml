@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2009-2011 Felix Bechstein
+	-->
+	<!--
+		This file is part of Call Meter 3G. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<resources>
+	<string name="intro_">Introducing Call Meter 3G</string>
+	<string name="intro0">With <b>Call Meter 3G</b> you can monitor the usage of your calls, messages and data connections.</string>
+	<string name="intro1">In order to get accurate statistics, it is important to accurately set Call Meter 3G as they will be billed.</string>
+	<string name="intro_simple">Most users need only set their settings in menu <b>Basic settings</b>. Just set the number of inclusive minutes or messages, as well as adjust the cost of calls made, etc..</string>
+	<string name="intro_import">If your billing is more complex, for example because messages and calls are billed as merged units, you can import pre-configured rules. Just select the menu <b>Import rule set</b>.</string>
+	<string name="intro_export">In any case, when everything is set up, you can export your rules to me. Thus, all other users can benefit from your work.</string>
+	<string name="intro_recalc0">The statistics are recalculated after each change to the configuration. This will take some time depending on the number of calls or messages and used phone. It therefore makes sense to adjust all the settings possible in one fell swoop.</string>
+  <string name="intro_recalc1">The process can be greatly accelerated by the setting <b>Beginning of recording</b> or <b>Delete logs older than</b>.</string>
+	<string name="intro_data">Please note that no data statistics from before the last launch of the phone can be displayed.</string>
+	<string name="intro_kill">Please note that <b>killing</b> the app can lead to corrupted (data) statistics.</string>
+</resources>

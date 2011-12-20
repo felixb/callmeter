@@ -18,11 +18,9 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=cs&file=notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=de&file=notes.xml to edit the file.
        -->
 <resources>
-  <string-array name="notes_from_dev" username="flx &lt;f+translator@ub0r.de&gt;">
-    <item>Prosinec 2010 Mějte na paměti: Data z období před instalací této aplikace nemohou být načtena!</item>
-    <item>Prosinec 2010 Mějte na paměti: Ukončení této aplikace může mít za následek nesprávné statistiky.</item>
+  <string-array name="notes_from_dev">
   </string-array>
 </resources>

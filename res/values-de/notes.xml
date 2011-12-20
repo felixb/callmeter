@@ -22,7 +22,5 @@
        -->
 <resources>
   <string-array name="notes_from_dev">
-    <item>Dez. 2010 Denk dran: Traffic Statistiken von vor der Installation kann diese App nicht lesen.</item>
-    <item>Dez. 2010 Denk dran: Das Killen dieser App kann zu falschen Traffic Statistiken führen.</item>
   </string-array>
 </resources>

@@ -18,11 +18,9 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=it&file=notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=de&file=notes.xml to edit the file.
        -->
 <resources>
-  <string-array name="notes_from_dev" username="fireb33">
-    <item>Le statistiche sul traffico dati effettuato prima dell\'installazione di questa applicazione non possono essere recuperate!</item>
-    <item>Forzare la chiusura dell\'applicazione potrebbe causare un calcolo errato del traffico dati.</item>
+  <string-array name="notes_from_dev">
   </string-array>
 </resources>

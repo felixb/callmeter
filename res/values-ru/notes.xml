@@ -18,11 +18,9 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=ru&file=notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=de&file=notes.xml to edit the file.
        -->
 <resources>
-  <string-array name="notes_from_dev" username="flx &lt;f+translator@ub0r.de&gt;">
-    <item>Декабрь 2010 Имейте в виду: прошлое статистические данные не могут быть доставлены с Перед началом установки этого приложения!</item>
-    <item>Декабрь 2010 Имейте в виду: Удаление это приложения может привести к неправильным данным статистики.</item>
+  <string-array name="notes_from_dev">
   </string-array>
 </resources>

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein
+ * Copyright (C) 2009-2011 Felix Bechstein
  * 
  * This file is part of CallMeter 3G.
  * 
@@ -21,16 +21,19 @@ package de.ub0r.android.callmeter.ui;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.Utils;
 
 /**
- * Display About {@link FragmentActivity}.
+ * Display Help {@link FragmentActivity}.
  * 
  * @author flx
  */
-public final class About extends FragmentActivity {
+public final class IntroActivity extends FragmentActivity // .
+		implements OnClickListener {
 	/**
 	 * {@inheritDoc}
 	 */
@@ -39,10 +42,24 @@ public final class About extends FragmentActivity {
 		this.setTheme(Preferences.getTheme(this));
 		Utils.setLocale(this);
 		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.about);
-		this.setTitle(this.getString(R.string.about_) + " "
-				+ this.getString(R.string.app_name) + " v"
-				+ this.getString(R.string.app_version));
+		this.setContentView(R.layout.intro);
+		this.setTitle(R.string.intro_);
+		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		this.findViewById(R.id.ok).setOnClickListener(this);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onClick(final View v) {
+		switch (v.getId()) {
+		case R.id.ok:
+			this.finish();
+			break;
+		default:
+			break;
+		}
 	}
 
 	/**

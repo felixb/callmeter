@@ -92,9 +92,11 @@
 		<activity android:name=".ui.prefs.HourGroupEdit"
 			android:configChanges="orientation|keyboardHidden"
 			android:windowSoftInputMode="adjustResize" />
-		<activity android:name=".ui.About"
+		<activity android:name=".ui.AboutActivity"
 			android:windowSoftInputMode="adjustResize" />
-		<activity android:name=".ui.Help"
+		<activity android:name=".ui.HelpActivity"
+			android:windowSoftInputMode="adjustResize" />
+		<activity android:name=".ui.IntroActivity"
 			android:windowSoftInputMode="adjustResize" />
 		<activity android:name="de.ub0r.android.lib.DonationFragmentActivity"
 			android:configChanges="orientation|keyboardHidden"

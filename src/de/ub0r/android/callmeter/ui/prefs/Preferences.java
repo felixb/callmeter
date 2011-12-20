@@ -59,7 +59,7 @@ import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.Device;
-import de.ub0r.android.callmeter.ui.Help;
+import de.ub0r.android.callmeter.ui.HelpActivity;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Market;
 import de.ub0r.android.lib.Utils;
@@ -640,8 +640,15 @@ public final class Preferences extends PreferenceActivity implements
 	private void checkSimplePrefs(final boolean overrideNo) {
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(this);
-		this.findPreference("simple_settings").setEnabled(
-				!overrideNo && p.getBoolean(PREFS_ISDEFAULT, false));
+		boolean enabled = !overrideNo && p.getBoolean(PREFS_ISDEFAULT, false);
+		Preference pr = this.findPreference("simple_settings");
+		pr.setEnabled(enabled);
+		if (enabled) {
+			pr.setSummary(R.string.simple_preferences_hint);
+		} else {
+			pr.setSummary(R.string.simple_preferences_deactivated);
+		}
+
 	}
 
 	/**
@@ -818,7 +825,7 @@ public final class Preferences extends PreferenceActivity implements
 		if (k.equals(PREFS_ADVANCED)) {
 			if (newValue.equals(true)) {
 				Preferences.this.startActivity(new Intent(Preferences.this,
-						Help.class));
+						HelpActivity.class));
 			}
 			return true;
 		} else if (k.equals(PREFS_PREPAID)) {

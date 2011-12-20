@@ -460,6 +460,7 @@
   </string-array>
   <string name="simple_preferences_" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Simple preferences">Einfache Einstellungen</string>
   <string name="simple_preferences_hint" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Sehr einfache Einstellungen, ausreichend für die meisten Nutzer. Nur verfügbar, wenn der standard Regelsatz benutzt wird.</string>
+  <string name="simple_preferences_deactivated"  formatted="false" username="flx &lt;f+translation@ub0r.de&gt;">Einfache Einstellungen sind nur mit dem standard Regelsatz verfügbar. Importiere den standard Regelsatz um sie wieder verfügbar zu machen.</string>
   <string name="numbergroup_excalls" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Exclude from calls">Von Anrufen ausschließen</string>
   <string name="numbergroup_exsms" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Exclude from SMS">Von SMS ausschließen</string>
   <string name="import_rules_default_" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Import default rule set">Standard Regelsatz importieren</string>

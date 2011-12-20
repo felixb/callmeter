@@ -18,11 +18,9 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=pl&file=notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=de&file=notes.xml to edit the file.
        -->
 <resources>
-  <string-array name="notes_from_dev" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;">
-    <item>Gru. 2010 Pamiętaj: Statystyki z przed instalacji aplikacji nie mogą być użyte.</item>
-    <item>Gru. 2010 Pamiętaj: Zabicie procesu aplikacji może skutkować błędnymi danymi w statystykach.</item>
+  <string-array name="notes_from_dev">
   </string-array>
 </resources>

@@ -394,6 +394,8 @@ public final class Plans extends FragmentActivity implements
 		SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		if (p.getAll().isEmpty()) {
+			// show intro
+			this.startActivity(new Intent(this, IntroActivity.class));
 			// set date of recordings to beginning of last month
 			Calendar c = Calendar.getInstance();
 			c.set(Calendar.DAY_OF_MONTH, 0);

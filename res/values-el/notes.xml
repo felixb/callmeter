@@ -18,11 +18,9 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=el&file=notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=de&file=notes.xml to edit the file.
        -->
 <resources>
-  <string-array name="notes_from_dev" username="flx &lt;f+translator@ub0r.de&gt;">
-    <item>Δεκ. 2010 Να θυμάστε: Τερματισμός αυτής της εφαρμογής μπορεί να οδηγήσει σε λανθασμένα δεδομένα στατιστικών.</item>
-    <item>Δεκ. 2010 Να θυμάστε: Παρελθόντα στατιστικά στοιχεία πριν την εγκατάσταση αυτής της εφαρμογής δεν μπορούν να ληφθούν!</item>
+  <string-array name="notes_from_dev">
   </string-array>
 </resources>
