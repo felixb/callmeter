@@ -277,6 +277,8 @@
 	<string name="export_cancel_hint" formatted="false">Um auf die SD Karte zu exportieren einfach den Mailclient abbrechen.</string>
   <string name="export_rules_" formatted="false">Exportiere Regelwerk</string>
   <string name="export_rules_hint" formatted="false">Exportiere Regelwerk als Mail.</string>
+	<string name="export_rules_dev_" formatted="false">Exportiere Regelwerk zum Entwickler</string>
+	<string name="export_rules_dev_hint" formatted="false">Exportiere Regelwerk damit andere es importieren können.</string>
   <string name="export_rules_descr" formatted="false">Beschreibung</string>
   <string name="export_logs_" formatted="false">Logs sichern</string>
   <string name="export_logs_hint" formatted="false">Logs als Mail sichern.</string>
