@@ -26,6 +26,6 @@
 	<string name="intro_export">In any case, when everything is set up, you can export your rules to me. Thus, all other users can benefit from your work.</string>
 	<string name="intro_recalc0">The statistics are recalculated after each change to the configuration. This will take some time depending on the number of calls or messages and used phone. It therefore makes sense to adjust all the settings possible in one fell swoop.</string>
   <string name="intro_recalc1">The process can be greatly accelerated by the setting <b>Beginning of recording</b> or <b>Delete logs older than</b>.</string>
-	<string name="intro_data">Please note that no data statistics from before the last launch of the phone can be displayed.</string>
+	<string name="intro_data">Please note that no data statistics from before the last phone boot can be displayed.</string>
 	<string name="intro_kill">Please note that <b>killing</b> the app can lead to corrupted (data) statistics.</string>
 </resources>
