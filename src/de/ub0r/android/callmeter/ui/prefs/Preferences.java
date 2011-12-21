@@ -53,6 +53,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.Toast;
 import de.ub0r.android.callmeter.CallMeter;
@@ -445,8 +446,11 @@ public final class Preferences extends PreferenceActivity implements
 	 *            description of the exported rule set
 	 * @param fn
 	 *            one of the predefined file names from {@link DataProvider}.
+	 * @param recipient
+	 *            recipient of export
 	 */
-	private void exportData(final String descr, final String fn) {
+	private void exportData(final String descr, final String fn,
+			final String recipient) {
 		if (descr == null) {
 			final EditText et = new EditText(this);
 			Builder builder = new Builder(this);
@@ -460,7 +464,7 @@ public final class Preferences extends PreferenceActivity implements
 						public void onClick(final DialogInterface dialog,
 								final int which) {
 							Preferences.this.exportData(
-									et.getText().toString(), fn);
+									et.getText().toString(), fn, recipient);
 						}
 					});
 			builder.show();
@@ -519,6 +523,10 @@ public final class Preferences extends PreferenceActivity implements
 						intent.putExtra(Intent.EXTRA_STREAM, uri);
 						intent.putExtra(Intent.EXTRA_SUBJECT, // .
 								"Call Meter 3G export");
+						if (!TextUtils.isEmpty(recipient)) {
+							intent.putExtra(Intent.EXTRA_EMAIL,
+									new String[] { recipient });
+						}
 						intent.addCategory(Intent.CATEGORY_DEFAULT);
 
 						try {
@@ -593,6 +601,10 @@ public final class Preferences extends PreferenceActivity implements
 			p.setOnPreferenceClickListener(this);
 		}
 		p = this.findPreference("export_rules");
+		if (p != null) {
+			p.setOnPreferenceClickListener(this);
+		}
+		p = this.findPreference("export_rules_dev");
 		if (p != null) {
 			p.setOnPreferenceClickListener(this);
 		}
@@ -864,18 +876,24 @@ public final class Preferences extends PreferenceActivity implements
 			this.resetDataDialog();
 			return true;
 		} else if (k.equals("export_rules")) {
-			Preferences.this.exportData(null, DataProvider.EXPORT_RULESET_FILE);
+			Preferences.this.exportData(null, DataProvider.EXPORT_RULESET_FILE,
+					null);
+			return true;
+		} else if (k.equals("export_rules_dev")) {
+			Preferences.this.exportData(null, DataProvider.EXPORT_RULESET_FILE,
+					"android+callmeter@ub0r.de");
 			return true;
 		} else if (k.equals("export_logs")) {
-			Preferences.this.exportData(null, DataProvider.EXPORT_LOGS_FILE);
+			Preferences.this.exportData(null, DataProvider.EXPORT_LOGS_FILE,
+					null);
 			return true;
 		} else if (k.equals("export_numgroups")) {
 			Preferences.this.exportData(null,
-					DataProvider.EXPORT_NUMGROUPS_FILE);
+					DataProvider.EXPORT_NUMGROUPS_FILE, null);
 			return true;
 		} else if (k.equals("export_hourgroups")) {
 			Preferences.this.exportData(null,
-					DataProvider.EXPORT_HOURGROUPS_FILE);
+					DataProvider.EXPORT_HOURGROUPS_FILE, null);
 			return true;
 		} else if (k.equals("import_rules")) {
 			Preferences.this.startActivity(new Intent(Intent.ACTION_VIEW, Uri
