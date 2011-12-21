@@ -61,6 +61,10 @@
   <string name="appearance_" formatted="false">Darstellung</string>
   <string name="behavior_" formatted="false">Verhalten</string>
   <string name="appearance_and_behavior_" formatted="false">Darstellung &amp; Verhalten</string>
+  <string name="widget_" formatted="false">Widget</string>
+  <string name="widgets_" formatted="false">Widgets</string>
+	<string name="widgets_no_widgets_" formatted="false">Keine Widgets hinzugefügt</string>
+	<string name="widgets_no_widgets_hint" formatted="false">Es wurden noch keine Widgets auf den Launcher hinzugefügt.</string>
   <string name="advanced_preferences_" formatted="false">Erweiterte Einstellungen</string>
   <string name="advanced_preferences_hint" formatted="false">Damit kannst du viel komplexere Abrechnungen abbilden. Die meisten Benutzer werden das nicht brauchen.</string>
   <string name="theme_" formatted="false">Theme</string>

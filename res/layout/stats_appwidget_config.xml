@@ -1,107 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2010-2011 Felix Bechstein
-	-->
-	<!--
+<!-- 		Copyright (C) 2010-2011 Felix Bechstein -->
+<!--
 		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
 		version.
-	-->
-	<!--
+-->
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 		General Public License for more details. You should have received a
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
-	-->
+-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res/de.ub0r.android.callmeter"
-	android:layout_height="fill_parent" android:layout_width="fill_parent">
+    xmlns:app="http://schemas.android.com/apk/res/de.ub0r.android.callmeter"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
-	<LinearLayout android:id="@+id/ok_cancel"
-		android:layout_alignParentBottom="true" android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:orientation="horizontal"
-		android:focusable="true" android:focusableInTouchMode="true"
-		style="@android:style/ButtonBar">
-		<Button android:id="@+id/ok" android:text="@android:string/ok"
-			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:layout_weight="1" />
-		<Button android:id="@+id/cancel" android:text="@android:string/cancel"
-			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:layout_weight="1" />
-	</LinearLayout>
-	<ScrollView android:layout_above="@id/ok_cancel"
-		android:layout_height="fill_parent" android:layout_width="fill_parent">
-		<LinearLayout android:layout_height="wrap_content"
-			android:layout_width="fill_parent" android:padding="10dip"
-			android:orientation="vertical">
-			<TextView android:text="@string/plan_" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" />
-			<Spinner android:id="@+id/spinner" android:layout_width="fill_parent"
-				android:layout_height="wrap_content" />
-			<CheckBox android:id="@+id/hide_name" android:text="@string/hide_name_"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:singleLine="false" />
-			<CheckBox android:id="@+id/shortname" android:text="@string/show_shortname_"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:singleLine="false" />
-			<CheckBox android:id="@+id/cost" android:text="@string/show_cost_"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:singleLine="false" />
-			<CheckBox android:id="@+id/pbillp" android:text="@string/show_billperiod_"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:singleLine="false" />
-			<CheckBox android:singleLine="false" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:text="@string/show_icon_"
-				android:id="@+id/show_icon" />
-			<CheckBox android:singleLine="false" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:text="@string/small_widget_"
-				android:id="@+id/small_widget" />
-			<TextView android:text="@string/widget_plan_textsize"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceLarge" />
-			<EditText android:id="@+id/widget_plan_textsize"
-				android:text="10" android:layout_width="match_parent"
-				android:layout_height="wrap_content" android:singleLine="true" />
-			<TextView android:text="@string/widget_cost_textsize"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceLarge"
-				android:inputType="number" />
-			<EditText android:id="@+id/widget_stats_textsize"
-				android:text="10" android:layout_width="match_parent"
-				android:layout_height="wrap_content" android:singleLine="true"
-				android:inputType="number" />
-			<TextView android:text="@string/widget_text_color_"
-				android:layout_width="match_parent" android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceLarge" />
-			<LinearLayout android:layout_width="match_parent"
-				android:layout_height="wrap_content">
-				<Button android:id="@+id/textcolor" android:text="#FFFFFFFF"
-					android:layout_width="match_parent" android:layout_height="wrap_content"
-					android:layout_weight="1" />
-				<View android:id="@+id/textcolorfield" android:layout_width="40dip"
-					android:layout_height="match_parent" android:background="#FFFFFFFF" />
-			</LinearLayout>
-			<TextView android:text="@string/widget_backgroud_color_"
-				android:layout_width="match_parent" android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceLarge" />
-			<LinearLayout android:layout_width="match_parent"
-				android:layout_height="wrap_content">
-				<Button android:id="@+id/bgcolor" android:text="#FF000000"
-					android:layout_width="match_parent" android:layout_height="wrap_content"
-					android:layout_weight="1" />
-				<View android:id="@+id/bgcolorfield" android:layout_width="40dip"
-					android:layout_height="match_parent" android:background="#FF000000" />
-			</LinearLayout>
-			<TextView android:text="@string/widget_backgroud_transparency_"
-				android:layout_width="match_parent" android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceLarge" />
-			<SeekBar android:id="@+id/bgtransparency"
-				android:layout_width="match_parent" android:layout_height="wrap_content"
-				android:progress="128" android:max="255" />
-		</LinearLayout>
-	</ScrollView>
+    <LinearLayout
+        android:id="@+id/ok_cancel"
+        style="@android:style/ButtonBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/ok"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/ok" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/cancel" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/ok_cancel" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/plan_"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
+                android:id="@+id/hide_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:text="@string/hide_name_" />
+
+            <CheckBox
+                android:id="@+id/shortname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:text="@string/show_shortname_" />
+
+            <CheckBox
+                android:id="@+id/cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:text="@string/show_cost_" />
+
+            <CheckBox
+                android:id="@+id/pbillp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:text="@string/show_billperiod_" />
+
+            <CheckBox
+                android:id="@+id/show_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:text="@string/show_icon_" />
+
+            <CheckBox
+                android:id="@+id/small_widget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:text="@string/small_widget_" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/widget_plan_textsize"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/widget_plan_textsize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/textsize_hint"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:text="@string/widget_cost_textsize"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/widget_stats_textsize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/textsize_hint"
+                android:inputType="number"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/widget_text_color_"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/textcolor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="#FFFFFFFF" />
+
+                <View
+                    android:id="@+id/textcolorfield"
+                    android:layout_width="40dip"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFFFF" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/widget_backgroud_color_"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/bgcolor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="#FF000000" />
+
+                <View
+                    android:id="@+id/bgcolorfield"
+                    android:layout_width="40dip"
+                    android:layout_height="match_parent"
+                    android:background="#FF000000" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/widget_backgroud_transparency_"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <SeekBar
+                android:id="@+id/bgtransparency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="255"
+                android:progress="128" />
+        </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>
