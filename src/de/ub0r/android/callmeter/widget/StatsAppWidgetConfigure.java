@@ -140,8 +140,7 @@ public final class StatsAppWidgetConfigure extends Activity implements
 	private void setAdapter() {
 		final Cursor c = this.getContentResolver().query(
 				DataProvider.Plans.CONTENT_URI, PROJ_ADAPTER,
-				DataProvider.Plans.WHERE_REALPLANS, null,
-				DataProvider.Plans.NAME);
+				DataProvider.Plans.WHERE_PLANS, null, DataProvider.Plans.NAME);
 		String[] fieldName;
 		if (this.cbShowShortname.isChecked()) {
 			fieldName = new String[] { DataProvider.Plans.SHORTNAME };

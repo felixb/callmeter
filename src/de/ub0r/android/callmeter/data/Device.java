@@ -61,6 +61,8 @@ public abstract class Device {
 				instance = new FroyoDevice();
 			} else if (Build.DEVICE.startsWith("GT-")) {
 				instance = new SamsungDevice();
+				// } else if (Build.DEVICE.equals("dream")) {
+				// instance = new DebugDevice();
 			} else {
 				instance = new DiscoverableDevice();
 			}
@@ -339,6 +341,85 @@ final class EmulatorDevice extends Device {
 	private final String mCell = "eth0";
 	/** My wifi interface. */
 	private final String mWiFi = "eth0";
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected String getCell() {
+		Log.d(TAG, "Cell interface: " + this.mCell);
+		return this.mCell;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected String getWiFi() {
+		Log.d(TAG, "WiFi interface: " + this.mCell);
+		return this.mWiFi;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getCellRxBytes() throws IOException {
+		String dev = this.getCell();
+		if (dev == null) {
+			return 0L;
+		}
+		return SysClassNet.getRxBytes(dev);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getCellTxBytes() throws IOException {
+		String dev = this.getCell();
+		if (dev == null) {
+			return 0L;
+		}
+		return SysClassNet.getTxBytes(dev);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getWiFiRxBytes() throws IOException {
+		String dev = this.getWiFi();
+		if (dev == null) {
+			return 0L;
+		}
+		return SysClassNet.getRxBytes(dev);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getWiFiTxBytes() throws IOException {
+		String dev = this.getWiFi();
+		if (dev == null) {
+			return 0L;
+		}
+		return SysClassNet.getTxBytes(dev);
+	}
+}
+
+/**
+ * Emulator Device showing all traffic on cell and wifi.
+ */
+final class DebugDevice extends Device {
+	/** Tag for output. */
+	private static final String TAG = "DebugDevice";
+
+	/** My cell interface. */
+	private final String mCell = "tiwlan0";
+	/** My wifi interface. */
+	private final String mWiFi = "tiwlan0";
 
 	/**
 	 * {@inheritDoc}

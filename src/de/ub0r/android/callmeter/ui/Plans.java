@@ -52,6 +52,7 @@ import de.ub0r.android.callmeter.Ads;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerReceiver;
+import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.ChangelogHelper;
 import de.ub0r.android.lib.DonationHelper;
@@ -438,7 +439,8 @@ public final class Plans extends FragmentActivity implements
 
 		// schedule next update
 		LogRunnerReceiver.schedNext(this, DELAY_LOGRUNNER,
-				LogRunnerReceiver.ACTION_FORCE_UPDATE);
+				LogRunnerService.ACTION_RUN_MATCHER);
+		LogRunnerReceiver.schedNext(this, LogRunnerService.ACTION_SHORT_RUN);
 		if (!prefsNoAds) {
 			Ads.loadAd(this, R.id.ad, AD_UNITID, AD_KEYWORDS);
 		} else {

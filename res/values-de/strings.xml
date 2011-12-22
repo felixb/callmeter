@@ -40,6 +40,8 @@
   <string name="settings" formatted="false">Einstellungen</string>
   <string name="update_interval_" formatted="false">Update Intervall</string>
   <string name="update_interval_hint" formatted="false">Eine kürzere Periode verbraucht mehr Akku.</string>
+  <string name="update_interval_data_">Update Intervall (Daten)</string>
+  <string name="update_interval_data_hint">Die Datenstatistik muss öfter aktualisiert werden. Insb. Samsung braucht hier sehr kurze Intervalle.</string>
   <string name="date_begin_" formatted="false">Start der Aufzeichnungen</string>
   <string name="date_begin_hint" formatted="false">Ignoriere alle Logs vor diesem Datum.</string>
   <string name="delete_old_logs_" formatted="false">Logs älter als .. löschen</string>
@@ -462,6 +464,16 @@
     <item>30 Minuten</item>
     <item>Eine Stunde</item>
     <item>Zwei Stunden</item>
+    <item>Nur manuell</item>
+  </string-array>
+  <string-array name="update_interval_data">
+    <item>0,5 Minuten</item>
+    <item>1 Minute</item>
+    <item>2 Minuten</item>
+    <item>5 Minuten</item>
+    <item>15 Minuten</item>
+    <item>30 Minuten</item>
+    <item>Eine Stunde</item>
     <item>Nur manuell</item>
   </string-array>
   <string name="simple_preferences_" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Simple preferences">Einfache Einstellungen</string>

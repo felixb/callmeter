@@ -37,6 +37,8 @@
 	<string name="settings">Preferences</string>
 	<string name="update_interval_">Update interval</string>
 	<string name="update_interval_hint">Shorter period will use more battery.</string>
+	<string name="update_interval_data_">Update interval (data)</string>
+	<string name="update_interval_data_hint">Update data stats needs to be done more often. Esp. Samsung needs very short intervals.</string>
 	<string name="date_begin_">Beginning of records</string>
 	<string name="date_begin_hint">Ignore any logs before this date.</string>
 	<string name="delete_old_logs_">Delete logs older than</string>
@@ -466,6 +468,16 @@
 		<item>30 minutes</item>
 		<item>One hour</item>
 		<item>Two hours</item>
+		<item>Manually only</item>
+	</string-array>
+	<string-array name="update_interval_data">
+		<item>0.5 minutes</item>
+		<item>1 minute</item>
+		<item>2 minutes</item>
+		<item>5 minutes</item>
+		<item>15 minutes</item>
+		<item>30 minutes</item>
+		<item>One hour</item>
 		<item>Manually only</item>
 	</string-array>
 </resources>
