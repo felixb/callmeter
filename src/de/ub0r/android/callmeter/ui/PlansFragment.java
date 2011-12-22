@@ -50,7 +50,6 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.CursorAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -690,7 +689,7 @@ public final class PlansFragment extends ListFragment implements
 	public void onLoaderReset(final Loader<Cursor> loader) {
 		Log.d(TAG, "onLoaderReset()");
 		try {
-			((CursorAdapter) this.getListAdapter()).swapCursor(null);
+			((ResourceCursorAdapter) this.getListAdapter()).swapCursor(null);
 		} catch (Exception e) {
 			Log.w(TAG, "error removing cursor", e);
 		}

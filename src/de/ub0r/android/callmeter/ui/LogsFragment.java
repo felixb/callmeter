@@ -46,7 +46,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.CursorAdapter;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 import de.ub0r.android.callmeter.R;
@@ -462,7 +461,7 @@ public final class LogsFragment extends ListFragment implements
 	public void onLoaderReset(final Loader<Cursor> loader) {
 		Log.d(TAG, "onLoaderReset()");
 		try {
-			((CursorAdapter) this.getListAdapter()).swapCursor(null);
+			((ResourceCursorAdapter) this.getListAdapter()).swapCursor(null);
 		} catch (Exception e) {
 			Log.w(TAG, "error removing cursor", e);
 		}
