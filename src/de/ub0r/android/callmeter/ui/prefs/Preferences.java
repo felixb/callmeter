@@ -36,7 +36,9 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
+import android.appwidget.AppWidgetManager;
 import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -53,6 +55,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -61,6 +64,8 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.Device;
 import de.ub0r.android.callmeter.ui.HelpActivity;
+import de.ub0r.android.callmeter.widget.StatsAppWidgetConfigure;
+import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Market;
 import de.ub0r.android.lib.Utils;
@@ -627,6 +632,39 @@ public final class Preferences extends PreferenceActivity implements
 		p = this.findPreference("import_rules_default");
 		if (p != null) {
 			p.setOnPreferenceClickListener(this);
+		}
+
+		p = this.findPreference("widgets");
+		if (p != null && p instanceof PreferenceScreen) {
+			PreferenceScreen ps = (PreferenceScreen) p;
+			int[] ids = AppWidgetManager.getInstance(this).getAppWidgetIds(
+					new ComponentName(this, StatsAppWidgetProvider.class));
+			if (ids == null || ids.length == 0) {
+				p = new Preference(this);
+				p.setTitle(R.string.widgets_no_widgets_);
+				p.setSummary(R.string.widgets_no_widgets_hint);
+				ps.addPreference(p);
+			} else {
+				for (int id : ids) {
+					p = new Preference(this);
+					p.setTitle(this.getString(R.string.widget_) + " #" + id);
+					final int fid = id;
+					p.setOnPreferenceClickListener(// .
+					new OnPreferenceClickListener() {
+						@Override
+						public boolean onPreferenceClick(
+								final Preference preference) {
+							Intent i = new Intent(Preferences.this,
+									StatsAppWidgetConfigure.class);
+							i.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, // .
+									fid);
+							Preferences.this.startActivity(i);
+							return true;
+						}
+					});
+					ps.addPreference(p);
+				}
+			}
 		}
 
 		this.onNewIntent(this.getIntent());

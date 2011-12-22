@@ -1,227 +1,363 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2009-2011 Felix Bechstein
-	-->
-	<!--
+<!-- 		Copyright (C) 2009-2011 Felix Bechstein -->
+<!--
 		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
 		version.
-	-->
-	<!--
+-->
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 		General Public License for more details. You should have received a
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
-	-->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-	<PreferenceCategory android:title="@string/appearance_and_behavior_">
-		<PreferenceScreen android:title="@string/appearance_">
-			<ListPreference android:title="@string/theme_"
-				android:key="theme" android:entries="@array/themes"
-				android:entryValues="@array/themes_values" />
-			<PreferenceScreen android:title="@string/textsize_">
-				<EditTextPreference android:title="@string/textsize_"
-					android:key="textsize" android:summary="@string/textsize_hint"
-					android:inputType="number" />
-				<EditTextPreference android:title="@string/textsize_bigtitle_"
-					android:key="textsize_bigtitle" android:summary="@string/textsize_bigtitle_hint"
-					android:inputType="number" />
-				<EditTextPreference android:title="@string/textsize_title_"
-					android:key="textsize_title" android:summary="@string/textsize_title_hint"
-					android:inputType="number" />
-				<EditTextPreference android:title="@string/textsize_spacer_"
-					android:key="textsize_spacer" android:summary="@string/textsize_spacer_hint"
-					android:inputType="number" />
-				<EditTextPreference android:title="@string/textsize_pbar_"
-					android:key="textsize_pbar" android:summary="@string/textsize_pbar_hint"
-					android:inputType="number" />
-				<EditTextPreference android:title="@string/textsize_pbarbp_"
-					android:key="textsize_pbarbp" android:summary="@string/textsize_pbarbp_hint"
-					android:inputType="number" />
-			</PreferenceScreen>
-			<CheckBoxPreference android:key="hide_zero"
-				android:title="@string/hide_zero_" android:summary="@string/hide_zero_hint" />
-			<CheckBoxPreference android:key="hide_nocost"
-				android:title="@string/hide_nocost_" android:summary="@string/hide_nocost_hint" />
-			<CheckBoxPreference android:key="show_today"
-				android:title="@string/show_today_" android:summary="@string/show_today_hint" />
-			<CheckBoxPreference android:key="show_total"
-				android:title="@string/show_total_" android:summary="@string/show_total_hint"
-				android:defaultValue="true" />
-			<CheckBoxPreference android:key="show_hours"
-				android:defaultValue="true" android:title="@string/show_hours_"
-				android:summary="@string/show_hours_hint" />
-			<CheckBoxPreference android:key="hide_progressbars"
-				android:title="@string/hide_progressbars_" android:summary="@string/hide_progressbars_hint" />
-			<CheckBoxPreference android:key="show_help"
-				android:defaultValue="true" android:title="@string/show_help_"
-				android:summary="@string/show_help_hint" />
-			<EditTextPreference android:key="custom_delimiter"
-				android:title="@string/custom_delimiter_" android:summary="@string/custom_delimiter_hint"
-				android:defaultValue=" | " />
-			<EditTextPreference android:key="currency_symbol"
-				android:title="@string/custom_currency_symbol_" android:summary="@string/custom_currency_symbol_hint" />
-			<ListPreference android:key="currency_format"
-				android:title="@string/custom_currency_format_" android:entries="@array/currency_formats"
-				android:entryValues="@array/currency_formats_values"
-				android:summary="@string/custom_currency_format_hint" />
-			<ListPreference android:key="date_format"
-				android:title="@string/custom_date_format_" android:entries="@array/date_formats"
-				android:entryValues="@array/date_formats_values" android:summary="@string/custom_date_format_hint" />
-			<ListPreference android:key="morelocale"
-				android:title="@string/custom_language_" android:summary="@string/custom_language_hint"
-				android:entries="@array/lang_" android:entryValues="@array/lang_values" />
-			<CheckBoxPreference android:key="show_callinfo"
-				android:title="@string/show_calllength_" android:summary="@string/show_calllength_" />
-		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/behavior_">
-			<PreferenceScreen android:title="@string/alerts_"
-				android:summary="@string/alerts_hint">
-				<CheckBoxPreference android:key="alert_80"
-					android:title="@string/alerts_80_" android:summary="@string/alerts_80_hint"
-					android:defaultValue="true" />
-				<CheckBoxPreference android:key="alert_100"
-					android:title="@string/alerts_100_" android:summary="@string/alerts_100_hint"
-					android:defaultValue="true" />
-			</PreferenceScreen>
-			<CheckBoxPreference android:key="split_at_160"
-				android:title="@string/split_sms_at_160_" android:summary="@string/split_sms_at_160_hint" />
-			<ListPreference android:key="update_interval"
-				android:title="@string/update_interval_" android:summary="@string/update_interval_hint"
-				android:entries="@array/update_interval" android:entryValues="@array/update_interval_values"
-				android:defaultValue="60" />
-			<DatePreference android:key="date_begin"
-				android:title="@string/date_begin_" android:summary="@string/date_begin_hint" />
-			<EditTextPreference android:key="delete_old_logs"
-				android:title="@string/delete_old_logs_" android:summary="@string/delete_old_logs_help"
-				android:defaultValue="90" android:inputType="number" />
-			<CheckBoxPreference android:key="strip_leading_zeros"
-				android:title="@string/strip_leading_zeros_" android:summary="@string/strip_leading_zeros_hint" />
-			<EditTextPreference android:key="intPrefix"
-				android:title="@string/number_prefix_" android:summary="@string/number_prefix_hint"
-				android:inputType="phone" />
-			<PreferenceScreen android:title="@string/ask_for_plan_">
-				<CheckBoxPreference android:key="ask_for_plan"
-					android:title="@string/ask_for_plan_" android:summary="@string/ask_for_plan_hint" />
-				<EditTextPreference android:key="autohide"
-					android:title="@string/autohide_" android:summary="@string/autohide_hint"
-					android:inputType="number" />
-			</PreferenceScreen>
-		</PreferenceScreen>
-	</PreferenceCategory>
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-	<PreferenceCategory android:title="@string/billing_">
-		<PreferenceScreen android:key="simple_settings"
-			android:title="@string/simple_preferences_" android:summary="@string/simple_preferences_hint">
-			<intent android:action="android.intent.action.MAIN"
-				android:targetPackage="de.ub0r.android.callmeter"
-				android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferences" />
-		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/advanced_preferences_">
-			<CheckBoxPreference android:key="prepaid"
-				android:title="@string/prepaid_" android:summary="@string/prepaid_hint" />
-			<CheckBoxPreference android:key="advanced_preferences"
-				android:title="@string/advanced_preferences_" android:summary="@string/advanced_preferences_hint" />
-			<PreferenceScreen android:title="@string/plans"
-				android:summary="@string/plans_hint">
-				<intent android:action="android.intent.action.MAIN"
-					android:targetPackage="de.ub0r.android.callmeter"
-					android:targetClass="de.ub0r.android.callmeter.ui.prefs.Plans" />
-			</PreferenceScreen>
-			<PreferenceScreen android:title="@string/rules"
-				android:summary="@string/rules_hint" android:dependency="advanced_preferences">
-				<intent android:action="android.intent.action.MAIN"
-					android:targetPackage="de.ub0r.android.callmeter"
-					android:targetClass="de.ub0r.android.callmeter.ui.prefs.Rules" />
-			</PreferenceScreen>
-			<PreferenceScreen android:title="@string/numbergroups_edit_"
-				android:summary="@string/numbergroups_edit_hint">
-				<intent android:action="android.intent.action.MAIN"
-					android:targetPackage="de.ub0r.android.callmeter"
-					android:targetClass="de.ub0r.android.callmeter.ui.prefs.NumberGroups" />
-			</PreferenceScreen>
-			<PreferenceScreen android:title="@string/hourgroups_edit_"
-				android:summary="@string/hourgroups_edit_hint">
-				<intent android:action="android.intent.action.MAIN"
-					android:targetPackage="de.ub0r.android.callmeter"
-					android:targetClass="de.ub0r.android.callmeter.ui.prefs.HourGroups" />
-			</PreferenceScreen>
-		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/help_">
-			<intent android:action="android.intent.action.MAIN"
-				android:targetPackage="de.ub0r.android.callmeter"
-				android:targetClass="de.ub0r.android.callmeter.ui.HelpActivity" />
-		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/import_rules_"
-			android:summary="@string/import_rules_hint">
-			<PreferenceScreen android:key="import_rules"
-				android:title="@string/import_rules_" android:summary="@string/import_rules_www_hint" />
-			<PreferenceScreen android:key="import_rules_sd"
-				android:title="@string/import_rules_sd_" android:summary="@string/import_rules_sd_hint">
-				<intent android:action="android.intent.action.MAIN"
-					android:targetPackage="de.ub0r.android.callmeter"
-					android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesImport" />
-			</PreferenceScreen>
-			<PreferenceScreen android:key="import_rules_default"
-				android:title="@string/import_rules_default_" android:summary="@string/import_rules_default_hint" />
-		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/export_"
-			android:summary="@string/export_hint">
-			<Preference android:title="@string/export_cancel" android:summary="@string/export_cancel_hint"
-			  android:enabled="false" />
-			<PreferenceScreen android:key="export_rules_dev"
-				android:title="@string/export_rules_dev_" android:summary="@string/export_rules_dev_hint" />
-			<PreferenceScreen android:key="export_rules"
-				android:title="@string/export_rules_" android:summary="@string/export_rules_hint" />
-			<PreferenceScreen android:key="export_logs"
-				android:title="@string/export_logs_" android:summary="@string/export_logs_hint" />
-			<PreferenceScreen android:key="export_numgroups"
-				android:title="@string/export_numgroups_" android:summary="@string/export_numgroups_hint" />
-			<PreferenceScreen android:key="export_hourgroups"
-				android:title="@string/export_hourgroups_" android:summary="@string/export_hourgroups_hint" />
-		</PreferenceScreen>
-	</PreferenceCategory>
-	<PreferenceCategory android:title="@string/about_">
-		<PreferenceScreen android:title="@string/about_"
-			android:summary="@string/about_hint">
-			<intent android:action="android.intent.action.MAIN"
-				android:targetPackage="de.ub0r.android.callmeter"
-				android:targetClass="de.ub0r.android.callmeter.ui.AboutActivity" />
-		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/faq_"
-			android:summary="@string/faq_hint">
-			<intent android:action="android.intent.action.VIEW"
-				android:data="http://code.google.com/p/callmeter/wiki/FAQCM3" />
-		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/feedback_"
-			android:summary="@string/feedback_hint">
-			<intent android:action="android.intent.action.VIEW"
-				android:data="http://code.google.com/p/callmeter/issues/list" />
-		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/google_plus_"
-			android:summary="@string/google_plus_hint">
-			<intent android:action="android.intent.action.VIEW"
-				android:data="https://plus.google.com/111111876192965636971" />
-		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/twitter_"
-			android:summary="@string/twitter_hint">
-			<intent android:action="android.intent.action.VIEW"
-				android:data="http://twitter.com/flx_b" />
-		</PreferenceScreen>
-		<PreferenceScreen android:key="more_apps"
-			android:title="@string/more_" />
-	</PreferenceCategory>
+    <PreferenceCategory android:title="@string/appearance_and_behavior_" >
+        <PreferenceScreen android:title="@string/appearance_" >
+            <ListPreference
+                android:entries="@array/themes"
+                android:entryValues="@array/themes_values"
+                android:key="theme"
+                android:title="@string/theme_" />
 
-	<PreferenceCategory android:title="@string/debug_">
-		<PreferenceScreen android:key="reset_data"
-			android:title="@string/reset_data_" android:summary="@string/reset_data_hint" />
-		<PreferenceScreen android:key="send_logs"
-			android:title="@string/send_logs_" android:summary="@string/send_logs_hint" />
-		<PreferenceScreen android:key="send_devices"
-			android:title="@string/send_devices_" android:summary="@string/send_devices_hint" />
-	</PreferenceCategory>
+            <PreferenceScreen android:title="@string/textsize_" >
+                <EditTextPreference
+                    android:inputType="number"
+                    android:key="textsize"
+                    android:summary="@string/textsize_hint"
+                    android:title="@string/textsize_" />
+                <EditTextPreference
+                    android:inputType="number"
+                    android:key="textsize_bigtitle"
+                    android:summary="@string/textsize_bigtitle_hint"
+                    android:title="@string/textsize_bigtitle_" />
+                <EditTextPreference
+                    android:inputType="number"
+                    android:key="textsize_title"
+                    android:summary="@string/textsize_title_hint"
+                    android:title="@string/textsize_title_" />
+                <EditTextPreference
+                    android:inputType="number"
+                    android:key="textsize_spacer"
+                    android:summary="@string/textsize_spacer_hint"
+                    android:title="@string/textsize_spacer_" />
+                <EditTextPreference
+                    android:inputType="number"
+                    android:key="textsize_pbar"
+                    android:summary="@string/textsize_pbar_hint"
+                    android:title="@string/textsize_pbar_" />
+                <EditTextPreference
+                    android:inputType="number"
+                    android:key="textsize_pbarbp"
+                    android:summary="@string/textsize_pbarbp_hint"
+                    android:title="@string/textsize_pbarbp_" />
+            </PreferenceScreen>
+
+            <CheckBoxPreference
+                android:key="hide_zero"
+                android:summary="@string/hide_zero_hint"
+                android:title="@string/hide_zero_" />
+            <CheckBoxPreference
+                android:key="hide_nocost"
+                android:summary="@string/hide_nocost_hint"
+                android:title="@string/hide_nocost_" />
+            <CheckBoxPreference
+                android:key="show_today"
+                android:summary="@string/show_today_hint"
+                android:title="@string/show_today_" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="show_total"
+                android:summary="@string/show_total_hint"
+                android:title="@string/show_total_" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="show_hours"
+                android:summary="@string/show_hours_hint"
+                android:title="@string/show_hours_" />
+            <CheckBoxPreference
+                android:key="hide_progressbars"
+                android:summary="@string/hide_progressbars_hint"
+                android:title="@string/hide_progressbars_" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="show_help"
+                android:summary="@string/show_help_hint"
+                android:title="@string/show_help_" />
+
+            <EditTextPreference
+                android:defaultValue=" | "
+                android:key="custom_delimiter"
+                android:summary="@string/custom_delimiter_hint"
+                android:title="@string/custom_delimiter_" />
+            <EditTextPreference
+                android:key="currency_symbol"
+                android:summary="@string/custom_currency_symbol_hint"
+                android:title="@string/custom_currency_symbol_" />
+
+            <ListPreference
+                android:entries="@array/currency_formats"
+                android:entryValues="@array/currency_formats_values"
+                android:key="currency_format"
+                android:summary="@string/custom_currency_format_hint"
+                android:title="@string/custom_currency_format_" />
+            <ListPreference
+                android:entries="@array/date_formats"
+                android:entryValues="@array/date_formats_values"
+                android:key="date_format"
+                android:summary="@string/custom_date_format_hint"
+                android:title="@string/custom_date_format_" />
+            <ListPreference
+                android:entries="@array/lang_"
+                android:entryValues="@array/lang_values"
+                android:key="morelocale"
+                android:summary="@string/custom_language_hint"
+                android:title="@string/custom_language_" />
+
+            <CheckBoxPreference
+                android:key="show_callinfo"
+                android:summary="@string/show_calllength_"
+                android:title="@string/show_calllength_" />
+        </PreferenceScreen>
+        <PreferenceScreen android:title="@string/behavior_" >
+            <PreferenceScreen
+                android:summary="@string/alerts_hint"
+                android:title="@string/alerts_" >
+                <CheckBoxPreference
+                    android:defaultValue="true"
+                    android:key="alert_80"
+                    android:summary="@string/alerts_80_hint"
+                    android:title="@string/alerts_80_" />
+                <CheckBoxPreference
+                    android:defaultValue="true"
+                    android:key="alert_100"
+                    android:summary="@string/alerts_100_hint"
+                    android:title="@string/alerts_100_" />
+            </PreferenceScreen>
+
+            <CheckBoxPreference
+                android:key="split_at_160"
+                android:summary="@string/split_sms_at_160_hint"
+                android:title="@string/split_sms_at_160_" />
+
+            <ListPreference
+                android:defaultValue="60"
+                android:entries="@array/update_interval"
+                android:entryValues="@array/update_interval_values"
+                android:key="update_interval"
+                android:summary="@string/update_interval_hint"
+                android:title="@string/update_interval_" />
+
+            <DatePreference
+                android:key="date_begin"
+                android:summary="@string/date_begin_hint"
+                android:title="@string/date_begin_" />
+
+            <EditTextPreference
+                android:defaultValue="90"
+                android:inputType="number"
+                android:key="delete_old_logs"
+                android:summary="@string/delete_old_logs_help"
+                android:title="@string/delete_old_logs_" />
+
+            <CheckBoxPreference
+                android:key="strip_leading_zeros"
+                android:summary="@string/strip_leading_zeros_hint"
+                android:title="@string/strip_leading_zeros_" />
+
+            <EditTextPreference
+                android:inputType="phone"
+                android:key="intPrefix"
+                android:summary="@string/number_prefix_hint"
+                android:title="@string/number_prefix_" />
+
+            <PreferenceScreen android:title="@string/ask_for_plan_" >
+                <CheckBoxPreference
+                    android:key="ask_for_plan"
+                    android:summary="@string/ask_for_plan_hint"
+                    android:title="@string/ask_for_plan_" />
+
+                <EditTextPreference
+                    android:inputType="number"
+                    android:key="autohide"
+                    android:summary="@string/autohide_hint"
+                    android:title="@string/autohide_" />
+            </PreferenceScreen>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="widgets"
+            android:title="@string/widgets_" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/billing_" >
+        <PreferenceScreen
+            android:key="simple_settings"
+            android:summary="@string/simple_preferences_hint"
+            android:title="@string/simple_preferences_" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferences"
+                android:targetPackage="de.ub0r.android.callmeter" />
+        </PreferenceScreen>
+        <PreferenceScreen android:title="@string/advanced_preferences_" >
+            <CheckBoxPreference
+                android:key="prepaid"
+                android:summary="@string/prepaid_hint"
+                android:title="@string/prepaid_" />
+            <CheckBoxPreference
+                android:key="advanced_preferences"
+                android:summary="@string/advanced_preferences_hint"
+                android:title="@string/advanced_preferences_" />
+
+            <PreferenceScreen
+                android:summary="@string/plans_hint"
+                android:title="@string/plans" >
+                <intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.Plans"
+                    android:targetPackage="de.ub0r.android.callmeter" />
+            </PreferenceScreen>
+            <PreferenceScreen
+                android:dependency="advanced_preferences"
+                android:summary="@string/rules_hint"
+                android:title="@string/rules" >
+                <intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.Rules"
+                    android:targetPackage="de.ub0r.android.callmeter" />
+            </PreferenceScreen>
+            <PreferenceScreen
+                android:summary="@string/numbergroups_edit_hint"
+                android:title="@string/numbergroups_edit_" >
+                <intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.NumberGroups"
+                    android:targetPackage="de.ub0r.android.callmeter" />
+            </PreferenceScreen>
+            <PreferenceScreen
+                android:summary="@string/hourgroups_edit_hint"
+                android:title="@string/hourgroups_edit_" >
+                <intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.HourGroups"
+                    android:targetPackage="de.ub0r.android.callmeter" />
+            </PreferenceScreen>
+        </PreferenceScreen>
+        <PreferenceScreen android:title="@string/help_" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="de.ub0r.android.callmeter.ui.HelpActivity"
+                android:targetPackage="de.ub0r.android.callmeter" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="@string/import_rules_hint"
+            android:title="@string/import_rules_" >
+            <PreferenceScreen
+                android:key="import_rules"
+                android:summary="@string/import_rules_www_hint"
+                android:title="@string/import_rules_" />
+            <PreferenceScreen
+                android:key="import_rules_sd"
+                android:summary="@string/import_rules_sd_hint"
+                android:title="@string/import_rules_sd_" >
+                <intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesImport"
+                    android:targetPackage="de.ub0r.android.callmeter" />
+            </PreferenceScreen>
+            <PreferenceScreen
+                android:key="import_rules_default"
+                android:summary="@string/import_rules_default_hint"
+                android:title="@string/import_rules_default_" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="@string/export_hint"
+            android:title="@string/export_" >
+            <Preference
+                android:enabled="false"
+                android:summary="@string/export_cancel_hint"
+                android:title="@string/export_cancel" />
+
+            <PreferenceScreen
+                android:key="export_rules_dev"
+                android:summary="@string/export_rules_dev_hint"
+                android:title="@string/export_rules_dev_" />
+            <PreferenceScreen
+                android:key="export_rules"
+                android:summary="@string/export_rules_hint"
+                android:title="@string/export_rules_" />
+            <PreferenceScreen
+                android:key="export_logs"
+                android:summary="@string/export_logs_hint"
+                android:title="@string/export_logs_" />
+            <PreferenceScreen
+                android:key="export_numgroups"
+                android:summary="@string/export_numgroups_hint"
+                android:title="@string/export_numgroups_" />
+            <PreferenceScreen
+                android:key="export_hourgroups"
+                android:summary="@string/export_hourgroups_hint"
+                android:title="@string/export_hourgroups_" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/about_" >
+        <PreferenceScreen
+            android:summary="@string/about_hint"
+            android:title="@string/about_" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="de.ub0r.android.callmeter.ui.AboutActivity"
+                android:targetPackage="de.ub0r.android.callmeter" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="@string/faq_hint"
+            android:title="@string/faq_" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://code.google.com/p/callmeter/wiki/FAQCM3" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="@string/feedback_hint"
+            android:title="@string/feedback_" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://code.google.com/p/callmeter/issues/list" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="@string/google_plus_hint"
+            android:title="@string/google_plus_" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://plus.google.com/111111876192965636971" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="@string/twitter_hint"
+            android:title="@string/twitter_" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://twitter.com/flx_b" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="more_apps"
+            android:title="@string/more_" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/debug_" >
+        <PreferenceScreen
+            android:key="reset_data"
+            android:summary="@string/reset_data_hint"
+            android:title="@string/reset_data_" />
+        <PreferenceScreen
+            android:key="send_logs"
+            android:summary="@string/send_logs_hint"
+            android:title="@string/send_logs_" />
+        <PreferenceScreen
+            android:key="send_devices"
+            android:summary="@string/send_devices_hint"
+            android:title="@string/send_devices_" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

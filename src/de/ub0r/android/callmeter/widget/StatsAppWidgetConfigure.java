@@ -32,12 +32,13 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
-import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.SpinnerAdapter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Log;
@@ -91,8 +92,9 @@ public final class StatsAppWidgetConfigure extends Activity implements
 	 */
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+		this.setTheme(R.style.Theme_SherlockUb0r);
 		Utils.setLocale(this);
+		super.onCreate(savedInstanceState);
 		this.setTitle(this.getString(R.string.app_name) + " > "
 				+ this.getString(R.string.widget_config_));
 		this.setContentView(R.layout.stats_appwidget_config);
@@ -165,12 +167,12 @@ public final class StatsAppWidgetConfigure extends Activity implements
 		Utils.setLocale(this);
 
 		final Intent intent = this.getIntent();
-		final Bundle extras = intent.getExtras();
-		if (extras != null) {
-			this.mAppWidgetId = extras.getInt(
+		if (intent != null) {
+			this.mAppWidgetId = intent.getIntExtra(
 					AppWidgetManager.EXTRA_APPWIDGET_ID,
 					AppWidgetManager.INVALID_APPWIDGET_ID);
 		}
+		this.load();
 	}
 
 	/**
@@ -289,13 +291,14 @@ public final class StatsAppWidgetConfigure extends Activity implements
 	public void onProgressChanged(final SeekBar seekBar, final int progress,
 			final boolean fromUser) {
 		Log.d(TAG, "onProgressChanged(" + progress + ")");
+		final int tp = 255 - progress;
 		int c = this.getBgColor();
 		Log.d(TAG, "color: " + c);
 		c = c & BITMASK_COLOR;
 		Log.d(TAG, "color: " + c);
-		Log.i(TAG, "transparency: "
-				+ Integer.toHexString(progress << BITSHIFT_TRANSPARENCY));
-		c = c | progress << BITSHIFT_TRANSPARENCY;
+		Log.i(TAG, "transparency: " + Integer.toHexString(// .
+				tp << BITSHIFT_TRANSPARENCY));
+		c = c | tp << BITSHIFT_TRANSPARENCY;
 		Log.d(TAG, "color: " + c);
 		this.setBgColor(c, true);
 	}
@@ -314,6 +317,59 @@ public final class StatsAppWidgetConfigure extends Activity implements
 	@Override
 	public void onStopTrackingTouch(final SeekBar seekBar) {
 		// nothing todo
+	}
+
+	/**
+	 * Load widget's configuration.
+	 */
+	private void load() {
+		SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		long pid = p.getLong(StatsAppWidgetProvider.WIDGET_PLANID
+				+ this.mAppWidgetId, -1);
+		SpinnerAdapter adapter = this.spinner.getAdapter();
+		int l = this.spinner.getCount();
+		for (int i = 0; i < l; i++) {
+			if (adapter.getItemId(i) == pid) {
+				this.spinner.setSelection(i);
+				break;
+			}
+		}
+		this.cbHideName.setChecked(p.getBoolean(
+				StatsAppWidgetProvider.WIDGET_HIDETNAME + this.mAppWidgetId,
+				false));
+		this.cbShowShortname.setChecked(p.getBoolean(
+				StatsAppWidgetProvider.WIDGET_SHORTNAME + this.mAppWidgetId,
+				false));
+		this.cbShowCost.setChecked(p.getBoolean(
+				StatsAppWidgetProvider.WIDGET_COST + this.mAppWidgetId, false));
+		this.cbShowBillp.setChecked(p.getBoolean(
+				StatsAppWidgetProvider.WIDGET_BILLPERIOD + this.mAppWidgetId,
+				false));
+		this.cbShowIcon.setChecked(p.getBoolean(
+				StatsAppWidgetProvider.WIDGET_ICON + this.mAppWidgetId, false));
+		this.cbSmallWidget
+				.setChecked(p.getBoolean(StatsAppWidgetProvider.WIDGET_SMALL
+						+ this.mAppWidgetId, false));
+		float f = p.getFloat(StatsAppWidgetProvider.WIDGET_STATS_TEXTSIZE
+				+ this.mAppWidgetId, -1);
+		if (f > 0f && f != DEFAULT_TEXTSIZE) {
+			this.etStatsTextSize.setText(String.valueOf(f));
+		} else {
+			this.etStatsTextSize.setText(null);
+		}
+		f = p.getFloat(StatsAppWidgetProvider.WIDGET_PLAN_TEXTSIZE
+				+ this.mAppWidgetId, -1);
+		if (f > 0f && f != DEFAULT_TEXTSIZE) {
+			this.etPlanTextSize.setText(String.valueOf(f));
+		} else {
+			this.etPlanTextSize.setText(null);
+		}
+		this.setTextColor(p.getInt(StatsAppWidgetProvider.WIDGET_TEXTCOLOR
+				+ this.mAppWidgetId, DEFAULT_TEXTCOLOR));
+		this.setBgColor(
+				p.getInt(StatsAppWidgetProvider.WIDGET_BGCOLOR
+						+ this.mAppWidgetId, DEFAULT_BGCOLOR), false);
 	}
 
 	/**
@@ -350,7 +406,7 @@ public final class StatsAppWidgetConfigure extends Activity implements
 				trans = 256 + trans;
 				Log.d(TAG, "transparency: " + trans);
 			}
-			this.sbBgTransparency.setProgress(trans);
+			this.sbBgTransparency.setProgress(255 - trans);
 		}
 	}
 
