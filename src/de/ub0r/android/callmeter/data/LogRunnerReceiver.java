@@ -50,10 +50,6 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	static final long DELAY_FACTOR = CallMeter.SECONDS_MINUTE
 			* CallMeter.MILLIS;
 
-	/** Force update. */
-	public static final String ACTION_FORCE_UPDATE = // .
-	"de.ub0r.android.callmeter.FORCE_UPDATE";
-
 	/** ACTION for publishing information about sent websms. */
 	private static final String ACTION_CM_WEBSMS = // .
 	"de.ub0r.android.callmeter.SAVE_WEBSMS";
@@ -77,11 +73,13 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	 *            {@link Context}
 	 */
 	public static void schedNext(final Context context) {
+		Log.d(TAG, "schedNext(ctx)");
 		final long delay = Utils.parseLong(
 				PreferenceManager.getDefaultSharedPreferences(context)
 						.getString(Preferences.PREFS_UPDATE_INTERVAL,
 								String.valueOf(DELAY)), DELAY)
 				* DELAY_FACTOR;
+		Log.d(TAG, "schedNext(ctx): delay=" + delay);
 		if (delay == 0L) {
 			return;
 		}
@@ -100,6 +98,7 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	 */
 	public static void schedNext(final Context context, final long delay,
 			final String action) {
+		Log.d(TAG, "schedNext(ctx, " + delay + "," + action + ")");
 		final Intent i = new Intent(context, LogRunnerReceiver.class);
 		if (action != null) {
 			i.setAction(action);

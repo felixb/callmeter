@@ -128,7 +128,14 @@ public final class LogRunnerService extends IntentService {
 	private static final long GAP_FOR_LOGS = 10000L;
 
 	/** Persiod for backups. */
-	private static final long BACKUP_PERIOD = 1000 * 60 * 60 * 24;
+	private static final long BACKUP_PERIOD = 1000L * 60L * 60L * 24L;
+
+	/** Minimal time between updates. */
+	private static final long MIN_DELAY = 5000L;
+	/** Action of last call. */
+	private static String lastAction = null;
+	/** Time of last call. */
+	private static long lastUpdate = 0L;
 
 	/** Service's {@link Handler}. */
 	private Handler handler = null;
@@ -148,10 +155,20 @@ public final class LogRunnerService extends IntentService {
 	 * @param context
 	 *            {@link Context}
 	 */
-	public static void update(final Context context, final String action) {
+	public static synchronized void update(final Context context,
+			final String action) {
 		Log.d(TAG, "update(" + action + ")");
-		context.startService(new Intent(action, null, context,
-				LogRunnerService.class));
+		long now = System.currentTimeMillis();
+		if ((action != null && !action.equals(lastAction)) || lastUpdate == 0L
+				|| now > lastUpdate + MIN_DELAY) {
+			context.startService(new Intent(action, null, context,
+					LogRunnerService.class));
+			lastAction = action;
+			lastUpdate = now;
+		} else {
+			Log.i(TAG, "skip update(" + action + "): " + now + "<="
+					+ (lastUpdate + MIN_DELAY));
+		}
 	}
 
 	/**
@@ -692,23 +709,14 @@ public final class LogRunnerService extends IntentService {
 		final String deleimter = p
 				.getString(Preferences.PREFS_DELIMITER, " | ");
 
-		final boolean runMatcher = a == ACTION_RUN_MATCHER;
+		final boolean runMatcher = a != null && a.equals(ACTION_RUN_MATCHER);
 		boolean shortRun = runMatcher
 				|| a != null
 				&& (a.equals(Intent.ACTION_BOOT_COMPLETED)
 						|| a.equals(Intent.ACTION_SHUTDOWN) // .
 						|| a.equals(Intent.ACTION_REBOOT) // .
-				|| a.equals(Intent.ACTION_DATE_CHANGED));
-
-		if (!shortRun && a != null
-				&& a.equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
-			if (intent.getBooleanExtra(ConnectivityManager.EXTRA_IS_FAILOVER,
-					false)) {
-				this.release(wakelock, h);
-				return;
-			}
-			shortRun = true;
-		}
+						|| a.equals(Intent.ACTION_DATE_CHANGED) // .
+				|| a.equals(ConnectivityManager.CONNECTIVITY_ACTION));
 
 		final ContentResolver cr = this.getContentResolver();
 		boolean showDialog = false;
