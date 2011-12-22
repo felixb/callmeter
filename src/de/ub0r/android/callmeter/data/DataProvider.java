@@ -1170,6 +1170,9 @@ public final class DataProvider extends ContentProvider {
 		/** Select only bill periods. */
 		public static final String WHERE_BILLPERIODS = TYPE + " = "
 				+ TYPE_BILLPERIOD;
+		/** Select only real plans and bill periods. */
+		public static final String WHERE_PLANS = TYPE + "!=" + TYPE_SPACING
+				+ " and " + TYPE + "!=" + TYPE_TITLE;
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://"
