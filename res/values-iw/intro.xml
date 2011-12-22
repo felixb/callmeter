@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+               Copyright (C) 2009-2011 Felix Bechstein
+       -->
+<!--
+               This file is part of Call Meter 3G. This program is free software; you can
+               redistribute it and/or modify it under the terms of the GNU General
+               Public License as published by the Free Software Foundation; either
+               version 3 of the License, or (at your option) any later version.
+       -->
+<!--
+               This program is distributed in the hope that it will be useful, but
+               WITHOUT ANY WARRANTY; without even the implied warranty of
+               MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+               General Public License for more details. You should have received a
+               copy of the GNU General Public License along with this program; If
+               not, see <http://www.gnu.org/licenses/>.
+       -->
+<!--
+               This file is generated automatically by ub0rlib/php.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=iw&file=intro.xml to edit the file.
+       -->
+<resources>
+  <string name="intro_" formatted="false" orig="Introducing Call Meter 3G">היכרות עם מונה שיחות 3G</string>
+  <string name="intro0" formatted="false" orig="With &lt;b&gt;Call Meter 3G&lt;/b&gt; you can monitor the usage of your calls, messages and data connections.">עם מונה שיחות 3G אתה יכול לפקח על דקות השימוש של שיחות, הודעות וחיבורי נתונים.</string>
+  <string name="intro1" formatted="false" orig="In order to get accurate statistics, it is important to accurately set Call Meter 3G as they will be billed.">על מנת לקבל נתונים סטטיסטיים מדויקים, חשוב להגדיר במדויק את מונה שיחות בהתאם לתכנית שבה תחויב.</string>
+  <string name="intro_simple" formatted="false" orig="Most users need only set their settings in menu &lt;b&gt;Basic settings&lt;/b&gt;. Just set the number of inclusive minutes or messages, as well as adjust the cost of calls made, etc..">רוב המשתמשים צריכים רק להגדיר את ההגדרות שלהם בתפריט הגדרות בסיסי. פשוט להגדיר את מספר הדקות או הודעות הכולל, כמו גם להתאים את העלות של השיחות שנעשו, וכו\'.</string>
+  <string name="intro_import" formatted="false" orig="If your billing is more complex, for example because messages and calls are billed as merged units, you can import pre-configured rules. Just select the menu &lt;b&gt;Import rule set&lt;/b&gt;.">אם החיוב הוא יותר מורכב, למשל, הודעות ושיחות מחוייבים כיחידות ממוזגת אתה יכול לייבא סט כללים מוגדר מראש. רק לבחור את התפריט ייבוא ​​סט כללים.</string>
+  <string name="intro_export" formatted="false" orig="In any case, when everything is set up, you can export your rules to me. Thus, all other users can benefit from your work.">בכל מקרה, כאשר הכל מוגדר, אתה יכול לייצא את הכללים שלך אלי. כל המשתמשים האחרים יכולים להפיק תועלת מהעבודה שלך.</string>
+  <string name="intro_recalc0" formatted="false" orig="The statistics are recalculated after each change to the configuration. This will take some time depending on the number of calls or messages and used phone. It therefore makes sense to adjust all the settings possible in one fell swoop.">הנתונים מחושבים מחדש לאחר כל שינוי בתצורה. זה יארך זמן מה, תלוי במספר שיחות או הודעות בשימוש בטלפון. לפיכך, הגיוני להתאים את כל ההגדרות בבת אחת.</string>
+  <string name="intro_recalc1" formatted="false" orig="The process can be greatly accelerated by the setting &lt;b&gt;Beginning of recording&lt;/b&gt; or &lt;b&gt;Delete logs older than&lt;/b&gt;.">התהליך יכול להיות מואץ על ידי הגדרת תאריך תחילת חישוב רשומות או על ידי הגדרת מחיקת רשומות יומן ישנות מ.</string>
+  <string name="intro_data" formatted="false" orig="Please note that no data statistics from before the last launch of the phone can be displayed.">שים לב כי נתונים סטטיסטיים מתאריך הקודם להשקה האחרונה של הטלפון לא יכולים להיות להיות מוצגים.</string>
+  <string name="intro_kill" formatted="false" orig="Please note that &lt;b&gt;killing&lt;/b&gt; the app can lead to corrupted (data) statistics.">שים לב כי הפסקת פעולת האפליקציה עלולה לפגוע בסטטיסטיקה של נתוני חיבורי נתונים.</string>
+</resources>

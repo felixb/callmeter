@@ -40,9 +40,9 @@
   <string name="update_interval_" formatted="false">Intervalo de actualización</string>
   <string name="update_interval_hint" formatted="false">Periodos cortos usan más batería.</string>
   <string name="date_begin_" formatted="false">Inicio de registros</string>
-  <string name="date_begin_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Ignore any logs before this date.">Ignorar cualquier bitácora anterior a esta fecha.</string>
-  <string name="delete_old_logs_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Delete logs older than">Borrar las bitácoras anteriores a</string>
-  <string name="delete_old_logs_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Delete logs older than x days from internal database. Leave empty to disable.">Borrar las bitácoras más antiguas que x días de la base de datos interna. Deje en blanco para deshabilitar.</string>
+  <string name="date_begin_hint" formatted="false" username="jonaguera" orig="Ignore any logs before this date.">Ignorar cualquier registro anterior a esta fecha.</string>
+  <string name="delete_old_logs_" formatted="false" username="jonaguera" orig="Delete logs older than">Borrar los registros anteriores a</string>
+  <string name="delete_old_logs_help" formatted="false" username="jonaguera" orig="Delete logs older than x days from internal database. Leave empty to disable.">Borrar los registros más antiguos que x días de la base de datos interna. Deje en blanco para deshabilitar.</string>
   <string name="common_prefs_" formatted="false">Preferencias comunes</string>
   <string name="edit_" formatted="false">Editar</string>
   <string name="about_" formatted="false">Acerca de</string>
@@ -116,7 +116,7 @@
   <string name="select_plan_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Select a plan">Seleccionar un plan</string>
   <string name="set_selected_as_default_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Set selected plan as default">Utilizar el plan seleccionado como predeterminado</string>
   <string name="autohide_in_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Auto hide dialog in: %ds">Auto esconder la ventana de diálogo en: %ds</string>
-  <string name="logs" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Logs">Bitácoras</string>
+  <string name="logs" formatted="false" username="jonaguera" orig="Logs">Registros</string>
   <string name="show_logs" formatted="false" orig="Show logs">Mostrar registros</string>
   <string name="plans" formatted="false">Planes</string>
   <string name="plans_hint" formatted="false">Configura aquí tus planes para todo tipo de facturaciones.</string>
@@ -240,7 +240,7 @@
   <string name="direction_" formatted="false">Dirección</string>
   <string name="direction_help" formatted="false" orig="Choose a direction the given log has to be.">Escoge la dirección que debe tener el registro (entrada/salida).</string>
   <string name="roamed_" formatted="false">En Roaming</string>
-  <string name="roamed_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Choose whether the given log has to be roamed.">Escoge si la bitácora puede contener roaming.</string>
+  <string name="roamed_help" formatted="false" username="jonaguera" orig="Choose whether the given log has to be roamed.">Escoge si el registro puede contener roaming.</string>
   <string name="remote_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Remote number">Número remoto</string>
   <string name="no_matter_" formatted="false">Indiferente</string>
   <string name="yes" formatted="false">Sí</string>
@@ -252,12 +252,12 @@
   <string name="export_progr" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Exporting data ...">Exportando datos ...</string>
   <string name="import_progr" formatted="false">Importar datos ...</string>
   <string name="export_" formatted="false">Exportar ...</string>
-  <string name="export_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Export rule sets, logs or groups">Exportar conjuntos de reglas, bitácoras o grupos</string>
+  <string name="export_hint" formatted="false" username="jonaguera" orig="Export rule sets, logs or groups">Exportar conjuntos de reglas, registros o grupos</string>
   <string name="export_rules_" formatted="false">Exportar conjunto de reglas</string>
   <string name="export_rules_hint" formatted="false">Exportar reglas en email.</string>
   <string name="export_rules_descr" formatted="false">Descripción</string>
-  <string name="export_logs_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Backup logs">Respaldar bitácoras</string>
-  <string name="export_logs_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Backup logs as mail.">Respaldar bitácoras como correo.</string>
+  <string name="export_logs_" formatted="false" username="jonaguera" orig="Backup logs">Respaldar registros</string>
+  <string name="export_logs_hint" formatted="false" username="jonaguera" orig="Backup logs as mail.">Respaldar registros como correo.</string>
   <string name="export_numgroups_" formatted="false">Exportar grupos de números</string>
   <string name="export_numgroups_hint" formatted="false">Exportar grupos de números como correo.</string>
   <string name="export_hourgroups_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Export hour groups">Exportar grupos horarios</string>
@@ -325,9 +325,9 @@
     <item>Oscuro</item>
     <item>Claro</item>
   </string-array>
-  <string-array name="dialog_edit_plan">
+  <string-array name="dialog_edit_plan" username="jonaguera">
     <item>Editar plan</item>
-    <item notranslation="true">View Logs</item>
+    <item>Ver registros</item>
   </string-array>
   <string-array name="dialog_delete">
     <item>Delete</item>
@@ -442,4 +442,14 @@
   <string name="mms_out" formatted="false" orig="MMS Out">Mensaje multimedia salida</string>
   <string name="active_" formatted="false" orig="Active">Activado</string>
   <string name="loading" formatted="false" orig="Loading ...">Cargando....</string>
+  <string name="import_rules_default_" formatted="false" username="jonaguera" orig="Import default rule set">Importar conjunto de reglas por defecto</string>
+  <string name="import_rules_default_hint" formatted="false" username="jonaguera" orig="Import default rule set shipped with the app.">Importar conjunto de reglas incluidas en la aplicación.</string>
+  <string name="import_rules_sd_nofiles" formatted="false" username="jonaguera" orig="No found files">Archivos no encontrados</string>
+  <string name="import_rules_sd_files" formatted="false" username="jonaguera" orig="Found files">Archivos encontrados</string>
+  <string name="import_rules_sd_hint" formatted="false" username="jonaguera" orig="Import rule set directly from SD card.">Importar conjunto de reglas directamente desde la tarjeta SD.</string>
+  <string name="import_rules_sd_" formatted="false" username="jonaguera" orig="Import rule set from SD card">Importar conjunto de reglas desde la tarjeta SD</string>
+  <string name="import_rules_www_hint" formatted="false" username="jonaguera" orig="Import pre-configured rule set from http://www.ub0r.de/.">Importar un conjunto de reglas pre-configuradas desde http://www.ub0r.de/.</string>
+  <string name="export_cancel" formatted="false" username="jonaguera" orig="Export to SD card">Exportar a la tarjeta SD</string>
+  <string name="exported_" formatted="false" username="jonaguera" orig="Exported:">Exportado:</string>
+  <string name="active_help" formatted="false" username="jonaguera" orig="Only active rules are used for matching logs.">Solo se utilizarán reglas activas para los registros coincidentes.</string>
 </resources>
