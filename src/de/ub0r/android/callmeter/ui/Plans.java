@@ -440,6 +440,7 @@ public final class Plans extends FragmentActivity implements
 		// schedule next update
 		LogRunnerReceiver.schedNext(this, DELAY_LOGRUNNER,
 				LogRunnerService.ACTION_RUN_MATCHER);
+		LogRunnerReceiver.schedNext(this, LogRunnerService.ACTION_SHORT_RUN);
 		if (!prefsNoAds) {
 			Ads.loadAd(this, R.id.ad, AD_UNITID, AD_KEYWORDS);
 		} else {

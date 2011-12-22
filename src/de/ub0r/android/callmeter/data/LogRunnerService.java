@@ -28,6 +28,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.Uri;
@@ -35,6 +36,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
+import android.os.SystemClock;
 import android.preference.DatePreference;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
@@ -80,10 +82,13 @@ public final class LogRunnerService extends IntentService {
 	private static final HashMap<Long, String> THREAD_TO_NUMBER = // .
 	new HashMap<Long, String>();
 
-	/** Run matcher. */
+	/** {@link Intent}'s action for run matcher. */
 	public static final String ACTION_RUN_MATCHER = // .
 	"de.ub0r.android.callmeter.RUN_MATCHER";
-	/** Intent.action for receiving SMS. */
+	/** {@link Intent}'s action for short run. */
+	public static final String ACTION_SHORT_RUN = // .
+	"de.ub0r.android.callmeter.SHORT_RUN";
+	/** {@link Intent}'s action for receiving SMS. */
 	private static final String ACTION_SMS = // .
 	"android.provider.Telephony.SMS_RECEIVED";
 
@@ -159,8 +164,9 @@ public final class LogRunnerService extends IntentService {
 			final String action) {
 		Log.d(TAG, "update(" + action + ")");
 		long now = System.currentTimeMillis();
-		if ((action != null && !action.equals(lastAction)) || lastUpdate == 0L
-				|| now > lastUpdate + MIN_DELAY) {
+		if ((action == null && lastAction != null)
+				|| (action != null && !action.equals(lastAction))
+				|| lastUpdate == 0L || now > lastUpdate + MIN_DELAY) {
 			context.startService(new Intent(action, null, context,
 					LogRunnerService.class));
 			lastAction = action;
@@ -270,10 +276,50 @@ public final class LogRunnerService extends IntentService {
 	}
 
 	/**
+	 * Get the last record for some kind of data; only unmatched log records are
+	 * returned!
+	 * 
+	 * @param cr
+	 *            {@link ContentResolver}
+	 * @param type
+	 *            type
+	 * @param direction
+	 *            direction
+	 * @return {@link Cursor} of last log record; column 0=id,1=amount
+	 */
+	private static Cursor getLastData(final ContentResolver cr, final int type,
+			final int direction) {
+		Cursor c = cr.query(DataProvider.Logs.CONTENT_URI, new String[] {
+				DataProvider.Logs.ID, DataProvider.Logs.AMOUNT,
+				DataProvider.Logs.PLAN_ID, DataProvider.Logs.ROAMED },
+				DataProvider.Logs.TYPE + " = ? AND "
+						+ DataProvider.Logs.DIRECTION + " = ?", new String[] {
+						String.valueOf(type), String.valueOf(direction) },
+				DataProvider.Logs.DATE + " DESC LIMIT 1");
+		if (c == null) {
+			return null;
+		}
+		if (c.moveToFirst()) {
+			int pid = c.getInt(2);
+			if (pid != DataProvider.NO_ID && pid != DataProvider.NOT_FOUND
+					|| roaming != (c.getInt(3) == 1)) {
+				c.close();
+				return null;
+			}
+
+			return c;
+		}
+		if (!c.isClosed()) {
+			c.close();
+		}
+		return null;
+	}
+
+	/**
 	 * Set last amount from Logs.
 	 * 
-	 * @param p
-	 *            {@link SharedPreferences}
+	 * @param e
+	 *            {@link Editor}
 	 * @param type
 	 *            type
 	 * @param direction
@@ -281,11 +327,9 @@ public final class LogRunnerService extends IntentService {
 	 * @param amount
 	 *            amount
 	 */
-	private static void setLastData(final SharedPreferences p, final int type,
+	private static void setLastData(final Editor e, final int type,
 			final int direction, final long amount) {
-		p.edit()
-				.putLong(PREFS_LASTDATA_PREFIX + type + "_" + direction, amount)
-				.commit();
+		e.putLong(PREFS_LASTDATA_PREFIX + type + "_" + direction, amount);
 	}
 
 	/**
@@ -357,27 +401,75 @@ public final class LogRunnerService extends IntentService {
 					}
 
 					ContentValues cv;
-					if (rrx > 0) {
+					Editor e = p.edit();
+					boolean dirty = false;
+					boolean update = rrx > 0;
+					Cursor c = null;
+					if (update && forceUpdate && rrx <= DATA_MIN_DIFF) {
+						c = getLastData(cr, DataProvider.TYPE_DATA,
+								DataProvider.DIRECTION_IN);
+						Log.d(TAG, "getLastData()=" + c);
+					}
+					if (update && c == null) {
 						cv = new ContentValues(baseCv);
 						cv.put(DataProvider.Logs.DIRECTION,
 								DataProvider.DIRECTION_IN);
 						cv.put(DataProvider.Logs.AMOUNT, rrx);
 						cr.insert(DataProvider.Logs.CONTENT_URI, cv);
-						setLastData(p, DataProvider.TYPE_DATA,
-								DataProvider.DIRECTION_IN, rx);
+					} else if (c != null) {
+						Log.d(TAG, "force rx update: " + rrx);
+						cv = new ContentValues(baseCv);
+						cv.put(DataProvider.Logs.DIRECTION,
+								DataProvider.DIRECTION_IN);
+						cv.put(DataProvider.Logs.AMOUNT, rrx + c.getLong(1));
+						cr.update(DataProvider.Logs.CONTENT_URI, cv,
+								DataProvider.Logs.ID + "=?",
+								new String[] { c.getString(0) });
+						c.close();
+						c = null;
 					} else {
 						Log.d(TAG, "skip rx: " + rrx);
 					}
-					if (rtx > 0) {
+					if (update) {
+						setLastData(e, DataProvider.TYPE_DATA,
+								DataProvider.DIRECTION_IN, rx);
+						dirty = true;
+					}
+
+					update = rtx > 0;
+					c = null;
+					if (update && forceUpdate && rtx <= DATA_MIN_DIFF) {
+						c = getLastData(cr, DataProvider.TYPE_DATA,
+								DataProvider.DIRECTION_OUT);
+						Log.d(TAG, "getLastData()=" + c);
+					}
+					if (update && c == null) {
 						cv = new ContentValues(baseCv);
 						cv.put(DataProvider.Logs.DIRECTION,
 								DataProvider.DIRECTION_OUT);
 						cv.put(DataProvider.Logs.AMOUNT, rtx);
 						cr.insert(DataProvider.Logs.CONTENT_URI, cv);
-						setLastData(p, DataProvider.TYPE_DATA,
-								DataProvider.DIRECTION_OUT, tx);
+					} else if (c != null) {
+						Log.d(TAG, "force tx update: " + rtx);
+						cv = new ContentValues(baseCv);
+						cv.put(DataProvider.Logs.DIRECTION,
+								DataProvider.DIRECTION_OUT);
+						cv.put(DataProvider.Logs.AMOUNT, rtx + c.getLong(1));
+						cr.update(DataProvider.Logs.CONTENT_URI, cv,
+								DataProvider.Logs.ID + "=?",
+								new String[] { c.getString(0) });
+						c.close();
+						c = null;
 					} else {
 						Log.d(TAG, "skip tx: " + rtx);
+					}
+					if (update) {
+						setLastData(e, DataProvider.TYPE_DATA,
+								DataProvider.DIRECTION_OUT, tx);
+						dirty = true;
+					}
+					if (dirty) {
+						e.commit();
 					}
 				}
 			}
@@ -675,6 +767,7 @@ public final class LogRunnerService extends IntentService {
 	 */
 	@Override
 	protected void onHandleIntent(final Intent intent) {
+		long t = SystemClock.elapsedRealtime();
 		if (intent == null) {
 			Log.w(TAG, "onHandleIntent(null)");
 			return;
@@ -712,11 +805,15 @@ public final class LogRunnerService extends IntentService {
 		final boolean runMatcher = a != null && a.equals(ACTION_RUN_MATCHER);
 		boolean shortRun = runMatcher
 				|| a != null
-				&& (a.equals(Intent.ACTION_BOOT_COMPLETED)
+				&& (a.equals(ACTION_SHORT_RUN)
+						|| a.equals(ConnectivityManager.CONNECTIVITY_ACTION)
+						|| a.equals(Intent.ACTION_BOOT_COMPLETED)
 						|| a.equals(Intent.ACTION_SHUTDOWN) // .
 						|| a.equals(Intent.ACTION_REBOOT) // .
-						|| a.equals(Intent.ACTION_DATE_CHANGED) // .
-				|| a.equals(ConnectivityManager.CONNECTIVITY_ACTION));
+				|| a.equals(Intent.ACTION_DATE_CHANGED));
+
+		Log.d(TAG, "runMatcher: " + runMatcher);
+		Log.d(TAG, "shortRun: " + shortRun);
 
 		final ContentResolver cr = this.getContentResolver();
 		boolean showDialog = false;
@@ -847,7 +944,8 @@ public final class LogRunnerService extends IntentService {
 			}
 		}
 
-		this.release(wakelock, h);
+		this.release(wakelock, h, a);
+		Log.d(TAG, "onHandleIntent(" + a + ")", t);
 	}
 
 	/**
@@ -891,11 +989,16 @@ public final class LogRunnerService extends IntentService {
 	 * @param wakelock
 	 *            {@link WakeLock}
 	 * @param h
-	 *            {@link Handler}
+	 *            {@link Handler} @ param action
 	 */
-	private void release(final WakeLock wakelock, final Handler h) {
+	private void release(final WakeLock wakelock, final Handler h,
+			final String a) {
 		// schedule next update
-		LogRunnerReceiver.schedNext(this);
+		if (a == null || !a.equals(ACTION_SHORT_RUN)) {
+			LogRunnerReceiver.schedNext(this, null);
+		} else {
+			LogRunnerReceiver.schedNext(this, a);
+		}
 		if (h != null) {
 			h.sendEmptyMessage(Plans.MSG_BACKGROUND_STOP_MATCHER);
 		}

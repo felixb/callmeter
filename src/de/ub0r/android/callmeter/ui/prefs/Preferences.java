@@ -95,6 +95,9 @@ public final class Preferences extends PreferenceActivity implements
 	public static final String PREFS_ALERT100 = "alert_100";
 	/** Preference's name: update interval. */
 	public static final String PREFS_UPDATE_INTERVAL = "update_interval";
+	/** Preference's name: update interval (data). */
+	public static final String PREFS_UPDATE_INTERVAL_DATA = // .
+	"update_interval_data";
 	/** Preference's name: beginning of record. */
 	public static final String PREFS_DATE_BEGIN = "date_begin";
 	/** Preference's name: delete old logs before x days. */

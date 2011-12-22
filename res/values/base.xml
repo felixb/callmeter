@@ -80,6 +80,16 @@
 		<item>120</item>
 		<item>0</item>
 	</string-array>
+	<string-array name="update_interval_data_values">
+		<item>0.5</item>
+		<item>1</item>
+		<item>2</item>
+		<item>5</item>
+		<item>15</item>
+		<item>30</item>
+		<item>60</item>
+		<item>0</item>
+	</string-array>
 
 	<string-array name="lang_values">
 		<item></item>

@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: fix FC on android 1.6, fix sorting plans/rules, fix sum of cost for multi bill period plans, fix widget for galaxy nexus, configure existing widgets, add widget for bill period, show intro for new users</item>
+		<item>HEAD: fix FC on android 1.6, fix sorting plans/rules, fix sum of cost for multi bill period plans, fix accuracy of data stats (esp. for samsung devices), fix widget for galaxy nexus, configure existing widgets, add widget for bill period, show intro for new users</item>
 		<item>v3.2.2: fix FC, update translation</item>
 		<item>v3.2.1: fix FC, fix unlimited bill modes, minor fixes, update translation</item>
 		<item>v3.2: fix setting text size, fix donation view, fix date and cost format in logs view, improve performance</item>

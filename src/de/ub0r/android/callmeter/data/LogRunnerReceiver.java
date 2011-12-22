@@ -45,7 +45,9 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	private static final String TAG = "lrr";
 
 	/** Time between to update checks. */
-	static final long DELAY = 60; // 30min
+	static final long DELAY = 30; // 30min
+	/** Time between to update checks for data. */
+	static final float DELAY_DATA = 2f; // 2min
 	/** Factor for time between update checks. */
 	static final long DELAY_FACTOR = CallMeter.SECONDS_MINUTE
 			* CallMeter.MILLIS;
@@ -71,19 +73,30 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	 * 
 	 * @param context
 	 *            {@link Context}
+	 * @param a
+	 *            action
 	 */
-	public static void schedNext(final Context context) {
-		Log.d(TAG, "schedNext(ctx)");
-		final long delay = Utils.parseLong(
-				PreferenceManager.getDefaultSharedPreferences(context)
-						.getString(Preferences.PREFS_UPDATE_INTERVAL,
-								String.valueOf(DELAY)), DELAY)
-				* DELAY_FACTOR;
-		Log.d(TAG, "schedNext(ctx): delay=" + delay);
+	public static void schedNext(final Context context, final String a) {
+		Log.d(TAG, "schedNext(ctx, " + a + ")");
+		long delay;
+		if (a != null && a.equals(LogRunnerService.ACTION_SHORT_RUN)) {
+			delay = (long) (Utils.parseFloat(
+					PreferenceManager.getDefaultSharedPreferences(context)
+							.getString(Preferences.PREFS_UPDATE_INTERVAL_DATA,
+									String.valueOf(DELAY_DATA)), DELAY_DATA)// .
+			* DELAY_FACTOR);
+		} else {
+			delay = Utils.parseLong(
+					PreferenceManager.getDefaultSharedPreferences(context)
+							.getString(Preferences.PREFS_UPDATE_INTERVAL,
+									String.valueOf(DELAY)), DELAY)
+					* DELAY_FACTOR;
+		}
+		Log.d(TAG, "schedNext(ctx, " + a + "): delay=" + delay);
 		if (delay == 0L) {
 			return;
 		}
-		schedNext(context, delay, null);
+		schedNext(context, delay, a);
 	}
 
 	/**
@@ -103,7 +116,8 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 		if (action != null) {
 			i.setAction(action);
 		}
-		final PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
+		final PendingIntent pi = PendingIntent.getBroadcast(context, 0, i,
+				PendingIntent.FLAG_CANCEL_CURRENT);
 		final long t = SystemClock.elapsedRealtime() + delay;
 		final AlarmManager mgr = (AlarmManager) context
 				.getSystemService(Context.ALARM_SERVICE);
@@ -218,6 +232,10 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 		// run LogRunnerService
 		LogRunnerService.update(context, a);
 		// schedule next update
-		LogRunnerReceiver.schedNext(context);
+		if (a == null || !a.equals(LogRunnerService.ACTION_SHORT_RUN)) {
+			LogRunnerReceiver.schedNext(context, null);
+		} else {
+			LogRunnerReceiver.schedNext(context, a);
+		}
 	}
 }
