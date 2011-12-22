@@ -689,7 +689,7 @@ public final class PlansFragment extends ListFragment implements
 	public void onLoaderReset(final Loader<Cursor> loader) {
 		Log.d(TAG, "onLoaderReset()");
 		try {
-			((ResourceCursorAdapter) this.getListAdapter()).swapCursor(null);
+			((PlansAdapter) this.getListAdapter()).swapCursor(null);
 		} catch (Exception e) {
 			Log.w(TAG, "error removing cursor", e);
 		}
