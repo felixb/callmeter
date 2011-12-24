@@ -168,5 +168,5 @@
 	</string-array>
 
 	<dimen name="touchlist_height">30dip</dimen>
-	<dimen name="widget_margin">5dp</dimen>
+	<dimen name="widget_margin">4dp</dimen>
 </resources>
