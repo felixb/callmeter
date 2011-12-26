@@ -18,7 +18,11 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=de&file=intro.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/edit.php?lang=pl&file=intro.xml to edit the file.
        -->
 <resources>
+  <string name="intro_" formatted="false" orig="Introducing Call Meter 3G">Oto Call Meter 3G</string>
+  <string name="intro0" formatted="false" orig="With &lt;b&gt;Call Meter 3G&lt;/b&gt; you can monitor the usage of your calls, messages and data connections.">Dzięki Call Meter 3G możesz śledzić posiadane minuty, wiadomości i pakiety danych.</string>
+  <string name="intro_kill" formatted="false" orig="Please note that &lt;b&gt;killing&lt;/b&gt; the app can lead to corrupted (data) statistics.">Uwaga! "Zabijanie" procesu aplikacji będzie skutkowało wadliwymi statystykami.</string>
+  <string name="intro_data" formatted="false" orig="Please note that no data statistics from before the last phone boot can be displayed.">Program wyświetla statystyki tylko od czasu ostatniego włączenia.</string>
 </resources>

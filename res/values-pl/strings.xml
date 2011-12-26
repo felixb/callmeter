@@ -144,7 +144,7 @@
   <string name="hourgroup_" formatted="false">Wliczaj godziny</string>
   <string name="hourgroup_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Add some hours this rule must match.">Dodaj godziny które będą musiały pasować dla reguły.</string>
   <string name="exhourgroup_" formatted="false">Wykluczaj godziny</string>
-  <string name="exhourgroup_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Add some hours this rule must not match.">Dodaj godziny które nie będą pasowały do tej reguły.</string>
+  <string name="exhourgroup_help" formatted="false" orig="Add some hours this rule must not match.">Dodaj kontakty z którymi połączenia nie będą pasowały do tej reguły.</string>
   <string name="new_hourgroup" formatted="false">Nowa grupa godzin</string>
   <string name="add_hour" formatted="false">Dodaj godzinę</string>
   <string name="empty_group" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Puste grupy nie będą pasować do niczego. Proszę powrócić i dodać co najmniej jeden element.</string>
@@ -341,7 +341,7 @@
   </string-array>
   <string-array name="dialog_edit_plan">
     <item>Edytuj plan</item>
-    <item notranslation="true">View Logs</item>
+    <item>Oglądaj statystyki</item>
   </string-array>
   <string-array name="dialog_delete">
     <item>Usuń</item>

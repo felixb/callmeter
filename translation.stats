@@ -91,11 +91,11 @@ res/values-nl/notes.xml:0
 res/values-nl/simple_prefs.xml:0
 res/values-nl/strings.xml:363
 res/values-pl/help.xml:11
-res/values-pl/intro.xml:0
+res/values-pl/intro.xml:4
 res/values-pl/market.xml:5
 res/values-pl/notes.xml:0
 res/values-pl/simple_prefs.xml:19
-res/values-pl/strings.xml:415
+res/values-pl/strings.xml:416
 res/values-pt/help.xml:14
 res/values-pt/intro.xml:0
 res/values-pt/market.xml:5
@@ -147,7 +147,7 @@ res/values-iw:10
 res/values-ko:0
 res/values-nb:413
 res/values-nl:363
-res/values-pl:450
+res/values-pl:455
 res/values-pt:458
 res/values-ru:292
 res/values-sk:158
