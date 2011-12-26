@@ -113,7 +113,7 @@
   <string name="new_" formatted="false">Yeni</string>
   <string name="edit_selected_" formatted="false">Seçilenleri düzenle</string>
   <string name="edit_groups_" formatted="false">Grupları düzenle</string>
-  <string name="name_" formatted="false">Name</string>
+  <string name="name_" formatted="false" orig="Name">İsim</string>
   <string name="name_help" formatted="false">Burada bir isim belirleyin.</string>
   <string name="shortname_" formatted="false">Kısa isim</string>
   <string name="shortname_help" formatted="false">Burada kısa bir isim belirleyin. Kısa görünümlerde bu isim gösterilir.</string>
@@ -189,7 +189,7 @@
     <item>Cuma</item>
     <item>Cumartesi</item>
     <item>Pazar</item>
-    <item>Monday - Friday</item>
+    <item>Pazartesi - Cuma</item>
   </string-array>
   <string-array name="hours_all">
     <item>Tüm gün</item>
@@ -223,7 +223,7 @@
     <item>Beyaz</item>
   </string-array>
   <string-array name="dialog_edit_plan">
-    <item>Pakedi düzenle</item>
+    <item>Paketi düzenle</item>
     <item>Logları görüntüle</item>
   </string-array>
   <string-array name="dialog_delete">
@@ -306,10 +306,10 @@
   </string-array>
   <string-array name="currency_formats">
     <item>Varsayılan</item>
-    <item>1.00 TRY</item>
-    <item>1000 TRY</item>
-    <item>1.00 TRY</item>
-    <item>1000 TRY</item>
+    <item>1.00 TL</item>
+    <item>1000 TL</item>
+    <item>1.00 TL</item>
+    <item>1000 TL</item>
   </string-array>
   <string-array name="date_formats">
     <item>Varsayılan</item>
@@ -460,4 +460,14 @@
   <string name="active_" formatted="false" orig="Active">Aktif</string>
   <string name="active_help" formatted="false" orig="Only active rules are used for matching logs.">Logların eşleştirilmesi için yalnızca aktif kurallar kullanılır.</string>
   <string name="loading" formatted="false" orig="Loading ...">Yükleniyor ...</string>
+  <string-array name="update_interval_data">
+    <item>30 saniye</item>
+    <item>1 dakika</item>
+    <item>2 dakika</item>
+    <item>5 dakika</item>
+    <item>15 dakika</item>
+    <item>30 dakika</item>
+    <item>1 saat</item>
+    <item>yalnızca manuel</item>
+  </string-array>
 </resources>

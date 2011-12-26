@@ -125,7 +125,7 @@ res/values-tr/intro.xml:0
 res/values-tr/market.xml:5
 res/values-tr/notes.xml:0
 res/values-tr/simple_prefs.xml:19
-res/values-tr/strings.xml:421
+res/values-tr/strings.xml:430
 res/values-zh/help.xml:0
 res/values-zh/intro.xml:0
 res/values-zh/market.xml:1
@@ -152,5 +152,5 @@ res/values-pt:458
 res/values-ru:292
 res/values-sk:158
 res/values-sv:81
-res/values-tr:459
+res/values-tr:468
 res/values-zh:311
