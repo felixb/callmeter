@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
+		<item>HEAD: data stats for acer e130, update translations</item>
 		<item>v2.3.18.1: Fix for HC/ICS devices, update translations</item>
 		<item>v2.3.18: Merge new data stats from Call Meter 3G, update translations</item>
 		<item>v2.3.17.10: Fix data stats</item>
