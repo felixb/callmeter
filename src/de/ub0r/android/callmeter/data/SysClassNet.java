@@ -66,13 +66,16 @@ public final class SysClassNet {
 	 * @return true if interface is available
 	 */
 	public static boolean isAvail(final String inter) {
+		Log.d(TAG, "isAvail(" + inter + ")");
 		try {
 			if (getRxBytes(inter) > 0L || getTxBytes(inter) > 0L) {
+				Log.d(TAG, "isAvail(" + inter + "): true");
 				return true;
 			}
 		} catch (Exception e) {
 			Log.i(TAG, "could not read device: " + inter);
 		}
+		Log.d(TAG, "isAvail(" + inter + "): false");
 		return false;
 	}
 
@@ -119,12 +122,15 @@ public final class SysClassNet {
 	 * @return bytes received or sent
 	 */
 	private static long readLong(final String inter, final String file) {
+		Log.d(TAG, "readLong(" + inter + "," + file + ")");
 		StringBuilder sb = new StringBuilder();
 		sb.append(SYS_CLASS_NET).append(inter).append(file);
 		RandomAccessFile raf = null;
 		try {
 			raf = getFile(sb.toString());
-			return Long.valueOf(raf.readLine());
+			String l = raf.readLine();
+			Log.d(TAG, "readLong(" + inter + "," + file + "): " + l);
+			return Long.valueOf(l);
 		} catch (Exception e) {
 			Log.e(TAG, e.getMessage() + " / error readding long for inter: "
 					+ inter);
