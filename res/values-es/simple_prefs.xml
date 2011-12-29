@@ -34,4 +34,10 @@
   <string name="freedata_" formatted="false" orig="Free traffic">Tráfico libre</string>
   <string name="freedata_hint" formatted="false" orig="Free 2G, 3G or 4G data traffic / month">Tráfico de data 2G,3G o 4G/mes</string>
   <string name="cost_per_mb_" formatted="false" orig="Cost / MB">Costo/MB</string>
+  <string name="missing_slash" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Bill mode needs to be in seconds/seconds!">Modo de facturación necesita estar en segundos/segundos</string>
+  <string name="cost_per_call_hint" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Each call get\'s billed.">Cada llamada es facturada</string>
+  <string name="cost_per_min_hint" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Each minute get\'s billed.">Cada minuto es facturado</string>
+  <string name="cost_per_sms_hint" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Each SMS get\'s billed.">Cada SMS es facturado</string>
+  <string name="cost_per_mms_hint" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Each MMS get\'s billed.">Cada MMS es facturado</string>
+  <string name="cost_per_mb_hint" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Each MB get\'s billed.">Cada MB es facturado</string>
 </resources>
