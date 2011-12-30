@@ -21,4 +21,5 @@
                Visit http://ub0r.de/translate/cm2/edit.php?lang=sk&file=market.xml to edit the file.
        -->
 <resources>
+  <string name="market_translation" formatted="false" orig="Feel free to help translating this app to your language here: http://ub0r.de/translate/cm2/">Pomôžte zdarma preložiť túto aplikáciu do vášho jazyka:\nhttp://ub0r.de/translate/cm2/</string>
 </resources>

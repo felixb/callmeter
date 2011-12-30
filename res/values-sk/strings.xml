@@ -138,4 +138,7 @@
     <item>Malý</item>
     <item>Veľký</item>
   </string-array>
+  <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Dáta (2G/3G/4G)</string>
+  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Skryť "(2G/3G/4G)" v názve. Toto nemá vplyv na štatistiky.</string>
+  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Zobraziť v názve iba "Dáta"</string>
 </resources>
