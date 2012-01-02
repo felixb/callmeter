@@ -34,4 +34,10 @@
   <string name="freemms_hint" formatted="false" orig="Free MMS / month">Ingyenes MMS / hónap</string>
   <string name="cost_per_sms_" formatted="false" orig="Cost / SMS">Költség / SMS</string>
   <string name="cost_per_call_" formatted="false" orig="Cost / call">Költség / hívás</string>
+  <string name="missing_slash" formatted="false" orig="Bill mode needs to be in seconds/seconds!">A számlázási módnak másodperc/másodperc formában kell lennie!</string>
+  <string name="cost_per_call_hint" formatted="false" orig="Each call get\'s billed.">Minden hívás számlázva.</string>
+  <string name="cost_per_min_hint" formatted="false" orig="Each minute get\'s billed.">Minden perc számlázva.</string>
+  <string name="cost_per_sms_hint" formatted="false" orig="Each SMS get\'s billed.">Minden SMS számlázva.</string>
+  <string name="cost_per_mms_hint" formatted="false" orig="Each MMS get\'s billed.">Minden MMS számlázva.</string>
+  <string name="cost_per_mb_hint" formatted="false" orig="Each MB get\'s billed.">Minden MB számlázva.</string>
 </resources>
