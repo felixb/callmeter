@@ -477,4 +477,10 @@
   <string name="import_rules_sd_nofiles" formatted="false" orig="No found files">Fáljok nem találhatók</string>
   <string name="import_rules_sd_files" formatted="false" orig="Found files">Fájl található</string>
   <string name="import_rules_sd_hint" formatted="false" orig="Import rule set directly from SD card.">Szabályok importálása SD kártyáról.</string>
+  <string name="update_interval_data_" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="Update interval (data)">Frissítési intervallum (adat)</string>
+  <string name="widgets_no_widgets_hint" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="There are no widgets added to the launcher.">Nincs widget hozzáadva a kezdőképernyőhöz.</string>
+  <string name="update_interval_data_hint" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Az adatforgalmi statisztikák frissítésének gyakoribbnak kell lennie. Különösen Samsung készülékek esetén, nagyon rövid intervallumoknak.</string>
+  <string name="import_rules_sd_help" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="Place your file on your SD card and click it below">Tedd a fájlodat az SD kártyára, majd kattints rá</string>
+  <string name="simple_preferences_deactivated" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Az egyszerű tulajdonságok csak az alap szabályokhoz érhetők el. Importáld az alap szabályt az újra aktiváláshoz.</string>
+  <string name="export_cancel_hint" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="Cancel your mail client to export to SD card only.">Kapcsold ki a levelező programodat, hogy csak az SD kártyára exportálj.</string>
 </resources>
