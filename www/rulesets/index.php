@@ -14,7 +14,7 @@ $location = './';
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Call Meter 3G rule sets</title>
+<link rel="stylesheet" type="text/css" href="/default.css" />
 <?
 if ($isAndroid) {
   echo '<link rel="stylesheet" type="text/css" href="android.css" />' . "\n";
@@ -22,6 +22,7 @@ if ($isAndroid) {
   echo '<link rel="stylesheet" type="text/css" href="standard.css" />' . "\n";
 }
 ?>
+<title>Call Meter 3G rule sets</title>
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-25757356-1']);
@@ -35,6 +36,15 @@ if ($isAndroid) {
 </script>
 </head>
 <body>
+
+<div class="top">
+<ul>
+<li><a href="/">ub0r apps</a></li>
+<li>&gt; <a href="/android/callmeter/">Call Meter 3G</a></li>
+<li>&gt; <a href="/android/callmeter/rulesets/">rule sets</a></li>
+</ul>
+<span class="topright"><a href="/contact.html">contact</a></span>
+</div>
 
 <?
 
