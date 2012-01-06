@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein, The Android Open Source Project
+ * Copyright (C) 2009-2012 Felix Bechstein, The Android Open Source Project
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -18,8 +18,8 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
+import android.app.ListActivity;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -30,17 +30,19 @@ import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
+import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.lib.apis.ContactsWrapper;
 
@@ -51,6 +53,9 @@ import de.ub0r.android.lib.apis.ContactsWrapper;
  */
 public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		OnItemClickListener {
+	/** Tag for debug out. */
+	private static final String TAG = "nge";
+
 	/** {@link ContactsWrapper}. */
 	public static final ContactsWrapper CWRAPPER = ContactsWrapper
 			.getInstance();
@@ -151,8 +156,8 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		this.findViewById(R.id.help).setOnClickListener(this);
 
 		this.etName = (EditText) this.findViewById(R.id.name_et);
-		this.etName.setText(DataProvider.NumbersGroup.getName(this
-				.getContentResolver(), this.gid));
+		this.etName.setText(DataProvider.NumbersGroup.getName(
+				this.getContentResolver(), this.gid));
 
 		final String a = i.getAction();
 		if (a != null && a.equals(Intent.ACTION_VIEW)) {
@@ -204,8 +209,8 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 			return;
 		}
 		// get number for uri
-		String number = CWRAPPER.getNumber(this.getContentResolver(), data
-				.getData());
+		String number = CWRAPPER.getNumber(this.getContentResolver(),
+				data.getData());
 		if (number == null) {
 			number = "???";
 		}
@@ -305,9 +310,23 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	 */
 	private void setNumber(final long nid, final String number) {
 		final ContentValues cv = new ContentValues();
+		String n = null;
+		if (!TextUtils.isEmpty(number)) {
+			n = number.trim();
+			if (TextUtils.isEmpty(n.replaceAll("%", ""))) {
+				n = null;
+			}
+		}
+		if (n == null) {
+			Log.e("TAG", "setNumber(" + nid + "," + number + ")");
+			return;
+		}
 		cv.put(DataProvider.Numbers.GID, this.gid);
-		cv.put(DataProvider.Numbers.NUMBER, DataProvider.Logs.cleanNumber(
-				number, true));
+		if (Character.isDigit(n.replaceAll("%", "").replaceAll("\\+", "")
+				.charAt(0))) {
+			n = DataProvider.Logs.cleanNumber(number, true);
+		}
+		cv.put(DataProvider.Numbers.NUMBER, n);
 		if (nid < 0) {
 			this.getContentResolver().insert(DataProvider.Numbers.CONTENT_URI,
 					cv);
