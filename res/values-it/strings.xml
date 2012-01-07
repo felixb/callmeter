@@ -18,12 +18,12 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=it&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/it/strings.xml to edit the file.
        -->
 <resources>
   <string name="changelog_notification_" formatted="false" username="fireb33" orig="Recent changes:">Ultime modifiche:</string>
-  <string name="changelog_notification_text" formatted="false" username="fireb33" orig="Click here to show recent changes of">Clicca qui per visualizzare le ultime modifiche</string>
-  <string name="never_show_again" formatted="false" username="fireb33" orig="Never show changelog again">Non mostrare più l\'elenco delle modifiche</string>
+  <string name="changelog_notification_text" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Click here to show recent changes of">Clicca qui per visualizzare le ultime modifiche di</string>
+  <string name="never_show_again" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Never show changelog again">Non mostrare mai più l\'elenco delle modifiche</string>
   <string name="notes_from_developer_" formatted="false" username="fireb33" orig="Notes from developer">Note dallo sviluppatore</string>
   <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Clicca qui per mostrare le ultime novità da parte dello sviluppatore</string>
   <string name="about0_" formatted="false" username="fireb33" orig="Watch your call, message and data plans!">Controlla le tue chiamate, messaggi e piani tariffari!</string>
@@ -58,7 +58,7 @@
   <string name="billdate_" formatted="false" username="fireb33" orig="Start of billing period:">Inizio periodo di tariffazione:</string>
   <string name="appearance_" formatted="false" username="fireb33" orig="Appearance">Aspetto</string>
   <string name="behavior_" formatted="false" username="fireb33" orig="Behavior">Comportamento</string>
-  <string name="appearance_and_behavior_" formatted="false" username="fireb33" orig="Appearance &amp;amp; behavior">Aspetto e comportamento</string>
+  <string name="appearance_and_behavior_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Appearance &amp; behavior">Aspetto e comportamento</string>
   <string name="advanced_preferences_" formatted="false" username="fireb33" orig="Advanced preferences">Impostazioni avanzate</string>
   <string name="advanced_preferences_hint" formatted="false" username="fireb33" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Permette di impostare più in dettaglio alcune opzioni (la maggior parte degli utenti non ne ha bisogno).</string>
   <string name="theme_" formatted="false" username="fireb33" orig="Theme">Tema</string>
@@ -256,7 +256,7 @@
   <string name="export_hourgroups_" formatted="false" username="fireb33" orig="Export hour groups">Esporta gruppi orari</string>
   <string name="export_hourgroups_hint" formatted="false" username="fireb33" orig="Export hour groups as mail.">Esporta gruppi orari via mail.</string>
   <string name="import_rules_" formatted="false" username="fireb33" orig="Import rule set">Importa regole</string>
-  <string name="import_rules_hint" formatted="false" username="fireb33" orig="Import rule set.">Importa le regole.</string>
+  <string name="import_rules_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Import preconfigured rule set.">Importa delle regole pre-configurate.</string>
   <string name="import_rules_empty" formatted="false" username="fireb33" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Nessun piano/regole. Fare clic su questo testo per importare un set di regole predefinite.\n\nOppure aggiungere piani e regole manualmente.</string>
   <string name="err_export_write" formatted="false" username="fireb33" orig="Error writing export file">Errore nella scrittura del file</string>
   <string name="err_export_read" formatted="false" username="fireb33" orig="Error reading export file">Errore nella lettura del file</string>
@@ -318,9 +318,9 @@
     <item>Nero</item>
     <item>Chiaro</item>
   </string-array>
-  <string-array name="dialog_edit_plan" username="fireb33">
+  <string-array name="dialog_edit_plan" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;">
     <item>Modifica piano</item>
-    <item notranslation="true">View Logs</item>
+    <item>Vedi registri</item>
   </string-array>
   <string-array name="dialog_delete" username="fireb33">
     <item>Elimina</item>
@@ -365,7 +365,7 @@
     <item>Un anno</item>
     <item>Infinito</item>
   </string-array>
-  <string-array name="billmodes" username="fireb33">
+  <string-array name="billmodes" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;">
     <item>1/1</item>
     <item>6/6</item>
     <item>10/10</item>
@@ -382,7 +382,7 @@
     <item>60/15</item>
     <item>60/30</item>
     <item>60/60</item>
-    <item>Personalizza</item>
+    <item>Personalizzato</item>
   </string-array>
   <string-array name="direction_calls" username="fireb33">
     <item>ricevute</item>
@@ -413,14 +413,14 @@
     <item>GG/MM/AAAA</item>
     <item>GG.MM.AAAA</item>
   </string-array>
-  <string-array name="update_interval" username="fireb33">
+  <string-array name="update_interval" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;">
     <item>5 minuti</item>
     <item>10 minuti</item>
     <item>15 minuti</item>
     <item>30 minuti</item>
     <item>Un\'ora</item>
     <item>Due ore</item>
-    <item>Manuale</item>
+    <item>Solo manuale</item>
   </string-array>
   <string name="show_icon_" formatted="false" orig="Show icon">Mostra icona</string>
   <string name="hide_name_" formatted="false" orig="Hide name of plan">Nascondi il nome del piano</string>
@@ -442,4 +442,45 @@
   <string name="mms_in_" formatted="false" orig="MMSIn">MMSRicevuti</string>
   <string name="mms_out" formatted="false" orig="MMS Out">MMS Inviati</string>
   <string name="mms_out_" formatted="false" orig="MMSOut">MMSInviati</string>
+  <string name="author_and_many_more" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="and many more...">e molto altro...</string>
+  <string name="update_interval_data_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Update interval (data)">Intervallo di aggiornamento (traffico dati)</string>
+  <string name="update_interval_data_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">E\' necessario che le statistiche sul traffico dati siano aggiornate più spesso. Specialmente i terminali Samsung richiedono intervalli molto brevi.</string>
+  <string name="google_plus_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Follow me on Google+.\nGet update notifications etc.">Seguimi su Google+.\nRicevi aggiornamenti etc.</string>
+  <string name="widget_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Widget">Widget</string>
+  <string name="widgets_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Widgets">Widgets</string>
+  <string name="widgets_no_widgets_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="No widgets added">Nessun widget aggiunto</string>
+  <string name="widgets_no_widgets_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="There are no widgets added to the launcher.">Non ci sono widgets aggiunti nel launcher (Desktop)</string>
+  <string name="simple_preferences_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Simple preferences">Impostazioni semplici</string>
+  <string name="simple_preferences_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Impostazioni molto semplici, adatte alla maggior parte degli utenti. Disponibili soltanto con le regole predefinite.</string>
+  <string name="simple_preferences_deactivated" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Le impostazioni semplici sono disponibili soltanto per il set di regole predefinito. Importa le regole predefinite per riattivarle.</string>
+  <string name="now" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Now">Al momento</string>
+  <string name="data_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Data (2G/3G/4G)">Dati (2G/3G/4G)</string>
+  <string name="data_inout" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Data In/Out">Dati Ingresso/Uscita</string>
+  <string name="data_inout_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="DataInOut">DatiInOut</string>
+  <string name="active_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Active">Attivo</string>
+  <string name="active_help" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Only active rules are used for matching logs.">Solo le regole attive sono usate per essere abbinate ai registri.</string>
+  <string name="exported_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Exported:">Esportati:</string>
+  <string name="export_cancel" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Export to SD card">Esporta su scheda SD</string>
+  <string name="export_cancel_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Cancel your mail client to export to SD card only.">Annulla l\'email per esportare solo su scheda SD.</string>
+  <string name="export_rules_dev_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Export rule set to developer">Esporta le regole allo sviluppatore</string>
+  <string name="export_rules_dev_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Export rule set to let others import it.">Esporta le regole di modo che altri possano importarle.</string>
+  <string name="import_rules_www_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Import pre-configured rule set from http://www.ub0r.de/.">Importa delle regole pre-configurate da http://www.ub0r.de/.</string>
+  <string name="import_rules_sd_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Import rule set from SD card">Importa regole dalla scheda SD</string>
+  <string name="import_rules_sd_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Import rule set directly from SD card.">Importa regole direttamente dalla scheda di memoria SD.</string>
+  <string name="import_rules_sd_help" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Place your file on your SD card and click it below">Copia il tuo file sulla tua scheda SD e clicca sotto</string>
+  <string name="import_rules_sd_files" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Found files">Files trovati</string>
+  <string name="import_rules_sd_nofiles" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="No found files">Nessun file trovato</string>
+  <string name="import_rules_default_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Import default rule set">Importa regole predefinite</string>
+  <string name="import_rules_default_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Import default rule set shipped with the app.">Importa le regole predefinite dall\'applicazione alla sua installazione.</string>
+  <string name="loading" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Loading ...">In caricamento...</string>
+  <string-array name="update_interval_data" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;">
+    <item>0.5 minuti</item>
+    <item>1 minuto</item>
+    <item>2 minuti</item>
+    <item>5 minuti</item>
+    <item>15 minuti</item>
+    <item>30 minuti</item>
+    <item>un\'ora</item>
+    <item>Solo manuale</item>
+  </string-array>
 </resources>

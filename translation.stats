@@ -61,11 +61,11 @@ res/values-hu/notes.xml:0
 res/values-hu/simple_prefs.xml:19
 res/values-hu/strings.xml:443
 res/values-it/help.xml:14
-res/values-it/intro.xml:0
+res/values-it/intro.xml:10
 res/values-it/market.xml:5
-res/values-it/notes.xml:0
-res/values-it/simple_prefs.xml:0
-res/values-it/strings.xml:402
+res/values-it/notes.xml:1
+res/values-it/simple_prefs.xml:19
+res/values-it/strings.xml:443
 res/values-iw/help.xml:0
 res/values-iw/intro.xml:10
 res/values-iw/market.xml:0
@@ -142,7 +142,7 @@ res/values-fr:22
 res/values-hi:7
 res/values-hr:461
 res/values-hu:491
-res/values-it:421
+res/values-it:492
 res/values-iw:10
 res/values-ko:0
 res/values-nb:413
