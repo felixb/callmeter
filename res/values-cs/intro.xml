@@ -18,7 +18,8 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=de&file=intro.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/cs/intro.xml to edit the file.
        -->
 <resources>
+  <string name="intro0" formatted="false" orig="With &lt;b&gt;Call Meter 3G&lt;/b&gt; you can monitor the usage of your calls, messages and data connections.">S <b>Call Meter 3G<b> můžete sledovat stav vašeho volání, zpráv a datových přenosů.</string>
 </resources>
