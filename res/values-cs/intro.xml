@@ -21,7 +21,7 @@
                Visit http://ub0r.de/translate/cm3/cs/intro.xml to edit the file.
        -->
 <resources>
-  <string name="intro0" formatted="false" orig="With &lt;b&gt;Call Meter 3G&lt;/b&gt; you can monitor the usage of your calls, messages and data connections.">S <b>Call Meter 3G<b> můžete sledovat stav vašeho volání, zpráv a datových přenosů.</string>
+  <string name="intro0" formatted="false" orig="With &lt;b&gt;Call Meter 3G&lt;/b&gt; you can monitor the usage of your calls, messages and data connections.">S <b>Call Meter 3G</b> můžete sledovat stav vašeho volání, zpráv a datových přenosů.</string>
   <string name="intro1" formatted="false" orig="In order to get accurate statistics, it is important to accurately set Call Meter 3G as they will be billed.">K získání přesné statistiky, je důležité správně nastavit Call Meter 3G podle vašeho vyúčtování.</string>
   <string name="intro_data" formatted="false" orig="Please note that no data statistics from before the last phone boot can be displayed.">Prosím vemte na vědomí, že po restartování telefonu nebudou k dispozici žádné statistické údaje.</string>
   <string name="intro_kill" formatted="false" orig="Please note that &lt;b&gt;killing&lt;/b&gt; the app can lead to corrupted (data) statistics.">Prosím vemte na vědomí, že <b>ukončení</b> aplikace povede k nepřesným statistickým údajům.</string>
