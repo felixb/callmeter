@@ -18,7 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm2/edit.php?lang=cs&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm2/cs/strings.xml to edit the file.
        -->
 <resources>
   <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">CallMeter slouží ke sledování stavu čerpání hovorného, SMS zpráv a datových přenosů v rámci měsíčního paušálu.</string>
@@ -30,7 +30,7 @@
   <string name="about5" formatted="false" username="KarloZ" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">Call Meter se spouští každých 30 minut (pokud není telefon v pohotovostním režimu), což znamená, že smazání záznamů o hovorech/sms/datech za posledních 30 minut ovlivní vypočtenou statistiku.</string>
   <string name="about6_" formatted="false" username="KarloZ" orig="What does CallMeter NG not do:">Co Call Meter neumí:</string>
   <string name="about6" formatted="false" username="KarloZ" orig="There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs.">Díky úzké integraci technologie SIP a odesílání SMS přes webovou bránu v Androidu, nedokáže aplikace rozlišit mezi způsobem uskutečnění hovorů a odesílání sms, které jsou proto bez ohledu na využitý kanál započteny dohromady.</string>
-  <string name="send_" formatted="false" username="KarloZ" orig="Send">Odeslat</string>
+  <string name="send_" formatted="false" orig="Send">Odeslat</string>
   <string name="settings" formatted="false" username="KarloZ" orig="Preferences">Nastavení</string>
   <string name="about_" formatted="false" username="KarloZ" orig="About">O...</string>
   <string name="about_hint" formatted="false" username="KarloZ" orig="About this app">O aplikaci</string>
