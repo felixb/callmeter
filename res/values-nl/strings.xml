@@ -18,17 +18,17 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm2/edit.php?lang=nl&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm2/nl/strings.xml to edit the file.
        -->
 <resources>
   <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
   <string name="about0" formatted="false">CallMeter genereert rapporten uit de gesprek, berichten en data log van je telefoon. Het ondersteunt meerdere manieren van factureren.</string>
-  <string name="about1" formatted="false">Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
-  <string name="about2" formatted="false">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
-  <string name="about3" formatted="false">Je kunt je verbruik in 2 schema\'s splitsen. Elk schema kan geheel vrij ingesteld worden, beperkt tot een bepaalde limiet of onbeperkt.</string>
-  <string name="about4" formatted="false">Je berichten kunnen samengevoegd worden met je gespreksminuten. Bijvoorbeeld: elk bericht als een gesprek van 15 sec. rekenen.</string>
-  <string name="about5" formatted="false">CallMeter werkt zich elke 30 minuten op de achtergrond bij (alleen wanneer niet in standby). Dit betekent dat het verwijderen van gesprekken of berichten ouder dan 30 min. de statistieken niet wijzigt. Het verwijderen van gesprekken of berichten jonger dan 30 min. kan resulteren in onjuiste statistieken.</string>
-  <string name="about6_" formatted="false">Wat doet CallMeter NG niet:</string>
+  <string name="about1" formatted="false" orig="The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not.">Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
+  <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
+  <string name="about3" formatted="false" orig="You can split your call or message plan into up to two plans. Each plan can be set to be totally free, capped to a set limit or unlimited.">Je kunt je verbruik in 2 schema\'s splitsen. Elk schema kan geheel vrij ingesteld worden, beperkt tot een bepaalde limiet of onbeperkt.</string>
+  <string name="about4" formatted="false" orig="Your messages can be merged into your call plan. E.g. counting every message as a 15s call.">Je berichten kunnen samengevoegd worden met je gespreksminuten. Bijvoorbeeld: elk bericht als een gesprek van 15 sec. rekenen.</string>
+  <string name="about5" formatted="false" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter werkt zich elke 30 minuten op de achtergrond bij (alleen wanneer niet in standby). Dit betekent dat het verwijderen van gesprekken of berichten ouder dan 30 min. de statistieken niet wijzigt. Het verwijderen van gesprekken of berichten jonger dan 30 min. kan resulteren in onjuiste statistieken.</string>
+  <string name="about6_" formatted="false" orig="What does CallMeter NG not do:">Wat doet CallMeter NG niet:</string>
   <string name="about6" formatted="false">Het is onmogelijk een onderscheid te maken tussen Sipdroid en echte gesprekken of tussen websms en echte sms. Android\'s naadloze integratie van deze applicaties maakt het onmogelijk om dit later in de log te onderscheiden.</string>
   <string name="send_" formatted="false">Verstuur</string>
   <string name="settings" formatted="false">Voorkeuren</string>
