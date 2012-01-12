@@ -637,18 +637,23 @@ public final class Preferences extends PreferenceActivity implements
 			p.setOnPreferenceClickListener(this);
 		}
 
+		SharedPreferences prefs = PreferenceManager
+				.getDefaultSharedPreferences(this);
 		p = this.findPreference("widgets");
 		if (p != null && p instanceof PreferenceScreen) {
 			PreferenceScreen ps = (PreferenceScreen) p;
 			int[] ids = AppWidgetManager.getInstance(this).getAppWidgetIds(
 					new ComponentName(this, StatsAppWidgetProvider.class));
-			if (ids == null || ids.length == 0) {
-				p = new Preference(this);
-				p.setTitle(R.string.widgets_no_widgets_);
-				p.setSummary(R.string.widgets_no_widgets_hint);
-				ps.addPreference(p);
-			} else {
+			boolean added = false;
+			if (ids != null && ids.length > 0) {
 				for (int id : ids) {
+					if (prefs.getLong(
+							StatsAppWidgetProvider.WIDGET_PLANID + id, // .
+							-1) <= 0) {
+						Log.w(TAG, "skip widget: " + id);
+						continue;
+					}
+					added = true;
 					p = new Preference(this);
 					p.setTitle(this.getString(R.string.widget_) + " #" + id);
 					final int fid = id;
@@ -667,6 +672,12 @@ public final class Preferences extends PreferenceActivity implements
 					});
 					ps.addPreference(p);
 				}
+			}
+			if (!added) {
+				p = new Preference(this);
+				p.setTitle(R.string.widgets_no_widgets_);
+				p.setSummary(R.string.widgets_no_widgets_hint);
+				ps.addPreference(p);
 			}
 		}
 
