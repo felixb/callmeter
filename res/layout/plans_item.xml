@@ -1,74 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2009-2010 Felix Bechstein
-	-->
-	<!--
+<!-- Copyright (C) 2009-2012 Felix Bechstein -->
+<!--
 		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
 		version.
-	-->
-	<!--
+-->
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 		General Public License for more details. You should have received a
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
-	-->
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="wrap_content"
-	android:orientation="vertical" android:paddingLeft="5dip"
-	android:paddingRight="5dip">
-	<TextView android:id="@+id/bigtitle" android:text="bigtitle"
-		android:textAppearance="?android:attr/textAppearanceLarge"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:gravity="center" />
-	<View android:id="@+id/spacer" android:layout_width="fill_parent"
-		android:layout_height="15dip" />
-	<RelativeLayout android:id="@+id/period_layout"
-		android:layout_width="fill_parent" android:layout_height="wrap_content">
-		<TextView android:id="@+id/period" android:layout_width="wrap_content"
-			android:text=" ???" android:layout_height="wrap_content"
-			android:layout_alignParentRight="true" android:gravity="right"
-			android:singleLine="false" />
-		<TextView android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_alignParentLeft="true"
-			android:text="@string/billday_" android:layout_toLeftOf="@id/period" />
-		<ProgressBar android:id="@+id/period_pb"
-			android:layout_width="fill_parent" android:layout_height="5dip"
-			android:layout_alignParentRight="true"
-			style="?android:attr/progressBarStyleHorizontal"
-			android:layout_below="@id/period" />
-	</RelativeLayout>
-	<RelativeLayout android:id="@+id/content"
-		android:layout_width="fill_parent" android:layout_height="wrap_content">
-		<RelativeLayout android:id="@+id/content_data"
-			android:layout_width="fill_parent" android:layout_height="wrap_content">
-			<TextView android:id="@+id/data" android:text=" ???"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:layout_alignParentRight="true" android:gravity="right"
-				android:singleLine="false" />
-			<TextView android:id="@+id/normtitle" android:text="normtitle"
-				android:textAppearance="?android:attr/textAppearanceMedium"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:layout_alignParentLeft="true" android:layout_toLeftOf="@id/data" />
-		</RelativeLayout>
-		<ProgressBar android:id="@+id/progressbarLimitGreen"
-			android:layout_width="fill_parent" android:layout_height="10dip"
-			android:layout_alignParentRight="true" android:layout_below="@id/content_data"
-			style="?android:attr/progressBarStyleHorizontal" android:max="100"
-			android:progressDrawable="@drawable/progress_horizontal_green" />
-		<ProgressBar android:id="@+id/progressbarLimitYellow"
-			android:layout_width="fill_parent" android:layout_height="10dip"
-			android:layout_alignParentRight="true" android:layout_below="@id/content_data"
-			style="?android:attr/progressBarStyleHorizontal" android:max="100"
-			android:progressDrawable="@drawable/progress_horizontal_yellow" />
-		<ProgressBar android:id="@+id/progressbarLimitRed"
-			android:layout_width="fill_parent" android:layout_height="10dip"
-			android:layout_alignParentRight="true" android:layout_below="@id/content_data"
-			style="?android:attr/progressBarStyleHorizontal" android:max="100"
-			android:progressDrawable="@drawable/progress_horizontal_red" />
-	</RelativeLayout>
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="5dip"
+    android:paddingRight="5dip" >
+
+    <TextView
+        android:id="@+id/bigtitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="bigtitle"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <View
+        android:id="@+id/spacer"
+        android:layout_width="fill_parent"
+        android:layout_height="15dip" />
+
+    <RelativeLayout
+        android:id="@+id/period_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:singleLine="false"
+            android:text=" ???" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/period"
+            android:text="@string/billday_" />
+
+        <ProgressBar
+            android:id="@+id/period_pb"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="5dip"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/period" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:id="@+id/content_data"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/normtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="normtitle"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/normtitle"
+                android:gravity="right"
+                android:singleLine="false"
+                android:text=" ???" />
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progressbarLimitGreen"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="10dip"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/content_data"
+            android:max="100"
+            android:progressDrawable="@drawable/progress_horizontal_green" />
+
+        <ProgressBar
+            android:id="@+id/progressbarLimitYellow"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="10dip"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/content_data"
+            android:max="100"
+            android:progressDrawable="@drawable/progress_horizontal_yellow" />
+
+        <ProgressBar
+            android:id="@+id/progressbarLimitRed"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="10dip"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/content_data"
+            android:max="100"
+            android:progressDrawable="@drawable/progress_horizontal_red" />
+    </RelativeLayout>
+
 </LinearLayout>
