@@ -26,6 +26,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -55,7 +56,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	private static final String TAG = "wdgt";
 
 	/** Plan.id for widget. */
-	static final String WIDGET_PLANID = "widget_planid_";
+	public static final String WIDGET_PLANID = "widget_planid_";
 	/** Hide name for widget. */
 	static final String WIDGET_HIDETNAME = "widget_hidename_";
 	/** Show short name for widget. */
@@ -106,12 +107,47 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		// Update logs and run rule matcher
 		LogRunnerService.update(context, LogRunnerService.ACTION_RUN_MATCHER);
 
-		final int count = appWidgetIds.length;
+		updateWidgets(context, appWidgetManager, appWidgetIds);
+	}
 
-		// Perform this loop procedure for each App Widget that belongs to this
-		// provider
+	@Override
+	public void onDeleted(final Context context, final int[] appWidgetIds) {
+		Editor e = PreferenceManager.getDefaultSharedPreferences(context)
+				.edit();
+		final int count = appWidgetIds.length;
 		for (int i = 0; i < count; i++) {
-			updateWidget(context, appWidgetManager, appWidgetIds[i]);
+			int id = appWidgetIds[i];
+			Log.d(TAG, "delete widget: " + id);
+			e.remove(WIDGET_PLANID + id);
+		}
+
+		e.commit();
+	}
+
+	/**
+	 * Update all widgets.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param appWidgetManager
+	 *            {@link AppWidgetManager}
+	 * @param appWidgetIds
+	 *            app widget ids
+	 */
+	private static void updateWidgets(final Context context,
+			final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
+		final int count = appWidgetIds.length;
+		SharedPreferences p = PreferenceManager
+				.getDefaultSharedPreferences(context);
+
+		for (int i = 0; i < count; i++) {
+			int id = appWidgetIds[i];
+			Log.d(TAG, "update widget: " + id);
+			if (p.getLong(WIDGET_PLANID + id, -1) <= 0) {
+				Log.w(TAG, "skip stale widget: " + id);
+			} else {
+				updateWidget(context, appWidgetManager, id);
+			}
 		}
 	}
 
@@ -128,10 +164,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		final int[] appWidgetIds = appWidgetManager
 				.getAppWidgetIds(new ComponentName(context,
 						StatsAppWidgetProvider.class));
-		final int count = appWidgetIds.length;
-		for (int i = 0; i < count; i++) {
-			updateWidget(context, appWidgetManager, appWidgetIds[i]);
-		}
+		updateWidgets(context, appWidgetManager, appWidgetIds);
 	}
 
 	/**

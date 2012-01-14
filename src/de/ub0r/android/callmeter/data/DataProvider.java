@@ -652,13 +652,13 @@ public final class DataProvider extends ContentProvider {
 				} else {
 					this.usage = (float) this.limitPos / (float) this.limit;
 				}
-				Log.d(TAG, "new Plan(): pid" + this.id);
-				Log.d(TAG, "new Plan(): count" + this.bpCount);
-				Log.d(TAG, "new Plan(): ba" + this.bpBa);
-				Log.d(TAG, "new Plan(): at.count" + this.atCount);
-				Log.d(TAG, "new Plan(): at.ba" + this.atBa);
-				Log.d(TAG, "new Plan(): cost" + this.cost);
-				Log.d(TAG, "new Plan(): free" + this.free);
+				Log.d(TAG, "new Plan(): pid=" + this.id);
+				Log.d(TAG, "new Plan(): count=" + this.bpCount);
+				Log.d(TAG, "new Plan(): ba=" + this.bpBa);
+				Log.d(TAG, "new Plan(): at.count=" + this.atCount);
+				Log.d(TAG, "new Plan(): at.ba=" + this.atBa);
+				Log.d(TAG, "new Plan(): cost=" + this.cost);
+				Log.d(TAG, "new Plan(): free=" + this.free);
 				Log.d(TAG, "new Plan()", ct);
 			}
 
