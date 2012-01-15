@@ -64,6 +64,7 @@
 	<string name="widgets_">Widgets</string>
 	<string name="widgets_no_widgets_">No widgets added</string>
 	<string name="widgets_no_widgets_hint">There are no widgets added to the launcher.</string>
+	<string name="delete_widget">Delete widget</string>
 	<string name="simple_preferences_">Simple preferences</string>
 	<string name="simple_preferences_hint">Very simple preferences, suitable for most users. Only available with default rule set.</string>
 	<string name="simple_preferences_deactivated">Simple preferences are available for default rule set only. Import the default rule set to reactivate.</string>

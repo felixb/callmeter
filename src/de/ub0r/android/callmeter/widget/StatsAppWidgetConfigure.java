@@ -27,6 +27,8 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -87,16 +89,17 @@ public final class StatsAppWidgetConfigure extends Activity implements
 			DataProvider.Plans.ID, DataProvider.Plans.NAME,
 			DataProvider.Plans.SHORTNAME };
 
+	/** Does the widget already exist? */
+	private boolean isExistingWidget = false;
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
-		this.setTheme(R.style.Theme_SherlockUb0r);
 		Utils.setLocale(this);
 		super.onCreate(savedInstanceState);
-		this.setTitle(this.getString(R.string.app_name) + " > "
-				+ this.getString(R.string.widget_config_));
+		this.setTitle(R.string.widget_config_);
 		this.setContentView(R.layout.stats_appwidget_config);
 		this.spinner = (Spinner) this.findViewById(R.id.spinner);
 		this.cbHideName = (CheckBox) this.findViewById(R.id.hide_name);
@@ -171,6 +174,7 @@ public final class StatsAppWidgetConfigure extends Activity implements
 					AppWidgetManager.EXTRA_APPWIDGET_ID,
 					AppWidgetManager.INVALID_APPWIDGET_ID);
 		}
+		this.isExistingWidget = this.mAppWidgetId > 0;
 		this.load();
 	}
 
@@ -369,6 +373,35 @@ public final class StatsAppWidgetConfigure extends Activity implements
 		this.setBgColor(
 				p.getInt(StatsAppWidgetProvider.WIDGET_BGCOLOR
 						+ this.mAppWidgetId, DEFAULT_BGCOLOR), false);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean onCreateOptionsMenu(final Menu menu) {
+		if (this.isExistingWidget) {
+			this.getMenuInflater().inflate(R.menu.menu_widget, menu);
+			return true;
+		} else {
+			return super.onCreateOptionsMenu(menu);
+		}
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(final MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.item_del:
+			PreferenceManager
+					.getDefaultSharedPreferences(this)
+					.edit()
+					.remove(StatsAppWidgetProvider.WIDGET_PLANID
+							+ this.mAppWidgetId).commit();
+			this.finish();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 
 	/**
