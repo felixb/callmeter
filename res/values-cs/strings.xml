@@ -18,7 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=cs&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/cs/strings.xml to edit the file.
        -->
 <resources>
   <string name="changelog_notification_" formatted="false" orig="Recent changes:">Poslední změny:</string>
@@ -438,4 +438,5 @@
   <string name="limit_help" formatted="false" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">Zde nastavte limity Vašeho tarifu\n\nTyp "jednotky" musí být nastaven v minutách (volání), zprávy (mms/sms), megabyty (data, 1024 kB) nebo jednotky (smíšený).\n\nTyp "cena" musí být nastaven v hlavní měně (např. Kč).</string>
   <string name="billmode_help" formatted="false" orig="Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.">Nastavení zúčtování hovorného.\nPrvní část je minimální délka účtovaná Vaším providerem. Každý kratší hovor je účtován, jako by byl takto dlouhý.\nDruhá část je minimální délka následujících bloků v sekundách.\nProsím přečtěte si FAQ pro další nápovědu.\n(Poznámka: v ČR O2 obvykle účtuje 60+60, T-Mobile 60+30, Vodafone 60+1, U:fon 60+1)</string>
   <string name="roamed_" formatted="false" orig="Roamed">V roamingu</string>
+  <string name="google_plus_hint" formatted="false" orig="Follow me on Google+.\nGet update notifications etc.">Následuj mě na Google+\nInfo o nových verzích apod.</string>
 </resources>

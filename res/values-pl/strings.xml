@@ -455,4 +455,9 @@
   <string name="import_rules_sd_nofiles" formatted="false" username="daniel@borek.me.uk" orig="No found files">Brak znalezionych plikow</string>
   <string name="import_rules_sd_hint" formatted="false" username="daniel@borek.me.uk" orig="Import rule set directly from SD card.">Importuj zestaw reguł z karty SD.</string>
   <string name="import_rules_sd_help" formatted="false" username="daniel@borek.me.uk" orig="Place your file on your SD card and click it below">Umieść swój plik na karcie SD i kliknij poniżej</string>
+  <string name="author_and_many_more" formatted="false" orig="and many more...">i o wiele więcej</string>
+  <string name="update_interval_data_" formatted="false" orig="Update interval (data)">aktualizacja interwału</string>
+  <string name="google_plus_hint" formatted="false" orig="Follow me on Google+.\nGet update notifications etc.">Za mną na Google+.\nOtrzymaj powiadomienia o aktualizacjach</string>
+  <string name="now" formatted="false" orig="Now">Teraz</string>
+  <string name="export_cancel" formatted="false" orig="Export to SD card">Eksport do karty SD</string>
 </resources>
