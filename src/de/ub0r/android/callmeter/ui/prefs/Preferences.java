@@ -637,11 +637,17 @@ public final class Preferences extends PreferenceActivity implements
 			p.setOnPreferenceClickListener(this);
 		}
 
+		this.onNewIntent(this.getIntent());
+	}
+
+	/** Load widget list. */
+	private void loadWidgets() {
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(this);
-		p = this.findPreference("widgets");
+		Preference p = this.findPreference("widgets");
 		if (p != null && p instanceof PreferenceScreen) {
 			PreferenceScreen ps = (PreferenceScreen) p;
+			ps.removeAll();
 			int[] ids = AppWidgetManager.getInstance(this).getAppWidgetIds(
 					new ComponentName(this, StatsAppWidgetProvider.class));
 			boolean added = false;
@@ -680,8 +686,6 @@ public final class Preferences extends PreferenceActivity implements
 				ps.addPreference(p);
 			}
 		}
-
-		this.onNewIntent(this.getIntent());
 	}
 
 	/**
@@ -693,6 +697,7 @@ public final class Preferences extends PreferenceActivity implements
 		final SharedPreferences p = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		this.checkSimplePrefs(p.getBoolean(PREFS_PREPAID, false));
+		this.loadWidgets();
 	}
 
 	/**
