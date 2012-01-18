@@ -18,7 +18,10 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=de&file=intro.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/pt-rBR/intro.xml to edit the file.
        -->
 <resources>
+  <string name="intro_" formatted="false" orig="Introducing Call Meter 3G">Anunciando Call Meter 3G</string>
+  <string name="intro0" formatted="false" orig="With &lt;b&gt;Call Meter 3G&lt;/b&gt; you can monitor the usage of your calls, messages and data connections.">Com Call Meter você pode monitorar o uso das suas ligações, mensagens e dados.</string>
+  <string name="intro_simple" formatted="false" orig="Most users need only set their settings in menu &lt;b&gt;Basic settings&lt;/b&gt;. Just set the number of inclusive minutes or messages, as well as adjust the cost of calls made, etc..">A maioria dos usuários só precisa configurar as opções no menu "Configurações Básicas". Insira o número de minutos ou mensagens e tambem o custo das ligações feitas...</string>
 </resources>
