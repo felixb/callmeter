@@ -18,7 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=hu&file=intro.xml to edit the file.
+               Visit http://ub0r.de/android/translate/cm3/hu/intro.xml to edit the file.
        -->
 <resources>
   <string name="intro0" formatted="false" orig="With &lt;b&gt;Call Meter 3G&lt;/b&gt; you can monitor the usage of your calls, messages and data connections." username="KRG &lt;gkr.android@gmail.com&gt;">A <b>Call Meter 3G</b> segítségével monitorozhatod hívásaid, üzeneteid és adatforgalmad mértékét.</string>
@@ -28,7 +28,7 @@
   <string name="intro_export" formatted="false" orig="In any case, when everything is set up, you can export your rules to me. Thus, all other users can benefit from your work." username="KRG &lt;gkr.android@gmail.com&gt;">Minden esetben, amikor az összes beállítás megtörtént, ki tudod exportálni a szabályokat nekem. Ezáltal más felhasználók is hasznosíthatják fáradozásodat.</string>
   <string name="intro_recalc0" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="The statistics are recalculated after each change to the configuration. This will take some time depending on the number of calls or messages and used phone. It therefore makes sense to adjust all the settings possible in one fell swoop.">A statisztikák minden, a konfigurációban végrehajtott változtatás után újra számolódnak. Ez egy kis időt vesz igénybe, a hívások valamint az üzenetek számától függően. Ezért is van jelentősége, hogy minden lehetséges beállítást egy csapásra beállíts.</string>
   <string name="intro_recalc1" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="The process can be greatly accelerated by the setting &lt;b&gt;Beginning of recording&lt;/b&gt; or &lt;b&gt;Delete logs older than&lt;/b&gt;.">A folyamat nagy mértékben felgyorsítható azéltal a <b>Mérés kezdete</b> vagy a <b>Napló törlése</b> beállításával.</string>
-  <string name="intro_data" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="Please note that no data statistics from before the last phone boot can be displayed.">Kérlek, vedd figyelembe, hogy a telefon utolsó újraindítása előtti adatforgalomra vonatkozó staisztikák nem jeleníthetők meg.</string>
+  <string name="intro_data" formatted="false" orig="Please note that no data statistics from before the last phone boot can be displayed.">Kérlek, vedd figyelembe, hogy a telefon utolsó újraindítása előtti adatforgalomra vonatkozó staisztikák nem jeleníthetők meg.</string>
   <string name="intro_kill" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="Please note that &lt;b&gt;killing&lt;/b&gt; the app can lead to corrupted (data) statistics.">Kérlek, vedd figyelembe, hogy az alkalmazás <b>kilövése</b> hibás (adat) statisztikákhoz vezethet.</string>
-  <string name="intro_" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="Introducing Call Meter 3G">A Call Meter 3G bemutatása</string>
+  <string name="intro_" formatted="false" orig="Introducing Call Meter 3G">A Call Meter 3G bemutatása</string>
 </resources>
