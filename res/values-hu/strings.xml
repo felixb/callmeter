@@ -18,7 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=hu&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/hu/strings.xml to edit the file.
        -->
 <resources>
   <string name="changelog_notification_" formatted="false" orig="Recent changes:">Legfrissebb változások:</string>
@@ -483,4 +483,5 @@
   <string name="import_rules_sd_help" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="Place your file on your SD card and click it below">Tedd a fájlodat az SD kártyára, majd kattints rá</string>
   <string name="simple_preferences_deactivated" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Az egyszerű tulajdonságok csak az alap szabályokhoz érhetők el. Importáld az alap szabályt az újra aktiváláshoz.</string>
   <string name="export_cancel_hint" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="Cancel your mail client to export to SD card only.">Kapcsold ki a levelező programodat, hogy csak az SD kártyára exportálj.</string>
+  <string name="delete_widget" formatted="false" orig="Delete widget">Widget törlése</string>
 </resources>
