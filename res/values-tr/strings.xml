@@ -18,7 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=tr&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/tr/strings.xml to edit the file.
        -->
 <resources>
   <string name="about0_" formatted="false">Görüşme kayıtlarınızı, mesajlarınızı ve internet paketlerinizi izleyin!</string>
@@ -166,8 +166,8 @@
   <string name="export_rules_" formatted="false">Kural dışa aktar</string>
   <string name="export_rules_hint" formatted="false">Kuralları posta yoluyla dışa aktarın.</string>
   <string name="export_rules_descr" formatted="false">Tanımlama</string>
-  <string name="import_rules_" formatted="false" orig="Import rule set">Kural setini içe aktar</string>
-  <string name="import_rules_hint" formatted="false" orig="Import preconfigured rule set.">Daha önceden ayarlanmış kurallar setini içe aktarın.</string>
+  <string name="import_rules_" formatted="false" orig="Import rule set">Kural kümesini içe aktar</string>
+  <string name="import_rules_hint" formatted="false" orig="Import preconfigured rule set.">Daha önceden ayarlanmış kural kümesini içe aktarın.</string>
   <string name="import_rules_empty" formatted="false" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Hiçbir paket/kural ayarlanmadı. Varsayılan kuralları içe aktarmak için bu metne dokunun veya Tercihler menüsünden paket ve kural ekleyin.</string>
   <string name="err_export_write" formatted="false">Dışa aktarma dosyası yazılırken hata oluştu</string>
   <string name="err_export_read" formatted="false">Dışa aktarma dosyası okunurken hata oluştu</string>
@@ -335,7 +335,7 @@
   <string name="delete_old_logs_help" formatted="false" orig="Delete logs older than x days from internal database. Leave empty to disable.">x günden daha eski kayıları iç veritabanından sil. Devre dışı bırakmak için boş bırakın.</string>
   <string name="behavior_" formatted="false" orig="Behavior">Davranış</string>
   <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp; behavior">Görünüm </string>
-  <string name="simple_preferences_" formatted="false" orig="Simple preferences">Temel tercihler</string>
+  <string name="simple_preferences_" formatted="false" orig="Simple preferences">Basit tercihler</string>
   <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Çok basit tercihler. Birçok kullanıcı için uygundur. Yalnızca varsayılan kural kümesi ile kullanılabilir.</string>
   <string name="textsize_title_" formatted="false" orig="Title\'s text size">Başlığın metin boyutu</string>
   <string name="textsize_title_hint" formatted="false" orig="Text size for titles in pixels; leave empty for default">Başlıklar için piksel cinsinden metin boyutu; varsayılan için boş bırakın</string>
@@ -433,15 +433,15 @@
   <string name="export_progr" formatted="false" orig="Exporting data ...">Veri içe aktarılıyor...</string>
   <string name="import_progr" formatted="false" orig="Import data ...">Veri dışa aktarılıyor...</string>
   <string name="export_" formatted="false" orig="Export ...">Dışa aktar...</string>
-  <string name="export_hint" formatted="false" orig="Export rule sets, logs or groups">Kural setleri, loglar veya grupları içe aktarır</string>
+  <string name="export_hint" formatted="false" orig="Export rule sets, logs or groups">Kural kümeleri, loglar veya grupları içe aktarır</string>
   <string name="export_logs_" formatted="false" orig="Backup logs">Logları yedekle</string>
   <string name="export_logs_hint" formatted="false" orig="Backup logs as mail.">Logları e-posta olarak yedekler.</string>
   <string name="export_numgroups_" formatted="false" orig="Export number groups">Numara gruplarını dışa aktar</string>
   <string name="export_numgroups_hint" formatted="false" orig="Export number groups as mail.">Numara gruplarını e-posta olarak dışa aktarır.</string>
   <string name="export_hourgroups_" formatted="false" orig="Export hour groups">Saat gruplarını dışa aktar</string>
   <string name="export_hourgroups_hint" formatted="false" orig="Export hour groups as mail.">Saat gruplarını e-posta olarak dışa aktar.</string>
-  <string name="import_rules_default_" formatted="false" orig="Import default rule set">Varsayılan kural setini içe aktar</string>
-  <string name="import_rules_default_hint" formatted="false" orig="Import default rule set shipped with the app.">Uygulama ile birlikte gelen varsayılan kural setini içe aktarır.</string>
+  <string name="import_rules_default_" formatted="false" orig="Import default rule set">Varsayılan kural kümesini içe aktar</string>
+  <string name="import_rules_default_hint" formatted="false" orig="Import default rule set shipped with the app.">Uygulama ile birlikte gelen varsayılan kural kümesini içe aktarır.</string>
   <string name="widget_plan_textsize" formatted="false" orig="Plan Text Size">Paket için Metin Boyutu</string>
   <string name="widget_cost_textsize" formatted="false" orig="Cost Text Size">Tutar için Metin Boyutu</string>
   <string name="widget_text_color_" formatted="false" orig="Text color">Metin rengi</string>
@@ -450,8 +450,8 @@
   <string name="send_devices_" formatted="false" orig="Send devices">Cihazları gönder</string>
   <string name="send_devices_hint" formatted="false" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Uygulama geliştiriciye cihazların listesini gönder. Bu, yalnızca istatistikleriniz sıfır olduğunda gereklidir.</string>
   <string name="exported_" formatted="false" orig="Exported:">Dışa aktarılan:</string>
-  <string name="import_rules_sd_" formatted="false" orig="Import from SD card">SD karttan içe aktar</string>
-  <string name="import_rules_sd_hint" formatted="false" orig="Import rule set directly from SD card.">Kural setini SD karttan içe aktarma.</string>
+  <string name="import_rules_sd_" formatted="false" orig="Import rule set from SD card">SD karttan içe aktar</string>
+  <string name="import_rules_sd_hint" formatted="false" orig="Import rule set directly from SD card.">Kural kümesini SD karttan içe aktarma.</string>
   <string name="import_rules_sd_help" formatted="false" orig="Place your file on your SD card and click it below">Dosyanızı SD kartınıza kopyalayın ve aşağıda tıklayın</string>
   <string name="import_rules_sd_files" formatted="false" orig="Found files">Bulunan dosyalar</string>
   <string name="import_rules_sd_nofiles" formatted="false" orig="No found files">Hiçbir dosya bulunamadı</string>
@@ -470,4 +470,18 @@
     <item>1 saat</item>
     <item>yalnızca manuel</item>
   </string-array>
+  <string name="widget_" formatted="false" orig="Widget">Widget</string>
+  <string name="widgets_" formatted="false" orig="Widgets">Widget\'lar</string>
+  <string name="widgets_no_widgets_" formatted="false" orig="No widgets added">Eklenen Widget yok</string>
+  <string name="widgets_no_widgets_hint" formatted="false" orig="There are no widgets added to the launcher.">Başlatıcıya eklenmiş herhangi bir widget yok.</string>
+  <string name="delete_widget" formatted="false" orig="Delete widget">Widget sil</string>
+  <string name="simple_preferences_deactivated" formatted="false" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Basit tercihler yalnızca varsayılan kural kümesi için kullanılabilir. Yeniden etkinleştirmek için varsayılan kural kümesini içe aktarın.</string>
+  <string name="author_and_many_more" formatted="false" orig="and many more...">ve dahası...</string>
+  <string name="update_interval_data_" formatted="false" orig="Update interval (data)">Güncelleme aralığı (data)</string>
+  <string name="update_interval_data_hint" formatted="false" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Data istatistiklerinin daha sık güncellenmesi gerekmektedir. Ör.: Samsung için kısa aralıklar belirlemek gerekmektedir.</string>
+  <string name="export_cancel" formatted="false" orig="Export to SD card">SD karta dışa aktar</string>
+  <string name="export_cancel_hint" formatted="false" orig="Cancel your mail client to export to SD card only.">Yalnızca SD karta aktarmak için e-posta alıcınızı iptal edin.</string>
+  <string name="export_rules_dev_" formatted="false" orig="Export rule set to developer">Kural kümesini uygulama geliştiricisine gönder</string>
+  <string name="export_rules_dev_hint" formatted="false" orig="Export rule set to let others import it.">Kural kümesini, başkalarının içe aktarabileceği şekilde dışa aktarın.</string>
+  <string name="import_rules_www_hint" formatted="false" orig="Import pre-configured rule set from http://www.ub0r.de/.">Önceden yapılandırılmış kural kümesini http://www.ub0r.de/ adresinden içe aktarın.</string>
 </resources>

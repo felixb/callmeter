@@ -121,11 +121,11 @@ res/values-sv/notes.xml:0
 res/values-sv/simple_prefs.xml:0
 res/values-sv/strings.xml:81
 res/values-tr/help.xml:14
-res/values-tr/intro.xml:0
+res/values-tr/intro.xml:10
 res/values-tr/market.xml:5
 res/values-tr/notes.xml:0
 res/values-tr/simple_prefs.xml:19
-res/values-tr/strings.xml:430
+res/values-tr/strings.xml:444
 res/values-zh/help.xml:0
 res/values-zh/intro.xml:0
 res/values-zh/market.xml:1
@@ -152,5 +152,5 @@ res/values-pt:458
 res/values-ru:292
 res/values-sk:158
 res/values-sv:81
-res/values-tr:468
+res/values-tr:492
 res/values-zh:311
