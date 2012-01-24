@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter NG. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,11 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php to edit the file.
+               Visit http://ub0r.de/translate/cm3/nl/market.xml to edit the file.
        -->
 <resources>
+  <string name="market_oss" formatted="false" orig="This app is open source software build in spare time. Adding bad comments in market won\'t help much to make it better.\nPlease add your issues with this app on the app\'s website.">Deze applicatie is open source, gemaakt in vrije tijd. Het plaatsen van negatief commentaar in de market draagt niet bij tot het beter maken van de app.\nLaat a.u.b. uw problemen met deze applicatie achter op de website van de app.</string>
+  <string name="market_translation" formatted="false" orig="Feel free to help translating this app to your language here: http://ub0r.de/translate/cm3/">Help ons met het vertalen van deze app naar uw eigen taal hier:\nhttp://ub0r.de/translate/cm3/</string>
 </resources>

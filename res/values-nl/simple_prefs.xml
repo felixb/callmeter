@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,28 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=de&file=notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/nl/simple_prefs.xml to edit the file.
        -->
 <resources>
+  <string name="freemin_" formatted="false" orig="Free minutes">Vrije minuten</string>
+  <string name="freemin_hint" formatted="false" orig="Free minutes / month">Vrije minuten / maand</string>
+  <string name="cost_per_call_" formatted="false" orig="Cost / call">Kosten / gesprek</string>
+  <string name="cost_per_call_hint" formatted="false" orig="Each call get\'s billed.">Elk gesprek word berekend.</string>
+  <string name="cost_per_min_hint" formatted="false" orig="Each minute get\'s billed.">Elke minuut word berekend.</string>
+  <string name="freesms_" formatted="false" orig="Free SMS">Vrije smsjes</string>
+  <string name="freesms_hint" formatted="false" orig="Free SMS / month">Vrije smsjes / maand</string>
+  <string name="cost_per_sms_" formatted="false" orig="Cost / SMS">Kosten / SMS</string>
+  <string name="cost_per_sms_hint" formatted="false" orig="Each SMS get\'s billed.">Elke SMS word berekend.</string>
+  <string name="freemms_" formatted="false" orig="Free MMS">Vrije MMS</string>
+  <string name="freemms_hint" formatted="false" orig="Free MMS / month">Vrije MMS / maand</string>
+  <string name="cost_per_mms_" formatted="false" orig="Cost / MMS">Kosten / MMS</string>
+  <string name="cost_per_mms_hint" formatted="false" orig="Each MMS get\'s billed.">Elke MMS word berekend.</string>
+  <string name="freedata_" formatted="false" orig="Free traffic">Vrij verkeer</string>
+  <string name="freedata_hint" formatted="false" orig="Free 2G, 3G or 4G data traffic / month">Vrij 2G, 3G of 4G internet verkeer / maand</string>
+  <string name="cost_per_mb_" formatted="false" orig="Cost / MB">Kosten / MB</string>
+  <string name="cost_per_mb_hint" formatted="false" orig="Each MB get\'s billed.">Elke MB word berekend.</string>
+  <string name="cost_per_min_" formatted="false" orig="Cost / minute">Kosten / minuut</string>
+  <string name="missing_slash" formatted="false" orig="Bill mode needs to be in seconds/seconds!">Rekening modus moet in seconden / seconden!</string>
 </resources>

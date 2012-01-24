@@ -18,7 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=bg&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/bg/strings.xml to edit the file.
        -->
 <resources>
   <string name="changelog_notification_" formatted="false" orig="Recent changes:">Последни промени:</string>
@@ -186,4 +186,6 @@
   <string name="show_cost_" formatted="false" orig="Show cost">Показване цена</string>
   <string name="show_billperiod_" formatted="false" orig="Show progress of billing period">Показване момента в текущия период</string>
   <string name="show_icon_" formatted="false" orig="Show icon">Показване икона</string>
+  <string name="author_and_many_more" formatted="false" orig="and many more...">и още много други ...</string>
+  <string name="update_interval_data_" formatted="false" orig="Update interval (data)">Интервал за обновяване (на данни)</string>
 </resources>

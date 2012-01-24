@@ -18,7 +18,9 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=de&file=intro.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/bg/intro.xml to edit the file.
        -->
 <resources>
+  <string name="intro_" formatted="false" orig="Introducing Call Meter 3G">Въведение в Call Meter 3G</string>
+  <string name="intro0" formatted="false" orig="With &lt;b&gt;Call Meter 3G&lt;/b&gt; you can monitor the usage of your calls, messages and data connections.">С <b>Call Meter 3G</b> можете да наблюдавате използването на вашите разговори, съобщения и връзки с данни.</string>
 </resources>
