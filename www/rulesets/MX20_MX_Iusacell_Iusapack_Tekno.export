@@ -1,0 +1,127 @@
+0
+Iusacell+Iusapack+Tekno
+plans _id:12:#:_plan_name:Periodo de facturación:#:_shortname:Periodo de facturación:#:_plan_type:2:#:_limit_type:0:#:_limit:0:#:_billperiod:12:#:_billmode:1/1:#:_billday:1324764001893:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan:399:#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:0:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:13:#:_plan_name:Espaciador:#:_shortname:space:#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:-1:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:14:#:_plan_name:Llamadas:#:_shortname:Llamadas:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billperiod:-1:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:15:#:_plan_name:Llamadas entrantes:#:_shortname:Llamadas entrantes:#:_plan_type:4:#:_limit_type:0:#:_limit:0:#:_billperiod:12:#:_billmode:60/60:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:16:#:_plan_name:Llamadas sal otras cias:#:_shortname:Llamada salida otras cia's:#:_plan_type:4:#:_limit_type:2:#:_limit:400:#:_billperiod:12:#:_billmode:60/60:#:_billday:0:#:_cost_per_item:0:#:_cost_per_amount1:5:#:_cost_per_amount2:5:#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:17:#:_plan_name:Espaciador:#:_shortname:spacer:#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:-1:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:18:#:_plan_name:Mensajes:#:_shortname:Mensaje/mensaje multimedia:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billperiod:5:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:19:#:_plan_name:Mensaje entrada:#:_shortname:Mensaje entrada:#:_plan_type:5:#:_limit_type:0:#:_limit:0:#:_billperiod:12:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:20:#:_plan_name:Mensaje salida:#:_shortname:Mensaje salida:#:_plan_type:5:#:_limit_type:1:#:_limit:200:#:_billperiod:12:#:_billmode:1/1:#:_billday:0:#:_cost_per_item:1:#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:21:#:_plan_name:Espaciador:#:_shortname::#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:-1:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:22:#:_plan_name:Datos (2G/3G/4G):#:_shortname:Datos:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billperiod:-1:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:23:#:_plan_name:Datos Entrada/Salida:#:_shortname:Datos Entrada/Salida:#:_plan_type:7:#:_limit_type:1:#:_limit:1024:#:_billperiod:12:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1:0.075:#:_cost_per_amount2:0.075:#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:27:#:_plan_name:Mensaje multimedia entrada:#:_shortname:Mensaje multimedia entrada:#:_plan_type:6:#:_limit_type:0:#:_limit:0:#:_billperiod:5:#:_billday:1287927116450:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:28:#:_plan_name:Mensaje multimedia salida:#:_shortname:Mensaje multimedia salida:#:_plan_type:6:#:_limit_type:0:#:_limit:0:#:_billperiod:5:#:_billday:1287927174859:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:35:#:_plan_name:Comunidad iusacell:#:_shortname:Comunidad Iusacell:#:_plan_type:4:#:_limit_type:1:#:_limit:1000:#:_billperiod:5:#:_billmode:60/60:#:_billday:1326939187774:#:_cost_per_item:0:#:_cost_per_amount1:2.5:#:_cost_per_amount2:2.5:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:-1:#:_next_alert:0:#:_strip_seconds:0:#:
+rules _id:1:#:_active:1:#:_order:0:#:_plan_id:23:#:_rule_name:Datos:#:_what:3:#:_roamed:-1:#:_direction:-1:#:_inhourgroup_id:-1:#:_exhourgroup_id:-1:#:_innumbergroup_id:-1:#:_exnumbergroup_id:-1:#:_limit_not_reached:0:#:
+rules _id:2:#:_active:1:#:_order:1:#:_plan_id:15:#:_rule_name:Llamadas entrantes:#:_what:0:#:_roamed:-1:#:_direction:0:#:_inhourgroup_id:-1:#:_exhourgroup_id:-1:#:_innumbergroup_id:-1:#:_exnumbergroup_id:-1:#:_limit_not_reached:0:#:
+rules _id:3:#:_active:1:#:_order:2:#:_plan_id:35:#:_rule_name:Llamadas salientes iusacell:#:_what:0:#:_roamed:2:#:_direction:1:#:_innumbergroup_id:,8,:#:_exnumbergroup_id:,1,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:4:#:_active:1:#:_order:4:#:_plan_id:19:#:_rule_name:Mensaje entrada:#:_what:1:#:_roamed:2:#:_direction:0:#:_inhourgroup_id:-1:#:_exhourgroup_id:-1:#:_innumbergroup_id:-1:#:_exnumbergroup_id:-1:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:
+rules _id:5:#:_active:1:#:_order:5:#:_plan_id:20:#:_rule_name:Mensaje salida:#:_what:1:#:_roamed:2:#:_direction:1:#:_exnumbergroup_id:,2,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:7:#:_active:1:#:_order:6:#:_plan_id:27:#:_rule_name:Mensaje multimedia entrada:#:_what:2:#:_roamed:2:#:_direction:0:#:_inhourgroup_id:-1:#:_exhourgroup_id:-1:#:_innumbergroup_id:-1:#:_exnumbergroup_id:-1:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:
+rules _id:8:#:_active:1:#:_order:7:#:_plan_id:28:#:_rule_name:Mensaje multimedia salida:#:_what:2:#:_roamed:2:#:_direction:1:#:_inhourgroup_id:-1:#:_exhourgroup_id:-1:#:_innumbergroup_id:-1:#:_exnumbergroup_id:-1:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:
+rules _id:13:#:_active:1:#:_order:3:#:_plan_id:16:#:_rule_name:Llamadas otras Compañias:#:_what:0:#:_roamed:2:#:_direction:2:#:_innumbergroup_id:,6,7,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+numbers _id:10:#:_gid:6:#:_number:999302%:#:
+numbers _id:11:#:_gid:6:#:_number:999301%:#:
+numbers _id:12:#:_gid:6:#:_number:999146%:#:
+numbers _id:13:#:_gid:6:#:_number:999321%:#:
+numbers _id:14:#:_gid:6:#:_number:999162%:#:
+numbers _id:15:#:_gid:6:#:_number:999180%:#:
+numbers _id:16:#:_gid:6:#:_number:999181%:#:
+numbers _id:17:#:_gid:6:#:_number:999179%:#:
+numbers _id:18:#:_gid:6:#:_number:999210%:#:
+numbers _id:19:#:_gid:6:#:_number:99920%:#:
+numbers _id:20:#:_gid:6:#:_number:999145%:#:
+numbers _id:21:#:_gid:6:#:_number:999186%:#:
+numbers _id:22:#:_gid:6:#:_number:999187%:#:
+numbers _id:23:#:_gid:6:#:_number:999153%:#:
+numbers _id:24:#:_gid:7:#:_number:99910%:#:
+numbers _id:25:#:_gid:7:#:_number:99911%:#:
+numbers _id:26:#:_gid:7:#:_number:999120%:#:
+numbers _id:27:#:_gid:7:#:_number:999125%:#:
+numbers _id:28:#:_gid:7:#:_number:999126%:#:
+numbers _id:29:#:_gid:7:#:_number:999127%:#:
+numbers _id:30:#:_gid:7:#:_number:999128%:#:
+numbers _id:31:#:_gid:7:#:_number:999129%:#:
+numbers _id:32:#:_gid:7:#:_number:99913%:#:
+numbers _id:33:#:_gid:7:#:_number:99914%:#:
+numbers _id:34:#:_gid:7:#:_number:99915%:#:
+numbers _id:35:#:_gid:7:#:_number:999160%:#:
+numbers _id:36:#:_gid:7:#:_number:999163%:#:
+numbers _id:37:#:_gid:7:#:_number:999164%:#:
+numbers _id:38:#:_gid:7:#:_number:999165%:#:
+numbers _id:39:#:_gid:7:#:_number:999169%:#:
+numbers _id:40:#:_gid:7:#:_number:99917%:#:
+numbers _id:41:#:_gid:7:#:_number:999183%:#:
+numbers _id:42:#:_gid:7:#:_number:999184%:#:
+numbers _id:43:#:_gid:7:#:_number:999185%:#:
+numbers _id:44:#:_gid:7:#:_number:999189%:#:
+numbers _id:45:#:_gid:7:#:_number:99919%:#:
+numbers _id:46:#:_gid:7:#:_number:999200%:#:
+numbers _id:47:#:_gid:7:#:_number:999214%:#:
+numbers _id:48:#:_gid:7:#:_number:999215%:#:
+numbers _id:49:#:_gid:7:#:_number:999216%:#:
+numbers _id:50:#:_gid:7:#:_number:999219%:#:
+numbers _id:51:#:_gid:7:#:_number:99922%:#:
+numbers _id:52:#:_gid:7:#:_number:99923%:#:
+numbers _id:53:#:_gid:7:#:_number:99924%:#:
+numbers _id:54:#:_gid:7:#:_number:99925%:#:
+numbers _id:55:#:_gid:7:#:_number:99926%:#:
+numbers _id:56:#:_gid:7:#:_number:99927%:#:
+numbers _id:57:#:_gid:7:#:_number:999280%:#:
+numbers _id:58:#:_gid:7:#:_number:999296%:#:
+numbers _id:59:#:_gid:7:#:_number:999297%:#:
+numbers _id:60:#:_gid:7:#:_number:999298%:#:
+numbers _id:61:#:_gid:7:#:_number:999299%:#:
+numbers _id:62:#:_gid:7:#:_number:9992300%:#:
+numbers _id:63:#:_gid:7:#:_number:999300%:#:
+numbers _id:64:#:_gid:7:#:_number:99932%:#:
+numbers _id:65:#:_gid:7:#:_number:9933%:#:
+numbers _id:66:#:_gid:7:#:_number:999535%:#:
+numbers _id:67:#:_gid:7:#:_number:999575%:#:
+numbers _id:68:#:_gid:7:#:_number:999576%:#:
+numbers _id:69:#:_gid:7:#:_number:999737%:#:
+numbers _id:70:#:_gid:7:#:_number:999738%:#:
+numbers _id:71:#:_gid:7:#:_number:999739%:#:
+numbers _id:72:#:_gid:7:#:_number:999740%:#:
+numbers _id:73:#:_gid:7:#:_number:999743%:#:
+numbers _id:74:#:_gid:7:#:_number:999746%:#:
+numbers _id:75:#:_gid:7:#:_number:999747%:#:
+numbers _id:76:#:_gid:7:#:_number:999748%:#:
+numbers _id:77:#:_gid:7:#:_number:999749%:#:
+numbers _id:78:#:_gid:7:#:_number:999899%:#:
+numbers _id:80:#:_gid:7:#:_number:99990%:#:
+numbers _id:82:#:_gid:7:#:_number:999910%:#:
+numbers _id:83:#:_gid:7:#:_number:999918%:#:
+numbers _id:84:#:_gid:7:#:_number:999947%:#:
+numbers _id:85:#:_gid:7:#:_number:999955%:#:
+numbers _id:86:#:_gid:7:#:_number:999958%:#:
+numbers _id:87:#:_gid:7:#:_number:999960%:#:
+numbers _id:88:#:_gid:7:#:_number:999965%:#:
+numbers _id:89:#:_gid:7:#:_number:999970%:#:
+numbers _id:90:#:_gid:7:#:_number:99999%:#:
+numbers _id:91:#:_gid:8:#:_number:999122%:#:
+numbers _id:92:#:_gid:8:#:_number:999969%:#:
+numbers _id:93:#:_gid:8:#:_number:999968%:#:
+numbers _id:94:#:_gid:8:#:_number:999110%:#:
+numbers _id:95:#:_gid:8:#:_number:999111%:#:
+numbers _id:96:#:_gid:8:#:_number:999121%:#:
+numbers _id:97:#:_gid:8:#:_number:999121%:#:
+numbers _id:98:#:_gid:8:#:_number:9991220%:#:
+numbers _id:99:#:_gid:8:#:_number:9991226%:#:
+numbers _id:100:#:_gid:8:#:_number:9991225%:#:
+numbers _id:101:#:_gid:8:#:_number:9991610%:#:
+numbers _id:102:#:_gid:8:#:_number:9991615%:#:
+numbers _id:103:#:_gid:8:#:_number:999217%:#:
+numbers _id:104:#:_gid:8:#:_number:999218%:#:
+numbers _id:105:#:_gid:8:#:_number:999229%:#:
+numbers _id:106:#:_gid:8:#:_number:9992390%:#:
+numbers _id:107:#:_gid:8:#:_number:9992391%:#:
+numbers _id:108:#:_gid:8:#:_number:9992920%:#:
+numbers _id:109:#:_gid:8:#:_number:9992929%:#:
+numbersgroup _id:6:#:_name:Movistar:#:
+numbersgroup _id:7:#:_name:Telcel:#:
+numbersgroup _id:8:#:_name:Iusacell:#:
+
