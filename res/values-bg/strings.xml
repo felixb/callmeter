@@ -188,4 +188,12 @@
   <string name="show_icon_" formatted="false" orig="Show icon">Показване икона</string>
   <string name="author_and_many_more" formatted="false" orig="and many more...">и още много други ...</string>
   <string name="update_interval_data_" formatted="false" orig="Update interval (data)">Интервал за обновяване (на данни)</string>
+  <string name="update_interval_data_hint" formatted="false" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Актуализация на данните за статистиката трябва да се направи по-често. ESP. Samsung се нуждае от много кратки интервали.</string>
+  <string name="google_plus_hint" formatted="false" orig="Follow me on Google+.\nGet update notifications etc.">Последвайте ме в Google +.\nПолучете актуализации уведомления и др.</string>
+  <string name="widget_" formatted="false" orig="Widget">Уиджет</string>
+  <string name="widgets_" formatted="false" orig="Widgets">Уиджети</string>
+  <string name="widgets_no_widgets_" formatted="false" orig="No widgets added">Няма добавени уиджети</string>
+  <string name="widgets_no_widgets_hint" formatted="false" orig="There are no widgets added to the launcher.">Няма уиджети добавени във вашия Launcher</string>
+  <string name="delete_widget" formatted="false" orig="Delete widget">Изтриване на уиджет</string>
+  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Много лесни предпочитания, подходящи за повечето потребители. Предлага се само с комплект правило по подразбиране.</string>
 </resources>
