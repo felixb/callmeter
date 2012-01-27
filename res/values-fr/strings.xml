@@ -18,7 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/android/translate/cm3/fr/strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/fr/strings.xml to edit the file.
        -->
 <resources>
   <string name="about0_" formatted="false">Surveillez votre forfait d\'appels, de messages et de données !</string>
@@ -44,4 +44,18 @@
     <item>Noir</item>
     <item>Clair</item>
   </string-array>
+  <string name="calls" formatted="false" orig="Calls">Appels</string>
+  <string name="calls_out" formatted="false" orig="Calls Out">Appels sortants</string>
+  <string name="messages_" formatted="false" orig="SMS/MMS">SMS/MMS</string>
+  <string name="messages" formatted="false" orig="Messages">Messages</string>
+  <string name="sms" formatted="false" orig="SMS">SMS</string>
+  <string name="sms_in" formatted="false" orig="SMS In">SMS entrants</string>
+  <string name="sms_out" formatted="false" orig="SMS Out">SMS sortants</string>
+  <string name="mms" formatted="false" orig="MMS">MMS</string>
+  <string name="mms_in" formatted="false" orig="MMS In">MMS entrants</string>
+  <string name="mms_out" formatted="false" orig="MMS Out">MMS sortants</string>
+  <string name="data" formatted="false" orig="Data">Data</string>
+  <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Data (2G/3G/4G)</string>
+  <string name="data_inout" formatted="false" orig="Data In/Out">Data Entrant/Sortant</string>
+  <string name="now" formatted="false" orig="Now">Maintenant</string>
 </resources>

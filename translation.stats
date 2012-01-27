@@ -37,11 +37,11 @@ res/values-es/notes.xml:0
 res/values-es/simple_prefs.xml:19
 res/values-es/strings.xml:438
 res/values-fr/help.xml:0
-res/values-fr/intro.xml:0
+res/values-fr/intro.xml:7
 res/values-fr/market.xml:0
 res/values-fr/notes.xml:0
 res/values-fr/simple_prefs.xml:0
-res/values-fr/strings.xml:22
+res/values-fr/strings.xml:36
 res/values-hi/help.xml:0
 res/values-hi/intro.xml:0
 res/values-hi/market.xml:0
@@ -138,7 +138,7 @@ res/values-cs:452
 res/values-de:492
 res/values-el:382
 res/values-es:486
-res/values-fr:22
+res/values-fr:43
 res/values-hi:7
 res/values-hr:462
 res/values-hu:492
