@@ -18,7 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm2/edit.php?lang=tr&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm2/tr/strings.xml to edit the file.
        -->
 <resources>
   <string name="about0_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Watch your call, message and data plans!">Görüşme kayıtlarınızı, mesajlarınızı ve internet paketlerinizi izleyin!</string>
@@ -35,7 +35,7 @@
   <string name="about_" formatted="false">Hakkında</string>
   <string name="about_hint" formatted="false">Bu uygulama hakkında</string>
   <string name="faq_hint" formatted="false">Bu uygulamanın ayarlarını yapmak için bazı ipuçları.</string>
-  <string name="feedback_" formatted="false">Geribildirim</string>
+  <string name="feedback_" formatted="false" orig="Feedback">Geribildirim</string>
   <string name="feedback_hint" formatted="false">Hata bildirin, özellik eklenmesini talep edin..</string>
   <string name="twitter_hint" formatted="false">Beni twitter\'da takip et.\nGüncelleme bildirimlerini al vb.</string>
   <string name="more_" formatted="false">Daha fazla uygulama..</string>
@@ -68,7 +68,7 @@
   <string name="exclude_people_sms_to_plan2_hint" formatted="false">2 no.lu pakette hariç tutulan numaralar için gelen/giden mesajları ücretlendir</string>
   <string name="plans" formatted="false">Paketler</string>
   <string name="plans_split" formatted="false">Paketleri böl</string>
-  <string name="plans_merge" formatted="false">Paketleri birleştir</string>
+  <string name="plans_merge" formatted="false" orig="Merge plans">Paketleri birleştir</string>
   <string name="plans_split_hint" formatted="false">Pakedi değişik ücretlendirilen iki pakede böl.</string>
   <string name="plan1" formatted="false">Paket 1</string>
   <string name="plan2" formatted="false">Paket 2</string>
