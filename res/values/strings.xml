@@ -412,6 +412,7 @@
 		<item>Five month</item>
 		<item>Six month</item>
 		<item>One year</item>
+		<item>One month+1day</item>
 		<item>Infinite</item>
 	</string-array>
 	<string-array name="billmodes">

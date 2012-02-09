@@ -153,8 +153,10 @@ public final class DataProvider extends ContentProvider {
 	public static final int BILLPERIOD_6MONTH = 10;
 	/** Bill period: 12 month. */
 	public static final int BILLPERIOD_12MONTH = 11;
+	/** Bill period: 1 month + 1 Day. */
+	public static final int BILLPERIOD_1MONTH_1DAY = 12;
 	/** Bill period: infinite. */
-	public static final int BILLPERIOD_INFINITE = 12;
+	public static final int BILLPERIOD_INFINITE = 13;
 
 	/** Plan/rule id: not yet calculated. */
 	public static final int NO_ID = -1;
@@ -1448,8 +1450,17 @@ public final class DataProvider extends ContentProvider {
 		 * @return array of [Calendar.FIELD, amount]
 		 */
 		private static int[] getPeriodSettings(final int period) {
-			int f;
-			int v;
+			int f; // Calendar.FIELD
+			int v; // amount
+			/*
+			 * The values j and k are used to add a different type of period to
+			 * the value, eg. you can have a period of one month and for each
+			 * month you can add one day so you would have the same day-number
+			 * as start and end of the period. (01.01.2012 - 01.02.2012,
+			 * 02.02.2012 - 02.03.2012 and so on...)
+			 */
+			int j = Calendar.MILLISECOND; // Additional Calendar.FIELD
+			int k = 0; // Additional amount
 			switch (period) {
 			case BILLPERIOD_DAY:
 				f = Calendar.DAY_OF_MONTH;
@@ -1495,6 +1506,12 @@ public final class DataProvider extends ContentProvider {
 				f = Calendar.YEAR;
 				v = 1;
 				break;
+			case BILLPERIOD_1MONTH_1DAY:
+				f = Calendar.MONTH;
+				v = 1;
+				j = Calendar.DAY_OF_MONTH;
+				k = 1;
+				break;
 			case BILLPERIOD_WEEK:
 				f = Calendar.DAY_OF_MONTH;
 				v = 7;
@@ -1503,7 +1520,7 @@ public final class DataProvider extends ContentProvider {
 				return null;
 			}
 
-			return new int[] { f, v };
+			return new int[] { f, v, j, k };
 		}
 
 		/**
@@ -1523,6 +1540,8 @@ public final class DataProvider extends ContentProvider {
 				final Calendar start, final Calendar now, final boolean next) {
 			int f;
 			int v;
+			int j;
+			int k;
 			switch (period) {
 			case BILLPERIOD_INFINITE:
 				return start;
@@ -1548,6 +1567,8 @@ public final class DataProvider extends ContentProvider {
 				} else {
 					f = i[0];
 					v = i[1];
+					j = i[2];
+					k = i[3];
 				}
 			}
 
@@ -1564,12 +1585,15 @@ public final class DataProvider extends ContentProvider {
 
 			while (ret.after(n)) {
 				ret.add(f, v * -1);
+				ret.add(j, k * -1);
 			}
 			while (!ret.after(n)) {
 				ret.add(f, v);
+				ret.add(j, k);
 			}
 			if (!next) {
 				ret.add(f, v * -1);
+				ret.add(j, k * -1);
 			}
 			return ret;
 		}
@@ -1593,6 +1617,8 @@ public final class DataProvider extends ContentProvider {
 
 			int f;
 			int v;
+			int j;
+			int k;
 			Calendar c = Calendar.getInstance();
 			final long now = System.currentTimeMillis();
 			switch (period) {
@@ -1616,14 +1642,19 @@ public final class DataProvider extends ContentProvider {
 				}
 				f = i[0];
 				v = i[1];
+				j = i[2];
+				k = i[3];
 				c.setTimeInMillis(start);
 				while (c.getTimeInMillis() < now) {
 					c.add(f, v);
+					c.add(j, k);
 				}
 				c.add(f, -1 * v);
+				c.add(j, -1 * k);
 				while (c.getTimeInMillis() > newerAs) {
 					ret.add(c.getTimeInMillis() + offset);
 					c.add(f, -1 * v);
+					c.add(j, -1 * k);
 				}
 			}
 
