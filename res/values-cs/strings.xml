@@ -172,7 +172,7 @@
   <string name="cost_per_item_" formatted="false">Cena za položku</string>
   <string name="cost_per_plan_" formatted="false">Cena tarifu</string>
   <string name="cost_per_plan_help" formatted="false">Nastavit cenu tarifu za zúčtovací období.</string>
-  <string name="mixed_units_mms_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Units for a mms">Jednotek za mms</string>
+  <string name="mixed_units_mms_" formatted="false" orig="Units for a mms">Jednotek za MMS</string>
   <string name="merge_plans_" formatted="false">Spojení tarifů</string>
   <string name="merge_plans_help" formatted="false">Připojit další tarify k tomuto a zúčtovat je zde (také).</string>
   <string name="units_cost" formatted="false">Kč</string>
@@ -183,10 +183,10 @@
   <string name="units_units_per_minute" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Units/Minute">Jednotky/Minuta</string>
   <string name="units_units_per_message" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Units/Message">Jednotky/Zpráva</string>
   <string name="units_cost_per_call" formatted="false">Kč/Hovor</string>
-  <string name="units_cost_per_minute" formatted="false">Kč/Minutu</string>
+  <string name="units_cost_per_minute" formatted="false" orig="$/Minute">Kč/minutu</string>
   <string name="units_cost_per_message" formatted="false">Kč/Zprávu</string>
   <string name="units_cost_per_mbyte" formatted="false">Kč/MByte</string>
-  <string name="units_cost_per_unit" formatted="false">Kč/Jednotku</string>
+  <string name="units_cost_per_unit" formatted="false" orig="$/Unit">Kč/jednotku</string>
   <string name="plan_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Plan">Tarif</string>
   <string name="limitnotreached_" formatted="false">Limit nebyl dosažen</string>
   <string name="limitnotreached_help" formatted="false">Match only if target plan has not reached it\'s limit yet.</string>
@@ -386,12 +386,12 @@
   <string name="export_hint" formatted="false" orig="Export rule sets, logs or groups">Exportovat sadu pravidel, logů a skupin čísel</string>
   <string name="no_matter_" formatted="false" orig="Does not matter">Nezáleží</string>
   <string name="none" formatted="false" orig="None">Žádný</string>
-  <string name="plan_help" formatted="false" orig="Choose the plan this rule should fit.">Vyberte tarif, na který má být aplikováno toto pravidlo</string>
-  <string name="cost_per_amount_help1" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Nastavte cenu za jednotku (např. za 1kB dat) poté, co je překročen limit</string>
+  <string name="plan_help" formatted="false" orig="Choose the plan this rule should fit.">Vyberte tarif, na který má být aplikováno toto pravidlo.</string>
+  <string name="cost_per_amount_help1" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Nastavte cenu za jednotku (např. za 1 kB dat) poté, co je překročen limit.</string>
   <string name="cost_per_amount_" formatted="false" orig="Cost per length">Cena za jednotku</string>
-  <string name="cost_per_item_in_limit_help" formatted="false" orig="Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.">Nastavte cenu za jednotku (např. za hovor či zprávu) před tím, než je dosažen limit</string>
+  <string name="cost_per_item_in_limit_help" formatted="false" orig="Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.">Nastavte cenu za jednotku (např. za hovor či zprávu) před tím, než je dosažen limit.</string>
   <string name="cost_per_item_in_limit_" formatted="false" orig="Cost per item in limit">Cena za jednotku v rámci limitu</string>
-  <string name="cost_per_item_help" formatted="false" orig="Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.">Nastavte cenu za jednotku (např. za hovor či zprávu) poté, co je překročen limit</string>
+  <string name="cost_per_item_help" formatted="false" orig="Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.">Nastavte cenu za jednotku (např. za hovor či zprávu) poté, co je překročen limit.</string>
   <string name="billperiodid_help" formatted="false" orig="Select your billing period.\nYou may need to create one as extra plan.">Vyberte vaše zúčtovací období.\nMožná ho budete muset vytvořit jako nový tarif.</string>
   <string name="shortname_help" formatted="false" orig="Set a short name here. It is displayed in compact layouts.">Zadejte krátké jméno. Bude zobrazeno v kompaktním rozvržení</string>
   <string name="messages" formatted="false" orig="Messages">Zprávy</string>
@@ -434,7 +434,7 @@
   <string name="import_rules_empty" formatted="false" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Nejsou nastaveny žádné tarify/pravidla. Klepněte na tento text pro import výchozích pravidel.\n\nNebo přidejte terify a pravidla ročně v Nastavení.</string>
   <string name="alerts_hint" formatted="false" orig="Set alerts based on plan usage.">Nastavit upozornění na základě využití tarifu.</string>
   <string name="send_devices_hint" formatted="false" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Poslat seznam zařízení vývojáři. To je potřeba pouze pokud Vaše statistiky jsou nulové.</string>
-  <string name="mixed_units_sms_" formatted="false" orig="Units for a sms">Jednotek za sms</string>
+  <string name="mixed_units_sms_" formatted="false" orig="Units for a sms">Jednotek za SMS</string>
   <string name="mixed_units_sms_help" formatted="false" orig="Set the units billed for a single sms.">Nastavit počet jednotek účtovaných za jednu SMS.</string>
   <string name="mixed_units_mms_help" formatted="false" orig="Set the units billed for a single mms.">Nastavit počet jednotek účtovaných za jednu MMS.</string>
   <string name="mixed_units_call_" formatted="false" orig="Units for a call">Jednotky za volání</string>
@@ -460,4 +460,9 @@
     <item>Jedna hodina</item>
     <item>Pouze ručně</item>
   </string-array>
+  <string name="import_rules_www_hint" formatted="false" orig="Import pre-configured rule set from http://www.ub0r.de/.">Import přednastavené sady pravidel z http://www.ub0r.de</string>
+  <string name="export_rules_dev_hint" formatted="false" orig="Export rule set to let others import it.">Exportovat sadu pravidel pro využití ostatními.</string>
+  <string name="export_rules_dev_" formatted="false" orig="Export rule set to developer">Exportovat sadu pravidel vývojáři</string>
+  <string name="export_cancel" formatted="false" orig="Export to SD card">Export na SD kartu</string>
+  <string name="exported_" formatted="false" orig="Exported:">Exportováno:</string>
 </resources>

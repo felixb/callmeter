@@ -17,7 +17,7 @@ res/values-cs/intro.xml:9
 res/values-cs/market.xml:5
 res/values-cs/notes.xml:0
 res/values-cs/simple_prefs.xml:19
-res/values-cs/strings.xml:416
+res/values-cs/strings.xml:421
 res/values-de/help.xml:14
 res/values-de/intro.xml:10
 res/values-de/market.xml:5
@@ -103,7 +103,7 @@ res/values-pt/notes.xml:0
 res/values-pt/simple_prefs.xml:19
 res/values-pt/strings.xml:420
 res/values-ru/help.xml:1
-res/values-ru/intro.xml:0
+res/values-ru/intro.xml:2
 res/values-ru/market.xml:0
 res/values-ru/notes.xml:0
 res/values-ru/simple_prefs.xml:0
@@ -134,7 +134,7 @@ res/values-zh/simple_prefs.xml:0
 res/values-zh/strings.xml:310
 res/values:531
 res/values-bg:169
-res/values-cs:452
+res/values-cs:457
 res/values-de:492
 res/values-el:382
 res/values-es:486
@@ -149,7 +149,7 @@ res/values-nb:413
 res/values-nl:384
 res/values-pl:460
 res/values-pt:458
-res/values-ru:292
+res/values-ru:294
 res/values-sk:158
 res/values-sv:81
 res/values-tr:492
