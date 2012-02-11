@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -44,8 +44,7 @@ public final class DatePreference extends DialogPreference implements
 	 * @param attrs
 	 *            {@link AttributeSet}
 	 */
-	public DatePreference(final Context context, // .
-			final AttributeSet attrs) {
+	public DatePreference(final Context context, final AttributeSet attrs) {
 		super(context, attrs);
 		this.setPersistent(true);
 	}
@@ -60,8 +59,7 @@ public final class DatePreference extends DialogPreference implements
 	 * @param defStyle
 	 *            default style
 	 */
-	public DatePreference(final Context context, final AttributeSet attrs,
-			final int defStyle) {
+	public DatePreference(final Context context, final AttributeSet attrs, final int defStyle) {
 		super(context, attrs, defStyle);
 		this.setPersistent(true);
 	}
@@ -73,8 +71,7 @@ public final class DatePreference extends DialogPreference implements
 	protected View onCreateDialogView() {
 		final Calendar c = this.getPersitendCalendar(this.defValue);
 		final DatePicker dp = new DatePicker(this.getContext());
-		dp.init(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c
-				.get(Calendar.DAY_OF_MONTH), this);
+		dp.init(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), this);
 		return dp;
 	}
 
@@ -85,8 +82,7 @@ public final class DatePreference extends DialogPreference implements
 	public void setDefaultValue(final Object defaultValue) {
 		super.setDefaultValue(defaultValue);
 		if (defaultValue instanceof String) {
-			this.defValue = Utils.parseLong((String) defaultValue,
-					this.defValue);
+			this.defValue = Utils.parseLong((String) defaultValue, this.defValue);
 		} else if (defaultValue instanceof Long) {
 			this.defValue = (Long) defaultValue;
 		}
@@ -109,8 +105,8 @@ public final class DatePreference extends DialogPreference implements
 	/**
 	 * {@inheritDoc}
 	 */
-	public void onDateChanged(final DatePicker view, final int year,
-			final int monthOfYear, final int dayOfMonth) {
+	public void onDateChanged(final DatePicker view, final int year, final int monthOfYear,
+			final int dayOfMonth) {
 		Calendar c = Calendar.getInstance();
 		c.set(year, monthOfYear, dayOfMonth);
 		this.persistLong(c.getTimeInMillis());

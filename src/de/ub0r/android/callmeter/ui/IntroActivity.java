@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of CallMeter 3G.
  * 
@@ -32,8 +32,7 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public final class IntroActivity extends FragmentActivity // .
-		implements OnClickListener {
+public final class IntroActivity extends FragmentActivity implements OnClickListener {
 	/**
 	 * {@inheritDoc}
 	 */

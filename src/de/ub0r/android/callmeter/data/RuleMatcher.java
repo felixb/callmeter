@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -77,8 +77,7 @@ public final class RuleMatcher {
 		 *            ids of group
 		 * @return {@link NumbersGroup}s
 		 */
-		static NumbersGroup[] getNumberGroups(final ContentResolver cr,
-				final String gids) {
+		static NumbersGroup[] getNumberGroups(final ContentResolver cr, final String gids) {
 			if (gids == null) {
 				return null;
 			}
@@ -88,8 +87,7 @@ public final class RuleMatcher {
 				if (s == null || s.length() == 0 || s.equals("-1")) {
 					continue;
 				}
-				final NumbersGroup ng = new NumbersGroup(cr, Utils.parseLong(s,
-						-1L));
+				final NumbersGroup ng = new NumbersGroup(cr, Utils.parseLong(s, -1L));
 				if (ng != null && ng.numbers.size() > 0) {
 					list.add(ng);
 				}
@@ -109,8 +107,7 @@ public final class RuleMatcher {
 		 *            id of group
 		 * @return {@link HoursGroup}s
 		 */
-		static HoursGroup[] getHourGroups(final ContentResolver cr, // .
-				final String gids) {
+		static HoursGroup[] getHourGroups(final ContentResolver cr, final String gids) {
 			if (gids == null) {
 				return null;
 			}
@@ -120,8 +117,7 @@ public final class RuleMatcher {
 				if (s == null || s.length() == 0 || s.equals("-1")) {
 					continue;
 				}
-				final HoursGroup ng = new HoursGroup(cr,
-						Utils.parseLong(s, -1L));
+				final HoursGroup ng = new HoursGroup(cr, Utils.parseLong(s, -1L));
 				if (ng != null && ng.hours.size() > 0) {
 					list.add(ng);
 				}
@@ -146,14 +142,13 @@ public final class RuleMatcher {
 			 *            argument
 			 */
 			private NumbersGroup(final ContentResolver cr, final long what0) {
-				final Cursor cursor = cr.query(ContentUris.withAppendedId(
-						DataProvider.Numbers.GROUP_URI, what0),
+				final Cursor cursor = cr.query(
+						ContentUris.withAppendedId(DataProvider.Numbers.GROUP_URI, what0),
 						DataProvider.Numbers.PROJECTION, null, null, null);
 				if (cursor != null && cursor.moveToFirst()) {
 					final boolean doPrefix = intPrefix.length() > 1;
 					do {
-						String s = cursor
-								.getString(DataProvider.Numbers.INDEX_NUMBER);
+						String s = cursor.getString(DataProvider.Numbers.INDEX_NUMBER);
 						if (s == null || s.length() == 0) {
 							continue;
 						}
@@ -161,8 +156,7 @@ public final class RuleMatcher {
 							s = s.replaceFirst("^00*", "");
 						}
 						if (doPrefix && !s.startsWith("%")) {
-							s = national2international(// .
-									intPrefix, zeroPrefix, s);
+							s = national2international(intPrefix, zeroPrefix, s);
 						}
 						this.numbers.add(s);
 					} while (cursor.moveToNext());
@@ -224,8 +218,7 @@ public final class RuleMatcher {
 						numl = number.length();
 					}
 					if (intPrefix.length() > 1) {
-						number = national2international(intPrefix, zeroPrefix,
-								number);
+						number = national2international(intPrefix, zeroPrefix, number);
 						numl = number.length();
 					}
 				}
@@ -245,8 +238,7 @@ public final class RuleMatcher {
 							if (nl == 2) {
 								return false;
 							}
-							if (number.contains(n.substring(1, // .
-									nl - 1))) {
+							if (number.contains(n.substring(1, nl - 1))) {
 								return true;
 							}
 						} else {
@@ -269,8 +261,7 @@ public final class RuleMatcher {
 		/** Group of hours. */
 		private static final class HoursGroup {
 			/** List of hours. */
-			private final HashMap<Integer, HashSet<Integer>> hours = // .
-			new HashMap<Integer, HashSet<Integer>>();
+			private final HashMap<Integer, HashSet<Integer>> hours = new HashMap<Integer, HashSet<Integer>>();
 
 			/** Entry for monday - sunday. */
 			private static final int ALL_WEEK = 0;
@@ -300,15 +291,13 @@ public final class RuleMatcher {
 			 *            argument
 			 */
 			private HoursGroup(final ContentResolver cr, final long what0) {
-				final Cursor cursor = cr.query(ContentUris.withAppendedId(
-						DataProvider.Hours.GROUP_URI, what0),
+				final Cursor cursor = cr.query(
+						ContentUris.withAppendedId(DataProvider.Hours.GROUP_URI, what0),
 						DataProvider.Hours.PROJECTION, null, null, null);
 				if (cursor != null && cursor.moveToFirst()) {
 					do {
-						final int d = cursor
-								.getInt(DataProvider.Hours.INDEX_DAY);
-						final int h = cursor
-								.getInt(DataProvider.Hours.INDEX_HOUR);
+						final int d = cursor.getInt(DataProvider.Hours.INDEX_DAY);
+						final int h = cursor.getInt(DataProvider.Hours.INDEX_HOUR);
 						if (this.hours.containsKey(d)) {
 							this.hours.get(d).add(h);
 						} else {
@@ -334,12 +323,10 @@ public final class RuleMatcher {
 				long date = log.getLong(DataProvider.Logs.INDEX_DATE);
 				final Calendar cal = Calendar.getInstance();
 				cal.setTimeInMillis(date);
-				final int d = (cal.get(Calendar.DAY_OF_WEEK) - Calendar.SUNDAY)
-						% SUN;
+				final int d = (cal.get(Calendar.DAY_OF_WEEK) - Calendar.SUNDAY) % SUN;
 				final int h = cal.get(Calendar.HOUR_OF_DAY) + 1;
 				for (int k : this.hours.keySet()) {
-					if (k == ALL_WEEK || (k == MON_FRI && d < SAT && d >= MON)
-							|| k % SUN == d) {
+					if (k == ALL_WEEK || (k == MON_FRI && d < SAT && d >= MON) || k % SUN == d) {
 						for (int v : this.hours.get(k)) {
 							if (v == 0 || v == h) {
 								return true;
@@ -384,8 +371,7 @@ public final class RuleMatcher {
 		 * @param cursor
 		 *            {@link Cursor}
 		 */
-		Rule(final ContentResolver cr, final Cursor cursor,
-				final long overwritePlanId) {
+		Rule(final ContentResolver cr, final Cursor cursor, final long overwritePlanId) {
 			this.id = cursor.getLong(DataProvider.Rules.INDEX_ID);
 			if (overwritePlanId >= 0) {
 				this.planId = overwritePlanId;
@@ -395,16 +381,13 @@ public final class RuleMatcher {
 			this.what = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
 			this.direction = cursor.getInt(DataProvider.Rules.INDEX_DIRECTION);
 			this.roamed = cursor.getInt(DataProvider.Rules.INDEX_ROAMED);
-			this.inhours = getHourGroups(cr,
-					cursor.getString(DataProvider.Rules.INDEX_INHOURS_ID));
-			this.exhours = getHourGroups(cr,
-					cursor.getString(DataProvider.Rules.INDEX_EXHOURS_ID));
+			this.inhours = getHourGroups(cr, cursor.getString(DataProvider.Rules.INDEX_INHOURS_ID));
+			this.exhours = getHourGroups(cr, cursor.getString(DataProvider.Rules.INDEX_EXHOURS_ID));
 			this.innumbers = getNumberGroups(cr,
 					cursor.getString(DataProvider.Rules.INDEX_INNUMBERS_ID));
 			this.exnumbers = getNumberGroups(cr,
 					cursor.getString(DataProvider.Rules.INDEX_EXNUMBERS_ID));
-			this.limitNotReached = cursor
-					.getInt(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED) > 0;
+			this.limitNotReached = cursor.getInt(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED) > 0;
 			if (cursor.isNull(DataProvider.Rules.INDEX_IS_WEBSMS)) {
 				this.iswebsms = DataProvider.Rules.NO_MATTER;
 			} else {
@@ -415,20 +398,17 @@ public final class RuleMatcher {
 					this.iswebsms = DataProvider.Rules.NO_MATTER;
 				}
 			}
-			final String s = cursor
-					.getString(DataProvider.Rules.INDEX_IS_WEBSMS_CONNETOR);
+			final String s = cursor.getString(DataProvider.Rules.INDEX_IS_WEBSMS_CONNETOR);
 			if (s == null || s.length() == 0) {
 				this.iswebsmsConnector = "";
 			} else {
-				this.iswebsmsConnector = " AND "
-						+ DataProvider.WebSMS.CONNECTOR + " LIKE '%"
+				this.iswebsmsConnector = " AND " + DataProvider.WebSMS.CONNECTOR + " LIKE '%"
 						+ s.toLowerCase() + "%'";
 			}
 			if (cursor.isNull(DataProvider.Rules.INDEX_IS_SIPCALL)) {
 				this.issipcall = DataProvider.Rules.NO_MATTER;
 			} else {
-				final int i = cursor
-						.getInt(DataProvider.Rules.INDEX_IS_SIPCALL);
+				final int i = cursor.getInt(DataProvider.Rules.INDEX_IS_SIPCALL);
 				if (i >= 0) {
 					this.issipcall = i;
 				} else {
@@ -474,8 +454,7 @@ public final class RuleMatcher {
 					Log.d(TAG, "match sipcall: " + this.issipcall);
 					if (this.issipcall == 1) {
 						// match no sipcall
-						final Cursor c = cr.query(
-								DataProvider.SipCall.CONTENT_URI,
+						final Cursor c = cr.query(DataProvider.SipCall.CONTENT_URI,
 								DataProvider.SipCall.PROJECTION,
 								DataProvider.SipCall.DATE + " = ?",
 								new String[] { String.valueOf(d) }, null);
@@ -487,8 +466,7 @@ public final class RuleMatcher {
 						}
 					} else {
 						// match only sipcall
-						final Cursor c = cr.query(
-								DataProvider.SipCall.CONTENT_URI,
+						final Cursor c = cr.query(DataProvider.SipCall.CONTENT_URI,
 								DataProvider.SipCall.PROJECTION,
 								DataProvider.SipCall.DATE + " = ?",
 								new String[] { String.valueOf(d) }, null);
@@ -513,10 +491,8 @@ public final class RuleMatcher {
 					Log.d(TAG, "match websms: " + this.iswebsms);
 					if (this.iswebsms == 1) {
 						// match no websms
-						final Cursor c = cr.query(
-								DataProvider.WebSMS.CONTENT_URI,
-								DataProvider.WebSMS.PROJECTION,
-								DataProvider.WebSMS.DATE + " = ?",
+						final Cursor c = cr.query(DataProvider.WebSMS.CONTENT_URI,
+								DataProvider.WebSMS.PROJECTION, DataProvider.WebSMS.DATE + " = ?",
 								new String[] { String.valueOf(d) }, null);
 						if (c != null && c.getCount() > 0) {
 							ret = false;
@@ -526,10 +502,8 @@ public final class RuleMatcher {
 						}
 					} else {
 						// match only websms
-						final Cursor c = cr.query(
-								DataProvider.WebSMS.CONTENT_URI,
-								DataProvider.WebSMS.PROJECTION,
-								DataProvider.WebSMS.DATE + " = ? "
+						final Cursor c = cr.query(DataProvider.WebSMS.CONTENT_URI,
+								DataProvider.WebSMS.PROJECTION, DataProvider.WebSMS.DATE + " = ? "
 										+ this.iswebsmsConnector,
 								new String[] { String.valueOf(d) }, null);
 						ret = c != null && c.getCount() > 0;
@@ -562,23 +536,19 @@ public final class RuleMatcher {
 				return false;
 			}
 
-			if (this.roamed >= 0 && // .
-					this.roamed != DataProvider.Rules.NO_MATTER) {
+			if (this.roamed >= 0 && this.roamed != DataProvider.Rules.NO_MATTER) {
 				// rule.roamed=0: yes
 				// rule.roamed=1: no
 				// log.roamed=0: not roamed
 				// log.roamed=1: roamed
-				ret = log.getInt(DataProvider.Logs.INDEX_ROAMED) // .
-				!= this.roamed;
+				ret = log.getInt(DataProvider.Logs.INDEX_ROAMED) != this.roamed;
 			}
 			Log.d(TAG, "ret after romaing: " + ret);
 			if (!ret) {
 				return false;
 			}
-			if (this.direction >= 0
-					&& this.direction != DataProvider.Rules.NO_MATTER) {
-				ret = log.getInt(DataProvider.Logs.INDEX_DIRECTION) // .
-				== this.direction;
+			if (this.direction >= 0 && this.direction != DataProvider.Rules.NO_MATTER) {
+				ret = log.getInt(DataProvider.Logs.INDEX_DIRECTION) == this.direction;
 			}
 			Log.d(TAG, "ret after direction: " + ret);
 			if (!ret) {
@@ -706,8 +676,7 @@ public final class RuleMatcher {
 			this.name = cursor.getString(DataProvider.Plans.INDEX_NAME);
 			this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			this.limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
-			final long l = DataProvider.Plans.getLimit(this.type,
-					this.limitType,
+			final long l = DataProvider.Plans.getLimit(this.type, this.limitType,
 					cursor.getLong(DataProvider.Plans.INDEX_LIMIT));
 			if (this.limitType == DataProvider.LIMIT_TYPE_UNITS
 					&& this.type == DataProvider.TYPE_DATA) {
@@ -717,38 +686,30 @@ public final class RuleMatcher {
 				this.limit = l;
 			}
 
-			this.costPerItem = cursor
-					.getFloat(DataProvider.Plans.INDEX_COST_PER_ITEM);
-			this.costPerAmount1 = cursor
-					.getFloat(DataProvider.Plans.INDEX_COST_PER_AMOUNT1);
-			this.costPerAmount2 = cursor
-					.getFloat(DataProvider.Plans.INDEX_COST_PER_AMOUNT2);
+			this.costPerItem = cursor.getFloat(DataProvider.Plans.INDEX_COST_PER_ITEM);
+			this.costPerAmount1 = cursor.getFloat(DataProvider.Plans.INDEX_COST_PER_AMOUNT1);
+			this.costPerAmount2 = cursor.getFloat(DataProvider.Plans.INDEX_COST_PER_AMOUNT2);
 			this.costPerItemInLimit = cursor
 					.getFloat(DataProvider.Plans.INDEX_COST_PER_ITEM_IN_LIMIT);
-			this.costPerAmountInLimit1 = cursor.getFloat(DataProvider.Plans.// .
-					INDEX_COST_PER_AMOUNT_IN_LIMIT1);
-			this.costPerAmountInLimit2 = cursor.getFloat(DataProvider.Plans.// .
-					INDEX_COST_PER_AMOUNT_IN_LIMIT2);
+			this.costPerAmountInLimit1 = cursor
+					.getFloat(DataProvider.Plans.INDEX_COST_PER_AMOUNT_IN_LIMIT1);
+			this.costPerAmountInLimit2 = cursor
+					.getFloat(DataProvider.Plans.INDEX_COST_PER_AMOUNT_IN_LIMIT2);
 			this.upc = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_CALL);
 			this.ups = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_SMS);
 			this.upm = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_MMS);
-			this.nextAlert = cursor
-					.getLong(DataProvider.Plans.INDEX_NEXT_ALERT);
-			this.stripSeconds = cursor
-					.getInt(DataProvider.Plans.INDEX_STRIP_SECONDS);
+			this.nextAlert = cursor.getLong(DataProvider.Plans.INDEX_NEXT_ALERT);
+			this.stripSeconds = cursor.getInt(DataProvider.Plans.INDEX_STRIP_SECONDS);
 
-			final long bp = cursor
-					.getLong(DataProvider.Plans.INDEX_BILLPERIOD_ID);
+			final long bp = cursor.getLong(DataProvider.Plans.INDEX_BILLPERIOD_ID);
 			if (bp >= 0) {
-				final Cursor c = cr.query(ContentUris.withAppendedId(
-						DataProvider.Plans.CONTENT_URI, bp),
+				final Cursor c = cr.query(
+						ContentUris.withAppendedId(DataProvider.Plans.CONTENT_URI, bp),
 						DataProvider.Plans.PROJECTION, null, null, null);
 				if (c != null && c.moveToFirst()) {
 					this.billday = Calendar.getInstance();
-					this.billday.setTimeInMillis(c
-							.getLong(DataProvider.Plans.INDEX_BILLDAY));
-					this.billperiod = c
-							.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
+					this.billday.setTimeInMillis(c.getLong(DataProvider.Plans.INDEX_BILLDAY));
+					this.billperiod = c.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
 				} else {
 					this.billperiod = DataProvider.BILLPERIOD_INFINITE;
 					this.billday = null;
@@ -760,8 +721,7 @@ public final class RuleMatcher {
 				this.billperiod = DataProvider.BILLPERIOD_INFINITE;
 				this.billday = null;
 			}
-			final String billmode = cursor
-					.getString(DataProvider.Plans.INDEX_BILLMODE);
+			final String billmode = cursor.getString(DataProvider.Plans.INDEX_BILLMODE);
 			if (billmode != null && billmode.contains("/")) {
 				String[] billmodes = billmode.split("/");
 				this.billModeFirstLength = Utils.parseInt(billmodes[0], 1);
@@ -800,21 +760,21 @@ public final class RuleMatcher {
 					|| d < this.currentBillday.getTimeInMillis()) {
 				final Calendar now = Calendar.getInstance();
 				now.setTimeInMillis(d);
-				this.currentBillday = DataProvider.Plans.getBillDay(
-						this.billperiod, this.billday, now, false);
+				this.currentBillday = DataProvider.Plans.getBillDay(this.billperiod, this.billday,
+						now, false);
 				if (this.currentBillday == null) {
 					return;
 				}
-				final Calendar nbd = DataProvider.Plans.getBillDay(
-						this.billperiod, this.billday, now, true);
+				final Calendar nbd = DataProvider.Plans.getBillDay(this.billperiod, this.billday,
+						now, true);
 				if (nbd == null) {
 					return;
 				}
 				this.nextBillday = nbd.getTimeInMillis();
 
 				// load old stats
-				final DataProvider.Plans.Plan plan = DataProvider.Plans.Plan
-						.getPlan(cResolver, id, now, false, false);
+				final DataProvider.Plans.Plan plan = DataProvider.Plans.Plan.getPlan(
+						this.cResolver, this.id, now, false, false);
 				if (plan == null) {
 					this.billedAmount = 0f;
 					this.billedCost = 0f;
@@ -835,8 +795,7 @@ public final class RuleMatcher {
 		 */
 		boolean isInLimit() {
 			Log.d(TAG, "isInLimit(): " + this.id);
-			if (this.parent != null
-					&& this.limitType == DataProvider.LIMIT_TYPE_NONE) {
+			if (this.parent != null && this.limitType == DataProvider.LIMIT_TYPE_NONE) {
 				Log.d(TAG, "check parent");
 				return this.parent.isInLimit();
 			} else {
@@ -897,12 +856,10 @@ public final class RuleMatcher {
 			this.billedCost += cost;
 			final Plan pp = this.parent;
 			if (pp != null) {
-				if (this.type != DataProvider.TYPE_MIXED
-						&& pp.type == DataProvider.TYPE_MIXED) {
+				if (this.type != DataProvider.TYPE_MIXED && pp.type == DataProvider.TYPE_MIXED) {
 					switch (t) {
 					case DataProvider.TYPE_CALL:
-						pp.billedAmount += amount * pp.upc
-								/ CallMeter.SECONDS_MINUTE;
+						pp.billedAmount += amount * pp.upc / CallMeter.SECONDS_MINUTE;
 						break;
 					case DataProvider.TYPE_MMS:
 						pp.billedAmount += amount * pp.upm;
@@ -974,8 +931,7 @@ public final class RuleMatcher {
 			float ret = 0f;
 			float cpi, cpa1, cpa2;
 			Plan p;
-			if (this.parent != null
-					&& this.limitType == DataProvider.LIMIT_TYPE_NONE) {
+			if (this.parent != null && this.limitType == DataProvider.LIMIT_TYPE_NONE) {
 				p = this.parent;
 			} else {
 				p = this;
@@ -1003,12 +959,8 @@ public final class RuleMatcher {
 				if (bAmount <= this.billModeFirstLength) {
 					ret += cpa1 * bAmount / CallMeter.SECONDS_MINUTE;
 				} else {
-					ret += cpa1 * this.billModeFirstLength
-							/ CallMeter.SECONDS_MINUTE;
-					ret += cpa2
-							* (bAmount - // .
-							this.billModeFirstLength)
-							/ CallMeter.SECONDS_MINUTE;
+					ret += cpa1 * this.billModeFirstLength / CallMeter.SECONDS_MINUTE;
+					ret += cpa2 * (bAmount - this.billModeFirstLength) / CallMeter.SECONDS_MINUTE;
 				}
 				break;
 			case DataProvider.TYPE_DATA:
@@ -1073,10 +1025,8 @@ public final class RuleMatcher {
 		if (rules != null && plans != null) {
 			return;
 		}
-		SharedPreferences prefs = PreferenceManager
-				.getDefaultSharedPreferences(context);
-		stripLeadingZeros = prefs.getBoolean(// .
-				Preferences.PREFS_STRIP_LEADING_ZEROS, false);
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+		stripLeadingZeros = prefs.getBoolean(Preferences.PREFS_STRIP_LEADING_ZEROS, false);
 		intPrefix = prefs.getString(Preferences.PREFS_INT_PREFIX, "");
 		zeroPrefix = !intPrefix.equals("+44") && !intPrefix.equals("+49");
 		prefs = null;
@@ -1085,10 +1035,8 @@ public final class RuleMatcher {
 
 		// load rules
 		rules = new ArrayList<Rule>();
-		Cursor cursor = cr.query(DataProvider.Rules.CONTENT_URI,
-				DataProvider.Rules.PROJECTION,
-				DataProvider.Rules.ACTIVE + ">0", null,
-				DataProvider.Rules.ORDER);
+		Cursor cursor = cr.query(DataProvider.Rules.CONTENT_URI, DataProvider.Rules.PROJECTION,
+				DataProvider.Rules.ACTIVE + ">0", null, DataProvider.Rules.ORDER);
 		if (cursor != null && cursor.moveToFirst()) {
 			do {
 				rules.add(new Rule(cr, cursor, -1));
@@ -1101,8 +1049,7 @@ public final class RuleMatcher {
 
 		// load plans
 		plans = new HashMap<Long, Plan>();
-		cursor = cr.query(DataProvider.Plans.CONTENT_URI,
-				DataProvider.Plans.PROJECTION,
+		cursor = cr.query(DataProvider.Plans.CONTENT_URI, DataProvider.Plans.PROJECTION,
 				DataProvider.Plans.WHERE_REALPLANS, null, null);
 		if (cursor != null && cursor.moveToFirst()) {
 			do {
@@ -1143,9 +1090,8 @@ public final class RuleMatcher {
 		cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 		// reset all but manually set plans
 		final String notfound = String.valueOf(DataProvider.NOT_FOUND);
-		cr.update(DataProvider.Logs.CONTENT_URI, cv, "NOT ("
-				+ DataProvider.Logs.RULE_ID + " = " + notfound + " AND "
-				+ DataProvider.Logs.PLAN_ID + " != " + notfound + ")", null);
+		cr.update(DataProvider.Logs.CONTENT_URI, cv, "NOT (" + DataProvider.Logs.RULE_ID + " = "
+				+ notfound + " AND " + DataProvider.Logs.PLAN_ID + " != " + notfound + ")", null);
 		cv.clear();
 		cv.put(DataProvider.Plans.NEXT_ALERT, 0);
 		cr.update(DataProvider.Plans.CONTENT_URI, cv, null, null);
@@ -1161,8 +1107,7 @@ public final class RuleMatcher {
 	 *            {@link Cursor} representing the log
 	 * @return true if a log was matched
 	 */
-	private static boolean matchLog(final ContentResolver cr, // .
-			final Cursor log) {
+	private static boolean matchLog(final ContentResolver cr, final Cursor log) {
 		if (cr == null) {
 			Log.e(TAG, "matchLog(null, log)");
 			return false;
@@ -1206,8 +1151,8 @@ public final class RuleMatcher {
 				cv.put(DataProvider.Logs.COST, bc);
 				cv.put(DataProvider.Logs.FREE, p.getFree(log, bc));
 				p.updatePlan(ba, bc, t);
-				final int ret = cr.update(DataProvider.Logs.CONTENT_URI, cv,
-						DataProvider.Logs.ID + " = ?", lids);
+				final int ret = cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID
+						+ " = ?", lids);
 				Log.d(TAG, "update logs: " + ret);
 				matched = true;
 				break;
@@ -1217,8 +1162,8 @@ public final class RuleMatcher {
 			final ContentValues cv = new ContentValues();
 			cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NOT_FOUND);
 			cv.put(DataProvider.Logs.RULE_ID, DataProvider.NOT_FOUND);
-			final int ret = cr.update(DataProvider.Logs.CONTENT_URI, cv,
-					DataProvider.Logs.ID + " = ?", lids);
+			final int ret = cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID
+					+ " = ?", lids);
 			Log.d(TAG, "update logs: " + ret);
 		}
 		return matched;
@@ -1234,8 +1179,7 @@ public final class RuleMatcher {
 	 * @param pid
 	 *            id of plan
 	 */
-	public static void matchLog(final ContentResolver cr, final long lid,
-			final long pid) {
+	public static void matchLog(final ContentResolver cr, final long lid, final long pid) {
 		if (cr == null) {
 			Log.e(TAG, "matchLog(null, lid, pid)");
 			return;
@@ -1255,9 +1199,8 @@ public final class RuleMatcher {
 			Log.e(TAG, "plan=null");
 			return;
 		}
-		final Cursor log = cr.query(DataProvider.Logs.CONTENT_URI,
-				DataProvider.Logs.PROJECTION, DataProvider.Logs.ID + " = ?",
-				new String[] { String.valueOf(lid) }, null);
+		final Cursor log = cr.query(DataProvider.Logs.CONTENT_URI, DataProvider.Logs.PROJECTION,
+				DataProvider.Logs.ID + " = ?", new String[] { String.valueOf(lid) }, null);
 		if (log == null) {
 			return;
 		}
@@ -1276,8 +1219,8 @@ public final class RuleMatcher {
 		cv.put(DataProvider.Logs.COST, bc);
 		cv.put(DataProvider.Logs.FREE, p.getFree(log, bc));
 		p.updatePlan(ba, bc, t);
-		cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID
-				+ " = ?", new String[] { String.valueOf(lid) });
+		cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID + " = ?",
+				new String[] { String.valueOf(lid) });
 		log.close();
 	}
 
@@ -1290,24 +1233,21 @@ public final class RuleMatcher {
 	 *            post status to dialog/handler
 	 * @return true if a log was matched
 	 */
-	static synchronized boolean match(final Context context,
-			final boolean showStatus) {
+	static synchronized boolean match(final Context context, final boolean showStatus) {
 		Log.d(TAG, "match(ctx, " + showStatus + ")");
 		boolean ret = false;
 		load(context);
 		final ContentResolver cr = context.getContentResolver();
-		final Cursor cursor = cr.query(DataProvider.Logs.CONTENT_URI,
-				DataProvider.Logs.PROJECTION, DataProvider.Logs.PLAN_ID + " = "
-						+ DataProvider.NO_ID, null, DataProvider.Logs.DATE
-						+ " ASC");
+		final Cursor cursor = cr.query(DataProvider.Logs.CONTENT_URI, DataProvider.Logs.PROJECTION,
+				DataProvider.Logs.PLAN_ID + " = " + DataProvider.NO_ID, null,
+				DataProvider.Logs.DATE + " ASC");
 		if (cursor.moveToFirst()) {
 			final int l = cursor.getCount();
 			Handler h = null;
 			if (showStatus) {
 				h = Plans.getHandler();
 				if (h != null) {
-					final Message m = h.obtainMessage(// .
-							Plans.MSG_BACKGROUND_PROGRESS_MATCHER);
+					final Message m = h.obtainMessage(Plans.MSG_BACKGROUND_PROGRESS_MATCHER);
 					m.arg1 = 0;
 					m.arg2 = l;
 					m.sendToTarget();
@@ -1316,12 +1256,10 @@ public final class RuleMatcher {
 			int i = 1;
 			do {
 				ret |= matchLog(cr, cursor);
-				if (i % PROGRESS_STEPS == 0 || // .
-						(i < PROGRESS_STEPS && i % CallMeter.TEN == 0)) {
+				if (i % PROGRESS_STEPS == 0 || (i < PROGRESS_STEPS && i % CallMeter.TEN == 0)) {
 					h = Plans.getHandler();
 					if (h != null) {
-						final Message m = h.obtainMessage(// .
-								Plans.MSG_BACKGROUND_PROGRESS_MATCHER);
+						final Message m = h.obtainMessage(Plans.MSG_BACKGROUND_PROGRESS_MATCHER);
 						m.arg1 = i;
 						m.arg2 = l;
 						Log.d(TAG, "send progress: " + i + "/" + l);
@@ -1343,8 +1281,7 @@ public final class RuleMatcher {
 		cursor.close();
 
 		if (ret) {
-			final SharedPreferences p = PreferenceManager
-					.getDefaultSharedPreferences(context);
+			final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 			final boolean a80 = p.getBoolean(Preferences.PREFS_ALERT80, true);
 			final boolean a100 = p.getBoolean(Preferences.PREFS_ALERT100, true);
 			// check for alerts
@@ -1360,37 +1297,30 @@ public final class RuleMatcher {
 					if (plan.nextAlert > now) {
 						continue;
 					}
-					int used = DataProvider.Plans.getUsed(plan.limitType,
-							plan.type, plan.billedAmount, plan.billedCost);
+					int used = DataProvider.Plans.getUsed(plan.limitType, plan.type,
+							plan.billedAmount, plan.billedCost);
 					if (a100 && used > CallMeter.HUNDRET) {
 						alert = used;
 						alertPlan = plan;
-					} else if (a80 && alert < CallMeter.EIGHTY
-							&& used > CallMeter.EIGHTY) {
+					} else if (a80 && alert < CallMeter.EIGHTY && used > CallMeter.EIGHTY) {
 						alert = used;
 						alertPlan = plan;
 					}
 				}
 				if (alert > 0) {
-					final NotificationManager mNotificationMgr = // .
-					(NotificationManager) context
+					final NotificationManager mNotificationMgr = (NotificationManager) context
 							.getSystemService(Context.NOTIFICATION_SERVICE);
-					final String t = String.format(
-							context.getString(R.string.alerts_message),
+					final String t = String.format(context.getString(R.string.alerts_message),
 							alertPlan.name, alert);
-					final Notification n = new Notification(
-							android.R.drawable.stat_notify_error, t, now);
-					n.setLatestEventInfo(context, context
-							.getString(R.string.alerts_title), t, PendingIntent
-							.getActivity(context, 0, new Intent(context,
-									Plans.class),
+					final Notification n = new Notification(android.R.drawable.stat_notify_error,
+							t, now);
+					n.setLatestEventInfo(context, context.getString(R.string.alerts_title), t,
+							PendingIntent.getActivity(context, 0, new Intent(context, Plans.class),
 									PendingIntent.FLAG_CANCEL_CURRENT));
 					mNotificationMgr.notify(0, n);
 					final ContentValues cv = new ContentValues();
-					cv.put(DataProvider.Plans.NEXT_ALERT, // .
-							alertPlan.nextBillday);
-					cr.update(DataProvider.Plans.CONTENT_URI, cv,
-							DataProvider.Plans.ID + " = ?",
+					cv.put(DataProvider.Plans.NEXT_ALERT, alertPlan.nextBillday);
+					cr.update(DataProvider.Plans.CONTENT_URI, cv, DataProvider.Plans.ID + " = ?",
 							new String[] { String.valueOf(alertPlan.id) });
 				}
 			}

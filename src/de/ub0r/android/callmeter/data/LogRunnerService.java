@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of CallMeter 3G.
  * 
@@ -66,8 +66,7 @@ public final class LogRunnerService extends IntentService {
 	private static final int UNMATHCEDLOGS_TO_SHOW_DIALOG = 50;
 
 	/** {@link Uri} to all threads. */
-	private static final Uri URI_THREADS = Uri
-			.parse("content://mms-sms/conversations").buildUpon()
+	private static final Uri URI_THREADS = Uri.parse("content://mms-sms/conversations").buildUpon()
 			.appendQueryParameter("simple", "true").build();
 	/** {@link Uri} to all sms. */
 	private static final Uri URI_SMS = Uri.parse("content://sms/");
@@ -75,22 +74,17 @@ public final class LogRunnerService extends IntentService {
 	private static final Uri URI_MMS = Uri.parse("content://mms/");
 
 	/** Projection for threads table. */
-	private static final String[] THREADS_PROJ = // .
-	new String[] { "recipient_ids" };
+	private static final String[] THREADS_PROJ = new String[] { "recipient_ids" };
 
 	/** {@link HashMap} mapping threads to numbers. */
-	private static final HashMap<Long, String> THREAD_TO_NUMBER = // .
-	new HashMap<Long, String>();
+	private static final HashMap<Long, String> THREAD_TO_NUMBER = new HashMap<Long, String>();
 
 	/** {@link Intent}'s action for run matcher. */
-	public static final String ACTION_RUN_MATCHER = // .
-	"de.ub0r.android.callmeter.RUN_MATCHER";
+	public static final String ACTION_RUN_MATCHER = "de.ub0r.android.callmeter.RUN_MATCHER";
 	/** {@link Intent}'s action for short run. */
-	public static final String ACTION_SHORT_RUN = // .
-	"de.ub0r.android.callmeter.SHORT_RUN";
+	public static final String ACTION_SHORT_RUN = "de.ub0r.android.callmeter.SHORT_RUN";
 	/** {@link Intent}'s action for receiving SMS. */
-	private static final String ACTION_SMS = // .
-	"android.provider.Telephony.SMS_RECEIVED";
+	private static final String ACTION_SMS = "android.provider.Telephony.SMS_RECEIVED";
 
 	/** Preference's name: last backup. */
 	private static final String PREFS_LASTBACKUP = "lastbackup";
@@ -160,20 +154,17 @@ public final class LogRunnerService extends IntentService {
 	 * @param context
 	 *            {@link Context}
 	 */
-	public static synchronized void update(final Context context,
-			final String action) {
+	public static synchronized void update(final Context context, final String action) {
 		Log.d(TAG, "update(" + action + ")");
 		long now = System.currentTimeMillis();
 		if ((action == null && lastAction != null)
-				|| (action != null && !action.equals(lastAction))
-				|| lastUpdate == 0L || now > lastUpdate + MIN_DELAY) {
-			context.startService(new Intent(action, null, context,
-					LogRunnerService.class));
+				|| (action != null && !action.equals(lastAction)) || lastUpdate == 0L
+				|| now > lastUpdate + MIN_DELAY) {
+			context.startService(new Intent(action, null, context, LogRunnerService.class));
 			lastAction = action;
 			lastUpdate = now;
 		} else {
-			Log.i(TAG, "skip update(" + action + "): " + now + "<="
-					+ (lastUpdate + MIN_DELAY));
+			Log.i(TAG, "skip update(" + action + "): " + now + "<=" + (lastUpdate + MIN_DELAY));
 		}
 	}
 
@@ -204,9 +195,8 @@ public final class LogRunnerService extends IntentService {
 	private static long getMaxDate(final ContentResolver cr, final int type) {
 		Log.d(TAG, "getMaxDate(" + type + ")");
 		final Cursor cursor = cr.query(DataProvider.Logs.CONTENT_URI,
-				new String[] { DataProvider.Logs.DATE }, DataProvider.Logs.TYPE
-						+ " = ?", new String[] { String.valueOf(type) },
-				DataProvider.Logs.DATE + " DESC LIMIT 1");
+				new String[] { DataProvider.Logs.DATE }, DataProvider.Logs.TYPE + " = ?",
+				new String[] { String.valueOf(type) }, DataProvider.Logs.DATE + " DESC LIMIT 1");
 		long maxdate = deleteBefore;
 		if (cursor != null) {
 			if (cursor.moveToFirst()) {
@@ -233,17 +223,13 @@ public final class LogRunnerService extends IntentService {
 	 *            direction
 	 * @return maximum date found. -1 if nothing was found.
 	 */
-	private static long getMaxDate(final ContentResolver cr, final int type,
-			final int direction) {
+	private static long getMaxDate(final ContentResolver cr, final int type, final int direction) {
 		Log.d(TAG, "getMaxDate(" + type + "," + direction + ")");
-		final Cursor cursor = cr
-				.query(DataProvider.Logs.CONTENT_URI,
-						new String[] { DataProvider.Logs.DATE },
-						DataProvider.Logs.TYPE + " = ? AND "
-								+ DataProvider.Logs.DIRECTION + " = ?",
-						new String[] { String.valueOf(type),
-								String.valueOf(direction) },
-						DataProvider.Logs.DATE + " DESC LIMIT 1");
+		final Cursor cursor = cr.query(DataProvider.Logs.CONTENT_URI,
+				new String[] { DataProvider.Logs.DATE }, DataProvider.Logs.TYPE + " = ? AND "
+						+ DataProvider.Logs.DIRECTION + " = ?", new String[] {
+						String.valueOf(type), String.valueOf(direction) }, DataProvider.Logs.DATE
+						+ " DESC LIMIT 1");
 		long maxdate = deleteBefore;
 		if (cursor != null) {
 			if (cursor.moveToFirst()) {
@@ -270,8 +256,7 @@ public final class LogRunnerService extends IntentService {
 	 *            direction
 	 * @return amount of last log entry
 	 */
-	private static long getLastData(final SharedPreferences p, final int type,
-			final int direction) {
+	private static long getLastData(final SharedPreferences p, final int type, final int direction) {
 		return p.getLong(PREFS_LASTDATA_PREFIX + type + "_" + direction, 0L);
 	}
 
@@ -287,14 +272,11 @@ public final class LogRunnerService extends IntentService {
 	 *            direction
 	 * @return {@link Cursor} of last log record; column 0=id,1=amount
 	 */
-	private static Cursor getLastData(final ContentResolver cr, final int type,
-			final int direction) {
-		Cursor c = cr.query(DataProvider.Logs.CONTENT_URI, new String[] {
-				DataProvider.Logs.ID, DataProvider.Logs.AMOUNT,
-				DataProvider.Logs.PLAN_ID, DataProvider.Logs.ROAMED },
-				DataProvider.Logs.TYPE + " = ? AND "
-						+ DataProvider.Logs.DIRECTION + " = ?", new String[] {
-						String.valueOf(type), String.valueOf(direction) },
+	private static Cursor getLastData(final ContentResolver cr, final int type, final int direction) {
+		Cursor c = cr.query(DataProvider.Logs.CONTENT_URI, new String[] { DataProvider.Logs.ID,
+				DataProvider.Logs.AMOUNT, DataProvider.Logs.PLAN_ID, DataProvider.Logs.ROAMED },
+				DataProvider.Logs.TYPE + " = ? AND " + DataProvider.Logs.DIRECTION + " = ?",
+				new String[] { String.valueOf(type), String.valueOf(direction) },
 				DataProvider.Logs.DATE + " DESC LIMIT 1");
 		if (c == null) {
 			return null;
@@ -327,8 +309,8 @@ public final class LogRunnerService extends IntentService {
 	 * @param amount
 	 *            amount
 	 */
-	private static void setLastData(final Editor e, final int type,
-			final int direction, final long amount) {
+	private static void setLastData(final Editor e, final int type, final int direction,
+			final long amount) {
 		e.putLong(PREFS_LASTDATA_PREFIX + type + "_" + direction, amount);
 	}
 
@@ -340,23 +322,18 @@ public final class LogRunnerService extends IntentService {
 	 * @param forceUpdate
 	 *            force update
 	 */
-	private static void updateData(final Context context,
-			final boolean forceUpdate) {
+	private static void updateData(final Context context, final boolean forceUpdate) {
 		Log.d(TAG, "updateData(" + forceUpdate + ")");
 		boolean doUpdate = forceUpdate;
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 		final ContentResolver cr = context.getContentResolver();
 
 		if (!doUpdate) {
-			long dateLastRx = getMaxDate(cr, DataProvider.TYPE_DATA,
-					DataProvider.DIRECTION_IN);
-			long dateLastTx = getMaxDate(cr, DataProvider.TYPE_DATA,
-					DataProvider.DIRECTION_OUT);
+			long dateLastRx = getMaxDate(cr, DataProvider.TYPE_DATA, DataProvider.DIRECTION_IN);
+			long dateLastTx = getMaxDate(cr, DataProvider.TYPE_DATA, DataProvider.DIRECTION_OUT);
 			final long updateinterval = Utils.parseLong(
 					p.getString(Preferences.PREFS_UPDATE_INTERVAL,
-							String.valueOf(LogRunnerReceiver.DELAY)),
-					LogRunnerReceiver.DELAY)
+							String.valueOf(LogRunnerReceiver.DELAY)), LogRunnerReceiver.DELAY)
 					* LogRunnerReceiver.DELAY_FACTOR;
 			final long n = System.currentTimeMillis();
 			if (n - dateLastRx > updateinterval / 2) {
@@ -367,10 +344,8 @@ public final class LogRunnerService extends IntentService {
 			}
 		}
 
-		final long lastRx = getLastData(p, DataProvider.TYPE_DATA,
-				DataProvider.DIRECTION_IN);
-		final long lastTx = getLastData(p, DataProvider.TYPE_DATA,
-				DataProvider.DIRECTION_OUT);
+		final long lastRx = getLastData(p, DataProvider.TYPE_DATA, DataProvider.DIRECTION_IN);
+		final long lastTx = getLastData(p, DataProvider.TYPE_DATA, DataProvider.DIRECTION_OUT);
 
 		final Device d = Device.getDevice();
 		try {
@@ -394,8 +369,7 @@ public final class LogRunnerService extends IntentService {
 					baseCv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
 					baseCv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 					baseCv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_DATA);
-					baseCv.put(DataProvider.Logs.DATE,
-							System.currentTimeMillis());
+					baseCv.put(DataProvider.Logs.DATE, System.currentTimeMillis());
 					if (roaming) {
 						baseCv.put(DataProvider.Logs.ROAMED, 1);
 					}
@@ -406,24 +380,20 @@ public final class LogRunnerService extends IntentService {
 					boolean update = rrx > 0;
 					Cursor c = null;
 					if (update && forceUpdate && rrx <= DATA_MIN_DIFF) {
-						c = getLastData(cr, DataProvider.TYPE_DATA,
-								DataProvider.DIRECTION_IN);
+						c = getLastData(cr, DataProvider.TYPE_DATA, DataProvider.DIRECTION_IN);
 						Log.d(TAG, "getLastData()=" + c);
 					}
 					if (update && c == null) {
 						cv = new ContentValues(baseCv);
-						cv.put(DataProvider.Logs.DIRECTION,
-								DataProvider.DIRECTION_IN);
+						cv.put(DataProvider.Logs.DIRECTION, DataProvider.DIRECTION_IN);
 						cv.put(DataProvider.Logs.AMOUNT, rrx);
 						cr.insert(DataProvider.Logs.CONTENT_URI, cv);
 					} else if (c != null) {
 						Log.d(TAG, "force rx update: " + rrx);
 						cv = new ContentValues(baseCv);
-						cv.put(DataProvider.Logs.DIRECTION,
-								DataProvider.DIRECTION_IN);
+						cv.put(DataProvider.Logs.DIRECTION, DataProvider.DIRECTION_IN);
 						cv.put(DataProvider.Logs.AMOUNT, rrx + c.getLong(1));
-						cr.update(DataProvider.Logs.CONTENT_URI, cv,
-								DataProvider.Logs.ID + "=?",
+						cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID + "=?",
 								new String[] { c.getString(0) });
 						c.close();
 						c = null;
@@ -431,32 +401,27 @@ public final class LogRunnerService extends IntentService {
 						Log.d(TAG, "skip rx: " + rrx);
 					}
 					if (update) {
-						setLastData(e, DataProvider.TYPE_DATA,
-								DataProvider.DIRECTION_IN, rx);
+						setLastData(e, DataProvider.TYPE_DATA, DataProvider.DIRECTION_IN, rx);
 						dirty = true;
 					}
 
 					update = rtx > 0;
 					c = null;
 					if (update && forceUpdate && rtx <= DATA_MIN_DIFF) {
-						c = getLastData(cr, DataProvider.TYPE_DATA,
-								DataProvider.DIRECTION_OUT);
+						c = getLastData(cr, DataProvider.TYPE_DATA, DataProvider.DIRECTION_OUT);
 						Log.d(TAG, "getLastData()=" + c);
 					}
 					if (update && c == null) {
 						cv = new ContentValues(baseCv);
-						cv.put(DataProvider.Logs.DIRECTION,
-								DataProvider.DIRECTION_OUT);
+						cv.put(DataProvider.Logs.DIRECTION, DataProvider.DIRECTION_OUT);
 						cv.put(DataProvider.Logs.AMOUNT, rtx);
 						cr.insert(DataProvider.Logs.CONTENT_URI, cv);
 					} else if (c != null) {
 						Log.d(TAG, "force tx update: " + rtx);
 						cv = new ContentValues(baseCv);
-						cv.put(DataProvider.Logs.DIRECTION,
-								DataProvider.DIRECTION_OUT);
+						cv.put(DataProvider.Logs.DIRECTION, DataProvider.DIRECTION_OUT);
 						cv.put(DataProvider.Logs.AMOUNT, rtx + c.getLong(1));
-						cr.update(DataProvider.Logs.CONTENT_URI, cv,
-								DataProvider.Logs.ID + "=?",
+						cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID + "=?",
 								new String[] { c.getString(0) });
 						c.close();
 						c = null;
@@ -464,8 +429,7 @@ public final class LogRunnerService extends IntentService {
 						Log.d(TAG, "skip tx: " + rtx);
 					}
 					if (update) {
-						setLastData(e, DataProvider.TYPE_DATA,
-								DataProvider.DIRECTION_OUT, tx);
+						setLastData(e, DataProvider.TYPE_DATA, DataProvider.DIRECTION_OUT, tx);
 						dirty = true;
 					}
 					if (dirty) {
@@ -488,11 +452,10 @@ public final class LogRunnerService extends IntentService {
 	private static void updateCalls(final ContentResolver cr) {
 		Log.d(TAG, "updateCalls()");
 		final long maxdate = getMaxDate(cr, DataProvider.TYPE_CALL);
-		final String[] callsProjection = new String[] { Calls.TYPE,
-				Calls.DURATION, Calls.DATE, Calls.NUMBER };
-		final Cursor cursor = cr.query(Calls.CONTENT_URI, callsProjection,
-				Calls.DATE + " > ?", new String[] { String.valueOf(maxdate) },
-				Calls.DATE + " DESC");
+		final String[] callsProjection = new String[] { Calls.TYPE, Calls.DURATION, Calls.DATE,
+				Calls.NUMBER };
+		final Cursor cursor = cr.query(Calls.CONTENT_URI, callsProjection, Calls.DATE + " > ?",
+				new String[] { String.valueOf(maxdate) }, Calls.DATE + " DESC");
 		if (cursor == null) {
 			Log.d(TAG, "updateCalls(): null");
 			return;
@@ -504,17 +467,14 @@ public final class LogRunnerService extends IntentService {
 			final int idDate = cursor.getColumnIndex(Calls.DATE);
 			final int idNumber = cursor.getColumnIndex(Calls.NUMBER);
 
-			final ArrayList<ContentValues> cvalues = // .
-			new ArrayList<ContentValues>(CallMeter.HUNDRET);
+			final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(CallMeter.HUNDRET);
 			do {
 				final ContentValues cv = new ContentValues();
 				final int t = cursor.getInt(idType);
 				if (t == Calls.INCOMING_TYPE) {
-					cv.put(DataProvider.Logs.DIRECTION,
-							DataProvider.DIRECTION_IN);
+					cv.put(DataProvider.Logs.DIRECTION, DataProvider.DIRECTION_IN);
 				} else if (t == Calls.OUTGOING_TYPE) {
-					cv.put(DataProvider.Logs.DIRECTION,
-							DataProvider.DIRECTION_OUT);
+					cv.put(DataProvider.Logs.DIRECTION, DataProvider.DIRECTION_OUT);
 				} else {
 					continue;
 				}
@@ -527,23 +487,20 @@ public final class LogRunnerService extends IntentService {
 				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_CALL);
 				cv.put(DataProvider.Logs.DATE, cursor.getLong(idDate));
 				cv.put(DataProvider.Logs.REMOTE,
-						DataProvider.Logs.cleanNumber(
-								cursor.getString(idNumber), false));
+						DataProvider.Logs.cleanNumber(cursor.getString(idNumber), false));
 				cv.put(DataProvider.Logs.AMOUNT, d);
 				if (roaming) {
 					cv.put(DataProvider.Logs.ROAMED, 1);
 				}
 				cvalues.add(cv);
 				if (cvalues.size() >= CallMeter.HUNDRET) {
-					cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
-							cvalues.toArray(TO_ARRAY));
+					cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues.toArray(TO_ARRAY));
 					Log.d(TAG, "new calls: " + cvalues.size());
 					cvalues.clear();
 				}
 			} while (cursor.moveToNext());
 			if (cvalues.size() > 0) {
-				cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
-						cvalues.toArray(TO_ARRAY));
+				cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues.toArray(TO_ARRAY));
 				Log.d(TAG, "new calls: " + cvalues.size());
 			}
 		}
@@ -559,8 +516,7 @@ public final class LogRunnerService extends IntentService {
 	 * @param direction
 	 *            direction
 	 */
-	private static void updateSMS(final ContentResolver cr, // .
-			final int direction) {
+	private static void updateSMS(final ContentResolver cr, final int direction) {
 		Log.d(TAG, "updateSMS(cr," + direction + ")");
 		int type = Calls.OUTGOING_TYPE;
 		if (direction == DataProvider.DIRECTION_IN) {
@@ -568,12 +524,11 @@ public final class LogRunnerService extends IntentService {
 		}
 
 		final long maxdate = getMaxDate(cr, DataProvider.TYPE_SMS, direction);
-		final String[] smsProjection = new String[] { Calls.DATE, Calls.TYPE,
-				"address", "body" };
-		final Cursor cursor = cr.query(URI_SMS, smsProjection, Calls.DATE
-				+ " > ? and " + Calls.TYPE + " = ?",
-				new String[] { String.valueOf(maxdate), String.valueOf(type) },
-				Calls.DATE + " DESC");
+		final String[] smsProjection = new String[] { Calls.DATE, Calls.TYPE, "address", "body" };
+		final Cursor cursor = cr.query(URI_SMS, smsProjection, Calls.DATE + " > ? and "
+				+ Calls.TYPE + " = ?",
+				new String[] { String.valueOf(maxdate), String.valueOf(type) }, Calls.DATE
+						+ " DESC");
 		if (cursor == null) {
 			Log.d(TAG, "updateSMS(): null");
 			return;
@@ -585,8 +540,7 @@ public final class LogRunnerService extends IntentService {
 			final int idBody = cursor.getColumnIndex("body");
 			final TelephonyWrapper wrapper = TelephonyWrapper.getInstance();
 
-			final ArrayList<ContentValues> cvalues = // .
-			new ArrayList<ContentValues>(CallMeter.HUNDRET);
+			final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(CallMeter.HUNDRET);
 			do {
 				final ContentValues cv = new ContentValues();
 				cv.put(DataProvider.Logs.DIRECTION, direction);
@@ -595,8 +549,7 @@ public final class LogRunnerService extends IntentService {
 				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_SMS);
 				cv.put(DataProvider.Logs.DATE, cursor.getLong(idDate));
 				cv.put(DataProvider.Logs.REMOTE,
-						DataProvider.Logs.cleanNumber(
-								cursor.getString(idAddress), false));
+						DataProvider.Logs.cleanNumber(cursor.getString(idAddress), false));
 				final String body = cursor.getString(idBody);
 				if (body != null && body.length() > 0) {
 					if (splitAt160) {
@@ -607,8 +560,7 @@ public final class LogRunnerService extends IntentService {
 							cv.put(DataProvider.Logs.AMOUNT,
 									wrapper.calculateLength(body, false)[0]);
 						} catch (NullPointerException e) {
-							Log.e(TAG, "error getting length for message: "
-									+ body, e);
+							Log.e(TAG, "error getting length for message: " + body, e);
 							cv.put(DataProvider.Logs.AMOUNT, 1);
 						}
 					}
@@ -620,15 +572,13 @@ public final class LogRunnerService extends IntentService {
 				}
 				cvalues.add(cv);
 				if (cvalues.size() >= CallMeter.HUNDRET) {
-					cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
-							cvalues.toArray(TO_ARRAY));
+					cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues.toArray(TO_ARRAY));
 					Log.d(TAG, "new sms: " + cvalues.size());
 					cvalues.clear();
 				}
 			} while (cursor.moveToNext());
 			if (cvalues.size() > 0) {
-				cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
-						cvalues.toArray(TO_ARRAY));
+				cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues.toArray(TO_ARRAY));
 				Log.d(TAG, "new sms: " + cvalues.size());
 			}
 		}
@@ -646,8 +596,7 @@ public final class LogRunnerService extends IntentService {
 		Log.d(TAG, "updateMMS()");
 		final ContentResolver cr = context.getContentResolver();
 		final long maxdate = getMaxDate(cr, DataProvider.TYPE_MMS);
-		final String[] mmsProjection = new String[] { Calls.DATE, MMS_TYPE,
-				THRADID };
+		final String[] mmsProjection = new String[] { Calls.DATE, MMS_TYPE, THRADID };
 		Cursor cursor = cr.query(URI_MMS, mmsProjection, Calls.DATE + " > ?",
 				new String[] { String.valueOf(maxdate) }, Calls.DATE + " DESC");
 		if (cursor == null) {
@@ -669,8 +618,7 @@ public final class LogRunnerService extends IntentService {
 			final int idType = cursor.getColumnIndex(MMS_TYPE);
 			final int idThId = cursor.getColumnIndex(THRADID);
 
-			final ArrayList<ContentValues> cvalues = // .
-			new ArrayList<ContentValues>(CallMeter.HUNDRET);
+			final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(CallMeter.HUNDRET);
 			do {
 				final ContentValues cv = new ContentValues();
 				final int t = cursor.getInt(idType);
@@ -678,11 +626,9 @@ public final class LogRunnerService extends IntentService {
 				Log.d(TAG, "mms date: " + d);
 				Log.d(TAG, "mms type: " + t);
 				if (t == MMS_IN) {
-					cv.put(DataProvider.Logs.DIRECTION,
-							DataProvider.DIRECTION_IN);
+					cv.put(DataProvider.Logs.DIRECTION, DataProvider.DIRECTION_IN);
 				} else if (t == MMS_OUT) {
-					cv.put(DataProvider.Logs.DIRECTION,
-							DataProvider.DIRECTION_OUT);
+					cv.put(DataProvider.Logs.DIRECTION, DataProvider.DIRECTION_OUT);
 				} else {
 					continue;
 				}
@@ -691,17 +637,14 @@ public final class LogRunnerService extends IntentService {
 				if (tid >= 0L) {
 					String n = THREAD_TO_NUMBER.get(tid);
 					if (n == null) {
-						final Cursor c = cr.query(URI_THREADS, THREADS_PROJ,
-								"_id = ?",
+						final Cursor c = cr.query(URI_THREADS, THREADS_PROJ, "_id = ?",
 								new String[] { String.valueOf(tid) }, null);
 						if (c.moveToFirst()) {
 							final String rid = c.getString(0);
 							Log.d(TAG, "recipient_ids: " + rid);
-							final Contact con = new Contact(Utils.parseLong(
-									rid, -1));
+							final Contact con = new Contact(Utils.parseLong(rid, -1));
 							con.update(context, true, false);
-							n = DataProvider.Logs.cleanNumber(con.getNumber(),
-									false);
+							n = DataProvider.Logs.cleanNumber(con.getNumber(), false);
 							THREAD_TO_NUMBER.put(tid, n);
 						}
 						c.close();
@@ -721,15 +664,13 @@ public final class LogRunnerService extends IntentService {
 				}
 				cvalues.add(cv);
 				if (cvalues.size() >= CallMeter.HUNDRET) {
-					cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
-							cvalues.toArray(TO_ARRAY));
+					cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues.toArray(TO_ARRAY));
 					Log.d(TAG, "new mms: " + cvalues.size());
 					cvalues.clear();
 				}
 			} while (cursor.moveToNext());
 			if (cvalues.size() > 0) {
-				cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
-						cvalues.toArray(TO_ARRAY));
+				cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues.toArray(TO_ARRAY));
 				Log.d(TAG, "new mms: " + cvalues.size());
 			}
 		}
@@ -745,8 +686,7 @@ public final class LogRunnerService extends IntentService {
 	 */
 	private static void deleteOldLogs(final ContentResolver cr) {
 		Log.d(TAG, "delete old logs: date < " + deleteBefore);
-		final int ret = cr.delete(DataProvider.Logs.CONTENT_URI,
-				DataProvider.Logs.DATE + " < ?",
+		final int ret = cr.delete(DataProvider.Logs.CONTENT_URI, DataProvider.Logs.DATE + " < ?",
 				new String[] { String.valueOf(deleteBefore) });
 		Log.i(TAG, "deleted old logs from internal database: " + ret);
 	}
@@ -782,35 +722,26 @@ public final class LogRunnerService extends IntentService {
 			h.sendEmptyMessage(Plans.MSG_BACKGROUND_START_MATCHER);
 		}
 
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(this);
-		if (System.currentTimeMillis() - // .
-				p.getLong(PREFS_LASTBACKUP, 0L) > BACKUP_PERIOD) {
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
+		if (System.currentTimeMillis() - p.getLong(PREFS_LASTBACKUP, 0L) > BACKUP_PERIOD) {
 			if (DataProvider.doBackup(this)) {
-				p.edit().putLong(PREFS_LASTBACKUP, System.currentTimeMillis())
-						.commit();
+				p.edit().putLong(PREFS_LASTBACKUP, System.currentTimeMillis()).commit();
 			}
 		}
-		dateStart = p.getLong(Preferences.PREFS_DATE_BEGIN,
-				DatePreference.DEFAULT_VALUE);
+		dateStart = p.getLong(Preferences.PREFS_DATE_BEGIN, DatePreference.DEFAULT_VALUE);
 		deleteBefore = Preferences.getDeleteLogsBefore(p);
 		splitAt160 = p.getBoolean(Preferences.PREFS_SPLIT_SMS_AT_160, false);
-		final boolean showCallInfo = p.getBoolean(
-				Preferences.PREFS_SHOWCALLINFO, false);
-		final boolean askForPlan = p.getBoolean(Preferences.PREFS_ASK_FOR_PLAN,
-				false);
-		final String deleimter = p
-				.getString(Preferences.PREFS_DELIMITER, " | ");
+		final boolean showCallInfo = p.getBoolean(Preferences.PREFS_SHOWCALLINFO, false);
+		final boolean askForPlan = p.getBoolean(Preferences.PREFS_ASK_FOR_PLAN, false);
+		final String deleimter = p.getString(Preferences.PREFS_DELIMITER, " | ");
 
 		final boolean runMatcher = a != null && a.equals(ACTION_RUN_MATCHER);
 		boolean shortRun = runMatcher
 				|| a != null
-				&& (a.equals(ACTION_SHORT_RUN)
-						|| a.equals(ConnectivityManager.CONNECTIVITY_ACTION)
+				&& (a.equals(ACTION_SHORT_RUN) || a.equals(ConnectivityManager.CONNECTIVITY_ACTION)
 						|| a.equals(Intent.ACTION_BOOT_COMPLETED)
-						|| a.equals(Intent.ACTION_SHUTDOWN) // .
-						|| a.equals(Intent.ACTION_REBOOT) // .
-				|| a.equals(Intent.ACTION_DATE_CHANGED));
+						|| a.equals(Intent.ACTION_SHUTDOWN) || a.equals(Intent.ACTION_REBOOT) || a
+							.equals(Intent.ACTION_DATE_CHANGED));
 
 		Log.d(TAG, "runMatcher: " + runMatcher);
 		Log.d(TAG, "shortRun: " + shortRun);
@@ -819,16 +750,14 @@ public final class LogRunnerService extends IntentService {
 		boolean showDialog = false;
 		if (!shortRun && h != null) {
 			final Cursor c = cr.query(DataProvider.Logs.CONTENT_URI,
-					new String[] { DataProvider.Logs.PLAN_ID },
-					DataProvider.Logs.RULE_ID + " != " + DataProvider.NO_ID
-							+ " AND " + DataProvider.Logs.TYPE + " != "
+					new String[] { DataProvider.Logs.PLAN_ID }, DataProvider.Logs.RULE_ID + " != "
+							+ DataProvider.NO_ID + " AND " + DataProvider.Logs.TYPE + " != "
 							+ DataProvider.TYPE_DATA, null, null);
 			if (c.getCount() < UNMATHCEDLOGS_TO_SHOW_DIALOG) {
 				showDialog = true;
 				// skip if no plan is set up
 				Cursor c1 = cr.query(DataProvider.Plans.CONTENT_URI,
-						new String[] { DataProvider.Plans.ID }, null, null,
-						null);
+						new String[] { DataProvider.Plans.ID }, null, null, null);
 				if (c1.getCount() <= 0) {
 					shortRun = true;
 					showDialog = false;
@@ -836,8 +765,7 @@ public final class LogRunnerService extends IntentService {
 				c1.close();
 				// skip if no rule is set up
 				c1 = cr.query(DataProvider.Rules.CONTENT_URI,
-						new String[] { DataProvider.Rules.ID }, null, null,
-						null);
+						new String[] { DataProvider.Rules.ID }, null, null, null);
 				if (c1.getCount() <= 0) {
 					shortRun = true;
 					showDialog = false;
@@ -873,11 +801,10 @@ public final class LogRunnerService extends IntentService {
 			h.sendEmptyMessage(Plans.MSG_BACKGROUND_STOP_RUNNER);
 		}
 
-		if ((showCallInfo || askForPlan) && a != null && a.equals(// .
-				TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
-			final Cursor c = cr.query(DataProvider.Logs.CONTENT_URI,
-					DataProvider.Logs.PROJECTION, DataProvider.Logs.TYPE
-							+ " = " + DataProvider.TYPE_CALL, null,
+		if ((showCallInfo || askForPlan) && a != null
+				&& a.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
+			final Cursor c = cr.query(DataProvider.Logs.CONTENT_URI, DataProvider.Logs.PROJECTION,
+					DataProvider.Logs.TYPE + " = " + DataProvider.TYPE_CALL, null,
 					DataProvider.Logs.DATE + " DESC");
 			if (c != null && c.moveToFirst()) {
 				final long id = c.getLong(DataProvider.Logs.INDEX_ID);
@@ -885,9 +812,7 @@ public final class LogRunnerService extends IntentService {
 				final long amount = c.getLong(DataProvider.Logs.INDEX_AMOUNT);
 
 				final long now = System.currentTimeMillis();
-				if (amount > 0L
-						&& date + amount * CallMeter.MILLIS + GAP_FOR_LOGS // .
-						>= now) {
+				if (amount > 0L && date + amount * CallMeter.MILLIS + GAP_FOR_LOGS >= now) {
 					// only show real calls
 					// only show calls made just now
 					final float cost = c.getFloat(DataProvider.Logs.INDEX_COST);
@@ -896,10 +821,8 @@ public final class LogRunnerService extends IntentService {
 					StringBuffer sb = new StringBuffer();
 					sb.append(Common.prettySeconds(amount, false));
 					if (cost > 0) {
-						String currencyFormat = Preferences
-								.getCurrencyFormat(this);
-						sb.append(deleimter
-								+ String.format(currencyFormat, cost));
+						String currencyFormat = Preferences.getCurrencyFormat(this);
+						sb.append(deleimter + String.format(currencyFormat, cost));
 					}
 					if (planname != null) {
 						sb.insert(0, planname + ": ");
@@ -908,9 +831,7 @@ public final class LogRunnerService extends IntentService {
 							@Override
 							public void run() {
 								Log.i(TAG, "launching ask for plan dialog");
-								final Intent i = new Intent(
-										LogRunnerService.this, // .
-										AskForPlan.class);
+								final Intent i = new Intent(LogRunnerService.this, AskForPlan.class);
 								i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 								i.putExtra(AskForPlan.EXTRA_ID, id);
 								i.putExtra(AskForPlan.EXTRA_DATE, date);
@@ -925,8 +846,7 @@ public final class LogRunnerService extends IntentService {
 						this.handler.post(new Runnable() {
 							@Override
 							public void run() {
-								final Toast toast = Toast.makeText(
-										LogRunnerService.this, s,
+								final Toast toast = Toast.makeText(LogRunnerService.this, s,
 										Toast.LENGTH_LONG);
 								toast.show();
 							}
@@ -934,8 +854,8 @@ public final class LogRunnerService extends IntentService {
 					}
 				} else {
 					Log.i(TAG, "skip Toast: amount=" + amount);
-					Log.i(TAG, "skip Toast: date+amount+gap=" + (// .
-							date + amount * CallMeter.MILLIS + GAP_FOR_LOGS));
+					Log.i(TAG, "skip Toast: date+amount+gap="
+							+ (date + amount * CallMeter.MILLIS + GAP_FOR_LOGS));
 					Log.i(TAG, "skip Toast: now            =" + now);
 				}
 			}
@@ -956,16 +876,13 @@ public final class LogRunnerService extends IntentService {
 	 * @return {@link WakeLock}
 	 */
 	private WakeLock acquire(final String a) {
-		final PowerManager pm = (PowerManager) this
-				.getSystemService(Context.POWER_SERVICE);
-		final PowerManager.WakeLock wakelock = pm.newWakeLock(
-				PowerManager.PARTIAL_WAKE_LOCK, TAG);
+		final PowerManager pm = (PowerManager) this.getSystemService(Context.POWER_SERVICE);
+		final PowerManager.WakeLock wakelock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
 		wakelock.acquire();
 		Log.i(TAG, "got wakelock");
 
-		if (a != null && (// .
-				a.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED) // .
-				|| a.equals(ACTION_SMS))) {
+		if (a != null
+				&& (a.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED) || a.equals(ACTION_SMS))) {
 			Log.i(TAG, "sleep for " + WAIT_FOR_LOGS + "ms");
 			try {
 				Thread.sleep(WAIT_FOR_LOGS);
@@ -975,8 +892,7 @@ public final class LogRunnerService extends IntentService {
 		}
 
 		// update roaming info
-		roaming = ((TelephonyManager) this
-				.getSystemService(Context.TELEPHONY_SERVICE))
+		roaming = ((TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE))
 				.isNetworkRoaming();
 		Log.d(TAG, "roaming: " + roaming);
 
@@ -991,8 +907,7 @@ public final class LogRunnerService extends IntentService {
 	 * @param h
 	 *            {@link Handler} @ param action
 	 */
-	private void release(final WakeLock wakelock, final Handler h,
-			final String a) {
+	private void release(final WakeLock wakelock, final Handler h, final String a) {
 		// schedule next update
 		if (a == null || !a.equals(ACTION_SHORT_RUN)) {
 			LogRunnerReceiver.schedNext(this, null);

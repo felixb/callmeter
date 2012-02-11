@@ -51,14 +51,12 @@ import de.ub0r.android.lib.apis.ContactsWrapper;
  * 
  * @author flx
  */
-public class NumberGroupEdit extends ListActivity implements OnClickListener,
-		OnItemClickListener {
+public class NumberGroupEdit extends ListActivity implements OnClickListener, OnItemClickListener {
 	/** Tag for debug out. */
 	private static final String TAG = "nge";
 
 	/** {@link ContactsWrapper}. */
-	public static final ContactsWrapper CWRAPPER = ContactsWrapper
-			.getInstance();
+	public static final ContactsWrapper CWRAPPER = ContactsWrapper.getInstance();
 
 	/** Item menu: edit. */
 	private static final int WHICH_EDIT = 0;
@@ -89,12 +87,9 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		 *            id of number group
 		 */
 		public NumberAdapter(final Context context, final long id) {
-			super(context, android.R.layout.simple_list_item_1, context
-					.getContentResolver().query(
-							ContentUris.withAppendedId(
-									DataProvider.Numbers.GROUP_URI, id),
-							DataProvider.Numbers.PROJECTION, null, null,
-							DataProvider.Numbers.NUMBER), true);
+			super(context, android.R.layout.simple_list_item_1, context.getContentResolver().query(
+					ContentUris.withAppendedId(DataProvider.Numbers.GROUP_URI, id),
+					DataProvider.Numbers.PROJECTION, null, null, DataProvider.Numbers.NUMBER), true);
 			this.cr = context.getContentResolver();
 			this.registerDataSetObserver(new DataSetObserver() {
 				@Override
@@ -109,12 +104,9 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		 * {@inheritDoc}
 		 */
 		@Override
-		public final void bindView(final View view, final Context ctxt,
-				final Cursor cursor) {
-			final TextView twTitle = ((TextView) view
-					.findViewById(android.R.id.text1));
-			final String number = cursor
-					.getString(DataProvider.Numbers.INDEX_NUMBER);
+		public final void bindView(final View view, final Context ctxt, final Cursor cursor) {
+			final TextView twTitle = ((TextView) view.findViewById(android.R.id.text1));
+			final String number = cursor.getString(DataProvider.Numbers.INDEX_NUMBER);
 			String name = null;
 			if (!number.contains("%")) {
 				name = CWRAPPER.getNameForNumber(this.cr, number);
@@ -135,10 +127,8 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
-		this.setTitle(this.getString(R.string.settings) + " > "
-				+ this.getString(R.string.rules) + " > "
-				+ this.getString(R.string.numbers) + " > "
-				+ this.getString(R.string.edit_));
+		this.setTitle(this.getString(R.string.settings) + " > " + this.getString(R.string.rules)
+				+ " > " + this.getString(R.string.numbers) + " > " + this.getString(R.string.edit_));
 		this.setContentView(R.layout.list_name_ok_help_add);
 
 		final Intent i = this.getIntent();
@@ -156,8 +146,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		this.findViewById(R.id.help).setOnClickListener(this);
 
 		this.etName = (EditText) this.findViewById(R.id.name_et);
-		this.etName.setText(DataProvider.NumbersGroup.getName(
-				this.getContentResolver(), this.gid));
+		this.etName.setText(DataProvider.NumbersGroup.getName(this.getContentResolver(), this.gid));
 
 		final String a = i.getAction();
 		if (a != null && a.equals(Intent.ACTION_VIEW)) {
@@ -184,8 +173,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	protected final void onPause() {
 		super.onPause();
 		if (this.getListAdapter().getCount() == 0) {
-			Toast.makeText(this, R.string.empty_group, Toast.LENGTH_LONG)
-					.show();
+			Toast.makeText(this, R.string.empty_group, Toast.LENGTH_LONG).show();
 		}
 	}
 
@@ -203,14 +191,13 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void onActivityResult(final int requestCode,
-			final int resultCode, final Intent data) {
+	protected final void onActivityResult(final int requestCode, final int resultCode,
+			final Intent data) {
 		if (data == null || data.getData() == null) {
 			return;
 		}
 		// get number for uri
-		String number = CWRAPPER.getNumber(this.getContentResolver(),
-				data.getData());
+		String number = CWRAPPER.getNumber(this.getContentResolver(), data.getData());
 		if (number == null) {
 			number = "???";
 		}
@@ -244,8 +231,7 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 
 			Uri uri = this.getIntent().getData();
 			if (uri == null) {
-				uri = this.getContentResolver().insert(
-						DataProvider.NumbersGroup.CONTENT_URI, cv);
+				uri = this.getContentResolver().insert(DataProvider.NumbersGroup.CONTENT_URI, cv);
 			} else {
 				this.getContentResolver().update(uri, cv, null, null);
 			}
@@ -273,23 +259,22 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void onItemClick(final AdapterView<?> parent, final View view,
-			final int position, final long id) {
+	public final void onItemClick(final AdapterView<?> parent, final View view, final int position,
+			final long id) {
 		final Builder builder = new Builder(this);
 		builder.setItems(R.array.dialog_edit_delete,
 				new android.content.DialogInterface.OnClickListener() {
 					@Override
-					public void onClick(final DialogInterface dialog,
-							final int which) {
+					public void onClick(final DialogInterface dialog, final int which) {
 						switch (which) {
 						case WHICH_EDIT:
 							NumberGroupEdit.this.showNumberDialog(id);
 							break;
 						case WHICH_DELETE:
 							NumberGroupEdit.this.getContentResolver().delete(
-									ContentUris.withAppendedId(
-											DataProvider.Numbers.CONTENT_URI,
-											id), null, null);
+									ContentUris
+											.withAppendedId(DataProvider.Numbers.CONTENT_URI, id),
+									null, null);
 							break;
 						default:
 							break;
@@ -322,18 +307,15 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 			return;
 		}
 		cv.put(DataProvider.Numbers.GID, this.gid);
-		if (Character.isDigit(n.replaceAll("%", "").replaceAll("\\+", "")
-				.charAt(0))) {
+		if (Character.isDigit(n.replaceAll("%", "").replaceAll("\\+", "").charAt(0))) {
 			n = DataProvider.Logs.cleanNumber(number, true);
 		}
 		cv.put(DataProvider.Numbers.NUMBER, n);
 		if (nid < 0) {
-			this.getContentResolver().insert(DataProvider.Numbers.CONTENT_URI,
-					cv);
+			this.getContentResolver().insert(DataProvider.Numbers.CONTENT_URI, cv);
 		} else {
 			this.getContentResolver().update(
-					ContentUris.withAppendedId(
-							DataProvider.Numbers.CONTENT_URI, nid), cv, null,
+					ContentUris.withAppendedId(DataProvider.Numbers.CONTENT_URI, nid), cv, null,
 					null);
 		}
 	}
@@ -348,9 +330,8 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 	private String getNumber(final long nid) {
 		String ret = null;
 		final Cursor cursor = this.getContentResolver().query(
-				ContentUris.withAppendedId(DataProvider.Numbers.CONTENT_URI,
-						nid), new String[] { DataProvider.Numbers.NUMBER },
-				null, null, null);
+				ContentUris.withAppendedId(DataProvider.Numbers.CONTENT_URI, nid),
+				new String[] { DataProvider.Numbers.NUMBER }, null, null, null);
 		if (cursor != null && cursor.moveToFirst()) {
 			ret = cursor.getString(0);
 		}
@@ -375,23 +356,17 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener,
 		builder.setView(et);
 		builder.setTitle(R.string.add_number);
 		builder.setCancelable(true);
-		builder.setPositiveButton(android.R.string.ok,
-				new DialogInterface.OnClickListener() {
-					public void onClick(final DialogInterface dialog,
-							final int id) {
-						NumberGroupEdit.this.setNumber(nid, et.getText()
-								.toString());
-					}
-				});
-		builder.setNeutralButton(R.string.contacts_,
-				new DialogInterface.OnClickListener() {
-					public void onClick(final DialogInterface dialog,
-							final int id) {
-						final Intent intent = CWRAPPER.getPickPhoneIntent();
-						NumberGroupEdit.this.startActivityForResult(intent,
-								(int) nid + 1);
-					}
-				});
+		builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+			public void onClick(final DialogInterface dialog, final int id) {
+				NumberGroupEdit.this.setNumber(nid, et.getText().toString());
+			}
+		});
+		builder.setNeutralButton(R.string.contacts_, new DialogInterface.OnClickListener() {
+			public void onClick(final DialogInterface dialog, final int id) {
+				final Intent intent = CWRAPPER.getPickPhoneIntent();
+				NumberGroupEdit.this.startActivityForResult(intent, (int) nid + 1);
+			}
+		});
 		builder.setNegativeButton(android.R.string.cancel, null);
 		builder.show();
 	}

@@ -25,8 +25,8 @@ final class PreferenceAdapter extends ArrayAdapter<Preference> {
 	 */
 	PreferenceAdapter(final Context context) {
 		super(context, 0);
-		this.showHelp = PreferenceManager.getDefaultSharedPreferences(context)
-				.getBoolean(Preferences.PREFS_SHOWHELP, true);
+		this.showHelp = PreferenceManager.getDefaultSharedPreferences(context).getBoolean(
+				Preferences.PREFS_SHOWHELP, true);
 	}
 
 	/**
@@ -80,10 +80,8 @@ final class PreferenceAdapter extends ArrayAdapter<Preference> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public View getView(final int position, final View convertView,
-			final ViewGroup parent) {
-		return this.getItem(position).getView(convertView, parent,
-				this.showHelp);
+	public View getView(final int position, final View convertView, final ViewGroup parent) {
+		return this.getItem(position).getView(convertView, parent, this.showHelp);
 	}
 
 	/**

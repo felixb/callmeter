@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -46,8 +46,8 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public class RuleEdit extends ListActivity implements OnClickListener,
-		OnItemClickListener, OnDismissListener {
+public class RuleEdit extends ListActivity implements OnClickListener, OnItemClickListener,
+		OnDismissListener {
 	/** Tag for debug out. */
 	private static final String TAG = "re";
 
@@ -136,9 +136,8 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
-		this.setTitle(this.getString(R.string.settings) + " > "
-				+ this.getString(R.string.rules) + " > "
-				+ this.getString(R.string.edit_));
+		this.setTitle(this.getString(R.string.settings) + " > " + this.getString(R.string.rules)
+				+ " > " + this.getString(R.string.edit_));
 		this.setContentView(R.layout.list_ok_cancel);
 
 		this.getListView().setOnItemClickListener(this);
@@ -169,34 +168,31 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	 * Set plan's and what0 value.
 	 */
 	private void fillPlan() {
-		final int t = ((ListPreference) this.adapter
-				.getPreference(DataProvider.Rules.WHAT)).getValue();
+		final int t = ((ListPreference) this.adapter.getPreference(DataProvider.Rules.WHAT))
+				.getValue();
 		String where = null;
 		switch (t) {
 		case DataProvider.Rules.WHAT_CALL:
-			where = DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_CALL
-					+ " OR " + DataProvider.Plans.TYPE + " = "
-					+ DataProvider.TYPE_MIXED;
+			where = DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_CALL + " OR "
+					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_MIXED;
 			break;
 		case DataProvider.Rules.WHAT_DATA:
 			where = DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_DATA;
 			break;
 		case DataProvider.Rules.WHAT_SMS:
 		case DataProvider.Rules.WHAT_MMS:
-			where = DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_SMS
-					+ " OR " + DataProvider.Plans.TYPE + " = "
-					+ DataProvider.TYPE_MMS + " OR " + DataProvider.Plans.TYPE
-					+ " = " + DataProvider.TYPE_MIXED;
+			where = DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_SMS + " OR "
+					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_MMS + " OR "
+					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_MIXED;
 			break;
 		default:
 			where = DataProvider.Plans.WHERE_REALPLANS;
 			break;
 		}
-		where = DbUtils.sqlAnd(where, DataProvider.Plans.MERGED_PLANS
-				+ " IS NULL");
+		where = DbUtils.sqlAnd(where, DataProvider.Plans.MERGED_PLANS + " IS NULL");
 		Log.d(TAG, "plans.where: " + where);
-		((CursorPreference) this.adapter
-				.getPreference(DataProvider.Rules.PLAN_ID)).setCursor(where);
+		((CursorPreference) this.adapter.getPreference(DataProvider.Rules.PLAN_ID))
+				.setCursor(where);
 	}
 
 	/**
@@ -207,76 +203,60 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	private PreferenceAdapter getAdapter() {
 		final PreferenceAdapter ret = new PreferenceAdapter(this);
 		ret.add(new TextPreference(this, DataProvider.Rules.NAME, this
-				.getString(R.string.rules_new), R.string.name_,
-				R.string.name_help, InputType.TYPE_CLASS_TEXT));
-		ret.add(new BoolPreference(this, DataProvider.Rules.ACTIVE,
-				R.string.active_, R.string.active_help, this));
-		ret.add(new ListPreference(this, DataProvider.Rules.WHAT,
-				DataProvider.Rules.WHAT_CALL, R.string.what_,
-				R.string.what_help, R.array.rules_type));
-		ret.add(new CursorPreference(this, DataProvider.Rules.PLAN_ID,
-				R.string.plan_, R.string.plan_help, -1, -1, -1,
-				DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID,
-				DataProvider.Plans.NAME, null, false, null, null, null));
+				.getString(R.string.rules_new), R.string.name_, R.string.name_help,
+				InputType.TYPE_CLASS_TEXT));
+		ret.add(new BoolPreference(this, DataProvider.Rules.ACTIVE, R.string.active_,
+				R.string.active_help, this));
+		ret.add(new ListPreference(this, DataProvider.Rules.WHAT, DataProvider.Rules.WHAT_CALL,
+				R.string.what_, R.string.what_help, R.array.rules_type));
+		ret.add(new CursorPreference(this, DataProvider.Rules.PLAN_ID, R.string.plan_,
+				R.string.plan_help, -1, -1, -1, DataProvider.Plans.CONTENT_URI,
+				DataProvider.Plans.ID, DataProvider.Plans.NAME, null, false, null, null, null));
 		ret.add(new BoolPreference(this, DataProvider.Rules.LIMIT_NOT_REACHED,
-				R.string.limitnotreached_, R.string.limitnotreached_help, // .
-				this));
+				R.string.limitnotreached_, R.string.limitnotreached_help, this));
 		ret.add(new ListPreference(this, DataProvider.Rules.DIRECTION,
-				DataProvider.Rules.NO_MATTER, R.string.direction_,
-				R.string.direction_help, this
+				DataProvider.Rules.NO_MATTER, R.string.direction_, R.string.direction_help, this
 						.getStrings(R.array.direction_calls)));
-		ret.add(new ListPreference(this, DataProvider.Rules.ROAMED,
-				DataProvider.Rules.NO_MATTER, R.string.roamed_,
-				R.string.roamed_help, this.getStrings(-1)));
+		ret.add(new ListPreference(this, DataProvider.Rules.ROAMED, DataProvider.Rules.NO_MATTER,
+				R.string.roamed_, R.string.roamed_help, this.getStrings(-1)));
 		ret.add(new ListPreference(this, DataProvider.Rules.IS_WEBSMS,
-				DataProvider.Rules.NO_MATTER, R.string.iswebsms_,
-				R.string.iswebsms_help, this.getStrings(-1)));
-		ret.add(new TextPreference(this, DataProvider.Rules.IS_WEBSMS_CONNETOR,
-				"", R.string.iswebsms_connector_,
-				R.string.iswebsms_connector_help, InputType.TYPE_CLASS_TEXT));
+				DataProvider.Rules.NO_MATTER, R.string.iswebsms_, R.string.iswebsms_help, this
+						.getStrings(-1)));
+		ret.add(new TextPreference(this, DataProvider.Rules.IS_WEBSMS_CONNETOR, "",
+				R.string.iswebsms_connector_, R.string.iswebsms_connector_help,
+				InputType.TYPE_CLASS_TEXT));
 		ret.add(new ListPreference(this, DataProvider.Rules.IS_SIPCALL,
-				DataProvider.Rules.NO_MATTER, R.string.issipcall_,
-				R.string.issipcall_help, this.getStrings(-1)));
-		final DialogInterface.OnClickListener editHours = // .
-		new DialogInterface.OnClickListener() {
+				DataProvider.Rules.NO_MATTER, R.string.issipcall_, R.string.issipcall_help, this
+						.getStrings(-1)));
+		final DialogInterface.OnClickListener editHours = new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(final DialogInterface dialog, final int which) {
-				RuleEdit.this.startActivity(new Intent(RuleEdit.this, // .
-						HourGroups.class));
+				RuleEdit.this.startActivity(new Intent(RuleEdit.this, HourGroups.class));
 			}
 		};
-		ret.add(new CursorPreference(this, DataProvider.Rules.INHOURS_ID,
-				R.string.hourgroup_, R.string.hourgroup_help,
-				R.string.edit_groups_, R.string.clear_, -1,
-				DataProvider.HoursGroup.CONTENT_URI,
-				DataProvider.HoursGroup.ID, DataProvider.HoursGroup.NAME, null,
-				true, editHours, null, null));
-		ret.add(new CursorPreference(this, DataProvider.Rules.EXHOURS_ID,
-				R.string.exhourgroup_, R.string.exhourgroup_help,
-				R.string.edit_groups_, R.string.clear_, -1,
-				DataProvider.HoursGroup.CONTENT_URI,
-				DataProvider.HoursGroup.ID, DataProvider.HoursGroup.NAME, null,
-				true, editHours, null, null));
-		final DialogInterface.OnClickListener editNumbers = // .
-		new DialogInterface.OnClickListener() {
+		ret.add(new CursorPreference(this, DataProvider.Rules.INHOURS_ID, R.string.hourgroup_,
+				R.string.hourgroup_help, R.string.edit_groups_, R.string.clear_, -1,
+				DataProvider.HoursGroup.CONTENT_URI, DataProvider.HoursGroup.ID,
+				DataProvider.HoursGroup.NAME, null, true, editHours, null, null));
+		ret.add(new CursorPreference(this, DataProvider.Rules.EXHOURS_ID, R.string.exhourgroup_,
+				R.string.exhourgroup_help, R.string.edit_groups_, R.string.clear_, -1,
+				DataProvider.HoursGroup.CONTENT_URI, DataProvider.HoursGroup.ID,
+				DataProvider.HoursGroup.NAME, null, true, editHours, null, null));
+		final DialogInterface.OnClickListener editNumbers = new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(final DialogInterface dialog, final int which) {
-				RuleEdit.this.startActivity(new Intent(RuleEdit.this, // .
-						NumberGroups.class));
+				RuleEdit.this.startActivity(new Intent(RuleEdit.this, NumberGroups.class));
 			}
 		};
-		ret.add(new CursorPreference(this, DataProvider.Rules.INNUMBERS_ID,
-				R.string.numbergroup_, R.string.numbergroup_help,
-				R.string.edit_groups_, -1, -1,
-				DataProvider.NumbersGroup.CONTENT_URI,
-				DataProvider.NumbersGroup.ID, DataProvider.NumbersGroup.NAME,
-				null, true, editNumbers, null, null));
+		ret.add(new CursorPreference(this, DataProvider.Rules.INNUMBERS_ID, R.string.numbergroup_,
+				R.string.numbergroup_help, R.string.edit_groups_, -1, -1,
+				DataProvider.NumbersGroup.CONTENT_URI, DataProvider.NumbersGroup.ID,
+				DataProvider.NumbersGroup.NAME, null, true, editNumbers, null, null));
 		ret.add(new CursorPreference(this, DataProvider.Rules.EXNUMBERS_ID,
-				R.string.exnumbergroup_, R.string.exnumbergroup_help,
-				R.string.edit_groups_, R.string.clear_, -1,
-				DataProvider.NumbersGroup.CONTENT_URI,
-				DataProvider.NumbersGroup.ID, DataProvider.NumbersGroup.NAME,
-				null, true, editNumbers, null, null));
+				R.string.exnumbergroup_, R.string.exnumbergroup_help, R.string.edit_groups_,
+				R.string.clear_, -1, DataProvider.NumbersGroup.CONTENT_URI,
+				DataProvider.NumbersGroup.ID, DataProvider.NumbersGroup.NAME, null, true,
+				editNumbers, null, null));
 		return ret;
 	}
 
@@ -288,8 +268,8 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 		int nid = -1;
 		Cursor cursor = null;
 		if (uri != null) {
-			cursor = this.getContentResolver().query(uri,
-					DataProvider.Rules.PROJECTION, null, null, null);
+			cursor = this.getContentResolver().query(uri, DataProvider.Rules.PROJECTION, null,
+					null, null);
 			if (cursor == null || !cursor.moveToFirst()) {
 				cursor = null;
 				this.rid = -1;
@@ -313,15 +293,13 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	 * Show or hide fields based on data in there.
 	 */
 	private void showHideFileds() {
-		final int t = ((ListPreference) this.adapter
-				.getPreference(DataProvider.Rules.WHAT)).getValue();
+		final int t = ((ListPreference) this.adapter.getPreference(DataProvider.Rules.WHAT))
+				.getValue();
 		switch (t) {
 		case DataProvider.Rules.WHAT_SMS:
 			this.adapter.hide(DataProvider.Rules.IS_WEBSMS, false);
-			this.adapter.hide(DataProvider.Rules.IS_WEBSMS_CONNETOR,
-					((ListPreference) this.adapter
-							.getPreference(DataProvider.Rules.IS_WEBSMS))
-							.getValue() != 0);
+			this.adapter.hide(DataProvider.Rules.IS_WEBSMS_CONNETOR, ((ListPreference) this.adapter
+					.getPreference(DataProvider.Rules.IS_WEBSMS)).getValue() != 0);
 			this.adapter.hide(DataProvider.Rules.IS_SIPCALL, true);
 			break;
 		case DataProvider.Rules.WHAT_CALL:
@@ -358,8 +336,7 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 			final ContentValues cv = this.adapter.save();
 			Uri uri = this.getIntent().getData();
 			if (uri == null) {
-				uri = this.getContentResolver().insert(
-						DataProvider.Rules.CONTENT_URI, cv);
+				uri = this.getContentResolver().insert(DataProvider.Rules.CONTENT_URI, cv);
 			} else {
 				this.getContentResolver().update(uri, cv, null, null);
 			}
@@ -384,8 +361,8 @@ public class RuleEdit extends ListActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void onItemClick(final AdapterView<?> parent, final View view,
-			final int position, final long id) {
+	public final void onItemClick(final AdapterView<?> parent, final View view, final int position,
+			final long id) {
 		final Preference p = this.adapter.getItem(position);
 		p.showDialog(this);
 	}

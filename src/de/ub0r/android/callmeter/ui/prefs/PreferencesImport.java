@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -54,10 +54,8 @@ public final class PreferencesImport extends PreferenceActivity {
 		this.setTitle(R.string.import_rules_);
 		this.addPreferencesFromResource(R.xml.import_from_sd);
 
-		if (!this.addExport(Environment.getExternalStorageDirectory(), // .
-				MAXDEPTH)) {
-			Toast.makeText(this, R.string.import_rules_sd_nofiles,
-					Toast.LENGTH_LONG).show();
+		if (!this.addExport(Environment.getExternalStorageDirectory(), MAXDEPTH)) {
+			Toast.makeText(this, R.string.import_rules_sd_nofiles, Toast.LENGTH_LONG).show();
 		}
 	}
 
@@ -83,10 +81,9 @@ public final class PreferencesImport extends PreferenceActivity {
 		boolean ret = false;
 		// read directory
 		for (String s : d.list()) {
-			if (s.startsWith(".") || s.equals("Android") || s.equals("DCIM")
-					|| s.equals("Music") || s.equals("TitaniumBackup")
-					|| s.equals("openfeint") || s.equals("soundhound")
-					|| s.equals("WhatsApp") || s.equals("Pictures")) {
+			if (s.startsWith(".") || s.equals("Android") || s.equals("DCIM") || s.equals("Music")
+					|| s.equals("TitaniumBackup") || s.equals("openfeint")
+					|| s.equals("soundhound") || s.equals("WhatsApp") || s.equals("Pictures")) {
 				Log.d(TAG, "skip: " + s);
 				continue;
 			}
@@ -104,8 +101,7 @@ public final class PreferencesImport extends PreferenceActivity {
 				Intent i = new Intent(this, Preferences.class);
 				i.setData(Uri.parse("file://" + f.getAbsolutePath()));
 				p.setIntent(i);
-				((PreferenceGroup) this.findPreference("import_rules_files"))
-						.addPreference(p);
+				((PreferenceGroup) this.findPreference("import_rules_files")).addPreference(p);
 				ret = true;
 			}
 		}

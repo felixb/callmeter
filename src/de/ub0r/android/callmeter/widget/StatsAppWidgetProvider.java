@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2011 Felix Bechstein
+ * Copyright (C) 2010-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -99,8 +99,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void onUpdate(final Context context,
-			final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
+	public void onUpdate(final Context context, final AppWidgetManager appWidgetManager,
+			final int[] appWidgetIds) {
 		Log.d(TAG, "onUpdate()");
 		Utils.setLocale(context);
 		Common.setDateFormat(context);
@@ -112,8 +112,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 
 	@Override
 	public void onDeleted(final Context context, final int[] appWidgetIds) {
-		Editor e = PreferenceManager.getDefaultSharedPreferences(context)
-				.edit();
+		Editor e = PreferenceManager.getDefaultSharedPreferences(context).edit();
 		final int count = appWidgetIds.length;
 		for (int i = 0; i < count; i++) {
 			int id = appWidgetIds[i];
@@ -137,8 +136,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	private static void updateWidgets(final Context context,
 			final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
 		final int count = appWidgetIds.length;
-		SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 
 		for (int i = 0; i < count; i++) {
 			int id = appWidgetIds[i];
@@ -159,11 +157,9 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	 */
 	public static void updateWidgets(final Context context) {
 		Log.d(TAG, "updateWidgets()");
-		final AppWidgetManager appWidgetManager = AppWidgetManager
-				.getInstance(context);
-		final int[] appWidgetIds = appWidgetManager
-				.getAppWidgetIds(new ComponentName(context,
-						StatsAppWidgetProvider.class));
+		final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+		final int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context,
+				StatsAppWidgetProvider.class));
 		updateWidgets(context, appWidgetManager, appWidgetIds);
 	}
 
@@ -177,26 +173,21 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	 * @param appWidgetId
 	 *            id of widget
 	 */
-	static void updateWidget(final Context context,
-			final AppWidgetManager appWidgetManager, final int appWidgetId) {
+	static void updateWidget(final Context context, final AppWidgetManager appWidgetManager,
+			final int appWidgetId) {
 		Log.d(TAG, "updateWidget(" + appWidgetId + ")");
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 		final long pid = p.getLong(WIDGET_PLANID + appWidgetId, -1L);
-		final boolean hideName = p.getBoolean(WIDGET_HIDETNAME + appWidgetId,
-				false);
-		final boolean showShortname = p.getBoolean(WIDGET_SHORTNAME
-				+ appWidgetId, false);
+		final boolean hideName = p.getBoolean(WIDGET_HIDETNAME + appWidgetId, false);
+		final boolean showShortname = p.getBoolean(WIDGET_SHORTNAME + appWidgetId, false);
 		final boolean showCost = p.getBoolean(WIDGET_COST + appWidgetId, false);
-		final boolean showBillPeriod = p.getBoolean(WIDGET_BILLPERIOD
-				+ appWidgetId, false);
+		final boolean showBillPeriod = p.getBoolean(WIDGET_BILLPERIOD + appWidgetId, false);
 		final boolean showIcon = p.getBoolean(WIDGET_ICON + appWidgetId, false);
-		final boolean smallWidget = p.getBoolean(WIDGET_SMALL + appWidgetId,
-				false);
-		final Float statsTextSize = p.getFloat(WIDGET_STATS_TEXTSIZE
-				+ appWidgetId, StatsAppWidgetConfigure.DEFAULT_TEXTSIZE);
-		final Float planTextSize = p.getFloat(WIDGET_PLAN_TEXTSIZE
-				+ appWidgetId, StatsAppWidgetConfigure.DEFAULT_TEXTSIZE);
+		final boolean smallWidget = p.getBoolean(WIDGET_SMALL + appWidgetId, false);
+		final Float statsTextSize = p.getFloat(WIDGET_STATS_TEXTSIZE + appWidgetId,
+				StatsAppWidgetConfigure.DEFAULT_TEXTSIZE);
+		final Float planTextSize = p.getFloat(WIDGET_PLAN_TEXTSIZE + appWidgetId,
+				StatsAppWidgetConfigure.DEFAULT_TEXTSIZE);
 		final int textColor = p.getInt(WIDGET_TEXTCOLOR + appWidgetId,
 				StatsAppWidgetConfigure.DEFAULT_TEXTCOLOR);
 		final int bgColor = p.getInt(WIDGET_BGCOLOR + appWidgetId,
@@ -229,15 +220,13 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		}
 		Log.d(TAG, "bpos/bmax: " + bpos + "/" + bmax);
 
-		String stats = Common.formatValues(context, -1, plan.type,
-				plan.bpCount, plan.bpBa, plan.billperiod, plan.billday, false);
+		String stats = Common.formatValues(context, -1, plan.type, plan.bpCount, plan.bpBa,
+				plan.billperiod, plan.billday, false);
 		if (plan.limit > 0) {
 			stats += "\n" + ((int) (plan.usage * CallMeter.HUNDRET)) + "%";
 		}
 		if (showCost && cost > 0F) {
-			stats += "\n"
-					+ String.format(Preferences.getCurrencyFormat(context),
-							cost);
+			stats += "\n" + String.format(Preferences.getCurrencyFormat(context), cost);
 		}
 
 		Log.d(TAG, "limit: " + plan.limit);
@@ -248,8 +237,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		if (smallWidget) {
 			widgetLayout = R.layout.stats_appwidget_small;
 		}
-		final RemoteViews views = new RemoteViews(context.getPackageName(),
-				widgetLayout);
+		final RemoteViews views = new RemoteViews(context.getPackageName(), widgetLayout);
 		views.setImageViewBitmap(
 				R.id.widget_bg,
 				getBackground(bgColor, bmax, bpos, showBillPeriod, plan.limit,
@@ -269,11 +257,10 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		views.setFloat(R.id.stats, "setTextSize", statsTextSize);
 		views.setTextColor(R.id.plan, textColor);
 		views.setTextColor(R.id.stats, textColor);
-		views.setOnClickPendingIntent(R.id.widget, PendingIntent.getActivity(
-				context, 0, new Intent(context, Plans.class), 0));
+		views.setOnClickPendingIntent(R.id.widget,
+				PendingIntent.getActivity(context, 0, new Intent(context, Plans.class), 0));
 		if (showIcon) {
-			views.setViewVisibility(R.id.widget_icon, // .
-					android.view.View.VISIBLE);
+			views.setViewVisibility(R.id.widget_icon, android.view.View.VISIBLE);
 			switch (plan.type) {
 			case DataProvider.TYPE_DATA:
 				views.setImageViewResource(R.id.widget_icon, R.drawable.data);
@@ -283,15 +270,13 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 				break;
 			case DataProvider.TYPE_SMS:
 			case DataProvider.TYPE_MMS:
-				views.setImageViewResource(R.id.widget_icon, // .
-						R.drawable.message);
+				views.setImageViewResource(R.id.widget_icon, R.drawable.message);
 				break;
 			case DataProvider.TYPE_MIXED:
 				views.setImageViewResource(R.id.widget_icon, R.drawable.phone);
 				break;
 			default:
-				views.setViewVisibility(R.id.widget_icon,
-						android.view.View.GONE);
+				views.setViewVisibility(R.id.widget_icon, android.view.View.GONE);
 				break;
 			}
 		}
@@ -316,9 +301,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	 *            usage
 	 * @return {@link Bitmap}
 	 */
-	private static Bitmap getBackground(final int bgColor, final int bmax,
-			final int bpos, final boolean showBillPeriod, final long limit,
-			final long used) {
+	private static Bitmap getBackground(final int bgColor, final int bmax, final int bpos,
+			final boolean showBillPeriod, final long limit, final long used) {
 		final Bitmap bitmap = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH,
 				Bitmap.Config.ARGB_8888);
 		final Canvas canvas = new Canvas(bitmap);
@@ -337,17 +321,14 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			paintPb.setAntiAlias(true);
 			paintPb.setStyle(Paint.Style.FILL);
 			paintPb.setColor(PB_COLOR_LGREY);
-			canvasPb.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER,
-					paintPb);
+			canvasPb.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER, paintPb);
 			Rect copy = new Rect(0, 0, WIDGET_WIDTH, PB_HEIGHT);
 			canvas.drawBitmap(bitmapPb, copy, copy, null);
 			// paint progress bar
-			bitmapPb = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH,
-					Bitmap.Config.ARGB_8888);
+			bitmapPb = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH, Bitmap.Config.ARGB_8888);
 			canvasPb = new Canvas(bitmapPb);
 			paintPb.setColor(PB_COLOR_GREY);
-			canvasPb.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER,
-					paintPb);
+			canvasPb.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER, paintPb);
 			copy = new Rect(0, 0, (WIDGET_WIDTH * bpos) / bmax, PB_HEIGHT);
 			canvas.drawBitmap(bitmapPb, copy, copy, null);
 		}
@@ -360,14 +341,11 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			paintPb.setAntiAlias(true);
 			paintPb.setStyle(Paint.Style.FILL);
 			paintPb.setColor(PB_COLOR_LGREY);
-			canvasPb.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER,
-					paintPb);
-			Rect copy = new Rect(0, WIDGET_WIDTH - PB_HEIGHT, WIDGET_WIDTH,
-					WIDGET_WIDTH);
+			canvasPb.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER, paintPb);
+			Rect copy = new Rect(0, WIDGET_WIDTH - PB_HEIGHT, WIDGET_WIDTH, WIDGET_WIDTH);
 			canvas.drawBitmap(bitmapPb, copy, copy, null);
 			// paint progress bar
-			bitmapPb = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH,
-					Bitmap.Config.ARGB_8888);
+			bitmapPb = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH, Bitmap.Config.ARGB_8888);
 			canvasPb = new Canvas(bitmapPb);
 			int u = (int) ((used * CallMeter.HUNDRET) / limit);
 			if (u > CallMeter.HUNDRET) {
@@ -381,10 +359,9 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			if (u > CallMeter.HUNDRET) {
 				u = CallMeter.HUNDRET;
 			}
-			canvasPb.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER,
-					paintPb);
-			copy = new Rect(0, WIDGET_WIDTH - PB_HEIGHT, (WIDGET_WIDTH * u)
-					/ CallMeter.HUNDRET, WIDGET_WIDTH);
+			canvasPb.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER, paintPb);
+			copy = new Rect(0, WIDGET_WIDTH - PB_HEIGHT, (WIDGET_WIDTH * u) / CallMeter.HUNDRET,
+					WIDGET_WIDTH);
 			canvas.drawBitmap(bitmapPb, copy, copy, null);
 		}
 		return bitmap;

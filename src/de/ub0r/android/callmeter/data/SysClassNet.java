@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Cyril Jaquier, Felix Bechstein
+ * Copyright (C) 2009-2012 Cyril Jaquier, Felix Bechstein
  * 
  * This file is part of NetCounter.
  * 
@@ -108,8 +108,7 @@ public final class SysClassNet {
 	 * @throws IOException
 	 *             IOException
 	 */
-	private static RandomAccessFile getFile(final String filename)
-			throws IOException {
+	private static RandomAccessFile getFile(final String filename) throws IOException {
 		File f = new File(filename);
 		return new RandomAccessFile(f, "r");
 	}
@@ -132,8 +131,7 @@ public final class SysClassNet {
 			Log.d(TAG, "readLong(" + inter + "," + file + "): " + l);
 			return Long.valueOf(l);
 		} catch (Exception e) {
-			Log.e(TAG, e.getMessage() + " / error readding long for inter: "
-					+ inter);
+			Log.e(TAG, e.getMessage() + " / error readding long for inter: " + inter);
 			return 0;
 		} finally {
 			if (raf != null) {

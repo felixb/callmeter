@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -55,8 +55,8 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public class Plans extends ListActivity implements OnClickListener,
-		OnItemClickListener, OnItemLongClickListener {
+public class Plans extends ListActivity implements OnClickListener, OnItemClickListener,
+		OnItemLongClickListener {
 	/** Tag for output. */
 	private static final String TAG = "pp";
 
@@ -76,22 +76,18 @@ public class Plans extends ListActivity implements OnClickListener,
 		 *            {@link Context}
 		 */
 		public PlanAdapter(final Context context) {
-			super(context, R.layout.prefs_plans_item, context
-					.getContentResolver().query(DataProvider.Plans.CONTENT_URI,
-							DataProvider.Plans.PROJECTION, null, null,
-							DataProvider.Plans.ORDER), true);
-			this.types = context.getResources().getStringArray(
-					R.array.plans_type);
+			super(context, R.layout.prefs_plans_item, context.getContentResolver().query(
+					DataProvider.Plans.CONTENT_URI, DataProvider.Plans.PROJECTION, null, null,
+					DataProvider.Plans.ORDER), true);
+			this.types = context.getResources().getStringArray(R.array.plans_type);
 		}
 
 		/**
 		 * {@inheritDoc}
 		 */
 		@Override
-		public final void bindView(final View view, final Context ctxt,
-				final Cursor cursor) {
-			final TextView twTitle = ((TextView) view
-					.findViewById(R.id.normtitle));
+		public final void bindView(final View view, final Context ctxt, final Cursor cursor) {
+			final TextView twTitle = ((TextView) view.findViewById(R.id.normtitle));
 			twTitle.setText(cursor.getString(DataProvider.Plans.INDEX_NAME));
 			final TextView twType = ((TextView) view.findViewById(R.id.type));
 			final int i = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
@@ -101,8 +97,7 @@ public class Plans extends ListActivity implements OnClickListener,
 			} else {
 				hint = "???";
 			}
-			final String s = cursor
-					.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
+			final String s = cursor.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
 			if (s != null && s.length() > 0) {
 				hint += ", " + ctxt.getString(R.string.merge_plans_);
 			}
@@ -125,18 +120,16 @@ public class Plans extends ListActivity implements OnClickListener,
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
-		this.setTitle(this.getString(R.string.settings) + " > "
-				+ this.getString(R.string.plans));
+		this.setTitle(this.getString(R.string.settings) + " > " + this.getString(R.string.plans));
 		this.setContentView(R.layout.list_ok_add_touch);
 		this.adapter = new PlanAdapter(this);
 		this.setListAdapter(this.adapter);
-		((TouchListView) this.getListView())
-				.setDropListener(new DropListener() {
-					@Override
-					public void drop(final int from, final int to) {
-						Plans.this.move(from, to);
-					}
-				});
+		((TouchListView) this.getListView()).setDropListener(new DropListener() {
+			@Override
+			public void drop(final int from, final int to) {
+				Plans.this.move(from, to);
+			}
+		});
 		this.getListView().setOnItemClickListener(this);
 		this.getListView().setOnItemLongClickListener(this);
 		this.findViewById(R.id.ok).setOnClickListener(this);
@@ -152,8 +145,7 @@ public class Plans extends ListActivity implements OnClickListener,
 		super.onResume();
 		Utils.setLocale(this);
 		this.showImportHint();
-		final SharedPreferences prefs = PreferenceManager
-				.getDefaultSharedPreferences(this);
+		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		if (prefs.getBoolean(Preferences.PREFS_ADVANCED, false)) {
 			this.findViewById(R.id.ok_add).setVisibility(View.VISIBLE);
 		} else {
@@ -184,14 +176,13 @@ public class Plans extends ListActivity implements OnClickListener,
 			this.finish();
 			break;
 		case R.id.import_default:
-			intent = new Intent(Intent.ACTION_VIEW, Uri.parse(this
-					.getString(R.string.url_rulesets)));
+			intent = new Intent(Intent.ACTION_VIEW,
+					Uri.parse(this.getString(R.string.url_rulesets)));
 			try {
 				this.startActivity(intent);
 			} catch (ActivityNotFoundException e) {
 				Log.e(TAG, "no activity to load url", e);
-				Toast.makeText(this,
-						"no activity to load url: " + intent.getDataString(),
+				Toast.makeText(this, "no activity to load url: " + intent.getDataString(),
 						Toast.LENGTH_LONG).show();
 			}
 			break;
@@ -204,11 +195,10 @@ public class Plans extends ListActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void onItemClick(final AdapterView<?> parent, final View view,
-			final int position, final long id) {
+	public final void onItemClick(final AdapterView<?> parent, final View view, final int position,
+			final long id) {
 		final Intent intent = new Intent(this, PlanEdit.class);
-		intent.setData(ContentUris.withAppendedId(
-				DataProvider.Plans.CONTENT_URI, id));
+		intent.setData(ContentUris.withAppendedId(DataProvider.Plans.CONTENT_URI, id));
 		this.startActivity(intent);
 	}
 
@@ -216,26 +206,24 @@ public class Plans extends ListActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean onItemLongClick(final AdapterView<?> parent,
-			final View view, final int position, final long id) {
+	public final boolean onItemLongClick(final AdapterView<?> parent, final View view,
+			final int position, final long id) {
 		final Builder builder = new Builder(this);
 		builder.setItems(R.array.dialog_edit_delete,
 				new android.content.DialogInterface.OnClickListener() {
 					@Override
-					public void onClick(final DialogInterface dialog,
-							final int which) {
+					public void onClick(final DialogInterface dialog, final int which) {
 						switch (which) {
 						case WHICH_EDIT:
-							final Intent intent = new Intent(// .
-									Plans.this, PlanEdit.class);
+							final Intent intent = new Intent(Plans.this, PlanEdit.class);
 							intent.setData(ContentUris.withAppendedId(
 									DataProvider.Plans.CONTENT_URI, id));
 							Plans.this.startActivity(intent);
 							break;
 						case WHICH_DELETE:
 							Plans.this.getContentResolver().delete(
-									ContentUris.withAppendedId(DataProvider.// .
-											Plans.CONTENT_URI, id), null, null);
+									ContentUris.withAppendedId(DataProvider.Plans.CONTENT_URI, id),
+									null, null);
 							break;
 						default:
 							break;
@@ -289,8 +277,7 @@ public class Plans extends ListActivity implements OnClickListener,
 
 		final long oldid = ids[from];
 		Log.d(TAG, "move(): oldid=" + oldid);
-		for (i = from + dir; (from < to && i <= to) || // .
-				(from > to && i >= to); i += dir) {
+		for (i = from + dir; (from < to && i <= to) || (from > to && i >= to); i += dir) {
 			ids[i - dir] = ids[i];
 			Log.d(TAG, "move(): ids[" + (i - dir) + "]=" + ids[i - dir]);
 		}
@@ -301,8 +288,8 @@ public class Plans extends ListActivity implements OnClickListener,
 		for (i = 0; i < l; i++) {
 			cv.clear();
 			cv.put(DataProvider.Plans.ORDER, i);
-			cr.update(ContentUris.withAppendedId(
-					DataProvider.Plans.CONTENT_URI, ids[i]), cv, null, null);
+			cr.update(ContentUris.withAppendedId(DataProvider.Plans.CONTENT_URI, ids[i]), cv, null,
+					null);
 		}
 	}
 }

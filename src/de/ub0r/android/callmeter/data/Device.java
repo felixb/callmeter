@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Cyril Jaquier, Felix Bechstein
+ * Copyright (C) 2009-2012 Cyril Jaquier, Felix Bechstein
  * 
  * This file is part of NetCounter.
  * 

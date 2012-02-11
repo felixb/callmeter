@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of CallMeter 3G.
  * 
@@ -49,20 +49,17 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	/** Time between to update checks for data. */
 	static final float DELAY_DATA = 2f; // 2min
 	/** Factor for time between update checks. */
-	static final long DELAY_FACTOR = CallMeter.SECONDS_MINUTE
-			* CallMeter.MILLIS;
+	static final long DELAY_FACTOR = CallMeter.SECONDS_MINUTE * CallMeter.MILLIS;
 
 	/** ACTION for publishing information about sent websms. */
-	private static final String ACTION_CM_WEBSMS = // .
-	"de.ub0r.android.callmeter.SAVE_WEBSMS";
+	private static final String ACTION_CM_WEBSMS = "de.ub0r.android.callmeter.SAVE_WEBSMS";
 	/** Extra holding uri of sent sms. */
 	private static final String EXTRA_WEBSMS_URI = "uri";
 	/** Extra holding name of connector. */
 	private static final String EXTRA_WEBSMS_CONNECTOR = "connector";
 
 	/** ACTION for publishing information about calls. */
-	private static final String ACTION_CM_SIP = // .
-	"de.ub0r.android.callmeter.SAVE_SIPCALL";
+	private static final String ACTION_CM_SIP = "de.ub0r.android.callmeter.SAVE_SIPCALL";
 	/** Extra holding uri of done call. */
 	private static final String EXTRA_SIP_URI = "uri";
 	/** Extra holding name of provider. */
@@ -80,16 +77,12 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 		Log.d(TAG, "schedNext(ctx, " + a + ")");
 		long delay;
 		if (a != null && a.equals(LogRunnerService.ACTION_SHORT_RUN)) {
-			delay = (long) (Utils.parseFloat(
-					PreferenceManager.getDefaultSharedPreferences(context)
-							.getString(Preferences.PREFS_UPDATE_INTERVAL_DATA,
-									String.valueOf(DELAY_DATA)), DELAY_DATA)// .
-			* DELAY_FACTOR);
+			delay = (long) (Utils.parseFloat(PreferenceManager.getDefaultSharedPreferences(context)
+					.getString(Preferences.PREFS_UPDATE_INTERVAL_DATA, String.valueOf(DELAY_DATA)),
+					DELAY_DATA) * DELAY_FACTOR);
 		} else {
-			delay = Utils.parseLong(
-					PreferenceManager.getDefaultSharedPreferences(context)
-							.getString(Preferences.PREFS_UPDATE_INTERVAL,
-									String.valueOf(DELAY)), DELAY)
+			delay = Utils.parseLong(PreferenceManager.getDefaultSharedPreferences(context)
+					.getString(Preferences.PREFS_UPDATE_INTERVAL, String.valueOf(DELAY)), DELAY)
 					* DELAY_FACTOR;
 		}
 		Log.d(TAG, "schedNext(ctx, " + a + "): delay=" + delay);
@@ -109,8 +102,7 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	 * @param action
 	 *            {@link Intent}'s action
 	 */
-	public static void schedNext(final Context context, final long delay,
-			final String action) {
+	public static void schedNext(final Context context, final long delay, final String action) {
 		Log.d(TAG, "schedNext(ctx, " + delay + "," + action + ")");
 		final Intent i = new Intent(context, LogRunnerReceiver.class);
 		if (action != null) {
@@ -119,8 +111,7 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 		final PendingIntent pi = PendingIntent.getBroadcast(context, 0, i,
 				PendingIntent.FLAG_CANCEL_CURRENT);
 		final long t = SystemClock.elapsedRealtime() + delay;
-		final AlarmManager mgr = (AlarmManager) context
-				.getSystemService(Context.ALARM_SERVICE);
+		final AlarmManager mgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 		mgr.set(AlarmManager.ELAPSED_REALTIME, t, pi);
 	}
 
@@ -136,11 +127,10 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	 * @param connector
 	 *            connector name
 	 */
-	private static void saveWebSMS(final Context context, final String uri,
-			final long mid, final String connector) {
+	private static void saveWebSMS(final Context context, final String uri, final long mid,
+			final String connector) {
 		final ContentResolver cr = context.getContentResolver();
-		final Cursor c = cr.query(Uri.parse(uri), new String[] { "date" },
-				null, null, null);
+		final Cursor c = cr.query(Uri.parse(uri), new String[] { "date" }, null, null, null);
 		long date = -1;
 		if (c != null && c.moveToFirst()) {
 			date = c.getLong(0);
@@ -167,11 +157,10 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 	 * @param provider
 	 *            provider name
 	 */
-	private static void saveSipCall(final Context context, final String uri,
-			final long cid, final String provider) {
+	private static void saveSipCall(final Context context, final String uri, final long cid,
+			final String provider) {
 		final ContentResolver cr = context.getContentResolver();
-		final Cursor c = cr.query(Uri.parse(uri), new String[] { "date" },
-				null, null, null);
+		final Cursor c = cr.query(Uri.parse(uri), new String[] { "date" }, null, null, null);
 		long date = -1;
 		if (c != null && c.moveToFirst()) {
 			date = c.getLong(0);
@@ -198,10 +187,8 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 			if (a.equals(ACTION_CM_WEBSMS)) {
 				final String su = intent.getStringExtra(EXTRA_WEBSMS_URI);
 				if (su != null && su.length() > 0) {
-					final long si = Utils.parseLong(su.replaceAll(".*/", ""),
-							-1);
-					final String sc = intent
-							.getStringExtra(EXTRA_WEBSMS_CONNECTOR);
+					final long si = Utils.parseLong(su.replaceAll(".*/", ""), -1);
+					final String sc = intent.getStringExtra(EXTRA_WEBSMS_CONNECTOR);
 					Log.d(TAG, "websms id:  " + si);
 					Log.d(TAG, "websms con: " + sc);
 					if (si >= 0L) {
@@ -211,8 +198,7 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 			} else if (a.equals(ACTION_CM_SIP)) {
 				final String su = intent.getStringExtra(EXTRA_SIP_URI);
 				if (su != null && su.length() > 0) {
-					final long si = Utils.parseLong(su.replaceAll(".*/", ""),
-							-1);
+					final long si = Utils.parseLong(su.replaceAll(".*/", ""), -1);
 					final String sc = intent.getStringExtra(EXTRA_SIP_PROVIDER);
 					Log.d(TAG, "sip call id:  " + si);
 					Log.d(TAG, "sip call con: " + sc);
@@ -221,10 +207,8 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
 					}
 				}
 			} else if (a.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
-				final String state = intent
-						.getStringExtra(TelephonyManager.EXTRA_STATE);
-				if (state != null
-						&& !state.equals(TelephonyManager.EXTRA_STATE_IDLE)) {
+				final String state = intent.getStringExtra(TelephonyManager.EXTRA_STATE);
+				if (state != null && !state.equals(TelephonyManager.EXTRA_STATE_IDLE)) {
 					return;
 				}
 			}

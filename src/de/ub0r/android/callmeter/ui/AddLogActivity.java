@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -84,18 +84,16 @@ public final class AddLogActivity extends FragmentActivity {
 		this.cbRoamed = (CheckBox) this.findViewById(R.id.roamed);
 		this.spType.setOnItemSelectedListener(new OnItemSelectedListener() {
 			@Override
-			public void onItemSelected(final AdapterView<?> parent,
-					final View view, final int position, final long id) {
+			public void onItemSelected(final AdapterView<?> parent, final View view,
+					final int position, final long id) {
 				switch (position) {
 				case DataProvider.Rules.WHAT_CALL:
-					AddLogActivity.this.etLength
-							.setHint(R.string.length_hint_call);
+					AddLogActivity.this.etLength.setHint(R.string.length_hint_call);
 					AddLogActivity.this.etLength.setVisibility(View.VISIBLE);
 					AddLogActivity.this.etRemote.setVisibility(View.VISIBLE);
 					break;
 				case DataProvider.Rules.WHAT_DATA:
-					AddLogActivity.this.etLength
-							.setHint(R.string.length_hint_data);
+					AddLogActivity.this.etLength.setHint(R.string.length_hint_data);
 					AddLogActivity.this.etLength.setVisibility(View.VISIBLE);
 					AddLogActivity.this.etRemote.setVisibility(View.GONE);
 					break;
@@ -141,11 +139,8 @@ public final class AddLogActivity extends FragmentActivity {
 			final String r = this.etRemote.getText().toString();
 			final boolean roamed = this.cbRoamed.isChecked();
 			final Calendar c = Calendar.getInstance();
-			c.set(this.dpDate.getYear(),
-					this.dpDate.getMonth(),
-					this.dpDate.getDayOfMonth(), // .
-					this.tpTime.getCurrentHour(),
-					this.tpTime.getCurrentMinute());
+			c.set(this.dpDate.getYear(), this.dpDate.getMonth(), this.dpDate.getDayOfMonth(),
+					this.tpTime.getCurrentHour(), this.tpTime.getCurrentMinute());
 			final ContentValues cv = new ContentValues();
 			switch (t) {
 			case DataProvider.Rules.WHAT_CALL:

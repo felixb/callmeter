@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -77,20 +77,18 @@ public final class DataProvider extends ContentProvider {
 	/** Separator of values. */
 	private static final String EXPORT_VALUESEPARATOR = ":#:";
 	/** Mime type for export. */
-	public static final String EXPORT_MIMETYPE = // .
-	"application/android.callmeter.export";
+	public static final String EXPORT_MIMETYPE = "application/android.callmeter.export";
 	/** {@link Uri} for export Content. */
-	public static final Uri EXPORT_RULESET_URI = // .
-	Uri.parse("content://" + AUTHORITY + "/export/ruleset");
+	public static final Uri EXPORT_RULESET_URI = Uri.parse("content://" + AUTHORITY
+			+ "/export/ruleset");
 	/** {@link Uri} for export Content. */
-	public static final Uri EXPORT_LOGS_URI = Uri.parse("content://"
-			+ AUTHORITY + "/export/logs");
+	public static final Uri EXPORT_LOGS_URI = Uri.parse("content://" + AUTHORITY + "/export/logs");
 	/** {@link Uri} for export Content. */
-	public static final Uri EXPORT_NUMGROUPS_URI = Uri.parse("content://"
-			+ AUTHORITY + "/export/numgroups");
+	public static final Uri EXPORT_NUMGROUPS_URI = Uri.parse("content://" + AUTHORITY
+			+ "/export/numgroups");
 	/** {@link Uri} for export Content. */
-	public static final Uri EXPORT_HOURGROUPS_URI = Uri.parse("content://"
-			+ AUTHORITY + "/export/hourgroups");
+	public static final Uri EXPORT_HOURGROUPS_URI = Uri.parse("content://" + AUTHORITY
+			+ "/export/hourgroups");
 	/** Filename for the actual export file. */
 	public static final String EXPORT_RULESET_FILE = "ruleset.export";
 	/** Filename for the actual logs file. */
@@ -242,51 +240,42 @@ public final class DataProvider extends ContentProvider {
 		public static final String PLAN_TYPE = "_plan_type";
 
 		/** Projection used for query. */
-		public static final String[] PROJECTION = new String[] { ID, PLAN_ID,
-				RULE_ID, TYPE, DIRECTION, DATE, AMOUNT, BILL_AMOUNT, REMOTE,
-				ROAMED, COST, FREE };
+		public static final String[] PROJECTION = new String[] { ID, PLAN_ID, RULE_ID, TYPE,
+				DIRECTION, DATE, AMOUNT, BILL_AMOUNT, REMOTE, ROAMED, COST, FREE };
 		/** Projection used for join query. */
 		public static final String[] PROJECTION_JOIN;
 		static {
 			final int l = PROJECTION.length;
 			PROJECTION_JOIN = new String[l + 2];
 			for (int i = 0; i < l; i++) {
-				PROJECTION_JOIN[i] = TABLE + "." + PROJECTION[i] + " as "
-						+ PROJECTION[i];
+				PROJECTION_JOIN[i] = TABLE + "." + PROJECTION[i] + " as " + PROJECTION[i];
 			}
-			PROJECTION_JOIN[l] = Plans.TABLE + "." + Plans.NAME + " as "
-					+ Plans.NAME;
-			PROJECTION_JOIN[l + 1] = Rules.TABLE + "." + Rules.NAME + " as "
-					+ Rules.NAME;
+			PROJECTION_JOIN[l] = Plans.TABLE + "." + Plans.NAME + " as " + Plans.NAME;
+			PROJECTION_JOIN[l + 1] = Rules.TABLE + "." + Rules.NAME + " as " + Rules.NAME;
 		}
 
 		/** Projection used for query - sum. */
-		public static final String[] PROJECTION_SUM = new String[] { TYPE,
-				PLAN_ID, Plans.TABLE + "." + Plans.TYPE + " AS " + PLAN_TYPE,
-				"sum(" + AMOUNT + ")", "sum(" + BILL_AMOUNT + ")",
-				"sum(" + COST + ")", "sum(" + FREE + ")",
+		public static final String[] PROJECTION_SUM = new String[] { TYPE, PLAN_ID,
+				Plans.TABLE + "." + Plans.TYPE + " AS " + PLAN_TYPE, "sum(" + AMOUNT + ")",
+				"sum(" + BILL_AMOUNT + ")", "sum(" + COST + ")", "sum(" + FREE + ")",
 				"count(" + PLAN_ID + ")" };
 
 		/** Content {@link Uri}. */
-		public static final Uri CONTENT_URI = Uri.parse("content://"
-				+ AUTHORITY + "/logs");
+		public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/logs");
 		/** Content {@link Uri} logs joined with plans and rules. */
-		public static final Uri CONTENT_URI_JOIN = Uri.parse("content://"
-				+ AUTHORITY + "/logs/join");
+		public static final Uri CONTENT_URI_JOIN = Uri.parse("content://" + AUTHORITY
+				+ "/logs/join");
 		/** Content {@link Uri} - sum. */
-		public static final Uri SUM_URI = Uri.parse("content://" + AUTHORITY
-				+ "/logs/sum");
+		public static final Uri SUM_URI = Uri.parse("content://" + AUTHORITY + "/logs/sum");
 		/**
 		 * The MIME type of {@link #CONTENT_URI} providing a list.
 		 */
-		public static final String CONTENT_TYPE = // .
-		"vnd.android.cursor.dir/vnd.ub0r.log";
+		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.ub0r.log";
 
 		/**
 		 * The MIME type of a {@link #CONTENT_URI} single entry.
 		 */
-		public static final String CONTENT_ITEM_TYPE = // .
-		"vnd.android.cursor.item/vnd.ub0r.log";
+		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.ub0r.log";
 
 		/**
 		 * Create table in {@link SQLiteDatabase}.
@@ -297,22 +286,13 @@ public final class DataProvider extends ContentProvider {
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
-			db.execSQL("CREATE TABLE " + TABLE + " (" // .
-					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
-					+ PLAN_ID + " LONG, " // .
-					+ RULE_ID + " LONG, " // .
-					+ TYPE + " INTEGER, " // .
-					+ DIRECTION + " INTEGER, " // .
-					+ DATE + " LONG, " // .
-					+ AMOUNT + " LONG, " // .
-					+ BILL_AMOUNT + " FLOAT, " // .
-					+ REMOTE + " TEXT, "// .
-					+ ROAMED + " INTEGER, " // .
-					+ COST + " FLOAT, "// .
-					+ FREE + " FLOAT"// .
-					+ ");");
-			db.execSQL("CREATE INDEX " + TABLE + "_idx on " + TABLE + " (" // .
-					+ ID + "," + PLAN_ID + "," + DATE + ")");
+			db.execSQL("CREATE TABLE " + TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+					+ PLAN_ID + " LONG, " + RULE_ID + " LONG, " + TYPE + " INTEGER, " + DIRECTION
+					+ " INTEGER, " + DATE + " LONG, " + AMOUNT + " LONG, " + BILL_AMOUNT
+					+ " FLOAT, " + REMOTE + " TEXT, " + ROAMED + " INTEGER, " + COST + " FLOAT, "
+					+ FREE + " FLOAT" + ");");
+			db.execSQL("CREATE INDEX " + TABLE + "_idx on " + TABLE + " (" + ID + "," + PLAN_ID
+					+ "," + DATE + ")");
 		}
 
 		/**
@@ -325,12 +305,11 @@ public final class DataProvider extends ContentProvider {
 		 * @param newVersion
 		 *            new version
 		 */
-		public static void onUpgrade(final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) {
+		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
+				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, new String[] {
-					AMOUNT, DATE, DIRECTION, REMOTE, ROAMED, TYPE, PLAN_ID },
-					null);
+			final ContentValues[] values = backup(db, TABLE, new String[] { AMOUNT, DATE,
+					DIRECTION, REMOTE, ROAMED, TYPE, PLAN_ID }, null);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -349,8 +328,7 @@ public final class DataProvider extends ContentProvider {
 		 *            if true, '%' is added to list of allowed chars
 		 * @return cleaned number
 		 */
-		public static String cleanNumber(final String number,
-				final boolean pattern) {
+		public static String cleanNumber(final String number, final boolean pattern) {
 			if (number == null) {
 				return null;
 			}
@@ -391,23 +369,19 @@ public final class DataProvider extends ContentProvider {
 		public static final String DATE = "_date";
 
 		/** Projection used for query. */
-		public static final String[] PROJECTION = new String[] { // .
-		ID, CONNECTOR, DATE };
+		public static final String[] PROJECTION = new String[] { ID, CONNECTOR, DATE };
 
 		/** Content {@link Uri}. */
-		public static final Uri CONTENT_URI = Uri.parse("content://"
-				+ AUTHORITY + "/websms");
+		public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/websms");
 		/**
 		 * The MIME type of {@link #CONTENT_URI} providing a list.
 		 */
-		public static final String CONTENT_TYPE = // .
-		"vnd.android.cursor.dir/vnd.ub0r.websms";
+		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.ub0r.websms";
 
 		/**
 		 * The MIME type of a {@link #CONTENT_URI} single entry.
 		 */
-		public static final String CONTENT_ITEM_TYPE = // .
-		"vnd.android.cursor.item/vnd.ub0r.websms";
+		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.ub0r.websms";
 
 		/**
 		 * Create table in {@link SQLiteDatabase}.
@@ -418,11 +392,8 @@ public final class DataProvider extends ContentProvider {
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
-			db.execSQL("CREATE TABLE " + TABLE + " (" // .
-					+ ID + " LONG, " // .
-					+ CONNECTOR + " TEXT,"// .
-					+ DATE + " LONG"// .
-					+ ");");
+			db.execSQL("CREATE TABLE " + TABLE + " (" + ID + " LONG, " + CONNECTOR + " TEXT,"
+					+ DATE + " LONG" + ");");
 		}
 
 		/**
@@ -435,8 +406,8 @@ public final class DataProvider extends ContentProvider {
 		 * @param newVersion
 		 *            new version
 		 */
-		public static void onUpgrade(final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) {
+		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
+				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
 			onCreate(db);
@@ -473,23 +444,19 @@ public final class DataProvider extends ContentProvider {
 		public static final String DATE = "_date";
 
 		/** Projection used for query. */
-		public static final String[] PROJECTION = new String[] { // .
-		ID, PROVIDER, DATE };
+		public static final String[] PROJECTION = new String[] { ID, PROVIDER, DATE };
 
 		/** Content {@link Uri}. */
-		public static final Uri CONTENT_URI = Uri.parse("content://"
-				+ AUTHORITY + "/sipcall");
+		public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/sipcall");
 		/**
 		 * The MIME type of {@link #CONTENT_URI} providing a list.
 		 */
-		public static final String CONTENT_TYPE = // .
-		"vnd.android.cursor.dir/vnd.ub0r.sipcall";
+		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.ub0r.sipcall";
 
 		/**
 		 * The MIME type of a {@link #CONTENT_URI} single entry.
 		 */
-		public static final String CONTENT_ITEM_TYPE = // .
-		"vnd.android.cursor.item/vnd.ub0r.sipcall";
+		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.ub0r.sipcall";
 
 		/**
 		 * Create table in {@link SQLiteDatabase}.
@@ -500,11 +467,8 @@ public final class DataProvider extends ContentProvider {
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
-			db.execSQL("CREATE TABLE " + TABLE + " (" // .
-					+ ID + " LONG, " // .
-					+ PROVIDER + " TEXT,"// .
-					+ DATE + " LONG"// .
-					+ ");");
+			db.execSQL("CREATE TABLE " + TABLE + " (" + ID + " LONG, " + PROVIDER + " TEXT," + DATE
+					+ " LONG" + ");");
 		}
 
 		/**
@@ -517,8 +481,8 @@ public final class DataProvider extends ContentProvider {
 		 * @param newVersion
 		 *            new version
 		 */
-		public static void onUpgrade(final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) {
+		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
+				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
 			onCreate(db);
@@ -632,12 +596,11 @@ public final class DataProvider extends ContentProvider {
 					this.cpp = cursor.getFloat(INDEX_SUM_CPP);
 					if (this.type == TYPE_BILLPERIOD) {
 						this.limittype = -1;
-						if (billperiod == DataProvider.BILLPERIOD_INFINITE) {
+						if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
 							this.limitPos = 0;
 							this.limit = 0;
 						} else {
-							this.limitPos = (this.now - this.billday)
-									/ Utils.MINUTES_IN_MILLIS;
+							this.limitPos = (this.now - this.billday) / Utils.MINUTES_IN_MILLIS;
 							this.limit = (this.nextbillday - this.billday)
 									/ Utils.MINUTES_IN_MILLIS;
 						}
@@ -645,8 +608,7 @@ public final class DataProvider extends ContentProvider {
 						this.limittype = cursor.getInt(INDEX_LIMIT_TYPE);
 						this.limit = getLimit(this.type, this.limittype,
 								cursor.getLong(INDEX_LIMIT));
-						this.limitPos = getUsed(this.type, this.limittype,
-								this.bpBa, this.cost);
+						this.limitPos = getUsed(this.type, this.limittype, this.bpBa, this.cost);
 					}
 				}
 				if (this.limitPos <= 0) {
@@ -698,37 +660,26 @@ public final class DataProvider extends ContentProvider {
 					this.atBa = 0f;
 					this.now = -1L;
 				} else {
-					this.cost = p
-							.getFloat(PREF_PREFIX + SUM_COST + this.id, 0f);
-					this.free = p
-							.getFloat(PREF_PREFIX + SUM_FREE + this.id, 0f);
-					this.tdCount = p.getInt(PREF_PREFIX + SUM_TD_COUNT
-							+ this.id, 0);
-					this.tdBa = p.getFloat(PREF_PREFIX + SUM_TD_BILLED_AMOUNT
-							+ this.id, 0f);
-					this.bpCount = p.getInt(PREF_PREFIX + SUM_BP_COUNT
-							+ this.id, 0);
-					this.bpBa = p.getFloat(PREF_PREFIX + SUM_BP_BILLED_AMOUNT
-							+ this.id, 0f);
-					this.atCount = p.getInt(PREF_PREFIX + SUM_AT_COUNT
-							+ this.id, 0);
-					this.atBa = p.getFloat(PREF_PREFIX + SUM_AT_BILLED_AMOUNT
-							+ this.id, 0f);
+					this.cost = p.getFloat(PREF_PREFIX + SUM_COST + this.id, 0f);
+					this.free = p.getFloat(PREF_PREFIX + SUM_FREE + this.id, 0f);
+					this.tdCount = p.getInt(PREF_PREFIX + SUM_TD_COUNT + this.id, 0);
+					this.tdBa = p.getFloat(PREF_PREFIX + SUM_TD_BILLED_AMOUNT + this.id, 0f);
+					this.bpCount = p.getInt(PREF_PREFIX + SUM_BP_COUNT + this.id, 0);
+					this.bpBa = p.getFloat(PREF_PREFIX + SUM_BP_BILLED_AMOUNT + this.id, 0f);
+					this.atCount = p.getInt(PREF_PREFIX + SUM_AT_COUNT + this.id, 0);
+					this.atBa = p.getFloat(PREF_PREFIX + SUM_AT_BILLED_AMOUNT + this.id, 0f);
 					this.now = p.getLong(PREF_PREFIX + SUM_NOW + this.id, -1L);
-					this.billday = p.getLong(PREF_PREFIX + SUM_BILLDAY
-							+ this.id, 0L);
-					this.nextbillday = p.getLong(PREF_PREFIX + SUM_NEXTBILLDAY
-							+ this.id, 0L);
+					this.billday = p.getLong(PREF_PREFIX + SUM_BILLDAY + this.id, 0L);
+					this.nextbillday = p.getLong(PREF_PREFIX + SUM_NEXTBILLDAY + this.id, 0L);
 					this.cpp = p.getFloat(PREF_PREFIX + SUM_CPP + this.id, 0f);
 
 					if (this.type == TYPE_BILLPERIOD) {
 						this.limittype = -1;
-						if (billperiod == DataProvider.BILLPERIOD_INFINITE) {
+						if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
 							this.limitPos = 0;
 							this.limit = 0;
 						} else {
-							this.limitPos = (this.now - this.billday)
-									/ Utils.MINUTES_IN_MILLIS;
+							this.limitPos = (this.now - this.billday) / Utils.MINUTES_IN_MILLIS;
 							this.limit = (this.nextbillday - this.billday)
 									/ Utils.MINUTES_IN_MILLIS;
 						}
@@ -736,8 +687,7 @@ public final class DataProvider extends ContentProvider {
 						this.limittype = cursor.getInt(INDEX_LIMIT_TYPE);
 						this.limit = getLimit(this.type, this.limittype,
 								cursor.getLong(INDEX_LIMIT));
-						this.limitPos = getUsed(this.type, this.limittype,
-								this.bpBa, this.cost);
+						this.limitPos = getUsed(this.type, this.limittype, this.bpBa, this.cost);
 					}
 				}
 				if (this.limitPos <= 0) {
@@ -763,22 +713,17 @@ public final class DataProvider extends ContentProvider {
 			 *            need all time stats?
 			 * @return {@link Plan}
 			 */
-			public static Plan getPlan(final ContentResolver cr,
-					final long planid, final long now, final boolean needToday,
-					final boolean needAllTime) {
+			public static Plan getPlan(final ContentResolver cr, final long planid, final long now,
+					final boolean needToday, final boolean needAllTime) {
 				Uri uri = CONTENT_URI_SUM;
 				if (now >= 0) {
-					uri = uri
-							.buildUpon()
-							.appendQueryParameter(PARAM_DATE,
-									String.valueOf(now))
-							.appendQueryParameter(PARAM_HIDE_TODAY,
-									String.valueOf(needToday))
-							.appendQueryParameter(PARAM_HIDE_ALLTIME,
-									String.valueOf(needAllTime)).build();
+					uri = uri.buildUpon().appendQueryParameter(PARAM_DATE, String.valueOf(now))
+							.appendQueryParameter(PARAM_HIDE_TODAY, String.valueOf(needToday))
+							.appendQueryParameter(PARAM_HIDE_ALLTIME, String.valueOf(needAllTime))
+							.build();
 				}
-				Cursor c = cr.query(uri, PROJECTION_SUM, TABLE + "." + ID
-						+ "=?", new String[] { String.valueOf(planid) }, null);
+				Cursor c = cr.query(uri, PROJECTION_SUM, TABLE + "." + ID + "=?",
+						new String[] { String.valueOf(planid) }, null);
 				Plan ret = null;
 				if (c.moveToFirst()) {
 					ret = new Plan(c);
@@ -802,14 +747,12 @@ public final class DataProvider extends ContentProvider {
 			 *            need all time stats?
 			 * @return {@link Plan}
 			 */
-			public static Plan getPlan(final ContentResolver cr,
-					final long planid, final Calendar now,
-					final boolean needToday, final boolean needAllTime) {
+			public static Plan getPlan(final ContentResolver cr, final long planid,
+					final Calendar now, final boolean needToday, final boolean needAllTime) {
 				if (now == null) {
 					return getPlan(cr, planid, -1L, needToday, needAllTime);
 				} else {
-					return getPlan(cr, planid, now.getTimeInMillis(),
-							needToday, needAllTime);
+					return getPlan(cr, planid, now.getTimeInMillis(), needToday, needAllTime);
 				}
 			}
 
@@ -826,18 +769,14 @@ public final class DataProvider extends ContentProvider {
 				e.putFloat(PREF_PREFIX + SUM_COST + this.id, this.cost);
 				e.putFloat(PREF_PREFIX + SUM_FREE + this.id, this.free);
 				e.putInt(PREF_PREFIX + SUM_TD_COUNT + this.id, this.tdCount);
-				e.putFloat(PREF_PREFIX + SUM_TD_BILLED_AMOUNT + this.id,
-						this.tdBa);
+				e.putFloat(PREF_PREFIX + SUM_TD_BILLED_AMOUNT + this.id, this.tdBa);
 				e.putInt(PREF_PREFIX + SUM_BP_COUNT + this.id, this.bpCount);
-				e.putFloat(PREF_PREFIX + SUM_BP_BILLED_AMOUNT + this.id,
-						this.bpBa);
+				e.putFloat(PREF_PREFIX + SUM_BP_BILLED_AMOUNT + this.id, this.bpBa);
 				e.putInt(PREF_PREFIX + SUM_AT_COUNT + this.id, this.atCount);
-				e.putFloat(PREF_PREFIX + SUM_AT_BILLED_AMOUNT + this.id,
-						this.atBa);
+				e.putFloat(PREF_PREFIX + SUM_AT_BILLED_AMOUNT + this.id, this.atBa);
 				e.putLong(PREF_PREFIX + SUM_NOW + this.id, this.now);
 				e.putLong(PREF_PREFIX + SUM_BILLDAY + this.id, this.billday);
-				e.putLong(PREF_PREFIX + SUM_NEXTBILLDAY + this.id,
-						this.nextbillday);
+				e.putLong(PREF_PREFIX + SUM_NEXTBILLDAY + this.id, this.nextbillday);
 				e.putFloat(PREF_PREFIX + SUM_CPP + this.id, this.cpp);
 
 				return e;
@@ -1010,14 +949,11 @@ public final class DataProvider extends ContentProvider {
 		/** Cost per amount2. */
 		public static final String COST_PER_AMOUNT2 = "_cost_per_amount2";
 		/** Cost per item in limit. */
-		public static final String COST_PER_ITEM_IN_LIMIT = // .
-		"_cost_per_item_in_limit";
+		public static final String COST_PER_ITEM_IN_LIMIT = "_cost_per_item_in_limit";
 		/** Cost per amount1 in limit. */
-		public static final String COST_PER_AMOUNT_IN_LIMIT1 = // .
-		"_cost_per_amount_in_limit1";
+		public static final String COST_PER_AMOUNT_IN_LIMIT1 = "_cost_per_amount_in_limit1";
 		/** Cost per amount2 in limit. */
-		public static final String COST_PER_AMOUNT_IN_LIMIT2 = // .
-		"_cost_per_amount_in_limit2";
+		public static final String COST_PER_AMOUNT_IN_LIMIT2 = "_cost_per_amount_in_limit2";
 		/** Cost per plan. */
 		public static final String COST_PER_PLAN = "_cost_per_plan";
 		/** Mixed units for call. */
@@ -1061,16 +997,14 @@ public final class DataProvider extends ContentProvider {
 		public static final String SUM_FREE = "SUM_FREE";
 
 		/** Projection used for query. */
-		public static final String[] PROJECTION = new String[] { ID, NAME,
-				SHORTNAME, TYPE, LIMIT_TYPE, LIMIT, BILLPERIOD, BILLMODE,
-				BILLDAY, COST_PER_ITEM, COST_PER_AMOUNT1, COST_PER_AMOUNT2,
-				COST_PER_ITEM_IN_LIMIT, COST_PER_AMOUNT_IN_LIMIT1,
-				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN, MIXED_UNITS_CALL,
-				MIXED_UNITS_SMS, MIXED_UNITS_MMS, BILLPERIOD_ID, NEXT_ALERT,
-				STRIP_SECONDS, MERGED_PLANS };
+		public static final String[] PROJECTION = new String[] { ID, NAME, SHORTNAME, TYPE,
+				LIMIT_TYPE, LIMIT, BILLPERIOD, BILLMODE, BILLDAY, COST_PER_ITEM, COST_PER_AMOUNT1,
+				COST_PER_AMOUNT2, COST_PER_ITEM_IN_LIMIT, COST_PER_AMOUNT_IN_LIMIT1,
+				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN, MIXED_UNITS_CALL, MIXED_UNITS_SMS,
+				MIXED_UNITS_MMS, BILLPERIOD_ID, NEXT_ALERT, STRIP_SECONDS, MERGED_PLANS };
 		/** Projection used for basic query. */
-		public static final String[] PROJECTION_BASIC = new String[] { ID,
-				NAME, SHORTNAME, TYPE, LIMIT_TYPE, LIMIT, BILLPERIOD };
+		public static final String[] PROJECTION_BASIC = new String[] { ID, NAME, SHORTNAME, TYPE,
+				LIMIT_TYPE, LIMIT, BILLPERIOD };
 
 		/** Projection used for sum query. */
 		public static final String[] PROJECTION_SUM = new String[] {
@@ -1086,113 +1020,86 @@ public final class DataProvider extends ContentProvider {
 				"{" + SUM_NOW + "} AS " + SUM_NOW,
 				"{" + SUM_BILLDAY + "} AS " + SUM_BILLDAY,
 				"{" + SUM_NEXTBILLDAY + "} AS " + SUM_NEXTBILLDAY,
-				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE
-						+ " is null or " + Logs.TABLE + "." + Logs.DATE + "<{"
-						+ SUM_TODAY + "} or " + Logs.TABLE + "." + Logs.DATE
-						+ ">{" + SUM_NOW + "} THEN 0 ELSE 1 END) as "
-						+ SUM_TD_COUNT,
-				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + "<{"
-						+ SUM_TODAY + "} or " + Logs.TABLE + "." + Logs.DATE
-						+ ">{" + SUM_NOW + "} THEN 0 WHEN " + TABLE + "."
-						+ MERGED_PLANS + " is null or " + TABLE + "." + TYPE
-						+ "!=" + TYPE_MIXED + " THEN " + Logs.TABLE + "."
-						+ Logs.BILL_AMOUNT + " WHEN  " + Logs.TABLE + "."
-						+ Logs.TYPE + "=" + TYPE_CALL + " THEN " + Logs.TABLE
-						+ "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
-						+ MIXED_UNITS_CALL + "/60" + " WHEN  " + Logs.TABLE
-						+ "." + Logs.TYPE + "=" + TYPE_SMS + " THEN "
-						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE
-						+ "." + MIXED_UNITS_SMS + " WHEN  " + Logs.TABLE + "."
-						+ Logs.TYPE + "=" + TYPE_MMS + " THEN " + Logs.TABLE
-						+ "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
-						+ MIXED_UNITS_MMS + " ELSE " + Logs.TABLE + "."
-						+ Logs.BILL_AMOUNT + " END) AS " + SUM_TD_BILLED_AMOUNT,
-				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE
-						+ " is null or " + Logs.TABLE + "." + Logs.DATE + "<={"
-						+ SUM_BILLDAY + "} or " + Logs.TABLE + "." + Logs.DATE
-						+ ">{" + SUM_NOW + "} THEN 0 ELSE 1 END) as "
-						+ SUM_BP_COUNT,
-				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + "<={"
-						+ SUM_BILLDAY + "} or " + Logs.TABLE + "." + Logs.DATE
-						+ ">{" + SUM_NOW + "} THEN 0 WHEN " + TABLE + "."
-						+ MERGED_PLANS + " is null or " + TABLE + "." + TYPE
-						+ "!=" + TYPE_MIXED + " THEN " + Logs.TABLE + "."
-						+ Logs.BILL_AMOUNT + " WHEN  " + Logs.TABLE + "."
-						+ Logs.TYPE + "=" + TYPE_CALL + " THEN " + Logs.TABLE
-						+ "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
-						+ MIXED_UNITS_CALL + "/60" + " WHEN  " + Logs.TABLE
-						+ "." + Logs.TYPE + "=" + TYPE_SMS + " THEN "
-						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE
-						+ "." + MIXED_UNITS_SMS + " WHEN  " + Logs.TABLE + "."
-						+ Logs.TYPE + "=" + TYPE_MMS + " THEN " + Logs.TABLE
-						+ "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
-						+ MIXED_UNITS_MMS + " ELSE " + Logs.TABLE + "."
-						+ Logs.BILL_AMOUNT + " END) AS " + SUM_BP_BILLED_AMOUNT,
-				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE
-						+ " is null or " + Logs.TABLE + "." + Logs.DATE + ">{"
-						+ SUM_NOW + "} THEN 0 ELSE 1 END) as " + SUM_AT_COUNT,
-				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + ">{"
-						+ SUM_NOW + "} THEN 0 WHEN " + TABLE + "."
-						+ MERGED_PLANS + " is null or " + TABLE + "." + TYPE
-						+ "!=" + TYPE_MIXED + " THEN " + Logs.TABLE + "."
-						+ Logs.BILL_AMOUNT + " WHEN  " + Logs.TABLE + "."
-						+ Logs.TYPE + "=" + TYPE_CALL + " THEN " + Logs.TABLE
-						+ "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
-						+ MIXED_UNITS_CALL + "/60" + " WHEN  " + Logs.TABLE
-						+ "." + Logs.TYPE + "=" + TYPE_SMS + " THEN "
-						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE
-						+ "." + MIXED_UNITS_SMS + " WHEN  " + Logs.TABLE + "."
-						+ Logs.TYPE + "=" + TYPE_MMS + " THEN " + Logs.TABLE
-						+ "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
-						+ MIXED_UNITS_MMS + " ELSE " + Logs.TABLE + "."
-						+ Logs.BILL_AMOUNT + " END) AS " + SUM_AT_BILLED_AMOUNT,
-				"(CASE WHEN " + TABLE + "." + TYPE + "=" + TYPE_BILLPERIOD
-						+ " THEN " + TABLE + "." + COST_PER_PLAN
-						+ " + (select sum(p." + COST_PER_PLAN + ") from "
-						+ TABLE + " as p where p." + BILLPERIOD_ID + "="
-						+ TABLE + "." + ID + ") ELSE " + TABLE + "."
-						+ COST_PER_PLAN + " END) as " + SUM_CPP,
-				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + "<{"
-						+ SUM_BILLDAY + "} or " + Logs.TABLE + "." + Logs.DATE
-						+ ">{" + SUM_NOW + "} THEN 0 ELSE " + Logs.TABLE + "."
-						+ Logs.COST + " END) as " + SUM_COST,
-				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + "<{"
-						+ SUM_BILLDAY + "} or " + Logs.TABLE + "." + Logs.DATE
-						+ ">{" + SUM_NOW + "} THEN 0 ELSE " + Logs.TABLE + "."
-						+ Logs.FREE + " END) as " + SUM_FREE };
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + " is null or " + Logs.TABLE + "."
+						+ Logs.DATE + "<{" + SUM_TODAY + "} or " + Logs.TABLE + "." + Logs.DATE
+						+ ">{" + SUM_NOW + "} THEN 0 ELSE 1 END) as " + SUM_TD_COUNT,
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + "<{" + SUM_TODAY + "} or "
+						+ Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW + "} THEN 0 WHEN " + TABLE
+						+ "." + MERGED_PLANS + " is null or " + TABLE + "." + TYPE + "!="
+						+ TYPE_MIXED + " THEN " + Logs.TABLE + "." + Logs.BILL_AMOUNT + " WHEN  "
+						+ Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_CALL + " THEN " + Logs.TABLE
+						+ "." + Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_CALL + "/60"
+						+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_SMS + " THEN "
+						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_SMS
+						+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_MMS + " THEN "
+						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_MMS
+						+ " ELSE " + Logs.TABLE + "." + Logs.BILL_AMOUNT + " END) AS "
+						+ SUM_TD_BILLED_AMOUNT,
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + " is null or " + Logs.TABLE + "."
+						+ Logs.DATE + "<={" + SUM_BILLDAY + "} or " + Logs.TABLE + "." + Logs.DATE
+						+ ">{" + SUM_NOW + "} THEN 0 ELSE 1 END) as " + SUM_BP_COUNT,
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + "<={" + SUM_BILLDAY + "} or "
+						+ Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW + "} THEN 0 WHEN " + TABLE
+						+ "." + MERGED_PLANS + " is null or " + TABLE + "." + TYPE + "!="
+						+ TYPE_MIXED + " THEN " + Logs.TABLE + "." + Logs.BILL_AMOUNT + " WHEN  "
+						+ Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_CALL + " THEN " + Logs.TABLE
+						+ "." + Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_CALL + "/60"
+						+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_SMS + " THEN "
+						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_SMS
+						+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_MMS + " THEN "
+						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_MMS
+						+ " ELSE " + Logs.TABLE + "." + Logs.BILL_AMOUNT + " END) AS "
+						+ SUM_BP_BILLED_AMOUNT,
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + " is null or " + Logs.TABLE + "."
+						+ Logs.DATE + ">{" + SUM_NOW + "} THEN 0 ELSE 1 END) as " + SUM_AT_COUNT,
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW + "} THEN 0 WHEN "
+						+ TABLE + "." + MERGED_PLANS + " is null or " + TABLE + "." + TYPE + "!="
+						+ TYPE_MIXED + " THEN " + Logs.TABLE + "." + Logs.BILL_AMOUNT + " WHEN  "
+						+ Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_CALL + " THEN " + Logs.TABLE
+						+ "." + Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_CALL + "/60"
+						+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_SMS + " THEN "
+						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_SMS
+						+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_MMS + " THEN "
+						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_MMS
+						+ " ELSE " + Logs.TABLE + "." + Logs.BILL_AMOUNT + " END) AS "
+						+ SUM_AT_BILLED_AMOUNT,
+				"(CASE WHEN " + TABLE + "." + TYPE + "=" + TYPE_BILLPERIOD + " THEN " + TABLE + "."
+						+ COST_PER_PLAN + " + (select sum(p." + COST_PER_PLAN + ") from " + TABLE
+						+ " as p where p." + BILLPERIOD_ID + "=" + TABLE + "." + ID + ") ELSE "
+						+ TABLE + "." + COST_PER_PLAN + " END) as " + SUM_CPP,
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + "<{" + SUM_BILLDAY + "} or "
+						+ Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW + "} THEN 0 ELSE "
+						+ Logs.TABLE + "." + Logs.COST + " END) as " + SUM_COST,
+				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + "<{" + SUM_BILLDAY + "} or "
+						+ Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW + "} THEN 0 ELSE "
+						+ Logs.TABLE + "." + Logs.FREE + " END) as " + SUM_FREE };
 
 		/** Projection used for query id and (short)name. */
-		public static final String[] PROJECTION_NAME = new String[] { ID, NAME,
-				SHORTNAME };
+		public static final String[] PROJECTION_NAME = new String[] { ID, NAME, SHORTNAME };
 
 		/** Select only real plans. */
-		public static final String WHERE_REALPLANS = TYPE + "!="
-				+ TYPE_BILLPERIOD + " and " + TYPE + "!=" + TYPE_SPACING
-				+ " and " + TYPE + "!=" + TYPE_TITLE;
+		public static final String WHERE_REALPLANS = TYPE + "!=" + TYPE_BILLPERIOD + " and " + TYPE
+				+ "!=" + TYPE_SPACING + " and " + TYPE + "!=" + TYPE_TITLE;
 		/** Select only bill periods. */
-		public static final String WHERE_BILLPERIODS = TYPE + " = "
-				+ TYPE_BILLPERIOD;
+		public static final String WHERE_BILLPERIODS = TYPE + " = " + TYPE_BILLPERIOD;
 		/** Select only real plans and bill periods. */
-		public static final String WHERE_PLANS = TYPE + "!=" + TYPE_SPACING
-				+ " and " + TYPE + "!=" + TYPE_TITLE;
+		public static final String WHERE_PLANS = TYPE + "!=" + TYPE_SPACING + " and " + TYPE + "!="
+				+ TYPE_TITLE;
 
 		/** Content {@link Uri}. */
-		public static final Uri CONTENT_URI = Uri.parse("content://"
-				+ AUTHORITY + "/plans");
+		public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/plans");
 		/** Content {@link Uri}. */
-		public static final Uri CONTENT_URI_SUM = Uri.parse("content://"
-				+ AUTHORITY + "/plans/sum");
+		public static final Uri CONTENT_URI_SUM = Uri
+				.parse("content://" + AUTHORITY + "/plans/sum");
 		/**
 		 * The MIME type of {@link #CONTENT_URI} providing a list.
 		 */
-		public static final String CONTENT_TYPE = // .
-		"vnd.android.cursor.dir/vnd.ub0r.plan";
+		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.ub0r.plan";
 
 		/**
 		 * The MIME type of a {@link #CONTENT_URI} single entry.
 		 */
-		public static final String CONTENT_ITEM_TYPE = // .
-		"vnd.android.cursor.item/vnd.ub0r.plan";
+		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.ub0r.plan";
 
 		/**
 		 * Create table in {@link SQLiteDatabase}.
@@ -1203,34 +1110,18 @@ public final class DataProvider extends ContentProvider {
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
-			db.execSQL("CREATE TABLE " + TABLE + " (" // .
-					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
-					+ ORDER + " INTEGER," // .
-					+ NAME + " TEXT,"// .
-					+ SHORTNAME + " TEXT,"// .
-					+ TYPE + " TEXT, " // .
-					+ LIMIT_TYPE + " INTEGER,"// .
-					+ LIMIT + " LONG,"// .
-					+ BILLMODE + " TEXT,"// .
-					+ BILLDAY + " LONG,"// .
-					+ BILLPERIOD + " INTEGER,"// .
-					+ BILLPERIOD_ID + " LONG,"// .
-					+ COST_PER_ITEM + " FLOAT,"// .
-					+ COST_PER_AMOUNT1 + " FLOAT,"// .
-					+ COST_PER_AMOUNT2 + " FLOAT,"// .
-					+ COST_PER_ITEM_IN_LIMIT + " FLOAT,"// .
-					+ COST_PER_AMOUNT_IN_LIMIT1 + " FLOAT,"// .
-					+ COST_PER_AMOUNT_IN_LIMIT2 + " FLOAT,"// .
-					+ COST_PER_PLAN + " FLOAT," // .
-					+ MIXED_UNITS_CALL + " INTEGER,"// .
-					+ MIXED_UNITS_SMS + " INTEGER,"// .
-					+ MIXED_UNITS_MMS + " INTEGER,"// .
-					+ NEXT_ALERT + " LONG," // .
-					+ STRIP_SECONDS + " INTEGER," // .
-					+ MERGED_PLANS + " TEXT" // .
-					+ ");");
-			db.execSQL("CREATE INDEX " + TABLE + "_idx on " + TABLE + " (" // .
-					+ ID + "," + ORDER + "," + TYPE + ")");
+			db.execSQL("CREATE TABLE " + TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+					+ ORDER + " INTEGER," + NAME + " TEXT," + SHORTNAME + " TEXT," + TYPE
+					+ " TEXT, " + LIMIT_TYPE + " INTEGER," + LIMIT + " LONG," + BILLMODE + " TEXT,"
+					+ BILLDAY + " LONG," + BILLPERIOD + " INTEGER," + BILLPERIOD_ID + " LONG,"
+					+ COST_PER_ITEM + " FLOAT," + COST_PER_AMOUNT1 + " FLOAT," + COST_PER_AMOUNT2
+					+ " FLOAT," + COST_PER_ITEM_IN_LIMIT + " FLOAT," + COST_PER_AMOUNT_IN_LIMIT1
+					+ " FLOAT," + COST_PER_AMOUNT_IN_LIMIT2 + " FLOAT," + COST_PER_PLAN + " FLOAT,"
+					+ MIXED_UNITS_CALL + " INTEGER," + MIXED_UNITS_SMS + " INTEGER,"
+					+ MIXED_UNITS_MMS + " INTEGER," + NEXT_ALERT + " LONG," + STRIP_SECONDS
+					+ " INTEGER," + MERGED_PLANS + " TEXT" + ");");
+			db.execSQL("CREATE INDEX " + TABLE + "_idx on " + TABLE + " (" + ID + "," + ORDER + ","
+					+ TYPE + ")");
 		}
 
 		/**
@@ -1243,8 +1134,8 @@ public final class DataProvider extends ContentProvider {
 		 * @param newVersion
 		 *            new version
 		 */
-		public static void onUpgrade(final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) {
+		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
+				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
 			onCreate(db);
@@ -1269,8 +1160,7 @@ public final class DataProvider extends ContentProvider {
 			if (id < 0) {
 				return null;
 			}
-			final Cursor cursor = cr.query(
-					ContentUris.withAppendedId(CONTENT_URI, id),
+			final Cursor cursor = cr.query(ContentUris.withAppendedId(CONTENT_URI, id),
 					PROJECTION_NAME, null, null, null);
 			String ret = null;
 			if (cursor != null && cursor.moveToFirst()) {
@@ -1296,8 +1186,7 @@ public final class DataProvider extends ContentProvider {
 				return -1L;
 			}
 			final Cursor cursor = cr.query(CONTENT_URI, PROJECTION_NAME,
-					DataProvider.Plans.MERGED_PLANS + " LIKE '%," + id + ",%'",
-					null, null);
+					DataProvider.Plans.MERGED_PLANS + " LIKE '%," + id + ",%'", null, null);
 			long ret = -1L;
 			if (cursor.moveToFirst()) {
 				ret = cursor.getLong(0);
@@ -1321,8 +1210,8 @@ public final class DataProvider extends ContentProvider {
 		 *            billed cost
 		 * @return get used
 		 */
-		public static int getUsed(final int pType, final int lType,
-				final float amount, final float cost) {
+		public static int getUsed(final int pType, final int lType, final float amount,
+				final float cost) {
 			switch (lType) {
 			case DataProvider.LIMIT_TYPE_COST:
 				return (int) (cost * CallMeter.HUNDRET);
@@ -1352,8 +1241,7 @@ public final class DataProvider extends ContentProvider {
 		 *            limit
 		 * @return get limit
 		 */
-		public static long getLimit(final int pType, final int lType,
-				final long limit) {
+		public static long getLimit(final int pType, final int lType, final long limit) {
 			if (limit == 0L) {
 				return 0L;
 			}
@@ -1386,8 +1274,7 @@ public final class DataProvider extends ContentProvider {
 		 *            move now to some other time, null == real now
 		 * @return SQL {@link String} selecting the bill period
 		 */
-		public static String getBilldayWhere(final int period,
-				final long start, final Calendar now) {
+		public static String getBilldayWhere(final int period, final long start, final Calendar now) {
 			Calendar s = Calendar.getInstance();
 			s.setTimeInMillis(start);
 			return getBilldayWhere(period, s, now);
@@ -1404,8 +1291,8 @@ public final class DataProvider extends ContentProvider {
 		 *            move now to some other time, null == real now
 		 * @return SQL {@link String} selecting the bill period
 		 */
-		public static String getBilldayWhere(final int period,
-				final Calendar start, final Calendar now) {
+		public static String getBilldayWhere(final int period, final Calendar start,
+				final Calendar now) {
 			final Calendar bd = getBillDay(period, start, now, false);
 			if (bd == null) {
 				return null;
@@ -1415,8 +1302,7 @@ public final class DataProvider extends ContentProvider {
 			}
 			String next = "";
 			if (now != null) {
-				next = " AND " + DataProvider.Logs.DATE + " < "
-						+ now.getTimeInMillis();
+				next = " AND " + DataProvider.Logs.DATE + " < " + now.getTimeInMillis();
 			}
 			// final Calendar nbd = getBillDay(period, start, now, true);
 			return DataProvider.Logs.DATE + " > " + bd.getTimeInMillis() + next;
@@ -1435,8 +1321,8 @@ public final class DataProvider extends ContentProvider {
 		 *            get the next, not the current one
 		 * @return {@link Calendar} with current first bill day
 		 */
-		public static Calendar getBillDay(final int period, // .
-				final long start, final Calendar now, final boolean next) {
+		public static Calendar getBillDay(final int period, final long start, final Calendar now,
+				final boolean next) {
 			Calendar s = Calendar.getInstance();
 			s.setTimeInMillis(start);
 			return getBillDay(period, s, now, next);
@@ -1536,8 +1422,8 @@ public final class DataProvider extends ContentProvider {
 		 *            get the next, not the current one
 		 * @return {@link Calendar} with current first bill day
 		 */
-		public static Calendar getBillDay(final int period, // .
-				final Calendar start, final Calendar now, final boolean next) {
+		public static Calendar getBillDay(final int period, final Calendar start,
+				final Calendar now, final boolean next) {
 			int f;
 			int v;
 			int j;
@@ -1611,8 +1497,8 @@ public final class DataProvider extends ContentProvider {
 		 *            offset for each bill day
 		 * @return {@link ArrayList} of bill days
 		 */
-		public static ArrayList<Long> getBillDays(final int period,
-				final long start, final long newerAs, final long offset) {
+		public static ArrayList<Long> getBillDays(final int period, final long start,
+				final long newerAs, final long offset) {
 			ArrayList<Long> ret = new ArrayList<Long>();
 
 			int f;
@@ -1671,8 +1557,7 @@ public final class DataProvider extends ContentProvider {
 		 *            merge plans
 		 * @return WHERE clause
 		 */
-		public static String parseMergerWhere(final long pid,
-				final String merged) {
+		public static String parseMergerWhere(final long pid, final String merged) {
 			final String self = DataProvider.Logs.PLAN_ID + " = " + pid;
 			if (merged == null) {
 				return self;
@@ -1781,26 +1666,21 @@ public final class DataProvider extends ContentProvider {
 		public static final String IS_SIPCALL_PROVIDER = "_is_sipcall_provider";
 
 		/** Projection used for query. */
-		public static final String[] PROJECTION = new String[] { ID, ACTIVE,
-				ORDER, PLAN_ID, NAME, WHAT, ROAMED, DIRECTION, INHOURS_ID,
-				EXHOURS_ID, INNUMBERS_ID, EXNUMBERS_ID, LIMIT_NOT_REACHED,
-				IS_WEBSMS, IS_WEBSMS_CONNETOR, IS_SIPCALL, // .
-				IS_SIPCALL_PROVIDER };
+		public static final String[] PROJECTION = new String[] { ID, ACTIVE, ORDER, PLAN_ID, NAME,
+				WHAT, ROAMED, DIRECTION, INHOURS_ID, EXHOURS_ID, INNUMBERS_ID, EXNUMBERS_ID,
+				LIMIT_NOT_REACHED, IS_WEBSMS, IS_WEBSMS_CONNETOR, IS_SIPCALL, IS_SIPCALL_PROVIDER };
 
 		/** Content {@link Uri}. */
-		public static final Uri CONTENT_URI = Uri.parse("content://"
-				+ AUTHORITY + "/rules");
+		public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/rules");
 		/**
 		 * The MIME type of {@link #CONTENT_URI} providing a list.
 		 */
-		public static final String CONTENT_TYPE = // .
-		"vnd.android.cursor.dir/vnd.ub0r.rule";
+		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.ub0r.rule";
 
 		/**
 		 * The MIME type of a {@link #CONTENT_URI} single entry.
 		 */
-		public static final String CONTENT_ITEM_TYPE = // .
-		"vnd.android.cursor.item/vnd.ub0r.rule";
+		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.ub0r.rule";
 
 		/**
 		 * Create table in {@link SQLiteDatabase}.
@@ -1811,29 +1691,15 @@ public final class DataProvider extends ContentProvider {
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
-			db.execSQL("CREATE TABLE " + TABLE + " (" // .
-					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
-					+ ACTIVE + " INTEGER DEFAULT 1," // .
-					+ ORDER + " INTEGER," // .
-					+ NAME + " TEXT,"// .
-					+ PLAN_ID + " INTEGER,"// .
-					+ WHAT + " INTEGER,"// .
-					+ ROAMED + " INTEGER,"// .
-					+ DIRECTION + " INTEGER,"// .
-					+ INHOURS_ID + " TEXT,"// .
-					+ EXHOURS_ID + " TEXT,"// .
-					+ INNUMBERS_ID + " TEXT,"// .
-					+ EXNUMBERS_ID + " TEXT,"// .
-					+ LIMIT_NOT_REACHED + " INTEGER," // .
-					+ IS_WEBSMS + " INTEGER," // .
-					+ IS_WEBSMS_CONNETOR + " TEXT," // .
-					+ IS_SIPCALL + " INTEGER," // .
-					+ IS_SIPCALL_PROVIDER + " TEXT" // .
-					+ ");");
-			db.execSQL("CREATE INDEX " + TABLE + "_idx on " + TABLE
-					+ " (" // .
-					+ ID + "," + ACTIVE + "," + ORDER + "," + PLAN_ID + ","
-					+ WHAT + ")");
+			db.execSQL("CREATE TABLE " + TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+					+ ACTIVE + " INTEGER DEFAULT 1," + ORDER + " INTEGER," + NAME + " TEXT,"
+					+ PLAN_ID + " INTEGER," + WHAT + " INTEGER," + ROAMED + " INTEGER," + DIRECTION
+					+ " INTEGER," + INHOURS_ID + " TEXT," + EXHOURS_ID + " TEXT," + INNUMBERS_ID
+					+ " TEXT," + EXNUMBERS_ID + " TEXT," + LIMIT_NOT_REACHED + " INTEGER,"
+					+ IS_WEBSMS + " INTEGER," + IS_WEBSMS_CONNETOR + " TEXT," + IS_SIPCALL
+					+ " INTEGER," + IS_SIPCALL_PROVIDER + " TEXT" + ");");
+			db.execSQL("CREATE INDEX " + TABLE + "_idx on " + TABLE + " (" + ID + "," + ACTIVE
+					+ "," + ORDER + "," + PLAN_ID + "," + WHAT + ")");
 		}
 
 		/**
@@ -1846,8 +1712,8 @@ public final class DataProvider extends ContentProvider {
 		 * @param newVersion
 		 *            new version
 		 */
-		public static void onUpgrade(final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) {
+		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
+				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
 			onCreate(db);
@@ -1872,8 +1738,7 @@ public final class DataProvider extends ContentProvider {
 			if (id < 0) {
 				return null;
 			}
-			final Cursor cursor = cr.query(
-					ContentUris.withAppendedId(CONTENT_URI, id),
+			final Cursor cursor = cr.query(ContentUris.withAppendedId(CONTENT_URI, id),
 					new String[] { NAME }, null, null, null);
 			String ret = null;
 			if (cursor != null && cursor.moveToFirst()) {
@@ -1910,26 +1775,21 @@ public final class DataProvider extends ContentProvider {
 		public static final String NUMBER = "_number";
 
 		/** Projection used for query. */
-		public static final String[] PROJECTION = new String[] { ID, GID,
-				NUMBER };
+		public static final String[] PROJECTION = new String[] { ID, GID, NUMBER };
 
 		/** Content {@link Uri}. */
-		public static final Uri CONTENT_URI = Uri.parse("content://"
-				+ AUTHORITY + "/numbers");
+		public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/numbers");
 		/** Content {@link Uri} for a group of numbers. */
-		public static final Uri GROUP_URI = Uri.parse("content://" + AUTHORITY
-				+ "/numbers/group");
+		public static final Uri GROUP_URI = Uri.parse("content://" + AUTHORITY + "/numbers/group");
 		/**
 		 * The MIME type of {@link #CONTENT_URI} providing a list.
 		 */
-		public static final String CONTENT_TYPE = // .
-		"vnd.android.cursor.dir/vnd.ub0r.number";
+		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.ub0r.number";
 
 		/**
 		 * The MIME type of a {@link #CONTENT_URI} single entry.
 		 */
-		public static final String CONTENT_ITEM_TYPE = // .
-		"vnd.android.cursor.item/vnd.ub0r.number";
+		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.ub0r.number";
 
 		/**
 		 * Create table in {@link SQLiteDatabase}.
@@ -1940,11 +1800,8 @@ public final class DataProvider extends ContentProvider {
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
-			db.execSQL("CREATE TABLE " + TABLE + " (" // .
-					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
-					+ GID + " LONG," // .
-					+ NUMBER + " TEXT"// .
-					+ ");");
+			db.execSQL("CREATE TABLE " + TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+					+ GID + " LONG," + NUMBER + " TEXT" + ");");
 		}
 
 		/**
@@ -1957,8 +1814,8 @@ public final class DataProvider extends ContentProvider {
 		 * @param newVersion
 		 *            new version
 		 */
-		public static void onUpgrade(final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) {
+		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
+				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
 			onCreate(db);
@@ -1994,19 +1851,17 @@ public final class DataProvider extends ContentProvider {
 		public static final String[] PROJECTION = new String[] { ID, NAME };
 
 		/** Content {@link Uri}. */
-		public static final Uri CONTENT_URI = Uri.parse("content://"
-				+ AUTHORITY + "/numbers/groups");
+		public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY
+				+ "/numbers/groups");
 		/**
 		 * The MIME type of {@link #CONTENT_URI} providing a list.
 		 */
-		public static final String CONTENT_TYPE = // .
-		"vnd.android.cursor.dir/vnd.ub0r.numbergroup";
+		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.ub0r.numbergroup";
 
 		/**
 		 * The MIME type of a {@link #CONTENT_URI} single entry.
 		 */
-		public static final String CONTENT_ITEM_TYPE = // .
-		"vnd.android.cursor.item/vnd.ub0r.numbergroup";
+		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.ub0r.numbergroup";
 
 		/**
 		 * Get Name for id.
@@ -2018,8 +1873,7 @@ public final class DataProvider extends ContentProvider {
 		 * @return name
 		 */
 		public static String getName(final ContentResolver cr, final long id) {
-			final Cursor cursor = cr.query(
-					ContentUris.withAppendedId(CONTENT_URI, id),
+			final Cursor cursor = cr.query(ContentUris.withAppendedId(CONTENT_URI, id),
 					new String[] { NAME }, null, null, null);
 			String ret = null;
 			if (cursor != null && cursor.moveToFirst()) {
@@ -2040,10 +1894,8 @@ public final class DataProvider extends ContentProvider {
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
-			db.execSQL("CREATE TABLE " + TABLE + " (" // .
-					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
-					+ NAME + " TEXT" // .
-					+ ");");
+			db.execSQL("CREATE TABLE " + TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+					+ NAME + " TEXT" + ");");
 		}
 
 		/**
@@ -2056,8 +1908,8 @@ public final class DataProvider extends ContentProvider {
 		 * @param newVersion
 		 *            new version
 		 */
-		public static void onUpgrade(final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) {
+		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
+				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
 			onCreate(db);
@@ -2098,26 +1950,21 @@ public final class DataProvider extends ContentProvider {
 		public static final String HOUR = "_hour";
 
 		/** Projection used for query. */
-		public static final String[] PROJECTION = new String[] { ID, GID, DAY,
-				HOUR };
+		public static final String[] PROJECTION = new String[] { ID, GID, DAY, HOUR };
 
 		/** Content {@link Uri}. */
-		public static final Uri CONTENT_URI = Uri.parse("content://"
-				+ AUTHORITY + "/hours");
+		public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/hours");
 		/** Content {@link Uri} for a group of numbers. */
-		public static final Uri GROUP_URI = Uri.parse("content://" + AUTHORITY
-				+ "/hours/group");
+		public static final Uri GROUP_URI = Uri.parse("content://" + AUTHORITY + "/hours/group");
 		/**
 		 * The MIME type of {@link #CONTENT_URI} providing a list.
 		 */
-		public static final String CONTENT_TYPE = // .
-		"vnd.android.cursor.dir/vnd.ub0r.hour";
+		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.ub0r.hour";
 
 		/**
 		 * The MIME type of a {@link #CONTENT_URI} single entry.
 		 */
-		public static final String CONTENT_ITEM_TYPE = // .
-		"vnd.android.cursor.item/vnd.ub0r.hour";
+		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.ub0r.hour";
 
 		/**
 		 * Create table in {@link SQLiteDatabase}.
@@ -2128,12 +1975,8 @@ public final class DataProvider extends ContentProvider {
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
-			db.execSQL("CREATE TABLE " + TABLE + " (" // .
-					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
-					+ GID + " LONG," // .
-					+ DAY + " INTEGER," // .
-					+ HOUR + " INTEGER" // .
-					+ ");");
+			db.execSQL("CREATE TABLE " + TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+					+ GID + " LONG," + DAY + " INTEGER," + HOUR + " INTEGER" + ");");
 		}
 
 		/**
@@ -2146,8 +1989,8 @@ public final class DataProvider extends ContentProvider {
 		 * @param newVersion
 		 *            new version
 		 */
-		public static void onUpgrade(final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) {
+		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
+				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
 			onCreate(db);
@@ -2183,19 +2026,16 @@ public final class DataProvider extends ContentProvider {
 		public static final String[] PROJECTION = new String[] { ID, NAME };
 
 		/** Content {@link Uri}. */
-		public static final Uri CONTENT_URI = Uri.parse("content://"
-				+ AUTHORITY + "/hours/groups");
+		public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/hours/groups");
 		/**
 		 * The MIME type of {@link #CONTENT_URI} providing a list.
 		 */
-		public static final String CONTENT_TYPE = // .
-		"vnd.android.cursor.dir/vnd.ub0r.hourgroup";
+		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.ub0r.hourgroup";
 
 		/**
 		 * The MIME type of a {@link #CONTENT_URI} single entry.
 		 */
-		public static final String CONTENT_ITEM_TYPE = // .
-		"vnd.android.cursor.item/vnd.ub0r.hourgroup";
+		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.ub0r.hourgroup";
 
 		/**
 		 * Get Name for id.
@@ -2207,8 +2047,7 @@ public final class DataProvider extends ContentProvider {
 		 * @return name
 		 */
 		public static String getName(final ContentResolver cr, final long id) {
-			final Cursor cursor = cr.query(
-					ContentUris.withAppendedId(CONTENT_URI, id),
+			final Cursor cursor = cr.query(ContentUris.withAppendedId(CONTENT_URI, id),
 					new String[] { NAME }, null, null, null);
 			String ret = null;
 			if (cursor != null && cursor.moveToFirst()) {
@@ -2229,10 +2068,8 @@ public final class DataProvider extends ContentProvider {
 		public static void onCreate(final SQLiteDatabase db) {
 			Log.i(TAG, "create table: " + TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + TABLE);
-			db.execSQL("CREATE TABLE " + TABLE + " (" // .
-					+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " // .
-					+ NAME + " TEXT" // .
-					+ ");");
+			db.execSQL("CREATE TABLE " + TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+					+ NAME + " TEXT" + ");");
 		}
 
 		/**
@@ -2245,8 +2082,8 @@ public final class DataProvider extends ContentProvider {
 		 * @param newVersion
 		 *            new version
 		 */
-		public static void onUpgrade(final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) {
+		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
+				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
 			onCreate(db);
@@ -2429,10 +2266,9 @@ public final class DataProvider extends ContentProvider {
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void onUpgrade(final SQLiteDatabase db, final int oldVersion,
-				final int newVersion) {
-			Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
-					+ newVersion + ", which will destroy all old data");
+		public void onUpgrade(final SQLiteDatabase db, final int oldVersion, final int newVersion) {
+			Log.w(TAG, "Upgrading database from version " + oldVersion + " to " + newVersion
+					+ ", which will destroy all old data");
 			Logs.onUpgrade(db, oldVersion, newVersion);
 			WebSMS.onUpgrade(db, oldVersion, newVersion);
 			SipCall.onUpgrade(db, oldVersion, newVersion);
@@ -2484,9 +2320,8 @@ public final class DataProvider extends ContentProvider {
 	 * @param strip
 	 *            strip column
 	 */
-	private static void backupRuleSetSub(final StringBuilder sb,
-			final SQLiteDatabase db, final String table,
-			final String[] projection, final String strip) {
+	private static void backupRuleSetSub(final StringBuilder sb, final SQLiteDatabase db,
+			final String table, final String[] projection, final String strip) {
 		ContentValues[] cvs = backup(db, table, projection, strip);
 		for (ContentValues cv : cvs) {
 			sb.append(table);
@@ -2510,21 +2345,18 @@ public final class DataProvider extends ContentProvider {
 	 *            description of the rule set
 	 * @return {@link String} representing {@link Rules} and {@link Plans}
 	 */
-	public static String backupRuleSet(final Context context, // .
-			final String descr) {
+	public static String backupRuleSet(final Context context, final String descr) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(EXPORT_VERSION + "\n");
 		sb.append(URLEncoder.encode(descr) + "\n");
-		final SQLiteDatabase db = new DatabaseHelper(context)
-				.getReadableDatabase();
+		final SQLiteDatabase db = new DatabaseHelper(context).getReadableDatabase();
 
 		backupRuleSetSub(sb, db, Plans.TABLE, Plans.PROJECTION, null);
 		backupRuleSetSub(sb, db, Rules.TABLE, Rules.PROJECTION, null);
 		backupRuleSetSub(sb, db, Hours.TABLE, Hours.PROJECTION, null);
 		backupRuleSetSub(sb, db, HoursGroup.TABLE, HoursGroup.PROJECTION, null);
 		backupRuleSetSub(sb, db, Numbers.TABLE, Numbers.PROJECTION, null);
-		backupRuleSetSub(sb, db, NumbersGroup.TABLE, NumbersGroup.PROJECTION,
-				null);
+		backupRuleSetSub(sb, db, NumbersGroup.TABLE, NumbersGroup.PROJECTION, null);
 		db.close();
 		return sb.toString();
 	}
@@ -2538,13 +2370,11 @@ public final class DataProvider extends ContentProvider {
 	 *            description of the logs
 	 * @return {@link String} representing {@link Logs}
 	 */
-	public static String backupLogs(final Context context, // .
-			final String descr) {
+	public static String backupLogs(final Context context, final String descr) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(EXPORT_VERSION + "\n");
 		sb.append(URLEncoder.encode(descr) + "\n");
-		final SQLiteDatabase db = new DatabaseHelper(context)
-				.getReadableDatabase();
+		final SQLiteDatabase db = new DatabaseHelper(context).getReadableDatabase();
 
 		backupRuleSetSub(sb, db, Logs.TABLE, Logs.PROJECTION, null);
 		backupRuleSetSub(sb, db, WebSMS.TABLE, WebSMS.PROJECTION, null);
@@ -2563,16 +2393,13 @@ public final class DataProvider extends ContentProvider {
 	 * @return {@link String} representing {@link NumbersGroup} and
 	 *         {@link Numbers}
 	 */
-	public static String backupNumGroups(final Context context, // .
-			final String descr) {
+	public static String backupNumGroups(final Context context, final String descr) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(EXPORT_VERSION + "\n");
 		sb.append(URLEncoder.encode(descr) + "\n");
-		final SQLiteDatabase db = new DatabaseHelper(context)
-				.getReadableDatabase();
+		final SQLiteDatabase db = new DatabaseHelper(context).getReadableDatabase();
 
-		backupRuleSetSub(sb, db, NumbersGroup.TABLE, NumbersGroup.PROJECTION,
-				null);
+		backupRuleSetSub(sb, db, NumbersGroup.TABLE, NumbersGroup.PROJECTION, null);
 		backupRuleSetSub(sb, db, Numbers.TABLE, Numbers.PROJECTION, null);
 		db.close();
 		return sb.toString();
@@ -2587,13 +2414,11 @@ public final class DataProvider extends ContentProvider {
 	 *            description of the hour groups
 	 * @return {@link String} representing {@link HoursGroup} and {@link Hours}
 	 */
-	public static String backupHourGroups(final Context context, // .
-			final String descr) {
+	public static String backupHourGroups(final Context context, final String descr) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(EXPORT_VERSION + "\n");
 		sb.append(URLEncoder.encode(descr) + "\n");
-		final SQLiteDatabase db = new DatabaseHelper(context)
-				.getReadableDatabase();
+		final SQLiteDatabase db = new DatabaseHelper(context).getReadableDatabase();
 
 		backupRuleSetSub(sb, db, HoursGroup.TABLE, HoursGroup.PROJECTION, null);
 		backupRuleSetSub(sb, db, Hours.TABLE, Hours.PROJECTION, null);
@@ -2609,8 +2434,7 @@ public final class DataProvider extends ContentProvider {
 	 * @param lines
 	 *            data
 	 */
-	private static void importData(final SQLiteDatabase db, // .
-			final String[] lines) {
+	private static void importData(final SQLiteDatabase db, final String[] lines) {
 		final int l = lines.length;
 		String table = null;
 		ArrayList<ContentValues> cvs = null;
@@ -2664,8 +2488,7 @@ public final class DataProvider extends ContentProvider {
 	 * @param ruleSet
 	 *            data as {@link String}; "DEFAULT" will import default rule set
 	 */
-	public static void importData(final Context context, // .
-			final String ruleSet) {
+	public static void importData(final Context context, final String ruleSet) {
 		if (ruleSet == null || ruleSet.length() == 0) {
 			return;
 		}
@@ -2676,8 +2499,7 @@ public final class DataProvider extends ContentProvider {
 				return;
 			}
 		}
-		final SQLiteDatabase db = new DatabaseHelper(context)
-				.getWritableDatabase();
+		final SQLiteDatabase db = new DatabaseHelper(context).getWritableDatabase();
 		if (lines != null) {
 			importData(db, lines);
 			Preferences.setDefaultPlan(context, false);
@@ -2695,11 +2517,10 @@ public final class DataProvider extends ContentProvider {
 	 * @param db
 	 *            {@link SQLiteDatabase}
 	 */
-	public static void importDefault(final Context context,
-			final SQLiteDatabase db) {
+	public static void importDefault(final Context context, final SQLiteDatabase db) {
 		// import default
-		BufferedReader reader = new BufferedReader(new InputStreamReader(
-				context.getResources().openRawResource(R.raw.default_setup)));
+		BufferedReader reader = new BufferedReader(new InputStreamReader(context.getResources()
+				.openRawResource(R.raw.default_setup)));
 		final ArrayList<String> sb = new ArrayList<String>();
 		try {
 			String line = reader.readLine();
@@ -2715,14 +2536,13 @@ public final class DataProvider extends ContentProvider {
 		// translate default rule set:
 		ContentValues cv = new ContentValues();
 		// bill period: 12
-		cv.put(Plans.NAME, context.getResources().getStringArray(// .
-				R.array.plans_type)[TYPE_BILLPERIOD]);
+		cv.put(Plans.NAME,
+				context.getResources().getStringArray(R.array.plans_type)[TYPE_BILLPERIOD]);
 		cv.put(Plans.SHORTNAME, context.getString(R.string.billperiod_sn));
 		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "12" });
 		cv.clear();
 		// spacer: 13, 17, 21
-		cv.put(Plans.NAME, context.getResources().getStringArray(// .
-				R.array.plans_type)[TYPE_SPACING]);
+		cv.put(Plans.NAME, context.getResources().getStringArray(R.array.plans_type)[TYPE_SPACING]);
 		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "13" });
 		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "17" });
 		db.update(Plans.TABLE, cv, Plans.ID + "=?", new String[] { "21" });
@@ -2807,16 +2627,12 @@ public final class DataProvider extends ContentProvider {
 		db.update(Rules.TABLE, cv, Rules.ID + "=?", new String[] { "8" });
 		cv.clear();
 		// exclude numbers from calls
-		cv.put(NumbersGroup.NAME,
-				context.getString(R.string.numbergroup_excalls));
-		db.update(NumbersGroup.TABLE, cv, NumbersGroup.ID + "=?",
-				new String[] { "1" });
+		cv.put(NumbersGroup.NAME, context.getString(R.string.numbergroup_excalls));
+		db.update(NumbersGroup.TABLE, cv, NumbersGroup.ID + "=?", new String[] { "1" });
 		cv.clear();
 		// exclude numbers from sms
-		cv.put(NumbersGroup.NAME, // .
-				context.getString(R.string.numbergroup_exsms));
-		db.update(NumbersGroup.TABLE, cv, NumbersGroup.ID + "=?",
-				new String[] { "2" });
+		cv.put(NumbersGroup.NAME, context.getString(R.string.numbergroup_exsms));
+		db.update(NumbersGroup.TABLE, cv, NumbersGroup.ID + "=?", new String[] { "2" });
 
 		Preferences.setDefaultPlan(context, true);
 	}
@@ -2834,8 +2650,8 @@ public final class DataProvider extends ContentProvider {
 	 *            column to forget on backup, eg. _id
 	 * @return array of rows
 	 */
-	private static ContentValues[] backup(final SQLiteDatabase db,
-			final String table, final String[] cols, final String strip) {
+	private static ContentValues[] backup(final SQLiteDatabase db, final String table,
+			final String[] cols, final String strip) {
 		ArrayList<ContentValues> ret = new ArrayList<ContentValues>();
 		String[] proj = cols;
 		if (strip != null) {
@@ -2909,8 +2725,7 @@ public final class DataProvider extends ContentProvider {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int delete(final Uri uri, final String selection,
-			final String[] selectionArgs) {
+	public int delete(final Uri uri, final String selection, final String[] selectionArgs) {
 		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
 		int ret = 0;
 		long id;
@@ -2921,29 +2736,29 @@ public final class DataProvider extends ContentProvider {
 			ret = db.delete(Logs.TABLE, selection, selectionArgs);
 			break;
 		case LOGS_ID:
-			ret = db.delete(Logs.TABLE, DbUtils.sqlAnd(Logs.ID + "="
-					+ ContentUris.parseId(uri), selection), selectionArgs);
+			ret = db.delete(Logs.TABLE,
+					DbUtils.sqlAnd(Logs.ID + "=" + ContentUris.parseId(uri), selection),
+					selectionArgs);
 			break;
 		case PLANS_ID:
-			ret = db.delete(Plans.TABLE, DbUtils.sqlAnd(Plans.ID + "="
-					+ ContentUris.parseId(uri), selection), selectionArgs);
+			ret = db.delete(Plans.TABLE,
+					DbUtils.sqlAnd(Plans.ID + "=" + ContentUris.parseId(uri), selection),
+					selectionArgs);
 			break;
 		case RULES_ID:
-			ret = db.delete(Rules.TABLE, DbUtils.sqlAnd(Rules.ID + "="
-					+ ContentUris.parseId(uri), selection), selectionArgs);
+			ret = db.delete(Rules.TABLE,
+					DbUtils.sqlAnd(Rules.ID + "=" + ContentUris.parseId(uri), selection),
+					selectionArgs);
 			break;
 		case NUMBERS_ID:
 			id = ContentUris.parseId(uri);
 			w = DbUtils.sqlAnd(Numbers.ID + "=" + id, selection);
-			c = db.query(Numbers.TABLE, new String[] { Numbers.GID }, w,
-					selectionArgs, null, null, null);
+			c = db.query(Numbers.TABLE, new String[] { Numbers.GID }, w, selectionArgs, null, null,
+					null);
 			if (c != null && c.moveToFirst()) {
 				final long gid = c.getLong(0);
-				this.getContext()
-						.getContentResolver()
-						.notifyChange(
-								ContentUris.withAppendedId(Numbers.GROUP_URI,
-										gid), null);
+				this.getContext().getContentResolver()
+						.notifyChange(ContentUris.withAppendedId(Numbers.GROUP_URI, gid), null);
 			}
 			if (c != null && !c.isClosed()) {
 				c.close();
@@ -2954,41 +2769,34 @@ public final class DataProvider extends ContentProvider {
 		case NUMBERS_GID:
 		case NUMBERS_GROUP_ID:
 			id = ContentUris.parseId(uri);
-			ret = db.delete(Numbers.TABLE,
-					DbUtils.sqlAnd(Numbers.GID + "=" + id, selection),
+			ret = db.delete(Numbers.TABLE, DbUtils.sqlAnd(Numbers.GID + "=" + id, selection),
 					selectionArgs);
-			ret += db.delete(NumbersGroup.TABLE, NumbersGroup.ID + " = " + id,
-					null);
+			ret += db.delete(NumbersGroup.TABLE, NumbersGroup.ID + " = " + id, null);
 			break;
 		case HOURS_ID:
 			id = ContentUris.parseId(uri);
 			w = DbUtils.sqlAnd(Hours.ID + "=" + id, selection);
-			c = db.query(Hours.TABLE, new String[] { Hours.GID }, w,
-					selectionArgs, null, null, null);
+			c = db.query(Hours.TABLE, new String[] { Hours.GID }, w, selectionArgs, null, null,
+					null);
 			if (c != null && c.moveToFirst()) {
 				final long gid = c.getLong(0);
-				this.getContext()
-						.getContentResolver()
-						.notifyChange(
-								ContentUris
-										.withAppendedId(Hours.GROUP_URI, gid),
-								null);
+				this.getContext().getContentResolver()
+						.notifyChange(ContentUris.withAppendedId(Hours.GROUP_URI, gid), null);
 			}
 			if (c != null && !c.isClosed()) {
 				c.close();
 			}
 			c = null;
-			ret = db.delete(Hours.TABLE, DbUtils.sqlAnd(Hours.ID + "="
-					+ ContentUris.parseId(uri), selection), selectionArgs);
+			ret = db.delete(Hours.TABLE,
+					DbUtils.sqlAnd(Hours.ID + "=" + ContentUris.parseId(uri), selection),
+					selectionArgs);
 			break;
 		case HOURS_GID:
 		case HOURS_GROUP_ID:
 			id = ContentUris.parseId(uri);
-			ret = db.delete(Hours.TABLE,
-					DbUtils.sqlAnd(Hours.GID + "=" + id, selection),
+			ret = db.delete(Hours.TABLE, DbUtils.sqlAnd(Hours.GID + "=" + id, selection),
 					selectionArgs);
-			ret += db
-					.delete(HoursGroup.TABLE, HoursGroup.ID + " = " + id, null);
+			ret += db.delete(HoursGroup.TABLE, HoursGroup.ID + " = " + id, null);
 			break;
 		default:
 			throw new IllegalArgumentException("Unknown Uri " + uri);
@@ -3071,9 +2879,8 @@ public final class DataProvider extends ContentProvider {
 			break;
 		case PLANS:
 			if (!values.containsKey(Plans.ORDER)) {
-				final Cursor c = db.query(Plans.TABLE,
-						new String[] { Plans.ORDER }, null, null, null, null,
-						Plans.ORDER + " DESC");
+				final Cursor c = db.query(Plans.TABLE, new String[] { Plans.ORDER }, null, null,
+						null, null, Plans.ORDER + " DESC");
 				if (c != null && c.moveToFirst()) {
 					values.put(Plans.ORDER, c.getInt(0) + 1);
 				}
@@ -3085,9 +2892,8 @@ public final class DataProvider extends ContentProvider {
 			break;
 		case RULES:
 			if (!values.containsKey(Rules.ORDER)) {
-				final Cursor c = db.query(Rules.TABLE,
-						new String[] { Plans.ORDER }, null, null, null, null,
-						Rules.ORDER + " DESC");
+				final Cursor c = db.query(Rules.TABLE, new String[] { Plans.ORDER }, null, null,
+						null, null, Rules.ORDER + " DESC");
 				if (c != null && c.moveToFirst()) {
 					values.put(Rules.ORDER, c.getInt(0) + 1);
 				}
@@ -3136,9 +2942,8 @@ public final class DataProvider extends ContentProvider {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Cursor query(final Uri uri, final String[] projection,
-			final String selection, final String[] selectionArgs,
-			final String sortOrder) {
+	public Cursor query(final Uri uri, final String[] projection, final String selection,
+			final String[] selectionArgs, final String sortOrder) {
 		Log.d(TAG, "query(" + uri + "," + selection + ")");
 		long ct = SystemClock.elapsedRealtime();
 		final SQLiteDatabase db = this.mOpenHelper.getReadableDatabase();
@@ -3165,16 +2970,14 @@ public final class DataProvider extends ContentProvider {
 			qb.setTables(Logs.TABLE);
 			break;
 		case LOGS_JOIN:
-			qb.setTables(Logs.TABLE + " LEFT OUTER JOIN " + Plans.TABLE
-					+ " ON (" + Logs.TABLE + "." + Logs.PLAN_ID + "="
-					+ Plans.TABLE + "." + Plans.ID + ") LEFT OUTER JOIN "
-					+ Rules.TABLE + " ON (" + Logs.TABLE + "." + Logs.RULE_ID
-					+ "=" + Rules.TABLE + "." + Rules.ID + ")");
+			qb.setTables(Logs.TABLE + " LEFT OUTER JOIN " + Plans.TABLE + " ON (" + Logs.TABLE
+					+ "." + Logs.PLAN_ID + "=" + Plans.TABLE + "." + Plans.ID
+					+ ") LEFT OUTER JOIN " + Rules.TABLE + " ON (" + Logs.TABLE + "."
+					+ Logs.RULE_ID + "=" + Rules.TABLE + "." + Rules.ID + ")");
 			break;
 		case LOGS_SUM:
-			qb.setTables(Logs.TABLE + " INNER JOIN " + Plans.TABLE + " ON ("
-					+ Logs.TABLE + "." + Logs.PLAN_ID + "=" + Plans.TABLE + "."
-					+ Plans.ID + ")");
+			qb.setTables(Logs.TABLE + " INNER JOIN " + Plans.TABLE + " ON (" + Logs.TABLE + "."
+					+ Logs.PLAN_ID + "=" + Plans.TABLE + "." + Plans.ID + ")");
 			groupBy = DataProvider.Logs.PLAN_ID;
 			break;
 		case WEBSMS:
@@ -3192,8 +2995,7 @@ public final class DataProvider extends ContentProvider {
 			}
 			break;
 		case PLANS_SUM_ID:
-			qb.appendWhere(Plans.TABLE + "." + Plans.ID + "="
-					+ ContentUris.parseId(uri));
+			qb.appendWhere(Plans.TABLE + "." + Plans.ID + "=" + ContentUris.parseId(uri));
 		case PLANS_SUM:
 			final boolean hideZero = Utils.parseBoolean(
 					uri.getQueryParameter(Plans.PARAM_HIDE_ZERO), false);
@@ -3203,12 +3005,10 @@ public final class DataProvider extends ContentProvider {
 					uri.getQueryParameter(Plans.PARAM_HIDE_TODAY), false);
 			final boolean hideAllTime = Utils.parseBoolean(
 					uri.getQueryParameter(Plans.PARAM_HIDE_ALLTIME), false);
-			long date = Utils.parseLong(
-					uri.getQueryParameter(Plans.PARAM_DATE), -1L);
+			long date = Utils.parseLong(uri.getQueryParameter(Plans.PARAM_DATE), -1L);
 			if (date < 0L) {
 				// round up minutes for SQL caching
-				date = ((System.currentTimeMillis() / CallMeter.HUNDRET) + 1)
-						* CallMeter.HUNDRET;
+				date = ((System.currentTimeMillis() / CallMeter.HUNDRET) + 1) * CallMeter.HUNDRET;
 			}
 			final Calendar now = Calendar.getInstance();
 			now.setTimeInMillis(date);
@@ -3221,9 +3021,8 @@ public final class DataProvider extends ContentProvider {
 			String nbillps;
 			long lowBp = -1L;
 			long highBp = -1L;
-			Cursor cursor = db.query(Plans.TABLE, new String[] { Plans.ID,
-					Plans.BILLPERIOD, Plans.BILLDAY }, Plans.WHERE_BILLPERIODS,
-					null, null, null, null);
+			Cursor cursor = db.query(Plans.TABLE, new String[] { Plans.ID, Plans.BILLPERIOD,
+					Plans.BILLDAY }, Plans.WHERE_BILLPERIODS, null, null, null, null);
 			if (cursor.moveToFirst()) {
 				billps = "(CASE ";
 				nbillps = "(CASE ";
@@ -3239,17 +3038,14 @@ public final class DataProvider extends ContentProvider {
 							&& (lowBp < 0L || lowBp > lbtime)) {
 						lowBp = lbtime;
 					}
-					if (period != BILLPERIOD_INFINITE
-							&& (highBp < 0L || highBp < hbtime)) {
+					if (period != BILLPERIOD_INFINITE && (highBp < 0L || highBp < hbtime)) {
 						highBp = hbtime;
 					}
-					billps += " WHEN " + Plans.TABLE + "." + Plans.ID + "="
-							+ pid + " or " + Plans.TABLE + "."
-							+ Plans.BILLPERIOD_ID + "=" + pid + " THEN "
+					billps += " WHEN " + Plans.TABLE + "." + Plans.ID + "=" + pid + " or "
+							+ Plans.TABLE + "." + Plans.BILLPERIOD_ID + "=" + pid + " THEN "
 							+ lbtime;
-					nbillps += " WHEN " + Plans.TABLE + "." + Plans.ID + "="
-							+ pid + " or " + Plans.TABLE + "."
-							+ Plans.BILLPERIOD_ID + "=" + pid + " THEN "
+					nbillps += " WHEN " + Plans.TABLE + "." + Plans.ID + "=" + pid + " or "
+							+ Plans.TABLE + "." + Plans.BILLPERIOD_ID + "=" + pid + " THEN "
 							+ hbtime;
 				} while (cursor.moveToNext());
 				billps += " ELSE 0 END)";
@@ -3265,29 +3061,24 @@ public final class DataProvider extends ContentProvider {
 				logDate = Logs.TABLE + "." + Logs.DATE + ">" + lowBp + " and ";
 			}
 			if (highBp > 0L) {
-				logDate += Logs.TABLE + "." + Logs.DATE + "<" + highBp
-						+ " and ";
+				logDate += Logs.TABLE + "." + Logs.DATE + "<" + highBp + " and ";
 			}
 
-			qb.setTables(Plans.TABLE + " left outer join " + Logs.TABLE
-					+ " on (" + logDate + "(" + Logs.TABLE + "." + Logs.PLAN_ID
-					+ "=" + Plans.TABLE + "." + Plans.ID + " or " + Plans.TABLE
-					+ "." + Plans.MERGED_PLANS + " like '%,'||" + Logs.TABLE
-					+ "." + Logs.PLAN_ID + "||',%' or (" + Plans.TABLE + "."
-					+ Plans.TYPE + "=" + TYPE_BILLPERIOD + " and ("
-					+ Logs.TABLE + "." + Logs.PLAN_ID + " in (select "
-					+ Plans.ID + " from " + Plans.TABLE + " as p where p."
-					+ Plans.BILLPERIOD_ID + "=" + Plans.TABLE + "." + Plans.ID
-					+ ") or 1 in (select 1 from " + Plans.TABLE
-					+ " as pp where pp." + Plans.MERGED_PLANS + " like '%,'||"
-					+ Logs.TABLE + "." + Logs.PLAN_ID + "||'%,'" + " and pp."
-					+ Plans.BILLPERIOD_ID + "=" + Plans.TABLE + "." + Plans.ID
-					+ ")))))");
+			qb.setTables(Plans.TABLE + " left outer join " + Logs.TABLE + " on (" + logDate + "("
+					+ Logs.TABLE + "." + Logs.PLAN_ID + "=" + Plans.TABLE + "." + Plans.ID + " or "
+					+ Plans.TABLE + "." + Plans.MERGED_PLANS + " like '%,'||" + Logs.TABLE + "."
+					+ Logs.PLAN_ID + "||',%' or (" + Plans.TABLE + "." + Plans.TYPE + "="
+					+ TYPE_BILLPERIOD + " and (" + Logs.TABLE + "." + Logs.PLAN_ID + " in (select "
+					+ Plans.ID + " from " + Plans.TABLE + " as p where p." + Plans.BILLPERIOD_ID
+					+ "=" + Plans.TABLE + "." + Plans.ID + ") or 1 in (select 1 from "
+					+ Plans.TABLE + " as pp where pp." + Plans.MERGED_PLANS + " like '%,'||"
+					+ Logs.TABLE + "." + Logs.PLAN_ID + "||'%,'" + " and pp." + Plans.BILLPERIOD_ID
+					+ "=" + Plans.TABLE + "." + Plans.ID + ")))))");
 			logDate = null;
 			groupBy = Plans.TABLE + "." + Plans.ID;
 			if (hideZero || hideNoCost) {
-				having = Plans.TYPE + " in(" + TYPE_BILLPERIOD + ","
-						+ TYPE_SPACING + "," + TYPE_TITLE + ")";
+				having = Plans.TYPE + " in(" + TYPE_BILLPERIOD + "," + TYPE_SPACING + ","
+						+ TYPE_TITLE + ")";
 
 				if (hideZero) {
 					having += " or " + Plans.SUM_BP_BILLED_AMOUNT + ">0";
@@ -3314,14 +3105,12 @@ public final class DataProvider extends ContentProvider {
 			}
 			for (int i = 0; i < l; i++) {
 				if (i >= s) {
-					proj[i] = projection[i].// .
-							replace("{" + Plans.SUM_BILLDAY + "}", // .
-									billps).// .
-							replace("{" + Plans.SUM_NEXTBILLDAY + "}", // .
-									nbillps).// .
-							replace("{" + Plans.SUM_NOW + "}", // .
-									String.valueOf(date)).//
-							replace("{" + Plans.SUM_TODAY + "}", // .
+					proj[i] = projection[i]
+							.replace("{" + Plans.SUM_BILLDAY + "}", billps)
+							.replace("{" + Plans.SUM_NEXTBILLDAY + "}", nbillps)
+							.replace("{" + Plans.SUM_NOW + "}", String.valueOf(date))
+							.//
+							replace("{" + Plans.SUM_TODAY + "}",
 									String.valueOf(today.getTimeInMillis()));
 				} else {
 					proj[i] = projection[i];
@@ -3330,16 +3119,12 @@ public final class DataProvider extends ContentProvider {
 			}
 			if (projection == Plans.PROJECTION_SUM) {
 				if (hideToday) {
-					proj[Plans.INDEX_SUM_TD_BILLED_AMOUNT] = "0 AS "
-							+ Plans.SUM_TD_BILLED_AMOUNT;
-					proj[Plans.INDEX_SUM_TD_COUNT] = "0 AS "
-							+ Plans.SUM_TD_COUNT;
+					proj[Plans.INDEX_SUM_TD_BILLED_AMOUNT] = "0 AS " + Plans.SUM_TD_BILLED_AMOUNT;
+					proj[Plans.INDEX_SUM_TD_COUNT] = "0 AS " + Plans.SUM_TD_COUNT;
 				}
 				if (hideAllTime) {
-					proj[Plans.INDEX_SUM_AT_BILLED_AMOUNT] = "0 AS "
-							+ Plans.SUM_AT_BILLED_AMOUNT;
-					proj[Plans.INDEX_SUM_AT_COUNT] = "0 AS "
-							+ Plans.SUM_AT_COUNT;
+					proj[Plans.INDEX_SUM_AT_BILLED_AMOUNT] = "0 AS " + Plans.SUM_AT_BILLED_AMOUNT;
+					proj[Plans.INDEX_SUM_AT_COUNT] = "0 AS " + Plans.SUM_AT_COUNT;
 				}
 			}
 			break;
@@ -3424,8 +3209,7 @@ public final class DataProvider extends ContentProvider {
 		}
 		// Run the query
 		Log.d(TAG, "qb.query() start: " + selection, ct);
-		c = qb.query(db, proj, selection, selectionArgs, groupBy, having, // .
-				orderBy);
+		c = qb.query(db, proj, selection, selectionArgs, groupBy, having, orderBy);
 		Log.d(TAG, "qb.query() end: " + selection, ct);
 
 		// Tell the cursor what uri to watch, so it knows when its source data
@@ -3439,8 +3223,8 @@ public final class DataProvider extends ContentProvider {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int update(final Uri uri, final ContentValues values,
-			final String selection, final String[] selectionArgs) {
+	public int update(final Uri uri, final ContentValues values, final String selection,
+			final String[] selectionArgs) {
 		Log.d(TAG, "update(" + uri + "," + selection + "," + values + ")");
 		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
 		long i;
@@ -3450,58 +3234,55 @@ public final class DataProvider extends ContentProvider {
 			ret = db.update(Logs.TABLE, values, selection, selectionArgs);
 			break;
 		case LOGS_ID:
-			ret = db.update(Logs.TABLE, values, DbUtils.sqlAnd(Logs.ID + "="
-					+ ContentUris.parseId(uri), selection), selectionArgs);
+			ret = db.update(Logs.TABLE, values,
+					DbUtils.sqlAnd(Logs.ID + "=" + ContentUris.parseId(uri), selection),
+					selectionArgs);
 			break;
 		case PLANS:
 			ret = db.update(Plans.TABLE, values, selection, selectionArgs);
 			break;
 		case PLANS_ID:
-			ret = db.update(Plans.TABLE, values, DbUtils.sqlAnd(Plans.ID + "="
-					+ ContentUris.parseId(uri), selection), selectionArgs);
+			ret = db.update(Plans.TABLE, values,
+					DbUtils.sqlAnd(Plans.ID + "=" + ContentUris.parseId(uri), selection),
+					selectionArgs);
 			break;
 		case RULES_ID:
-			ret = db.update(Rules.TABLE, values, DbUtils.sqlAnd(Rules.ID + "="
-					+ ContentUris.parseId(uri), selection), selectionArgs);
+			ret = db.update(Rules.TABLE, values,
+					DbUtils.sqlAnd(Rules.ID + "=" + ContentUris.parseId(uri), selection),
+					selectionArgs);
 			break;
 		case NUMBERS_ID:
-			ret = db.update(Numbers.TABLE, values, DbUtils.sqlAnd(Numbers.ID
-					+ "=" + ContentUris.parseId(uri), selection), // .
+			ret = db.update(Numbers.TABLE, values,
+					DbUtils.sqlAnd(Numbers.ID + "=" + ContentUris.parseId(uri), selection),
 					selectionArgs);
 			if (ret > 0 && values != null) {
 				i = values.getAsLong(Numbers.GID);
 				if (i >= 0) {
-					this.getContext()
-							.getContentResolver()
-							.notifyChange(
-									ContentUris.withAppendedId(
-											Numbers.GROUP_URI, i), null);
+					this.getContext().getContentResolver()
+							.notifyChange(ContentUris.withAppendedId(Numbers.GROUP_URI, i), null);
 				}
 			}
 			break;
 		case NUMBERS_GROUP_ID:
 			ret = db.update(NumbersGroup.TABLE, values,
-					DbUtils.sqlAnd(
-							NumbersGroup.ID + "=" + ContentUris.parseId(uri),
-							selection), selectionArgs);
+					DbUtils.sqlAnd(NumbersGroup.ID + "=" + ContentUris.parseId(uri), selection),
+					selectionArgs);
 			break;
 		case HOURS_ID:
-			ret = db.update(Hours.TABLE, values, DbUtils.sqlAnd(Hours.ID + "="
-					+ ContentUris.parseId(uri), selection), selectionArgs);
+			ret = db.update(Hours.TABLE, values,
+					DbUtils.sqlAnd(Hours.ID + "=" + ContentUris.parseId(uri), selection),
+					selectionArgs);
 			if (ret > 0 && values != null) {
 				i = values.getAsLong(Numbers.GID);
 				if (i >= 0) {
-					this.getContext()
-							.getContentResolver()
-							.notifyChange(
-									ContentUris.withAppendedId(Hours.GROUP_URI,
-											i), null);
+					this.getContext().getContentResolver()
+							.notifyChange(ContentUris.withAppendedId(Hours.GROUP_URI, i), null);
 				}
 			}
 			break;
 		case HOURS_GROUP_ID:
-			ret = db.update(HoursGroup.TABLE, values, DbUtils.sqlAnd(
-					HoursGroup.ID + "=" + ContentUris.parseId(uri), selection),
+			ret = db.update(HoursGroup.TABLE, values,
+					DbUtils.sqlAnd(HoursGroup.ID + "=" + ContentUris.parseId(uri), selection),
 					selectionArgs);
 			break;
 		default:
@@ -3535,8 +3316,7 @@ public final class DataProvider extends ContentProvider {
 			return null;
 		}
 		final File f = new File(d, PACKAGE + File.separator + fn);
-		return ParcelFileDescriptor
-				.open(f, ParcelFileDescriptor.MODE_READ_ONLY);
+		return ParcelFileDescriptor.open(f, ParcelFileDescriptor.MODE_READ_ONLY);
 	}
 
 	/**
@@ -3549,8 +3329,7 @@ public final class DataProvider extends ContentProvider {
 	public static boolean doBackup(final Context context) {
 		Log.i(TAG, "doBackup()");
 		boolean ret = true;
-		final SQLiteDatabase db = new DatabaseHelper(context)
-				.getWritableDatabase();
+		final SQLiteDatabase db = new DatabaseHelper(context).getWritableDatabase();
 		final String path = db.getPath();
 		try {
 			Log.d(TAG, "cp " + path + " " + path + ".bak");

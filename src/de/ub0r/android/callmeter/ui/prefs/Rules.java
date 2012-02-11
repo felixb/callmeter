@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -54,8 +54,8 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public class Rules extends ListActivity implements OnClickListener,
-		OnItemClickListener, OnItemLongClickListener {
+public class Rules extends ListActivity implements OnClickListener, OnItemClickListener,
+		OnItemLongClickListener {
 	/** Tag for output. */
 	private static final String TAG = "pr";
 
@@ -83,22 +83,18 @@ public class Rules extends ListActivity implements OnClickListener,
 		 *            {@link Context}
 		 */
 		public RuleAdapter(final Context context) {
-			super(context, R.layout.prefs_rules_item, context
-					.getContentResolver().query(DataProvider.Rules.CONTENT_URI,
-							DataProvider.Rules.PROJECTION, null, null,
-							DataProvider.Rules.ORDER), true);
-			this.types = context.getResources().getStringArray(
-					R.array.rules_type);
+			super(context, R.layout.prefs_rules_item, context.getContentResolver().query(
+					DataProvider.Rules.CONTENT_URI, DataProvider.Rules.PROJECTION, null, null,
+					DataProvider.Rules.ORDER), true);
+			this.types = context.getResources().getStringArray(R.array.rules_type);
 		}
 
 		/**
 		 * {@inheritDoc}
 		 */
 		@Override
-		public final void bindView(final View view, final Context ctxt,
-				final Cursor cursor) {
-			final TextView twTitle = ((TextView) view
-					.findViewById(R.id.normtitle));
+		public final void bindView(final View view, final Context ctxt, final Cursor cursor) {
+			final TextView twTitle = ((TextView) view.findViewById(R.id.normtitle));
 			twTitle.setText(cursor.getString(DataProvider.Rules.INDEX_NAME));
 			boolean active = cursor.getInt(DataProvider.Rules.INDEX_ACTIVE) > 0;
 			twTitle.setEnabled(active);
@@ -163,19 +159,17 @@ public class Rules extends ListActivity implements OnClickListener,
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
-		this.setTitle(this.getString(R.string.settings) + " > "
-				+ this.getString(R.string.rules));
+		this.setTitle(this.getString(R.string.settings) + " > " + this.getString(R.string.rules));
 		this.setContentView(R.layout.list_ok_add_touch);
 		this.adapter = new RuleAdapter(this);
 		this.setListAdapter(this.adapter);
 		this.setListAdapter(this.adapter);
-		((TouchListView) this.getListView())
-				.setDropListener(new DropListener() {
-					@Override
-					public void drop(final int from, final int to) {
-						Rules.this.move(from, to);
-					}
-				});
+		((TouchListView) this.getListView()).setDropListener(new DropListener() {
+			@Override
+			public void drop(final int from, final int to) {
+				Rules.this.move(from, to);
+			}
+		});
 		this.getListView().setOnItemClickListener(this);
 		this.getListView().setOnItemLongClickListener(this);
 		this.findViewById(R.id.ok).setOnClickListener(this);
@@ -218,14 +212,13 @@ public class Rules extends ListActivity implements OnClickListener,
 			this.finish();
 			break;
 		case R.id.import_default:
-			intent = new Intent(Intent.ACTION_VIEW, Uri.parse(this
-					.getString(R.string.url_rulesets)));
+			intent = new Intent(Intent.ACTION_VIEW,
+					Uri.parse(this.getString(R.string.url_rulesets)));
 			try {
 				this.startActivity(intent);
 			} catch (ActivityNotFoundException e) {
 				Log.e(TAG, "no activity to load url", e);
-				Toast.makeText(this,
-						"no activity to load url: " + intent.getDataString(),
+				Toast.makeText(this, "no activity to load url: " + intent.getDataString(),
 						Toast.LENGTH_LONG).show();
 			}
 			break;
@@ -238,11 +231,10 @@ public class Rules extends ListActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void onItemClick(final AdapterView<?> parent, final View view,
-			final int position, final long id) {
+	public final void onItemClick(final AdapterView<?> parent, final View view, final int position,
+			final long id) {
 		final Intent intent = new Intent(this, RuleEdit.class);
-		intent.setData(ContentUris.withAppendedId(
-				DataProvider.Rules.CONTENT_URI, id));
+		intent.setData(ContentUris.withAppendedId(DataProvider.Rules.CONTENT_URI, id));
 		this.startActivity(intent);
 	}
 
@@ -250,18 +242,16 @@ public class Rules extends ListActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean onItemLongClick(final AdapterView<?> parent,
-			final View view, final int position, final long id) {
+	public final boolean onItemLongClick(final AdapterView<?> parent, final View view,
+			final int position, final long id) {
 		final Builder builder = new Builder(this);
 		builder.setItems(R.array.dialog_edit_delete,
 				new android.content.DialogInterface.OnClickListener() {
 					@Override
-					public void onClick(final DialogInterface dialog,
-							final int which) {
+					public void onClick(final DialogInterface dialog, final int which) {
 						switch (which) {
 						case WHICH_EDIT:
-							final Intent intent = new Intent(// .
-									Rules.this, RuleEdit.class);
+							final Intent intent = new Intent(Rules.this, RuleEdit.class);
 							intent.setData(ContentUris.withAppendedId(
 									DataProvider.Rules.CONTENT_URI, id));
 							Rules.this.startActivity(intent);
@@ -323,8 +313,7 @@ public class Rules extends ListActivity implements OnClickListener,
 
 		final long oldid = ids[from];
 		Log.d(TAG, "move(): oldid=" + oldid);
-		for (i = from + dir; (from < to && i <= to) || // .
-				(from > to && i >= to); i += dir) {
+		for (i = from + dir; (from < to && i <= to) || (from > to && i >= to); i += dir) {
 			ids[i - dir] = ids[i];
 			Log.d(TAG, "move(): ids[" + (i - dir) + "]=" + ids[i - dir]);
 		}
@@ -335,8 +324,8 @@ public class Rules extends ListActivity implements OnClickListener,
 		for (i = 0; i < l; i++) {
 			cv.clear();
 			cv.put(DataProvider.Rules.ORDER, i);
-			cr.update(ContentUris.withAppendedId(
-					DataProvider.Rules.CONTENT_URI, ids[i]), cv, null, null);
+			cr.update(ContentUris.withAppendedId(DataProvider.Rules.CONTENT_URI, ids[i]), cv, null,
+					null);
 		}
 	}
 }

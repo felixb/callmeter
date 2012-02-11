@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -18,8 +18,8 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
+import android.app.ListActivity;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
@@ -32,10 +32,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.ResourceCursorAdapter;
-import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.ResourceCursorAdapter;
+import android.widget.TextView;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Utils;
@@ -45,8 +45,8 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public class NumberGroups extends ListActivity implements OnClickListener,
-		OnItemClickListener, OnItemLongClickListener {
+public class NumberGroups extends ListActivity implements OnClickListener, OnItemClickListener,
+		OnItemLongClickListener {
 	/**
 	 * Adapter binding plans to View.
 	 * 
@@ -60,11 +60,9 @@ public class NumberGroups extends ListActivity implements OnClickListener,
 		 *            {@link Context}
 		 */
 		public NumberGroupAdapter(final Context context) {
-			super(context, android.R.layout.simple_list_item_1, context
-					.getContentResolver().query(
-							DataProvider.NumbersGroup.CONTENT_URI,
-							DataProvider.NumbersGroup.PROJECTION, null, null,
-							null), true);
+			super(context, android.R.layout.simple_list_item_1, context.getContentResolver().query(
+					DataProvider.NumbersGroup.CONTENT_URI, DataProvider.NumbersGroup.PROJECTION,
+					null, null, null), true);
 			this.registerDataSetObserver(new DataSetObserver() {
 				@Override
 				public void onChanged() {
@@ -78,12 +76,9 @@ public class NumberGroups extends ListActivity implements OnClickListener,
 		 * {@inheritDoc}
 		 */
 		@Override
-		public final void bindView(final View view, final Context ctxt,
-				final Cursor cursor) {
-			final TextView twTitle = ((TextView) view
-					.findViewById(android.R.id.text1));
-			twTitle.setText(cursor
-					.getString(DataProvider.NumbersGroup.INDEX_NAME));
+		public final void bindView(final View view, final Context ctxt, final Cursor cursor) {
+			final TextView twTitle = ((TextView) view.findViewById(android.R.id.text1));
+			twTitle.setText(cursor.getString(DataProvider.NumbersGroup.INDEX_NAME));
 		}
 
 	}
@@ -100,9 +95,8 @@ public class NumberGroups extends ListActivity implements OnClickListener,
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
-		this.setTitle(this.getString(R.string.settings) + " > "
-				+ this.getString(R.string.rules) + " > "
-				+ this.getString(R.string.numbers));
+		this.setTitle(this.getString(R.string.settings) + " > " + this.getString(R.string.rules)
+				+ " > " + this.getString(R.string.numbers));
 		this.setContentView(R.layout.list_ok_add);
 		this.setListAdapter(new NumberGroupAdapter(this));
 		this.getListView().setOnItemClickListener(this);
@@ -140,10 +134,9 @@ public class NumberGroups extends ListActivity implements OnClickListener,
 		switch (v.getId()) {
 		case R.id.add:
 			final ContentValues cv = new ContentValues();
-			cv.put(DataProvider.NumbersGroup.NAME, this
-					.getString(R.string.new_numbergroup));
-			final Uri uri = this.getContentResolver().insert(
-					DataProvider.NumbersGroup.CONTENT_URI, cv);
+			cv.put(DataProvider.NumbersGroup.NAME, this.getString(R.string.new_numbergroup));
+			final Uri uri = this.getContentResolver().insert(DataProvider.NumbersGroup.CONTENT_URI,
+					cv);
 			final Intent intent = new Intent(this, NumberGroupEdit.class);
 			intent.setData(uri);
 			this.startActivity(intent);
@@ -160,12 +153,10 @@ public class NumberGroups extends ListActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void onItemClick(final AdapterView<?> parent, final View view,
-			final int position, final long id) {
-		final Intent intent = new Intent(// .
-				NumberGroups.this, NumberGroupEdit.class);
-		intent.setData(ContentUris.withAppendedId(
-				DataProvider.NumbersGroup.CONTENT_URI, id));
+	public final void onItemClick(final AdapterView<?> parent, final View view, final int position,
+			final long id) {
+		final Intent intent = new Intent(NumberGroups.this, NumberGroupEdit.class);
+		intent.setData(ContentUris.withAppendedId(DataProvider.NumbersGroup.CONTENT_URI, id));
 		NumberGroups.this.startActivity(intent);
 	}
 
@@ -173,18 +164,17 @@ public class NumberGroups extends ListActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean onItemLongClick(final AdapterView<?> parent,
-			final View view, final int position, final long id) {
+	public final boolean onItemLongClick(final AdapterView<?> parent, final View view,
+			final int position, final long id) {
 		final Builder builder = new Builder(this);
 		builder.setItems(R.array.dialog_edit_delete,
 				new android.content.DialogInterface.OnClickListener() {
 					@Override
-					public void onClick(final DialogInterface dialog,
-							final int which) {
+					public void onClick(final DialogInterface dialog, final int which) {
 						switch (which) {
 						case WHICH_EDIT:
-							final Intent intent = new Intent(// .
-									NumberGroups.this, NumberGroupEdit.class);
+							final Intent intent = new Intent(NumberGroups.this,
+									NumberGroupEdit.class);
 							intent.setData(ContentUris.withAppendedId(
 									DataProvider.NumbersGroup.CONTENT_URI, id));
 							NumberGroups.this.startActivity(intent);
@@ -192,10 +182,8 @@ public class NumberGroups extends ListActivity implements OnClickListener,
 						case WHICH_DELETE:
 							NumberGroups.this.getContentResolver().delete(
 									ContentUris.withAppendedId(
-											DataProvider.NumbersGroup.// .
-											CONTENT_URI, id), null, null);
-							Preferences
-									.setDefaultPlan(NumberGroups.this, false);
+											DataProvider.NumbersGroup.CONTENT_URI, id), null, null);
+							Preferences.setDefaultPlan(NumberGroups.this, false);
 							NumberGroups.this.showEmptyHint();
 							break;
 						default:

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -27,9 +27,9 @@ import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.widget.Toast;
@@ -89,30 +89,23 @@ public final class SimplePreferences extends PreferenceActivity implements
 		this.findPreference(PREFS_BILLDAY).setOnPreferenceChangeListener(this);
 
 		this.findPreference(PREFS_BILLMODE).setOnPreferenceChangeListener(this);
-		this.findPreference(PREFS_CUSTOM_BILLMODE)
-				.setOnPreferenceChangeListener(this);
+		this.findPreference(PREFS_CUSTOM_BILLMODE).setOnPreferenceChangeListener(this);
 		this.findPreference(PREFS_FREEMIN).setOnPreferenceChangeListener(this);
-		this.findPreference(PREFS_COST_PER_CALL).setOnPreferenceChangeListener(
-				this);
-		this.findPreference(PREFS_COST_PER_MIN).setOnPreferenceChangeListener(
-				this);
+		this.findPreference(PREFS_COST_PER_CALL).setOnPreferenceChangeListener(this);
+		this.findPreference(PREFS_COST_PER_MIN).setOnPreferenceChangeListener(this);
 
 		this.findPreference(PREFS_FREESMS).setOnPreferenceChangeListener(this);
-		this.findPreference(PREFS_COST_PER_SMS).setOnPreferenceChangeListener(
-				this);
+		this.findPreference(PREFS_COST_PER_SMS).setOnPreferenceChangeListener(this);
 
 		this.findPreference(PREFS_FREEMMS).setOnPreferenceChangeListener(this);
-		this.findPreference(PREFS_COST_PER_MMS).setOnPreferenceChangeListener(
-				this);
+		this.findPreference(PREFS_COST_PER_MMS).setOnPreferenceChangeListener(this);
 
 		this.findPreference(PREFS_FREEDATA).setOnPreferenceChangeListener(this);
-		this.findPreference(PREFS_COST_PER_MB).setOnPreferenceChangeListener(
-				this);
+		this.findPreference(PREFS_COST_PER_MB).setOnPreferenceChangeListener(this);
 
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(this);
-		this.onPreferenceChange(this.findPreference(PREFS_BILLMODE), p
-				.getString(PREFS_BILLMODE, "1/1"));
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
+		this.onPreferenceChange(this.findPreference(PREFS_BILLMODE),
+				p.getString(PREFS_BILLMODE, "1/1"));
 	}
 
 	/**
@@ -128,8 +121,7 @@ public final class SimplePreferences extends PreferenceActivity implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean onPreferenceChange(final Preference preference,
-			final Object newValue) {
+	public boolean onPreferenceChange(final Preference preference, final Object newValue) {
 		if (preference == null) {
 			return false;
 		}
@@ -142,8 +134,7 @@ public final class SimplePreferences extends PreferenceActivity implements
 			final String[] t = newValue.toString().split("/");
 			if (t.length != 2 || !TextUtils.isDigitsOnly(t[0].trim())
 					|| !TextUtils.isDigitsOnly(t[1].trim())) {
-				Toast.makeText(this, R.string.missing_slash, Toast.LENGTH_LONG)
-						.show();
+				Toast.makeText(this, R.string.missing_slash, Toast.LENGTH_LONG).show();
 				return false;
 			}
 		}
@@ -161,10 +152,8 @@ public final class SimplePreferences extends PreferenceActivity implements
 		String selectionType = DataProvider.Plans.TYPE + "=?";
 
 		// common
-		Cursor c = cr.query(DataProvider.Plans.CONTENT_URI,
-				DataProvider.Plans.PROJECTION, selectionType,
-				new String[] { String.valueOf(DataProvider.TYPE_BILLPERIOD) },
-				null);
+		Cursor c = cr.query(DataProvider.Plans.CONTENT_URI, DataProvider.Plans.PROJECTION,
+				selectionType, new String[] { String.valueOf(DataProvider.TYPE_BILLPERIOD) }, null);
 		if (c.moveToFirst()) {
 			long billday = c.getLong(DataProvider.Plans.INDEX_BILLDAY);
 			Log.d(TAG, "billday: " + billday);
@@ -175,8 +164,7 @@ public final class SimplePreferences extends PreferenceActivity implements
 		c.close();
 
 		// calls
-		c = cr.query(DataProvider.Plans.CONTENT_URI,
-				DataProvider.Plans.PROJECTION, selectionId,
+		c = cr.query(DataProvider.Plans.CONTENT_URI, DataProvider.Plans.PROJECTION, selectionId,
 				new String[] { "16" }, null);
 		if (c.moveToFirst()) {
 			String billmode = c.getString(DataProvider.Plans.INDEX_BILLMODE);
@@ -185,66 +173,54 @@ public final class SimplePreferences extends PreferenceActivity implements
 			e.putString(PREFS_CUSTOM_BILLMODE, billmode);
 			int i = c.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 			if (i == DataProvider.LIMIT_TYPE_UNITS) {
-				e.putString(PREFS_FREEMIN, c
-						.getString(DataProvider.Plans.INDEX_LIMIT));
+				e.putString(PREFS_FREEMIN, c.getString(DataProvider.Plans.INDEX_LIMIT));
 			} else {
 				e.putString(PREFS_FREEMIN, "");
 			}
-			e.putString(PREFS_COST_PER_CALL, c
-					.getString(DataProvider.Plans.INDEX_COST_PER_ITEM));
-			e.putString(PREFS_COST_PER_MIN, c
-					.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT1));
+			e.putString(PREFS_COST_PER_CALL, c.getString(DataProvider.Plans.INDEX_COST_PER_ITEM));
+			e.putString(PREFS_COST_PER_MIN, c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT1));
 		}
 		c.close();
 
 		// sms
-		c = cr.query(DataProvider.Plans.CONTENT_URI,
-				DataProvider.Plans.PROJECTION, selectionId,
+		c = cr.query(DataProvider.Plans.CONTENT_URI, DataProvider.Plans.PROJECTION, selectionId,
 				new String[] { "20" }, null);
 		if (c.moveToFirst()) {
 			int i = c.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 			if (i == DataProvider.LIMIT_TYPE_UNITS) {
-				e.putString(PREFS_FREESMS, c
-						.getString(DataProvider.Plans.INDEX_LIMIT));
+				e.putString(PREFS_FREESMS, c.getString(DataProvider.Plans.INDEX_LIMIT));
 			} else {
 				e.putString(PREFS_FREESMS, "");
 			}
-			e.putString(PREFS_COST_PER_SMS, c
-					.getString(DataProvider.Plans.INDEX_COST_PER_ITEM));
+			e.putString(PREFS_COST_PER_SMS, c.getString(DataProvider.Plans.INDEX_COST_PER_ITEM));
 		}
 		c.close();
 
 		// mms
-		c = cr.query(DataProvider.Plans.CONTENT_URI,
-				DataProvider.Plans.PROJECTION, selectionId,
+		c = cr.query(DataProvider.Plans.CONTENT_URI, DataProvider.Plans.PROJECTION, selectionId,
 				new String[] { "28" }, null);
 		if (c.moveToFirst()) {
 			int i = c.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 			if (i == DataProvider.LIMIT_TYPE_UNITS) {
-				e.putString(PREFS_FREEMMS, c
-						.getString(DataProvider.Plans.INDEX_LIMIT));
+				e.putString(PREFS_FREEMMS, c.getString(DataProvider.Plans.INDEX_LIMIT));
 			} else {
 				e.putString(PREFS_FREEMMS, "");
 			}
-			e.putString(PREFS_COST_PER_MMS, c
-					.getString(DataProvider.Plans.INDEX_COST_PER_ITEM));
+			e.putString(PREFS_COST_PER_MMS, c.getString(DataProvider.Plans.INDEX_COST_PER_ITEM));
 		}
 		c.close();
 
 		// data
-		c = cr.query(DataProvider.Plans.CONTENT_URI,
-				DataProvider.Plans.PROJECTION, selectionType,
+		c = cr.query(DataProvider.Plans.CONTENT_URI, DataProvider.Plans.PROJECTION, selectionType,
 				new String[] { String.valueOf(DataProvider.TYPE_DATA) }, null);
 		if (c.moveToFirst()) {
 			int i = c.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 			if (i == DataProvider.LIMIT_TYPE_UNITS) {
-				e.putString(PREFS_FREEDATA, c
-						.getString(DataProvider.Plans.INDEX_LIMIT));
+				e.putString(PREFS_FREEDATA, c.getString(DataProvider.Plans.INDEX_LIMIT));
 			} else {
 				e.putString(PREFS_FREEDATA, "");
 			}
-			e.putString(PREFS_COST_PER_MB, c
-					.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT1));
+			e.putString(PREFS_COST_PER_MB, c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT1));
 		}
 		c.close();
 		e.commit();
@@ -255,8 +231,7 @@ public final class SimplePreferences extends PreferenceActivity implements
 	 */
 	private void savePrefs() {
 		Log.d(TAG, "savePrefs()");
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(this);
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
 		final ContentResolver cr = this.getContentResolver();
 		String selectionType = DataProvider.Plans.TYPE + "=?";
 		String selectionId = DataProvider.Plans.ID + "=?";
@@ -296,59 +271,52 @@ public final class SimplePreferences extends PreferenceActivity implements
 		s = p.getString(PREFS_FREEMIN, "0");
 		i = Utils.parseInt(s, 0);
 		if (i > 0) {
-			cv.put(DataProvider.Plans.LIMIT_TYPE, // .
-					DataProvider.LIMIT_TYPE_UNITS);
+			cv.put(DataProvider.Plans.LIMIT_TYPE, DataProvider.LIMIT_TYPE_UNITS);
 		} else {
 			cv.put(DataProvider.Plans.LIMIT_TYPE, DataProvider.LIMIT_TYPE_NONE);
 		}
 		cv.put(DataProvider.Plans.LIMIT, i);
-		cv.put(DataProvider.Plans.COST_PER_ITEM, Utils.parseFloat(p.getString(
-				PREFS_COST_PER_CALL, "0"), 0f));
+		cv.put(DataProvider.Plans.COST_PER_ITEM,
+				Utils.parseFloat(p.getString(PREFS_COST_PER_CALL, "0"), 0f));
 		float f = Utils.parseFloat(p.getString(PREFS_COST_PER_MIN, "0"), 0f);
 		cv.put(DataProvider.Plans.COST_PER_AMOUNT1, f);
 		cv.put(DataProvider.Plans.COST_PER_AMOUNT2, f);
-		cr.update(DataProvider.Plans.CONTENT_URI, cv, selectionId,
-				new String[] { "16" });
+		cr.update(DataProvider.Plans.CONTENT_URI, cv, selectionId, new String[] { "16" });
 
 		// sms
 		cv.clear();
 		s = p.getString(PREFS_FREESMS, "0");
 		i = Utils.parseInt(s, 0);
 		if (i > 0) {
-			cv.put(DataProvider.Plans.LIMIT_TYPE, // .
-					DataProvider.LIMIT_TYPE_UNITS);
+			cv.put(DataProvider.Plans.LIMIT_TYPE, DataProvider.LIMIT_TYPE_UNITS);
 		} else {
 			cv.put(DataProvider.Plans.LIMIT_TYPE, DataProvider.LIMIT_TYPE_NONE);
 		}
 		cv.put(DataProvider.Plans.LIMIT, i);
-		cv.put(DataProvider.Plans.COST_PER_ITEM, Utils.parseFloat(p.getString(
-				PREFS_COST_PER_SMS, "0"), 0f));
-		cr.update(DataProvider.Plans.CONTENT_URI, cv, selectionId,
-				new String[] { "20" });
+		cv.put(DataProvider.Plans.COST_PER_ITEM,
+				Utils.parseFloat(p.getString(PREFS_COST_PER_SMS, "0"), 0f));
+		cr.update(DataProvider.Plans.CONTENT_URI, cv, selectionId, new String[] { "20" });
 
 		// mms
 		cv.clear();
 		s = p.getString(PREFS_FREEMMS, "0");
 		i = Utils.parseInt(s, 0);
 		if (i > 0) {
-			cv.put(DataProvider.Plans.LIMIT_TYPE, // .
-					DataProvider.LIMIT_TYPE_UNITS);
+			cv.put(DataProvider.Plans.LIMIT_TYPE, DataProvider.LIMIT_TYPE_UNITS);
 		} else {
 			cv.put(DataProvider.Plans.LIMIT_TYPE, DataProvider.LIMIT_TYPE_NONE);
 		}
 		cv.put(DataProvider.Plans.LIMIT, i);
-		cv.put(DataProvider.Plans.COST_PER_ITEM, Utils.parseFloat(p.getString(
-				PREFS_COST_PER_MMS, "0"), 0f));
-		cr.update(DataProvider.Plans.CONTENT_URI, cv, selectionId,
-				new String[] { "28" });
+		cv.put(DataProvider.Plans.COST_PER_ITEM,
+				Utils.parseFloat(p.getString(PREFS_COST_PER_MMS, "0"), 0f));
+		cr.update(DataProvider.Plans.CONTENT_URI, cv, selectionId, new String[] { "28" });
 
 		// data
 		cv.clear();
 		s = p.getString(PREFS_FREEDATA, "0");
 		i = Utils.parseInt(s, 0);
 		if (i > 0) {
-			cv.put(DataProvider.Plans.LIMIT_TYPE, // .
-					DataProvider.LIMIT_TYPE_UNITS);
+			cv.put(DataProvider.Plans.LIMIT_TYPE, DataProvider.LIMIT_TYPE_UNITS);
 		} else {
 			cv.put(DataProvider.Plans.LIMIT_TYPE, DataProvider.LIMIT_TYPE_NONE);
 		}

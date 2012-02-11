@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of CallMeter 3G.
  * 
@@ -47,8 +47,7 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public final class AskForPlan extends Activity implements OnClickListener,
-		OnDismissListener {
+public final class AskForPlan extends Activity implements OnClickListener, OnDismissListener {
 	/** Tag for output. */
 	private static final String TAG = "afp";
 
@@ -78,9 +77,8 @@ public final class AskForPlan extends Activity implements OnClickListener,
 	/** Ids of plans. */
 	private final long[] planIds = new long[this.maxPlans];
 	/** Ids of plans' {@link Button}s. */
-	private final int[] planBtns = new int[] { R.id.btn00, R.id.btn01,
-			R.id.btn02, R.id.btn03, R.id.btn04, R.id.btn05, R.id.btn06,
-			R.id.btn07, R.id.btn08, R.id.btn09 };
+	private final int[] planBtns = new int[] { R.id.btn00, R.id.btn01, R.id.btn02, R.id.btn03,
+			R.id.btn04, R.id.btn05, R.id.btn06, R.id.btn07, R.id.btn08, R.id.btn09 };
 
 	/** Inner {@link Dialog}. */
 	private Dialog d = null;
@@ -112,10 +110,9 @@ public final class AskForPlan extends Activity implements OnClickListener,
 		this.cbSetDefault = (CheckBox) this.d.findViewById(R.id.set_default);
 		this.d.findViewById(R.id.cancel).setOnClickListener(this);
 
-		final Cursor c = this.getContentResolver().query(
-				DataProvider.Plans.CONTENT_URI, DataProvider.Plans.PROJECTION,
-				DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_CALL, null,
-				null);
+		final Cursor c = this.getContentResolver().query(DataProvider.Plans.CONTENT_URI,
+				DataProvider.Plans.PROJECTION,
+				DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_CALL, null, null);
 		if (c == null || !c.moveToFirst()) {
 			Log.e(TAG, "no plans: " + c);
 			if (c != null && !c.isClosed()) {
@@ -140,10 +137,8 @@ public final class AskForPlan extends Activity implements OnClickListener,
 			c.close();
 		}
 
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(this);
-		this.defaultPlanId = p.getLong(Preferences.PREFS_ASK_FOR_PLAN_DEFAULT,
-				-1L);
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
+		this.defaultPlanId = p.getLong(Preferences.PREFS_ASK_FOR_PLAN_DEFAULT, -1L);
 		for (i = 0; i < this.maxPlans; i++) {
 			if (this.planIds[i] == this.defaultPlanId) {
 				final int bid = this.planBtns[i];
@@ -176,8 +171,7 @@ public final class AskForPlan extends Activity implements OnClickListener,
 
 				@Override
 				protected void onProgressUpdate(final Void... values) {
-					String s = String.format(
-							AskForPlan.this.getString(R.string.autohide_in_),
+					String s = String.format(AskForPlan.this.getString(R.string.autohide_in_),
 							this.count);
 					AskForPlan.this.tvTimeout.setText(s);
 				}
@@ -189,8 +183,7 @@ public final class AskForPlan extends Activity implements OnClickListener,
 						final long pid = AskForPlan.this.defaultPlanId;
 						if (pid >= 0L) {
 							Log.i(TAG, "setPlan(" + pid + ")");
-							RuleMatcher.matchLog(
-									AskForPlan.this.getContentResolver(),
+							RuleMatcher.matchLog(AskForPlan.this.getContentResolver(),
 									AskForPlan.this.id, pid);
 						}
 						AskForPlan.this.d.cancel();
@@ -233,11 +226,9 @@ public final class AskForPlan extends Activity implements OnClickListener,
 				if (vid == this.planBtns[i]) {
 					final long pid = this.planIds[i];
 					Log.d(TAG, "setPlan(" + pid + ")");
-					RuleMatcher.matchLog(this.getContentResolver(), this.id,
-							pid);
+					RuleMatcher.matchLog(this.getContentResolver(), this.id, pid);
 					if (this.cbSetDefault.isChecked()) {
-						final Editor e = PreferenceManager
-								.getDefaultSharedPreferences(this).edit();
+						final Editor e = PreferenceManager.getDefaultSharedPreferences(this).edit();
 						e.putLong(Preferences.PREFS_ASK_FOR_PLAN_DEFAULT, pid);
 						e.commit();
 					}

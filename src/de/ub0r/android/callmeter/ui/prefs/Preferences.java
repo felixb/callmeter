@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -75,8 +75,8 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public final class Preferences extends PreferenceActivity implements
-		OnPreferenceChangeListener, OnPreferenceClickListener {
+public final class Preferences extends PreferenceActivity implements OnPreferenceChangeListener,
+		OnPreferenceClickListener {
 	/** Tag for output. */
 	private static final String TAG = "prefs";
 
@@ -96,8 +96,7 @@ public final class Preferences extends PreferenceActivity implements
 	/** Preference's name: update interval. */
 	public static final String PREFS_UPDATE_INTERVAL = "update_interval";
 	/** Preference's name: update interval (data). */
-	public static final String PREFS_UPDATE_INTERVAL_DATA = // .
-	"update_interval_data";
+	public static final String PREFS_UPDATE_INTERVAL_DATA = "update_interval_data";
 	/** Preference's name: beginning of record. */
 	public static final String PREFS_DATE_BEGIN = "date_begin";
 	/** Preference's name: delete old logs before x days. */
@@ -148,8 +147,7 @@ public final class Preferences extends PreferenceActivity implements
 	/** Preference's name: show length/cost of call. */
 	public static final String PREFS_SHOWCALLINFO = "show_callinfo";
 	/** Preference's name: strip leading zeros. */
-	public static final String PREFS_STRIP_LEADING_ZEROS = // .
-	"strip_leading_zeros";
+	public static final String PREFS_STRIP_LEADING_ZEROS = "strip_leading_zeros";
 	/** Preference's name: international prefix. */
 	public static final String PREFS_INT_PREFIX = "intPrefix";
 	/** Preference's name: ask for plan. */
@@ -157,8 +155,7 @@ public final class Preferences extends PreferenceActivity implements
 	/** Preference's name: ask for plan, auto hide. */
 	public static final String PREFS_ASK_FOR_PLAN_AUTOHIDE = "autohide";
 	/** Preference's name: default plan for ask for plan. */
-	public static final String PREFS_ASK_FOR_PLAN_DEFAULT = // .
-	"ask_for_plan_default";
+	public static final String PREFS_ASK_FOR_PLAN_DEFAULT = "ask_for_plan_default";
 
 	/** Default rule set. */
 	private static final InputStream IS_DEFAULT = new InputStream() {
@@ -184,13 +181,11 @@ public final class Preferences extends PreferenceActivity implements
 		if (p == null) {
 			return -1L;
 		}
-		final long dlb = Utils.parseLong(
-				p.getString(PREFS_DELETE_OLD_LOGS, "90"), -1L);
+		final long dlb = Utils.parseLong(p.getString(PREFS_DELETE_OLD_LOGS, "90"), -1L);
 		if (dlb < 0L) {
 			return dlb;
 		}
-		return System.currentTimeMillis()
-				- (dlb * CallMeter.MILLIS * CallMeter.SECONDS_DAY);
+		return System.currentTimeMillis() - (dlb * CallMeter.MILLIS * CallMeter.SECONDS_DAY);
 	}
 
 	/**
@@ -201,8 +196,7 @@ public final class Preferences extends PreferenceActivity implements
 	 * @return theme
 	 */
 	public static int getTheme(final Context context) {
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_THEME, THEME_LIGHT);
 		if (s != null && THEME_BLACK.equals(s)) {
 			return R.style.Theme_SherlockUb0r;
@@ -218,8 +212,7 @@ public final class Preferences extends PreferenceActivity implements
 	 * @return text size
 	 */
 	public static int getTextsize(final Context context) {
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_TEXTSIZE, null);
 		return Utils.parseInt(s, 0);
 	}
@@ -232,8 +225,7 @@ public final class Preferences extends PreferenceActivity implements
 	 * @return text size
 	 */
 	public static int getTextsizeBigTitle(final Context context) {
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_TEXTSIZE_BIGTITLE, null);
 		return Utils.parseInt(s, 0);
 	}
@@ -246,8 +238,7 @@ public final class Preferences extends PreferenceActivity implements
 	 * @return text size
 	 */
 	public static int getTextsizeTitle(final Context context) {
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_TEXTSIZE_TITLE, null);
 		return Utils.parseInt(s, 0);
 	}
@@ -260,8 +251,7 @@ public final class Preferences extends PreferenceActivity implements
 	 * @return text size
 	 */
 	public static int getTextsizeSpacer(final Context context) {
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_TEXTSIZE_SPACER, null);
 		return Utils.parseInt(s, 0);
 	}
@@ -274,8 +264,7 @@ public final class Preferences extends PreferenceActivity implements
 	 * @return text size
 	 */
 	public static int getTextsizeProgressBar(final Context context) {
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_TEXTSIZE_PBAR, null);
 		return Utils.parseInt(s, 0);
 	}
@@ -288,8 +277,7 @@ public final class Preferences extends PreferenceActivity implements
 	 * @return text size
 	 */
 	public static int getTextsizeProgressBarBP(final Context context) {
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_TEXTSIZE_PBARBP, null);
 		return Utils.parseInt(s, 0);
 	}
@@ -302,14 +290,12 @@ public final class Preferences extends PreferenceActivity implements
 	 * @return currency symbol
 	 */
 	public static String getCurrencySymbol(final Context context) {
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 		final String pcs = p.getString(PREFS_CURRENCY_SYMBOL, "");
 		if (pcs.length() == 0) {
 			if (defaultCurrencySymbol == null) {
 				try {
-					final Currency cur = Currency.getInstance(Locale
-							.getDefault());
+					final Currency cur = Currency.getInstance(Locale.getDefault());
 					defaultCurrencySymbol = cur.getSymbol();
 					defaultCurrencyDigits = cur.getDefaultFractionDigits();
 				} catch (IllegalArgumentException e) {
@@ -332,14 +318,12 @@ public final class Preferences extends PreferenceActivity implements
 	 * @return currency format
 	 */
 	public static String getCurrencyFormat(final Context context) {
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 		final String pcs = p.getString(PREFS_CURRENCY_FORMAT, "");
 		if (pcs.length() == 0) {
 			if (defaultCurrencySymbol == null) {
 				try {
-					final Currency cur = Currency.getInstance(Locale
-							.getDefault());
+					final Currency cur = Currency.getInstance(Locale.getDefault());
 					defaultCurrencySymbol = cur.getSymbol();
 					defaultCurrencyDigits = cur.getDefaultFractionDigits();
 				} catch (IllegalArgumentException e) {
@@ -348,8 +332,7 @@ public final class Preferences extends PreferenceActivity implements
 					defaultCurrencyDigits = 2;
 				}
 			}
-			return "%." + defaultCurrencyDigits + "f"
-					+ getCurrencySymbol(context);
+			return "%." + defaultCurrencyDigits + "f" + getCurrencySymbol(context);
 		} else {
 			Log.d(TAG, "custom currency format: " + pcs);
 			String c = getCurrencySymbol(context);
@@ -376,10 +359,8 @@ public final class Preferences extends PreferenceActivity implements
 	 * @return date format
 	 */
 	public static String getDateFormat(final Context context) {
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(context);
-		final String pcs = p.getString(PREFS_DATE_FORMAT, "").replaceAll("\\$",
-				"%");
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
+		final String pcs = p.getString(PREFS_DATE_FORMAT, "").replaceAll("\\$", "%");
 		if (pcs.length() == 0) {
 			return null;
 		} else {
@@ -395,10 +376,8 @@ public final class Preferences extends PreferenceActivity implements
 	 * @param isDefault
 	 *            true, if default rule set is loaded
 	 */
-	public static void setDefaultPlan(final Context context,
-			final boolean isDefault) {
-		final Editor e = PreferenceManager.getDefaultSharedPreferences(context)
-				.edit();
+	public static void setDefaultPlan(final Context context, final boolean isDefault) {
+		final Editor e = PreferenceManager.getDefaultSharedPreferences(context).edit();
 		e.putBoolean(PREFS_ISDEFAULT, isDefault);
 		e.commit();
 	}
@@ -411,8 +390,7 @@ public final class Preferences extends PreferenceActivity implements
 	 */
 	private void resetData(final int type) {
 		if (type < 0) {
-			this.getContentResolver().delete(DataProvider.Logs.CONTENT_URI,
-					null, null);
+			this.getContentResolver().delete(DataProvider.Logs.CONTENT_URI, null, null);
 		} else {
 			this.getContentResolver().delete(DataProvider.Logs.CONTENT_URI,
 					DataProvider.Logs.TYPE + " = " + type, null);
@@ -435,14 +413,12 @@ public final class Preferences extends PreferenceActivity implements
 				Preferences.this.resetData(DataProvider.TYPE_MMS);
 			}
 		});
-		builder.setNeutralButton(R.string.reset_data_data_,
-				new OnClickListener() {
-					@Override
-					public void onClick(final DialogInterface dialog,
-							final int which) {
-						Preferences.this.resetData(-1);
-					}
-				});
+		builder.setNeutralButton(R.string.reset_data_data_, new OnClickListener() {
+			@Override
+			public void onClick(final DialogInterface dialog, final int which) {
+				Preferences.this.resetData(-1);
+			}
+		});
 		builder.setNegativeButton(android.R.string.no, null);
 		builder.show();
 	}
@@ -457,8 +433,7 @@ public final class Preferences extends PreferenceActivity implements
 	 * @param recipient
 	 *            recipient of export
 	 */
-	private void exportData(final String descr, final String fn,
-			final String recipient) {
+	private void exportData(final String descr, final String fn, final String recipient) {
 		if (descr == null) {
 			final EditText et = new EditText(this);
 			Builder builder = new Builder(this);
@@ -466,15 +441,12 @@ public final class Preferences extends PreferenceActivity implements
 			builder.setCancelable(true);
 			builder.setTitle(R.string.export_rules_descr);
 			builder.setNegativeButton(android.R.string.cancel, null);
-			builder.setPositiveButton(android.R.string.ok,
-					new OnClickListener() {
-						@Override
-						public void onClick(final DialogInterface dialog,
-								final int which) {
-							Preferences.this.exportData(
-									et.getText().toString(), fn, recipient);
-						}
-					});
+			builder.setPositiveButton(android.R.string.ok, new OnClickListener() {
+				@Override
+				public void onClick(final DialogInterface dialog, final int which) {
+					Preferences.this.exportData(et.getText().toString(), fn, recipient);
+				}
+			});
 			builder.show();
 		} else {
 			final ProgressDialog d = new ProgressDialog(this);
@@ -484,21 +456,17 @@ public final class Preferences extends PreferenceActivity implements
 			d.show();
 
 			// run task in background
-			final AsyncTask<Void, Void, String> task = // .
-			new AsyncTask<Void, Void, String>() {
+			final AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
 				@Override
 				protected String doInBackground(final Void... params) {
 					if (fn.equals(DataProvider.EXPORT_RULESET_FILE)) {
-						return DataProvider.backupRuleSet(Preferences.this,
-								descr);
+						return DataProvider.backupRuleSet(Preferences.this, descr);
 					} else if (fn.equals(DataProvider.EXPORT_LOGS_FILE)) {
 						return DataProvider.backupLogs(Preferences.this, descr);
 					} else if (fn.equals(DataProvider.EXPORT_NUMGROUPS_FILE)) {
-						return DataProvider.backupNumGroups(Preferences.this,
-								descr);
+						return DataProvider.backupNumGroups(Preferences.this, descr);
 					} else if (fn.equals(DataProvider.EXPORT_HOURGROUPS_FILE)) {
-						return DataProvider.backupHourGroups(Preferences.this,
-								descr);
+						return DataProvider.backupHourGroups(Preferences.this, descr);
 					}
 					return null;
 				}
@@ -517,31 +485,25 @@ public final class Preferences extends PreferenceActivity implements
 						} else if (fn.equals(DataProvider.EXPORT_LOGS_FILE)) {
 							uri = DataProvider.EXPORT_LOGS_URI;
 							resChooser = R.string.export_logs_;
-						} else if (fn
-								.equals(DataProvider.EXPORT_NUMGROUPS_FILE)) {
+						} else if (fn.equals(DataProvider.EXPORT_NUMGROUPS_FILE)) {
 							uri = DataProvider.EXPORT_NUMGROUPS_URI;
 							resChooser = R.string.export_numgroups_;
-						} else if (fn
-								.equals(DataProvider.EXPORT_HOURGROUPS_FILE)) {
+						} else if (fn.equals(DataProvider.EXPORT_HOURGROUPS_FILE)) {
 							uri = DataProvider.EXPORT_HOURGROUPS_URI;
 							resChooser = R.string.export_hourgroups_;
 						}
 						final Intent intent = new Intent(Intent.ACTION_SEND);
 						intent.setType(DataProvider.EXPORT_MIMETYPE);
 						intent.putExtra(Intent.EXTRA_STREAM, uri);
-						intent.putExtra(Intent.EXTRA_SUBJECT, // .
-								"Call Meter 3G export");
+						intent.putExtra(Intent.EXTRA_SUBJECT, "Call Meter 3G export");
 						if (!TextUtils.isEmpty(recipient)) {
-							intent.putExtra(Intent.EXTRA_EMAIL,
-									new String[] { recipient });
+							intent.putExtra(Intent.EXTRA_EMAIL, new String[] { recipient });
 						}
 						intent.addCategory(Intent.CATEGORY_DEFAULT);
 
 						try {
-							final File d = Environment
-									.getExternalStorageDirectory();
-							final File f = new File(d, DataProvider.PACKAGE
-									+ File.separator + fn);
+							final File d = Environment.getExternalStorageDirectory();
+							final File f = new File(d, DataProvider.PACKAGE + File.separator + fn);
 							f.mkdirs();
 							if (f.exists()) {
 								f.delete();
@@ -550,21 +512,16 @@ public final class Preferences extends PreferenceActivity implements
 							FileWriter fw = new FileWriter(f);
 							fw.append(result);
 							fw.close();
-							final String t = Preferences.this
-									.getString(R.string.exported_)
-									+ " "
+							final String t = Preferences.this.getString(R.string.exported_) + " "
 									+ f.getAbsolutePath();
-							Toast.makeText(Preferences.this, t,
-									Toast.LENGTH_LONG).show();
+							Toast.makeText(Preferences.this, t, Toast.LENGTH_LONG).show();
 							// call an exporting app with the uri to the
 							// preferences
-							Preferences.this.startActivity(Intent
-									.createChooser(intent, Preferences.this
-											.getString(resChooser)));
+							Preferences.this.startActivity(Intent.createChooser(intent,
+									Preferences.this.getString(resChooser)));
 						} catch (IOException e) {
 							Log.e(TAG, "error writing export file", e);
-							Toast.makeText(Preferences.this,
-									R.string.err_export_write,
+							Toast.makeText(Preferences.this, R.string.err_export_write,
 									Toast.LENGTH_LONG).show();
 						}
 					}
@@ -593,9 +550,8 @@ public final class Preferences extends PreferenceActivity implements
 			p.setOnPreferenceChangeListener(this);
 		}
 
-		Market.setOnPreferenceClickListener(this,
-				this.findPreference("more_apps"), null, Market.SEARCH_APPS,
-				Market.ALT_APPS);
+		Market.setOnPreferenceClickListener(this, this.findPreference("more_apps"), null,
+				Market.SEARCH_APPS, Market.ALT_APPS);
 		p = this.findPreference("send_logs");
 		if (p != null) {
 			p.setOnPreferenceClickListener(this);
@@ -642,8 +598,7 @@ public final class Preferences extends PreferenceActivity implements
 
 	/** Load widget list. */
 	private void loadWidgets() {
-		SharedPreferences prefs = PreferenceManager
-				.getDefaultSharedPreferences(this);
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		Preference p = this.findPreference("widgets");
 		if (p != null && p instanceof PreferenceScreen) {
 			PreferenceScreen ps = (PreferenceScreen) p;
@@ -653,9 +608,7 @@ public final class Preferences extends PreferenceActivity implements
 			boolean added = false;
 			if (ids != null && ids.length > 0) {
 				for (int id : ids) {
-					if (prefs.getLong(
-							StatsAppWidgetProvider.WIDGET_PLANID + id, // .
-							-1) <= 0) {
+					if (prefs.getLong(StatsAppWidgetProvider.WIDGET_PLANID + id, -1) <= 0) {
 						Log.w(TAG, "skip widget: " + id);
 						continue;
 					}
@@ -663,15 +616,11 @@ public final class Preferences extends PreferenceActivity implements
 					p = new Preference(this);
 					p.setTitle(this.getString(R.string.widget_) + " #" + id);
 					final int fid = id;
-					p.setOnPreferenceClickListener(// .
-					new OnPreferenceClickListener() {
+					p.setOnPreferenceClickListener(new OnPreferenceClickListener() {
 						@Override
-						public boolean onPreferenceClick(
-								final Preference preference) {
-							Intent i = new Intent(Preferences.this,
-									StatsAppWidgetConfigure.class);
-							i.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, // .
-									fid);
+						public boolean onPreferenceClick(final Preference preference) {
+							Intent i = new Intent(Preferences.this, StatsAppWidgetConfigure.class);
+							i.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, fid);
 							Preferences.this.startActivity(i);
 							return true;
 						}
@@ -694,8 +643,7 @@ public final class Preferences extends PreferenceActivity implements
 	@Override
 	protected void onResume() {
 		super.onResume();
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(this);
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
 		this.checkSimplePrefs(p.getBoolean(PREFS_PREPAID, false));
 		this.loadWidgets();
 	}
@@ -707,8 +655,7 @@ public final class Preferences extends PreferenceActivity implements
 	 *            override decision, true will disable "simple preferences"
 	 */
 	private void checkSimplePrefs(final boolean overrideNo) {
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(this);
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
 		boolean enabled = !overrideNo && p.getBoolean(PREFS_ISDEFAULT, false);
 		Preference pr = this.findPreference("simple_settings");
 		pr.setEnabled(enabled);
@@ -743,8 +690,7 @@ public final class Preferences extends PreferenceActivity implements
 			final HttpGet request = new HttpGet(url);
 			Log.d(TAG, "url: " + url);
 			try {
-				final HttpResponse response = new DefaultHttpClient()
-						.execute(request);
+				final HttpResponse response = new DefaultHttpClient().execute(request);
 				int resp = response.getStatusLine().getStatusCode();
 				if (resp != HttpStatus.SC_OK) {
 					return null;
@@ -754,8 +700,7 @@ public final class Preferences extends PreferenceActivity implements
 				Log.e(TAG, "error in reading export: " + url, e);
 				return null;
 			}
-		} else if (uri.toString().startsWith("content://")
-				|| uri.toString().startsWith("file://")) {
+		} else if (uri.toString().startsWith("content://") || uri.toString().startsWith("file://")) {
 			try {
 				return cr.openInputStream(uri);
 			} catch (IOException e) {
@@ -791,9 +736,8 @@ public final class Preferences extends PreferenceActivity implements
 					final InputStream is = Preferences.this.getStream(
 							Preferences.this.getContentResolver(), uri);
 					if (is != IS_DEFAULT) {
-						final BufferedReader bufferedReader = // .
-						new BufferedReader(new InputStreamReader(// .
-								is), BUFSIZE);
+						final BufferedReader bufferedReader = new BufferedReader(
+								new InputStreamReader(is), BUFSIZE);
 						String line = bufferedReader.readLine();
 						while (line != null) {
 							sb.append(line);
@@ -815,8 +759,8 @@ public final class Preferences extends PreferenceActivity implements
 				Log.d(TAG, "import:\n" + result);
 				d1.dismiss();
 				if (result == null || result.length() == 0) {
-					Toast.makeText(Preferences.this, R.string.err_export_read,
-							Toast.LENGTH_LONG).show();
+					Toast.makeText(Preferences.this, R.string.err_export_read, Toast.LENGTH_LONG)
+							.show();
 					return;
 				}
 				Builder builder = new Builder(Preferences.this);
@@ -825,49 +769,39 @@ public final class Preferences extends PreferenceActivity implements
 				} else {
 					String[] lines = result.split("\n");
 					if (lines.length <= 2) {
-						Toast.makeText(Preferences.this,
-								R.string.err_export_read, Toast.LENGTH_LONG)
-								.show();
+						Toast.makeText(Preferences.this, R.string.err_export_read,
+								Toast.LENGTH_LONG).show();
 						return;
 					}
-					builder.setMessage(Preferences.this
-							.getString(R.string.import_rules_hint)
-							+ "\n"
-							+ URLDecoder.decode(lines[1]));
+					builder.setMessage(Preferences.this.getString(R.string.import_rules_hint)
+							+ "\n" + URLDecoder.decode(lines[1]));
 				}
 				builder.setCancelable(true);
 				builder.setTitle(R.string.import_rules_);
 				builder.setNegativeButton(android.R.string.cancel, null);
-				builder.setPositiveButton(android.R.string.ok,
-						new OnClickListener() {
+				builder.setPositiveButton(android.R.string.ok, new OnClickListener() {
+					@Override
+					public void onClick(final DialogInterface dialog, final int which) {
+						d1.setCancelable(false);
+						d1.setIndeterminate(true);
+						d1.show();
+						new AsyncTask<Void, Void, Void>() {
 							@Override
-							public void onClick(final DialogInterface dialog,
-									final int which) {
-								d1.setCancelable(false);
-								d1.setIndeterminate(true);
-								d1.show();
-								new AsyncTask<Void, Void, Void>() {
-									@Override
-									protected Void doInBackground(
-											final Void... params) {
-										DataProvider.importData(
-												Preferences.this, result);
-										return null;
-									}
-
-									@Override
-									protected void onPostExecute(
-											final Void result) {
-										d1.dismiss();
-									}
-								} // .
-								.execute((Void) null);
+							protected Void doInBackground(final Void... params) {
+								DataProvider.importData(Preferences.this, result);
+								return null;
 							}
-						});
+
+							@Override
+							protected void onPostExecute(final Void result) {
+								d1.dismiss();
+							}
+						}.execute((Void) null);
+					}
+				});
 				builder.show();
 			}
-		} // .
-		.execute((Void) null);
+		}.execute((Void) null);
 	}
 
 	/**
@@ -888,13 +822,11 @@ public final class Preferences extends PreferenceActivity implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean onPreferenceChange(final Preference preference,
-			final Object newValue) {
+	public boolean onPreferenceChange(final Preference preference, final Object newValue) {
 		final String k = preference.getKey();
 		if (k.equals(PREFS_ADVANCED)) {
 			if (newValue.equals(true)) {
-				Preferences.this.startActivity(new Intent(Preferences.this,
-						HelpActivity.class));
+				Preferences.this.startActivity(new Intent(Preferences.this, HelpActivity.class));
 			}
 			return true;
 		} else if (k.equals(PREFS_PREPAID)) {
@@ -914,49 +846,40 @@ public final class Preferences extends PreferenceActivity implements
 			Log.collectAndSendLog(Preferences.this);
 			return true;
 		} else if (k.equals("send_devices")) {
-			final Intent intent = new Intent(// .
-					Intent.ACTION_SEND);
+			final Intent intent = new Intent(Intent.ACTION_SEND);
 			intent.setType("text/plain");
-			intent.putExtra(Intent.EXTRA_EMAIL, new String[] {
-					"android+callmeter@ub0r.de", "" });
+			intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "android+callmeter@ub0r.de", "" });
 			intent.putExtra(Intent.EXTRA_TEXT, Device.debugDeviceList(this));
 			intent.putExtra(Intent.EXTRA_SUBJECT, "Call Meter 3G: Device List");
 			try {
 				Preferences.this.startActivity(intent);
 			} catch (ActivityNotFoundException e) {
 				Log.e(TAG, "no mail", e);
-				Toast.makeText(Preferences.this, "no mail app found",
-						Toast.LENGTH_LONG).show();
+				Toast.makeText(Preferences.this, "no mail app found", Toast.LENGTH_LONG).show();
 			}
 			return true;
 		} else if (k.equals("reset_data")) {
 			this.resetDataDialog();
 			return true;
 		} else if (k.equals("export_rules")) {
-			Preferences.this.exportData(null, DataProvider.EXPORT_RULESET_FILE,
-					null);
+			Preferences.this.exportData(null, DataProvider.EXPORT_RULESET_FILE, null);
 			return true;
 		} else if (k.equals("export_rules_dev")) {
 			Preferences.this.exportData(null, DataProvider.EXPORT_RULESET_FILE,
 					"android+callmeter@ub0r.de");
 			return true;
 		} else if (k.equals("export_logs")) {
-			Preferences.this.exportData(null, DataProvider.EXPORT_LOGS_FILE,
-					null);
+			Preferences.this.exportData(null, DataProvider.EXPORT_LOGS_FILE, null);
 			return true;
 		} else if (k.equals("export_numgroups")) {
-			Preferences.this.exportData(null,
-					DataProvider.EXPORT_NUMGROUPS_FILE, null);
+			Preferences.this.exportData(null, DataProvider.EXPORT_NUMGROUPS_FILE, null);
 			return true;
 		} else if (k.equals("export_hourgroups")) {
-			Preferences.this.exportData(null,
-					DataProvider.EXPORT_HOURGROUPS_FILE, null);
+			Preferences.this.exportData(null, DataProvider.EXPORT_HOURGROUPS_FILE, null);
 			return true;
 		} else if (k.equals("import_rules")) {
 			Preferences.this.startActivity(new Intent(Intent.ACTION_VIEW, Uri
-					.parse(// .
-					Preferences.this.getString(// .
-							R.string.url_rulesets))));
+					.parse(Preferences.this.getString(R.string.url_rulesets))));
 			return true;
 		} else if (k.equals("import_rules_default")) {
 			final Intent i = new Intent(Preferences.this, Preferences.class);

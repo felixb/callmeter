@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -60,8 +60,8 @@ import de.ub0r.android.lib.Log;
  * 
  * @author flx
  */
-public final class LogsFragment extends ListFragment implements
-		OnClickListener, OnItemLongClickListener, LoaderCallbacks<Cursor> {
+public final class LogsFragment extends ListFragment implements OnClickListener,
+		OnItemLongClickListener, LoaderCallbacks<Cursor> {
 	/** Tag for output. */
 	private static final String TAG = "logs";
 
@@ -117,8 +117,8 @@ public final class LogsFragment extends ListFragment implements
 		@Override
 		public final Cursor swapCursor(final Cursor cursor) {
 			Cursor c = super.swapCursor(cursor);
-			idPlanName = cursor.getColumnIndex(DataProvider.Plans.NAME);
-			idRuleName = cursor.getColumnIndex(DataProvider.Rules.NAME);
+			this.idPlanName = cursor.getColumnIndex(DataProvider.Plans.NAME);
+			this.idRuleName = cursor.getColumnIndex(DataProvider.Rules.NAME);
 			return c;
 		}
 
@@ -126,29 +126,22 @@ public final class LogsFragment extends ListFragment implements
 		 * {@inheritDoc}
 		 */
 		@Override
-		public final void bindView(final View view, final Context context,
-				final Cursor cursor) {
+		public final void bindView(final View view, final Context context, final Cursor cursor) {
 			final StringBuilder buf = new StringBuilder();
 			final int t = cursor.getInt(DataProvider.Logs.INDEX_TYPE);
-			String[] strs = context.getResources().getStringArray(
-					R.array.plans_type);
+			String[] strs = context.getResources().getStringArray(R.array.plans_type);
 			buf.append(strs[t]);
 			final int dir = cursor.getInt(DataProvider.Logs.INDEX_DIRECTION);
-			strs = context.getResources().getStringArray(
-					R.array.direction_calls);
+			strs = context.getResources().getStringArray(R.array.direction_calls);
 			buf.append(" (" + strs[dir] + "): ");
 			final long date = cursor.getLong(DataProvider.Logs.INDEX_DATE);
 			buf.append(Common.formatDate(context, date));
 			buf.append(" ");
-			buf.append(DateFormat.getTimeFormat(context).format(// .
-					new Date(date)));
-			((TextView) view.findViewById(android.R.id.text1)).setText(buf
-					.toString());
+			buf.append(DateFormat.getTimeFormat(context).format(new Date(date)));
+			((TextView) view.findViewById(android.R.id.text1)).setText(buf.toString());
 
-			((TextView) view.findViewById(R.id.plan)).setText(cursor
-					.getString(idPlanName));
-			((TextView) view.findViewById(R.id.rule)).setText(cursor
-					.getString(idRuleName));
+			((TextView) view.findViewById(R.id.plan)).setText(cursor.getString(this.idPlanName));
+			((TextView) view.findViewById(R.id.rule)).setText(cursor.getString(this.idRuleName));
 
 			String s = cursor.getString(DataProvider.Logs.INDEX_REMOTE);
 			if (s == null || s.trim().length() == 0) {
@@ -162,7 +155,7 @@ public final class LogsFragment extends ListFragment implements
 			}
 
 			final long amount = cursor.getLong(DataProvider.Logs.INDEX_AMOUNT);
-			s = Common.formatAmount(t, amount, showHours);
+			s = Common.formatAmount(t, amount, LogsFragment.this.showHours);
 			if (s == null || s.trim().length() == 0 || s.equals("1")) {
 				view.findViewById(R.id.length).setVisibility(View.GONE);
 				view.findViewById(R.id.length_).setVisibility(View.GONE);
@@ -172,11 +165,10 @@ public final class LogsFragment extends ListFragment implements
 				view.findViewById(R.id.length_).setVisibility(View.VISIBLE);
 				tw.setText(s);
 			}
-			final float ba = cursor
-					.getFloat(DataProvider.Logs.INDEX_BILL_AMOUNT);
+			final float ba = cursor.getFloat(DataProvider.Logs.INDEX_BILL_AMOUNT);
 			TextView tw = (TextView) view.findViewById(R.id.blength);
 			if (amount != ba) {
-				tw.setText(Common.formatAmount(t, ba, showHours));
+				tw.setText(Common.formatAmount(t, ba, LogsFragment.this.showHours));
 				tw.setVisibility(View.VISIBLE);
 				view.findViewById(R.id.blength_).setVisibility(View.VISIBLE);
 			} else {
@@ -191,14 +183,10 @@ public final class LogsFragment extends ListFragment implements
 				if (free == 0f) {
 					c = String.format(LogsFragment.this.cformat, cost);
 				} else if (free >= cost) {
-					c = "(" + String.format(LogsFragment.this.cformat, cost)
-							+ ")";
+					c = "(" + String.format(LogsFragment.this.cformat, cost) + ")";
 				} else {
-					c = "("
-							+ String.format(LogsFragment.this.cformat, free)
-							+ ") "
-							+ String.format(LogsFragment.this.cformat, cost
-									- free);
+					c = "(" + String.format(LogsFragment.this.cformat, free) + ") "
+							+ String.format(LogsFragment.this.cformat, cost - free);
 				}
 				tw.setText(c);
 				tw.setVisibility(View.VISIBLE);
@@ -232,8 +220,8 @@ public final class LogsFragment extends ListFragment implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public View onCreateView(final LayoutInflater inflater,
-			final ViewGroup container, final Bundle savedInstanceState) {
+	public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
+			final Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.logs, container, false);
 		this.tbCall = (ToggleButton) v.findViewById(R.id.calls);
 		this.tbCall.setOnClickListener(this);
@@ -249,8 +237,8 @@ public final class LogsFragment extends ListFragment implements
 		this.tbOut.setOnClickListener(this);
 		this.tbPlan = (ToggleButton) v.findViewById(R.id.plan);
 		this.tbPlan.setOnClickListener(this);
-		final SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(this.getActivity());
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this
+				.getActivity());
 		this.tbCall.setChecked(p.getBoolean(PREF_CALL, true));
 		this.tbSMS.setChecked(p.getBoolean(PREF_SMS, true));
 		this.tbMMS.setChecked(p.getBoolean(PREF_MMS, true));
@@ -258,14 +246,13 @@ public final class LogsFragment extends ListFragment implements
 		this.tbIn.setChecked(p.getBoolean(PREF_IN, true));
 		this.tbOut.setChecked(p.getBoolean(PREF_OUT, true));
 
-		String[] directions = getResources().getStringArray(
-				R.array.direction_calls);
-		tbIn.setText(directions[DataProvider.DIRECTION_IN]);
-		tbIn.setTextOn(directions[DataProvider.DIRECTION_IN]);
-		tbIn.setTextOff(directions[DataProvider.DIRECTION_IN]);
-		tbOut.setText(directions[DataProvider.DIRECTION_OUT]);
-		tbOut.setTextOn(directions[DataProvider.DIRECTION_OUT]);
-		tbOut.setTextOff(directions[DataProvider.DIRECTION_OUT]);
+		String[] directions = this.getResources().getStringArray(R.array.direction_calls);
+		this.tbIn.setText(directions[DataProvider.DIRECTION_IN]);
+		this.tbIn.setTextOn(directions[DataProvider.DIRECTION_IN]);
+		this.tbIn.setTextOff(directions[DataProvider.DIRECTION_IN]);
+		this.tbOut.setText(directions[DataProvider.DIRECTION_OUT]);
+		this.tbOut.setTextOn(directions[DataProvider.DIRECTION_OUT]);
+		this.tbOut.setTextOff(directions[DataProvider.DIRECTION_OUT]);
 		directions = null;
 
 		return v;
@@ -278,9 +265,8 @@ public final class LogsFragment extends ListFragment implements
 	public void onResume() {
 		super.onResume();
 		Common.setDateFormat(this.getActivity());
-		this.showHours = PreferenceManager.getDefaultSharedPreferences(
-				this.getActivity()).getBoolean(Preferences.PREFS_SHOWHOURS,
-				true);
+		this.showHours = PreferenceManager.getDefaultSharedPreferences(this.getActivity())
+				.getBoolean(Preferences.PREFS_SHOWHOURS, true);
 		this.cformat = Preferences.getCurrencyFormat(this.getActivity());
 	}
 
@@ -290,8 +276,7 @@ public final class LogsFragment extends ListFragment implements
 	@Override
 	public void onStop() {
 		super.onStop();
-		final Editor e = PreferenceManager.getDefaultSharedPreferences(
-				this.getActivity()).edit();
+		final Editor e = PreferenceManager.getDefaultSharedPreferences(this.getActivity()).edit();
 		e.putBoolean(PREF_CALL, this.tbCall.isChecked());
 		e.putBoolean(PREF_SMS, this.tbSMS.isChecked());
 		e.putBoolean(PREF_MMS, this.tbMMS.isChecked());
@@ -313,8 +298,7 @@ public final class LogsFragment extends ListFragment implements
 			return;
 		}
 
-		String where = DataProvider.Logs.TABLE + "." + DataProvider.Logs.TYPE
-				+ " in (-1";
+		String where = DataProvider.Logs.TABLE + "." + DataProvider.Logs.TYPE + " in (-1";
 		if (this.tbCall.isChecked()) {
 			where += "," + DataProvider.TYPE_CALL;
 		}
@@ -327,8 +311,7 @@ public final class LogsFragment extends ListFragment implements
 		if (this.tbData.isChecked()) {
 			where += "," + DataProvider.TYPE_DATA;
 		}
-		where += ") and " + DataProvider.Logs.TABLE + "."
-				+ DataProvider.Logs.DIRECTION + " in (-1";
+		where += ") and " + DataProvider.Logs.TABLE + "." + DataProvider.Logs.DIRECTION + " in (-1";
 		if (this.tbIn.isChecked()) {
 			where += "," + DataProvider.DIRECTION_IN;
 		}
@@ -338,8 +321,8 @@ public final class LogsFragment extends ListFragment implements
 		where += ")";
 
 		if (this.planId > 0L && this.tbPlan.isChecked()) {
-			where = DbUtils.sqlAnd(DataProvider.Logs.TABLE + "."
-					+ DataProvider.Logs.PLAN_ID + "=" + this.planId, where);
+			where = DbUtils.sqlAnd(DataProvider.Logs.TABLE + "." + DataProvider.Logs.PLAN_ID + "="
+					+ this.planId, where);
 		}
 		Bundle args = new Bundle(1);
 		args.putString("where", where);
@@ -363,8 +346,8 @@ public final class LogsFragment extends ListFragment implements
 		if (id < 0L) {
 			this.tbPlan.setVisibility(View.GONE);
 		} else {
-			String p = DataProvider.Plans.getName(this.getActivity()
-					.getContentResolver(), this.planId);
+			String p = DataProvider.Plans.getName(this.getActivity().getContentResolver(),
+					this.planId);
 			this.tbPlan.setText(p);
 			this.tbPlan.setTextOn(p);
 			this.tbPlan.setTextOff(p);
@@ -387,8 +370,7 @@ public final class LogsFragment extends ListFragment implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void onCreateOptionsMenu(final Menu menu, // .
-			final MenuInflater inflater) {
+	public void onCreateOptionsMenu(final Menu menu, final MenuInflater inflater) {
 		inflater.inflate(R.menu.menu_logs, menu);
 	}
 
@@ -399,8 +381,7 @@ public final class LogsFragment extends ListFragment implements
 	public boolean onOptionsItemSelected(final MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.item_add:
-			this.getActivity().startActivity(
-					new Intent(this.getActivity(), AddLogActivity.class));
+			this.getActivity().startActivity(new Intent(this.getActivity(), AddLogActivity.class));
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -411,26 +392,22 @@ public final class LogsFragment extends ListFragment implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean onItemLongClick(final AdapterView<?> parent,
-			final View view, final int position, final long id) {
+	public boolean onItemLongClick(final AdapterView<?> parent, final View view,
+			final int position, final long id) {
 		final Builder b = new Builder(this.getActivity());
 		b.setCancelable(true);
-		b.setItems(R.array.dialog_delete,
-				new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(final DialogInterface dialog,
-							final int which) {
-						LogsFragment.this
-								.getActivity()
-								.getContentResolver()
-								.delete(ContentUris.withAppendedId(
-										DataProvider.Logs.CONTENT_URI, id),
-										null, null);
-						LogsFragment.this.setAdapter(true);
-						LogRunnerService.update(
-								LogsFragment.this.getActivity(), null);
-					}
-				});
+		b.setItems(R.array.dialog_delete, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(final DialogInterface dialog, final int which) {
+				LogsFragment.this
+						.getActivity()
+						.getContentResolver()
+						.delete(ContentUris.withAppendedId(DataProvider.Logs.CONTENT_URI, id),
+								null, null);
+				LogsFragment.this.setAdapter(true);
+				LogRunnerService.update(LogsFragment.this.getActivity(), null);
+			}
+		});
 		b.setNegativeButton(android.R.string.cancel, null);
 		b.show();
 		return true;
@@ -444,16 +421,14 @@ public final class LogsFragment extends ListFragment implements
 		if (args != null) {
 			where = args.getString("where");
 		}
-		return new CursorLoader(this.getActivity(),
-				DataProvider.Logs.CONTENT_URI_JOIN,
-				DataProvider.Logs.PROJECTION_JOIN, where, null,
-				DataProvider.Logs.DATE + " DESC");
+		return new CursorLoader(this.getActivity(), DataProvider.Logs.CONTENT_URI_JOIN,
+				DataProvider.Logs.PROJECTION_JOIN, where, null, DataProvider.Logs.DATE + " DESC");
 	}
 
 	@Override
 	public void onLoadFinished(final Loader<Cursor> loader, final Cursor data) {
 		Log.d(TAG, "onLoadFinished()");
-		((LogAdapter) getListAdapter()).swapCursor(data);
+		((LogAdapter) this.getListAdapter()).swapCursor(data);
 		((Plans) this.getActivity()).setProgress(-1);
 	}
 

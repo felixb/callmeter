@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -52,8 +52,8 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public class PlanEdit extends ListActivity implements OnClickListener,
-		OnItemClickListener, OnDismissListener {
+public class PlanEdit extends ListActivity implements OnClickListener, OnItemClickListener,
+		OnDismissListener {
 	/** Tag for debug out. */
 	private static final String TAG = "pe";
 
@@ -75,9 +75,8 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
-		this.setTitle(this.getString(R.string.settings) + " > "
-				+ this.getString(R.string.plans) + " > "
-				+ this.getString(R.string.edit_));
+		this.setTitle(this.getString(R.string.settings) + " > " + this.getString(R.string.plans)
+				+ " > " + this.getString(R.string.edit_));
 		this.setContentView(R.layout.list_ok_cancel);
 
 		this.getListView().setOnItemClickListener(this);
@@ -103,8 +102,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 	protected final void onResume() {
 		super.onResume();
 		Utils.setLocale(this);
-		final SharedPreferences prefs = PreferenceManager
-				.getDefaultSharedPreferences(this);
+		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		this.showAdvanced = prefs.getBoolean(Preferences.PREFS_ADVANCED, false);
 		this.showHideFileds();
 	}
@@ -125,92 +123,76 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 	private PreferenceAdapter getAdapter() {
 		final PreferenceAdapter ret = new PreferenceAdapter(this);
 		ret.add(new TextPreference(this, DataProvider.Plans.NAME, this
-				.getString(R.string.plans_new), R.string.name_,
-				R.string.name_help, InputType.TYPE_CLASS_TEXT));
-		ret.add(new TextPreference(this, DataProvider.Plans.SHORTNAME, this
-				.getString(R.string.plans_new).replaceAll(" ", ""),
-				R.string.shortname_, R.string.shortname_help,
+				.getString(R.string.plans_new), R.string.name_, R.string.name_help,
 				InputType.TYPE_CLASS_TEXT));
-		ret.add(new ListPreference(this, DataProvider.Plans.TYPE,
-				DataProvider.TYPE_CALL, R.string.type_, R.string.type_help,
-				R.array.plans_type));
+		ret.add(new TextPreference(this, DataProvider.Plans.SHORTNAME, this.getString(
+				R.string.plans_new).replaceAll(" ", ""), R.string.shortname_,
+				R.string.shortname_help, InputType.TYPE_CLASS_TEXT));
+		ret.add(new ListPreference(this, DataProvider.Plans.TYPE, DataProvider.TYPE_CALL,
+				R.string.type_, R.string.type_help, R.array.plans_type));
 		ret.add(new ListPreference(this, DataProvider.Plans.BILLPERIOD,
-				DataProvider.BILLPERIOD_1MONTH, R.string.billperiod_,
-				R.string.billperiod_help, R.array.billperiod));
-		ret.add(new DatePreference(this, DataProvider.Plans.BILLDAY,
-				R.string.billday_, R.string.billday_help, true));
+				DataProvider.BILLPERIOD_1MONTH, R.string.billperiod_, R.string.billperiod_help,
+				R.array.billperiod));
+		ret.add(new DatePreference(this, DataProvider.Plans.BILLDAY, R.string.billday_,
+				R.string.billday_help, true));
 		ret.add(new CursorPreference(this, DataProvider.Plans.BILLPERIOD_ID,
 				R.string.billperiodid_, R.string.billperiodid_help, -1, -1, -1,
-				DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID,
-				DataProvider.Plans.NAME, DataProvider.Plans.TYPE + " == "
-						+ DataProvider.TYPE_BILLPERIOD, false, null, null, // .
+				DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID, DataProvider.Plans.NAME,
+				DataProvider.Plans.TYPE + " == " + DataProvider.TYPE_BILLPERIOD, false, null, null,
 				null));
-		ret.add(new CursorPreference(this, DataProvider.Plans.MERGED_PLANS,
-				R.string.merge_plans_, R.string.merge_plans_help, -1, -1, -1,
-				DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID,
-				DataProvider.Plans.NAME, null, true, null, null, null));
+		ret.add(new CursorPreference(this, DataProvider.Plans.MERGED_PLANS, R.string.merge_plans_,
+				R.string.merge_plans_help, -1, -1, -1, DataProvider.Plans.CONTENT_URI,
+				DataProvider.Plans.ID, DataProvider.Plans.NAME, null, true, null, null, null));
 		ret.add(new ListPreference(this, DataProvider.Plans.LIMIT_TYPE,
-				DataProvider.LIMIT_TYPE_NONE, R.string.limit_type_,
-				R.string.limit_type_help, R.array.limit_type));
-		ret.add(new TextPreference(this, DataProvider.Plans.LIMIT, "0",
-				R.string.limit_, R.string.limit_help,
-				InputType.TYPE_CLASS_NUMBER
+				DataProvider.LIMIT_TYPE_NONE, R.string.limit_type_, R.string.limit_type_help,
+				R.array.limit_type));
+		ret.add(new TextPreference(this, DataProvider.Plans.LIMIT, "0", R.string.limit_,
+				R.string.limit_help, InputType.TYPE_CLASS_NUMBER
 						| InputType.TYPE_NUMBER_FLAG_DECIMAL));
-		ret.add(new BillmodePreference(this, DataProvider.Plans.BILLMODE,
-				R.string.billmode_, R.string.billmode_help));
+		ret.add(new BillmodePreference(this, DataProvider.Plans.BILLMODE, R.string.billmode_,
+				R.string.billmode_help));
 		ret.add(new TextPreference(this, DataProvider.Plans.STRIP_SECONDS, "0",
-				R.string.strip_seconds_, R.string.strip_seconds_help,
-				InputType.TYPE_CLASS_NUMBER));
+				R.string.strip_seconds_, R.string.strip_seconds_help, InputType.TYPE_CLASS_NUMBER));
 		int t, th;
 		if (this.ptype == DataProvider.TYPE_BILLPERIOD
-				&& PreferenceManager.getDefaultSharedPreferences(this)
-						.getBoolean(Preferences.PREFS_PREPAID, false)) {
+				&& PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+						Preferences.PREFS_PREPAID, false)) {
 			t = R.string.balance_;
 			th = R.string.balance_help;
 		} else {
 			t = R.string.cost_per_plan_;
 			th = R.string.cost_per_plan_help;
 		}
-		ret.add(new TextPreference(this, DataProvider.Plans.COST_PER_PLAN, "0",
-				t, th, InputType.TYPE_CLASS_NUMBER
-						| InputType.TYPE_NUMBER_FLAG_DECIMAL));
-		ret.add(new TextPreference(this,
-				DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, "0",
-				R.string.cost_per_item_in_limit_,
-				R.string.cost_per_item_in_limit_help,
-				InputType.TYPE_CLASS_NUMBER
-						| InputType.TYPE_NUMBER_FLAG_DECIMAL));
+		ret.add(new TextPreference(this, DataProvider.Plans.COST_PER_PLAN, "0", t, th,
+				InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL));
+		ret.add(new TextPreference(this, DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, "0",
+				R.string.cost_per_item_in_limit_, R.string.cost_per_item_in_limit_help,
+				InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL));
 		ret.add(new TextPreference(this, DataProvider.Plans.COST_PER_ITEM, "0",
-				R.string.cost_per_item_, R.string.cost_per_item_help,
-				InputType.TYPE_CLASS_NUMBER
+				R.string.cost_per_item_, R.string.cost_per_item_help, InputType.TYPE_CLASS_NUMBER
 						| InputType.TYPE_NUMBER_FLAG_DECIMAL));
-		ret.add(new TextPreference(this, DataProvider.Plans.MIXED_UNITS_CALL,
-				"0", R.string.mixed_units_call_,
-				R.string.mixed_units_call_help, InputType.TYPE_CLASS_NUMBER));
-		ret.add(new TextPreference(this, DataProvider.Plans.MIXED_UNITS_SMS,
-				"0", R.string.mixed_units_sms_, R.string.mixed_units_sms_help,
+		ret.add(new TextPreference(this, DataProvider.Plans.MIXED_UNITS_CALL, "0",
+				R.string.mixed_units_call_, R.string.mixed_units_call_help,
 				InputType.TYPE_CLASS_NUMBER));
-		ret.add(new TextPreference(this, DataProvider.Plans.MIXED_UNITS_MMS,
-				"0", R.string.mixed_units_mms_, R.string.mixed_units_mms_help,
+		ret.add(new TextPreference(this, DataProvider.Plans.MIXED_UNITS_SMS, "0",
+				R.string.mixed_units_sms_, R.string.mixed_units_sms_help,
 				InputType.TYPE_CLASS_NUMBER));
-		ret.add(new Text2Preference(this,
-				DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
+		ret.add(new TextPreference(this, DataProvider.Plans.MIXED_UNITS_MMS, "0",
+				R.string.mixed_units_mms_, R.string.mixed_units_mms_help,
+				InputType.TYPE_CLASS_NUMBER));
+		ret.add(new Text2Preference(this, DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
 				DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT2, "0", "0",
-				R.string.cost_per_amount_in_limit_,
-				R.string.cost_per_amount_in_limit_help1,
-				R.string.cost_per_amount_in_limit_help2,
-				InputType.TYPE_CLASS_NUMBER
+				R.string.cost_per_amount_in_limit_, R.string.cost_per_amount_in_limit_help1,
+				R.string.cost_per_amount_in_limit_help2, InputType.TYPE_CLASS_NUMBER
 						| InputType.TYPE_NUMBER_FLAG_DECIMAL));
 		ret.add(new Text2Preference(this, DataProvider.Plans.COST_PER_AMOUNT1,
-				DataProvider.Plans.COST_PER_AMOUNT2, "0", "0",
-				R.string.cost_per_amount_, R.string.cost_per_amount_help1,
-				R.string.cost_per_amount_help2, InputType.TYPE_CLASS_NUMBER
-						| InputType.TYPE_NUMBER_FLAG_DECIMAL));
+				DataProvider.Plans.COST_PER_AMOUNT2, "0", "0", R.string.cost_per_amount_,
+				R.string.cost_per_amount_help1, R.string.cost_per_amount_help2,
+				InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL));
 
 		((TextPreference) ret.getPreference(DataProvider.Plans.COST_PER_PLAN))
 				.setHint(R.string.units_cost);
-		((TextPreference) ret
-				.getPreference(DataProvider.Plans.MIXED_UNITS_CALL))
+		((TextPreference) ret.getPreference(DataProvider.Plans.MIXED_UNITS_CALL))
 				.setHint(R.string.units_units_per_minute);
 		((TextPreference) ret.getPreference(DataProvider.Plans.MIXED_UNITS_MMS))
 				.setHint(R.string.units_units_per_message);
@@ -228,23 +210,19 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			return;
 		}
 
-		final int t = ((ListPreference) a
-				.getPreference(DataProvider.Plans.TYPE)).getValue();
+		final int t = ((ListPreference) a.getPreference(DataProvider.Plans.TYPE)).getValue();
 		String sel;
 		if (t == DataProvider.TYPE_MIXED) {
-			sel = "(" + DataProvider.Plans.TYPE + " = "
-					+ DataProvider.TYPE_CALL + " OR " + DataProvider.Plans.TYPE
-					+ " = " + DataProvider.TYPE_SMS + " OR "
-					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_MMS
-					+ ")";
+			sel = "(" + DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_CALL + " OR "
+					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_SMS + " OR "
+					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_MMS + ")";
 		} else {
 			sel = DataProvider.Plans.TYPE + " = " + t;
 		}
 		sel += " AND " + DataProvider.Plans.ID + " != " + this.pid + " AND "
 				+ DataProvider.Plans.MERGED_PLANS + " IS NULL";
 		Log.d(TAG, "selection: " + sel);
-		((CursorPreference) a.getPreference(DataProvider.Plans.MERGED_PLANS))
-				.setCursor(sel);
+		((CursorPreference) a.getPreference(DataProvider.Plans.MERGED_PLANS)).setCursor(sel);
 	}
 
 	/**
@@ -255,8 +233,8 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 		int nid = -1;
 		Cursor cursor = null;
 		if (uri != null) {
-			cursor = this.getContentResolver().query(uri,
-					DataProvider.Plans.PROJECTION, null, null, null);
+			cursor = this.getContentResolver().query(uri, DataProvider.Plans.PROJECTION, null,
+					null, null);
 			if (cursor == null || !cursor.moveToFirst()) {
 				cursor = null;
 				this.pid = -1;
@@ -282,8 +260,8 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 		}
 		final PreferenceAdapter a = this.adapter;
 		if (this.ptype == DataProvider.TYPE_BILLPERIOD) {
-			final int bp = ((ListPreference) a
-					.getPreference(DataProvider.Plans.BILLPERIOD)).getValue();
+			final int bp = ((ListPreference) a.getPreference(DataProvider.Plans.BILLPERIOD))
+					.getValue();
 			if (bp != DataProvider.BILLPERIOD_INFINITE) {
 				final DatePreference dp = (DatePreference) a
 						.getPreference(DataProvider.Plans.BILLDAY);
@@ -312,12 +290,9 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			final ListPreference p = (ListPreference) a
 					.getPreference(DataProvider.Plans.BILLPERIOD);
 			final int i = p.getValue();
-			a.hide(DataProvider.Plans.BILLDAY, i == // .
-					DataProvider.BILLPERIOD_DAY);
-		} else if (t != DataProvider.TYPE_SPACING
-				&& t != DataProvider.TYPE_TITLE) {
-			final long ppid = DataProvider.Plans.getParent(
-					this.getContentResolver(), this.pid);
+			a.hide(DataProvider.Plans.BILLDAY, i == DataProvider.BILLPERIOD_DAY);
+		} else if (t != DataProvider.TYPE_SPACING && t != DataProvider.TYPE_TITLE) {
+			final long ppid = DataProvider.Plans.getParent(this.getContentResolver(), this.pid);
 			final ListPreference p = (ListPreference) a
 					.getPreference(DataProvider.Plans.LIMIT_TYPE);
 			final int lt = p.getValue();
@@ -328,8 +303,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 				a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
 			}
 			final String mergedPlans = ((CursorPreference) a
-					.getPreference(DataProvider.Plans.MERGED_PLANS))
-					.getMultiValue();
+					.getPreference(DataProvider.Plans.MERGED_PLANS)).getMultiValue();
 			if (mergedPlans != null && mergedPlans.length() > 0) {
 				a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
 				a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
@@ -343,8 +317,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			}
 
 			final Text2Preference pil = (Text2Preference) a
-					.getPreference(DataProvider.Plans.// .
-					COST_PER_AMOUNT_IN_LIMIT1);
+					.getPreference(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1);
 			final Text2Preference pol = (Text2Preference) a
 					.getPreference(DataProvider.Plans.COST_PER_AMOUNT1);
 			pil.setSingleMode(t != DataProvider.TYPE_CALL);
@@ -358,8 +331,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 	private void showHideFileds() {
 		final PreferenceAdapter a = this.adapter;
 		a.hide(DataProvider.Plans.TYPE, !this.showAdvanced);
-		final int t = ((ListPreference) a
-				.getPreference(DataProvider.Plans.TYPE)).getValue();
+		final int t = ((ListPreference) a.getPreference(DataProvider.Plans.TYPE)).getValue();
 		switch (t) {
 		case DataProvider.TYPE_SPACING:
 			a.hide(DataProvider.Plans.SHORTNAME, true);
@@ -381,14 +353,11 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			a.hide(DataProvider.Plans.MERGED_PLANS, true);
 			break;
 		case DataProvider.TYPE_BILLPERIOD:
-			final SharedPreferences p = PreferenceManager
-					.getDefaultSharedPreferences(this);
-			final boolean prepaid = p.getBoolean(Preferences.PREFS_PREPAID,
-					false);
+			final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
+			final boolean prepaid = p.getBoolean(Preferences.PREFS_PREPAID, false);
 			a.hide(DataProvider.Plans.BILLPERIOD, prepaid);
 			if (prepaid) {
-				((ListPreference) a
-						.getPreference(DataProvider.Plans.BILLPERIOD))
+				((ListPreference) a.getPreference(DataProvider.Plans.BILLPERIOD))
 						.setValue(DataProvider.BILLPERIOD_INFINITE);
 			}
 			// TODO: set billperiod on enabling prepaid plans?
@@ -517,11 +486,9 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 		if (a == null) {
 			return;
 		}
-		final ListPreference p = (ListPreference) a
-				.getPreference(DataProvider.Plans.LIMIT_TYPE);
+		final ListPreference p = (ListPreference) a.getPreference(DataProvider.Plans.LIMIT_TYPE);
 		final int lt = p.getValue();
-		TextPreference tp0 = (TextPreference) a
-				.getPreference(DataProvider.Plans.LIMIT);
+		TextPreference tp0 = (TextPreference) a.getPreference(DataProvider.Plans.LIMIT);
 		switch (lt) {
 		case DataProvider.LIMIT_TYPE_COST:
 			tp0.setHint(R.string.units_cost);
@@ -551,8 +518,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 			break;
 		}
 
-		tp0 = (TextPreference) a
-				.getPreference(DataProvider.Plans.COST_PER_ITEM);
+		tp0 = (TextPreference) a.getPreference(DataProvider.Plans.COST_PER_ITEM);
 		TextPreference tp1 = (TextPreference) a
 				.getPreference(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT);
 		Text2Preference tp2 = (Text2Preference) a
@@ -596,8 +562,7 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 		final ContentValues cv = this.adapter.save();
 		final Uri uri = this.getIntent().getData();
 		if (uri == null) {
-			this.getContentResolver()
-					.insert(DataProvider.Plans.CONTENT_URI, cv);
+			this.getContentResolver().insert(DataProvider.Plans.CONTENT_URI, cv);
 		} else {
 			this.getContentResolver().update(uri, cv, null, null);
 		}
@@ -626,8 +591,8 @@ public class PlanEdit extends ListActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void onItemClick(final AdapterView<?> parent, final View view,
-			final int position, final long id) {
+	public final void onItemClick(final AdapterView<?> parent, final View view, final int position,
+			final long id) {
 		final Preference p = this.adapter.getItem(position);
 		p.showDialog(this);
 	}

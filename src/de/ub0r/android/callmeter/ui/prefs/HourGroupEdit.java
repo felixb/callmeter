@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Felix Bechstein, The Android Open Source Project
+ * Copyright (C) 2009-2012 Felix Bechstein, The Android Open Source Project
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -18,8 +18,8 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
+import android.app.ListActivity;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
@@ -32,12 +32,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.ResourceCursorAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
@@ -49,11 +49,9 @@ import de.ub0r.android.lib.apis.ContactsWrapper;
  * 
  * @author flx
  */
-public class HourGroupEdit extends ListActivity implements OnClickListener,
-		OnItemClickListener {
+public class HourGroupEdit extends ListActivity implements OnClickListener, OnItemClickListener {
 	/** {@link ContactsWrapper}. */
-	public static final ContactsWrapper CWRAPPER = ContactsWrapper
-			.getInstance();
+	public static final ContactsWrapper CWRAPPER = ContactsWrapper.getInstance();
 
 	/** Item menu: edit. */
 	private static final int WHICH_EDIT = 0;
@@ -86,19 +84,12 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 		 *            id of Hour group
 		 */
 		public HourAdapter(final Context context, final long id) {
-			super(context, android.R.layout.simple_list_item_1, context
-					.getContentResolver().query(
-							ContentUris.withAppendedId(
-									DataProvider.Hours.GROUP_URI, id),
-							DataProvider.Hours.PROJECTION,
-							null,
-							null,
-							DataProvider.Hours.DAY + ", "
-									+ DataProvider.Hours.HOUR), true);
-			this.resDays = context.getResources().getStringArray(
-					R.array.weekdays_all);
-			this.resHours = context.getResources().getStringArray(
-					R.array.hours_all);
+			super(context, android.R.layout.simple_list_item_1, context.getContentResolver().query(
+					ContentUris.withAppendedId(DataProvider.Hours.GROUP_URI, id),
+					DataProvider.Hours.PROJECTION, null, null,
+					DataProvider.Hours.DAY + ", " + DataProvider.Hours.HOUR), true);
+			this.resDays = context.getResources().getStringArray(R.array.weekdays_all);
+			this.resHours = context.getResources().getStringArray(R.array.hours_all);
 			this.registerDataSetObserver(new DataSetObserver() {
 				@Override
 				public void onChanged() {
@@ -112,10 +103,8 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 		 * {@inheritDoc}
 		 */
 		@Override
-		public final void bindView(final View view, final Context ctxt,
-				final Cursor cursor) {
-			final TextView twTitle = ((TextView) view
-					.findViewById(android.R.id.text1));
+		public final void bindView(final View view, final Context ctxt, final Cursor cursor) {
+			final TextView twTitle = ((TextView) view.findViewById(android.R.id.text1));
 			final int day = cursor.getInt(DataProvider.Hours.INDEX_DAY);
 			final int hour = cursor.getInt(DataProvider.Hours.INDEX_HOUR);
 			twTitle.setText(this.resDays[day] + ": " + this.resHours[hour]);
@@ -130,10 +119,8 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
-		this.setTitle(this.getString(R.string.settings) + " > "
-				+ this.getString(R.string.rules) + " > "
-				+ this.getString(R.string.hours) + " > "
-				+ this.getString(R.string.edit_));
+		this.setTitle(this.getString(R.string.settings) + " > " + this.getString(R.string.rules)
+				+ " > " + this.getString(R.string.hours) + " > " + this.getString(R.string.edit_));
 		this.setContentView(R.layout.list_name_ok_help_add);
 
 		final Uri u = this.getIntent().getData();
@@ -150,8 +137,7 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 		this.findViewById(R.id.help).setOnClickListener(this);
 
 		this.etName = (EditText) this.findViewById(R.id.name_et);
-		this.etName.setText(DataProvider.HoursGroup.getName(this
-				.getContentResolver(), this.gid));
+		this.etName.setText(DataProvider.HoursGroup.getName(this.getContentResolver(), this.gid));
 	}
 
 	/**
@@ -171,8 +157,7 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 	protected final void onPause() {
 		super.onPause();
 		if (this.getListAdapter().getCount() == 0) {
-			Toast.makeText(this, R.string.empty_group, Toast.LENGTH_LONG)
-					.show();
+			Toast.makeText(this, R.string.empty_group, Toast.LENGTH_LONG).show();
 		}
 	}
 
@@ -213,8 +198,7 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 
 			Uri uri = this.getIntent().getData();
 			if (uri == null) {
-				uri = this.getContentResolver().insert(
-						DataProvider.HoursGroup.CONTENT_URI, cv);
+				uri = this.getContentResolver().insert(DataProvider.HoursGroup.CONTENT_URI, cv);
 			} else {
 				this.getContentResolver().update(uri, cv, null, null);
 			}
@@ -242,22 +226,21 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void onItemClick(final AdapterView<?> parent, final View view,
-			final int position, final long id) {
+	public final void onItemClick(final AdapterView<?> parent, final View view, final int position,
+			final long id) {
 		final Builder builder = new Builder(this);
 		builder.setItems(R.array.dialog_edit_delete,
 				new android.content.DialogInterface.OnClickListener() {
 					@Override
-					public void onClick(final DialogInterface dialog,
-							final int which) {
+					public void onClick(final DialogInterface dialog, final int which) {
 						switch (which) {
 						case WHICH_EDIT:
 							HourGroupEdit.this.showHourDialog(id);
 							break;
 						case WHICH_DELETE:
 							HourGroupEdit.this.getContentResolver().delete(
-									ContentUris.withAppendedId(DataProvider.// .
-											Hours.CONTENT_URI, id), null, null);
+									ContentUris.withAppendedId(DataProvider.Hours.CONTENT_URI, id),
+									null, null);
 							HourGroupEdit.this.showEmptyHint();
 							break;
 						default:
@@ -285,12 +268,11 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 		cv.put(DataProvider.Hours.DAY, day);
 		cv.put(DataProvider.Hours.HOUR, hour);
 		if (nid < 0) {
-			this.getContentResolver()
-					.insert(DataProvider.Hours.CONTENT_URI, cv);
+			this.getContentResolver().insert(DataProvider.Hours.CONTENT_URI, cv);
 		} else {
-			this.getContentResolver().update(
-					ContentUris.withAppendedId(DataProvider.Hours.CONTENT_URI,
-							nid), cv, null, null);
+			this.getContentResolver()
+					.update(ContentUris.withAppendedId(DataProvider.Hours.CONTENT_URI, nid), cv,
+							null, null);
 		}
 	}
 
@@ -303,12 +285,9 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 	 */
 	private int[] getHour(final long nid) {
 		int[] ret = new int[] { 0, 0 };
-		final Cursor cursor = this.getContentResolver()
-				.query(
-						ContentUris.withAppendedId(
-								DataProvider.Hours.CONTENT_URI, nid),
-						new String[] { DataProvider.Hours.DAY,
-								DataProvider.Hours.HOUR }, null, null, null);
+		final Cursor cursor = this.getContentResolver().query(
+				ContentUris.withAppendedId(DataProvider.Hours.CONTENT_URI, nid),
+				new String[] { DataProvider.Hours.DAY, DataProvider.Hours.HOUR }, null, null, null);
 		if (cursor != null && cursor.moveToFirst()) {
 			ret[0] = cursor.getInt(0);
 			ret[1] = cursor.getInt(1);
@@ -327,8 +306,7 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 	 */
 	private void showHourDialog(final long nid) {
 		final Builder builder = new Builder(this);
-		final View v = View
-				.inflate(this, R.layout.prefs_hourgroup_dialog, null);
+		final View v = View.inflate(this, R.layout.prefs_hourgroup_dialog, null);
 		final Spinner spDays = (Spinner) v.findViewById(R.id.days);
 		final Spinner spHours = (Spinner) v.findViewById(R.id.hours);
 		if (nid >= 0) {
@@ -339,23 +317,18 @@ public class HourGroupEdit extends ListActivity implements OnClickListener,
 		builder.setView(v);
 		builder.setTitle(R.string.add_hour);
 		builder.setCancelable(true);
-		builder.setPositiveButton(android.R.string.ok,
-				new DialogInterface.OnClickListener() {
-					public void onClick(final DialogInterface dialog,
-							final int id) {
-						HourGroupEdit.this.setHour(nid, spDays
-								.getSelectedItemPosition(), spHours
-								.getSelectedItemPosition());
-						HourGroupEdit.this.showEmptyHint();
-					}
-				});
-		builder.setNegativeButton(android.R.string.cancel,
-				new DialogInterface.OnClickListener() {
-					public void onClick(final DialogInterface dialog,
-							final int id) {
-						HourGroupEdit.this.showEmptyHint();
-					}
-				});
+		builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+			public void onClick(final DialogInterface dialog, final int id) {
+				HourGroupEdit.this.setHour(nid, spDays.getSelectedItemPosition(),
+						spHours.getSelectedItemPosition());
+				HourGroupEdit.this.showEmptyHint();
+			}
+		});
+		builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+			public void onClick(final DialogInterface dialog, final int id) {
+				HourGroupEdit.this.showEmptyHint();
+			}
+		});
 		builder.show();
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -86,8 +86,7 @@ public final class Common {
 	public static String formatDate(final Context context, final Calendar cal) {
 		if (dateFormat == null) {
 			if (dateFormater == null) {
-				dateFormater = android.text.format.DateFormat
-						.getDateFormat(context);
+				dateFormater = android.text.format.DateFormat.getDateFormat(context);
 			}
 			return dateFormater.format(cal.getTime());
 		} else {
@@ -107,8 +106,7 @@ public final class Common {
 	public static String formatDate(final Context context, final long date) {
 		if (dateFormat == null) {
 			if (dateFormater == null) {
-				dateFormater = android.text.format.DateFormat
-						.getDateFormat(context);
+				dateFormater = android.text.format.DateFormat.getDateFormat(context);
 			}
 			return dateFormater.format(date);
 		} else {
@@ -129,8 +127,7 @@ public final class Common {
 	 *            show hours and days
 	 * @return {@link String} representing amount
 	 */
-	public static String formatAmount(final int pType, // .
-			final float amount, final boolean showHours) {
+	public static String formatAmount(final int pType, final float amount, final boolean showHours) {
 		switch (pType) {
 		case DataProvider.TYPE_DATA:
 			return prettyBytes(amount);
@@ -155,8 +152,8 @@ public final class Common {
 	 *            {@link Calendar} for bill periods bill day
 	 * @return formated date
 	 */
-	public static String formatDate(final Context context,
-			final int billperiod, final Calendar billDay) {
+	public static String formatDate(final Context context, final int billperiod,
+			final Calendar billDay) {
 		if (billperiod == DataProvider.BILLPERIOD_INFINITE && billDay == null) {
 			return "\u221E";
 		} else {
@@ -185,9 +182,9 @@ public final class Common {
 	 *            show hours
 	 * @return string
 	 */
-	public static String formatValues(final Context context, final long now,
-			final int pType, final long count, final float amount,
-			final int billperiod, final long billday, final boolean showHours) {
+	public static String formatValues(final Context context, final long now, final int pType,
+			final long count, final float amount, final int billperiod, final long billday,
+			final boolean showHours) {
 		switch (pType) {
 		case DataProvider.TYPE_BILLPERIOD:
 			Calendar billDay = Calendar.getInstance();
@@ -243,8 +240,7 @@ public final class Common {
 	 *            show hours and days
 	 * @return parsed string
 	 */
-	public static String prettySeconds(final float seconds,
-			final boolean showHours) {
+	public static String prettySeconds(final float seconds, final boolean showHours) {
 		String ret;
 		final long ls = (long) seconds;
 		long d, h, m;

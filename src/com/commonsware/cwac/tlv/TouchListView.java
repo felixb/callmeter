@@ -24,13 +24,13 @@ import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
+import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.GestureDetector.SimpleOnGestureListener;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -76,8 +76,7 @@ public class TouchListView extends ListView {
 		this(context, attrs, 0);
 	}
 
-	public TouchListView(final Context context, final AttributeSet attrs,
-			final int defStyle) {
+	public TouchListView(final Context context, final AttributeSet attrs, final int defStyle) {
 		super(context, attrs, defStyle);
 
 		this.mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
@@ -89,14 +88,11 @@ public class TouchListView extends ListView {
 			this.mItemHeightNormal = a.getDimensionPixelSize(
 					R.styleable.TouchListView_normal_height, 0);
 			this.mItemHeightExpanded = a.getDimensionPixelSize(
-					R.styleable.TouchListView_expanded_height,
-					this.mItemHeightNormal);
-			this.grabberId = a.getResourceId(R.styleable.TouchListView_grabber,
-					-1);
+					R.styleable.TouchListView_expanded_height, this.mItemHeightNormal);
+			this.grabberId = a.getResourceId(R.styleable.TouchListView_grabber, -1);
 			this.dragndropBackgroundColor = a.getColor(
 					R.styleable.TouchListView_dragndrop_background, 0x00000000);
-			this.mRemoveMode = a.getInt(R.styleable.TouchListView_remove_mode,
-					-1);
+			this.mRemoveMode = a.getInt(R.styleable.TouchListView_remove_mode, -1);
 
 			a.recycle();
 		}
@@ -109,22 +105,19 @@ public class TouchListView extends ListView {
 				this.mGestureDetector = new GestureDetector(this.getContext(),
 						new SimpleOnGestureListener() {
 							@Override
-							public boolean onFling(final MotionEvent e1,
-									final MotionEvent e2,
+							public boolean onFling(final MotionEvent e1, final MotionEvent e2,
 									final float velocityX, final float velocityY) {
 								if (TouchListView.this.mDragView != null) {
 									if (velocityX > 1000) {
 										Rect r = TouchListView.this.mTempRect;
-										TouchListView.this.mDragView
-												.getDrawingRect(r);
+										TouchListView.this.mDragView.getDrawingRect(r);
 										if (e2.getX() > r.right * 2 / 3) {
 											// fast fling right with release
 											// near the right edge of the screen
 											TouchListView.this.stopDragging();
 											TouchListView.this.mRemoveListener
 													.remove(TouchListView.this.mFirstDragPos);
-											TouchListView.this
-													.unExpandViews(true);
+											TouchListView.this.unExpandViews(true);
 										}
 									}
 									// flinging while dragging should have no
@@ -169,10 +162,8 @@ public class TouchListView extends ListView {
 					this.mFirstDragPos = this.mDragPos;
 					this.mHeight = this.getHeight();
 					int touchSlop = this.mTouchSlop;
-					this.mUpperBound = Math
-							.min(y - touchSlop, this.mHeight / 3);
-					this.mLowerBound = Math.max(y + touchSlop,
-							this.mHeight * 2 / 3);
+					this.mUpperBound = Math.min(y - touchSlop, this.mHeight / 3);
+					this.mLowerBound = Math.max(y + touchSlop, this.mHeight * 2 / 3);
 					return false;
 				}
 				this.mDragView = null;
@@ -265,8 +256,7 @@ public class TouchListView extends ListView {
 			childnum++;
 		}
 
-		View first = this.getChildAt(this.mFirstDragPos
-				- this.getFirstVisiblePosition());
+		View first = this.getChildAt(this.mFirstDragPos - this.getFirstVisiblePosition());
 
 		for (int i = 0;; i++) {
 			View vv = this.getChildAt(i);
@@ -301,8 +291,7 @@ public class TouchListView extends ListView {
 		if (this.mGestureDetector != null) {
 			this.mGestureDetector.onTouchEvent(ev);
 		}
-		if ((this.mDragListener != null || this.mDropListener != null)
-				&& this.mDragView != null) {
+		if ((this.mDragListener != null || this.mDropListener != null) && this.mDragView != null) {
 			int action = ev.getAction();
 			switch (action) {
 			case MotionEvent.ACTION_UP:
@@ -311,14 +300,12 @@ public class TouchListView extends ListView {
 				this.mDragView.getDrawingRect(r);
 				this.stopDragging();
 
-				if (this.mRemoveMode == SLIDE_RIGHT
-						&& ev.getX() > r.left + (r.width() * 3 / 4)) {
+				if (this.mRemoveMode == SLIDE_RIGHT && ev.getX() > r.left + (r.width() * 3 / 4)) {
 					if (this.mRemoveListener != null) {
 						this.mRemoveListener.remove(this.mFirstDragPos);
 					}
 					this.unExpandViews(true);
-				} else if (this.mRemoveMode == SLIDE_LEFT
-						&& ev.getX() < r.left + (r.width() / 4)) {
+				} else if (this.mRemoveMode == SLIDE_LEFT && ev.getX() < r.left + (r.width() / 4)) {
 					if (this.mRemoveListener != null) {
 						this.mRemoveListener.remove(this.mFirstDragPos);
 					}
@@ -326,8 +313,7 @@ public class TouchListView extends ListView {
 				} else {
 					if (this.mDropListener != null && this.mDragPos >= 0
 							&& this.mDragPos < this.getCount()) {
-						this.mDropListener.drop(this.mFirstDragPos,
-								this.mDragPos);
+						this.mDropListener.drop(this.mFirstDragPos, this.mDragPos);
 					}
 					this.unExpandViews(false);
 				}
@@ -340,8 +326,7 @@ public class TouchListView extends ListView {
 				this.dragView(x, y);
 				int itemnum = this.getItemForPosition(y);
 				if (itemnum >= 0) {
-					if (action == MotionEvent.ACTION_DOWN
-							|| itemnum != this.mDragPos) {
+					if (action == MotionEvent.ACTION_DOWN || itemnum != this.mDragPos) {
 						if (this.mDragListener != null) {
 							this.mDragListener.drag(this.mDragPos, itemnum);
 						}
@@ -352,8 +337,7 @@ public class TouchListView extends ListView {
 					this.adjustScrollBounds(y);
 					if (y > this.mLowerBound) {
 						// scroll the list up a bit
-						speed = y > (this.mHeight + this.mLowerBound) / 2 ? 16
-								: 4;
+						speed = y > (this.mHeight + this.mLowerBound) / 2 ? 16 : 4;
 					} else if (y < this.mUpperBound) {
 						// scroll the list down a bit
 						speed = y < this.mUpperBound / 2 ? -16 : -4;
@@ -363,11 +347,10 @@ public class TouchListView extends ListView {
 						if (ref == AdapterView.INVALID_POSITION) {
 							// we hit a divider or an invisible view, check
 							// somewhere else
-							ref = this.pointToPosition(0, this.mHeight / 2
-									+ this.getDividerHeight() + 64);
+							ref = this.pointToPosition(0,
+									this.mHeight / 2 + this.getDividerHeight() + 64);
 						}
-						View v = this.getChildAt(ref
-								- this.getFirstVisiblePosition());
+						View v = this.getChildAt(ref - this.getFirstVisiblePosition());
 						if (v != null) {
 							int pos = v.getTop();
 							this.setSelectionFromTop(ref, pos - speed);
@@ -405,8 +388,7 @@ public class TouchListView extends ListView {
 		v.setImageBitmap(bm);
 		this.mDragBitmap = bm;
 
-		this.mWindowManager = (WindowManager) this.getContext()
-				.getSystemService("window");
+		this.mWindowManager = (WindowManager) this.getContext().getSystemService("window");
 		this.mWindowManager.addView(v, this.mWindowParams);
 		this.mDragView = v;
 	}
@@ -427,14 +409,12 @@ public class TouchListView extends ListView {
 			this.mWindowParams.alpha = alpha;
 		}
 		this.mWindowParams.y = y - this.mDragPoint + this.mCoordOffset;
-		this.mWindowManager
-				.updateViewLayout(this.mDragView, this.mWindowParams);
+		this.mWindowManager.updateViewLayout(this.mDragView, this.mWindowParams);
 	}
 
 	private void stopDragging() {
 		if (this.mDragView != null) {
-			WindowManager wm = (WindowManager) this.getContext()
-					.getSystemService("window");
+			WindowManager wm = (WindowManager) this.getContext().getSystemService("window");
 			wm.removeView(this.mDragView);
 			this.mDragView.setImageDrawable(null);
 			this.mDragView = null;

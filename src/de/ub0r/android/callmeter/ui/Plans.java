@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -64,8 +64,7 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public final class Plans extends FragmentActivity implements
-		OnPageChangeListener {
+public final class Plans extends FragmentActivity implements OnPageChangeListener {
 	/** Tag for output. */
 	private static final String TAG = "main";
 
@@ -132,21 +131,20 @@ public final class Plans extends FragmentActivity implements
 			Log.d(TAG, "handleMessage(" + msg.what + ")");
 			switch (msg.what) {
 			case MSG_BACKGROUND_START_RUNNER:
-				inProgressRunner = true;
+				this.inProgressRunner = true;
 			case MSG_BACKGROUND_START_MATCHER:
-				statusMatcherProgress = false;
+				this.statusMatcherProgress = false;
 				Plans.this.setInProgress(1);
 				break;
 			case MSG_BACKGROUND_STOP_RUNNER:
-				inProgressRunner = false;
+				this.inProgressRunner = false;
 				Plans.this.setInProgress(-1);
 				Plans.this.getSupportActionBar().setSubtitle(null);
 				break;
 			case MSG_BACKGROUND_STOP_MATCHER:
 				Plans.this.setInProgress(-1);
 				Plans.this.getSupportActionBar().setSubtitle(null);
-				Fragment f = Plans.this.fadapter.getActiveFragment(
-						Plans.this.pager,
+				Fragment f = Plans.this.fadapter.getActiveFragment(Plans.this.pager,
 						Plans.this.fadapter.getHomeFragmentPos());
 				if (f != null && f instanceof PlansFragment) {
 					((PlansFragment) f).requery(true);
@@ -156,60 +154,57 @@ public final class Plans extends FragmentActivity implements
 				if (Plans.this.progressCount == 0) {
 					Plans.this.setProgress(1);
 				}
-				if (statusMatcher == null || (!statusMatcherProgress || // .
-						statusMatcher.isShowing())) {
+				if (this.statusMatcher == null
+						|| (!this.statusMatcherProgress || this.statusMatcher.isShowing())) {
 					Log.d(TAG, "matcher progress: " + msg.arg1);
-					if (statusMatcher == null || !statusMatcherProgress) {
-						final ProgressDialog dold = statusMatcher;
-						statusMatcher = new ProgressDialog(Plans.this);
-						statusMatcher.setCancelable(true);
-						if (recalc == null) {
-							recalc = Plans.this
-									.getString(R.string.reset_data_progr2);
+					if (this.statusMatcher == null || !this.statusMatcherProgress) {
+						final ProgressDialog dold = this.statusMatcher;
+						this.statusMatcher = new ProgressDialog(Plans.this);
+						this.statusMatcher.setCancelable(true);
+						if (this.recalc == null) {
+							this.recalc = Plans.this.getString(R.string.reset_data_progr2);
 						}
-						statusMatcher.setMessage(recalc);
-						statusMatcher.setProgressStyle(// .
-								ProgressDialog.STYLE_HORIZONTAL);
-						statusMatcher.setMax(msg.arg2);
-						statusMatcher.setIndeterminate(false);
-						statusMatcherProgress = true;
+						this.statusMatcher.setMessage(this.recalc);
+						this.statusMatcher.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+						this.statusMatcher.setMax(msg.arg2);
+						this.statusMatcher.setIndeterminate(false);
+						this.statusMatcherProgress = true;
 						Log.d(TAG, "showing dialog..");
-						statusMatcher.show();
+						this.statusMatcher.show();
 						if (dold != null) {
 							dold.dismiss();
 						}
 					}
-					statusMatcher.setProgress(msg.arg1);
+					this.statusMatcher.setProgress(msg.arg1);
 				}
-				if (recalc == null) {
-					recalc = Plans.this.getString(R.string.reset_data_progr2);
+				if (this.recalc == null) {
+					this.recalc = Plans.this.getString(R.string.reset_data_progr2);
 				}
 				Plans.this.getSupportActionBar().setSubtitle(
-						recalc + " " + msg.arg1 + "/" + msg.arg2);
+						this.recalc + " " + msg.arg1 + "/" + msg.arg2);
 				break;
 			default:
 				break;
 			}
 
-			if (inProgressRunner) {
-				if (statusMatcher == null
-						|| (msg.arg1 <= 0 && !statusMatcher.isShowing())) {
-					statusMatcher = new ProgressDialog(Plans.this);
-					statusMatcher.setCancelable(true);
-					statusMatcher.setMessage(Plans.this
-							.getString(R.string.reset_data_progr1));
-					statusMatcher.setIndeterminate(true);
-					statusMatcherProgress = false;
-					statusMatcher.show();
+			if (this.inProgressRunner) {
+				if (this.statusMatcher == null
+						|| (msg.arg1 <= 0 && !this.statusMatcher.isShowing())) {
+					this.statusMatcher = new ProgressDialog(Plans.this);
+					this.statusMatcher.setCancelable(true);
+					this.statusMatcher.setMessage(Plans.this.getString(R.string.reset_data_progr1));
+					this.statusMatcher.setIndeterminate(true);
+					this.statusMatcherProgress = false;
+					this.statusMatcher.show();
 				}
 			} else {
-				if (statusMatcher != null && statusMatcher.isShowing()) {
+				if (this.statusMatcher != null && this.statusMatcher.isShowing()) {
 					try {
-						statusMatcher.dismiss();
+						this.statusMatcher.dismiss();
 					} catch (IllegalArgumentException e) {
 						Log.e(TAG, "error dismissing dialog", e);
 					}
-					statusMatcher = null;
+					this.statusMatcher = null;
 				}
 			}
 		}
@@ -226,8 +221,7 @@ public final class Plans extends FragmentActivity implements
 	 * 
 	 * @author flx
 	 */
-	private static class PlansFragmentAdapter extends FragmentPagerAdapter
-			implements TitleProvider {
+	private static class PlansFragmentAdapter extends FragmentPagerAdapter implements TitleProvider {
 		/** {@link FragmentManager} . */
 		private final FragmentManager mFragmentManager;
 		/** List of positions. */
@@ -245,18 +239,17 @@ public final class Plans extends FragmentActivity implements
 		 * @param fm
 		 *            {@link FragmentManager}
 		 */
-		public PlansFragmentAdapter(final Context context,
-				final FragmentManager fm) {
+		public PlansFragmentAdapter(final Context context, final FragmentManager fm) {
 			super(fm);
 			long ct = SystemClock.elapsedRealtime();
 			this.mFragmentManager = fm;
 			this.ctx = context;
 			ContentResolver cr = context.getContentResolver();
 			Cursor c = cr.query(DataProvider.Logs.CONTENT_URI,
-					new String[] { DataProvider.Logs.DATE }, null, null,
-					DataProvider.Logs.DATE + " ASC LIMIT 1");
+					new String[] { DataProvider.Logs.DATE }, null, null, DataProvider.Logs.DATE
+							+ " ASC LIMIT 1");
 			if (!c.moveToFirst()) {
-				positions = new Long[] { -1L, -1L };
+				this.positions = new Long[] { -1L, -1L };
 				c.close();
 			} else {
 				final long minDate = c.getLong(0);
@@ -264,15 +257,12 @@ public final class Plans extends FragmentActivity implements
 				c = cr.query(
 						DataProvider.Plans.CONTENT_URI,
 						DataProvider.Plans.PROJECTION,
-						DataProvider.Plans.TYPE + "=? and "
-								+ DataProvider.Plans.BILLPERIOD + "!=?",
-						new String[] {
-								String.valueOf(DataProvider.TYPE_BILLPERIOD),
-								String.valueOf(// .
-								DataProvider.BILLPERIOD_INFINITE) },
+						DataProvider.Plans.TYPE + "=? and " + DataProvider.Plans.BILLPERIOD + "!=?",
+						new String[] { String.valueOf(DataProvider.TYPE_BILLPERIOD),
+								String.valueOf(DataProvider.BILLPERIOD_INFINITE) },
 						DataProvider.Plans.ORDER + " LIMIT 1");
 				if (minDate < 0L || !c.moveToFirst()) {
-					positions = new Long[] { -1L, -1L };
+					this.positions = new Long[] { -1L, -1L };
 					c.close();
 				} else {
 					ArrayList<Long> list = new ArrayList<Long>();
@@ -280,19 +270,18 @@ public final class Plans extends FragmentActivity implements
 					do { // walk all bill periods
 						list.addAll(DataProvider.Plans.getBillDays(
 								c.getInt(DataProvider.Plans.INDEX_BILLPERIOD),
-								c.getLong(DataProvider.Plans.INDEX_BILLDAY),
-								minDate, -1));
+								c.getLong(DataProvider.Plans.INDEX_BILLDAY), minDate, -1));
 						Log.d(TAG, "new PFA()", ct);
 					} while (c.moveToNext());
 					c.close();
 					list.add(-1L); // current time
 					list.add(-1L); // logs
 					Log.d(TAG, "new PFA() toArray start", ct);
-					positions = list.toArray(new Long[] {});
+					this.positions = list.toArray(new Long[] {});
 					Log.d(TAG, "new PFA() toArray end", ct);
 					list = null;
 					Log.d(TAG, "new PFA() sort start", ct);
-					Arrays.sort(positions, 0, positions.length - 2);
+					Arrays.sort(this.positions, 0, this.positions.length - 2);
 					Log.d(TAG, "new PFA() sort end", ct);
 				}
 			}
@@ -313,8 +302,7 @@ public final class Plans extends FragmentActivity implements
 		 *            position in container
 		 * @return null if no fragment was initialized
 		 */
-		public Fragment getActiveFragment(final ViewPager container,
-				final int position) {
+		public Fragment getActiveFragment(final ViewPager container, final int position) {
 			String name = makeFragmentName(container.getId(), position);
 			return this.mFragmentManager.findFragmentByTag(name);
 		}
@@ -324,7 +312,7 @@ public final class Plans extends FragmentActivity implements
 		 */
 		@Override
 		public int getCount() {
-			return positions.length;
+			return this.positions.length;
 		}
 
 		/**
@@ -335,7 +323,7 @@ public final class Plans extends FragmentActivity implements
 			if (position == this.getLogsFragmentPos()) {
 				return new LogsFragment();
 			} else {
-				return PlansFragment.newInstance(position, positions[position]);
+				return PlansFragment.newInstance(position, this.positions[position]);
 			}
 		}
 
@@ -345,7 +333,7 @@ public final class Plans extends FragmentActivity implements
 		 * @return position of home {@link Fragment}
 		 */
 		public int getHomeFragmentPos() {
-			return positions.length - 2;
+			return this.positions.length - 2;
 		}
 
 		/**
@@ -354,7 +342,7 @@ public final class Plans extends FragmentActivity implements
 		 * @return position of Logs {@link Fragment}
 		 */
 		public int getLogsFragmentPos() {
-			return positions.length - 1;
+			return this.positions.length - 1;
 		}
 
 		/**
@@ -364,7 +352,7 @@ public final class Plans extends FragmentActivity implements
 		public String getTitle(final int position) {
 			String ret;
 			if (this.titles[position] == null) {
-				ret = Common.formatDate(ctx, this.positions[position]);
+				ret = Common.formatDate(this.ctx, this.positions[position]);
 				this.titles[position] = ret;
 			} else {
 				ret = this.titles[position];
@@ -392,8 +380,7 @@ public final class Plans extends FragmentActivity implements
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		this.setContentView(R.layout.plans);
 
-		SharedPreferences p = PreferenceManager
-				.getDefaultSharedPreferences(this);
+		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
 		if (p.getAll().isEmpty()) {
 			// show intro
 			this.startActivity(new Intent(this, IntroActivity.class));
@@ -402,8 +389,7 @@ public final class Plans extends FragmentActivity implements
 			c.set(Calendar.DAY_OF_MONTH, 0);
 			c.add(Calendar.MONTH, -1);
 			Log.i(TAG, "set date of recording: " + c);
-			p.edit().putLong(Preferences.PREFS_DATE_BEGIN, c.getTimeInMillis())
-					.commit();
+			p.edit().putLong(Preferences.PREFS_DATE_BEGIN, c.getTimeInMillis()).commit();
 		}
 		p = null;
 
@@ -412,14 +398,12 @@ public final class Plans extends FragmentActivity implements
 
 		prefsNoAds = DonationHelper.hideAds(this);
 
-		this.pager = (ViewPager) findViewById(R.id.pager);
+		this.pager = (ViewPager) this.findViewById(R.id.pager);
 
-		this.fadapter = new PlansFragmentAdapter(this,
-				getSupportFragmentManager());
+		this.fadapter = new PlansFragmentAdapter(this, this.getSupportFragmentManager());
 		this.pager.setAdapter(this.fadapter);
 
-		TitlePageIndicator indicator = (TitlePageIndicator) // .
-		findViewById(R.id.titles);
+		TitlePageIndicator indicator = (TitlePageIndicator) this.findViewById(R.id.titles);
 		indicator.setViewPager(this.pager);
 
 		this.pager.setCurrentItem(this.fadapter.getHomeFragmentPos());
@@ -438,8 +422,7 @@ public final class Plans extends FragmentActivity implements
 		PlansFragment.reloadPreferences(this);
 
 		// schedule next update
-		LogRunnerReceiver.schedNext(this, DELAY_LOGRUNNER,
-				LogRunnerService.ACTION_RUN_MATCHER);
+		LogRunnerReceiver.schedNext(this, DELAY_LOGRUNNER, LogRunnerService.ACTION_RUN_MATCHER);
 		LogRunnerReceiver.schedNext(this, LogRunnerService.ACTION_SHORT_RUN);
 		if (!prefsNoAds) {
 			Ads.loadAd(this, R.id.ad, AD_UNITID, AD_KEYWORDS);

@@ -4,9 +4,9 @@ import java.util.Calendar;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.ContentValues;
 import android.content.Context;
@@ -23,13 +23,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
@@ -49,8 +49,7 @@ abstract class Preference {
 	 * 
 	 * @author flx
 	 */
-	static final class BoolPreference extends Preference implements
-			OnCheckedChangeListener {
+	static final class BoolPreference extends Preference implements OnCheckedChangeListener {
 		/** Current value. */
 		private boolean value = false;
 		/** {@link OnDismissListener}. */
@@ -70,8 +69,8 @@ abstract class Preference {
 		 * @param odl
 		 *            {@link OnDismissListener}
 		 */
-		protected BoolPreference(final Context ctx, final String prefName,
-				final int text, final int help, final OnDismissListener odl) {
+		protected BoolPreference(final Context ctx, final String prefName, final int text,
+				final int help, final OnDismissListener odl) {
 			super(ctx, prefName, R.layout.prefadapter_item_bool, text, help);
 			this.dl = odl;
 		}
@@ -105,12 +104,10 @@ abstract class Preference {
 		}
 
 		@Override
-		View getView(final View convertView, final ViewGroup parent,
-				final boolean showHelp) {
+		View getView(final View convertView, final ViewGroup parent, final boolean showHelp) {
 			final View ret = super.getView(convertView, parent, showHelp);
 			if (ret != null) {
-				final CheckBox cb = (CheckBox) ret
-						.findViewById(android.R.id.checkbox);
+				final CheckBox cb = (CheckBox) ret.findViewById(android.R.id.checkbox);
 				if (cb != null) {
 					cb.setChecked(this.value);
 					cb.setOnCheckedChangeListener(this);
@@ -120,8 +117,7 @@ abstract class Preference {
 		}
 
 		@Override
-		public void onCheckedChanged(final CompoundButton buttonView,
-				final boolean isChecked) {
+		public void onCheckedChanged(final CompoundButton buttonView, final boolean isChecked) {
 			this.value = isChecked;
 			this.dl.onDismiss(null);
 		}
@@ -170,9 +166,8 @@ abstract class Preference {
 		 * @param inputType
 		 *            {@link EditText}'s inputType
 		 */
-		protected TextPreference(final Context ctx, final String prefName,
-				final String defValue, final int text, final int help,
-				final int inputType) {
+		protected TextPreference(final Context ctx, final String prefName, final String defValue,
+				final int text, final int help, final int inputType) {
 			super(ctx, prefName, R.layout.prefadapter_item, text, help);
 			this.defaultValue = defValue;
 			this.iType = inputType;
@@ -226,8 +221,7 @@ abstract class Preference {
 
 		@Override
 		Dialog createDialog() {
-			final AlertDialog.Builder builder = new AlertDialog.Builder(
-					this.context);
+			final AlertDialog.Builder builder = new AlertDialog.Builder(this.context);
 			builder.setCancelable(true);
 			builder.setTitle(this.resText);
 			final EditText et = new EditText(this.context);
@@ -241,20 +235,17 @@ abstract class Preference {
 			}
 			builder.setView(et);
 			builder.setNegativeButton(android.R.string.cancel, null);
-			builder.setPositiveButton(android.R.string.ok,
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(final DialogInterface dialog,
-								final int which) {
-							final String v = et.getText().toString();
-							if (v != null && v.length() > 0) {
-								TextPreference.this.value = v;
-							} else {
-								TextPreference.this.value = // .
-								TextPreference.this.defaultValue;
-							}
-						}
-					});
+			builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(final DialogInterface dialog, final int which) {
+					final String v = et.getText().toString();
+					if (v != null && v.length() > 0) {
+						TextPreference.this.value = v;
+					} else {
+						TextPreference.this.value = TextPreference.this.defaultValue;
+					}
+				}
+			});
 			return builder.create();
 		}
 
@@ -322,9 +313,8 @@ abstract class Preference {
 		 *            {@link EditText}'s inputType
 		 */
 		protected Text2Preference(final Context ctx, final String prefName1,
-				final String prefName2, final String defValue1,
-				final String defValue2, final int text, final int help1,
-				final int help2, final int inputType) {
+				final String prefName2, final String defValue1, final String defValue2,
+				final int text, final int help1, final int help2, final int inputType) {
 			super(ctx, prefName1, R.layout.prefadapter_item, text, help1);
 			this.name2 = prefName2;
 			this.resHelp2 = help2;
@@ -405,12 +395,10 @@ abstract class Preference {
 
 		@Override
 		Dialog createDialog() {
-			final AlertDialog.Builder builder = new AlertDialog.Builder(
-					this.context);
+			final AlertDialog.Builder builder = new AlertDialog.Builder(this.context);
 			builder.setCancelable(true);
 			builder.setTitle(this.resText);
-			final View root = LayoutInflater.from(this.context).inflate(
-					R.layout.doubleedit, null);
+			final View root = LayoutInflater.from(this.context).inflate(R.layout.doubleedit, null);
 			this.etDialog1 = (EditText) root.findViewById(android.R.id.text1);
 			this.etDialog2 = (EditText) root.findViewById(android.R.id.text2);
 			final EditText et1 = this.etDialog1;
@@ -427,27 +415,23 @@ abstract class Preference {
 			this.updateDialog(null);
 			builder.setView(root);
 			builder.setNegativeButton(android.R.string.cancel, null);
-			builder.setPositiveButton(android.R.string.ok,
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(final DialogInterface dialog,
-								final int which) {
-							String v = et1.getText().toString();
-							if (v != null && v.length() > 0) {
-								Text2Preference.this.value1 = v;
-							} else {
-								Text2Preference.this.value1 = // .
-								Text2Preference.this.defaultValue1;
-							}
-							v = et2.getText().toString();
-							if (v != null && v.length() > 0) {
-								Text2Preference.this.value2 = v;
-							} else {
-								Text2Preference.this.value2 = // .
-								Text2Preference.this.defaultValue2;
-							}
-						}
-					});
+			builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(final DialogInterface dialog, final int which) {
+					String v = et1.getText().toString();
+					if (v != null && v.length() > 0) {
+						Text2Preference.this.value1 = v;
+					} else {
+						Text2Preference.this.value1 = Text2Preference.this.defaultValue1;
+					}
+					v = et2.getText().toString();
+					if (v != null && v.length() > 0) {
+						Text2Preference.this.value2 = v;
+					} else {
+						Text2Preference.this.value2 = Text2Preference.this.defaultValue2;
+					}
+				}
+			});
 			return builder.create();
 		}
 
@@ -535,9 +519,8 @@ abstract class Preference {
 		 * @param values
 		 *            resource id of the string array of values
 		 */
-		protected ListPreference(final Context ctx, final String prefName,
-				final int defValue, final int text, final int help,
-				final int values) {
+		protected ListPreference(final Context ctx, final String prefName, final int defValue,
+				final int text, final int help, final int values) {
 			super(ctx, prefName, R.layout.prefadapter_item, text, help);
 			this.defaultValue = defValue;
 			this.strValues = ctx.getResources().getStringArray(values);
@@ -559,9 +542,8 @@ abstract class Preference {
 		 * @param values
 		 *            string array of values
 		 */
-		protected ListPreference(final Context ctx, final String prefName,
-				final int defValue, final int text, final int help,
-				final String[] values) {
+		protected ListPreference(final Context ctx, final String prefName, final int defValue,
+				final int text, final int help, final String[] values) {
 			super(ctx, prefName, R.layout.prefadapter_item, text, help);
 			this.defaultValue = defValue;
 			this.strValues = values;
@@ -589,15 +571,13 @@ abstract class Preference {
 
 		@Override
 		Dialog createDialog() {
-			final AlertDialog.Builder builder = new AlertDialog.Builder(
-					this.context);
+			final AlertDialog.Builder builder = new AlertDialog.Builder(this.context);
 			builder.setCancelable(true);
 			builder.setTitle(this.resText);
 			builder.setSingleChoiceItems(this.strValues, this.value,
 					new DialogInterface.OnClickListener() {
 						@Override
-						public void onClick(final DialogInterface dialog,
-								final int which) {
+						public void onClick(final DialogInterface dialog, final int which) {
 							ListPreference.this.value = which;
 							ListPreference.this.dismissDialog();
 						}
@@ -675,11 +655,10 @@ abstract class Preference {
 		 * @param help
 		 *            resource id of the help text
 		 */
-		protected BillmodePreference(final Context ctx, final String prefName,
-				final int text, final int help) {
+		protected BillmodePreference(final Context ctx, final String prefName, final int text,
+				final int help) {
 			super(ctx, prefName, R.layout.prefadapter_item, text, help);
-			this.strValues = ctx.getResources().getStringArray(
-					R.array.billmodes);
+			this.strValues = ctx.getResources().getStringArray(R.array.billmodes);
 		}
 
 		@Override
@@ -711,41 +690,33 @@ abstract class Preference {
 
 		@Override
 		Dialog createDialog() {
-			final AlertDialog.Builder builder = new AlertDialog.Builder(
-					this.context);
+			final AlertDialog.Builder builder = new AlertDialog.Builder(this.context);
 			builder.setCancelable(true);
 			builder.setTitle(this.resText);
 			builder.setSingleChoiceItems(this.strValues, this.getChecked(),
 					new DialogInterface.OnClickListener() {
 						@Override
-						public void onClick(final DialogInterface dialog,
-								final int which) {
-							if (which < BillmodePreference.// .
-							this.strValues.length - 1) {
-								BillmodePreference.this.value = // .
-								BillmodePreference.this.strValues[which];
+						public void onClick(final DialogInterface dialog, final int which) {
+							if (which < BillmodePreference.this.strValues.length - 1) {
+								BillmodePreference.this.value = BillmodePreference.this.strValues[which];
 								BillmodePreference.this.dismissDialog();
 							} else {
 								AlertDialog.Builder b = new AlertDialog.Builder(
 										BillmodePreference.this.context);
-								final EditText et = new EditText(
-										BillmodePreference.this.context);
+								final EditText et = new EditText(BillmodePreference.this.context);
 								et.setText(BillmodePreference.this.value);
 								b.setView(et);
 								b.setCancelable(true);
 								b.setTitle(BillmodePreference.this.resText);
-								b.setNegativeButton(android.R.string.cancel,
-										null);
+								b.setNegativeButton(android.R.string.cancel, null);
 								b.setPositiveButton(android.R.string.ok,
 										new DialogInterface.OnClickListener() {
 											@Override
-											public void onClick(
-													final DialogInterface // .
-													dialog, final int which) {
-												BillmodePreference.this.// .
-												value = et.getText().toString();
-												BillmodePreference.this
-														.dismissDialog();
+											public void onClick(final DialogInterface dialog,
+													final int which) {
+												BillmodePreference.this.value = et.getText()
+														.toString();
+												BillmodePreference.this.dismissDialog();
 											}
 										});
 								b.show();
@@ -857,10 +828,9 @@ abstract class Preference {
 		 * @param cancelListener
 		 *            {@link OnClickListener} for cancel
 		 */
-		protected CursorPreference(final Context ctx, final String prefName,
-				final int text, final int help, final int editSelceted,
-				final int newItem, final int cancel, final Uri u,
-				final String id, final String name, final String sel,
+		protected CursorPreference(final Context ctx, final String prefName, final int text,
+				final int help, final int editSelceted, final int newItem, final int cancel,
+				final Uri u, final String id, final String name, final String sel,
 				final boolean multiSelection,
 				final DialogInterface.OnClickListener editSelectedListener,
 				final DialogInterface.OnClickListener newItemListener,
@@ -911,8 +881,7 @@ abstract class Preference {
 		 * @param sel
 		 *            selection for query
 		 */
-		void setCursor(final Uri u, final String id, final String name,
-				final String sel) {
+		void setCursor(final Uri u, final String id, final String name, final String sel) {
 			this.uri = u;
 			this.projection[0] = id;
 			this.projection[1] = name;
@@ -934,8 +903,7 @@ abstract class Preference {
 		@Override
 		void load(final Cursor cursor) {
 			if (this.multiSelect) {
-				this.multiValue = cursor.getString(cursor
-						.getColumnIndex(this.name));
+				this.multiValue = cursor.getString(cursor.getColumnIndex(this.name));
 				if (this.multiValue != null && this.multiValue.length() > 0
 						&& !this.multiValue.startsWith(",")) {
 					this.multiValue = "," + this.multiValue + ",";
@@ -993,9 +961,8 @@ abstract class Preference {
 
 		@Override
 		Dialog createDialog() {
-			final Cursor cursor = this.context.getContentResolver().query(
-					this.uri, this.projection, this.selection, null,
-					this.projection[1]);
+			final Cursor cursor = this.context.getContentResolver().query(this.uri,
+					this.projection, this.selection, null, this.projection[1]);
 			int sel = -1;
 			int i = 0;
 			if (cursor != null && cursor.moveToFirst() && this.value >= 0) {
@@ -1007,8 +974,7 @@ abstract class Preference {
 					++i;
 				} while (cursor.moveToNext());
 			}
-			final AlertDialog.Builder builder = new AlertDialog.Builder(
-					this.context);
+			final AlertDialog.Builder builder = new AlertDialog.Builder(this.context);
 			builder.setCancelable(true);
 			builder.setTitle(this.resText);
 			if (this.multiSelect) {
@@ -1018,12 +984,9 @@ abstract class Preference {
 				final String[] fMultiItemsNames = this.multiItemsNames;
 				this.lsrNewItem = new OnClickListener() {
 					@Override
-					public void onClick(final DialogInterface dialog,
-							final int which) {
-						final ListView lv = ((AlertDialog) dialog)
-								.getListView();
-						final SparseBooleanArray sba = lv
-								.getCheckedItemPositions();
+					public void onClick(final DialogInterface dialog, final int which) {
+						final ListView lv = ((AlertDialog) dialog).getListView();
+						final SparseBooleanArray sba = lv.getCheckedItemPositions();
 						final int l = lv.getCount();
 						final StringBuilder v = new StringBuilder();
 						final StringBuilder vs = new StringBuilder();
@@ -1032,11 +995,9 @@ abstract class Preference {
 								v.append(",");
 								if (v.length() > 0) {
 									vs.append(", ");
-									CursorPreference.this.// .
-									multiItemsChecked[i] = true;
+									CursorPreference.this.multiItemsChecked[i] = true;
 								} else {
-									CursorPreference.this.// .
-									multiItemsChecked[i] = false;
+									CursorPreference.this.multiItemsChecked[i] = false;
 								}
 								v.append(fMultiItemsIds[i]);
 								vs.append(fMultiItemsNames[i]);
@@ -1045,42 +1006,35 @@ abstract class Preference {
 						if (v.length() > 0) {
 							v.append(",");
 							CursorPreference.this.multiValue = v.toString();
-							CursorPreference.this.multiValueName = vs
-									.toString();
+							CursorPreference.this.multiValueName = vs.toString();
 						} else {
 							CursorPreference.this.multiValue = null;
 							CursorPreference.this.multiValueName = null;
 						}
 					}
 				};
-				builder.setMultiChoiceItems(this.multiItemsNames,
-						this.multiItemsChecked,
+				builder.setMultiChoiceItems(this.multiItemsNames, this.multiItemsChecked,
 						new OnMultiChoiceClickListener() {
 							@Override
-							public void onClick(final DialogInterface dialog,
-									final int which, final boolean isChecked) {
-								CursorPreference.this.// .
-								multiItemsChecked[which] = isChecked;
+							public void onClick(final DialogInterface dialog, final int which,
+									final boolean isChecked) {
+								CursorPreference.this.multiItemsChecked[which] = isChecked;
 							}
 						});
 			} else {
 				builder.setSingleChoiceItems(cursor, sel, this.projection[1],
 						new DialogInterface.OnClickListener() {
 							@Override
-							public void onClick(final DialogInterface dialog,
-									final int which) {
-								final ListView lv = ((AlertDialog) dialog)
-										.getListView();
-								CursorPreference.this.value = lv.getAdapter()
-										.getItemId(which);
+							public void onClick(final DialogInterface dialog, final int which) {
+								final ListView lv = ((AlertDialog) dialog).getListView();
+								CursorPreference.this.value = lv.getAdapter().getItemId(which);
 								CursorPreference.this.valueName = null;
 								CursorPreference.this.dismissDialog();
 							}
 						});
 			}
 			if (this.lsrEditSelected != null) {
-				builder.setPositiveButton(this.resEditSelected,
-						this.lsrEditSelected);
+				builder.setPositiveButton(this.resEditSelected, this.lsrEditSelected);
 			}
 			if (this.lsrNewItem != null) {
 				builder.setNeutralButton(this.resNewItem, this.lsrNewItem);
@@ -1130,10 +1084,8 @@ abstract class Preference {
 						if (s.length() == 0) {
 							continue;
 						}
-						final Cursor c = this.context.getContentResolver()
-								.query(this.uri, this.projection,
-										this.projection[0] + " = " + s, null,
-										null);
+						final Cursor c = this.context.getContentResolver().query(this.uri,
+								this.projection, this.projection[0] + " = " + s, null, null);
 						if (c != null && c.moveToFirst()) {
 							sb.append(c.getString(1));
 						} else {
@@ -1151,11 +1103,11 @@ abstract class Preference {
 				return this.multiValueName;
 			} else {
 				if (this.valueName == null && this.value >= 0L) {
-					Cursor cursor = this.context.getContentResolver().query(
-							this.uri,
-							this.projection,
-							DbUtils.sqlAnd(this.selection, this.projection[0]
-									+ " == " + this.value), null, null);
+					Cursor cursor = this.context.getContentResolver()
+							.query(this.uri,
+									this.projection,
+									DbUtils.sqlAnd(this.selection, this.projection[0] + " == "
+											+ this.value), null, null);
 					if (cursor != null && cursor.moveToFirst()) {
 						this.valueName = cursor.getString(1);
 					}
@@ -1239,16 +1191,15 @@ abstract class Preference {
 		 * @param showDateAndTime
 		 *            show date+time instead of date only
 		 */
-		protected DatePreference(final Context ctx, final String prefName,
-				final int text, final int help, final boolean showDateAndTime) {
+		protected DatePreference(final Context ctx, final String prefName, final int text,
+				final int help, final boolean showDateAndTime) {
 			super(ctx, prefName, R.layout.prefadapter_item, text, help);
 			this.showTime = showDateAndTime;
 		}
 
 		@Override
 		void load(final Cursor cursor) {
-			this.value.setTimeInMillis(cursor.getLong(cursor
-					.getColumnIndex(this.name)));
+			this.value.setTimeInMillis(cursor.getLong(cursor.getColumnIndex(this.name)));
 		}
 
 		@Override
@@ -1258,41 +1209,28 @@ abstract class Preference {
 
 		@Override
 		Dialog createDialog() {
-			final DatePickerDialog dd = new DatePickerDialog(this.context,
-					new OnDateSetListener() {
-						@Override
-						public void onDateSet(final DatePicker view,
-								final int year, final int monthOfYear,
-								final int dayOfMonth) {
-							DatePreference.this.value.set(year, monthOfYear,
-									dayOfMonth);
-							if (DatePreference.this.showTime) {
-								final TimePickerDialog dt = // .
-								new TimePickerDialog(
-										DatePreference.this.context,
-										new OnTimeSetListener() {
-											@Override
-											public void onTimeSet(
-													final TimePicker view,
-													final int hourOfDay, // .
-													final int minute) {
-												DatePreference.this.value.set(
-														Calendar.HOUR_OF_DAY,
-														hourOfDay);
-												DatePreference.this.value
-														.set(Calendar.MINUTE,
-																minute);
-											}
-										}, DatePreference.this.value
-												.get(Calendar.HOUR_OF_DAY),
-										DatePreference.this.value
-												.get(Calendar.MINUTE), true);
-								dt.setCancelable(true);
-								dt.show();
-							}
-						}
-					}, this.value.get(Calendar.YEAR),
-					this.value.get(Calendar.MONTH),
+			final DatePickerDialog dd = new DatePickerDialog(this.context, new OnDateSetListener() {
+				@Override
+				public void onDateSet(final DatePicker view, final int year, final int monthOfYear,
+						final int dayOfMonth) {
+					DatePreference.this.value.set(year, monthOfYear, dayOfMonth);
+					if (DatePreference.this.showTime) {
+						final TimePickerDialog dt = new TimePickerDialog(
+								DatePreference.this.context, new OnTimeSetListener() {
+									@Override
+									public void onTimeSet(final TimePicker view,
+											final int hourOfDay, final int minute) {
+										DatePreference.this.value.set(Calendar.HOUR_OF_DAY,
+												hourOfDay);
+										DatePreference.this.value.set(Calendar.MINUTE, minute);
+									}
+								}, DatePreference.this.value.get(Calendar.HOUR_OF_DAY),
+								DatePreference.this.value.get(Calendar.MINUTE), true);
+						dt.setCancelable(true);
+						dt.show();
+					}
+				}
+			}, this.value.get(Calendar.YEAR), this.value.get(Calendar.MONTH),
 					this.value.get(Calendar.DAY_OF_MONTH));
 
 			dd.setCancelable(true);
@@ -1304,19 +1242,16 @@ abstract class Preference {
 		@Override
 		void updateDialog(final Dialog d) {
 			((DatePickerDialog) d).updateDate(this.value.get(Calendar.YEAR),
-					this.value.get(Calendar.MONTH),
-					this.value.get(Calendar.DAY_OF_MONTH));
+					this.value.get(Calendar.MONTH), this.value.get(Calendar.DAY_OF_MONTH));
 		}
 
 		@Override
 		String getHint() {
 			final String format = Preferences.getDateFormat(this.context);
 			if (format == null) {
-				return DateFormat.getDateFormat(this.context).format(
-						this.value.getTime());
+				return DateFormat.getDateFormat(this.context).format(this.value.getTime());
 			} else {
-				return String
-						.format(format, this.value, this.value, this.value);
+				return String.format(format, this.value, this.value, this.value);
 			}
 		}
 
@@ -1367,8 +1302,8 @@ abstract class Preference {
 	 * @param help
 	 *            resource id of the help text
 	 */
-	protected Preference(final Context ctx, final String prefName,
-			final int layout, final int text, final int help) {
+	protected Preference(final Context ctx, final String prefName, final int layout,
+			final int text, final int help) {
 		this.context = ctx;
 		this.name = prefName;
 		this.resLayout = layout;
@@ -1395,8 +1330,7 @@ abstract class Preference {
 	 *            show help
 	 * @return A View corresponding to the data at the specified position.
 	 */
-	View getView(final View convertView, final ViewGroup parent,
-			final boolean showHelp) {
+	View getView(final View convertView, final ViewGroup parent, final boolean showHelp) {
 		final LayoutInflater inflater = (LayoutInflater) this.context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		if (this.hide) {
@@ -1407,8 +1341,7 @@ abstract class Preference {
 		// TODO: use convertView
 		final View ret = inflater.inflate(this.resLayout, null);
 		((TextView) ret.findViewById(android.R.id.text1)).setText(this.resText);
-		String s = this.context.getString(R.string.value) + ": "
-				+ this.getHint();
+		String s = this.context.getString(R.string.value) + ": " + this.getHint();
 		if (showHelp) {
 			s += "\n" + this.context.getString(this.getHelp());
 		}
