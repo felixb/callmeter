@@ -360,10 +360,14 @@
   <string-array name="billperiod">
     <item>Un día</item>
     <item>Una semana</item>
+    <item>14 días</item>
+    <item>15 días</item>
     <item>30 días</item>
+    <item>31 días</item>
     <item>60 días</item>
     <item>90 días</item>
     <item>Un mes</item>
+		<item notranslation="true">One month + one day</item>
     <item>Dos meses</item>
     <item>Tres meses</item>
     <item>Cuatro meses</item>

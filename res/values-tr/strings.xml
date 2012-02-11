@@ -257,10 +257,14 @@
   <string-array name="billperiod">
     <item>Bir gün</item>
     <item>Bir hafta</item>
+    <item>14 gün</item>
+    <item>15 gün</item>
     <item>30 gün</item>
+    <item>31 gün</item>
     <item>60 gün</item>
     <item>90 gün</item>
     <item>Bir ay</item>
+		<item notranslation="true">One month + one day</item>
     <item>İki ay</item>
     <item>Üç ay</item>
     <item>Dört ay</item>

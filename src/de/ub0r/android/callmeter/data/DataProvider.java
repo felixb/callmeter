@@ -45,6 +45,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.os.SystemClock;
+import android.preference.PreferenceManager;
 import android.provider.OpenableColumns;
 import android.text.TextUtils;
 import de.ub0r.android.callmeter.CallMeter;
@@ -131,30 +132,36 @@ public final class DataProvider extends ContentProvider {
 	public static final int BILLPERIOD_DAY = 0;
 	/** Bill period: one week. */
 	public static final int BILLPERIOD_WEEK = 1;
+	/** Bill period: two weeks. */
+	public static final int BILLPERIOD_14D = 2;
+	/** Bill period: 15 days. */
+	public static final int BILLPERIOD_15D = 3;
 	/** Bill period: 30 days. */
-	public static final int BILLPERIOD_30D = 2;
+	public static final int BILLPERIOD_30D = 4;
+	/** Bill period: 31 days. */
+	public static final int BILLPERIOD_31D = 5;
 	/** Bill period: 60 days. */
-	public static final int BILLPERIOD_60D = 3;
+	public static final int BILLPERIOD_60D = 6;
 	/** Bill period: 90 days. */
-	public static final int BILLPERIOD_90D = 4;
+	public static final int BILLPERIOD_90D = 7;
 	/** Bill period: 1 month. */
-	public static final int BILLPERIOD_1MONTH = 5;
-	/** Bill period: 2 month. */
-	public static final int BILLPERIOD_2MONTH = 6;
-	/** Bill period: 3 month. */
-	public static final int BILLPERIOD_3MONTH = 7;
-	/** Bill period: 4 month. */
-	public static final int BILLPERIOD_4MONTH = 8;
-	/** Bill period: 5 month. */
-	public static final int BILLPERIOD_5MONTH = 9;
-	/** Bill period: 6 month. */
-	public static final int BILLPERIOD_6MONTH = 10;
-	/** Bill period: 12 month. */
-	public static final int BILLPERIOD_12MONTH = 11;
+	public static final int BILLPERIOD_1MONTH = 8;
 	/** Bill period: 1 month + 1 Day. */
-	public static final int BILLPERIOD_1MONTH_1DAY = 12;
+	public static final int BILLPERIOD_1MONTH_1DAY = 9;
+	/** Bill period: 2 month. */
+	public static final int BILLPERIOD_2MONTH = 10;
+	/** Bill period: 3 month. */
+	public static final int BILLPERIOD_3MONTH = 11;
+	/** Bill period: 4 month. */
+	public static final int BILLPERIOD_4MONTH = 12;
+	/** Bill period: 5 month. */
+	public static final int BILLPERIOD_5MONTH = 13;
+	/** Bill period: 6 month. */
+	public static final int BILLPERIOD_6MONTH = 14;
+	/** Bill period: 12 month. */
+	public static final int BILLPERIOD_12MONTH = 15;
 	/** Bill period: infinite. */
-	public static final int BILLPERIOD_INFINITE = 13;
+	public static final int BILLPERIOD_INFINITE = 16;
 
 	/** Plan/rule id: not yet calculated. */
 	public static final int NO_ID = -1;
@@ -1356,6 +1363,10 @@ public final class DataProvider extends ContentProvider {
 				f = Calendar.DAY_OF_MONTH;
 				v = 30;
 				break;
+			case BILLPERIOD_31D:
+				f = Calendar.DAY_OF_MONTH;
+				v = 30;
+				break;
 			case BILLPERIOD_60D:
 				f = Calendar.DAY_OF_MONTH;
 				v = 60;
@@ -1401,6 +1412,14 @@ public final class DataProvider extends ContentProvider {
 			case BILLPERIOD_WEEK:
 				f = Calendar.DAY_OF_MONTH;
 				v = 7;
+				break;
+			case BILLPERIOD_14D:
+				f = Calendar.DAY_OF_MONTH;
+				v = 14;
+				break;
+			case BILLPERIOD_15D:
+				f = Calendar.DAY_OF_MONTH;
+				v = 15;
 				break;
 			default:
 				return null;
@@ -2096,6 +2115,9 @@ public final class DataProvider extends ContentProvider {
 		}
 	}
 
+	/** Preference's name: did bill period settings migration. */
+	private static final String PREFS_MIGRATE_BPSETTINGS = "_did_migration_bpsettings";
+
 	/** Internal id: logs. */
 	private static final int LOGS = 1;
 	/** Internal id: single log entry. */
@@ -2284,6 +2306,53 @@ public final class DataProvider extends ContentProvider {
 
 	/** {@link DatabaseHelper}. */
 	private DatabaseHelper mOpenHelper;
+
+	/**
+	 * Update Settings.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 */
+	public static void updateSettings(final Context context) {
+		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
+		if (!p.getBoolean(PREFS_MIGRATE_BPSETTINGS, false)) {
+			Log.i(TAG, "update bill period settings... ");
+			if (!TextUtils.isEmpty(p.getString("lastrun", null))) {
+				Cursor c = context.getContentResolver().query(Plans.CONTENT_URI,
+						new String[] { Plans.ID, Plans.BILLPERIOD }, Plans.TYPE + "=?",
+						new String[] { String.valueOf(TYPE_BILLPERIOD) }, null);
+				if (c.moveToFirst()) {
+					do {
+						long id = c.getLong(0);
+						int bpt = c.getInt(1);
+						ContentValues values = null;
+						if (bpt >= 6) {
+							values = new ContentValues(1);
+							values.put(Plans.BILLPERIOD, bpt + 4);
+						} else if (bpt >= 3) {
+							values = new ContentValues(1);
+							values.put(Plans.BILLPERIOD, bpt + 3);
+						} else if (bpt >= 2) {
+							values = new ContentValues(1);
+							values.put(Plans.BILLPERIOD, bpt + 2);
+						}
+						if (values != null) {
+							Log.i(TAG, "update billperiod type: " + id + " from " + bpt + " to "
+									+ values.get(Plans.BILLPERIOD));
+							context.getContentResolver().update(Plans.CONTENT_URI, values,
+									Plans.ID + "=?", new String[] { String.valueOf(id) });
+						}
+					} while (c.moveToNext());
+				}
+				c.close();
+			} else {
+				Log.d(TAG, "fresh install, no need to migrate settings.");
+			}
+			p.edit().putBoolean(PREFS_MIGRATE_BPSETTINGS, true).commit();
+		} else {
+			Log.d(TAG, "bill period settings already updated");
+		}
+	}
 
 	/**
 	 * Run RuleMatcher.unmatch locally.

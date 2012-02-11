@@ -398,10 +398,14 @@
   <string-array name="billperiod">
     <item>Ein Tag</item>
     <item>Eine Woche</item>
+    <item>14 Tage</item>
+    <item>15 Tage</item>
     <item>30 Tage</item>
+    <item>31 Tage</item>
     <item>60 Tage</item>
     <item>90 Tage</item>
     <item>Ein Monat</item>
+    <item>Ein Monat + ein Tag</item>
     <item>Zwei Monate</item>
     <item>Drei Monate</item>
     <item>Vier Monate</item>

@@ -351,10 +351,14 @@
   <string-array name="billperiod">
     <item>Egy nap</item>
     <item>Egy hét</item>
+    <item>14 nap</item>
+    <item>15 nap</item>
     <item>30 nap</item>
+    <item>31 nap</item>
     <item>60 nap</item>
     <item>90 nap</item>
     <item>Egy hónap</item>
+		<item notranslation="true">One month + one day</item>
     <item>Két hónap</item>
     <item>Három hónap</item>
     <item>Négy hónap</item>

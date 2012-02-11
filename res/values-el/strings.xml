@@ -18,7 +18,7 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=el&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/el/strings.xml to edit the file.
        -->
 <resources>
   <string name="changelog_notification_" formatted="false">Πρόσφατες αλλαγές:</string>
@@ -349,10 +349,14 @@
   <string-array name="billperiod">
     <item>Μία ημέρα</item>
     <item>Μία εβδομάδα</item>
+    <item>14 ημέρες</item>
+    <item>15 ημέρες</item>
     <item>30 ημέρες</item>
+    <item>31 ημέρες</item>
     <item>60 ημέρες</item>
     <item>90 ημέρες</item>
     <item>Ένα μήνα</item>
+		<item notranslation="true">One month + one day</item>
     <item>Δύο μήνες</item>
     <item>Τρείς μήνες</item>
     <item>Τέσσερις μήνες</item>

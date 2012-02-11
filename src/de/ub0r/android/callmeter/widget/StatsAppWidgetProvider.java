@@ -104,6 +104,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		Log.d(TAG, "onUpdate()");
 		Utils.setLocale(context);
 		Common.setDateFormat(context);
+
 		// Update logs and run rule matcher
 		LogRunnerService.update(context, LogRunnerService.ACTION_RUN_MATCHER);
 

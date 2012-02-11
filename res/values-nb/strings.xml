@@ -18,7 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=nb&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/nb/strings.xml to edit the file.
        -->
 <resources>
   <string name="changelog_notification_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Recent changes:">Siste endringer:</string>
@@ -268,10 +268,14 @@
   <string-array name="billperiod" username="">
     <item>En dag</item>
     <item>En uke</item>
+    <item>14 dager</item>
+    <item>15 dager</item>
     <item>30 dager</item>
+    <item>31 dager</item>
     <item>60 dager</item>
     <item>90 dager</item>
     <item>en måned</item>
+		<item notranslation="true">One month + one day</item>
     <item>To måneder</item>
     <item>Tre måneder</item>
     <item>Fire måneder</item>

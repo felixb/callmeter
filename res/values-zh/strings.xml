@@ -18,7 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=zh&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/zh/strings.xml to edit the file.
        -->
 <resources>
   <string name="about0_" formatted="false">查看电话,短信,数据连接方案!</string>
@@ -281,10 +281,14 @@
   <string-array name="billperiod">
     <item>一天</item>
     <item>一周</item>
+    <item>14天</item>
+    <item>15天</item>
     <item>30天</item>
+    <item>31天</item>
     <item>60天</item>
     <item>90天</item>
     <item>一个月</item>
+		<item notranslation="true">One month + one day</item>
     <item>两个月</item>
     <item>三个月</item>
     <item>Four month</item>

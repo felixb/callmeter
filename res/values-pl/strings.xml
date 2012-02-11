@@ -18,7 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=pl&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/pl/strings.xml to edit the file.
        -->
 <resources>
   <string name="changelog_notification_" formatted="false" username="betqs" orig="Recent changes:">Ostatnie zmiany:</string>
@@ -374,10 +374,14 @@
   <string-array name="billperiod">
     <item>Jeden dzień</item>
     <item>Jeden tydzień</item>
+    <item>14 dni</item>
+    <item>15 dni</item>
     <item>30 dni</item>
+    <item>31 dni</item>
     <item>60 dni</item>
     <item>90 dni</item>
     <item>Jeden miesiąc</item>
+		<item notranslation="true">One month + one day</item>
     <item>Dwa miesiące</item>
     <item>Trzy miesiące</item>
     <item>Cztery miesiące</item>

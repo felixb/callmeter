@@ -18,7 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=sk&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/sk/strings.xml to edit the file.
        -->
 <resources>
   <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Call Meter slúži k sledovaniu stavu čerpania hovorného, SMS správ a dátových prenosov v rámci mesačného paušálu.</string>
@@ -82,10 +82,14 @@
   <string-array name="billperiod">
     <item>Deň</item>
     <item>Týždeň</item>
+    <item>14 dní</item>
+    <item>15 dní</item>
     <item>30 dní</item>
+    <item>31 dní</item>
     <item>60 dní</item>
     <item>90 dní</item>
     <item>Mesiac</item>
+		<item notranslation="true">One month + one day</item>
     <item>2 mesiace</item>
     <item>3 mesiace</item>
     <item>4 mesiace</item>

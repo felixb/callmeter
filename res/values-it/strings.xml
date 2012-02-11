@@ -353,10 +353,14 @@
   <string-array name="billperiod" username="fireb33">
     <item>Un giorno</item>
     <item>Una settimana</item>
+    <item>14 giorni</item>
+    <item>15 giorni</item>
     <item>30 giorni</item>
+    <item>31 giorni</item>
     <item>60 giorni</item>
     <item>90 giorni</item>
     <item>Un mese</item>
+		<item notranslation="true">One month + one day</item>
     <item>Due mesi</item>
     <item>Tre mesi</item>
     <item>Quattro mesi</item>

@@ -19,6 +19,7 @@
 package de.ub0r.android.callmeter;
 
 import android.app.Application;
+import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
@@ -27,7 +28,7 @@ import de.ub0r.android.lib.Utils;
  */
 public final class CallMeter extends Application {
 	/** Tag for output. */
-	// private static final String TAG = "App";
+	private static final String TAG = "App";
 
 	/** Minimum date. */
 	public static final long MIN_DATE = 10000000000L;
@@ -65,6 +66,8 @@ public final class CallMeter extends Application {
 	public void onCreate() {
 		super.onCreate();
 		Log.init("CallMeter3G");
+		Log.d(TAG, "init");
 		Utils.setLocale(this);
+		DataProvider.updateSettings(this);
 	}
 }

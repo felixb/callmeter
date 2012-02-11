@@ -402,17 +402,20 @@
 	<string-array name="billperiod">
 		<item>One day</item>
 		<item>One week</item>
+		<item>14 days</item>
+		<item>15 days</item>
 		<item>30 days</item>
+		<item>31 days</item>
 		<item>60 days</item>
 		<item>90 days</item>
 		<item>One month</item>
+		<item>One month + one day</item>
 		<item>Two month</item>
 		<item>Three month</item>
 		<item>Four month</item>
 		<item>Five month</item>
 		<item>Six month</item>
 		<item>One year</item>
-		<item>One month+1day</item>
 		<item>Infinite</item>
 	</string-array>
 	<string-array name="billmodes">

@@ -18,7 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=pt-rBR&file=strings.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/pt-rBR/strings.xml to edit the file.
        -->
 <resources>
   <string name="limit_help" formatted="false">Defina o limite do seu plano aqui.\n\nTipo \"unidades\" devem ser em minutos (chamadas), mensagens (sms/mms), megabytes (dados, 1024kB) ou unidades (combinadas).\n\nTipo \"custo\" devem ser adicionadas no seu padrão monetário (ex. R$).</string>
@@ -67,10 +67,14 @@
   <string-array name="billperiod" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
     <item>Um dia</item>
     <item>Uma semana</item>
+    <item>14 dias</item>
+    <item>15 dias</item>
     <item>30 dias</item>
+    <item>31 dias</item>
     <item>60 dias</item>
     <item>90 dias</item>
     <item>Um mês</item>
+		<item notranslation="true">One month + one day</item>
     <item>Dois meses</item>
     <item>Três meses</item>
     <item>Quatro meses</item>
