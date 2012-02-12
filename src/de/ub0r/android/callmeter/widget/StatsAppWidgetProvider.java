@@ -201,7 +201,12 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			return;
 		}
 
-		float cost = plan.getAccumCost();
+		float cost;
+		if (p.getBoolean(Preferences.PREFS_PREPAID, false)) {
+			cost = plan.getAccumCostPrepaid();
+		} else {
+			cost = plan.getAccumCost();
+		}
 		Log.d(TAG, "plan: " + plan.id);
 		Log.d(TAG, "plan name: " + plan.name);
 		Log.d(TAG, "count: " + plan.bpCount);
