@@ -58,6 +58,16 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 	/** Extra providing amount of call. */
 	public static final String EXTRA_AMOUNT = "amount";
 
+	/** Ids of plans' {@link Button}s. */
+	private static final int[] PLAN_BTNS = new int[] { R.id.btn00, R.id.btn01, R.id.btn02,
+			R.id.btn03, R.id.btn04, R.id.btn05, R.id.btn06, R.id.btn07, R.id.btn08, R.id.btn09,
+			R.id.btn10, R.id.btn11, R.id.btn12, R.id.btn13, R.id.btn14, R.id.btn15, R.id.btn16,
+			R.id.btn17, R.id.btn18, R.id.btn19 };
+	/** Maximal number of plans. */
+	private static final int MAX_PLANS = PLAN_BTNS.length;
+	/** Ids of plans. */
+	private final long[] planIds = new long[MAX_PLANS];
+
 	/** Task updating timeout field. */
 	private AsyncTask<Void, Void, Void> timeoutTask = null;
 
@@ -71,14 +81,6 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 
 	/** Data of call. */
 	private long id, date, amount;
-
-	/** Maximal number of plans. */
-	private final int maxPlans = 10;
-	/** Ids of plans. */
-	private final long[] planIds = new long[this.maxPlans];
-	/** Ids of plans' {@link Button}s. */
-	private final int[] planBtns = new int[] { R.id.btn00, R.id.btn01, R.id.btn02, R.id.btn03,
-			R.id.btn04, R.id.btn05, R.id.btn06, R.id.btn07, R.id.btn08, R.id.btn09 };
 
 	/** Inner {@link Dialog}. */
 	private Dialog d = null;
@@ -126,12 +128,12 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 		do {
 			this.planIds[i] = c.getLong(DataProvider.Plans.INDEX_ID);
 
-			final Button v = (Button) this.d.findViewById(this.planBtns[i]);
+			final Button v = (Button) this.d.findViewById(PLAN_BTNS[i]);
 			v.setVisibility(View.VISIBLE);
 			v.setOnClickListener(this);
 			v.setText(c.getString(DataProvider.Plans.INDEX_NAME));
 			++i;
-		} while (i < this.maxPlans && c.moveToNext());
+		} while (i < MAX_PLANS && c.moveToNext());
 
 		if (!c.isClosed()) {
 			c.close();
@@ -139,9 +141,9 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 
 		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
 		this.defaultPlanId = p.getLong(Preferences.PREFS_ASK_FOR_PLAN_DEFAULT, -1L);
-		for (i = 0; i < this.maxPlans; i++) {
+		for (i = 0; i < MAX_PLANS; i++) {
 			if (this.planIds[i] == this.defaultPlanId) {
-				final int bid = this.planBtns[i];
+				final int bid = PLAN_BTNS[i];
 				Log.d(TAG, "request focus: " + bid);
 				final Button v = (Button) this.d.findViewById(bid);
 				v.requestFocus();
@@ -222,8 +224,8 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 			this.finish();
 			break;
 		default:
-			for (int i = 0; i < this.maxPlans; i++) {
-				if (vid == this.planBtns[i]) {
+			for (int i = 0; i < MAX_PLANS; i++) {
+				if (vid == PLAN_BTNS[i]) {
 					final long pid = this.planIds[i];
 					Log.d(TAG, "setPlan(" + pid + ")");
 					RuleMatcher.matchLog(this.getContentResolver(), this.id, pid);
