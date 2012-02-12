@@ -255,6 +255,10 @@ public final class LogsFragment extends ListFragment implements OnClickListener,
 		this.tbOut.setTextOff(directions[DataProvider.DIRECTION_OUT]);
 		directions = null;
 
+		if (this.planId >= 0L) {
+			this.setPlanId(planId);
+		}
+
 		return v;
 	}
 
@@ -343,15 +347,17 @@ public final class LogsFragment extends ListFragment implements OnClickListener,
 	 */
 	public void setPlanId(final long id) {
 		this.planId = id;
-		if (id < 0L) {
-			this.tbPlan.setVisibility(View.GONE);
-		} else {
-			String p = DataProvider.Plans.getName(this.getActivity().getContentResolver(),
-					this.planId);
-			this.tbPlan.setText(p);
-			this.tbPlan.setTextOn(p);
-			this.tbPlan.setTextOff(p);
-			this.tbPlan.setVisibility(View.VISIBLE);
+		if (tbPlan != null) {
+			if (id < 0L) {
+				this.tbPlan.setVisibility(View.GONE);
+			} else {
+				String p = DataProvider.Plans.getName(this.getActivity().getContentResolver(),
+						this.planId);
+				this.tbPlan.setText(p);
+				this.tbPlan.setTextOn(p);
+				this.tbPlan.setTextOff(p);
+				this.tbPlan.setVisibility(View.VISIBLE);
+			}
 		}
 		if (this.isVisible()) {
 			this.setAdapter(true);

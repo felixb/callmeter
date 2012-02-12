@@ -18,6 +18,8 @@
  */
 package de.ub0r.android.callmeter.ui;
 
+import java.util.UnknownFormatConversionException;
+
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.ActivityNotFoundException;
@@ -30,6 +32,7 @@ import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.nfc.FormatException;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ListFragment;
@@ -215,10 +218,26 @@ public final class PlansFragment extends ListFragment implements OnClickListener
 				if (free > 0f || cost > 0f) {
 					spb.append("\n");
 					if (free > 0f) {
-						spb.append("(" + String.format(currencyFormat, free) + ")");
+						String s;
+						try {
+							s = String.format(currencyFormat, free);
+						} catch (UnknownFormatConversionException ex) {
+							Log.e(TAG, "unkown format error with format '" + currencyFormat
+									+ "' and free=" + free, ex);
+							s = "$";
+						}
+						spb.append("(" + s + ")");
 					}
 					if (cost > 0f) {
-						spb.append(" " + String.format(currencyFormat, cost));
+						String s;
+						try {
+							s = String.format(currencyFormat, cost);
+						} catch (UnknownFormatConversionException ex) {
+							Log.e(TAG, "unkown format error with format '" + currencyFormat
+									+ "' and cost=" + cost, ex);
+							s = "$";
+						}
+						spb.append(" " + s);
 					}
 				}
 				if (plan.limit > 0) {
@@ -571,7 +590,7 @@ public final class PlansFragment extends ListFragment implements OnClickListener
 		Log.d(TAG, "onCreateLoader(" + id + "," + args + ")");
 		this.setInProgress(1);
 		PlansAdapter adapter = (PlansAdapter) this.getListAdapter();
-		if (adapter.getCount() == 0) {
+		if (adapter == null || adapter.getCount() == 0) {
 			this.vLoading.setVisibility(View.VISIBLE);
 		}
 

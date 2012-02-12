@@ -732,10 +732,12 @@ public final class DataProvider extends ContentProvider {
 				Cursor c = cr.query(uri, PROJECTION_SUM, TABLE + "." + ID + "=?",
 						new String[] { String.valueOf(planid) }, null);
 				Plan ret = null;
-				if (c.moveToFirst()) {
-					ret = new Plan(c);
+				if (c != null) {
+					if (c.moveToFirst()) {
+						ret = new Plan(c);
+					}
+					c.close();
 				}
-				c.close();
 				return ret;
 			}
 

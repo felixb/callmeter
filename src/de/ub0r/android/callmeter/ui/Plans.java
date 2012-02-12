@@ -127,7 +127,7 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 		private String recalc = null;
 
 		@Override
-		public void handleMessage(final Message msg) {
+		public synchronized void handleMessage(final Message msg) {
 			Log.d(TAG, "handleMessage(" + msg.what + ")");
 			switch (msg.what) {
 			case MSG_BACKGROUND_START_RUNNER:
