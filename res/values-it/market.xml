@@ -18,7 +18,7 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=it&file=market.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/it/market.xml to edit the file.
        -->
 <resources>
   <string name="market_about" formatted="false" username="fireb33" orig="Call Meter let\'s you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and let\'s you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.">Call Meter 3G ti permette di tenere d\'occhio i tuoi piani di telefonia mobile.\n\nMostra statistiche di chiamate/messaggi/traffico dati e ti permette di settare limiti per ciascuno di questi piani.\nCall Meter supporta molteplici modalità di tariffazione per adattare il suo comportamento alle tariffe del tuo operatore.</string>

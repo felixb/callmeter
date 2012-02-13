@@ -18,7 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=es&file=help.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/es/help.xml to edit the file.
        -->
 <resources>
   <string name="help_title_" formatted="false" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:" username="jonaguera">Por favor lea lo siguiente para entender el concepto de <b>registros</b>, <b>planes</b> y <b>reglas</b>:</string>
