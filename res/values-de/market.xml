@@ -18,7 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm2/edit.php?lang=de&file=market.xml to edit the file.
+               Visit http://ub0r.de/translate/cm2/de/market.xml to edit the file.
        -->
 <resources>
   <string name="market_about" formatted="false" username="Felix Bechstein &lt;f+translator@ub0r.de&gt;" orig="Call Meter lets you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and lets you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.">Mit Call Meter behältst du ein Auge auf deine Mobilen Tarife.\n\nEs zeigt Statistiken deiner Anrufe/SMS/Daten an. Du kannst Limits für jedes Kontingent einstellen.\nCall Meter unterstützt eine Fülle von Abrechnungsmodi und lässt dich so das Verhalten an die Abrechnung deines Providers anpassen.</string>
