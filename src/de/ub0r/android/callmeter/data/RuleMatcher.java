@@ -189,6 +189,8 @@ public final class RuleMatcher {
 					return "+" + number.substring(2);
 				} else if (number.startsWith("0")) {
 					return iPrefix + number.substring(1);
+				} else if (iPrefix.length() > 1 && number.startsWith(iPrefix.substring(1))) {
+					return "+" + number;
 				} else if (zPrefix) {
 					return iPrefix + number;
 				} else {
