@@ -1255,32 +1255,43 @@ public final class RuleMatcher {
 					m.sendToTarget();
 				}
 			}
-			int i = 1;
-			do {
-				ret |= matchLog(cr, cursor);
-				if (i % PROGRESS_STEPS == 0 || (i < PROGRESS_STEPS && i % CallMeter.TEN == 0)) {
-					h = Plans.getHandler();
-					if (h != null) {
-						final Message m = h.obtainMessage(Plans.MSG_BACKGROUND_PROGRESS_MATCHER);
-						m.arg1 = i;
-						m.arg2 = l;
-						Log.d(TAG, "send progress: " + i + "/" + l);
-						m.sendToTarget();
-					} else {
-						Log.d(TAG, "send progress: " + i + " handler=null");
+			try {
+				int i = 1;
+				do {
+					ret |= matchLog(cr, cursor);
+					if (i % PROGRESS_STEPS == 0 || (i < PROGRESS_STEPS && i % CallMeter.TEN == 0)) {
+						h = Plans.getHandler();
+						if (h != null) {
+							final Message m = h
+									.obtainMessage(Plans.MSG_BACKGROUND_PROGRESS_MATCHER);
+							m.arg1 = i;
+							m.arg2 = l;
+							Log.d(TAG, "send progress: " + i + "/" + l);
+							m.sendToTarget();
+						} else {
+							Log.d(TAG, "send progress: " + i + " handler=null");
+						}
+						Log.d(TAG, "sleeping..");
+						try {
+							Thread.sleep(CallMeter.MILLIS);
+						} catch (InterruptedException e) {
+							Log.e(TAG, "sleep interrupted", e);
+						}
+						Log.d(TAG, "sleep finished");
 					}
-					Log.d(TAG, "sleeping..");
-					try {
-						Thread.sleep(CallMeter.MILLIS);
-					} catch (InterruptedException e) {
-						Log.e(TAG, "sleep interrupted", e);
-					}
-					Log.d(TAG, "sleep finished");
-				}
-				++i;
-			} while (cursor.moveToNext());
+					++i;
+				} while (cursor.moveToNext());
+			} catch (IllegalStateException e) {
+				Log.e(TAG, "illegal state in RuleMatcher's loop", e);
+			}
 		}
-		cursor.close();
+		try {
+			if (!cursor.isClosed()) {
+				cursor.close();
+			}
+		} catch (IllegalStateException e) {
+			Log.e(TAG, "illegal state while closing cursor", e);
+		}
 
 		if (ret) {
 			final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);

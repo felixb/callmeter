@@ -2749,6 +2749,13 @@ public final class DataProvider extends ContentProvider {
 				return null;
 			}
 			final String str = err.split(":", 3)[1].trim();
+			if (cursor != null) {
+				if (!cursor.isClosed()) {
+					cursor.close();
+				}
+				cursor = null;
+			}
+			ret = null;
 			return backup(db, table, proj, str);
 		}
 		if (cursor != null && cursor.moveToFirst()) {
