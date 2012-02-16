@@ -465,4 +465,10 @@
   <string name="export_rules_dev_" formatted="false" orig="Export rule set to developer">Exportovat sadu pravidel vývojáři</string>
   <string name="export_cancel" formatted="false" orig="Export to SD card">Export na SD kartu</string>
   <string name="exported_" formatted="false" orig="Exported:">Exportováno:</string>
+  <string name="loading" formatted="false" orig="Loading ...">Načítání ...</string>
+  <string name="import_rules_sd_nofiles" formatted="false" orig="No found files">Nenalezeny soubory</string>
+  <string name="import_rules_sd_files" formatted="false" orig="Found files">Nalezeny soubory</string>
+  <string name="import_rules_sd_help" formatted="false" orig="Place your file on your SD card and click it below">Umístěte soubor na SD kartu a kliněte níže</string>
+  <string name="import_rules_sd_" formatted="false" orig="Import rule set from SD card">Import pravidel z SD karty</string>
+  <string name="import_rules_sd_hint" formatted="false" orig="Import rule set directly from SD card.">Importuje pravidla přímo z SD karty.</string>
 </resources>

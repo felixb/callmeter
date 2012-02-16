@@ -17,7 +17,7 @@ res/values-cs/intro.xml:9
 res/values-cs/market.xml:5
 res/values-cs/notes.xml:0
 res/values-cs/simple_prefs.xml:19
-res/values-cs/strings.xml:424
+res/values-cs/strings.xml:430
 res/values-de/help.xml:14
 res/values-de/intro.xml:10
 res/values-de/market.xml:5
@@ -134,7 +134,7 @@ res/values-zh/simple_prefs.xml:0
 res/values-zh/strings.xml:313
 res/values:535
 res/values-bg:169
-res/values-cs:460
+res/values-cs:466
 res/values-de:496
 res/values-el:385
 res/values-es:489
