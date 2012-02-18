@@ -18,7 +18,7 @@
        -->
       <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/edit.php?lang=hu&file=help.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/hu/help.xml to edit the file.
        -->
 <resources>
   <string name="help_title_" formatted="false" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">Kérlek olvasd el a következő <b>sorokat</b>, hogy megértsd a <b>naplók</b>, tarifák és <b>szabályok</b> (tehát a program) működését.</string>

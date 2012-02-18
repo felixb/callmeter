@@ -25,7 +25,7 @@
   <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Klikněte zde pro zobrazení posledních změn</string>
   <string name="never_show_again" formatted="false" orig="Never show changelog again">Changelog již nezobrazovat</string>
   <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Poznámky autora</string>
-  <string name="notes_from_developer_text" formatted="false">Klikněte zde pro zobrazení posledních novinek od autora</string>
+  <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Klikněte zde pro zobrazení posledních novinek od autora</string>
   <string name="about0_" formatted="false">Call Meter slouží ke sledování stavu čerpání hovorného, SMS zpráv a datových přenosů v rámci měsíčního paušálu.</string>
   <string name="about0" formatted="false">Aplikace tvoří statistiku na základě logů o hovorech, SMS zprávách a datových přenosech a podporuje několik způsobů účtování/tarifikace.</string>
   <string name="about1" formatted="false">Výstupem je celkový počet využitých minut/sms/dat od nainstalování aplikace, a počet těchto jednotek případně ukazatel využití volných minut/sms/dat za aktuální účetní období. Výpočet měsíční spotřeby bere v potaz vybranou tarifikaci. V celkovém výpočtu není tarifikace zohledněna.\n\nLegenda zobrazování statistik:\nPříchozí hovory: délka a počet v aktuálním období / délka všech hovorů\nOdchozí hovory: [% využití volných minut akt. období] / délka a počet v akt. období / délka všech hovorů\nPříchozí SMS: počet SMS akt. období / celkový počet SMS\nOdchozí SMS: cena za SMS akt. období / [% využití volných SMS akt. období] / počet SMS akt. období / celkový počet SMS </string>
@@ -309,7 +309,7 @@
     <item>60 dnů</item>
     <item>90 dnů</item>
     <item>Jeden měsíc</item>
-		<item notranslation="true">One month + one day</item>
+    <item notranslation="true">One month + one day</item>
     <item>Dva měsíce</item>
     <item>Tři měsíce</item>
     <item>Čtyři měsíce</item>
@@ -465,4 +465,10 @@
   <string name="export_rules_dev_" formatted="false" orig="Export rule set to developer">Exportovat sadu pravidel vývojáři</string>
   <string name="export_cancel" formatted="false" orig="Export to SD card">Export na SD kartu</string>
   <string name="exported_" formatted="false" orig="Exported:">Exportováno:</string>
+  <string name="loading" formatted="false" orig="Loading ...">Načítání ...</string>
+  <string name="import_rules_sd_nofiles" formatted="false" orig="No found files">Nenalezeny soubory</string>
+  <string name="import_rules_sd_files" formatted="false" orig="Found files">Nalezeny soubory</string>
+  <string name="import_rules_sd_help" formatted="false" orig="Place your file on your SD card and click it below">Umístěte soubor na SD kartu a kliněte níže</string>
+  <string name="import_rules_sd_" formatted="false" orig="Import rule set from SD card">Import pravidel z SD karty</string>
+  <string name="import_rules_sd_hint" formatted="false" orig="Import rule set directly from SD card.">Importuje pravidla přímo z SD karty.</string>
 </resources>
