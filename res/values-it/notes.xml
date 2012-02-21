@@ -22,4 +22,5 @@
        -->
 <resources>
   <string-array name="action" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;"/>
+  <string-array name="action"/>
 </resources>
