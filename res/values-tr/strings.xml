@@ -51,7 +51,7 @@
   <string name="billdate_" formatted="false">Ücretlendirme periyodu başlangıcı:</string>
   <string name="appearance_" formatted="false">Görünüm</string>
   <string name="advanced_preferences_" formatted="false">Gelişmiş tercihler</string>
-  <string name="advanced_preferences_hint" formatted="false">Daha karmaşık ayarlar yapmanızı sağlar. Birçok kullanıcı buna ihtiyaç duymaz.</string>
+  <string name="advanced_preferences_hint" formatted="false" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Daha karmaşık ayarlar yapmanızı sağlar. Birçok kullanıcı buna ihtiyaç duymaz.</string>
   <string name="theme_" formatted="false">Tema</string>
   <string name="textsize_" formatted="false">Metin boyutu</string>
   <string name="textsize_hint" formatted="false">Piksel olarak metin boyutu; varsayılan için boş bırakın</string>
@@ -264,7 +264,7 @@
     <item>60 gün</item>
     <item>90 gün</item>
     <item>Bir ay</item>
-		<item notranslation="true">One month + one day</item>
+    <item notranslation="true">One month + one day</item>
     <item>İki ay</item>
     <item>Üç ay</item>
     <item>Dört ay</item>
