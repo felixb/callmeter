@@ -148,7 +148,7 @@
   <string name="new_hourgroup" formatted="false">Nowa grupa godzin</string>
   <string name="add_hour" formatted="false">Dodaj godzinę</string>
   <string name="empty_group" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Puste grupy nie będą pasować do niczego. Proszę powrócić i dodać co najmniej jeden element.</string>
-  <string name="billperiod_sn" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="BillPeriod">OkresRozliczeniowy</string>
+  <string name="billperiod_sn" formatted="false" orig="BillPeriod">Okres Rozliczeniowy</string>
   <string name="calls" formatted="false">Połączenia</string>
   <string name="calls_in" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Calls In">Poł. Przych.</string>
   <string name="calls_in_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="CallsIn">PołPrzych</string>
@@ -381,7 +381,7 @@
     <item>60 dni</item>
     <item>90 dni</item>
     <item>Jeden miesiąc</item>
-		<item notranslation="true">One month + one day</item>
+    <item>Jeden miesiąc + jeden dzień</item>
     <item>Dwa miesiące</item>
     <item>Trzy miesiące</item>
     <item>Cztery miesiące</item>
@@ -464,4 +464,15 @@
   <string name="google_plus_hint" formatted="false" orig="Follow me on Google+.\nGet update notifications etc.">Za mną na Google+.\nOtrzymaj powiadomienia o aktualizacjach</string>
   <string name="now" formatted="false" orig="Now">Teraz</string>
   <string name="export_cancel" formatted="false" orig="Export to SD card">Eksport do karty SD</string>
+  <string name="loading" formatted="false" orig="Loading ...">Ładowanie ...</string>
+  <string-array name="update_interval_data">
+    <item>0,5 minuty</item>
+    <item>1 minuta</item>
+    <item>2 minuty</item>
+    <item>5 minut</item>
+    <item>15 minut</item>
+    <item>30 minut</item>
+    <item>Jedna godzina</item>
+    <item>Tylko ręcznie</item>
+  </string-array>
 </resources>
