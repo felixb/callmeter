@@ -18,8 +18,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     android:installLocation="internalOnly"
     package="de.ub0r.android.callmeter"
-    android:versionCode="3000"
-    android:versionName="3.0" >
+    android:versionCode="3001"
+    android:versionName="3.0.1" >
 
     <application
         android:name=".CallMeter"
