@@ -203,4 +203,26 @@
   <string name="data_inout_" formatted="false" orig="DataInOut">Dáta prijaté/odoslané</string>
   <string name="calls_out_" formatted="false" orig="CallsOut">Hovory odchádzajúce</string>
   <string name="calls_in_" formatted="false" orig="CallsIn">Hovory prichádzajúce</string>
+  <string name="length_hint_data" formatted="false" orig="Length in kB">Dĺžka v kB</string>
+  <string name="behavior_" formatted="false" orig="Behavior">Správanie</string>
+  <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp; behavior">Vzhĺaď a správanie</string>
+  <string-array name="dialog_delete">
+    <item>Vymazať</item>
+  </string-array>
+  <string name="never_show_again" formatted="false" orig="Never show changelog again">Viac nezobrazovať zoznam zmien</string>
+  <string name="update_interval_data_" formatted="false" orig="Update interval (data)">Interval obnovenia (data)</string>
+  <string name="date_begin_" formatted="false" orig="Beginning of records">Začiatok nahrávania</string>
+  <string name="delete_widget" formatted="false" orig="Delete widget">Vymazať widget</string>
+  <string name="add_log" formatted="false" orig="Add log entry">Pridať položku protokolu</string>
+  <string name="date_begin_hint" formatted="false" orig="Ignore any logs before this date.">Ignorovať všetky záznamy pred týmto dátumom</string>
+  <string-array name="update_interval_data">
+    <item>30 sekúnd</item>
+    <item>1 minúta</item>
+    <item>2 minúty</item>
+    <item>5 minút</item>
+    <item>15 minút</item>
+    <item>30 minút</item>
+    <item>Jedna hodina</item>
+    <item>Manuálne</item>
+  </string-array>
 </resources>
