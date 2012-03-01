@@ -1338,6 +1338,28 @@ public final class DataProvider extends ContentProvider {
 		}
 
 		/**
+		 * Get the first bill day of this period.
+		 * 
+		 * @param period
+		 *            type of period
+		 * @param start
+		 *            first bill day set.
+		 * @param now
+		 *            move now to some other time, null == real now
+		 * @param next
+		 *            get the next, not the current one
+		 * @return {@link Calendar} with current first bill day
+		 */
+		public static Calendar getBillDay(final int period, final long start, final long now,
+				final boolean next) {
+			Calendar s = Calendar.getInstance();
+			s.setTimeInMillis(start);
+			Calendar n = Calendar.getInstance();
+			n.setTimeInMillis(now);
+			return getBillDay(period, s, n, next);
+		}
+
+		/**
 		 * Get length of bill period.
 		 * 
 		 * @param period
@@ -1506,7 +1528,7 @@ public final class DataProvider extends ContentProvider {
 		}
 
 		/**
-		 * Get the all first bill days of this period.
+		 * Get all first bill days of this period.
 		 * 
 		 * @param period
 		 *            type of period
@@ -1520,6 +1542,7 @@ public final class DataProvider extends ContentProvider {
 		 */
 		public static ArrayList<Long> getBillDays(final int period, final long start,
 				final long newerAs, final long offset) {
+			Log.d(TAG, "getBillDays()");
 			ArrayList<Long> ret = new ArrayList<Long>();
 
 			int f;
@@ -1530,6 +1553,7 @@ public final class DataProvider extends ContentProvider {
 			final long now = System.currentTimeMillis();
 			switch (period) {
 			case BILLPERIOD_INFINITE:
+				Log.d(TAG, "inifinite: return null");
 				return null;
 			case BILLPERIOD_DAY:
 				c.set(Calendar.HOUR_OF_DAY, 0);
@@ -1538,6 +1562,7 @@ public final class DataProvider extends ContentProvider {
 				c.set(Calendar.MILLISECOND, 0);
 				long l = c.getTimeInMillis();
 				do {
+					Log.d(TAG, "day: return " + (l + offset));
 					ret.add(l + offset);
 					l -= Utils.DAY_IN_MILLIS;
 				} while (l > newerAs);
@@ -1556,13 +1581,12 @@ public final class DataProvider extends ContentProvider {
 					c.add(f, v);
 					c.add(j, k);
 				}
-				c.add(f, -1 * v);
-				c.add(j, -1 * k);
-				while (c.getTimeInMillis() > newerAs) {
-					ret.add(c.getTimeInMillis() + offset);
+				do {
 					c.add(f, -1 * v);
 					c.add(j, -1 * k);
-				}
+					Log.d(TAG, "return " + (c.getTimeInMillis() + offset));
+					ret.add(c.getTimeInMillis() + offset);
+				} while (c.getTimeInMillis() > newerAs);
 			}
 
 			return ret;

@@ -226,6 +226,8 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 		private final FragmentManager mFragmentManager;
 		/** List of positions. */
 		private final Long[] positions;
+		/** List of bill days. */
+		private final Long[] billDays;
 		/** List of titles. */
 		private final String[] titles;
 		/** {@link Context}. */
@@ -250,6 +252,7 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 							+ " ASC LIMIT 1");
 			if (!c.moveToFirst()) {
 				this.positions = new Long[] { -1L, -1L };
+				this.billDays = positions;
 				c.close();
 			} else {
 				final long minDate = c.getLong(0);
@@ -263,16 +266,20 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 						DataProvider.Plans.ORDER + " LIMIT 1");
 				if (minDate < 0L || !c.moveToFirst()) {
 					this.positions = new Long[] { -1L, -1L };
+					this.billDays = positions;
 					c.close();
 				} else {
 					ArrayList<Long> list = new ArrayList<Long>();
+					int bptype = c.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
 					Log.d(TAG, "new PFA()", ct);
-					do { // walk all bill periods
-						list.addAll(DataProvider.Plans.getBillDays(
-								c.getInt(DataProvider.Plans.INDEX_BILLPERIOD),
-								c.getLong(DataProvider.Plans.INDEX_BILLDAY), minDate, -1));
-						Log.d(TAG, "new PFA()", ct);
-					} while (c.moveToNext());
+					ArrayList<Long> bps = DataProvider.Plans.getBillDays(bptype,
+							c.getLong(DataProvider.Plans.INDEX_BILLDAY), minDate, -1);
+					Log.d(TAG, "bill periods: " + bps.size());
+					if (!bps.isEmpty()) {
+						bps.remove(bps.size() - 1);
+						list.addAll(bps);
+					}
+					Log.d(TAG, "new PFA()", ct);
 					c.close();
 					list.add(-1L); // current time
 					list.add(-1L); // logs
@@ -281,8 +288,18 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 					Log.d(TAG, "new PFA() toArray end", ct);
 					list = null;
 					Log.d(TAG, "new PFA() sort start", ct);
-					Arrays.sort(this.positions, 0, this.positions.length - 2);
+					int l = this.positions.length;
+					Arrays.sort(this.positions, 0, l - 2);
 					Log.d(TAG, "new PFA() sort end", ct);
+
+					Log.d(TAG, "new PFA() billdays start", ct);
+					this.billDays = new Long[l];
+					for (int i = 0; i < l - 1; i++) {
+						long pos = this.positions[i];
+						billDays[i] = DataProvider.Plans.getBillDay(bptype, pos + 1L, pos, false)
+								.getTimeInMillis();
+					}
+					Log.d(TAG, "new PFA() billdays end", ct);
 				}
 			}
 			Common.setDateFormat(context);
@@ -352,7 +369,7 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 		public String getTitle(final int position) {
 			String ret;
 			if (this.titles[position] == null) {
-				ret = Common.formatDate(this.ctx, this.positions[position]);
+				ret = Common.formatDate(this.ctx, this.billDays[position]);
 				this.titles[position] = ret;
 			} else {
 				ret = this.titles[position];
