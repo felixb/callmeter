@@ -85,7 +85,7 @@
   <string name="bill_sms_incoming_hint" formatted="false">Facturar también SMS recibidos.</string>
   <string name="bill_data_incoming_only_" formatted="false">Facturar sólo entrantes</string>
   <string name="bill_data_incoming_only_hint" formatted="false">Facturar sólo tráfico de entrada.</string>
-  <string name="cost_per_call_" formatted="false">Establecimiento de llamada</string>
+  <string name="cost_per_call_" formatted="false" orig="Cost per call">Establecimiento de llamada</string>
   <string name="cost_per_call_hint" formatted="false">Cada llamada lleva este cargo.</string>
   <string name="cost_per_minute_" formatted="false" orig="Cost per minute">Costo por minuto</string>
   <string name="cost_per_minute_hint" formatted="false" orig="Each minute of a call will be billed with this.">Costo de cada minuto de llamada.</string>
