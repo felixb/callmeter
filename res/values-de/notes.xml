@@ -18,9 +18,14 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/android/translate/cm3/de/notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/de/notes.xml to edit the file.
        -->
 <resources>
   <string-array name="action"/>
   <string-array name="action"/>
+  <string-array name="action"/>
+  <string-array name="action"/>
+  <string-array name="action"/>
+  <string-array name="action"/>
+  <string-array name="action" username="ich@dervomsee.de"/>
 </resources>

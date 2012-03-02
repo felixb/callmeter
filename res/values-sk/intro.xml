@@ -21,4 +21,5 @@
                Visit http://ub0r.de/translate/cm3/sk/intro.xml to edit the file.
        -->
 <resources>
+  <string name="intro_" formatted="false" orig="Introducing Call Meter 3G">Predstavujeme Call Meter 3G</string>
 </resources>
