@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
-		<item>HEAD: add bill period length 14d 15d 31d 1m+1d, fix merged cost limits, minor UI fixes, remove stale widgets, text in number groups, fix prepaid cost in widget, show up to 20plans in "ask for plans" activity</item>
+		<item>v3.4: add bill period length 14d 15d 31d 1m+1d, fix merged cost limits, minor UI fixes, remove stale widgets, text in number groups, fix prepaid cost in widget, show up to 20plans in "ask for plans" activity</item>
 		<item>v3.3.1: fix FC on android 1.6</item>
 		<item>v3.3: fix FC on android 1.6, fix sorting plans/rules, fix sum of cost for multi bill period plans, fix accuracy of data stats (esp. for samsung devices), fix widget for galaxy nexus, configure existing widgets, add widget for bill period, show intro for new users, data stats for acer e130</item>
 		<item>v3.2.2: fix FC, update translation</item>

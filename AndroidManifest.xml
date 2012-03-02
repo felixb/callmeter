@@ -1,168 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2009-2012 Felix Bechstein
-	-->
-	<!--
+<!-- 		Copyright (C) 2009-2012 Felix Bechstein -->
+<!--
 		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
 		version.
-	-->
-	<!--
+-->
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 		General Public License for more details. You should have received a
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
-	-->
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="de.ub0r.android.callmeter" android:versionName="3.3.1"
-	android:versionCode="3310" android:installLocation="internalOnly">
-	<application android:name=".CallMeter" android:icon="@drawable/icon"
-		android:label="@string/app_name" android:hardwareAccelerated="true">
-		<activity android:name=".ui.Plans" android:label="@string/app_name"
-			android:configChanges="orientation|keyboardHidden"
-			android:windowSoftInputMode="adjustResize">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-		</activity>
-		<activity android:name=".ui.AddLogActivity"
-			android:windowSoftInputMode="adjustResize" />
-		<activity android:name=".ui.AskForPlan"
-			android:configChanges="orientation|keyboardHidden"
-			android:windowSoftInputMode="adjustResize"
-			android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-		<activity android:name=".ui.prefs.Preferences"
-			android:configChanges="orientation|keyboardHidden"
-			android:launchMode="singleTask" android:windowSoftInputMode="adjustResize">
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category android:name="android.intent.category.DEFAULT" />
-				<category android:name="android.intent.category.BROWSABLE" />
-				<data android:scheme="import" />
-				<data android:scheme="imports" />
-				<data android:host="callmeter.android.ub0r.de" />
-			</intent-filter>
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category android:name="android.intent.category.DEFAULT" />
-				<data android:mimeType="application/android.callmeter.export" />
-				<data android:mimeType="application/android.callmeter.ruleset" />
-			</intent-filter>
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category android:name="android.intent.category.DEFAULT" />
-				<category android:name="android.intent.category.BROWSABLE" />
-				<data android:scheme="file" android:host="*"
-					android:pathPattern="*.export" />
-			</intent-filter>
-		</activity>
-		<activity android:name=".ui.prefs.SimplePreferences"
-			android:configChanges="orientation|keyboardHidden"
-			android:launchMode="singleTask" android:windowSoftInputMode="adjustResize">
-		</activity>
-		<activity android:name=".ui.prefs.PreferencesImport"
-			android:windowSoftInputMode="adjustResize">
-		</activity>
-		<activity android:name=".ui.prefs.Plans"
-			android:configChanges="orientation|keyboardHidden"
-			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />
-		<activity android:name=".ui.prefs.PlanEdit"
-			android:configChanges="orientation|keyboardHidden"
-			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />
-		<activity android:name=".ui.prefs.Rules"
-			android:configChanges="orientation|keyboardHidden"
-			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />
-		<activity android:name=".ui.prefs.RuleEdit"
-			android:configChanges="orientation|keyboardHidden"
-			android:windowSoftInputMode="adjustResize" />
-		<activity android:name=".ui.prefs.NumberGroups"
-			android:configChanges="orientation|keyboardHidden"
-			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />
-		<activity android:name=".ui.prefs.NumberGroupEdit"
-			android:configChanges="orientation|keyboardHidden"
-			android:windowSoftInputMode="adjustResize" />
-		<activity android:name=".ui.prefs.HourGroups"
-			android:configChanges="orientation|keyboardHidden"
-			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize" />
-		<activity android:name=".ui.prefs.HourGroupEdit"
-			android:configChanges="orientation|keyboardHidden"
-			android:windowSoftInputMode="adjustResize" />
-		<activity android:name=".ui.AboutActivity"
-			android:windowSoftInputMode="adjustResize" />
-		<activity android:name=".ui.HelpActivity"
-			android:windowSoftInputMode="adjustResize" />
-		<activity android:name=".ui.IntroActivity"
-			android:windowSoftInputMode="adjustResize" />
-		<activity android:name="de.ub0r.android.lib.DonationFragmentActivity"
-			android:configChanges="orientation|keyboardHidden"
-			android:windowSoftInputMode="adjustResize" />
-		<activity android:name="de.ub0r.android.lib.ChangelogFragmentActivity"
-			android:configChanges="orientation|keyboardHidden"
-			android:windowSoftInputMode="adjustResize" />
-		<receiver android:name=".data.LogRunnerReceiver">
-			<intent-filter>
-				<action android:name="android.intent.action.BOOT_COMPLETED" />
-				<action android:name="android.intent.action.ACTION_SHUTDOWN" />
-				<action android:name="android.intent.action.REBOOT" />
-				<action android:name="android.intent.action.DATE_CHANGED" />
-				<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-				<action android:name="android.provider.Telephony.SMS_RECEIVED" />
-				<action android:name="android.intent.action.PHONE_STATE" />
-				<category android:name="android.intent.category.DEFAULT" />
-				<category android:name="android.intent.category.HOME" />
-			</intent-filter>
-			<intent-filter>
-				<action android:name="de.ub0r.android.callmeter.SAVE_WEBSMS" />
-				<action android:name="de.ub0r.android.callmeter.SAVE_SIPCALL" />
-			</intent-filter>
-		</receiver>
-		<service android:name=".data.LogRunnerService" />
-		<provider android:name=".data.DataProvider"
-			android:authorities="de.ub0r.android.callmeter.provider" />
-		<receiver android:name=".widget.StatsAppWidgetProvider">
-			<intent-filter>
-				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-			</intent-filter>
-			<meta-data android:name="android.appwidget.provider"
-				android:resource="@xml/stats_appwidget_info" />
-		</receiver>
-		<activity android:name=".widget.StatsAppWidgetConfigure"
-			android:configChanges="orientation|keyboardHidden"
-			android:launchMode="singleTop" android:windowSoftInputMode="adjustResize">
-			<intent-filter>
-				<action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
-			</intent-filter>
-		</activity>
-		<activity android:name="com.google.ads.AdActivity"
-			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-	</application>
-	<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="14" />
-	<supports-screens android:anyDensity="true"
-			android:smallScreens="true" android:normalScreens="true"
-			android:largeScreens="true" android:xlargeScreens="true" />
-	<uses-feature android:name="android.hardware.touchscreen"
-		android:required="false" />
-	<uses-feature android:name="android.hardware.location.network"
-		android:required="false" />
-	<uses-feature android:name="android.hardware.location"
-		android:required="false" />
-	<uses-feature android:name="android.hardware.telephony"
-		android:required="false" />
-	<uses-permission android:name="android.permission.READ_CONTACTS" />
-	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-	<uses-permission android:name="android.permission.READ_PHONE" />
-	<uses-permission android:name="android.permission.READ_SMS" />
-	<uses-permission android:name="android.permission.RECEIVE_SMS" />
-	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.WAKE_LOCK" />
-	<!-- AdMob SDK permissions -->
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-</manifest> 
+    android:installLocation="internalOnly"
+    package="de.ub0r.android.callmeter"
+    android:versionCode="3400"
+    android:versionName="3.4" >
+
+    <application
+        android:name=".CallMeter"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name" >
+        <activity
+            android:name=".ui.Plans"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.AddLogActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.AskForPlan"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.prefs.Preferences"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="import" />
+                <data android:scheme="imports" />
+                <data android:host="callmeter.android.ub0r.de" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="application/android.callmeter.export" />
+                <data android:mimeType="application/android.callmeter.ruleset" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="*"
+                    android:pathPattern="*.export"
+                    android:scheme="file" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.prefs.SimplePreferences"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name=".ui.prefs.PreferencesImport"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name=".ui.prefs.Plans"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.prefs.PlanEdit"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.prefs.Rules"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.prefs.RuleEdit"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.prefs.NumberGroups"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.prefs.NumberGroupEdit"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.prefs.HourGroups"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.prefs.HourGroupEdit"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.AboutActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.HelpActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.IntroActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="de.ub0r.android.lib.DonationFragmentActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="de.ub0r.android.lib.ChangelogFragmentActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="adjustResize" />
+
+        <receiver android:name=".data.LogRunnerReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+                <action android:name="android.intent.action.REBOOT" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+                <action android:name="android.intent.action.PHONE_STATE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="de.ub0r.android.callmeter.SAVE_WEBSMS" />
+                <action android:name="de.ub0r.android.callmeter.SAVE_SIPCALL" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".data.LogRunnerService" />
+
+        <provider
+            android:name=".data.DataProvider"
+            android:authorities="de.ub0r.android.callmeter.provider" />
+
+        <receiver android:name=".widget.StatsAppWidgetProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/stats_appwidget_info" />
+        </receiver>
+
+        <activity
+            android:name=".widget.StatsAppWidgetConfigure"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.google.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+    </application>
+
+    <uses-sdk
+        android:minSdkVersion="4"
+        android:targetSdkVersion="14" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.network"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- AdMob SDK permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+</manifest>
