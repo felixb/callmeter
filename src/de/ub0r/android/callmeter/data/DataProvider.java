@@ -607,9 +607,15 @@ public final class DataProvider extends ContentProvider {
 							this.limitPos = 0;
 							this.limit = 0;
 						} else {
-							this.limitPos = (this.now - this.billday) / Utils.MINUTES_IN_MILLIS;
 							this.limit = (this.nextbillday - this.billday)
 									/ Utils.MINUTES_IN_MILLIS;
+							if (nextbillday - now == 1) {
+								// fix issue: #661, skip last millisecond to
+								// show 100% of billing period usage
+								limitPos = limit;
+							} else {
+								this.limitPos = (this.now - this.billday) / Utils.MINUTES_IN_MILLIS;
+							}
 						}
 					} else {
 						this.limittype = cursor.getInt(INDEX_LIMIT_TYPE);
@@ -686,9 +692,15 @@ public final class DataProvider extends ContentProvider {
 							this.limitPos = 0;
 							this.limit = 0;
 						} else {
-							this.limitPos = (this.now - this.billday) / Utils.MINUTES_IN_MILLIS;
 							this.limit = (this.nextbillday - this.billday)
 									/ Utils.MINUTES_IN_MILLIS;
+							if (nextbillday - this.now == 1) {
+								// fix issue: #661, skip last millisecond to
+								// show 100% of billing period usage
+								this.limitPos = limit;
+							} else {
+								this.limitPos = (this.now - this.billday) / Utils.MINUTES_IN_MILLIS;
+							}
 						}
 					} else {
 						this.limittype = cursor.getInt(INDEX_LIMIT_TYPE);
