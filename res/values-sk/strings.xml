@@ -225,4 +225,17 @@
     <item>Jedna hodina</item>
     <item>Manuálne</item>
   </string-array>
+  <string name="widget_" formatted="false" orig="Widget">Miniaplikácia</string>
+  <string name="widgets_" formatted="false" orig="Widgets">Miniaplikácie</string>
+  <string name="widgets_no_widgets_" formatted="false" orig="No widgets added">Nepridané žiadne miniaplikácie</string>
+  <string name="widgets_no_widgets_hint" formatted="false" orig="There are no widgets added to the launcher.">Nie sú žiadne miniaplikácie pridané do spúšťača</string>
+  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Kliknite sem pre zobrazenie posledných zmien</string>
+  <string-array name="limit_type">
+    <item>neobmedzene</item>
+    <item>jednotky</item>
+    <item>náklady</item>
+  </string-array>
+  <string name="show_total_" formatted="false" orig="Show total">Zobraziť celkom</string>
+  <string name="show_time_" formatted="false" orig="Switch to date">Prepnúť na dátum</string>
+  <string name="show_hours_" formatted="false" orig="Show hours">Ukázať hodiny</string>
 </resources>
