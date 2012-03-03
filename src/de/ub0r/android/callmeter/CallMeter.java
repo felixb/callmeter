@@ -68,6 +68,6 @@ public final class CallMeter extends Application {
 		Log.init("CallMeter3G");
 		Log.d(TAG, "init");
 		Utils.setLocale(this);
-		DataProvider.updateSettings(this);
+		DataProvider.updateSettings(this, null, false);
 	}
 }

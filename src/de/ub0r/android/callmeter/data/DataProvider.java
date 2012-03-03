@@ -74,7 +74,7 @@ public final class DataProvider extends ContentProvider {
 	private static final int DATABASE_VERSION = 30;
 
 	/** Version of the export file. */
-	private static final int EXPORT_VERSION = 0;
+	private static final int EXPORT_VERSION = 1;
 	/** Separator of values. */
 	private static final String EXPORT_VALUESEPARATOR = ":#:";
 	/** Mime type for export. */
@@ -2350,15 +2350,29 @@ public final class DataProvider extends ContentProvider {
 	 * 
 	 * @param context
 	 *            {@link Context}
+	 * @param db
+	 *            if provided, this {@link SQLiteDatabase} will be used for
+	 *            update
+	 * @param force
+	 *            do update regardless if it run already
 	 */
-	public static void updateSettings(final Context context) {
+	public static void updateSettings(final Context context, final SQLiteDatabase db,
+			final boolean force) {
+		Log.d(TAG, "updateSettings(ctx, " + db + ", " + force + ")");
 		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
-		if (!p.getBoolean(PREFS_MIGRATE_BPSETTINGS, false)) {
+		if (force || !p.getBoolean(PREFS_MIGRATE_BPSETTINGS, false)) {
 			Log.i(TAG, "update bill period settings... ");
-			if (!TextUtils.isEmpty(p.getString("lastrun", null))) {
-				Cursor c = context.getContentResolver().query(Plans.CONTENT_URI,
-						new String[] { Plans.ID, Plans.BILLPERIOD }, Plans.TYPE + "=?",
-						new String[] { String.valueOf(TYPE_BILLPERIOD) }, null);
+			if (force || !TextUtils.isEmpty(p.getString("lastrun", null))) {
+				Cursor c;
+				if (db != null) {
+					c = db.query(Plans.TABLE, new String[] { Plans.ID, Plans.BILLPERIOD },
+							Plans.TYPE + "=?", new String[] { String.valueOf(TYPE_BILLPERIOD) },
+							null, null, null);
+				} else {
+					c = context.getContentResolver().query(Plans.CONTENT_URI,
+							new String[] { Plans.ID, Plans.BILLPERIOD }, Plans.TYPE + "=?",
+							new String[] { String.valueOf(TYPE_BILLPERIOD) }, null);
+				}
 				if (c.moveToFirst()) {
 					do {
 						long id = c.getLong(0);
@@ -2377,8 +2391,13 @@ public final class DataProvider extends ContentProvider {
 						if (values != null) {
 							Log.i(TAG, "update billperiod type: " + id + " from " + bpt + " to "
 									+ values.get(Plans.BILLPERIOD));
-							context.getContentResolver().update(Plans.CONTENT_URI, values,
-									Plans.ID + "=?", new String[] { String.valueOf(id) });
+							if (db != null) {
+								db.update(Plans.TABLE, values, Plans.ID + "=?",
+										new String[] { String.valueOf(id) });
+							} else {
+								context.getContentResolver().update(Plans.CONTENT_URI, values,
+										Plans.ID + "=?", new String[] { String.valueOf(id) });
+							}
 						}
 					} while (c.moveToNext());
 				}
@@ -2536,13 +2555,18 @@ public final class DataProvider extends ContentProvider {
 	/**
 	 * Import data from lines into {@link SQLiteDatabase}.
 	 * 
+	 * @param context
+	 *            {@link Context}
 	 * @param db
 	 *            {@link SQLiteDatabase}
 	 * @param lines
 	 *            data
 	 */
-	private static void importData(final SQLiteDatabase db, final String[] lines) {
+	private static void importData(final Context context, final SQLiteDatabase db,
+			final String[] lines) {
 		final int l = lines.length;
+		Log.d(TAG, "importData(db, #" + l + ")");
+		final boolean needUpdate = l > 0 && lines[0].equals("0");
 		String table = null;
 		ArrayList<ContentValues> cvs = null;
 		for (int i = 2; i < l; i++) {
@@ -2585,6 +2609,9 @@ public final class DataProvider extends ContentProvider {
 			db.delete(table, null, null);
 			reload(db, table, cvs.toArray(new ContentValues[1]));
 		}
+		if (needUpdate) {
+			updateSettings(context, db, true);
+		}
 	}
 
 	/**
@@ -2608,7 +2635,7 @@ public final class DataProvider extends ContentProvider {
 		}
 		final SQLiteDatabase db = new DatabaseHelper(context).getWritableDatabase();
 		if (lines != null) {
-			importData(db, lines);
+			importData(context, db, lines);
 			Preferences.setDefaultPlan(context, false);
 		} else {
 			importDefault(context, db);
@@ -2638,7 +2665,7 @@ public final class DataProvider extends ContentProvider {
 		} catch (IOException e) {
 			Log.e(TAG, "error reading raw data", e);
 		}
-		importData(db, sb.toArray(new String[] {}));
+		importData(context, db, sb.toArray(new String[] {}));
 
 		// translate default rule set:
 		ContentValues cv = new ContentValues();
