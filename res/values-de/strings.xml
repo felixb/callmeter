@@ -34,7 +34,7 @@
   <string name="settings" formatted="false">Einstellungen</string>
   <string name="about_" formatted="false">Über</string>
   <string name="about_hint" formatted="false">Über diese App</string>
-  <string name="faq_hint" formatted="false">Ein paar Tipps und Tricks, wie man diese App einstellt.</string>
+  <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app.">Ein paar Tipps und Tricks, wie man diese App einstellt.</string>
   <string name="feedback_" formatted="false">Feedback</string>
   <string name="feedback_hint" formatted="false" orig="Report bugs, request features ...">Fehler melden, Funktionen wünschen ...</string>
   <string name="twitter_hint" formatted="false" orig="Follow me on twitter.\nGet update notifications etc.">Folge mir auf Twitter für neuste Updates, Benachrichtigungen und mehr.</string>
@@ -48,7 +48,7 @@
   <string name="smsbillday_" formatted="false">Erster Rechnungstag für SMS</string>
   <string name="dataperiod_" formatted="false">Gleiche Rechnung für Daten</string>
   <string name="dataperiod_hint" formatted="false">Anruf Rechnungstag auch für Daten setzen.</string>
-  <string name="databillday_" formatted="false">Erster Rechnungstag für Daten</string>
+  <string name="databillday_" formatted="false" orig="First day of your data bill">Erster Rechnungstag für Daten</string>
   <string name="appearance_" formatted="false">Darstellung</string>
   <string name="theme_" formatted="false">Theme</string>
   <string name="textsize_" formatted="false">Schriftgrad</string>
