@@ -212,8 +212,8 @@
   <string name="never_show_again" formatted="false" orig="Never show changelog again">Viac nezobrazovať zoznam zmien</string>
   <string name="update_interval_data_" formatted="false" orig="Update interval (data)">Interval obnovenia (data)</string>
   <string name="date_begin_" formatted="false" orig="Beginning of records">Začiatok nahrávania</string>
-  <string name="delete_widget" formatted="false" orig="Delete widget">Vymazať widget</string>
-  <string name="add_log" formatted="false" orig="Add log entry">Pridať položku protokolu</string>
+  <string name="delete_widget" formatted="false" orig="Delete widget">Vymazať miniaplikáciu</string>
+  <string name="add_log" formatted="false" orig="Add log entry">Pridať položku do protokolu</string>
   <string name="date_begin_hint" formatted="false" orig="Ignore any logs before this date.">Ignorovať všetky záznamy pred týmto dátumom</string>
   <string-array name="update_interval_data">
     <item>30 sekúnd</item>
@@ -235,7 +235,47 @@
     <item>jednotky</item>
     <item>náklady</item>
   </string-array>
-  <string name="show_total_" formatted="false" orig="Show total">Zobraziť celkom</string>
+  <string name="show_total_" formatted="false" orig="Show total">Zobraziť celkový stav</string>
   <string name="show_time_" formatted="false" orig="Switch to date">Prepnúť na dátum</string>
   <string name="show_hours_" formatted="false" orig="Show hours">Ukázať hodiny</string>
+  <string name="textsize_spacer_" formatted="false" orig="Spacer\'s size">Veľkosť oddeľovača</string>
+  <string name="textsize_spacer_hint" formatted="false" orig="Size for spacers in pixels; leave empty for default">Veľkosť oddeľovača v pixeloch; nechajte prázdne pre pôvodné nastavenie.</string>
+  <string name="textsize_pbar_" formatted="false" orig="Progress bar\'s size">Veľkosť stavového pruhu</string>
+  <string name="textsize_pbar_hint" formatted="false" orig="Size for progress bars in pixels; leave empty for default">Veľkosť stavového pruhu v pixeloch; nechajte prázdne pre pôvodné nastavenie.</string>
+  <string name="textsize_pbarbp_" formatted="false" orig="Bill period\'s progress bar\'s size">Veľkosť stavového pruhu účtovacieho obdobia</string>
+  <string name="textsize_pbarbp_hint" formatted="false" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Veľkosť stavového pruhu účtovacieho obdobia v pixeloch; nechajte prázdne pre pôvodné nastavenie.</string>
+  <string name="show_total_hint" formatted="false" orig="Show total stats, disable to see current only.">Zobraziť kompletné štatistiky, vypnutím zobrazíte len súčasné.</string>
+  <string name="show_titlebar_" formatted="false" orig="Show title bar">Zobraziť hlavičku</string>
+  <string name="show_titlebar_hint" formatted="false" orig="Show title bar in main view. Without title bar, there is no way to see background activity.">Zobraziť hlavičku v hlavnom okne. Bez hlavičky sa nedá zistiť aktivita na pozadí.</string>
+  <string name="show_help_" formatted="false" orig="Show help">Zobraziť nápovedu</string>
+  <string name="show_help_hint" formatted="false" orig="Show help in Plans/Rules setup view.">Zobraziť nápovedu pri nastavovaní Plánov/Pravidiel</string>
+  <string name="show_shortname_" formatted="false" orig="Show short name instead of long name">Zobraziť krátke meno namiesto dlhého</string>
+  <string name="show_cost_" formatted="false" orig="Show cost">Zobraziť cenu</string>
+  <string name="show_billperiod_" formatted="false" orig="Show progress of billing period">Zobraziť vývoj zúčtovacieho obdobia</string>
+  <string name="show_icon_" formatted="false" orig="Show icon">Zobraziť ikonu</string>
+  <string name="small_widget_" formatted="false" orig="Use small widget">Použiť malú miniaplikáciu</string>
+  <string name="show_calllength_" formatted="false" orig="Show info after hanging up">Zobraziť info po zavesení</string>
+  <string name="show_calllength_hint" formatted="false" orig="Show length/cost of a call after hanging up.">Zobraziť dĺžku/cenu hovoru po zavesení</string>
+  <string name="hide_zero_" formatted="false" orig="Hide empty plans">Skryť prázdne tarify</string>
+  <string name="hide_zero_hint" formatted="false" orig="Hide plans containing no item.">Skryť tarify bez položiek.</string>
+  <string name="hide_nocost_" formatted="false" orig="Hide no cost plans">Skryť tarify zdarma</string>
+  <string name="hide_nocost_hint" formatted="false" orig="Hide plans with no cost.">Skryť tarify zdarma.</string>
+  <string name="hide_progressbars_" formatted="false" orig="Hide progress bars">Skryť indikátor priebehu</string>
+  <string name="hide_progressbars_hint" formatted="false" orig="Hide progress bars in main view.">Skryť indikátor priebehu v hlavnom náhľade.</string>
+  <string name="custom_currency_symbol_" formatted="false" orig="Custom currency symbol">Vlastný symbol meny</string>
+  <string name="simple_preferences_deactivated" formatted="false" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Jednoduché nastavenia sú dostupné iba pre základne pravidla. Importujte základné pravidla pre obnovenie.</string>
+  <string name="custom_currency_symbol_hint" formatted="false" orig="Set a custom currency symbol, leave empty for system default.">Nastavte vlastný symbol meny, nechajte prázdne pre predvolené nastavenie.</string>
+  <string name="custom_currency_format_" formatted="false" orig="Custom currency format">Vlastný formát meny</string>
+  <string name="custom_currency_format_hint" formatted="false" orig="Select a custom currency format.">Zvoliť vlastný formát meny.</string>
+  <string name="custom_date_format_" formatted="false" orig="Custom date format">Vlastný formát dátumu</string>
+  <string name="custom_date_format_hint" formatted="false" orig="Select a custom date format.">Zvoliť vlastný formát dátumu.</string>
+  <string name="custom_delimiter_" formatted="false" orig="Custom delimiter">Vlastný oddeľovač</string>
+  <string name="custom_delimiter_hint" formatted="false" orig="Set a custom delimiter separating the blocks of statistics.">Nastaviť vlastný znak pre oddelenie jednotlivých častí štatistik.</string>
+  <string name="split_sms_at_160_" formatted="false" orig="Split text messages at 160 chars">Rozdeliť správy po 160 znakoch</string>
+  <string name="split_sms_at_160_hint" formatted="false" orig="Disable to use android\'s system method.">Zakázať použitie systémovej metódy Androidu</string>
+  <string name="ask_for_plan_" formatted="false" orig="Ask for plan">Opýtať sa na tarif</string>
+  <string name="ask_for_plan_hint" formatted="false" orig="Ask for plan for unmatched calls after hanging up.">Po zavesení sa opýtať na tarif pri nezaradených hovoroch</string>
+  <string name="autohide_" formatted="false" orig="Auto hide">Auto skrývanie</string>
+  <string name="autohide_hint" formatted="false" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Skryť dialógové okno po .. sekundách. Nechať prázdne pre deaktiváciu auto skrývania.</string>
+  <string name="select_plan_" formatted="false" orig="Select a plan">Zvoliť tarif</string>
 </resources>
