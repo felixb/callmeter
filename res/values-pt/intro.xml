@@ -18,8 +18,7 @@
        -->
 <!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/pt/intro.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/de/intro.xml to edit the file.
        -->
 <resources>
-  <string name="intro_" formatted="false" orig="Introducing Call Meter 3G">I\'m quite new with Flash and I\'m trying to taerce multiple slideshows with your  sliding images gallery .I\'ve taerced 3 different xml files with image data but how would I have the AS in the FLA point to them? I was thinking I need to make 3 loadXml.as files to corrospond to the xml files . If this is the correct way to go about this how would I modify the AS below to match up with loadXml1.as   loadXml2.as , etc[CODE]/*load in xml via call to external xml parsing classit returns us a nice array of images to pass to the slideshow class*/var myloadXml:loadXml = new loadXml( images1.xml );myloadXml.addEventListener( xmlParsed , initSlides);//create a new instance of the crossfading slideshow in the callback//handler of the XML parsing routine.function initSlides(evt:Event):void {var newSlides:slidingImage = new slidingImage(this, myloadXml.imagesArray);}[/CODE]Thank you very much,Kevin</string>
 </resources>

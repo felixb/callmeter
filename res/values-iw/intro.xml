@@ -21,7 +21,7 @@
                Visit http://ub0r.de/translate/cm3/iw/intro.xml to edit the file.
        -->
 <resources>
-  <string name="intro_" formatted="false" orig="Introducing Call Meter 3G">It\'s great to find semoone so on the ball</string>
+  <string name="intro_" formatted="false" orig="Introducing Call Meter 3G">היכרות עם מונה שיחות 3G</string>
   <string name="intro0" formatted="false" orig="With &lt;b&gt;Call Meter 3G&lt;/b&gt; you can monitor the usage of your calls, messages and data connections.">עם מונה שיחות 3G אתה יכול לפקח על דקות השימוש של שיחות, הודעות וחיבורי נתונים.</string>
   <string name="intro1" formatted="false" orig="In order to get accurate statistics, it is important to accurately set Call Meter 3G as they will be billed.">על מנת לקבל נתונים סטטיסטיים מדויקים, חשוב להגדיר במדויק את מונה שיחות בהתאם לתכנית שבה תחויב.</string>
   <string name="intro_simple" formatted="false" orig="Most users need only set their settings in menu &lt;b&gt;Basic settings&lt;/b&gt;. Just set the number of inclusive minutes or messages, as well as adjust the cost of calls made, etc..">רוב המשתמשים צריכים רק להגדיר את ההגדרות שלהם בתפריט הגדרות בסיסי. פשוט להגדיר את מספר הדקות או הודעות הכולל, כמו גם להתאים את העלות של השיחות שנעשו, וכו\'.</string>
