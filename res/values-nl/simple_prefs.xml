@@ -39,5 +39,5 @@
   <string name="cost_per_mb_" formatted="false" orig="Cost / MB">Kosten / MB</string>
   <string name="cost_per_mb_hint" formatted="false" orig="Each MB get\'s billed.">Elke MB word berekend.</string>
   <string name="cost_per_min_" formatted="false" orig="Cost / minute">Kosten / minuut</string>
-  <string name="missing_slash" formatted="false" orig="Bill mode needs to be in seconds/seconds!">Rekening modus moet in seconden / seconden!</string>
+  <string name="missing_slash" formatted="false" orig="Bill mode needs to be in seconds/seconds!">I can\'t bleieve I\'ve been going for years without knowing that.</string>
 </resources>

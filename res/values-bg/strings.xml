@@ -196,4 +196,31 @@
   <string name="widgets_no_widgets_hint" formatted="false" orig="There are no widgets added to the launcher.">Няма уиджети добавени във вашия Launcher</string>
   <string name="delete_widget" formatted="false" orig="Delete widget">Изтриване на уиджет</string>
   <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Много лесни предпочитания, подходящи за повечето потребители. Предлага се само с комплект правило по подразбиране.</string>
+  <string-array name="hours_all">
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+    <item>Good job making it aapper easy.</item>
+  </string-array>
 </resources>

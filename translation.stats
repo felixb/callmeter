@@ -11,7 +11,7 @@ res/values-bg/intro.xml:2
 res/values-bg/market.xml:0
 res/values-bg/notes.xml:0
 res/values-bg/simple_prefs.xml:0
-res/values-bg/strings.xml:167
+res/values-bg/strings.xml:193
 res/values-cs/help.xml:3
 res/values-cs/intro.xml:9
 res/values-cs/market.xml:5
@@ -24,7 +24,7 @@ res/values-de/market.xml:5
 res/values-de/notes.xml:0
 res/values-de/simple_prefs.xml:19
 res/values-de/strings.xml:448
-res/values-el/help.xml:0
+res/values-el/help.xml:1
 res/values-el/intro.xml:0
 res/values-el/market.xml:4
 res/values-el/notes.xml:0
@@ -86,10 +86,10 @@ res/values-nb/simple_prefs.xml:19
 res/values-nb/strings.xml:383
 res/values-nl/help.xml:0
 res/values-nl/intro.xml:0
-res/values-nl/market.xml:2
+res/values-nl/market.xml:3
 res/values-nl/notes.xml:0
 res/values-nl/simple_prefs.xml:19
-res/values-nl/strings.xml:363
+res/values-nl/strings.xml:367
 res/values-pl/help.xml:11
 res/values-pl/intro.xml:4
 res/values-pl/market.xml:5
@@ -97,7 +97,7 @@ res/values-pl/notes.xml:0
 res/values-pl/simple_prefs.xml:19
 res/values-pl/strings.xml:435
 res/values-pt/help.xml:14
-res/values-pt/intro.xml:0
+res/values-pt/intro.xml:1
 res/values-pt/market.xml:5
 res/values-pt/notes.xml:0
 res/values-pt/simple_prefs.xml:19
@@ -133,10 +133,10 @@ res/values-zh/notes.xml:0
 res/values-zh/simple_prefs.xml:0
 res/values-zh/strings.xml:313
 res/values:535
-res/values-bg:169
+res/values-bg:195
 res/values-cs:466
 res/values-de:496
-res/values-el:385
+res/values-el:386
 res/values-es:489
 res/values-fr:43
 res/values-hi:7
@@ -146,9 +146,9 @@ res/values-it:494
 res/values-iw:10
 res/values-ko:0
 res/values-nb:416
-res/values-nl:384
+res/values-nl:389
 res/values-pl:474
-res/values-pt:461
+res/values-pt:462
 res/values-ru:298
 res/values-sk:257
 res/values-sv:81

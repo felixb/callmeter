@@ -287,32 +287,32 @@
     <item>Domenica</item>
     <item>Lunedì - Venerdì</item>
   </string-array>
-  <string-array name="hours_all" username="fireb33">
-    <item>Tutto il giorno</item>
-    <item>0:00 - 0:59</item>
-    <item>1:00 - 1:59</item>
-    <item>2:00 - 2:59</item>
-    <item>3:00 - 3:59</item>
-    <item>4:00 - 4:59</item>
-    <item>5:00 - 5:59</item>
-    <item>6:00 - 6:59</item>
-    <item>7:00 - 7:59</item>
-    <item>8:00 - 8:59</item>
-    <item>9:00 - 9:59</item>
-    <item>10:00 - 10:59</item>
-    <item>11:00 - 11:59</item>
-    <item>12:00 - 12:59</item>
-    <item>13:00 - 13:59</item>
-    <item>14:00 - 14:59</item>
-    <item>15:00 - 15:59</item>
-    <item>16:00 - 16:59</item>
-    <item>17:00 - 17:59</item>
-    <item>18:00 - 18:59</item>
-    <item>19:00 - 19:59</item>
-    <item>20:00 - 20:59</item>
-    <item>21:00 - 21:59</item>
-    <item>22:00 - 22:59</item>
-    <item>23:00 - 23:59</item>
+  <string-array name="hours_all">
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
+    <item>Mark, just wanted to say that you miss typed this in the agllery translation:Main Animation SettingsMain Animation SettingsIt should be:Main Animation SettingsFolder Animation Settings</item>
   </string-array>
   <string-array name="themes" username="fireb33">
     <item>Nero</item>
@@ -360,7 +360,7 @@
     <item>60 giorni</item>
     <item>90 giorni</item>
     <item>Un mese</item>
-		<item notranslation="true">One month + one day</item>
+    <item notranslation="true">One month + one day</item>
     <item>Due mesi</item>
     <item>Tre mesi</item>
     <item>Quattro mesi</item>
