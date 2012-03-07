@@ -131,8 +131,8 @@
   <string name="reset_data_data_" formatted="false">Trafiği de sıfırla.</string>
   <string name="contacts_" formatted="false">Kişiler</string>
   <string-array name="themes">
-    <item>dcstad senin bilginin yanında bizim ki elttebe yetersiz kalır ama anlamadığım bazı noktalarda beni aydınlatırsan e7ok memnun olurum.Yukarıdaki kod bir .NET kodu değil bildiğimiz C++ kodu ve bildiğimiz C++ dili operatf6r aşırı yfcklemeyi destekler ve yine bildiğimiz C++ dilinde e7f6p toplayıcı yoktur, diye biliyorum. Ben C++ dilinde bu konuyu derinlemesine bilmiyorum ama bu şekilde bir e7ok kullanım gf6rdfcm. Ya o kodlar yanlış, ya siz konuyu yanlış anladınız yada ben başka tfcrlfc bakıyorum olaya, bir tfcrlfc anlayamadım.</item>
-    <item>dcstad senin bilginin yanında bizim ki elttebe yetersiz kalır ama anlamadığım bazı noktalarda beni aydınlatırsan e7ok memnun olurum.Yukarıdaki kod bir .NET kodu değil bildiğimiz C++ kodu ve bildiğimiz C++ dili operatf6r aşırı yfcklemeyi destekler ve yine bildiğimiz C++ dilinde e7f6p toplayıcı yoktur, diye biliyorum. Ben C++ dilinde bu konuyu derinlemesine bilmiyorum ama bu şekilde bir e7ok kullanım gf6rdfcm. Ya o kodlar yanlış, ya siz konuyu yanlış anladınız yada ben başka tfcrlfc bakıyorum olaya, bir tfcrlfc anlayamadım.</item>
+    <item>Siyah</item>
+    <item>Beyaz</item>
   </string-array>
   <string-array name="textsize">
     <item>Küçük</item>
