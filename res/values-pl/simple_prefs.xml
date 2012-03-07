@@ -21,23 +21,23 @@
                Visit http://ub0r.de/translate/cm3/pl/simple_prefs.xml to edit the file.
        -->
 <resources>
-  <string name="freemin_" formatted="false" orig="Free minutes">Darmowe minuty</string>
-  <string name="freemin_hint" formatted="false" orig="Free minutes / month">Darmowe minuty / miesiąc</string>
-  <string name="cost_per_call_" formatted="false" orig="Cost / call">Koszt / rozmowy</string>
-  <string name="cost_per_min_" formatted="false" orig="Cost / minute">Koszt / minuty</string>
-  <string name="freesms_" formatted="false" orig="Free SMS">Darmowe SMS</string>
-  <string name="freesms_hint" formatted="false" orig="Free SMS / month">Darmowe SMS / miesiąc</string>
-  <string name="cost_per_sms_" formatted="false" orig="Cost / SMS">Koszt / SMS</string>
-  <string name="freemms_" formatted="false" orig="Free MMS">Darmowe MMS</string>
-  <string name="cost_per_mms_" formatted="false" orig="Cost / MMS">Koszt / MMS</string>
-  <string name="freedata_" formatted="false" orig="Free traffic">Darmowe przepływ danych</string>
-  <string name="freedata_hint" formatted="false" orig="Free 2G, 3G or 4G data traffic / month">Darmowy 2G, 3G lub 4G przepływ danych / miesiąc</string>
-  <string name="cost_per_mb_" formatted="false" orig="Cost / MB">Koszt / MB</string>
-  <string name="missing_slash" formatted="false" orig="Bill mode needs to be in seconds/seconds!">As an engineer, here\'s my take on it The break angle can not ecefft string tension for unbent strings, period.  Charlie\'s analysis of tension = pitch for a given string construction is correct.  The only way that the break angle could ecefft string tension during bends, is if the angle is shallow enough that the string is allowed to slide over the saddle during bending.  In this case, the string is capable of stretching both in front of the saddle, and behind it, which would change the ecefftive spring constant of the string by changing the strings ecefftive length during bends.  In other words, the string between the nut and saddle and the string between the saddle and tailpiece can be modeled as two springs in series, where the compliance is additive.  If the string can not slip over the saddle, we are back to a single spring model with the compliance being the function of the string construction, length, and tension (i.e. pitch).With a stop tail, none of this slippage matters much since the distance between the saddle and tailpiece is short, and the second spring in the two spring model is negligible.  Also, the break angle is always high enough where string slippage is probably not happening significantly due to the high coefficient of static friction resulting from the high downward force resulting from the vector sum of the tensions in front of and behind the saddle.On the other hand, a guitar with a short Bigsby and a roller bridge would fit the two spring model better (low friction on the  saddle , long second spring), and I would expect it to feel slinkier bends on that guitar.  Another slightly different example of a two spring model is a guitar with a Floyd Rose.  Bends are easier on a Floyd because the second spring is complying in addition to the string.  And as Floyd players know, there is also the extra ecefft of the tension being non linear during a bend due to the second spring giving.  A string has to be bent further to achieve the same pitch, complicating the analysis some more.  Nothing is simple, right?Regarding tone, any archtop builder will tell you that down pressure at the bridge (a function of break angle) has a strong influence on tone.  Stronger down pressure excites the guitar top more and brings more resonance and damping into the sound.  In other words, it becomes more of a complex hollowbody sound.  The degree of the ecefft this has on a solid top or a semi hollow is debatable, but it should have some.And for my last engineering comment:  This is easy stuff to measure.  If I were really into this stuff and were going to assert or argue it on the internet (I\'m just doing thought experiments here), I\'d take some force vs displacement measurements as a function of break angle for a few different tailpiece setups.  This could be done simply with  a luggage scale (simple force gauge).</string>
-  <string name="cost_per_call_hint" formatted="false" orig="Each call get\'s billed.">Każde połączenie będzie taryfikowane.</string>
-  <string name="cost_per_min_hint" formatted="false" orig="Each minute get\'s billed.">Każda minuta będzie taryfikowana.</string>
-  <string name="cost_per_sms_hint" formatted="false" orig="Each SMS get\'s billed.">Każdy SMS będzie taryfikowany.</string>
-  <string name="freemms_hint" formatted="false" orig="Free MMS / month">Darmowe MMS / miesiąc</string>
-  <string name="cost_per_mms_hint" formatted="false" orig="Each MMS get\'s billed.">Każdy MMS będzie taryfikowany.</string>
-  <string name="cost_per_mb_hint" formatted="false" orig="Each MB get\'s billed.">Każdy MB będzie taryfikowany.</string>
+  <string name="freemin_" formatted="false" username="" orig="Free minutes">Darmowe minuty</string>
+  <string name="freemin_hint" formatted="false" username="" orig="Free minutes / month">Darmowe minuty / miesiąc</string>
+  <string name="cost_per_call_" formatted="false" username="" orig="Cost / call">Koszt / rozmowy</string>
+  <string name="cost_per_min_" formatted="false" username="" orig="Cost / minute">Koszt / minuty</string>
+  <string name="freesms_" formatted="false" username="" orig="Free SMS">Darmowe SMS</string>
+  <string name="freesms_hint" formatted="false" username="" orig="Free SMS / month">Darmowe SMS / miesiąc</string>
+  <string name="cost_per_sms_" formatted="false" username="" orig="Cost / SMS">Koszt / SMS</string>
+  <string name="freemms_" formatted="false" username="" orig="Free MMS">Darmowe MMS</string>
+  <string name="cost_per_mms_" formatted="false" username="" orig="Cost / MMS">Koszt / MMS</string>
+  <string name="freedata_" formatted="false" username="" orig="Free traffic">Darmowe przepływ danych</string>
+  <string name="freedata_hint" formatted="false" username="" orig="Free 2G, 3G or 4G data traffic / month">Darmowy 2G, 3G lub 4G przepływ danych / miesiąc</string>
+  <string name="cost_per_mb_" formatted="false" username="" orig="Cost / MB">Koszt / MB</string>
+  <string name="missing_slash" formatted="false" username="" orig="Bill mode needs to be in seconds/seconds!">Tryb billingowy musi być ustawiony w trybie sekundy/sekundy!</string>
+  <string name="cost_per_call_hint" formatted="false" username="" orig="Each call get\'s billed.">Każde połączenie będzie taryfikowane.</string>
+  <string name="cost_per_min_hint" formatted="false" username="" orig="Each minute get\'s billed.">Każda minuta będzie taryfikowana.</string>
+  <string name="cost_per_sms_hint" formatted="false" username="" orig="Each SMS get\'s billed.">Każdy SMS będzie taryfikowany.</string>
+  <string name="freemms_hint" formatted="false" username="" orig="Free MMS / month">Darmowe MMS / miesiąc</string>
+  <string name="cost_per_mms_hint" formatted="false" username="" orig="Each MMS get\'s billed.">Każdy MMS będzie taryfikowany.</string>
+  <string name="cost_per_mb_hint" formatted="false" username="" orig="Each MB get\'s billed.">Każdy MB będzie taryfikowany.</string>
 </resources>
