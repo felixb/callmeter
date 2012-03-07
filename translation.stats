@@ -116,7 +116,7 @@ res/values-sk/simple_prefs.xml:19
 res/values-sk/strings.xml:220
 res/values-sv/help.xml:0
 res/values-sv/intro.xml:0
-res/values-sv/market.xml:1
+res/values-sv/market.xml:0
 res/values-sv/notes.xml:0
 res/values-sv/simple_prefs.xml:0
 res/values-sv/strings.xml:81
@@ -151,6 +151,6 @@ res/values-pl:474
 res/values-pt:461
 res/values-ru:298
 res/values-sk:257
-res/values-sv:82
+res/values-sv:81
 res/values-tr:495
 res/values-zh:315
