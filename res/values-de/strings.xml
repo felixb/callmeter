@@ -134,8 +134,10 @@
   <string name="reset_data_data_" formatted="false">Auch Daten zurücksetzen</string>
   <string name="contacts_" formatted="false">Kontakte</string>
   <string-array name="themes">
-    <item>Dunkel</item>
-    <item>Hell</item>
+    <item>It\'s a bit late, but I should point out that a loacelgue of mine came up with this as a tongue-in-cheek dig at Web 2.0 at roughly the same time as you; as in, "Oh, that fading highlight is so WebNG! *snerk*" We\'ve since been using it as a delicious tag to the same effect. :)
+</item>
+    <item>It\'s a bit late, but I should point out that a loacelgue of mine came up with this as a tongue-in-cheek dig at Web 2.0 at roughly the same time as you; as in, "Oh, that fading highlight is so WebNG! *snerk*" We\'ve since been using it as a delicious tag to the same effect. :)
+</item>
   </string-array>
   <string-array name="textsize">
     <item>Klein</item>
