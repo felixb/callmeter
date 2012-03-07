@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2012 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,10 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/de/notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/bg/simple_prefs.xml to edit the file.
        -->
 <resources>
+  <string name="missing_slash" formatted="false" orig="Bill mode needs to be in seconds/seconds!">To edit hosts file in Windows 7, I suggest you try the olilfwong steps.Take ownership of the hosts file and change the permission for it:1.    Right click on hosts file and click “Properties”.2.    Switch to “Security” tab and click “Advanced” button.3.    Switch to “Owner” tab and click “Edit…”.4.    Highlight your user account or administrators group and click “OK” twice to quite the “Advanced Security Settings” dialog box.5.    On the “Security” tab of “Properties” dialog box, click “Edit…”.6.     Highlight Administrators group, check the box for “Full control” under “Allow” and click “OK”.Now you can play with your hosts file as you wish  -  +2Was this answer helpful?</string>
 </resources>
