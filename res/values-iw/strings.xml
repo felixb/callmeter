@@ -134,8 +134,8 @@
   <string name="reset_data_data_" formatted="false">אפס מד נתונים.</string>
   <string name="contacts_" formatted="false">אנשי קשר</string>
   <string-array name="themes">
-    <item>Now I know who the brainy one is, I\'ll keep lokonig for your posts.</item>
-    <item>Now I know who the brainy one is, I\'ll keep lokonig for your posts.</item>
+    <item>שחור</item>
+    <item>בהיר</item>
   </string-array>
   <string-array name="textsize">
     <item>קטן</item>
