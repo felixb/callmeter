@@ -21,4 +21,5 @@
                Visit http://ub0r.de/translate/cm3/el/intro.xml to edit the file.
        -->
 <resources>
+  <string name="intro_" formatted="false" orig="Introducing Call Meter 3G">Thanks Dale. I\'m pretty eaelspd with myself for adjusting the sliding function, having never used Flash or AS before.For the back/fwd buttons, the closest I\'ve gotten is pasted below. It behaves erratically in practice. If you see anything obviously wrong here and wouldn\'t mind sharing, I\'d love to know. And thanks again for the tutorial site  I don\'t think I ever would have figured this out otherwise.  Forward_btn._visible =falseForward_btn.onRelease = function(){butNavCounter++TweenLite.to(imageHolder_mc, 1, {_x:-(imageHolder_mc.getInstanceAtDepth(1)._width*butNavCounter)+offset, ease:Strong.easeOut});if(butNavCounter== urls.length-1){butNavCounter = -1}}Back_btn._visible =falseBack_btn.onRelease = function(){butNavCounter TweenLite.to(imageHolder_mc, 1, {_x:-(imageHolder_mc.getInstanceAtDepth(1)._width*butNavCounter)+offset, ease:Strong.easeOut});if(butNavCounter== 0){butNavCounter = urls.length-1}}</string>
 </resources>
