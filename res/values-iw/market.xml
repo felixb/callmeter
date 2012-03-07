@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter NG. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,10 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm2/edit.php to edit the file.
+               Visit http://ub0r.de/translate/cm2/iw/market.xml to edit the file.
        -->
 <resources>
+  <string name="market_about" formatted="false" orig="Call Meter lets you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and lets you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.">kevingrant5     Excellent tutorial.  I &lt;3 vrctoes and I don\'t even use c++;below would be the Android / Java equivalent of this tutorialString line = "Hello dark cruel world";ArrayList tokenList = new ArrayList();StringTokenizer token = new StringTokenizer(line, " ");while(tokenList.hasMoreTokens()){    tokenList.add(token.nextToken());}Important to know that in the constructor for StringTokenizer, the second parameter will use any character in there as a delimiter, not the whole thing.  So if you pass   ,}: , it will use each of those individual characters as a delimiter, not the entire string as one delimiter.You can also access them in a similar way as an array as Alex did, but using a little different syntax, using the ArrayList\'s  get  function instead of accessing as an array.  It would look like this.for(int i = 0; i &lt; tokenList.size(); i++){    // retrieve the variable for comparing    tokenList.get(i);    // or set the variable to something new    tokenList.set(i, tokenList.get(i) + " is spilling his ice cream");}// Or, use a for each!for(String tmpString: tokenList){    if(tmpString.equals("Alex"){        postToMyTwitter("Alex is spilling his ice cream, that dirty bear lover"    }}If you dont know what a  for each  loop is, check out       \n</string>
 </resources>
