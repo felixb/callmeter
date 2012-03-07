@@ -26,7 +26,7 @@ res/values-hu/strings.xml:118
 res/values-it/market.xml:0
 res/values-it/notes.xml:3
 res/values-it/strings.xml:117
-res/values-iw/market.xml:1
+res/values-iw/market.xml:0
 res/values-iw/notes.xml:3
 res/values-iw/strings.xml:118
 res/values-nb/market.xml:5
@@ -65,7 +65,7 @@ res/values-es:126
 res/values-fr:123
 res/values-hu:126
 res/values-it:120
-res/values-iw:122
+res/values-iw:121
 res/values-nb:126
 res/values-nl:118
 res/values-pl:126
