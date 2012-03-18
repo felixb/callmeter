@@ -1401,7 +1401,7 @@ public final class DataProvider extends ContentProvider {
 				break;
 			case BILLPERIOD_31D:
 				f = Calendar.DAY_OF_MONTH;
-				v = 30;
+				v = 31;
 				break;
 			case BILLPERIOD_60D:
 				f = Calendar.DAY_OF_MONTH;
