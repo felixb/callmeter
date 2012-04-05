@@ -21,5 +21,5 @@
                Visit http://ub0r.de/translate/cm3/hr/intro.xml to edit the file.
        -->
 <resources>
-  <string name="intro_" formatted="false" orig="Introducing Call Meter 3G">Instrukcije za Call Meter 3g</string>
+  <string name="intro_" formatted="false" orig="Introducing Call Meter 3G" username="ljupco&lt;lstojmenovski@gmail.com&gt;">Instrukcije za Call Meter 3g</string>
 </resources>
