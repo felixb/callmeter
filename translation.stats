@@ -66,7 +66,7 @@ res/values-it/market.xml:5
 res/values-it/notes.xml:0
 res/values-it/simple_prefs.xml:19
 res/values-it/strings.xml:446
-res/values-iw/help.xml:7
+res/values-iw/help.xml:14
 res/values-iw/intro.xml:10
 res/values-iw/market.xml:5
 res/values-iw/notes.xml:0
@@ -143,7 +143,7 @@ res/values-hi:7
 res/values-hr:465
 res/values-hu:495
 res/values-it:494
-res/values-iw:489
+res/values-iw:496
 res/values-ko:0
 res/values-nb:416
 res/values-nl:384
