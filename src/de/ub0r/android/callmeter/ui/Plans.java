@@ -37,13 +37,14 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.Menu;
-import android.support.v4.view.MenuItem;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.support.v4.view.Window;
 import android.view.View;
 
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.Window;
 import com.viewpagerindicator.TitlePageIndicator;
 
 import de.ub0r.android.callmeter.Ads;
@@ -62,7 +63,7 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public final class Plans extends FragmentActivity implements OnPageChangeListener {
+public final class Plans extends SherlockFragmentActivity implements OnPageChangeListener {
 	/** Tag for output. */
 	private static final String TAG = "main";
 
@@ -323,6 +324,20 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 		}
 
 		/**
+		 * Get a {@link Fragment}'s name.
+		 * 
+		 * @param viewId
+		 *            container view
+		 * @param index
+		 *            position
+		 * @return name of {@link Fragment}
+		 */
+		private static String makeFragmentName(final int viewId, final int index) {
+			// this might change in underlying method!
+			return "android:switcher:" + viewId + ":" + index;
+		}
+
+		/**
 		 * {@inheritDoc}
 		 */
 		@Override
@@ -394,6 +409,8 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		this.setContentView(R.layout.plans);
+		Utils.fixActionBarBackground(this.getSupportActionBar(), this.getResources(),
+				R.drawable.bg_striped, R.drawable.bg_striped_split);
 
 		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
 		if (p.getAll().isEmpty()) {
@@ -477,7 +494,7 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 	 */
 	@Override
 	public boolean onCreateOptionsMenu(final Menu menu) {
-		this.getMenuInflater().inflate(R.menu.menu_main, menu);
+		this.getSupportMenuInflater().inflate(R.menu.menu_main, menu);
 		if (prefsNoAds) {
 			menu.removeItem(R.id.item_donate);
 		}
@@ -583,9 +600,9 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 
 		Log.d(TAG, "progressCount: " + this.progressCount);
 		if (this.progressCount == 0) {
-			this.setProgressBarIndeterminateVisibility(Boolean.FALSE);
+			this.setSupportProgressBarIndeterminateVisibility(false);
 		} else {
-			this.setProgressBarIndeterminateVisibility(Boolean.TRUE);
+			this.setSupportProgressBarIndeterminateVisibility(true);
 		}
 	}
 }

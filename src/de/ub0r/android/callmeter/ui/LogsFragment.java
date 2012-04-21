@@ -35,12 +35,9 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v4.view.Menu;
-import android.support.v4.view.MenuItem;
 import android.support.v4.widget.ResourceCursorAdapter;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -48,6 +45,12 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+
+import com.actionbarsherlock.app.SherlockListFragment;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
@@ -60,7 +63,7 @@ import de.ub0r.android.lib.Log;
  * 
  * @author flx
  */
-public final class LogsFragment extends ListFragment implements OnClickListener,
+public final class LogsFragment extends SherlockListFragment implements OnClickListener,
 		OnItemLongClickListener, LoaderCallbacks<Cursor> {
 	/** Tag for output. */
 	private static final String TAG = "logs";

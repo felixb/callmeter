@@ -200,9 +200,9 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_THEME, THEME_LIGHT);
 		if (s != null && THEME_BLACK.equals(s)) {
-			return R.style.Theme_SherlockUb0r;
+			return R.style.Theme_SherlockCallMeter;
 		}
-		return R.style.Theme_SherlockUb0r_Light;
+		return R.style.Theme_SherlockCallMeter_Light;
 	}
 
 	/**
