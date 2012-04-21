@@ -40,6 +40,7 @@ import android.os.SystemClock;
 import android.preference.DatePreference;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
+import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
 import android.widget.Toast;
 import de.ub0r.android.callmeter.CallMeter;
@@ -51,7 +52,6 @@ import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.lib.apis.Contact;
-import de.ub0r.android.lib.apis.TelephonyWrapper;
 
 /**
  * Run logs in background.
@@ -538,7 +538,6 @@ public final class LogRunnerService extends IntentService {
 			final int idDate = cursor.getColumnIndex(Calls.DATE);
 			final int idAddress = cursor.getColumnIndex("address");
 			final int idBody = cursor.getColumnIndex("body");
-			final TelephonyWrapper wrapper = TelephonyWrapper.getInstance();
 
 			final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(CallMeter.HUNDRET);
 			do {
@@ -558,7 +557,7 @@ public final class LogRunnerService extends IntentService {
 					} else {
 						try {
 							cv.put(DataProvider.Logs.AMOUNT,
-									wrapper.calculateLength(body, false)[0]);
+									SmsMessage.calculateLength(body, false)[0]);
 						} catch (NullPointerException e) {
 							Log.e(TAG, "error getting length for message: " + body, e);
 							cv.put(DataProvider.Logs.AMOUNT, 1);
