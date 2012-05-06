@@ -198,9 +198,9 @@
   <string name="new_" formatted="false" orig="New">Nový</string>
   <string name="clear_" formatted="false" orig="Clear">Jasný</string>
   <string name="mms_in_" formatted="false" orig="MMSIn">MMS prijaté</string>
-  <string name="mms_out_" formatted="false" orig="MMSOut">MMS odoslané</string>
+  <string name="mms_out_" formatted="false" orig="MMSOut" username="dado26@gmail.com">MMSodoslané</string>
   <string name="data_inout" formatted="false" orig="Data In/Out">Dáta prijaté/odoslané</string>
-  <string name="data_inout_" formatted="false" orig="DataInOut">Dáta prijaté/odoslané</string>
+  <string name="data_inout_" formatted="false" orig="DataInOut" username="dado26@gmail.com">DátaPrijatéOdoslané</string>
   <string name="calls_out_" formatted="false" orig="CallsOut">Hovory odchádzajúce</string>
   <string name="calls_in_" formatted="false" orig="CallsIn">Hovory prichádzajúce</string>
   <string name="length_hint_data" formatted="false" orig="Length in kB">Dĺžka v kB</string>
@@ -278,4 +278,41 @@
   <string name="autohide_" formatted="false" orig="Auto hide">Auto skrývanie</string>
   <string name="autohide_hint" formatted="false" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Skryť dialógové okno po .. sekundách. Nechať prázdne pre deaktiváciu auto skrývania.</string>
   <string name="select_plan_" formatted="false" orig="Select a plan">Zvoliť tarif</string>
+  <string name="autohide_in_" formatted="false" username="dado26@gmail.com" orig="Auto hide dialog in: %ds">Automaticky skryť dialog: %ds</string>
+  <string name="set_selected_as_default_" formatted="false" username="dado26@gmail.com" orig="Set selected plan as default">Nastav označený plán ako prednastavený</string>
+  <string name="logs" formatted="false" username="dado26@gmail.com" orig="Logs">Záznamy</string>
+  <string name="now" formatted="false" username="dado26@gmail.com" orig="Now">Teraz</string>
+  <string name="show_logs" formatted="false" username="dado26@gmail.com" orig="Show logs">Zobraz záznamy</string>
+  <string name="plans_new" formatted="false" username="dado26@gmail.com" orig="New plan">Nový plán</string>
+  <string name="rules" formatted="false" username="dado26@gmail.com" orig="Rules">Pravidlá</string>
+  <string name="rules_new" formatted="false" username="dado26@gmail.com" orig="New Rule">Nové pravidlo</string>
+  <string name="cost_" formatted="false" username="dado26@gmail.com" orig="Cost">Cena</string>
+  <string name="numbers" formatted="false" username="dado26@gmail.com" orig="Numbers">Čísla</string>
+  <string name="numbergroup_" formatted="false" username="dado26@gmail.com" orig="Include numbers">Zahrnúť čísla</string>
+  <string name="exnumbergroup_" formatted="false" username="dado26@gmail.com" orig="Exclude numbers">Okrem čísel</string>
+  <string name="hours" formatted="false" username="dado26@gmail.com" orig="Hours">Hodiny</string>
+  <string name="hourgroup_" formatted="false" username="dado26@gmail.com" orig="Include hours">Zahrnúť hodiny</string>
+  <string name="exhourgroup_" formatted="false" username="dado26@gmail.com" orig="Exclude hours">Okrem hodín</string>
+  <string name="add_hour" formatted="false" username="dado26@gmail.com" orig="Add hour">Pridať hodinu</string>
+  <string name="messages_" formatted="false" username="dado26@gmail.com" orig="SMS/MMS">SMS/MMS</string>
+  <string name="sms_in_" formatted="false" username="dado26@gmail.com" orig="SMSIn">SMSprijaté</string>
+  <string name="sms_out_" formatted="false" username="dado26@gmail.com" orig="SMSOut">SMSodoslané</string>
+  <string name="mms" formatted="false" username="dado26@gmail.com" orig="MMS">MMS</string>
+  <string name="sms" formatted="false" username="dado26@gmail.com" orig="SMS">SMS</string>
+  <string name="balance_" formatted="false" username="dado26@gmail.com" orig="Balance">Rovnováha</string>
+  <string name="edit_selected_" formatted="false" username="dado26@gmail.com" orig="Edit selected">Zmeniť označené</string>
+  <string name="name_" formatted="false" username="dado26@gmail.com" orig="Name">Meno</string>
+  <string name="type_" formatted="false" username="dado26@gmail.com" orig="Type">Typ</string>
+  <string name="units_cost" formatted="false" username="dado26@gmail.com" orig="$">$</string>
+  <string name="units_minutes" formatted="false" username="dado26@gmail.com" orig="Minutes">Minúty</string>
+  <string name="plan_" formatted="false" username="dado26@gmail.com" orig="Plan">Plán</string>
+  <string name="limitnotreached_" formatted="false" username="dado26@gmail.com" orig="Limit not reached">Limit nieje dosiahnutý</string>
+  <string name="none" formatted="false" username="dado26@gmail.com" orig="None">Žiadne</string>
+  <string name="export_progr" formatted="false" username="dado26@gmail.com" orig="Exporting data ...">Exportujem dáta ...</string>
+  <string name="export_" formatted="false" username="dado26@gmail.com" orig="Export ...">Export ...</string>
+  <string name="import_progr" formatted="false" username="dado26@gmail.com" orig="Import data ...">Importujem dáta ...</string>
+  <string name="exported_" formatted="false" username="dado26@gmail.com" orig="Exported:">Exportované:</string>
+  <string name="export_cancel" formatted="false" username="dado26@gmail.com" orig="Export to SD card">Export na SD kartu</string>
+  <string name="alerts_" formatted="false" username="dado26@gmail.com" orig="Alerts">Výstrahy</string>
+  <string name="widget_config_" formatted="false" username="dado26@gmail.com" orig="Widget config">Konfikurácia widgetu</string>
 </resources>
