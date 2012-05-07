@@ -196,4 +196,42 @@
   <string name="widgets_no_widgets_hint" formatted="false" orig="There are no widgets added to the launcher.">Няма уиджети добавени във вашия Launcher</string>
   <string name="delete_widget" formatted="false" orig="Delete widget">Изтриване на уиджет</string>
   <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Много лесни предпочитания, подходящи за повечето потребители. Предлага се само с комплект правило по подразбиране.</string>
+  <string name="show_hours_hint" formatted="false" username="mari" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Показва времето в секунди,минути,часове и дни.\nАко не е маркирано само секунди и минути са показани.</string>
+  <string name="show_shortname_" formatted="false" username="mari" orig="Show short name instead of long name">Показва кратко име вместо дълго</string>
+  <string name="hide_name_" formatted="false" username="mari" orig="Hide name of plan">Скрива името на плана</string>
+  <string name="small_widget_" formatted="false" username="mari" orig="Use small widget">Използвай малка джаджа</string>
+  <string name="show_calllength_" formatted="false" username="mari" orig="Show info after hanging up">Показвай инфо след затваряне на слушалката</string>
+  <string name="show_calllength_hint" formatted="false" username="mari" orig="Show length/cost of a call after hanging up.">Показване на дължина/цена на разговор след затваряне на слушалката.</string>
+  <string name="hide_zero_" formatted="false" username="mari" orig="Hide empty plans">Скриване на празните планове</string>
+  <string name="hide_zero_hint" formatted="false" username="mari" orig="Hide plans containing no item.">Скриване на планове без тема.</string>
+  <string name="hide_nocost_" formatted="false" username="mari" orig="Hide no cost plans">Скриване на планове без цена</string>
+  <string name="custom_currency_symbol_" formatted="false" username="mari" orig="Custom currency symbol">Кустомизиране на ценовия символ</string>
+  <string name="split_sms_at_160_" formatted="false" username="mari" orig="Split text messages at 160 chars">Разделяне на текстовите съобщения на 160 символа</string>
+  <string name="ask_for_plan_" formatted="false" username="mari" orig="Ask for plan">Питай за план</string>
+  <string name="autohide_" formatted="false" username="mari" orig="Auto hide">Автоматично скриване</string>
+  <string name="select_plan_" formatted="false" username="mari" orig="Select a plan">Избери план</string>
+  <string name="set_selected_as_default_" formatted="false" username="mari" orig="Set selected plan as default">Поставете установения план за план по подразбиране</string>
+  <string name="logs" formatted="false" username="mari" orig="Logs">Логове</string>
+  <string name="now" formatted="false" username="mari" orig="Now">Сега</string>
+  <string name="show_logs" formatted="false" username="mari" orig="Show logs">Покажи логовете</string>
+  <string name="plans" formatted="false" username="mari" orig="Plans">Планове</string>
+  <string name="plans_new" formatted="false" username="mari" orig="New plan">Нов план</string>
+  <string name="rule_" formatted="false" username="mari" orig="Rule">Правило</string>
+  <string name="rules" formatted="false" username="mari" orig="Rules">Правила</string>
+  <string name="rules_new" formatted="false" username="mari" orig="New Rule">Ново правило</string>
+  <string name="exnumbergroup_help" formatted="false" username="mari" orig="Add some numbers this rule must not match.\nSee above.">Добавяне на номера, за които това правило не пасва.\nВиж по-горе.</string>
+  <string name="hourgroup_help" formatted="false" username="mari" orig="Add some hours this rule must match.">Добавяне на часове, за котио това правило трябва да пасне.</string>
+  <string name="exhourgroup_help" formatted="false" username="mari" orig="Add some hours this rule must not match.">Добавяне на часове, за които това правило не трябва да пасва.</string>
+  <string name="calls_in_" formatted="false" username="mari" orig="CallsIn">Входящи обаждания</string>
+  <string name="calls_out_" formatted="false" username="mari" orig="CallsOut">Изходящи обаждания</string>
+  <string name="sms_in_" formatted="false" username="mari" orig="SMSIn">SMS Входящи</string>
+  <string name="sms_out_" formatted="false" username="mari" orig="SMSOut">SMS Изходящи</string>
+  <string name="mms_in_" formatted="false" username="mari" orig="MMSIn">MMS Входящи</string>
+  <string name="mms_out_" formatted="false" username="mari" orig="MMSOut">MMS изходящи</string>
+  <string name="data_inout_" formatted="false" username="mari" orig="DataInOut">Данни входящи изходящи</string>
+  <string name="name_" formatted="false" username="mari" orig="Name">Име</string>
+  <string name="shortname_" formatted="false" username="mari" orig="Short name">Кратко име</string>
+  <string name="limit_" formatted="false" username="mari" orig="Limit">Лимит</string>
+  <string name="loading" formatted="false" username="mari" orig="Loading ...">Зареждане...</string>
+  <string name="import_rules_sd_files" formatted="false" username="mari" orig="Found files">Намерени файлове</string>
 </resources>

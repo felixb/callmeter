@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2012 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,28 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/de/notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/bg/simple_prefs.xml to edit the file.
        -->
 <resources>
+  <string name="freemin_" formatted="false" username="mari" orig="Free minutes">Безплатни минути</string>
+  <string name="cost_per_call_" formatted="false" username="mari" orig="Cost / call">Цена/обаждане</string>
+  <string name="cost_per_min_" formatted="false" username="mari" orig="Cost / minute">Цена/минута</string>
+  <string name="freesms_" formatted="false" username="mari" orig="Free SMS">Безплатни SMS</string>
+  <string name="cost_per_sms_" formatted="false" username="mari" orig="Cost / SMS">Цена /SMS</string>
+  <string name="freemms_" formatted="false" username="mari" orig="Free MMS">Безплатни MMS</string>
+  <string name="cost_per_mms_" formatted="false" username="mari" orig="Cost / MMS">Цена/ MMS</string>
+  <string name="freedata_" formatted="false" username="mari" orig="Free traffic">Безплатни данни</string>
+  <string name="freedata_hint" formatted="false" username="mari" orig="Free 2G, 3G or 4G data traffic / month">Безплатни 2G, 3G или 4G трафик на данни / месечно</string>
+  <string name="cost_per_mb_" formatted="false" username="mari" orig="Cost / MB">Цена / MB</string>
+  <string name="cost_per_mb_hint" formatted="false" username="mari" orig="Each MB get\'s billed.">Всеки MB се таксува.</string>
+  <string name="cost_per_mms_hint" formatted="false" username="mari" orig="Each MMS get\'s billed.">Всеки MMS се таксува.</string>
+  <string name="freemms_hint" formatted="false" username="mari" orig="Free MMS / month">Безплатни MMS / месечно</string>
+  <string name="cost_per_sms_hint" formatted="false" username="mari" orig="Each SMS get\'s billed.">Всеки SMS се таксува.</string>
+  <string name="freesms_hint" formatted="false" username="mari" orig="Free SMS / month">Безплатни SMS / месечно</string>
+  <string name="cost_per_min_hint" formatted="false" username="mari" orig="Each minute get\'s billed.">Всяка минута се таксува.</string>
+  <string name="cost_per_call_hint" formatted="false" username="mari" orig="Each call get\'s billed.">Всяко обаждане се таксува.</string>
+  <string name="freemin_hint" formatted="false" username="mari" orig="Free minutes / month">Безплатни минути / месечно</string>
+  <string name="missing_slash" formatted="false" username="mari" orig="Bill mode needs to be in seconds/seconds!">Начина на отчитане трябва да е в секунди/секунди!</string>
 </resources>
