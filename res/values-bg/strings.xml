@@ -276,5 +276,88 @@
   <string name="billperiodid_" formatted="false" username="mari" orig="Billing period">Период на таксуване</string>
   <string name="mixed_units_mms_" formatted="false" username="mari" orig="Units for a mms">Единици за mms</string>
   <string name="merge_plans_" formatted="false" username="mari" orig="Merge plans">Обединени планове</string>
-  <string name="widget_backgroud_transparency_" formatted="false" username="mari" orig="Background transparency">Прозрачност на тапета</string>
+  <string name="widget_backgroud_transparency_" formatted="false" username="mari" orig="Background transparency">Прозрачност на фона</string>
+  <string name="billday_help" formatted="false" username="mari" orig="Set this to the first day of the bill of the current billing period.">Задай това на първия ден от таксуващия период на сегашния таксуващ период.</string>
+  <string name="cost_per_plan_" formatted="false" username="mari" orig="Cost per plan">Стойност според плана</string>
+  <string name="mixed_units_sms_" formatted="false" username="mari" orig="Units for a sms">Единици за sms</string>
+  <string name="mixed_units_mms_help" formatted="false" username="mari" orig="Set the units billed for a single mms.">Задай единиците за таксуване на един mms.</string>
+  <string name="mixed_units_call_" formatted="false" username="mari" orig="Units for a call">Единици за обаждане</string>
+  <string name="units_cost" formatted="false" username="mari" orig="$">$</string>
+  <string name="units_num_msg" formatted="false" username="mari" orig="# Messages"># съобщения</string>
+  <string name="units_minutes" formatted="false" username="mari" orig="Minutes">Минути</string>
+  <string name="units_mbyte" formatted="false" username="mari" orig="MBytes">Мегабайти</string>
+  <string name="units_units" formatted="false" username="mari" orig="Units">Единици</string>
+  <string name="units_units_per_minute" formatted="false" username="mari" orig="Units/Minute">Единици/Минута</string>
+  <string name="units_units_per_message" formatted="false" username="mari" orig="Units/Message">Единици/Съобщение</string>
+  <string name="units_cost_per_call" formatted="false" username="mari" orig="$/Call">$/Обаждане</string>
+  <string name="units_cost_per_minute" formatted="false" username="mari" orig="$/Minute">$/Минута</string>
+  <string name="units_cost_per_message" formatted="false" username="mari" orig="$/Message">$/Съобщение</string>
+  <string name="units_cost_per_mbyte" formatted="false" username="mari" orig="$/MByte">$/Мегабайт</string>
+  <string name="units_cost_per_unit" formatted="false" username="mari" orig="$/Unit">$/Единица</string>
+  <string name="plan_" formatted="false" username="mari" orig="Plan">План</string>
+  <string name="plan_help" formatted="false" username="mari" orig="Choose the plan this rule should fit.">Избери плана, за който това правило трябва да пасне.</string>
+  <string name="limitnotreached_" formatted="false" username="mari" orig="Limit not reached">Лимита не е достигнат</string>
+  <string name="limitnotreached_help" formatted="false" username="mari" orig="Match only if target plan has not reached it\'s limit yet.">Пасва само ако крайния план не е достигнал своя лимит още.</string>
+  <string name="iswebsms_" formatted="false" username="mari" orig="Is WebSMS">Е УебSMS</string>
+  <string name="iswebsms_help" formatted="false" username="mari" orig="Message sent with WebSMS.">Съобщението изпратено с УебSMS.</string>
+  <string name="iswebsms_connector_" formatted="false" username="mari" orig="Is WebSMS Connector">Е УебSMS Конектор</string>
+  <string name="issipcall_" formatted="false" username="mari" orig="Is SIP call">Е SIP обаждане</string>
+  <string name="strip_seconds_" formatted="false" username="mari" orig="Do not bill first seconds">Не включвай в сметката първите секунди</string>
+  <string name="strip_seconds_help" formatted="false" username="mari" orig="Do not bill first x seconds of a call.">Не включвай първите x секунди от обаждането.</string>
+  <string name="active_" formatted="false" username="mari" orig="Active">Активен</string>
+  <string name="active_help" formatted="false" username="mari" orig="Only active rules are used for matching logs.">Само активните правила са използвани за пасващите логове.</string>
+  <string name="direction_" formatted="false" username="mari" orig="Direction">Посока</string>
+  <string name="remote_hint" formatted="false" username="mari" orig="Remote number">Дистационен номер</string>
+  <string name="no_matter_" formatted="false" username="mari" orig="Does not matter">Няма значение</string>
+  <string name="yes" formatted="false" username="mari" orig="Yes">Да</string>
+  <string name="no" formatted="false" username="mari" orig="No">Не</string>
+  <string name="value" formatted="false" username="mari" orig="Value">Стойност</string>
+  <string name="none" formatted="false" username="mari" orig="None">Никакъв</string>
+  <string name="empty_groups_" formatted="false" username="mari" orig="Please press &quot;Add&quot; to add a group.">Моля натиснете "Add" за да добавите група.</string>
+  <string name="export_progr" formatted="false" username="mari" orig="Exporting data ...">Екпортиране на данни ...</string>
+  <string name="import_progr" formatted="false" username="mari" orig="Import data ...">Импортиране на данни ...</string>
+  <string name="export_" formatted="false" username="mari" orig="Export ...">Експорт ...</string>
+  <string name="exported_" formatted="false" username="mari" orig="Exported:">Експортирани:</string>
+  <string name="export_hint" formatted="false" username="mari" orig="Export rule sets, logs or groups">Експортиране на зададени правила, логове или групи</string>
+  <string name="export_cancel" formatted="false" username="mari" orig="Export to SD card">Експортиране на SD картата</string>
+  <string name="export_cancel_hint" formatted="false" username="mari" orig="Cancel your mail client to export to SD card only.">Откажете своя пощенски клиент, за да експортирате само на SD картата.</string>
+  <string name="export_rules_" formatted="false" username="mari" orig="Export rule set">Експорт на зададени правила</string>
+  <string name="export_rules_hint" formatted="false" username="mari" orig="Export rule set as mail.">Екпорт на зададени правила към пощата.</string>
+  <string name="export_rules_dev_" formatted="false" username="mari" orig="Export rule set to developer">Екпортиране на зададени правила към разработчика</string>
+  <string name="export_rules_descr" formatted="false" username="mari" orig="Description">Описание</string>
+  <string name="export_rules_dev_hint" formatted="false" username="mari" orig="Export rule set to let others import it.">Експортирайте зададени правила, за да могат други да ги вмъкват.</string>
+  <string name="export_logs_" formatted="false" username="mari" orig="Backup logs">Логове на архива</string>
+  <string name="export_logs_hint" formatted="false" username="mari" orig="Backup logs as mail.">Логове на архива по пощата.</string>
+  <string name="export_numgroups_" formatted="false" username="mari" orig="Export number groups">Експортиране на номера от групата</string>
+  <string name="export_numgroups_hint" formatted="false" username="mari" orig="Export number groups as mail.">Експортиране на номера от групата по пощата.</string>
+  <string name="export_hourgroups_" formatted="false" username="mari" orig="Export hour groups">Експортиране на часовите групи</string>
+  <string name="export_hourgroups_hint" formatted="false" username="mari" orig="Export hour groups as mail.">Екпортиране на часовите групи по пощата.</string>
+  <string name="import_rules_" formatted="false" username="mari" orig="Import rule set">Вмъкване на зададени правила</string>
+  <string name="import_rules_hint" formatted="false" username="mari" orig="Import preconfigured rule set.">Вмъкване на предварително конфигурирани правила.</string>
+  <string name="import_rules_www_hint" formatted="false" username="mari" orig="Import pre-configured rule set from http://www.ub0r.de/.">Вмъкване на предварително конфигурирани правила от http://www.ub0r.de/.</string>
+  <string name="import_rules_sd_" formatted="false" username="mari" orig="Import rule set from SD card">Вмъкване на зададени правила от SD картата</string>
+  <string name="import_rules_sd_hint" formatted="false" username="mari" orig="Import rule set directly from SD card.">Вмъкване на зададени правила директно от SD картата.</string>
+  <string name="import_rules_sd_help" formatted="false" username="mari" orig="Place your file on your SD card and click it below">Сложете своя файл на SD картата и го кликнете</string>
+  <string name="import_rules_sd_nofiles" formatted="false" username="mari" orig="No found files">Няма намерени файлове</string>
+  <string name="import_rules_default_hint" formatted="false" username="mari" orig="Import default rule set shipped with the app.">Вмъкване на правилата по подразбиране идващи с приложението.</string>
+  <string name="import_rules_default_" formatted="false" username="mari" orig="Import default rule set">Вмъкване на правилата по подразбиране</string>
+  <string name="import_rules_empty" formatted="false" username="mari" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Няма зададени планове/правила. Кликнете този текст да вмъкнете правилата по подразбиране.\n\nИли добавете планове и правила в предпочитанията ръчно.</string>
+  <string name="err_export_write" formatted="false" username="mari" orig="Error writing export file">Грешка при експортиране на файла</string>
+  <string name="err_export_read" formatted="false" username="mari" orig="Error reading export file">Грешка при четене от експортирания файл</string>
+  <string name="alerts_" formatted="false" username="mari" orig="Alerts">Аларми</string>
+  <string name="alerts_hint" formatted="false" username="mari" orig="Set alerts based on plan usage.">Задайте аларми базирани на използвания план.</string>
+  <string name="alerts_title" formatted="false" username="mari" orig="Call Meter 3G alert">Call Meter 3G аларми</string>
+  <string name="alerts_80_" formatted="false" username="mari" orig="Notify at 80%">Уведомявай при 80%</string>
+  <string name="alerts_100_" formatted="false" username="mari" orig="Notify at 100%">Уведомявай при 100%</string>
+  <string name="alerts_80_hint" formatted="false" username="mari" orig="Notify if a plan passes 80% of it\'s limit.">Уведомявай ако е преминат 80% от лимита на плана.</string>
+  <string name="alerts_100_hint" formatted="false" username="mari" orig="Notify if a plan passes 100% of it\'s limit.">Уведомявай ако е преминат 100% от лимита на плана.</string>
+  <string name="widget_text_color_" formatted="false" username="mari" orig="Text color">Цвят на текста</string>
+  <string name="widget_backgroud_color_" formatted="false" username="mari" orig="Background color">Цвят на фона</string>
+  <string name="send_devices_hint" formatted="false" username="mari" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Изпращане списък с устройства на разработчика. Това е необходимо само ако данните в статистиките са нулеви.</string>
+  <string name="send_devices_" formatted="false" username="mari" orig="Send devices">Изпрати устройства</string>
+  <string name="widget_cost_textsize" formatted="false" username="mari" orig="Cost Text Size">Размер на текста на разходите</string>
+  <string name="widget_plan_textsize" formatted="false" username="mari" orig="Plan Text Size">Размер на текста на плана</string>
+  <string name="widget_config_" formatted="false" username="mari" orig="Widget config">Настройка на джаджата</string>
+  <string name="alerts_message" formatted="false" username="mari" orig="Plan %s has reached %d%% usage!">Плана %s е достигнал %d%% употреба!</string>
+  <string name="limit_type_help" formatted="false" username="mari" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;cost\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Задайте вида на вашия лимит тук.\nA "units" лимит ще ограничи вашия план базиран на минути,съобщения,...\nA "cost" лимит ще ограничи вашия план базиран на стойността на произведените от елементите, вградени в този план.</string>
 </resources>
