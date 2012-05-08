@@ -23,4 +23,5 @@
 <resources>
   <string name="intro_" formatted="false" orig="Introducing Call Meter 3G">Въведение в Call Meter 3G</string>
   <string name="intro0" formatted="false" orig="With &lt;b&gt;Call Meter 3G&lt;/b&gt; you can monitor the usage of your calls, messages and data connections.">С <b>Call Meter 3G</b> можете да наблюдавате използването на вашите разговори, съобщения и връзки с данни.</string>
+  <string name="intro_export" formatted="false" username="mari" orig="In any case, when everything is set up, you can export your rules to me. Thus, all other users can benefit from your work.">Във всеки случай, когато всичко е нагласено, вие можете да експортирате вашите правила при мен. По този начин всички потребители ще се възползват от вашата работа.</string>
 </resources>
