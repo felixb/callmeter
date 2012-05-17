@@ -17,7 +17,7 @@ res/values-el/strings.xml:118
 res/values-es/market.xml:5
 res/values-es/notes.xml:3
 res/values-es/strings.xml:118
-res/values-fr/market.xml:2
+res/values-fr/market.xml:5
 res/values-fr/notes.xml:3
 res/values-fr/strings.xml:118
 res/values-hu/market.xml:5
@@ -62,7 +62,7 @@ res/values-da:124
 res/values-de:126
 res/values-el:118
 res/values-es:126
-res/values-fr:123
+res/values-fr:126
 res/values-hu:126
 res/values-it:120
 res/values-iw:121
