@@ -29,7 +29,7 @@
   <string name="about4" formatted="false">Τα μηνύματα μπορούν να συγχωνευτούν με το πλάνο σας. Π.χ. κάθε μήνυμα θα μετράει ως 15s κλήση.</string>
   <string name="about5" formatted="false">Το CallMeter τρέχει στο παρασκήνιο κάθε 30 λεπτά (εφόσον δεν είναι σε αναμονή. Αυτό σημαίνει ότι, σβησμένες κλήσεις ή μηνύματα προ 30 λεπτών δεν θα επηρεάσουν τα στατιστικά. Σβησμένες κλήσεις ή μηνύματα των τελευταίων 30 λεπτών θα οδηγήσουν σε λάθος στατιστικά.</string>
   <string name="about6_" formatted="false">Τι δεν κάνει το CallMeter NG:</string>
-  <string name="about6" formatted="false">Δεν υπάρχει δυνατότητα διαχωρισμού κανονικών κλήσεων και αυτών που΄έγιναν με sipdroid ή μεταξύ websms και κανονικών μηνυμάτων. Η διένεξη των αρχείων χρήσης των εφαρμογών από το Android καθιστά μη δυνατό το διαχωρισμό τους στη συνέχεια.</string>
+  <string name="about6" formatted="false" username="ipolatidis" orig="There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs.">Δεν υπάρχει δυνατότητα διαχωρισμού κανονικών κλήσεων και αυτών που έγιναν με sipdroid ή μεταξύ websms και κανονικών μηνυμάτων. Η διένεξη των αρχείων χρήσης των εφαρμογών από το Android καθιστά μη δυνατό το διαχωρισμό τους στη συνέχεια.</string>
   <string name="send_" formatted="false">Αποστολή</string>
   <string name="settings" formatted="false">Ρυθμίσεις</string>
   <string name="about_" formatted="false">Σχετικά με</string>
@@ -125,7 +125,7 @@
     <item>Μικρό</item>
     <item>Μεσαίο</item>
   </string-array>
-  <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app.">μερικές συμβουλές και κόλπα, πως να ρυθμίζεται αυτή η εφαρμογή</string>
+  <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app." username="ipolatidis">Μερικές συμβουλές και κόλπα, πως να ρυθμίζεται αυτή η εφαρμογή</string>
   <string name="feedback_" formatted="false" orig="Feedback">ανατροφοδότηση</string>
   <string name="twitter_hint" formatted="false" orig="Follow me on twitter.\nGet update notifications etc.">Ακολουθείστε με στο twitter.\nΛηψη ειδοποιήσεων για ενημερώσεις</string>
   <string name="reset_data_data_" formatted="false" orig="Reset traffic too.">Επίσης, μηδενισμός της κίνησης.</string>
