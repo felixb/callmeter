@@ -156,15 +156,15 @@
   <string name="import_rules_" formatted="false">Импорт ценового плана</string>
   <string name="import_rules_hint" formatted="false">Установка готового плана.</string>
   <string name="import_rules_empty" formatted="false">Какие-либо ценовые планы или правила отсутствуют. Нажмите на этот текст для импорта стандартныx настроек.\n\nСобственно ручная настройка тоже возможна.</string>
-  <string name="err_export_write" formatted="false">Ошибка про соxранении</string>
-  <string name="err_export_read" formatted="false">Ошибка при чтении</string>
+  <string name="err_export_write" formatted="false" username="htc@norcis.lv" orig="Error writing export file">Ошибка записи файла экспорта</string>
+  <string name="err_export_read" formatted="false" username="htc@norcis.lv" orig="Error reading export file">Ошибка при чтении файла экспорта</string>
   <string name="alerts_" formatted="false">Сигнализация</string>
   <string name="alerts_hint" formatted="false">Настройка сигнализации основанной на данныx ценового плана.</string>
   <string name="alerts_message" formatted="false">Ценовой план %s достиг %d%%!</string>
-  <string name="alerts_80_" formatted="false">Тревога при 80%</string>
-  <string name="alerts_80_hint" formatted="false">Сигнализация при 80% достижении ценового плана.</string>
-  <string name="alerts_100_" formatted="false">Тревога при 100%</string>
-  <string name="alerts_100_hint" formatted="false">Сигнализация при 100% достижении ценового плана.</string>
+  <string name="alerts_80_" formatted="false" username="htc@norcis.lv" orig="Notify at 80%">Уведомлять при 80%</string>
+  <string name="alerts_80_hint" formatted="false" username="htc@norcis.lv" orig="Notify if a plan passes 80% of it\'s limit.">Уведомлять при 80% достижении ценового плана.</string>
+  <string name="alerts_100_" formatted="false" username="htc@norcis.lv" orig="Notify at 100%">Уведомлять при 100%</string>
+  <string name="alerts_100_hint" formatted="false" username="htc@norcis.lv" orig="Notify if a plan passes 100% of it\'s limit.">Уведомлять при 100% достижении ценового плана.</string>
   <string name="widget_config_" formatted="false">Настройка виджет</string>
   <string-array name="weekdays_all">
     <item>Каждый день</item>
@@ -250,7 +250,7 @@
     <item>60 дней</item>
     <item>90 дней</item>
     <item>1 месяц</item>
-		<item notranslation="true">One month + one day</item>
+    <item notranslation="true">One month + one day</item>
     <item>2 месяца</item>
     <item>3 месяца</item>
     <item>4 месяца</item>
@@ -335,4 +335,11 @@
   <string name="textsize_spacer_hint" formatted="false" orig="Size for spacers in pixels; leave empty for default">Величина пробела в пикселах; оставить пустым для исходных значений</string>
   <string name="textsize_pbar_" formatted="false" orig="Progress bar\'s size">Размер шкалы прогресса</string>
   <string name="textsize_pbar_hint" formatted="false" orig="Size for progress bars in pixels; leave empty for default">Размер шкалы прогресса в пикселах; оставить пустым для исходных значений</string>
+  <string name="export_cancel" formatted="false" username="htc@norcis.lv" orig="Export to SD card">Экспорт на карту памяти</string>
+  <string name="export_logs_" formatted="false" username="htc@norcis.lv" orig="Backup logs">Журнал резервного копирования</string>
+  <string name="export_logs_hint" formatted="false" username="htc@norcis.lv" orig="Backup logs as mail.">Журнал резервного копирования по почте.</string>
+  <string name="import_rules_sd_" formatted="false" username="htc@norcis.lv" orig="Import rule set from SD card">Импорт ценового плана с карты памяти</string>
+  <string name="import_rules_sd_files" formatted="false" username="htc@norcis.lv" orig="Found files">Найденные файлы</string>
+  <string name="import_rules_sd_nofiles" formatted="false" username="htc@norcis.lv" orig="No found files">Файлы не найдены</string>
+  <string name="loading" formatted="false" username="htc@norcis.lv" orig="Loading ...">Загрузка ...</string>
 </resources>

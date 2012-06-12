@@ -283,7 +283,7 @@
   <string name="mixed_units_mms_help" formatted="false" username="mari" orig="Set the units billed for a single mms.">Задай единиците за таксуване на един mms.</string>
   <string name="mixed_units_call_" formatted="false" username="mari" orig="Units for a call">Единици за обаждане</string>
   <string name="units_cost" formatted="false" username="mari" orig="$">$</string>
-  <string name="units_num_msg" formatted="false" username="mari" orig="# Messages"># съобщения</string>
+  <string name="units_num_msg" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="# Messages"># Съобщения</string>
   <string name="units_minutes" formatted="false" username="mari" orig="Minutes">Минути</string>
   <string name="units_mbyte" formatted="false" username="mari" orig="MBytes">Мегабайти</string>
   <string name="units_units" formatted="false" username="mari" orig="Units">Единици</string>
@@ -360,4 +360,7 @@
   <string name="widget_config_" formatted="false" username="mari" orig="Widget config">Настройка на джаджата</string>
   <string name="alerts_message" formatted="false" username="mari" orig="Plan %s has reached %d%% usage!">Плана %s е достигнал %d%% употреба!</string>
   <string name="limit_type_help" formatted="false" username="mari" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;cost\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Задайте вида на вашия лимит тук.\nA "units" лимит ще ограничи вашия план базиран на минути,съобщения,...\nA "cost" лимит ще ограничи вашия план базиран на стойността на произведените от елементите, вградени в този план.</string>
+  <string name="mixed_units_sms_help" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="Set the units billed for a single sms.">Задай единица за таксуване на един sms.</string>
+  <string name="roamed_" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="Roamed">Роминг</string>
+  <string name="empty_group_" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Моля натиснете "Add" за да добавите елемент в групата.</string>
 </resources>
