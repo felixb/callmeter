@@ -43,14 +43,14 @@
   <string name="faq_hint" formatted="false">Помощь при настройке программы.</string>
   <string name="feedback_" formatted="false">Отзывы</string>
   <string name="feedback_hint" formatted="false">Протокол ошибок, новшевства ...</string>
-  <string name="twitter_hint" formatted="false">Читайте на twitter.\nОбновления, информация и т.д. ...</string>
+  <string name="twitter_hint" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Follow me on twitter.\nGet update notifications etc.">Читайте на twitter.\nОбновления, информация и т.д.</string>
   <string name="more_" formatted="false">Подробнее...</string>
   <string name="billing_" formatted="false">Отчёт</string>
   <string name="billday_" formatted="false">Начало отсчёта</string>
   <string name="billmode_" formatted="false">Метод отчёта</string>
   <string name="billdate_" formatted="false">Начало отсчёта:</string>
   <string name="appearance_" formatted="false">Вид</string>
-  <string name="advanced_preferences_" formatted="false">Профессиональные настройки</string>
+  <string name="advanced_preferences_" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Advanced preferences">Дополнительные настройки</string>
   <string name="advanced_preferences_hint" formatted="false">Настройка более сложныx методов отчёта. Многие пользователи в этом не нуждаются.</string>
   <string name="theme_" formatted="false">Темы</string>
   <string name="textsize_" formatted="false">Размер шрифта</string>
@@ -325,7 +325,7 @@
   <string name="delete_old_logs_help" formatted="false" orig="Delete logs older than x days from internal database. Leave empty to disable.">Удалить записи журнала старше х дней из внутренней базы данных. Для отключения оставить поле пустым.</string>
   <string name="simple_preferences_" formatted="false" orig="Simple preferences">Простые настройки</string>
   <string name="textsize_title_" formatted="false" orig="Title\'s text size">Размер шрифта заголовков</string>
-  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Простые настройки, подходящие для большинства пользователей. Возможно изменение предустановленных наборов правил.</string>
+  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set." username="Norcis &lt;htc@norcis.lv&gt;">Простые настройки, подходящие для большинства пользователей. Только с набором правил по умолчанию.</string>
   <string name="behavior_" formatted="false" orig="Behavior">Действия</string>
   <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp; behavior">Представление и действия</string>
   <string name="textsize_title_hint" formatted="false" orig="Text size for titles in pixels; leave empty for default">Размер шрифта заголовков в пикселах; оставить пустым для исходных значений</string>
@@ -343,4 +343,12 @@
   <string name="import_rules_sd_nofiles" formatted="false" username="htc@norcis.lv" orig="No found files">Файлы не найдены</string>
   <string name="loading" formatted="false" username="htc@norcis.lv" orig="Loading ...">Загрузка ...</string>
   <string name="rule_" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Rule">Правило</string>
+  <string name="author_and_many_more" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="and many more...">и многое другое ...</string>
+  <string name="update_interval_data_" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Update interval (data)">Интервал обновления (данных)</string>
+  <string name="update_interval_data_hint" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Обновление статистики данных нужно делать чаще. Особенно Samsung нуждается в очень короткие промежутки времени.</string>
+  <string name="google_plus_hint" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Follow me on Google+.\nGet update notifications etc.">Читайте на Google+.\nОбновления, информация и т.д.</string>
+  <string name="widget_" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Widget">Виджет</string>
+  <string name="widgets_" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Widgets">Виджеты</string>
+  <string name="delete_widget" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Delete widget">Удалить виджет</string>
+  <string name="simple_preferences_deactivated" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">В простые настройки доступны только набор правил по умолчанию. Импорт набора правил по умолчанию только после активации.</string>
 </resources>
