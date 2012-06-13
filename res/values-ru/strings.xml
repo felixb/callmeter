@@ -158,8 +158,8 @@
   <string name="import_rules_empty" formatted="false">Какие-либо ценовые планы или правила отсутствуют. Нажмите на этот текст для импорта стандартныx настроек.\n\nСобственно ручная настройка тоже возможна.</string>
   <string name="err_export_write" formatted="false" username="htc@norcis.lv" orig="Error writing export file">Ошибка записи файла экспорта</string>
   <string name="err_export_read" formatted="false" username="htc@norcis.lv" orig="Error reading export file">Ошибка при чтении файла экспорта</string>
-  <string name="alerts_" formatted="false">Сигнализация</string>
-  <string name="alerts_hint" formatted="false">Настройка сигнализации основанной на данныx ценового плана.</string>
+  <string name="alerts_" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Alerts">Предупреждения</string>
+  <string name="alerts_hint" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Set alerts based on plan usage.">Настройка предупреждении основанной на данныx ценового плана.</string>
   <string name="alerts_message" formatted="false">Ценовой план %s достиг %d%%!</string>
   <string name="alerts_80_" formatted="false" username="htc@norcis.lv" orig="Notify at 80%">Уведомлять при 80%</string>
   <string name="alerts_80_hint" formatted="false" username="htc@norcis.lv" orig="Notify if a plan passes 80% of it\'s limit.">Уведомлять при 80% достижении ценового плана.</string>
@@ -342,4 +342,5 @@
   <string name="import_rules_sd_files" formatted="false" username="htc@norcis.lv" orig="Found files">Найденные файлы</string>
   <string name="import_rules_sd_nofiles" formatted="false" username="htc@norcis.lv" orig="No found files">Файлы не найдены</string>
   <string name="loading" formatted="false" username="htc@norcis.lv" orig="Loading ...">Загрузка ...</string>
+  <string name="rule_" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Rule">Правило</string>
 </resources>
