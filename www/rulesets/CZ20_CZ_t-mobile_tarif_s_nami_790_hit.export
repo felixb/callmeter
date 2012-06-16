@@ -1,0 +1,73 @@
+1
+t-mobile+tarif+S+NAMI+790+HIT
+plans _id:12:#:_plan_name:Účtovací období:#:_shortname:Období:#:_plan_type:2:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billmode:1/1:#:_billday:1338937201234:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan:553:#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:0:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:13:#:_plan_name:Spacer:#:_shortname:space:#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:14:#:_plan_name:Hovory:#:_shortname:calls:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:15:#:_plan_name:Příchozí volání:#:_shortname:Příchozí:#:_plan_type:4:#:_limit_type:0:#:_limit:0:#:_billperiod:12:#:_billmode:1/1:#:_billday:0:#:_cost_per_item:0:#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:16:#:_plan_name:Placené volání:#:_shortname:Odchozí:#:_plan_type:4:#:_limit_type:1:#:_limit:180:#:_billperiod:12:#:_billmode:60/30:#:_billday:0:#:_cost_per_item:4.5:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan:0:#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:17:#:_plan_name:Spacer:#:_shortname:spacer:#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:-1:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:18:#:_plan_name:Zprávy:#:_shortname:SMS/MMS:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billperiod:5:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:19:#:_plan_name:Přijaté SMS:#:_shortname:Přijaté SMS:#:_plan_type:5:#:_limit_type:0:#:_limit:0:#:_billperiod:12:#:_billmode:1/1:#:_billday:0:#:_cost_per_item:0:#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:20:#:_plan_name:Placené SMS:#:_shortname:Placené SMS:#:_plan_type:5:#:_limit_type:1:#:_limit:150:#:_billperiod:12:#:_billmode:1/1:#:_billday:0:#:_cost_per_item:1.6:#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan:0:#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:21:#:_plan_name:Spacer:#:_shortname::#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:-1:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:28:#:_plan_name:MMS zprávy:#:_shortname:Odeslané MMS:#:_plan_type:6:#:_limit_type:0:#:_limit:0:#:_billperiod:5:#:_billday:1287927174859:#:_cost_per_item:4.9:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:29:#:_plan_name:Volání zdarma:#:_shortname:Volání zdarma:#:_plan_type:4:#:_limit_type:0:#:_limit:0:#:_billperiod:5:#:_billmode:1/1:#:_billday:1320438732110:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:31:#:_plan_name:SMS zdarma:#:_shortname:SMS zdarma:#:_plan_type:5:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billday:1339097567247:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+rules _id:1:#:_active:1:#:_order:8:#:_plan_id:23:#:_rule_name:Data:#:_what:3:#:_roamed:2:#:_direction:2:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:2:#:_active:1:#:_order:0:#:_plan_id:15:#:_rule_name:Příchozí volání:#:_what:0:#:_roamed:2:#:_direction:0:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:3:#:_active:1:#:_order:2:#:_plan_id:16:#:_rule_name:Placené volání:#:_what:0:#:_roamed:2:#:_direction:1:#:_exnumbergroup_id:,4,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:4:#:_active:1:#:_order:3:#:_plan_id:19:#:_rule_name:Přijaté SMS:#:_what:1:#:_roamed:2:#:_direction:0:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:5:#:_active:1:#:_order:4:#:_plan_id:20:#:_rule_name:Placené SMS špička:#:_what:1:#:_roamed:2:#:_direction:1:#:_inhourgroup_id:,5,:#:_innumbergroup_id:,1,6,7,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:7:#:_active:1:#:_order:6:#:_plan_id:27:#:_rule_name:MMS In:#:_what:2:#:_roamed:2:#:_direction:0:#:_inhourgroup_id:-1:#:_exhourgroup_id:-1:#:_innumbergroup_id:-1:#:_exnumbergroup_id:-1:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:
+rules _id:8:#:_active:1:#:_order:7:#:_plan_id:28:#:_rule_name:MMS Out:#:_what:2:#:_roamed:2:#:_direction:1:#:_inhourgroup_id:-1:#:_exhourgroup_id:-1:#:_innumbergroup_id:-1:#:_exnumbergroup_id:-1:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:
+rules _id:9:#:_active:1:#:_order:1:#:_plan_id:29:#:_rule_name:Volání zdarma:#:_what:0:#:_roamed:2:#:_direction:1:#:_inhourgroup_id:,4,3,:#:_innumbergroup_id:,6,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:12:#:_active:1:#:_order:9:#:_plan_id:31:#:_rule_name:SMS zdarma:#:_what:1:#:_roamed:2:#:_direction:1:#:_inhourgroup_id:,4,3,:#:_innumbergroup_id:,6,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:13:#:_active:1:#:_order:5:#:_plan_id:20:#:_rule_name:Placené SMS mimo špičku:#:_what:1:#:_roamed:2:#:_direction:1:#:_inhourgroup_id:,4,3,:#:_innumbergroup_id:,1,7,:#:_exnumbergroup_id:,6,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+hours _id:6:#:_gid:3:#:_day:6:#:_hour:0:#:
+hours _id:7:#:_gid:3:#:_day:7:#:_hour:0:#:
+hours _id:34:#:_gid:4:#:_day:8:#:_hour:1:#:
+hours _id:35:#:_gid:4:#:_day:8:#:_hour:2:#:
+hours _id:36:#:_gid:4:#:_day:8:#:_hour:3:#:
+hours _id:37:#:_gid:4:#:_day:8:#:_hour:4:#:
+hours _id:38:#:_gid:4:#:_day:8:#:_hour:5:#:
+hours _id:39:#:_gid:4:#:_day:8:#:_hour:6:#:
+hours _id:40:#:_gid:4:#:_day:8:#:_hour:7:#:
+hours _id:42:#:_gid:4:#:_day:8:#:_hour:20:#:
+hours _id:43:#:_gid:4:#:_day:8:#:_hour:21:#:
+hours _id:44:#:_gid:4:#:_day:8:#:_hour:22:#:
+hours _id:45:#:_gid:4:#:_day:8:#:_hour:23:#:
+hours _id:46:#:_gid:4:#:_day:8:#:_hour:24:#:
+hours _id:47:#:_gid:5:#:_day:8:#:_hour:8:#:
+hours _id:48:#:_gid:5:#:_day:8:#:_hour:9:#:
+hours _id:49:#:_gid:5:#:_day:8:#:_hour:10:#:
+hours _id:50:#:_gid:5:#:_day:8:#:_hour:11:#:
+hours _id:51:#:_gid:5:#:_day:8:#:_hour:12:#:
+hours _id:52:#:_gid:5:#:_day:8:#:_hour:13:#:
+hours _id:53:#:_gid:5:#:_day:8:#:_hour:14:#:
+hours _id:54:#:_gid:5:#:_day:8:#:_hour:15:#:
+hours _id:55:#:_gid:5:#:_day:8:#:_hour:16:#:
+hours _id:56:#:_gid:5:#:_day:8:#:_hour:17:#:
+hours _id:57:#:_gid:5:#:_day:8:#:_hour:18:#:
+hours _id:58:#:_gid:5:#:_day:8:#:_hour:19:#:
+hoursgroup _id:3:#:_name:Weekend:#:
+hoursgroup _id:4:#:_name:Mimo špičku:#:
+hoursgroup _id:5:#:_name:Špička:#:
+numbers _id:13:#:_gid:1:#:_number:+420601%:#:
+numbers _id:17:#:_gid:1:#:_number:+420606%:#:
+numbers _id:19:#:_gid:1:#:_number:+420607%:#:
+numbers _id:21:#:_gid:1:#:_number:+42072%:#:
+numbers _id:23:#:_gid:4:#:_number:800%:#:
+numbers _id:24:#:_gid:5:#:_number:999%:#:
+numbers _id:26:#:_gid:6:#:_number:+420603%:#:
+numbers _id:27:#:_gid:6:#:_number:+420604%:#:
+numbers _id:29:#:_gid:6:#:_number:+42073%:#:
+numbers _id:30:#:_gid:4:#:_number:4603:#:
+numbers _id:33:#:_gid:6:#:_number:+420605%:#:
+numbers _id:36:#:_gid:7:#:_number:+420608%:#:
+numbers _id:37:#:_gid:7:#:_number:+42077%:#:
+numbers _id:38:#:_gid:1:#:_number:+420602%:#:
+numbersgroup _id:1:#:_name:O2:#:
+numbersgroup _id:4:#:_name:Free Calls:#:
+numbersgroup _id:5:#:_name:Free SMS:#:
+numbersgroup _id:6:#:_name:tmobile:#:
+numbersgroup _id:7:#:_name:vodafone:#:
