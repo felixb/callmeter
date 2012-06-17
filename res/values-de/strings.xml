@@ -23,9 +23,9 @@
 <resources>
   <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Pass auf deine Freiminuten, FreiSMS und dein Datenvolumen auf!</string>
   <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing." username="motas">CallMeter erzeugt aus deinen Anruf-, SMS- und Daten-Logs Berichte. Es unterstützt viele verschiedene Abrechnungsmodi.</string>
-  <string name="about1" formatted="false" orig="The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not.">Das Ausgabeformat ist: Nutzung / Zeit oder Anzahl in diesem Monat / Zeit oder Anzahl überhaupt. Monatliche Anrufe werden nach Abrechnungsmodus berechnet. Die Gesamtzeit nicht.</string>
-  <string name="about2" formatted="false">Der Abrechnungszeitraum bezeichnet die länge des ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s aufgerundet.</string>
-  <string name="about3" formatted="false" orig="You can split your call or message plan into up to two plans. Each plan can be set to be totally free, capped to a set limit or unlimited.">Du kannst deine Anruf- oder SMS-Kontingente trennen. In jedem Kontingent kannst du dann folgendes einstellen: keine Abrechnung, auf ein bestimmtes Limit begrenzt oder keine Grenzen.</string>
+  <string name="about1" formatted="false" orig="The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not." username="Andreas Herr &lt;andreas@herrand.de&gt;">Das Ausgabeformat ist: Nutzung / Zeit oder Anzahl in diesem Monat / Zeit oder Anzahl überhaupt. Monatliche Anrufe werden nach Abrechnungsmodus berechnet, die Gesamtzeit nicht.</string>
+  <string name="about2" formatted="false" username="Andreas Herr &lt;andreas@herrand.de&gt;" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">Der Abrechnungszeitraum bezeichnet die Länge des ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s aufgerundet.</string>
+  <string name="about3" formatted="false" orig="You can split your call or message plan into up to two plans. Each plan can be set to be totally free, capped to a set limit or unlimited." username="Andreas Herr &lt;andreas@herrand.de&gt;">Du kannst deine Anruf- oder SMS-Kontingente trennen. In jedem Kontingent kannst du dann Folgendes einstellen: keine Abrechnung, auf ein bestimmtes Limit begrenzt oder keine Grenzen.</string>
   <string name="about4" formatted="false">Deine SMS können über die Anrufe abgerechnet werden. Z.B. jede SMS als ein 60s Anruf.</string>
   <string name="about5" formatted="false">CallMeter läuft alle 30min im Hintergrund (sofern das Gerät nicht im Standby ist). Werden Anrufe oder Nachrichten älter als 30min gelöscht, ändert das die Statistik nicht. Werden neuere Anrufe/Nachrichten gelöscht, kann es je nach Zeitpunkt die Statistiken verfälschen!</string>
   <string name="about6_" formatted="false">Was CallMeter NG nicht tut:</string>
@@ -34,7 +34,7 @@
   <string name="settings" formatted="false">Einstellungen</string>
   <string name="about_" formatted="false">Über</string>
   <string name="about_hint" formatted="false">Über diese App</string>
-  <string name="faq_hint" formatted="false">Ein paar Tipps und Tricks, wie man diese App einstellt.</string>
+  <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app.">Ein paar Tipps und Tricks, wie man diese App einstellt.</string>
   <string name="feedback_" formatted="false">Feedback</string>
   <string name="feedback_hint" formatted="false" orig="Report bugs, request features ...">Fehler melden, Funktionen wünschen ...</string>
   <string name="twitter_hint" formatted="false" orig="Follow me on twitter.\nGet update notifications etc.">Folge mir auf Twitter für neuste Updates, Benachrichtigungen und mehr.</string>
@@ -48,7 +48,7 @@
   <string name="smsbillday_" formatted="false">Erster Rechnungstag für SMS</string>
   <string name="dataperiod_" formatted="false">Gleiche Rechnung für Daten</string>
   <string name="dataperiod_hint" formatted="false">Anruf Rechnungstag auch für Daten setzen.</string>
-  <string name="databillday_" formatted="false">Erster Rechnungstag für Daten</string>
+  <string name="databillday_" formatted="false" orig="First day of your data bill">Erster Rechnungstag für Daten</string>
   <string name="appearance_" formatted="false">Darstellung</string>
   <string name="theme_" formatted="false">Theme</string>
   <string name="textsize_" formatted="false">Schriftgrad</string>
@@ -61,11 +61,11 @@
   <string name="exclude_people_to_plan1_" formatted="false">Ausgeschlossene Nummern nach Plan #1</string>
   <string name="exclude_people_to_plan2_" formatted="false">Ausgeschlossene Nummern nach Plan #2</string>
   <string name="exclude_people_calls_" formatted="false">Für Anrufe einschalten</string>
-  <string name="exclude_people_calls_to_plan1_hint" formatted="false">Anrufe zu/von ausgeschlossene nummern in Plan #1 abrechnen.</string>
-  <string name="exclude_people_calls_to_plan2_hint" formatted="false">Anrufe zu/von ausgeschlossene nummern in Plan #2 abrechnen.</string>
+  <string name="exclude_people_calls_to_plan1_hint" formatted="false" username="Andreas Herr &lt;andreas@herrand.de&gt;" orig="Bill calls to/from excluded numbers in plan #1">Anrufe zu/von ausgeschlossene Nummern in Plan #1 abrechnen.</string>
+  <string name="exclude_people_calls_to_plan2_hint" formatted="false" username="Andreas Herr &lt;andreas@herrand.de&gt;" orig="Bill calls to/from excluded numbers in plan #2">Anrufe zu/von ausgeschlossene Nummern in Plan #2 abrechnen.</string>
   <string name="exclude_people_sms_" formatted="false">Für SMS einschalten</string>
-  <string name="exclude_people_sms_to_plan1_hint" formatted="false">SMS zu/von ausgeschlossene nummern in Plan #1 abrechnen.</string>
-  <string name="exclude_people_sms_to_plan2_hint" formatted="false">SMS zu/von ausgeschlossene nummern in Plan #2 abrechnen.</string>
+  <string name="exclude_people_sms_to_plan1_hint" formatted="false" username="Andreas Herr &lt;andreas@herrand.de&gt;" orig="Bill messages to/from excluded numbers in plan #1">SMS zu/von ausgeschlossene Nummern in Plan #1 abrechnen.</string>
+  <string name="exclude_people_sms_to_plan2_hint" formatted="false" username="Andreas Herr &lt;andreas@herrand.de&gt;" orig="Bill messages to/from excluded numbers in plan #2">SMS zu/von ausgeschlossene Nummern in Plan #2 abrechnen.</string>
   <string name="plans" formatted="false">Kontingente</string>
   <string name="plans_split" formatted="false">2 Kontingente</string>
   <string name="plans_merge" formatted="false">Kontingente verschmelzen</string>
@@ -76,7 +76,7 @@
   <string name="plan_free_" formatted="false">Keine Abrechnung</string>
   <string name="plan_freemin_" formatted="false">Freiminuten</string>
   <string name="plan_freesms_" formatted="false">FreiSMS</string>
-  <string name="free_hint" formatted="false">Absolut keine Kosten</string>
+  <string name="free_hint" formatted="false" username="Andreas Herr &lt;andreas@herrand.de&gt;" orig="Totally free">Keine Kosten</string>
   <string name="freemin_hint" formatted="false">Freiminuten / Monat</string>
   <string name="freesms_hint" formatted="false">FreiSMS / Monat</string>
   <string name="bill_calls_incoming_" formatted="false">Eingehende abrechnen</string>
@@ -99,7 +99,7 @@
   <string name="merge_sms_calls_sec_hint" formatted="false">Anzahl der Sekunden, die für jede SMS abgerechnet werden.</string>
   <string name="merge_sms_plan1_" formatted="false">In Kontingent 1 abrechnen</string>
   <string name="merge_sms_plan1_hint" formatted="false">Abwählen, um im Kontingent 2 abzurechnen.</string>
-  <string name="data_hint" formatted="false">WLAN stats werden hier nicht gesammelt!</string>
+  <string name="data_hint" formatted="false" username="Andreas Herr &lt;andreas@herrand.de&gt;" orig="WLAN/WIFI stats are not collected here!">WLAN-Stats werden hier nicht gesammelt!</string>
   <string name="data_enable_" formatted="false">Zeige Datenstatistik</string>
   <string name="data_enable_hint" formatted="false">Daten werden in Echtzeit gesammelt. Im ersten Monat ist das Ergebnis evtl. falsch.</string>
   <string name="data_show_simple_" formatted="false">Nur \"Daten\" als Titel anzeigen</string>
@@ -129,8 +129,8 @@
   <string name="plan_name1_" formatted="false">Kontingent 1: Name</string>
   <string name="plan_name2_" formatted="false">Kontingent 2: Name</string>
   <string name="plan_name_hint" formatted="false">Eigener Name</string>
-  <string name="reset_data_" formatted="false">Statistik zurück setzen</string>
-  <string name="reset_data_hint" formatted="false">Anruf/SMS Statistik zurück setzen sorgt dafür, dass die Statistik neu berechnet wird.\n\nZurücksetzen der Traffic Statistik ist permanent. Es wird nur der Traffic vor dem letzten Reboot gelöscht!</string>
+  <string name="reset_data_" formatted="false" username="Andreas Herr &lt;andreas@herrand.de&gt;" orig="Reset statistics">Statistik zurücksetzen</string>
+  <string name="reset_data_hint" formatted="false" username="Andreas Herr &lt;andreas@herrand.de&gt;" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Anruf/SMS Statistik zurück setzen sorgt dafür, dass die Statistik neu berechnet wird.\n\nZurücksetzen der Traffic-Statistik ist permanent. Es wird nur der Traffic vor dem letzten Reboot gelöscht!</string>
   <string name="reset_data_data_" formatted="false">Auch Daten zurücksetzen</string>
   <string name="contacts_" formatted="false">Kontakte</string>
   <string-array name="themes">

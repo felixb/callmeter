@@ -34,7 +34,7 @@
   <string name="settings" formatted="false">Préférences</string>
   <string name="about_" formatted="false">A propos de</string>
   <string name="about_hint" formatted="false">A propos de cette application</string>
-  <string name="faq_hint" formatted="false">Quelques astuce pour paramétrer cette application.</string>
+  <string name="faq_hint" formatted="false" username="lanathdu26@hotmail.fr" orig="Some tips and tricks, how to set up this app.">Quelques astuce pour paramétrer cette application.</string>
   <string name="feedback_" formatted="false">Contact</string>
   <string name="feedback_hint" formatted="false">Rapporter un bug, demander de nouvelles fonctionnalités ...</string>
   <string name="twitter_hint" formatted="false">Suivez moi sur twitter.\nObtenez des informations sur les mises à jour, etc.</string>

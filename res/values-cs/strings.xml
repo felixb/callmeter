@@ -35,18 +35,18 @@
   <string name="about_" formatted="false" username="KarloZ" orig="About">O...</string>
   <string name="about_hint" formatted="false" username="KarloZ" orig="About this app">O aplikaci</string>
   <string name="faq_hint" formatted="false" username="KarloZ" orig="Some tips and tricks, how to set up this app.">Tipy a triky jak nastavit aplikaci.</string>
-  <string name="feedback_" formatted="false" username="KarloZ" orig="Feedback">Feedback</string>
+  <string name="feedback_" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="Feedback">Vaše připomínky</string>
   <string name="feedback_hint" formatted="false" username="KarloZ" orig="Report bugs, request features ...">Ohlásit chyby, zaslat požadavky ...</string>
   <string name="twitter_hint" formatted="false" username="KarloZ" orig="Follow me on twitter.\nGet update notifications etc.">Následuj mě na Twitteru\nInfo o nových verzích apod.</string>
   <string name="more_" formatted="false" username="KarloZ" orig="More Apps..">Další aplikace..</string>
-  <string name="billday_" formatted="false" username="KarloZ" orig="First day of your bill">Začátek účtovacího období</string>
+  <string name="billday_" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="First day of your bill">První den účtovacího období</string>
   <string name="billmode_" formatted="false" username="KarloZ" orig="Mode of billing">Způsob zúčtování</string>
   <string name="billmode_hint" formatted="false" username="KarloZ" orig="Length of first/following billing intervals.">Délka prvního/následujícího zúčtovacího intervalu</string>
   <string name="billdate_" formatted="false" username="KarloZ" orig="Start of billing period:">Začátek účtovacího období:</string>
-  <string name="smsperiod_" formatted="false" username="KarloZ" orig="Same Period for SMS">Stejna perioda pro SMS</string>
+  <string name="smsperiod_" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="Same Period for SMS">Stejné období pro SMS</string>
   <string name="smsperiod_hint" formatted="false" username="KarloZ" orig="Set SMS\'s billing period to calls\' period.">Nastavit SMS účtovácí období jako volací období.</string>
   <string name="smsbillday_" formatted="false" username="KarloZ" orig="First day of your SMS bill">První den účtování SMS</string>
-  <string name="dataperiod_" formatted="false" username="KarloZ" orig="Same Period for data">Stejna perioda pro data</string>
+  <string name="dataperiod_" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="Same Period for data">Stejné období pro data</string>
   <string name="dataperiod_hint" formatted="false" username="KarloZ" orig="Set data\'s billing period to calls\' period.">Nastavit stejné účtovací období jako pro volání.</string>
   <string name="databillday_" formatted="false" orig="First day of your data bill" username="KarloZ">První den účtování vašich dat</string>
   <string name="appearance_" formatted="false" username="KarloZ" orig="Appearance">Přizpůsobení vzhledu</string>
@@ -54,12 +54,12 @@
   <string name="textsize_" formatted="false" username="KarloZ" orig="Text size">Velikost textu</string>
   <string name="advanced_" formatted="false" username="KarloZ" orig="Advanced">Pokročilé nastavení</string>
   <string name="exclude_people_" formatted="false" username="KarloZ" orig="Exclude numbers">Vyloučit tel. čísla</string>
-  <string name="exclude_people_hint" formatted="false" username="KarloZ" orig="Don\'t bill some numbers\nwildcards allowed: *555, 555* or *555*">Nezohledňovat volání na čísla a předvolby. Zástupné znaky: *555, 555* or *555*</string>
+  <string name="exclude_people_hint" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="Don\'t bill some numbers\nwildcards allowed: *555, 555* or *555*">Neúčtovat volání na některá čísla / předvolby. Možno zadat: *555, 555* nebo *555*</string>
   <string name="exclude_people_add" formatted="false" username="KarloZ" orig="Add number">Přidat číslo</string>
   <string name="exclude_people_edit" formatted="false" username="KarloZ" orig="Edit">Upravit</string>
   <string name="exclude_people_delete" formatted="false" username="KarloZ" orig="Delete">Smazat</string>
-  <string name="exclude_people_to_plan1_" formatted="false" username="KarloZ" orig="Excluded numbers to plan #1">Vyloučit čísla z Paušálu 1</string>
-  <string name="exclude_people_to_plan2_" formatted="false" username="KarloZ" orig="Excluded numbers to plan #2">Vyloučit čísla z Paušálu 2</string>
+  <string name="exclude_people_to_plan1_" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="Excluded numbers to plan #1">Vyloučená čísla - Paušál 1</string>
+  <string name="exclude_people_to_plan2_" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="Excluded numbers to plan #2">Vyloučená čísla do Paušálu 2</string>
   <string name="exclude_people_calls_" formatted="false" username="KarloZ" orig="Enable for Calls">Povolit pro volání</string>
   <string name="exclude_people_calls_to_plan1_hint" formatted="false" username="KarloZ" orig="Bill calls to/from excluded numbers in plan #1">Účtovat hovory z/na vyloučená čísla v Paušálu 1</string>
   <string name="exclude_people_calls_to_plan2_hint" formatted="false" username="KarloZ" orig="Bill calls to/from excluded numbers in plan #2">Účtovat hovoty z/na vyloučená čísla v Paušálu 2</string>
@@ -82,24 +82,24 @@
   <string name="bill_calls_incoming_" formatted="false" username="KarloZ" orig="Bill incoming">Účtovat příchozí</string>
   <string name="bill_calls_incoming_hint" formatted="false" username="KarloZ" orig="Bill incoming calls as well.">Zpoplatnění také příchozích hovorů.</string>
   <string name="bill_sms_incoming_" formatted="false" username="KarloZ" orig="Bill incoming">Účtovat příchozí</string>
-  <string name="bill_sms_incoming_hint" formatted="false" username="KarloZ" orig="Bill incoming sms as well.">Zpoplatnění příchozích SMS také.</string>
+  <string name="bill_sms_incoming_hint" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="Bill incoming sms as well.">Zpoplatněnit též příchozí SMS.</string>
   <string name="bill_data_incoming_only_" formatted="false" username="KarloZ" orig="Bill incoming only">Účtovat příchozí pouze</string>
   <string name="bill_data_incoming_only_hint" formatted="false" username="KarloZ" orig="Bill only incoming traffic.">Účtova pouze příchozí data.</string>
   <string name="cost_per_call_" formatted="false" username="KarloZ" orig="Cost per call">Cena za hovor</string>
   <string name="cost_per_call_hint" formatted="false" username="KarloZ" orig="Each call will be billed with this.">Každé volání bude účtováno s tímto.</string>
   <string name="cost_per_minute_" formatted="false" username="KarloZ" orig="Cost per minute">Cena za minutu</string>
-  <string name="cost_per_minute_hint" formatted="false" username="KarloZ" orig="Each minute of a call will be billed with this.">Každá minuta volání bude účtováno s tímto.</string>
+  <string name="cost_per_minute_hint" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="Each minute of a call will be billed with this.">Každá minuta volání bude účtována takto.</string>
   <string name="cost_per_sms_" formatted="false" username="KarloZ" orig="Cost per SMS">Cena za SMS</string>
-  <string name="cost_per_sms_hint" formatted="false" username="KarloZ" orig="Each SMS will be billed with this.">Každá SMS bude účtována s tímto.</string>
+  <string name="cost_per_sms_hint" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="Each SMS will be billed with this.">Každá SMS bude účtována takto.</string>
   <string name="cost_per_mb_" formatted="false" username="KarloZ" orig="Cost per MB">Cena za MB</string>
-  <string name="cost_per_mb_hint" formatted="false" username="KarloZ" orig="Each MB of the traffic will be billed with this.">Každý MB dat bude účtován s timto.</string>
+  <string name="cost_per_mb_hint" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="Each MB of the traffic will be billed with this.">Každý MB dat bude účtován takto.</string>
   <string name="merge_sms_calls_" formatted="false" username="KarloZ" orig="Merge SMS into calls">Slučovat SMS do volání</string>
   <string name="merge_sms_calls_hint" formatted="false" username="KarloZ" orig="Bill SMS as part of calls.">Účtovat SMS v rámci volání.</string>
   <string name="merge_sms_calls_sec_" formatted="false" username="KarloZ" orig="Seconds / SMS">Sekund / SMS</string>
   <string name="merge_sms_calls_sec_hint" formatted="false" username="KarloZ" orig="Number of seconds billed for a single sms.">Počet vteřin započítaných za jednu SMS.</string>
   <string name="merge_sms_plan1_" formatted="false" username="KarloZ" orig="Merge SMS into plan 1">Sloučit SMS s Paušálem 1</string>
   <string name="merge_sms_plan1_hint" formatted="false" username="KarloZ" orig="Uncheck to merge them into plan 2.">Zrušte volbu ke sloučení s Paušálem 2.</string>
-  <string name="data_hint" formatted="false" username="KarloZ" orig="WLAN/WIFI stats are not collected here!">WLAN/WiFi statistika není sbírána zde!</string>
+  <string name="data_hint" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="WLAN/WIFI stats are not collected here!">WLAN/WiFi statistika se zde nezapočítává!</string>
   <string name="data_enable_" formatted="false" username="KarloZ" orig="Show data stats">Zobrazit statistiku dat</string>
   <string name="data_enable_hint" formatted="false" username="KarloZ" orig="Data is collected in real time. First month may be incorrect!">Data jsou sbírána v reálném čase. 1.měsíc nemusí být přesný!</string>
   <string name="data_each_day" formatted="false" username="KarloZ" orig="Bill each day separately">Účtovat po dnech odděleně</string>
@@ -117,11 +117,11 @@
   <string name="sms" formatted="false" username="KarloZ" orig="SMS">SMS</string>
   <string name="data" formatted="false" username="KarloZ" orig="Data">Data</string>
   <string name="calls_sms" formatted="false" username="KarloZ" orig="Calls/SMS">Volání/SMS</string>
-  <string name="in_calls" formatted="false" username="KarloZ" orig="In%s:">Příchozí%s:</string>
-  <string name="in_sms" formatted="false" username="KarloZ" orig="In%s:">Příchozí%s:</string>
+  <string name="in_calls" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="In%s:">Příchozí%:</string>
+  <string name="in_sms" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="In%s:">Příchozí%:</string>
   <string name="in_data" formatted="false" username="KarloZ" orig="In:">Příchozí:</string>
-  <string name="out_calls" formatted="false" username="KarloZ" orig="Out%s:">Odchozí%s:</string>
-  <string name="out_sms" formatted="false" username="KarloZ" orig="Out%s:">Odchozí%s:</string>
+  <string name="out_calls" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="Out%s:">Odchozí%:</string>
+  <string name="out_sms" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="Out%s:">Odchozí%:</string>
   <string name="out_data" formatted="false" username="KarloZ" orig="Out:">Odchozí:</string>
   <string name="plan_name1_" formatted="false" username="KarloZ" orig="Plan 1: name">Paušál 1: jméno</string>
   <string name="plan_name2_" formatted="false" username="KarloZ" orig="Plan 2: name">Paušál 2: jméno</string>

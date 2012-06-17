@@ -32,8 +32,8 @@
   <string name="about6" formatted="false">Kvôli úzkej integrácii technologie SIP a odosielaniu SMS cez webovú bránu v Androide, nedokáže aplikácia rozlíšiť medzi spôsobom uskutočnenia hovorov a odoslaniu sms, ktoré sú preto bez ohľadu na využitý kanál započítané dokopy.</string>
   <string name="send_" formatted="false">Odoslať</string>
   <string name="settings" formatted="false">Nastavenia</string>
-  <string name="about_" formatted="false">Nápoveda</string>
-  <string name="about_hint" formatted="false">Nápoveda. O autoroch.</string>
+  <string name="about_" formatted="false" orig="About">O aplikácii</string>
+  <string name="about_hint" formatted="false" orig="About this app">O aplikácii</string>
   <string name="faq_hint" formatted="false">Tipy a triky ako nastaviť aplikáciu.</string>
   <string name="feedback_" formatted="false">Feedback</string>
   <string name="feedback_hint" formatted="false">Ohlásiť chybu, poslať požiadavku na funkčnosť.</string>
