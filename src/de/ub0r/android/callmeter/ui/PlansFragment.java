@@ -32,21 +32,17 @@ import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.nfc.FormatException;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v4.view.Menu;
 import android.support.v4.widget.ResourceCursorAdapter;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -56,6 +52,11 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.actionbarsherlock.app.SherlockListFragment;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
@@ -68,7 +69,7 @@ import de.ub0r.android.lib.Log;
  * 
  * @author flx
  */
-public final class PlansFragment extends ListFragment implements OnClickListener,
+public final class PlansFragment extends SherlockListFragment implements OnClickListener,
 		OnItemLongClickListener, LoaderCallbacks<Cursor> {
 	/** Tag for output. */
 	private static final String TAG = "plans";

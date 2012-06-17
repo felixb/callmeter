@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 		Copyright (C) 2009-2012 Felix Bechstein -->
+<!-- Copyright (C) 2009-2012 Felix Bechstein -->
 <!--
 		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
@@ -20,6 +20,7 @@
     <PreferenceCategory android:title="@string/appearance_and_behavior_" >
         <PreferenceScreen android:title="@string/appearance_" >
             <ListPreference
+                android:defaultValue="light"
                 android:entries="@array/themes"
                 android:entryValues="@array/themes_values"
                 android:key="theme"
@@ -152,7 +153,6 @@
                 android:key="update_interval"
                 android:summary="@string/update_interval_hint"
                 android:title="@string/update_interval_" />
-
             <ListPreference
                 android:defaultValue="2"
                 android:entries="@array/update_interval_data"
@@ -160,7 +160,7 @@
                 android:key="update_interval_data"
                 android:summary="@string/update_interval_data_hint"
                 android:title="@string/update_interval_data_" />
-            
+
             <DatePreference
                 android:key="date_begin"
                 android:summary="@string/date_begin_hint"

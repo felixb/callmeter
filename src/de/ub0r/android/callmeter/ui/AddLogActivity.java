@@ -22,9 +22,6 @@ import java.util.Calendar;
 
 import android.content.ContentValues;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.Menu;
-import android.support.v4.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -34,6 +31,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
@@ -47,7 +49,7 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public final class AddLogActivity extends FragmentActivity {
+public final class AddLogActivity extends SherlockActivity {
 	/** Tag for output. */
 	private static final String TAG = "addlog";
 
@@ -71,6 +73,8 @@ public final class AddLogActivity extends FragmentActivity {
 		Utils.setLocale(this);
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.logs_add);
+		Utils.fixActionBarBackground(this.getSupportActionBar(), this.getResources(),
+				R.drawable.bg_striped, R.drawable.bg_striped_split);
 
 		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		this.setTitle(R.string.add_log);
@@ -119,7 +123,7 @@ public final class AddLogActivity extends FragmentActivity {
 	 */
 	@Override
 	public boolean onCreateOptionsMenu(final Menu menu) {
-		this.getMenuInflater().inflate(R.menu.menu_addlogs, menu);
+		this.getSupportMenuInflater().inflate(R.menu.menu_addlogs, menu);
 		return true;
 	}
 

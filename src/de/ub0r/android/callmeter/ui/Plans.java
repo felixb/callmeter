@@ -35,18 +35,17 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.Menu;
-import android.support.v4.view.MenuItem;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.support.v4.view.Window;
 import android.view.View;
 
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.Window;
 import com.viewpagerindicator.TitlePageIndicator;
-import com.viewpagerindicator.TitleProvider;
 
 import de.ub0r.android.callmeter.Ads;
 import de.ub0r.android.callmeter.R;
@@ -60,11 +59,11 @@ import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
- * Callmeter's Main {@link FragmentActivity}.
+ * Callmeter's Main {@link SherlockFragmentActivity}.
  * 
  * @author flx
  */
-public final class Plans extends FragmentActivity implements OnPageChangeListener {
+public final class Plans extends SherlockFragmentActivity implements OnPageChangeListener {
 	/** Tag for output. */
 	private static final String TAG = "main";
 
@@ -221,7 +220,7 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 	 * 
 	 * @author flx
 	 */
-	private static class PlansFragmentAdapter extends FragmentPagerAdapter implements TitleProvider {
+	private static class PlansFragmentAdapter extends FragmentPagerAdapter {
 		/** {@link FragmentManager} . */
 		private final FragmentManager mFragmentManager;
 		/** List of positions. */
@@ -252,7 +251,7 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 							+ " ASC LIMIT 1");
 			if (!c.moveToFirst()) {
 				this.positions = new Long[] { -1L, -1L };
-				this.billDays = positions;
+				this.billDays = this.positions;
 				c.close();
 			} else {
 				final long minDate = c.getLong(0);
@@ -266,7 +265,7 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 						DataProvider.Plans.ORDER + " LIMIT 1");
 				if (minDate < 0L || !c.moveToFirst()) {
 					this.positions = new Long[] { -1L, -1L };
-					this.billDays = positions;
+					this.billDays = this.positions;
 					c.close();
 				} else {
 					ArrayList<Long> list = new ArrayList<Long>();
@@ -296,8 +295,8 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 					this.billDays = new Long[l];
 					for (int i = 0; i < l - 1; i++) {
 						long pos = this.positions[i];
-						billDays[i] = DataProvider.Plans.getBillDay(bptype, pos + 1L, pos, false)
-								.getTimeInMillis();
+						this.billDays[i] = DataProvider.Plans.getBillDay(bptype, pos + 1L, pos,
+								false).getTimeInMillis();
 					}
 					Log.d(TAG, "new PFA() billdays end", ct);
 				}
@@ -322,6 +321,20 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 		public Fragment getActiveFragment(final ViewPager container, final int position) {
 			String name = makeFragmentName(container.getId(), position);
 			return this.mFragmentManager.findFragmentByTag(name);
+		}
+
+		/**
+		 * Get a {@link Fragment}'s name.
+		 * 
+		 * @param viewId
+		 *            container view
+		 * @param index
+		 *            position
+		 * @return name of {@link Fragment}
+		 */
+		private static String makeFragmentName(final int viewId, final int index) {
+			// this might change in underlying method!
+			return "android:switcher:" + viewId + ":" + index;
 		}
 
 		/**
@@ -366,7 +379,7 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 		 * {@inheritDoc}
 		 */
 		@Override
-		public String getTitle(final int position) {
+		public CharSequence getPageTitle(final int position) {
 			String ret;
 			if (this.titles[position] == null) {
 				ret = Common.formatDate(this.ctx, this.billDays[position]);
@@ -396,6 +409,8 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		this.setContentView(R.layout.plans);
+		Utils.fixActionBarBackground(this.getSupportActionBar(), this.getResources(),
+				R.drawable.bg_striped, R.drawable.bg_striped_split);
 
 		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
 		if (p.getAll().isEmpty()) {
@@ -479,7 +494,7 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 	 */
 	@Override
 	public boolean onCreateOptionsMenu(final Menu menu) {
-		this.getMenuInflater().inflate(R.menu.menu_main, menu);
+		this.getSupportMenuInflater().inflate(R.menu.menu_main, menu);
 		if (prefsNoAds) {
 			menu.removeItem(R.id.item_donate);
 		}
@@ -585,9 +600,9 @@ public final class Plans extends FragmentActivity implements OnPageChangeListene
 
 		Log.d(TAG, "progressCount: " + this.progressCount);
 		if (this.progressCount == 0) {
-			this.setProgressBarIndeterminateVisibility(Boolean.FALSE);
+			this.setSupportProgressBarIndeterminateVisibility(false);
 		} else {
-			this.setProgressBarIndeterminateVisibility(Boolean.TRUE);
+			this.setSupportProgressBarIndeterminateVisibility(true);
 		}
 	}
 }

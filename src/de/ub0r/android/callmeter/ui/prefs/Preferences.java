@@ -75,6 +75,7 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
+@SuppressWarnings("deprecation")
 public final class Preferences extends PreferenceActivity implements OnPreferenceChangeListener,
 		OnPreferenceClickListener {
 	/** Tag for output. */
@@ -199,9 +200,9 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_THEME, THEME_LIGHT);
 		if (s != null && THEME_BLACK.equals(s)) {
-			return R.style.Theme_SherlockUb0r;
+			return R.style.Theme_SherlockCallMeter;
 		}
-		return R.style.Theme_SherlockUb0r_Light;
+		return R.style.Theme_SherlockCallMeter_Light;
 	}
 
 	/**
@@ -498,6 +499,8 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 						intent.putExtra(Intent.EXTRA_SUBJECT, "Call Meter 3G export");
 						if (!TextUtils.isEmpty(recipient)) {
 							intent.putExtra(Intent.EXTRA_EMAIL, new String[] { recipient });
+							intent.putExtra(Intent.EXTRA_TEXT,
+									Preferences.this.getString(R.string.export_rules_body));
 						}
 						intent.addCategory(Intent.CATEGORY_DEFAULT);
 

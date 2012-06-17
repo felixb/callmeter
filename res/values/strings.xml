@@ -288,6 +288,7 @@
 	<string name="export_rules_hint">Export rule set as mail.</string>
 	<string name="export_rules_dev_">Export rule set to developer</string>
 	<string name="export_rules_dev_hint">Export rule set to let others import it.</string>
+	<string name="export_rules_body">Hi developer,\nhere is are the rules for my provider. Please add it to the website to let others enjoy it. Please see the details below.\n\nCountry:\nProvider:\nPlan name:\n\nCheers, a User</string>
 	<string name="export_rules_descr">Description</string>
 	<string name="export_logs_">Backup logs</string>
 	<string name="export_logs_hint">Backup logs as mail.</string>

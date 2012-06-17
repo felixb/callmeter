@@ -32,7 +32,7 @@
   <string name="about2" formatted="false">Der Abrechnungszeitraum bezeichnet die länge des ersten / der folgenden Abrechnungstakte. Z.B. wird mit 60/10 jeder Anruf als min. 60s lang abgerechnet, jeder längere wird auf volle 10s aufgerundet.</string>
   <string name="about3" formatted="false">CallMeter läuft im Hintergrund alle 30min (nur wenn nicht im Standby). Dies bedeutet, dass das Löschen Anrufe oder Nachrichten älter als 30min wird die Statistiken nicht ändern. Das löschen von Anrufe oder Nachrichten jünger als 30 Minuten kann zu falschen Statistiken führen.</string>
   <string name="author_and_many_more" formatted="false">und viele mehr...</string>
-	<string name="send_" formatted="false">Senden</string>
+  <string name="send_" formatted="false">Senden</string>
   <string name="add_" formatted="false">Hinzufügen</string>
   <string name="add_log" formatted="false">Log Eintrag hinzufügen</string>
   <string name="length_hint_call" formatted="false">Dauer in Sekunden</string>
@@ -65,9 +65,9 @@
   <string name="appearance_and_behavior_" formatted="false">Darstellung &amp; Verhalten</string>
   <string name="widget_" formatted="false">Widget</string>
   <string name="widgets_" formatted="false">Widgets</string>
-	<string name="widgets_no_widgets_" formatted="false">Keine Widgets hinzugefügt</string>
-	<string name="widgets_no_widgets_hint" formatted="false">Es wurden noch keine Widgets auf den Launcher hinzugefügt.</string>
-	<string name="delete_widget" formatted="false">Widget löschen</string>
+  <string name="widgets_no_widgets_" formatted="false">Keine Widgets hinzugefügt</string>
+  <string name="widgets_no_widgets_hint" formatted="false">Es wurden noch keine Widgets auf den Launcher hinzugefügt.</string>
+  <string name="delete_widget" formatted="false">Widget löschen</string>
   <string name="advanced_preferences_" formatted="false">Erweiterte Einstellungen</string>
   <string name="advanced_preferences_hint" formatted="false">Damit kannst du viel komplexere Abrechnungen abbilden. Die meisten Benutzer werden das nicht brauchen.</string>
   <string name="theme_" formatted="false">Theme</string>
@@ -280,13 +280,14 @@
   <string name="export_" formatted="false">Exportieren ...</string>
   <string name="exported_" formatted="false">Exportiert:</string>
   <string name="export_hint" formatted="false">Exportiere Regelsätze, Logs oder Gruppen</string>
-	<string name="export_cancel" formatted="false">Export auf SD Karte</string>
-	<string name="export_cancel_hint" formatted="false">Um auf die SD Karte zu exportieren einfach den Mailclient abbrechen.</string>
+  <string name="export_cancel" formatted="false">Export auf SD Karte</string>
+  <string name="export_cancel_hint" formatted="false">Um auf die SD Karte zu exportieren einfach den Mailclient abbrechen.</string>
   <string name="export_rules_" formatted="false">Exportiere Regelwerk</string>
   <string name="export_rules_hint" formatted="false">Exportiere Regelwerk als Mail.</string>
-	<string name="export_rules_dev_" formatted="false">Exportiere Regelwerk zum Entwickler</string>
-	<string name="export_rules_dev_hint" formatted="false">Exportiere Regelwerk damit andere es importieren können.</string>
+  <string name="export_rules_dev_" formatted="false">Exportiere Regelwerk zum Entwickler</string>
+  <string name="export_rules_dev_hint" formatted="false">Exportiere Regelwerk damit andere es importieren können.</string>
   <string name="export_rules_descr" formatted="false">Beschreibung</string>
+  <string name="export_rules_body" formatted="false">Hallo Entwickler,nhier ist der Regelsatz für meinen Provider. Bitte lade ihn auf die Website, damit andere ihn nutzen können. Anbei findest du die Details.\n\nLand: Deutschland\nProvider:\nTarifname:\n\nViele Grüße, ein Nutzer</string>
   <string name="export_logs_" formatted="false">Logs sichern</string>
   <string name="export_logs_hint" formatted="false">Logs als Mail sichern.</string>
   <string name="export_numgroups_" formatted="false">Stunden Nummern exportieren</string>
