@@ -22,5 +22,5 @@
        -->
 <resources>
   <string name="market_oss" formatted="false" orig="This app is open source software build in spare time. Adding bad comments in market won\'t help much to make it better.\nPlease add your issues with this app on the app\'s website.">Deze applicatie is open source, gemaakt in vrije tijd. Het plaatsen van negatief commentaar in de market draagt niet bij tot het beter maken van de app.\nLaat a.u.b. uw problemen met deze applicatie achter op de website van de app.</string>
-  <string name="market_translation" formatted="false" orig="Feel free to help translating this app to your language here: http://ub0r.de/translate/cm3/">Help ons met het vertalen van deze app naar uw eigen taal hier:\nhttp://ub0r.de/translate/cm3/</string>
+  <string name="market_translation" formatted="false" orig="Feel free to help translating this app to your language here: http://ub0r.de/translate/cm3/" username="housenegro76@hotmail.com">Help ons met het vertalen van deze app naar uw eigen taal hier:\nhttp://ub0r.de/translate/cm3/</string>
 </resources>

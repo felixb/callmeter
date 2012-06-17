@@ -21,24 +21,24 @@
                Visit http://ub0r.de/translate/cm3/nl/strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Recente wijzigingen:</string>
-  <string name="about0_" formatted="false">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
-  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter genereert rapporten van gesprekken, berichten en data logs. Het ondersteunt diverse facturatiemogelijkheden.</string>
+  <string name="changelog_notification_" formatted="false" orig="Recent changes:" username="housenegro76@hotmail.com">Recente wijzigingen:</string>
+  <string name="about0_" formatted="false" username="rainbowwarrior7" orig="Watch your call, message and data plans!">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
+  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing." username="housenegro76@hotmail.com">CallMeter genereert rapporten van gesprekken, berichten en data logs. Het ondersteunt diverse facturatiemogelijkheden.</string>
   <string name="about1" formatted="false">Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
-  <string name="about2" formatted="false">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
-  <string name="about3" formatted="false">CallMeter werkt zich elke 30 minuten op de achtergrond bij (alleen wanneer niet in standby). Dit betekent dat het verwijderen van gesprekken of berichten ouder dan 30 min. de statistieken niet wijzigt. Het verwijderen van gesprekken of berichten jonger dan 30 min. kan resulteren in onjuiste statistieken.</string>
-  <string name="send_" formatted="false">Verstuur</string>
-  <string name="add_" formatted="false">Toevoegen</string>
-  <string name="add_log" formatted="false">Toevoegen log regel</string>
+  <string name="about2" formatted="false" username="housenegro76@hotmail.com" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
+  <string name="about3" formatted="false" username="housenegro76@hotmail.com" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter werkt zich elke 30 minuten op de achtergrond bij (alleen wanneer niet in standby). Dit betekent dat het verwijderen van gesprekken of berichten ouder dan 30 min. de statistieken niet wijzigt. Het verwijderen van gesprekken of berichten jonger dan 30 min. kan resulteren in onjuiste statistieken.</string>
+  <string name="send_" formatted="false" username="housenegro76@hotmail.com" orig="Send">Verstuur</string>
+  <string name="add_" formatted="false" username="rainbowwarrior7" orig="Add">Toevoegen</string>
+  <string name="add_log" formatted="false" username="housenegro76@hotmail.com" orig="Add log entry">Toevoegen log regel</string>
   <string name="length_hint_call" formatted="false" orig="Length in seconds">Lengte in seconden</string>
   <string name="length_hint_data" formatted="false" orig="Length in kB">Lengte in kB</string>
-  <string name="settings" formatted="false">Voorkeuren</string>
-  <string name="update_interval_" formatted="false" orig="Update interval">Update interval</string>
+  <string name="settings" formatted="false" username="housenegro76@hotmail.com" orig="Preferences">Voorkeuren</string>
+  <string name="update_interval_" formatted="false" orig="Update interval" username="rainbowwarrior7">Update interval</string>
   <string name="update_interval_hint" formatted="false">Kortere periode verbruikt meer batterij.</string>
   <string name="date_begin_" formatted="false">Begin van records</string>
-  <string name="date_begin_hint" formatted="false" orig="Ignore any logs before this date.">Negeer alle logs vóór deze datum.</string>
-  <string name="delete_old_logs_" formatted="false">Verwijder logs ouder dan</string>
-  <string name="delete_old_logs_help" formatted="false">Verwijder logs ouder dan x dagen van interne database. Leeg laten om het uit te zetten.</string>
+  <string name="date_begin_hint" formatted="false" orig="Ignore any logs before this date." username="housenegro76@hotmail.com">Negeer alle logs vóór deze datum.</string>
+  <string name="delete_old_logs_" formatted="false" username="rainbowwarrior7" orig="Delete logs older than">Verwijder logs ouder dan</string>
+  <string name="delete_old_logs_help" formatted="false" username="rainbowwarrior7" orig="Delete logs older than x days from internal database. Leave empty to disable.">Verwijder logs ouder dan x dagen van interne database. Leeg laten om het uit te zetten.</string>
   <string name="common_prefs_" formatted="false">Algemene voorkeuren</string>
   <string name="edit_" formatted="false">Wijzigen</string>
   <string name="about_" formatted="false">Over</string>
@@ -373,12 +373,12 @@
     <item>Twee uren</item>
     <item>Alleen handmatig</item>
   </string-array>
-  <string name="changelog_notification_text" formatted="false" username="Gummie" orig="Click here to show recent changes of">Klik hier om de recente wijzigingen te zien van</string>
+  <string name="changelog_notification_text" formatted="false" username="housenegro76@hotmail.com" orig="Click here to show recent changes of">Klik hier om de recente wijzigingen te zien van</string>
   <string name="never_show_again" formatted="false" username="Gummie" orig="Never show changelog again">Laat changelog niet meer zien</string>
   <string name="notes_from_developer_" formatted="false" username="Gummie" orig="Notes from developer">Notities van ontwikkelaar</string>
   <string name="notes_from_developer_text" formatted="false" username="Gummie" orig="Click here to show recent news from the developer">Klik hier om recent nieuws van de ontwikkelaar te zien</string>
   <string name="appearance_and_behavior_" formatted="false" username="Gummie" orig="Appearance &amp; behavior">Uiterlijk </string>
-  <string name="simple_preferences_" formatted="false" username="Gummie" orig="Simple preferences">Eenvoudige voorkeuren</string>
+  <string name="simple_preferences_" formatted="false" username="housenegro76@hotmail.com" orig="Simple preferences">Eenvoudige voorkeuren</string>
   <string name="show_today_hint" formatted="false" username="Gummie" orig="Show today stats">Toon stats van vandaag</string>
   <string name="show_icon_" formatted="false" username="Gummie" orig="Show icon">Toon icoon</string>
   <string name="hide_name_" formatted="false" username="Gummie" orig="Hide name of plan">Verberg naam van schema</string>
