@@ -30,7 +30,6 @@ import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
@@ -259,7 +258,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 		directions = null;
 
 		if (this.planId >= 0L) {
-			this.setPlanId(planId);
+			this.setPlanId(this.planId);
 		}
 
 		return v;
@@ -350,7 +349,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 	 */
 	public void setPlanId(final long id) {
 		this.planId = id;
-		if (tbPlan != null) {
+		if (this.tbPlan != null) {
 			if (id < 0L) {
 				this.tbPlan.setVisibility(View.GONE);
 			} else {

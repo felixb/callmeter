@@ -609,10 +609,10 @@ public final class DataProvider extends ContentProvider {
 						} else {
 							this.limit = (this.nextbillday - this.billday)
 									/ Utils.MINUTES_IN_MILLIS;
-							if (nextbillday - now == 1) {
+							if (this.nextbillday - this.now == 1) {
 								// fix issue: #661, skip last millisecond to
 								// show 100% of billing period usage
-								limitPos = limit;
+								this.limitPos = this.limit;
 							} else {
 								this.limitPos = (this.now - this.billday) / Utils.MINUTES_IN_MILLIS;
 							}
@@ -694,10 +694,10 @@ public final class DataProvider extends ContentProvider {
 						} else {
 							this.limit = (this.nextbillday - this.billday)
 									/ Utils.MINUTES_IN_MILLIS;
-							if (nextbillday - this.now == 1) {
+							if (this.nextbillday - this.now == 1) {
 								// fix issue: #661, skip last millisecond to
 								// show 100% of billing period usage
-								this.limitPos = limit;
+								this.limitPos = this.limit;
 							} else {
 								this.limitPos = (this.now - this.billday) / Utils.MINUTES_IN_MILLIS;
 							}

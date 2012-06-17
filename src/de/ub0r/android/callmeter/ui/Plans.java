@@ -59,7 +59,7 @@ import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
- * Callmeter's Main {@link FragmentActivity}.
+ * Callmeter's Main {@link SherlockFragmentActivity}.
  * 
  * @author flx
  */
@@ -251,7 +251,7 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
 							+ " ASC LIMIT 1");
 			if (!c.moveToFirst()) {
 				this.positions = new Long[] { -1L, -1L };
-				this.billDays = positions;
+				this.billDays = this.positions;
 				c.close();
 			} else {
 				final long minDate = c.getLong(0);
@@ -265,7 +265,7 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
 						DataProvider.Plans.ORDER + " LIMIT 1");
 				if (minDate < 0L || !c.moveToFirst()) {
 					this.positions = new Long[] { -1L, -1L };
-					this.billDays = positions;
+					this.billDays = this.positions;
 					c.close();
 				} else {
 					ArrayList<Long> list = new ArrayList<Long>();
@@ -295,8 +295,8 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
 					this.billDays = new Long[l];
 					for (int i = 0; i < l - 1; i++) {
 						long pos = this.positions[i];
-						billDays[i] = DataProvider.Plans.getBillDay(bptype, pos + 1L, pos, false)
-								.getTimeInMillis();
+						this.billDays[i] = DataProvider.Plans.getBillDay(bptype, pos + 1L, pos,
+								false).getTimeInMillis();
 					}
 					Log.d(TAG, "new PFA() billdays end", ct);
 				}
