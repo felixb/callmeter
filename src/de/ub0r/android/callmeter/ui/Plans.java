@@ -411,6 +411,7 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
 		this.setContentView(R.layout.plans);
 		Utils.fixActionBarBackground(this.getSupportActionBar(), this.getResources(),
 				R.drawable.bg_striped, R.drawable.bg_striped_split);
+		this.getSupportActionBar().setHomeButtonEnabled(true);
 
 		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
 		if (p.getAll().isEmpty()) {
