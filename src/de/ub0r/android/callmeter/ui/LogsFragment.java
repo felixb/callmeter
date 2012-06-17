@@ -100,6 +100,17 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 	 */
 	public class LogAdapter extends ResourceCursorAdapter {
 
+		/**
+		 * View holder.
+		 * 
+		 * @author flx
+		 */
+		private class ViewHolder {
+			/** Holder for item's view. */
+			TextView tvPlan, tvRule, tvText1, tvRemoteLabel, tvRemote, tvLengthLable, tvLength,
+					tvBilledLengthLable, tvBilledLength, tvCostLable, tvCost;
+		}
+
 		/** Column ids. */
 		private int idPlanName, idRuleName;
 
@@ -129,6 +140,23 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 		 */
 		@Override
 		public final void bindView(final View view, final Context context, final Cursor cursor) {
+			ViewHolder holder = (ViewHolder) view.getTag();
+			if (holder == null) {
+				holder = new ViewHolder();
+				holder.tvPlan = (TextView) view.findViewById(R.id.plan);
+				holder.tvRule = (TextView) view.findViewById(R.id.rule);
+				holder.tvText1 = (TextView) view.findViewById(android.R.id.text1);
+				holder.tvRemoteLabel = (TextView) view.findViewById(R.id.remote_);
+				holder.tvRemote = (TextView) view.findViewById(R.id.remote);
+				holder.tvLengthLable = (TextView) view.findViewById(R.id.length_);
+				holder.tvLength = (TextView) view.findViewById(R.id.length);
+				holder.tvBilledLengthLable = (TextView) view.findViewById(R.id.blength_);
+				holder.tvBilledLength = (TextView) view.findViewById(R.id.blength);
+				holder.tvCostLable = (TextView) view.findViewById(R.id.cost_);
+				holder.tvCost = (TextView) view.findViewById(R.id.cost);
+				view.setTag(holder);
+			}
+
 			final StringBuilder buf = new StringBuilder();
 			final int t = cursor.getInt(DataProvider.Logs.INDEX_TYPE);
 			String[] strs = context.getResources().getStringArray(R.array.plans_type);
@@ -140,46 +168,43 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 			buf.append(Common.formatDate(context, date));
 			buf.append(" ");
 			buf.append(DateFormat.getTimeFormat(context).format(new Date(date)));
-			((TextView) view.findViewById(android.R.id.text1)).setText(buf.toString());
-
-			((TextView) view.findViewById(R.id.plan)).setText(cursor.getString(this.idPlanName));
-			((TextView) view.findViewById(R.id.rule)).setText(cursor.getString(this.idRuleName));
+			holder.tvText1.setText(buf.toString());
+			holder.tvPlan.setText(cursor.getString(this.idPlanName));
+			holder.tvRule.setText(cursor.getString(this.idRuleName));
 
 			String s = cursor.getString(DataProvider.Logs.INDEX_REMOTE);
 			if (s == null || s.trim().length() == 0) {
-				view.findViewById(R.id.remote).setVisibility(View.GONE);
-				view.findViewById(R.id.remote_).setVisibility(View.GONE);
+				holder.tvRemote.setVisibility(View.GONE);
+				holder.tvRemoteLabel.setVisibility(View.GONE);
 			} else {
-				final TextView tw = (TextView) view.findViewById(R.id.remote);
-				tw.setVisibility(View.VISIBLE);
-				view.findViewById(R.id.remote_).setVisibility(View.VISIBLE);
-				tw.setText(s);
+				holder.tvRemote.setText(s);
+				holder.tvRemote.setVisibility(View.VISIBLE);
+				holder.tvRemoteLabel.setVisibility(View.VISIBLE);
 			}
 
 			final long amount = cursor.getLong(DataProvider.Logs.INDEX_AMOUNT);
 			s = Common.formatAmount(t, amount, LogsFragment.this.showHours);
 			if (s == null || s.trim().length() == 0 || s.equals("1")) {
-				view.findViewById(R.id.length).setVisibility(View.GONE);
-				view.findViewById(R.id.length_).setVisibility(View.GONE);
+				holder.tvLength.setVisibility(View.GONE);
+				holder.tvLengthLable.setVisibility(View.GONE);
 			} else {
-				final TextView tw = (TextView) view.findViewById(R.id.length);
-				tw.setVisibility(View.VISIBLE);
-				view.findViewById(R.id.length_).setVisibility(View.VISIBLE);
-				tw.setText(s);
+				holder.tvLength.setVisibility(View.VISIBLE);
+				holder.tvLength.setText(s);
+				holder.tvLengthLable.setVisibility(View.VISIBLE);
 			}
 			final float ba = cursor.getFloat(DataProvider.Logs.INDEX_BILL_AMOUNT);
-			TextView tw = (TextView) view.findViewById(R.id.blength);
 			if (amount != ba) {
-				tw.setText(Common.formatAmount(t, ba, LogsFragment.this.showHours));
-				tw.setVisibility(View.VISIBLE);
-				view.findViewById(R.id.blength_).setVisibility(View.VISIBLE);
+				holder.tvBilledLength.setText(Common.formatAmount(t, ba,
+						LogsFragment.this.showHours));
+				holder.tvBilledLength.setVisibility(View.VISIBLE);
+				holder.tvBilledLengthLable.setVisibility(View.VISIBLE);
 			} else {
-				tw.setVisibility(View.GONE);
-				view.findViewById(R.id.blength_).setVisibility(View.GONE);
+				holder.tvBilledLength.setVisibility(View.GONE);
+				holder.tvBilledLengthLable.setVisibility(View.GONE);
 			}
 			final float cost = cursor.getFloat(DataProvider.Logs.INDEX_COST);
 			final float free = cursor.getFloat(DataProvider.Logs.INDEX_FREE);
-			tw = (TextView) view.findViewById(R.id.cost);
+
 			if (cost > 0f) {
 				String c;
 				if (free == 0f) {
@@ -190,12 +215,12 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 					c = "(" + String.format(LogsFragment.this.cformat, free) + ") "
 							+ String.format(LogsFragment.this.cformat, cost - free);
 				}
-				tw.setText(c);
-				tw.setVisibility(View.VISIBLE);
-				view.findViewById(R.id.cost_).setVisibility(View.VISIBLE);
+				holder.tvCost.setText(c);
+				holder.tvCost.setVisibility(View.VISIBLE);
+				holder.tvCostLable.setVisibility(View.VISIBLE);
 			} else {
-				tw.setVisibility(View.GONE);
-				view.findViewById(R.id.cost_).setVisibility(View.GONE);
+				holder.tvCost.setVisibility(View.GONE);
+				holder.tvCostLable.setVisibility(View.GONE);
 			}
 		}
 	}
@@ -203,6 +228,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setHasOptionsMenu(true);

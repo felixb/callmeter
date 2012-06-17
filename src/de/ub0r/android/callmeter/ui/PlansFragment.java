@@ -95,6 +95,17 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 	 * @author flx
 	 */
 	private static class PlansAdapter extends ResourceCursorAdapter {
+		/**
+		 * View holder.
+		 * 
+		 * @author flx
+		 */
+		private class ViewHolder {
+			ProgressBar pbPeriod, pbLimitGreen, pbLimitYellow, pbLimitRed;
+			View vPeriodLayout, vContent, vSpacer;
+			TextView tvBigtitle, tvPeriod, tvTitle, tvData;
+		}
+
 		/** {@link SharedPreferences}. */
 		private final SharedPreferences p;
 		/** {@link Editor}. */
@@ -177,6 +188,23 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 		 */
 		@Override
 		public void bindView(final View view, final Context context, final Cursor cursor) {
+			ViewHolder holder = (ViewHolder) view.getTag();
+			if (holder == null) {
+				holder = new ViewHolder();
+				holder.pbPeriod = (ProgressBar) view.findViewById(R.id.period_pb);
+				holder.pbLimitGreen = (ProgressBar) view.findViewById(R.id.progressbarLimitGreen);
+				holder.pbLimitYellow = (ProgressBar) view.findViewById(R.id.progressbarLimitYellow);
+				holder.pbLimitRed = (ProgressBar) view.findViewById(R.id.progressbarLimitRed);
+				holder.vPeriodLayout = view.findViewById(R.id.period_layout);
+				holder.vContent = view.findViewById(R.id.content);
+				holder.vSpacer = view.findViewById(R.id.spacer);
+				holder.tvBigtitle = (TextView) view.findViewById(R.id.bigtitle);
+				holder.tvPeriod = (TextView) view.findViewById(R.id.period);
+				holder.tvTitle = (TextView) view.findViewById(R.id.normtitle);
+				holder.tvData = (TextView) view.findViewById(R.id.data);
+				view.setTag(holder);
+			}
+
 			boolean savePlan = false;
 			DataProvider.Plans.Plan plan = null;
 			if (cursor.getColumnIndex(DataProvider.Plans.SUM_COST) > 0) {
@@ -254,76 +282,72 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 			// Log.d(TAG, "limitPos: " + plan.limitPos);
 			// Log.d(TAG, "text: " + spb);
 
-			TextView twCache = null;
+			TextView tvCache = null;
 			ProgressBar pbCache = null;
 			if (plan.type == DataProvider.TYPE_SPACING) {
-				final View v = view.findViewById(R.id.spacer);
 				if (textSizeSpacer > 0) {
-					final LayoutParams lp = v.getLayoutParams();
+					final LayoutParams lp = holder.vSpacer.getLayoutParams();
 					lp.height = textSizeSpacer;
-					v.setLayoutParams(lp);
+					holder.vSpacer.setLayoutParams(lp);
 				}
-				v.setVisibility(View.INVISIBLE);
-				view.findViewById(R.id.bigtitle).setVisibility(View.GONE);
-				view.findViewById(R.id.content).setVisibility(View.GONE);
-				view.findViewById(R.id.period_layout).setVisibility(View.GONE);
+				holder.vSpacer.setVisibility(View.INVISIBLE);
+				holder.tvBigtitle.setVisibility(View.GONE);
+				holder.vContent.setVisibility(View.GONE);
+				holder.vPeriodLayout.setVisibility(View.GONE);
 			} else if (plan.type == DataProvider.TYPE_TITLE) {
-				final TextView tw = ((TextView) view.findViewById(R.id.bigtitle));
-				tw.setText(cursor.getString(DataProvider.Plans.INDEX_NAME));
+				holder.tvBigtitle.setText(cursor.getString(DataProvider.Plans.INDEX_NAME));
 				if (textSizeBigTitle > 0) {
-					tw.setTextSize(textSizeBigTitle);
+					holder.tvBigtitle.setTextSize(textSizeBigTitle);
 				}
-				tw.setVisibility(View.VISIBLE);
-				view.findViewById(R.id.spacer).setVisibility(View.GONE);
-				view.findViewById(R.id.content).setVisibility(View.GONE);
-				view.findViewById(R.id.period_layout).setVisibility(View.GONE);
+				holder.vSpacer.setVisibility(View.GONE);
+				holder.vContent.setVisibility(View.GONE);
+				holder.vPeriodLayout.setVisibility(View.GONE);
 			} else if (plan.type == DataProvider.TYPE_BILLPERIOD) {
-				view.findViewById(R.id.bigtitle).setVisibility(View.GONE);
-				view.findViewById(R.id.spacer).setVisibility(View.GONE);
-				view.findViewById(R.id.content).setVisibility(View.GONE);
-				view.findViewById(R.id.period_layout).setVisibility(View.VISIBLE);
-				twCache = (TextView) view.findViewById(R.id.period);
-				pbCache = (ProgressBar) view.findViewById(R.id.period_pb);
+				holder.tvBigtitle.setVisibility(View.GONE);
+				holder.vSpacer.setVisibility(View.GONE);
+				holder.vContent.setVisibility(View.GONE);
+				holder.vPeriodLayout.setVisibility(View.VISIBLE);
+				tvCache = holder.tvPeriod;
+				pbCache = holder.pbPeriod;
 			} else {
-				view.findViewById(R.id.bigtitle).setVisibility(View.GONE);
-				view.findViewById(R.id.spacer).setVisibility(View.GONE);
-				view.findViewById(R.id.period_layout).setVisibility(View.GONE);
-				view.findViewById(R.id.content).setVisibility(View.VISIBLE);
-				final TextView twNormTitle = (TextView) view.findViewById(R.id.normtitle);
+				holder.tvBigtitle.setVisibility(View.GONE);
+				holder.vSpacer.setVisibility(View.GONE);
+				holder.vPeriodLayout.setVisibility(View.GONE);
+				holder.vContent.setVisibility(View.VISIBLE);
 				if (textSizeTitle > 0) {
-					twNormTitle.setTextSize(textSizeTitle);
+					holder.tvTitle.setTextSize(textSizeTitle);
 				}
-				twNormTitle.setText(cursor.getString(DataProvider.Plans.INDEX_NAME));
-				twCache = (TextView) view.findViewById(R.id.data);
+				holder.tvTitle.setText(cursor.getString(DataProvider.Plans.INDEX_NAME));
+				tvCache = holder.tvData;
 				if (plan.limit > 0) {
 					float bpos = plan.getBillPlanUsage();
 					if (plan.usage >= 1) {
-						pbCache = (ProgressBar) view.findViewById(R.id.progressbarLimitRed);
-						view.findViewById(R.id.progressbarLimitGreen).setVisibility(View.GONE);
-						view.findViewById(R.id.progressbarLimitYellow).setVisibility(View.GONE);
+						pbCache = holder.pbLimitRed;
+						holder.pbLimitGreen.setVisibility(View.GONE);
+						holder.pbLimitYellow.setVisibility(View.GONE);
 					} else if (bpos >= 0f && plan.usage > bpos) {
-						pbCache = (ProgressBar) view.findViewById(R.id.progressbarLimitYellow);
-						view.findViewById(R.id.progressbarLimitGreen).setVisibility(View.GONE);
-						view.findViewById(R.id.progressbarLimitRed).setVisibility(View.GONE);
+						pbCache = holder.pbLimitYellow;
+						holder.pbLimitGreen.setVisibility(View.GONE);
+						holder.pbLimitRed.setVisibility(View.GONE);
 					} else {
-						pbCache = (ProgressBar) view.findViewById(R.id.progressbarLimitGreen);
-						view.findViewById(R.id.progressbarLimitYellow).setVisibility(View.GONE);
-						view.findViewById(R.id.progressbarLimitRed).setVisibility(View.GONE);
+						pbCache = holder.pbLimitGreen;
+						holder.pbLimitYellow.setVisibility(View.GONE);
+						holder.pbLimitRed.setVisibility(View.GONE);
 					}
 				} else {
-					pbCache = (ProgressBar) view.findViewById(R.id.progressbarLimitYellow);
-					view.findViewById(R.id.progressbarLimitGreen).setVisibility(View.GONE);
-					view.findViewById(R.id.progressbarLimitRed).setVisibility(View.GONE);
+					pbCache = holder.pbLimitYellow;
+					holder.pbLimitGreen.setVisibility(View.GONE);
+					holder.pbLimitRed.setVisibility(View.GONE);
 				}
 			}
-			if (twCache != null && pbCache != null) {
+			if (tvCache != null && pbCache != null) {
 				if (spb.length() > 0) {
-					twCache.setText(spb);
+					tvCache.setText(spb);
 				} else {
-					twCache.setText(null);
+					tvCache.setText(null);
 				}
 				if (textSize > 0) {
-					twCache.setTextSize(textSize);
+					tvCache.setTextSize(textSize);
 				}
 				if (plan.limit == 0 && plan.type == DataProvider.TYPE_BILLPERIOD) {
 					pbCache.setIndeterminate(true);
