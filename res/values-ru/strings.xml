@@ -138,4 +138,7 @@
     <item>Мелкий</item>
     <item>Средний</item>
   </string-array>
+  <string name="data_show_simple_" formatted="false" username="igor.karasenko@gmail.com" orig="Show only \&quot;Data\&quot; as title">Показывать только "Трафик" как заголовок</string>
+  <string name="data_show_simple_hint" formatted="false" username="igor.karasenko@gmail.com" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Спрятать "(2G/3G/4G)" в заголовке. Это не влияет на статистику.</string>
+  <string name="data_" formatted="false" username="igor.karasenko@gmail.com" orig="Data (2G/3G/4G)">Трафик (2G/3G/4G)</string>
 </resources>
