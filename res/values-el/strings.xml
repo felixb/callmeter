@@ -272,154 +272,88 @@
   <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency">Διαφάνεια Φόντου</string>
   <string name="send_devices_" formatted="false" orig="Send devices">Στείλε συσκευές</string>
   <string name="send_devices_hint" formatted="false" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Στείλε λίστα με συσκευές στον προγραμματιστή. Αυτό είναι απαραίτητο μόνο αν τα στατιστικά δεδομένων είναι μηδέν.</string>
-  <string-array name="weekdays_all">
-    <item>Όλη την εβδομάδα</item>
-    <item>Δευτέρα</item>
-    <item>Τρίτη</item>
-    <item>Τετάρτη</item>
-    <item>Πέμπτη</item>
-    <item>Παρασκευή</item>
-    <item>Σάββατο</item>
-    <item>Κυριακή</item>
-    <item>Δευτέρα - Παρασκευή</item>
-  </string-array>
-  <string-array name="hours_all">
-    <item>Όλη την ημέρα</item>
-    <item>0:00 - 0:59</item>
-    <item>1:00 - 1:59</item>
-    <item>2:00 - 2:59</item>
-    <item>3:00 - 3:59</item>
-    <item>4:00 - 4:59</item>
-    <item>5:00 - 5:59</item>
-    <item>6:00 - 6:59</item>
-    <item>7:00 - 7:59</item>
-    <item>8:00 - 8:59</item>
-    <item>9:00 - 9:59</item>
-    <item>10:00 - 10:59</item>
-    <item>11:00 - 11:59</item>
-    <item>12:00 - 12:59</item>
-    <item>13:00 - 13:59</item>
-    <item>14:00 - 14:59</item>
-    <item>15:00 - 15:59</item>
-    <item>16:00 - 16:59</item>
-    <item>17:00 - 17:59</item>
-    <item>18:00 - 18:59</item>
-    <item>19:00 - 19:59</item>
-    <item>20:00 - 20:59</item>
-    <item>21:00 - 21:59</item>
-    <item>22:00 - 22:59</item>
-    <item>23:00 - 23:59</item>
-  </string-array>
-  <string-array name="themes">
-    <item>Σκούρο</item>
-    <item>Φωτεινό</item>
-  </string-array>
-  <string-array name="dialog_edit_plan">
-    <item>Επεξεργασία πλάνου</item>
-    <item notranslation="true">View Logs</item>
-  </string-array>
-  <string-array name="dialog_delete">
-    <item>Διαγραφή</item>
-  </string-array>
-  <string-array name="dialog_edit_delete">
-    <item>Επεξεργασία</item>
-    <item>Διαγραφή</item>
-  </string-array>
-  <string-array name="plans_type">
-    <item>Τίτλος</item>
-    <item>Διάκενο</item>
-    <item>Περίοδος χρήσης</item>
-    <item>Μικτό</item>
-    <item>Κλήσεων</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Δεδομένων</item>
-  </string-array>
-  <string-array name="rules_type">
-    <item>Κλήσεων</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Δεδομένων</item>
-  </string-array>
-  <string-array name="limit_type">
-    <item>απεριόριστο</item>
-    <item>μονάδων</item>
-    <item>κόστους</item>
-  </string-array>
-  <string-array name="billperiod">
-    <item>Μία ημέρα</item>
-    <item>Μία εβδομάδα</item>
-    <item>14 ημέρες</item>
-    <item>15 ημέρες</item>
-    <item>30 ημέρες</item>
-    <item>31 ημέρες</item>
-    <item>60 ημέρες</item>
-    <item>90 ημέρες</item>
-    <item>Ένα μήνα</item>
-		<item notranslation="true">One month + one day</item>
-    <item>Δύο μήνες</item>
-    <item>Τρείς μήνες</item>
-    <item>Τέσσερις μήνες</item>
-    <item>Πέντε μήνες</item>
-    <item>Έξι μήνες</item>
-    <item>Ένας χρόνος</item>
-    <item>Άπειρη</item>
-  </string-array>
-  <string-array name="billmodes">
-    <item>1/1</item>
-    <item>6/6</item>
-    <item>10/10</item>
-    <item>30/1</item>
-    <item>30/6</item>
-    <item>30/10</item>
-    <item>30/30</item>
-    <item>30/60</item>
-    <item>45/1</item>
-    <item>60/0</item>
-    <item>60/1</item>
-    <item>60/6</item>
-    <item>60/10</item>
-    <item>60/15</item>
-    <item>60/30</item>
-    <item>60/60</item>
-    <item>Προσαρμοσμένη</item>
-  </string-array>
-  <string-array name="direction_calls">
-    <item>εισερχόμενη</item>
-    <item>εξερχόμενη</item>
-  </string-array>
-  <string-array name="direction_sms">
-    <item>εισερχόμενο</item>
-    <item>εξερχόμενο</item>
-  </string-array>
-  <string-array name="direction_mms">
-    <item>εισερχόμενο</item>
-    <item>εξερχόμενο</item>
-  </string-array>
-  <string-array name="direction_data">
-    <item>εισερχόμενα</item>
-    <item>εξερχόμενα</item>
-  </string-array>
-  <string-array name="currency_formats">
-    <item>Προεπιλογή</item>
-    <item>€1.00</item>
-    <item>€1000</item>
-    <item>1.00€</item>
-    <item>1000€</item>
-  </string-array>
-  <string-array name="date_formats">
-    <item>Προεπιλογή</item>
-    <item>ΜΜ/ΗΗ/ΕΕ</item>
-    <item>ΗΗ/ΜΜ/ΕΕΕΕ</item>
-    <item>ΗΗ.ΜΜ.ΕΕΕΕ</item>
-  </string-array>
-  <string-array name="update_interval">
-    <item>5 λεπτά</item>
-    <item>10 λεπτά</item>
-    <item>15 λεπτά</item>
-    <item>30 λεπτά</item>
-    <item>Μία ώρα</item>
-    <item>Δύο ώρες</item>
-    <item>Χειροκίνητα μόνο</item>
-  </string-array>
+  <string name="all_week">Όλη την εβδομάδα</string>
+  <string name="monday">Δευτέρα</string>
+  <string name="tuesday">Τρίτη</string>
+  <string name="wednesday">Τετάρτη</string>
+  <string name="thursday">Πέμπτη</string>
+  <string name="friday">Παρασκευή</string>
+  <string name="saturday">Σάββατο</string>
+  <string name="sunday">Κυριακή</string>
+  <string name="monday_till_friday">Δευτέρα - Παρασκευή</string>
+  <string name="all_day">Όλη την ημέρα</string>
+  <string name="day_0">0:00 - 0:59</string>
+  <string name="day_1">1:00 - 1:59</string>
+  <string name="day_2">2:00 - 2:59</string>
+  <string name="day_3">3:00 - 3:59</string>
+  <string name="day_4">4:00 - 4:59</string>
+  <string name="day_5">5:00 - 5:59</string>
+  <string name="day_6">6:00 - 6:59</string>
+  <string name="day_7">7:00 - 7:59</string>
+  <string name="day_8">8:00 - 8:59</string>
+  <string name="day_9">9:00 - 9:59</string>
+  <string name="day_10">10:00 - 10:59</string>
+  <string name="day_11">11:00 - 11:59</string>
+  <string name="day_12">12:00 - 12:59</string>
+  <string name="day_13">13:00 - 13:59</string>
+  <string name="day_14">14:00 - 14:59</string>
+  <string name="day_15">15:00 - 15:59</string>
+  <string name="day_16">16:00 - 16:59</string>
+  <string name="day_17">17:00 - 17:59</string>
+  <string name="day_18">18:00 - 18:59</string>
+  <string name="day_19">19:00 - 19:59</string>
+  <string name="day_20">20:00 - 20:59</string>
+  <string name="day_21">21:00 - 21:59</string>
+  <string name="day_22">22:00 - 22:59</string>
+  <string name="day_23">23:00 - 23:59</string>
+  <string name="theme_black">Σκούρο</string>
+  <string name="theme_light">Φωτεινό</string>
+  <string name="edit_plan_">Επεξεργασία πλάνου</string>
+  <string name="delete_">Διαγραφή</string>
+  <string name="title">Τίτλος</string>
+  <string name="spacer">Διάκενο</string>
+  <string name="mixed">Κλήσεων</string>
+  <string name="limit_type_unlimited">απεριόριστο</string>
+  <string name="limit_type_units">μονάδων</string>
+  <string name="limit_type_cost">κόστους</string>
+  <string name="1_day">Μία ημέρα</string>
+  <string name="1_week">Μία εβδομάδα</string>
+  <string name="14_day">14 ημέρες</string>
+  <string name="15_day">15 ημέρες</string>
+  <string name="30_day">30 ημέρες</string>
+  <string name="31_day">31 ημέρες</string>
+  <string name="60_day">60 ημέρες</string>
+  <string name="90_day">90 ημέρες</string>
+  <string name="1_month">Ένα μήνα</string>
+  <string name="2_month">Δύο μήνες</string>
+  <string name="3_month">Τρείς μήνες</string>
+  <string name="4_month">Τέσσερις μήνες</string>
+  <string name="5_month">Πέντε μήνες</string>
+  <string name="6_month">Έξι μήνες</string>
+  <string name="1_year">Ένας χρόνος</string>
+  <string name="infinite">Άπειρη</string>
+  <string name="custom">Προσαρμοσμένη</string>
+  <string name="direction_calls_in">εισερχόμενη</string>
+  <string name="direction_calls_out">εξερχόμενη</string>
+  <string name="direction_sms_in">εισερχόμενο</string>
+  <string name="direction_sms_out">εξερχόμενο</string>
+  <string name="direction_mms_in">εισερχόμενο</string>
+  <string name="direction_mms_out">εξερχόμενο</string>
+  <string name="direction_data_in">εισερχόμενα</string>
+  <string name="direction_data_out">εξερχόμενα</string>
+  <string name="default">Προεπιλογή</string>
+  <string name="currency_formats_1">€1.00</string>
+  <string name="currency_formats_2">€1000</string>
+  <string name="currency_formats_3">1.00€</string>
+  <string name="currency_formats_4">1000€</string>
+  <string name="date_formats_1">ΜΜ/ΗΗ/ΕΕ</string>
+  <string name="date_formats_2">ΗΗ/ΜΜ/ΕΕΕΕ</string>
+  <string name="date_formats_3">ΗΗ.ΜΜ.ΕΕΕΕ</string>
+  <string name="5_minute">5 λεπτά</string>
+  <string name="10_minute">10 λεπτά</string>
+  <string name="15_minute">15 λεπτά</string>
+  <string name="30_minute">30 λεπτά</string>
+  <string name="1_hour">Μία ώρα</string>
+  <string name="2_hour">Δύο ώρες</string>
+  <string name="manually_only">Χειροκίνητα μόνο</string>
 </resources>

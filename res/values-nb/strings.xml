@@ -195,114 +195,66 @@
   <string name="type_help" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Velg en type.\n"Tittel" vil bare vise en tittel i hovedvisning.\n"Mellomrom" viser ikke noe annet enn tomrom.\n"Fakturaperiode" holder informasjon om din fakturaperiode. De fleste brukere trenger nøyaktig én.\nEn "blandet" plan kan håndtere samtaler og meldinger på en gang. Den vil kombinere faktureringen med de elementene.\nEn "samtale"-plan bruker kun samtaler. "SMS"- og "MMS"-planer tar seg kun av de meldingene.\nEn "data"-plan kan håndtere informasjon om din datatrafikk.</string>
   <string name="limit_type_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Limit type">Grensetype</string>
   <string name="limit_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Limit">Grense</string>
-  <string-array name="weekdays_all">
-    <item>Hele uken</item>
-    <item>Mandag</item>
-    <item>Tirsdag</item>
-    <item>Onsdag</item>
-    <item>Torsdag</item>
-    <item>Fredag</item>
-    <item>Lørdag</item>
-    <item>Søndag</item>
-    <item>Mandag - fredag</item>
-  </string-array>
-  <string-array name="hours_all">
-    <item>Hele dagen</item>
-    <item>0:00 - 0:59</item>
-    <item>1:00 - 1:59</item>
-    <item>2:00 - 2:59</item>
-    <item>3:00 - 3:59</item>
-    <item>4:00 - 4:59</item>
-    <item>5:00 - 5:59</item>
-    <item>6:00 - 6:59</item>
-    <item>7:00 - 7:59</item>
-    <item>8:00 - 8:59</item>
-    <item>9:00 - 9:59</item>
-    <item>10:00 - 10:59</item>
-    <item>11:00 - 11:59</item>
-    <item>12:00 - 12:59</item>
-    <item>13:00 - 13:59</item>
-    <item>14:00 - 14:59</item>
-    <item>15:00 - 15:59</item>
-    <item>16:00 - 16:59</item>
-    <item>17:00 - 17:59</item>
-    <item>18:00 - 18:59</item>
-    <item>19:00 - 19:59</item>
-    <item>20:00 - 20:59</item>
-    <item>21:00 - 21:59</item>
-    <item>22:00 - 22:59</item>
-    <item>23:00 - 23:59</item>
-  </string-array>
-  <string-array name="themes">
-    <item>Sort</item>
-    <item>Lys</item>
-  </string-array>
-  <string-array name="dialog_delete">
-    <item>Slett</item>
-  </string-array>
-  <string-array name="dialog_edit_delete">
-    <item>Rediger</item>
-    <item>Slett</item>
-  </string-array>
-  <string-array name="plans_type">
-    <item>Title</item>
-    <item>Spacer</item>
-    <item>Fakturaperiode</item>
-    <item>Mixed</item>
-    <item>Call</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Data</item>
-  </string-array>
-  <string-array name="rules_type">
-    <item>Samtaler</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Data</item>
-  </string-array>
-  <string-array name="limit_type">
-    <item>ubegrenset</item>
-    <item>enheter</item>
-    <item>kostnad</item>
-  </string-array>
-  <string-array name="billperiod" username="">
-    <item>En dag</item>
-    <item>En uke</item>
-    <item>14 dager</item>
-    <item>15 dager</item>
-    <item>30 dager</item>
-    <item>31 dager</item>
-    <item>60 dager</item>
-    <item>90 dager</item>
-    <item>en måned</item>
-		<item notranslation="true">One month + one day</item>
-    <item>To måneder</item>
-    <item>Tre måneder</item>
-    <item>Fire måneder</item>
-    <item>Fem måneder</item>
-    <item>Seks måneder</item>
-    <item>Ett år</item>
-    <item>Uendelig</item>
-  </string-array>
-  <string-array name="billmodes">
-    <item>1/1</item>
-    <item>6/6</item>
-    <item>10/10</item>
-    <item>30/1</item>
-    <item>30/6</item>
-    <item>30/10</item>
-    <item>30/30</item>
-    <item>30/60</item>
-    <item>45/1</item>
-    <item>60/0</item>
-    <item>60/1</item>
-    <item>60/6</item>
-    <item>60/10</item>
-    <item>60/15</item>
-    <item>60/30</item>
-    <item>60/60</item>
-    <item>Egendefinert</item>
-  </string-array>
+  <string name="all_week">Hele uken</string>
+  <string name="monday">Mandag</string>
+  <string name="tuesday">Tirsdag</string>
+  <string name="wednesday">Onsdag</string>
+  <string name="thursday">Torsdag</string>
+  <string name="friday">Fredag</string>
+  <string name="saturday">Lørdag</string>
+  <string name="sunday">Søndag</string>
+  <string name="monday_till_friday">Mandag - fredag</string>
+  <string name="all_day">Hele dagen</string>
+  <string name="day_0">0:00 - 0:59</string>
+  <string name="day_1">1:00 - 1:59</string>
+  <string name="day_2">2:00 - 2:59</string>
+  <string name="day_3">3:00 - 3:59</string>
+  <string name="day_4">4:00 - 4:59</string>
+  <string name="day_5">5:00 - 5:59</string>
+  <string name="day_6">6:00 - 6:59</string>
+  <string name="day_7">7:00 - 7:59</string>
+  <string name="day_8">8:00 - 8:59</string>
+  <string name="day_9">9:00 - 9:59</string>
+  <string name="day_10">10:00 - 10:59</string>
+  <string name="day_11">11:00 - 11:59</string>
+  <string name="day_12">12:00 - 12:59</string>
+  <string name="day_13">13:00 - 13:59</string>
+  <string name="day_14">14:00 - 14:59</string>
+  <string name="day_15">15:00 - 15:59</string>
+  <string name="day_16">16:00 - 16:59</string>
+  <string name="day_17">17:00 - 17:59</string>
+  <string name="day_18">18:00 - 18:59</string>
+  <string name="day_19">19:00 - 19:59</string>
+  <string name="day_20">20:00 - 20:59</string>
+  <string name="day_21">21:00 - 21:59</string>
+  <string name="day_22">22:00 - 22:59</string>
+  <string name="day_23">23:00 - 23:59</string>
+  <string name="theme_black">Sort</string>
+  <string name="theme_light">Lys</string>
+  <string name="delete_">Slett</string>
+  <string name="title">Title</string>
+  <string name="spacer">Spacer</string>
+  <string name="mixed">Call</string>
+  <string name="limit_type_unlimited">ubegrenset</string>
+  <string name="limit_type_units">enheter</string>
+  <string name="limit_type_cost">kostnad</string>
+  <string name="1_day">En dag</string>
+  <string name="1_week">En uke</string>
+  <string name="14_day">14 dager</string>
+  <string name="15_day">15 dager</string>
+  <string name="30_day">30 dager</string>
+  <string name="31_day">31 dager</string>
+  <string name="60_day">60 dager</string>
+  <string name="90_day">90 dager</string>
+  <string name="1_month">en måned</string>
+  <string name="2_month">To måneder</string>
+  <string name="3_month">Tre måneder</string>
+  <string name="4_month">Fire måneder</string>
+  <string name="5_month">Fem måneder</string>
+  <string name="6_month">Seks måneder</string>
+  <string name="1_year">Ett år</string>
+  <string name="infinite">Uendelig</string>
+  <string name="custom">Egendefinert</string>
   <string name="simple_preferences_hint" formatted="false" username="" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Enkle instillinger, passende for de flester brukere. Kun tilgjenglig med standard regel sett</string>
   <string name="simple_preferences_" formatted="false" username="" orig="Simple preferences">Enkle instillinger</string>
   <string name="ask_for_plan_hint" formatted="false" username="" orig="Ask for plan for unmatched calls after hanging up.">Spørr etter plan for samtaler som ikke passer inn i planen etter at du legger på.</string>
@@ -322,44 +274,29 @@
   <string name="cost_per_item_in_limit_help" formatted="false" username="" orig="Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.">Sett kost taksert for et enkelt logg innslag (f. eks. en samtale eller en melding) før begrensningen er overskredet.</string>
   <string name="cost_per_amount_" formatted="false" username="" orig="Cost per length">Kost per innehold </string>
   <string name="cost_per_amount_help1" formatted="false" username="" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Sett prisen som blir taksert per enhet for et enkelt logg innslag (f. eks. for 1 MB data) etter at begrensningen er overskredet.</string>
-  <string-array name="update_interval" username="">
-    <item>5 minutter</item>
-    <item>10 minutter</item>
-    <item>15 minutter</item>
-    <item>30 minutter</item>
-    <item>en time</item>
-    <item>to timer</item>
-    <item>Manuelt</item>
-  </string-array>
-  <string-array name="date_formats" username="">
-    <item>Standard</item>
-    <item>MM/DD/ÅÅ</item>
-    <item>DD/MM/ÅÅÅÅ</item>
-    <item>DD.MM.ÅÅÅÅ</item>
-  </string-array>
-  <string-array name="currency_formats" username="">
-    <item>Standard</item>
-    <item>kr 1.00</item>
-    <item>kr 1000</item>
-    <item>1.00 kr</item>
-    <item>1000 kr</item>
-  </string-array>
-  <string-array name="direction_data" username="">
-    <item>inn</item>
-    <item>ut</item>
-  </string-array>
-  <string-array name="direction_mms" username="">
-    <item>Mottatt</item>
-    <item>Sendt</item>
-  </string-array>
-  <string-array name="direction_calls" username="">
-    <item>Mottatt</item>
-    <item>Ringt</item>
-  </string-array>
-  <string-array name="direction_sms" username="">
-    <item>Mottatt</item>
-    <item>Sendt</item>
-  </string-array>
+  <string name="5_minute">5 minutter</string>
+  <string name="10_minute">10 minutter</string>
+  <string name="15_minute">15 minutter</string>
+  <string name="30_minute">30 minutter</string>
+  <string name="1_hour">en time</string>
+  <string name="2_hour">to timer</string>
+  <string name="manually_only">Manuelt</string>
+  <string name="date_formats_1">MM/DD/ÅÅ</string>
+  <string name="date_formats_2">DD/MM/ÅÅÅÅ</string>
+  <string name="date_formats_3">DD.MM.ÅÅÅÅ</string>
+  <string name="default">Standard</string>
+  <string name="currency_formats_1">kr 1.00</string>
+  <string name="currency_formats_2">kr 1000</string>
+  <string name="currency_formats_3">1.00 kr</string>
+  <string name="currency_formats_4">1000 kr</string>
+  <string name="direction_data_in">inn</string>
+  <string name="direction_data_out">ut</string>
+  <string name="direction_mms_in">Mottatt</string>
+  <string name="direction_mms_out">Sendt</string>
+  <string name="direction_calls_in">Mottatt</string>
+  <string name="direction_calls_out">Ringt</string>
+  <string name="direction_sms_in">Mottatt</string>
+  <string name="direction_sms_out">Sendt</string>
   <string name="send_devices_hint" formatted="false" username="" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Send liste av enheter til utvikleren. Dette er kun nødvendig om data statestikken din viser null.</string>
   <string name="send_devices_" formatted="false" username="" orig="Send devices">Send enheter</string>
   <string name="widget_backgroud_transparency_" formatted="false" username="" orig="Background transparency">Bakgrunns gjennomsiktighet</string>

@@ -327,165 +327,95 @@
   <string name="widget_backgroud_transparency_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Background transparency">שקיפות הרקע</string>
   <string name="send_devices_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Send devices">שלח מכשירים</string>
   <string name="send_devices_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">שלח רשימת מכשירים למפתח. פעולה זו נדרשת רק אם סטטיסטיקת הגלישה מאופסת</string>
-  <string-array name="weekdays_all" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>כל השבוע</item>
-    <item>שני</item>
-    <item>שלישי</item>
-    <item>רביעי</item>
-    <item>חמישי</item>
-    <item>שישי</item>
-    <item>שבת</item>
-    <item>ראשון</item>
-    <item>שני-שישי</item>
-  </string-array>
-  <string-array name="hours_all" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>כל היום</item>
-    <item>0:00-0:59</item>
-    <item>1:00-1:59</item>
-    <item>2:00-2:59</item>
-    <item>3:00-3:59</item>
-    <item>4:00-4:59</item>
-    <item>5:00-5:59</item>
-    <item>6:00-6:59</item>
-    <item>7:00-7:59</item>
-    <item>8:00-8:59</item>
-    <item>9:00-9:59</item>
-    <item>10:00-10:59</item>
-    <item>11:00-11:59</item>
-    <item>12:00-12:59</item>
-    <item>13:00-13:59</item>
-    <item>14:00-14:59</item>
-    <item>15:00-15:59</item>
-    <item>16:00-16:59</item>
-    <item>17:00-17:59</item>
-    <item>18:00-18:59</item>
-    <item>19:00-19:59</item>
-    <item>20:00-20:59</item>
-    <item>21:00-21:59</item>
-    <item>22:00-22:59</item>
-    <item>23:00-23:59</item>
-  </string-array>
-  <string-array name="themes" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>שחור</item>
-    <item>לבן</item>
-  </string-array>
-  <string-array name="dialog_edit_plan" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>ערוך תכנית</item>
-    <item>צפה ברשומות</item>
-  </string-array>
-  <string-array name="dialog_delete" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>מחק</item>
-  </string-array>
-  <string-array name="dialog_edit_delete" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>ערוך</item>
-    <item>מחק</item>
-  </string-array>
-  <string-array name="plans_type" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>כותרת</item>
-    <item>מפריד</item>
-    <item>מחזור חיוב</item>
-    <item>מעורב</item>
-    <item>שיחה</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>דאטה</item>
-  </string-array>
-  <string-array name="rules_type" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>שיחות</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>דאטה</item>
-  </string-array>
-  <string-array name="limit_type" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>ללא הגבלה</item>
-    <item>יחידות</item>
-    <item>עלות</item>
-  </string-array>
-  <string-array name="billperiod" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>יום אחד</item>
-    <item>שבוע אחד</item>
-    <item>14 יום</item>
-    <item>15 יום</item>
-    <item>30 יום</item>
-    <item>31 יום</item>
-    <item>60 יום</item>
-    <item>90 יום</item>
-    <item>חודש אחד</item>
-    <item>חודש ויום</item>
-    <item>חודשיים</item>
-    <item>שלושה חודשים</item>
-    <item>ארבעה חודשים</item>
-    <item>חמישה חודשים </item>
-    <item>שישה חודשים</item>
-    <item>שנה אחת</item>
-    <item>ללא סיום</item>
-  </string-array>
-  <string-array name="billmodes" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>1/1</item>
-    <item>6/6</item>
-    <item>10/10</item>
-    <item>30/1</item>
-    <item>30/6</item>
-    <item>30/10</item>
-    <item>30/30</item>
-    <item>30/60</item>
-    <item>45/1</item>
-    <item>60/0</item>
-    <item>60/1</item>
-    <item>60/6</item>
-    <item>60/10</item>
-    <item>60/15</item>
-    <item>60/30</item>
-    <item>60/60</item>
-    <item>מותאם אישית</item>
-  </string-array>
-  <string-array name="direction_calls" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>נכנסת</item>
-    <item>יוצאת</item>
-  </string-array>
-  <string-array name="direction_sms" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>נכנס</item>
-    <item>יוצא</item>
-  </string-array>
-  <string-array name="direction_mms" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>נכנס</item>
-    <item>יוצא</item>
-  </string-array>
-  <string-array name="direction_data" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>נכנס</item>
-    <item>יוצא</item>
-  </string-array>
-  <string-array name="currency_formats" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>ברירת מחדל</item>
-    <item>1.00 ₪</item>
-    <item>1000 ₪</item>
-    <item>1.00 ₪</item>
-    <item>1000 ₪</item>
-  </string-array>
-  <string-array name="date_formats" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>ברירת מחדל</item>
-    <item>MM/DD/YY</item>
-    <item>DD/MM/YYYY</item>
-    <item>DD.MM.YYYY</item>
-  </string-array>
-  <string-array name="update_interval" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>5 דקות</item>
-    <item>10 דקות</item>
-    <item>15 דקות</item>
-    <item>30 דקות</item>
-    <item>שעה</item>
-    <item>שעתיים</item>
-    <item>ידני בלבד</item>
-  </string-array>
-  <string-array name="update_interval_data" username="amit&lt;harrisamit@gmail.com&gt;">
-    <item>חצי דקה</item>
-    <item>דקה אחת</item>
-    <item>2 דקות</item>
-    <item>5 דקות </item>
-    <item>15 דקות</item>
-    <item>30 דקות</item>
-    <item>שעה אחת</item>
-    <item>ידני בלבד</item>
-  </string-array>
+  <string name="all_week">כל השבוע</string>
+  <string name="monday">שני</string>
+  <string name="tuesday">שלישי</string>
+  <string name="wednesday">רביעי</string>
+  <string name="thursday">חמישי</string>
+  <string name="friday">שישי</string>
+  <string name="saturday">שבת</string>
+  <string name="sunday">ראשון</string>
+  <string name="monday_till_friday">שני-שישי</string>
+  <string name="all_day">כל היום</string>
+  <string name="day_0">0:00-0:59</string>
+  <string name="day_1">1:00-1:59</string>
+  <string name="day_2">2:00-2:59</string>
+  <string name="day_3">3:00-3:59</string>
+  <string name="day_4">4:00-4:59</string>
+  <string name="day_5">5:00-5:59</string>
+  <string name="day_6">6:00-6:59</string>
+  <string name="day_7">7:00-7:59</string>
+  <string name="day_8">8:00-8:59</string>
+  <string name="day_9">9:00-9:59</string>
+  <string name="day_10">10:00-10:59</string>
+  <string name="day_11">11:00-11:59</string>
+  <string name="day_12">12:00-12:59</string>
+  <string name="day_13">13:00-13:59</string>
+  <string name="day_14">14:00-14:59</string>
+  <string name="day_15">15:00-15:59</string>
+  <string name="day_16">16:00-16:59</string>
+  <string name="day_17">17:00-17:59</string>
+  <string name="day_18">18:00-18:59</string>
+  <string name="day_19">19:00-19:59</string>
+  <string name="day_20">20:00-20:59</string>
+  <string name="day_21">21:00-21:59</string>
+  <string name="day_22">22:00-22:59</string>
+  <string name="day_23">23:00-23:59</string>
+  <string name="theme_black">שחור</string>
+  <string name="theme_light">לבן</string>
+  <string name="edit_plan_">ערוך תכנית</string>
+  <string name="view_logs_">צפה ברשומות</string>
+  <string name="delete_">מחק</string>
+  <string name="title">כותרת</string>
+  <string name="spacer">מפריד</string>
+  <string name="mixed">שיחה</string>
+  <string name="limit_type_unlimited">ללא הגבלה</string>
+  <string name="limit_type_units">יחידות</string>
+  <string name="limit_type_cost">עלות</string>
+  <string name="1_day">יום אחד</string>
+  <string name="1_week">שבוע אחד</string>
+  <string name="14_day">14 יום</string>
+  <string name="15_day">15 יום</string>
+  <string name="30_day">30 יום</string>
+  <string name="31_day">31 יום</string>
+  <string name="60_day">60 יום</string>
+  <string name="90_day">90 יום</string>
+  <string name="1_month">חודש אחד</string>
+  <string name="1_month_1_day">חודש ויום</string>
+  <string name="2_month">חודשיים</string>
+  <string name="3_month">שלושה חודשים</string>
+  <string name="4_month">ארבעה חודשים</string>
+  <string name="5_month">חמישה חודשים </string>
+  <string name="6_month">שישה חודשים</string>
+  <string name="1_year">שנה אחת</string>
+  <string name="infinite">ללא סיום</string>
+  <string name="custom">מותאם אישית</string>
+  <string name="direction_calls_in">נכנסת</string>
+  <string name="direction_calls_out">יוצאת</string>
+  <string name="direction_sms_in">נכנס</string>
+  <string name="direction_sms_out">יוצא</string>
+  <string name="direction_mms_in">נכנס</string>
+  <string name="direction_mms_out">יוצא</string>
+  <string name="direction_data_in">נכנס</string>
+  <string name="direction_data_out">יוצא</string>
+  <string name="default">ברירת מחדל</string>
+  <string name="currency_formats_1">1.00 ₪</string>
+  <string name="currency_formats_2">1000 ₪</string>
+  <string name="currency_formats_3">1.00 ₪</string>
+  <string name="currency_formats_4">1000 ₪</string>
+  <string name="date_formats_1">MM/DD/YY</string>
+  <string name="date_formats_2">DD/MM/YYYY</string>
+  <string name="date_formats_3">DD.MM.YYYY</string>
+  <string name="5_minute">5 דקות</string>
+  <string name="10_minute">10 דקות</string>
+  <string name="15_minute">15 דקות</string>
+  <string name="30_minute">30 דקות</string>
+  <string name="1_hour">שעה</string>
+  <string name="2_hour">שעתיים</string>
+  <string name="manually_only">ידני בלבד</string>
+  <string name="05_minute">חצי דקה</string>
+  <string name="1_minute">דקה אחת</string>
+  <string name="2_minute">2 דקות</string>
+  <string name="5_minute">5 דקות </string>
   <string name="data_inout" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Data In/Out">דאטה נכנס/יוצא</string>
 </resources>

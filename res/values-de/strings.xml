@@ -322,166 +322,96 @@
   <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency">Hintergrund-Transparenz</string>
   <string name="send_devices_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Send devices">Sende Devices</string>
   <string name="send_devices_hint" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Sende eine Liste deiner Daten Devices zum Entwickler. Bitte nur senden, wenn deine Datenstatistik Null ist.</string>
-  <string-array name="weekdays_all">
-    <item>Jeden Tag</item>
-    <item>Montag</item>
-    <item>Dienstag</item>
-    <item>Mittwoch</item>
-    <item>Donnerstag</item>
-    <item>Freitag</item>
-    <item>Samstag</item>
-    <item>Sonntag</item>
-    <item>Montag - Freitag</item>
-  </string-array>
-  <string-array name="hours_all">
-    <item>Den ganzen Tag</item>
-    <item>0:00 - 0:59</item>
-    <item>1:00 - 1:59</item>
-    <item>2:00 - 2:59</item>
-    <item>3:00 - 3:59</item>
-    <item>4:00 - 4:59</item>
-    <item>5:00 - 5:59</item>
-    <item>6:00 - 6:59</item>
-    <item>7:00 - 7:59</item>
-    <item>8:00 - 8:59</item>
-    <item>9:00 - 9:59</item>
-    <item>10:00 - 10:59</item>
-    <item>11:00 - 11:59</item>
-    <item>12:00 - 12:59</item>
-    <item>13:00 - 13:59</item>
-    <item>14:00 - 14:59</item>
-    <item>15:00 - 15:59</item>
-    <item>16:00 - 16:59</item>
-    <item>17:00 - 17:59</item>
-    <item>18:00 - 18:59</item>
-    <item>19:00 - 19:59</item>
-    <item>20:00 - 20:59</item>
-    <item>21:00 - 21:59</item>
-    <item>22:00 - 22:59</item>
-    <item>23:00 - 23:59</item>
-  </string-array>
-  <string-array name="themes">
-    <item>Dunkel</item>
-    <item>Hell</item>
-  </string-array>
-  <string-array name="dialog_edit_plan">
-    <item>Kontingent bearbeiten</item>
-    <item>Logs ansehen</item>
-  </string-array>
-  <string-array name="dialog_delete">
-    <item>Löschen</item>
-  </string-array>
-  <string-array name="dialog_edit_delete">
-    <item>Bearbeiten</item>
-    <item>Löschen</item>
-  </string-array>
-  <string-array name="plans_type">
-    <item>Titel</item>
-    <item>Abstandhalter</item>
-    <item>Abrechnungszeitraum</item>
-    <item>Mixed</item>
-    <item>Anrufe</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Daten</item>
-  </string-array>
-  <string-array name="rules_type">
-    <item>Anrufe</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Daten</item>
-  </string-array>
-  <string-array name="limit_type">
-    <item>Unbegrenzt</item>
-    <item>Einheiten</item>
-    <item>Kosten</item>
-  </string-array>
-  <string-array name="billperiod">
-    <item>Ein Tag</item>
-    <item>Eine Woche</item>
-    <item>14 Tage</item>
-    <item>15 Tage</item>
-    <item>30 Tage</item>
-    <item>31 Tage</item>
-    <item>60 Tage</item>
-    <item>90 Tage</item>
-    <item>Ein Monat</item>
-    <item>Ein Monat + ein Tag</item>
-    <item>Zwei Monate</item>
-    <item>Drei Monate</item>
-    <item>Vier Monate</item>
-    <item>Fünf Monate</item>
-    <item>Sechs Monate</item>
-    <item>Ein Jahr</item>
-    <item>Unbegrenzt</item>
-  </string-array>
-  <string-array name="billmodes">
-    <item>1/1</item>
-    <item>6/6</item>
-    <item>10/10</item>
-    <item>30/1</item>
-    <item>30/6</item>
-    <item>30/10</item>
-    <item>30/30</item>
-    <item>30/60</item>
-    <item>45/1</item>
-    <item>60/0</item>
-    <item>60/1</item>
-    <item>60/6</item>
-    <item>60/10</item>
-    <item>60/15</item>
-    <item>60/30</item>
-    <item>60/60</item>
-    <item>Benutzerdefiniert</item>
-  </string-array>
-  <string-array name="direction_calls">
-    <item>Ein</item>
-    <item>Aus</item>
-  </string-array>
-  <string-array name="direction_sms">
-    <item>Ein</item>
-    <item>Aus</item>
-  </string-array>
-  <string-array name="direction_mms">
-    <item>Ein</item>
-    <item>Aus</item>
-  </string-array>
-  <string-array name="direction_data">
-    <item>Ein</item>
-    <item>Aus</item>
-  </string-array>
-  <string-array name="currency_formats">
-    <item>Standard</item>
-    <item>€1.00</item>
-    <item>€1000</item>
-    <item>1.00€</item>
-    <item>1000€</item>
-  </string-array>
-  <string-array name="date_formats">
-    <item>Standard</item>
-    <item>MM/TT/JJ</item>
-    <item>TT/MM/JJJJ</item>
-    <item>TT.MM.JJJJ</item>
-  </string-array>
-  <string-array name="update_interval">
-    <item>5 Minuten</item>
-    <item>10 Minuten</item>
-    <item>15 Minuten</item>
-    <item>30 Minuten</item>
-    <item>Eine Stunde</item>
-    <item>Zwei Stunden</item>
-    <item>Nur manuell</item>
-  </string-array>
-  <string-array name="update_interval_data">
-    <item>0,5 Minuten</item>
-    <item>1 Minute</item>
-    <item>2 Minuten</item>
-    <item>5 Minuten</item>
-    <item>15 Minuten</item>
-    <item>30 Minuten</item>
-    <item>Eine Stunde</item>
-    <item>Nur manuell</item>
-  </string-array>
+  <string name="all_week">Jeden Tag</string>
+  <string name="monday">Montag</string>
+  <string name="tuesday">Dienstag</string>
+  <string name="wednesday">Mittwoch</string>
+  <string name="thursday">Donnerstag</string>
+  <string name="friday">Freitag</string>
+  <string name="saturday">Samstag</string>
+  <string name="sunday">Sonntag</string>
+  <string name="monday_till_friday">Montag - Freitag</string>
+  <string name="all_day">Den ganzen Tag</string>
+  <string name="day_0">0:00 - 0:59</string>
+  <string name="day_1">1:00 - 1:59</string>
+  <string name="day_2">2:00 - 2:59</string>
+  <string name="day_3">3:00 - 3:59</string>
+  <string name="day_4">4:00 - 4:59</string>
+  <string name="day_5">5:00 - 5:59</string>
+  <string name="day_6">6:00 - 6:59</string>
+  <string name="day_7">7:00 - 7:59</string>
+  <string name="day_8">8:00 - 8:59</string>
+  <string name="day_9">9:00 - 9:59</string>
+  <string name="day_10">10:00 - 10:59</string>
+  <string name="day_11">11:00 - 11:59</string>
+  <string name="day_12">12:00 - 12:59</string>
+  <string name="day_13">13:00 - 13:59</string>
+  <string name="day_14">14:00 - 14:59</string>
+  <string name="day_15">15:00 - 15:59</string>
+  <string name="day_16">16:00 - 16:59</string>
+  <string name="day_17">17:00 - 17:59</string>
+  <string name="day_18">18:00 - 18:59</string>
+  <string name="day_19">19:00 - 19:59</string>
+  <string name="day_20">20:00 - 20:59</string>
+  <string name="day_21">21:00 - 21:59</string>
+  <string name="day_22">22:00 - 22:59</string>
+  <string name="day_23">23:00 - 23:59</string>
+  <string name="theme_black">Dunkel</string>
+  <string name="theme_light">Hell</string>
+  <string name="edit_plan_">Kontingent bearbeiten</string>
+  <string name="view_logs_">Logs ansehen</string>
+  <string name="delete_">Löschen</string>
+  <string name="title">Titel</string>
+  <string name="spacer">Abstandhalter</string>
+  <string name="mixed">Anrufe</string>
+  <string name="limit_type_unlimited">Unbegrenzt</string>
+  <string name="limit_type_units">Einheiten</string>
+  <string name="limit_type_cost">Kosten</string>
+  <string name="1_day">Ein Tag</string>
+  <string name="1_week">Eine Woche</string>
+  <string name="14_day">14 Tage</string>
+  <string name="15_day">15 Tage</string>
+  <string name="30_day">30 Tage</string>
+  <string name="31_day">31 Tage</string>
+  <string name="60_day">60 Tage</string>
+  <string name="90_day">90 Tage</string>
+  <string name="1_month">Ein Monat</string>
+  <string name="1_month_1_day">Ein Monat + ein Tag</string>
+  <string name="2_month">Zwei Monate</string>
+  <string name="3_month">Drei Monate</string>
+  <string name="4_month">Vier Monate</string>
+  <string name="5_month">Fünf Monate</string>
+  <string name="6_month">Sechs Monate</string>
+  <string name="1_year">Ein Jahr</string>
+  <string name="infinite">Unbegrenzt</string>
+  <string name="custom">Benutzerdefiniert</string>
+  <string name="direction_calls_in">Ein</string>
+  <string name="direction_calls_out">Aus</string>
+  <string name="direction_sms_in">Ein</string>
+  <string name="direction_sms_out">Aus</string>
+  <string name="direction_mms_in">Ein</string>
+  <string name="direction_mms_out">Aus</string>
+  <string name="direction_data_in">Ein</string>
+  <string name="direction_data_out">Aus</string>
+  <string name="default">Standard</string>
+  <string name="currency_formats_1">€1.00</string>
+  <string name="currency_formats_2">€1000</string>
+  <string name="currency_formats_3">1.00€</string>
+  <string name="currency_formats_4">1000€</string>
+  <string name="date_formats_1">MM/TT/JJ</string>
+  <string name="date_formats_2">TT/MM/JJJJ</string>
+  <string name="date_formats_3">TT.MM.JJJJ</string>
+  <string name="5_minute">5 Minuten</string>
+  <string name="10_minute">10 Minuten</string>
+  <string name="15_minute">15 Minuten</string>
+  <string name="30_minute">30 Minuten</string>
+  <string name="1_hour">Eine Stunde</string>
+  <string name="2_hour">Zwei Stunden</string>
+  <string name="manually_only">Nur manuell</string>
+  <string name="05_minute">0,5 Minuten</string>
+  <string name="1_minute">1 Minute</string>
+  <string name="2_minute">2 Minuten</string>
+  <string name="5_minute">5 Minuten</string>
   <string name="simple_preferences_" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Simple preferences">Einfache Einstellungen</string>
   <string name="simple_preferences_hint" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Sehr einfache Einstellungen, ausreichend für die meisten Nutzer. Nur verfügbar, wenn der standard Regelsatz benutzt wird.</string>
   <string name="simple_preferences_deactivated"  formatted="false" username="flx &lt;f+translation@ub0r.de&gt;">Einfache Einstellungen sind nur mit dem standard Regelsatz verfügbar. Importiere den standard Regelsatz um sie wieder verfügbar zu machen.</string>

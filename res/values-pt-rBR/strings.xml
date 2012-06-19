@@ -34,129 +34,53 @@
   <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Clique aqui para mostrar as mudanças recentes de</string>
   <string name="never_show_again" formatted="false" orig="Never show changelog again">Nunca mostrar log de mudanças novamente</string>
   <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Notas do desenvolvedor</string>
-  <string-array name="update_interval" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
-    <item>5 minutos</item>
-    <item>10 minutos</item>
-    <item>15 minutos</item>
-    <item>30 minutos</item>
-    <item>Uma hora</item>
-    <item>Duas horas</item>
-    <item>Manualmente apenas</item>
-  </string-array>
-  <string-array name="date_formats" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
-    <item>Padrão</item>
-    <item>MM/DD/AA</item>
-    <item>DD/MM/AAAA</item>
-    <item>DD.MM.AAAA</item>
-  </string-array>
-  <string-array name="currency_formats" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
-    <item>Padrão</item>
-    <item>R$1.00</item>
-    <item>R$1000</item>
-    <item>1.00R$</item>
-    <item>1000R$</item>
-  </string-array>
-  <string-array name="direction_data" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
-    <item>dentro</item>
-    <item>fora</item>
-  </string-array>
-  <string-array name="direction_mms" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
-    <item>dentro</item>
-    <item>fora</item>
-  </string-array>
-  <string-array name="billperiod" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
-    <item>Um dia</item>
-    <item>Uma semana</item>
-    <item>14 dias</item>
-    <item>15 dias</item>
-    <item>30 dias</item>
-    <item>31 dias</item>
-    <item>60 dias</item>
-    <item>90 dias</item>
-    <item>Um mês</item>
-		<item notranslation="true">One month + one day</item>
-    <item>Dois meses</item>
-    <item>Três meses</item>
-    <item>Quatro meses</item>
-    <item>Cinco meses</item>
-    <item>Seis meses</item>
-    <item>Um ano</item>
-    <item>Infinito</item>
-  </string-array>
-  <string-array name="limit_type" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
-    <item>ilimitado</item>
-    <item>unidades</item>
-    <item>custo</item>
-  </string-array>
-  <string-array name="rules_type" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
-    <item>Ligações</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Dados</item>
-  </string-array>
-  <string-array name="plans_type" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
-    <item>Título</item>
-    <item>Separador</item>
-    <item>Período da conta</item>
-    <item>Misturado</item>
-    <item>Ligação</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Dados</item>
-  </string-array>
-  <string-array name="dialog_edit_delete" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
-    <item>Editar</item>
-    <item>Deletar</item>
-  </string-array>
-  <string-array name="dialog_delete" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
-    <item>Deletar</item>
-  </string-array>
-  <string-array name="dialog_edit_plan" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
-    <item>Editar plano</item>
-    <item notranslation="true">View Logs</item>
-  </string-array>
-  <string-array name="themes" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
-    <item>Preto</item>
-    <item>Light</item>
-  </string-array>
-  <string-array name="hours_all" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
-    <item>Durante todo o dia</item>
-    <item notranslation="true">0:00 - 0:59</item>
-    <item notranslation="true">1:00 - 1:59</item>
-    <item notranslation="true">2:00 - 2:59</item>
-    <item notranslation="true">3:00 - 3:59</item>
-    <item notranslation="true">4:00 - 4:59</item>
-    <item notranslation="true">5:00 - 5:59</item>
-    <item notranslation="true">6:00 - 6:59</item>
-    <item notranslation="true">7:00 - 7:59</item>
-    <item notranslation="true">8:00 - 8:59</item>
-    <item notranslation="true">9:00 - 9:59</item>
-    <item notranslation="true">10:00 - 10:59</item>
-    <item notranslation="true">11:00 - 11:59</item>
-    <item notranslation="true">12:00 - 12:59</item>
-    <item notranslation="true">13:00 - 13:59</item>
-    <item notranslation="true">14:00 - 14:59</item>
-    <item notranslation="true">15:00 - 15:59</item>
-    <item notranslation="true">16:00 - 16:59</item>
-    <item notranslation="true">17:00 - 17:59</item>
-    <item notranslation="true">18:00 - 18:59</item>
-    <item notranslation="true">19:00 - 19:59</item>
-    <item notranslation="true">20:00 - 20:59</item>
-    <item notranslation="true">21:00 - 21:59</item>
-    <item notranslation="true">22:00 - 22:59</item>
-    <item notranslation="true">23:00 - 23:59</item>
-  </string-array>
-  <string-array name="weekdays_all" username="Pedro &lt;pedro_pabm@hotmail.com&gt;">
-    <item>Durante toda a semana</item>
-    <item notranslation="true">Monday</item>
-    <item notranslation="true">Tuesday</item>
-    <item notranslation="true">Wednesday</item>
-    <item notranslation="true">Thursday</item>
-    <item notranslation="true">Friday</item>
-    <item notranslation="true">Saturday</item>
-    <item notranslation="true">Sunday</item>
-    <item notranslation="true">Monday - Friday</item>
-  </string-array>
+  <string name="5_minute">5 minutos</string>
+  <string name="10_minute">10 minutos</string>
+  <string name="15_minute">15 minutos</string>
+  <string name="30_minute">30 minutos</string>
+  <string name="1_hour">Uma hora</string>
+  <string name="2_hour">Duas horas</string>
+  <string name="manually_only">Manualmente apenas</string>
+  <string name="date_formats_1">MM/DD/AA</string>
+  <string name="date_formats_2">DD/MM/AAAA</string>
+  <string name="date_formats_3">DD.MM.AAAA</string>
+  <string name="default">Padrão</string>
+  <string name="currency_formats_1">R$1.00</string>
+  <string name="currency_formats_2">R$1000</string>
+  <string name="currency_formats_3">1.00R$</string>
+  <string name="currency_formats_4">1000R$</string>
+  <string name="direction_data_in">dentro</string>
+  <string name="direction_data_out">fora</string>
+  <string name="direction_mms_in">dentro</string>
+  <string name="direction_mms_out">fora</string>
+  <string name="1_day">Um dia</string>
+  <string name="1_week">Uma semana</string>
+  <string name="14_day">14 dias</string>
+  <string name="15_day">15 dias</string>
+  <string name="30_day">30 dias</string>
+  <string name="31_day">31 dias</string>
+  <string name="60_day">60 dias</string>
+  <string name="90_day">90 dias</string>
+  <string name="1_month">Um mês</string>
+  <string name="2_month">Dois meses</string>
+  <string name="3_month">Três meses</string>
+  <string name="4_month">Quatro meses</string>
+  <string name="5_month">Cinco meses</string>
+  <string name="6_month">Seis meses</string>
+  <string name="1_year">Um ano</string>
+  <string name="infinite">Infinito</string>
+  <string name="limit_type_unlimited">ilimitado</string>
+  <string name="limit_type_units">unidades</string>
+  <string name="limit_type_cost">custo</string>
+  <string name="title">Título</string>
+  <string name="spacer">Separador</string>
+  <string name="mixed">Ligação</string>
+  <string name="delete_">Deletar</string>
+  <string name="edit_plan_">Editar plano</string>
+  <string name="theme_black">Preto</string>
+  <string name="theme_light">Light</string>
+  <string name="all_day">Durante todo o dia</string>
+  <string name="all_week">Durante toda a semana</string>
   <string name="send_devices_hint" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Enviar a lista de dispositivos para o desenvolvedor. Isso só é necessário se seus status de dados são zero.</string>
   <string name="send_devices_" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Send devices">Enviar dipositivos</string>
   <string name="widget_backgroud_transparency_" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Background transparency">Transparência do plano de fundo</string>

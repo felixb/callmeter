@@ -76,63 +76,30 @@
   <string name="sms" formatted="false" orig="SMS">SMS</string>
   <string name="mms" formatted="false" orig="MMS">MMS</string>
   <string name="balance_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Balance">Баланс</string>
-  <string-array name="billmodes" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;">
-    <item>1/1</item>
-    <item>6/6</item>
-    <item>10/10</item>
-    <item>30/1</item>
-    <item>30/6</item>
-    <item>30/10</item>
-    <item>30/30</item>
-    <item>30/60</item>
-    <item>45/1</item>
-    <item>60/0</item>
-    <item>60/1</item>
-    <item>60/6</item>
-    <item>60/10</item>
-    <item>60/15</item>
-    <item>60/30</item>
-    <item>60/60</item>
-    <item>Друг</item>
-  </string-array>
-  <string-array name="direction_calls" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;">
-    <item>входящи</item>
-    <item>изходящи</item>
-  </string-array>
-  <string-array name="direction_sms" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;">
-    <item>входящи</item>
-    <item>изходящи</item>
-  </string-array>
-  <string-array name="direction_mms" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;">
-    <item>входящи</item>
-    <item>изходящи</item>
-  </string-array>
-  <string-array name="direction_data" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;">
-    <item>входящи</item>
-    <item>изходящи</item>
-  </string-array>
-  <string-array name="currency_formats">
-    <item>По подразбиране</item>
-    <item>$1.00</item>
-    <item>$1000</item>
-    <item>1.00$</item>
-    <item>1000$</item>
-  </string-array>
-  <string-array name="date_formats" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;">
-    <item>По подразбиране</item>
-    <item>ММ/ДД/ГГ</item>
-    <item>ДД/ММ/ГГГГ</item>
-    <item>ДД.ММ.ГГГГ</item>
-  </string-array>
-  <string-array name="update_interval" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;">
-    <item>5 минути</item>
-    <item>10 минути</item>
-    <item>15 минути</item>
-    <item>30 минути</item>
-    <item>Един час</item>
-    <item>Два часа</item>
-    <item>Само ръчно</item>
-  </string-array>
+  <string name="custom">Друг</string>
+  <string name="direction_calls_in">входящи</string>
+  <string name="direction_calls_out">изходящи</string>
+  <string name="direction_sms_in">входящи</string>
+  <string name="direction_sms_out">изходящи</string>
+  <string name="direction_mms_in">входящи</string>
+  <string name="direction_mms_out">изходящи</string>
+  <string name="direction_data_in">входящи</string>
+  <string name="direction_data_out">изходящи</string>
+  <string name="default">По подразбиране</string>
+  <string name="currency_formats_1">$1.00</string>
+  <string name="currency_formats_2">$1000</string>
+  <string name="currency_formats_3">1.00$</string>
+  <string name="currency_formats_4">1000$</string>
+  <string name="date_formats_1">ММ/ДД/ГГ</string>
+  <string name="date_formats_2">ДД/ММ/ГГГГ</string>
+  <string name="date_formats_3">ДД.ММ.ГГГГ</string>
+  <string name="5_minute">5 минути</string>
+  <string name="10_minute">10 минути</string>
+  <string name="15_minute">15 минути</string>
+  <string name="30_minute">30 минути</string>
+  <string name="1_hour">Един час</string>
+  <string name="2_hour">Два часа</string>
+  <string name="manually_only">Само ръчно</string>
   <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter генерира доклади от повиквания, съобщения и данни. Той поддържа няколко режима на таксуване.</string>
   <string name="length_hint_call" formatted="false" orig="Length in seconds">Дължина в секунди</string>
   <string name="add_log" formatted="false" orig="Add log entry">Добави дневник на влизанията</string>

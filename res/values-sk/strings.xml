@@ -48,25 +48,15 @@
   <string name="reset_data_progr1" formatted="false" orig="Recalculating statistics ...\n\n(This may take some time!)">Prepočítavam štatistiku...\n\n(Môže to chvíľu trvať!)</string>
   <string name="reset_data_progr2" formatted="false" orig="Recalculating statistics ...">Prepočítavam štatistiku...</string>
   <string name="contacts_" formatted="false">Z kontaktov</string>
-  <string-array name="themes">
-    <item>Tmavý</item>
-    <item>Svetlý</item>
-  </string-array>
-  <string-array name="rules_type" username="kayle.sk &lt;kayle.sk@gmail.com&gt;">
-    <item>Hovory</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Dáta</item>
-  </string-array>
-  <string-array name="update_interval">
-    <item>5 minút</item>
-    <item>10 minút</item>
-    <item>15 minút</item>
-    <item>30 minút</item>
-    <item>hodina</item>
-    <item>dve hodiny</item>
-    <item>Iba manuálne</item>
-  </string-array>
+  <string name="theme_black">Tmavý</string>
+  <string name="theme_light">Svetlý</string>
+  <string name="5_minute">5 minút</string>
+  <string name="10_minute">10 minút</string>
+  <string name="15_minute">15 minút</string>
+  <string name="30_minute">30 minút</string>
+  <string name="1_hour">hodina</string>
+  <string name="2_hour">dve hodiny</string>
+  <string name="manually_only">Iba manuálne</string>
   <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Poznámka od vývojára</string>
   <string name="add_" formatted="false" orig="Add">Pridať</string>
   <string name="length_hint_call" formatted="false" orig="Length in seconds">Dĺžka v sekundách</string>
@@ -79,25 +69,22 @@
   <string name="number_prefix_" formatted="false" orig="International prefix">Medzinárodný prefix</string>
   <string name="number_prefix_hint" formatted="false" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">Váš medzinárodný prefix vo formáte +1 alebo +421. Je použitý na porovnávanie čísiel ako +49170.. a 0179..</string>
   <string name="changelog_notification_" formatted="false" orig="Recent changes:">Posledné zmeny:</string>
-  <string-array name="billperiod">
-    <item>Deň</item>
-    <item>Týždeň</item>
-    <item>14 dní</item>
-    <item>15 dní</item>
-    <item>30 dní</item>
-    <item>31 dní</item>
-    <item>60 dní</item>
-    <item>90 dní</item>
-    <item>Mesiac</item>
-    <item notranslation="true">One month + one day</item>
-    <item>2 mesiace</item>
-    <item>3 mesiace</item>
-    <item>4 mesiace</item>
-    <item>5 mesiacov</item>
-    <item>6 mesiacov</item>
-    <item>Rok</item>
-    <item>Bez obmedzenia</item>
-  </string-array>
+  <string name="1_day">Deň</string>
+  <string name="1_week">Týždeň</string>
+  <string name="14_day">14 dní</string>
+  <string name="15_day">15 dní</string>
+  <string name="30_day">30 dní</string>
+  <string name="31_day">31 dní</string>
+  <string name="60_day">60 dní</string>
+  <string name="90_day">90 dní</string>
+  <string name="1_month">Mesiac</string>
+  <string name="2_month">2 mesiace</string>
+  <string name="3_month">3 mesiace</string>
+  <string name="4_month">4 mesiace</string>
+  <string name="5_month">5 mesiacov</string>
+  <string name="6_month">6 mesiacov</string>
+  <string name="1_year">Rok</string>
+  <string name="infinite">Bez obmedzenia</string>
   <string name="yes" formatted="false" orig="Yes">Áno</string>
   <string name="no" formatted="false" orig="No">Nie</string>
   <string name="help_" formatted="false" orig="Help">Nápoveda</string>
@@ -109,44 +96,16 @@
   <string name="textsize_title_hint" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Text size for titles in pixels; leave empty for default">Veľkosť nadpisu v pixeloch. Nechajte prázdne pre východziu veľkosť.</string>
   <string name="show_today_hint" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Show today stats">Zobrazí dnešnú štatistiku</string>
   <string name="show_today_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Show today">Zobraziť dnešok</string>
-  <string-array name="hours_all" username="kayle.sk &lt;kayle.sk@gmail.com&gt;">
-    <item>Celý deň</item>
-    <item notranslation="true">0:00 - 0:59</item>
-    <item notranslation="true">1:00 - 1:59</item>
-    <item notranslation="true">2:00 - 2:59</item>
-    <item notranslation="true">3:00 - 3:59</item>
-    <item notranslation="true">4:00 - 4:59</item>
-    <item notranslation="true">5:00 - 5:59</item>
-    <item notranslation="true">6:00 - 6:59</item>
-    <item notranslation="true">7:00 - 7:59</item>
-    <item notranslation="true">8:00 - 8:59</item>
-    <item notranslation="true">9:00 - 9:59</item>
-    <item notranslation="true">10:00 - 10:59</item>
-    <item notranslation="true">11:00 - 11:59</item>
-    <item notranslation="true">12:00 - 12:59</item>
-    <item notranslation="true">13:00 - 13:59</item>
-    <item notranslation="true">14:00 - 14:59</item>
-    <item notranslation="true">15:00 - 15:59</item>
-    <item notranslation="true">16:00 - 16:59</item>
-    <item notranslation="true">17:00 - 17:59</item>
-    <item notranslation="true">18:00 - 18:59</item>
-    <item notranslation="true">19:00 - 19:59</item>
-    <item notranslation="true">20:00 - 20:59</item>
-    <item notranslation="true">21:00 - 21:59</item>
-    <item notranslation="true">22:00 - 22:59</item>
-    <item notranslation="true">23:00 - 23:59</item>
-  </string-array>
-  <string-array name="weekdays_all" username="kayle.sk &lt;kayle.sk@gmail.com&gt;">
-    <item>Celý týždeň</item>
-    <item>Pondelok</item>
-    <item>Utorok</item>
-    <item>Streda</item>
-    <item>Štvrtok</item>
-    <item>Piatok</item>
-    <item>Sobota</item>
-    <item>Nedeľa</item>
-    <item>Pondelok - Piatok</item>
-  </string-array>
+  <string name="all_day">Celý deň</string>
+  <string name="all_week">Celý týždeň</string>
+  <string name="monday">Pondelok</string>
+  <string name="tuesday">Utorok</string>
+  <string name="wednesday">Streda</string>
+  <string name="thursday">Štvrtok</string>
+  <string name="friday">Piatok</string>
+  <string name="saturday">Sobota</string>
+  <string name="sunday">Nedeľa</string>
+  <string name="monday_till_friday">Pondelok - Piatok</string>
   <string name="widget_text_color_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Text color">Farba textu</string>
   <string name="widget_backgroud_color_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Background color">Farba pozadia</string>
   <string name="widget_backgroud_transparency_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Background transparency">Priesvitnosť pozadia</string>
@@ -167,20 +126,13 @@
   <string name="google_plus_hint" formatted="false" orig="Follow me on Google+.\nGet update notifications etc.">Nasleduj ma na Google+\nInfo o nových verziách apod.</string>
   <string name="textsize_bigtitle_" formatted="false" orig="Big title\'s text size">Veľkosť veľkého nadpisu</string>
   <string name="textsize_bigtitle_hint" formatted="false" orig="Text size for big titles in pixels; leave empty for default">Veľkosť veľkého nadpisu v pixeloch. Nechajte prázdne pre východziu veľkosť.</string>
-  <string-array name="date_formats">
-    <item>Východzí</item>
-    <item>MM/DD/RR</item>
-    <item>DD/MM/RRRR</item>
-    <item>DD.MM.RRRR</item>
-  </string-array>
-  <string-array name="direction_sms">
-    <item>prijaté</item>
-    <item>odoslané</item>
-  </string-array>
-  <string-array name="direction_mms">
-    <item>prijaté</item>
-    <item>odoslané</item>
-  </string-array>
+  <string name="date_formats_1">MM/DD/RR</string>
+  <string name="date_formats_2">DD/MM/RRRR</string>
+  <string name="date_formats_3">DD.MM.RRRR</string>
+  <string name="direction_sms_in">prijaté</string>
+  <string name="direction_sms_out">odoslané</string>
+  <string name="direction_mms_in">prijaté</string>
+  <string name="direction_mms_out">odoslané</string>
   <string name="alerts_80_hint" formatted="false" orig="Notify if a plan passes 80% of it\'s limit.">Varovanie ak paušál prekročí 80%.</string>
   <string name="alerts_100_hint" formatted="false" orig="Notify if a plan passes 100% of it\'s limit.">Varovanie ak paušál prekročí 100%.</string>
   <string name="issipcall_help" formatted="false" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Hovor cez SIP. Aktuálne je podporovaný sipdorid &gt;1.6.1.</string>
@@ -206,35 +158,25 @@
   <string name="length_hint_data" formatted="false" orig="Length in kB">Dĺžka v kB</string>
   <string name="behavior_" formatted="false" orig="Behavior">Správanie</string>
   <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp; behavior">Vzhĺaď a správanie</string>
-  <string-array name="dialog_delete">
-    <item>Vymazať</item>
-  </string-array>
+  <string name="delete_">Vymazať</string>
   <string name="never_show_again" formatted="false" orig="Never show changelog again">Viac nezobrazovať zoznam zmien</string>
   <string name="update_interval_data_" formatted="false" orig="Update interval (data)">Interval obnovenia (data)</string>
   <string name="date_begin_" formatted="false" orig="Beginning of records">Začiatok nahrávania</string>
   <string name="delete_widget" formatted="false" orig="Delete widget">Vymazať miniaplikáciu</string>
   <string name="add_log" formatted="false" orig="Add log entry">Pridať položku do protokolu</string>
   <string name="date_begin_hint" formatted="false" orig="Ignore any logs before this date.">Ignorovať všetky záznamy pred týmto dátumom</string>
-  <string-array name="update_interval_data">
-    <item>30 sekúnd</item>
-    <item>1 minúta</item>
-    <item>2 minúty</item>
-    <item>5 minút</item>
-    <item>15 minút</item>
-    <item>30 minút</item>
-    <item>Jedna hodina</item>
-    <item>Manuálne</item>
-  </string-array>
+  <string name="05_minute">30 sekúnd</string>
+  <string name="1_minute">1 minúta</string>
+  <string name="2_minute">2 minúty</string>
+  <string name="5_minute">5 minút</string>
   <string name="widget_" formatted="false" orig="Widget">Miniaplikácia</string>
   <string name="widgets_" formatted="false" orig="Widgets">Miniaplikácie</string>
   <string name="widgets_no_widgets_" formatted="false" orig="No widgets added">Nepridané žiadne miniaplikácie</string>
   <string name="widgets_no_widgets_hint" formatted="false" orig="There are no widgets added to the launcher.">Nie sú žiadne miniaplikácie pridané do spúšťača</string>
   <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Kliknite sem pre zobrazenie posledných zmien</string>
-  <string-array name="limit_type">
-    <item>neobmedzene</item>
-    <item>jednotky</item>
-    <item>náklady</item>
-  </string-array>
+  <string name="limit_type_unlimited">neobmedzene</string>
+  <string name="limit_type_units">jednotky</string>
+  <string name="limit_type_cost">náklady</string>
   <string name="show_total_" formatted="false" orig="Show total">Zobraziť celkový stav</string>
   <string name="show_time_" formatted="false" orig="Switch to date">Prepnúť na dátum</string>
   <string name="show_hours_" formatted="false" orig="Show hours">Ukázať hodiny</string>

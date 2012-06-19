@@ -99,8 +99,6 @@
   <string name="reset_data_data_" formatted="false">Nollställ datatrafik</string>
   <string name="contacts_" formatted="false">Kontakter</string>
   <string name="limit_help" formatted="false">Ange gränsen för din prislista här.\n\nTyp måste ställas in i minuter (för samtal), meddelanden (för sms/mms), megabyte (för data, 1024kB) eller blandat.\n\nKostnad måste anges i din valuta (t.ex. SEK).</string>
-  <string-array name="themes">
-    <item>Mörk</item>
-    <item>Ljus</item>
-  </string-array>
+  <string name="theme_black">Mörk</string>
+  <string name="theme_light">Ljus</string>
 </resources>

@@ -45,6 +45,7 @@
 	<string name="delete_old_logs_help">Delete logs older than x days from internal database. Leave empty to disable.</string>
 	<string name="common_prefs_">Common preferences</string>
 	<string name="edit_">Edit</string>
+	<string name="delete_">Delete</string>
 	<string name="about_">About</string>
 	<string name="about_hint">About this app</string>
 	<string name="faq_hint">Some tips and tricks, how to set up this app.</string>
@@ -326,100 +327,162 @@
 	<string name="widget_backgroud_transparency_">Background transparency</string>
 	<string name="send_devices_">Send devices</string>
 	<string name="send_devices_hint">Send list of devices to the developer. This is only needed if your data stats are zero.</string>
-	<string-array name="weekdays_all">
-		<item>All week</item>
-		<item>Monday</item>
-		<item>Tuesday</item>
-		<item>Wednesday</item>
-		<item>Thursday</item>
-		<item>Friday</item>
-		<item>Saturday</item>
-		<item>Sunday</item>
-		<item>Monday - Friday</item>
+	<string name="monday">Monday</string>
+	<string name="tuesday">Tuesday</string>
+	<string name="wednesday">Wednesday</string>
+	<string name="thursday">Thursday</string>
+	<string name="friday">Friday</string>
+	<string name="saturday">Saturday</string>
+	<string name="sunday">Sunday</string>
+	<string name="monday_till_friday">Monday - Friday</string>
+	<string name="all_week">All week</string>
+	<string-array name="weekdays_all" translatable="false">
+		<item>@string/all_week</item>
+		<item>@string/monday</item>
+		<item>@string/tuesday</item>
+		<item>@string/wednesday</item>
+		<item>@string/thursday</item>
+		<item>@string/friday</item>
+		<item>@string/saturday</item>
+		<item>@string/sunday</item>
+		<item>@string/monday_till_friday</item>
 	</string-array>
-	<string-array name="hours_all">
-		<item>All day</item>
-		<item>0:00 - 0:59</item>
-		<item>1:00 - 1:59</item>
-		<item>2:00 - 2:59</item>
-		<item>3:00 - 3:59</item>
-		<item>4:00 - 4:59</item>
-		<item>5:00 - 5:59</item>
-		<item>6:00 - 6:59</item>
-		<item>7:00 - 7:59</item>
-		<item>8:00 - 8:59</item>
-		<item>9:00 - 9:59</item>
-		<item>10:00 - 10:59</item>
-		<item>11:00 - 11:59</item>
-		<item>12:00 - 12:59</item>
-		<item>13:00 - 13:59</item>
-		<item>14:00 - 14:59</item>
-		<item>15:00 - 15:59</item>
-		<item>16:00 - 16:59</item>
-		<item>17:00 - 17:59</item>
-		<item>18:00 - 18:59</item>
-		<item>19:00 - 19:59</item>
-		<item>20:00 - 20:59</item>
-		<item>21:00 - 21:59</item>
-		<item>22:00 - 22:59</item>
-		<item>23:00 - 23:59</item>
+	<string name="all_day">All day</string>
+	<string name="day_0">0:00 - 0:59</string>
+	<string name="day_1">1:00 - 1:59</string>
+	<string name="day_2">2:00 - 2:59</string>
+	<string name="day_3">3:00 - 3:59</string>
+	<string name="day_4">4:00 - 4:59</string>
+	<string name="day_5">5:00 - 5:59</string>
+	<string name="day_6">6:00 - 6:59</string>
+	<string name="day_7">7:00 - 7:59</string>
+	<string name="day_8">8:00 - 8:59</string>
+	<string name="day_9">9:00 - 9:59</string>
+	<string name="day_10">10:00 - 10:59</string>
+	<string name="day_11">11:00 - 11:59</string>
+	<string name="day_12">12:00 - 12:59</string>
+	<string name="day_13">13:00 - 13:59</string>
+	<string name="day_14">14:00 - 14:59</string>
+	<string name="day_15">15:00 - 15:59</string>
+	<string name="day_16">16:00 - 16:59</string>
+	<string name="day_17">17:00 - 17:59</string>
+	<string name="day_18">18:00 - 18:59</string>
+	<string name="day_19">19:00 - 19:59</string>
+	<string name="day_20">20:00 - 20:59</string>
+	<string name="day_21">21:00 - 21:59</string>
+	<string name="day_22">22:00 - 22:59</string>
+	<string name="day_23">23:00 - 23:59</string>
+	<string-array name="hours_all" translatable="false">
+		<item>@string/all_day</item>
+		<item>@string/day_0</item>
+		<item>@string/day_1</item>
+		<item>@string/day_2</item>
+		<item>@string/day_3</item>
+		<item>@string/day_4</item>
+		<item>@string/day_5</item>
+		<item>@string/day_6</item>
+		<item>@string/day_7</item>
+		<item>@string/day_8</item>
+		<item>@string/day_9</item>
+		<item>@string/day_10</item>
+		<item>@string/day_11</item>
+		<item>@string/day_12</item>
+		<item>@string/day_13</item>
+		<item>@string/day_14</item>
+		<item>@string/day_15</item>
+		<item>@string/day_16</item>
+		<item>@string/day_17</item>
+		<item>@string/day_18</item>
+		<item>@string/day_19</item>
+		<item>@string/day_20</item>
+		<item>@string/day_21</item>
+		<item>@string/day_22</item>
+		<item>@string/day_23</item>
 	</string-array>
-	<string-array name="themes">
-		<item>Black</item>
-		<item>Light</item>
+	<string name="theme_black">Black</string>
+	<string name="theme_light">Light</string>
+	<string-array name="themes" translatable="false">
+		<item>@string/theme_black</item>
+		<item>@string/theme_light</item>
 	</string-array>
-	<string-array name="dialog_edit_plan">
-		<item>Edit plan</item>
-		<item>View Logs</item>
+	<string name="edit_plan_">Edit Plan</string>
+	<string name="view_logs_">View Logs</string>
+	<string-array name="dialog_edit_plan" translatable="false">
+		<item>@string/edit_plan_</item>
+		<item>@string/view_logs_</item>
 	</string-array>
-	<string-array name="dialog_delete">
-		<item>Delete</item>
+	<string-array name="dialog_delete" translatable="false">
+		<item>@string/delete_</item>
 	</string-array>
-	<string-array name="dialog_edit_delete">
-		<item>Edit</item>
-		<item>Delete</item>
+	<string-array name="dialog_edit_delete" translatable="false">
+		<item>@string/edit_</item>
+		<item>@string/delete_</item>
 	</string-array>
-	<string-array name="plans_type">
-		<item>Title</item>
-		<item>Spacer</item>
-		<item>Bill period</item>
-		<item>Mixed</item>
-		<item>Call</item>
-		<item>SMS</item>
-		<item>MMS</item>
-		<item>Data</item>
+	<string name="title">Title</string>
+	<string name="spacer">Spacer</string>
+	<string name="mixed">Mixed</string>
+	<string-array name="plans_type" translatable="false">
+		<item>@string/title</item>
+		<item>@string/spacer</item>
+		<item>@string/billperiodid_</item>
+		<item>@string/mixed</item>
+		<item>@string/calls</item>
+		<item>@string/sms</item>
+		<item>@string/mms</item>
+		<item>@string/data</item>
 	</string-array>
-	<string-array name="rules_type">
-		<item>Calls</item>
-		<item>SMS</item>
-		<item>MMS</item>
-		<item>Data</item>
+	<string-array name="rules_type" translatable="false">
+		<item>@string/calls</item>
+		<item>@string/sms</item>
+		<item>@string/mms</item>
+		<item>@string/data</item>
 	</string-array>
-	<string-array name="limit_type">
-		<item>unlimited</item>
-		<item>units</item>
-		<item>cost</item>
+	<string name="limit_type_unlimited">unlimited</item>
+	<string name="limit_type_units">units</item>
+	<string name="limit_type_cost">cost</item>
+	<string-array name="limit_type" translatable="false">
+		<item>@string/limit_type_unlimited</item>
+		<item>@string/limit_type_units</item>
+		<item>@string/limit_type_cost</item>
 	</string-array>
-	<string-array name="billperiod">
-		<item>One day</item>
-		<item>One week</item>
-		<item>14 days</item>
-		<item>15 days</item>
-		<item>30 days</item>
-		<item>31 days</item>
-		<item>60 days</item>
-		<item>90 days</item>
-		<item>One month</item>
-		<item>One month + one day</item>
-		<item>Two month</item>
-		<item>Three month</item>
-		<item>Four month</item>
-		<item>Five month</item>
-		<item>Six month</item>
-		<item>One year</item>
-		<item>Infinite</item>
+	<string name="1_day">One day</string>
+	<string name="1_week">One week</string>
+	<string name="14_day">14 days</string>
+	<string name="15_day">15 days</string>
+	<string name="30_day">30 days</string>
+	<string name="31_day">31 days</string>
+	<string name="60_day">60 days</string>
+	<string name="90_day">90 days</string>
+	<string name="1_month">One month</string>
+	<string name="1_month_1_day">One month + one day</string>
+	<string name="2_month">Two months</string>
+	<string name="3_month">Three months</string>
+	<string name="4_month">Four months</string>
+	<string name="5_month">Five months</string>
+	<string name="6_month">Six months</string>
+	<string name="1_year">One year</string>
+	<string name="infinite">Infinite</string>
+	<string-array name="billperiod" translatable="false">
+		<item>@string/1_day</item>
+		<item>@string/1_week</item>
+		<item>@string/14_day</item>
+		<item>@string/15_day</item>
+		<item>@string/30_day</item>
+		<item>@string/31_day</item>
+		<item>@string/60_day</item>
+		<item>@string/90_day</item>
+		<item>@string/1_month</item>
+		<item>@string/1_month_1_day</item>
+		<item>@string/2_month</item>
+		<item>@string/3_month</item>
+		<item>@string/4_month</item>
+		<item>@string/5_month</item>
+		<item>@string/6_month</item>
+		<item>@string/1_year</item>
+		<item>@string/infinite</item>
 	</string-array>
-	<string-array name="billmodes">
+	<string name="custom">Custom</string>
+	<string-array name="billmodes" translatable="false">
 		<item>1/1</item>
 		<item>6/6</item>
 		<item>10/10</item>
@@ -436,54 +499,80 @@
 		<item>60/15</item>
 		<item>60/30</item>
 		<item>60/60</item>
-		<item>Custom</item>
+		<item>@string/custom</item>
 	</string-array>
-	<string-array name="direction_calls">
-		<item>in</item>
-		<item>out</item>
+	<string name="direction_calls_in">in</string>
+	<string name="direction_calls_out">out</string>
+	<string-array name="direction_calls" translatable="false">
+		<item>@string/direction_calls_in</item>
+		<item>@string/direction_calls_out</item>
 	</string-array>
-	<string-array name="direction_sms">
-		<item>in</item>
-		<item>out</item>
+	<string name="direction_sms_in">in</string>
+	<string name="direction_sms_out">out</string>
+	<string-array name="direction_sms" translatable="false">
+		<item>@string/direction_sms_in</item>
+		<item>@string/direction_sms_out</item>
 	</string-array>
-	<string-array name="direction_mms">
-		<item>in</item>
-		<item>out</item>
+	<string name="direction_mms_in">in</string>
+	<string name="direction_mms_out">out</string>
+	<string-array name="direction_mms" translatable="false">
+		<item>@string/direction_mms_in</item>
+		<item>@string/direction_mms_out</item>
 	</string-array>
-	<string-array name="direction_data">
-		<item>in</item>
-		<item>out</item>
+	<string name="direction_data_in">in</string>
+	<string name="direction_data_out">out</string>
+	<string-array name="direction_data" translatable="false">
+		<item>@string/direction_data_in</item>
+		<item>@string/direction_data_out</item>
 	</string-array>
-	<string-array name="currency_formats">
-		<item>Default</item>
-		<item>$1.00</item>
-		<item>$1000</item>
-		<item>1.00$</item>
-		<item>1000$</item>
+	<string name="default">Default</string>
+	<string name="currency_formats_1">$1.00</string>
+	<string name="currency_formats_2">$1000</string>
+	<string name="currency_formats_3">1.00$</string>
+	<string name="currency_formats_4">1000$</string>
+	<string-array name="currency_formats" translatable="false">
+		<item>@string/default</item>
+		<item>@string/currency_formats_1</item>
+		<item>@string/currency_formats_2</item>
+		<item>@string/currency_formats_3</item>
+		<item>@string/currency_formats_4</item>
 	</string-array>
-		<string-array name="date_formats">
-		<item>Default</item>
-		<item>MM/DD/YY</item>
-		<item>DD/MM/YYYY</item>
-		<item>DD.MM.YYYY</item>
+	<string name="date_formats_1">MM/DD/YY</string>
+	<string name="date_formats_2">DD/MM/YYYY</string>
+	<string name="date_formats_3">DD.MM.YYYY</string>
+	<string-array name="date_formats" translatable="false">
+		<item>@string/default</item>
+		<item>@string/date_formats_1</item>
+		<item>@string/date_formats_2</item>
+		<item>@string/date_formats_3</item>
 	</string-array>
-	<string-array name="update_interval">
-		<item>5 minutes</item>
-		<item>10 minutes</item>
-		<item>15 minutes</item>
-		<item>30 minutes</item>
-		<item>One hour</item>
-		<item>Two hours</item>
-		<item>Manually only</item>
+	<string name="05_minute">0.5 minutes</string>
+	<string name="1_minute">1 minute</string>
+	<string name="2_minute">2 minutes</string>
+	<string name="5_minute">5 minutes</string>
+	<string name="10_minute">10 minutes</string>
+	<string name="15_minute">15 minutes</string>
+	<string name="30_minute">30 minutes</string>
+	<string name="1_hour">One hour</string>
+	<string name="2_hour">Two hours</string>
+	<string name="manually_only">Manually only</string>
+	<string-array name="update_interval" translatable="false">
+		<item>@string/5_minute</item>
+		<item>@string/10_minute</item>
+		<item>@string/15_minute</item>
+		<item>@string/30_minute</item>
+		<item>@string/1_hour</item>
+		<item>@string/2_hour</item>
+		<item>@string/manually_only</item>
 	</string-array>
-	<string-array name="update_interval_data">
-		<item>0.5 minutes</item>
-		<item>1 minute</item>
-		<item>2 minutes</item>
-		<item>5 minutes</item>
-		<item>15 minutes</item>
-		<item>30 minutes</item>
-		<item>One hour</item>
-		<item>Manually only</item>
+	<string-array name="update_interval_data" translatable="false">
+		<item>@string/05_minute</item>
+		<item>@string/1_minute</item>
+		<item>@string/2_minute</item>
+		<item>@string/5_minute</item>
+		<item>@string/15_minute</item>
+		<item>@string/30_minute</item>
+		<item>@string/1_hour</item>
+		<item>@string/manually_only</item>
 	</string-array>
 </resources>

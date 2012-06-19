@@ -204,154 +204,88 @@
   <string name="alerts_100_" formatted="false">剩余到达100\'%时提示</string>
   <string name="alerts_100_hint" formatted="false">剩余超过100\'%时提示.</string>
   <string name="widget_config_" formatted="false">小部件配置</string>
-  <string-array name="weekdays_all">
-    <item>整周</item>
-    <item>星期一</item>
-    <item>星期二</item>
-    <item>星期三</item>
-    <item>星期四</item>
-    <item>星期五</item>
-    <item>星期六</item>
-    <item>星期日</item>
-    <item>Monday - Friday</item>
-  </string-array>
-  <string-array name="hours_all">
-    <item>全天</item>
-    <item>0:00 - 0:59</item>
-    <item>1:00 - 1:59</item>
-    <item>2:00 - 2:59</item>
-    <item>3:00 - 3:59</item>
-    <item>4:00 - 4:59</item>
-    <item>5:00 - 5:59</item>
-    <item>6:00 - 6:59</item>
-    <item>7:00 - 7:59</item>
-    <item>8:00 - 8:59</item>
-    <item>9:00 - 9:59</item>
-    <item>10:00 - 10:59</item>
-    <item>11:00 - 11:59</item>
-    <item>12:00 - 12:59</item>
-    <item>13:00 - 13:59</item>
-    <item>14:00 - 14:59</item>
-    <item>15:00 - 15:59</item>
-    <item>16:00 - 16:59</item>
-    <item>17:00 - 17:59</item>
-    <item>18:00 - 18:59</item>
-    <item>19:00 - 19:59</item>
-    <item>20:00 - 20:59</item>
-    <item>21:00 - 21:59</item>
-    <item>22:00 - 22:59</item>
-    <item>23:00 - 23:59</item>
-  </string-array>
-  <string-array name="themes">
-    <item>黑</item>
-    <item>白</item>
-  </string-array>
-  <string-array name="dialog_edit_plan">
-    <item>编辑方案</item>
-    <item notranslation="true">View Logs</item>
-  </string-array>
-  <string-array name="dialog_delete">
-    <item>删除</item>
-  </string-array>
-  <string-array name="dialog_edit_delete">
-    <item>编辑</item>
-    <item>删除</item>
-  </string-array>
-  <string-array name="plans_type">
-    <item>仅标题</item>
-    <item>空白</item>
-    <item>账单周期</item>
-    <item>混合</item>
-    <item>电话</item>
-    <item>短信</item>
-    <item>彩信</item>
-    <item>数据连接</item>
-  </string-array>
-  <string-array name="rules_type">
-    <item>电话</item>
-    <item>短信</item>
-    <item>彩信</item>
-    <item>数据连接</item>
-  </string-array>
-  <string-array name="limit_type">
-    <item>无限</item>
-    <item>单元</item>
-    <item>花费</item>
-  </string-array>
-  <string-array name="billperiod">
-    <item>一天</item>
-    <item>一周</item>
-    <item>14天</item>
-    <item>15天</item>
-    <item>30天</item>
-    <item>31天</item>
-    <item>60天</item>
-    <item>90天</item>
-    <item>一个月</item>
-		<item notranslation="true">One month + one day</item>
-    <item>两个月</item>
-    <item>三个月</item>
-    <item>Four month</item>
-    <item>Five month</item>
-    <item>Six month</item>
-    <item>One year</item>
-    <item>无限</item>
-  </string-array>
-  <string-array name="billmodes">
-    <item>1/1</item>
-    <item>6/6</item>
-    <item>10/10</item>
-    <item>30/1</item>
-    <item>30/6</item>
-    <item>30/10</item>
-    <item>30/30</item>
-    <item>30/60</item>
-    <item>45/1</item>
-    <item>60/0</item>
-    <item>60/1</item>
-    <item>60/6</item>
-    <item>60/10</item>
-    <item>60/15</item>
-    <item>60/30</item>
-    <item>60/60</item>
-    <item>Custom</item>
-  </string-array>
-  <string-array name="direction_calls">
-    <item>接听</item>
-    <item>拨打</item>
-  </string-array>
-  <string-array name="direction_sms">
-    <item>接收</item>
-    <item>发送</item>
-  </string-array>
-  <string-array name="direction_mms" username="Lancer">
-    <item>接收</item>
-    <item>发送</item>
-  </string-array>
-  <string-array name="direction_data">
-    <item>下行</item>
-    <item>上行</item>
-  </string-array>
-  <string-array name="currency_formats">
-    <item>默认</item>
-    <item>￥1.00</item>
-    <item>￥1000</item>
-    <item>1.00￥</item>
-    <item>1000￥</item>
-  </string-array>
-  <string-array name="date_formats">
-    <item>默认</item>
-    <item>月/天/年</item>
-    <item>天/月/年</item>
-    <item>天.月.年</item>
-  </string-array>
-  <string-array name="update_interval" username="Lancer">
-    <item>5分钟</item>
-    <item>10分钟</item>
-    <item>15分钟</item>
-    <item>30分钟</item>
-    <item>一个小时</item>
-    <item>两个小时</item>
-    <item>仅手动更新</item>
-  </string-array>
+  <string name="all_week">整周</string>
+  <string name="monday">星期一</string>
+  <string name="tuesday">星期二</string>
+  <string name="wednesday">星期三</string>
+  <string name="thursday">星期四</string>
+  <string name="friday">星期五</string>
+  <string name="saturday">星期六</string>
+  <string name="sunday">星期日</string>
+  <string name="monday_till_friday">Monday - Friday</string>
+  <string name="all_day">全天</string>
+  <string name="day_0">0:00 - 0:59</string>
+  <string name="day_1">1:00 - 1:59</string>
+  <string name="day_2">2:00 - 2:59</string>
+  <string name="day_3">3:00 - 3:59</string>
+  <string name="day_4">4:00 - 4:59</string>
+  <string name="day_5">5:00 - 5:59</string>
+  <string name="day_6">6:00 - 6:59</string>
+  <string name="day_7">7:00 - 7:59</string>
+  <string name="day_8">8:00 - 8:59</string>
+  <string name="day_9">9:00 - 9:59</string>
+  <string name="day_10">10:00 - 10:59</string>
+  <string name="day_11">11:00 - 11:59</string>
+  <string name="day_12">12:00 - 12:59</string>
+  <string name="day_13">13:00 - 13:59</string>
+  <string name="day_14">14:00 - 14:59</string>
+  <string name="day_15">15:00 - 15:59</string>
+  <string name="day_16">16:00 - 16:59</string>
+  <string name="day_17">17:00 - 17:59</string>
+  <string name="day_18">18:00 - 18:59</string>
+  <string name="day_19">19:00 - 19:59</string>
+  <string name="day_20">20:00 - 20:59</string>
+  <string name="day_21">21:00 - 21:59</string>
+  <string name="day_22">22:00 - 22:59</string>
+  <string name="day_23">23:00 - 23:59</string>
+  <string name="theme_black">黑</string>
+  <string name="theme_light">白</string>
+  <string name="edit_plan_">编辑方案</string>
+  <string name="delete_">删除</string>
+  <string name="title">仅标题</string>
+  <string name="spacer">空白</string>
+  <string name="mixed">电话</string>
+  <string name="limit_type_unlimited">无限</string>
+  <string name="limit_type_units">单元</string>
+  <string name="limit_type_cost">花费</string>
+  <string name="1_day">一天</string>
+  <string name="1_week">一周</string>
+  <string name="14_day">14天</string>
+  <string name="15_day">15天</string>
+  <string name="30_day">30天</string>
+  <string name="31_day">31天</string>
+  <string name="60_day">60天</string>
+  <string name="90_day">90天</string>
+  <string name="1_month">一个月</string>
+  <string name="2_month">两个月</string>
+  <string name="3_month">三个月</string>
+  <string name="4_month">Four month</string>
+  <string name="5_month">Five month</string>
+  <string name="6_month">Six month</string>
+  <string name="1_year">One year</string>
+  <string name="infinite">无限</string>
+  <string name="custom">Custom</string>
+  <string name="direction_calls_in">接听</string>
+  <string name="direction_calls_out">拨打</string>
+  <string name="direction_sms_in">接收</string>
+  <string name="direction_sms_out">发送</string>
+  <string name="direction_mms_in">接收</string>
+  <string name="direction_mms_out">发送</string>
+  <string name="direction_data_in">下行</string>
+  <string name="direction_data_out">上行</string>
+  <string name="default">默认</string>
+  <string name="currency_formats_1">￥1.00</string>
+  <string name="currency_formats_2">￥1000</string>
+  <string name="currency_formats_3">1.00￥</string>
+  <string name="currency_formats_4">1000￥</string>
+  <string name="date_formats_1">月/天/年</string>
+  <string name="date_formats_2">天/月/年</string>
+  <string name="date_formats_3">天.月.年</string>
+  <string name="5_minute">5分钟</string>
+  <string name="10_minute">10分钟</string>
+  <string name="15_minute">15分钟</string>
+  <string name="30_minute">30分钟</string>
+  <string name="1_hour">一个小时</string>
+  <string name="2_hour">两个小时</string>
+  <string name="manually_only">仅手动更新</string>
 </resources>

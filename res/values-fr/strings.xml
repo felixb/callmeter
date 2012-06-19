@@ -40,10 +40,8 @@
   <string name="billdate_" formatted="false">Début de la période de facturation:</string>
   <string name="theme_" formatted="false">Thème</string>
   <string name="textsize_" formatted="false">Taille du texte</string>
-  <string-array name="themes">
-    <item>Noir</item>
-    <item>Clair</item>
-  </string-array>
+  <string name="theme_black">Noir</string>
+  <string name="theme_light">Clair</string>
   <string name="calls" formatted="false" orig="Calls">Appels</string>
   <string name="calls_out" formatted="false" orig="Calls Out">Appels sortants</string>
   <string name="messages_" formatted="false" orig="SMS/MMS">SMS/MMS</string>
