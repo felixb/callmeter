@@ -22,21 +22,21 @@
        -->
 <resources>
   <string name="about0_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Watch your call, message and data plans!">Obserwuj swoje połączenia, wiadomości oraz pakiet rozmów!</string>
-  <string name="about0" formatted="false">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Wspiera wiele planów taryfowych..</string>
-  <string name="about1" formatted="false">Format wyjściowy wykorzystuje /czas, całość wykorzystanego rachunku /czas, całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>
+  <string name="about0" formatted="false" username="najodleglejszy" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Obsługuje wiele planów taryfowych.</string>
+  <string name="about1" formatted="false" username="najodleglejszy" orig="The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not.">Format wyjściowy to wykorzystanie/czas, całość wykorzystanego rachunku/czas lub całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>
   <string name="about2" formatted="false">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
   <string name="about3" formatted="false">Możesz podzielić swoje połączenia lub sms na dwa plany. Oba plany mogą być ustawione na całodobowe darmowe połączenia lub w określonych godzinach.</string>
   <string name="about4" formatted="false">Wiadomości mogą być brane pod uwagę w Twoim planie. Np. zliczać każdy wysłany sms jako 15s. połączenie.</string>
-  <string name="about5" formatted="false">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
+  <string name="about5" formatted="false" username="najodleglejszy" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń, które pojawiły się wcześniej niż 30 min temu może spowodować przekłamanie statystyk.</string>
   <string name="about6_" formatted="false">Czego CallMeter NIE robi:</string>
-  <string name="about6" formatted="false" orig="There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs.">Nie da się odróżnić połączeń SIP od realnych połączeń lub WebSMS od SMS wysłanych "z telefonu". Android \'s bezproblemową integrację tych. Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości żeby je odróżnić.</string>
+  <string name="about6" formatted="false" orig="There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs." username="najodleglejszy">Nie da się odróżnić połączeń SIP od realnych połączeń lub WebSMS od SMS wysłanych "z telefonu". Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości ich odróżnienia.</string>
   <string name="send_" formatted="false">Wyślij</string>
   <string name="settings" formatted="false">Ustawienia</string>
   <string name="about_" formatted="false">O programie</string>
   <string name="about_hint" formatted="false">Informacje o programie i twórcy</string>
   <string name="faq_hint" formatted="false">Kilka informacji, jak skonfigurować aplikację</string>
   <string name="feedback_" formatted="false">Kontakt</string>
-  <string name="feedback_hint" formatted="false">Zgłoś problemy, sugestię...</string>
+  <string name="feedback_hint" formatted="false" username="najodleglejszy" orig="Report bugs, request features ...">Zgłoś problemy, sugestie...</string>
   <string name="twitter_hint" formatted="false">Obserwuj mojego twittera.\nOtrzymasz informacje o aktualizacjach, itp.</string>
   <string name="more_" formatted="false">Więcej aplikacji...</string>
   <string name="billday_" formatted="false">Pierwszy dzień rachunku</string>
@@ -54,12 +54,12 @@
   <string name="textsize_" formatted="false">Wielkość czcionki</string>
   <string name="advanced_" formatted="false">Zaawansowane</string>
   <string name="exclude_people_" formatted="false">Wykluczaj numery</string>
-  <string name="exclude_people_hint" formatted="false">Nie wlicza numerów do statystyk</string>
+  <string name="exclude_people_hint" formatted="false" username="najodleglejszy" orig="Don\'t bill some numbers\nwildcards allowed: *555, 555* or *555*">Nie wlicza numerów do statystyk\nmożliwe zastąpienia ciągów znaków symbolem *: *555, 555*, *555*</string>
   <string name="exclude_people_add" formatted="false">Dodaj numer</string>
   <string name="exclude_people_edit" formatted="false">Edytuj</string>
   <string name="exclude_people_delete" formatted="false">Usuń</string>
   <string name="exclude_people_to_plan1_" formatted="false">Wykluczone numery do planu 1</string>
-  <string name="exclude_people_to_plan2_" formatted="false" username="" orig="Excluded numbers to plan #2">Wykluczone numery do planu 2</string>
+  <string name="exclude_people_to_plan2_" formatted="false" orig="Excluded numbers to plan #2">Wykluczone numery do planu 2</string>
   <string name="exclude_people_calls_" formatted="false">Włącz dla Połączeń</string>
   <string name="exclude_people_calls_to_plan1_hint" formatted="false">Wliczaj połączenia do/od wykluczonych numerów w planie 1</string>
   <string name="exclude_people_calls_to_plan2_hint" formatted="false">Wliczaj połączenia do/od wykluczonych numerów w planie 2</string>
@@ -139,6 +139,6 @@
     <item>Mały</item>
     <item>Średni</item>
   </string-array>
-  <string name="data_show_simple_" formatted="false" username="" orig="Show only \&quot;Data\&quot; as title">Pokaż tylko "Dane" w tytule</string>
-  <string name="data_show_simple_hint" formatted="false" username="" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Ukryj "(2G/3G/4G)" w tytule. To nie ma wpływu na statystyki.</string>
+  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Pokaż tylko "Dane" w tytule</string>
+  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Ukryj "(2G/3G/4G)" w tytule. To nie ma wpływu na statystyki.</string>
 </resources>
