@@ -21,47 +21,47 @@
                Visit http://ub0r.de/translate/cm2/nl/strings.xml to edit the file.
        -->
 <resources>
-  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
-  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter genereert rapporten uit de gesprek, berichten en data log van je telefoon. Het ondersteunt meerdere manieren van factureren.</string>
-  <string name="about1" formatted="false" orig="The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not.">Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
-  <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
-  <string name="about3" formatted="false" orig="You can split your call or message plan into up to two plans. Each plan can be set to be totally free, capped to a set limit or unlimited.">Je kunt je verbruik in 2 schema\'s splitsen. Elk schema kan geheel vrij ingesteld worden, beperkt tot een bepaalde limiet of onbeperkt.</string>
-  <string name="about4" formatted="false" orig="Your messages can be merged into your call plan. E.g. counting every message as a 15s call.">Je berichten kunnen samengevoegd worden met je gespreksminuten. Bijvoorbeeld: elk bericht als een gesprek van 15 sec. rekenen.</string>
-  <string name="about5" formatted="false" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter werkt zich elke 30 minuten op de achtergrond bij (alleen wanneer niet in standby). Dit betekent dat het verwijderen van gesprekken of berichten ouder dan 30 min. de statistieken niet wijzigt. Het verwijderen van gesprekken of berichten jonger dan 30 min. kan resulteren in onjuiste statistieken.</string>
-  <string name="about6_" formatted="false" orig="What does CallMeter NG not do:">Wat doet CallMeter NG niet:</string>
-  <string name="about6" formatted="false">Het is onmogelijk een onderscheid te maken tussen Sipdroid en echte gesprekken of tussen websms en echte sms. Android\'s naadloze integratie van deze applicaties maakt het onmogelijk om dit later in de log te onderscheiden.</string>
-  <string name="send_" formatted="false">Verstuur</string>
-  <string name="settings" formatted="false">Voorkeuren</string>
-  <string name="about_" formatted="false">Over</string>
-  <string name="about_hint" formatted="false">Over deze app</string>
-  <string name="faq_hint" formatted="false">Tips &amp; trucks hoe deze app in te stellen.</string>
-  <string name="feedback_" formatted="false">Feedback</string>
-  <string name="feedback_hint" formatted="false">Meld bugs, suggesties ...</string>
-  <string name="twitter_hint" formatted="false">Volg mij op twitter.\nKrijg update notificaties etc.</string>
-  <string name="more_" formatted="false">Meer apps..</string>
-  <string name="billday_" formatted="false">Eerste dag van facturatie</string>
-  <string name="billmode_" formatted="false">Facturatie modus</string>
-  <string name="billmode_hint" formatted="false">Lengte van eerste/volgende facturatie eenheden.</string>
-  <string name="billdate_" formatted="false">Begin facturatie periode:</string>
-  <string name="smsperiod_" formatted="false">Zelfde voor SMS</string>
-  <string name="smsperiod_hint" formatted="false">Stel factuur periode SMS gelijk aan die van gesprekken.</string>
-  <string name="smsbillday_" formatted="false">Eerste dag SMS facturatie</string>
-  <string name="dataperiod_" formatted="false">Zelfde als voor data</string>
-  <string name="dataperiod_hint" formatted="false">Stel factuur periode data gelijk aan die van gesprekken.</string>
-  <string name="databillday_" formatted="false">Eerst dag facturatie data</string>
-  <string name="appearance_" formatted="false">Uiterlijk</string>
-  <string name="theme_" formatted="false">Thema</string>
-  <string name="textsize_" formatted="false">Text grootte</string>
-  <string name="advanced_" formatted="false">Geavanceerd</string>
-  <string name="exclude_people_" formatted="false">Nummers uitsluiten</string>
-  <string name="exclude_people_hint" formatted="false">Alleen telefoongesprekken\njokers toegestaan: *555, 555* of *555*</string>
-  <string name="exclude_people_add" formatted="false">Nummer toevoegen</string>
-  <string name="exclude_people_edit" formatted="false">Bewerken</string>
-  <string name="exclude_people_delete" formatted="false">Verwijderen</string>
-  <string name="exclude_people_to_plan1_" formatted="false">Uitgesloten nummers naar schema 1</string>
-  <string name="exclude_people_to_plan2_" formatted="false">Uitgesloten nummers naar schema 2</string>
-  <string name="exclude_people_calls_" formatted="false">Aanzetten voor gesprekken</string>
-  <string name="exclude_people_calls_to_plan1_hint" formatted="false">Factureer gesprekken naar/van uitgesloten nummers in schema #1</string>
+  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!" username="rainbowwarrior7">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
+  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing." username="rainbowwarrior7">CallMeter genereert rapporten uit de gesprek, berichten en data log van je telefoon. Het ondersteunt meerdere manieren van factureren.</string>
+  <string name="about1" formatted="false" orig="The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not." username="rainbowwarrior7">Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
+  <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s." username="rainbowwarrior7">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
+  <string name="about3" formatted="false" orig="You can split your call or message plan into up to two plans. Each plan can be set to be totally free, capped to a set limit or unlimited." username="rainbowwarrior7">Je kunt je verbruik in 2 schema\'s splitsen. Elk schema kan geheel vrij ingesteld worden, beperkt tot een bepaalde limiet of onbeperkt.</string>
+  <string name="about4" formatted="false" orig="Your messages can be merged into your call plan. E.g. counting every message as a 15s call." username="rainbowwarrior7">Je berichten kunnen samengevoegd worden met je gespreksminuten. Bijvoorbeeld: elk bericht als een gesprek van 15 sec. rekenen.</string>
+  <string name="about5" formatted="false" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics." username="rainbowwarrior7">CallMeter werkt zich elke 30 minuten op de achtergrond bij (alleen wanneer niet in standby). Dit betekent dat het verwijderen van gesprekken of berichten ouder dan 30 min. de statistieken niet wijzigt. Het verwijderen van gesprekken of berichten jonger dan 30 min. kan resulteren in onjuiste statistieken.</string>
+  <string name="about6_" formatted="false" orig="What does CallMeter NG not do:" username="rainbowwarrior7">Wat doet CallMeter NG niet:</string>
+  <string name="about6" formatted="false" username="rainbowwarrior7" orig="There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs.">Het is onmogelijk een onderscheid te maken tussen Sipdroid en echte gesprekken of tussen websms en echte sms. Android\'s naadloze integratie van deze applicaties maakt het onmogelijk om dit later in de log te onderscheiden.</string>
+  <string name="send_" formatted="false" username="rainbowwarrior7" orig="Send">Verstuur</string>
+  <string name="settings" formatted="false" username="rainbowwarrior7" orig="Preferences">Voorkeuren</string>
+  <string name="about_" formatted="false" username="rainbowwarrior7" orig="About">Over</string>
+  <string name="about_hint" formatted="false" username="rainbowwarrior7" orig="About this app">Over deze app</string>
+  <string name="faq_hint" formatted="false" username="rainbowwarrior7" orig="Some tips and tricks, how to set up this app.">Tips &amp; trucks hoe deze app in te stellen.</string>
+  <string name="feedback_" formatted="false" username="rainbowwarrior7" orig="Feedback">Feedback</string>
+  <string name="feedback_hint" formatted="false" username="rainbowwarrior7" orig="Report bugs, request features ...">Meld bugs, suggesties ...</string>
+  <string name="twitter_hint" formatted="false" username="rainbowwarrior7" orig="Follow me on twitter.\nGet update notifications etc.">Volg mij op twitter.\nKrijg update notificaties etc.</string>
+  <string name="more_" formatted="false" username="rainbowwarrior7" orig="More Apps..">Meer apps..</string>
+  <string name="billday_" formatted="false" username="rainbowwarrior7" orig="First day of your bill">Eerste dag van facturatie</string>
+  <string name="billmode_" formatted="false" username="rainbowwarrior7" orig="Mode of billing">Facturatie modus</string>
+  <string name="billmode_hint" formatted="false" username="rainbowwarrior7" orig="Length of first/following billing intervals.">Lengte van eerste/volgende facturatie eenheden.</string>
+  <string name="billdate_" formatted="false" username="rainbowwarrior7" orig="Start of billing period:">Begin facturatie periode:</string>
+  <string name="smsperiod_" formatted="false" username="rainbowwarrior7" orig="Same Period for SMS">Zelfde voor SMS</string>
+  <string name="smsperiod_hint" formatted="false" username="rainbowwarrior7" orig="Set SMS\'s billing period to calls\' period.">Stel factuur periode SMS gelijk aan die van gesprekken.</string>
+  <string name="smsbillday_" formatted="false" username="rainbowwarrior7" orig="First day of your SMS bill">Eerste dag SMS facturatie</string>
+  <string name="dataperiod_" formatted="false" username="rainbowwarrior7" orig="Same Period for data">Zelfde als voor data</string>
+  <string name="dataperiod_hint" formatted="false" username="rainbowwarrior7" orig="Set data\'s billing period to calls\' period.">Stel factuur periode data gelijk aan die van gesprekken.</string>
+  <string name="databillday_" formatted="false" username="rainbowwarrior7" orig="First day of your data bill">Eerst dag facturatie data</string>
+  <string name="appearance_" formatted="false" username="rainbowwarrior7" orig="Appearance">Uiterlijk</string>
+  <string name="theme_" formatted="false" username="rainbowwarrior7" orig="Theme">Thema</string>
+  <string name="textsize_" formatted="false" username="rainbowwarrior7" orig="Text size">Text grootte</string>
+  <string name="advanced_" formatted="false" username="rainbowwarrior7" orig="Advanced">Geavanceerd</string>
+  <string name="exclude_people_" formatted="false" username="rainbowwarrior7" orig="Exclude numbers">Nummers uitsluiten</string>
+  <string name="exclude_people_hint" formatted="false" username="rainbowwarrior7" orig="Don\'t bill some numbers\nwildcards allowed: *555, 555* or *555*">Alleen telefoongesprekken\njokers toegestaan: *555, 555* of *555*</string>
+  <string name="exclude_people_add" formatted="false" username="rainbowwarrior7" orig="Add number">Nummer toevoegen</string>
+  <string name="exclude_people_edit" formatted="false" username="rainbowwarrior7" orig="Edit">Bewerken</string>
+  <string name="exclude_people_delete" formatted="false" username="rainbowwarrior7" orig="Delete">Verwijderen</string>
+  <string name="exclude_people_to_plan1_" formatted="false" username="rainbowwarrior7" orig="Excluded numbers to plan #1">Uitgesloten nummers naar schema 1</string>
+  <string name="exclude_people_to_plan2_" formatted="false" username="rainbowwarrior7" orig="Excluded numbers to plan #2">Uitgesloten nummers naar schema 2</string>
+  <string name="exclude_people_calls_" formatted="false" username="rainbowwarrior7" orig="Enable for Calls">Aanzetten voor gesprekken</string>
+  <string name="exclude_people_calls_to_plan1_hint" formatted="false" username="rainbowwarrior7" orig="Bill calls to/from excluded numbers in plan #1">Factureer gesprekken naar/van uitgesloten nummers in schema #1</string>
   <string name="exclude_people_calls_to_plan2_hint" formatted="false">Factureer gesprekken naar/van uitgesloten nummers in schema #2</string>
   <string name="exclude_people_sms_" formatted="false">Aanzetten voor SMS</string>
   <string name="exclude_people_sms_to_plan1_hint" formatted="false">Factureer sms\'jes naar/van uitgesloten nummers in schema #1</string>

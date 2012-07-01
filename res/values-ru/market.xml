@@ -21,4 +21,5 @@
                Visit http://ub0r.de/translate/cm2/ru/market.xml to edit the file.
        -->
 <resources>
+  <string name="market_translation" formatted="false" username="igor.karasenko@gmail.com" orig="Feel free to help translating this app to your language here: http://ub0r.de/translate/cm2/">Хотите помочь с переводом этой программы на Ваш язык? Вы можете это сделать здесь: http://ub0r.de/translate/cm2/</string>
 </resources>
