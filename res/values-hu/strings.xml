@@ -274,156 +274,91 @@
   <string name="widget_text_color_" formatted="false" orig="Text color">Szöveg szín</string>
   <string name="widget_backgroud_color_" formatted="false" orig="Background color">Háttér szín</string>
   <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency">Háttér átlátszóság</string>
-  <string-array name="weekdays_all">
-    <item>Minden hét</item>
-    <item>Hétfő</item>
-    <item>Kedd</item>
-    <item>Szerda</item>
-    <item>Csütörtök</item>
-    <item>Péntek</item>
-    <item>Szombat</item>
-    <item>Vasárnap</item>
-    <item>Hétfőtől péntekig</item>
-  </string-array>
-  <string-array name="hours_all">
-    <item>Egész nap</item>
-    <item>0:00-00:59</item>
-    <item>1:00-01:59</item>
-    <item>2:00-02:59</item>
-    <item>3:00-03:59</item>
-    <item>4: 00-4: 59</item>
-    <item>5:00-05:59</item>
-    <item>6:00-06:59</item>
-    <item>7:00-07:59</item>
-    <item>8:00-08:59</item>
-    <item>9:00-09:59</item>
-    <item>10:00-10:59</item>
-    <item>11:00-11:59</item>
-    <item>12:00-12:59</item>
-    <item>13:00-13:59</item>
-    <item>14:00-14:59</item>
-    <item>15:00-15:59</item>
-    <item>16:00-16:59</item>
-    <item>17:00-17:59</item>
-    <item>18:00-18:59</item>
-    <item>19:00-19:59</item>
-    <item>20:00-20:59</item>
-    <item>21:00-21:59</item>
-    <item>22:00-22:59</item>
-    <item>23:00-23:59</item>
-  </string-array>
-  <string-array name="themes">
-    <item>Fekete</item>
-    <item>Világos</item>
-  </string-array>
-  <string-array name="dialog_edit_plan">
-    <item>Tarifa szerkesztése</item>
-    <item>Log-ok megtekintése</item>
-  </string-array>
-  <string-array name="dialog_delete">
-    <item>Törlés</item>
-  </string-array>
-  <string-array name="dialog_edit_delete">
-    <item>Szerkesztés</item>
-    <item>Törlés</item>
-  </string-array>
-  <string-array name="plans_type">
-    <item>Cím</item>
-    <item>Elválasztó</item>
-    <item>Számlázási időszak</item>
-    <item>Vegyes</item>
-    <item>Hívás</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Adatforgalom</item>
-  </string-array>
-  <string-array name="rules_type">
-    <item>Hívások</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Adatforgalom</item>
-  </string-array>
-  <string-array name="limit_type">
-    <item>korlátlan</item>
-    <item>egységek</item>
-    <item>költség</item>
-  </string-array>
-  <string-array name="billperiod">
-    <item>Egy nap</item>
-    <item>Egy hét</item>
-    <item>14 nap</item>
-    <item>15 nap</item>
-    <item>30 nap</item>
-    <item>31 nap</item>
-    <item>60 nap</item>
-    <item>90 nap</item>
-    <item>Egy hónap</item>
-		<item notranslation="true">One month + one day</item>
-    <item>Két hónap</item>
-    <item>Három hónap</item>
-    <item>Négy hónap</item>
-    <item>Öt hónap</item>
-    <item>Fél év</item>
-    <item>Egy év</item>
-    <item>Korlátlan</item>
-  </string-array>
-  <string-array name="billmodes">
-    <item>1 / 1</item>
-    <item>6 / 6</item>
-    <item>10 / 10</item>
-    <item>30 / 1</item>
-    <item>30 / 6</item>
-    <item>30 / 10</item>
-    <item>30/30</item>
-    <item>30 / 60</item>
-    <item>45 / 1</item>
-    <item>60 / 0</item>
-    <item>60 / 1</item>
-    <item>60 / 6</item>
-    <item>60 / 10</item>
-    <item>60 / 15</item>
-    <item>60 / 30</item>
-    <item>60/60</item>
-    <item>Egyéni</item>
-  </string-array>
-  <string-array name="direction_calls">
-    <item>Bejövő</item>
-    <item>Kimenő</item>
-  </string-array>
-  <string-array name="direction_sms">
-    <item>Bejövő</item>
-    <item>Elküldött</item>
-  </string-array>
-  <string-array name="direction_mms">
-    <item>Bejövő</item>
-    <item>Elküldött</item>
-  </string-array>
-  <string-array name="direction_data">
-    <item>Be</item>
-    <item>kívül</item>
-  </string-array>
-  <string-array name="currency_formats">
-    <item>Alapértelmezett</item>
-    <item>1,00 Ft</item>
-    <item>Ft 1000</item>
-    <item>1,00 Ft</item>
-    <item>1000 Ft</item>
-  </string-array>
-  <string-array name="date_formats">
-    <item>Alapértelmezett</item>
-    <item>HH/NN/ÉÉ</item>
-    <item>NN/HH/ÉÉÉÉ</item>
-    <item>NN.HH.ÉÉÉÉ</item>
-  </string-array>
-  <string-array name="update_interval">
-    <item>5 perc</item>
-    <item>10 perc</item>
-    <item>15 perc</item>
-    <item>30 perc</item>
-    <item>Egy óra</item>
-    <item>Két óra</item>
-    <item>Csak manuálisan</item>
-  </string-array>
+  <string name="all_week">Minden hét</string>
+  <string name="monday">Hétfő</string>
+  <string name="tuesday">Kedd</string>
+  <string name="wednesday">Szerda</string>
+  <string name="thursday">Csütörtök</string>
+  <string name="friday">Péntek</string>
+  <string name="saturday">Szombat</string>
+  <string name="sunday">Vasárnap</string>
+  <string name="monday_till_friday">Hétfőtől péntekig</string>
+  <string name="all_day">Egész nap</string>
+  <string name="day_0">0:00-00:59</string>
+  <string name="day_1">1:00-01:59</string>
+  <string name="day_2">2:00-02:59</string>
+  <string name="day_3">3:00-03:59</string>
+  <string name="day_4">4: 00-4: 59</string>
+  <string name="day_5">5:00-05:59</string>
+  <string name="day_6">6:00-06:59</string>
+  <string name="day_7">7:00-07:59</string>
+  <string name="day_8">8:00-08:59</string>
+  <string name="day_9">9:00-09:59</string>
+  <string name="day_10">10:00-10:59</string>
+  <string name="day_11">11:00-11:59</string>
+  <string name="day_12">12:00-12:59</string>
+  <string name="day_13">13:00-13:59</string>
+  <string name="day_14">14:00-14:59</string>
+  <string name="day_15">15:00-15:59</string>
+  <string name="day_16">16:00-16:59</string>
+  <string name="day_17">17:00-17:59</string>
+  <string name="day_18">18:00-18:59</string>
+  <string name="day_19">19:00-19:59</string>
+  <string name="day_20">20:00-20:59</string>
+  <string name="day_21">21:00-21:59</string>
+  <string name="day_22">22:00-22:59</string>
+  <string name="day_23">23:00-23:59</string>
+  <string name="theme_black">Fekete</string>
+  <string name="theme_light">Világos</string>
+  <string name="edit_plan_">Tarifa szerkesztése</string>
+  <string name="view_logs_">Log-ok megtekintése</string>
+  <string name="delete_">Törlés</string>
+  <string name="title">Cím</string>
+  <string name="spacer">Elválasztó</string>
+  <string name="mixed">Hívás</string>
+  <string name="limit_type_unlimited">korlátlan</string>
+  <string name="limit_type_units">egységek</string>
+  <string name="limit_type_cost">költség</string>
+  <string name="1_day">Egy nap</string>
+  <string name="1_week">Egy hét</string>
+  <string name="14_day">14 nap</string>
+  <string name="15_day">15 nap</string>
+  <string name="30_day">30 nap</string>
+  <string name="31_day">31 nap</string>
+  <string name="60_day">60 nap</string>
+  <string name="90_day">90 nap</string>
+  <string name="1_month">Egy hónap</string>
+  <string name="2_month">Két hónap</string>
+  <string name="3_month">Három hónap</string>
+  <string name="4_month">Négy hónap</string>
+  <string name="5_month">Öt hónap</string>
+  <string name="6_month">Fél év</string>
+  <string name="1_year">Egy év</string>
+  <string name="infinite">Korlátlan</string>
+  <string name="custom">Egyéni</string>
+  <string name="direction_calls_in">Bejövő</string>
+  <string name="direction_calls_out">Kimenő</string>
+  <string name="direction_sms_in">Bejövő</string>
+  <string name="direction_sms_out">Elküldött</string>
+  <string name="direction_mms_in">Bejövő</string>
+  <string name="direction_mms_out">Elküldött</string>
+  <string name="direction_data_in">Be</string>
+  <string name="direction_data_out">kívül</string>
+  <string name="default">Alapértelmezett</string>
+  <string name="currency_formats_1">1,00 Ft</string>
+  <string name="currency_formats_2">Ft 1000</string>
+  <string name="currency_formats_3">1,00 Ft</string>
+  <string name="currency_formats_4">1000 Ft</string>
+  <string name="date_formats_1">HH/NN/ÉÉ</string>
+  <string name="date_formats_2">NN/HH/ÉÉÉÉ</string>
+  <string name="date_formats_3">NN.HH.ÉÉÉÉ</string>
+  <string name="5_minute">5 perc</string>
+  <string name="10_minute">10 perc</string>
+  <string name="15_minute">15 perc</string>
+  <string name="30_minute">30 perc</string>
+  <string name="1_hour">Egy óra</string>
+  <string name="2_hour">Két óra</string>
+  <string name="manually_only">Csak manuálisan</string>
   <string name="simple_preferences_" formatted="false" orig="Simple preferences">Alapbeállítások</string>
   <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Nagyon egyszerű beállítások, megfelelő a legtöbb felhasználónak. Csak az alapértelmezett szabály beállítással érhető el.</string>
   <string name="show_icon_" formatted="false" orig="Show icon">Ikon mutatása</string>
@@ -467,16 +402,10 @@
   <string name="export_rules_dev_" formatted="false" orig="Export rule set to developer">Szabályok exportálása a fejlesztő számára</string>
   <string name="export_rules_dev_hint" formatted="false" orig="Export rule set to let others import it.">Szabályok exportálása, hogy mások importálhassák.</string>
   <string name="import_rules_www_hint" formatted="false" orig="Import pre-configured rule set from http://www.ub0r.de/.">Előre beállított szabályok importálása a http://www.ub0r.de/ címről.</string>
-  <string-array name="update_interval_data">
-    <item>0.5 perc</item>
-    <item>1 perc</item>
-    <item>2 perc</item>
-    <item>5 perc</item>
-    <item>15 perc</item>
-    <item>30 perc</item>
-    <item>1 óra</item>
-    <item>Csak manuálisan</item>
-  </string-array>
+  <string name="05_minute">0.5 perc</string>
+  <string name="1_minute">1 perc</string>
+  <string name="2_minute">2 perc</string>
+  <string name="5_minute">5 perc</string>
   <string name="loading" formatted="false" orig="Loading ...">Betöltés ...</string>
   <string name="import_rules_sd_nofiles" formatted="false" orig="No found files">Fáljok nem találhatók</string>
   <string name="import_rules_sd_files" formatted="false" orig="Found files">Fájl található</string>

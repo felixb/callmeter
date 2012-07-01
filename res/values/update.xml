@@ -18,7 +18,7 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string-array name="updates">
+	<string-array name="updates" translatable="false">
 		<item>HEAD: update abs 4.0</item>
 		<item>v3.4.2: fix 31d bill period, update translations</item>
 		<item>v3.4.1: show past bill periods as 100%, fix import/export of rules with new and old bill periods</item>

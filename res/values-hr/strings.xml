@@ -69,156 +69,91 @@
   <string name="textsize_bigtitle_hint" formatted="false" orig="Text size for big titles in pixels; leave empty for default">Veličina slova u Velikom naslovu u pikselima; ostavite prazno za predefinirano</string>
   <string name="textsize_spacer_" formatted="false" username="lesart.mario@gmail.com" orig="Spacer\'s size">Veličina razmaka</string>
   <string name="textsize_spacer_hint" formatted="false" orig="Size for spacers in pixels; leave empty for default">Veličina razmaka u pikselima; ostavite prazno za predefinirano</string>
-  <string-array name="billperiod">
-    <item>Jedan dan</item>
-    <item>Jedan tjedan</item>
-    <item>14 dana</item>
-    <item>15 dana</item>
-    <item>30 dana</item>
-    <item>31 dana</item>
-    <item>60 dana</item>
-    <item>90 dana</item>
-    <item>Jedan mjesec</item>
-		<item notranslation="true">One month + one day</item>
-    <item>Dva mjeseca</item>
-    <item>Tri mjeseca</item>
-    <item>Četiri mjeseca</item>
-    <item>Pet mjeseci</item>
-    <item>Šest mjeseci</item>
-    <item>Jedna godina</item>
-    <item>Beskonačno</item>
-  </string-array>
-  <string-array name="rules_type">
-    <item>Pozivi</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Prijenos podataka</item>
-  </string-array>
-  <string-array name="limit_type">
-    <item>Neograničeno</item>
-    <item>jedinica</item>
-    <item>vrijednost</item>
-  </string-array>
-  <string-array name="billmodes" username="lesart.mario@gmail.com">
-    <item>1/1</item>
-    <item>6/6</item>
-    <item>10/10</item>
-    <item>30/1</item>
-    <item>30/6</item>
-    <item>30/10</item>
-    <item>30/30</item>
-    <item>30/60</item>
-    <item>45/1</item>
-    <item>60/0</item>
-    <item>60/1</item>
-    <item>60/6</item>
-    <item>60/10</item>
-    <item>60/15</item>
-    <item>60/30</item>
-    <item>60/60</item>
-    <item>Proizvoljno</item>
-  </string-array>
-  <string-array name="direction_calls" username="lesart.mario@gmail.com">
-    <item>dolazni</item>
-    <item>odlazni</item>
-  </string-array>
-  <string-array name="direction_sms" username="lesart.mario@gmail.com">
-    <item>dolazni</item>
-    <item>odlazni</item>
-  </string-array>
-  <string-array name="direction_mms" username="lesart.mario@gmail.com">
-    <item>dolazni</item>
-    <item>odlazni</item>
-  </string-array>
-  <string-array name="direction_data" username="lesart.mario@gmail.com">
-    <item>dolazni</item>
-    <item>odlazni</item>
-  </string-array>
-  <string-array name="currency_formats" username="lesart.mario@gmail.com">
-    <item>Osnovni</item>
-    <item>1,00</item>
-    <item>1000</item>
-    <item>1,00</item>
-    <item>1000</item>
-  </string-array>
-  <string-array name="date_formats" username="lesart.mario@gmail.com">
-    <item>Osnovni</item>
-    <item>MM/DD/GGGG</item>
-    <item>DD/MM/GGGG</item>
-    <item>DD.MM.GGGG.</item>
-  </string-array>
-  <string-array name="update_interval" username="lesart.mario@gmail.com">
-    <item>5 minuta</item>
-    <item>10 minuta</item>
-    <item>15 minuta</item>
-    <item>30 minuta</item>
-    <item>1 sat</item>
-    <item>2 sata</item>
-    <item>Ručno podešavanje</item>
-  </string-array>
-  <string-array name="plans_type">
-    <item>Naziv</item>
-    <item>Razmak</item>
-    <item>Period obračuna naplate</item>
-    <item>Miješano</item>
-    <item>Pozivi</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Prijenos podataka</item>
-  </string-array>
-  <string-array name="dialog_edit_delete" username="lesart.mario@gmail.com">
-    <item>Uredi</item>
-    <item>Obriši</item>
-  </string-array>
-  <string-array name="dialog_delete" username="lesart.mario@gmail.com">
-    <item>Obriši</item>
-  </string-array>
-  <string-array name="dialog_edit_plan">
-    <item>Uredi plan</item>
-    <item>Vidi zapisnike</item>
-  </string-array>
-  <string-array name="themes">
-    <item>Tamno</item>
-    <item>Svijetlo</item>
-  </string-array>
-  <string-array name="hours_all">
-    <item>Cijeli dan</item>
-    <item>0:00 - 0:59</item>
-    <item>1:00 - 1:59</item>
-    <item>2:00 - 2:59</item>
-    <item>3:00 - 3:59</item>
-    <item>4:00 - 4:59</item>
-    <item>5:00 - 5:59</item>
-    <item>6:00 - 6:59</item>
-    <item>7:00 - 7:59</item>
-    <item>8:00 - 8:59</item>
-    <item>9:00 - 9:59</item>
-    <item>10:00 - 10:59</item>
-    <item>11:00 - 11:59</item>
-    <item>12:00 - 12:59</item>
-    <item>13:00 - 13:59</item>
-    <item>14:00 - 14:59</item>
-    <item>15:00 - 15:59</item>
-    <item>16:00 - 16:59</item>
-    <item>17:00 - 17:59</item>
-    <item>18:00 - 18:59</item>
-    <item>19:00 - 19:59</item>
-    <item>20:00 - 20:59</item>
-    <item>21:00 - 21:59</item>
-    <item>22:00 - 22:59</item>
-    <item>23:00 - 23:59</item>
-  </string-array>
-  <string-array name="weekdays_all">
-    <item>Cijela nedjelja</item>
-    <item>Ponedjeljak</item>
-    <item>Utorak</item>
-    <item>Srijeda</item>
-    <item>Četvrtak</item>
-    <item>Petak</item>
-    <item>Subota</item>
-    <item>Nedjelja</item>
-    <item>Ponedjeljak - petak</item>
-  </string-array>
+  <string name="1_day">Jedan dan</string>
+  <string name="1_week">Jedan tjedan</string>
+  <string name="14_day">14 dana</string>
+  <string name="15_day">15 dana</string>
+  <string name="30_day">30 dana</string>
+  <string name="31_day">31 dana</string>
+  <string name="60_day">60 dana</string>
+  <string name="90_day">90 dana</string>
+  <string name="1_month">Jedan mjesec</string>
+  <string name="2_month">Dva mjeseca</string>
+  <string name="3_month">Tri mjeseca</string>
+  <string name="4_month">Četiri mjeseca</string>
+  <string name="5_month">Pet mjeseci</string>
+  <string name="6_month">Šest mjeseci</string>
+  <string name="1_year">Jedna godina</string>
+  <string name="infinite">Beskonačno</string>
+  <string name="limit_type_unlimited">Neograničeno</string>
+  <string name="limit_type_units">jedinica</string>
+  <string name="limit_type_cost">vrijednost</string>
+  <string name="custom">Proizvoljno</string>
+  <string name="direction_calls_in">dolazni</string>
+  <string name="direction_calls_out">odlazni</string>
+  <string name="direction_sms_in">dolazni</string>
+  <string name="direction_sms_out">odlazni</string>
+  <string name="direction_mms_in">dolazni</string>
+  <string name="direction_mms_out">odlazni</string>
+  <string name="direction_data_in">dolazni</string>
+  <string name="direction_data_out">odlazni</string>
+  <string name="default">Osnovni</string>
+  <string name="currency_formats_1">1,00</string>
+  <string name="currency_formats_2">1000</string>
+  <string name="currency_formats_3">1,00</string>
+  <string name="currency_formats_4">1000</string>
+  <string name="date_formats_1">MM/DD/GGGG</string>
+  <string name="date_formats_2">DD/MM/GGGG</string>
+  <string name="date_formats_3">DD.MM.GGGG.</string>
+  <string name="5_minute">5 minuta</string>
+  <string name="10_minute">10 minuta</string>
+  <string name="15_minute">15 minuta</string>
+  <string name="30_minute">30 minuta</string>
+  <string name="1_hour">1 sat</string>
+  <string name="2_hour">2 sata</string>
+  <string name="manually_only">Ručno podešavanje</string>
+  <string name="title">Naziv</string>
+  <string name="spacer">Razmak</string>
+  <string name="mixed">Pozivi</string>
+  <string name="delete_">Obriši</string>
+  <string name="edit_plan_">Uredi plan</string>
+  <string name="view_logs_">Vidi zapisnike</string>
+  <string name="theme_black">Tamno</string>
+  <string name="theme_light">Svijetlo</string>
+  <string name="all_day">Cijeli dan</string>
+  <string name="day_0">0:00 - 0:59</string>
+  <string name="day_1">1:00 - 1:59</string>
+  <string name="day_2">2:00 - 2:59</string>
+  <string name="day_3">3:00 - 3:59</string>
+  <string name="day_4">4:00 - 4:59</string>
+  <string name="day_5">5:00 - 5:59</string>
+  <string name="day_6">6:00 - 6:59</string>
+  <string name="day_7">7:00 - 7:59</string>
+  <string name="day_8">8:00 - 8:59</string>
+  <string name="day_9">9:00 - 9:59</string>
+  <string name="day_10">10:00 - 10:59</string>
+  <string name="day_11">11:00 - 11:59</string>
+  <string name="day_12">12:00 - 12:59</string>
+  <string name="day_13">13:00 - 13:59</string>
+  <string name="day_14">14:00 - 14:59</string>
+  <string name="day_15">15:00 - 15:59</string>
+  <string name="day_16">16:00 - 16:59</string>
+  <string name="day_17">17:00 - 17:59</string>
+  <string name="day_18">18:00 - 18:59</string>
+  <string name="day_19">19:00 - 19:59</string>
+  <string name="day_20">20:00 - 20:59</string>
+  <string name="day_21">21:00 - 21:59</string>
+  <string name="day_22">22:00 - 22:59</string>
+  <string name="day_23">23:00 - 23:59</string>
+  <string name="all_week">Cijela nedjelja</string>
+  <string name="monday">Ponedjeljak</string>
+  <string name="tuesday">Utorak</string>
+  <string name="wednesday">Srijeda</string>
+  <string name="thursday">Četvrtak</string>
+  <string name="friday">Petak</string>
+  <string name="saturday">Subota</string>
+  <string name="sunday">Nedjelja</string>
+  <string name="monday_till_friday">Ponedjeljak - petak</string>
   <string name="send_devices_hint" formatted="false" username="lesart.mario@gmail.com" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Pošalji listu uređaja programeru. Ovo je potrebno samo ako su podaci statistike NULA.</string>
   <string name="send_devices_" formatted="false" username="lesart.mario@gmail.com" orig="Send devices">Pošalji uređaj</string>
   <string name="widget_backgroud_transparency_" formatted="false" username="lesart.mario@gmail.com" orig="Background transparency">Pozadina prozirna</string>

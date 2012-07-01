@@ -297,156 +297,92 @@
   <string name="widget_backgroud_transparency_" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Background transparency">Przeźroczystość tła</string>
   <string name="send_devices_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Send devices">Wyślij urządzenia</string>
   <string name="send_devices_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Wyślij listę urządzeń do autora programu. Potrzebne tylko wtedy, gdy statystyki wskazują zero.</string>
-  <string-array name="weekdays_all" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;">
-    <item>Cały tydzień</item>
-    <item>Poniedziałek</item>
-    <item>Wtorek</item>
-    <item>Środa</item>
-    <item>Czwartek</item>
-    <item>Piątek</item>
-    <item>Sobota</item>
-    <item>Niedziela</item>
-    <item>Poniedziałek - Piątek</item>
-  </string-array>
-  <string-array name="hours_all">
-    <item>Cały dzień</item>
-    <item>0:00 - 0:59</item>
-    <item>1:00 - 1:59</item>
-    <item>2:00 - 2:59</item>
-    <item>3:00 - 3:59</item>
-    <item>4:00 - 4:59</item>
-    <item>5:00 - 5:59</item>
-    <item>6:00 - 6:59</item>
-    <item>7:00 - 7:59</item>
-    <item>8:00 - 8:59</item>
-    <item>9:00 - 9:59</item>
-    <item>10:00 - 10:59</item>
-    <item>11:00 - 11:59</item>
-    <item>12:00 - 12:59</item>
-    <item>13:00 - 13:59</item>
-    <item>14:00 - 14:59</item>
-    <item>15:00 - 15:59</item>
-    <item>16:00 - 16:59</item>
-    <item>17:00 - 17:59</item>
-    <item>18:00 - 18:59</item>
-    <item>19:00 - 19:59</item>
-    <item>20:00 - 20:59</item>
-    <item>21:00 - 21:59</item>
-    <item>22:00 - 22:59</item>
-    <item>23:00 - 23:59</item>
-  </string-array>
-  <string-array name="themes">
-    <item>Ciemny</item>
-    <item>Jasny</item>
-  </string-array>
-  <string-array name="dialog_edit_plan">
-    <item>Edytuj plan</item>
-    <item>Oglądaj statystyki</item>
-  </string-array>
-  <string-array name="dialog_delete">
-    <item>Usuń</item>
-  </string-array>
-  <string-array name="dialog_edit_delete">
-    <item>Edytuj</item>
-    <item>Usuń</item>
-  </string-array>
-  <string-array name="plans_type" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;">
-    <item>Nagłówek</item>
-    <item>Odstęp</item>
-    <item>Okres rozliczeniowy</item>
-    <item>Mieszane</item>
-    <item>Połączenia</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Dane</item>
-  </string-array>
-  <string-array name="rules_type">
-    <item>Połączenia</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Dane</item>
-  </string-array>
-  <string-array name="limit_type">
-    <item>nielimitowany</item>
-    <item>jednostki</item>
-    <item>koszt</item>
-  </string-array>
-  <string-array name="billperiod">
-    <item>Jeden dzień</item>
-    <item>Jeden tydzień</item>
-    <item>14 dni</item>
-    <item>15 dni</item>
-    <item>30 dni</item>
-    <item>31 dni</item>
-    <item>60 dni</item>
-    <item>90 dni</item>
-    <item>Jeden miesiąc</item>
-    <item>Jeden miesiąc + jeden dzień</item>
-    <item>Dwa miesiące</item>
-    <item>Trzy miesiące</item>
-    <item>Cztery miesiące</item>
-    <item>Pięć miesięcy</item>
-    <item>Sześć miesięcy</item>
-    <item>Roku</item>
-    <item>Nieskończony</item>
-  </string-array>
-  <string-array name="billmodes">
-    <item>1/1</item>
-    <item>6/6</item>
-    <item>10/10</item>
-    <item>30/1</item>
-    <item>30/6</item>
-    <item>30/10</item>
-    <item>30/30</item>
-    <item>30/60</item>
-    <item>45/1</item>
-    <item>60/0</item>
-    <item>60/1</item>
-    <item>60/6</item>
-    <item>60/10</item>
-    <item>60/15</item>
-    <item>60/30</item>
-    <item>60/60</item>
-    <item>Niestandardowy</item>
-  </string-array>
-  <string-array name="direction_calls">
-    <item>przychodzące</item>
-    <item>wychodzące</item>
-  </string-array>
-  <string-array name="direction_sms">
-    <item>przychodzące</item>
-    <item>wychodzące</item>
-  </string-array>
-  <string-array name="direction_mms">
-    <item>przychodzące</item>
-    <item>wychodzące</item>
-  </string-array>
-  <string-array name="direction_data">
-    <item>przychodzące</item>
-    <item>wychodzące</item>
-  </string-array>
-  <string-array name="currency_formats" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;">
-    <item>Domyślny</item>
-    <item>PLN 1.00</item>
-    <item>PLN 1000</item>
-    <item>1.00 PLN</item>
-    <item>1000 PLN</item>
-  </string-array>
-  <string-array name="date_formats" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;">
-    <item>Domyślny</item>
-    <item>MM/DD/RR</item>
-    <item>DD/MM/RRRR</item>
-    <item>DD/MM/RRRR</item>
-  </string-array>
-  <string-array name="update_interval">
-    <item>5 minut</item>
-    <item>10 minut</item>
-    <item>15 minut</item>
-    <item>30 minut</item>
-    <item>Jedna godzina</item>
-    <item>Dwie godziny</item>
-    <item>Tylko ręcznie</item>
-  </string-array>
+  <string name="all_week">Cały tydzień</string>
+  <string name="monday">Poniedziałek</string>
+  <string name="tuesday">Wtorek</string>
+  <string name="wednesday">Środa</string>
+  <string name="thursday">Czwartek</string>
+  <string name="friday">Piątek</string>
+  <string name="saturday">Sobota</string>
+  <string name="sunday">Niedziela</string>
+  <string name="monday_till_friday">Poniedziałek - Piątek</string>
+  <string name="all_day">Cały dzień</string>
+  <string name="day_0">0:00 - 0:59</string>
+  <string name="day_1">1:00 - 1:59</string>
+  <string name="day_2">2:00 - 2:59</string>
+  <string name="day_3">3:00 - 3:59</string>
+  <string name="day_4">4:00 - 4:59</string>
+  <string name="day_5">5:00 - 5:59</string>
+  <string name="day_6">6:00 - 6:59</string>
+  <string name="day_7">7:00 - 7:59</string>
+  <string name="day_8">8:00 - 8:59</string>
+  <string name="day_9">9:00 - 9:59</string>
+  <string name="day_10">10:00 - 10:59</string>
+  <string name="day_11">11:00 - 11:59</string>
+  <string name="day_12">12:00 - 12:59</string>
+  <string name="day_13">13:00 - 13:59</string>
+  <string name="day_14">14:00 - 14:59</string>
+  <string name="day_15">15:00 - 15:59</string>
+  <string name="day_16">16:00 - 16:59</string>
+  <string name="day_17">17:00 - 17:59</string>
+  <string name="day_18">18:00 - 18:59</string>
+  <string name="day_19">19:00 - 19:59</string>
+  <string name="day_20">20:00 - 20:59</string>
+  <string name="day_21">21:00 - 21:59</string>
+  <string name="day_22">22:00 - 22:59</string>
+  <string name="day_23">23:00 - 23:59</string>
+  <string name="theme_black">Ciemny</string>
+  <string name="theme_light">Jasny</string>
+  <string name="edit_plan_">Edytuj plan</string>
+  <string name="view_logs_">Oglądaj statystyki</string>
+  <string name="delete_">Usuń</string>
+  <string name="title">Nagłówek</string>
+  <string name="spacer">Odstęp</string>
+  <string name="mixed">Połączenia</string>
+  <string name="limit_type_unlimited">nielimitowany</string>
+  <string name="limit_type_units">jednostki</string>
+  <string name="limit_type_cost">koszt</string>
+  <string name="1_day">Jeden dzień</string>
+  <string name="1_week">Jeden tydzień</string>
+  <string name="14_day">14 dni</string>
+  <string name="15_day">15 dni</string>
+  <string name="30_day">30 dni</string>
+  <string name="31_day">31 dni</string>
+  <string name="60_day">60 dni</string>
+  <string name="90_day">90 dni</string>
+  <string name="1_month">Jeden miesiąc</string>
+  <string name="1_month_1_day">Jeden miesiąc + jeden dzień</string>
+  <string name="2_month">Dwa miesiące</string>
+  <string name="3_month">Trzy miesiące</string>
+  <string name="4_month">Cztery miesiące</string>
+  <string name="5_month">Pięć miesięcy</string>
+  <string name="6_month">Sześć miesięcy</string>
+  <string name="1_year">Roku</string>
+  <string name="infinite">Nieskończony</string>
+  <string name="custom">Niestandardowy</string>
+  <string name="direction_calls_in">przychodzące</string>
+  <string name="direction_calls_out">wychodzące</string>
+  <string name="direction_sms_in">przychodzące</string>
+  <string name="direction_sms_out">wychodzące</string>
+  <string name="direction_mms_in">przychodzące</string>
+  <string name="direction_mms_out">wychodzące</string>
+  <string name="direction_data_in">przychodzące</string>
+  <string name="direction_data_out">wychodzące</string>
+  <string name="default">Domyślny</string>
+  <string name="currency_formats_1">PLN 1.00</string>
+  <string name="currency_formats_2">PLN 1000</string>
+  <string name="currency_formats_3">1.00 PLN</string>
+  <string name="currency_formats_4">1000 PLN</string>
+  <string name="date_formats_1">MM/DD/RR</string>
+  <string name="date_formats_2">DD/MM/RRRR</string>
+  <string name="date_formats_3">DD/MM/RRRR</string>
+  <string name="5_minute">5 minut</string>
+  <string name="10_minute">10 minut</string>
+  <string name="15_minute">15 minut</string>
+  <string name="30_minute">30 minut</string>
+  <string name="1_hour">Jedna godzina</string>
+  <string name="2_hour">Dwie godziny</string>
+  <string name="manually_only">Tylko ręcznie</string>
   <string name="import_rules_default_" formatted="false" orig="Import default rule set">Importuj standardowe ustawienia reguł.</string>
   <string name="import_rules_default_hint" formatted="false" orig="Import default rule set shipped with the app.">Importuj standardowe zestawienia reguł dostarczone z aplikacją.</string>
   <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Ustawienia zwykłe, odpowiednie dla większości użytkowników. Dostępne tylko ze standardowymi ustawieniami reguł.</string>
@@ -465,14 +401,8 @@
   <string name="now" formatted="false" orig="Now">Teraz</string>
   <string name="export_cancel" formatted="false" orig="Export to SD card">Eksport do karty SD</string>
   <string name="loading" formatted="false" orig="Loading ...">Ładowanie ...</string>
-  <string-array name="update_interval_data">
-    <item>0,5 minuty</item>
-    <item>1 minuta</item>
-    <item>2 minuty</item>
-    <item>5 minut</item>
-    <item>15 minut</item>
-    <item>30 minut</item>
-    <item>Jedna godzina</item>
-    <item>Tylko ręcznie</item>
-  </string-array>
+  <string name="05_minute">0,5 minuty</string>
+  <string name="1_minute">1 minuta</string>
+  <string name="2_minute">2 minuty</string>
+  <string name="5_minute">5 minut</string>
 </resources>

@@ -68,7 +68,7 @@
   <string name="custom_currency_format_hint" formatted="false">Özel bir para birimi biçimi seçin.</string>
   <string name="custom_date_format_" formatted="false">Özel tarih biçimi</string>
   <string name="custom_date_format_hint" formatted="false">Özel bir tarih biçimi seçin.</string>
-  <string name="show_logs" formatted="false">Logları göster</string>
+  <string name="show_logs" formatted="false" username="İsa Erginyavuz" orig="Show logs">Kayıtları göster</string>
   <string name="plans" formatted="false">Paketler</string>
   <string name="plans_hint" formatted="false">Her tür ücretlendirme için paketlerinizi burada ayarlayın..</string>
   <string name="plans_new" formatted="false">Yeni paket</string>
@@ -89,19 +89,19 @@
   <string name="exhourgroup_help" formatted="false">Bu kurala dahil olmayacak saatleri ekleyin.</string>
   <string name="new_hourgroup" formatted="false">Yeni saat grubu</string>
   <string name="add_hour" formatted="false">Saat ekle</string>
-  <string name="empty_group" formatted="false">Empty groups won\'t match anything. Please go back and add at least one item.</string>
+  <string name="empty_group" formatted="false" username="İsa Erginyavuz" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Boş gruplar eşleştirilmez. Lütfen geriye gidip en az bir ekleme yapın.</string>
   <string name="calls" formatted="false">Aramalar</string>
   <string name="sms" formatted="false">SMS</string>
   <string name="mms" formatted="false">MMS</string>
   <string name="data" formatted="false">Data</string>
   <string name="prepaid_" formatted="false">Ön ödemeli paket</string>
-  <string name="prepaid_hint" formatted="false">Ön ödemeli ücretlendirme. Hat kullanıldıkça kullanım ücreti hesabınızdan düşülür.</string>
-  <string name="balance_" formatted="false">Kalan</string>
-  <string name="balance_help" formatted="false">Belirlenen tarihte hesabınızda kalan miktar.</string>
-  <string name="strip_leading_zeros_" formatted="false">Strip leading zeros</string>
-  <string name="strip_leading_zeros_hint" formatted="false">Strip leading zeros when comparing numbers.</string>
-  <string name="number_prefix_" formatted="false">International prefix</string>
-  <string name="number_prefix_hint" formatted="false">Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..</string>
+  <string name="prepaid_hint" formatted="false" username="İsa Erginyavuz" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Ön ödemeli ücretlendirme. Arama vb. işlemlerde ücret bakiyenizden düşülür.</string>
+  <string name="balance_" formatted="false" username="İsa Erginyavuz" orig="Balance">Bakiye</string>
+  <string name="balance_help" formatted="false" username="İsa Erginyavuz" orig="Balance of your account at this given date.">Verilen tarihteki hesap bakiyeniz.</string>
+  <string name="strip_leading_zeros_" formatted="false" username="İsa Erginyavuz" orig="Strip leading zeros">Baştaki sıfırları çıkar</string>
+  <string name="strip_leading_zeros_hint" formatted="false" username="İsa Erginyavuz" orig="Strip leading zeros when comparing numbers.">Numaraları karşılaştırırken baştaki sıfırları çıkar.</string>
+  <string name="number_prefix_" formatted="false" username="İsa Erginyavuz" orig="International prefix">Uluslararası alan kodu</string>
+  <string name="number_prefix_hint" formatted="false" username="İsa Erginyavuz" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">+1 veya +49 formatındaki uluslararası alan kodunuz. +49170.. ve 0179.. gibi numaraları eşleştirmek için kullanılır.</string>
   <string name="reset_data_" formatted="false">İstatistikleri sıfırla</string>
   <string name="reset_data_hint" formatted="false">Görüşme/SMS verilerinin sıfırlanması istatistiklerin yeniden hesaplanmasına yol açar.\n\nTrafik istatistiklerinin sıfırlanması kalıcıdır. Yalnızca boot öncesi trafik sıfırlanır!</string>
   <string name="reset_data_data_" formatted="false">Trafiği de sıfırla.</string>
@@ -118,27 +118,27 @@
   <string name="shortname_" formatted="false">Kısa isim</string>
   <string name="shortname_help" formatted="false">Burada kısa bir isim belirleyin. Kısa görünümlerde bu isim gösterilir.</string>
   <string name="type_" formatted="false">Tip</string>
-  <string name="type_help" formatted="false">Tip seçin.\n\"Başlık\" ana görünümde yalnızca başlığı gösterir.\n\"Boşluk\" yalnızca boş bir ekran gösterir.\n\"Ücretlendirme periyodu\" ücretlendirme periyodunuzla ilgili tüm bilgileri gösterir. Birçok kullanıcı buna ihtiyaç duyacaktır.\nA \"Karışık\" arama ve mesajlar pakede alınır. Hepsinin ücretlendirmesi birleştirilir.\nA \"Arama\" yalnızca aramalar pakede alınır. \"SMS\" ve \"MMS\" yalnızca mesajlar pakede alınır.\nA \"data\" data trafiğinizle ilgili bilgiler pakede alınır.</string>
+  <string name="type_help" formatted="false" username="İsa Erginyavuz" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Tip seçin.\n"Başlık" ana görünümde yalnızca başlığı gösterir.\n"Boşluk" yalnızca boş bir ekran gösterir.\n"Ücretlendirme periyodu" ücretlendirme periyodunuzla ilgili tüm bilgileri gösterir. Birçok kullanıcı buna ihtiyaç duyacaktır.\n"Karışık" arama ve mesajlar pakete alınır. Hepsinin ücretlendirmesi birleştirilir.\n"Arama" yalnızca aramalar pakete alınır. "SMS" ve "MMS" yalnızca mesajlar pakete alınır.\n"data" data trafiğinizle ilgili bilgiler pakede alınır.</string>
   <string name="limit_type_" formatted="false">Sınırlama şekli</string>
-  <string name="limit_type_help" formatted="false">Sınırlama şeklini burada belirleyin.\nA \"birim\" pakediniz dakikalar, mesajlar vb. ile sınırlanır\nA \"ücret\" pakediniz, bu pakette ücretlendirilen arama, SMS vb. ile oluşan ücrete göre sınırlanır. </string>
+  <string name="limit_type_help" formatted="false" username="İsa Erginyavuz" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;cost\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Sınırlama şeklini burada belirleyin.\n"birim" paketi dakikalar, mesajlar vb. ile sınırlanır\n"ücret" paketi, bu pakette ücretlendirilen arama, SMS vb. ile oluşan ücrete göre sınırlanır.</string>
   <string name="limit_" formatted="false">Sınır</string>
-  <string name="limit_help" formatted="false">Pakedinizin sınırını burada belirleyin.\n\n\"birim\", dakika (aramalar), mesajlar (sms/mms), MB (data, 1024kB) veya birimler (karışık) olarak ayarlanmalıdır.\n\n\"ücret\", para biriminize göre ayarlanmalıdır (Ör. TRY).</string>
+  <string name="limit_help" formatted="false" username="İsa Erginyavuz" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">Paketinizin sınırını burada belirleyin.\n\n"birim", dakika (aramalar), mesajlar (sms/mms), MB (data, 1024kB) veya birimler (karışık) olarak ayarlanmalıdır.\n\n"ücret", para biriminize göre ayarlanmalıdır (Ör. TRY).</string>
   <string name="billmode_help" formatted="false">Aramalar için ücretlendirme biçimini belirleyin.\nİlk kısım, operatörünüzce ücretlendirilen minimum süredir. Bu süreden kısa her arama bu süreye yuvarlanır.\nİkinci kısım ise takip eden minimum süredir (saniye).\nDaha detaylı yardım için SSS\'yi okuyunuz.</string>
   <string name="billday_help" formatted="false">Mevcut ücretlendirme periyodunuzun fatura başlangıç tarihine ayarlayın.</string>
   <string name="billperiodid_" formatted="false">Ücretlendirme periyodu</string>
   <string name="billperiodid_help" formatted="false">Ücretlendirme periyodunuzu seçin.\nEk bir plan olarak oluşturabilirsiniz.</string>
-  <string name="billperiod_" formatted="false">Ücretlendirme periyod uzunluğu</string>
-  <string name="billperiod_help" formatted="false">Ücretlendirme periyod uzunluğunu belirleyin.</string>
+  <string name="billperiod_" formatted="false" username="İsa Erginyavuz" orig="Length of the billing period">Ücretlendirme periyot uzunluğu</string>
+  <string name="billperiod_help" formatted="false" username="İsa Erginyavuz" orig="Set the length of your billing period.">Ücretlendirme periyot uzunluğunu belirleyin.</string>
   <string name="cost_per_item_" formatted="false">Görüşme/mesaj ücreti</string>
   <string name="cost_per_item_help" formatted="false">Sınır aşıldıktan sonraki tek bir log girdisi (Ör. arama veya mesaj) başına ücreti belirleyin.</string>
   <string name="cost_per_item_in_limit_" formatted="false">Sınır içinde gör./mes. ücreti</string>
   <string name="cost_per_item_in_limit_help" formatted="false">Sınır aşılmadan önceki tek bir log girdisi (Ör. arama veya mesaj) başına ücreti belirleyin.</string>
   <string name="cost_per_amount_" formatted="false">Uzunluk başına ücret</string>
   <string name="cost_per_amount_help1" formatted="false">Sınır aşıldıktan sonraki tek bir log girdisi (Ör. 1 kB data) için uzunluk başına ücreti belirleyin.</string>
-  <string name="cost_per_amount_help2" formatted="false">Sınır aşıldıktan sonraki tek bir log girdisi (Ör. 1 dk.lık konuşma) için uzunluk başına ücreti belirleyin.\nİlk alan aramanın ilk saniyeleri için ücreti, ikincisi ise takip eden saniyeler için ücreti içerir (her ikisi de TRY/dk\'dır; bkz. Ücretlendirme biçimi).\nEmin değilseniz her ikisini de dakika ücretinize ayarlayın.</string>
+  <string name="cost_per_amount_help2" formatted="false" username="İsa Erginyavuz" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Sınır aşıldıktan sonraki tek bir kayıt girdisi (Ör. 1 dk.lık konuşma) için uzunluk başına ücreti belirleyin.\nİlk alan aramanın ilk saniyeleri için ücreti, ikincisi ise takip eden saniyeler için ücreti içerir (her ikisi de TRY/dk\'dır; bkz. Ücretlendirme biçimi).\nEmin değilseniz her ikisini de dakika ücretinize ayarlayın.</string>
   <string name="cost_per_amount_in_limit_" formatted="false">Sınır içinde uzun. baş. ücr.</string>
-  <string name="cost_per_amount_in_limit_help1" formatted="false">Sınır aşılmadan önceki tek bir log girdisi (Ör. 1 kB data) için uzunluk başına ücreti belirleyin.</string>
-  <string name="cost_per_amount_in_limit_help2" formatted="false">Sınır aşıldıktan sonraki tek bir log girdisi (Ör. 1 dk.lık konuşma, 1 kB data) için uzunluk başına ücreti belirleyin.\nİlk alan aramanın ilk saniyeleri için ücreti, ikincisi ise takip eden saniyeler için ücreti içerir (her ikisi de TRY/dk\'dır; bkz. Ücretlendirme biçimi).\nEmin değilseniz her ikisini de dakika ücretinize ayarlayın.</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false" username="İsa Erginyavuz" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) before the limit is exceeded.">Sınır aşılmadan önceki tek bir kayıt girdisi (Ör. 1 kB data) için uzunluk başına ücreti belirleyin.</string>
+  <string name="cost_per_amount_in_limit_help2" formatted="false" username="İsa Erginyavuz" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Tek bir kayıt girdisi (Ör. 1 dk.lık konuşma, 1 kB data) için sınır aşılmadan önceki uzunluk başına ücreti belirleyin.\nİlk alan aramanın ilk saniyeleri için ücreti, ikincisi ise takip eden saniyeler için ücreti içerir (her ikisi de TRY/dk\'dır; bkz. Ücretlendirme biçimi).\nEmin değilseniz her ikisini de dakika ücretinize ayarlayın.</string>
   <string name="cost_per_plan_" formatted="false">Paket ücretleri</string>
   <string name="cost_per_plan_help" formatted="false">Bir ücretlendirme periyodu için paket ücretlerini belirleyin.</string>
   <string name="mixed_units_sms_" formatted="false">SMS ücreti</string>
@@ -146,17 +146,17 @@
   <string name="mixed_units_mms_" formatted="false">MMS ücreti</string>
   <string name="mixed_units_mms_help" formatted="false">Bir MMS için alınan birim ücreti belirleyin.</string>
   <string name="mixed_units_call_" formatted="false">Arama ücreti</string>
-  <string name="mixed_units_call_help" formatted="false">1 dk.\'lık bir arama için alınan birim ücreti belirleyin.\nBurada Ücretlendirme biçimi dikkate alınır..</string>
+  <string name="mixed_units_call_help" formatted="false" username="İsa Erginyavuz" orig="Set the units billed for a one minute call.\nBill mode is taken into account here.">1 dk.\'lık bir arama için alınan birim ücreti belirleyin.\nBurada ücretlendirme biçimi dikkate alınır.</string>
   <string name="plan_" formatted="false">Paket</string>
-  <string name="plan_help" formatted="false">Bu kuralın dahil edileceği pakedi seçin.</string>
+  <string name="plan_help" formatted="false" username="İsa Erginyavuz" orig="Choose the plan this rule should fit.">Bu kuralın dahil edileceği paketi seçin.</string>
   <string name="limitnotreached_" formatted="false">Sınır aşılmadı</string>
   <string name="limitnotreached_help" formatted="false">Hedef plan sınırı henüz geçilmediyse işaretleyin.</string>
   <string name="what_" formatted="false">Hedef türü</string>
   <string name="what_help" formatted="false">Hedef türünü seçin.</string>
   <string name="direction_" formatted="false">Yön</string>
-  <string name="direction_help" formatted="false">Log\'un yönünü seçin.</string>
-  <string name="roamed_" formatted="false">Roamed</string>
-  <string name="roamed_help" formatted="false">Verilen log\'un roaming\'de olup olmayacağını seçin</string>
+  <string name="direction_help" formatted="false" username="İsa Erginyavuz" orig="Choose a direction the given log has to be.">Kaydın yönünü seçin.\n</string>
+  <string name="roamed_" formatted="false" username="İsa Erginyavuz" orig="Roamed">Dolaşımda</string>
+  <string name="roamed_help" formatted="false" username="İsa Erginyavuz" orig="Choose whether the given log has to be roamed.">Verilen kaydın dolaşımda olup olmayacağını seçin.</string>
   <string name="remote_hint" formatted="false">Uzak numara</string>
   <string name="no_matter_" formatted="false">Farketmez</string>
   <string name="yes" formatted="false">Evet</string>
@@ -165,7 +165,7 @@
   <string name="value" formatted="false">Değer</string>
   <string name="export_rules_" formatted="false">Kural dışa aktar</string>
   <string name="export_rules_hint" formatted="false">Kuralları posta yoluyla dışa aktarın.</string>
-  <string name="export_rules_descr" formatted="false">Tanımlama</string>
+  <string name="export_rules_descr" formatted="false" username="İsa Erginyavuz" orig="Description">Tanım</string>
   <string name="import_rules_" formatted="false" orig="Import rule set">Kural kümesini içe aktar</string>
   <string name="import_rules_hint" formatted="false" orig="Import preconfigured rule set.">Daha önceden ayarlanmış kural kümesini içe aktarın.</string>
   <string name="import_rules_empty" formatted="false" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Hiçbir paket/kural ayarlanmadı. Varsayılan kuralları içe aktarmak için bu metne dokunun veya Tercihler menüsünden paket ve kural ekleyin.</string>
@@ -180,156 +180,91 @@
   <string name="alerts_100_" formatted="false">%100 kullanımda bildir</string>
   <string name="alerts_100_hint" formatted="false">Bir planın %100\'ü kullanıldığında bildir.</string>
   <string name="widget_config_" formatted="false">Widget yapılandırması</string>
-  <string-array name="weekdays_all">
-    <item>Tüm hafta</item>
-    <item>Pazartesi</item>
-    <item>Salı</item>
-    <item>Çarşamba</item>
-    <item>Perşembe</item>
-    <item>Cuma</item>
-    <item>Cumartesi</item>
-    <item>Pazar</item>
-    <item>Pazartesi - Cuma</item>
-  </string-array>
-  <string-array name="hours_all">
-    <item>Tüm gün</item>
-    <item>0:00 - 0:59</item>
-    <item>1:00 - 1:59</item>
-    <item>2:00 - 2:59</item>
-    <item>3:00 - 3:59</item>
-    <item>4:00 - 4:59</item>
-    <item>5:00 - 5:59</item>
-    <item>6:00 - 6:59</item>
-    <item>7:00 - 7:59</item>
-    <item>8:00 - 8:59</item>
-    <item>9:00 - 9:59</item>
-    <item>10:00 - 10:59</item>
-    <item>11:00 - 11:59</item>
-    <item>12:00 - 12:59</item>
-    <item>13:00 - 13:59</item>
-    <item>14:00 - 14:59</item>
-    <item>15:00 - 15:59</item>
-    <item>16:00 - 16:59</item>
-    <item>17:00 - 17:59</item>
-    <item>18:00 - 18:59</item>
-    <item>19:00 - 19:59</item>
-    <item>20:00 - 20:59</item>
-    <item>21:00 - 21:59</item>
-    <item>22:00 - 22:59</item>
-    <item>23:00 - 23:59</item>
-  </string-array>
-  <string-array name="themes">
-    <item>Siyah</item>
-    <item>Beyaz</item>
-  </string-array>
-  <string-array name="dialog_edit_plan">
-    <item>Paketi düzenle</item>
-    <item>Logları görüntüle</item>
-  </string-array>
-  <string-array name="dialog_delete">
-    <item>Sil</item>
-  </string-array>
-  <string-array name="dialog_edit_delete">
-    <item>Düzenle</item>
-    <item>Sil</item>
-  </string-array>
-  <string-array name="plans_type">
-    <item>Başlık</item>
-    <item>Boşluk</item>
-    <item>Ücretlendirme periyodu</item>
-    <item>Karışık</item>
-    <item>Arama</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Data</item>
-  </string-array>
-  <string-array name="rules_type">
-    <item>Aramalar</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Data</item>
-  </string-array>
-  <string-array name="limit_type">
-    <item>sınırsız</item>
-    <item>birim</item>
-    <item>ücret</item>
-  </string-array>
-  <string-array name="billperiod">
-    <item>Bir gün</item>
-    <item>Bir hafta</item>
-    <item>14 gün</item>
-    <item>15 gün</item>
-    <item>30 gün</item>
-    <item>31 gün</item>
-    <item>60 gün</item>
-    <item>90 gün</item>
-    <item>Bir ay</item>
-    <item notranslation="true">One month + one day</item>
-    <item>İki ay</item>
-    <item>Üç ay</item>
-    <item>Dört ay</item>
-    <item>Beş ay</item>
-    <item>Altı ay</item>
-    <item>Bir yıl</item>
-    <item>Sonsuz</item>
-  </string-array>
-  <string-array name="billmodes">
-    <item>1/1</item>
-    <item>6/6</item>
-    <item>10/10</item>
-    <item>30/1</item>
-    <item>30/6</item>
-    <item>30/10</item>
-    <item>30/30</item>
-    <item>30/60</item>
-    <item>45/1</item>
-    <item>60/0</item>
-    <item>60/1</item>
-    <item>60/6</item>
-    <item>60/10</item>
-    <item>60/15</item>
-    <item>60/30</item>
-    <item>60/60</item>
-    <item>Custom</item>
-  </string-array>
-  <string-array name="direction_calls">
-    <item>gelen</item>
-    <item>giden</item>
-  </string-array>
-  <string-array name="direction_sms">
-    <item>alınan</item>
-    <item>gönderilen</item>
-  </string-array>
-  <string-array name="direction_mms">
-    <item>alınan</item>
-    <item>gönderilen</item>
-  </string-array>
-  <string-array name="direction_data">
-    <item>in</item>
-    <item>out</item>
-  </string-array>
-  <string-array name="currency_formats">
-    <item>Varsayılan</item>
-    <item>1.00 TL</item>
-    <item>1000 TL</item>
-    <item>1.00 TL</item>
-    <item>1000 TL</item>
-  </string-array>
-  <string-array name="date_formats">
-    <item>Varsayılan</item>
-    <item>AA/GG/YY</item>
-    <item>GG/AA/YYYY</item>
-    <item>GG.AA.YYYY</item>
-  </string-array>
-  <string-array name="update_interval">
-    <item>5 dakika</item>
-    <item>10 dakika</item>
-    <item>15 dakika</item>
-    <item>30 dakika</item>
-    <item>1 saat</item>
-    <item>2 saat</item>
-    <item>Yalnızca elle</item>
-  </string-array>
+  <string name="all_week">Tüm hafta</string>
+  <string name="monday">Pazartesi</string>
+  <string name="tuesday">Salı</string>
+  <string name="wednesday">Çarşamba</string>
+  <string name="thursday">Perşembe</string>
+  <string name="friday">Cuma</string>
+  <string name="saturday">Cumartesi</string>
+  <string name="sunday">Pazar</string>
+  <string name="monday_till_friday">Pazartesi - Cuma</string>
+  <string name="all_day">Tüm gün</string>
+  <string name="day_0">0:00 - 0:59</string>
+  <string name="day_1">1:00 - 1:59</string>
+  <string name="day_2">2:00 - 2:59</string>
+  <string name="day_3">3:00 - 3:59</string>
+  <string name="day_4">4:00 - 4:59</string>
+  <string name="day_5">5:00 - 5:59</string>
+  <string name="day_6">6:00 - 6:59</string>
+  <string name="day_7">7:00 - 7:59</string>
+  <string name="day_8">8:00 - 8:59</string>
+  <string name="day_9">9:00 - 9:59</string>
+  <string name="day_10">10:00 - 10:59</string>
+  <string name="day_11">11:00 - 11:59</string>
+  <string name="day_12">12:00 - 12:59</string>
+  <string name="day_13">13:00 - 13:59</string>
+  <string name="day_14">14:00 - 14:59</string>
+  <string name="day_15">15:00 - 15:59</string>
+  <string name="day_16">16:00 - 16:59</string>
+  <string name="day_17">17:00 - 17:59</string>
+  <string name="day_18">18:00 - 18:59</string>
+  <string name="day_19">19:00 - 19:59</string>
+  <string name="day_20">20:00 - 20:59</string>
+  <string name="day_21">21:00 - 21:59</string>
+  <string name="day_22">22:00 - 22:59</string>
+  <string name="day_23">23:00 - 23:59</string>
+  <string name="theme_black">Siyah</string>
+  <string name="theme_light">Beyaz</string>
+  <string name="edit_plan_">Paketi düzenle</string>
+  <string name="view_logs_">Logları görüntüle</string>
+  <string name="delete_">Sil</string>
+  <string name="title">Başlık</string>
+  <string name="spacer">Boşluk</string>
+  <string name="mixed">Arama</string>
+  <string name="limit_type_unlimited">sınırsız</string>
+  <string name="limit_type_units">birim</string>
+  <string name="limit_type_cost">ücret</string>
+  <string name="1_day">Bir gün</string>
+  <string name="1_week">Bir hafta</string>
+  <string name="14_day">14 gün</string>
+  <string name="15_day">15 gün</string>
+  <string name="30_day">30 gün</string>
+  <string name="31_day">31 gün</string>
+  <string name="60_day">60 gün</string>
+  <string name="90_day">90 gün</string>
+  <string name="1_month">Bir ay</string>
+  <string name="2_month">İki ay</string>
+  <string name="3_month">Üç ay</string>
+  <string name="4_month">Dört ay</string>
+  <string name="5_month">Beş ay</string>
+  <string name="6_month">Altı ay</string>
+  <string name="1_year">Bir yıl</string>
+  <string name="infinite">Sonsuz</string>
+  <string name="custom">Custom</string>
+  <string name="direction_calls_in">gelen</string>
+  <string name="direction_calls_out">giden</string>
+  <string name="direction_sms_in">alınan</string>
+  <string name="direction_sms_out">gönderilen</string>
+  <string name="direction_mms_in">alınan</string>
+  <string name="direction_mms_out">gönderilen</string>
+  <string name="direction_data_in">in</string>
+  <string name="direction_data_out">out</string>
+  <string name="default">Varsayılan</string>
+  <string name="currency_formats_1">1.00 TL</string>
+  <string name="currency_formats_2">1000 TL</string>
+  <string name="currency_formats_3">1.00 TL</string>
+  <string name="currency_formats_4">1000 TL</string>
+  <string name="date_formats_1">AA/GG/YY</string>
+  <string name="date_formats_2">GG/AA/YYYY</string>
+  <string name="date_formats_3">GG.AA.YYYY</string>
+  <string name="5_minute">5 dakika</string>
+  <string name="10_minute">10 dakika</string>
+  <string name="15_minute">15 dakika</string>
+  <string name="30_minute">30 dakika</string>
+  <string name="1_hour">1 saat</string>
+  <string name="2_hour">2 saat</string>
+  <string name="manually_only">Yalnızca elle</string>
   <string name="changelog_notification_" formatted="false" orig="Recent changes:">Güncel değişiklikler:</string>
   <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Bu konudaki güncel değişiklikleri görmek için buraya tıklayın.</string>
   <string name="never_show_again" formatted="false" orig="Never show changelog again">Değişiklik kayıtlarını bir daha gösterme</string>
@@ -360,7 +295,7 @@
   <string name="show_cost_" formatted="false" orig="Show cost">Ücreti göster</string>
   <string name="show_billperiod_" formatted="false" orig="Show progress of billing period">Ücretlendirme periyodu ilerlemesini göster</string>
   <string name="show_icon_" formatted="false" orig="Show icon">İkonu göster</string>
-  <string name="hide_name_" formatted="false" orig="Hide name of plan">Pakedin ismini gizle</string>
+  <string name="hide_name_" formatted="false" orig="Hide name of plan" username="İsa Erginyavuz">Paketin ismini gizle</string>
   <string name="small_widget_" formatted="false" orig="Use small widget">Küçük widget kullan</string>
   <string name="show_calllength_" formatted="false" orig="Show info after hanging up">Görüşme sonlandıktan sonra görüşme bilgisini göster</string>
   <string name="show_calllength_hint" formatted="false" orig="Show length/cost of a call after hanging up.">Görüşme sonlandıktan sonra görüşmenin süresini/ücretini göster.</string>
@@ -397,9 +332,9 @@
   <string name="autohide_" formatted="false" orig="Auto hide">Otomatik gizle</string>
   <string name="autohide_hint" formatted="false" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">İletiyi .. saniye sonra gizle. Otomatik gizlemeyi devre dışı bırakmak için boş bırakın.</string>
   <string name="select_plan_" formatted="false" orig="Select a plan">Paket seç</string>
-  <string name="set_selected_as_default_" formatted="false" orig="Set selected plan as default">Seçilen pakedi varsayılan yap</string>
+  <string name="set_selected_as_default_" formatted="false" orig="Set selected plan as default" username="İsa Erginyavuz">Seçilen paketi varsayılan yap</string>
   <string name="autohide_in_" formatted="false" orig="Auto hide dialog in: %ds">İletiyi %ds \'de otomatik gizle</string>
-  <string name="logs" formatted="false" orig="Logs">Loglar</string>
+  <string name="logs" formatted="false" orig="Logs" username="İsa Erginyavuz">Kayıtlar</string>
   <string name="length_" formatted="false" orig="Length">Süre</string>
   <string name="blength_" formatted="false" orig="Billed length">Faturalandırılmış süre</string>
   <string name="cost_" formatted="false" orig="Cost">Tutar</string>
@@ -411,7 +346,7 @@
   <string name="numbergroup_excalls" formatted="false" orig="Exclude from calls">Aramalardan hariç tut</string>
   <string name="numbergroup_exsms" formatted="false" orig="Exclude from SMS">SMS\'lerden hariç tut</string>
   <string name="merge_plans_" formatted="false" orig="Merge plans">Paketleri birleştir</string>
-  <string name="merge_plans_help" formatted="false" orig="Merge other plans into this one and bill them here (too).">Diğer paketleri bu paketle birleştir ve onları da burada faturalandır.</string>
+  <string name="merge_plans_help" formatted="false" orig="Merge other plans into this one and bill them here (too)." username="İsa Erginyavuz">Diğer paketleri bu paketle birleştirip faturalandırmayı burada yap.</string>
   <string name="units_cost" formatted="false" orig="$">TL</string>
   <string name="units_num_msg" formatted="false" orig="# Messages"># Mesaj</string>
   <string name="units_minutes" formatted="false" orig="Minutes">Dakika</string>
@@ -425,7 +360,7 @@
   <string name="units_cost_per_mbyte" formatted="false" orig="$/MByte">TL/MByte</string>
   <string name="units_cost_per_unit" formatted="false" orig="$/Unit">TL/Birim</string>
   <string name="iswebsms_" formatted="false" orig="Is WebSMS">WebSMS yap</string>
-  <string name="iswebsms_help" formatted="false" orig="Message sent with WebSMS.">Mesaj WebSMS olarak gönderilir.</string>
+  <string name="iswebsms_help" formatted="false" orig="Message sent with WebSMS." username="İsa Erginyavuz">Mesaj WebSMS ile gönderilir.</string>
   <string name="iswebsms_connector_" formatted="false" orig="Is WebSMS Connector">WebSMS Bağlayıcısı yap</string>
   <string name="iswebsms_connector_help" formatted="false" orig="Sent with specific WebSMS Connector, leave empty to match any.">Özel bir WebSMS Bağlayıcısı ile gönderilir. Herhangi biri ile eşleştirmek için boş bırakın.</string>
   <string name="issipcall_" formatted="false" orig="Is SIP call">SIP arama yap</string>
@@ -462,18 +397,12 @@
   <string name="google_plus_hint" formatted="false" orig="Follow me on Google+.\nGet update notifications etc.">Beni Google+\'ta takip et.\nGüncelleme bildirimleri vb. bilgileri alın.</string>
   <string name="now" formatted="false" orig="Now">Şimdi</string>
   <string name="active_" formatted="false" orig="Active">Aktif</string>
-  <string name="active_help" formatted="false" orig="Only active rules are used for matching logs.">Logların eşleştirilmesi için yalnızca aktif kurallar kullanılır.</string>
+  <string name="active_help" formatted="false" orig="Only active rules are used for matching logs." username="İsa Erginyavuz">Kayıtların eşleştirilmesi için yalnızca aktif kurallar kullanılır.</string>
   <string name="loading" formatted="false" orig="Loading ...">Yükleniyor ...</string>
-  <string-array name="update_interval_data">
-    <item>30 saniye</item>
-    <item>1 dakika</item>
-    <item>2 dakika</item>
-    <item>5 dakika</item>
-    <item>15 dakika</item>
-    <item>30 dakika</item>
-    <item>1 saat</item>
-    <item>yalnızca manuel</item>
-  </string-array>
+  <string name="05_minute">30 saniye</string>
+  <string name="1_minute">1 dakika</string>
+  <string name="2_minute">2 dakika</string>
+  <string name="5_minute">5 dakika</string>
   <string name="widget_" formatted="false" orig="Widget">Widget</string>
   <string name="widgets_" formatted="false" orig="Widgets">Widget\'lar</string>
   <string name="widgets_no_widgets_" formatted="false" orig="No widgets added">Eklenen Widget yok</string>
@@ -488,4 +417,5 @@
   <string name="export_rules_dev_" formatted="false" orig="Export rule set to developer">Kural kümesini uygulama geliştiricisine gönder</string>
   <string name="export_rules_dev_hint" formatted="false" orig="Export rule set to let others import it.">Kural kümesini, başkalarının içe aktarabileceği şekilde dışa aktarın.</string>
   <string name="import_rules_www_hint" formatted="false" orig="Import pre-configured rule set from http://www.ub0r.de/.">Önceden yapılandırılmış kural kümesini http://www.ub0r.de/ adresinden içe aktarın.</string>
+  <string name="export_rules_body" formatted="false" username="İsa Erginyavuz" orig="Hi developer,\nhere is are the rules for my provider. Please add it to the website to let others enjoy it. Please see the details below.\n\nCountry:\nProvider:\nPlan name:\n\nCheers, a User">Selam geliştirici,\nServis sağlayıcımın kurallarını yazıyorum. Lütfen sitene ekleyerek başkalarının da faydalanmasını sağla. Detayları aşağıda bulabilirsin.\n\nÜlke\nServis sağlayıcı:\nPlan adı:\n\nTeşekkürler, bir Kullanıcı</string>
 </resources>

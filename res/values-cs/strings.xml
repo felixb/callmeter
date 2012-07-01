@@ -225,156 +225,91 @@
   <string name="widget_plan_textsize" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Plan Text Size">Velikost textu - prostý text</string>
   <string name="widget_cost_textsize" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Cost Text Size">Velikost textu - Náklady</string>
   <string name="send_devices_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Send devices">Odeslat zařízení</string>
-  <string-array name="weekdays_all">
-    <item>Celý týden</item>
-    <item>Pondělí</item>
-    <item>Úterý</item>
-    <item>Středa</item>
-    <item>Čtvrtek</item>
-    <item>Pátek</item>
-    <item>Sobota</item>
-    <item>Neděle</item>
-    <item>Pondělí - pátek</item>
-  </string-array>
-  <string-array name="hours_all">
-    <item>Celý den</item>
-    <item>0:00 - 0:59</item>
-    <item>1:00 - 1:59</item>
-    <item>2:00 - 2:59</item>
-    <item>3:00 - 3:59</item>
-    <item>4:00 - 4:59</item>
-    <item>5:00 - 5:59</item>
-    <item>6:00 - 6:59</item>
-    <item>7:00 - 7:59</item>
-    <item>8:00 - 8:59</item>
-    <item>9:00 - 9:59</item>
-    <item>10:00 - 10:59</item>
-    <item>11:00 - 11:59</item>
-    <item>12:00 - 12:59</item>
-    <item>13:00 - 13:59</item>
-    <item>14:00 - 14:59</item>
-    <item>15:00 - 15:59</item>
-    <item>16:00 - 16:59</item>
-    <item>17:00 - 17:59</item>
-    <item>18:00 - 18:59</item>
-    <item>19:00 - 19:59</item>
-    <item>20:00 - 20:59</item>
-    <item>21:00 - 21:59</item>
-    <item>22:00 - 22:59</item>
-    <item>23:00 - 23:59</item>
-  </string-array>
-  <string-array name="themes">
-    <item>Tmavý</item>
-    <item>Světlý</item>
-  </string-array>
-  <string-array name="dialog_edit_plan">
-    <item>Upravit tarif</item>
-    <item>Zobrazit výpisy</item>
-  </string-array>
-  <string-array name="dialog_delete">
-    <item>Odstranit</item>
-  </string-array>
-  <string-array name="dialog_edit_delete">
-    <item>Upravit</item>
-    <item>Odstranit</item>
-  </string-array>
-  <string-array name="plans_type">
-    <item>Název</item>
-    <item>Oddělovač</item>
-    <item>Zúčtovací období</item>
-    <item>Smíšený</item>
-    <item>Volání</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Data</item>
-  </string-array>
-  <string-array name="rules_type">
-    <item>Volání</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Data</item>
-  </string-array>
-  <string-array name="limit_type">
-    <item>neomezený</item>
-    <item>jednotky</item>
-    <item>cena</item>
-  </string-array>
-  <string-array name="billperiod">
-    <item>Jeden den</item>
-    <item>Jeden týden</item>
-    <item>14 dnů</item>
-    <item>15 dnů</item>
-    <item>30 dnů</item>
-    <item>31 dnů</item>
-    <item>60 dnů</item>
-    <item>90 dnů</item>
-    <item>Jeden měsíc</item>
-    <item notranslation="true">One month + one day</item>
-    <item>Dva měsíce</item>
-    <item>Tři měsíce</item>
-    <item>Čtyři měsíce</item>
-    <item>Pět měsíců</item>
-    <item>Šest měsíců</item>
-    <item>Jeden rok</item>
-    <item>Neohraničeno</item>
-  </string-array>
-  <string-array name="billmodes">
-    <item>1/1</item>
-    <item>6/6</item>
-    <item>10/10</item>
-    <item>30/1</item>
-    <item>30/6</item>
-    <item>30/10</item>
-    <item>30/30</item>
-    <item>30/60</item>
-    <item>45/1</item>
-    <item>60/0</item>
-    <item>60/1</item>
-    <item>60/6</item>
-    <item>60/10</item>
-    <item>60/15</item>
-    <item>60/30</item>
-    <item>60/60</item>
-    <item>Vlastní</item>
-  </string-array>
-  <string-array name="direction_calls">
-    <item>příchozí</item>
-    <item>odchozí</item>
-  </string-array>
-  <string-array name="direction_sms">
-    <item>příchozí</item>
-    <item>odeslané</item>
-  </string-array>
-  <string-array name="direction_mms">
-    <item>příchozí</item>
-    <item>odeslané</item>
-  </string-array>
-  <string-array name="direction_data">
-    <item>příchozí</item>
-    <item>odchozí</item>
-  </string-array>
-  <string-array name="currency_formats">
-    <item>Výchozí</item>
-    <item>$1.00</item>
-    <item>$1000</item>
-    <item>1.00$</item>
-    <item>1000$</item>
-  </string-array>
-  <string-array name="date_formats">
-    <item>Výchozí</item>
-    <item>MM/DD/YY</item>
-    <item>DD/MM/YYYY</item>
-    <item>DD.MM.YYYY</item>
-  </string-array>
-  <string-array name="update_interval">
-    <item>5 minut</item>
-    <item>10 minut</item>
-    <item>15 minut</item>
-    <item>30 minut</item>
-    <item>Jedna hodina</item>
-    <item>Dvě hodiny</item>
-    <item>Pouze ručně</item>
-  </string-array>
+  <string name="all_week">Celý týden</string>
+  <string name="monday">Pondělí</string>
+  <string name="tuesday">Úterý</string>
+  <string name="wednesday">Středa</string>
+  <string name="thursday">Čtvrtek</string>
+  <string name="friday">Pátek</string>
+  <string name="saturday">Sobota</string>
+  <string name="sunday">Neděle</string>
+  <string name="monday_till_friday">Pondělí - pátek</string>
+  <string name="all_day">Celý den</string>
+  <string name="day_0">0:00 - 0:59</string>
+  <string name="day_1">1:00 - 1:59</string>
+  <string name="day_2">2:00 - 2:59</string>
+  <string name="day_3">3:00 - 3:59</string>
+  <string name="day_4">4:00 - 4:59</string>
+  <string name="day_5">5:00 - 5:59</string>
+  <string name="day_6">6:00 - 6:59</string>
+  <string name="day_7">7:00 - 7:59</string>
+  <string name="day_8">8:00 - 8:59</string>
+  <string name="day_9">9:00 - 9:59</string>
+  <string name="day_10">10:00 - 10:59</string>
+  <string name="day_11">11:00 - 11:59</string>
+  <string name="day_12">12:00 - 12:59</string>
+  <string name="day_13">13:00 - 13:59</string>
+  <string name="day_14">14:00 - 14:59</string>
+  <string name="day_15">15:00 - 15:59</string>
+  <string name="day_16">16:00 - 16:59</string>
+  <string name="day_17">17:00 - 17:59</string>
+  <string name="day_18">18:00 - 18:59</string>
+  <string name="day_19">19:00 - 19:59</string>
+  <string name="day_20">20:00 - 20:59</string>
+  <string name="day_21">21:00 - 21:59</string>
+  <string name="day_22">22:00 - 22:59</string>
+  <string name="day_23">23:00 - 23:59</string>
+  <string name="theme_black">Tmavý</string>
+  <string name="theme_light">Světlý</string>
+  <string name="edit_plan_">Upravit tarif</string>
+  <string name="view_logs_">Zobrazit výpisy</string>
+  <string name="delete_">Odstranit</string>
+  <string name="title">Název</string>
+  <string name="spacer">Oddělovač</string>
+  <string name="mixed">Volání</string>
+  <string name="limit_type_unlimited">neomezený</string>
+  <string name="limit_type_units">jednotky</string>
+  <string name="limit_type_cost">cena</string>
+  <string name="1_day">Jeden den</string>
+  <string name="1_week">Jeden týden</string>
+  <string name="14_day">14 dnů</string>
+  <string name="15_day">15 dnů</string>
+  <string name="30_day">30 dnů</string>
+  <string name="31_day">31 dnů</string>
+  <string name="60_day">60 dnů</string>
+  <string name="90_day">90 dnů</string>
+  <string name="1_month">Jeden měsíc</string>
+  <string name="2_month">Dva měsíce</string>
+  <string name="3_month">Tři měsíce</string>
+  <string name="4_month">Čtyři měsíce</string>
+  <string name="5_month">Pět měsíců</string>
+  <string name="6_month">Šest měsíců</string>
+  <string name="1_year">Jeden rok</string>
+  <string name="infinite">Neohraničeno</string>
+  <string name="custom">Vlastní</string>
+  <string name="direction_calls_in">příchozí</string>
+  <string name="direction_calls_out">odchozí</string>
+  <string name="direction_sms_in">příchozí</string>
+  <string name="direction_sms_out">odeslané</string>
+  <string name="direction_mms_in">příchozí</string>
+  <string name="direction_mms_out">odeslané</string>
+  <string name="direction_data_in">příchozí</string>
+  <string name="direction_data_out">odchozí</string>
+  <string name="default">Výchozí</string>
+  <string name="currency_formats_1">$1.00</string>
+  <string name="currency_formats_2">$1000</string>
+  <string name="currency_formats_3">1.00$</string>
+  <string name="currency_formats_4">1000$</string>
+  <string name="date_formats_1">MM/DD/YY</string>
+  <string name="date_formats_2">DD/MM/YYYY</string>
+  <string name="date_formats_3">DD.MM.YYYY</string>
+  <string name="5_minute">5 minut</string>
+  <string name="10_minute">10 minut</string>
+  <string name="15_minute">15 minut</string>
+  <string name="30_minute">30 minut</string>
+  <string name="1_hour">Jedna hodina</string>
+  <string name="2_hour">Dvě hodiny</string>
+  <string name="manually_only">Pouze ručně</string>
   <string name="simple_preferences_" formatted="false" orig="Simple preferences">Jednoduchá nastavení</string>
   <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Velmi jednoduchá nastavení vhodná pro většinu uživatelů. Dostupná pouze se základním nastavením pravidel.</string>
   <string name="show_help_hint" formatted="false" orig="Show help in Plans/Rules setup view.">Ukázat nápovědu při zadávání tarifů/pravidel</string>
@@ -450,16 +385,10 @@
   <string name="now" formatted="false" orig="Now">Nyní</string>
   <string name="active_" formatted="false" orig="Active">Aktivní</string>
   <string name="remote_hint" formatted="false" orig="Remote number">Vzdálené číslo</string>
-  <string-array name="update_interval_data">
-    <item>0,5 minuty</item>
-    <item>1 minuta</item>
-    <item>2 minuty</item>
-    <item>5 minut</item>
-    <item>15 minut</item>
-    <item>30 minut</item>
-    <item>Jedna hodina</item>
-    <item>Pouze ručně</item>
-  </string-array>
+  <string name="05_minute">0,5 minuty</string>
+  <string name="1_minute">1 minuta</string>
+  <string name="2_minute">2 minuty</string>
+  <string name="5_minute">5 minut</string>
   <string name="import_rules_www_hint" formatted="false" orig="Import pre-configured rule set from http://www.ub0r.de/.">Import přednastavené sady pravidel z http://www.ub0r.de</string>
   <string name="export_rules_dev_hint" formatted="false" orig="Export rule set to let others import it.">Exportovat sadu pravidel pro využití ostatními.</string>
   <string name="export_rules_dev_" formatted="false" orig="Export rule set to developer">Exportovat sadu pravidel vývojáři</string>

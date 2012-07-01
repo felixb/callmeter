@@ -166,156 +166,90 @@
   <string name="alerts_100_" formatted="false" username="htc@norcis.lv" orig="Notify at 100%">Уведомлять при 100%</string>
   <string name="alerts_100_hint" formatted="false" username="htc@norcis.lv" orig="Notify if a plan passes 100% of it\'s limit.">Уведомлять при 100% достижении ценового плана.</string>
   <string name="widget_config_" formatted="false">Настройка виджет</string>
-  <string-array name="weekdays_all">
-    <item>Каждый день</item>
-    <item>Понедельник</item>
-    <item>Вторник</item>
-    <item>Среда</item>
-    <item>Четверг</item>
-    <item>Пятница</item>
-    <item>Суббота</item>
-    <item>Воскресение</item>
-    <item>Понедельник - пятница</item>
-  </string-array>
-  <string-array name="hours_all">
-    <item>Полный день</item>
-    <item>0:00 - 0:59</item>
-    <item>1:00 - 1:59</item>
-    <item>2:00 - 2:59</item>
-    <item>3:00 - 3:59</item>
-    <item>4:00 - 4:59</item>
-    <item>5:00 - 5:59</item>
-    <item>6:00 - 6:59</item>
-    <item>7:00 - 7:59</item>
-    <item>8:00 - 8:59</item>
-    <item>9:00 - 9:59</item>
-    <item>10:00 - 10:59</item>
-    <item>11:00 - 11:59</item>
-    <item>12:00 - 12:59</item>
-    <item>13:00 - 13:59</item>
-    <item>14:00 - 14:59</item>
-    <item>15:00 - 15:59</item>
-    <item>16:00 - 16:59</item>
-    <item>17:00 - 17:59</item>
-    <item>18:00 - 18:59</item>
-    <item>19:00 - 19:59</item>
-    <item>20:00 - 20:59</item>
-    <item>21:00 - 21:59</item>
-    <item>22:00 - 22:59</item>
-    <item>23:00 - 23:59</item>
-  </string-array>
-  <string-array name="themes">
-    <item>Тёмная</item>
-    <item>Светлая</item>
-  </string-array>
-  <string-array name="dialog_edit_plan">
-    <item>Изменить ценовой план</item>
-    <item notranslation="true">View Logs</item>
-  </string-array>
-  <string-array name="dialog_delete">
-    <item>Удалить</item>
-  </string-array>
-  <string-array name="dialog_edit_delete">
-    <item>Изменить</item>
-    <item>Удалить</item>
-  </string-array>
-  <string-array name="plans_type">
-    <item>Название</item>
-    <item>Пробел</item>
-    <item>Время отчёта</item>
-    <item>Смешанный</item>
-    <item>Звонки</item>
-    <item>СМС</item>
-    <item>ММС</item>
-    <item>Передача данныx</item>
-  </string-array>
-  <string-array name="rules_type">
-    <item>Звонок</item>
-    <item>СМС</item>
-    <item>ММС</item>
-    <item>Передача данныx</item>
-  </string-array>
-  <string-array name="limit_type">
-    <item>Безграничный</item>
-    <item>Единицы</item>
-    <item>Стоимость</item>
-  </string-array>
-  <string-array name="billperiod">
-    <item>1 день</item>
-    <item>1 неделя</item>
-    <item>14 дней</item>
-    <item>15 дней</item>
-    <item>30 дней</item>
-    <item>31 дней</item>
-    <item>60 дней</item>
-    <item>90 дней</item>
-    <item>1 месяц</item>
-    <item notranslation="true">One month + one day</item>
-    <item>2 месяца</item>
-    <item>3 месяца</item>
-    <item>4 месяца</item>
-    <item>5 месяца</item>
-    <item>6 месяца</item>
-    <item>Год</item>
-    <item>Бесконечно</item>
-  </string-array>
-  <string-array name="billmodes">
-    <item>1/1</item>
-    <item>6/6</item>
-    <item>10/10</item>
-    <item>30/1</item>
-    <item>30/6</item>
-    <item>30/10</item>
-    <item>30/30</item>
-    <item>30/60</item>
-    <item>45/1</item>
-    <item>60/0</item>
-    <item>60/1</item>
-    <item>60/6</item>
-    <item>60/10</item>
-    <item>60/15</item>
-    <item>60/30</item>
-    <item>60/60</item>
-    <item>Пользовательский</item>
-  </string-array>
-  <string-array name="direction_calls">
-    <item>Вxодящие</item>
-    <item>Исxодящие</item>
-  </string-array>
-  <string-array name="direction_sms">
-    <item>Вxодящие</item>
-    <item>Исxодящие</item>
-  </string-array>
-  <string-array name="direction_mms">
-    <item>Вxодящие</item>
-    <item>Исxодящие</item>
-  </string-array>
-  <string-array name="direction_data">
-    <item>Вxодящий</item>
-    <item>Исxодящий</item>
-  </string-array>
-  <string-array name="currency_formats">
-    <item>Стандарт</item>
-    <item>р1.00</item>
-    <item>р1000</item>
-    <item>1.00р</item>
-    <item>1000р</item>
-  </string-array>
-  <string-array name="date_formats">
-    <item>Стандарт</item>
-    <item>ММ/ДД/ГГ</item>
-    <item>ДД/ММ/ГГГГ</item>
-    <item>ДД.ММ.ГГГГ</item>
-  </string-array>
-  <string-array name="update_interval">
-    <item>5 минут</item>
-    <item>10 минут</item>
-    <item>15 минут</item>
-    <item>30 минут</item>
-    <item>1 час</item>
-    <item>2 часа</item>
-    <item>Пользовательский</item>
-  </string-array>
+  <string name="all_week">Каждый день</string>
+  <string name="monday">Понедельник</string>
+  <string name="tuesday">Вторник</string>
+  <string name="wednesday">Среда</string>
+  <string name="thursday">Четверг</string>
+  <string name="friday">Пятница</string>
+  <string name="saturday">Суббота</string>
+  <string name="sunday">Воскресение</string>
+  <string name="monday_till_friday">Понедельник - пятница</string>
+  <string name="all_day">Полный день</string>
+  <string name="day_0">0:00 - 0:59</string>
+  <string name="day_1">1:00 - 1:59</string>
+  <string name="day_2">2:00 - 2:59</string>
+  <string name="day_3">3:00 - 3:59</string>
+  <string name="day_4">4:00 - 4:59</string>
+  <string name="day_5">5:00 - 5:59</string>
+  <string name="day_6">6:00 - 6:59</string>
+  <string name="day_7">7:00 - 7:59</string>
+  <string name="day_8">8:00 - 8:59</string>
+  <string name="day_9">9:00 - 9:59</string>
+  <string name="day_10">10:00 - 10:59</string>
+  <string name="day_11">11:00 - 11:59</string>
+  <string name="day_12">12:00 - 12:59</string>
+  <string name="day_13">13:00 - 13:59</string>
+  <string name="day_14">14:00 - 14:59</string>
+  <string name="day_15">15:00 - 15:59</string>
+  <string name="day_16">16:00 - 16:59</string>
+  <string name="day_17">17:00 - 17:59</string>
+  <string name="day_18">18:00 - 18:59</string>
+  <string name="day_19">19:00 - 19:59</string>
+  <string name="day_20">20:00 - 20:59</string>
+  <string name="day_21">21:00 - 21:59</string>
+  <string name="day_22">22:00 - 22:59</string>
+  <string name="day_23">23:00 - 23:59</string>
+  <string name="theme_black">Тёмная</string>
+  <string name="theme_light">Светлая</string>
+  <string name="edit_plan_">Изменить ценовой план</string>
+  <string name="delete_">Удалить</string>
+  <string name="title">Название</string>
+  <string name="spacer">Пробел</string>
+  <string name="mixed">Звонки</string>
+  <string name="limit_type_unlimited">Безграничный</string>
+  <string name="limit_type_units">Единицы</string>
+  <string name="limit_type_cost">Стоимость</string>
+  <string name="1_day">1 день</string>
+  <string name="1_week">1 неделя</string>
+  <string name="14_day">14 дней</string>
+  <string name="15_day">15 дней</string>
+  <string name="30_day">30 дней</string>
+  <string name="31_day">31 дней</string>
+  <string name="60_day">60 дней</string>
+  <string name="90_day">90 дней</string>
+  <string name="1_month">1 месяц</string>
+  <string name="2_month">2 месяца</string>
+  <string name="3_month">3 месяца</string>
+  <string name="4_month">4 месяца</string>
+  <string name="5_month">5 месяца</string>
+  <string name="6_month">6 месяца</string>
+  <string name="1_year">Год</string>
+  <string name="infinite">Бесконечно</string>
+  <string name="custom">Пользовательский</string>
+  <string name="direction_calls_in">Вxодящие</string>
+  <string name="direction_calls_out">Исxодящие</string>
+  <string name="direction_sms_in">Вxодящие</string>
+  <string name="direction_sms_out">Исxодящие</string>
+  <string name="direction_mms_in">Вxодящие</string>
+  <string name="direction_mms_out">Исxодящие</string>
+  <string name="direction_data_in">Вxодящий</string>
+  <string name="direction_data_out">Исxодящий</string>
+  <string name="default">Стандарт</string>
+  <string name="currency_formats_1">р1.00</string>
+  <string name="currency_formats_2">р1000</string>
+  <string name="currency_formats_3">1.00р</string>
+  <string name="currency_formats_4">1000р</string>
+  <string name="date_formats_1">ММ/ДД/ГГ</string>
+  <string name="date_formats_2">ДД/ММ/ГГГГ</string>
+  <string name="date_formats_3">ДД.ММ.ГГГГ</string>
+  <string name="5_minute">5 минут</string>
+  <string name="10_minute">10 минут</string>
+  <string name="15_minute">15 минут</string>
+  <string name="30_minute">30 минут</string>
+  <string name="1_hour">1 час</string>
+  <string name="2_hour">2 часа</string>
+  <string name="manually_only">Пользовательский</string>
   <string name="never_show_again" formatted="false" orig="Never show changelog again">Больше не показывать журнал изменений</string>
   <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Нажмите тут для отображения последних изменений от разработчика</string>
   <string name="add_log" formatted="false" orig="Add log entry">Добавить позицию в журнал</string>

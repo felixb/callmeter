@@ -283,156 +283,90 @@
   <string name="widget_backgroud_transparency_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Background transparency">Transparencia del fondo</string>
   <string name="send_devices_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Send devices">Enviar dispositivos</string>
   <string name="send_devices_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Enviar lista de dispositivos al programador. Esto solo es necesario si las estadísticas son cero.</string>
-  <string-array name="weekdays_all">
-    <item>Toda la semana</item>
-    <item>Lunes</item>
-    <item>Martes</item>
-    <item>Miércoles</item>
-    <item>Jueves</item>
-    <item>Viernes</item>
-    <item>Sábado</item>
-    <item>Domingo</item>
-    <item>Lunes - Viernes</item>
-  </string-array>
-  <string-array name="hours_all">
-    <item>Todo el día</item>
-    <item>0:00 - 0:59</item>
-    <item>1:00 - 1:59</item>
-    <item>2:00 - 2:59</item>
-    <item>3:00 - 3:59</item>
-    <item>4:00 - 4:59</item>
-    <item>5:00 - 5:59</item>
-    <item>6:00 - 6:59</item>
-    <item>7:00 - 7:59</item>
-    <item>8:00 - 8:59</item>
-    <item>9:00 - 9:59</item>
-    <item>10:00 - 10:59</item>
-    <item>11:00 - 11:59</item>
-    <item>12:00 - 12:59</item>
-    <item>13:00 - 13:59</item>
-    <item>14:00 - 14:59</item>
-    <item>15:00 - 15:59</item>
-    <item>16:00 - 16:59</item>
-    <item>17:00 - 17:59</item>
-    <item>18:00 - 18:59</item>
-    <item>19:00 - 19:59</item>
-    <item>20:00 - 20:59</item>
-    <item>21:00 - 21:59</item>
-    <item>22:00 - 22:59</item>
-    <item>23:00 - 23:59</item>
-  </string-array>
-  <string-array name="themes">
-    <item>Oscuro</item>
-    <item>Claro</item>
-  </string-array>
-  <string-array name="dialog_edit_plan" username="jonaguera">
-    <item>Editar plan</item>
-    <item>Ver registros</item>
-  </string-array>
-  <string-array name="dialog_delete">
-    <item>Delete</item>
-  </string-array>
-  <string-array name="dialog_edit_delete">
-    <item>Editar</item>
-    <item>Borrar</item>
-  </string-array>
-  <string-array name="plans_type">
-    <item>Título</item>
-    <item>Espaciador</item>
-    <item>Periodo de facturación</item>
-    <item>Mixto</item>
-    <item>Llamadas</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Datos</item>
-  </string-array>
-  <string-array name="rules_type">
-    <item>Llamadas</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Datos</item>
-  </string-array>
-  <string-array name="limit_type">
-    <item>Sin límite</item>
-    <item>Unidades</item>
-    <item>coste</item>
-  </string-array>
-  <string-array name="billperiod">
-    <item>Un día</item>
-    <item>Una semana</item>
-    <item>14 días</item>
-    <item>15 días</item>
-    <item>30 días</item>
-    <item>31 días</item>
-    <item>60 días</item>
-    <item>90 días</item>
-    <item>Un mes</item>
-		<item notranslation="true">One month + one day</item>
-    <item>Dos meses</item>
-    <item>Tres meses</item>
-    <item>Cuatro meses</item>
-    <item>Cinco meses</item>
-    <item>Seis meses</item>
-    <item>Un año</item>
-    <item>Infinito</item>
-  </string-array>
-  <string-array name="billmodes">
-    <item>1/1</item>
-    <item>6/6</item>
-    <item>10/10</item>
-    <item>30/1</item>
-    <item>30/6</item>
-    <item>30/10</item>
-    <item>30/30</item>
-    <item>30/60</item>
-    <item>45/1</item>
-    <item>60/0</item>
-    <item>60/1</item>
-    <item>60/6</item>
-    <item>60/10</item>
-    <item>60/15</item>
-    <item>60/30</item>
-    <item>60/60</item>
-    <item>Personalizado</item>
-  </string-array>
-  <string-array name="direction_calls">
-    <item>entrada</item>
-    <item>salida</item>
-  </string-array>
-  <string-array name="direction_sms">
-    <item>entrada</item>
-    <item>salida</item>
-  </string-array>
-  <string-array name="direction_mms">
-    <item>entrada</item>
-    <item>salida</item>
-  </string-array>
-  <string-array name="direction_data">
-    <item>entrada</item>
-    <item>salida</item>
-  </string-array>
-  <string-array name="currency_formats" username="flx &lt;f+translator@ub0r.de&gt;">
-    <item>Por defecto</item>
-    <item>$1.00</item>
-    <item>$1000</item>
-    <item>1.00$</item>
-    <item>1000$</item>
-  </string-array>
-  <string-array name="date_formats" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;">
-    <item>Predeterminado</item>
-    <item>MM/DD/AA</item>
-    <item>DD/MM/AAAA</item>
-    <item>DD.MM.AAAA</item>
-  </string-array>
-  <string-array name="update_interval" username="Pamemuro@gmail.com">
-    <item>5 minutos</item>
-    <item>10 minutos</item>
-    <item>15 minutos</item>
-    <item>30 minutos</item>
-    <item>Una hora</item>
-    <item>Dos horas</item>
-    <item>Sólo manual</item>
-  </string-array>
+  <string name="all_week">Toda la semana</string>
+  <string name="monday">Lunes</string>
+  <string name="tuesday">Martes</string>
+  <string name="wednesday">Miércoles</string>
+  <string name="thursday">Jueves</string>
+  <string name="friday">Viernes</string>
+  <string name="saturday">Sábado</string>
+  <string name="sunday">Domingo</string>
+  <string name="monday_till_friday">Lunes - Viernes</string>
+  <string name="all_day">Todo el día</string>
+  <string name="day_0">0:00 - 0:59</string>
+  <string name="day_1">1:00 - 1:59</string>
+  <string name="day_2">2:00 - 2:59</string>
+  <string name="day_3">3:00 - 3:59</string>
+  <string name="day_4">4:00 - 4:59</string>
+  <string name="day_5">5:00 - 5:59</string>
+  <string name="day_6">6:00 - 6:59</string>
+  <string name="day_7">7:00 - 7:59</string>
+  <string name="day_8">8:00 - 8:59</string>
+  <string name="day_9">9:00 - 9:59</string>
+  <string name="day_10">10:00 - 10:59</string>
+  <string name="day_11">11:00 - 11:59</string>
+  <string name="day_12">12:00 - 12:59</string>
+  <string name="day_13">13:00 - 13:59</string>
+  <string name="day_14">14:00 - 14:59</string>
+  <string name="day_15">15:00 - 15:59</string>
+  <string name="day_16">16:00 - 16:59</string>
+  <string name="day_17">17:00 - 17:59</string>
+  <string name="day_18">18:00 - 18:59</string>
+  <string name="day_19">19:00 - 19:59</string>
+  <string name="day_20">20:00 - 20:59</string>
+  <string name="day_21">21:00 - 21:59</string>
+  <string name="day_22">22:00 - 22:59</string>
+  <string name="day_23">23:00 - 23:59</string>
+  <string name="theme_black">Oscuro</string>
+  <string name="theme_light">Claro</string>
+  <string name="edit_plan_">Editar plan</string>
+  <string name="view_logs_">Ver registros</string>
+  <string name="title">Título</string>
+  <string name="spacer">Espaciador</string>
+  <string name="mixed">Llamadas</string>
+  <string name="limit_type_unlimited">Sin límite</string>
+  <string name="limit_type_units">Unidades</string>
+  <string name="limit_type_cost">coste</string>
+  <string name="1_day">Un día</string>
+  <string name="1_week">Una semana</string>
+  <string name="14_day">14 días</string>
+  <string name="15_day">15 días</string>
+  <string name="30_day">30 días</string>
+  <string name="31_day">31 días</string>
+  <string name="60_day">60 días</string>
+  <string name="90_day">90 días</string>
+  <string name="1_month">Un mes</string>
+  <string name="2_month">Dos meses</string>
+  <string name="3_month">Tres meses</string>
+  <string name="4_month">Cuatro meses</string>
+  <string name="5_month">Cinco meses</string>
+  <string name="6_month">Seis meses</string>
+  <string name="1_year">Un año</string>
+  <string name="infinite">Infinito</string>
+  <string name="custom">Personalizado</string>
+  <string name="direction_calls_in">entrada</string>
+  <string name="direction_calls_out">salida</string>
+  <string name="direction_sms_in">entrada</string>
+  <string name="direction_sms_out">salida</string>
+  <string name="direction_mms_in">entrada</string>
+  <string name="direction_mms_out">salida</string>
+  <string name="direction_data_in">entrada</string>
+  <string name="direction_data_out">salida</string>
+  <string name="default">Por defecto</string>
+  <string name="currency_formats_1">$1.00</string>
+  <string name="currency_formats_2">$1000</string>
+  <string name="currency_formats_3">1.00$</string>
+  <string name="currency_formats_4">1000$</string>
+  <string name="date_formats_1">MM/DD/AA</string>
+  <string name="date_formats_2">DD/MM/AAAA</string>
+  <string name="date_formats_3">DD.MM.AAAA</string>
+  <string name="5_minute">5 minutos</string>
+  <string name="10_minute">10 minutos</string>
+  <string name="15_minute">15 minutos</string>
+  <string name="30_minute">30 minutos</string>
+  <string name="1_hour">Una hora</string>
+  <string name="2_hour">Dos horas</string>
+  <string name="manually_only">Sólo manual</string>
   <string name="messages" formatted="false" orig="Messages">Mensajes</string>
   <string name="simple_preferences_" formatted="false" orig="Simple preferences">Preferencias simples</string>
   <string name="numbergroup_excalls" formatted="false" orig="Exclude from calls">Exclusivamente para llamadas</string>
@@ -472,14 +406,8 @@
   <string name="data_" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Data (2G/3G/4G)">Datos (2G/3G/4G)</string>
   <string name="data_inout" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Data In/Out">Datos Entrada/Salida</string>
   <string name="data_inout_" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="DataInOut">Datos Entrada/Salida</string>
-  <string-array name="update_interval_data" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;">
-    <item>0.5 minutos</item>
-    <item>1 minuto</item>
-    <item>2 minutos</item>
-    <item>5 minutos</item>
-    <item>15 minutos</item>
-    <item>30 minutos</item>
-    <item>Una hora</item>
-    <item>Solo manual</item>
-  </string-array>
+  <string name="05_minute">0.5 minutos</string>
+  <string name="1_minute">1 minuto</string>
+  <string name="2_minute">2 minutos</string>
+  <string name="5_minute">5 minutos</string>
 </resources>

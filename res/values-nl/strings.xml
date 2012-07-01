@@ -227,99 +227,65 @@
   <string name="alerts_80_hint" formatted="false">Notificatie als een schema over 80% van limiet gaat.</string>
   <string name="alerts_100_" formatted="false">Notificatie op 100%</string>
   <string name="alerts_100_hint" formatted="false">Notificatie als een schema over 100% van limiet gaat.</string>
-  <string-array name="weekdays_all">
-    <item>Hele week</item>
-    <item>Maandag</item>
-    <item>Dinsdag</item>
-    <item>Woensdag</item>
-    <item>Donderdag</item>
-    <item>Vrijdag</item>
-    <item>Zaterdag</item>
-    <item>Zondag</item>
-    <item>Maandag - vrijdag</item>
-  </string-array>
-  <string-array name="hours_all">
-    <item>Hele dag</item>
-    <item>0:00 - 0:59</item>
-    <item>1:00 - 1:59</item>
-    <item>2:00 - 2:59</item>
-    <item>3:00 - 3:59</item>
-    <item>4:00 - 4:59</item>
-    <item>5:00 - 5:59</item>
-    <item>6:00 - 6:59</item>
-    <item>7:00 - 7:59</item>
-    <item>8:00 - 8:59</item>
-    <item>9:00 - 9:59</item>
-    <item>10:00 - 10:59</item>
-    <item>11:00 - 11:59</item>
-    <item>12:00 - 12:59</item>
-    <item>13:00 - 13:59</item>
-    <item>14:00 - 14:59</item>
-    <item>15:00 - 15:59</item>
-    <item>16:00 - 16:59</item>
-    <item>17:00 - 17:59</item>
-    <item>18:00 - 18:59</item>
-    <item>19:00 - 19:59</item>
-    <item>20:00 - 20:59</item>
-    <item>21:00 - 21:59</item>
-    <item>22:00 - 22:59</item>
-    <item>23:00 - 23:59</item>
-  </string-array>
-  <string-array name="themes">
-    <item>Zwart</item>
-    <item>Licht</item>
-  </string-array>
-  <string-array name="dialog_edit_plan">
-    <item>Wijzig schema</item>
-    <item notranslation="true">View Logs</item>
-  </string-array>
-  <string-array name="dialog_delete">
-    <item>Verwijderen</item>
-  </string-array>
-  <string-array name="dialog_edit_delete">
-    <item>Wijzig</item>
-    <item>Verwijderen</item>
-  </string-array>
-  <string-array name="plans_type">
-    <item>Titel</item>
-    <item>Witruimte</item>
-    <item>Factuur periode</item>
-    <item>Gemixed</item>
-    <item>Gesprek</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Data</item>
-  </string-array>
-  <string-array name="rules_type">
-    <item>Gesprekken</item>
-    <item>SMS</item>
-    <item>MMS</item>
-    <item>Data</item>
-  </string-array>
-  <string-array name="limit_type">
-    <item>ongelimiteerd</item>
-    <item>eenheden</item>
-    <item>kosten</item>
-  </string-array>
-  <string-array name="billperiod">
-    <item>Een dag</item>
-    <item>Een week</item>
-    <item>30 dagen</item>
-    <item>60 dagen</item>
-    <item>90 dagen</item>
-    <item>Een maand</item>
-    <item>Twee maand</item>
-    <item>Drie maand</item>
-    <item>Vier maanden</item>
-    <item>Vijf maanden</item>
-    <item>Zes maanden</item>
-    <item>Een jaar</item>
-    <item>Oneindig</item>
-  </string-array>
-  <string-array name="billmodes">
-    <item>1/1</item>
-    <item>6/6</item>
-    <item>10/10</item>
+  <string name="all_week">Hele week</string>
+  <string name="monday">Maandag</string>
+  <string name="tuesday">Dinsdag</string>
+  <string name="wednesday">Woensdag</string>
+  <string name="thursday">Donderdag</string>
+  <string name="friday">Vrijdag</string>
+  <string name="saturday">Zaterdag</string>
+  <string name="sunday">Zondag</string>
+  <string name="monday_till_friday">Maandag - vrijdag</string>
+  <string name="all_day">Hele dag</string>
+  <string name="day_0">0:00 - 0:59</string>
+  <string name="day_1">1:00 - 1:59</string>
+  <string name="day_2">2:00 - 2:59</string>
+  <string name="day_3">3:00 - 3:59</string>
+  <string name="day_4">4:00 - 4:59</string>
+  <string name="day_5">5:00 - 5:59</string>
+  <string name="day_6">6:00 - 6:59</string>
+  <string name="day_7">7:00 - 7:59</string>
+  <string name="day_8">8:00 - 8:59</string>
+  <string name="day_9">9:00 - 9:59</string>
+  <string name="day_10">10:00 - 10:59</string>
+  <string name="day_11">11:00 - 11:59</string>
+  <string name="day_12">12:00 - 12:59</string>
+  <string name="day_13">13:00 - 13:59</string>
+  <string name="day_14">14:00 - 14:59</string>
+  <string name="day_15">15:00 - 15:59</string>
+  <string name="day_16">16:00 - 16:59</string>
+  <string name="day_17">17:00 - 17:59</string>
+  <string name="day_18">18:00 - 18:59</string>
+  <string name="day_19">19:00 - 19:59</string>
+  <string name="day_20">20:00 - 20:59</string>
+  <string name="day_21">21:00 - 21:59</string>
+  <string name="day_22">22:00 - 22:59</string>
+  <string name="day_23">23:00 - 23:59</string>
+  <string name="theme_black">Zwart</string>
+  <string name="theme_light">Licht</string>
+  <string name="edit_plan_">Wijzig schema</string>
+  <string name="delete_">Verwijderen</string>
+  <string name="title">Titel</string>
+  <string name="spacer">Witruimte</string>
+  <string name="mixed">Gesprek</string>
+  <string name="limit_type_unlimited">ongelimiteerd</string>
+  <string name="limit_type_units">eenheden</string>
+  <string name="limit_type_cost">kosten</string>
+  <string name="1_day">Een dag</string>
+  <string name="1_week">Een week</string>
+  <string name="14_day">30 dagen</string>
+  <string name="15_day">60 dagen</string>
+  <string name="30_day">90 dagen</string>
+  <string name="31_day">Een maand</string>
+  <string name="60_day">Twee maand</string>
+  <string name="90_day">Drie maand</string>
+  <string name="1_month">Vier maanden</string>
+  <string name="1_month_1_day">Vijf maanden</string>
+  <string name="2_month">Zes maanden</string>
+  <string name="3_month">Een jaar</string>
+  <string name="4_month">Oneindig</string>
+  <string name="1_year">1/1</string>
+  <string name="infinite">6/6</string>
     <item>30/1</item>
     <item>30/6</item>
     <item>30/10</item>
@@ -335,44 +301,29 @@
     <item>60/60</item>
     <item>Aangepast</item>
   </string-array>
-  <string-array name="direction_calls">
-    <item>in</item>
-    <item>uit</item>
-  </string-array>
-  <string-array name="direction_sms">
-    <item>in</item>
-    <item>uit</item>
-  </string-array>
-  <string-array name="direction_mms">
-    <item>in</item>
-    <item>uit</item>
-  </string-array>
-  <string-array name="direction_data">
-    <item>in</item>
-    <item>uit</item>
-  </string-array>
-  <string-array name="currency_formats">
-    <item>Standaard</item>
-    <item>€1.00</item>
-    <item>€1000</item>
-    <item>1.00€</item>
-    <item>1000€</item>
-  </string-array>
-  <string-array name="date_formats">
-    <item>Standaard</item>
-    <item>MM/DD/JJ</item>
-    <item>DD/MM/JJJJ</item>
-    <item>DD.MM.JJJJ</item>
-  </string-array>
-  <string-array name="update_interval">
-    <item>5 minuten</item>
-    <item>10 minuten</item>
-    <item>15 minuten</item>
-    <item>30 minuten</item>
-    <item>Een uur</item>
-    <item>Twee uren</item>
-    <item>Alleen handmatig</item>
-  </string-array>
+  <string name="direction_calls_in">in</string>
+  <string name="direction_calls_out">uit</string>
+  <string name="direction_sms_in">in</string>
+  <string name="direction_sms_out">uit</string>
+  <string name="direction_mms_in">in</string>
+  <string name="direction_mms_out">uit</string>
+  <string name="direction_data_in">in</string>
+  <string name="direction_data_out">uit</string>
+  <string name="default">Standaard</string>
+  <string name="currency_formats_1">€1.00</string>
+  <string name="currency_formats_2">€1000</string>
+  <string name="currency_formats_3">1.00€</string>
+  <string name="currency_formats_4">1000€</string>
+  <string name="date_formats_1">MM/DD/JJ</string>
+  <string name="date_formats_2">DD/MM/JJJJ</string>
+  <string name="date_formats_3">DD.MM.JJJJ</string>
+  <string name="5_minute">5 minuten</string>
+  <string name="10_minute">10 minuten</string>
+  <string name="15_minute">15 minuten</string>
+  <string name="30_minute">30 minuten</string>
+  <string name="1_hour">Een uur</string>
+  <string name="2_hour">Twee uren</string>
+  <string name="manually_only">Alleen handmatig</string>
   <string name="changelog_notification_text" formatted="false" username="housenegro76@hotmail.com" orig="Click here to show recent changes of">Klik hier om de recente wijzigingen te zien van</string>
   <string name="never_show_again" formatted="false" username="Gummie" orig="Never show changelog again">Laat changelog niet meer zien</string>
   <string name="notes_from_developer_" formatted="false" username="Gummie" orig="Notes from developer">Notities van ontwikkelaar</string>
