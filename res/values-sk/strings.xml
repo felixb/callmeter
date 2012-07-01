@@ -50,12 +50,12 @@
   <string name="contacts_" formatted="false">Z kontaktov</string>
   <string name="theme_black">Tmavý</string>
   <string name="theme_light">Svetlý</string>
-  <string name="5_minute">5 minút</string>
-  <string name="10_minute">10 minút</string>
-  <string name="15_minute">15 minút</string>
-  <string name="30_minute">30 minút</string>
-  <string name="1_hour">hodina</string>
-  <string name="2_hour">dve hodiny</string>
+  <string name="x5_minute">5 minút</string>
+  <string name="x10_minute">10 minút</string>
+  <string name="x15_minute">15 minút</string>
+  <string name="x30_minute">30 minút</string>
+  <string name="x1_hour">hodina</string>
+  <string name="x2_hour">dve hodiny</string>
   <string name="manually_only">Iba manuálne</string>
   <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Poznámka od vývojára</string>
   <string name="add_" formatted="false" orig="Add">Pridať</string>
@@ -69,21 +69,21 @@
   <string name="number_prefix_" formatted="false" orig="International prefix">Medzinárodný prefix</string>
   <string name="number_prefix_hint" formatted="false" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">Váš medzinárodný prefix vo formáte +1 alebo +421. Je použitý na porovnávanie čísiel ako +49170.. a 0179..</string>
   <string name="changelog_notification_" formatted="false" orig="Recent changes:">Posledné zmeny:</string>
-  <string name="1_day">Deň</string>
-  <string name="1_week">Týždeň</string>
-  <string name="14_day">14 dní</string>
-  <string name="15_day">15 dní</string>
-  <string name="30_day">30 dní</string>
-  <string name="31_day">31 dní</string>
-  <string name="60_day">60 dní</string>
-  <string name="90_day">90 dní</string>
-  <string name="1_month">Mesiac</string>
-  <string name="2_month">2 mesiace</string>
-  <string name="3_month">3 mesiace</string>
-  <string name="4_month">4 mesiace</string>
-  <string name="5_month">5 mesiacov</string>
-  <string name="6_month">6 mesiacov</string>
-  <string name="1_year">Rok</string>
+  <string name="x1_day">Deň</string>
+  <string name="x1_week">Týždeň</string>
+  <string name="x14_day">14 dní</string>
+  <string name="x15_day">15 dní</string>
+  <string name="x30_day">30 dní</string>
+  <string name="x31_day">31 dní</string>
+  <string name="x60_day">60 dní</string>
+  <string name="x90_day">90 dní</string>
+  <string name="x1_month">Mesiac</string>
+  <string name="x2_month">2 mesiace</string>
+  <string name="x3_month">3 mesiace</string>
+  <string name="x4_month">4 mesiace</string>
+  <string name="x5_month">5 mesiacov</string>
+  <string name="x6_month">6 mesiacov</string>
+  <string name="x1_year">Rok</string>
   <string name="infinite">Bez obmedzenia</string>
   <string name="yes" formatted="false" orig="Yes">Áno</string>
   <string name="no" formatted="false" orig="No">Nie</string>
@@ -165,10 +165,10 @@
   <string name="delete_widget" formatted="false" orig="Delete widget">Vymazať miniaplikáciu</string>
   <string name="add_log" formatted="false" orig="Add log entry">Pridať položku do protokolu</string>
   <string name="date_begin_hint" formatted="false" orig="Ignore any logs before this date.">Ignorovať všetky záznamy pred týmto dátumom</string>
-  <string name="05_minute">30 sekúnd</string>
-  <string name="1_minute">1 minúta</string>
-  <string name="2_minute">2 minúty</string>
-  <string name="5_minute">5 minút</string>
+  <string name="x05_minute">30 sekúnd</string>
+  <string name="x1_minute">1 minúta</string>
+  <string name="x2_minute">2 minúty</string>
+  <string name="x5_minute">5 minút</string>
   <string name="widget_" formatted="false" orig="Widget">Miniaplikácia</string>
   <string name="widgets_" formatted="false" orig="Widgets">Miniaplikácie</string>
   <string name="widgets_no_widgets_" formatted="false" orig="No widgets added">Nepridané žiadne miniaplikácie</string>

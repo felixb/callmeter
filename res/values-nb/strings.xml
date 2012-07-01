@@ -238,21 +238,21 @@
   <string name="limit_type_unlimited">ubegrenset</string>
   <string name="limit_type_units">enheter</string>
   <string name="limit_type_cost">kostnad</string>
-  <string name="1_day">En dag</string>
-  <string name="1_week">En uke</string>
-  <string name="14_day">14 dager</string>
-  <string name="15_day">15 dager</string>
-  <string name="30_day">30 dager</string>
-  <string name="31_day">31 dager</string>
-  <string name="60_day">60 dager</string>
-  <string name="90_day">90 dager</string>
-  <string name="1_month">en måned</string>
-  <string name="2_month">To måneder</string>
-  <string name="3_month">Tre måneder</string>
-  <string name="4_month">Fire måneder</string>
-  <string name="5_month">Fem måneder</string>
-  <string name="6_month">Seks måneder</string>
-  <string name="1_year">Ett år</string>
+  <string name="x1_day">En dag</string>
+  <string name="x1_week">En uke</string>
+  <string name="x14_day">14 dager</string>
+  <string name="x15_day">15 dager</string>
+  <string name="x30_day">30 dager</string>
+  <string name="x31_day">31 dager</string>
+  <string name="x60_day">60 dager</string>
+  <string name="x90_day">90 dager</string>
+  <string name="x1_month">en måned</string>
+  <string name="x2_month">To måneder</string>
+  <string name="x3_month">Tre måneder</string>
+  <string name="x4_month">Fire måneder</string>
+  <string name="x5_month">Fem måneder</string>
+  <string name="x6_month">Seks måneder</string>
+  <string name="x1_year">Ett år</string>
   <string name="infinite">Uendelig</string>
   <string name="custom">Egendefinert</string>
   <string name="simple_preferences_hint" formatted="false" username="" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Enkle instillinger, passende for de flester brukere. Kun tilgjenglig med standard regel sett</string>
@@ -274,17 +274,17 @@
   <string name="cost_per_item_in_limit_help" formatted="false" username="" orig="Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.">Sett kost taksert for et enkelt logg innslag (f. eks. en samtale eller en melding) før begrensningen er overskredet.</string>
   <string name="cost_per_amount_" formatted="false" username="" orig="Cost per length">Kost per innehold </string>
   <string name="cost_per_amount_help1" formatted="false" username="" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Sett prisen som blir taksert per enhet for et enkelt logg innslag (f. eks. for 1 MB data) etter at begrensningen er overskredet.</string>
-  <string name="5_minute">5 minutter</string>
-  <string name="10_minute">10 minutter</string>
-  <string name="15_minute">15 minutter</string>
-  <string name="30_minute">30 minutter</string>
-  <string name="1_hour">en time</string>
-  <string name="2_hour">to timer</string>
+  <string name="x5_minute">5 minutter</string>
+  <string name="x10_minute">10 minutter</string>
+  <string name="x15_minute">15 minutter</string>
+  <string name="x30_minute">30 minutter</string>
+  <string name="x1_hour">en time</string>
+  <string name="x2_hour">to timer</string>
   <string name="manually_only">Manuelt</string>
   <string name="date_formats_1">MM/DD/ÅÅ</string>
   <string name="date_formats_2">DD/MM/ÅÅÅÅ</string>
   <string name="date_formats_3">DD.MM.ÅÅÅÅ</string>
-  <string name="default">Standard</string>
+  <string name="default_">Standard</string>
   <string name="currency_formats_1">kr 1.00</string>
   <string name="currency_formats_2">kr 1000</string>
   <string name="currency_formats_3">1.00 kr</string>

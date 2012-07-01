@@ -327,21 +327,21 @@
   <string name="limit_type_unlimited">Sin límite</string>
   <string name="limit_type_units">Unidades</string>
   <string name="limit_type_cost">coste</string>
-  <string name="1_day">Un día</string>
-  <string name="1_week">Una semana</string>
-  <string name="14_day">14 días</string>
-  <string name="15_day">15 días</string>
-  <string name="30_day">30 días</string>
-  <string name="31_day">31 días</string>
-  <string name="60_day">60 días</string>
-  <string name="90_day">90 días</string>
-  <string name="1_month">Un mes</string>
-  <string name="2_month">Dos meses</string>
-  <string name="3_month">Tres meses</string>
-  <string name="4_month">Cuatro meses</string>
-  <string name="5_month">Cinco meses</string>
-  <string name="6_month">Seis meses</string>
-  <string name="1_year">Un año</string>
+  <string name="x1_day">Un día</string>
+  <string name="x1_week">Una semana</string>
+  <string name="x14_day">14 días</string>
+  <string name="x15_day">15 días</string>
+  <string name="x30_day">30 días</string>
+  <string name="x31_day">31 días</string>
+  <string name="x60_day">60 días</string>
+  <string name="x90_day">90 días</string>
+  <string name="x1_month">Un mes</string>
+  <string name="x2_month">Dos meses</string>
+  <string name="x3_month">Tres meses</string>
+  <string name="x4_month">Cuatro meses</string>
+  <string name="x5_month">Cinco meses</string>
+  <string name="x6_month">Seis meses</string>
+  <string name="x1_year">Un año</string>
   <string name="infinite">Infinito</string>
   <string name="custom">Personalizado</string>
   <string name="direction_calls_in">entrada</string>
@@ -352,7 +352,7 @@
   <string name="direction_mms_out">salida</string>
   <string name="direction_data_in">entrada</string>
   <string name="direction_data_out">salida</string>
-  <string name="default">Por defecto</string>
+  <string name="default_">Por defecto</string>
   <string name="currency_formats_1">$1.00</string>
   <string name="currency_formats_2">$1000</string>
   <string name="currency_formats_3">1.00$</string>
@@ -360,12 +360,12 @@
   <string name="date_formats_1">MM/DD/AA</string>
   <string name="date_formats_2">DD/MM/AAAA</string>
   <string name="date_formats_3">DD.MM.AAAA</string>
-  <string name="5_minute">5 minutos</string>
-  <string name="10_minute">10 minutos</string>
-  <string name="15_minute">15 minutos</string>
-  <string name="30_minute">30 minutos</string>
-  <string name="1_hour">Una hora</string>
-  <string name="2_hour">Dos horas</string>
+  <string name="x5_minute">5 minutos</string>
+  <string name="x10_minute">10 minutos</string>
+  <string name="x15_minute">15 minutos</string>
+  <string name="x30_minute">30 minutos</string>
+  <string name="x1_hour">Una hora</string>
+  <string name="x2_hour">Dos horas</string>
   <string name="manually_only">Sólo manual</string>
   <string name="messages" formatted="false" orig="Messages">Mensajes</string>
   <string name="simple_preferences_" formatted="false" orig="Simple preferences">Preferencias simples</string>
@@ -406,8 +406,8 @@
   <string name="data_" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Data (2G/3G/4G)">Datos (2G/3G/4G)</string>
   <string name="data_inout" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Data In/Out">Datos Entrada/Salida</string>
   <string name="data_inout_" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="DataInOut">Datos Entrada/Salida</string>
-  <string name="05_minute">0.5 minutos</string>
-  <string name="1_minute">1 minuto</string>
-  <string name="2_minute">2 minutos</string>
-  <string name="5_minute">5 minutos</string>
+  <string name="x05_minute">0.5 minutos</string>
+  <string name="x1_minute">1 minuto</string>
+  <string name="x2_minute">2 minutos</string>
+  <string name="x5_minute">5 minutos</string>
 </resources>
