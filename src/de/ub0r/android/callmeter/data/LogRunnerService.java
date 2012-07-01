@@ -454,8 +454,14 @@ public final class LogRunnerService extends IntentService {
 		final long maxdate = getMaxDate(cr, DataProvider.TYPE_CALL);
 		final String[] callsProjection = new String[] { Calls.TYPE, Calls.DURATION, Calls.DATE,
 				Calls.NUMBER };
-		final Cursor cursor = cr.query(Calls.CONTENT_URI, callsProjection, Calls.DATE + " > ?",
-				new String[] { String.valueOf(maxdate) }, Calls.DATE + " DESC");
+		Cursor cursor;
+		try {
+			cursor = cr.query(Calls.CONTENT_URI, callsProjection, Calls.DATE + " > ?",
+					new String[] { String.valueOf(maxdate) }, Calls.DATE + " DESC");
+		} catch (NullPointerException e) {
+			Log.e(TAG, "updateCalls(): NPE", e);
+			return;
+		}
 		if (cursor == null) {
 			Log.d(TAG, "updateCalls(): null");
 			return;
@@ -525,10 +531,15 @@ public final class LogRunnerService extends IntentService {
 
 		final long maxdate = getMaxDate(cr, DataProvider.TYPE_SMS, direction);
 		final String[] smsProjection = new String[] { Calls.DATE, Calls.TYPE, "address", "body" };
-		final Cursor cursor = cr.query(URI_SMS, smsProjection, Calls.DATE + " > ? and "
-				+ Calls.TYPE + " = ?",
-				new String[] { String.valueOf(maxdate), String.valueOf(type) }, Calls.DATE
-						+ " DESC");
+		Cursor cursor;
+		try {
+			cursor = cr.query(URI_SMS, smsProjection, Calls.DATE + " > ? and " + Calls.TYPE
+					+ " = ?", new String[] { String.valueOf(maxdate), String.valueOf(type) },
+					Calls.DATE + " DESC");
+		} catch (NullPointerException e) {
+			Log.e(TAG, "updateSMS(): NPE", e);
+			return;
+		}
 		if (cursor == null) {
 			Log.d(TAG, "updateSMS(): null");
 			return;
@@ -596,8 +607,14 @@ public final class LogRunnerService extends IntentService {
 		final ContentResolver cr = context.getContentResolver();
 		final long maxdate = getMaxDate(cr, DataProvider.TYPE_MMS);
 		final String[] mmsProjection = new String[] { Calls.DATE, MMS_TYPE, THRADID };
-		Cursor cursor = cr.query(URI_MMS, mmsProjection, Calls.DATE + " > ?",
-				new String[] { String.valueOf(maxdate) }, Calls.DATE + " DESC");
+		Cursor cursor;
+		try {
+			cursor = cr.query(URI_MMS, mmsProjection, Calls.DATE + " > ?",
+					new String[] { String.valueOf(maxdate) }, Calls.DATE + " DESC");
+		} catch (NullPointerException e) {
+			Log.e(TAG, "updateMMS(): NPE", e);
+			return;
+		}
 		if (cursor == null) {
 			Log.d(TAG, "updateMMS(): null");
 			return;

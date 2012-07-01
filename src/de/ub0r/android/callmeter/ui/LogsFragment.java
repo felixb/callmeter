@@ -331,28 +331,28 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 		}
 
 		String where = DataProvider.Logs.TABLE + "." + DataProvider.Logs.TYPE + " in (-1";
-		if (this.tbCall.isChecked()) {
+		if (this.tbCall != null && this.tbCall.isChecked()) {
 			where += "," + DataProvider.TYPE_CALL;
 		}
-		if (this.tbSMS.isChecked()) {
+		if (this.tbSMS != null && this.tbSMS.isChecked()) {
 			where += "," + DataProvider.TYPE_SMS;
 		}
-		if (this.tbMMS.isChecked()) {
+		if (this.tbMMS != null && this.tbMMS.isChecked()) {
 			where += "," + DataProvider.TYPE_MMS;
 		}
-		if (this.tbData.isChecked()) {
+		if (this.tbData != null && this.tbData.isChecked()) {
 			where += "," + DataProvider.TYPE_DATA;
 		}
 		where += ") and " + DataProvider.Logs.TABLE + "." + DataProvider.Logs.DIRECTION + " in (-1";
-		if (this.tbIn.isChecked()) {
+		if (this.tbIn != null && this.tbIn.isChecked()) {
 			where += "," + DataProvider.DIRECTION_IN;
 		}
-		if (this.tbOut.isChecked()) {
+		if (this.tbOut != null && this.tbOut.isChecked()) {
 			where += "," + DataProvider.DIRECTION_OUT;
 		}
 		where += ")";
 
-		if (this.planId > 0L && this.tbPlan.isChecked()) {
+		if (this.planId > 0L && this.tbPlan != null && this.tbPlan.isChecked()) {
 			where = DbUtils.sqlAnd(DataProvider.Logs.TABLE + "." + DataProvider.Logs.PLAN_ID + "="
 					+ this.planId, where);
 		}

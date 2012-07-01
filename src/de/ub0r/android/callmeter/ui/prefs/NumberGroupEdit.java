@@ -307,7 +307,8 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener, On
 			return;
 		}
 		cv.put(DataProvider.Numbers.GID, this.gid);
-		if (Character.isDigit(n.replaceAll("%", "").replaceAll("\\+", "").charAt(0))) {
+		String s = n.replaceAll("%", "").replaceAll("\\+", "");
+		if (s.length() > 0 && Character.isDigit(s.charAt(0))) {
 			n = DataProvider.Logs.cleanNumber(number, true);
 		}
 		cv.put(DataProvider.Numbers.NUMBER, n);

@@ -249,10 +249,12 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
 			Cursor c = cr.query(DataProvider.Logs.CONTENT_URI,
 					new String[] { DataProvider.Logs.DATE }, null, null, DataProvider.Logs.DATE
 							+ " ASC LIMIT 1");
-			if (!c.moveToFirst()) {
+			if (c == null || !c.moveToFirst()) {
 				this.positions = new Long[] { -1L, -1L };
 				this.billDays = this.positions;
-				c.close();
+				if (c != null && !c.isClosed()) {
+					c.close();
+				}
 			} else {
 				final long minDate = c.getLong(0);
 				c.close();
