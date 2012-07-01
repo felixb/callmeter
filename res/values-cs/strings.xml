@@ -270,21 +270,21 @@
   <string name="limit_type_unlimited">neomezený</string>
   <string name="limit_type_units">jednotky</string>
   <string name="limit_type_cost">cena</string>
-  <string name="1_day">Jeden den</string>
-  <string name="1_week">Jeden týden</string>
-  <string name="14_day">14 dnů</string>
-  <string name="15_day">15 dnů</string>
-  <string name="30_day">30 dnů</string>
-  <string name="31_day">31 dnů</string>
-  <string name="60_day">60 dnů</string>
-  <string name="90_day">90 dnů</string>
-  <string name="1_month">Jeden měsíc</string>
-  <string name="2_month">Dva měsíce</string>
-  <string name="3_month">Tři měsíce</string>
-  <string name="4_month">Čtyři měsíce</string>
-  <string name="5_month">Pět měsíců</string>
-  <string name="6_month">Šest měsíců</string>
-  <string name="1_year">Jeden rok</string>
+  <string name="x1_day">Jeden den</string>
+  <string name="x1_week">Jeden týden</string>
+  <string name="x14_day">14 dnů</string>
+  <string name="x15_day">15 dnů</string>
+  <string name="x30_day">30 dnů</string>
+  <string name="x31_day">31 dnů</string>
+  <string name="x60_day">60 dnů</string>
+  <string name="x90_day">90 dnů</string>
+  <string name="x1_month">Jeden měsíc</string>
+  <string name="x2_month">Dva měsíce</string>
+  <string name="x3_month">Tři měsíce</string>
+  <string name="x4_month">Čtyři měsíce</string>
+  <string name="x5_month">Pět měsíců</string>
+  <string name="x6_month">Šest měsíců</string>
+  <string name="x1_year">Jeden rok</string>
   <string name="infinite">Neohraničeno</string>
   <string name="custom">Vlastní</string>
   <string name="direction_calls_in">příchozí</string>
@@ -295,7 +295,7 @@
   <string name="direction_mms_out">odeslané</string>
   <string name="direction_data_in">příchozí</string>
   <string name="direction_data_out">odchozí</string>
-  <string name="default">Výchozí</string>
+  <string name="default_">Výchozí</string>
   <string name="currency_formats_1">$1.00</string>
   <string name="currency_formats_2">$1000</string>
   <string name="currency_formats_3">1.00$</string>
@@ -303,12 +303,12 @@
   <string name="date_formats_1">MM/DD/YY</string>
   <string name="date_formats_2">DD/MM/YYYY</string>
   <string name="date_formats_3">DD.MM.YYYY</string>
-  <string name="5_minute">5 minut</string>
-  <string name="10_minute">10 minut</string>
-  <string name="15_minute">15 minut</string>
-  <string name="30_minute">30 minut</string>
-  <string name="1_hour">Jedna hodina</string>
-  <string name="2_hour">Dvě hodiny</string>
+  <string name="x5_minute">5 minut</string>
+  <string name="x10_minute">10 minut</string>
+  <string name="x15_minute">15 minut</string>
+  <string name="x30_minute">30 minut</string>
+  <string name="x1_hour">Jedna hodina</string>
+  <string name="x2_hour">Dvě hodiny</string>
   <string name="manually_only">Pouze ručně</string>
   <string name="simple_preferences_" formatted="false" orig="Simple preferences">Jednoduchá nastavení</string>
   <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Velmi jednoduchá nastavení vhodná pro většinu uživatelů. Dostupná pouze se základním nastavením pravidel.</string>
@@ -385,10 +385,10 @@
   <string name="now" formatted="false" orig="Now">Nyní</string>
   <string name="active_" formatted="false" orig="Active">Aktivní</string>
   <string name="remote_hint" formatted="false" orig="Remote number">Vzdálené číslo</string>
-  <string name="05_minute">0,5 minuty</string>
-  <string name="1_minute">1 minuta</string>
-  <string name="2_minute">2 minuty</string>
-  <string name="5_minute">5 minut</string>
+  <string name="x05_minute">0,5 minuty</string>
+  <string name="x1_minute">1 minuta</string>
+  <string name="x2_minute">2 minuty</string>
+  <string name="x5_minute">5 minut</string>
   <string name="import_rules_www_hint" formatted="false" orig="Import pre-configured rule set from http://www.ub0r.de/.">Import přednastavené sady pravidel z http://www.ub0r.de</string>
   <string name="export_rules_dev_hint" formatted="false" orig="Export rule set to let others import it.">Exportovat sadu pravidel pro využití ostatními.</string>
   <string name="export_rules_dev_" formatted="false" orig="Export rule set to developer">Exportovat sadu pravidel vývojáři</string>

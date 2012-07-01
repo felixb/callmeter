@@ -321,21 +321,21 @@
   <string name="limit_type_unlimited">nessuno</string>
   <string name="limit_type_units">unità</string>
   <string name="limit_type_cost">costo</string>
-  <string name="1_day">Un giorno</string>
-  <string name="1_week">Una settimana</string>
-  <string name="14_day">14 giorni</string>
-  <string name="15_day">15 giorni</string>
-  <string name="30_day">30 giorni</string>
-  <string name="31_day">31 giorni</string>
-  <string name="60_day">60 giorni</string>
-  <string name="90_day">90 giorni</string>
-  <string name="1_month">Un mese</string>
-  <string name="2_month">Due mesi</string>
-  <string name="3_month">Tre mesi</string>
-  <string name="4_month">Quattro mesi</string>
-  <string name="5_month">Cinque mesi</string>
-  <string name="6_month">Sei mesi</string>
-  <string name="1_year">Un anno</string>
+  <string name="x1_day">Un giorno</string>
+  <string name="x1_week">Una settimana</string>
+  <string name="x14_day">14 giorni</string>
+  <string name="x15_day">15 giorni</string>
+  <string name="x30_day">30 giorni</string>
+  <string name="x31_day">31 giorni</string>
+  <string name="x60_day">60 giorni</string>
+  <string name="x90_day">90 giorni</string>
+  <string name="x1_month">Un mese</string>
+  <string name="x2_month">Due mesi</string>
+  <string name="x3_month">Tre mesi</string>
+  <string name="x4_month">Quattro mesi</string>
+  <string name="x5_month">Cinque mesi</string>
+  <string name="x6_month">Sei mesi</string>
+  <string name="x1_year">Un anno</string>
   <string name="infinite">Infinito</string>
   <string name="custom">Personalizzato</string>
   <string name="direction_calls_in">ricevute</string>
@@ -346,7 +346,7 @@
   <string name="direction_mms_out">inviati</string>
   <string name="direction_data_in">ingresso</string>
   <string name="direction_data_out">uscita</string>
-  <string name="default">Predefinito</string>
+  <string name="default_">Predefinito</string>
   <string name="currency_formats_1">€1.00</string>
   <string name="currency_formats_2">€1000</string>
   <string name="currency_formats_3">1.00€</string>
@@ -354,12 +354,12 @@
   <string name="date_formats_1">MM/GG/AA</string>
   <string name="date_formats_2">GG/MM/AAAA</string>
   <string name="date_formats_3">GG.MM.AAAA</string>
-  <string name="5_minute">5 minuti</string>
-  <string name="10_minute">10 minuti</string>
-  <string name="15_minute">15 minuti</string>
-  <string name="30_minute">30 minuti</string>
-  <string name="1_hour">Un\'ora</string>
-  <string name="2_hour">Due ore</string>
+  <string name="x5_minute">5 minuti</string>
+  <string name="x10_minute">10 minuti</string>
+  <string name="x15_minute">15 minuti</string>
+  <string name="x30_minute">30 minuti</string>
+  <string name="x1_hour">Un\'ora</string>
+  <string name="x2_hour">Due ore</string>
   <string name="manually_only">Solo manuale</string>
   <string name="show_icon_" formatted="false" orig="Show icon">Mostra icona</string>
   <string name="hide_name_" formatted="false" orig="Hide name of plan">Nascondi il nome del piano</string>
@@ -412,8 +412,8 @@
   <string name="import_rules_default_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Import default rule set">Importa regole predefinite</string>
   <string name="import_rules_default_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Import default rule set shipped with the app.">Importa le regole predefinite dall\'applicazione alla sua installazione.</string>
   <string name="loading" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Loading ...">In caricamento...</string>
-  <string name="05_minute">0.5 minuti</string>
-  <string name="1_minute">1 minuto</string>
-  <string name="2_minute">2 minuti</string>
-  <string name="5_minute">5 minuti</string>
+  <string name="x05_minute">0.5 minuti</string>
+  <string name="x1_minute">1 minuto</string>
+  <string name="x2_minute">2 minuti</string>
+  <string name="x5_minute">5 minuti</string>
 </resources>

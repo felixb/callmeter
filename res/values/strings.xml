@@ -437,48 +437,48 @@
 		<item>@string/mms</item>
 		<item>@string/data</item>
 	</string-array>
-	<string name="limit_type_unlimited">unlimited</item>
-	<string name="limit_type_units">units</item>
-	<string name="limit_type_cost">cost</item>
+	<string name="limit_type_unlimited">unlimited</string>
+	<string name="limit_type_units">units</string>
+	<string name="limit_type_cost">cost</string>
 	<string-array name="limit_type" translatable="false">
 		<item>@string/limit_type_unlimited</item>
 		<item>@string/limit_type_units</item>
 		<item>@string/limit_type_cost</item>
 	</string-array>
-	<string name="1_day">One day</string>
-	<string name="1_week">One week</string>
-	<string name="14_day">14 days</string>
-	<string name="15_day">15 days</string>
-	<string name="30_day">30 days</string>
-	<string name="31_day">31 days</string>
-	<string name="60_day">60 days</string>
-	<string name="90_day">90 days</string>
-	<string name="1_month">One month</string>
-	<string name="1_month_1_day">One month + one day</string>
-	<string name="2_month">Two months</string>
-	<string name="3_month">Three months</string>
-	<string name="4_month">Four months</string>
-	<string name="5_month">Five months</string>
-	<string name="6_month">Six months</string>
-	<string name="1_year">One year</string>
+	<string name="x1_day">One day</string>
+	<string name="x1_week">One week</string>
+	<string name="x14_day">14 days</string>
+	<string name="x15_day">15 days</string>
+	<string name="x30_day">30 days</string>
+	<string name="x31_day">31 days</string>
+	<string name="x60_day">60 days</string>
+	<string name="x90_day">90 days</string>
+	<string name="x1_month">One month</string>
+	<string name="x1_month_1_day">One month + one day</string>
+	<string name="x2_month">Two months</string>
+	<string name="x3_month">Three months</string>
+	<string name="x4_month">Four months</string>
+	<string name="x5_month">Five months</string>
+	<string name="x6_month">Six months</string>
+	<string name="x1_year">One year</string>
 	<string name="infinite">Infinite</string>
 	<string-array name="billperiod" translatable="false">
-		<item>@string/1_day</item>
-		<item>@string/1_week</item>
-		<item>@string/14_day</item>
-		<item>@string/15_day</item>
-		<item>@string/30_day</item>
-		<item>@string/31_day</item>
-		<item>@string/60_day</item>
-		<item>@string/90_day</item>
-		<item>@string/1_month</item>
-		<item>@string/1_month_1_day</item>
-		<item>@string/2_month</item>
-		<item>@string/3_month</item>
-		<item>@string/4_month</item>
-		<item>@string/5_month</item>
-		<item>@string/6_month</item>
-		<item>@string/1_year</item>
+		<item>@string/x1_day</item>
+		<item>@string/x1_week</item>
+		<item>@string/x14_day</item>
+		<item>@string/x15_day</item>
+		<item>@string/x30_day</item>
+		<item>@string/x31_day</item>
+		<item>@string/x60_day</item>
+		<item>@string/x90_day</item>
+		<item>@string/x1_month</item>
+		<item>@string/x1_month_1_day</item>
+		<item>@string/x2_month</item>
+		<item>@string/x3_month</item>
+		<item>@string/x4_month</item>
+		<item>@string/x5_month</item>
+		<item>@string/x6_month</item>
+		<item>@string/x1_year</item>
 		<item>@string/infinite</item>
 	</string-array>
 	<string name="custom">Custom</string>
@@ -525,13 +525,13 @@
 		<item>@string/direction_data_in</item>
 		<item>@string/direction_data_out</item>
 	</string-array>
-	<string name="default">Default</string>
+	<string name="default_">Default</string>
 	<string name="currency_formats_1">$1.00</string>
 	<string name="currency_formats_2">$1000</string>
 	<string name="currency_formats_3">1.00$</string>
 	<string name="currency_formats_4">1000$</string>
 	<string-array name="currency_formats" translatable="false">
-		<item>@string/default</item>
+		<item>@string/default_</item>
 		<item>@string/currency_formats_1</item>
 		<item>@string/currency_formats_2</item>
 		<item>@string/currency_formats_3</item>
@@ -541,38 +541,38 @@
 	<string name="date_formats_2">DD/MM/YYYY</string>
 	<string name="date_formats_3">DD.MM.YYYY</string>
 	<string-array name="date_formats" translatable="false">
-		<item>@string/default</item>
+		<item>@string/default_</item>
 		<item>@string/date_formats_1</item>
 		<item>@string/date_formats_2</item>
 		<item>@string/date_formats_3</item>
 	</string-array>
-	<string name="05_minute">0.5 minutes</string>
-	<string name="1_minute">1 minute</string>
-	<string name="2_minute">2 minutes</string>
-	<string name="5_minute">5 minutes</string>
-	<string name="10_minute">10 minutes</string>
-	<string name="15_minute">15 minutes</string>
-	<string name="30_minute">30 minutes</string>
-	<string name="1_hour">One hour</string>
-	<string name="2_hour">Two hours</string>
+	<string name="x05_minute">0.5 minutes</string>
+	<string name="x1_minute">1 minute</string>
+	<string name="x2_minute">2 minutes</string>
+	<string name="x5_minute">5 minutes</string>
+	<string name="x10_minute">10 minutes</string>
+	<string name="x15_minute">15 minutes</string>
+	<string name="x30_minute">30 minutes</string>
+	<string name="x1_hour">One hour</string>
+	<string name="x2_hour">Two hours</string>
 	<string name="manually_only">Manually only</string>
 	<string-array name="update_interval" translatable="false">
-		<item>@string/5_minute</item>
-		<item>@string/10_minute</item>
-		<item>@string/15_minute</item>
-		<item>@string/30_minute</item>
-		<item>@string/1_hour</item>
-		<item>@string/2_hour</item>
+		<item>@string/x5_minute</item>
+		<item>@string/x10_minute</item>
+		<item>@string/x15_minute</item>
+		<item>@string/x30_minute</item>
+		<item>@string/x1_hour</item>
+		<item>@string/x2_hour</item>
 		<item>@string/manually_only</item>
 	</string-array>
 	<string-array name="update_interval_data" translatable="false">
-		<item>@string/05_minute</item>
-		<item>@string/1_minute</item>
-		<item>@string/2_minute</item>
-		<item>@string/5_minute</item>
-		<item>@string/15_minute</item>
-		<item>@string/30_minute</item>
-		<item>@string/1_hour</item>
+		<item>@string/x05_minute</item>
+		<item>@string/x1_minute</item>
+		<item>@string/x2_minute</item>
+		<item>@string/x5_minute</item>
+		<item>@string/x15_minute</item>
+		<item>@string/x30_minute</item>
+		<item>@string/x1_hour</item>
 		<item>@string/manually_only</item>
 	</string-array>
 </resources>

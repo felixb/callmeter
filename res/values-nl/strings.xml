@@ -271,36 +271,19 @@
   <string name="limit_type_unlimited">ongelimiteerd</string>
   <string name="limit_type_units">eenheden</string>
   <string name="limit_type_cost">kosten</string>
-  <string name="1_day">Een dag</string>
-  <string name="1_week">Een week</string>
-  <string name="14_day">30 dagen</string>
-  <string name="15_day">60 dagen</string>
-  <string name="30_day">90 dagen</string>
-  <string name="31_day">Een maand</string>
-  <string name="60_day">Twee maand</string>
-  <string name="90_day">Drie maand</string>
-  <string name="1_month">Vier maanden</string>
-  <string name="1_month_1_day">Vijf maanden</string>
-  <string name="2_month">Zes maanden</string>
-  <string name="3_month">Een jaar</string>
-  <string name="4_month">Oneindig</string>
-  <string name="1_year">1/1</string>
-  <string name="infinite">6/6</string>
-    <item>30/1</item>
-    <item>30/6</item>
-    <item>30/10</item>
-    <item>30/30</item>
-    <item>30/60</item>
-    <item>45/1</item>
-    <item>60/0</item>
-    <item>60/1</item>
-    <item>60/6</item>
-    <item>60/10</item>
-    <item>60/15</item>
-    <item>60/30</item>
-    <item>60/60</item>
-    <item>Aangepast</item>
-  </string-array>
+  <string name="x1_day">Een dag</string>
+  <string name="x1_week">Een week</string>
+  <string name="x14_day">14 dagen</string>
+  <string name="x15_day">15 dagen</string>
+  <string name="x30_day">30 dagen</string>
+  <string name="x31_day">31 maand</string>
+  <string name="x60_day">Twee maand</string>
+  <string name="x90_day">Drie maand</string>
+  <string name="x1_month">Een maand</string>
+  <string name="x2_month">Twee maand</string>
+  <string name="x3_month">Drie jaar</string>
+  <string name="x1_year">Een jaar</string>
+  <string name="infinite">Oneindig</string>
   <string name="direction_calls_in">in</string>
   <string name="direction_calls_out">uit</string>
   <string name="direction_sms_in">in</string>
@@ -309,7 +292,7 @@
   <string name="direction_mms_out">uit</string>
   <string name="direction_data_in">in</string>
   <string name="direction_data_out">uit</string>
-  <string name="default">Standaard</string>
+  <string name="default_">Standaard</string>
   <string name="currency_formats_1">€1.00</string>
   <string name="currency_formats_2">€1000</string>
   <string name="currency_formats_3">1.00€</string>
@@ -317,12 +300,12 @@
   <string name="date_formats_1">MM/DD/JJ</string>
   <string name="date_formats_2">DD/MM/JJJJ</string>
   <string name="date_formats_3">DD.MM.JJJJ</string>
-  <string name="5_minute">5 minuten</string>
-  <string name="10_minute">10 minuten</string>
-  <string name="15_minute">15 minuten</string>
-  <string name="30_minute">30 minuten</string>
-  <string name="1_hour">Een uur</string>
-  <string name="2_hour">Twee uren</string>
+  <string name="x5_minute">5 minuten</string>
+  <string name="x10_minute">10 minuten</string>
+  <string name="x15_minute">15 minuten</string>
+  <string name="x30_minute">30 minuten</string>
+  <string name="x1_hour">Een uur</string>
+  <string name="x2_hour">Twee uren</string>
   <string name="manually_only">Alleen handmatig</string>
   <string name="changelog_notification_text" formatted="false" username="housenegro76@hotmail.com" orig="Click here to show recent changes of">Klik hier om de recente wijzigingen te zien van</string>
   <string name="never_show_again" formatted="false" username="Gummie" orig="Never show changelog again">Laat changelog niet meer zien</string>

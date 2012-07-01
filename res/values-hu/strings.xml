@@ -319,21 +319,21 @@
   <string name="limit_type_unlimited">korlátlan</string>
   <string name="limit_type_units">egységek</string>
   <string name="limit_type_cost">költség</string>
-  <string name="1_day">Egy nap</string>
-  <string name="1_week">Egy hét</string>
-  <string name="14_day">14 nap</string>
-  <string name="15_day">15 nap</string>
-  <string name="30_day">30 nap</string>
-  <string name="31_day">31 nap</string>
-  <string name="60_day">60 nap</string>
-  <string name="90_day">90 nap</string>
-  <string name="1_month">Egy hónap</string>
-  <string name="2_month">Két hónap</string>
-  <string name="3_month">Három hónap</string>
-  <string name="4_month">Négy hónap</string>
-  <string name="5_month">Öt hónap</string>
-  <string name="6_month">Fél év</string>
-  <string name="1_year">Egy év</string>
+  <string name="x1_day">Egy nap</string>
+  <string name="x1_week">Egy hét</string>
+  <string name="x14_day">14 nap</string>
+  <string name="x15_day">15 nap</string>
+  <string name="x30_day">30 nap</string>
+  <string name="x31_day">31 nap</string>
+  <string name="x60_day">60 nap</string>
+  <string name="x90_day">90 nap</string>
+  <string name="x1_month">Egy hónap</string>
+  <string name="x2_month">Két hónap</string>
+  <string name="x3_month">Három hónap</string>
+  <string name="x4_month">Négy hónap</string>
+  <string name="x5_month">Öt hónap</string>
+  <string name="x6_month">Fél év</string>
+  <string name="x1_year">Egy év</string>
   <string name="infinite">Korlátlan</string>
   <string name="custom">Egyéni</string>
   <string name="direction_calls_in">Bejövő</string>
@@ -344,7 +344,7 @@
   <string name="direction_mms_out">Elküldött</string>
   <string name="direction_data_in">Be</string>
   <string name="direction_data_out">kívül</string>
-  <string name="default">Alapértelmezett</string>
+  <string name="default_">Alapértelmezett</string>
   <string name="currency_formats_1">1,00 Ft</string>
   <string name="currency_formats_2">Ft 1000</string>
   <string name="currency_formats_3">1,00 Ft</string>
@@ -352,12 +352,12 @@
   <string name="date_formats_1">HH/NN/ÉÉ</string>
   <string name="date_formats_2">NN/HH/ÉÉÉÉ</string>
   <string name="date_formats_3">NN.HH.ÉÉÉÉ</string>
-  <string name="5_minute">5 perc</string>
-  <string name="10_minute">10 perc</string>
-  <string name="15_minute">15 perc</string>
-  <string name="30_minute">30 perc</string>
-  <string name="1_hour">Egy óra</string>
-  <string name="2_hour">Két óra</string>
+  <string name="x5_minute">5 perc</string>
+  <string name="x10_minute">10 perc</string>
+  <string name="x15_minute">15 perc</string>
+  <string name="x30_minute">30 perc</string>
+  <string name="x1_hour">Egy óra</string>
+  <string name="x2_hour">Két óra</string>
   <string name="manually_only">Csak manuálisan</string>
   <string name="simple_preferences_" formatted="false" orig="Simple preferences">Alapbeállítások</string>
   <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Nagyon egyszerű beállítások, megfelelő a legtöbb felhasználónak. Csak az alapértelmezett szabály beállítással érhető el.</string>
@@ -402,10 +402,10 @@
   <string name="export_rules_dev_" formatted="false" orig="Export rule set to developer">Szabályok exportálása a fejlesztő számára</string>
   <string name="export_rules_dev_hint" formatted="false" orig="Export rule set to let others import it.">Szabályok exportálása, hogy mások importálhassák.</string>
   <string name="import_rules_www_hint" formatted="false" orig="Import pre-configured rule set from http://www.ub0r.de/.">Előre beállított szabályok importálása a http://www.ub0r.de/ címről.</string>
-  <string name="05_minute">0.5 perc</string>
-  <string name="1_minute">1 perc</string>
-  <string name="2_minute">2 perc</string>
-  <string name="5_minute">5 perc</string>
+  <string name="x05_minute">0.5 perc</string>
+  <string name="x1_minute">1 perc</string>
+  <string name="x2_minute">2 perc</string>
+  <string name="x5_minute">5 perc</string>
   <string name="loading" formatted="false" orig="Loading ...">Betöltés ...</string>
   <string name="import_rules_sd_nofiles" formatted="false" orig="No found files">Fáljok nem találhatók</string>
   <string name="import_rules_sd_files" formatted="false" orig="Found files">Fájl található</string>

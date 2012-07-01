@@ -225,21 +225,21 @@
   <string name="limit_type_unlimited">sınırsız</string>
   <string name="limit_type_units">birim</string>
   <string name="limit_type_cost">ücret</string>
-  <string name="1_day">Bir gün</string>
-  <string name="1_week">Bir hafta</string>
-  <string name="14_day">14 gün</string>
-  <string name="15_day">15 gün</string>
-  <string name="30_day">30 gün</string>
-  <string name="31_day">31 gün</string>
-  <string name="60_day">60 gün</string>
-  <string name="90_day">90 gün</string>
-  <string name="1_month">Bir ay</string>
-  <string name="2_month">İki ay</string>
-  <string name="3_month">Üç ay</string>
-  <string name="4_month">Dört ay</string>
-  <string name="5_month">Beş ay</string>
-  <string name="6_month">Altı ay</string>
-  <string name="1_year">Bir yıl</string>
+  <string name="x1_day">Bir gün</string>
+  <string name="x1_week">Bir hafta</string>
+  <string name="x14_day">14 gün</string>
+  <string name="x15_day">15 gün</string>
+  <string name="x30_day">30 gün</string>
+  <string name="x31_day">31 gün</string>
+  <string name="x60_day">60 gün</string>
+  <string name="x90_day">90 gün</string>
+  <string name="x1_month">Bir ay</string>
+  <string name="x2_month">İki ay</string>
+  <string name="x3_month">Üç ay</string>
+  <string name="x4_month">Dört ay</string>
+  <string name="x5_month">Beş ay</string>
+  <string name="x6_month">Altı ay</string>
+  <string name="x1_year">Bir yıl</string>
   <string name="infinite">Sonsuz</string>
   <string name="custom">Custom</string>
   <string name="direction_calls_in">gelen</string>
@@ -250,7 +250,7 @@
   <string name="direction_mms_out">gönderilen</string>
   <string name="direction_data_in">in</string>
   <string name="direction_data_out">out</string>
-  <string name="default">Varsayılan</string>
+  <string name="default_">Varsayılan</string>
   <string name="currency_formats_1">1.00 TL</string>
   <string name="currency_formats_2">1000 TL</string>
   <string name="currency_formats_3">1.00 TL</string>
@@ -258,12 +258,12 @@
   <string name="date_formats_1">AA/GG/YY</string>
   <string name="date_formats_2">GG/AA/YYYY</string>
   <string name="date_formats_3">GG.AA.YYYY</string>
-  <string name="5_minute">5 dakika</string>
-  <string name="10_minute">10 dakika</string>
-  <string name="15_minute">15 dakika</string>
-  <string name="30_minute">30 dakika</string>
-  <string name="1_hour">1 saat</string>
-  <string name="2_hour">2 saat</string>
+  <string name="x5_minute">5 dakika</string>
+  <string name="x10_minute">10 dakika</string>
+  <string name="x15_minute">15 dakika</string>
+  <string name="x30_minute">30 dakika</string>
+  <string name="x1_hour">1 saat</string>
+  <string name="x2_hour">2 saat</string>
   <string name="manually_only">Yalnızca elle</string>
   <string name="changelog_notification_" formatted="false" orig="Recent changes:">Güncel değişiklikler:</string>
   <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Bu konudaki güncel değişiklikleri görmek için buraya tıklayın.</string>
@@ -399,10 +399,10 @@
   <string name="active_" formatted="false" orig="Active">Aktif</string>
   <string name="active_help" formatted="false" orig="Only active rules are used for matching logs." username="İsa Erginyavuz">Kayıtların eşleştirilmesi için yalnızca aktif kurallar kullanılır.</string>
   <string name="loading" formatted="false" orig="Loading ...">Yükleniyor ...</string>
-  <string name="05_minute">30 saniye</string>
-  <string name="1_minute">1 dakika</string>
-  <string name="2_minute">2 dakika</string>
-  <string name="5_minute">5 dakika</string>
+  <string name="x05_minute">30 saniye</string>
+  <string name="x1_minute">1 dakika</string>
+  <string name="x2_minute">2 dakika</string>
+  <string name="x5_minute">5 dakika</string>
   <string name="widget_" formatted="false" orig="Widget">Widget</string>
   <string name="widgets_" formatted="false" orig="Widgets">Widget\'lar</string>
   <string name="widgets_no_widgets_" formatted="false" orig="No widgets added">Eklenen Widget yok</string>

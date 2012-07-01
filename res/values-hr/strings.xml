@@ -69,21 +69,21 @@
   <string name="textsize_bigtitle_hint" formatted="false" orig="Text size for big titles in pixels; leave empty for default">Veličina slova u Velikom naslovu u pikselima; ostavite prazno za predefinirano</string>
   <string name="textsize_spacer_" formatted="false" username="lesart.mario@gmail.com" orig="Spacer\'s size">Veličina razmaka</string>
   <string name="textsize_spacer_hint" formatted="false" orig="Size for spacers in pixels; leave empty for default">Veličina razmaka u pikselima; ostavite prazno za predefinirano</string>
-  <string name="1_day">Jedan dan</string>
-  <string name="1_week">Jedan tjedan</string>
-  <string name="14_day">14 dana</string>
-  <string name="15_day">15 dana</string>
-  <string name="30_day">30 dana</string>
-  <string name="31_day">31 dana</string>
-  <string name="60_day">60 dana</string>
-  <string name="90_day">90 dana</string>
-  <string name="1_month">Jedan mjesec</string>
-  <string name="2_month">Dva mjeseca</string>
-  <string name="3_month">Tri mjeseca</string>
-  <string name="4_month">Četiri mjeseca</string>
-  <string name="5_month">Pet mjeseci</string>
-  <string name="6_month">Šest mjeseci</string>
-  <string name="1_year">Jedna godina</string>
+  <string name="x1_day">Jedan dan</string>
+  <string name="x1_week">Jedan tjedan</string>
+  <string name="x14_day">14 dana</string>
+  <string name="x15_day">15 dana</string>
+  <string name="x30_day">30 dana</string>
+  <string name="x31_day">31 dana</string>
+  <string name="x60_day">60 dana</string>
+  <string name="x90_day">90 dana</string>
+  <string name="x1_month">Jedan mjesec</string>
+  <string name="x2_month">Dva mjeseca</string>
+  <string name="x3_month">Tri mjeseca</string>
+  <string name="x4_month">Četiri mjeseca</string>
+  <string name="x5_month">Pet mjeseci</string>
+  <string name="x6_month">Šest mjeseci</string>
+  <string name="x1_year">Jedna godina</string>
   <string name="infinite">Beskonačno</string>
   <string name="limit_type_unlimited">Neograničeno</string>
   <string name="limit_type_units">jedinica</string>
@@ -97,7 +97,7 @@
   <string name="direction_mms_out">odlazni</string>
   <string name="direction_data_in">dolazni</string>
   <string name="direction_data_out">odlazni</string>
-  <string name="default">Osnovni</string>
+  <string name="default_">Osnovni</string>
   <string name="currency_formats_1">1,00</string>
   <string name="currency_formats_2">1000</string>
   <string name="currency_formats_3">1,00</string>
@@ -105,12 +105,12 @@
   <string name="date_formats_1">MM/DD/GGGG</string>
   <string name="date_formats_2">DD/MM/GGGG</string>
   <string name="date_formats_3">DD.MM.GGGG.</string>
-  <string name="5_minute">5 minuta</string>
-  <string name="10_minute">10 minuta</string>
-  <string name="15_minute">15 minuta</string>
-  <string name="30_minute">30 minuta</string>
-  <string name="1_hour">1 sat</string>
-  <string name="2_hour">2 sata</string>
+  <string name="x5_minute">5 minuta</string>
+  <string name="x10_minute">10 minuta</string>
+  <string name="x15_minute">15 minuta</string>
+  <string name="x30_minute">30 minuta</string>
+  <string name="x1_hour">1 sat</string>
+  <string name="x2_hour">2 sata</string>
   <string name="manually_only">Ručno podešavanje</string>
   <string name="title">Naziv</string>
   <string name="spacer">Razmak</string>

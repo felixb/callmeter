@@ -342,22 +342,22 @@
   <string name="limit_type_unlimited">nielimitowany</string>
   <string name="limit_type_units">jednostki</string>
   <string name="limit_type_cost">koszt</string>
-  <string name="1_day">Jeden dzień</string>
-  <string name="1_week">Jeden tydzień</string>
-  <string name="14_day">14 dni</string>
-  <string name="15_day">15 dni</string>
-  <string name="30_day">30 dni</string>
-  <string name="31_day">31 dni</string>
-  <string name="60_day">60 dni</string>
-  <string name="90_day">90 dni</string>
-  <string name="1_month">Jeden miesiąc</string>
-  <string name="1_month_1_day">Jeden miesiąc + jeden dzień</string>
-  <string name="2_month">Dwa miesiące</string>
-  <string name="3_month">Trzy miesiące</string>
-  <string name="4_month">Cztery miesiące</string>
-  <string name="5_month">Pięć miesięcy</string>
-  <string name="6_month">Sześć miesięcy</string>
-  <string name="1_year">Roku</string>
+  <string name="x1_day">Jeden dzień</string>
+  <string name="x1_week">Jeden tydzień</string>
+  <string name="x14_day">14 dni</string>
+  <string name="x15_day">15 dni</string>
+  <string name="x30_day">30 dni</string>
+  <string name="x31_day">31 dni</string>
+  <string name="x60_day">60 dni</string>
+  <string name="x90_day">90 dni</string>
+  <string name="x1_month">Jeden miesiąc</string>
+  <string name="x1_month_1_day">Jeden miesiąc + jeden dzień</string>
+  <string name="x2_month">Dwa miesiące</string>
+  <string name="x3_month">Trzy miesiące</string>
+  <string name="x4_month">Cztery miesiące</string>
+  <string name="x5_month">Pięć miesięcy</string>
+  <string name="x6_month">Sześć miesięcy</string>
+  <string name="x1_year">Roku</string>
   <string name="infinite">Nieskończony</string>
   <string name="custom">Niestandardowy</string>
   <string name="direction_calls_in">przychodzące</string>
@@ -368,7 +368,7 @@
   <string name="direction_mms_out">wychodzące</string>
   <string name="direction_data_in">przychodzące</string>
   <string name="direction_data_out">wychodzące</string>
-  <string name="default">Domyślny</string>
+  <string name="default_">Domyślny</string>
   <string name="currency_formats_1">PLN 1.00</string>
   <string name="currency_formats_2">PLN 1000</string>
   <string name="currency_formats_3">1.00 PLN</string>
@@ -376,12 +376,12 @@
   <string name="date_formats_1">MM/DD/RR</string>
   <string name="date_formats_2">DD/MM/RRRR</string>
   <string name="date_formats_3">DD/MM/RRRR</string>
-  <string name="5_minute">5 minut</string>
-  <string name="10_minute">10 minut</string>
-  <string name="15_minute">15 minut</string>
-  <string name="30_minute">30 minut</string>
-  <string name="1_hour">Jedna godzina</string>
-  <string name="2_hour">Dwie godziny</string>
+  <string name="x5_minute">5 minut</string>
+  <string name="x10_minute">10 minut</string>
+  <string name="x15_minute">15 minut</string>
+  <string name="x30_minute">30 minut</string>
+  <string name="x1_hour">Jedna godzina</string>
+  <string name="x2_hour">Dwie godziny</string>
   <string name="manually_only">Tylko ręcznie</string>
   <string name="import_rules_default_" formatted="false" orig="Import default rule set">Importuj standardowe ustawienia reguł.</string>
   <string name="import_rules_default_hint" formatted="false" orig="Import default rule set shipped with the app.">Importuj standardowe zestawienia reguł dostarczone z aplikacją.</string>
@@ -401,8 +401,8 @@
   <string name="now" formatted="false" orig="Now">Teraz</string>
   <string name="export_cancel" formatted="false" orig="Export to SD card">Eksport do karty SD</string>
   <string name="loading" formatted="false" orig="Loading ...">Ładowanie ...</string>
-  <string name="05_minute">0,5 minuty</string>
-  <string name="1_minute">1 minuta</string>
-  <string name="2_minute">2 minuty</string>
-  <string name="5_minute">5 minut</string>
+  <string name="x05_minute">0,5 minuty</string>
+  <string name="x1_minute">1 minuta</string>
+  <string name="x2_minute">2 minuty</string>
+  <string name="x5_minute">5 minut</string>
 </resources>

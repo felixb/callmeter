@@ -615,7 +615,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 		Log.d(TAG, "onCreateLoader(" + id + "," + args + ")");
 		this.setInProgress(1);
 		PlansAdapter adapter = (PlansAdapter) this.getListAdapter();
-		if (adapter == null || adapter.getCount() == 0) {
+		if ((adapter == null || adapter.getCount() == 0) && this.vLoading != null) {
 			this.vLoading.setVisibility(View.VISIBLE);
 		}
 
