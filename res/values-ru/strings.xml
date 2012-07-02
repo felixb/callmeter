@@ -117,11 +117,11 @@
   <string name="sms" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="SMS">CMC</string>
   <string name="data" formatted="false">Трафик</string>
   <string name="calls_sms" formatted="false">Звонки/SMS</string>
-  <string name="in_calls" formatted="false">Вxодящие:</string>
-  <string name="in_sms" formatted="false">Вxодящие:</string>
+  <string name="in_calls" formatted="false">Вxодящие%s:</string>
+  <string name="in_sms" formatted="false">Вxодящие%s:</string>
   <string name="in_data" formatted="false">Вxодящий:</string>
-  <string name="out_calls" formatted="false">Исxодящие:</string>
-  <string name="out_sms" formatted="false">Исxодящие:</string>
+  <string name="out_calls" formatted="false">Исxодящие%s:</string>
+  <string name="out_sms" formatted="false">Исxодящие%s:</string>
   <string name="out_data" formatted="false">Исxодящий:</string>
   <string name="plan_name1_" formatted="false">Лимит 1: Название</string>
   <string name="plan_name2_" formatted="false">Лимит 2: Название</string>

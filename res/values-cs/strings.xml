@@ -117,11 +117,11 @@
   <string name="sms" formatted="false" username="KarloZ" orig="SMS">SMS</string>
   <string name="data" formatted="false" username="KarloZ" orig="Data">Data</string>
   <string name="calls_sms" formatted="false" username="KarloZ" orig="Calls/SMS">Volání/SMS</string>
-  <string name="in_calls" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="In%s:">Příchozí%:</string>
-  <string name="in_sms" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="In%s:">Příchozí%:</string>
+  <string name="in_calls" formatted="false" orig="In%s:">Příchozí%s:</string>
+  <string name="in_sms" formatted="false" orig="In%s:">Příchozí%s:</string>
   <string name="in_data" formatted="false" username="KarloZ" orig="In:">Příchozí:</string>
-  <string name="out_calls" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="Out%s:">Odchozí%:</string>
-  <string name="out_sms" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="Out%s:">Odchozí%:</string>
+  <string name="out_calls" formatted="false" orig="Out%s:">Odchozí%s:</string>
+  <string name="out_sms" formatted="false" orig="Out%s:">Odchozí%s:</string>
   <string name="out_data" formatted="false" username="KarloZ" orig="Out:">Odchozí:</string>
   <string name="plan_name1_" formatted="false" username="KarloZ" orig="Plan 1: name">Paušál 1: jméno</string>
   <string name="plan_name2_" formatted="false" username="KarloZ" orig="Plan 2: name">Paušál 2: jméno</string>
