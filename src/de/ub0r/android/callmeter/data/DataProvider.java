@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -2474,7 +2475,12 @@ public final class DataProvider extends ContentProvider {
 	public static String backupRuleSet(final Context context, final String descr) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(EXPORT_VERSION + "\n");
-		sb.append(URLEncoder.encode(descr) + "\n");
+		try {
+			sb.append(URLEncoder.encode(descr, "UTF-8") + "\n");
+		} catch (UnsupportedEncodingException e) {
+			Log.e(TAG, "could not export", e);
+			sb.append("rules\n");
+		}
 		final SQLiteDatabase db = new DatabaseHelper(context).getReadableDatabase();
 
 		backupRuleSetSub(sb, db, Plans.TABLE, Plans.PROJECTION, null);
@@ -2499,7 +2505,12 @@ public final class DataProvider extends ContentProvider {
 	public static String backupLogs(final Context context, final String descr) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(EXPORT_VERSION + "\n");
-		sb.append(URLEncoder.encode(descr) + "\n");
+		try {
+			sb.append(URLEncoder.encode(descr, "UTF-8") + "\n");
+		} catch (UnsupportedEncodingException e) {
+			Log.e(TAG, "could not export", e);
+			sb.append("logs\n");
+		}
 		final SQLiteDatabase db = new DatabaseHelper(context).getReadableDatabase();
 
 		backupRuleSetSub(sb, db, Logs.TABLE, Logs.PROJECTION, null);
@@ -2522,7 +2533,12 @@ public final class DataProvider extends ContentProvider {
 	public static String backupNumGroups(final Context context, final String descr) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(EXPORT_VERSION + "\n");
-		sb.append(URLEncoder.encode(descr) + "\n");
+		try {
+			sb.append(URLEncoder.encode(descr, "UTF-8") + "\n");
+		} catch (UnsupportedEncodingException e) {
+			Log.e(TAG, "could not export", e);
+			sb.append("number+groups\n");
+		}
 		final SQLiteDatabase db = new DatabaseHelper(context).getReadableDatabase();
 
 		backupRuleSetSub(sb, db, NumbersGroup.TABLE, NumbersGroup.PROJECTION, null);
@@ -2543,7 +2559,12 @@ public final class DataProvider extends ContentProvider {
 	public static String backupHourGroups(final Context context, final String descr) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(EXPORT_VERSION + "\n");
-		sb.append(URLEncoder.encode(descr) + "\n");
+		try {
+			sb.append(URLEncoder.encode(descr, "UTF-8") + "\n");
+		} catch (UnsupportedEncodingException e) {
+			Log.e(TAG, "could not export", e);
+			sb.append("hour+groups\n");
+		}
 		final SQLiteDatabase db = new DatabaseHelper(context).getReadableDatabase();
 
 		backupRuleSetSub(sb, db, HoursGroup.TABLE, HoursGroup.PROJECTION, null);
@@ -3439,6 +3460,7 @@ public final class DataProvider extends ContentProvider {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public ParcelFileDescriptor openFile(final Uri uri, final String mode)
 			throws FileNotFoundException {
 		Log.d(TAG, "openFile(" + uri.toString() + ")");

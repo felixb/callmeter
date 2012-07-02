@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2012 Felix Bechstein, The Android Open Source Project
+ * Copyright (C) 2009-2012 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -53,7 +53,7 @@ import de.ub0r.android.lib.apis.ContactsWrapper;
  */
 public class NumberGroupEdit extends ListActivity implements OnClickListener, OnItemClickListener {
 	/** Tag for debug out. */
-	private static final String TAG = "nge";
+	// private static final String TAG = "nge";
 
 	/** {@link ContactsWrapper}. */
 	public static final ContactsWrapper CWRAPPER = ContactsWrapper.getInstance();

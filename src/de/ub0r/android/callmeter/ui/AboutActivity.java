@@ -19,7 +19,6 @@
 package de.ub0r.android.callmeter.ui;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
@@ -29,7 +28,7 @@ import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.Utils;
 
 /**
- * Display About {@link FragmentActivity}.
+ * Display About {@link SherlockActivity}.
  * 
  * @author flx
  */

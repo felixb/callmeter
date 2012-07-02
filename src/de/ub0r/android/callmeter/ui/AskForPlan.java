@@ -80,7 +80,7 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 	private long defaultPlanId = -1L;
 
 	/** Data of call. */
-	private long id, date, amount;
+	private long id;
 
 	/** Inner {@link Dialog}. */
 	private Dialog d = null;
@@ -100,8 +100,6 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 
 		final Intent intent = this.getIntent();
 		this.id = intent.getLongExtra(EXTRA_ID, -1L);
-		this.date = intent.getLongExtra(EXTRA_DATE, -1L);
-		this.amount = intent.getLongExtra(EXTRA_AMOUNT, -1L);
 		if (this.id < 0L) {
 			Log.e(TAG, "no id:" + this.id);
 			this.finish();

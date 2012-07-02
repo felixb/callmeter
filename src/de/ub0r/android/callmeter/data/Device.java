@@ -31,7 +31,6 @@ import android.net.TrafficStats;
 import android.os.Build;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.Log;
-import de.ub0r.android.lib.Utils;
 
 /**
  * Representation of a device.
@@ -57,7 +56,7 @@ public abstract class Device {
 			Log.i(TAG, "Device: " + Build.DEVICE);
 			if (Build.PRODUCT.equals("sdk")) {
 				instance = new EmulatorDevice();
-			} else if (Utils.isApi(Build.VERSION_CODES.FROYO)) {
+			} else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
 				instance = new FroyoDevice();
 			} else if (Build.DEVICE.startsWith("GT-")) {
 				instance = new SamsungDevice();
@@ -106,7 +105,7 @@ public abstract class Device {
 		sb.append("\nversion: ");
 		sb.append(context.getString(R.string.app_version));
 		sb.append("\nsdk version: ");
-		sb.append(Build.VERSION.SDK);
+		sb.append(Build.VERSION.SDK_INT);
 		sb.append("\nproduct: ");
 		sb.append(Build.PRODUCT);
 		sb.append("\nmodel: ");
@@ -513,7 +512,7 @@ final class SamsungDevice extends DiscoverableDevice {
  */
 final class FroyoDevice extends Device {
 	/** Tag for output. */
-	private static final String TAG = "FroyoDevice";
+	// private static final String TAG = "FroyoDevice";
 
 	/**
 	 * {@inheritDoc}

@@ -19,7 +19,6 @@
 package de.ub0r.android.callmeter.ui;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -31,7 +30,7 @@ import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.Utils;
 
 /**
- * Display Help {@link FragmentActivity}.
+ * Display Help {@link SherlockActivity}.
  * 
  * @author flx
  */
