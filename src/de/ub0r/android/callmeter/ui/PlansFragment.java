@@ -101,9 +101,12 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 		 * @author flx
 		 */
 		private class ViewHolder {
-			ProgressBar pbPeriod, pbLimitGreen, pbLimitYellow, pbLimitRed;
+			/** {@link View}s. */
 			View vPeriodLayout, vContent, vSpacer;
+			/** {@link TextView}s. */
 			TextView tvBigtitle, tvPeriod, tvTitle, tvData;
+			/** {@link ProgressBar}s. */
+			ProgressBar pbPeriod, pbLimitGreen, pbLimitYellow, pbLimitRed;
 		}
 
 		/** {@link SharedPreferences}. */

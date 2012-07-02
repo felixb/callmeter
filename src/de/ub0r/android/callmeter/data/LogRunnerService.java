@@ -42,6 +42,7 @@ import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
 import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.widget.Toast;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.ui.AskForPlan;
@@ -558,25 +559,25 @@ public final class LogRunnerService extends IntentService {
 				cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_SMS);
 				cv.put(DataProvider.Logs.DATE, cursor.getLong(idDate));
+				Log.d(TAG, "date: " + cursor.getLong(idDate));
 				cv.put(DataProvider.Logs.REMOTE,
 						DataProvider.Logs.cleanNumber(cursor.getString(idAddress), false));
 				final String body = cursor.getString(idBody);
-				if (body != null && body.length() > 0) {
+				int l = 1;
+				if (!TextUtils.isEmpty(body)) {
+					Log.d(TAG, "body: " + body.replaceAll("[a-z]", "x").replaceAll("[A-Z]", "X"));
 					if (splitAt160) {
-						int l = ((body.length() - 1) / SMS_LENGTH) + 1;
-						cv.put(DataProvider.Logs.AMOUNT, l);
+						l = ((body.length() - 1) / SMS_LENGTH) + 1;
 					} else {
 						try {
-							cv.put(DataProvider.Logs.AMOUNT,
-									SmsMessage.calculateLength(body, false)[0]);
+							l = SmsMessage.calculateLength(body, false)[0];
 						} catch (NullPointerException e) {
 							Log.e(TAG, "error getting length for message: " + body, e);
-							cv.put(DataProvider.Logs.AMOUNT, 1);
 						}
+						Log.d(TAG, "body length: " + l);
 					}
-				} else {
-					cv.put(DataProvider.Logs.AMOUNT, 1);
 				}
+				cv.put(DataProvider.Logs.AMOUNT, l);
 				if (roaming) {
 					cv.put(DataProvider.Logs.ROAMED, 1);
 				}
@@ -921,7 +922,9 @@ public final class LogRunnerService extends IntentService {
 	 * @param wakelock
 	 *            {@link WakeLock}
 	 * @param h
-	 *            {@link Handler} @ param action
+	 *            {@link Handler}
+	 * @param a
+	 *            action
 	 */
 	private void release(final WakeLock wakelock, final Handler h, final String a) {
 		// schedule next update

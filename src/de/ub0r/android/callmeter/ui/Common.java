@@ -45,7 +45,7 @@ public final class Common {
 	/** Selected date format. */
 	private static String dateFormat = null;
 	/** {@link DateFormat}. */
-	private static java.text.DateFormat dateFormater = null;
+	private static DateFormat dateFormater = null;
 
 	/**
 	 * Hide Constructor.
