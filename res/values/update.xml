@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
+		<item>v2.3.18.5: fix translation causing FCs</item>
 		<item>v2.3.18.4: update translations, prepare for jelly bean</item>
 		<item>v2.3.18.3: reduce app size, update translations</item>
 		<item>v2.3.18.2: data stats for acer e130, update translations</item>
