@@ -105,7 +105,7 @@
   <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Data (2G/3G/4G)</string>
   <string name="calls_sms" formatted="false" username="basse1996" orig="Calls/SMS">Opkald/SMS</string>
   <string name="in_calls" formatted="false" orig="In%s:">Ind%s:</string>
-  <string name="in_sms" formatted="false" orig="In%s:">Ind%a:s</string>
+  <string name="in_sms" formatted="false" orig="In%s:">Ind%s:</string>
   <string name="in_data" formatted="false" username="basse1996" orig="In:">Ind:</string>
   <string name="out_calls" formatted="false" orig="Out%s:">Ud%s:</string>
   <string name="out_sms" formatted="false" orig="Out%s:">Ud%s:</string>
