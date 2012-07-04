@@ -345,8 +345,12 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 				c = "%%";
 				Log.d(TAG, "custom currency symbol: " + c);
 			}
-			final String ret = pcs.replaceAll("\\$", c).replaceAll("\u20AC", c)
-					.replaceAll("\u0440", c);
+			String ret = "$%.2f";
+			try {
+				ret = pcs.replaceAll("\\$", c).replaceAll("\u20AC", c).replaceAll("\u0440", c);
+			} catch (ArrayIndexOutOfBoundsException e) {
+				Log.e(TAG, "could not parse currency format", e);
+			}
 			Log.d(TAG, "custom currency format: " + ret);
 			return ret;
 		}
