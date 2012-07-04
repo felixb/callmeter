@@ -302,6 +302,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 				if (textSizeBigTitle > 0) {
 					holder.tvBigtitle.setTextSize(textSizeBigTitle);
 				}
+				holder.tvBigtitle.setVisibility(View.VISIBLE);
 				holder.vSpacer.setVisibility(View.GONE);
 				holder.vContent.setVisibility(View.GONE);
 				holder.vPeriodLayout.setVisibility(View.GONE);
