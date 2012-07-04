@@ -5,7 +5,7 @@ res/values/market.xml:6
 res/values/notes.xml:0
 res/values/simple_prefs.xml:19
 res/values/strings.xml:519
-res/values/update.xml:40
+res/values/update.xml:41
 res/values-bg/help.xml:14
 res/values-bg/intro.xml:10
 res/values-bg/market.xml:5
@@ -132,7 +132,7 @@ res/values-zh/market.xml:1
 res/values-zh/notes.xml:0
 res/values-zh/simple_prefs.xml:0
 res/values-zh/strings.xml:267
-res/values:608
+res/values:609
 res/values-bg:357
 res/values-cs:415
 res/values-de:447
