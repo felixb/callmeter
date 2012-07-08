@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates" translatable="false">
-		<item>HEAD: fix some FCs, fix dark theme, fix titles in main view</item>
+		<item>v3.5.1: fix some FCs, fix dark theme, fix titles in main view</item>
 		<item>v3.5: update abs 4.0, prepare for jelly bean, fix some FCs</item>
 		<item>v3.4.2: fix 31d bill period, update translations</item>
 		<item>v3.4.1: show past bill periods as 100%, fix import/export of rules with new and old bill periods</item>
