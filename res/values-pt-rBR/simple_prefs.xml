@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2012 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,28 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/de/notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/pt-rBR/simple_prefs.xml to edit the file.
        -->
 <resources>
+  <string name="freemin_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Free minutes">Minutos Grátis</string>
+  <string name="freemin_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Free minutes / month">Minutos Grátis / Mês</string>
+  <string name="cost_per_call_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Cost / call">Custo / Ligação</string>
+  <string name="cost_per_min_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Cost / minute">Custo / Minuto</string>
+  <string name="freesms_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Free SMS">SMS Grátis</string>
+  <string name="cost_per_sms_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Cost / SMS">Custo / SMS</string>
+  <string name="freemms_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Free MMS">MMS Grátis</string>
+  <string name="cost_per_mms_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Cost / MMS">Custo / MMS</string>
+  <string name="cost_per_mb_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Cost / MB">Custo / MB</string>
+  <string name="freedata_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Free traffic">Dados Grátis</string>
+  <string name="freedata_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Free 2G, 3G or 4G data traffic / month">Dados 2G, 3G ou 4G Grátis / Mês</string>
+  <string name="freemms_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Free MMS / month">MMS Grátis / Mês</string>
+  <string name="freesms_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Free SMS / month">SMS Grátis / Mês</string>
+  <string name="cost_per_call_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Each call get\'s billed.">Cada ligação é cobrada.</string>
+  <string name="cost_per_min_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Each minute get\'s billed.">Cada minuto é cobrado.</string>
+  <string name="cost_per_sms_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Each SMS get\'s billed.">Cada SMS é cobrado.</string>
+  <string name="cost_per_mms_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Each MMS get\'s billed.">Cada MMS é cobrado.</string>
+  <string name="cost_per_mb_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Each MB get\'s billed.">Cada MB é cobrado.</string>
+  <string name="missing_slash" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Bill mode needs to be in seconds/seconds!">Modo de cobrança precisa ser em segundos/segundos!</string>
 </resources>
