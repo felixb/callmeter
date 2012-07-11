@@ -279,4 +279,9 @@
   <string name="custom_currency_format_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Select a custom currency format.">Selecione um formato de moeda personalizado.</string>
   <string name="direction_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Direction">Direção</string>
   <string name="reset_data_progr1" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Recalculating statistics ...\n\n(This may take some time!)">Recalculando as estatísticas ...\n\n(Isso pode levar algum tempo!)</string>
+  <string name="import_rules_sd_help" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Place your file on your SD card and click it below">Coloque o arquivo no cartão SD e clique abaixo</string>
+  <string name="edit_groups_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Edit groups">Editar grupos</string>
+  <string name="exhourgroup_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Exclude hours">Excluir horas</string>
+  <string name="show_calllength_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show info after hanging up">Mostrar informações depois de desligar</string>
+  <string name="custom_date_format_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Select a custom date format.">Selecione um formato de data personalizado.</string>
 </resources>
