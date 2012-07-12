@@ -288,4 +288,12 @@
   <string name="x05_minute" formatted="false" username="sokolinskayas@gmail.com" orig="0.5 minutes">0.5 минуты</string>
   <string name="x1_minute" formatted="false" username="sokolinskayas@gmail.com" orig="1 minute">1 минуа</string>
   <string name="x2_minute" formatted="false" username="sokolinskayas@gmail.com" orig="2 minutes">2 минуты</string>
+  <string name="hide_zero_" formatted="false" username="sokolinskayas@gmail.com" orig="Hide empty plans">Скрыть пустые позиции</string>
+  <string name="hide_zero_hint" formatted="false" username="sokolinskayas@gmail.com" orig="Hide plans containing no item.">Скрыть позиции без затрат (бесплатные)</string>
+  <string name="hide_nocost_" formatted="false" username="sokolinskayas@gmail.com" orig="Hide no cost plans">Скрыть бесплатные тарифы</string>
+  <string name="hide_nocost_hint" formatted="false" username="sokolinskayas@gmail.com" orig="Hide plans with no cost.">Скрыть бесплатные тарифы</string>
+  <string name="show_today_" formatted="false" username="sokolinskayas@gmail.com" orig="Show today">Показать Сегодня</string>
+  <string name="show_today_hint" formatted="false" username="sokolinskayas@gmail.com" orig="Show today stats">Показать статистику за сегодня</string>
+  <string name="show_total_hint" formatted="false" username="sokolinskayas@gmail.com" orig="Show total stats, disable to see current only.">Показать общую статистику, отключить, чтобы увидеть только текущую</string>
+  <string name="show_total_" formatted="false" username="sokolinskayas@gmail.com" orig="Show total">Показать общую статистику</string>
 </resources>
