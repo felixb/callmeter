@@ -202,12 +202,12 @@
   <string name="day_23">23:00 - 23:59</string>
   <string name="theme_black">Тёмная</string>
   <string name="theme_light">Светлая</string>
-  <string name="edit_plan_">Изменить ценовой план</string>
+  <string name="edit_plan_" username="sokolinskayas@gmail.com" orig="Edit Plan">Изменить тариф</string>
   <string name="delete_">Удалить</string>
   <string name="title">Название</string>
   <string name="spacer">Пробел</string>
   <string name="mixed">Звонки</string>
-  <string name="limit_type_unlimited">Безграничный</string>
+  <string name="limit_type_unlimited" username="sokolinskayas@gmail.com" orig="unlimited">Безлимитный</string>
   <string name="limit_type_units">Единицы</string>
   <string name="limit_type_cost">Стоимость</string>
   <string name="x1_day">1 день</string>
@@ -285,4 +285,7 @@
   <string name="widgets_" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Widgets">Виджеты</string>
   <string name="delete_widget" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Delete widget">Удалить виджет</string>
   <string name="simple_preferences_deactivated" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">В простые настройки доступны только набор правил по умолчанию. Импорт набора правил по умолчанию только после активации.</string>
+  <string name="x05_minute" formatted="false" username="sokolinskayas@gmail.com" orig="0.5 minutes">0.5 минуты</string>
+  <string name="x1_minute" formatted="false" username="sokolinskayas@gmail.com" orig="1 minute">1 минуа</string>
+  <string name="x2_minute" formatted="false" username="sokolinskayas@gmail.com" orig="2 minutes">2 минуты</string>
 </resources>
