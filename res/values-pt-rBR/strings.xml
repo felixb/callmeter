@@ -282,6 +282,16 @@
   <string name="import_rules_sd_help" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Place your file on your SD card and click it below">Coloque o arquivo no cartão SD e clique abaixo</string>
   <string name="edit_groups_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Edit groups">Editar grupos</string>
   <string name="exhourgroup_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Exclude hours">Excluir horas</string>
-  <string name="show_calllength_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show info after hanging up">Mostrar informações depois de desligar</string>
+  <string name="show_calllength_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show info after hanging up">Mostrar informações após desligar</string>
   <string name="custom_date_format_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Select a custom date format.">Selecione um formato de data personalizado.</string>
+  <string name="textsize_title_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Text size for titles in pixels; leave empty for default">Tamanho do texto para títulos em pixels; deixe em branco para padrão</string>
+  <string name="textsize_bigtitle_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Text size for big titles in pixels; leave empty for default">Tamanho do texto para títulos grandes em pixels; deixe em branco para padrão</string>
+  <string name="textsize_spacer_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Size for spacers in pixels; leave empty for default">Tamanho dos espaçadores em pixels; deixe em branco para padrão</string>
+  <string name="textsize_pbar_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Size for progress bars in pixels; leave empty for default">Tamanho da barras de progresso em pixels; deixe em branco para padrão</string>
+  <string name="show_hours_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Mostrar o tempo em segundos, minutos, horas e dias.\nSe nada for marcado apenas segundos e minutos serão mostrados.</string>
+  <string name="show_calllength_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show length/cost of a call after hanging up.">Mostrar duração/custo da chamada após desligar.</string>
+  <string name="custom_currency_format_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Custom currency format">Formato de moeda personalizado</string>
+  <string name="custom_date_format_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Custom date format">Formato de data personalizado</string>
+  <string name="set_selected_as_default_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Set selected plan as default">Definir plano selecionado como padrão</string>
+  <string name="import_rules_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Import preconfigured rule set.">Importar conjunto de regras pré-configuradas.</string>
 </resources>
