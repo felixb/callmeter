@@ -21,7 +21,7 @@
                Visit http://ub0r.de/translate/cm2/es/strings.xml to edit the file.
        -->
 <resources>
-  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">¡Controla tus llamadas, sms, o plan de datos!</string>
+  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!" username="alfrava@gmail.com">¡Controla tus llamadas, sms, o plan de datos!</string>
   <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter genera informes de tus registros de llamadas, mensajes y datos. Permite muchos tipos de facturacion.</string>
   <string name="about1" formatted="false" username="motas" orig="The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not.">La presentación es: minutos usados en el ciclo de facturación/minutos totales. El cómputo mensual de llamadas tiene eخn cuenta el modo de tarificación. Los totales no.</string>
   <string name="about2" formatted="false" username="motas" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">El modo de tarificación especifica la longitud del primer/siguientes unidades de facturación. Ej. 60/10 significa que en cada llamada se factura el primer minuto completo y el resto se redondea en periodos de 10 s.</string>
