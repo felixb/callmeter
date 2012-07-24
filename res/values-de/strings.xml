@@ -287,7 +287,7 @@
   <string name="export_rules_dev_" formatted="false">Exportiere Regelwerk zum Entwickler</string>
   <string name="export_rules_dev_hint" formatted="false">Exportiere Regelwerk damit andere es importieren können.</string>
   <string name="export_rules_descr" formatted="false">Beschreibung</string>
-  <string name="export_rules_body" formatted="false">Hallo Entwickler,nhier ist der Regelsatz für meinen Provider. Bitte lade ihn auf die Website, damit andere ihn nutzen können. Anbei findest du die Details.\n\nLand: Deutschland\nProvider:\nTarifname:\n\nViele Grüße, ein Nutzer</string>
+  <string name="export_rules_body" formatted="false">Hallo Entwickler,\nhier ist der Regelsatz für meinen Provider. Bitte lade ihn auf die Website, damit andere ihn nutzen können. Anbei findest du die Details.\n\nLand: Deutschland\nProvider:\nTarifname:\n\nViele Grüße, ein Nutzer</string>
   <string name="export_logs_" formatted="false">Logs sichern</string>
   <string name="export_logs_hint" formatted="false">Logs als Mail sichern.</string>
   <string name="export_numgroups_" formatted="false">Stunden Nummern exportieren</string>
@@ -363,7 +363,7 @@
   <string name="delete_">Löschen</string>
   <string name="title">Titel</string>
   <string name="spacer">Abstandhalter</string>
-  <string name="mixed">Anrufe</string>
+  <string name="mixed">Mixed</string>
   <string name="limit_type_unlimited">Unbegrenzt</string>
   <string name="limit_type_units">Einheiten</string>
   <string name="limit_type_cost">Kosten</string>
