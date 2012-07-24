@@ -1,0 +1,85 @@
+1
+Mtel+Surf+%26+Talk+M
+plans _id:12:#:_plan_name:Billing period:#:_shortname:Billing Period:#:_plan_type:2:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billmode:1/1:#:_billday:1338152400947:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan:25.9:#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:0:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:13:#:_plan_name:Spacer:#:_shortname:space:#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:-1:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:15:#:_plan_name:Calls In:#:_shortname:Calls In:#:_plan_type:4:#:_limit_type:0:#:_limit:0:#:_billperiod:12:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:16:#:_plan_name:Calls Out Mtel:#:_shortname:CallsOut Mtel:#:_plan_type:4:#:_limit_type:1:#:_limit:1000:#:_billperiod:12:#:_billmode:60/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1:0.29:#:_cost_per_amount2:0.29:#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:17:#:_plan_name:Spacer:#:_shortname:spacer:#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:-1:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:18:#:_plan_name:Messages:#:_shortname:SMS/MMS:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billperiod:5:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:19:#:_plan_name:SMS In:#:_shortname:SMS In:#:_plan_type:5:#:_limit_type:0:#:_limit:0:#:_billperiod:12:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:20:#:_plan_name:SMS Out Mtel:#:_shortname:SMS Out Mtel:#:_plan_type:5:#:_limit_type:1:#:_limit:100:#:_billperiod:12:#:_billmode:1/1:#:_billday:0:#:_cost_per_item:0.14:#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:21:#:_plan_name:Spacer:#:_shortname::#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:-1:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:22:#:_plan_name:Data:#:_shortname:Data:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billperiod:-1:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:23:#:_plan_name:Data In/Out:#:_shortname:Data In/Out:#:_plan_type:7:#:_limit_type:1:#:_limit:512:#:_billperiod:12:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:27:#:_plan_name:MMS In:#:_shortname:MMS In:#:_plan_type:6:#:_limit_type:0:#:_limit:0:#:_billperiod:5:#:_billday:1287927116450:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:28:#:_plan_name:MMS Out Mtel:#:_shortname:MMS Out Mtel:#:_plan_type:6:#:_limit_type:1:#:_limit:100:#:_billperiod:5:#:_billday:1287927174859:#:_cost_per_item:0.78:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:29:#:_plan_name:Mtel Surf & Talk M:#:_shortname:Mtel Surf & Talk M:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billday:1341831512227:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:-1:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:30:#:_plan_name:space:#:_shortname:space:#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billday:1341831572797:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:-1:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:31:#:_plan_name:space:#:_shortname:space:#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billday:1341831661476:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:-1:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:32:#:_plan_name:Mobile Calls:#:_shortname:Mobile calls:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billday:1341831763275:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:-1:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:33:#:_plan_name:Calls Out *88:#:_shortname:Calls Out *88:#:_plan_type:4:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billmode:1/1:#:_billday:1341831965505:#:_cost_per_item:0.03:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:34:#:_plan_name:Calls Out Others:#:_shortname:Calls Out Others:#:_plan_type:4:#:_limit_type:1:#:_limit:30:#:_billperiod:8:#:_billmode:60/1:#:_billday:1341832114236:#:_cost_per_item:0:#:_cost_per_amount1:0.29:#:_cost_per_amount2:0.29:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:35:#:_plan_name:space:#:_shortname:space:#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billday:1341832285313:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:-1:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:36:#:_plan_name:SMS Out Others:#:_shortname:SMS Out Others:#:_plan_type:5:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billday:1341832354494:#:_cost_per_item:0.14:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:37:#:_plan_name:SMS Out Free:#:_shortname:SMS Out Free:#:_plan_type:5:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billday:1341832432250:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:38:#:_plan_name:SMS Out High Rate:#:_shortname:SMS Out High Rate:#:_plan_type:5:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billday:1341871608647:#:_cost_per_item:1.2:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:39:#:_plan_name:space:#:_shortname:space:#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billday:1341871851556:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:-1:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:40:#:_plan_name:MMS Out Others:#:_shortname:MMS Out Others:#:_plan_type:6:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billday:1341872055900:#:_cost_per_item:0.78:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:41:#:_plan_name:space:#:_shortname:space:#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billday:1341872122187:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:-1:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:42:#:_plan_name:Calls Out Free:#:_shortname:Calls Out Free:#:_plan_type:4:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billday:1341899373951:#:_cost_per_item:0:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+rules _id:1:#:_active:1:#:_order:13:#:_plan_id:23:#:_rule_name:Data:#:_what:3:#:_roamed:1:#:_direction:2:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:2:#:_active:1:#:_order:0:#:_plan_id:15:#:_rule_name:Calls in:#:_what:0:#:_roamed:1:#:_direction:0:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:1:#:
+rules _id:3:#:_active:1:#:_order:1:#:_plan_id:16:#:_rule_name:Calls out Mtel:#:_what:0:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,9,4,:#:_exnumbergroup_id:,8,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:1:#:
+rules _id:4:#:_active:1:#:_order:5:#:_plan_id:19:#:_rule_name:SMS in:#:_what:1:#:_roamed:1:#:_direction:0:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:5:#:_active:1:#:_order:6:#:_plan_id:20:#:_rule_name:SMS Out Mtel:#:_what:1:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,9,4,:#:_exnumbergroup_id:,8,:#:_limit_not_reached:0:#:_is_websms:1:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:7:#:_active:1:#:_order:10:#:_plan_id:27:#:_rule_name:MMS In:#:_what:2:#:_roamed:1:#:_direction:0:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:8:#:_active:1:#:_order:11:#:_plan_id:28:#:_rule_name:MMS Out Mtel:#:_what:2:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,9,4,:#:_exnumbergroup_id:,8,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:10:#:_active:1:#:_order:2:#:_plan_id:34:#:_rule_name:Calls Out Others:#:_what:0:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,7,3,5,8,:#:_exnumbergroup_id:,9,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:1:#:
+rules _id:11:#:_active:1:#:_order:3:#:_plan_id:33:#:_rule_name:Calls Out Customer Service:#:_what:0:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,10,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:1:#:
+rules _id:12:#:_active:1:#:_order:7:#:_plan_id:36:#:_rule_name:SMS Out Others:#:_what:1:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,3,5,8,:#:_exnumbergroup_id:,9,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:13:#:_active:1:#:_order:8:#:_plan_id:37:#:_rule_name:SMS Out Free:#:_what:1:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,6,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:14:#:_active:1:#:_order:9:#:_plan_id:38:#:_rule_name:SMS Out High Rate:#:_what:1:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,2,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:15:#:_active:1:#:_order:12:#:_plan_id:40:#:_rule_name:MMS Out Others:#:_what:2:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,3,5,8,:#:_exnumbergroup_id:,9,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:16:#:_active:1:#:_order:4:#:_plan_id:42:#:_rule_name:Calls Out Free:#:_what:0:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,6,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:1:#:
+numbers _id:2:#:_gid:3:#:_number:087%:#:
+numbers _id:3:#:_gid:4:#:_number:088%:#:
+numbers _id:4:#:_gid:3:#:_number:+35987%:#:
+numbers _id:5:#:_gid:4:#:_number:+35988%:#:
+numbers _id:6:#:_gid:5:#:_number:+35989%:#:
+numbers _id:7:#:_gid:5:#:_number:089%:#:
+numbers _id:10:#:_gid:6:#:_number:+359800%:#:
+numbers _id:11:#:_gid:7:#:_number:+3593%:#:
+numbers _id:12:#:_gid:7:#:_number:+3592%:#:
+numbers _id:13:#:_gid:7:#:_number:03%:#:
+numbers _id:14:#:_gid:7:#:_number:02%:#:
+numbers _id:20:#:_gid:7:#:_number:+35984%:#:
+numbers _id:21:#:_gid:7:#:_number:+3595%:#:
+numbers _id:22:#:_gid:7:#:_number:+3594%:#:
+numbers _id:23:#:_gid:7:#:_number:+3596%:#:
+numbers _id:24:#:_gid:7:#:_number:04%:#:
+numbers _id:25:#:_gid:7:#:_number:05%:#:
+numbers _id:26:#:_gid:7:#:_number:06%:#:
+numbers _id:27:#:_gid:7:#:_number:084%:#:
+numbers _id:28:#:_gid:6:#:_number:131:#:
+numbers _id:29:#:_gid:6:#:_number:0800%:#:
+numbers _id:51:#:_gid:7:#:_number:+3597%:#:
+numbers _id:52:#:_gid:7:#:_number:+35982%:#:
+numbers _id:53:#:_gid:7:#:_number:07%:#:
+numbers _id:54:#:_gid:7:#:_number:082%:#:
+numbers _id:55:#:_gid:10:#:_number:%*88:#:
+numbers _id:56:#:_gid:6:#:_number:1797:#:
+numbers _id:57:#:_gid:6:#:_number:17970:#:
+numbers _id:58:#:_gid:8:#:_number:+359885129785:#:
+numbers _id:59:#:_gid:8:#:_number:+359885654321:#:
+numbers _id:60:#:_gid:6:#:_number:01877:#:
+numbers _id:61:#:_gid:6:#:_number:+35988131:#:
+numbersgroup _id:2:#:_name:SMS Тарифа 1.20:#:
+numbersgroup _id:3:#:_name:Виваком:#:
+numbersgroup _id:4:#:_name:Мтел:#:
+numbersgroup _id:5:#:_name:Глобул:#:
+numbersgroup _id:6:#:_name:Безплатни:#:
+numbersgroup _id:7:#:_name:Бтк:#:
+numbersgroup _id:8:#:_name:Изключения Преместени към други оператори:#:
+numbersgroup _id:9:#:_name:Изключения преместени към Мтел:#:
+numbersgroup _id:10:#:_name:*88:#:
+
