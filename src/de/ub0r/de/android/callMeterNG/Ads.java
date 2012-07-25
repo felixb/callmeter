@@ -23,15 +23,16 @@ import java.util.Set;
 import android.app.Activity;
 import android.os.Build;
 import android.view.View;
+import android.webkit.WebView;
 import android.webkit.WebViewDatabase;
 import android.widget.LinearLayout;
 
 import com.google.ads.Ad;
 import com.google.ads.AdListener;
 import com.google.ads.AdRequest;
+import com.google.ads.AdRequest.ErrorCode;
 import com.google.ads.AdSize;
 import com.google.ads.AdView;
-import com.google.ads.AdRequest.ErrorCode;
 
 import de.ub0r.android.lib.Log;
 
@@ -78,10 +79,20 @@ public final class Ads {
 		} else if (Integer.parseInt(Build.VERSION.SDK) // .
 		<= Build.VERSION_CODES.FROYO) {
 			Log.d(TAG, "API " + Build.VERSION.SDK + " <= FROYO");
-			WebViewDatabase webViewDB = WebViewDatabase.getInstance(activity);
-			if (webViewDB == null) {
-				Log.e(TAG, "webViewDB == null");
-				return;
+			try {
+				WebViewDatabase webViewDB = WebViewDatabase
+						.getInstance(activity);
+				if (webViewDB == null) {
+					Log.e(TAG, "webViewDB == null");
+					return;
+				}
+			} catch (Exception e) {
+				Log.e(TAG, "any exception in ads (1)", e);
+			}
+			try {
+				new WebView(activity).clearCache(true);
+			} catch (Exception e) {
+				Log.e(TAG, "any exception in ads (2)", e);
 			}
 		}
 
