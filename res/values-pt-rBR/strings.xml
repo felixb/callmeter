@@ -294,4 +294,31 @@
   <string name="custom_date_format_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Custom date format">Formato de data personalizado</string>
   <string name="set_selected_as_default_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Set selected plan as default">Definir plano selecionado como padrão</string>
   <string name="import_rules_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Import preconfigured rule set.">Importar conjunto de regras pré-configuradas.</string>
+  <string name="about0" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter gera relatórios de mensagens, chamadas e dados. Ele suporta vários modos de cobrança.</string>
+  <string name="delete_old_logs_help" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Delete logs older than x days from internal database. Leave empty to disable.">Excluir logs mais antigos que x dias do banco de dados interno. Deixe em branco para desabilitar.</string>
+  <string name="textsize_pbar_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Progress bar\'s size">Tamanho da barra de progresso</string>
+  <string name="small_widget_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Use small widget">Usar o widget pequeno</string>
+  <string name="hide_nocost_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Hide plans with no cost.">Ocultar planos com nenhum custo.</string>
+  <string name="custom_currency_symbol_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Set a custom currency symbol, leave empty for system default.">Definir um símbolo de moeda personalizado, deixe em branco para o padrão do sistema.</string>
+  <string name="custom_delimiter_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Custom delimiter">Delimitador personalizado</string>
+  <string name="custom_delimiter_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Set a custom delimiter separating the blocks of statistics.">Definir um delimitador personalizado separando os blocos de estatísticas.</string>
+  <string name="autohide_in_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Auto hide dialog in: %ds">Ocultar automaticamente diálogo em: %ds</string>
+  <string name="autohide_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Auto hide">Ocultar automaticamente</string>
+  <string name="plans_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Set your plans for all kind of billing here.">Defina seus planos para todo tipo de cobrança aqui.</string>
+  <string name="rules_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Set your billing rules here.">Defina regras de cobrança aqui.</string>
+  <string name="length_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Length">Duração</string>
+  <string name="numbergroups_edit_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Edit number groups here.">Editar grupos de números aqui.</string>
+  <string name="numbergroups_edit_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Number groups">Grupos de números</string>
+  <string name="hourgroups_edit_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Hour groups">Grupos de horas</string>
+  <string name="hourgroups_edit_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Edit hour groups here.">Editar grupos de horas aqui.</string>
+  <string name="numbergroup_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Include numbers">Incluir números</string>
+  <string name="exnumbergroup_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Exclude numbers">Excluir números</string>
+  <string name="new_numbergroup" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="New number group">Novo grupo de número</string>
+  <string name="numbergroup_excalls" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Exclude from calls">Excluir das chamadas</string>
+  <string name="numbergroup_exsms" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Exclude from SMS">Excluir das mensagens</string>
+  <string name="hourgroup_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Include hours">Incluir horas</string>
+  <string name="new_hourgroup" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="New hour group">Novo grupo de hora</string>
+  <string name="billperiod_sn" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="BillPeriod">Período de cobrança</string>
+  <string name="cost_per_amount_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Cost per length">Custo por duração</string>
+  <string name="export_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Export rule sets, logs or groups">Exportar conjuntos de regras, logs ou grupos</string>
 </resources>
