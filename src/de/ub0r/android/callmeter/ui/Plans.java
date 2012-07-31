@@ -48,6 +48,7 @@ import com.actionbarsherlock.view.Window;
 import com.viewpagerindicator.TitlePageIndicator;
 
 import de.ub0r.android.callmeter.Ads;
+import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerReceiver;
@@ -411,7 +412,7 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		this.setContentView(R.layout.plans);
-		Utils.fixActionBarBackground(this.getSupportActionBar(), this.getResources(),
+		CallMeter.fixActionBarBackground(this.getSupportActionBar(), this.getResources(),
 				R.drawable.bg_striped, R.drawable.bg_striped_split);
 		this.getSupportActionBar().setHomeButtonEnabled(true);
 
@@ -428,8 +429,8 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
 		}
 		p = null;
 
-		ChangelogHelper.showChangelog(this, true);
-		ChangelogHelper.showNotes(this, true, null, null, null);
+		ChangelogHelper.showChangelog(this, this.getString(R.string.changelog_),
+				this.getString(R.string.app_name), R.array.updates, R.array.notes_from_dev);
 
 		prefsNoAds = DonationHelper.hideAds(this);
 
@@ -514,7 +515,12 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
 			this.startActivity(new Intent(this, Preferences.class));
 			return true;
 		case R.id.item_donate:
-			DonationHelper.startDonationActivity(this, true);
+			DonationHelper.showDonationDialog(this, this.getString(R.string.donate), this
+					.getString(R.string.donate_url), this.getString(R.string.donate_), this
+					.getString(R.string.did_paypal_donation), this.getString(R.string.remove_ads_),
+					this.getResources().getStringArray(R.array.donation_messages_market), this
+							.getResources().getStringArray(R.array.donation_messages_paypal), this
+							.getResources().getStringArray(R.array.donation_messages_load));
 			return true;
 		case R.id.item_logs:
 			this.showLogsFragment(-1L);

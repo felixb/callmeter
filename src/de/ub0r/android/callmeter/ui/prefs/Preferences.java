@@ -850,7 +850,9 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 	public boolean onPreferenceClick(final Preference preference) {
 		final String k = preference.getKey();
 		if (k.equals("send_logs")) {
-			Log.collectAndSendLog(Preferences.this);
+			Log.collectAndSendLog(Preferences.this, this.getString(R.string.sendlog_install_),
+					this.getString(R.string.sendlog_install),
+					this.getString(R.string.sendlog_run_), this.getString(R.string.sendlog_run));
 			return true;
 		} else if (k.equals("send_devices")) {
 			final Intent intent = new Intent(Intent.ACTION_SEND);
@@ -859,10 +861,10 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 			intent.putExtra(Intent.EXTRA_TEXT, Device.debugDeviceList(this));
 			intent.putExtra(Intent.EXTRA_SUBJECT, "Call Meter 3G: Device List");
 			try {
-				Preferences.this.startActivity(intent);
+				this.startActivity(intent);
 			} catch (ActivityNotFoundException e) {
 				Log.e(TAG, "no mail", e);
-				Toast.makeText(Preferences.this, "no mail app found", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, "no mail app found", Toast.LENGTH_LONG).show();
 			}
 			return true;
 		} else if (k.equals("reset_data")) {

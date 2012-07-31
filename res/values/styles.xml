@@ -1,30 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2009-2012 Felix Bechstein
-	-->
-	<!--
+<!-- 		Copyright (C) 2009-2012 Felix Bechstein -->
+<!--
 		This file is part of Call MEter 3G. This program is free software; you can
 		redistribute it and/or modify it under the terms of the GNU General
 		Public License as published by the Free Software Foundation; either
 		version 3 of the License, or (at your option) any later version.
-	-->
-	<!--
+-->
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 		General Public License for more details. You should have received a
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
-	-->
+-->
 <resources>
-    <style name="Theme.SherlockCallMeter" parent="style/Theme.SherlockUb0r">
-        <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
-        <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>
+
+    <color name="actionbar_text_color">#FFE0E0E0</color>
+    <color name="actionbar_background_color">#B0202020</color>
+    <color name="ubActionBarBackgroundDark">#FF000000</color>
+    <color name="ubActionBarBackgroundLight">#FFFFFFFF</color>
+
+    <declare-styleable name="Ub0rButtonBar">
+        <attr name="ubButtonBarBackground" format="reference" />
+    </declare-styleable>
+
+    <style name="ButtonBar" parent="@android:style/ButtonBar" />
+
+    <style name="TextAppearance.Widget.Subtitle" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@color/actionbar_text_color</item>
     </style>
 
-    <style name="Theme.SherlockCallMeter_Light" parent="style/Theme.SherlockUb0r_Light">
+    <style name="TextAppearance.Multicomplete" parent="@android:style/TextAppearance.Widget.EditText" />
+
+    <style name="Devider">
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="Theme.SherlockCallMeter" parent="style/Theme.Sherlock">
+        <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
+        <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>
+        <item name="ubButtonBarBackground">@color/ubActionBarBackgroundDark</item>
+    </style>
+
+    <style name="Theme.SherlockCallMeter_Light" parent="style/Theme.Sherlock.Light.DarkActionBar">
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar_Light</item>
         <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar_Light</item>
+        <item name="ubButtonBarBackground">@color/ubActionBarBackgroundLight</item>
     </style>
 
     <style name="Widget.Styled.ActionBar" parent="Widget.Sherlock.ActionBar.Solid">
@@ -40,4 +62,5 @@
         <item name="backgroundSplit">@drawable/bg_striped_split</item>
         <item name="android:backgroundSplit">@drawable/bg_striped_split</item>
     </style>
+
 </resources>

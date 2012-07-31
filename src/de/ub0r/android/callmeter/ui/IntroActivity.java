@@ -25,6 +25,7 @@ import android.view.View.OnClickListener;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
 
+import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.Utils;
@@ -44,7 +45,7 @@ public final class IntroActivity extends SherlockActivity implements OnClickList
 		Utils.setLocale(this);
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.intro);
-		Utils.fixActionBarBackground(this.getSupportActionBar(), this.getResources(),
+		CallMeter.fixActionBarBackground(this.getSupportActionBar(), this.getResources(),
 				R.drawable.bg_striped, R.drawable.bg_striped_split);
 		this.setTitle(R.string.intro_);
 		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
