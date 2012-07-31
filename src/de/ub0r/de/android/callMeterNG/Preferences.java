@@ -14,6 +14,7 @@ import de.ub0r.android.lib.Market;
  * 
  * @author flx
  */
+@SuppressWarnings("deprecation")
 public class Preferences extends PreferenceActivity implements
 		SharedPreferences.OnSharedPreferenceChangeListener {
 	/** {@link Preference}: merge sms into calls. */
@@ -114,19 +115,23 @@ public class Preferences extends PreferenceActivity implements
 		this.onSharedPreferenceChanged(prefs, Updater.PREFS_SPLIT_PLANS);
 		this.onSharedPreferenceChanged(prefs, Updater.PREFS_PLAN1_FREEMIN);
 		this.onSharedPreferenceChanged(prefs, Updater.PREFS_PLAN2_FREEMIN);
-		Market.setOnPreferenceClickListener(this, this
-				.findPreference("more_apps"), null, "Felix+Bechstein",
+		Market.setOnPreferenceClickListener(this,
+				this.findPreference("more_apps"), null, "Felix+Bechstein",
 				"http://code.google.com/u/felix.bechstein/");
 		Preference p = this.findPreference("send_logs");
 		if (p != null) {
 			p.setOnPreferenceClickListener(// .
-					new Preference.OnPreferenceClickListener() {
-						public boolean onPreferenceClick(
-								final Preference preference) {
-							Log.collectAndSendLog(Preferences.this);
-							return true;
-						}
-					});
+			new Preference.OnPreferenceClickListener() {
+				public boolean onPreferenceClick(final Preference preference) {
+					Log.collectAndSendLog(Preferences.this, Preferences.this
+							.getString(R.string.sendlog_install_),
+							Preferences.this
+									.getString(R.string.sendlog_install),
+							Preferences.this.getString(R.string.sendlog_run_),
+							Preferences.this.getString(R.string.sendlog_run));
+					return true;
+				}
+			});
 		}
 	}
 

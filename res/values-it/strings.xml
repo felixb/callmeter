@@ -30,6 +30,8 @@
   <string name="about5" formatted="false">CallMeter gira silenziosamente ogni 30 minuti (solo quando il telefono non è in standby). Questo implica che la cancellazione di chiamate o messaggi precedenti ai 30 minuti non cambia le statistiche. Cancellare chiamate o messaggi più recenti può invece alterare le statistiche.</string>
   <string name="about6_" formatted="false">Ciò che CallMeter NG non fa:</string>
   <string name="about6" formatted="false">Non c\'è modo di distinguere fra chiamate reali e chiamate sipdroid o fra SMS reali e websms. L\'integrazione di Android fra queste applicazioni rende impossibile ottenere i dati al dettaglio.</string>
+  <string name="custom_language_" formatted="false" username="carloraudino@fedoraproject.org" orig="Custom language">Personalizza lingua</string>
+  <string name="custom_language_hint" formatted="false" username="carloraudino@fedoraproject.org" orig="Set a custom language.">Imposta una lingua personalizzata.</string>
   <string name="send_" formatted="false">Invia</string>
   <string name="settings" formatted="false">Impostazioni</string>
   <string name="about_" formatted="false">Informazioni</string>
@@ -140,4 +142,15 @@
   </string-array>
   <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Mostra solamente "Dati" come titolo</string>
   <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Nascondi "(2G/3G/4G)" nel titolo. Non avrà effetto sulle statistiche.</string>
+  <string name="debug_" formatted="false" username="carloraudino@fedoraproject.org" orig="Debug">Debug</string>
+  <string name="send_logs_" formatted="false" username="carloraudino@fedoraproject.org" orig="Send logs">Invia log</string>
+  <string name="send_logs_hint" formatted="false" username="carloraudino@fedoraproject.org" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Invia i log del dispositivo allo sviluppatore.&#13;Da fare solo se richiesto.</string>
+  <string name="sendlog_run_" formatted="false" username="carloraudino@fedoraproject.org" orig="Run SendLog">Avvia SendLog</string>
+  <string name="sendlog_install_" formatted="false" username="carloraudino@fedoraproject.org" orig="Install SendLog">Installa SendLog</string>
+  <string name="sendlog_install" formatted="false" username="carloraudino@fedoraproject.org" orig="Install the free SendLog application to collect the device log and send it to the developer.">Installa l\'applicazione gratuita SendLog per raccogliere i log del dispositivo ed inviarli allo sviluppatore.</string>
+  <string name="license_" formatted="false" username="carloraudino@fedoraproject.org" orig="License:">Licenza:</string>
+  <string name="license" formatted="false" username="carloraudino@fedoraproject.org" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - vedere http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="author_" formatted="false" username="carloraudino@fedoraproject.org" orig="Author:">Autore:</string>
+  <string name="website_" formatted="false" username="carloraudino@fedoraproject.org" orig="Website:">Sito web:</string>
+  <string name="source_" formatted="false" username="carloraudino@fedoraproject.org" orig="Sourcescode:">Codice sorgente:</string>
 </resources>

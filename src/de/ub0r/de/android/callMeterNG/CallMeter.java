@@ -86,8 +86,10 @@ public class CallMeter extends Activity {
 		Utils.setLocale(this);
 		this.setContentView(R.layout.main);
 
-		ChangelogHelper.showChangelog(this, false);
-		// TODO: Changelog.showNotes(this, null, null, null);
+		ChangelogHelper.showChangelog(this,
+				this.getString(R.string.changelog_),
+				this.getString(R.string.app_name), R.array.updates,
+				R.array.notes_from_dev);
 
 		prefsNoAds = DonationHelper.hideAds(this);
 
@@ -139,11 +141,23 @@ public class CallMeter extends Activity {
 	@Override
 	public final boolean onOptionsItemSelected(final MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.item_settings: // start settings activity
+		case R.id.item_settings:
 			this.startActivity(new Intent(this, Preferences.class));
 			return true;
 		case R.id.item_donate:
-			DonationHelper.startDonationActivity(this, false);
+			DonationHelper.showDonationDialog(
+					this,
+					this.getString(R.string.donate),
+					this.getString(R.string.donate_url),
+					this.getString(R.string.donate_),
+					this.getString(R.string.did_paypal_donation),
+					this.getString(R.string.remove_ads_),
+					this.getResources().getStringArray(
+							R.array.donation_messages_market),
+					this.getResources().getStringArray(
+							R.array.donation_messages_paypal),
+					this.getResources().getStringArray(
+							R.array.donation_messages_load));
 			return true;
 		default:
 			return false;
