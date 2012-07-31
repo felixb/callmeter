@@ -73,7 +73,7 @@ public final class AddLogActivity extends SherlockActivity {
 		Utils.setLocale(this);
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.logs_add);
-		Utils.fixActionBarBackground(this.getSupportActionBar(), this.getResources(),
+		CallMeter.fixActionBarBackground(this.getSupportActionBar(), this.getResources(),
 				R.drawable.bg_striped, R.drawable.bg_striped_split);
 
 		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);

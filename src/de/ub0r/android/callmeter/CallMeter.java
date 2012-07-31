@@ -20,7 +20,13 @@ package de.ub0r.android.callmeter;
 
 import android.app.Application;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.graphics.Shader.TileMode;
+import android.graphics.drawable.BitmapDrawable;
 import android.preference.PreferenceManager;
+
+import com.actionbarsherlock.app.ActionBar;
+
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
@@ -83,5 +89,31 @@ public final class CallMeter extends Application {
 		}
 		p = null;
 		DataProvider.updateSettings(this, null, false);
+	}
+
+	/**
+	 * Fix ActionBar background. See http://b.android.com/15340.
+	 * 
+	 * @param ab
+	 *            {@link ActionBar}
+	 * @param r
+	 *            {@link Resources}
+	 * @param bg
+	 *            res id of background {@link BitmapDrawable}
+	 * @param bgSplit
+	 *            res id of background {@link BitmapDrawable} in split mode
+	 */
+	public static void fixActionBarBackground(final ActionBar ab, final Resources r, final int bg,
+			final int bgSplit) {
+		// This is a workaround for http://b.android.com/15340 from
+		// http://stackoverflow.com/a/5852198/132047
+		BitmapDrawable d = (BitmapDrawable) r.getDrawable(bg);
+		d.setTileModeXY(TileMode.REPEAT, TileMode.REPEAT);
+		ab.setBackgroundDrawable(d);
+		if (bgSplit >= 0) {
+			d = (BitmapDrawable) r.getDrawable(bgSplit);
+			d.setTileModeXY(TileMode.REPEAT, TileMode.REPEAT);
+			ab.setSplitBackgroundDrawable(d);
+		}
 	}
 }
