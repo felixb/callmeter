@@ -30,6 +30,8 @@
   <string name="about5" formatted="false">CallMeter läuft alle 30min im Hintergrund (sofern das Gerät nicht im Standby ist). Werden Anrufe oder Nachrichten älter als 30min gelöscht, ändert das die Statistik nicht. Werden neuere Anrufe/Nachrichten gelöscht, kann es je nach Zeitpunkt die Statistiken verfälschen!</string>
   <string name="about6_" formatted="false">Was CallMeter NG nicht tut:</string>
   <string name="about6" formatted="false">Es ist nicht möglich zwischen Anrufen aus Sipdroid und echten Anrufen bzw. WebSMS und echten SMS zu unterscheiden. Androids nahtlose Integration dieser Apps lässt eine spätere Unterscheidung der Logs nicht mehr zu.</string>
+  <string name="custom_language_" formatted="false">Andere Sprache</string>
+  <string name="custom_language_hint" formatted="false">Eine andere Sprache einstellen.</string>
   <string name="send_" formatted="false">Senden</string>
   <string name="settings" formatted="false">Einstellungen</string>
   <string name="about_" formatted="false">Über</string>
@@ -141,4 +143,16 @@
     <item>Klein</item>
     <item>Mittel</item>
   </string-array>
+  <string name="debug_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Debug">Debug</string>
+  <string name="send_logs_" formatted="false">Logs senden</string>
+  <string name="send_logs_hint" formatted="false">Logs von deinem Handy an den Entwickler senden.\nBitte nur nach Aufforderung senden.</string>
+  <string name="sendlog_run_" formatted="false">SendLog starten</string>
+  <string name="sendlog_run" formatted="false">SendLog wird die Logs aus deinem Gerät auslesen und zum Entwickler schicken.\nDu hast vor dem Senden die Möglichkeit die Daten zu begutachten und zu verändern.</string>
+  <string name="sendlog_install_" formatted="false">SendLog installieren</string>
+  <string name="sendlog_install" formatted="false" username="Schiri &lt;schirinowski@gmail.com&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">Installiere die freie SendLog-App um Daten von deinem Gerät an den Entwickler zu senden.</string>
+  <string name="license_" formatted="false">Lizenz:</string>
+  <string name="license" formatted="false">GPLv3 - siehe http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="author_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Author:">Autor:</string>
+  <string name="website_" formatted="false">Website:</string>
+  <string name="source_" formatted="false" username="Schiri &lt;schirinowski@gmail.com&gt;" orig="Sourcescode:">Quelltext:</string>
 </resources>
