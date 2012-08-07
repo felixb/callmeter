@@ -121,8 +121,8 @@ res/values-pt/notes.xml:0
 res/values-pt/simple_prefs.xml:19
 res/values-pt/strings.xml:377
 res/values-ru/donation.xml:0
-res/values-ru/help.xml:1
-res/values-ru/intro.xml:3
+res/values-ru/help.xml:2
+res/values-ru/intro.xml:4
 res/values-ru/market.xml:1
 res/values-ru/notes.xml:0
 res/values-ru/simple_prefs.xml:0
@@ -172,7 +172,7 @@ res/values-nb:371
 res/values-nl:337
 res/values-pl:424
 res/values-pt:415
-res/values-ru:330
+res/values-ru:332
 res/values-sk:273
 res/values-sv:80
 res/values-tr:445
