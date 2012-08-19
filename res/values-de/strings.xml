@@ -290,6 +290,8 @@
   <string name="export_rules_body" formatted="false">Hallo Entwickler,\nhier ist der Regelsatz für meinen Provider. Bitte lade ihn auf die Website, damit andere ihn nutzen können. Anbei findest du die Details.\n\nLand: Deutschland\nProvider:\nTarifname:\n\nViele Grüße, ein Nutzer</string>
   <string name="export_logs_" formatted="false">Logs sichern</string>
   <string name="export_logs_hint" formatted="false">Logs als Mail sichern.</string>
+	<string name="export_logs_csv_">Exportiere CSV</string>
+	<string name="export_logs_csv_hint">Exportiere Logs als CSV.</string>
   <string name="export_numgroups_" formatted="false">Stunden Nummern exportieren</string>
   <string name="export_numgroups_hint" formatted="false">Stunden Nummern als Mail exportieren.</string>
   <string name="export_hourgroups_" formatted="false">Stunden Gruppen exportieren</string>

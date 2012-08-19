@@ -293,6 +293,8 @@
 	<string name="export_rules_descr">Description</string>
 	<string name="export_logs_">Backup logs</string>
 	<string name="export_logs_hint">Backup logs as mail.</string>
+	<string name="export_logs_csv_">Export CSV</string>
+	<string name="export_logs_csv_hint">Export logs as CSV.</string>
 	<string name="export_numgroups_">Export number groups</string>
 	<string name="export_numgroups_hint">Export number groups as mail.</string>
 	<string name="export_hourgroups_">Export hour groups</string>

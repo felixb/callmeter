@@ -202,6 +202,10 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_COST = 10;
 		/** Index in projection: Cost (free). */
 		public static final int INDEX_FREE = 11;
+		/** Index in projection: Plan name. */
+		public static final int INDEX_PLAN_NAME = 12;
+		/** Index in projection: Rule name. */
+		public static final int INDEX_RULE_NAME = 13;
 
 		/** Index in projection - sum: Type of log. */
 		public static final int INDEX_SUM_TYPE = 0;

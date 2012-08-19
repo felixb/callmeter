@@ -299,6 +299,10 @@
                 android:summary="@string/export_rules_hint"
                 android:title="@string/export_rules_" />
             <PreferenceScreen
+                android:key="export_logs_csv"
+                android:summary="@string/export_logs_csv_hint"
+                android:title="@string/export_logs_csv_" />
+            <PreferenceScreen
                 android:key="export_logs"
                 android:summary="@string/export_logs_hint"
                 android:title="@string/export_logs_" />
@@ -362,10 +366,12 @@
             android:key="send_logs"
             android:summary="@string/send_logs_hint"
             android:title="@string/send_logs_" />
+        <!--
         <PreferenceScreen
             android:key="send_devices"
             android:summary="@string/send_devices_hint"
             android:title="@string/send_devices_" />
+        -->
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -46,6 +46,7 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -57,12 +58,14 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.text.TextUtils;
+import android.text.format.DateFormat;
 import android.widget.EditText;
 import android.widget.Toast;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.Device;
+import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.callmeter.ui.HelpActivity;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetConfigure;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
@@ -83,6 +86,9 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 
 	/** Standard buffer size. */
 	public static final int BUFSIZE = 1024;
+
+	/** Action for exporting CSV file. */
+	public static final String ACTION_EXPORT_CSV = "export_csv";
 
 	/** Preference's name: is default rule set. */
 	public static final String PREFS_ISDEFAULT = "is_default_ruleset";
@@ -429,6 +435,89 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 	}
 
 	/**
+	 * Export logs as CSV file.
+	 */
+	private void exportLogsCsv() {
+		final ProgressDialog d = new ProgressDialog(this);
+		d.setIndeterminate(true);
+		d.setMessage(this.getString(R.string.export_progr));
+		d.setCancelable(false);
+		d.show();
+
+		// run task in background
+		final AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
+			@Override
+			protected String doInBackground(final Void... params) {
+				File d = new File(Environment.getExternalStorageDirectory(), DataProvider.PACKAGE);
+				File f = new File(d, "logs-"
+						+ DateFormat.format("yyyyMMddkkmmss", System.currentTimeMillis()) + ".csv");
+				f.mkdirs();
+				if (f.exists()) {
+					f.delete();
+				}
+				try {
+					// build csv file and save it to sd card
+					FileWriter w = new FileWriter(f);
+					Cursor c = Preferences.this.getContentResolver().query(
+							DataProvider.Logs.CONTENT_URI_JOIN, DataProvider.Logs.PROJECTION_JOIN,
+							null, null, null);
+					w.append("date;type;direction;roamed;remote_number;"
+							+ "amount;billed_amount;cost;plan;rule\n");
+					String[] types = Preferences.this.getResources().getStringArray(
+							R.array.plans_type);
+					String[] directions = Preferences.this.getResources().getStringArray(
+							R.array.direction_calls);
+					String cformat = getCurrencyFormat(Preferences.this);
+					if (c.moveToFirst()) {
+						do {
+							w.append(DateFormat.format("yyyyMMddkkmmss;",
+									c.getLong(DataProvider.Logs.INDEX_DATE)));
+							int t = c.getInt(DataProvider.Logs.INDEX_TYPE);
+							w.append(types[t] + ";");
+							int dir = c.getInt(DataProvider.Logs.INDEX_DIRECTION);
+							w.append(directions[dir] + ";");
+							w.append(c.getInt(DataProvider.Logs.INDEX_ROAMED) + ";");
+							w.append(c.getString(DataProvider.Logs.INDEX_REMOTE) + ";");
+							long a = c.getLong(DataProvider.Logs.INDEX_AMOUNT);
+							float ba = c.getFloat(DataProvider.Logs.INDEX_BILL_AMOUNT);
+							float cost = c.getFloat(DataProvider.Logs.INDEX_COST);
+							w.append(Common.formatAmount(t, a, true) + ";");
+							w.append(Common.formatAmount(t, ba, true) + ";");
+							w.append(String.format(cformat, cost) + ";");
+							w.append(c.getString(DataProvider.Logs.INDEX_PLAN_NAME) + ";");
+							w.append(c.getString(DataProvider.Logs.INDEX_RULE_NAME) + "\n");
+						} while (c.moveToNext());
+					}
+
+					c.close();
+					w.close();
+					// return file name
+					return f.getAbsolutePath();
+				} catch (IOException e) {
+					Log.e(TAG, "error writing csv file", e);
+				}
+				return null;
+			}
+
+			@Override
+			protected void onPostExecute(final String result) {
+				Log.d(TAG, "csv.task.onPostExecute(" + result + ")");
+				d.dismiss();
+				if (TextUtils.isEmpty(result)) {
+					Log.e(TAG, "error writing export file: " + result);
+					Toast.makeText(Preferences.this, R.string.err_export_write, Toast.LENGTH_LONG)
+							.show();
+				} else {
+					Toast.makeText(Preferences.this,
+							Preferences.this.getString(R.string.exported_) + " " + result,
+							Toast.LENGTH_LONG).show();
+				}
+			}
+		};
+		task.execute((Void) null);
+	}
+
+	/**
 	 * Export data.
 	 * 
 	 * @param descr
@@ -509,8 +598,9 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 						intent.addCategory(Intent.CATEGORY_DEFAULT);
 
 						try {
-							final File d = Environment.getExternalStorageDirectory();
-							final File f = new File(d, DataProvider.PACKAGE + File.separator + fn);
+							final File d = new File(Environment.getExternalStorageDirectory(),
+									DataProvider.PACKAGE);
+							final File f = new File(d, fn);
 							f.mkdirs();
 							if (f.exists()) {
 								f.delete();
@@ -580,6 +670,10 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 			p.setOnPreferenceClickListener(this);
 		}
 		p = this.findPreference("export_logs");
+		if (p != null) {
+			p.setOnPreferenceClickListener(this);
+		}
+		p = this.findPreference("export_logs_csv");
 		if (p != null) {
 			p.setOnPreferenceClickListener(this);
 		}
@@ -817,9 +911,13 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 	@Override
 	protected void onNewIntent(final Intent intent) {
 		final Uri uri = intent.getData();
-		Log.d(TAG, "new intent: " + intent.getAction());
-		Log.d(TAG, "intent: " + intent.getData());
-		if (uri != null) {
+		String a = intent.getAction();
+		Log.d(TAG, "new intent: " + a);
+		Log.d(TAG, "intent: " + uri);
+		if (ACTION_EXPORT_CSV.equals(a)) {
+			Log.d(TAG, "export csv");
+			this.exportLogsCsv();
+		} else if (uri != null) {
 			Log.d(TAG, "importing: " + uri.toString());
 			this.importData(this, uri);
 		}
@@ -857,7 +955,7 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 		} else if (k.equals("send_devices")) {
 			final Intent intent = new Intent(Intent.ACTION_SEND);
 			intent.setType("text/plain");
-			intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "android+callmeter@ub0r.de", "" });
+			intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "android@ub0r.de", "" });
 			intent.putExtra(Intent.EXTRA_TEXT, Device.debugDeviceList(this));
 			intent.putExtra(Intent.EXTRA_SUBJECT, "Call Meter 3G: Device List");
 			try {
@@ -871,29 +969,31 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 			this.resetDataDialog();
 			return true;
 		} else if (k.equals("export_rules")) {
-			Preferences.this.exportData(null, DataProvider.EXPORT_RULESET_FILE, null);
+			this.exportData(null, DataProvider.EXPORT_RULESET_FILE, null);
 			return true;
 		} else if (k.equals("export_rules_dev")) {
-			Preferences.this.exportData(null, DataProvider.EXPORT_RULESET_FILE,
-					"android+callmeter@ub0r.de");
+			this.exportData(null, DataProvider.EXPORT_RULESET_FILE, "android@ub0r.de");
 			return true;
 		} else if (k.equals("export_logs")) {
-			Preferences.this.exportData(null, DataProvider.EXPORT_LOGS_FILE, null);
+			this.exportData(null, DataProvider.EXPORT_LOGS_FILE, null);
+			return true;
+		} else if (k.equals("export_logs_csv")) {
+			this.exportLogsCsv();
 			return true;
 		} else if (k.equals("export_numgroups")) {
-			Preferences.this.exportData(null, DataProvider.EXPORT_NUMGROUPS_FILE, null);
+			this.exportData(null, DataProvider.EXPORT_NUMGROUPS_FILE, null);
 			return true;
 		} else if (k.equals("export_hourgroups")) {
-			Preferences.this.exportData(null, DataProvider.EXPORT_HOURGROUPS_FILE, null);
+			this.exportData(null, DataProvider.EXPORT_HOURGROUPS_FILE, null);
 			return true;
 		} else if (k.equals("import_rules")) {
-			Preferences.this.startActivity(new Intent(Intent.ACTION_VIEW, Uri
-					.parse(Preferences.this.getString(R.string.url_rulesets))));
+			this.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(this
+					.getString(R.string.url_rulesets))));
 			return true;
 		} else if (k.equals("import_rules_default")) {
-			final Intent i = new Intent(Preferences.this, Preferences.class);
+			final Intent i = new Intent(this, Preferences.class);
 			i.setData(Uri.parse("content://default"));
-			Preferences.this.startActivity(i);
+			this.startActivity(i);
 			return true;
 		}
 		return false;

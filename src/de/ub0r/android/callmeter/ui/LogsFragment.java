@@ -417,6 +417,11 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 		case R.id.item_add:
 			this.getActivity().startActivity(new Intent(this.getActivity(), AddLogActivity.class));
 			return true;
+		case R.id.item_export_csv:
+			this.getActivity().startActivity(
+					new Intent(Preferences.ACTION_EXPORT_CSV, null, this.getActivity(),
+							Preferences.class));
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
