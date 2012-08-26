@@ -25,9 +25,7 @@ import android.view.View.OnClickListener;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
 
-import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
-import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -41,13 +39,10 @@ public final class HelpActivity extends SherlockActivity implements OnClickListe
 	 */
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
-		this.setTheme(Preferences.getTheme(this));
 		Utils.setLocale(this);
 		super.onCreate(savedInstanceState);
+
 		this.setContentView(R.layout.help);
-		CallMeter.fixActionBarBackground(this.getSupportActionBar(), this.getResources(),
-				R.drawable.bg_striped, R.drawable.bg_striped_split);
-		this.setTitle(R.string.help_);
 		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		this.findViewById(R.id.ok).setOnClickListener(this);
 	}

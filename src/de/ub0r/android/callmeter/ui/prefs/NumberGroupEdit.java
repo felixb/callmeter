@@ -19,26 +19,24 @@
 package de.ub0r.android.callmeter.ui.prefs;
 
 import android.app.AlertDialog.Builder;
-import android.app.ListActivity;
-import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.DataSetObserver;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceScreen;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
-import android.widget.ResourceCursorAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
@@ -51,7 +49,8 @@ import de.ub0r.android.lib.apis.ContactsWrapper;
  * 
  * @author flx
  */
-public class NumberGroupEdit extends ListActivity implements OnClickListener, OnItemClickListener {
+public final class NumberGroupEdit extends SherlockPreferenceActivity implements
+		OnPreferenceClickListener {
 	/** Tag for debug out. */
 	// private static final String TAG = "nge";
 
@@ -63,136 +62,88 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener, On
 	/** Item menu: delete. */
 	private static final int WHICH_DELETE = 1;
 
-	/** {@link EditText} holding name. */
-	private EditText etName = null;
-
 	/** Id of edited filed. */
 	private long gid = -1;
 
-	/**
-	 * Adapter binding plans to View.
-	 * 
-	 * @author flx
-	 */
-	private class NumberAdapter extends ResourceCursorAdapter {
-		/** {@link ContentResolver} for internal querys. */
-		private final ContentResolver cr;
-
-		/**
-		 * Default Constructor.
-		 * 
-		 * @param context
-		 *            {@link Context}
-		 * @param id
-		 *            id of number group
-		 */
-		public NumberAdapter(final Context context, final long id) {
-			super(context, android.R.layout.simple_list_item_1, context.getContentResolver().query(
-					ContentUris.withAppendedId(DataProvider.Numbers.GROUP_URI, id),
-					DataProvider.Numbers.PROJECTION, null, null, DataProvider.Numbers.NUMBER), true);
-			this.cr = context.getContentResolver();
-			this.registerDataSetObserver(new DataSetObserver() {
-				@Override
-				public void onChanged() {
-					super.onChanged();
-					NumberGroupEdit.this.showEmptyHint();
-				}
-			});
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public final void bindView(final View view, final Context ctxt, final Cursor cursor) {
-			final TextView twTitle = ((TextView) view.findViewById(android.R.id.text1));
-			final String number = cursor.getString(DataProvider.Numbers.INDEX_NUMBER);
-			String name = null;
-			if (!number.contains("%")) {
-				name = CWRAPPER.getNameForNumber(this.cr, number);
-			}
-			if (name != null && name.length() > 0) {
-				twTitle.setText(name + " <" + number + ">");
-			} else {
-				twTitle.setText(number);
-			}
-		}
-
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
+	@SuppressWarnings("deprecation")
 	@Override
-	public final void onCreate(final Bundle savedInstanceState) {
+	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
-		this.setTitle(this.getString(R.string.settings) + " > " + this.getString(R.string.rules)
-				+ " > " + this.getString(R.string.numbers) + " > " + this.getString(R.string.edit_));
-		this.setContentView(R.layout.list_name_ok_help_add);
+
+		this.addPreferencesFromResource(R.xml.group_prefs);
 
 		final Intent i = this.getIntent();
 		final Uri u = i.getData();
 		if (u != null) {
 			this.gid = ContentUris.parseId(u);
 		}
-
-		this.setListAdapter(new NumberAdapter(this, this.gid));
-		this.getListView().setOnItemClickListener(this);
-
-		this.findViewById(R.id.ok).setOnClickListener(this);
-		this.findViewById(R.id.add).setOnClickListener(this);
-		this.findViewById(R.id.name_help).setOnClickListener(this);
-		this.findViewById(R.id.help).setOnClickListener(this);
-
-		this.etName = (EditText) this.findViewById(R.id.name_et);
-		this.etName.setText(DataProvider.NumbersGroup.getName(this.getContentResolver(), this.gid));
-
-		final String a = i.getAction();
-		if (a != null && a.equals(Intent.ACTION_VIEW)) {
-			this.etName.setVisibility(View.GONE);
-			this.findViewById(R.id.name).setVisibility(View.GONE);
-			this.findViewById(R.id.name_help).setVisibility(View.GONE);
-		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	protected final void onResume() {
+	protected void onResume() {
 		super.onResume();
 		Utils.setLocale(this);
-		this.showEmptyHint();
+
+		this.reload();
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Reload numbers.
 	 */
+	@SuppressWarnings("deprecation")
+	private void reload() {
+		Cursor c = this.getContentResolver().query(
+				ContentUris.withAppendedId(DataProvider.NumbersGroup.CONTENT_URI, this.gid),
+				DataProvider.NumbersGroup.PROJECTION, null, null, null);
+		if (c.moveToFirst()) {
+			this.getSupportActionBar().setSubtitle(
+					c.getString(DataProvider.NumbersGroup.INDEX_NAME));
+		}
+		c.close();
+		PreferenceScreen ps = (PreferenceScreen) this.findPreference("container");
+		ps.removeAll();
+		c = this.getContentResolver().query(
+				ContentUris.withAppendedId(DataProvider.Numbers.GROUP_URI, this.gid),
+				DataProvider.Numbers.PROJECTION, null, null, DataProvider.Numbers.NUMBER);
+		if (c.moveToFirst()) {
+			do {
+				Preference p = new Preference(this);
+				p.setPersistent(false);
+				String number = c.getString(DataProvider.Numbers.INDEX_NUMBER);
+				p.setTitle(number);
+				p.setKey("item_" + c.getInt(DataProvider.Numbers.INDEX_ID));
+				p.setOnPreferenceClickListener(this);
+				ps.addPreference(p);
+
+				if (number != null && !number.contains("%")) {
+					String name = CWRAPPER.getNameForNumber(this.getContentResolver(), number);
+					if (!TextUtils.isEmpty(name)) {
+						p.setSummary(name);
+					}
+				}
+			} while (c.moveToNext());
+		}
+		c.close();
+	}
+
 	@Override
-	protected final void onPause() {
+	protected void onPause() {
 		super.onPause();
-		if (this.getListAdapter().getCount() == 0) {
+
+		Cursor c = this.getContentResolver().query(
+				ContentUris.withAppendedId(DataProvider.Numbers.GROUP_URI, this.gid),
+				DataProvider.Numbers.PROJECTION, null, null, null);
+		if (c.getCount() == 0) {
 			Toast.makeText(this, R.string.empty_group, Toast.LENGTH_LONG).show();
 		}
 	}
 
-	/** Set the visibility for the empty groups hint. */
-	private void showEmptyHint() {
-		int v = View.GONE;
-		if (this.getListAdapter().getCount() == 0) {
-			v = View.VISIBLE;
-		}
-		TextView tv = (TextView) this.findViewById(R.id.empty_list);
-		tv.setVisibility(v);
-	}
-
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void onActivityResult(final int requestCode, final int resultCode,
-			final Intent data) {
+	protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
 		if (data == null || data.getData() == null) {
 			return;
 		}
@@ -202,6 +153,37 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener, On
 			number = "???";
 		}
 		this.setNumber(requestCode - 1, number);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(final Menu menu) {
+		this.getSupportMenuInflater().inflate(R.menu.menu_group_edit, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(final MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.item_add:
+			this.showNumberDialog(-1);
+			return true;
+		case R.id.item_delete:
+			this.getContentResolver().delete(
+					ContentUris.withAppendedId(DataProvider.NumbersGroup.CONTENT_URI, this.gid),
+					null, null);
+			Preferences.setDefaultPlan(this, false);
+			RuleMatcher.unmatch(this);
+			this.finish();
+			return true;
+		case R.id.item_rename:
+			this.showNameDialog();
+			return true;
+		case R.id.item_help:
+			this.showHelp(R.string.numbergroup_help);
+			return true;
+		default:
+			return false;
+		}
 	}
 
 	/**
@@ -215,74 +197,6 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener, On
 		b.setMessage(res);
 		b.setPositiveButton(android.R.string.ok, null);
 		b.show();
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onClick(final View v) {
-		Intent intent = null;
-		switch (v.getId()) {
-		case R.id.ok:
-			final String n = this.etName.getText().toString();
-			final ContentValues cv = new ContentValues();
-			cv.put(DataProvider.NumbersGroup.NAME, n);
-
-			Uri uri = this.getIntent().getData();
-			if (uri == null) {
-				uri = this.getContentResolver().insert(DataProvider.NumbersGroup.CONTENT_URI, cv);
-			} else {
-				this.getContentResolver().update(uri, cv, null, null);
-			}
-			intent = new Intent(this, NumberGroupEdit.class);
-			intent.setData(uri);
-			this.setResult(RESULT_OK, new Intent(intent));
-			RuleMatcher.unmatch(this);
-			this.finish();
-			break;
-		case R.id.add:
-			this.showNumberDialog(-1);
-			break;
-		case R.id.name_help:
-			this.showHelp(R.string.name_help);
-			break;
-		case R.id.help:
-			this.showHelp(R.string.numbergroup_help);
-			break;
-		default:
-			break;
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onItemClick(final AdapterView<?> parent, final View view, final int position,
-			final long id) {
-		final Builder builder = new Builder(this);
-		builder.setItems(R.array.dialog_edit_delete,
-				new android.content.DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(final DialogInterface dialog, final int which) {
-						switch (which) {
-						case WHICH_EDIT:
-							NumberGroupEdit.this.showNumberDialog(id);
-							break;
-						case WHICH_DELETE:
-							NumberGroupEdit.this.getContentResolver().delete(
-									ContentUris
-											.withAppendedId(DataProvider.Numbers.CONTENT_URI, id),
-									null, null);
-							break;
-						default:
-							break;
-						}
-					}
-				});
-		builder.setNegativeButton(android.R.string.cancel, null);
-		builder.show();
 	}
 
 	/**
@@ -319,6 +233,8 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener, On
 					ContentUris.withAppendedId(DataProvider.Numbers.CONTENT_URI, nid), cv, null,
 					null);
 		}
+		this.reload();
+		RuleMatcher.unmatch(this);
 	}
 
 	/**
@@ -340,6 +256,36 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener, On
 			cursor.close();
 		}
 		return ret;
+	}
+
+	/**
+	 * Show dialog to edit the group name.
+	 */
+	private void showNameDialog() {
+		final Uri u = ContentUris.withAppendedId(DataProvider.NumbersGroup.CONTENT_URI, this.gid);
+		Cursor c = this.getContentResolver().query(u, DataProvider.NumbersGroup.PROJECTION, null,
+				null, null);
+		String name = null;
+		if (c.moveToFirst()) {
+			name = c.getString(DataProvider.NumbersGroup.INDEX_NAME);
+		}
+		c.close();
+		final Builder builder = new Builder(this);
+		final EditText et = new EditText(this);
+		et.setText(name);
+		builder.setView(et);
+		builder.setTitle(R.string.name_);
+		builder.setCancelable(true);
+		builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+			public void onClick(final DialogInterface dialog, final int id) {
+				ContentValues values = new ContentValues();
+				values.put(DataProvider.NumbersGroup.NAME, et.getText().toString());
+				NumberGroupEdit.this.getContentResolver().update(u, values, null, null);
+				NumberGroupEdit.this.getSupportActionBar().setSubtitle(et.getText().toString());
+			}
+		});
+		builder.setNegativeButton(android.R.string.cancel, null);
+		builder.show();
 	}
 
 	/**
@@ -370,5 +316,39 @@ public class NumberGroupEdit extends ListActivity implements OnClickListener, On
 		});
 		builder.setNegativeButton(android.R.string.cancel, null);
 		builder.show();
+	}
+
+	@Override
+	public boolean onPreferenceClick(final Preference preference) {
+		String k = preference.getKey();
+		if (k != null && k.startsWith("item_")) {
+			final long id = Long.parseLong(k.substring("item_".length()));
+
+			final Builder builder = new Builder(this);
+			builder.setItems(R.array.dialog_edit_delete,
+					new android.content.DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(final DialogInterface dialog, final int which) {
+							switch (which) {
+							case WHICH_EDIT:
+								NumberGroupEdit.this.showNumberDialog(id);
+								break;
+							case WHICH_DELETE:
+								NumberGroupEdit.this.getContentResolver().delete(
+										ContentUris.withAppendedId(
+												DataProvider.Numbers.CONTENT_URI, id), null, null);
+								NumberGroupEdit.this.reload();
+								RuleMatcher.unmatch(NumberGroupEdit.this);
+								break;
+							default:
+								break;
+							}
+						}
+					});
+			builder.setNegativeButton(android.R.string.cancel, null);
+			builder.show();
+		}
+
+		return false;
 	}
 }

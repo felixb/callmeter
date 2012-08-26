@@ -36,9 +36,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
-import android.appwidget.AppWidgetManager;
 import android.content.ActivityNotFoundException;
-import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -54,21 +52,20 @@ import android.os.Environment;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.Device;
 import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.callmeter.ui.HelpActivity;
-import de.ub0r.android.callmeter.widget.StatsAppWidgetConfigure;
-import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Market;
 import de.ub0r.android.lib.Utils;
@@ -78,9 +75,8 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-@SuppressWarnings("deprecation")
-public final class Preferences extends PreferenceActivity implements OnPreferenceChangeListener,
-		OnPreferenceClickListener {
+public final class Preferences extends SherlockPreferenceActivity implements
+		OnPreferenceChangeListener, OnPreferenceClickListener {
 	/** Tag for output. */
 	private static final String TAG = "prefs";
 
@@ -434,203 +430,7 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 		builder.show();
 	}
 
-	/**
-	 * Export logs as CSV file.
-	 */
-	private void exportLogsCsv() {
-		final ProgressDialog d = new ProgressDialog(this);
-		d.setIndeterminate(true);
-		d.setMessage(this.getString(R.string.export_progr));
-		d.setCancelable(false);
-		d.show();
-
-		// run task in background
-		final AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
-			@Override
-			protected String doInBackground(final Void... params) {
-				File d = new File(Environment.getExternalStorageDirectory(), DataProvider.PACKAGE);
-				File f = new File(d, "logs-"
-						+ DateFormat.format("yyyyMMddkkmmss", System.currentTimeMillis()) + ".csv");
-				f.mkdirs();
-				if (f.exists()) {
-					f.delete();
-				}
-				try {
-					// build csv file and save it to sd card
-					FileWriter w = new FileWriter(f);
-					Cursor c = Preferences.this.getContentResolver().query(
-							DataProvider.Logs.CONTENT_URI_JOIN, DataProvider.Logs.PROJECTION_JOIN,
-							null, null, null);
-					w.append("date;type;direction;roamed;remote_number;"
-							+ "amount;billed_amount;cost;plan;rule\n");
-					String[] types = Preferences.this.getResources().getStringArray(
-							R.array.plans_type);
-					String[] directions = Preferences.this.getResources().getStringArray(
-							R.array.direction_calls);
-					String cformat = getCurrencyFormat(Preferences.this);
-					if (c.moveToFirst()) {
-						do {
-							w.append(DateFormat.format("yyyyMMddkkmmss;",
-									c.getLong(DataProvider.Logs.INDEX_DATE)));
-							int t = c.getInt(DataProvider.Logs.INDEX_TYPE);
-							w.append(types[t] + ";");
-							int dir = c.getInt(DataProvider.Logs.INDEX_DIRECTION);
-							w.append(directions[dir] + ";");
-							w.append(c.getInt(DataProvider.Logs.INDEX_ROAMED) + ";");
-							w.append(c.getString(DataProvider.Logs.INDEX_REMOTE) + ";");
-							long a = c.getLong(DataProvider.Logs.INDEX_AMOUNT);
-							float ba = c.getFloat(DataProvider.Logs.INDEX_BILL_AMOUNT);
-							float cost = c.getFloat(DataProvider.Logs.INDEX_COST);
-							w.append(Common.formatAmount(t, a, true) + ";");
-							w.append(Common.formatAmount(t, ba, true) + ";");
-							w.append(String.format(cformat, cost) + ";");
-							w.append(c.getString(DataProvider.Logs.INDEX_PLAN_NAME) + ";");
-							w.append(c.getString(DataProvider.Logs.INDEX_RULE_NAME) + "\n");
-						} while (c.moveToNext());
-					}
-
-					c.close();
-					w.close();
-					// return file name
-					return f.getAbsolutePath();
-				} catch (IOException e) {
-					Log.e(TAG, "error writing csv file", e);
-				}
-				return null;
-			}
-
-			@Override
-			protected void onPostExecute(final String result) {
-				Log.d(TAG, "csv.task.onPostExecute(" + result + ")");
-				d.dismiss();
-				if (TextUtils.isEmpty(result)) {
-					Log.e(TAG, "error writing export file: " + result);
-					Toast.makeText(Preferences.this, R.string.err_export_write, Toast.LENGTH_LONG)
-							.show();
-				} else {
-					Toast.makeText(Preferences.this,
-							Preferences.this.getString(R.string.exported_) + " " + result,
-							Toast.LENGTH_LONG).show();
-				}
-			}
-		};
-		task.execute((Void) null);
-	}
-
-	/**
-	 * Export data.
-	 * 
-	 * @param descr
-	 *            description of the exported rule set
-	 * @param fn
-	 *            one of the predefined file names from {@link DataProvider}.
-	 * @param recipient
-	 *            recipient of export
-	 */
-	private void exportData(final String descr, final String fn, final String recipient) {
-		if (descr == null) {
-			final EditText et = new EditText(this);
-			Builder builder = new Builder(this);
-			builder.setView(et);
-			builder.setCancelable(true);
-			builder.setTitle(R.string.export_rules_descr);
-			builder.setNegativeButton(android.R.string.cancel, null);
-			builder.setPositiveButton(android.R.string.ok, new OnClickListener() {
-				@Override
-				public void onClick(final DialogInterface dialog, final int which) {
-					Preferences.this.exportData(et.getText().toString(), fn, recipient);
-				}
-			});
-			builder.show();
-		} else {
-			final ProgressDialog d = new ProgressDialog(this);
-			d.setIndeterminate(true);
-			d.setMessage(this.getString(R.string.export_progr));
-			d.setCancelable(false);
-			d.show();
-
-			// run task in background
-			final AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
-				@Override
-				protected String doInBackground(final Void... params) {
-					if (fn.equals(DataProvider.EXPORT_RULESET_FILE)) {
-						return DataProvider.backupRuleSet(Preferences.this, descr);
-					} else if (fn.equals(DataProvider.EXPORT_LOGS_FILE)) {
-						return DataProvider.backupLogs(Preferences.this, descr);
-					} else if (fn.equals(DataProvider.EXPORT_NUMGROUPS_FILE)) {
-						return DataProvider.backupNumGroups(Preferences.this, descr);
-					} else if (fn.equals(DataProvider.EXPORT_HOURGROUPS_FILE)) {
-						return DataProvider.backupHourGroups(Preferences.this, descr);
-					}
-					return null;
-				}
-
-				@Override
-				protected void onPostExecute(final String result) {
-					Log.d(TAG, "export:\n" + result);
-					System.out.println("\n" + result);
-					d.dismiss();
-					if (result != null && result.length() > 0) {
-						Uri uri = null;
-						int resChooser = -1;
-						if (fn.equals(DataProvider.EXPORT_RULESET_FILE)) {
-							uri = DataProvider.EXPORT_RULESET_URI;
-							resChooser = R.string.export_rules_;
-						} else if (fn.equals(DataProvider.EXPORT_LOGS_FILE)) {
-							uri = DataProvider.EXPORT_LOGS_URI;
-							resChooser = R.string.export_logs_;
-						} else if (fn.equals(DataProvider.EXPORT_NUMGROUPS_FILE)) {
-							uri = DataProvider.EXPORT_NUMGROUPS_URI;
-							resChooser = R.string.export_numgroups_;
-						} else if (fn.equals(DataProvider.EXPORT_HOURGROUPS_FILE)) {
-							uri = DataProvider.EXPORT_HOURGROUPS_URI;
-							resChooser = R.string.export_hourgroups_;
-						}
-						final Intent intent = new Intent(Intent.ACTION_SEND);
-						intent.setType(DataProvider.EXPORT_MIMETYPE);
-						intent.putExtra(Intent.EXTRA_STREAM, uri);
-						intent.putExtra(Intent.EXTRA_SUBJECT, "Call Meter 3G export");
-						if (!TextUtils.isEmpty(recipient)) {
-							intent.putExtra(Intent.EXTRA_EMAIL, new String[] { recipient });
-							intent.putExtra(Intent.EXTRA_TEXT,
-									Preferences.this.getString(R.string.export_rules_body));
-						}
-						intent.addCategory(Intent.CATEGORY_DEFAULT);
-
-						try {
-							final File d = new File(Environment.getExternalStorageDirectory(),
-									DataProvider.PACKAGE);
-							final File f = new File(d, fn);
-							f.mkdirs();
-							if (f.exists()) {
-								f.delete();
-							}
-							f.createNewFile();
-							FileWriter fw = new FileWriter(f);
-							fw.append(result);
-							fw.close();
-							final String t = Preferences.this.getString(R.string.exported_) + " "
-									+ f.getAbsolutePath();
-							Toast.makeText(Preferences.this, t, Toast.LENGTH_LONG).show();
-							// call an exporting app with the uri to the
-							// preferences
-							Preferences.this.startActivity(Intent.createChooser(intent,
-									Preferences.this.getString(resChooser)));
-						} catch (IOException e) {
-							Log.e(TAG, "error writing export file", e);
-							Toast.makeText(Preferences.this, R.string.err_export_write,
-									Toast.LENGTH_LONG).show();
-						}
-					}
-				}
-			};
-			task.execute((Void) null);
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -661,81 +461,7 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 		if (p != null) {
 			p.setOnPreferenceClickListener(this);
 		}
-		p = this.findPreference("export_rules");
-		if (p != null) {
-			p.setOnPreferenceClickListener(this);
-		}
-		p = this.findPreference("export_rules_dev");
-		if (p != null) {
-			p.setOnPreferenceClickListener(this);
-		}
-		p = this.findPreference("export_logs");
-		if (p != null) {
-			p.setOnPreferenceClickListener(this);
-		}
-		p = this.findPreference("export_logs_csv");
-		if (p != null) {
-			p.setOnPreferenceClickListener(this);
-		}
-		p = this.findPreference("export_numgroups");
-		if (p != null) {
-			p.setOnPreferenceClickListener(this);
-		}
-		p = this.findPreference("export_hourgroups");
-		if (p != null) {
-			p.setOnPreferenceClickListener(this);
-		}
-		p = this.findPreference("import_rules");
-		if (p != null) {
-			p.setOnPreferenceClickListener(this);
-		}
-		p = this.findPreference("import_rules_default");
-		if (p != null) {
-			p.setOnPreferenceClickListener(this);
-		}
-
 		this.onNewIntent(this.getIntent());
-	}
-
-	/** Load widget list. */
-	private void loadWidgets() {
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		Preference p = this.findPreference("widgets");
-		if (p != null && p instanceof PreferenceScreen) {
-			PreferenceScreen ps = (PreferenceScreen) p;
-			ps.removeAll();
-			int[] ids = AppWidgetManager.getInstance(this).getAppWidgetIds(
-					new ComponentName(this, StatsAppWidgetProvider.class));
-			boolean added = false;
-			if (ids != null && ids.length > 0) {
-				for (int id : ids) {
-					if (prefs.getLong(StatsAppWidgetProvider.WIDGET_PLANID + id, -1) <= 0) {
-						Log.w(TAG, "skip widget: " + id);
-						continue;
-					}
-					added = true;
-					p = new Preference(this);
-					p.setTitle(this.getString(R.string.widget_) + " #" + id);
-					final int fid = id;
-					p.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-						@Override
-						public boolean onPreferenceClick(final Preference preference) {
-							Intent i = new Intent(Preferences.this, StatsAppWidgetConfigure.class);
-							i.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, fid);
-							Preferences.this.startActivity(i);
-							return true;
-						}
-					});
-					ps.addPreference(p);
-				}
-			}
-			if (!added) {
-				p = new Preference(this);
-				p.setTitle(R.string.widgets_no_widgets_);
-				p.setSummary(R.string.widgets_no_widgets_hint);
-				ps.addPreference(p);
-			}
-		}
 	}
 
 	/**
@@ -744,9 +470,8 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 	@Override
 	protected void onResume() {
 		super.onResume();
-		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
-		this.checkSimplePrefs(p.getBoolean(PREFS_PREPAID, false));
-		this.loadWidgets();
+		this.checkSimplePrefs(PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+				PREFS_PREPAID, false));
 	}
 
 	/**
@@ -755,6 +480,7 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 	 * @param overrideNo
 	 *            override decision, true will disable "simple preferences"
 	 */
+	@SuppressWarnings("deprecation")
 	private void checkSimplePrefs(final boolean overrideNo) {
 		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
 		boolean enabled = !overrideNo && p.getBoolean(PREFS_ISDEFAULT, false);
@@ -855,6 +581,7 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 				return sb.toString();
 			}
 
+			@SuppressWarnings("deprecation")
 			@Override
 			protected void onPostExecute(final String result) {
 				Log.d(TAG, "import:\n" + result);
@@ -906,6 +633,203 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 	}
 
 	/**
+	 * Export data.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param descr
+	 *            description of the exported rule set
+	 * @param fn
+	 *            one of the predefined file names from {@link DataProvider}.
+	 * @param recipient
+	 *            recipient of export
+	 */
+	static void exportData(final Context context, final String descr, final String fn,
+			final String recipient) {
+		if (descr == null) {
+			final EditText et = new EditText(context);
+			Builder builder = new Builder(context);
+			builder.setView(et);
+			builder.setCancelable(true);
+			builder.setTitle(R.string.export_rules_descr);
+			builder.setNegativeButton(android.R.string.cancel, null);
+			builder.setPositiveButton(android.R.string.ok, new OnClickListener() {
+				@Override
+				public void onClick(final DialogInterface dialog, final int which) {
+					exportData(context, et.getText().toString(), fn, recipient);
+				}
+			});
+			builder.show();
+		} else {
+			final ProgressDialog d = new ProgressDialog(context);
+			d.setIndeterminate(true);
+			d.setMessage(context.getString(R.string.export_progr));
+			d.setCancelable(false);
+			d.show();
+
+			// run task in background
+			final AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
+				@Override
+				protected String doInBackground(final Void... params) {
+					if (fn.equals(DataProvider.EXPORT_RULESET_FILE)) {
+						return DataProvider.backupRuleSet(context, descr);
+					} else if (fn.equals(DataProvider.EXPORT_LOGS_FILE)) {
+						return DataProvider.backupLogs(context, descr);
+					} else if (fn.equals(DataProvider.EXPORT_NUMGROUPS_FILE)) {
+						return DataProvider.backupNumGroups(context, descr);
+					} else if (fn.equals(DataProvider.EXPORT_HOURGROUPS_FILE)) {
+						return DataProvider.backupHourGroups(context, descr);
+					}
+					return null;
+				}
+
+				@Override
+				protected void onPostExecute(final String result) {
+					Log.d(TAG, "export:\n" + result);
+					System.out.println("\n" + result);
+					d.dismiss();
+					if (result != null && result.length() > 0) {
+						Uri uri = null;
+						int resChooser = -1;
+						if (fn.equals(DataProvider.EXPORT_RULESET_FILE)) {
+							uri = DataProvider.EXPORT_RULESET_URI;
+							resChooser = R.string.export_rules_;
+						} else if (fn.equals(DataProvider.EXPORT_LOGS_FILE)) {
+							uri = DataProvider.EXPORT_LOGS_URI;
+							resChooser = R.string.export_logs_;
+						} else if (fn.equals(DataProvider.EXPORT_NUMGROUPS_FILE)) {
+							uri = DataProvider.EXPORT_NUMGROUPS_URI;
+							resChooser = R.string.export_numgroups_;
+						} else if (fn.equals(DataProvider.EXPORT_HOURGROUPS_FILE)) {
+							uri = DataProvider.EXPORT_HOURGROUPS_URI;
+							resChooser = R.string.export_hourgroups_;
+						}
+						final Intent intent = new Intent(Intent.ACTION_SEND);
+						intent.setType(DataProvider.EXPORT_MIMETYPE);
+						intent.putExtra(Intent.EXTRA_STREAM, uri);
+						intent.putExtra(Intent.EXTRA_SUBJECT, "Call Meter 3G export");
+						if (!TextUtils.isEmpty(recipient)) {
+							intent.putExtra(Intent.EXTRA_EMAIL, new String[] { recipient });
+							intent.putExtra(Intent.EXTRA_TEXT,
+									context.getString(R.string.export_rules_body));
+						}
+						intent.addCategory(Intent.CATEGORY_DEFAULT);
+
+						try {
+							final File d = new File(Environment.getExternalStorageDirectory(),
+									DataProvider.PACKAGE);
+							final File f = new File(d, fn);
+							f.mkdirs();
+							if (f.exists()) {
+								f.delete();
+							}
+							f.createNewFile();
+							FileWriter fw = new FileWriter(f);
+							fw.append(result);
+							fw.close();
+							final String t = context.getString(R.string.exported_) + " "
+									+ f.getAbsolutePath();
+							Toast.makeText(context, t, Toast.LENGTH_LONG).show();
+							// call an exporting app with the uri to the
+							// preferences
+							context.startActivity(Intent.createChooser(intent,
+									context.getString(resChooser)));
+						} catch (IOException e) {
+							Log.e(TAG, "error writing export file", e);
+							Toast.makeText(context, R.string.err_export_write, Toast.LENGTH_LONG)
+									.show();
+						}
+					}
+				}
+			};
+			task.execute((Void) null);
+		}
+	}
+
+	/**
+	 * Export logs as CSV file.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 */
+	static void exportLogsCsv(final Context context) {
+		final ProgressDialog d = new ProgressDialog(context);
+		d.setIndeterminate(true);
+		d.setMessage(context.getString(R.string.export_progr));
+		d.setCancelable(false);
+		d.show();
+
+		// run task in background
+		final AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
+			@Override
+			protected String doInBackground(final Void... params) {
+				File d = new File(Environment.getExternalStorageDirectory(), DataProvider.PACKAGE);
+				File f = new File(d, "logs-"
+						+ DateFormat.format("yyyyMMddkkmmss", System.currentTimeMillis()) + ".csv");
+				f.mkdirs();
+				if (f.exists()) {
+					f.delete();
+				}
+				try {
+					// build csv file and save it to sd card
+					FileWriter w = new FileWriter(f);
+					Cursor c = context.getContentResolver().query(
+							DataProvider.Logs.CONTENT_URI_JOIN, DataProvider.Logs.PROJECTION_JOIN,
+							null, null, null);
+					w.append("date;type;direction;roamed;remote_number;"
+							+ "amount;billed_amount;cost;plan;rule\n");
+					String[] types = context.getResources().getStringArray(R.array.plans_type);
+					String[] directions = context.getResources().getStringArray(
+							R.array.direction_calls);
+					String cformat = getCurrencyFormat(context);
+					if (c.moveToFirst()) {
+						do {
+							w.append(DateFormat.format("yyyyMMddkkmmss;",
+									c.getLong(DataProvider.Logs.INDEX_DATE)));
+							int t = c.getInt(DataProvider.Logs.INDEX_TYPE);
+							w.append(types[t] + ";");
+							int dir = c.getInt(DataProvider.Logs.INDEX_DIRECTION);
+							w.append(directions[dir] + ";");
+							w.append(c.getInt(DataProvider.Logs.INDEX_ROAMED) + ";");
+							w.append(c.getString(DataProvider.Logs.INDEX_REMOTE) + ";");
+							long a = c.getLong(DataProvider.Logs.INDEX_AMOUNT);
+							float ba = c.getFloat(DataProvider.Logs.INDEX_BILL_AMOUNT);
+							float cost = c.getFloat(DataProvider.Logs.INDEX_COST);
+							w.append(Common.formatAmount(t, a, true) + ";");
+							w.append(Common.formatAmount(t, ba, true) + ";");
+							w.append(String.format(cformat, cost) + ";");
+							w.append(c.getString(DataProvider.Logs.INDEX_PLAN_NAME) + ";");
+							w.append(c.getString(DataProvider.Logs.INDEX_RULE_NAME) + "\n");
+						} while (c.moveToNext());
+					}
+
+					c.close();
+					w.close();
+					// return file name
+					return f.getAbsolutePath();
+				} catch (IOException e) {
+					Log.e(TAG, "error writing csv file", e);
+				}
+				return null;
+			}
+
+			@Override
+			protected void onPostExecute(final String result) {
+				Log.d(TAG, "csv.task.onPostExecute(" + result + ")");
+				d.dismiss();
+				if (TextUtils.isEmpty(result)) {
+					Log.e(TAG, "error writing export file: " + result);
+					Toast.makeText(context, R.string.err_export_write, Toast.LENGTH_LONG).show();
+				} else {
+					Toast.makeText(context, context.getString(R.string.exported_) + " " + result,
+							Toast.LENGTH_LONG).show();
+				}
+			}
+		};
+		task.execute((Void) null);
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -916,7 +840,7 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 		Log.d(TAG, "intent: " + uri);
 		if (ACTION_EXPORT_CSV.equals(a)) {
 			Log.d(TAG, "export csv");
-			this.exportLogsCsv();
+			exportLogsCsv(this);
 		} else if (uri != null) {
 			Log.d(TAG, "importing: " + uri.toString());
 			this.importData(this, uri);
@@ -967,33 +891,6 @@ public final class Preferences extends PreferenceActivity implements OnPreferenc
 			return true;
 		} else if (k.equals("reset_data")) {
 			this.resetDataDialog();
-			return true;
-		} else if (k.equals("export_rules")) {
-			this.exportData(null, DataProvider.EXPORT_RULESET_FILE, null);
-			return true;
-		} else if (k.equals("export_rules_dev")) {
-			this.exportData(null, DataProvider.EXPORT_RULESET_FILE, "android@ub0r.de");
-			return true;
-		} else if (k.equals("export_logs")) {
-			this.exportData(null, DataProvider.EXPORT_LOGS_FILE, null);
-			return true;
-		} else if (k.equals("export_logs_csv")) {
-			this.exportLogsCsv();
-			return true;
-		} else if (k.equals("export_numgroups")) {
-			this.exportData(null, DataProvider.EXPORT_NUMGROUPS_FILE, null);
-			return true;
-		} else if (k.equals("export_hourgroups")) {
-			this.exportData(null, DataProvider.EXPORT_HOURGROUPS_FILE, null);
-			return true;
-		} else if (k.equals("import_rules")) {
-			this.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(this
-					.getString(R.string.url_rulesets))));
-			return true;
-		} else if (k.equals("import_rules_default")) {
-			final Intent i = new Intent(this, Preferences.class);
-			i.setData(Uri.parse("content://default"));
-			this.startActivity(i);
 			return true;
 		}
 		return false;

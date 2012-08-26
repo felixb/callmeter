@@ -22,17 +22,18 @@ import java.util.Calendar;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.text.TextUtils;
 import android.text.format.DateFormat;
-import android.widget.Toast;
+
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
@@ -44,110 +45,70 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public final class SimplePreferences extends PreferenceActivity implements
+public final class SimplePreferences extends SherlockPreferenceActivity implements
 		OnPreferenceChangeListener {
 	/** Tag for output. */
 	private static final String TAG = "sprefs";
 
 	/** Preference's name: bill day. */
-	private static final String PREFS_BILLDAY = "sp_billday";
+	static final String PREFS_BILLDAY = "sp_billday";
 
 	/** Preference's name: bill mode. */
-	private static final String PREFS_BILLMODE = "sp_billmode";
+	static final String PREFS_BILLMODE = "sp_billmode";
 	/** Preference's name: custom bill mode. */
-	private static final String PREFS_CUSTOM_BILLMODE = "sp_custom_billmode";
+	static final String PREFS_CUSTOM_BILLMODE = "sp_custom_billmode";
 	/** Preference's name: free minutes. */
-	private static final String PREFS_FREEMIN = "sp_freemin";
+	static final String PREFS_FREEMIN = "sp_freemin";
 	/** Preference's name: free cost per call. */
-	private static final String PREFS_COST_PER_CALL = "sp_cost_per_call";
+	static final String PREFS_COST_PER_CALL = "sp_cost_per_call";
 	/** Preference's name: free cost per min. */
-	private static final String PREFS_COST_PER_MIN = "sp_cost_per_min";
+	static final String PREFS_COST_PER_MIN = "sp_cost_per_min";
 	/** Preference's name: free sms. */
-	private static final String PREFS_FREESMS = "sp_freesms";
+	static final String PREFS_FREESMS = "sp_freesms";
 	/** Preference's name: free cost per sms. */
-	private static final String PREFS_COST_PER_SMS = "sp_cost_per_sms";
+	static final String PREFS_COST_PER_SMS = "sp_cost_per_sms";
 	/** Preference's name: free mms. */
-	private static final String PREFS_FREEMMS = "sp_freemms";
+	static final String PREFS_FREEMMS = "sp_freemms";
 	/** Preference's name: free cost per mms. */
-	private static final String PREFS_COST_PER_MMS = "sp_cost_per_mms";
+	static final String PREFS_COST_PER_MMS = "sp_cost_per_mms";
 	/** Preference's name: free MiBi. */
-	private static final String PREFS_FREEDATA = "sp_freedata";
+	static final String PREFS_FREEDATA = "sp_freedata";
 	/** Preference's name: free cost per MiBi. */
-	private static final String PREFS_COST_PER_MB = "sp_cost_per_mb";
+	static final String PREFS_COST_PER_MB = "sp_cost_per_mb";
 
-	/**
-	 * {@inheritDoc}
-	 */
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
-		this.setTitle(R.string.simple_preferences_);
-		this.loadPrefs();
+
+		loadPrefs(this);
 		this.addPreferencesFromResource(R.xml.simple_prefs);
-
 		this.findPreference(PREFS_BILLDAY).setOnPreferenceChangeListener(this);
-
-		this.findPreference(PREFS_BILLMODE).setOnPreferenceChangeListener(this);
-		this.findPreference(PREFS_CUSTOM_BILLMODE).setOnPreferenceChangeListener(this);
-		this.findPreference(PREFS_FREEMIN).setOnPreferenceChangeListener(this);
-		this.findPreference(PREFS_COST_PER_CALL).setOnPreferenceChangeListener(this);
-		this.findPreference(PREFS_COST_PER_MIN).setOnPreferenceChangeListener(this);
-
-		this.findPreference(PREFS_FREESMS).setOnPreferenceChangeListener(this);
-		this.findPreference(PREFS_COST_PER_SMS).setOnPreferenceChangeListener(this);
-
-		this.findPreference(PREFS_FREEMMS).setOnPreferenceChangeListener(this);
-		this.findPreference(PREFS_COST_PER_MMS).setOnPreferenceChangeListener(this);
-
-		this.findPreference(PREFS_FREEDATA).setOnPreferenceChangeListener(this);
-		this.findPreference(PREFS_COST_PER_MB).setOnPreferenceChangeListener(this);
-
-		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
-		this.onPreferenceChange(this.findPreference(PREFS_BILLMODE),
-				p.getString(PREFS_BILLMODE, "1/1"));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void onPause() {
 		super.onPause();
-		this.savePrefs();
+		savePrefs(this);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean onPreferenceChange(final Preference preference, final Object newValue) {
 		if (preference == null) {
 			return false;
 		}
 		RuleMatcher.unmatch(this);
-		final String k = preference.getKey();
-		if (k.equals(PREFS_BILLMODE)) {
-			this.findPreference(PREFS_CUSTOM_BILLMODE).setEnabled(
-					!newValue.toString().contains("/"));
-		} else if (k.equals(PREFS_CUSTOM_BILLMODE)) {
-			final String[] t = newValue.toString().split("/");
-			if (t.length != 2 || !TextUtils.isDigitsOnly(t[0].trim())
-					|| !TextUtils.isDigitsOnly(t[1].trim())) {
-				Toast.makeText(this, R.string.missing_slash, Toast.LENGTH_LONG).show();
-				return false;
-			}
-		}
 		return true;
 	}
 
 	/**
 	 * Load preferences from plans.
 	 */
-	private void loadPrefs() {
+	static void loadPrefs(final Context context) {
 		Log.d(TAG, "loadPrefs()");
-		Editor e = PreferenceManager.getDefaultSharedPreferences(this).edit();
-		final ContentResolver cr = this.getContentResolver();
+		Editor e = PreferenceManager.getDefaultSharedPreferences(context).edit();
+		final ContentResolver cr = context.getContentResolver();
 		String selectionId = DataProvider.Plans.ID + "=?";
 		String selectionType = DataProvider.Plans.TYPE + "=?";
 
@@ -229,10 +190,10 @@ public final class SimplePreferences extends PreferenceActivity implements
 	/**
 	 * Save preferences to plans.
 	 */
-	private void savePrefs() {
+	static void savePrefs(final Context context) {
 		Log.d(TAG, "savePrefs()");
-		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
-		final ContentResolver cr = this.getContentResolver();
+		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
+		final ContentResolver cr = context.getContentResolver();
 		String selectionType = DataProvider.Plans.TYPE + "=?";
 		String selectionId = DataProvider.Plans.ID + "=?";
 		ContentValues cv = new ContentValues();
@@ -247,7 +208,7 @@ public final class SimplePreferences extends PreferenceActivity implements
 		if (c.getTimeInMillis() > System.currentTimeMillis()) {
 			c.add(Calendar.MONTH, -1);
 		}
-		Log.d(TAG, "bd: " + DateFormat.getDateFormat(this).format(c.getTime()));
+		Log.d(TAG, "bd: " + DateFormat.getDateFormat(context).format(c.getTime()));
 		cv.clear();
 		cv.put(DataProvider.Plans.BILLDAY, c.getTimeInMillis());
 		cv.put(DataProvider.Plans.BILLPERIOD, DataProvider.BILLPERIOD_1MONTH);

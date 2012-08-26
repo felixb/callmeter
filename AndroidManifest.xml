@@ -92,6 +92,7 @@
             android:name=".ui.prefs.Preferences"
             android:configChanges="orientation|keyboardHidden"
             android:launchMode="singleTask"
+            android:theme="@style/Theme.SherlockDefault"
             android:windowSoftInputMode="adjustResize" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -124,13 +125,30 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ui.prefs.PreferencesPlain"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/settings"
+            android:theme="@style/Theme.SherlockDefault"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
             android:name=".ui.prefs.SimplePreferences"
             android:configChanges="orientation|keyboardHidden"
+            android:label="@string/simple_preferences_"
             android:launchMode="singleTask"
+            android:theme="@style/Theme.SherlockDefault"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name=".ui.prefs.SimplePreferencesChild"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/simple_preferences_"
+            android:theme="@style/Theme.SherlockDefault"
             android:windowSoftInputMode="adjustResize" >
         </activity>
         <activity
             android:name=".ui.prefs.PreferencesImport"
+            android:theme="@style/Theme.SherlockDefault"
             android:windowSoftInputMode="adjustResize" >
         </activity>
         <activity
@@ -155,28 +173,37 @@
         <activity
             android:name=".ui.prefs.NumberGroups"
             android:configChanges="orientation|keyboardHidden"
+            android:label="@string/numbergroups_edit_"
             android:launchMode="singleTop"
+            android:theme="@style/Theme.SherlockDefault"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.prefs.NumberGroupEdit"
             android:configChanges="orientation|keyboardHidden"
+            android:label="@string/numbers"
+            android:theme="@style/Theme.SherlockDefault"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.prefs.HourGroups"
             android:configChanges="orientation|keyboardHidden"
+            android:label="@string/hourgroups_edit_"
             android:launchMode="singleTop"
+            android:theme="@style/Theme.SherlockDefault"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.prefs.HourGroupEdit"
             android:configChanges="orientation|keyboardHidden"
+            android:label="@string/hours"
+            android:theme="@style/Theme.SherlockDefault"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.AboutActivity"
-            android:theme="@style/Theme.SherlockCallMeter_Light"
+            android:theme="@style/Theme.SherlockDefault"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.HelpActivity"
-            android:theme="@style/Theme.SherlockCallMeter_Light"
+            android:label="@string/help_"
+            android:theme="@style/Theme.SherlockDefault"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.IntroActivity"

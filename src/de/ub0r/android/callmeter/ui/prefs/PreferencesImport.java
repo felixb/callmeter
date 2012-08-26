@@ -25,9 +25,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
 import android.widget.Toast;
+
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
@@ -37,7 +39,7 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public final class PreferencesImport extends PreferenceActivity {
+public final class PreferencesImport extends SherlockPreferenceActivity {
 	/** Tag for output. */
 	private static final String TAG = "prefs.im";
 
@@ -47,6 +49,7 @@ public final class PreferencesImport extends PreferenceActivity {
 	/**
 	 * {@inheritDoc}
 	 */
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

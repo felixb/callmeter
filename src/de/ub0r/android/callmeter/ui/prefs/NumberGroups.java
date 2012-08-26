@@ -18,121 +18,93 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import android.app.AlertDialog.Builder;
-import android.app.ListActivity;
 import android.content.ContentUris;
 import android.content.ContentValues;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.DataSetObserver;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.ResourceCursorAdapter;
-import android.widget.TextView;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceScreen;
+
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Utils;
 
 /**
- * {@link ListActivity} for setting plans.
+ * {@link SherlockPreferenceActivity} for setting plans.
  * 
  * @author flx
  */
-public class NumberGroups extends ListActivity implements OnClickListener, OnItemClickListener,
-		OnItemLongClickListener {
-	/**
-	 * Adapter binding plans to View.
-	 * 
-	 * @author flx
-	 */
-	private class NumberGroupAdapter extends ResourceCursorAdapter {
-		/**
-		 * Default Constructor.
-		 * 
-		 * @param context
-		 *            {@link Context}
-		 */
-		public NumberGroupAdapter(final Context context) {
-			super(context, android.R.layout.simple_list_item_1, context.getContentResolver().query(
-					DataProvider.NumbersGroup.CONTENT_URI, DataProvider.NumbersGroup.PROJECTION,
-					null, null, null), true);
-			this.registerDataSetObserver(new DataSetObserver() {
-				@Override
-				public void onChanged() {
-					super.onChanged();
-					NumberGroups.this.showEmptyHint();
-				}
-			});
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public final void bindView(final View view, final Context ctxt, final Cursor cursor) {
-			final TextView twTitle = ((TextView) view.findViewById(android.R.id.text1));
-			twTitle.setText(cursor.getString(DataProvider.NumbersGroup.INDEX_NAME));
-		}
-
-	}
-
-	/** Item menu: edit. */
-	private static final int WHICH_EDIT = 0;
-	/** Item menu: delete. */
-	private static final int WHICH_DELETE = 1;
+public final class NumberGroups extends SherlockPreferenceActivity implements
+		OnPreferenceClickListener {
 
 	/**
 	 * {@inheritDoc}
 	 */
+	@SuppressWarnings("deprecation")
 	@Override
-	public final void onCreate(final Bundle savedInstanceState) {
+	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
-		this.setTitle(this.getString(R.string.settings) + " > " + this.getString(R.string.rules)
-				+ " > " + this.getString(R.string.numbers));
-		this.setContentView(R.layout.list_ok_add);
-		this.setListAdapter(new NumberGroupAdapter(this));
-		this.getListView().setOnItemClickListener(this);
-		this.getListView().setOnItemLongClickListener(this);
-		this.findViewById(R.id.ok).setOnClickListener(this);
-		this.findViewById(R.id.add).setOnClickListener(this);
+
+		this.addPreferencesFromResource(R.xml.group_prefs);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
+	@SuppressWarnings("deprecation")
 	@Override
-	protected final void onResume() {
+	protected void onResume() {
 		super.onResume();
 		Utils.setLocale(this);
-		this.showEmptyHint();
-	}
 
-	/** Set the visibility for the empty groups hint. */
-	private void showEmptyHint() {
-		int v = View.GONE;
-		if (this.getListAdapter().getCount() == 0) {
-			v = View.VISIBLE;
+		PreferenceScreen ps = (PreferenceScreen) this.findPreference("container");
+		ps.removeAll();
+		Cursor c = this.getContentResolver().query(DataProvider.NumbersGroup.CONTENT_URI,
+				DataProvider.NumbersGroup.PROJECTION, null, null, null);
+		if (c.moveToFirst()) {
+			do {
+				Preference p = new Preference(this);
+				p.setPersistent(false);
+				p.setTitle(c.getString(DataProvider.NumbersGroup.INDEX_NAME));
+				p.setKey("group_" + c.getInt(DataProvider.NumbersGroup.INDEX_ID));
+				p.setOnPreferenceClickListener(this);
+				ps.addPreference(p);
+			} while (c.moveToNext());
 		}
-		TextView tv = (TextView) this.findViewById(R.id.import_default);
-		tv.setText(R.string.empty_groups_);
-		tv.setVisibility(v);
+		c.close();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public final void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.add:
+	public boolean onPreferenceClick(final Preference preference) {
+		String k = preference.getKey();
+		if (k != null && k.startsWith("group_")) {
+			int id = Integer.parseInt(k.substring("group_".length()));
+			final Intent intent = new Intent(NumberGroups.this, NumberGroupEdit.class);
+			intent.setData(ContentUris.withAppendedId(DataProvider.NumbersGroup.CONTENT_URI, id));
+			this.startActivity(intent);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(final Menu menu) {
+		this.getSupportMenuInflater().inflate(R.menu.menu_group, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(final MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.item_add:
 			final ContentValues cv = new ContentValues();
 			cv.put(DataProvider.NumbersGroup.NAME, this.getString(R.string.new_numbergroup));
 			final Uri uri = this.getContentResolver().insert(DataProvider.NumbersGroup.CONTENT_URI,
@@ -140,59 +112,9 @@ public class NumberGroups extends ListActivity implements OnClickListener, OnIte
 			final Intent intent = new Intent(this, NumberGroupEdit.class);
 			intent.setData(uri);
 			this.startActivity(intent);
-			break;
-		case R.id.ok:
-			this.finish();
-			break;
+			return true;
 		default:
-			break;
+			return false;
 		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onItemClick(final AdapterView<?> parent, final View view, final int position,
-			final long id) {
-		final Intent intent = new Intent(NumberGroups.this, NumberGroupEdit.class);
-		intent.setData(ContentUris.withAppendedId(DataProvider.NumbersGroup.CONTENT_URI, id));
-		NumberGroups.this.startActivity(intent);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final boolean onItemLongClick(final AdapterView<?> parent, final View view,
-			final int position, final long id) {
-		final Builder builder = new Builder(this);
-		builder.setItems(R.array.dialog_edit_delete,
-				new android.content.DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(final DialogInterface dialog, final int which) {
-						switch (which) {
-						case WHICH_EDIT:
-							final Intent intent = new Intent(NumberGroups.this,
-									NumberGroupEdit.class);
-							intent.setData(ContentUris.withAppendedId(
-									DataProvider.NumbersGroup.CONTENT_URI, id));
-							NumberGroups.this.startActivity(intent);
-							break;
-						case WHICH_DELETE:
-							NumberGroups.this.getContentResolver().delete(
-									ContentUris.withAppendedId(
-											DataProvider.NumbersGroup.CONTENT_URI, id), null, null);
-							Preferences.setDefaultPlan(NumberGroups.this, false);
-							NumberGroups.this.showEmptyHint();
-							break;
-						default:
-							break;
-						}
-					}
-				});
-		builder.setNegativeButton(android.R.string.cancel, null);
-		builder.show();
-		return true;
 	}
 }
