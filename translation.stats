@@ -148,13 +148,13 @@ res/values-sv/market.xml:0
 res/values-sv/notes.xml:0
 res/values-sv/simple_prefs.xml:0
 res/values-sv/strings.xml:80
-res/values-tr/donation.xml:0
+res/values-tr/donation.xml:22
 res/values-tr/help.xml:14
 res/values-tr/intro.xml:10
-res/values-tr/market.xml:5
+res/values-tr/market.xml:6
 res/values-tr/notes.xml:0
 res/values-tr/simple_prefs.xml:19
-res/values-tr/strings.xml:397
+res/values-tr/strings.xml:415
 res/values-zh/donation.xml:0
 res/values-zh/help.xml:0
 res/values-zh/intro.xml:0
@@ -183,5 +183,5 @@ res/values-pt:415
 res/values-ru:332
 res/values-sk:273
 res/values-sv:80
-res/values-tr:445
+res/values-tr:486
 res/values-zh:268
