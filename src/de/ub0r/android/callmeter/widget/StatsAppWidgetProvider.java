@@ -354,10 +354,10 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			bitmapPb = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH, Bitmap.Config.ARGB_8888);
 			canvasPb = new Canvas(bitmapPb);
 			int u = (int) ((used * CallMeter.HUNDRET) / limit);
-			if (u > CallMeter.HUNDRET) {
+			if (u >= CallMeter.HUNDRET) {
 				paintPb.setColor(PB_COLOR_RED);
 			} else if (bmax < 0 && u >= CallMeter.EIGHTY || bmax > 0
-					&& (float) used / limit > (float) bpos / bmax) {
+					&& (float) used / limit >= (float) bpos / bmax) {
 				paintPb.setColor(PB_COLOR_YELLOW);
 			} else {
 				paintPb.setColor(PB_COLOR_GREEN);
