@@ -515,12 +515,9 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
 			this.startActivity(new Intent(this, Preferences.class));
 			return true;
 		case R.id.item_donate:
-			DonationHelper.showDonationDialog(this, this.getString(R.string.donate), this
-					.getString(R.string.donate_url), this.getString(R.string.donate_), this
-					.getString(R.string.did_paypal_donation), this.getString(R.string.remove_ads_),
-					this.getResources().getStringArray(R.array.donation_messages_market), this
-							.getResources().getStringArray(R.array.donation_messages_paypal), this
-							.getResources().getStringArray(R.array.donation_messages_load));
+			DonationHelper.showDonationDialog(this, this.getString(R.string.donate),
+					this.getString(R.string.donate_), this.getString(R.string.did_paypal_donation),
+					this.getResources().getStringArray(R.array.donation_messages_market));
 			return true;
 		case R.id.item_logs:
 			this.showLogsFragment(-1L);
