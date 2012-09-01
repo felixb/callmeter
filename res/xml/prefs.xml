@@ -50,48 +50,10 @@
                 android:targetPackage="de.ub0r.android.callmeter" />
         </PreferenceScreen>
         <PreferenceScreen android:title="@string/advanced_preferences_" >
-            <CheckBoxPreference
-                android:key="prepaid"
-                android:summary="@string/prepaid_hint"
-                android:title="@string/prepaid_" />
-            <CheckBoxPreference
-                android:key="advanced_preferences"
-                android:summary="@string/advanced_preferences_hint"
-                android:title="@string/advanced_preferences_" />
-
-            <PreferenceScreen
-                android:summary="@string/plans_hint"
-                android:title="@string/plans" >
-                <intent
-                    android:action="android.intent.action.MAIN"
-                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.Plans"
-                    android:targetPackage="de.ub0r.android.callmeter" />
-            </PreferenceScreen>
-            <PreferenceScreen
-                android:dependency="advanced_preferences"
-                android:summary="@string/rules_hint"
-                android:title="@string/rules" >
-                <intent
-                    android:action="android.intent.action.MAIN"
-                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.Rules"
-                    android:targetPackage="de.ub0r.android.callmeter" />
-            </PreferenceScreen>
-            <PreferenceScreen
-                android:summary="@string/numbergroups_edit_hint"
-                android:title="@string/numbergroups_edit_" >
-                <intent
-                    android:action="android.intent.action.MAIN"
-                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.NumberGroups"
-                    android:targetPackage="de.ub0r.android.callmeter" />
-            </PreferenceScreen>
-            <PreferenceScreen
-                android:summary="@string/hourgroups_edit_hint"
-                android:title="@string/hourgroups_edit_" >
-                <intent
-                    android:action="android.intent.action.MAIN"
-                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.HourGroups"
-                    android:targetPackage="de.ub0r.android.callmeter" />
-            </PreferenceScreen>
+            <intent
+                android:action="ADVANCED"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
+                android:targetPackage="de.ub0r.android.callmeter" />
         </PreferenceScreen>
         <PreferenceScreen android:title="@string/help_" >
             <intent

@@ -59,7 +59,6 @@ public final class HourGroups extends SherlockPreferenceActivity implements
 	@Override
 	protected void onResume() {
 		super.onResume();
-		Utils.setLocale(this);
 
 		PreferenceScreen ps = (PreferenceScreen) this.findPreference("container");
 		ps.removeAll();

@@ -25,6 +25,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
@@ -33,6 +34,7 @@ import com.actionbarsherlock.app.SherlockPreferenceActivity;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.callmeter.ui.HelpActivity;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetConfigure;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
 import de.ub0r.android.lib.Utils;
@@ -43,7 +45,7 @@ import de.ub0r.android.lib.Utils;
  * @author flx
  */
 public final class PreferencesPlain extends SherlockPreferenceActivity implements
-		OnPreferenceClickListener {
+		OnPreferenceClickListener, OnPreferenceChangeListener {
 
 	/** Action. */
 	private static final String APPERANCE = "APPERANCE";
@@ -61,6 +63,8 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
 	private static final String EXPORT = "EXPORT";
 	/** Action. */
 	private static final String IMPORT = "IMPORT";
+	/** Action. */
+	private static final String ADVANCED = "ADVANCED";
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -96,6 +100,9 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
 			this.findPreference("export_logs_csv").setOnPreferenceClickListener(this);
 			this.findPreference("export_numgroups").setOnPreferenceClickListener(this);
 			this.findPreference("export_hourgroups").setOnPreferenceClickListener(this);
+		} else if (ADVANCED.equals(a)) {
+			this.addPreferencesFromResource(R.xml.prefs_advanced);
+			this.findPreference(Preferences.PREFS_ADVANCED).setOnPreferenceChangeListener(this);
 		}
 
 	}
@@ -183,6 +190,18 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
 			final Intent i = new Intent(this, Preferences.class);
 			i.setData(Uri.parse("content://default"));
 			this.startActivity(i);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean onPreferenceChange(final Preference preference, final Object newValue) {
+		final String k = preference.getKey();
+		if (k.equals(Preferences.PREFS_ADVANCED)) {
+			if (newValue.equals(true)) {
+				this.startActivity(new Intent(this, HelpActivity.class));
+			}
 			return true;
 		}
 		return false;

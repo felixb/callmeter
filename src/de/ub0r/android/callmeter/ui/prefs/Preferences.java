@@ -50,7 +50,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -65,7 +64,6 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.Device;
 import de.ub0r.android.callmeter.ui.Common;
-import de.ub0r.android.callmeter.ui.HelpActivity;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Market;
 import de.ub0r.android.lib.Utils;
@@ -76,7 +74,7 @@ import de.ub0r.android.lib.Utils;
  * @author flx
  */
 public final class Preferences extends SherlockPreferenceActivity implements
-		OnPreferenceChangeListener, OnPreferenceClickListener {
+		OnPreferenceClickListener {
 	/** Tag for output. */
 	private static final String TAG = "prefs";
 
@@ -438,18 +436,9 @@ public final class Preferences extends SherlockPreferenceActivity implements
 		this.setTitle(R.string.settings);
 		this.addPreferencesFromResource(R.xml.prefs);
 
-		Preference p = this.findPreference(PREFS_ADVANCED);
-		if (p != null) {
-			p.setOnPreferenceChangeListener(this);
-		}
-		p = this.findPreference(PREFS_PREPAID);
-		if (p != null) {
-			p.setOnPreferenceChangeListener(this);
-		}
-
 		Market.setOnPreferenceClickListener(this, this.findPreference("more_apps"), null,
 				Market.SEARCH_APPS, Market.ALT_APPS);
-		p = this.findPreference("send_logs");
+		Preference p = this.findPreference("send_logs");
 		if (p != null) {
 			p.setOnPreferenceClickListener(this);
 		}
@@ -491,7 +480,6 @@ public final class Preferences extends SherlockPreferenceActivity implements
 		} else {
 			pr.setSummary(R.string.simple_preferences_deactivated);
 		}
-
 	}
 
 	/**
@@ -845,24 +833,6 @@ public final class Preferences extends SherlockPreferenceActivity implements
 			Log.d(TAG, "importing: " + uri.toString());
 			this.importData(this, uri);
 		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean onPreferenceChange(final Preference preference, final Object newValue) {
-		final String k = preference.getKey();
-		if (k.equals(PREFS_ADVANCED)) {
-			if (newValue.equals(true)) {
-				Preferences.this.startActivity(new Intent(Preferences.this, HelpActivity.class));
-			}
-			return true;
-		} else if (k.equals(PREFS_PREPAID)) {
-			this.checkSimplePrefs((Boolean) newValue);
-			return true;
-		}
-		return false;
 	}
 
 	/**

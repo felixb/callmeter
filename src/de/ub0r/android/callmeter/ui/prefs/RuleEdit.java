@@ -18,25 +18,19 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import android.app.ListActivity;
 import android.content.ContentValues;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnDismissListener;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceScreen;
 import android.text.InputType;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.text.TextUtils;
+
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
-import de.ub0r.android.callmeter.ui.prefs.Preference.BoolPreference;
-import de.ub0r.android.callmeter.ui.prefs.Preference.CursorPreference;
-import de.ub0r.android.callmeter.ui.prefs.Preference.ListPreference;
-import de.ub0r.android.callmeter.ui.prefs.Preference.TextPreference;
+import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
@@ -46,16 +40,14 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public class RuleEdit extends ListActivity implements OnClickListener, OnItemClickListener,
-		OnDismissListener {
+public final class RuleEdit extends SherlockPreferenceActivity implements UpdateListener {
 	/** Tag for debug out. */
 	private static final String TAG = "re";
 
-	/** {@link PreferenceAdapter}. */
-	private PreferenceAdapter adapter = null;
-
-	/** Id of edited filed. */
-	private long rid = -1;
+	/** This rule's {@link Uri}. */
+	private Uri uri = null;
+	/** {@link ContentValues} holding preferences. */
+	private ContentValues values = new ContentValues();
 
 	/** Array holding {@link String}s. */
 	private String[] inOutNomatterCalls = null;
@@ -67,6 +59,26 @@ public class RuleEdit extends ListActivity implements OnClickListener, OnItemCli
 	private String[] inOutNomatterData = null;
 	/** Array holding {@link String}s. */
 	private String[] yesNoNomatter = null;
+
+	/**
+	 * Get a string array for directions.
+	 * 
+	 * @param type
+	 *            type of array
+	 * @return string array
+	 */
+	private int getStringArray(final int type) {
+		switch (type) {
+		case DataProvider.TYPE_SMS:
+			return R.array.direction_sms;
+		case DataProvider.TYPE_MMS:
+			return R.array.direction_mms;
+		case DataProvider.TYPE_DATA:
+			return R.array.direction_data;
+		default:
+			return R.array.direction_calls;
+		}
+	}
 
 	/**
 	 * Get a {@link String}-Array for ListView.
@@ -129,49 +141,203 @@ public class RuleEdit extends ListActivity implements OnClickListener, OnItemCli
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
+	@SuppressWarnings("deprecation")
 	@Override
-	public final void onCreate(final Bundle savedInstanceState) {
+	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
-		this.setTitle(this.getString(R.string.settings) + " > " + this.getString(R.string.rules)
-				+ " > " + this.getString(R.string.edit_));
-		this.setContentView(R.layout.list_ok_cancel);
 
-		this.getListView().setOnItemClickListener(this);
-		this.findViewById(R.id.ok).setOnClickListener(this);
-		this.findViewById(R.id.cancel).setOnClickListener(this);
+		this.addPreferencesFromResource(R.xml.group_prefs);
+		this.uri = this.getIntent().getData();
+	}
 
-		this.fillFields();
-		this.fillPlan();
-		this.showHideFileds();
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		this.values.clear();
+		this.reload();
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Reload plans from ContentProvider.
 	 */
-	@Override
-	protected final void onResume() {
-		super.onResume();
-		Utils.setLocale(this);
-		this.showHideFileds();
-		final PreferenceAdapter a = this.adapter;
-		a.getPreference(DataProvider.Rules.INHOURS_ID).refreshDialog();
-		a.getPreference(DataProvider.Rules.EXHOURS_ID).refreshDialog();
-		a.getPreference(DataProvider.Rules.INNUMBERS_ID).refreshDialog();
-		a.getPreference(DataProvider.Rules.EXNUMBERS_ID).refreshDialog();
+	@SuppressWarnings("deprecation")
+	private void reload() {
+		PreferenceScreen ps = (PreferenceScreen) this.findPreference("container");
+		ps.removeAll();
+
+		Cursor c = this.getContentResolver().query(this.uri, DataProvider.Rules.PROJECTION, null,
+				null, null);
+		if (c.moveToFirst()) {
+			// name
+			CVEditTextPreference ep = new CVEditTextPreference(this, this.values,
+					DataProvider.Rules.NAME);
+			ep.setTitle(R.string.name_);
+			ep.setSummary(R.string.name_help);
+			String s = c.getString(DataProvider.Rules.INDEX_NAME);
+			if (TextUtils.isEmpty(s)) {
+				s = this.getString(R.string.rules_new);
+			}
+			ep.setText(s);
+			ep.getEditText().setInputType(InputType.TYPE_CLASS_TEXT);
+			ps.addPreference(ep);
+			// active
+			CVCheckBoxPreference cp = new CVCheckBoxPreference(this, this.values,
+					DataProvider.Rules.ACTIVE);
+			cp.setTitle(R.string.active_);
+			cp.setSummary(R.string.active_help);
+			cp.setChecked(c.isNull(DataProvider.Rules.INDEX_ACTIVE)
+					|| c.getInt(DataProvider.Rules.INDEX_ACTIVE) == 1);
+			ps.addPreference(cp);
+			// what
+			CVListPreference lp = new CVListPreference(this, this.values, DataProvider.Rules.WHAT);
+			lp.setTitle(R.string.what_);
+			lp.setSummary(R.string.what_help);
+			lp.setStatic(R.array.rules_type_id, R.array.rules_type);
+			int w;
+			if (c.isNull(DataProvider.Rules.INDEX_WHAT)) {
+				w = DataProvider.TYPE_CALL;
+			} else {
+				w = c.getInt(DataProvider.Rules.INDEX_WHAT);
+			}
+			lp.setValue(String.valueOf(w));
+			ps.addPreference(lp);
+			int t = DataProvider.what2type(w);
+			// plan
+			lp = new CVListPreference(this, this.values, DataProvider.Rules.PLAN_ID);
+			lp.setTitle(R.string.plan_);
+			lp.setSummary(R.string.plan_help);
+			lp.setCursor(
+					this.getContentResolver().query(DataProvider.Plans.CONTENT_URI,
+							DataProvider.Plans.PROJECTION_BASIC, this.getPlanWhere(w), null, null),
+					DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME);
+			lp.setValue(c.getString(DataProvider.Rules.INDEX_PLAN_ID));
+			ps.addPreference(lp);
+			// limit reached
+			cp = new CVCheckBoxPreference(this, this.values, DataProvider.Rules.LIMIT_NOT_REACHED);
+			cp.setTitle(R.string.limitnotreached_);
+			cp.setSummary(R.string.limitnotreached_help);
+			cp.setChecked(c.isNull(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED)
+					|| c.getInt(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED) == 1);
+			ps.addPreference(cp);
+			// direction
+			lp = new CVListPreference(this, this.values, DataProvider.Rules.DIRECTION);
+			lp.setTitle(R.string.direction_);
+			lp.setSummary(R.string.direction_help);
+			lp.setStatic(
+					new String[] { String.valueOf(DataProvider.DIRECTION_IN),
+							String.valueOf(DataProvider.DIRECTION_OUT), "-1" },
+					this.getStrings(this.getStringArray(t)));
+			int i = -1;
+			if (!c.isNull(DataProvider.Rules.INDEX_DIRECTION)) {
+				i = c.getInt(DataProvider.Rules.INDEX_DIRECTION);
+			}
+			lp.setValue(String.valueOf(i));
+			ps.addPreference(lp);
+			// roamed
+			lp = new CVListPreference(this, this.values, DataProvider.Rules.ROAMED);
+			lp.setTitle(R.string.roamed_);
+			lp.setSummary(R.string.roamed_help);
+			lp.setStatic(new String[] { "1", "0", "-1" }, this.getStrings(-1));
+			i = -1;
+			if (!c.isNull(DataProvider.Rules.INDEX_ROAMED)) {
+				i = c.getInt(DataProvider.Rules.INDEX_ROAMED);
+			}
+			lp.setValue(String.valueOf(i));
+			ps.addPreference(lp);
+			if (w == DataProvider.Rules.WHAT_SMS) {
+				// is websms
+				lp = new CVListPreference(this, this.values, DataProvider.Rules.IS_WEBSMS);
+				lp.setTitle(R.string.iswebsms_);
+				lp.setSummary(R.string.iswebsms_help);
+				lp.setStatic(new String[] { "1", "0", "-1" }, this.getStrings(-1));
+				i = -1;
+				if (!c.isNull(DataProvider.Rules.INDEX_IS_WEBSMS)) {
+					i = c.getInt(DataProvider.Rules.INDEX_IS_WEBSMS);
+				}
+				lp.setValue(String.valueOf(i));
+				ps.addPreference(lp);
+				if (i == 1) {
+					// websms connector
+					ep = new CVEditTextPreference(this, this.values,
+							DataProvider.Rules.IS_WEBSMS_CONNETOR);
+					ep.setTitle(R.string.iswebsms_connector_);
+					ep.setSummary(R.string.iswebsms_connector_help);
+					ep.setText(c.getString(DataProvider.Rules.INDEX_IS_WEBSMS_CONNETOR));
+					ep.getEditText().setInputType(InputType.TYPE_CLASS_TEXT);
+					ps.addPreference(ep);
+				}
+			}
+			if (w == DataProvider.Rules.WHAT_CALL) {
+				// is sip call
+				lp = new CVListPreference(this, this.values, DataProvider.Rules.IS_SIPCALL);
+				lp.setTitle(R.string.issipcall_);
+				lp.setSummary(R.string.issipcall_help);
+				lp.setStatic(new String[] { "1", "0", "-1" }, this.getStrings(-1));
+				i = -1;
+				if (!c.isNull(DataProvider.Rules.INDEX_IS_SIPCALL)) {
+					i = c.getInt(DataProvider.Rules.INDEX_IS_SIPCALL);
+				}
+				lp.setValue(String.valueOf(i));
+				ps.addPreference(lp);
+			}
+			// include hours
+			lp = new CVListPreference(this, this.values, DataProvider.Rules.INHOURS_ID, true);
+			lp.setTitle(R.string.hourgroup_);
+			lp.setSummary(R.string.hourgroup_help);
+			lp.setCursor(
+					this.getContentResolver().query(DataProvider.HoursGroup.CONTENT_URI,
+							DataProvider.HoursGroup.PROJECTION, null, null, null),
+					DataProvider.HoursGroup.INDEX_ID, DataProvider.HoursGroup.INDEX_NAME);
+			lp.setValue(c.getString(DataProvider.Rules.INDEX_INHOURS_ID));
+			ps.addPreference(lp);
+			// exclude hours
+			lp = new CVListPreference(this, this.values, DataProvider.Rules.EXHOURS_ID, true);
+			lp.setTitle(R.string.exhourgroup_);
+			lp.setSummary(R.string.exhourgroup_help);
+			lp.setCursor(
+					this.getContentResolver().query(DataProvider.HoursGroup.CONTENT_URI,
+							DataProvider.HoursGroup.PROJECTION, null, null, null),
+					DataProvider.HoursGroup.INDEX_ID, DataProvider.HoursGroup.INDEX_NAME);
+			lp.setValue(c.getString(DataProvider.Rules.INDEX_EXHOURS_ID));
+			ps.addPreference(lp);
+			if (w != DataProvider.Rules.WHAT_DATA && w != DataProvider.Rules.WHAT_MMS) {
+				// include numbers
+				lp = new CVListPreference(this, this.values, DataProvider.Rules.INNUMBERS_ID, true);
+				lp.setTitle(R.string.numbergroup_);
+				lp.setSummary(R.string.numbergroup_help);
+				lp.setCursor(
+						this.getContentResolver().query(DataProvider.NumbersGroup.CONTENT_URI,
+								DataProvider.NumbersGroup.PROJECTION, null, null, null),
+						DataProvider.NumbersGroup.INDEX_ID, DataProvider.NumbersGroup.INDEX_NAME);
+				lp.setValue(c.getString(DataProvider.Rules.INDEX_INNUMBERS_ID));
+				ps.addPreference(lp);
+				// exclude numbers
+				lp = new CVListPreference(this, this.values, DataProvider.Rules.EXNUMBERS_ID, true);
+				lp.setTitle(R.string.exnumbergroup_);
+				lp.setSummary(R.string.exnumbergroup_help);
+				lp.setCursor(
+						this.getContentResolver().query(DataProvider.NumbersGroup.CONTENT_URI,
+								DataProvider.NumbersGroup.PROJECTION, null, null, null),
+						DataProvider.NumbersGroup.INDEX_ID, DataProvider.NumbersGroup.INDEX_NAME);
+				lp.setValue(c.getString(DataProvider.Rules.INDEX_EXNUMBERS_ID));
+				ps.addPreference(lp);
+			}
+		}
+		c.close();
 	}
 
 	/**
 	 * Set plan's and what0 value.
+	 * 
+	 * @param w
+	 *            type
+	 * @return where clause
 	 */
-	private void fillPlan() {
-		final int t = ((ListPreference) this.adapter.getPreference(DataProvider.Rules.WHAT))
-				.getValue();
+	private String getPlanWhere(final int w) {
 		String where = null;
-		switch (t) {
+		switch (w) {
 		case DataProvider.Rules.WHAT_CALL:
 			where = DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_CALL + " OR "
 					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_MIXED;
@@ -191,189 +357,17 @@ public class RuleEdit extends ListActivity implements OnClickListener, OnItemCli
 		}
 		where = DbUtils.sqlAnd(where, DataProvider.Plans.MERGED_PLANS + " IS NULL");
 		Log.d(TAG, "plans.where: " + where);
-		((CursorPreference) this.adapter.getPreference(DataProvider.Rules.PLAN_ID))
-				.setCursor(where);
+		return where;
 	}
 
-	/**
-	 * Get a new {@link PreferenceAdapter} for this {@link ListActivity}.
-	 * 
-	 * @return {@link PreferenceAdapter}
-	 */
-	private PreferenceAdapter getAdapter() {
-		final PreferenceAdapter ret = new PreferenceAdapter(this);
-		ret.add(new TextPreference(this, DataProvider.Rules.NAME, this
-				.getString(R.string.rules_new), R.string.name_, R.string.name_help,
-				InputType.TYPE_CLASS_TEXT));
-		ret.add(new BoolPreference(this, DataProvider.Rules.ACTIVE, R.string.active_,
-				R.string.active_help, this));
-		ret.add(new ListPreference(this, DataProvider.Rules.WHAT, DataProvider.Rules.WHAT_CALL,
-				R.string.what_, R.string.what_help, R.array.rules_type));
-		ret.add(new CursorPreference(this, DataProvider.Rules.PLAN_ID, R.string.plan_,
-				R.string.plan_help, -1, -1, -1, DataProvider.Plans.CONTENT_URI,
-				DataProvider.Plans.ID, DataProvider.Plans.NAME, null, false, null, null, null));
-		ret.add(new BoolPreference(this, DataProvider.Rules.LIMIT_NOT_REACHED,
-				R.string.limitnotreached_, R.string.limitnotreached_help, this));
-		ret.add(new ListPreference(this, DataProvider.Rules.DIRECTION,
-				DataProvider.Rules.NO_MATTER, R.string.direction_, R.string.direction_help, this
-						.getStrings(R.array.direction_calls)));
-		ret.add(new ListPreference(this, DataProvider.Rules.ROAMED, DataProvider.Rules.NO_MATTER,
-				R.string.roamed_, R.string.roamed_help, this.getStrings(-1)));
-		ret.add(new ListPreference(this, DataProvider.Rules.IS_WEBSMS,
-				DataProvider.Rules.NO_MATTER, R.string.iswebsms_, R.string.iswebsms_help, this
-						.getStrings(-1)));
-		ret.add(new TextPreference(this, DataProvider.Rules.IS_WEBSMS_CONNETOR, "",
-				R.string.iswebsms_connector_, R.string.iswebsms_connector_help,
-				InputType.TYPE_CLASS_TEXT));
-		ret.add(new ListPreference(this, DataProvider.Rules.IS_SIPCALL,
-				DataProvider.Rules.NO_MATTER, R.string.issipcall_, R.string.issipcall_help, this
-						.getStrings(-1)));
-		final DialogInterface.OnClickListener editHours = new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(final DialogInterface dialog, final int which) {
-				RuleEdit.this.startActivity(new Intent(RuleEdit.this, HourGroups.class));
-			}
-		};
-		ret.add(new CursorPreference(this, DataProvider.Rules.INHOURS_ID, R.string.hourgroup_,
-				R.string.hourgroup_help, R.string.edit_groups_, R.string.clear_, -1,
-				DataProvider.HoursGroup.CONTENT_URI, DataProvider.HoursGroup.ID,
-				DataProvider.HoursGroup.NAME, null, true, editHours, null, null));
-		ret.add(new CursorPreference(this, DataProvider.Rules.EXHOURS_ID, R.string.exhourgroup_,
-				R.string.exhourgroup_help, R.string.edit_groups_, R.string.clear_, -1,
-				DataProvider.HoursGroup.CONTENT_URI, DataProvider.HoursGroup.ID,
-				DataProvider.HoursGroup.NAME, null, true, editHours, null, null));
-		final DialogInterface.OnClickListener editNumbers = new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(final DialogInterface dialog, final int which) {
-				RuleEdit.this.startActivity(new Intent(RuleEdit.this, NumberGroups.class));
-			}
-		};
-		ret.add(new CursorPreference(this, DataProvider.Rules.INNUMBERS_ID, R.string.numbergroup_,
-				R.string.numbergroup_help, R.string.edit_groups_, -1, -1,
-				DataProvider.NumbersGroup.CONTENT_URI, DataProvider.NumbersGroup.ID,
-				DataProvider.NumbersGroup.NAME, null, true, editNumbers, null, null));
-		ret.add(new CursorPreference(this, DataProvider.Rules.EXNUMBERS_ID,
-				R.string.exnumbergroup_, R.string.exnumbergroup_help, R.string.edit_groups_,
-				R.string.clear_, -1, DataProvider.NumbersGroup.CONTENT_URI,
-				DataProvider.NumbersGroup.ID, DataProvider.NumbersGroup.NAME, null, true,
-				editNumbers, null, null));
-		return ret;
-	}
-
-	/**
-	 * Fill the fields with data from the cursor.
-	 */
-	private void fillFields() {
-		final Uri uri = this.getIntent().getData();
-		int nid = -1;
-		Cursor cursor = null;
-		if (uri != null) {
-			cursor = this.getContentResolver().query(uri, DataProvider.Rules.PROJECTION, null,
-					null, null);
-			if (cursor == null || !cursor.moveToFirst()) {
-				cursor = null;
-				this.rid = -1;
-			}
-		}
-		if (cursor != null) {
-			nid = cursor.getInt(DataProvider.Rules.INDEX_ID);
-		}
-		if (this.rid == -1 || nid != this.rid) {
-			this.rid = nid;
-			this.adapter = this.getAdapter();
-			this.getListView().setAdapter(this.adapter);
-		}
-		if (cursor != null && !cursor.isClosed()) {
-			this.adapter.load(cursor);
-			cursor.close();
-		}
-	}
-
-	/**
-	 * Show or hide fields based on data in there.
-	 */
-	private void showHideFileds() {
-		final int t = ((ListPreference) this.adapter.getPreference(DataProvider.Rules.WHAT))
-				.getValue();
-		switch (t) {
-		case DataProvider.Rules.WHAT_SMS:
-			this.adapter.hide(DataProvider.Rules.IS_WEBSMS, false);
-			this.adapter.hide(DataProvider.Rules.IS_WEBSMS_CONNETOR, ((ListPreference) this.adapter
-					.getPreference(DataProvider.Rules.IS_WEBSMS)).getValue() != 0);
-			this.adapter.hide(DataProvider.Rules.IS_SIPCALL, true);
-			break;
-		case DataProvider.Rules.WHAT_CALL:
-			this.adapter.hide(DataProvider.Rules.IS_SIPCALL, false);
-			this.adapter.hide(DataProvider.Rules.IS_WEBSMS, true);
-			this.adapter.hide(DataProvider.Rules.IS_WEBSMS_CONNETOR, true);
-			break;
-		default:
-			this.adapter.hide(DataProvider.Rules.IS_SIPCALL, true);
-			this.adapter.hide(DataProvider.Rules.IS_WEBSMS, true);
-			this.adapter.hide(DataProvider.Rules.IS_WEBSMS_CONNETOR, true);
-			break;
-		}
-
-		switch (t) {
-		case DataProvider.Rules.WHAT_DATA:
-			this.adapter.hide(DataProvider.Rules.INNUMBERS_ID, true);
-			this.adapter.hide(DataProvider.Rules.EXNUMBERS_ID, true);
-			break;
-		default:
-			this.adapter.hide(DataProvider.Rules.INNUMBERS_ID, false);
-			this.adapter.hide(DataProvider.Rules.EXNUMBERS_ID, false);
-			break;
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public final void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.ok:
-			final ContentValues cv = this.adapter.save();
-			Uri uri = this.getIntent().getData();
-			if (uri == null) {
-				uri = this.getContentResolver().insert(DataProvider.Rules.CONTENT_URI, cv);
-			} else {
-				this.getContentResolver().update(uri, cv, null, null);
-			}
+	public void onUpdateValue(final android.preference.Preference p) {
+		if (this.uri != null && this.values.size() > 0) {
+			this.getContentResolver().update(this.uri, this.values, null, null);
+			this.values.clear();
 			Preferences.setDefaultPlan(this, false);
-			this.rid = -1;
-			final Intent intent = new Intent(this, RuleEdit.class);
-			intent.setData(uri);
-			this.setResult(RESULT_OK, new Intent(intent));
-			this.finish();
-			break;
-		case R.id.cancel:
-			this.rid = -1;
-			this.setResult(RESULT_CANCELED);
-			this.finish();
-			break;
-		default:
-			break;
+			RuleMatcher.unmatch(this);
+			this.reload();
 		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onItemClick(final AdapterView<?> parent, final View view, final int position,
-			final long id) {
-		final Preference p = this.adapter.getItem(position);
-		p.showDialog(this);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onDismiss(final DialogInterface dialog) {
-		this.showHideFileds();
-		this.fillPlan();
-		this.adapter.notifyDataSetInvalidated();
 	}
 }

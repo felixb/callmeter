@@ -19,313 +19,247 @@
 package de.ub0r.android.callmeter.ui.prefs;
 
 import android.app.AlertDialog.Builder;
-import android.app.ListActivity;
-import android.content.ActivityNotFoundException;
-import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceScreen;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.ResourceCursorAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.commonsware.cwac.tlv.TouchListView;
-import com.commonsware.cwac.tlv.TouchListView.DropListener;
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
-import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
- * {@link ListActivity} for setting rules.
+ * {@link SherlockPreferenceActivity} for setting rules.
  * 
  * @author flx
  */
-public class Rules extends ListActivity implements OnClickListener, OnItemClickListener,
-		OnItemLongClickListener {
+public final class Rules extends SherlockPreferenceActivity implements OnPreferenceClickListener {
 	/** Tag for output. */
 	private static final String TAG = "pr";
 
-	/** Plans. */
-	private RuleAdapter adapter = null;
-
 	/** Item menu: edit. */
 	private static final int WHICH_EDIT = 0;
+	/** Item menu: move up. */
+	private static final int WHICH_UP = 1;
+	/** Item menu: move down. */
+	private static final int WHICH_DOWN = 2;
 	/** Item menu: delete. */
-	private static final int WHICH_DELETE = 1;
+	private static final int WHICH_DELETE = 3;
 
-	/**
-	 * Adapter binding rules to View.
-	 * 
-	 * @author flx
-	 */
-	private static class RuleAdapter extends ResourceCursorAdapter {
-		/** Type of plans. */
-		private final String[] types;
-
-		/**
-		 * Default Constructor.
-		 * 
-		 * @param context
-		 *            {@link Context}
-		 */
-		public RuleAdapter(final Context context) {
-			super(context, R.layout.prefs_rules_item, context.getContentResolver().query(
-					DataProvider.Rules.CONTENT_URI, DataProvider.Rules.PROJECTION, null, null,
-					DataProvider.Rules.ORDER), true);
-			this.types = context.getResources().getStringArray(R.array.rules_type);
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public final void bindView(final View view, final Context ctxt, final Cursor cursor) {
-			final TextView twTitle = ((TextView) view.findViewById(R.id.normtitle));
-			twTitle.setText(cursor.getString(DataProvider.Rules.INDEX_NAME));
-			boolean active = cursor.getInt(DataProvider.Rules.INDEX_ACTIVE) > 0;
-			twTitle.setEnabled(active);
-
-			final TextView twType = ((TextView) view.findViewById(R.id.type));
-			String w = "";
-			final int t = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
-			if (t >= 0 && t < this.types.length) {
-				w += this.types[t];
-			} else {
-				w += "???";
-			}
-			int i = cursor.getInt(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED);
-			if (i == 1) {
-				w += " & " + ctxt.getString(R.string.limitnotreached_);
-			}
-			i = cursor.getInt(DataProvider.Rules.INDEX_ROAMED);
-			if (i == 0) {
-				w += " & " + ctxt.getString(R.string.roamed_);
-			} else if (i == 1) {
-				w += " & \u00AC " + ctxt.getString(R.string.roamed_);
-			}
-			i = cursor.getInt(DataProvider.Rules.INDEX_DIRECTION);
-			if (i >= 0 && i < DataProvider.Rules.NO_MATTER) {
-				String[] strs;
-				final Resources r = ctxt.getResources();
-				if (t == DataProvider.TYPE_SMS) {
-					strs = r.getStringArray(R.array.direction_sms);
-				} else if (t == DataProvider.TYPE_MMS) {
-					strs = r.getStringArray(R.array.direction_mms);
-				} else if (t == DataProvider.TYPE_DATA) {
-					strs = r.getStringArray(R.array.direction_data);
-				} else {
-					strs = r.getStringArray(R.array.direction_calls);
-				}
-				w += " & " + strs[i];
-			}
-			String s = cursor.getString(DataProvider.Rules.INDEX_INHOURS_ID);
-			if (s != null && !s.equals("-1")) {
-				w += " & " + ctxt.getString(R.string.hourgroup_);
-			}
-			s = cursor.getString(DataProvider.Rules.INDEX_EXHOURS_ID);
-			if (s != null && !s.equals("-1")) {
-				w += " & " + ctxt.getString(R.string.exhourgroup_);
-			}
-			s = cursor.getString(DataProvider.Rules.INDEX_INNUMBERS_ID);
-			if (s != null && !s.equals("-1")) {
-				w += " & " + ctxt.getString(R.string.numbergroup_);
-			}
-			s = cursor.getString(DataProvider.Rules.INDEX_EXNUMBERS_ID);
-			if (s != null && !s.equals("-1")) {
-				w += " & " + ctxt.getString(R.string.exnumbergroup_);
-			}
-			twType.setText(w);
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
+	@SuppressWarnings("deprecation")
 	@Override
-	public final void onCreate(final Bundle savedInstanceState) {
+	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
-		this.setTitle(this.getString(R.string.settings) + " > " + this.getString(R.string.rules));
-		this.setContentView(R.layout.list_ok_add_touch);
-		this.adapter = new RuleAdapter(this);
-		this.setListAdapter(this.adapter);
-		this.setListAdapter(this.adapter);
-		((TouchListView) this.getListView()).setDropListener(new DropListener() {
-			@Override
-			public void drop(final int from, final int to) {
-				Rules.this.move(from, to);
-			}
-		});
-		this.getListView().setOnItemClickListener(this);
-		this.getListView().setOnItemLongClickListener(this);
-		this.findViewById(R.id.ok).setOnClickListener(this);
-		this.findViewById(R.id.add).setOnClickListener(this);
-		this.findViewById(R.id.import_default).setOnClickListener(this);
+
+		this.addPreferencesFromResource(R.xml.group_prefs);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	protected final void onResume() {
+	protected void onResume() {
 		super.onResume();
-		Utils.setLocale(this);
-		this.showImportHint();
+		this.reload();
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Reload rules from ContentProvider.
 	 */
-	@Override
-	protected final void onStop() {
-		super.onStop();
-		RuleMatcher.unmatch(this);
-	}
+	@SuppressWarnings("deprecation")
+	private void reload() {
+		PreferenceScreen ps = (PreferenceScreen) this.findPreference("container");
+		ps.removeAll();
+		Cursor c = this.getContentResolver().query(DataProvider.Rules.CONTENT_URI,
+				DataProvider.Rules.PROJECTION, null, null, null);
+		if (c.moveToFirst()) {
+			String[] types = this.getResources().getStringArray(R.array.rules_type);
+			do {
+				Preference p = new Preference(this);
+				p.setPersistent(false);
+				p.setKey("group_" + c.getInt(DataProvider.Rules.INDEX_ID));
+				p.setTitle(c.getString(DataProvider.Rules.INDEX_NAME));
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.add:
-			Preferences.setDefaultPlan(this, false);
-			Intent intent = new Intent(this, RuleEdit.class);
-			this.startActivity(intent);
-			break;
-		case R.id.ok:
-			Preferences.setDefaultPlan(this, false);
-			this.finish();
-			break;
-		case R.id.import_default:
-			intent = new Intent(Intent.ACTION_VIEW,
-					Uri.parse(this.getString(R.string.url_rulesets)));
-			try {
-				this.startActivity(intent);
-			} catch (ActivityNotFoundException e) {
-				Log.e(TAG, "no activity to load url", e);
-				Toast.makeText(this, "no activity to load url: " + intent.getDataString(),
-						Toast.LENGTH_LONG).show();
-			}
-			break;
-		default:
-			break;
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onItemClick(final AdapterView<?> parent, final View view, final int position,
-			final long id) {
-		final Intent intent = new Intent(this, RuleEdit.class);
-		intent.setData(ContentUris.withAppendedId(DataProvider.Rules.CONTENT_URI, id));
-		this.startActivity(intent);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final boolean onItemLongClick(final AdapterView<?> parent, final View view,
-			final int position, final long id) {
-		final Builder builder = new Builder(this);
-		builder.setItems(R.array.dialog_edit_delete,
-				new android.content.DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(final DialogInterface dialog, final int which) {
-						switch (which) {
-						case WHICH_EDIT:
-							final Intent intent = new Intent(Rules.this, RuleEdit.class);
-							intent.setData(ContentUris.withAppendedId(
-									DataProvider.Rules.CONTENT_URI, id));
-							Rules.this.startActivity(intent);
-							break;
-						case WHICH_DELETE:
-							Rules.this.getContentResolver().delete(
-									ContentUris.withAppendedId(DataProvider.//
-											Rules.CONTENT_URI, id), null, null);
-							break;
-						default:
-							break;
-						}
+				String hint = "";
+				final int t = c.getInt(DataProvider.Rules.INDEX_WHAT);
+				if (t >= 0 && t < types.length) {
+					hint += types[t];
+				} else {
+					hint += "???";
+				}
+				int i = c.getInt(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED);
+				if (i == 1) {
+					hint += " & " + this.getString(R.string.limitnotreached_);
+				}
+				i = c.getInt(DataProvider.Rules.INDEX_ROAMED);
+				if (i == 0) {
+					hint += " & " + this.getString(R.string.roamed_);
+				} else if (i == 1) {
+					hint += " & \u00AC " + this.getString(R.string.roamed_);
+				}
+				i = c.getInt(DataProvider.Rules.INDEX_DIRECTION);
+				if (i >= 0 && i < DataProvider.Rules.NO_MATTER) {
+					String[] strs;
+					final Resources r = this.getResources();
+					if (t == DataProvider.TYPE_SMS) {
+						strs = r.getStringArray(R.array.direction_sms);
+					} else if (t == DataProvider.TYPE_MMS) {
+						strs = r.getStringArray(R.array.direction_mms);
+					} else if (t == DataProvider.TYPE_DATA) {
+						strs = r.getStringArray(R.array.direction_data);
+					} else {
+						strs = r.getStringArray(R.array.direction_calls);
 					}
-				});
-		builder.setNegativeButton(android.R.string.cancel, null);
-		builder.show();
+					hint += " & " + strs[i];
+				}
+				String s = c.getString(DataProvider.Rules.INDEX_INHOURS_ID);
+				if (s != null && !s.equals("-1")) {
+					hint += " & " + this.getString(R.string.hourgroup_);
+				}
+				s = c.getString(DataProvider.Rules.INDEX_EXHOURS_ID);
+				if (s != null && !s.equals("-1")) {
+					hint += " & " + this.getString(R.string.exhourgroup_);
+				}
+				s = c.getString(DataProvider.Rules.INDEX_INNUMBERS_ID);
+				if (s != null && !s.equals("-1")) {
+					hint += " & " + this.getString(R.string.numbergroup_);
+				}
+				s = c.getString(DataProvider.Rules.INDEX_EXNUMBERS_ID);
+				if (s != null && !s.equals("-1")) {
+					hint += " & " + this.getString(R.string.exnumbergroup_);
+				}
+				p.setSummary(hint);
+
+				p.setOnPreferenceClickListener(this);
+				ps.addPreference(p);
+			} while (c.moveToNext());
+		}
+		c.close();
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(final Menu menu) {
+		this.getSupportMenuInflater().inflate(R.menu.menu_group, menu);
 		return true;
 	}
 
-	/** Set the visability fo the import hint. */
-	private void showImportHint() {
-		int v = View.GONE;
-		if (this.getListView().getCount() == 0) {
-			v = View.VISIBLE;
+	@Override
+	public boolean onOptionsItemSelected(final MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.item_add:
+			Preferences.setDefaultPlan(this, false);
+			final ContentValues cv = new ContentValues();
+			cv.put(DataProvider.Rules.NAME, this.getString(R.string.rules_new));
+			final Uri uri = this.getContentResolver().insert(DataProvider.Rules.CONTENT_URI, cv);
+			final Intent intent = new Intent(this, RuleEdit.class);
+			intent.setData(uri);
+			this.startActivity(intent);
+			return true;
+		default:
+			return false;
 		}
-		this.findViewById(R.id.import_default).setVisibility(v);
 	}
 
 	/**
-	 * Move item.
+	 * Move an item.
 	 * 
-	 * @param from
-	 *            from
-	 * @param to
-	 *            to
+	 * @param u
+	 *            item's {@link Uri}
+	 * @param diretion
+	 *            +1/-1
 	 */
-	private void move(final int from, final int to) {
-		Log.d(TAG, "move(" + from + "," + to + ")");
-		if (from == to) {
-			return;
-		}
-		final ContentResolver cr = this.getContentResolver();
-		final int l = this.adapter.getCount();
-		Log.d(TAG, "move(): l=" + l);
-		long[] ids = new long[l];
-		int i = 0;
-		int dir;
-		if (from < to) {
-			dir = 1;
-		} else {
-			dir = -1;
-		}
-		Log.d(TAG, "move(): dir=" + dir);
-		for (i = 0; i < l; i++) {
-			final long id = this.adapter.getItemId(i);
-			ids[i] = id;
-			Log.d(TAG, "move(): ids[" + i + "]=" + ids[i]);
-		}
+	private void move(final Uri u, final int diretion) {
+		Cursor c0 = this.getContentResolver().query(u, DataProvider.Rules.PROJECTION, null, null,
+				null);
+		if (c0.moveToFirst()) {
+			int o0 = c0.getInt(DataProvider.Rules.INDEX_ORDER);
+			String w;
+			String o;
+			if (diretion < 0) {
+				w = DataProvider.Rules.ORDER + "<?";
+				o = DataProvider.Rules.ORDER + " DESC";
+			} else {
+				w = DataProvider.Rules.ORDER + ">?";
+				o = DataProvider.Rules.ORDER + " ASC";
+			}
+			Cursor c1 = this.getContentResolver().query(DataProvider.Rules.CONTENT_URI,
+					DataProvider.Rules.PROJECTION, w, new String[] { String.valueOf(o0) }, o);
+			if (c1.moveToFirst()) {
+				int o1 = c1.getInt(DataProvider.Rules.INDEX_ORDER);
+				if (o0 == o1) {
+					o1 += diretion;
+				}
+				ContentValues values = new ContentValues();
+				values.put(DataProvider.Rules.ORDER, o1);
+				this.getContentResolver().update(u, values, null, null);
 
-		final long oldid = ids[from];
-		Log.d(TAG, "move(): oldid=" + oldid);
-		for (i = from + dir; (from < to && i <= to) || (from > to && i >= to); i += dir) {
-			ids[i - dir] = ids[i];
-			Log.d(TAG, "move(): ids[" + (i - dir) + "]=" + ids[i - dir]);
+				values.put(DataProvider.Rules.ORDER, o0);
+				this.getContentResolver().update(
+						ContentUris.withAppendedId(DataProvider.Rules.CONTENT_URI,
+								c1.getInt(DataProvider.Rules.INDEX_ID)), values, null, null);
+				this.reload();
+			}
+			c1.close();
 		}
-		ids[to] = oldid;
-		Log.d(TAG, "move(): ids[" + to + "]=" + ids[to]);
+		c0.close();
+	}
 
-		ContentValues cv = new ContentValues();
-		for (i = 0; i < l; i++) {
-			cv.clear();
-			cv.put(DataProvider.Rules.ORDER, i);
-			cr.update(ContentUris.withAppendedId(DataProvider.Rules.CONTENT_URI, ids[i]), cv, null,
-					null);
+	@Override
+	public boolean onPreferenceClick(final Preference preference) {
+		String k = preference.getKey();
+		if (k != null && k.startsWith("group_")) {
+			final int id = Integer.parseInt(k.substring("group_".length()));
+			final Uri uri = ContentUris.withAppendedId(DataProvider.Rules.CONTENT_URI, id);
+			final Builder builder = new Builder(this);
+			builder.setItems(R.array.dialog_edit_up_down_delete,
+					new android.content.DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(final DialogInterface dialog, final int which) {
+							switch (which) {
+							case WHICH_EDIT:
+								final Intent intent = new Intent(Rules.this, RuleEdit.class);
+								intent.setData(uri);
+								Rules.this.startActivity(intent);
+								break;
+							case WHICH_UP:
+								Rules.this.move(uri, -1);
+								Preferences.setDefaultPlan(Rules.this, false);
+								RuleMatcher.unmatch(Rules.this);
+								break;
+							case WHICH_DOWN:
+								Rules.this.move(uri, 1);
+								Preferences.setDefaultPlan(Rules.this, false);
+								RuleMatcher.unmatch(Rules.this);
+								break;
+							case WHICH_DELETE:
+								Rules.this.getContentResolver().delete(
+										ContentUris.withAppendedId(DataProvider.Rules.CONTENT_URI,
+												id), null, null);
+								Rules.this.reload();
+								Preferences.setDefaultPlan(Rules.this, false);
+								RuleMatcher.unmatch(Rules.this);
+								break;
+							default:
+								break;
+							}
+						}
+					});
+			builder.setNegativeButton(android.R.string.cancel, null);
+			builder.show();
+			return true;
 		}
+		return false;
 	}
 }

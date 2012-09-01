@@ -46,6 +46,8 @@
 	<string name="common_prefs_">Common preferences</string>
 	<string name="edit_">Edit</string>
 	<string name="delete_">Delete</string>
+	<string name="up_">Move up</string>
+	<string name="down_">Move down</string>
 	<string name="about_">About</string>
 	<string name="about_hint">About this app</string>
 	<string name="faq_hint">Some tips and tricks, how to set up this app.</string>
@@ -420,6 +422,12 @@
 		<item>@string/edit_</item>
 		<item>@string/delete_</item>
 	</string-array>
+	<string-array name="dialog_edit_up_down_delete" translatable="false">
+		<item>@string/edit_</item>
+		<item>@string/up_</item>
+		<item>@string/down_</item>
+		<item>@string/delete_</item>
+	</string-array>
 	<string name="title">Title</string>
 	<string name="spacer">Spacer</string>
 	<string name="mixed">Mixed</string>
@@ -432,6 +440,12 @@
 		<item>@string/sms</item>
 		<item>@string/mms</item>
 		<item>@string/data</item>
+	</string-array>
+	<string-array name="rules_type_id" translatable="false">
+	  <item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
 	</string-array>
 	<string-array name="rules_type" translatable="false">
 		<item>@string/calls</item>

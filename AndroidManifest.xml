@@ -154,21 +154,28 @@
         <activity
             android:name=".ui.prefs.Plans"
             android:configChanges="orientation|keyboardHidden"
+            android:label="@string/plans"
             android:launchMode="singleTop"
+            android:theme="@style/Theme.SherlockDefault"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.prefs.PlanEdit"
             android:configChanges="orientation|keyboardHidden"
+            android:label="@string/plans"
             android:launchMode="singleTop"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.prefs.Rules"
             android:configChanges="orientation|keyboardHidden"
+            android:label="@string/rules"
             android:launchMode="singleTop"
+            android:theme="@style/Theme.SherlockDefault"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.prefs.RuleEdit"
             android:configChanges="orientation|keyboardHidden"
+            android:label="@string/rules"
+            android:theme="@style/Theme.SherlockDefault"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.prefs.NumberGroups"

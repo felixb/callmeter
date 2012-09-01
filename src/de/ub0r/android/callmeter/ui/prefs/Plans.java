@@ -19,277 +19,218 @@
 package de.ub0r.android.callmeter.ui.prefs;
 
 import android.app.AlertDialog.Builder;
-import android.app.ListActivity;
-import android.content.ActivityNotFoundException;
-import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceManager;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.ResourceCursorAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.preference.PreferenceScreen;
 
-import com.commonsware.cwac.tlv.TouchListView;
-import com.commonsware.cwac.tlv.TouchListView.DropListener;
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
-import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
- * {@link ListActivity} for setting plans.
+ * {@link SherlockPreferenceActivity} for setting plans.
  * 
  * @author flx
  */
-public class Plans extends ListActivity implements OnClickListener, OnItemClickListener,
-		OnItemLongClickListener {
+public final class Plans extends SherlockPreferenceActivity implements OnPreferenceClickListener {
 	/** Tag for output. */
-	private static final String TAG = "pp";
-
-	/**
-	 * Adapter binding plans to View.
-	 * 
-	 * @author flx
-	 */
-	private static class PlanAdapter extends ResourceCursorAdapter {
-		/** Type of plans. */
-		private final String[] types;
-
-		/**
-		 * Default Constructor.
-		 * 
-		 * @param context
-		 *            {@link Context}
-		 */
-		public PlanAdapter(final Context context) {
-			super(context, R.layout.prefs_plans_item, context.getContentResolver().query(
-					DataProvider.Plans.CONTENT_URI, DataProvider.Plans.PROJECTION, null, null,
-					DataProvider.Plans.ORDER), true);
-			this.types = context.getResources().getStringArray(R.array.plans_type);
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public final void bindView(final View view, final Context ctxt, final Cursor cursor) {
-			final TextView twTitle = ((TextView) view.findViewById(R.id.normtitle));
-			twTitle.setText(cursor.getString(DataProvider.Plans.INDEX_NAME));
-			final TextView twType = ((TextView) view.findViewById(R.id.type));
-			final int i = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
-			String hint;
-			if (i >= 0 && i < this.types.length) {
-				hint = this.types[i];
-			} else {
-				hint = "???";
-			}
-			final String s = cursor.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
-			if (s != null && s.length() > 0) {
-				hint += ", " + ctxt.getString(R.string.merge_plans_);
-			}
-			twType.setText(hint);
-		}
-	}
-
-	/** Plans. */
-	private PlanAdapter adapter = null;
+	// private static final String TAG = "pp";
 
 	/** Item menu: edit. */
 	private static final int WHICH_EDIT = 0;
+	/** Item menu: move up. */
+	private static final int WHICH_UP = 1;
+	/** Item menu: move down. */
+	private static final int WHICH_DOWN = 2;
 	/** Item menu: delete. */
-	private static final int WHICH_DELETE = 1;
+	private static final int WHICH_DELETE = 3;
 
-	/**
-	 * {@inheritDoc}
-	 */
+	@SuppressWarnings("deprecation")
 	@Override
-	public final void onCreate(final Bundle savedInstanceState) {
+	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
-		this.setTitle(this.getString(R.string.settings) + " > " + this.getString(R.string.plans));
-		this.setContentView(R.layout.list_ok_add_touch);
-		this.adapter = new PlanAdapter(this);
-		this.setListAdapter(this.adapter);
-		((TouchListView) this.getListView()).setDropListener(new DropListener() {
-			@Override
-			public void drop(final int from, final int to) {
-				Plans.this.move(from, to);
-			}
-		});
-		this.getListView().setOnItemClickListener(this);
-		this.getListView().setOnItemLongClickListener(this);
-		this.findViewById(R.id.ok).setOnClickListener(this);
-		this.findViewById(R.id.add).setOnClickListener(this);
-		this.findViewById(R.id.import_default).setOnClickListener(this);
+
+		this.addPreferencesFromResource(R.xml.group_prefs);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	protected final void onResume() {
+	protected void onResume() {
 		super.onResume();
-		Utils.setLocale(this);
-		this.showImportHint();
-		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		if (prefs.getBoolean(Preferences.PREFS_ADVANCED, false)) {
-			this.findViewById(R.id.ok_add).setVisibility(View.VISIBLE);
-		} else {
-			this.findViewById(R.id.ok_add).setVisibility(View.GONE);
+		this.reload();
+	}
+
+	/**
+	 * Reload plans from ContentProvider.
+	 */
+	@SuppressWarnings("deprecation")
+	private void reload() {
+		PreferenceScreen ps = (PreferenceScreen) this.findPreference("container");
+		ps.removeAll();
+		Cursor c = this.getContentResolver().query(DataProvider.Plans.CONTENT_URI,
+				DataProvider.Plans.PROJECTION, null, null, null);
+		if (c.moveToFirst()) {
+			String[] types = this.getResources().getStringArray(R.array.plans_type);
+			do {
+				Preference p = new Preference(this);
+				p.setPersistent(false);
+				p.setKey("group_" + c.getInt(DataProvider.Plans.INDEX_ID));
+				p.setTitle(c.getString(DataProvider.Plans.INDEX_NAME));
+
+				int t = c.getInt(DataProvider.Plans.INDEX_TYPE);
+				String hint;
+				if (t >= 0 && t < types.length) {
+					hint = types[t];
+				} else {
+					hint = "???";
+				}
+				String s = c.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
+				if (s != null && s.length() > 0) {
+					hint += ", " + this.getString(R.string.merge_plans_);
+				}
+				p.setSummary(hint);
+
+				p.setOnPreferenceClickListener(this);
+				ps.addPreference(p);
+			} while (c.moveToNext());
 		}
+		c.close();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	protected final void onStop() {
-		super.onStop();
-		RuleMatcher.unmatch(this);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.add:
-			Intent intent = new Intent(this, PlanEdit.class);
-			this.startActivity(intent);
-			break;
-		case R.id.ok:
-			this.finish();
-			break;
-		case R.id.import_default:
-			intent = new Intent(Intent.ACTION_VIEW,
-					Uri.parse(this.getString(R.string.url_rulesets)));
-			try {
-				this.startActivity(intent);
-			} catch (ActivityNotFoundException e) {
-				Log.e(TAG, "no activity to load url", e);
-				Toast.makeText(this, "no activity to load url: " + intent.getDataString(),
-						Toast.LENGTH_LONG).show();
-			}
-			break;
-		default:
-			break;
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onItemClick(final AdapterView<?> parent, final View view, final int position,
-			final long id) {
-		final Intent intent = new Intent(this, PlanEdit.class);
-		intent.setData(ContentUris.withAppendedId(DataProvider.Plans.CONTENT_URI, id));
-		this.startActivity(intent);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final boolean onItemLongClick(final AdapterView<?> parent, final View view,
-			final int position, final long id) {
-		final Builder builder = new Builder(this);
-		builder.setItems(R.array.dialog_edit_delete,
-				new android.content.DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(final DialogInterface dialog, final int which) {
-						switch (which) {
-						case WHICH_EDIT:
-							final Intent intent = new Intent(Plans.this, PlanEdit.class);
-							intent.setData(ContentUris.withAppendedId(
-									DataProvider.Plans.CONTENT_URI, id));
-							Plans.this.startActivity(intent);
-							break;
-						case WHICH_DELETE:
-							Plans.this.getContentResolver().delete(
-									ContentUris.withAppendedId(DataProvider.Plans.CONTENT_URI, id),
-									null, null);
-							break;
-						default:
-							break;
-						}
-					}
-				});
-		builder.setNegativeButton(android.R.string.cancel, null);
-		builder.show();
+	public boolean onCreateOptionsMenu(final Menu menu) {
+		this.getSupportMenuInflater().inflate(R.menu.menu_group, menu);
 		return true;
 	}
 
-	/** Set the visibility for the import hint. */
-	private void showImportHint() {
-		int v = View.GONE;
-		if (this.getListView().getCount() == 0) {
-			v = View.VISIBLE;
+	@Override
+	public boolean onPrepareOptionsMenu(final Menu menu) {
+		return PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+				Preferences.PREFS_ADVANCED, false);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(final MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.item_add:
+			Preferences.setDefaultPlan(this, false);
+			final ContentValues cv = new ContentValues();
+			cv.put(DataProvider.Plans.NAME, this.getString(R.string.plans_new));
+			final Uri uri = this.getContentResolver().insert(DataProvider.Plans.CONTENT_URI, cv);
+			final Intent intent = new Intent(this, PlanEdit.class);
+			intent.setData(uri);
+			this.startActivity(intent);
+			return true;
+		default:
+			return false;
 		}
-		this.findViewById(R.id.import_default).setVisibility(v);
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		// TODO: unmatch in PlanEdit
+		// RuleMatcher.unmatch(this);
 	}
 
 	/**
-	 * Move item.
+	 * Move an item.
 	 * 
-	 * @param from
-	 *            from
-	 * @param to
-	 *            to
+	 * @param u
+	 *            item's {@link Uri}
+	 * @param diretion
+	 *            +1/-1
 	 */
-	private void move(final int from, final int to) {
-		Log.d(TAG, "move(" + from + "," + to + ")");
-		if (from == to) {
-			return;
-		}
-		final ContentResolver cr = this.getContentResolver();
-		final int l = this.adapter.getCount();
-		Log.d(TAG, "move(): l=" + l);
-		long[] ids = new long[l];
-		int i = 0;
-		int dir;
-		if (from < to) {
-			dir = 1;
-		} else {
-			dir = -1;
-		}
-		Log.d(TAG, "move(): dir=" + dir);
-		for (i = 0; i < l; i++) {
-			final long id = this.adapter.getItemId(i);
-			ids[i] = id;
-			Log.d(TAG, "move(): ids[" + i + "]=" + ids[i]);
-		}
+	private void move(final Uri u, final int diretion) {
+		Cursor c0 = this.getContentResolver().query(u, DataProvider.Plans.PROJECTION_BASIC, null,
+				null, null);
+		if (c0.moveToFirst()) {
+			int idx = c0.getColumnIndex(DataProvider.Plans.ORDER);
+			int o0 = c0.getInt(idx);
+			String w;
+			String o;
+			if (diretion < 0) {
+				w = DataProvider.Plans.ORDER + "<?";
+				o = DataProvider.Plans.ORDER + " DESC";
+			} else {
+				w = DataProvider.Plans.ORDER + ">?";
+				o = DataProvider.Plans.ORDER + " ASC";
+			}
+			Cursor c1 = this.getContentResolver().query(DataProvider.Plans.CONTENT_URI,
+					DataProvider.Plans.PROJECTION_BASIC, w, new String[] { String.valueOf(o0) }, o);
+			if (c1.moveToFirst()) {
+				int o1 = c1.getInt(idx);
+				if (o0 == o1) {
+					o1 += diretion;
+				}
+				ContentValues values = new ContentValues();
+				values.put(DataProvider.Plans.ORDER, o1);
+				this.getContentResolver().update(u, values, null, null);
 
-		final long oldid = ids[from];
-		Log.d(TAG, "move(): oldid=" + oldid);
-		for (i = from + dir; (from < to && i <= to) || (from > to && i >= to); i += dir) {
-			ids[i - dir] = ids[i];
-			Log.d(TAG, "move(): ids[" + (i - dir) + "]=" + ids[i - dir]);
+				values.put(DataProvider.Plans.ORDER, o0);
+				this.getContentResolver().update(
+						ContentUris.withAppendedId(DataProvider.Plans.CONTENT_URI,
+								c1.getInt(DataProvider.Plans.INDEX_ID)), values, null, null);
+				this.reload();
+			}
+			c1.close();
 		}
-		ids[to] = oldid;
-		Log.d(TAG, "move(): ids[" + to + "]=" + ids[to]);
+		c0.close();
+	}
 
-		ContentValues cv = new ContentValues();
-		for (i = 0; i < l; i++) {
-			cv.clear();
-			cv.put(DataProvider.Plans.ORDER, i);
-			cr.update(ContentUris.withAppendedId(DataProvider.Plans.CONTENT_URI, ids[i]), cv, null,
-					null);
+	@Override
+	public boolean onPreferenceClick(final Preference preference) {
+		String k = preference.getKey();
+		if (k != null && k.startsWith("group_")) {
+			final int id = Integer.parseInt(k.substring("group_".length()));
+			final Uri uri = ContentUris.withAppendedId(DataProvider.Plans.CONTENT_URI, id);
+			final Builder builder = new Builder(this);
+			builder.setItems(R.array.dialog_edit_up_down_delete,
+					new android.content.DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(final DialogInterface dialog, final int which) {
+							switch (which) {
+							case WHICH_EDIT:
+								final Intent intent = new Intent(Plans.this, PlanEdit.class);
+								intent.setData(uri);
+								Plans.this.startActivity(intent);
+								break;
+							case WHICH_UP:
+								Plans.this.move(uri, -1);
+								break;
+							case WHICH_DOWN:
+								Plans.this.move(uri, 1);
+								break;
+							case WHICH_DELETE:
+								Plans.this.getContentResolver().delete(
+										ContentUris.withAppendedId(DataProvider.Plans.CONTENT_URI,
+												id), null, null);
+								Plans.this.reload();
+								Preferences.setDefaultPlan(Plans.this, false);
+								RuleMatcher.unmatch(Plans.this);
+								break;
+							default:
+								break;
+							}
+						}
+					});
+			builder.setNegativeButton(android.R.string.cancel, null);
+			builder.show();
+			return true;
 		}
+		return false;
 	}
 }

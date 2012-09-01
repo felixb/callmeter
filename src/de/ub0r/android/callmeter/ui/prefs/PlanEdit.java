@@ -75,8 +75,7 @@ public class PlanEdit extends ListActivity implements OnClickListener, OnItemCli
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
-		this.setTitle(this.getString(R.string.settings) + " > " + this.getString(R.string.plans)
-				+ " > " + this.getString(R.string.edit_));
+
 		this.setContentView(R.layout.list_ok_cancel);
 
 		this.getListView().setOnItemClickListener(this);

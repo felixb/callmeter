@@ -1030,7 +1030,7 @@ public final class DataProvider extends ContentProvider {
 				MIXED_UNITS_MMS, BILLPERIOD_ID, NEXT_ALERT, STRIP_SECONDS, MERGED_PLANS };
 		/** Projection used for basic query. */
 		public static final String[] PROJECTION_BASIC = new String[] { ID, NAME, SHORTNAME, TYPE,
-				LIMIT_TYPE, LIMIT, BILLPERIOD };
+				LIMIT_TYPE, LIMIT, BILLPERIOD, ORDER };
 
 		/** Projection used for sum query. */
 		public static final String[] PROJECTION_SUM = new String[] {
@@ -2885,6 +2885,26 @@ public final class DataProvider extends ContentProvider {
 			db.insert(table, null, cv);
 		}
 		return;
+	}
+
+	/**
+	 * Get type for "what".
+	 * 
+	 * @param what
+	 *            rule's type
+	 * @return plan's type
+	 */
+	public static int what2type(final int what) {
+		switch (what) {
+		case Rules.WHAT_DATA:
+			return TYPE_DATA;
+		case Rules.WHAT_MMS:
+			return TYPE_MMS;
+		case Rules.WHAT_SMS:
+			return TYPE_SMS;
+		default:
+			return TYPE_CALL;
+		}
 	}
 
 	/**

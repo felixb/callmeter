@@ -44,9 +44,6 @@ import de.ub0r.android.lib.Utils;
 public final class NumberGroups extends SherlockPreferenceActivity implements
 		OnPreferenceClickListener {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@SuppressWarnings("deprecation")
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
@@ -56,14 +53,10 @@ public final class NumberGroups extends SherlockPreferenceActivity implements
 		this.addPreferencesFromResource(R.xml.group_prefs);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void onResume() {
 		super.onResume();
-		Utils.setLocale(this);
 
 		PreferenceScreen ps = (PreferenceScreen) this.findPreference("container");
 		ps.removeAll();
@@ -87,7 +80,7 @@ public final class NumberGroups extends SherlockPreferenceActivity implements
 		String k = preference.getKey();
 		if (k != null && k.startsWith("group_")) {
 			int id = Integer.parseInt(k.substring("group_".length()));
-			final Intent intent = new Intent(NumberGroups.this, NumberGroupEdit.class);
+			final Intent intent = new Intent(this, NumberGroupEdit.class);
 			intent.setData(ContentUris.withAppendedId(DataProvider.NumbersGroup.CONTENT_URI, id));
 			this.startActivity(intent);
 			return true;
