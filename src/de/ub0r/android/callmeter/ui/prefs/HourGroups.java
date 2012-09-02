@@ -43,11 +43,8 @@ import de.ub0r.android.lib.Utils;
  */
 public final class HourGroups extends SherlockPreferenceActivity implements
 		OnPreferenceClickListener {
-	/** Item menu: edit. */
-	private static final int WHICH_EDIT = 0;
-	/** Item menu: delete. */
-	private static final int WHICH_DELETE = 1;
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -56,6 +53,7 @@ public final class HourGroups extends SherlockPreferenceActivity implements
 		this.addPreferencesFromResource(R.xml.group_prefs);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onResume() {
 		super.onResume();

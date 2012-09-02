@@ -71,6 +71,7 @@ public final class PreferencesImport extends SherlockPreferenceActivity {
 	 *            maximal depth for searching files
 	 * @return true, if a files were found
 	 */
+	@SuppressWarnings("deprecation")
 	private boolean addExport(final File d, final int depth) {
 		if (!d.exists()) {
 			Log.e(TAG, d + " does not exist");

@@ -30,8 +30,6 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceScreen;
-import android.view.View;
-import android.widget.AdapterView;
 
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import com.actionbarsherlock.view.Menu;
@@ -49,7 +47,7 @@ import de.ub0r.android.lib.Utils;
  */
 public final class Rules extends SherlockPreferenceActivity implements OnPreferenceClickListener {
 	/** Tag for output. */
-	private static final String TAG = "pr";
+	// private static final String TAG = "pr";
 
 	/** Item menu: edit. */
 	private static final int WHICH_EDIT = 0;
