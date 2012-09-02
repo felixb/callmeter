@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates" translatable="false">
-		<item>HEAD: export logs as csv file</item>
+		<item>HEAD: export logs as csv file, reimplement preferences, fix minor bugs</item>
 		<item>v3.5.1: fix some FCs, fix dark theme, fix titles in main view</item>
 		<item>v3.5: update abs 4.0, prepare for jelly bean, fix some FCs</item>
 		<item>v3.4.2: fix 31d bill period, update translations</item>

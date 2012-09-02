@@ -71,6 +71,18 @@ public final class CVListPreference extends ListPreference {
 		}
 	}
 
+	@Override
+	public void setTitle(final int titleResId) {
+		super.setTitle(titleResId);
+		this.setDialogTitle(titleResId);
+	}
+
+	@Override
+	public void setTitle(final CharSequence title) {
+		super.setTitle(title);
+		this.setDialogTitle(title);
+	}
+
 	/**
 	 * Set static list.
 	 * 
@@ -175,13 +187,15 @@ public final class CVListPreference extends ListPreference {
 
 	@Override
 	public void setValue(final String value) {
-		String v = value;
-		if (v != null) {
-			v = v.replaceAll(",,", ",");
-		}
-		super.setValue(v);
 		if (this.m) {
+			String v = value;
+			if (v != null) {
+				v = v.replaceAll(",,", ",");
+			}
+			super.setValue(v);
 			this.reloadCheckedArray();
+		} else {
+			super.setValue(value);
 		}
 	}
 

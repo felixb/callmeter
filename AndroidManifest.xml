@@ -163,6 +163,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/plans"
             android:launchMode="singleTop"
+            android:theme="@style/Theme.SherlockDefault"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.prefs.Rules"
@@ -240,6 +241,7 @@
 
         <provider
             android:name=".data.DataProvider"
+            android:exported="false"
             android:authorities="de.ub0r.android.callmeter.provider" />
 
         <receiver android:name=".widget.StatsAppWidgetProvider" >

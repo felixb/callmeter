@@ -24,7 +24,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceScreen;
 import android.text.InputType;
-import android.text.TextUtils;
 
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 
@@ -172,16 +171,13 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 		if (c.moveToFirst()) {
 			// name
 			CVEditTextPreference ep = new CVEditTextPreference(this, this.values,
-					DataProvider.Rules.NAME);
+					DataProvider.Rules.NAME, R.string.rules_new);
 			ep.setTitle(R.string.name_);
 			ep.setSummary(R.string.name_help);
-			String s = c.getString(DataProvider.Rules.INDEX_NAME);
-			if (TextUtils.isEmpty(s)) {
-				s = this.getString(R.string.rules_new);
-			}
-			ep.setText(s);
-			ep.getEditText().setInputType(InputType.TYPE_CLASS_TEXT);
+			ep.setText(c.getString(DataProvider.Rules.INDEX_NAME));
+			ep.setInputType(InputType.TYPE_CLASS_TEXT);
 			ps.addPreference(ep);
+			this.getSupportActionBar().setSubtitle(ep.getText());
 			// active
 			CVCheckBoxPreference cp = new CVCheckBoxPreference(this, this.values,
 					DataProvider.Rules.ACTIVE);
@@ -261,11 +257,11 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 				if (i == 1) {
 					// websms connector
 					ep = new CVEditTextPreference(this, this.values,
-							DataProvider.Rules.IS_WEBSMS_CONNETOR);
+							DataProvider.Rules.IS_WEBSMS_CONNETOR, null);
 					ep.setTitle(R.string.iswebsms_connector_);
 					ep.setSummary(R.string.iswebsms_connector_help);
 					ep.setText(c.getString(DataProvider.Rules.INDEX_IS_WEBSMS_CONNETOR));
-					ep.getEditText().setInputType(InputType.TYPE_CLASS_TEXT);
+					ep.setInputType(InputType.TYPE_CLASS_TEXT);
 					ps.addPreference(ep);
 				}
 			}

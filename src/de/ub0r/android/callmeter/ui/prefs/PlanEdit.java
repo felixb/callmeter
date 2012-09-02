@@ -20,30 +20,21 @@ package de.ub0r.android.callmeter.ui.prefs;
 
 import java.util.Calendar;
 
-import android.app.ListActivity;
+import android.content.ContentUris;
 import android.content.ContentValues;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnDismissListener;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.text.InputType;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
-import de.ub0r.android.callmeter.ui.prefs.Preference.BillmodePreference;
-import de.ub0r.android.callmeter.ui.prefs.Preference.CursorPreference;
-import de.ub0r.android.callmeter.ui.prefs.Preference.DatePreference;
-import de.ub0r.android.callmeter.ui.prefs.Preference.ListPreference;
-import de.ub0r.android.callmeter.ui.prefs.Preference.Text2Preference;
-import de.ub0r.android.callmeter.ui.prefs.Preference.TextPreference;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
@@ -52,556 +43,413 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public class PlanEdit extends ListActivity implements OnClickListener, OnItemClickListener,
-		OnDismissListener {
+public final class PlanEdit extends SherlockPreferenceActivity implements UpdateListener {
 	/** Tag for debug out. */
 	private static final String TAG = "pe";
 
-	/** {@link PreferenceAdapter}. */
-	private PreferenceAdapter adapter = null;
-
+	/** This rule's {@link Uri}. */
+	private Uri uri = null;
 	/** Id of edited filed. */
 	private long pid = -1L;
-	/** Plan's type. */
-	private int ptype = -1;
+	/** {@link ContentValues} holding preferences. */
+	private ContentValues values = new ContentValues();
 
-	/** Show advanced settings. */
-	private boolean showAdvanced = false;
-
-	/**
-	 * {@inheritDoc}
-	 */
+	@SuppressWarnings("deprecation")
 	@Override
-	public final void onCreate(final Bundle savedInstanceState) {
+	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
 
-		this.setContentView(R.layout.list_ok_cancel);
-
-		this.getListView().setOnItemClickListener(this);
-		this.findViewById(R.id.ok).setOnClickListener(this);
-		this.findViewById(R.id.cancel).setOnClickListener(this);
-
-		this.fillFields();
+		this.addPreferencesFromResource(R.xml.group_prefs);
+		this.uri = this.getIntent().getData();
+		this.pid = ContentUris.parseId(this.uri);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	protected final void onNewIntent(final Intent intent) {
-		super.onNewIntent(intent);
-		this.fillFields();
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void onResume() {
+	protected void onResume() {
 		super.onResume();
 		Utils.setLocale(this);
-		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		this.showAdvanced = prefs.getBoolean(Preferences.PREFS_ADVANCED, false);
-		this.showHideFileds();
+
+		this.reload();
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Reload plans from ContentProvider.
 	 */
-	@Override
-	protected final void onPause() {
-		super.onPause();
+	@SuppressWarnings("deprecation")
+	private void reload() {
+		PreferenceScreen ps = (PreferenceScreen) this.findPreference("container");
+		ps.removeAll();
+
+		Cursor c = this.getContentResolver().query(this.uri, DataProvider.Plans.PROJECTION, null,
+				null, null);
+		if (c.moveToFirst()) {
+			int t = DataProvider.TYPE_CALL;
+			if (!c.isNull(DataProvider.Plans.INDEX_TYPE)) {
+				t = c.getInt(DataProvider.Plans.INDEX_TYPE);
+			}
+			int lt = DataProvider.LIMIT_TYPE_NONE;
+			if (!c.isNull(DataProvider.Plans.INDEX_LIMIT_TYPE)) {
+				lt = c.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
+			}
+			long ppid = DataProvider.Plans.getParent(this.getContentResolver(), this.pid);
+			String merged = c.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
+			if (merged != null && merged.replaceAll(",", "").length() == 0) {
+				merged = null;
+			}
+
+			SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
+			boolean advanced = p.getBoolean(Preferences.PREFS_ADVANCED, false);
+			boolean prepaid = p.getBoolean(Preferences.PREFS_PREPAID, false);
+			// name
+			CVEditTextPreference ep = new CVEditTextPreference(this, this.values,
+					DataProvider.Plans.NAME, R.string.plans_new);
+			ep.setTitle(R.string.name_);
+			ep.setSummary(R.string.name_help);
+			ep.setText(c.getString(DataProvider.Plans.INDEX_NAME));
+			ep.setInputType(InputType.TYPE_CLASS_TEXT);
+			ps.addPreference(ep);
+			this.getSupportActionBar().setSubtitle(ep.getText());
+			if (t != DataProvider.TYPE_SPACING && t != DataProvider.TYPE_TITLE) {
+				// short name
+				ep = new CVEditTextPreference(this, this.values, DataProvider.Plans.SHORTNAME, this
+						.getString(R.string.plans_new).replaceAll(" ", ""));
+				ep.setTitle(R.string.shortname_);
+				ep.setSummary(R.string.shortname_help);
+				ep.setText(c.getString(DataProvider.Plans.INDEX_SHORTNAME));
+				ep.setInputType(InputType.TYPE_CLASS_TEXT);
+				ps.addPreference(ep);
+			}
+			// type
+			if (advanced) {
+				CVListPreference lp = new CVListPreference(this, this.values,
+						DataProvider.Plans.TYPE);
+				lp.setTitle(R.string.type_);
+				lp.setSummary(R.string.type_help);
+				lp.setStatic(R.array.plans_type_id, R.array.plans_type);
+				lp.setValue(String.valueOf(t));
+				ps.addPreference(lp);
+			}
+			if (t == DataProvider.TYPE_BILLPERIOD) {
+				// bill period
+				int bpl = DataProvider.BILLPERIOD_1MONTH;
+				if (!c.isNull(DataProvider.Plans.INDEX_BILLPERIOD)) {
+					bpl = c.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
+				}
+				if (!prepaid) {
+					CVListPreference lp = new CVListPreference(this, this.values,
+							DataProvider.Plans.BILLPERIOD);
+					lp.setTitle(R.string.billperiod_);
+					lp.setSummary(R.string.billperiod_help);
+					lp.setStatic(R.array.billperiod_id, R.array.billperiod);
+					lp.setValue(String.valueOf(bpl));
+					ps.addPreference(lp);
+				} else {
+					// TODO: set bill period to infinit
+				}
+				if (bpl != DataProvider.BILLPERIOD_DAY) {
+					// bill day
+					CVDatePreference dp = new CVDatePreference(this, this.values,
+							DataProvider.Plans.BILLDAY, true);
+					dp.setTitle(R.string.billday_);
+					dp.setSummary(R.string.billday_help);
+					Calendar cal = Calendar.getInstance();
+					if (c.isNull(DataProvider.Plans.INDEX_BILLDAY)) {
+						cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), 0, 0, 1, 0);
+					} else {
+						cal.setTimeInMillis(c.getLong(DataProvider.Plans.INDEX_BILLDAY));
+						if (bpl != DataProvider.BILLPERIOD_INFINITE) {
+							cal = DataProvider.Plans.getBillDay(bpl, cal, null, false);
+						}
+					}
+					dp.setValue(cal);
+					ps.addPreference(dp);
+				}
+			} else if (t != DataProvider.TYPE_SPACING && t != DataProvider.TYPE_TITLE) {
+				// bill period id
+				CVListPreference lp = new CVListPreference(this, this.values,
+						DataProvider.Plans.BILLPERIOD_ID);
+				lp.setTitle(R.string.billperiodid_);
+				lp.setSummary(R.string.billperiodid_help);
+				lp.setCursor(
+						this.getContentResolver().query(DataProvider.Plans.CONTENT_URI,
+								DataProvider.Plans.PROJECTION_BASIC,
+								DataProvider.Plans.WHERE_BILLPERIODS, null, null),
+						DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME);
+				int i = -1;
+				if (!c.isNull(DataProvider.Plans.INDEX_BILLPERIOD_ID)) {
+					i = c.getInt(DataProvider.Plans.INDEX_BILLPERIOD_ID);
+				}
+				lp.setValue(String.valueOf(i));
+				ps.addPreference(lp);
+				if (ppid < 0L) {
+					// merge plans
+					lp = new CVListPreference(this, this.values, DataProvider.Plans.MERGED_PLANS,
+							true);
+					lp.setTitle(R.string.merge_plans_);
+					lp.setSummary(R.string.merge_plans_help);
+					lp.setCursor(
+							this.getContentResolver().query(DataProvider.Plans.CONTENT_URI,
+									DataProvider.Plans.PROJECTION_BASIC,
+									this.getMergePlansWhere(t), null, null),
+							DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME);
+					lp.setValue(merged);
+					ps.addPreference(lp);
+				}
+				// limit type
+				lp = new CVListPreference(this, this.values, DataProvider.Plans.LIMIT_TYPE);
+				lp.setTitle(R.string.limit_type_);
+				lp.setSummary(R.string.limit_type_help);
+				lp.setStatic(R.array.limit_type_id, R.array.limit_type);
+				lp.setValue(String.valueOf(lt));
+				ps.addPreference(lp);
+				if (lt != DataProvider.LIMIT_TYPE_NONE) {
+					// limit
+					ep = new CVEditTextPreference(this, this.values, DataProvider.Plans.LIMIT, "");
+					ep.setTitle(R.string.limit_);
+					ep.setSummary(R.string.limit_help);
+					ep.setHint(this.getLimitHint(t, lt));
+					ep.setText(c.getString(DataProvider.Plans.INDEX_LIMIT));
+					ep.setInputType(InputType.TYPE_CLASS_NUMBER
+							| InputType.TYPE_NUMBER_FLAG_DECIMAL);
+					ps.addPreference(ep);
+				}
+				if (merged == null && (t == DataProvider.TYPE_CALL || t == DataProvider.TYPE_MIXED)) {
+					// bill mode
+					CVBillPeriodPreference bp = new CVBillPeriodPreference(this, this.values,
+							DataProvider.Plans.BILLMODE);
+					bp.setTitle(R.string.billmode_);
+					bp.setSummary(R.string.billmode_help);
+					ps.addPreference(bp);
+					// strip seconds
+					ep = new CVEditTextPreference(this, this.values,
+							DataProvider.Plans.STRIP_SECONDS, "0");
+					ep.setTitle(R.string.strip_seconds_);
+					ep.setSummary(R.string.strip_seconds_help);
+					ep.setText(c.getString(DataProvider.Plans.INDEX_STRIP_SECONDS));
+					ep.setInputType(InputType.TYPE_CLASS_NUMBER);
+					ps.addPreference(ep);
+				}
+			}
+			if (t == DataProvider.TYPE_BILLPERIOD && prepaid) {
+				// balance
+				ep = new CVEditTextPreference(this, this.values, DataProvider.Plans.COST_PER_PLAN,
+						"");
+				ep.setTitle(R.string.balance_);
+				ep.setSummary(R.string.balance_help);
+				ep.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_PLAN));
+				ep.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+				ps.addPreference(ep);
+			} else if (t != DataProvider.TYPE_SPACING && t != DataProvider.TYPE_TITLE) {
+				// cost per plan
+				ep = new CVEditTextPreference(this, this.values, DataProvider.Plans.COST_PER_PLAN,
+						"");
+				ep.setTitle(R.string.cost_per_plan_);
+				ep.setSummary(R.string.cost_per_plan_help);
+				ep.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_PLAN));
+				ep.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+				ps.addPreference(ep);
+			}
+			if (merged != null
+					&& (t == DataProvider.TYPE_SMS || t == DataProvider.TYPE_MMS
+							|| t == DataProvider.TYPE_CALL || t == DataProvider.TYPE_MIXED)) {
+				if (lt != DataProvider.LIMIT_TYPE_NONE || ppid > 0L) {
+					// cost per item in limit
+					ep = new CVEditTextPreference(this, this.values,
+							DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, "");
+					ep.setTitle(R.string.cost_per_item_in_limit_);
+					ep.setSummary(R.string.cost_per_item_in_limit_help);
+					ep.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_ITEM_IN_LIMIT));
+					ep.setHint(this.getCostPerItemHint(t));
+					ep.setInputType(InputType.TYPE_CLASS_NUMBER
+							| InputType.TYPE_NUMBER_FLAG_DECIMAL);
+					ps.addPreference(ep);
+				}
+				// cost per item
+				ep = new CVEditTextPreference(this, this.values, DataProvider.Plans.COST_PER_ITEM,
+						"");
+				ep.setTitle(R.string.cost_per_item_);
+				ep.setSummary(R.string.cost_per_item_help);
+				ep.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_ITEM));
+				ep.setHint(this.getCostPerItemHint(t));
+				ep.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+				ps.addPreference(ep);
+			}
+			if (t == DataProvider.TYPE_MIXED) {
+				// mixed: units/minute
+				ep = new CVEditTextPreference(this, this.values,
+						DataProvider.Plans.MIXED_UNITS_CALL, "");
+				ep.setTitle(R.string.mixed_units_call_);
+				ep.setSummary(R.string.mixed_units_call_help);
+				ep.setText(c.getString(DataProvider.Plans.INDEX_MIXED_UNITS_CALL));
+				ep.setInputType(InputType.TYPE_CLASS_NUMBER);
+				ps.addPreference(ep);
+				// mixed: units/sms
+				ep = new CVEditTextPreference(this, this.values,
+						DataProvider.Plans.MIXED_UNITS_SMS, "");
+				ep.setTitle(R.string.mixed_units_sms_);
+				ep.setSummary(R.string.mixed_units_sms_help);
+				ep.setText(c.getString(DataProvider.Plans.INDEX_MIXED_UNITS_SMS));
+				ep.setInputType(InputType.TYPE_CLASS_NUMBER);
+				ps.addPreference(ep);
+				// mixed: units/mms
+				ep = new CVEditTextPreference(this, this.values,
+						DataProvider.Plans.MIXED_UNITS_MMS, "");
+				ep.setTitle(R.string.mixed_units_mms_);
+				ep.setSummary(R.string.mixed_units_mms_help);
+				ep.setText(c.getString(DataProvider.Plans.INDEX_MIXED_UNITS_MMS));
+				ep.setInputType(InputType.TYPE_CLASS_NUMBER);
+				ps.addPreference(ep);
+			}
+			if (merged != null && (t == DataProvider.TYPE_CALL || t == DataProvider.TYPE_DATA)) {
+				if (lt != DataProvider.LIMIT_TYPE_NONE || ppid > 0L) {
+					// cost per amount in limit
+					CV2EditTextPreference ep2 = new CV2EditTextPreference(this, this.values,
+							DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
+							DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT2,
+							t != DataProvider.TYPE_CALL || !advanced, "", "");
+					ep2.setTitle(R.string.cost_per_amount_in_limit_);
+					if (t != DataProvider.TYPE_CALL) {
+						ep2.setSummary(R.string.cost_per_amount_in_limit_help2);
+					} else {
+						ep2.setSummary(R.string.cost_per_amount_in_limit_help1);
+					}
+					ep2.setHint(this.getCostPerAmountHint(t));
+					ep2.setInputType(InputType.TYPE_CLASS_NUMBER
+							| InputType.TYPE_NUMBER_FLAG_DECIMAL);
+					ps.addPreference(ep2);
+				}
+				// cost per amount
+				CV2EditTextPreference ep2 = new CV2EditTextPreference(this, this.values,
+						DataProvider.Plans.COST_PER_AMOUNT1, DataProvider.Plans.COST_PER_AMOUNT2,
+						t != DataProvider.TYPE_CALL || !advanced, "", "");
+				ep2.setTitle(R.string.cost_per_amount_);
+				if (t != DataProvider.TYPE_CALL) {
+					ep2.setSummary(R.string.cost_per_amount_help2);
+				} else {
+					ep2.setSummary(R.string.cost_per_amount_help1);
+				}
+				ep2.setHint(this.getCostPerAmountHint(t));
+				ep2.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+				ps.addPreference(ep2);
+			}
+		}
+		c.close();
 	}
 
 	/**
-	 * Get a new {@link PreferenceAdapter} for this {@link ListActivity}.
+	 * Get selection for merged plans field.
 	 * 
-	 * @return {@link PreferenceAdapter}
+	 * @param t
+	 *            plan type
+	 * @return where clause
 	 */
-	private PreferenceAdapter getAdapter() {
-		final PreferenceAdapter ret = new PreferenceAdapter(this);
-		ret.add(new TextPreference(this, DataProvider.Plans.NAME, this
-				.getString(R.string.plans_new), R.string.name_, R.string.name_help,
-				InputType.TYPE_CLASS_TEXT));
-		ret.add(new TextPreference(this, DataProvider.Plans.SHORTNAME, this.getString(
-				R.string.plans_new).replaceAll(" ", ""), R.string.shortname_,
-				R.string.shortname_help, InputType.TYPE_CLASS_TEXT));
-		ret.add(new ListPreference(this, DataProvider.Plans.TYPE, DataProvider.TYPE_CALL,
-				R.string.type_, R.string.type_help, R.array.plans_type));
-		ret.add(new ListPreference(this, DataProvider.Plans.BILLPERIOD,
-				DataProvider.BILLPERIOD_1MONTH, R.string.billperiod_, R.string.billperiod_help,
-				R.array.billperiod));
-		ret.add(new DatePreference(this, DataProvider.Plans.BILLDAY, R.string.billday_,
-				R.string.billday_help, true));
-		ret.add(new CursorPreference(this, DataProvider.Plans.BILLPERIOD_ID,
-				R.string.billperiodid_, R.string.billperiodid_help, -1, -1, -1,
-				DataProvider.Plans.CONTENT_URI, DataProvider.Plans.ID, DataProvider.Plans.NAME,
-				DataProvider.Plans.TYPE + " == " + DataProvider.TYPE_BILLPERIOD, false, null, null,
-				null));
-		ret.add(new CursorPreference(this, DataProvider.Plans.MERGED_PLANS, R.string.merge_plans_,
-				R.string.merge_plans_help, -1, -1, -1, DataProvider.Plans.CONTENT_URI,
-				DataProvider.Plans.ID, DataProvider.Plans.NAME, null, true, null, null, null));
-		ret.add(new ListPreference(this, DataProvider.Plans.LIMIT_TYPE,
-				DataProvider.LIMIT_TYPE_NONE, R.string.limit_type_, R.string.limit_type_help,
-				R.array.limit_type));
-		ret.add(new TextPreference(this, DataProvider.Plans.LIMIT, "0", R.string.limit_,
-				R.string.limit_help, InputType.TYPE_CLASS_NUMBER
-						| InputType.TYPE_NUMBER_FLAG_DECIMAL));
-		ret.add(new BillmodePreference(this, DataProvider.Plans.BILLMODE, R.string.billmode_,
-				R.string.billmode_help));
-		ret.add(new TextPreference(this, DataProvider.Plans.STRIP_SECONDS, "0",
-				R.string.strip_seconds_, R.string.strip_seconds_help, InputType.TYPE_CLASS_NUMBER));
-		int t, th;
-		if (this.ptype == DataProvider.TYPE_BILLPERIOD
-				&& PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
-						Preferences.PREFS_PREPAID, false)) {
-			t = R.string.balance_;
-			th = R.string.balance_help;
-		} else {
-			t = R.string.cost_per_plan_;
-			th = R.string.cost_per_plan_help;
-		}
-		ret.add(new TextPreference(this, DataProvider.Plans.COST_PER_PLAN, "0", t, th,
-				InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL));
-		ret.add(new TextPreference(this, DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, "0",
-				R.string.cost_per_item_in_limit_, R.string.cost_per_item_in_limit_help,
-				InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL));
-		ret.add(new TextPreference(this, DataProvider.Plans.COST_PER_ITEM, "0",
-				R.string.cost_per_item_, R.string.cost_per_item_help, InputType.TYPE_CLASS_NUMBER
-						| InputType.TYPE_NUMBER_FLAG_DECIMAL));
-		ret.add(new TextPreference(this, DataProvider.Plans.MIXED_UNITS_CALL, "0",
-				R.string.mixed_units_call_, R.string.mixed_units_call_help,
-				InputType.TYPE_CLASS_NUMBER));
-		ret.add(new TextPreference(this, DataProvider.Plans.MIXED_UNITS_SMS, "0",
-				R.string.mixed_units_sms_, R.string.mixed_units_sms_help,
-				InputType.TYPE_CLASS_NUMBER));
-		ret.add(new TextPreference(this, DataProvider.Plans.MIXED_UNITS_MMS, "0",
-				R.string.mixed_units_mms_, R.string.mixed_units_mms_help,
-				InputType.TYPE_CLASS_NUMBER));
-		ret.add(new Text2Preference(this, DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1,
-				DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT2, "0", "0",
-				R.string.cost_per_amount_in_limit_, R.string.cost_per_amount_in_limit_help1,
-				R.string.cost_per_amount_in_limit_help2, InputType.TYPE_CLASS_NUMBER
-						| InputType.TYPE_NUMBER_FLAG_DECIMAL));
-		ret.add(new Text2Preference(this, DataProvider.Plans.COST_PER_AMOUNT1,
-				DataProvider.Plans.COST_PER_AMOUNT2, "0", "0", R.string.cost_per_amount_,
-				R.string.cost_per_amount_help1, R.string.cost_per_amount_help2,
-				InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL));
-
-		((TextPreference) ret.getPreference(DataProvider.Plans.COST_PER_PLAN))
-				.setHint(R.string.units_cost);
-		((TextPreference) ret.getPreference(DataProvider.Plans.MIXED_UNITS_CALL))
-				.setHint(R.string.units_units_per_minute);
-		((TextPreference) ret.getPreference(DataProvider.Plans.MIXED_UNITS_MMS))
-				.setHint(R.string.units_units_per_message);
-		((TextPreference) ret.getPreference(DataProvider.Plans.MIXED_UNITS_SMS))
-				.setHint(R.string.units_units_per_message);
-		return ret;
-	}
-
-	/**
-	 * Set selection for merged plans field.
-	 */
-	private void setMergePlansSelection() {
-		final PreferenceAdapter a = this.adapter;
-		if (a == null) {
-			return;
-		}
-
-		final int t = ((ListPreference) a.getPreference(DataProvider.Plans.TYPE)).getValue();
-		String sel;
+	private String getMergePlansWhere(final int t) {
+		String where;
 		if (t == DataProvider.TYPE_MIXED) {
-			sel = "(" + DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_CALL + " OR "
+			where = "(" + DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_CALL + " OR "
 					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_SMS + " OR "
 					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_MMS + ")";
 		} else {
-			sel = DataProvider.Plans.TYPE + " = " + t;
+			where = DataProvider.Plans.TYPE + " = " + t;
 		}
-		sel += " AND " + DataProvider.Plans.ID + " != " + this.pid + " AND "
+		where += " AND " + DataProvider.Plans.ID + " != " + this.pid + " AND "
 				+ DataProvider.Plans.MERGED_PLANS + " IS NULL";
-		Log.d(TAG, "selection: " + sel);
-		((CursorPreference) a.getPreference(DataProvider.Plans.MERGED_PLANS)).setCursor(sel);
+		Log.d(TAG, "selection: " + where);
+		return where;
 	}
 
 	/**
-	 * Fill the fields with data from the cursor.
-	 */
-	private void fillFields() {
-		final Uri uri = this.getIntent().getData();
-		int nid = -1;
-		Cursor cursor = null;
-		if (uri != null) {
-			cursor = this.getContentResolver().query(uri, DataProvider.Plans.PROJECTION, null,
-					null, null);
-			if (cursor == null || !cursor.moveToFirst()) {
-				cursor = null;
-				this.pid = -1;
-			}
-		}
-
-		if (cursor != null) {
-			nid = cursor.getInt(DataProvider.Plans.INDEX_ID);
-		}
-		if (this.pid == -1 || nid != this.pid) {
-			this.pid = nid;
-			if (cursor != null) {
-				cursor.getInt(DataProvider.Plans.INDEX_TYPE);
-			} else {
-				this.ptype = -1;
-			}
-			this.adapter = this.getAdapter();
-			this.setListAdapter(this.adapter);
-		}
-		if (cursor != null && !cursor.isClosed()) {
-			this.adapter.load(cursor);
-			cursor.close();
-		}
-		final PreferenceAdapter a = this.adapter;
-		if (this.ptype == DataProvider.TYPE_BILLPERIOD) {
-			final int bp = ((ListPreference) a.getPreference(DataProvider.Plans.BILLPERIOD))
-					.getValue();
-			if (bp != DataProvider.BILLPERIOD_INFINITE) {
-				final DatePreference dp = (DatePreference) a
-						.getPreference(DataProvider.Plans.BILLDAY);
-				Calendar bd = dp.getValue();
-				bd = DataProvider.Plans.getBillDay(bp, bd, null, false);
-				if (bd != null) {
-					dp.setValue(bd);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Show or hide fields based on data in there.
+	 * Get hint for LIMIT preference.
 	 * 
 	 * @param t
-	 *            type of plan
+	 *            type
+	 * @param lt
+	 *            limit type
+	 * @return res id
 	 */
-	private void showHideExtraFileds(final int t) {
-		final PreferenceAdapter a = this.adapter;
-		if (a == null) {
-			return;
-		}
-
-		if (t == DataProvider.TYPE_BILLPERIOD) {
-			final ListPreference p = (ListPreference) a
-					.getPreference(DataProvider.Plans.BILLPERIOD);
-			final int i = p.getValue();
-			a.hide(DataProvider.Plans.BILLDAY, i == DataProvider.BILLPERIOD_DAY);
-		} else if (t != DataProvider.TYPE_SPACING && t != DataProvider.TYPE_TITLE) {
-			final long ppid = DataProvider.Plans.getParent(this.getContentResolver(), this.pid);
-			final ListPreference p = (ListPreference) a
-					.getPreference(DataProvider.Plans.LIMIT_TYPE);
-			final int lt = p.getValue();
-			final boolean nolimit = lt == DataProvider.LIMIT_TYPE_NONE;
-			a.hide(DataProvider.Plans.LIMIT, nolimit);
-			if (nolimit && ppid < 0L) {
-				a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
-				a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
-			}
-			final String mergedPlans = ((CursorPreference) a
-					.getPreference(DataProvider.Plans.MERGED_PLANS)).getMultiValue();
-			if (mergedPlans != null && mergedPlans.length() > 0) {
-				a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
-				a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
-				a.hide(DataProvider.Plans.COST_PER_ITEM, true);
-				a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
-				a.hide(DataProvider.Plans.BILLMODE, true);
-				a.hide(DataProvider.Plans.STRIP_SECONDS, true);
-			}
-			if (ppid >= 0) {
-				a.hide(DataProvider.Plans.MERGED_PLANS, true);
-			}
-
-			final Text2Preference pil = (Text2Preference) a
-					.getPreference(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1);
-			final Text2Preference pol = (Text2Preference) a
-					.getPreference(DataProvider.Plans.COST_PER_AMOUNT1);
-			pil.setSingleMode(t != DataProvider.TYPE_CALL);
-			pol.setSingleMode(t != DataProvider.TYPE_CALL);
-		}
-	}
-
-	/**
-	 * Show or hide fields based on data in there.
-	 */
-	private void showHideFileds() {
-		final PreferenceAdapter a = this.adapter;
-		a.hide(DataProvider.Plans.TYPE, !this.showAdvanced);
-		final int t = ((ListPreference) a.getPreference(DataProvider.Plans.TYPE)).getValue();
-		switch (t) {
-		case DataProvider.TYPE_SPACING:
-			a.hide(DataProvider.Plans.SHORTNAME, true);
-			a.hide(DataProvider.Plans.BILLDAY, true);
-			a.hide(DataProvider.Plans.BILLMODE, true);
-			a.hide(DataProvider.Plans.STRIP_SECONDS, true);
-			a.hide(DataProvider.Plans.BILLPERIOD, true);
-			a.hide(DataProvider.Plans.BILLPERIOD_ID, true);
-			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
-			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
-			a.hide(DataProvider.Plans.COST_PER_ITEM, true);
-			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
-			a.hide(DataProvider.Plans.COST_PER_PLAN, true);
-			a.hide(DataProvider.Plans.LIMIT_TYPE, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
-			a.hide(DataProvider.Plans.LIMIT, true);
-			a.hide(DataProvider.Plans.MERGED_PLANS, true);
-			break;
-		case DataProvider.TYPE_BILLPERIOD:
-			final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
-			final boolean prepaid = p.getBoolean(Preferences.PREFS_PREPAID, false);
-			a.hide(DataProvider.Plans.BILLPERIOD, prepaid);
-			if (prepaid) {
-				((ListPreference) a.getPreference(DataProvider.Plans.BILLPERIOD))
-						.setValue(DataProvider.BILLPERIOD_INFINITE);
-			}
-			// TODO: set billperiod on enabling prepaid plans?
-			a.hide(DataProvider.Plans.COST_PER_PLAN, false);
-			a.hide(DataProvider.Plans.BILLMODE, true);
-			a.hide(DataProvider.Plans.STRIP_SECONDS, true);
-			a.hide(DataProvider.Plans.BILLPERIOD_ID, true);
-			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
-			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
-			a.hide(DataProvider.Plans.COST_PER_ITEM, true);
-			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
-			a.hide(DataProvider.Plans.LIMIT_TYPE, true);
-			a.hide(DataProvider.Plans.LIMIT, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
-			a.hide(DataProvider.Plans.MERGED_PLANS, true);
-			a.hide(DataProvider.Plans.SHORTNAME, false);
-			break;
-		default:
-			a.hide(DataProvider.Plans.SHORTNAME, false);
-			a.hide(DataProvider.Plans.BILLPERIOD_ID, false);
-			a.hide(DataProvider.Plans.MERGED_PLANS, false);
-
-			a.hide(DataProvider.Plans.BILLDAY, true);
-			a.hide(DataProvider.Plans.BILLPERIOD, true);
-			break;
-		}
-
-		switch (t) {
-		case DataProvider.TYPE_MMS:
-		case DataProvider.TYPE_SMS:
-			a.hide(DataProvider.Plans.BILLMODE, true);
-			a.hide(DataProvider.Plans.STRIP_SECONDS, true);
-			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
-			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
-
-			a.hide(DataProvider.Plans.COST_PER_ITEM, false);
-			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
-			a.hide(DataProvider.Plans.COST_PER_PLAN, false);
-			a.hide(DataProvider.Plans.LIMIT, false);
-			a.hide(DataProvider.Plans.LIMIT_TYPE, false);
-			break;
-		case DataProvider.TYPE_DATA:
-			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
-			a.hide(DataProvider.Plans.COST_PER_ITEM, true);
-			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
-			a.hide(DataProvider.Plans.BILLMODE, true);
-			a.hide(DataProvider.Plans.STRIP_SECONDS, true);
-
-			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, false);
-			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, false);
-			a.hide(DataProvider.Plans.COST_PER_PLAN, false);
-			a.hide(DataProvider.Plans.LIMIT, false);
-			a.hide(DataProvider.Plans.LIMIT_TYPE, false);
-			break;
-		case DataProvider.TYPE_CALL:
-			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
-
-			a.hide(DataProvider.Plans.BILLMODE, false);
-			a.hide(DataProvider.Plans.STRIP_SECONDS, false);
-			a.hide(DataProvider.Plans.BILLPERIOD_ID, false);
-			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, false);
-			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, false);
-			a.hide(DataProvider.Plans.COST_PER_ITEM, false);
-			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
-			a.hide(DataProvider.Plans.COST_PER_PLAN, false);
-			a.hide(DataProvider.Plans.LIMIT, false);
-			a.hide(DataProvider.Plans.LIMIT_TYPE, false);
-			break;
-		case DataProvider.TYPE_MIXED:
-			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
-			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
-
-			a.hide(DataProvider.Plans.BILLMODE, false);
-			a.hide(DataProvider.Plans.STRIP_SECONDS, false);
-			a.hide(DataProvider.Plans.COST_PER_ITEM, false);
-			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, false);
-			a.hide(DataProvider.Plans.COST_PER_PLAN, false);
-			a.hide(DataProvider.Plans.LIMIT, false);
-			a.hide(DataProvider.Plans.LIMIT_TYPE, false);
-			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, false);
-			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, false);
-			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, false);
-			break;
-		case DataProvider.TYPE_TITLE:
-			a.hide(DataProvider.Plans.SHORTNAME, true);
-			a.hide(DataProvider.Plans.BILLMODE, true);
-			a.hide(DataProvider.Plans.STRIP_SECONDS, true);
-			a.hide(DataProvider.Plans.BILLPERIOD_ID, true);
-			a.hide(DataProvider.Plans.COST_PER_AMOUNT1, true);
-			a.hide(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1, true);
-			a.hide(DataProvider.Plans.COST_PER_ITEM, true);
-			a.hide(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT, true);
-			a.hide(DataProvider.Plans.COST_PER_PLAN, true);
-			a.hide(DataProvider.Plans.LIMIT, true);
-			a.hide(DataProvider.Plans.LIMIT_TYPE, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_CALL, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_SMS, true);
-			a.hide(DataProvider.Plans.MIXED_UNITS_MMS, true);
-			a.hide(DataProvider.Plans.MERGED_PLANS, true);
-			break;
-		default:
-			break;
-		}
-		this.showHideExtraFileds(t);
-		this.setMergePlansSelection();
-		this.setHint(t);
-	}
-
-	/**
-	 * Set hint for EditTexts.
-	 * 
-	 * @param t
-	 *            type of plan
-	 */
-	private void setHint(final int t) {
-		final PreferenceAdapter a = this.adapter;
-		if (a == null) {
-			return;
-		}
-		final ListPreference p = (ListPreference) a.getPreference(DataProvider.Plans.LIMIT_TYPE);
-		final int lt = p.getValue();
-		TextPreference tp0 = (TextPreference) a.getPreference(DataProvider.Plans.LIMIT);
+	private int getLimitHint(final int t, final int lt) {
 		switch (lt) {
 		case DataProvider.LIMIT_TYPE_COST:
-			tp0.setHint(R.string.units_cost);
-			break;
+			return R.string.units_cost;
 		case DataProvider.LIMIT_TYPE_UNITS:
 			switch (t) {
 			case DataProvider.TYPE_CALL:
-				tp0.setHint(R.string.units_minutes);
-				break;
+				return R.string.units_minutes;
 			case DataProvider.TYPE_DATA:
-				tp0.setHint(R.string.units_mbyte);
-				break;
+				return R.string.units_mbyte;
 			case DataProvider.TYPE_MIXED:
-				tp0.setHint(R.string.units_units);
-				break;
+				return R.string.units_units;
 			case DataProvider.TYPE_MMS:
 			case DataProvider.TYPE_SMS:
-				tp0.setHint(R.string.units_num_msg);
-				break;
+				return R.string.units_num_msg;
 			default:
-				tp0.setHint(-1);
-				break;
+				return -1;
 			}
-			break;
 		default:
-			tp0.setHint(-1);
-			break;
+			return -1;
 		}
+	}
 
-		tp0 = (TextPreference) a.getPreference(DataProvider.Plans.COST_PER_ITEM);
-		TextPreference tp1 = (TextPreference) a
-				.getPreference(DataProvider.Plans.COST_PER_ITEM_IN_LIMIT);
-		Text2Preference tp2 = (Text2Preference) a
-				.getPreference(DataProvider.Plans.COST_PER_AMOUNT1);
-		Text2Preference tp3 = (Text2Preference) a
-				.getPreference(DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT1);
-
+	/**
+	 * Get hint for COST_PER_ITEM preference.
+	 * 
+	 * @param t
+	 *            type
+	 * @return res id
+	 */
+	private int getCostPerItemHint(final int t) {
 		switch (t) {
 		case DataProvider.TYPE_CALL:
-			tp0.setHint(R.string.units_cost_per_call);
-			tp1.setHint(R.string.units_cost_per_call);
-			tp2.setHint(R.string.units_cost_per_minute);
-			tp3.setHint(R.string.units_cost_per_minute);
-			break;
-		case DataProvider.TYPE_DATA:
-			tp2.setHint(R.string.units_cost_per_mbyte);
-			tp3.setHint(R.string.units_cost_per_mbyte);
-			break;
+			return R.string.units_cost_per_call;
 		case DataProvider.TYPE_MIXED:
-			tp0.setHint(R.string.units_cost_per_unit);
-			tp1.setHint(R.string.units_cost_per_unit);
-			break;
+			return R.string.units_cost_per_unit;
 		case DataProvider.TYPE_MMS:
 		case DataProvider.TYPE_SMS:
-			tp0.setHint(R.string.units_cost_per_message);
-			tp1.setHint(R.string.units_cost_per_message);
-			break;
+			return R.string.units_cost_per_message;
 		default:
-			tp0.setHint(-1);
-			tp1.setHint(-1);
-			tp2.setHint(-1);
-			tp3.setHint(-1);
-			break;
+			return -1;
 		}
 	}
 
 	/**
-	 * Save a plan to database.
+	 * Get hint for COST_PER_AMOUNT1 preference.
+	 * 
+	 * @param t
+	 *            type
+	 * @return res id
 	 */
-	private void savePlan() {
-		final ContentValues cv = this.adapter.save();
-		final Uri uri = this.getIntent().getData();
-		if (uri == null) {
-			this.getContentResolver().insert(DataProvider.Plans.CONTENT_URI, cv);
-		} else {
-			this.getContentResolver().update(uri, cv, null, null);
-		}
-		RuleMatcher.unmatch(this);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.ok:
-			this.savePlan();
-			Preferences.setDefaultPlan(this, false);
-		case R.id.cancel:
-			this.pid = -1;
-			this.finish();
-			break;
+	private int getCostPerAmountHint(final int t) {
+		switch (t) {
+		case DataProvider.TYPE_CALL:
+			return R.string.units_cost_per_minute;
+		case DataProvider.TYPE_DATA:
+			return R.string.units_cost_per_mbyte;
 		default:
-			break;
+			return -1;
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public final void onItemClick(final AdapterView<?> parent, final View view, final int position,
-			final long id) {
-		final Preference p = this.adapter.getItem(position);
-		p.showDialog(this);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onDismiss(final DialogInterface dialog) {
-		this.showHideFileds();
-		this.adapter.notifyDataSetInvalidated();
+	public void onUpdateValue(final android.preference.Preference p) {
+		int l = this.values.size();
+		if (this.uri != null && l > 0) {
+			boolean badkey = !this.values.containsKey(DataProvider.Plans.NAME);
+			badkey &= !this.values.containsKey(DataProvider.Plans.SHORTNAME);
+			boolean needUnmatch = l > 1 || badkey;
+			badkey &= !this.values.containsKey(DataProvider.Plans.LIMIT);
+			badkey &= !this.values.containsKey(DataProvider.Plans.COST_PER_ITEM);
+			badkey &= !this.values.containsKey(DataProvider.Plans.COST_PER_AMOUNT1);
+			boolean nonDefault = l > 1 || badkey;
+			this.getContentResolver().update(this.uri, this.values, null, null);
+			this.values.clear();
+			if (nonDefault) {
+				Preferences.setDefaultPlan(this, false);
+			}
+			if (needUnmatch) {
+				RuleMatcher.unmatch(this);
+			}
+			this.reload();
+		}
 	}
 }

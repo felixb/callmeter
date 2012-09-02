@@ -431,6 +431,16 @@
 	<string name="title">Title</string>
 	<string name="spacer">Spacer</string>
 	<string name="mixed">Mixed</string>
+	<string-array name="plans_type_id" translatable="false">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+	</string-array>
 	<string-array name="plans_type" translatable="false">
 		<item>@string/title</item>
 		<item>@string/spacer</item>
@@ -442,7 +452,7 @@
 		<item>@string/data</item>
 	</string-array>
 	<string-array name="rules_type_id" translatable="false">
-	  <item>0</item>
+		<item>0</item>
 		<item>1</item>
 		<item>2</item>
 		<item>3</item>
@@ -456,6 +466,11 @@
 	<string name="limit_type_unlimited">unlimited</string>
 	<string name="limit_type_units">units</string>
 	<string name="limit_type_cost">cost</string>
+	<string-array name="limit_type_id" translatable="false">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+	</string-array>
 	<string-array name="limit_type" translatable="false">
 		<item>@string/limit_type_unlimited</item>
 		<item>@string/limit_type_units</item>
@@ -478,6 +493,25 @@
 	<string name="x6_month">Six months</string>
 	<string name="x1_year">One year</string>
 	<string name="infinite">Infinite</string>
+	<string-array name="billperiod_id" translatable="false">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+		<item>8</item>
+		<item>9</item>
+		<item>10</item>
+		<item>11</item>
+		<item>12</item>
+		<item>13</item>
+		<item>14</item>
+		<item>15</item>
+		<item>16</item>
+	</string-array>
 	<string-array name="billperiod" translatable="false">
 		<item>@string/x1_day</item>
 		<item>@string/x1_week</item>

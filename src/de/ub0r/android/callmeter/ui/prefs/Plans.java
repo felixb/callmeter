@@ -139,13 +139,6 @@ public final class Plans extends SherlockPreferenceActivity implements OnPrefere
 		}
 	}
 
-	@Override
-	protected void onStop() {
-		super.onStop();
-		// TODO: unmatch in PlanEdit
-		// RuleMatcher.unmatch(this);
-	}
-
 	/**
 	 * Move an item.
 	 * 

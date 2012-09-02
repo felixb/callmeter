@@ -88,7 +88,7 @@ public final class CallMeter extends Application {
 			}
 		}
 		p = null;
-		DataProvider.updateSettings(this, null, false);
+		DataProvider.updateSettings(this, null, false); // TODO: remove this
 	}
 
 	/**

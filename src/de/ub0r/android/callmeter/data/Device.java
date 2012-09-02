@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.TrafficStats;
 import android.os.Build;
@@ -510,6 +511,7 @@ final class SamsungDevice extends DiscoverableDevice {
 /**
  * Common Device for API>=8.
  */
+@TargetApi(8)
 final class FroyoDevice extends Device {
 	/** Tag for output. */
 	// private static final String TAG = "FroyoDevice";
