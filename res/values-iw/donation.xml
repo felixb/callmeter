@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+		Copyright (C) 2009-2012 Felix Bechstein
+	-->
+<!--
+		This file is part of ub0rlib. This program is free software; you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation; either
+		version 3 of the License, or (at your option) any later version.
+	-->
+<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<resources>
+  <string name="remove_ads_" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="Remove ads">הסר פרסומות</string>
+  <string name="donate_paypal_" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="Donate (Paypal)">תרומה דרך פייפל</string>
+  <string name="donate_remove_ads_" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="Donate/remove ads">תרום \ הסר פרסומות</string>
+  <string name="did_paypal_donation" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="I already did a donation via Paypal">כבר תרמתי דרך פייפל</string>
+  <string name="google_id_" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="To verify your donation your google address is required:">כדי לוודא את תרומתך נצרך חשבון גוגל</string>
+  <string name="donator_id_hint" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="Paypal address">כתובת פייפל</string>
+  <string name="donator_id_missing" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="Paypal address is missing">חסר כתובת הפייפל</string>
+  <string name="sig_loaded" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="Ads removed!">הפרסומות הוסרו!</string>
+  <string name="sig_failed" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="Failed to remove ads!">לא הצליח להסיר פרסומות!</string>
+</resources>

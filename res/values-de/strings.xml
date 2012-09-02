@@ -363,6 +363,8 @@
   <string name="edit_plan_">Kontingent bearbeiten</string>
   <string name="view_logs_">Logs ansehen</string>
   <string name="delete_">Löschen</string>
+	<string name="up_">Nach oben</string>
+	<string name="down_">Nach unten</string>
   <string name="title">Titel</string>
   <string name="spacer">Abstandhalter</string>
   <string name="mixed">Mixed</string>
@@ -413,7 +415,6 @@
   <string name="x05_minute">0,5 Minuten</string>
   <string name="x1_minute">1 Minute</string>
   <string name="x2_minute">2 Minuten</string>
-  <string name="x5_minute">5 Minuten</string>
   <string name="simple_preferences_" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Simple preferences">Einfache Einstellungen</string>
   <string name="simple_preferences_hint" formatted="false" username="flx &lt;f+translation@ub0r.de&gt;" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Sehr einfache Einstellungen, ausreichend für die meisten Nutzer. Nur verfügbar, wenn der standard Regelsatz benutzt wird.</string>
   <string name="simple_preferences_deactivated"  formatted="false" username="flx &lt;f+translation@ub0r.de&gt;">Einfache Einstellungen sind nur mit dem standard Regelsatz verfügbar. Importiere den standard Regelsatz um sie wieder verfügbar zu machen.</string>

@@ -24,4 +24,5 @@
   <string name="intro_" formatted="false" orig="Introducing Call Meter 3G">Вступление в Call Meter 3G</string>
   <string name="intro0" formatted="false" orig="With &lt;b&gt;Call Meter 3G&lt;/b&gt; you can monitor the usage of your calls, messages and data connections.">С помощью <b>Call Meter 3G</b> Вы сможете следить за использованием звонков, SMS, MMS и траффиком интернет соединений.</string>
   <string name="intro1" formatted="false" orig="In order to get accurate statistics, it is important to accurately set Call Meter 3G as they will be billed.">Чтобы получить точную статистику, правильно введите переменные в Call Meter 3G, поскольку они будут обрабатываться.</string>
+  <string name="intro_kill" formatted="false" username="Max &lt;s_live@list.ru&gt;" orig="Please note that &lt;b&gt;killing&lt;/b&gt; the app can lead to corrupted (data) statistics.">Пожалуйста, обратите внимание, что <b>убийство</b> приложения может привести к повреждению (данных) статистики.</string>
 </resources>

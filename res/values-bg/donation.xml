@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+		Copyright (C) 2009-2012 Felix Bechstein
+	-->
+<!--
+		This file is part of ub0rlib. This program is free software; you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation; either
+		version 3 of the License, or (at your option) any later version.
+	-->
+<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<resources>
+  <string name="donate" formatted="false" username="hlp" orig="Donate">Дарение</string>
+  <string name="donate_" formatted="false" username="hlp" orig="Donate (%s)">Дарение (%s)</string>
+  <string name="remove_ads_" formatted="false" username="hlp" orig="Remove ads">Премахване на рекламите</string>
+  <string name="donate_paypal_" formatted="false" username="hlp" orig="Donate (Paypal)">Дарение чрез  (Paypal)</string>
+  <string name="donate_market_" formatted="false" username="hlp" orig="Donate (Market)">Дарение (Market)</string>
+  <string name="donator_id_hint" formatted="false" username="hlp" orig="Paypal address">Paypal адрес</string>
+  <string name="donator_id_missing" formatted="false" username="hlp" orig="Paypal address is missing">Paypal адрес липсва</string>
+  <string name="sig_loaded" formatted="false" username="hlp" orig="Ads removed!">Рекламите премахнати!</string>
+  <string name="donate_remove_ads_" formatted="false" username="hlp" orig="Donate/remove ads">Направи Дарение/Премахни Рекламите</string>
+  <string name="predonate" formatted="false" username="hlp" orig="This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.">Това е приложение с отворен сорс код, разпространено под GPLv3 лиценз. То е безплатно и ще остане безплатно. Ако Вие наистина харесвате проложението или ако се дразните от рекламите, моля направете дарение. Рекламите ще бъдат премахнати възможно най-скоро.\nБлагодаря Ви!\n\nДарението ще премахне рекламите във всички приложения предоставени от мен.</string>
+  <string name="predonate_market" formatted="false" username="hlp" orig="This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.">Това е приложение с отворен сорс код, разпространено под GPLv3 лиценз. То е безплатно и ще остане безплатно. Ако Вие наистина харесвате проложението или ако се дразните от рекламите, моля направете дарение. Рекламите ще бъдат премахнати възможно най-скоро.\nБлагодаря Ви!\n\nДарението ще премахне рекламите във всички приложения предоставени от мен.</string>
+  <string name="did_paypal_donation" formatted="false" username="hlp" orig="I already did a donation via Paypal">Вече направих дарение чрез Paypal</string>
+  <string name="postdonate" formatted="false" username="hlp" orig="To remove ads, you need to load the &lt;i&gt;noads&lt;/i&gt; code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work within one day.">За да премахнете рекламите, Вие се нуждаете от <i>noads</i> код. Кода ще е на разположение, веднага след като дарението бъде получено. Моля, бъдете търпеливи или изпратете имайл ако кода не бъде получен в рамките на един ден.</string>
+  <string name="google_id_" formatted="false" username="hlp" orig="To verify your donation your google address is required:">За да потвърдите вашето дарение, е необходим вашият google address:</string>
+  <string name="donator_id_" formatted="false" username="hlp" orig="To verify your donation your paypal mail address is required.">За да потвърдите вашето дарение, е необходим вашият paypal mail address.</string>
+  <string name="load_hash_" formatted="false" username="hlp" orig="Load &lt;i&gt;noads&lt;/i&gt; code">Зареди <i>noads</i> код</string>
+  <string name="sig_failed" formatted="false" username="hlp" orig="Failed to remove ads!">Неуспешно премахване на рекламите!</string>
+  <string name="accept_" formatted="false" username="hlp" orig="Accept Terms">Приемам условията</string>
+  <string name="accept_missing" formatted="false" username="hlp" orig="Please accept terms before sending the data.">Моля приемете условията, преди да изпратите данните.</string>
+  <string name="notify_" formatted="false" username="hlp" orig="Forgot to remove the ads?">Забравих да премахна рекламите?</string>
+  <string name="notify_text" formatted="false" username="hlp" orig="To finally remove the ads, you nead to load the &lt;b&gt;noads&lt;/b&gt; Code. Click to proceed.">За окончателното премахване на рекламите, трябва да заредите <b>noads</b> код. Кликнете, за да продължите.</string>
+  <string name="terms" formatted="false" username="hlp" orig="The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.">Приложението ще изпрати ID на вашето дарение заедно с md5-hash на вашият IMEI до сървъра (http://ub0r.de/donation/). Данните са необходими, за да се провери вашето дарение.\nДанните никога няма да бъдат предоставени на трето лице и се използват само за проверка на вашето дарение.</string>
+</resources>

@@ -22,7 +22,7 @@
        -->
 <resources>
   <string name="limit_help" formatted="false">Defina o limite do seu plano aqui.\n\nTipo \"unidades\" devem ser em minutos (chamadas), mensagens (sms/mms), megabytes (dados, 1024kB) ou unidades (combinadas).\n\nTipo \"custo\" devem ser adicionadas no seu padrão monetário (ex. R$).</string>
-  <string name="cost_per_amount_help2" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in R$/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Defina o custo de uma unidade tempo de cobrança (ex. ligação de 1 min) após o seu limite ter sido excedido.\nO primeiro campo tem o custo para os primeiros segundos da chamada, o segundo tem o custo para os segundos seguintes (ambos são fixados em R$ por minuto; veja no modo de cobrança).\nSe tiver dúvidas, apenas defina ambos com o custo por minuto.</string>
+  <string name="cost_per_amount_help2" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute." username="Breno Carvalho &lt;brenopapito@gmail.com&gt;">Definir o custo cobrado por duração de um item único log (por exemplo, para a chamada de 1 min) após o limite ser excedido.\nO primeiro campo contém o custo para os primeiros segundos da chamada, o segundo tem o custo para os segundos seguintes (ambos são definidos em R$/minuto; ver o modo de cobrança).\nEm caso de dúvida, basta configurar também para o seu custo de minuto.</string>
   <string name="cost_per_amount_in_limit_help2" formatted="false">Defina o custo de uma unidade tempo de cobrança (ex. ligação de 1 min., 1kB de dados) antes do seu limite ter sido excedido.\nO primeiro campo tem o custo para os primeiros segundos da chamada, o segundo tem o custo para os segundos seguintes (ambos são fixados em R$ por minuto; veja no modo de cobrança).\nSe tiver dúvidas, apenas defina ambos com o custo por minuto.</string>
   <string name="units_cost" formatted="false" orig="$">R$</string>
   <string name="units_cost_per_call" formatted="false" orig="$/Call">R$/Chamada</string>
@@ -40,7 +40,7 @@
   <string name="x30_minute">30 minutos</string>
   <string name="x1_hour">Uma hora</string>
   <string name="x2_hour">Duas horas</string>
-  <string name="manually_only">Manualmente apenas</string>
+  <string name="manually_only" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Manually only">Apenas manualmente</string>
   <string name="date_formats_1">MM/DD/AA</string>
   <string name="date_formats_2">DD/MM/AAAA</string>
   <string name="date_formats_3">DD.MM.AAAA</string>
@@ -49,10 +49,10 @@
   <string name="currency_formats_2">R$1000</string>
   <string name="currency_formats_3">1.00R$</string>
   <string name="currency_formats_4">1000R$</string>
-  <string name="direction_data_in">dentro</string>
-  <string name="direction_data_out">fora</string>
-  <string name="direction_mms_in">dentro</string>
-  <string name="direction_mms_out">fora</string>
+  <string name="direction_data_in" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="in">entrada</string>
+  <string name="direction_data_out" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="out">saída</string>
+  <string name="direction_mms_in" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="in">entrada</string>
+  <string name="direction_mms_out" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="out">saída</string>
   <string name="x1_day">Um dia</string>
   <string name="x1_week">Uma semana</string>
   <string name="x14_day">14 dias</string>
@@ -76,9 +76,9 @@
   <string name="spacer">Separador</string>
   <string name="mixed">Ligação</string>
   <string name="delete_">Deletar</string>
-  <string name="edit_plan_">Editar plano</string>
-  <string name="theme_black">Preto</string>
-  <string name="theme_light">Light</string>
+  <string name="edit_plan_" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Edit Plan">Editar Plano</string>
+  <string name="theme_black" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Black">Escuro</string>
+  <string name="theme_light" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Light">Claro</string>
   <string name="all_day">Durante todo o dia</string>
   <string name="all_week">Durante toda a semana</string>
   <string name="send_devices_hint" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Enviar a lista de dispositivos para o desenvolvedor. Isso só é necessário se seus status de dados são zero.</string>
@@ -101,4 +101,224 @@
   <string name="err_export_write" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Error writing export file">Erro escrevendo o arquivo de exportação</string>
   <string name="import_rules_empty" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Sem planos/regras estabelecidas. Clique neste texto para importar um conjunto de regras padrão.\n\nOu adicionar planos e regras nas preferências manualmente.</string>
   <string name="import_rules_default_hint" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Import default rule set shipped with the app.">Importar o conjunto de regras padrão que acompanha o aplicativo</string>
+  <string name="x2_minute" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="2 minutes">2 minutos</string>
+  <string name="x1_minute" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="1 minute">1 minuto</string>
+  <string name="x05_minute" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="0.5 minutes">0.5 minuto</string>
+  <string name="monday_till_friday" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Monday - Friday">Segunda - Sexta</string>
+  <string name="saturday" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Saturday">Sábado</string>
+  <string name="sunday" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Sunday">Domingo</string>
+  <string name="friday" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Friday">Sexta</string>
+  <string name="thursday" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Thursday">Quinta</string>
+  <string name="wednesday" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Wednesday">Quarta</string>
+  <string name="tuesday" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Tuesday">Terça</string>
+  <string name="monday" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Monday">Segunda</string>
+  <string name="loading" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Loading ...">Carregando...</string>
+  <string name="export_rules_descr" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Description">Descrição</string>
+  <string name="export_cancel" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Export to SD card">Exportar para o cartão SD</string>
+  <string name="export_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Export ...">Exportando...</string>
+  <string name="exported_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Exported:">Exportado:</string>
+  <string name="no" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="No">Não</string>
+  <string name="yes" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Yes">Sim</string>
+  <string name="plan_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Plan">Plano</string>
+  <string name="units_minutes" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Minutes">Minutos</string>
+  <string name="limit_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Limit">Limite</string>
+  <string name="type_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Type">Tipo</string>
+  <string name="name_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Name">Nome</string>
+  <string name="new_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="New">Novo</string>
+  <string name="help_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Help">Ajuda</string>
+  <string name="contacts_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Contacts">Contatos</string>
+  <string name="prepaid_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Prepaid plan">Plano Pré Pago</string>
+  <string name="mms" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="MMS">MMS</string>
+  <string name="sms" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="SMS">SMS</string>
+  <string name="messages_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="SMS/MMS">SMS/MMS</string>
+  <string name="messages" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Messages">Mensagens</string>
+  <string name="calls" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Calls">Chamadas</string>
+  <string name="hours" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Hours">Horas</string>
+  <string name="numbers" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Numbers">Números</string>
+  <string name="cost_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Cost">Custo</string>
+  <string name="rules" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Rules">Regras</string>
+  <string name="rule_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Rule">Regra</string>
+  <string name="plans_new" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="New plan">Novo plano</string>
+  <string name="plans" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Plans">Planos</string>
+  <string name="show_logs" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show logs">Mostrar logs</string>
+  <string name="now" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Now">Agora</string>
+  <string name="logs" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Logs">Logs</string>
+  <string name="show_icon_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show icon">Mostrar ícone</string>
+  <string name="show_cost_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show cost">Mostrar custo</string>
+  <string name="show_help_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show help">Mostrar ajuda</string>
+  <string name="show_hours_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show hours">Mostrar horas</string>
+  <string name="show_total_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show total">Mostrar total</string>
+  <string name="show_today_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show today">Mostrar hoje</string>
+  <string name="textsize_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Text size">Tamanho do texto</string>
+  <string name="theme_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Theme">Tema</string>
+  <string name="delete_widget" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Delete widget">Deletar widget</string>
+  <string name="widgets_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Widgets">Widgets</string>
+  <string name="widget_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Widget">Widget</string>
+  <string name="behavior_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Behavior">Comportamento</string>
+  <string name="appearance_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Appearance">Aparência</string>
+  <string name="more_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="More Apps..">Mais aplicativos...</string>
+  <string name="feedback_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Feedback">Feedback</string>
+  <string name="about_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="About">Sobre</string>
+  <string name="about_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="About this app">Sobre este aplicativo</string>
+  <string name="edit_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Edit">Editar</string>
+  <string name="settings" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Preferences">Preferências</string>
+  <string name="add_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Add">Adicionar</string>
+  <string name="send_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Send">Enviar</string>
+  <string name="x1_month_1_day" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="One month + one day">Um mês + um dia</string>
+  <string name="view_logs_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="View Logs">Visualizar Logs</string>
+  <string name="day_23" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="23:00 - 23:59">23:00 - 23:59</string>
+  <string name="day_22" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="22:00 - 22:59">22:00 - 22:59</string>
+  <string name="day_21" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="21:00 - 21:59">21:00 - 21:59</string>
+  <string name="day_20" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="20:00 - 20:59">20:00 - 20:59</string>
+  <string name="day_19" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="19:00 - 19:59">19:00 - 19:59</string>
+  <string name="day_18" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="18:00 - 18:59">18:00 - 18:59</string>
+  <string name="day_15" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="15:00 - 15:59">15:00 - 15:59</string>
+  <string name="select_plan_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Select a plan">Selecione um plano</string>
+  <string name="day_17" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="17:00 - 17:59">17:00 - 17:59</string>
+  <string name="day_16" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="16:00 - 16:59">16:00 - 16:59</string>
+  <string name="day_14" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="14:00 - 14:59">14:00 - 14:59</string>
+  <string name="day_12" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="12:00 - 12:59">12:00 - 12:59</string>
+  <string name="day_13" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="13:00 - 13:59">13:00 - 13:59</string>
+  <string name="day_11" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="11:00 - 11:59">11:00 - 11:59</string>
+  <string name="day_10" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="10:00 - 10:59">10:00 - 10:59</string>
+  <string name="day_9" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="9:00 - 9:59">9:00 - 9:59</string>
+  <string name="day_8" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="8:00 - 8:59">8:00 - 8:59</string>
+  <string name="day_7" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="7:00 - 7:59">7:00 - 7:59</string>
+  <string name="day_6" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="6:00 - 6:59">6:00 - 6:59</string>
+  <string name="day_5" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="5:00 - 5:59">5:00 - 5:59</string>
+  <string name="day_4" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="4:00 - 4:59">4:00 - 4:59</string>
+  <string name="day_3" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="3:00 - 3:59">3:00 - 3:59</string>
+  <string name="day_2" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="2:00 - 2:59">2:00 - 2:59</string>
+  <string name="day_1" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="1:00 - 1:59">1:00 - 1:59</string>
+  <string name="day_0" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="0:00 - 0:59">0:00 - 0:59</string>
+  <string name="export_progr" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Exporting data ...">Exportando dados...</string>
+  <string name="value" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Value">Valor</string>
+  <string name="remote_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Remote number">Número remoto</string>
+  <string name="units_mbyte" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="MBytes">MBytes</string>
+  <string name="units_num_msg" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="# Messages"># Mensagens</string>
+  <string name="cost_per_item_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Cost per item">Custo por item</string>
+  <string name="billperiodid_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Billing period">Período de cobrança</string>
+  <string name="data_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Data (2G/3G/4G)">Dados (2G/3G/4G)</string>
+  <string name="data" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Data">Dados</string>
+  <string name="add_hour" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Add hour">Adicionar hora</string>
+  <string name="add_number" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Add number">Adicionar número</string>
+  <string name="remote_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Remote number">Número remoto</string>
+  <string name="rules_new" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="New Rule">Nova Regra</string>
+  <string name="advanced_preferences_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Advanced preferences">Preferências avançadas</string>
+  <string name="simple_preferences_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Simple preferences">Preferências simples</string>
+  <string name="appearance_and_behavior_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Appearance &amp; behavior">Aparência e comportamento</string>
+  <string name="direction_sms_in" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="in">entrada</string>
+  <string name="direction_sms_out" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="out">saída</string>
+  <string name="direction_calls_out" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="out">saída</string>
+  <string name="direction_calls_in" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="in">entrada</string>
+  <string name="update_interval_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Update interval">Intervalo de atualização</string>
+  <string name="import_rules_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Import rule set">Importar conjunto de regras</string>
+  <string name="author_and_many_more" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="and many more...">e muitos mais...</string>
+  <string name="length_hint_call" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Length in seconds">Duração em segundos</string>
+  <string name="length_hint_data" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Length in kB">Duração em KB</string>
+  <string name="common_prefs_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Common preferences">Preferências comuns</string>
+  <string name="feedback_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Report bugs, request features ...">Reporte bugs, solicite recursos...</string>
+  <string name="billday_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="First day of your bill">Primeiro dia de cobrança</string>
+  <string name="billmode_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Mode of billing">Modo de cobrança</string>
+  <string name="widgets_no_widgets_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="No widgets added">Nenhum widget adicionado</string>
+  <string name="textsize_spacer_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Spacer\'s size">Tamanho do espaçador</string>
+  <string name="billdate_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Start of billing period:">Início do período de cobrança:</string>
+  <string name="cost_per_plan_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Cost per plan">Custo por plano</string>
+  <string name="export_logs_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Backup logs">Backup logs</string>
+  <string name="export_rules_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Export rule set">Exportar conjunto de regras</string>
+  <string name="import_rules_default_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Import default rule set">Importar conjunto de regras padrão</string>
+  <string name="notes_from_developer_text" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Click here to show recent news from the developer">Clique aqui para ver notícias recentes do desenvolvedor</string>
+  <string name="about0_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Watch your call, message and data plans!">Monitore seus planos de chamada, mensagem e dados!</string>
+  <string name="add_log" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Add log entry">Adicionar entrada de log</string>
+  <string name="update_interval_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Shorter period will use more battery.">Período mais curto vai usar mais bateria.</string>
+  <string name="update_interval_data_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Update interval (data)">Intervalo de atualização (dados)</string>
+  <string name="date_begin_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Ignore any logs before this date.">Ignorar os logs antes dessa data.</string>
+  <string name="faq_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Some tips and tricks, how to set up this app.">Algumas dicas e truques, como configurar o aplicativo.</string>
+  <string name="google_plus_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Follow me on Google+.\nGet update notifications etc.">Siga-me no Google+.\nReceba notificações de atualização, etc.</string>
+  <string name="twitter_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Follow me on twitter.\nGet update notifications etc.">Siga-me no twitter.\nReceba notificações de atualização, etc.</string>
+  <string name="billing_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Billing">Cobrança</string>
+  <string name="widgets_no_widgets_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="There are no widgets added to the launcher.">Não há widgets adicionados ao launcher.</string>
+  <string name="simple_preferences_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Preferências muito simples, adequadas para a maioria dos usuários. Somente disponível com um conjunto de regras padrão.</string>
+  <string name="advanced_preferences_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Isso permite que você defina uma configuração mais complexa. A maioria dos usuários não precisa.</string>
+  <string name="textsize_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Text size in pixels; leave empty for default">Tamanho do texto em pixels; deixe em branco para padrão</string>
+  <string name="show_today_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show today stats">Mostrar estatísticas de hoje</string>
+  <string name="show_time_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Switch to date">Mudar para a data</string>
+  <string name="show_total_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show total stats, disable to see current only.">Mostrar estatísticas totais, desative para ver atual.</string>
+  <string name="show_billperiod_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show progress of billing period">Mostrar o progresso do período de cobrança</string>
+  <string name="hide_name_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Hide name of plan">Esconder o nome do plano</string>
+  <string name="hide_zero_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Hide empty plans">Ocultar planos vazios</string>
+  <string name="hide_progressbars_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Hide progress bars">Ocultar barras de progresso</string>
+  <string name="balance_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Balance">Saldo</string>
+  <string name="balance_help" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Balance of your account at this given date.">Saldo da sua conta nesta determinada data.</string>
+  <string name="number_prefix_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="International prefix">Prefixo internacional</string>
+  <string name="reset_data_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Reset statistics">Redefinir estatísticas</string>
+  <string name="reset_data_progr2" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Recalculating statistics ...">Recalculando as estatísticas...</string>
+  <string name="clear_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Clear">Limpar</string>
+  <string name="edit_selected_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Edit selected">Editar selecionados</string>
+  <string name="name_help" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Set a name here.">Defina um nome aqui.</string>
+  <string name="shortname_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Short name">\nportuguêsinglêsespanhol\n\nNome curto</string>
+  <string name="shortname_help" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Set a short name here. It is displayed in compact layouts.">Defina um nome curto aqui. Ele é exibido em layouts compactos.</string>
+  <string name="billperiod_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Length of the billing period">Duração do período de cobrança</string>
+  <string name="billperiod_help" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Set the length of your billing period.">Defina a duração do seu período de cobrança.</string>
+  <string name="merge_plans_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Merge plans">Mesclar planos</string>
+  <string name="iswebsms_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Is WebSMS">É WebSMS</string>
+  <string name="iswebsms_help" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Message sent with WebSMS.">Mensagem enviada com WebSMS.</string>
+  <string name="strip_seconds_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Do not bill first seconds">Não cobrar primeiros segundos</string>
+  <string name="active_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Active">Ativo</string>
+  <string name="no_matter_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Does not matter">Não importa</string>
+  <string name="none" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="None">Nenhum</string>
+  <string name="export_hourgroups_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Export hour groups">Exportar grupos de horas</string>
+  <string name="import_rules_sd_files" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Found files">Arquivos encontrados</string>
+  <string name="import_rules_sd_nofiles" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="No found files">Nenhum arquivo encontrado</string>
+  <string name="custom" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Custom">Personalizado</string>
+  <string name="export_numgroups_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Export number groups">Exportar grupos de números</string>
+  <string name="export_rules_body" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Hi developer,\nhere is are the rules for my provider. Please add it to the website to let others enjoy it. Please see the details below.\n\nCountry:\nProvider:\nPlan name:\n\nCheers, a User">Olá Desenvolvedor,\naqui estão as regras para o meu provedor. Por favor, adicione-a ao website para deixar que os outros aproveitem. Veja os detalhes abaixo.\n\nPaís:\nProvedor:\nNome do plano:\n\nFelicidades, um usuário</string>
+  <string name="hide_nocost_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Hide no cost plans">Esconder planos sem custo</string>
+  <string name="custom_currency_symbol_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Custom currency symbol">Símbolo de moeda personalizado</string>
+  <string name="show_shortname_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show short name instead of long name">Mostrar nome curto em vez de nome longo</string>
+  <string name="custom_currency_format_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Select a custom currency format.">Selecione um formato de moeda personalizado.</string>
+  <string name="direction_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Direction">Direção</string>
+  <string name="reset_data_progr1" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Recalculating statistics ...\n\n(This may take some time!)">Recalculando as estatísticas ...\n\n(Isso pode levar algum tempo!)</string>
+  <string name="import_rules_sd_help" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Place your file on your SD card and click it below">Coloque o arquivo no cartão SD e clique abaixo</string>
+  <string name="edit_groups_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Edit groups">Editar grupos</string>
+  <string name="exhourgroup_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Exclude hours">Excluir horas</string>
+  <string name="show_calllength_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show info after hanging up">Mostrar informações após desligar</string>
+  <string name="custom_date_format_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Select a custom date format.">Selecione um formato de data personalizado.</string>
+  <string name="textsize_title_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Text size for titles in pixels; leave empty for default">Tamanho do texto para títulos em pixels; deixe em branco para padrão</string>
+  <string name="textsize_bigtitle_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Text size for big titles in pixels; leave empty for default">Tamanho do texto para títulos grandes em pixels; deixe em branco para padrão</string>
+  <string name="textsize_spacer_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Size for spacers in pixels; leave empty for default">Tamanho dos espaçadores em pixels; deixe em branco para padrão</string>
+  <string name="textsize_pbar_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Size for progress bars in pixels; leave empty for default">Tamanho da barras de progresso em pixels; deixe em branco para padrão</string>
+  <string name="show_hours_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Mostrar o tempo em segundos, minutos, horas e dias.\nSe nada for marcado apenas segundos e minutos serão mostrados.</string>
+  <string name="show_calllength_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show length/cost of a call after hanging up.">Mostrar duração/custo da chamada após desligar.</string>
+  <string name="custom_currency_format_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Custom currency format">Formato de moeda personalizado</string>
+  <string name="custom_date_format_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Custom date format">Formato de data personalizado</string>
+  <string name="set_selected_as_default_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Set selected plan as default">Definir plano selecionado como padrão</string>
+  <string name="import_rules_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Import preconfigured rule set.">Importar conjunto de regras pré-configuradas.</string>
+  <string name="about0" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter gera relatórios de mensagens, chamadas e dados. Ele suporta vários modos de cobrança.</string>
+  <string name="delete_old_logs_help" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Delete logs older than x days from internal database. Leave empty to disable.">Excluir logs mais antigos que x dias do banco de dados interno. Deixe em branco para desabilitar.</string>
+  <string name="textsize_pbar_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Progress bar\'s size">Tamanho da barra de progresso</string>
+  <string name="small_widget_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Use small widget">Usar o widget pequeno</string>
+  <string name="hide_nocost_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Hide plans with no cost.">Ocultar planos com nenhum custo.</string>
+  <string name="custom_currency_symbol_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Set a custom currency symbol, leave empty for system default.">Definir um símbolo de moeda personalizado, deixe em branco para o padrão do sistema.</string>
+  <string name="custom_delimiter_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Custom delimiter">Delimitador personalizado</string>
+  <string name="custom_delimiter_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Set a custom delimiter separating the blocks of statistics.">Definir um delimitador personalizado separando os blocos de estatísticas.</string>
+  <string name="autohide_in_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Auto hide dialog in: %ds">Ocultar automaticamente diálogo em: %ds</string>
+  <string name="autohide_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Auto hide">Ocultar automaticamente</string>
+  <string name="plans_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Set your plans for all kind of billing here.">Defina seus planos para todo tipo de cobrança aqui.</string>
+  <string name="rules_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Set your billing rules here.">Defina regras de cobrança aqui.</string>
+  <string name="length_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Length">Duração</string>
+  <string name="numbergroups_edit_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Edit number groups here.">Editar grupos de números aqui.</string>
+  <string name="numbergroups_edit_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Number groups">Grupos de números</string>
+  <string name="hourgroups_edit_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Hour groups">Grupos de horas</string>
+  <string name="hourgroups_edit_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Edit hour groups here.">Editar grupos de horas aqui.</string>
+  <string name="numbergroup_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Include numbers">Incluir números</string>
+  <string name="exnumbergroup_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Exclude numbers">Excluir números</string>
+  <string name="new_numbergroup" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="New number group">Novo grupo de número</string>
+  <string name="numbergroup_excalls" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Exclude from calls">Excluir das chamadas</string>
+  <string name="numbergroup_exsms" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Exclude from SMS">Excluir das mensagens</string>
+  <string name="hourgroup_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Include hours">Incluir horas</string>
+  <string name="new_hourgroup" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="New hour group">Novo grupo de hora</string>
+  <string name="billperiod_sn" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="BillPeriod">Período de cobrança</string>
+  <string name="cost_per_amount_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Cost per length">Custo por duração</string>
+  <string name="export_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Export rule sets, logs or groups">Exportar conjuntos de regras, logs ou grupos</string>
 </resources>

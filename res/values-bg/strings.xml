@@ -330,4 +330,6 @@
   <string name="mixed_units_sms_help" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="Set the units billed for a single sms.">Задай единица за таксуване на един sms.</string>
   <string name="roamed_" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="Roamed">Роминг</string>
   <string name="empty_group_" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Моля натиснете "Add" за да добавите елемент в групата.</string>
+  <string name="monday" formatted="false" username="hlp" orig="Monday">Понеделник</string>
+  <string name="delete_" formatted="false" username="hlp" orig="Delete">Изтрий</string>
 </resources>
