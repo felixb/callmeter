@@ -17,13 +17,6 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-  <string name="remove_ads_" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="Remove ads">הסר פרסומות</string>
-  <string name="donate_paypal_" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="Donate (Paypal)">תרומה דרך פייפל</string>
   <string name="donate_remove_ads_" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="Donate/remove ads">תרום \ הסר פרסומות</string>
   <string name="did_paypal_donation" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="I already did a donation via Paypal">כבר תרמתי דרך פייפל</string>
-  <string name="google_id_" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="To verify your donation your google address is required:">כדי לוודא את תרומתך נצרך חשבון גוגל</string>
-  <string name="donator_id_hint" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="Paypal address">כתובת פייפל</string>
-  <string name="donator_id_missing" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="Paypal address is missing">חסר כתובת הפייפל</string>
-  <string name="sig_loaded" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="Ads removed!">הפרסומות הוסרו!</string>
-  <string name="sig_failed" formatted="false" username="Shuki &lt;rabbishuki@gmail.com&gt;" orig="Failed to remove ads!">לא הצליח להסיר פרסומות!</string>
 </resources>
