@@ -21,7 +21,7 @@
                Visit http://ub0r.de/translate/cm2/tr/strings.xml to edit the file.
        -->
 <resources>
-  <string name="about0_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Watch your call, message and data plans!">Görüşme kayıtlarınızı, mesajlarınızı ve internet paketlerinizi izleyin!</string>
+  <string name="about0_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Watch your call, message and data plans!">Görüşme, mesaj ve data paketlerinizi takip edin!</string>
   <string name="about0" formatted="false">CallMeter görüşme, mesaj ve veri loglarından raporlar oluşturur. Birden fazla ücretlendirme biçimini destekler.</string>
   <string name="about1" formatted="false">Kullanım bilgilerinizi, fatura dönemi içerisinde kullanım / süre veya görüşme sayısı olarak veya toplam görüşme sayısı olarak verir. Aylık süre hesabı, ücretlendirme biçimi dikkate alınarak, toplam ise ücretlendirme biçimi dikkate alınmadan yapılır.</string>
   <string name="about2" formatted="false">Ücretlendirme biçimi ilk / bir sonraki ücretlendirme aralıklarını belirler. Örneğin, 60/10, her bir görüşme en az 60 saniye için ücretlendirilir, daha uzun görüşmelerse bir sonraki 10 saniyeye tamamlanır anlamındadır.</string>
@@ -140,4 +140,19 @@
   </string-array>
   <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Data (2G/3G/4G)</string>
   <string name="data_show_simple_" formatted="false" username="Muzaffer AKYIL &lt;muzaffer@akyil.net&gt;" orig="Show only \&quot;Data\&quot; as title">Sadece başlığı Data olanları göster</string>
+  <string name="data_show_simple_hint" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Başlıkta "(2G/3G/4G)" gizle. Bu istatistikleri etkilemeyecektir.</string>
+  <string name="custom_language_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Custom language">Özel dil</string>
+  <string name="custom_language_hint" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Set a custom language.">Özel bir dil ayarlayın.</string>
+  <string name="debug_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Debug">Hata ayıkla</string>
+  <string name="send_logs_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Send logs">Kayıtları gönder</string>
+  <string name="send_logs_hint" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Aygıtınızın kayıtlarını geliştiriciye gönderin.\nBunu sadece eğer yapmanız istendiyse yapın.</string>
+  <string name="sendlog_run_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Run SendLog">SendLog Çalıştır</string>
+  <string name="sendlog_run" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog aygıtın kayıtlarını toplayarak geliştiriciye gönderecek.\nGönderilen veriyi inceleme ve değiştirme imkanına sahip olacaksınız.</string>
+  <string name="sendlog_install_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Install SendLog">SendLog Yükle</string>
+  <string name="sendlog_install" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">Aygıt kayıtlarını toplayıp geliştiriciye göndermek için ücretsiz SendLog uygulamasını yükleyin.</string>
+  <string name="license_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="License:">Lisans:</string>
+  <string name="license" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - lisans bilgisi : http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="author_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Author:">Yazar:</string>
+  <string name="website_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Website:">Websitesi:</string>
+  <string name="source_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Sourcescode:">Kaynakkod:</string>
 </resources>
