@@ -18,8 +18,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.ub0r.de.android.callMeterNG"
     android:installLocation="auto"
-    android:versionCode="3231860"
-    android:versionName="2.3.18.6" >
+    android:versionCode="3231870"
+    android:versionName="2.3.18.7" >
 
     <uses-sdk
         android:minSdkVersion="3"
