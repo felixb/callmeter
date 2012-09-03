@@ -1,4 +1,3 @@
-res/values/cwac_touchlist_attrs.xml:0
 res/values/dimen_ambil.xml:0
 res/values/donation.xml:22
 res/values/help.xml:14
@@ -6,7 +5,7 @@ res/values/intro.xml:10
 res/values/market.xml:6
 res/values/notes.xml:0
 res/values/simple_prefs.xml:19
-res/values/strings.xml:414
+res/values/strings.xml:416
 res/values/update.xml:42
 res/values-ar/donation.xml:0
 res/values-ar/help.xml:0
@@ -35,7 +34,7 @@ res/values-de/intro.xml:10
 res/values-de/market.xml:6
 res/values-de/notes.xml:0
 res/values-de/simple_prefs.xml:19
-res/values-de/strings.xml:414
+res/values-de/strings.xml:416
 res/values-el/donation.xml:0
 res/values-el/help.xml:0
 res/values-el/intro.xml:0
@@ -162,11 +161,11 @@ res/values-zh/market.xml:1
 res/values-zh/notes.xml:0
 res/values-zh/simple_prefs.xml:0
 res/values-zh/strings.xml:267
-res/values:527
+res/values:529
 res/values-ar:2
 res/values-bg:381
 res/values-cs:415
-res/values-de:485
+res/values-de:487
 res/values-el:339
 res/values-es:438
 res/values-fr:42
