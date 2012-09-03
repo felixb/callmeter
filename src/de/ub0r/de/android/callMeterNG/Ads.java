@@ -35,6 +35,7 @@ import com.google.ads.AdSize;
 import com.google.ads.AdView;
 
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * Class managing ads.
@@ -44,9 +45,6 @@ import de.ub0r.android.lib.Log;
 public final class Ads {
 	/** Tag for output. */
 	private static final String TAG = "ads";
-
-	/** Size of an large ad. */
-	// private final static int AD_HSIZE = 728;
 
 	/**
 	 * Default constructor.
@@ -67,6 +65,7 @@ public final class Ads {
 	 * @param keywords
 	 *            keywords for the ads
 	 */
+	@SuppressWarnings("deprecation")
 	public static void loadAd(final Activity activity, final int adBase,
 			final String unitId, final Set<String> keywords) {
 		Log.d(TAG, "loadAd(" + unitId + ")");
@@ -76,8 +75,7 @@ public final class Ads {
 		if (adframe == null) {
 			Log.e(TAG, "adframe=null");
 			return;
-		} else if (Integer.parseInt(Build.VERSION.SDK) // .
-		<= Build.VERSION_CODES.FROYO) {
+		} else if (!Utils.isApi(Build.VERSION_CODES.GINGERBREAD)) {
 			Log.d(TAG, "API " + Build.VERSION.SDK + " <= FROYO");
 			try {
 				WebViewDatabase webViewDB = WebViewDatabase
@@ -101,16 +99,7 @@ public final class Ads {
 		if (v != null && v instanceof AdView) {
 			adv = (AdView) v;
 		} else {
-			AdSize as = AdSize.BANNER;
-			// TODO
-			// final DisplayMetrics metrics = new DisplayMetrics();
-			// this.getWindowManager().getDefaultDisplay().getMetrics(metrics);
-			// if (metrics.heightPixels > AD_HSIZE && metrics.widthPixels >
-			// AD_HSIZE) {
-			// as = AdSize.IAB_LEADERBOARD;
-			// }
-			// metrics = null;
-			adv = new AdView(activity, as, unitId);
+			adv = new AdView(activity, AdSize.SMART_BANNER, unitId);
 			adframe.addView(adv);
 		}
 

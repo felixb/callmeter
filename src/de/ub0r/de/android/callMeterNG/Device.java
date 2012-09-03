@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.TrafficStats;
 import android.os.Build;
@@ -98,6 +99,7 @@ public abstract class Device {
 	 *            {@link Context}
 	 * @return some info
 	 */
+	@SuppressWarnings("deprecation")
 	public static String debugDeviceList(final Context context) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("app: ");
@@ -271,7 +273,8 @@ class DiscoverableDevice extends Device {
 		if (this.mWiFi == null) {
 			for (String inter : WIFI_INTERFACES) {
 				if (SysClassNet.isUp(inter)) {
-					Log.i(this.getClass().getName(), "WiFi interface: " + inter);
+					Log.i(this.getClass().getName(), // .
+							"WiFi interface: " + inter);
 					this.mWiFi = inter;
 					break;
 				}
@@ -510,9 +513,10 @@ final class SamsungDevice extends DiscoverableDevice {
 /**
  * Common Device for API>=8.
  */
+@TargetApi(8)
 final class FroyoDevice extends Device {
 	/** Tag for output. */
-	private static final String TAG = "FroyoDevice";
+	// private static final String TAG = "FroyoDevice";
 
 	/**
 	 * {@inheritDoc}
