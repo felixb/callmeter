@@ -250,7 +250,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 				ep.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 				ps.addPreference(ep);
 			}
-			if (merged != null
+			if (merged == null
 					&& (t == DataProvider.TYPE_SMS || t == DataProvider.TYPE_MMS
 							|| t == DataProvider.TYPE_CALL || t == DataProvider.TYPE_MIXED)) {
 				if (lt != DataProvider.LIMIT_TYPE_NONE || ppid > 0L) {
@@ -301,7 +301,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 				ep.setInputType(InputType.TYPE_CLASS_NUMBER);
 				ps.addPreference(ep);
 			}
-			if (merged != null && (t == DataProvider.TYPE_CALL || t == DataProvider.TYPE_DATA)) {
+			if (merged == null && (t == DataProvider.TYPE_CALL || t == DataProvider.TYPE_DATA)) {
 				if (lt != DataProvider.LIMIT_TYPE_NONE || ppid > 0L) {
 					// cost per amount in limit
 					CV2EditTextPreference ep2 = new CV2EditTextPreference(this, this.values,
