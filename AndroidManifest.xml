@@ -241,7 +241,7 @@
 
         <provider
             android:name=".data.DataProvider"
-            android:exported="false"
+            android:exported="true"
             android:authorities="de.ub0r.android.callmeter.provider" />
 
         <receiver android:name=".widget.StatsAppWidgetProvider" >

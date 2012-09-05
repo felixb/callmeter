@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates" translatable="false">
+		<item>HEAD: fix FC when exporting rules</item>
 		<item>v3.6.1: fix cost settings</item>
 		<item>v3.6: export logs as csv file, reimplement preferences, fix minor bugs, update translations</item>
 		<item>v3.5.1: fix some FCs, fix dark theme, fix titles in main view</item>
