@@ -18,7 +18,7 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-	<string name="app_version" translatable="false">3.6.1</string>
+	<string name="app_version" translatable="false">3.6.2</string>
 	<string name="app_name" translatable="false">Call Meter 3G</string>
 	<string name="author" translatable="false">Felix Bechstein &lt;f@ub0r.de&gt; (Code, German) </string>
 	<string name="author_ab" translatable="false">Jake Wharton &lt;https://github.com/JakeWharton/ActionBarSherlock/&gt; (ActionBar)</string>
