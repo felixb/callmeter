@@ -7,9 +7,14 @@ import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.ContentValues;
 import android.content.Context;
 import android.preference.DialogPreference;
+import android.preference.PreferenceManager;
+import android.text.format.DateFormat;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.TextView;
 import android.widget.TimePicker;
+import de.ub0r.android.callmeter.R;
 
 /**
  * DatePreference holding it's value in {@link ContentValues}.
@@ -28,6 +33,8 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
 	private final Calendar v = Calendar.getInstance();
 	/** {@link DatePicker}. */
 	private DatePicker dp = null;
+	/** Show help. */
+	private final boolean sh;
 
 	/**
 	 * Default constructor.
@@ -48,6 +55,8 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
 		this.setKey(key);
 		this.cv = values;
 		this.dt = showDateAndTime;
+		this.sh = PreferenceManager.getDefaultSharedPreferences(context).getBoolean(
+				Preferences.PREFS_SHOWHELP, true);
 		if (context instanceof UpdateListener) {
 			this.ul = (UpdateListener) context;
 		} else {
@@ -68,6 +77,30 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
 	}
 
 	@Override
+	public void setSummary(final CharSequence summary) {
+		if (!this.sh) {
+			super.setSummary(summary);
+		}
+	}
+
+	@Override
+	public void setSummary(final int summaryResId) {
+		if (!this.sh) {
+			super.setSummary(summaryResId);
+		}
+	}
+
+	@Override
+	protected View onCreateView(final ViewGroup parent) {
+		View view = super.onCreateView(parent);
+		TextView tv = (TextView) view.findViewById(android.R.id.summary);
+		if (tv != null) {
+			tv.setMaxLines(Integer.MAX_VALUE);
+		}
+		return view;
+	}
+
+	@Override
 	protected View onCreateDialogView() {
 		this.dp = new DatePicker(this.getContext());
 		this.updateDialog();
@@ -82,6 +115,8 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
 	 */
 	public void setValue(final long time) {
 		this.v.setTimeInMillis(time);
+		super.setSummary(this.getContext().getString(R.string.value) + ": "
+				+ DateFormat.getDateFormat(this.getContext()).format(this.v.getTime()));
 		this.updateDialog();
 	}
 
@@ -92,8 +127,7 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
 	 *            calendar
 	 */
 	public void setValue(final Calendar time) {
-		this.v.setTimeInMillis(time.getTimeInMillis());
-		this.updateDialog();
+		this.setValue(time.getTimeInMillis());
 	}
 
 	/** Update {@link DatePicker}. */
@@ -107,7 +141,6 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
 
 	@Override
 	protected void onDialogClosed(final boolean positiveResult) {
-		super.onDialogClosed(positiveResult);
 		if (positiveResult) {
 			this.v.set(this.dp.getYear(), this.dp.getMonth(), this.dp.getDayOfMonth());
 			this.cv.put(this.getKey(), this.v.getTimeInMillis());

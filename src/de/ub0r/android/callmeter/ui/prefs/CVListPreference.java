@@ -6,6 +6,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.preference.ListPreference;
+import android.preference.PreferenceManager;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import de.ub0r.android.callmeter.R;
 
 /**
  * {@link ListPreference} holding it's value in {@link ContentValues}.
@@ -21,6 +26,8 @@ public final class CVListPreference extends ListPreference {
 	private boolean[] checked = null;
 	/** {@link UpdateListener}. */
 	private final UpdateListener ul;
+	/** Show help. */
+	private final boolean sh;
 
 	/**
 	 * Default constructor.
@@ -38,6 +45,8 @@ public final class CVListPreference extends ListPreference {
 		this.setKey(key);
 		this.cv = values;
 		this.m = false;
+		this.sh = PreferenceManager.getDefaultSharedPreferences(context).getBoolean(
+				Preferences.PREFS_SHOWHELP, true);
 		if (context instanceof UpdateListener) {
 			this.ul = (UpdateListener) context;
 		} else {
@@ -64,6 +73,8 @@ public final class CVListPreference extends ListPreference {
 		this.setKey(key);
 		this.cv = values;
 		this.m = multi;
+		this.sh = PreferenceManager.getDefaultSharedPreferences(context).getBoolean(
+				Preferences.PREFS_SHOWHELP, true);
 		if (context instanceof UpdateListener) {
 			this.ul = (UpdateListener) context;
 		} else {
@@ -81,6 +92,20 @@ public final class CVListPreference extends ListPreference {
 	public void setTitle(final CharSequence title) {
 		super.setTitle(title);
 		this.setDialogTitle(title);
+	}
+
+	@Override
+	public void setSummary(final CharSequence summary) {
+		if (!this.sh) {
+			super.setSummary(summary);
+		}
+	}
+
+	@Override
+	public void setSummary(final int summaryResId) {
+		if (!this.sh) {
+			super.setSummary(summaryResId);
+		}
 	}
 
 	/**
@@ -194,8 +219,24 @@ public final class CVListPreference extends ListPreference {
 			}
 			super.setValue(v);
 			this.reloadCheckedArray();
+			if (!this.sh) {
+				StringBuilder sb = new StringBuilder();
+				sb.append(this.getContext().getString(R.string.value));
+				sb.append(": ");
+				for (int i = 0; i < this.checked.length; i++) {
+					if (this.checked[i]) {
+						sb.append(this.getEntryValues()[i]);
+						sb.append(", ");
+					}
+				}
+				super.setSummary(sb.toString());
+			}
 		} else {
 			super.setValue(value);
+			if (!this.sh) {
+				super.setSummary(this.getContext().getString(R.string.value) + ": "
+						+ this.getEntry());
+			}
 		}
 	}
 
@@ -212,6 +253,16 @@ public final class CVListPreference extends ListPreference {
 		} else {
 			super.onPrepareDialogBuilder(builder);
 		}
+	}
+
+	@Override
+	protected View onCreateView(final ViewGroup parent) {
+		View v = super.onCreateView(parent);
+		TextView tv = (TextView) v.findViewById(android.R.id.summary);
+		if (tv != null) {
+			tv.setMaxLines(Integer.MAX_VALUE);
+		}
+		return v;
 	}
 
 	@Override

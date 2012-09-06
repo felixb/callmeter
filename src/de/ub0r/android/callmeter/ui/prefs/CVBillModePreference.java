@@ -5,7 +5,11 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.preference.ListPreference;
+import android.preference.PreferenceManager;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import de.ub0r.android.callmeter.R;
 
 /**
@@ -14,11 +18,13 @@ import de.ub0r.android.callmeter.R;
  * 
  * @author flx
  */
-public final class CVBillPeriodPreference extends ListPreference {
+public final class CVBillModePreference extends ListPreference {
 	/** {@link ContentValues} for saving values. */
 	private final ContentValues cv;
 	/** {@link UpdateListener}. */
 	private final UpdateListener ul;
+	/** Show help. */
+	private final boolean sh;
 
 	/**
 	 * Default constructor.
@@ -30,14 +36,15 @@ public final class CVBillPeriodPreference extends ListPreference {
 	 * @param key
 	 *            key
 	 */
-	public CVBillPeriodPreference(final Context context, final ContentValues values,
-			final String key) {
+	public CVBillModePreference(final Context context, final ContentValues values, final String key) {
 		super(context);
 		this.setPersistent(false);
 		this.setKey(key);
 		this.cv = values;
 		this.setEntryValues(R.array.billmodes);
 		this.setEntries(R.array.billmodes);
+		this.sh = PreferenceManager.getDefaultSharedPreferences(context).getBoolean(
+				Preferences.PREFS_SHOWHELP, true);
 		if (context instanceof UpdateListener) {
 			this.ul = (UpdateListener) context;
 		} else {
@@ -58,6 +65,38 @@ public final class CVBillPeriodPreference extends ListPreference {
 	}
 
 	@Override
+	public void setSummary(final CharSequence summary) {
+		if (!this.sh) {
+			super.setSummary(summary);
+		}
+	}
+
+	@Override
+	public void setSummary(final int summaryResId) {
+		if (!this.sh) {
+			super.setSummary(summaryResId);
+		}
+	}
+
+	@Override
+	public void setValue(final String value) {
+		super.setValue(value);
+		if (!this.sh) {
+			super.setSummary(this.getContext().getText(R.string.value) + ": " + this.getValue());
+		}
+	}
+
+	@Override
+	protected View onCreateView(final ViewGroup parent) {
+		View v = super.onCreateView(parent);
+		TextView tv = (TextView) v.findViewById(android.R.id.summary);
+		if (tv != null) {
+			tv.setMaxLines(Integer.MAX_VALUE);
+		}
+		return v;
+	}
+
+	@Override
 	protected void onDialogClosed(final boolean positiveResult) {
 		final String ov = this.getValue();
 		super.onDialogClosed(positiveResult);
@@ -74,15 +113,15 @@ public final class CVBillPeriodPreference extends ListPreference {
 					@Override
 					public void onClick(final DialogInterface paramDialogInterface,
 							final int paramInt) {
-						CVBillPeriodPreference.this.setValue(ov);
+						CVBillModePreference.this.setValue(ov);
 					}
 				});
 				b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(final DialogInterface dialog, final int which) {
 						String nv = et.getText().toString();
-						CVBillPeriodPreference.this.setValue(nv);
-						CVBillPeriodPreference.this.cv.put(CVBillPeriodPreference.this.getKey(), nv);
+						CVBillModePreference.this.setValue(nv);
+						CVBillModePreference.this.cv.put(CVBillModePreference.this.getKey(), nv);
 					}
 				});
 				b.show();

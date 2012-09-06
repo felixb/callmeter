@@ -26,6 +26,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.text.InputType;
@@ -84,12 +85,18 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 		Cursor c = this.getContentResolver().query(this.uri, DataProvider.Plans.PROJECTION, null,
 				null, null);
 		if (c.moveToFirst()) {
-			int t = DataProvider.TYPE_CALL;
-			if (!c.isNull(DataProvider.Plans.INDEX_TYPE)) {
+			int t;
+			if (c.isNull(DataProvider.Plans.INDEX_TYPE)) {
+				t = DataProvider.TYPE_CALL;
+				this.values.put(DataProvider.Plans.TYPE, t);
+			} else {
 				t = c.getInt(DataProvider.Plans.INDEX_TYPE);
 			}
-			int lt = DataProvider.LIMIT_TYPE_NONE;
-			if (!c.isNull(DataProvider.Plans.INDEX_LIMIT_TYPE)) {
+			int lt;
+			if (c.isNull(DataProvider.Plans.INDEX_LIMIT_TYPE)) {
+				lt = DataProvider.LIMIT_TYPE_NONE;
+				this.values.put(DataProvider.Plans.LIMIT_TYPE, lt);
+			} else {
 				lt = c.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 			}
 			long ppid = DataProvider.Plans.getParent(this.getContentResolver(), this.pid);
@@ -132,8 +139,11 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 			}
 			if (t == DataProvider.TYPE_BILLPERIOD) {
 				// bill period
-				int bpl = DataProvider.BILLPERIOD_1MONTH;
-				if (!c.isNull(DataProvider.Plans.INDEX_BILLPERIOD)) {
+				int bpl;
+				if (c.isNull(DataProvider.Plans.INDEX_BILLPERIOD)) {
+					bpl = DataProvider.BILLPERIOD_1MONTH;
+					this.values.put(DataProvider.Plans.BILLPERIOD, bpl);
+				} else {
 					bpl = c.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
 				}
 				if (!prepaid) {
@@ -155,7 +165,8 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 					dp.setSummary(R.string.billday_help);
 					Calendar cal = Calendar.getInstance();
 					if (c.isNull(DataProvider.Plans.INDEX_BILLDAY)) {
-						cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), 0, 0, 1, 0);
+						cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), 1, 0, 1, 0);
+						this.values.put(DataProvider.Plans.BILLDAY, cal.getTimeInMillis());
 					} else {
 						cal.setTimeInMillis(c.getLong(DataProvider.Plans.INDEX_BILLDAY));
 						if (bpl != DataProvider.BILLPERIOD_INFINITE) {
@@ -176,8 +187,11 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 								DataProvider.Plans.PROJECTION_BASIC,
 								DataProvider.Plans.WHERE_BILLPERIODS, null, null),
 						DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME);
-				int i = -1;
-				if (!c.isNull(DataProvider.Plans.INDEX_BILLPERIOD_ID)) {
+				int i;
+				if (c.isNull(DataProvider.Plans.INDEX_BILLPERIOD_ID)) {
+					i = -1;
+					this.values.put(DataProvider.Plans.BILLPERIOD_ID, i);
+				} else {
 					i = c.getInt(DataProvider.Plans.INDEX_BILLPERIOD_ID);
 				}
 				lp.setValue(String.valueOf(i));
@@ -216,10 +230,11 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 				}
 				if (merged == null && (t == DataProvider.TYPE_CALL || t == DataProvider.TYPE_MIXED)) {
 					// bill mode
-					CVBillPeriodPreference bp = new CVBillPeriodPreference(this, this.values,
+					CVBillModePreference bp = new CVBillModePreference(this, this.values,
 							DataProvider.Plans.BILLMODE);
 					bp.setTitle(R.string.billmode_);
 					bp.setSummary(R.string.billmode_help);
+					bp.setValue(c.getString(DataProvider.Plans.INDEX_BILLMODE));
 					ps.addPreference(bp);
 					// strip seconds
 					ep = new CVEditTextPreference(this, this.values,
@@ -309,12 +324,14 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 							DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT2,
 							t != DataProvider.TYPE_CALL || !advanced, "", "");
 					ep2.setTitle(R.string.cost_per_amount_in_limit_);
-					if (t != DataProvider.TYPE_CALL) {
+					if (t == DataProvider.TYPE_CALL) {
 						ep2.setSummary(R.string.cost_per_amount_in_limit_help2);
 					} else {
 						ep2.setSummary(R.string.cost_per_amount_in_limit_help1);
 					}
 					ep2.setHint(this.getCostPerAmountHint(t));
+					ep2.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT_IN_LIMIT1),
+							c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT_IN_LIMIT2));
 					ep2.setInputType(InputType.TYPE_CLASS_NUMBER
 							| InputType.TYPE_NUMBER_FLAG_DECIMAL);
 					ps.addPreference(ep2);
@@ -324,17 +341,23 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 						DataProvider.Plans.COST_PER_AMOUNT1, DataProvider.Plans.COST_PER_AMOUNT2,
 						t != DataProvider.TYPE_CALL || !advanced, "", "");
 				ep2.setTitle(R.string.cost_per_amount_);
-				if (t != DataProvider.TYPE_CALL) {
+				if (t == DataProvider.TYPE_CALL) {
 					ep2.setSummary(R.string.cost_per_amount_help2);
 				} else {
 					ep2.setSummary(R.string.cost_per_amount_help1);
 				}
 				ep2.setHint(this.getCostPerAmountHint(t));
+				ep2.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT1),
+						c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT2));
 				ep2.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 				ps.addPreference(ep2);
 			}
 		}
 		c.close();
+		if (this.values.size() > 0) {
+			this.getContentResolver().update(this.uri, this.values, null, null);
+			this.values.clear();
+		}
 	}
 
 	/**
@@ -450,6 +473,21 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 				RuleMatcher.unmatch(this);
 			}
 			this.reload();
+		}
+	}
+
+	@Override
+	public void onSetDefaultValue(final Preference p, final Object value) {
+		if (value instanceof String) {
+			this.values.put(p.getKey(), (String) value);
+		} else if (value instanceof Integer) {
+			this.values.put(p.getKey(), (Integer) value);
+		} else if (value instanceof Long) {
+			this.values.put(p.getKey(), (Long) value);
+		} else if (value instanceof Boolean) {
+			this.values.put(p.getKey(), (Boolean) value);
+		} else {
+			throw new IllegalArgumentException("unknown type " + value);
 		}
 	}
 }

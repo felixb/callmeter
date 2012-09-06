@@ -22,6 +22,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.text.InputType;
 
@@ -194,6 +195,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 			int w;
 			if (c.isNull(DataProvider.Rules.INDEX_WHAT)) {
 				w = DataProvider.TYPE_CALL;
+				this.values.put(DataProvider.Rules.WHAT, w);
 			} else {
 				w = c.getInt(DataProvider.Rules.INDEX_WHAT);
 			}
@@ -225,8 +227,11 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 					new String[] { String.valueOf(DataProvider.DIRECTION_IN),
 							String.valueOf(DataProvider.DIRECTION_OUT), "-1" },
 					this.getStrings(this.getStringArray(t)));
-			int i = -1;
-			if (!c.isNull(DataProvider.Rules.INDEX_DIRECTION)) {
+			int i;
+			if (c.isNull(DataProvider.Rules.INDEX_DIRECTION)) {
+				i = -1;
+				this.values.put(DataProvider.Rules.DIRECTION, i);
+			} else {
 				i = c.getInt(DataProvider.Rules.INDEX_DIRECTION);
 			}
 			lp.setValue(String.valueOf(i));
@@ -236,8 +241,10 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 			lp.setTitle(R.string.roamed_);
 			lp.setSummary(R.string.roamed_help);
 			lp.setStatic(new String[] { "1", "0", "-1" }, this.getStrings(-1));
-			i = -1;
-			if (!c.isNull(DataProvider.Rules.INDEX_ROAMED)) {
+			if (c.isNull(DataProvider.Rules.INDEX_ROAMED)) {
+				i = -1;
+				this.values.put(DataProvider.Rules.ROAMED, i);
+			} else {
 				i = c.getInt(DataProvider.Rules.INDEX_ROAMED);
 			}
 			lp.setValue(String.valueOf(i));
@@ -248,8 +255,10 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 				lp.setTitle(R.string.iswebsms_);
 				lp.setSummary(R.string.iswebsms_help);
 				lp.setStatic(new String[] { "1", "0", "-1" }, this.getStrings(-1));
-				i = -1;
-				if (!c.isNull(DataProvider.Rules.INDEX_IS_WEBSMS)) {
+				if (c.isNull(DataProvider.Rules.INDEX_IS_WEBSMS)) {
+					i = -1;
+					this.values.put(DataProvider.Rules.IS_WEBSMS, i);
+				} else {
 					i = c.getInt(DataProvider.Rules.INDEX_IS_WEBSMS);
 				}
 				lp.setValue(String.valueOf(i));
@@ -271,8 +280,10 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 				lp.setTitle(R.string.issipcall_);
 				lp.setSummary(R.string.issipcall_help);
 				lp.setStatic(new String[] { "1", "0", "-1" }, this.getStrings(-1));
-				i = -1;
-				if (!c.isNull(DataProvider.Rules.INDEX_IS_SIPCALL)) {
+				if (c.isNull(DataProvider.Rules.INDEX_IS_SIPCALL)) {
+					i = -1;
+					this.values.put(DataProvider.Rules.IS_SIPCALL, i);
+				} else {
 					i = c.getInt(DataProvider.Rules.INDEX_IS_SIPCALL);
 				}
 				lp.setValue(String.valueOf(i));
@@ -322,6 +333,10 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 			}
 		}
 		c.close();
+		if (this.values.size() > 0) {
+			this.getContentResolver().update(this.uri, this.values, null, null);
+			this.values.clear();
+		}
 	}
 
 	/**
@@ -364,6 +379,21 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 			Preferences.setDefaultPlan(this, false);
 			RuleMatcher.unmatch(this);
 			this.reload();
+		}
+	}
+
+	@Override
+	public void onSetDefaultValue(final Preference p, final Object value) {
+		if (value instanceof String) {
+			this.values.put(p.getKey(), (String) value);
+		} else if (value instanceof Integer) {
+			this.values.put(p.getKey(), (Integer) value);
+		} else if (value instanceof Long) {
+			this.values.put(p.getKey(), (Long) value);
+		} else if (value instanceof Boolean) {
+			this.values.put(p.getKey(), (Boolean) value);
+		} else {
+			throw new IllegalArgumentException("unknown type " + value);
 		}
 	}
 }

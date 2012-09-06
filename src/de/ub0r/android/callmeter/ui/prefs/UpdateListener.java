@@ -9,6 +9,21 @@ import android.preference.Preference;
  * @author flx
  */
 public interface UpdateListener {
-	/** Value was updated. */
+	/**
+	 * Value was updated.
+	 * 
+	 * @param p
+	 *            {@link Preference}
+	 */
 	void onUpdateValue(Preference p);
+
+	/**
+	 * The default value was set.
+	 * 
+	 * @param p
+	 *            {@link Preference}
+	 * @param value
+	 *            new value
+	 */
+	void onSetDefaultValue(Preference p, Object value);
 }

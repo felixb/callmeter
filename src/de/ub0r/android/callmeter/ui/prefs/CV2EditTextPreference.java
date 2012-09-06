@@ -3,10 +3,13 @@ package de.ub0r.android.callmeter.ui.prefs;
 import android.content.ContentValues;
 import android.content.Context;
 import android.preference.EditTextPreference;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import de.ub0r.android.callmeter.R;
 
 /**
@@ -35,6 +38,8 @@ public final class CV2EditTextPreference extends EditTextPreference {
 	private int it = -1;
 	/** Hint. */
 	private int h = -1;
+	/** Show help. */
+	private final boolean sh;
 
 	/**
 	 * Default constructor.
@@ -65,6 +70,8 @@ public final class CV2EditTextPreference extends EditTextPreference {
 		this.sm = singleMode;
 		this.dv1 = defValue1;
 		this.dv2 = defValue2;
+		this.sh = PreferenceManager.getDefaultSharedPreferences(context).getBoolean(
+				Preferences.PREFS_SHOWHELP, true);
 		if (context instanceof UpdateListener) {
 			this.ul = (UpdateListener) context;
 		} else {
@@ -89,6 +96,20 @@ public final class CV2EditTextPreference extends EditTextPreference {
 		this.setText(text, text);
 	}
 
+	@Override
+	public void setSummary(final CharSequence summary) {
+		if (!this.sh) {
+			super.setSummary(summary);
+		}
+	}
+
+	@Override
+	public void setSummary(final int summaryResId) {
+		if (!this.sh) {
+			super.setSummary(summaryResId);
+		}
+	}
+
 	/**
 	 * Set text.
 	 * 
@@ -103,7 +124,11 @@ public final class CV2EditTextPreference extends EditTextPreference {
 		} else {
 			super.setText(text1);
 		}
-		if (!this.sm) {
+		if (this.sm) {
+			if (!this.sh) {
+				super.setSummary(this.getContext().getString(R.string.value) + " " + this.getText());
+			}
+		} else {
 			if (TextUtils.isEmpty(text2)) {
 				this.v2 = this.dv2;
 			} else {
@@ -113,6 +138,15 @@ public final class CV2EditTextPreference extends EditTextPreference {
 			if (this.et1 != null) {
 				this.et1.setText(this.getText());
 				this.et2.setText(this.v2);
+			}
+			if (!this.sh) {
+				if (TextUtils.isEmpty(this.v2) || this.v2.equals(this.getText())) {
+					super.setSummary(this.getContext().getString(R.string.value) + ": "
+							+ this.getText());
+				} else {
+					super.setSummary(this.getContext().getString(R.string.value) + ": "
+							+ this.getText() + "/" + this.v2);
+				}
 			}
 		}
 	}
@@ -150,6 +184,16 @@ public final class CV2EditTextPreference extends EditTextPreference {
 	}
 
 	@Override
+	protected View onCreateView(final ViewGroup parent) {
+		View v = super.onCreateView(parent);
+		TextView tv = (TextView) v.findViewById(android.R.id.summary);
+		if (tv != null) {
+			tv.setMaxLines(Integer.MAX_VALUE);
+		}
+		return v;
+	}
+
+	@Override
 	protected View onCreateDialogView() {
 		if (this.sm) {
 			return super.onCreateDialogView();
@@ -173,7 +217,9 @@ public final class CV2EditTextPreference extends EditTextPreference {
 
 	@Override
 	protected void onDialogClosed(final boolean positiveResult) {
-		super.onDialogClosed(positiveResult);
+		if (this.sm) {
+			super.onDialogClosed(positiveResult);
+		}
 		if (positiveResult) {
 			if (this.sm || this.et1 == null) {
 				String v = this.getText();

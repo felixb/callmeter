@@ -3,7 +3,12 @@ package de.ub0r.android.callmeter.ui.prefs;
 import android.content.ContentValues;
 import android.content.Context;
 import android.preference.EditTextPreference;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import de.ub0r.android.callmeter.R;
 
 /**
  * {@link EditTextPreference} holding it's value in {@link ContentValues}.
@@ -18,6 +23,8 @@ public final class CVEditTextPreference extends EditTextPreference {
 	private final UpdateListener ul;
 	/** Default value. */
 	private final String dv;
+	/** Show help. */
+	private final boolean sh;
 
 	/**
 	 * Default constructor.
@@ -38,6 +45,8 @@ public final class CVEditTextPreference extends EditTextPreference {
 		this.setKey(key);
 		this.cv = values;
 		this.dv = defValue;
+		this.sh = PreferenceManager.getDefaultSharedPreferences(context).getBoolean(
+				Preferences.PREFS_SHOWHELP, true);
 		if (context instanceof UpdateListener) {
 			this.ul = (UpdateListener) context;
 		} else {
@@ -75,11 +84,31 @@ public final class CVEditTextPreference extends EditTextPreference {
 	}
 
 	@Override
+	public void setSummary(final CharSequence summary) {
+		if (!this.sh) {
+			super.setSummary(summary);
+		}
+	}
+
+	@Override
+	public void setSummary(final int summaryResId) {
+		if (!this.sh) {
+			super.setSummary(summaryResId);
+		}
+	}
+
+	@Override
 	public void setText(final String text) {
 		if (TextUtils.isEmpty(text)) {
 			super.setText(this.dv);
+			if (!TextUtils.isEmpty(this.dv) && !"0".equals(this.dv) && this.ul != null) {
+				this.ul.onSetDefaultValue(this, this.getText().toString());
+			}
 		} else {
 			super.setText(text);
+		}
+		if (!this.sh) {
+			super.setSummary(this.getContext().getString(R.string.value) + ": " + this.getText());
 		}
 	}
 
@@ -101,6 +130,16 @@ public final class CVEditTextPreference extends EditTextPreference {
 	 */
 	public void setInputType(final int inputType) {
 		this.getEditText().setInputType(inputType);
+	}
+
+	@Override
+	protected View onCreateView(final ViewGroup parent) {
+		View v = super.onCreateView(parent);
+		TextView tv = (TextView) v.findViewById(android.R.id.summary);
+		if (tv != null) {
+			tv.setMaxLines(Integer.MAX_VALUE);
+		}
+		return v;
 	}
 
 	@Override
