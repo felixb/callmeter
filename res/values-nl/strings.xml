@@ -337,4 +337,21 @@
   <string name="data_inout" formatted="false" orig="Data In/Out">Data In/Uit</string>
   <string name="export_" formatted="false" orig="Export ...">Exporteer ...</string>
   <string name="import_rules_sd_" formatted="false" username="Sven Klinkhamer &lt;sven.klinkhamer@gmail.com&gt;" orig="Import from SD card">Importeer van SD kaart</string>
+  <string name="author_and_many_more" formatted="false" username="Gummie" orig="and many more...">en veel meer...</string>
+  <string name="update_interval_data_" formatted="false" username="Gummie" orig="Update interval (data)">Update interval (data)</string>
+  <string name="update_interval_data_hint" formatted="false" username="Gummie" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Update van data statistieken moet vaker gebeuren. Zeker Samsung heeft hele korte intervallen nodig.</string>
+  <string name="up_" formatted="false" username="Gummie" orig="Move up">Omhoog</string>
+  <string name="down_" formatted="false" username="Gummie" orig="Move down">Naar beneden</string>
+  <string name="widget_" formatted="false" username="Gummie" orig="Widget">Widget</string>
+  <string name="widgets_" formatted="false" username="Gummie" orig="Widgets">Widgets</string>
+  <string name="widgets_no_widgets_" formatted="false" username="Gummie" orig="No widgets added">Geen widgets toegevoegd</string>
+  <string name="widgets_no_widgets_hint" formatted="false" username="Gummie" orig="There are no widgets added to the launcher.">Er zijn geen widgets toegevoegd aan de launcher</string>
+  <string name="delete_widget" formatted="false" username="Gummie" orig="Delete widget">Verwijder widget</string>
+  <string name="google_plus_hint" formatted="false" username="Gummie" orig="Follow me on Google+.\nGet update notifications etc.">Volg mij op Google+.\nKrijg update notificaties etc.</string>
+  <string name="simple_preferences_hint" formatted="false" username="Gummie" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Heel erg eenvoudige voorkeuren, geschikt voor de meeste gebruikers. Allen beschikbaar met standaard regelset.</string>
+  <string name="simple_preferences_deactivated" formatted="false" username="Gummie" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Eenvoudige voorkeuren zijn alleen beschikbaar voor standaard regelset. Importeer de standaard regelset om opnieuw te activeren.</string>
+  <string name="hide_nocost_" formatted="false" username="Gummie" orig="Hide no cost plans">Verberg geen kosten schema\'s</string>
+  <string name="hide_nocost_hint" formatted="false" username="Gummie" orig="Hide plans with no cost.">Verberg schema\'s zonder kosten.</string>
+  <string name="hide_progressbars_" formatted="false" username="Gummie" orig="Hide progress bars">Verberg voortgangsbalk</string>
+  <string name="hide_progressbars_hint" formatted="false" username="Gummie" orig="Hide progress bars in main view.">Verberg voortgangsbalk in hoofdscherm</string>
 </resources>
