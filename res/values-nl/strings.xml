@@ -24,12 +24,12 @@
   <string name="changelog_notification_" formatted="false" orig="Recent changes:" username="housenegro76@hotmail.com">Recente wijzigingen:</string>
   <string name="about0_" formatted="false" username="rainbowwarrior7" orig="Watch your call, message and data plans!">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
   <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing." username="housenegro76@hotmail.com">CallMeter genereert rapporten van gesprekken, berichten en data logs. Het ondersteunt diverse facturatiemogelijkheden.</string>
-  <string name="about1" formatted="false">Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
+  <string name="about1" formatted="false" username="Gummie" orig="The output format is usage | time or count used this billing period | time or count overall.">Het resultaat formaat is gebruik | tijd of aantal gebruikt deze facturatie periode | tijd of aantal algemeen.</string>
   <string name="about2" formatted="false" username="housenegro76@hotmail.com" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
   <string name="about3" formatted="false" username="housenegro76@hotmail.com" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter werkt zich elke 30 minuten op de achtergrond bij (alleen wanneer niet in standby). Dit betekent dat het verwijderen van gesprekken of berichten ouder dan 30 min. de statistieken niet wijzigt. Het verwijderen van gesprekken of berichten jonger dan 30 min. kan resulteren in onjuiste statistieken.</string>
   <string name="send_" formatted="false" username="housenegro76@hotmail.com" orig="Send">Verstuur</string>
   <string name="add_" formatted="false" username="rainbowwarrior7" orig="Add">Toevoegen</string>
-  <string name="add_log" formatted="false" username="housenegro76@hotmail.com" orig="Add log entry">Toevoegen log regel</string>
+  <string name="add_log" formatted="false" username="Gummie" orig="Add log entry">Toevoegen logregel</string>
   <string name="length_hint_call" formatted="false" orig="Length in seconds">Lengte in seconden</string>
   <string name="length_hint_data" formatted="false" orig="Length in kB">Lengte in kB</string>
   <string name="settings" formatted="false" username="housenegro76@hotmail.com" orig="Preferences">Voorkeuren</string>
@@ -95,21 +95,21 @@
   <string name="plans_new" formatted="false">Nieuw schema</string>
   <string name="rule_" formatted="false">Regel</string>
   <string name="rules" formatted="false">Regels</string>
-  <string name="rules_hint" formatted="false">Stel hier je facturatie regels in.</string>
+  <string name="rules_hint" formatted="false" username="Gummie" orig="Set your billing rules here.">Stel hier je facturatieregels in.</string>
   <string name="rules_new" formatted="false">Nieuwe Regel</string>
   <string name="numbers" formatted="false">Nummers</string>
   <string name="numbergroup_" formatted="false">Insluiten nummers</string>
   <string name="numbergroup_help" formatted="false">Voeg nummers toe die deze regel moeten matchen.\n\nWildcards (\"%\") zijn toegestaan aan allebei de uiteinden van het nummer.\nBv. %34 matched 1234, 12% matched 1234 en %23% matched 12345.</string>
   <string name="exnumbergroup_" formatted="false">Uitsluiten nummers</string>
   <string name="exnumbergroup_help" formatted="false">Voeg nummers toe die deze regel niet moeten matchen.\nZie hierboven.</string>
-  <string name="new_numbergroup" formatted="false">Nieuwe nummer groep</string>
+  <string name="new_numbergroup" formatted="false" username="Gummie" orig="New number group">Nieuwe nummergroep</string>
   <string name="add_number" formatted="false">Nummer toevoegen</string>
   <string name="hours" formatted="false">Uren</string>
   <string name="hourgroup_" formatted="false">Insluiten uren</string>
   <string name="hourgroup_help" formatted="false">Voeg uren toe die deze regel moeten matchen.</string>
   <string name="exhourgroup_" formatted="false">Uitsluiten uren</string>
   <string name="exhourgroup_help" formatted="false">Voeg uren toe die deze regel niet moeten matchen.</string>
-  <string name="new_hourgroup" formatted="false">Nieuwe uur groep</string>
+  <string name="new_hourgroup" formatted="false" username="Gummie" orig="New hour group">Nieuwe uurgroep</string>
   <string name="add_hour" formatted="false">Uur toevoegen</string>
   <string name="empty_group" formatted="false" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Lege groepen komen nergens mee overeen. Ga terug en voeg minstens één item toe.</string>
   <string name="calls" formatted="false">Gesprekken</string>
@@ -123,7 +123,7 @@
   <string name="strip_leading_zeros_" formatted="false" orig="Strip leading zeros">Verwijder voorloop nullen</string>
   <string name="strip_leading_zeros_hint" formatted="false">Strip leading zeros when comparing numbers.</string>
   <string name="number_prefix_" formatted="false">International prefix</string>
-  <string name="number_prefix_hint" formatted="false">Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..</string>
+  <string name="number_prefix_hint" formatted="false" username="Gummie" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">Je international prefix in formaat zoals +1 of +31. Dit wordt gebruikt om nummers te matchen zoals +31170... en 0179..</string>
   <string name="reset_data_" formatted="false">Reset statistieken</string>
   <string name="reset_data_hint" formatted="false">Resetten van gesprek/sms data zorgt voor het opnieuw berekenen van de statistieken.\n\nResetten van data statistieken is permanent. Alleen data voordat het programma gestart is wordt gereset!</string>
   <string name="reset_data_data_" formatted="false">Reset ook dataverkeer.</string>
@@ -144,7 +144,7 @@
   <string name="limit_type_" formatted="false">Limiet type</string>
   <string name="limit_type_help" formatted="false">Stel het type van je limiet hier in.\nEen \"eenheden\" limiet limiteerd je schema gebaseerd op minuten, berichten, ...\nEen \"kosten\" limiet limiteerd je schema gebaseerd op kosten geproduceerd door items gefactureerd in dit schema.</string>
   <string name="limit_" formatted="false">Limiet</string>
-  <string name="limit_help" formatted="false">Stel hier het limiet van je schema.\n\nType \"eenheden\" moeten ingesteld zijn in minuten (gesprekken), berichten (sms/mms), megabytes (data, 1024kB) of eenheden (gemixed).\n\nType \"kosten\" moeten ingesteld zijn in je hoofd valuta (bv. €).</string>
+  <string name="limit_help" formatted="false" username="Gummie" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">Stel hier het limiet van je schema in.\n\nType "eenheden" moeten ingesteld zijn in minuten (gesprekken), berichten (sms/mms), megabytes (data, 1024kB) of eenheden (gemixed).\n\nType "kosten" moeten ingesteld zijn in je hoofd valuta (bv. €).</string>
   <string name="billmode_help" formatted="false">Stel de wijze van facturering gespreken.\nHet eerste deel is de minimum lengte gefactureerd door je provider. Elk gesprek met een kortere lengte is hiernaar afgerond.\nHet tweede deel is de minimum lengte van de volgende blokken van seconden.\nLees aub de FAQ voor verdere hulp.</string>
   <string name="billday_help" formatted="false">Stel dit in als de eerst dag van de rekening van de huidige facturatie periode.</string>
   <string name="billperiodid_" formatted="false">Facturatie periode</string>
@@ -195,12 +195,12 @@
   <string name="issipcall_help" formatted="false">Gesprek gemaakt via SIP. Alleen sipdroid &gt;1.6.1 wordt nu ondersteund.</string>
   <string name="strip_seconds_" formatted="false">Reken de eerste sec. niet mee</string>
   <string name="strip_seconds_help" formatted="false">Reken de eerste x sec. van een gesprek niet mee.</string>
-  <string name="what_" formatted="false">Doel type</string>
-  <string name="what_help" formatted="false">Kies hier een doel type.</string>
+  <string name="what_" formatted="false" username="Gummie" orig="Target type">Doeltype</string>
+  <string name="what_help" formatted="false" username="Gummie" orig="Choose a target type here.">Kies hier een doeltype.</string>
   <string name="direction_" formatted="false">Richting</string>
   <string name="direction_help" formatted="false">Kies een richting die hij moet loggen.</string>
-  <string name="roamed_" formatted="false">Zwevend</string>
-  <string name="roamed_help" formatted="false">Kies of de log zwevend moet zijn.</string>
+  <string name="roamed_" formatted="false" username="Gummie" orig="Roamed">Roaming</string>
+  <string name="roamed_help" formatted="false" username="Gummie" orig="Choose whether the given log has to be roamed.">Kies of de log roaming moet zijn.</string>
   <string name="remote_hint" formatted="false">Remote nummer</string>
   <string name="no_matter_" formatted="false">Maakt niet uit</string>
   <string name="yes" formatted="false">Ja</string>
@@ -209,10 +209,10 @@
   <string name="value" formatted="false">Waarde</string>
   <string name="empty_groups_" formatted="false">Druk op "Toevoegen" om een groep toe te voegen.</string>
   <string name="empty_group_" formatted="false">Druk op "Toevoegen" om een item aan deze groep toe te voegen.</string>
-  <string name="export_progr" formatted="false">Exporting data ...</string>
-  <string name="import_progr" formatted="false">Import data ...</string>
-  <string name="export_rules_" formatted="false">Exporteer regel set</string>
-  <string name="export_rules_hint" formatted="false">Exporteer regel set als mail.</string>
+  <string name="export_progr" formatted="false" username="Gummie" orig="Exporting data ...">Exporteren data ...</string>
+  <string name="import_progr" formatted="false" username="Gummie" orig="Import data ...">Importen data ...</string>
+  <string name="export_rules_" formatted="false" username="Gummie" orig="Export rule set">Exporteer regelset</string>
+  <string name="export_rules_hint" formatted="false" username="Gummie" orig="Export rule set as mail.">Exporteer regelset als mail.</string>
   <string name="export_rules_descr" formatted="false">Omschrijving</string>
   <string name="import_rules_" formatted="false">Importeer regel set</string>
   <string name="import_rules_hint" formatted="false">Importeer regel set.</string>
@@ -319,33 +319,33 @@
   <string name="small_widget_" formatted="false" username="Gummie" orig="Use small widget">Gebruik smalle widget</string>
   <string name="show_calllength_" formatted="false" username="Gummie" orig="Show info after hanging up">Toon info na ophangen</string>
   <string name="show_calllength_hint" formatted="false" username="Gummie" orig="Show length/cost of a call after hanging up.">Toon lengte/kosten van een gesprek na ophangen.</string>
-  <string name="custom_delimiter_" formatted="false" orig="Custom delimiter">aangepast scheidingsteken</string>
+  <string name="custom_delimiter_" formatted="false" orig="Custom delimiter" username="Gummie">Aangepast scheidingsteken</string>
   <string name="split_sms_at_160_" formatted="false" orig="Split text messages at 160 chars">deel SMS bij 160 karakters</string>
   <string name="autohide_" formatted="false" orig="Auto hide">automatisch verbergen</string>
   <string name="logs" formatted="false" orig="Logs">Logboek</string>
   <string name="length_" formatted="false" orig="Length">Lengte</string>
   <string name="cost_" formatted="false" orig="Cost">Kosten</string>
   <string name="remote_" formatted="false" orig="Remote number">gebeld nummer</string>
-  <string name="billperiod_sn" formatted="false" orig="BillPeriod">Rekening periode</string>
-  <string name="calls_in" formatted="false" orig="Calls In">inkomende gesprekken</string>
-  <string name="calls_in_" formatted="false" orig="CallsIn">inkomende gesprekken</string>
-  <string name="calls_out" formatted="false" orig="Calls Out">uitgaande gesprekken</string>
-  <string name="calls_out_" formatted="false" orig="CallsOut">uitgaande gesprekken</string>
+  <string name="billperiod_sn" formatted="false" orig="BillPeriod" username="Gummie">Facturatie periode</string>
+  <string name="calls_in" formatted="false" orig="Calls In" username="Gummie">Inkomende gesprekken</string>
+  <string name="calls_in_" formatted="false" orig="CallsIn" username="Gummie">InkomendeGesprekken</string>
+  <string name="calls_out" formatted="false" orig="Calls Out" username="Gummie">Uitgaande gesprekken</string>
+  <string name="calls_out_" formatted="false" orig="CallsOut" username="Gummie">UitgaandeGesprekken</string>
   <string name="messages_" formatted="false" orig="SMS/MMS">SMS/MMS</string>
   <string name="messages" formatted="false" orig="Messages">Berichten</string>
   <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Data (2G/3G/4G)</string>
-  <string name="data_inout" formatted="false" orig="Data In/Out">Data In/Uit</string>
+  <string name="data_inout" formatted="false" orig="Data In/Out" username="Gummie">Data Inkomend/Uitgaand</string>
   <string name="export_" formatted="false" orig="Export ...">Exporteer ...</string>
   <string name="import_rules_sd_" formatted="false" username="Sven Klinkhamer &lt;sven.klinkhamer@gmail.com&gt;" orig="Import from SD card">Importeer van SD kaart</string>
   <string name="author_and_many_more" formatted="false" username="Gummie" orig="and many more...">en veel meer...</string>
   <string name="update_interval_data_" formatted="false" username="Gummie" orig="Update interval (data)">Update interval (data)</string>
-  <string name="update_interval_data_hint" formatted="false" username="Gummie" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Update van data statistieken moet vaker gebeuren. Zeker Samsung heeft hele korte intervallen nodig.</string>
-  <string name="up_" formatted="false" username="Gummie" orig="Move up">Omhoog</string>
+  <string name="update_interval_data_hint" formatted="false" username="Gummie" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Update van data statistieken moet vaker gebeuren. Vooral Samsung heeft hele korte intervallen nodig.</string>
+  <string name="up_" formatted="false" username="Gummie" orig="Move up">Naar boven</string>
   <string name="down_" formatted="false" username="Gummie" orig="Move down">Naar beneden</string>
   <string name="widget_" formatted="false" username="Gummie" orig="Widget">Widget</string>
   <string name="widgets_" formatted="false" username="Gummie" orig="Widgets">Widgets</string>
   <string name="widgets_no_widgets_" formatted="false" username="Gummie" orig="No widgets added">Geen widgets toegevoegd</string>
-  <string name="widgets_no_widgets_hint" formatted="false" username="Gummie" orig="There are no widgets added to the launcher.">Er zijn geen widgets toegevoegd aan de launcher</string>
+  <string name="widgets_no_widgets_hint" formatted="false" username="Gummie" orig="There are no widgets added to the launcher.">Er zijn geen widgets toegevoegd aan de launcher.</string>
   <string name="delete_widget" formatted="false" username="Gummie" orig="Delete widget">Verwijder widget</string>
   <string name="google_plus_hint" formatted="false" username="Gummie" orig="Follow me on Google+.\nGet update notifications etc.">Volg mij op Google+.\nKrijg update notificaties etc.</string>
   <string name="simple_preferences_hint" formatted="false" username="Gummie" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Heel erg eenvoudige voorkeuren, geschikt voor de meeste gebruikers. Allen beschikbaar met standaard regelset.</string>
@@ -354,4 +354,44 @@
   <string name="hide_nocost_hint" formatted="false" username="Gummie" orig="Hide plans with no cost.">Verberg schema\'s zonder kosten.</string>
   <string name="hide_progressbars_" formatted="false" username="Gummie" orig="Hide progress bars">Verberg voortgangsbalk</string>
   <string name="hide_progressbars_hint" formatted="false" username="Gummie" orig="Hide progress bars in main view.">Verberg voortgangsbalk in hoofdscherm</string>
+  <string name="exported_" formatted="false" username="Gummie" orig="Exported:">Geëxporteerd:</string>
+  <string name="export_hint" formatted="false" username="Gummie" orig="Export rule sets, logs or groups">Exporteer regelsets, logs of groepen</string>
+  <string name="export_cancel" formatted="false" username="Gummie" orig="Export to SD card">Exporteer naar SD kaart</string>
+  <string name="export_cancel_hint" formatted="false" username="Gummie" orig="Cancel your mail client to export to SD card only.">Annuleer je mail client om alleen naar SD kaart te exporteren.</string>
+  <string name="export_rules_dev_" formatted="false" username="Gummie" orig="Export rule set to developer">Exporteer regelset naar ontwikkelaar</string>
+  <string name="export_rules_dev_hint" formatted="false" username="Gummie" orig="Export rule set to let others import it.">Exporteer regelset om hem andere te laten importeren.</string>
+  <string name="export_logs_" formatted="false" username="Gummie" orig="Backup logs">Backup logs</string>
+  <string name="export_logs_hint" formatted="false" username="Gummie" orig="Backup logs as mail.">Backup logs als mail.</string>
+  <string name="export_logs_csv_" formatted="false" username="Gummie" orig="Export CSV">Exporteer CSV</string>
+  <string name="export_logs_csv_hint" formatted="false" username="Gummie" orig="Export logs as CSV.">Exporteer logs als CSV.</string>
+  <string name="export_numgroups_" formatted="false" username="Gummie" orig="Export number groups">Exporteer nummer groepen</string>
+  <string name="export_numgroups_hint" formatted="false" username="Gummie" orig="Export number groups as mail.">Exporteer nummer groepen als mail.</string>
+  <string name="now" formatted="false" username="Gummie" orig="Now">Nu</string>
+  <string name="show_logs" formatted="false" username="Gummie" orig="Show logs">Toon logs</string>
+  <string name="ask_for_plan_" formatted="false" username="Gummie" orig="Ask for plan">Vraag om een schema</string>
+  <string name="split_sms_at_160_hint" formatted="false" username="Gummie" orig="Disable to use android\'s system method.">Uitschakelen om android\'s systeem methode te gebruiken.</string>
+  <string name="autohide_hint" formatted="false" username="Gummie" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Verberg dialoog na .. seconden. Laat leeg om automatisch verbergen uit te schakelen.</string>
+  <string name="select_plan_" formatted="false" username="Gummie" orig="Select a plan">Selecteer een schema</string>
+  <string name="set_selected_as_default_" formatted="false" username="Gummie" orig="Set selected plan as default">Zet een geselecteerd schema als standaard</string>
+  <string name="autohide_in_" formatted="false" username="Gummie" orig="Auto hide dialog in: %ds">Automatisch dialoog verbergen in: %ds</string>
+  <string name="blength_" formatted="false" username="Gummie" orig="Billed length">Gefactureerde lengte</string>
+  <string name="numbergroups_edit_" formatted="false" username="Gummie" orig="Number groups">Nummergroepen</string>
+  <string name="numbergroups_edit_hint" formatted="false" username="Gummie" orig="Edit number groups here.">Wijzig nummergroepen hier.</string>
+  <string name="hourgroups_edit_" formatted="false" username="Gummie" orig="Hour groups">Urengroepen</string>
+  <string name="hourgroups_edit_hint" formatted="false" username="Gummie" orig="Edit hour groups here.">Wijzig urengroepen hier.</string>
+  <string name="numbergroup_excalls" formatted="false" username="Gummie" orig="Exclude from calls">Uitsluiten van gesprekken</string>
+  <string name="numbergroup_exsms" formatted="false" username="Gummie" orig="Exclude from SMS">Uitsluiten van SMS</string>
+  <string name="sms_in" formatted="false" username="Gummie" orig="SMS In">Inkomende SMS</string>
+  <string name="sms_in_" formatted="false" username="Gummie" orig="SMSIn">InkomendeSMS</string>
+  <string name="sms_out" formatted="false" username="Gummie" orig="SMS Out">Uitgaande SMS</string>
+  <string name="sms_out_" formatted="false" username="Gummie" orig="SMSOut">UitgaandeSMS</string>
+  <string name="mms_in" formatted="false" username="Gummie" orig="MMS In">Inkomende MMS</string>
+  <string name="mms_in_" formatted="false" username="Gummie" orig="MMSIn">InkomendeMMS</string>
+  <string name="mms_out" formatted="false" username="Gummie" orig="MMS Out">Uitgaande MMS</string>
+  <string name="mms_out_" formatted="false" username="Gummie" orig="MMSOut">UitgaandeMMS</string>
+  <string name="data_inout_" formatted="false" username="Gummie" orig="DataInOut">DataInkomendUitgaand</string>
+  <string name="active_" formatted="false" username="Gummie" orig="Active">Actief</string>
+  <string name="active_help" formatted="false" username="Gummie" orig="Only active rules are used for matching logs.">Alleen actieve regels worden gebruikt om logs te matchen.</string>
+  <string name="ask_for_plan_hint" formatted="false" username="Gummie" orig="Ask for plan for unmatched calls after hanging up.">Vraag voor een schema voor niet gematchte gesprekken na ophangen.</string>
+  <string name="custom_delimiter_hint" formatted="false" username="Gummie" orig="Set a custom delimiter separating the blocks of statistics.">Stel een aangepast scheidingsteken in die de statistiekenblokken scheidt.</string>
 </resources>
