@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2012 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,11 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/fr/help.xml to edit the file.
        -->
 <resources>
+  <string name="help_title_" formatted="false" username="Tarik" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">Lisais ce qui suit pour comprendre le concept de <b>logs</b>, <b>plans</b> et <b>rules</b>:</string>
+  <string name="help_logs_plans_rules_" formatted="false" username="Tarik" orig="There are three kinds of data structures:">il y\'a trois genres de structure de données:</string>
 </resources>

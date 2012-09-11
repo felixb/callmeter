@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2012 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,21 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm3/de/notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm3/fr/simple_prefs.xml to edit the file.
        -->
 <resources>
+  <string name="freemin_" formatted="false" username="Tarik" orig="Free minutes">Minutes gratuites</string>
+  <string name="freemin_hint" formatted="false" username="Tarik" orig="Free minutes / month">Minutes gratuites / mois</string>
+  <string name="cost_per_call_hint" formatted="false" username="Tarik" orig="Each call get\'s billed.">Chaque appel sera facturé.</string>
+  <string name="cost_per_call_" formatted="false" username="Tarik" orig="Cost / call">Coût / appel</string>
+  <string name="cost_per_min_" formatted="false" username="Tarik" orig="Cost / minute">Coût / minute</string>
+  <string name="cost_per_min_hint" formatted="false" username="Tarik" orig="Each minute get\'s billed.">Chaque minute se facturée.</string>
+  <string name="freesms_" formatted="false" username="Tarik" orig="Free SMS">SMS gratuits</string>
+  <string name="freesms_hint" formatted="false" username="Tarik" orig="Free SMS / month">SMS gratuits / Mois</string>
+  <string name="cost_per_sms_" formatted="false" username="Tarik" orig="Cost / SMS">Coût / SMS</string>
+  <string name="freemms_" formatted="false" username="Tarik" orig="Free MMS">MMS gratuits</string>
+  <string name="freemms_hint" formatted="false" username="Tarik" orig="Free MMS / month">MMS gratuits / Mois</string>
+  <string name="cost_per_mms_" formatted="false" username="Tarik" orig="Cost / MMS">coût / MMS</string>
 </resources>
