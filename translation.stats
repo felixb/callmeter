@@ -69,7 +69,7 @@ res/values-hr/intro.xml:10
 res/values-hr/market.xml:6
 res/values-hr/notes.xml:0
 res/values-hr/simple_prefs.xml:19
-res/values-hr/strings.xml:388
+res/values-hr/strings.xml:416
 res/values-hu/donation.xml:0
 res/values-hu/help.xml:14
 res/values-hu/intro.xml:10
@@ -170,7 +170,7 @@ res/values-el:339
 res/values-es:438
 res/values-fr:57
 res/values-hi:7
-res/values-hr:442
+res/values-hr:470
 res/values-hu:444
 res/values-it:459
 res/values-iw:447
