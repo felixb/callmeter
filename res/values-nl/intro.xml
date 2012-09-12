@@ -21,4 +21,6 @@
                Visit http://ub0r.de/translate/cm3/nl/intro.xml to edit the file.
        -->
 <resources>
+  <string name="intro_" formatted="false" username="Gummie" orig="Introducing Call Meter 3G">Introductie Call Meter 3G</string>
+  <string name="intro0" formatted="false" username="Gummie" orig="With &lt;b&gt;Call Meter 3G&lt;/b&gt; you can monitor the usage of your calls, messages and data connections.">Met <b>Call Meter 3G</b> kan je het gebruik van je gespreks, berichten en data connecties in de gaten houden</string>
 </resources>
