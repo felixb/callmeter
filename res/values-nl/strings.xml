@@ -35,7 +35,7 @@
   <string name="settings" formatted="false" username="housenegro76@hotmail.com" orig="Preferences">Voorkeuren</string>
   <string name="update_interval_" formatted="false" orig="Update interval" username="rainbowwarrior7">Update interval</string>
   <string name="update_interval_hint" formatted="false">Kortere periode verbruikt meer batterij.</string>
-  <string name="date_begin_" formatted="false">Begin van records</string>
+  <string name="date_begin_" formatted="false" username="Gummie" orig="Beginning of records">Begin van archief</string>
   <string name="date_begin_hint" formatted="false" orig="Ignore any logs before this date." username="housenegro76@hotmail.com">Negeer alle logs vóór deze datum.</string>
   <string name="delete_old_logs_" formatted="false" username="rainbowwarrior7" orig="Delete logs older than">Verwijder logs ouder dan</string>
   <string name="delete_old_logs_help" formatted="false" username="rainbowwarrior7" orig="Delete logs older than x days from internal database. Leave empty to disable.">Verwijder logs ouder dan x dagen van interne database. Leeg laten om het uit te zetten.</string>
