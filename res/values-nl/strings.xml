@@ -24,7 +24,7 @@
   <string name="changelog_notification_" formatted="false" orig="Recent changes:" username="housenegro76@hotmail.com">Recente wijzigingen:</string>
   <string name="about0_" formatted="false" username="rainbowwarrior7" orig="Watch your call, message and data plans!">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
   <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing." username="Gummie">CallMeter genereert rapporten van gesprekken, berichten en datalogs. Het ondersteunt diverse facturatie mogelijkheden.</string>
-  <string name="about1" formatted="false" username="Gummie" orig="The output format is usage | time or count used this billing period | time or count overall.">Het resultaat formaat is gebruik | tijd of aantal gebruikt deze facturatie periode | tijd of aantal algemeen.</string>
+  <string name="about1" formatted="false" username="Gummie" orig="The output format is usage | time or count used this billing period | time or count overall.">Het resultaat formaat is gebruik | tijd of aantal gebruikt deze facturatieperiode | tijd of aantal algemeen.</string>
   <string name="about2" formatted="false" username="housenegro76@hotmail.com" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
   <string name="about3" formatted="false" username="housenegro76@hotmail.com" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter werkt zich elke 30 minuten op de achtergrond bij (alleen wanneer niet in standby). Dit betekent dat het verwijderen van gesprekken of berichten ouder dan 30 min. de statistieken niet wijzigt. Het verwijderen van gesprekken of berichten jonger dan 30 min. kan resulteren in onjuiste statistieken.</string>
   <string name="send_" formatted="false" username="housenegro76@hotmail.com" orig="Send">Verstuur</string>
@@ -51,7 +51,7 @@
   <string name="billing_" formatted="false">Facturatie</string>
   <string name="billday_" formatted="false">Eerste dag van facturatie</string>
   <string name="billmode_" formatted="false">Facturatie modus</string>
-  <string name="billdate_" formatted="false">Begin facturatie periode:</string>
+  <string name="billdate_" formatted="false" username="Gummie" orig="Start of billing period:">Begin facturatieperiode:</string>
   <string name="appearance_" formatted="false">Uiterlijk</string>
   <string name="behavior_" formatted="false" orig="Behavior">Gedrag</string>
   <string name="advanced_preferences_" formatted="false">Geavanceerde voorkeuren</string>
@@ -67,8 +67,8 @@
   <string name="textsize_spacer_hint" formatted="false">Grootte in pixels voor witruimte; laat leeg voor standaard</string>
   <string name="textsize_pbar_" formatted="false">Grootte voortgangsbalk</string>
   <string name="textsize_pbar_hint" formatted="false">Grootte in pixels voor voortgangsbalk; laat leeg voor standaard</string>
-  <string name="textsize_pbarbp_" formatted="false">Grootte voortgangsbalk facturatie periode</string>
-  <string name="textsize_pbarbp_hint" formatted="false">Grootte in pixels voor voortgangsbalk facturatie periode; laat leeg voor standaard</string>
+  <string name="textsize_pbarbp_" formatted="false" username="Gummie" orig="Bill period\'s progress bar\'s size">Grootte voortgangsbalk facturatieperiode</string>
+  <string name="textsize_pbarbp_hint" formatted="false" username="Gummie" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Grootte in pixels voor voortgangsbalk facturatieperiode; laat leeg voor standaard</string>
   <string name="show_today_" formatted="false" orig="Show today">Toon vandaag</string>
   <string name="show_total_" formatted="false">Toon totaal</string>
   <string name="show_total_hint" formatted="false">Toon totaal stats, uitzetten om alleen huidige te zien.</string>
@@ -215,7 +215,7 @@
   <string name="export_rules_hint" formatted="false" username="Gummie" orig="Export rule set as mail.">Exporteer regelset als mail.</string>
   <string name="export_rules_descr" formatted="false">Omschrijving</string>
   <string name="import_rules_" formatted="false" username="Gummie" orig="Import rule set">Importeer regelset</string>
-  <string name="import_rules_hint" formatted="false" username="Gummie" orig="Import preconfigured rule set.">Importeer voor geconfigureerd regelset.</string>
+  <string name="import_rules_hint" formatted="false" username="Gummie" orig="Import preconfigured rule set.">Importeer vooraf geconfigureerd regelset.</string>
   <string name="import_rules_empty" formatted="false" username="Gummie" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Geen schema/regelset. Klik deze tekst om een standaard regelset te importeren.\n\nOf voeg handmatig schema\'s en regels in voorkeuren toe.</string>
   <string name="err_export_write" formatted="false" username="Gummie" orig="Error writing export file">Error schrijven exportbestand</string>
   <string name="err_export_read" formatted="false" username="Gummie" orig="Error reading export file">Error lezen exportbestand</string>
@@ -350,7 +350,7 @@
   <string name="google_plus_hint" formatted="false" username="Gummie" orig="Follow me on Google+.\nGet update notifications etc.">Volg mij op Google+.\nKrijg update notificaties etc.</string>
   <string name="simple_preferences_hint" formatted="false" username="Gummie" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Heel erg eenvoudige voorkeuren, geschikt voor de meeste gebruikers. Alleen beschikbaar met standaard regelset.</string>
   <string name="simple_preferences_deactivated" formatted="false" username="Gummie" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Eenvoudige voorkeuren zijn alleen beschikbaar voor standaard regelset. Importeer de standaard regelset om opnieuw te activeren.</string>
-  <string name="hide_nocost_" formatted="false" username="Gummie" orig="Hide no cost plans">Verberg geen kosten schema\'s</string>
+  <string name="hide_nocost_" formatted="false" username="Gummie" orig="Hide no cost plans">Verberg kostenloze schema\'s</string>
   <string name="hide_nocost_hint" formatted="false" username="Gummie" orig="Hide plans with no cost.">Verberg schema\'s zonder kosten.</string>
   <string name="hide_progressbars_" formatted="false" username="Gummie" orig="Hide progress bars">Verberg voortgangsbalk</string>
   <string name="hide_progressbars_hint" formatted="false" username="Gummie" orig="Hide progress bars in main view.">Verberg voortgangsbalk in hoofdscherm</string>
@@ -370,7 +370,7 @@
   <string name="show_logs" formatted="false" username="Gummie" orig="Show logs">Toon logs</string>
   <string name="ask_for_plan_" formatted="false" username="Gummie" orig="Ask for plan">Vraag om een schema</string>
   <string name="split_sms_at_160_hint" formatted="false" username="Gummie" orig="Disable to use android\'s system method.">Uitschakelen om android\'s systeem methode te gebruiken.</string>
-  <string name="autohide_hint" formatted="false" username="Gummie" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Verberg dialoog na .. seconden. Laat leeg om automatisch verbergen uit te schakelen.</string>
+  <string name="autohide_hint" formatted="false" username="Gummie" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Verberg dialoog na x seconden. Laat leeg om automatisch verbergen uit te schakelen.</string>
   <string name="select_plan_" formatted="false" username="Gummie" orig="Select a plan">Selecteer een schema</string>
   <string name="set_selected_as_default_" formatted="false" username="Gummie" orig="Set selected plan as default">Zet een geselecteerd schema als standaard</string>
   <string name="autohide_in_" formatted="false" username="Gummie" orig="Auto hide dialog in: %ds">Automatisch dialoog verbergen in: %ds</string>
@@ -397,7 +397,7 @@
   <string name="export_rules_body" formatted="false" username="Gummie" orig="Hi developer,\nhere is are the rules for my provider. Please add it to the website to let others enjoy it. Please see the details below.\n\nCountry:\nProvider:\nPlan name:\n\nCheers, a User">Hoi ontwikkelaaar,\nhier zijn de regels van mijn provider. Voeg dit aub toe aan de website zodat anderen het ook kunnen gebruiken. Zie details hier beneden.\n\nLand:\nProvider:\nBundelnaam:\n\nGroeten, een Gebruiker</string>
   <string name="export_hourgroups_" formatted="false" username="Gummie" orig="Export hour groups">Exporteer urengroepen</string>
   <string name="export_hourgroups_hint" formatted="false" username="Gummie" orig="Export hour groups as mail.">Exporteer urengroepen als mail.</string>
-  <string name="import_rules_www_hint" formatted="false" username="Gummie" orig="Import pre-configured rule set from http://www.ub0r.de/.">Importeer voor geconfigureerd regelset van http://www.ub0r.de/.</string>
+  <string name="import_rules_www_hint" formatted="false" username="Gummie" orig="Import pre-configured rule set from http://www.ub0r.de/.">Importeer vooraf geconfigureerd regelset van http://www.ub0r.de/.</string>
   <string name="import_rules_sd_hint" formatted="false" username="Gummie" orig="Import rule set directly from SD card.">Importeer regelset direct van SD kaart.</string>
   <string name="import_rules_sd_help" formatted="false" username="Gummie" orig="Place your file on your SD card and click it below">Plaats je bestand op je SD kaart en klik het hier beneden aan</string>
   <string name="import_rules_sd_files" formatted="false" username="Gummie" orig="Found files">Gevonden bestanden</string>
@@ -406,10 +406,10 @@
   <string name="import_rules_default_hint" formatted="false" username="Gummie" orig="Import default rule set shipped with the app.">Importeer standaard regelset die bij deze app zit.</string>
   <string name="loading" formatted="false" username="Gummie" orig="Loading ...">Laden ...</string>
   <string name="widget_config_" formatted="false" username="Gummie" orig="Widget config">Widget configuratie</string>
-  <string name="widget_plan_textsize" formatted="false" username="Gummie" orig="Plan Text Size">Tekst Grootte Schema</string>
-  <string name="widget_cost_textsize" formatted="false" username="Gummie" orig="Cost Text Size">Tekst Grootte Kosten</string>
-  <string name="widget_text_color_" formatted="false" username="Gummie" orig="Text color">Tekst kleur</string>
-  <string name="widget_backgroud_color_" formatted="false" username="Gummie" orig="Background color">Achtergrond kleur</string>
+  <string name="widget_plan_textsize" formatted="false" username="Gummie" orig="Plan Text Size">Tekstgrootte Schema</string>
+  <string name="widget_cost_textsize" formatted="false" username="Gummie" orig="Cost Text Size">Tekstgrootte Kosten</string>
+  <string name="widget_text_color_" formatted="false" username="Gummie" orig="Text color">Tekstkleur</string>
+  <string name="widget_backgroud_color_" formatted="false" username="Gummie" orig="Background color">Achtergrondkleur</string>
   <string name="widget_backgroud_transparency_" formatted="false" username="Gummie" orig="Background transparency">Achtergrond doorzichtigheid</string>
   <string name="send_devices_" formatted="false" username="Gummie" orig="Send devices">Stuur apparaten</string>
   <string name="send_devices_hint" formatted="false" username="Gummie" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Stuur lijst van apparaten naar de ontwikkelaar. Dit is alleen nodig als je data statistieken leeg zijn.</string>
