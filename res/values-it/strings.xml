@@ -232,7 +232,7 @@
   <string name="what_help" formatted="false" username="fireb33" orig="Choose a target type here.">Scegliere un target della regola.</string>
   <string name="direction_" formatted="false" username="fireb33" orig="Direction">Direzione</string>
   <string name="direction_help" formatted="false" username="fireb33" orig="Choose a direction the given log has to be.">Scegliere una direzione del registro.</string>
-  <string name="roamed_" formatted="false" username="fireb33" orig="Roamed">Inoltrato</string>
+  <string name="roamed_" formatted="false" username="Gianluca gianluca-s@libero.it" orig="Roamed">In Roaming</string>
   <string name="roamed_help" formatted="false" username="fireb33" orig="Choose whether the given log has to be roamed.">Scegliere se il registro deve essere inoltrato.</string>
   <string name="remote_hint" formatted="false" username="fireb33" orig="Remote number">Numero remoto</string>
   <string name="no_matter_" formatted="false" username="fireb33" orig="Does not matter">Non importa</string>
@@ -432,4 +432,11 @@
   <string name="source_" formatted="false" username="carloraudino@fedoraproject.org" orig="Sourcescode:">Codice sorgente:</string>
   <string name="custom_language_" formatted="false" username="carloraudino@fedoraproject.org" orig="Custom language">Personalizza lingua</string>
   <string name="custom_language_hint" formatted="false" username="carloraudino@fedoraproject.org" orig="Set a custom language.">Imposta una lingua personalizzata.</string>
+  <string name="export_logs_csv_" formatted="false" username="Gianluca gianluca-s@libero.it" orig="Export CSV">Esporta in formato CSV</string>
+  <string name="delete_widget" formatted="false" username="Gianluca gianluca-s@libero.it" orig="Delete widget">Elimina widget</string>
+  <string name="up_" formatted="false" username="Gianluca gianluca-s@libero.it" orig="Move up">Sposta in alto</string>
+  <string name="down_" formatted="false" username="Gianluca gianluca-s@libero.it" orig="Move down">Sposta in basso</string>
+  <string name="export_logs_csv_hint" formatted="false" username="Gianluca gianluca-s@libero.it" orig="Export logs as CSV.">Esporta i log in formato CSV</string>
+  <string name="x1_month_1_day" formatted="false" username="Gianluca gianluca-s@libero.it" orig="One month + one day">Un mese + un giorno</string>
+  <string name="sendlog_run" formatted="false" username="Gianluca gianluca-s@libero.it" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">L\'operazione di Invio del log raccoglierà i log del dispositivo e li invierà allo sviluppatore. Hai la possibilità di verificare e modificare i dati che saranno spediti.</string>
 </resources>
