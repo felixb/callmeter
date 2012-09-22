@@ -195,21 +195,19 @@ public final class Rules extends SherlockPreferenceActivity implements OnPrefere
 			Cursor c1 = this.getContentResolver().query(DataProvider.Rules.CONTENT_URI,
 					DataProvider.Rules.PROJECTION, w, new String[] { String.valueOf(o0) }, o);
 			if (c1.moveToFirst()) {
-				int o1 = c1.getInt(DataProvider.Rules.INDEX_ORDER);
-				if (o0 == o1) {
-					o1 += diretion;
-				}
 				ContentValues values = new ContentValues();
-				values.put(DataProvider.Rules.ORDER, o1);
-				this.getContentResolver().update(u, values, null, null);
-
 				values.put(DataProvider.Rules.ORDER, o0);
 				this.getContentResolver().update(
 						ContentUris.withAppendedId(DataProvider.Rules.CONTENT_URI,
 								c1.getInt(DataProvider.Rules.INDEX_ID)), values, null, null);
-				this.reload();
 			}
 			c1.close();
+
+			ContentValues values = new ContentValues();
+			values.put(DataProvider.Rules.ORDER, o0 + diretion);
+			this.getContentResolver().update(u, values, null, null);
+
+			this.reload();
 		}
 		c0.close();
 	}

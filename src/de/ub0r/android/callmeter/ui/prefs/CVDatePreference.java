@@ -127,7 +127,11 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
 	 *            calendar
 	 */
 	public void setValue(final Calendar time) {
-		this.setValue(time.getTimeInMillis());
+		if (time == null) {
+			this.setValue(System.currentTimeMillis());
+		} else {
+			this.setValue(time.getTimeInMillis());
+		}
 	}
 
 	/** Update {@link DatePicker}. */

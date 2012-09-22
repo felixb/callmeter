@@ -23,10 +23,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
 import android.content.ContentProvider;
 import android.content.ContentResolver;
@@ -46,9 +49,10 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.os.SystemClock;
-import android.preference.PreferenceManager;
 import android.provider.OpenableColumns;
 import android.text.TextUtils;
+import android.util.Xml;
+import android.widget.Toast;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
@@ -75,7 +79,7 @@ public final class DataProvider extends ContentProvider {
 	private static final int DATABASE_VERSION = 30;
 
 	/** Version of the export file. */
-	private static final int EXPORT_VERSION = 1;
+	private static final int EXPORT_VERSION = 2;
 	/** Separator of values. */
 	private static final String EXPORT_VALUESEPARATOR = ":#:";
 	/** Mime type for export. */
@@ -92,13 +96,13 @@ public final class DataProvider extends ContentProvider {
 	public static final Uri EXPORT_HOURGROUPS_URI = Uri.parse("content://" + AUTHORITY
 			+ "/export/hourgroups");
 	/** Filename for the actual export file. */
-	public static final String EXPORT_RULESET_FILE = "ruleset.export";
+	public static final String EXPORT_RULESET_FILE = "ruleset.xml";
 	/** Filename for the actual logs file. */
-	public static final String EXPORT_LOGS_FILE = "logs.export";
+	public static final String EXPORT_LOGS_FILE = "logs.xml";
 	/** Filename for the actual number groups file. */
-	public static final String EXPORT_NUMGROUPS_FILE = "numgroups.export";
+	public static final String EXPORT_NUMGROUPS_FILE = "numgroups.xml";
 	/** Filename for the actual hour groups file. */
-	public static final String EXPORT_HOURGROUPS_FILE = "hourgroups.export";
+	public static final String EXPORT_HOURGROUPS_FILE = "hourgroups.xml";
 
 	/** Type of log: title. */
 	public static final int TYPE_TITLE = 0;
@@ -321,7 +325,7 @@ public final class DataProvider extends ContentProvider {
 				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 			final ContentValues[] values = backup(db, TABLE, new String[] { AMOUNT, DATE,
-					DIRECTION, REMOTE, ROAMED, TYPE, PLAN_ID }, null);
+					DIRECTION, REMOTE, ROAMED, TYPE, PLAN_ID }, null, null, null);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -421,7 +425,7 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
 				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -496,7 +500,7 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
 				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -1163,7 +1167,7 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
 				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -1463,7 +1467,9 @@ public final class DataProvider extends ContentProvider {
 				v = 15;
 				break;
 			default:
-				return null;
+				f = Calendar.MONTH;
+				v = 1;
+				break;
 			}
 
 			return new int[] { f, v, j, k };
@@ -1509,7 +1515,7 @@ public final class DataProvider extends ContentProvider {
 			default:
 				int[] i = getPeriodSettings(period);
 				if (i == null) {
-					return null;
+					throw new IllegalStateException("period settings == null");
 				} else {
 					f = i[0];
 					v = i[1];
@@ -1777,7 +1783,7 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
 				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -1879,7 +1885,7 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
 				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -1973,7 +1979,7 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
 				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -2054,7 +2060,7 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
 				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -2147,7 +2153,7 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
 				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -2158,8 +2164,20 @@ public final class DataProvider extends ContentProvider {
 		}
 	}
 
-	/** Preference's name: did bill period settings migration. */
-	private static final String PREFS_MIGRATE_BPSETTINGS = "_did_migration_bpsettings";
+	/**
+	 * XML im-/export meta data.
+	 * 
+	 * @author flx
+	 */
+	public static class XmlMetaData {
+		/** Meta data. */
+		public String version, country, provider, title;
+
+		/** @return true, if country, provider and title are set. */
+		public boolean isSet() {
+			return this.country != null && this.provider != null && this.title != null;
+		}
+	}
 
 	/** Internal id: logs. */
 	private static final int LOGS = 1;
@@ -2351,72 +2369,6 @@ public final class DataProvider extends ContentProvider {
 	private DatabaseHelper mOpenHelper;
 
 	/**
-	 * Update Settings.
-	 * 
-	 * @param context
-	 *            {@link Context}
-	 * @param db
-	 *            if provided, this {@link SQLiteDatabase} will be used for
-	 *            update
-	 * @param force
-	 *            do update regardless if it run already
-	 */
-	public static void updateSettings(final Context context, final SQLiteDatabase db,
-			final boolean force) {
-		Log.d(TAG, "updateSettings(ctx, " + db + ", " + force + ")");
-		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
-		if (force || !p.getBoolean(PREFS_MIGRATE_BPSETTINGS, false)) {
-			Log.i(TAG, "update bill period settings... ");
-			if (force || !TextUtils.isEmpty(p.getString("lastrun", null))) {
-				Cursor c;
-				if (db != null) {
-					c = db.query(Plans.TABLE, new String[] { Plans.ID, Plans.BILLPERIOD },
-							Plans.TYPE + "=?", new String[] { String.valueOf(TYPE_BILLPERIOD) },
-							null, null, null);
-				} else {
-					c = context.getContentResolver().query(Plans.CONTENT_URI,
-							new String[] { Plans.ID, Plans.BILLPERIOD }, Plans.TYPE + "=?",
-							new String[] { String.valueOf(TYPE_BILLPERIOD) }, null);
-				}
-				if (c.moveToFirst()) {
-					do {
-						long id = c.getLong(0);
-						int bpt = c.getInt(1);
-						ContentValues values = null;
-						if (bpt >= 6) {
-							values = new ContentValues(1);
-							values.put(Plans.BILLPERIOD, bpt + 4);
-						} else if (bpt >= 3) {
-							values = new ContentValues(1);
-							values.put(Plans.BILLPERIOD, bpt + 3);
-						} else if (bpt >= 2) {
-							values = new ContentValues(1);
-							values.put(Plans.BILLPERIOD, bpt + 2);
-						}
-						if (values != null) {
-							Log.i(TAG, "update billperiod type: " + id + " from " + bpt + " to "
-									+ values.get(Plans.BILLPERIOD));
-							if (db != null) {
-								db.update(Plans.TABLE, values, Plans.ID + "=?",
-										new String[] { String.valueOf(id) });
-							} else {
-								context.getContentResolver().update(Plans.CONTENT_URI, values,
-										Plans.ID + "=?", new String[] { String.valueOf(id) });
-							}
-						}
-					} while (c.moveToNext());
-				}
-				c.close();
-			} else {
-				Log.d(TAG, "fresh install, no need to migrate settings.");
-			}
-			p.edit().putBoolean(PREFS_MIGRATE_BPSETTINGS, true).commit();
-		} else {
-			Log.d(TAG, "bill period settings already updated");
-		}
-	}
-
-	/**
 	 * Run RuleMatcher.unmatch locally.
 	 * 
 	 * @param db
@@ -2448,22 +2400,80 @@ public final class DataProvider extends ContentProvider {
 	 *            table name
 	 * @param projection
 	 *            projection
+	 * @param selection
+	 *            selection
+	 * @param selectionArgs
+	 *            selection arguments
 	 * @param strip
 	 *            strip column
 	 */
 	private static void backupRuleSetSub(final StringBuilder sb, final SQLiteDatabase db,
-			final String table, final String[] projection, final String strip) {
-		ContentValues[] cvs = backup(db, table, projection, strip);
+			final String table, final String[] projection, final String selection,
+			final String[] selectionArgs, final String strip) {
+		ContentValues[] cvs = backup(db, table, projection, selection, selectionArgs, strip);
+		String e;
+		String indent = "    ";
+		if (table.endsWith("s")) {
+			e = table.substring(0, table.length() - 1);
+		} else {
+			e = table;
+		}
+		if (table.equals(Hours.TABLE) || table.equals(Numbers.TABLE)) {
+			indent += "    ";
+		}
 		for (ContentValues cv : cvs) {
-			sb.append(table);
-			sb.append(" ");
+			sb.append(indent + "<" + e + ">\n");
 			for (String k : projection) {
-				final String v = cv.getAsString(k);
+				String v = cv.getAsString(k);
 				if (v != null) {
-					sb.append(k + ":" + v + EXPORT_VALUESEPARATOR);
+					v = v.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+					sb.append(indent + "  <" + k + ">" + v + "</" + k + ">\n");
 				}
 			}
-			sb.append("\n");
+			if (table.equals(HoursGroup.TABLE)) {
+				String gid = String.valueOf(cv.getAsInteger(HoursGroup.ID));
+				sb.append(indent + "  <hours>\n");
+				backupRuleSetSub(sb, db, Hours.TABLE, Hours.PROJECTION, Hours.GID + "=?",
+						new String[] { gid }, null);
+				sb.append(indent + "  </hours>\n");
+			} else if (table.equals(NumbersGroup.TABLE)) {
+				String gid = String.valueOf(cv.getAsInteger(NumbersGroup.ID));
+				sb.append(indent + "  <numbers>\n");
+				backupRuleSetSub(sb, db, Numbers.TABLE, Numbers.PROJECTION, Numbers.GID + "=?",
+						new String[] { gid }, null);
+				sb.append(indent + "  </numbers>\n");
+			}
+			sb.append(indent + "</" + e + ">\n");
+		}
+	}
+
+	/**
+	 * Encode {@link String} for XML output.
+	 * 
+	 * @param s
+	 *            {@link String}
+	 * @return encoded {@link String}
+	 */
+	private static String encodeString(final String s) {
+		if (TextUtils.isEmpty(s)) {
+			return s;
+		} else {
+			return s.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+		}
+	}
+
+	/**
+	 * Decode {@link String} for XML input.
+	 * 
+	 * @param s
+	 *            {@link String}
+	 * @return decoded {@link String}
+	 */
+	private static String decodeString(final String s) {
+		if (TextUtils.isEmpty(s)) {
+			return s;
+		} else {
+			return s.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
 		}
 	}
 
@@ -2472,27 +2482,36 @@ public final class DataProvider extends ContentProvider {
 	 * 
 	 * @param context
 	 *            {@link Context}
-	 * @param descr
+	 * @param country
+	 *            country
+	 * @param provider
+	 *            provider
+	 * @param title
 	 *            description of the rule set
 	 * @return {@link String} representing {@link Rules} and {@link Plans}
 	 */
-	public static String backupRuleSet(final Context context, final String descr) {
+	public static String backupRuleSet(final Context context, final String country,
+			final String provider, final String title) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(EXPORT_VERSION + "\n");
-		try {
-			sb.append(URLEncoder.encode(descr, "UTF-8") + "\n");
-		} catch (UnsupportedEncodingException e) {
-			Log.e(TAG, "could not export", e);
-			sb.append("rules\n");
-		}
+		sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
+		sb.append("<ruleset version=\"" + EXPORT_VERSION + "\">\n");
+		sb.append("  <country>" + encodeString(country) + "</country>\n");
+		sb.append("  <provider>" + encodeString(provider) + "</provider>\n");
+		sb.append("  <title>" + encodeString(title) + "</title>\n");
 		final SQLiteDatabase db = new DatabaseHelper(context).getReadableDatabase();
-
-		backupRuleSetSub(sb, db, Plans.TABLE, Plans.PROJECTION, null);
-		backupRuleSetSub(sb, db, Rules.TABLE, Rules.PROJECTION, null);
-		backupRuleSetSub(sb, db, Hours.TABLE, Hours.PROJECTION, null);
-		backupRuleSetSub(sb, db, HoursGroup.TABLE, HoursGroup.PROJECTION, null);
-		backupRuleSetSub(sb, db, Numbers.TABLE, Numbers.PROJECTION, null);
-		backupRuleSetSub(sb, db, NumbersGroup.TABLE, NumbersGroup.PROJECTION, null);
+		sb.append("  <plans>\n");
+		backupRuleSetSub(sb, db, Plans.TABLE, Plans.PROJECTION, null, null, null);
+		sb.append("  </plans>\n");
+		sb.append("  <rules>\n");
+		backupRuleSetSub(sb, db, Rules.TABLE, Rules.PROJECTION, null, null, null);
+		sb.append("  </rules>\n");
+		sb.append("  <hoursgroups>\n");
+		backupRuleSetSub(sb, db, HoursGroup.TABLE, HoursGroup.PROJECTION, null, null, null);
+		sb.append("  </hoursgroups>\n");
+		sb.append("  <numbersgroups>\n");
+		backupRuleSetSub(sb, db, NumbersGroup.TABLE, NumbersGroup.PROJECTION, null, null, null);
+		sb.append("  </numbersgroups>\n");
+		sb.append("</ruleset>\n");
 		db.close();
 		return sb.toString();
 	}
@@ -2502,24 +2521,26 @@ public final class DataProvider extends ContentProvider {
 	 * 
 	 * @param context
 	 *            {@link Context}
-	 * @param descr
+	 * @param title
 	 *            description of the logs
 	 * @return {@link String} representing {@link Logs}
 	 */
-	public static String backupLogs(final Context context, final String descr) {
+	public static String backupLogs(final Context context, final String title) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(EXPORT_VERSION + "\n");
-		try {
-			sb.append(URLEncoder.encode(descr, "UTF-8") + "\n");
-		} catch (UnsupportedEncodingException e) {
-			Log.e(TAG, "could not export", e);
-			sb.append("logs\n");
-		}
+		sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
+		sb.append("<logs version=\"" + EXPORT_VERSION + "\">\n");
+		sb.append("  <title>" + encodeString(title) + "</title>\n");
 		final SQLiteDatabase db = new DatabaseHelper(context).getReadableDatabase();
-
-		backupRuleSetSub(sb, db, Logs.TABLE, Logs.PROJECTION, null);
-		backupRuleSetSub(sb, db, WebSMS.TABLE, WebSMS.PROJECTION, null);
-		backupRuleSetSub(sb, db, SipCall.TABLE, SipCall.PROJECTION, null);
+		sb.append("  <logs>\n");
+		backupRuleSetSub(sb, db, Logs.TABLE, Logs.PROJECTION, null, null, null);
+		sb.append("  </logs>\n");
+		sb.append("  <websmss>\n");
+		backupRuleSetSub(sb, db, WebSMS.TABLE, WebSMS.PROJECTION, null, null, null);
+		sb.append("  </websmss>\n");
+		sb.append("  <sipcalls>\n");
+		backupRuleSetSub(sb, db, SipCall.TABLE, SipCall.PROJECTION, null, null, null);
+		sb.append("  </sipcalls>\n");
+		sb.append("</logs>\n");
 		db.close();
 		return sb.toString();
 	}
@@ -2529,24 +2550,21 @@ public final class DataProvider extends ContentProvider {
 	 * 
 	 * @param context
 	 *            {@link Context}
-	 * @param descr
+	 * @param title
 	 *            description of the number groups
 	 * @return {@link String} representing {@link NumbersGroup} and
 	 *         {@link Numbers}
 	 */
-	public static String backupNumGroups(final Context context, final String descr) {
+	public static String backupNumGroups(final Context context, final String title) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(EXPORT_VERSION + "\n");
-		try {
-			sb.append(URLEncoder.encode(descr, "UTF-8") + "\n");
-		} catch (UnsupportedEncodingException e) {
-			Log.e(TAG, "could not export", e);
-			sb.append("number+groups\n");
-		}
+		sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
+		sb.append("<numbersgroups version=\"" + EXPORT_VERSION + "\">\n");
+		sb.append("  <title>" + encodeString(title) + "</title>\n");
 		final SQLiteDatabase db = new DatabaseHelper(context).getReadableDatabase();
-
-		backupRuleSetSub(sb, db, NumbersGroup.TABLE, NumbersGroup.PROJECTION, null);
-		backupRuleSetSub(sb, db, Numbers.TABLE, Numbers.PROJECTION, null);
+		sb.append("  <numbersgroups>\n");
+		backupRuleSetSub(sb, db, NumbersGroup.TABLE, NumbersGroup.PROJECTION, null, null, null);
+		sb.append("  </numbersgroups>\n");
+		sb.append("</numbersgroups>\n");
 		db.close();
 		return sb.toString();
 	}
@@ -2556,25 +2574,227 @@ public final class DataProvider extends ContentProvider {
 	 * 
 	 * @param context
 	 *            {@link Context}
-	 * @param descr
+	 * @param title
 	 *            description of the hour groups
 	 * @return {@link String} representing {@link HoursGroup} and {@link Hours}
 	 */
-	public static String backupHourGroups(final Context context, final String descr) {
+	public static String backupHourGroups(final Context context, final String title) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(EXPORT_VERSION + "\n");
-		try {
-			sb.append(URLEncoder.encode(descr, "UTF-8") + "\n");
-		} catch (UnsupportedEncodingException e) {
-			Log.e(TAG, "could not export", e);
-			sb.append("hour+groups\n");
-		}
+		sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
+		sb.append("<hoursgroups version=\"" + EXPORT_VERSION + "\">\n");
+		sb.append("  <title>" + encodeString(title) + "</title>\n");
 		final SQLiteDatabase db = new DatabaseHelper(context).getReadableDatabase();
-
-		backupRuleSetSub(sb, db, HoursGroup.TABLE, HoursGroup.PROJECTION, null);
-		backupRuleSetSub(sb, db, Hours.TABLE, Hours.PROJECTION, null);
+		sb.append("  <hoursgroups>\n");
+		backupRuleSetSub(sb, db, HoursGroup.TABLE, HoursGroup.PROJECTION, null, null, null);
+		sb.append("  </hoursgroups>\n");
+		sb.append("</hoursgroups>\n");
+		db.close();
 		db.close();
 		return sb.toString();
+	}
+
+	/**
+	 * Parse all values of a given XML element to import it as
+	 * {@link ContentValues} into {@link SQLiteDatabase}.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param parser
+	 *            XmlPullParser
+	 * @param lists
+	 *            list of {@link ContentValues} {@link ArrayList}s.
+	 * @param name
+	 *            name of the holding element
+	 * @param list
+	 *            current list
+	 * @throws XmlPullParserException
+	 *             XmlPullParserException
+	 * @throws IOException
+	 *             IOException
+	 */
+	private static void parseValues(final Context context, final XmlPullParser parser,
+			final HashMap<String, ArrayList<ContentValues>> lists, final String name,
+			final ArrayList<ContentValues> list) throws XmlPullParserException, IOException {
+		String element = name.substring(0, name.length() - 1);
+		while (parser.next() != XmlPullParser.END_TAG) {
+			if (parser.getEventType() != XmlPullParser.START_TAG) {
+				continue;
+			}
+			parser.require(XmlPullParser.START_TAG, null, element);
+			ContentValues cv = new ContentValues();
+			while (parser.next() != XmlPullParser.END_TAG || !element.equals(parser.getName())) {
+				if (parser.getEventType() != XmlPullParser.START_TAG) {
+					continue;
+				}
+				String k = parser.getName();
+				if (k.equals("hours")) {
+					parser.next();
+					ArrayList<ContentValues> l = new ArrayList<ContentValues>();
+					lists.put(DataProvider.Hours.TABLE, l);
+					parseValues(context, parser, lists, k, l);
+				} else if (k.equals("numbers")) {
+					parser.next();
+					ArrayList<ContentValues> l = new ArrayList<ContentValues>();
+					lists.put(DataProvider.Numbers.TABLE, l);
+					parseValues(context, parser, lists, k, l);
+				} else {
+					parser.next();
+					String v = parser.getText();
+					if (!TextUtils.isEmpty(v)) {
+						cv.put(k, decodeString(v));
+					}
+				}
+			}
+			if (cv.size() > 0) {
+				list.add(cv);
+			}
+		}
+	}
+
+	/**
+	 * Parse XML file and return {@link XmlMetaData}.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param xml
+	 *            XML as {@link String}
+	 * @return metadata
+	 */
+	public static XmlMetaData parseXml(final Context context, final String xml) {
+		Log.d(TAG, "parseXml(db, #" + xml.length() + ")");
+		XmlPullParser parser = Xml.newPullParser();
+		XmlMetaData ret = new XmlMetaData();
+		try {
+			parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+			parser.setInput(new StringReader(xml));
+			parser.nextTag();
+			parser.require(XmlPullParser.START_TAG, null, null);
+			ret.version = parser.getAttributeValue(null, "version");
+			Log.d(TAG, "xml version: " + ret.version);
+			String base = parser.getName();
+			Log.d(TAG, "xml base element: " + base);
+			while (parser.next() != XmlPullParser.END_TAG && !ret.isSet()) {
+				if (parser.getEventType() != XmlPullParser.START_TAG) {
+					continue;
+				}
+				String name = parser.getName();
+				if (name.equals("country")) {
+					parser.next();
+					ret.country = decodeString(parser.getText());
+					Log.d(TAG, "xml country: " + ret.country);
+					parser.next();
+				} else if (name.equals("provider")) {
+					parser.next();
+					ret.provider = decodeString(parser.getText());
+					Log.d(TAG, "xml provider: " + ret.provider);
+					parser.next();
+				} else if (name.equals("title")) {
+					parser.next();
+					ret.title = decodeString(parser.getText());
+					Log.d(TAG, "xml title: " + ret.title);
+					parser.next();
+				}
+			}
+		} catch (Exception e) {
+			Log.e(TAG, "error parsing xml", e);
+			Toast.makeText(context, R.string.err_export_read, Toast.LENGTH_LONG).show();
+			return null;
+		}
+		return ret;
+	}
+
+	/**
+	 * Import data from XML into {@link SQLiteDatabase}.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param db
+	 *            {@link SQLiteDatabase}
+	 * @param xml
+	 *            XML
+	 */
+	private static void importXml(final Context context, final SQLiteDatabase db, final String xml) {
+		Log.d(TAG, "importXml(db, #" + xml.length() + ")");
+		XmlPullParser parser = Xml.newPullParser();
+		String version = null;
+		String country = null;
+		String provider = null;
+		String title = null;
+		HashMap<String, ArrayList<ContentValues>> lists = new HashMap<String, ArrayList<ContentValues>>();
+		try {
+			parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+			parser.setInput(new StringReader(xml));
+			parser.nextTag();
+			parser.require(XmlPullParser.START_TAG, null, null);
+			version = parser.getAttributeValue(null, "version");
+			Log.d(TAG, "xml version: " + version);
+			String base = parser.getName();
+			Log.d(TAG, "xml base element: " + base);
+			while (parser.next() != XmlPullParser.END_TAG) {
+				if (parser.getEventType() != XmlPullParser.START_TAG) {
+					continue;
+				}
+				String name = parser.getName();
+				ArrayList<ContentValues> list = null;
+				if (name.equals("country")) {
+					parser.next();
+					country = decodeString(parser.getText());
+					Log.d(TAG, "xml country: " + country);
+					parser.next();
+				} else if (name.equals("provider")) {
+					parser.next();
+					provider = decodeString(parser.getText());
+					Log.d(TAG, "xml provider: " + provider);
+					parser.next();
+				} else if (name.equals("title")) {
+					parser.next();
+					title = decodeString(parser.getText());
+					Log.d(TAG, "xml title: " + title);
+					parser.next();
+				} else if (name.equals("plans")) {
+					list = new ArrayList<ContentValues>();
+					lists.put(DataProvider.Plans.TABLE, list);
+					parser.next();
+				} else if (name.equals("rules")) {
+					list = new ArrayList<ContentValues>();
+					lists.put(DataProvider.Rules.TABLE, list);
+					parser.next();
+				} else if (name.equals("hoursgroups")) {
+					list = new ArrayList<ContentValues>();
+					lists.put(DataProvider.HoursGroup.TABLE, list);
+					parser.next();
+				} else if (name.equals("numbersgroups")) {
+					list = new ArrayList<ContentValues>();
+					lists.put(DataProvider.NumbersGroup.TABLE, list);
+					parser.next();
+				} else if (name.equals("logs")) {
+					list = new ArrayList<ContentValues>();
+					lists.put(DataProvider.Logs.TABLE, list);
+					parser.next();
+				} else if (name.equals("websmss")) {
+					list = new ArrayList<ContentValues>();
+					lists.put(DataProvider.WebSMS.TABLE, list);
+					parser.next();
+				} else if (name.equals("sipcalls")) {
+					list = new ArrayList<ContentValues>();
+					lists.put(DataProvider.SipCall.TABLE, list);
+					parser.next();
+				}
+				if (list != null) {
+					parseValues(context, parser, lists, name, list);
+				}
+			}
+			// reload lists
+			for (String table : lists.keySet()) {
+				ArrayList<ContentValues> list = lists.get(table);
+				if (list.size() > 0) {
+					reload(db, table, list);
+				}
+			}
+		} catch (Exception e) {
+			Log.e(TAG, "error parsing xml", e);
+			Toast.makeText(context, R.string.err_export_read, Toast.LENGTH_LONG).show();
+		}
 	}
 
 	/**
@@ -2591,7 +2811,6 @@ public final class DataProvider extends ContentProvider {
 			final String[] lines) {
 		final int l = lines.length;
 		Log.d(TAG, "importData(db, #" + l + ")");
-		final boolean needUpdate = l > 0 && lines[0].equals("0");
 		String table = null;
 		ArrayList<ContentValues> cvs = null;
 		for (int i = 2; i < l; i++) {
@@ -2634,9 +2853,6 @@ public final class DataProvider extends ContentProvider {
 			db.delete(table, null, null);
 			reload(db, table, cvs.toArray(new ContentValues[1]));
 		}
-		if (needUpdate) {
-			updateSettings(context, db, true);
-		}
 	}
 
 	/**
@@ -2648,22 +2864,21 @@ public final class DataProvider extends ContentProvider {
 	 *            data as {@link String}; "DEFAULT" will import default rule set
 	 */
 	public static void importData(final Context context, final String ruleSet) {
-		if (ruleSet == null || ruleSet.length() == 0) {
+		if (TextUtils.isEmpty(ruleSet)) {
 			return;
 		}
-		String[] lines = null;
-		if (!ruleSet.equals("DEFAULT")) {
-			lines = ruleSet.split("\n");
-			if (lines.length <= 2) {
-				return;
-			}
-		}
 		final SQLiteDatabase db = new DatabaseHelper(context).getWritableDatabase();
-		if (lines != null) {
-			importData(context, db, lines);
+		if (ruleSet.trim().startsWith("<")) {
+			importXml(context, db, ruleSet);
 			Preferences.setDefaultPlan(context, false);
-		} else {
+		} else if (ruleSet.equals("DEFAULT")) {
 			importDefault(context, db);
+		} else {
+			String[] lines = ruleSet.split("\n");
+			if (lines.length > 2) {
+				importData(context, db, lines);
+				Preferences.setDefaultPlan(context, false);
+			}
 		}
 		db.close();
 	}
@@ -2680,17 +2895,18 @@ public final class DataProvider extends ContentProvider {
 		// import default
 		BufferedReader reader = new BufferedReader(new InputStreamReader(context.getResources()
 				.openRawResource(R.raw.default_setup)));
-		final ArrayList<String> sb = new ArrayList<String>();
+		StringBuilder sb = new StringBuilder();
 		try {
-			String line = reader.readLine();
-			while (line != null) {
-				sb.add(line);
-				line = reader.readLine();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				sb.append(line);
+				sb.append("\n");
+
 			}
 		} catch (IOException e) {
 			Log.e(TAG, "error reading raw data", e);
 		}
-		importData(context, db, sb.toArray(new String[] {}));
+		importXml(context, db, sb.toString());
 
 		// translate default rule set:
 		ContentValues cv = new ContentValues();
@@ -2805,12 +3021,17 @@ public final class DataProvider extends ContentProvider {
 	 *            table
 	 * @param cols
 	 *            columns
+	 * @param selection
+	 *            selection
+	 * @param selectionArgs
+	 *            selection arguments
 	 * @param strip
 	 *            column to forget on backup, eg. _id
 	 * @return array of rows
 	 */
 	private static ContentValues[] backup(final SQLiteDatabase db, final String table,
-			final String[] cols, final String strip) {
+			final String[] cols, final String selection, final String[] selectionArgs,
+			final String strip) {
 		ArrayList<ContentValues> ret = new ArrayList<ContentValues>();
 		String[] proj = cols;
 		if (strip != null) {
@@ -2827,7 +3048,7 @@ public final class DataProvider extends ContentProvider {
 		final int l = proj.length;
 		Cursor cursor = null;
 		try {
-			cursor = db.query(table, proj, null, null, null, null, null);
+			cursor = db.query(table, proj, selection, selectionArgs, null, null, null);
 		} catch (SQLException e) {
 			if (l == 1) {
 				return null;
@@ -2844,7 +3065,7 @@ public final class DataProvider extends ContentProvider {
 				cursor = null;
 			}
 			ret = null;
-			return backup(db, table, proj, str);
+			return backup(db, table, proj, selection, selectionArgs, str);
 		}
 		if (cursor != null && cursor.moveToFirst()) {
 			do {
@@ -2885,6 +3106,24 @@ public final class DataProvider extends ContentProvider {
 			db.insert(table, null, cv);
 		}
 		return;
+	}
+
+	/**
+	 * Reload backup into table.
+	 * 
+	 * @param db
+	 *            {@link SQLiteDatabase}
+	 * @param table
+	 *            table
+	 * @param values
+	 *            {@link ContentValues}[] backed up with backup()
+	 */
+	private static void reload(final SQLiteDatabase db, final String table,
+			final ArrayList<ContentValues> values) {
+		if (values == null || values.size() == 0) {
+			Log.w(TAG, "skip reload empty values: " + table);
+		}
+		reload(db, table, values.toArray(new ContentValues[values.size()]));
 	}
 
 	/**

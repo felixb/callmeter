@@ -417,7 +417,6 @@
   <string name="export_rules_dev_" formatted="false" orig="Export rule set to developer">Kural kümesini uygulama geliştiricisine gönder</string>
   <string name="export_rules_dev_hint" formatted="false" orig="Export rule set to let others import it.">Kural kümesini, başkalarının içe aktarabileceği şekilde dışa aktarın.</string>
   <string name="import_rules_www_hint" formatted="false" orig="Import pre-configured rule set from http://www.ub0r.de/.">Önceden yapılandırılmış kural kümesini http://www.ub0r.de/ adresinden içe aktarın.</string>
-  <string name="export_rules_body" formatted="false" username="İsa Erginyavuz" orig="Hi developer,\nhere is are the rules for my provider. Please add it to the website to let others enjoy it. Please see the details below.\n\nCountry:\nProvider:\nPlan name:\n\nCheers, a User">Selam geliştirici,\nServis sağlayıcımın kurallarını yazıyorum. Lütfen sitene ekleyerek başkalarının da faydalanmasını sağla. Detayları aşağıda bulabilirsin.\n\nÜlke\nServis sağlayıcı:\nPlan adı:\n\nTeşekkürler, bir Kullanıcı</string>
   <string name="export_logs_csv_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Export CSV">Dışa aktar (CSV)</string>
   <string name="export_logs_csv_hint" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Export logs as CSV.">CSV dosyası olarak dışa aktar</string>
   <string name="x1_month_1_day" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="One month + one day">Bir ay + bir gün</string>

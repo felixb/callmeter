@@ -61,10 +61,8 @@
                 android:targetClass="de.ub0r.android.callmeter.ui.HelpActivity"
                 android:targetPackage="de.ub0r.android.callmeter" />
         </PreferenceScreen>
-        <PreferenceScreen
-            android:summary="@string/import_rules_hint"
-            android:title="@string/import_rules_" >
-             <intent
+        <PreferenceScreen android:title="@string/import_rules_" >
+            <intent
                 android:action="IMPORT"
                 android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
                 android:targetPackage="de.ub0r.android.callmeter" />

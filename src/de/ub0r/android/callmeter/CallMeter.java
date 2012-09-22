@@ -87,8 +87,6 @@ public final class CallMeter extends Application {
 				p.edit().putLong(PREFS_LASTBACKUP, System.currentTimeMillis()).commit();
 			}
 		}
-		p = null;
-		DataProvider.updateSettings(this, null, false); // TODO: remove this
 	}
 
 	/**

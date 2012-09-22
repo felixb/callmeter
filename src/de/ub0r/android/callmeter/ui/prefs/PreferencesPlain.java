@@ -165,22 +165,25 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
 	public boolean onPreferenceClick(final Preference preference) {
 		final String k = preference.getKey();
 		if (k.equals("export_rules")) {
-			Preferences.exportData(this, null, DataProvider.EXPORT_RULESET_FILE, null);
+			Preferences.exportData(this, null, null, null, DataProvider.EXPORT_RULESET_FILE, null);
 			return true;
 		} else if (k.equals("export_rules_dev")) {
-			Preferences.exportData(this, null, DataProvider.EXPORT_RULESET_FILE, "android@ub0r.de");
+			Preferences.exportData(this, null, null, null, DataProvider.EXPORT_RULESET_FILE,
+					"android@ub0r.de");
 			return true;
 		} else if (k.equals("export_logs")) {
-			Preferences.exportData(this, null, DataProvider.EXPORT_LOGS_FILE, null);
+			Preferences.exportData(this, null, null, null, DataProvider.EXPORT_LOGS_FILE, null);
 			return true;
 		} else if (k.equals("export_logs_csv")) {
 			Preferences.exportLogsCsv(this);
 			return true;
 		} else if (k.equals("export_numgroups")) {
-			Preferences.exportData(this, null, DataProvider.EXPORT_NUMGROUPS_FILE, null);
+			Preferences
+					.exportData(this, null, null, null, DataProvider.EXPORT_NUMGROUPS_FILE, null);
 			return true;
 		} else if (k.equals("export_hourgroups")) {
-			Preferences.exportData(this, null, DataProvider.EXPORT_HOURGROUPS_FILE, null);
+			Preferences.exportData(this, null, null, null, DataProvider.EXPORT_HOURGROUPS_FILE,
+					null);
 			return true;
 		} else if (k.equals("import_rules")) {
 			this.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(this

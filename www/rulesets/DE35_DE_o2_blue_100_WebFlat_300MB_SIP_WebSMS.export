@@ -28,9 +28,6 @@ rules _id:14:#:_order:1:#:_plan_id:35:#:_rule_name:SIP:#:_what:0:#:_roamed:2:#:_
 numbers _id:1:#:_gid:2:#:_number:0176%:#:
 numbers _id:2:#:_gid:2:#:_number:0179%:#:
 numbers _id:3:#:_gid:2:#:_number:0159%:#:
-numbers _id:4:#:_gid:4:#:_number:05302819245:#:
-numbers _id:5:#:_gid:4:#:_number:053313529074:#:
-numbers _id:6:#:_gid:2:#:_number:+491708519731:#:
 numbers _id:7:#:_gid:6:#:_number:0800%:#:
 numbersgroup _id:2:#:_name:O2:#:
 numbersgroup _id:4:#:_name:O2 Festnetz:#:
