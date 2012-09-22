@@ -54,6 +54,8 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -62,6 +64,7 @@ import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.callmeter.data.DataProvider.XmlMetaData;
 import de.ub0r.android.callmeter.data.Device;
 import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.lib.Log;
@@ -582,6 +585,35 @@ public final class Preferences extends SherlockPreferenceActivity implements
 				Builder builder = new Builder(Preferences.this);
 				if (result.equals("DEFAULT")) {
 					builder.setMessage(R.string.import_rules_default_hint);
+				} else if (result.startsWith("<")) {
+					XmlMetaData m = DataProvider.parseXml(context, result);
+					if (m == null) {
+						Toast.makeText(Preferences.this, R.string.err_export_read,
+								Toast.LENGTH_LONG).show();
+						return;
+					}
+					StringBuilder sb = new StringBuilder();
+					sb.append(Preferences.this.getString(R.string.import_rules_hint));
+					sb.append("\n");
+					if (m.country != null) {
+						sb.append(context.getString(R.string.country));
+						sb.append(": ");
+						sb.append(m.country);
+						sb.append("\n");
+					}
+					if (m.provider != null) {
+						sb.append(context.getString(R.string.provider));
+						sb.append(": ");
+						sb.append(m.provider);
+						sb.append("\n");
+					}
+					if (m.title != null) {
+						sb.append(context.getString(R.string.plan));
+						sb.append(": ");
+						sb.append(m.title);
+						sb.append("\n");
+					}
+					builder.setMessage(sb.toString().trim());
 				} else {
 					String[] lines = result.split("\n");
 					if (lines.length <= 2) {
@@ -625,6 +657,10 @@ public final class Preferences extends SherlockPreferenceActivity implements
 	 * 
 	 * @param context
 	 *            {@link Context}
+	 * @param country
+	 *            country
+	 * @param provider
+	 *            provider
 	 * @param descr
 	 *            description of the exported rule set
 	 * @param fn
@@ -632,19 +668,37 @@ public final class Preferences extends SherlockPreferenceActivity implements
 	 * @param recipient
 	 *            recipient of export
 	 */
-	static void exportData(final Context context, final String descr, final String fn,
-			final String recipient) {
+	static void exportData(final Context context, final String country, final String provider,
+			final String descr, final String fn, final String recipient) {
 		if (descr == null) {
-			final EditText et = new EditText(context);
 			Builder builder = new Builder(context);
-			builder.setView(et);
+			EditText et0, et1, et2;
+			if (fn.equals(DataProvider.EXPORT_RULESET_FILE)) {
+				View v = LayoutInflater.from(context).inflate(R.layout.dialog_export, null);
+				builder.setView(v);
+				et0 = (EditText) v.findViewById(R.id.country);
+				et1 = (EditText) v.findViewById(R.id.provider);
+				et2 = (EditText) v.findViewById(R.id.plan);
+			} else {
+				et0 = null;
+				et1 = null;
+				et2 = new EditText(context);
+				builder.setView(et2);
+			}
+			final EditText etCountry = et0;
+			final EditText etProvider = et1;
+			final EditText etPlan = et2;
 			builder.setCancelable(true);
 			builder.setTitle(R.string.export_rules_descr);
 			builder.setNegativeButton(android.R.string.cancel, null);
 			builder.setPositiveButton(android.R.string.ok, new OnClickListener() {
 				@Override
 				public void onClick(final DialogInterface dialog, final int which) {
-					exportData(context, et.getText().toString(), fn, recipient);
+					String s0, s1, s2;
+					s0 = etCountry == null ? null : etCountry.getText().toString().trim();
+					s1 = etProvider == null ? null : etProvider.getText().toString().trim();
+					s2 = etPlan == null ? null : etPlan.getText().toString().trim();
+					exportData(context, s0, s1, s2, fn, recipient);
 				}
 			});
 			builder.show();
@@ -660,7 +714,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
 				@Override
 				protected String doInBackground(final Void... params) {
 					if (fn.equals(DataProvider.EXPORT_RULESET_FILE)) {
-						return DataProvider.backupRuleSet(context, descr);
+						return DataProvider.backupRuleSet(context, country, provider, descr);
 					} else if (fn.equals(DataProvider.EXPORT_LOGS_FILE)) {
 						return DataProvider.backupLogs(context, descr);
 					} else if (fn.equals(DataProvider.EXPORT_NUMGROUPS_FILE)) {
@@ -698,8 +752,8 @@ public final class Preferences extends SherlockPreferenceActivity implements
 						intent.putExtra(Intent.EXTRA_SUBJECT, "Call Meter 3G export");
 						if (!TextUtils.isEmpty(recipient)) {
 							intent.putExtra(Intent.EXTRA_EMAIL, new String[] { recipient });
-							intent.putExtra(Intent.EXTRA_TEXT,
-									context.getString(R.string.export_rules_body));
+							intent.putExtra(Intent.EXTRA_TEXT, context.getString(
+									R.string.export_rules_body, country, provider, descr));
 						}
 						intent.addCategory(Intent.CATEGORY_DEFAULT);
 

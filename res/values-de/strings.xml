@@ -287,7 +287,6 @@
   <string name="export_rules_dev_" formatted="false">Exportiere Regelwerk zum Entwickler</string>
   <string name="export_rules_dev_hint" formatted="false">Exportiere Regelwerk damit andere es importieren können.</string>
   <string name="export_rules_descr" formatted="false">Beschreibung</string>
-  <string name="export_rules_body" formatted="false">Hallo Entwickler,\nhier ist der Regelsatz für meinen Provider. Bitte lade ihn auf die Website, damit andere ihn nutzen können. Anbei findest du die Details.\n\nLand: Deutschland\nProvider:\nTarifname:\n\nViele Grüße, ein Nutzer</string>
   <string name="export_logs_" formatted="false">Logs sichern</string>
   <string name="export_logs_hint" formatted="false">Logs als Mail sichern.</string>
 	<string name="export_logs_csv_">Exportiere CSV</string>
@@ -363,8 +362,8 @@
   <string name="edit_plan_">Kontingent bearbeiten</string>
   <string name="view_logs_">Logs ansehen</string>
   <string name="delete_">Löschen</string>
-	<string name="up_">Nach oben</string>
-	<string name="down_">Nach unten</string>
+  <string name="up_">Nach oben</string>
+  <string name="down_">Nach unten</string>
   <string name="title">Titel</string>
   <string name="spacer">Abstandhalter</string>
   <string name="mixed">Mixed</string>
@@ -435,6 +434,9 @@
   <string name="author_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Author:">Autor:</string>
   <string name="website_" formatted="false">Website:</string>
   <string name="source_" formatted="false" username="Schiri &lt;schirinowski@gmail.com&gt;" orig="Sourcescode:">Quelltext:</string>
+  <string name="country">Land</string>
+  <string name="provider">Provider</string>
+  <string name="plan">Tarif</string>
   <string name="custom_language_" formatted="false">Andere Sprache</string>
   <string name="custom_language_hint" formatted="false">Eine andere Sprache einstellen.</string>
 </resources>

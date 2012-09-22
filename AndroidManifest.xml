@@ -123,6 +123,17 @@
                     android:pathPattern="*.export"
                     android:scheme="file" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="*"
+                    android:pathPattern="*.xml"
+                    android:scheme="file" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".ui.prefs.PreferencesPlain"
@@ -148,6 +159,7 @@
         </activity>
         <activity
             android:name=".ui.prefs.PreferencesImport"
+            android:label="@string/import_rules_"
             android:theme="@style/Theme.SherlockDefault"
             android:windowSoftInputMode="adjustResize" >
         </activity>
@@ -241,8 +253,8 @@
 
         <provider
             android:name=".data.DataProvider"
-            android:exported="true"
-            android:authorities="de.ub0r.android.callmeter.provider" />
+            android:authorities="de.ub0r.android.callmeter.provider"
+            android:exported="true" />
 
         <receiver android:name=".widget.StatsAppWidgetProvider" >
             <intent-filter>

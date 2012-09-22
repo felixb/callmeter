@@ -272,7 +272,6 @@
   <string name="import_rules_sd_nofiles" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="No found files">Nenhum arquivo encontrado</string>
   <string name="custom" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Custom">Personalizado</string>
   <string name="export_numgroups_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Export number groups">Exportar grupos de números</string>
-  <string name="export_rules_body" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Hi developer,\nhere is are the rules for my provider. Please add it to the website to let others enjoy it. Please see the details below.\n\nCountry:\nProvider:\nPlan name:\n\nCheers, a User">Olá Desenvolvedor,\naqui estão as regras para o meu provedor. Por favor, adicione-a ao website para deixar que os outros aproveitem. Veja os detalhes abaixo.\n\nPaís:\nProvedor:\nNome do plano:\n\nFelicidades, um usuário</string>
   <string name="hide_nocost_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Hide no cost plans">Esconder planos sem custo</string>
   <string name="custom_currency_symbol_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Custom currency symbol">Símbolo de moeda personalizado</string>
   <string name="show_shortname_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show short name instead of long name">Mostrar nome curto em vez de nome longo</string>

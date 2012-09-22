@@ -155,7 +155,9 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 					lp.setValue(String.valueOf(bpl));
 					ps.addPreference(lp);
 				} else {
-					// TODO: set bill period to infinit
+					// set bill period to infinit
+					this.values
+							.put(DataProvider.Plans.BILLPERIOD, DataProvider.BILLPERIOD_INFINITE);
 				}
 				if (bpl != DataProvider.BILLPERIOD_DAY) {
 					// bill day
