@@ -165,21 +165,19 @@ public final class Plans extends SherlockPreferenceActivity implements OnPrefere
 			Cursor c1 = this.getContentResolver().query(DataProvider.Plans.CONTENT_URI,
 					DataProvider.Plans.PROJECTION_BASIC, w, new String[] { String.valueOf(o0) }, o);
 			if (c1.moveToFirst()) {
-				int o1 = c1.getInt(idx);
-				if (o0 == o1) {
-					o1 += diretion;
-				}
 				ContentValues values = new ContentValues();
-				values.put(DataProvider.Plans.ORDER, o1);
-				this.getContentResolver().update(u, values, null, null);
-
 				values.put(DataProvider.Plans.ORDER, o0);
 				this.getContentResolver().update(
 						ContentUris.withAppendedId(DataProvider.Plans.CONTENT_URI,
 								c1.getInt(DataProvider.Plans.INDEX_ID)), values, null, null);
-				this.reload();
 			}
 			c1.close();
+
+			ContentValues values = new ContentValues();
+			values.put(DataProvider.Plans.ORDER, o0 + diretion);
+			this.getContentResolver().update(u, values, null, null);
+
+			this.reload();
 		}
 		c0.close();
 	}
