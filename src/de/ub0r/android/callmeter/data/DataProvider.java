@@ -1467,7 +1467,9 @@ public final class DataProvider extends ContentProvider {
 				v = 15;
 				break;
 			default:
-				return null;
+				f = Calendar.MONTH;
+				v = 1;
+				break;
 			}
 
 			return new int[] { f, v, j, k };
@@ -1513,7 +1515,7 @@ public final class DataProvider extends ContentProvider {
 			default:
 				int[] i = getPeriodSettings(period);
 				if (i == null) {
-					return null;
+					throw new IllegalStateException("period settings == null");
 				} else {
 					f = i[0];
 					v = i[1];
