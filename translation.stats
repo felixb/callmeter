@@ -42,13 +42,13 @@ res/values-el/market.xml:4
 res/values-el/notes.xml:0
 res/values-el/simple_prefs.xml:0
 res/values-el/strings.xml:335
-res/values-es/donation.xml:0
+res/values-es/donation.xml:5
 res/values-es/help.xml:14
 res/values-es/intro.xml:10
 res/values-es/market.xml:6
 res/values-es/notes.xml:0
 res/values-es/simple_prefs.xml:19
-res/values-es/strings.xml:389
+res/values-es/strings.xml:393
 res/values-fr/donation.xml:0
 res/values-fr/help.xml:2
 res/values-fr/intro.xml:8
@@ -167,7 +167,7 @@ res/values-bg:364
 res/values-cs:415
 res/values-de:472
 res/values-el:339
-res/values-es:438
+res/values-es:447
 res/values-fr:57
 res/values-hi:7
 res/values-hr:469

@@ -370,7 +370,7 @@
   <string name="messages" formatted="false" orig="Messages">Mensajes</string>
   <string name="simple_preferences_" formatted="false" orig="Simple preferences">Preferencias simples</string>
   <string name="numbergroup_excalls" formatted="false" orig="Exclude from calls">Exclusivamente para llamadas</string>
-  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Exclusivamente para mensaje</string>
+  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set." username="jesus@yopmail.com">Preferencias muy simples,adecuadas para la mayoria de los usuarios. Solo disponibles con el conjunto de reglas por defecto</string>
   <string name="numbergroup_exsms" formatted="false" orig="Exclude from SMS">Exclusivamente paramensaje</string>
   <string name="messages_" formatted="false" orig="SMS/MMS">Mensaje/mensaje multimedia</string>
   <string name="calls_out_" formatted="false" orig="CallsOut">Lllamada salida</string>
@@ -410,4 +410,8 @@
   <string name="x1_minute">1 minuto</string>
   <string name="x2_minute">2 minutos</string>
   <string name="x5_minute">5 minutos</string>
+  <string name="delete_" formatted="false" username="jesus@yopmail.com" orig="Delete">Eliminar</string>
+  <string name="up_" formatted="false" username="jesus@yopmail.com" orig="Move up">Subir</string>
+  <string name="down_" formatted="false" username="jesus@yopmail.com" orig="Move down">Bajar</string>
+  <string name="delete_widget" formatted="false" username="jesus@yopmail.com" orig="Delete widget">Eliminar Widget</string>
 </resources>
