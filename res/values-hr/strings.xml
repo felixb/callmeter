@@ -21,7 +21,7 @@
                Visit http://ub0r.de/translate/cm3/hr/strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Nedavne promjene:</string>
+  <string name="changelog_notification_" formatted="false" orig="Recent changes:" username="Grmone&lt;grmone.pu@gmail.com&gt;">Nedavne promjene:</string>
   <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of" username="grmone.pu@gmail.com">Kliknite ovdje za prikaz nedavnih promjena</string>
   <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Bilješke programera</string>
   <string name="about0_" formatted="false" username="lesart.mario@gmail.com" orig="Watch your call, message and data plans!">Pratite svoje pozive, poruke i podatke!</string>
@@ -190,7 +190,7 @@
   <string name="plans_new" formatted="false" orig="New plan">Novi plan</string>
   <string name="rule_" formatted="false" orig="Rule">Pravilo</string>
   <string name="rules" formatted="false" orig="Rules">Pravila</string>
-  <string name="rules_new" formatted="false" orig="New Rule">Novo pravilo</string>
+  <string name="rules_new" formatted="false" orig="New Rule" username="Grmone&lt;grmone.pu@gmail.com&gt;">Novo pravilo</string>
   <string name="length_" formatted="false" orig="Length">Duljina</string>
   <string name="cost_" formatted="false" orig="Cost">Cijena</string>
   <string name="numbers" formatted="false" orig="Numbers">Brojevi</string>
@@ -436,4 +436,7 @@
   <string name="source_" formatted="false" username="grmone.pu@gmail.com" orig="Sourcescode:">Izvorni kod:</string>
   <string name="custom_language_" formatted="false" username="grmone.pu@gmail.com" orig="Custom language">Osobni jezik</string>
   <string name="custom_language_hint" formatted="false" username="grmone.pu@gmail.com" orig="Set a custom language.">Postavi osobni jezik.</string>
+  <string name="country" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Country">Zemlja</string>
+  <string name="provider" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Provider">Pružatelj usluga</string>
+  <string name="plan" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Plan">Plan</string>
 </resources>
