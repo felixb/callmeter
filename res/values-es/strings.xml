@@ -141,4 +141,8 @@
     <item>Pequeño</item>
     <item>Mediano</item>
   </string-array>
+  <string name="custom_language_" formatted="false" username="miguelqe37@gmail.com" orig="Custom language">Idioma personalizado</string>
+  <string name="custom_language_hint" formatted="false" username="miguelqe37@gmail.com" orig="Set a custom language.">Establecer un idioma personalizado</string>
+  <string name="debug_" formatted="false" username="miguelqe37@gmail.com" orig="Debug">Depurar</string>
+  <string name="send_logs_" formatted="false" username="miguelqe37@gmail.com" orig="Send logs">Enviar registros</string>
 </resources>
