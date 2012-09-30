@@ -107,6 +107,8 @@ public final class LogRunnerService extends IntentService {
 
 	/** Is phone roaming? */
 	private static boolean roaming = false;
+	/** My own number. */
+	private static String mynumber = null;
 	/** Split messages at 160chars. */
 	private static boolean splitAt160 = false;
 
@@ -368,6 +370,9 @@ public final class LogRunnerService extends IntentService {
 					if (roaming) {
 						baseCv.put(DataProvider.Logs.ROAMED, 1);
 					}
+					if (!TextUtils.isEmpty(mynumber)) {
+						baseCv.put(DataProvider.Logs.MYNUMBER, mynumber);
+					}
 
 					ContentValues cv;
 					Editor e = p.edit();
@@ -493,6 +498,9 @@ public final class LogRunnerService extends IntentService {
 				if (roaming) {
 					cv.put(DataProvider.Logs.ROAMED, 1);
 				}
+				if (!TextUtils.isEmpty(mynumber)) {
+					cv.put(DataProvider.Logs.MYNUMBER, mynumber);
+				}
 				cvalues.add(cv);
 				if (cvalues.size() >= CallMeter.HUNDRET) {
 					cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues.toArray(TO_ARRAY));
@@ -544,7 +552,6 @@ public final class LogRunnerService extends IntentService {
 			final int idDate = cursor.getColumnIndex(Calls.DATE);
 			final int idAddress = cursor.getColumnIndex("address");
 			final int idBody = cursor.getColumnIndex("body");
-
 			final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(CallMeter.HUNDRET);
 			do {
 				final ContentValues cv = new ContentValues();
@@ -574,6 +581,9 @@ public final class LogRunnerService extends IntentService {
 				cv.put(DataProvider.Logs.AMOUNT, l);
 				if (roaming) {
 					cv.put(DataProvider.Logs.ROAMED, 1);
+				}
+				if (!TextUtils.isEmpty(mynumber)) {
+					cv.put(DataProvider.Logs.MYNUMBER, mynumber);
 				}
 				cvalues.add(cv);
 				if (cvalues.size() >= CallMeter.HUNDRET) {
@@ -672,6 +682,9 @@ public final class LogRunnerService extends IntentService {
 				cv.put(DataProvider.Logs.AMOUNT, 1);
 				if (roaming) {
 					cv.put(DataProvider.Logs.ROAMED, 1);
+				}
+				if (!TextUtils.isEmpty(mynumber)) {
+					cv.put(DataProvider.Logs.MYNUMBER, mynumber);
 				}
 				cvalues.add(cv);
 				if (cvalues.size() >= CallMeter.HUNDRET) {
@@ -898,9 +911,11 @@ public final class LogRunnerService extends IntentService {
 		}
 
 		// update roaming info
-		roaming = ((TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE))
-				.isNetworkRoaming();
+		TelephonyManager tm = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+		roaming = tm.isNetworkRoaming();
 		Log.d(TAG, "roaming: " + roaming);
+		mynumber = tm.getLine1Number();
+		Log.d(TAG, "my number: " + mynumber);
 
 		return wakelock;
 	}

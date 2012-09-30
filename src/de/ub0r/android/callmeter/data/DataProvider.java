@@ -27,6 +27,8 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -67,6 +69,9 @@ public final class DataProvider extends ContentProvider {
 	/** Tag for output. */
 	private static final String TAG = "dp";
 
+	/** Pattern parsing {@link SQLException}. */
+	private static final Pattern P = Pattern.compile(": *([^ :,]*)", 0);
+
 	/** Callmeter's package name. */
 	public static final String PACKAGE = "de.ub0r.android.callmeter";
 
@@ -76,7 +81,9 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 30;
+	private static final int DATABASE_VERSION = 32;
+	/** Versions of {@link SQLiteDatabase}, which need no unmatch(). */
+	private static final int[] DATABASE_KNOWNGOOD = new int[] { 30 };
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 2;
@@ -206,10 +213,12 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_COST = 10;
 		/** Index in projection: Cost (free). */
 		public static final int INDEX_FREE = 11;
+		/** Index in projection: my own number. */
+		public static final int INDEX_MYNUMBER = 12;
 		/** Index in projection: Plan name. */
-		public static final int INDEX_PLAN_NAME = 12;
+		public static final int INDEX_PLAN_NAME = 13;
 		/** Index in projection: Rule name. */
-		public static final int INDEX_RULE_NAME = 13;
+		public static final int INDEX_RULE_NAME = 14;
 
 		/** Index in projection - sum: Type of log. */
 		public static final int INDEX_SUM_TYPE = 0;
@@ -254,10 +263,12 @@ public final class DataProvider extends ContentProvider {
 		public static final String FREE = "_logs_cost_free";
 		/** Type of plan. Only available in sum query. */
 		public static final String PLAN_TYPE = "_plan_type";
+		/** My own number. */
+		public static final String MYNUMBER = "_mynumber";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, PLAN_ID, RULE_ID, TYPE,
-				DIRECTION, DATE, AMOUNT, BILL_AMOUNT, REMOTE, ROAMED, COST, FREE };
+				DIRECTION, DATE, AMOUNT, BILL_AMOUNT, REMOTE, ROAMED, COST, FREE, MYNUMBER };
 		/** Projection used for join query. */
 		public static final String[] PROJECTION_JOIN;
 		static {
@@ -306,7 +317,7 @@ public final class DataProvider extends ContentProvider {
 					+ PLAN_ID + " LONG, " + RULE_ID + " LONG, " + TYPE + " INTEGER, " + DIRECTION
 					+ " INTEGER, " + DATE + " LONG, " + AMOUNT + " LONG, " + BILL_AMOUNT
 					+ " FLOAT, " + REMOTE + " TEXT, " + ROAMED + " INTEGER, " + COST + " FLOAT, "
-					+ FREE + " FLOAT" + ");");
+					+ FREE + " FLOAT," + MYNUMBER + " TEXT" + ");");
 			db.execSQL("CREATE INDEX " + TABLE + "_idx on " + TABLE + " (" + ID + "," + PLAN_ID
 					+ "," + DATE + ")");
 		}
@@ -324,8 +335,7 @@ public final class DataProvider extends ContentProvider {
 		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
 				final int newVersion) {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, new String[] { AMOUNT, DATE,
-					DIRECTION, REMOTE, ROAMED, TYPE, PLAN_ID }, null, null, null);
+			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
 			onCreate(db);
 			reload(db, TABLE, values);
 		}
@@ -1696,7 +1706,9 @@ public final class DataProvider extends ContentProvider {
 		/** Index in projection: is sipcall. */
 		public static final int INDEX_IS_SIPCALL = 15;
 		/** Index in projection: is sipcall provider. */
-		// public static final int INDEX_IS_SIPCALL_PROVIDER = 16;
+		public static final int INDEX_IS_SIPCALL_PROVIDER = 16;
+		/** Index in projection: my own number. */
+		public static final int INDEX_MYNUMBER = 17;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -1732,11 +1744,14 @@ public final class DataProvider extends ContentProvider {
 		public static final String IS_SIPCALL = "_is_sipcall";
 		/** Is sipcall provider. */
 		public static final String IS_SIPCALL_PROVIDER = "_is_sipcall_provider";
+		/** My own number. */
+		public static final String MYNUMBER = "_mynumber";
 
 		/** Projection used for query. */
 		public static final String[] PROJECTION = new String[] { ID, ACTIVE, ORDER, PLAN_ID, NAME,
 				WHAT, ROAMED, DIRECTION, INHOURS_ID, EXHOURS_ID, INNUMBERS_ID, EXNUMBERS_ID,
-				LIMIT_NOT_REACHED, IS_WEBSMS, IS_WEBSMS_CONNETOR, IS_SIPCALL, IS_SIPCALL_PROVIDER };
+				LIMIT_NOT_REACHED, IS_WEBSMS, IS_WEBSMS_CONNETOR, IS_SIPCALL, IS_SIPCALL_PROVIDER,
+				MYNUMBER };
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/rules");
@@ -1765,7 +1780,7 @@ public final class DataProvider extends ContentProvider {
 					+ " INTEGER," + INHOURS_ID + " TEXT," + EXHOURS_ID + " TEXT," + INNUMBERS_ID
 					+ " TEXT," + EXNUMBERS_ID + " TEXT," + LIMIT_NOT_REACHED + " INTEGER,"
 					+ IS_WEBSMS + " INTEGER," + IS_WEBSMS_CONNETOR + " TEXT," + IS_SIPCALL
-					+ " INTEGER," + IS_SIPCALL_PROVIDER + " TEXT" + ");");
+					+ " INTEGER," + IS_SIPCALL_PROVIDER + " TEXT," + MYNUMBER + " TEXT" + ");");
 			db.execSQL("CREATE INDEX " + TABLE + "_idx on " + TABLE + " (" + ID + "," + ACTIVE
 					+ "," + ORDER + "," + PLAN_ID + "," + WHAT + ")");
 		}
@@ -2169,7 +2184,7 @@ public final class DataProvider extends ContentProvider {
 	 * 
 	 * @author flx
 	 */
-	public static class XmlMetaData {
+	public final static class XmlMetaData {
 		/** Meta data. */
 		public String version, country, provider, title;
 
@@ -2269,6 +2284,7 @@ public final class DataProvider extends ContentProvider {
 	 * This class helps open, create, and upgrade the database file.
 	 */
 	private static class DatabaseHelper extends SQLiteOpenHelper {
+
 		/**
 		 * {@inheritDoc}
 		 */
@@ -2346,8 +2362,24 @@ public final class DataProvider extends ContentProvider {
 		}
 
 		/**
-		 * {@inheritDoc}
+		 * Check, if wee need to unmatch() logs after updating the
+		 * {@link SQLiteDatabase}.
+		 * 
+		 * @param oldVersion
+		 *            old version
+		 * @param newVersion
+		 *            new version
+		 * @return true, if unmatch() is needed
 		 */
+		private boolean needUnmatch(final int oldVersion, final int newVersion) {
+			for (int v : DATABASE_KNOWNGOOD) {
+				if (v == oldVersion) {
+					return false;
+				}
+			}
+			return true;
+		}
+
 		@Override
 		public void onUpgrade(final SQLiteDatabase db, final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading database from version " + oldVersion + " to " + newVersion
@@ -2361,7 +2393,9 @@ public final class DataProvider extends ContentProvider {
 			NumbersGroup.onUpgrade(db, oldVersion, newVersion);
 			Hours.onUpgrade(db, oldVersion, newVersion);
 			HoursGroup.onUpgrade(db, oldVersion, newVersion);
-			unmatch(db);
+			if (this.needUnmatch(oldVersion, newVersion)) {
+				unmatch(db);
+			}
 		}
 	}
 
@@ -2383,7 +2417,10 @@ public final class DataProvider extends ContentProvider {
 		ContentValues cv = new ContentValues();
 		cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
 		cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
-		db.update(DataProvider.Logs.TABLE, cv, null, null);
+		// reset all but manually set plans
+		db.update(DataProvider.Logs.TABLE, cv, DataProvider.Logs.RULE_ID + " is null or NOT ("
+				+ DataProvider.Logs.RULE_ID + " = " + DataProvider.NOT_FOUND + " AND "
+				+ DataProvider.Logs.PLAN_ID + " != " + DataProvider.NOT_FOUND + ")", null);
 		cv.clear();
 		cv.put(DataProvider.Plans.NEXT_ALERT, 0);
 		db.update(DataProvider.Plans.TABLE, cv, null, null);
@@ -2788,6 +2825,7 @@ public final class DataProvider extends ContentProvider {
 			for (String table : lists.keySet()) {
 				ArrayList<ContentValues> list = lists.get(table);
 				if (list.size() > 0) {
+					db.delete(table, null, null);
 					reload(db, table, list);
 				}
 			}
@@ -3032,18 +3070,20 @@ public final class DataProvider extends ContentProvider {
 	private static ContentValues[] backup(final SQLiteDatabase db, final String table,
 			final String[] cols, final String selection, final String[] selectionArgs,
 			final String strip) {
+		Log.d(TAG, "backup(db," + table + ",cols,sel,args," + strip + ")");
 		ArrayList<ContentValues> ret = new ArrayList<ContentValues>();
 		String[] proj = cols;
 		if (strip != null) {
+			ArrayList<String> a = new ArrayList<String>(cols.length);
 			proj = new String[cols.length - 1];
-			int i = 0;
 			for (String c : cols) {
 				if (strip.equals(c)) {
+					Log.d(TAG, "ignore column: " + c);
 					continue;
 				}
-				proj[i] = c;
-				++i;
+				a.add(c);
 			}
+			proj = a.toArray(new String[a.size()]);
 		}
 		final int l = proj.length;
 		Cursor cursor = null;
@@ -3055,9 +3095,13 @@ public final class DataProvider extends ContentProvider {
 			}
 			final String err = e.getMessage();
 			if (!err.startsWith("no such column:")) {
-				return null;
+				throw new IllegalStateException("Could not parse exeption message");
 			}
-			final String str = err.split(":", 3)[1].trim();
+			Matcher m = P.matcher(err);
+			if (!m.find()) {
+				throw new IllegalStateException("Could not parse exeption message");
+			}
+			final String str = m.group(1);
 			if (cursor != null) {
 				if (!cursor.isClosed()) {
 					cursor.close();
@@ -3102,8 +3146,17 @@ public final class DataProvider extends ContentProvider {
 			return;
 		}
 		Log.d(TAG, "reload(db, " + table + ", cv[" + values.length + "])");
-		for (ContentValues cv : values) {
-			db.insert(table, null, cv);
+		db.beginTransaction();
+		try {
+			for (ContentValues cv : values) {
+				Log.d(TAG, "reload: " + table + " inert: " + cv);
+				db.insert(table, null, cv);
+			}
+			db.setTransactionSuccessful();
+		} catch (SQLException e) {
+			Log.e(TAG, "error reloading row: " + table, e);
+		} finally {
+			db.endTransaction();
 		}
 		return;
 	}
@@ -3146,9 +3199,6 @@ public final class DataProvider extends ContentProvider {
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int delete(final Uri uri, final String selection, final String[] selectionArgs) {
 		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
@@ -3232,9 +3282,6 @@ public final class DataProvider extends ContentProvider {
 		return ret;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getType(final Uri uri) {
 		switch (URI_MATCHER.match(uri)) {
@@ -3284,9 +3331,6 @@ public final class DataProvider extends ContentProvider {
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Uri insert(final Uri uri, final ContentValues values) {
 		Log.d(TAG, "insert(" + uri + "," + values + ")");
@@ -3354,18 +3398,12 @@ public final class DataProvider extends ContentProvider {
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean onCreate() {
 		this.mOpenHelper = new DatabaseHelper(this.getContext());
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Cursor query(final Uri uri, final String[] projection, final String selection,
 			final String[] selectionArgs, final String sortOrder) {
@@ -3644,9 +3682,6 @@ public final class DataProvider extends ContentProvider {
 		return c;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int update(final Uri uri, final ContentValues values, final String selection,
 			final String[] selectionArgs) {
@@ -3720,9 +3755,6 @@ public final class DataProvider extends ContentProvider {
 		return ret;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ParcelFileDescriptor openFile(final Uri uri, final String mode)
 			throws FileNotFoundException {

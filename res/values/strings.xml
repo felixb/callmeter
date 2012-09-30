@@ -191,6 +191,9 @@
 	<string name="balance_help">Balance of your account at this given date.</string>
 	<string name="strip_leading_zeros_">Strip leading zeros</string>
 	<string name="strip_leading_zeros_hint">Strip leading zeros when comparing numbers.</string>
+	<string name="my_number_">My number</string>
+	<string name="my_number_help">Match only logs, while this SIM/number is active.</string>
+	<string name="set_current_number">Current number</string>
 	<string name="number_prefix_">International prefix</string>
 	<string name="number_prefix_hint">Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..</string>
 	<string name="reset_data_">Reset statistics</string>

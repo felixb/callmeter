@@ -15,7 +15,7 @@ import de.ub0r.android.callmeter.R;
  * 
  * @author flx
  */
-public final class CVEditTextPreference extends EditTextPreference {
+public class CVEditTextPreference extends EditTextPreference {
 
 	/** {@link ContentValues} for saving values. */
 	private final ContentValues cv;

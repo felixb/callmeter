@@ -37,6 +37,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.telephony.PhoneNumberUtils;
+import android.text.TextUtils;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.Plans;
@@ -348,6 +349,8 @@ public final class RuleMatcher {
 		private final long planId;
 		/** Kind of rule. */
 		private final int what;
+		/** My own number. */
+		private final String myNumber;
 		/** Is roamed? */
 		private final int roamed;
 		/** Is direction? */
@@ -384,6 +387,12 @@ public final class RuleMatcher {
 			}
 			this.what = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
 			this.direction = cursor.getInt(DataProvider.Rules.INDEX_DIRECTION);
+			String s = cursor.getString(DataProvider.Rules.INDEX_MYNUMBER);
+			if (TextUtils.isEmpty(s)) {
+				this.myNumber = null;
+			} else {
+				this.myNumber = s;
+			}
 			this.roamed = cursor.getInt(DataProvider.Rules.INDEX_ROAMED);
 			this.inhours = getHourGroups(cr, cursor.getString(DataProvider.Rules.INDEX_INHOURS_ID));
 			this.exhours = getHourGroups(cr, cursor.getString(DataProvider.Rules.INDEX_EXHOURS_ID));
@@ -402,8 +411,8 @@ public final class RuleMatcher {
 					this.iswebsms = DataProvider.Rules.NO_MATTER;
 				}
 			}
-			final String s = cursor.getString(DataProvider.Rules.INDEX_IS_WEBSMS_CONNETOR);
-			if (s == null || s.length() == 0) {
+			s = cursor.getString(DataProvider.Rules.INDEX_IS_WEBSMS_CONNETOR);
+			if (TextUtils.isEmpty(s)) {
 				this.iswebsmsConnector = "";
 			} else {
 				this.iswebsmsConnector = " AND " + DataProvider.WebSMS.CONNECTOR + " LIKE '%"
@@ -540,6 +549,15 @@ public final class RuleMatcher {
 			Log.d(TAG, "ret after limit: " + ret);
 			if (!ret) {
 				return false;
+			}
+
+			if (this.myNumber != null) {
+				// FIXME: do equals?
+				ret = this.myNumber.equals(log.getString(DataProvider.Logs.INDEX_MYNUMBER));
+				Log.d(TAG, "ret after mynumber: " + ret);
+				if (!ret) {
+					return false;
+				}
 			}
 
 			if (this.roamed >= 0 && this.roamed != DataProvider.Rules.NO_MATTER) {

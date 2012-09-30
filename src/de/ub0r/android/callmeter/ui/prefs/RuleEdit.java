@@ -18,13 +18,17 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
+import android.app.AlertDialog.Builder;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.telephony.TelephonyManager;
 import android.text.InputType;
+import android.text.TextUtils;
 
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 
@@ -236,6 +240,33 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 			}
 			lp.setValue(String.valueOf(i));
 			ps.addPreference(lp);
+			// my number
+			TelephonyManager tm = (TelephonyManager) this.getSystemService(TELEPHONY_SERVICE);
+			final String mynumber = tm.getLine1Number();
+			if (!TextUtils.isEmpty(mynumber)) {
+				ep = new CVEditTextPreference(this, this.values, DataProvider.Rules.MYNUMBER, null) {
+					@Override
+					protected void onPrepareDialogBuilder(final Builder builder) {
+						super.onPrepareDialogBuilder(builder);
+						final CVEditTextPreference pref = this;
+						builder.setNeutralButton(R.string.set_current_number,
+								new DialogInterface.OnClickListener() {
+									@Override
+									public void onClick(final DialogInterface dialog,
+											final int which) {
+										// pref.setText(mynumber);
+										RuleEdit.this.values.put(pref.getKey(), mynumber);
+										RuleEdit.this.onUpdateValue(pref);
+									}
+								});
+					}
+				};
+				ep.setTitle(R.string.my_number_);
+				ep.setSummary(R.string.my_number_help);
+				ep.setText(c.getString(DataProvider.Rules.INDEX_MYNUMBER));
+				ep.setInputType(InputType.TYPE_CLASS_PHONE);
+				ps.addPreference(ep);
+			}
 			// roamed
 			lp = new CVListPreference(this, this.values, DataProvider.Rules.ROAMED);
 			lp.setTitle(R.string.roamed_);
