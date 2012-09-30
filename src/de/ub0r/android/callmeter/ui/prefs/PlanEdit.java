@@ -51,7 +51,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 	/** This rule's {@link Uri}. */
 	private Uri uri = null;
 	/** Id of edited filed. */
-	private long pid = -1L;
+	private int pid = -1;
 	/** {@link ContentValues} holding preferences. */
 	private ContentValues values = new ContentValues();
 
@@ -63,7 +63,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 
 		this.addPreferencesFromResource(R.xml.group_prefs);
 		this.uri = this.getIntent().getData();
-		this.pid = ContentUris.parseId(this.uri);
+		this.pid = (int) ContentUris.parseId(this.uri);
 	}
 
 	@Override
@@ -99,7 +99,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 			} else {
 				lt = c.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 			}
-			long ppid = DataProvider.Plans.getParent(this.getContentResolver(), this.pid);
+			int ppid = DataProvider.Plans.getParent(this.getContentResolver(), this.pid);
 			String merged = c.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
 			if (merged != null && merged.replaceAll(",", "").length() == 0) {
 				merged = null;

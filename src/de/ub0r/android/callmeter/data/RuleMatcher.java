@@ -20,7 +20,6 @@ package de.ub0r.android.callmeter.data;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.HashSet;
 
 import android.app.Notification;
@@ -38,6 +37,7 @@ import android.os.Message;
 import android.preference.PreferenceManager;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
+import android.util.SparseArray;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.Plans;
@@ -264,7 +264,7 @@ public final class RuleMatcher {
 		/** Group of hours. */
 		private static final class HoursGroup {
 			/** List of hours. */
-			private final HashMap<Integer, HashSet<Integer>> hours = new HashMap<Integer, HashSet<Integer>>();
+			private final SparseArray<HashSet<Integer>> hours = new SparseArray<HashSet<Integer>>();
 
 			/** Entry for monday - sunday. */
 			private static final int ALL_WEEK = 0;
@@ -301,12 +301,13 @@ public final class RuleMatcher {
 					do {
 						final int d = cursor.getInt(DataProvider.Hours.INDEX_DAY);
 						final int h = cursor.getInt(DataProvider.Hours.INDEX_HOUR);
-						if (this.hours.containsKey(d)) {
-							this.hours.get(d).add(h);
-						} else {
-							final HashSet<Integer> hs = new HashSet<Integer>();
+						HashSet<Integer> hs = this.hours.get(d);
+						if (hs == null) {
+							hs = new HashSet<Integer>();
 							hs.add(h);
 							this.hours.put(d, hs);
+						} else {
+							hs.add(h);
 						}
 					} while (cursor.moveToNext());
 				}
@@ -330,7 +331,9 @@ public final class RuleMatcher {
 				CAL.setTimeInMillis(date);
 				final int d = (CAL.get(Calendar.DAY_OF_WEEK) - Calendar.SUNDAY) % SUN;
 				final int h = CAL.get(Calendar.HOUR_OF_DAY) + 1;
-				for (int k : this.hours.keySet()) {
+				int l = this.hours.size();
+				for (int i = 0; i < l; i++) {
+					int k = this.hours.keyAt(i);
 					if (k == ALL_WEEK || (k == MON_FRI && d < SAT && d >= MON) || k % SUN == d) {
 						for (int v : this.hours.get(k)) {
 							if (v == 0 || v == h) {
@@ -344,9 +347,9 @@ public final class RuleMatcher {
 		}
 
 		/** Id. */
-		private final long id;
+		private final int id;
 		/** ID of plan referred by this rule. */
-		private final long planId;
+		private final int planId;
 		/** Kind of rule. */
 		private final int what;
 		/** My own number. */
@@ -378,12 +381,12 @@ public final class RuleMatcher {
 		 * @param cursor
 		 *            {@link Cursor}
 		 */
-		Rule(final ContentResolver cr, final Cursor cursor, final long overwritePlanId) {
-			this.id = cursor.getLong(DataProvider.Rules.INDEX_ID);
+		Rule(final ContentResolver cr, final Cursor cursor, final int overwritePlanId) {
+			this.id = cursor.getInt(DataProvider.Rules.INDEX_ID);
 			if (overwritePlanId >= 0) {
 				this.planId = overwritePlanId;
 			} else {
-				this.planId = cursor.getLong(DataProvider.Rules.INDEX_PLAN_ID);
+				this.planId = cursor.getInt(DataProvider.Rules.INDEX_PLAN_ID);
 			}
 			this.what = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
 			this.direction = cursor.getInt(DataProvider.Rules.INDEX_DIRECTION);
@@ -433,19 +436,19 @@ public final class RuleMatcher {
 		/**
 		 * @return {@link Rule}'s id
 		 */
-		long getId() {
+		int getId() {
 			return this.id;
 		}
 
 		/**
 		 * @return {@link Plan}'s id
 		 */
-		long getPlanId() {
+		int getPlanId() {
 			return this.planId;
 		}
 
 		/** Internal var for match(). */
-		private final static String[] S1 = new String[1];
+		private static final String[] S1 = new String[1];
 
 		/**
 		 * Math a log.
@@ -640,7 +643,7 @@ public final class RuleMatcher {
 	 */
 	private static class Plan {
 		/** Id. */
-		private final long id;
+		private final int id;
 		/** Name of plan. */
 		private final String name;
 		/** Type of log. */
@@ -668,7 +671,7 @@ public final class RuleMatcher {
 		/** Strip first x seconds. */
 		private final int stripSeconds;
 		/** Parent plan id. */
-		private final long ppid;
+		private final int ppid;
 		/** PArent plan. Set in RuleMatcher.load(). */
 		private Plan parent = null;
 		/** Time of next alert. */
@@ -696,7 +699,7 @@ public final class RuleMatcher {
 		 */
 		Plan(final ContentResolver cr, final Cursor cursor) {
 			this.cResolver = cr;
-			this.id = cursor.getLong(DataProvider.Plans.INDEX_ID);
+			this.id = cursor.getInt(DataProvider.Plans.INDEX_ID);
 			this.name = cursor.getString(DataProvider.Plans.INDEX_NAME);
 			this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			this.limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
@@ -1030,7 +1033,7 @@ public final class RuleMatcher {
 	/**
 	 * List of {@link Plan}s.
 	 */
-	private static HashMap<Long, Plan> plans = null;
+	private static SparseArray<Plan> plans = null;
 
 	/**
 	 * Default constructor.
@@ -1072,12 +1075,12 @@ public final class RuleMatcher {
 		}
 
 		// load plans
-		plans = new HashMap<Long, Plan>();
+		plans = new SparseArray<Plan>();
 		cursor = cr.query(DataProvider.Plans.CONTENT_URI, DataProvider.Plans.PROJECTION,
 				DataProvider.Plans.WHERE_REALPLANS, null, null);
 		if (cursor != null && cursor.moveToFirst()) {
 			do {
-				final long i = cursor.getLong(DataProvider.Plans.INDEX_ID);
+				final int i = cursor.getInt(DataProvider.Plans.INDEX_ID);
 				plans.put(i, new Plan(cr, cursor));
 			} while (cursor.moveToNext());
 		}
@@ -1086,7 +1089,9 @@ public final class RuleMatcher {
 			cursor = null;
 		}
 		// update parent references
-		for (Plan p : plans.values()) {
+		int l = plans.size();
+		for (int i = 0; i < l; i++) {
+			Plan p = plans.valueAt(i);
 			p.parent = plans.get(p.ppid);
 		}
 	}
@@ -1208,7 +1213,7 @@ public final class RuleMatcher {
 	 * @param pid
 	 *            id of plan
 	 */
-	public static void matchLog(final ContentResolver cr, final long lid, final long pid) {
+	public static void matchLog(final ContentResolver cr, final long lid, final int pid) {
 		if (cr == null) {
 			Log.e(TAG, "matchLog(null, lid, pid)");
 			return;
@@ -1329,8 +1334,9 @@ public final class RuleMatcher {
 				final long now = System.currentTimeMillis();
 				int alert = 0;
 				Plan alertPlan = null;
-				for (long pid : plans.keySet()) {
-					final Plan plan = plans.get(pid);
+				int l = plans.size();
+				for (int i = 0; i < l; i++) {
+					final Plan plan = plans.valueAt(i);
 					if (plan == null) {
 						continue;
 					}

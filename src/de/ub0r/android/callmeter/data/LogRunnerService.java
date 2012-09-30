@@ -43,6 +43,7 @@ import android.provider.CallLog.Calls;
 import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.SparseArray;
 import android.widget.Toast;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.ui.AskForPlan;
@@ -78,7 +79,7 @@ public final class LogRunnerService extends IntentService {
 	private static final String[] THREADS_PROJ = new String[] { "recipient_ids" };
 
 	/** {@link HashMap} mapping threads to numbers. */
-	private static final HashMap<Long, String> THREAD_TO_NUMBER = new HashMap<Long, String>();
+	private static final SparseArray<String> THREAD_TO_NUMBER = new SparseArray<String>();
 
 	/** {@link Intent}'s action for run matcher. */
 	public static final String ACTION_RUN_MATCHER = "de.ub0r.android.callmeter.RUN_MATCHER";
@@ -653,7 +654,7 @@ public final class LogRunnerService extends IntentService {
 				} else {
 					continue;
 				}
-				final long tid = cursor.getLong(idThId);
+				final int tid = cursor.getInt(idThId);
 				Log.d(TAG, "thread_id: " + tid);
 				if (tid >= 0L) {
 					String n = THREAD_TO_NUMBER.get(tid);

@@ -1221,15 +1221,15 @@ public final class DataProvider extends ContentProvider {
 		 *            id
 		 * @return parent's id
 		 */
-		public static long getParent(final ContentResolver cr, final long id) {
+		public static int getParent(final ContentResolver cr, final int id) {
 			if (id < 0) {
-				return -1L;
+				return -1;
 			}
 			final Cursor cursor = cr.query(CONTENT_URI, PROJECTION_NAME,
 					DataProvider.Plans.MERGED_PLANS + " LIKE '%," + id + ",%'", null, null);
-			long ret = -1L;
+			int ret = -1;
 			if (cursor.moveToFirst()) {
-				ret = cursor.getLong(0);
+				ret = cursor.getInt(0);
 			}
 			if (!cursor.isClosed()) {
 				cursor.close();
