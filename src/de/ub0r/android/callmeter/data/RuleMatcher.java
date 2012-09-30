@@ -1095,9 +1095,9 @@ public final class RuleMatcher {
 		cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
 		cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 		// reset all but manually set plans
-		final String notfound = String.valueOf(DataProvider.NOT_FOUND);
-		cr.update(DataProvider.Logs.CONTENT_URI, cv, "NOT (" + DataProvider.Logs.RULE_ID + " = "
-				+ notfound + " AND " + DataProvider.Logs.PLAN_ID + " != " + notfound + ")", null);
+		cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.RULE_ID
+				+ " is null or NOT (" + DataProvider.Logs.RULE_ID + " = " + DataProvider.NOT_FOUND
+				+ " AND " + DataProvider.Logs.PLAN_ID + " != " + DataProvider.NOT_FOUND + ")", null);
 		cv.clear();
 		cv.put(DataProvider.Plans.NEXT_ALERT, 0);
 		cr.update(DataProvider.Plans.CONTENT_URI, cv, null, null);

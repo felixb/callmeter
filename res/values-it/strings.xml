@@ -416,8 +416,6 @@
   <string name="x1_minute">1 minuto</string>
   <string name="x2_minute">2 minuti</string>
   <string name="x5_minute">5 minuti</string>
-  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Mostra solamente "Dati" come titolo</string>
-  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Nascondi "(2G/3G/4G)" nel titolo. Non avrà effetto sulle statistiche.</string>
   <string name="reset" formatted="false" username="carloraudino@fedoraproject.org" orig="Reset">Ripristina</string>
   <string name="debug_" formatted="false" username="carloraudino@fedoraproject.org" orig="Debug">Debug</string>
   <string name="send_logs_" formatted="false" username="carloraudino@fedoraproject.org" orig="Send logs">Invia log</string>
