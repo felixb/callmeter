@@ -34,10 +34,13 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import android.content.ContentProvider;
+import android.content.ContentProviderOperation;
+import android.content.ContentProviderResult;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.OperationApplicationException;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.UriMatcher;
@@ -3329,6 +3332,49 @@ public final class DataProvider extends ContentProvider {
 		default:
 			throw new IllegalArgumentException("Unknown URI: " + uri);
 		}
+	}
+
+	@Override
+	public ContentProviderResult[] applyBatch(final ArrayList<ContentProviderOperation> operations)
+			throws OperationApplicationException {
+		Log.d(TAG, "applyBatch(#" + operations.size() + ")");
+		ContentProviderResult[] ret = null;
+		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
+		db.beginTransaction();
+		try {
+			ret = super.applyBatch(operations);
+			db.setTransactionSuccessful();
+		} catch (SQLException e) {
+			Log.e(TAG, "error applying batch");
+			throw e;
+		} finally {
+			db.endTransaction();
+		}
+		return ret;
+	}
+
+	@Override
+	public int bulkInsert(final Uri uri, final ContentValues[] values) {
+		Log.d(TAG, "bulkInsert(" + uri + ", #" + values.length + ")");
+		if (values.length == 0) {
+			return 0;
+		}
+		int ret = 0;
+		final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
+		db.beginTransaction();
+		try {
+			for (ContentValues cv : values) {
+				this.insert(uri, cv);
+			}
+			ret = values.length;
+			db.setTransactionSuccessful();
+		} catch (SQLException e) {
+			Log.e(TAG, "error inserting row: " + uri);
+			throw e;
+		} finally {
+			db.endTransaction();
+		}
+		return ret;
 	}
 
 	@Override

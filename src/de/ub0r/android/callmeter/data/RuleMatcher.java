@@ -25,15 +25,18 @@ import java.util.HashSet;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.OperationApplicationException;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Handler;
 import android.os.Message;
+import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
@@ -1128,10 +1131,6 @@ public final class RuleMatcher {
 	}
 
 	/** Internal ar for matchLog(). */
-	private static final String[] LIDS = new String[1];
-	/** Internal ar for matchLog(). */
-	private static final ContentValues CV = new ContentValues();
-	/** Internal ar for matchLog(). */
 	private static final String WHERE = DataProvider.Logs.ID + " = ?";
 
 	/**
@@ -1139,21 +1138,23 @@ public final class RuleMatcher {
 	 * 
 	 * @param cr
 	 *            {@link ContentResolver}
+	 * @param ops
+	 *            List of {@link ContentProviderOperation}s
 	 * @param log
 	 *            {@link Cursor} representing the log
 	 * @return true if a log was matched
 	 */
-	private static boolean matchLog(final ContentResolver cr, final Cursor log) {
+	private static boolean matchLog(final ContentResolver cr,
+			final ArrayList<ContentProviderOperation> ops, final Cursor log) {
 		if (cr == null) {
-			Log.e(TAG, "matchLog(null, log)");
+			Log.e(TAG, "matchLog(null, ops, log)");
 			return false;
 		}
 		if (log == null) {
-			Log.e(TAG, "matchLog(cr, null)");
+			Log.e(TAG, "matchLog(cr, ops, null)");
 			return false;
 		}
 		final long lid = log.getLong(DataProvider.Logs.INDEX_ID);
-		LIDS[0] = String.valueOf(lid);
 		final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
 		Log.d(TAG, "matchLog(cr, " + lid + ")");
 		boolean matched = false;
@@ -1178,27 +1179,29 @@ public final class RuleMatcher {
 				final long rid = r.getId();
 				Log.d(TAG, "found plan: " + pid);
 				p.checkBillday(log);
-				CV.clear();
-				CV.put(DataProvider.Logs.PLAN_ID, pid);
-				CV.put(DataProvider.Logs.RULE_ID, rid);
 				final float ba = p.getBilledAmount(log);
-				CV.put(DataProvider.Logs.BILL_AMOUNT, ba);
 				final float bc = p.getCost(log, ba);
-				CV.put(DataProvider.Logs.COST, bc);
-				CV.put(DataProvider.Logs.FREE, p.getFree(log, bc));
+				ContentProviderOperation op = ContentProviderOperation
+						.newUpdate(DataProvider.Logs.CONTENT_URI) // .
+						.withValue(DataProvider.Logs.PLAN_ID, pid) // .
+						.withValue(DataProvider.Logs.RULE_ID, rid) // .
+						.withValue(DataProvider.Logs.BILL_AMOUNT, ba) // .
+						.withValue(DataProvider.Logs.COST, bc) // .
+						.withValue(DataProvider.Logs.FREE, p.getFree(log, bc)) // .
+						.withSelection(WHERE, new String[] { String.valueOf(lid) }).build();
 				p.updatePlan(ba, bc, t);
-				final int ret = cr.update(DataProvider.Logs.CONTENT_URI, CV, WHERE, LIDS);
-				Log.d(TAG, "update logs: " + ret);
+				ops.add(op);
 				matched = true;
 				break;
 			}
 		}
 		if (!matched) {
-			CV.clear();
-			CV.put(DataProvider.Logs.PLAN_ID, DataProvider.NOT_FOUND);
-			CV.put(DataProvider.Logs.RULE_ID, DataProvider.NOT_FOUND);
-			final int ret = cr.update(DataProvider.Logs.CONTENT_URI, CV, WHERE, LIDS);
-			Log.d(TAG, "update logs: " + ret);
+			ContentProviderOperation op = ContentProviderOperation
+					.newUpdate(DataProvider.Logs.CONTENT_URI) // .
+					.withValue(DataProvider.Logs.PLAN_ID, DataProvider.NOT_FOUND) // .
+					.withValue(DataProvider.Logs.RULE_ID, DataProvider.NOT_FOUND) // .
+					.withSelection(WHERE, new String[] { String.valueOf(lid) }).build();
+			ops.add(op);
 		}
 		return matched;
 	}
@@ -1288,9 +1291,10 @@ public final class RuleMatcher {
 				}
 			}
 			try {
+				ArrayList<ContentProviderOperation> ops = new ArrayList<ContentProviderOperation>();
 				int i = 1;
 				do {
-					ret |= matchLog(cr, cursor);
+					ret |= matchLog(cr, ops, cursor);
 					if (i % PROGRESS_STEPS == 0 || (i < PROGRESS_STEPS && i % CallMeter.TEN == 0)) {
 						h = Plans.getHandler();
 						if (h != null) {
@@ -1313,8 +1317,13 @@ public final class RuleMatcher {
 					}
 					++i;
 				} while (cursor.moveToNext());
+				cr.applyBatch(DataProvider.AUTHORITY, ops);
 			} catch (IllegalStateException e) {
 				Log.e(TAG, "illegal state in RuleMatcher's loop", e);
+			} catch (OperationApplicationException e) {
+				Log.e(TAG, "illegal operation in RuleMatcher's loop", e);
+			} catch (RemoteException e) {
+				Log.e(TAG, "remote exception in RuleMatcher's loop", e);
 			}
 		}
 		try {
