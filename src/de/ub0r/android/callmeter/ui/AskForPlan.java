@@ -66,7 +66,7 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 	/** Maximal number of plans. */
 	private static final int MAX_PLANS = PLAN_BTNS.length;
 	/** Ids of plans. */
-	private final long[] planIds = new long[MAX_PLANS];
+	private final int[] planIds = new int[MAX_PLANS];
 
 	/** Task updating timeout field. */
 	private AsyncTask<Void, Void, Void> timeoutTask = null;
@@ -77,7 +77,7 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 	private CheckBox cbSetDefault = null;
 
 	/** Default plan id. */
-	private long defaultPlanId = -1L;
+	private int defaultPlanId = -1;
 
 	/** Data of call. */
 	private long id;
@@ -124,7 +124,7 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 
 		int i = 0;
 		do {
-			this.planIds[i] = c.getLong(DataProvider.Plans.INDEX_ID);
+			this.planIds[i] = c.getInt(DataProvider.Plans.INDEX_ID);
 
 			final Button v = (Button) this.d.findViewById(PLAN_BTNS[i]);
 			v.setVisibility(View.VISIBLE);
@@ -138,7 +138,7 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 		}
 
 		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
-		this.defaultPlanId = p.getLong(Preferences.PREFS_ASK_FOR_PLAN_DEFAULT, -1L);
+		this.defaultPlanId = p.getInt(Preferences.PREFS_ASK_FOR_PLAN_DEFAULT, -1);
 		for (i = 0; i < MAX_PLANS; i++) {
 			if (this.planIds[i] == this.defaultPlanId) {
 				final int bid = PLAN_BTNS[i];
@@ -180,7 +180,7 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 				protected void onPostExecute(final Void result) {
 					if (!this.isCancelled() && !AskForPlan.this.isFinishing()) {
 						Log.i(TAG, "autohide dialog");
-						final long pid = AskForPlan.this.defaultPlanId;
+						final int pid = AskForPlan.this.defaultPlanId;
 						if (pid >= 0L) {
 							Log.i(TAG, "setPlan(" + pid + ")");
 							RuleMatcher.matchLog(AskForPlan.this.getContentResolver(),
@@ -224,7 +224,7 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 		default:
 			for (int i = 0; i < MAX_PLANS; i++) {
 				if (vid == PLAN_BTNS[i]) {
-					final long pid = this.planIds[i];
+					final int pid = this.planIds[i];
 					Log.d(TAG, "setPlan(" + pid + ")");
 					RuleMatcher.matchLog(this.getContentResolver(), this.id, pid);
 					if (this.cbSetDefault.isChecked()) {

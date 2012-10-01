@@ -20,23 +20,27 @@ package de.ub0r.android.callmeter.data;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.HashSet;
 
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.OperationApplicationException;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Handler;
 import android.os.Message;
+import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.telephony.PhoneNumberUtils;
+import android.text.TextUtils;
+import android.util.SparseArray;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.Plans;
@@ -263,7 +267,7 @@ public final class RuleMatcher {
 		/** Group of hours. */
 		private static final class HoursGroup {
 			/** List of hours. */
-			private final HashMap<Integer, HashSet<Integer>> hours = new HashMap<Integer, HashSet<Integer>>();
+			private final SparseArray<HashSet<Integer>> hours = new SparseArray<HashSet<Integer>>();
 
 			/** Entry for monday - sunday. */
 			private static final int ALL_WEEK = 0;
@@ -300,12 +304,13 @@ public final class RuleMatcher {
 					do {
 						final int d = cursor.getInt(DataProvider.Hours.INDEX_DAY);
 						final int h = cursor.getInt(DataProvider.Hours.INDEX_HOUR);
-						if (this.hours.containsKey(d)) {
-							this.hours.get(d).add(h);
-						} else {
-							final HashSet<Integer> hs = new HashSet<Integer>();
+						HashSet<Integer> hs = this.hours.get(d);
+						if (hs == null) {
+							hs = new HashSet<Integer>();
 							hs.add(h);
 							this.hours.put(d, hs);
+						} else {
+							hs.add(h);
 						}
 					} while (cursor.moveToNext());
 				}
@@ -313,6 +318,9 @@ public final class RuleMatcher {
 					cursor.close();
 				}
 			}
+
+			/** Internal var for match(). */
+			private static final Calendar CAL = Calendar.getInstance();
 
 			/**
 			 * Match a given log.
@@ -323,11 +331,12 @@ public final class RuleMatcher {
 			 */
 			boolean match(final Cursor log) {
 				long date = log.getLong(DataProvider.Logs.INDEX_DATE);
-				final Calendar cal = Calendar.getInstance();
-				cal.setTimeInMillis(date);
-				final int d = (cal.get(Calendar.DAY_OF_WEEK) - Calendar.SUNDAY) % SUN;
-				final int h = cal.get(Calendar.HOUR_OF_DAY) + 1;
-				for (int k : this.hours.keySet()) {
+				CAL.setTimeInMillis(date);
+				final int d = (CAL.get(Calendar.DAY_OF_WEEK) - Calendar.SUNDAY) % SUN;
+				final int h = CAL.get(Calendar.HOUR_OF_DAY) + 1;
+				int l = this.hours.size();
+				for (int i = 0; i < l; i++) {
+					int k = this.hours.keyAt(i);
 					if (k == ALL_WEEK || (k == MON_FRI && d < SAT && d >= MON) || k % SUN == d) {
 						for (int v : this.hours.get(k)) {
 							if (v == 0 || v == h) {
@@ -341,11 +350,13 @@ public final class RuleMatcher {
 		}
 
 		/** Id. */
-		private final long id;
+		private final int id;
 		/** ID of plan referred by this rule. */
-		private final long planId;
+		private final int planId;
 		/** Kind of rule. */
 		private final int what;
+		/** My own number. */
+		private final String myNumber;
 		/** Is roamed? */
 		private final int roamed;
 		/** Is direction? */
@@ -373,15 +384,21 @@ public final class RuleMatcher {
 		 * @param cursor
 		 *            {@link Cursor}
 		 */
-		Rule(final ContentResolver cr, final Cursor cursor, final long overwritePlanId) {
-			this.id = cursor.getLong(DataProvider.Rules.INDEX_ID);
+		Rule(final ContentResolver cr, final Cursor cursor, final int overwritePlanId) {
+			this.id = cursor.getInt(DataProvider.Rules.INDEX_ID);
 			if (overwritePlanId >= 0) {
 				this.planId = overwritePlanId;
 			} else {
-				this.planId = cursor.getLong(DataProvider.Rules.INDEX_PLAN_ID);
+				this.planId = cursor.getInt(DataProvider.Rules.INDEX_PLAN_ID);
 			}
 			this.what = cursor.getInt(DataProvider.Rules.INDEX_WHAT);
 			this.direction = cursor.getInt(DataProvider.Rules.INDEX_DIRECTION);
+			String s = cursor.getString(DataProvider.Rules.INDEX_MYNUMBER);
+			if (TextUtils.isEmpty(s)) {
+				this.myNumber = null;
+			} else {
+				this.myNumber = s;
+			}
 			this.roamed = cursor.getInt(DataProvider.Rules.INDEX_ROAMED);
 			this.inhours = getHourGroups(cr, cursor.getString(DataProvider.Rules.INDEX_INHOURS_ID));
 			this.exhours = getHourGroups(cr, cursor.getString(DataProvider.Rules.INDEX_EXHOURS_ID));
@@ -400,8 +417,8 @@ public final class RuleMatcher {
 					this.iswebsms = DataProvider.Rules.NO_MATTER;
 				}
 			}
-			final String s = cursor.getString(DataProvider.Rules.INDEX_IS_WEBSMS_CONNETOR);
-			if (s == null || s.length() == 0) {
+			s = cursor.getString(DataProvider.Rules.INDEX_IS_WEBSMS_CONNETOR);
+			if (TextUtils.isEmpty(s)) {
 				this.iswebsmsConnector = "";
 			} else {
 				this.iswebsmsConnector = " AND " + DataProvider.WebSMS.CONNECTOR + " LIKE '%"
@@ -422,16 +439,19 @@ public final class RuleMatcher {
 		/**
 		 * @return {@link Rule}'s id
 		 */
-		long getId() {
+		int getId() {
 			return this.id;
 		}
 
 		/**
 		 * @return {@link Plan}'s id
 		 */
-		long getPlanId() {
+		int getPlanId() {
 			return this.planId;
 		}
+
+		/** Internal var for match(). */
+		private static final String[] S1 = new String[1];
 
 		/**
 		 * Math a log.
@@ -454,12 +474,12 @@ public final class RuleMatcher {
 				if (ret && this.issipcall != DataProvider.Rules.NO_MATTER) {
 					final long d = log.getLong(DataProvider.Logs.INDEX_DATE);
 					Log.d(TAG, "match sipcall: " + this.issipcall);
+					S1[0] = String.valueOf(d);
 					if (this.issipcall == 1) {
 						// match no sipcall
 						final Cursor c = cr.query(DataProvider.SipCall.CONTENT_URI,
 								DataProvider.SipCall.PROJECTION,
-								DataProvider.SipCall.DATE + " = ?",
-								new String[] { String.valueOf(d) }, null);
+								DataProvider.SipCall.DATE + " = ?", S1, null);
 						if (c != null && c.getCount() > 0) {
 							ret = false;
 						}
@@ -470,8 +490,7 @@ public final class RuleMatcher {
 						// match only sipcall
 						final Cursor c = cr.query(DataProvider.SipCall.CONTENT_URI,
 								DataProvider.SipCall.PROJECTION,
-								DataProvider.SipCall.DATE + " = ?",
-								new String[] { String.valueOf(d) }, null);
+								DataProvider.SipCall.DATE + " = ?", S1, null);
 						ret = c != null && c.getCount() > 0;
 						if (c != null && !c.isClosed()) {
 							c.close();
@@ -491,11 +510,12 @@ public final class RuleMatcher {
 				if (ret && this.iswebsms != DataProvider.Rules.NO_MATTER) {
 					final long d = log.getLong(DataProvider.Logs.INDEX_DATE);
 					Log.d(TAG, "match websms: " + this.iswebsms);
+					S1[0] = String.valueOf(d);
 					if (this.iswebsms == 1) {
 						// match no websms
 						final Cursor c = cr.query(DataProvider.WebSMS.CONTENT_URI,
 								DataProvider.WebSMS.PROJECTION, DataProvider.WebSMS.DATE + " = ?",
-								new String[] { String.valueOf(d) }, null);
+								S1, null);
 						if (c != null && c.getCount() > 0) {
 							ret = false;
 						}
@@ -506,8 +526,7 @@ public final class RuleMatcher {
 						// match only websms
 						final Cursor c = cr.query(DataProvider.WebSMS.CONTENT_URI,
 								DataProvider.WebSMS.PROJECTION, DataProvider.WebSMS.DATE + " = ? "
-										+ this.iswebsmsConnector,
-								new String[] { String.valueOf(d) }, null);
+										+ this.iswebsmsConnector, S1, null);
 						ret = c != null && c.getCount() > 0;
 						if (c != null && !c.isClosed()) {
 							c.close();
@@ -536,6 +555,15 @@ public final class RuleMatcher {
 			Log.d(TAG, "ret after limit: " + ret);
 			if (!ret) {
 				return false;
+			}
+
+			if (this.myNumber != null) {
+				// FIXME: do equals?
+				ret = this.myNumber.equals(log.getString(DataProvider.Logs.INDEX_MYNUMBER));
+				Log.d(TAG, "ret after mynumber: " + ret);
+				if (!ret) {
+					return false;
+				}
 			}
 
 			if (this.roamed >= 0 && this.roamed != DataProvider.Rules.NO_MATTER) {
@@ -618,7 +646,7 @@ public final class RuleMatcher {
 	 */
 	private static class Plan {
 		/** Id. */
-		private final long id;
+		private final int id;
 		/** Name of plan. */
 		private final String name;
 		/** Type of log. */
@@ -646,7 +674,7 @@ public final class RuleMatcher {
 		/** Strip first x seconds. */
 		private final int stripSeconds;
 		/** Parent plan id. */
-		private final long ppid;
+		private final int ppid;
 		/** PArent plan. Set in RuleMatcher.load(). */
 		private Plan parent = null;
 		/** Time of next alert. */
@@ -674,7 +702,7 @@ public final class RuleMatcher {
 		 */
 		Plan(final ContentResolver cr, final Cursor cursor) {
 			this.cResolver = cr;
-			this.id = cursor.getLong(DataProvider.Plans.INDEX_ID);
+			this.id = cursor.getInt(DataProvider.Plans.INDEX_ID);
 			this.name = cursor.getString(DataProvider.Plans.INDEX_NAME);
 			this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			this.limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
@@ -1008,7 +1036,7 @@ public final class RuleMatcher {
 	/**
 	 * List of {@link Plan}s.
 	 */
-	private static HashMap<Long, Plan> plans = null;
+	private static SparseArray<Plan> plans = null;
 
 	/**
 	 * Default constructor.
@@ -1050,12 +1078,12 @@ public final class RuleMatcher {
 		}
 
 		// load plans
-		plans = new HashMap<Long, Plan>();
+		plans = new SparseArray<Plan>();
 		cursor = cr.query(DataProvider.Plans.CONTENT_URI, DataProvider.Plans.PROJECTION,
 				DataProvider.Plans.WHERE_REALPLANS, null, null);
 		if (cursor != null && cursor.moveToFirst()) {
 			do {
-				final long i = cursor.getLong(DataProvider.Plans.INDEX_ID);
+				final int i = cursor.getInt(DataProvider.Plans.INDEX_ID);
 				plans.put(i, new Plan(cr, cursor));
 			} while (cursor.moveToNext());
 		}
@@ -1064,7 +1092,9 @@ public final class RuleMatcher {
 			cursor = null;
 		}
 		// update parent references
-		for (Plan p : plans.values()) {
+		int l = plans.size();
+		for (int i = 0; i < l; i++) {
+			Plan p = plans.valueAt(i);
 			p.parent = plans.get(p.ppid);
 		}
 	}
@@ -1091,35 +1121,40 @@ public final class RuleMatcher {
 		cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
 		cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 		// reset all but manually set plans
-		final String notfound = String.valueOf(DataProvider.NOT_FOUND);
-		cr.update(DataProvider.Logs.CONTENT_URI, cv, "NOT (" + DataProvider.Logs.RULE_ID + " = "
-				+ notfound + " AND " + DataProvider.Logs.PLAN_ID + " != " + notfound + ")", null);
+		cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.RULE_ID
+				+ " is null or NOT (" + DataProvider.Logs.RULE_ID + " = " + DataProvider.NOT_FOUND
+				+ " AND " + DataProvider.Logs.PLAN_ID + " != " + DataProvider.NOT_FOUND + ")", null);
 		cv.clear();
 		cv.put(DataProvider.Plans.NEXT_ALERT, 0);
 		cr.update(DataProvider.Plans.CONTENT_URI, cv, null, null);
 		flush();
 	}
 
+	/** Internal ar for matchLog(). */
+	private static final String WHERE = DataProvider.Logs.ID + " = ?";
+
 	/**
 	 * Match a single log record given as {@link Cursor}.
 	 * 
 	 * @param cr
 	 *            {@link ContentResolver}
+	 * @param ops
+	 *            List of {@link ContentProviderOperation}s
 	 * @param log
 	 *            {@link Cursor} representing the log
 	 * @return true if a log was matched
 	 */
-	private static boolean matchLog(final ContentResolver cr, final Cursor log) {
+	private static boolean matchLog(final ContentResolver cr,
+			final ArrayList<ContentProviderOperation> ops, final Cursor log) {
 		if (cr == null) {
-			Log.e(TAG, "matchLog(null, log)");
+			Log.e(TAG, "matchLog(null, ops, log)");
 			return false;
 		}
 		if (log == null) {
-			Log.e(TAG, "matchLog(cr, null)");
+			Log.e(TAG, "matchLog(cr, ops, null)");
 			return false;
 		}
 		final long lid = log.getLong(DataProvider.Logs.INDEX_ID);
-		final String[] lids = new String[] { String.valueOf(lid) };
 		final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
 		Log.d(TAG, "matchLog(cr, " + lid + ")");
 		boolean matched = false;
@@ -1144,29 +1179,29 @@ public final class RuleMatcher {
 				final long rid = r.getId();
 				Log.d(TAG, "found plan: " + pid);
 				p.checkBillday(log);
-				final ContentValues cv = new ContentValues();
-				cv.put(DataProvider.Logs.PLAN_ID, pid);
-				cv.put(DataProvider.Logs.RULE_ID, rid);
 				final float ba = p.getBilledAmount(log);
-				cv.put(DataProvider.Logs.BILL_AMOUNT, ba);
 				final float bc = p.getCost(log, ba);
-				cv.put(DataProvider.Logs.COST, bc);
-				cv.put(DataProvider.Logs.FREE, p.getFree(log, bc));
+				ContentProviderOperation op = ContentProviderOperation
+						.newUpdate(DataProvider.Logs.CONTENT_URI) // .
+						.withValue(DataProvider.Logs.PLAN_ID, pid) // .
+						.withValue(DataProvider.Logs.RULE_ID, rid) // .
+						.withValue(DataProvider.Logs.BILL_AMOUNT, ba) // .
+						.withValue(DataProvider.Logs.COST, bc) // .
+						.withValue(DataProvider.Logs.FREE, p.getFree(log, bc)) // .
+						.withSelection(WHERE, new String[] { String.valueOf(lid) }).build();
 				p.updatePlan(ba, bc, t);
-				final int ret = cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID
-						+ " = ?", lids);
-				Log.d(TAG, "update logs: " + ret);
+				ops.add(op);
 				matched = true;
 				break;
 			}
 		}
 		if (!matched) {
-			final ContentValues cv = new ContentValues();
-			cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NOT_FOUND);
-			cv.put(DataProvider.Logs.RULE_ID, DataProvider.NOT_FOUND);
-			final int ret = cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID
-					+ " = ?", lids);
-			Log.d(TAG, "update logs: " + ret);
+			ContentProviderOperation op = ContentProviderOperation
+					.newUpdate(DataProvider.Logs.CONTENT_URI) // .
+					.withValue(DataProvider.Logs.PLAN_ID, DataProvider.NOT_FOUND) // .
+					.withValue(DataProvider.Logs.RULE_ID, DataProvider.NOT_FOUND) // .
+					.withSelection(WHERE, new String[] { String.valueOf(lid) }).build();
+			ops.add(op);
 		}
 		return matched;
 	}
@@ -1181,7 +1216,7 @@ public final class RuleMatcher {
 	 * @param pid
 	 *            id of plan
 	 */
-	public static void matchLog(final ContentResolver cr, final long lid, final long pid) {
+	public static void matchLog(final ContentResolver cr, final long lid, final int pid) {
 		if (cr == null) {
 			Log.e(TAG, "matchLog(null, lid, pid)");
 			return;
@@ -1256,9 +1291,10 @@ public final class RuleMatcher {
 				}
 			}
 			try {
+				ArrayList<ContentProviderOperation> ops = new ArrayList<ContentProviderOperation>();
 				int i = 1;
 				do {
-					ret |= matchLog(cr, cursor);
+					ret |= matchLog(cr, ops, cursor);
 					if (i % PROGRESS_STEPS == 0 || (i < PROGRESS_STEPS && i % CallMeter.TEN == 0)) {
 						h = Plans.getHandler();
 						if (h != null) {
@@ -1281,8 +1317,13 @@ public final class RuleMatcher {
 					}
 					++i;
 				} while (cursor.moveToNext());
+				cr.applyBatch(DataProvider.AUTHORITY, ops);
 			} catch (IllegalStateException e) {
 				Log.e(TAG, "illegal state in RuleMatcher's loop", e);
+			} catch (OperationApplicationException e) {
+				Log.e(TAG, "illegal operation in RuleMatcher's loop", e);
+			} catch (RemoteException e) {
+				Log.e(TAG, "remote exception in RuleMatcher's loop", e);
 			}
 		}
 		try {
@@ -1302,8 +1343,9 @@ public final class RuleMatcher {
 				final long now = System.currentTimeMillis();
 				int alert = 0;
 				Plan alertPlan = null;
-				for (long pid : plans.keySet()) {
-					final Plan plan = plans.get(pid);
+				int l = plans.size();
+				for (int i = 0; i < l; i++) {
+					final Plan plan = plans.valueAt(i);
 					if (plan == null) {
 						continue;
 					}

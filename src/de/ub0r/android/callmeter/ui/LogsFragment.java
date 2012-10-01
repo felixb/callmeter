@@ -82,6 +82,8 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 
 	/** {@link ToggleButton}s. */
 	private ToggleButton tbCall, tbSMS, tbMMS, tbData, tbIn, tbOut, tbPlan;
+	/** Show my number. */
+	private boolean showMyNumber = false;
 	/** Show hours and days. */
 	private boolean showHours = true;
 	/** Currency format. */
@@ -107,8 +109,9 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 		 */
 		private class ViewHolder {
 			/** Holder for item's view. */
-			TextView tvPlan, tvRule, tvText1, tvRemoteLabel, tvRemote, tvLengthLable, tvLength,
-					tvBilledLengthLable, tvBilledLength, tvCostLable, tvCost;
+			TextView tvPlan, tvRule, tvText1, tvRemoteLabel, tvRemote, tvMyNumberLabel, tvMyNumber,
+					tvLengthLable, tvLength, tvBilledLengthLable, tvBilledLength, tvCostLable,
+					tvCost;
 		}
 
 		/** Column ids. */
@@ -148,6 +151,8 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 				holder.tvText1 = (TextView) view.findViewById(android.R.id.text1);
 				holder.tvRemoteLabel = (TextView) view.findViewById(R.id.remote_);
 				holder.tvRemote = (TextView) view.findViewById(R.id.remote);
+				holder.tvMyNumberLabel = (TextView) view.findViewById(R.id.mynumber_);
+				holder.tvMyNumber = (TextView) view.findViewById(R.id.mynumber);
 				holder.tvLengthLable = (TextView) view.findViewById(R.id.length_);
 				holder.tvLength = (TextView) view.findViewById(R.id.length);
 				holder.tvBilledLengthLable = (TextView) view.findViewById(R.id.blength_);
@@ -180,6 +185,14 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 				holder.tvRemote.setText(s);
 				holder.tvRemote.setVisibility(View.VISIBLE);
 				holder.tvRemoteLabel.setVisibility(View.VISIBLE);
+			}
+			if (LogsFragment.this.showMyNumber) {
+				holder.tvMyNumber.setText(cursor.getString(DataProvider.Logs.INDEX_MYNUMBER));
+				holder.tvMyNumberLabel.setVisibility(View.VISIBLE);
+				holder.tvMyNumber.setVisibility(View.VISIBLE);
+			} else {
+				holder.tvMyNumberLabel.setVisibility(View.GONE);
+				holder.tvMyNumber.setVisibility(View.GONE);
 			}
 
 			final long amount = cursor.getLong(DataProvider.Logs.INDEX_AMOUNT);
@@ -297,6 +310,15 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 	public void onResume() {
 		super.onResume();
 		Common.setDateFormat(this.getActivity());
+		Cursor c = this
+				.getActivity()
+				.getContentResolver()
+				.query(DataProvider.Rules.CONTENT_URI,
+						new String[] { DataProvider.Rules.ID },
+						DataProvider.Rules.MYNUMBER + " is not null and "
+								+ DataProvider.Rules.MYNUMBER + " != ''", null, null);
+		this.showMyNumber = c.getCount() > 0;
+		c.close();
 		this.showHours = PreferenceManager.getDefaultSharedPreferences(this.getActivity())
 				.getBoolean(Preferences.PREFS_SHOWHOURS, true);
 		this.cformat = Preferences.getCurrencyFormat(this.getActivity());
