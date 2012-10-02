@@ -103,9 +103,9 @@ public final class Rules extends SherlockPreferenceActivity implements OnPrefere
 				}
 				i = c.getInt(DataProvider.Rules.INDEX_ROAMED);
 				if (i == 0) {
-					hint += " & " + this.getString(R.string.roamed_);
-				} else if (i == 1) {
 					hint += " & \u00AC " + this.getString(R.string.roamed_);
+				} else if (i == 1) {
+					hint += " & " + this.getString(R.string.roamed_);
 				}
 				i = c.getInt(DataProvider.Rules.INDEX_DIRECTION);
 				if (i >= 0 && i < DataProvider.Rules.NO_MATTER) {
