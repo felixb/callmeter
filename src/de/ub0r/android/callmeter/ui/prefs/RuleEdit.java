@@ -271,9 +271,10 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 			lp = new CVListPreference(this, this.values, DataProvider.Rules.ROAMED);
 			lp.setTitle(R.string.roamed_);
 			lp.setSummary(R.string.roamed_help);
-			lp.setStatic(new String[] { "1", "0", "-1" }, this.getStrings(-1));
+			lp.setStatic(new String[] { "0", "1", String.valueOf(DataProvider.Rules.NO_MATTER) },
+					this.getStrings(-1));
 			if (c.isNull(DataProvider.Rules.INDEX_ROAMED)) {
-				i = -1;
+				i = DataProvider.Rules.NO_MATTER;
 				this.values.put(DataProvider.Rules.ROAMED, i);
 			} else {
 				i = c.getInt(DataProvider.Rules.INDEX_ROAMED);

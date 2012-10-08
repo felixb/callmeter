@@ -468,6 +468,27 @@ public final class RuleMatcher {
 			final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
 			Log.d(TAG, "type: " + t);
 			boolean ret = false;
+
+			if (this.roamed == 0 || this.roamed == 1) {
+				// rule.roamed=0: yes
+				// rule.roamed=1: no
+				// log.roamed=0: not roamed
+				// log.roamed=1: roamed
+				ret = log.getInt(DataProvider.Logs.INDEX_ROAMED) != this.roamed;
+				Log.d(TAG, "ret after romaing: " + ret);
+				if (!ret) {
+					return false;
+				}
+			}
+
+			if (this.direction >= 0 && this.direction != DataProvider.Rules.NO_MATTER) {
+				ret = log.getInt(DataProvider.Logs.INDEX_DIRECTION) == this.direction;
+				Log.d(TAG, "ret after direction: " + ret);
+				if (!ret) {
+					return false;
+				}
+			}
+
 			switch (this.what) {
 			case DataProvider.Rules.WHAT_CALL:
 				ret = (t == DataProvider.TYPE_CALL);
@@ -566,24 +587,6 @@ public final class RuleMatcher {
 				}
 			}
 
-			if (this.roamed >= 0 && this.roamed != DataProvider.Rules.NO_MATTER) {
-				// rule.roamed=0: yes
-				// rule.roamed=1: no
-				// log.roamed=0: not roamed
-				// log.roamed=1: roamed
-				ret = log.getInt(DataProvider.Logs.INDEX_ROAMED) != this.roamed;
-			}
-			Log.d(TAG, "ret after romaing: " + ret);
-			if (!ret) {
-				return false;
-			}
-			if (this.direction >= 0 && this.direction != DataProvider.Rules.NO_MATTER) {
-				ret = log.getInt(DataProvider.Logs.INDEX_DIRECTION) == this.direction;
-			}
-			Log.d(TAG, "ret after direction: " + ret);
-			if (!ret) {
-				return false;
-			}
 			if (this.inhours != null) {
 				final int l = this.inhours.length;
 				ret = false;
