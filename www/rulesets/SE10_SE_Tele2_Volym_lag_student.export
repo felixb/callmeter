@@ -1,0 +1,42 @@
+1
+Tele2+Volym+L%C3%A5g+Student
+plans _id:12:#:_plan_name:Tele2 Volym Låg Student:#:_shortname:Debiteringsperiod:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billperiod:8:#:_billmode:1/1:#:_billday:1349647201131:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan:89:#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:0:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:13:#:_plan_name:Spacer:#:_shortname:space:#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:-1:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:14:#:_plan_name:Samtal:#:_shortname:Calls:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billperiod:5:#:_billmode:10/10:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0.19:#:_cost_per_amount_in_limit2:0.19:#:_cost_per_plan:0:#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:16:#:_plan_name:Inom Sverige:#:_shortname:Sverige:#:_plan_type:4:#:_limit_type:2:#:_limit:300:#:_billperiod:12:#:_billmode:60/60:#:_billday:0:#:_cost_per_item:1:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:1:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:1:#:_mixed_units_sms:1:#:_mixed_units_mms:1:#:_billperiod_id:33:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:17:#:_plan_name:Spacer:#:_shortname:spacer:#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:-1:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:18:#:_plan_name:Meddelanden:#:_shortname:SMS/MMS:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billperiod:5:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:20:#:_plan_name:SMS:#:_shortname:SMS:#:_plan_type:5:#:_limit_type:1:#:_limit:300:#:_billperiod:12:#:_billmode:1/1:#:_billday:0:#:_cost_per_item:0:#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:33:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:21:#:_plan_name:Spacer:#:_shortname::#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billperiod:-1:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
+plans _id:22:#:_plan_name:MMS:#:_shortname:Datatrafik:#:_plan_type:6:#:_limit_type:1:#:_limit:300:#:_billperiod:-1:#:_billmode:1/1:#:_billday:0:#:_cost_per_item:0:#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan:0:#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:33:#:_next_alert:0:#:
+plans _id:23:#:_plan_name:Data (2G/3G/4G):#:_shortname:DataInUt:#:_plan_type:0:#:_limit_type:1:#:_limit:2048:#:_billperiod:12:#:_billmode:1/1:#:_billday:0:#:_cost_per_item::#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:28:#:_plan_name:Data in/ut:#:_shortname:MMS:#:_plan_type:7:#:_limit_type:1:#:_limit:1024:#:_billperiod:5:#:_billday:1287927174859:#:_cost_per_item:0.99:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:33:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:32:#:_plan_name:Totalt:#:_shortname:BelgienMobil:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billperiod:5:#:_billmode:60/60:#:_billday:1326381562738:#:_cost_per_item:0.99:#:_cost_per_amount1:4.5:#:_cost_per_amount2:4.5:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:33:#:_plan_name:Totalt:#:_shortname:Newplan:#:_plan_type:2:#:_limit_type:0:#:_limit:0:#:_billperiod:5:#:_billday:1349647239866:#:_cost_per_item:0.99:#:_cost_per_amount1:0:#:_cost_per_amount2:0:#:_cost_per_item_in_limit:0:#:_cost_per_amount_in_limit1:0:#:_cost_per_amount_in_limit2:0:#:_cost_per_plan:0:#:_mixed_units_call:0:#:_mixed_units_sms:0:#:_mixed_units_mms:0:#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:
+plans _id:34:#:_plan_name:New plan:#:_shortname:Newplan:#:_plan_type:4:#:_limit_type:0:#:_billperiod_id:-1:#:_next_alert:0:#:_order:1:#:
+rules _id:1:#:_active:1:#:_order:7:#:_plan_id:23:#:_rule_name:Datatrafik:#:_what:3:#:_roamed:1:#:_direction:2:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:3:#:_active:1:#:_order:2:#:_plan_id:16:#:_rule_name:Inom Sverige:#:_what:0:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,3,6,:#:_exnumbergroup_id:,1,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:1:#:
+rules _id:5:#:_active:1:#:_order:3:#:_plan_id:20:#:_rule_name:SMS:#:_what:1:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,3,6,:#:_limit_not_reached:0:#:_is_websms:1:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:8:#:_active:1:#:_order:5:#:_plan_id:28:#:_rule_name:MMS:#:_what:2:#:_roamed:1:#:_direction:1:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:9:#:_active:1:#:_order:9:#:_plan_id:29:#:_rule_name:Belgien:#:_what:0:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,4,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:1:#:
+rules _id:10:#:_active:0:#:_order:0:#:_plan_id:16:#:_rule_name:020-nummer:#:_what:0:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,1,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:2:#:
+rules _id:11:#:_active:1:#:_order:8:#:_plan_id:32:#:_rule_name:Belgien mobil:#:_what:0:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,5,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:1:#:
+rules _id:12:#:_active:1:#:_order:1:#:_plan_id:16:#:_rule_name:Delad kostnad:#:_what:0:#:_roamed:1:#:_direction:1:#:_innumbergroup_id:,7,:#:_limit_not_reached:0:#:_is_websms:2:#:_is_websms_connector::#:_is_sipcall:1:#:
+rules _id:13:#:_active:1:#:_order:4:#:_plan_id:33:#:_rule_name:SMS Utomlands:#:_what:1:#:_roamed:1:#:_direction:1:#:_limit_not_reached:0:#:_is_websms:1:#:_is_websms_connector::#:_is_sipcall:2:#:
+numbers _id:2:#:_gid:1:#:_number:020%:#:
+numbers _id:3:#:_gid:3:#:_number:+46%:#:
+numbers _id:7:#:_gid:5:#:_number:+324%:#:
+numbers _id:8:#:_gid:6:#:_number:+467%:#:
+numbers _id:9:#:_gid:7:#:_number:+4677%:#:
+numbers _id:10:#:_gid:7:#:_number:077%:#:
+numbers _id:11:#:_gid:6:#:_number:07%:#:
+numbers _id:14:#:_gid:4:#:_number:+32%:#:
+numbers _id:15:#:_gid:9:#:_number:%:#:
+numbersgroup _id:1:#:_name:Gratisnummer:#:
+numbersgroup _id:3:#:_name:Sverige:#:
+numbersgroup _id:4:#:_name:Belgien:#:
+numbersgroup _id:5:#:_name:Belgien mobil:#:
+numbersgroup _id:6:#:_name:Sverige mobil:#:
+numbersgroup _id:7:#:_name:Delad kostnad:#:
+numbersgroup _id:9:#:_name:Övriga:#:
+
