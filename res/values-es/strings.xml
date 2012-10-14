@@ -34,12 +34,12 @@
   <string name="settings" formatted="false">Preferencias</string>
   <string name="about_" formatted="false">Acerca de</string>
   <string name="about_hint" formatted="false">Acerca de la aplicación</string>
-  <string name="faq_hint" formatted="false">Consejos y trucos, como configurar la aplicación.</string>
+  <string name="faq_hint" formatted="false" username="tazy28@hitmail.com" orig="Some tips and tricks, how to set up this app.">Consejos y trucos, como configurar la aplicación.</string>
   <string name="feedback_" formatted="false">Comentario</string>
   <string name="feedback_hint" formatted="false">Informa de errores, solicita funcionalidades ...</string>
   <string name="twitter_hint" formatted="false">Sígueme en twitter.\nRecibe notificaciones etc.</string>
   <string name="more_" formatted="false">Más aplicaciones..</string>
-  <string name="billday_" formatted="false">Primer día de tu factura</string>
+  <string name="billday_" formatted="false" username="tazy28@hitmail.com" orig="First day of your bill">Primer día de tu factura</string>
   <string name="billmode_" formatted="false" orig="Mode of billing">Tipo de facturación</string>
   <string name="billmode_hint" formatted="false">Duración de la primera/restantes unidades de tarificación.</string>
   <string name="billdate_" formatted="false">Inicio de facturación:</string>
@@ -77,8 +77,8 @@
   <string name="plan_freemin_" formatted="false">Minutos gratis</string>
   <string name="plan_freesms_" formatted="false">SMS gratis</string>
   <string name="free_hint" formatted="false">Sin límite de minutos</string>
-  <string name="freemin_hint" formatted="false">Minutos gratis / mes</string>
-  <string name="freesms_hint" formatted="false">SMS gratis / mes</string>
+  <string name="freemin_hint" formatted="false" username="tazy28@hitmail.com" orig="Free Minutes / Month">Minutos gratis / mes</string>
+  <string name="freesms_hint" formatted="false" username="tazy28@hitmail.com" orig="Free SMS / Month">SMS gratis / mes</string>
   <string name="bill_calls_incoming_" formatted="false">Facturar entrantes</string>
   <string name="bill_calls_incoming_hint" formatted="false">Facturar también llamadas entrantes.</string>
   <string name="bill_sms_incoming_" formatted="false">Facturar recibidos</string>
@@ -141,8 +141,8 @@
     <item>Pequeño</item>
     <item>Mediano</item>
   </string-array>
-  <string name="custom_language_" formatted="false" username="miguelqe37@gmail.com" orig="Custom language">Idioma personalizado</string>
-  <string name="custom_language_hint" formatted="false" username="miguelqe37@gmail.com" orig="Set a custom language.">Establecer un idioma personalizado</string>
+  <string name="custom_language_" formatted="false" username="tazy28@hitmail.com" orig="Custom language">Idioma personalizado</string>
+  <string name="custom_language_hint" formatted="false" username="tazy28@hitmail.com" orig="Set a custom language.">Establecer un idioma personalizado</string>
   <string name="debug_" formatted="false" username="miguelqe37@gmail.com" orig="Debug">Depurar</string>
   <string name="send_logs_" formatted="false" username="miguelqe37@gmail.com" orig="Send logs">Enviar registros</string>
 </resources>
