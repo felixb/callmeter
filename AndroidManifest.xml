@@ -256,7 +256,9 @@
             android:authorities="de.ub0r.android.callmeter.provider"
             android:exported="true" />
 
-        <receiver android:name=".widget.StatsAppWidgetProvider" >
+        <receiver
+            android:name=".widget.StatsAppWidgetProvider"
+            android:label="@string/widget_stats_title" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -265,10 +267,32 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/stats_appwidget_info" />
         </receiver>
+        <receiver
+            android:name=".widget.LogsAppWidgetProvider"
+            android:label="@string/widget_logs_title" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/logs_appwidget_info" />
+        </receiver>
 
         <activity
             android:name=".widget.StatsAppWidgetConfigure"
             android:configChanges="orientation|keyboardHidden"
+            android:label="@string/widget_config_"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".widget.LogsAppWidgetConfigure"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/widget_config_"
             android:launchMode="singleTop"
             android:windowSoftInputMode="adjustResize" >
             <intent-filter>

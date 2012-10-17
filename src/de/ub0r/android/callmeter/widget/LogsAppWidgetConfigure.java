@@ -41,6 +41,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+import android.widget.TextView;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Log;
@@ -51,7 +52,7 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public final class StatsAppWidgetConfigure extends Activity implements OnClickListener,
+public final class LogsAppWidgetConfigure extends Activity implements OnClickListener,
 		OnCheckedChangeListener, OnSeekBarChangeListener {
 	/** Tag for logging. */
 	private static final String TAG = "wdgtcfg";
@@ -62,8 +63,7 @@ public final class StatsAppWidgetConfigure extends Activity implements OnClickLi
 	private Spinner spinner;
 
 	/** {@link CheckBox}s. */
-	private CheckBox cbHideName, cbShowShortname, cbShowCost, cbShowBillp, cbShowIcon,
-			cbSmallWidget;
+	private CheckBox cbShowCost, cbShowIcon, cbSmallWidget;
 	/** {@link EditText}s. */
 	private EditText etPlanTextSize, etStatsTextSize;
 	/** {@link Button}s. */
@@ -86,7 +86,7 @@ public final class StatsAppWidgetConfigure extends Activity implements OnClickLi
 
 	/** Projection for {@link SimpleCursorAdapter} query. */
 	private static final String[] PROJ_ADAPTER = new String[] { DataProvider.Plans.ID,
-			DataProvider.Plans.NAME, DataProvider.Plans.SHORTNAME };
+			DataProvider.Plans.NAME };
 
 	/** Does the widget already exist? */
 	private boolean isExistingWidget = false;
@@ -99,18 +99,15 @@ public final class StatsAppWidgetConfigure extends Activity implements OnClickLi
 		Utils.setLocale(this);
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.stats_appwidget_config);
+		this.findViewById(R.id.hide_name).setVisibility(View.GONE);
+		this.findViewById(R.id.shortname).setVisibility(View.GONE);
+		this.findViewById(R.id.pbillp).setVisibility(View.GONE);
+		((TextView) this.findViewById(R.id.widget_plan_textsize_))
+				.setText(R.string.widget_date_textsize);
+		((TextView) this.findViewById(R.id.widget_cost_textsize_))
+				.setText(R.string.widget_details_textsize);
 		this.spinner = (Spinner) this.findViewById(R.id.spinner);
-		this.cbHideName = (CheckBox) this.findViewById(R.id.hide_name);
-		this.cbHideName.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(final CompoundButton buttonView, final boolean isChecked) {
-				StatsAppWidgetConfigure.this.cbShowShortname.setEnabled(!isChecked);
-			}
-		});
-		this.cbShowShortname = (CheckBox) this.findViewById(R.id.shortname);
-		this.cbShowShortname.setOnCheckedChangeListener(this);
 		this.cbShowCost = (CheckBox) this.findViewById(R.id.cost);
-		this.cbShowBillp = (CheckBox) this.findViewById(R.id.pbillp);
 		this.cbShowIcon = (CheckBox) this.findViewById(R.id.show_icon);
 		this.cbSmallWidget = (CheckBox) this.findViewById(R.id.small_widget);
 		this.etPlanTextSize = (EditText) this.findViewById(R.id.widget_plan_textsize);
@@ -133,15 +130,9 @@ public final class StatsAppWidgetConfigure extends Activity implements OnClickLi
 	/** Set {@link SimpleCursorAdapter} for {@link Spinner}. */
 	private void setAdapter() {
 		final Cursor c = this.getContentResolver().query(DataProvider.Plans.CONTENT_URI,
-				PROJ_ADAPTER, DataProvider.Plans.WHERE_PLANS, null, DataProvider.Plans.NAME);
-		String[] fieldName;
-		if (this.cbShowShortname.isChecked()) {
-			fieldName = new String[] { DataProvider.Plans.SHORTNAME };
-		} else {
-			fieldName = new String[] { DataProvider.Plans.NAME };
-		}
+				PROJ_ADAPTER, DataProvider.Plans.WHERE_REALPLANS, null, DataProvider.Plans.NAME);
 		final SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
-				android.R.layout.simple_spinner_item, c, fieldName,
+				android.R.layout.simple_spinner_item, c, new String[] { DataProvider.Plans.NAME },
 				new int[] { android.R.id.text1 });
 		final int pos = this.spinner.getSelectedItemPosition();
 		this.spinner.setAdapter(adapter);
@@ -175,32 +166,26 @@ public final class StatsAppWidgetConfigure extends Activity implements OnClickLi
 		case R.id.ok:
 			SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(this)
 					.edit();
-			editor.putLong(StatsAppWidgetProvider.WIDGET_PLANID + this.mAppWidgetId,
+			editor.putLong(LogsAppWidgetProvider.WIDGET_PLANID + this.mAppWidgetId,
 					this.spinner.getSelectedItemId());
-			editor.putBoolean(StatsAppWidgetProvider.WIDGET_HIDETNAME + this.mAppWidgetId,
-					this.cbHideName.isChecked());
-			editor.putBoolean(StatsAppWidgetProvider.WIDGET_SHORTNAME + this.mAppWidgetId,
-					this.cbShowShortname.isChecked());
-			editor.putBoolean(StatsAppWidgetProvider.WIDGET_COST + this.mAppWidgetId,
+			editor.putBoolean(LogsAppWidgetProvider.WIDGET_COST + this.mAppWidgetId,
 					this.cbShowCost.isChecked());
-			editor.putBoolean(StatsAppWidgetProvider.WIDGET_BILLPERIOD + this.mAppWidgetId,
-					this.cbShowBillp.isChecked());
-			editor.putBoolean(StatsAppWidgetProvider.WIDGET_ICON + this.mAppWidgetId,
+			editor.putBoolean(LogsAppWidgetProvider.WIDGET_ICON + this.mAppWidgetId,
 					this.cbShowIcon.isChecked());
-			editor.putBoolean(StatsAppWidgetProvider.WIDGET_SMALL + this.mAppWidgetId,
+			editor.putBoolean(LogsAppWidgetProvider.WIDGET_SMALL + this.mAppWidgetId,
 					this.cbSmallWidget.isChecked());
-			editor.putFloat(StatsAppWidgetProvider.WIDGET_STATS_TEXTSIZE + this.mAppWidgetId,
+			editor.putFloat(LogsAppWidgetProvider.WIDGET_STATS_TEXTSIZE + this.mAppWidgetId,
 					Utils.parseFloat(this.etStatsTextSize.getText().toString(), DEFAULT_TEXTSIZE));
-			editor.putFloat(StatsAppWidgetProvider.WIDGET_PLAN_TEXTSIZE + this.mAppWidgetId,
+			editor.putFloat(LogsAppWidgetProvider.WIDGET_PLAN_TEXTSIZE + this.mAppWidgetId,
 					Utils.parseFloat(this.etPlanTextSize.getText().toString(), DEFAULT_TEXTSIZE));
-			editor.putInt(StatsAppWidgetProvider.WIDGET_TEXTCOLOR + this.mAppWidgetId,
+			editor.putInt(LogsAppWidgetProvider.WIDGET_TEXTCOLOR + this.mAppWidgetId,
 					this.getTextColor());
-			editor.putInt(StatsAppWidgetProvider.WIDGET_BGCOLOR + this.mAppWidgetId,
+			editor.putInt(LogsAppWidgetProvider.WIDGET_BGCOLOR + this.mAppWidgetId,
 					this.getBgColor());
 			editor.commit();
 
 			final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
-			StatsAppWidgetProvider.updateWidget(this, appWidgetManager, this.mAppWidgetId);
+			LogsAppWidgetProvider.updateWidget(this, appWidgetManager, this.mAppWidgetId);
 
 			final Intent resultValue = new Intent();
 			resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, this.mAppWidgetId);
@@ -214,7 +199,7 @@ public final class StatsAppWidgetConfigure extends Activity implements OnClickLi
 			new AmbilWarnaDialog(this, this.getBgColor(), new OnAmbilWarnaListener() {
 				@Override
 				public void onOk(final AmbilWarnaDialog dialog, final int color) {
-					StatsAppWidgetConfigure.this.setTextColor(color);
+					LogsAppWidgetConfigure.this.setTextColor(color);
 				}
 
 				@Override
@@ -223,7 +208,7 @@ public final class StatsAppWidgetConfigure extends Activity implements OnClickLi
 				}
 
 				public void onReset(final AmbilWarnaDialog dialog) {
-					StatsAppWidgetConfigure.this.setTextColor(DEFAULT_TEXTCOLOR);
+					LogsAppWidgetConfigure.this.setTextColor(DEFAULT_TEXTCOLOR);
 				}
 			}).show();
 			break;
@@ -231,7 +216,7 @@ public final class StatsAppWidgetConfigure extends Activity implements OnClickLi
 			new AmbilWarnaDialog(this, this.getBgColor(), new OnAmbilWarnaListener() {
 				@Override
 				public void onOk(final AmbilWarnaDialog dialog, final int color) {
-					StatsAppWidgetConfigure.this.setBgColor(color, false);
+					LogsAppWidgetConfigure.this.setBgColor(color, false);
 				}
 
 				@Override
@@ -240,7 +225,7 @@ public final class StatsAppWidgetConfigure extends Activity implements OnClickLi
 				}
 
 				public void onReset(final AmbilWarnaDialog dialog) {
-					StatsAppWidgetConfigure.this.setBgColor(DEFAULT_BGCOLOR, false);
+					LogsAppWidgetConfigure.this.setBgColor(DEFAULT_BGCOLOR, false);
 				}
 			}).show();
 			break;
@@ -301,7 +286,7 @@ public final class StatsAppWidgetConfigure extends Activity implements OnClickLi
 	 */
 	private void load() {
 		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
-		long pid = p.getLong(StatsAppWidgetProvider.WIDGET_PLANID + this.mAppWidgetId, -1);
+		long pid = p.getLong(LogsAppWidgetProvider.WIDGET_PLANID + this.mAppWidgetId, -1);
 		SpinnerAdapter adapter = this.spinner.getAdapter();
 		int l = this.spinner.getCount();
 		for (int i = 0; i < l; i++) {
@@ -310,34 +295,29 @@ public final class StatsAppWidgetConfigure extends Activity implements OnClickLi
 				break;
 			}
 		}
-		this.cbHideName.setChecked(p.getBoolean(StatsAppWidgetProvider.WIDGET_HIDETNAME
+		this.cbShowCost.setChecked(p.getBoolean(LogsAppWidgetProvider.WIDGET_COST
 				+ this.mAppWidgetId, false));
-		this.cbShowShortname.setChecked(p.getBoolean(StatsAppWidgetProvider.WIDGET_SHORTNAME
+		this.cbShowIcon.setChecked(p.getBoolean(LogsAppWidgetProvider.WIDGET_ICON
 				+ this.mAppWidgetId, false));
-		this.cbShowCost.setChecked(p.getBoolean(StatsAppWidgetProvider.WIDGET_COST
+		this.cbSmallWidget.setChecked(p.getBoolean(LogsAppWidgetProvider.WIDGET_SMALL
 				+ this.mAppWidgetId, false));
-		this.cbShowBillp.setChecked(p.getBoolean(StatsAppWidgetProvider.WIDGET_BILLPERIOD
-				+ this.mAppWidgetId, false));
-		this.cbShowIcon.setChecked(p.getBoolean(StatsAppWidgetProvider.WIDGET_ICON
-				+ this.mAppWidgetId, false));
-		this.cbSmallWidget.setChecked(p.getBoolean(StatsAppWidgetProvider.WIDGET_SMALL
-				+ this.mAppWidgetId, false));
-		float f = p.getFloat(StatsAppWidgetProvider.WIDGET_STATS_TEXTSIZE + this.mAppWidgetId, -1);
+		float f = p.getFloat(LogsAppWidgetProvider.WIDGET_STATS_TEXTSIZE + this.mAppWidgetId, -1);
 		if (f > 0f && f != DEFAULT_TEXTSIZE) {
 			this.etStatsTextSize.setText(String.valueOf(f));
 		} else {
 			this.etStatsTextSize.setText(null);
 		}
-		f = p.getFloat(StatsAppWidgetProvider.WIDGET_PLAN_TEXTSIZE + this.mAppWidgetId, -1);
+		f = p.getFloat(LogsAppWidgetProvider.WIDGET_PLAN_TEXTSIZE + this.mAppWidgetId, -1);
 		if (f > 0f && f != DEFAULT_TEXTSIZE) {
 			this.etPlanTextSize.setText(String.valueOf(f));
 		} else {
 			this.etPlanTextSize.setText(null);
 		}
-		this.setTextColor(p.getInt(StatsAppWidgetProvider.WIDGET_TEXTCOLOR + this.mAppWidgetId,
+		this.setTextColor(p.getInt(LogsAppWidgetProvider.WIDGET_TEXTCOLOR + this.mAppWidgetId,
 				DEFAULT_TEXTCOLOR));
-		this.setBgColor(p.getInt(StatsAppWidgetProvider.WIDGET_BGCOLOR + this.mAppWidgetId,
-				DEFAULT_BGCOLOR), false);
+		this.setBgColor(
+				p.getInt(LogsAppWidgetProvider.WIDGET_BGCOLOR + this.mAppWidgetId, DEFAULT_BGCOLOR),
+				false);
 	}
 
 	/**
@@ -358,7 +338,7 @@ public final class StatsAppWidgetConfigure extends Activity implements OnClickLi
 		switch (item.getItemId()) {
 		case R.id.item_del:
 			PreferenceManager.getDefaultSharedPreferences(this).edit()
-					.remove(StatsAppWidgetProvider.WIDGET_PLANID + this.mAppWidgetId).commit();
+					.remove(LogsAppWidgetProvider.WIDGET_PLANID + this.mAppWidgetId).commit();
 			this.finish();
 			return true;
 		default:

@@ -79,11 +79,11 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 	static final String WIDGET_SMALL = "widget_small_";
 
 	/** Width of the widget. */
-	private static final int WIDGET_WIDTH = 100;
+	static final int WIDGET_WIDTH = 100;
 	/** Height of progress bars. */
 	private static final int PB_HEIGHT = 4;
 	/** Round corners. */
-	private static final float WIDGET_RCORNER = 10f;
+	static final float WIDGET_RCORNER = 10f;
 	/** Red color for progress bars. */
 	private static final int PB_COLOR_GREY = 0xD0D0D0D0;
 	/** Red light color for progress bars. */
@@ -266,7 +266,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		views.setOnClickPendingIntent(R.id.widget,
 				PendingIntent.getActivity(context, 0, new Intent(context, Plans.class), 0));
 		if (showIcon) {
-			views.setViewVisibility(R.id.widget_icon, android.view.View.VISIBLE);
+			views.setViewVisibility(R.id.widget_icon, View.VISIBLE);
 			switch (plan.type) {
 			case DataProvider.TYPE_DATA:
 				views.setImageViewResource(R.id.widget_icon, R.drawable.data);

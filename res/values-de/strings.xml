@@ -321,8 +321,12 @@
   <string name="alerts_100_" formatted="false">Alarm bei 100%</string>
   <string name="alerts_100_hint" formatted="false">Alarmiere mich, wenn ein Kontingent 100% des Limits erreicht hat.</string>
   <string name="widget_config_" formatted="false">Widget Einstellungen</string>
+  <string name="widget_stats_title">Call Meter (Statistik)</string>
+  <string name="widget_logs_title">Call Meter (Letztes Log)</string>
   <string name="widget_plan_textsize" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Plan Text Size">Schriftgrad für Kontingentnamen</string>
   <string name="widget_cost_textsize" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Cost Text Size">Schriftgrad für Kosten</string>
+  <string name="widget_date_textsize" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;">Schriftgrad für Datum</string>
+  <string name="widget_details_textsize" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;">Schriftgrad für Details</string>
   <string name="widget_text_color_" formatted="false" orig="Text color">Textfarbe</string>
   <string name="widget_backgroud_color_" formatted="false" orig="Background color">Hintergrundfarbe</string>
   <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency">Hintergrund-Transparenz</string>

@@ -63,6 +63,8 @@
 	<string name="appearance_">Appearance</string>
 	<string name="behavior_">Behavior</string>
 	<string name="appearance_and_behavior_">Appearance &amp; behavior</string>
+	<string name="widget_stats_title">Call Meter (stats)</string>
+	<string name="widget_logs_title">Call Meter (last log)</string>
 	<string name="widget_">Widget</string>
 	<string name="widgets_">Widgets</string>
 	<string name="widgets_no_widgets_">No widgets added</string>
@@ -330,6 +332,8 @@
 	<string name="widget_config_">Widget config</string>
 	<string name="widget_plan_textsize">Plan Text Size</string>
 	<string name="widget_cost_textsize">Cost Text Size</string>
+	<string name="widget_date_textsize">Date Text Size</string>
+	<string name="widget_details_textsize">Details Text Size</string>
 	<string name="widget_text_color_">Text color</string>
 	<string name="widget_backgroud_color_">Background color</string>
 	<string name="widget_backgroud_transparency_">Background transparency</string>

@@ -163,7 +163,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 				view.setTag(holder);
 			}
 
-			final StringBuilder buf = new StringBuilder();
+			StringBuilder buf = new StringBuilder();
 			final int t = cursor.getInt(DataProvider.Logs.INDEX_TYPE);
 			String[] strs = context.getResources().getStringArray(R.array.plans_type);
 			buf.append(strs[t]);
@@ -183,6 +183,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 				holder.tvRemote.setVisibility(View.GONE);
 				holder.tvRemoteLabel.setVisibility(View.GONE);
 			} else {
+				// TODO: show name here
 				holder.tvRemote.setText(s);
 				holder.tvRemote.setVisibility(View.VISIBLE);
 				holder.tvRemoteLabel.setVisibility(View.VISIBLE);

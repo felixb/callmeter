@@ -50,6 +50,7 @@ import de.ub0r.android.callmeter.ui.AskForPlan;
 import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
+import de.ub0r.android.callmeter.widget.LogsAppWidgetProvider;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
@@ -816,6 +817,7 @@ public final class LogRunnerService extends IntentService {
 			updateMMS(this);
 			if (RuleMatcher.match(this, showDialog)) {
 				StatsAppWidgetProvider.updateWidgets(this);
+				LogsAppWidgetProvider.updateWidgets(this);
 			}
 		} else if (roaming) {
 			updateCalls(cr);

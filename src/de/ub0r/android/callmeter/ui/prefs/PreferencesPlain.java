@@ -35,6 +35,8 @@ import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.ui.HelpActivity;
+import de.ub0r.android.callmeter.widget.LogsAppWidgetConfigure;
+import de.ub0r.android.callmeter.widget.LogsAppWidgetProvider;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetConfigure;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
 import de.ub0r.android.lib.Utils;
@@ -144,6 +146,30 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
 						public boolean onPreferenceClick(final Preference preference) {
 							Intent i = new Intent(PreferencesPlain.this,
 									StatsAppWidgetConfigure.class);
+							i.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, fid);
+							PreferencesPlain.this.startActivity(i);
+							return true;
+						}
+					});
+					ps.addPreference(p);
+				}
+			}
+			ids = AppWidgetManager.getInstance(this).getAppWidgetIds(
+					new ComponentName(this, LogsAppWidgetProvider.class));
+			if (ids != null && ids.length > 0) {
+				for (int id : ids) {
+					if (prefs.getLong(LogsAppWidgetProvider.WIDGET_PLANID + id, -1) <= 0) {
+						continue;
+					}
+					added = true;
+					p = new Preference(this);
+					p.setTitle(this.getString(R.string.widget_) + " #" + id);
+					final int fid = id;
+					p.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+						@Override
+						public boolean onPreferenceClick(final Preference preference) {
+							Intent i = new Intent(PreferencesPlain.this,
+									LogsAppWidgetConfigure.class);
 							i.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, fid);
 							PreferencesPlain.this.startActivity(i);
 							return true;
