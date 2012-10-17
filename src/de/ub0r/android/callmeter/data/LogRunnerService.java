@@ -453,11 +453,9 @@ public final class LogRunnerService extends IntentService {
 	private static void updateCalls(final ContentResolver cr) {
 		Log.d(TAG, "updateCalls()");
 		final long maxdate = getMaxDate(cr, DataProvider.TYPE_CALL);
-		final String[] callsProjection = new String[] { Calls.TYPE, Calls.DURATION, Calls.DATE,
-				Calls.NUMBER };
 		Cursor cursor;
 		try {
-			cursor = cr.query(Calls.CONTENT_URI, callsProjection, Calls.DATE + " > ?",
+			cursor = cr.query(Calls.CONTENT_URI, null, Calls.DATE + " > ?",
 					new String[] { String.valueOf(maxdate) }, Calls.DATE + " DESC");
 		} catch (NullPointerException e) {
 			Log.e(TAG, "updateCalls(): NPE", e);
@@ -473,6 +471,7 @@ public final class LogRunnerService extends IntentService {
 			final int idDuration = cursor.getColumnIndex(Calls.DURATION);
 			final int idDate = cursor.getColumnIndex(Calls.DATE);
 			final int idNumber = cursor.getColumnIndex(Calls.NUMBER);
+			final int idSimId = cursor.getColumnIndex("sim_id");
 
 			final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(CallMeter.HUNDRET);
 			do {
@@ -499,7 +498,9 @@ public final class LogRunnerService extends IntentService {
 				if (roaming) {
 					cv.put(DataProvider.Logs.ROAMED, 1);
 				}
-				if (!TextUtils.isEmpty(mynumber)) {
+				if (idSimId >= 0) {
+					cv.put(DataProvider.Logs.MYNUMBER, cursor.getString(idSimId));
+				} else if (!TextUtils.isEmpty(mynumber)) {
 					cv.put(DataProvider.Logs.MYNUMBER, mynumber);
 				}
 				cvalues.add(cv);
@@ -553,6 +554,7 @@ public final class LogRunnerService extends IntentService {
 			final int idDate = cursor.getColumnIndex(Calls.DATE);
 			final int idAddress = cursor.getColumnIndex("address");
 			final int idBody = cursor.getColumnIndex("body");
+			final int idSimId = cursor.getColumnIndex("sim_id");
 			final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(CallMeter.HUNDRET);
 			do {
 				final ContentValues cv = new ContentValues();
@@ -583,7 +585,9 @@ public final class LogRunnerService extends IntentService {
 				if (roaming) {
 					cv.put(DataProvider.Logs.ROAMED, 1);
 				}
-				if (!TextUtils.isEmpty(mynumber)) {
+				if (idSimId >= 0) {
+					cv.put(DataProvider.Logs.MYNUMBER, cursor.getString(idSimId));
+				} else if (!TextUtils.isEmpty(mynumber)) {
 					cv.put(DataProvider.Logs.MYNUMBER, mynumber);
 				}
 				cvalues.add(cv);
@@ -639,6 +643,7 @@ public final class LogRunnerService extends IntentService {
 			final int idDate = cursor.getColumnIndex(Calls.DATE);
 			final int idType = cursor.getColumnIndex(MMS_TYPE);
 			final int idThId = cursor.getColumnIndex(THRADID);
+			final int idSimId = cursor.getColumnIndex("sim_id");
 
 			final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(CallMeter.HUNDRET);
 			do {
@@ -684,7 +689,9 @@ public final class LogRunnerService extends IntentService {
 				if (roaming) {
 					cv.put(DataProvider.Logs.ROAMED, 1);
 				}
-				if (!TextUtils.isEmpty(mynumber)) {
+				if (idSimId >= 0) {
+					cv.put(DataProvider.Logs.MYNUMBER, cursor.getString(idSimId));
+				} else if (!TextUtils.isEmpty(mynumber)) {
 					cv.put(DataProvider.Logs.MYNUMBER, mynumber);
 				}
 				cvalues.add(cv);

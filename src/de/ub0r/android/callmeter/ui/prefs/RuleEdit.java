@@ -26,6 +26,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.provider.CallLog.Calls;
 import android.telephony.TelephonyManager;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -171,6 +172,14 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 		PreferenceScreen ps = (PreferenceScreen) this.findPreference("container");
 		ps.removeAll();
 
+		boolean hasSimId = false;
+		try {
+			Cursor c = this.getContentResolver().query(Calls.CONTENT_URI,
+					new String[] { "sim_id" }, "sim_id != 0", null, null);
+			hasSimId = c.getCount() > 0;
+		} catch (IllegalArgumentException e) {
+			Log.i(TAG, "no multi sim phone detected", e);
+		}
 		Cursor c = this.getContentResolver().query(this.uri, DataProvider.Rules.PROJECTION, null,
 				null, null);
 		if (c.moveToFirst()) {
@@ -243,7 +252,14 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 			// my number
 			TelephonyManager tm = (TelephonyManager) this.getSystemService(TELEPHONY_SERVICE);
 			final String mynumber = tm.getLine1Number();
-			if (!TextUtils.isEmpty(mynumber)) {
+			if (hasSimId && w == DataProvider.TYPE_CALL) {
+				ep = new CVEditTextPreference(this, this.values, DataProvider.Rules.MYNUMBER, null);
+				ep.setTitle(R.string.my_sim_id_);
+				ep.setSummary(R.string.my_sim_id_help);
+				ep.setText(c.getString(DataProvider.Rules.INDEX_MYNUMBER));
+				ep.setInputType(InputType.TYPE_CLASS_NUMBER);
+				ps.addPreference(ep);
+			} else if (!TextUtils.isEmpty(mynumber)) {
 				ep = new CVEditTextPreference(this, this.values, DataProvider.Rules.MYNUMBER, null) {
 					@Override
 					protected void onPrepareDialogBuilder(final Builder builder) {

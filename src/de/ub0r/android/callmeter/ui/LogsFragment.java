@@ -56,6 +56,7 @@ import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
+import de.ub0r.android.lib.Utils;
 
 /**
  * Callmeter's Log {@link LogFragment}.
@@ -186,8 +187,11 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 				holder.tvRemote.setVisibility(View.VISIBLE);
 				holder.tvRemoteLabel.setVisibility(View.VISIBLE);
 			}
-			if (LogsFragment.this.showMyNumber) {
-				holder.tvMyNumber.setText(cursor.getString(DataProvider.Logs.INDEX_MYNUMBER));
+			s = cursor.getString(DataProvider.Logs.INDEX_MYNUMBER);
+			boolean b = s != null && s.length() <= 2 && Utils.parseInt(s, -1) >= 0;
+			if (LogsFragment.this.showMyNumber || b) {
+				holder.tvMyNumberLabel.setText(b ? R.string.my_sim_id_ : R.string.my_number_);
+				holder.tvMyNumber.setText(s);
 				holder.tvMyNumberLabel.setVisibility(View.VISIBLE);
 				holder.tvMyNumber.setVisibility(View.VISIBLE);
 			} else {
@@ -313,10 +317,8 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 		Cursor c = this
 				.getActivity()
 				.getContentResolver()
-				.query(DataProvider.Rules.CONTENT_URI,
-						new String[] { DataProvider.Rules.ID },
-						DataProvider.Rules.MYNUMBER + " is not null and "
-								+ DataProvider.Rules.MYNUMBER + " != ''", null, null);
+				.query(DataProvider.Rules.CONTENT_URI, new String[] { DataProvider.Rules.ID },
+						DataProvider.Rules.MYNUMBER + " like '___%'", null, null);
 		this.showMyNumber = c.getCount() > 0;
 		c.close();
 		this.showHours = PreferenceManager.getDefaultSharedPreferences(this.getActivity())

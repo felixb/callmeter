@@ -188,6 +188,8 @@
   <string name="strip_leading_zeros_hint" formatted="false">Beim Vergleichen von Nummern die führenden Nullen ignorieren.</string>
   <string name="my_number_" formated="false">Meine Nummer</string>
   <string name="my_number_help" formated="false">Trifft nur Logs, bei denen diese SIM/Nummer aktiv war.</string>
+  <string name="my_sim_id_" formated="false">SIM Id</string>
+  <string name="my_sim_id_help" formated="false">Trifft nur Logs, die mit dieser SIM gemacht wurden.</string>
   <string name="set_current_number">Aktuelle Nummer</string>
   <string name="number_prefix_" formatted="false">Internationales Prefix</string>
   <string name="number_prefix_hint" formatted="false">Dein internationales Prefix im Format +49. Es wird zum vergleichen der Nummern wie +49170 mit 0170 benutzt.</string>
