@@ -14,7 +14,7 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 -->
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <color name="actionbar_text_color">#FFE0E0E0</color>
     <color name="actionbar_background_color">#B0202020</color>
@@ -23,6 +23,11 @@
 
     <declare-styleable name="Ub0rButtonBar">
         <attr name="ubButtonBarBackground" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="CallMeterProgressBackground">
+        <attr name="cmProgressGreenBackground" format="reference" />
+        <attr name="cmProgressYellowBackground" format="reference" />
+        <attr name="cmProgressRedBackground" format="reference" />
     </declare-styleable>
 
     <style name="ButtonBar" parent="@android:style/ButtonBar" />
@@ -43,12 +48,18 @@
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
         <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>
         <item name="ubButtonBarBackground">@color/ubActionBarBackgroundDark</item>
+        <item name="cmProgressGreenBackground">@drawable/progress_horizontal_dark_green</item>
+        <item name="cmProgressYellowBackground">@drawable/progress_horizontal_dark_yellow</item>
+        <item name="cmProgressRedBackground">@drawable/progress_horizontal_dark_red</item>
     </style>
 
     <style name="Theme.SherlockCallMeter_Light" parent="style/Theme.Sherlock.Light.DarkActionBar">
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar_Light</item>
         <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar_Light</item>
         <item name="ubButtonBarBackground">@color/ubActionBarBackgroundLight</item>
+        <item name="cmProgressGreenBackground">@drawable/progress_horizontal_light_green</item>
+        <item name="cmProgressYellowBackground">@drawable/progress_horizontal_light_yellow</item>
+        <item name="cmProgressRedBackground">@drawable/progress_horizontal_light_red</item>
     </style>
 
     <style name="Widget.Styled.ActionBar" parent="Widget.Sherlock.ActionBar.Solid">
