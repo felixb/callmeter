@@ -2,8 +2,8 @@
 DE+number+groups%3A%0Aall+providers
 numbersgroup _id:1:#:_name:e-plus/base:#:
 numbersgroup _id:2:#:_name:o2:#:
-numbersgroup _id:3:#:_name:t-mobile:#:
-numbersgroup _id:4:#:_name:vodafone:#:
+numbersgroup _id:3:#:_name:T-Mobile:#:
+numbersgroup _id:4:#:_name:Vodafone:#:
 numbers _id:1:#:_gid:2:#:_number:0179%:#:
 numbers _id:2:#:_gid:2:#:_number:+49179%:#:
 numbers _id:3:#:_gid:2:#:_number:0176%:#:

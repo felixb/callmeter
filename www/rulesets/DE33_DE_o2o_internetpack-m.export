@@ -1,5 +1,5 @@
 0
-o2%3A%0Ao2o+and+Internetpack-M
+o2o+and+Internetpack-M
 plans _id:12:#:_plan_name:Bill period:#:_shortname:bp:#:_plan_type:2:#:_limit_type:0:#:_limit:0:#:_billmode:60/10:#:_billday:1277942400947:#:_billperiod:5:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_next_alert:0:#:
 plans _id:13:#:_plan_name:Spacer:#:_shortname:space:#:_order:1:#:_plan_type:1:#:_limit_type:0:#:_limit:0:#:_billmode:60/10:#:_billday:0:#:_billperiod:-1:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:
 plans _id:14:#:_plan_name:Calls / Messages:#:_shortname:calls:#:_order:2:#:_plan_type:0:#:_limit_type:0:#:_limit:0:#:_billmode:60/10:#:_billday:0:#:_billperiod:5:#:_cost_per_item::#:_cost_per_amount1::#:_cost_per_amount2::#:_cost_per_item_in_limit::#:_cost_per_amount_in_limit1::#:_cost_per_amount_in_limit2::#:_cost_per_plan::#:_mixed_units_call::#:_mixed_units_sms::#:_mixed_units_mms::#:_billperiod_id:12:#:_next_alert:0:#:_strip_seconds:0:#:

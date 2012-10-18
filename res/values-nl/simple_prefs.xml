@@ -21,23 +21,23 @@
                Visit http://ub0r.de/translate/cm3/nl/simple_prefs.xml to edit the file.
        -->
 <resources>
-  <string name="freemin_" formatted="false" orig="Free minutes" username="rainbowwarrior7">Vrije minuten</string>
-  <string name="freemin_hint" formatted="false" orig="Free minutes / month" username="rainbowwarrior7">Vrije minuten / maand</string>
+  <string name="freemin_" formatted="false" orig="Free minutes" username="Gummie">Gratis minuten</string>
+  <string name="freemin_hint" formatted="false" orig="Free minutes / month" username="Gummie">Gratis minuten / maand</string>
   <string name="cost_per_call_" formatted="false" orig="Cost / call" username="rainbowwarrior7">Kosten / gesprek</string>
   <string name="cost_per_call_hint" formatted="false" orig="Each call get\'s billed." username="rainbowwarrior7">Elk gesprek word berekend.</string>
   <string name="cost_per_min_hint" formatted="false" orig="Each minute get\'s billed." username="rainbowwarrior7">Elke minuut word berekend.</string>
-  <string name="freesms_" formatted="false" orig="Free SMS" username="rainbowwarrior7">Vrije smsjes</string>
-  <string name="freesms_hint" formatted="false" orig="Free SMS / month" username="rainbowwarrior7">Vrije smsjes / maand</string>
+  <string name="freesms_" formatted="false" orig="Free SMS" username="Gummie">Gratis SMS</string>
+  <string name="freesms_hint" formatted="false" orig="Free SMS / month" username="Gummie">Gratis SMS / maand</string>
   <string name="cost_per_sms_" formatted="false" orig="Cost / SMS" username="rainbowwarrior7">Kosten / SMS</string>
   <string name="cost_per_sms_hint" formatted="false" orig="Each SMS get\'s billed." username="rainbowwarrior7">Elke SMS word berekend.</string>
-  <string name="freemms_" formatted="false" orig="Free MMS" username="rainbowwarrior7">Vrije MMS</string>
-  <string name="freemms_hint" formatted="false" orig="Free MMS / month" username="rainbowwarrior7">Vrije MMS / maand</string>
+  <string name="freemms_" formatted="false" orig="Free MMS" username="Gummie">Gratis MMS</string>
+  <string name="freemms_hint" formatted="false" orig="Free MMS / month" username="Gummie">Gratis MMS / maand</string>
   <string name="cost_per_mms_" formatted="false" orig="Cost / MMS" username="rainbowwarrior7">Kosten / MMS</string>
   <string name="cost_per_mms_hint" formatted="false" orig="Each MMS get\'s billed." username="rainbowwarrior7">Elke MMS word berekend.</string>
-  <string name="freedata_" formatted="false" orig="Free traffic" username="rainbowwarrior7">Vrij verkeer</string>
-  <string name="freedata_hint" formatted="false" orig="Free 2G, 3G or 4G data traffic / month" username="rainbowwarrior7">Vrij 2G, 3G of 4G internet verkeer / maand</string>
+  <string name="freedata_" formatted="false" orig="Free traffic" username="Gummie">Gratis verkeer</string>
+  <string name="freedata_hint" formatted="false" orig="Free 2G, 3G or 4G data traffic / month" username="Gummie">Gratis 2G, 3G of 4G internetverkeer / maand</string>
   <string name="cost_per_mb_" formatted="false" orig="Cost / MB" username="rainbowwarrior7">Kosten / MB</string>
   <string name="cost_per_mb_hint" formatted="false" orig="Each MB get\'s billed." username="rainbowwarrior7">Elke MB word berekend.</string>
   <string name="cost_per_min_" formatted="false" orig="Cost / minute" username="rainbowwarrior7">Kosten / minuut</string>
-  <string name="missing_slash" formatted="false" orig="Bill mode needs to be in seconds/seconds!" username="rainbowwarrior7">Rekening modus moet in seconden / seconden!</string>
+  <string name="missing_slash" formatted="false" orig="Bill mode needs to be in seconds/seconds!" username="Gummie">Facturatie modus moet in seconden/seconden!</string>
 </resources>

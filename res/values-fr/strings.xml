@@ -23,20 +23,20 @@
 <resources>
   <string name="about0_" formatted="false">Surveillez votre forfait d\'appels, de messages et de données !</string>
   <string name="about0" formatted="false">CallMeter crée le rapport du décompte de vos appels, de vos SMS et de vos données sur votre forfait téléphonique. Il permet également de paramétrer plusieurs plans de facturations différents.</string>
-  <string name="about1" formatted="false">Il affiche le compte / le décompte du forfait pour une période de facturation / une période quelconque ou le décompte global. Le calcul du temps restant par mois prend en compte votre forfait, contrairement au décompte global.</string>
+  <string name="about1" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="The output format is usage | time or count used this billing period | time or count overall.">Il affiche le compte | le décompte du forfait pour une période de facturation | une période quelconque ou le décompte global. Le calcul du temps restant par mois prend en compte votre forfait, contrairement au décompte global.</string>
   <string name="about2" formatted="false">Le mode de facturation des appels permet de définir les durées minimales facturées (la première / les suivantes). Ces deux durées sont exprimées en seconde. Par exemple, 60/10 signifie que chaque appel est facturé au minimum 60 secondes, pour ensuite être facturé par tranche de 10 secondes.</string>
   <string name="about3" formatted="false">CallMeter se lance en arrière plan toutes les 30 minutes (uniquement lorsque le téléphone n\'est pas en veille). Cela signifie que les appels supprimés ou les messages datés de plus de 30 minutes ne modifieront pas vos statistiques. La suppression d\'appels ou de messages datés de moins de 30 minutes peut donc générer de fausses statistiques.</string>
   <string name="send_" formatted="false">Envoyer</string>
   <string name="settings" formatted="false">Préférences</string>
-  <string name="about_" formatted="false">A propos de</string>
+  <string name="about_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="About">Ȧ propos de</string>
   <string name="about_hint" formatted="false">A propos de cette application</string>
-  <string name="faq_hint" formatted="false">Quelques astuce pour paramétrer cette application.</string>
+  <string name="faq_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Some tips and tricks, how to set up this app.">Quelques astuces pour paramétrer cette application.</string>
   <string name="feedback_" formatted="false">Contact</string>
   <string name="feedback_hint" formatted="false">Rapporter un bug, demander de nouvelles fonctionnalités ...</string>
   <string name="twitter_hint" formatted="false">Suivez moi sur twitter.\nObtenez des informations sur les mises à jour, etc.</string>
   <string name="more_" formatted="false">Plus d\'applications..</string>
-  <string name="billday_" formatted="false">Premier jour du forfait</string>
-  <string name="billmode_" formatted="false">Mode de facturation d\'appels</string>
+  <string name="billday_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="First day of your bill">Premier jour de la facture</string>
+  <string name="billmode_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Mode of billing">Mode de facturation</string>
   <string name="billdate_" formatted="false">Début de la période de facturation:</string>
   <string name="theme_" formatted="false">Thème</string>
   <string name="textsize_" formatted="false">Taille du texte</string>
@@ -56,4 +56,57 @@
   <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Data (2G/3G/4G)</string>
   <string name="data_inout" formatted="false" orig="Data In/Out">Data Entrant/Sortant</string>
   <string name="now" formatted="false" orig="Now">Maintenant</string>
+  <string name="changelog_notification_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Recent changes:">Modifications récentes :</string>
+  <string name="changelog_notification_text" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Click here to show recent changes of">Appuyez ici pour avoir les modifications récentes de</string>
+  <string name="never_show_again" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Never show changelog again">Ne plus montrer le changelog</string>
+  <string name="notes_from_developer_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Notes from developer">Notes du développeur</string>
+  <string name="notes_from_developer_text" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Click here to show recent news from the developer">Appuyez ici pour visualiser les nouveautés</string>
+  <string name="author_and_many_more" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="and many more...">et bien plus encore ...</string>
+  <string name="add_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Add">Ajouter</string>
+  <string name="add_log" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Add log entry">Ajouter une entrée dans l\'historique</string>
+  <string name="length_hint_call" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Length in seconds">Durée en secondes</string>
+  <string name="length_hint_data" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Length in kB">Durée en ko</string>
+  <string name="update_interval_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Update interval">Périodicité de mise à jour</string>
+  <string name="update_interval_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Shorter period will use more battery.">Une périodicité courte consommera plus de batterie.</string>
+  <string name="update_interval_data_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Update interval (data)">Périodicité de mise à jour (données)</string>
+  <string name="update_interval_data_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Il est nécessaire de mettre à jour les statistiques de données plus souvent. En particulier pour les mobiles SAMSUNG.</string>
+  <string name="date_begin_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Beginning of records">Début des enregistrements</string>
+  <string name="date_begin_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Ignore any logs before this date.">Ignorer tout enregistrement avant cete date.</string>
+  <string name="delete_old_logs_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Delete logs older than">Supprimer l\'historique plus ancien que</string>
+  <string name="delete_old_logs_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Delete logs older than x days from internal database. Leave empty to disable.">Supprimer de la base de donnée interne les enregistrements plus vieux que x jours. Laisser vide pour désactiver.</string>
+  <string name="common_prefs_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Common preferences">Préférences communes</string>
+  <string name="edit_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Edit">Éditer</string>
+  <string name="up_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Move up">Déplacer vers le haut</string>
+  <string name="delete_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Delete">Supprimer</string>
+  <string name="down_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Move down">Déplacer vers le bas</string>
+  <string name="google_plus_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Follow me on Google+.\nGet update notifications etc.">Suivez moi sur Google+.\nObtenez des informations sur les mises à jour, etc.</string>
+  <string name="billing_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Billing">Facturation</string>
+  <string name="appearance_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Appearance">Apparance</string>
+  <string name="behavior_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Behavior">Comportement</string>
+  <string name="appearance_and_behavior_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Appearance &amp; behavior">Apparance et comportement</string>
+  <string name="widget_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Widget">Widget</string>
+  <string name="widgets_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Widgets">Widgets</string>
+  <string name="widgets_no_widgets_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="No widgets added">Aucun widget défini</string>
+  <string name="widgets_no_widgets_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="There are no widgets added to the launcher.">Il n\'y a aucun widget défini sur le bureau</string>
+  <string name="delete_widget" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Delete widget">Supprimer le widget</string>
+  <string name="simple_preferences_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Simple preferences">Préférences simplifiées</string>
+  <string name="simple_preferences_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Préférences très simples, adaptées pour la majorité des utisateurs. Utilisable seulement avec les règles par défaut.</string>
+  <string name="simple_preferences_deactivated" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Les préférences simplifiées ne sont disponibles que pour les règles par défaut. Importez le jeu de règles par défaut pour réactiver.</string>
+  <string name="advanced_preferences_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Advanced preferences">Préférences étendues</string>
+  <string name="advanced_preferences_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Ces options permettent des paramétrages bien plus complexes. La plupart des utilisateurs n\'en a pas besoin.</string>
+  <string name="textsize_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Text size in pixels; leave empty for default">Taille du texte en pixels ; laisser vide pour la taille par défaut</string>
+  <string name="textsize_title_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Text size for titles in pixels; leave empty for default">Taille des titres en pixels ; laisser vide pour la taille par défaut</string>
+  <string name="textsize_title_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Title\'s text size">Taille des titres</string>
+  <string name="textsize_bigtitle_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Big title\'s text size">Taille des grands titres</string>
+  <string name="textsize_bigtitle_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Text size for big titles in pixels; leave empty for default">Taille des grands titres en pixels ; laisser vide pour la taille par défaut</string>
+  <string name="textsize_spacer_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Spacer\'s size">Taille des espaces</string>
+  <string name="textsize_spacer_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Size for spacers in pixels; leave empty for default">Taille des espaces en pixels ; laisser vide pour la taille par défaut</string>
+  <string name="textsize_pbar_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Progress bar\'s size">Taille des barres de progression</string>
+  <string name="textsize_pbar_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Size for progress bars in pixels; leave empty for default">Taille des barres de progression en pixels ; laisser vide pour la taille par défaut</string>
+  <string name="textsize_pbarbp_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Bill period\'s progress bar\'s size">Taille de la barre de progression pour la période de facturation</string>
+  <string name="textsize_pbarbp_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Taille de la barre de progression pour la période de facturation en pixels ; laisser vide pour la taille par défaut</string>
+  <string name="show_today_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Show today">Afficher aujourd\'hui</string>
+  <string name="show_today_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Show today stats">Afficher les statistiques d\'aujourd\'hui</string>
+  <string name="show_total_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Show total">Afficher le total</string>
+  <string name="show_total_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Show total stats, disable to see current only.">Afficher les statistiques totales, désactiver pour ne garder que les courantes</string>
 </resources>

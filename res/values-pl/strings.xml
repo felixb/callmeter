@@ -390,7 +390,7 @@
   <string name="numbergroup_excalls" formatted="false" orig="Exclude from calls">Wykluczone z rozmów</string>
   <string name="numbergroup_exsms" formatted="false" orig="Exclude from SMS">Wykluczone z SMS</string>
   <string name="exported_" formatted="false" username="daniel@borek.me.uk" orig="Exported:">Wyeksportowano:</string>
-  <string name="import_rules_sd_" formatted="false" username="daniel@borek.me.uk" orig="Import from SD card">Importuj z karty SD</string>
+  <string name="import_rules_sd_" formatted="false" username="maladrill" orig="Import rule set from SD card">Importuj zestaw reguł z karty SD</string>
   <string name="import_rules_sd_files" formatted="false" username="daniel@borek.me.uk" orig="Found files">Znaleziono pliki</string>
   <string name="import_rules_sd_nofiles" formatted="false" username="daniel@borek.me.uk" orig="No found files">Brak znalezionych plikow</string>
   <string name="import_rules_sd_hint" formatted="false" username="daniel@borek.me.uk" orig="Import rule set directly from SD card.">Importuj zestaw reguł z karty SD.</string>
@@ -405,4 +405,39 @@
   <string name="x1_minute">1 minuta</string>
   <string name="x2_minute">2 minuty</string>
   <string name="x5_minute">5 minut</string>
+  <string name="update_interval_data_hint" formatted="false" username="maladrill" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Aktualizacja statystyk musi być wykonywana częściej. Np. Samsung wymaga bardzo krótkich interwałów.</string>
+  <string name="up_" formatted="false" username="maladrill" orig="Move up">Przejdź w górę</string>
+  <string name="down_" formatted="false" username="maladrill" orig="Move down">Przejdź w dół</string>
+  <string name="widget_" formatted="false" username="maladrill" orig="Widget">Widżet</string>
+  <string name="widgets_" formatted="false" username="maladrill" orig="Widgets">Widżety</string>
+  <string name="widgets_no_widgets_" formatted="false" username="maladrill" orig="No widgets added">Nie dodano widżetu</string>
+  <string name="delete_widget" formatted="false" username="maladrill" orig="Delete widget">Usuń widżet</string>
+  <string name="widgets_no_widgets_hint" formatted="false" username="maladrill" orig="There are no widgets added to the launcher.">Na pulpicie nie ma żadnego widżetu</string>
+  <string name="simple_preferences_deactivated" formatted="false" username="maladrill" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Ustawienia zwykłe są dostępne tylko do standardowego ustawienia reguł. By je reaktywować, należy zaimportować standardowe reguły.</string>
+  <string name="my_number_" formatted="false" username="maladrill" orig="My number">Mój numer</string>
+  <string name="set_current_number" formatted="false" username="maladrill" orig="Current number">Bieżący numer</string>
+  <string name="active_" formatted="false" username="maladrill" orig="Active">Aktywne</string>
+  <string name="active_help" formatted="false" username="maladrill" orig="Only active rules are used for matching logs.">Tylko aktywne reguły są używane do odpowiednich logów</string>
+  <string name="export_rules_dev_" formatted="false" username="maladrill" orig="Export rule set to developer">Wyeksportuj zestaw reguł do programisty.</string>
+  <string name="export_rules_dev_hint" formatted="false" username="maladrill" orig="Export rule set to let others import it.">Wyeksportuj zestaw reguł umożliwiając innym ich import.</string>
+  <string name="export_logs_csv_" formatted="false" username="maladrill" orig="Export CSV">Wyeksportuj CSV</string>
+  <string name="export_logs_csv_hint" formatted="false" username="maladrill" orig="Export logs as CSV.">Wyeksportuj logi jako CSV.</string>
+  <string name="reset" formatted="false" username="maladrill" orig="Reset">Reset</string>
+  <string name="debug_" formatted="false" username="maladrill" orig="Debug">Włącz debugowanie</string>
+  <string name="send_logs_" formatted="false" username="maladrill" orig="Send logs">Wyślij logi</string>
+  <string name="send_logs_hint" formatted="false" username="maladrill" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Wyślij logi urządzenia do programisty. Zrób to tylko na wyraźną prośbę.</string>
+  <string name="sendlog_run_" formatted="false" username="maladrill" orig="Run SendLog">Uruchom SendLog</string>
+  <string name="sendlog_run" formatted="false" username="maladrill" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog pobierze dane z logów urządzenia i wyśle do programisty. Będziesz mieć możliwość przeglądnięcia i modyfikacji wysyłanych danych.</string>
+  <string name="sendlog_install_" formatted="false" username="maladrill" orig="Install SendLog">Zainstaluj SendLog</string>
+  <string name="sendlog_install" formatted="false" username="maladrill" orig="Install the free SendLog application to collect the device log and send it to the developer.">Zainstaluj bezpłatną aplikację SendLog by pobierać dane z logów urządzenia i wysyłać do programisty.</string>
+  <string name="license_" formatted="false" username="maladrill" orig="License:">Licencja:</string>
+  <string name="license" formatted="false" username="maladrill" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - więcej na: http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="author_" formatted="false" username="maladrill" orig="Author:">Autor:</string>
+  <string name="website_" formatted="false" username="maladrill" orig="Website:">Strona www:</string>
+  <string name="source_" formatted="false" username="maladrill" orig="Sourcescode:">Kod źródłowy:</string>
+  <string name="country" formatted="false" username="maladrill" orig="Country">Państwo</string>
+  <string name="provider" formatted="false" username="maladrill" orig="Provider">Dostawca</string>
+  <string name="plan" formatted="false" username="maladrill" orig="Plan">Plan</string>
+  <string name="custom_language_" formatted="false" username="maladrill" orig="Custom language">Własny język</string>
+  <string name="custom_language_hint" formatted="false" username="maladrill" orig="Set a custom language.">Ustaw własny język</string>
 </resources>

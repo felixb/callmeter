@@ -129,13 +129,13 @@
   <string name="exnumbergroup_" formatted="false" orig="Exclude numbers">Vyloučená čísla</string>
   <string name="new_numbergroup" formatted="false">Přidat skupinu čísel</string>
   <string name="add_number" formatted="false">Přidat číslo</string>
-  <string name="hours" formatted="false">Hodiny</string>
-  <string name="hourgroup_" formatted="false">Zahrnuté hodiny</string>
-  <string name="hourgroup_help" formatted="false" orig="Add some hours this rule must match.">Zadejte hodiny, které musí vyhovovat tomuto pravidlu.</string>
-  <string name="exhourgroup_" formatted="false">Vyloučené hodiny</string>
-  <string name="exhourgroup_help" formatted="false" orig="Add some hours this rule must not match.">Zadejte hodiny, které nemusí vyhovovat tomuto pravidlu.</string>
-  <string name="new_hourgroup" formatted="false">Nová skupina hodin</string>
-  <string name="add_hour" formatted="false" orig="Add hour">Přidat hodinu</string>
+  <string name="hours" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="Hours">Hodiny</string>
+  <string name="hourgroup_" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="Include hours">Zahrnuté hodiny</string>
+  <string name="hourgroup_help" formatted="false" orig="Add some hours this rule must match." username="Marek Toman &lt;skrejzy@gmail.com&gt;">Zadejte hodiny, které musí vyhovovat tomuto pravidlu.</string>
+  <string name="exhourgroup_" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="Exclude hours">Vyloučené hodiny</string>
+  <string name="exhourgroup_help" formatted="false" orig="Add some hours this rule must not match." username="Marek Toman &lt;skrejzy@gmail.com&gt;">Zadejte hodiny, které nemusí vyhovovat tomuto pravidlu.</string>
+  <string name="new_hourgroup" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="New hour group">Nová skupina hodin</string>
+  <string name="add_hour" formatted="false" orig="Add hour" username="Marek Toman &lt;skrejzy@gmail.com&gt;">Přidat hodiny</string>
   <string name="empty_group" formatted="false" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Prázdná skupina nic neřeší. Prosím vraťte se a přidejte aspoň jednu položku.</string>
   <string name="calls" formatted="false">Hovory</string>
   <string name="sms" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="SMS">SMS</string>
@@ -400,4 +400,14 @@
   <string name="import_rules_sd_help" formatted="false" orig="Place your file on your SD card and click it below">Umístěte soubor na SD kartu a kliněte níže</string>
   <string name="import_rules_sd_" formatted="false" orig="Import rule set from SD card">Import pravidel z SD karty</string>
   <string name="import_rules_sd_hint" formatted="false" orig="Import rule set directly from SD card.">Importuje pravidla přímo z SD karty.</string>
+  <string name="update_interval_data_hint" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Aktualizace dat by měly být prováděny častěji. Zvlášť Samsung potřebuje velmi krátké intervaly.</string>
+  <string name="up_" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="Move up">Nahoru</string>
+  <string name="down_" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="Move down">Dolů</string>
+  <string name="widgets_no_widgets_" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="No widgets added">Žádné přidané widgety</string>
+  <string name="widgets_no_widgets_hint" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="There are no widgets added to the launcher.">Žádné spouštěné widgety nejsou přidány.</string>
+  <string name="delete_widget" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="Delete widget">Smazat widget</string>
+  <string name="my_number_" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="My number">Moje číslo</string>
+  <string name="my_number_help" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="Match only logs, while this SIM/number is active.">Kontroluj záznamy pouze pokud je toto číslo aktivní.</string>
+  <string name="simple_preferences_deactivated" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Jednoduché nastavení je k dispozici pouze pro výchozí sadu pravidel. Naimportujte výchozí pravidla pro povolení této volby.</string>
+  <string name="set_current_number" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="Current number">Aktuální číslo</string>
 </resources>
