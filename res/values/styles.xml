@@ -42,7 +42,9 @@
         <item name="android:visibility">gone</item>
     </style>
 
-    <style name="Theme.SherlockDefault" parent="style/Theme.Sherlock" />
+    <style name="Theme.SherlockDefault" parent="style/Theme.Sherlock">
+        <item name="ubButtonBarBackground">@android:color/transparent</item>
+    </style>
 
     <style name="Theme.SherlockCallMeter" parent="style/Theme.Sherlock">
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>

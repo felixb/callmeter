@@ -41,6 +41,8 @@ import android.widget.RemoteViews;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
+import de.ub0r.android.callmeter.data.NameCache;
+import de.ub0r.android.callmeter.data.NameLoader;
 import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
@@ -206,8 +208,14 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
 			buf0.append(DateFormat.getTimeFormat(context).format(new Date(date)));
 			if (t == DataProvider.TYPE_MMS || t == DataProvider.TYPE_SMS
 					|| t == DataProvider.TYPE_CALL) {
-				// TODO: show name here
-				buf1.append(c.getString(DataProvider.Logs.INDEX_REMOTE));
+				String number = c.getString(DataProvider.Logs.INDEX_REMOTE);
+				String name = NameCache.getInstance().get(number);
+				if (name == null) {
+					new NameLoader(context, number, null, null).execute();
+					buf1.append(number);
+				} else {
+					buf1.append(name);
+				}
 				buf1.append("\n");
 			}
 			buf1.append(Common.formatAmount(t, c.getLong(DataProvider.Logs.INDEX_AMOUNT), showHours));
