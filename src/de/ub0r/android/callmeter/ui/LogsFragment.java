@@ -53,6 +53,8 @@ import com.actionbarsherlock.view.MenuItem;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
+import de.ub0r.android.callmeter.data.NameCache;
+import de.ub0r.android.callmeter.data.NameLoader;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
@@ -113,6 +115,8 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 			TextView tvPlan, tvRule, tvText1, tvRemoteLabel, tvRemote, tvMyNumberLabel, tvMyNumber,
 					tvLengthLable, tvLength, tvBilledLengthLable, tvBilledLength, tvCostLable,
 					tvCost;
+			/** Hold {@link NameLoader}. */
+			NameLoader loader;
 		}
 
 		/** Column ids. */
@@ -161,6 +165,8 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 				holder.tvCostLable = (TextView) view.findViewById(R.id.cost_);
 				holder.tvCost = (TextView) view.findViewById(R.id.cost);
 				view.setTag(holder);
+			} else if (holder.loader != null && !holder.loader.isCancelled()) {
+				holder.loader.cancel(true);
 			}
 
 			StringBuilder buf = new StringBuilder();
@@ -183,8 +189,14 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 				holder.tvRemote.setVisibility(View.GONE);
 				holder.tvRemoteLabel.setVisibility(View.GONE);
 			} else {
-				// TODO: show name here
-				holder.tvRemote.setText(s);
+				String format = "%s <" + s + ">";
+				String name = NameCache.getInstance().get(s, format);
+				if (name != null) {
+					holder.tvRemote.setText(name);
+				} else {
+					holder.loader = new NameLoader(context, s, format, holder.tvRemote);
+					holder.loader.execute();
+				}
 				holder.tvRemote.setVisibility(View.VISIBLE);
 				holder.tvRemoteLabel.setVisibility(View.VISIBLE);
 			}
