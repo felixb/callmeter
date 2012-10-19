@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2012 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,7 +16,7 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/el/market.xml to edit the file.
        -->
@@ -24,5 +24,7 @@
   <string name="market_oss" formatted="false" orig="This app is open source software build in spare time. Adding bad comments in market won\'t help much to make it better.\nPlease add your issues with this app on the app\'s website.">Αυτή η εφαρμογή είναι ανοιχτού κώδικα και φτιάχνεται στον ελεύθερο χρόνο. Βάζοντας αρνητικά σχόλια στο μάρκετ δεν βοηθάτε στο να την κάνετε καλύτερη.</string>
   <string name="market_cm2" formatted="false" orig="This is a complete rebuild of Call Meter NG. It has a huge amount of new features like widgets and alerts.\nIt\'s new architecure allows more complex plans.\nFeel free to test it and help me make it more userfriendly as it is currently. ;)">Αυτή είναι μια πλήρης ανακατασκευή του Call Meter NG. Έχει ένα μεγάλο αριθμό νέων λειτουργιών όπως widgets και alerts.  </string>
   <string name="market_translation" formatted="false" orig="Feel free to help translating this app to your language here: http://ub0r.de/translate/cm3/">Βοηθήστε στην μετάφραση αυτής της εφαρμογής στην γλώσσα σας εδώ:\nhttp://ub0r.de/translate/cm3/</string>
-  <string name="market_keywords" formatted="false" orig="Keywords: minutes calls sms txt text data traffic counter log phone usage watchdog alert widget statistics at&amp;amp;t verizon three o2 t-mobile vodafone orange">Ετικέτες: λεπτά κλήσεις μηνύματα κείμενο δεδομένα όγκος μετρητής καταγραφή τηλέφωνο χρήση στατιστικά cosmote vodafone wind q qtelecom momad frog minutes calls sms txt text data traffic counter log phone usage watchdog alert widget statistics</string>
+  <string name="market_keywords" formatted="false" orig="Keywords: minutes calls sms txt text data traffic counter log phone usage watchdog alert widget statistics at&amp;t verizon three o2 t-mobile vodafone orange" username="Rafaelo &lt;rafailof@gmail.com&gt;">Ετικέτες: λεπτά κλήσεις μηνύματα κείμενο δεδομένα όγκος μετρητής καταγραφή τηλέφωνο χρήση στατιστικά cosmote vodafone wind q qtelecom momad frog</string>
+  <string name="market_about" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Call Meter lets you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and lets you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.">Παρακολουθήστε τη χρέωση των κλήσεων,των μυνημάτων και του όγκου δεδομένων σας!\nΤο Call Meter σας επιτρέπει να παρακολουθείτε το τρέχων πλάνο του κινητού σας.\n\nΜπορεί να σας δείχνει στατιστικά των κλήσεων/μηνυμάτων/κειμένων/όγκου δεδομένων και σας επιτρέπει να καθορίσετε όρια για κάθε ένα από τα πλάνα σας.\nΤο Call Meter υποστηρίζει τεράστια δυνατότητα συνδυασμών πλάνων, που να σας επιτρέπει να το προσαρμόσετε στον τρόπο, με τον οποίο σας χρεώνει ο πάροχός σας.</string>
+  <string name="market_permissions" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Permissions of this app:\n* READ SMS OR MMS: count your messages\n* RECEIVE SMS: update logs before a recently received message got deleted\n* FULL INTERNET ACCESS: importing rules\n* READ CONTACT DATA: convert numbers to names (e.g. in number groups)\n* MODIFY/DELETE SD CARD CONTENTS: write/export rules to sd card\n* READ PHONE STATE AND IDENTITY: update logs in background\n* PREVENT DEVICE FROM SLEEPING: update logs in background">\nΗ εφαρμογή αυτή λαμβάνει τα παρακάτω δικαιώματα:\n* ΑΝΑΓΝΩΣΗ SMS Ή MMS: υπολογισμός μηνυμάτων\n* ΛΗΨΗ SMS: ενημέρωση μετρήσεων πριν από τη διαγραφή πρόσφατου ληφθέντος μηνύματος\n* ΠΛΗΡΗΣ ΠΡΟΣΒΑΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ: εισαγωγή κανόνων\n* ΑΝΑΓΝΩΣΗ ΤΩΝ ΕΠΑΦΩΝ: μετατροπή αριθμών σε ονόματα (π.χ. στις ομάδες αριθμών)\n* ΑΛΛΑΓΗ/ΔΙΑΓΡΑΦΗ ΠΕΡΙΕΧΟΜΕΝΩΝ ΣΤΗΝ ΚΑΡΤΑ SD: εγγραφή/εξαγωγή κανόνων στη SD κάρτα \n* ΑΝΑΓΝΩΣΗ ΚΑΤΑΣΤΑΣΗΣ ΚΑΙ ΤΑΥΤΟΤΗΤΑΣ ΤΟΥ ΤΗΛΕΦΩΝΟΥ: ενημέρωση μετρήσεων στο παρασκήνιο\n* ΑΠΟΤΡΟΠΗ ΤΟΥ ΤΗΛΕΦΩΝΟΥ ΣΕ ΑΝΑΣΤΟΛΗ ΛΕΙΤΟΥΡΓΙΑΣ: ενημέρωση μετρήσεων στο παρασκήνιο</string>
 </resources>
