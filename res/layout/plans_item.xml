@@ -102,7 +102,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@id/content_data"
             android:max="100"
-            android:progressDrawable="@drawable/progress_horizontal_green" />
+            android:progressDrawable="?attr/cmProgressGreenBackground" />
 
         <ProgressBar
             android:id="@+id/progressbarLimitYellow"
@@ -112,7 +112,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@id/content_data"
             android:max="100"
-            android:progressDrawable="@drawable/progress_horizontal_yellow" />
+            android:progressDrawable="?attr/cmProgressYellowBackground" />
 
         <ProgressBar
             android:id="@+id/progressbarLimitRed"
@@ -122,7 +122,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@id/content_data"
             android:max="100"
-            android:progressDrawable="@drawable/progress_horizontal_red" />
+            android:progressDrawable="?attr/cmProgressRedBackground" />
     </RelativeLayout>
 
 </LinearLayout>

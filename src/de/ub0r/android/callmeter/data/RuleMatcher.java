@@ -1310,6 +1310,9 @@ public final class RuleMatcher {
 						} else {
 							Log.d(TAG, "send progress: " + i + " handler=null");
 						}
+						Log.d(TAG, "save logs..");
+						cr.applyBatch(DataProvider.AUTHORITY, ops);
+						ops.clear();
 						Log.d(TAG, "sleeping..");
 						try {
 							Thread.sleep(CallMeter.MILLIS);
@@ -1320,7 +1323,9 @@ public final class RuleMatcher {
 					}
 					++i;
 				} while (cursor.moveToNext());
-				cr.applyBatch(DataProvider.AUTHORITY, ops);
+				if (ops.size() > 0) {
+					cr.applyBatch(DataProvider.AUTHORITY, ops);
+				}
 			} catch (IllegalStateException e) {
 				Log.e(TAG, "illegal state in RuleMatcher's loop", e);
 			} catch (OperationApplicationException e) {
