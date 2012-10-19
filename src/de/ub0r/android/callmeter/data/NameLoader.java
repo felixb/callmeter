@@ -41,6 +41,32 @@ public class NameLoader extends AsyncTask<Void, Void, String> {
 	private final String f;
 
 	/**
+	 * Get name for number synchronously.
+	 * 
+	 * @param context
+	 *            {@link Context}
+	 * @param number
+	 *            phone number
+	 * @param format
+	 *            format to format the {@link String} with
+	 * @return name or formated {@link String}
+	 */
+	public static String getName(final Context context, final String number, final String format) {
+		NameLoader loader = new NameLoader(context, number, format, null);
+		String result = loader.doInBackground((Void) null);
+		loader.onPostExecute(result);
+		if (result == null) {
+			return null;
+		} else if (format == null) {
+			NameCache.getInstance().put(number, result);
+			return result;
+		} else {
+			NameCache.getInstance().put(number, result);
+			return String.format(format, result);
+		}
+	}
+
+	/**
 	 * Default constructor.
 	 * 
 	 * @param context

@@ -211,7 +211,9 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
 				String number = c.getString(DataProvider.Logs.INDEX_REMOTE);
 				String name = NameCache.getInstance().get(number);
 				if (name == null) {
-					new NameLoader(context, number, null, null).execute();
+					name = NameLoader.getName(context, number, null);
+				}
+				if (name == null) {
 					buf1.append(number);
 				} else {
 					buf1.append(name);
