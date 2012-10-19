@@ -27,7 +27,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="bigtitle"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <View
@@ -46,8 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:gravity="right"
-            android:singleLine="false"
-            android:text=" ???" />
+            android:singleLine="false" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -80,7 +78,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:text="normtitle"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
@@ -90,8 +87,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_toRightOf="@id/normtitle"
                 android:gravity="right"
-                android:singleLine="false"
-                android:text=" ???" />
+                android:singleLine="false" />
         </RelativeLayout>
 
         <ProgressBar

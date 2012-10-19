@@ -20,15 +20,12 @@ package de.ub0r.android.callmeter.widget;
 
 import yuku.ambilwarna.AmbilWarnaDialog;
 import yuku.ambilwarna.AmbilWarnaDialog.OnAmbilWarnaListener;
-import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -41,6 +38,11 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Log;
@@ -51,7 +53,7 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public final class StatsAppWidgetConfigure extends Activity implements OnClickListener,
+public final class StatsAppWidgetConfigure extends SherlockActivity implements OnClickListener,
 		OnCheckedChangeListener, OnSeekBarChangeListener {
 	/** Tag for logging. */
 	private static final String TAG = "wdgtcfg";
@@ -346,7 +348,7 @@ public final class StatsAppWidgetConfigure extends Activity implements OnClickLi
 	@Override
 	public boolean onCreateOptionsMenu(final Menu menu) {
 		if (this.isExistingWidget) {
-			this.getMenuInflater().inflate(R.menu.menu_widget, menu);
+			this.getSupportMenuInflater().inflate(R.menu.menu_widget, menu);
 			return true;
 		} else {
 			return super.onCreateOptionsMenu(menu);
