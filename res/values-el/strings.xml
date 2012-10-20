@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2012 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter 3G. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,7 +16,7 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
                Visit http://ub0r.de/translate/cm3/el/strings.xml to edit the file.
        -->
@@ -356,4 +356,22 @@
   <string name="x1_hour">Μία ώρα</string>
   <string name="x2_hour">Δύο ώρες</string>
   <string name="manually_only">Χειροκίνητα μόνο</string>
+  <string name="author_and_many_more" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="and many more...">και πιο πολλά...</string>
+  <string name="up_" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Move up">Μετακίνηση επάνω</string>
+  <string name="down_" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Move down">Μετακίνηση κάτω</string>
+  <string name="behavior_" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Behavior">Συμπεριφορά</string>
+  <string name="appearance_and_behavior_" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Appearance &amp; behavior">Εμφάνιση </string>
+  <string name="widget_stats_title" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Call Meter (stats)">Call Meter (στατιστικά)</string>
+  <string name="widget_logs_title" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Call Meter (last log)">Call Meter (τελευταία καταγραφή)</string>
+  <string name="widget_" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Widget">Widget</string>
+  <string name="widgets_" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Widgets">Widgets</string>
+  <string name="widgets_no_widgets_" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="No widgets added">Κανένα widget δεν προστέθηκε</string>
+  <string name="widgets_no_widgets_hint" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="There are no widgets added to the launcher.">Δεν έχουν προστεθεί widget στην αρχική οθόνη.</string>
+  <string name="delete_widget" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Delete widget">Διαγραφή widget</string>
+  <string name="simple_preferences_" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Simple preferences">Απλές ρυθμίσεις</string>
+  <string name="simple_preferences_hint" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Πολύ απλες ρυθμίσεις, κατάλληλες για τους περισσότερους χρήστες. Διαθέσιμες μόνο στους προεπιλεγμένους κανόνες.</string>
+  <string name="hide_name_" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Hide name of plan">Απόκρυψη ονόματος πλάνου</string>
+  <string name="small_widget_" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Use small widget">Χρήση μικρού widget</string>
+  <string name="show_icon_" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Show icon">Εμφάνιση εικονιδίου</string>
+  <string name="plan" formatted="false" username="Rafaelo &lt;rafailof@gmail.com&gt;" orig="Plan">Πλάνο</string>
 </resources>
