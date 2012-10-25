@@ -71,10 +71,10 @@ res/values-tr/donation.xml:4
 res/values-tr/market.xml:5
 res/values-tr/notes.xml:2
 res/values-tr/strings.xml:132
-res/values-zh/donation.xml:0
-res/values-zh/market.xml:0
-res/values-zh/notes.xml:0
-res/values-zh/strings.xml:117
+res/values-zh/donation.xml:6
+res/values-zh/market.xml:5
+res/values-zh/notes.xml:3
+res/values-zh/strings.xml:132
 res/values:176
 res/values-cs:128
 res/values-da:124
@@ -93,4 +93,4 @@ res/values-ru:119
 res/values-sk:122
 res/values-sv:115
 res/values-tr:143
-res/values-zh:117
+res/values-zh:146

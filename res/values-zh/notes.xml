@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter NG. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,13 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://www.4.ub0r.de/translate/cm2/zh/notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm2/zh/notes.xml to edit the file.
        -->
 <resources>
+  <string-array name="notes_from_dev" username="Chen Ma &lt;i@chen.ma&gt;">
+    <item>2010年12月，Call Meter 3G闪亮登场：Call Meter 3G（CM3）登陆Google电子市场。试用一下并在应用页面留下评论吧。</item>
+    <item>2011年3月，设置：更新设置后，别忘了清除一下统计信息，以便把新设置应用到之前的记录信息中。</item>
+  </string-array>
 </resources>

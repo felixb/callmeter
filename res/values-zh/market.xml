@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter NG. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,9 +16,14 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://ub0r.de/translate/cm2/edit.php to edit the file.
+               Visit http://ub0r.de/translate/cm2/zh/market.xml to edit the file.
        -->
 <resources>
+  <string name="market_translation" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Feel free to help translating this app to your language here: http://ub0r.de/translate/cm2/">欢迎到以下地址把这个应用翻译成您使用的语言：http://ub0r.de/translate/cm2/</string>
+  <string name="market_keywords" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Keywords: minutes calls sms txt text data traffic counter log phone usage watchdog alert widget statistics at&amp;t verizon three o2 t-mobile vodafone orange">关键词：通话 电话 短信 数据 套餐 流量 统计 日志 使用量 警报 小工具 移动 联通 电信</string>
+  <string name="market_about" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Call Meter lets you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and lets you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.">Call Meter 帮您时刻留意您的手机套餐。\n\n它可以用以统计您的电话/短信/数据流量，并可以为您分别限制用量。\nCall Meter 支持大量结算统计模式，充分适用于您所使用的运营商套餐。</string>
+  <string name="market_oss" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="This app is open source software build in spare time. Adding bad comments in market won\'t help much to make it better.\nPlease add your issues with this app on the app\'s website.">此应用是利用业余时间开发的开放源代码项目。恶意评论不会为完善这个应用带来任何帮助。\n请把您发现的问题/错误发布到此应用的开发网站上。</string>
+  <string name="market_cm3" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="There is a complete rebuild Call Meter 3G available in market. It has a huge amount of new features like widgets and alerts.\nIt\'s new architecure allows more complex plans.\nFeel free to test it and help me make it more userfriendly as it is currently. ;)">Call Meter 3G 焕然一新，携桌面小工具与警报等众多功能，登陆 Google 电子市场。\n全新的设计架构支持更多复杂的手机套餐。\n诚意邀您试用，并希望在您的帮助下能让此应用一如既往地方便易用 :)</string>
 </resources>
