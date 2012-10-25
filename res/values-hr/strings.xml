@@ -439,4 +439,13 @@
   <string name="country" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Country">Zemlja</string>
   <string name="provider" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Provider">Pružatelj usluga</string>
   <string name="plan" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Plan">Plan</string>
+  <string name="widget_stats_title" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="Call Meter (stats)">Call Meter (statistika)</string>
+  <string name="widget_details_textsize" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="Details Text Size">Detalji Veličine Teksta</string>
+  <string name="widget_logs_title" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="Call Meter (last log)">Call Meter (zadnji zapisnik)</string>
+  <string name="my_number_" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="My number">Moj broj</string>
+  <string name="my_number_help" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="Match only logs, while this SIM/number is active.">Podudarnost zapisnika samo kad je ovaj SIM/broj aktivan.</string>
+  <string name="my_sim_id_" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="SIM Id">SIM identitet</string>
+  <string name="my_sim_id_help" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="Match only logs done with this SIM.">Podudarnost samo zapisnika sa ovim SIM-om.</string>
+  <string name="set_current_number" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="Current number">Trenutni broj</string>
+  <string name="widget_date_textsize" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="Date Text Size">Veličina Teksta Datuma</string>
 </resources>
