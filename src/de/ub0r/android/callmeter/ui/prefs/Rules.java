@@ -182,18 +182,26 @@ public final class Rules extends SherlockPreferenceActivity implements OnPrefere
 		Cursor c0 = this.getContentResolver().query(u, DataProvider.Rules.PROJECTION, null, null,
 				null);
 		if (c0.moveToFirst()) {
-			int o0 = c0.getInt(DataProvider.Rules.INDEX_ORDER);
+			int o0;
+			if (c0.isNull(DataProvider.Rules.INDEX_ORDER)) {
+				o0 = c0.getInt(DataProvider.Rules.INDEX_ID);
+			} else {
+				o0 = c0.getInt(DataProvider.Rules.INDEX_ORDER);
+			}
 			String w;
 			String o;
 			if (diretion < 0) {
-				w = DataProvider.Rules.ORDER + "<?";
-				o = DataProvider.Rules.ORDER + " DESC";
+				w = DataProvider.Rules.ORDER + "<? or (" + DataProvider.Rules.ORDER
+						+ " is null and " + DataProvider.Rules.ID + "<?)";
+				o = DataProvider.Rules.REVERSE_ORDER;
 			} else {
-				w = DataProvider.Rules.ORDER + ">?";
-				o = DataProvider.Rules.ORDER + " ASC";
+				w = DataProvider.Rules.ORDER + ">? or (" + DataProvider.Rules.ORDER
+						+ " is null and " + DataProvider.Rules.ID + ">?)";
+				o = DataProvider.Rules.DEFAULT_ORDER;
 			}
+			String s0 = String.valueOf(o0);
 			Cursor c1 = this.getContentResolver().query(DataProvider.Rules.CONTENT_URI,
-					DataProvider.Rules.PROJECTION, w, new String[] { String.valueOf(o0) }, o);
+					DataProvider.Rules.PROJECTION, w, new String[] { s0, s0 }, o);
 			if (c1.moveToFirst()) {
 				ContentValues values = new ContentValues();
 				values.put(DataProvider.Rules.ORDER, o0);

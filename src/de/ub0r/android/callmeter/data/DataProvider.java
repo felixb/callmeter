@@ -1129,6 +1129,11 @@ public final class DataProvider extends ContentProvider {
 		public static final String WHERE_PLANS = TYPE + "!=" + TYPE_SPACING + " and " + TYPE + "!="
 				+ TYPE_TITLE;
 
+		/** Default order. */
+		public static final String DEFAULT_ORDER = ORDER + " ASC , " + ID + " ASC";
+		/** Reverse order. */
+		public static final String REVERSE_ORDER = ORDER + " DESC , " + ID + " DESC";
+
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/plans");
 		/** Content {@link Uri}. */
@@ -1755,6 +1760,11 @@ public final class DataProvider extends ContentProvider {
 				WHAT, ROAMED, DIRECTION, INHOURS_ID, EXHOURS_ID, INNUMBERS_ID, EXNUMBERS_ID,
 				LIMIT_NOT_REACHED, IS_WEBSMS, IS_WEBSMS_CONNETOR, IS_SIPCALL, IS_SIPCALL_PROVIDER,
 				MYNUMBER };
+
+		/** Default order. */
+		public static final String DEFAULT_ORDER = ORDER + " ASC , " + ID + " ASC";
+		/** Reverse order. */
+		public static final String REVERSE_ORDER = ORDER + " DESC , " + ID + " DESC";
 
 		/** Content {@link Uri}. */
 		public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/rules");
@@ -2686,6 +2696,11 @@ public final class DataProvider extends ContentProvider {
 				}
 			}
 			if (cv.size() > 0) {
+				if (name.equals("plans") && !cv.containsKey(DataProvider.Plans.ORDER)) {
+					cv.put(DataProvider.Plans.ORDER, cv.getAsInteger(DataProvider.Plans.ID));
+				} else if (name.equals("rules") && !cv.containsKey(DataProvider.Rules.ORDER)) {
+					cv.put(DataProvider.Rules.ORDER, cv.getAsInteger(DataProvider.Rules.ID));
+				}
 				list.add(cv);
 			}
 		}
@@ -2853,7 +2868,7 @@ public final class DataProvider extends ContentProvider {
 		final int l = lines.length;
 		Log.d(TAG, "importData(db, #" + l + ")");
 		String table = null;
-		ArrayList<ContentValues> cvs = null;
+		ArrayList<ContentValues> cvs = new ArrayList<ContentValues>();
 		for (int i = 2; i < l; i++) {
 			final String s = lines[i];
 			if (s == null || s.length() == 0) {
@@ -2865,14 +2880,14 @@ public final class DataProvider extends ContentProvider {
 			}
 			if (table == null) {
 				table = ti[0];
-				cvs = new ArrayList<ContentValues>();
+				cvs.clear();
 			} else if (!table.equals(ti[0])) {
 				// reload cvs into table
 				db.delete(table, null, null);
 				reload(db, table, cvs.toArray(new ContentValues[1]));
 				// prepare new table/cvs
 				table = ti[0];
-				cvs = new ArrayList<ContentValues>();
+				cvs.clear();
 			}
 			if (ti.length < 2) {
 				continue;
@@ -2887,12 +2902,17 @@ public final class DataProvider extends ContentProvider {
 				}
 				cv.put(nvv[0], nvv[1]);
 			}
+			if ("plans".equals(table) && !cv.containsKey(DataProvider.Plans.ORDER)) {
+				cv.put(DataProvider.Plans.ORDER, cv.getAsInteger(DataProvider.Plans.ID));
+			} else if ("rules".equals(table) && !cv.containsKey(DataProvider.Rules.ORDER)) {
+				cv.put(DataProvider.Rules.ORDER, cv.getAsInteger(DataProvider.Rules.ID));
+			}
 			cvs.add(cv);
 		}
 		if (table != null && table.length() > 0) {
 			// reload table
 			db.delete(table, null, null);
-			reload(db, table, cvs.toArray(new ContentValues[1]));
+			reload(db, table, cvs.toArray(new ContentValues[cvs.size()]));
 		}
 	}
 
@@ -2912,6 +2932,7 @@ public final class DataProvider extends ContentProvider {
 		if (ruleSet.trim().startsWith("<")) {
 			importXml(context, db, ruleSet);
 			Preferences.setDefaultPlan(context, false);
+			RuleMatcher.unmatch(context);
 		} else if (ruleSet.equals("DEFAULT")) {
 			importDefault(context, db);
 		} else {
@@ -2919,6 +2940,7 @@ public final class DataProvider extends ContentProvider {
 			if (lines.length > 2) {
 				importData(context, db, lines);
 				Preferences.setDefaultPlan(context, false);
+				RuleMatcher.unmatch(context);
 			}
 		}
 		db.close();
@@ -3051,6 +3073,7 @@ public final class DataProvider extends ContentProvider {
 		db.update(NumbersGroup.TABLE, cv, NumbersGroup.ID + "=?", new String[] { "2" });
 
 		Preferences.setDefaultPlan(context, true);
+		RuleMatcher.unmatch(context);
 	}
 
 	/**
@@ -3500,7 +3523,7 @@ public final class DataProvider extends ContentProvider {
 		case PLANS:
 			qb.setTables(Plans.TABLE);
 			if (orderBy == null) {
-				orderBy = Plans.ORDER;
+				orderBy = Plans.DEFAULT_ORDER;
 			}
 			break;
 		case PLANS_SUM_ID:
@@ -3604,7 +3627,7 @@ public final class DataProvider extends ContentProvider {
 			}
 
 			if (orderBy == null) {
-				orderBy = Plans.TABLE + "." + Plans.ORDER;
+				orderBy = Plans.DEFAULT_ORDER;
 			}
 			proj = new String[l];
 
@@ -3642,7 +3665,7 @@ public final class DataProvider extends ContentProvider {
 		case RULES:
 			qb.setTables(Rules.TABLE);
 			if (orderBy == null) {
-				orderBy = Rules.ORDER;
+				orderBy = Rules.DEFAULT_ORDER;
 			}
 			break;
 		case NUMBERS_GID:

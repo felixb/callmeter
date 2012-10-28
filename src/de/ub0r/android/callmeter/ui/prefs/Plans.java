@@ -152,18 +152,26 @@ public final class Plans extends SherlockPreferenceActivity implements OnPrefere
 				null, null);
 		if (c0.moveToFirst()) {
 			int idx = c0.getColumnIndex(DataProvider.Plans.ORDER);
-			int o0 = c0.getInt(idx);
+			int o0;
+			if (c0.isNull(idx)) {
+				o0 = c0.getInt(DataProvider.Plans.INDEX_ID);
+			} else {
+				o0 = c0.getInt(idx);
+			}
 			String w;
 			String o;
 			if (diretion < 0) {
-				w = DataProvider.Plans.ORDER + "<?";
-				o = DataProvider.Plans.ORDER + " DESC";
+				w = DataProvider.Plans.ORDER + "<? or (" + DataProvider.Plans.ORDER
+						+ " is null and " + DataProvider.Plans.ID + "<?)";
+				o = DataProvider.Plans.REVERSE_ORDER;
 			} else {
-				w = DataProvider.Plans.ORDER + ">?";
-				o = DataProvider.Plans.ORDER + " ASC";
+				w = DataProvider.Plans.ORDER + ">? or (" + DataProvider.Plans.ORDER
+						+ " is null and " + DataProvider.Plans.ID + ">?)";
+				o = DataProvider.Plans.DEFAULT_ORDER;
 			}
+			String s0 = String.valueOf(o0);
 			Cursor c1 = this.getContentResolver().query(DataProvider.Plans.CONTENT_URI,
-					DataProvider.Plans.PROJECTION_BASIC, w, new String[] { String.valueOf(o0) }, o);
+					DataProvider.Plans.PROJECTION_BASIC, w, new String[] { s0, s0 }, o);
 			if (c1.moveToFirst()) {
 				ContentValues values = new ContentValues();
 				values.put(DataProvider.Plans.ORDER, o0);
