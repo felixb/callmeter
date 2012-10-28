@@ -141,4 +141,9 @@
     <item>Kicsi</item>
     <item>Közepes</item>
   </string-array>
+  <string name="author_" formatted="false" username="Taurus &lt;gjanosa@gmail.com&gt;" orig="Author:">Szerző:</string>
+  <string name="website_" formatted="false" username="Taurus &lt;gjanosa@gmail.com&gt;" orig="Website:">Honlap:</string>
+  <string name="license_" formatted="false" username="Taurus &lt;gjanosa@gmail.com&gt;" orig="License:">Licensz:</string>
+  <string name="license" formatted="false" username="Taurus &lt;gjanosa@gmail.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - lásd http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="source_" formatted="false" username="Taurus &lt;gjanosa@gmail.com&gt;" orig="Sourcescode:">Forráskód:</string>
 </resources>

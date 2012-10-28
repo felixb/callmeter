@@ -30,7 +30,7 @@
   <string name="about5" formatted="false">CallMeter läuft alle 30min im Hintergrund (sofern das Gerät nicht im Standby ist). Werden Anrufe oder Nachrichten älter als 30min gelöscht, ändert das die Statistik nicht. Werden neuere Anrufe/Nachrichten gelöscht, kann es je nach Zeitpunkt die Statistiken verfälschen!</string>
   <string name="about6_" formatted="false">Was CallMeter NG nicht tut:</string>
   <string name="about6" formatted="false">Es ist nicht möglich zwischen Anrufen aus Sipdroid und echten Anrufen bzw. WebSMS und echten SMS zu unterscheiden. Androids nahtlose Integration dieser Apps lässt eine spätere Unterscheidung der Logs nicht mehr zu.</string>
-  <string name="custom_language_" formatted="false">Andere Sprache</string>
+  <string name="custom_language_" formatted="false" username="Test" orig="Custom language">Andere Sprache</string>
   <string name="custom_language_hint" formatted="false">Eine andere Sprache einstellen.</string>
   <string name="send_" formatted="false">Senden</string>
   <string name="settings" formatted="false">Einstellungen</string>
