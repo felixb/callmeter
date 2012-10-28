@@ -47,12 +47,12 @@
   <string name="messages_" formatted="false" orig="SMS/MMS">SMS/MMS</string>
   <string name="messages" formatted="false" orig="Messages">Messages</string>
   <string name="sms" formatted="false" orig="SMS">SMS</string>
-  <string name="sms_in" formatted="false" orig="SMS In">SMS entrants</string>
-  <string name="sms_out" formatted="false" orig="SMS Out">SMS sortants</string>
+  <string name="sms_in" formatted="false" orig="SMS In" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;">SMS reçus</string>
+  <string name="sms_out" formatted="false" orig="SMS Out" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;">SMS envoyés</string>
   <string name="mms" formatted="false" orig="MMS">MMS</string>
-  <string name="mms_in" formatted="false" orig="MMS In">MMS entrants</string>
-  <string name="mms_out" formatted="false" orig="MMS Out">MMS sortants</string>
-  <string name="data" formatted="false" orig="Data">Data</string>
+  <string name="mms_in" formatted="false" orig="MMS In" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;">MMS reçus</string>
+  <string name="mms_out" formatted="false" orig="MMS Out" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;">MMS envoyés</string>
+  <string name="data" formatted="false" orig="Data" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;">Internet</string>
   <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Data (2G/3G/4G)</string>
   <string name="data_inout" formatted="false" orig="Data In/Out">Data Entrant/Sortant</string>
   <string name="now" formatted="false" orig="Now">Maintenant</string>
@@ -109,4 +109,8 @@
   <string name="show_today_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Show today stats">Afficher les statistiques d\'aujourd\'hui</string>
   <string name="show_total_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Show total">Afficher le total</string>
   <string name="show_total_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Show total stats, disable to see current only.">Afficher les statistiques totales, désactiver pour ne garder que les courantes</string>
+  <string name="sms_in_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="SMSIn">SMSIn</string>
+  <string name="sms_out_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="SMSOut">SMSOut</string>
+  <string name="mms_in_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="MMSIn">MMSIn</string>
+  <string name="data_inout_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="DataInOut">DataInOut</string>
 </resources>

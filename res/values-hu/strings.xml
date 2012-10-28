@@ -417,4 +417,7 @@
   <string name="simple_preferences_deactivated" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Az egyszerű tulajdonságok csak az alap szabályokhoz érhetők el. Importáld az alap szabályt az újra aktiváláshoz.</string>
   <string name="export_cancel_hint" formatted="false" username="KRG &lt;gkr.android@gmail.com&gt;" orig="Cancel your mail client to export to SD card only.">Kapcsold ki a levelező programodat, hogy csak az SD kártyára exportálj.</string>
   <string name="delete_widget" formatted="false" orig="Delete widget">Widget törlése</string>
+  <string name="up_" formatted="false" username="MP" orig="Move up">Mozgatás felfele</string>
+  <string name="my_number_" formatted="false" username="MP" orig="My number">Saját szám</string>
+  <string name="x1_month_1_day" formatted="false" username="MP" orig="One month + one day">Egy hónap egy nap</string>
 </resources>
