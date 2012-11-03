@@ -194,6 +194,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 				if (name != null) {
 					holder.tvRemote.setText(name);
 				} else {
+					holder.tvRemote.setText(s);
 					holder.loader = new NameLoader(context, s, format, holder.tvRemote);
 					holder.loader.execute();
 				}
