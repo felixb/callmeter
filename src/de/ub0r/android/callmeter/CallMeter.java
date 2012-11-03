@@ -19,15 +19,12 @@
 package de.ub0r.android.callmeter;
 
 import android.app.Application;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Shader.TileMode;
 import android.graphics.drawable.BitmapDrawable;
-import android.preference.PreferenceManager;
 
 import com.actionbarsherlock.app.ActionBar;
 
-import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
@@ -70,23 +67,12 @@ public final class CallMeter extends Application {
 	/** Bytes: TB. */
 	public static final long BYTE_TB = BYTE_GB * BYTE_KB;
 
-	/** Preference's name: last backup. */
-	private static final String PREFS_LASTBACKUP = "lastbackup";
-	/** Period for backups. */
-	private static final long BACKUP_PERIOD = 1000L * 60L * 60L * 24L;
-
 	@Override
 	public void onCreate() {
 		super.onCreate();
 		Log.init("CallMeter3G");
 		Log.d(TAG, "init");
 		Utils.setLocale(this);
-		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
-		if (System.currentTimeMillis() - p.getLong(PREFS_LASTBACKUP, 0L) > BACKUP_PERIOD) {
-			if (DataProvider.doBackup(this)) {
-				p.edit().putLong(PREFS_LASTBACKUP, System.currentTimeMillis()).commit();
-			}
-		}
 	}
 
 	/**
