@@ -57,16 +57,16 @@
   <string name="advanced_preferences_" formatted="false">Geavanceerde voorkeuren</string>
   <string name="advanced_preferences_hint" formatted="false" username="Gummie" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Stelt je in staat om een complexe setup te maken. Meeste gebruikers zullen dit niet nodig hebben.</string>
   <string name="theme_" formatted="false">Thema</string>
-  <string name="textsize_" formatted="false">Tekst grootte</string>
-  <string name="textsize_hint" formatted="false">Tekst grootte in pixels; laat leeg voor standaard</string>
+  <string name="textsize_" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Text size">Tekstgrootte</string>
+  <string name="textsize_hint" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Text size in pixels; leave empty for default">Tekstgrootte in pixels; laat leeg voor standaard</string>
   <string name="textsize_title_" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Title\'s text size">Tekstgrootte titels</string>
   <string name="textsize_title_hint" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Text size for titles in pixels; leave empty for default">Tekstgrootte voor titels in pixels; laat leeg voor standaard</string>
   <string name="textsize_bigtitle_" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Big title\'s text size">Tekstgrootte grootte titels</string>
-  <string name="textsize_bigtitle_hint" formatted="false">Tekst grootte in pixels voor grootte titels; laat leeg voor standaard</string>
+  <string name="textsize_bigtitle_hint" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Text size for big titles in pixels; leave empty for default">Tekstgrootte voor grootte titels in pixels; laat leeg voor standaard</string>
   <string name="textsize_spacer_" formatted="false">Grootte witruimte</string>
-  <string name="textsize_spacer_hint" formatted="false">Grootte in pixels voor witruimte; laat leeg voor standaard</string>
+  <string name="textsize_spacer_hint" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Size for spacers in pixels; leave empty for default">Grootte voor witruimte in pixels; laat leeg voor standaard</string>
   <string name="textsize_pbar_" formatted="false">Grootte voortgangsbalk</string>
-  <string name="textsize_pbar_hint" formatted="false">Grootte in pixels voor voortgangsbalk; laat leeg voor standaard</string>
+  <string name="textsize_pbar_hint" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Size for progress bars in pixels; leave empty for default">Grootte voor voortgangsbalk in pixels; laat leeg voor standaard</string>
   <string name="textsize_pbarbp_" formatted="false" username="Gummie" orig="Bill period\'s progress bar\'s size">Grootte voortgangsbalk facturatieperiode</string>
   <string name="textsize_pbarbp_hint" formatted="false" username="Gummie" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Grootte in pixels voor voortgangsbalk facturatieperiode; laat leeg voor standaard</string>
   <string name="show_today_" formatted="false" orig="Show today">Toon vandaag</string>
@@ -446,4 +446,6 @@
   <string name="widget_logs_title" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Call Meter (last log)">Call Meter (laatste log)</string>
   <string name="my_sim_id_" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="SIM Id">SIM Id</string>
   <string name="my_sim_id_help" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Match only logs done with this SIM.">Match alleen logs gedaan met deze SIM.</string>
+  <string name="widget_date_textsize" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Date Text Size">Tekstgrootte Datum</string>
+  <string name="widget_details_textsize" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Details Text Size">Tekstgrootte Details</string>
 </resources>
