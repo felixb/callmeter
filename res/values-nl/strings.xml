@@ -60,8 +60,8 @@
   <string name="textsize_" formatted="false">Tekst grootte</string>
   <string name="textsize_hint" formatted="false">Tekst grootte in pixels; laat leeg voor standaard</string>
   <string name="textsize_title_" formatted="false">Tekst grootte titels</string>
-  <string name="textsize_title_hint" formatted="false">Tekst grootte in pixels voor titels; laat leeg voor standaard</string>
-  <string name="textsize_bigtitle_" formatted="false">Tekst grootte grootte titels</string>
+  <string name="textsize_title_hint" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Text size for titles in pixels; leave empty for default">Tekstgrootte voor titels in pixels; laat leeg voor standaard</string>
+  <string name="textsize_bigtitle_" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Big title\'s text size">Tekstgrootte grootte titels</string>
   <string name="textsize_bigtitle_hint" formatted="false">Tekst grootte in pixels voor grootte titels; laat leeg voor standaard</string>
   <string name="textsize_spacer_" formatted="false">Grootte witruimte</string>
   <string name="textsize_spacer_hint" formatted="false">Grootte in pixels voor witruimte; laat leeg voor standaard</string>
@@ -442,4 +442,8 @@
   <string name="provider" formatted="false" username="Gummie" orig="Provider">Provider</string>
   <string name="my_number_help" formatted="false" username="Gummie" orig="Match only logs, while this SIM/number is active.">Match alleen logs als deze SIM/nummer actief is.</string>
   <string name="plan" formatted="false" username="Gummie" orig="Plan">Schema</string>
+  <string name="widget_stats_title" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Call Meter (stats)">Call Meter (stats)</string>
+  <string name="widget_logs_title" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Call Meter (last log)">Call Meter (laatste log)</string>
+  <string name="my_sim_id_" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="SIM Id">SIM Id</string>
+  <string name="my_sim_id_help" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Match only logs done with this SIM.">Match alleen logs gedaan met deze SIM.</string>
 </resources>
