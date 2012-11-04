@@ -59,7 +59,7 @@
   <string name="theme_" formatted="false">Thema</string>
   <string name="textsize_" formatted="false">Tekst grootte</string>
   <string name="textsize_hint" formatted="false">Tekst grootte in pixels; laat leeg voor standaard</string>
-  <string name="textsize_title_" formatted="false">Tekst grootte titels</string>
+  <string name="textsize_title_" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Title\'s text size">Tekstgrootte titels</string>
   <string name="textsize_title_hint" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Text size for titles in pixels; leave empty for default">Tekstgrootte voor titels in pixels; laat leeg voor standaard</string>
   <string name="textsize_bigtitle_" formatted="false" username="Tim &lt;mobiel.tim@gmail.com&gt;" orig="Big title\'s text size">Tekstgrootte grootte titels</string>
   <string name="textsize_bigtitle_hint" formatted="false">Tekst grootte in pixels voor grootte titels; laat leeg voor standaard</string>
