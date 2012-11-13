@@ -66,6 +66,7 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.DataProvider.XmlMetaData;
 import de.ub0r.android.callmeter.data.Device;
+import de.ub0r.android.callmeter.data.ExportProvider;
 import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Market;
@@ -673,7 +674,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
 		if (descr == null) {
 			Builder builder = new Builder(context);
 			EditText et0, et1, et2;
-			if (fn.equals(DataProvider.EXPORT_RULESET_FILE)) {
+			if (fn.equals(ExportProvider.EXPORT_RULESET_FILE)) {
 				View v = LayoutInflater.from(context).inflate(R.layout.dialog_export, null);
 				builder.setView(v);
 				et0 = (EditText) v.findViewById(R.id.country);
@@ -713,13 +714,13 @@ public final class Preferences extends SherlockPreferenceActivity implements
 			final AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
 				@Override
 				protected String doInBackground(final Void... params) {
-					if (fn.equals(DataProvider.EXPORT_RULESET_FILE)) {
+					if (fn.equals(ExportProvider.EXPORT_RULESET_FILE)) {
 						return DataProvider.backupRuleSet(context, country, provider, descr);
-					} else if (fn.equals(DataProvider.EXPORT_LOGS_FILE)) {
+					} else if (fn.equals(ExportProvider.EXPORT_LOGS_FILE)) {
 						return DataProvider.backupLogs(context, descr);
-					} else if (fn.equals(DataProvider.EXPORT_NUMGROUPS_FILE)) {
+					} else if (fn.equals(ExportProvider.EXPORT_NUMGROUPS_FILE)) {
 						return DataProvider.backupNumGroups(context, descr);
-					} else if (fn.equals(DataProvider.EXPORT_HOURGROUPS_FILE)) {
+					} else if (fn.equals(ExportProvider.EXPORT_HOURGROUPS_FILE)) {
 						return DataProvider.backupHourGroups(context, descr);
 					}
 					return null;
@@ -733,21 +734,21 @@ public final class Preferences extends SherlockPreferenceActivity implements
 					if (result != null && result.length() > 0) {
 						Uri uri = null;
 						int resChooser = -1;
-						if (fn.equals(DataProvider.EXPORT_RULESET_FILE)) {
-							uri = DataProvider.EXPORT_RULESET_URI;
+						if (fn.equals(ExportProvider.EXPORT_RULESET_FILE)) {
+							uri = ExportProvider.EXPORT_RULESET_URI;
 							resChooser = R.string.export_rules_;
-						} else if (fn.equals(DataProvider.EXPORT_LOGS_FILE)) {
-							uri = DataProvider.EXPORT_LOGS_URI;
+						} else if (fn.equals(ExportProvider.EXPORT_LOGS_FILE)) {
+							uri = ExportProvider.EXPORT_LOGS_URI;
 							resChooser = R.string.export_logs_;
-						} else if (fn.equals(DataProvider.EXPORT_NUMGROUPS_FILE)) {
-							uri = DataProvider.EXPORT_NUMGROUPS_URI;
+						} else if (fn.equals(ExportProvider.EXPORT_NUMGROUPS_FILE)) {
+							uri = ExportProvider.EXPORT_NUMGROUPS_URI;
 							resChooser = R.string.export_numgroups_;
-						} else if (fn.equals(DataProvider.EXPORT_HOURGROUPS_FILE)) {
-							uri = DataProvider.EXPORT_HOURGROUPS_URI;
+						} else if (fn.equals(ExportProvider.EXPORT_HOURGROUPS_FILE)) {
+							uri = ExportProvider.EXPORT_HOURGROUPS_URI;
 							resChooser = R.string.export_hourgroups_;
 						}
 						final Intent intent = new Intent(Intent.ACTION_SEND);
-						intent.setType(DataProvider.EXPORT_MIMETYPE);
+						intent.setType(ExportProvider.EXPORT_MIMETYPE);
 						intent.putExtra(Intent.EXTRA_STREAM, uri);
 						intent.putExtra(Intent.EXTRA_SUBJECT, "Call Meter 3G export");
 						if (!TextUtils.isEmpty(recipient)) {

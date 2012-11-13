@@ -20,7 +20,6 @@ package de.ub0r.android.callmeter.data;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
@@ -45,17 +44,13 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.UriMatcher;
 import android.database.Cursor;
-import android.database.MatrixCursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
-import android.os.Environment;
-import android.os.ParcelFileDescriptor;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
-import android.provider.OpenableColumns;
 import android.text.TextUtils;
 import android.util.Xml;
 import android.widget.Toast;
@@ -80,7 +75,7 @@ public final class DataProvider extends ContentProvider {
 	public static final String PACKAGE = "de.ub0r.android.callmeter";
 
 	/** Authority. */
-	public static final String AUTHORITY = PACKAGE + ".provider";
+	public static final String AUTHORITY = PACKAGE + ".data";
 
 	/** Preference's name: last backup. */
 	private static final String PREFS_LASTBACKUP = "lastbackup";
@@ -98,27 +93,6 @@ public final class DataProvider extends ContentProvider {
 	private static final int EXPORT_VERSION = 2;
 	/** Separator of values. */
 	private static final String EXPORT_VALUESEPARATOR = ":#:";
-	/** Mime type for export. */
-	public static final String EXPORT_MIMETYPE = "application/android.callmeter.export";
-	/** {@link Uri} for export Content. */
-	public static final Uri EXPORT_RULESET_URI = Uri.parse("content://" + AUTHORITY
-			+ "/export/ruleset");
-	/** {@link Uri} for export Content. */
-	public static final Uri EXPORT_LOGS_URI = Uri.parse("content://" + AUTHORITY + "/export/logs");
-	/** {@link Uri} for export Content. */
-	public static final Uri EXPORT_NUMGROUPS_URI = Uri.parse("content://" + AUTHORITY
-			+ "/export/numgroups");
-	/** {@link Uri} for export Content. */
-	public static final Uri EXPORT_HOURGROUPS_URI = Uri.parse("content://" + AUTHORITY
-			+ "/export/hourgroups");
-	/** Filename for the actual export file. */
-	public static final String EXPORT_RULESET_FILE = "ruleset.xml";
-	/** Filename for the actual logs file. */
-	public static final String EXPORT_LOGS_FILE = "logs.xml";
-	/** Filename for the actual number groups file. */
-	public static final String EXPORT_NUMGROUPS_FILE = "numgroups.xml";
-	/** Filename for the actual hour groups file. */
-	public static final String EXPORT_HOURGROUPS_FILE = "hourgroups.xml";
 
 	/** Type of log: title. */
 	public static final int TYPE_TITLE = 0;
@@ -2257,14 +2231,6 @@ public final class DataProvider extends ContentProvider {
 	private static final int PLANS_SUM = 21;
 	/** Internal id: single plan outer joined with its logs. */
 	private static final int PLANS_SUM_ID = 22;
-	/** Internal id: export. */
-	private static final int EXPORT_RULESET = 200;
-	/** Internal id: export. */
-	private static final int EXPORT_LOGS = 201;
-	/** Internal id: export. */
-	private static final int EXPORT_NUMGROUPS = 202;
-	/** Internal id: export. */
-	private static final int EXPORT_HOURGROUPS = 203;
 
 	/** {@link UriMatcher}. */
 	private static final UriMatcher URI_MATCHER;
@@ -2293,10 +2259,6 @@ public final class DataProvider extends ContentProvider {
 		URI_MATCHER.addURI(AUTHORITY, "hours/groups/#", HOURS_GROUP_ID);
 		URI_MATCHER.addURI(AUTHORITY, "websms", WEBSMS);
 		URI_MATCHER.addURI(AUTHORITY, "sipcall", SIPCALL);
-		URI_MATCHER.addURI(AUTHORITY, "export/ruleset", EXPORT_RULESET);
-		URI_MATCHER.addURI(AUTHORITY, "export/logs", EXPORT_LOGS);
-		URI_MATCHER.addURI(AUTHORITY, "export/numgroups", EXPORT_NUMGROUPS);
-		URI_MATCHER.addURI(AUTHORITY, "export/hourgroups", EXPORT_HOURGROUPS);
 	}
 
 	/**
@@ -3325,11 +3287,6 @@ public final class DataProvider extends ContentProvider {
 			return HoursGroup.CONTENT_TYPE;
 		case HOURS_GROUP_ID:
 			return HoursGroup.CONTENT_ITEM_TYPE;
-		case EXPORT_RULESET:
-		case EXPORT_LOGS:
-		case EXPORT_NUMGROUPS:
-		case EXPORT_HOURGROUPS:
-			return EXPORT_MIMETYPE;
 		default:
 			throw new IllegalArgumentException("Unknown URI: " + uri);
 		}
@@ -3679,42 +3636,6 @@ public final class DataProvider extends ContentProvider {
 		case HOURS_GROUP:
 			qb.setTables(HoursGroup.TABLE);
 			break;
-		case EXPORT_RULESET:
-		case EXPORT_LOGS:
-		case EXPORT_NUMGROUPS:
-		case EXPORT_HOURGROUPS:
-			Log.d(TAG, "export proj: + " + projection);
-			String fn = null;
-			switch (uid) {
-			case EXPORT_RULESET:
-				fn = EXPORT_RULESET_FILE;
-				break;
-			case EXPORT_LOGS:
-				fn = EXPORT_LOGS_FILE;
-				break;
-			case EXPORT_NUMGROUPS:
-				fn = EXPORT_NUMGROUPS_FILE;
-				break;
-			case EXPORT_HOURGROUPS:
-				fn = EXPORT_HOURGROUPS_FILE;
-				break;
-			default:
-				break;
-			}
-			Object[] retArray = new Object[l];
-			for (int i = 0; i < l; i++) {
-				if (projection[i].equals(OpenableColumns.DISPLAY_NAME)) {
-					retArray[i] = fn;
-				} else if (projection[i].equals(OpenableColumns.SIZE)) {
-					final File d = Environment.getExternalStorageDirectory();
-					final File f = new File(d, PACKAGE + File.separator + fn);
-					retArray[i] = f.length();
-				}
-			}
-			final MatrixCursor ret = new MatrixCursor(projection, 1);
-			ret.addRow(retArray);
-			Log.d(TAG, "query(): " + ret.getCount());
-			return ret;
 		default:
 			throw new IllegalArgumentException("Unknown Uri " + uri);
 		}
@@ -3806,28 +3727,6 @@ public final class DataProvider extends ContentProvider {
 		}
 		Log.d(TAG, "update(): " + ret);
 		return ret;
-	}
-
-	@Override
-	public ParcelFileDescriptor openFile(final Uri uri, final String mode)
-			throws FileNotFoundException {
-		Log.d(TAG, "openFile(" + uri.toString() + ")");
-		final File d = Environment.getExternalStorageDirectory();
-		String fn = null;
-		if (uri.equals(EXPORT_RULESET_URI)) {
-			fn = DataProvider.EXPORT_RULESET_FILE;
-		} else if (uri.equals(EXPORT_LOGS_URI)) {
-			fn = DataProvider.EXPORT_LOGS_FILE;
-		} else if (uri.equals(EXPORT_NUMGROUPS_URI)) {
-			fn = DataProvider.EXPORT_NUMGROUPS_FILE;
-		} else if (uri.equals(EXPORT_HOURGROUPS_URI)) {
-			fn = DataProvider.EXPORT_HOURGROUPS_FILE;
-		}
-		if (fn == null) {
-			return null;
-		}
-		final File f = new File(d, PACKAGE + File.separator + fn);
-		return ParcelFileDescriptor.open(f, ParcelFileDescriptor.MODE_READ_ONLY);
 	}
 
 	/**

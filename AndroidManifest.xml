@@ -253,7 +253,11 @@
 
         <provider
             android:name=".data.DataProvider"
-            android:authorities="de.ub0r.android.callmeter.provider"
+            android:authorities="de.ub0r.android.callmeter.data"
+            android:exported="false" />
+        <provider
+            android:name=".data.ExportProvider"
+            android:authorities="de.ub0r.android.callmeter.export"
             android:exported="true" />
 
         <receiver
