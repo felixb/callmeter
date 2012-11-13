@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
+<!--
 		Copyright (C) 2009-2012 Felix Bechstein
 	-->
-	<!--
+<!--
 		This file is part of ub0rlib. This program is free software; you can
 		redistribute it and/or modify it under the terms of the GNU General
 		Public License as published by the Free Software Foundation; either
 		version 3 of the License, or (at your option) any later version.
 	-->
-	<!--
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -17,4 +17,9 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string name="donate" formatted="false" username="carabao@laposte.net" orig="Donate">Donation</string>
+  <string name="donate_" formatted="false" username="carabao@laposte.net" orig="Donate (%s)">Donation (%s)</string>
+  <string name="donate_remove_ads_" formatted="false" username="carabao@laposte.net" orig="Donate/remove ads">Donation/supprimer les annonces</string>
+  <string name="predonate_market" formatted="false" username="carabao@laposte.net" orig="This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.">C\'est une application open-source publié sous licence GPLv3. C\'est libre et cela restera libre. SI tu aime réellement ou si tu veux supprimer les annonces, s\'il vous plait faites une donation.\nMerci!\nLa donation enlève les annonces de toutes les applications réalisées par moi.</string>
+  <string name="did_paypal_donation" formatted="false" username="carabao@laposte.net" orig="I already did a donation via Paypal">J\'ai déjà fais une donation via paypal</string>
 </resources>
