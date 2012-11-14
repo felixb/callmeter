@@ -18,20 +18,20 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.net.URLDecoder;
 import java.util.Currency;
 import java.util.Locale;
 
-import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -495,40 +495,37 @@ public final class Preferences extends SherlockPreferenceActivity implements
 	 *            {@link Uri}
 	 * @return {@link InputStream}
 	 */
-	private InputStream getStream(final ContentResolver cr, final Uri uri) {
+	private InputStream getStream(final ContentResolver cr, final Uri uri) throws IOException {
+		String scheme = uri.getScheme();
 		if (uri.toString().equals("content://default")) {
 			return IS_DEFAULT;
-		} else if (uri.toString().startsWith("import")) {
-			String url;
-			if (uri.getScheme().equals("imports")) {
-				url = "https:/";
-			} else {
-				url = "http:/";
-			}
-			url += uri.getPath();
-			final HttpGet request = new HttpGet(url);
-			Log.d(TAG, "url: " + url);
-			try {
-				final HttpResponse response = new DefaultHttpClient().execute(request);
-				int resp = response.getStatusLine().getStatusCode();
-				if (resp != HttpStatus.SC_OK) {
-					return null;
-				}
-				return response.getEntity().getContent();
-			} catch (IOException e) {
-				Log.e(TAG, "error in reading export: " + url, e);
-				return null;
-			}
-		} else if (uri.toString().startsWith("content://") || uri.toString().startsWith("file://")) {
+		} else if (scheme.equals("content") || scheme.equals("file")) {
 			try {
 				return cr.openInputStream(uri);
 			} catch (IOException e) {
 				Log.e(TAG, "error in reading export: " + uri.toString(), e);
 				return null;
 			}
+		} else {
+			String url;
+			// TODO: import:// and imports:// is deprecated
+			if (scheme.equals("import")) {
+				url = "http:/" + uri.getPath();
+			} else if (scheme.equals("imports")) {
+				url = "https:/" + uri.getPath();
+			} else if (scheme.equals("http") || scheme.equals("https")) {
+				url = uri.toString();
+			} else {
+				throw new IllegalArgumentException("invalid Uri: " + uri);
+			}
+			HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
+			if (con.getResponseCode() != HttpStatus.SC_OK) {
+				Log.e(TAG,
+						"error in reading export: " + url + "Response: " + con.getResponseMessage());
+				return null;
+			}
+			return new BufferedInputStream(con.getInputStream());
 		}
-		Log.d(TAG, "getStream() returns null, " + uri.toString());
-		return null;
 	}
 
 	/**
