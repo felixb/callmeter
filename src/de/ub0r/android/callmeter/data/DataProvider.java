@@ -2873,6 +2873,8 @@ public final class DataProvider extends ContentProvider {
 			RuleMatcher.unmatch(context);
 		} else if (ruleSet.equals("DEFAULT")) {
 			importDefault(context, db);
+			Preferences.setDefaultPlan(context, true);
+			RuleMatcher.unmatch(context);
 		} else {
 			String[] lines = ruleSet.split("\n");
 			if (lines.length > 2) {
@@ -3011,7 +3013,6 @@ public final class DataProvider extends ContentProvider {
 		db.update(NumbersGroup.TABLE, cv, NumbersGroup.ID + "=?", new String[] { "2" });
 
 		Preferences.setDefaultPlan(context, true);
-		RuleMatcher.unmatch(context);
 	}
 
 	/**
@@ -3746,7 +3747,11 @@ public final class DataProvider extends ContentProvider {
 			Log.i(TAG, "wait for backup to finish");
 			synchronized (this.mBackupSync) {
 				Log.i(TAG, "backup finished. continue the work..");
+				if (this.mInBackup) {
+					throw new IllegalStateException("mInBackup should be false");
+				}
 			}
+
 		}
 	}
 
@@ -3756,7 +3761,7 @@ public final class DataProvider extends ContentProvider {
 	 * @param context
 	 *            {@link Context}
 	 */
-	public void doBackup(final Context context) {
+	private void doBackup(final Context context) {
 		if (!this.needBackup()) {
 			// check before going into synchronized code
 			Log.d(TAG, "skip backup()");
@@ -3769,9 +3774,9 @@ public final class DataProvider extends ContentProvider {
 				Log.i(TAG, "skip backup()");
 				return;
 			}
-			this.mInBackup = true;
 			final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
 			final String path = db.getPath();
+			this.mInBackup = true;
 			try {
 				Log.d(TAG, "cp " + path + " " + path + ".bak");
 				Utils.copyFile(path, path + ".bak");
@@ -3783,6 +3788,7 @@ public final class DataProvider extends ContentProvider {
 			// FIXME: delete? db.close();
 			this.mInBackup = false;
 		}
+		Log.d(TAG, "doBackup(): return");
 	}
 
 	/**

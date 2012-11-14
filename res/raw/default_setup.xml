@@ -7,6 +7,7 @@
       <_id>12</_id>
       <_plan_name>Bill period</_plan_name>
       <_shortname>BillPeriod</_shortname>
+      <_order>0</_order>
       <_plan_type>2</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
