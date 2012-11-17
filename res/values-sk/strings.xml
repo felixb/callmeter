@@ -30,7 +30,7 @@
   <string name="settings" formatted="false">Nastavenia</string>
   <string name="about_" formatted="false">Nápoveda</string>
   <string name="about_hint" formatted="false">Nápoveda. O autoroch.</string>
-  <string name="faq_hint" formatted="false">Tipy a triky ako nastaviť aplikáciu.</string>
+  <string name="faq_hint" formatted="false" username="lenka lenka.casova@gmail.com sk" orig="Some tips and tricks, how to set up this app.">Tipy a triky ako nastaviť aplikáciu.</string>
   <string name="feedback_" formatted="false">Feedback</string>
   <string name="feedback_hint" formatted="false">Ohlásiť chybu, poslať požiadavku na funkčnosť.</string>
   <string name="twitter_hint" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Follow me on twitter.\nGet update notifications etc.">Nasleduj ma na Twitteri\nInfo o nových verziách apod.</string>
