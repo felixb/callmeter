@@ -302,4 +302,6 @@
   <string name="simple_preferences_" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Simple preferences">简易选项</string>
   <string name="simple_preferences_hint" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Very simple preferences, suitable for most users. Only available with default rule set.">简易选项，适合多数用户。适用于默认条规。</string>
   <string name="show_today_" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Show today">展示今天</string>
+  <string name="show_today_hint" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Show today stats">展示今天的统计</string>
+  <string name="small_widget_" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Use small widget">使用小挂件</string>
 </resources>

@@ -160,7 +160,7 @@ res/values-zh/intro.xml:0
 res/values-zh/market.xml:1
 res/values-zh/notes.xml:0
 res/values-zh/simple_prefs.xml:0
-res/values-zh/strings.xml:281
+res/values-zh/strings.xml:283
 res/values:526
 res/values-ar:2
 res/values-bg:364
@@ -183,4 +183,4 @@ res/values-ru:332
 res/values-sk:273
 res/values-sv:80
 res/values-tr:468
-res/values-zh:282
+res/values-zh:284
