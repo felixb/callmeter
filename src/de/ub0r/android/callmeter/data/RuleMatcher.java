@@ -567,7 +567,7 @@ public final class RuleMatcher {
 				final Plan p = plans.get(this.planId);
 				if (p != null) {
 					p.checkBillday(log);
-					ret = p.isInLimit();
+					ret = p.getRemainingLimit() > 0f;
 				}
 				if (!ret) {
 					Log.d(TAG, "limit reached: " + this.planId);
@@ -826,26 +826,24 @@ public final class RuleMatcher {
 		}
 
 		/**
-		 * Return true if billed cost/amount is in limit.
-		 * 
-		 * @return true if billed cost/amount is in limit
+		 * @return remaining limit before it is reached.
 		 */
-		boolean isInLimit() {
-			Log.d(TAG, "isInLimit(): " + this.id);
+		float getRemainingLimit() {
+			Log.d(TAG, "getRemainingLimit(): " + this.id);
 			if (this.parent != null && this.limitType == DataProvider.LIMIT_TYPE_NONE) {
 				Log.d(TAG, "check parent");
-				return this.parent.isInLimit();
+				return this.parent.getRemainingLimit();
 			} else {
 				Log.d(TAG, "ltype: " + this.limitType);
 				switch (this.limitType) {
 				case DataProvider.LIMIT_TYPE_COST:
 					Log.d(TAG, "bc<lt " + this.billedCost + "<" + this.limit);
-					return this.billedCost < this.limit;
+					return this.limit - this.billedCost;
 				case DataProvider.LIMIT_TYPE_UNITS:
 					Log.d(TAG, "ba<lt " + this.billedAmount + "<" + this.limit);
-					return this.billedAmount < this.limit;
+					return this.limit - this.billedAmount;
 				default:
-					return false;
+					return 0;
 				}
 			}
 		}
@@ -974,42 +972,71 @@ public final class RuleMatcher {
 		 */
 		float getCost(final Cursor log, final float bAmount) {
 			float ret = 0f;
-			float cpi, cpa1, cpa2;
+			float as0; // split amount: before limit
+			float as1; // split amount: after limit
 			Plan p;
 			if (this.parent != null && this.limitType == DataProvider.LIMIT_TYPE_NONE) {
 				p = this.parent;
 			} else {
 				p = this;
 			}
-			if (p.isInLimit()) {
-				cpi = this.costPerItemInLimit;
-				cpa1 = this.costPerAmountInLimit1;
-				cpa2 = this.costPerAmountInLimit2;
-			} else {
-				cpi = this.costPerItem;
-				cpa1 = this.costPerAmount1;
-				cpa2 = this.costPerAmount2;
+			// split amount at limit
+			float remaining = p.getRemainingLimit();
+			if (p.limitType == DataProvider.LIMIT_TYPE_NONE || remaining <= 0f) {
+				as0 = 0;
+				as1 = bAmount;
+			} else if (p.limitType == DataProvider.LIMIT_TYPE_UNITS && remaining < bAmount) {
+				as0 = remaining;
+				as1 = bAmount - remaining;
+			} else { // TODO: fix for LIMIT_TYPE_COST
+				as0 = bAmount;
+				as1 = 0;
 			}
 			final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
 			final int pt = this.type;
 
 			if (t == DataProvider.TYPE_SMS || pt == DataProvider.TYPE_MIXED) {
-				ret += cpi * bAmount;
+				ret += as0 * p.costPerItemInLimit + as1 * p.costPerItem;
 			} else {
-				ret += cpi;
+				ret += as0 > 0f ? p.costPerItemInLimit : p.costPerItem;
 			}
 
 			switch (t) {
 			case DataProvider.TYPE_CALL:
 				if (bAmount <= this.billModeFirstLength) {
-					ret += cpa1 * bAmount / CallMeter.SECONDS_MINUTE;
-				} else {
-					ret += cpa1 * this.billModeFirstLength / CallMeter.SECONDS_MINUTE;
-					ret += cpa2 * (bAmount - this.billModeFirstLength) / CallMeter.SECONDS_MINUTE;
+					// bAmount is most likely < remaining
+					ret += (as0 * p.costPerAmountInLimit1 + as1 * p.costPerAmount1)
+							/ CallMeter.SECONDS_MINUTE;
+				} else if (as0 == 0f) {
+					ret += p.costPerAmount1 * this.billModeFirstLength / CallMeter.SECONDS_MINUTE;
+					ret += p.costPerAmount2 * (bAmount - this.billModeFirstLength)
+							/ CallMeter.SECONDS_MINUTE;
+				} else if (as1 == 0f) {
+					ret += p.costPerAmountInLimit1 * this.billModeFirstLength
+							/ CallMeter.SECONDS_MINUTE;
+					ret += p.costPerAmountInLimit2 * (bAmount - this.billModeFirstLength)
+							/ CallMeter.SECONDS_MINUTE;
+				} else if (as0 == this.billModeFirstLength) {
+					ret += p.costPerAmountInLimit1 * this.billModeFirstLength
+							/ CallMeter.SECONDS_MINUTE;
+					ret += p.costPerAmount2 * (bAmount - this.billModeFirstLength)
+							/ CallMeter.SECONDS_MINUTE;
+				} else if (as0 > this.billModeFirstLength) {
+					ret += p.costPerAmountInLimit1 * this.billModeFirstLength
+							/ CallMeter.SECONDS_MINUTE;
+					ret += (as0 - this.billModeFirstLength) * p.costPerAmountInLimit2
+							/ CallMeter.SECONDS_MINUTE;
+					ret += as1 * p.costPerAmount2 / CallMeter.SECONDS_MINUTE;
+				} else { // as0 < this.billModeFirstLength && as0 > 0 && as1 > 0
+					ret += as0 * p.costPerAmountInLimit1 / CallMeter.SECONDS_MINUTE;
+					ret += (this.billModeFirstLength - as0) * p.costPerAmount1
+							/ CallMeter.SECONDS_MINUTE;
+					ret += p.costPerAmount2 * (bAmount - this.billModeFirstLength)
+							/ CallMeter.SECONDS_MINUTE;
 				}
 				break;
 			case DataProvider.TYPE_DATA:
-				ret += cpa1 * bAmount / CallMeter.BYTE_MB;
+				ret += (as0 * p.costPerAmountInLimit1 + as1 * p.costPerAmount1) / CallMeter.BYTE_MB;
 				break;
 			default:
 				break;
