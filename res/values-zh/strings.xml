@@ -25,7 +25,7 @@
   <string name="about0" formatted="false">CallMeter根据电话,短信,数据连接记录生成报告.它支持多种支付方案.</string>
   <string name="about1" formatted="false">账单输出模式是 一次通讯/次 或者 账单周期/次 或者 全部累加统计. 一个月（账单周期/次）一次的统计可以每月看到您实际消费的金额. 全部累加统计的无法看到每个月的消费金额.</string>
   <string name="about2" formatted="false">入账模式为 首×分钟/每×分钟. 例如. 60/10 意味着首分钟不足60秒按60秒计算,以后每10秒计算一次.</string>
-  <string name="about3" formatted="false" username="" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter每隔30分钟统计一次数据(除非程序不在后台运行). 这意味着删除30分钟前的数据不会影响统计结果. 删除之后的数据则会导致错误的统计结果.</string>
+  <string name="about3" formatted="false" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter每隔30分钟统计一次数据(除非程序不在后台运行). 这意味着删除30分钟前的数据不会影响统计结果. 删除之后的数据则会导致错误的统计结果.</string>
   <string name="send_" formatted="false">发送</string>
   <string name="add_" formatted="false">添加</string>
   <string name="add_log" formatted="false">添加日志项</string>
@@ -47,7 +47,7 @@
   <string name="feedback_hint" formatted="false">报告漏洞,建议添加新功能...</string>
   <string name="twitter_hint" formatted="false">在twitter上关注我.\n获取升级通知.</string>
   <string name="more_" formatted="false">更多程序..</string>
-  <string name="billing_" formatted="false">付账</string>
+  <string name="billing_" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Billing">账单</string>
   <string name="billday_" formatted="false">账单周期开始日</string>
   <string name="billmode_" formatted="false">支付模式</string>
   <string name="billdate_" formatted="false">账单周期开始于:</string>
@@ -288,4 +288,18 @@
   <string name="x1_hour">一个小时</string>
   <string name="x2_hour">两个小时</string>
   <string name="manually_only">仅手动更新</string>
+  <string name="author_and_many_more" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="and many more...">还有更多。。。</string>
+  <string name="update_interval_data_" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Update interval (data)">更新间隔（数据）</string>
+  <string name="update_interval_data_hint" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">数据更新间隔要更频繁。例如三星需要非常短的间隔。</string>
+  <string name="up_" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Move up">上移</string>
+  <string name="down_" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Move down">下移</string>
+  <string name="google_plus_hint" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Follow me on Google+.\nGet update notifications etc.">在Google+上关注我.\n获取升级通知.</string>
+  <string name="behavior_" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Behavior">反应</string>
+  <string name="appearance_and_behavior_" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Appearance &amp; behavior">外观和反应</string>
+  <string name="widget_" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Widget">挂件</string>
+  <string name="widgets_" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Widgets">挂件</string>
+  <string name="delete_widget" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Delete widget">删除挂件</string>
+  <string name="simple_preferences_" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Simple preferences">简易选项</string>
+  <string name="simple_preferences_hint" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Very simple preferences, suitable for most users. Only available with default rule set.">简易选项，适合多数用户。适用于默认条规。</string>
+  <string name="show_today_" formatted="false" username="CH Ngoh &lt;ngohch@gmail.com&gt;" orig="Show today">展示今天</string>
 </resources>
