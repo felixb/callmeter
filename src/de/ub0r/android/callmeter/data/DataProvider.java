@@ -19,9 +19,12 @@
 package de.ub0r.android.callmeter.data;
 
 import java.io.BufferedReader;
+import java.io.EOFException;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -85,9 +88,9 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 32;
+	private static final int DATABASE_VERSION = 33;
 	/** Versions of {@link SQLiteDatabase}, which need no unmatch(). */
-	private static final int[] DATABASE_KNOWNGOOD = new int[] { 30 };
+	private static final int[] DATABASE_KNOWNGOOD = new int[] { 30, 31, 32 };
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 2;
@@ -314,13 +317,23 @@ public final class DataProvider extends ContentProvider {
 		 *            old version
 		 * @param newVersion
 		 *            new version
+		 * @throws IOException
+		 *             IOException
 		 */
-		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
-				final int newVersion) {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
+
+			String fn = TABLE + ".bak";
+			context.deleteFile(fn);
+			ObjectOutputStream os = new ObjectOutputStream(context.openFileOutput(fn,
+					Context.MODE_PRIVATE));
+			backup(db, TABLE, PROJECTION, null, null, null, os);
+			os.close();
+			ObjectInputStream is = new ObjectInputStream(context.openFileInput(fn));
 			onCreate(db);
-			reload(db, TABLE, values);
+			reload(db, TABLE, is);
+			is.close();
 		}
 
 		/** Default constructor. */
@@ -414,13 +427,23 @@ public final class DataProvider extends ContentProvider {
 		 *            old version
 		 * @param newVersion
 		 *            new version
+		 * @throws IOException
+		 *             IOException
 		 */
-		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
-				final int newVersion) {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
+
+			String fn = TABLE + ".bak";
+			context.deleteFile(fn);
+			ObjectOutputStream os = new ObjectOutputStream(context.openFileOutput(fn,
+					Context.MODE_PRIVATE));
+			backup(db, TABLE, PROJECTION, null, null, null, os);
+			os.close();
+			ObjectInputStream is = new ObjectInputStream(context.openFileInput(fn));
 			onCreate(db);
-			reload(db, TABLE, values);
+			reload(db, TABLE, is);
+			is.close();
 		}
 
 		/** Default constructor. */
@@ -489,13 +512,23 @@ public final class DataProvider extends ContentProvider {
 		 *            old version
 		 * @param newVersion
 		 *            new version
+		 * @throws IOException
+		 *             IOException
 		 */
-		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
-				final int newVersion) {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
+
+			String fn = TABLE + ".bak";
+			context.deleteFile(fn);
+			ObjectOutputStream os = new ObjectOutputStream(context.openFileOutput(fn,
+					Context.MODE_PRIVATE));
+			backup(db, TABLE, PROJECTION, null, null, null, os);
+			os.close();
+			ObjectInputStream is = new ObjectInputStream(context.openFileInput(fn));
 			onCreate(db);
-			reload(db, TABLE, values);
+			reload(db, TABLE, is);
+			is.close();
 		}
 
 		/** Hide constructor. */
@@ -1161,13 +1194,23 @@ public final class DataProvider extends ContentProvider {
 		 *            old version
 		 * @param newVersion
 		 *            new version
+		 * @throws IOException
+		 *             IOException
 		 */
-		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
-				final int newVersion) {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
+
+			String fn = TABLE + ".bak";
+			context.deleteFile(fn);
+			ObjectOutputStream os = new ObjectOutputStream(context.openFileOutput(fn,
+					Context.MODE_PRIVATE));
+			backup(db, TABLE, PROJECTION, null, null, null, os);
+			os.close();
+			ObjectInputStream is = new ObjectInputStream(context.openFileInput(fn));
 			onCreate(db);
-			reload(db, TABLE, values);
+			reload(db, TABLE, is);
+			is.close();
 		}
 
 		/** Default constructor. */
@@ -1787,13 +1830,23 @@ public final class DataProvider extends ContentProvider {
 		 *            old version
 		 * @param newVersion
 		 *            new version
+		 * @throws IOException
+		 *             IOException
 		 */
-		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
-				final int newVersion) {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
+
+			String fn = TABLE + ".bak";
+			context.deleteFile(fn);
+			ObjectOutputStream os = new ObjectOutputStream(context.openFileOutput(fn,
+					Context.MODE_PRIVATE));
+			backup(db, TABLE, PROJECTION, null, null, null, os);
+			os.close();
+			ObjectInputStream is = new ObjectInputStream(context.openFileInput(fn));
 			onCreate(db);
-			reload(db, TABLE, values);
+			reload(db, TABLE, is);
+			is.close();
 		}
 
 		/** Default constructor. */
@@ -1889,13 +1942,23 @@ public final class DataProvider extends ContentProvider {
 		 *            old version
 		 * @param newVersion
 		 *            new version
+		 * @throws IOException
+		 *             IOException
 		 */
-		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
-				final int newVersion) {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
+
+			String fn = TABLE + ".bak";
+			context.deleteFile(fn);
+			ObjectOutputStream os = new ObjectOutputStream(context.openFileOutput(fn,
+					Context.MODE_PRIVATE));
+			backup(db, TABLE, PROJECTION, null, null, null, os);
+			os.close();
+			ObjectInputStream is = new ObjectInputStream(context.openFileInput(fn));
 			onCreate(db);
-			reload(db, TABLE, values);
+			reload(db, TABLE, is);
+			is.close();
 		}
 
 		/** Default constructor. */
@@ -1983,13 +2046,23 @@ public final class DataProvider extends ContentProvider {
 		 *            old version
 		 * @param newVersion
 		 *            new version
+		 * @throws IOException
+		 *             IOException
 		 */
-		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
-				final int newVersion) {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
+
+			String fn = TABLE + ".bak";
+			context.deleteFile(fn);
+			ObjectOutputStream os = new ObjectOutputStream(context.openFileOutput(fn,
+					Context.MODE_PRIVATE));
+			backup(db, TABLE, PROJECTION, null, null, null, os);
+			os.close();
+			ObjectInputStream is = new ObjectInputStream(context.openFileInput(fn));
 			onCreate(db);
-			reload(db, TABLE, values);
+			reload(db, TABLE, is);
+			is.close();
 		}
 
 		/** Default constructor. */
@@ -2064,13 +2137,23 @@ public final class DataProvider extends ContentProvider {
 		 *            old version
 		 * @param newVersion
 		 *            new version
+		 * @throws IOException
+		 *             IOException
 		 */
-		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
-				final int newVersion) {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
+
+			String fn = TABLE + ".bak";
+			context.deleteFile(fn);
+			ObjectOutputStream os = new ObjectOutputStream(context.openFileOutput(fn,
+					Context.MODE_PRIVATE));
+			backup(db, TABLE, PROJECTION, null, null, null, os);
+			os.close();
+			ObjectInputStream is = new ObjectInputStream(context.openFileInput(fn));
 			onCreate(db);
-			reload(db, TABLE, values);
+			reload(db, TABLE, is);
+			is.close();
 		}
 
 		/** Default constructor. */
@@ -2157,13 +2240,23 @@ public final class DataProvider extends ContentProvider {
 		 *            old version
 		 * @param newVersion
 		 *            new version
+		 * @throws IOException
+		 *             IOException
 		 */
-		public static void onUpgrade(final SQLiteDatabase db, final int oldVersion,
-				final int newVersion) {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db,
+				final int oldVersion, final int newVersion) throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
-			final ContentValues[] values = backup(db, TABLE, PROJECTION, null, null, null);
+
+			String fn = TABLE + ".bak";
+			context.deleteFile(fn);
+			ObjectOutputStream os = new ObjectOutputStream(context.openFileOutput(fn,
+					Context.MODE_PRIVATE));
+			backup(db, TABLE, PROJECTION, null, null, null, os);
+			os.close();
+			ObjectInputStream is = new ObjectInputStream(context.openFileInput(fn));
 			onCreate(db);
-			reload(db, TABLE, values);
+			reload(db, TABLE, is);
+			is.close();
 		}
 
 		/** Default constructor. */
@@ -2324,15 +2417,20 @@ public final class DataProvider extends ContentProvider {
 		public void onUpgrade(final SQLiteDatabase db, final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading database from version " + oldVersion + " to " + newVersion
 					+ ", which will destroy all old data");
-			Logs.onUpgrade(db, oldVersion, newVersion);
-			WebSMS.onUpgrade(db, oldVersion, newVersion);
-			SipCall.onUpgrade(db, oldVersion, newVersion);
-			Plans.onUpgrade(db, oldVersion, newVersion);
-			Rules.onUpgrade(db, oldVersion, newVersion);
-			Numbers.onUpgrade(db, oldVersion, newVersion);
-			NumbersGroup.onUpgrade(db, oldVersion, newVersion);
-			Hours.onUpgrade(db, oldVersion, newVersion);
-			HoursGroup.onUpgrade(db, oldVersion, newVersion);
+			try {
+				Logs.onUpgrade(this.ctx, db, oldVersion, newVersion);
+				WebSMS.onUpgrade(this.ctx, db, oldVersion, newVersion);
+				SipCall.onUpgrade(this.ctx, db, oldVersion, newVersion);
+				Plans.onUpgrade(this.ctx, db, oldVersion, newVersion);
+				Rules.onUpgrade(this.ctx, db, oldVersion, newVersion);
+				Numbers.onUpgrade(this.ctx, db, oldVersion, newVersion);
+				NumbersGroup.onUpgrade(this.ctx, db, oldVersion, newVersion);
+				Hours.onUpgrade(this.ctx, db, oldVersion, newVersion);
+				HoursGroup.onUpgrade(this.ctx, db, oldVersion, newVersion);
+			} catch (IOException e) {
+				Log.e(TAG, "IOException on DB Upgrade!", e);
+				throw new IllegalStateException("IOException on DB Upgrade!", e);
+			}
 			if (this.needUnmatch(oldVersion, newVersion)) {
 				unmatch(db);
 			}
@@ -2398,7 +2496,12 @@ public final class DataProvider extends ContentProvider {
 	private static void backupRuleSetSub(final StringBuilder sb, final SQLiteDatabase db,
 			final String table, final String[] projection, final String selection,
 			final String[] selectionArgs, final String strip) {
-		ContentValues[] cvs = backup(db, table, projection, selection, selectionArgs, strip);
+		ContentValues[] cvs = null;
+		try {
+			cvs = backup(db, table, projection, selection, selectionArgs, strip, null);
+		} catch (IOException e) {
+			throw new IllegalStateException("this can not be true!", e);
+		}
 		String e;
 		String indent = "    ";
 		if (table.endsWith("s")) {
@@ -3030,13 +3133,21 @@ public final class DataProvider extends ContentProvider {
 	 *            selection arguments
 	 * @param strip
 	 *            column to forget on backup, eg. _id
-	 * @return array of rows
+	 * @param os
+	 *            optional {@link ObjectOutputStream} for saving
+	 *            {@link ContentValues} to
+	 * @return array of rows if os is not null
+	 * @throws IOException
+	 *             IOException
 	 */
 	private static ContentValues[] backup(final SQLiteDatabase db, final String table,
 			final String[] cols, final String selection, final String[] selectionArgs,
-			final String strip) {
+			final String strip, final ObjectOutputStream os) throws IOException {
 		Log.d(TAG, "backup(db," + table + ",cols,sel,args," + strip + ")");
-		ArrayList<ContentValues> ret = new ArrayList<ContentValues>();
+		ArrayList<ContentValues> ret = null;
+		if (os == null) {
+			ret = new ArrayList<ContentValues>();
+		}
 		String[] proj = cols;
 		if (strip != null) {
 			ArrayList<String> a = new ArrayList<String>(cols.length);
@@ -3074,25 +3185,77 @@ public final class DataProvider extends ContentProvider {
 				cursor = null;
 			}
 			ret = null;
-			return backup(db, table, proj, selection, selectionArgs, str);
+			return backup(db, table, proj, selection, selectionArgs, str, os);
 		}
 		if (cursor != null && cursor.moveToFirst()) {
 			do {
-				final ContentValues cv = new ContentValues();
+				int cnt = 0;
+				ContentValues cv = os == null ? new ContentValues() : null;
+				HashMap<String, String> map = os == null ? null : new HashMap<String, String>();
 				for (int i = 0; i < l; i++) {
 					final String s = cursor.getString(i);
 					if (s != null) {
-						cv.put(proj[i], s);
+						if (os == null) {
+							cv.put(proj[i], s);
+						} else {
+							map.put(proj[i], s);
+						}
 					}
 				}
-				ret.add(cv);
+				if (os == null) {
+					ret.add(cv);
+				} else {
+					os.writeObject(map);
+					if (cnt % 10 == 0) {
+						os.reset();
+					}
+				}
+				cnt++;
 			} while (cursor.moveToNext());
 		}
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
 		}
-
+		if (ret == null) {
+			return null;
+		}
 		return ret.toArray(new ContentValues[0]);
+	}
+
+	@SuppressWarnings("unchecked")
+	private static void reload(final SQLiteDatabase db, final String table,
+			final ObjectInputStream is) throws IOException {
+		if (is == null) {
+			return;
+		}
+		Log.d(TAG, "reload(db, " + table + ", stream])");
+		db.beginTransaction();
+		try {
+			while (true) {
+				HashMap<String, String> map;
+				try {
+					map = (HashMap<String, String>) is.readObject();
+					if (map == null) {
+						break;
+					}
+				} catch (EOFException e) {
+					break;
+				}
+				ContentValues cv = new ContentValues(map.size());
+				for (String k : map.keySet()) {
+					cv.put(k, map.get(k));
+				}
+				Log.d(TAG, "reload: " + table + " insert: " + cv);
+				db.insert(table, null, cv);
+			}
+			db.setTransactionSuccessful();
+		} catch (ClassNotFoundException e) {
+			Log.e(TAG, "error reloading row: " + table, e);
+		} catch (SQLException e) {
+			Log.e(TAG, "error reloading row: " + table, e);
+		} finally {
+			db.endTransaction();
+		}
 	}
 
 	/**
@@ -3114,7 +3277,7 @@ public final class DataProvider extends ContentProvider {
 		db.beginTransaction();
 		try {
 			for (ContentValues cv : values) {
-				Log.d(TAG, "reload: " + table + " inert: " + cv);
+				Log.d(TAG, "reload: " + table + " insert: " + cv);
 				db.insert(table, null, cv);
 			}
 			db.setTransactionSuccessful();
@@ -3123,7 +3286,6 @@ public final class DataProvider extends ContentProvider {
 		} finally {
 			db.endTransaction();
 		}
-		return;
 	}
 
 	/**
