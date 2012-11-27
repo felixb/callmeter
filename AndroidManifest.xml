@@ -265,6 +265,10 @@
             android:name=".data.ExportProvider"
             android:authorities="de.ub0r.android.callmeter.export"
             android:exported="true" />
+        <provider
+            android:name="de.ub0r.android.lib.LogProvider"
+            android:authorities="de.ub0r.android.callmeter.DEBUGLOG"
+            android:exported="true" />
 
         <receiver
             android:name=".widget.StatsAppWidgetProvider"
