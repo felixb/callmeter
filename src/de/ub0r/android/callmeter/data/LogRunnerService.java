@@ -30,6 +30,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Handler;
@@ -457,6 +458,11 @@ public final class LogRunnerService extends IntentService {
 		Cursor cursor;
 		try {
 			cursor = cr.query(Calls.CONTENT_URI, null, Calls.DATE + " > ?",
+					new String[] { String.valueOf(maxdate) }, Calls.DATE + " DESC");
+		} catch (SQLException e) {
+			Log.e(TAG, "updateCalls(): SQLE", e);
+			cursor = cr.query(Calls.CONTENT_URI, new String[] { Calls.TYPE, Calls.DURATION,
+					Calls.DATE, Calls.NUMBER }, Calls.DATE + " > ?",
 					new String[] { String.valueOf(maxdate) }, Calls.DATE + " DESC");
 		} catch (NullPointerException e) {
 			Log.e(TAG, "updateCalls(): NPE", e);

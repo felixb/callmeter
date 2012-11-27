@@ -302,7 +302,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 				lp = new CVListPreference(this, this.values, DataProvider.Rules.IS_WEBSMS);
 				lp.setTitle(R.string.iswebsms_);
 				lp.setSummary(R.string.iswebsms_help);
-				lp.setStatic(new String[] { "1", "0", "-1" }, this.getStrings(-1));
+				lp.setStatic(new String[] { "0", "1", "-1" }, this.getStrings(-1));
 				if (c.isNull(DataProvider.Rules.INDEX_IS_WEBSMS)) {
 					i = -1;
 					this.values.put(DataProvider.Rules.IS_WEBSMS, i);
@@ -327,7 +327,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 				lp = new CVListPreference(this, this.values, DataProvider.Rules.IS_SIPCALL);
 				lp.setTitle(R.string.issipcall_);
 				lp.setSummary(R.string.issipcall_help);
-				lp.setStatic(new String[] { "1", "0", "-1" }, this.getStrings(-1));
+				lp.setStatic(new String[] { "0", "1", "-1" }, this.getStrings(-1));
 				if (c.isNull(DataProvider.Rules.INDEX_IS_SIPCALL)) {
 					i = -1;
 					this.values.put(DataProvider.Rules.IS_SIPCALL, i);
