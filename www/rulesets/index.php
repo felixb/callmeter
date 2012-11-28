@@ -7,7 +7,20 @@ function endsWith($haystack, $needle) {
   return (substr($haystack, $start) === $needle);
 }
 
-$isAndroid = preg_match('/Android/', $_SERVER['HTTP_USER_AGENT']);
+
+function _value_in_array($array, $find){
+  if(!is_array($array)){
+    return FALSE;
+  }
+  foreach ($array as $key => $value) {
+    if($find == $value){
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
+
+$isAndroid = preg_match('/Android/', $_SERVER['HTTP_USER_AGENT']); # TODO || 1 == 1;
 $location = './';
 
 ?>
@@ -15,6 +28,7 @@ $location = './';
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="/default.css" />
+<link rel="stylesheet" type="text/css" href="common.css" />
 <?
 if ($isAndroid) {
   echo '<link rel="stylesheet" type="text/css" href="android.css" />' . "\n";
@@ -34,6 +48,43 @@ if ($isAndroid) {
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+<script type="text/javascript">
+  window.onload = function() {
+    $("img[rel]").overlay({ mask: { opacity: 0.8 } });
+    $("a[rel]").overlay({ mask: { opacity: 0.8 } });
+
+    var eCountry = document.getElementById('country');
+    var eProvider = document.getElementById('provider');
+    var f = function() {
+      var u;
+      if (window.location.search) {
+        u=window.location.href.replace(/country=[^&]*/, '').replace(/provider=[^&]*/, '');
+        if (eCountry.value) {
+          u=u + '&country=' + eCountry.value
+        }
+        if (eProvider.value) {
+          u=u + '&provider=' + eProvider.value;
+        }
+      } else {
+        u=window.location.href
+        if (eCountry.value) {
+          u=u + '?country=' + eCountry.value
+          if (eProvider.value) {
+            u=u + '&provider=' + eProvider.value;
+          }
+        } else if (eProvider.value) {
+          u=u + '?provider=' + eProvider.value;
+        }
+      }
+      u=u.replace('?&', '?').replace('??', '?');
+      window.location.href=u;
+    }
+    eCountry.onchange = f;
+    eProvider.onchange = f;
+  }
+</script>
 </head>
 <body>
 
@@ -51,7 +102,7 @@ if ($isAndroid) {
 $files = array();
 $d = dir($location);
 while (false !== ($entry = $d->read())) {
-  if (!endsWith($entry, '.export')) {
+  if (!endsWith($entry, '.xml')) {
     continue;
   }
   $files[] = $entry;
@@ -60,22 +111,65 @@ $d->close();
 
 sort($files);
 
-$titles = array();
-$descriptions = array();
-foreach ($files as $f) {
-  $titles[$f] = preg_replace('/\.export$/', '', preg_replace('/_/',' ', preg_replace('/^[^_]*_/','' , $f)));
-  $s = file_get_contents($location . $f);
-  $ss = explode("\n", $s, 3);
-  if (array_key_exists(1, $ss)) {
-    $s = $ss[1];
-  } else {
-    $s = '';
-  }
-  $s = urldecode($s);
-  $descriptions[$f] = $s;
+if (array_key_exists('country', $_GET)) {
+  $countryfilter = $_GET['country'];
+} else {
+  $countryfilter = '';
+}
+if (array_key_exists('provider', $_GET)) {
+  $providerfilter = $_GET['provider'];
+} else {
+  $providerfilter = '';
 }
 
+$country = array();
+$countries = array();
+$provider = array();
+$providers = array();
+$title = array();
+$link = array();
+$description = array();
+$longdescription = array();
+foreach ($files as $f) {
+  try {
+    $xml = new SimpleXMLElement(file_get_contents($location.$f));
+    $c = (string) $xml->country;
+    $p = (string) $xml->provider;
+    $t = (string) $xml->title;
+    $ss = (string) $xml->link;
+    if (!empty($ss)) {
+      $link[$f] = $ss;
+    }
+    $ss = (string) $xml->description;
+    if (!empty($ss)) {
+      $description[$f] = $ss;
+    }
+    $ss = (string) $xml->longdescription;
+    if (!empty($ss)) {
+      $longdescription[$f] = $ss;
+    }
+    $country[$f] = $c;
+    if (!_value_in_array($countries, $c) && !empty($c) && $c != "common") {
+      $countries[] = $c;
+    }
+    $provider[$f] = $p;
+    if (!_value_in_array($providers, $p) && !empty($c) && (!$countryfilter || $countryfilter == $c)) {
+      $providers[] = $p;
+    }
+    $title[$f] = $t;
+  } catch (Exception $e) {
+    $country[$f] = 'error';
+    $provider[$f] = $f;
+    $title[$f] = $e;
+  }
+}
+
+sort($countries);
+sort($providers);
+
 ?>
+
+<div id="content">
 
 <h1>Import rule sets</h1>
 
@@ -88,78 +182,113 @@ if ($isAndroid) {
 }
 
 echo 'You might need to edit your very own limit or cost settings after importing the rule set.' . "<br />\n";
-echo '<br />If you want your rule set shown here, you just need to export it to me &lt;android+callmeter@ub0r.de&gt;.';
+echo '<br />If you want your rule set shown here, you just need to export it to me from within the app.';
 ?>
 
 <h2>Table of Rule sets</h2>
-The follwoing rule sets are available to import. Click on an item to view its details.
-<ul>
+<form>
+<table>
+<tr class="thead">
+<th><select id="country" name="country">
+<option value="">Country</option>
+<option value=""></option>
+<option value="common">common</option>
 <?
-foreach ($files as $f) {
-  $ds = explode("\n", $descriptions[$f]);
-  $d = $ds[0];
-  echo '<li><a href="#f_' . $f . '">' . $titles[$f] . '</a>: ' . $d . '</li>' . "\n";
+foreach ($countries as $c) {
+  if ($c && $c == $countryfilter) {
+    echo '<option value="'.$c.'" selected="selected">'.$c.'</option>';
+  } else {
+    echo '<option value="'.$c.'">'.$c.'</option>';
+  }
 }
 ?>
-</ul>
+</select></th>
+<th><select id="provider" name="provider">
+<option value="">Provider</option>
+<option value=""></option>
+<?
+foreach ($providers as $p) {
+  if ($p && $p == $providerfilter) {
+    echo '<option value="'.$p.'" selected="selected">'.$p.'</option>';
+  } else {
+    echo '<option value="'.$p.'">'.$p.'</option>';
+  }
+}
+?>
 
-<h2>Rule sets in detail</h2>
+</select></th>
+<th>Plan</th>
+<th>
+<? if ($isAndroid) { echo "Link"; } else { echo "Barcode"; } ?>
+</th>
+</tr>
 
 <?
 $i = 0;
 foreach ($files as $f) {
-  echo '<div class="ruleset" id="f_' . $f . '">' . "\n";
-  $furl = 'http://www.ub0r.de/android/callmeter/rulesets/#f_' . $f;
-  $importurl = 'import://callmeter.android.ub0r.de/www.ub0r.de/android/callmeter/rulesets/' . $f;
-  $barcodeurl_s = 'http://' . ($i % 10) . '.chart.apis.google.com/chart?chs=100x100&amp;cht=qr&amp;chl=import%3A%2F%2Fcallmeter.android.ub0r.de%2Fwww.ub0r.de%2Fandroid%2Fcallmeter%2Frulesets%2F' . $f;
-  $barcodeurl_l = 'http://chart.apis.google.com/chart?chs=400x400&amp;cht=qr&amp;chl=import%3A%2F%2Fcallmeter.android.ub0r.de%2Fwww.ub0r.de%2Fandroid%2Fcallmeter%2Frulesets%2F' . $f;
-  $hasLongDescr = file_exists($location . $f . '.descr');
-  $extLink = '';
-  if (file_exists($location . $f . '.link')) {
-    $extLink = file_get_contents($location . $f . '.link');
+  if (!empty($countryfilter) && $countryfilter != $country[$f]) {
+    continue;
   }
+  if (!empty($providerfilter) && $providerfilter != $provider[$f]) {
+    continue;
+  }
+  $ff = str_replace('.xml', '', $f);
+  $ff = str_replace('.', '', $ff);
+  $importurl = 'http://ub0r.de/android/callmeter/rulesets/' . $f; # FIXME
+  $chl='http%3A%2F%2Fub0r.de%2Fandroid%2Fcallmeter%2Frulesets%2F' . $f; # FIXME
+  $barcodeurl_s = 'http://' . ($i++ % 10) . '.chart.apis.google.com/chart?chs=100x100&amp;cht=qr&amp;chl=' . $chl;
+  $barcodeurl_l = 'http://chart.apis.google.com/chart?chs=400x400&amp;cht=qr&amp;chl=' . $chl;
+  echo "<tr class=\"trow\" id=\"f_".$ff."\">\n";
+  echo '<td><a href="?country='.$country[$f].'">' . $country[$f] . "</a></td>\n";
+  if (empty($provider[$f])) {
+    echo "<td></td>\n";
+  } else {
+    echo '<td><a href="?country='.$country[$f].'&provider='.$provider[$f].'">' . $provider[$f] . "</a></td>\n";
+  }
+  echo '<td><a href="#f_'.$ff.'">' . $title[$f].'</a>';
+  if (array_key_exists($f, $description)) {
+    echo '<br />'.nl2br($description[$f])."\n";
+  }
+  if (array_key_exists($f, $link) || array_key_exists($f, $longdescription)) {
+    echo '<br />'."\n";
+    if (array_key_exists($f, $link)) {
+      echo '<a href="'.$link[$f].'">Additional Link</a> '."\n";
+    }
+    if (array_key_exists($f, $longdescription)) {
+      echo '<a href="#f_'.$ff.'" rel="#descr_'.$ff.'">Additional Information</a> '."\n";
+      // overlay
+      echo '<div class="overlay" id="descr_'.$ff.'">';
+      echo '<div class="details">';
+      echo nl2br($longdescription[$f]);
+      echo '</div>';
+      echo '</div>';
+    }
+  }
+  echo '</td>'."\n";
+  echo '<td>';
   if ($isAndroid) {
-    echo '<h3><a class="hidelink" href="' . $furl . '">' . $titles[$f] . '</a></h3>' . "\n";
-    echo nl2br($descriptions[$f]) . '<br /><br />' . "\n";
-    echo 'import: ';
-    echo '<a href="' . $importurl . '">by link</a>' . "\n";
-    echo ' / ';
-    echo '<a href="' . $barcodeurl_l . '">by barcode</a>' . "\n";
-    if ($hasLongDescr || $extLink) {
-    echo '<br />' . "\n" . 'additional information: ';
-    }
-    if ($hasLongDescr) {
-      echo '<a href="./' . $f . '.descr">long description</a>' . "\n";
-    }
-    if ($extLink) {
-     echo '<a href="' . $extLink . '">external link</a>' . "\n";
-    }
+    echo 'import:<br />';
+    echo '<a href="' . $importurl . '">link</a>' . "\n";
+    echo '<br />';
+    echo '<a href="' . $barcodeurl_l . '">barcode</a>' . "\n";
   } else {
     echo '<div class="barcode">';
-    echo '<a href="' . $barcodeurl_l . '">';
-    echo '<img src="' . $barcodeurl_s . '" />';
-    echo '</a>' . "\n";
-    echo '</div>';
-    echo '<div class="text">';
-    echo '<h3><a  class="hidelink" href="' . $furl . '">' . $titles[$f] . '</a></h3>' . "\n";
-    echo nl2br($descriptions[$f]) . '<br />' . "\n";
-    if ($hasLongDescr || $extLink) {
-    echo 'additional information: ';
-    }
-    if ($hasLongDescr) {
-      echo '<a href="./' . $f . '.descr">long description</a>' . "\n";
-    }
-    if ($extLink) {
-     echo '<a href="' . $extLink . '">external link</a>' . "\n";
-    }
-    echo '</div>';
-    echo '<div class="endtext" />';
+    echo '<img src="' . $barcodeurl_s . '" rel="#barcode_'.$ff.'" />';
+    echo '</div>'."\n";
+    // overlay
+    echo '<div class="overlay" id="barcode_'.$ff.'">';
+    echo '<img src="' . $barcodeurl_l . '" />';
+    echo '</div>'."\n";
   }
-  echo '</div>' . "\n";
-  $i++;
+  echo '</td>';
+  echo "</tr>\n";
+  echo "\n";
 }
 ?>
 
+</table>
+</form>
+</div>
 </body>
 </html>
 

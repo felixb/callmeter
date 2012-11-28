@@ -17,5 +17,5 @@
 -->
 <resources>
     <string name="export_rules_body">Hallo Entwickler,\nhier ist der Regelsatz für meinen Provider. Bitte lade ihn auf die Website, damit andere ihn nutzen können. Anbei findest du die Details.\n\nLand: %1$s\nProvider: %2$s\nTarifname: %3$s\n\nViele Grüße, ein Nutzer</string>
-    <string name="country_value" translatable="false">Deutschland</string>
+    <string name="country_value" translatable="false">Germany</string>
 </resources>
