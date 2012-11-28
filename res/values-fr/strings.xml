@@ -113,7 +113,7 @@
   <string name="sms_out_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="SMSOut">SMSOut</string>
   <string name="mms_in_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="MMSIn">MMSIn</string>
   <string name="data_inout_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="DataInOut">DataInOut</string>
-  <string name="widget_logs_title" formatted="false" username="carabao@laposte.net" orig="Call Meter (last log)">Durée appel (dernier log)</string>
+  <string name="widget_logs_title" formatted="false" username="carabao@laposte.net" orig="Call Meter (last log)">Durée d\'appel (dernier log)</string>
   <string name="widget_stats_title" formatted="false" username="carabao@laposte.net" orig="Call Meter (stats)">Durée appel (stat)</string>
   <string name="show_hours_" formatted="false" username="carabao@laposte.net" orig="Show hours">Afficher les heures</string>
   <string name="show_hours_hint" formatted="false" username="carabao@laposte.net" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Afficher l\'heure en secondes, minutes, heures et jours.\nSi ce n\'est pas coché, seule les secondes et les minutes sont affichées</string>
@@ -167,4 +167,9 @@
   <string name="split_sms_at_160_" formatted="false" username="carabao@laposte.net" orig="Split text messages at 160 chars">Diviser les messages textes de plus de 160 caractères</string>
   <string name="show_shortname_" formatted="false" username="carabao@laposte.net" orig="Show short name instead of long name">Afficher les noms cours au lieu des noms longs</string>
   <string name="show_cost_" formatted="false" username="carabao@laposte.net" orig="Show cost">Afficher les coûts</string>
+  <string name="custom_language_hint" formatted="false" username="carabao@laposte.net" orig="Set a custom language.">Valider langage personnalisé</string>
+  <string name="license_" formatted="false" username="carabao@laposte.net" orig="License:">License:</string>
+  <string name="sendlog_install" formatted="false" username="carabao@laposte.net" orig="Install the free SendLog application to collect the device log and send it to the developer.">Installer l\'application libre SendLog pour collecter les log du périphérique et les envoyer au développeur.</string>
+  <string name="sendlog_install_" formatted="false" username="carabao@laposte.net" orig="Install SendLog">Installe SendLog</string>
+  <string name="sendlog_run_" formatted="false" username="carabao@laposte.net" orig="Run SendLog">Démarrer SendLog</string>
 </resources>
