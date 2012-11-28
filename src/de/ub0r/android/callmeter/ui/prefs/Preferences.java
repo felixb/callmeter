@@ -506,18 +506,8 @@ public final class Preferences extends SherlockPreferenceActivity implements
 				Log.e(TAG, "error in reading export: " + uri.toString(), e);
 				return null;
 			}
-		} else {
-			String url;
-			// TODO: import:// and imports:// is deprecated
-			if (scheme.equals("import")) {
-				url = "http:/" + uri.getPath();
-			} else if (scheme.equals("imports")) {
-				url = "https:/" + uri.getPath();
-			} else if (scheme.equals("http") || scheme.equals("https")) {
-				url = uri.toString();
-			} else {
-				throw new IllegalArgumentException("invalid Uri: " + uri);
-			}
+		} else if (scheme.equals("http") || scheme.equals("https")) {
+			String url = uri.toString();
 			HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
 			if (con.getResponseCode() != HttpStatus.SC_OK) {
 				Log.e(TAG,
@@ -525,6 +515,8 @@ public final class Preferences extends SherlockPreferenceActivity implements
 				return null;
 			}
 			return new BufferedInputStream(con.getInputStream());
+		} else {
+			throw new IllegalArgumentException("invalid Uri: " + uri);
 		}
 	}
 

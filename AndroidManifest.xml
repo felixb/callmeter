@@ -96,18 +96,6 @@
             android:theme="@style/Theme.SherlockDefault"
             android:windowSoftInputMode="adjustResize" >
             <intent-filter>
-
-                <!-- DEPRECATED; TODO: delete me -->
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="import" />
-                <data android:scheme="imports" />
-                <data android:host="callmeter.android.ub0r.de" />
-            </intent-filter>
-            <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
