@@ -67,6 +67,7 @@ import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.DataProvider.XmlMetaData;
 import de.ub0r.android.callmeter.data.Device;
 import de.ub0r.android.callmeter.data.ExportProvider;
+import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Market;
@@ -398,6 +399,11 @@ public final class Preferences extends SherlockPreferenceActivity implements
 	 *            type to delete; -1 for all
 	 */
 	private void resetData(final int type) {
+		if (type < 0 || type == DataProvider.TYPE_CALL) {
+			Editor e = PreferenceManager.getDefaultSharedPreferences(this).edit();
+			LogRunnerService.setLastData(e, DataProvider.TYPE_CALL, 0, 0L);
+			e.commit();
+		}
 		if (type < 0) {
 			this.getContentResolver().delete(DataProvider.Logs.CONTENT_URI, null, null);
 		} else {
