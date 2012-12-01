@@ -5,9 +5,9 @@ if [ -z "$1" ] ; then
 fi
 
 f=$1
-country=$(grep '<country>' $f | cut -d\> -f2 | cut -d\< -f1)
-provider=$(grep '<provider>' $f | cut -d\> -f2 | cut -d\< -f1)
-title=$(grep '<title>' $f | cut -d\> -f2 | cut -d\< -f1 | sed -e "s#$(echo ${provider//#} | tr '+*()[]{}^$' '..........') *##")
+country=$(grep '<country>' "$f" | cut -d\> -f2 | cut -d\< -f1)
+provider=$(grep '<provider>' "$f" | cut -d\> -f2 | cut -d\< -f1)
+title=$(grep '<title>' "$f" | cut -d\> -f2 | cut -d\< -f1 | sed -e "s#$(echo ${provider//#} | tr '+*()[]{}^$' '..........') *##")
 if [ "${provider}" == "o2o" ] ; then
   provider=o2
 elif [ "${provider}" == "vodafone" ] ; then
