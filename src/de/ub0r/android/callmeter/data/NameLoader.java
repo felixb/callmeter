@@ -23,6 +23,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.ContactsContract.PhoneLookup;
+import android.util.Log;
 import android.widget.TextView;
 
 /**
@@ -31,6 +32,9 @@ import android.widget.TextView;
  * @author flx
  */
 public class NameLoader extends AsyncTask<Void, Void, String> {
+	/** TAG for Log. */
+	private static final String TAG = "NameLoader";
+
 	/** {@link Context}. */
 	private final Context ctx;
 	/** {@link TextView}. */
@@ -89,13 +93,17 @@ public class NameLoader extends AsyncTask<Void, Void, String> {
 	@Override
 	protected String doInBackground(final Void... params) {
 		String ret = null;
-		Cursor c = this.ctx.getContentResolver().query(
-				Uri.withAppendedPath(PhoneLookup.CONTENT_FILTER_URI, this.num),
-				new String[] { PhoneLookup.DISPLAY_NAME }, null, null, null);
-		if (c.moveToFirst()) {
-			ret = c.getString(0);
+		try {
+			Cursor c = this.ctx.getContentResolver().query(
+					Uri.withAppendedPath(PhoneLookup.CONTENT_FILTER_URI, this.num),
+					new String[] { PhoneLookup.DISPLAY_NAME }, null, null, null);
+			if (c.moveToFirst()) {
+				ret = c.getString(0);
+			}
+			c.close();
+		} catch (Exception e) {
+			Log.e(TAG, "error loading name", e);
 		}
-		c.close();
 		return ret;
 	}
 
