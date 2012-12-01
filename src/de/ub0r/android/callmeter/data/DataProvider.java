@@ -29,6 +29,7 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -49,6 +50,7 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
@@ -88,9 +90,9 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 33;
+	private static final int DATABASE_VERSION = 34;
 	/** Versions of {@link SQLiteDatabase}, which need no unmatch(). */
-	private static final int[] DATABASE_KNOWNGOOD = new int[] { 30, 31, 32 };
+	private static final int[] DATABASE_KNOWNGOOD = new int[] { 30, 31, 32, 33 };
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 2;
@@ -313,15 +315,11 @@ public final class DataProvider extends ContentProvider {
 		 * 
 		 * @param db
 		 *            {@link SQLiteDatabase}
-		 * @param oldVersion
-		 *            old version
-		 * @param newVersion
-		 *            new version
 		 * @throws IOException
 		 *             IOException
 		 */
-		public static void onUpgrade(final Context context, final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) throws IOException {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db)
+				throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 
 			String fn = TABLE + ".bak";
@@ -423,15 +421,11 @@ public final class DataProvider extends ContentProvider {
 		 * 
 		 * @param db
 		 *            {@link SQLiteDatabase}
-		 * @param oldVersion
-		 *            old version
-		 * @param newVersion
-		 *            new version
 		 * @throws IOException
 		 *             IOException
 		 */
-		public static void onUpgrade(final Context context, final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) throws IOException {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db)
+				throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 
 			String fn = TABLE + ".bak";
@@ -508,15 +502,11 @@ public final class DataProvider extends ContentProvider {
 		 * 
 		 * @param db
 		 *            {@link SQLiteDatabase}
-		 * @param oldVersion
-		 *            old version
-		 * @param newVersion
-		 *            new version
 		 * @throws IOException
 		 *             IOException
 		 */
-		public static void onUpgrade(final Context context, final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) throws IOException {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db)
+				throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 
 			String fn = TABLE + ".bak";
@@ -1190,15 +1180,11 @@ public final class DataProvider extends ContentProvider {
 		 * 
 		 * @param db
 		 *            {@link SQLiteDatabase}
-		 * @param oldVersion
-		 *            old version
-		 * @param newVersion
-		 *            new version
 		 * @throws IOException
 		 *             IOException
 		 */
-		public static void onUpgrade(final Context context, final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) throws IOException {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db)
+				throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 
 			String fn = TABLE + ".bak";
@@ -1826,15 +1812,11 @@ public final class DataProvider extends ContentProvider {
 		 * 
 		 * @param db
 		 *            {@link SQLiteDatabase}
-		 * @param oldVersion
-		 *            old version
-		 * @param newVersion
-		 *            new version
 		 * @throws IOException
 		 *             IOException
 		 */
-		public static void onUpgrade(final Context context, final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) throws IOException {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db)
+				throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 
 			String fn = TABLE + ".bak";
@@ -1938,15 +1920,11 @@ public final class DataProvider extends ContentProvider {
 		 * 
 		 * @param db
 		 *            {@link SQLiteDatabase}
-		 * @param oldVersion
-		 *            old version
-		 * @param newVersion
-		 *            new version
 		 * @throws IOException
 		 *             IOException
 		 */
-		public static void onUpgrade(final Context context, final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) throws IOException {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db)
+				throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 
 			String fn = TABLE + ".bak";
@@ -2042,15 +2020,11 @@ public final class DataProvider extends ContentProvider {
 		 * 
 		 * @param db
 		 *            {@link SQLiteDatabase}
-		 * @param oldVersion
-		 *            old version
-		 * @param newVersion
-		 *            new version
 		 * @throws IOException
 		 *             IOException
 		 */
-		public static void onUpgrade(final Context context, final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) throws IOException {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db)
+				throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 
 			String fn = TABLE + ".bak";
@@ -2133,15 +2107,11 @@ public final class DataProvider extends ContentProvider {
 		 * 
 		 * @param db
 		 *            {@link SQLiteDatabase}
-		 * @param oldVersion
-		 *            old version
-		 * @param newVersion
-		 *            new version
 		 * @throws IOException
 		 *             IOException
 		 */
-		public static void onUpgrade(final Context context, final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) throws IOException {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db)
+				throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 
 			String fn = TABLE + ".bak";
@@ -2236,15 +2206,11 @@ public final class DataProvider extends ContentProvider {
 		 * 
 		 * @param db
 		 *            {@link SQLiteDatabase}
-		 * @param oldVersion
-		 *            old version
-		 * @param newVersion
-		 *            new version
 		 * @throws IOException
 		 *             IOException
 		 */
-		public static void onUpgrade(final Context context, final SQLiteDatabase db,
-				final int oldVersion, final int newVersion) throws IOException {
+		public static void onUpgrade(final Context context, final SQLiteDatabase db)
+				throws IOException {
 			Log.w(TAG, "Upgrading table: " + TABLE);
 
 			String fn = TABLE + ".bak";
@@ -2417,20 +2383,52 @@ public final class DataProvider extends ContentProvider {
 		public void onUpgrade(final SQLiteDatabase db, final int oldVersion, final int newVersion) {
 			Log.w(TAG, "Upgrading database from version " + oldVersion + " to " + newVersion
 					+ ", which will destroy all old data");
-			try {
-				Logs.onUpgrade(this.ctx, db, oldVersion, newVersion);
-				WebSMS.onUpgrade(this.ctx, db, oldVersion, newVersion);
-				SipCall.onUpgrade(this.ctx, db, oldVersion, newVersion);
-				Plans.onUpgrade(this.ctx, db, oldVersion, newVersion);
-				Rules.onUpgrade(this.ctx, db, oldVersion, newVersion);
-				Numbers.onUpgrade(this.ctx, db, oldVersion, newVersion);
-				NumbersGroup.onUpgrade(this.ctx, db, oldVersion, newVersion);
-				Hours.onUpgrade(this.ctx, db, oldVersion, newVersion);
-				HoursGroup.onUpgrade(this.ctx, db, oldVersion, newVersion);
-			} catch (IOException e) {
-				Log.e(TAG, "IOException on DB Upgrade!", e);
-				throw new IllegalStateException("IOException on DB Upgrade!", e);
+			switch (oldVersion) {
+			case 30:
+			case 31:
+			case 32:
+			case 33:
+				try {
+					db.execSQL("ALTER TABLE " + Logs.TABLE + " ADD COLUMN " + Logs.MYNUMBER
+							+ " TEXT");
+				} catch (SQLiteException e) {
+					if (e.getMessage().contains("duplicate column name:")) {
+						Log.i(TAG, "ignore existing column", e);
+					} else {
+						Log.e(TAG, "error adding column", e);
+						throw e;
+					}
+				}
+				try {
+					db.execSQL("ALTER TABLE " + Rules.TABLE + " ADD COLUMN " + Rules.MYNUMBER
+							+ " TEXT");
+				} catch (SQLiteException e) {
+					if (e.getMessage().contains("duplicate column name:")) {
+						Log.i(TAG, "ignore existing column", e);
+					} else {
+						Log.e(TAG, "error adding column", e);
+						throw e;
+					}
+				}
+				break;
+			default:
+				try {
+					Plans.onUpgrade(this.ctx, db);
+					Rules.onUpgrade(this.ctx, db);
+					Numbers.onUpgrade(this.ctx, db);
+					NumbersGroup.onUpgrade(this.ctx, db);
+					Hours.onUpgrade(this.ctx, db);
+					HoursGroup.onUpgrade(this.ctx, db);
+					WebSMS.onUpgrade(this.ctx, db);
+					SipCall.onUpgrade(this.ctx, db);
+					Logs.onUpgrade(this.ctx, db);
+				} catch (IOException e) {
+					Log.e(TAG, "IOException on DB Upgrade!", e);
+					throw new IllegalStateException("IOException on DB Upgrade!", e);
+				}
+				break;
 			}
+
 			if (this.needUnmatch(oldVersion, newVersion)) {
 				unmatch(db);
 			}
@@ -2894,6 +2892,20 @@ public final class DataProvider extends ContentProvider {
 		}
 	}
 
+	private static void importTable(final SQLiteDatabase db, final String table,
+			final List<ContentValues> values) {
+		// Add new tables here!
+		if (Hours.TABLE.equals(table) || HoursGroup.TABLE.equals(table) || Logs.TABLE.equals(table)
+				|| Numbers.TABLE.equals(table) || NumbersGroup.TABLE.equals(table)
+				|| Plans.TABLE.equals(table) || Rules.TABLE.equals(table)
+				|| SipCall.TABLE.equals(table) || WebSMS.TABLE.equals(table)) {
+			// reload cvs into table
+			db.delete(table, null, null);
+			reload(db, table, values.toArray(new ContentValues[values.size()]));
+		}
+		values.clear();
+	}
+
 	/**
 	 * Import data from lines into {@link SQLiteDatabase}.
 	 * 
@@ -2923,12 +2935,9 @@ public final class DataProvider extends ContentProvider {
 				table = ti[0];
 				cvs.clear();
 			} else if (!table.equals(ti[0])) {
-				// reload cvs into table
-				db.delete(table, null, null);
-				reload(db, table, cvs.toArray(new ContentValues[1]));
+				importTable(db, table, cvs);
 				// prepare new table/cvs
 				table = ti[0];
-				cvs.clear();
 			}
 			if (ti.length < 2) {
 				continue;
@@ -2951,9 +2960,7 @@ public final class DataProvider extends ContentProvider {
 			cvs.add(cv);
 		}
 		if (table != null && table.length() > 0) {
-			// reload table
-			db.delete(table, null, null);
-			reload(db, table, cvs.toArray(new ContentValues[cvs.size()]));
+			importTable(db, table, cvs);
 		}
 	}
 
@@ -3947,7 +3954,6 @@ public final class DataProvider extends ContentProvider {
 			} catch (IOException e) {
 				Log.e(TAG, "could not backup database", e);
 			}
-			// FIXME: delete? db.close();
 			this.mInBackup = false;
 		}
 		Log.d(TAG, "doBackup(): return");
