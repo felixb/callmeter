@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ContentProviderOperation;
@@ -38,6 +37,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.RemoteException;
 import android.preference.PreferenceManager;
+import android.support.v4.app.NotificationCompat;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.SparseArray;
@@ -1375,12 +1375,15 @@ public final class RuleMatcher {
 							.getSystemService(Context.NOTIFICATION_SERVICE);
 					final String t = String.format(context.getString(R.string.alerts_message),
 							alertPlan.name, alert);
-					final Notification n = new Notification(android.R.drawable.stat_notify_error,
-							t, now);
-					n.setLatestEventInfo(context, context.getString(R.string.alerts_title), t,
-							PendingIntent.getActivity(context, 0, new Intent(context, Plans.class),
-									PendingIntent.FLAG_CANCEL_CURRENT));
-					mNotificationMgr.notify(0, n);
+					NotificationCompat.Builder b = new NotificationCompat.Builder(context);
+					b.setSmallIcon(android.R.drawable.stat_notify_error);
+					b.setTicker(t);
+					b.setWhen(now);
+					b.setContentTitle(context.getString(R.string.alerts_title));
+					b.setContentText(t);
+					b.setContentIntent(PendingIntent.getActivity(context, 0, new Intent(context,
+							Plans.class), PendingIntent.FLAG_CANCEL_CURRENT));
+					mNotificationMgr.notify(0, b.build());
 					final ContentValues cv = new ContentValues();
 					cv.put(DataProvider.Plans.NEXT_ALERT, alertPlan.nextBillday);
 					cr.update(DataProvider.Plans.CONTENT_URI, cv, DataProvider.Plans.ID + " = ?",
