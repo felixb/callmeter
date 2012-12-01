@@ -2821,9 +2821,12 @@ public final class DataProvider extends ContentProvider {
 	 *            {@link SQLiteDatabase}
 	 * @param xml
 	 *            XML
+	 * @return true, if import was successful
 	 */
-	private static void importXml(final Context context, final SQLiteDatabase db, final String xml) {
+	private static boolean importXml(final Context context, final SQLiteDatabase db,
+			final String xml) {
 		Log.d(TAG, "importXml(db, #" + xml.length() + ")");
+		boolean ret = true;
 		XmlPullParser parser = Xml.newPullParser();
 		String version = null;
 		String country = null;
@@ -2903,8 +2906,9 @@ public final class DataProvider extends ContentProvider {
 			}
 		} catch (Exception e) {
 			Log.e(TAG, "error parsing xml", e);
-			Toast.makeText(context, R.string.err_export_read, Toast.LENGTH_LONG).show();
+			ret = false;
 		}
+		return ret;
 	}
 
 	private static void importTable(final SQLiteDatabase db, final String table,
@@ -2986,29 +2990,34 @@ public final class DataProvider extends ContentProvider {
 	 *            {@link Context}
 	 * @param ruleSet
 	 *            data as {@link String}; "DEFAULT" will import default rule set
+	 * @return true, if import was successful
 	 */
-	public static void importData(final Context context, final String ruleSet) {
+	public static boolean importData(final Context context, final String ruleSet) {
 		if (TextUtils.isEmpty(ruleSet)) {
-			return;
+			return false;
 		}
+		boolean ret = false;
 		final SQLiteDatabase db = new DatabaseHelper(context).getWritableDatabase();
 		if (ruleSet.trim().startsWith("<")) {
-			importXml(context, db, ruleSet);
+			ret = importXml(context, db, ruleSet);
 			Preferences.setDefaultPlan(context, false);
 			RuleMatcher.unmatch(context);
 		} else if (ruleSet.equals("DEFAULT")) {
 			importDefault(context, db);
 			Preferences.setDefaultPlan(context, true);
 			RuleMatcher.unmatch(context);
+			ret = true;
 		} else {
 			String[] lines = ruleSet.split("\n");
 			if (lines.length > 2) {
 				importData(context, db, lines);
 				Preferences.setDefaultPlan(context, false);
 				RuleMatcher.unmatch(context);
+				return true;
 			}
 		}
 		db.close();
+		return ret;
 	}
 
 	/**
