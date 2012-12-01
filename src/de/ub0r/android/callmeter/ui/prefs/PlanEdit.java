@@ -296,7 +296,11 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 				ep = new CVEditTextPreference(this, this.values, DataProvider.Plans.COST_PER_ITEM,
 						"");
 				ep.setTitle(R.string.cost_per_item_);
-				ep.setSummary(R.string.cost_per_item_help);
+				if (lt == DataProvider.LIMIT_TYPE_NONE) {
+					ep.setSummary(R.string.cost_per_item_no_limit_help);
+				} else {
+					ep.setSummary(R.string.cost_per_item_help);
+				}
 				ep.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_ITEM));
 				ep.setHint(this.getCostPerItemHint(t));
 				ep.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
@@ -344,7 +348,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 							DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT2,
 							t != DataProvider.TYPE_CALL || !advanced, "", "");
 					ep2.setTitle(R.string.cost_per_amount_in_limit_);
-					if (t == DataProvider.TYPE_CALL) {
+					if (t == DataProvider.TYPE_CALL && advanced) {
 						ep2.setSummary(R.string.cost_per_amount_in_limit_help2);
 					} else {
 						ep2.setSummary(R.string.cost_per_amount_in_limit_help1);
@@ -361,10 +365,18 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 						DataProvider.Plans.COST_PER_AMOUNT1, DataProvider.Plans.COST_PER_AMOUNT2,
 						t != DataProvider.TYPE_CALL || !advanced, "", "");
 				ep2.setTitle(R.string.cost_per_amount_);
-				if (t == DataProvider.TYPE_CALL) {
-					ep2.setSummary(R.string.cost_per_amount_help2);
+				if (lt == DataProvider.LIMIT_TYPE_NONE) {
+					if (t == DataProvider.TYPE_CALL && advanced) {
+						ep2.setSummary(R.string.cost_per_amount_no_limit_help2);
+					} else {
+						ep2.setSummary(R.string.cost_per_amount_no_limit_help1);
+					}
 				} else {
-					ep2.setSummary(R.string.cost_per_amount_help1);
+					if (t == DataProvider.TYPE_CALL && advanced) {
+						ep2.setSummary(R.string.cost_per_amount_help2);
+					} else {
+						ep2.setSummary(R.string.cost_per_amount_help1);
+					}
 				}
 				ep2.setHint(this.getCostPerAmountHint(t));
 				ep2.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT1),

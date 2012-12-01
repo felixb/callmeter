@@ -224,12 +224,15 @@
   <string name="cost_per_item_help" formatted="false">Stelle hier die Kosten ein, die ein einzelner Logeintrag (z.B. ein Anruf oder eine Nachricht) erzeugt, wenn das Limit erreicht ist.</string>
   <string name="cost_per_item_in_limit_" formatted="false">Kosten pro Logeintrag im Limit</string>
   <string name="cost_per_item_in_limit_help" formatted="false">Stelle hier die Kosten ein, die ein einzelner Logeintrag (z.B. ein Anruf oder eine Nachricht) erzeugt, bevor das Limit erreicht ist.</string>
+  <string name="cost_per_item_no_limit_help" formatted="false">Stelle hier die Kosten ein, die ein einzelner Logeintrag (z.B. ein Anruf oder eine Nachricht) erzeugt.</string>
   <string name="cost_per_amount_" formatted="false">Kosten pro Länge</string>
-  <string name="cost_per_amount_help1" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1kB Daten), wenn das Limit erreicht ist.</string>
+  <string name="cost_per_amount_help1" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1min Anruf, 1kB Daten), wenn das Limit erreicht ist.</string>
   <string name="cost_per_amount_help2" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1min Anruf), wenn das Limit erreicht ist.\nDas erste Feld bestimmt die Kosten für die ersten Sekunden deines Anrufes, das zweite für die folgenden (Beide Felder sind in €/Minute; mehr Infos beim Abrechnungsmodus).\n Im Zweifel setze beides als Kosten/Minute.</string>
   <string name="cost_per_amount_in_limit_" formatted="false">Kosten pro Länge im limit</string>
-  <string name="cost_per_amount_in_limit_help1" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1kB Daten), bevor das Limit erreicht ist.</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1min Anruf, 1kB Daten), bevor das Limit erreicht ist.</string>
   <string name="cost_per_amount_in_limit_help2" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1min Anruf), bevor das Limit erreicht ist.\nDas erste Feld bestimmt die Kosten für die ersten Sekunden deines Anrufes, das zweite für die folgenden (Beide Felder sind in €/Minute; mehr Infos beim Abrechnungsmodus).\n Im Zweifel setze beides als Kosten/Minute.</string>
+  <string name="cost_per_amount_no_limit_help1" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1min Anruf, 1kB Daten).</string>
+  <string name="cost_per_amount_no_limit_help2" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1min Anruf).\nDas erste Feld bestimmt die Kosten für die ersten Sekunden deines Anrufes, das zweite für die folgenden (Beide Felder sind in €/Minute; mehr Infos beim Abrechnungsmodus).\n Im Zweifel setze beides als Kosten/Minute.</string>
   <string name="cost_per_plan_" formatted="false">Kosten pro Kontingent</string>
   <string name="cost_per_plan_help" formatted="false">Stelle hier die Kosten für dieses Kontingent ein.</string>
   <string name="mixed_units_sms_" formatted="false">Einheiten für SMS</string>
