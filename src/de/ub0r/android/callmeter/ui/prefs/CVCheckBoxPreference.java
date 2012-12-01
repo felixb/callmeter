@@ -47,20 +47,6 @@ public final class CVCheckBoxPreference extends CheckBoxPreference {
 	}
 
 	@Override
-	public void setSummary(final CharSequence summary) {
-		if (!this.sh) {
-			super.setSummary(summary);
-		}
-	}
-
-	@Override
-	public void setSummary(final int summaryResId) {
-		if (!this.sh) {
-			super.setSummary(summaryResId);
-		}
-	}
-
-	@Override
 	protected View onCreateView(final ViewGroup parent) {
 		View v = super.onCreateView(parent);
 		TextView tv = (TextView) v.findViewById(android.R.id.summary);

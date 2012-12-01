@@ -96,20 +96,6 @@ public final class CV2EditTextPreference extends EditTextPreference {
 		this.setText(text, text);
 	}
 
-	@Override
-	public void setSummary(final CharSequence summary) {
-		if (!this.sh) {
-			super.setSummary(summary);
-		}
-	}
-
-	@Override
-	public void setSummary(final int summaryResId) {
-		if (!this.sh) {
-			super.setSummary(summaryResId);
-		}
-	}
-
 	/**
 	 * Set text.
 	 * 

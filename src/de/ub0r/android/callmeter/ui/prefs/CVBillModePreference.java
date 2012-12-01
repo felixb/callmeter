@@ -65,20 +65,6 @@ public final class CVBillModePreference extends ListPreference {
 	}
 
 	@Override
-	public void setSummary(final CharSequence summary) {
-		if (!this.sh) {
-			super.setSummary(summary);
-		}
-	}
-
-	@Override
-	public void setSummary(final int summaryResId) {
-		if (!this.sh) {
-			super.setSummary(summaryResId);
-		}
-	}
-
-	@Override
 	public void setValue(final String value) {
 		super.setValue(value);
 		if (!this.sh) {

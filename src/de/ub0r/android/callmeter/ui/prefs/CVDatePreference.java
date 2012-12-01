@@ -77,20 +77,6 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
 	}
 
 	@Override
-	public void setSummary(final CharSequence summary) {
-		if (!this.sh) {
-			super.setSummary(summary);
-		}
-	}
-
-	@Override
-	public void setSummary(final int summaryResId) {
-		if (!this.sh) {
-			super.setSummary(summaryResId);
-		}
-	}
-
-	@Override
 	protected View onCreateView(final ViewGroup parent) {
 		View view = super.onCreateView(parent);
 		TextView tv = (TextView) view.findViewById(android.R.id.summary);
@@ -115,8 +101,10 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
 	 */
 	public void setValue(final long time) {
 		this.v.setTimeInMillis(time);
-		super.setSummary(this.getContext().getString(R.string.value) + ": "
-				+ DateFormat.getDateFormat(this.getContext()).format(this.v.getTime()));
+		if (!this.sh) {
+			super.setSummary(this.getContext().getString(R.string.value) + ": "
+					+ DateFormat.getDateFormat(this.getContext()).format(this.v.getTime()));
+		}
 		this.updateDialog();
 	}
 
