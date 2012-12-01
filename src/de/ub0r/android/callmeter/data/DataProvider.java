@@ -645,7 +645,7 @@ public final class DataProvider extends ContentProvider {
 					} else {
 						this.limittype = cursor.getInt(INDEX_LIMIT_TYPE);
 						this.limit = getLimit(this.type, this.limittype,
-								cursor.getLong(INDEX_LIMIT));
+								cursor.getFloat(INDEX_LIMIT));
 						this.limitPos = getUsed(this.type, this.limittype, this.bpBa, this.cost);
 					}
 				}
@@ -730,7 +730,7 @@ public final class DataProvider extends ContentProvider {
 					} else {
 						this.limittype = cursor.getInt(INDEX_LIMIT_TYPE);
 						this.limit = getLimit(this.type, this.limittype,
-								cursor.getLong(INDEX_LIMIT));
+								cursor.getFloat(INDEX_LIMIT));
 						this.limitPos = getUsed(this.type, this.limittype, this.bpBa, this.cost);
 					}
 				}
@@ -1308,7 +1308,7 @@ public final class DataProvider extends ContentProvider {
 		 *            limit
 		 * @return get limit
 		 */
-		public static long getLimit(final int pType, final int lType, final long limit) {
+		public static long getLimit(final int pType, final int lType, final float limit) {
 			if (limit == 0L) {
 				return 0L;
 			}
@@ -1316,14 +1316,14 @@ public final class DataProvider extends ContentProvider {
 			case DataProvider.LIMIT_TYPE_UNITS:
 				switch (pType) {
 				case DataProvider.TYPE_DATA:
-					return limit * CallMeter.BYTE_KB;
+					return (long) (limit * CallMeter.BYTE_KB);
 				case DataProvider.TYPE_CALL:
-					return limit * CallMeter.SECONDS_MINUTE;
+					return (long) (limit * CallMeter.SECONDS_MINUTE);
 				default:
-					return limit;
+					return (long) limit;
 				}
 			case DataProvider.LIMIT_TYPE_COST:
-				return limit * CallMeter.HUNDRET;
+				return (long) (limit * CallMeter.HUNDRET);
 			default:
 				return 0L;
 			}

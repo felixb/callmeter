@@ -712,10 +712,10 @@ public final class RuleMatcher {
 			this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			this.limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 			final long l = DataProvider.Plans.getLimit(this.type, this.limitType,
-					cursor.getLong(DataProvider.Plans.INDEX_LIMIT));
+					cursor.getFloat(DataProvider.Plans.INDEX_LIMIT));
 			if (this.limitType == DataProvider.LIMIT_TYPE_UNITS
 					&& this.type == DataProvider.TYPE_DATA) {
-				// normality amount is saved as kB, here it is plan B
+				// normality amount is saved as kB, here it is B
 				this.limit = l * CallMeter.BYTE_KB;
 			} else {
 				this.limit = l;
@@ -1033,7 +1033,7 @@ public final class RuleMatcher {
 				}
 				return 0f;
 			}
-			final long l = this.limit / CallMeter.HUNDRET;
+			final float l = ((float) this.limit) / CallMeter.HUNDRET;
 			if (l <= this.billedCost) {
 				return 0f;
 			}
