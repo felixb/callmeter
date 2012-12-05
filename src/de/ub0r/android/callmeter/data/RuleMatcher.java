@@ -673,9 +673,11 @@ public final class RuleMatcher {
 		/** Cost per amount in limit. */
 		private final float costPerAmountInLimit1, costPerAmountInLimit2;
 		/** Units for mixed plans. */
-		private final int upc, ups, upm;
+		private final int upc, ups, upm, upd;
 		/** Strip first x seconds. */
 		private final int stripSeconds;
+		/** Strip everything but first x seconds. */
+		private final int stripPast;
 		/** Parent plan id. */
 		private final int ppid;
 		/** PArent plan. Set in RuleMatcher.load(). */
@@ -710,10 +712,10 @@ public final class RuleMatcher {
 			this.type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
 			this.limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
 			final long l = DataProvider.Plans.getLimit(this.type, this.limitType,
-					cursor.getLong(DataProvider.Plans.INDEX_LIMIT));
+					cursor.getFloat(DataProvider.Plans.INDEX_LIMIT));
 			if (this.limitType == DataProvider.LIMIT_TYPE_UNITS
 					&& this.type == DataProvider.TYPE_DATA) {
-				// normality amount is saved as kB, here it is plan B
+				// normality amount is saved as kB, here it is B
 				this.limit = l * CallMeter.BYTE_KB;
 			} else {
 				this.limit = l;
@@ -731,8 +733,10 @@ public final class RuleMatcher {
 			this.upc = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_CALL);
 			this.ups = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_SMS);
 			this.upm = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_MMS);
+			this.upd = cursor.getInt(DataProvider.Plans.INDEX_MIXED_UNITS_DATA);
 			this.nextAlert = cursor.getLong(DataProvider.Plans.INDEX_NEXT_ALERT);
 			this.stripSeconds = cursor.getInt(DataProvider.Plans.INDEX_STRIP_SECONDS);
+			this.stripPast = cursor.getInt(DataProvider.Plans.INDEX_STRIP_PAST);
 
 			final long bp = cursor.getLong(DataProvider.Plans.INDEX_BILLPERIOD_ID);
 			if (bp >= 0) {
@@ -926,6 +930,12 @@ public final class RuleMatcher {
 				ret = this.roundTime(amount);
 				if (this.stripSeconds > 0) {
 					ret -= this.stripSeconds;
+					if (ret < 0f) {
+						ret = 0f;
+					}
+				}
+				if (this.stripPast > 0 && ret > this.stripPast) {
+					ret = this.stripPast;
 				}
 				break;
 			default:
@@ -944,6 +954,8 @@ public final class RuleMatcher {
 				case DataProvider.TYPE_MMS:
 					ret = ret * this.upm;
 					break;
+				case DataProvider.TYPE_DATA:
+					ret = ret * this.upd / CallMeter.BYTE_MB;
 				default:
 					break;
 				}
@@ -1021,7 +1033,7 @@ public final class RuleMatcher {
 				}
 				return 0f;
 			}
-			final long l = this.limit / CallMeter.HUNDRET;
+			final float l = ((float) this.limit) / CallMeter.HUNDRET;
 			if (l <= this.billedCost) {
 				return 0f;
 			}

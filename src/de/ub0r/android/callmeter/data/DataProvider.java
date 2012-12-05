@@ -90,9 +90,9 @@ public final class DataProvider extends ContentProvider {
 	/** Name of the {@link SQLiteDatabase}. */
 	private static final String DATABASE_NAME = "callmeter.db";
 	/** Version of the {@link SQLiteDatabase}. */
-	private static final int DATABASE_VERSION = 34;
+	private static final int DATABASE_VERSION = 35;
 	/** Versions of {@link SQLiteDatabase}, which need no unmatch(). */
-	private static final int[] DATABASE_KNOWNGOOD = new int[] { 30, 31, 32, 33 };
+	private static final int[] DATABASE_KNOWNGOOD = new int[] { 30, 31, 32, 33, 34 };
 
 	/** Version of the export file. */
 	private static final int EXPORT_VERSION = 2;
@@ -645,7 +645,7 @@ public final class DataProvider extends ContentProvider {
 					} else {
 						this.limittype = cursor.getInt(INDEX_LIMIT_TYPE);
 						this.limit = getLimit(this.type, this.limittype,
-								cursor.getLong(INDEX_LIMIT));
+								cursor.getFloat(INDEX_LIMIT));
 						this.limitPos = getUsed(this.type, this.limittype, this.bpBa, this.cost);
 					}
 				}
@@ -730,7 +730,7 @@ public final class DataProvider extends ContentProvider {
 					} else {
 						this.limittype = cursor.getInt(INDEX_LIMIT_TYPE);
 						this.limit = getLimit(this.type, this.limittype,
-								cursor.getLong(INDEX_LIMIT));
+								cursor.getFloat(INDEX_LIMIT));
 						this.limitPos = getUsed(this.type, this.limittype, this.bpBa, this.cost);
 					}
 				}
@@ -933,14 +933,18 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_MIXED_UNITS_SMS = 17;
 		/** Index in projection: Mixed units for mms. */
 		public static final int INDEX_MIXED_UNITS_MMS = 18;
+		/** Index in projection: Mixed units for data. */
+		public static final int INDEX_MIXED_UNITS_DATA = 19;
 		/** Index in projection: id of billperiod. */
-		public static final int INDEX_BILLPERIOD_ID = 19;
+		public static final int INDEX_BILLPERIOD_ID = 20;
 		/** Index in projection: next alert. */
-		public static final int INDEX_NEXT_ALERT = 20;
+		public static final int INDEX_NEXT_ALERT = 21;
 		/** Index in projection: strip first seconds. */
-		public static final int INDEX_STRIP_SECONDS = 21;
+		public static final int INDEX_STRIP_SECONDS = 22;
+		/** Index in projection: strip all but first seconds. */
+		public static final int INDEX_STRIP_PAST = 23;
 		/** Index in projection: merged plans. */
-		public static final int INDEX_MERGED_PLANS = 22;
+		public static final int INDEX_MERGED_PLANS = 24;
 		/** Index in projection: sum, now. */
 		public static final int INDEX_SUM_NOW = 9;
 		/** Index in projection: sum, last bill day. */
@@ -1008,10 +1012,14 @@ public final class DataProvider extends ContentProvider {
 		public static final String MIXED_UNITS_SMS = "_mixed_units_sms";
 		/** Mixed units for mms. */
 		public static final String MIXED_UNITS_MMS = "_mixed_units_mms";
+		/** Mixed units for data. */
+		public static final String MIXED_UNITS_DATA = "_mixed_units_data";
 		/** Next alert. */
 		public static final String NEXT_ALERT = "_next_alert";
 		/** Strip first seconds. */
 		public static final String STRIP_SECONDS = "_strip_seconds";
+		/** Strip anything but first seconds. */
+		public static final String STRIP_PAST = "_strip_past";
 		/** Merged plans. */
 		public static final String MERGED_PLANS = "_merged_plans";
 
@@ -1047,7 +1055,8 @@ public final class DataProvider extends ContentProvider {
 				LIMIT_TYPE, LIMIT, BILLPERIOD, BILLMODE, BILLDAY, COST_PER_ITEM, COST_PER_AMOUNT1,
 				COST_PER_AMOUNT2, COST_PER_ITEM_IN_LIMIT, COST_PER_AMOUNT_IN_LIMIT1,
 				COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN, MIXED_UNITS_CALL, MIXED_UNITS_SMS,
-				MIXED_UNITS_MMS, BILLPERIOD_ID, NEXT_ALERT, STRIP_SECONDS, MERGED_PLANS, ORDER };
+				MIXED_UNITS_MMS, MIXED_UNITS_DATA, BILLPERIOD_ID, NEXT_ALERT, STRIP_SECONDS,
+				STRIP_PAST, MERGED_PLANS, ORDER };
 		/** Projection used for basic query. */
 		public static final String[] PROJECTION_BASIC = new String[] { ID, NAME, SHORTNAME, TYPE,
 				LIMIT_TYPE, LIMIT, BILLPERIOD, ORDER };
@@ -1169,8 +1178,9 @@ public final class DataProvider extends ContentProvider {
 					+ " FLOAT," + COST_PER_ITEM_IN_LIMIT + " FLOAT," + COST_PER_AMOUNT_IN_LIMIT1
 					+ " FLOAT," + COST_PER_AMOUNT_IN_LIMIT2 + " FLOAT," + COST_PER_PLAN + " FLOAT,"
 					+ MIXED_UNITS_CALL + " INTEGER," + MIXED_UNITS_SMS + " INTEGER,"
-					+ MIXED_UNITS_MMS + " INTEGER," + NEXT_ALERT + " LONG," + STRIP_SECONDS
-					+ " INTEGER," + MERGED_PLANS + " TEXT" + ");");
+					+ MIXED_UNITS_MMS + " INTEGER," + MIXED_UNITS_DATA + " INTEGER," + NEXT_ALERT
+					+ " LONG," + STRIP_SECONDS + " INTEGER," + STRIP_PAST + " INTEGER,"
+					+ MERGED_PLANS + " TEXT" + ");");
 			db.execSQL("CREATE INDEX " + TABLE + "_idx on " + TABLE + " (" + ID + "," + ORDER + ","
 					+ TYPE + ")");
 		}
@@ -1298,7 +1308,7 @@ public final class DataProvider extends ContentProvider {
 		 *            limit
 		 * @return get limit
 		 */
-		public static long getLimit(final int pType, final int lType, final long limit) {
+		public static long getLimit(final int pType, final int lType, final float limit) {
 			if (limit == 0L) {
 				return 0L;
 			}
@@ -1306,14 +1316,14 @@ public final class DataProvider extends ContentProvider {
 			case DataProvider.LIMIT_TYPE_UNITS:
 				switch (pType) {
 				case DataProvider.TYPE_DATA:
-					return limit * CallMeter.BYTE_KB;
+					return (long) (limit * CallMeter.BYTE_KB);
 				case DataProvider.TYPE_CALL:
-					return limit * CallMeter.SECONDS_MINUTE;
+					return (long) (limit * CallMeter.SECONDS_MINUTE);
 				default:
-					return limit;
+					return (long) limit;
 				}
 			case DataProvider.LIMIT_TYPE_COST:
-				return limit * CallMeter.HUNDRET;
+				return (long) (limit * CallMeter.HUNDRET);
 			default:
 				return 0L;
 			}
@@ -2391,6 +2401,8 @@ public final class DataProvider extends ContentProvider {
 				try {
 					db.execSQL("ALTER TABLE " + Logs.TABLE + " ADD COLUMN " + Logs.MYNUMBER
 							+ " TEXT");
+					db.execSQL("ALTER TABLE " + Rules.TABLE + " ADD COLUMN " + Rules.MYNUMBER
+							+ " TEXT");
 				} catch (SQLiteException e) {
 					if (e.getMessage().contains("duplicate column name:")) {
 						Log.i(TAG, "ignore existing column", e);
@@ -2399,9 +2411,12 @@ public final class DataProvider extends ContentProvider {
 						throw e;
 					}
 				}
+			case 34:
 				try {
-					db.execSQL("ALTER TABLE " + Rules.TABLE + " ADD COLUMN " + Rules.MYNUMBER
-							+ " TEXT");
+					db.execSQL("ALTER TABLE " + Plans.TABLE + " ADD COLUMN "
+							+ Plans.MIXED_UNITS_DATA + " INTEGER");
+					db.execSQL("ALTER TABLE " + Plans.TABLE + " ADD COLUMN " + Plans.STRIP_PAST
+							+ " INTEGER");
 				} catch (SQLiteException e) {
 					if (e.getMessage().contains("duplicate column name:")) {
 						Log.i(TAG, "ignore existing column", e);
@@ -2806,9 +2821,12 @@ public final class DataProvider extends ContentProvider {
 	 *            {@link SQLiteDatabase}
 	 * @param xml
 	 *            XML
+	 * @return true, if import was successful
 	 */
-	private static void importXml(final Context context, final SQLiteDatabase db, final String xml) {
+	private static boolean importXml(final Context context, final SQLiteDatabase db,
+			final String xml) {
 		Log.d(TAG, "importXml(db, #" + xml.length() + ")");
+		boolean ret = true;
 		XmlPullParser parser = Xml.newPullParser();
 		String version = null;
 		String country = null;
@@ -2888,8 +2906,9 @@ public final class DataProvider extends ContentProvider {
 			}
 		} catch (Exception e) {
 			Log.e(TAG, "error parsing xml", e);
-			Toast.makeText(context, R.string.err_export_read, Toast.LENGTH_LONG).show();
+			ret = false;
 		}
+		return ret;
 	}
 
 	private static void importTable(final SQLiteDatabase db, final String table,
@@ -2971,29 +2990,34 @@ public final class DataProvider extends ContentProvider {
 	 *            {@link Context}
 	 * @param ruleSet
 	 *            data as {@link String}; "DEFAULT" will import default rule set
+	 * @return true, if import was successful
 	 */
-	public static void importData(final Context context, final String ruleSet) {
+	public static boolean importData(final Context context, final String ruleSet) {
 		if (TextUtils.isEmpty(ruleSet)) {
-			return;
+			return false;
 		}
+		boolean ret = false;
 		final SQLiteDatabase db = new DatabaseHelper(context).getWritableDatabase();
 		if (ruleSet.trim().startsWith("<")) {
-			importXml(context, db, ruleSet);
+			ret = importXml(context, db, ruleSet);
 			Preferences.setDefaultPlan(context, false);
 			RuleMatcher.unmatch(context);
 		} else if (ruleSet.equals("DEFAULT")) {
 			importDefault(context, db);
 			Preferences.setDefaultPlan(context, true);
 			RuleMatcher.unmatch(context);
+			ret = true;
 		} else {
 			String[] lines = ruleSet.split("\n");
 			if (lines.length > 2) {
 				importData(context, db, lines);
 				Preferences.setDefaultPlan(context, false);
 				RuleMatcher.unmatch(context);
+				return true;
 			}
 		}
 		db.close();
+		return ret;
 	}
 
 	/**

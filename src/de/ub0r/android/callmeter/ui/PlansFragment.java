@@ -353,11 +353,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 				if (textSize > 0) {
 					tvCache.setTextSize(textSize);
 				}
-				if (plan.limit == 0 && plan.type == DataProvider.TYPE_BILLPERIOD) {
-					pbCache.setIndeterminate(true);
-					pbCache.setVisibility(View.VISIBLE);
-				} else if (plan.limit == 0) {
-					// plan.type != DataProvider.TYPE_BILLPERIOD
+				if (plan.limit == 0) {
 					pbCache.setVisibility(View.GONE);
 				} else if (plan.limit > 0) {
 					pbCache.setIndeterminate(false);

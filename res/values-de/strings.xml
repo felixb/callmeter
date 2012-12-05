@@ -224,12 +224,15 @@
   <string name="cost_per_item_help" formatted="false">Stelle hier die Kosten ein, die ein einzelner Logeintrag (z.B. ein Anruf oder eine Nachricht) erzeugt, wenn das Limit erreicht ist.</string>
   <string name="cost_per_item_in_limit_" formatted="false">Kosten pro Logeintrag im Limit</string>
   <string name="cost_per_item_in_limit_help" formatted="false">Stelle hier die Kosten ein, die ein einzelner Logeintrag (z.B. ein Anruf oder eine Nachricht) erzeugt, bevor das Limit erreicht ist.</string>
+  <string name="cost_per_item_no_limit_help" formatted="false">Stelle hier die Kosten ein, die ein einzelner Logeintrag (z.B. ein Anruf oder eine Nachricht) erzeugt.</string>
   <string name="cost_per_amount_" formatted="false">Kosten pro Länge</string>
-  <string name="cost_per_amount_help1" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1kB Daten), wenn das Limit erreicht ist.</string>
+  <string name="cost_per_amount_help1" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1min Anruf, 1kB Daten), wenn das Limit erreicht ist.</string>
   <string name="cost_per_amount_help2" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1min Anruf), wenn das Limit erreicht ist.\nDas erste Feld bestimmt die Kosten für die ersten Sekunden deines Anrufes, das zweite für die folgenden (Beide Felder sind in €/Minute; mehr Infos beim Abrechnungsmodus).\n Im Zweifel setze beides als Kosten/Minute.</string>
   <string name="cost_per_amount_in_limit_" formatted="false">Kosten pro Länge im limit</string>
-  <string name="cost_per_amount_in_limit_help1" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1kB Daten), bevor das Limit erreicht ist.</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1min Anruf, 1kB Daten), bevor das Limit erreicht ist.</string>
   <string name="cost_per_amount_in_limit_help2" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1min Anruf), bevor das Limit erreicht ist.\nDas erste Feld bestimmt die Kosten für die ersten Sekunden deines Anrufes, das zweite für die folgenden (Beide Felder sind in €/Minute; mehr Infos beim Abrechnungsmodus).\n Im Zweifel setze beides als Kosten/Minute.</string>
+  <string name="cost_per_amount_no_limit_help1" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1min Anruf, 1kB Daten).</string>
+  <string name="cost_per_amount_no_limit_help2" formatted="false">Stelle hier die Kosten ein, die über die Länge eines Logeintrages entstehen (z.B. für 1min Anruf).\nDas erste Feld bestimmt die Kosten für die ersten Sekunden deines Anrufes, das zweite für die folgenden (Beide Felder sind in €/Minute; mehr Infos beim Abrechnungsmodus).\n Im Zweifel setze beides als Kosten/Minute.</string>
   <string name="cost_per_plan_" formatted="false">Kosten pro Kontingent</string>
   <string name="cost_per_plan_help" formatted="false">Stelle hier die Kosten für dieses Kontingent ein.</string>
   <string name="mixed_units_sms_" formatted="false">Einheiten für SMS</string>
@@ -238,6 +241,8 @@
   <string name="mixed_units_mms_help" formatted="false">Stelle hier die Einheiten ein, die für eine einzelne MMS berechnet werden.</string>
   <string name="mixed_units_call_" formatted="false">Einheiten für Anrufe</string>
   <string name="mixed_units_call_help" formatted="false">Stelle hier die Einheiten ein, die für eine einzelne Minute Anruf berechnet werden.\Der Abrechnungsmodus wird hier beachtet.</string>
+  <string name="mixed_units_data_" formatrd="false">Einheiten für Daten</string>
+  <string name="mixed_units_data_help" formatrd="false">Stelle hier die Einheiten ein, die für jedes MB an Daten berechnet werden.</string>
   <string name="merge_plans_" formatted="false">Kontingente zusammenführen</string>
   <string name="merge_plans_help" formatted="false">Führe andere Kontingente mit diesem zusammen und rechne sie hier (auch) ab.</string>
   <string name="units_cost" formatted="false">€</string>
@@ -264,6 +269,8 @@
   <string name="issipcall_help" formatted="false">Anruf über SIP. Zur Zeit wird sipdroid &gt;1.6.1 unterstützt.</string>
   <string name="strip_seconds_" formatted="false">Ersten Sekunden nicht abrechnen</string>
   <string name="strip_seconds_help" formatted="false">Rechne die ersten x Sekunden eines Anrufes nicht ab.</string>
+  <string name="strip_past_" formated="false">Nur die ersten Sekunden</string>
+  <string name="strip_past_help" formated="false">Rechne nur die ersten x Sekunden eines Anrufes ab.</string>
   <string name="active_">Aktiv</string>
   <string name="active_help">Nur aktive Regeln werden benutzt um Logs zuzuordnen.</string>
   <string name="what_" formatted="false">Typ</string>

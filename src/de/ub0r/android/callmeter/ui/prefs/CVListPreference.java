@@ -94,20 +94,6 @@ public final class CVListPreference extends ListPreference {
 		this.setDialogTitle(title);
 	}
 
-	@Override
-	public void setSummary(final CharSequence summary) {
-		if (!this.sh) {
-			super.setSummary(summary);
-		}
-	}
-
-	@Override
-	public void setSummary(final int summaryResId) {
-		if (!this.sh) {
-			super.setSummary(summaryResId);
-		}
-	}
-
 	/**
 	 * Set static list.
 	 * 

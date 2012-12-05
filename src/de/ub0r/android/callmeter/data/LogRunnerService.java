@@ -309,9 +309,13 @@ public final class LogRunnerService extends IntentService {
 	 * @param amount
 	 *            amount
 	 */
-	private static void setLastData(final Editor e, final int type, final int direction,
+	public static void setLastData(final Editor e, final int type, final int direction,
 			final long amount) {
-		e.putLong(PREFS_LASTDATA_PREFIX + type + "_" + direction, amount);
+		if (amount < 0L) {
+			e.remove(PREFS_LASTDATA_PREFIX + type + "_" + direction);
+		} else {
+			e.putLong(PREFS_LASTDATA_PREFIX + type + "_" + direction, amount);
+		}
 	}
 
 	/**
@@ -452,9 +456,12 @@ public final class LogRunnerService extends IntentService {
 	 * @param cr
 	 *            {@link ContentResolver}
 	 */
-	private static void updateCalls(final ContentResolver cr) {
+	private static void updateCalls(final Context context) {
 		Log.d(TAG, "updateCalls()");
-		final long maxdate = getMaxDate(cr, DataProvider.TYPE_CALL);
+		final ContentResolver cr = context.getContentResolver();
+		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
+		long maxdate = Math.max(getLastData(p, DataProvider.TYPE_CALL, 0),
+				getMaxDate(cr, DataProvider.TYPE_CALL));
 		Cursor cursor;
 		try {
 			cursor = cr.query(Calls.CONTENT_URI, null, Calls.DATE + " > ?",
@@ -495,10 +502,14 @@ public final class LogRunnerService extends IntentService {
 				if (d == 0) {
 					continue;
 				}
+				long l = cursor.getLong(idDate);
+				if (l > maxdate) {
+					maxdate = l;
+				}
 				cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
 				cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_CALL);
-				cv.put(DataProvider.Logs.DATE, cursor.getLong(idDate));
+				cv.put(DataProvider.Logs.DATE, l);
 				cv.put(DataProvider.Logs.REMOTE,
 						DataProvider.Logs.cleanNumber(cursor.getString(idNumber), false));
 				cv.put(DataProvider.Logs.AMOUNT, d);
@@ -523,6 +534,9 @@ public final class LogRunnerService extends IntentService {
 			}
 		}
 		cursor.close();
+		Editor e = p.edit();
+		setLastData(e, DataProvider.TYPE_CALL, 0, maxdate);
+		e.commit();
 		Log.d(TAG, "updateCalls(): done");
 	}
 
@@ -817,7 +831,7 @@ public final class LogRunnerService extends IntentService {
 			if (deleteBefore > 0L) {
 				deleteOldLogs(cr);
 			}
-			updateCalls(cr);
+			updateCalls(this);
 			updateSMS(cr, DataProvider.DIRECTION_IN);
 			updateSMS(cr, DataProvider.DIRECTION_OUT);
 			updateMMS(this);
@@ -826,7 +840,7 @@ public final class LogRunnerService extends IntentService {
 				LogsAppWidgetProvider.updateWidgets(this);
 			}
 		} else if (roaming) {
-			updateCalls(cr);
+			updateCalls(this);
 			updateSMS(cr, DataProvider.DIRECTION_IN);
 			updateSMS(cr, DataProvider.DIRECTION_OUT);
 			updateMMS(this);

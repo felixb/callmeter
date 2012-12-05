@@ -67,6 +67,7 @@ import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.DataProvider.XmlMetaData;
 import de.ub0r.android.callmeter.data.Device;
 import de.ub0r.android.callmeter.data.ExportProvider;
+import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Market;
@@ -398,6 +399,11 @@ public final class Preferences extends SherlockPreferenceActivity implements
 	 *            type to delete; -1 for all
 	 */
 	private void resetData(final int type) {
+		if (type < 0 || type == DataProvider.TYPE_CALL) {
+			Editor e = PreferenceManager.getDefaultSharedPreferences(this).edit();
+			LogRunnerService.setLastData(e, DataProvider.TYPE_CALL, 0, 0L);
+			e.commit();
+		}
 		if (type < 0) {
 			this.getContentResolver().delete(DataProvider.Logs.CONTENT_URI, null, null);
 		} else {
@@ -541,22 +547,25 @@ public final class Preferences extends SherlockPreferenceActivity implements
 			protected String doInBackground(final Void... params) {
 				StringBuilder sb = new StringBuilder();
 				try {
-					final InputStream is = Preferences.this.getStream(
+					InputStream is = Preferences.this.getStream(
 							Preferences.this.getContentResolver(), uri);
 					if (is != IS_DEFAULT) {
-						final BufferedReader bufferedReader = new BufferedReader(
-								new InputStreamReader(is), BUFSIZE);
-						String line = bufferedReader.readLine();
+						final BufferedReader r = new BufferedReader(new InputStreamReader(is),
+								BUFSIZE);
+						String line = r.readLine();
 						while (line != null) {
+							// Log.d(TAG, "read new line: " + line);
 							sb.append(line);
 							sb.append("\n");
-							line = bufferedReader.readLine();
+							line = r.readLine();
 						}
+						is.close();
+						r.close();
 					} else {
 						sb.append("DEFAULT");
 					}
 				} catch (Exception e) {
-					Log.e(TAG, "error in reading export: " + e.toString(), e);
+					Log.e(TAG, "error in reading export: " + uri, e);
 					return null;
 				}
 				return sb.toString();
@@ -623,15 +632,18 @@ public final class Preferences extends SherlockPreferenceActivity implements
 						d1.setCancelable(false);
 						d1.setIndeterminate(true);
 						d1.show();
-						new AsyncTask<Void, Void, Void>() {
+						new AsyncTask<Void, Void, Boolean>() {
 							@Override
-							protected Void doInBackground(final Void... params) {
-								DataProvider.importData(Preferences.this, result);
-								return null;
+							protected Boolean doInBackground(final Void... params) {
+								return DataProvider.importData(Preferences.this, result);
 							}
 
 							@Override
-							protected void onPostExecute(final Void result) {
+							protected void onPostExecute(final Boolean result) {
+								if (!result) {
+									Toast.makeText(context, R.string.err_export_read,
+											Toast.LENGTH_LONG).show();
+								}
 								d1.dismiss();
 							}
 						}.execute((Void) null);

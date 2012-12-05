@@ -155,7 +155,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 					lp.setValue(String.valueOf(bpl));
 					ps.addPreference(lp);
 				} else {
-					// set bill period to infinit
+					// set bill period to infinite
 					this.values
 							.put(DataProvider.Plans.BILLPERIOD, DataProvider.BILLPERIOD_INFINITE);
 				}
@@ -238,14 +238,24 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 					bp.setSummary(R.string.billmode_help);
 					bp.setValue(c.getString(DataProvider.Plans.INDEX_BILLMODE));
 					ps.addPreference(bp);
-					// strip seconds
-					ep = new CVEditTextPreference(this, this.values,
-							DataProvider.Plans.STRIP_SECONDS, "0");
-					ep.setTitle(R.string.strip_seconds_);
-					ep.setSummary(R.string.strip_seconds_help);
-					ep.setText(c.getString(DataProvider.Plans.INDEX_STRIP_SECONDS));
-					ep.setInputType(InputType.TYPE_CLASS_NUMBER);
-					ps.addPreference(ep);
+					if (advanced) {
+						// strip first seconds
+						ep = new CVEditTextPreference(this, this.values,
+								DataProvider.Plans.STRIP_SECONDS, "0");
+						ep.setTitle(R.string.strip_seconds_);
+						ep.setSummary(R.string.strip_seconds_help);
+						ep.setText(c.getString(DataProvider.Plans.INDEX_STRIP_SECONDS));
+						ep.setInputType(InputType.TYPE_CLASS_NUMBER);
+						ps.addPreference(ep);
+						// strip anything but first seconds
+						ep = new CVEditTextPreference(this, this.values,
+								DataProvider.Plans.STRIP_PAST, "0");
+						ep.setTitle(R.string.strip_past_);
+						ep.setSummary(R.string.strip_past_help);
+						ep.setText(c.getString(DataProvider.Plans.INDEX_STRIP_PAST));
+						ep.setInputType(InputType.TYPE_CLASS_NUMBER);
+						ps.addPreference(ep);
+					}
 				}
 			}
 			if (t == DataProvider.TYPE_BILLPERIOD && prepaid) {
@@ -286,7 +296,11 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 				ep = new CVEditTextPreference(this, this.values, DataProvider.Plans.COST_PER_ITEM,
 						"");
 				ep.setTitle(R.string.cost_per_item_);
-				ep.setSummary(R.string.cost_per_item_help);
+				if (lt == DataProvider.LIMIT_TYPE_NONE) {
+					ep.setSummary(R.string.cost_per_item_no_limit_help);
+				} else {
+					ep.setSummary(R.string.cost_per_item_help);
+				}
 				ep.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_ITEM));
 				ep.setHint(this.getCostPerItemHint(t));
 				ep.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
@@ -317,6 +331,14 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 				ep.setText(c.getString(DataProvider.Plans.INDEX_MIXED_UNITS_MMS));
 				ep.setInputType(InputType.TYPE_CLASS_NUMBER);
 				ps.addPreference(ep);
+				// mixed: units/data
+				ep = new CVEditTextPreference(this, this.values,
+						DataProvider.Plans.MIXED_UNITS_DATA, "");
+				ep.setTitle(R.string.mixed_units_data_);
+				ep.setSummary(R.string.mixed_units_data_help);
+				ep.setText(c.getString(DataProvider.Plans.INDEX_MIXED_UNITS_DATA));
+				ep.setInputType(InputType.TYPE_CLASS_NUMBER);
+				ps.addPreference(ep);
 			}
 			if (merged == null && (t == DataProvider.TYPE_CALL || t == DataProvider.TYPE_DATA)) {
 				if (lt != DataProvider.LIMIT_TYPE_NONE || ppid > 0L) {
@@ -326,7 +348,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 							DataProvider.Plans.COST_PER_AMOUNT_IN_LIMIT2,
 							t != DataProvider.TYPE_CALL || !advanced, "", "");
 					ep2.setTitle(R.string.cost_per_amount_in_limit_);
-					if (t == DataProvider.TYPE_CALL) {
+					if (t == DataProvider.TYPE_CALL && advanced) {
 						ep2.setSummary(R.string.cost_per_amount_in_limit_help2);
 					} else {
 						ep2.setSummary(R.string.cost_per_amount_in_limit_help1);
@@ -343,10 +365,18 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 						DataProvider.Plans.COST_PER_AMOUNT1, DataProvider.Plans.COST_PER_AMOUNT2,
 						t != DataProvider.TYPE_CALL || !advanced, "", "");
 				ep2.setTitle(R.string.cost_per_amount_);
-				if (t == DataProvider.TYPE_CALL) {
-					ep2.setSummary(R.string.cost_per_amount_help2);
+				if (lt == DataProvider.LIMIT_TYPE_NONE) {
+					if (t == DataProvider.TYPE_CALL && advanced) {
+						ep2.setSummary(R.string.cost_per_amount_no_limit_help2);
+					} else {
+						ep2.setSummary(R.string.cost_per_amount_no_limit_help1);
+					}
 				} else {
-					ep2.setSummary(R.string.cost_per_amount_help1);
+					if (t == DataProvider.TYPE_CALL && advanced) {
+						ep2.setSummary(R.string.cost_per_amount_help2);
+					} else {
+						ep2.setSummary(R.string.cost_per_amount_help1);
+					}
 				}
 				ep2.setHint(this.getCostPerAmountHint(t));
 				ep2.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT1),
@@ -372,9 +402,9 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 	private String getMergePlansWhere(final int t) {
 		String where;
 		if (t == DataProvider.TYPE_MIXED) {
-			where = "(" + DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_CALL + " OR "
-					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_SMS + " OR "
-					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_MMS + ")";
+			where = "(" + DataProvider.Plans.TYPE + " in (" + DataProvider.TYPE_CALL + ","
+					+ DataProvider.TYPE_SMS + "," + DataProvider.TYPE_MMS + ","
+					+ DataProvider.TYPE_DATA + "))";
 		} else {
 			where = DataProvider.Plans.TYPE + " = " + t;
 		}

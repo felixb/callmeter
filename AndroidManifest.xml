@@ -114,6 +114,7 @@
                 <data android:scheme="https" />
                 <data android:host="*" />
                 <data android:pathPattern=".*xml" />
+                <data android:pathPattern=".*\\.xml" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -126,7 +127,9 @@
                 <data android:host="*" />
                 <data android:mimeType="*/*" />
                 <data android:pathPattern=".*xml" />
+                <data android:pathPattern=".*\\.xml" />
                 <data android:pathPattern=".*export" />
+                <data android:pathPattern=".*\\.export" />
             </intent-filter>
         </activity>
         <activity

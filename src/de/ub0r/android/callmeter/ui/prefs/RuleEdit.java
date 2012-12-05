@@ -402,7 +402,8 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_MIXED;
 			break;
 		case DataProvider.Rules.WHAT_DATA:
-			where = DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_DATA;
+			where = DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_DATA + " OR "
+					+ DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_MIXED;
 			break;
 		case DataProvider.Rules.WHAT_SMS:
 		case DataProvider.Rules.WHAT_MMS:
