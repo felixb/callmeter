@@ -333,8 +333,12 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 				.getContentResolver()
 				.query(DataProvider.Rules.CONTENT_URI, new String[] { DataProvider.Rules.ID },
 						DataProvider.Rules.MYNUMBER + " like '___%'", null, null);
-		this.showMyNumber = c.getCount() > 0;
-		c.close();
+		if (c != null) {
+			this.showMyNumber = c.getCount() > 0;
+			c.close();
+		} else {
+			this.showMyNumber = false;
+		}
 		this.showHours = PreferenceManager.getDefaultSharedPreferences(this.getActivity())
 				.getBoolean(Preferences.PREFS_SHOWHOURS, true);
 		this.cformat = Preferences.getCurrencyFormat(this.getActivity());
