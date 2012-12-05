@@ -575,7 +575,11 @@ public final class Preferences extends SherlockPreferenceActivity implements
 			@Override
 			protected void onPostExecute(final String result) {
 				Log.d(TAG, "import:\n" + result);
-				d1.dismiss();
+				try {
+					d1.dismiss();
+				} catch (Exception e) { // ignore any exception
+					Log.e(TAG, "cannot dismiss dialog", e);
+				}
 				if (result == null || result.length() == 0) {
 					Toast.makeText(Preferences.this, R.string.err_export_read, Toast.LENGTH_LONG)
 							.show();
