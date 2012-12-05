@@ -2530,7 +2530,7 @@ public final class DataProvider extends ContentProvider {
 			for (String k : projection) {
 				String v = cv.getAsString(k);
 				if (v != null) {
-					v = v.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+					v = encodeString(v);
 					sb.append(indent + "  <" + k + ">" + v + "</" + k + ">\n");
 				}
 			}
@@ -2562,7 +2562,7 @@ public final class DataProvider extends ContentProvider {
 		if (TextUtils.isEmpty(s)) {
 			return s;
 		} else {
-			return s.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+			return s.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 		}
 	}
 
@@ -2577,7 +2577,7 @@ public final class DataProvider extends ContentProvider {
 		if (TextUtils.isEmpty(s)) {
 			return s;
 		} else {
-			return s.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+			return s.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&amp;", "&");
 		}
 	}
 
