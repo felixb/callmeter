@@ -2719,6 +2719,7 @@ public final class DataProvider extends ContentProvider {
 	private static void parseValues(final Context context, final XmlPullParser parser,
 			final HashMap<String, ArrayList<ContentValues>> lists, final String name,
 			final ArrayList<ContentValues> list) throws XmlPullParserException, IOException {
+		Log.d(TAG, "parseValues(..," + name + ", #" + list.size() + ")");
 		String element = name.substring(0, name.length() - 1);
 		while (parser.next() != XmlPullParser.END_TAG) {
 			if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -2733,13 +2734,19 @@ public final class DataProvider extends ContentProvider {
 				String k = parser.getName();
 				if (k.equals("hours")) {
 					parser.next();
-					ArrayList<ContentValues> l = new ArrayList<ContentValues>();
-					lists.put(DataProvider.Hours.TABLE, l);
+					ArrayList<ContentValues> l = lists.get(DataProvider.Hours.TABLE);
+					if (l == null) {
+						l = new ArrayList<ContentValues>();
+						lists.put(DataProvider.Hours.TABLE, l);
+					}
 					parseValues(context, parser, lists, k, l);
 				} else if (k.equals("numbers")) {
 					parser.next();
-					ArrayList<ContentValues> l = new ArrayList<ContentValues>();
-					lists.put(DataProvider.Numbers.TABLE, l);
+					ArrayList<ContentValues> l = lists.get(DataProvider.Numbers.TABLE);
+					if (l == null) {
+						l = new ArrayList<ContentValues>();
+						lists.put(DataProvider.Numbers.TABLE, l);
+					}
 					parseValues(context, parser, lists, k, l);
 				} else {
 					parser.next();
