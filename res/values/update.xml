@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates" translatable="false">
+		<item>v3.7: fix limit breaking calls/data, fix cost settings help for plans without limit, merge data in mixed plans, hide progressbar for unlimited bill periods, strip anything but first x seconds, deleting last call will stay deleted until reset stats, fix "$amp;" in exports, fix numbers/hours imports, fix hidden help/summary, fix float cost limits, minor fixes</item>
 		<item>v3.6.4: fix FC on some samsung phones, fix out of memory exception, minor fixes</item>
 		<item>v3.6.3: basic dual sim support, export/impor XML file, fix moving plans/rules, add widget for "last log", fix some FCs, minor fixes</item>
 		<item>v3.6.2: fix FC when exporting rules, fix some more settings</item>
