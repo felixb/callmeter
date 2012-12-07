@@ -25,6 +25,7 @@
         <attr name="ubButtonBarBackground" format="reference" />
     </declare-styleable>
     <declare-styleable name="CallMeterProgressBackground">
+        <attr name="cmProgressBackground" format="reference" />
         <attr name="cmProgressGreenBackground" format="reference" />
         <attr name="cmProgressYellowBackground" format="reference" />
         <attr name="cmProgressRedBackground" format="reference" />
@@ -50,6 +51,7 @@
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
         <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>
         <item name="ubButtonBarBackground">@color/ubActionBarBackgroundDark</item>
+        <item name="cmProgressBackground">@drawable/progress_horizontal_dark</item>
         <item name="cmProgressGreenBackground">@drawable/progress_horizontal_dark_green</item>
         <item name="cmProgressYellowBackground">@drawable/progress_horizontal_dark_yellow</item>
         <item name="cmProgressRedBackground">@drawable/progress_horizontal_dark_red</item>
@@ -59,6 +61,7 @@
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar_Light</item>
         <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar_Light</item>
         <item name="ubButtonBarBackground">@color/ubActionBarBackgroundLight</item>
+        <item name="cmProgressBackground">@drawable/progress_horizontal_light</item>
         <item name="cmProgressGreenBackground">@drawable/progress_horizontal_light_green</item>
         <item name="cmProgressYellowBackground">@drawable/progress_horizontal_light_yellow</item>
         <item name="cmProgressRedBackground">@drawable/progress_horizontal_light_red</item>

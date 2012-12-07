@@ -53,4 +53,6 @@
 
 	<dimen name="touchlist_height">30dip</dimen>
 	<dimen name="widget_margin">4dp</dimen>
+	<dimen name="pb_plan_height">10dp</dimen>
+	<dimen name="pb_bp_height">5dp</dimen>
 </resources>
