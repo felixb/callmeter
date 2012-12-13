@@ -403,7 +403,7 @@
   <string name="export_cancel_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Cancel your mail client to export to SD card only.">Annulla l\'email per esportare solo su scheda SD.</string>
   <string name="export_rules_dev_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Export rule set to developer">Esporta le regole allo sviluppatore</string>
   <string name="export_rules_dev_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Export rule set to let others import it.">Esporta le regole di modo che altri possano importarle.</string>
-  <string name="import_rules_www_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Import pre-configured rule set from http://www.ub0r.de/.">Importa delle regole pre-configurate da http://www.ub0r.de/.</string>
+  <string name="import_rules_www_hint" formatted="false" username="fedekikko89" orig="Import pre-configured rule set from http://www.ub0r.de/.">Importa regole pre-configurate da http://www.ub0r.de/.</string>
   <string name="import_rules_sd_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Import rule set from SD card">Importa regole dalla scheda SD</string>
   <string name="import_rules_sd_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Import rule set directly from SD card.">Importa regole direttamente dalla scheda di memoria SD.</string>
   <string name="import_rules_sd_help" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Place your file on your SD card and click it below">Copia il tuo file sulla tua scheda SD e clicca sotto</string>
@@ -411,7 +411,7 @@
   <string name="import_rules_sd_nofiles" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="No found files">Nessun file trovato</string>
   <string name="import_rules_default_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Import default rule set">Importa regole predefinite</string>
   <string name="import_rules_default_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Import default rule set shipped with the app.">Importa le regole predefinite dall\'applicazione alla sua installazione.</string>
-  <string name="loading" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Loading ...">In caricamento...</string>
+  <string name="loading" formatted="false" username="fedekikko89" orig="Loading ...">Caricamento...</string>
   <string name="x05_minute">0.5 minuti</string>
   <string name="x1_minute">1 minuto</string>
   <string name="x2_minute">2 minuti</string>
@@ -437,4 +437,8 @@
   <string name="export_logs_csv_hint" formatted="false" username="Gianluca gianluca-s@libero.it" orig="Export logs as CSV.">Esporta i log in formato CSV</string>
   <string name="x1_month_1_day" formatted="false" username="Gianluca gianluca-s@libero.it" orig="One month + one day">Un mese + un giorno</string>
   <string name="sendlog_run" formatted="false" username="Gianluca gianluca-s@libero.it" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">L\'operazione di Invio del log raccoglierà i log del dispositivo e li invierà allo sviluppatore. Hai la possibilità di verificare e modificare i dati che saranno spediti.</string>
+  <string name="strip_past_" formatted="false" username="fedekikko89" orig="Do not bill anything after seconds">Non tariffare nulla dopo lo scatto</string>
+  <string name="strip_past_help" formatted="false" username="fedekikko89" orig="Do not bill anything after x seconds of a call.">Non tariffare nulla dopo x secondi di chiamata</string>
+  <string name="widget_date_textsize" formatted="false" username="fedekikko89" orig="Date Text Size">Dimensione testo data</string>
+  <string name="widget_details_textsize" formatted="false" username="fedekikko89" orig="Details Text Size">dimensione testo dettagli</string>
 </resources>
