@@ -94,7 +94,9 @@ public class CVEditTextPreference extends EditTextPreference {
 			super.setText(text);
 		}
 		if (!this.sh) {
-			super.setSummary(this.getContext().getString(R.string.value) + ": " + this.getText());
+			String t = this.getText();
+			this.setSummary(this.getContext().getString(R.string.value) + ": "
+					+ (t == null ? "" : t.trim()));
 		}
 	}
 

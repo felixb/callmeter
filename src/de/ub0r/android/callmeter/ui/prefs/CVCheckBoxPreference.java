@@ -73,4 +73,12 @@ public final class CVCheckBoxPreference extends CheckBoxPreference {
 			this.ul.onUpdateValue(this);
 		}
 	}
+
+	@Override
+	public void setChecked(final boolean checked) {
+		super.setChecked(checked);
+		if (this.sh) {
+			this.setSummary(this.getContext().getText(R.string.value) + ": " + checked);
+		}
+	}
 }

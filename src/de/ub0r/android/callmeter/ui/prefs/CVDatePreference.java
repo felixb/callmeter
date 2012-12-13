@@ -102,7 +102,7 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
 	public void setValue(final long time) {
 		this.v.setTimeInMillis(time);
 		if (!this.sh) {
-			super.setSummary(this.getContext().getString(R.string.value) + ": "
+			this.setSummary(this.getContext().getString(R.string.value) + ": "
 					+ DateFormat.getDateFormat(this.getContext()).format(this.v.getTime()));
 		}
 		this.updateDialog();

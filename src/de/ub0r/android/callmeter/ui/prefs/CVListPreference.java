@@ -211,17 +211,23 @@ public final class CVListPreference extends ListPreference {
 				sb.append(": ");
 				for (int i = 0; i < this.checked.length; i++) {
 					if (this.checked[i]) {
-						sb.append(this.getEntryValues()[i]);
+						CharSequence e = this.getEntries()[i];
+						sb.append(e == null ? "?" : e.toString().trim());
 						sb.append(", ");
 					}
 				}
-				super.setSummary(sb.toString());
+				String s = sb.toString();
+				if (s.endsWith(", ")) {
+					s = s.substring(0, s.length() - 2);
+				}
+				this.setSummary(s);
 			}
 		} else {
 			super.setValue(value);
 			if (!this.sh) {
-				super.setSummary(this.getContext().getString(R.string.value) + ": "
-						+ this.getEntry());
+				CharSequence e = this.getEntry();
+				this.setSummary(this.getContext().getString(R.string.value) + ": "
+						+ (e == null ? "" : e.toString().trim()));
 			}
 		}
 	}

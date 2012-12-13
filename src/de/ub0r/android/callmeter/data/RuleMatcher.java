@@ -996,47 +996,49 @@ public final class RuleMatcher {
 			final int pt = this.type;
 
 			if (t == DataProvider.TYPE_SMS || pt == DataProvider.TYPE_MIXED) {
-				ret += as0 * p.costPerItemInLimit + as1 * p.costPerItem;
+				ret += as0 * this.costPerItemInLimit + as1 * this.costPerItem;
 			} else {
-				ret += as0 > 0f ? p.costPerItemInLimit : p.costPerItem;
+				ret += as0 > 0f ? this.costPerItemInLimit : this.costPerItem;
 			}
 
 			switch (t) {
 			case DataProvider.TYPE_CALL:
 				if (bAmount <= this.billModeFirstLength) {
 					// bAmount is most likely < remaining
-					ret += (as0 * p.costPerAmountInLimit1 + as1 * p.costPerAmount1)
+					ret += (as0 * this.costPerAmountInLimit1 + as1 * this.costPerAmount1)
 							/ CallMeter.SECONDS_MINUTE;
 				} else if (as0 == 0f) {
-					ret += p.costPerAmount1 * this.billModeFirstLength / CallMeter.SECONDS_MINUTE;
-					ret += p.costPerAmount2 * (bAmount - this.billModeFirstLength)
+					ret += this.costPerAmount1 * this.billModeFirstLength
+							/ CallMeter.SECONDS_MINUTE;
+					ret += this.costPerAmount2 * (bAmount - this.billModeFirstLength)
 							/ CallMeter.SECONDS_MINUTE;
 				} else if (as1 == 0f) {
-					ret += p.costPerAmountInLimit1 * this.billModeFirstLength
+					ret += this.costPerAmountInLimit1 * this.billModeFirstLength
 							/ CallMeter.SECONDS_MINUTE;
-					ret += p.costPerAmountInLimit2 * (bAmount - this.billModeFirstLength)
+					ret += this.costPerAmountInLimit2 * (bAmount - this.billModeFirstLength)
 							/ CallMeter.SECONDS_MINUTE;
 				} else if (as0 == this.billModeFirstLength) {
-					ret += p.costPerAmountInLimit1 * this.billModeFirstLength
+					ret += this.costPerAmountInLimit1 * this.billModeFirstLength
 							/ CallMeter.SECONDS_MINUTE;
-					ret += p.costPerAmount2 * (bAmount - this.billModeFirstLength)
+					ret += this.costPerAmount2 * (bAmount - this.billModeFirstLength)
 							/ CallMeter.SECONDS_MINUTE;
 				} else if (as0 > this.billModeFirstLength) {
-					ret += p.costPerAmountInLimit1 * this.billModeFirstLength
+					ret += this.costPerAmountInLimit1 * this.billModeFirstLength
 							/ CallMeter.SECONDS_MINUTE;
-					ret += (as0 - this.billModeFirstLength) * p.costPerAmountInLimit2
+					ret += (as0 - this.billModeFirstLength) * this.costPerAmountInLimit2
 							/ CallMeter.SECONDS_MINUTE;
-					ret += as1 * p.costPerAmount2 / CallMeter.SECONDS_MINUTE;
+					ret += as1 * this.costPerAmount2 / CallMeter.SECONDS_MINUTE;
 				} else { // as0 < this.billModeFirstLength && as0 > 0 && as1 > 0
-					ret += as0 * p.costPerAmountInLimit1 / CallMeter.SECONDS_MINUTE;
-					ret += (this.billModeFirstLength - as0) * p.costPerAmount1
+					ret += as0 * this.costPerAmountInLimit1 / CallMeter.SECONDS_MINUTE;
+					ret += (this.billModeFirstLength - as0) * this.costPerAmount1
 							/ CallMeter.SECONDS_MINUTE;
-					ret += p.costPerAmount2 * (bAmount - this.billModeFirstLength)
+					ret += this.costPerAmount2 * (bAmount - this.billModeFirstLength)
 							/ CallMeter.SECONDS_MINUTE;
 				}
 				break;
 			case DataProvider.TYPE_DATA:
-				ret += (as0 * p.costPerAmountInLimit1 + as1 * p.costPerAmount1) / CallMeter.BYTE_MB;
+				ret += (as0 * this.costPerAmountInLimit1 + as1 * this.costPerAmount1)
+						/ CallMeter.BYTE_MB;
 				break;
 			default:
 				break;
