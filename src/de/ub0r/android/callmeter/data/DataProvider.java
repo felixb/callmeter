@@ -1119,7 +1119,8 @@ public final class DataProvider extends ContentProvider {
 						+ " ELSE " + Logs.TABLE + "." + Logs.BILL_AMOUNT + " END) AS "
 						+ SUM_AT_BILLED_AMOUNT,
 				"(CASE WHEN " + TABLE + "." + TYPE + "=" + TYPE_BILLPERIOD + " THEN " + TABLE + "."
-						+ COST_PER_PLAN + " + (select sum(p." + COST_PER_PLAN + ") from " + TABLE
+						+ COST_PER_PLAN + " + (select sum(CASE WHEN p." + COST_PER_PLAN
+						+ " is null THEN 0 ELSE p." + COST_PER_PLAN + " END) from " + TABLE
 						+ " as p where p." + BILLPERIOD_ID + "=" + TABLE + "." + ID + ") ELSE "
 						+ TABLE + "." + COST_PER_PLAN + " END) as " + SUM_CPP,
 				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + "<{" + SUM_BILLDAY + "} or "
