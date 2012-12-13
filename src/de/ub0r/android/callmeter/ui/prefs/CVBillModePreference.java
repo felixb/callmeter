@@ -68,7 +68,7 @@ public final class CVBillModePreference extends ListPreference {
 	public void setValue(final String value) {
 		super.setValue(value);
 		if (!this.sh) {
-			super.setSummary(this.getContext().getText(R.string.value) + ": " + this.getValue());
+			this.setSummary(this.getContext().getText(R.string.value) + ": " + this.getValue());
 		}
 	}
 

@@ -19,8 +19,8 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingLeft="5dip"
-    android:paddingRight="5dip" >
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp" >
 
     <TextView
         android:id="@+id/bigtitle"
@@ -32,7 +32,7 @@
     <View
         android:id="@+id/spacer"
         android:layout_width="fill_parent"
-        android:layout_height="15dip" />
+        android:layout_height="15dp" />
 
     <RelativeLayout
         android:id="@+id/period_layout"
@@ -58,9 +58,10 @@
             android:id="@+id/period_pb"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="fill_parent"
-            android:layout_height="5dip"
+            android:layout_height="@dimen/pb_bp_height"
             android:layout_alignParentRight="true"
-            android:layout_below="@id/period" />
+            android:layout_below="@id/period"
+            android:progressDrawable="?attr/cmProgressBackground" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -94,7 +95,7 @@
             android:id="@+id/progressbarLimitGreen"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="fill_parent"
-            android:layout_height="10dip"
+            android:layout_height="@dimen/pb_plan_height"
             android:layout_alignParentRight="true"
             android:layout_below="@id/content_data"
             android:max="100"
@@ -104,7 +105,7 @@
             android:id="@+id/progressbarLimitYellow"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="fill_parent"
-            android:layout_height="10dip"
+            android:layout_height="@dimen/pb_plan_height"
             android:layout_alignParentRight="true"
             android:layout_below="@id/content_data"
             android:max="100"
@@ -114,7 +115,7 @@
             android:id="@+id/progressbarLimitRed"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="fill_parent"
-            android:layout_height="10dip"
+            android:layout_height="@dimen/pb_plan_height"
             android:layout_alignParentRight="true"
             android:layout_below="@id/content_data"
             android:max="100"

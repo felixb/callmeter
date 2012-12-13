@@ -112,7 +112,7 @@ public final class CV2EditTextPreference extends EditTextPreference {
 		}
 		if (this.sm) {
 			if (!this.sh) {
-				super.setSummary(this.getContext().getString(R.string.value) + " " + this.getText());
+				this.setSummary(this.getContext().getString(R.string.value) + " " + this.getText());
 			}
 		} else {
 			if (TextUtils.isEmpty(text2)) {
@@ -127,10 +127,10 @@ public final class CV2EditTextPreference extends EditTextPreference {
 			}
 			if (!this.sh) {
 				if (TextUtils.isEmpty(this.v2) || this.v2.equals(this.getText())) {
-					super.setSummary(this.getContext().getString(R.string.value) + ": "
+					this.setSummary(this.getContext().getString(R.string.value) + ": "
 							+ this.getText());
 				} else {
-					super.setSummary(this.getContext().getString(R.string.value) + ": "
+					this.setSummary(this.getContext().getString(R.string.value) + ": "
 							+ this.getText() + "/" + this.v2);
 				}
 			}

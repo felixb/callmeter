@@ -138,7 +138,14 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 		}
 
 		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
-		this.defaultPlanId = p.getInt(Preferences.PREFS_ASK_FOR_PLAN_DEFAULT, -1);
+		try {
+			this.defaultPlanId = p.getInt(Preferences.PREFS_ASK_FOR_PLAN_DEFAULT, -1);
+		} catch (ClassCastException e) {
+			// TODO: delete me in some later version
+			Log.e(TAG, "legacy error hanling", e);
+			this.defaultPlanId = (int) p.getLong(Preferences.PREFS_ASK_FOR_PLAN_DEFAULT, -1);
+			p.edit().putInt(Preferences.PREFS_ASK_FOR_PLAN_DEFAULT, this.defaultPlanId).commit();
+		}
 		for (i = 0; i < MAX_PLANS; i++) {
 			if (this.planIds[i] == this.defaultPlanId) {
 				final int bid = PLAN_BTNS[i];
@@ -229,7 +236,7 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 					RuleMatcher.matchLog(this.getContentResolver(), this.id, pid);
 					if (this.cbSetDefault.isChecked()) {
 						final Editor e = PreferenceManager.getDefaultSharedPreferences(this).edit();
-						e.putLong(Preferences.PREFS_ASK_FOR_PLAN_DEFAULT, pid);
+						e.putInt(Preferences.PREFS_ASK_FOR_PLAN_DEFAULT, pid);
 						e.commit();
 					}
 					this.d.cancel();
