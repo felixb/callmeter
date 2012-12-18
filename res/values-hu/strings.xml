@@ -420,4 +420,9 @@
   <string name="up_" formatted="false" username="MP" orig="Move up">Mozgatás felfele</string>
   <string name="my_number_" formatted="false" username="MP" orig="My number">Saját szám</string>
   <string name="x1_month_1_day" formatted="false" username="MP" orig="One month + one day">Egy hónap egy nap</string>
+  <string name="down_" formatted="false" username="zakos &lt;zimmermannakos@gmail.com&gt;" orig="Move down">Mozgatás lefelé</string>
+  <string name="widget_stats_title" formatted="false" username="zakos &lt;zimmermannakos@gmail.com&gt;" orig="Call Meter (stats)">Call Meter (statisztikák)</string>
+  <string name="widget_logs_title" formatted="false" username="zakos &lt;zimmermannakos@gmail.com&gt;" orig="Call Meter (last log)">Call Meter (utolsó napló)</string>
+  <string name="custom_language_hint" formatted="false" username="zakos &lt;zimmermannakos@gmail.com&gt;" orig="Set a custom language.">Nyelv beállítása</string>
+  <string name="custom_language_" formatted="false" username="zakos &lt;zimmermannakos@gmail.com&gt;" orig="Custom language">Nyelv</string>
 </resources>
