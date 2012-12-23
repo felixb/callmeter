@@ -19,6 +19,7 @@
 package de.ub0r.android.callmeter.ui;
 
 import java.util.Date;
+import java.util.concurrent.RejectedExecutionException;
 
 import android.app.AlertDialog.Builder;
 import android.content.ContentUris;
@@ -195,8 +196,13 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 					holder.tvRemote.setText(name);
 				} else {
 					holder.tvRemote.setText(s);
-					holder.loader = new NameLoader(context, s, format, holder.tvRemote);
-					holder.loader.execute();
+					try {
+						holder.loader = new NameLoader(context, s, format, holder.tvRemote);
+						holder.loader.execute();
+					} catch (RejectedExecutionException e) {
+						Log.e(TAG, "rejected excecution", e);
+						holder.loader = null;
+					}
 				}
 				holder.tvRemote.setVisibility(View.VISIBLE);
 				holder.tvRemoteLabel.setVisibility(View.VISIBLE);
