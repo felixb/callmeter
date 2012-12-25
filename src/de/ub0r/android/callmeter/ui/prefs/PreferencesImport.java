@@ -98,12 +98,20 @@ public final class PreferencesImport extends SherlockPreferenceActivity {
 		 * @return true, if a file were found
 		 */
 		private boolean addExport(final File d, final int depth) {
+			if (d == null) {
+				Log.e(TAG, "null file: " + d);
+				return false;
+			}
 			if (!d.exists()) {
 				Log.e(TAG, d + " does not exist");
 				return false;
 			}
 			if (!d.isDirectory()) {
 				Log.e(TAG, d + " is not a directory");
+				return false;
+			}
+			if (d.list() == null) {
+				Log.e(TAG, d + ".list() is null");
 				return false;
 			}
 
