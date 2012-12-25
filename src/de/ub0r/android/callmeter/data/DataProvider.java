@@ -2850,7 +2850,7 @@ public final class DataProvider extends ContentProvider {
 			Log.d(TAG, "xml version: " + version);
 			String base = parser.getName();
 			Log.d(TAG, "xml base element: " + base);
-			while (parser.next() != XmlPullParser.END_TAG) {
+			while (parser.next() != XmlPullParser.END_TAG || parser.getName() != base) {
 				if (parser.getEventType() != XmlPullParser.START_TAG) {
 					continue;
 				}
@@ -2898,6 +2898,8 @@ public final class DataProvider extends ContentProvider {
 				} else if (name.equals("sipcalls")) {
 					list = new ArrayList<ContentValues>();
 					lists.put(DataProvider.SipCall.TABLE, list);
+					parser.next();
+				} else {
 					parser.next();
 				}
 				if (list != null) {
