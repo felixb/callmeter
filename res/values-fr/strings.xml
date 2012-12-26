@@ -172,4 +172,7 @@
   <string name="sendlog_install" formatted="false" username="carabao@laposte.net" orig="Install the free SendLog application to collect the device log and send it to the developer.">Installer l\'application libre SendLog pour collecter les log du périphérique et les envoyer au développeur.</string>
   <string name="sendlog_install_" formatted="false" username="carabao@laposte.net" orig="Install SendLog">Installe SendLog</string>
   <string name="sendlog_run_" formatted="false" username="carabao@laposte.net" orig="Run SendLog">Démarrer SendLog</string>
+  <string name="hide_progressbars_" formatted="false" username="damngreat" orig="Hide progress bars">Cacher les barres de progression.</string>
+  <string name="hide_progressbars_hint" formatted="false" username="damngreat" orig="Hide progress bars in main view.">Cacher les barres de progression dans l\'affichage principal.</string>
+  <string name="autohide_" formatted="false" username="damngreat" orig="Auto hide">Masquer automatiquement</string>
 </resources>
