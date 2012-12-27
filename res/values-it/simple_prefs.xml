@@ -23,21 +23,21 @@
 <resources>
   <string name="freemin_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Free minutes">Minuti inclusi</string>
   <string name="freemin_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Free minutes / month">Minuti inclusi / mese</string>
-  <string name="missing_slash" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Bill mode needs to be in seconds/seconds!">Il conteggio della tariffazione deve essere in secondi/secondi!</string>
+  <string name="missing_slash" formatted="false" username="fedekikko89" orig="Bill mode needs to be in seconds/seconds!">La modalità di tariffazione deve essere in secondi/secondi!</string>
   <string name="cost_per_call_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Cost / call">Costo / chiamata</string>
-  <string name="cost_per_call_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Each call get\'s billed.">Ogni chiamata viene tariffata.</string>
+  <string name="cost_per_call_hint" formatted="false" username="fedekikko89" orig="Each call get\'s billed.">Ogni chiamata viene pagato.</string>
   <string name="cost_per_min_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Cost / minute">Costo / minuto</string>
-  <string name="cost_per_min_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Each minute get\'s billed.">Ogni minuto viene tariffato.</string>
+  <string name="cost_per_min_hint" formatted="false" username="fedekikko89" orig="Each minute get\'s billed.">Ogni minuto viene pagato.</string>
   <string name="freesms_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Free SMS">SMS inclusi</string>
   <string name="freesms_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Free SMS / month">SMS inclusi / mese</string>
   <string name="cost_per_sms_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Cost / SMS">Costo / SMS</string>
-  <string name="cost_per_sms_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Each SMS get\'s billed.">Ogni SMS viene tariffato.</string>
+  <string name="cost_per_sms_hint" formatted="false" username="fedekikko89" orig="Each SMS get\'s billed.">Ogni SMS viene pagato.</string>
   <string name="freemms_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Free MMS">MMS inclusi</string>
   <string name="freemms_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Free MMS / month">MMS inclusi / mese</string>
   <string name="cost_per_mms_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Cost / MMS">Costo / MMS</string>
-  <string name="cost_per_mms_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Each MMS get\'s billed.">Ogni MMS viene tariffato.</string>
+  <string name="cost_per_mms_hint" formatted="false" username="fedekikko89" orig="Each MMS get\'s billed.">Ogni MMS viene pagato.</string>
   <string name="freedata_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Free traffic">Traffico dati incluso</string>
   <string name="freedata_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Free 2G, 3G or 4G data traffic / month">Traffico dati 2G, 3G o 4G incluso / mese</string>
   <string name="cost_per_mb_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Cost / MB">Costo / MB</string>
-  <string name="cost_per_mb_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Each MB get\'s billed.">Ogni MB viene tariffato.</string>
+  <string name="cost_per_mb_hint" formatted="false" username="fedekikko89" orig="Each MB get\'s billed.">Ogni MB viene pagato.</string>
 </resources>
