@@ -254,7 +254,7 @@
   <string name="export_" formatted="false" username="dado26@gmail.com" orig="Export ...">Export ...</string>
   <string name="import_progr" formatted="false" username="dado26@gmail.com" orig="Import data ...">Importujem dáta ...</string>
   <string name="exported_" formatted="false" username="dado26@gmail.com" orig="Exported:">Exportované:</string>
-  <string name="export_cancel" formatted="false" username="dado26@gmail.com" orig="Export to SD card">Export na SD kartu</string>
+  <string name="export_sd" formatted="false" username="dado26@gmail.com" orig="Export to SD card">Export na SD kartu</string>
   <string name="alerts_" formatted="false" username="dado26@gmail.com" orig="Alerts">Výstrahy</string>
   <string name="widget_config_" formatted="false" username="dado26@gmail.com" orig="Widget config">Konfikurácia widgetu</string>
 </resources>

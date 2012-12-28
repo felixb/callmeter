@@ -412,8 +412,7 @@
   <string name="author_and_many_more" formatted="false" orig="and many more...">ve dahası...</string>
   <string name="update_interval_data_" formatted="false" orig="Update interval (data)">Güncelleme aralığı (data)</string>
   <string name="update_interval_data_hint" formatted="false" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Data istatistiklerinin daha sık güncellenmesi gerekmektedir. Ör.: Samsung için kısa aralıklar belirlemek gerekmektedir.</string>
-  <string name="export_cancel" formatted="false" orig="Export to SD card">SD karta dışa aktar</string>
-  <string name="export_cancel_hint" formatted="false" orig="Cancel your mail client to export to SD card only.">Yalnızca SD karta aktarmak için e-posta alıcınızı iptal edin.</string>
+  <string name="export_sd" formatted="false" orig="Export to SD card">SD karta dışa aktar</string>
   <string name="export_rules_dev_" formatted="false" orig="Export rule set to developer">Kural kümesini uygulama geliştiricisine gönder</string>
   <string name="export_rules_dev_hint" formatted="false" orig="Export rule set to let others import it.">Kural kümesini, başkalarının içe aktarabileceği şekilde dışa aktarın.</string>
   <string name="import_rules_www_hint" formatted="false" orig="Import pre-configured rule set from http://www.ub0r.de/.">Önceden yapılandırılmış kural kümesini http://www.ub0r.de/ adresinden içe aktarın.</string>

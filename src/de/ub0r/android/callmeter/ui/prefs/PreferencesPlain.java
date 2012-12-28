@@ -215,6 +215,7 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
 		} else if (EXPORT.equals(a)) {
 			this.addPreferencesFromResource(R.xml.prefs_export);
 			this.findPreference("export_rules").setOnPreferenceClickListener(this);
+			this.findPreference("export_rules_sd").setOnPreferenceClickListener(this);
 			this.findPreference("export_rules_dev").setOnPreferenceClickListener(this);
 			this.findPreference("export_logs").setOnPreferenceClickListener(this);
 			this.findPreference("export_logs_csv").setOnPreferenceClickListener(this);
@@ -311,6 +312,10 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
 		if (k.equals("export_rules")) {
 			Preferences
 					.exportData(this, null, null, null, ExportProvider.EXPORT_RULESET_FILE, null);
+			return true;
+		} else if (k.equals("export_rules_sd")) {
+			Preferences.exportData(this, null, null, null, ExportProvider.EXPORT_RULESET_FILE,
+					"sdcard");
 			return true;
 		} else if (k.equals("export_rules_dev")) {
 			Preferences.exportData(this, null, null, null, ExportProvider.EXPORT_RULESET_FILE,

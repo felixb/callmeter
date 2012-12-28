@@ -399,8 +399,7 @@
   <string name="active_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Active">Attivo</string>
   <string name="active_help" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Only active rules are used for matching logs.">Solo le regole attive sono usate per essere abbinate ai registri.</string>
   <string name="exported_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Exported:">Esportati:</string>
-  <string name="export_cancel" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Export to SD card">Esporta su scheda SD</string>
-  <string name="export_cancel_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Cancel your mail client to export to SD card only.">Annulla l\'email per esportare solo su scheda SD.</string>
+  <string name="export_sd" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Export to SD card">Esporta su scheda SD</string>
   <string name="export_rules_dev_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Export rule set to developer">Esporta le regole allo sviluppatore</string>
   <string name="export_rules_dev_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Export rule set to let others import it.">Esporta le regole di modo che altri possano importarle.</string>
   <string name="import_rules_www_hint" formatted="false" username="fedekikko89" orig="Import pre-configured rule set from http://www.ub0r.de/.">Importa regole pre-configurate da http://www.ub0r.de/.</string>

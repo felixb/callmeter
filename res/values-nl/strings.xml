@@ -356,8 +356,7 @@
   <string name="hide_progressbars_hint" formatted="false" username="Gummie" orig="Hide progress bars in main view.">Verberg voortgangsbalk in hoofdscherm</string>
   <string name="exported_" formatted="false" username="Gummie" orig="Exported:">Geëxporteerd:</string>
   <string name="export_hint" formatted="false" username="Gummie" orig="Export rule sets, logs or groups">Exporteer regelsets, logs of groepen</string>
-  <string name="export_cancel" formatted="false" username="Gummie" orig="Export to SD card">Exporteer naar SD kaart</string>
-  <string name="export_cancel_hint" formatted="false" username="Gummie" orig="Cancel your mail client to export to SD card only.">Annuleer je mail client om alleen naar SD kaart te exporteren.</string>
+  <string name="export_sd" formatted="false" username="Gummie" orig="Export to SD card">Exporteer naar SD kaart</string>
   <string name="export_rules_dev_" formatted="false" username="Gummie" orig="Export rule set to developer">Exporteer regelset naar ontwikkelaar</string>
   <string name="export_rules_dev_hint" formatted="false" username="Gummie" orig="Export rule set to let others import it.">Exporteer regelset om hem andere te laten importeren.</string>
   <string name="export_logs_" formatted="false" username="Gummie" orig="Backup logs">Backup logs</string>

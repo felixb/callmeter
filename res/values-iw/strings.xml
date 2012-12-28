@@ -284,8 +284,7 @@
   <string name="export_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export ...">יצא...</string>
   <string name="exported_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Exported:">יוצא:</string>
   <string name="export_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export rule sets, logs or groups">ייצא סט חוקים, רשומות או קבוצות</string>
-  <string name="export_cancel" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export to SD card">ייצא לכרטיס SD</string>
-  <string name="export_cancel_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Cancel your mail client to export to SD card only.">בטל את לקוח הדואר שלך כדי לייצא לכרטיס SD בלבד.</string>
+  <string name="export_sd" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export to SD card">ייצא לכרטיס SD</string>
   <string name="export_rules_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export rule set">ייצא הגדרות כלל</string>
   <string name="export_rules_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export rule set as mail.">ייצא הגדרות כלל בדואר אלקטרוני.</string>
   <string name="export_rules_dev_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export rule set to developer">ייצא הגדרות כלל למפתח</string>

@@ -286,8 +286,7 @@
   <string name="export_" formatted="false" username="mari" orig="Export ...">Експорт ...</string>
   <string name="exported_" formatted="false" username="mari" orig="Exported:">Експортирани:</string>
   <string name="export_hint" formatted="false" username="mari" orig="Export rule sets, logs or groups">Експортиране на зададени правила, логове или групи</string>
-  <string name="export_cancel" formatted="false" username="mari" orig="Export to SD card">Експортиране на SD картата</string>
-  <string name="export_cancel_hint" formatted="false" username="mari" orig="Cancel your mail client to export to SD card only.">Откажете своя пощенски клиент, за да експортирате само на SD картата.</string>
+  <string name="export_sd" formatted="false" username="mari" orig="Export to SD card">Експортиране на SD картата</string>
   <string name="export_rules_" formatted="false" username="mari" orig="Export rule set">Експорт на зададени правила</string>
   <string name="export_rules_hint" formatted="false" username="mari" orig="Export rule set as mail.">Екпорт на зададени правила към пощата.</string>
   <string name="export_rules_dev_" formatted="false" username="mari" orig="Export rule set to developer">Екпортиране на зададени правила към разработчика</string>

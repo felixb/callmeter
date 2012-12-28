@@ -676,15 +676,24 @@ public final class Preferences extends SherlockPreferenceActivity implements
 	 */
 	static void exportData(final Context context, final String country, final String provider,
 			final String descr, final String fn, final String recipient) {
-		if (descr == null) {
+		if (descr == null
+				|| (recipient != null && !"sdcard".equals(recipient)
+						&& fn.equals(ExportProvider.EXPORT_RULESET_FILE) && (TextUtils
+						.isEmpty(country) || TextUtils.isEmpty(provider) || TextUtils
+							.isEmpty(descr)))) {
 			Builder builder = new Builder(context);
 			EditText et0, et1, et2;
 			if (fn.equals(ExportProvider.EXPORT_RULESET_FILE)) {
 				View v = LayoutInflater.from(context).inflate(R.layout.dialog_export, null);
 				builder.setView(v);
 				et0 = (EditText) v.findViewById(R.id.country);
+				if (!TextUtils.isEmpty(country)) {
+					et0.setText(country);
+				}
 				et1 = (EditText) v.findViewById(R.id.provider);
+				et1.setText(provider);
 				et2 = (EditText) v.findViewById(R.id.plan);
+				et2.setText(descr);
 			} else {
 				et0 = null;
 				et1 = null;
@@ -752,16 +761,19 @@ public final class Preferences extends SherlockPreferenceActivity implements
 							uri = ExportProvider.EXPORT_HOURGROUPS_URI;
 							resChooser = R.string.export_hourgroups_;
 						}
-						final Intent intent = new Intent(Intent.ACTION_SEND);
-						intent.setType(ExportProvider.EXPORT_MIMETYPE);
-						intent.putExtra(Intent.EXTRA_STREAM, uri);
-						intent.putExtra(Intent.EXTRA_SUBJECT, "Call Meter 3G export");
-						if (!TextUtils.isEmpty(recipient)) {
-							intent.putExtra(Intent.EXTRA_EMAIL, new String[] { recipient });
-							intent.putExtra(Intent.EXTRA_TEXT, context.getString(
-									R.string.export_rules_body, country, provider, descr));
+						Intent intent = null;
+						if (!"sdcard".equals(recipient)) {
+							intent = new Intent(Intent.ACTION_SEND);
+							intent.setType(ExportProvider.EXPORT_MIMETYPE);
+							intent.putExtra(Intent.EXTRA_STREAM, uri);
+							intent.putExtra(Intent.EXTRA_SUBJECT, "Call Meter 3G export");
+							if (!TextUtils.isEmpty(recipient)) {
+								intent.putExtra(Intent.EXTRA_EMAIL, new String[] { recipient });
+								intent.putExtra(Intent.EXTRA_TEXT, context.getString(
+										R.string.export_rules_body, country, provider, descr));
+							}
+							intent.addCategory(Intent.CATEGORY_DEFAULT);
 						}
-						intent.addCategory(Intent.CATEGORY_DEFAULT);
 
 						try {
 							final File d = new File(Environment.getExternalStorageDirectory(),
@@ -780,8 +792,10 @@ public final class Preferences extends SherlockPreferenceActivity implements
 							Toast.makeText(context, t, Toast.LENGTH_LONG).show();
 							// call an exporting app with the uri to the
 							// preferences
-							context.startActivity(Intent.createChooser(intent,
-									context.getString(resChooser)));
+							if (intent != null) {
+								context.startActivity(Intent.createChooser(intent,
+										context.getString(resChooser)));
+							}
 						} catch (IOException e) {
 							Log.e(TAG, "error writing export file", e);
 							Toast.makeText(context, R.string.err_export_write, Toast.LENGTH_LONG)

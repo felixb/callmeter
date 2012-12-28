@@ -114,7 +114,7 @@
   <string name="monday" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Monday">Segunda</string>
   <string name="loading" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Loading ...">Carregando...</string>
   <string name="export_rules_descr" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Description">Descrição</string>
-  <string name="export_cancel" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Export to SD card">Exportar para o cartão SD</string>
+  <string name="export_sd" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Export to SD card">Exportar para o cartão SD</string>
   <string name="export_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Export ...">Exportando...</string>
   <string name="exported_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Exported:">Exportado:</string>
   <string name="no" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="No">Não</string>
