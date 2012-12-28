@@ -18,17 +18,35 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 
@@ -39,6 +57,7 @@ import de.ub0r.android.callmeter.widget.LogsAppWidgetConfigure;
 import de.ub0r.android.callmeter.widget.LogsAppWidgetProvider;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetConfigure;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
+import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -48,6 +67,7 @@ import de.ub0r.android.lib.Utils;
  */
 public final class PreferencesPlain extends SherlockPreferenceActivity implements
 		OnPreferenceClickListener, OnPreferenceChangeListener {
+	private static final String TAG = "PrefPlain";
 
 	/** Action. */
 	private static final String APPERANCE = "APPERANCE";
@@ -67,6 +87,104 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
 	private static final String IMPORT = "IMPORT";
 	/** Action. */
 	private static final String ADVANCED = "ADVANCED";
+
+	private static final long CACHE_TIMEOUT = 1000L * 60L * 15L; // 15min
+
+	private void loadRules() {
+		new AsyncTask<Void, Void, JSONObject>() {
+			@Override
+			protected JSONObject doInBackground(final Void... params) {
+				try {
+					String l;
+					StringBuilder sb = new StringBuilder();
+
+					File f = new File(PreferencesPlain.this.getCacheDir(), "ub0rrules.json");
+					if (f.exists() && f.lastModified() + CACHE_TIMEOUT > System.currentTimeMillis()) {
+						Log.d(TAG, "found cached data: " + f.getAbsolutePath());
+						BufferedReader r = new BufferedReader(new FileReader(f));
+						while ((l = r.readLine()) != null) {
+							sb.append(l);
+						}
+						r.close();
+					}
+					if (sb.length() == 0) {
+						if (f.exists()) {
+							f.delete();
+						}
+						HttpURLConnection c = (HttpURLConnection) new URL(
+								"http://www.ub0r.de/android/callmeter/rulesets/?out=json")
+								.openConnection();
+						Log.d(TAG, "load new data: " + c.getURL());
+						BufferedReader r = new BufferedReader(new InputStreamReader(
+								c.getInputStream()));
+						FileWriter w = new FileWriter(f);
+						while ((l = r.readLine()) != null) {
+							sb.append(l);
+							w.write(l);
+						}
+						r.close();
+						w.close();
+					}
+					try {
+						return new JSONObject(sb.toString());
+					} catch (JSONException e) {
+						Log.e(TAG, "JSON Error", e);
+						Log.e(TAG, "JSON: " + sb.toString());
+						return null;
+					}
+				} catch (IOException e) {
+					Log.e(TAG, "IOError", e);
+				}
+				return null;
+			}
+
+			@SuppressWarnings({ "deprecation", "rawtypes" })
+			@Override
+			protected void onPostExecute(final JSONObject result) {
+				if (result == null) {
+					Toast.makeText(PreferencesPlain.this, R.string.err_export_read,
+							Toast.LENGTH_LONG).show();
+					return;
+				}
+				PreferenceGroup base = (PreferenceGroup) PreferencesPlain.this
+						.findPreference("import_rules_users");
+				PreferenceManager pm = base.getPreferenceManager();
+				// delete old
+				base.removeAll();
+				base = (PreferenceGroup) PreferencesPlain.this.findPreference("import_rules_base");
+				// build list
+				ArrayList<String> keys = new ArrayList<String>(result.length());
+
+				Iterator it = result.keys();
+				while (it.hasNext()) {
+					keys.add(it.next().toString());
+				}
+				Collections.sort(keys);
+				keys.remove("common");
+				keys.add(0, "common");
+
+				OnPreferenceClickListener opcl = new OnPreferenceClickListener() {
+					@Override
+					public boolean onPreferenceClick(final Preference preference) {
+						Intent intent = new Intent(PreferencesPlain.this, PreferencesRules.class);
+						intent.putExtra(PreferencesRules.EXTRA_JSON, result.toString());
+						intent.putExtra(PreferencesRules.EXTRA_COUNTRY, preference.getKey());
+						PreferencesPlain.this.startActivity(intent);
+						return true;
+					}
+				};
+
+				for (String k : keys) {
+					PreferenceScreen p = pm.createPreferenceScreen(PreferencesPlain.this);
+					p.setPersistent(false);
+					p.setKey(k);
+					p.setTitle(k);
+					p.setOnPreferenceClickListener(opcl);
+					base.addPreference(p);
+				}
+			};
+		}.execute((Void) null);
+	}
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -92,8 +210,8 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
 			this.addPreferencesFromResource(R.xml.group_prefs);
 		} else if (IMPORT.equals(a)) {
 			this.addPreferencesFromResource(R.xml.prefs_import);
-			this.findPreference("import_rules").setOnPreferenceClickListener(this);
 			this.findPreference("import_rules_default").setOnPreferenceClickListener(this);
+			this.loadRules();
 		} else if (EXPORT.equals(a)) {
 			this.addPreferencesFromResource(R.xml.prefs_export);
 			this.findPreference("export_rules").setOnPreferenceClickListener(this);
@@ -191,7 +309,8 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
 	public boolean onPreferenceClick(final Preference preference) {
 		final String k = preference.getKey();
 		if (k.equals("export_rules")) {
-			Preferences.exportData(this, null, null, null, ExportProvider.EXPORT_RULESET_FILE, null);
+			Preferences
+					.exportData(this, null, null, null, ExportProvider.EXPORT_RULESET_FILE, null);
 			return true;
 		} else if (k.equals("export_rules_dev")) {
 			Preferences.exportData(this, null, null, null, ExportProvider.EXPORT_RULESET_FILE,
@@ -210,10 +329,6 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
 		} else if (k.equals("export_hourgroups")) {
 			Preferences.exportData(this, null, null, null, ExportProvider.EXPORT_HOURGROUPS_FILE,
 					null);
-			return true;
-		} else if (k.equals("import_rules")) {
-			this.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(this
-					.getString(R.string.url_rulesets))));
 			return true;
 		} else if (k.equals("import_rules_default")) {
 			final Intent i = new Intent(this, Preferences.class);

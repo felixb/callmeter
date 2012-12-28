@@ -307,10 +307,13 @@
   <string name="export_numgroups_hint" formatted="false">Stunden Nummern als Mail exportieren.</string>
   <string name="export_hourgroups_" formatted="false">Stunden Gruppen exportieren</string>
   <string name="export_hourgroups_hint" formatted="false">Stunden Gruppen als Mail exportieren.</string>
+  <string name="import_" formatted="false">Importieren</string>
+  <string name="import_link_" formatted="false">Mehr Infos</string>
   <string name="import_rules_" formatted="false">Importiere Regelwerk</string>
   <string name="import_rules_hint" formatted="false">Importiere Regelwerk.</string>
   <string name="import_rules_www_hint" formatted="false">Importiere vorkonfiguriertes Regelwerk von http://www.ub0r.de/.</string>
   <string name="import_rules_empty" formatted="false">Es sind keine Kontingente/Regeln definiert. Klicke diesen Text an, um standard Regelwerke zu importieren.\n\nOder füge manuell Kontingente und Regeln in den Einstellungen hinzu.</string>
+  <string name="import_rules_users" formatted="false">Regelsätze von Benutzern</string>
   <string name="import_rules_sd_" formated="false">Importiere von SD Karte</string>
   <string name="import_rules_sd_hint" formated="false">Importiere Regelwerk direkt von der SD Karte.</string>
   <string name="import_rules_sd_help" formated="false">Speichere deine Datei auf der SD Karte und klicke sie an</string>

@@ -64,10 +64,10 @@
 
     <application
         android:name=".CallMeter"
+        android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/icon"
-        android:label="@string/app_name"
-        android:allowBackup="true" >
+        android:label="@string/app_name" >
         <activity
             android:name=".ui.Plans"
             android:configChanges="orientation|keyboardHidden"
@@ -138,29 +138,29 @@
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/settings"
             android:theme="@style/Theme.SherlockDefault"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.prefs.PreferencesRules"
+            android:label="@string/settings"
+            android:theme="@style/Theme.SherlockDefault" />
         <activity
             android:name=".ui.prefs.SimplePreferences"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/simple_preferences_"
             android:launchMode="singleTask"
             android:theme="@style/Theme.SherlockDefault"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.prefs.SimplePreferencesChild"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/simple_preferences_"
             android:theme="@style/Theme.SherlockDefault"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.prefs.PreferencesImport"
             android:label="@string/import_rules_"
             android:theme="@style/Theme.SherlockDefault"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.prefs.Plans"
             android:configChanges="orientation|keyboardHidden"
