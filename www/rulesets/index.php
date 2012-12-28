@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <?
 
 function endsWith($haystack, $needle) {
@@ -20,21 +19,30 @@ function _value_in_array($array, $find){
   return FALSE;
 }
 
-$isAndroid = preg_match('/Android/', $_SERVER['HTTP_USER_AGENT']); # TODO || 1 == 1;
+if (array_key_exists('out', $_GET)) {
+  $out = $_GET['out'];
+} else {
+  $out = '';
+}
+
+$isAndroid = preg_match('/Android/', $_SERVER['HTTP_USER_AGENT']);
 $location = './';
 
+if ($out != 'json') {
+
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="/default.css" />
 <link rel="stylesheet" type="text/css" href="common.css" />
 <?
-if ($isAndroid) {
-  echo '<link rel="stylesheet" type="text/css" href="android.css" />' . "\n";
-} else {
-  echo '<link rel="stylesheet" type="text/css" href="standard.css" />' . "\n";
-}
+  if ($isAndroid) {
+    echo '<link rel="stylesheet" type="text/css" href="android.css" />' . "\n";
+  } else {
+    echo '<link rel="stylesheet" type="text/css" href="standard.css" />' . "\n";
+  }
 ?>
 <title>Call Meter 3G rule sets</title>
 <script type="text/javascript">
@@ -98,6 +106,8 @@ if ($isAndroid) {
 </div>
 
 <?
+
+}
 
 $files = array();
 $d = dir($location);
@@ -167,6 +177,46 @@ foreach ($files as $f) {
 sort($countries);
 sort($providers);
 
+if ($out == 'json') {
+  header('Content-type: application/json');
+  $countrymap = array();
+  foreach ($files as $f) {
+    $c = $country[$f];
+    if (array_key_exists($c, $countrymap)) {
+      $a = $countrymap[$c];
+    } else {
+      $a = array();
+    }
+    $o = array();
+    $o['country'] = $c;
+    $ff = str_replace('.xml', '', $f);
+    $ff = str_replace('.', '', $ff);
+    $o['importurl'] = 'http://ub0r.de/android/callmeter/rulesets/' . $f;
+    if (array_key_exists($f, $provider) && !empty($provider[$f])) {
+      $o['provider'] = $provider[$f];
+    }
+    if (array_key_exists($f, $title) && !empty($title[$f])) {
+      $o['title'] = $title[$f];
+    } else {
+      continue;
+    }
+    if (array_key_exists($f, $description) && !empty($description[$f])) {
+      $o['description'] = $description[$f];
+    }
+    if (array_key_exists($f, $link)) {
+      $o['link'] = $link[$f];
+    }
+    if (array_key_exists($f, $longdescription)) {
+      $o['longdescription'] = $longdescription[$f];
+    }
+    array_push($a, $o);
+    $countrymap[$c] = $a;
+  }
+
+  echo json_encode($countrymap);
+  exit();
+}
+
 ?>
 
 <div id="content">
@@ -194,6 +244,7 @@ echo '<br />If you want your rule set shown here, you just need to export it to 
 <option value=""></option>
 <option value="common">common</option>
 <?
+
 foreach ($countries as $c) {
   if ($c && $c == $countryfilter) {
     echo '<option value="'.$c.'" selected="selected">'.$c.'</option>';
