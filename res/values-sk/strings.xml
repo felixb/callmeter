@@ -149,7 +149,7 @@
   <string name="author_and_many_more" formatted="false" orig="and many more...">a mnoho ďalších...</string>
   <string name="new_" formatted="false" orig="New">Nový</string>
   <string name="clear_" formatted="false" orig="Clear">Jasný</string>
-  <string name="mms_in_" formatted="false" orig="MMSIn">MMS prijaté</string>
+  <string name="mms_in_" formatted="false" orig="MMSIn" username="mario">MMSprijaté</string>
   <string name="mms_out_" formatted="false" orig="MMSOut" username="dado26@gmail.com">MMSodoslané</string>
   <string name="data_inout" formatted="false" orig="Data In/Out">Dáta prijaté/odoslané</string>
   <string name="data_inout_" formatted="false" orig="DataInOut" username="dado26@gmail.com">DátaPrijatéOdoslané</string>
@@ -256,5 +256,54 @@
   <string name="exported_" formatted="false" username="dado26@gmail.com" orig="Exported:">Exportované:</string>
   <string name="export_cancel" formatted="false" username="dado26@gmail.com" orig="Export to SD card">Export na SD kartu</string>
   <string name="alerts_" formatted="false" username="dado26@gmail.com" orig="Alerts">Výstrahy</string>
-  <string name="widget_config_" formatted="false" username="dado26@gmail.com" orig="Widget config">Konfikurácia widgetu</string>
+  <string name="widget_config_" formatted="false" username="mario" orig="Widget config">Konfigurácia widgetu</string>
+  <string name="update_interval_data_hint" formatted="false" username="mario" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Aktualizácia dát štatistiky sa musia vykonávať častejšie. Zariadenia samsung potrebujú veľmi krátky interval</string>
+  <string name="up_" formatted="false" username="mario" orig="Move up">Presunúť nahor.</string>
+  <string name="down_" formatted="false" username="mario" orig="Move down">Presunúť nadol.</string>
+  <string name="widget_stats_title" formatted="false" username="mario" orig="Call Meter (stats)">Call Meter (štatistika)</string>
+  <string name="widget_logs_title" formatted="false" username="mario" orig="Call Meter (last log)">Call Meter (posledný log)</string>
+  <string name="rule_" formatted="false" username="mario" orig="Rule">Pravidlo</string>
+  <string name="plans_hint" formatted="false" username="mario" orig="Set your plans for all kind of billing here.">Tu si nastavte plány pre všetky druhy účtovania.</string>
+  <string name="rules_hint" formatted="false" username="mario" orig="Set your billing rules here.">Tu si nastavite vaše fakturačné pravidlá.</string>
+  <string name="length_" formatted="false" username="mario" orig="Length">Dľžka</string>
+  <string name="numbergroups_edit_" formatted="false" username="mario" orig="Number groups">Počet čísel</string>
+  <string name="billperiod_sn" formatted="false" username="mario" orig="BillPeriod">Fakturačné obdobie</string>
+  <string name="shortname_" formatted="false" username="mario" orig="Short name">Krátky názov</string>
+  <string name="name_help" formatted="false" username="mario" orig="Set a name here.">Tu nastaviť meno.</string>
+  <string name="units_mbyte" formatted="false" username="mario" orig="MBytes">MBytes</string>
+  <string name="units_units" formatted="false" username="mario" orig="Units">Jednotky</string>
+  <string name="units_units_per_minute" formatted="false" username="mario" orig="Units/Minute">Jednotky/Minuty</string>
+  <string name="units_units_per_message" formatted="false" username="mario" orig="Units/Message">Jednotky/Správy</string>
+  <string name="value" formatted="false" username="mario" orig="Value">Hodnota</string>
+  <string name="export_rules_" formatted="false" username="mario" orig="Export rule set">Odoslať sadu pravidiel</string>
+  <string name="export_rules_hint" formatted="false" username="mario" orig="Export rule set as mail.">Odoslať sadu pravidiel ako email.</string>
+  <string name="export_rules_dev_" formatted="false" username="mario" orig="Export rule set to developer">Odoslať sadu pravidiel vývojárom</string>
+  <string name="export_logs_" formatted="false" username="mario" orig="Backup logs">Zalohovať protokol.</string>
+  <string name="export_logs_csv_" formatted="false" username="mario" orig="Export CSV">Odoslať vo formáte CSV</string>
+  <string name="export_logs_csv_hint" formatted="false" username="mario" orig="Export logs as CSV.">Odoslať záznamy vo formáte CSV</string>
+  <string name="import_rules_" formatted="false" username="mario" orig="Import rule set">Prijať sadu pravidiel</string>
+  <string name="import_rules_sd_hint" formatted="false" username="mario" orig="Import rule set directly from SD card.">Prijať sadu pravidiel z SD karty.</string>
+  <string name="import_rules_sd_files" formatted="false" username="mario" orig="Found files">Nájdené súbory</string>
+  <string name="import_rules_sd_nofiles" formatted="false" username="mario" orig="No found files">Nenájdené súbory</string>
+  <string name="import_rules_default_" formatted="false" username="mario" orig="Import default rule set">Prijať základnú sadu pravidiel</string>
+  <string name="loading" formatted="false" username="mario" orig="Loading ...">Zavádzanie...</string>
+  <string name="err_export_write" formatted="false" username="mario" orig="Error writing export file">Chyba pri zápise súboru exportu</string>
+  <string name="err_export_read" formatted="false" username="mario" orig="Error reading export file">Chyba pri čítaní súboru exportu</string>
+  <string name="alerts_title" formatted="false" username="mario" orig="Call Meter 3G alert">Výstraha Call Meter 3G</string>
+  <string name="day_0" formatted="false" username="mario" orig="0:00 - 0:59">0:00 - 0:59</string>
+  <string name="day_1" formatted="false" username="mario" orig="1:00 - 1:59">1:00 - 1:59</string>
+  <string name="day_2" formatted="false" username="mario" orig="2:00 - 2:59">2:00 - 2:59</string>
+  <string name="day_3" formatted="false" username="mario" orig="3:00 - 3:59">3:00 - 3:59</string>
+  <string name="day_4" formatted="false" username="mario" orig="4:00 - 4:59">4:00 - 4:59</string>
+  <string name="day_5" formatted="false" username="mario" orig="5:00 - 5:59">5:00 - 5:59</string>
+  <string name="day_6" formatted="false" username="mario" orig="6:00 - 6:59">6:00 - 6:59</string>
+  <string name="day_7" formatted="false" username="mario" orig="7:00 - 7:59">7:00 - 7:59</string>
+  <string name="day_8" formatted="false" username="mario" orig="8:00 - 8:59">8:00 - 8:59</string>
+  <string name="day_9" formatted="false" username="mario" orig="9:00 - 9:59">9:00 - 9:59</string>
+  <string name="day_10" formatted="false" username="mario" orig="10:00 - 10:59">10:00 - 10:59</string>
+  <string name="day_11" formatted="false" username="mario" orig="11:00 - 11:59">11:00 - 11:59</string>
+  <string name="day_12" formatted="false" username="mario" orig="12:00 - 12:59">12:00 - 12:59</string>
+  <string name="x1_month_1_day" formatted="false" username="mario" orig="One month + one day">Mesiac + den</string>
+  <string name="direction_calls_in" formatted="false" username="mario" orig="in">prichádzajúce</string>
+  <string name="direction_calls_out" formatted="false" username="mario" orig="out">odchadzajúce</string>
 </resources>

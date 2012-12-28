@@ -138,7 +138,7 @@ res/values-sk/intro.xml:10
 res/values-sk/market.xml:5
 res/values-sk/notes.xml:0
 res/values-sk/simple_prefs.xml:19
-res/values-sk/strings.xml:236
+res/values-sk/strings.xml:285
 res/values-sv/donation.xml:0
 res/values-sv/help.xml:0
 res/values-sv/intro.xml:0
@@ -179,7 +179,7 @@ res/values-nl:481
 res/values-pl:466
 res/values-pt:453
 res/values-ru:332
-res/values-sk:273
+res/values-sk:322
 res/values-sv:80
 res/values-tr:468
 res/values-zh:284
