@@ -269,7 +269,7 @@
   <string name="textsize_spacer_hint" formatted="false" orig="Size for spacers in pixels; leave empty for default">Величина пробела в пикселах; оставить пустым для исходных значений</string>
   <string name="textsize_pbar_" formatted="false" orig="Progress bar\'s size">Размер шкалы прогресса</string>
   <string name="textsize_pbar_hint" formatted="false" orig="Size for progress bars in pixels; leave empty for default">Размер шкалы прогресса в пикселах; оставить пустым для исходных значений</string>
-  <string name="export_cancel" formatted="false" username="htc@norcis.lv" orig="Export to SD card">Экспорт на карту памяти</string>
+  <string name="export_sd" formatted="false" username="htc@norcis.lv" orig="Export to SD card">Экспорт на карту памяти</string>
   <string name="export_logs_" formatted="false" username="htc@norcis.lv" orig="Backup logs">Журнал резервного копирования</string>
   <string name="export_logs_hint" formatted="false" username="htc@norcis.lv" orig="Backup logs as mail.">Журнал резервного копирования по почте.</string>
   <string name="import_rules_sd_" formatted="false" username="htc@norcis.lv" orig="Import rule set from SD card">Импорт ценового плана с карты памяти</string>

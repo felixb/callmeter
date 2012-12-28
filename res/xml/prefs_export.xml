@@ -17,11 +17,9 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <Preference
-        android:enabled="false"
-        android:summary="@string/export_cancel_hint"
-        android:title="@string/export_cancel" />
-
+    <PreferenceScreen
+        android:key="export_rules_sd"
+        android:title="@string/export_sd" />
     <PreferenceScreen
         android:key="export_rules_dev"
         android:summary="@string/export_rules_dev_hint"

@@ -392,7 +392,7 @@
   <string name="import_rules_www_hint" formatted="false" orig="Import pre-configured rule set from http://www.ub0r.de/.">Import přednastavené sady pravidel z http://www.ub0r.de</string>
   <string name="export_rules_dev_hint" formatted="false" orig="Export rule set to let others import it.">Exportovat sadu pravidel pro využití ostatními.</string>
   <string name="export_rules_dev_" formatted="false" orig="Export rule set to developer">Exportovat sadu pravidel vývojáři</string>
-  <string name="export_cancel" formatted="false" orig="Export to SD card">Export na SD kartu</string>
+  <string name="export_sd" formatted="false" orig="Export to SD card">Export na SD kartu</string>
   <string name="exported_" formatted="false" orig="Exported:">Exportováno:</string>
   <string name="loading" formatted="false" orig="Loading ...">Načítání ...</string>
   <string name="import_rules_sd_nofiles" formatted="false" orig="No found files">Nenalezeny soubory</string>

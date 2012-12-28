@@ -399,7 +399,7 @@
   <string name="update_interval_data_" formatted="false" orig="Update interval (data)">aktualizacja interwału</string>
   <string name="google_plus_hint" formatted="false" orig="Follow me on Google+.\nGet update notifications etc.">Za mną na Google+.\nOtrzymaj powiadomienia o aktualizacjach</string>
   <string name="now" formatted="false" orig="Now">Teraz</string>
-  <string name="export_cancel" formatted="false" orig="Export to SD card">Eksport do karty SD</string>
+  <string name="export_sd" formatted="false" orig="Export to SD card">Eksport do karty SD</string>
   <string name="loading" formatted="false" orig="Loading ...">Ładowanie ...</string>
   <string name="x05_minute">0,5 minuty</string>
   <string name="x1_minute">1 minuta</string>

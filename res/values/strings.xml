@@ -299,8 +299,7 @@
 	<string name="export_">Export ...</string>
 	<string name="exported_">Exported:</string>
 	<string name="export_hint">Export rule sets, logs or groups</string>
-	<string name="export_cancel">Export to SD card</string>
-	<string name="export_cancel_hint">Cancel your mail client to export to SD card only.</string>
+	<string name="export_sd">Export to SD card</string>
 	<string name="export_rules_">Export rule set</string>
 	<string name="export_rules_hint">Export rule set as mail.</string>
 	<string name="export_rules_dev_">Export rule set to developer</string>
@@ -314,9 +313,12 @@
 	<string name="export_numgroups_hint">Export number groups as mail.</string>
 	<string name="export_hourgroups_">Export hour groups</string>
 	<string name="export_hourgroups_hint">Export hour groups as mail.</string>
+	<string name="import_">Import</string>
+	<string name="import_link_">More info</string>
 	<string name="import_rules_">Import rule set</string>
 	<string name="import_rules_hint">Import preconfigured rule set.</string>
 	<string name="import_rules_www_hint">Import pre-configured rule set from http://www.ub0r.de/.</string>
+	<string name="import_rules_users">Users\' rules</string>
 	<string name="import_rules_sd_">Import rule set from SD card</string>
 	<string name="import_rules_sd_hint">Import rule set directly from SD card.</string>
 	<string name="import_rules_sd_help">Place your file on your SD card and click it below</string>

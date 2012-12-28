@@ -15,12 +15,13 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="import_rules_base" >
 
     <PreferenceScreen
-        android:key="import_rules"
-        android:summary="@string/import_rules_www_hint"
-        android:title="@string/import_rules_" />
+        android:key="import_rules_default"
+        android:summary="@string/import_rules_default_hint"
+        android:title="@string/import_rules_default_" />
     <PreferenceScreen
         android:key="import_rules_sd"
         android:summary="@string/import_rules_sd_hint"
@@ -30,9 +31,13 @@
             android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesImport"
             android:targetPackage="de.ub0r.android.callmeter" />
     </PreferenceScreen>
-    <PreferenceScreen
-        android:key="import_rules_default"
-        android:summary="@string/import_rules_default_hint"
-        android:title="@string/import_rules_default_" />
+
+    <PreferenceCategory
+        android:key="import_rules_users"
+        android:title="@string/import_rules_users" >
+        <PreferenceScreen
+            android:enabled="false"
+            android:title="@string/loading" />
+    </PreferenceCategory>
 
 </PreferenceScreen>

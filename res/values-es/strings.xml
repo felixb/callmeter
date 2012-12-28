@@ -387,7 +387,7 @@
   <string name="import_rules_sd_hint" formatted="false" username="jonaguera" orig="Import rule set directly from SD card.">Importar conjunto de reglas directamente desde la tarjeta SD.</string>
   <string name="import_rules_sd_" formatted="false" username="jonaguera" orig="Import rule set from SD card">Importar conjunto de reglas desde la tarjeta SD</string>
   <string name="import_rules_www_hint" formatted="false" username="jonaguera" orig="Import pre-configured rule set from http://www.ub0r.de/.">Importar un conjunto de reglas pre-configuradas desde http://www.ub0r.de/.</string>
-  <string name="export_cancel" formatted="false" username="jonaguera" orig="Export to SD card">Exportar a la tarjeta SD</string>
+  <string name="export_sd" formatted="false" username="jonaguera" orig="Export to SD card">Exportar a la tarjeta SD</string>
   <string name="exported_" formatted="false" username="jonaguera" orig="Exported:">Exportado:</string>
   <string name="active_help" formatted="false" username="jonaguera" orig="Only active rules are used for matching logs.">Solo se utilizarán reglas activas para los registros coincidentes.</string>
   <string name="author_and_many_more" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="and many more...">y mucho más...</string>
@@ -437,7 +437,6 @@
   <string name="simple_preferences_deactivated" formatted="false" username="@periclesurtubey" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Las preferencias básicas solo disponibles con el conjunto de reglas por defecto. Importar el conjunto de reglas por defecto para reactivar.</string>
   <string name="widget_stats_title" formatted="false" username="@periclesurtubey" orig="Call Meter (stats)">Medidor de llamadas (estadísticas)</string>
   <string name="widget_logs_title" formatted="false" username="@periclesurtubey" orig="Call Meter (last log)">Medidor de llamadas (último informe)</string>
-  <string name="export_cancel_hint" formatted="false" username="@periclesurtubey" orig="Cancel your mail client to export to SD card only.">Cancelar su cliente de e-mail para exportar hacia su tarjeta SD</string>
   <string name="export_rules_dev_" formatted="false" username="@periclesurtubey" orig="Export rule set to developer">Exportar conjunto de reglas al desarrolllador</string>
   <string name="export_rules_dev_hint" formatted="false" username="@periclesurtubey" orig="Export rule set to let others import it.">Exportar conjunto de reglas para que otros puedan importarlas.</string>
   <string name="export_logs_csv_" formatted="false" username="@periclesurtubey" orig="Export CSV">Exportar CSV</string>
