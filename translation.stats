@@ -54,7 +54,7 @@ res/values-fr/intro.xml:10
 res/values-fr/market.xml:6
 res/values-fr/notes.xml:0
 res/values-fr/simple_prefs.xml:19
-res/values-fr/strings.xml:425
+res/values-fr/strings.xml:428
 res/values-hi/donation.xml:0
 res/values-hi/help.xml:0
 res/values-hi/intro.xml:0
@@ -167,7 +167,7 @@ res/values-cs:438
 res/values-de:490
 res/values-el:359
 res/values-es:478
-res/values-fr:479
+res/values-fr:482
 res/values-hi:7
 res/values-hr:487
 res/values-hu:451

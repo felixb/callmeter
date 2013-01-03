@@ -446,4 +446,7 @@
   <string name="units_cost_per_minute" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="$/Minute">€/Minute</string>
   <string name="units_cost_per_message" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="$/Message">€/Message</string>
   <string name="units_cost_per_mbyte" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="$/MByte">€/MOctet</string>
+  <string name="limit_type_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;cost\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Définissez ici le type de votre limite :\nUne limite "Unités" concernera les minutes, les messages...\nUne limite "Coût" concernera les coûts induits par les items facturés dans votre plan.</string>
+  <string name="billperiodid_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Select your billing period.\nYou may need to create one as extra plan.">Choisissez votre période de facturation.\nVous devrez peut-être en créer une.</string>
+  <string name="cost_per_amount_in_limit_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Cost per length in limit">Coût par durée (limite non atteinte)</string>
 </resources>
