@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates" translatable="false">
-		<item>HEAD: show users\' rules in app, fix custom bill mode settings</item>
+		<item>HEAD: show users\' rules in app, fix custom bill mode settings, update tanslation</item>
 		<item>v3.7.2: fix import of rules with &lt;longdescription&gt;</item>
 		<item>v3.7.1: fix cost in merged plans (reset stats please), fix progress bar size for android 3+, some more fixes</item>
 		<item>v3.7: fix limit breaking calls/data, fix cost settings help for plans without limit, merge data in mixed plans, hide progressbar for unlimited bill periods, strip anything but first x seconds, deleting last call will stay deleted until reset stats, fix "$amp;" in exports, fix numbers/hours imports, fix hidden help/summary, fix float cost limits, minor fixes</item>
