@@ -469,25 +469,33 @@ public final class Preferences extends SherlockPreferenceActivity implements
 	@Override
 	protected void onResume() {
 		super.onResume();
-		this.checkSimplePrefs(PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
-				PREFS_PREPAID, false));
+		this.checkSimplePrefs();
 	}
 
 	/**
 	 * Check availability of "simple preferences".
-	 * 
-	 * @param overrideNo
-	 *            override decision, true will disable "simple preferences"
 	 */
 	@SuppressWarnings("deprecation")
-	private void checkSimplePrefs(final boolean overrideNo) {
+	private void checkSimplePrefs() {
+		boolean overrideNo = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+				PREFS_PREPAID, false);
 		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
 		boolean enabled = !overrideNo && p.getBoolean(PREFS_ISDEFAULT, false);
 		Preference pr = this.findPreference("simple_settings");
-		pr.setEnabled(enabled);
 		if (enabled) {
+			pr.setOnPreferenceClickListener(null);
 			pr.setSummary(R.string.simple_preferences_hint);
 		} else {
+			pr.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+				@Override
+				public boolean onPreferenceClick(final Preference preference) {
+					Toast.makeText(Preferences.this, R.string.simple_preferences_deactivated,
+							Toast.LENGTH_LONG).show();
+					Preferences.this.startActivity(new Intent("IMPORT", null, Preferences.this,
+							PreferencesPlain.class));
+					return true;
+				}
+			});
 			pr.setSummary(R.string.simple_preferences_deactivated);
 		}
 	}
@@ -649,6 +657,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
 											Toast.LENGTH_LONG).show();
 								}
 								d1.dismiss();
+								Preferences.this.checkSimplePrefs();
 							}
 						}.execute((Void) null);
 					}
