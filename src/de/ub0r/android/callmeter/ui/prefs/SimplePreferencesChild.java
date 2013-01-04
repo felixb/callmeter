@@ -18,13 +18,9 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
-import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 
@@ -64,17 +60,12 @@ public final class SimplePreferencesChild extends SherlockPreferenceActivity imp
 			this.addPreferencesFromResource(R.xml.simple_prefs_calls);
 			this.findPreference(SimplePreferences.PREFS_BILLMODE).setOnPreferenceChangeListener(
 					this);
-			this.findPreference(SimplePreferences.PREFS_CUSTOM_BILLMODE)
-					.setOnPreferenceChangeListener(this);
 			this.findPreference(SimplePreferences.PREFS_FREEMIN)
 					.setOnPreferenceChangeListener(this);
 			this.findPreference(SimplePreferences.PREFS_COST_PER_CALL)
 					.setOnPreferenceChangeListener(this);
 			this.findPreference(SimplePreferences.PREFS_COST_PER_MIN)
 					.setOnPreferenceChangeListener(this);
-			final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
-			this.onPreferenceChange(this.findPreference(SimplePreferences.PREFS_BILLMODE),
-					p.getString(SimplePreferences.PREFS_BILLMODE, "1/1"));
 		} else if (SMS.equals(a)) {
 			this.addPreferencesFromResource(R.xml.simple_prefs_sms);
 			this.findPreference(SimplePreferences.PREFS_FREESMS)
@@ -102,25 +93,12 @@ public final class SimplePreferencesChild extends SherlockPreferenceActivity imp
 		SimplePreferences.savePrefs(this);
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onPreferenceChange(final Preference preference, final Object newValue) {
 		if (preference == null) {
 			return false;
 		}
 		RuleMatcher.unmatch(this);
-		final String k = preference.getKey();
-		if (k.equals(SimplePreferences.PREFS_BILLMODE)) {
-			this.findPreference(SimplePreferences.PREFS_CUSTOM_BILLMODE).setEnabled(
-					!newValue.toString().contains("/"));
-		} else if (k.equals(SimplePreferences.PREFS_CUSTOM_BILLMODE)) {
-			final String[] t = newValue.toString().split("/");
-			if (t.length != 2 || !TextUtils.isDigitsOnly(t[0].trim())
-					|| !TextUtils.isDigitsOnly(t[1].trim())) {
-				Toast.makeText(this, R.string.missing_slash, Toast.LENGTH_LONG).show();
-				return false;
-			}
-		}
 		return true;
 	}
 }

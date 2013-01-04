@@ -17,16 +17,13 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <ListPreference
+    <de.ub0r.android.callmeter.ui.prefs.BillModeListPreference
         android:entries="@array/billmodes"
         android:entryValues="@array/billmodes"
         android:key="sp_billmode"
         android:summary="@string/billmode_help"
         android:title="@string/billmode_" />
 
-    <EditTextPreference
-        android:key="sp_custom_billmode"
-        android:title="@string/billmode_" />
     <EditTextPreference
         android:inputType="number"
         android:key="sp_freemin"
