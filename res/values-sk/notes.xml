@@ -22,7 +22,7 @@
        -->
 <resources>
   <string-array name="notes_from_dev">
-    <item>December 2010, Call Meter 3G je dostupný: Call Meter 3G alias CM3 je dostupný na Markete. Vyskúšajte ho a napíšte postrehy na stránke projektu.</item>
+    <item>December 2010, Call Meter 3G je dostupný: Call Meter 3G alias CM3 je dostupný na Google Play Storee. Vyskúšajte ho a napíšte postrehy na stránke projektu.</item>
     <item>Marec 2011, Nastavenia:Nezabudnite tiež vyčistiť štatistiky po zmene nastavení pre použitie nových pravidiel pre staršie log položky.</item>
   </string-array>
 </resources>

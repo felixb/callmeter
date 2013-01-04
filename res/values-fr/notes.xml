@@ -22,7 +22,7 @@
        -->
 <resources>
   <string-array name="notes_from_dev">
-    <item>Déc. 2010, Call Meter 3G est disponible: Call Meter CM3 3G alias est disponible sur le market. Testez et postez vos commentaires sur le la page du projet.</item>
+    <item>Déc. 2010, Call Meter 3G est disponible: Call Meter CM3 3G alias est disponible sur le Google Play Store. Testez et postez vos commentaires sur le la page du projet.</item>
     <item>Mars 2011, Paramètres : Ne pas oublier d\'effacer les statistiques après modification des paramètres pour appliquer les nouvelles règles afin de coller les traces aussi.</item>
   </string-array>
 </resources>

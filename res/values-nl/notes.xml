@@ -22,7 +22,7 @@
        -->
 <resources>
   <string-array name="notes_from_dev">
-    <item>Dec. 2010, Call Meter 3G is beschikbaar: Call Meter 3G ofwel CM3 is beschikbaar in de market. Probeer \'m uit en geef je opmerkingen op de projectpagina.</item>
+    <item>Dec. 2010, Call Meter 3G is beschikbaar: Call Meter 3G ofwel CM3 is beschikbaar in de Google Play Store. Probeer \'m uit en geef je opmerkingen op de projectpagina.</item>
     <item notranslation="true">Mar. 2011, Settings: Don\'t forget to clear statistics after changing settings to apply the new rules for past log items too.</item>
   </string-array>
 </resources>

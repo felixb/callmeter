@@ -22,7 +22,7 @@
        -->
 <resources>
   <string-array name="notes_from_dev">
-    <item>Dez/2010, Call Meter 3G está disponível: Call Meter 3G, apelido CM3, está disponível no market. Obtenha, teste e envie comentários na página de app´s.</item>
+    <item>Dez/2010, Call Meter 3G está disponível: Call Meter 3G, apelido CM3, está disponível no Google Play Store. Obtenha, teste e envie comentários na página de app´s.</item>
     <item>Mar/2011, Ajustes: Não esqueça de limpar as estatísticas depois de modificar os ajustes, para aplicar as novas regras aos log´s anteriores também.</item>
   </string-array>
 </resources>
