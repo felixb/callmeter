@@ -331,4 +331,14 @@
   <string name="empty_group_" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Моля натиснете "Add" за да добавите елемент в групата.</string>
   <string name="monday" formatted="false" username="hlp" orig="Monday">Понеделник</string>
   <string name="delete_" formatted="false" username="hlp" orig="Delete">Изтрий</string>
+  <string name="up_" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="Move up">Нагоре</string>
+  <string name="down_" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="Move down">Надолу</string>
+  <string name="set_current_number" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="Current number">Настоящ номер</string>
+  <string name="export_logs_csv_" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="Export CSV">Експортирай CSV</string>
+  <string name="provider" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="Provider">Оператор</string>
+  <string name="plan" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="Plan">План</string>
+  <string name="country" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="Country">Държава</string>
+  <string name="send_logs_" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="Send logs">Изпрати логовете</string>
+  <string name="my_number_" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="My number">Моят номер</string>
+  <string name="my_sim_id_" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="SIM Id">SIM ID</string>
 </resources>
