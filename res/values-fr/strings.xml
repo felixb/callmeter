@@ -99,8 +99,8 @@
   <string name="textsize_title_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Title\'s text size">Taille des titres</string>
   <string name="textsize_bigtitle_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Big title\'s text size">Taille des grands titres</string>
   <string name="textsize_bigtitle_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Text size for big titles in pixels; leave empty for default">Taille des grands titres en pixels ; laisser vide pour la taille par défaut</string>
-  <string name="textsize_spacer_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Spacer\'s size">Taille des espaces</string>
-  <string name="textsize_spacer_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Size for spacers in pixels; leave empty for default">Taille des espaces en pixels ; laisser vide pour la taille par défaut</string>
+  <string name="textsize_spacer_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Spacer\'s size">Taille des séparateurs</string>
+  <string name="textsize_spacer_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Size for spacers in pixels; leave empty for default">Taille des séparateurs en pixels ; laisser vide pour la taille par défaut</string>
   <string name="textsize_pbar_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Progress bar\'s size">Taille des barres de progression</string>
   <string name="textsize_pbar_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Size for progress bars in pixels; leave empty for default">Taille des barres de progression en pixels ; laisser vide pour la taille par défaut</string>
   <string name="textsize_pbarbp_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Bill period\'s progress bar\'s size">Taille de la barre de progression pour la période de facturation</string>
@@ -132,12 +132,12 @@
   <string name="date_formats_3" formatted="false" username="carabao@laposte.net" orig="DD.MM.YYYY">JJ.MM.AAAA</string>
   <string name="direction_data_in" formatted="false" username="carabao@laposte.net" orig="in">Entrée</string>
   <string name="direction_data_out" formatted="false" username="carabao@laposte.net" orig="out">Sortie</string>
-  <string name="direction_mms_in" formatted="false" username="carabao@laposte.net" orig="in">Entrée</string>
-  <string name="direction_mms_out" formatted="false" username="carabao@laposte.net" orig="out">Sortie</string>
+  <string name="direction_mms_in" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="in">Réception</string>
+  <string name="direction_mms_out" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="out">Envoi</string>
   <string name="direction_calls_in" formatted="false" username="carabao@laposte.net" orig="in">Entrée</string>
   <string name="direction_calls_out" formatted="false" username="carabao@laposte.net" orig="out">Sortie</string>
-  <string name="direction_sms_out" formatted="false" username="carabao@laposte.net" orig="out">Sortie</string>
-  <string name="direction_sms_in" formatted="false" username="carabao@laposte.net" orig="in">Entrée</string>
+  <string name="direction_sms_out" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="out">Envoi</string>
+  <string name="direction_sms_in" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="in">Réception</string>
   <string name="x1_day" formatted="false" username="carabao@laposte.net" orig="One day">un jour</string>
   <string name="x1_week" formatted="false" username="carabao@laposte.net" orig="One week">une semaine</string>
   <string name="x14_day" formatted="false" username="carabao@laposte.net" orig="14 days">14 jours</string>
@@ -186,7 +186,7 @@
   <string name="hide_zero_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Hide plans containing no item.">Cacher les plans ne contenant aucun item.</string>
   <string name="hide_nocost_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Hide no cost plans">Cacher les plans gratuits</string>
   <string name="hide_nocost_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Hide plans with no cost.">Ne pas afficher les plans gratuits</string>
-  <string name="custom_currency_symbol_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Custom currency symbol">Devise personnelle</string>
+  <string name="custom_currency_symbol_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Custom currency symbol">Devise personnelle</string>
   <string name="custom_currency_symbol_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Set a custom currency symbol, leave empty for system default.">Définir un symbole pour la devise à utiliser, laisser vide pour utiliser le symbole par défaut.</string>
   <string name="custom_currency_format_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Custom currency format">Format de la devise personnelle</string>
   <string name="custom_currency_format_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Select a custom currency format.">Sélectionner un format pour la devise à utiliser.</string>
@@ -240,19 +240,19 @@
   <string name="calls_out_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="CallsOut">Appels_emis</string>
   <string name="mms_out_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="MMSOut">MMSOut</string>
   <string name="prepaid_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Prepaid plan">plan prépayé</string>
-  <string name="prepaid_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Facturation sur une base de prépayé. Les coûts sont soustraits d\'un solde initial au fur et à mesure des appels etc.</string>
+  <string name="prepaid_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Facturation sur une base de prépayé. Les coûts sont soustraits d\'un solde initial au fur et à mesure des communications.</string>
   <string name="balance_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Balance">Solde</string>
   <string name="balance_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Balance of your account at this given date.">Solde du compte à une date donnée</string>
-  <string name="strip_leading_zeros_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Strip leading zeros">Supprimer les zéros</string>
+  <string name="strip_leading_zeros_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Strip leading zeros">Supprimer les zéros initiaux</string>
   <string name="strip_leading_zeros_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Strip leading zeros when comparing numbers.">Supprimer les zéros au début quand on compare les numéros</string>
   <string name="my_number_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="My number">Mon numéro</string>
   <string name="my_number_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Match only logs, while this SIM/number is active.">Associer uniquement les logs quand ce numéro/cette SIM est active</string>
   <string name="my_sim_id_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="SIM Id">SIM id</string>
-  <string name="my_sim_id_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Match only logs done with this SIM.">N\'associer que les communications faites avec cette SIM.</string>
+  <string name="my_sim_id_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Match only logs done with this SIM.">N\'associer que les communications faites avec cette carte SIM.</string>
   <string name="set_current_number" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Current number">Numéro actuel</string>
   <string name="number_prefix_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="International prefix">Préfixe international</string>
   <string name="number_prefix_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">Votre préfixe international, au format +1 ou +33, utilisé pour comparer des numéros comme +33490.. et 0490..</string>
-  <string name="reset_data_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Reset statistics">Mise à 0 des statistiques</string>
+  <string name="reset_data_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Reset statistics">Réinitialisation des statistiques</string>
   <string name="infinite" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Infinite">illimité</string>
   <string name="default_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Default">Défaut</string>
   <string name="currency_formats_3" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="1.00$">1.OO€</string>
@@ -281,9 +281,9 @@
   <string name="help_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Help">Aide</string>
   <string name="new_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="New">Nouveau</string>
   <string name="reset_data_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">La remise à zéro des communications conduira au recalcul des statistiques.\n\nLa mise à zéro des statistiques internet est permanente (le trafic internet effectué avant le boot du téléphone sera perdu).</string>
-  <string name="reset_data_data_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Reset traffic too.">Remise également à zéro du trafic internet</string>
+  <string name="reset_data_data_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Reset traffic too.">Réinit internet aussi.</string>
   <string name="reset_data_progr1" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Recalculating statistics ...\n\n(This may take some time!)">Calcul des statistiques ...\n(peut prendre du temps !)</string>
-  <string name="reset_data_progr2" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Recalculating statistics ...">Calcul des statistiques ...</string>
+  <string name="reset_data_progr2" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Recalculating statistics ...">Re-calcul des statistiques ...</string>
   <string name="contacts_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Contacts">Contacts</string>
   <string name="clear_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Clear">Supprimer</string>
   <string name="edit_selected_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Edit selected">Edition</string>
@@ -293,7 +293,7 @@
   <string name="shortname_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Short name">Nom court</string>
   <string name="shortname_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Set a short name here. It is displayed in compact layouts.">Définir un nom court qui sera affiché dans le mode compact</string>
   <string name="type_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Type">Type</string>
-  <string name="type_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Sélectionner un type :\n"Titre" afichera un titre dans la vue principale,\n"Séparateur" affichera un espace vertical,\n"Période de facturation" contiendra les informations de facturation. La plupart des gens n\'en auront besoin que d\'une,\nun plan "mixte" peut prendre en compte les messages et les appels à la fois. Il fera la somme des coûts de ces communications,\nun plan "Appel" ne traite que les appels. "SMS" et "MMS" ne gèreront que les messages,\nun plan "internet" permettra la gestion des trafics internet.</string>
+  <string name="type_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Sélectionner un type :\n"Titre" affichera un titre dans la vue principale,\n"Séparateur" affichera un espace vertical,\n"Période de facturation" contiendra les informations de facturation. La plupart des gens n\'en auront besoin que d\'une,\nun plan "mixte" peut prendre en compte simultanément les messages et les appels. Il fera la somme des coûts de ces communications,\nun plan "Appel" ne traite que les appels. "SMS" et "MMS" ne gèreront que les messages,\nun plan "internet" permettra la gestion du trafic internet.</string>
   <string name="limit_type_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Limit type">Type de limite</string>
   <string name="limit_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Limit">Limite</string>
   <string name="limit_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">Definir les limites de votre plan ici.\n\nLe type "unités" doit être en minutes (appels), messages (sms/mms), megaoctets (internet, 1024ko) ou unités (mixte).\nLe type "coût" doit être défini selon une devise ($,€, etc)</string>
@@ -303,10 +303,10 @@
   <string name="limitnotreached_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Match only if target plan has not reached it\'s limit yet.">N\'est associé que si le plan cible n\'a pas atteint sa limite</string>
   <string name="iswebsms_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Is WebSMS">WebSMS</string>
   <string name="iswebsms_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Message sent with WebSMS.">Message envoyé par WebSMS</string>
-  <string name="iswebsms_connector_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Is WebSMS Connector">connection WebSMS</string>
-  <string name="iswebsms_connector_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Sent with specific WebSMS Connector, leave empty to match any.">Envoyé avec une connection WebSMS particulière, laisser vide pour toutes.</string>
-  <string name="issipcall_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Is SIP call">appel SIP</string>
-  <string name="issipcall_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">appel effectué par SIP. Actuellement seul sipdroid &gt;1.6.1 est supporté.</string>
+  <string name="iswebsms_connector_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Is WebSMS Connector">Connecteur WebSMS</string>
+  <string name="iswebsms_connector_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Sent with specific WebSMS Connector, leave empty to match any.">Envoyé avec un connecteur WebSMS particulier, laisser vide pour toutes.</string>
+  <string name="issipcall_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Is SIP call">Appel SIP</string>
+  <string name="issipcall_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Appel effectué par SIP. Actuellement seul sipdroid &gt;1.6.1 est supporté.</string>
   <string name="strip_seconds_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Do not bill first seconds">Ne pas facturer les premières secondes</string>
   <string name="strip_seconds_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Do not bill first x seconds of a call.">Ne pas facturer les x premières secondes d\'un appel.</string>
   <string name="strip_past_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Do not bill anything after seconds">Ne pas facturer après secondes</string>
@@ -314,11 +314,11 @@
   <string name="active_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Active">Actif</string>
   <string name="active_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Only active rules are used for matching logs.">Seules les règles actives sont utilisées pour traiter les logs.</string>
   <string name="what_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Target type">Type de la cible</string>
-  <string name="what_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Choose a target type here.">Choisir un type pour la cible</string>
+  <string name="what_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Choose a target type here.">Choisir un type pour la cible.</string>
   <string name="direction_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Direction">Direction</string>
   <string name="direction_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Choose a direction the given log has to be.">Choisir une direction pour le log donné.</string>
-  <string name="roamed_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Roamed">transmis par itinérance</string>
-  <string name="roamed_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Choose whether the given log has to be roamed.">Définir si le log doné est géré en itinérance</string>
+  <string name="roamed_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Roamed">Transmis par itinérance</string>
+  <string name="roamed_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Choose whether the given log has to be roamed.">Définir si le log donné est géré en itinérance.</string>
   <string name="remote_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Remote number">Numéro distant</string>
   <string name="no_matter_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Does not matter">Sans importance</string>
   <string name="yes" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Yes">Oui</string>
@@ -383,21 +383,21 @@
   <string name="day_21" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="21:00 - 21:59">21:00 - 21:59</string>
   <string name="day_22" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="22:00 - 22:59">22:00 - 22:59</string>
   <string name="export_logs_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Backup logs">Sauvergarder les logs</string>
-  <string name="export_logs_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Backup logs as mail.">Sauvegarder les logs par mail</string>
+  <string name="export_logs_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Backup logs as mail.">Sauvegarder les logs par mail.</string>
   <string name="export_logs_csv_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Export CSV">Exporter en CSV</string>
   <string name="export_logs_csv_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Export logs as CSV.">Exporter les logs au format CSV</string>
   <string name="export_numgroups_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Export number groups">Exporter les groupes de numéros</string>
-  <string name="export_numgroups_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Export number groups as mail.">Exporter les groupes de numéros par mail</string>
+  <string name="export_numgroups_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Export number groups as mail.">Exporter les groupes de numéros par mail.</string>
   <string name="export_hourgroups_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Export hour groups">Exporter les groupes d\'heures</string>
-  <string name="export_hourgroups_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Export hour groups as mail.">Exporter les groupes d\'heures par mail</string>
+  <string name="export_hourgroups_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Export hour groups as mail.">Exporter les groupes d\'heures par mail.</string>
   <string name="import_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Import">Importer</string>
   <string name="import_link_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="More info">Plus d\'infos</string>
   <string name="import_rules_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Import rule set">Importer des règles</string>
-  <string name="import_rules_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Import preconfigured rule set.">Importer un jeu de règles préconfiguré</string>
+  <string name="import_rules_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Import preconfigured rule set.">Importer un jeu de règles préconfiguré.</string>
   <string name="import_rules_www_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Import pre-configured rule set from http://www.ub0r.de/.">Importer un jeu de règles préconfiguré à partir de http://www.ub0r.de/.</string>
   <string name="import_rules_users" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Users\' rules">Règles de l\'utilisateur</string>
   <string name="import_rules_sd_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Import rule set from SD card">Importer un jeu de règles depuis la carte SD</string>
-  <string name="import_rules_sd_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Import rule set directly from SD card.">Importer un jeu de règles directement depuis la carte SD</string>
+  <string name="import_rules_sd_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Import rule set directly from SD card.">Importer un jeu de règles directement depuis la carte SD.</string>
   <string name="import_rules_sd_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Place your file on your SD card and click it below">PLacez votre fichier sur la carte SD et appuyez ci-dessous</string>
   <string name="import_rules_sd_files" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Found files">Fichiers trouvés</string>
   <string name="import_rules_sd_nofiles" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="No found files">Aucun fichier trouvé</string>
@@ -408,7 +408,7 @@
   <string name="err_export_write" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Error writing export file">Erreur lors de l\'écriture du fichier</string>
   <string name="err_export_read" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Error reading export file">Erreur lors de la lecture du fichier</string>
   <string name="alerts_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Alerts">Alertes</string>
-  <string name="alerts_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Set alerts based on plan usage.">Définir des alertes basées sur le plan</string>
+  <string name="alerts_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set alerts based on plan usage.">Définir des alertes basées sur le plan.</string>
   <string name="alerts_title" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Call Meter 3G alert">Call Meter 3G alertes</string>
   <string name="alerts_message" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Plan %s has reached %d%% usage!">Le plan %s a atteint %d%% d\'utilisation!</string>
   <string name="alerts_80_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Notify at 80%">Notifier à 80%</string>
@@ -424,9 +424,9 @@
   <string name="widget_backgroud_color_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Background color">Couleur du fond</string>
   <string name="widget_backgroud_transparency_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Background transparency">Transparence du fond</string>
   <string name="send_devices_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Send devices">Envoyer les périphériques</string>
-  <string name="send_devices_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Envoyer la liste des périphériques au développeur. Ce n\'est utile que si les stats injternet sont à 0.</string>
+  <string name="send_devices_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Envoyer la liste des périphériques au développeur. Ce n\'est utile que si les stats internet sont à 0.</string>
   <string name="mixed_units_mms_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Units for a mms">Unités pour un MMS</string>
-  <string name="billday_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Set this to the first day of the bill of the current billing period.">Définir le premier jour de la facture pour la période de facturation actuelle.</string>
+  <string name="billday_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set this to the first day of the bill of the current billing period.">Définir le premier jour de la facture pour la période de facturation courante.</string>
   <string name="mixed_units_sms_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Units for a sms">Unités pour un SMS</string>
   <string name="mixed_units_sms_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Set the units billed for a single sms.">Définir l\'unité pour le coût d\'un seul SMS.</string>
   <string name="mixed_units_mms_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Set the units billed for a single mms.">Définir l\'unité pour le coût d\'un seul MMS.</string>
@@ -435,7 +435,7 @@
   <string name="merge_plans_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Merge plans">Fusionner les plans</string>
   <string name="mixed_units_data_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Units for data">Unités pour internet</string>
   <string name="mixed_units_data_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Set the units billed for each MB of data traffic.">Définir l\'unité pour le coût de chaque Mo de trafic internet.</string>
-  <string name="merge_plans_help" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Merge other plans into this one and bill them here (too).">Fusionner un autre plan dans celui-ci et les facturer ensemble (ici)</string>
+  <string name="merge_plans_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Merge other plans into this one and bill them here (too).">Fusionner un autre plan dans celui-ci et les facturer ensemble (ici).</string>
   <string name="units_num_msg" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="# Messages"># Messages</string>
   <string name="units_minutes" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Minutes">Minutes</string>
   <string name="units_mbyte" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="MBytes">MOctets</string>
@@ -449,4 +449,12 @@
   <string name="limit_type_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;cost\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Définissez ici le type de votre limite :\nUne limite "Unités" concernera les minutes, les messages...\nUne limite "Coût" concernera les coûts induits par les items facturés dans votre plan.</string>
   <string name="billperiodid_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Select your billing period.\nYou may need to create one as extra plan.">Choisissez votre période de facturation.\nVous devrez peut-être en créer une.</string>
   <string name="cost_per_amount_in_limit_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Cost per length in limit">Coût par durée (limite non atteinte)</string>
+  <string name="billmode_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.">Définir le mode de facturation des appels.\nLa première partie est la durée minimale facturée par l\'opérateur. Chaque appel avec une durée inférieure sera arrondie à cette valeur.\nLa seconde partie est la durée minimale de chaque bloc de facturation suivante (en secondes). Veuillez vous référer à la FAQ pour plus d\'infos.</string>
+  <string name="cost_per_amount_help2" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Définir le coût facturé par durée pour un log unique (par exemple, 1 min d\'appel), une fois la limite atteinte.\nLe premier champ contient le coût des premières secondes de chaque appel, le second contient le coût relative aux suivantes (en €/min; voir le mode de facturation).\nEn cas de doute, renseignez les deux champs avec le coût à la minute.</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.">Définir le coût facturé par durée pour un log unique (par exemple, 1 min d\'appel ou 1ko internet), avant d\'atteindre la limite.</string>
+  <string name="cost_per_amount_in_limit_help2" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Définir le coût facturé par durée pour un log unique (par exemple, 1 min d\'appel), avant d\'atteindre la limite.\nLe premier champ contient le coût des premières secondes de chaque appel, le second contient le coût relative aux suivantes (en €/min; voir le mode de facturation).\nEn cas de doute, renseignez les deux champs avec le coût à la minute.</string>
+  <string name="cost_per_amount_no_limit_help1" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data).">Définir le coût facturé par durée pour un log unique (par exemple, 1 min d\'appel ou 1ko internet).</string>
+  <string name="cost_per_amount_no_limit_help2" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call).\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Définir le coût facturé par durée pour un log unique (par exemple, 1 min d\'appel).\nLe premier champ contient le coût des premières secondes de chaque appel, le second contient le coût relative aux suivantes (en €/min; voir le mode de facturation).\nEn cas de doute, renseignez les deux champs avec le coût à la minute.</string>
+  <string name="cost_per_plan_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set the cost of the plan for one billing period as is.">Définir le coût forfaitaire du plan pour une période de facturation.</string>
+  <string name="mixed_units_call_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set the units billed for a one minute call.\nBill mode is taken into account here.">Définir l\'unité pour le coût d\'un appel d\'une minute.\nLe mode de facturation est pris en compte ici.</string>
 </resources>
