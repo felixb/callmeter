@@ -186,7 +186,7 @@
   <string name="hide_zero_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Hide plans containing no item.">Cacher les plans ne contenant aucun item.</string>
   <string name="hide_nocost_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Hide no cost plans">Cacher les plans gratuits</string>
   <string name="hide_nocost_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Hide plans with no cost.">Ne pas afficher les plans gratuits</string>
-  <string name="custom_currency_symbol_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Custom currency symbol">Symbole de la devise personnelle</string>
+  <string name="custom_currency_symbol_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Custom currency symbol">Devise personnelle</string>
   <string name="custom_currency_symbol_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Set a custom currency symbol, leave empty for system default.">Définir un symbole pour la devise à utiliser, laisser vide pour utiliser le symbole par défaut.</string>
   <string name="custom_currency_format_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Custom currency format">Format de la devise personnelle</string>
   <string name="custom_currency_format_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Select a custom currency format.">Sélectionner un format pour la devise à utiliser.</string>

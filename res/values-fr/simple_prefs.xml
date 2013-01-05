@@ -33,10 +33,10 @@
   <string name="freemms_" formatted="false" username="Tarik" orig="Free MMS">MMS gratuits</string>
   <string name="freemms_hint" formatted="false" username="Tarik" orig="Free MMS / month">MMS gratuits / Mois</string>
   <string name="cost_per_mms_" formatted="false" username="Tarik" orig="Cost / MMS">coût / MMS</string>
-  <string name="missing_slash" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Bill mode needs to be in seconds/seconds!">Le mode de facturation doit être seconde/seconde</string>
+  <string name="missing_slash" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Bill mode needs to be in seconds/seconds!">Le mode de facturation doit être secondes/secondes</string>
   <string name="cost_per_sms_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Each SMS get\'s billed.">Chaque SMS sera facturé.\n\n</string>
   <string name="cost_per_mms_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Each MMS get\'s billed.">Chaque MMS sera facturé.</string>
-  <string name="freedata_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Free traffic">transfert de données gratuit</string>
+  <string name="freedata_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Free traffic">Trafic Internet gratuit</string>
   <string name="freedata_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Free 2G, 3G or 4G data traffic / month">Internet en 2G, 3G ou 4G gratuit /mois</string>
   <string name="cost_per_mb_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Cost / MB">coût / Mo</string>
   <string name="cost_per_mb_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Each MB get\'s billed.">Chaque Mo sera facturé.</string>
