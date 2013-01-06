@@ -80,9 +80,9 @@ public class CallMeter extends Activity {
 	 */
 	@Override
 	public final void onCreate(final Bundle savedInstanceState) {
+		this.setTheme(Preferences.getTheme(this));
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-		this.setTheme(Preferences.getTheme(this));
 		Utils.setLocale(this);
 		this.setContentView(R.layout.main);
 

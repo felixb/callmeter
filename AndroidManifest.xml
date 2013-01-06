@@ -23,7 +23,7 @@
 
     <uses-sdk
         android:minSdkVersion="3"
-        android:targetSdkVersion="10" />
+        android:targetSdkVersion="17" />
 
     <supports-screens
         android:anyDensity="true"
@@ -67,8 +67,10 @@
 
     <application
         android:name=".CallMeterApp"
+        android:allowBackup="true"
         android:icon="@drawable/sym_call_outgoing"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        android:theme="@style/Theme" >
         <activity
             android:name="CallMeter"
             android:configChanges="orientation|keyboardHidden"

@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
+		<item>HEAD: use Holo themes on Android 3+</item>
 		<item>v2.3.18.8: update translations</item>
 		<item>v2.3.18.7: minor fixes, update translations</item>
 		<item>v2.3.18.6: fix translation causing FCs</item>
