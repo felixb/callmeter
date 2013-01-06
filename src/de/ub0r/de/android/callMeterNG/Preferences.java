@@ -62,9 +62,9 @@ public class Preferences extends PreferenceActivity implements
 				.getDefaultSharedPreferences(context);
 		final String s = p.getString(PREFS_THEME, THEME_BLACK);
 		if (s != null && THEME_LIGHT.equals(s)) {
-			return android.R.style.Theme_Light;
+			return R.style.Theme_Light;
 		}
-		return android.R.style.Theme_Black;
+		return R.style.Theme;
 	}
 
 	/**

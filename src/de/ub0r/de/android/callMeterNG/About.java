@@ -32,8 +32,8 @@ public class About extends Activity {
 	 */
 	@Override
 	public final void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
 		this.setTheme(Preferences.getTheme(this));
+		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.about);
 		this.setTitle(this.getString(R.string.about_) + " "
 				+ this.getString(R.string.app_name) + " v"
