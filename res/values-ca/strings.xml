@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
+<!--
 		Copyright (C) 2009-2012 Felix Bechstein
 	-->
-	<!--
+<!--
 		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
 		version.
 	-->
-	<!--
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -18,4 +18,62 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string name="changelog_notification_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Recent changes:">Canvis recents:</string>
+  <string name="changelog_notification_text" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Click here to show recent changes of">Faci click aquí per visualitzar els canvis recents de</string>
+  <string name="never_show_again" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Never show changelog again">No tornar a mostar el registre de canvis</string>
+  <string name="notes_from_developer_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Notes from developer">Notes del desenvolupador</string>
+  <string name="notes_from_developer_text" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Click here to show recent news from the developer">Faci click aquí per visualitzar les notícies recents del desenvolupador</string>
+  <string name="about0_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Watch your call, message and data plans!">Atenció a la seva tarifa de trucades, missatges i dades!</string>
+  <string name="about0" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">Call Meter 3G genera informes a partir del registre de trucades, missatges i dades. És compatible amb diversos modes de facturació.</string>
+  <string name="send_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Send">Enviar</string>
+  <string name="add_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Add">Afegir</string>
+  <string name="length_hint_call" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Length in seconds">Duració en segons</string>
+  <string name="length_hint_data" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Length in kB">Duració en kB</string>
+  <string name="settings" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Preferences">Preferències</string>
+  <string name="update_interval_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Update interval">Interval d\'actualització</string>
+  <string name="update_interval_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Shorter period will use more battery.">Períodes curts fan us de més bateria.</string>
+  <string name="update_interval_data_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Update interval (data)">Interval d\'actualització (dades)</string>
+  <string name="common_prefs_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Common preferences">Preferències comunes</string>
+  <string name="edit_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Edit">Editar</string>
+  <string name="delete_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Delete">Esborrar</string>
+  <string name="up_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Move up">Desplaçar amunt</string>
+  <string name="down_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Move down">Desplaçar avall</string>
+  <string name="about_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="About">Quant a</string>
+  <string name="about_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="About this app">Quant a aquesta aplicació</string>
+  <string name="more_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="More Apps..">Més aplicacions...</string>
+  <string name="billing_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Billing">Facturació</string>
+  <string name="billday_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="First day of your bill">Primer dia de facturació</string>
+  <string name="billmode_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Mode of billing">Mode de facturació</string>
+  <string name="billdate_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Start of billing period:">Inici del període de facturació:</string>
+  <string name="appearance_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Appearance">Aparença</string>
+  <string name="behavior_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Behavior">Comportament</string>
+  <string name="appearance_and_behavior_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Appearance &amp; behavior">Aparença i comportament</string>
+  <string name="widget_stats_title" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Call Meter (stats)">Call Meter (estadístiques)</string>
+  <string name="widget_logs_title" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Call Meter (last log)">Call Meter (últim registre)</string>
+  <string name="widget_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Widget">Widget</string>
+  <string name="widgets_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Widgets">Widgets</string>
+  <string name="widgets_no_widgets_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="No widgets added">Cap widget afegit</string>
+  <string name="delete_widget" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Delete widget">Esborrar widget</string>
+  <string name="textsize_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Text size">Tamany text</string>
+  <string name="show_today_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show today">Mostrar avui</string>
+  <string name="show_today_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show today stats">Mostrar estadístiques d\'avui</string>
+  <string name="show_total_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show total">Mostrar total</string>
+  <string name="show_hours_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show hours">Mostrar hores</string>
+  <string name="show_help_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show help">Mostrar ajuda</string>
+  <string name="show_cost_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show cost">Mostrar cost</string>
+  <string name="show_icon_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show icon">Mostrar icona</string>
+  <string name="hide_name_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Hide name of plan">Amagar nom pla</string>
+  <string name="small_widget_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Use small widget">Utilitzar widget petit</string>
+  <string name="show_calllength_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show info after hanging up">Mostrar informació després de penjar</string>
+  <string name="show_calllength_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show length/cost of a call after hanging up.">Mostar duracií/cost d\'una trucada després de penjar.</string>
+  <string name="hide_zero_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Hide empty plans">Amagar plans buits</string>
+  <string name="logs" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Logs">Registres</string>
+  <string name="now" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Now">Ara</string>
+  <string name="show_logs" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show logs">Mostrar registres</string>
+  <string name="plans" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Plans">Plans</string>
+  <string name="plans_new" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="New plan">Nou pla</string>
+  <string name="rule_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Rule">Norma</string>
+  <string name="rules" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Rules">Normes</string>
+  <string name="rules_new" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="New Rule">Nova norma</string>
+  <string name="cost_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Cost">Cost</string>
 </resources>
