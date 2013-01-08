@@ -46,7 +46,7 @@
   <string name="smsperiod_" formatted="false" username="rainbowwarrior7" orig="Same Period for SMS">Zelfde voor SMS</string>
   <string name="smsperiod_hint" formatted="false" username="rainbowwarrior7" orig="Set SMS\'s billing period to calls\' period.">Stel factuur periode SMS gelijk aan die van gesprekken.</string>
   <string name="smsbillday_" formatted="false" username="rainbowwarrior7" orig="First day of your SMS bill">Eerste dag SMS facturatie</string>
-  <string name="dataperiod_" formatted="false" username="rainbowwarrior7" orig="Same Period for data">Zelfde als voor data</string>
+  <string name="dataperiod_" formatted="false" username="Triodes" orig="Same Period for data">Zelfde periode voor data</string>
   <string name="dataperiod_hint" formatted="false" username="rainbowwarrior7" orig="Set data\'s billing period to calls\' period.">Stel factuur periode data gelijk aan die van gesprekken.</string>
   <string name="databillday_" formatted="false" username="rainbowwarrior7" orig="First day of your data bill">Eerst dag facturatie data</string>
   <string name="appearance_" formatted="false" username="rainbowwarrior7" orig="Appearance">Uiterlijk</string>
@@ -103,7 +103,7 @@
   <string name="data_enable_" formatted="false">Toon data stats</string>
   <string name="data_enable_hint" formatted="false">Data wordt realtime bijgehouden. Eerste maand kan onjuist zijn!</string>
   <string name="data_each_day" formatted="false">Factureer elke dag apart</string>
-  <string name="data_each_day_hint" formatted="false">Facturatieperiode begint elke dagniet terug naar jou te traceren.</string>
+  <string name="data_each_day_hint" formatted="false" username="Triodes" orig="Your billing period starts with each day.">Facturatieperiode begint elke dag.</string>
   <string name="data_limit_" formatted="false">Limiet</string>
   <string name="data_limit_hint" formatted="false">Limiet van data abonnement (MB/maand)</string>
   <string name="monday" formatted="false">Maandag</string>
@@ -139,4 +139,7 @@
     <item>Klein</item>
     <item>Medium</item>
   </string-array>
+  <string name="custom_language_" formatted="false" username="Triodes" orig="Custom language">Taalinstellingen</string>
+  <string name="data_show_simple_hint" formatted="false" username="Triodes" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Verberg "(2G/3G/4G)" in titel. Dit heeft geen gevolg voor de statistieken.</string>
+  <string name="data_show_simple_" formatted="false" username="Triodes" orig="Show only \&quot;Data\&quot; as title">Laat alleen "Data" als titel zien.</string>
 </resources>
