@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
   <country>Slovakia</country>
-  <provider>O2</provider>
+  <provider>o2</provider>
   <title>fér 100 min free</title>
   <plans>
     <plan>
