@@ -26,7 +26,7 @@ res/values-ca/intro.xml:6
 res/values-ca/market.xml:0
 res/values-ca/notes.xml:0
 res/values-ca/simple_prefs.xml:19
-res/values-ca/strings.xml:58
+res/values-ca/strings.xml:59
 res/values-cs/donation.xml:5
 res/values-cs/help.xml:9
 res/values-cs/intro.xml:10
@@ -170,7 +170,7 @@ res/values-zh/strings.xml:283
 res/values:541
 res/values-ar:2
 res/values-bg:373
-res/values-ca:83
+res/values-ca:84
 res/values-cs:438
 res/values-de:491
 res/values-el:359

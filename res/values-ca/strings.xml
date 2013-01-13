@@ -76,4 +76,5 @@
   <string name="rules" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Rules">Normes</string>
   <string name="rules_new" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="New Rule">Nova norma</string>
   <string name="cost_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Cost">Cost</string>
+  <string name="add_log" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Add log entry">Afegir registre d\'entrada</string>
 </resources>
