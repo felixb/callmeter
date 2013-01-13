@@ -77,4 +77,350 @@
   <string name="rules_new" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="New Rule">Nova norma</string>
   <string name="cost_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Cost">Cost</string>
   <string name="add_log" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Add log entry">Afegir registre d\'entrada</string>
+  <string name="date_begin_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Ignore any logs before this date.">Ignorar qualsevol registre abans d\'aquesta data.</string>
+  <string name="delete_old_logs_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Delete logs older than">Eliminar registres anteriors a</string>
+  <string name="delete_old_logs_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Delete logs older than x days from internal database. Leave empty to disable.">Eliminar registres anteriors a x dies de la base de dades interna. Deixar en blanc per desactivar.</string>
+  <string name="date_begin_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Beginning of records">Inici dels registres</string>
+  <string name="faq_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Some tips and tricks, how to set up this app.">Alguns consells, com configurar aquesta aplicació.</string>
+  <string name="feedback_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Report bugs, request features ...">Informar d\'errors, demanar característiques...</string>
+  <string name="google_plus_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Follow me on Google+.\nGet update notifications etc.">Segueixi\'m a Google+.\nObtingui notificacions, etc.</string>
+  <string name="twitter_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Follow me on twitter.\nGet update notifications etc.">Segueixi\'m a twitter.\nObtingui notificacions, etc.</string>
+  <string name="widgets_no_widgets_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="There are no widgets added to the launcher.">No hi ha widgets afegits.</string>
+  <string name="simple_preferences_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Simple preferences">Preferències simples</string>
+  <string name="advanced_preferences_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Advanced preferences">Preferències avançades</string>
+  <string name="theme_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Theme">Tema</string>
+  <string name="advanced_preferences_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Això li permetrà establir una configuració més complexa. La majoria d\'usuaris no ho necessiten.</string>
+  <string name="textsize_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Text size in pixels; leave empty for default">Tamany de text en píxels; deixar en blanc per valor de defecte</string>
+  <string name="textsize_title_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Title\'s text size">Tamany de text del títol</string>
+  <string name="textsize_title_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Text size for titles in pixels; leave empty for default">Tamany de text pels títols en píxels; deixar en blanc per valor de defecte</string>
+  <string name="textsize_bigtitle_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Big title\'s text size">Tamany de text títols grans</string>
+  <string name="textsize_bigtitle_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Text size for big titles in pixels; leave empty for default">Tamany de text per títols grans en píxels; deixar en blanc per valor de defecte</string>
+  <string name="textsize_spacer_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Spacer\'s size">Tamany d\'espaiat</string>
+  <string name="textsize_spacer_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Size for spacers in pixels; leave empty for default">Tamany d\'espaiat en píxels; deixar en blanc per valor de defecte</string>
+  <string name="textsize_pbar_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Progress bar\'s size">Tamany de la barra de progrés</string>
+  <string name="textsize_pbar_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Size for progress bars in pixels; leave empty for default">Tamany de la barra de progrés en píxels; deixar en blanc per valor de defecte</string>
+  <string name="textsize_pbarbp_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Bill period\'s progress bar\'s size">Tamany de la barra de progrés del període de facturació</string>
+  <string name="textsize_pbarbp_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Tamany de la barra de progrés del període de facturació en píxels; deixar en blanc per valor de defecte</string>
+  <string name="show_total_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show total stats, disable to see current only.">Mostrar estadístiques totals, desactivar veure només les actuals</string>
+  <string name="show_time_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Switch to date">Canviar a data</string>
+  <string name="show_titlebar_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show title bar">Mostrar barra del títol</string>
+  <string name="show_titlebar_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show title bar in main view. Without title bar, there is no way to see background activity.">Mostrar barra del títol a la vista principal. Sense la barra de títiol, és impossible visualitzar l\'activitat.</string>
+  <string name="show_hours_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Mostrar temps en segons, minuts, hores i dies.\nSi està desactivat tant sols es mostraran segons i minuts.</string>
+  <string name="show_help_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show help in Plans/Rules setup view.">Mostrar ajuda en la vista de configuració de Plans/Regles.</string>
+  <string name="show_shortname_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show short name instead of long name">Mostrar nom curt enlloc del nom llarg</string>
+  <string name="show_billperiod_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Show progress of billing period">Mostrar barra de progrés del període de facturació</string>
+  <string name="hide_zero_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Hide plans containing no item.">Amagar plans sense contingut.</string>
+  <string name="hide_nocost_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Hide no cost plans">Amagar plans gratuïts</string>
+  <string name="hide_nocost_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Hide plans with no cost.">Amagar plans sense cost.</string>
+  <string name="hide_progressbars_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Hide progress bars">Amagar barra de progrés</string>
+  <string name="hide_progressbars_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Hide progress bars in main view.">Amagar barra de progrés de la visualització principal.</string>
+  <string name="custom_currency_symbol_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Custom currency symbol">Personalitzar símbol de moneda</string>
+  <string name="custom_currency_symbol_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set a custom currency symbol, leave empty for system default.">Establir símbol de moneda, deixar en blanc per valor de defecte.</string>
+  <string name="custom_currency_format_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Custom currency format">Format de moneda personalitzada</string>
+  <string name="custom_currency_format_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Select a custom currency format.">Seleccionar un format de moneda personalitzada.</string>
+  <string name="custom_date_format_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Custom date format">Format de data personalitzat</string>
+  <string name="custom_date_format_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Select a custom date format.">Seleccionar un format de data personalitzat.</string>
+  <string name="custom_delimiter_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Custom delimiter">Delimitador personalitzat</string>
+  <string name="custom_delimiter_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set a custom delimiter separating the blocks of statistics.">Establir un delimitar personalitzat per separa els blocs d\'estadístiques.</string>
+  <string name="split_sms_at_160_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Split text messages at 160 chars">Partir missatges de text als 160 caràcters</string>
+  <string name="split_sms_at_160_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Disable to use android\'s system method.">Desactivar l\'ús del mètode del sistema Android.</string>
+  <string name="ask_for_plan_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Ask for plan">Solicitar un pla</string>
+  <string name="autohide_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Auto hide">Auto amagar</string>
+  <string name="select_plan_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Select a plan">Seleccionar un pla</string>
+  <string name="set_selected_as_default_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set selected plan as default">Establir pla seleccionar com per defecte</string>
+  <string name="plans_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set your plans for all kind of billing here.">Establir els seus plans per qualsevol tipus de facturació aquí.</string>
+  <string name="rules_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set your billing rules here.">Establir les normes de facturació aquí.</string>
+  <string name="length_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Length">Duració</string>
+  <string name="blength_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Billed length">Duració facturada</string>
+  <string name="remote_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Remote number">Número remot</string>
+  <string name="numbergroups_edit_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Number groups">Número de grups</string>
+  <string name="numbergroups_edit_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Edit number groups here.">Editar número de grups aquí.</string>
+  <string name="hourgroups_edit_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Hour groups">Hores de grups</string>
+  <string name="hourgroups_edit_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Edit hour groups here.">Editar hores de grups aquí.</string>
+  <string name="numbers" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Numbers">Números</string>
+  <string name="numbergroup_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Include numbers">Incloure números</string>
+  <string name="exnumbergroup_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Exclude numbers">Excloure números</string>
+  <string name="new_numbergroup" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="New number group">Nou grup de números</string>
+  <string name="add_number" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Add number">Afegir número</string>
+  <string name="numbergroup_excalls" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Exclude from calls">Excloure de les trucades</string>
+  <string name="numbergroup_exsms" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Exclude from SMS">Excloure dels SMS</string>
+  <string name="hours" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Hours">Hores</string>
+  <string name="hourgroup_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Include hours">Afegir hores</string>
+  <string name="hourgroup_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Add some hours this rule must match.">Afegir algunes hores que aquesta norma ha de complir.</string>
+  <string name="exhourgroup_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Exclude hours">Excloure hores</string>
+  <string name="exhourgroup_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Add some hours this rule must not match.">Afegir algunes hores que aquesta norma no ha de complir.</string>
+  <string name="new_hourgroup" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="New hour group">Nou grup d\'hores</string>
+  <string name="add_hour" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Add hour">Afegir hora</string>
+  <string name="empty_group" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Els grups buits no es tenen en compte. Si us plau, retrocedeixi i afegeixi almenys un valor.</string>
+  <string name="billperiod_sn" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="BillPeriod">Període facturació</string>
+  <string name="calls" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Calls">Trucades</string>
+  <string name="calls_in" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Calls In">Trucades d\'entrada</string>
+  <string name="calls_in_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="CallsIn">Trucades d\'entrada</string>
+  <string name="calls_out" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Calls Out">Trucades de sortida</string>
+  <string name="calls_out_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="CallsOut">Trucades de sortida</string>
+  <string name="messages" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Messages">Missatges</string>
+  <string name="messages_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="SMS/MMS">SMS/MMS</string>
+  <string name="sms" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="SMS">SMS</string>
+  <string name="sms_in" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="SMS In">SMS d\'entrada</string>
+  <string name="sms_in_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="SMSIn">SMS d\'entrada</string>
+  <string name="sms_out" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="SMS Out">SMS de sortida</string>
+  <string name="sms_out_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="SMSOut">SMS de sortida</string>
+  <string name="mms" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="MMS">MMS</string>
+  <string name="mms_in" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="MMS In">MMS d\'entrada</string>
+  <string name="mms_in_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="MMSIn">MMS d\'entrada</string>
+  <string name="mms_out" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="MMS Out">MMS de sortida</string>
+  <string name="mms_out_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="MMSOut">MMS de sortida</string>
+  <string name="data" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Data">Dades</string>
+  <string name="data_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Data (2G/3G/4G)">Dades (2G/3G/4G)</string>
+  <string name="data_inout" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Data In/Out">Dades Entrada/Sortida</string>
+  <string name="data_inout_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="DataInOut">Dades Entrada/Sortida</string>
+  <string name="prepaid_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Prepaid plan">Pla de prepagament</string>
+  <string name="balance_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Balance">Balanç</string>
+  <string name="strip_leading_zeros_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Strip leading zeros">Eliminar zeros a l\'esquerra</string>
+  <string name="strip_leading_zeros_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Strip leading zeros when comparing numbers.">Eliminar zeros a l\'esquerra quan es comparin números.</string>
+  <string name="my_number_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="My number">El meu número</string>
+  <string name="my_sim_id_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="SIM Id">ID de la SIM</string>
+  <string name="set_current_number" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Current number">Número actual</string>
+  <string name="number_prefix_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="International prefix">Prefix internacional</string>
+  <string name="number_prefix_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">El seu prefix internacional en format +1 o +49. S\'utilitza per fer coincidir números com +49170... o 0179...</string>
+  <string name="reset_data_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Reset statistics">Restablir estadístiques</string>
+  <string name="reset_data_data_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Reset traffic too.">Restablir el tràfic de dades també.</string>
+  <string name="reset_data_progr1" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Recalculating statistics ...\n\n(This may take some time!)">Recalculant les estadístiques...\n\n(Pot ser necessari cert temps!)</string>
+  <string name="reset_data_progr2" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Recalculating statistics ...">Recalculant les estadístiques...</string>
+  <string name="contacts_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Contacts">Contactes</string>
+  <string name="clear_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Clear">Esborrar</string>
+  <string name="help_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Help">Ajuda</string>
+  <string name="new_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="New">Nou</string>
+  <string name="edit_selected_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Edit selected">Editar seleccionat</string>
+  <string name="edit_groups_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Edit groups">Editar grups</string>
+  <string name="name_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Name">Nom</string>
+  <string name="name_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set a name here.">Seleccionar un nom aquí.</string>
+  <string name="shortname_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Short name">Nom curt</string>
+  <string name="shortname_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set a short name here. It is displayed in compact layouts.">Establir un nom curt aquí. Es mostra en els dissenys compactes.</string>
+  <string name="type_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Type">Tipus</string>
+  <string name="limit_type_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Limit type">Tipus de límit</string>
+  <string name="author_and_many_more" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="and many more...">i molt més...</string>
+  <string name="custom_language_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set a custom language.">Establir idioma personalitzat.</string>
+  <string name="custom_language_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Custom language">Idioma personalitzat</string>
+  <string name="plan" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Plan">Pla</string>
+  <string name="provider" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Provider">Proveïdor</string>
+  <string name="country" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Country">País</string>
+  <string name="source_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Sourcescode:">Font del codi:</string>
+  <string name="website_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Website:">Pàgina web:</string>
+  <string name="author_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Author:">Autor:</string>
+  <string name="license" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - veure http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="license_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="License:">Llicència</string>
+  <string name="sendlog_install_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Install SendLog">Instal·lar SendLog</string>
+  <string name="sendlog_run_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Run SendLog">Arrancar SendLog</string>
+  <string name="send_logs_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Send logs">Enviar registres</string>
+  <string name="manually_only" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Manually only">Només manual</string>
+  <string name="x2_hour" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Two hours">Dues hores</string>
+  <string name="x1_hour" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="One hour">Una hora</string>
+  <string name="x30_minute" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="30 minutes">30 minuts</string>
+  <string name="x15_minute" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="15 minutes">15 minuts</string>
+  <string name="x10_minute" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="10 minutes">10 minuts</string>
+  <string name="x5_minute" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="5 minutes">5 minuts</string>
+  <string name="x2_minute" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="2 minutes">2 minuts</string>
+  <string name="x1_minute" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="1 minute">1 minut</string>
+  <string name="x05_minute" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="0.5 minutes">0,5 minuts</string>
+  <string name="date_formats_3" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="DD.MM.YYYY">Dia.Mes.Any</string>
+  <string name="date_formats_2" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="DD/MM/YYYY">Dia/Mes/Any</string>
+  <string name="date_formats_1" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="MM/DD/YY">Mes/Dia/Any</string>
+  <string name="direction_data_in" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="in">entrada</string>
+  <string name="direction_data_out" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="out">sortida</string>
+  <string name="default_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Default">Per defecte</string>
+  <string name="currency_formats_1" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="$1.00">€1.00</string>
+  <string name="currency_formats_2" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="$1000">€1000</string>
+  <string name="currency_formats_3" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="1.00$">1.00€</string>
+  <string name="currency_formats_4" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="1000$">1000€</string>
+  <string name="monday" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Monday">Dilluns</string>
+  <string name="tuesday" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Tuesday">Dimarts</string>
+  <string name="wednesday" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Wednesday">Dimecres</string>
+  <string name="thursday" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Thursday">Dijous</string>
+  <string name="friday" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Friday">Divendres</string>
+  <string name="saturday" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Saturday">Dissabte</string>
+  <string name="sunday" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Sunday">Diumenge</string>
+  <string name="monday_till_friday" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Monday - Friday">Dilluns - Divendres</string>
+  <string name="all_week" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="All week">Tota la setmana</string>
+  <string name="all_day" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="All day">Tot el dia</string>
+  <string name="day_0" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="0:00 - 0:59">0:00 - 0:59</string>
+  <string name="day_1" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="1:00 - 1:59">1:00 - 1:59</string>
+  <string name="day_2" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="2:00 - 2:59">2:00 - 2:59</string>
+  <string name="day_3" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="3:00 - 3:59">3:00 - 3:59</string>
+  <string name="day_4" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="4:00 - 4:59">4:00 - 4:59</string>
+  <string name="day_5" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="5:00 - 5:59">5:00 - 5:59</string>
+  <string name="day_6" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="6:00 - 6:59">6:00 - 6:59</string>
+  <string name="day_7" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="7:00 - 7:59">7:00 - 7:59</string>
+  <string name="day_8" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="8:00 - 8:59">8:00 - 8:59</string>
+  <string name="day_9" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="9:00 - 9:59">9:00 - 9:59</string>
+  <string name="day_10" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="10:00 - 10:59">10:00 - 10:59</string>
+  <string name="day_11" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="11:00 - 11:59">11:00 - 11:59</string>
+  <string name="day_12" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="12:00 - 12:59">12:00 - 12:59</string>
+  <string name="day_13" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="13:00 - 13:59">13:00 - 13:59</string>
+  <string name="day_14" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="14:00 - 14:59">14:00 - 14:59</string>
+  <string name="day_15" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="15:00 - 15:59">15:00 - 15:59</string>
+  <string name="day_16" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="16:00 - 16:59">16:00 - 16:59</string>
+  <string name="day_17" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="17:00 - 17:59">17:00 - 17:59</string>
+  <string name="day_18" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="18:00 - 18:59">18:00 - 18:59</string>
+  <string name="day_19" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="19:00 - 19:59">19:00 - 19:59</string>
+  <string name="day_20" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="20:00 - 20:59">20:00 - 20:59</string>
+  <string name="day_21" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="21:00 - 21:59">21:00 - 21:59</string>
+  <string name="day_22" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="22:00 - 22:59">22:00 - 22:59</string>
+  <string name="day_23" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="23:00 - 23:59">23:00 - 23:59</string>
+  <string name="theme_black" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Black">Negre</string>
+  <string name="theme_light" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Light">Clar</string>
+  <string name="edit_plan_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Edit Plan">Editar Pla</string>
+  <string name="view_logs_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="View Logs">Veure registres</string>
+  <string name="title" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Title">Títol</string>
+  <string name="spacer" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Spacer">Espaier</string>
+  <string name="mixed" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Mixed">Barrejar</string>
+  <string name="limit_type_unlimited" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="unlimited">Il•limitat</string>
+  <string name="limit_type_units" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="units">unitats</string>
+  <string name="limit_type_cost" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="cost">cost</string>
+  <string name="x1_day" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="One day">Un dia</string>
+  <string name="x1_week" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="One week">Una setmana</string>
+  <string name="x14_day" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="14 days">14 dies</string>
+  <string name="x15_day" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="15 days">15 dies</string>
+  <string name="x30_day" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="30 days">30 dies</string>
+  <string name="x31_day" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="31 days">31 dies</string>
+  <string name="x60_day" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="60 days">60 dies</string>
+  <string name="x90_day" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="90 days">90 dies</string>
+  <string name="x1_month" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="One month">Un mes</string>
+  <string name="x1_month_1_day" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="One month + one day">Un mes + un dia</string>
+  <string name="x2_month" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Two months">Dos mesos</string>
+  <string name="x3_month" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Three months">Tres mesos</string>
+  <string name="x4_month" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Four months">Quatre mesos</string>
+  <string name="x5_month" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Five months">Cinc mesos</string>
+  <string name="x6_month" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Six months">Sis mesos</string>
+  <string name="x1_year" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="One year">Un any</string>
+  <string name="infinite" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Infinite">Infinit</string>
+  <string name="custom" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Custom">Personalitzat</string>
+  <string name="direction_calls_in" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="in">entrada</string>
+  <string name="direction_calls_out" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="out">sortida</string>
+  <string name="direction_sms_in" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="in">entrada</string>
+  <string name="direction_sms_out" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="out">sortida</string>
+  <string name="direction_mms_in" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="in">entrada</string>
+  <string name="direction_mms_out" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="out">sortida</string>
+  <string name="reset" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Reset">Resetejar</string>
+  <string name="debug_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Debug">Depurar</string>
+  <string name="send_logs_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Enviï el registre del seu dispositiu al desenvolupador.\nFaci això només si se li demana.</string>
+  <string name="sendlog_run" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog recollirà el registre del dispositiu i l\'enviarà al desenvolupador.\nTindrà l\'oportunitat de revisar i modificar les dades a enviar.</string>
+  <string name="sendlog_install" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">Instal·li l\'aplicació gratuita SendLog per a recollir el registre del dispositiu per a enviar-lo al desenvolupador.</string>
+  <string name="loading" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Loading ...">Carregant...</string>
+  <string name="err_export_write" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Error writing export file">Error al escriure l\'arxiu d\'exportació</string>
+  <string name="err_export_read" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Error reading export file">Error al llegir l\'arxiu d\'exportació</string>
+  <string name="alerts_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Alerts">Alertes</string>
+  <string name="alerts_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set alerts based on plan usage.">Enviar alertes basades el pla en ús.</string>
+  <string name="alerts_title" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Call Meter 3G alert">Alerta de Call Meter 3G</string>
+  <string name="alerts_message" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Plan %s has reached %d%% usage!">El Pla %s ha assolit %d%% d\'ús!</string>
+  <string name="alerts_80_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Notify at 80%">Notificar a 80%</string>
+  <string name="alerts_80_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Notify if a plan passes 80% of it\'s limit.">Notificar si el pla supera el 80% del seu límit.</string>
+  <string name="alerts_100_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Notify at 100%">Notificar al 100%</string>
+  <string name="alerts_100_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Notify if a plan passes 100% of it\'s limit.">Notificar si el pla supera el 100% del seu límit.</string>
+  <string name="widget_config_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Widget config">Configuració del widget</string>
+  <string name="widget_plan_textsize" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Plan Text Size">Tamany del text del Pla</string>
+  <string name="widget_cost_textsize" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Cost Text Size">Tamany del text del Cost</string>
+  <string name="widget_date_textsize" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Date Text Size">Tamany del text de la Data</string>
+  <string name="widget_details_textsize" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Details Text Size">Tamanya del text dels detalls</string>
+  <string name="widget_text_color_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Text color">Color de text</string>
+  <string name="widget_backgroud_color_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Background color">Color de fons</string>
+  <string name="widget_backgroud_transparency_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Background transparency">Transparència del fons</string>
+  <string name="send_devices_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Send devices">Enviar dispositius</string>
+  <string name="send_devices_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Enviar llista de dispositius al desenvolupador. Només necessari si les seves estadístiques de dades estan a zero.</string>
+  <string name="limit_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Limit">Límit</string>
+  <string name="billday_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set this to the first day of the bill of the current billing period.">Estableix això en el primer dia del període de facturació actual.</string>
+  <string name="billperiodid_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Billing period">Període de facturació</string>
+  <string name="billperiodid_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Select your billing period.\nYou may need to create one as extra plan.">Seleccioni el seu període de facturació.\nPoder serà necessari crear un pla extra.</string>
+  <string name="billperiod_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Length of the billing period">Duració del període de facturació</string>
+  <string name="billperiod_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set the length of your billing period.">Establir la duració del període de facturació.</string>
+  <string name="cost_per_item_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Cost per item">Cost per valor</string>
+  <string name="cost_per_item_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.">Establir el cost a facturar d\'un valor de registre (per exemple una trucada o missatge) una vegada s\'ha superat el límit.</string>
+  <string name="cost_per_item_in_limit_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Cost per item in limit">Cost per valor en el límit</string>
+  <string name="cost_per_item_in_limit_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set the cost billed for a single log item (e.g. a call or a message) billed before the limit is exceeded.">Establir el cost a facturar d\'un valor de registre (per exemple una trucada o missatge) abans de superat el límit.</string>
+  <string name="cost_per_item_no_limit_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set the cost billed for a single log item (e.g. a call or a message).">Establir el cost a facturar d\'un valor de registre (per exemple una trucada o missatge).</string>
+  <string name="cost_per_amount_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Cost per length">Cost per duració</string>
+  <string name="cost_per_amount_help1" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Establir el cost a facturar d\'un valor de registre (per exemple 1kB de dades) una vegada s\'ha superat el límit.</string>
+  <string name="cost_per_amount_in_limit_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Cost per length in limit">Cost per duració en el límit</string>
+  <string name="cost_per_plan_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Cost per plan">Cost per pla</string>
+  <string name="cost_per_plan_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set the cost of the plan for one billing period as is.">Establir el cost del pla per un període de facturació.</string>
+  <string name="mixed_units_sms_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Units for a sms">Unitats per SMS</string>
+  <string name="mixed_units_sms_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set the units billed for a single sms.">Establir les unitats facturades per un SMS.</string>
+  <string name="mixed_units_mms_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Units for a mms">Unitats per a MMS</string>
+  <string name="mixed_units_mms_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set the units billed for a single mms.">Establir les unitats facturades per un MMS.</string>
+  <string name="mixed_units_call_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Units for a call">Unitats per a una trucada</string>
+  <string name="mixed_units_call_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set the units billed for a one minute call.\nBill mode is taken into account here.">Establir les unitats facturades per un minut de trucada.\nEl mode de facturació s\'estableix aquí.</string>
+  <string name="mixed_units_data_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Units for data">Unitats per les dades</string>
+  <string name="mixed_units_data_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set the units billed for each MB of data traffic.">Establir les unitats facturades per cada MB de dades.</string>
+  <string name="merge_plans_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Merge plans">Unir plans</string>
+  <string name="merge_plans_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Merge other plans into this one and bill them here (too).">Unir altres plans a aquest i es facturaran aquí també.</string>
+  <string name="units_cost" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="$">€</string>
+  <string name="units_num_msg" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="# Messages"># Missatges</string>
+  <string name="units_minutes" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Minutes">Minuts</string>
+  <string name="units_mbyte" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="MBytes">MBytes</string>
+  <string name="units_units" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Units">Unitats</string>
+  <string name="units_units_per_minute" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Units/Minute">Unitats/Minut</string>
+  <string name="units_units_per_message" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Units/Message">Unitats/Missatge</string>
+  <string name="units_cost_per_call" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="$/Call">€/Trucada</string>
+  <string name="units_cost_per_minute" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="$/Minute">€/Minut</string>
+  <string name="units_cost_per_message" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="$/Message">€/Missatge</string>
+  <string name="units_cost_per_mbyte" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="$/MByte">€/MByte</string>
+  <string name="units_cost_per_unit" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="$/Unit">€/unitat</string>
+  <string name="plan_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Plan">Pla</string>
+  <string name="plan_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Choose the plan this rule should fit.">Escolleixi el pla que aquesta regla ha de complir.</string>
+  <string name="limitnotreached_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Limit not reached">No s\'ha assolit el límit</string>
+  <string name="iswebsms_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Message sent with WebSMS.">Missatge enviat via WebSMS.</string>
+  <string name="issipcall_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Is SIP call">Trucada SIP</string>
+  <string name="strip_seconds_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Do not bill first seconds">No facturar el primer segon</string>
+  <string name="strip_seconds_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Do not bill first x seconds of a call.">No factruar els primers x segons d\'una trucada.</string>
+  <string name="strip_past_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Do not bill anything after seconds">No facturar després dels segons</string>
+  <string name="strip_past_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Do not bill anything after x seconds of a call.">No facturar després de x segons d\'una trucada.</string>
+  <string name="active_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Active">Actiu</string>
+  <string name="active_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Only active rules are used for matching logs.">Només les normes actives s\'utilitzen per quadara els registres.</string>
+  <string name="what_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Target type">Tipus de destinació</string>
+  <string name="what_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Choose a target type here.">Estableixi un tipus de destinació aquí.</string>
+  <string name="direction_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Direction">Direcció</string>
+  <string name="roamed_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Roamed">Roaming</string>
+  <string name="remote_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Remote number">Número remot</string>
+  <string name="yes" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Yes">Si</string>
+  <string name="no" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="No">No</string>
+  <string name="none" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="None">Cap</string>
+  <string name="value" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Value">Valor</string>
+  <string name="empty_groups_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Please press &quot;Add&quot; to add a group.">Si us plau pressioni "Afegir" per afegir un grup.</string>
+  <string name="empty_group_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Si us plau pressioni "Afegir" per afegir un valor a aquest grup.</string>
+  <string name="export_progr" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Exporting data ...">Exportant dades...</string>
+  <string name="import_progr" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Import data ...">Important dades...</string>
+  <string name="export_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Export ...">Exportar...</string>
+  <string name="exported_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Exported:">Exportat:</string>
+  <string name="export_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Export rule sets, logs or groups">Exportar normes, registres o grups</string>
+  <string name="export_sd" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Export to SD card">Exportar a la tarjeta SD</string>
+  <string name="export_rules_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Export rule set">Exportar norma</string>
+  <string name="export_rules_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Export rule set as mail.">Exportar norma com a mail.</string>
+  <string name="export_rules_dev_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Export rule set to developer">Exportar norma al desenvolupador</string>
+  <string name="export_rules_dev_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Export rule set to let others import it.">Exportar norma per permetre altres importar-la</string>
+  <string name="export_rules_descr" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Description">Descripció</string>
+  <string name="export_logs_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Backup logs">Còpia de seguretat de registres</string>
+  <string name="export_logs_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Backup logs as mail.">Còpia de seguretat de registres per mail.</string>
+  <string name="export_logs_csv_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Export CSV">Exportar CSV</string>
+  <string name="export_logs_csv_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Export logs as CSV.">Exportar registre com a CSV.</string>
+  <string name="export_numgroups_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Export number groups">Exportar números de grups</string>
+  <string name="export_numgroups_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Export number groups as mail.">Exportar números de grups per mail.</string>
+  <string name="export_hourgroups_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Export hour groups">Exportar hores de grups</string>
+  <string name="export_hourgroups_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Export hour groups as mail.">Exportar hores de grups per mail.</string>
+  <string name="import_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Import">Importar</string>
+  <string name="import_link_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="More info">Més informació</string>
+  <string name="import_rules_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Import rule set">Importar normes</string>
+  <string name="import_rules_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Import preconfigured rule set.">Importar norma preconfigurada.</string>
+  <string name="import_rules_www_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Import pre-configured rule set from http://www.ub0r.de/.">Importar norma preconfigurada de http://www.ub0r.de/.</string>
+  <string name="import_rules_users" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Users\' rules">Normes d\'usuari</string>
+  <string name="import_rules_sd_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Import rule set from SD card">Importar norma de la tarjeta SD</string>
+  <string name="import_rules_sd_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Import rule set directly from SD card.">Importar norma directament de la tarjeta SD.</string>
+  <string name="import_rules_sd_help" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Place your file on your SD card and click it below">Col·loca l\'arxiu en la targeta SD i feu clic a continuació</string>
+  <string name="import_rules_sd_files" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Found files">Arxius trobats</string>
+  <string name="import_rules_sd_nofiles" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="No found files">No s\'han trobat arxius</string>
+  <string name="import_rules_default_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Import default rule set">Importar la norma per defecte</string>
+  <string name="import_rules_default_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Import default rule set shipped with the app.">Importar la norma per defecte incluida en l\'aplicació.</string>
+  <string name="import_rules_empty" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">No s\'ha establer plans/nromes. Cliqui aquest text per importar la norma per defecte.\n\nO afegeixi altres plans i normes manualment en les preferències.</string>
+  <string name="update_interval_data_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">L\'actualització de dades d\'estadístiques cal fer-la més sovint. Esp. Samsung necessita intervals molt curts.</string>
+  <string name="about1" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="The output format is usage | time or count used this billing period | time or count overall.">El format de sortida és d\'ús | temps o comptar aquest període de facturació | temps o comptar en general.</string>
+  <string name="about2" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">El mode de facturació especifica la duració del primer/proper interval de facturació. Ex. 60/10 significa que cada trucada es facturada com a mínim 60 segons, i trucades més llargues, s\'arrodoneix al següents 10 segons complerts.</string>
 </resources>

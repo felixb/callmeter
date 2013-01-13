@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
+<!--
 		Copyright (C) 2009-2012 Felix Bechstein
 	-->
-	<!--
+<!--
 		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
 		version.
 	-->
-	<!--
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -18,4 +18,11 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string name="market_promo" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Never spend too much!">Mai gasti de més!</string>
+  <string name="market_keywords" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Keywords: minutes calls sms txt text data traffic counter log phone usage watchdog alert widget statistics at&amp;t verizon three o2 t-mobile vodafone orange">Paraules clau: minuts trucades sms txt text de trànsit de dades del registre de comptador de telèfon de vigilància d\'ús de les estadístiques del giny d\'alertes at </string>
+  <string name="market_translation" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Feel free to help translating this app to your language here: http://ub0r.de/translate/cm3/">Sentis lliure d\'ajudar a traduïr l\'aplicació al seu idioma aquí:\nhttp://ub0r.de/translate/cm3/</string>
+  <string name="market_about" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Call Meter lets you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and lets you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.">Call Meter li permet mantenir vigilats els seus plans.\n\nMostra estadístiques de les seves trucades/sms/mms/dades i li permet establir límits per a cada un d\'aquests plans.\nCall Meter incorpora moltes varietats de facturació que permetran adaptar-se a la facturació del seu operador.</string>
+  <string name="market_oss" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="This app is open source software build in spare time. Adding bad comments in market won\'t help much to make it better.\nPlease add your issues with this app on the app\'s website.">Aquesta és una aplicació de codi lliure construida en els temps lliures. Afegint comentaris negatius no ajuda a millorar-la.\nSi us plau afegeixi els seus comentaris sobre aquesta aplicació en la pàgina web de la mateixa.</string>
+  <string name="market_cm2" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="This is a complete rebuild of Call Meter NG. It has a huge amount of new features like widgets and alerts.\nIt\'s new architecure allows more complex plans.\nFeel free to test it and help me make it more userfriendly as it is currently. ;)">És una reconstrucció completa de Call Meter NG. Disposa d\'una gran quantitat de noves característiques com alertes i widgets.\nLa seva nova arquitectura permet plans més complexos.\nEs lliure de provar-la així com a ajudar a que sigui de més fàcil ús.</string>
+  <string name="market_permissions" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Permissions of this app:\n* READ SMS OR MMS: count your messages\n* RECEIVE SMS: update logs before a recently received message got deleted\n* FULL INTERNET ACCESS: importing rules\n* READ CONTACT DATA: convert numbers to names (e.g. in number groups)\n* MODIFY/DELETE SD CARD CONTENTS: write/export rules to sd card\n* READ PHONE STATE AND IDENTITY: update logs in background\n* PREVENT DEVICE FROM SLEEPING: update logs in background">Permisos de l\'aplicaciÓ:\n* Llegir SMS o MMS: contar els missatges\n* Rebre SMS: registres d\'actualització abans que un missatge rebut sigui eliminat\n* Accés total a Internet: importació de regles\n* Llegir dades de contacte: convertir els números a noms (per exemple, en grups de números)\n* Modificar / esborrar els continguts de la targeta SD: escriure / exportar regles per a targetes SD\n* Llegir estat del telèfon: registres d\'actualització en segon pla\n* Prevenir que el dispositiu entri en mode sleeping: registres d\'actualització en segon pla</string>
 </resources>
