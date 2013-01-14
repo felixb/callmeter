@@ -410,4 +410,28 @@
   <string name="my_number_help" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="Match only logs, while this SIM/number is active.">Kontroluj záznamy pouze pokud je toto číslo aktivní.</string>
   <string name="simple_preferences_deactivated" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Jednoduché nastavení je k dispozici pouze pro výchozí sadu pravidel. Naimportujte výchozí pravidla pro povolení této volby.</string>
   <string name="set_current_number" formatted="false" username="Marek Toman &lt;skrejzy@gmail.com&gt;" orig="Current number">Aktuální číslo</string>
+  <string name="send_logs_hint" formatted="false" username="daleckystepan@gmail.com" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Odeslat logy zařízení vývojáři.\nUdělejte to pouze tehdy, pokud budete požádáni.</string>
+  <string name="send_logs_" formatted="false" username="daleckystepan@gmail.com" orig="Send logs">Odeslat logy</string>
+  <string name="license_" formatted="false" username="daleckystepan@gmail.com" orig="License:">Licence:</string>
+  <string name="author_" formatted="false" username="daleckystepan@gmail.com" orig="Author:">Autor:</string>
+  <string name="website_" formatted="false" username="daleckystepan@gmail.com" orig="Website:">Webová stránka:</string>
+  <string name="source_" formatted="false" username="daleckystepan@gmail.com" orig="Sourcescode:">Zdrojový kód:</string>
+  <string name="country" formatted="false" username="daleckystepan@gmail.com" orig="Country">Země</string>
+  <string name="provider" formatted="false" username="daleckystepan@gmail.com" orig="Provider">Operátor</string>
+  <string name="plan" formatted="false" username="daleckystepan@gmail.com" orig="Plan">Plán</string>
+  <string name="custom_language_" formatted="false" username="daleckystepan@gmail.com" orig="Custom language">Vlastní jazyk</string>
+  <string name="custom_language_hint" formatted="false" username="daleckystepan@gmail.com" orig="Set a custom language.">Nastavit vlastní jazyk.</string>
+  <string name="reset" formatted="false" username="daleckystepan@gmail.com" orig="Reset">Reset</string>
+  <string name="debug_" formatted="false" username="daleckystepan@gmail.com" orig="Debug">Debug</string>
+  <string name="x1_month_1_day" formatted="false" username="daleckystepan@gmail.com" orig="One month + one day">Jeden měsíc + jeden den</string>
+  <string name="widget_date_textsize" formatted="false" username="daleckystepan@gmail.com" orig="Date Text Size">Velikost textu - Datum</string>
+  <string name="widget_details_textsize" formatted="false" username="daleckystepan@gmail.com" orig="Details Text Size">Velikost textu - Detaily</string>
+  <string name="import_rules_users" formatted="false" username="daleckystepan@gmail.com" orig="Users\' rules">Uživatelská pravidla</string>
+  <string name="import_" formatted="false" username="daleckystepan@gmail.com" orig="Import">Importovat</string>
+  <string name="import_link_" formatted="false" username="daleckystepan@gmail.com" orig="More info">Více informací</string>
+  <string name="export_logs_csv_hint" formatted="false" username="daleckystepan@gmail.com" orig="Export logs as CSV.">Exportovat log jako CSV.</string>
+  <string name="export_logs_csv_" formatted="false" username="daleckystepan@gmail.com" orig="Export CSV">Export do CSV</string>
+  <string name="direction_" formatted="false" username="daleckystepan@gmail.com" orig="Direction">Směr</string>
+  <string name="strip_past_" formatted="false" username="daleckystepan@gmail.com" orig="Do not bill anything after seconds">Neúčtovat nic po tolika sekundách</string>
+  <string name="strip_past_help" formatted="false" username="daleckystepan@gmail.com" orig="Do not bill anything after x seconds of a call.">Neúčtovat nic po x sekundách hovoru</string>
 </resources>
