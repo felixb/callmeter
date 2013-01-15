@@ -1213,7 +1213,7 @@ public final class RuleMatcher {
 		final int l = rules.size();
 		for (int i = 0; i < l; i++) {
 			final Rule r = rules.get(i);
-			if (r == null || !r.match(cr, log)) {
+			if (r == null || !r.match(cr, log) || plans == null) {
 				continue;
 			}
 			Log.d(TAG, "matched rule: " + r.getId());
