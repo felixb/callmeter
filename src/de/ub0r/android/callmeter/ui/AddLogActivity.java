@@ -19,16 +19,24 @@
 package de.ub0r.android.callmeter.ui;
 
 import java.util.Calendar;
+import java.util.Date;
 
+import android.app.DatePickerDialog;
+import android.app.DatePickerDialog.OnDateSetListener;
+import android.app.TimePickerDialog;
+import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.ContentValues;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -49,7 +57,8 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public final class AddLogActivity extends SherlockActivity {
+public final class AddLogActivity extends SherlockActivity implements OnClickListener,
+		OnDateSetListener, OnTimeSetListener {
 	/** Tag for output. */
 	private static final String TAG = "addlog";
 
@@ -57,12 +66,10 @@ public final class AddLogActivity extends SherlockActivity {
 	private Spinner spType, spDirection;
 	/** {@link EditText}s. */
 	private EditText etLength, etRemote;
-	/** {@link DatePicker}. */
-	private DatePicker dpDate;
-	/** {@link TimePicker}. */
-	private TimePicker tpTime;
+	private TextView tvDate, tvTime;
 	/** {@link CheckBox}. */
 	private CheckBox cbRoamed;
+	private Calendar cal;
 
 	/**
 	 * {@inheritDoc}
@@ -79,12 +86,19 @@ public final class AddLogActivity extends SherlockActivity {
 		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		this.setTitle(R.string.add_log);
 
+		if (savedInstanceState == null) {
+			this.cal = Calendar.getInstance();
+		} else {
+			this.cal = Calendar.getInstance();
+			this.cal.setTimeInMillis(savedInstanceState.getLong("cal"));
+		}
+
 		this.spType = (Spinner) this.findViewById(R.id.type);
 		this.spDirection = (Spinner) this.findViewById(R.id.direction);
 		this.etLength = (EditText) this.findViewById(R.id.length);
 		this.etRemote = (EditText) this.findViewById(R.id.remote);
-		this.dpDate = (DatePicker) this.findViewById(R.id.date);
-		this.tpTime = (TimePicker) this.findViewById(R.id.time);
+		this.tvDate = (TextView) this.findViewById(R.id.date);
+		this.tvTime = (TextView) this.findViewById(R.id.time);
 		this.cbRoamed = (CheckBox) this.findViewById(R.id.roamed);
 		this.spType.setOnItemSelectedListener(new OnItemSelectedListener() {
 			@Override
@@ -116,6 +130,15 @@ public final class AddLogActivity extends SherlockActivity {
 				// nothing to do
 			}
 		});
+		this.tvDate.setOnClickListener(this);
+		this.tvTime.setOnClickListener(this);
+		this.updateDateTime();
+	}
+
+	@Override
+	protected void onSaveInstanceState(final Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putLong("cal", this.cal.getTimeInMillis());
 	}
 
 	/**
@@ -142,9 +165,6 @@ public final class AddLogActivity extends SherlockActivity {
 			long l = Utils.parseLong(this.etLength.getText().toString(), 0L);
 			final String r = this.etRemote.getText().toString();
 			final boolean roamed = this.cbRoamed.isChecked();
-			final Calendar c = Calendar.getInstance();
-			c.set(this.dpDate.getYear(), this.dpDate.getMonth(), this.dpDate.getDayOfMonth(),
-					this.tpTime.getCurrentHour(), this.tpTime.getCurrentMinute());
 			final ContentValues cv = new ContentValues();
 			switch (t) {
 			case DataProvider.Rules.WHAT_CALL:
@@ -172,7 +192,7 @@ public final class AddLogActivity extends SherlockActivity {
 			cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
 			cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
 			cv.put(DataProvider.Logs.REMOTE, r);
-			cv.put(DataProvider.Logs.DATE, c.getTimeInMillis());
+			cv.put(DataProvider.Logs.DATE, this.cal.getTimeInMillis());
 			if (roamed) {
 				cv.put(DataProvider.Logs.ROAMED, 1);
 			}
@@ -191,4 +211,48 @@ public final class AddLogActivity extends SherlockActivity {
 			return super.onOptionsItemSelected(item);
 		}
 	}
+
+	@Override
+	public void onClick(final View v) {
+		switch (v.getId()) {
+		case R.id.date:
+			DatePickerDialog dpd = new DatePickerDialog(this, this, this.cal.get(Calendar.YEAR),
+					this.cal.get(Calendar.MONTH), this.cal.get(Calendar.DAY_OF_MONTH));
+			dpd.show();
+			break;
+		case R.id.time:
+			TimePickerDialog dtp = new TimePickerDialog(this, this,
+					this.cal.get(Calendar.HOUR_OF_DAY), this.cal.get(Calendar.MINUTE),
+					DateFormat.is24HourFormat(this));
+			dtp.show();
+			break;
+		default:
+			break;
+		}
+	}
+
+	@Override
+	public void onTimeSet(final TimePicker view, final int hourOfDay, final int minute) {
+		this.cal.set(Calendar.HOUR_OF_DAY, hourOfDay);
+		this.cal.set(Calendar.MINUTE, minute);
+		this.cal.set(Calendar.SECOND, 0);
+		this.cal.set(Calendar.MILLISECOND, 1);
+		this.updateDateTime();
+	}
+
+	@Override
+	public void onDateSet(final DatePicker view, final int year, final int monthOfYear,
+			final int dayOfMonth) {
+		this.cal.set(Calendar.YEAR, year);
+		this.cal.set(Calendar.MONTH, monthOfYear);
+		this.cal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+		this.updateDateTime();
+	}
+
+	private void updateDateTime() {
+		Date date = this.cal.getTime();
+		this.tvDate.setText(DateFormat.getDateFormat(this).format(date));
+		this.tvTime.setText(DateFormat.getTimeFormat(this).format(date));
+	}
+
 }

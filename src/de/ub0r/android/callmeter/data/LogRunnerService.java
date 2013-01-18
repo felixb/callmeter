@@ -739,9 +739,13 @@ public final class LogRunnerService extends IntentService {
 	 */
 	private static void deleteOldLogs(final ContentResolver cr) {
 		Log.d(TAG, "delete old logs: date < " + deleteBefore);
-		final int ret = cr.delete(DataProvider.Logs.CONTENT_URI, DataProvider.Logs.DATE + " < ?",
-				new String[] { String.valueOf(deleteBefore) });
-		Log.i(TAG, "deleted old logs from internal database: " + ret);
+		try {
+			final int ret = cr.delete(DataProvider.Logs.CONTENT_URI, DataProvider.Logs.DATE
+					+ " < ?", new String[] { String.valueOf(deleteBefore) });
+			Log.i(TAG, "deleted old logs from internal database: " + ret);
+		} catch (IllegalStateException e) {
+			Log.e(TAG, "WTF?", e);
+		}
 	}
 
 	@Override

@@ -3212,11 +3212,11 @@ public final class DataProvider extends ContentProvider {
 			}
 			final String err = e.getMessage();
 			if (!err.startsWith("no such column:")) {
-				throw new IllegalStateException("Could not parse exeption message");
+				throw new IllegalStateException("Could not parse exeption message: " + err);
 			}
 			Matcher m = P.matcher(err);
 			if (!m.find()) {
-				throw new IllegalStateException("Could not parse exeption message");
+				throw new IllegalStateException("Could not parse exeption message: " + err);
 			}
 			final String str = m.group(1);
 			if (cursor != null) {
@@ -3977,16 +3977,28 @@ public final class DataProvider extends ContentProvider {
 				Log.i(TAG, "skip backup()");
 				return;
 			}
-			final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
-			final String path = db.getPath();
-			this.mInBackup = true;
+			SQLiteDatabase db;
 			try {
-				Log.d(TAG, "cp " + path + " " + path + ".bak");
-				Utils.copyFile(path, path + ".bak");
+				db = this.mOpenHelper.getWritableDatabase();
+			} catch (IllegalStateException e) {
+				Log.e(TAG, "WTF?", e);
+				db = null;
+			}
+			if (db != null) {
+				final String path = db.getPath();
+				this.mInBackup = true;
+				try {
+					Log.d(TAG, "cp " + path + " " + path + ".bak");
+					Utils.copyFile(path, path + ".bak");
+					this.mSharedPreferences.edit()
+							.putLong(PREFS_LASTBACKUP, System.currentTimeMillis()).commit();
+				} catch (IOException e) {
+					Log.e(TAG, "could not backup database", e);
+				}
+			} else {
+				// do not try with next run again..
 				this.mSharedPreferences.edit()
 						.putLong(PREFS_LASTBACKUP, System.currentTimeMillis()).commit();
-			} catch (IOException e) {
-				Log.e(TAG, "could not backup database", e);
 			}
 			this.mInBackup = false;
 		}

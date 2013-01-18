@@ -837,8 +837,8 @@ public final class RuleMatcher {
 				Log.d(TAG, "ltype: " + this.limitType);
 				switch (this.limitType) {
 				case DataProvider.LIMIT_TYPE_COST:
-					Log.d(TAG, "bc<lt " + this.billedCost + "<" + this.limit);
-					return this.limit - this.billedCost;
+					Log.d(TAG, "bc<lt " + this.billedCost * CallMeter.HUNDRET + "<" + this.limit);
+					return this.limit - this.billedCost * CallMeter.HUNDRET;
 				case DataProvider.LIMIT_TYPE_UNITS:
 					Log.d(TAG, "ba<lt " + this.billedAmount + "<" + this.limit);
 					return this.limit - this.billedAmount;
@@ -1213,7 +1213,7 @@ public final class RuleMatcher {
 		final int l = rules.size();
 		for (int i = 0; i < l; i++) {
 			final Rule r = rules.get(i);
-			if (r == null || !r.match(cr, log)) {
+			if (r == null || !r.match(cr, log) || plans == null) {
 				continue;
 			}
 			Log.d(TAG, "matched rule: " + r.getId());
