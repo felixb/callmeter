@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
   <title>$11.99</title>
-  <country>Austalia</country>
+  <country>Australia</country>
   <provider>LiveConnected</provider>
   <plans>
     <plan>

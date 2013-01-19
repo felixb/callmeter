@@ -1,87 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
-  <title>mobile small</title>
-  <country>Italy</country>
-  <provider>poste</provider>
+  <country>Poland</country>
+  <provider>Orange</provider>
+  <title>Free Na Kartę PrePaid</title>
   <plans>
     <plan>
-      <_id>12</_id>
-      <_plan_name>Periodo tariffazione</_plan_name>
-      <_shortname>PeriodoTariffazione</_shortname>
-      <_plan_type>2</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_limit>0</_limit>
-      <_billperiod>16</_billperiod>
-      <_billmode>1/1</_billmode>
-      <_billday>1345762800947</_billday>
-      <_cost_per_plan>0</_cost_per_plan>
-      <_billperiod_id>0</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_strip_seconds>0</_strip_seconds>
-      <_order>0</_order>
-    </plan>
-    <plan>
-      <_id>14</_id>
-      <_plan_name>Chiamate</_plan_name>
-      <_shortname>Chiamate</_shortname>
-      <_plan_type>0</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_limit>0</_limit>
-      <_billperiod>-1</_billperiod>
-      <_billmode>1/1</_billmode>
-      <_billday>0</_billday>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_order>14</_order>
-    </plan>
-    <plan>
-      <_id>15</_id>
-      <_plan_name>Chiamate Ricevute</_plan_name>
-      <_shortname>Chamate Ricevute</_shortname>
-      <_plan_type>4</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_limit>0</_limit>
-      <_billperiod>12</_billperiod>
-      <_billmode>1/1</_billmode>
-      <_billday>0</_billday>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_strip_seconds>0</_strip_seconds>
-      <_order>15</_order>
-    </plan>
-    <plan>
-      <_id>16</_id>
-      <_plan_name>Chiamate Effettuate</_plan_name>
-      <_shortname>Chamate Effettuate</_shortname>
-      <_plan_type>4</_plan_type>
-      <_limit_type>1</_limit_type>
-      <_limit>245</_limit>
-      <_billperiod>12</_billperiod>
-      <_billmode>1/1</_billmode>
-      <_billday>0</_billday>
-      <_cost_per_plan>16</_cost_per_plan>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_strip_seconds>0</_strip_seconds>
-      <_order>16</_order>
-    </plan>
-    <plan>
-      <_id>17</_id>
-      <_plan_name>Spazio</_plan_name>
-      <_shortname>spacer</_shortname>
-      <_plan_type>1</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_limit>0</_limit>
-      <_billperiod>-1</_billperiod>
-      <_billmode>1/1</_billmode>
-      <_billday>0</_billday>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_order>17</_order>
-    </plan>
-    <plan>
       <_id>18</_id>
-      <_plan_name>Messaggi</_plan_name>
+      <_plan_name>Wiadomości</_plan_name>
       <_shortname>SMS/MMS</_shortname>
       <_plan_type>0</_plan_type>
       <_limit_type>0</_limit_type>
@@ -92,12 +17,12 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>18</_order>
+      <_order>6</_order>
     </plan>
     <plan>
       <_id>19</_id>
-      <_plan_name>SMS Ricevuti</_plan_name>
-      <_shortname>SMSRicevuti</_shortname>
+      <_plan_name>SMS Przych.</_plan_name>
+      <_shortname>SMSPrzych</_shortname>
       <_plan_type>5</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
@@ -106,26 +31,25 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>19</_order>
+      <_order>7</_order>
     </plan>
     <plan>
       <_id>20</_id>
-      <_plan_name>SMS Inviati</_plan_name>
-      <_shortname>SMSInviati</_shortname>
+      <_plan_name>SMS Wych.</_plan_name>
+      <_shortname>SMSWych</_shortname>
       <_plan_type>5</_plan_type>
-      <_limit_type>1</_limit_type>
-      <_limit>250</_limit>
+      <_limit_type>0</_limit_type>
+      <_limit>0</_limit>
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_strip_seconds>0</_strip_seconds>
-      <_order>20</_order>
+      <_order>8</_order>
     </plan>
     <plan>
       <_id>21</_id>
-      <_plan_name>Spazio</_plan_name>
+      <_plan_name>Odstęp</_plan_name>
       <_plan_type>1</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
@@ -134,42 +58,40 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>21</_order>
+      <_order>11</_order>
     </plan>
     <plan>
       <_id>22</_id>
-      <_plan_name>Dati (2G/3G/4G)</_plan_name>
-      <_shortname>Dati</_shortname>
+      <_plan_name>Dane (2G/3G/4G)</_plan_name>
+      <_shortname>Dane</_shortname>
       <_plan_type>0</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
-      <_billperiod>8</_billperiod>
+      <_billperiod>-1</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_strip_seconds>0</_strip_seconds>
-      <_order>22</_order>
+      <_order>12</_order>
     </plan>
     <plan>
       <_id>23</_id>
-      <_plan_name>Dati Ingresso/Uscita</_plan_name>
-      <_shortname>DatiInOut</_shortname>
+      <_plan_name>Dane Przych./Wych.</_plan_name>
+      <_shortname>DanePrzychWych</_shortname>
       <_plan_type>7</_plan_type>
-      <_limit_type>1</_limit_type>
-      <_limit>995</_limit>
+      <_limit_type>0</_limit_type>
+      <_limit>0</_limit>
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_strip_seconds>0</_strip_seconds>
-      <_order>23</_order>
+      <_order>13</_order>
     </plan>
     <plan>
       <_id>27</_id>
-      <_plan_name>MMS Ricevuti</_plan_name>
-      <_shortname>MMSRicevuti</_shortname>
+      <_plan_name>MMS Przych.</_plan_name>
+      <_shortname>MMSPrzych</_shortname>
       <_plan_type>6</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
@@ -188,12 +110,12 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>27</_order>
+      <_order>9</_order>
     </plan>
     <plan>
       <_id>28</_id>
-      <_plan_name>MMS Inviati</_plan_name>
-      <_shortname>MMSInviati</_shortname>
+      <_plan_name>MMS Wych.</_plan_name>
+      <_shortname>MMSWych</_shortname>
       <_plan_type>6</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
@@ -212,15 +134,16 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>28</_order>
+      <_order>10</_order>
     </plan>
   </plans>
   <rules>
     <rule>
       <_id>1</_id>
       <_active>1</_active>
+      <_order>1</_order>
       <_plan_id>23</_plan_id>
-      <_rule_name>Dati</_rule_name>
+      <_rule_name>Dane</_rule_name>
       <_what>3</_what>
       <_roamed>-1</_roamed>
       <_direction>-1</_direction>
@@ -229,27 +152,28 @@
       <_innumbergroup_id>-1</_innumbergroup_id>
       <_exnumbergroup_id>-1</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
-      <_order>1</_order>
     </rule>
     <rule>
       <_id>2</_id>
       <_active>1</_active>
       <_order>1</_order>
       <_plan_id>15</_plan_id>
-      <_rule_name>Chiamate Ricevute</_rule_name>
+      <_rule_name>Poł. Przych.</_rule_name>
       <_what>0</_what>
-      <_roamed>2</_roamed>
+      <_roamed>-1</_roamed>
       <_direction>0</_direction>
+      <_exhourgroup_id>-1</_exhourgroup_id>
+      <_innumbergroup_id>-1</_innumbergroup_id>
+      <_exnumbergroup_id>-1</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
-      <_is_websms>2</_is_websms>
-      <_is_sipcall>2</_is_sipcall>
+      <_is_sipcall>-1</_is_sipcall>
     </rule>
     <rule>
       <_id>3</_id>
       <_active>1</_active>
       <_order>2</_order>
       <_plan_id>16</_plan_id>
-      <_rule_name>Chiamate Effettuate</_rule_name>
+      <_rule_name>Poł. Wych.</_rule_name>
       <_what>0</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
@@ -263,7 +187,7 @@
       <_active>1</_active>
       <_order>3</_order>
       <_plan_id>19</_plan_id>
-      <_rule_name>SMS Ricevuti</_rule_name>
+      <_rule_name>SMS Przych.</_rule_name>
       <_what>1</_what>
       <_roamed>2</_roamed>
       <_direction>0</_direction>
@@ -279,7 +203,7 @@
       <_active>1</_active>
       <_order>4</_order>
       <_plan_id>20</_plan_id>
-      <_rule_name>SMS Inviati</_rule_name>
+      <_rule_name>SMS Wych.</_rule_name>
       <_what>1</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
@@ -293,7 +217,7 @@
       <_active>1</_active>
       <_order>5</_order>
       <_plan_id>27</_plan_id>
-      <_rule_name>MMS Ricevuti</_rule_name>
+      <_rule_name>MMS Przych.</_rule_name>
       <_what>2</_what>
       <_roamed>2</_roamed>
       <_direction>0</_direction>
@@ -309,7 +233,7 @@
       <_active>1</_active>
       <_order>6</_order>
       <_plan_id>28</_plan_id>
-      <_rule_name>MMS Inviati</_rule_name>
+      <_rule_name>MMS Wych.</_rule_name>
       <_what>2</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
@@ -321,37 +245,24 @@
       <_is_websms>2</_is_websms>
     </rule>
   </rules>
+  <hoursgroups>
+  </hoursgroups>
   <numbersgroups>
     <numbersgroup>
       <_id>1</_id>
-      <_name>Escludi dalle chiamate</_name>
+      <_name>Wykluczone z rozmów</_name>
       <numbers>
         <number>
           <_id>1</_id>
           <_gid>1</_gid>
           <_number>00800%</_number>
         </number>
-        <number>
-          <_id>2</_id>
-          <_gid>1</_gid>
-          <_number>+393494543137</_number>
-        </number>
-        <number>
-          <_id>3</_id>
-          <_gid>1</_gid>
-          <_number>160</_number>
-        </number>
       </numbers>
     </numbersgroup>
     <numbersgroup>
       <_id>2</_id>
-      <_name>Escludi dagli SMS</_name>
+      <_name>Wykluczone z SMS</_name>
       <numbers>
-        <number>
-          <_id>4</_id>
-          <_gid>2</_gid>
-          <_number>+393494543137</_number>
-        </number>
       </numbers>
     </numbersgroup>
   </numbersgroups>
