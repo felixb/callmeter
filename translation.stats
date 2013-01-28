@@ -21,12 +21,12 @@ res/values-bg/notes.xml:0
 res/values-bg/simple_prefs.xml:19
 res/values-bg/strings.xml:320
 res/values-ca/donation.xml:5
-res/values-ca/help.xml:8
+res/values-ca/help.xml:14
 res/values-ca/intro.xml:10
 res/values-ca/market.xml:7
 res/values-ca/notes.xml:0
 res/values-ca/simple_prefs.xml:19
-res/values-ca/strings.xml:427
+res/values-ca/strings.xml:436
 res/values-cs/donation.xml:5
 res/values-cs/help.xml:9
 res/values-cs/intro.xml:10
@@ -170,7 +170,7 @@ res/values-zh/strings.xml:283
 res/values:542
 res/values-ar:2
 res/values-bg:373
-res/values-ca:476
+res/values-ca:491
 res/values-cs:462
 res/values-de:491
 res/values-el:359
