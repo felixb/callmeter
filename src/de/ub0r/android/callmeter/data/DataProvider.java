@@ -1088,8 +1088,10 @@ public final class DataProvider extends ContentProvider {
 						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_SMS
 						+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_MMS + " THEN "
 						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_MMS
-						+ " ELSE " + Logs.TABLE + "." + Logs.BILL_AMOUNT + " END) AS "
-						+ SUM_TD_BILLED_AMOUNT,
+						+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_DATA + " THEN "
+						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
+						+ MIXED_UNITS_DATA + "/" + CallMeter.BYTE_MB + " ELSE " + Logs.TABLE + "."
+						+ Logs.BILL_AMOUNT + " END) AS " + SUM_TD_BILLED_AMOUNT,
 				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + " is null or " + Logs.TABLE + "."
 						+ Logs.DATE + "<={" + SUM_BILLDAY + "} or " + Logs.TABLE + "." + Logs.DATE
 						+ ">{" + SUM_NOW + "} THEN 0 ELSE 1 END) as " + SUM_BP_COUNT,
@@ -1103,8 +1105,10 @@ public final class DataProvider extends ContentProvider {
 						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_SMS
 						+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_MMS + " THEN "
 						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_MMS
-						+ " ELSE " + Logs.TABLE + "." + Logs.BILL_AMOUNT + " END) AS "
-						+ SUM_BP_BILLED_AMOUNT,
+						+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_DATA + " THEN "
+						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
+						+ MIXED_UNITS_DATA + "/" + CallMeter.BYTE_MB + " ELSE " + Logs.TABLE + "."
+						+ Logs.BILL_AMOUNT + " END) AS " + SUM_BP_BILLED_AMOUNT,
 				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + " is null or " + Logs.TABLE + "."
 						+ Logs.DATE + ">{" + SUM_NOW + "} THEN 0 ELSE 1 END) as " + SUM_AT_COUNT,
 				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW + "} THEN 0 WHEN "
@@ -1116,8 +1120,10 @@ public final class DataProvider extends ContentProvider {
 						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_SMS
 						+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_MMS + " THEN "
 						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "." + MIXED_UNITS_MMS
-						+ " ELSE " + Logs.TABLE + "." + Logs.BILL_AMOUNT + " END) AS "
-						+ SUM_AT_BILLED_AMOUNT,
+						+ " WHEN  " + Logs.TABLE + "." + Logs.TYPE + "=" + TYPE_DATA + " THEN "
+						+ Logs.TABLE + "." + Logs.BILL_AMOUNT + "*" + TABLE + "."
+						+ MIXED_UNITS_DATA + "/" + CallMeter.BYTE_MB + " ELSE " + Logs.TABLE + "."
+						+ Logs.BILL_AMOUNT + " END) AS " + SUM_AT_BILLED_AMOUNT,
 				"(CASE WHEN " + TABLE + "." + TYPE + "=" + TYPE_BILLPERIOD + " THEN " + TABLE + "."
 						+ COST_PER_PLAN + " + (select sum(CASE WHEN p." + COST_PER_PLAN
 						+ " is null THEN 0 ELSE p." + COST_PER_PLAN + " END) from " + TABLE
