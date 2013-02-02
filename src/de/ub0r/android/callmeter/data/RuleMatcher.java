@@ -780,6 +780,28 @@ public final class RuleMatcher {
 		}
 
 		/**
+		 * Get upc/upd/upm/ups according to log type.
+		 * 
+		 * @param logType
+		 *            log type
+		 * @return units per *
+		 */
+		int getUP(final int logType) {
+			switch (logType) {
+			case DataProvider.TYPE_CALL:
+				return this.upc;
+			case DataProvider.TYPE_DATA:
+				return this.upd;
+			case DataProvider.TYPE_MMS:
+				return this.upm;
+			case DataProvider.TYPE_SMS:
+				return this.ups;
+			default:
+				return 0;
+			}
+		}
+
+		/**
 		 * Check if this log is starting a new billing period.
 		 * 
 		 * @param log
@@ -971,17 +993,35 @@ public final class RuleMatcher {
 		 * @return cost
 		 */
 		float getCost(final Cursor log, final float bAmount) {
+			final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
+			final int pt = this.type;
+
 			float ret = 0f;
 			float as0; // split amount: before limit
 			float as1; // split amount: after limit
 			Plan p;
+			float f = 1; // factor for mixed plans with limits merging this plan
 			if (this.parent != null && this.limitType == DataProvider.LIMIT_TYPE_NONE) {
 				p = this.parent;
+				if (pt != DataProvider.TYPE_MIXED && p.type == DataProvider.TYPE_MIXED) {
+					f = 1f / p.getUP(t);
+					switch (t) {
+					case DataProvider.TYPE_CALL:
+						f *= CallMeter.SECONDS_MINUTE;
+						break;
+					case DataProvider.TYPE_DATA:
+						f *= CallMeter.BYTE_MB;
+						break;
+					default:
+						// nothing to do
+						break;
+					}
+				}
 			} else {
 				p = this;
 			}
 			// split amount at limit
-			float remaining = p.getRemainingLimit();
+			float remaining = p.getRemainingLimit() * f;
 			if (p.limitType == DataProvider.LIMIT_TYPE_NONE || remaining <= 0f) {
 				as0 = 0;
 				as1 = bAmount;
@@ -992,8 +1032,6 @@ public final class RuleMatcher {
 				as0 = bAmount;
 				as1 = 0;
 			}
-			final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
-			final int pt = this.type;
 
 			if (t == DataProvider.TYPE_SMS || pt == DataProvider.TYPE_MIXED) {
 				ret += as0 * this.costPerItemInLimit + as1 * this.costPerItem;
