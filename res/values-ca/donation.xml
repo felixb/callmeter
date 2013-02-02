@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+		Copyright (C) 2009-2012 Felix Bechstein
+	-->
+<!--
+		This file is part of ub0rlib. This program is free software; you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation; either
+		version 3 of the License, or (at your option) any later version.
+	-->
+<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<resources>
+  <string name="donate" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Donate">Donació</string>
+  <string name="donate_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Donate (%s)">Donar (%s)</string>
+  <string name="donate_remove_ads_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Donate/remove ads">Donar/retirar anuncis</string>
+  <string name="did_paypal_donation" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="I already did a donation via Paypal">Ja he realitzat una donació via Paypal</string>
+  <string name="predonate_market" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.">Aquesta és una aplicació de codi obert distribuït sota la llicència GPLv3. És gratuït i ho seguirà sent. Si realment li agrada o si està molest pels anuncis, si us plau consideri fer una donació.\nGràcies!\n\nLa donació elimina els anuncis a totes les aplicacions proporcionades per mi.</string>
+</resources>

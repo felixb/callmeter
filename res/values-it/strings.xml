@@ -367,7 +367,7 @@
   <string name="numbergroup_excalls" formatted="false" orig="Exclude from calls">Escludi dalle chiamate</string>
   <string name="numbergroup_exsms" formatted="false" orig="Exclude from SMS">Escludi dagli SMS</string>
   <string name="billperiod_sn" formatted="false" orig="BillPeriod">PeriodoTariffazione</string>
-  <string name="calls_in" formatted="false" orig="Calls In" username="fedekikko89">Chiamate Ricevute\n\nChiamate Ricevute</string>
+  <string name="calls_in" formatted="false" orig="Calls In" username="Felix Bechstein &lt;f+translation@ub0r.de&gt;">Chiamate Ricevute</string>
   <string name="calls_in_" formatted="false" orig="CallsIn">ChamateRicevute</string>
   <string name="calls_out" formatted="false" orig="Calls Out">Chiamate Effettuate</string>
   <string name="calls_out_" formatted="false" orig="CallsOut">ChamateEffettuate</string>

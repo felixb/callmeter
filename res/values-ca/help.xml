@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+		Copyright (C) 2009-2012 Felix Bechstein
+	-->
+<!--
+		This file is part of Call Meter 3G. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+	-->
+<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<resources>
+  <string name="help_title_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">Si us plau llegeixi el següent text per entendre el concepte de <b>registres</b>, <b>plans</b> i <b>normes</b>:</string>
+  <string name="help_import_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="A good starting point are some preconfigured rule sets available on the website. Just import them via import menu and play around.">Un bon punt d\'inici són les normes preconfigurades de la pàgina web. Tant sols les ha d\'importar via el menú d\'importació.</string>
+  <string name="help_export_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="If you managed to set up a common plan for your country, do not hesitate to export your rule set to me by mail. I will put it on the website to make it available for all the users.">Si ha configurat un pla comú en el seu país, no dubti d\'exportar-lo a mi via mail. L\'afegiré a la pàgina web per a que sigui disponible a altres usuaris.</string>
+  <string name="help_logs_plans_rules_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="There are three kinds of data structures:">Hi ha 3 tipus d\'setructures de dades:</string>
+  <string name="help_plans_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="&lt;b&gt;Plans&lt;/b&gt; to describe all kinds of aspects of your bill."><b>Plans</b> per descriure tots els aspectes de la seva facturació.</string>
+  <string name="help_rules_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="&lt;b&gt;Rules&lt;/b&gt; to match the &lt;b&gt;logs&lt;/b&gt; and move them to a particular &lt;b&gt;plan&lt;/b&gt;."><b>Normes</b> per fer coincidir amb els <b>registres</b> i poder utilitzar-los en un <b>plan</b> particular.</string>
+  <string name="help_plans_detail0_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="You can add or delete &lt;b&gt;plans&lt;/b&gt; just as you want. You can set the order by dragging them around with the handle on the right of the list view.">Pot afegir o eliminar <b>plans</b> com vulgui. Pot establir l\'ordre arroseguent-lo per la dreta de la llista.</string>
+  <string name="help_logs_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="&lt;b&gt;Logs&lt;/b&gt; to save informations about your calls, messages and traffic statistics."><b>Registres</b> guarden informació de les seves estadístiques de les trucades, missatges i dades.</string>
+  <string name="help_plans_merge_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="You can merge &lt;b&gt;plans&lt;/b&gt; to aggregate their &lt;b&gt;log items&lt;/b&gt; to a combined cost and limit.">Pot fusionar <b>plans</b> per afegir els <b>valor de registre</b> en una combinació de costs i límits.</string>
+  <string name="help_rules_detail1_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="But keep in mind, that order is important for &lt;b&gt;rules&lt;/b&gt;:">Tingui en compte, que l\'ordre és important per a les <b>normes</b>:</string>
+  <string name="help_rules_detail2_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="&lt;b&gt;Logs&lt;/b&gt; are matched &lt;b&gt;top-down&lt;/b&gt;, means: the first &lt;b&gt;rule&lt;/b&gt; that matches will stop processing of this particular &lt;b&gt;log item&lt;/b&gt;.">Els <b>registres</b> es quadren <b>d\'adalt a abaix</b>, això vol dir: la primera <b>norma</b> que coincideixi aturarà el procés per aqeust particular <b>valor de registre</b>.</string>
+  <string name="help_rules_detail3_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="E.g.: If you match all calls to 0800% numbers to a \&quot;free\&quot; &lt;b&gt;plan&lt;/b&gt; with the first &lt;b&gt;rule&lt;/b&gt;, there is no need to exclude these numbers in the second.">Ex.: si fa coincidir totes les trucades a números 0800% a un <b>pla</b> "gratuit"  amb la primera <b>norma</b>, no hi ha necessitat d\'exloure aquests números en la segona.</string>
+  <string name="help_rules_detail0_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Edit the &lt;b&gt;rules&lt;/b&gt; in the same way. Each &lt;b&gt;rule&lt;/b&gt; does match some &lt;b&gt;log items&lt;/b&gt; and move them to a &lt;b&gt;plan&lt;/b&gt; in which the &lt;b&gt;logs&lt;/b&gt; should be billed in.">Editi les <b>normes</b> de la mateixa manera. Cada <b>norma</b> coincideix amb alguns <b>valors de registre</b> i moure\'ls a un <b>pla</b> en el que el <b>registre</b> pugui ser facturat.</string>
+  <string name="help_plans_detail1_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="To edit a &lt;b&gt;plan&lt;/b&gt;, you just need to click it. At the next screen, you can set all kind of settings. There are a few, most users won\'t need. But some do. A short help for each setting is displayed in this view. Most settings you do not understand are not used in your country. Just leave them as they are. ;)">Per a editar un <b>pla</b>, només ha d\'accedir a ell. En la següent pantalla, podrà establir tot tipus de configuracions. Hi ha algunes que la majoria d\'usuaris no necessiten. Una petita ajuda per a cada una de les configuracions es mostra en aquesta ajuda. Algunes configuracions pot ser que no siguin necessaries en el seu país. Deixi-les com estan.</string>
+</resources>

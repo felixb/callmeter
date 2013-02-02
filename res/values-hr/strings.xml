@@ -454,4 +454,7 @@
   <string name="mixed_units_data_help" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Set the units billed for each MB of data traffic.">Postavi jedinice za računanje svakog MB podatkovnog prometa</string>
   <string name="strip_past_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Do not bill anything after seconds">Ne računaj sve nakon sekundi</string>
   <string name="strip_past_help" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Do not bill anything after x seconds of a call.">Ne računaj ništa nakon x sekundi poziva.</string>
+  <string name="import_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Import">Uvezi</string>
+  <string name="import_link_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="More info">Više informacija</string>
+  <string name="import_rules_users" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Users\' rules">Korisnička pravila</string>
 </resources>
