@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
-  <title>Like</title>
   <country>Hungary</country>
   <provider>T-Mobile</provider>
+  <title>Like</title>
   <plans>
     <plan>
       <_id>12</_id>
@@ -62,7 +62,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>18</_order>
+      <_order>63</_order>
     </plan>
     <plan>
       <_id>19</_id>
@@ -76,7 +76,7 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>19</_order>
+      <_order>64</_order>
     </plan>
     <plan>
       <_id>20</_id>
@@ -93,89 +93,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>20</_order>
-    </plan>
-    <plan>
-      <_id>22</_id>
-      <_plan_name>Adat (2G/3G)</_plan_name>
-      <_shortname>Adatforgalom</_shortname>
-      <_plan_type>0</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_limit>0</_limit>
-      <_billperiod>5</_billperiod>
-      <_billmode>1/1</_billmode>
-      <_billday>0</_billday>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_strip_seconds>0</_strip_seconds>
-      <_order>22</_order>
-    </plan>
-    <plan>
-      <_id>23</_id>
-      <_plan_name>Adatforgalom</_plan_name>
-      <_shortname>DataInOut</_shortname>
-      <_plan_type>7</_plan_type>
-      <_limit_type>1</_limit_type>
-      <_limit>50</_limit>
-      <_billperiod>12</_billperiod>
-      <_billmode>1/1</_billmode>
-      <_billday>0</_billday>
-      <_cost_per_amount1>0</_cost_per_amount1>
-      <_cost_per_amount2>0</_cost_per_amount2>
-      <_cost_per_plan>0</_cost_per_plan>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_strip_seconds>0</_strip_seconds>
-      <_merged_plans>,35,36,</_merged_plans>
-      <_order>23</_order>
-    </plan>
-    <plan>
-      <_id>35</_id>
-      <_plan_name>Letöltés</_plan_name>
-      <_shortname>Data in</_shortname>
-      <_plan_type>7</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_limit>0</_limit>
-      <_billperiod>5</_billperiod>
-      <_billday>1311599936483</_billday>
-      <_cost_per_item>0</_cost_per_item>
-      <_cost_per_amount1>0</_cost_per_amount1>
-      <_cost_per_amount2>0</_cost_per_amount2>
-      <_cost_per_item_in_limit>0</_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1>0</_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2>0</_cost_per_amount_in_limit2>
-      <_cost_per_plan>0</_cost_per_plan>
-      <_mixed_units_call>0</_mixed_units_call>
-      <_mixed_units_sms>0</_mixed_units_sms>
-      <_mixed_units_mms>0</_mixed_units_mms>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_strip_seconds>0</_strip_seconds>
-      <_order>35</_order>
-    </plan>
-    <plan>
-      <_id>36</_id>
-      <_plan_name>Feltöltés</_plan_name>
-      <_shortname>Data out</_shortname>
-      <_plan_type>7</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_limit>0</_limit>
-      <_billperiod>5</_billperiod>
-      <_billday>1311600290816</_billday>
-      <_cost_per_item>0</_cost_per_item>
-      <_cost_per_amount1>0</_cost_per_amount1>
-      <_cost_per_amount2>0</_cost_per_amount2>
-      <_cost_per_item_in_limit>0</_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1>0</_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2>0</_cost_per_amount_in_limit2>
-      <_cost_per_plan>0</_cost_per_plan>
-      <_mixed_units_call>0</_mixed_units_call>
-      <_mixed_units_sms>0</_mixed_units_sms>
-      <_mixed_units_mms>0</_mixed_units_mms>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_strip_seconds>0</_strip_seconds>
-      <_order>36</_order>
+      <_order>65</_order>
     </plan>
     <plan>
       <_id>61</_id>
@@ -200,7 +118,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>61</_order>
+      <_order>58</_order>
     </plan>
     <plan>
       <_id>65</_id>
@@ -225,32 +143,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>65</_order>
-    </plan>
-    <plan>
-      <_id>66</_id>
-      <_plan_name>Hangposta</_plan_name>
-      <_shortname>hangposta</_shortname>
-      <_plan_type>4</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_limit>0</_limit>
-      <_billperiod>5</_billperiod>
-      <_billmode>60/60</_billmode>
-      <_billday>1329160267344</_billday>
-      <_cost_per_item>0</_cost_per_item>
-      <_cost_per_amount1>12.7</_cost_per_amount1>
-      <_cost_per_amount2>12.7</_cost_per_amount2>
-      <_cost_per_item_in_limit>0</_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1>12.7</_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2>12.7</_cost_per_amount_in_limit2>
-      <_cost_per_plan>0</_cost_per_plan>
-      <_mixed_units_call>0</_mixed_units_call>
-      <_mixed_units_sms>0</_mixed_units_sms>
-      <_mixed_units_mms>0</_mixed_units_mms>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_strip_seconds>0</_strip_seconds>
-      <_order>0</_order>
+      <_order>62</_order>
     </plan>
     <plan>
       <_id>68</_id>
@@ -274,7 +167,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_merged_plans>,66,61,65,20,</_merged_plans>
+      <_merged_plans>,61,20,79,</_merged_plans>
       <_order>4</_order>
     </plan>
     <plan>
@@ -317,21 +210,21 @@
       <_next_alert>0</_next_alert>
       <_order>3</_order>
     </plan>
+    <plan>
+      <_id>79</_id>
+      <_plan_name>Sms kimenő egyéb hálózat</_plan_name>
+      <_shortname>ÚjTarifa</_shortname>
+      <_plan_type>5</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_cost_per_item>25</_cost_per_item>
+      <_cost_per_item_in_limit>25</_cost_per_item_in_limit>
+      <_cost_per_plan></_cost_per_plan>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>66</_order>
+    </plan>
   </plans>
   <rules>
-    <rule>
-      <_id>1</_id>
-      <_active>1</_active>
-      <_order>2</_order>
-      <_plan_id>23</_plan_id>
-      <_rule_name>Adatforgalom</_rule_name>
-      <_what>3</_what>
-      <_roamed>2</_roamed>
-      <_direction>2</_direction>
-      <_limit_not_reached>0</_limit_not_reached>
-      <_is_websms>2</_is_websms>
-      <_is_sipcall>2</_is_sipcall>
-    </rule>
     <rule>
       <_id>2</_id>
       <_active>1</_active>
@@ -367,6 +260,7 @@
       <_what>1</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
+      <_innumbergroup_id>,18,22,</_innumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
       <_is_sipcall>2</_is_sipcall>
@@ -374,7 +268,7 @@
     <rule>
       <_id>7</_id>
       <_active>1</_active>
-      <_order>10</_order>
+      <_order>11</_order>
       <_plan_id>27</_plan_id>
       <_rule_name>MMS In</_rule_name>
       <_what>2</_what>
@@ -387,36 +281,10 @@
     <rule>
       <_id>8</_id>
       <_active>1</_active>
-      <_order>11</_order>
+      <_order>12</_order>
       <_plan_id>28</_plan_id>
       <_rule_name>MMS Out</_rule_name>
       <_what>2</_what>
-      <_roamed>2</_roamed>
-      <_direction>1</_direction>
-      <_limit_not_reached>0</_limit_not_reached>
-      <_is_websms>2</_is_websms>
-      <_is_sipcall>2</_is_sipcall>
-    </rule>
-    <rule>
-      <_id>10</_id>
-      <_active>1</_active>
-      <_order>0</_order>
-      <_plan_id>35</_plan_id>
-      <_rule_name>Letöltés</_rule_name>
-      <_what>3</_what>
-      <_roamed>2</_roamed>
-      <_direction>0</_direction>
-      <_limit_not_reached>0</_limit_not_reached>
-      <_is_websms>2</_is_websms>
-      <_is_sipcall>2</_is_sipcall>
-    </rule>
-    <rule>
-      <_id>11</_id>
-      <_active>1</_active>
-      <_order>1</_order>
-      <_plan_id>36</_plan_id>
-      <_rule_name>Feltöltés</_rule_name>
-      <_what>3</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
       <_limit_not_reached>0</_limit_not_reached>
@@ -439,20 +307,6 @@
       <_is_sipcall>1</_is_sipcall>
     </rule>
     <rule>
-      <_id>29</_id>
-      <_active>1</_active>
-      <_order>6</_order>
-      <_plan_id>66</_plan_id>
-      <_rule_name>Hangposta</_rule_name>
-      <_what>0</_what>
-      <_roamed>1</_roamed>
-      <_direction>1</_direction>
-      <_innumbergroup_id>,19,</_innumbergroup_id>
-      <_limit_not_reached>0</_limit_not_reached>
-      <_is_websms>2</_is_websms>
-      <_is_sipcall>1</_is_sipcall>
-    </rule>
-    <rule>
       <_id>31</_id>
       <_active>1</_active>
       <_order>5</_order>
@@ -469,7 +323,7 @@
     <rule>
       <_id>38</_id>
       <_active>1</_active>
-      <_order>12</_order>
+      <_order>13</_order>
       <_plan_id>77</_plan_id>
       <_rule_name>3 kedvenc szám</_rule_name>
       <_what>0</_what>
@@ -478,7 +332,29 @@
       <_innumbergroup_id>,22,</_innumbergroup_id>
       <_is_sipcall>-1</_is_sipcall>
     </rule>
+    <rule>
+      <_id>40</_id>
+      <_active>1</_active>
+      <_order>10</_order>
+      <_plan_id>79</_plan_id>
+      <_rule_name>Sms egyéb</_rule_name>
+      <_what>1</_what>
+      <_roamed>2</_roamed>
+      <_direction>1</_direction>
+      <_innumbergroup_id>,28,</_innumbergroup_id>
+      <_exnumbergroup_id>,18,22,</_exnumbergroup_id>
+      <_limit_not_reached>0</_limit_not_reached>
+      <_is_websms>-1</_is_websms>
+    </rule>
   </rules>
+  <hoursgroups>
+    <hoursgroup>
+      <_id>1</_id>
+      <_name>Időszak hozzáadása</_name>
+      <hours>
+      </hours>
+    </hoursgroup>
+  </hoursgroups>
   <numbersgroups>
     <numbersgroup>
       <_id>18</_id>
@@ -497,39 +373,23 @@
       </numbers>
     </numbersgroup>
     <numbersgroup>
-      <_id>19</_id>
-      <_name>hangposta</_name>
-      <numbers>
-        <number>
-          <_id>43</_id>
-          <_gid>19</_gid>
-          <_number>06309888444</_number>
-        </number>
-        <number>
-          <_id>44</_id>
-          <_gid>19</_gid>
-          <_number>+36309888444</_number>
-        </number>
-      </numbers>
-    </numbersgroup>
-    <numbersgroup>
       <_id>22</_id>
       <_name>3 kedvenc szám</_name>
       <numbers>
         <number>
           <_id>53</_id>
           <_gid>22</_gid>
-          <_number>+36305639551</_number>
+          <_number>06303012586</_number>
         </number>
         <number>
           <_id>54</_id>
           <_gid>22</_gid>
-          <_number>+36306648120</_number>
+          <_number>+36304857103</_number>
         </number>
         <number>
           <_id>55</_id>
           <_gid>22</_gid>
-          <_number>+36306648398</_number>
+          <_number>06305880419</_number>
         </number>
       </numbers>
     </numbersgroup>
@@ -549,11 +409,71 @@
         </number>
       </numbers>
     </numbersgroup>
+    <numbersgroup>
+      <_id>28</_id>
+      <_name>egyéb hálózat</_name>
+      <numbers>
+        <number>
+          <_id>72</_id>
+          <_gid>28</_gid>
+          <_number>+36206158518</_number>
+        </number>
+        <number>
+          <_id>73</_id>
+          <_gid>28</_gid>
+          <_number>+36203858354</_number>
+        </number>
+        <number>
+          <_id>74</_id>
+          <_gid>28</_gid>
+          <_number>06706345578</_number>
+        </number>
+        <number>
+          <_id>75</_id>
+          <_gid>28</_gid>
+          <_number>+36705643555</_number>
+        </number>
+        <number>
+          <_id>76</_id>
+          <_gid>28</_gid>
+          <_number>06705951244</_number>
+        </number>
+        <number>
+          <_id>77</_id>
+          <_gid>28</_gid>
+          <_number>06707703237</_number>
+        </number>
+        <number>
+          <_id>78</_id>
+          <_gid>28</_gid>
+          <_number>06704520796</_number>
+        </number>
+        <number>
+          <_id>79</_id>
+          <_gid>28</_gid>
+          <_number>+36202743949</_number>
+        </number>
+        <number>
+          <_id>80</_id>
+          <_gid>28</_gid>
+          <_number>06709316948</_number>
+        </number>
+        <number>
+          <_id>81</_id>
+          <_gid>28</_gid>
+          <_number>06706574690</_number>
+        </number>
+        <number>
+          <_id>82</_id>
+          <_gid>28</_gid>
+          <_number>+36703959243</_number>
+        </number>
+        <number>
+          <_id>83</_id>
+          <_gid>28</_gid>
+          <_number>06204891750</_number>
+        </number>
+      </numbers>
+    </numbersgroup>
   </numbersgroups>
-  <hoursgroups>
-    <hoursgroup>
-      <_id>1</_id>
-      <_name>Időszak hozzáadása</_name>
-    </hoursgroup>
-  </hoursgroups>
 </ruleset>
