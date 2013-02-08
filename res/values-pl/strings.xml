@@ -338,7 +338,7 @@
   <string name="delete_">Usuń</string>
   <string name="title">Nagłówek</string>
   <string name="spacer">Odstęp</string>
-  <string name="mixed">Połączenia</string>
+  <string name="mixed" username="marcin_pub@interia.pl" orig="Mixed">Mieszane</string>
   <string name="limit_type_unlimited">nielimitowany</string>
   <string name="limit_type_units">jednostki</string>
   <string name="limit_type_cost">koszt</string>
@@ -440,4 +440,17 @@
   <string name="plan" formatted="false" username="maladrill" orig="Plan">Plan</string>
   <string name="custom_language_" formatted="false" username="maladrill" orig="Custom language">Własny język</string>
   <string name="custom_language_hint" formatted="false" username="maladrill" orig="Set a custom language.">Ustaw własny język</string>
+  <string name="widget_logs_title" formatted="false" username="marcin_pub@interia.pl" orig="Call Meter (last log)">Call Meter (ostatni log)</string>
+  <string name="widget_stats_title" formatted="false" username="marcin_pub@interia.pl" orig="Call Meter (stats)">Call Meter (statystyki)</string>
+  <string name="cost_per_item_no_limit_help" formatted="false" username="marcin_pub@interia.pl" orig="Set the cost billed for a single log item (e.g. a call or a message).">Wprowadź koszt naliczany dla pojedynczej pozycji (np. połączenia lub SMSa)</string>
+  <string name="cost_per_amount_no_limit_help1" formatted="false" username="marcin_pub@interia.pl" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data).">Wprowadź koszt naliczany w zależności od długości pojedynczej pozycji (np.: dla 1min połączenia, 1kB danych)</string>
+  <string name="cost_per_amount_no_limit_help2" formatted="false" username="marcin_pub@interia.pl" orig="Set the cost billed per length for a single log item (e.g. for 1min call).\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Wprowadź koszt naliczany w zależności od długości pojedynczej pozycji (np.: dla 1min połączenia).\nPierwsze pole odpowiada za koszt dla pierwszych kilku sekund połączenia, następne - dla następujących sekund (oba są ustawione w zł/minutę; zobacz tryb rozliczeń).\nJeśli masz wątpliwość, wprowadź obie wartości odpowiadające wartości za minutę.</string>
+  <string name="import_rules_www_hint" formatted="false" username="marcin_pub@interia.pl" orig="Import pre-configured rule set from http://www.ub0r.de/.">Importuj wstępne ustawienia reguł z http://www.ub0r.de/.</string>
+  <string name="import_rules_users" formatted="false" username="marcin_pub@interia.pl" orig="Users\' rules">Reguły użytkowników</string>
+  <string name="mixed_units_data_help" formatted="false" username="marcin_pub@interia.pl" orig="Set the units billed for each MB of data traffic.">Wprowadź liczbę jednostek naliczanych za każdy MB danych.</string>
+  <string name="mixed_units_data_" formatted="false" username="marcin_pub@interia.pl" orig="Units for data">Jednostek za transmisję danych.</string>
+  <string name="import_" formatted="false" username="marcin_pub@interia.pl" orig="Import">Importuj</string>
+  <string name="import_link_" formatted="false" username="marcin_pub@interia.pl" orig="More info">Więcej informacji</string>
+  <string name="widget_date_textsize" formatted="false" username="marcin_pub@interia.pl" orig="Date Text Size">Rozmiar tekstu Daty</string>
+  <string name="widget_details_textsize" formatted="false" username="marcin_pub@interia.pl" orig="Details Text Size">Rozmiar tekstu Szczegółów</string>
 </resources>
