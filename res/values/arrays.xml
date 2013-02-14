@@ -265,11 +265,13 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
     <string-array name="limit_type" translatable="false">
         <item>@string/limit_type_unlimited</item>
         <item>@string/limit_type_units</item>
-        <item>@string/limit_type_cost</item>
+        <item>@string/limit_type_cost_excl</item>
+        <item>@string/limit_type_cost_incl</item>
     </string-array>
     <string-array name="billperiod_id" translatable="false">
         <item>0</item>

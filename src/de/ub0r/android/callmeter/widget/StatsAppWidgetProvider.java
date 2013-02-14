@@ -226,8 +226,11 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		}
 		Log.d(TAG, "bpos/bmax: " + bpos + "/" + bmax);
 
-		String stats = Common.formatValues(context, -1, plan.type, plan.bpCount, plan.bpBa,
-				plan.billperiod, plan.billday, false);
+		String stats = "";
+		if (plan.hasBa) {
+			stats = Common.formatValues(context, -1, plan.type, plan.bpCount, plan.bpBa,
+					plan.billperiod, plan.billday, false);
+		}
 		if (plan.limit > 0) {
 			stats += "\n" + ((int) (plan.usage * CallMeter.HUNDRET)) + "%";
 		}
@@ -235,6 +238,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			stats += "\n" + String.format(Preferences.getCurrencyFormat(context), cost);
 		}
 
+		stats = stats.trim();
 		Log.d(TAG, "limit: " + plan.limit);
 		Log.d(TAG, "used: " + plan.usage);
 		Log.d(TAG, "stats: " + stats);

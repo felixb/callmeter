@@ -229,26 +229,31 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 			}
 
 			if (plan.type != DataProvider.TYPE_SPACING && plan.type != DataProvider.TYPE_TITLE) {
-				spb.append(Common.formatValues(context, plan.now, plan.type, plan.bpCount,
-						plan.bpBa, plan.billperiod, plan.billday, pShowHours));
-				spb.setSpan(new StyleSpan(Typeface.BOLD), 0, spb.length(),
-						Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-				if (plan.type != DataProvider.TYPE_BILLPERIOD) {
-					if (showTotal) {
-						spb.append(delimiter
-								+ Common.formatValues(context, plan.now, plan.type, plan.atCount,
-										plan.atBa, plan.billperiod, plan.billday, pShowHours));
-					}
-					if (showToday) {
-						spb.insert(
-								0,
-								Common.formatValues(context, plan.now, plan.type, plan.tdCount,
-										plan.tdBa, plan.billperiod, plan.billday, pShowHours)
-										+ delimiter);
+				if (plan.hasBa) {
+					spb.append(Common.formatValues(context, plan.now, plan.type, plan.bpCount,
+							plan.bpBa, plan.billperiod, plan.billday, pShowHours));
+					spb.setSpan(new StyleSpan(Typeface.BOLD), 0, spb.length(),
+							Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+					if (plan.type != DataProvider.TYPE_BILLPERIOD) {
+						if (showTotal) {
+							spb.append(delimiter
+									+ Common.formatValues(context, plan.now, plan.type,
+											plan.atCount, plan.atBa, plan.billperiod, plan.billday,
+											pShowHours));
+						}
+						if (showToday) {
+							spb.insert(
+									0,
+									Common.formatValues(context, plan.now, plan.type, plan.tdCount,
+											plan.tdBa, plan.billperiod, plan.billday, pShowHours)
+											+ delimiter);
+						}
 					}
 				}
 				if (free > 0f || cost > 0f) {
-					spb.append("\n");
+					if (spb.length() > 0) {
+						spb.append("\n");
+					}
 					if (free > 0f) {
 						String s;
 						try {

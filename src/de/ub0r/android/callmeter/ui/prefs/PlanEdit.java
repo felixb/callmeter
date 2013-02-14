@@ -426,6 +426,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 	private int getLimitHint(final int t, final int lt) {
 		switch (lt) {
 		case DataProvider.LIMIT_TYPE_COST:
+		case DataProvider.LIMIT_TYPE_COSTINCL:
 			return R.string.units_cost;
 		case DataProvider.LIMIT_TYPE_UNITS:
 			switch (t) {

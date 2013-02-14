@@ -127,6 +127,8 @@ public final class DataProvider extends ContentProvider {
 	public static final int LIMIT_TYPE_UNITS = 1;
 	/** Type of limit: cost. */
 	public static final int LIMIT_TYPE_COST = 2;
+	/** Type of limit: cost including cost. */
+	public static final int LIMIT_TYPE_COSTINCL = 3;
 
 	/** Bill period: one day. */
 	public static final int BILLPERIOD_DAY = 0;
@@ -580,6 +582,8 @@ public final class DataProvider extends ContentProvider {
 			public final int atCount;
 			/** Sum of this all time's billed amount. */
 			public final float atBa;
+			/** Has billed amount. */
+			public final boolean hasBa;
 
 			/**
 			 * Default Constructor from {@link Cursor}. Use this method only
@@ -613,6 +617,7 @@ public final class DataProvider extends ContentProvider {
 					this.atCount = 0;
 					this.atBa = 0f;
 					this.now = -1L;
+					this.hasBa = false;
 				} else {
 					this.cost = cursor.getFloat(INDEX_SUM_COST);
 					this.free = cursor.getFloat(INDEX_SUM_FREE);
@@ -628,6 +633,7 @@ public final class DataProvider extends ContentProvider {
 					this.cpp = cursor.getFloat(INDEX_SUM_CPP);
 					if (this.type == TYPE_BILLPERIOD) {
 						this.limittype = -1;
+						this.hasBa = true;
 						if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
 							this.limitPos = 0;
 							this.limit = 0;
@@ -647,6 +653,11 @@ public final class DataProvider extends ContentProvider {
 						this.limit = getLimit(this.type, this.limittype,
 								cursor.getFloat(INDEX_LIMIT));
 						this.limitPos = getUsed(this.type, this.limittype, this.bpBa, this.cost);
+						this.hasBa = this.type != TYPE_MIXED
+								|| cursor.getInt(INDEX_SUM_MIXED_UNITS_CALL) != 0
+								|| cursor.getInt(INDEX_SUM_MIXED_UNITS_DATA) != 0
+								|| cursor.getInt(INDEX_SUM_MIXED_UNITS_MMS) != 0
+								|| cursor.getInt(INDEX_SUM_MIXED_UNITS_SMS) != 0;
 					}
 				}
 				if (this.limitPos <= 0) {
@@ -697,6 +708,7 @@ public final class DataProvider extends ContentProvider {
 					this.atCount = 0;
 					this.atBa = 0f;
 					this.now = -1L;
+					this.hasBa = false;
 				} else {
 					this.cost = p.getFloat(PREF_PREFIX + SUM_COST + this.id, 0f);
 					this.free = p.getFloat(PREF_PREFIX + SUM_FREE + this.id, 0f);
@@ -713,6 +725,7 @@ public final class DataProvider extends ContentProvider {
 
 					if (this.type == TYPE_BILLPERIOD) {
 						this.limittype = -1;
+						this.hasBa = true;
 						if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
 							this.limitPos = 0;
 							this.limit = 0;
@@ -732,6 +745,11 @@ public final class DataProvider extends ContentProvider {
 						this.limit = getLimit(this.type, this.limittype,
 								cursor.getFloat(INDEX_LIMIT));
 						this.limitPos = getUsed(this.type, this.limittype, this.bpBa, this.cost);
+						this.hasBa = this.type != TYPE_MIXED
+								|| cursor.getInt(INDEX_BASIC_MIXED_UNITS_CALL) != 0
+								|| cursor.getInt(INDEX_BASIC_MIXED_UNITS_DATA) != 0
+								|| cursor.getInt(INDEX_BASIC_MIXED_UNITS_MMS) != 0
+								|| cursor.getInt(INDEX_BASIC_MIXED_UNITS_SMS) != 0;
 					}
 				}
 				if (this.limitPos <= 0) {
@@ -969,6 +987,22 @@ public final class DataProvider extends ContentProvider {
 		public static final int INDEX_SUM_COST = 19;
 		/** Index in projection: sum free cost for this bill period. */
 		public static final int INDEX_SUM_FREE = 20;
+		/** Index in projection: Mixed units for call. */
+		public static final int INDEX_SUM_MIXED_UNITS_CALL = 21;
+		/** Index in projection: Mixed units for data. */
+		public static final int INDEX_SUM_MIXED_UNITS_DATA = 22;
+		/** Index in projection: Mixed units for mms. */
+		public static final int INDEX_SUM_MIXED_UNITS_MMS = 23;
+		/** Index in projection: Mixed units for sms. */
+		public static final int INDEX_SUM_MIXED_UNITS_SMS = 24;
+		/** Index in projection: Mixed units for call. */
+		public static final int INDEX_BASIC_MIXED_UNITS_CALL = INDEX_BILLPERIOD + 2;
+		/** Index in projection: Mixed units for data. */
+		public static final int INDEX_BASIC_MIXED_UNITS_DATA = INDEX_BASIC_MIXED_UNITS_CALL + 1;
+		/** Index in projection: Mixed units for mms. */
+		public static final int INDEX_BASIC_MIXED_UNITS_MMS = INDEX_BASIC_MIXED_UNITS_DATA + 1;
+		/** Index in projection: Mixed units for sms. */
+		public static final int INDEX_BASIC_MIXED_UNITS_SMS = INDEX_BASIC_MIXED_UNITS_MMS + 1;
 
 		/** ID. */
 		public static final String ID = "_id";
@@ -1059,7 +1093,8 @@ public final class DataProvider extends ContentProvider {
 				STRIP_PAST, MERGED_PLANS, ORDER };
 		/** Projection used for basic query. */
 		public static final String[] PROJECTION_BASIC = new String[] { ID, NAME, SHORTNAME, TYPE,
-				LIMIT_TYPE, LIMIT, BILLPERIOD, ORDER };
+				LIMIT_TYPE, LIMIT, BILLPERIOD, ORDER, MIXED_UNITS_CALL, MIXED_UNITS_DATA,
+				MIXED_UNITS_MMS, MIXED_UNITS_SMS };
 
 		/** Projection used for sum query. */
 		public static final String[] PROJECTION_SUM = new String[] {
@@ -1134,7 +1169,11 @@ public final class DataProvider extends ContentProvider {
 						+ Logs.TABLE + "." + Logs.COST + " END) as " + SUM_COST,
 				"sum(CASE WHEN " + Logs.TABLE + "." + Logs.DATE + "<{" + SUM_BILLDAY + "} or "
 						+ Logs.TABLE + "." + Logs.DATE + ">{" + SUM_NOW + "} THEN 0 ELSE "
-						+ Logs.TABLE + "." + Logs.FREE + " END) as " + SUM_FREE };
+						+ Logs.TABLE + "." + Logs.FREE + " END) as " + SUM_FREE,
+				TABLE + "." + MIXED_UNITS_CALL + " AS " + MIXED_UNITS_CALL,
+				TABLE + "." + MIXED_UNITS_DATA + " AS " + MIXED_UNITS_DATA,
+				TABLE + "." + MIXED_UNITS_MMS + " AS " + MIXED_UNITS_MMS,
+				TABLE + "." + MIXED_UNITS_SMS + " AS " + MIXED_UNITS_SMS };
 
 		/** Projection used for query id and (short)name. */
 		public static final String[] PROJECTION_NAME = new String[] { ID, NAME, SHORTNAME };
@@ -1288,6 +1327,7 @@ public final class DataProvider extends ContentProvider {
 				final float cost) {
 			switch (lType) {
 			case DataProvider.LIMIT_TYPE_COST:
+			case DataProvider.LIMIT_TYPE_COSTINCL:
 				return (int) (cost * CallMeter.HUNDRET);
 			case DataProvider.LIMIT_TYPE_UNITS:
 				if (pType == DataProvider.TYPE_DATA) {
@@ -1330,6 +1370,7 @@ public final class DataProvider extends ContentProvider {
 					return (long) limit;
 				}
 			case DataProvider.LIMIT_TYPE_COST:
+			case DataProvider.LIMIT_TYPE_COSTINCL:
 				return (long) (limit * CallMeter.HUNDRET);
 			default:
 				return 0L;
