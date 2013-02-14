@@ -433,7 +433,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 		PlansAdapter.reloadPreferences(context, true);
 		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 		showToday = p.getBoolean(Preferences.PREFS_SHOWTODAY, false);
-		showTotal = p.getBoolean(Preferences.PREFS_SHOWTOTAL, true);
+		showTotal = p.getBoolean(Preferences.PREFS_SHOWTOTAL, false);
 		hideZero = p.getBoolean(Preferences.PREFS_HIDE_ZERO, false);
 		hideNoCost = p.getBoolean(Preferences.PREFS_HIDE_NOCOST, false);
 

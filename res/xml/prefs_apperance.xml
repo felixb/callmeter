@@ -44,7 +44,7 @@
         android:summary="@string/show_today_hint"
         android:title="@string/show_today_" />
     <CheckBoxPreference
-        android:defaultValue="true"
+        android:defaultValue="false"
         android:key="show_total"
         android:summary="@string/show_total_hint"
         android:title="@string/show_total_" />
