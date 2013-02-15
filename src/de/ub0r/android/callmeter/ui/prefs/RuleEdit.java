@@ -357,7 +357,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 					DataProvider.HoursGroup.INDEX_ID, DataProvider.HoursGroup.INDEX_NAME);
 			lp.setValue(c.getString(DataProvider.Rules.INDEX_EXHOURS_ID));
 			ps.addPreference(lp);
-			if (w != DataProvider.Rules.WHAT_DATA && w != DataProvider.Rules.WHAT_MMS) {
+			if (w != DataProvider.Rules.WHAT_DATA) {
 				// include numbers
 				lp = new CVListPreference(this, this.values, DataProvider.Rules.INNUMBERS_ID, true);
 				lp.setTitle(R.string.numbergroup_);
