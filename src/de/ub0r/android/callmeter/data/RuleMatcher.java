@@ -859,7 +859,6 @@ public final class RuleMatcher {
 				Log.d(TAG, "ltype: " + this.limitType);
 				switch (this.limitType) {
 				case DataProvider.LIMIT_TYPE_COST:
-				case DataProvider.LIMIT_TYPE_COSTINCL:
 					Log.d(TAG, "bc<lt " + this.billedCost * CallMeter.HUNDRET + "<" + this.limit);
 					return this.limit - this.billedCost * CallMeter.HUNDRET;
 				case DataProvider.LIMIT_TYPE_UNITS:

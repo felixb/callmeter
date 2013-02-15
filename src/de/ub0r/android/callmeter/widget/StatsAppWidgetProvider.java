@@ -207,6 +207,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		} else {
 			cost = plan.getAccumCost();
 		}
+		float free = plan.getFree();
 		Log.d(TAG, "plan: " + plan.id);
 		Log.d(TAG, "plan name: " + plan.name);
 		Log.d(TAG, "count: " + plan.bpCount);
@@ -233,6 +234,9 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 		}
 		if (plan.limit > 0) {
 			stats += "\n" + ((int) (plan.usage * CallMeter.HUNDRET)) + "%";
+		}
+		if (!plan.hasBa && showCost && free > 0F) {
+			stats += "\n(" + String.format(Preferences.getCurrencyFormat(context), free) + ")";
 		}
 		if (showCost && cost > 0F) {
 			stats += "\n" + String.format(Preferences.getCurrencyFormat(context), cost);

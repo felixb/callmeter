@@ -218,7 +218,7 @@
 	<string name="type_">Type</string>
 	<string name="type_help">Select a type.\n\"Title\" will just display a title in main view.\n\"Spacer\" will display nothing but empty space.\n\"Bill period\" will hold any information about your billing period. Most users will need exactly one.\nA \"mixed\" plan can take calls and messages at once. It will combine billing of all those items.\nA \"call\" plan does only take calls. \"SMS\" and \"MMS\" plans will just take the messages.\nA \"data\" plan may hold information about your data traffic.</string>
 	<string name="limit_type_">Limit type</string>
-	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"costs\" limit will limit your plan based on cost produced by the items billed in this plan (excluding or including the costs billed beore limit is reached).</string>
+	<string name="limit_type_help">Set the type of your limit here.\nA \"units\" limit will limit your plan based on minutes, messages, ...\nA \"costs\" limit will limit your plan based on cost produced by the items billed in this plan.</string>
 	<string name="limit_">Limit</string>
 	<string name="limit_help">Set the limit of your plan here.\n\nType \"units\" must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \"cost\" must be set in your main currency (e.g. $).</string>
 	<string name="billmode_help">Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.</string>
@@ -392,8 +392,6 @@
 	<string name="limit_type_unlimited">unlimited</string>
 	<string name="limit_type_units">units</string>
 	<string name="limit_type_cost">costs</string>
-	<string name="limit_type_cost_excl">costs (free within limit)</string>
-	<string name="limit_type_cost_incl">costs (accumulated costs)</string>
 	<string name="x1_day">One day</string>
 	<string name="x1_week">One week</string>
 	<string name="x14_day">14 days</string>

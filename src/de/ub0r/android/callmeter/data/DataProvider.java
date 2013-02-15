@@ -127,8 +127,6 @@ public final class DataProvider extends ContentProvider {
 	public static final int LIMIT_TYPE_UNITS = 1;
 	/** Type of limit: cost. */
 	public static final int LIMIT_TYPE_COST = 2;
-	/** Type of limit: cost including cost. */
-	public static final int LIMIT_TYPE_COSTINCL = 3;
 
 	/** Bill period: one day. */
 	public static final int BILLPERIOD_DAY = 0;
@@ -1327,7 +1325,6 @@ public final class DataProvider extends ContentProvider {
 				final float cost) {
 			switch (lType) {
 			case DataProvider.LIMIT_TYPE_COST:
-			case DataProvider.LIMIT_TYPE_COSTINCL:
 				return (int) (cost * CallMeter.HUNDRET);
 			case DataProvider.LIMIT_TYPE_UNITS:
 				if (pType == DataProvider.TYPE_DATA) {
@@ -1370,7 +1367,6 @@ public final class DataProvider extends ContentProvider {
 					return (long) limit;
 				}
 			case DataProvider.LIMIT_TYPE_COST:
-			case DataProvider.LIMIT_TYPE_COSTINCL:
 				return (long) (limit * CallMeter.HUNDRET);
 			default:
 				return 0L;
