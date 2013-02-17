@@ -33,7 +33,7 @@
   <string name="about3" formatted="false">A Call Meter NG alkalmazás 30 percenként fut le a háttérben, kivéve standby állapotban. Ez azt jelenti, hogy a 30 percnél régebbi hívások vagy SMS üzenetek törlése a statisztikát nem befolyásolja. Azonban a 30 percen belül történt hívások és SMS-ek törlése hibás adatokat eredményezhet.</string>
   <string name="send_" formatted="false">Küldés</string>
   <string name="add_" formatted="false">Hozzáadás</string>
-  <string name="add_log" formatted="false">Naplóba bejegyzés hozzáadása</string>
+  <string name="add_log" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Add log entry">Napló bejegyzés hozzáadása</string>
   <string name="length_hint_call" formatted="false">Hossz másodpercben</string>
   <string name="length_hint_data" formatted="false" orig="Length in kB">Adatforgalom kilobyte-ban</string>
   <string name="settings" formatted="false" orig="Preferences">Beállítások</string>
@@ -424,4 +424,7 @@
   <string name="widget_logs_title" formatted="false" username="zakos &lt;zimmermannakos@gmail.com&gt;" orig="Call Meter (last log)">Call Meter (utolsó napló)</string>
   <string name="custom_language_hint" formatted="false" username="zakos &lt;zimmermannakos@gmail.com&gt;" orig="Set a custom language.">Nyelv beállítása</string>
   <string name="custom_language_" formatted="false" username="zakos &lt;zimmermannakos@gmail.com&gt;" orig="Custom language">Nyelv</string>
+  <string name="set_current_number" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Current number">Aktuális szám</string>
+  <string name="my_sim_id_" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="SIM Id">SIM azonosító</string>
+  <string name="cost_per_item_no_limit_help" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Set the cost billed for a single log item (e.g. a call or a message).">Beállítja az árát a figyelt elemnek (pl. hívásnak vagy üzenetnek). Kapcsolási díj.</string>
 </resources>
