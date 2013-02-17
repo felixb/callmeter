@@ -14,16 +14,6 @@
       <_billperiod>8</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>1352476801497</_billday>
-      <_cost_per_item></_cost_per_item>
-      <_cost_per_amount1></_cost_per_amount1>
-      <_cost_per_amount2></_cost_per_amount2>
-      <_cost_per_item_in_limit></_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1></_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2></_cost_per_amount_in_limit2>
-      <_cost_per_plan></_cost_per_plan>
-      <_mixed_units_call></_mixed_units_call>
-      <_mixed_units_sms></_mixed_units_sms>
-      <_mixed_units_mms></_mixed_units_mms>
       <_billperiod_id>0</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
@@ -39,16 +29,6 @@
       <_billperiod>-1</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_cost_per_item></_cost_per_item>
-      <_cost_per_amount1></_cost_per_amount1>
-      <_cost_per_amount2></_cost_per_amount2>
-      <_cost_per_item_in_limit></_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1></_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2></_cost_per_amount_in_limit2>
-      <_cost_per_plan></_cost_per_plan>
-      <_mixed_units_call></_mixed_units_call>
-      <_mixed_units_sms></_mixed_units_sms>
-      <_mixed_units_mms></_mixed_units_mms>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>3</_order>
@@ -63,16 +43,6 @@
       <_billperiod>-1</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_cost_per_item></_cost_per_item>
-      <_cost_per_amount1></_cost_per_amount1>
-      <_cost_per_amount2></_cost_per_amount2>
-      <_cost_per_item_in_limit></_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1></_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2></_cost_per_amount_in_limit2>
-      <_cost_per_plan></_cost_per_plan>
-      <_mixed_units_call></_mixed_units_call>
-      <_mixed_units_sms></_mixed_units_sms>
-      <_mixed_units_mms></_mixed_units_mms>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>4</_order>
@@ -88,15 +58,9 @@
       <_billmode>30/30</_billmode>
       <_billday>0</_billday>
       <_cost_per_item>0</_cost_per_item>
-      <_cost_per_amount1></_cost_per_amount1>
-      <_cost_per_amount2></_cost_per_amount2>
       <_cost_per_item_in_limit>0.135</_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>0.135</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>0.135</_cost_per_amount_in_limit2>
-      <_cost_per_plan></_cost_per_plan>
-      <_mixed_units_call></_mixed_units_call>
-      <_mixed_units_sms></_mixed_units_sms>
-      <_mixed_units_mms></_mixed_units_mms>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_merged_plans>,29,31,</_merged_plans>
@@ -112,16 +76,6 @@
       <_billperiod>-1</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_cost_per_item></_cost_per_item>
-      <_cost_per_amount1></_cost_per_amount1>
-      <_cost_per_amount2></_cost_per_amount2>
-      <_cost_per_item_in_limit></_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1></_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2></_cost_per_amount_in_limit2>
-      <_cost_per_plan></_cost_per_plan>
-      <_mixed_units_call></_mixed_units_call>
-      <_mixed_units_sms></_mixed_units_sms>
-      <_mixed_units_mms></_mixed_units_mms>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>9</_order>
@@ -136,16 +90,6 @@
       <_billperiod>5</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_cost_per_item></_cost_per_item>
-      <_cost_per_amount1></_cost_per_amount1>
-      <_cost_per_amount2></_cost_per_amount2>
-      <_cost_per_item_in_limit></_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1></_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2></_cost_per_amount_in_limit2>
-      <_cost_per_plan></_cost_per_plan>
-      <_mixed_units_call></_mixed_units_call>
-      <_mixed_units_sms></_mixed_units_sms>
-      <_mixed_units_mms></_mixed_units_mms>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
@@ -161,19 +105,9 @@
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_cost_per_item></_cost_per_item>
-      <_cost_per_amount1></_cost_per_amount1>
-      <_cost_per_amount2></_cost_per_amount2>
-      <_cost_per_item_in_limit></_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1></_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2></_cost_per_amount_in_limit2>
-      <_cost_per_plan></_cost_per_plan>
-      <_mixed_units_call></_mixed_units_call>
-      <_mixed_units_sms></_mixed_units_sms>
-      <_mixed_units_mms></_mixed_units_mms>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>22</_order>
+      <_order>19</_order>
     </plan>
     <plan>
       <_id>20</_id>
@@ -185,16 +119,7 @@
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_cost_per_item></_cost_per_item>
-      <_cost_per_amount1></_cost_per_amount1>
-      <_cost_per_amount2></_cost_per_amount2>
       <_cost_per_item_in_limit>0.135</_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1></_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2></_cost_per_amount_in_limit2>
-      <_cost_per_plan></_cost_per_plan>
-      <_mixed_units_call></_mixed_units_call>
-      <_mixed_units_sms></_mixed_units_sms>
-      <_mixed_units_mms></_mixed_units_mms>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_merged_plans>,30,32,</_merged_plans>
@@ -203,23 +128,12 @@
     <plan>
       <_id>21</_id>
       <_plan_name>Spacer</_plan_name>
-      <_shortname></_shortname>
       <_plan_type>1</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
       <_billperiod>-1</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_cost_per_item></_cost_per_item>
-      <_cost_per_amount1></_cost_per_amount1>
-      <_cost_per_amount2></_cost_per_amount2>
-      <_cost_per_item_in_limit></_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1></_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2></_cost_per_amount_in_limit2>
-      <_cost_per_plan></_cost_per_plan>
-      <_mixed_units_call></_mixed_units_call>
-      <_mixed_units_sms></_mixed_units_sms>
-      <_mixed_units_mms></_mixed_units_mms>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>16</_order>
@@ -234,19 +148,9 @@
       <_billperiod>-1</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_cost_per_item></_cost_per_item>
-      <_cost_per_amount1></_cost_per_amount1>
-      <_cost_per_amount2></_cost_per_amount2>
-      <_cost_per_item_in_limit></_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1></_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2></_cost_per_amount_in_limit2>
-      <_cost_per_plan></_cost_per_plan>
-      <_mixed_units_call></_mixed_units_call>
-      <_mixed_units_sms></_mixed_units_sms>
-      <_mixed_units_mms></_mixed_units_mms>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>17</_order>
+      <_order>21</_order>
     </plan>
     <plan>
       <_id>23</_id>
@@ -258,19 +162,12 @@
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_cost_per_item></_cost_per_item>
       <_cost_per_amount1>0.3</_cost_per_amount1>
       <_cost_per_amount2>0.3</_cost_per_amount2>
-      <_cost_per_item_in_limit></_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1></_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2></_cost_per_amount_in_limit2>
       <_cost_per_plan>48</_cost_per_plan>
-      <_mixed_units_call></_mixed_units_call>
-      <_mixed_units_sms></_mixed_units_sms>
-      <_mixed_units_mms></_mixed_units_mms>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>18</_order>
+      <_order>22</_order>
     </plan>
     <plan>
       <_id>27</_id>
@@ -326,13 +223,11 @@
       <_shortname>OnNetCalls</_shortname>
       <_plan_type>4</_plan_type>
       <_limit_type>1</_limit_type>
-      <_limit></_limit>
       <_billmode>30/30</_billmode>
-      <_cost_per_amount1>0.06</_cost_per_amount1>
-      <_cost_per_amount2>0.06</_cost_per_amount2>
+      <_cost_per_amount1>0.12</_cost_per_amount1>
+      <_cost_per_amount2>0.12</_cost_per_amount2>
       <_cost_per_amount_in_limit1>0.12</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>0.12</_cost_per_amount_in_limit2>
-      <_mixed_units_call></_mixed_units_call>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>5</_order>
@@ -345,8 +240,6 @@
       <_limit_type>0</_limit_type>
       <_billmode>1/1</_billmode>
       <_cost_per_item>0.06</_cost_per_item>
-      <_cost_per_amount1></_cost_per_amount1>
-      <_cost_per_amount2></_cost_per_amount2>
       <_cost_per_item_in_limit>0.12</_cost_per_item_in_limit>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
@@ -359,10 +252,8 @@
       <_plan_type>4</_plan_type>
       <_limit_type>1</_limit_type>
       <_billmode>30/30</_billmode>
-      <_cost_per_item></_cost_per_item>
       <_cost_per_amount1>0.15</_cost_per_amount1>
       <_cost_per_amount2>0.15</_cost_per_amount2>
-      <_cost_per_item_in_limit></_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>0.15</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>0.15</_cost_per_amount_in_limit2>
       <_mixed_units_sms>15</_mixed_units_sms>
@@ -391,7 +282,7 @@
       <_billmode>30/30</_billmode>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>21</_order>
+      <_order>18</_order>
     </plan>
     <plan>
       <_id>35</_id>
@@ -401,7 +292,7 @@
       <_limit_type>0</_limit_type>
       <_billperiod_id>-1</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>20</_order>
+      <_order>17</_order>
     </plan>
     <plan>
       <_id>36</_id>
@@ -411,7 +302,7 @@
       <_limit_type>0</_limit_type>
       <_billperiod_id>-1</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>19</_order>
+      <_order>20</_order>
     </plan>
     <plan>
       <_id>37</_id>
@@ -432,48 +323,27 @@
       <_shortname>IDDSMS</_shortname>
       <_plan_type>5</_plan_type>
       <_limit_type>0</_limit_type>
+      <_cost_per_item>0.5</_cost_per_item>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>12</_order>
     </plan>
     <plan>
-      <_id>39</_id>
-      <_plan_name>Australia</_plan_name>
-      <_shortname>Australia</_shortname>
-      <_plan_type>4</_plan_type>
+      <_id>43</_id>
+      <_plan_name>Spacer</_plan_name>
+      <_shortname>Newplan</_shortname>
+      <_plan_type>1</_plan_type>
       <_limit_type>0</_limit_type>
-      <_billmode>6/6</_billmode>
-      <_billperiod_id>12</_billperiod_id>
+      <_billperiod_id>-1</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>23</_order>
-    </plan>
-    <plan>
-      <_id>40</_id>
-      <_plan_name>Philippines</_plan_name>
-      <_shortname>Philippines</_shortname>
-      <_plan_type>4</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_billmode>6/6</_billmode>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_order>24</_order>
-    </plan>
-    <plan>
-      <_id>41</_id>
-      <_plan_name>Singapore</_plan_name>
-      <_shortname>Singapore</_shortname>
-      <_plan_type>4</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_billmode>6/6</_billmode>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_order>25</_order>
     </plan>
   </plans>
   <rules>
     <rule>
       <_id>1</_id>
       <_active>1</_active>
+      <_order>1</_order>
       <_plan_id>23</_plan_id>
       <_rule_name>Data</_rule_name>
       <_what>3</_what>
@@ -512,7 +382,6 @@
       <_exnumbergroup_id>,1,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
-      <_is_websms_connector></_is_websms_connector>
       <_is_sipcall>2</_is_sipcall>
     </rule>
     <rule>
@@ -530,7 +399,6 @@
       <_exnumbergroup_id>-1</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
-      <_is_websms_connector></_is_websms_connector>
     </rule>
     <rule>
       <_id>5</_id>
@@ -544,7 +412,6 @@
       <_exnumbergroup_id>,2,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
-      <_is_websms_connector></_is_websms_connector>
       <_is_sipcall>2</_is_sipcall>
     </rule>
     <rule>
@@ -562,7 +429,6 @@
       <_exnumbergroup_id>-1</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
-      <_is_websms_connector></_is_websms_connector>
     </rule>
     <rule>
       <_id>8</_id>
@@ -579,7 +445,6 @@
       <_exnumbergroup_id>-1</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
-      <_is_websms_connector></_is_websms_connector>
     </rule>
     <rule>
       <_id>9</_id>
@@ -646,7 +511,7 @@
       <_what>0</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
-      <_innumbergroup_id>,5,6,7,8,</_innumbergroup_id>
+      <_innumbergroup_id>,5,6,7,10,</_innumbergroup_id>
       <_exnumbergroup_id>,1,3,4,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_sipcall>-1</_is_sipcall>
@@ -660,15 +525,15 @@
       <_what>1</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
-      <_innumbergroup_id>,5,</_innumbergroup_id>
-      <_exnumbergroup_id>,1,3,4,</_exnumbergroup_id>
+      <_innumbergroup_id>,6,7,10,</_innumbergroup_id>
+      <_exnumbergroup_id>,1,3,4,5,</_exnumbergroup_id>
       <_is_websms>-1</_is_websms>
     </rule>
     <rule>
       <_id>17</_id>
       <_active>1</_active>
       <_order>13</_order>
-      <_plan_id>39</_plan_id>
+      <_plan_id>37</_plan_id>
       <_rule_name>Australia</_rule_name>
       <_what>0</_what>
       <_roamed>2</_roamed>
@@ -883,6 +748,11 @@
           <_gid>3</_gid>
           <_number>+606%</_number>
         </number>
+        <number>
+          <_id>64</_id>
+          <_gid>3</_gid>
+          <_number>1300%</_number>
+        </number>
       </numbers>
     </numbersgroup>
     <numbersgroup>
@@ -960,13 +830,18 @@
       </numbers>
     </numbersgroup>
     <numbersgroup>
-      <_id>8</_id>
-      <_name>Canada</_name>
+      <_id>10</_id>
+      <_name>US + 132</_name>
       <numbers>
         <number>
-          <_id>63</_id>
-          <_gid>8</_gid>
-          <_number>132001%</_number>
+          <_id>66</_id>
+          <_gid>10</_gid>
+          <_number>+1%</_number>
+        </number>
+        <number>
+          <_id>67</_id>
+          <_gid>10</_gid>
+          <_number>13200%</_number>
         </number>
       </numbers>
     </numbersgroup>
