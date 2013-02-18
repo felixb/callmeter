@@ -427,4 +427,30 @@
   <string name="set_current_number" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Current number">Aktuális szám</string>
   <string name="my_sim_id_" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="SIM Id">SIM azonosító</string>
   <string name="cost_per_item_no_limit_help" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Set the cost billed for a single log item (e.g. a call or a message).">Beállítja az árát a figyelt elemnek (pl. hívásnak vagy üzenetnek). Kapcsolási díj.</string>
+  <string name="strip_past_" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Do not bill anything after seconds">Ne számlázzon tovább ennyi másodperc után</string>
+  <string name="strip_past_help" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Do not bill anything after x seconds of a call.">Ne számlázzon tovább a hívás x. másodperce után</string>
+  <string name="export_logs_csv_hint" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Export logs as CSV.">Naplók exportálása CSV-be.</string>
+  <string name="export_logs_csv_" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Export CSV">CSV exportálása</string>
+  <string name="import_" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Import">Importálás</string>
+  <string name="import_link_" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="More info">További információ</string>
+  <string name="import_rules_users" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Users\' rules">Felhasználók szabályai</string>
+  <string name="widget_date_textsize" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Date Text Size">Dátum szövegméret</string>
+  <string name="widget_details_textsize" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Details Text Size">Részletek szövegmérete</string>
+  <string name="reset" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Reset">Alaphelyzet</string>
+  <string name="debug_" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Debug">Hibakeresés</string>
+  <string name="send_logs_" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Send logs">Hibanapló elküldése</string>
+  <string name="send_logs_hint" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Készülék hibanaplójának elküldése a fejlesztőnek.\nCsak akkor küldd el ha megkértek rá!</string>
+  <string name="sendlog_run_" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Run SendLog">SendLog indítása</string>
+  <string name="sendlog_run" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">A SendLog elküldi a készüléke hibanaplóját a fejlesztőnek.\nElküldés előtt lehetősége lesz átnézni és szerkeszteni az elküldésre kerülő adatokat.</string>
+  <string name="sendlog_install_" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Install SendLog">SendLog telepítése</string>
+  <string name="sendlog_install" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">Az ingyenes SendLog telepítése a hibanapló összegyűjtéséhez és a fejlesztőhöz való továbbításhoz.</string>
+  <string name="license_" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="License:">Licensz:</string>
+  <string name="author_" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Author:">Szerző:</string>
+  <string name="country" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Country">Ország</string>
+  <string name="plan" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Plan">Tarifa</string>
+  <string name="source_" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Sourcescode:">Forráskód:</string>
+  <string name="website_" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Website:">Weboldal:</string>
+  <string name="license" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - lásd http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="provider" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Provider">Szolgáltató</string>
+  <string name="mixed_units_data_help" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Set the units billed for each MB of data traffic.">MB-onként számlázott egységek megadása adatforgalomhoz.</string>
 </resources>
