@@ -125,13 +125,13 @@
   <string name="in_data" formatted="false">Entrada:</string>
   <string name="out_calls" formatted="false">Salida%s:</string>
   <string name="out_sms" formatted="false">Salida%s:</string>
-  <string name="out_data" formatted="false">Salida:</string>
-  <string name="plan_name1_" formatted="false">Plan 1: nombre</string>
-  <string name="plan_name2_" formatted="false">Plan 2: nombre</string>
-  <string name="plan_name_hint" formatted="false">Nombre personalizado</string>
-  <string name="reset_data_" formatted="false" orig="Reset statistics">Poner a cero estadísticas</string>
-  <string name="reset_data_hint" formatted="false" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Resetear los datos de llamadas y sms fuerza el recálculo de las estadísticas.\n\nLa puesta a cero del tráfico de datos es permanente. Sólo resetea el tráfico producido antes del arranque!</string>
-  <string name="reset_data_data_" formatted="false" orig="Reset traffic too.">Resetear también el tráfico de datos.</string>
+  <string name="out_data" formatted="false" username="Richard Aguilar &lt;richardagui@gmail.com&gt;" orig="Out:">Salida:</string>
+  <string name="plan_name1_" formatted="false" username="Richard Aguilar &lt;richardagui@gmail.com&gt;" orig="Plan 1: name">Plan 1: nombre</string>
+  <string name="plan_name2_" formatted="false" username="Richard Aguilar &lt;richardagui@gmail.com&gt;" orig="Plan 2: name">Plan 2: nombre</string>
+  <string name="plan_name_hint" formatted="false" username="Richard Aguilar &lt;richardagui@gmail.com&gt;" orig="Custom Name">Nombre personalizado</string>
+  <string name="reset_data_" formatted="false" orig="Reset statistics" username="Richard Aguilar &lt;richardagui@gmail.com&gt;">Poner a cero estadísticas</string>
+  <string name="reset_data_hint" formatted="false" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!" username="Richard Aguilar &lt;richardagui@gmail.com&gt;">Resetear los datos de llamadas y sms fuerza el recálculo de las estadísticas.\n\nLa puesta a cero del tráfico de datos es permanente. Sólo resetea el tráfico producido antes del arranque!</string>
+  <string name="reset_data_data_" formatted="false" orig="Reset traffic too." username="Richard Aguilar &lt;richardagui@gmail.com&gt;">Resetear también el tráfico de datos.</string>
   <string name="contacts_" formatted="false">Contactos</string>
   <string-array name="themes">
     <item>Oscuro</item>
@@ -145,4 +145,6 @@
   <string name="custom_language_hint" formatted="false" username="tazy28@hitmail.com" orig="Set a custom language.">Establecer un idioma personalizado</string>
   <string name="debug_" formatted="false" username="miguelqe37@gmail.com" orig="Debug">Depurar</string>
   <string name="send_logs_" formatted="false" username="miguelqe37@gmail.com" orig="Send logs">Enviar registros</string>
+  <string name="send_logs_hint" formatted="false" username="Richard Aguilar &lt;richardagui@gmail.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Enviar el registro de su movil al desarrollador. Haga esto solo si se lo pide que haga.</string>
+  <string name="sendlog_run_" formatted="false" username="Richard Aguilar &lt;richardagui@gmail.com&gt;" orig="Run SendLog">Ejecutar el EnviodeResgistro</string>
 </resources>
