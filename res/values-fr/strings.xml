@@ -141,4 +141,18 @@
     <item>Petit</item>
     <item>Moyen</item>
   </string-array>
+  <string name="custom_language_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Custom language">Langage custom</string>
+  <string name="custom_language_hint" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Set a custom language.">Définissez un langage custom</string>
+  <string name="send_logs_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Send logs">Envoyer les journaux (logs)</string>
+  <string name="debug_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Debug">Debug</string>
+  <string name="send_logs_hint" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Envoyer les journaux (logs) au développeur.\nNe le faites que si cela vous a été demandé.</string>
+  <string name="sendlog_run_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Run SendLog">Exécuter SendLog</string>
+  <string name="sendlog_run" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog va collecter les journaux (logs) de votre appareil et les envoyer au développeur.\nVous aurez l\'occasion de vérifier et de modifier les données avant l\'envoi.</string>
+  <string name="sendlog_install_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Install SendLog">Installer SendLog</string>
+  <string name="sendlog_install" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">Installer l\'application gratuite SendLog pour collecter les journaux (logs) de votre appareil et pour les envoyer au développeur.</string>
+  <string name="license_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="License:">Licence:</string>
+  <string name="author_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Author:">Auteur:</string>
+  <string name="license" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="website_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Website:">Site web:</string>
+  <string name="source_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Sourcescode:">Code source:</string>
 </resources>
