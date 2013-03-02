@@ -55,9 +55,9 @@ res/values-pt/donation.xml:0
 res/values-pt/market.xml:5
 res/values-pt/notes.xml:3
 res/values-pt/strings.xml:118
-res/values-ru/donation.xml:0
-res/values-ru/market.xml:1
-res/values-ru/notes.xml:0
+res/values-ru/donation.xml:6
+res/values-ru/market.xml:3
+res/values-ru/notes.xml:3
 res/values-ru/strings.xml:118
 res/values-sk/donation.xml:0
 res/values-sk/market.xml:1
@@ -89,7 +89,7 @@ res/values-nb:126
 res/values-nl:121
 res/values-pl:126
 res/values-pt:126
-res/values-ru:119
+res/values-ru:130
 res/values-sk:122
 res/values-sv:115
 res/values-tr:143
