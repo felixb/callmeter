@@ -22,7 +22,7 @@
        -->
 <resources>
   <string-array name="notes_from_dev" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">
-    <item>Декабрь 2010, Call Meter 3G доступен: Call Meter 3G (псевдоним CM3) доступно в магазине Google Play. Попробуйте и оставьте комментарии на странице приложения.</item>
+    <item>Декабрь 2010, выпущен Call Meter 3G: Call Meter 3G (псевдоним CM3) доступен в магазине Google Play. Попробуйте и оставьте комментарии на странице приложения.</item>
     <item>Март 2011, Настройки: Не забудьте очистить статистику после изменения настроек, чтобы применить новые правила для предыдущих элементов журнала.</item>
   </string-array>
 </resources>
