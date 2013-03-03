@@ -24,114 +24,114 @@
   <string name="changelog_notification_" formatted="false" orig="Recent changes:">Последние изменения:</string>
   <string name="changelog_notification_text" formatted="false">Нажмите здесь, чтобы показать последние изменения</string>
   <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Примечания разработчика</string>
-  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Следи за расходом минут, SMS и трафика по своему тарифу!</string>
-  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter создает отчет из данныx о звонкаx, SMS и трафикa. Поддерживаются разные методы биллинга.</string>
+  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Контролируйте голосовые вызовы, сообщения и передачу данных своего тарифа!</string>
+  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">CallMeter создает отчеты из журналов голосовых вызовов, сообщений и передачи данных. Поддерживается несколько режимов отчетов.</string>
   <string name="about1" formatted="false">Форма отчёта: Пользование / Время или Колличество в месяц / Время или просто Колличество (Минуты/SMS/Трафик).</string>
   <string name="about2" formatted="false">Отчёт звонков ведется так: длинна первой минуты/ последующая. К примеру: 60/10 - полный отсчет первой минуты (60 сек.)/последующая с 10-ти секундной частотой.</string>
   <string name="about3" formatted="false">CallMeter активен каждые 30 минут в фоновом режиме (Standby не активен). Удалёные из журнала звонки/SMS старше 30 минут на статистику не влияют, младше же 30 минут могут произвести не корректное отображение статистики!</string>
-  <string name="send_" formatted="false">Отослать</string>
+  <string name="send_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Send">Отправить</string>
   <string name="add_" formatted="false">Добавить</string>
   <string name="settings" formatted="false">Настройки</string>
   <string name="update_interval_" formatted="false">Интервал обновления</string>
   <string name="update_interval_hint" formatted="false">Более короткий период использует больше энергии аккумуляторa.</string>
   <string name="date_begin_" formatted="false">Начaло отчёта</string>
-  <string name="date_begin_hint" formatted="false">Игнорирует все записи до выставленной даты.</string>
+  <string name="date_begin_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Ignore any logs before this date.">Игнорировать любые журналы до выставленной даты.</string>
   <string name="common_prefs_" formatted="false">Общие настройки</string>
   <string name="edit_" formatted="false">Изменить</string>
   <string name="about_" formatted="false">Инфо</string>
   <string name="about_hint" formatted="false">О программе</string>
-  <string name="faq_hint" formatted="false">Помощь при настройке программы.</string>
+  <string name="faq_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Some tips and tricks, how to set up this app.">Некоторые советы и рекомендации по настройке приложения.</string>
   <string name="feedback_" formatted="false">Отзывы</string>
-  <string name="feedback_hint" formatted="false">Протокол ошибок, новшевства ...</string>
-  <string name="twitter_hint" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Follow me on twitter.\nGet update notifications etc.">Читайте на twitter.\nОбновления, информация и т.д.</string>
-  <string name="more_" formatted="false">Подробнее...</string>
+  <string name="feedback_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Report bugs, request features ...">Сообщить об ошибкаx, внести предложения ...</string>
+  <string name="twitter_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Follow me on twitter.\nGet update notifications etc.">Читайте в twitter.\nУведомления об обновлениях и т.д.</string>
+  <string name="more_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="More Apps..">Другие приложения..</string>
   <string name="billing_" formatted="false">Отчёт</string>
-  <string name="billday_" formatted="false">Начало отсчёта</string>
+  <string name="billday_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="First day of your bill">Первый день вашего отчёта</string>
   <string name="billmode_" formatted="false">Метод отчёта</string>
-  <string name="billdate_" formatted="false">Начало отсчёта:</string>
-  <string name="appearance_" formatted="false">Вид</string>
+  <string name="billdate_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Start of billing period:">Начало расчетного периода:</string>
+  <string name="appearance_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Appearance">Внешний вид</string>
   <string name="advanced_preferences_" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Advanced preferences">Дополнительные настройки</string>
-  <string name="advanced_preferences_hint" formatted="false">Настройка более сложныx методов отчёта. Многие пользователи в этом не нуждаются.</string>
+  <string name="advanced_preferences_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Позволяет настроить более сложные методы отчёта. Не понадобится большинству пользователей.</string>
   <string name="theme_" formatted="false">Темы</string>
   <string name="textsize_" formatted="false">Размер шрифта</string>
-  <string name="textsize_hint" formatted="false">Размер текста в пикселях; оставьте пустым для значения по умолчанию</string>
+  <string name="textsize_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Text size in pixels; leave empty for default">Размер шрифта в пикселях; оставьте пустым по умолчанию</string>
   <string name="show_time_" formatted="false">Перейти по дате</string>
   <string name="show_titlebar_" formatted="false">Показ строки заголовка</string>
-  <string name="show_titlebar_hint" formatted="false">Показ строки заголовка в главном окне. Без данной строки не возможно наблюдать за скрытой деятельностью программы.</string>
+  <string name="show_titlebar_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show title bar in main view. Without title bar, there is no way to see background activity.">Показ строки заголовка в главном окне. Без строки заголовка невозможно наблюдать за фоновой активностью.</string>
   <string name="show_hours_" formatted="false">Показ времени подробно</string>
-  <string name="show_hours_hint" formatted="false">Подробный отчет: секунды, минуты, часы и дни.\nИначе только: секунды и часы.</string>
-  <string name="custom_currency_symbol_" formatted="false">Значёк валюты</string>
-  <string name="custom_currency_symbol_hint" formatted="false">Настройка значка валюты который появится в статистике.</string>
+  <string name="show_hours_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Показать время в секундах, минутах, часах и днях.\nИначе отображаются только секунды и минуты.</string>
+  <string name="custom_currency_symbol_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Custom currency symbol">Символ валюты</string>
+  <string name="custom_currency_symbol_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set a custom currency symbol, leave empty for system default.">Установить символ валюты, оставьте пустым для системного значения.</string>
   <string name="custom_currency_format_" formatted="false">Формат показа валюты</string>
   <string name="custom_currency_format_hint" formatted="false">Настройка вида значка валюты в статистике.</string>
   <string name="custom_date_format_" formatted="false">Формат даты</string>
-  <string name="custom_date_format_hint" formatted="false">Настройка вида даты в статистике.</string>
-  <string name="show_logs" formatted="false">Открыть журнал</string>
-  <string name="plans" formatted="false" username="sokolinskayas@gmail.com" orig="Plans">Тариф</string>
-  <string name="plans_hint" formatted="false">Настойка ценового плана.</string>
+  <string name="custom_date_format_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Select a custom date format.">Настройка вида даты.</string>
+  <string name="show_logs" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show logs">Показать журналы</string>
+  <string name="plans" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Plans">Тарифы</string>
+  <string name="plans_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set your plans for all kind of billing here.">Настройте свои тарифы для всех видов учёта.</string>
   <string name="plans_new" formatted="false" username="sokolinskayas@gmail.com" orig="New plan">Новый тариф</string>
   <string name="rules" formatted="false">Правила</string>
-  <string name="rules_hint" formatted="false">Настройка правил учёта.</string>
-  <string name="rules_new" formatted="false">Новые правила</string>
+  <string name="rules_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set your billing rules here.">Настройте свои правила учёта.</string>
+  <string name="rules_new" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="New Rule">Новое правило</string>
   <string name="numbers" formatted="false">Номера</string>
   <string name="numbergroup_" formatted="false">Включённые номера</string>
-  <string name="numbergroup_help" formatted="false">Номера которые будут задействованны в данном плане.\n\nЗнак обобщения номеров (\"%\") разрешён по обе стороны номера.\nПример: %34 = 1234, 12% = 1234 и %23% = 12345.</string>
+  <string name="numbergroup_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Добавьте номера, которые будут соответствовать данному правилу.\n\nРазрешено использование шаблонов ("%") на обоих концах номера.\nНапример: %34 будет соответствовать 1234, 12% будет соответствовать 1234 и %23% будет соответствовать 12345.</string>
   <string name="exnumbergroup_" formatted="false">Исключённые номера</string>
-  <string name="exnumbergroup_help" formatted="false">Номера которые не должны учитываться в данном плане.\nЗнак обобщения номеров: пример выше.</string>
-  <string name="new_numbergroup" formatted="false">Номерная группа</string>
-  <string name="add_number" formatted="false">Номера добавить</string>
+  <string name="exnumbergroup_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add some numbers this rule must not match.\nSee above.">Добавьте номера, которые не должны соответствовать данному правилу.\nСмотрите пример выше.</string>
+  <string name="new_numbergroup" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="New number group">Новая номерная группа</string>
+  <string name="add_number" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add number">Добавить номер</string>
   <string name="hours" formatted="false">Время</string>
   <string name="hourgroup_" formatted="false">Включённое время</string>
   <string name="hourgroup_help" formatted="false">Время, которое будет задействованно в данном плане.</string>
   <string name="exhourgroup_" formatted="false">Исключённое время</string>
   <string name="exhourgroup_help" formatted="false">Время, которое не должно учитываться в данном плане.</string>
-  <string name="new_hourgroup" formatted="false">Часовая группа</string>
+  <string name="new_hourgroup" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="New hour group">Новая часовая группа</string>
   <string name="add_hour" formatted="false">Добавить время</string>
   <string name="calls" formatted="false">Звонки</string>
   <string name="data" formatted="false">Передача данныx</string>
-  <string name="reset_data_" formatted="false">Статистику сбросить</string>
-  <string name="reset_data_hint" formatted="false">Сброс журнала звонков/SMS дает возможность отсчёта данныx с начала.\n\nСброс статистики трафика происxодит постоянно. Стирается только трафик соxранившийся до перезагрузки смартфона!</string>
-  <string name="reset_data_data_" formatted="false">и трафик</string>
+  <string name="reset_data_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Reset statistics">Обнулить статистику</string>
+  <string name="reset_data_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Сброс статистики звонков/СМС приведет к пересчету статистики.\n\nСброс статистики трафика происxодит постоянно. Стирается только трафик до перезагрузки!</string>
+  <string name="reset_data_data_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Reset traffic too.">Также обнулить трафик.</string>
   <string name="reset_data_progr1" formatted="false">Пересчет статистики ...\n\n(Это может занять некоторое время!)</string>
   <string name="reset_data_progr2" formatted="false">Пересчет статистики ...</string>
   <string name="contacts_" formatted="false">Контакты</string>
   <string name="clear_" formatted="false">Сброс данныx</string>
   <string name="help_" formatted="false">Помощь</string>
   <string name="new_" formatted="false">Новый</string>
-  <string name="edit_selected_" formatted="false">Изменить выбранные</string>
+  <string name="edit_selected_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Edit selected">Изменить выбранное</string>
   <string name="edit_groups_" formatted="false">Изменить группы</string>
   <string name="name_help" formatted="false">Настройка названия.</string>
   <string name="shortname_" formatted="false">Короткое название</string>
   <string name="shortname_help" formatted="false">Настойка короткого названия, которое появится на виджете.</string>
   <string name="type_" formatted="false">Тип</string>
-  <string name="type_help" formatted="false">Выбор части конструктора.\n\"Название\" название отчёта, без функции.\n\"Пробел\" пробел между строками, без функции.\n\"Время отчёта\" отчёт об определённом отрезке времени. Многие пользователи используют только один.\n\"Смешанный\" одновременный отчёт о звонкаx и сообщенияx.\n"Звонки\", \"СМС\", \"ММС\" или \"Передача данныx\" отчёт каждого типа по отдельности.</string>
-  <string name="limit_type_" formatted="false" username="sokolinskayas@gmail.com" orig="Limit type">Тип тарифного плана</string>
-  <string name="limit_type_help" formatted="false">Выбор типа ценового плана.</string>
+  <string name="type_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Выберите тип.\n"Название" будет только отображать название в главном окне.\n"Пробел" не покажет ничего, кроме пустого пространства.\n"Расчетный период" покажет любую информацию о вашем учетном периоде. Большинству пользователей нужен только один.\n"Смешанный" тариф - одновременный отчёт о звонкаx и сообщенияx. Он сочетает в себе учет всех этих элементов.\nТариф "звонки" - отчёт только о звонкаx. Тарифы "СМС" и "ММС" - отчёт только о сообщениях.\nТариф "Данные" - отчёт о трафике.</string>
+  <string name="limit_type_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Limit type">Тип ограничения</string>
+  <string name="limit_type_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;costs\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Установите тип своего ограничения.\nЛимит "единицы" будет ограничивать ваш тариф на основании минут, сообщений, ...\nЛимит "стоимость" будет ограничивать ваш тариф на основании стоимости единиц расчета, учтенных в данном тарифе.</string>
   <string name="limit_" formatted="false">Лимит</string>
-  <string name="limit_help" formatted="false">Установка лимита данного ценового плана.\n\nТип \"Единицы\" должен быть в минутаx (Звонки), сообщенияx (СМС/ММС), мегабайтаx (Данные, 1024кБ) или единицаx (Смешанный).\n\nТип \"Стоимость\" должен содержать валюту (пример: руб.).</string>
+  <string name="limit_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">Установка лимита тарифа.\n\nТип "Единицы" должен быть в минутаx (Звонки), сообщенияx (СМС/ММС), мегабайтаx (Данные, 1024кБ) или единицаx (Смешанный).\n\nТип "Стоимость" должен содержать валюту (пример: руб.).</string>
   <string name="billmode_help" formatted="false">Установка метода отчёта для звонков.\nПервая часть равна минимальной длительности звонка, которую учитывает твой провайдер. Каждый звонок который короче этого отрезка времени будет округлён этой длинне.\nВторая часть равна минимальной длительности последующего интервала времени.\nПодробнее в \"Помощь\".</string>
   <string name="billday_help" formatted="false">Первый день отчёта.</string>
-  <string name="billperiodid_" formatted="false">Время отчёта</string>
-  <string name="billperiodid_help" formatted="false">Установка отрезка времени для отчёта.\nВозможно нужно установить план с типом \"Время отчёта\".</string>
-  <string name="billperiod_" formatted="false">Длительность времени отчёта</string>
-  <string name="billperiod_help" formatted="false">Вабор длительности для времени отчёта.</string>
+  <string name="billperiodid_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Billing period">Расчетный период</string>
+  <string name="billperiodid_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Select your billing period.\nYou may need to create one as extra plan.">Выберите ваш расчетный период.\nВам может понадобиться создать дополнительный тариф.</string>
+  <string name="billperiod_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Length of the billing period">Длительность расчетного периода</string>
+  <string name="billperiod_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set the length of your billing period.">Выберите длительность вашего расчетного периода.</string>
   <string name="cost_per_item_" formatted="false">Стоимость за единицу в случае превышения лимита</string>
   <string name="cost_per_item_help" formatted="false">Установите стоимость единицы расчета (например, за звонок или сообщение) в случае превышения лимита.</string>
   <string name="cost_per_item_in_limit_" formatted="false">Стоимость за единицу в пределах лимита</string>
-  <string name="cost_per_item_in_limit_help" formatted="false"> Установите стоимость единицы расчета (например, за звонок или сообщение) в пределах лимита.</string>
+  <string name="cost_per_item_in_limit_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set the cost billed for a single log item (e.g. a call or a message) billed before the limit is exceeded.">Установите стоимость единицы расчета (например, за звонок или сообщение) в пределах лимита.</string>
   <string name="cost_per_amount_" formatted="false">Стоимость продолжительности в случае превышения лимита </string>
-  <string name="cost_per_amount_help1" formatted="false"> Установите стоимость единицы расчета (например, за 1 Кб трафика) в случае превышения лимита.</string>
-  <string name="cost_per_amount_help2" formatted="false"> Установите стоимость единицы расчета (например, за 1 Кб трафика) в случае превышения лимита.\nПервое окошко – стоимость первых двух секунд звонка, второе окошко – стоимость последующих секунд звонка (оба значения устанавливаются в $ за минуту; смотри метод расчета).\nЕсли сомневаетесь, то просто укажите стоимость минуты звонка по Вашему тарифу.</string>
+  <string name="cost_per_amount_help1" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Установите стоимость единицы расчета (например, за 1 Кб трафика) в случае превышения лимита.</string>
+  <string name="cost_per_amount_help2" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Установите стоимость единицы расчета (например, за 1 минуту звонка) в случае превышения лимита.\nПервое окошко – стоимость первых двух секунд звонка, второе – стоимость последующих секунд (оба значения устанавливаются в $ за минуту; смотрите метод расчета).\nЕсли сомневаетесь, просто укажите стоимость минуты по Вашему тарифу.</string>
   <string name="cost_per_amount_in_limit_" formatted="false">Стоимость продолжительности в пределах лимита</string>
-  <string name="cost_per_amount_in_limit_help1" formatted="false"> Установите стоимость единицы расчета (например, за 1 Кб трафика) в пределах лимита.</string>
-  <string name="cost_per_amount_in_limit_help2" formatted="false">Установите стоимость единицы расчета (например, за 1 Кб трафика) в пределах лимита.\nПервое окошко – стоимость первых двух секунд звонка, второе окошко – стоимость последующих секунд звонка (оба значения устанавливаются в р/мин.; смотри метод расчета).\nЕсли сомневаетесь, то просто укажите стоимость минуты звонка по Вашему тарифу.</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.">Установите стоимость единицы расчета (например, за 1 минуту звонка, за 1 Кб трафика) в пределах лимита.</string>
+  <string name="cost_per_amount_in_limit_help2" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Установите стоимость единицы расчета (например, за 1 минуту звонка) в пределах лимита.\nПервое окошко – стоимость первых двух секунд звонка, второе – стоимость последующих секунд (оба значения устанавливаются в $ за минуту; смотрите метод расчета).\nЕсли сомневаетесь, просто укажите стоимость минуты по Вашему тарифу.</string>
   <string name="cost_per_plan_" formatted="false">Абонентская плата</string>
   <string name="cost_per_plan_help" formatted="false">Установите размер абонентской платы за период.</string>
-  <string name="mixed_units_sms_" formatted="false">Количество предоплаченных SMS</string>
+  <string name="mixed_units_sms_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Units for a sms">Количество предоплаченных СМС</string>
   <string name="mixed_units_sms_help" formatted="false">Установите количество предоплаченных СМС.</string>
-  <string name="mixed_units_mms_" formatted="false"> Количество предоплаченных MMS</string>
+  <string name="mixed_units_mms_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Units for a mms">Количество предоплаченных ММС</string>
   <string name="mixed_units_mms_help" formatted="false"> Установите количество предоплаченных ММС.</string>
-  <string name="mixed_units_call_" formatted="false"> Количество предоплаченных вызовов</string>
+  <string name="mixed_units_call_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Units for a call">Количество предоплаченных вызовов</string>
   <string name="mixed_units_call_help" formatted="false"> Установите количество предоплаченных вызовов.\nС учетом метода отчета.</string>
   <string name="plan_" formatted="false" username="sokolinskayas@gmail.com" orig="Plan">Тариф</string>
   <string name="plan_help" formatted="false">Выбор ценового плана в котором будет идти отчёт.</string>
@@ -143,29 +143,29 @@
   <string name="direction_help" formatted="false">Выбор направления, которое должен иметь отчёт.</string>
   <string name="roamed_" formatted="false">Роуминг</string>
   <string name="roamed_help" formatted="false">Осуществлять учёт роуминга?</string>
-  <string name="no_matter_" formatted="false">Неважно</string>
+  <string name="no_matter_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Does not matter">Не имеет значения</string>
   <string name="yes" formatted="false">Да</string>
   <string name="no" formatted="false">Нет</string>
   <string name="none" formatted="false">Отсутствует</string>
   <string name="value" formatted="false">Параметр</string>
-  <string name="export_rules_" formatted="false">Экспорт ценового плана</string>
-  <string name="export_rules_hint" formatted="false">Передача по электронной почте.</string>
+  <string name="export_rules_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export rule set">Экспорт набора правил</string>
+  <string name="export_rules_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export rule set as mail.">Передача набора правил по э/почте.</string>
   <string name="export_rules_descr" formatted="false">Описание</string>
   <string name="export_hourgroups_" formatted="false">Экспорт часовых групп</string>
-  <string name="export_hourgroups_hint" formatted="false">Экспорт часовых групп по почте.</string>
-  <string name="import_rules_" formatted="false">Импорт ценового плана</string>
-  <string name="import_rules_hint" formatted="false">Установка готового плана.</string>
-  <string name="import_rules_empty" formatted="false">Какие-либо ценовые планы или правила отсутствуют. Нажмите на этот текст для импорта стандартныx настроек.\n\nСобственно ручная настройка тоже возможна.</string>
+  <string name="export_hourgroups_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export hour groups as mail.">Экспорт часовых групп по э/почте.</string>
+  <string name="import_rules_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import rule set">Импорт набора правил</string>
+  <string name="import_rules_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import preconfigured rule set.">Импорт готового набора правил.</string>
+  <string name="import_rules_empty" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Тарифы/наборы правил не установлены. Нажмите на этот текст для импорта набора правил по умолчанию.\n\nИли добавьте тарифы и правила в настройках вручную.</string>
   <string name="err_export_write" formatted="false" username="htc@norcis.lv" orig="Error writing export file">Ошибка записи файла экспорта</string>
-  <string name="err_export_read" formatted="false" username="htc@norcis.lv" orig="Error reading export file">Ошибка при чтении файла экспорта</string>
+  <string name="err_export_read" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Error reading export file">Ошибка чтения файла экспорта</string>
   <string name="alerts_" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Alerts">Предупреждения</string>
-  <string name="alerts_hint" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Set alerts based on plan usage.">Настройка предупреждении основанной на данныx ценового плана.</string>
-  <string name="alerts_message" formatted="false">Ценовой план %s достиг %d%%!</string>
+  <string name="alerts_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set alerts based on plan usage.">Настройка предупреждений на основании использования тарифа.</string>
+  <string name="alerts_message" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Plan %s has reached %d%% usage!">Тариф %s достиг %d%%!</string>
   <string name="alerts_80_" formatted="false" username="htc@norcis.lv" orig="Notify at 80%">Уведомлять при 80%</string>
-  <string name="alerts_80_hint" formatted="false" username="htc@norcis.lv" orig="Notify if a plan passes 80% of it\'s limit.">Уведомлять при 80% достижении ценового плана.</string>
+  <string name="alerts_80_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Notify if a plan passes 80% of it\'s limit.">Уведомлять при 80% достижении лимита тарифа.</string>
   <string name="alerts_100_" formatted="false" username="htc@norcis.lv" orig="Notify at 100%">Уведомлять при 100%</string>
-  <string name="alerts_100_hint" formatted="false" username="htc@norcis.lv" orig="Notify if a plan passes 100% of it\'s limit.">Уведомлять при 100% достижении ценового плана.</string>
-  <string name="widget_config_" formatted="false">Настройка виджет</string>
+  <string name="alerts_100_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Notify if a plan passes 100% of it\'s limit.">Уведомлять при 100% достижении лимита тарифа.</string>
+  <string name="widget_config_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Widget config">Настройка виджета</string>
   <string name="all_week">Каждый день</string>
   <string name="monday">Понедельник</string>
   <string name="tuesday">Вторник</string>
@@ -173,8 +173,8 @@
   <string name="thursday">Четверг</string>
   <string name="friday">Пятница</string>
   <string name="saturday">Суббота</string>
-  <string name="sunday">Воскресение</string>
-  <string name="monday_till_friday">Понедельник - пятница</string>
+  <string name="sunday" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Sunday">Воскресенье</string>
+  <string name="monday_till_friday" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Monday - Friday">Понедельник - Пятница</string>
   <string name="all_day">Полный день</string>
   <string name="day_0">0:00 - 0:59</string>
   <string name="day_1">1:00 - 1:59</string>
@@ -207,24 +207,24 @@
   <string name="title">Название</string>
   <string name="spacer">Пробел</string>
   <string name="mixed">Звонки</string>
-  <string name="limit_type_unlimited" username="sokolinskayas@gmail.com" orig="unlimited">Безлимитный</string>
-  <string name="limit_type_units">Единицы</string>
-  <string name="limit_type_cost">Стоимость</string>
+  <string name="limit_type_unlimited" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="unlimited">безлимитный</string>
+  <string name="limit_type_units" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="units">единицы</string>
+  <string name="limit_type_cost" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="costs">стоимость</string>
   <string name="x1_day">1 день</string>
   <string name="x1_week">1 неделя</string>
   <string name="x14_day">14 дней</string>
   <string name="x15_day">15 дней</string>
   <string name="x30_day">30 дней</string>
-  <string name="x31_day">31 дней</string>
+  <string name="x31_day" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="31 days">31 день</string>
   <string name="x60_day">60 дней</string>
   <string name="x90_day">90 дней</string>
   <string name="x1_month">1 месяц</string>
   <string name="x2_month">2 месяца</string>
   <string name="x3_month">3 месяца</string>
   <string name="x4_month">4 месяца</string>
-  <string name="x5_month">5 месяца</string>
-  <string name="x6_month">6 месяца</string>
-  <string name="x1_year">Год</string>
+  <string name="x5_month" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Five months">5 месяцев</string>
+  <string name="x6_month" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Six months">6 месяцев</string>
+  <string name="x1_year" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="One year">1 год</string>
   <string name="infinite">Бесконечно</string>
   <string name="custom">Пользовательский</string>
   <string name="direction_calls_in">Вxодящие</string>
@@ -235,7 +235,7 @@
   <string name="direction_mms_out">Исxодящие</string>
   <string name="direction_data_in">Вxодящий</string>
   <string name="direction_data_out">Исxодящий</string>
-  <string name="default_">Стандарт</string>
+  <string name="default_" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Default">По умолчанию</string>
   <string name="currency_formats_1">р1.00</string>
   <string name="currency_formats_2">р1000</string>
   <string name="currency_formats_3">1.00р</string>
@@ -249,101 +249,199 @@
   <string name="x30_minute">30 минут</string>
   <string name="x1_hour">1 час</string>
   <string name="x2_hour">2 часа</string>
-  <string name="manually_only">Пользовательский</string>
+  <string name="manually_only" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Manually only">Только вручную</string>
   <string name="never_show_again" formatted="false" orig="Never show changelog again">Больше не показывать журнал изменений</string>
-  <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Нажмите тут для отображения последних изменений от разработчика</string>
-  <string name="add_log" formatted="false" orig="Add log entry">Добавить позицию в журнал</string>
+  <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Нажмите здесь для показа последних новостей от разработчика</string>
+  <string name="add_log" formatted="false" orig="Add log entry" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Добавить запись в журнал</string>
   <string name="length_hint_call" formatted="false" orig="Length in seconds">Продолжительность в секундах</string>
   <string name="length_hint_data" formatted="false" orig="Length in kB">Величина в kB</string>
-  <string name="delete_old_logs_" formatted="false" orig="Delete logs older than">Удалить записи журнала старше, чем</string>
-  <string name="delete_old_logs_help" formatted="false" orig="Delete logs older than x days from internal database. Leave empty to disable.">Удалить записи журнала старше х дней из внутренней базы данных. Для отключения оставить поле пустым.</string>
+  <string name="delete_old_logs_" formatted="false" orig="Delete logs older than" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Очистить журналы старше чем</string>
+  <string name="delete_old_logs_help" formatted="false" orig="Delete logs older than x days from internal database. Leave empty to disable." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Очистить журналы старше х дней из внутренней базы данных. Оставьте пустым для отключения.</string>
   <string name="simple_preferences_" formatted="false" orig="Simple preferences">Простые настройки</string>
   <string name="textsize_title_" formatted="false" orig="Title\'s text size">Размер шрифта заголовков</string>
-  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set." username="Norcis &lt;htc@norcis.lv&gt;">Простые настройки, подходящие для большинства пользователей. Только с набором правил по умолчанию.</string>
+  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Простые настройки, подходящие для большинства пользователей. Доступны только с набором правил по умолчанию.</string>
   <string name="behavior_" formatted="false" orig="Behavior">Действия</string>
   <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp; behavior">Представление и действия</string>
-  <string name="textsize_title_hint" formatted="false" orig="Text size for titles in pixels; leave empty for default">Размер шрифта заголовков в пикселах; оставить пустым для исходных значений</string>
+  <string name="textsize_title_hint" formatted="false" orig="Text size for titles in pixels; leave empty for default" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Размер шрифта заголовков в пикселах; оставьте пустым по умолчанию</string>
   <string name="textsize_bigtitle_" formatted="false" orig="Big title\'s text size">Размер шрифта больших заголовков</string>
-  <string name="textsize_bigtitle_hint" formatted="false" orig="Text size for big titles in pixels; leave empty for default">Размер шрифта больших заголовков в пикселах; оставить пустым для исходных значений</string>
+  <string name="textsize_bigtitle_hint" formatted="false" orig="Text size for big titles in pixels; leave empty for default" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Размер шрифта больших заголовков в пикселах; оставьте пустым по умолчанию</string>
   <string name="textsize_spacer_" formatted="false" orig="Spacer\'s size">Величина пробела</string>
-  <string name="textsize_spacer_hint" formatted="false" orig="Size for spacers in pixels; leave empty for default">Величина пробела в пикселах; оставить пустым для исходных значений</string>
+  <string name="textsize_spacer_hint" formatted="false" orig="Size for spacers in pixels; leave empty for default" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Величина пробела в пикселах; оставьте пустым по умолчанию</string>
   <string name="textsize_pbar_" formatted="false" orig="Progress bar\'s size">Размер шкалы прогресса</string>
-  <string name="textsize_pbar_hint" formatted="false" orig="Size for progress bars in pixels; leave empty for default">Размер шкалы прогресса в пикселах; оставить пустым для исходных значений</string>
-  <string name="export_sd" formatted="false" username="htc@norcis.lv" orig="Export to SD card">Экспорт на карту памяти</string>
+  <string name="textsize_pbar_hint" formatted="false" orig="Size for progress bars in pixels; leave empty for default" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Размер шкалы прогресса в пикселах; оставьте пустым по умолчанию</string>
+  <string name="export_sd" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export to SD card">Экспорт на SD карту</string>
   <string name="export_logs_" formatted="false" username="htc@norcis.lv" orig="Backup logs">Журнал резервного копирования</string>
-  <string name="export_logs_hint" formatted="false" username="htc@norcis.lv" orig="Backup logs as mail.">Журнал резервного копирования по почте.</string>
-  <string name="import_rules_sd_" formatted="false" username="htc@norcis.lv" orig="Import rule set from SD card">Импорт ценового плана с карты памяти</string>
+  <string name="export_logs_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Backup logs as mail.">Журнал резервного копирования по э/почте.</string>
+  <string name="import_rules_sd_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import rule set from SD card">Импорт набора правил с SD карты</string>
   <string name="import_rules_sd_files" formatted="false" username="htc@norcis.lv" orig="Found files">Найденные файлы</string>
   <string name="import_rules_sd_nofiles" formatted="false" username="htc@norcis.lv" orig="No found files">Файлы не найдены</string>
   <string name="loading" formatted="false" username="htc@norcis.lv" orig="Loading ...">Загрузка ...</string>
   <string name="rule_" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Rule">Правило</string>
   <string name="author_and_many_more" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="and many more...">и многое другое ...</string>
   <string name="update_interval_data_" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Update interval (data)">Интервал обновления (данных)</string>
-  <string name="update_interval_data_hint" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Обновление статистики данных нужно делать чаще. Особенно Samsung нуждается в очень короткие промежутки времени.</string>
-  <string name="google_plus_hint" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Follow me on Google+.\nGet update notifications etc.">Читайте на Google+.\nОбновления, информация и т.д.</string>
+  <string name="update_interval_data_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Обновление данных статистики должно производиться как можно чаще. Samsung особенно  нуждается в очень коротких интервалах обновления.</string>
+  <string name="google_plus_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Follow me on Google+.\nGet update notifications etc.">Читайте на Google+.\nУведомления об обновлениях и т.д.</string>
   <string name="widget_" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Widget">Виджет</string>
   <string name="widgets_" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Widgets">Виджеты</string>
   <string name="delete_widget" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Delete widget">Удалить виджет</string>
-  <string name="simple_preferences_deactivated" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">В простые настройки доступны только набор правил по умолчанию. Импорт набора правил по умолчанию только после активации.</string>
+  <string name="simple_preferences_deactivated" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">В простые настройки доступны только с набором правил по умолчанию. Для активации импортируйте набор правил по умолчанию.</string>
   <string name="x05_minute" formatted="false" username="sokolinskayas@gmail.com" orig="0.5 minutes">0.5 минуты</string>
-  <string name="x1_minute" formatted="false" username="sokolinskayas@gmail.com" orig="1 minute">1 минуа</string>
+  <string name="x1_minute" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="1 minute">1 минута</string>
   <string name="x2_minute" formatted="false" username="sokolinskayas@gmail.com" orig="2 minutes">2 минуты</string>
-  <string name="hide_zero_" formatted="false" username="sokolinskayas@gmail.com" orig="Hide empty plans">Скрыть пустые позиции</string>
-  <string name="hide_zero_hint" formatted="false" username="sokolinskayas@gmail.com" orig="Hide plans containing no item.">Скрыть позиции без затрат (бесплатные)</string>
+  <string name="hide_zero_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Hide empty plans">Скрыть пустые тарифы</string>
+  <string name="hide_zero_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Hide plans containing no item.">Скрыть тарифы, не содержащие элементов.</string>
   <string name="hide_nocost_" formatted="false" username="sokolinskayas@gmail.com" orig="Hide no cost plans">Скрыть бесплатные тарифы</string>
-  <string name="hide_nocost_hint" formatted="false" username="sokolinskayas@gmail.com" orig="Hide plans with no cost.">Скрыть бесплатные тарифы</string>
+  <string name="hide_nocost_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Hide plans with no cost.">Скрыть бесплатные тарифы.</string>
   <string name="show_today_" formatted="false" username="sokolinskayas@gmail.com" orig="Show today">Показать Сегодня</string>
   <string name="show_today_hint" formatted="false" username="sokolinskayas@gmail.com" orig="Show today stats">Показать статистику за сегодня</string>
-  <string name="show_total_hint" formatted="false" username="sokolinskayas@gmail.com" orig="Show total stats, disable to see current only.">Показать общую статистику, отключить, чтобы увидеть только текущую</string>
+  <string name="show_total_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show total stats, disable to see current only.">Показать общую статистику, отключить для показа только текущей.</string>
   <string name="show_total_" formatted="false" username="sokolinskayas@gmail.com" orig="Show total">Показать общую статистику</string>
-  <string name="custom_delimiter_" formatted="false" username="sokolinskayas@gmail.com" orig="Custom delimiter">Пользовательский разделитель</string>
-  <string name="custom_delimiter_hint" formatted="false" username="sokolinskayas@gmail.com" orig="Set a custom delimiter separating the blocks of statistics.">Установка пользовательского разделителя, отделяющий блоки статистики</string>
+  <string name="custom_delimiter_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Custom delimiter">Разделитель</string>
+  <string name="custom_delimiter_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set a custom delimiter separating the blocks of statistics.">Установка разделителя, отделяющего блоки статистики.</string>
   <string name="split_sms_at_160_" formatted="false" username="sokolinskayas@gmail.com" orig="Split text messages at 160 chars">Разбивать текстовые сообщения по 160 символов</string>
   <string name="autohide_" formatted="false" username="sokolinskayas@gmail.com" orig="Auto hide">Прятать автоматически</string>
-  <string name="autohide_hint" formatted="false" username="sokolinskayas@gmail.com" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Скрывать окно диалога после ... секунд. Оставить пустым для отключения прятания автоматически</string>
-  <string name="now" formatted="false" username="sokolinskayas@gmail.com" orig="Now">Сегодня</string>
-  <string name="logs" formatted="false" username="sokolinskayas@gmail.com" orig="Logs">История</string>
+  <string name="autohide_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Скрывать диалог после .. секунд. Оставьте пустым для отключения автосокрытия.</string>
+  <string name="now" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Now">Сейчас</string>
+  <string name="logs" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Logs">Журналы</string>
   <string name="length_" formatted="false" username="sokolinskayas@gmail.com" orig="Length">Длительность</string>
-  <string name="blength_" formatted="false" username="sokolinskayas@gmail.com" orig="Billed length">Длительность звонка</string>
+  <string name="blength_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Billed length">Длительность учёта</string>
   <string name="cost_" formatted="false" username="sokolinskayas@gmail.com" orig="Cost">Стоимость</string>
   <string name="remote_" formatted="false" username="sokolinskayas@gmail.com" orig="Remote number">Телефонный номер</string>
   <string name="numbergroups_edit_" formatted="false" username="sokolinskayas@gmail.com" orig="Number groups">Номерная группа</string>
   <string name="numbergroups_edit_hint" formatted="false" username="sokolinskayas@gmail.com" orig="Edit number groups here.">Редактирование номерной группы</string>
   <string name="hourgroups_edit_" formatted="false" username="sokolinskayas@gmail.com" orig="Hour groups">Период времени</string>
   <string name="hourgroups_edit_hint" formatted="false" username="sokolinskayas@gmail.com" orig="Edit hour groups here.">Редактирование периодов времени</string>
-  <string name="numbergroup_excalls" formatted="false" username="sokolinskayas@gmail.com" orig="Exclude from calls">Не учитывать при звонке</string>
-  <string name="numbergroup_exsms" formatted="false" username="sokolinskayas@gmail.com" orig="Exclude from SMS">Не учитывать в SMS</string>
+  <string name="numbergroup_excalls" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Exclude from calls">Исключить из звонков</string>
+  <string name="numbergroup_exsms" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Exclude from SMS">Исключить из СМС</string>
   <string name="calls_in" formatted="false" username="sokolinskayas@gmail.com" orig="Calls In">Входящие вызовы</string>
   <string name="calls_in_" formatted="false" username="sokolinskayas@gmail.com" orig="CallsIn">Входящие</string>
   <string name="calls_out" formatted="false" username="sokolinskayas@gmail.com" orig="Calls Out">Исходящие вызовы</string>
   <string name="calls_out_" formatted="false" username="sokolinskayas@gmail.com" orig="CallsOut">Исходящие</string>
   <string name="messages" formatted="false" username="sokolinskayas@gmail.com" orig="Messages">Сообщения</string>
-  <string name="messages_" formatted="false" username="sokolinskayas@gmail.com" orig="SMS/MMS">SMS/MMS</string>
-  <string name="sms" formatted="false" username="sokolinskayas@gmail.com" orig="SMS">SMS</string>
-  <string name="sms_in" formatted="false" username="sokolinskayas@gmail.com" orig="SMS In">SMS поступившие</string>
-  <string name="sms_in_" formatted="false" username="sokolinskayas@gmail.com" orig="SMSIn">SMS поступившие</string>
-  <string name="sms_out" formatted="false" username="sokolinskayas@gmail.com" orig="SMS Out">SMS отправленые</string>
-  <string name="sms_out_" formatted="false" username="sokolinskayas@gmail.com" orig="SMSOut">SMS отправленые</string>
-  <string name="mms" formatted="false" username="sokolinskayas@gmail.com" orig="MMS">MMS</string>
-  <string name="mms_in" formatted="false" username="sokolinskayas@gmail.com" orig="MMS In">MMS поступившие</string>
-  <string name="mms_in_" formatted="false" username="sokolinskayas@gmail.com" orig="MMSIn">MMS поступившие</string>
-  <string name="mms_out" formatted="false" username="sokolinskayas@gmail.com" orig="MMS Out">MMS отправленые</string>
-  <string name="mms_out_" formatted="false" username="sokolinskayas@gmail.com" orig="MMSOut">MMS отправленые</string>
+  <string name="messages_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="SMS/MMS">СМС/ММС</string>
+  <string name="sms" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="SMS">СМС</string>
+  <string name="sms_in" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="SMS In">Входящие СМС</string>
+  <string name="sms_in_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="SMSIn">ВходящиеСМС</string>
+  <string name="sms_out" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="SMS Out">Отправленные СМС</string>
+  <string name="sms_out_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="SMSOut">ОтправленныеСМС</string>
+  <string name="mms" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="MMS">ММС</string>
+  <string name="mms_in" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="MMS In">Входящие ММС</string>
+  <string name="mms_in_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="MMSIn">ВходящиеММС</string>
+  <string name="mms_out" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="MMS Out">Отправленные ММС</string>
+  <string name="mms_out_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="MMSOut">ОтправленныеММС</string>
   <string name="data_" formatted="false" username="sokolinskayas@gmail.com" orig="Data (2G/3G/4G)">Передача данныx (2G/3G/4G)</string>
-  <string name="balance_" formatted="false" username="sokolinskayas@gmail.com" orig="Balance">Остаток</string>
+  <string name="balance_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Balance">Баланс</string>
   <string name="name_" formatted="false" username="sokolinskayas@gmail.com" orig="Name">Название</string>
-  <string name="merge_plans_" formatted="false" username="sokolinskayas@gmail.com" orig="Merge plans">Объединить с тарифом</string>
-  <string name="merge_plans_help" formatted="false" username="sokolinskayas@gmail.com" orig="Merge other plans into this one and bill them here (too).">Объединить с другим тарифом и считать здесь (вместе)</string>
+  <string name="merge_plans_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Merge plans">Объединить тарифы</string>
+  <string name="merge_plans_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Merge other plans into this one and bill them here (too).">Объединить другие тарифы в этот тариф и считать их здесь (вместе).</string>
   <string name="units_cost" formatted="false" username="sokolinskayas@gmail.com" orig="$">р.</string>
   <string name="units_num_msg" formatted="false" username="sokolinskayas@gmail.com" orig="# Messages">Количество сообщений</string>
   <string name="units_minutes" formatted="false" username="sokolinskayas@gmail.com" orig="Minutes">Минут</string>
-  <string name="units_mbyte" formatted="false" username="sokolinskayas@gmail.com" orig="MBytes">Мбит</string>
+  <string name="units_mbyte" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="MBytes">Мбайт</string>
   <string name="units_units" formatted="false" username="sokolinskayas@gmail.com" orig="Units">Единиц</string>
-  <string name="units_cost_per_call" formatted="false" username="sokolinskayas@gmail.com" orig="$/Call">р/звонок</string>
+  <string name="units_cost_per_call" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="$/Call">р/Звонок</string>
   <string name="strip_seconds_" formatted="false" username="sokolinskayas@gmail.com" orig="Do not bill first seconds">Не учитывать первые секунды</string>
-  <string name="strip_seconds_help" formatted="false" username="sokolinskayas@gmail.com" orig="Do not bill first x seconds of a call.">Не учитывать первые х секунд в разговоре</string>
+  <string name="strip_seconds_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Do not bill first x seconds of a call.">Не учитывать первые х секунд разговора.</string>
   <string name="active_" formatted="false" username="sokolinskayas@gmail.com" orig="Active">Активен</string>
-  <string name="empty_groups_" formatted="false" username="sokolinskayas@gmail.com" orig="Please press &quot;Add&quot; to add a group.">Нажмите "Добавить" чтобы добавить группу</string>
-  <string name="empty_group_" formatted="false" username="sokolinskayas@gmail.com" orig="Please press &quot;Add&quot; to add an item to this group.">Нажмите "Добавить" чтобы добавить элемент в эту группу</string>
-  <string name="x1_month_1_day" formatted="false" username="sokolinskayas@gmail.com" orig="One month + one day">1 месяц и 1 день</string>
+  <string name="empty_groups_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Please press &quot;Add&quot; to add a group.">Нажмите "Добавить" для добавления группы.</string>
+  <string name="empty_group_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Нажмите "Добавить" для добавления элемента в эту группу.</string>
+  <string name="x1_month_1_day" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="One month + one day">1 месяц + 1 день</string>
+  <string name="up_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Move up">Вверх</string>
+  <string name="down_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Move down">Вниз</string>
+  <string name="widgets_no_widgets_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="No widgets added">Виджеты не добавлены</string>
+  <string name="widget_stats_title" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Call Meter (stats)">Call Meter (статистика)</string>
+  <string name="widget_logs_title" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Call Meter (last log)">Call Meter (последний журнал)</string>
+  <string name="textsize_pbarbp_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Bill period\'s progress bar\'s size">Размер шкалы прогресса расчетного периода</string>
+  <string name="textsize_pbarbp_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Размер шкалы прогресса расчетного периода в пикселах; оставьте пустым по умолчанию</string>
+  <string name="show_shortname_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show short name instead of long name">Показать короткое название вместо длинного</string>
+  <string name="show_help_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show help">Показать подсказку</string>
+  <string name="show_help_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show help in Plans/Rules setup view.">Показать подсказку в настройке Тарифов/Правил.</string>
+  <string name="show_cost_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show cost">Показать стоимость</string>
+  <string name="show_billperiod_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show progress of billing period">Показать ход расчетного периода</string>
+  <string name="show_icon_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show icon">Показать значок</string>
+  <string name="hide_name_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Hide name of plan">Скрыть название тарифа</string>
+  <string name="small_widget_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Use small widget">Использовать маленький виджет</string>
+  <string name="show_calllength_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show info after hanging up">Показывать информацию после отбоя</string>
+  <string name="show_calllength_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show length/cost of a call after hanging up.">Показывать продолжительность/стоимость звонка после отбоя.</string>
+  <string name="hide_progressbars_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Hide progress bars">Скрыть индикатор прогресса</string>
+  <string name="hide_progressbars_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Hide progress bars in main view.">Скрыть индикатор прогресса в главном окне.</string>
+  <string name="split_sms_at_160_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Disable to use android\'s system method.">Отключить использование системного метода Android.</string>
+  <string name="autohide_in_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Auto hide dialog in: %ds">Автоматически скрывать диалог через: %ds</string>
+  <string name="billperiod_sn" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="BillPeriod">РасчетныйПериод</string>
+  <string name="data_inout" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Data In/Out">Данные Вх/Исх</string>
+  <string name="data_inout_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="DataInOut">ДанныеВхИсх</string>
+  <string name="prepaid_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Prepaid plan">Предоплатный тариф</string>
+  <string name="prepaid_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Учет на предоплатной основе. Стоимость снимается с баланса по мере того, как вы звоните и т.д.</string>
+  <string name="balance_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Balance of your account at this given date.">Остаток на счету на определенную дату.</string>
+  <string name="strip_leading_zeros_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Strip leading zeros">Убрать ведущие нули</string>
+  <string name="strip_leading_zeros_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Strip leading zeros when comparing numbers.">Убрать ведущие нули при сравнении номеров.</string>
+  <string name="my_number_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="My number">Мой номер</string>
+  <string name="my_number_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Match only logs, while this SIM/number is active.">Сравнивать только журналы, пока эта сим-карта/номер активны.</string>
+  <string name="my_sim_id_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="SIM Id">Идентификатор сим-карты</string>
+  <string name="my_sim_id_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Match only logs done with this SIM.">Сравнивать только журналы сделанные на этой сим-карте.</string>
+  <string name="set_current_number" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Current number">Текущий номер</string>
+  <string name="number_prefix_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="International prefix">Международный префикс</string>
+  <string name="cost_per_item_no_limit_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set the cost billed for a single log item (e.g. a call or a message).">Установите стоимость единицы расчета (например, за звонок или сообщение).</string>
+  <string name="cost_per_amount_no_limit_help1" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data).">Установите стоимость единицы расчета (например, за 1 минуту звонка, за 1 Кб трафика).</string>
+  <string name="cost_per_amount_no_limit_help2" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call).\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Установите стоимость единицы расчета (например, за 1 минуту звонка).\nПервое окошко – стоимость первых двух секунд звонка, второе – стоимость последующих секунд (оба значения устанавливаются в $ за минуту; смотрите метод расчета).\nЕсли сомневаетесь, просто укажите стоимость минуты по Вашему тарифу.</string>
+  <string name="units_cost_per_minute" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="$/Minute">р/Минута</string>
+  <string name="units_cost_per_message" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="$/Message">р/Сообщение</string>
+  <string name="units_cost_per_mbyte" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="$/MByte">р/МБайт</string>
+  <string name="units_cost_per_unit" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="$/Unit">р/Единиц</string>
+  <string name="issipcall_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Is SIP call">SIP звонок</string>
+  <string name="issipcall_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Звонок через SIP. В настоящее время поддерживается sipdroid &gt;1.6.1.</string>
+  <string name="strip_past_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Do not bill anything after x seconds of a call.">Не учитывать ничего после х секунд разговора.</string>
+  <string name="strip_past_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Do not bill anything after seconds">Не учитывать ничего после секунд</string>
+  <string name="remote_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Remote number">Удаленный номер</string>
+  <string name="export_progr" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Exporting data ...">Экспорт данных ...</string>
+  <string name="import_progr" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import data ...">Импорт данных ...</string>
+  <string name="export_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export ...">Экспорт ...</string>
+  <string name="exported_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Exported:">Экспортировано:</string>
+  <string name="export_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export rule sets, logs or groups">Экспорт наборов правил, журналов или групп</string>
+  <string name="export_rules_dev_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export rule set to developer">Передача набора правил разработчику</string>
+  <string name="export_rules_dev_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export rule set to let others import it.">Экспорт набора правил, позволяющий другим импортировать его.</string>
+  <string name="export_logs_csv_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export CSV">Экспорт CSV</string>
+  <string name="export_logs_csv_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export logs as CSV.">Экспорт журналов в CSV.</string>
+  <string name="export_numgroups_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export number groups">Экспорт номерных групп</string>
+  <string name="export_numgroups_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export number groups as mail.">Экспорт номерных групп по э/почте.</string>
+  <string name="import_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import">Импорт</string>
+  <string name="import_link_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="More info">Подробнее</string>
+  <string name="import_rules_sd_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Place your file on your SD card and click it below">Поместите файл на SD-карту и щелкните по нему</string>
+  <string name="alerts_title" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Call Meter 3G alert">Предупреждение Call Meter 3G</string>
+  <string name="widget_backgroud_color_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Background color">Цвет фона</string>
+  <string name="widget_text_color_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Text color">Цвет текста</string>
+  <string name="widget_backgroud_transparency_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Background transparency">Прозрачность фона</string>
+  <string name="send_devices_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Отправить список устройств разработчику. Это необходимо только в том случае, если ваша статистика равна нулю.</string>
+  <string name="send_devices_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Send devices">Отправить устройства</string>
+  <string name="view_logs_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="View Logs">Показать журналы</string>
+  <string name="reset" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Reset">Обнулить</string>
+  <string name="debug_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Debug">Отладить</string>
+  <string name="send_logs_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Send logs">Отправить журналы</string>
+  <string name="send_logs_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Отправить журналы устройства разработчику.\nОтправляйте только в том случае, если Вас об этом попросят.</string>
+  <string name="license_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="License:">Лицензия:</string>
+  <string name="license" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - смотрите http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="author_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Author:">Автор:</string>
+  <string name="website_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Website:">Веб-сайт:</string>
+  <string name="source_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Sourcescode:">Исходный код:</string>
+  <string name="country" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Country">Страна</string>
+  <string name="provider" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Provider">Провайдер</string>
+  <string name="plan" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Plan">Тариф</string>
+  <string name="custom_language_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Custom language">Пользовательский язык</string>
+  <string name="custom_language_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set a custom language.">Установить пользовательский язык.</string>
+  <string name="sendlog_run_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Run SendLog">Запустить SendLog</string>
+  <string name="sendlog_run" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog получит журнал устройства и отправит его разработчику.\nУ Вас будете возможность просмотреть и изменить отправляемые данные.</string>
+  <string name="sendlog_install_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Install SendLog">Установить SendLog</string>
+  <string name="sendlog_install" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">Установить бесплатное приложение SendLog для получения журнала устройства и отправки его разработчику.</string>
+  <string name="ask_for_plan_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Ask for plan">Запрашивать тариф</string>
+  <string name="ask_for_plan_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Ask for plan for unmatched calls after hanging up.">Запрашивать тариф для несоответствующих звонков после отбоя.</string>
+  <string name="select_plan_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Select a plan">Выберите тариф</string>
+  <string name="set_selected_as_default_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set selected plan as default">Установка выбранного тарифа по умолчанию</string>
+  <string name="widget_plan_textsize" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Plan Text Size">Размер шрифта Тарифа</string>
+  <string name="widget_cost_textsize" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Cost Text Size">Размер шрифта Стоимости</string>
+  <string name="widget_date_textsize" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Date Text Size">Размер шрифта Даты</string>
+  <string name="import_rules_www_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import pre-configured rule set from http://www.ub0r.de/.">Импорт готового набора правил с http://www.ub0r.de/.</string>
+  <string name="import_rules_users" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Users\' rules">Пользовательские правила</string>
+  <string name="import_rules_sd_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import rule set directly from SD card.">Импорт набора правил непосредственно с SD карты.</string>
+  <string name="import_rules_default_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import default rule set">Импорт набора правил по умолчанию</string>
+  <string name="import_rules_default_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import default rule set shipped with the app.">Импорт набора правил по умолчанию, поставляемого вместе с приложением.</string>
 </resources>
