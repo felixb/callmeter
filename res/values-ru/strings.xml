@@ -104,8 +104,8 @@
   <string name="data_enable_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Data is collected in real time. First month may be incorrect!">Данные собираются в реальном режиме времени. Первый месяц может быть неточным!</string>
   <string name="data_each_day" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Bill each day separately">Считать каждый день отдельно</string>
   <string name="data_each_day_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Your billing period starts with each day.">Ваш расчетный период начинается каждый день.</string>
-  <string name="data_limit_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Limit">Ограничение</string>
-  <string name="data_limit_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Limit of data plan (MB/month)">Ограничение трафика (Мб/месяц)</string>
+  <string name="data_limit_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Limit">Лимит</string>
+  <string name="data_limit_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Limit of data plan (MB/month)">Лимит трафика (Мб/месяц)</string>
   <string name="monday" formatted="false">Понедельник</string>
   <string name="tuesday" formatted="false">Вторник</string>
   <string name="wednesday" formatted="false">Среда</string>
