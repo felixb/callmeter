@@ -24,8 +24,8 @@
   <string name="changelog_notification_" formatted="false" orig="Recent changes:">Последние изменения:</string>
   <string name="changelog_notification_text" formatted="false">Нажмите здесь, чтобы показать последние изменения</string>
   <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Примечания разработчика</string>
-  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Контролируйте голосовые вызовы, сообщения и передачу данных своего тарифа!</string>
-  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">CallMeter создает отчеты из журналов голосовых вызовов, сообщений и передачи данных. Поддерживается несколько режимов учета.</string>
+  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Контролируйте голосовые вызовы, сообщения и данные своего тарифа!</string>
+  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">CallMeter создает отчеты из журналов голосовых вызовов, сообщений и данных. Поддерживается несколько режимов учета.</string>
   <string name="about1" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="The output format is usage | time or count used this billing period | time or count overall.">Выходной формат: Использовано | Время или Использовано в расчетном периоде | Время или Общее количество.</string>
   <string name="about2" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">Режим учета определяется продолжительностью первого / последующего интервалов. Например 60/10 означает, что первая минута каждого вызова тарифицируется поминутно (как полные 60 секунд), последующие округляются до полных 10 секунд в пределах одного вызова.</string>
   <string name="about3" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter выполняется в фоновом режиме каждые 30 минут (только не в режиме ожидания). Это означает, что удаление вызовов или сообщений старше 30 минут на статистику не влияет, младше 30 минут может привести к некорректному отображению статистики.</string>
@@ -88,7 +88,7 @@
   <string name="new_hourgroup" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="New hour group">Новая часовая группа</string>
   <string name="add_hour" formatted="false">Добавить время</string>
   <string name="calls" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Calls">Вызовы</string>
-  <string name="data" formatted="false">Передача данныx</string>
+  <string name="data" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Data">Данные</string>
   <string name="reset_data_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Reset statistics">Обнулить статистику</string>
   <string name="reset_data_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Сброс статистики вызовов/СМС приведет к пересчету статистики.\n\nСброс статистики трафика происxодит постоянно. Стирается только трафик до перезагрузки!</string>
   <string name="reset_data_data_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Reset traffic too.">Также обнулить трафик.</string>
@@ -149,7 +149,7 @@
   <string name="none" formatted="false">Отсутствует</string>
   <string name="value" formatted="false">Параметр</string>
   <string name="export_rules_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export rule set">Экспорт набора правил</string>
-  <string name="export_rules_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export rule set as mail.">Передача набора правил по э/почте.</string>
+  <string name="export_rules_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export rule set as mail.">Экспорт набора правил по э/почте.</string>
   <string name="export_rules_descr" formatted="false">Описание</string>
   <string name="export_hourgroups_" formatted="false">Экспорт часовых групп</string>
   <string name="export_hourgroups_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export hour groups as mail.">Экспорт часовых групп по э/почте.</string>
@@ -329,7 +329,7 @@
   <string name="mms_in_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="MMSIn">ВходящиеММС</string>
   <string name="mms_out" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="MMS Out">Отправленные ММС</string>
   <string name="mms_out_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="MMSOut">ОтправленныеММС</string>
-  <string name="data_" formatted="false" username="sokolinskayas@gmail.com" orig="Data (2G/3G/4G)">Передача данныx (2G/3G/4G)</string>
+  <string name="data_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Data (2G/3G/4G)">Данные (2G/3G/4G)</string>
   <string name="balance_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Balance">Баланс</string>
   <string name="name_" formatted="false" username="sokolinskayas@gmail.com" orig="Name">Название</string>
   <string name="merge_plans_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Merge plans">Объединить тарифы</string>
@@ -398,7 +398,7 @@
   <string name="export_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export ...">Экспорт ...</string>
   <string name="exported_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Exported:">Экспортировано:</string>
   <string name="export_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export rule sets, logs or groups">Экспорт наборов правил, журналов или групп</string>
-  <string name="export_rules_dev_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export rule set to developer">Передача набора правил разработчику</string>
+  <string name="export_rules_dev_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export rule set to developer">Экспорт набора правил разработчику</string>
   <string name="export_rules_dev_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export rule set to let others import it.">Экспорт набора правил, позволяющий другим импортировать его.</string>
   <string name="export_logs_csv_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export CSV">Экспорт CSV</string>
   <string name="export_logs_csv_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export logs as CSV.">Экспорт журналов в CSV.</string>
