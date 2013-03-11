@@ -23,6 +23,7 @@
 	<string name="market_cm2">This is a complete rebuild of Call Meter NG. It has a huge amount of new features like widgets and alerts.\nIt\'s new architecure allows more complex plans.\nFeel free to test it and help me make it more userfriendly as it is currently. ;)</string>
 	<string name="market_permissions">Permissions of this app:\n* READ SMS OR MMS: count your messages\n* RECEIVE SMS: update logs before a recently received message got deleted\n* FULL INTERNET ACCESS: importing rules\n* READ CONTACT DATA: convert numbers to names (e.g. in number groups)\n* MODIFY/DELETE SD CARD CONTENTS: write/export rules to sd card\n* READ PHONE STATE AND IDENTITY: update logs in background\n* PREVENT DEVICE FROM SLEEPING: update logs in background</string>
 	<string name="market_translation">Feel free to help translating this app to your language here: http://ub0r.de/translate/cm3/</string>
+	<string name="market_website">Please see https://code.google.com/p/callmeter/issues/list for issues and enhancement requests.</string>
 	<string name="market_keywords">Keywords: minutes calls sms txt text data traffic counter log phone usage watchdog alert widget statistics at&amp;t verizon three o2 t-mobile vodafone orange</string>
 	<string name="market_promo">Never spend too much!</string>
 </resources>
