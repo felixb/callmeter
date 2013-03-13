@@ -58,8 +58,8 @@
   <string name="exclude_people_add" formatted="false" orig="Add number">Добавить номер</string>
   <string name="exclude_people_edit" formatted="false">Изменить</string>
   <string name="exclude_people_delete" formatted="false">Удалить</string>
-  <string name="exclude_people_to_plan1_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Excluded numbers to plan #1">Исключенные в тариф #1</string>
-  <string name="exclude_people_to_plan2_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Excluded numbers to plan #2">Исключенные в тариф #2</string>
+  <string name="exclude_people_to_plan1_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Excluded numbers to plan #1">Убрать в тариф #1</string>
+  <string name="exclude_people_to_plan2_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Excluded numbers to plan #2">Убрать в тариф #2</string>
   <string name="exclude_people_calls_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Enable for Calls">Применить для Вызовов</string>
   <string name="exclude_people_calls_to_plan1_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Bill calls to/from excluded numbers in plan #1">Учет вызовов с/от исключенных номеров в тарифе #1</string>
   <string name="exclude_people_calls_to_plan2_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Bill calls to/from excluded numbers in plan #2">Учет вызовов с/от исключенных номеров в тарифе #2</string>
@@ -127,7 +127,7 @@
   <string name="plan_name2_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Plan 2: name">Тариф 2: Название</string>
   <string name="plan_name_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Custom Name">Пользовательское название</string>
   <string name="reset_data_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Reset statistics">Обнулить статистику</string>
-  <string name="reset_data_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Сброс статистики вызовов/СМС приведет к пересчету статистики.\n\nСброс статистики трафика происxодит постоянно. Стирается только трафик до перезагрузки!</string>
+  <string name="reset_data_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Сброс статистики вызовов/СМС приведет к пересчету статистики.\nСброс статистики трафика происходит постоянно. Стирается только трафик до перезагрузки!</string>
   <string name="reset_data_data_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Reset traffic too.">Также обнулить трафик.</string>
   <string name="contacts_" formatted="false">Контакты</string>
   <string-array name="themes">
@@ -138,8 +138,8 @@
     <item>Мелкий</item>
     <item>Средний</item>
   </string-array>
-  <string name="data_show_simple_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show only \&quot;Data\&quot; as title">Только "Трафик" как заголовок</string>
-  <string name="data_show_simple_hint" formatted="false" username="igor.karasenko@gmail.com" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Спрятать "(2G/3G/4G)" в заголовке. Это не влияет на статистику.</string>
+  <string name="data_show_simple_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show only \&quot;Data\&quot; as title">"Трафик" как заголовок</string>
+  <string name="data_show_simple_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Спрятать "(2G/3G/4G)" в названии заголовка. Это не влияет на статистику.</string>
   <string name="data_" formatted="false" username="igor.karasenko@gmail.com" orig="Data (2G/3G/4G)">Трафик (2G/3G/4G)</string>
   <string name="custom_language_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Custom language">Пользовательский язык</string>
   <string name="custom_language_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set a custom language.">Установить пользовательский язык.</string>
