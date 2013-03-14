@@ -76,7 +76,7 @@
   <string name="plan_free_" formatted="false">Не считать</string>
   <string name="plan_freemin_" formatted="false">Бесплатные минуты</string>
   <string name="plan_freesms_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Free SMS">Бесплатные СМС</string>
-  <string name="free_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Totally free">Совершенно бесплатно</string>
+  <string name="free_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Totally free">Полностью бесплатно</string>
   <string name="freemin_hint" formatted="false" username="Andre RUS &lt;black007@pisem.net&gt;" orig="Free Minutes / Month">Бесплатных минут в месяц</string>
   <string name="freesms_hint" formatted="false" username="Andre RUS &lt;black007@pisem.net&gt;" orig="Free SMS / Month">Бесплатных СМС в месяц</string>
   <string name="bill_calls_incoming_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Bill incoming">Считать вxодящие</string>
@@ -126,9 +126,9 @@
   <string name="plan_name1_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Plan 1: name">Тариф 1: Название</string>
   <string name="plan_name2_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Plan 2: name">Тариф 2: Название</string>
   <string name="plan_name_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Custom Name">Пользовательское название</string>
-  <string name="reset_data_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Reset statistics">Обнулить статистику</string>
+  <string name="reset_data_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Reset statistics">Сброс статистики</string>
   <string name="reset_data_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Сброс статистики вызовов/СМС приведет к пересчету статистики.\nСброс статистики трафика происходит постоянно. Стирается только трафик до перезагрузки!</string>
-  <string name="reset_data_data_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Reset traffic too.">Также обнулить трафик.</string>
+  <string name="reset_data_data_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Reset traffic too.">Также сбросить трафик.</string>
   <string name="contacts_" formatted="false">Контакты</string>
   <string-array name="themes">
     <item>Тёмная</item>
