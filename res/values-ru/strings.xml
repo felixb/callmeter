@@ -22,7 +22,7 @@
        -->
 <resources>
   <string name="changelog_notification_" formatted="false" orig="Recent changes:">Последние изменения:</string>
-  <string name="changelog_notification_text" formatted="false">Нажмите здесь, чтобы показать последние изменения</string>
+  <string name="changelog_notification_text" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Click here to show recent changes of">Нажмите здесь для показа последних изменений</string>
   <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Примечания разработчика</string>
   <string name="about0_" formatted="false" orig="Watch your call, message and data plans!" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Контролируйте голосовые вызовы, сообщения и данные своего тарифа!</string>
   <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">CallMeter создает отчеты из журналов голосовых вызовов, сообщений и данных. Поддерживается несколько режимов учета.</string>
@@ -46,11 +46,11 @@
   <string name="twitter_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Follow me on twitter.\nGet update notifications etc.">Читайте в twitter.\nУведомления об обновлениях и т.д.</string>
   <string name="more_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="More Apps..">Другие приложения..</string>
   <string name="billing_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Billing">Учет</string>
-  <string name="billday_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="First day of your bill">Первый день вашего учета</string>
+  <string name="billday_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="First day of your bill">Первый день учета</string>
   <string name="billmode_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Mode of billing">Режим учета</string>
   <string name="billdate_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Start of billing period:">Начало расчетного периода:</string>
   <string name="appearance_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Appearance">Внешний вид</string>
-  <string name="advanced_preferences_" formatted="false" username="Norcis &lt;htc@norcis.lv&gt;" orig="Advanced preferences">Дополнительные настройки</string>
+  <string name="advanced_preferences_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Advanced preferences">Расширенные настройки</string>
   <string name="advanced_preferences_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Позволяет настроить более сложные методы учета. Не понадобится большинству пользователей.</string>
   <string name="theme_" formatted="false">Темы</string>
   <string name="textsize_" formatted="false">Размер шрифта</string>
@@ -84,13 +84,13 @@
   <string name="hourgroup_" formatted="false">Включённое время</string>
   <string name="hourgroup_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add some hours this rule must match.">Время, задействованное в правиле.</string>
   <string name="exhourgroup_" formatted="false">Исключённое время</string>
-  <string name="exhourgroup_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add some hours this rule must not match.">Время, не учитываемое в правиле.</string>
+  <string name="exhourgroup_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add some hours this rule must not match.">Не учитывать в правиле.</string>
   <string name="new_hourgroup" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="New hour group">Новая часовая группа</string>
   <string name="add_hour" formatted="false">Добавить время</string>
   <string name="calls" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Calls">Вызовы</string>
   <string name="data" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Data">Трафик</string>
   <string name="reset_data_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Reset statistics">Обнулить статистику</string>
-  <string name="reset_data_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Сброс статистики вызовов/СМС приведет к пересчету статистики.\n\nСброс статистики трафика происxодит постоянно. Стирается только трафик до перезагрузки!</string>
+  <string name="reset_data_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Сброс статистики вызовов/СМС приведет к пересчету статистики.\nСброс статистики трафика происходит постоянно. Стирается только трафик до перезагрузки!</string>
   <string name="reset_data_data_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Reset traffic too.">Также обнулить трафик.</string>
   <string name="reset_data_progr1" formatted="false">Пересчет статистики ...\n\n(Это может занять некоторое время!)</string>
   <string name="reset_data_progr2" formatted="false">Пересчет статистики ...</string>
@@ -272,7 +272,7 @@
   <string name="export_sd" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export to SD card">Экспорт на SD карту</string>
   <string name="export_logs_" formatted="false" username="htc@norcis.lv" orig="Backup logs">Журнал резервного копирования</string>
   <string name="export_logs_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Backup logs as mail.">Журнал резервного копирования по э/почте.</string>
-  <string name="import_rules_sd_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import rule set from SD card">Импорт набора правил с SD карты</string>
+  <string name="import_rules_sd_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import rule set from SD card">Импорт с SD карты</string>
   <string name="import_rules_sd_files" formatted="false" username="htc@norcis.lv" orig="Found files">Найденные файлы</string>
   <string name="import_rules_sd_nofiles" formatted="false" username="htc@norcis.lv" orig="No found files">Файлы не найдены</string>
   <string name="loading" formatted="false" username="htc@norcis.lv" orig="Loading ...">Загрузка ...</string>
@@ -300,7 +300,7 @@
   <string name="custom_delimiter_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set a custom delimiter separating the blocks of statistics.">Установка разделителя, отделяющего блоки статистики.</string>
   <string name="split_sms_at_160_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Split text messages at 160 chars">Делить СМС по 160 символов</string>
   <string name="autohide_" formatted="false" username="sokolinskayas@gmail.com" orig="Auto hide">Прятать автоматически</string>
-  <string name="autohide_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Скрывать диалог после .. секунд. Оставьте пустым для отключения автосокрытия.</string>
+  <string name="autohide_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Скрывать диалог после .. секунд. Оставьте пустым для отключения.</string>
   <string name="now" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Now">Сейчас</string>
   <string name="logs" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Logs">Журналы</string>
   <string name="length_" formatted="false" username="sokolinskayas@gmail.com" orig="Length">Длительность</string>
@@ -442,7 +442,7 @@
   <string name="import_rules_www_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import pre-configured rule set from http://www.ub0r.de/.">Импорт готового набора правил с http://www.ub0r.de/.</string>
   <string name="import_rules_users" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Users\' rules">Пользовательские правила</string>
   <string name="import_rules_sd_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import rule set directly from SD card.">Импорт набора правил непосредственно с SD карты.</string>
-  <string name="import_rules_default_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import default rule set">Импорт набора правил по умолчанию</string>
+  <string name="import_rules_default_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import default rule set">Импорт по умолчанию</string>
   <string name="import_rules_default_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Import default rule set shipped with the app.">Импорт набора правил по умолчанию, поставляемого вместе с приложением.</string>
   <string name="units_units_per_minute" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Units/Minute">Единиц/Минута</string>
   <string name="units_units_per_message" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Units/Message">Единиц/Сообщение</string>
