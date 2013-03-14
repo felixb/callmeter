@@ -21,20 +21,20 @@
                Visit http://ub0r.de/translate/cm2/ru/strings.xml to edit the file.
        -->
 <resources>
-  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Контролируйте голосовые вызовы, сообщения и данные своего тарифа!</string>
+  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Контролируйте голосовые вызовы, сообщения и трафик!</string>
   <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">CallMeter создает отчеты из журналов голосовых вызовов, сообщений и данных. Поддерживается несколько режимов учета.</string>
   <string name="about1" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not.">Выходной формат: Использовано | Время или Использовано в расчетном периоде | Время или Общее количество. Ежемесячный расчет времени берется во внимание, общий нет.</string>
   <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Режим учета определяется продолжительностью первого / последующего интервалов. Например 60/10 означает, что первая минута каждого вызова тарифицируется поминутно (как полные 60 секунд), последующие округляются до полных 10 секунд в пределах одного вызова.</string>
   <string name="about3" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="You can split your call or message plan into up to two plans. Each plan can be set to be totally free, capped to a set limit or unlimited.">Разделение вызовов или СМС на 2 тарифа. В каждом тарифе можно: не вести учет, установить определенный лимит или снять все ограничения.</string>
   <string name="about4" formatted="false" orig="Your messages can be merged into your call plan. E.g. counting every message as a 15s call." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Учет сообщений может быть объединен с тарифом вызовов. Например: каждое сообщение соответствует 15-ти секундам вызова.</string>
   <string name="about5" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter запускается в фоновом режиме каждые 30 минут (только не в режиме ожидания). Удаление вызовов или сообщений спустя 30 минут после совершения звонка или отправки СМС на статистику не влияет, удаление в течение 30 минут может привести к некорректному отображению статистики.</string>
-  <string name="about6_" formatted="false">Что CallMeter NG не может:</string>
+  <string name="about6_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="What does CallMeter NG not do:">CallMeter NG не умеет:</string>
   <string name="about6" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs.">Не существует способа отличать sipdroid от реальных вызовов или WebSMS от реальных СМС. Единая интеграция Android между этими программами делает невозможным получение данных конкретного приложения из журналов вызовов.</string>
   <string name="send_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Send">Отправить</string>
   <string name="settings" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Preferences">Настройки</string>
   <string name="about_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="About">Информация</string>
   <string name="about_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="About this app">О программе</string>
-  <string name="faq_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Some tips and tricks, how to set up this app.">Некоторые советы и рекомендации по настройке приложения.</string>
+  <string name="faq_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Some tips and tricks, how to set up this app.">Советы и рекомендации по настройке приложения.</string>
   <string name="feedback_" formatted="false">Отзывы</string>
   <string name="feedback_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Report bugs, request features ...">Сообщить об ошибкаx, внести предложения ...</string>
   <string name="twitter_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Follow me on twitter.\nGet update notifications etc.">Читайте в twitter.\nУведомления об обновлениях и т.д.</string>
@@ -103,7 +103,7 @@
   <string name="data_enable_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show data stats">Данные статистики</string>
   <string name="data_enable_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Data is collected in real time. First month may be incorrect!">Данные собираются в реальном режиме времени. Первый месяц может быть неточным!</string>
   <string name="data_each_day" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Bill each day separately">Каждый день отдельно</string>
-  <string name="data_each_day_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Your billing period starts with each day.">Ваш расчетный период начинается каждый день.</string>
+  <string name="data_each_day_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Your billing period starts with each day.">Расчетный период начинается каждый день.</string>
   <string name="data_limit_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Limit">Лимит</string>
   <string name="data_limit_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Limit of data plan (MB/month)">Лимит трафика (Мб/месяц)</string>
   <string name="monday" formatted="false">Понедельник</string>
@@ -138,8 +138,8 @@
     <item>Мелкий</item>
     <item>Средний</item>
   </string-array>
-  <string name="data_show_simple_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show only \&quot;Data\&quot; as title">"Трафик" как заголовок</string>
-  <string name="data_show_simple_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Спрятать "(2G/3G/4G)" в названии заголовка. Это не влияет на статистику.</string>
+  <string name="data_show_simple_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show only \&quot;Data\&quot; as title">\'Трафик\' как заголовок</string>
+  <string name="data_show_simple_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Спрятать \'(2G/3G/4G)\' в названии заголовка. Это не влияет на статистику.</string>
   <string name="data_" formatted="false" username="igor.karasenko@gmail.com" orig="Data (2G/3G/4G)">Трафик (2G/3G/4G)</string>
   <string name="custom_language_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Custom language">Пользовательский язык</string>
   <string name="custom_language_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set a custom language.">Установить пользовательский язык.</string>
