@@ -86,7 +86,7 @@
   <string name="bill_data_incoming_only_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Bill incoming only">Только вxодящий</string>
   <string name="bill_data_incoming_only_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Bill only incoming traffic.">Считать только вxодящий трафик.</string>
   <string name="cost_per_call_" formatted="false" username="Andre RUS &lt;black007@pisem.net&gt;" orig="Cost per call">Плата за соединение</string>
-  <string name="cost_per_call_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Each call will be billed with this.">Каждый вызов будет рассчитан по этому значению.</string>
+  <string name="cost_per_call_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Each call will be billed with this.">Каждое соединение будет рассчитано по этому значению.</string>
   <string name="cost_per_minute_" formatted="false">Стоимость минуты</string>
   <string name="cost_per_minute_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Each minute of a call will be billed with this.">Каждая минута будет рассчитана по этому значению.</string>
   <string name="cost_per_sms_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Cost per SMS">Стоимость СМС</string>
