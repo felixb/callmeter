@@ -211,6 +211,8 @@
 	<string name="new_">New</string>
 	<string name="edit_selected_">Edit selected</string>
 	<string name="edit_groups_">Edit groups</string>
+	<string name="delete_group_">Delete group</string>
+	<string name="delete_group_hint">Do you really want to delete this group?</string>
 	<string name="name_">Name</string>
 	<string name="name_help">Set a name here.</string>
 	<string name="shortname_">Short name</string>

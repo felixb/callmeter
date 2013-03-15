@@ -168,12 +168,22 @@ public final class NumberGroupEdit extends SherlockPreferenceActivity implements
 			this.showNumberDialog(-1);
 			return true;
 		case R.id.item_delete:
-			this.getContentResolver().delete(
-					ContentUris.withAppendedId(DataProvider.NumbersGroup.CONTENT_URI, this.gid),
-					null, null);
-			Preferences.setDefaultPlan(this, false);
-			RuleMatcher.unmatch(this);
-			this.finish();
+			Builder b = new Builder(this);
+			b.setTitle(R.string.delete_group_);
+			b.setMessage(R.string.delete_group_hint);
+			b.setNegativeButton(android.R.string.no, null);
+			b.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(final DialogInterface dialog, final int which) {
+					NumberGroupEdit.this.getContentResolver().delete(
+							ContentUris.withAppendedId(DataProvider.NumbersGroup.CONTENT_URI,
+									NumberGroupEdit.this.gid), null, null);
+					Preferences.setDefaultPlan(NumberGroupEdit.this, false);
+					RuleMatcher.unmatch(NumberGroupEdit.this);
+					NumberGroupEdit.this.finish();
+				}
+			});
+			b.show();
 			return true;
 		case R.id.item_rename:
 			this.showNameDialog();

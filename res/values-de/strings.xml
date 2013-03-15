@@ -204,6 +204,8 @@
   <string name="new_" formatted="false">Neu</string>
   <string name="edit_selected_" formatted="false">Ausg. bearb.</string>
   <string name="edit_groups_" formatted="false">Gr. bearb.</string>
+	<string name="delete_group_">Gruppe löschen</string>
+	<string name="delete_group_hint">Willst du wirklich diese Gruppe löschen?</string>
   <string name="name_" formatted="false">Name</string>
   <string name="name_help" formatted="false">Setze hier einen Namen.</string>
   <string name="shortname_" formatted="false">Kurzname</string>

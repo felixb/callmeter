@@ -304,12 +304,22 @@ public final class HourGroupEdit extends SherlockPreferenceActivity implements
 			this.showHourDialog(-1);
 			return true;
 		case R.id.item_delete:
-			this.getContentResolver().delete(
-					ContentUris.withAppendedId(DataProvider.HoursGroup.CONTENT_URI, this.gid),
-					null, null);
-			Preferences.setDefaultPlan(this, false);
-			RuleMatcher.unmatch(this);
-			this.finish();
+			Builder b = new Builder(this);
+			b.setTitle(R.string.delete_group_);
+			b.setMessage(R.string.delete_group_hint);
+			b.setNegativeButton(android.R.string.no, null);
+			b.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(final DialogInterface dialog, final int which) {
+					HourGroupEdit.this.getContentResolver().delete(
+							ContentUris.withAppendedId(DataProvider.HoursGroup.CONTENT_URI,
+									HourGroupEdit.this.gid), null, null);
+					Preferences.setDefaultPlan(HourGroupEdit.this, false);
+					RuleMatcher.unmatch(HourGroupEdit.this);
+					HourGroupEdit.this.finish();
+				}
+			});
+			b.show();
 			return true;
 		case R.id.item_rename:
 			this.showNameDialog();
