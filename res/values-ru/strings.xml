@@ -76,15 +76,15 @@
   <string name="numbers" formatted="false">Номера</string>
   <string name="numbergroup_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Include numbers">Учитываемые номера</string>
   <string name="numbergroup_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Добавьте номера, которые будут соответствовать данному правилу.\n\nРазрешено использование шаблонов ("%") на обоих концах номера.\nНапример: %34 будет соответствовать 1234, 12% будет соответствовать 1234 и %23% будет соответствовать 12345.</string>
-  <string name="exnumbergroup_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Exclude numbers">Неучитываемые номера</string>
+  <string name="exnumbergroup_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Exclude numbers">Не учитываемые номера</string>
   <string name="exnumbergroup_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add some numbers this rule must not match.\nSee above.">Добавьте номера, которые не должны соответствовать данному правилу.\nСмотрите пример выше.</string>
   <string name="new_numbergroup" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="New number group">Новая номерная группа</string>
   <string name="add_number" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add number">Добавить номер</string>
   <string name="hours" formatted="false">Время</string>
   <string name="hourgroup_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Include hours">Учитываемое время</string>
-  <string name="hourgroup_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add some hours this rule must match.">Время, учитываемое в правиле.</string>
-  <string name="exhourgroup_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Exclude hours">Неучитываемое время</string>
-  <string name="exhourgroup_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add some hours this rule must not match.">Время, не учитываемое в правиле.</string>
+  <string name="hourgroup_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add some hours this rule must match.">Учитывать в правиле.</string>
+  <string name="exhourgroup_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Exclude hours">Не учитываемое время</string>
+  <string name="exhourgroup_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add some hours this rule must not match.">Не учитывать в правиле.</string>
   <string name="new_hourgroup" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="New hour group">Новая часовая группа</string>
   <string name="add_hour" formatted="false">Добавить время</string>
   <string name="calls" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Calls">Вызовы</string>
@@ -104,7 +104,7 @@
   <string name="shortname_" formatted="false">Короткое название</string>
   <string name="shortname_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set a short name here. It is displayed in compact layouts.">Введите короткое название, отображаемое в компактном виде.</string>
   <string name="type_" formatted="false">Тип</string>
-  <string name="type_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Выберите тип.\n\'Название\' - отображает заголовок главного окна.\n\'Пробел\' - показ пустого пространства (разделителя).\n\'Расчетный период\' - любая информация об учетном периоде. Большинству пользователей нужен только один.\n\'Смешанный\' тариф - сочетает в себе одновременный учет вызовов и сообщений.\nТариф \'Вызов\' - учет только вызовов. Тарифы \'СМС\' и \'ММС\' - учет только сообщений.\nТариф \'Трафик\' - учет трафика.</string>
+  <string name="type_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Выберите тип.\n\'Название\' - отображает заголовок главного окна.\n\'Разделитель\' - показ пустого пространства (разделителя).\n\'Расчетный период\' - любая информация об учетном периоде. Большинству пользователей нужен только один.\n\'Смешанный\' тариф - сочетает в себе одновременный учет вызовов и сообщений.\nТариф \'Вызов\' - учет только вызовов. Тарифы \'СМС\' и \'ММС\' - учет только сообщений.\nТариф \'Трафик\' - учет трафика.</string>
   <string name="limit_type_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Limit type">Тип ограничения</string>
   <string name="limit_type_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;costs\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Установите тип своего ограничения.\nЛимит \'Единицы\' будет ограничивать тариф на основании минут, сообщений, ...\nЛимит \'Стоимость\' будет ограничивать тариф на основании стоимости единиц расчета, учтенных в данном тарифе.</string>
   <string name="limit_" formatted="false">Лимит</string>
@@ -205,7 +205,7 @@
   <string name="edit_plan_" username="sokolinskayas@gmail.com" orig="Edit Plan">Изменить тариф</string>
   <string name="delete_">Удалить</string>
   <string name="title">Название</string>
-  <string name="spacer">Пробел</string>
+  <string name="spacer" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Spacer">Разделитель</string>
   <string name="mixed" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Mixed">Смешанный</string>
   <string name="limit_type_unlimited" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="unlimited">безлимитный</string>
   <string name="limit_type_units" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="units">единицы</string>
@@ -265,8 +265,8 @@
   <string name="textsize_title_hint" formatted="false" orig="Text size for titles in pixels; leave empty for default" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Размер шрифта заголовков в пикселях; оставьте пустым по умолчанию</string>
   <string name="textsize_bigtitle_" formatted="false" orig="Big title\'s text size">Размер шрифта больших заголовков</string>
   <string name="textsize_bigtitle_hint" formatted="false" orig="Text size for big titles in pixels; leave empty for default" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Размер шрифта больших заголовков в пикселях; оставьте пустым по умолчанию</string>
-  <string name="textsize_spacer_" formatted="false" orig="Spacer\'s size">Величина пробела</string>
-  <string name="textsize_spacer_hint" formatted="false" orig="Size for spacers in pixels; leave empty for default" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Величина пробела в пикселях; оставьте пустым по умолчанию</string>
+  <string name="textsize_spacer_" formatted="false" orig="Spacer\'s size" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Размер разделителя</string>
+  <string name="textsize_spacer_hint" formatted="false" orig="Size for spacers in pixels; leave empty for default" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Размер разделителя в пикселях; оставьте пустым по умолчанию</string>
   <string name="textsize_pbar_" formatted="false" orig="Progress bar\'s size">Размер шкалы прогресса</string>
   <string name="textsize_pbar_hint" formatted="false" orig="Size for progress bars in pixels; leave empty for default" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;">Размер шкалы прогресса в пикселях; оставьте пустым по умолчанию</string>
   <string name="export_sd" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Export to SD card">Экспорт на SD карту</string>
