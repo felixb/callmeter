@@ -63,7 +63,7 @@
   <string name="exclude_people_calls_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Enable for Calls">Применить для Вызовов</string>
   <string name="exclude_people_calls_to_plan1_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Bill calls to/from excluded numbers in plan #1">Учет вызовов с/от исключенных номеров в тарифе #1</string>
   <string name="exclude_people_calls_to_plan2_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Bill calls to/from excluded numbers in plan #2">Учет вызовов с/от исключенных номеров в тарифе #2</string>
-  <string name="exclude_people_sms_" formatted="false">Активировать для SMS</string>
+  <string name="exclude_people_sms_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Enable for SMS">Применить для SMS</string>
   <string name="exclude_people_sms_to_plan1_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Bill messages to/from excluded numbers in plan #1">Учет сообщений с/от исключенных номеров в тарифе #1</string>
   <string name="exclude_people_sms_to_plan2_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Bill messages to/from excluded numbers in plan #2">Учет сообщений с/от исключенных номеров в тарифе #2</string>
   <string name="plans" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Plans">Тарифы</string>
