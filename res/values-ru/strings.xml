@@ -68,10 +68,10 @@
   <string name="custom_date_format_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Select a custom date format.">Настройка вида даты.</string>
   <string name="show_logs" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show logs">Показать журналы</string>
   <string name="plans" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Plans">Тарифы</string>
-  <string name="plans_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set your plans for all kind of billing here.">Настройте свои тарифы для всех видов учета.</string>
+  <string name="plans_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set your plans for all kind of billing here.">Настройте тарифы для всех видов учета.</string>
   <string name="plans_new" formatted="false" username="sokolinskayas@gmail.com" orig="New plan">Новый тариф</string>
   <string name="rules" formatted="false">Правила</string>
-  <string name="rules_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set your billing rules here.">Настройте свои правила учета.</string>
+  <string name="rules_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set your billing rules here.">Настройте правила учета.</string>
   <string name="rules_new" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="New Rule">Новое правило</string>
   <string name="numbers" formatted="false">Номера</string>
   <string name="numbergroup_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Include numbers">Учитываемые номера</string>
@@ -299,7 +299,7 @@
   <string name="custom_delimiter_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Custom delimiter">Разделитель</string>
   <string name="custom_delimiter_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set a custom delimiter separating the blocks of statistics.">Установка разделителя, отделяющего блоки статистики.</string>
   <string name="split_sms_at_160_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Split text messages at 160 chars">Делить СМС по 160 символов</string>
-  <string name="autohide_" formatted="false" username="sokolinskayas@gmail.com" orig="Auto hide">Прятать автоматически</string>
+  <string name="autohide_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Auto hide">Скрыть автоматически</string>
   <string name="autohide_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Скрывать диалог после .. секунд. Оставьте пустым для отключения.</string>
   <string name="now" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Now">Сейчас</string>
   <string name="logs" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Logs">Журналы</string>
@@ -457,4 +457,6 @@
   <string name="iswebsms_connector_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Sent with specific WebSMS Connector, leave empty to match any.">Отправить через определенный WebSMS Коннектор, оставьте пустым для любого.</string>
   <string name="widget_details_textsize" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Details Text Size">Размер шрифта Подробно</string>
   <string name="mixed_units_data_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set the units billed for each MB of data traffic.">Установка единиц расчета за каждый Мб трафика.</string>
+  <string name="delete_group_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Delete group">Удалить группу</string>
+  <string name="delete_group_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Do you really want to delete this group?">Вы действительно хотите удалить эту группу?</string>
 </resources>

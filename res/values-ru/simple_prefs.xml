@@ -22,22 +22,22 @@
        -->
 <resources>
   <string name="freemin_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Free minutes">Бесплатные минуты</string>
-  <string name="freemin_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Free minutes / month">Бесплатные минуты / месяц</string>
-  <string name="cost_per_min_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Cost / minute">Стоимость / минута</string>
+  <string name="freemin_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Free minutes / month">Бесплатных минут в месяц</string>
+  <string name="cost_per_min_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Cost / minute">Стоимость минуты</string>
   <string name="freesms_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Free SMS">Бесплатные СМС</string>
-  <string name="freesms_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Free SMS / month">Бесплатные СМС / месяц</string>
-  <string name="cost_per_sms_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Cost / SMS">Стоимость / СМС</string>
+  <string name="freesms_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Free SMS / month">Бесплатных СМС в месяц</string>
+  <string name="cost_per_sms_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Cost / SMS">Стоимость СМС</string>
   <string name="freemms_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Free MMS">Бесплатные ММС</string>
-  <string name="freemms_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Free MMS / month">Бесплатные ММС / месяц</string>
-  <string name="cost_per_mms_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Cost / MMS">Стоимость / ММС</string>
-  <string name="freedata_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Free 2G, 3G or 4G data traffic / month">Бесплатный 2G, 3G или 4G трафик / месяц</string>
+  <string name="freemms_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Free MMS / month">Бесплатных ММС в месяц</string>
+  <string name="cost_per_mms_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Cost / MMS">Стоимость ММС</string>
+  <string name="freedata_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Free 2G, 3G or 4G data traffic / month">Бесплатный 2G, 3G или 4G трафик в месяц</string>
   <string name="freedata_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Free traffic">Бесплатный трафик</string>
-  <string name="cost_per_mb_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Cost / MB">Стоимость / Мб</string>
-  <string name="cost_per_call_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Cost / call">Стоимость / вызов</string>
-  <string name="cost_per_call_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Each call get\'s billed.">Подсчитывается каждый вызов.</string>
-  <string name="cost_per_min_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Each minute get\'s billed.">Подсчитывается каждая минута.</string>
-  <string name="cost_per_sms_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Each SMS get\'s billed.">Подсчитывается каждое СМС.</string>
-  <string name="cost_per_mms_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Each MMS get\'s billed.">Подсчитывается каждое ММС.</string>
-  <string name="cost_per_mb_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Each MB get\'s billed.">Подсчитывается каждый Мб.</string>
+  <string name="cost_per_mb_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Cost / MB">Стоимость Мб</string>
+  <string name="cost_per_call_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Cost / call">Стоимость соединения</string>
+  <string name="cost_per_call_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Each call get\'s billed.">Учитывается каждое соединение.</string>
+  <string name="cost_per_min_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Each minute get\'s billed.">Учитывается каждая минута.</string>
+  <string name="cost_per_sms_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Each SMS get\'s billed.">Учитывается каждое СМС.</string>
+  <string name="cost_per_mms_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Each MMS get\'s billed.">Учитывается каждое ММС.</string>
+  <string name="cost_per_mb_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Each MB get\'s billed.">Учитывается каждый Мб.</string>
   <string name="missing_slash" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Bill mode needs to be in seconds/seconds!">Режим учета должен быть в сек/сек!</string>
 </resources>
