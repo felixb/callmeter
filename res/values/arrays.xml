@@ -223,12 +223,6 @@
         <item>@string/edit_</item>
         <item>@string/delete_</item>
     </string-array>
-    <string-array name="dialog_edit_up_down_delete" translatable="false">
-        <item>@string/edit_</item>
-        <item>@string/up_</item>
-        <item>@string/down_</item>
-        <item>@string/delete_</item>
-    </string-array>
     <string-array name="plans_type_id" translatable="false">
         <item>0</item>
         <item>1</item>

@@ -38,6 +38,7 @@ import com.actionbarsherlock.view.MenuItem;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
+import de.ub0r.android.callmeter.ui.prefs.UpDownPreference.OnUpDownClickListener;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -45,25 +46,21 @@ import de.ub0r.android.lib.Utils;
  * 
  * @author flx
  */
-public final class Rules extends SherlockPreferenceActivity implements OnPreferenceClickListener {
+public final class Rules extends SherlockPreferenceActivity implements OnPreferenceClickListener,
+		OnUpDownClickListener {
 	/** Tag for output. */
 	// private static final String TAG = "pr";
 
 	/** Item menu: edit. */
 	private static final int WHICH_EDIT = 0;
-	/** Item menu: move up. */
-	private static final int WHICH_UP = 1;
-	/** Item menu: move down. */
-	private static final int WHICH_DOWN = 2;
 	/** Item menu: delete. */
-	private static final int WHICH_DELETE = 3;
+	private static final int WHICH_DELETE = 1;
 
 	@SuppressWarnings("deprecation")
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Utils.setLocale(this);
-
 		this.addPreferencesFromResource(R.xml.group_prefs);
 	}
 
@@ -85,8 +82,7 @@ public final class Rules extends SherlockPreferenceActivity implements OnPrefere
 		if (c.moveToFirst()) {
 			String[] types = this.getResources().getStringArray(R.array.rules_type);
 			do {
-				Preference p = new Preference(this);
-				p.setPersistent(false);
+				UpDownPreference p = new UpDownPreference(this, this);
 				p.setKey("group_" + c.getInt(DataProvider.Rules.INDEX_ID));
 				p.setTitle(c.getString(DataProvider.Rules.INDEX_NAME));
 
@@ -227,7 +223,7 @@ public final class Rules extends SherlockPreferenceActivity implements OnPrefere
 			final int id = Integer.parseInt(k.substring("group_".length()));
 			final Uri uri = ContentUris.withAppendedId(DataProvider.Rules.CONTENT_URI, id);
 			final Builder builder = new Builder(this);
-			builder.setItems(R.array.dialog_edit_up_down_delete,
+			builder.setItems(R.array.dialog_edit_delete,
 					new android.content.DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(final DialogInterface dialog, final int which) {
@@ -236,16 +232,6 @@ public final class Rules extends SherlockPreferenceActivity implements OnPrefere
 								final Intent intent = new Intent(Rules.this, RuleEdit.class);
 								intent.setData(uri);
 								Rules.this.startActivity(intent);
-								break;
-							case WHICH_UP:
-								Rules.this.move(uri, -1);
-								Preferences.setDefaultPlan(Rules.this, false);
-								RuleMatcher.unmatch(Rules.this);
-								break;
-							case WHICH_DOWN:
-								Rules.this.move(uri, 1);
-								Preferences.setDefaultPlan(Rules.this, false);
-								RuleMatcher.unmatch(Rules.this);
 								break;
 							case WHICH_DELETE:
 								Rules.this.getContentResolver().delete(
@@ -265,5 +251,13 @@ public final class Rules extends SherlockPreferenceActivity implements OnPrefere
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public void onUpDownClick(final Preference preference, final int direction) {
+		String k = preference.getKey();
+		int id = Integer.parseInt(k.substring("group_".length()));
+		Uri uri = ContentUris.withAppendedId(DataProvider.Rules.CONTENT_URI, id);
+		this.move(uri, direction);
 	}
 }
