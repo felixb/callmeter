@@ -15,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.lib.Log;
 
 /**
  * DatePreference holding it's value in {@link ContentValues}.
@@ -22,6 +23,7 @@ import de.ub0r.android.callmeter.R;
  * @author flx
  */
 public final class CVDatePreference extends DialogPreference implements OnTimeSetListener {
+	private static final String TAG, "CVDatePreference";
 
 	/** {@link ContentValues} for saving values. */
 	private final ContentValues cv;
@@ -127,8 +129,14 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
 		if (this.dp == null) {
 			return;
 		}
-		this.dp.updateDate(this.v.get(Calendar.YEAR), this.v.get(Calendar.MONTH),
-				this.v.get(Calendar.DAY_OF_MONTH));
+		try {
+			this.dp.updateDate(this.v.get(Calendar.YEAR), this.v.get(Calendar.MONTH),
+					this.v.get(Calendar.DAY_OF_MONTH));
+		} catch (ArrayIndexOutOfBoundsException e) {
+			Log.e(TAG, "date array out of bound", e);
+			this.v.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
+			this.setValue(this.v);
+		}
 	}
 
 	@Override
