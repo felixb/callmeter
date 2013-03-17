@@ -23,7 +23,7 @@ import de.ub0r.android.lib.Log;
  * @author flx
  */
 public final class CVDatePreference extends DialogPreference implements OnTimeSetListener {
-	private static final String TAG, "CVDatePreference";
+	private static final String TAG = "CVDatePreference";
 
 	/** {@link ContentValues} for saving values. */
 	private final ContentValues cv;

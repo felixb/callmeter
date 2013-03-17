@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 		Copyright (C) 2009-2012 Felix Bechstein -->
+<!-- Copyright (C) 2009-2012 Felix Bechstein -->
 <!--
 		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
@@ -27,10 +27,12 @@
         android:background="@android:color/transparent"
         android:clickable="true"
         android:orientation="vertical"
-        android:paddingBottom="3dp"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp"
-        android:paddingTop="3dp" >
+        android:paddingBottom="4dp"
+        android:paddingEnd="4dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingStart="4dp"
+        android:paddingTop="4dp" >
 
         <ImageView
             android:id="@+id/widget_bg"
@@ -52,6 +54,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
                 android:paddingTop="1dp"
+                android:singleLine="true"
                 android:text="@+id/plan"
                 android:textColor="#FFFFFFFF"
                 android:textSize="10dp"
