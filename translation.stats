@@ -72,10 +72,10 @@ res/values-hi/strings.xml:7
 res/values-hr/donation.xml:5
 res/values-hr/help.xml:14
 res/values-hr/intro.xml:10
-res/values-hr/market.xml:7
+res/values-hr/market.xml:8
 res/values-hr/notes.xml:0
 res/values-hr/simple_prefs.xml:19
-res/values-hr/strings.xml:436
+res/values-hr/strings.xml:438
 res/values-hu/donation.xml:5
 res/values-hu/help.xml:14
 res/values-hu/intro.xml:10
@@ -177,7 +177,7 @@ res/values-el:359
 res/values-es:478
 res/values-fr:491
 res/values-hi:7
-res/values-hr:491
+res/values-hr:494
 res/values-hu:487
 res/values-it:488
 res/values-iw:446

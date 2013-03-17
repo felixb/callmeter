@@ -457,4 +457,6 @@
   <string name="import_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Import">Uvezi</string>
   <string name="import_link_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="More info">Više informacija</string>
   <string name="import_rules_users" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Users\' rules">Korisnička pravila</string>
+  <string name="delete_group_hint" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Do you really want to delete this group?">Da li stvarno želite obrisati ovu grupu.</string>
+  <string name="delete_group_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Delete group">Obriši grupu</string>
 </resources>
