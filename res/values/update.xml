@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates" translatable="false">
+		<item>v3.8.3: UI improvements, Russian translation added, translation updates</item>
 		<item>v3.8.2: hide total stats by default, hide amount for "total merger plans", include/exclude numbers for MMS</item>
 		<item>v3.8.1: fix limit calculation for cost limits, fix mixed plans merging data plans, fix cost in mixed plans merging other plans</item>
 		<item>v3.8: show users\' rules in app, fix custom bill mode settings, update translation</item>
