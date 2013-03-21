@@ -434,4 +434,12 @@
   <string name="direction_" formatted="false" username="daleckystepan@gmail.com" orig="Direction">Směr</string>
   <string name="strip_past_" formatted="false" username="daleckystepan@gmail.com" orig="Do not bill anything after seconds">Neúčtovat nic po tolika sekundách</string>
   <string name="strip_past_help" formatted="false" username="daleckystepan@gmail.com" orig="Do not bill anything after x seconds of a call.">Neúčtovat nic po x sekundách hovoru</string>
+  <string name="widget_stats_title" formatted="false" username="Vlastik &lt;vlastiksk@gmail.com&gt;" orig="Call Meter (stats)">Call Meter (statistiky)</string>
+  <string name="widget_logs_title" formatted="false" username="Vlastik &lt;vlastiksk@gmail.com&gt;" orig="Call Meter (last log)">Call Meter (poslední výpisy)</string>
+  <string name="my_sim_id_" formatted="false" username="Vlastik &lt;vlastiksk@gmail.com&gt;" orig="SIM Id">SIM Id</string>
+  <string name="my_sim_id_help" formatted="false" username="Vlastik &lt;vlastiksk@gmail.com&gt;" orig="Match only logs done with this SIM.">Spárovat pouze výpisy udělané s touto SIM.</string>
+  <string name="delete_group_" formatted="false" username="Vlastik &lt;vlastiksk@gmail.com&gt;" orig="Delete group">Smazat skupinu</string>
+  <string name="delete_group_hint" formatted="false" username="Vlastik &lt;vlastiksk@gmail.com&gt;" orig="Do you really want to delete this group?">Opravdu chete smazat tuto skupinu?</string>
+  <string name="mixed_units_data_" formatted="false" username="Vlastik &lt;vlastiksk@gmail.com&gt;" orig="Units for data">Jednotky pro data</string>
+  <string name="iswebsms_" formatted="false" username="Vlastik &lt;vlastiksk@gmail.com&gt;" orig="Is WebSMS">Je WebSMS</string>
 </resources>
