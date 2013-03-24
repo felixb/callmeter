@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
+<!--
 		Copyright (C) 2009-2012 Felix Bechstein
 	-->
-	<!--
+<!--
 		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
 		version.
 	-->
-	<!--
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -18,4 +18,5 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string name="market_about" formatted="false" username="dany945@gmail.com" orig="Call Meter lets you keep an eye on your mobile plans.\n\nIt shows statistics of your calls/sms/txt/data traffic and lets you set limits for each of these plans.\nCall Meter supports a huge amount of billing modes to let you adapt it\'s behaviour to your operators billing.">Call Meter 能讓幫你盯著行動通訊方案.\n它能顯示通話、簡訊與上網的統計資料，並讓你設定各個警示範圍。Call Meter支援通信費用計算，讓你找到適合你的費率。</string>
 </resources>
