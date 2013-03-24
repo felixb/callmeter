@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2012 Felix Bechstein
+ * Copyright (C) 2010-2013 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
