@@ -213,7 +213,7 @@ public final class StatsAppWidgetConfigure extends SherlockActivity implements O
 			this.finish();
 			break;
 		case R.id.textcolor:
-			new AmbilWarnaDialog(this, this.getBgColor(), new OnAmbilWarnaListener() {
+			new AmbilWarnaDialog(this, this.getTextColor(), new OnAmbilWarnaListener() {
 				@Override
 				public void onOk(final AmbilWarnaDialog dialog, final int color) {
 					StatsAppWidgetConfigure.this.setTextColor(color);
@@ -387,7 +387,7 @@ public final class StatsAppWidgetConfigure extends SherlockActivity implements O
 	 */
 	private void setBgColor(final int color, final boolean fromProgressBar) {
 		Log.d(TAG, "setBgColor(" + color + ", " + fromProgressBar + ")");
-		String hex = "#" + Integer.toHexString(color);
+		String hex = AmbilWarnaDialog.colorToString(color);
 		Log.d(TAG, "color: " + hex);
 		while (hex.length() < 9) {
 			hex = "#0" + hex.substring(1);
@@ -423,7 +423,7 @@ public final class StatsAppWidgetConfigure extends SherlockActivity implements O
 	 */
 	private void setTextColor(final int color) {
 		Log.d(TAG, "setTextColor(" + color + ")");
-		String hex = "#" + Integer.toHexString(color);
+		String hex = AmbilWarnaDialog.colorToString(color);
 		Log.d(TAG, "color: " + hex);
 		while (hex.length() < 9) {
 			hex = "#0" + hex.substring(1);
