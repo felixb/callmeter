@@ -29,7 +29,6 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceScreen;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -308,7 +307,6 @@ public final class NumberGroupEdit extends SherlockPreferenceActivity implements
 	private void showNumberDialog(final long nid) {
 		final Builder builder = new Builder(this);
 		final EditText et = new EditText(this);
-		et.setInputType(InputType.TYPE_CLASS_PHONE);
 		if (nid >= 0) {
 			et.setText(this.getNumber(nid));
 		}
