@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2012 Felix Bechstein
+ * Copyright (C) 2010-2013 Felix Bechstein
  * 
  * This file is part of Call Meter 3G.
  * 
@@ -198,7 +198,7 @@ public final class LogsAppWidgetConfigure extends SherlockActivity implements On
 			this.finish();
 			break;
 		case R.id.textcolor:
-			new AmbilWarnaDialog(this, this.getBgColor(), new OnAmbilWarnaListener() {
+			new AmbilWarnaDialog(this, this.getTextColor(), new OnAmbilWarnaListener() {
 				@Override
 				public void onOk(final AmbilWarnaDialog dialog, final int color) {
 					LogsAppWidgetConfigure.this.setTextColor(color);
@@ -367,12 +367,7 @@ public final class LogsAppWidgetConfigure extends SherlockActivity implements On
 	 */
 	private void setBgColor(final int color, final boolean fromProgressBar) {
 		Log.d(TAG, "setBgColor(" + color + ", " + fromProgressBar + ")");
-		String hex = "#" + Integer.toHexString(color);
-		Log.d(TAG, "color: " + hex);
-		while (hex.length() < 9) {
-			hex = "#0" + hex.substring(1);
-			Log.d(TAG, "color: " + hex);
-		}
+		String hex = AmbilWarnaDialog.colorToString(color);
 		this.btnBgColor.setText(hex);
 		this.vBgColor.setBackgroundColor(color);
 		if (!fromProgressBar) {
@@ -403,7 +398,7 @@ public final class LogsAppWidgetConfigure extends SherlockActivity implements On
 	 */
 	private void setTextColor(final int color) {
 		Log.d(TAG, "setTextColor(" + color + ")");
-		String hex = "#" + Integer.toHexString(color);
+		String hex = AmbilWarnaDialog.colorToString(color);
 		Log.d(TAG, "color: " + hex);
 		while (hex.length() < 9) {
 			hex = "#0" + hex.substring(1);

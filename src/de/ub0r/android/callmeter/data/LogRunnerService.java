@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2012 Felix Bechstein
+ * Copyright (C) 2009-2013 Felix Bechstein
  * 
  * This file is part of CallMeter 3G.
  * 
@@ -785,7 +785,7 @@ public final class LogRunnerService extends IntentService {
 		splitAt160 = p.getBoolean(Preferences.PREFS_SPLIT_SMS_AT_160, false);
 		final boolean showCallInfo = p.getBoolean(Preferences.PREFS_SHOWCALLINFO, false);
 		final boolean askForPlan = p.getBoolean(Preferences.PREFS_ASK_FOR_PLAN, false);
-		final String deleimter = p.getString(Preferences.PREFS_DELIMITER, " | ");
+		final String delimiter = p.getString(Preferences.PREFS_DELIMITER, " | ");
 
 		final boolean runMatcher = a != null && a.equals(ACTION_RUN_MATCHER);
 		boolean shortRun = runMatcher
@@ -875,7 +875,7 @@ public final class LogRunnerService extends IntentService {
 					sb.append(Common.prettySeconds(amount, false));
 					if (cost > 0) {
 						String currencyFormat = Preferences.getCurrencyFormat(this);
-						sb.append(deleimter + String.format(currencyFormat, cost));
+						sb.append(delimiter + String.format(currencyFormat, cost));
 					}
 					if (planname != null) {
 						sb.insert(0, planname + ": ");

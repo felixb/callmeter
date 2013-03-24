@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011-2012 Felix Bechstein
+ * Copyright (C) 2011-2013 Felix Bechstein
  * 
  * This file is part of ub0rlib.
  * 
