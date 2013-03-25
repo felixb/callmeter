@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
+<!--
 		Copyright (C) 2009-2012 Felix Bechstein
 	-->
-	<!--
+<!--
 		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
 		version.
 	-->
-	<!--
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -18,4 +18,6 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string name="intro_" formatted="false" username="dany945@gmail.com" orig="Introducing Call Meter 3G">Call Meter 3G 介紹</string>
+  <string name="intro0" formatted="false" username="dany945@gmail.com" orig="&lt;b&gt;Call Meter 3G&lt;/b&gt; monitors usage of your calls, messages and data connections."><b>Call Meter</b> 監控您的電話、簡訊與連線上網。</string>
 </resources>
