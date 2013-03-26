@@ -20,4 +20,7 @@
 <resources>
   <string name="intro_" formatted="false" username="dany945@gmail.com" orig="Introducing Call Meter 3G">Call Meter 3G 介紹</string>
   <string name="intro0" formatted="false" username="dany945@gmail.com" orig="&lt;b&gt;Call Meter 3G&lt;/b&gt; monitors usage of your calls, messages and data connections."><b>Call Meter</b> 監控您的電話、簡訊與連線上網。</string>
+  <string name="intro1" formatted="false" username="dany945@gmail.com" orig="In order to get accurate statistics, it is important to set up Call Meter 3G as accurately as possible.">為了的到準確的統計資料，設定Call Meter 3G時越精確越好。</string>
+  <string name="intro_simple" formatted="false" username="dany945@gmail.com" orig="Most users only need to set their settings in menu &lt;b&gt;Basic settings&lt;/b&gt;. Just set the number of inclusive minutes or messages. Set up cost for calls made, etc..">大多數的使用者只需使用選單上的<b>基本設定</b>，只要設定每分鐘通話與每次簡訊的費用等項目即可。</string>
+  <string name="intro_export" formatted="false" username="dany945@gmail.com" orig="In any case, when everything is set up, you can export your rules to me. Thus, all other users can benefit from your work.">當一切設定好，任何時候您可以匯出你的計算法則給我。這樣的話所有其他的使用者可以分享到您提供的設定。</string>
 </resources>
