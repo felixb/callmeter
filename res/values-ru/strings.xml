@@ -55,7 +55,7 @@
   <string name="theme_" formatted="false">Темы</string>
   <string name="textsize_" formatted="false">Размер шрифта</string>
   <string name="textsize_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Text size in pixels; leave empty for default">Размер шрифта в пикселях; оставьте пустым по умолчанию</string>
-  <string name="show_time_" formatted="false">Перейти по дате</string>
+  <string name="show_time_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Switch to date">Перейти к дате</string>
   <string name="show_titlebar_" formatted="false">Показ строки заголовка</string>
   <string name="show_titlebar_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show title bar in main view. Without title bar, there is no way to see background activity.">Показ строки заголовка в главном окне. Без строки заголовка невозможно наблюдать за фоновой активностью.</string>
   <string name="show_hours_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show hours">Время подробно</string>
