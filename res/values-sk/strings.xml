@@ -134,7 +134,7 @@
     <item>Tmavý</item>
     <item>Svetlý</item>
   </string-array>
-  <string-array name="textsize">
+  <string-array name="textsize" username="f_b@email.cz">
     <item>Malý</item>
     <item>Veľký</item>
   </string-array>
