@@ -40,4 +40,45 @@
   <string name="delete_old_logs_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Delete logs older than">刪除較舊的登錄資料</string>
   <string name="up_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Move up">上_</string>
   <string name="down_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Move down">下_</string>
+  <string name="delete_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Delete">刪除_</string>
+  <string name="about_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="About">關於</string>
+  <string name="feedback_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Feedback">回饋</string>
+  <string name="more_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="More Apps..">更多應用..</string>
+  <string name="billing_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Billing">計費</string>
+  <string name="billday_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="First day of your bill">計費的第一天</string>
+  <string name="behavior_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Behavior">行為</string>
+  <string name="simple_preferences_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Simple preferences">簡易選項</string>
+  <string name="theme_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Theme">主題</string>
+  <string name="textsize_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Text size">字體大小</string>
+  <string name="textsize_title_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Title\'s text size">主題的字體大小</string>
+  <string name="textsize_spacer_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Spacer\'s size">分間線大小</string>
+  <string name="show_today_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Show today">顯示今天</string>
+  <string name="show_today_hint" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Show today stats">顯示今天統計</string>
+  <string name="show_total_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Show total">顯示總計</string>
+  <string name="show_titlebar_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Show title bar">顯示主題</string>
+  <string name="show_time_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Switch to date">轉到今天</string>
+  <string name="show_total_hint" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Show total stats, disable to see current only.">顯示總計統計，</string>
+  <string name="show_help_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Show help">顯示說明</string>
+  <string name="show_cost_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Show cost">顯示成本</string>
+  <string name="show_icon_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Show icon">顯示圖示</string>
+  <string name="hide_name_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Hide name of plan">隱藏計畫名稱</string>
+  <string name="show_hours_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Show hours">顯示小時</string>
+  <string name="show_calllength_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Show info after hanging up">掛線後顯示資料</string>
+  <string name="hide_zero_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Hide empty plans">隱藏空的計劃</string>
+  <string name="custom_currency_format_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Custom currency format">自訂貨幣格式</string>
+  <string name="custom_currency_format_hint" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Select a custom currency format.">選擇自訂貨幣格式</string>
+  <string name="custom_date_format_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Custom date format">自訂日期格式</string>
+  <string name="custom_date_format_hint" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Select a custom date format.">選擇自訂日期格式</string>
+  <string name="autohide_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Auto hide">自動隱藏</string>
+  <string name="now" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Now">現在</string>
+  <string name="plans" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Plans">計劃</string>
+  <string name="plans_new" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="New plan">新的計劃</string>
+  <string name="sms" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="SMS">短信</string>
+  <string name="sms_in" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="SMS In">接收短信</string>
+  <string name="sms_in_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="SMSIn">接收短信</string>
+  <string name="sms_out" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="SMS Out">發出短信</string>
+  <string name="sms_out_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="SMSOut">發出短信</string>
+  <string name="data" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Data">數據</string>
+  <string name="data_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Data (2G/3G/4G)">數據 (2G/3G/4G)</string>
+  <string name="prepaid_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Prepaid plan">預付費計劃</string>
 </resources>
