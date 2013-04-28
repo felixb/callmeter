@@ -18,14 +18,14 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-  <string name="changelog_notification_" formatted="false" username="dany945@gmail.com" orig="Recent changes:">近來的變化</string>
+  <string name="changelog_notification_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Recent changes:">近來變化</string>
   <string name="changelog_notification_text" formatted="false" username="dany945@gmail.com" orig="Click here to show recent changes of">按這裡顯示近來的變化</string>
   <string name="never_show_again" formatted="false" username="dany945@gmail.com" orig="Never show changelog again">不再顯示變化紀錄</string>
   <string name="notes_from_developer_" formatted="false" username="dany945@gmail.com" orig="Notes from developer">開發者註釋</string>
   <string name="notes_from_developer_text" formatted="false" username="dany945@gmail.com" orig="Click here to show recent news from the developer">按這裡顯示開發者近來的消息</string>
-  <string name="about0_" formatted="false" username="dany945@gmail.com" orig="Watch your call, message and data plans!">注意您的通話、簡訊與網路通訊方案</string>
-  <string name="about0" formatted="false" username="dany945@gmail.com" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter從通話、簡訊與網路通訊紀錄來產生報表，支援數種計費模式。</string>
-  <string name="about1" formatted="false" username="dany945@gmail.com" orig="The output format is usage | time or count used this billing period | time or count overall.">輸出格式為使用 | 時間或計算帳單使用週期 | 時間或全部計算</string>
+  <string name="about0_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Watch your call, message and data plans!">請留意你的通話、簡訊與網路通訊費用計劃！</string>
+  <string name="about0" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter 可從通話、短信與通訊紀錄產生報表，支援數種計費模式。</string>
+  <string name="about1" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="The output format is usage | time or count used this billing period | time or count overall.">輸出格式為用量、時間或計算帳單週期、時間或全部計算。</string>
   <string name="add_" formatted="false" username="dany945@gmail.com" orig="Add">新增</string>
   <string name="length_hint_call" formatted="false" username="dany945@gmail.com" orig="Length in seconds">時間長度(秒)</string>
   <string name="length_hint_data" formatted="false" username="dany945@gmail.com" orig="Length in kB">資料大小 (kB)</string>
@@ -33,6 +33,11 @@
   <string name="update_interval_" formatted="false" username="dany945@gmail.com" orig="Update interval">更新間隔</string>
   <string name="author_and_many_more" formatted="false" username="dany945@gmail.com" orig="and many more...">和更多更多的....</string>
   <string name="send_" formatted="false" username="dany945@gmail.com" orig="Send">發送</string>
-  <string name="update_interval_hint" formatted="false" username="dany945@gmail.com" orig="Shorter period will use more battery.">更短的週期將越耗電。</string>
+  <string name="update_interval_hint" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Shorter period will use more battery.">越短的週期將越耗電。</string>
   <string name="update_interval_data_" formatted="false" username="dany945@gmail.com" orig="Update interval (data)">更新間隔 (資料)</string>
+  <string name="add_log" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Add log entry">新增紀錄項目。</string>
+  <string name="date_begin_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Beginning of records">紀錄開端</string>
+  <string name="delete_old_logs_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Delete logs older than">刪除較舊的登錄資料</string>
+  <string name="up_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Move up">上</string>
+  <string name="down_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Move down">下_</string>
 </resources>

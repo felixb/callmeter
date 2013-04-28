@@ -176,11 +176,11 @@ res/values-zh-rCN/simple_prefs.xml:0
 res/values-zh-rCN/strings.xml:283
 res/values-zh-rTW/donation.xml:0
 res/values-zh-rTW/help.xml:0
-res/values-zh-rTW/intro.xml:9
+res/values-zh-rTW/intro.xml:10
 res/values-zh-rTW/market.xml:8
 res/values-zh-rTW/notes.xml:0
 res/values-zh-rTW/simple_prefs.xml:0
-res/values-zh-rTW/strings.xml:17
+res/values-zh-rTW/strings.xml:22
 res/values:548
 res/values-ar:2
 res/values-bg:373
@@ -206,4 +206,4 @@ res/values-sk:322
 res/values-sv:80
 res/values-tr:467
 res/values-zh-rCN:284
-res/values-zh-rTW:34
+res/values-zh-rTW:40
