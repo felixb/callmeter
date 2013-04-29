@@ -38,9 +38,9 @@
   <string name="add_log" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Add log entry">新增紀錄項目。</string>
   <string name="date_begin_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Beginning of records">紀錄開端</string>
   <string name="delete_old_logs_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Delete logs older than">刪除較舊的登錄資料</string>
-  <string name="up_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Move up">上_</string>
-  <string name="down_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Move down">下_</string>
-  <string name="delete_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Delete">刪除_</string>
+  <string name="up_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Move up">上</string>
+  <string name="down_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Move down">下</string>
+  <string name="delete_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Delete">刪除</string>
   <string name="about_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="About">關於</string>
   <string name="feedback_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="Feedback">回饋</string>
   <string name="more_" formatted="false" username="modleung &lt;modleung@gmail.com&gt;" orig="More Apps..">更多應用..</string>
