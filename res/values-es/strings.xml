@@ -323,7 +323,7 @@
   <string name="view_logs_">Ver registros</string>
   <string name="title">Título</string>
   <string name="spacer">Espaciador</string>
-  <string name="mixed">Llamadas</string>
+  <string name="mixed" username="Ignacio Larrain &lt;ilarrain@gmail.com&gt;" orig="Mixed">Mixto</string>
   <string name="limit_type_unlimited">Sin límite</string>
   <string name="limit_type_units">Unidades</string>
   <string name="limit_type_cost">coste</string>
