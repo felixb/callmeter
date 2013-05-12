@@ -37,7 +37,6 @@
   <string name="faq_hint" formatted="false" username="KarloZ" orig="Some tips and tricks, how to set up this app.">Tipy a triky jak nastavit aplikaci.</string>
   <string name="feedback_" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="Feedback">Vaše připomínky</string>
   <string name="feedback_hint" formatted="false" username="KarloZ" orig="Report bugs, request features ...">Ohlásit chyby, zaslat požadavky ...</string>
-  <string name="twitter_hint" formatted="false" username="KarloZ" orig="Follow me on twitter.\nGet update notifications etc.">Následuj mě na Twitteru\nInfo o nových verzích apod.</string>
   <string name="more_" formatted="false" username="KarloZ" orig="More Apps..">Další aplikace..</string>
   <string name="billday_" formatted="false" username="Jiri (IJK) &lt;j.kolarik.cz@gmail.com&gt;" orig="First day of your bill">První den účtovacího období</string>
   <string name="billmode_" formatted="false" username="KarloZ" orig="Mode of billing">Způsob zúčtování</string>

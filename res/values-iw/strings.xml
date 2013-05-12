@@ -37,7 +37,6 @@
   <string name="faq_hint" formatted="false">מספר טיפים וטריקים כיצד להגדיר יישום זה.</string>
   <string name="feedback_" formatted="false">משוב</string>
   <string name="feedback_hint" formatted="false">דווח על באגים, בקש תכונות נוספות...</string>
-  <string name="twitter_hint" formatted="false">עקוב אחרי בטוויטר.\nקבל עידכונים, התראות וכו\'.</string>
   <string name="more_" formatted="false">יישומים נוספים..</string>
   <string name="billday_" formatted="false">היום הראשון לחיוב</string>
   <string name="billmode_" formatted="false">מצב חיוב</string>

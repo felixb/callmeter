@@ -578,11 +578,6 @@
 			<intent android:action="android.intent.action.VIEW"
 				android:data="http://code.google.com/p/callmeter/issues/list" />
 		</PreferenceScreen>
-		<PreferenceScreen android:title="@string/twitter_"
-			android:summary="@string/twitter_hint">
-			<intent android:action="android.intent.action.VIEW"
-				android:data="http://twitter.com/flx_b" />
-		</PreferenceScreen>
 		<PreferenceScreen android:key="more_apps"
 			android:title="@string/more_" />
 	</PreferenceCategory>

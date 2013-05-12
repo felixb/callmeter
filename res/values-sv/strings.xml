@@ -37,7 +37,6 @@
   <string name="faq_hint" formatted="false">Några tips och trix för att ställa in programmet.</string>
   <string name="feedback_" formatted="false">Feedback</string>
   <string name="feedback_hint" formatted="false">Rapportera buggar, föreslå funktioner ...</string>
-  <string name="twitter_hint" formatted="false">Följ mig på twitter.\nFå notifieringar om uppdateringar mm.</string>
   <string name="more_" formatted="false">Fler program...</string>
   <string name="billday_" formatted="false">Första kostnadsdag </string>
   <string name="billmode_" formatted="false">Kostnadsläge </string>

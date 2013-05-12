@@ -37,7 +37,6 @@
   <string name="faq_hint" formatted="false">Kilka informacji, jak skonfigurować aplikację</string>
   <string name="feedback_" formatted="false">Kontakt</string>
   <string name="feedback_hint" formatted="false" username="najodleglejszy" orig="Report bugs, request features ...">Zgłoś problemy, sugestie...</string>
-  <string name="twitter_hint" formatted="false">Obserwuj mojego twittera.\nOtrzymasz informacje o aktualizacjach, itp.</string>
   <string name="more_" formatted="false">Więcej aplikacji...</string>
   <string name="billday_" formatted="false">Pierwszy dzień rachunku</string>
   <string name="billmode_" formatted="false">Rodzaj cyklu</string>
