@@ -129,6 +129,8 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 		private static String currencyFormat = "$%.2f";
 		/** Show hours and days. */
 		private static boolean pShowHours = true;
+		/** Show target bill day. */
+		private static boolean pShowTargetBillDay = false;
 
 		/** Prepaid plan? */
 		private static boolean prepaid;
@@ -154,6 +156,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 			Common.setDateFormat(context);
 			final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 			pShowHours = p.getBoolean(Preferences.PREFS_SHOWHOURS, true);
+			pShowTargetBillDay = p.getBoolean(Preferences.PREFS_SHOW_TARGET_BILLDAY, false);
 			currencyFormat = Preferences.getCurrencyFormat(context);
 			delimiter = p.getString(Preferences.PREFS_DELIMITER, " | ");
 			prepaid = p.getBoolean(Preferences.PREFS_PREPAID, false);
@@ -230,8 +233,10 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 
 			if (plan.type != DataProvider.TYPE_SPACING && plan.type != DataProvider.TYPE_TITLE) {
 				if (plan.hasBa) {
+					long bd = plan.getBillDay(plan.type == DataProvider.TYPE_BILLPERIOD
+							&& pShowTargetBillDay);
 					spb.append(Common.formatValues(context, plan.now, plan.type, plan.bpCount,
-							plan.bpBa, plan.billperiod, plan.billday, pShowHours));
+							plan.bpBa, plan.billperiod, bd, pShowHours));
 					spb.setSpan(new StyleSpan(Typeface.BOLD), 0, spb.length(),
 							Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 					if (plan.type != DataProvider.TYPE_BILLPERIOD) {

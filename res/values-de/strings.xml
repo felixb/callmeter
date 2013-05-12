@@ -100,6 +100,8 @@
   <string name="show_icon_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Show icon">Zeige Icon</string>
   <string name="hide_name_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Hide name of plan">Namen des Kontingents ausblenden</string>
   <string name="small_widget_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Use small widget">Kleines Widget</string>
+	<string name="show_target_billday_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;">Zeige letzten Abrechnungstag</string>
+	<string name="show_target_billday_hint" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;">Zeige den letzten Tag einer Rechnung, nicht den ersten.</string>
   <string name="show_calllength_" formatted="false">Zeige Infos nach dem Auflegen</string>
   <string name="show_calllength_hint" formatted="false">Zeige Länge/Kosten des Anrufs nach dem Auflegen.</string>
   <string name="hide_zero_" formatted="false">Verstecke leere Kontingente</string>

@@ -845,6 +845,35 @@ public final class DataProvider extends ContentProvider {
 			}
 
 			/**
+			 * Get last full day of this billing period.
+			 */
+			public long getLastFullBillDay() {
+				Calendar c = Calendar.getInstance();
+				c.setTimeInMillis(this.nextbillday);
+				c.set(Calendar.MILLISECOND, 0);
+				c.set(Calendar.SECOND, 0);
+				c.set(Calendar.MINUTE, 0);
+				c.set(Calendar.HOUR_OF_DAY, 0);
+				c.set(Calendar.SECOND, -1);
+				return c.getTimeInMillis();
+			}
+
+			/**
+			 * Get bill day.
+			 * 
+			 * @param last
+			 *            true to get the last full day of a bill period, else
+			 *            the first
+			 */
+			public long getBillDay(final boolean last) {
+				if (last) {
+					return this.getLastFullBillDay();
+				} else {
+					return this.billday;
+				}
+			}
+
+			/**
 			 * {@inheritDoc}
 			 */
 			@Override

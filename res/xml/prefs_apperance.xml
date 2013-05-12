@@ -32,6 +32,10 @@
     </PreferenceScreen>
 
     <CheckBoxPreference
+        android:key="show_target_billday"
+        android:summary="@string/show_target_billday_hint"
+        android:title="@string/show_target_billday_" />
+    <CheckBoxPreference
         android:key="hide_zero"
         android:summary="@string/hide_zero_hint"
         android:title="@string/hide_zero_" />

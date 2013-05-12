@@ -105,6 +105,8 @@
 	<string name="show_icon_">Show icon</string>
 	<string name="hide_name_">Hide name of plan</string>
 	<string name="small_widget_">Use small widget</string>
+	<string name="show_target_billday_">Show last bill day</string>
+	<string name="show_target_billday_hint">Show last day of bill instead of first.</string>
 	<string name="show_calllength_">Show info after hanging up</string>
 	<string name="show_calllength_hint">Show length/cost of a call after hanging up.</string>
 	<string name="hide_zero_">Hide empty plans</string>
