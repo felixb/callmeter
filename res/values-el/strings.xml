@@ -127,7 +127,6 @@
   </string-array>
   <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app." username="ipolatidis">Μερικές συμβουλές και κόλπα, πως να ρυθμίζεται αυτή η εφαρμογή</string>
   <string name="feedback_" formatted="false" orig="Feedback">ανατροφοδότηση</string>
-  <string name="twitter_hint" formatted="false" orig="Follow me on twitter.\nGet update notifications etc.">Ακολουθείστε με στο twitter.\nΛηψη ειδοποιήσεων για ενημερώσεις</string>
   <string name="reset_data_data_" formatted="false" orig="Reset traffic too.">Επίσης, μηδενισμός της κίνησης.</string>
   <string name="exclude_people_to_plan1_" formatted="false" orig="Excluded numbers to plan #1">Εξαίρεση αριθμών στο πλάνο #1</string>
   <string name="exclude_people_to_plan2_" formatted="false" orig="Excluded numbers to plan #2">Εξαίρεση αριθμών στο πλάνο #2</string>

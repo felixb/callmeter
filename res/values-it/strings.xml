@@ -39,7 +39,6 @@
   <string name="faq_hint" formatted="false">Suggerimenti per impostare questa applicazione.</string>
   <string name="feedback_" formatted="false">Commenti</string>
   <string name="feedback_hint" formatted="false">Segnala anomalie, richiedi nuove funzioni...</string>
-  <string name="twitter_hint" formatted="false" orig="Follow me on twitter.\nGet update notifications etc.">Seguimi su twitter.\nRimani informato sugli aggiornamenti, ecc.</string>
   <string name="more_" formatted="false">Altre applicazioni...</string>
   <string name="billday_" formatted="false">Primo giorno del conteggio</string>
   <string name="billmode_" formatted="false">Modalità di conteggio</string>

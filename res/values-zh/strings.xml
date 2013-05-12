@@ -37,7 +37,6 @@
   <string name="faq_hint" formatted="false">设置这个程序的小贴士.</string>
   <string name="feedback_" formatted="false">反馈</string>
   <string name="feedback_hint" formatted="false">报告漏洞,建议添加新功能...</string>
-  <string name="twitter_hint" formatted="false">在twitter上关注我.\n获取升级通知.</string>
   <string name="more_" formatted="false">更多程序..</string>
   <string name="billday_" formatted="false">账单周期开始日</string>
   <string name="billmode_" formatted="false">支付模式</string>

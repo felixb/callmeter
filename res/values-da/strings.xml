@@ -33,7 +33,6 @@
   <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app.">Tips og triks, om hvordan man indstiller denne app</string>
   <string name="feedback_" formatted="false" username="basse1996" orig="Feedback">Kommentarer</string>
   <string name="feedback_hint" formatted="false" username="basse1996" orig="Report bugs, request features ...">Rapporter fejl, Foreslå nogen forbedringer</string>
-  <string name="twitter_hint" formatted="false" username="basse1996" orig="Follow me on twitter.\nGet update notifications etc.">Følg mig på twitter.\nFå opdaterings informationer osv.</string>
   <string name="more_" formatted="false" username="basse1996" orig="More Apps..">Flere Apps..</string>
   <string name="billday_" formatted="false" username="basse1996" orig="First day of your bill">Første dag for din faktura</string>
   <string name="billmode_" formatted="false" username="basse1996" orig="Mode of billing">Faktura metode</string>

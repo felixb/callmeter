@@ -37,7 +37,6 @@
   <string name="faq_hint" formatted="false">Tipy a triky ako nastaviť aplikáciu.</string>
   <string name="feedback_" formatted="false">Feedback</string>
   <string name="feedback_hint" formatted="false">Ohlásiť chybu, poslať požiadavku na funkčnosť.</string>
-  <string name="twitter_hint" formatted="false">Následuj ma na Twitteri\nInfo o nových verziách apod.</string>
   <string name="more_" formatted="false">Daľšie aplikácie autora..</string>
   <string name="billday_" formatted="false">Začiatok zúčtovacieho obdobia</string>
   <string name="billmode_" formatted="false">Tarifikácia</string>

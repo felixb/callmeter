@@ -37,7 +37,6 @@
   <string name="faq_hint" formatted="false">Bu uygulamanın ayarlarını yapmak için bazı ipuçları.</string>
   <string name="feedback_" formatted="false" orig="Feedback">Geribildirim</string>
   <string name="feedback_hint" formatted="false">Hata bildirin, özellik eklenmesini talep edin..</string>
-  <string name="twitter_hint" formatted="false">Beni twitter\'da takip et.\nGüncelleme bildirimlerini al vb.</string>
   <string name="more_" formatted="false">Daha fazla uygulama..</string>
   <string name="billday_" formatted="false">Fatura başlangıç günü</string>
   <string name="billmode_" formatted="false">Ücretlendirme biçimi</string>
