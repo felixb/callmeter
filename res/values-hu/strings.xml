@@ -50,7 +50,6 @@
   <string name="faq_hint" formatted="false">Tippek és trükkök, avagy hogyan állítsuk be a programot?</string>
   <string name="feedback_" formatted="false">Visszajelzés/Feedback</string>
   <string name="feedback_hint" formatted="false">Hibajelentés, fejlesztési ötletek küldése a fejlesztőnek...</string>
-  <string name="twitter_hint" formatted="false">Kövess Twitteren!\nÉrtesülj frissítésekről, egyebekről.</string>
   <string name="more_" formatted="false">További alkalmazások...</string>
   <string name="billing_" formatted="false">Számlázás</string>
   <string name="billday_" formatted="false">A számlázás első napja</string>

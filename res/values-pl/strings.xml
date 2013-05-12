@@ -50,7 +50,6 @@
   <string name="faq_hint" formatted="false">Kilka informacji, jak skonfigurować aplikację</string>
   <string name="feedback_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Feedback">Opinie</string>
   <string name="feedback_hint" formatted="false">Zgłoś problemy, sugestię...</string>
-  <string name="twitter_hint" formatted="false">Obserwuj mojego twittera.\nOtrzymasz informacje o aktualizacjach, itp.</string>
   <string name="more_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="More Apps..">Więcej aplikacji..</string>
   <string name="billing_" formatted="false">Rachunek</string>
   <string name="billday_" formatted="false">Pierwszy dzień rachunku</string>

@@ -50,7 +50,6 @@
   <string name="faq_hint" formatted="false">Μερικές συμβουλές για την ρύθμιση αυτής της εφαρμογής.</string>
   <string name="feedback_" formatted="false">Αναπληροφόρηση</string>
   <string name="feedback_hint" formatted="false">Αναφέρετε λάθη, αιτηθείτε λειτουργιες ...</string>
-  <string name="twitter_hint" formatted="false">Ακολουθείστε με στο twitter.\nΕνημερωθείτε για ενημερώσεις της εφαρμογής κτλ.</string>
   <string name="more_" formatted="false">Περισσότερες Εφαρμογές..</string>
   <string name="billing_" formatted="false">Τιμολόγηση</string>
   <string name="billday_" formatted="false">Αρχική ημέρα τιμολόγησης</string>

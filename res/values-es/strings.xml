@@ -50,7 +50,6 @@
   <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app.">Consejos y trucos, como configurar la aplicación.</string>
   <string name="feedback_" formatted="false">Comentario</string>
   <string name="feedback_hint" formatted="false">Informa de errores, solicita funcionalidades ...</string>
-  <string name="twitter_hint" formatted="false">Sígueme en twitter.\nRecibe notificaciones etc.</string>
   <string name="more_" formatted="false">Más aplicaciones..</string>
   <string name="billing_" formatted="false">Facturación</string>
   <string name="billday_" formatted="false">Primer día de tu factura</string>

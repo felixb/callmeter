@@ -50,7 +50,6 @@
   <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app.">Tipy a triky jak nastavit aplikaci.</string>
   <string name="feedback_" formatted="false" orig="Feedback">Zpětná odezva</string>
   <string name="feedback_hint" formatted="false">Ohlásit chybu, zaslat požadavek na funčknost.</string>
-  <string name="twitter_hint" formatted="false">Následuj mě na Twitteru\nInfo o nových verzích apod.</string>
   <string name="more_" formatted="false">Další aplikace autora..</string>
   <string name="billing_" formatted="false">Účtování</string>
   <string name="billday_" formatted="false" orig="First day of your bill">První den zúčtovacího období</string>

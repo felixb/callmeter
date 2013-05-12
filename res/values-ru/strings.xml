@@ -43,7 +43,6 @@
   <string name="faq_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Some tips and tricks, how to set up this app.">Советы и рекомендации по настройке приложения.</string>
   <string name="feedback_" formatted="false">Отзывы</string>
   <string name="feedback_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Report bugs, request features ...">Сообщить об ошибкаx, внести предложения ...</string>
-  <string name="twitter_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Follow me on twitter.\nGet update notifications etc.">Читайте в twitter.\nУведомления об обновлениях и т.д.</string>
   <string name="more_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="More Apps..">Другие приложения..</string>
   <string name="billing_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Billing">Учет</string>
   <string name="billday_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="First day of your bill">Первый день учета</string>
