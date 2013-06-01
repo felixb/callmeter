@@ -129,9 +129,9 @@
   <string name="reset_data_hint" formatted="false">Reset pamäti aplikácie vynúti prepočet štatistiky.\nReset pamäti o dátovom prenose je permanentný - zmaže iba dáta prenesené pred štartom zariadenia.</string>
   <string name="reset_data_data_" formatted="false">Reset pamäti o prenose dát.</string>
   <string name="contacts_" formatted="false">Z kontaktov</string>
-  <string-array name="themes">
-    <item>Tmavý</item>
-    <item>Svetlý</item>
+  <string-array name="themes" username="Jocho">
+    <item>Tmavá</item>
+    <item>Svetlá</item>
   </string-array>
   <string-array name="textsize" username="f_b@email.cz">
     <item>Malý</item>
@@ -140,4 +140,18 @@
   <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Dáta (2G/3G/4G)</string>
   <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Skryť "(2G/3G/4G)" v názve. Toto nemá vplyv na štatistiky.</string>
   <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Zobraziť v názve iba "Dáta"</string>
+  <string name="custom_language_" formatted="false" username="Jocho" orig="Custom language">Vlastný jazyk</string>
+  <string name="custom_language_hint" formatted="false" username="Jocho" orig="Set a custom language.">Nastaviť vlastný jazyk</string>
+  <string name="debug_" formatted="false" username="Jocho" orig="Debug">Ladenie</string>
+  <string name="send_logs_" formatted="false" username="Jocho" orig="Send logs">Odoslať záznamy</string>
+  <string name="send_logs_hint" formatted="false" username="Jocho" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Odošlite záznamy vášho zariadenia vývojárovi. \nUrobte tak iba ak na to budete vyzvaní</string>
+  <string name="sendlog_run_" formatted="false" username="Jocho" orig="Run SendLog">Spustiť SendLog</string>
+  <string name="sendlog_run" formatted="false" username="Jocho" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog zozbiera záznamy zariadenia a odošle ich vývojárovi. \nPred odoslaním budete mať možnosť skontrolovať a upraviť tieto údaje.</string>
+  <string name="sendlog_install_" formatted="false" username="Jocho" orig="Install SendLog">Inštalovať SendLog</string>
+  <string name="sendlog_install" formatted="false" username="Jocho" orig="Install the free SendLog application to collect the device log and send it to the developer.">Nainštaluje bezplatnú SendLog aplikáciu pre zbieranie záznamov zariadenia a ich odosielanie vývojárovi.</string>
+  <string name="license_" formatted="false" username="Jocho" orig="License:">Licencia:</string>
+  <string name="author_" formatted="false" username="Jocho" orig="Author:">Autor:</string>
+  <string name="license" formatted="false" username="Jocho" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - navštívte http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="website_" formatted="false" username="Jocho" orig="Website:">Internetová stránka:</string>
+  <string name="source_" formatted="false" username="Jocho" orig="Sourcescode:">Zdrojový kód:</string>
 </resources>
