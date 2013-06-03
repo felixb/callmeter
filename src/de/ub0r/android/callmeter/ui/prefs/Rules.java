@@ -234,12 +234,26 @@ public final class Rules extends SherlockPreferenceActivity implements OnPrefere
 								Rules.this.startActivity(intent);
 								break;
 							case WHICH_DELETE:
-								Rules.this.getContentResolver().delete(
-										ContentUris.withAppendedId(DataProvider.Rules.CONTENT_URI,
-												id), null, null);
-								Rules.this.reload();
-								Preferences.setDefaultPlan(Rules.this, false);
-								RuleMatcher.unmatch(Rules.this);
+								Builder b = new Builder(Rules.this);
+								b.setTitle(R.string.delete_);
+								b.setMessage(R.string.delete_rule_hint);
+								b.setNegativeButton(android.R.string.no, null);
+								b.setPositiveButton(android.R.string.yes,
+										new DialogInterface.OnClickListener() {
+											@Override
+											public void onClick(final DialogInterface dialog,
+													final int which) {
+												Rules.this
+														.getContentResolver()
+														.delete(ContentUris.withAppendedId(
+																DataProvider.Rules.CONTENT_URI, id),
+																null, null);
+												Rules.this.reload();
+												Preferences.setDefaultPlan(Rules.this, false);
+												RuleMatcher.unmatch(Rules.this);
+											}
+										});
+								b.show();
 								break;
 							default:
 								break;
