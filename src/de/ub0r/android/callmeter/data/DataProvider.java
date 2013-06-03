@@ -854,7 +854,7 @@ public final class DataProvider extends ContentProvider {
 				c.set(Calendar.SECOND, 0);
 				c.set(Calendar.MINUTE, 0);
 				c.set(Calendar.HOUR_OF_DAY, 0);
-				c.set(Calendar.SECOND, -1);
+				c.add(Calendar.HOUR_OF_DAY, -1);
 				return c.getTimeInMillis();
 			}
 

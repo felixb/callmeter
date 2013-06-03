@@ -104,7 +104,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 			/** {@link View}s. */
 			View vPeriodLayout, vContent, vSpacer;
 			/** {@link TextView}s. */
-			TextView tvBigtitle, tvPeriod, tvTitle, tvData;
+			TextView tvBigtitle, tvPeriod, tvBilldayLable, tvTitle, tvData;
 			/** {@link ProgressBar}s. */
 			ProgressBar pbPeriod, pbLimitGreen, pbLimitYellow, pbLimitRed;
 		}
@@ -131,6 +131,8 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 		private static boolean pShowHours = true;
 		/** Show target bill day. */
 		private static boolean pShowTargetBillDay = false;
+		/** First/last bill day shown. */
+		private static int billDayResId = R.string.billday_;
 
 		/** Prepaid plan? */
 		private static boolean prepaid;
@@ -157,6 +159,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 			final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 			pShowHours = p.getBoolean(Preferences.PREFS_SHOWHOURS, true);
 			pShowTargetBillDay = p.getBoolean(Preferences.PREFS_SHOW_TARGET_BILLDAY, false);
+			billDayResId = pShowTargetBillDay ? R.string.billday_last : R.string.billday_;
 			currencyFormat = Preferences.getCurrencyFormat(context);
 			delimiter = p.getString(Preferences.PREFS_DELIMITER, " | ");
 			prepaid = p.getBoolean(Preferences.PREFS_PREPAID, false);
@@ -206,6 +209,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 				holder.vSpacer = view.findViewById(R.id.spacer);
 				holder.tvBigtitle = (TextView) view.findViewById(R.id.bigtitle);
 				holder.tvPeriod = (TextView) view.findViewById(R.id.period);
+				holder.tvBilldayLable = (TextView) view.findViewById(R.id.billday_lable);
 				holder.tvTitle = (TextView) view.findViewById(R.id.normtitle);
 				holder.tvData = (TextView) view.findViewById(R.id.data);
 				view.setTag(holder);
@@ -321,6 +325,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 				holder.vSpacer.setVisibility(View.GONE);
 				holder.vContent.setVisibility(View.GONE);
 				holder.vPeriodLayout.setVisibility(View.VISIBLE);
+				holder.tvBilldayLable.setText(billDayResId);
 				tvCache = holder.tvPeriod;
 				pbCache = holder.pbPeriod;
 			} else {

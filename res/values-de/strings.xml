@@ -57,6 +57,7 @@
   <string name="more_" formatted="false">Mehr Apps..</string>
   <string name="billing_" formatted="false">Abrechnung</string>
   <string name="billday_" formatted="false">Erster Rechnungstag</string>
+  <string name="billday_last" formatted="false">Letzter Rechnungstag</string>
   <string name="billmode_" formatted="false">Abrechnungsmodus</string>
   <string name="billdate_" formatted="false">Erster Rechnungstag:</string>
   <string name="appearance_" formatted="false">Darstellung</string>

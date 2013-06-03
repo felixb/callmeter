@@ -57,6 +57,7 @@
 	<string name="more_">More Apps..</string>
 	<string name="billing_">Billing</string>
 	<string name="billday_">First day of your bill</string>
+	<string name="billday_last">Last day of your bill</string>
 	<string name="billmode_">Mode of billing</string>
 	<string name="billdate_">Start of billing period:</string>
 	<string name="appearance_">Appearance</string>
