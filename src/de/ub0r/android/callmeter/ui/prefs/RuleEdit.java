@@ -164,6 +164,25 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 		this.reload();
 	}
 
+	/** Check, if there is some kind of multi sim. */
+	private boolean hasSimId() {
+		boolean b = false;
+		for (String s : new String[] { "sim_id", "simid" }) {
+			try {
+				Cursor c = this.getContentResolver().query(Calls.CONTENT_URI, new String[] { s },
+						s + " != 0", null, null);
+				b = c.getCount() > 0;
+			} catch (IllegalArgumentException e) {
+				// ignore any error
+			}
+			if (b) {
+				Log.i(TAG, "multi sim phone detected: " + s);
+				break;
+			}
+		}
+		return b;
+	}
+
 	/**
 	 * Reload plans from ContentProvider.
 	 */
@@ -172,14 +191,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 		PreferenceScreen ps = (PreferenceScreen) this.findPreference("container");
 		ps.removeAll();
 
-		boolean hasSimId = false;
-		try {
-			Cursor c = this.getContentResolver().query(Calls.CONTENT_URI,
-					new String[] { "sim_id" }, "sim_id != 0", null, null);
-			hasSimId = c.getCount() > 0;
-		} catch (IllegalArgumentException e) {
-			Log.i(TAG, "no multi sim phone detected", e);
-		}
+		boolean hasSimId = this.hasSimId();
 		Cursor c = this.getContentResolver().query(this.uri, DataProvider.Rules.PROJECTION, null,
 				null, null);
 		if (c.moveToFirst()) {

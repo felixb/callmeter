@@ -50,7 +50,6 @@
   <string name="faq_hint" formatted="false" username="fedekikko89" orig="Some tips and tricks, how to set up this app.">Alcuni consigli, come impostare questa app.</string>
   <string name="feedback_" formatted="false" username="fireb33" orig="Feedback">Commenti</string>
   <string name="feedback_hint" formatted="false" username="fireb33" orig="Report bugs, request features ...">Segnala anomalie, richiedi nuove funzioni...</string>
-  <string name="twitter_hint" formatted="false" username="fedekikko89" orig="Follow me on twitter.\nGet update notifications etc.">Seguimi su twitter.\nRicevi aggiornamenti notifiche etc.</string>
   <string name="more_" formatted="false" username="fedekikko89" orig="More Apps..">Altre applicazioni..</string>
   <string name="billing_" formatted="false" username="fireb33" orig="Billing">Tariffazione</string>
   <string name="billday_" formatted="false" username="fireb33" orig="First day of your bill">Primo giorno della tariffazione</string>
@@ -427,8 +426,6 @@
   <string name="author_" formatted="false" username="carloraudino@fedoraproject.org" orig="Author:">Autore:</string>
   <string name="website_" formatted="false" username="carloraudino@fedoraproject.org" orig="Website:">Sito web:</string>
   <string name="source_" formatted="false" username="carloraudino@fedoraproject.org" orig="Sourcescode:">Codice sorgente:</string>
-  <string name="custom_language_" formatted="false" username="carloraudino@fedoraproject.org" orig="Custom language">Personalizza lingua</string>
-  <string name="custom_language_hint" formatted="false" username="carloraudino@fedoraproject.org" orig="Set a custom language.">Imposta una lingua personalizzata.</string>
   <string name="export_logs_csv_" formatted="false" username="Gianluca gianluca-s@libero.it" orig="Export CSV">Esporta in formato CSV</string>
   <string name="delete_widget" formatted="false" username="Gianluca gianluca-s@libero.it" orig="Delete widget">Elimina widget</string>
   <string name="up_" formatted="false" username="fedekikko89" orig="Move up">Sposta sù</string>

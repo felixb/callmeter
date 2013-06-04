@@ -50,7 +50,6 @@
   <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app.">Tipy a triky jak nastavit aplikaci.</string>
   <string name="feedback_" formatted="false" orig="Feedback">Zpětná odezva</string>
   <string name="feedback_hint" formatted="false">Ohlásit chybu, zaslat požadavek na funčknost.</string>
-  <string name="twitter_hint" formatted="false">Následuj mě na Twitteru\nInfo o nových verzích apod.</string>
   <string name="more_" formatted="false">Další aplikace autora..</string>
   <string name="billing_" formatted="false">Účtování</string>
   <string name="billday_" formatted="false" orig="First day of your bill">První den zúčtovacího období</string>
@@ -419,8 +418,6 @@
   <string name="country" formatted="false" username="daleckystepan@gmail.com" orig="Country">Země</string>
   <string name="provider" formatted="false" username="daleckystepan@gmail.com" orig="Provider">Operátor</string>
   <string name="plan" formatted="false" username="daleckystepan@gmail.com" orig="Plan">Plán</string>
-  <string name="custom_language_" formatted="false" username="daleckystepan@gmail.com" orig="Custom language">Vlastní jazyk</string>
-  <string name="custom_language_hint" formatted="false" username="daleckystepan@gmail.com" orig="Set a custom language.">Nastavit vlastní jazyk.</string>
   <string name="reset" formatted="false" username="daleckystepan@gmail.com" orig="Reset">Reset</string>
   <string name="debug_" formatted="false" username="daleckystepan@gmail.com" orig="Debug">Debug</string>
   <string name="x1_month_1_day" formatted="false" username="daleckystepan@gmail.com" orig="One month + one day">Jeden měsíc + jeden den</string>

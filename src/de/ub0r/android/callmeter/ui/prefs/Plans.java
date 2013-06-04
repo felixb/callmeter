@@ -204,12 +204,26 @@ public final class Plans extends SherlockPreferenceActivity implements OnPrefere
 								Plans.this.startActivity(intent);
 								break;
 							case WHICH_DELETE:
-								Plans.this.getContentResolver().delete(
-										ContentUris.withAppendedId(DataProvider.Plans.CONTENT_URI,
-												id), null, null);
-								Plans.this.reload();
-								Preferences.setDefaultPlan(Plans.this, false);
-								RuleMatcher.unmatch(Plans.this);
+								Builder b = new Builder(Plans.this);
+								b.setTitle(R.string.delete_);
+								b.setMessage(R.string.delete_plan_hint);
+								b.setNegativeButton(android.R.string.no, null);
+								b.setPositiveButton(android.R.string.yes,
+										new DialogInterface.OnClickListener() {
+											@Override
+											public void onClick(final DialogInterface dialog,
+													final int which) {
+												Plans.this
+														.getContentResolver()
+														.delete(ContentUris.withAppendedId(
+																DataProvider.Plans.CONTENT_URI, id),
+																null, null);
+												Plans.this.reload();
+												Preferences.setDefaultPlan(Plans.this, false);
+												RuleMatcher.unmatch(Plans.this);
+											}
+										});
+								b.show();
 								break;
 							default:
 								break;

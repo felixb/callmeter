@@ -54,10 +54,10 @@
 	<string name="feedback_">Feedback</string>
 	<string name="feedback_hint">Report bugs, request features ...</string>
 	<string name="google_plus_hint">Follow me on Google+.\nGet update notifications etc.</string>
-	<string name="twitter_hint">Follow me on twitter.\nGet update notifications etc.</string>
 	<string name="more_">More Apps..</string>
 	<string name="billing_">Billing</string>
 	<string name="billday_">First day of your bill</string>
+	<string name="billday_last">Last day of your bill</string>
 	<string name="billmode_">Mode of billing</string>
 	<string name="billdate_">Start of billing period:</string>
 	<string name="appearance_">Appearance</string>
@@ -105,6 +105,8 @@
 	<string name="show_icon_">Show icon</string>
 	<string name="hide_name_">Hide name of plan</string>
 	<string name="small_widget_">Use small widget</string>
+	<string name="show_target_billday_">Show last bill day</string>
+	<string name="show_target_billday_hint">Show last day of bill instead of first.</string>
 	<string name="show_calllength_">Show info after hanging up</string>
 	<string name="show_calllength_hint">Show length/cost of a call after hanging up.</string>
 	<string name="hide_zero_">Hide empty plans</string>
@@ -213,6 +215,8 @@
 	<string name="edit_groups_">Edit groups</string>
 	<string name="delete_group_">Delete group</string>
 	<string name="delete_group_hint">Do you really want to delete this group?</string>
+	<string name="delete_plan_hint">Do you really want to delete this plan?</string>
+	<string name="delete_rule_hint">Do you really want to delete this rule?</string>
 	<string name="name_">Name</string>
 	<string name="name_help">Set a name here.</string>
 	<string name="shortname_">Short name</string>
@@ -455,6 +459,4 @@
 	<string name="country">Country</string>
 	<string name="provider">Provider</string>
 	<string name="plan">Plan</string>
-	<string name="custom_language_">Custom language</string>
-	<string name="custom_language_hint">Set a custom language.</string>
 </resources>

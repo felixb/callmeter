@@ -54,10 +54,10 @@
   <string name="feedback_" formatted="false">Feedback</string>
   <string name="feedback_hint" formatted="false">Bugreports, feature requests ...</string>
   <string name="google_plus_hint" formatted="false">Folge mir auf Google+.\nErhalte Infos über Updates etc.</string>
-  <string name="twitter_hint" formatted="false" username="Schiri &lt;schirinowski@gmail.com&gt;" orig="Follow me on twitter.\nGet update notifications etc.">Folge mir auf Twitter.\nErhalte Infos über Updates etc.</string>
   <string name="more_" formatted="false">Mehr Apps..</string>
   <string name="billing_" formatted="false">Abrechnung</string>
   <string name="billday_" formatted="false">Erster Rechnungstag</string>
+  <string name="billday_last" formatted="false">Letzter Rechnungstag</string>
   <string name="billmode_" formatted="false">Abrechnungsmodus</string>
   <string name="billdate_" formatted="false">Erster Rechnungstag:</string>
   <string name="appearance_" formatted="false">Darstellung</string>
@@ -100,6 +100,8 @@
   <string name="show_icon_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Show icon">Zeige Icon</string>
   <string name="hide_name_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Hide name of plan">Namen des Kontingents ausblenden</string>
   <string name="small_widget_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Use small widget">Kleines Widget</string>
+  <string name="show_target_billday_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;">Zeige letzten Abrechnungstag</string>
+  <string name="show_target_billday_hint" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;">Zeige den letzten Tag einer Rechnung, nicht den ersten.</string>
   <string name="show_calllength_" formatted="false">Zeige Infos nach dem Auflegen</string>
   <string name="show_calllength_hint" formatted="false">Zeige Länge/Kosten des Anrufs nach dem Auflegen.</string>
   <string name="hide_zero_" formatted="false">Verstecke leere Kontingente</string>
@@ -204,8 +206,10 @@
   <string name="new_" formatted="false">Neu</string>
   <string name="edit_selected_" formatted="false">Ausg. bearb.</string>
   <string name="edit_groups_" formatted="false">Gr. bearb.</string>
-	<string name="delete_group_">Gruppe löschen</string>
-	<string name="delete_group_hint">Willst du wirklich diese Gruppe löschen?</string>
+  <string name="delete_group_" formatted="false">Gruppe löschen</string>
+  <string name="delete_group_hint" formatted="false">Willst du wirklich diese Gruppe löschen?</string>
+  <string name="delete_plan_hint" formatted="false">Willst du wirklich dieses Kontingent löschen?</string>
+  <string name="delete_rule_hint" formatted="false">Willst du wirklich diese Regel löschen?</string>
   <string name="name_" formatted="false">Name</string>
   <string name="name_help" formatted="false">Setze hier einen Namen.</string>
   <string name="shortname_" formatted="false">Kurzname</string>
@@ -302,8 +306,8 @@
   <string name="export_rules_descr" formatted="false">Beschreibung</string>
   <string name="export_logs_" formatted="false">Logs sichern</string>
   <string name="export_logs_hint" formatted="false">Logs als Mail sichern.</string>
-	<string name="export_logs_csv_">Exportiere CSV</string>
-	<string name="export_logs_csv_hint">Exportiere Logs als CSV.</string>
+  <string name="export_logs_csv_">Exportiere CSV</string>
+  <string name="export_logs_csv_hint">Exportiere Logs als CSV.</string>
   <string name="export_numgroups_" formatted="false">Stunden Nummern exportieren</string>
   <string name="export_numgroups_hint" formatted="false">Stunden Nummern als Mail exportieren.</string>
   <string name="export_hourgroups_" formatted="false">Stunden Gruppen exportieren</string>
@@ -457,6 +461,4 @@
   <string name="country">Land</string>
   <string name="provider">Provider</string>
   <string name="plan">Tarif</string>
-  <string name="custom_language_" formatted="false">Andere Sprache</string>
-  <string name="custom_language_hint" formatted="false">Eine andere Sprache einstellen.</string>
 </resources>

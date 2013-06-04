@@ -84,7 +84,6 @@
   <string name="faq_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Some tips and tricks, how to set up this app.">Alguns consells, com configurar aquesta aplicació.</string>
   <string name="feedback_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Report bugs, request features ...">Informar d\'errors, demanar característiques...</string>
   <string name="google_plus_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Follow me on Google+.\nGet update notifications etc.">Segueixi\'m a Google+.\nObtingui notificacions, etc.</string>
-  <string name="twitter_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Follow me on twitter.\nGet update notifications etc.">Segueixi\'m a twitter.\nObtingui notificacions, etc.</string>
   <string name="widgets_no_widgets_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="There are no widgets added to the launcher.">No hi ha widgets afegits.</string>
   <string name="simple_preferences_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Simple preferences">Preferències simples</string>
   <string name="advanced_preferences_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Advanced preferences">Preferències avançades</string>
@@ -200,8 +199,6 @@
   <string name="type_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Type">Tipus</string>
   <string name="limit_type_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Limit type">Tipus de límit</string>
   <string name="author_and_many_more" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="and many more...">i molt més...</string>
-  <string name="custom_language_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set a custom language.">Establir idioma personalitzat.</string>
-  <string name="custom_language_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Custom language">Idioma personalitzat</string>
   <string name="plan" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Plan">Pla</string>
   <string name="provider" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Provider">Proveïdor</string>
   <string name="country" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Country">País</string>

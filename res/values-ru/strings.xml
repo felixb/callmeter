@@ -43,7 +43,6 @@
   <string name="faq_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Some tips and tricks, how to set up this app.">Советы и рекомендации по настройке приложения.</string>
   <string name="feedback_" formatted="false">Отзывы</string>
   <string name="feedback_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Report bugs, request features ...">Сообщить об ошибкаx, внести предложения ...</string>
-  <string name="twitter_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Follow me on twitter.\nGet update notifications etc.">Читайте в twitter.\nУведомления об обновлениях и т.д.</string>
   <string name="more_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="More Apps..">Другие приложения..</string>
   <string name="billing_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Billing">Учет</string>
   <string name="billday_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="First day of your bill">Первый день учета</string>
@@ -426,8 +425,6 @@
   <string name="country" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Country">Страна</string>
   <string name="provider" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Provider">Провайдер</string>
   <string name="plan" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Plan">Тариф</string>
-  <string name="custom_language_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Custom language">Пользовательский язык</string>
-  <string name="custom_language_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set a custom language.">Установить пользовательский язык.</string>
   <string name="sendlog_run_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Run SendLog">Запустить SendLog</string>
   <string name="sendlog_run" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog получит журнал устройства и отправит его разработчику.\nУ Вас будет возможность просмотреть и изменить отправляемые данные.</string>
   <string name="sendlog_install_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Install SendLog">Установить SendLog</string>

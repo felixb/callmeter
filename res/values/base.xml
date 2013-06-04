@@ -44,7 +44,6 @@
 	<string name="source" translatable="false">http://github.com/felixb/callmeter</string>
 	<string name="website" translatable="false">http://code.google.com/p/callmeter/</string>
 	<string name="faq_" translatable="false">FAQ</string>
-	<string name="twitter_" translatable="false">twitter</string>
 	<string name="google_plus_" translatable="false">Google+</string>
 	<string name="export_rules_body" translatable="false">Hi developer,\nhere are the rules for my provider. Please add it to the website to let others enjoy it. Please see the details below.\n\nCountry: %s\nProvider: %s\nPlan name: %s\n\nCheers, a User</string>
 	<string name="country_value" translatable="false"></string>
@@ -53,6 +52,7 @@
 
 	<dimen name="touchlist_height">30dip</dimen>
 	<dimen name="widget_margin">4dp</dimen>
+	<dimen name="widget_padding">4dp</dimen>
 	<dimen name="pb_plan_height">10dp</dimen>
 	<dimen name="pb_bp_height">5dp</dimen>
 </resources>

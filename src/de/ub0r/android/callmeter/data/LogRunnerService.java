@@ -450,6 +450,17 @@ public final class LogRunnerService extends IntentService {
 		Log.d(TAG, "updateData(): done");
 	}
 
+	/** Get column id holding sim_id, simid or whatever. */
+	private static int getSimIdColumn(final Cursor c) {
+		for (String s : new String[] { "sim_id", "simid" }) {
+			int id = c.getColumnIndex(s);
+			if (id >= 0) {
+				return id;
+			}
+		}
+		return -1;
+	}
+
 	/**
 	 * Run logs: calls.
 	 * 
@@ -485,7 +496,7 @@ public final class LogRunnerService extends IntentService {
 			final int idDuration = cursor.getColumnIndex(Calls.DURATION);
 			final int idDate = cursor.getColumnIndex(Calls.DATE);
 			final int idNumber = cursor.getColumnIndex(Calls.NUMBER);
-			final int idSimId = cursor.getColumnIndex("sim_id");
+			final int idSimId = getSimIdColumn(cursor);
 
 			final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(CallMeter.HUNDRET);
 			do {

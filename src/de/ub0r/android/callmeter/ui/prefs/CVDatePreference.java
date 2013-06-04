@@ -6,6 +6,7 @@ import android.app.TimePickerDialog;
 import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.ContentValues;
 import android.content.Context;
+import android.os.Build;
 import android.preference.DialogPreference;
 import android.preference.PreferenceManager;
 import android.text.format.DateFormat;
@@ -91,6 +92,11 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
 	@Override
 	protected View onCreateDialogView() {
 		this.dp = new DatePicker(this.getContext());
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			this.dp.setCalendarViewShown(true);
+			this.dp.setSpinnersShown(false);
+			this.dp.setMaxDate(System.currentTimeMillis());
+		}
 		this.updateDialog();
 		return this.dp;
 	}

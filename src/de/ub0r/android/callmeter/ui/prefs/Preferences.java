@@ -128,6 +128,8 @@ public final class Preferences extends SherlockPreferenceActivity implements
 	private static final String PREFS_TEXTSIZE_PBAR = "textsize_pbar";
 	/** Preference's name: text size for progress bars of billing periods. */
 	private static final String PREFS_TEXTSIZE_PBARBP = "textsize_pbarbp";
+	/** Preference's name: show last bill day instead of first. */
+	public static final String PREFS_SHOW_TARGET_BILLDAY = "show_target_billday";
 	/** Preference's name: show hours. */
 	public static final String PREFS_SHOWHOURS = "show_hours";
 	/** Preference's name: hide zero. */

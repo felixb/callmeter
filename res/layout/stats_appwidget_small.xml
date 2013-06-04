@@ -27,12 +27,12 @@
         android:background="@android:color/transparent"
         android:clickable="true"
         android:orientation="vertical"
-        android:paddingBottom="4dp"
-        android:paddingEnd="4dp"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        android:paddingStart="4dp"
-        android:paddingTop="4dp" >
+        android:paddingBottom="@dimen/widget_padding"
+        android:paddingEnd="@dimen/widget_padding"
+        android:paddingLeft="@dimen/widget_padding"
+        android:paddingRight="@dimen/widget_padding"
+        android:paddingStart="@dimen/widget_padding"
+        android:paddingTop="@dimen/widget_padding" >
 
         <ImageView
             android:id="@+id/widget_bg"
@@ -54,7 +54,6 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
                 android:paddingTop="1dp"
-                android:singleLine="true"
                 android:text="@+id/plan"
                 android:textColor="#FFFFFFFF"
                 android:textSize="10dp"

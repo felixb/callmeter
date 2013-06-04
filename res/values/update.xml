@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates" translatable="false">
+		<item>HEAD: show last day of bill period, fix multi sim on ZTE V970, confirm deleting plans/rules, tune widget layout</item>
 		<item>v3.8.4: fix \'%\' in number groups, set widget color directly, minor fixes and translation updates</item>
 		<item>v3.8.3: UI improvements, Russian translation added, translation updates</item>
 		<item>v3.8.2: hide total stats by default, hide amount for "total merger plans", include/exclude numbers for MMS</item>

@@ -178,6 +178,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 			final int appWidgetId) {
 		Log.d(TAG, "updateWidget(" + appWidgetId + ")");
 		final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
+		final boolean showTargetBillDay = p
+				.getBoolean(Preferences.PREFS_SHOW_TARGET_BILLDAY, false);
 		final long pid = p.getLong(WIDGET_PLANID + appWidgetId, -1L);
 		final boolean hideName = p.getBoolean(WIDGET_HIDETNAME + appWidgetId, false);
 		final boolean showShortname = p.getBoolean(WIDGET_SHORTNAME + appWidgetId, false);
@@ -229,8 +231,10 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 
 		String stats = "";
 		if (plan.hasBa) {
+			long bd = plan.getBillDay(plan.type == DataProvider.TYPE_BILLPERIOD
+					&& showTargetBillDay);
 			stats = Common.formatValues(context, -1, plan.type, plan.bpCount, plan.bpBa,
-					plan.billperiod, plan.billday, false);
+					plan.billperiod, bd, false);
 		}
 		if (plan.limit > 0) {
 			stats += "\n" + ((int) (plan.usage * CallMeter.HUNDRET)) + "%";

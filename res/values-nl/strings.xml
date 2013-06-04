@@ -46,7 +46,6 @@
   <string name="faq_hint" formatted="false" username="Gummie" orig="Some tips and tricks, how to set up this app.">Een paar tips &amp; trucs hoe deze app in te stellen.</string>
   <string name="feedback_" formatted="false">Feedback</string>
   <string name="feedback_hint" formatted="false">Meld bugs, suggesties ...</string>
-  <string name="twitter_hint" formatted="false">Volg mij op twitter.\nKrijg update notificaties etc.</string>
   <string name="more_" formatted="false">Meer apps..</string>
   <string name="billing_" formatted="false">Facturatie</string>
   <string name="billday_" formatted="false">Eerste dag van facturatie</string>
@@ -433,8 +432,6 @@
   <string name="author_" formatted="false" username="Gummie" orig="Author:">Auteur:</string>
   <string name="website_" formatted="false" username="Gummie" orig="Website:">Website:</string>
   <string name="source_" formatted="false" username="Gummie" orig="Sourcescode:">Broncode:</string>
-  <string name="custom_language_" formatted="false" username="Gummie" orig="Custom language">Aangepaste taal</string>
-  <string name="custom_language_hint" formatted="false" username="Gummie" orig="Set a custom language.">Stel een aangepaste taal in.</string>
   <string name="my_number_" formatted="false" username="Gummie" orig="My number">Mijn nummer</string>
   <string name="set_current_number" formatted="false" username="Gummie" orig="Current number">Huidig nummer</string>
   <string name="country" formatted="false" username="Gummie" orig="Country">Land</string>

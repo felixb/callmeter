@@ -47,7 +47,6 @@
   <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app." username="grmone.pu@gmail.com">Neki savjeti i trikovi kako podesiti aplikaciju.</string>
   <string name="feedback_" formatted="false" username="lesart.mario@gmail.com" orig="Feedback">Povratne informacije</string>
   <string name="feedback_hint" formatted="false" username="lesart.mario@gmail.com" orig="Report bugs, request features ...">Prijava grešaka...</string>
-  <string name="twitter_hint" formatted="false" orig="Follow me on twitter.\nGet update notifications etc.">Pratite me na Tweeteru.\nDobijajte izvješća o napretku i sl.</string>
   <string name="more_" formatted="false" username="lesart.mario@gmail.com" orig="More Apps..">Još aplikacija...</string>
   <string name="billing_" formatted="false" username="lesart.mario@gmail.com" orig="Billing">Naplata</string>
   <string name="billday_" formatted="false" username="lesart.mario@gmail.com" orig="First day of your bill">Prvi dan za obračun naplate</string>
@@ -433,8 +432,6 @@
   <string name="website_" formatted="false" username="grmone.pu@gmail.com" orig="Website:">Web stranica</string>
   <string name="author_" formatted="false" username="grmone.pu@gmail.com" orig="Author:">Autor:</string>
   <string name="source_" formatted="false" username="grmone.pu@gmail.com" orig="Sourcescode:">Izvorni kod:</string>
-  <string name="custom_language_" formatted="false" username="grmone.pu@gmail.com" orig="Custom language">Osobni jezik</string>
-  <string name="custom_language_hint" formatted="false" username="grmone.pu@gmail.com" orig="Set a custom language.">Postavi osobni jezik.</string>
   <string name="country" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Country">Zemlja</string>
   <string name="provider" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Provider">Pružatelj usluga</string>
   <string name="plan" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Plan">Plan</string>

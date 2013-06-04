@@ -40,7 +40,6 @@
   <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app.">Някой съвети и трикове за настройка на приложението</string>
   <string name="feedback_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Feedback">Обратна връзка</string>
   <string name="feedback_hint" formatted="false" orig="Report bugs, request features ...">Съобщете за проблем, изискайте нова функционалност...</string>
-  <string name="twitter_hint" formatted="false" orig="Follow me on twitter.\nGet update notifications etc.">Следете информация за мен в Twitter.\nПолучете информация за обновления и тн.</string>
   <string name="more_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="More Apps..">Още приложения...</string>
   <string name="billday_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="First day of your bill">Първи ден на сметката Ви</string>
   <string name="appearance_" formatted="false" orig="Appearance">Изглед</string>

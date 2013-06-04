@@ -50,7 +50,6 @@
   <string name="faq_hint" formatted="false">Algumas dicas e truques de como ajustar este aplicativo.</string>
   <string name="feedback_" formatted="false" orig="Feedback">Retorno</string>
   <string name="feedback_hint" formatted="false">Relatar problemas, solicitar novas funções ...</string>
-  <string name="twitter_hint" formatted="false">Siga-me no twitter (http://twitter.com/flx_b).\nReceba notificações de atualizações,etc.</string>
   <string name="more_" formatted="false">Outras Aplicações...</string>
   <string name="billing_" formatted="false" orig="Billing">Cobrança</string>
   <string name="billday_" formatted="false" orig="First day of your bill">Primeiro dia da cobrança</string>
@@ -428,6 +427,4 @@
   <string name="author_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Author:">Autor:</string>
   <string name="website_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Website:">Website:</string>
   <string name="source_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Sourcescode:">Código fonte:</string>
-  <string name="custom_language_hint" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Set a custom language.">Definir linguá proprietária</string>
-  <string name="custom_language_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Custom language">Lingua proprietária</string>
 </resources>

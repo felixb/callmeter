@@ -43,7 +43,6 @@
   <string name="faq_hint" formatted="false">Bu uygulamanın ayarlarını yapmak için bazı ipuçları.</string>
   <string name="feedback_" formatted="false">Geribildirim</string>
   <string name="feedback_hint" formatted="false">Hata bildirin, özellik eklenmesini talep edin..</string>
-  <string name="twitter_hint" formatted="false">Beni twitter\'da takip et.\nGüncelleme bildirimlerini al vb.</string>
   <string name="more_" formatted="false">Daha fazla uygulama..</string>
   <string name="billing_" formatted="false">Ücretlendirme</string>
   <string name="billday_" formatted="false">Fatura başlangıç günü</string>
@@ -432,6 +431,4 @@
   <string name="author_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Author:">Yazar:</string>
   <string name="website_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Website:">Web sitesi:</string>
   <string name="source_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Sourcescode:">Kaynak kod:</string>
-  <string name="custom_language_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Custom language">İsteğe uyarlanmış dil</string>
-  <string name="custom_language_hint" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Set a custom language.">İsteğe uyarlanmış bir dil belirleyin.</string>
 </resources>

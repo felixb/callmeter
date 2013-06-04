@@ -235,7 +235,6 @@
   <string name="date_begin_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Ignore any logs before this date.">Ignorar os logs antes dessa data.</string>
   <string name="faq_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Some tips and tricks, how to set up this app.">Algumas dicas e truques, como configurar o aplicativo.</string>
   <string name="google_plus_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Follow me on Google+.\nGet update notifications etc.">Siga-me no Google+.\nReceba notificações de atualização, etc.</string>
-  <string name="twitter_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Follow me on twitter.\nGet update notifications etc.">Siga-me no twitter.\nReceba notificações de atualização, etc.</string>
   <string name="billing_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Billing">Cobrança</string>
   <string name="widgets_no_widgets_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="There are no widgets added to the launcher.">Não há widgets adicionados ao launcher.</string>
   <string name="simple_preferences_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Preferências muito simples, adequadas para a maioria dos usuários. Somente disponível com um conjunto de regras padrão.</string>
