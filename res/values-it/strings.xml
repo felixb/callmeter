@@ -426,8 +426,6 @@
   <string name="author_" formatted="false" username="carloraudino@fedoraproject.org" orig="Author:">Autore:</string>
   <string name="website_" formatted="false" username="carloraudino@fedoraproject.org" orig="Website:">Sito web:</string>
   <string name="source_" formatted="false" username="carloraudino@fedoraproject.org" orig="Sourcescode:">Codice sorgente:</string>
-  <string name="custom_language_" formatted="false" username="carloraudino@fedoraproject.org" orig="Custom language">Personalizza lingua</string>
-  <string name="custom_language_hint" formatted="false" username="carloraudino@fedoraproject.org" orig="Set a custom language.">Imposta una lingua personalizzata.</string>
   <string name="export_logs_csv_" formatted="false" username="Gianluca gianluca-s@libero.it" orig="Export CSV">Esporta in formato CSV</string>
   <string name="delete_widget" formatted="false" username="Gianluca gianluca-s@libero.it" orig="Delete widget">Elimina widget</string>
   <string name="up_" formatted="false" username="fedekikko89" orig="Move up">Sposta sù</string>

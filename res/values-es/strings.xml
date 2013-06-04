@@ -428,8 +428,6 @@
   <string name="country" formatted="false" username="@periclesurtubey" orig="Country">País</string>
   <string name="provider" formatted="false" username="@periclesurtubey" orig="Provider">Empresa</string>
   <string name="plan" formatted="false" username="@periclesurtubey" orig="Plan">Plan</string>
-  <string name="custom_language_" formatted="false" username="@periclesurtubey" orig="Custom language">Lenguaje por defecto</string>
-  <string name="custom_language_hint" formatted="false" username="@periclesurtubey" orig="Set a custom language.">Cambiar lenguaje</string>
   <string name="my_number_" formatted="false" username="@periclesurtubey" orig="My number">Mí Número</string>
   <string name="my_sim_id_" formatted="false" username="@periclesurtubey" orig="SIM Id">SIM ID</string>
   <string name="set_current_number" formatted="false" username="@periclesurtubey" orig="Current number">Número actual</string>

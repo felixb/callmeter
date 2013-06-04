@@ -425,8 +425,6 @@
   <string name="country" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Country">Страна</string>
   <string name="provider" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Provider">Провайдер</string>
   <string name="plan" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Plan">Тариф</string>
-  <string name="custom_language_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Custom language">Пользовательский язык</string>
-  <string name="custom_language_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set a custom language.">Установить пользовательский язык.</string>
   <string name="sendlog_run_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Run SendLog">Запустить SendLog</string>
   <string name="sendlog_run" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog получит журнал устройства и отправит его разработчику.\nУ Вас будет возможность просмотреть и изменить отправляемые данные.</string>
   <string name="sendlog_install_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Install SendLog">Установить SendLog</string>

@@ -437,8 +437,6 @@
   <string name="country" formatted="false" username="maladrill" orig="Country">Państwo</string>
   <string name="provider" formatted="false" username="maladrill" orig="Provider">Dostawca</string>
   <string name="plan" formatted="false" username="maladrill" orig="Plan">Plan</string>
-  <string name="custom_language_" formatted="false" username="maladrill" orig="Custom language">Własny język</string>
-  <string name="custom_language_hint" formatted="false" username="maladrill" orig="Set a custom language.">Ustaw własny język</string>
   <string name="widget_logs_title" formatted="false" username="marcin_pub@interia.pl" orig="Call Meter (last log)">Call Meter (ostatni log)</string>
   <string name="widget_stats_title" formatted="false" username="marcin_pub@interia.pl" orig="Call Meter (stats)">Call Meter (statystyki)</string>
   <string name="cost_per_item_no_limit_help" formatted="false" username="marcin_pub@interia.pl" orig="Set the cost billed for a single log item (e.g. a call or a message).">Wprowadź koszt naliczany dla pojedynczej pozycji (np. połączenia lub SMSa)</string>

@@ -431,6 +431,4 @@
   <string name="author_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Author:">Yazar:</string>
   <string name="website_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Website:">Web sitesi:</string>
   <string name="source_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Sourcescode:">Kaynak kod:</string>
-  <string name="custom_language_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Custom language">İsteğe uyarlanmış dil</string>
-  <string name="custom_language_hint" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Set a custom language.">İsteğe uyarlanmış bir dil belirleyin.</string>
 </resources>

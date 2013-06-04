@@ -421,8 +421,6 @@
   <string name="down_" formatted="false" username="zakos &lt;zimmermannakos@gmail.com&gt;" orig="Move down">Mozgatás lefelé</string>
   <string name="widget_stats_title" formatted="false" username="zakos &lt;zimmermannakos@gmail.com&gt;" orig="Call Meter (stats)">Call Meter (statisztikák)</string>
   <string name="widget_logs_title" formatted="false" username="zakos &lt;zimmermannakos@gmail.com&gt;" orig="Call Meter (last log)">Call Meter (utolsó napló)</string>
-  <string name="custom_language_hint" formatted="false" username="zakos &lt;zimmermannakos@gmail.com&gt;" orig="Set a custom language.">Nyelv beállítása</string>
-  <string name="custom_language_" formatted="false" username="zakos &lt;zimmermannakos@gmail.com&gt;" orig="Custom language">Nyelv</string>
   <string name="set_current_number" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Current number">Aktuális szám</string>
   <string name="my_sim_id_" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="SIM Id">SIM azonosító</string>
   <string name="cost_per_item_no_limit_help" formatted="false" username="Andreas &lt;grallovag@gmail.com&gt;" orig="Set the cost billed for a single log item (e.g. a call or a message).">Beállítja az árát a figyelt elemnek (pl. hívásnak vagy üzenetnek). Kapcsolási díj.</string>

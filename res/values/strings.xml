@@ -459,6 +459,4 @@
 	<string name="country">Country</string>
 	<string name="provider">Provider</string>
 	<string name="plan">Plan</string>
-	<string name="custom_language_">Custom language</string>
-	<string name="custom_language_hint">Set a custom language.</string>
 </resources>

@@ -427,6 +427,4 @@
   <string name="author_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Author:">Autor:</string>
   <string name="website_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Website:">Website:</string>
   <string name="source_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Sourcescode:">Código fonte:</string>
-  <string name="custom_language_hint" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Set a custom language.">Definir linguá proprietária</string>
-  <string name="custom_language_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Custom language">Lingua proprietária</string>
 </resources>

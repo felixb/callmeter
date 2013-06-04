@@ -432,8 +432,6 @@
   <string name="website_" formatted="false" username="grmone.pu@gmail.com" orig="Website:">Web stranica</string>
   <string name="author_" formatted="false" username="grmone.pu@gmail.com" orig="Author:">Autor:</string>
   <string name="source_" formatted="false" username="grmone.pu@gmail.com" orig="Sourcescode:">Izvorni kod:</string>
-  <string name="custom_language_" formatted="false" username="grmone.pu@gmail.com" orig="Custom language">Osobni jezik</string>
-  <string name="custom_language_hint" formatted="false" username="grmone.pu@gmail.com" orig="Set a custom language.">Postavi osobni jezik.</string>
   <string name="country" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Country">Zemlja</string>
   <string name="provider" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Provider">Pružatelj usluga</string>
   <string name="plan" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Plan">Plan</string>

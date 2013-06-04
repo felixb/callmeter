@@ -118,7 +118,6 @@
   <string name="show_hours_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Afficher l\'heure en secondes, minutes, heures et jours.\nSi ce n\'est pas coché, seule les secondes et les minutes sont affichées.</string>
   <string name="show_help_" formatted="false" username="carabao@laposte.net" orig="Show help">Afficher l\'aide</string>
   <string name="show_icon_" formatted="false" username="carabao@laposte.net" orig="Show icon">Afficher l\'icone</string>
-  <string name="custom_language_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Custom language">langue personnalisée</string>
   <string name="country" formatted="false" username="carabao@laposte.net" orig="Country">Pays</string>
   <string name="website_" formatted="false" username="carabao@laposte.net" orig="Website:">Site Web</string>
   <string name="author_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Author:">Auteur :</string>
@@ -166,7 +165,6 @@
   <string name="split_sms_at_160_" formatted="false" username="carabao@laposte.net" orig="Split text messages at 160 chars">Diviser les messages textes de plus de 160 caractères</string>
   <string name="show_shortname_" formatted="false" username="carabao@laposte.net" orig="Show short name instead of long name">Afficher les noms cours au lieu des noms longs</string>
   <string name="show_cost_" formatted="false" username="carabao@laposte.net" orig="Show cost">Afficher les coûts</string>
-  <string name="custom_language_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Set a custom language.">Définir une langue personnalisée</string>
   <string name="license_" formatted="false" username="carabao@laposte.net" orig="License:">License:</string>
   <string name="sendlog_install" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">Installer l\'application libre SendLog pour collecter les logs du périphérique et les envoyer au développeur.</string>
   <string name="sendlog_install_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Install SendLog">Installer SendLog</string>

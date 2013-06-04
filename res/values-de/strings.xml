@@ -461,6 +461,4 @@
   <string name="country">Land</string>
   <string name="provider">Provider</string>
   <string name="plan">Tarif</string>
-  <string name="custom_language_" formatted="false">Andere Sprache</string>
-  <string name="custom_language_hint" formatted="false">Eine andere Sprache einstellen.</string>
 </resources>

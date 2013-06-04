@@ -89,12 +89,6 @@
         android:key="date_format"
         android:summary="@string/custom_date_format_hint"
         android:title="@string/custom_date_format_" />
-    <ListPreference
-        android:entries="@array/lang_"
-        android:entryValues="@array/lang_values"
-        android:key="morelocale"
-        android:summary="@string/custom_language_hint"
-        android:title="@string/custom_language_" />
 
     <CheckBoxPreference
         android:key="show_callinfo"
