@@ -20,4 +20,5 @@
 <resources>
   <string name="changelog_notification_" formatted="false" username="**العربيه" orig="Recent changes:">العربيه</string>
   <string name="length_hint_data" formatted="false" username="**العربيه" orig="Length in kB">*العربيه#</string>
+  <string name="custom_language_hint" formatted="false" username="**العربيه" orig="Set a custom language.">ON</string>
 </resources>
