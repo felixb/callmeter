@@ -51,10 +51,10 @@ res/values-pl/donation.xml:0
 res/values-pl/market.xml:5
 res/values-pl/notes.xml:3
 res/values-pl/strings.xml:117
-res/values-pt/donation.xml:0
-res/values-pt/market.xml:5
+res/values-pt/donation.xml:3
+res/values-pt/market.xml:6
 res/values-pt/notes.xml:3
-res/values-pt/strings.xml:117
+res/values-pt/strings.xml:131
 res/values-ru/donation.xml:6
 res/values-ru/market.xml:6
 res/values-ru/notes.xml:3
@@ -88,7 +88,7 @@ res/values-iw:120
 res/values-nb:125
 res/values-nl:120
 res/values-pl:125
-res/values-pt:125
+res/values-pt:143
 res/values-ru:146
 res/values-sk:146
 res/values-sv:114

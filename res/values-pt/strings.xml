@@ -140,4 +140,18 @@
   </string-array>
   <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats." username="Lucas Andrade &lt;lucas.rokam@gmail.com&gt;">Ocultar "(2G/3G/4G)" do título. Isto não afeta a estatística.</string>
   <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title" username="Lucas Andrade &lt;lucas.rokam@gmail.com&gt;">Mostrar apenas "Dados" como título</string>
+  <string name="custom_language_" formatted="false" username="consultormarcosr@gmail.com" orig="Custom language">Linguagem Personalizada</string>
+  <string name="custom_language_hint" formatted="false" username="consultormarcosr@gmail.com" orig="Set a custom language.">Defina a Linguagem personalizada</string>
+  <string name="debug_" formatted="false" username="consultormarcosr@gmail.com" orig="Debug">Depurar</string>
+  <string name="send_logs_" formatted="false" username="consultormarcosr@gmail.com" orig="Send logs">Enviar Logs</string>
+  <string name="send_logs_hint" formatted="false" username="consultormarcosr@gmail.com" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Envie o log do dispositivo ao desenvolvedor.\nFaça isto somente se for solicitado</string>
+  <string name="sendlog_run_" formatted="false" username="consultormarcosr@gmail.com" orig="Run SendLog">Executar o Envio do Log</string>
+  <string name="sendlog_run" formatted="false" username="consultormarcosr@gmail.com" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">"SendLog" irá recolher log do dispositivo e enviá-lo para o desenvolvedor.\nVocê poderá rever e modificar os dados que estão sendo enviados.</string>
+  <string name="sendlog_install_" formatted="false" username="consultormarcosr@gmail.com" orig="Install SendLog">Instale o "SendLog"</string>
+  <string name="sendlog_install" formatted="false" username="consultormarcosr@gmail.com" orig="Install the free SendLog application to collect the device log and send it to the developer.">Instalando o aplicativo gratuito "SendLog" para recolher o log do dispositivo e enviar ao desenvolvedor</string>
+  <string name="license_" formatted="false" username="consultormarcosr@gmail.com" orig="License:">Licença:</string>
+  <string name="license" formatted="false" username="consultormarcosr@gmail.com" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="author_" formatted="false" username="consultormarcosr@gmail.com" orig="Author:">Autor:</string>
+  <string name="website_" formatted="false" username="consultormarcosr@gmail.com" orig="Website:">Página Web:</string>
+  <string name="source_" formatted="false" username="consultormarcosr@gmail.com" orig="Sourcescode:">Código Fonte:</string>
 </resources>
