@@ -26,7 +26,7 @@
   <string name="cost_per_min_" formatted="false" orig="Cost / minute">Költség / perc</string>
   <string name="freesms_" formatted="false" orig="Free SMS">Ingyenes SMS</string>
   <string name="freesms_hint" formatted="false" orig="Free SMS / month">Ingyenes SMS / hónap</string>
-  <string name="freedata_" formatted="false" orig="Free traffic">Ingyenes forgalom</string>
+  <string name="freedata_" formatted="false" orig="Free traffic" username="gaborgabor">Ingyenes adatforgalom</string>
   <string name="cost_per_mb_" formatted="false" orig="Cost / MB">Költség / MB</string>
   <string name="freedata_hint" formatted="false" orig="Free 2G, 3G or 4G data traffic / month">Ingyenes 2G, 3G, 4G adatforgalom / hónap</string>
   <string name="cost_per_mms_" formatted="false" orig="Cost / MMS">Költség / MMS</string>
