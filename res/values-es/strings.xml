@@ -23,7 +23,7 @@
 <resources>
   <string name="changelog_notification_" formatted="false">Cambios recientes:</string>
   <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Haz click aquí para ver los cambios recientes de</string>
-  <string name="never_show_again" formatted="false" orig="Never show changelog again">No volver a mostrar changelog</string>
+  <string name="never_show_again" formatted="false" orig="Never show changelog again" username="ar2rin">No volver a mostrar el registro de cambios (changelog)</string>
   <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Notas del desarrollador</string>
   <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Haz click aquí para leer noticias recientes del desarrollador</string>
   <string name="about0_" formatted="false">¡Controla tus planes de llamadas, mensajes y datos!</string>
@@ -322,7 +322,7 @@
   <string name="view_logs_">Ver registros</string>
   <string name="title">Título</string>
   <string name="spacer">Espaciador</string>
-  <string name="mixed">Llamadas</string>
+  <string name="mixed" username="Ignacio Larrain &lt;ilarrain@gmail.com&gt;" orig="Mixed">Mixto</string>
   <string name="limit_type_unlimited">Sin límite</string>
   <string name="limit_type_units">Unidades</string>
   <string name="limit_type_cost">coste</string>
@@ -444,4 +444,9 @@
   <string name="widget_details_textsize" formatted="false" username="@periclesurtubey" orig="Details Text Size">Detalle de tamaño de letra</string>
   <string name="x1_month_1_day" formatted="false" username="@periclesurtubey" orig="One month + one day">Un mes + un día</string>
   <string name="debug_" formatted="false" username="@periclesurtubey" orig="Debug">Depuración</string>
+  <string name="my_number_help" formatted="false" username="ar2rin" orig="Match only logs, while this SIM/number is active.">Tomar en cuenta sólo los registros, mientras esté activo este SIM/número</string>
+  <string name="my_sim_id_help" formatted="false" username="ar2rin" orig="Match only logs done with this SIM.">Tomar en cuenta sólo los registros hechos con esta SIM</string>
+  <string name="delete_group_" formatted="false" username="ar2rin" orig="Delete group">Eliminar grupo</string>
+  <string name="delete_group_hint" formatted="false" username="ar2rin" orig="Do you really want to delete this group?">Realmente desea eliminar este grupo?</string>
+  <string name="cost_per_item_no_limit_help" formatted="false" username="ar2rin" orig="Set the cost billed for a single log item (e.g. a call or a message).">Ajusta el coste facturado por cada elemento del registro (ej. una llamada o un mensaje)</string>
 </resources>

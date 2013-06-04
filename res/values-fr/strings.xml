@@ -155,7 +155,7 @@
   <string name="x1_year" formatted="false" username="carabao@laposte.net" orig="One year">Un an</string>
   <string name="custom" formatted="false" username="carabao@laposte.net" orig="Custom">Personnalisé</string>
   <string name="date_formats_1" formatted="false" username="carabao@laposte.net" orig="MM/DD/YY">MM/JJ/AA</string>
-  <string name="x05_minute" formatted="false" username="carabao@laposte.net" orig="0.5 minutes">0.5 minutes</string>
+  <string name="x05_minute" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="0.5 minutes">30 secondes</string>
   <string name="provider" formatted="false" username="carabao@laposte.net" orig="Provider">Opérateur</string>
   <string name="source_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Sourcescode:">Code source :</string>
   <string name="license" formatted="false" username="carabao@laposte.net" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - voir http://www.gnu.org/licenses/gpl-3.0.txt</string>
@@ -191,10 +191,10 @@
   <string name="custom_currency_format_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Select a custom currency format.">Sélectionner un format pour la devise à utiliser.</string>
   <string name="custom_date_format_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Select a custom date format.">Sélectionner un format pour la date à utiliser.</string>
   <string name="custom_delimiter_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Custom delimiter">Séparateur personnel</string>
-  <string name="custom_delimiter_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Set a custom delimiter separating the blocks of statistics.">Sélectionner un séparateur personnel pour séparer des blocks de statiqtiques.</string>
+  <string name="custom_delimiter_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set a custom delimiter separating the blocks of statistics.">Sélectionner un séparateur personnel pour séparer des blocks de statistiques.</string>
   <string name="split_sms_at_160_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Disable to use android\'s system method.">Désactiver pour utiliser la méthode du système android.</string>
   <string name="ask_for_plan_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Ask for plan">Demander un plan</string>
-  <string name="ask_for_plan_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Ask for plan for unmatched calls after hanging up.">Demander un plan après avoir raccroché un appel non associé à une règle</string>
+  <string name="ask_for_plan_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Ask for plan for unmatched calls after hanging up.">Demander un plan après avoir raccroché un appel non associé à une règle.</string>
   <string name="autohide_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Cacher le message après .. secondes. Laisser vide pour désactiver le masquage automatique.</string>
   <string name="select_plan_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Select a plan">Sélectionner un plan</string>
   <string name="set_selected_as_default_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Set selected plan as default">Définir par défaut le plan sélectionné</string>
@@ -268,7 +268,7 @@
   <string name="send_logs_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Envoyer les logs de votre appareil au développeur. Ne le faire que s\'il vous le demande.</string>
   <string name="sendlog_run" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog va collecter les logs de votre appareil et les envoyer au développeur. Vous avez la possibilité de consulter et modifier ces données avant envoi.</string>
   <string name="plan" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Plan">Plan</string>
-  <string name="limit_type_cost" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="cost">coût</string>
+  <string name="limit_type_cost" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="costs">coûts</string>
   <string name="limit_type_units" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="units">unités</string>
   <string name="limit_type_unlimited" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="unlimited">illimité</string>
   <string name="edit_plan_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Edit Plan">Editer le plan</string>
@@ -445,7 +445,7 @@
   <string name="units_cost_per_minute" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="$/Minute">€/Minute</string>
   <string name="units_cost_per_message" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="$/Message">€/Message</string>
   <string name="units_cost_per_mbyte" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="$/MByte">€/MOctet</string>
-  <string name="limit_type_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;cost\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Définissez ici le type de votre limite :\nUne limite "Unités" concernera les minutes, les messages...\nUne limite "Coût" concernera les coûts induits par les items facturés dans votre plan.</string>
+  <string name="limit_type_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;costs\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Définissez ici le type de votre limite :\n"Unités" limitera les plans à base de minutes, ou de messages...\n"Coûts" limitera les coûts induits par les items facturés dans votre plan.</string>
   <string name="billperiodid_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Select your billing period.\nYou may need to create one as extra plan.">Choisissez votre période de facturation.\nVous devrez peut-être en créer une.</string>
   <string name="cost_per_amount_in_limit_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Cost per length in limit">Coût par durée (limite non atteinte)</string>
   <string name="billmode_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.">Définir le mode de facturation des appels.\nLa première partie est la durée minimale facturée par l\'opérateur. Chaque appel avec une durée inférieure sera arrondie à cette valeur.\nLa seconde partie est la durée minimale de chaque bloc de facturation suivante (en secondes). Veuillez vous référer à la FAQ pour plus d\'infos.</string>

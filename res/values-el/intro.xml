@@ -21,4 +21,9 @@
                Visit http://ub0r.de/translate/cm3/el/intro.xml to edit the file.
        -->
 <resources>
+  <string name="intro_" formatted="false" username="kruwler &lt;kruwler@gmail.com&gt;" orig="Introducing Call Meter 3G">Παρουσιάζουμε το Call Meter 3G</string>
+  <string name="intro0" formatted="false" username="kruwler &lt;kruwler@gmail.com&gt;" orig="&lt;b&gt;Call Meter 3G&lt;/b&gt; monitors usage of your calls, messages and data connections.">Το <b>Call Meter 3G</b> μετράει την χρήση των κλήσεων, μηνυμάτων και συνδέσεων δεδομένων.</string>
+  <string name="intro1" formatted="false" username="kruwler &lt;kruwler@gmail.com&gt;" orig="In order to get accurate statistics, it is important to set up Call Meter 3G as accurately as possible.">Προκείμενου να έχουμε πιο ακριβή στατιστικά, είναι σημαντικό να ρυθμιστεί το Call Meter 3G με το μέγιστο βαθμό ακρίβειας.</string>
+  <string name="intro_simple" formatted="false" username="kruwler &lt;kruwler@gmail.com&gt;" orig="Most users only need to set their settings in menu &lt;b&gt;Basic settings&lt;/b&gt;. Just set the number of inclusive minutes or messages. Set up cost for calls made, etc..">Οι περισσότεροι χρήστες χρειάζονται να ρυθμίσουν μόνο τις βασικές ρυθμισείς στο μενού <b>Basic settings</b>. Απλά ρυθμίστε τον αριθμό των δωρεάν λεπτών και μηνυμάτων. Ρυθμίστε το κόστος των κλήσεων, κλπ..</string>
+  <string name="intro_import" formatted="false" username="kruwler &lt;kruwler@gmail.com&gt;" orig="If your billing is more complex, for example because messages and calls are billed as merged units, you can import pre-configured rules. Just select the menu &lt;b&gt;Import rule set&lt;/b&gt;.">Αν το πλάνο σας είναι σύνθετο, για παράδειγμα τα μηνύματα και οι κλήσεις χρεώνονται ενιαία, τότε μπορείτε να εισαγάγετε προρυθμισμένα προγράμματα χρέωσης. Απλά επιλέξτε την επιλογή <b>Εισαγωγή Σετ Κανόνων</b>.</string>
 </resources>
