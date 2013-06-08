@@ -114,10 +114,10 @@ res/values-nb/strings.xml:337
 res/values-nl/donation.xml:5
 res/values-nl/help.xml:14
 res/values-nl/intro.xml:10
-res/values-nl/market.xml:6
+res/values-nl/market.xml:8
 res/values-nl/notes.xml:0
 res/values-nl/simple_prefs.xml:19
-res/values-nl/strings.xml:423
+res/values-nl/strings.xml:440
 res/values-pl/donation.xml:5
 res/values-pl/help.xml:14
 res/values-pl/intro.xml:10
@@ -197,7 +197,7 @@ res/values-it:492
 res/values-iw:445
 res/values-ko:0
 res/values-nb:370
-res/values-nl:477
+res/values-nl:496
 res/values-pl:489
 res/values-pt:451
 res/values-pt-rBR:348
