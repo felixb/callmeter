@@ -24,7 +24,7 @@
   <string name="changelog_notification_" formatted="false" orig="Recent changes:" username="housenegro76@hotmail.com">Recente wijzigingen:</string>
   <string name="about0_" formatted="false" username="rainbowwarrior7" orig="Watch your call, message and data plans!">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
   <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing." username="Gummie">CallMeter genereert rapporten van gesprekken, berichten en datalogs. Het ondersteunt diverse facturatie mogelijkheden.</string>
-  <string name="about1" formatted="false" username="Gummie" orig="The output format is usage | time or count used this billing period | time or count overall.">Het resultaat formaat is gebruik | tijd of aantal gebruikt deze facturatieperiode | tijd of aantal algemeen.</string>
+  <string name="about1" formatted="false" username="ditsy@live.nl" orig="The output format is usage | time or count used this billing period | time or count overall.">Het resultaat formaat is gebruik | tijd of aantal gebruikt in deze facturatieperiode | tijd of aantal algemeen.</string>
   <string name="about2" formatted="false" username="housenegro76@hotmail.com" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
   <string name="about3" formatted="false" username="housenegro76@hotmail.com" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter werkt zich elke 30 minuten op de achtergrond bij (alleen wanneer niet in standby). Dit betekent dat het verwijderen van gesprekken of berichten ouder dan 30 min. de statistieken niet wijzigt. Het verwijderen van gesprekken of berichten jonger dan 30 min. kan resulteren in onjuiste statistieken.</string>
   <string name="send_" formatted="false" username="housenegro76@hotmail.com" orig="Send">Verstuur</string>
@@ -75,9 +75,9 @@
   <string name="show_titlebar_" formatted="false">Toon titelbalk</string>
   <string name="show_titlebar_hint" formatted="false">Toon titelbalk in hoofdvenster. Zonder titelbalk kan je geen achtergrond activiteit zien.</string>
   <string name="show_hours_" formatted="false">Toon uren</string>
-  <string name="show_hours_hint" formatted="false" username="ditsy@live.nl" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Toon tijd in sec, min, uren en dagen.\nIndien uitgevinkt worden alleen seconden en minuten getoond.</string>
+  <string name="show_hours_hint" formatted="false" username="ditsy@live.nl" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Toon tijd in seconden, minuten, uren en dagen.\nIndien uitgevinkt worden alleen sec. en min. getoond.</string>
   <string name="show_help_" formatted="false">Toon help</string>
-  <string name="show_help_hint" formatted="false">Toon help in setup van Schema\'s/Regels.</string>
+  <string name="show_help_hint" formatted="false" username="ditsy@live.nl" orig="Show help in Plans/Rules setup view.">Toon help in setup van Schema\'s en Regels.</string>
   <string name="show_shortname_" formatted="false">Toon verkorte naam in plaats van lange naam</string>
   <string name="show_cost_" formatted="false">Toon kosten</string>
   <string name="show_billperiod_" formatted="false" username="Gummie" orig="Show progress of billing period">Toon voortgang van facturatieperiode</string>
