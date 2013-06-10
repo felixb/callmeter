@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-       <!--
+<!--
                Copyright (C) 2009-2011 Felix Bechstein
        -->
-       <!--
+<!--
                This file is part of Call Meter NG. This program is free software; you can
                redistribute it and/or modify it under the terms of the GNU General
                Public License as published by the Free Software Foundation; either
                version 3 of the License, or (at your option) any later version.
        -->
-       <!--
+<!--
                This program is distributed in the hope that it will be useful, but
                WITHOUT ANY WARRANTY; without even the implied warranty of
                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,13 +16,13 @@
                copy of the GNU General Public License along with this program; If
                not, see <http://www.gnu.org/licenses/>.
        -->
-      <!--
+<!--
                This file is generated automatically by ub0rlib/php.
-               Visit http://www.4.ub0r.de/translate/cm2/tr/notes.xml to edit the file.
+               Visit http://ub0r.de/translate/cm2/tr/notes.xml to edit the file.
        -->
 <resources>
-  <string-array name="notes_from_dev" username="Felix Bechstein &lt;f+translator@ub0r.de&gt;">
+  <string-array name="notes_from_dev" username="bluesman80@gmail.com">
     <item>Aralık 2010, Call Meter 3G hazır: Call Meter 3G diğer adıyla CM3 markette mevcut. Deneyin ve proje sayfasına yorumlarınızı gönderin.</item>
-    <item notranslation="true">Mar. 2011, Settings: Don\'t forget to clear statistics after changing settings to apply the new rules for past log items too.</item>
+    <item>Mart 2011, Ayarlar: Yeni yaptığınız ayarların eski loglara da uygulanması için istatistikleri sıfırlamayı unutmayın.</item>
   </string-array>
 </resources>
