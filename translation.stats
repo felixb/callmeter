@@ -145,7 +145,7 @@ res/values-ru/intro.xml:10
 res/values-ru/market.xml:8
 res/values-ru/notes.xml:0
 res/values-ru/simple_prefs.xml:19
-res/values-ru/strings.xml:435
+res/values-ru/strings.xml:440
 res/values-sk/donation.xml:0
 res/values-sk/help.xml:3
 res/values-sk/intro.xml:10
@@ -163,10 +163,10 @@ res/values-sv/strings.xml:79
 res/values-tr/donation.xml:5
 res/values-tr/help.xml:14
 res/values-tr/intro.xml:10
-res/values-tr/market.xml:6
+res/values-tr/market.xml:8
 res/values-tr/notes.xml:0
 res/values-tr/simple_prefs.xml:19
-res/values-tr/strings.xml:410
+res/values-tr/strings.xml:441
 res/values-zh-rCN/donation.xml:0
 res/values-zh-rCN/help.xml:0
 res/values-zh-rCN/intro.xml:0
@@ -201,9 +201,9 @@ res/values-nl:496
 res/values-pl:489
 res/values-pt:452
 res/values-pt-rBR:348
-res/values-ru:491
+res/values-ru:496
 res/values-sk:321
 res/values-sv:79
-res/values-tr:464
+res/values-tr:497
 res/values-zh-rCN:283
 res/values-zh-rTW:81
