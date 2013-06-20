@@ -113,7 +113,7 @@
   <string name="set_selected_as_default_" formatted="false">Kiválasztott Tarifa alapértelmezetté tétele</string>
   <string name="autohide_in_" formatted="false">Párbeszéd automatikus elrejtése %d másodpercen belül</string>
   <string name="logs" formatted="false">Naplók</string>
-  <string name="show_logs" formatted="false" username="gaborgabor" orig="Show logs">Hívásnapló</string>
+  <string name="show_logs" formatted="false" username="flx" orig="Show logs">Napló</string>
   <string name="plans" formatted="false" username="gaborgabor" orig="Plans">Tarifa</string>
   <string name="plans_hint" formatted="false" username="gaborgabor" orig="Set your plans for all kind of billing here.">Itt állíthatod be a Tarifát.</string>
   <string name="plans_new" formatted="false" orig="New plan">Új Tarifa</string>
