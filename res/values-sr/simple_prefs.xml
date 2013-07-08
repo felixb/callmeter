@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
+<!--
 		Copyright (C) 2009-2013 Felix Bechstein
 	-->
-	<!--
+<!--
 		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
 		version.
 	-->
-	<!--
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -18,4 +18,23 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string name="missing_slash" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Bill mode needs to be in seconds/seconds!">Račun treba biti u sekundi/sekundama!</string>
+  <string name="freemin_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Free minutes">Besplatne minute</string>
+  <string name="freemin_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Free minutes / month">Besplatne minute / mesečno</string>
+  <string name="cost_per_call_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Cost / call">Cena po pozivu</string>
+  <string name="cost_per_call_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Each call get\'s billed.">Svaki poziv se naplaćuje.</string>
+  <string name="cost_per_min_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Cost / minute">Cena po minutu</string>
+  <string name="cost_per_min_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Each minute get\'s billed.">Svaki minut se naplaćuje</string>
+  <string name="freesms_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Free SMS">Besplatan SMS</string>
+  <string name="freesms_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Free SMS / month">Besplatnih SMS-ova / mesečno</string>
+  <string name="cost_per_sms_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Cost / SMS">Cena po SMS-u</string>
+  <string name="cost_per_sms_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Each SMS get\'s billed.">Svaki SMS se naplaćuje.</string>
+  <string name="freemms_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Free MMS">Besplatan MMS</string>
+  <string name="freemms_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Free MMS / month">Besplatnih MMS-ova / mesečno</string>
+  <string name="cost_per_mms_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Cost / MMS">Cena po MMS-u</string>
+  <string name="cost_per_mms_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Each MMS get\'s billed.">Svaki MMS se naplaćuje.</string>
+  <string name="freedata_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Free traffic">Besplatni saobraćaj</string>
+  <string name="freedata_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Free 2G, 3G or 4G data traffic / month">Besplatan internet saobraćaj (2G, 3G ili 4G) / mesečno</string>
+  <string name="cost_per_mb_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Cost / MB">Cena po MB</string>
+  <string name="cost_per_mb_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Each MB get\'s billed.">Svaki MB se naplaćuje.</string>
 </resources>

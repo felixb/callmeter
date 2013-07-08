@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
+<!--
 		Copyright (C) 2009-2013 Felix Bechstein
 	-->
-	<!--
+<!--
 		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
 		version.
 	-->
-	<!--
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -18,4 +18,99 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string name="changelog_notification_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Recent changes:">Nedavne promene:</string>
+  <string name="changelog_notification_text" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Click here to show recent changes of">Kliknite ovde za prikaz nedavnih promena</string>
+  <string name="never_show_again" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Never show changelog again">Ne prikazuj više promenu</string>
+  <string name="notes_from_developer_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Notes from developer">Beleške programera</string>
+  <string name="notes_from_developer_text" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Click here to show recent news from the developer">Kliknite ovde za prikaz najnovijih vesti od programera</string>
+  <string name="about0_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Watch your call, message and data plans!">Pratite svoje pozive, poruke i internet saobraćaj!</string>
+  <string name="about0" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter generiše izveštaj za Vaše razgovore, poruke i prenešene podatke. Podržava nekoliko načina naplate.</string>
+  <string name="about1" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="The output format is usage | time or count used this billing period | time or count overall.">Izlazni format koji brojač koristi je potrošnja po jedinici vremena ili potrošnja za obračunski period po jedinici vremena ili uopštena potrošnja.</string>
+  <string name="about2" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">Način obračuna određuje dužinu prvog / sledećeg obračunskog intervala. Npr. 60/10 znači - svaki poziv kraći od 60s se zaokružuje na taj interval, sve nakon 60s se zaokružuje na po 10s.</string>
+  <string name="about3" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter se pokreće u pozadini svakih 30min (samo ako nije u mirovanju). To znači da brisanje poziva ili poruka starijih od 30min neće promeniti vašu statistiku.</string>
+  <string name="author_and_many_more" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="and many more...">i mnogo više...</string>
+  <string name="send_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Send">Pošalji</string>
+  <string name="add_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Add">Dodaj</string>
+  <string name="length_hint_call" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Length in seconds">Dužina u sekundama</string>
+  <string name="add_log" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Add log entry">Dodaj izveštaj</string>
+  <string name="length_hint_data" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Length in kB">Količina u kB</string>
+  <string name="settings" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Preferences">Postavke</string>
+  <string name="update_interval_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Update interval">Interval ažuriranja</string>
+  <string name="update_interval_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Shorter period will use more battery.">Kraći period će trošiti više bateriju.</string>
+  <string name="update_interval_data_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Update interval (data)">Interval ažuriranja (podaci)</string>
+  <string name="update_interval_data_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Ažuriranje statistike prenosa podataka treba raditi češće. Npr. Samsungu trebaju vrlo kratki intervali.</string>
+  <string name="date_begin_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Beginning of records">Početak merenja</string>
+  <string name="date_begin_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Ignore any logs before this date.">Svi izveštaji pre navedenog datuma neće biti uračunati.</string>
+  <string name="delete_old_logs_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Delete logs older than">Obriši izveštaje starije od</string>
+  <string name="delete_old_logs_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Delete logs older than x days from internal database. Leave empty to disable.">Izbriši izveštaje starije od x dana. Ostavite prazno da onemogućite brisanje.</string>
+  <string name="common_prefs_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Common preferences">Uobičajene postavke</string>
+  <string name="edit_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Edit">Uredi</string>
+  <string name="delete_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Delete">Obriši</string>
+  <string name="up_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Move up">Pomeri gore</string>
+  <string name="down_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Move down">Pomeri dole</string>
+  <string name="about_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="About this app">O ovoj aplikaciji</string>
+  <string name="about_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="About">O...</string>
+  <string name="faq_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Some tips and tricks, how to set up this app.">Neki saveti i trikovi kako da podesite ovu aplikaciju.</string>
+  <string name="feedback_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Feedback">Povratne informacije</string>
+  <string name="feedback_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Report bugs, request features ...">Prijava problema, grešaka...</string>
+  <string name="google_plus_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Follow me on Google+.\nGet update notifications etc.">Pratite me na Google+.\nDobijajte izveštaje o update-ima, itd.</string>
+  <string name="more_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="More Apps..">Još aplikacija...</string>
+  <string name="billing_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Billing">Naplata</string>
+  <string name="billday_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="First day of your bill">Prvi dan vašeg računa</string>
+  <string name="billday_last" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Last day of your bill">Zadnji dan vašeg računa</string>
+  <string name="billmode_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Mode of billing">Način plaćanja</string>
+  <string name="billdate_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Start of billing period:">Početak obračunskog perioda:</string>
+  <string name="appearance_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Appearance">Izgled</string>
+  <string name="behavior_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Behavior">Ponašanje</string>
+  <string name="appearance_and_behavior_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Appearance &amp; behavior">Izgled </string>
+  <string name="widget_stats_title" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Call Meter (stats)">Call Meter (statistika)</string>
+  <string name="widget_logs_title" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Call Meter (last log)">Call Meter (zadnji izveštaj)</string>
+  <string name="widget_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Widget">Widget</string>
+  <string name="widgets_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Widgets">Widgeti</string>
+  <string name="widgets_no_widgets_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="No widgets added">Nisu dodati widgeti</string>
+  <string name="widgets_no_widgets_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="There are no widgets added to the launcher.">Nema dodatih widgeta.</string>
+  <string name="delete_widget" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Delete widget">Obriši widget</string>
+  <string name="simple_preferences_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Simple preferences">Jednostavna podešavanja</string>
+  <string name="simple_preferences_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Vrlo jednostavna podešavanja, pogodna za većinu korisnika. Dostupno samo sa osnovnim pravilima podešavanja.</string>
+  <string name="simple_preferences_deactivated" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Jednostavna podešavanja dostupna su samo za zadana pravila. Uvezite zadana pravila za ponovnu aktivaciju.</string>
+  <string name="advanced_preferences_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Advanced preferences">Napredna podešavanja</string>
+  <string name="advanced_preferences_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Omogućava Vam kompleksnija podešavanja. Većini korisnika ovo neće biti potrebno.</string>
+  <string name="theme_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Theme">Teme</string>
+  <string name="textsize_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Text size">Veličina teksta</string>
+  <string name="textsize_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Text size in pixels; leave empty for default">Veličina teksta u pikselima; ostavite prazno za podrazumevanu vrednost.</string>
+  <string name="textsize_title_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Title\'s text size">Veličina naslova</string>
+  <string name="textsize_bigtitle_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Big title\'s text size">Veličina velikog naslova</string>
+  <string name="textsize_title_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Text size for titles in pixels; leave empty for default">Veličina naslova u pikselima; ostavite prazno za podrazumevanu vrednost.</string>
+  <string name="textsize_bigtitle_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Text size for big titles in pixels; leave empty for default">Veličina velikog naslova u pikselima; ostavite prazno za podrazumevanu vrednost.</string>
+  <string name="textsize_spacer_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Spacer\'s size">Veličina razmaka</string>
+  <string name="textsize_spacer_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Size for spacers in pixels; leave empty for default">Veličina razmaka u pikselima; ostavite prazno za podrazumevanu vrednost.</string>
+  <string name="textsize_pbar_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Progress bar\'s size">Veličina trake obračuna</string>
+  <string name="textsize_pbar_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Size for progress bars in pixels; leave empty for default">Veličina trake obračuna u pikselima; ostavite prazno za podrazumevanu vrednost.</string>
+  <string name="textsize_pbarbp_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Bill period\'s progress bar\'s size">Veličina trake obračunskog perioda</string>
+  <string name="textsize_pbarbp_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Veličina trake obračunskog perioda u pikselima; ostavite prazno za podrazumevanu vrednost.</string>
+  <string name="show_today_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show today">Prikaži današnje</string>
+  <string name="show_today_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show today stats">Prikaži današnju statistiku</string>
+  <string name="show_total_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show total">Prikaži ukupno</string>
+  <string name="show_total_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show total stats, disable to see current only.">Prikaži ukupnu statistiku; onemogući za prikaz samo trenutne.</string>
+  <string name="show_time_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Switch to date">Prebaci na datum</string>
+  <string name="show_titlebar_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show title bar">Prikaži naslovnu traku</string>
+  <string name="show_titlebar_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show title bar in main view. Without title bar, there is no way to see background activity.">Prikaži naslovnu traku u glavnom prozoru. Bez naslovne trake nije moguće videti aktivnosti u pozadini.</string>
+  <string name="show_hours_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show hours">Prikaži sate</string>
+  <string name="show_hours_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Prikaži vreme u sekundama, minutama, satima i danima.\nAko nije označeno, samo sekunde i minute se prikazuju.</string>
+  <string name="show_help_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show help">Prikaži pomoć</string>
+  <string name="show_help_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show help in Plans/Rules setup view.">Prikaži pomoć u podešavanju Planova/Pravila.</string>
+  <string name="show_shortname_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show short name instead of long name">Prikaži kratka imena umesto dugačkih</string>
+  <string name="show_cost_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show cost">Prikaži troškove</string>
+  <string name="show_billperiod_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show progress of billing period">Pokaži troškove u obračunskom razdoblju</string>
+  <string name="show_icon_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show icon">Prikaži ikonu</string>
+  <string name="hide_name_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Hide name of plan">Sakrij naziv plana</string>
+  <string name="small_widget_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Use small widget">Koristi mali widget</string>
+  <string name="show_target_billday_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show last bill day">Prikaži zadnji dan računa</string>
+  <string name="show_target_billday_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show last day of bill instead of first.">Prikaži zadnji dan računa umesto prvog.</string>
+  <string name="show_calllength_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show info after hanging up">Prikaži info nakon završetka poziva</string>
+  <string name="show_calllength_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show length/cost of a call after hanging up.">Prikaži dužinu/cenu poziva nakon završetka poziva.</string>
+  <string name="hide_zero_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Hide empty plans">Sakrij prazne planove</string>
+  <string name="hide_zero_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Hide plans containing no item.">Sakrij planove bez pravila.</string>
+  <string name="hide_nocost_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Hide no cost plans">Sakrij planove bez troškova</string>
+  <string name="hide_nocost_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Hide plans with no cost.">Sakrij planove koji nemaju definisane troškove.</string>
 </resources>
