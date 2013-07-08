@@ -113,4 +113,114 @@
   <string name="hide_zero_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Hide plans containing no item.">Sakrij planove bez pravila.</string>
   <string name="hide_nocost_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Hide no cost plans">Sakrij planove bez troškova</string>
   <string name="hide_nocost_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Hide plans with no cost.">Sakrij planove koji nemaju definisane troškove.</string>
+  <string name="hide_progressbars_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Hide progress bars">Sakrij trake napretka</string>
+  <string name="hide_progressbars_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Hide progress bars in main view.">Sakrij trake napretka na glavnom ekranu.</string>
+  <string name="custom_currency_symbol_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Custom currency symbol">Simbol valute</string>
+  <string name="custom_currency_symbol_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set a custom currency symbol, leave empty for system default.">Zadajte svoj simbol valute, ostavite prazno za podrazumevano.</string>
+  <string name="custom_currency_format_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Custom currency format">Format valute</string>
+  <string name="custom_currency_format_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Select a custom currency format.">Zadajte svoj format valute.</string>
+  <string name="custom_date_format_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Custom date format">Format datuma</string>
+  <string name="custom_date_format_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Select a custom date format.">Postavite format datuma.</string>
+  <string name="custom_delimiter_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Custom delimiter">Razdvajač</string>
+  <string name="custom_delimiter_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set a custom delimiter separating the blocks of statistics.">Zadajte svoj razdvajač za razdvajanje blokova u statistici.</string>
+  <string name="split_sms_at_160_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Split text messages at 160 chars">Podeli tekstualnu poruku na 160 znakova</string>
+  <string name="split_sms_at_160_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Disable to use android\'s system method.">Onemogući za korištenje android sistemske metode.</string>
+  <string name="ask_for_plan_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Ask for plan">Pitaj za plan</string>
+  <string name="ask_for_plan_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Ask for plan for unmatched calls after hanging up.">Pitaj za plan za neuparene pozive nakon prekida.</string>
+  <string name="autohide_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Auto hide">Automatsko sakrivanje</string>
+  <string name="autohide_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Sakrij dijalog nakon .. sekundi. Ostavite prazno da deaktivirate automatsko sakrivanje.</string>
+  <string name="select_plan_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Select a plan">Odaberi plan</string>
+  <string name="set_selected_as_default_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set selected plan as default">Postavi odabrani plan kao podrazumevani</string>
+  <string name="autohide_in_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Auto hide dialog in: %ds">Automatski sakrij dijalog u: %ds</string>
+  <string name="logs" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Logs">Izveštaji</string>
+  <string name="now" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Now">Danas</string>
+  <string name="show_logs" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Show logs">Prikaži izveštaje</string>
+  <string name="plans" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Plans">Planovi</string>
+  <string name="plans_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set your plans for all kind of billing here.">Podesite svoje planove za sve vrste obračuna.</string>
+  <string name="plans_new" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="New plan">Novi plan</string>
+  <string name="rule_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Rule">Pravilo</string>
+  <string name="rules" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Rules">Pravila</string>
+  <string name="rules_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set your billing rules here.">Podesite svoja obračunska pravila.</string>
+  <string name="rules_new" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="New Rule">Novo pravilo</string>
+  <string name="length_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Length">Dužina</string>
+  <string name="blength_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Billed length">Obračunata dužina</string>
+  <string name="cost_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Cost">Cena</string>
+  <string name="remote_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Remote number">Broj telefona</string>
+  <string name="numbergroups_edit_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Number groups">Grupe brojeva</string>
+  <string name="numbergroups_edit_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Edit number groups here.">Uredi ovde grupe brojeva.</string>
+  <string name="hourgroups_edit_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Hour groups">Grupe sati</string>
+  <string name="hourgroups_edit_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Edit hour groups here.">Uredi ovde grupe sati.</string>
+  <string name="numbers" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Numbers">Brojevi</string>
+  <string name="numbergroup_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Include numbers">Uvrsti brojeve</string>
+  <string name="numbergroup_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Dodajte brojeve kojima ovo pravilo mora odgovarati.\n\nDopušteni su zamenski znakovi ("%") s oba kraja broja.\nNpr. %34 obuhvata 1234, 12% obuhvata 1234 a %23% obuhvata 12345.</string>
+  <string name="exnumbergroup_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Exclude numbers">Izbaci brojeve</string>
+  <string name="exnumbergroup_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Add some numbers this rule must not match.\nSee above.">Dodajte brojeve kojima ovo pravilo ne sme odgovarati.\nVidi gore.</string>
+  <string name="new_numbergroup" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="New number group">Nova grupa brojeva</string>
+  <string name="add_number" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Add number">Dodaj broj</string>
+  <string name="numbergroup_excalls" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Exclude from calls">Isključi iz poziva</string>
+  <string name="numbergroup_exsms" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Exclude from SMS">Isključi iz SMS-a</string>
+  <string name="hours" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Hours">Sati</string>
+  <string name="hourgroup_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Include hours">Uvrsti sate</string>
+  <string name="hourgroup_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Add some hours this rule must match.">Dodajte sate kojima ovo pravilo mora odgovarati.</string>
+  <string name="exhourgroup_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Exclude hours">Isključi sate</string>
+  <string name="exhourgroup_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Add some hours this rule must not match.">Dodajte sate kojima ovo pravilo ne sme odgovarati.</string>
+  <string name="new_hourgroup" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="New hour group">Nova grupa sati</string>
+  <string name="add_hour" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Add hour">Dodaj sat</string>
+  <string name="empty_group" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Prazne grupe neće ništa uraditi. Vratite se i dodajte bar jednu stavku.</string>
+  <string name="billperiod_sn" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="BillPeriod">Obračunski period</string>
+  <string name="calls" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Calls">Pozivi</string>
+  <string name="calls_in" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Calls In">Dolazni pozivi</string>
+  <string name="calls_in_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="CallsIn">DolPoziv</string>
+  <string name="calls_out" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Calls Out">Odlazni pozivi</string>
+  <string name="calls_out_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="CallsOut">OdlPoziv</string>
+  <string name="messages" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Messages">Poruke</string>
+  <string name="messages_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="SMS/MMS">SMS/MMS</string>
+  <string name="sms" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="SMS">SMS</string>
+  <string name="sms_in" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="SMS In">Dolazni SMS</string>
+  <string name="sms_in_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="SMSIn">DolSMS</string>
+  <string name="sms_out" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="SMS Out">Odlazni SMS</string>
+  <string name="sms_out_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="SMSOut">OdlSMS</string>
+  <string name="mms" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="MMS">MMS</string>
+  <string name="mms_in" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="MMS In">Dolazni MMS</string>
+  <string name="mms_in_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="MMSIn">DolMMS</string>
+  <string name="mms_out" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="MMS Out">Odlazni MMS</string>
+  <string name="mms_out_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="MMSOut">OdlMMS</string>
+  <string name="data" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Data">Podaci</string>
+  <string name="data_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Data (2G/3G/4G)">Podaci (2G/3G/4G)</string>
+  <string name="data_inout" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Data In/Out">Podaci ulaz/izlaz</string>
+  <string name="data_inout_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="DataInOut">PodaciUlazIzlaz</string>
+  <string name="prepaid_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Prepaid plan">Pripejd plan</string>
+  <string name="prepaid_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Račun na osnovu pripejda. Trošak se oduzima od kredita kad pozivate i sl.</string>
+  <string name="balance_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Balance">Kredit</string>
+  <string name="balance_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Balance of your account at this given date.">Iznos vašeg kredita navedenog datuma.</string>
+  <string name="strip_leading_zeros_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Strip leading zeros">Ukloni nule</string>
+  <string name="strip_leading_zeros_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Strip leading zeros when comparing numbers.">Ukloni nule ispred broja pri poređenju.</string>
+  <string name="my_number_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="My number">Moj broj</string>
+  <string name="my_number_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Match only logs, while this SIM/number is active.">Ubroj samo izveštaje dok je ovaj SIM/broj aktivan.</string>
+  <string name="my_sim_id_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="SIM Id">SIM Id</string>
+  <string name="my_sim_id_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Match only logs done with this SIM.">Upari izveštaje napravljene sa ovom SIM karticom.</string>
+  <string name="set_current_number" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Current number">Trenutni broj</string>
+  <string name="number_prefix_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="International prefix">Međunarodni prefiks</string>
+  <string name="number_prefix_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">Vaš međunarodni prefiks u formatu poput +49 ili +381. Koristi se da prepozna brojeve poput +38160... i 060...</string>
+  <string name="reset_data_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Reset statistics">Resetuj statistiku</string>
+  <string name="reset_data_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Resetovanje podataka o pozivima/sms-u će rezultovati preračunavanjem statistika.\n\nResetovanje statistike saobraćaja je trajno. Resetuje podatke o saobraćaju samo pre pokretanja uređaja!</string>
+  <string name="reset_data_data_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Reset traffic too.">Resetuj i saobraćaj.</string>
+  <string name="reset_data_progr1" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Recalculating statistics ...\n\n(This may take some time!)">Preračunavanje statistike...\n\n(Ovo može da potraje!)</string>
+  <string name="reset_data_progr2" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Recalculating statistics ...">Preračunavanje statistike...</string>
+  <string name="contacts_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Contacts">Kontakti</string>
+  <string name="clear_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Clear">Obriši</string>
+  <string name="help_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Help">Pomoć</string>
+  <string name="new_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="New">Novo</string>
+  <string name="edit_selected_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Edit selected">Uredi odabrano</string>
+  <string name="edit_groups_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Edit groups">Uredi grupe</string>
+  <string name="delete_group_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Delete group">Obriši grupu</string>
+  <string name="delete_group_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Do you really want to delete this group?">Da li zaista želite da obrišete ovu grupu?</string>
+  <string name="delete_plan_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Do you really want to delete this plan?">Da li zaista želite da obrišete ovaj plan?</string>
+  <string name="delete_rule_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Do you really want to delete this rule?">Da li zaista želite da obrišete ovo pravilo?</string>
+  <string name="name_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Name">Ime</string>
+  <string name="name_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set a name here.">Postavi ime ovde.</string>
+  <string name="shortname_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Short name">Kratko ime</string>
+  <string name="shortname_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set a short name here. It is displayed in compact layouts.">Postavi kratko ime ovde. Biće prikazano u kompaktnom prikazu.</string>
+  <string name="type_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Type">Tip</string>
+  <string name="type_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Odaberi tip.\n"Naziv" prikazuje naziv na glavnom ekranu.\n"Delilac" prikazuje prazninu.\n"Obračunsko razdoblje" sadrži sve informacije o vašem obračunskom razdoblju. Većina korisnika treba samo jedno razdoblje.\n"Mešoviti" plan uzima pozive i poruke odjednom. Kombinuje obračune te dve stavke.\n"Pozivi" plan obračunava samo pozive. "SMS" i "MMS" planovi obračunavaju samo poruke.\n"Podaci" plan sadržava informacije o vašim prenosima podataka.</string>
 </resources>

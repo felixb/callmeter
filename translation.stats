@@ -159,7 +159,7 @@ res/values-sr/intro.xml:10
 res/values-sr/market.xml:8
 res/values-sr/notes.xml:0
 res/values-sr/simple_prefs.xml:19
-res/values-sr/strings.xml:95
+res/values-sr/strings.xml:205
 res/values-sv/donation.xml:0
 res/values-sv/help.xml:0
 res/values-sv/intro.xml:0
@@ -210,7 +210,7 @@ res/values-pt:452
 res/values-pt-rBR:348
 res/values-ru:496
 res/values-sk:321
-res/values-sr:151
+res/values-sr:261
 res/values-sv:79
 res/values-tr:497
 res/values-zh-rCN:283
