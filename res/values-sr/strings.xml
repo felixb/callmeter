@@ -223,4 +223,239 @@
   <string name="shortname_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set a short name here. It is displayed in compact layouts.">Postavi kratko ime ovde. Biće prikazano u kompaktnom prikazu.</string>
   <string name="type_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Type">Tip</string>
   <string name="type_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Odaberi tip.\n"Naziv" prikazuje naziv na glavnom ekranu.\n"Delilac" prikazuje prazninu.\n"Obračunsko razdoblje" sadrži sve informacije o vašem obračunskom razdoblju. Većina korisnika treba samo jedno razdoblje.\n"Mešoviti" plan uzima pozive i poruke odjednom. Kombinuje obračune te dve stavke.\n"Pozivi" plan obračunava samo pozive. "SMS" i "MMS" planovi obračunavaju samo poruke.\n"Podaci" plan sadržava informacije o vašim prenosima podataka.</string>
+  <string name="limit_type_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Limit type">Tip limita</string>
+  <string name="limit_type_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;costs\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Postavite ovde vrstu vaših limita.\n"Jedinica" limit limitira vaše planove bazirane na minute, poruke, ...\n"Cena" limit limitira vaše planove na ceni napravljenoj po stavkama obračuna u ovom planu.</string>
+  <string name="limit_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Limit">Limit</string>
+  <string name="limit_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">Postavite ovde limit vašeg plana.\nVrsta "jedinica" mora biti postavljena u minutama (pozivi), porukama (sms/mms), megabajtima (podaci/1024kb) ili jedinicama (miješano).\n\nVrsta "cena" mora biti postavljena u vašoj valuti (npr. RSD).</string>
+  <string name="billmode_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.">Postavi način obračunavanja poziva.\nPrvi deo je minimalna dužina koju obračunava vaš operater. Svaki kraći poziv se zaokružuje na tu dužinu.\nDrugi deo je minimalna dužina sledećeg bloka sekundi.\nMolimo Vas pročitajte FAQ (najčešće postavljana pitanja) za više informacija.</string>
+  <string name="billday_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set this to the first day of the bill of the current billing period.">Postavi za prvi dan računa trenutnog obračunskog perioda.</string>
+  <string name="billperiodid_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Billing period">Obračunski period</string>
+  <string name="billperiodid_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Select your billing period.\nYou may need to create one as extra plan.">Odaberite svoj obračunski period.\nMožda ćete ga trebati kreirati kao dodatni plan.</string>
+  <string name="billperiod_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Length of the billing period">Trajanje obračunskog perioda</string>
+  <string name="billperiod_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the length of your billing period.">Podesite trajanje vašeg obračunskog perioda.</string>
+  <string name="cost_per_item_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Cost per item">Cena po stavkama</string>
+  <string name="cost_per_item_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.">Postavi cenu obračuna za pojedinačni izveštaj (npr. poziv ili poruku) nakon što je limit premašen.</string>
+  <string name="cost_per_item_in_limit_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Cost per item in limit">Cena po stavci unutar limita</string>
+  <string name="cost_per_item_in_limit_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the cost billed for a single log item (e.g. a call or a message) billed before the limit is exceeded.">Postavi cenu obračuna za pojedinačnu stavku izveštaja (npr. poziv ili poruku) pre nego što je limit premašen.</string>
+  <string name="cost_per_item_no_limit_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the cost billed for a single log item (e.g. a call or a message).">Postavi cenu obračuna za pojedinačnu stavku izveštaja (npr. poziv ili poruku).</string>
+  <string name="cost_per_amount_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Cost per length">Cena po dužini</string>
+  <string name="cost_per_amount_help1" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Postavi cenu obračuna po dužini za pojedinačni izveštaj (npr. za 1kb podataka) nakon što je limit premašen.</string>
+  <string name="cost_per_amount_help2" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Postavi cenu obračuna po dužini za pojedinačni izveštaj (npr. za 1min poziva) nakon što je limit premašen.\nPrvo polje sadrži cenu za prvih par sekundi poziva, drugo sadrži cenu za sledeće sekunde (oba su postavljena na $/minuta; vidi Način Obračuna).\nAko se dvoumite, postavite oba na vašu cenu minute.</string>
+  <string name="cost_per_amount_in_limit_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Cost per length in limit">Cena po dužini unutar limita</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.">Postavi cenu obračuna po dužini za pojedinačnu stavku izveštaja (npr. za 1min poziva, 1kb podataka) pre nego što je limit premašen.</string>
+  <string name="cost_per_amount_in_limit_help2" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Postavi cenu obračuna po dužini za pojedinačnu stavku izveštaja (npr. za 1min poziva) pre nego što je limit premašen.\nPrvo polje sadrži cenu za prvih par sekundi poziva, drugo polje sadrži cenu za sledeće sekunde (oba su postavljena na $/minuta; vidi Način Obračuna).\nAko se dvoumite, postavite oba na vašu cenu minute.</string>
+  <string name="cost_per_amount_no_limit_help1" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data).">Postavi cenu računanja po dužini za pojedinu stavku izveštaja (npr. za 1min poziva, 1kB podataka).</string>
+  <string name="cost_per_amount_no_limit_help2" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call).\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Postavi cenu računanja za pojedinu stavku izveštaja (npr. za 1min poziva). Prvo polje sadrži cenu za prvih par sekundi poziva, drugo polje sadrži cenu sledećih sekundi (oba su postavljena u $/minuta; vidi Način Računanja). Ako se dvoumite, postavite oba na vašu cenu minute.</string>
+  <string name="cost_per_plan_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Cost per plan">Trošak po planu</string>
+  <string name="cost_per_plan_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the cost of the plan for one billing period as is.">Postavite trošak plana za jedno obračunsko razdoblje.</string>
+  <string name="mixed_units_sms_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Units for a sms">Jedinice za SMS</string>
+  <string name="mixed_units_sms_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the units billed for a single sms.">Postavi jedinice obračunate za jedan SMS.</string>
+  <string name="mixed_units_mms_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the units billed for a single mms.">Postavi jedinice obračunate za jedan MMS.</string>
+  <string name="mixed_units_mms_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Units for a mms">Jedinice za MMS</string>
+  <string name="mixed_units_call_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Units for a call">Jedinice po pozivu</string>
+  <string name="mixed_units_call_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the units billed for a one minute call.\nBill mode is taken into account here.">Postavi jedinicu obračuna za poziv od jedne minute.\nNačin obračuna je ovde uzet u račun.</string>
+  <string name="mixed_units_data_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Units for data">Jedinice za podatke</string>
+  <string name="mixed_units_data_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set the units billed for each MB of data traffic.">Postavi jedinice za računanje svakog MB internet saobraćaja.</string>
+  <string name="merge_plans_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Merge plans">Spoji planove</string>
+  <string name="merge_plans_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Merge other plans into this one and bill them here (too).">Spojite ostale planove u ovaj jedan i obračunajte ih zajedno.</string>
+  <string name="units_cost" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="$">din</string>
+  <string name="units_num_msg" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="# Messages">br.poruka</string>
+  <string name="units_minutes" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Minutes">Minuta</string>
+  <string name="units_mbyte" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="MBytes">MB</string>
+  <string name="units_units" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Units">Jedinice</string>
+  <string name="units_units_per_minute" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Units/Minute">Jedinica/Minut</string>
+  <string name="units_units_per_message" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Units/Message">Jedinica/Poruka</string>
+  <string name="units_cost_per_call" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="$/Call">din/Poziv</string>
+  <string name="units_cost_per_minute" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="$/Minute">din/Minut</string>
+  <string name="units_cost_per_message" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="$/Message">din/Poruka</string>
+  <string name="units_cost_per_mbyte" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="$/MByte">din/MB</string>
+  <string name="units_cost_per_unit" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="$/Unit">din/Jedinica</string>
+  <string name="plan_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Plan">Plan</string>
+  <string name="plan_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Choose the plan this rule should fit.">Izaberite plan kojem ovo pravilo treba odgovarati.</string>
+  <string name="limitnotreached_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Limit not reached">Limit nije dostignut</string>
+  <string name="limitnotreached_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Match only if target plan has not reached it\'s limit yet.">Upari samo ako ciljni plan još nije dostigao svoj limit.</string>
+  <string name="iswebsms_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Is WebSMS">WebSMS</string>
+  <string name="iswebsms_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Message sent with WebSMS.">Poruka poslata kao WebSMS.</string>
+  <string name="iswebsms_connector_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Is WebSMS Connector">WebSMS konektor</string>
+  <string name="iswebsms_connector_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Sent with specific WebSMS Connector, leave empty to match any.">Pošalji sa specifičnim WebSMS konektorom, ostavi prazno za slaganje sa svim konektorima.</string>
+  <string name="issipcall_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Is SIP call">SIP poziv</string>
+  <string name="issipcall_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Ostvareni poziv preko SIP-a. Trenutno je podržan sipdroid &gt;1.6.1.</string>
+  <string name="strip_seconds_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Do not bill first seconds">Ne obračunavaj prve sekunde</string>
+  <string name="strip_seconds_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Do not bill first x seconds of a call.">Ne obračunavaj prvih x sekundi u pozivu.</string>
+  <string name="strip_past_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Do not bill anything after seconds">Ne računaj ništa nakon sekundi</string>
+  <string name="strip_past_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Do not bill anything after x seconds of a call.">Ne računaj ništa nakon x sekundi u pozivu.</string>
+  <string name="active_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Active">Aktivno</string>
+  <string name="active_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Only active rules are used for matching logs.">Samo aktivna pravila se koriste za podudaranje zapisnika.</string>
+  <string name="what_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Target type">Vrsta cilja</string>
+  <string name="what_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Choose a target type here.">Odaberi vrstu cilja.</string>
+  <string name="direction_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Direction">Smer</string>
+  <string name="direction_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Choose a direction the given log has to be.">Odaberi smer kakav dati zapisnik mora biti.</string>
+  <string name="yes" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Yes">Da</string>
+  <string name="no" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="No">Ne</string>
+  <string name="none" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="None">Ništa</string>
+  <string name="value" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Value">Vrednost</string>
+  <string name="no_matter_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Does not matter">Nije važno</string>
+  <string name="remote_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Remote number">Broj telefona</string>
+  <string name="roamed_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Roamed">Lutanje</string>
+  <string name="roamed_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Choose whether the given log has to be roamed.">Odaberi da li da dati zapisnik "luta".</string>
+  <string name="empty_groups_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Please press &quot;Add&quot; to add a group.">Molimo pritisnite "Dodaj" za dodavanje grupe.</string>
+  <string name="empty_group_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Molimo pritisnite "Dodaj" za dodavanje stavke u ovu grupu.</string>
+  <string name="export_progr" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Exporting data ...">Izvoz podataka...</string>
+  <string name="import_progr" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Import data ...">Uvoz podataka...</string>
+  <string name="export_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Export ...">Izvoz...</string>
+  <string name="exported_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Exported:">Izvezeno:</string>
+  <string name="export_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Export rule sets, logs or groups">Postavke pravila izvoza, zapisnika ili grupa</string>
+  <string name="export_sd" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Export to SD card">Izvoz na SD karticu</string>
+  <string name="export_rules_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Export rule set">Izvoz seta pravila</string>
+  <string name="export_rules_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Export rule set as mail.">Izvezi set pravila mailom.</string>
+  <string name="export_rules_dev_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Export rule set to developer">Izvezi set pravila programeru.</string>
+  <string name="export_rules_dev_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Export rule set to let others import it.">Izvezi set pravila kako bi drugi mogli da ga uvezu.</string>
+  <string name="export_rules_descr" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Description">Opis</string>
+  <string name="export_logs_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Backup logs">Bekapuj izveštaje</string>
+  <string name="export_logs_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Backup logs as mail.">Bekapuj izveštaje mailom.</string>
+  <string name="export_logs_csv_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Export CSV">Izvoz CSV-a</string>
+  <string name="export_logs_csv_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Export logs as CSV.">Izvoz izveštaja u CSV formatu.</string>
+  <string name="export_numgroups_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Export number groups">Izvezi grupe brojeva</string>
+  <string name="export_numgroups_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Export number groups as mail.">Izvezi grupe brojeva mailom.</string>
+  <string name="export_hourgroups_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Export hour groups">Izvezi grupe sati</string>
+  <string name="export_hourgroups_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Export hour groups as mail.">Izvezi grupe sati mailom.</string>
+  <string name="import_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Import">Uvezi</string>
+  <string name="import_link_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="More info">Više informacija</string>
+  <string name="import_rules_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Import rule set">Uvezi set pravila</string>
+  <string name="import_rules_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Import preconfigured rule set.">Uvezi postojeći set pravila.</string>
+  <string name="import_rules_www_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Import pre-configured rule set from http://www.ub0r.de/.">Uvezi postojeći set pravila sa http://www.ub0r.de/.</string>
+  <string name="import_rules_users" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Users\' rules">Korisnička pravila</string>
+  <string name="import_rules_sd_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Import rule set from SD card">Uvezi set pravila sa SD kartice</string>
+  <string name="import_rules_sd_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Import rule set directly from SD card.">Uvezi set pravila direktno sa SD kartice.</string>
+  <string name="import_rules_sd_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Place your file on your SD card and click it below">Prebacite fajl na vašu SD karticu i kliknite ispod</string>
+  <string name="import_rules_sd_files" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Found files">Nađeni fajlovi</string>
+  <string name="import_rules_sd_nofiles" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="No found files">Nisu pronađeni fajlovi</string>
+  <string name="import_rules_default_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Import default rule set">Uvezi podrazumevani set pravila</string>
+  <string name="import_rules_default_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Import default rule set shipped with the app.">Uvezi podrazumevani set pravila isporučen sa aplikacijom.</string>
+  <string name="import_rules_empty" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Nema podešenih planova/pravila. Kliknite ovaj tekst kako bi uvezli postavke pravila.\n\nIli dodajte planove i pravila i postavke ručno.</string>
+  <string name="loading" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Loading ...">Učitavam...</string>
+  <string name="err_export_write" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Error writing export file">Greška pri upisu izvoznog fajla</string>
+  <string name="err_export_read" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Error reading export file">Greška pri čitanju izvoznog fajla</string>
+  <string name="alerts_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Alerts">Upozorenja</string>
+  <string name="alerts_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set alerts based on plan usage.">Zadaj upozorenja na korišćenju plana.</string>
+  <string name="alerts_title" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Call Meter 3G alert">Call Meter 3G upozorenje</string>
+  <string name="alerts_message" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Plan %s has reached %d%% usage!">Plan %s je dostigao %d%% svoje upotrebljivosti!</string>
+  <string name="alerts_80_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Notify at 80%">Obavesti na 80%</string>
+  <string name="alerts_80_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Notify if a plan passes 80% of it\'s limit.">Obavesti ako je plan prešao 80% svog limita.</string>
+  <string name="alerts_100_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Notify if a plan passes 100% of it\'s limit.">Obavesti ako je plan prešao 100% svog limita.</string>
+  <string name="alerts_100_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Notify at 100%">Obavesti na 100%</string>
+  <string name="widget_plan_textsize" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Plan Text Size">Veličina slova plana</string>
+  <string name="widget_cost_textsize" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Cost Text Size">Veličina slova troška</string>
+  <string name="widget_date_textsize" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Date Text Size">Veličina slova datuma</string>
+  <string name="widget_details_textsize" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Details Text Size">Veličina slova detalja</string>
+  <string name="widget_text_color_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Text color">Boja texta</string>
+  <string name="widget_backgroud_color_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Background color">Boja pozadine</string>
+  <string name="widget_backgroud_transparency_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Background transparency">Providnost pozadine</string>
+  <string name="send_devices_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Send devices">Pošalji uređaj</string>
+  <string name="send_devices_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Pošalji listu uređaja programeru. Ovo je potrebno samo ako su podaci statistike nula.</string>
+  <string name="monday" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Monday">Ponedeljak</string>
+  <string name="tuesday" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Tuesday">Utorak</string>
+  <string name="wednesday" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Wednesday">Sreda</string>
+  <string name="thursday" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Thursday">Četvrtak</string>
+  <string name="friday" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Friday">Petak</string>
+  <string name="saturday" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Saturday">Subota</string>
+  <string name="sunday" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Sunday">Nedelja</string>
+  <string name="monday_till_friday" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Monday - Friday">Ponedeljak - Petak</string>
+  <string name="all_week" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="All week">Cela nedelja</string>
+  <string name="all_day" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="All day">Ceo dan</string>
+  <string name="day_0" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="0:00 - 0:59">0:00 - 0:59</string>
+  <string name="day_1" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="1:00 - 1:59">1:00 - 1:59</string>
+  <string name="day_2" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="2:00 - 2:59">2:00 - 2:59</string>
+  <string name="day_3" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="3:00 - 3:59">3:00 - 3:59</string>
+  <string name="day_4" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="4:00 - 4:59">4:00 - 4:59</string>
+  <string name="day_5" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="5:00 - 5:59">5:00 - 5:59</string>
+  <string name="day_6" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="6:00 - 6:59">6:00 - 6:59</string>
+  <string name="day_7" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="7:00 - 7:59">7:00 - 7:59</string>
+  <string name="day_8" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="8:00 - 8:59">8:00 - 8:59</string>
+  <string name="day_9" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="9:00 - 9:59">9:00 - 9:59</string>
+  <string name="day_10" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="10:00 - 10:59">10:00 - 10:59</string>
+  <string name="day_11" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="11:00 - 11:59">11:00 - 11:59</string>
+  <string name="day_12" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="12:00 - 12:59">12:00 - 12:59</string>
+  <string name="day_13" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="13:00 - 13:59">13:00 - 13:59</string>
+  <string name="day_14" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="14:00 - 14:59">14:00 - 14:59</string>
+  <string name="day_15" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="15:00 - 15:59">15:00 - 15:59</string>
+  <string name="day_16" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="16:00 - 16:59">16:00 - 16:59</string>
+  <string name="day_17" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="17:00 - 17:59">17:00 - 17:59</string>
+  <string name="day_18" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="18:00 - 18:59">18:00 - 18:59</string>
+  <string name="day_19" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="19:00 - 19:59">19:00 - 19:59</string>
+  <string name="day_20" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="20:00 - 20:59">20:00 - 20:59</string>
+  <string name="day_21" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="21:00 - 21:59">21:00 - 21:59</string>
+  <string name="day_22" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="22:00 - 22:59">22:00 - 22:59</string>
+  <string name="day_23" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="23:00 - 23:59">23:00 - 23:59</string>
+  <string name="theme_black" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Black">Tamno</string>
+  <string name="theme_light" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Light">Svetlo</string>
+  <string name="edit_plan_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Edit Plan">Uredi plan</string>
+  <string name="view_logs_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="View Logs">Vidi izveštaje</string>
+  <string name="title" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Title">Naslov</string>
+  <string name="spacer" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Spacer">Razmak</string>
+  <string name="limit_type_unlimited" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="unlimited">neograničeno</string>
+  <string name="limit_type_units" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="units">jedinice</string>
+  <string name="limit_type_cost" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="costs">cena</string>
+  <string name="x1_day" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="One day">Jedan dan</string>
+  <string name="x1_week" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="One week">Jedna nedelja</string>
+  <string name="x14_day" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="14 days">14 dana</string>
+  <string name="mixed" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Mixed">Sve zajedno</string>
+  <string name="x15_day" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="15 days">15 dana</string>
+  <string name="x30_day" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="30 days">30 dana</string>
+  <string name="x31_day" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="31 days">31 dan</string>
+  <string name="x60_day" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="60 days">60 dana</string>
+  <string name="x90_day" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="90 days">90 dana</string>
+  <string name="x1_month" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="One month">Mesec dana</string>
+  <string name="x1_month_1_day" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="One month + one day">Mesec dana + jedan dan</string>
+  <string name="x2_month" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Two months">Dva meseca</string>
+  <string name="x3_month" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Three months">Tri meseca</string>
+  <string name="x4_month" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Four months">Četiri meseca</string>
+  <string name="x5_month" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Five months">Pet meseci</string>
+  <string name="x6_month" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Six months">Šest meseci</string>
+  <string name="x1_year" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="One year">Godinu dana</string>
+  <string name="infinite" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Infinite">Beskonačno</string>
+  <string name="custom" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Custom">Proizvoljno</string>
+  <string name="direction_calls_in" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="in">dolazni</string>
+  <string name="direction_calls_out" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="out">odlazni</string>
+  <string name="direction_sms_in" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="in">dolazni</string>
+  <string name="direction_sms_out" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="out">odlazni</string>
+  <string name="direction_mms_in" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="in">dolazni</string>
+  <string name="direction_mms_out" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="out">odlazni</string>
+  <string name="direction_data_in" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="in">dolazni</string>
+  <string name="direction_data_out" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="out">odlazni</string>
+  <string name="default_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Default">Podrazumevano</string>
+  <string name="currency_formats_1" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="$1.00">RSD 1.00</string>
+  <string name="currency_formats_2" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="$1000">RSD 1000</string>
+  <string name="currency_formats_3" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="1.00$">1.00 RSD</string>
+  <string name="currency_formats_4" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="1000$">1000 RSD</string>
+  <string name="date_formats_1" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="MM/DD/YY">MM/DD/GG</string>
+  <string name="date_formats_2" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="DD/MM/YYYY">DD/MM/GGGG</string>
+  <string name="date_formats_3" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="DD.MM.YYYY">DD.MM.GGGG</string>
+  <string name="x05_minute" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="0.5 minutes">0.5 minuta</string>
+  <string name="x1_minute" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="1 minute">1 minuta</string>
+  <string name="x2_minute" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="2 minutes">2 minute</string>
+  <string name="x5_minute" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="5 minutes">5 minuta</string>
+  <string name="x10_minute" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="10 minutes">10 minuta</string>
+  <string name="x15_minute" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="15 minutes">15 minuta</string>
+  <string name="x30_minute" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="30 minutes">30 minuta</string>
+  <string name="x1_hour" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="One hour">Jedan sat</string>
+  <string name="x2_hour" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Two hours">Dva sata</string>
+  <string name="manually_only" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Manually only">Samo ručno</string>
+  <string name="reset" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Reset">Resetuj</string>
+  <string name="debug_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Debug">Otklanjanje nepravilnosti</string>
+  <string name="send_logs_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Send logs">Pošalji zapisnik</string>
+  <string name="send_logs_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Pošalji zapisnik sa vašeg uređaja programeru.\nUradite to samo ako se od vas to traži.</string>
+  <string name="sendlog_run_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Run SendLog">Pokreni Slanje Zapisnika</string>
+  <string name="sendlog_run" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">Slanje Zapisnika će prikupiti zapisnik sa vašeg uređaja i poslati ih autoru programa.\nVi ćete imati priliku videti i modifikovati podatke koji će biti poslani.</string>
+  <string name="sendlog_install_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Install SendLog">Instaliraj Slanje Zapisnika (SendLog)</string>
+  <string name="sendlog_install" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">Instaliraj besplatnu SendLog aplikaciju za prikupljanje zapisnika sa uređaja i pošaljite je programeru.</string>
+  <string name="license_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="License:">Licence:</string>
+  <string name="author_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Author:">Autor:</string>
+  <string name="license" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - pogledaj http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="website_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Website:">Web sajt:</string>
+  <string name="source_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Sourcescode:">Izvorni kod:</string>
+  <string name="country" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Country">Država</string>
+  <string name="provider" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Provider">Provajder</string>
+  <string name="plan" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Plan">Plan</string>
+  <string name="widget_config_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Widget config">Uredi widget</string>
 </resources>
