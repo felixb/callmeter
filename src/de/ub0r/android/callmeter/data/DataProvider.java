@@ -927,7 +927,7 @@ public final class DataProvider extends ContentProvider {
 		}
 
 		/** Table name. */
-		private static final String TABLE = "plans";
+		public static final String TABLE = "plans";
 
 		/** Parameter for query: date. */
 		public static final String PARAM_DATE = "date";
@@ -1737,19 +1737,45 @@ public final class DataProvider extends ContentProvider {
 		 * @return WHERE clause
 		 */
 		public static String parseMergerWhere(final long pid, final String merged) {
-			final String self = DataProvider.Logs.PLAN_ID + " = " + pid;
 			if (merged == null) {
-				return self;
+				return DataProvider.Logs.TABLE + "." + DataProvider.Logs.PLAN_ID + " = " + pid;
 			}
-			final StringBuilder sb = new StringBuilder(self);
 
+			StringBuilder sb = new StringBuilder();
+			sb.append(String.valueOf(pid));
 			for (String ss : merged.split(",")) {
 				if (ss.length() == 0) {
 					continue;
 				}
-				sb.append(" OR " + DataProvider.Logs.PLAN_ID + " = " + ss);
+				sb.append(",");
+				sb.append(ss);
 			}
-			return sb.toString();
+
+			return DataProvider.Logs.TABLE + "." + DataProvider.Logs.PLAN_ID + " in ("
+					+ sb.toString() + ")";
+		}
+
+		/**
+		 * Parse the MERGED_PLANS filed to a WHERE clause matching all merged
+		 * plans.
+		 * 
+		 * @param cr
+		 *            {@link ContentResolver}
+		 * @param pid
+		 *            the plan itself
+		 * @return WHERE clause
+		 */
+		public static String parseMergerWhere(final ContentResolver cr, final long pid) {
+			Cursor c = cr.query(CONTENT_URI, new String[] { MERGED_PLANS }, ID + "=?",
+					new String[] { String.valueOf(pid) }, null);
+			String ret = null;
+			if (c != null && c.moveToFirst()) {
+				ret = parseMergerWhere(pid, c.getString(0));
+			}
+			if (c != null) {
+				c.close();
+			}
+			return ret;
 		}
 	}
 

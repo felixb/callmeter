@@ -401,8 +401,10 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 		where += ")";
 
 		if (this.planId > 0L && this.tbPlan != null && this.tbPlan.isChecked()) {
-			where = DbUtils.sqlAnd(DataProvider.Logs.TABLE + "." + DataProvider.Logs.PLAN_ID + "="
-					+ this.planId, where);
+			String plans = DataProvider.Plans.parseMergerWhere(this.getActivity()
+					.getContentResolver(), this.planId);
+			where = DbUtils.sqlAnd(plans, where);
+			Log.d(TAG, "where: " + where);
 		}
 		Bundle args = new Bundle(1);
 		args.putString("where", where);
@@ -433,6 +435,13 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 				this.tbPlan.setTextOn(p);
 				this.tbPlan.setTextOff(p);
 				this.tbPlan.setVisibility(View.VISIBLE);
+				this.tbPlan.setChecked(true);
+				this.tbIn.setChecked(true);
+				this.tbOut.setChecked(true);
+				this.tbCall.setChecked(true);
+				this.tbData.setChecked(true);
+				this.tbMMS.setChecked(true);
+				this.tbSMS.setChecked(true);
 			}
 		}
 		if (this.isVisible()) {
