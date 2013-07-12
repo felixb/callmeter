@@ -21,8 +21,8 @@
                Visit http://ub0r.de/translate/cm2/pt/strings.xml to edit the file.
        -->
 <resources>
-  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Acompanhe o consumo dos seus planos de chamadas, de mensagens e de dados!</string>
-  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">O CallMeter gera relatórios de ligações, mensagens e dados. Ele suporta vários tipos de cobrança.</string>
+  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Monitorize os tarifários de chamadas, mensagens e dados.</string>
+  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">O CallMetter cria relatórios de chamadas, mensagens e dados. Tem suporte a diversos métodos de faturação.</string>
   <string name="about1" formatted="false">Os formatos de saída são: uso / tempo ou soma utilizada neste período / tempo ou soma total. O cálculo de tempo utiliza a forma de cobrança de seu plano. A soma total não.</string>
   <string name="about2" formatted="false">O modo de cobrança utiliza o tamanho do primeiro e posteriores tempos de cobrança. Ex. 30/10 diz que cada ligação é taxada com o mínimo de 30s, e após este período será taxado de 10 em 10 segundos de utilização (sendo esse o período mínimo) sucessivamente até o final da chamada.</string>
   <string name="about3" formatted="false">Você pode separar os planos de ligações e mensagens em até dois planos. Cada plano pode ser configurado livremente, limitado a um período ou ilimitado.</string>
@@ -34,102 +34,102 @@
   <string name="settings" formatted="false">Preferências</string>
   <string name="about_" formatted="false">Sobre</string>
   <string name="about_hint" formatted="false" orig="About this app">Sobre este aplicativo</string>
-  <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app.">Algumas dicas e truques de como ajustar este aplicativo.</string>
-  <string name="feedback_" formatted="false">Retorno</string>
-  <string name="feedback_hint" formatted="false">Relate problemas, solicite recursos ...</string>
-  <string name="more_" formatted="false">Outras Aplicações...</string>
-  <string name="billday_" formatted="false">Primeiro dia da conta</string>
-  <string name="billmode_" formatted="false">Modo de cobrança</string>
-  <string name="billmode_hint" formatted="false">Tamanho do primeiro/seguintes períodos de cobrança.</string>
-  <string name="billdate_" formatted="false">Início do período de cobrança:</string>
+  <string name="faq_hint" formatted="false" orig="Some tips and tricks, how to set up this app." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Dicas de utilização desta aplicação.</string>
+  <string name="feedback_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Feedback">Comentários</string>
+  <string name="feedback_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Report bugs, request features ...">Reporte de erros e funcionalidades...</string>
+  <string name="more_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="More Apps..">Mais aplicações...</string>
+  <string name="billday_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="First day of your bill">Primeiro dia de faturação</string>
+  <string name="billmode_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Mode of billing">Modo de faturação</string>
+  <string name="billmode_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Length of first/following billing intervals.">Duração do primeiro/seguintes períodos de faturação.</string>
+  <string name="billdate_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Start of billing period:">Início do período de faturação:</string>
   <string name="smsperiod_" formatted="false">Mesmo período para SMS</string>
-  <string name="smsperiod_hint" formatted="false">Iguala o período de cobrança dos SMS com o período das ligações.</string>
-  <string name="smsbillday_" formatted="false">Primeiro dia da conta SMS</string>
-  <string name="dataperiod_" formatted="false" orig="Same Period for data">Igual período de Dados</string>
-  <string name="dataperiod_hint" formatted="false">Iguala o período de cobrança dos Dados com o período das ligações.</string>
-  <string name="databillday_" formatted="false" orig="First day of your data bill">Primeiro dia da conta Dados</string>
+  <string name="smsperiod_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Set SMS\'s billing period to calls\' period.">Define o período de faturação de SMS igual ao de chamadas.</string>
+  <string name="smsbillday_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="First day of your SMS bill">Primeiro dia da faturação SMS</string>
+  <string name="dataperiod_" formatted="false" orig="Same Period for data" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Mesmo período para dados</string>
+  <string name="dataperiod_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Set data\'s billing period to calls\' period.">Define o período de faturação de dados igual ao de chamadas.</string>
+  <string name="databillday_" formatted="false" orig="First day of your data bill" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Primeiro dia da faturação de dados</string>
   <string name="appearance_" formatted="false">Aparência</string>
-  <string name="theme_" formatted="false" orig="Theme">Fundo de Tela</string>
+  <string name="theme_" formatted="false" orig="Theme" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Tema</string>
   <string name="textsize_" formatted="false">Tamanho do texto</string>
   <string name="advanced_" formatted="false" orig="Advanced">Avançado</string>
-  <string name="exclude_people_" formatted="false">Números não tarifados</string>
+  <string name="exclude_people_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Exclude numbers">Números excluídos</string>
   <string name="exclude_people_hint" formatted="false">Números gratuitos,\ncuringas são aceitos: *555, 555* ou *555*</string>
-  <string name="exclude_people_add" formatted="false">Toque para adicionar um número</string>
-  <string name="exclude_people_edit" formatted="false">Edição</string>
-  <string name="exclude_people_delete" formatted="false">Apagar</string>
+  <string name="exclude_people_add" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Add number">Adicionar número</string>
+  <string name="exclude_people_edit" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Edit">Editar</string>
+  <string name="exclude_people_delete" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Delete">Eliminar</string>
   <string name="exclude_people_to_plan1_" formatted="false">Excluir números do plano #1</string>
   <string name="exclude_people_to_plan2_" formatted="false">Excluir números do plano #2</string>
-  <string name="exclude_people_calls_" formatted="false">Habilitado em Chamadas </string>
+  <string name="exclude_people_calls_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Enable for Calls">Ativo para chamadas</string>
   <string name="exclude_people_calls_to_plan1_hint" formatted="false">Conta das chamadas de/para números excluídos no plano #1</string>
   <string name="exclude_people_calls_to_plan2_hint" formatted="false">Conta das chamadas de/para números excluídos no plano #2</string>
-  <string name="exclude_people_sms_" formatted="false">Habilitado em SMS</string>
+  <string name="exclude_people_sms_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Enable for SMS">Ativo para SMS</string>
   <string name="exclude_people_sms_to_plan1_hint" formatted="false">Conta das mensagens de/para números excluídos no plano #1</string>
   <string name="exclude_people_sms_to_plan2_hint" formatted="false">Conta das mensagens de/para números excluídos no plano #2</string>
   <string name="plans" formatted="false">Planos</string>
-  <string name="plans_split" formatted="false">Planos divididos</string>
-  <string name="plans_merge" formatted="false">Planos juntos</string>
+  <string name="plans_split" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Split plans">Separar planos</string>
+  <string name="plans_merge" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Merge plans">Unir planos</string>
   <string name="plans_split_hint" formatted="false">Planos divididos em contas separadas.</string>
   <string name="plan1" formatted="false">Plano 1</string>
   <string name="plan2" formatted="false">Plano 2</string>
   <string name="plan1_hint" formatted="false">Selecione as horas incluídas nas chamadas/SMS no primeiro plano. Todas as outras irão para o segundo plano.</string>
-  <string name="plan_free_" formatted="false">Sem cobrança</string>
-  <string name="plan_freemin_" formatted="false">Minutos do plano</string>
-  <string name="plan_freesms_" formatted="false">SMS do plano</string>
-  <string name="free_hint" formatted="false">Plano gratuito</string>
-  <string name="freemin_hint" formatted="false">Minutos/mês incluídos no plano</string>
-  <string name="freesms_hint" formatted="false">SMS/mês incluídos no plano</string>
+  <string name="plan_free_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="No billing">Sem faturação</string>
+  <string name="plan_freemin_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Free Minutes">Minutos gratuitos</string>
+  <string name="plan_freesms_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Free SMS">SMS gratuitos</string>
+  <string name="free_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Totally free">Totalmente gratuito</string>
+  <string name="freemin_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Free Minutes / Month">Minutos gratuitos por mês</string>
+  <string name="freesms_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Free SMS / Month">SMS gratuitos por mês</string>
   <string name="bill_calls_incoming_" formatted="false">Conta de recebimento</string>
-  <string name="bill_calls_incoming_hint" formatted="false">Cobrança pelo recebimento de ligações.</string>
+  <string name="bill_calls_incoming_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Bill incoming calls as well.">Cobrar pelas chamadas recebidas.</string>
   <string name="bill_sms_incoming_" formatted="false">Conta de recebimento</string>
-  <string name="bill_sms_incoming_hint" formatted="false">Cobrança pelo recebimento de SMS.</string>
-  <string name="bill_data_incoming_only_" formatted="false">Cobrança de recebimento</string>
-  <string name="bill_data_incoming_only_hint" formatted="false">Cobrança pelo tráfego de recebimento de Dados.</string>
-  <string name="cost_per_call_" formatted="false">Custo por ligação</string>
-  <string name="cost_per_call_hint" formatted="false">Valor por ligação além do plano</string>
+  <string name="bill_sms_incoming_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Bill incoming sms as well.">Cobrar pelas SMS recebidas.</string>
+  <string name="bill_data_incoming_only_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Bill incoming only">Conta de recebimento</string>
+  <string name="bill_data_incoming_only_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Bill only incoming traffic.">Apenas cobrar tráfego recebido.</string>
+  <string name="cost_per_call_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Cost per call">Custo por chamada</string>
+  <string name="cost_per_call_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Each call will be billed with this.">Cada chamada será cobrada a este valor.</string>
   <string name="cost_per_minute_" formatted="false">Custo por minuto</string>
-  <string name="cost_per_minute_hint" formatted="false">Valor por minuto além do plano</string>
+  <string name="cost_per_minute_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Each minute of a call will be billed with this.">Cada minuto da chamada será cobrado a este valor.</string>
   <string name="cost_per_sms_" formatted="false">Custo por SMS</string>
-  <string name="cost_per_sms_hint" formatted="false">Valor por cada SMS além do plano</string>
+  <string name="cost_per_sms_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Each SMS will be billed with this.">Cada SMS será cobrada a este valor.</string>
   <string name="cost_per_mb_" formatted="false">Custo por MB</string>
-  <string name="cost_per_mb_hint" formatted="false">Valor por MB de tráfego</string>
+  <string name="cost_per_mb_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Each MB of the traffic will be billed with this.">Cada MB será cobrado a este valor.</string>
   <string name="merge_sms_calls_" formatted="false">Juntar SMS com chamadas</string>
   <string name="merge_sms_calls_hint" formatted="false">Cobrar SMS como parte das chamadas.</string>
-  <string name="merge_sms_calls_sec_" formatted="false">Segundos / SMS</string>
-  <string name="merge_sms_calls_sec_hint" formatted="false">Número de segundos cobrados em um SMS.</string>
-  <string name="merge_sms_plan1_" formatted="false">Juntar os SMS ao plano 1</string>
-  <string name="merge_sms_plan1_hint" formatted="false">Desmarcar a junção com o plano 2.</string>
-  <string name="data_hint" formatted="false">As estatísticas da WLAN não são coletadas aqui!</string>
-  <string name="data_enable_" formatted="false">Mostrar os dados estatísticos</string>
-  <string name="data_enable_hint" formatted="false">Dados coletados em tempo real. O primeiro mês pode estar incorreto!</string>
+  <string name="merge_sms_calls_sec_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Seconds / SMS">Segundos/SMS</string>
+  <string name="merge_sms_calls_sec_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Number of seconds billed for a single sms.">Número de segundos cobrados por SMS.</string>
+  <string name="merge_sms_plan1_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Merge SMS into plan 1">Juntar SMS no plano 1</string>
+  <string name="merge_sms_plan1_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Uncheck to merge them into plan 2.">Desmarcar junção ao plano 2.</string>
+  <string name="data_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="WLAN/WIFI stats are not collected here!">As estatísticas WLAN/WIFI não são recolhidas aqui!</string>
+  <string name="data_enable_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Show data stats">Mostrar estatística de dados</string>
+  <string name="data_enable_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Data is collected in real time. First month may be incorrect!">Os dados são recolhidos em tempo real. O primeiro mês pode estar incorreto!</string>
   <string name="data_each_day" formatted="false">Cobrar cada dia separado </string>
-  <string name="data_each_day_hint" formatted="false">Seu período de cobrança inicia hoje.</string>
+  <string name="data_each_day_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Your billing period starts with each day.">O seu período de faturação é reiniciado a cada dia.</string>
   <string name="data_limit_" formatted="false">Limite</string>
   <string name="data_limit_hint" formatted="false">Limite do plano de dados (MB/mês)</string>
-  <string name="monday" formatted="false">Segunda</string>
-  <string name="tuesday" formatted="false">Terça</string>
-  <string name="wednesday" formatted="false">Quarta</string>
-  <string name="thursday" formatted="false">Quinta</string>
-  <string name="friday" formatted="false">Sexta</string>
-  <string name="saturday" formatted="false">Sábado</string>
-  <string name="sunday" formatted="false">Domingo</string>
-  <string name="calls" formatted="false">Ligações</string>
+  <string name="monday" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Monday">segunda</string>
+  <string name="tuesday" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Tuesday">terça</string>
+  <string name="wednesday" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Wednesday">quarta</string>
+  <string name="thursday" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Thursday">quinta</string>
+  <string name="friday" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Friday">sexta</string>
+  <string name="saturday" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Saturday">sábado</string>
+  <string name="sunday" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Sunday">domingo</string>
+  <string name="calls" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Calls">Chamadas</string>
   <string name="sms" formatted="false">SMS</string>
   <string name="data" formatted="false">Dados</string>
   <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Dados (2G/3G/4G)</string>
-  <string name="calls_sms" formatted="false">Ligações/SMS</string>
-  <string name="in_calls" formatted="false">Recebidas%s:</string>
-  <string name="in_sms" formatted="false">Recebidos%s:</string>
-  <string name="in_data" formatted="false">Recebidos:</string>
-  <string name="out_calls" formatted="false">Feitas%s:</string>
-  <string name="out_sms" formatted="false">Enviados%s:</string>
-  <string name="out_data" formatted="false">Enviados:</string>
+  <string name="calls_sms" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Calls/SMS">Chamadas/SMS</string>
+  <string name="in_calls" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="In%s:">Recebidas %s:</string>
+  <string name="in_sms" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="In%s:">Recebidas %s:</string>
+  <string name="in_data" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="In:">Recebido:</string>
+  <string name="out_calls" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Out%s:">Efetuadas %s:</string>
+  <string name="out_sms" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Out%s:">Efetuadas %s:</string>
+  <string name="out_data" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Out:">Enviado:</string>
   <string name="plan_name1_" formatted="false">Plano 1: nome</string>
   <string name="plan_name2_" formatted="false">Plano 2: nome</string>
-  <string name="plan_name_hint" formatted="false">Nome do Usuário</string>
+  <string name="plan_name_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Custom Name">Nome personalizado</string>
   <string name="reset_data_" formatted="false">Apagar estatísticas</string>
-  <string name="reset_data_hint" formatted="false">Apagar os dados das chamadas ou SMS irão resultar no recálculo das estatísticas.\n\nO cancelamento das estatísticas de tráfego é permanente. Só será visualizado após o boot!</string>
-  <string name="reset_data_data_" formatted="false">Apagar os Dados também.</string>
-  <string name="contacts_" formatted="false">Contatos</string>
+  <string name="reset_data_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Se apagar os dados de chamadas/SMS as estatísticas serão recalculadas.\n\nEsta alteração é permanente. Os dados anteriores ao arranque serão eliminados.</string>
+  <string name="reset_data_data_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Reset traffic too.">Apagar tráfego.</string>
+  <string name="contacts_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Contacts">Contactos</string>
   <string-array name="themes">
     <item>Escuro</item>
     <item>Claro</item>
@@ -138,20 +138,20 @@
     <item>Pequeno</item>
     <item>Médio</item>
   </string-array>
-  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats." username="Lucas Andrade &lt;lucas.rokam@gmail.com&gt;">Ocultar "(2G/3G/4G)" do título. Isto não afeta a estatística.</string>
+  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Ocultar "(2G/3G/4G)" no título. Não afeta as estatísticas.</string>
   <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title" username="Lucas Andrade &lt;lucas.rokam@gmail.com&gt;">Mostrar apenas "Dados" como título</string>
-  <string name="custom_language_" formatted="false" username="consultormarcosr@gmail.com" orig="Custom language">Linguagem Personalizada</string>
-  <string name="custom_language_hint" formatted="false" username="consultormarcosr@gmail.com" orig="Set a custom language.">Defina a Linguagem personalizada</string>
-  <string name="debug_" formatted="false" username="consultormarcosr@gmail.com" orig="Debug">Depurar</string>
-  <string name="send_logs_" formatted="false" username="consultormarcosr@gmail.com" orig="Send logs">Enviar Logs</string>
-  <string name="send_logs_hint" formatted="false" username="consultormarcosr@gmail.com" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Envie o log do dispositivo ao desenvolvedor.\nFaça isto somente se for solicitado</string>
-  <string name="sendlog_run_" formatted="false" username="consultormarcosr@gmail.com" orig="Run SendLog">Executar o Envio do Log</string>
-  <string name="sendlog_run" formatted="false" username="consultormarcosr@gmail.com" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">"SendLog" irá recolher log do dispositivo e enviá-lo para o desenvolvedor.\nVocê poderá rever e modificar os dados que estão sendo enviados.</string>
-  <string name="sendlog_install_" formatted="false" username="consultormarcosr@gmail.com" orig="Install SendLog">Instale o "SendLog"</string>
-  <string name="sendlog_install" formatted="false" username="consultormarcosr@gmail.com" orig="Install the free SendLog application to collect the device log and send it to the developer.">Instalando o aplicativo gratuito "SendLog" para recolher o log do dispositivo e enviar ao desenvolvedor</string>
+  <string name="custom_language_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Custom language">Idioma personalizado</string>
+  <string name="custom_language_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Set a custom language.">Defina o idioma personalizado.</string>
+  <string name="debug_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Debug">Depuração</string>
+  <string name="send_logs_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Send logs">Enviar registos</string>
+  <string name="send_logs_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Enviar registos do dispositivo ao programador.\nNão o efetue a menos que seja solicitado.</string>
+  <string name="sendlog_run_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Run SendLog">Enviar registo</string>
+  <string name="sendlog_run" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog irá recolher e enviar o registo do dispositivo para o programador.\nPode rever e modificar os dados que serão enviados.</string>
+  <string name="sendlog_install_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Install SendLog">Instalar "SendLog"</string>
+  <string name="sendlog_install" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">Instale a aplicação "SendLog" para recolher e enviar o registo do dispositivo para o programador.</string>
   <string name="license_" formatted="false" username="consultormarcosr@gmail.com" orig="License:">Licença:</string>
-  <string name="license" formatted="false" username="consultormarcosr@gmail.com" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="license" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - consulte http://www.gnu.org/licenses/gpl-3.0.txt</string>
   <string name="author_" formatted="false" username="consultormarcosr@gmail.com" orig="Author:">Autor:</string>
-  <string name="website_" formatted="false" username="consultormarcosr@gmail.com" orig="Website:">Página Web:</string>
-  <string name="source_" formatted="false" username="consultormarcosr@gmail.com" orig="Sourcescode:">Código Fonte:</string>
+  <string name="website_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Website:">Sítio web:</string>
+  <string name="source_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Sourcescode:">Código fonte:</string>
 </resources>
