@@ -22,141 +22,141 @@
        -->
 <resources>
   <string name="changelog_notification_" formatted="false" orig="Recent changes:">Alterações recentes:</string>
-  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Clique aqui para mostrar as alterações recentes de</string>
-  <string name="never_show_again" formatted="false" orig="Never show changelog again">Nunca mostrar o relatório de mudanças</string>
-  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Notas do desenvolvedor</string>
-  <string name="notes_from_developer_text" formatted="false" username="Henrique Boaventura &lt;hboaventura@gmail.com&gt;" orig="Click here to show recent news from the developer">Clique aqui para mostrar as noticias recentes do desenvolvedor</string>
-  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Acompanhe suas chamadas, mensagens e planos de dados!</string>
-  <string name="about0" formatted="false">O CallMeter gera relatórios de ligações, mensagens e dados. Ele suporta vários tipos de cobrança.</string>
-  <string name="about1" formatted="false" orig="The output format is usage | time or count used this billing period | time or count overall.">O formato de exibição é: Utilização(atual)| Tempo ou contagem usadas neste período de cobrança | Tempo ou contagem total (desde a instalação do app).</string>
-  <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">O modo de cobrança utiliza o valor do primeiro e posteriores períodos de cobrança. Ex. 30/10 diz que cada chamada é taxada com o mínimo de 30s, e após este período será taxada de 10 em 10 segundos de utilização (sendo esse o período mínimo) sucessivamente até o final da chamada.</string>
-  <string name="about3" formatted="false">O CallMeter é executado em segundo plano a cada 30min (se não estiver em modo de espera). Isto quer dizer, que apagar chamadas ou mensagens com mais de 30min não alterará a sua estatística acumulada. Apagar chamadas ou mensagens efetuadas há menos de 30min poderá resultar numa estatística errada.</string>
+  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Clique aqui para mostrar as alterações recentes</string>
+  <string name="never_show_again" formatted="false" orig="Never show changelog again" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Não mostrar o registo de alterações</string>
+  <string name="notes_from_developer_" formatted="false" orig="Notes from developer" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Notas do programador</string>
+  <string name="notes_from_developer_text" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Click here to show recent news from the developer">Clique aqui para mostrar novidades do programador</string>
+  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Monitorize as chamadas, mensagens e planos de dados!</string>
+  <string name="about0" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">O CallMeter gera relatórios de chamadas, mensagens e dados. Possui suporte a vários métodos de faturação.</string>
+  <string name="about1" formatted="false" orig="The output format is usage | time or count used this billing period | time or count overall." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">O formato de exibição é: utilização| tempo ou contagem neste período de cobrança | tempo ou contagem total.</string>
+  <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">O método de faturação determina a duração do primeiro e seguintes períodos de faturação. Por exemplo: 60/10 significa que todas as chamadas são faturadas, pelo menos, durante 60 segundos e se superior é faturada por períodos de 10 segundos.</string>
+  <string name="about3" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">O CallMeter é executado em segundo plano a cada 30 minutos (se não estiver em modo de espera). Isto significa que a eliminação de chamadas ou mensagens após 30 minutos a execução ou receção não afeta as estatísticas. Mas se as eliminar durante este período pode distorcer as estatísticas.</string>
   <string name="send_" formatted="false">Enviar</string>
   <string name="add_" formatted="false">Adicionar</string>
-  <string name="add_log" formatted="false">Adicionar item ao Registo</string>
+  <string name="add_log" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Add log entry">Adicionar item de registo</string>
   <string name="length_hint_call" formatted="false">Duração em segundos</string>
-  <string name="length_hint_data" formatted="false" orig="Length in kB">Duração em Kb</string>
+  <string name="length_hint_data" formatted="false" orig="Length in kB" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Duração em kB</string>
   <string name="settings" formatted="false">Preferências</string>
-  <string name="update_interval_" formatted="false">Intervalo de Atualização</string>
-  <string name="update_interval_hint" formatted="false">Períodos curtos consomem mais bateria.</string>
+  <string name="update_interval_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Update interval">Intervalo de atualização</string>
+  <string name="update_interval_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Shorter period will use more battery.">Quanto menor o período maior o consumo de bateria.</string>
   <string name="date_begin_" formatted="false" orig="Beginning of records">Início dos registos</string>
-  <string name="date_begin_hint" formatted="false" orig="Ignore any logs before this date.">Ignore todos os registos anteriores a essa data.</string>
-  <string name="delete_old_logs_" formatted="false">Excluir registos mais antigos que</string>
-  <string name="delete_old_logs_help" formatted="false">Excluir registos mais antigos que X dias a partir da base de dados interna. Deixar em branco para desativar.</string>
+  <string name="date_begin_hint" formatted="false" orig="Ignore any logs before this date." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Ignorar todos os registos anteriores a esta data.</string>
+  <string name="delete_old_logs_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Delete logs older than">Eliminar registos anteriores a</string>
+  <string name="delete_old_logs_help" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Delete logs older than x days from internal database. Leave empty to disable.">Eliminar da base de dados os registos anteriores a n dias. Deixe em branco para desativar.</string>
   <string name="common_prefs_" formatted="false">Preferências comuns</string>
   <string name="edit_" formatted="false">Editar</string>
   <string name="about_" formatted="false">Sobre</string>
-  <string name="about_hint" formatted="false">Sobre este aplicativo</string>
-  <string name="faq_hint" formatted="false">Algumas dicas e truques de como ajustar este aplicativo.</string>
-  <string name="feedback_" formatted="false" orig="Feedback">Retorno</string>
-  <string name="feedback_hint" formatted="false">Relatar problemas, solicitar novas funções ...</string>
-  <string name="more_" formatted="false">Outras Aplicações...</string>
-  <string name="billing_" formatted="false" orig="Billing">Cobrança</string>
-  <string name="billday_" formatted="false" orig="First day of your bill">Primeiro dia da cobrança</string>
-  <string name="billmode_" formatted="false" orig="Mode of billing">Modo de cobrança</string>
-  <string name="billdate_" formatted="false" orig="Start of billing period:">Início do período de cobrança:</string>
+  <string name="about_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="About this app">Sobre esta aplicação</string>
+  <string name="faq_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Some tips and tricks, how to set up this app.">Dicas de utilização desta aplicação.</string>
+  <string name="feedback_" formatted="false" orig="Feedback" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Comentários</string>
+  <string name="feedback_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Report bugs, request features ...">Reportar erros e pedir funcionalidades...</string>
+  <string name="more_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="More Apps..">Mais aplicações...</string>
+  <string name="billing_" formatted="false" orig="Billing" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Faturação</string>
+  <string name="billday_" formatted="false" orig="First day of your bill" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Primeiro dia de faturação</string>
+  <string name="billmode_" formatted="false" orig="Mode of billing" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Modo de faturação</string>
+  <string name="billdate_" formatted="false" orig="Start of billing period:" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Início do período de faturação:</string>
   <string name="appearance_" formatted="false" orig="Appearance">Aparência</string>
   <string name="behavior_" formatted="false" username="Henrique Boaventura &lt;hboaventura@gmail.com&gt;" orig="Behavior">Comportamento</string>
   <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp; behavior">Aparência e comportamento</string>
   <string name="advanced_preferences_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Advanced preferences">Preferências avançadas</string>
-  <string name="advanced_preferences_hint" formatted="false" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Permite uma configuração mais complexa do sistema. A maioria dos usuários não necessitam delas.</string>
+  <string name="advanced_preferences_hint" formatted="false" orig="This allows you to set a way more complex setup. Most Users won\'t need it." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Permite a configuração de planos complexos. A maioria dos utilizadores não os utiliza.</string>
   <string name="theme_" formatted="false">Tema</string>
   <string name="textsize_" formatted="false">Tamanho do texto</string>
-  <string name="textsize_hint" formatted="false">Tamanho do texto em pixels (deixe em branco para padrão)</string>
-  <string name="textsize_title_" formatted="false">Tamanho de texto do Título</string>
-  <string name="textsize_title_hint" formatted="false">Tamanho do texto para os títulos em pixels (deixe em branco para padrão)</string>
-  <string name="textsize_bigtitle_" formatted="false">Tamanho de texto do Título maior</string>
-  <string name="textsize_bigtitle_hint" formatted="false">Tamanho do texto para os títulos maiores em pixels (deixe em branco para padrão)</string>
-  <string name="textsize_spacer_" formatted="false">Tamanho do espaçamento</string>
-  <string name="textsize_spacer_hint" formatted="false">Tamanho dos espaçamentos em pixels (Deixe em branco para o padrão)</string>
+  <string name="textsize_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Text size in pixels; leave empty for default">Tamanho do texto em pixeis (deixe em branco para padrão)</string>
+  <string name="textsize_title_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Title\'s text size">Tamanho de texto do título</string>
+  <string name="textsize_title_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Text size for titles in pixels; leave empty for default">Tamanho do texto para os títulos (deixe em branco para padrão)</string>
+  <string name="textsize_bigtitle_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Big title\'s text size">Tamanho de texto do título maior</string>
+  <string name="textsize_bigtitle_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Text size for big titles in pixels; leave empty for default">Tamanho do texto para os títulos maiores (deixe em branco para padrão)</string>
+  <string name="textsize_spacer_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Spacer\'s size">Tamanho do espaçado</string>
+  <string name="textsize_spacer_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Size for spacers in pixels; leave empty for default">Tamanho do espaçado (deixe em branco para padrão)</string>
   <string name="textsize_pbar_" formatted="false">Tamanho da barra de progresso</string>
-  <string name="textsize_pbar_hint" formatted="false">Tamanho das barras de progresso (Deixe em branco para o padrão)</string>
-  <string name="textsize_pbarbp_" formatted="false" orig="Bill period\'s progress bar\'s size">Tamanho da barra de progresso do período de cobrança</string>
-  <string name="textsize_pbarbp_hint" formatted="false" orig="Size for bill period\'s progress bars in pixels; leave empty for default" username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Tamanho das barras de progresso dos períodos de cobrança em pixels (deixe em branco para padrão)</string>
+  <string name="textsize_pbar_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Size for progress bars in pixels; leave empty for default">Tamanho da barra de progresso (deixe em branco para padrão)</string>
+  <string name="textsize_pbarbp_" formatted="false" orig="Bill period\'s progress bar\'s size" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Tamanho da barra de progresso do período de faturação</string>
+  <string name="textsize_pbarbp_hint" formatted="false" orig="Size for bill period\'s progress bars in pixels; leave empty for default" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Tamanho da barra de progresso do período de faturação (deixe em branco para padrão)</string>
   <string name="show_today_" formatted="false">Mostrar hoje</string>
   <string name="show_today_hint" formatted="false">Mostrar estatísticas de hoje</string>
   <string name="show_total_" formatted="false">Mostrar total</string>
   <string name="show_total_hint" formatted="false">Mostrar estatísticas totais, desativar para ver apenas as atuais.</string>
-  <string name="show_time_" formatted="false">Trocar para a data</string>
+  <string name="show_time_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Switch to date">Trocar para data</string>
   <string name="show_titlebar_" formatted="false">Mostrar barra de título</string>
-  <string name="show_titlebar_hint" formatted="false">Mostra a barra de títulos na tela principal. Sem a barra de título, não existe nenhuma maneira de ver a atividade de fundo.</string>
+  <string name="show_titlebar_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Show title bar in main view. Without title bar, there is no way to see background activity.">Mostrar barra de título na janela. Sem a barra de título, não existe forma de ver as atividades em segundo plano.</string>
   <string name="show_hours_" formatted="false">Mostrar horas</string>
-  <string name="show_hours_hint" formatted="false" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Mostrar o tempo em segundos, minutos, horas e dias.\nSe desmarcado só segundos e minutos são mostrados.</string>
-  <string name="show_help_" formatted="false">Mostrar Ajuda</string>
-  <string name="show_help_hint" formatted="false" orig="Show help in Plans/Rules setup view.">Mostrar ajuda na definição do modo de visualização dos Planos/Regras.</string>
+  <string name="show_hours_hint" formatted="false" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Mostrar horas em segundos, minutos, horas e dias.\nSe inativa, só serão mostrados os segundos e minutos.</string>
+  <string name="show_help_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Show help">Mostrar ajuda</string>
+  <string name="show_help_hint" formatted="false" orig="Show help in Plans/Rules setup view." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Mostrar ajuda na definição de regras e planos.</string>
   <string name="show_shortname_" formatted="false">Mostrar nome curto em vez do nome completo</string>
   <string name="show_cost_" formatted="false">Mostrar custo</string>
-  <string name="show_billperiod_" formatted="false" orig="Show progress of billing period">Mostrar o progresso do período de cobrança</string>
-  <string name="show_calllength_" formatted="false" orig="Show info after hanging up">Mostrar informações após desligar</string>
-  <string name="show_calllength_hint" formatted="false">Mostrar a duração e o custo após cada chamada.</string>
+  <string name="show_billperiod_" formatted="false" orig="Show progress of billing period" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Mostrar progresso do período de faturação</string>
+  <string name="show_calllength_" formatted="false" orig="Show info after hanging up" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Mostrar informações ao desligar</string>
+  <string name="show_calllength_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Show length/cost of a call after hanging up.">Mostrar duração e custo ao terminar a chamada.</string>
   <string name="hide_zero_" formatted="false" orig="Hide empty plans">Ocultar planos vazios</string>
-  <string name="hide_zero_hint" formatted="false" orig="Hide plans containing no item.">Ocultar planos que não tenham nenhum item.</string>
+  <string name="hide_zero_hint" formatted="false" orig="Hide plans containing no item." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Ocultar planos que não possuam itens.</string>
   <string name="hide_nocost_" formatted="false" orig="Hide no cost plans">Ocultar planos sem custos</string>
-  <string name="hide_nocost_hint" formatted="false" orig="Hide plans with no cost.">Ocultar planos que não tenham o valor descriminado.</string>
+  <string name="hide_nocost_hint" formatted="false" orig="Hide plans with no cost." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Ocultar planos que não possuam custos.</string>
   <string name="hide_progressbars_" formatted="false">Ocultar as barras de progresso</string>
-  <string name="hide_progressbars_hint" formatted="false" orig="Hide progress bars in main view.">Ocultar as barras de progresso na tela principal.</string>
+  <string name="hide_progressbars_hint" formatted="false" orig="Hide progress bars in main view." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Ocultar barras de progresso na vista principal.</string>
   <string name="custom_currency_symbol_" formatted="false">Símbolo monetário</string>
-  <string name="custom_currency_symbol_hint" formatted="false">Defina um símbolo de moeda personalizado, deixe em branco para o padrão do sistema.</string>
-  <string name="custom_currency_format_" formatted="false">Formato da moeda do usuário</string>
-  <string name="custom_currency_format_hint" formatted="false">Selecione um formato da moeda do usuário.</string>
-  <string name="custom_date_format_" formatted="false">Formato da data do usuário</string>
-  <string name="custom_date_format_hint" formatted="false">Selecione um formato da data do usuário.</string>
-  <string name="custom_delimiter_" formatted="false" username="Henrique Boaventura &lt;hboaventura@gmail.com&gt;" orig="Custom delimiter">Delimitador personalizado</string>
-  <string name="custom_delimiter_hint" formatted="false" orig="Set a custom delimiter separating the blocks of statistics.">Defina um delimitador de usuário separando os blocos estatísticos.</string>
-  <string name="split_sms_at_160_" formatted="false" username="Henrique Boaventura &lt;hboaventura@gmail.com&gt;" orig="Split text messages at 160 chars">Separe as mensagens de texto ao atingir 160 caracteres</string>
-  <string name="split_sms_at_160_hint" formatted="false" orig="Disable to use android\'s system method.">Desative para usar o método do sistema Android.</string>
-  <string name="ask_for_plan_" formatted="false" orig="Ask for plan">Pergunte sobre um plano</string>
-  <string name="ask_for_plan_hint" formatted="false" orig="Ask for plan for unmatched calls after hanging up." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Pergunte sobre um plano para ligações sem correspondência depois de desligar.</string>
-  <string name="autohide_" formatted="false" orig="Auto hide">Auto ocultar</string>
-  <string name="autohide_hint" formatted="false" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Oculta o diálogo após .. segundos. Deixe vazio para desativar ou Auto ocultar.</string>
-  <string name="select_plan_" formatted="false" orig="Select a plan">Selecione um plano</string>
-  <string name="set_selected_as_default_" formatted="false" orig="Set selected plan as default">Selecione um plano como padrão</string>
-  <string name="autohide_in_" formatted="false" orig="Auto hide dialog in: %ds">Auto ocultar o diálogo em: %ds</string>
-  <string name="logs" formatted="false" orig="Logs">Relatórios</string>
-  <string name="show_logs" formatted="false" orig="Show logs">Mostrar relatórios</string>
+  <string name="custom_currency_symbol_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Set a custom currency symbol, leave empty for system default.">Defina o símbolo monetário personalizado, deixe em branco para utilizar o símbolo do sistema.</string>
+  <string name="custom_currency_format_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Custom currency format">Formato monetário</string>
+  <string name="custom_currency_format_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Select a custom currency format.">Selecione o formato monetário personalizado.</string>
+  <string name="custom_date_format_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Custom date format">Formato de data</string>
+  <string name="custom_date_format_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Select a custom date format.">Selecione o formato de data personalizado.</string>
+  <string name="custom_delimiter_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Custom delimiter">Delimitador</string>
+  <string name="custom_delimiter_hint" formatted="false" orig="Set a custom delimiter separating the blocks of statistics." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Defina o delimitador personalizado para separar as estatísticas.</string>
+  <string name="split_sms_at_160_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Split text messages at 160 chars">Separar mensagens a cada 160 caracteres</string>
+  <string name="split_sms_at_160_hint" formatted="false" orig="Disable to use android\'s system method." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Desativar e usar o método do sistema Android.</string>
+  <string name="ask_for_plan_" formatted="false" orig="Ask for plan" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Pedir plano</string>
+  <string name="ask_for_plan_hint" formatted="false" orig="Ask for plan for unmatched calls after hanging up." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Pedir o plano para chamadas não coincidentes com um plano.</string>
+  <string name="autohide_" formatted="false" orig="Auto hide" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Ocultar automaticamente</string>
+  <string name="autohide_hint" formatted="false" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Ocultar diálogo após n segundos. Deixe em branco para desativar.</string>
+  <string name="select_plan_" formatted="false" orig="Select a plan" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Selecionar plano</string>
+  <string name="set_selected_as_default_" formatted="false" orig="Set selected plan as default" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Definir plano selecionado como padrão</string>
+  <string name="autohide_in_" formatted="false" orig="Auto hide dialog in: %ds" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Ocultar diálogo após: %d seg.</string>
+  <string name="logs" formatted="false" orig="Logs" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Registos</string>
+  <string name="show_logs" formatted="false" orig="Show logs" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Mostrar registos</string>
   <string name="plans" formatted="false">Planos</string>
-  <string name="plans_hint" formatted="false" orig="Set your plans for all kind of billing here.">Defina seus planos para todos os tipos de cobrança aqui.</string>
+  <string name="plans_hint" formatted="false" orig="Set your plans for all kind of billing here." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Defina aqui os planos de faturação.</string>
   <string name="plans_new" formatted="false">Novo plano</string>
   <string name="rule_" formatted="false">Regra</string>
   <string name="rules" formatted="false">Regras</string>
-  <string name="rules_hint" formatted="false">Defina as regras de cobrança aqui.</string>
-  <string name="rules_new" formatted="false">Novas Regras</string>
+  <string name="rules_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Set your billing rules here.">Defina aqui as regras de faturação.</string>
+  <string name="rules_new" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="New Rule">Novas regras</string>
   <string name="length_" formatted="false">Duração</string>
-  <string name="blength_" formatted="false" orig="Billed length">Período de cobrança</string>
+  <string name="blength_" formatted="false" orig="Billed length" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Período de faturação</string>
   <string name="cost_" formatted="false" username="João Proença" orig="Cost">Custo</string>
   <string name="remote_" formatted="false">Número remoto</string>
-  <string name="numbergroups_edit_" formatted="false" orig="Number groups">Grupo de números</string>
-  <string name="numbergroups_edit_hint" formatted="false" orig="Edit number groups here.">Editar um grupo de números aqui.</string>
+  <string name="numbergroups_edit_" formatted="false" orig="Number groups" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Grupos de números</string>
+  <string name="numbergroups_edit_hint" formatted="false" orig="Edit number groups here." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Editar aqui os grupos de números.</string>
   <string name="hourgroups_edit_" formatted="false" orig="Hour groups">Grupo de horas</string>
-  <string name="hourgroups_edit_hint" formatted="false" orig="Edit hour groups here.">Editar um grupo de horas aqui.</string>
+  <string name="hourgroups_edit_hint" formatted="false" orig="Edit hour groups here." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Edite aqui os grupos de horas.</string>
   <string name="numbers" formatted="false">Números</string>
-  <string name="numbergroup_" formatted="false" orig="Include numbers">Incluir números</string>
-  <string name="numbergroup_help" formatted="false" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Os números adicionados de uma determinada regra devem corresponder.\n\nCuringas ("%") são permitidos em ambas as extremidades do número.\nEx. %34 corresponderá a 1234, 12% corresponderá a 1234 e %23% corresponderá a 12345.</string>
-  <string name="exnumbergroup_" formatted="false" orig="Exclude numbers">Eliminar números</string>
-  <string name="exnumbergroup_help" formatted="false">A adição de alguns números nessa regra não deve corresponder.\nVeja abaixo.</string>
+  <string name="numbergroup_" formatted="false" orig="Include numbers" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Números incluídos</string>
+  <string name="numbergroup_help" formatted="false" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Adicione os números coincidentes com esta regra.\n\nOs caracteres universais ("%") são permitidos nas extremidades do número.\nEx. %34 corresponderá a 1234, 12% corresponderá a 1234 e %23% corresponderá a 12345.</string>
+  <string name="exnumbergroup_" formatted="false" orig="Exclude numbers" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Números excluídos</string>
+  <string name="exnumbergroup_help" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Add some numbers this rule must not match.\nSee above.">Adicione os números não coincidentes com esta regra.\nVeja abaixo.</string>
   <string name="new_numbergroup" formatted="false">Novo grupo de números</string>
-  <string name="add_number" formatted="false">Adicione um número</string>
+  <string name="add_number" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Add number">Adicionar número</string>
   <string name="hours" formatted="false">Horas</string>
-  <string name="hourgroup_" formatted="false" orig="Include hours">Inclui horas</string>
-  <string name="hourgroup_help" formatted="false">Adicione algumas horas a uma determinada regra correspondente.</string>
-  <string name="exhourgroup_" formatted="false">Exclui horas</string>
-  <string name="exhourgroup_help" formatted="false" orig="Add some hours this rule must not match.">A adição de algumas horas nessa regra não irá corresponder.</string>
+  <string name="hourgroup_" formatted="false" orig="Include hours" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Horas incluídas</string>
+  <string name="hourgroup_help" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Add some hours this rule must match.">Adicione as horas coincidentes com esta regra.</string>
+  <string name="exhourgroup_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Exclude hours">Horas excluídas</string>
+  <string name="exhourgroup_help" formatted="false" orig="Add some hours this rule must not match." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Adicione os números não coincidentes com esta regra.</string>
   <string name="new_hourgroup" formatted="false">Novo grupo de horas</string>
   <string name="add_hour" formatted="false" orig="Add hour">Adicionar horas</string>
-  <string name="empty_group" formatted="false" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Grupos vazios não irão fazer nada. Por favor volte e adicione ao menos um item.</string>
-  <string name="calls" formatted="false">Ligações</string>
+  <string name="empty_group" formatted="false" orig="Empty groups won\'t match anything. Please go back and add at least one item." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Grupos vazios não coincidem com as regras. Por favor volte e adicione um item.</string>
+  <string name="calls" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Calls">Chamadas</string>
   <string name="sms" formatted="false">SMS</string>
   <string name="mms" formatted="false">MMS</string>
   <string name="data" formatted="false">Dados</string>
   <string name="prepaid_" formatted="false">Plano pré-pago</string>
-  <string name="prepaid_hint" formatted="false">Custo do plano pré-pago. O valor das chamadas é descontado do seu saldo.</string>
+  <string name="prepaid_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Custo do plano pré-pago. O valor das chamadas é descontado ao saldo.</string>
   <string name="balance_" formatted="false">Saldo</string>
-  <string name="balance_help" formatted="false" orig="Balance of your account at this given date.">Saldo da sua conta nesta data.</string>
-  <string name="strip_leading_zeros_" formatted="false">Não mostrar zeros à esquerda</string>
-  <string name="strip_leading_zeros_hint" formatted="false">Não mostrar zeros à esquerda quando comparar números.</string>
+  <string name="balance_help" formatted="false" orig="Balance of your account at this given date." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Saldo da conta nesta data.</string>
+  <string name="strip_leading_zeros_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Strip leading zeros">Ignorar zeros à esquerda</string>
+  <string name="strip_leading_zeros_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Strip leading zeros when comparing numbers.">Ignorar zeros à esquerda ao comparar números.</string>
   <string name="number_prefix_" formatted="false" orig="International prefix">Prefixo internacional</string>
   <string name="number_prefix_hint" formatted="false" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">O seu prefixo internacional no formato +1 ou +49. É usado para normalizar a apresentação de números como +49170.. e 0179..</string>
-  <string name="reset_data_" formatted="false">Apagar estatísticas</string>
+  <string name="reset_data_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Reset statistics">Reiniciar estatísticas</string>
   <string name="reset_data_hint" formatted="false" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Apagar os dados das chamadas ou SMS irá resultar no recálculo das estatísticas.\n\nO cancelamento das estatísticas de tráfego é permanente. Só será visualizado após o boot!</string>
   <string name="reset_data_data_" formatted="false">Apagar os Dados também.</string>
   <string name="reset_data_progr1" formatted="false" username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;" orig="Recalculating statistics ...\n\n(This may take some time!)">Recalculando estatísticas ...\n\n(Poderá demorar algum tempo!)</string>
@@ -313,7 +313,7 @@
   <string name="theme_light">Claro</string>
   <string name="edit_plan_">Editar o plano</string>
   <string name="view_logs_">Ver relatórios</string>
-  <string name="delete_">Apagar</string>
+  <string name="delete_" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Delete">Eliminar</string>
   <string name="title">Título</string>
   <string name="spacer">Espaçador</string>
   <string name="mixed">Chamadas</string>
@@ -360,31 +360,31 @@
   <string name="x1_hour">Uma hora</string>
   <string name="x2_hour">Duas horas</string>
   <string name="manually_only">Somente manual</string>
-  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Preferências muito simples, adequados para a maioria dos usuários. Só está disponível com conjunto de regras padrão.</string>
-  <string name="simple_preferences_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Simple preferences">Preferências simples</string>
+  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Preferências básicas, úteis para a grande maioria dos utilizadores. Só está disponível para o conjunto de regras padrão.</string>
+  <string name="simple_preferences_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Simple preferences">Preferências básicas</string>
   <string name="show_icon_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Show icon">Mostrar ícone</string>
-  <string name="small_widget_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Use small widget">Usar widget pequena</string>
-  <string name="hide_name_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Hide name of plan">Esconder o nome do plano</string>
-  <string name="numbergroup_excalls" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Exclude from calls">Excluir das ligações</string>
-  <string name="numbergroup_exsms" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Exclude from SMS">Excluir dos SMS</string>
-  <string name="billperiod_sn" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="BillPeriod">Período da Conta</string>
-  <string name="calls_in" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Calls In">Ligações Recebidas</string>
-  <string name="calls_in_" formatted="false" orig="CallsIn">Recebidas</string>
-  <string name="calls_out" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Calls Out">Ligações Feitas</string>
-  <string name="calls_out_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="CallsOut">Feitas</string>
+  <string name="small_widget_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Use small widget">Usar widget pequeno</string>
+  <string name="hide_name_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Hide name of plan">Ocultar nome do plano</string>
+  <string name="numbergroup_excalls" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Exclude from calls">Excluir das chamadas</string>
+  <string name="numbergroup_exsms" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Exclude from SMS">Excluir das SMS</string>
+  <string name="billperiod_sn" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="BillPeriod">Período de faturação</string>
+  <string name="calls_in" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Calls In">Chamadas recebidas</string>
+  <string name="calls_in_" formatted="false" orig="CallsIn" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Chamadas recebidas</string>
+  <string name="calls_out" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Calls Out">Chamadas efetuadas</string>
+  <string name="calls_out_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="CallsOut">Chamadas efetuadas</string>
   <string name="messages" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Messages">Mensagens</string>
   <string name="messages_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="SMS/MMS">SMS/MMS</string>
-  <string name="sms_in" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="SMS In">SMS Recebidos</string>
-  <string name="sms_in_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="SMSIn">Recebidos</string>
-  <string name="sms_out" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="SMS Out">SMS Enviados</string>
-  <string name="sms_out_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="SMSOut">Enviados</string>
-  <string name="mms_in" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="MMS In">MMS Recebidos</string>
-  <string name="mms_in_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="MMSIn">Recebidos</string>
-  <string name="mms_out" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="MMS Out">MMS Enviados</string>
-  <string name="mms_out_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="MMSOut">Enviados</string>
+  <string name="sms_in" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="SMS In">SMS recebidas</string>
+  <string name="sms_in_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="SMSIn">SMS recebidas</string>
+  <string name="sms_out" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="SMS Out">SMS enviadas</string>
+  <string name="sms_out_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="SMSOut">SMS enviadas</string>
+  <string name="mms_in" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="MMS In">MMS recebidas</string>
+  <string name="mms_in_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="MMSIn">MMS recebidas</string>
+  <string name="mms_out" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="MMS Out">MMS enviadas</string>
+  <string name="mms_out_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="MMSOut">MMS enviadas</string>
   <string name="data_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Data (2G/3G/4G)">Dados (2G/3G/4G)</string>
-  <string name="data_inout" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Data In/Out">Dados Entrada/Saída</string>
-  <string name="data_inout_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="DataInOut">Dados Totais</string>
+  <string name="data_inout" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Data In/Out">Dados recebidos/enviados</string>
+  <string name="data_inout_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="DataInOut">Dados recebidos/enviados</string>
   <string name="import_rules_default_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Import default rule set">Importar regra padrão</string>
   <string name="import_rules_default_hint" formatted="false" orig="Import default rule set shipped with the app.">Importar regra padrão do original do app.</string>
   <string name="now" formatted="false" orig="Now">Agora</string>
@@ -398,13 +398,13 @@
   <string name="import_rules_sd_nofiles" formatted="false" orig="No found files">Sem ficheiros encontrados</string>
   <string name="loading" formatted="false" orig="Loading ..." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">A ler ...</string>
   <string name="author_and_many_more" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="and many more...">e muito mais...</string>
-  <string name="update_interval_data_hint" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">A actualização do tráfego de dados precisa de ser efectuada com maior frequência. Ex. Aparelhos Samsung necessitam de intervalos de actualização curtos</string>
+  <string name="update_interval_data_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">A atualização de dados dever de ser efetuada com maior frequência. Ex. os aparelhos Samsung necessitam de intervalos de atualização curtos.</string>
   <string name="up_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Move up">Para cima</string>
   <string name="down_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Move down">Para baixo</string>
-  <string name="google_plus_hint" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Follow me on Google+.\nGet update notifications etc.">Segue-me no Google+.\nRecebe notificações de actualização, etc...</string>
+  <string name="google_plus_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Follow me on Google+.\nGet update notifications etc.">Seguir no Google+.\nObter notificações e muito mais..</string>
   <string name="widget_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Widget">Widget</string>
   <string name="widgets_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Widgets">Widgets</string>
-  <string name="delete_widget" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Delete widget">Apagar widget</string>
+  <string name="delete_widget" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Delete widget">Eliminar widget</string>
   <string name="export_rules_dev_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Export rule set to developer">Exportar o conjunto de regras para o programador</string>
   <string name="export_rules_dev_hint" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Export rule set to let others import it.">Exportar o conjunto de regras para que outros o possam importar</string>
   <string name="export_logs_csv_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Export CSV">Exportar CSV</string>
@@ -427,4 +427,14 @@
   <string name="author_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Author:">Autor:</string>
   <string name="website_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Website:">Website:</string>
   <string name="source_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Sourcescode:">Código fonte:</string>
+  <string name="update_interval_data_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Update interval (data)">Intervalo de atualização (dados)</string>
+  <string name="billday_last" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Last day of your bill">Último dia de faturação</string>
+  <string name="widget_stats_title" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Call Meter (stats)">Call Metter (estatísticas)</string>
+  <string name="widget_logs_title" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Call Meter (last log)">Call Metter (último registo)</string>
+  <string name="widgets_no_widgets_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="No widgets added">Nenhum widget adicionado</string>
+  <string name="widgets_no_widgets_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="There are no widgets added to the launcher.">Não existem widgets adicionados ao lançador.</string>
+  <string name="simple_preferences_deactivated" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Estas preferências só estão disponíveis para o conjunto de regras padrão. Importe o conjunto de regras padrão para reativar.</string>
+  <string name="show_target_billday_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Show last bill day">Mostrar último dia de faturação</string>
+  <string name="show_target_billday_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Show last day of bill instead of first.">Mostrar último dia de faturação em vez do primeiro.</string>
+  <string name="my_number_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="My number">Meu número</string>
 </resources>
