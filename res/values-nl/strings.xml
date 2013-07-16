@@ -359,7 +359,7 @@
   <string name="export_rules_dev_" formatted="false" username="Gummie" orig="Export rule set to developer">Exporteer regelset naar ontwikkelaar</string>
   <string name="export_rules_dev_hint" formatted="false" username="Gummie" orig="Export rule set to let others import it.">Exporteer regelset om hem andere te laten importeren.</string>
   <string name="export_logs_" formatted="false" username="Gummie" orig="Backup logs">Backup logs</string>
-  <string name="export_logs_hint" formatted="false" username="Gummie" orig="Backup logs as mail.">Backup logs als mail.</string>
+  <string name="export_logs_hint" formatted="false" username="ditsy@live.nl" orig="Backup logs as mail.">Backup (xml) logs via mail.</string>
   <string name="export_logs_csv_" formatted="false" username="Gummie" orig="Export CSV">Exporteer CSV</string>
   <string name="export_logs_csv_hint" formatted="false" username="Gummie" orig="Export logs as CSV.">Exporteer logs als CSV.</string>
   <string name="export_numgroups_" formatted="false" username="Gummie" orig="Export number groups">Exporteer nummergroepen</string>

@@ -456,4 +456,9 @@
   <string name="import_rules_users" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Users\' rules">Korisnička pravila</string>
   <string name="delete_group_hint" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Do you really want to delete this group?">Da li stvarno želite obrisati ovu grupu.</string>
   <string name="delete_group_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Delete group">Obriši grupu</string>
+  <string name="billday_last" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Last day of your bill">Posljednji dan vašeg računa</string>
+  <string name="show_target_billday_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Show last bill day">Prikaži posljednje zaračunati dan</string>
+  <string name="show_target_billday_hint" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Show last day of bill instead of first.">Prikaži prvi zaračunati dan umjesto prvog.</string>
+  <string name="delete_plan_hint" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Do you really want to delete this plan?">Da li stvarno želite obrisati ovaj plan?</string>
+  <string name="delete_rule_hint" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Do you really want to delete this rule?">Da li stvarno želite obrisati ovo pravilo?</string>
 </resources>

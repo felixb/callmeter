@@ -456,4 +456,9 @@
   <string name="mixed_units_data_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set the units billed for each MB of data traffic.">Установка единиц расчета за каждый Мб трафика.</string>
   <string name="delete_group_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Delete group">Удалить группу</string>
   <string name="delete_group_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Do you really want to delete this group?">Вы действительно хотите удалить эту группу?</string>
+  <string name="delete_plan_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Do you really want to delete this plan?">Вы действительно хотите удалить этот тариф?</string>
+  <string name="delete_rule_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Do you really want to delete this rule?">Вы действительно хотите удалить это правило?</string>
+  <string name="billday_last" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Last day of your bill">Последний день учета</string>
+  <string name="show_target_billday_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show last bill day">Показывать последний день учета</string>
+  <string name="show_target_billday_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show last day of bill instead of first.">Показывать последний день учета вместо первого.</string>
 </resources>

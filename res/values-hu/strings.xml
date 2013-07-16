@@ -113,7 +113,7 @@
   <string name="set_selected_as_default_" formatted="false">Kiválasztott Tarifa alapértelmezetté tétele</string>
   <string name="autohide_in_" formatted="false">Párbeszéd automatikus elrejtése %d másodpercen belül</string>
   <string name="logs" formatted="false">Naplók</string>
-  <string name="show_logs" formatted="false" username="gaborgabor" orig="Show logs">Hívásnapló</string>
+  <string name="show_logs" formatted="false" username="flx" orig="Show logs">Napló</string>
   <string name="plans" formatted="false" username="gaborgabor" orig="Plans">Tarifa</string>
   <string name="plans_hint" formatted="false" username="gaborgabor" orig="Set your plans for all kind of billing here.">Itt állíthatod be a Tarifát.</string>
   <string name="plans_new" formatted="false" orig="New plan">Új Tarifa</string>
@@ -172,7 +172,7 @@
   <string name="shortname_" formatted="false">Rövid név</string>
   <string name="shortname_help" formatted="false">A rövid név itt adható meg. Kis felületeken jelenik meg.</string>
   <string name="type_" formatted="false">Típus</string>
-  <string name="type_help" formatted="false">Válasszon egy típust.\n A \"Title\" módosítja a fő nézet nevét.\nA \"Spacer\" egy üres rész.\nA \"Bill period\" tartalmaz minden információt a számlázási időszakról. A legtöbb felhasználónak elég egy.\n A \"mixed\" tarifa egyszerre kezeli az üzenetek és a hívások tarifáit.\nA \"call\" tarifa csak hangívásokat kezel. \"SMS\" és \"MMS\" tarifák csak az üzeneteket kezelik.\nAz \"data\" tarifa az adatforgalommal kapcsolatos információkat tartalmazza.</string>
+  <string name="type_help" formatted="false" username="attila.heidrich@gmail.com" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Válasszon egy típust.\n- A "Cím" módosítja a fő nézet nevét.\n- A "Elválasztó" egy üres rész.\n- A "Számlázási időszak" tartalmaz minden információt a számlázási időszakról. A legtöbb felhasználónak elég egy.\n- A "Kombinált" tarifa egyszerre kezeli az üzenetek és a hívások tarifáit.\n- A "Hívások" tarifa csak hangívásokat kezel. "SMS" és "MMS" tarifák csak az üzeneteket kezelik.\n- Az "data" tarifa az adatforgalommal kapcsolatos információkat tartalmazza.</string>
   <string name="limit_type_" formatted="false">Keret típusa</string>
   <string name="limit_type_help" formatted="false">A keret típusát állíthatod be itt.\nAz \"Egység\" korlát a hívások, üzenetek, egyebek darabszáma alapján számol.\nA \"Költség\" korlát pedig a hívások, üzenetek és egyebek költsége alapján számol.</string>
   <string name="limit_" formatted="false">Keret</string>
@@ -183,9 +183,9 @@
   <string name="billperiodid_help" formatted="false">Válaszd ki a számlázási időszakod.\nElőfordulhat, hogy egy extrát is kell csinálnod.</string>
   <string name="billperiod_" formatted="false">Számlázási időszak hossza</string>
   <string name="billperiod_help" formatted="false">A számlázási időszak hosszát állíthatod be.</string>
-  <string name="cost_per_item_" formatted="false">Ár egységenként</string>
+  <string name="cost_per_item_" formatted="false" username="attila.heidrich@gmail.com" orig="Cost per item">Ár tételenként</string>
   <string name="cost_per_item_help" formatted="false">Beállítja az árát egy figyelt elemnek (pl. hívásnak vagy üzenetnek) amit a kereten felül használsz.</string>
-  <string name="cost_per_item_in_limit_" formatted="false">Egység ára a kereten belül</string>
+  <string name="cost_per_item_in_limit_" formatted="false" username="attila.heidrich@gmail.com" orig="Cost per item in limit">Tétel ára a kereten belül</string>
   <string name="cost_per_item_in_limit_help" formatted="false">Beállítja az árát egy figyelt elemnek (pl. hívásnak vagy üzenetnek) amit a kereten belül használsz.</string>
   <string name="cost_per_amount_" formatted="false" orig="Cost per length">Egység díja</string>
   <string name="cost_per_amount_help1" formatted="false">Beállítja az árát a figyelt elemnek (pl. 1 kB adatnak) amit a kereten felül használsz.</string>
@@ -314,7 +314,7 @@
   <string name="delete_">Törlés</string>
   <string name="title">Cím</string>
   <string name="spacer">Elválasztó</string>
-  <string name="mixed">Hívás</string>
+  <string name="mixed" username="attila.heidrich@gmail.com" orig="Mixed">Kombinált</string>
   <string name="limit_type_unlimited">korlátlan</string>
   <string name="limit_type_units">egységek</string>
   <string name="limit_type_cost">költség</string>

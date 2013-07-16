@@ -22,20 +22,20 @@
        -->
 <resources>
   <string name="about0_" formatted="false">Görüşme kayıtlarınızı, mesajlarınızı ve internet paketlerinizi izleyin!</string>
-  <string name="about0" formatted="false">CallMeter görüşme, mesaj ve veri loglarından raporlar oluşturur. Birden fazla ücretlendirme biçimini destekler.</string>
+  <string name="about0" formatted="false" username="bluesman80@gmail.com" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter görüşme, mesaj ve veri kayıtlarından raporlar oluşturur. Birden fazla ücretlendirme biçimini destekler.</string>
   <string name="about1" formatted="false">Kullanım bilgilerinizi, fatura dönemi içerisinde kullanım / süre veya görüşme sayısı olarak veya toplam görüşme sayısı olarak verir. Aylık süre hesabı, ücretlendirme biçimi dikkate alınarak, toplam ise ücretlendirme biçimi dikkate alınmadan yapılır.</string>
   <string name="about2" formatted="false">Ücretlendirme biçimi ilk / bir sonraki ücretlendirme aralıklarını belirler. Örneğin, 60/10, her bir görüşme en az 60 saniye için ücretlendirilir, daha uzun görüşmelerse bir sonraki 10 saniyeye tamamlanır anlamındadır.</string>
   <string name="about3" formatted="false">CallMeter arka planda 30 dakikada bir çalışır (eğer telefon bekleme konumunda değilse). Böylelikle 30 dakikadan eski olmayan görüşme veya mesaj kayıtlarını silerseniz istatistikleriniz değişmez. Son 30 dakika içindeki görüşme veya mesajları silerseniz istatistikler yanlış raporlanabilir.</string>
   <string name="send_" formatted="false">Gönder</string>
   <string name="add_" formatted="false">Ekle</string>
-  <string name="add_log" formatted="false">Log\'a girdi ekle</string>
+  <string name="add_log" formatted="false" username="bluesman80@gmail.com" orig="Add log entry">Kayda girdi ekle</string>
   <string name="length_hint_call" formatted="false">Saniye olarak süre</string>
   <string name="length_hint_data" formatted="false">kB olarak miktar</string>
   <string name="settings" formatted="false">Tercihler</string>
   <string name="update_interval_" formatted="false">Güncelleme aralığı</string>
   <string name="update_interval_hint" formatted="false">Aralık kısaldıkça pil ömrü azalır.</string>
   <string name="date_begin_" formatted="false">Kayıtların başlangıcı</string>
-  <string name="date_begin_hint" formatted="false">Bu tarihten önceki logları dikkate alma.</string>
+  <string name="date_begin_hint" formatted="false" username="bluesman80@gmail.com" orig="Ignore any logs before this date.">Bu tarihten önceki kayıtları dikkate alma.</string>
   <string name="common_prefs_" formatted="false">Genel tercihler</string>
   <string name="edit_" formatted="false">Düzenle</string>
   <string name="about_" formatted="false">Hakkında</string>
@@ -119,7 +119,7 @@
   <string name="type_" formatted="false">Tip</string>
   <string name="type_help" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Tip seçin.\n"Başlık" ana görünümde yalnızca başlığı gösterir.\n"Boşluk" yalnızca boş bir ekran gösterir.\n"Ücretlendirme periyodu" ücretlendirme periyodunuzla ilgili tüm bilgileri gösterir. Birçok kullanıcı buna ihtiyaç duyacaktır.\n"Karışık" arama ve mesajlar pakete alınır. Hepsinin ücretlendirmesi birleştirilir.\n"Arama" yalnızca aramalar pakete alınır. "SMS" ve "MMS" paketleri yalnızca mesajları dikkate alır.\n"data" data trafiğinizle ilgili bilgiler pakede alınır.</string>
   <string name="limit_type_" formatted="false">Sınırlama şekli</string>
-  <string name="limit_type_help" formatted="false" username="İsa Erginyavuz" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;cost\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Sınırlama şeklini burada belirleyin.\n"birim" paketi dakikalar, mesajlar vb. ile sınırlanır\n"ücret" paketi, bu pakette ücretlendirilen arama, SMS vb. ile oluşan ücrete göre sınırlanır.</string>
+  <string name="limit_type_help" formatted="false" username="bluesman80@gmail.com" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;costs\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Sınırlama şeklini burada belirleyin.\n"Birim", paketinizi dakikalar, mesajlar vb. ile sınırlar.\n"Ücret", paketinizi bu pakette ücretlendirilen arama, SMS vb. ile oluşan ücrete göre sınırlar.</string>
   <string name="limit_" formatted="false">Sınır</string>
   <string name="limit_help" formatted="false" username="İsa Erginyavuz" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">Paketinizin sınırını burada belirleyin.\n\n"birim", dakika (aramalar), mesajlar (sms/mms), MB (data, 1024kB) veya birimler (karışık) olarak ayarlanmalıdır.\n\n"ücret", para biriminize göre ayarlanmalıdır (Ör. TRY).</string>
   <string name="billmode_help" formatted="false">Aramalar için ücretlendirme biçimini belirleyin.\nİlk kısım, operatörünüzce ücretlendirilen minimum süredir. Bu süreden kısa her arama bu süreye yuvarlanır.\nİkinci kısım ise takip eden minimum süredir (saniye).\nDaha detaylı yardım için SSS\'yi okuyunuz.</string>
@@ -129,15 +129,15 @@
   <string name="billperiod_" formatted="false" username="İsa Erginyavuz" orig="Length of the billing period">Ücretlendirme periyot uzunluğu</string>
   <string name="billperiod_help" formatted="false" username="İsa Erginyavuz" orig="Set the length of your billing period.">Ücretlendirme periyot uzunluğunu belirleyin.</string>
   <string name="cost_per_item_" formatted="false">Görüşme/mesaj ücreti</string>
-  <string name="cost_per_item_help" formatted="false">Sınır aşıldıktan sonraki tek bir log girdisi (Ör. arama veya mesaj) başına ücreti belirleyin.</string>
+  <string name="cost_per_item_help" formatted="false" username="bluesman80@gmail.com" orig="Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.">Sınır aşıldıktan sonraki tek bir kayıt girdisi (Ör. arama veya mesaj) başına ücreti belirleyin.</string>
   <string name="cost_per_item_in_limit_" formatted="false">Sınır içinde gör./mes. ücreti</string>
-  <string name="cost_per_item_in_limit_help" formatted="false">Sınır aşılmadan önceki tek bir log girdisi (Ör. arama veya mesaj) başına ücreti belirleyin.</string>
+  <string name="cost_per_item_in_limit_help" formatted="false" username="bluesman80@gmail.com" orig="Set the cost billed for a single log item (e.g. a call or a message) billed before the limit is exceeded.">Sınır aşılmadan önceki tek bir kayıt girdisi (Ör. arama veya mesaj) başına ücreti belirleyin.</string>
   <string name="cost_per_amount_" formatted="false">Uzunluk başına ücret</string>
-  <string name="cost_per_amount_help1" formatted="false">Sınır aşıldıktan sonraki tek bir log girdisi (Ör. 1 kB data) için uzunluk başına ücreti belirleyin.</string>
+  <string name="cost_per_amount_help1" formatted="false" username="bluesman80@gmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Sınır aşıldıktan sonraki tek bir kayıt girdisi (Ör. 1 kB data) için uzunluk başına ücreti belirleyin.</string>
   <string name="cost_per_amount_help2" formatted="false" username="İsa Erginyavuz" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Sınır aşıldıktan sonraki tek bir kayıt girdisi (Ör. 1 dk.lık konuşma) için uzunluk başına ücreti belirleyin.\nİlk alan aramanın ilk saniyeleri için ücreti, ikincisi ise takip eden saniyeler için ücreti içerir (her ikisi de TRY/dk\'dır; bkz. Ücretlendirme biçimi).\nEmin değilseniz her ikisini de dakika ücretinize ayarlayın.</string>
   <string name="cost_per_amount_in_limit_" formatted="false">Sınır içinde uzun. baş. ücr.</string>
-  <string name="cost_per_amount_in_limit_help1" formatted="false" username="İsa Erginyavuz" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) before the limit is exceeded.">Sınır aşılmadan önceki tek bir kayıt girdisi (Ör. 1 kB data) için uzunluk başına ücreti belirleyin.</string>
-  <string name="cost_per_amount_in_limit_help2" formatted="false" username="İsa Erginyavuz" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Tek bir kayıt girdisi (Ör. 1 dk.lık konuşma, 1 kB data) için sınır aşılmadan önceki uzunluk başına ücreti belirleyin.\nİlk alan aramanın ilk saniyeleri için ücreti, ikincisi ise takip eden saniyeler için ücreti içerir (her ikisi de TRY/dk\'dır; bkz. Ücretlendirme biçimi).\nEmin değilseniz her ikisini de dakika ücretinize ayarlayın.</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false" username="bluesman80@gmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.">Sınır aşılmadan önceki tek bir kayıt girdisi (Ör. 1 dk. arama, 1 kB data) için uzunluk başına ücreti belirleyin.</string>
+  <string name="cost_per_amount_in_limit_help2" formatted="false" username="bluesman80@gmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1min call) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Tek bir kayıt girdisi (Ör. 1 dk.lık konuşma) için sınır aşılmadan önceki uzunluk başına ücreti belirleyin.\nİlk alan aramanın ilk saniyeleri için ücreti, ikincisi ise takip eden saniyeler için ücreti içerir (her ikisi de TRY/dk\'dır; bkz. Ücretlendirme biçimi).\nEmin değilseniz her ikisini de dakika ücretinize ayarlayın.</string>
   <string name="cost_per_plan_" formatted="false">Paket ücretleri</string>
   <string name="cost_per_plan_help" formatted="false">Bir ücretlendirme periyodu için paket ücretlerini belirleyin.</string>
   <string name="mixed_units_sms_" formatted="false">SMS ücreti</string>
@@ -216,7 +216,7 @@
   <string name="theme_black">Siyah</string>
   <string name="theme_light">Beyaz</string>
   <string name="edit_plan_">Paketi düzenle</string>
-  <string name="view_logs_">Logları görüntüle</string>
+  <string name="view_logs_" username="bluesman80@gmail.com" orig="View Logs">Kayıtları görüntüle</string>
   <string name="delete_">Sil</string>
   <string name="title">Başlık</string>
   <string name="spacer">Boşluk</string>
@@ -270,7 +270,7 @@
   <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Uygulama geliştiricisinin notları</string>
   <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Uygulama geliştiricisinden en son haberler için buraya tıklayın</string>
   <string name="delete_old_logs_" formatted="false" orig="Delete logs older than">Bu tarihten önceki kayıtları sil</string>
-  <string name="delete_old_logs_help" formatted="false" orig="Delete logs older than x days from internal database. Leave empty to disable.">x günden daha eski kayıları iç veritabanından sil. Devre dışı bırakmak için boş bırakın.</string>
+  <string name="delete_old_logs_help" formatted="false" orig="Delete logs older than x days from internal database. Leave empty to disable." username="bluesman80@gmail.com">x günden daha eski kayıtları iç veritabanından sil. Devre dışı bırakmak için boş bırakın.</string>
   <string name="behavior_" formatted="false" orig="Behavior">Davranış</string>
   <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp; behavior">Görünüm </string>
   <string name="simple_preferences_" formatted="false" orig="Simple preferences">Basit tercihler</string>
@@ -371,9 +371,9 @@
   <string name="export_progr" formatted="false" orig="Exporting data ..." username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;">Veri dışa aktarılıyor...</string>
   <string name="import_progr" formatted="false" orig="Import data ..." username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;">Veri içe aktarılıyor...</string>
   <string name="export_" formatted="false" orig="Export ...">Dışa aktar...</string>
-  <string name="export_hint" formatted="false" orig="Export rule sets, logs or groups" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;">Kural kümeleri, loglar veya grupları dışa aktarır</string>
-  <string name="export_logs_" formatted="false" orig="Backup logs">Logları yedekle</string>
-  <string name="export_logs_hint" formatted="false" orig="Backup logs as mail.">Logları e-posta olarak yedekler.</string>
+  <string name="export_hint" formatted="false" orig="Export rule sets, logs or groups" username="bluesman80@gmail.com">Kural kümeleri, kayıtlar veya grupları dışa aktarır</string>
+  <string name="export_logs_" formatted="false" orig="Backup logs" username="bluesman80@gmail.com">Kayıtları yedekle</string>
+  <string name="export_logs_hint" formatted="false" orig="Backup logs as mail." username="bluesman80@gmail.com">Kayıtları e-posta olarak yedekle.</string>
   <string name="export_numgroups_" formatted="false" orig="Export number groups">Numara gruplarını dışa aktar</string>
   <string name="export_numgroups_hint" formatted="false" orig="Export number groups as mail.">Numara gruplarını e-posta olarak dışa aktarır.</string>
   <string name="export_hourgroups_" formatted="false" orig="Export hour groups">Saat gruplarını dışa aktar</string>
@@ -415,20 +415,51 @@
   <string name="export_rules_dev_" formatted="false" orig="Export rule set to developer">Kural kümesini uygulama geliştiricisine gönder</string>
   <string name="export_rules_dev_hint" formatted="false" orig="Export rule set to let others import it.">Kural kümesini, başkalarının içe aktarabileceği şekilde dışa aktarın.</string>
   <string name="import_rules_www_hint" formatted="false" orig="Import pre-configured rule set from http://www.ub0r.de/.">Önceden yapılandırılmış kural kümesini http://www.ub0r.de/ adresinden içe aktarın.</string>
-  <string name="export_logs_csv_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Export CSV">Dışa aktar (CSV)</string>
-  <string name="export_logs_csv_hint" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Export logs as CSV.">CSV dosyası olarak dışa aktar</string>
+  <string name="export_logs_csv_" formatted="false" username="bluesman80@gmail.com" orig="Export CSV">Kayıtları dışa aktar (CSV)</string>
+  <string name="export_logs_csv_hint" formatted="false" username="bluesman80@gmail.com" orig="Export logs as CSV.">Kayıtları CSV dosyası olarak dışa aktar</string>
   <string name="x1_month_1_day" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="One month + one day">Bir ay + bir gün</string>
   <string name="reset" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Reset">Sıfırlama</string>
   <string name="debug_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Debug">Hata ayıklama</string>
-  <string name="send_logs_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Send logs">Logları gönder</string>
-  <string name="send_logs_hint" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Cihazınızın loglarını geliştiriciye gönderin.\nBunu yalnızca sizden istendiyse yapın.</string>
-  <string name="sendlog_run_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Run SendLog">SendLog\'u Çalıştır</string>
-  <string name="sendlog_run" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog cihazınızın loglarını toplayıp bunları geliştiriciye gönderecektir.\nGönderilecek veriyi görüntüleme ve düzenleme imkanınız bulunmaktadır.</string>
+  <string name="send_logs_" formatted="false" username="bluesman80@gmail.com" orig="Send logs">Kayıtları gönder</string>
+  <string name="send_logs_hint" formatted="false" username="bluesman80@gmail.com" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Cihazınızın kayıtlarını geliştiriciye gönderin.\nBunu yalnızca sizden istendiyse yapın.</string>
+  <string name="sendlog_run_" formatted="false" username="bluesman80@gmail.com" orig="Run SendLog">SendLog\'u Çalıştır</string>
+  <string name="sendlog_run" formatted="false" username="bluesman80@gmail.com" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog cihazınızın kayıtlarını toplayıp bunları geliştiriciye gönderecektir.\nGönderilecek veriyi görüntüleme ve düzenleme imkanınız bulunmaktadır.</string>
   <string name="sendlog_install_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Install SendLog">SendLog\'u Yükle</string>
-  <string name="sendlog_install" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">Cihazın loglarını toplayıp geliştiriciye göndermek için ücretsiz SendLog uygulamasını yükleyin.</string>
+  <string name="sendlog_install" formatted="false" username="bluesman80@gmail.com" orig="Install the free SendLog application to collect the device log and send it to the developer.">Cihazın kayıtlarını toplayıp geliştiriciye göndermek için ücretsiz SendLog uygulamasını yükleyin.</string>
   <string name="license_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="License:">Lisans:</string>
   <string name="license" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - bkz. http://www.gnu.org/licenses/gpl-3.0.txt</string>
   <string name="author_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Author:">Yazar:</string>
   <string name="website_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Website:">Web sitesi:</string>
   <string name="source_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Sourcescode:">Kaynak kod:</string>
+  <string name="up_" formatted="false" username="bluesman80@gmail.com" orig="Move up">Yukarı taşı</string>
+  <string name="down_" formatted="false" username="bluesman80@gmail.com" orig="Move down">Aşağı taşı</string>
+  <string name="billday_last" formatted="false" username="bluesman80@gmail.com" orig="Last day of your bill">Faturanızın son günü</string>
+  <string name="widget_stats_title" formatted="false" username="bluesman80@gmail.com" orig="Call Meter (stats)">Call Meter (istatistikler)</string>
+  <string name="widget_logs_title" formatted="false" username="bluesman80@gmail.com" orig="Call Meter (last log)">Call Meter (son kayıt)</string>
+  <string name="show_target_billday_" formatted="false" username="bluesman80@gmail.com" orig="Show last bill day">Son fatura tarihini göster</string>
+  <string name="show_target_billday_hint" formatted="false" username="bluesman80@gmail.com" orig="Show last day of bill instead of first.">Fatura başlangıç tarihi yerine sonunu göster.</string>
+  <string name="my_number_" formatted="false" username="bluesman80@gmail.com" orig="My number">Telefon numaram</string>
+  <string name="my_number_help" formatted="false" username="bluesman80@gmail.com" orig="Match only logs, while this SIM/number is active.">Yalnızca bu numara/SIM aktifkenki kayıtları dikkate al.</string>
+  <string name="my_sim_id_" formatted="false" username="bluesman80@gmail.com" orig="SIM Id">SIM Adı</string>
+  <string name="my_sim_id_help" formatted="false" username="bluesman80@gmail.com" orig="Match only logs done with this SIM.">Yalnızca bu SIM ile oluşturulan kayıtları dikkate al.</string>
+  <string name="set_current_number" formatted="false" username="bluesman80@gmail.com" orig="Current number">Güncel numara</string>
+  <string name="delete_group_" formatted="false" username="bluesman80@gmail.com" orig="Delete group">Grubu sil</string>
+  <string name="delete_group_hint" formatted="false" username="bluesman80@gmail.com" orig="Do you really want to delete this group?">Bu grubu silmek istiyor musunuz?</string>
+  <string name="delete_plan_hint" formatted="false" username="bluesman80@gmail.com" orig="Do you really want to delete this plan?">Bu paketi silmek istiyor musunuz?</string>
+  <string name="delete_rule_hint" formatted="false" username="bluesman80@gmail.com" orig="Do you really want to delete this rule?">Bu kuralı silmek istiyor musunuz?</string>
+  <string name="cost_per_item_no_limit_help" formatted="false" username="bluesman80@gmail.com" orig="Set the cost billed for a single log item (e.g. a call or a message).">Tek bir kayıt (ör. bir arama, bir SMS) için faturalandırılan ücreti girin.</string>
+  <string name="cost_per_amount_no_limit_help1" formatted="false" username="bluesman80@gmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data).">Tek bir kayıt girdisi (Ör. 1 dk.lık konuşma, 1kB veri) için uzunluk başına ücreti belirleyin.</string>
+  <string name="cost_per_amount_no_limit_help2" formatted="false" username="bluesman80@gmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1min call).\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Tek bir kayıt girdisi (Ör. 1 dk.lık konuşma) için uzunluk başına ücreti belirleyin.\nİlk alan aramanın ilk saniyeleri için ücreti, ikincisi ise takip eden saniyeler için ücreti içerir (her ikisi de TRY/dk\'dır; bkz. Ücretlendirme biçimi).\nEmin değilseniz her ikisini de dakika ücretinize ayarlayın.</string>
+  <string name="plan" formatted="false" username="bluesman80@gmail.com" orig="Plan">Paket</string>
+  <string name="mixed_units_data_" formatted="false" username="bluesman80@gmail.com" orig="Units for data">Veri birimi</string>
+  <string name="mixed_units_data_help" formatted="false" username="bluesman80@gmail.com" orig="Set the units billed for each MB of data traffic.">Veri trafiği için MB başına ücretlendirilen birimi girin.</string>
+  <string name="strip_past_" formatted="false" username="bluesman80@gmail.com" orig="Do not bill anything after seconds">Şu kadar sn. sonra ücretlendirme yapma</string>
+  <string name="strip_past_help" formatted="false" username="bluesman80@gmail.com" orig="Do not bill anything after x seconds of a call.">Bir çağrıda x sn.den sonra ücretlendirme yapma.</string>
+  <string name="import_" formatted="false" username="bluesman80@gmail.com" orig="Import">İçe aktar</string>
+  <string name="import_link_" formatted="false" username="bluesman80@gmail.com" orig="More info">Daha fazla bilgi</string>
+  <string name="import_rules_users" formatted="false" username="bluesman80@gmail.com" orig="Users\' rules">Kullanıcı kuralları</string>
+  <string name="widget_date_textsize" formatted="false" username="bluesman80@gmail.com" orig="Date Text Size">Tarih metni boyutu</string>
+  <string name="widget_details_textsize" formatted="false" username="bluesman80@gmail.com" orig="Details Text Size">Detay metni boyutu</string>
+  <string name="country" formatted="false" username="bluesman80@gmail.com" orig="Country">Ülke</string>
+  <string name="provider" formatted="false" username="bluesman80@gmail.com" orig="Provider">Operatör</string>
 </resources>

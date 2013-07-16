@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+		Copyright (C) 2009-2013 Felix Bechstein
+	-->
+<!--
+		This file is part of Call Meter 3G. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+	-->
+<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<resources>
+  <string name="help_title_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">Molimo Vas pročitajte sledeće za razumevanje koncepta <b>izveštaja</b>, <b>planova</b> i <b>pravila</b>:</string>
+  <string name="help_import_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="A good starting point are some preconfigured rule sets available on the website. Just import them via import menu and play around.">Dobra polazna tačka su već predkonfigurisana pravila podešavanja dostupna na web stranici. Samo ih uvezite kroz meni Uvezi i isprobajte.</string>
+  <string name="help_export_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="If you managed to set up a common plan for your country, do not hesitate to export your rule set to me by mail. I will put it on the website to make it available for all the users.">Ako uspete postaviti plan za svoju državu, ne ustručavajte se izvesti vaše postavke na moj mail. Ja ću ih staviti na moju web stranicu kako bi bile dostupne svim korisnicima.</string>
+  <string name="help_logs_plans_rules_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="There are three kinds of data structures:">Postoje tri vrste struktura podataka:</string>
+  <string name="help_logs_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="&lt;b&gt;Logs&lt;/b&gt; to save informations about your calls, messages and traffic statistics."><b>Izveštaji</b> za čuvanje statističkih informacija o vašim pozivima, porukama i internet prometu.</string>
+  <string name="help_plans_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="&lt;b&gt;Plans&lt;/b&gt; to describe all kinds of aspects of your bill."><b>Planovi</b> za opis svih vrsta aspekata vašeg računa.</string>
+  <string name="help_rules_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="&lt;b&gt;Rules&lt;/b&gt; to match the &lt;b&gt;logs&lt;/b&gt; and move them to a particular &lt;b&gt;plan&lt;/b&gt;."><b>Pravila</b> se slažu sa <b>izveštajima</b> i zajedno čine određeni <b>plan</b>.</string>
+  <string name="help_plans_detail0_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="You can add or delete &lt;b&gt;plans&lt;/b&gt; just as you want. You can set the order by dragging them around with the handle on the right of the list view.">Možete dodati ili obrisati <b>planova</b> koliko želite. Možete postaviti redosled povlačenjem klizača na desnoj strani liste.</string>
+  <string name="help_plans_detail1_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="To edit a &lt;b&gt;plan&lt;/b&gt;, you just need to click it. At the next screen, you can set all kind of settings. There are a few, most users won\'t need. But some do. A short help for each setting is displayed in this view. Most settings you do not understand are not used in your country. Just leave them as they are. ;)">Za uređivanje <b>plana</b>, trebate samo kliknuti na njega. Na sledećem ekranu možete podesiti sve vrste podešavanja. Tu je par, većini korisnika nepotrebnih podešavanja. Ali neki ih koriste. Kratka pomoć za svako podešavanje je prikazana u ovom pregledu. Većina postavki koju ne razumete ne koriste se u vašoj zemlji. Samo ih ostavite kakve jesu. ;)</string>
+  <string name="help_plans_merge_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="You can merge &lt;b&gt;plans&lt;/b&gt; to aggregate their &lt;b&gt;log items&lt;/b&gt; to a combined cost and limit.">Možete spojiti <b>planove</b> za generisanje njihovih <b>izveštaja</b> da kombinuju troškove i ograničenja.</string>
+  <string name="help_rules_detail0_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Edit the &lt;b&gt;rules&lt;/b&gt; in the same way. Each &lt;b&gt;rule&lt;/b&gt; does match some &lt;b&gt;log items&lt;/b&gt; and move them to a &lt;b&gt;plan&lt;/b&gt; in which the &lt;b&gt;logs&lt;/b&gt; should be billed in.">Uredite <b>planove</b> na isti način. Svaki <b>plan</b> se slaže sa nekim <b>izveštajem</b> i njegovim pomeranjem u <b>plan</b> u kojem bi <b>izveštaju</b> trebao bi biti obračunat.</string>
+  <string name="help_rules_detail1_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="But keep in mind, that order is important for &lt;b&gt;rules&lt;/b&gt;:">Ali imajte na umu da je redosled važan za <b>pravila</b>:</string>
+  <string name="help_rules_detail2_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="&lt;b&gt;Logs&lt;/b&gt; are matched &lt;b&gt;top-down&lt;/b&gt;, means: the first &lt;b&gt;rule&lt;/b&gt; that matches will stop processing of this particular &lt;b&gt;log item&lt;/b&gt;."><b>Izveštaji</b> se slažu <b>gore-dole</b>, znači: prvo <b>pravilo</b> koje se slaže će zaustaviti procesiranje tačno određenog <b>izveštaja</b>.</string>
+  <string name="help_rules_detail3_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="E.g.: If you match all calls to 0800% numbers to a \&quot;free\&quot; &lt;b&gt;plan&lt;/b&gt; with the first &lt;b&gt;rule&lt;/b&gt;, there is no need to exclude these numbers in the second.">Npr.: Ako postavite sve pozive sa 0800% brojeva na "besplatan" <b>plan</b> sa prvim <b>pravilom</b>, nema potrebe isključiti te brojeve i u sekundama.</string>
+</resources>
