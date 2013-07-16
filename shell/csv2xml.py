@@ -46,7 +46,7 @@ for line in fileinput.input():
   elif amount.endswith('B'):
     amount=str(int(float(namount)))
   print '    <log>'
-  print '      <_date>' + str(int(time.mktime(date))) + '</_date>'
+  print '      <_date>' + str(int(time.mktime(date) * 1000)) + '</_date>'
   print '      <_type>' + ltype + '</_type>'
   print '      <_direction>' + direction + '</_direction>'
   print '      <_roamed>' + data[3] + '</_roamed>'
