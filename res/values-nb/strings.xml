@@ -323,8 +323,8 @@
   <string name="no" formatted="false" username="" orig="No">Nei</string>
   <string name="none" formatted="false" username="" orig="None">ingen</string>
   <string name="value" formatted="false" username="" orig="Value">Verdi</string>
-  <string name="empty_groups_" formatted="false" username="" orig="Please press &quot;Add&quot; to add a group.">vennligst trykk "Legg til" for å legge til en gruppe.</string>
-  <string name="empty_group_" formatted="false" username="" orig="Please press &quot;Add&quot; to add an item to this group.">Vennligst trykk "Legg til" for å legge til et element i denne gruppen.</string>
+  <string name="empty_groups_" formatted="false" username="" orig="Please press &quot;Add&quot; to add a group.">vennligst trykk \"Legg til\" for å legge til en gruppe.</string>
+  <string name="empty_group_" formatted="false" username="" orig="Please press &quot;Add&quot; to add an item to this group.">Vennligst trykk \"Legg til\" for å legge til et element i denne gruppen.</string>
   <string name="export_progr" formatted="false" username="" orig="Exporting data ...">Eksporterer data ...</string>
   <string name="export_" formatted="false" username="" orig="Export ...">Eksporterer ...</string>
   <string name="export_hint" formatted="false" username="" orig="Export rule sets, logs or groups">Eksporterer regler, logger eller grupper</string>

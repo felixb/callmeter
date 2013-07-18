@@ -235,8 +235,8 @@
   <string name="no" formatted="false">Όχι</string>
   <string name="none" formatted="false">Κανένα</string>
   <string name="value" formatted="false">Τιμή</string>
-  <string name="empty_groups_" formatted="false">Παρακαλώ πιέστε "Προσθήκη" για την εισαγωγή μιας ομάδας.</string>
-  <string name="empty_group_" formatted="false">Παρακαλώ πιέστε "Προσθήκη" για την εισαγωγή ενός αντικειμένου σε αυτή την ομάδα.</string>
+  <string name="empty_groups_" formatted="false">Παρακαλώ πιέστε \"Προσθήκη\" για την εισαγωγή μιας ομάδας.</string>
+  <string name="empty_group_" formatted="false">Παρακαλώ πιέστε \"Προσθήκη\" για την εισαγωγή ενός αντικειμένου σε αυτή την ομάδα.</string>
   <string name="export_progr" formatted="false">Εξαγωγή δεδομένων ...</string>
   <string name="import_progr" formatted="false">Εισαγωγή δεδομένων ...</string>
   <string name="export_" formatted="false">Εξαγωγή ...</string>

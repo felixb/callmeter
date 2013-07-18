@@ -239,8 +239,8 @@
   <string name="no" formatted="false">Nem</string>
   <string name="none" formatted="false">Egyik sem</string>
   <string name="value" formatted="false">Érték</string>
-  <string name="empty_groups_" formatted="false">Nyomd meg a "Hozzáadás"-t csoport hozzáadásához.</string>
-  <string name="empty_group_" formatted="false">Nyomd meg a "Hozzáadás"-t új elem hozzáadásához a csoportba.</string>
+  <string name="empty_groups_" formatted="false">Nyomd meg a \"Hozzáadás\"-t csoport hozzáadásához.</string>
+  <string name="empty_group_" formatted="false">Nyomd meg a \"Hozzáadás\"-t új elem hozzáadásához a csoportba.</string>
   <string name="export_progr" formatted="false">Adatok exportálása...</string>
   <string name="import_progr" formatted="false">Adatok importálása ...</string>
   <string name="export_" formatted="false">Exportálás</string>

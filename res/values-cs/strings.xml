@@ -197,8 +197,8 @@
   <string name="yes" formatted="false">Ano</string>
   <string name="no" formatted="false">Ne</string>
   <string name="value" formatted="false">Hodnota</string>
-  <string name="empty_groups_" formatted="false">Stiskněte prosím tlačítko "Přidat" pro přidání skupiny.</string>
-  <string name="empty_group_" formatted="false">Stiskněte prosím tlačítko "Přidat" pro přidání položky k této skupině.</string>
+  <string name="empty_groups_" formatted="false">Stiskněte prosím tlačítko \"Přidat\" pro přidání skupiny.</string>
+  <string name="empty_group_" formatted="false">Stiskněte prosím tlačítko \"Přidat\" pro přidání položky k této skupině.</string>
   <string name="export_progr" formatted="false">Exportovat data ...</string>
   <string name="import_progr" formatted="false">Importovat data ...</string>
   <string name="export_" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Export ...">Export ...</string>

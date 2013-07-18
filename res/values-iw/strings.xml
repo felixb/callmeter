@@ -276,8 +276,8 @@
   <string name="no" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="No">לא</string>
   <string name="none" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="None">אין</string>
   <string name="value" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Value">ערך</string>
-  <string name="empty_groups_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Please press &quot;Add&quot; to add a group.">אנא לחץ על "הוסף" כדי להוסיף קבוצה.</string>
-  <string name="empty_group_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">אנא לחץ על "הוסף" כדי להוסיף פריט לקבוצה זו.</string>
+  <string name="empty_groups_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Please press &quot;Add&quot; to add a group.">אנא לחץ על \"הוסף\" כדי להוסיף קבוצה.</string>
+  <string name="empty_group_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">אנא לחץ על \"הוסף\" כדי להוסיף פריט לקבוצה זו.</string>
   <string name="export_progr" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Exporting data ...">מייצא נתונים...</string>
   <string name="import_progr" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Import data ...">יבא נתונים...</string>
   <string name="export_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export ...">יצא...</string>

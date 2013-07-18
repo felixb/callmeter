@@ -382,8 +382,8 @@
   <string name="no" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="No">No</string>
   <string name="none" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="None">Cap</string>
   <string name="value" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Value">Valor</string>
-  <string name="empty_groups_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Please press &quot;Add&quot; to add a group.">Si us plau pressioni "Afegir" per afegir un grup.</string>
-  <string name="empty_group_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Si us plau pressioni "Afegir" per afegir un valor a aquest grup.</string>
+  <string name="empty_groups_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Please press &quot;Add&quot; to add a group.">Si us plau pressioni \"Afegir\" per afegir un grup.</string>
+  <string name="empty_group_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Si us plau pressioni \"Afegir\" per afegir un valor a aquest grup.</string>
   <string name="export_progr" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Exporting data ...">Exportant dades...</string>
   <string name="import_progr" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Import data ...">Important dades...</string>
   <string name="export_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Export ...">Exportar...</string>

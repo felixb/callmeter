@@ -279,7 +279,7 @@
   <string name="no" formatted="false" username="mari" orig="No">Не</string>
   <string name="value" formatted="false" username="mari" orig="Value">Стойност</string>
   <string name="none" formatted="false" username="mari" orig="None">Никакъв</string>
-  <string name="empty_groups_" formatted="false" username="mari" orig="Please press &quot;Add&quot; to add a group.">Моля натиснете "Add" за да добавите група.</string>
+  <string name="empty_groups_" formatted="false" username="mari" orig="Please press &quot;Add&quot; to add a group.">Моля натиснете \"Add\" за да добавите група.</string>
   <string name="export_progr" formatted="false" username="mari" orig="Exporting data ...">Екпортиране на данни ...</string>
   <string name="import_progr" formatted="false" username="mari" orig="Import data ...">Импортиране на данни ...</string>
   <string name="export_" formatted="false" username="mari" orig="Export ...">Експорт ...</string>
@@ -327,7 +327,7 @@
   <string name="limit_type_help" formatted="false" username="mari" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;cost\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Задайте вида на вашия лимит тук.\nA "units" лимит ще ограничи вашия план базиран на минути,съобщения,...\nA "cost" лимит ще ограничи вашия план базиран на стойността на произведените от елементите, вградени в този план.</string>
   <string name="mixed_units_sms_help" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="Set the units billed for a single sms.">Задай единица за таксуване на един sms.</string>
   <string name="roamed_" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="Roamed">Роминг</string>
-  <string name="empty_group_" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Моля натиснете "Add" за да добавите елемент в групата.</string>
+  <string name="empty_group_" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Моля натиснете \"Add\" за да добавите елемент в групата.</string>
   <string name="monday" formatted="false" username="hlp" orig="Monday">Понеделник</string>
   <string name="delete_" formatted="false" username="hlp" orig="Delete">Изтрий</string>
   <string name="up_" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="Move up">Нагоре</string>

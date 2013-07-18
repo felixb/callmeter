@@ -201,8 +201,8 @@
   <string name="mixed_units_mms_help" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Set the units billed for a single mms.">Defina a unidade de faturação por MMS</string>
   <string name="mixed_units_call_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Units for a call">Unidades para chamadas</string>
   <string name="mixed_units_call_help" formatted="false" orig="Set the units billed for a one minute call.\nBill mode is taken into account here." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Defina a unidade de faturação por 1 minuto de chamada.\nO método de faturação é tido em conta.</string>
-  <string name="merge_plans_" formatted="false" orig="Merge plans">Juntar planos</string>
-  <string name="merge_plans_help" formatted="false" orig="Merge other plans into this one and bill them here (too).">Englobar outros planos para este e cobrá-los aqui (também).</string>
+  <string name="merge_plans_" formatted="false" orig="Merge plans" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Unir planos</string>
+  <string name="merge_plans_help" formatted="false" orig="Merge other plans into this one and bill them here (too)." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Englobar outros planos neste e faturar aqui.</string>
   <string name="units_cost" formatted="false" orig="$" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">€</string>
   <string name="units_num_msg" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="# Messages"># mensagens</string>
   <string name="units_minutes" formatted="false" orig="Minutes">Minutos</string>
@@ -216,75 +216,75 @@
   <string name="units_cost_per_mbyte" formatted="false" orig="$/MByte" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">€/MByte</string>
   <string name="units_cost_per_unit" formatted="false" orig="$/Unit" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">€/unidade</string>
   <string name="plan_" formatted="false">Plano</string>
-  <string name="plan_help" formatted="false" username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;" orig="Choose the plan this rule should fit.">Escolha o plano em que esta regra deve actuar.</string>
-  <string name="limitnotreached_" formatted="false">Limite não alcançado</string>
-  <string name="limitnotreached_help" formatted="false">Mostra somente se o limite do plano não tiver sido alcançado.</string>
-  <string name="iswebsms_" formatted="false" orig="Is WebSMS">É um WebSMS</string>
+  <string name="plan_help" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Choose the plan this rule should fit.">Escolha o plano para esta regra.</string>
+  <string name="limitnotreached_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Limit not reached">Limite não atingido</string>
+  <string name="limitnotreached_help" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Match only if target plan has not reached it\'s limit yet.">Apenas coincidente se o plano destino não tiver ultrapassado o limite.</string>
+  <string name="iswebsms_" formatted="false" orig="Is WebSMS" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">É WebSMS</string>
   <string name="iswebsms_help" formatted="false" orig="Message sent with WebSMS.">Mensagem enviada com WebSMS.</string>
-  <string name="iswebsms_connector_" formatted="false" orig="Is WebSMS Connector">É um Conector WebSMS</string>
-  <string name="iswebsms_connector_help" formatted="false" orig="Sent with specific WebSMS Connector, leave empty to match any.">Enviada por uma Conector especifico do WebSMS, deixe vazio para combinar com qualquer.</string>
-  <string name="issipcall_" formatted="false">É uma chamada SIP/VOIP</string>
-  <string name="issipcall_help" formatted="false" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Chamada efectuada por SIP/VOIP. Actualmente o sipdroid &gt;1.6.1 é suportado.</string>
+  <string name="iswebsms_connector_" formatted="false" orig="Is WebSMS Connector" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">É conetor WebSMS</string>
+  <string name="iswebsms_connector_help" formatted="false" orig="Sent with specific WebSMS Connector, leave empty to match any." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Enviada por uma conetor WebSMS, deixe em branco para coincidir com qualquer um.</string>
+  <string name="issipcall_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Is SIP call">É chamada SIP</string>
+  <string name="issipcall_help" formatted="false" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Chamada efetuada por SIP. Atualmente, só existe suporte a sipdroid &gt; 1.6.1.</string>
   <string name="strip_seconds_" formatted="false" orig="Do not bill first seconds">Não faturar os primeiros segundos</string>
-  <string name="strip_seconds_help" formatted="false">Não faturar os primeiros X segundos de uma chamada.</string>
-  <string name="what_" formatted="false">Condições</string>
-  <string name="what_help" formatted="false">Escolha uma condição aqui.</string>
+  <string name="strip_seconds_help" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Do not bill first x seconds of a call.">Não faturar os primeiros n segundos de uma chamada.</string>
+  <string name="what_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Target type">Tipo de destino</string>
+  <string name="what_help" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Choose a target type here.">Escolha aqui o tipo de destino.</string>
   <string name="direction_" formatted="false" orig="Direction">Direção</string>
-  <string name="direction_help" formatted="false">Selecione a direção que o relatório deve ter.</string>
+  <string name="direction_help" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Choose a direction the given log has to be.">Escolha a direção que o relatório deve ter.</string>
   <string name="roamed_" formatted="false">Cruzado</string>
-  <string name="roamed_help" formatted="false" orig="Choose whether the given log has to be roamed.">Selecione somente se o relatório deve ser cruzado.</string>
+  <string name="roamed_help" formatted="false" orig="Choose whether the given log has to be roamed." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Escolha se o plano deve ser roamed.</string>
   <string name="remote_hint" formatted="false">Número remoto</string>
   <string name="no_matter_" formatted="false">Não importa</string>
   <string name="yes" formatted="false">Sim</string>
   <string name="no" formatted="false">Não</string>
   <string name="none" formatted="false">Nada</string>
   <string name="value" formatted="false">Valor</string>
-  <string name="empty_groups_" formatted="false" orig="Please press &quot;Add&quot; to add a group.">Por favor, pressione "Adicionar" para acrescentar um grupo.</string>
-  <string name="empty_group_" formatted="false" orig="Please press &quot;Add&quot; to add an item to this group.">Por favor, pressione "Adicionar" para acrescentar um item a este grupo.</string>
-  <string name="export_progr" formatted="false" orig="Exporting data ...">Exportando dados ...</string>
-  <string name="import_progr" formatted="false" orig="Import data ...">Importando dados ...</string>
-  <string name="export_" formatted="false" orig="Export ..." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Exportar ...</string>
-  <string name="export_hint" formatted="false" orig="Export rule sets, logs or groups">Exportar conjunto de regras, relatórios ou grupos</string>
-  <string name="export_rules_" formatted="false">Exportar conjunto de regras</string>
-  <string name="export_rules_hint" formatted="false" orig="Export rule set as mail.">Exportar conjunto de regras por email.</string>
+  <string name="empty_groups_" formatted="false" orig="Please press &quot;Add&quot; to add a group." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Prima \"Adicionar\" para criar um grupo.</string>
+  <string name="empty_group_" formatted="false" orig="Please press &quot;Add&quot; to add an item to this group." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Prima \"Adicionar\" para juntar um item a este grupo.</string>
+  <string name="export_progr" formatted="false" orig="Exporting data ..." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Exportando dados...</string>
+  <string name="import_progr" formatted="false" orig="Import data ..." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Importando dados...</string>
+  <string name="export_" formatted="false" orig="Export ..." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Exportar...</string>
+  <string name="export_hint" formatted="false" orig="Export rule sets, logs or groups" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Exportar regras, registos ou grupos</string>
+  <string name="export_rules_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Export rule set">Exportar regras</string>
+  <string name="export_rules_hint" formatted="false" orig="Export rule set as mail." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Exportar regras por correio eletrónico.</string>
   <string name="export_rules_descr" formatted="false">Descrição</string>
-  <string name="export_logs_" formatted="false" orig="Backup logs">Backup dos registos</string>
-  <string name="export_logs_hint" formatted="false" orig="Backup logs as mail.">Backup dos registos por email</string>
-  <string name="export_numgroups_" formatted="false" orig="Export number groups">Exportar grupo de números</string>
-  <string name="export_numgroups_hint" formatted="false" orig="Export number groups as mail.">Exporta grupo de números por email.</string>
-  <string name="export_hourgroups_" formatted="false" orig="Export hour groups">Exportar grupo de horas</string>
-  <string name="export_hourgroups_hint" formatted="false" orig="Export hour groups as mail.">Exportar grupo de horas por email</string>
-  <string name="import_rules_" formatted="false">Importar conjunto de regras</string>
-  <string name="import_rules_hint" formatted="false" orig="Import preconfigured rule set." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Importar conjunto preconfigurado de regras.</string>
-  <string name="import_rules_empty" formatted="false">Sem planos/regras estabelecidas. Clique neste texto para importar um conjunto de regras padrão.\n\nOu adicione planos e as regras nas preferências manualmente.</string>
-  <string name="err_export_write" formatted="false">Erro ao gravar o arquivo de exportação</string>
-  <string name="err_export_read" formatted="false">Erro ao ler o arquivo de exportação </string>
+  <string name="export_logs_" formatted="false" orig="Backup logs" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Backup de registos</string>
+  <string name="export_logs_hint" formatted="false" orig="Backup logs as mail." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Backup de registos por correio eletrónico.</string>
+  <string name="export_numgroups_" formatted="false" orig="Export number groups" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Exportar grupos de números</string>
+  <string name="export_numgroups_hint" formatted="false" orig="Export number groups as mail." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Exporta grupos de números por correio eletrónico.</string>
+  <string name="export_hourgroups_" formatted="false" orig="Export hour groups" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Exportar grupos de horas</string>
+  <string name="export_hourgroups_hint" formatted="false" orig="Export hour groups as mail." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Exportar grupo de horas por correio eletrónico.</string>
+  <string name="import_rules_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Import rule set">Importar regras</string>
+  <string name="import_rules_hint" formatted="false" orig="Import preconfigured rule set." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Importar regras pré-definidas.</string>
+  <string name="import_rules_empty" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Planos/regras inexistentes. Clique neste texto para importar as regras pré-definidas.\n\nOu adicione planos e regras manualmente.</string>
+  <string name="err_export_write" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Error writing export file">Erro ao gravar o ficheiro</string>
+  <string name="err_export_read" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Error reading export file">Erro ao ler o ficheiro</string>
   <string name="alerts_" formatted="false">Alertas</string>
-  <string name="alerts_hint" formatted="false">Ajuste os alertas baseados no uso do plano.</string>
+  <string name="alerts_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Set alerts based on plan usage.">Definir alertas do seu plano.</string>
   <string name="alerts_title" formatted="false">Alerta do Call Meter 3G </string>
-  <string name="alerts_message" formatted="false">O plano %s atingiu %d%% do uso!</string>
-  <string name="alerts_80_" formatted="false">Notificar em 80%</string>
-  <string name="alerts_80_hint" formatted="false">Notificar se o plano passou 80% do seu limite.</string>
-  <string name="alerts_100_" formatted="false">Notificar em 100%</string>
-  <string name="alerts_100_hint" formatted="false">Notificar se o plano passou 100% do seu limite.</string>
-  <string name="widget_config_" formatted="false" orig="Widget config" username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Configuração do Widget</string>
-  <string name="widget_plan_textsize" formatted="false" orig="Plan Text Size">Tamanho do texto de plano</string>
-  <string name="widget_cost_textsize" formatted="false" orig="Cost Text Size">Tamanho do texto de custo</string>
+  <string name="alerts_message" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Plan %s has reached %d%% usage!">O plano %s atingiu %d%% de utilização!</string>
+  <string name="alerts_80_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Notify at 80%">Notificar aos 80%</string>
+  <string name="alerts_80_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Notify if a plan passes 80% of it\'s limit.">Notificar se o plano ultrapassar 80% do limite.</string>
+  <string name="alerts_100_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Notify at 100%">Notificar aos 100%</string>
+  <string name="alerts_100_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Notify if a plan passes 100% of it\'s limit.">Notificar se o plano ultrapassar 100% do limite.</string>
+  <string name="widget_config_" formatted="false" orig="Widget config" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Configuração do widget</string>
+  <string name="widget_plan_textsize" formatted="false" orig="Plan Text Size" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Tamanho de texto do plano</string>
+  <string name="widget_cost_textsize" formatted="false" orig="Cost Text Size" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Tamanho de texto do custo</string>
   <string name="widget_text_color_" formatted="false" orig="Text color">Cor do texto</string>
   <string name="widget_backgroud_color_" formatted="false" orig="Background color">Cor do fundo</string>
-  <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency">Transparência do Fundo</string>
-  <string name="send_devices_" formatted="false" orig="Send devices">Envia aparelhos</string>
-  <string name="send_devices_hint" formatted="false" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Enviar lista de aparelhos para o desenvolvedor. Isso só é necessário se os dados estatísticos estiverem sem nada.</string>
-  <string name="all_week">Toda Semana</string>
-  <string name="monday">Segunda</string>
-  <string name="tuesday">Terça</string>
-  <string name="wednesday">Quarta</string>
-  <string name="thursday">Quinta</string>
-  <string name="friday">Sexta</string>
-  <string name="saturday">Sábado</string>
-  <string name="sunday">Domingo</string>
-  <string name="monday_till_friday">Segunda - Sexta</string>
-  <string name="all_day">Todo o dia</string>
+  <string name="widget_backgroud_transparency_" formatted="false" orig="Background transparency" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Transparência do fundo</string>
+  <string name="send_devices_" formatted="false" orig="Send devices" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Reportar dispositivos</string>
+  <string name="send_devices_hint" formatted="false" orig="Send list of devices to the developer. This is only needed if your data stats are zero." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Enviar lista de dispositivos ao programador. Apenas é necessário se as estatísticas de dados estiverem vazias.</string>
+  <string name="all_week" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="All week">Semana</string>
+  <string name="monday" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Monday">segunda</string>
+  <string name="tuesday" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Tuesday">terça</string>
+  <string name="wednesday" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Wednesday">quarta</string>
+  <string name="thursday" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Thursday">quinta</string>
+  <string name="friday" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Friday">sexta</string>
+  <string name="saturday" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Saturday">sábado</string>
+  <string name="sunday" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Sunday">domingo</string>
+  <string name="monday_till_friday" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Monday - Friday">segunda - sexta</string>
+  <string name="all_day" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="All day">Dia</string>
   <string name="day_0">0:00 - 0:59</string>
   <string name="day_1">1:00 - 1:59</string>
   <string name="day_2">2:00 - 2:59</string>
@@ -311,12 +311,12 @@
   <string name="day_23">23:00 - 23:59</string>
   <string name="theme_black">Escuro</string>
   <string name="theme_light">Claro</string>
-  <string name="edit_plan_">Editar o plano</string>
-  <string name="view_logs_">Ver relatórios</string>
+  <string name="edit_plan_" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Edit Plan">Editar plano</string>
+  <string name="view_logs_" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="View Logs">Ver registos</string>
   <string name="delete_" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Delete">Eliminar</string>
   <string name="title">Título</string>
-  <string name="spacer">Espaçador</string>
-  <string name="mixed">Chamadas</string>
+  <string name="spacer" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Spacer">Separador</string>
+  <string name="mixed" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Mixed">Misto</string>
   <string name="limit_type_unlimited">sem limites</string>
   <string name="limit_type_units">unidades</string>
   <string name="limit_type_cost">custo</string>
@@ -337,14 +337,14 @@
   <string name="x1_year">Um ano</string>
   <string name="infinite">Infinito</string>
   <string name="custom">Personalizado</string>
-  <string name="direction_calls_in">entrada</string>
-  <string name="direction_calls_out">saída</string>
-  <string name="direction_sms_in">entrada</string>
-  <string name="direction_sms_out">saída</string>
-  <string name="direction_mms_in">entrada</string>
-  <string name="direction_mms_out">saída</string>
-  <string name="direction_data_in">entrada</string>
-  <string name="direction_data_out">saída</string>
+  <string name="direction_calls_in" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="in">recebidas</string>
+  <string name="direction_calls_out" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="out">efetuadas</string>
+  <string name="direction_sms_in" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="in">recebidas</string>
+  <string name="direction_sms_out" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="out">enviadas</string>
+  <string name="direction_mms_in" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="in">recebidas</string>
+  <string name="direction_mms_out" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="out">enviadas</string>
+  <string name="direction_data_in" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="in">recebidos</string>
+  <string name="direction_data_out" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="out">enviados</string>
   <string name="default_" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Default">Pré-definido</string>
   <string name="currency_formats_1" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="$1.00">€1,00</string>
   <string name="currency_formats_2" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="$1000">€1000</string>
@@ -385,18 +385,18 @@
   <string name="data_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Data (2G/3G/4G)">Dados (2G/3G/4G)</string>
   <string name="data_inout" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Data In/Out">Dados recebidos/enviados</string>
   <string name="data_inout_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="DataInOut">Dados recebidos/enviados</string>
-  <string name="import_rules_default_" formatted="false" username="rcp &lt;rhacius@gmail.com&gt;" orig="Import default rule set">Importar regra padrão</string>
-  <string name="import_rules_default_hint" formatted="false" orig="Import default rule set shipped with the app.">Importar regra padrão do original do app.</string>
+  <string name="import_rules_default_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Import default rule set">Importar regras pré-definidas</string>
+  <string name="import_rules_default_hint" formatted="false" orig="Import default rule set shipped with the app." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Importar regras pré-definidas da aplicação.</string>
   <string name="now" formatted="false" orig="Now">Agora</string>
-  <string name="active_" formatted="false" orig="Active">Activo</string>
-  <string name="active_help" formatted="false" orig="Only active rules are used for matching logs." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Só regras activas são usadas para corresponder a relatórios.</string>
-  <string name="exported_" formatted="false" orig="Exported:" username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Exportado</string>
-  <string name="import_rules_sd_" formatted="false" orig="Import rule set from SD card" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;">Importar conjunto de regras do cartão SD</string>
-  <string name="import_rules_sd_hint" formatted="false" orig="Import rule set directly from SD card." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Importar regras diretamente do cartão SD.</string>
-  <string name="import_rules_sd_help" formatted="false" orig="Place your file on your SD card and click it below" username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">Coloque o seu ficheiro no cartão SD e clique por baixo.</string>
+  <string name="active_" formatted="false" orig="Active" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Ativo</string>
+  <string name="active_help" formatted="false" orig="Only active rules are used for matching logs." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Apenas as regras ativas podem ser utilizadas em registos.</string>
+  <string name="exported_" formatted="false" orig="Exported:" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Exportado:</string>
+  <string name="import_rules_sd_" formatted="false" orig="Import rule set from SD card" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Importar regras do cartão SD</string>
+  <string name="import_rules_sd_hint" formatted="false" orig="Import rule set directly from SD card." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Importar regras existentes no cartão SD.</string>
+  <string name="import_rules_sd_help" formatted="false" orig="Place your file on your SD card and click it below" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Coloque o ficheiro no cartão SD e clique em baixo.</string>
   <string name="import_rules_sd_files" formatted="false" orig="Found files">Ficheiros encontrados</string>
   <string name="import_rules_sd_nofiles" formatted="false" orig="No found files">Sem ficheiros encontrados</string>
-  <string name="loading" formatted="false" orig="Loading ..." username="Alberto Pinto &lt;pintoalbertojose@gmail.com&gt;">A ler ...</string>
+  <string name="loading" formatted="false" orig="Loading ..." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Carregamento...</string>
   <string name="author_and_many_more" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="and many more...">e muito mais...</string>
   <string name="update_interval_data_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">A atualização de dados dever de ser efetuada com maior frequência. Ex. os aparelhos Samsung necessitam de intervalos de atualização curtos.</string>
   <string name="up_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Move up">Para cima</string>
@@ -405,19 +405,19 @@
   <string name="widget_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Widget">Widget</string>
   <string name="widgets_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Widgets">Widgets</string>
   <string name="delete_widget" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Delete widget">Eliminar widget</string>
-  <string name="export_rules_dev_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Export rule set to developer">Exportar o conjunto de regras para o programador</string>
-  <string name="export_rules_dev_hint" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Export rule set to let others import it.">Exportar o conjunto de regras para que outros o possam importar</string>
+  <string name="export_rules_dev_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Export rule set to developer">Exportar regras para o programador</string>
+  <string name="export_rules_dev_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Export rule set to let others import it.">Exportar regras para que terceiros as possam utilizar.</string>
   <string name="export_logs_csv_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Export CSV">Exportar CSV</string>
-  <string name="export_logs_csv_hint" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Export logs as CSV.">Exportar logs como CSV</string>
-  <string name="import_rules_www_hint" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Import pre-configured rule set from http://www.ub0r.de/.">importar regras pré-configuradas de http://www.ub0r.de/.</string>
+  <string name="export_logs_csv_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Export logs as CSV.">Exportar registos como CSV</string>
+  <string name="import_rules_www_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Import pre-configured rule set from http://www.ub0r.de/.">importar regras pré-definidas de http://www.ub0r.de/.</string>
   <string name="x1_month_1_day" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="One month + one day">Um mês + um dia</string>
-  <string name="x05_minute" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="0.5 minutes">0.5 minutos</string>
+  <string name="x05_minute" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="0.5 minutes">0,5 minutos</string>
   <string name="x1_minute" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="1 minute">1 minuto</string>
   <string name="x2_minute" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="2 minutes">2 minutos</string>
   <string name="reset" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Reset">Reiniciar</string>
   <string name="debug_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Debug">Depuração</string>
   <string name="send_logs_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Send logs">Enviar registos</string>
-  <string name="send_logs_hint" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Envie os logs para o programador.\nFaça-o apenas se lhe for solicitado.</string>
+  <string name="send_logs_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Enviar registos do dispositivo ao programador.\nNão o faça a menos que seja solicitado.</string>
   <string name="sendlog_run_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Run SendLog">Executar SendLog</string>
   <string name="sendlog_run" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">O SendLog irá recolher e enviar os registos do dispositivo ao programador.\nPode rever e alterar os dados enviados.</string>
   <string name="sendlog_install_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Install SendLog">Instalar SendLog</string>
@@ -425,7 +425,7 @@
   <string name="license_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="License:">Licença:</string>
   <string name="license" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - consulte http://www.gnu.org/licenses/gpl-3.0.txt</string>
   <string name="author_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Author:">Autor:</string>
-  <string name="website_" formatted="false" username="luismmrpereira&lt;luismmrpereira@gmail.com&gt;" orig="Website:">Website:</string>
+  <string name="website_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Website:">Sítio web:</string>
   <string name="source_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Sourcescode:">Código fonte:</string>
   <string name="update_interval_data_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Update interval (data)">Intervalo de atualização (dados)</string>
   <string name="billday_last" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Last day of your bill">Último dia de faturação</string>
@@ -452,4 +452,11 @@
   <string name="import_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Import">Importar</string>
   <string name="import_link_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="More info">Mais...</string>
   <string name="import_rules_users" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Users\' rules">Regras de utilizador</string>
+  <string name="mixed_units_data_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Units for data">Unidades para dados</string>
+  <string name="mixed_units_data_help" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Set the units billed for each MB of data traffic.">Defina a unidade de faturação por cada MB de tráfego.</string>
+  <string name="strip_past_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Do not bill anything after seconds">Não faturar após n segundos</string>
+  <string name="strip_past_help" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Do not bill anything after x seconds of a call.">Não faturar após n segundos de uma chamada.</string>
+  <string name="export_sd" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Export to SD card">Exportar para o SD</string>
+  <string name="widget_date_textsize" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Date Text Size">Tamanho de texto da data</string>
+  <string name="widget_details_textsize" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Details Text Size">Tamanho de texto dos detalhes</string>
 </resources>

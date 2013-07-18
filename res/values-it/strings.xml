@@ -63,10 +63,10 @@
   <string name="theme_" formatted="false" username="fireb33" orig="Theme">Tema</string>
   <string name="textsize_" formatted="false" username="fireb33" orig="Text size">Dimensione testo</string>
   <string name="textsize_hint" formatted="false" username="fedekikko89" orig="Text size in pixels; leave empty for default">Dimensione del testo in pixel; (vuoto di default)</string>
-  <string name="textsize_title_" formatted="false" username="fedekikko89" orig="Title\'s text size">Altezza del testo "Titolo"</string>
-  <string name="textsize_title_hint" formatted="false" username="fedekikko89" orig="Text size for titles in pixels; leave empty for default">Altezza del testo "Titolo" in pixel; (vuoto di default)</string>
-  <string name="textsize_bigtitle_" formatted="false" username="fedekikko89" orig="Big title\'s text size">Altezza del testo "Titolo grande"</string>
-  <string name="textsize_bigtitle_hint" formatted="false" username="fedekikko89" orig="Text size for big titles in pixels; leave empty for default">Altezza del testo "Titolo principale" in pixel (lasciare vuoto per l\'impostazione predefinita).</string>
+  <string name="textsize_title_" formatted="false" username="fedekikko89" orig="Title\'s text size">Altezza del testo \"Titolo\"</string>
+  <string name="textsize_title_hint" formatted="false" username="fedekikko89" orig="Text size for titles in pixels; leave empty for default">Altezza del testo \"Titolo\" in pixel; (vuoto di default)</string>
+  <string name="textsize_bigtitle_" formatted="false" username="fedekikko89" orig="Big title\'s text size">Altezza del testo \"Titolo grande\"</string>
+  <string name="textsize_bigtitle_hint" formatted="false" username="fedekikko89" orig="Text size for big titles in pixels; leave empty for default">Altezza del testo \"Titolo principale\" in pixel (lasciare vuoto per l\'impostazione predefinita).</string>
   <string name="textsize_spacer_" formatted="false" username="fireb33" orig="Spacer\'s size">Dimensione spazio</string>
   <string name="textsize_spacer_hint" formatted="false" username="fedekikko89" orig="Size for spacers in pixels; leave empty for default">Dimensione dello spazio in pixel; (vuoto di default)</string>
   <string name="textsize_pbar_" formatted="false" username="fedekikko89" orig="Progress bar\'s size">Dimensione barra di avanzamento</string>
@@ -226,7 +226,7 @@
   <string name="issipcall_" formatted="false" username="fedekikko89" orig="Is SIP call">E\' Chiamata SIP</string>
   <string name="issipcall_help" formatted="false" username="fireb33" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Chiamata effettuata via SIP (attualmente è supportato sipdroid &gt;1.6.1).</string>
   <string name="strip_seconds_" formatted="false" username="fireb33" orig="Do not bill first seconds">Non tariffare i primi secondi</string>
-  <string name="strip_seconds_help" formatted="false" username="fireb33" orig="Do not bill first x seconds of a call.">Non tariffa i primi "x" secondi di una chiamata.</string>
+  <string name="strip_seconds_help" formatted="false" username="fireb33" orig="Do not bill first x seconds of a call.">Non tariffa i primi \"x\" secondi di una chiamata.</string>
   <string name="what_" formatted="false" username="fedekikko89" orig="Target type">Tipo di target</string>
   <string name="what_help" formatted="false" username="fedekikko89" orig="Choose a target type here.">Scegliere un tipo di target qui.</string>
   <string name="direction_" formatted="false" username="fireb33" orig="Direction">Direzione</string>
@@ -239,8 +239,8 @@
   <string name="no" formatted="false" username="fireb33" orig="No">No</string>
   <string name="none" formatted="false" username="fireb33" orig="None">Vuoto</string>
   <string name="value" formatted="false" username="fireb33" orig="Value">Valore</string>
-  <string name="empty_groups_" formatted="false" username="fireb33" orig="Please press &quot;Add&quot; to add a group.">Premi "Nuovo" per aggiungere un gruppo.</string>
-  <string name="empty_group_" formatted="false" username="fedekikko89" orig="Please press &quot;Add&quot; to add an item to this group.">Premi "Aggiungi" per aggiungere un elemento a questo gruppo.</string>
+  <string name="empty_groups_" formatted="false" username="fireb33" orig="Please press &quot;Add&quot; to add a group.">Premi \"Nuovo\" per aggiungere un gruppo.</string>
+  <string name="empty_group_" formatted="false" username="fedekikko89" orig="Please press &quot;Add&quot; to add an item to this group.">Premi \"Aggiungi\" per aggiungere un elemento a questo gruppo.</string>
   <string name="export_progr" formatted="false" username="fireb33" orig="Exporting data ...">Esportazione dei dati...</string>
   <string name="import_progr" formatted="false" username="fedekikko89" orig="Import data ...">Importando i dati...</string>
   <string name="export_" formatted="false" username="fireb33" orig="Export ...">Esporta...</string>
@@ -435,8 +435,8 @@
   <string name="sendlog_run" formatted="false" username="fedekikko89" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog raccoglierà i log del dispositivo e li invierà allo sviluppatore. Hai la possibilità di verificare e modificare i dati che saranno spediti.</string>
   <string name="strip_past_" formatted="false" username="fedekikko89" orig="Do not bill anything after seconds">Non tariffare nulla dopo lo scatto</string>
   <string name="strip_past_help" formatted="false" username="fedekikko89" orig="Do not bill anything after x seconds of a call.">Non tariffa nulla dopo x secondi di chiamata.</string>
-  <string name="widget_date_textsize" formatted="false" username="fedekikko89" orig="Date Text Size">Altezza del testo "Data"</string>
-  <string name="widget_details_textsize" formatted="false" username="fedekikko89" orig="Details Text Size">Altezza del testo "Dettagli"</string>
+  <string name="widget_date_textsize" formatted="false" username="fedekikko89" orig="Date Text Size">Altezza del testo \"Data\"</string>
+  <string name="widget_details_textsize" formatted="false" username="fedekikko89" orig="Details Text Size">Altezza del testo \"Dettagli\"</string>
   <string name="widget_stats_title" formatted="false" username="fedekikko89" orig="Call Meter (stats)">Call Meter (stats)</string>
   <string name="widget_logs_title" formatted="false" username="fedekikko89" orig="Call Meter (last log)">Call Meter (last log)</string>
   <string name="my_number_" formatted="false" username="fedekikko89" orig="My number">Mio numero</string>
