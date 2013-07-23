@@ -366,8 +366,8 @@
   <string name="issipcall_help" formatted="false" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Arama SIP yoluyla yapılır. sipdroid 1.6.1 ve üstü desteklenmektedir.</string>
   <string name="strip_seconds_" formatted="false" orig="Do not bill first seconds">İlk saniyeleri ücretlendirme</string>
   <string name="strip_seconds_help" formatted="false" orig="Do not bill first x seconds of a call.">Görüşmenin ilk x saniyesini ücretlendirme.</string>
-  <string name="empty_groups_" formatted="false" orig="Please press &quot;Add&quot; to add a group.">Grup eklemek için "Ekle"ye tıklayınız.</string>
-  <string name="empty_group_" formatted="false" orig="Please press &quot;Add&quot; to add an item to this group.">Bu gruba bir eleman eklemek için "Ekle"ye tıklayınız.</string>
+  <string name="empty_groups_" formatted="false" orig="Please press &quot;Add&quot; to add a group.">Grup eklemek için \"Ekle\"ye tıklayınız.</string>
+  <string name="empty_group_" formatted="false" orig="Please press &quot;Add&quot; to add an item to this group.">Bu gruba bir eleman eklemek için \"Ekle\"ye tıklayınız.</string>
   <string name="export_progr" formatted="false" orig="Exporting data ..." username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;">Veri dışa aktarılıyor...</string>
   <string name="import_progr" formatted="false" orig="Import data ..." username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;">Veri içe aktarılıyor...</string>
   <string name="export_" formatted="false" orig="Export ...">Dışa aktar...</string>

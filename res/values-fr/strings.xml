@@ -322,8 +322,8 @@
   <string name="no" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="No">Non</string>
   <string name="none" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="None">Aucun</string>
   <string name="value" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Value">Valeur</string>
-  <string name="empty_groups_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Please press &quot;Add&quot; to add a group.">Appuyez sur "Ajouter" pour ajouter un groupe.</string>
-  <string name="empty_group_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Appuyez sur "Ajouter" pour ajouter un item à ce groupe.</string>
+  <string name="empty_groups_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Please press &quot;Add&quot; to add a group.">Appuyez sur \"Ajouter\" pour ajouter un groupe.</string>
+  <string name="empty_group_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Appuyez sur \"Ajouter\" pour ajouter un item à ce groupe.</string>
   <string name="export_progr" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Exporting data ...">Export des données ...</string>
   <string name="export_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Export ...">Exporter ...</string>
   <string name="import_progr" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Import data ...">Import des données ...</string>

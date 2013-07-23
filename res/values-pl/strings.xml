@@ -260,8 +260,8 @@
   <string name="no" formatted="false">Nie</string>
   <string name="none" formatted="false">Brak</string>
   <string name="value" formatted="false">Wartość</string>
-  <string name="empty_groups_" formatted="false">Naciśnij "Dodaj", aby dodać grupę.</string>
-  <string name="empty_group_" formatted="false">Naciśnij "Dodaj", aby dodać element do tej grupy.</string>
+  <string name="empty_groups_" formatted="false">Naciśnij \"Dodaj\", aby dodać grupę.</string>
+  <string name="empty_group_" formatted="false">Naciśnij \"Dodaj\", aby dodać element do tej grupy.</string>
   <string name="export_progr" formatted="false">Eksportowanie danych...</string>
   <string name="import_progr" formatted="false">Import danych ...</string>
   <string name="export_" formatted="false">Eksportuj ...</string>

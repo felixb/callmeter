@@ -297,9 +297,9 @@
   <string name="no_matter_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Does not matter">Nije važno</string>
   <string name="remote_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Remote number">Broj telefona</string>
   <string name="roamed_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Roamed">Lutanje</string>
-  <string name="roamed_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Choose whether the given log has to be roamed.">Odaberi da li da dati zapisnik "luta".</string>
-  <string name="empty_groups_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Please press &quot;Add&quot; to add a group.">Molimo pritisnite "Dodaj" za dodavanje grupe.</string>
-  <string name="empty_group_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Molimo pritisnite "Dodaj" za dodavanje stavke u ovu grupu.</string>
+  <string name="roamed_help" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Choose whether the given log has to be roamed.">Odaberi da li da dati zapisnik \"luta\".</string>
+  <string name="empty_groups_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Please press &quot;Add&quot; to add a group.">Molimo pritisnite \"Dodaj\" za dodavanje grupe.</string>
+  <string name="empty_group_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Molimo pritisnite \"Dodaj\" za dodavanje stavke u ovu grupu.</string>
   <string name="export_progr" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Exporting data ...">Izvoz podataka...</string>
   <string name="import_progr" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Import data ...">Uvoz podataka...</string>
   <string name="export_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Export ...">Izvoz...</string>

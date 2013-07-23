@@ -206,8 +206,8 @@
   <string name="no" formatted="false">Nee</string>
   <string name="none" formatted="false">Geen</string>
   <string name="value" formatted="false">Waarde</string>
-  <string name="empty_groups_" formatted="false">Druk op "Toevoegen" om een groep toe te voegen.</string>
-  <string name="empty_group_" formatted="false">Druk op "Toevoegen" om een item aan deze groep toe te voegen.</string>
+  <string name="empty_groups_" formatted="false">Druk op \"Toevoegen\" om een groep toe te voegen.</string>
+  <string name="empty_group_" formatted="false">Druk op \"Toevoegen\" om een item aan deze groep toe te voegen.</string>
   <string name="export_progr" formatted="false" username="Gummie" orig="Exporting data ...">Exporteren data ...</string>
   <string name="import_progr" formatted="false" username="ditsy@live.nl" orig="Import data ...">Importeren data ...</string>
   <string name="export_rules_" formatted="false" username="Gummie" orig="Export rule set">Exporteer regelset</string>

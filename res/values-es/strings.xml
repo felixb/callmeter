@@ -73,9 +73,9 @@
   <string name="textsize_pbar_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Size for progress bars in pixels; leave empty for default">Tamaño de la barra de progreso en píxeles; deje en blanco para utilizar el valor predeterminado</string>
   <string name="textsize_pbarbp_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Bill period\'s progress bar\'s size">Tamaño de la barra de progreso del período de facturación</string>
   <string name="textsize_pbarbp_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Tamaño de la barra de progreso del período de facturación en píxeles; deje en blanco para utilizar el valor predeterminado</string>
-  <string name="show_today_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show today">Mostrar "hoy"</string>
+  <string name="show_today_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show today">Mostrar \"hoy\"</string>
   <string name="show_today_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show today stats">Mostrar estadísticas de hoy</string>
-  <string name="show_total_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show total">Mostrar "total"</string>
+  <string name="show_total_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show total">Mostrar \"total\"</string>
   <string name="show_total_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show total stats, disable to see current only.">Mostrar estadísticas totales, deshabilite para ver las actuales únicamente.</string>
   <string name="show_time_" formatted="false">Cambiar a fecha</string>
   <string name="show_titlebar_" formatted="false">Mostrar barra de título</string>
@@ -85,7 +85,7 @@
   <string name="show_help_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show help">Mostrar la ayuda</string>
   <string name="show_help_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show help in Plans/Rules setup view.">Mostrar la ayuda en la vista de configuración de Planes/Reglas.</string>
   <string name="show_shortname_" formatted="false">Mostrar nombre corto en lugar de nombre largo</string>
-  <string name="show_cost_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show cost">Mostrar "costo"</string>
+  <string name="show_cost_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show cost">Mostrar \"costo\"</string>
   <string name="show_billperiod_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show progress of billing period">Mostrar el avance del período de facturación</string>
   <string name="show_icon_" formatted="false" orig="Show icon">Mostrar icono</string>
   <string name="hide_name_" formatted="false" orig="Hide name of plan">Ocultar nombre del plan</string>
@@ -111,7 +111,7 @@
   <string name="ask_for_plan_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Ask for plan">Preguntar por plan</string>
   <string name="ask_for_plan_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Ask for plan for unmatched calls after hanging up.">Preguntar por plan de llamadas sin identificar después de colgar.</string>
   <string name="autohide_" formatted="false">Ocultar automáticamente</string>
-  <string name="autohide_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Ocultar la ventana de diálogo después de .. segundos. Deje en blanco para desactivar "auto esconderse".</string>
+  <string name="autohide_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Ocultar la ventana de diálogo después de .. segundos. Deje en blanco para desactivar \"auto esconderse\".</string>
   <string name="select_plan_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Select a plan">Seleccionar un plan</string>
   <string name="set_selected_as_default_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Set selected plan as default">Utilizar el plan seleccionado como predeterminado</string>
   <string name="autohide_in_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Auto hide dialog in: %ds">Auto esconder la ventana de diálogo en: %ds</string>
@@ -246,8 +246,8 @@
   <string name="no" formatted="false">No</string>
   <string name="none" formatted="false">Ninguno</string>
   <string name="value" formatted="false">Valor</string>
-  <string name="empty_groups_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Please press &quot;Add&quot; to add a group.">Por favor presione "Agregar" para agregar un grupo.</string>
-  <string name="empty_group_" formatted="false" orig="Please press &quot;Add&quot; to add an item to this group.">Por favor presione "Agregar" para agregar un elemento a este grupo.</string>
+  <string name="empty_groups_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Please press &quot;Add&quot; to add a group.">Por favor presione \"Agregar\" para agregar un grupo.</string>
+  <string name="empty_group_" formatted="false" orig="Please press &quot;Add&quot; to add an item to this group.">Por favor presione \"Agregar\" para agregar un elemento a este grupo.</string>
   <string name="export_progr" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Exporting data ...">Exportando datos ...</string>
   <string name="import_progr" formatted="false">Importar datos ...</string>
   <string name="export_" formatted="false">Exportar ...</string>
