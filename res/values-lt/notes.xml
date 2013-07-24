@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
+<!--
 		Copyright (C) 2010 Felix Bechstein
 	-->
-	<!--
+<!--
 		This file is part of Call Meter NG. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
 		version.
 	-->
-	<!--
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -18,4 +18,8 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string-array name="notes_from_dev" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;">
+    <item>Gruod. 2010, Call Meter 3G yra prieinama: Call Meter 3G, dar žinoma kaip CM3, yra prieinama Google Play parduotuvėje. Išbandykite ir rašykite atsiliepimus programos puslapyje. </item>
+    <item>Kov. 2011, Nustatymai: Keičiant nustatymus nepamirškite ištrinti statistiką, kad sistema galėtų pritaikyti naujas nuostatas taip pat ir praeities įrašams.</item>
+  </string-array>
 </resources>

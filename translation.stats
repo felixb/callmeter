@@ -40,9 +40,9 @@ res/values-iw/market.xml:0
 res/values-iw/notes.xml:3
 res/values-iw/strings.xml:117
 res/values-lt/donation.xml:0
-res/values-lt/market.xml:0
-res/values-lt/notes.xml:0
-res/values-lt/strings.xml:0
+res/values-lt/market.xml:6
+res/values-lt/notes.xml:3
+res/values-lt/strings.xml:39
 res/values-nb/donation.xml:0
 res/values-nb/market.xml:5
 res/values-nb/notes.xml:3
@@ -89,7 +89,7 @@ res/values-fr:139
 res/values-hu:136
 res/values-it:132
 res/values-iw:120
-res/values-lt:0
+res/values-lt:48
 res/values-nb:125
 res/values-nl:120
 res/values-pl:125
