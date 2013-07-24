@@ -137,8 +137,8 @@
     <item>Malé</item>
     <item>Střední</item>
   </string-array>
-  <string name="data_show_simple_" formatted="false" username="KarloZ" orig="Show only \&quot;Data\&quot; as title">Zobrazit pouze "Data" v titulku</string>
-  <string name="data_show_simple_hint" formatted="false" username="KarloZ" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Skrýt "(2G/3G/4G)" v titulku. Nemá vliv na statistiku.</string>
+  <string name="data_show_simple_" formatted="false" username="KarloZ" orig="Show only \&quot;Data\&quot; as title">Zobrazit pouze \"Data\" v titulku</string>
+  <string name="data_show_simple_hint" formatted="false" username="KarloZ" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Skrýt \"(2G/3G/4G)\" v titulku. Nemá vliv na statistiku.</string>
   <string name="data_" formatted="false" username="KarloZ" orig="Data (2G/3G/4G)">Data (2G/3G/4G)</string>
   <string name="custom_language_" formatted="false" username="Losik" orig="Custom language">Nastavení jazyku</string>
   <string name="custom_language_hint" formatted="false" username="Losik" orig="Set a custom language.">Nastavit příslušný jazyk.</string>
