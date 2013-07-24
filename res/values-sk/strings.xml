@@ -140,8 +140,6 @@
   <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Dáta (2G/3G/4G)</string>
   <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Skryť "(2G/3G/4G)" v názve. Toto nemá vplyv na štatistiky.</string>
   <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Zobraziť v názve iba "Dáta"</string>
-  <string name="custom_language_" formatted="false" username="Jocho" orig="Custom language">Vlastný jazyk</string>
-  <string name="custom_language_hint" formatted="false" username="Jocho" orig="Set a custom language.">Nastaviť vlastný jazyk</string>
   <string name="debug_" formatted="false" username="Jocho" orig="Debug">Ladenie</string>
   <string name="send_logs_" formatted="false" username="Jocho" orig="Send logs">Odoslať záznamy</string>
   <string name="send_logs_hint" formatted="false" username="Jocho" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Odošlite záznamy vášho zariadenia vývojárovi. \nUrobte tak iba ak na to budete vyzvaní</string>

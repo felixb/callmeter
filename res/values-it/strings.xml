@@ -30,8 +30,6 @@
   <string name="about5" formatted="false">CallMeter gira silenziosamente ogni 30 minuti (solo quando il telefono non è in standby). Questo implica che la cancellazione di chiamate o messaggi precedenti ai 30 minuti non cambia le statistiche. Cancellare chiamate o messaggi più recenti può invece alterare le statistiche.</string>
   <string name="about6_" formatted="false">Ciò che CallMeter NG non fa:</string>
   <string name="about6" formatted="false">Non c\'è modo di distinguere fra chiamate reali e chiamate sipdroid o fra SMS reali e websms. L\'integrazione di Android fra queste applicazioni rende impossibile ottenere i dati al dettaglio.</string>
-  <string name="custom_language_" formatted="false" username="carloraudino@fedoraproject.org" orig="Custom language">Personalizza lingua</string>
-  <string name="custom_language_hint" formatted="false" username="carloraudino@fedoraproject.org" orig="Set a custom language.">Imposta una lingua personalizzata.</string>
   <string name="send_" formatted="false">Invia</string>
   <string name="settings" formatted="false">Impostazioni</string>
   <string name="about_" formatted="false">Informazioni</string>

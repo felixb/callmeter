@@ -140,8 +140,6 @@
   <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Data (2G/3G/4G)</string>
   <string name="data_show_simple_" formatted="false" username="Muzaffer AKYIL &lt;muzaffer@akyil.net&gt;" orig="Show only \&quot;Data\&quot; as title">Sadece başlığı Data olanları göster</string>
   <string name="data_show_simple_hint" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Başlıkta "(2G/3G/4G)" gizle. Bu istatistikleri etkilemeyecektir.</string>
-  <string name="custom_language_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Custom language">Özel dil</string>
-  <string name="custom_language_hint" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Set a custom language.">Özel bir dil ayarlayın.</string>
   <string name="debug_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Debug">Hata ayıkla</string>
   <string name="send_logs_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Send logs">Kayıtları gönder</string>
   <string name="send_logs_hint" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Aygıtınızın kayıtlarını geliştiriciye gönderin.\nBunu sadece eğer yapmanız istendiyse yapın.</string>

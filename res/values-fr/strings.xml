@@ -140,8 +140,6 @@
     <item>Petit</item>
     <item>Moyen</item>
   </string-array>
-  <string name="custom_language_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Custom language">Langage custom</string>
-  <string name="custom_language_hint" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Set a custom language.">Définissez un langage custom</string>
   <string name="send_logs_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Send logs">Envoyer les journaux (logs)</string>
   <string name="debug_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Debug">Debug</string>
   <string name="send_logs_hint" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Envoyer les journaux (logs) au développeur.\nNe le faites que si cela vous a été demandé.</string>
