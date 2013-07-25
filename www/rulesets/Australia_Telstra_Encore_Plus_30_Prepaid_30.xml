@@ -4,7 +4,9 @@
   <provider>Telstra</provider>
   <title>Encore Plus 30 Prepaid $30</title>
   <longdescription>
-Category for international calls (includes several categories for different rates), category for satellite calls. To use with different recharge amount, must edit $30/$220 in advanced settings to match your recharge/value. May 2013. (added more intl. rates, added free MMS)
+Telstra Pre-Paid Cap Encore 
+
+Category for international calls (includes several categories for different rates), category for satellite calls. To use with different recharge amount, must edit $30/$220 in advanced settings to match your recharge/value. July 2013. (added more intl. rates, added free MMS, re-arranged screen layout)
   </longdescription>
   <plans>
     <plan>
@@ -791,11 +793,6 @@ Category for international calls (includes several categories for different rate
           <_id>1</_id>
           <_gid>1</_gid>
           <_number>00800%</_number>
-        </number>
-        <number>
-          <_id>20</_id>
-          <_gid>1</_gid>
-          <_number>132200</_number>
         </number>
       </numbers>
     </numbersgroup>
