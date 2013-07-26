@@ -90,7 +90,7 @@
   <string name="data_hint" formatted="false">WLAN stats are not collected here!</string>
   <string name="data_enable_" formatted="false">Εμφάνιση στοιχείων δεδομένων</string>
   <string name="data_enable_hint" formatted="false">Τα δεδομένα συλλέγονται σε πραγματικό χρόνο. Ο πρώτος μήνας ίσως να είναι λάθος!</string>
-  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Προβολή μόνο "Δεδομενα" ως τίτλο</string>
+  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Προβολή μόνο \"Δεδομενα\" ως τίτλο</string>
   <string name="data_each_day" formatted="false">Ξεχωριστή χρέωση κάθε ημέρας</string>
   <string name="data_each_day_hint" formatted="false">Η περίοδος χρέωσης ξεκινάει κάθε μέρα.</string>
   <string name="data_limit_" formatted="false">Όριο</string>
@@ -132,7 +132,7 @@
   <string name="exclude_people_to_plan2_" formatted="false" orig="Excluded numbers to plan #2">Εξαίρεση αριθμών στο πλάνο #2</string>
   <string name="feedback_hint" formatted="false" orig="Report bugs, request features ...">Αναφορά δυσλειτουργιών,αίτηση για νέα χαρακτηριστικά...</string>
   <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Δεδομένα (2G/3G/4G)</string>
-  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Κρύψε τα "(2G/3G/4G)" στον τίτλο.Αυτό δέν θα επηρεάσει τα στατιστικά.</string>
+  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Κρύψε τα \"(2G/3G/4G)\" στον τίτλο.Αυτό δέν θα επηρεάσει τα στατιστικά.</string>
   <string name="dataperiod_hint" formatted="false" orig="Set data\'s billing period to calls\' period.">Θέσε την περίοδο χρέωσης των δεδομένων,ίδια με την περίοδο των κλήσεων.</string>
   <string name="databillday_" formatted="false" orig="First day of your data bill">Πρώτη ημέρα της περιόδου χρέωσης των δεδομένων</string>
   <string name="reset_data_hint" formatted="false" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Η επαναφορά των δεδομένων κλήσεων/sms,θα έχει σαν αποτέλεσμα τον επανυπολογισμό των στατιστικών.\n\nΗ επαναφορά των στατιστικών κίνησης είναι μόνιμη. Επαναφέρει μόνο την κίνηση που γίνετε πριν την ενεργοποίηση!</string>

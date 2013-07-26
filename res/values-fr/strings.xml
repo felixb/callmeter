@@ -101,8 +101,8 @@
   <string name="data_hint" formatted="false">Les statistiques WIFI ne sont pas collectées ici !</string>
   <string name="data_enable_" formatted="false">Afficher les statistiques des données</string>
   <string name="data_enable_hint" formatted="false">Les données sont collectées en temps réel. Le premier mois peut être incorrect !</string>
-  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Afficher seulement les "Données" en titre</string>
-  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Cacher "(2G/3G/4G)" dans le titre. Ceci n\'affecte pas les statistiques </string>
+  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Afficher seulement les \"Données\" en titre</string>
+  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Cacher \"(2G/3G/4G)\" dans le titre. Ceci n\'affecte pas les statistiques </string>
   <string name="data_each_day" formatted="false">Facture de chaque jour séparément</string>
   <string name="data_each_day_hint" formatted="false">Votre période de facturation débute chaque nouveau jour.</string>
   <string name="data_limit_" formatted="false">Limite</string>

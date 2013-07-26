@@ -102,7 +102,7 @@
   <string name="data_enable_" formatted="false">הראה נתוני גלישה</string>
   <string name="data_enable_hint" formatted="false">נתונים נאספים בזמן אמת. חודש ראשון עלול להיות שגוי!</string>
   <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">הראה רק את הכותרת נתונים</string>
-  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">הסתר את "(2G/3G/4G)" בכותרת. זה לא משפיע על הסטטיסטיקה</string>
+  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">הסתר את \"(2G/3G/4G)\" בכותרת. זה לא משפיע על הסטטיסטיקה</string>
   <string name="data_each_day" formatted="false">חייב כל יום בנפרד</string>
   <string name="data_each_day_hint" formatted="false">תקופת החיוב מתחילה בכל יום.</string>
   <string name="data_limit_" formatted="false">מגבלה</string>

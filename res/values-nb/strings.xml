@@ -101,8 +101,8 @@
   <string name="data_hint" formatted="false">WLAN trafikk er ikke medregnet!</string>
   <string name="data_enable_" formatted="false" username="&quot;Olav&quot; &lt;olav@ogk.no&gt;" orig="Show data stats">Vis datastatistikk</string>
   <string name="data_enable_hint" formatted="false" username="&quot;Olav&quot; &lt;olav@ogk.no&gt;" orig="Data is collected in real time. First month may be incorrect!">Data registreres i sanntid. Den første måneden kan vise feil!</string>
-  <string name="data_show_simple_" formatted="false" username="&quot;Olav&quot; &lt;olav@ogk.no&gt;" orig="Show only \&quot;Data\&quot; as title">Vis kun "Data" som tittel</string>
-  <string name="data_show_simple_hint" formatted="false" username="&quot;Olav&quot; &lt;olav@ogk.no&gt;" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Skjul "(2G/3G/4G/)" i tittelen. Dette påvirker ikke statistikken.</string>
+  <string name="data_show_simple_" formatted="false" username="&quot;Olav&quot; &lt;olav@ogk.no&gt;" orig="Show only \&quot;Data\&quot; as title">Vis kun \"Data\" som tittel</string>
+  <string name="data_show_simple_hint" formatted="false" username="&quot;Olav&quot; &lt;olav@ogk.no&gt;" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Skjul \"(2G/3G/4G/)\" i tittelen. Dette påvirker ikke statistikken.</string>
   <string name="data_each_day" formatted="false">Takser hver dag individuelt</string>
   <string name="data_each_day_hint" formatted="false">Din takseringsperiode starter på nytt hver dag.</string>
   <string name="data_limit_" formatted="false">Grense</string>

@@ -29,7 +29,7 @@
   <string name="about4" formatted="false">Meddelanden kan räknas som samtalskostnad. Tex kan du ange att varje meddelande ska räknas som 15 sekunders samtalstid.</string>
   <string name="about5" formatted="false">CallMeter körs i bakgrunden var 30:e minut (om telefonen inte är i stand-by). Detta menar att om du raderar samtal eller SMS som är äldre än 30 minuter kommer de inte att förändra din uträkning. Raderar du samtal eller meddelanden som är nyare än 30 min riskerar du att få fel i uträkningen.</string>
   <string name="about6_" formatted="false">Vad CallMeter NG inte gör:</string>
-  <string name="about6" formatted="false">Det finns inget sätt att särskilja mellan sipdroid och riktiga samtal eller websms och riktiga SMS. På grund av hur Android är programmerat går det inte att spåra om ett samtal är "vanligt" eller via tex voip.</string>
+  <string name="about6" formatted="false">Det finns inget sätt att särskilja mellan sipdroid och riktiga samtal eller websms och riktiga SMS. På grund av hur Android är programmerat går det inte att spåra om ett samtal är \"vanligt\" eller via tex voip.</string>
   <string name="send_" formatted="false">Skicka</string>
   <string name="settings" formatted="false">Alternativ</string>
   <string name="about_" formatted="false">Om</string>

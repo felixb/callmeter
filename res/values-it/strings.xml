@@ -137,8 +137,8 @@
     <item>Piccolo</item>
     <item>Medio</item>
   </string-array>
-  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Mostra solamente "Dati" come titolo</string>
-  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Nascondi "(2G/3G/4G)" nel titolo. Non avrà effetto sulle statistiche.</string>
+  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Mostra solamente \"Dati\" come titolo</string>
+  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Nascondi \"(2G/3G/4G)\" nel titolo. Non avrà effetto sulle statistiche.</string>
   <string name="debug_" formatted="false" username="carloraudino@fedoraproject.org" orig="Debug">Debug</string>
   <string name="send_logs_" formatted="false" username="carloraudino@fedoraproject.org" orig="Send logs">Invia log</string>
   <string name="send_logs_hint" formatted="false" username="carloraudino@fedoraproject.org" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Invia i log del dispositivo allo sviluppatore.&#13;Da fare solo se richiesto.</string>

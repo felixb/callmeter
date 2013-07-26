@@ -101,8 +101,8 @@
   <string name="data_hint" formatted="false">WLAN/wifi forgalma nem számít bele!</string>
   <string name="data_enable_" formatted="false">Adatforgalom statisztikák</string>
   <string name="data_enable_hint" formatted="false">Az adatgyűjtés valós időben történik. Az első hónap pontatlan lehet!</string>
-  <string name="data_show_simple_" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Show only \&quot;Data\&quot; as title">Csak az "Adat" szöveg mutatása címként</string>
-  <string name="data_show_simple_hint" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">"(2G/3G/4G)" elrejtése a címben. Ez nem befolyásolja a statisztikákat.</string>
+  <string name="data_show_simple_" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Show only \&quot;Data\&quot; as title">Csak az \"Adat\" szöveg mutatása címként</string>
+  <string name="data_show_simple_hint" formatted="false" username="Andreas &lt;grallovag@gmail.com" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">\"(2G/3G/4G)\" elrejtése a címben. Ez nem befolyásolja a statisztikákat.</string>
   <string name="data_each_day" formatted="false">Naponként kerül számlázásra</string>
   <string name="data_each_day_hint" formatted="false">A számlázási periódus egy nap.</string>
   <string name="data_limit_" formatted="false">Limit</string>

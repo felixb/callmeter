@@ -29,7 +29,7 @@
   <string name="about4" formatted="false">Wiadomości mogą być brane pod uwagę w Twoim planie. Np. zliczać każdy wysłany sms jako 15s. połączenie.</string>
   <string name="about5" formatted="false" username="najodleglejszy" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń, które pojawiły się wcześniej niż 30 min temu może spowodować przekłamanie statystyk.</string>
   <string name="about6_" formatted="false">Czego CallMeter NIE robi:</string>
-  <string name="about6" formatted="false" orig="There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs." username="najodleglejszy">Nie da się odróżnić połączeń SIP od realnych połączeń lub WebSMS od SMS wysłanych "z telefonu". Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości ich odróżnienia.</string>
+  <string name="about6" formatted="false" orig="There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs." username="najodleglejszy">Nie da się odróżnić połączeń SIP od realnych połączeń lub WebSMS od SMS wysłanych \"z telefonu\". Android łączy wszystkie te połączenia w jednym logu i nie ma możliwości ich odróżnienia.</string>
   <string name="send_" formatted="false">Wyślij</string>
   <string name="settings" formatted="false">Ustawienia</string>
   <string name="about_" formatted="false">O programie</string>
@@ -138,6 +138,6 @@
     <item>Mały</item>
     <item>Średni</item>
   </string-array>
-  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Pokaż tylko "Dane" w tytule</string>
-  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Ukryj "(2G/3G/4G)" w tytule. To nie ma wpływu na statystyki.</string>
+  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Pokaż tylko \"Dane\" w tytule</string>
+  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Ukryj \"(2G/3G/4G)\" w tytule. To nie ma wpływu na statystyki.</string>
 </resources>
