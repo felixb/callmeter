@@ -18,7 +18,7 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-  <string name="about0_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Watch your call, message and data plans!">Peržiūrėti jūsų skambučių, žinučių ir duomenų planus!</string>
+  <string name="about0_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Watch your call, message and data plans!">Peržiūrėkite jūsų skambučių, žinučių ir duomenų planus!</string>
   <string name="about0" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter sugeneruoja visų skambučių, žinučių ir duomenų ataskaitų įrašus. Ji palaiko keleta mokėjimo planų nustatymų.</string>
   <string name="faq_hint" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Some tips and tricks, how to set up this app.">Patarimai ir gudrybės kaip nustatyti šią programą.</string>
   <string name="feedback_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Feedback">Grįžtamasis ryšys</string>
@@ -26,18 +26,18 @@
   <string name="more_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="More Apps..">Daugiau programų..</string>
   <string name="billday_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="First day of your bill">Pirmoji sąskaitos mokėjimo diena</string>
   <string name="billmode_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Mode of billing">Mokėjimo būdas</string>
-  <string name="billmode_hint" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Length of first/following billing intervals.">Trukmė tarp pirmojo ir ateinančio mokėjimo sąskaitos intervalo dienų.</string>
+  <string name="billmode_hint" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Length of first/following billing intervals.">Trukmė tarp pirmojo ir ateinančio sąskaitos mokėjimo intervalo dienų.</string>
   <string name="billdate_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Start of billing period:">Mokėjimo plano pradžia:</string>
-  <string name="smsperiod_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Same Period for SMS">Toks pat periodas ir sms žinutėms</string>
+  <string name="smsperiod_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Same Period for SMS">Toks pat periodas SMS žinutėms</string>
   <string name="smsperiod_hint" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Set SMS\'s billing period to calls\' period.">Nustatyti SMS mokėjimo periodą skambučių periodui.</string>
   <string name="smsbillday_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="First day of your SMS bill">Pirmoji SMS mokėjimo diena</string>
-  <string name="dataperiod_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Same Period for data">Toks pat periodas ir duomenims</string>
+  <string name="dataperiod_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Same Period for data">Toks pat periodas duomenims</string>
   <string name="dataperiod_hint" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Set data\'s billing period to calls\' period.">Nustatyti duomenų mokėjimo periodą ir skambučių periodui.</string>
-  <string name="databillday_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="First day of your data bill">Pirmoji jūsų duomenų (MB) mokėjimo diena</string>
+  <string name="databillday_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="First day of your data bill">Pirmoji duomenų mokėjimo diena</string>
   <string name="appearance_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Appearance">Išvaizda</string>
   <string name="theme_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Theme">Tema</string>
   <string name="textsize_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Text size">Teksto dydis</string>
-  <string name="advanced_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Advanced">Pažengęs</string>
+  <string name="advanced_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Advanced">Pažangusis</string>
   <string name="exclude_people_" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Exclude numbers">Neįtraukti skaičių</string>
   <string name="exclude_people_add" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Add number">Pridėti numerį</string>
   <string name="exclude_people_delete" formatted="false" username="Aivaras Skuodas &lt;svayun@gmail.com&gt;" orig="Delete">Ištrinti</string>
