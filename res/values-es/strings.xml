@@ -153,4 +153,5 @@
   <string name="license" formatted="false" username="AngelGCM &lt;angelgustavo.cruz@gmail.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - Visite http://www.gnu.org/licenses/gpl-3.0.txt</string>
   <string name="sendlog_install_" formatted="false" username="AngelGCM &lt;angelgustavo.cruz@gmail.com&gt;" orig="Install SendLog">Instalar SendLog</string>
   <string name="sendlog_run" formatted="false" username="joakin232@hotmail.com" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog recogerá el registro de dispositivo y lo enviara al desarrollador.\nUsted tendrá la opción de revisar y modificar los datos que se envían.</string>
+  <string name="sendlog_install" formatted="false" username="aleix98y" orig="Install the free SendLog application to collect the device log and send it to the developer.">Instala gratis la aplicación SendLog para obtener el registro del dispositivo y enviarlo al desarrollador</string>
 </resources>
