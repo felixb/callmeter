@@ -439,4 +439,7 @@
   <string name="delete_group_hint" formatted="false" username="Vlastik &lt;vlastiksk@gmail.com&gt;" orig="Do you really want to delete this group?">Opravdu chete smazat tuto skupinu?</string>
   <string name="mixed_units_data_" formatted="false" username="Vlastik &lt;vlastiksk@gmail.com&gt;" orig="Units for data">Jednotky pro data</string>
   <string name="iswebsms_" formatted="false" username="Vlastik &lt;vlastiksk@gmail.com&gt;" orig="Is WebSMS">Je WebSMS</string>
+  <string name="billday_last" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="Last day of your bill">Poslední den zúčtovacího období</string>
+  <string name="show_target_billday_" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="Show last bill day">Zobrazit poslední den zúčtování</string>
+  <string name="show_target_billday_hint" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="Show last day of bill instead of first.">Zobrazit zúčtovací den místo prvního.</string>
 </resources>
