@@ -442,4 +442,5 @@
   <string name="billday_last" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="Last day of your bill">Poslední den zúčtovacího období</string>
   <string name="show_target_billday_" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="Show last bill day">Zobrazit poslední den zúčtování</string>
   <string name="show_target_billday_hint" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="Show last day of bill instead of first.">Zobrazit zúčtovací den místo prvního.</string>
+  <string name="delete_plan_hint" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="Do you really want to delete this plan?">Skutečně chcete smazat tento tarif?</string>
 </resources>
