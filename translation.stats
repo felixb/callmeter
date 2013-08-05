@@ -33,7 +33,7 @@ res/values-cs/intro.xml:10
 res/values-cs/market.xml:8
 res/values-cs/notes.xml:0
 res/values-cs/simple_prefs.xml:19
-res/values-cs/strings.xml:422
+res/values-cs/strings.xml:424
 res/values-de/donation.xml:5
 res/values-de/help.xml:14
 res/values-de/intro.xml:10
@@ -192,7 +192,7 @@ res/values:551
 res/values-ar:2
 res/values-bg:372
 res/values-ca:491
-res/values-cs:473
+res/values-cs:475
 res/values-de:496
 res/values-el:365
 res/values-es:497
