@@ -241,8 +241,8 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 			cp = new CVCheckBoxPreference(this, this.values, DataProvider.Rules.LIMIT_NOT_REACHED);
 			cp.setTitle(R.string.limitnotreached_);
 			cp.setSummary(R.string.limitnotreached_help);
-			cp.setChecked(c.isNull(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED)
-					|| c.getInt(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED) == 1);
+			cp.setChecked(!c.isNull(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED)
+					&& c.getInt(DataProvider.Rules.INDEX_LIMIT_NOT_REACHED) == 1);
 			ps.addPreference(cp);
 			// direction
 			lp = new CVListPreference(this, this.values, DataProvider.Rules.DIRECTION);
