@@ -295,10 +295,10 @@
   <string name="direction_data_in">příchozí</string>
   <string name="direction_data_out">odchozí</string>
   <string name="default_">Výchozí</string>
-  <string name="currency_formats_1">$1.00</string>
-  <string name="currency_formats_2">$1000</string>
-  <string name="currency_formats_3">1.00$</string>
-  <string name="currency_formats_4">1000$</string>
+  <string name="currency_formats_1" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="$1.00">1,00 Kč</string>
+  <string name="currency_formats_2" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="$1000">1000 Kč</string>
+  <string name="currency_formats_3" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="1.00$">1,00 Kč</string>
+  <string name="currency_formats_4" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="1000$">1000 Kč</string>
   <string name="date_formats_1">MM/DD/YY</string>
   <string name="date_formats_2">DD/MM/YYYY</string>
   <string name="date_formats_3">DD.MM.YYYY</string>
@@ -455,4 +455,7 @@
   <string name="iswebsms_connector_" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="Is WebSMS Connector">Je WebSMS</string>
   <string name="iswebsms_connector_help" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="Sent with specific WebSMS Connector, leave empty to match any.">Odesíláno přes určitou WebSMS službu. Nevyplňujte, pokud chcete obsáhnout všechny.</string>
   <string name="active_help" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="Only active rules are used for matching logs.">K odpovídajícím údajům jsou použita pouze aktivní pravidla.</string>
+  <string name="direction_help" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="Choose a direction the given log has to be.">Zvolte směr, v jakém se má výpis zobrazovat.</string>
+  <string name="roamed_help" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="Choose whether the given log has to be roamed.">Zvolte, zda se má daný záznam používat i při roamingu.</string>
+  <string name="sendlog_run_" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="Run SendLog">Spustit SendLog</string>
 </resources>
