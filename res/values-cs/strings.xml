@@ -461,4 +461,5 @@
   <string name="sendlog_run" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog posbírá data ze zařízení a odešle je vývojáři.\nBudete mít možnost data prohlédnout a případně je před odesláním upravit.</string>
   <string name="sendlog_install_" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="Install SendLog">Nainstalovat SendLog</string>
   <string name="sendlog_install" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">Nainstalujte aplikaci SendLog, která je zdarma a s jejíž pomocí můžete zasílat data o využívání vývojáři.</string>
+  <string name="license" formatted="false" username="Jack Fear &lt;me.jackfear@gmail.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - viz. http://www.gnu.org/licenses/gpl-3.0.txt</string>
 </resources>
