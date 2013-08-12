@@ -305,4 +305,5 @@
   <string name="x1_month_1_day" formatted="false" username="mario" orig="One month + one day">Mesiac + den</string>
   <string name="direction_calls_in" formatted="false" username="mario" orig="in">prichádzajúce</string>
   <string name="direction_calls_out" formatted="false" username="mario" orig="out">odchadzajúce</string>
+  <string name="billday_last" formatted="false" username="mihron82@gmail.com" orig="Last day of your bill">Koniec zúčtovacieho obdobia</string>
 </resources>
