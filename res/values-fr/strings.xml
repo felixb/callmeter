@@ -456,4 +456,9 @@
   <string name="mixed_units_call_help" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set the units billed for a one minute call.\nBill mode is taken into account here.">Définir l\'unité pour le coût d\'un appel d\'une minute.\nLe mode de facturation est pris en compte ici.</string>
   <string name="delete_group_" formatted="false" username="michel.morisot@gmail.com" orig="Delete group">Effacer le groupe</string>
   <string name="delete_group_hint" formatted="false" username="michel.morisot@gmail.com" orig="Do you really want to delete this group?">Veux-tu réellemment effacer ce groupe ?</string>
+  <string name="billday_last" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Last day of your bill">Dernier jour de votre facture</string>
+  <string name="show_target_billday_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Show last bill day">Montre le dernier jour de la facture</string>
+  <string name="show_target_billday_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Show last day of bill instead of first.">Montre le dernier jour de la facture au lieu du premier</string>
+  <string name="delete_plan_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Do you really want to delete this plan?">Voulez-vous vraiment supprimer ce plan?</string>
+  <string name="delete_rule_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Do you really want to delete this rule?">Voulez-vous vraiment supprimer cette règle?</string>
 </resources>
