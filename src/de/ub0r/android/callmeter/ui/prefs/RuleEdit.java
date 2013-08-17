@@ -26,7 +26,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
-import android.provider.CallLog.Calls;
 import android.telephony.TelephonyManager;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -35,6 +34,7 @@ import com.actionbarsherlock.app.SherlockPreferenceActivity;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
@@ -164,25 +164,6 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 		this.reload();
 	}
 
-	/** Check, if there is some kind of multi sim. */
-	private boolean hasSimId() {
-		boolean b = false;
-		for (String s : new String[] { "sim_id", "simid" }) {
-			try {
-				Cursor c = this.getContentResolver().query(Calls.CONTENT_URI, new String[] { s },
-						s + " != 0", null, null);
-				b = c.getCount() > 0;
-			} catch (IllegalArgumentException e) {
-				// ignore any error
-			}
-			if (b) {
-				Log.i(TAG, "multi sim phone detected: " + s);
-				break;
-			}
-		}
-		return b;
-	}
-
 	/**
 	 * Reload plans from ContentProvider.
 	 */
@@ -191,7 +172,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 		PreferenceScreen ps = (PreferenceScreen) this.findPreference("container");
 		ps.removeAll();
 
-		boolean hasSimId = this.hasSimId();
+		boolean hasSimId = LogRunnerService.checkSimIdColumn(this.getContentResolver());
 		Cursor c = this.getContentResolver().query(this.uri, DataProvider.Rules.PROJECTION, null,
 				null, null);
 		if (c.moveToFirst()) {
@@ -219,11 +200,13 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 			lp.setStatic(R.array.rules_type_id, R.array.rules_type);
 			int w;
 			if (c.isNull(DataProvider.Rules.INDEX_WHAT)) {
-				w = DataProvider.TYPE_CALL;
+				Log.d(TAG, "what: null");
+				w = DataProvider.Rules.WHAT_CALL;
 				this.values.put(DataProvider.Rules.WHAT, w);
 			} else {
 				w = c.getInt(DataProvider.Rules.INDEX_WHAT);
 			}
+			Log.d(TAG, "what: " + w);
 			lp.setValue(String.valueOf(w));
 			ps.addPreference(lp);
 			int t = DataProvider.what2type(w);
@@ -264,7 +247,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 			// my number
 			TelephonyManager tm = (TelephonyManager) this.getSystemService(TELEPHONY_SERVICE);
 			final String mynumber = tm.getLine1Number();
-			if (hasSimId && w == DataProvider.TYPE_CALL) {
+			if (hasSimId && w == DataProvider.Rules.WHAT_CALL) {
 				ep = new CVEditTextPreference(this, this.values, DataProvider.Rules.MYNUMBER, null);
 				ep.setTitle(R.string.my_sim_id_);
 				ep.setSummary(R.string.my_sim_id_help);

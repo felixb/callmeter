@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates" translatable="false">
+		<item>HEAD: fix RuleEdit for dual sim phones</item>
 		<item>v3.9.1: handle merged plans in LogsFragment, add Portuguese translation (thanks to Sérgio Marques), update translations</item>
 		<item>v3.9: show last day of bill period, fix multi sim on ZTE V970, confirm deleting plans/rules, tune widget layout</item>
 		<item>v3.8.4: fix \'%\' in number groups, set widget color directly, minor fixes and translation updates</item>

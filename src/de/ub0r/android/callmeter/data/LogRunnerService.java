@@ -451,14 +451,28 @@ public final class LogRunnerService extends IntentService {
 	}
 
 	/** Get column id holding sim_id, simid or whatever. */
-	private static int getSimIdColumn(final Cursor c) {
+	public static int getSimIdColumn(final Cursor c) {
 		for (String s : new String[] { "sim_id", "simid" }) {
 			int id = c.getColumnIndex(s);
 			if (id >= 0) {
+				Log.d(TAG, "sim_id column found: " + s);
 				return id;
 			}
 		}
+		Log.d(TAG, "no sim_id column found");
 		return -1;
+	}
+
+	/** Check, if there is dual sim support. */
+	public static boolean checkSimIdColumn(final ContentResolver cr) {
+		Cursor c = cr.query(Calls.CONTENT_URI, null, "1=2", null, null);
+		boolean check = false;
+		if (c != null) {
+			check = getSimIdColumn(c) >= 0;
+			c.close();
+		}
+		Log.i(TAG, "sim_id column found: " + check);
+		return check;
 	}
 
 	/**
