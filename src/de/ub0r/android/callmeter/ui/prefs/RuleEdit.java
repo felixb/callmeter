@@ -172,7 +172,8 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 		PreferenceScreen ps = (PreferenceScreen) this.findPreference("container");
 		ps.removeAll();
 
-		boolean hasSimId = LogRunnerService.checkSimIdColumn(this.getContentResolver());
+		boolean hasCallsSimId = LogRunnerService.checkCallsSimIdColumn(this.getContentResolver());
+		boolean hasSmsSimId = LogRunnerService.checkSmsSimIdColumn(this.getContentResolver());
 		Cursor c = this.getContentResolver().query(this.uri, DataProvider.Rules.PROJECTION, null,
 				null, null);
 		if (c.moveToFirst()) {
@@ -247,7 +248,8 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 			// my number
 			TelephonyManager tm = (TelephonyManager) this.getSystemService(TELEPHONY_SERVICE);
 			final String mynumber = tm.getLine1Number();
-			if (hasSimId && w == DataProvider.Rules.WHAT_CALL) {
+			if ((hasCallsSimId && w == DataProvider.Rules.WHAT_CALL) || // .
+					(hasSmsSimId && w == DataProvider.Rules.WHAT_SMS)) {
 				ep = new CVEditTextPreference(this, this.values, DataProvider.Rules.MYNUMBER, null);
 				ep.setTitle(R.string.my_sim_id_);
 				ep.setSummary(R.string.my_sim_id_help);

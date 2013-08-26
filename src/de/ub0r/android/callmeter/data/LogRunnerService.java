@@ -257,7 +257,9 @@ public final class LogRunnerService extends IntentService {
 	 * @return amount of last log entry
 	 */
 	private static long getLastData(final SharedPreferences p, final int type, final int direction) {
-		return p.getLong(PREFS_LASTDATA_PREFIX + type + "_" + direction, 0L);
+		long l = p.getLong(PREFS_LASTDATA_PREFIX + type + "_" + direction, 0L);
+		Log.d(TAG, "getLastData(p," + type + "," + direction + "): " + l);
+		return l;
 	}
 
 	/**
@@ -464,14 +466,26 @@ public final class LogRunnerService extends IntentService {
 	}
 
 	/** Check, if there is dual sim support. */
-	public static boolean checkSimIdColumn(final ContentResolver cr) {
+	public static boolean checkCallsSimIdColumn(final ContentResolver cr) {
 		Cursor c = cr.query(Calls.CONTENT_URI, null, "1=2", null, null);
 		boolean check = false;
 		if (c != null) {
 			check = getSimIdColumn(c) >= 0;
 			c.close();
 		}
-		Log.i(TAG, "sim_id column found: " + check);
+		Log.i(TAG, "sim_id column found in calls database: " + check);
+		return check;
+	}
+
+	/** Check, if there is dual sim support. */
+	public static boolean checkSmsSimIdColumn(final ContentResolver cr) {
+		Cursor c = cr.query(URI_SMS, null, "1=2", null, null);
+		boolean check = false;
+		if (c != null) {
+			check = getSimIdColumn(c) >= 0;
+			c.close();
+		}
+		Log.i(TAG, "sim_id column found in calls database: " + check);
 		return check;
 	}
 
@@ -487,6 +501,7 @@ public final class LogRunnerService extends IntentService {
 		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 		long maxdate = Math.max(getLastData(p, DataProvider.TYPE_CALL, 0),
 				getMaxDate(cr, DataProvider.TYPE_CALL));
+		Log.d(TAG, "maxdate: " + maxdate);
 		Cursor cursor;
 		try {
 			cursor = cr.query(Calls.CONTENT_URI, null, Calls.DATE + " > ?",
@@ -521,10 +536,12 @@ public final class LogRunnerService extends IntentService {
 				} else if (t == Calls.OUTGOING_TYPE) {
 					cv.put(DataProvider.Logs.DIRECTION, DataProvider.DIRECTION_OUT);
 				} else {
+					Log.w(TAG, "ignore unknown direction");
 					continue;
 				}
 				final int d = cursor.getInt(idDuration);
 				if (d == 0) {
+					Log.i(TAG, "ignore duration=0");
 					continue;
 				}
 				long l = cursor.getLong(idDate);
@@ -584,9 +601,16 @@ public final class LogRunnerService extends IntentService {
 		final String[] smsProjection = new String[] { Calls.DATE, Calls.TYPE, "address", "body" };
 		Cursor cursor;
 		try {
-			cursor = cr.query(URI_SMS, smsProjection, Calls.DATE + " > ? and " + Calls.TYPE
-					+ " = ?", new String[] { String.valueOf(maxdate), String.valueOf(type) },
-					Calls.DATE + " DESC");
+			try {
+				cursor = cr.query(URI_SMS, null, Calls.DATE + " > ? and " + Calls.TYPE + " = ?",
+						new String[] { String.valueOf(maxdate), String.valueOf(type) }, Calls.DATE
+								+ " DESC");
+			} catch (SQLException e) {
+				Log.e(TAG, "updateCalls(): SQLE", e);
+				cursor = cr.query(URI_SMS, smsProjection, Calls.DATE + " > ? and " + Calls.TYPE
+						+ " = ?", new String[] { String.valueOf(maxdate), String.valueOf(type) },
+						Calls.DATE + " DESC");
+			}
 		} catch (NullPointerException e) {
 			Log.e(TAG, "updateSMS(): NPE", e);
 			return;
@@ -600,7 +624,7 @@ public final class LogRunnerService extends IntentService {
 			final int idDate = cursor.getColumnIndex(Calls.DATE);
 			final int idAddress = cursor.getColumnIndex("address");
 			final int idBody = cursor.getColumnIndex("body");
-			final int idSimId = cursor.getColumnIndex("sim_id");
+			final int idSimId = getSimIdColumn(cursor);
 			final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(CallMeter.HUNDRET);
 			do {
 				final ContentValues cv = new ContentValues();
