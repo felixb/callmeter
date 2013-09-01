@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
-  <country>Mexico</country>
-  <provider>Iusacel</provider>
-  <title>Libertad</title>
+  <country>Spain</country>
+  <provider>jazztel</provider>
+  <title>jazzcard</title>
   <plans>
     <plan>
       <_id>12</_id>
-      <_plan_name>Periodo de facturación</_plan_name>
-      <_shortname>Periodo de facturación</_shortname>
+      <_plan_name>Mensual</_plan_name>
+      <_shortname>Mensual</_shortname>
       <_plan_type>2</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
-      <_billperiod>8</_billperiod>
+      <_billperiod>16</_billperiod>
       <_billmode>1/1</_billmode>
-      <_billday>1309478400947</_billday>
+      <_billday>1375308001650</_billday>
+      <_cost_per_plan>4.13</_cost_per_plan>
       <_billperiod_id>0</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
@@ -64,15 +65,19 @@
     <plan>
       <_id>16</_id>
       <_plan_name>Llamadas salientes</_plan_name>
-      <_shortname>Lllamada salida</_shortname>
+      <_shortname>Llamadas salientes</_shortname>
       <_plan_type>4</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
+      <_cost_per_item>0.15</_cost_per_item>
+      <_cost_per_amount1></_cost_per_amount1>
+      <_cost_per_amount2>0.05</_cost_per_amount2>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
+      <_strip_seconds>600</_strip_seconds>
       <_order>4</_order>
     </plan>
     <plan>
@@ -128,6 +133,7 @@
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
+      <_cost_per_item>0.08</_cost_per_item>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>8</_order>
@@ -169,6 +175,8 @@
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
+      <_cost_per_amount1>0.0512</_cost_per_amount1>
+      <_cost_per_amount2>0.0512</_cost_per_amount2>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>13</_order>
@@ -206,7 +214,7 @@
       <_limit>0</_limit>
       <_billperiod>5</_billperiod>
       <_billday>1287927174859</_billday>
-      <_cost_per_item>0</_cost_per_item>
+      <_cost_per_item>0.3</_cost_per_item>
       <_cost_per_amount1>0</_cost_per_amount1>
       <_cost_per_amount2>0</_cost_per_amount2>
       <_cost_per_item_in_limit>0</_cost_per_item_in_limit>
@@ -226,11 +234,11 @@
     <rule>
       <_id>1</_id>
       <_active>1</_active>
-      <_order>1</_order>
+      <_order>7</_order>
       <_plan_id>23</_plan_id>
       <_rule_name>Datos</_rule_name>
       <_what>3</_what>
-      <_roamed>-1</_roamed>
+      <_roamed>2</_roamed>
       <_direction>-1</_direction>
       <_inhourgroup_id>-1</_inhourgroup_id>
       <_exhourgroup_id>-1</_exhourgroup_id>
@@ -245,18 +253,18 @@
       <_plan_id>15</_plan_id>
       <_rule_name>Llamadas entrantes</_rule_name>
       <_what>0</_what>
-      <_roamed>-1</_roamed>
+      <_roamed>2</_roamed>
       <_direction>0</_direction>
       <_inhourgroup_id>-1</_inhourgroup_id>
       <_exhourgroup_id>-1</_exhourgroup_id>
-      <_innumbergroup_id>-1</_innumbergroup_id>
-      <_exnumbergroup_id>-1</_exnumbergroup_id>
+      <_exnumbergroup_id>,1,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
+      <_is_sipcall>-1</_is_sipcall>
     </rule>
     <rule>
       <_id>3</_id>
       <_active>1</_active>
-      <_order>2</_order>
+      <_order>1</_order>
       <_plan_id>16</_plan_id>
       <_rule_name>Llamadas salientes</_rule_name>
       <_what>0</_what>
@@ -265,12 +273,12 @@
       <_exnumbergroup_id>,1,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
-      <_is_sipcall>2</_is_sipcall>
+      <_is_sipcall>-1</_is_sipcall>
     </rule>
     <rule>
       <_id>4</_id>
       <_active>1</_active>
-      <_order>3</_order>
+      <_order>2</_order>
       <_plan_id>19</_plan_id>
       <_rule_name>Mensaje entrada</_rule_name>
       <_what>1</_what>
@@ -279,14 +287,14 @@
       <_inhourgroup_id>-1</_inhourgroup_id>
       <_exhourgroup_id>-1</_exhourgroup_id>
       <_innumbergroup_id>-1</_innumbergroup_id>
-      <_exnumbergroup_id>-1</_exnumbergroup_id>
+      <_exnumbergroup_id>,2,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
     </rule>
     <rule>
       <_id>5</_id>
       <_active>1</_active>
-      <_order>4</_order>
+      <_order>3</_order>
       <_plan_id>20</_plan_id>
       <_rule_name>Mensaje salida</_rule_name>
       <_what>1</_what>
@@ -300,7 +308,7 @@
     <rule>
       <_id>7</_id>
       <_active>1</_active>
-      <_order>5</_order>
+      <_order>4</_order>
       <_plan_id>27</_plan_id>
       <_rule_name>Mensaje multimedia entrada</_rule_name>
       <_what>2</_what>
@@ -309,14 +317,13 @@
       <_inhourgroup_id>-1</_inhourgroup_id>
       <_exhourgroup_id>-1</_exhourgroup_id>
       <_innumbergroup_id>-1</_innumbergroup_id>
-      <_exnumbergroup_id>-1</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
     </rule>
     <rule>
       <_id>8</_id>
       <_active>1</_active>
-      <_order>6</_order>
+      <_order>5</_order>
       <_plan_id>28</_plan_id>
       <_rule_name>Mensaje multimedia salida</_rule_name>
       <_what>2</_what>
@@ -340,7 +347,22 @@
         <number>
           <_id>1</_id>
           <_gid>1</_gid>
-          <_number>00800%</_number>
+          <_number>800%</_number>
+        </number>
+        <number>
+          <_id>10</_id>
+          <_gid>1</_gid>
+          <_number>900%</_number>
+        </number>
+        <number>
+          <_id>11</_id>
+          <_gid>1</_gid>
+          <_number>1569</_number>
+        </number>
+        <number>
+          <_id>12</_id>
+          <_gid>1</_gid>
+          <_number>1222</_number>
         </number>
       </numbers>
     </numbersgroup>
@@ -348,6 +370,11 @@
       <_id>2</_id>
       <_name>Exclusivamente paramensaje</_name>
       <numbers>
+        <number>
+          <_id>13</_id>
+          <_gid>2</_gid>
+          <_number>1222</_number>
+        </number>
       </numbers>
     </numbersgroup>
   </numbersgroups>

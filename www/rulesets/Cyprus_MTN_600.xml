@@ -73,9 +73,7 @@
       <_billday>0</_billday>
       <_cost_per_amount1>0.083</_cost_per_amount1>
       <_cost_per_amount2>0.083</_cost_per_amount2>
-      <_cost_per_amount_in_limit1></_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2></_cost_per_amount_in_limit2>
-      <_cost_per_plan>34</_cost_per_plan>
+      <_cost_per_plan>39.75</_cost_per_plan>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
