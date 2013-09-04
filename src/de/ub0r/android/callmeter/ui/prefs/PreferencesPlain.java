@@ -100,7 +100,7 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
 
 					File f = new File(PreferencesPlain.this.getCacheDir(), "ub0rrules.json");
 					if (f.exists() && f.lastModified() + CACHE_TIMEOUT > System.currentTimeMillis()) {
-						Log.d(TAG, "found cached data: " + f.getAbsolutePath());
+						Log.i(TAG, "found cached data: " + f.getAbsolutePath());
 						BufferedReader r = new BufferedReader(new FileReader(f));
 						while ((l = r.readLine()) != null) {
 							sb.append(l);
@@ -112,9 +112,9 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
 							f.delete();
 						}
 						HttpURLConnection c = (HttpURLConnection) new URL(
-								"http://www.ub0r.de/android/callmeter/rulesets/?out=json")
+								"http://ub0r.de/android/callmeter/rulesets/rulesets.json")
 								.openConnection();
-						Log.d(TAG, "load new data: " + c.getURL());
+						Log.i(TAG, "load new data: " + c.getURL());
 						BufferedReader r = new BufferedReader(new InputStreamReader(
 								c.getInputStream()));
 						FileWriter w = new FileWriter(f);
