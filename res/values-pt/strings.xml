@@ -22,7 +22,7 @@
        -->
 <resources>
   <string name="changelog_notification_" formatted="false" orig="Recent changes:">Alterações recentes:</string>
-  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Clique aqui para mostrar as alterações recentes</string>
+  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of" username="Eliseu M.D.C.Sequeta">Clique aqui para mostrar as alterações recentes</string>
   <string name="never_show_again" formatted="false" orig="Never show changelog again" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Não mostrar o registo de alterações</string>
   <string name="notes_from_developer_" formatted="false" orig="Notes from developer" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Notas do programador</string>
   <string name="notes_from_developer_text" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Click here to show recent news from the developer">Clique aqui para mostrar novidades do programador</string>
