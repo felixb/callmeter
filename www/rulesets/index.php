@@ -1,5 +1,19 @@
 <?
 
+if (array_key_exists('out', $_GET)) {
+  $out = $_GET['out'];
+} else {
+  $out = '';
+}
+
+if ($out == 'json') {
+  header('Content-type: application/json');
+  print file_get_contents($location.'rulesets.json');
+  exit;
+} else {
+  $json = json_decode(file_get_contents($location.'rulesets.json'), true);
+}
+
 function endsWith($haystack, $needle) {
   $length = strlen($needle);
   $start  = $length * -1; //negative
@@ -19,16 +33,8 @@ function _value_in_array($array, $find){
   return FALSE;
 }
 
-if (array_key_exists('out', $_GET)) {
-  $out = $_GET['out'];
-} else {
-  $out = '';
-}
-
 $isAndroid = preg_match('/Android/', $_SERVER['HTTP_USER_AGENT']);
 $location = './';
-
-if ($out != 'json') {
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -56,12 +62,23 @@ if ($out != 'json') {
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+<script src="jquery.lazyload.min.js" type="text/javascript"></script>
 <script type="text/javascript">
   window.onload = function() {
-    $("img[rel]").overlay({ mask: { opacity: 0.8 } });
-    $("a[rel]").overlay({ mask: { opacity: 0.8 } });
+
+    var overlayconfig = {
+      mask: { opacity: 0.8},
+      onLoad: function() {
+        $("img.lazyoverlay").lazyload({ effect: "fadeIn"});
+      }
+    };
+
+    $("img[rel]").overlay(overlayconfig);
+    $("a[rel]").overlay(overlayconfig);
+
+    $("img.lazy").lazyload({ effect: "fadeIn"});
 
     var eCountry = document.getElementById('country');
     var eProvider = document.getElementById('provider');
@@ -107,20 +124,6 @@ if ($out != 'json') {
 
 <?
 
-}
-
-$files = array();
-$d = dir($location);
-while (false !== ($entry = $d->read())) {
-  if (!endsWith($entry, '.xml')) {
-    continue;
-  }
-  $files[] = $entry;
-}
-$d->close();
-
-sort($files);
-
 if (array_key_exists('country', $_GET)) {
   $countryfilter = $_GET['country'];
 } else {
@@ -133,89 +136,48 @@ if (array_key_exists('provider', $_GET)) {
 }
 
 $country = array();
-$countries = array();
-$provider = array();
+$countries = array_keys($json);
+$common = array_pop($countries);
+array_unshift($countries, $common);
+
 $providers = array();
+$files = array();
+$importurls = array();
+$provider = array();
 $title = array();
 $link = array();
 $description = array();
 $longdescription = array();
-foreach ($files as $f) {
-  try {
-    $xml = new SimpleXMLElement(file_get_contents($location.$f));
-    $c = (string) $xml->country;
-    $p = (string) $xml->provider;
-    $t = (string) $xml->title;
-    $ss = (string) $xml->link;
-    if (!empty($ss)) {
-      $link[$f] = $ss;
-    }
-    $ss = (string) $xml->description;
-    if (!empty($ss)) {
-      $description[$f] = $ss;
-    }
-    $ss = (string) $xml->longdescription;
-    if (!empty($ss)) {
-      $longdescription[$f] = $ss;
-    }
-    $country[$f] = $c;
-    if (!_value_in_array($countries, $c) && !empty($c) && $c != "common") {
-      $countries[] = $c;
-    }
-    $provider[$f] = $p;
+foreach ($countries as $c) {
+  $lst = $json[$c];
+  foreach ($lst as $ruleset) {
+    // var_dump($ruleset);
+    $f = preg_replace('/http:..*\//', '', $ruleset['importurl']);
+    array_push($files, $f);
+
+    $p = $ruleset['provider'];
     if (!_value_in_array($providers, $p) && !empty($c) && (!$countryfilter || $countryfilter == $c)) {
       $providers[] = $p;
     }
-    $title[$f] = $t;
-  } catch (Exception $e) {
-    $country[$f] = 'error';
-    $provider[$f] = $f;
-    $title[$f] = $e;
+
+    $country[$f] = $c;
+    $provider[$f] = $p;
+    $importurls[$f] = $ruleset['importurl'];
+    $title[$f] = $ruleset['title'];
+    if (array_key_exists('link', $ruleset)) {
+      $link[$f] = $ruleset['link'];
+    }
+    if (array_key_exists('description', $ruleset)) {
+      $description[$f] = $ruleset['description'];
+    }
+    if (array_key_exists('longdescription', $ruleset)) {
+      $longdescription[$f] = $ruleset['longdescription'];
+    }
   }
 }
 
-sort($countries);
+
 sort($providers);
-
-if ($out == 'json') {
-  header('Content-type: application/json');
-  $countrymap = array();
-  foreach ($files as $f) {
-    $c = $country[$f];
-    if (array_key_exists($c, $countrymap)) {
-      $a = $countrymap[$c];
-    } else {
-      $a = array();
-    }
-    $o = array();
-    $o['country'] = $c;
-    $ff = str_replace('.xml', '', $f);
-    $ff = str_replace('.', '', $ff);
-    $o['importurl'] = 'http://ub0r.de/android/callmeter/rulesets/' . $f;
-    if (array_key_exists($f, $provider) && !empty($provider[$f])) {
-      $o['provider'] = $provider[$f];
-    }
-    if (array_key_exists($f, $title) && !empty($title[$f])) {
-      $o['title'] = $title[$f];
-    } else {
-      continue;
-    }
-    if (array_key_exists($f, $description) && !empty($description[$f])) {
-      $o['description'] = $description[$f];
-    }
-    if (array_key_exists($f, $link)) {
-      $o['link'] = $link[$f];
-    }
-    if (array_key_exists($f, $longdescription)) {
-      $o['longdescription'] = $longdescription[$f];
-    }
-    array_push($a, $o);
-    $countrymap[$c] = $a;
-  }
-
-  echo json_encode($countrymap);
-  exit();
-}
 
 ?>
 
@@ -242,7 +204,6 @@ echo '<br />If you want your rule set shown here, you just need to export it to 
 <th><select id="country" name="country">
 <option value="">Country</option>
 <option value=""></option>
-<option value="common">common</option>
 <?
 
 foreach ($countries as $c) {
@@ -275,7 +236,6 @@ foreach ($providers as $p) {
 </tr>
 
 <?
-$i = 0;
 foreach ($files as $f) {
   if (!empty($countryfilter) && $countryfilter != $country[$f]) {
     continue;
@@ -285,10 +245,11 @@ foreach ($files as $f) {
   }
   $ff = str_replace('.xml', '', $f);
   $ff = str_replace('.', '', $ff);
-  $importurl = 'http://ub0r.de/android/callmeter/rulesets/' . $f; # FIXME
-  $chl='http%3A%2F%2Fub0r.de%2Fandroid%2Fcallmeter%2Frulesets%2F' . $f; # FIXME
-  $barcodeurl_s = 'http://' . ($i++ % 10) . '.chart.apis.google.com/chart?chs=100x100&amp;cht=qr&amp;chl=' . $chl;
-  $barcodeurl_l = 'http://chart.apis.google.com/chart?chs=400x400&amp;cht=qr&amp;chl=' . $chl;
+  $importurl = $importurls[$f];
+  $chl = urlencode($importurl);
+  $hash = (hexdec(hash('crc32', $f)) % 10);
+  $barcodeurl_s = 'http://' . $hash . '.chart.apis.google.com/chart?chs=100x100&amp;cht=qr&amp;chl=' . $chl;
+  $barcodeurl_l = 'http://' . $hash . '.chart.apis.google.com/chart?chs=400x400&amp;cht=qr&amp;chl=' . $chl;
   echo "<tr class=\"trow\" id=\"f_".$ff."\">\n";
   echo '<td><a href="?country='.$country[$f].'">' . $country[$f] . "</a></td>\n";
   if (empty($provider[$f])) {
@@ -324,11 +285,11 @@ foreach ($files as $f) {
     echo '<a href="' . $barcodeurl_l . '">barcode</a>' . "\n";
   } else {
     echo '<div class="barcode">';
-    echo '<img src="' . $barcodeurl_s . '" rel="#barcode_'.$ff.'" />';
+    echo '<img class="lazy" src="white.gif" data-original="' . $barcodeurl_s . '" rel="#barcode_'.$ff.'" />';
     echo '</div>'."\n";
     // overlay
     echo '<div class="overlay" id="barcode_'.$ff.'">';
-    echo '<img src="' . $barcodeurl_l . '" />';
+    echo '<img class="lazyoverlay" height="400" width="400" src="white.gif" data-original="' . $barcodeurl_l . '" />';
     echo '</div>'."\n";
   }
   echo '</td>';
