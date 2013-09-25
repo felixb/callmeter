@@ -137,6 +137,7 @@ public final class NumberGroupEdit extends SherlockPreferenceActivity implements
 		if (c.getCount() == 0) {
 			Toast.makeText(this, R.string.empty_group, Toast.LENGTH_LONG).show();
 		}
+		c.close();
 	}
 
 	/**
