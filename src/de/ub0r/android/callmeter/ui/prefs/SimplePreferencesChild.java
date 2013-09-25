@@ -39,11 +39,39 @@ public final class SimplePreferencesChild extends SherlockPreferenceActivity imp
 	/** Action. */
 	private static final String CALLS = "CALLS";
 	/** Action. */
+	private static final String CALLS_2 = "CALLS_2";
+	/** Action. */
+	private static final String CALLS_VOIP = "CALLS_VOIP";
+	/** Action. */
 	private static final String SMS = "SMS";
+	/** Action. */
+	private static final String SMS_2 = "SMS_2";
+	/** Action. */
+	private static final String SMS_WEBSMS = "SMS_WEBSMS";
 	/** Action. */
 	private static final String MMS = "MMS";
 	/** Action. */
 	private static final String DATA = "DATA";
+
+	@SuppressWarnings("deprecation")
+	private void setOnChangeListenerCall(final String postfix) {
+		this.findPreference(SimplePreferences.PREFS_BILLMODE + postfix)
+				.setOnPreferenceChangeListener(this);
+		this.findPreference(SimplePreferences.PREFS_FREEMIN + postfix)
+				.setOnPreferenceChangeListener(this);
+		this.findPreference(SimplePreferences.PREFS_COST_PER_CALL + postfix)
+				.setOnPreferenceChangeListener(this);
+		this.findPreference(SimplePreferences.PREFS_COST_PER_MIN + postfix)
+				.setOnPreferenceChangeListener(this);
+	}
+
+	@SuppressWarnings("deprecation")
+	private void setOnChangeListenerSMS(final String postfix) {
+		this.findPreference(SimplePreferences.PREFS_FREESMS + postfix)
+				.setOnPreferenceChangeListener(this);
+		this.findPreference(SimplePreferences.PREFS_COST_PER_SMS + postfix)
+				.setOnPreferenceChangeListener(this);
+	}
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -58,20 +86,22 @@ public final class SimplePreferencesChild extends SherlockPreferenceActivity imp
 			return;
 		} else if (CALLS.equals(a)) {
 			this.addPreferencesFromResource(R.xml.simple_prefs_calls);
-			this.findPreference(SimplePreferences.PREFS_BILLMODE).setOnPreferenceChangeListener(
-					this);
-			this.findPreference(SimplePreferences.PREFS_FREEMIN)
-					.setOnPreferenceChangeListener(this);
-			this.findPreference(SimplePreferences.PREFS_COST_PER_CALL)
-					.setOnPreferenceChangeListener(this);
-			this.findPreference(SimplePreferences.PREFS_COST_PER_MIN)
-					.setOnPreferenceChangeListener(this);
+			this.setOnChangeListenerCall("");
+		} else if (CALLS_2.equals(a)) {
+			this.addPreferencesFromResource(R.xml.simple_prefs_calls_2);
+			this.setOnChangeListenerCall("_2");
+		} else if (CALLS_VOIP.equals(a)) {
+			this.addPreferencesFromResource(R.xml.simple_prefs_calls_voip);
+			this.setOnChangeListenerCall("_voip");
 		} else if (SMS.equals(a)) {
 			this.addPreferencesFromResource(R.xml.simple_prefs_sms);
-			this.findPreference(SimplePreferences.PREFS_FREESMS)
-					.setOnPreferenceChangeListener(this);
-			this.findPreference(SimplePreferences.PREFS_COST_PER_SMS)
-					.setOnPreferenceChangeListener(this);
+			this.setOnChangeListenerSMS("");
+		} else if (SMS_2.equals(a)) {
+			this.addPreferencesFromResource(R.xml.simple_prefs_sms_2);
+			this.setOnChangeListenerSMS("_2");
+		} else if (SMS_WEBSMS.equals(a)) {
+			this.addPreferencesFromResource(R.xml.simple_prefs_sms_websms);
+			this.setOnChangeListenerSMS("_websms");
 		} else if (MMS.equals(a)) {
 			this.addPreferencesFromResource(R.xml.simple_prefs_mms);
 			this.findPreference(SimplePreferences.PREFS_FREEMMS)

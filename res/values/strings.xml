@@ -189,6 +189,7 @@
 	<string name="data_">Data (2G/3G/4G)</string>
 	<string name="data_inout">Data In/Out</string>
 	<string name="data_inout_">DataInOut</string>
+	<string name="second_sim_">Second SIM card</string>
 	<string name="prepaid_">Prepaid plan</string>
 	<string name="prepaid_hint">Bill on prepaid basis. Cost is substracted from balance as you call etc.</string>
 	<string name="balance_">Balance</string>
@@ -274,12 +275,14 @@
 	<string name="plan_help">Choose the plan this rule should fit.</string>
 	<string name="limitnotreached_">Limit not reached</string>
 	<string name="limitnotreached_help">Match only if target plan has not reached it\'s limit yet.</string>
+	<string name="websms_">WebSMS</string>
 	<string name="iswebsms_">Is WebSMS</string>
 	<string name="iswebsms_help">Message sent with WebSMS.</string>
 	<string name="iswebsms_connector_">Is WebSMS Connector</string>
 	<string name="iswebsms_connector_help">Sent with specific WebSMS Connector, leave empty to match any.</string>
+	<string name="calls_voip_">VoIP calls with supported apps</string>
 	<string name="issipcall_">Is SIP call</string>
-	<string name="issipcall_help">Call made via SIP. Currently sipdroid >1.6.1 is supported.</string>
+	<string name="issipcall_help">Call made via SIP. Currently sipdroid and CSipSimple are supported.</string>
 	<string name="strip_seconds_">Do not bill first seconds</string>
 	<string name="strip_seconds_help">Do not bill first x seconds of a call.</string>
 	<string name="strip_past_">Do not bill anything after seconds</string>
