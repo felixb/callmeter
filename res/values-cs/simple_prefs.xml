@@ -27,7 +27,7 @@
   <string name="cost_per_mms_" formatted="false" orig="Cost / MMS">Cena za MMS</string>
   <string name="freemms_hint" formatted="false" orig="Free MMS / month">Volné MMS za měsíc</string>
   <string name="freesms_hint" formatted="false" orig="Free SMS / month">Volné SMS za měsíc</string>
-  <string name="missing_slash" formatted="false" orig="Bill mode needs to be in seconds/seconds!">Typ účtování musí být uváděn v sekundy/sekundy !</string>
+  <string name="missing_slash" formatted="false" orig="Bill mode needs to be in seconds/seconds!" username="mundis@azet.sk">Typ účtování musí být uváděn v sekundy/sekundy !</string>
   <string name="freemin_hint" formatted="false" orig="Free minutes / month">Volné minuty za měsíc</string>
   <string name="cost_per_call_" formatted="false" orig="Cost / call">Cena za volání</string>
   <string name="cost_per_call_hint" formatted="false" orig="Each call get\'s billed.">Každé volání bude účtováno</string>
