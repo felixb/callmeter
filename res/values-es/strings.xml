@@ -166,8 +166,8 @@
   <string name="reset_data_" formatted="false">Poner a cero estadísticas</string>
   <string name="reset_data_hint" formatted="false">Resetear los datos de llamadas y SMS fuerza el recálculo las estadísticas.\n\nLa puesta a cero del tráfico de datos es permanente. Sólo resetea el tráfico producido antes del arranque!</string>
   <string name="reset_data_data_" formatted="false">Pone a cero también el tráfico de datos.</string>
-  <string name="reset_data_progr1" formatted="false">Recalculando estadísticas ...\n\n(¡Puede tardar un poco!)</string>
-  <string name="reset_data_progr2" formatted="false">Recalculando estadísticas ...</string>
+  <string name="reset_data_progr1" formatted="false" username="Jaime Bustillo &lt;jaime@bustillo.com&gt;" orig="Recalculating statistics ...\n\n(This may take some time!)">Recalculando...\n\n(¡Puede tardar un poco!)</string>
+  <string name="reset_data_progr2" formatted="false" username="Jaime Bustillo &lt;jaime@bustillo.com&gt;" orig="Recalculating statistics ...">Recalculando...</string>
   <string name="contacts_" formatted="false">Contactos</string>
   <string name="clear_" formatted="false">Borrar</string>
   <string name="help_" formatted="false">Ayuda</string>
