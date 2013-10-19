@@ -426,4 +426,10 @@
   <string name="cost_per_item_in_limit_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Cost per item in limit">Стойност за единица в лимита</string>
   <string name="cost_per_amount_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Cost per length">Стойност за дължина</string>
   <string name="cost_per_amount_in_limit_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Cost per length in limit">Стойност за дължина в лимита</string>
+  <string name="cost_per_plan_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Set the cost of the plan for one billing period as is.">Определете стойност на плана за един отчетен период, както е.</string>
+  <string name="mixed_units_call_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Set the units billed for a one minute call.\nBill mode is taken into account here.">Определете единиците, които се таксуват за една минута разговор.\nВземете под внимание типа сметка.</string>
+  <string name="mixed_units_data_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Units for data">Единици за данни</string>
+  <string name="mixed_units_data_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Set the units billed for each MB of data traffic.">Определяне на единиците таксувани за всеки MB от трафика на данни.</string>
+  <string name="merge_plans_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Merge other plans into this one and bill them here (too).">Обедини другите планове в този и ги таксувай тук (също).</string>
+  <string name="issipcall_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Разговорът е осъществен през SIP. Версията, която се поддържа в момента е 1.6.1</string>
 </resources>
