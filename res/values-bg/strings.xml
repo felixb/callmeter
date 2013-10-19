@@ -143,7 +143,7 @@
   <string name="show_titlebar_" formatted="false" orig="Show title bar">Покажи заглавната лента</string>
   <string name="show_time_" formatted="false" orig="Switch to date">Отиди на дата</string>
   <string name="about1" formatted="false" orig="The output format is usage | time or count used this billing period | time or count overall.">Изходният формат е потребление | за текущия период - време или брой | общо - време или брой</string>
-  <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">Режимът на отчитане указва дължинат ана първия / следващия период на отчитане. Например 60/10 означава, че всеки разговор се тарифира за минимум от 60 сек., а всички по-дълги разговори се закръгляват на 10 сек.</string>
+  <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s." username="Svetlio &lt;s.grozev@gmail.com&gt;">Режимът на отчитане указва дължината на първия/следващия период на отчитане. Например 60/10 означава, че всеки разговор се тарифира за минимум от 60 сек., а всички по-дълги разговори се закръгляват на 10 сек.</string>
   <string name="about3" formatted="false" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter се изпълнява незабележимо на всеки 30 минути (освен ако телефонът не е на standby режим). Това означава, че изтриване на повиквания или съобщения по-стари от 30мин няма да промени статистиките. Изтриване на обаждания и съобщения от последните 30 мин може да доведе до грешни статистики.</string>
   <string name="show_titlebar_hint" formatted="false" orig="Show title bar in main view. Without title bar, there is no way to see background activity.">Показване на заглавната лента в основния изглед. Без заглавна лента, няма начин да бъде отчетена от потребителя работата на приложението.</string>
   <string name="show_hours_" formatted="false" orig="Show hours">Показване часове</string>
@@ -157,11 +157,11 @@
   <string name="update_interval_data_hint" formatted="false" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Актуализация на данните за статистиката трябва да се направи по-често. ESP. Samsung се нуждае от много кратки интервали.</string>
   <string name="google_plus_hint" formatted="false" orig="Follow me on Google+.\nGet update notifications etc.">Последвайте ме в Google +.\nПолучете актуализации уведомления и др.</string>
   <string name="widget_" formatted="false" orig="Widget">Уиджет</string>
-  <string name="widgets_" formatted="false" orig="Widgets">Уиджети</string>
-  <string name="widgets_no_widgets_" formatted="false" orig="No widgets added">Няма добавени уиджети</string>
-  <string name="widgets_no_widgets_hint" formatted="false" orig="There are no widgets added to the launcher.">Няма уиджети добавени във вашия Launcher</string>
+  <string name="widgets_" formatted="false" orig="Widgets" username="Svetlio &lt;s.grozev@gmail.com&gt;">Уиджет-и</string>
+  <string name="widgets_no_widgets_" formatted="false" orig="No widgets added" username="Svetlio &lt;s.grozev@gmail.com&gt;">Няма добавени уиджет-и</string>
+  <string name="widgets_no_widgets_hint" formatted="false" orig="There are no widgets added to the launcher." username="Svetlio &lt;s.grozev@gmail.com&gt;">Няма уиджет-и добавени във вашия стартер</string>
   <string name="delete_widget" formatted="false" orig="Delete widget">Изтриване на уиджет</string>
-  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Много лесни предпочитания, подходящи за повечето потребители. Предлага се само с комплект правило по подразбиране.</string>
+  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set." username="Svetlio &lt;s.grozev@gmail.com&gt;">Много лесни настройки, подходящи за повечето потребители. Предлага се само с комплект правило по подразбиране.</string>
   <string name="show_hours_hint" formatted="false" username="mari" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Показва времето в секунди,минути,часове и дни.\nАко не е маркирано само секунди и минути са показани.</string>
   <string name="show_shortname_" formatted="false" username="mari" orig="Show short name instead of long name">Показва кратко име вместо дълго</string>
   <string name="hide_name_" formatted="false" username="mari" orig="Hide name of plan">Скрива името на плана</string>
@@ -340,4 +340,7 @@
   <string name="send_logs_" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="Send logs">Изпрати логовете</string>
   <string name="my_number_" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="My number">Моят номер</string>
   <string name="my_sim_id_" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="SIM Id">SIM ID</string>
+  <string name="billday_last" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Last day of your bill">Последен ден на сметката Ви</string>
+  <string name="widget_stats_title" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Call Meter (stats)">Call Meter (статистика)</string>
+  <string name="widget_logs_title" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Call Meter (last log)">Call Meter (последен дневник)</string>
 </resources>
