@@ -432,4 +432,15 @@
   <string name="mixed_units_data_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Set the units billed for each MB of data traffic.">Определяне на единиците таксувани за всеки MB от трафика на данни.</string>
   <string name="merge_plans_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Merge other plans into this one and bill them here (too).">Обедини другите планове в този и ги таксувай тук (също).</string>
   <string name="issipcall_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Разговорът е осъществен през SIP. Версията, която се поддържа в момента е 1.6.1</string>
+  <string name="source_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Sourcescode:">Sourcescode:</string>
+  <string name="import_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Import">Зареди</string>
+  <string name="import_link_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="More info">Повече информация</string>
+  <string name="import_rules_users" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Users\' rules">Потребителски правила</string>
+  <string name="spacer" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Spacer">Разстояние</string>
+  <string name="license_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="License:">Лиценз:</string>
+  <string name="license" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - виж http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="author_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Author:">Автор:</string>
+  <string name="website_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Website:">Уебсайт:</string>
+  <string name="sendlog_install_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Install SendLog">Инсталирай SendLog</string>
+  <string name="export_logs_csv_hint" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Export logs as CSV.">Експортирай log-а към CSV.</string>
 </resources>
