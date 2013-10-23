@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009-2013 Felix Bechstein -->
+<!--
+		This file is part of Call Meter 3G. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+-->
+<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+            android:key="prepaid"
+            android:summary="@string/prepaid_hint"
+            android:title="@string/prepaid_"/>
+    <CheckBoxPreference
+            android:key="advanced_preferences"
+            android:summary="@string/advanced_preferences_hint"
+            android:title="@string/advanced_preferences_"/>
+
+    <PreferenceScreen
+            android:summary="@string/plans_hint"
+            android:title="@string/plans">
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.Plans"
+                android:targetPackage="de.ub0r.android.callmeter"/>
+    </PreferenceScreen>
+    <PreferenceScreen
+            android:dependency="advanced_preferences"
+            android:summary="@string/rules_hint"
+            android:title="@string/rules">
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.Rules"
+                android:targetPackage="de.ub0r.android.callmeter"/>
+    </PreferenceScreen>
+    <PreferenceScreen
+            android:summary="@string/numbergroups_edit_hint"
+            android:title="@string/numbergroups_edit_">
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.NumberGroups"
+                android:targetPackage="de.ub0r.android.callmeter"/>
+    </PreferenceScreen>
+    <PreferenceScreen
+            android:summary="@string/hourgroups_edit_hint"
+            android:title="@string/hourgroups_edit_">
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.HourGroups"
+                android:targetPackage="de.ub0r.android.callmeter"/>
+    </PreferenceScreen>
+</PreferenceScreen>

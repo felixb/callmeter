@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2009-2013 Felix Bechstein
+	-->
+	<!--
+		This file is part of Call Meter 3G. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<resources>
+	<string-array name="updates" translatable="false">
+		<item>v3.10: fix RuleEdit for dual sim phones, filter sms by sim id, new default rule set with dual sim/websms/voip if available</item>
+		<item>v3.9.1: handle merged plans in LogsFragment, add Portuguese translation (thanks to Sérgio Marques), update translations</item>
+		<item>v3.9: show last day of bill period, fix multi sim on ZTE V970, confirm deleting plans/rules, tune widget layout</item>
+		<item>v3.8.4: fix \'%\' in number groups, set widget color directly, minor fixes and translation updates</item>
+		<item>v3.8.3: UI improvements, Russian translation added, translation updates</item>
+		<item>v3.8.2: hide total stats by default, hide amount for "total merger plans", include/exclude numbers for MMS</item>
+		<item>v3.8.1: fix limit calculation for cost limits, fix mixed plans merging data plans, fix cost in mixed plans merging other plans</item>
+		<item>v3.8: show users\' rules in app, fix custom bill mode settings, update translation</item>
+		<item>v3.7.2: fix import of rules with &lt;longdescription&gt;</item>
+		<item>v3.7.1: fix cost in merged plans (reset stats please), fix progress bar size for android 3+, some more fixes</item>
+		<item>v3.7: fix limit breaking calls/data, fix cost settings help for plans without limit, merge data in mixed plans, hide progressbar for unlimited bill periods, strip anything but first x seconds, deleting last call will stay deleted until reset stats, fix "$amp;" in exports, fix numbers/hours imports, fix hidden help/summary, fix float cost limits, minor fixes</item>
+		<item>v3.6.4: fix FC on some samsung phones, fix out of memory exception, minor fixes</item>
+		<item>v3.6.3: basic dual sim support, export/impor XML file, fix moving plans/rules, add widget for "last log", fix some FCs, minor fixes</item>
+		<item>v3.6.2: fix FC when exporting rules, fix some more settings</item>
+		<item>v3.6.1: fix cost settings</item>
+		<item>v3.6: export logs as csv file, reimplement preferences, fix minor bugs, update translations</item>
+		<item>v3.5.1: fix some FCs, fix dark theme, fix titles in main view</item>
+		<item>v3.5: update abs 4.0, prepare for jelly bean, fix some FCs</item>
+		<item>v3.4.2: fix 31d bill period, update translations</item>
+		<item>v3.4.1: show past bill periods as 100%, fix import/export of rules with new and old bill periods</item>
+		<item>v3.4: add bill period length 14d 15d 31d 1m+1d, fix merged cost limits, minor UI fixes, remove stale widgets, text in number groups, fix prepaid cost in widget, show up to 20plans in "ask for plans" activity</item>
+		<item>v3.3.1: fix FC on android 1.6</item>
+		<item>v3.3: fix FC on android 1.6, fix sorting plans/rules, fix sum of cost for multi bill period plans, fix accuracy of data stats (esp. for samsung devices), fix widget for galaxy nexus, configure existing widgets, add widget for bill period, show intro for new users, data stats for acer e130</item>
+		<item>v3.2.2: fix FC, update translation</item>
+		<item>v3.2.1: fix FC, fix unlimited bill modes, minor fixes, update translation</item>
+		<item>v3.2: fix setting text size, fix donation view, fix date and cost format in logs view, improve performance</item>
+		<item>v3.1: RECALCULATON OF STATS NEEDED: disable rules, more filters in logs view, major change in design, major change in database queries, update translations</item>
+		<item>v3.0: generic traffic for FroYo+ devices, import rule sets from sd card</item>
+		<item>v3.0rc15: fix data stats, fix some minor FCs</item>
+		<item>v3.0rc14: simple preferences for default rule set, reimport default rule set, exlucde numbers for default rule set, add support for a601 and htc thunderbolt, update translations, minor fixes</item>
+		<item>v3.0rc13: fix for samsung phones, translate default rule set</item>
+		<item>v3.0rc12: fix for samsung galaxy 2</item>
+		<item>v3.0rc11: show icon, small widget (thanks to luca niccoli for both), update translations</item>
+		<item>v3.0rc10: set text size/color in widget, set background color in widget, add support for LG-P990, update translation, rename data stats by default</item>
+		<item>v3.0rc9: Add support for GT-S5830 and possible all future samsung devices, major inner changes, update translations</item>
+		<item>v3.0rc8: fix an other sunday bug, allow to split messages at fixed 160 chars, fix messages to yourself, add support for GT-I5510, fix custom currency symbol</item>
+		<item>v3.0rc7: fix data logs, fix sunday, fix limit+cost for merged+mixed plans, add remote number for MMS, update translations, add help</item>
+		<item>v2.9.6: set custom delimiter, add mon-fri for hour groups, allow smaller than 1 units in mixed plans</item>
+		<item>v2.9.5: set date+time for start of billing period, improve data logging, match (inter-)national numbers (enter your prefix in preferences), show today\'s stats, allow multi bill period merger, show call info after hanging up</item>
+		<item>v2.9.4: hide progress bars, add bill periods: 4,5,6,12 month, strip leading zeros, hide no cost plans</item>
+		<item>v2.9.3: Integrate with sipdroid, default update interval: 60m, fix MMS counter, fix mixed+merged limits, progressbar color, add chinese translation</item>
+		<item>v2.9.2: Delete old logs (default: 90d), multiselection on groups, fix NPE</item>
+		<item>v2.9.1: Fix cost for long sms, fix cost when reaching limit, set name/shortname for widget, show cost in widget, show billperiod in widget, settable sizes, don\'t bill first x seconds, merge plans, hide empty plans</item>
+		<item>v2.8.10: Integration with WebSMS, set custom locale</item>
+		<item>v2.8.9: clean groups in rules, fix numbergroups, fix adding logs, fix import from file, reduce collected traffic data</item>
+		<item>v2.8.8: fix for GT-I5500, fix cost for data, decimal limit, add turkish translation</item>
+		<item>v2.8.7: Fix length of billing period</item>
+		<item>v2.8.6: Fix some FCs, hide total stats, prepaid plans, set textsize, manipulate logs by hand</item>
+		<item>v2.8.5: Fix default displaying values for pans/rules</item>
+		<item>v2.8.4: Fix some FCs, fix number groups with more than one entry, readd druch, spanish and portuguese translations</item>
+		<item>v2.8.3: Fix exclude numbers</item>
+		<item>v2.8.2: Simplify rules (You must reset them!), fix export, fix NPEs, set update interval, set beginning of record</item>
+		<item>v2.8.1: Add default rule sets, reduce complexity for simple setups, some changes to gui, force internal install</item>
+		<item>v2.7.3: Fix uneditable fields, fix FC for empty bill modes, allow to hide title bar, readd polish+russion translation</item>
+		<item>v2.7.2: History, alert, widget, total expense, ... </item>
+		<item>v2.7.1: Custom date format, currency format/symbol; speedup boot/shutdown process, changing color of limit bars, new screens for plans/rules</item>
+		<item>v2.7.0: Initial alpha of Call Meter 3G\n\tMajor architecture refactoring</item>
+	</string-array>
+</resources>

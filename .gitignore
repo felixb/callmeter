@@ -5,3 +5,11 @@ wiki
 build.properties
 .ant-targets-build.xml
 commit.log
+CallMeter3G/gradle.properties
+.idea
+.gradle
+gradlew*
+cm3.iml
+gradle
+build
+release.ks

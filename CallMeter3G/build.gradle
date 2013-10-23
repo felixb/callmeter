@@ -1,0 +1,58 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.6.+'
+    }
+}
+apply plugin: 'android'
+
+repositories {
+    maven {
+        url 'https://github.com/Goddchen/mvn-repo/raw/master/'
+    }
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion 18
+    buildToolsVersion "18.1.0"
+
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 18
+        versionName "3.10"
+        versionCode 7391002
+    }
+
+    signingConfigs {
+        if (project.hasProperty('releaseKeystorePassword')) {
+            release {
+                storeFile file("release.ks")
+                storePassword releaseKeystorePassword
+                keyAlias "jarsign"
+                keyPassword releaseKeyPassword
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            versionNameSuffix " debug"
+        }
+
+        release {
+            signingConfig signingConfigs.release
+            proguardFile 'proguard.cfg'
+            runProguard true
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
+    compile 'com.android.support:support-v4:18.0.+'
+    compile 'com.actionbarsherlock:actionbarsherlock:4.4.+@aar'
+    compile 'com.actionbarsherlock:viewpagerindicator:2.4.+'
+}

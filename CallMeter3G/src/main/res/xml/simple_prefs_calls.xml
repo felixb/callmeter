@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009-2013 Felix Bechstein -->
+<!--
+		This file is part of Call Meter 3G. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+-->
+<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <de.ub0r.android.callmeter.ui.prefs.BillModeListPreference
+            android:entries="@array/billmodes"
+            android:entryValues="@array/billmodes"
+            android:key="sp_billmode"
+            android:summary="@string/billmode_help"
+            android:title="@string/billmode_"/>
+
+    <EditTextPreference
+            android:inputType="number"
+            android:key="sp_freemin"
+            android:summary="@string/freemin_hint"
+            android:title="@string/freemin_"/>
+    <EditTextPreference
+            android:inputType="number|numberDecimal"
+            android:key="sp_cost_per_call"
+            android:summary="@string/cost_per_call_hint"
+            android:title="@string/cost_per_call_"/>
+    <EditTextPreference
+            android:inputType="number|numberDecimal"
+            android:key="sp_cost_per_min"
+            android:summary="@string/cost_per_min_hint"
+            android:title="@string/cost_per_min_"/>
+
+    <PreferenceScreen
+            android:summary="@string/exhourgroup_help"
+            android:title="@string/numbergroup_excalls">
+        <intent
+                android:action="android.intent.action.VIEW"
+                android:data="content://de.ub0r.android.callmeter.provider/numbers/groups/1"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.NumberGroupEdit"
+                android:targetPackage="de.ub0r.android.callmeter"/>
+    </PreferenceScreen>
+
+</PreferenceScreen>

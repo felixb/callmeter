@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
-  <title>100</title>
   <country>Spain</country>
   <provider>ONO</provider>
+  <title>100</title>
   <plans>
     <plan>
       <_id>12</_id>
@@ -326,6 +326,8 @@
       <_is_websms>-1</_is_websms>
     </rule>
   </rules>
+  <hoursgroups>
+  </hoursgroups>
   <numbersgroups>
     <numbersgroup>
       <_id>1</_id>
@@ -340,6 +342,16 @@
           <_id>6</_id>
           <_gid>1</_gid>
           <_number>976224840</_number>
+        </number>
+        <number>
+          <_id>9</_id>
+          <_gid>1</_gid>
+          <_number>601229469</_number>
+        </number>
+        <number>
+          <_id>10</_id>
+          <_gid>1</_gid>
+          <_number>983181846</_number>
         </number>
       </numbers>
     </numbersgroup>

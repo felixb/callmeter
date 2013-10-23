@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009-2013 Felix Bechstein -->
+<!--
+		This file is part of Call Meter 3G. This program is free software; you
+		can redistribute it and/or modify it under the terms of the GNU
+		General Public License as published by the Free Software Foundation;
+		either version 3 of the License, or (at your option) any later
+		version.
+-->
+<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+-->
+<resources>
+
+    <string-array name="currency_formats_values" translatable="false">
+        <item></item>
+        <item>$%.2f"</item>
+        <item>$%.0f</item>
+        <item>%.2f$</item>
+        <item>%.0f$</item>
+    </string-array>
+    <string-array name="date_formats_values" translatable="false">
+        <item></item>
+        <item>$tD</item>
+        <item>$te/$tm/$tY</item>
+        <item>$te.$tm.$tY</item>
+    </string-array>
+    <string-array name="themes_values" translatable="false">
+        <item>black</item>
+        <item>light</item>
+    </string-array>
+    <string-array name="textsize_values" translatable="false">
+        <item>small</item>
+        <item>medium</item>
+    </string-array>
+    <string-array name="update_interval_values" translatable="false">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="update_interval_data_values" translatable="false">
+        <item>0.5</item>
+        <item>1</item>
+        <item>2</item>
+        <item>5</item>
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="billdays" translatable="false">
+        <item>1.</item>
+        <item>2.</item>
+        <item>3.</item>
+        <item>4.</item>
+        <item>5.</item>
+        <item>6.</item>
+        <item>7.</item>
+        <item>8.</item>
+        <item>9.</item>
+        <item>10.</item>
+        <item>11.</item>
+        <item>12.</item>
+        <item>13.</item>
+        <item>14.</item>
+        <item>15.</item>
+        <item>16.</item>
+        <item>17.</item>
+        <item>18.</item>
+        <item>19.</item>
+        <item>20.</item>
+        <item>21.</item>
+        <item>22.</item>
+        <item>23.</item>
+        <item>24.</item>
+        <item>25.</item>
+        <item>26.</item>
+        <item>27.</item>
+        <item>28.</item>
+        <item>29.</item>
+        <item>30.</item>
+        <item>31.</item>
+    </string-array>
+    <string-array name="weekdays_all" translatable="false">
+        <item>@string/all_week</item>
+        <item>@string/monday</item>
+        <item>@string/tuesday</item>
+        <item>@string/wednesday</item>
+        <item>@string/thursday</item>
+        <item>@string/friday</item>
+        <item>@string/saturday</item>
+        <item>@string/sunday</item>
+        <item>@string/monday_till_friday</item>
+    </string-array>
+    <string-array name="hours_all" translatable="false">
+        <item>@string/all_day</item>
+        <item>@string/day_0</item>
+        <item>@string/day_1</item>
+        <item>@string/day_2</item>
+        <item>@string/day_3</item>
+        <item>@string/day_4</item>
+        <item>@string/day_5</item>
+        <item>@string/day_6</item>
+        <item>@string/day_7</item>
+        <item>@string/day_8</item>
+        <item>@string/day_9</item>
+        <item>@string/day_10</item>
+        <item>@string/day_11</item>
+        <item>@string/day_12</item>
+        <item>@string/day_13</item>
+        <item>@string/day_14</item>
+        <item>@string/day_15</item>
+        <item>@string/day_16</item>
+        <item>@string/day_17</item>
+        <item>@string/day_18</item>
+        <item>@string/day_19</item>
+        <item>@string/day_20</item>
+        <item>@string/day_21</item>
+        <item>@string/day_22</item>
+        <item>@string/day_23</item>
+    </string-array>
+    <string-array name="themes" translatable="false">
+        <item>@string/theme_black</item>
+        <item>@string/theme_light</item>
+    </string-array>
+    <string-array name="dialog_edit_plan" translatable="false">
+        <item>@string/edit_plan_</item>
+        <item>@string/view_logs_</item>
+    </string-array>
+    <string-array name="dialog_delete" translatable="false">
+        <item>@string/delete_</item>
+    </string-array>
+    <string-array name="dialog_edit_delete" translatable="false">
+        <item>@string/edit_</item>
+        <item>@string/delete_</item>
+    </string-array>
+    <string-array name="plans_type_id" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="plans_type" translatable="false">
+        <item>@string/title</item>
+        <item>@string/spacer</item>
+        <item>@string/billperiodid_</item>
+        <item>@string/mixed</item>
+        <item>@string/calls</item>
+        <item>@string/sms</item>
+        <item>@string/mms</item>
+        <item>@string/data</item>
+    </string-array>
+    <string-array name="rules_type_id" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="rules_type" translatable="false">
+        <item>@string/calls</item>
+        <item>@string/sms</item>
+        <item>@string/mms</item>
+        <item>@string/data</item>
+    </string-array>
+    <string-array name="limit_type_id" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="limit_type" translatable="false">
+        <item>@string/limit_type_unlimited</item>
+        <item>@string/limit_type_units</item>
+        <item>@string/limit_type_cost</item>
+    </string-array>
+    <string-array name="billperiod_id" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+    </string-array>
+    <string-array name="billperiod" translatable="false">
+        <item>@string/x1_day</item>
+        <item>@string/x1_week</item>
+        <item>@string/x14_day</item>
+        <item>@string/x15_day</item>
+        <item>@string/x30_day</item>
+        <item>@string/x31_day</item>
+        <item>@string/x60_day</item>
+        <item>@string/x90_day</item>
+        <item>@string/x1_month</item>
+        <item>@string/x1_month_1_day</item>
+        <item>@string/x2_month</item>
+        <item>@string/x3_month</item>
+        <item>@string/x4_month</item>
+        <item>@string/x5_month</item>
+        <item>@string/x6_month</item>
+        <item>@string/x1_year</item>
+        <item>@string/infinite</item>
+    </string-array>
+    <string-array name="billmodes" translatable="false">
+        <item>1/1</item>
+        <item>6/6</item>
+        <item>10/10</item>
+        <item>30/1</item>
+        <item>30/6</item>
+        <item>30/10</item>
+        <item>30/30</item>
+        <item>30/60</item>
+        <item>45/1</item>
+        <item>60/0</item>
+        <item>60/1</item>
+        <item>60/6</item>
+        <item>60/10</item>
+        <item>60/15</item>
+        <item>60/30</item>
+        <item>60/60</item>
+        <item>@string/custom</item>
+    </string-array>
+    <string-array name="direction_calls" translatable="false">
+        <item>@string/direction_calls_in</item>
+        <item>@string/direction_calls_out</item>
+    </string-array>
+    <string-array name="direction_sms" translatable="false">
+        <item>@string/direction_sms_in</item>
+        <item>@string/direction_sms_out</item>
+    </string-array>
+    <string-array name="direction_mms" translatable="false">
+        <item>@string/direction_mms_in</item>
+        <item>@string/direction_mms_out</item>
+    </string-array>
+    <string-array name="direction_data" translatable="false">
+        <item>@string/direction_data_in</item>
+        <item>@string/direction_data_out</item>
+    </string-array>
+    <string-array name="currency_formats" translatable="false">
+        <item>@string/default_</item>
+        <item>@string/currency_formats_1</item>
+        <item>@string/currency_formats_2</item>
+        <item>@string/currency_formats_3</item>
+        <item>@string/currency_formats_4</item>
+    </string-array>
+    <string-array name="date_formats" translatable="false">
+        <item>@string/default_</item>
+        <item>@string/date_formats_1</item>
+        <item>@string/date_formats_2</item>
+        <item>@string/date_formats_3</item>
+    </string-array>
+    <string-array name="update_interval" translatable="false">
+        <item>@string/x5_minute</item>
+        <item>@string/x10_minute</item>
+        <item>@string/x15_minute</item>
+        <item>@string/x30_minute</item>
+        <item>@string/x1_hour</item>
+        <item>@string/x2_hour</item>
+        <item>@string/manually_only</item>
+    </string-array>
+    <string-array name="update_interval_data" translatable="false">
+        <item>@string/x05_minute</item>
+        <item>@string/x1_minute</item>
+        <item>@string/x2_minute</item>
+        <item>@string/x5_minute</item>
+        <item>@string/x15_minute</item>
+        <item>@string/x30_minute</item>
+        <item>@string/x1_hour</item>
+        <item>@string/manually_only</item>
+    </string-array>
+
+</resources>
