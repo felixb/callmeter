@@ -197,6 +197,20 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
                 } else {
                     i = c.getInt(DataProvider.Plans.INDEX_BILLPERIOD_ID);
                 }
+                if (i == -1) {
+                    // get first bill period
+                    Cursor cursor = getContentResolver().query(DataProvider.Plans.CONTENT_URI,
+                            new String[]{DataProvider.Plans.ID},
+                            DataProvider.Plans.TYPE + "=" + DataProvider.TYPE_BILLPERIOD, null,
+                            null);
+                    if (cursor != null) {
+                        if (cursor.moveToFirst()) {
+                            i = cursor.getInt(0);
+                            values.put(DataProvider.Plans.BILLPERIOD_ID, i);
+                        }
+                        cursor.close();
+                    }
+                }
                 lp.setValue(String.valueOf(i));
                 ps.addPreference(lp);
                 if (ppid < 0L) {
