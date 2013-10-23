@@ -117,7 +117,7 @@ public final class NumberGroupEdit extends SherlockPreferenceActivity implements
                 ps.addPreference(p);
 
                 if (number != null && !number.contains("%")) {
-                    String name = CWRAPPER.getNameForNumber(this.getContentResolver(), number);
+                    String name = CWRAPPER.getNameForNumber(getContentResolver(), number);
                     if (!TextUtils.isEmpty(name)) {
                         p.setSummary(name);
                     }
@@ -150,7 +150,7 @@ public final class NumberGroupEdit extends SherlockPreferenceActivity implements
             return;
         }
         // get number for uri
-        String number = CWRAPPER.getNumber(this.getContentResolver(), data.getData());
+        String number = CWRAPPER.getNumber(getContentResolver(), data.getData());
         if (number == null) {
             number = "???";
         }
@@ -305,7 +305,7 @@ public final class NumberGroupEdit extends SherlockPreferenceActivity implements
         final Builder builder = new Builder(this);
         final EditText et = new EditText(this);
         if (nid >= 0) {
-            et.setText(this.getNumber(nid));
+            et.setText(getNumber(nid));
         }
         builder.setView(et);
         builder.setTitle(R.string.add_number);

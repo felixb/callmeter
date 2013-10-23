@@ -138,7 +138,7 @@ public final class StatsAppWidgetConfigure extends SherlockActivity implements O
         final Cursor c = getContentResolver().query(DataProvider.Plans.CONTENT_URI,
                 PROJ_ADAPTER, DataProvider.Plans.WHERE_PLANS, null, DataProvider.Plans.NAME);
         String[] fieldName;
-        if (this.cbShowShortname.isChecked()) {
+        if (cbShowShortname.isChecked()) {
             fieldName = new String[]{DataProvider.Plans.SHORTNAME};
         } else {
             fieldName = new String[]{DataProvider.Plans.NAME};
@@ -194,10 +194,10 @@ public final class StatsAppWidgetConfigure extends SherlockActivity implements O
                 editor.putBoolean(StatsAppWidgetProvider.WIDGET_SMALL + mAppWidgetId,
                         cbSmallWidget.isChecked());
                 editor.putFloat(StatsAppWidgetProvider.WIDGET_STATS_TEXTSIZE + mAppWidgetId,
-                        Utils.parseFloat(this.etStatsTextSize.getText().toString(),
+                        Utils.parseFloat(etStatsTextSize.getText().toString(),
                                 DEFAULT_TEXTSIZE));
                 editor.putFloat(StatsAppWidgetProvider.WIDGET_PLAN_TEXTSIZE + mAppWidgetId,
-                        Utils.parseFloat(this.etPlanTextSize.getText().toString(),
+                        Utils.parseFloat(etPlanTextSize.getText().toString(),
                                 DEFAULT_TEXTSIZE));
                 editor.putInt(StatsAppWidgetProvider.WIDGET_TEXTCOLOR + mAppWidgetId,
                         getTextColor());
@@ -352,7 +352,7 @@ public final class StatsAppWidgetConfigure extends SherlockActivity implements O
      */
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        if (this.isExistingWidget) {
+        if (isExistingWidget) {
             getSupportMenuInflater().inflate(R.menu.menu_widget, menu);
             return true;
         } else {
@@ -379,7 +379,7 @@ public final class StatsAppWidgetConfigure extends SherlockActivity implements O
      * @return color
      */
     private int getBgColor() {
-        return Long.decode(this.btnBgColor.getText().toString()).intValue();
+        return Long.decode(btnBgColor.getText().toString()).intValue();
     }
 
     /**
@@ -415,7 +415,7 @@ public final class StatsAppWidgetConfigure extends SherlockActivity implements O
      * @return color
      */
     private int getTextColor() {
-        return Long.decode(this.btnTextColor.getText().toString()).intValue();
+        return Long.decode(btnTextColor.getText().toString()).intValue();
     }
 
     /**

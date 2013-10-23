@@ -64,7 +64,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 
         addPreferencesFromResource(R.xml.group_prefs);
         uri = getIntent().getData();
-        pid = (int) ContentUris.parseId(this.uri);
+        pid = (int) ContentUris.parseId(uri);
     }
 
     @Override
@@ -83,7 +83,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
         PreferenceScreen ps = (PreferenceScreen) findPreference("container");
         ps.removeAll();
 
-        Cursor c = getContentResolver().query(this.uri, DataProvider.Plans.PROJECTION, null,
+        Cursor c = getContentResolver().query(uri, DataProvider.Plans.PROJECTION, null,
                 null, null);
         if (c.moveToFirst()) {
             int t;
@@ -100,7 +100,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
             } else {
                 lt = c.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
             }
-            int ppid = DataProvider.Plans.getParent(this.getContentResolver(), pid);
+            int ppid = DataProvider.Plans.getParent(getContentResolver(), pid);
             String merged = c.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
             if (merged != null && merged.replaceAll(",", "").length() == 0) {
                 merged = null;
@@ -225,7 +225,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
                     ep = new CVEditTextPreference(this, values, DataProvider.Plans.LIMIT, "");
                     ep.setTitle(R.string.limit_);
                     ep.setSummary(R.string.limit_help);
-                    ep.setHint(this.getLimitHint(t, lt));
+                    ep.setHint(getLimitHint(t, lt));
                     ep.setText(c.getString(DataProvider.Plans.INDEX_LIMIT));
                     ep.setInputType(InputType.TYPE_CLASS_NUMBER
                             | InputType.TYPE_NUMBER_FLAG_DECIMAL);
@@ -289,7 +289,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
                     ep.setTitle(R.string.cost_per_item_in_limit_);
                     ep.setSummary(R.string.cost_per_item_in_limit_help);
                     ep.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_ITEM_IN_LIMIT));
-                    ep.setHint(this.getCostPerItemHint(t));
+                    ep.setHint(getCostPerItemHint(t));
                     ep.setInputType(InputType.TYPE_CLASS_NUMBER
                             | InputType.TYPE_NUMBER_FLAG_DECIMAL);
                     ps.addPreference(ep);
@@ -304,7 +304,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
                     ep.setSummary(R.string.cost_per_item_help);
                 }
                 ep.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_ITEM));
-                ep.setHint(this.getCostPerItemHint(t));
+                ep.setHint(getCostPerItemHint(t));
                 ep.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
                 ps.addPreference(ep);
             }
@@ -355,7 +355,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
                     } else {
                         ep2.setSummary(R.string.cost_per_amount_in_limit_help1);
                     }
-                    ep2.setHint(this.getCostPerAmountHint(t));
+                    ep2.setHint(getCostPerAmountHint(t));
                     ep2.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT_IN_LIMIT1),
                             c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT_IN_LIMIT2));
                     ep2.setInputType(InputType.TYPE_CLASS_NUMBER
@@ -380,7 +380,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
                         ep2.setSummary(R.string.cost_per_amount_help1);
                     }
                 }
-                ep2.setHint(this.getCostPerAmountHint(t));
+                ep2.setHint(getCostPerAmountHint(t));
                 ep2.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT1),
                         c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT2));
                 ep2.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
@@ -388,8 +388,8 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
             }
         }
         c.close();
-        if (this.values.size() > 0) {
-            getContentResolver().update(this.uri, values, null, null);
+        if (values.size() > 0) {
+            getContentResolver().update(uri, values, null, null);
             values.clear();
         }
     }
@@ -485,7 +485,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
     @Override
     public void onUpdateValue(final android.preference.Preference p) {
         int l = values.size();
-        if (this.uri != null && l > 0) {
+        if (uri != null && l > 0) {
             boolean badkey = !this.values.containsKey(DataProvider.Plans.NAME);
             badkey &= !this.values.containsKey(DataProvider.Plans.SHORTNAME);
             boolean needUnmatch = l > 1 || badkey;
@@ -493,7 +493,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
             badkey &= !this.values.containsKey(DataProvider.Plans.COST_PER_ITEM);
             badkey &= !this.values.containsKey(DataProvider.Plans.COST_PER_AMOUNT1);
             boolean nonDefault = l > 1 || badkey;
-            getContentResolver().update(this.uri, values, null, null);
+            getContentResolver().update(uri, values, null, null);
             values.clear();
             if (nonDefault) {
                 Preferences.setDefaultPlan(this, false);

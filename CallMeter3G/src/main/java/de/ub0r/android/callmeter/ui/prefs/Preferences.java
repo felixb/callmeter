@@ -449,7 +449,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
         if (p != null) {
             p.setOnPreferenceClickListener(this);
         }
-        onNewIntent(this.getIntent());
+        onNewIntent(getIntent());
     }
 
     /**
@@ -532,7 +532,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
         Log.d(TAG, "importData(ctx, " + uri + ")");
         final ProgressDialog d1 = new ProgressDialog(this);
         d1.setCancelable(true);
-        d1.setMessage(this.getString(R.string.import_progr));
+        d1.setMessage(getString(R.string.import_progr));
         d1.setIndeterminate(true);
         d1.show();
 

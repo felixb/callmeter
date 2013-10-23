@@ -102,7 +102,7 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 
         final Intent intent = getIntent();
         id = intent.getLongExtra(EXTRA_ID, -1L);
-        if (this.id < 0L) {
+        if (id < 0L) {
             Log.e(TAG, "no id:" + id);
             finish();
             return;
@@ -149,7 +149,7 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
             p.edit().putInt(Preferences.PREFS_ASK_FOR_PLAN_DEFAULT, defaultPlanId).commit();
         }
         for (i = 0; i < MAX_PLANS; i++) {
-            if (this.planIds[i] == defaultPlanId) {
+            if (planIds[i] == defaultPlanId) {
                 final int bid = PLAN_BTNS[i];
                 Log.d(TAG, "request focus: " + bid);
                 final Button v = (Button) d.findViewById(bid);
@@ -166,7 +166,7 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
 
                 @Override
                 protected Void doInBackground(final Void... params) {
-                    while (this.count > 0) {
+                    while (count > 0) {
                         try {
                             Thread.sleep(CallMeter.MILLIS);
                         } catch (InterruptedException e) {
@@ -214,7 +214,7 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
     @Override
     protected void onPause() {
         super.onPause();
-        if (this.timeoutTask != null) {
+        if (timeoutTask != null) {
             timeoutTask.cancel(true);
         }
     }
@@ -235,8 +235,8 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
                     if (vid == PLAN_BTNS[i]) {
                         final int pid = planIds[i];
                         Log.d(TAG, "setPlan(" + pid + ")");
-                        RuleMatcher.matchLog(this.getContentResolver(), id, pid);
-                        if (this.cbSetDefault.isChecked()) {
+                        RuleMatcher.matchLog(getContentResolver(), id, pid);
+                        if (cbSetDefault.isChecked()) {
                             final Editor e = PreferenceManager.getDefaultSharedPreferences(this)
                                     .edit();
                             e.putInt(Preferences.PREFS_ASK_FOR_PLAN_DEFAULT, pid);

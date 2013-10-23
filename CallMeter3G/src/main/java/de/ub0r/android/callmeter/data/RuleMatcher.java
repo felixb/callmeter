@@ -455,7 +455,7 @@ public final class RuleMatcher {
             Log.d(TAG, "type: " + t);
             boolean ret = false;
 
-            if (this.roamed == 0 || roamed == 1) {
+            if (roamed == 0 || roamed == 1) {
                 // rule.roamed=0: yes
                 // rule.roamed=1: no
                 // log.roamed=0: not roamed
@@ -467,7 +467,7 @@ public final class RuleMatcher {
                 }
             }
 
-            if (this.direction >= 0 && direction != DataProvider.Rules.NO_MATTER) {
+            if (direction >= 0 && direction != DataProvider.Rules.NO_MATTER) {
                 ret = log.getInt(DataProvider.Logs.INDEX_DIRECTION) == direction;
                 Log.d(TAG, "ret after direction: " + ret);
                 if (!ret) {
@@ -475,14 +475,14 @@ public final class RuleMatcher {
                 }
             }
 
-            switch (this.what) {
+            switch (what) {
                 case DataProvider.Rules.WHAT_CALL:
                     ret = (t == DataProvider.TYPE_CALL);
                     if (ret && issipcall != DataProvider.Rules.NO_MATTER) {
                         final long d = log.getLong(DataProvider.Logs.INDEX_DATE);
                         Log.d(TAG, "match sipcall: " + issipcall);
                         S1[0] = String.valueOf(d);
-                        if (this.issipcall == 1) {
+                        if (issipcall == 1) {
                             // match no sipcall
                             final Cursor c = cr.query(DataProvider.SipCall.CONTENT_URI,
                                     DataProvider.SipCall.PROJECTION,
@@ -518,7 +518,7 @@ public final class RuleMatcher {
                         final long d = log.getLong(DataProvider.Logs.INDEX_DATE);
                         Log.d(TAG, "match websms: " + iswebsms);
                         S1[0] = String.valueOf(d);
-                        if (this.iswebsms == 1) {
+                        if (iswebsms == 1) {
                             // match no websms
                             final Cursor c = cr.query(DataProvider.WebSMS.CONTENT_URI,
                                     DataProvider.WebSMS.PROJECTION,
@@ -551,8 +551,8 @@ public final class RuleMatcher {
             if (!ret) {
                 return false;
             }
-            if (this.limitNotReached) {
-                final Plan p = plans.get(this.planId);
+            if (limitNotReached) {
+                final Plan p = plans.get(planId);
                 if (p != null) {
                     p.checkBillday(log);
                     ret = p.getRemainingLimit() > 0f;
@@ -566,7 +566,7 @@ public final class RuleMatcher {
                 return false;
             }
 
-            if (this.myNumber != null) {
+            if (myNumber != null) {
                 // FIXME: do equals?
                 ret = myNumber.equals(log.getString(DataProvider.Logs.INDEX_MYNUMBER));
                 Log.d(TAG, "ret after mynumber: " + ret);
@@ -575,7 +575,7 @@ public final class RuleMatcher {
                 }
             }
 
-            if (this.inhours != null) {
+            if (inhours != null) {
                 final int l = inhours.length;
                 ret = false;
                 for (int i = 0; i < l; i++) {
@@ -589,7 +589,7 @@ public final class RuleMatcher {
             if (!ret) {
                 return false;
             }
-            if (this.exhours != null) {
+            if (exhours != null) {
                 final int l = exhours.length;
                 for (int i = 0; i < l; i++) {
                     ret = !this.exhours[i].match(log);
@@ -602,7 +602,7 @@ public final class RuleMatcher {
             if (!ret) {
                 return false;
             }
-            if (this.innumbers != null) {
+            if (innumbers != null) {
                 final int l = innumbers.length;
                 ret = false;
                 for (int i = 0; i < l; i++) {
@@ -616,7 +616,7 @@ public final class RuleMatcher {
             if (!ret) {
                 return false;
             }
-            if (this.exnumbers != null) {
+            if (exnumbers != null) {
                 final int l = exnumbers.length;
                 for (int i = 0; i < l; i++) {
                     ret = !this.exnumbers[i].match(log);
@@ -698,9 +698,9 @@ public final class RuleMatcher {
             name = cursor.getString(DataProvider.Plans.INDEX_NAME);
             type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
             limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
-            final long l = DataProvider.Plans.getLimit(this.type, limitType,
+            final long l = DataProvider.Plans.getLimit(type, limitType,
                     cursor.getFloat(DataProvider.Plans.INDEX_LIMIT));
-            if (this.limitType == DataProvider.LIMIT_TYPE_UNITS
+            if (limitType == DataProvider.LIMIT_TYPE_UNITS
                     && type == DataProvider.TYPE_DATA) {
                 // normality amount is saved as kB, here it is B
                 limit = l * CallMeter.BYTE_KB;
@@ -794,22 +794,22 @@ public final class RuleMatcher {
          */
         void checkBillday(final Cursor log) {
             // skip for infinite bill periods
-            if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
+            if (billperiod == DataProvider.BILLPERIOD_INFINITE) {
                 return;
             }
 
             // check whether date is in current bill period
             final long d = log.getLong(DataProvider.Logs.INDEX_DATE);
-            if (this.currentBillday == null || nextBillday < d
+            if (currentBillday == null || nextBillday < d
                     || d < currentBillday.getTimeInMillis()) {
                 final Calendar now = Calendar.getInstance();
                 now.setTimeInMillis(d);
-                currentBillday = DataProvider.Plans.getBillDay(this.billperiod, billday,
+                currentBillday = DataProvider.Plans.getBillDay(billperiod, billday,
                         now, false);
-                if (this.currentBillday == null) {
+                if (currentBillday == null) {
                     return;
                 }
-                final Calendar nbd = DataProvider.Plans.getBillDay(this.billperiod, billday,
+                final Calendar nbd = DataProvider.Plans.getBillDay(billperiod, billday,
                         now, true);
                 if (nbd == null) {
                     return;
@@ -827,7 +827,7 @@ public final class RuleMatcher {
                     billedCost = plan.cost;
                 }
             }
-            if (this.parent != null) {
+            if (parent != null) {
                 parent.checkBillday(log);
             }
         }
@@ -837,12 +837,12 @@ public final class RuleMatcher {
          */
         float getRemainingLimit() {
             Log.d(TAG, "getRemainingLimit(): " + id);
-            if (this.parent != null && limitType == DataProvider.LIMIT_TYPE_NONE) {
+            if (parent != null && limitType == DataProvider.LIMIT_TYPE_NONE) {
                 Log.d(TAG, "check parent");
                 return parent.getRemainingLimit();
             } else {
                 Log.d(TAG, "ltype: " + limitType);
-                switch (this.limitType) {
+                switch (limitType) {
                     case DataProvider.LIMIT_TYPE_COST:
                         Log.d(TAG, "bc<lt " + billedCost * CallMeter.HUNDRET + "<" + limit);
                         return limit - billedCost * CallMeter.HUNDRET;
@@ -894,7 +894,7 @@ public final class RuleMatcher {
             billedCost += cost;
             final Plan pp = parent;
             if (pp != null) {
-                if (this.type != DataProvider.TYPE_MIXED && pp.type == DataProvider.TYPE_MIXED) {
+                if (type != DataProvider.TYPE_MIXED && pp.type == DataProvider.TYPE_MIXED) {
                     switch (t) {
                         case DataProvider.TYPE_CALL:
                             pp.billedAmount += amount * pp.upc / CallMeter.SECONDS_MINUTE;
@@ -928,13 +928,13 @@ public final class RuleMatcher {
             switch (t) {
                 case DataProvider.TYPE_CALL:
                     ret = roundTime(amount);
-                    if (this.stripSeconds > 0) {
+                    if (stripSeconds > 0) {
                         ret -= stripSeconds;
                         if (ret < 0f) {
                             ret = 0f;
                         }
                     }
-                    if (this.stripPast > 0 && ret > stripPast) {
+                    if (stripPast > 0 && ret > stripPast) {
                         ret = stripPast;
                     }
                     break;
@@ -943,7 +943,7 @@ public final class RuleMatcher {
                     break;
             }
 
-            if (this.type == DataProvider.TYPE_MIXED) {
+            if (type == DataProvider.TYPE_MIXED) {
                 switch (t) {
                     case DataProvider.TYPE_CALL:
                         ret = ret * upc / CallMeter.SECONDS_MINUTE;
@@ -979,7 +979,7 @@ public final class RuleMatcher {
             float as1; // split amount: after limit
             Plan p;
             float f = 1; // factor for mixed plans with limits merging this plan
-            if (this.parent != null && limitType == DataProvider.LIMIT_TYPE_NONE) {
+            if (parent != null && limitType == DataProvider.LIMIT_TYPE_NONE) {
                 p = parent;
                 if (pt != DataProvider.TYPE_MIXED && p.type == DataProvider.TYPE_MIXED) {
                     f = 1f / p.getUP(t);
@@ -1046,7 +1046,7 @@ public final class RuleMatcher {
                         ret += as1 * costPerAmount2 / CallMeter.SECONDS_MINUTE;
                     } else { // as0 < billModeFirstLength && as0 > 0 && as1 > 0
                         ret += as0 * costPerAmountInLimit1 / CallMeter.SECONDS_MINUTE;
-                        ret += (this.billModeFirstLength - as0) * costPerAmount1
+                        ret += (billModeFirstLength - as0) * costPerAmount1
                                 / CallMeter.SECONDS_MINUTE;
                         ret += costPerAmount2 * (bAmount - billModeFirstLength)
                                 / CallMeter.SECONDS_MINUTE;
@@ -1070,8 +1070,8 @@ public final class RuleMatcher {
          * @return free cost
          */
         float getFree(final Cursor log, final float cost) {
-            if (this.limitType != DataProvider.LIMIT_TYPE_COST) {
-                if (this.parent != null) {
+            if (limitType != DataProvider.LIMIT_TYPE_COST) {
+                if (parent != null) {
                     return parent.getFree(log, cost);
                 }
                 return 0f;

@@ -596,7 +596,7 @@ public final class DataProvider extends ContentProvider {
                 name = cursor.getString(INDEX_NAME);
                 sname = cursor.getString(INDEX_SHORTNAME);
                 billperiod = cursor.getInt(INDEX_BILLPERIOD);
-                if (this.type == TYPE_SPACING || type == TYPE_TITLE) {
+                if (type == TYPE_SPACING || type == TYPE_TITLE) {
                     billday = -1;
                     nextbillday = -1;
                     limittype = -1;
@@ -626,28 +626,28 @@ public final class DataProvider extends ContentProvider {
                     billday = cursor.getLong(INDEX_SUM_BILLDAY);
                     nextbillday = cursor.getLong(INDEX_SUM_NEXTBILLDAY);
                     cpp = cursor.getFloat(INDEX_SUM_CPP);
-                    if (this.type == TYPE_BILLPERIOD) {
+                    if (type == TYPE_BILLPERIOD) {
                         limittype = -1;
                         hasBa = true;
-                        if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
+                        if (billperiod == DataProvider.BILLPERIOD_INFINITE) {
                             limitPos = 0;
                             limit = 0;
                         } else {
-                            limit = (this.nextbillday - billday)
+                            limit = (nextbillday - billday)
                                     / Utils.MINUTES_IN_MILLIS;
-                            if (this.nextbillday - now == 1) {
+                            if (nextbillday - now == 1) {
                                 // fix issue: #661, skip last millisecond to
                                 // show 100% of billing period usage
                                 limitPos = limit;
                             } else {
-                                limitPos = (this.now - billday) / Utils.MINUTES_IN_MILLIS;
+                                limitPos = (now - billday) / Utils.MINUTES_IN_MILLIS;
                             }
                         }
                     } else {
                         limittype = cursor.getInt(INDEX_LIMIT_TYPE);
-                        limit = getLimit(this.type, limittype,
+                        limit = getLimit(type, limittype,
                                 cursor.getFloat(INDEX_LIMIT));
-                        limitPos = getUsed(this.type, limittype, bpBa, cost);
+                        limitPos = getUsed(type, limittype, bpBa, cost);
                         hasBa = type != TYPE_MIXED
                                 || cursor.getInt(INDEX_SUM_MIXED_UNITS_CALL) != 0
                                 || cursor.getInt(INDEX_SUM_MIXED_UNITS_DATA) != 0
@@ -655,7 +655,7 @@ public final class DataProvider extends ContentProvider {
                                 || cursor.getInt(INDEX_SUM_MIXED_UNITS_SMS) != 0;
                     }
                 }
-                if (this.limitPos <= 0) {
+                if (limitPos <= 0) {
                     usage = 0;
                 } else {
                     usage = (float) limitPos / (float) limit;
@@ -685,7 +685,7 @@ public final class DataProvider extends ContentProvider {
                 name = cursor.getString(INDEX_NAME);
                 sname = cursor.getString(INDEX_SHORTNAME);
                 billperiod = cursor.getInt(INDEX_BILLPERIOD);
-                if (this.type == TYPE_SPACING || type == TYPE_TITLE) {
+                if (type == TYPE_SPACING || type == TYPE_TITLE) {
                     billday = -1;
                     nextbillday = -1;
                     limittype = -1;
@@ -716,28 +716,28 @@ public final class DataProvider extends ContentProvider {
                     nextbillday = p.getLong(PREF_PREFIX + SUM_NEXTBILLDAY + id, 0L);
                     cpp = p.getFloat(PREF_PREFIX + SUM_CPP + id, 0f);
 
-                    if (this.type == TYPE_BILLPERIOD) {
+                    if (type == TYPE_BILLPERIOD) {
                         limittype = -1;
                         hasBa = true;
-                        if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
+                        if (billperiod == DataProvider.BILLPERIOD_INFINITE) {
                             limitPos = 0;
                             limit = 0;
                         } else {
-                            limit = (this.nextbillday - billday)
+                            limit = (nextbillday - billday)
                                     / Utils.MINUTES_IN_MILLIS;
-                            if (this.nextbillday - now == 1) {
+                            if (nextbillday - now == 1) {
                                 // fix issue: #661, skip last millisecond to
                                 // show 100% of billing period usage
                                 limitPos = limit;
                             } else {
-                                limitPos = (this.now - billday) / Utils.MINUTES_IN_MILLIS;
+                                limitPos = (now - billday) / Utils.MINUTES_IN_MILLIS;
                             }
                         }
                     } else {
                         limittype = cursor.getInt(INDEX_LIMIT_TYPE);
-                        limit = getLimit(this.type, limittype,
+                        limit = getLimit(type, limittype,
                                 cursor.getFloat(INDEX_LIMIT));
-                        limitPos = getUsed(this.type, limittype, bpBa, cost);
+                        limitPos = getUsed(type, limittype, bpBa, cost);
                         hasBa = type != TYPE_MIXED
                                 || cursor.getInt(INDEX_BASIC_MIXED_UNITS_CALL) != 0
                                 || cursor.getInt(INDEX_BASIC_MIXED_UNITS_DATA) != 0
@@ -745,7 +745,7 @@ public final class DataProvider extends ContentProvider {
                                 || cursor.getInt(INDEX_BASIC_MIXED_UNITS_SMS) != 0;
                     }
                 }
-                if (this.limitPos <= 0) {
+                if (limitPos <= 0) {
                     usage = 0;
                 } else {
                     usage = (float) limitPos / (float) limit;
@@ -833,7 +833,7 @@ public final class DataProvider extends ContentProvider {
              */
             public long getLastFullBillDay() {
                 Calendar c = Calendar.getInstance();
-                c.setTimeInMillis(this.nextbillday);
+                c.setTimeInMillis(nextbillday);
                 c.set(Calendar.MILLISECOND, 0);
                 c.set(Calendar.SECOND, 0);
                 c.set(Calendar.MINUTE, 0);
@@ -873,7 +873,7 @@ public final class DataProvider extends ContentProvider {
                 if (blength <= 0L) {
                     return -1f;
                 }
-                return ((float) (this.now - billday)) / (float) blength;
+                return ((float) (now - billday)) / (float) blength;
             }
 
             /**
@@ -891,7 +891,7 @@ public final class DataProvider extends ContentProvider {
              * @return balance - cost for bill periods; else cost + cpp
              */
             public float getAccumCostPrepaid() {
-                if (this.type == TYPE_BILLPERIOD) {
+                if (type == TYPE_BILLPERIOD) {
                     return cpp - cost;
                 } else {
                     return cost + cpp;
@@ -1456,7 +1456,7 @@ public final class DataProvider extends ContentProvider {
             int f; // Calendar.FIELD
             int v; // amount
             /*
-			 * The values j and k are used to add a different type of period to
+             * The values j and k are used to add a different type of period to
 			 * the value, eg. you can have a period of one month and for each
 			 * month you can add one day so you would have the same day-number
 			 * as start and end of the period. (01.01.2012 - 01.02.2012,
@@ -2393,7 +2393,7 @@ public final class DataProvider extends ContentProvider {
             Hours.onCreate(db);
             HoursGroup.onCreate(db);
             // import default rule set
-            importDefault(this.ctx, db);
+            importDefault(ctx, db);
         }
 
         /**
@@ -2451,15 +2451,15 @@ public final class DataProvider extends ContentProvider {
                     break;
                 default:
                     try {
-                        Plans.onUpgrade(this.ctx, db);
-                        Rules.onUpgrade(this.ctx, db);
-                        Numbers.onUpgrade(this.ctx, db);
-                        NumbersGroup.onUpgrade(this.ctx, db);
-                        Hours.onUpgrade(this.ctx, db);
-                        HoursGroup.onUpgrade(this.ctx, db);
-                        WebSMS.onUpgrade(this.ctx, db);
-                        SipCall.onUpgrade(this.ctx, db);
-                        Logs.onUpgrade(this.ctx, db);
+                        Plans.onUpgrade(ctx, db);
+                        Rules.onUpgrade(ctx, db);
+                        Numbers.onUpgrade(ctx, db);
+                        NumbersGroup.onUpgrade(ctx, db);
+                        Hours.onUpgrade(ctx, db);
+                        HoursGroup.onUpgrade(ctx, db);
+                        WebSMS.onUpgrade(ctx, db);
+                        SipCall.onUpgrade(ctx, db);
+                        Logs.onUpgrade(ctx, db);
                     } catch (IOException e) {
                         Log.e(TAG, "IOException on DB Upgrade!", e);
                         throw new IllegalStateException("IOException on DB Upgrade!", e);
@@ -2467,7 +2467,7 @@ public final class DataProvider extends ContentProvider {
                     break;
             }
 
-            if (this.needUnmatch(oldVersion, newVersion)) {
+            if (needUnmatch(oldVersion, newVersion)) {
                 unmatch(db);
             }
         }
@@ -3676,8 +3676,8 @@ public final class DataProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        mOpenHelper = new DatabaseHelper(this.getContext());
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this.getContext());
+        mOpenHelper = new DatabaseHelper(getContext());
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         return true;
     }
 
@@ -3685,7 +3685,7 @@ public final class DataProvider extends ContentProvider {
     public Cursor query(final Uri uri, final String[] projection, final String selection,
             final String[] selectionArgs, final String sortOrder) {
         Log.d(TAG, "query(" + uri + "," + selection + ")");
-        doBackup(this.getContext());
+        doBackup(getContext());
         long ct = SystemClock.elapsedRealtime();
         final SQLiteDatabase db = mOpenHelper.getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
@@ -3930,7 +3930,7 @@ public final class DataProvider extends ContentProvider {
 
         // Tell the cursor what uri to watch, so it knows when its source data
         // changes
-        c.setNotificationUri(this.getContext().getContentResolver(), uri);
+        c.setNotificationUri(getContext().getContentResolver(), uri);
         Log.d(TAG, "query(" + uri + "," + selection + "): " + c.getCount(), ct);
         return c;
     }
@@ -4024,11 +4024,11 @@ public final class DataProvider extends ContentProvider {
      * Wait for doBackup() to finish it's work.
      */
     private void waitForBackup() {
-        while (this.mInBackup) {
+        while (mInBackup) {
             Log.i(TAG, "wait for backup to finish");
-            synchronized (this.mBackupSync) {
+            synchronized (mBackupSync) {
                 Log.i(TAG, "backup finished. continue the work..");
-                if (this.mInBackup) {
+                if (mInBackup) {
                     throw new IllegalStateException("mInBackup should be false");
                 }
             }
@@ -4048,7 +4048,7 @@ public final class DataProvider extends ContentProvider {
             return;
         }
         Log.i(TAG, "doBackup()");
-        synchronized (this.mBackupSync) {
+        synchronized (mBackupSync) {
             if (!this.needBackup()) {
                 // check again: somebody did a backup just now!?
                 Log.i(TAG, "skip backup()");

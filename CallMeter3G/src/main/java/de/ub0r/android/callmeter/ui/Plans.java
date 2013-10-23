@@ -156,17 +156,17 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
                     if (Plans.this.progressCount == 0) {
                         Plans.this.setProgress(1);
                     }
-                    if (this.statusMatcher == null
+                    if (statusMatcher == null
                             || (!this.statusMatcherProgress || statusMatcher.isShowing())) {
                         Log.d(TAG, "matcher progress: " + msg.arg1);
-                        if (this.statusMatcher == null || !this.statusMatcherProgress) {
+                        if (statusMatcher == null || !this.statusMatcherProgress) {
                             final ProgressDialog dold = statusMatcher;
                             statusMatcher = new ProgressDialog(Plans.this);
                             statusMatcher.setCancelable(true);
-                            if (this.recalc == null) {
+                            if (recalc == null) {
                                 recalc = Plans.this.getString(R.string.reset_data_progr2);
                             }
-                            statusMatcher.setMessage(this.recalc);
+                            statusMatcher.setMessage(recalc);
                             statusMatcher.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                             statusMatcher.setMax(msg.arg2);
                             statusMatcher.setIndeterminate(false);
@@ -179,7 +179,7 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
                         }
                         statusMatcher.setProgress(msg.arg1);
                     }
-                    if (this.recalc == null) {
+                    if (recalc == null) {
                         recalc = Plans.this.getString(R.string.reset_data_progr2);
                     }
                     Plans.this.getSupportActionBar().setSubtitle(
@@ -189,8 +189,8 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
                     break;
             }
 
-            if (this.inProgressRunner) {
-                if (this.statusMatcher == null
+            if (inProgressRunner) {
+                if (statusMatcher == null
                         || (msg.arg1 <= 0 && !this.statusMatcher.isShowing())) {
                     statusMatcher = new ProgressDialog(Plans.this);
                     statusMatcher.setCancelable(true);
@@ -200,7 +200,7 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
                     statusMatcher.show();
                 }
             } else {
-                if (this.statusMatcher != null && statusMatcher.isShowing()) {
+                if (statusMatcher != null && statusMatcher.isShowing()) {
                     try {
                         statusMatcher.dismiss();
                     } catch (IllegalArgumentException e) {
@@ -292,7 +292,7 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
                     list = null;
                     Log.d(TAG, "new PFA() sort start", ct);
                     int l = positions.length;
-                    Arrays.sort(this.positions, 0, l - 2);
+                    Arrays.sort(positions, 0, l - 2);
                     Log.d(TAG, "new PFA() sort end", ct);
 
                     Log.d(TAG, "new PFA() billdays start", ct);
@@ -381,8 +381,8 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
         @Override
         public CharSequence getPageTitle(final int position) {
             String ret;
-            if (this.titles[position] == null) {
-                ret = Common.formatDate(this.ctx, billDays[position]);
+            if (titles[position] == null) {
+                ret = Common.formatDate(ctx, billDays[position]);
                 titles[position] = ret;
             } else {
                 ret = titles[position];
@@ -409,7 +409,7 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.plans);
-        CallMeter.fixActionBarBackground(this.getSupportActionBar(), getResources(),
+        CallMeter.fixActionBarBackground(getSupportActionBar(), getResources(),
                 R.drawable.bg_striped, R.drawable.bg_striped_split);
         getSupportActionBar().setHomeButtonEnabled(true);
 
@@ -434,12 +434,12 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
         pager = (ViewPager) findViewById(R.id.pager);
 
         fadapter = new PlansFragmentAdapter(this, getSupportFragmentManager());
-        pager.setAdapter(this.fadapter);
+        pager.setAdapter(fadapter);
 
         TitlePageIndicator indicator = (TitlePageIndicator) findViewById(R.id.titles);
-        indicator.setViewPager(this.pager);
+        indicator.setViewPager(pager);
 
-        pager.setCurrentItem(this.fadapter.getHomeFragmentPos());
+        pager.setCurrentItem(fadapter.getHomeFragmentPos());
         indicator.setOnPageChangeListener(this);
     }
 
@@ -520,8 +520,8 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
                 showLogsFragment(-1L);
                 return true;
             case android.R.id.home:
-                pager.setCurrentItem(this.fadapter.getHomeFragmentPos(), true);
-                Fragment f = fadapter.getActiveFragment(this.pager,
+                pager.setCurrentItem(fadapter.getHomeFragmentPos(), true);
+                Fragment f = fadapter.getActiveFragment(pager,
                         fadapter.getLogsFragmentPos());
                 if (f != null && f instanceof LogsFragment) {
                     ((LogsFragment) f).setPlanId(-1L);
@@ -537,7 +537,7 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
      */
     public void showLogsFragment(final long planId) {
         int p = fadapter.getLogsFragmentPos();
-        Fragment f = fadapter.getActiveFragment(this.pager, p);
+        Fragment f = fadapter.getActiveFragment(pager, p);
         if (f != null && f instanceof LogsFragment) {
             ((LogsFragment) f).setPlanId(planId);
         }
@@ -562,13 +562,13 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
         Log.d(TAG, "onPageSelected(" + position + ")");
         if (position == fadapter.getLogsFragmentPos()) {
             findViewById(R.id.ad).setVisibility(View.GONE);
-            Fragment f = fadapter.getActiveFragment(this.pager,
+            Fragment f = fadapter.getActiveFragment(pager,
                     fadapter.getLogsFragmentPos());
             if (f != null && f instanceof LogsFragment) {
                 ((LogsFragment) f).setAdapter(false);
             }
         } else {
-            Fragment f = fadapter.getActiveFragment(this.pager, position);
+            Fragment f = fadapter.getActiveFragment(pager, position);
             if (f != null && f instanceof PlansFragment) {
                 ((PlansFragment) f).requery(false);
             }
@@ -595,13 +595,13 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
         Log.d(TAG, "setInProgress(" + add + ")");
         progressCount += add;
 
-        if (this.progressCount < 0) {
+        if (progressCount < 0) {
             Log.w(TAG, "this.progressCount: " + progressCount);
             progressCount = 0;
         }
 
         Log.d(TAG, "progressCount: " + progressCount);
-        if (this.progressCount == 0) {
+        if (progressCount == 0) {
             setSupportProgressBarIndeterminateVisibility(false);
         } else {
             setSupportProgressBarIndeterminateVisibility(true);

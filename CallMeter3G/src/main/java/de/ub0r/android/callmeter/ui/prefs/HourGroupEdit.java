@@ -117,7 +117,7 @@ public final class HourGroupEdit extends SherlockPreferenceActivity implements
                 p.setPersistent(false);
                 final int day = c.getInt(DataProvider.Hours.INDEX_DAY);
                 final int hour = c.getInt(DataProvider.Hours.INDEX_HOUR);
-                p.setTitle(this.resDays[day] + ": " + resHours[hour]);
+                p.setTitle(resDays[day] + ": " + resHours[hour]);
                 p.setKey("item_" + c.getInt(DataProvider.Hours.INDEX_ID));
                 p.setOnPreferenceClickListener(this);
                 ps.addPreference(p);

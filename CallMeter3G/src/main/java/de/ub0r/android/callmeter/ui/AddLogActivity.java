@@ -81,7 +81,7 @@ public final class AddLogActivity extends SherlockActivity implements OnClickLis
         Utils.setLocale(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logs_add);
-        CallMeter.fixActionBarBackground(this.getSupportActionBar(), getResources(),
+        CallMeter.fixActionBarBackground(getSupportActionBar(), getResources(),
                 R.drawable.bg_striped, R.drawable.bg_striped_split);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -163,7 +163,7 @@ public final class AddLogActivity extends SherlockActivity implements OnClickLis
             case R.id.item_add:
                 final int t = spType.getSelectedItemPosition();
                 final int d = spDirection.getSelectedItemPosition();
-                long l = Utils.parseLong(this.etLength.getText().toString(), 0L);
+                long l = Utils.parseLong(etLength.getText().toString(), 0L);
                 final String r = etRemote.getText().toString();
                 final boolean roamed = cbRoamed.isChecked();
                 final ContentValues cv = new ContentValues();

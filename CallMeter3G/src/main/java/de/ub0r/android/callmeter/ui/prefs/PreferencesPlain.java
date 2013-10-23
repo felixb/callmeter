@@ -262,7 +262,7 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
                     }
                     added = true;
                     p = new Preference(this);
-                    p.setTitle(this.getString(R.string.widget_) + " #" + id);
+                    p.setTitle(getString(R.string.widget_) + " #" + id);
                     final int fid = id;
                     p.setOnPreferenceClickListener(new OnPreferenceClickListener() {
                         @Override
@@ -286,7 +286,7 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
                     }
                     added = true;
                     p = new Preference(this);
-                    p.setTitle(this.getString(R.string.widget_) + " #" + id);
+                    p.setTitle(getString(R.string.widget_) + " #" + id);
                     final int fid = id;
                     p.setOnPreferenceClickListener(new OnPreferenceClickListener() {
                         @Override

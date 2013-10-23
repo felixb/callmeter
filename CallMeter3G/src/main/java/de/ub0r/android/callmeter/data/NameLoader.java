@@ -104,11 +104,11 @@ public class NameLoader extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(final String result) {
         if (result != null) {
-            NameCache.getInstance().put(this.num, result);
-            if (this.tv != null && !this.isCancelled()) {
+            NameCache.getInstance().put(num, result);
+            if (tv != null && !this.isCancelled()) {
                 String s = result;
-                if (this.f != null) {
-                    s = String.format(this.f, s);
+                if (f != null) {
+                    s = String.format(f, s);
                 }
                 tv.setText(s);
             }

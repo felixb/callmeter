@@ -179,10 +179,10 @@ public final class LogsAppWidgetConfigure extends SherlockActivity implements On
                 editor.putBoolean(LogsAppWidgetProvider.WIDGET_SMALL + mAppWidgetId,
                         cbSmallWidget.isChecked());
                 editor.putFloat(LogsAppWidgetProvider.WIDGET_STATS_TEXTSIZE + mAppWidgetId,
-                        Utils.parseFloat(this.etStatsTextSize.getText().toString(),
+                        Utils.parseFloat(etStatsTextSize.getText().toString(),
                                 DEFAULT_TEXTSIZE));
                 editor.putFloat(LogsAppWidgetProvider.WIDGET_PLAN_TEXTSIZE + mAppWidgetId,
-                        Utils.parseFloat(this.etPlanTextSize.getText().toString(),
+                        Utils.parseFloat(etPlanTextSize.getText().toString(),
                                 DEFAULT_TEXTSIZE));
                 editor.putInt(LogsAppWidgetProvider.WIDGET_TEXTCOLOR + mAppWidgetId,
                         getTextColor());
@@ -332,7 +332,7 @@ public final class LogsAppWidgetConfigure extends SherlockActivity implements On
      */
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        if (this.isExistingWidget) {
+        if (isExistingWidget) {
             getSupportMenuInflater().inflate(R.menu.menu_widget, menu);
             return true;
         } else {
@@ -359,7 +359,7 @@ public final class LogsAppWidgetConfigure extends SherlockActivity implements On
      * @return color
      */
     private int getBgColor() {
-        return Long.decode(this.btnBgColor.getText().toString()).intValue();
+        return Long.decode(btnBgColor.getText().toString()).intValue();
     }
 
     /**
@@ -390,7 +390,7 @@ public final class LogsAppWidgetConfigure extends SherlockActivity implements On
      * @return color
      */
     private int getTextColor() {
-        return Long.decode(this.btnTextColor.getText().toString()).intValue();
+        return Long.decode(btnTextColor.getText().toString()).intValue();
     }
 
     /**

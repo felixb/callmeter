@@ -79,8 +79,8 @@ public class CVEditTextPreference extends EditTextPreference {
     @Override
     public void setText(final String text) {
         if (TextUtils.isEmpty(text)) {
-            super.setText(this.dv);
-            if (!TextUtils.isEmpty(this.dv) && !"0".equals(this.dv) && ul != null) {
+            super.setText(dv);
+            if (!TextUtils.isEmpty(dv) && !"0".equals(dv) && ul != null) {
                 ul.onSetDefaultValue(this, getText().toString());
             }
         } else {
@@ -88,7 +88,7 @@ public class CVEditTextPreference extends EditTextPreference {
         }
         if (!this.sh) {
             String t = getText();
-            setSummary(this.getContext().getString(R.string.value) + ": "
+            setSummary(getContext().getString(R.string.value) + ": "
                     + (t == null ? "" : t.trim()));
         }
     }
@@ -125,8 +125,8 @@ public class CVEditTextPreference extends EditTextPreference {
     protected void onDialogClosed(final boolean positiveResult) {
         super.onDialogClosed(positiveResult);
         if (positiveResult) {
-            cv.put(this.getKey(), getText());
-            if (this.ul != null) {
+            cv.put(getKey(), getText());
+            if (ul != null) {
                 ul.onUpdateValue(this);
             }
         }

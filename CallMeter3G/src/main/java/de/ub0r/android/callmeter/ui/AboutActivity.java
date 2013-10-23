@@ -42,7 +42,7 @@ public final class AboutActivity extends SherlockActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.about);
-        setTitle(this.getString(R.string.about_) + " " + getString(R.string.app_name)
+        setTitle(getString(R.string.about_) + " " + getString(R.string.app_name)
                 + " v" + getString(R.string.app_version));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

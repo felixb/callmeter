@@ -94,7 +94,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
     private String[] getStrings(final int base) {
         switch (base) {
             case R.array.direction_calls:
-                if (this.inOutNomatterCalls == null) {
+                if (inOutNomatterCalls == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
@@ -104,7 +104,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
                 }
                 return inOutNomatterCalls;
             case R.array.direction_sms:
-                if (this.inOutNomatterSms == null) {
+                if (inOutNomatterSms == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
@@ -114,7 +114,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
                 }
                 return inOutNomatterSms;
             case R.array.direction_mms:
-                if (this.inOutNomatterMms == null) {
+                if (inOutNomatterMms == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
@@ -124,7 +124,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
                 }
                 return inOutNomatterMms;
             case R.array.direction_data:
-                if (this.inOutNomatterData == null) {
+                if (inOutNomatterData == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
@@ -134,7 +134,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
                 }
                 return inOutNomatterData;
             default:
-                if (this.yesNoNomatter == null) {
+                if (yesNoNomatter == null) {
                     final String[] tmp1 = new String[3];
                     tmp1[0] = getString(R.string.yes);
                     tmp1[1] = getString(R.string.no);
@@ -171,9 +171,9 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
         PreferenceScreen ps = (PreferenceScreen) findPreference("container");
         ps.removeAll();
 
-        boolean hasCallsSimId = LogRunnerService.checkCallsSimIdColumn(this.getContentResolver());
-        boolean hasSmsSimId = LogRunnerService.checkSmsSimIdColumn(this.getContentResolver());
-        Cursor c = getContentResolver().query(this.uri, DataProvider.Rules.PROJECTION, null,
+        boolean hasCallsSimId = LogRunnerService.checkCallsSimIdColumn(getContentResolver());
+        boolean hasSmsSimId = LogRunnerService.checkSmsSimIdColumn(getContentResolver());
+        Cursor c = getContentResolver().query(uri, DataProvider.Rules.PROJECTION, null,
                 null, null);
         if (c.moveToFirst()) {
             // name
@@ -234,7 +234,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
             lp.setStatic(
                     new String[]{String.valueOf(DataProvider.DIRECTION_IN),
                             String.valueOf(DataProvider.DIRECTION_OUT), "-1"},
-                    getStrings(this.getStringArray(t)));
+                    getStrings(getStringArray(t)));
             int i;
             if (c.isNull(DataProvider.Rules.INDEX_DIRECTION)) {
                 i = -1;
@@ -377,8 +377,8 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
             }
         }
         c.close();
-        if (this.values.size() > 0) {
-            getContentResolver().update(this.uri, values, null, null);
+        if (values.size() > 0) {
+            getContentResolver().update(uri, values, null, null);
             values.clear();
         }
     }
@@ -417,8 +417,8 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
 
     @Override
     public void onUpdateValue(final android.preference.Preference p) {
-        if (this.uri != null && values.size() > 0) {
-            getContentResolver().update(this.uri, values, null, null);
+        if (uri != null && values.size() > 0) {
+            getContentResolver().update(uri, values, null, null);
             values.clear();
             Preferences.setDefaultPlan(this, false);
             RuleMatcher.unmatch(this);

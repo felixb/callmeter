@@ -200,13 +200,13 @@ public abstract class Device {
      * @return device's interfaces
      */
     public final synchronized String[] getInterfaces() {
-        if (this.mInterfaces == null) {
+        if (mInterfaces == null) {
             List<String> tmp = new ArrayList<String>();
-            if (this.getCell() != null) {
-                tmp.add(this.getCell());
+            if (getCell() != null) {
+                tmp.add(getCell());
             }
-            if (this.getWiFi() != null) {
-                tmp.add(this.getWiFi());
+            if (getWiFi() != null) {
+                tmp.add(getWiFi());
             }
             mInterfaces = tmp.toArray(new String[tmp.size()]);
         }

@@ -88,7 +88,7 @@ public class PreferencesRules extends SherlockPreferenceActivity {
                 final String link = j.isNull("link") ? null : j.getString("link").trim();
 
                 final String url = j.getString("importurl").trim();
-                Builder b = new Builder(this.c);
+                Builder b = new Builder(c);
                 b.setCancelable(true);
                 if ("all".equals(p)) {
                     b.setTitle(t);
@@ -121,7 +121,7 @@ public class PreferencesRules extends SherlockPreferenceActivity {
                 return true;
             } catch (JSONException e) {
                 Log.e(TAG, "JSONError", e);
-                Toast.makeText(this.c, R.string.err_export_read, Toast.LENGTH_LONG).show();
+                Toast.makeText(c, R.string.err_export_read, Toast.LENGTH_LONG).show();
                 return false;
             }
         }
@@ -141,7 +141,7 @@ public class PreferencesRules extends SherlockPreferenceActivity {
         PreferenceManager pm = getPreferenceManager();
 
         try {
-            JSONObject json = new JSONObject(this.getIntent().getStringExtra(EXTRA_JSON));
+            JSONObject json = new JSONObject(getIntent().getStringExtra(EXTRA_JSON));
             JSONArray ja = json.getJSONArray(k);
 
             ArrayList<String> providers = new ArrayList<String>();
