@@ -56,19 +56,13 @@ public abstract class Device {
     public static synchronized Device getDevice() {
         Log.d(TAG, "Device: " + Build.DEVICE);
         if (instance == null) {
-            Log.i(TAG, "Device: " + Build.DEVICE);
+            Log.d(TAG, "Device: " + Build.DEVICE);
             if (Build.PRODUCT.equals("sdk")) {
                 instance = new EmulatorDevice();
-            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
-                instance = new FroyoDevice();
-            } else if (Build.DEVICE.startsWith("GT-")) {
-                instance = new SamsungDevice();
-                // } else if (Build.DEVICE.equals("dream")) {
-                // instance = new DebugDevice();
             } else {
-                instance = new DiscoverableDevice();
+                instance = new FroyoDevice();
             }
-            Log.i(TAG, "Interface: " + instance.getCell());
+            Log.i(TAG, "Device: " + Build.DEVICE + "/ Interface: " + instance.getCell());
         }
         return instance;
     }
@@ -217,113 +211,6 @@ public abstract class Device {
             mInterfaces = tmp.toArray(new String[tmp.size()]);
         }
         return mInterfaces;
-    }
-}
-
-/**
- * Automatically discover the network interfaces. No real magic here, just try different possible
- * solutions.
- */
-class DiscoverableDevice extends Device {
-
-    /** Tag for output. */
-    private static final String TAG = "Device";
-
-    /** List of possible cell interfaces. */
-    private static final String[] CELL_INTERFACES = { //
-            "rmnet0", "pdp0", "ppp0", "vsnet0", "pdp_ip0", "pdp_ip1", "rmnet_sdio0" //
-    };
-
-    /** List of possible wifi interfaces. */
-    private static final String[] WIFI_INTERFACES = { //
-            "eth0", "tiwlan0", "wlan0", "athwlan0", "eth1" //
-    };
-
-    /** My cell interface. */
-    private String mCell = null;
-    /** My wifi interface. */
-    private String mWiFi = null;
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected String getCell() {
-        if (this.mCell == null) {
-            for (String inter : CELL_INTERFACES) {
-                if (SysClassNet.isAvail(inter)) {
-                    mCell = inter;
-                    break;
-                }
-            }
-            Log.i(TAG, "Cell interface: " + mCell);
-        }
-        return mCell;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected String getWiFi() {
-        if (this.mWiFi == null) {
-            for (String inter : WIFI_INTERFACES) {
-                if (SysClassNet.isUp(inter)) {
-                    Log.i(this.getClass().getName(), "WiFi interface: " + inter);
-                    mWiFi = inter;
-                    break;
-                }
-            }
-        }
-        return mWiFi;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public long getCellRxBytes() throws IOException {
-        String dev = getCell();
-        if (dev == null) {
-            return 0L;
-        }
-        return SysClassNet.getRxBytes(dev);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public long getCellTxBytes() throws IOException {
-        String dev = getCell();
-        if (dev == null) {
-            return 0L;
-        }
-        return SysClassNet.getTxBytes(dev);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public long getWiFiRxBytes() throws IOException {
-        String dev = getWiFi();
-        if (dev == null) {
-            return 0L;
-        }
-        return SysClassNet.getRxBytes(dev);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public long getWiFiTxBytes() throws IOException {
-        String dev = getWiFi();
-        if (dev == null) {
-            return 0L;
-        }
-        return SysClassNet.getTxBytes(dev);
     }
 }
 
@@ -484,27 +371,6 @@ final class DebugDevice extends Device {
             return 0L;
         }
         return SysClassNet.getTxBytes(dev);
-    }
-}
-
-/**
- * Samsung Device with fixed cell device.
- */
-final class SamsungDevice extends DiscoverableDevice {
-
-    /** Tag for output. */
-    private static final String TAG = "EmulatorDevice";
-
-    /** My cell interface. */
-    private final String mCell = "pdp0";
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected String getCell() {
-        Log.d(TAG, "Cell interface: " + mCell);
-        return mCell;
     }
 }
 
