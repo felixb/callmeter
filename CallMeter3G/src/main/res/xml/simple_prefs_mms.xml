@@ -15,17 +15,17 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <EditTextPreference
-        android:inputType="number"
-        android:key="sp_freemms"
-        android:summary="@string/freemms_hint"
-        android:title="@string/freemms_" />
+            android:inputType="number"
+            android:key="sp_freemms"
+            android:summary="@string/freemms_hint"
+            android:title="@string/freemms_"/>
     <EditTextPreference
-        android:inputType="number|numberDecimal"
-        android:key="sp_cost_per_mms"
-        android:summary="@string/cost_per_mms_hint"
-        android:title="@string/cost_per_mms_" />
+            android:inputType="number|numberDecimal"
+            android:key="sp_cost_per_mms"
+            android:summary="@string/cost_per_mms_hint"
+            android:title="@string/cost_per_mms_"/>
 
 </PreferenceScreen>

@@ -18,6 +18,10 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -28,86 +32,82 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceScreen;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Utils;
 
 /**
  * {@link SherlockPreferenceActivity} for setting plans.
- * 
+ *
  * @author flx
  */
 public final class HourGroups extends SherlockPreferenceActivity implements
-		OnPreferenceClickListener {
+        OnPreferenceClickListener {
 
-	@SuppressWarnings("deprecation")
-	@Override
-	public void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		Utils.setLocale(this);
+    @SuppressWarnings("deprecation")
+    @Override
+    public void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Utils.setLocale(this);
 
-		this.addPreferencesFromResource(R.xml.group_prefs);
-	}
+        addPreferencesFromResource(R.xml.group_prefs);
+    }
 
-	@SuppressWarnings("deprecation")
-	@Override
-	protected void onResume() {
-		super.onResume();
+    @SuppressWarnings("deprecation")
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-		PreferenceScreen ps = (PreferenceScreen) this.findPreference("container");
-		ps.removeAll();
-		Cursor c = this.getContentResolver().query(DataProvider.HoursGroup.CONTENT_URI,
-				DataProvider.HoursGroup.PROJECTION, null, null, null);
-		if (c.moveToFirst()) {
-			do {
-				Preference p = new Preference(this);
-				p.setPersistent(false);
-				p.setTitle(c.getString(DataProvider.HoursGroup.INDEX_NAME));
-				p.setKey("group_" + c.getInt(DataProvider.HoursGroup.INDEX_ID));
-				p.setOnPreferenceClickListener(this);
-				ps.addPreference(p);
-			} while (c.moveToNext());
-		}
-		c.close();
-	}
+        PreferenceScreen ps = (PreferenceScreen) findPreference("container");
+        ps.removeAll();
+        Cursor c = getContentResolver().query(DataProvider.HoursGroup.CONTENT_URI,
+                DataProvider.HoursGroup.PROJECTION, null, null, null);
+        if (c.moveToFirst()) {
+            do {
+                Preference p = new Preference(this);
+                p.setPersistent(false);
+                p.setTitle(c.getString(DataProvider.HoursGroup.INDEX_NAME));
+                p.setKey("group_" + c.getInt(DataProvider.HoursGroup.INDEX_ID));
+                p.setOnPreferenceClickListener(this);
+                ps.addPreference(p);
+            } while (c.moveToNext());
+        }
+        c.close();
+    }
 
-	@Override
-	public boolean onPreferenceClick(final Preference preference) {
-		String k = preference.getKey();
-		if (k != null && k.startsWith("group_")) {
-			int id = Integer.parseInt(k.substring("group_".length()));
-			final Intent intent = new Intent(HourGroups.this, HourGroupEdit.class);
-			intent.setData(ContentUris.withAppendedId(DataProvider.HoursGroup.CONTENT_URI, id));
-			this.startActivity(intent);
-			return true;
-		}
-		return false;
-	}
+    @Override
+    public boolean onPreferenceClick(final Preference preference) {
+        String k = preference.getKey();
+        if (k != null && k.startsWith("group_")) {
+            int id = Integer.parseInt(k.substring("group_".length()));
+            final Intent intent = new Intent(HourGroups.this, HourGroupEdit.class);
+            intent.setData(ContentUris.withAppendedId(DataProvider.HoursGroup.CONTENT_URI, id));
+            startActivity(intent);
+            return true;
+        }
+        return false;
+    }
 
-	@Override
-	public boolean onCreateOptionsMenu(final Menu menu) {
-		this.getSupportMenuInflater().inflate(R.menu.menu_group, menu);
-		return true;
-	}
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        getSupportMenuInflater().inflate(R.menu.menu_group, menu);
+        return true;
+    }
 
-	@Override
-	public boolean onOptionsItemSelected(final MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.item_add:
-			final ContentValues cv = new ContentValues();
-			cv.put(DataProvider.HoursGroup.NAME, this.getString(R.string.new_hourgroup));
-			final Uri uri = this.getContentResolver().insert(DataProvider.HoursGroup.CONTENT_URI,
-					cv);
-			final Intent intent = new Intent(this, HourGroupEdit.class);
-			intent.setData(uri);
-			this.startActivity(intent);
-			return true;
-		default:
-			return false;
-		}
-	}
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item_add:
+                final ContentValues cv = new ContentValues();
+                cv.put(DataProvider.HoursGroup.NAME, getString(R.string.new_hourgroup));
+                final Uri uri = getContentResolver().insert(DataProvider.HoursGroup.CONTENT_URI,
+                        cv);
+                final Intent intent = new Intent(this, HourGroupEdit.class);
+                intent.setData(uri);
+                startActivity(intent);
+                return true;
+            default:
+                return false;
+        }
+    }
 }

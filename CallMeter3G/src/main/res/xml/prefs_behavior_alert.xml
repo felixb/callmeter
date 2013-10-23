@@ -15,17 +15,17 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="alert_80"
-        android:summary="@string/alerts_80_hint"
-        android:title="@string/alerts_80_" />
+            android:defaultValue="true"
+            android:key="alert_80"
+            android:summary="@string/alerts_80_hint"
+            android:title="@string/alerts_80_"/>
     <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="alert_100"
-        android:summary="@string/alerts_100_hint"
-        android:title="@string/alerts_100_" />
+            android:defaultValue="true"
+            android:key="alert_100"
+            android:summary="@string/alerts_100_hint"
+            android:title="@string/alerts_100_"/>
 
 </PreferenceScreen>

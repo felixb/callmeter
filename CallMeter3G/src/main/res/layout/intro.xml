@@ -16,98 +16,98 @@
 		not, see <http://www.gnu.org/licenses/>.
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
     <RelativeLayout
-        android:id="@+id/ok_cancel"
-        style="@style/ButtonBar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" >
-
-        <Button
-            android:id="@+id/ok"
+            android:id="@+id/ok_cancel"
+            style="@style/ButtonBar"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dip"
-            android:layout_marginRight="15dip"
-            android:text="@android:string/ok" />
+            android:layout_alignParentBottom="true">
+
+        <Button
+                android:id="@+id/ok"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:text="@android:string/ok"/>
     </RelativeLayout>
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@id/ok_cancel"
-        android:background="?android:attr/colorBackground" >
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@id/ok_cancel"
+            android:background="?android:attr/colorBackground">
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="5dip" >
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dip">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="5dip"
-                android:text="@string/intro0"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dip"
+                    android:text="@string/intro0"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="2dip"
-                android:text="@string/intro1"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dip"
+                    android:text="@string/intro1"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="2dip"
-                android:text="@string/intro_simple"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dip"
+                    android:text="@string/intro_simple"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="5dip"
-                android:text="@string/intro_import"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dip"
+                    android:text="@string/intro_import"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="5dip"
-                android:text="@string/intro_export"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dip"
+                    android:text="@string/intro_export"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/intro_recalc0"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/intro_recalc0"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="5dip"
-                android:text="@string/intro_recalc1"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dip"
+                    android:text="@string/intro_recalc1"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="5dip"
-                android:text="@string/intro_data"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dip"
+                    android:text="@string/intro_data"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="2dip"
-                android:text="@string/intro_kill"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dip"
+                    android:text="@string/intro_kill"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
         </LinearLayout>
     </ScrollView>
 

@@ -15,16 +15,16 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 -->
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/item_settings"
-        android:icon="@android:drawable/ic_menu_preferences"
-        android:title="@string/settings"/>
+            android:id="@+id/item_settings"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title="@string/settings"/>
 
     <item
-        android:id="@+id/item_donate"
-        android:icon="@drawable/ic_menu_star"
-        android:title="@string/donate_remove_ads_"/>
+            android:id="@+id/item_donate"
+            android:icon="@drawable/ic_menu_star"
+            android:title="@string/donate_remove_ads_"/>
 
 </menu>

@@ -18,7 +18,8 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import java.io.File;
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+import com.actionbarsherlock.view.Window;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -29,8 +30,7 @@ import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-import com.actionbarsherlock.view.Window;
+import java.io.File;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.Log;
@@ -38,124 +38,125 @@ import de.ub0r.android.lib.Utils;
 
 /**
  * Show a list of ready to import rule sets.
- * 
+ *
  * @author flx
  */
 public final class PreferencesImport extends SherlockPreferenceActivity {
-	/**
-	 * {@link AsyncTask} running through the SD card and adding
-	 * {@link Preferences} for each file.
-	 * 
-	 * @author flx
-	 */
-	private class FileFinder extends AsyncTask<Void, File, Boolean> {
-		/** Tag for output. */
-		private static final String TAG = "prefs.ff";
 
-		@Override
-		protected void onPreExecute() {
-			PreferencesImport.this.setProgressBarIndeterminate(true);
-			PreferencesImport.this.setProgressBarIndeterminateVisibility(true);
-		}
+    /**
+     * {@link AsyncTask} running through the SD card and adding {@link Preferences} for each file.
+     *
+     * @author flx
+     */
+    private class FileFinder extends AsyncTask<Void, File, Boolean> {
 
-		@Override
-		protected Boolean doInBackground(final Void... paramArrayOfParams) {
-			return this.addExport(Environment.getExternalStorageDirectory(), MAXDEPTH);
-		}
+        /** Tag for output. */
+        private static final String TAG = "prefs.ff";
 
-		@SuppressWarnings("deprecation")
-		@Override
-		protected void onProgressUpdate(final File... values) {
-			for (File f : values) {
-				// add file to list
-				PreferencesImport context = PreferencesImport.this;
-				Preference p = new Preference(context);
-				p.setTitle(f.getName());
-				p.setSummary(f.getAbsolutePath());
-				Intent i = new Intent(context, Preferences.class);
-				i.setData(Uri.parse("file://" + f.getAbsolutePath()));
-				p.setIntent(i);
-				((PreferenceGroup) context.findPreference("import_rules_files")).addPreference(p);
-			}
-		}
+        @Override
+        protected void onPreExecute() {
+            PreferencesImport.this.setProgressBarIndeterminate(true);
+            PreferencesImport.this.setProgressBarIndeterminateVisibility(true);
+        }
 
-		@Override
-		protected void onPostExecute(final Boolean result) {
-			PreferencesImport.this.setProgressBarIndeterminateVisibility(false);
-			if (!result) {
-				Toast.makeText(PreferencesImport.this, R.string.import_rules_sd_nofiles,
-						Toast.LENGTH_LONG).show();
-			}
-		};
+        @Override
+        protected Boolean doInBackground(final Void... paramArrayOfParams) {
+            return addExport(Environment.getExternalStorageDirectory(), MAXDEPTH);
+        }
 
-		/**
-		 * Add all ready to import rule sets to preference list.
-		 * 
-		 * @param d
-		 *            root directory
-		 * @param depth
-		 *            maximal depth for searching files
-		 * @return true, if a file were found
-		 */
-		private boolean addExport(final File d, final int depth) {
-			if (d == null) {
-				Log.e(TAG, "null file: " + d);
-				return false;
-			}
-			if (!d.exists()) {
-				Log.e(TAG, d + " does not exist");
-				return false;
-			}
-			if (!d.isDirectory()) {
-				Log.e(TAG, d + " is not a directory");
-				return false;
-			}
-			if (d.list() == null) {
-				Log.e(TAG, d + ".list() is null");
-				return false;
-			}
+        @SuppressWarnings("deprecation")
+        @Override
+        protected void onProgressUpdate(final File... values) {
+            for (File f : values) {
+                // add file to list
+                PreferencesImport context = PreferencesImport.this;
+                Preference p = new Preference(context);
+                p.setTitle(f.getName());
+                p.setSummary(f.getAbsolutePath());
+                Intent i = new Intent(context, Preferences.class);
+                i.setData(Uri.parse("file://" + f.getAbsolutePath()));
+                p.setIntent(i);
+                ((PreferenceGroup) context.findPreference("import_rules_files")).addPreference(p);
+            }
+        }
 
-			boolean ret = false;
-			// read directory
-			for (String s : d.list()) {
-				if (s.startsWith(".") || s.equals("Android") || s.equals("clockworkmod")
-						|| s.equals("DCIM") || s.equals("Music") || s.equals("TitaniumBackup")
-						|| s.equals("openfeint") || s.equals("soundhound") || s.equals("WhatsApp")
-						|| s.equals("Pictures") || s.equals("SMSBackupRestore")) {
-					Log.d(TAG, "skip: " + s);
-					continue;
-				}
-				File f = new File(d.getAbsoluteFile(), s);
-				Log.d(TAG, "try file: " + f.getAbsolutePath());
-				if (f.isDirectory()) {
-					if (depth > 0) {
-						ret |= this.addExport(f, depth - 1);
-					}
-				} else if (f.isFile()
-						&& (f.getAbsolutePath().endsWith(".export") || f.getAbsolutePath()
-								.endsWith(".xml"))) {
-					// add file to list
-					this.onProgressUpdate(f);
-					ret = true;
-				}
-			}
-			return ret;
-		}
-	}
+        @Override
+        protected void onPostExecute(final Boolean result) {
+            PreferencesImport.this.setProgressBarIndeterminateVisibility(false);
+            if (!result) {
+                Toast.makeText(PreferencesImport.this, R.string.import_rules_sd_nofiles,
+                        Toast.LENGTH_LONG).show();
+            }
+        }
 
-	/** Maximal depth for searching files. */
-	private static final int MAXDEPTH = 3;
+        ;
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@SuppressWarnings("deprecation")
-	@Override
-	public void onCreate(final Bundle savedInstanceState) {
-		PreferencesImport.this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-		super.onCreate(savedInstanceState);
-		Utils.setLocale(this);
-		this.addPreferencesFromResource(R.xml.import_from_sd);
-		new FileFinder().execute((Void) null);
-	}
+        /**
+         * Add all ready to import rule sets to preference list.
+         *
+         * @param d     root directory
+         * @param depth maximal depth for searching files
+         * @return true, if a file were found
+         */
+        private boolean addExport(final File d, final int depth) {
+            if (d == null) {
+                Log.e(TAG, "null file: " + d);
+                return false;
+            }
+            if (!d.exists()) {
+                Log.e(TAG, d + " does not exist");
+                return false;
+            }
+            if (!d.isDirectory()) {
+                Log.e(TAG, d + " is not a directory");
+                return false;
+            }
+            if (d.list() == null) {
+                Log.e(TAG, d + ".list() is null");
+                return false;
+            }
+
+            boolean ret = false;
+            // read directory
+            for (String s : d.list()) {
+                if (s.startsWith(".") || s.equals("Android") || s.equals("clockworkmod")
+                        || s.equals("DCIM") || s.equals("Music") || s.equals("TitaniumBackup")
+                        || s.equals("openfeint") || s.equals("soundhound") || s.equals("WhatsApp")
+                        || s.equals("Pictures") || s.equals("SMSBackupRestore")) {
+                    Log.d(TAG, "skip: " + s);
+                    continue;
+                }
+                File f = new File(d.getAbsoluteFile(), s);
+                Log.d(TAG, "try file: " + f.getAbsolutePath());
+                if (f.isDirectory()) {
+                    if (depth > 0) {
+                        ret |= addExport(f, depth - 1);
+                    }
+                } else if (f.isFile()
+                        && (f.getAbsolutePath().endsWith(".export") || f.getAbsolutePath()
+                        .endsWith(".xml"))) {
+                    // add file to list
+                    onProgressUpdate(f);
+                    ret = true;
+                }
+            }
+            return ret;
+        }
+    }
+
+    /** Maximal depth for searching files. */
+    private static final int MAXDEPTH = 3;
+
+    /**
+     * {@inheritDoc}
+     */
+    @SuppressWarnings("deprecation")
+    @Override
+    public void onCreate(final Bundle savedInstanceState) {
+        PreferencesImport.this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        super.onCreate(savedInstanceState);
+        Utils.setLocale(this);
+        addPreferencesFromResource(R.xml.import_from_sd);
+        new FileFinder().execute((Void) null);
+    }
 }

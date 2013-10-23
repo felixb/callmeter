@@ -22,48 +22,47 @@ import android.support.v4.util.LruCache;
 
 /**
  * {@link LruCache} holding number to name entries.
- * 
+ *
  * @author flx
  */
 public final class NameCache extends LruCache<String, String> {
-	/** Maximum cache size. */
-	private static final int MAXCACHESIZE = 100;
 
-	/** Single instance. */
-	private static NameCache instance;
+    /** Maximum cache size. */
+    private static final int MAXCACHESIZE = 100;
 
-	/**
-	 * Get the cache.
-	 * 
-	 * @return the single {@link NameCache} instance
-	 */
-	public static NameCache getInstance() {
-		if (instance == null) {
-			instance = new NameCache();
-		}
-		return instance;
-	}
+    /** Single instance. */
+    private static NameCache instance;
 
-	/** hide public constructor. */
-	private NameCache() {
-		super(MAXCACHESIZE);
-	}
+    /**
+     * Get the cache.
+     *
+     * @return the single {@link NameCache} instance
+     */
+    public static NameCache getInstance() {
+        if (instance == null) {
+            instance = new NameCache();
+        }
+        return instance;
+    }
 
-	/**
-	 * Return get(key) formated with format.
-	 * 
-	 * @param key
-	 *            key
-	 * @param format
-	 *            format
-	 * @return formated {@link String}
-	 */
-	public String get(final String key, final String format) {
-		String s = this.get(key);
-		if (s == null) {
-			return null;
-		} else {
-			return String.format(format, s);
-		}
-	}
+    /** hide public constructor. */
+    private NameCache() {
+        super(MAXCACHESIZE);
+    }
+
+    /**
+     * Return get(key) formated with format.
+     *
+     * @param key    key
+     * @param format format
+     * @return formated {@link String}
+     */
+    public String get(final String key, final String format) {
+        String s = get(key);
+        if (s == null) {
+            return null;
+        } else {
+            return String.format(format, s);
+        }
+    }
 }

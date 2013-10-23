@@ -16,57 +16,57 @@
 		not, see <http://www.gnu.org/licenses/>.
 -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:padding="5dp" >
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="5dp">
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
         <Spinner
-            android:id="@+id/type"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/rules_type" />
+                android:id="@+id/type"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/rules_type"/>
 
         <Spinner
-            android:id="@+id/direction"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/direction_calls" />
+                android:id="@+id/direction"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/direction_calls"/>
 
         <EditText
-            android:id="@+id/length"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/length_hint_call"
-            android:inputType="number" />
+                android:id="@+id/length"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/length_hint_call"
+                android:inputType="number"/>
 
         <EditText
-            android:id="@+id/remote"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/remote_hint" />
+                android:id="@+id/remote"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/remote_hint"/>
 
         <TextView
-            android:id="@+id/date"
-            style="?android:attr/spinnerStyle"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+                android:id="@+id/date"
+                style="?android:attr/spinnerStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
 
         <TextView
-            android:id="@+id/time"
-            style="?android:attr/spinnerStyle"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+                android:id="@+id/time"
+                style="?android:attr/spinnerStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
 
         <CheckBox
-            android:id="@+id/roamed"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/roamed_" />
+                android:id="@+id/roamed"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/roamed_"/>
     </LinearLayout>
 
 </ScrollView>

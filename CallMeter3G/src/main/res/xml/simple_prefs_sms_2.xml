@@ -15,27 +15,27 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <EditTextPreference
-        android:inputType="number"
-        android:key="sp_freesms_2"
-        android:summary="@string/freesms_hint"
-        android:title="@string/freesms_" />
+            android:inputType="number"
+            android:key="sp_freesms_2"
+            android:summary="@string/freesms_hint"
+            android:title="@string/freesms_"/>
     <EditTextPreference
-        android:inputType="number|numberDecimal"
-        android:key="sp_cost_per_sms_2"
-        android:summary="@string/cost_per_sms_hint"
-        android:title="@string/cost_per_sms_" />
+            android:inputType="number|numberDecimal"
+            android:key="sp_cost_per_sms_2"
+            android:summary="@string/cost_per_sms_hint"
+            android:title="@string/cost_per_sms_"/>
 
     <PreferenceScreen
-        android:summary="@string/exhourgroup_help"
-        android:title="@string/numbergroup_exsms" >
+            android:summary="@string/exhourgroup_help"
+            android:title="@string/numbergroup_exsms">
         <intent
-            android:action="android.intent.action.VIEW"
-            android:data="content://de.ub0r.android.callmeter.provider/numbers/groups/2"
-            android:targetClass="de.ub0r.android.callmeter.ui.prefs.NumberGroupEdit"
-            android:targetPackage="de.ub0r.android.callmeter" />
+                android:action="android.intent.action.VIEW"
+                android:data="content://de.ub0r.android.callmeter.provider/numbers/groups/2"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.NumberGroupEdit"
+                android:targetPackage="de.ub0r.android.callmeter"/>
     </PreferenceScreen>
 
 </PreferenceScreen>

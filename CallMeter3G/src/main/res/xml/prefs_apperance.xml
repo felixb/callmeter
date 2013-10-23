@@ -15,84 +15,84 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ListPreference
-        android:defaultValue="light"
-        android:entries="@array/themes"
-        android:entryValues="@array/themes_values"
-        android:key="theme"
-        android:title="@string/theme_" />
+            android:defaultValue="light"
+            android:entries="@array/themes"
+            android:entryValues="@array/themes_values"
+            android:key="theme"
+            android:title="@string/theme_"/>
 
-    <PreferenceScreen android:title="@string/textsize_" >
+    <PreferenceScreen android:title="@string/textsize_">
         <intent
-            android:action="TEXTSIZE"
-            android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
-            android:targetPackage="de.ub0r.android.callmeter" />
+                android:action="TEXTSIZE"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
+                android:targetPackage="de.ub0r.android.callmeter"/>
     </PreferenceScreen>
 
     <CheckBoxPreference
-        android:key="show_target_billday"
-        android:summary="@string/show_target_billday_hint"
-        android:title="@string/show_target_billday_" />
+            android:key="show_target_billday"
+            android:summary="@string/show_target_billday_hint"
+            android:title="@string/show_target_billday_"/>
     <CheckBoxPreference
-        android:key="hide_zero"
-        android:summary="@string/hide_zero_hint"
-        android:title="@string/hide_zero_" />
+            android:key="hide_zero"
+            android:summary="@string/hide_zero_hint"
+            android:title="@string/hide_zero_"/>
     <CheckBoxPreference
-        android:key="hide_nocost"
-        android:summary="@string/hide_nocost_hint"
-        android:title="@string/hide_nocost_" />
+            android:key="hide_nocost"
+            android:summary="@string/hide_nocost_hint"
+            android:title="@string/hide_nocost_"/>
     <CheckBoxPreference
-        android:key="show_today"
-        android:summary="@string/show_today_hint"
-        android:title="@string/show_today_" />
+            android:key="show_today"
+            android:summary="@string/show_today_hint"
+            android:title="@string/show_today_"/>
     <CheckBoxPreference
-        android:defaultValue="false"
-        android:key="show_total"
-        android:summary="@string/show_total_hint"
-        android:title="@string/show_total_" />
+            android:defaultValue="false"
+            android:key="show_total"
+            android:summary="@string/show_total_hint"
+            android:title="@string/show_total_"/>
     <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="show_hours"
-        android:summary="@string/show_hours_hint"
-        android:title="@string/show_hours_" />
+            android:defaultValue="true"
+            android:key="show_hours"
+            android:summary="@string/show_hours_hint"
+            android:title="@string/show_hours_"/>
     <CheckBoxPreference
-        android:key="hide_progressbars"
-        android:summary="@string/hide_progressbars_hint"
-        android:title="@string/hide_progressbars_" />
+            android:key="hide_progressbars"
+            android:summary="@string/hide_progressbars_hint"
+            android:title="@string/hide_progressbars_"/>
     <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="show_help"
-        android:summary="@string/show_help_hint"
-        android:title="@string/show_help_" />
+            android:defaultValue="true"
+            android:key="show_help"
+            android:summary="@string/show_help_hint"
+            android:title="@string/show_help_"/>
 
     <EditTextPreference
-        android:defaultValue=" | "
-        android:key="custom_delimiter"
-        android:summary="@string/custom_delimiter_hint"
-        android:title="@string/custom_delimiter_" />
+            android:defaultValue=" | "
+            android:key="custom_delimiter"
+            android:summary="@string/custom_delimiter_hint"
+            android:title="@string/custom_delimiter_"/>
     <EditTextPreference
-        android:key="currency_symbol"
-        android:summary="@string/custom_currency_symbol_hint"
-        android:title="@string/custom_currency_symbol_" />
+            android:key="currency_symbol"
+            android:summary="@string/custom_currency_symbol_hint"
+            android:title="@string/custom_currency_symbol_"/>
 
     <ListPreference
-        android:entries="@array/currency_formats"
-        android:entryValues="@array/currency_formats_values"
-        android:key="currency_format"
-        android:summary="@string/custom_currency_format_hint"
-        android:title="@string/custom_currency_format_" />
+            android:entries="@array/currency_formats"
+            android:entryValues="@array/currency_formats_values"
+            android:key="currency_format"
+            android:summary="@string/custom_currency_format_hint"
+            android:title="@string/custom_currency_format_"/>
     <ListPreference
-        android:entries="@array/date_formats"
-        android:entryValues="@array/date_formats_values"
-        android:key="date_format"
-        android:summary="@string/custom_date_format_hint"
-        android:title="@string/custom_date_format_" />
+            android:entries="@array/date_formats"
+            android:entryValues="@array/date_formats_values"
+            android:key="date_format"
+            android:summary="@string/custom_date_format_hint"
+            android:title="@string/custom_date_format_"/>
 
     <CheckBoxPreference
-        android:key="show_callinfo"
-        android:summary="@string/show_calllength_"
-        android:title="@string/show_calllength_" />
+            android:key="show_callinfo"
+            android:summary="@string/show_calllength_"
+            android:title="@string/show_calllength_"/>
 
 </PreferenceScreen>

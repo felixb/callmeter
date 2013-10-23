@@ -15,110 +15,110 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/appearance_and_behavior_" >
-        <PreferenceScreen android:title="@string/appearance_" >
+    <PreferenceCategory android:title="@string/appearance_and_behavior_">
+        <PreferenceScreen android:title="@string/appearance_">
             <intent
-                android:action="APPERANCE"
-                android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
-                android:targetPackage="de.ub0r.android.callmeter" />
+                    android:action="APPERANCE"
+                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
+                    android:targetPackage="de.ub0r.android.callmeter"/>
         </PreferenceScreen>
-        <PreferenceScreen android:title="@string/behavior_" >
+        <PreferenceScreen android:title="@string/behavior_">
             <intent
-                android:action="BEHAVIOR"
-                android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
-                android:targetPackage="de.ub0r.android.callmeter" />
+                    android:action="BEHAVIOR"
+                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
+                    android:targetPackage="de.ub0r.android.callmeter"/>
         </PreferenceScreen>
         <PreferenceScreen
-            android:key="widgets"
-            android:title="@string/widgets_" >
+                android:key="widgets"
+                android:title="@string/widgets_">
             <intent
-                android:action="WIDGETS"
-                android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
-                android:targetPackage="de.ub0r.android.callmeter" />
+                    android:action="WIDGETS"
+                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
+                    android:targetPackage="de.ub0r.android.callmeter"/>
         </PreferenceScreen>
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/billing_" >
+    <PreferenceCategory android:title="@string/billing_">
         <PreferenceScreen
-            android:key="simple_settings"
-            android:summary="@string/simple_preferences_hint"
-            android:title="@string/simple_preferences_" >
+                android:key="simple_settings"
+                android:summary="@string/simple_preferences_hint"
+                android:title="@string/simple_preferences_">
             <intent
-                android:action="android.intent.action.MAIN"
-                android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferences"
-                android:targetPackage="de.ub0r.android.callmeter" />
+                    android:action="android.intent.action.MAIN"
+                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferences"
+                    android:targetPackage="de.ub0r.android.callmeter"/>
         </PreferenceScreen>
-        <PreferenceScreen android:title="@string/advanced_preferences_" >
+        <PreferenceScreen android:title="@string/advanced_preferences_">
             <intent
-                android:action="ADVANCED"
-                android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
-                android:targetPackage="de.ub0r.android.callmeter" />
+                    android:action="ADVANCED"
+                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
+                    android:targetPackage="de.ub0r.android.callmeter"/>
         </PreferenceScreen>
-        <PreferenceScreen android:title="@string/help_" >
+        <PreferenceScreen android:title="@string/help_">
             <intent
-                android:action="android.intent.action.MAIN"
-                android:targetClass="de.ub0r.android.callmeter.ui.HelpActivity"
-                android:targetPackage="de.ub0r.android.callmeter" />
+                    android:action="android.intent.action.MAIN"
+                    android:targetClass="de.ub0r.android.callmeter.ui.HelpActivity"
+                    android:targetPackage="de.ub0r.android.callmeter"/>
         </PreferenceScreen>
-        <PreferenceScreen android:title="@string/import_rules_" >
+        <PreferenceScreen android:title="@string/import_rules_">
             <intent
-                android:action="IMPORT"
-                android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
-                android:targetPackage="de.ub0r.android.callmeter" />
+                    android:action="IMPORT"
+                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
+                    android:targetPackage="de.ub0r.android.callmeter"/>
         </PreferenceScreen>
         <PreferenceScreen
-            android:summary="@string/export_hint"
-            android:title="@string/export_" >
+                android:summary="@string/export_hint"
+                android:title="@string/export_">
             <intent
-                android:action="EXPORT"
-                android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
-                android:targetPackage="de.ub0r.android.callmeter" />
+                    android:action="EXPORT"
+                    android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesPlain"
+                    android:targetPackage="de.ub0r.android.callmeter"/>
         </PreferenceScreen>
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/about_" >
+    <PreferenceCategory android:title="@string/about_">
         <PreferenceScreen
-            android:summary="@string/about_hint"
-            android:title="@string/about_" >
+                android:summary="@string/about_hint"
+                android:title="@string/about_">
             <intent
-                android:action="android.intent.action.MAIN"
-                android:targetClass="de.ub0r.android.callmeter.ui.AboutActivity"
-                android:targetPackage="de.ub0r.android.callmeter" />
+                    android:action="android.intent.action.MAIN"
+                    android:targetClass="de.ub0r.android.callmeter.ui.AboutActivity"
+                    android:targetPackage="de.ub0r.android.callmeter"/>
         </PreferenceScreen>
         <PreferenceScreen
-            android:summary="@string/faq_hint"
-            android:title="@string/faq_" >
+                android:summary="@string/faq_hint"
+                android:title="@string/faq_">
             <intent
-                android:action="android.intent.action.VIEW"
-                android:data="http://code.google.com/p/callmeter/wiki/FAQCM3" />
+                    android:action="android.intent.action.VIEW"
+                    android:data="http://code.google.com/p/callmeter/wiki/FAQCM3"/>
         </PreferenceScreen>
         <PreferenceScreen
-            android:summary="@string/feedback_hint"
-            android:title="@string/feedback_" >
+                android:summary="@string/feedback_hint"
+                android:title="@string/feedback_">
             <intent
-                android:action="android.intent.action.VIEW"
-                android:data="http://code.google.com/p/callmeter/issues/list" />
+                    android:action="android.intent.action.VIEW"
+                    android:data="http://code.google.com/p/callmeter/issues/list"/>
         </PreferenceScreen>
         <PreferenceScreen
-            android:summary="@string/google_plus_hint"
-            android:title="@string/google_plus_" >
+                android:summary="@string/google_plus_hint"
+                android:title="@string/google_plus_">
             <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://plus.google.com/101490294894990964252" />
+                    android:action="android.intent.action.VIEW"
+                    android:data="https://plus.google.com/101490294894990964252"/>
         </PreferenceScreen>
         <PreferenceScreen
-            android:key="more_apps"
-            android:title="@string/more_" />
+                android:key="more_apps"
+                android:title="@string/more_"/>
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/debug_" >
+    <PreferenceCategory android:title="@string/debug_">
         <PreferenceScreen
-            android:key="reset_data"
-            android:summary="@string/reset_data_hint"
-            android:title="@string/reset_data_" />
+                android:key="reset_data"
+                android:summary="@string/reset_data_hint"
+                android:title="@string/reset_data_"/>
         <PreferenceScreen
-            android:key="send_logs"
-            android:summary="@string/send_logs_hint"
-            android:title="@string/send_logs_" />
+                android:key="send_logs"
+                android:summary="@string/send_logs_hint"
+                android:title="@string/send_logs_"/>
         <!--
         <PreferenceScreen
             android:key="send_devices"

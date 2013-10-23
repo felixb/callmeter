@@ -16,9 +16,9 @@
 		not, see <http://www.gnu.org/licenses/>.
 -->
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    android:configure="de.ub0r.android.callmeter.widget.LogsAppWidgetConfigure"
-    android:initialLayout="@layout/stats_appwidget"
-    android:minHeight="30dip"
-    android:minWidth="30dip"
-    android:resizeMode="horizontal|vertical"
-    android:updatePeriodMillis="86400000" />
+                    android:configure="de.ub0r.android.callmeter.widget.LogsAppWidgetConfigure"
+                    android:initialLayout="@layout/stats_appwidget"
+                    android:minHeight="30dip"
+                    android:minWidth="30dip"
+                    android:resizeMode="horizontal|vertical"
+                    android:updatePeriodMillis="86400000"/>

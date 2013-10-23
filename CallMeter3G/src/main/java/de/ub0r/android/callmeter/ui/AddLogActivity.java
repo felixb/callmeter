@@ -18,8 +18,9 @@
  */
 package de.ub0r.android.callmeter.ui;
 
-import java.util.Calendar;
-import java.util.Date;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
@@ -40,9 +41,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
+import java.util.Calendar;
+import java.util.Date;
 
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
@@ -54,205 +54,206 @@ import de.ub0r.android.lib.Utils;
 
 /**
  * Add a log entry.
- * 
+ *
  * @author flx
  */
 public final class AddLogActivity extends SherlockActivity implements OnClickListener,
-		OnDateSetListener, OnTimeSetListener {
-	/** Tag for output. */
-	private static final String TAG = "addlog";
+        OnDateSetListener, OnTimeSetListener {
 
-	/** {@link Spinner}s. */
-	private Spinner spType, spDirection;
-	/** {@link EditText}s. */
-	private EditText etLength, etRemote;
-	private TextView tvDate, tvTime;
-	/** {@link CheckBox}. */
-	private CheckBox cbRoamed;
-	private Calendar cal;
+    /** Tag for output. */
+    private static final String TAG = "addlog";
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onCreate(final Bundle savedInstanceState) {
-		this.setTheme(Preferences.getTheme(this));
-		Utils.setLocale(this);
-		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.logs_add);
-		CallMeter.fixActionBarBackground(this.getSupportActionBar(), this.getResources(),
-				R.drawable.bg_striped, R.drawable.bg_striped_split);
+    /** {@link Spinner}s. */
+    private Spinner spType, spDirection;
+    /** {@link EditText}s. */
+    private EditText etLength, etRemote;
+    private TextView tvDate, tvTime;
+    /** {@link CheckBox}. */
+    private CheckBox cbRoamed;
+    private Calendar cal;
 
-		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		this.setTitle(R.string.add_log);
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onCreate(final Bundle savedInstanceState) {
+        setTheme(Preferences.getTheme(this));
+        Utils.setLocale(this);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.logs_add);
+        CallMeter.fixActionBarBackground(this.getSupportActionBar(), getResources(),
+                R.drawable.bg_striped, R.drawable.bg_striped_split);
 
-		if (savedInstanceState == null) {
-			this.cal = Calendar.getInstance();
-		} else {
-			this.cal = Calendar.getInstance();
-			this.cal.setTimeInMillis(savedInstanceState.getLong("cal"));
-		}
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setTitle(R.string.add_log);
 
-		this.spType = (Spinner) this.findViewById(R.id.type);
-		this.spDirection = (Spinner) this.findViewById(R.id.direction);
-		this.etLength = (EditText) this.findViewById(R.id.length);
-		this.etRemote = (EditText) this.findViewById(R.id.remote);
-		this.tvDate = (TextView) this.findViewById(R.id.date);
-		this.tvTime = (TextView) this.findViewById(R.id.time);
-		this.cbRoamed = (CheckBox) this.findViewById(R.id.roamed);
-		this.spType.setOnItemSelectedListener(new OnItemSelectedListener() {
-			@Override
-			public void onItemSelected(final AdapterView<?> parent, final View view,
-					final int position, final long id) {
-				switch (position) {
-				case DataProvider.Rules.WHAT_CALL:
-					AddLogActivity.this.etLength.setHint(R.string.length_hint_call);
-					AddLogActivity.this.etLength.setVisibility(View.VISIBLE);
-					AddLogActivity.this.etRemote.setVisibility(View.VISIBLE);
-					break;
-				case DataProvider.Rules.WHAT_DATA:
-					AddLogActivity.this.etLength.setHint(R.string.length_hint_data);
-					AddLogActivity.this.etLength.setVisibility(View.VISIBLE);
-					AddLogActivity.this.etRemote.setVisibility(View.GONE);
-					break;
-				case DataProvider.Rules.WHAT_MMS:
-				case DataProvider.Rules.WHAT_SMS:
-					AddLogActivity.this.etLength.setVisibility(View.GONE);
-					AddLogActivity.this.etRemote.setVisibility(View.VISIBLE);
-					break;
-				default:
-					break;
-				}
-			}
+        if (savedInstanceState == null) {
+            cal = Calendar.getInstance();
+        } else {
+            cal = Calendar.getInstance();
+            cal.setTimeInMillis(savedInstanceState.getLong("cal"));
+        }
 
-			@Override
-			public void onNothingSelected(final AdapterView<?> parent) {
-				// nothing to do
-			}
-		});
-		this.tvDate.setOnClickListener(this);
-		this.tvTime.setOnClickListener(this);
-		this.updateDateTime();
-	}
+        spType = (Spinner) findViewById(R.id.type);
+        spDirection = (Spinner) findViewById(R.id.direction);
+        etLength = (EditText) findViewById(R.id.length);
+        etRemote = (EditText) findViewById(R.id.remote);
+        tvDate = (TextView) findViewById(R.id.date);
+        tvTime = (TextView) findViewById(R.id.time);
+        cbRoamed = (CheckBox) findViewById(R.id.roamed);
+        spType.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(final AdapterView<?> parent, final View view,
+                    final int position, final long id) {
+                switch (position) {
+                    case DataProvider.Rules.WHAT_CALL:
+                        AddLogActivity.this.etLength.setHint(R.string.length_hint_call);
+                        AddLogActivity.this.etLength.setVisibility(View.VISIBLE);
+                        AddLogActivity.this.etRemote.setVisibility(View.VISIBLE);
+                        break;
+                    case DataProvider.Rules.WHAT_DATA:
+                        AddLogActivity.this.etLength.setHint(R.string.length_hint_data);
+                        AddLogActivity.this.etLength.setVisibility(View.VISIBLE);
+                        AddLogActivity.this.etRemote.setVisibility(View.GONE);
+                        break;
+                    case DataProvider.Rules.WHAT_MMS:
+                    case DataProvider.Rules.WHAT_SMS:
+                        AddLogActivity.this.etLength.setVisibility(View.GONE);
+                        AddLogActivity.this.etRemote.setVisibility(View.VISIBLE);
+                        break;
+                    default:
+                        break;
+                }
+            }
 
-	@Override
-	protected void onSaveInstanceState(final Bundle outState) {
-		super.onSaveInstanceState(outState);
-		outState.putLong("cal", this.cal.getTimeInMillis());
-	}
+            @Override
+            public void onNothingSelected(final AdapterView<?> parent) {
+                // nothing to do
+            }
+        });
+        tvDate.setOnClickListener(this);
+        tvTime.setOnClickListener(this);
+        updateDateTime();
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean onCreateOptionsMenu(final Menu menu) {
-		this.getSupportMenuInflater().inflate(R.menu.menu_addlogs, menu);
-		return true;
-	}
+    @Override
+    protected void onSaveInstanceState(final Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putLong("cal", cal.getTimeInMillis());
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean onOptionsItemSelected(final MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			this.finish();
-			return true;
-		case R.id.item_add:
-			final int t = this.spType.getSelectedItemPosition();
-			final int d = this.spDirection.getSelectedItemPosition();
-			long l = Utils.parseLong(this.etLength.getText().toString(), 0L);
-			final String r = this.etRemote.getText().toString();
-			final boolean roamed = this.cbRoamed.isChecked();
-			final ContentValues cv = new ContentValues();
-			switch (t) {
-			case DataProvider.Rules.WHAT_CALL:
-				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_CALL);
-				break;
-			case DataProvider.Rules.WHAT_DATA:
-				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_DATA);
-				l *= CallMeter.BYTE_KB;
-				break;
-			case DataProvider.Rules.WHAT_MMS:
-				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_MMS);
-				l = 1;
-				break;
-			case DataProvider.Rules.WHAT_SMS:
-				cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_SMS);
-				l = 1;
-				break;
-			default:
-				Log.e(TAG, "unknown type");
-				Toast.makeText(this, "unknown type", Toast.LENGTH_LONG).show();
-				return true;
-			}
-			cv.put(DataProvider.Logs.DIRECTION, d);
-			cv.put(DataProvider.Logs.AMOUNT, l);
-			cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
-			cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
-			cv.put(DataProvider.Logs.REMOTE, r);
-			cv.put(DataProvider.Logs.DATE, this.cal.getTimeInMillis());
-			if (roamed) {
-				cv.put(DataProvider.Logs.ROAMED, 1);
-			}
-			this.getContentResolver().insert(DataProvider.Logs.CONTENT_URI, cv);
-			LogRunnerService.update(this, null);
-			if (!this.isFinishing()) {
-				this.finish();
-			}
-			return true;
-		case R.id.item_cancel:
-			if (!this.isFinishing()) {
-				this.finish();
-			}
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        getSupportMenuInflater().inflate(R.menu.menu_addlogs, menu);
+        return true;
+    }
 
-	@Override
-	public void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.date:
-			DatePickerDialog dpd = new DatePickerDialog(this, this, this.cal.get(Calendar.YEAR),
-					this.cal.get(Calendar.MONTH), this.cal.get(Calendar.DAY_OF_MONTH));
-			dpd.show();
-			break;
-		case R.id.time:
-			TimePickerDialog dtp = new TimePickerDialog(this, this,
-					this.cal.get(Calendar.HOUR_OF_DAY), this.cal.get(Calendar.MINUTE),
-					DateFormat.is24HourFormat(this));
-			dtp.show();
-			break;
-		default:
-			break;
-		}
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            case R.id.item_add:
+                final int t = spType.getSelectedItemPosition();
+                final int d = spDirection.getSelectedItemPosition();
+                long l = Utils.parseLong(this.etLength.getText().toString(), 0L);
+                final String r = etRemote.getText().toString();
+                final boolean roamed = cbRoamed.isChecked();
+                final ContentValues cv = new ContentValues();
+                switch (t) {
+                    case DataProvider.Rules.WHAT_CALL:
+                        cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_CALL);
+                        break;
+                    case DataProvider.Rules.WHAT_DATA:
+                        cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_DATA);
+                        l *= CallMeter.BYTE_KB;
+                        break;
+                    case DataProvider.Rules.WHAT_MMS:
+                        cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_MMS);
+                        l = 1;
+                        break;
+                    case DataProvider.Rules.WHAT_SMS:
+                        cv.put(DataProvider.Logs.TYPE, DataProvider.TYPE_SMS);
+                        l = 1;
+                        break;
+                    default:
+                        Log.e(TAG, "unknown type");
+                        Toast.makeText(this, "unknown type", Toast.LENGTH_LONG).show();
+                        return true;
+                }
+                cv.put(DataProvider.Logs.DIRECTION, d);
+                cv.put(DataProvider.Logs.AMOUNT, l);
+                cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
+                cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
+                cv.put(DataProvider.Logs.REMOTE, r);
+                cv.put(DataProvider.Logs.DATE, cal.getTimeInMillis());
+                if (roamed) {
+                    cv.put(DataProvider.Logs.ROAMED, 1);
+                }
+                getContentResolver().insert(DataProvider.Logs.CONTENT_URI, cv);
+                LogRunnerService.update(this, null);
+                if (!this.isFinishing()) {
+                    finish();
+                }
+                return true;
+            case R.id.item_cancel:
+                if (!this.isFinishing()) {
+                    finish();
+                }
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
-	@Override
-	public void onTimeSet(final TimePicker view, final int hourOfDay, final int minute) {
-		this.cal.set(Calendar.HOUR_OF_DAY, hourOfDay);
-		this.cal.set(Calendar.MINUTE, minute);
-		this.cal.set(Calendar.SECOND, 0);
-		this.cal.set(Calendar.MILLISECOND, 1);
-		this.updateDateTime();
-	}
+    @Override
+    public void onClick(final View v) {
+        switch (v.getId()) {
+            case R.id.date:
+                DatePickerDialog dpd = new DatePickerDialog(this, this, cal.get(Calendar.YEAR),
+                        cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
+                dpd.show();
+                break;
+            case R.id.time:
+                TimePickerDialog dtp = new TimePickerDialog(this, this,
+                        cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE),
+                        DateFormat.is24HourFormat(this));
+                dtp.show();
+                break;
+            default:
+                break;
+        }
+    }
 
-	@Override
-	public void onDateSet(final DatePicker view, final int year, final int monthOfYear,
-			final int dayOfMonth) {
-		this.cal.set(Calendar.YEAR, year);
-		this.cal.set(Calendar.MONTH, monthOfYear);
-		this.cal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-		this.updateDateTime();
-	}
+    @Override
+    public void onTimeSet(final TimePicker view, final int hourOfDay, final int minute) {
+        cal.set(Calendar.HOUR_OF_DAY, hourOfDay);
+        cal.set(Calendar.MINUTE, minute);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 1);
+        updateDateTime();
+    }
 
-	private void updateDateTime() {
-		Date date = this.cal.getTime();
-		this.tvDate.setText(DateFormat.getDateFormat(this).format(date));
-		this.tvTime.setText(DateFormat.getTimeFormat(this).format(date));
-	}
+    @Override
+    public void onDateSet(final DatePicker view, final int year, final int monthOfYear,
+            final int dayOfMonth) {
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, monthOfYear);
+        cal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        updateDateTime();
+    }
+
+    private void updateDateTime() {
+        Date date = cal.getTime();
+        tvDate.setText(DateFormat.getDateFormat(this).format(date));
+        tvTime.setText(DateFormat.getTimeFormat(this).format(date));
+    }
 
 }

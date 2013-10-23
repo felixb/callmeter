@@ -16,165 +16,165 @@
 		not, see <http://www.gnu.org/licenses/>.
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
-    <include layout="@layout/ok_cancel_buttonbar" />
+    <include layout="@layout/ok_cancel_buttonbar"/>
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@id/ok_cancel" >
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@id/ok_cancel">
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dip" >
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dip">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/plan_"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/plan_"
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                    android:id="@+id/spinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"/>
 
             <CheckBox
-                android:id="@+id/hide_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="false"
-                android:text="@string/hide_name_" />
+                    android:id="@+id/hide_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="false"
+                    android:text="@string/hide_name_"/>
 
             <CheckBox
-                android:id="@+id/shortname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="false"
-                android:text="@string/show_shortname_" />
+                    android:id="@+id/shortname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="false"
+                    android:text="@string/show_shortname_"/>
 
             <CheckBox
-                android:id="@+id/cost"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="false"
-                android:text="@string/show_cost_" />
+                    android:id="@+id/cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="false"
+                    android:text="@string/show_cost_"/>
 
             <CheckBox
-                android:id="@+id/pbillp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="false"
-                android:text="@string/show_billperiod_" />
+                    android:id="@+id/pbillp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="false"
+                    android:text="@string/show_billperiod_"/>
 
             <CheckBox
-                android:id="@+id/show_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="false"
-                android:text="@string/show_icon_" />
+                    android:id="@+id/show_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="false"
+                    android:text="@string/show_icon_"/>
 
             <CheckBox
-                android:id="@+id/small_widget"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="false"
-                android:text="@string/small_widget_" />
+                    android:id="@+id/small_widget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="false"
+                    android:text="@string/small_widget_"/>
 
             <TextView
-                android:id="@+id/widget_plan_textsize_"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/widget_plan_textsize"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:id="@+id/widget_plan_textsize_"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/widget_plan_textsize"
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <EditText
-                android:id="@+id/widget_plan_textsize"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/textsize_hint"
-                android:inputType="number"
-                android:singleLine="true" />
+                    android:id="@+id/widget_plan_textsize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/textsize_hint"
+                    android:inputType="number"
+                    android:singleLine="true"/>
 
             <TextView
-                android:id="@+id/widget_cost_textsize_"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/widget_cost_textsize"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:id="@+id/widget_cost_textsize_"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/widget_cost_textsize"
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <EditText
-                android:id="@+id/widget_stats_textsize"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/textsize_hint"
-                android:inputType="number"
-                android:singleLine="true" />
+                    android:id="@+id/widget_stats_textsize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/textsize_hint"
+                    android:inputType="number"
+                    android:singleLine="true"/>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/widget_text_color_"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/widget_text_color_"
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                 <Button
-                    android:id="@+id/textcolor"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="#FFFFFFFF" />
+                        android:id="@+id/textcolor"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="#FFFFFFFF"/>
 
                 <View
-                    android:id="@+id/textcolorfield"
-                    android:layout_width="40dip"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFFFF" />
+                        android:id="@+id/textcolorfield"
+                        android:layout_width="40dip"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFFFF"/>
             </LinearLayout>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/widget_backgroud_color_"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/widget_backgroud_color_"
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                 <Button
-                    android:id="@+id/bgcolor"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="#FF000000" />
+                        android:id="@+id/bgcolor"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="#FF000000"/>
 
                 <View
-                    android:id="@+id/bgcolorfield"
-                    android:layout_width="40dip"
-                    android:layout_height="match_parent"
-                    android:background="#FF000000" />
+                        android:id="@+id/bgcolorfield"
+                        android:layout_width="40dip"
+                        android:layout_height="match_parent"
+                        android:background="#FF000000"/>
             </LinearLayout>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/widget_backgroud_transparency_"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/widget_backgroud_transparency_"
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <SeekBar
-                android:id="@+id/bgtransparency"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:max="255"
-                android:progress="128" />
+                    android:id="@+id/bgtransparency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="255"
+                    android:progress="128"/>
         </LinearLayout>
     </ScrollView>
 

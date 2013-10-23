@@ -15,17 +15,17 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <CheckBoxPreference
-        android:key="ask_for_plan"
-        android:summary="@string/ask_for_plan_hint"
-        android:title="@string/ask_for_plan_" />
+            android:key="ask_for_plan"
+            android:summary="@string/ask_for_plan_hint"
+            android:title="@string/ask_for_plan_"/>
 
     <EditTextPreference
-        android:inputType="number"
-        android:key="autohide"
-        android:summary="@string/autohide_hint"
-        android:title="@string/autohide_" />
+            android:inputType="number"
+            android:key="autohide"
+            android:summary="@string/autohide_hint"
+            android:title="@string/autohide_"/>
 
 </PreferenceScreen>

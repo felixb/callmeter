@@ -15,34 +15,34 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceScreen
-        android:key="export_rules_sd"
-        android:title="@string/export_sd" />
+            android:key="export_rules_sd"
+            android:title="@string/export_sd"/>
     <PreferenceScreen
-        android:key="export_rules_dev"
-        android:summary="@string/export_rules_dev_hint"
-        android:title="@string/export_rules_dev_" />
+            android:key="export_rules_dev"
+            android:summary="@string/export_rules_dev_hint"
+            android:title="@string/export_rules_dev_"/>
     <PreferenceScreen
-        android:key="export_rules"
-        android:summary="@string/export_rules_hint"
-        android:title="@string/export_rules_" />
+            android:key="export_rules"
+            android:summary="@string/export_rules_hint"
+            android:title="@string/export_rules_"/>
     <PreferenceScreen
-        android:key="export_logs_csv"
-        android:summary="@string/export_logs_csv_hint"
-        android:title="@string/export_logs_csv_" />
+            android:key="export_logs_csv"
+            android:summary="@string/export_logs_csv_hint"
+            android:title="@string/export_logs_csv_"/>
     <PreferenceScreen
-        android:key="export_logs"
-        android:summary="@string/export_logs_hint"
-        android:title="@string/export_logs_" />
+            android:key="export_logs"
+            android:summary="@string/export_logs_hint"
+            android:title="@string/export_logs_"/>
     <PreferenceScreen
-        android:key="export_numgroups"
-        android:summary="@string/export_numgroups_hint"
-        android:title="@string/export_numgroups_" />
+            android:key="export_numgroups"
+            android:summary="@string/export_numgroups_hint"
+            android:title="@string/export_numgroups_"/>
     <PreferenceScreen
-        android:key="export_hourgroups"
-        android:summary="@string/export_hourgroups_hint"
-        android:title="@string/export_hourgroups_" />
+            android:key="export_hourgroups"
+            android:summary="@string/export_hourgroups_hint"
+            android:title="@string/export_hourgroups_"/>
 
 </PreferenceScreen>

@@ -16,68 +16,68 @@
 		not, see <http://www.gnu.org/licenses/>.
 -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/widget_margin" >
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:padding="@dimen/widget_margin">
 
     <RelativeLayout
-        android:id="@+id/widget"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent"
-        android:clickable="true"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/widget_padding"
-        android:paddingEnd="@dimen/widget_padding"
-        android:paddingLeft="@dimen/widget_padding"
-        android:paddingRight="@dimen/widget_padding"
-        android:paddingStart="@dimen/widget_padding"
-        android:paddingTop="@dimen/widget_padding" >
+            android:id="@+id/widget"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/widget_padding"
+            android:paddingEnd="@dimen/widget_padding"
+            android:paddingLeft="@dimen/widget_padding"
+            android:paddingRight="@dimen/widget_padding"
+            android:paddingStart="@dimen/widget_padding"
+            android:paddingTop="@dimen/widget_padding">
 
         <ImageView
-            android:id="@+id/widget_bg"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_centerInParent="true"
-            android:scaleType="fitXY"
-            android:src="@android:color/black" />
+                android:id="@+id/widget_bg"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@android:color/black"/>
 
         <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
             <TextView
-                android:id="@+id/plan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:gravity="center_horizontal"
-                android:paddingTop="5dp"
-                android:text="@+id/plan"
-                android:textColor="#FFFFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold" />
+                    android:id="@+id/plan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="5dp"
+                    android:text="@+id/plan"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="10dp"
+                    android:textStyle="bold"/>
 
             <ImageView
-                android:id="@+id/widget_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/plan"
-                android:layout_centerHorizontal="true"
-                android:visibility="gone" >
+                    android:id="@+id/widget_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/plan"
+                    android:layout_centerHorizontal="true"
+                    android:visibility="gone">
             </ImageView>
 
             <TextView
-                android:id="@+id/stats"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:layout_below="@id/widget_icon"
-                android:layout_centerHorizontal="true"
-                android:gravity="center"
-                android:text="@+id/stats"
-                android:textColor="#FFFFFFFF"
-                android:textSize="10dp" />
+                    android:id="@+id/stats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_below="@id/widget_icon"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="@+id/stats"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="10dp"/>
         </RelativeLayout>
     </RelativeLayout>
 

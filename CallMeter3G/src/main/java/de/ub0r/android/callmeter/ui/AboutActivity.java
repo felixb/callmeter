@@ -18,45 +18,46 @@
  */
 package de.ub0r.android.callmeter.ui;
 
-import android.os.Bundle;
-
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
+
+import android.os.Bundle;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.Utils;
 
 /**
  * Display About {@link SherlockActivity}.
- * 
+ *
  * @author flx
  */
 public final class AboutActivity extends SherlockActivity {
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onCreate(final Bundle savedInstanceState) {
-		Utils.setLocale(this);
-		super.onCreate(savedInstanceState);
 
-		this.setContentView(R.layout.about);
-		this.setTitle(this.getString(R.string.about_) + " " + this.getString(R.string.app_name)
-				+ " v" + this.getString(R.string.app_version));
-		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onCreate(final Bundle savedInstanceState) {
+        Utils.setLocale(this);
+        super.onCreate(savedInstanceState);
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean onOptionsItemSelected(final MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			this.finish();
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
+        setContentView(R.layout.about);
+        setTitle(this.getString(R.string.about_) + " " + getString(R.string.app_name)
+                + " v" + getString(R.string.app_version));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

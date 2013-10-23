@@ -18,8 +18,10 @@
  */
 package de.ub0r.android.callmeter.widget;
 
-import yuku.ambilwarna.AmbilWarnaDialog;
-import yuku.ambilwarna.AmbilWarnaDialog.OnAmbilWarnaListener;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -40,371 +42,371 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
+import yuku.ambilwarna.AmbilWarnaDialog;
+import yuku.ambilwarna.AmbilWarnaDialog.OnAmbilWarnaListener;
 
 /**
  * Configure a stats widget.
- * 
+ *
  * @author flx
  */
 public final class LogsAppWidgetConfigure extends SherlockActivity implements OnClickListener,
-		OnCheckedChangeListener, OnSeekBarChangeListener {
-	/** Tag for logging. */
-	private static final String TAG = "wdgtcfg";
+        OnCheckedChangeListener, OnSeekBarChangeListener {
 
-	/** Widget id. */
-	private int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
-	/** {@link Spinner} holding the plan. */
-	private Spinner spinner;
+    /** Tag for logging. */
+    private static final String TAG = "wdgtcfg";
 
-	/** {@link CheckBox}s. */
-	private CheckBox cbShowCost, cbShowIcon, cbSmallWidget;
-	/** {@link EditText}s. */
-	private EditText etPlanTextSize, etStatsTextSize;
-	/** {@link Button}s. */
-	private Button btnTextColor, btnBgColor;
-	/** {@link View}s. */
-	private View vTextColor, vBgColor;
-	/** {@link SeekBar}. */
-	private SeekBar sbBgTransparency;
+    /** Widget id. */
+    private int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
+    /** {@link Spinner} holding the plan. */
+    private Spinner spinner;
 
-	/** Default text size. */
-	static final float DEFAULT_TEXTSIZE = 10f;
-	/** Default text color. */
-	static final int DEFAULT_TEXTCOLOR = 0xffffffff;
-	/** Default background color. */
-	static final int DEFAULT_BGCOLOR = 0x80000000;
-	/** Bit mask for colors. */
-	private static final int BITMASK_COLOR = 0x00FFFFFF;
-	/** Shift for transparency. */
-	private static final int BITSHIFT_TRANSPARENCY = 24;
+    /** {@link CheckBox}s. */
+    private CheckBox cbShowCost, cbShowIcon, cbSmallWidget;
+    /** {@link EditText}s. */
+    private EditText etPlanTextSize, etStatsTextSize;
+    /** {@link Button}s. */
+    private Button btnTextColor, btnBgColor;
+    /** {@link View}s. */
+    private View vTextColor, vBgColor;
+    /** {@link SeekBar}. */
+    private SeekBar sbBgTransparency;
 
-	/** Projection for {@link SimpleCursorAdapter} query. */
-	private static final String[] PROJ_ADAPTER = new String[] { DataProvider.Plans.ID,
-			DataProvider.Plans.NAME };
+    /** Default text size. */
+    static final float DEFAULT_TEXTSIZE = 10f;
+    /** Default text color. */
+    static final int DEFAULT_TEXTCOLOR = 0xffffffff;
+    /** Default background color. */
+    static final int DEFAULT_BGCOLOR = 0x80000000;
+    /** Bit mask for colors. */
+    private static final int BITMASK_COLOR = 0x00FFFFFF;
+    /** Shift for transparency. */
+    private static final int BITSHIFT_TRANSPARENCY = 24;
 
-	/** Does the widget already exist? */
-	private boolean isExistingWidget = false;
+    /** Projection for {@link SimpleCursorAdapter} query. */
+    private static final String[] PROJ_ADAPTER = new String[]{DataProvider.Plans.ID,
+            DataProvider.Plans.NAME};
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onCreate(final Bundle savedInstanceState) {
-		Utils.setLocale(this);
-		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.stats_appwidget_config);
-		this.findViewById(R.id.hide_name).setVisibility(View.GONE);
-		this.findViewById(R.id.shortname).setVisibility(View.GONE);
-		this.findViewById(R.id.pbillp).setVisibility(View.GONE);
-		((TextView) this.findViewById(R.id.widget_plan_textsize_))
-				.setText(R.string.widget_date_textsize);
-		((TextView) this.findViewById(R.id.widget_cost_textsize_))
-				.setText(R.string.widget_details_textsize);
-		this.spinner = (Spinner) this.findViewById(R.id.spinner);
-		this.cbShowCost = (CheckBox) this.findViewById(R.id.cost);
-		this.cbShowIcon = (CheckBox) this.findViewById(R.id.show_icon);
-		this.cbSmallWidget = (CheckBox) this.findViewById(R.id.small_widget);
-		this.etPlanTextSize = (EditText) this.findViewById(R.id.widget_plan_textsize);
-		this.etStatsTextSize = (EditText) this.findViewById(R.id.widget_stats_textsize);
-		this.btnTextColor = (Button) this.findViewById(R.id.textcolor);
-		this.btnBgColor = (Button) this.findViewById(R.id.bgcolor);
-		this.vTextColor = this.findViewById(R.id.textcolorfield);
-		this.vBgColor = this.findViewById(R.id.bgcolorfield);
-		this.sbBgTransparency = (SeekBar) this.findViewById(R.id.bgtransparency);
-		this.setAdapter();
-		this.findViewById(R.id.ok).setOnClickListener(this);
-		this.findViewById(R.id.cancel).setOnClickListener(this);
-		this.btnTextColor.setOnClickListener(this);
-		this.btnBgColor.setOnClickListener(this);
-		this.sbBgTransparency.setOnSeekBarChangeListener(this);
-		this.setTextColor(DEFAULT_TEXTCOLOR);
-		this.setBgColor(DEFAULT_BGCOLOR, false);
-	}
+    /** Does the widget already exist? */
+    private boolean isExistingWidget = false;
 
-	/** Set {@link SimpleCursorAdapter} for {@link Spinner}. */
-	private void setAdapter() {
-		final Cursor c = this.getContentResolver().query(DataProvider.Plans.CONTENT_URI,
-				PROJ_ADAPTER, DataProvider.Plans.WHERE_REALPLANS, null, DataProvider.Plans.NAME);
-		final SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
-				android.R.layout.simple_spinner_item, c, new String[] { DataProvider.Plans.NAME },
-				new int[] { android.R.id.text1 });
-		final int pos = this.spinner.getSelectedItemPosition();
-		this.spinner.setAdapter(adapter);
-		if (pos >= 0 && pos < this.spinner.getCount()) {
-			this.spinner.setSelection(pos);
-		}
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onCreate(final Bundle savedInstanceState) {
+        Utils.setLocale(this);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.stats_appwidget_config);
+        findViewById(R.id.hide_name).setVisibility(View.GONE);
+        findViewById(R.id.shortname).setVisibility(View.GONE);
+        findViewById(R.id.pbillp).setVisibility(View.GONE);
+        ((TextView) findViewById(R.id.widget_plan_textsize_))
+                .setText(R.string.widget_date_textsize);
+        ((TextView) findViewById(R.id.widget_cost_textsize_))
+                .setText(R.string.widget_details_textsize);
+        spinner = (Spinner) findViewById(R.id.spinner);
+        cbShowCost = (CheckBox) findViewById(R.id.cost);
+        cbShowIcon = (CheckBox) findViewById(R.id.show_icon);
+        cbSmallWidget = (CheckBox) findViewById(R.id.small_widget);
+        etPlanTextSize = (EditText) findViewById(R.id.widget_plan_textsize);
+        etStatsTextSize = (EditText) findViewById(R.id.widget_stats_textsize);
+        btnTextColor = (Button) findViewById(R.id.textcolor);
+        btnBgColor = (Button) findViewById(R.id.bgcolor);
+        vTextColor = findViewById(R.id.textcolorfield);
+        vBgColor = findViewById(R.id.bgcolorfield);
+        sbBgTransparency = (SeekBar) findViewById(R.id.bgtransparency);
+        setAdapter();
+        findViewById(R.id.ok).setOnClickListener(this);
+        findViewById(R.id.cancel).setOnClickListener(this);
+        btnTextColor.setOnClickListener(this);
+        btnBgColor.setOnClickListener(this);
+        sbBgTransparency.setOnSeekBarChangeListener(this);
+        setTextColor(DEFAULT_TEXTCOLOR);
+        setBgColor(DEFAULT_BGCOLOR, false);
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onResume() {
-		super.onResume();
-		Utils.setLocale(this);
+    /** Set {@link SimpleCursorAdapter} for {@link Spinner}. */
+    private void setAdapter() {
+        final Cursor c = getContentResolver().query(DataProvider.Plans.CONTENT_URI,
+                PROJ_ADAPTER, DataProvider.Plans.WHERE_REALPLANS, null, DataProvider.Plans.NAME);
+        final SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
+                android.R.layout.simple_spinner_item, c, new String[]{DataProvider.Plans.NAME},
+                new int[]{android.R.id.text1});
+        final int pos = spinner.getSelectedItemPosition();
+        spinner.setAdapter(adapter);
+        if (pos >= 0 && pos < spinner.getCount()) {
+            spinner.setSelection(pos);
+        }
+    }
 
-		final Intent intent = this.getIntent();
-		if (intent != null) {
-			this.mAppWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
-					AppWidgetManager.INVALID_APPWIDGET_ID);
-		}
-		this.isExistingWidget = this.mAppWidgetId > 0;
-		this.load();
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Utils.setLocale(this);
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.ok:
-			SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(this)
-					.edit();
-			editor.putLong(LogsAppWidgetProvider.WIDGET_PLANID + this.mAppWidgetId,
-					this.spinner.getSelectedItemId());
-			editor.putBoolean(LogsAppWidgetProvider.WIDGET_COST + this.mAppWidgetId,
-					this.cbShowCost.isChecked());
-			editor.putBoolean(LogsAppWidgetProvider.WIDGET_ICON + this.mAppWidgetId,
-					this.cbShowIcon.isChecked());
-			editor.putBoolean(LogsAppWidgetProvider.WIDGET_SMALL + this.mAppWidgetId,
-					this.cbSmallWidget.isChecked());
-			editor.putFloat(LogsAppWidgetProvider.WIDGET_STATS_TEXTSIZE + this.mAppWidgetId,
-					Utils.parseFloat(this.etStatsTextSize.getText().toString(), DEFAULT_TEXTSIZE));
-			editor.putFloat(LogsAppWidgetProvider.WIDGET_PLAN_TEXTSIZE + this.mAppWidgetId,
-					Utils.parseFloat(this.etPlanTextSize.getText().toString(), DEFAULT_TEXTSIZE));
-			editor.putInt(LogsAppWidgetProvider.WIDGET_TEXTCOLOR + this.mAppWidgetId,
-					this.getTextColor());
-			editor.putInt(LogsAppWidgetProvider.WIDGET_BGCOLOR + this.mAppWidgetId,
-					this.getBgColor());
-			editor.commit();
+        final Intent intent = getIntent();
+        if (intent != null) {
+            mAppWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
+                    AppWidgetManager.INVALID_APPWIDGET_ID);
+        }
+        isExistingWidget = mAppWidgetId > 0;
+        load();
+    }
 
-			final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
-			LogsAppWidgetProvider.updateWidget(this, appWidgetManager, this.mAppWidgetId);
+    /**
+     * {@inheritDoc}
+     */
+    public void onClick(final View v) {
+        switch (v.getId()) {
+            case R.id.ok:
+                SharedPreferences.Editor editor = PreferenceManager
+                        .getDefaultSharedPreferences(this)
+                        .edit();
+                editor.putLong(LogsAppWidgetProvider.WIDGET_PLANID + mAppWidgetId,
+                        spinner.getSelectedItemId());
+                editor.putBoolean(LogsAppWidgetProvider.WIDGET_COST + mAppWidgetId,
+                        cbShowCost.isChecked());
+                editor.putBoolean(LogsAppWidgetProvider.WIDGET_ICON + mAppWidgetId,
+                        cbShowIcon.isChecked());
+                editor.putBoolean(LogsAppWidgetProvider.WIDGET_SMALL + mAppWidgetId,
+                        cbSmallWidget.isChecked());
+                editor.putFloat(LogsAppWidgetProvider.WIDGET_STATS_TEXTSIZE + mAppWidgetId,
+                        Utils.parseFloat(this.etStatsTextSize.getText().toString(),
+                                DEFAULT_TEXTSIZE));
+                editor.putFloat(LogsAppWidgetProvider.WIDGET_PLAN_TEXTSIZE + mAppWidgetId,
+                        Utils.parseFloat(this.etPlanTextSize.getText().toString(),
+                                DEFAULT_TEXTSIZE));
+                editor.putInt(LogsAppWidgetProvider.WIDGET_TEXTCOLOR + mAppWidgetId,
+                        getTextColor());
+                editor.putInt(LogsAppWidgetProvider.WIDGET_BGCOLOR + mAppWidgetId,
+                        getBgColor());
+                editor.commit();
 
-			final Intent resultValue = new Intent();
-			resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, this.mAppWidgetId);
-			this.setResult(RESULT_OK, resultValue);
-			this.finish();
-			break;
-		case R.id.cancel:
-			this.finish();
-			break;
-		case R.id.textcolor:
-			new AmbilWarnaDialog(this, this.getTextColor(), new OnAmbilWarnaListener() {
-				@Override
-				public void onOk(final AmbilWarnaDialog dialog, final int color) {
-					LogsAppWidgetConfigure.this.setTextColor(color);
-				}
+                final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
+                LogsAppWidgetProvider.updateWidget(this, appWidgetManager, mAppWidgetId);
 
-				@Override
-				public void onCancel(final AmbilWarnaDialog dialog) {
-					// nothing to do
-				}
+                final Intent resultValue = new Intent();
+                resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mAppWidgetId);
+                setResult(RESULT_OK, resultValue);
+                finish();
+                break;
+            case R.id.cancel:
+                finish();
+                break;
+            case R.id.textcolor:
+                new AmbilWarnaDialog(this, getTextColor(), new OnAmbilWarnaListener() {
+                    @Override
+                    public void onOk(final AmbilWarnaDialog dialog, final int color) {
+                        LogsAppWidgetConfigure.this.setTextColor(color);
+                    }
 
-				public void onReset(final AmbilWarnaDialog dialog) {
-					LogsAppWidgetConfigure.this.setTextColor(DEFAULT_TEXTCOLOR);
-				}
-			}).show();
-			break;
-		case R.id.bgcolor:
-			new AmbilWarnaDialog(this, this.getBgColor(), new OnAmbilWarnaListener() {
-				@Override
-				public void onOk(final AmbilWarnaDialog dialog, final int color) {
-					LogsAppWidgetConfigure.this.setBgColor(color, false);
-				}
+                    @Override
+                    public void onCancel(final AmbilWarnaDialog dialog) {
+                        // nothing to do
+                    }
 
-				@Override
-				public void onCancel(final AmbilWarnaDialog dialog) {
-					// nothing to do
-				}
+                    public void onReset(final AmbilWarnaDialog dialog) {
+                        LogsAppWidgetConfigure.this.setTextColor(DEFAULT_TEXTCOLOR);
+                    }
+                }).show();
+                break;
+            case R.id.bgcolor:
+                new AmbilWarnaDialog(this, getBgColor(), new OnAmbilWarnaListener() {
+                    @Override
+                    public void onOk(final AmbilWarnaDialog dialog, final int color) {
+                        LogsAppWidgetConfigure.this.setBgColor(color, false);
+                    }
 
-				public void onReset(final AmbilWarnaDialog dialog) {
-					LogsAppWidgetConfigure.this.setBgColor(DEFAULT_BGCOLOR, false);
-				}
-			}).show();
-			break;
-		default:
-			break;
-		}
-	}
+                    @Override
+                    public void onCancel(final AmbilWarnaDialog dialog) {
+                        // nothing to do
+                    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onCheckedChanged(final CompoundButton buttonView, final boolean isChecked) {
-		switch (buttonView.getId()) {
-		case R.id.shortname:
-			this.setAdapter();
-			return;
-		default:
-			return;
-		}
-	}
+                    public void onReset(final AmbilWarnaDialog dialog) {
+                        LogsAppWidgetConfigure.this.setBgColor(DEFAULT_BGCOLOR, false);
+                    }
+                }).show();
+                break;
+            default:
+                break;
+        }
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onProgressChanged(final SeekBar seekBar, final int progress, final boolean fromUser) {
-		Log.d(TAG, "onProgressChanged(" + progress + ")");
-		final int tp = 255 - progress;
-		int c = this.getBgColor();
-		Log.d(TAG, "color: " + c);
-		c = c & BITMASK_COLOR;
-		Log.d(TAG, "color: " + c);
-		Log.i(TAG, "transparency: " + Integer.toHexString(tp << BITSHIFT_TRANSPARENCY));
-		c = c | tp << BITSHIFT_TRANSPARENCY;
-		Log.d(TAG, "color: " + c);
-		this.setBgColor(c, true);
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onCheckedChanged(final CompoundButton buttonView, final boolean isChecked) {
+        switch (buttonView.getId()) {
+            case R.id.shortname:
+                setAdapter();
+                return;
+            default:
+                return;
+        }
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onStartTrackingTouch(final SeekBar seekBar) {
-		// nothing todo
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onProgressChanged(final SeekBar seekBar, final int progress,
+            final boolean fromUser) {
+        Log.d(TAG, "onProgressChanged(" + progress + ")");
+        final int tp = 255 - progress;
+        int c = getBgColor();
+        Log.d(TAG, "color: " + c);
+        c = c & BITMASK_COLOR;
+        Log.d(TAG, "color: " + c);
+        Log.i(TAG, "transparency: " + Integer.toHexString(tp << BITSHIFT_TRANSPARENCY));
+        c = c | tp << BITSHIFT_TRANSPARENCY;
+        Log.d(TAG, "color: " + c);
+        setBgColor(c, true);
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onStopTrackingTouch(final SeekBar seekBar) {
-		// nothing todo
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onStartTrackingTouch(final SeekBar seekBar) {
+        // nothing todo
+    }
 
-	/**
-	 * Load widget's configuration.
-	 */
-	private void load() {
-		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
-		long pid = p.getLong(LogsAppWidgetProvider.WIDGET_PLANID + this.mAppWidgetId, -1);
-		SpinnerAdapter adapter = this.spinner.getAdapter();
-		int l = this.spinner.getCount();
-		for (int i = 0; i < l; i++) {
-			if (adapter.getItemId(i) == pid) {
-				this.spinner.setSelection(i);
-				break;
-			}
-		}
-		this.cbShowCost.setChecked(p.getBoolean(LogsAppWidgetProvider.WIDGET_COST
-				+ this.mAppWidgetId, false));
-		this.cbShowIcon.setChecked(p.getBoolean(LogsAppWidgetProvider.WIDGET_ICON
-				+ this.mAppWidgetId, false));
-		this.cbSmallWidget.setChecked(p.getBoolean(LogsAppWidgetProvider.WIDGET_SMALL
-				+ this.mAppWidgetId, false));
-		float f = p.getFloat(LogsAppWidgetProvider.WIDGET_STATS_TEXTSIZE + this.mAppWidgetId, -1);
-		if (f > 0f && f != DEFAULT_TEXTSIZE) {
-			this.etStatsTextSize.setText(String.valueOf(f));
-		} else {
-			this.etStatsTextSize.setText(null);
-		}
-		f = p.getFloat(LogsAppWidgetProvider.WIDGET_PLAN_TEXTSIZE + this.mAppWidgetId, -1);
-		if (f > 0f && f != DEFAULT_TEXTSIZE) {
-			this.etPlanTextSize.setText(String.valueOf(f));
-		} else {
-			this.etPlanTextSize.setText(null);
-		}
-		this.setTextColor(p.getInt(LogsAppWidgetProvider.WIDGET_TEXTCOLOR + this.mAppWidgetId,
-				DEFAULT_TEXTCOLOR));
-		this.setBgColor(
-				p.getInt(LogsAppWidgetProvider.WIDGET_BGCOLOR + this.mAppWidgetId, DEFAULT_BGCOLOR),
-				false);
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onStopTrackingTouch(final SeekBar seekBar) {
+        // nothing todo
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean onCreateOptionsMenu(final Menu menu) {
-		if (this.isExistingWidget) {
-			this.getSupportMenuInflater().inflate(R.menu.menu_widget, menu);
-			return true;
-		} else {
-			return super.onCreateOptionsMenu(menu);
-		}
-	}
+    /**
+     * Load widget's configuration.
+     */
+    private void load() {
+        SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
+        long pid = p.getLong(LogsAppWidgetProvider.WIDGET_PLANID + mAppWidgetId, -1);
+        SpinnerAdapter adapter = spinner.getAdapter();
+        int l = spinner.getCount();
+        for (int i = 0; i < l; i++) {
+            if (adapter.getItemId(i) == pid) {
+                spinner.setSelection(i);
+                break;
+            }
+        }
+        cbShowCost.setChecked(p.getBoolean(LogsAppWidgetProvider.WIDGET_COST
+                + mAppWidgetId, false));
+        cbShowIcon.setChecked(p.getBoolean(LogsAppWidgetProvider.WIDGET_ICON
+                + mAppWidgetId, false));
+        cbSmallWidget.setChecked(p.getBoolean(LogsAppWidgetProvider.WIDGET_SMALL
+                + mAppWidgetId, false));
+        float f = p.getFloat(LogsAppWidgetProvider.WIDGET_STATS_TEXTSIZE + mAppWidgetId, -1);
+        if (f > 0f && f != DEFAULT_TEXTSIZE) {
+            etStatsTextSize.setText(String.valueOf(f));
+        } else {
+            etStatsTextSize.setText(null);
+        }
+        f = p.getFloat(LogsAppWidgetProvider.WIDGET_PLAN_TEXTSIZE + mAppWidgetId, -1);
+        if (f > 0f && f != DEFAULT_TEXTSIZE) {
+            etPlanTextSize.setText(String.valueOf(f));
+        } else {
+            etPlanTextSize.setText(null);
+        }
+        setTextColor(p.getInt(LogsAppWidgetProvider.WIDGET_TEXTCOLOR + mAppWidgetId,
+                DEFAULT_TEXTCOLOR));
+        setBgColor(
+                p.getInt(LogsAppWidgetProvider.WIDGET_BGCOLOR + mAppWidgetId, DEFAULT_BGCOLOR),
+                false);
+    }
 
-	@Override
-	public boolean onOptionsItemSelected(final MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.item_del:
-			PreferenceManager.getDefaultSharedPreferences(this).edit()
-					.remove(LogsAppWidgetProvider.WIDGET_PLANID + this.mAppWidgetId).commit();
-			this.finish();
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        if (this.isExistingWidget) {
+            getSupportMenuInflater().inflate(R.menu.menu_widget, menu);
+            return true;
+        } else {
+            return super.onCreateOptionsMenu(menu);
+        }
+    }
 
-	/**
-	 * Get background color currently set.
-	 * 
-	 * @return color
-	 */
-	private int getBgColor() {
-		return Long.decode(this.btnBgColor.getText().toString()).intValue();
-	}
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item_del:
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .remove(LogsAppWidgetProvider.WIDGET_PLANID + mAppWidgetId).commit();
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
-	/**
-	 * Set the background color to btnBgColor and vBgColorField.
-	 * 
-	 * @param color
-	 *            color to set
-	 * @param fromProgressBar
-	 *            true, if setColor is called from onProgessChanged()
-	 */
-	private void setBgColor(final int color, final boolean fromProgressBar) {
-		Log.d(TAG, "setBgColor(" + color + ", " + fromProgressBar + ")");
-		String hex = AmbilWarnaDialog.colorToString(color);
-		this.btnBgColor.setText(hex);
-		this.vBgColor.setBackgroundColor(color);
-		if (!fromProgressBar) {
-			int trans = color >> BITSHIFT_TRANSPARENCY;
-			Log.d(TAG, "transparency: " + trans);
-			if (trans < 0) {
-				trans = 256 + trans;
-				Log.d(TAG, "transparency: " + trans);
-			}
-			this.sbBgTransparency.setProgress(255 - trans);
-		}
-	}
+    /**
+     * Get background color currently set.
+     *
+     * @return color
+     */
+    private int getBgColor() {
+        return Long.decode(this.btnBgColor.getText().toString()).intValue();
+    }
 
-	/**
-	 * Get text color currently set.
-	 * 
-	 * @return color
-	 */
-	private int getTextColor() {
-		return Long.decode(this.btnTextColor.getText().toString()).intValue();
-	}
+    /**
+     * Set the background color to btnBgColor and vBgColorField.
+     *
+     * @param color           color to set
+     * @param fromProgressBar true, if setColor is called from onProgessChanged()
+     */
+    private void setBgColor(final int color, final boolean fromProgressBar) {
+        Log.d(TAG, "setBgColor(" + color + ", " + fromProgressBar + ")");
+        String hex = AmbilWarnaDialog.colorToString(color);
+        btnBgColor.setText(hex);
+        vBgColor.setBackgroundColor(color);
+        if (!fromProgressBar) {
+            int trans = color >> BITSHIFT_TRANSPARENCY;
+            Log.d(TAG, "transparency: " + trans);
+            if (trans < 0) {
+                trans = 256 + trans;
+                Log.d(TAG, "transparency: " + trans);
+            }
+            sbBgTransparency.setProgress(255 - trans);
+        }
+    }
 
-	/**
-	 * Set the text color to btnTextColor and vTextColorField.
-	 * 
-	 * @param color
-	 *            color to set
-	 */
-	private void setTextColor(final int color) {
-		Log.d(TAG, "setTextColor(" + color + ")");
-		String hex = AmbilWarnaDialog.colorToString(color);
-		Log.d(TAG, "color: " + hex);
-		while (hex.length() < 9) {
-			hex = "#0" + hex.substring(1);
-			Log.d(TAG, "color: " + hex);
-		}
-		this.btnTextColor.setText(hex);
-		this.vTextColor.setBackgroundColor(color);
-	}
+    /**
+     * Get text color currently set.
+     *
+     * @return color
+     */
+    private int getTextColor() {
+        return Long.decode(this.btnTextColor.getText().toString()).intValue();
+    }
+
+    /**
+     * Set the text color to btnTextColor and vTextColorField.
+     *
+     * @param color color to set
+     */
+    private void setTextColor(final int color) {
+        Log.d(TAG, "setTextColor(" + color + ")");
+        String hex = AmbilWarnaDialog.colorToString(color);
+        Log.d(TAG, "color: " + hex);
+        while (hex.length() < 9) {
+            hex = "#0" + hex.substring(1);
+            Log.d(TAG, "color: " + hex);
+        }
+        btnTextColor.setText(hex);
+        vTextColor.setBackgroundColor(color);
+    }
 }

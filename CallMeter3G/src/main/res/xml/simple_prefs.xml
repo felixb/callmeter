@@ -16,76 +16,76 @@
 		not, see <http://www.gnu.org/licenses/>.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:key="container" >
+                  android:key="container">
 
-    <PreferenceCategory android:title="@string/common_prefs_" >
+    <PreferenceCategory android:title="@string/common_prefs_">
         <ListPreference
-            android:entries="@array/billdays"
-            android:entryValues="@array/billdays"
-            android:key="sp_billday"
-            android:summary="@string/billday_help"
-            android:title="@string/billday_" />
+                android:entries="@array/billdays"
+                android:entryValues="@array/billdays"
+                android:key="sp_billday"
+                android:summary="@string/billday_help"
+                android:title="@string/billday_"/>
     </PreferenceCategory>
 
-    <PreferenceScreen android:title="@string/calls" >
+    <PreferenceScreen android:title="@string/calls">
         <intent
-            android:action="CALLS"
-            android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
-            android:targetPackage="de.ub0r.android.callmeter" />
+                android:action="CALLS"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
+                android:targetPackage="de.ub0r.android.callmeter"/>
     </PreferenceScreen>
     <PreferenceScreen
-        android:key="calls_2"
-        android:summary="@string/second_sim_"
-        android:title="@string/calls" >
+            android:key="calls_2"
+            android:summary="@string/second_sim_"
+            android:title="@string/calls">
         <intent
-            android:action="CALLS_2"
-            android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
-            android:targetPackage="de.ub0r.android.callmeter" />
+                android:action="CALLS_2"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
+                android:targetPackage="de.ub0r.android.callmeter"/>
     </PreferenceScreen>
     <PreferenceScreen
-        android:key="calls_voip"
-        android:summary="@string/calls_voip_"
-        android:title="@string/calls" >
+            android:key="calls_voip"
+            android:summary="@string/calls_voip_"
+            android:title="@string/calls">
         <intent
-            android:action="CALLS_VOIP"
-            android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
-            android:targetPackage="de.ub0r.android.callmeter" />
+                android:action="CALLS_VOIP"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
+                android:targetPackage="de.ub0r.android.callmeter"/>
     </PreferenceScreen>
-    <PreferenceScreen android:title="@string/sms" >
+    <PreferenceScreen android:title="@string/sms">
         <intent
-            android:action="SMS"
-            android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
-            android:targetPackage="de.ub0r.android.callmeter" />
-    </PreferenceScreen>
-    <PreferenceScreen
-        android:key="sms_2"
-        android:summary="@string/second_sim_"
-        android:title="@string/sms" >
-        <intent
-            android:action="SMS_2"
-            android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
-            android:targetPackage="de.ub0r.android.callmeter" />
+                android:action="SMS"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
+                android:targetPackage="de.ub0r.android.callmeter"/>
     </PreferenceScreen>
     <PreferenceScreen
-        android:key="sms_websms"
-        android:summary="@string/websms_"
-        android:title="@string/sms" >
+            android:key="sms_2"
+            android:summary="@string/second_sim_"
+            android:title="@string/sms">
         <intent
-            android:action="SMS_WEBSMS"
-            android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
-            android:targetPackage="de.ub0r.android.callmeter" />
+                android:action="SMS_2"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
+                android:targetPackage="de.ub0r.android.callmeter"/>
     </PreferenceScreen>
-    <PreferenceScreen android:title="@string/mms" >
+    <PreferenceScreen
+            android:key="sms_websms"
+            android:summary="@string/websms_"
+            android:title="@string/sms">
         <intent
-            android:action="MMS"
-            android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
-            android:targetPackage="de.ub0r.android.callmeter" />
+                android:action="SMS_WEBSMS"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
+                android:targetPackage="de.ub0r.android.callmeter"/>
     </PreferenceScreen>
-    <PreferenceScreen android:title="@string/data" >
+    <PreferenceScreen android:title="@string/mms">
         <intent
-            android:action="DATA"
-            android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
-            android:targetPackage="de.ub0r.android.callmeter" />
+                android:action="MMS"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
+                android:targetPackage="de.ub0r.android.callmeter"/>
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/data">
+        <intent
+                android:action="DATA"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.SimplePreferencesChild"
+                android:targetPackage="de.ub0r.android.callmeter"/>
     </PreferenceScreen>
 
 </PreferenceScreen>

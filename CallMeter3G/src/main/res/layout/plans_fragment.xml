@@ -16,55 +16,55 @@
 		not, see <http://www.gnu.org/licenses/>.
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="?android:attr/colorBackground" >
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="?android:attr/colorBackground">
 
     <ListView
-        android:id="@id/android:list"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@android:id/text1"
-        android:cacheColorHint="?android:attr/colorBackground"
-        android:choiceMode="singleChoice"
-        android:divider="?android:attr/colorBackground"
-        android:dividerHeight="0px"
-        android:drawSelectorOnTop="false"
-        android:fastScrollEnabled="true"
-        android:scrollingCache="true" />
+            android:id="@id/android:list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@android:id/text1"
+            android:cacheColorHint="?android:attr/colorBackground"
+            android:choiceMode="singleChoice"
+            android:divider="?android:attr/colorBackground"
+            android:dividerHeight="0px"
+            android:drawSelectorOnTop="false"
+            android:fastScrollEnabled="true"
+            android:scrollingCache="true"/>
 
     <TextView
-        android:id="@+id/import_default"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/android:list"
-        android:layout_alignLeft="@id/android:list"
-        android:layout_alignRight="@id/android:list"
-        android:layout_alignTop="@id/android:list"
-        android:gravity="center"
-        android:singleLine="false"
-        android:text="@string/import_rules_empty"
-        android:visibility="gone" />
+            android:id="@+id/import_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/android:list"
+            android:layout_alignLeft="@id/android:list"
+            android:layout_alignRight="@id/android:list"
+            android:layout_alignTop="@id/android:list"
+            android:gravity="center"
+            android:singleLine="false"
+            android:text="@string/import_rules_empty"
+            android:visibility="gone"/>
 
     <LinearLayout
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/android:list"
-        android:layout_alignLeft="@id/android:list"
-        android:layout_alignRight="@id/android:list"
-        android:layout_alignTop="@id/android:list"
-        android:gravity="center" >
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/android:list"
+            android:layout_alignLeft="@id/android:list"
+            android:layout_alignRight="@id/android:list"
+            android:layout_alignTop="@id/android:list"
+            android:gravity="center">
 
         <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dip" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dip"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loading" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loading"/>
     </LinearLayout>
 
 </RelativeLayout>

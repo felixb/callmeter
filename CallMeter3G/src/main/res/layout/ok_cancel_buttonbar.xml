@@ -17,27 +17,27 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ok_cancel"
-    style="@style/ButtonBar"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
-    android:orientation="horizontal" >
+              android:id="@+id/ok_cancel"
+              style="@style/ButtonBar"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_alignParentBottom="true"
+              android:focusable="true"
+              android:focusableInTouchMode="true"
+              android:orientation="horizontal">
 
     <Button
-        android:id="@+id/ok"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@android:string/ok" />
+            android:id="@+id/ok"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/ok"/>
 
     <Button
-        android:id="@+id/cancel"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@android:string/cancel" />
+            android:id="@+id/cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/cancel"/>
 
 </LinearLayout>

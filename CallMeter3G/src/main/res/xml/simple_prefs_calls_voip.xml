@@ -15,29 +15,29 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <de.ub0r.android.callmeter.ui.prefs.BillModeListPreference
-        android:entries="@array/billmodes"
-        android:entryValues="@array/billmodes"
-        android:key="sp_billmode_voip"
-        android:summary="@string/billmode_help"
-        android:title="@string/billmode_" />
+            android:entries="@array/billmodes"
+            android:entryValues="@array/billmodes"
+            android:key="sp_billmode_voip"
+            android:summary="@string/billmode_help"
+            android:title="@string/billmode_"/>
 
     <EditTextPreference
-        android:inputType="number"
-        android:key="sp_freemin_voip"
-        android:summary="@string/freemin_hint"
-        android:title="@string/freemin_" />
+            android:inputType="number"
+            android:key="sp_freemin_voip"
+            android:summary="@string/freemin_hint"
+            android:title="@string/freemin_"/>
     <EditTextPreference
-        android:inputType="number|numberDecimal"
-        android:key="sp_cost_per_call_voip"
-        android:summary="@string/cost_per_call_hint"
-        android:title="@string/cost_per_call_" />
+            android:inputType="number|numberDecimal"
+            android:key="sp_cost_per_call_voip"
+            android:summary="@string/cost_per_call_hint"
+            android:title="@string/cost_per_call_"/>
     <EditTextPreference
-        android:inputType="number|numberDecimal"
-        android:key="sp_cost_per_min_voip"
-        android:summary="@string/cost_per_min_hint"
-        android:title="@string/cost_per_min_" />
+            android:inputType="number|numberDecimal"
+            android:key="sp_cost_per_min_voip"
+            android:summary="@string/cost_per_min_hint"
+            android:title="@string/cost_per_min_"/>
 
 </PreferenceScreen>

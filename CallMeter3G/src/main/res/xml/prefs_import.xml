@@ -16,28 +16,28 @@
 		not, see <http://www.gnu.org/licenses/>.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:key="import_rules_base" >
+                  android:key="import_rules_base">
 
     <PreferenceScreen
-        android:key="import_rules_default"
-        android:summary="@string/import_rules_default_hint"
-        android:title="@string/import_rules_default_" />
+            android:key="import_rules_default"
+            android:summary="@string/import_rules_default_hint"
+            android:title="@string/import_rules_default_"/>
     <PreferenceScreen
-        android:key="import_rules_sd"
-        android:summary="@string/import_rules_sd_hint"
-        android:title="@string/import_rules_sd_" >
+            android:key="import_rules_sd"
+            android:summary="@string/import_rules_sd_hint"
+            android:title="@string/import_rules_sd_">
         <intent
-            android:action="android.intent.action.MAIN"
-            android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesImport"
-            android:targetPackage="de.ub0r.android.callmeter" />
+                android:action="android.intent.action.MAIN"
+                android:targetClass="de.ub0r.android.callmeter.ui.prefs.PreferencesImport"
+                android:targetPackage="de.ub0r.android.callmeter"/>
     </PreferenceScreen>
 
     <PreferenceCategory
-        android:key="import_rules_users"
-        android:title="@string/import_rules_users" >
+            android:key="import_rules_users"
+            android:title="@string/import_rules_users">
         <PreferenceScreen
-            android:enabled="false"
-            android:title="@string/loading" />
+                android:enabled="false"
+                android:title="@string/loading"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

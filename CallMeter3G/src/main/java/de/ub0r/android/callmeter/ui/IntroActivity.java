@@ -18,12 +18,12 @@
  */
 package de.ub0r.android.callmeter.ui;
 
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.MenuItem;
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.MenuItem;
 
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
@@ -32,51 +32,52 @@ import de.ub0r.android.lib.Utils;
 
 /**
  * Display Help {@link SherlockActivity}.
- * 
+ *
  * @author flx
  */
 public final class IntroActivity extends SherlockActivity implements OnClickListener {
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onCreate(final Bundle savedInstanceState) {
-		this.setTheme(Preferences.getTheme(this));
-		Utils.setLocale(this);
-		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.intro);
-		CallMeter.fixActionBarBackground(this.getSupportActionBar(), this.getResources(),
-				R.drawable.bg_striped, R.drawable.bg_striped_split);
-		this.setTitle(R.string.intro_);
-		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		this.findViewById(R.id.ok).setOnClickListener(this);
-	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.ok:
-			this.finish();
-			break;
-		default:
-			break;
-		}
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onCreate(final Bundle savedInstanceState) {
+        setTheme(Preferences.getTheme(this));
+        Utils.setLocale(this);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.intro);
+        CallMeter.fixActionBarBackground(this.getSupportActionBar(), getResources(),
+                R.drawable.bg_striped, R.drawable.bg_striped_split);
+        setTitle(R.string.intro_);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        findViewById(R.id.ok).setOnClickListener(this);
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean onOptionsItemSelected(final MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			this.finish();
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onClick(final View v) {
+        switch (v.getId()) {
+            case R.id.ok:
+                finish();
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

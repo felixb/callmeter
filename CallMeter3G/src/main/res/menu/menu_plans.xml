@@ -15,12 +15,12 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 -->
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/item_logs"
-        android:icon="@drawable/ic_menu_recent_history"
-        android:showAsAction="ifRoom|never"
-        android:title="@string/show_logs"/>
+            android:id="@+id/item_logs"
+            android:icon="@drawable/ic_menu_recent_history"
+            android:showAsAction="ifRoom|never"
+            android:title="@string/show_logs"/>
 
 </menu>
