@@ -464,4 +464,6 @@
   <string name="country">Land</string>
   <string name="provider">Provider</string>
   <string name="plan">Tarif</string>
+  <string name="analytics_">Anoyme Nutzungsstatistiken</string>
+  <string name="analytics_hint">Die anoymen Nutzungsstatistiken werden genutzt um die App noch besser zu machen.</string>
 </resources>

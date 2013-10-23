@@ -52,6 +52,7 @@ import java.util.Date;
 import java.util.concurrent.RejectedExecutionException;
 
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.TrackingUtils;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.data.NameCache;
@@ -62,7 +63,7 @@ import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
- * Callmeter's Log {@link LogFragment}.
+ * Callmeter's Log {@link LogsFragment}.
  *
  * @author flx
  */
@@ -97,7 +98,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
     /** Selected plan id. */
     private long planId = -1;
 
-    /** Unique id for this {@link LogFragment}s loader. */
+    /** Unique id for this {@link LogsFragment}s loader. */
     private static final int LOADER_UID = -2;
 
     /**
@@ -280,6 +281,8 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
         super.onActivityCreated(savedInstanceState);
         setListAdapter(new LogAdapter(getActivity()));
         getListView().setOnItemLongClickListener(this);
+
+        TrackingUtils.sendView(this);
     }
 
     /**
@@ -471,9 +474,11 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_add:
+                TrackingUtils.sendMenu(this, "item_add");
                 getActivity().startActivity(new Intent(getActivity(), AddLogActivity.class));
                 return true;
             case R.id.item_export_csv:
+                TrackingUtils.sendMenu(this, "item_export_csv");
                 getActivity().startActivity(
                         new Intent(Preferences.ACTION_EXPORT_CSV, null, getActivity(),
                                 Preferences.class));
@@ -489,11 +494,13 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
     @Override
     public boolean onItemLongClick(final AdapterView<?> parent, final View view,
             final int position, final long id) {
+        TrackingUtils.sendLongClick(this, "log", null);
         final Builder b = new Builder(getActivity());
         b.setCancelable(true);
         b.setItems(R.array.dialog_delete, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(final DialogInterface dialog, final int which) {
+                TrackingUtils.sendLongClick(this, "log#delete", null);
                 LogsFragment.this
                         .getActivity()
                         .getContentResolver()

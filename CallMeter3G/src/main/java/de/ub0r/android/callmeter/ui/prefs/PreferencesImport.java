@@ -18,7 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import com.actionbarsherlock.view.Window;
 
 import android.content.Intent;
@@ -33,6 +32,7 @@ import android.widget.Toast;
 import java.io.File;
 
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
@@ -41,7 +41,7 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class PreferencesImport extends SherlockPreferenceActivity {
+public final class PreferencesImport extends TrackingSherlockPreferenceActivity {
 
     /**
      * {@link AsyncTask} running through the SD card and adding {@link Preferences} for each file.
@@ -153,7 +153,7 @@ public final class PreferencesImport extends SherlockPreferenceActivity {
     @SuppressWarnings("deprecation")
     @Override
     public void onCreate(final Bundle savedInstanceState) {
-        PreferencesImport.this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         super.onCreate(savedInstanceState);
         Utils.setLocale(this);
         addPreferencesFromResource(R.xml.import_from_sd);

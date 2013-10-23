@@ -48,7 +48,8 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class AskForPlan extends Activity implements OnClickListener, OnDismissListener {
+public final class AskForPlan extends TrackingActivity
+        implements OnClickListener, OnDismissListener {
 
     /** Tag for output. */
     private static final String TAG = "afp";

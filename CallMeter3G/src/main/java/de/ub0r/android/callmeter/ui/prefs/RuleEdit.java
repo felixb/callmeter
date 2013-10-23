@@ -18,8 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-
 import android.app.AlertDialog.Builder;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -36,6 +34,7 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.data.RuleMatcher;
+import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
@@ -45,7 +44,7 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class RuleEdit extends SherlockPreferenceActivity implements UpdateListener {
+public final class RuleEdit extends TrackingSherlockPreferenceActivity implements UpdateListener {
 
     /** Tag for debug out. */
     private static final String TAG = "re";

@@ -59,6 +59,7 @@ import java.util.UnknownFormatConversionException;
 
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.TrackingUtils;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.ui.prefs.PlanEdit;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
@@ -506,6 +507,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
             doDummy = false;
             getLoaderManager().initLoader(UID_DUMMY, null, this);
         }
+        TrackingUtils.sendView(this);
     }
 
     /**
@@ -571,6 +573,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
     public void onClick(final View v) {
         switch (v.getId()) {
             case R.id.import_default:
+                TrackingUtils.sendLongClick(this, "import_default", null);
                 final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(this
                         .getString(R.string.url_rulesets)));
                 try {
@@ -593,6 +596,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
     @Override
     public boolean onItemLongClick(final AdapterView<?> parent, final View view,
             final int position, final long id) {
+        TrackingUtils.sendLongClick(this, "plan", id);
         final Builder builder = new Builder(getActivity());
         builder.setItems(R.array.dialog_edit_plan,
                 new android.content.DialogInterface.OnClickListener() {
@@ -601,6 +605,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                         Intent intent = null;
                         switch (which) {
                             case 0:
+                                TrackingUtils.sendLongClick(this, "plan#edit", id);
                                 intent = new Intent(PlansFragment.this.getActivity(),
                                         PlanEdit.class);
                                 intent.setData(ContentUris.withAppendedId(
@@ -608,6 +613,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                                 PlansFragment.this.getActivity().startActivity(intent);
                                 break;
                             case 1:
+                                TrackingUtils.sendLongClick(this, "plan#showLogs", id);
                                 ((Plans) PlansFragment.this.getActivity()).showLogsFragment(id);
                                 break;
                             default:

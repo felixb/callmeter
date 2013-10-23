@@ -18,8 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.SharedPreferences;
@@ -36,6 +34,7 @@ import java.util.Calendar;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
+import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
@@ -44,7 +43,7 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class PlanEdit extends SherlockPreferenceActivity implements UpdateListener {
+public final class PlanEdit extends TrackingSherlockPreferenceActivity implements UpdateListener {
 
     /** Tag for debug out. */
     private static final String TAG = "pe";

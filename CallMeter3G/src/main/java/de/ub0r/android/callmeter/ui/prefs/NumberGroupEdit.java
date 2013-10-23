@@ -18,7 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
@@ -40,6 +39,7 @@ import android.widget.Toast;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
+import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.lib.apis.ContactsWrapper;
@@ -49,7 +49,7 @@ import de.ub0r.android.lib.apis.ContactsWrapper;
  *
  * @author flx
  */
-public final class NumberGroupEdit extends SherlockPreferenceActivity implements
+public final class NumberGroupEdit extends TrackingSherlockPreferenceActivity implements
         OnPreferenceClickListener {
     /** Tag for debug out. */
     // private static final String TAG = "nge";

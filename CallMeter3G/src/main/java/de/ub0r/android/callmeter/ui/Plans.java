@@ -50,6 +50,7 @@ import java.util.HashSet;
 import de.ub0r.android.callmeter.Ads;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.TrackingUtils;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerReceiver;
 import de.ub0r.android.callmeter.data.LogRunnerService;
@@ -64,7 +65,7 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class Plans extends SherlockFragmentActivity implements OnPageChangeListener {
+public final class Plans extends TrackingSherlockFragmentActivity implements OnPageChangeListener {
 
     /** Tag for output. */
     private static final String TAG = "main";
@@ -509,17 +510,22 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_settings:
+                TrackingUtils.sendMenu(this, "item_settings");
                 startActivity(new Intent(this, Preferences.class));
                 return true;
             case R.id.item_donate:
+                TrackingUtils.sendMenu(this, "item_donate");
                 DonationHelper.showDonationDialog(this, getString(R.string.donate),
                         getString(R.string.donate_), getString(R.string.did_paypal_donation),
                         getResources().getStringArray(R.array.donation_messages_market));
+                TrackingUtils.sendView(this, "de.ub0r.android.lib.DonationHelper.DonationDialog");
                 return true;
             case R.id.item_logs:
+                TrackingUtils.sendMenu(this, "item_logs");
                 showLogsFragment(-1L);
                 return true;
             case android.R.id.home:
+                TrackingUtils.sendMenu(this, "home");
                 pager.setCurrentItem(fadapter.getHomeFragmentPos(), true);
                 Fragment f = fadapter.getActiveFragment(pager,
                         fadapter.getLogsFragmentPos());

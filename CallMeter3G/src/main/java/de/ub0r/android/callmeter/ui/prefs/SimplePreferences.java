@@ -18,8 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -38,6 +36,7 @@ import java.util.Calendar;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
+import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
@@ -46,7 +45,7 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class SimplePreferences extends SherlockPreferenceActivity implements
+public final class SimplePreferences extends TrackingSherlockPreferenceActivity implements
         OnPreferenceChangeListener {
 
     /** Tag for output. */

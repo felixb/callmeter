@@ -40,6 +40,7 @@ import android.widget.RemoteViews;
 import java.util.Date;
 
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.TrackingUtils;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.data.NameCache;
@@ -106,6 +107,8 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
         for (int i = 0; i < count; i++) {
             int id = appWidgetIds[i];
             Log.d(TAG, "delete widget: " + id);
+            TrackingUtils
+                    .sendEvent(context, "widget", "delete", this.getClass().getName(), (long) id);
             e.remove(WIDGET_PLANID + id);
         }
 
@@ -158,6 +161,8 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
     static void updateWidget(final Context context, final AppWidgetManager appWidgetManager,
             final int appWidgetId) {
         Log.d(TAG, "updateWidget(" + appWidgetId + ")");
+        TrackingUtils.sendEvent(context, "widget", "update", LogsAppWidgetProvider.class.getName(),
+                (long) appWidgetId);
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final boolean showHours = p.getBoolean(Preferences.PREFS_SHOWHOURS, true);
         final String cformat = Preferences.getCurrencyFormat(context);
