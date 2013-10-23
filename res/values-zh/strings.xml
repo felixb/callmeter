@@ -139,8 +139,6 @@
   </string-array>
   <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title" username="Chen Ma &lt;i@chen.ma&gt;">标题仅显示“数据连接”</string>
   <string name="data_" formatted="false" orig="Data (2G/3G/4G)">数据</string>
-  <string name="custom_language_" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Custom language">自定义语言</string>
-  <string name="custom_language_hint" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Set a custom language.">设置自定义语言。</string>
   <string name="data_show_simple_hint" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">在标题中隐藏“(2G/3G/4G)”。这并不影响统计。</string>
   <string name="send_logs_" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Send logs">发送日志</string>
   <string name="sendlog_run_" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Run SendLog">运行日志发送工具</string>

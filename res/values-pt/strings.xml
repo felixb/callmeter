@@ -140,8 +140,6 @@
   </string-array>
   <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Ocultar \"(2G/3G/4G)\" no título. Não afeta as estatísticas.</string>
   <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title" username="Lucas Andrade &lt;lucas.rokam@gmail.com&gt;">Mostrar apenas \"Dados\" como título</string>
-  <string name="custom_language_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Custom language">Idioma personalizado</string>
-  <string name="custom_language_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Set a custom language.">Defina o idioma personalizado.</string>
   <string name="debug_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Debug">Depuração</string>
   <string name="send_logs_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Send logs">Enviar registos</string>
   <string name="send_logs_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Enviar registos do dispositivo ao programador.\nNão o efetue a menos que seja solicitado.</string>

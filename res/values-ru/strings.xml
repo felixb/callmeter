@@ -140,8 +140,6 @@
   <string name="data_show_simple_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show only \&quot;Data\&quot; as title">\'Трафик\' как заголовок</string>
   <string name="data_show_simple_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Спрятать \'(2G/3G/4G)\' в названии заголовка. Это не влияет на статистику.</string>
   <string name="data_" formatted="false" username="igor.karasenko@gmail.com" orig="Data (2G/3G/4G)">Трафик (2G/3G/4G)</string>
-  <string name="custom_language_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Custom language">Пользовательский язык</string>
-  <string name="custom_language_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set a custom language.">Установить пользовательский язык.</string>
   <string name="debug_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Debug">Отладка</string>
   <string name="send_logs_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Send logs">Отправить журналы</string>
   <string name="send_logs_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Отправить журналы устройства разработчику.\nОтправляйте только в том случае, если Вас об этом попросят.</string>

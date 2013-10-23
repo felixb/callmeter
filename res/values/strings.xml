@@ -27,8 +27,6 @@
 	<string name="about5">CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.</string>
 	<string name="about6_">What does CallMeter NG not do:</string>
 	<string name="about6">There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs.</string>
-	<string name="custom_language_">Custom language</string>
-	<string name="custom_language_hint">Set a custom language.</string>
 	<string name="send_">Send</string>
 	<string name="settings">Preferences</string>
 	<string name="about_">About</string>

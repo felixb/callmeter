@@ -140,8 +140,6 @@
     <item>Pequeño</item>
     <item>Mediano</item>
   </string-array>
-  <string name="custom_language_" formatted="false" username="tazy28@hitmail.com" orig="Custom language">Idioma personalizado</string>
-  <string name="custom_language_hint" formatted="false" username="tazy28@hitmail.com" orig="Set a custom language.">Establecer un idioma personalizado</string>
   <string name="debug_" formatted="false" username="miguelqe37@gmail.com" orig="Debug">Depurar</string>
   <string name="send_logs_" formatted="false" username="miguelqe37@gmail.com" orig="Send logs">Enviar registros</string>
   <string name="send_logs_hint" formatted="false" username="Richard Aguilar &lt;richardagui@gmail.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Enviar el registro de su movil al desarrollador. Haga esto solo si se lo pide que haga.</string>

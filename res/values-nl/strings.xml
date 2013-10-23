@@ -138,7 +138,6 @@
     <item>Klein</item>
     <item>Medium</item>
   </string-array>
-  <string name="custom_language_" formatted="false" username="Triodes" orig="Custom language">Taalinstellingen</string>
   <string name="data_show_simple_hint" formatted="false" username="Triodes" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Verberg \"(2G/3G/4G)\" in titel. Dit heeft geen gevolg voor de statistieken.</string>
   <string name="data_show_simple_" formatted="false" username="Triodes" orig="Show only \&quot;Data\&quot; as title">Laat alleen \"Data\" als titel zien.</string>
 </resources>
