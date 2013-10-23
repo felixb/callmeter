@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+               Copyright (C) 2009-2013 Felix Bechstein
+       -->
+<!--
+               This file is part of Call Meter 3G. This program is free software; you can
+               redistribute it and/or modify it under the terms of the GNU General
+               Public License as published by the Free Software Foundation; either
+               version 3 of the License, or (at your option) any later version.
+       -->
+<!--
+               This program is distributed in the hope that it will be useful, but
+               WITHOUT ANY WARRANTY; without even the implied warranty of
+               MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+               General Public License for more details. You should have received a
+               copy of the GNU General Public License along with this program; If
+               not, see <http://www.gnu.org/licenses/>.
+       -->
+<!--
+               This file is generated automatically by ub0rlib/php.
+               Visit http://ub0r.de/translate/cm3/iw/strings.xml to edit the file.
+       -->
+<resources>
+  <string name="changelog_notification_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Recent changes:">שינויים אחרונים:</string>
+  <string name="changelog_notification_text" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Click here to show recent changes of">לחץ כאן כדי לראות שינויים אחרונים של</string>
+  <string name="never_show_again" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Never show changelog again">לעולם אל תציג שוב את רשימת השינויים</string>
+  <string name="notes_from_developer_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Notes from developer">הערות המפתח</string>
+  <string name="notes_from_developer_text" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Click here to show recent news from the developer">לחץ כאן כדי לראות חדשות אחרונות מהמפתח</string>
+  <string name="about0_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Watch your call, message and data plans!">צפה בתכניות השיחות, הודעות והגלישה שלך!</string>
+  <string name="about0" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter מחולל דוחות מרשומות של שיחות, הודעות וגלישה. היישום תומך במספר מצבים שונים של חיוב.</string>
+  <string name="about1" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="The output format is usage | time or count used this billing period | time or count overall.">פורמט הפלט הוא שימוש | משך הזמן או כמות שבוצעה במהלך מחזור החיוב | זמן או כמות כוללים.</string>
+  <string name="about2" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">מצב החיוב מציין את אורך יחידות החיוב של הדקה הראשונה/שאר הדקות. לדוגמה, 60/10 משמעו שכל שיחה מחייבת לפחות על 60 שניות, כל שיחה ארוכה יותר מעוגלת כלפי מעלה לכפולה הקרובה של 10 שניות.</string>
+  <string name="about3" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter רץ ברקע בכל 30 דקות (רק אם לא נמצא במצב המתנה). פירוש הדבר, שמחיקת שיחות או הודעות שבוצעו לפני יותר מ30 דקות לא ישנו את הספירה. מחיקת שיחות או הודעות שבוצעו ב30 הדקות האחרונות, עשויות לגרום להצגת סטטיסטיקה שגויה.</string>
+  <string name="author_and_many_more" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="and many more...">ועוד דברים רבים...</string>
+  <string name="send_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Send">שלח</string>
+  <string name="add_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Add">הוסף</string>
+  <string name="add_log" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Add log entry">הוסף ערך רשומה</string>
+  <string name="length_hint_call" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Length in seconds">משך בשניות</string>
+  <string name="length_hint_data" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Length in kB">משך בKB</string>
+  <string name="settings" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Preferences">העדפות</string>
+  <string name="update_interval_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Update interval">מרווח עדכון</string>
+  <string name="update_interval_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Shorter period will use more battery.">מרווח קצר יותר יגרום לצריכת סוללה רבה יותר</string>
+  <string name="update_interval_data_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Update interval (data)">עדכן מרווח (דאטה)</string>
+  <string name="update_interval_data_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">עדכון נתוני הגלישה צריך להתבצע לעיתים קרובות יותר. במיוחד במכשירי סמסונג נדרש מרווח קצר מאוד.</string>
+  <string name="date_begin_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Beginning of records">תחילת הרשומות</string>
+  <string name="date_begin_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Ignore any logs before this date.">התעלם מרשומות מלפני תאריך זה.</string>
+  <string name="delete_old_logs_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Delete logs older than">מחק רשומות ישנות מ</string>
+  <string name="delete_old_logs_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Delete logs older than x days from internal database. Leave empty to disable.">מחק רשומות ישנות מX ימים מבסיס הנתונים הפנימי. השאר ריק כדי לא לאפשר.</string>
+  <string name="common_prefs_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Common preferences">העדפות נפוצות</string>
+  <string name="edit_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Edit">ערוך</string>
+  <string name="about_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="About">אודות</string>
+  <string name="about_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="About this app">אודות היישום</string>
+  <string name="faq_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Some tips and tricks, how to set up this app.">כמה טיפים וטריקים, כיצד להגדיר את היישום.</string>
+  <string name="feedback_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Feedback">משוב</string>
+  <string name="feedback_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Report bugs, request features ...">דווח על באגים, בקשת אפשרויות חדשות...</string>
+  <string name="google_plus_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Follow me on Google+.\nGet update notifications etc.">עקוב אחרי בgoogle+ .\nקבל התרעות עדכונים וכו\'.</string>
+  <string name="more_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="More Apps..">יישומים נוספים..</string>
+  <string name="billing_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Billing">חיוב</string>
+  <string name="billday_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="First day of your bill">מועד תחילת החשבונית</string>
+  <string name="billmode_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Mode of billing">סוג החיוב</string>
+  <string name="billdate_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Start of billing period:">תחילת מחזור החיוב:</string>
+  <string name="appearance_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Appearance">תצוגה</string>
+  <string name="behavior_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Behavior">התנהגות</string>
+  <string name="appearance_and_behavior_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Appearance &amp; behavior">תצוגה והתנהגות</string>
+  <string name="widget_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Widget">ווידג\'ט</string>
+  <string name="widgets_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Widgets">ווידג\'טים</string>
+  <string name="widgets_no_widgets_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="No widgets added">לא הוספו ווידג\'טים</string>
+  <string name="widgets_no_widgets_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="There are no widgets added to the launcher.">לא הוספו ווידג\'טים להפעלה</string>
+  <string name="delete_widget" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Delete widget">מחק ווידג\'ט</string>
+  <string name="simple_preferences_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Simple preferences">העדפות פשוטות</string>
+  <string name="simple_preferences_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Very simple preferences, suitable for most users. Only available with default rule set.">העדפות פשוטות מאוד, מתאימות למרבים המשתמשים. מאפשר הגדרת חוקי ברירת מחדל בלבד.</string>
+  <string name="simple_preferences_deactivated" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">העדפות פשוטות זמינות להגדרת כללי ברירת מחדל בלבד. ייבא את כללי ברירת המחדל כדי להפעיל מחדש.</string>
+  <string name="advanced_preferences_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Advanced preferences">העדפות מתקדמות</string>
+  <string name="advanced_preferences_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="This allows you to set a way more complex setup. Most Users won\'t need it.">זה מאפשר לך להגדיר כללים מסובכים בהרבה. מרבית המשתמשים לא זקוקים לכך.</string>
+  <string name="theme_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Theme">ערכת נושא</string>
+  <string name="textsize_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Text size">גודל טקסט</string>
+  <string name="textsize_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Text size in pixels; leave empty for default">גודל טקסט בפיקסלים. השאר ריק לברירת מחדל</string>
+  <string name="textsize_title_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Title\'s text size">גודל טקסט הכותרת</string>
+  <string name="textsize_title_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Text size for titles in pixels; leave empty for default">גודל טקטס לכותרות בפיקסלים. השאר ריק לברירת מחדל</string>
+  <string name="textsize_bigtitle_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Big title\'s text size">גודל טקסט לכותרות גדולות</string>
+  <string name="textsize_bigtitle_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Text size for big titles in pixels; leave empty for default">גודל טקסט כותרות גדולות בפיקסלים. השאר ריק לברירת מחדל</string>
+  <string name="textsize_spacer_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Spacer\'s size">גודל מרווח</string>
+  <string name="textsize_spacer_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Size for spacers in pixels; leave empty for default">גודל מרווח בפיקסלים. השאר ריק לברירת מחדל</string>
+  <string name="textsize_pbar_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Progress bar\'s size">גודל פס ההתקדמות</string>
+  <string name="textsize_pbar_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Size for progress bars in pixels; leave empty for default">גודל פס ההתקדמות בפיקסלים. השאר ריק לברירת מחדל</string>
+  <string name="textsize_pbarbp_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Bill period\'s progress bar\'s size">גודל פס התקדמות מחזור החיוב</string>
+  <string name="textsize_pbarbp_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Size for bill period\'s progress bars in pixels; leave empty for default">גודל פס התקדמות מחזור החיוב בפיקסלים. השאר ריק לברירת מחדל</string>
+  <string name="show_today_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show today">הצג את היום</string>
+  <string name="show_today_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show today stats">הצג את נתוני היום הנוכחי</string>
+  <string name="show_total_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show total">הצג סך הכל</string>
+  <string name="show_total_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show total stats, disable to see current only.">הצג סטטיסטיקת סך הכל, מונע אפשרות לראות את נתוני היום הנוכחי בלבד.</string>
+  <string name="show_time_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Switch to date">עבור לתאריך</string>
+  <string name="show_titlebar_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show title bar">הצג שורת כותרת</string>
+  <string name="show_titlebar_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show title bar in main view. Without title bar, there is no way to see background activity.">הצג שורת כותרת בתצוגה ראשית. ללא שורת כותרת, אין דרך לראות את פעילות הרקע.</string>
+  <string name="show_hours_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show hours">הצג שעות</string>
+  <string name="show_hours_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">הצג זמן בשניות, דקות,שעות וימים. \nאם לא מסומן, רק שניות ודקות יוצגו.</string>
+  <string name="show_help_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show help">הצג עזרה</string>
+  <string name="show_help_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show help in Plans/Rules setup view.">הצג עזרה בתכניות/כללים בתצוגת הגדרה</string>
+  <string name="show_shortname_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show short name instead of long name">הצג שם קצר במקום שם ארוך</string>
+  <string name="show_cost_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show cost">הצג עלות</string>
+  <string name="show_billperiod_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show progress of billing period">הצג התקדמות מחזור החיוב</string>
+  <string name="show_icon_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show icon">הצג סמל</string>
+  <string name="hide_name_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Hide name of plan">הסתר את שם התכנית</string>
+  <string name="small_widget_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Use small widget">השתמש בווידג\'ט קטן</string>
+  <string name="show_calllength_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show info after hanging up">הצג מידע לאחר ניתוק</string>
+  <string name="show_calllength_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show length/cost of a call after hanging up.">הצג משך/עלות השיחה לאחר הניתוק</string>
+  <string name="hide_zero_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Hide empty plans">הסתר תכניות ריקות</string>
+  <string name="hide_zero_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Hide plans containing no item.">הסתר תכניות שאינן מכילות פריטים</string>
+  <string name="hide_nocost_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Hide no cost plans">הסתר תכניות ללא עלות</string>
+  <string name="hide_nocost_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Hide plans with no cost.">הסתר תכניות ללא עלות.</string>
+  <string name="hide_progressbars_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Hide progress bars">הצג פסי התקדמות</string>
+  <string name="hide_progressbars_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Hide progress bars in main view.">הסתר פסי התקדמות בתצוגה הראשית</string>
+  <string name="custom_currency_symbol_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Custom currency symbol">התאמה אישית של סמל המטבע</string>
+  <string name="custom_currency_symbol_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set a custom currency symbol, leave empty for system default.">הגדר התאמה אישית של סמל המטבע. השאר ריק לברירת המחדל</string>
+  <string name="custom_currency_format_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Custom currency format">התאמה אישית של פורמט המטבע</string>
+  <string name="custom_currency_format_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Select a custom currency format.">בחר התאמה אישית של פורמט המטבע</string>
+  <string name="custom_date_format_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Custom date format">התאמה אישית של פורמט התאריך</string>
+  <string name="custom_date_format_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Select a custom date format.">בחר התאמה אישית של פורמט התאריך.</string>
+  <string name="custom_delimiter_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Custom delimiter">התאמה אישית של מפריד</string>
+  <string name="custom_delimiter_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set a custom delimiter separating the blocks of statistics.">בחר מפריד מותאם אישית להפרדת בלוקים של סטטיסטיקות</string>
+  <string name="split_sms_at_160_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Split text messages at 160 chars">פצל הודעות טקסט באורך 160 תוים</string>
+  <string name="split_sms_at_160_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Disable to use android\'s system method.">הימנע משימוש בשיטת המערכת של אנדרואיד.</string>
+  <string name="ask_for_plan_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Ask for plan">בקש תכנית</string>
+  <string name="ask_for_plan_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Ask for plan for unmatched calls after hanging up.">בקש תכנית עבור שיחות ללא התאמה לאחר הניתוק.</string>
+  <string name="autohide_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Auto hide">הסתרה אוטומטית</string>
+  <string name="autohide_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">הסתר דו-שיח לאחר .. שניות. השאר ריק כדי למנוע הסתרה אוטומטית.</string>
+  <string name="select_plan_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Select a plan">בחר תכנית</string>
+  <string name="set_selected_as_default_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set selected plan as default">קבע את התכנית הנבחרת כברירת מחדל</string>
+  <string name="autohide_in_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Auto hide dialog in: %ds">הסתרה אוטומטית של דו-שיח לאחר: % עשיריות שניה</string>
+  <string name="logs" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Logs">רשומות</string>
+  <string name="now" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Now">כעת</string>
+  <string name="show_logs" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Show logs">הצג רשומות</string>
+  <string name="plans" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Plans">תכניות</string>
+  <string name="plans_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set your plans for all kind of billing here.">הגדר כאן את התכניות שלך לכל סוגי החיוב</string>
+  <string name="plans_new" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="New plan">תכנית חדשה</string>
+  <string name="rule_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Rule">כלל</string>
+  <string name="rules" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Rules">כללים</string>
+  <string name="rules_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set your billing rules here.">הגדר כאן את כללי החיוב</string>
+  <string name="rules_new" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="New Rule">כלל חדש</string>
+  <string name="length_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Length">משך</string>
+  <string name="blength_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Billed length">משך חיוב</string>
+  <string name="cost_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Cost">עלות</string>
+  <string name="remote_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Remote number">מספר מרוחק</string>
+  <string name="numbergroups_edit_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Number groups">קבוצות מספרים</string>
+  <string name="numbergroups_edit_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Edit number groups here.">ערוך כאו קבוצות מספרים</string>
+  <string name="hourgroups_edit_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Hour groups">קבוצות שעות</string>
+  <string name="hourgroups_edit_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Edit hour groups here.">ערוך כאן קבוצות שעות</string>
+  <string name="numbers" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Numbers">מספרים</string>
+  <string name="numbergroup_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Include numbers">כלול מספרים</string>
+  <string name="numbergroup_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">הוסף מספרים שכלל זה חייב להתאים להם. \n\nשימוש בסימן אחוז ("%")אפשרי בתחילת או בסוף המספר. \nלדוגמה, %34 יתאים ל1234, 12% יתאים ל1234 ו %23% יתאים ל12345</string>
+  <string name="exnumbergroup_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Exclude numbers">אל תכלול מספרים</string>
+  <string name="exnumbergroup_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Add some numbers this rule must not match.\nSee above.">הוסף מספרים שכלל זה לא יחול עליהם. \nראה בהמשך.</string>
+  <string name="new_numbergroup" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="New number group">קבוצת מספרים חדשה</string>
+  <string name="add_number" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Add number">הוסף מספר</string>
+  <string name="numbergroup_excalls" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Exclude from calls">אל תכלול עבור שיחות</string>
+  <string name="numbergroup_exsms" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Exclude from SMS">אל תכלול עבור הודעות</string>
+  <string name="hours" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Hours">שעות</string>
+  <string name="hourgroup_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Include hours">כלול שעות</string>
+  <string name="hourgroup_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Add some hours this rule must match.">הוסף שעות בהן הכלל מתקיים</string>
+  <string name="exhourgroup_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Exclude hours">אל תכלול שעות</string>
+  <string name="exhourgroup_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Add some hours this rule must not match.">הוסף שעות עבורן הכלל לא יחול</string>
+  <string name="new_hourgroup" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="New hour group">קבוצת שעות חדשה</string>
+  <string name="add_hour" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Add hour">הוסף שעה</string>
+  <string name="empty_group" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Empty groups won\'t match anything. Please go back and add at least one item.">רוקן קבוצות שאינן מתאימות כלל. אנא חזור לאחור והוסף לפחות פריט אחד.</string>
+  <string name="billperiod_sn" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="BillPeriod">מחזור חיוב</string>
+  <string name="calls" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Calls">שיחות</string>
+  <string name="calls_in" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Calls In">שיחות נכנסות</string>
+  <string name="calls_in_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="CallsIn">שיחות נכנסות</string>
+  <string name="calls_out" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Calls Out">שיחות יוצאות</string>
+  <string name="calls_out_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="CallsOut">שיחות יוצאות</string>
+  <string name="messages" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Messages">הודעות</string>
+  <string name="messages_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="SMS/MMS">SMS/MMS</string>
+  <string name="sms" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="SMS">SMS</string>
+  <string name="sms_in" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="SMS In">SMS נכנס</string>
+  <string name="sms_in_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="SMSIn">SMS נכנס</string>
+  <string name="sms_out" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="SMS Out">SMS יוצא</string>
+  <string name="sms_out_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="SMSOut">SMS יוצא</string>
+  <string name="mms" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="MMS">הודעת מולטימדיה</string>
+  <string name="mms_in" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="MMS In">הודעת מולטימדיה נכנסת</string>
+  <string name="mms_in_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="MMSIn">מולטמדיה נכנסת</string>
+  <string name="mms_out" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="MMS Out">הודעת מולטימדיה יוצאת</string>
+  <string name="mms_out_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="MMSOut">מולטימדיה יוצאת</string>
+  <string name="data" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Data">דאטה</string>
+  <string name="data_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Data (2G/3G/4G)">דאטה (2G/3G/4G)</string>
+  <string name="data_inout_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="DataInOut">דאטה נכנס-יוצא</string>
+  <string name="prepaid_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Prepaid plan">תכנית פריפייד</string>
+  <string name="prepaid_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">תכנית על בסיס פריפייד. העלות מופחתת מהתקציב ככל שתשתמש.</string>
+  <string name="balance_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Balance">תקציב</string>
+  <string name="balance_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Balance of your account at this given date.">התקציב של החשבון שלך בתאריך זה</string>
+  <string name="strip_leading_zeros_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Strip leading zeros">הסר אפסים מובילים</string>
+  <string name="strip_leading_zeros_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Strip leading zeros when comparing numbers.">הסר אפסים מובילים בעת השוואת מספרים</string>
+  <string name="number_prefix_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="International prefix">קידומת בינלאומית</string>
+  <string name="number_prefix_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">הקידומת הבין לאומית שלך בפורמט 1+ או 49+. זה משמש כדי להתאים מספרים כמו 49170+ .. ו0179..</string>
+  <string name="reset_data_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Reset statistics">אפס סטטיסטיקות</string>
+  <string name="reset_data_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">איפוס נתוני שיחות/הודעות יגרום לחישוב מחדש של הסטטיסטיקות. \nאיפוס סטטיסטיקות תעבורת הנתונים הינו לצמיתות. פעולה זו תאפס רק נתוני גלישה שבוצעה לפני ההפעלה האחרונה של המכשיר.</string>
+  <string name="reset_data_data_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Reset traffic too.">אפס גם תעבורת נתונים</string>
+  <string name="reset_data_progr1" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Recalculating statistics ...\n\n(This may take some time!)">מחשב מחדש סטטיסטיקות...\n(זה עשוי לקחת זמן!)</string>
+  <string name="reset_data_progr2" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Recalculating statistics ...">מחשב מחדש סטטיסטיקות...</string>
+  <string name="contacts_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Contacts">אנשי קשר</string>
+  <string name="clear_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Clear">נקה</string>
+  <string name="help_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Help">עזרה</string>
+  <string name="new_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="New">חדש</string>
+  <string name="edit_selected_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Edit selected">ערוך נבחרים</string>
+  <string name="edit_groups_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Edit groups">ערוך קבוצות</string>
+  <string name="name_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Name">שם</string>
+  <string name="name_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set a name here.">הגדר כאן את השם</string>
+  <string name="shortname_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Short name">שם קצר</string>
+  <string name="shortname_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set a short name here. It is displayed in compact layouts.">הגדר כאן שם קצר. זה מוצג בתצוגה חסכונית</string>
+  <string name="type_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Type">סוג</string>
+  <string name="type_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">בחר סוג.\n"כותרת" פשוט יציג כותרת בתצוגה הראשית.\n"מפריד" לא יציג דבר, אלא רווח ריק.\n"מחזור חיוב" מחזיק את המידע על מחזור החיוב שלך. מרבית המשתמשים זקוקים למחזור יחיד.\nתכנית "מעורבת" יכולה לכלול שיחות והודעות ביחד. היא תערבב חיובים של כל הפריטים האלו.\nתכנית "שיחות" תכלול שיחות בלבד. תכניות "SMS" ו "MMS" יחשבו את ההודעות.\nתכנית "דאטה" תכלול מידע על תעבורת הנתונים שלך.</string>
+  <string name="limit_type_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Limit type">סוג מגבלה</string>
+  <string name="limit_type_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;cost\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">הגדר כאן סוג מגבלה.\nמגבלת "יחידות" תגביל תכנית המבוססת על דקות, הודעות, ...\nמגבלת "עלות" תגביל תכנית  המבוססת על עלות הנוצרת מהפריטים המתומחרים בתכנית.</string>
+  <string name="limit_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Limit">מגבלה</string>
+  <string name="limit_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">הגדר כאן את מגבלת התכנית שלך.\n\nסוג "יחידות" חייב להיות מוגדר בדקות (שיחות), הודעות (SMS/MMS), מגה-בייט (דאטה, 1024KB) או יחידות (מעורב).\n\nסוג "עלות" חייב להיות מוגדר במטבע שלך (לדוגמה $).</string>
+  <string name="billmode_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.">הגדר את מצב חיוב השיחות.\nהחלק הראשון הוא המשך המינימלי לחיוב על ידי המפעיל שלך. כל שיחה קצרה ממשך זה תעוגל למעלה למשך שנקבע.\nהחלק השני הוא המשך המינימלי לחיוב בהמשך השיחה. אנא קרא את הFAQ לקבלת עזרה נוספת בנושא.</string>
+  <string name="billday_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set this to the first day of the bill of the current billing period.">הגדר פה את היום הראשון של מחזור החיוב הנוכחי.</string>
+  <string name="billperiodid_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Billing period">מחזור חיוב</string>
+  <string name="billperiodid_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Select your billing period.\nYou may need to create one as extra plan.">בחר את מחזור החיוב שלך.\nיתכן שתצטרך ליצור תכנית נוספת.</string>
+  <string name="billperiod_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Length of the billing period">משך מחזור חיוב</string>
+  <string name="billperiod_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set the length of your billing period.">הגדר משך מחזור החיוב.</string>
+  <string name="cost_per_item_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Cost per item">עלות לפריט</string>
+  <string name="cost_per_item_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.">הגדר את העלות לחיוב עבור רשומה אחת (לדוגמה שיחה או הודעה) לאחר שהמגבלה הסתיימה.</string>
+  <string name="cost_per_item_in_limit_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Cost per item in limit">עלות לפריט במסגרת המגבלה</string>
+  <string name="cost_per_item_in_limit_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set the cost billed for a single log item (e.g. a call  or a message) billed before the limit is exceeded.">הגדר את העלות לחיוב עבור פריט רשומה אחד (לדוגמה שיחה או הודעה) כפי שמחוייב לפני הגעה למגבלה.</string>
+  <string name="cost_per_amount_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Cost per length">עלות לפי משך זמן</string>
+  <string name="cost_per_amount_help1" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">הגדר את העלות לחיוב עבור יחידת חיוב לפריט רשומה אחד (לדוגמה 1KB עבור דאטה) לאחר חריגה מהמגבלה.</string>
+  <string name="cost_per_amount_help2" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">הגדר את העלות לחיוב עבור יחידת חיוב עבור פריט רשומה יחיד (לדוגמה עבור דקת שיחה) בעת חריגה מהמגבלה.\nהשדה הראשון מכיל את העלות עבור השניות הראשונות של השיחה, השדה השני מחזיק את העלות עבור השניות הבאות (שניהם מוגדרים ב $/שניה. ראה מצב חיוב).\nאם יש ספק, פשוט קבע את שניהם לפי העלות לדקה.</string>
+  <string name="cost_per_amount_in_limit_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Cost per length in limit">עלות ליחידת זמן בתוך המגבלה</string>
+  <string name="cost_per_amount_in_limit_help2" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">הגדר את העלות לחיוב ליחידת חיוב עבור רשומה (לדוגמה עבור דקת שיחה, 1KB דאטה) לפני חריגה מהמגבלה.\nהשדה הראשון מחזיק את העלות לשניות הראשונות של השיחה, השני מחזיק את העלות לשניות הבאות (שניהם מוגדרים ב $/שניה. ראה מצבי חיוב). \nאם יש ספק, פשוט הגדר את שניהם לפי העלות לדקה.</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) before the limit is exceeded.">הגדר את העלות לחיוב ליחידת חיוב לרשומה (לדוגמה 1KB בדאטה) לפני חריגה מהמגבלה.</string>
+  <string name="cost_per_plan_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Cost per plan">עלות לתכנית</string>
+  <string name="cost_per_plan_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set the cost of the plan for one billing period as is.">הגדר את העלות לתכנית עבור מחזור חיוב.</string>
+  <string name="mixed_units_sms_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Units for a sms">יחידות לSMS</string>
+  <string name="mixed_units_sms_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set the units billed for a single sms.">הגדר את יחידות החיוב לSMS יחיד</string>
+  <string name="mixed_units_mms_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Units for a mms">יחידות לMMS</string>
+  <string name="mixed_units_mms_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set the units billed for a single mms.">הגדר את יחידות החיוב לMMS יחיד</string>
+  <string name="mixed_units_call_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Units for a call">יחידות לשיחה</string>
+  <string name="mixed_units_call_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set the units billed for a one minute call.\nBill mode is taken into account here.">הגדר את יחידות החיוב לדקת שיחה אחת. מצב החיוב נלקח בחשבון כאן.</string>
+  <string name="merge_plans_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Merge plans">מזג תכניות</string>
+  <string name="merge_plans_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Merge other plans into this one and bill them here (too).">מזג תכניות אחרות לתוך תכנית זו וחשב אותם כאן.</string>
+  <string name="units_cost" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="$">$</string>
+  <string name="units_num_msg" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="# Messages">מספר הודעות</string>
+  <string name="units_minutes" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Minutes">דקות</string>
+  <string name="units_mbyte" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="MBytes">MB</string>
+  <string name="units_units" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Units">יחידות</string>
+  <string name="units_units_per_minute" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Units/Minute">יחידות/דקה</string>
+  <string name="units_units_per_message" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Units/Message">יחידות/הודעה</string>
+  <string name="units_cost_per_call" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="$/Call">$/שיחה</string>
+  <string name="units_cost_per_minute" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="$/Minute">$/דקה</string>
+  <string name="units_cost_per_message" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="$/Message">$/הודעה</string>
+  <string name="units_cost_per_mbyte" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="$/MByte">$/MB</string>
+  <string name="units_cost_per_unit" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="$/Unit">$/יחידה</string>
+  <string name="plan_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Plan">תכנית</string>
+  <string name="plan_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Choose the plan this rule should fit.">בחר את התכנית לה מתאים כלל זה</string>
+  <string name="limitnotreached_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Limit not reached">מגבלה לא הושגה</string>
+  <string name="limitnotreached_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Match only if target plan has not reached it\'s limit yet.">התאם רק אם תכנית היעד לא הגיעה למגבלה עד כה.</string>
+  <string name="iswebsms_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Is WebSMS">האם WebSMS</string>
+  <string name="iswebsms_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Message sent with WebSMS.">הודעה נשלחה כ WebSMS</string>
+  <string name="iswebsms_connector_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Is WebSMS Connector">מחבר האם WebSMS</string>
+  <string name="iswebsms_connector_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Sent with specific WebSMS Connector, leave empty to match any.">נשלח עם חיבור WebSMS מסויים, השאר ריק כדי להתאים לכל סוג.</string>
+  <string name="issipcall_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Is SIP call">האם שיחת SIP</string>
+  <string name="issipcall_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">שיחה נעשתה באמצעות SIP. נכון לעתה נתמך ב sipdroid 1.6.1 ומעלה.</string>
+  <string name="strip_seconds_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Do not bill first seconds">אל תחייב שניות ראשונות</string>
+  <string name="strip_seconds_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Do not bill first x seconds of a call.">אל תחייב X שניות ראשונות של שיחה.</string>
+  <string name="active_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Active">פעיל</string>
+  <string name="active_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Only active rules are used for matching logs.">נעשה שימוש רק בכללים פעילים להתאמת רשומות</string>
+  <string name="what_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Target type">סוג יעד</string>
+  <string name="what_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Choose a target type here.">בחר סוג יעד כאן</string>
+  <string name="direction_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Direction">כיוון</string>
+  <string name="direction_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Choose a direction the given log has to be.">בחר כיוון עבורו נדרשות הרשומות</string>
+  <string name="roamed_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Roamed">נודד</string>
+  <string name="roamed_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Choose whether the given log has to be roamed.">בחר האם הרשומה הנתונה אמורה להיות כנדידה.</string>
+  <string name="remote_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Remote number">מספר מרוחק</string>
+  <string name="no_matter_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Does not matter">לא משנה</string>
+  <string name="yes" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Yes">כן</string>
+  <string name="no" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="No">לא</string>
+  <string name="none" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="None">אין</string>
+  <string name="value" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Value">ערך</string>
+  <string name="empty_groups_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Please press &quot;Add&quot; to add a group.">אנא לחץ על \"הוסף\" כדי להוסיף קבוצה.</string>
+  <string name="empty_group_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">אנא לחץ על \"הוסף\" כדי להוסיף פריט לקבוצה זו.</string>
+  <string name="export_progr" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Exporting data ...">מייצא נתונים...</string>
+  <string name="import_progr" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Import data ...">יבא נתונים...</string>
+  <string name="export_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export ...">יצא...</string>
+  <string name="exported_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Exported:">יוצא:</string>
+  <string name="export_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export rule sets, logs or groups">ייצא סט חוקים, רשומות או קבוצות</string>
+  <string name="export_sd" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export to SD card">ייצא לכרטיס SD</string>
+  <string name="export_rules_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export rule set">ייצא הגדרות כלל</string>
+  <string name="export_rules_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export rule set as mail.">ייצא הגדרות כלל בדואר אלקטרוני.</string>
+  <string name="export_rules_dev_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export rule set to developer">ייצא הגדרות כלל למפתח</string>
+  <string name="export_rules_dev_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export rule set to let others import it.">ייצא הגדרות כלל לדי לאפשר לאחרים לייבא אותן.</string>
+  <string name="export_rules_descr" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Description">תיאור</string>
+  <string name="export_logs_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Backup logs">גיבוי רשומות</string>
+  <string name="export_logs_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Backup logs as mail.">גיבוי רשומות דרך דואר אלקטרוני</string>
+  <string name="export_numgroups_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export number groups">ייצא קבוצות מספרים</string>
+  <string name="export_numgroups_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export number groups as mail.">ייצא קבוצות מספרים דרך דואר אלקטרוני</string>
+  <string name="export_hourgroups_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export hour groups">ייצא קבוצות שעות</string>
+  <string name="export_hourgroups_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Export hour groups as mail.">ייצא קבוצות שעות בדואר אלקטרוני</string>
+  <string name="import_rules_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Import rule set">ייבא הגדרות כלל</string>
+  <string name="import_rules_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Import preconfigured rule set.">ייבא הגדרות כלל מוגדר מראש</string>
+  <string name="import_rules_www_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Import pre-configured rule set from http://www.ub0r.de/.">ייבא הגדרות כלל מוגדר מראש מ http://www.ub0r.de .</string>
+  <string name="import_rules_sd_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Import rule set from SD card">ייבא הגדרות כלל מכרטיס SD</string>
+  <string name="import_rules_sd_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Import rule set directly from SD card.">ייבא הגדרות כלל ישירות מכרטיס SD</string>
+  <string name="import_rules_sd_help" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Place your file on your SD card and click it below">מקם את הקובץ על כרטיס הSD שלך והקש עליו בהמשך.</string>
+  <string name="import_rules_sd_files" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Found files">נמצאו קבצים</string>
+  <string name="import_rules_sd_nofiles" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="No found files">לא נמצאו קבצים</string>
+  <string name="import_rules_default_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Import default rule set">ייבא הגדרות כלל ברירת מחדל</string>
+  <string name="import_rules_default_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Import default rule set shipped with the app.">ייבא הגדרות כלל ברירת מחדל שנשלחו עם היישום.</string>
+  <string name="import_rules_empty" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">לא הוגדרו תכניות/כללים. לחץ על טקסט זה כדי לייצא הגדרות כלל ברירת מחדל.\n\nאו הוסף העדפות חוקים ותכניות באופן ידני.</string>
+  <string name="loading" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Loading ...">טוען...</string>
+  <string name="err_export_write" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Error writing export file">שגיאה בכתיבת קובץ הייצוא</string>
+  <string name="err_export_read" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Error reading export file">שגיאה בקריאת קובץ הייצוא</string>
+  <string name="alerts_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Alerts">התראות</string>
+  <string name="alerts_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set alerts based on plan usage.">הגדר התראות המבוססות על שימושים בתכנית</string>
+  <string name="alerts_title" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Call Meter 3G alert">התראת Call Meter 3g</string>
+  <string name="alerts_message" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Plan %s has reached %d%% usage!">תכנית %s הגיע לניצול של %d%% !</string>
+  <string name="alerts_80_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Notify at 80%">עדכן ב80%</string>
+  <string name="alerts_80_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Notify if a plan passes 80% of it\'s limit.">עדכן אם תכנית עוברת 80% מהמגבלה.</string>
+  <string name="alerts_100_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Notify at 100%">עדכן ב100%</string>
+  <string name="alerts_100_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Notify if a plan passes 100% of it\'s limit.">עדכן אם תכנית עוברת 100% מהמגבלה שלה.</string>
+  <string name="widget_config_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Widget config">הגדרת ווידג\'ט</string>
+  <string name="widget_plan_textsize" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Plan Text Size">גודל טקסט תכנית</string>
+  <string name="widget_cost_textsize" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Cost Text Size">גודל טקסט עלות</string>
+  <string name="widget_text_color_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Text color">צבע טקסט</string>
+  <string name="widget_backgroud_color_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Background color">צבע רקע</string>
+  <string name="widget_backgroud_transparency_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Background transparency">שקיפות הרקע</string>
+  <string name="send_devices_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Send devices">שלח מכשירים</string>
+  <string name="send_devices_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">שלח רשימת מכשירים למפתח. פעולה זו נדרשת רק אם סטטיסטיקת הגלישה מאופסת</string>
+  <string name="all_week">כל השבוע</string>
+  <string name="monday">שני</string>
+  <string name="tuesday">שלישי</string>
+  <string name="wednesday">רביעי</string>
+  <string name="thursday">חמישי</string>
+  <string name="friday">שישי</string>
+  <string name="saturday">שבת</string>
+  <string name="sunday">ראשון</string>
+  <string name="monday_till_friday">שני-שישי</string>
+  <string name="all_day">כל היום</string>
+  <string name="day_0">0:00-0:59</string>
+  <string name="day_1">1:00-1:59</string>
+  <string name="day_2">2:00-2:59</string>
+  <string name="day_3">3:00-3:59</string>
+  <string name="day_4">4:00-4:59</string>
+  <string name="day_5">5:00-5:59</string>
+  <string name="day_6">6:00-6:59</string>
+  <string name="day_7">7:00-7:59</string>
+  <string name="day_8">8:00-8:59</string>
+  <string name="day_9">9:00-9:59</string>
+  <string name="day_10">10:00-10:59</string>
+  <string name="day_11">11:00-11:59</string>
+  <string name="day_12">12:00-12:59</string>
+  <string name="day_13">13:00-13:59</string>
+  <string name="day_14">14:00-14:59</string>
+  <string name="day_15">15:00-15:59</string>
+  <string name="day_16">16:00-16:59</string>
+  <string name="day_17">17:00-17:59</string>
+  <string name="day_18">18:00-18:59</string>
+  <string name="day_19">19:00-19:59</string>
+  <string name="day_20">20:00-20:59</string>
+  <string name="day_21">21:00-21:59</string>
+  <string name="day_22">22:00-22:59</string>
+  <string name="day_23">23:00-23:59</string>
+  <string name="theme_black">שחור</string>
+  <string name="theme_light">לבן</string>
+  <string name="edit_plan_">ערוך תכנית</string>
+  <string name="view_logs_">צפה ברשומות</string>
+  <string name="delete_">מחק</string>
+  <string name="title">כותרת</string>
+  <string name="spacer">מפריד</string>
+  <string name="mixed">שיחה</string>
+  <string name="limit_type_unlimited">ללא הגבלה</string>
+  <string name="limit_type_units">יחידות</string>
+  <string name="limit_type_cost">עלות</string>
+  <string name="x1_day">יום אחד</string>
+  <string name="x1_week">שבוע אחד</string>
+  <string name="x14_day">14 יום</string>
+  <string name="x15_day">15 יום</string>
+  <string name="x30_day">30 יום</string>
+  <string name="x31_day">31 יום</string>
+  <string name="x60_day">60 יום</string>
+  <string name="x90_day">90 יום</string>
+  <string name="x1_month">חודש אחד</string>
+  <string name="x1_month_1_day">חודש ויום</string>
+  <string name="x2_month">חודשיים</string>
+  <string name="x3_month">שלושה חודשים</string>
+  <string name="x4_month">ארבעה חודשים</string>
+  <string name="x5_month">חמישה חודשים </string>
+  <string name="x6_month">שישה חודשים</string>
+  <string name="x1_year">שנה אחת</string>
+  <string name="infinite">ללא סיום</string>
+  <string name="custom">מותאם אישית</string>
+  <string name="direction_calls_in">נכנסת</string>
+  <string name="direction_calls_out">יוצאת</string>
+  <string name="direction_sms_in">נכנס</string>
+  <string name="direction_sms_out">יוצא</string>
+  <string name="direction_mms_in">נכנס</string>
+  <string name="direction_mms_out">יוצא</string>
+  <string name="direction_data_in">נכנס</string>
+  <string name="direction_data_out">יוצא</string>
+  <string name="default_">ברירת מחדל</string>
+  <string name="currency_formats_1">1.00 ₪</string>
+  <string name="currency_formats_2">1000 ₪</string>
+  <string name="currency_formats_3">1.00 ₪</string>
+  <string name="currency_formats_4">1000 ₪</string>
+  <string name="date_formats_1">MM/DD/YY</string>
+  <string name="date_formats_2">DD/MM/YYYY</string>
+  <string name="date_formats_3">DD.MM.YYYY</string>
+  <string name="x5_minute">5 דקות</string>
+  <string name="x10_minute">10 דקות</string>
+  <string name="x15_minute">15 דקות</string>
+  <string name="x30_minute">30 דקות</string>
+  <string name="x1_hour">שעה</string>
+  <string name="x2_hour">שעתיים</string>
+  <string name="manually_only">ידני בלבד</string>
+  <string name="x05_minute">חצי דקה</string>
+  <string name="x1_minute">דקה אחת</string>
+  <string name="x2_minute">2 דקות</string>
+  <string name="data_inout" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Data In/Out">דאטה נכנס/יוצא</string>
+</resources>
