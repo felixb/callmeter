@@ -10,6 +10,9 @@ apply plugin: 'android'
 
 repositories {
     maven {
+        url 'https://github.com/felixb/ub0rlogg0r/raw/mvn-repo/'
+    }
+    maven {
         url 'https://github.com/Goddchen/mvn-repo/raw/master/'
     }
     mavenCentral()
@@ -42,6 +45,12 @@ android {
             versionNameSuffix " debug"
         }
 
+        logRelease {
+            versionNameSuffix " logRelease"
+            signingConfig signingConfigs.release
+            runProguard false
+        }
+
         release {
             signingConfig signingConfigs.release
             proguardFile 'proguard.cfg'
@@ -55,4 +64,5 @@ dependencies {
     compile 'com.android.support:support-v4:18.0.+'
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.+@aar'
     compile 'com.actionbarsherlock:viewpagerindicator:2.4.+'
+    compile 'de.ub0r.android.logg0r:logg0r:1.0.+'
 }

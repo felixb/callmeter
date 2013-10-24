@@ -33,7 +33,7 @@ import java.io.File;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -51,7 +51,7 @@ public final class PreferencesImport extends TrackingSherlockPreferenceActivity 
     private class FileFinder extends AsyncTask<Void, File, Boolean> {
 
         /** Tag for output. */
-        private static final String TAG = "prefs.ff";
+        private static final String TAG = "PreferencesImport.FileFinder";
 
         @Override
         protected void onPreExecute() {
@@ -123,11 +123,11 @@ public final class PreferencesImport extends TrackingSherlockPreferenceActivity 
                         || s.equals("DCIM") || s.equals("Music") || s.equals("TitaniumBackup")
                         || s.equals("openfeint") || s.equals("soundhound") || s.equals("WhatsApp")
                         || s.equals("Pictures") || s.equals("SMSBackupRestore")) {
-                    Log.d(TAG, "skip: " + s);
+                    Log.d(TAG, "skip: ", s);
                     continue;
                 }
                 File f = new File(d.getAbsoluteFile(), s);
-                Log.d(TAG, "try file: " + f.getAbsolutePath());
+                Log.d(TAG, "try file: ", f.getAbsolutePath());
                 if (f.isDirectory()) {
                     if (depth > 0) {
                         ret |= addExport(f, depth - 1);

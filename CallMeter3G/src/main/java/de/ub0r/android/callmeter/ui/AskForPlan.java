@@ -40,7 +40,7 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -52,7 +52,7 @@ public final class AskForPlan extends TrackingActivity
         implements OnClickListener, OnDismissListener {
 
     /** Tag for output. */
-    private static final String TAG = "afp";
+    private static final String TAG = "AskForPlan";
 
     /** Extra providing id of call. */
     public static final String EXTRA_ID = "id";
@@ -152,7 +152,7 @@ public final class AskForPlan extends TrackingActivity
         for (i = 0; i < MAX_PLANS; i++) {
             if (planIds[i] == defaultPlanId) {
                 final int bid = PLAN_BTNS[i];
-                Log.d(TAG, "request focus: " + bid);
+                Log.d(TAG, "request focus: ", bid);
                 final Button v = (Button) d.findViewById(bid);
                 v.requestFocus();
                 v.setTextAppearance(this, android.R.style.TextAppearance_Large);
@@ -235,7 +235,7 @@ public final class AskForPlan extends TrackingActivity
                 for (int i = 0; i < MAX_PLANS; i++) {
                     if (vid == PLAN_BTNS[i]) {
                         final int pid = planIds[i];
-                        Log.d(TAG, "setPlan(" + pid + ")");
+                        Log.d(TAG, "setPlan(", pid, ")");
                         RuleMatcher.matchLog(getContentResolver(), id, pid);
                         if (cbSetDefault.isChecked()) {
                             final Editor e = PreferenceManager.getDefaultSharedPreferences(this)

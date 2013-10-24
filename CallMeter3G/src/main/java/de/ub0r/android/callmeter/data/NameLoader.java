@@ -23,8 +23,9 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.ContactsContract.PhoneLookup;
-import android.util.Log;
 import android.widget.TextView;
+
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Load name from number in background.

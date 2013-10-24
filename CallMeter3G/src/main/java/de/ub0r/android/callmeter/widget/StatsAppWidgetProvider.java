@@ -45,7 +45,7 @@ import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -120,7 +120,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
         final int count = appWidgetIds.length;
         for (int i = 0; i < count; i++) {
             int id = appWidgetIds[i];
-            Log.d(TAG, "delete widget: " + id);
+            Log.d(TAG, "delete widget: ", id);
             TrackingUtils
                     .sendEvent(context, "widget", "delete", this.getClass().getName(), (long) id);
             e.remove(WIDGET_PLANID + id);
@@ -143,7 +143,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
 
         for (int i = 0; i < count; i++) {
             int id = appWidgetIds[i];
-            Log.d(TAG, "update widget: " + id);
+            Log.d(TAG, "update widget: ", id);
             if (p.getLong(WIDGET_PLANID + id, -1) <= 0) {
                 Log.w(TAG, "skip stale widget: " + id);
             } else {
@@ -174,7 +174,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
      */
     static void updateWidget(final Context context, final AppWidgetManager appWidgetManager,
             final int appWidgetId) {
-        Log.d(TAG, "updateWidget(" + appWidgetId + ")");
+        Log.d(TAG, "updateWidget(", appWidgetId, ")");
         TrackingUtils.sendEvent(context, "widget", "update", StatsAppWidgetProvider.class.getName(),
                 (long) appWidgetId);
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
@@ -195,7 +195,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
                 StatsAppWidgetConfigure.DEFAULT_TEXTCOLOR);
         final int bgColor = p.getInt(WIDGET_BGCOLOR + appWidgetId,
                 StatsAppWidgetConfigure.DEFAULT_BGCOLOR);
-        Log.d(TAG, "planid: " + pid);
+        Log.d(TAG, "planid: ", pid);
         final ContentResolver cr = context.getContentResolver();
 
         Plan plan = Plan.getPlan(cr, pid, -1, false, false);
@@ -210,11 +210,11 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
             cost = plan.getAccumCost();
         }
         float free = plan.getFree();
-        Log.d(TAG, "plan: " + plan.id);
-        Log.d(TAG, "plan name: " + plan.name);
-        Log.d(TAG, "count: " + plan.bpCount);
-        Log.d(TAG, "cost: " + cost);
-        Log.d(TAG, "billedAmount: " + plan.bpBa);
+        Log.d(TAG, "plan: ", plan.id);
+        Log.d(TAG, "plan name: ", plan.name);
+        Log.d(TAG, "count: ", plan.bpCount);
+        Log.d(TAG, "cost: ", cost);
+        Log.d(TAG, "billedAmount: ", plan.bpBa);
 
         int bpos = (int) (plan.getBillPlanUsage() * CallMeter.HUNDRET);
         int bmax;
@@ -227,7 +227,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
         } else {
             bmax = CallMeter.HUNDRET;
         }
-        Log.d(TAG, "bpos/bmax: " + bpos + "/" + bmax);
+        Log.d(TAG, "bpos/bmax: ", bpos, "/", bmax);
 
         String stats = "";
         if (plan.hasBa) {
@@ -247,9 +247,9 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
         }
 
         stats = stats.trim();
-        Log.d(TAG, "limit: " + plan.limit);
-        Log.d(TAG, "used: " + plan.usage);
-        Log.d(TAG, "stats: " + stats);
+        Log.d(TAG, "limit: ", plan.limit);
+        Log.d(TAG, "used: ", plan.usage);
+        Log.d(TAG, "stats: ", stats);
 
         int widgetLayout = R.layout.stats_appwidget;
         if (smallWidget) {

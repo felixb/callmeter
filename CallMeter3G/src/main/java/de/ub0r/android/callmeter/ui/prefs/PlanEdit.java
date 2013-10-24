@@ -35,7 +35,7 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -46,7 +46,7 @@ import de.ub0r.android.lib.Utils;
 public final class PlanEdit extends TrackingSherlockPreferenceActivity implements UpdateListener {
 
     /** Tag for debug out. */
-    private static final String TAG = "pe";
+    private static final String TAG = "PlanEdit";
 
     /** This rule's {@link Uri}. */
     private Uri uri = null;
@@ -424,7 +424,7 @@ public final class PlanEdit extends TrackingSherlockPreferenceActivity implement
         }
         where += " AND " + DataProvider.Plans.ID + " != " + pid + " AND "
                 + DataProvider.Plans.MERGED_PLANS + " IS NULL";
-        Log.d(TAG, "selection: " + where);
+        Log.d(TAG, "selection: ", where);
         return where;
     }
 

@@ -25,12 +25,12 @@ import java.util.HashMap;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 public class PreferencesRules extends TrackingSherlockPreferenceActivity {
 
-    private static final String TAG = "PrefRules";
+    private static final String TAG = "PreferencesRules";
 
     public static final String EXTRA_JSON = "json";
     public static final String EXTRA_COUNTRY = "country";

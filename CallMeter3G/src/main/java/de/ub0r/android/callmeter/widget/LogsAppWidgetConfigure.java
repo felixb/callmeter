@@ -44,7 +44,7 @@ import android.widget.TextView;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.ui.TrackingSherlockActivity;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 import yuku.ambilwarna.AmbilWarnaDialog;
 import yuku.ambilwarna.AmbilWarnaDialog.OnAmbilWarnaListener;
@@ -261,15 +261,15 @@ public final class LogsAppWidgetConfigure extends TrackingSherlockActivity
     @Override
     public void onProgressChanged(final SeekBar seekBar, final int progress,
             final boolean fromUser) {
-        Log.d(TAG, "onProgressChanged(" + progress + ")");
+        Log.d(TAG, "onProgressChanged(", progress, ")");
         final int tp = 255 - progress;
         int c = getBgColor();
-        Log.d(TAG, "color: " + c);
+        Log.d(TAG, "color: ", c);
         c = c & BITMASK_COLOR;
-        Log.d(TAG, "color: " + c);
+        Log.d(TAG, "color: ", c);
         Log.i(TAG, "transparency: " + Integer.toHexString(tp << BITSHIFT_TRANSPARENCY));
         c = c | tp << BITSHIFT_TRANSPARENCY;
-        Log.d(TAG, "color: " + c);
+        Log.d(TAG, "color: ", c);
         setBgColor(c, true);
     }
 
@@ -370,16 +370,16 @@ public final class LogsAppWidgetConfigure extends TrackingSherlockActivity
      * @param fromProgressBar true, if setColor is called from onProgessChanged()
      */
     private void setBgColor(final int color, final boolean fromProgressBar) {
-        Log.d(TAG, "setBgColor(" + color + ", " + fromProgressBar + ")");
+        Log.d(TAG, "setBgColor(", color, ", ", fromProgressBar, ")");
         String hex = AmbilWarnaDialog.colorToString(color);
         btnBgColor.setText(hex);
         vBgColor.setBackgroundColor(color);
         if (!fromProgressBar) {
             int trans = color >> BITSHIFT_TRANSPARENCY;
-            Log.d(TAG, "transparency: " + trans);
+            Log.d(TAG, "transparency: ", trans);
             if (trans < 0) {
                 trans = 256 + trans;
-                Log.d(TAG, "transparency: " + trans);
+                Log.d(TAG, "transparency: ", trans);
             }
             sbBgTransparency.setProgress(255 - trans);
         }
@@ -400,12 +400,12 @@ public final class LogsAppWidgetConfigure extends TrackingSherlockActivity
      * @param color color to set
      */
     private void setTextColor(final int color) {
-        Log.d(TAG, "setTextColor(" + color + ")");
+        Log.d(TAG, "setTextColor(", color, ")");
         String hex = AmbilWarnaDialog.colorToString(color);
-        Log.d(TAG, "color: " + hex);
+        Log.d(TAG, "color: ", hex);
         while (hex.length() < 9) {
             hex = "#0" + hex.substring(1);
-            Log.d(TAG, "color: " + hex);
+            Log.d(TAG, "color: ", hex);
         }
         btnTextColor.setText(hex);
         vTextColor.setBackgroundColor(color);

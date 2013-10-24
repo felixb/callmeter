@@ -37,7 +37,7 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -49,7 +49,7 @@ public final class SimplePreferences extends TrackingSherlockPreferenceActivity 
         OnPreferenceChangeListener {
 
     /** Tag for output. */
-    private static final String TAG = "sprefs";
+    private static final String TAG = "SimplePreferences";
 
     /** Preference's name: bill day. */
     static final String PREFS_BILLDAY = "sp_billday";
@@ -162,7 +162,7 @@ public final class SimplePreferences extends TrackingSherlockPreferenceActivity 
                 SELECTION_ID, new String[]{String.valueOf(planId)}, null);
         if (c.moveToFirst()) {
             String billmode = c.getString(DataProvider.Plans.INDEX_BILLMODE);
-            Log.d(TAG, "billmode: " + billmode);
+            Log.d(TAG, "billmode: ", billmode);
             e.putString(PREFS_BILLMODE + postfix, billmode);
             e.putString(PREFS_CUSTOM_BILLMODE + postfix, billmode);
             int i = c.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
@@ -211,7 +211,7 @@ public final class SimplePreferences extends TrackingSherlockPreferenceActivity 
                         new String[]{String.valueOf(DataProvider.TYPE_BILLPERIOD)}, null);
         if (c.moveToFirst()) {
             long billday = c.getLong(DataProvider.Plans.INDEX_BILLDAY);
-            Log.d(TAG, "billday: " + billday);
+            Log.d(TAG, "billday: ", billday);
             Calendar cal = Calendar.getInstance();
             cal.setTimeInMillis(billday);
             e.putString(PREFS_BILLDAY, cal.get(Calendar.DAY_OF_MONTH) + ".");
@@ -316,15 +316,15 @@ public final class SimplePreferences extends TrackingSherlockPreferenceActivity 
 
         // common
         String s = p.getString(PREFS_BILLDAY, "1").replace(".", "");
-        Log.d(TAG, "billday: " + s);
+        Log.d(TAG, "billday: ", s);
         int i = Utils.parseInt(s, 1);
-        Log.d(TAG, "billday: " + i);
+        Log.d(TAG, "billday: ", i);
         Calendar c = Calendar.getInstance();
         c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH), i, 1, 0, 1);
         if (c.getTimeInMillis() > System.currentTimeMillis()) {
             c.add(Calendar.MONTH, -1);
         }
-        Log.d(TAG, "bd: " + DateFormat.getDateFormat(context).format(c.getTime()));
+        Log.d(TAG, "bd: ", DateFormat.getDateFormat(context).format(c.getTime()));
         cv.clear();
         cv.put(DataProvider.Plans.BILLDAY, c.getTimeInMillis());
         cv.put(DataProvider.Plans.BILLPERIOD, DataProvider.BILLPERIOD_1MONTH);

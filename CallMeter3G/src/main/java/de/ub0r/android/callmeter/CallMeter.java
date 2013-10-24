@@ -25,16 +25,12 @@ import android.content.res.Resources;
 import android.graphics.Shader.TileMode;
 import android.graphics.drawable.BitmapDrawable;
 
-import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
  * @author flx
  */
 public final class CallMeter extends Application {
-
-    /** Tag for output. */
-    private static final String TAG = "App";
 
     /** Minimum date. */
     public static final long MIN_DATE = 10000000000L;
@@ -71,8 +67,6 @@ public final class CallMeter extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.init("CallMeter3G");
-        Log.d(TAG, "init");
         Utils.setLocale(this);
     }
 

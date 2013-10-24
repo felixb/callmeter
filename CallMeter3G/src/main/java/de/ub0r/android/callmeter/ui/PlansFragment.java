@@ -63,7 +63,7 @@ import de.ub0r.android.callmeter.TrackingUtils;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.ui.prefs.PlanEdit;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Show plans.
@@ -74,7 +74,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
         OnItemLongClickListener, LoaderCallbacks<Cursor> {
 
     /** Tag for output. */
-    private static final String TAG = "plans";
+    private static final String TAG = "PlansFragment";
     /** Run the dummy? */
     private static boolean doDummy = true;
     /** Show today stats. */
@@ -291,13 +291,13 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                 }
             }
 
-            // Log.d(TAG, "plan id: " + plan.id);
-            // Log.d(TAG, "plan name: " + plan.name);
-            // Log.d(TAG, "type: " + plan.type);
-            // Log.d(TAG, "cost: " + cost);
-            // Log.d(TAG, "limit: " + plan.limit);
-            // Log.d(TAG, "limitPos: " + plan.limitPos);
-            // Log.d(TAG, "text: " + spb);
+            // Log.d(TAG, "plan id: ", plan.id);
+            // Log.d(TAG, "plan name: ", plan.name);
+            // Log.d(TAG, "type: ", plan.type);
+            // Log.d(TAG, "cost: ", cost);
+            // Log.d(TAG, "limit: ", plan.limit);
+            // Log.d(TAG, "limitPos: ", plan.limitPos);
+            // Log.d(TAG, "text: ", spb);
 
             TextView tvCache = null;
             ProgressBar pbCache = null;
@@ -527,7 +527,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
      * @param add add number of running tasks
      */
     private synchronized void setInProgress(final int add) {
-        Log.d(TAG, "setInProgress(" + add + ")");
+        Log.d(TAG, "setInProgress(", add, ")");
         if (add == 0) {
             ((Plans) getActivity()).setInProgress(add);
         } else if (add > 0 && !this.inProgress) {
@@ -545,7 +545,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
      * @param forceUpdate force update
      */
     public void requery(final boolean forceUpdate) {
-        Log.d(TAG, "requery(" + forceUpdate + ")");
+        Log.d(TAG, "requery(", forceUpdate, ")");
         if (!this.ignoreQuery) {
             LoaderManager lm = getLoaderManager();
             if (forceUpdate && lm.getLoader(uid) != null) {
@@ -554,7 +554,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                 lm.initLoader(uid, null, this);
             }
         } else {
-            Log.d(TAG, "requery(" + forceUpdate + "): ignore");
+            Log.d(TAG, "requery(", forceUpdate, "): ignore");
         }
     }
 
@@ -628,7 +628,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 
     @Override
     public Loader<Cursor> onCreateLoader(final int id, final Bundle args) {
-        Log.d(TAG, "onCreateLoader(" + id + "," + args + ")");
+        Log.d(TAG, "onCreateLoader(", id, ",", args, ")");
         setInProgress(1);
         PlansAdapter adapter = (PlansAdapter) getListAdapter();
         if ((adapter == null || adapter.getCount() == 0) && vLoading != null) {

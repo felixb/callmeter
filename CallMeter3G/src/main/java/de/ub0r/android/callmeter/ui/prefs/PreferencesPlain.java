@@ -56,7 +56,7 @@ import de.ub0r.android.callmeter.widget.LogsAppWidgetConfigure;
 import de.ub0r.android.callmeter.widget.LogsAppWidgetProvider;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetConfigure;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -67,7 +67,7 @@ import de.ub0r.android.lib.Utils;
 public final class PreferencesPlain extends TrackingSherlockPreferenceActivity implements
         OnPreferenceClickListener, OnPreferenceChangeListener {
 
-    private static final String TAG = "PrefPlain";
+    private static final String TAG = "PreferencesPlain";
 
     /** Action. */
     private static final String APPERANCE = "APPERANCE";

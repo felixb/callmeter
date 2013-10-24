@@ -36,7 +36,7 @@ import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.DbUtils;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -47,7 +47,7 @@ import de.ub0r.android.lib.Utils;
 public final class RuleEdit extends TrackingSherlockPreferenceActivity implements UpdateListener {
 
     /** Tag for debug out. */
-    private static final String TAG = "re";
+    private static final String TAG = "RuleEdit";
 
     /** This rule's {@link Uri}. */
     private Uri uri = null;
@@ -205,7 +205,7 @@ public final class RuleEdit extends TrackingSherlockPreferenceActivity implement
             } else {
                 w = c.getInt(DataProvider.Rules.INDEX_WHAT);
             }
-            Log.d(TAG, "what: " + w);
+            Log.d(TAG, "what: ", w);
             lp.setValue(String.valueOf(w));
             ps.addPreference(lp);
             int t = DataProvider.what2type(w);
@@ -410,7 +410,7 @@ public final class RuleEdit extends TrackingSherlockPreferenceActivity implement
                 break;
         }
         where = DbUtils.sqlAnd(where, DataProvider.Plans.MERGED_PLANS + " IS NULL");
-        Log.d(TAG, "plans.where: " + where);
+        Log.d(TAG, "plans.where: ", where);
         return where;
     }
 

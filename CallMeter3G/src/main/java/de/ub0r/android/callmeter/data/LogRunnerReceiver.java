@@ -33,7 +33,7 @@ import android.telephony.TelephonyManager;
 
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -44,7 +44,7 @@ import de.ub0r.android.lib.Utils;
 public final class LogRunnerReceiver extends BroadcastReceiver {
 
     /** Tag for output. */
-    private static final String TAG = "lrr";
+    private static final String TAG = "LogRunnerReceiver";
 
     /** Time between to update checks. */
     static final long DELAY = 30; // 30min
@@ -74,7 +74,7 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
      * @param a       action
      */
     public static void schedNext(final Context context, final String a) {
-        Log.d(TAG, "schedNext(ctx, " + a + ")");
+        Log.d(TAG, "schedNext(ctx, ", a, ")");
         long delay;
         if (a != null && a.equals(LogRunnerService.ACTION_SHORT_RUN)) {
             delay = (long) (Utils.parseFloat(PreferenceManager.getDefaultSharedPreferences(context)
@@ -85,7 +85,7 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
                     .getString(Preferences.PREFS_UPDATE_INTERVAL, String.valueOf(DELAY)), DELAY)
                     * DELAY_FACTOR;
         }
-        Log.d(TAG, "schedNext(ctx, " + a + "): delay=" + delay);
+        Log.d(TAG, "schedNext(ctx, ", a, "): delay=", delay);
         if (delay == 0L) {
             return;
         }
@@ -100,7 +100,7 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
      * @param action  {@link Intent}'s action
      */
     public static void schedNext(final Context context, final long delay, final String action) {
-        Log.d(TAG, "schedNext(ctx, " + delay + "," + action + ")");
+        Log.d(TAG, "schedNext(ctx, ", delay, ",", action, ")");
         final Intent i = new Intent(context, LogRunnerReceiver.class);
         if (action != null) {
             i.setAction(action);
@@ -171,15 +171,15 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
     public void onReceive(final Context context, final Intent intent) {
         Log.d(TAG, "wakeup");
         final String a = intent.getAction();
-        Log.d(TAG, "action: " + a);
+        Log.d(TAG, "action: ", a);
         if (a != null) {
             if (a.equals(ACTION_CM_WEBSMS)) {
                 final String su = intent.getStringExtra(EXTRA_WEBSMS_URI);
                 if (su != null && su.length() > 0) {
                     final long si = Utils.parseLong(su.replaceAll(".*/", ""), -1);
                     final String sc = intent.getStringExtra(EXTRA_WEBSMS_CONNECTOR);
-                    Log.d(TAG, "websms id:  " + si);
-                    Log.d(TAG, "websms con: " + sc);
+                    Log.d(TAG, "websms id:  ", si);
+                    Log.d(TAG, "websms con: ", sc);
                     if (si >= 0L) {
                         saveWebSMS(context, su, si, sc);
                     }
@@ -189,8 +189,8 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
                 if (su != null && su.length() > 0) {
                     final long si = Utils.parseLong(su.replaceAll(".*/", ""), -1);
                     final String sc = intent.getStringExtra(EXTRA_SIP_PROVIDER);
-                    Log.d(TAG, "sip call id:  " + si);
-                    Log.d(TAG, "sip call con: " + sc);
+                    Log.d(TAG, "sip call id:  ", si);
+                    Log.d(TAG, "sip call con: ", sc);
                     if (si >= 0L) {
                         saveSipCall(context, su, si, sc);
                     }

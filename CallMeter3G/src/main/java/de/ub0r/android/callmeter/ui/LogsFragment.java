@@ -59,7 +59,7 @@ import de.ub0r.android.callmeter.data.NameCache;
 import de.ub0r.android.callmeter.data.NameLoader;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -71,7 +71,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
         OnItemLongClickListener, LoaderCallbacks<Cursor> {
 
     /** Tag for output. */
-    private static final String TAG = "logs";
+    private static final String TAG = "LogsFragment";
 
     /** Prefs: {@link ToggleButton} state for calls. */
     private static final String PREF_CALL = "_logs_call";
@@ -407,7 +407,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
             String plans = DataProvider.Plans.parseMergerWhere(getActivity()
                     .getContentResolver(), planId);
             where = DbUtils.sqlAnd(plans, where);
-            Log.d(TAG, "where: " + where);
+            Log.d(TAG, "where: ", where);
         }
         Bundle args = new Bundle(1);
         args.putString("where", where);
@@ -517,7 +517,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 
     @Override
     public Loader<Cursor> onCreateLoader(final int id, final Bundle args) {
-        Log.d(TAG, "onCreateLoader(" + id + "," + args + ")");
+        Log.d(TAG, "onCreateLoader(", id, ",", args, ")");
         ((Plans) getActivity()).setProgress(1);
         String where = null;
         if (args != null) {

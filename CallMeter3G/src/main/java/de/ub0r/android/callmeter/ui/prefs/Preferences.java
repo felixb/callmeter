@@ -69,9 +69,9 @@ import de.ub0r.android.callmeter.data.ExportProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
-import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Market;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Preferences.
@@ -82,7 +82,7 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         OnPreferenceClickListener {
 
     /** Tag for output. */
-    private static final String TAG = "prefs";
+    private static final String TAG = "Preferences";
 
     /** Standard buffer size. */
     public static final int BUFSIZE = 1024;
@@ -348,15 +348,15 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
             }
             return "%." + defaultCurrencyDigits + "f" + getCurrencySymbol(context);
         } else {
-            Log.d(TAG, "custom currency format: " + pcs);
+            Log.d(TAG, "custom currency format: ", pcs);
             String c = getCurrencySymbol(context);
-            Log.d(TAG, "custom currency symbol: " + c);
+            Log.d(TAG, "custom currency symbol: ", c);
             if (c.equals("$")) {
                 c = "\\$";
-                Log.d(TAG, "custom currency symbol: " + c);
+                Log.d(TAG, "custom currency symbol: ", c);
             } else if (c.equals("%")) {
                 c = "%%";
-                Log.d(TAG, "custom currency symbol: " + c);
+                Log.d(TAG, "custom currency symbol: ", c);
             }
             String ret = "$%.2f";
             try {
@@ -364,7 +364,7 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
             } catch (ArrayIndexOutOfBoundsException e) {
                 Log.e(TAG, "could not parse currency format", e);
             }
-            Log.d(TAG, "custom currency format: " + ret);
+            Log.d(TAG, "custom currency format: ", ret);
             return ret;
         }
     }
@@ -550,7 +550,7 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
      * @param uri     {@link Uri}
      */
     private void importData(final Context context, final Uri uri) {
-        Log.d(TAG, "importData(ctx, " + uri + ")");
+        Log.d(TAG, "importData(ctx, ", uri, ")");
         final ProgressDialog d1 = new ProgressDialog(this);
         d1.setCancelable(true);
         d1.setMessage(getString(R.string.import_progr));
@@ -569,7 +569,7 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
                                 BUFSIZE);
                         String line = r.readLine();
                         while (line != null) {
-                            // Log.d(TAG, "read new line: " + line);
+                            // Log.d(TAG, "read new line: ", line);
                             sb.append(line);
                             sb.append("\n");
                             line = r.readLine();
@@ -589,7 +589,7 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
             @SuppressWarnings("deprecation")
             @Override
             protected void onPostExecute(final String result) {
-                Log.d(TAG, "import:\n" + result);
+                Log.d(TAG, "import:\n", result);
                 try {
                     d1.dismiss();
                 } catch (Exception e) { // ignore any exception
@@ -753,7 +753,7 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
 
                 @Override
                 protected void onPostExecute(final String result) {
-                    Log.d(TAG, "export:\n" + result);
+                    Log.d(TAG, "export:\n", result);
                     System.out.println("\n" + result);
                     d.dismiss();
                     if (result != null && result.length() > 0) {
@@ -887,7 +887,7 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
 
             @Override
             protected void onPostExecute(final String result) {
-                Log.d(TAG, "csv.task.onPostExecute(" + result + ")");
+                Log.d(TAG, "csv.task.onPostExecute(", result, ")");
                 d.dismiss();
                 if (TextUtils.isEmpty(result)) {
                     Log.e(TAG, "error writing export file: " + result);
@@ -908,14 +908,14 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
     protected void onNewIntent(final Intent intent) {
         final Uri uri = intent.getData();
         String a = intent.getAction();
-        Log.d(TAG, "new intent: " + a);
-        Log.d(TAG, "intent: " + uri);
+        Log.d(TAG, "new intent: ", a);
+        Log.d(TAG, "intent: ", uri);
         if (ACTION_EXPORT_CSV.equals(a)) {
             Log.d(TAG, "export csv");
             TrackingUtils.sendEvent(this, "data", "export", "csv", null);
             exportLogsCsv(this);
         } else if (uri != null) {
-            Log.d(TAG, "importing: " + uri.toString());
+            Log.d(TAG, "importing: ", uri.toString());
             TrackingUtils.sendEvent(this, "data", "import", uri.toString(), null);
             importData(this, uri);
         }
@@ -929,7 +929,8 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         final String k = preference.getKey();
         assert k != null;
         if (k.equals("send_logs")) {
-            Log.collectAndSendLog(Preferences.this, getString(R.string.sendlog_install_),
+            de.ub0r.android.lib.Log.collectAndSendLog(Preferences.this,
+                    getString(R.string.sendlog_install_),
                     getString(R.string.sendlog_install),
                     getString(R.string.sendlog_run_), getString(R.string.sendlog_run));
             return true;

@@ -46,7 +46,7 @@ import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -57,7 +57,7 @@ import de.ub0r.android.lib.Utils;
 public final class RuleMatcher {
 
     /** Tag for output. */
-    private static final String TAG = "rm";
+    private static final String TAG = "RuleMatcher";
 
     /** Steps for updating the GUI. */
     private static final int PROGRESS_STEPS = 25;
@@ -450,9 +450,9 @@ public final class RuleMatcher {
          */
         boolean match(final ContentResolver cr, final Cursor log) {
             Log.d(TAG, "match()");
-            Log.d(TAG, "what: " + what);
+            Log.d(TAG, "what: ", what);
             final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
-            Log.d(TAG, "type: " + t);
+            Log.d(TAG, "type: ", t);
             boolean ret = false;
 
             if (roamed == 0 || roamed == 1) {
@@ -461,7 +461,7 @@ public final class RuleMatcher {
                 // log.roamed=0: not roamed
                 // log.roamed=1: roamed
                 ret = log.getInt(DataProvider.Logs.INDEX_ROAMED) != roamed;
-                Log.d(TAG, "ret after romaing: " + ret);
+                Log.d(TAG, "ret after romaing: ", ret);
                 if (!ret) {
                     return false;
                 }
@@ -469,7 +469,7 @@ public final class RuleMatcher {
 
             if (direction >= 0 && direction != DataProvider.Rules.NO_MATTER) {
                 ret = log.getInt(DataProvider.Logs.INDEX_DIRECTION) == direction;
-                Log.d(TAG, "ret after direction: " + ret);
+                Log.d(TAG, "ret after direction: ", ret);
                 if (!ret) {
                     return false;
                 }
@@ -480,7 +480,7 @@ public final class RuleMatcher {
                     ret = (t == DataProvider.TYPE_CALL);
                     if (ret && issipcall != DataProvider.Rules.NO_MATTER) {
                         final long d = log.getLong(DataProvider.Logs.INDEX_DATE);
-                        Log.d(TAG, "match sipcall: " + issipcall);
+                        Log.d(TAG, "match sipcall: ", issipcall);
                         S1[0] = String.valueOf(d);
                         if (issipcall == 1) {
                             // match no sipcall
@@ -503,7 +503,7 @@ public final class RuleMatcher {
                                 c.close();
                             }
                         }
-                        Log.d(TAG, "match sipcall: " + issipcall + "; " + ret);
+                        Log.d(TAG, "match sipcall: ", issipcall, "; ", ret);
                     }
                     break;
                 case DataProvider.Rules.WHAT_DATA:
@@ -516,7 +516,7 @@ public final class RuleMatcher {
                     ret = (t == DataProvider.TYPE_SMS);
                     if (ret && iswebsms != DataProvider.Rules.NO_MATTER) {
                         final long d = log.getLong(DataProvider.Logs.INDEX_DATE);
-                        Log.d(TAG, "match websms: " + iswebsms);
+                        Log.d(TAG, "match websms: ", iswebsms);
                         S1[0] = String.valueOf(d);
                         if (iswebsms == 1) {
                             // match no websms
@@ -541,13 +541,13 @@ public final class RuleMatcher {
                                 c.close();
                             }
                         }
-                        Log.d(TAG, "match websms: " + iswebsms + "; " + ret);
+                        Log.d(TAG, "match websms: ", iswebsms, "; ", ret);
                     }
                     break;
                 default:
                     break;
             }
-            Log.d(TAG, "ret after type: " + ret);
+            Log.d(TAG, "ret after type: ", ret);
             if (!ret) {
                 return false;
             }
@@ -558,10 +558,10 @@ public final class RuleMatcher {
                     ret = p.getRemainingLimit() > 0f;
                 }
                 if (!ret) {
-                    Log.d(TAG, "limit reached: " + planId);
+                    Log.d(TAG, "limit reached: ", planId);
                 }
             }
-            Log.d(TAG, "ret after limit: " + ret);
+            Log.d(TAG, "ret after limit: ", ret);
             if (!ret) {
                 return false;
             }
@@ -569,7 +569,7 @@ public final class RuleMatcher {
             if (myNumber != null) {
                 // FIXME: do equals?
                 ret = myNumber.equals(log.getString(DataProvider.Logs.INDEX_MYNUMBER));
-                Log.d(TAG, "ret after mynumber: " + ret);
+                Log.d(TAG, "ret after mynumber: ", ret);
                 if (!ret) {
                     return false;
                 }
@@ -585,7 +585,7 @@ public final class RuleMatcher {
                     }
                 }
             }
-            Log.d(TAG, "ret after inhours: " + ret);
+            Log.d(TAG, "ret after inhours: ", ret);
             if (!ret) {
                 return false;
             }
@@ -598,7 +598,7 @@ public final class RuleMatcher {
                     }
                 }
             }
-            Log.d(TAG, "ret after exhours: " + ret);
+            Log.d(TAG, "ret after exhours: ", ret);
             if (!ret) {
                 return false;
             }
@@ -612,7 +612,7 @@ public final class RuleMatcher {
                     }
                 }
             }
-            Log.d(TAG, "ret after innumbers: " + ret);
+            Log.d(TAG, "ret after innumbers: ", ret);
             if (!ret) {
                 return false;
             }
@@ -625,7 +625,7 @@ public final class RuleMatcher {
                     }
                 }
             }
-            Log.d(TAG, "ret after exnumbers: " + ret);
+            Log.d(TAG, "ret after exnumbers: ", ret);
             return ret;
         }
     }
@@ -836,18 +836,18 @@ public final class RuleMatcher {
          * @return remaining limit before it is reached.
          */
         float getRemainingLimit() {
-            Log.d(TAG, "getRemainingLimit(): " + id);
+            Log.d(TAG, "getRemainingLimit(): ", id);
             if (parent != null && limitType == DataProvider.LIMIT_TYPE_NONE) {
                 Log.d(TAG, "check parent");
                 return parent.getRemainingLimit();
             } else {
-                Log.d(TAG, "ltype: " + limitType);
+                Log.d(TAG, "ltype: ", limitType);
                 switch (limitType) {
                     case DataProvider.LIMIT_TYPE_COST:
-                        Log.d(TAG, "bc<lt " + billedCost * CallMeter.HUNDRET + "<" + limit);
+                        Log.d(TAG, "bc<lt ", billedCost * CallMeter.HUNDRET, "<", limit);
                         return limit - billedCost * CallMeter.HUNDRET;
                     case DataProvider.LIMIT_TYPE_UNITS:
-                        Log.d(TAG, "ba<lt " + billedAmount + "<" + limit);
+                        Log.d(TAG, "ba<lt ", billedAmount, "<", limit);
                         return limit - billedAmount;
                     default:
                         return 0;
@@ -1210,7 +1210,7 @@ public final class RuleMatcher {
         }
         final long lid = log.getLong(DataProvider.Logs.INDEX_ID);
         final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
-        Log.d(TAG, "matchLog(cr, " + lid + ")");
+        Log.d(TAG, "matchLog(cr, ", lid, ")");
         boolean matched = false;
         if (rules == null) {
             Log.e(TAG, "rules = null");
@@ -1226,12 +1226,12 @@ public final class RuleMatcher {
             if (r == null || !r.match(cr, log) || plans == null) {
                 continue;
             }
-            Log.d(TAG, "matched rule: " + r.getId());
+            Log.d(TAG, "matched rule: ", r.getId());
             final Plan p = plans.get(r.getPlanId());
             if (p != null) {
                 final long pid = p.getId();
                 final long rid = r.getId();
-                Log.d(TAG, "found plan: " + pid);
+                Log.d(TAG, "found plan: ", pid);
                 p.checkBillday(log);
                 final float ba = p.getBilledAmount(log);
                 final float bc = p.getCost(log, ba);
@@ -1276,7 +1276,7 @@ public final class RuleMatcher {
             Log.e(TAG, "matchLog(cr, " + lid + "," + pid + ")");
             return;
         }
-        Log.d(TAG, "matchLog(cr, " + lid + "," + pid + ")");
+        Log.d(TAG, "matchLog(cr, ", lid, ",", pid, ")");
 
         if (plans == null) {
             Log.e(TAG, "plans = null");
@@ -1320,7 +1320,7 @@ public final class RuleMatcher {
      * @return true if a log was matched
      */
     static synchronized boolean match(final Context context, final boolean showStatus) {
-        Log.d(TAG, "match(ctx, " + showStatus + ")");
+        Log.d(TAG, "match(ctx, ", showStatus, ")");
         boolean ret = false;
         load(context);
         final ContentResolver cr = context.getContentResolver();
@@ -1351,10 +1351,10 @@ public final class RuleMatcher {
                                     .obtainMessage(Plans.MSG_BACKGROUND_PROGRESS_MATCHER);
                             m.arg1 = i;
                             m.arg2 = l;
-                            Log.d(TAG, "send progress: " + i + "/" + l);
+                            Log.d(TAG, "send progress: ", i, "/", l);
                             m.sendToTarget();
                         } else {
-                            Log.d(TAG, "send progress: " + i + " handler=null");
+                            Log.d(TAG, "send progress: ", i, " handler=null");
                         }
                         Log.d(TAG, "save logs..");
                         cr.applyBatch(DataProvider.AUTHORITY, ops);

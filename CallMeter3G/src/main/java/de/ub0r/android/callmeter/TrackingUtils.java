@@ -11,7 +11,7 @@ import android.content.Context;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * @author flx
