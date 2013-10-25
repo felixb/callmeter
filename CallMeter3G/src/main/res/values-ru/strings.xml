@@ -388,7 +388,7 @@
   <string name="units_cost_per_mbyte" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="$/MByte">руб./МБайт</string>
   <string name="units_cost_per_unit" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="$/Unit">руб./Единица</string>
   <string name="issipcall_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Is SIP call">SIP вызов</string>
-  <string name="issipcall_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Вызов через SIP. В настоящее время поддерживается sipdroid &gt;1.6.1</string>
+  <string name="issipcall_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Call made via SIP. Currently sipdroid and CSipSimple are supported.">Вызов через SIP. В настоящее время поддерживаются sipdroid и CSipSimple.</string>
   <string name="strip_past_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Do not bill anything after x seconds of a call.">Не учитывать ничего после х секунд разговора.</string>
   <string name="strip_past_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Do not bill anything after seconds">Не считать после секунд</string>
   <string name="remote_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Remote number">Телефонный номер</string>
@@ -461,4 +461,7 @@
   <string name="billday_last" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Last day of your bill">Последний день учета</string>
   <string name="show_target_billday_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show last bill day">Показывать последний день учета</string>
   <string name="show_target_billday_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show last day of bill instead of first.">Показывать последний день учета вместо первого.</string>
+  <string name="second_sim_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Second SIM card">Вторая сим-карта</string>
+  <string name="websms_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="WebSMS">WebSMS</string>
+  <string name="calls_voip_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="VoIP calls with supported apps">VoIP вызовы с поддерживаемых приложений</string>
 </resources>
