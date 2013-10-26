@@ -111,7 +111,7 @@
   <string name="new_hourgroup" formatted="false" username="Gummie" orig="New hour group">Nieuwe uurgroep</string>
   <string name="add_hour" formatted="false">Uur toevoegen</string>
   <string name="empty_group" formatted="false" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Lege groepen komen nergens mee overeen. Ga terug en voeg minstens één item toe.</string>
-  <string name="calls" formatted="false">Gesprekken</string>
+  <string name="calls" formatted="false" username="ditsy@live.nl" orig="Calls">Calls</string>
   <string name="sms" formatted="false">SMS</string>
   <string name="mms" formatted="false">MMS</string>
   <string name="data" formatted="false">Data</string>
@@ -266,7 +266,7 @@
   <string name="delete_">Verwijderen</string>
   <string name="title">Titel</string>
   <string name="spacer">Witruimte</string>
-  <string name="mixed">Gesprek</string>
+  <string name="mixed" username="ditsy@live.nl" orig="Mixed">Gemengd</string>
   <string name="limit_type_unlimited">ongelimiteerd</string>
   <string name="limit_type_units">eenheden</string>
   <string name="limit_type_cost">kosten</string>
@@ -461,4 +461,7 @@
   <string name="import_" formatted="false" username="ditsy@live.nl" orig="Import">Importeer</string>
   <string name="import_link_" formatted="false" username="ditsy@live.nl" orig="More info">Meer info</string>
   <string name="import_rules_users" formatted="false" username="ditsy@live.nl" orig="Users\' rules">Gebruikers regels</string>
+  <string name="calls_voip_" formatted="false" username="ditsy@live.nl" orig="VoIP calls with supported apps">VoIP gesprek met ondersteunende apps</string>
+  <string name="second_sim_" formatted="false" username="ditsy@live.nl" orig="Second SIM card">Tweede SIM card</string>
+  <string name="websms_" formatted="false" username="ditsy@live.nl" orig="WebSMS">WebSMS</string>
 </resources>
