@@ -72,6 +72,7 @@ import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.Market;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.logg0r.Log;
+import de.ub0r.android.logg0r.LogCollector;
 
 /**
  * Preferences.
@@ -929,10 +930,11 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         final String k = preference.getKey();
         assert k != null;
         if (k.equals("send_logs")) {
-            de.ub0r.android.lib.Log.collectAndSendLog(Preferences.this,
+            LogCollector.collectAndSendLogs(this, "android@ub0r.de",
                     getString(R.string.sendlog_install_),
                     getString(R.string.sendlog_install),
-                    getString(R.string.sendlog_run_), getString(R.string.sendlog_run));
+                    getString(R.string.sendlog_run_),
+                    getString(R.string.sendlog_run));
             return true;
         } else if (k.equals("send_devices")) {
             final Intent intent = new Intent(Intent.ACTION_SEND);

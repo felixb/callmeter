@@ -92,5 +92,5 @@ dependencies {
     compile 'com.android.support:support-v4:18.0.+'
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.+@aar'
     compile 'com.actionbarsherlock:viewpagerindicator:2.4.+'
-    compile 'de.ub0r.android.logg0r:logg0r:1.0.+'
+    compile 'de.ub0r.android.logg0r:logg0r:1.1.+'
 }
