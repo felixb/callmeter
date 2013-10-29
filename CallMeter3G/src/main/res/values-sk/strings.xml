@@ -305,4 +305,6 @@
   <string name="direction_calls_in" formatted="false" username="mario" orig="in">prichádzajúce</string>
   <string name="direction_calls_out" formatted="false" username="mario" orig="out">odchadzajúce</string>
   <string name="billday_last" formatted="false" username="mihron82@gmail.com" orig="Last day of your bill">Koniec zúčtovacieho obdobia</string>
+  <string name="show_target_billday_hint" formatted="false" username="lucian" orig="Show last day of bill instead of first.">Zobraziť posledný deň zúčtovacieho obdobia namiesto prvého.</string>
+  <string name="show_target_billday_" formatted="false" username="lucian" orig="Show last bill day">Zobraziť posledný zúčtovaný deň</string>
 </resources>

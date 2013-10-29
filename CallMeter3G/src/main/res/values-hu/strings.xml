@@ -40,7 +40,7 @@
   <string name="update_interval_" formatted="false">Frissítés gyakorisága</string>
   <string name="update_interval_hint" formatted="false">A rövidebb frissítési idő jobban meríti az akkumulátort.</string>
   <string name="date_begin_" formatted="false">Mérés kezdete</string>
-  <string name="date_begin_hint" formatted="false">E dátum előtti naplók figyelmen kívül lesznek hagyva.</string>
+  <string name="date_begin_hint" formatted="false" username="lucian" orig="Ignore any logs before this date.">E dátum előtti naplók figyelmen kívül hagyása.</string>
   <string name="delete_old_logs_" formatted="false">Napló törlése</string>
   <string name="delete_old_logs_help" formatted="false">Törli az x napnál régebbi naplókat a belső adatbázisból.</string>
   <string name="common_prefs_" formatted="false">Általános beállítások</string>
@@ -461,4 +461,7 @@
   <string name="billday_last" formatted="false" username="gaborgabor" orig="Last day of your bill">Számlazás utolsó napja</string>
   <string name="show_target_billday_" formatted="false" username="gaborgabor" orig="Show last bill day">Számlazás záró napjának mutatása</string>
   <string name="show_target_billday_hint" formatted="false" username="gaborgabor" orig="Show last day of bill instead of first.">Számlazás záró napjának mutatása a kezdő helyett</string>
+  <string name="second_sim_" formatted="false" username="lucian" orig="Second SIM card">Második SIM kártya</string>
+  <string name="websms_" formatted="false" username="lucian" orig="WebSMS">WebSMS</string>
+  <string name="calls_voip_" formatted="false" username="lucian" orig="VoIP calls with supported apps">VoIP hívások támogatott alkalmazásokkal</string>
 </resources>
