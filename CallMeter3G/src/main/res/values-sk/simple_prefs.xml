@@ -22,7 +22,7 @@
        -->
 <resources>
   <string name="freemin_" formatted="false" orig="Free minutes">Voľné minúty</string>
-  <string name="freemin_hint" formatted="false" orig="Free minutes / month">Voľné minúty za mesiac</string>
+  <string name="freemin_hint" formatted="false" orig="Free minutes / month" username="matelkoxxl">Voľné minúty na mesiac</string>
   <string name="cost_per_call_" formatted="false" orig="Cost / call">Cena za hovor</string>
   <string name="cost_per_min_" formatted="false" orig="Cost / minute">Cena za minútu</string>
   <string name="freesms_" formatted="false" orig="Free SMS">Voľné SMS</string>
@@ -39,5 +39,5 @@
   <string name="freedata_hint" formatted="false" orig="Free 2G, 3G or 4G data traffic / month">Voľné dáta za mesiac</string>
   <string name="cost_per_min_hint" formatted="false" orig="Each minute get\'s billed.">Každá minúta je účtovaná.</string>
   <string name="cost_per_call_hint" formatted="false" orig="Each call get\'s billed.">Každý hovor je účtovaný.</string>
-  <string name="missing_slash" formatted="false" orig="Bill mode needs to be in seconds/seconds!">Účtovací režim musí byť v sekundy/sekundy!</string>
+  <string name="missing_slash" formatted="false" orig="Bill mode needs to be in seconds/seconds!" username="matelkoxxl">Účtovací režim musí byť v sekunda/sekunda!</string>
 </resources>

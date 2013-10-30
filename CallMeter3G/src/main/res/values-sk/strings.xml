@@ -41,14 +41,14 @@
   <string name="theme_" formatted="false">Motív</string>
   <string name="textsize_" formatted="false">Veľkosť textu</string>
   <string name="plans" formatted="false">Paušály</string>
-  <string name="reset_data_" formatted="false">Resetovať pamäť</string>
+  <string name="reset_data_" formatted="false" username="matelkoxxl" orig="Reset statistics">Resetovať štatistiku</string>
   <string name="reset_data_hint" formatted="false">Reset pamäti aplikácie vynúti prepočet štatistiky.\nReset pamäti o dátovom prenose je permanentný - zmaže iba dáta prenesené pred štartom zariadenia.</string>
   <string name="reset_data_data_" formatted="false">Reset pamäti o prenose dát.</string>
   <string name="reset_data_progr1" formatted="false" orig="Recalculating statistics ...\n\n(This may take some time!)">Prepočítavam štatistiku...\n\n(Môže to chvíľu trvať!)</string>
   <string name="reset_data_progr2" formatted="false" orig="Recalculating statistics ...">Prepočítavam štatistiku...</string>
   <string name="contacts_" formatted="false">Z kontaktov</string>
-  <string name="theme_black">Tmavý</string>
-  <string name="theme_light">Svetlý</string>
+  <string name="theme_black" username="matelkoxxl" orig="Black">Tmavá</string>
+  <string name="theme_light" username="matelkoxxl" orig="Light">Svetlá</string>
   <string name="x5_minute">5 minút</string>
   <string name="x10_minute">10 minút</string>
   <string name="x15_minute">15 minút</string>
@@ -239,7 +239,7 @@
   <string name="sms_out_" formatted="false" username="dado26@gmail.com" orig="SMSOut">SMSodoslané</string>
   <string name="mms" formatted="false" username="dado26@gmail.com" orig="MMS">MMS</string>
   <string name="sms" formatted="false" username="dado26@gmail.com" orig="SMS">SMS</string>
-  <string name="balance_" formatted="false" username="dado26@gmail.com" orig="Balance">Rovnováha</string>
+  <string name="balance_" formatted="false" username="matelkoxxl" orig="Balance">Stav</string>
   <string name="edit_selected_" formatted="false" username="dado26@gmail.com" orig="Edit selected">Zmeniť označené</string>
   <string name="name_" formatted="false" username="dado26@gmail.com" orig="Name">Meno</string>
   <string name="type_" formatted="false" username="dado26@gmail.com" orig="Type">Typ</string>
@@ -307,4 +307,96 @@
   <string name="billday_last" formatted="false" username="mihron82@gmail.com" orig="Last day of your bill">Koniec zúčtovacieho obdobia</string>
   <string name="show_target_billday_hint" formatted="false" username="lucian" orig="Show last day of bill instead of first.">Zobraziť posledný deň zúčtovacieho obdobia namiesto prvého.</string>
   <string name="show_target_billday_" formatted="false" username="lucian" orig="Show last bill day">Zobraziť posledný zúčtovaný deň</string>
+  <string name="new_numbergroup" formatted="false" username="matelkoxxl" orig="New number group">Nová číselná skupina</string>
+  <string name="numbergroup_excalls" formatted="false" username="matelkoxxl" orig="Exclude from calls">Vynechať z hovorov</string>
+  <string name="numbergroup_exsms" formatted="false" username="matelkoxxl" orig="Exclude from SMS">Vynechať z SMS</string>
+  <string name="new_hourgroup" formatted="false" username="matelkoxxl" orig="New hour group">Nová skupina hodín</string>
+  <string name="second_sim_" formatted="false" username="matelkoxxl" orig="Second SIM card">Druhá SIM karta</string>
+  <string name="balance_help" formatted="false" username="matelkoxxl" orig="Balance of your account at this given date.">Stav vášho konta k tomuto dátumu</string>
+  <string name="strip_leading_zeros_" formatted="false" username="matelkoxxl" orig="Strip leading zeros">Odstrániť prvú nulu</string>
+  <string name="strip_leading_zeros_hint" formatted="false" username="matelkoxxl" orig="Strip leading zeros when comparing numbers.">Odstrániť prvú nulu pri porovnávaní čísiel</string>
+  <string name="my_number_" formatted="false" username="matelkoxxl" orig="My number">Moje číslo</string>
+  <string name="my_sim_id_" formatted="false" username="matelkoxxl" orig="SIM Id">SIM ID</string>
+  <string name="my_sim_id_help" formatted="false" username="matelkoxxl" orig="Match only logs done with this SIM.">Porovnať iba záznamy urobené s touto SIM</string>
+  <string name="set_current_number" formatted="false" username="matelkoxxl" orig="Current number">Aktuálne číslo</string>
+  <string name="edit_groups_" formatted="false" username="matelkoxxl" orig="Edit groups">Upraviť skupiny</string>
+  <string name="delete_group_" formatted="false" username="matelkoxxl" orig="Delete group">Vymazať skupinu</string>
+  <string name="delete_group_hint" formatted="false" username="matelkoxxl" orig="Do you really want to delete this group?">Skutočne vymazať túto skupinu?</string>
+  <string name="delete_plan_hint" formatted="false" username="matelkoxxl" orig="Do you really want to delete this plan?">Skutočne vymazať tento plán?</string>
+  <string name="delete_rule_hint" formatted="false" username="matelkoxxl" orig="Do you really want to delete this rule?">Skutočne vymazať toto pravidlo?</string>
+  <string name="shortname_help" formatted="false" username="matelkoxxl" orig="Set a short name here. It is displayed in compact layouts.">Nastaviť krátky názov. Bude zobrazený v kompaktnom rozmiestnení.</string>
+  <string name="limit_type_help" formatted="false" username="matelkoxxl" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;costs\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Nastaviť typ limitu.\nLimit pre "jednotky" obmedzí Váš plán na základe minút, správ, ...\nLimit pre "cenu" obmedzí Váš plán na základe nákladov účtovaných v tomto pláne.</string>
+  <string name="billday_help" formatted="false" username="matelkoxxl" orig="Set this to the first day of the bill of the current billing period.">Nastaviť na prvý deň fakturačného obdobia.</string>
+  <string name="billperiodid_" formatted="false" username="matelkoxxl" orig="Billing period">Fakturačné obdobie.</string>
+  <string name="billperiodid_help" formatted="false" username="matelkoxxl" orig="Select your billing period.\nYou may need to create one as extra plan.">Vyberte fakturačné obdobie.\nMožno budete musieť vytvoriť jedno ako extra plán.</string>
+  <string name="billperiod_" formatted="false" username="matelkoxxl" orig="Length of the billing period">Dĺžka fakturačného obdobia.</string>
+  <string name="billperiod_help" formatted="false" username="matelkoxxl" orig="Set the length of your billing period.">Nastavte dĺžku fakturačného obdobia.</string>
+  <string name="cost_per_item_" formatted="false" username="matelkoxxl" orig="Cost per item">Náklady na položku</string>
+  <string name="cost_per_item_in_limit_" formatted="false" username="matelkoxxl" orig="Cost per item in limit">Náklady na položku v limite</string>
+  <string name="units_num_msg" formatted="false" username="matelkoxxl" orig="# Messages"># Správy</string>
+  <string name="units_cost_per_call" formatted="false" username="matelkoxxl" orig="$/Call">Cena/Hovory</string>
+  <string name="units_cost_per_minute" formatted="false" username="matelkoxxl" orig="$/Minute">Cena/Minúta</string>
+  <string name="units_cost_per_message" formatted="false" username="matelkoxxl" orig="$/Message">Cena/SMS</string>
+  <string name="units_cost_per_mbyte" formatted="false" username="matelkoxxl" orig="$/MByte">Cena/MByte</string>
+  <string name="units_cost_per_unit" formatted="false" username="matelkoxxl" orig="$/Unit">Cena/Jednotka</string>
+  <string name="websms_" formatted="false" username="matelkoxxl" orig="WebSMS">WebSMS</string>
+  <string name="iswebsms_" formatted="false" username="matelkoxxl" orig="Is WebSMS">Je WebSMS</string>
+  <string name="iswebsms_connector_" formatted="false" username="matelkoxxl" orig="Is WebSMS Connector">Je WebSMS Connector</string>
+  <string name="calls_voip_" formatted="false" username="matelkoxxl" orig="VoIP calls with supported apps">VoIP hovory cez podporované aplikácie</string>
+  <string name="issipcall_" formatted="false" username="matelkoxxl" orig="Is SIP call">Je SIP hovor</string>
+  <string name="strip_past_" formatted="false" username="matelkoxxl" orig="Do not bill anything after seconds">Neúčtuje nič po sekundách</string>
+  <string name="strip_past_help" formatted="false" username="matelkoxxl" orig="Do not bill anything after x seconds of a call.">Neúčtuje nič po x sekundách hovoru.</string>
+  <string name="active_" formatted="false" username="matelkoxxl" orig="Active">Aktívne</string>
+  <string name="active_help" formatted="false" username="matelkoxxl" orig="Only active rules are used for matching logs.">Iba aktívne pravidlá sú použité pri prehľadávaní záznamov.</string>
+  <string name="what_" formatted="false" username="matelkoxxl" orig="Target type">Cieľový typ</string>
+  <string name="what_help" formatted="false" username="matelkoxxl" orig="Choose a target type here.">Vyberte cieľový typ.</string>
+  <string name="no_matter_" formatted="false" username="matelkoxxl" orig="Does not matter">Nezáleží na tom</string>
+  <string name="empty_groups_" formatted="false" username="matelkoxxl" orig="Please press &quot;Add&quot; to add a group.">Stlačte \"Pridaj\" na pridanie skupiny.</string>
+  <string name="empty_group_" formatted="false" username="matelkoxxl" orig="Please press &quot;Add&quot; to add an item to this group.">Stlačte \"Pridaj\" na pridanie položky do skupiny.</string>
+  <string name="export_hint" formatted="false" username="matelkoxxl" orig="Export rule sets, logs or groups">Exportuj sady pravidiel, záznamov alebo skupín</string>
+  <string name="export_rules_dev_hint" formatted="false" username="matelkoxxl" orig="Export rule set to let others import it.">Odoslať sadu pravidiel aby si ich mohli ostatní naimportovať.</string>
+  <string name="export_logs_hint" formatted="false" username="matelkoxxl" orig="Backup logs as mail.">Zálohovať protokoly ako mail.</string>
+  <string name="import_link_" formatted="false" username="matelkoxxl" orig="More info">Viac info</string>
+  <string name="import_rules_users" formatted="false" username="matelkoxxl" orig="Users\' rules">Používateľské pravidlá</string>
+  <string name="import_rules_sd_" formatted="false" username="matelkoxxl" orig="Import rule set from SD card">Import sady pravidiel z SD karty</string>
+  <string name="import_rules_sd_help" formatted="false" username="matelkoxxl" orig="Place your file on your SD card and click it below">Umiestnite Váš súbor na SD kartu a vyberte ho nižšie</string>
+  <string name="widget_plan_textsize" formatted="false" username="matelkoxxl" orig="Plan Text Size">Plán - veľkosť textu</string>
+  <string name="widget_cost_textsize" formatted="false" username="matelkoxxl" orig="Cost Text Size">Náklady - veľkosť textu</string>
+  <string name="widget_date_textsize" formatted="false" username="matelkoxxl" orig="Date Text Size">Dátum - veľkosť textu</string>
+  <string name="widget_details_textsize" formatted="false" username="matelkoxxl" orig="Details Text Size">Detaily - veľkosť textu</string>
+  <string name="send_devices_" formatted="false" username="matelkoxxl" orig="Send devices">Poslať zariadenia</string>
+  <string name="day_13" formatted="false" username="matelkoxxl" orig="13:00 - 13:59">13:00 - 13:59</string>
+  <string name="day_14" formatted="false" username="matelkoxxl" orig="14:00 - 14:59">14:00 - 14:59</string>
+  <string name="day_15" formatted="false" username="matelkoxxl" orig="15:00 - 15:59">15:00 - 15:59</string>
+  <string name="day_16" formatted="false" username="matelkoxxl" orig="16:00 - 16:59">16:00 - 16:59</string>
+  <string name="day_17" formatted="false" username="matelkoxxl" orig="17:00 - 17:59">17:00 - 17:59</string>
+  <string name="day_18" formatted="false" username="matelkoxxl" orig="18:00 - 18:59">18:00 - 18:59</string>
+  <string name="day_19" formatted="false" username="matelkoxxl" orig="19:00 - 19:59">19:00 - 19:59</string>
+  <string name="day_20" formatted="false" username="matelkoxxl" orig="20:00 - 20:59">20:00 - 20:59</string>
+  <string name="day_21" formatted="false" username="matelkoxxl" orig="21:00 - 21:59">21:00 - 21:59</string>
+  <string name="day_22" formatted="false" username="matelkoxxl" orig="22:00 - 22:59">22:00 - 22:59</string>
+  <string name="day_23" formatted="false" username="matelkoxxl" orig="23:00 - 23:59">23:00 - 23:59</string>
+  <string name="edit_plan_" formatted="false" username="matelkoxxl" orig="Edit Plan">Edituj plán</string>
+  <string name="view_logs_" formatted="false" username="matelkoxxl" orig="View Logs">Zobraz záznamy</string>
+  <string name="title" formatted="false" username="matelkoxxl" orig="Title">Názov</string>
+  <string name="mixed" formatted="false" username="matelkoxxl" orig="Mixed">Zmiešaný</string>
+  <string name="custom" formatted="false" username="matelkoxxl" orig="Custom">Používateľ</string>
+  <string name="direction_data_in" formatted="false" username="matelkoxxl" orig="in">prijaté</string>
+  <string name="direction_data_out" formatted="false" username="matelkoxxl" orig="out">odoslané</string>
+  <string name="currency_formats_1" formatted="false" username="matelkoxxl" orig="$1.00">€1,00</string>
+  <string name="currency_formats_2" formatted="false" username="matelkoxxl" orig="$1000">€1000</string>
+  <string name="currency_formats_3" formatted="false" username="matelkoxxl" orig="1.00$">1,00€</string>
+  <string name="currency_formats_4" formatted="false" username="matelkoxxl" orig="1000$">1000€</string>
+  <string name="default_" formatted="false" username="matelkoxxl" orig="Default">Predvolené</string>
+  <string name="reset" formatted="false" username="matelkoxxl" orig="Reset">Reset</string>
+  <string name="send_logs_" formatted="false" username="matelkoxxl" orig="Send logs">Poslať záznamy</string>
+  <string name="sendlog_run_" formatted="false" username="matelkoxxl" orig="Run SendLog">Spusti SendLog</string>
+  <string name="sendlog_install_" formatted="false" username="matelkoxxl" orig="Install SendLog">Nainštaluj SendLog</string>
+  <string name="license_" formatted="false" username="matelkoxxl" orig="License:">Licencia:</string>
+  <string name="author_" formatted="false" username="matelkoxxl" orig="Author:">Autor:</string>
+  <string name="website_" formatted="false" username="matelkoxxl" orig="Website:">Domovská stránka:</string>
+  <string name="source_" formatted="false" username="matelkoxxl" orig="Sourcescode:">Zdrojový kód:</string>
+  <string name="country" formatted="false" username="matelkoxxl" orig="Country">Krajina</string>
+  <string name="provider" formatted="false" username="matelkoxxl" orig="Provider">Operátor</string>
+  <string name="plan" formatted="false" username="matelkoxxl" orig="Plan">Plán</string>
 </resources>
