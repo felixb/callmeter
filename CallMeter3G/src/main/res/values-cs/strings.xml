@@ -321,7 +321,7 @@
   <string name="no_matter_" formatted="false" orig="Does not matter">Nezáleží</string>
   <string name="none" formatted="false" orig="None">Žádný</string>
   <string name="plan_help" formatted="false" orig="Choose the plan this rule should fit.">Vyberte tarif, na který má být aplikováno toto pravidlo.</string>
-  <string name="cost_per_amount_help1" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Nastavte cenu za jednotku (např. za 1 kB dat) poté, co je překročen limit.</string>
+  <string name="cost_per_amount_help1" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded." username="matelkoxxl &lt;matelkoxxl@gmail.com&gt;. ">Nastavte cenu za jednotku (napr. za 1 kB dát) potom, čo je prekročený limit.</string>
   <string name="cost_per_amount_" formatted="false" orig="Cost per length">Cena za jednotku</string>
   <string name="cost_per_item_in_limit_help" formatted="false" orig="Set the cost billed for a single log item (e.g. a call or a message) billed before the limit is exceeded." username="Jack Fear &lt;me.jackfear@gmail.com&gt;">Nastavte cenu za jednotku (např. za hovor či zprávu) před tím, než je dosažen limit.</string>
   <string name="cost_per_item_in_limit_" formatted="false" orig="Cost per item in limit">Cena za jednotku v rámci limitu</string>
