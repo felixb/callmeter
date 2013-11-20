@@ -28,9 +28,9 @@
   <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Haz click aquí para leer noticias recientes del desarrollador</string>
   <string name="about0_" formatted="false">¡Controla tus planes de llamadas, mensajes y datos!</string>
   <string name="about0" formatted="false">CallMeter genera informes de tus registros de llamadas, mensajes y datos. Permite muchos tipos de tarificación.</string>
-  <string name="about1" formatted="false">La presentación es: minutos usados en el ciclo de facturación/ minutos totales. El cómputo mensual de llamadas tiene en cuenta el modo de tarificación. Los totales no.</string>
-  <string name="about2" formatted="false">El modo de tarificación especifica la longitud del primer/siguientes unidades de facturación. Ej. 60/10 significa que en cada llamada se factura el primer minuto completo y el resto se redondea en periodos de 10 s.</string>
-  <string name="about3" formatted="false">CallMeter se ejecuta en segundo plano cada 30min (si no está en modo espera). Por lo que borrar llamadas o mensajes anteriores a 30min no cambiará las estadísticas. Borrar mensajes o llamadas de los últimos 30min puede dar estadísticas erróneas.</string>
+  <string name="about1" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="The output format is usage | time or count used this billing period | time or count overall.">El formato de salida es: minutos o uso en el día | minutos o uso en el ciclo de facturación | minutos o uso total.</string>
+  <string name="about2" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">El modo de tarificación especifica la longitud del primero/siguientes intervalos de facturación. Ej. 60/10 significa que en cada llamada se facturan los primeros 60 segundos completos y el resto se redondea en periodos de 10 s.</string>
+  <string name="about3" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter se ejecuta en segundo plano cada 30min (si no está en modo espera), por lo que borrar llamadas o mensajes de más de 30min no cambiará las estadísticas. Borrar llamadas o mensajes de los últimos 30min puede dar estadísticas erróneas.</string>
   <string name="send_" formatted="false">Enviar</string>
   <string name="add_" formatted="false">Añadir</string>
   <string name="add_log" formatted="false" orig="Add log entry">Añadir entrada al registro</string>
@@ -53,40 +53,40 @@
   <string name="more_" formatted="false">Más aplicaciones..</string>
   <string name="billing_" formatted="false">Facturación</string>
   <string name="billday_" formatted="false">Primer día de tu factura</string>
-  <string name="billmode_" formatted="false">Tarificación</string>
-  <string name="billdate_" formatted="false">Inicio de facturación:</string>
+  <string name="billmode_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Mode of billing">Modo de facturación</string>
+  <string name="billdate_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Start of billing period:">Inicio del período de facturación:</string>
   <string name="appearance_" formatted="false">Apariencia</string>
   <string name="behavior_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Behavior">Comportamiento</string>
   <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp; behavior">Apariencia y comportamiento</string>
   <string name="advanced_preferences_" formatted="false">Preferencias avanzadas</string>
   <string name="advanced_preferences_hint" formatted="false">Te permite una configuración más avanzada. No es necesario para la mayoría de usuarios.</string>
   <string name="theme_" formatted="false">Tema</string>
-  <string name="textsize_" formatted="false">Tamaño texto</string>
+  <string name="textsize_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Text size">Tamaño del texto</string>
   <string name="textsize_hint" formatted="false">Tamaño del texto en píxeles; deje en blanco para predeterminado</string>
   <string name="textsize_title_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Title\'s text size">Tamaño del texto del título</string>
-  <string name="textsize_title_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Text size for titles in pixels; leave empty for default">Tamaño del texto para títulos en píxeles; deje en blanco para el valor predeterminado</string>
-  <string name="textsize_bigtitle_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Big title\'s text size">Tamaño del texto para un título grande</string>
-  <string name="textsize_bigtitle_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Text size for big titles in pixels; leave empty for default">Tamaño del texto para títulos grandes en píxeles; deje en blanco para el valor predeterminado</string>
-  <string name="textsize_spacer_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Spacer\'s size">Tamaño del espaciamiento</string>
-  <string name="textsize_spacer_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Size for spacers in pixels; leave empty for default">Tamaño de los espaciadores en píxeles; deje en blanco para utilizar el valor predeterminado</string>
+  <string name="textsize_title_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Text size for titles in pixels; leave empty for default">Tamaño del texto para títulos en píxeles; deje en blanco para predeterminado</string>
+  <string name="textsize_bigtitle_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Big title\'s text size">Tamaño del texto del título grande</string>
+  <string name="textsize_bigtitle_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Text size for big titles in pixels; leave empty for default">Tamaño del texto para títulos grandes en píxeles; deje en blanco para predeterminado</string>
+  <string name="textsize_spacer_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Spacer\'s size">Tamaño del separador</string>
+  <string name="textsize_spacer_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Size for spacers in pixels; leave empty for default">Tamaño de los separadores en píxeles; deje en blanco para predeterminado</string>
   <string name="textsize_pbar_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Progress bar\'s size">Tamaño de la barra de progreso</string>
-  <string name="textsize_pbar_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Size for progress bars in pixels; leave empty for default">Tamaño de la barra de progreso en píxeles; deje en blanco para utilizar el valor predeterminado</string>
+  <string name="textsize_pbar_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Size for progress bars in pixels; leave empty for default">Tamaño de las barras de progreso en píxeles; deje en blanco para predeterminado</string>
   <string name="textsize_pbarbp_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Bill period\'s progress bar\'s size">Tamaño de la barra de progreso del período de facturación</string>
-  <string name="textsize_pbarbp_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Tamaño de la barra de progreso del período de facturación en píxeles; deje en blanco para utilizar el valor predeterminado</string>
+  <string name="textsize_pbarbp_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Tamaño de la barra de progreso del período de facturación en píxeles; deje en blanco para predeterminado</string>
   <string name="show_today_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show today">Mostrar \"hoy\"</string>
   <string name="show_today_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show today stats">Mostrar estadísticas de hoy</string>
   <string name="show_total_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show total">Mostrar \"total\"</string>
   <string name="show_total_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show total stats, disable to see current only.">Mostrar estadísticas totales, deshabilite para ver las actuales únicamente.</string>
   <string name="show_time_" formatted="false">Cambiar a fecha</string>
   <string name="show_titlebar_" formatted="false">Mostrar barra de título</string>
-  <string name="show_titlebar_hint" formatted="false">Muestra la barra de título en la vista principal. Sin barra de título no se puede ver la actividad en segundo plano.</string>
+  <string name="show_titlebar_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Show title bar in main view. Without title bar, there is no way to see background activity.">Mostrar la barra de título en la vista principal. Sin barra de título no se puede ver la actividad en segundo plano.</string>
   <string name="show_hours_" formatted="false">Mostrar horas</string>
-  <string name="show_hours_hint" formatted="false">Muestra el tiempo en segundos, minutos, horas y días.\nSin marcar sólo muestra horas y segundos.</string>
+  <string name="show_hours_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Mostrar el tiempo en segundos, minutos, horas y días.\nSin marcar solo muestra segundos y minutos.</string>
   <string name="show_help_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show help">Mostrar la ayuda</string>
   <string name="show_help_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show help in Plans/Rules setup view.">Mostrar la ayuda en la vista de configuración de Planes/Reglas.</string>
   <string name="show_shortname_" formatted="false">Mostrar nombre corto en lugar de nombre largo</string>
   <string name="show_cost_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show cost">Mostrar \"costo\"</string>
-  <string name="show_billperiod_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Show progress of billing period">Mostrar el avance del período de facturación</string>
+  <string name="show_billperiod_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Show progress of billing period">Mostrar el progreso del período de facturación</string>
   <string name="show_icon_" formatted="false" orig="Show icon">Mostrar icono</string>
   <string name="hide_name_" formatted="false" orig="Hide name of plan">Ocultar nombre del plan</string>
   <string name="small_widget_" formatted="false" orig="Use small widget">Usar widget pequeño</string>
@@ -99,17 +99,17 @@
   <string name="hide_progressbars_" formatted="false">Ocultar barras de progreso</string>
   <string name="hide_progressbars_hint" formatted="false">Ocultar barras de progreso en la vista principal.</string>
   <string name="custom_currency_symbol_" formatted="false">Símbolo personalizado de moneda</string>
-  <string name="custom_currency_symbol_hint" formatted="false">Aplica un símbolo personalizado de moneda, déjalo en blanco para mantener el del sistema.</string>
+  <string name="custom_currency_symbol_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Set a custom currency symbol, leave empty for system default.">Fijar un símbolo personalizado de moneda, déjalo en blanco para mantener el del sistema.</string>
   <string name="custom_currency_format_" formatted="false">Formato personalizado de moneda</string>
   <string name="custom_currency_format_hint" formatted="false">Selecciona un formato personalizado de moneda.</string>
   <string name="custom_date_format_" formatted="false">Formato personalizado de fecha</string>
   <string name="custom_date_format_hint" formatted="false">Selecciona un formato personalizado de fecha.</string>
   <string name="custom_delimiter_" formatted="false">Delimitador personalizado</string>
-  <string name="custom_delimiter_hint" formatted="false" orig="Set a custom delimiter separating the blocks of statistics.">Establecer un delimitador personalizado, separando los bloques de estadísticas.</string>
+  <string name="custom_delimiter_hint" formatted="false" orig="Set a custom delimiter separating the blocks of statistics." username="kaixer &lt;kaixer@gmx.com&gt;">Establecer un delimitador personalizado para separar los bloques de estadísticas.</string>
   <string name="split_sms_at_160_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Split text messages at 160 chars">Dividir los mensajes de texto en 160 caracteres</string>
   <string name="split_sms_at_160_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Disable to use android\'s system method.">Deshabilitar el uso del método del sistema android.</string>
   <string name="ask_for_plan_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Ask for plan">Preguntar por plan</string>
-  <string name="ask_for_plan_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Ask for plan for unmatched calls after hanging up.">Preguntar por plan de llamadas sin identificar después de colgar.</string>
+  <string name="ask_for_plan_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Ask for plan for unmatched calls after hanging up.">Preguntar por plan para llamadas sin identificar después de colgar.</string>
   <string name="autohide_" formatted="false">Ocultar automáticamente</string>
   <string name="autohide_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Ocultar la ventana de diálogo después de .. segundos. Deje en blanco para desactivar \"auto esconderse\".</string>
   <string name="select_plan_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Select a plan">Seleccionar un plan</string>
@@ -134,7 +134,7 @@
   <string name="hourgroups_edit_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Edit hour groups here.">Editar aquí los grupos horarios.</string>
   <string name="numbers" formatted="false">Números</string>
   <string name="numbergroup_" formatted="false">Incluir números</string>
-  <string name="numbergroup_help" formatted="false">Añade números que se ajusten a esta regla.\n\nSe permiten comodines (\"%\") a ambos extremos del número.\nE.g. %34 mostrará 1234, 12% mostrará 1234 y %23% mostrará 12345.</string>
+  <string name="numbergroup_help" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Añade números que se ajusten a esta regla.\n\nSe permiten comodines ("%") a ambos extremos del número.\nEj. %34 coincidirá con 1234, 12% coincidirá con 1234 y %23% coincidirá con 12345.</string>
   <string name="exnumbergroup_" formatted="false">Excluir números</string>
   <string name="exnumbergroup_help" formatted="false">Añade números que no se ajusten a esta regla.\nVer más arriba.</string>
   <string name="new_numbergroup" formatted="false">Nuevo grupo de números</string>
@@ -143,29 +143,29 @@
   <string name="hourgroup_" formatted="false">Incluir horas</string>
   <string name="hourgroup_help" formatted="false">Añade horas que se ajusten a esta regla.</string>
   <string name="exhourgroup_" formatted="false">Excluir horas</string>
-  <string name="exhourgroup_help" formatted="false">Añade horas que no se ajusten a esta regla..</string>
+  <string name="exhourgroup_help" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Add some hours this rule must not match.">Añade horas que no se ajusten a esta regla.</string>
   <string name="new_hourgroup" formatted="false">Nuevo grupo de horas</string>
   <string name="add_hour" formatted="false">Añadir hora</string>
-  <string name="empty_group" formatted="false" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Grupos vacíos no calzan con nada. Por favor regrese y agregue al menos un elemento.</string>
+  <string name="empty_group" formatted="false" orig="Empty groups won\'t match anything. Please go back and add at least one item." username="kaixer &lt;kaixer@gmx.com&gt;">Los grupos vacíos no coincidirán con nada. Por favor regrese y agregue al menos un elemento.</string>
   <string name="billperiod_sn" formatted="false" orig="BillPeriod">Periodo de facturación</string>
   <string name="calls" formatted="false">Llamadas</string>
   <string name="calls_in" formatted="false" orig="Calls In">Llamadas entrantes</string>
-  <string name="calls_in_" formatted="false" orig="CallsIn">Llamadas entrantes</string>
+  <string name="calls_in_" formatted="false" orig="CallsIn" username="kaixer &lt;kaixer@gmx.com&gt;">LlamadasEntrantes</string>
   <string name="calls_out" formatted="false" orig="Calls Out">Llamadas salientes</string>
-  <string name="sms" formatted="false">SMS</string>
-  <string name="mms" formatted="false">MMS</string>
+  <string name="sms" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="SMS">Mensajes</string>
+  <string name="mms" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="MMS">Mensajes multimedia</string>
   <string name="data" formatted="false">Datos</string>
   <string name="prepaid_" formatted="false">Plan prepago</string>
-  <string name="prepaid_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Factura en base prepago. El costo se sustrae del balance mientras llama etc.</string>
+  <string name="prepaid_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Factura en base prepago. El costo se resta del balance cuando llama etc.</string>
   <string name="balance_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Balance">Balance</string>
-  <string name="balance_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Balance of your account at this given date.">Balance de su cuenta a este día.</string>
+  <string name="balance_help" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Balance of your account at this given date.">Balance de su cuenta en la fecha determinada.</string>
   <string name="strip_leading_zeros_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Strip leading zeros">Eliminar ceros al inicio</string>
   <string name="strip_leading_zeros_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Strip leading zeros when comparing numbers.">Eliminar ceros al inicio al comparar números.</string>
   <string name="number_prefix_" formatted="false">Prefijo internacional</string>
   <string name="number_prefix_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">Su prefijo internacional en un formato como +1 o +49. Se utiliza para identificar números como +49170.. y 0179..</string>
-  <string name="reset_data_" formatted="false">Poner a cero estadísticas</string>
+  <string name="reset_data_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Reset statistics">Poner estadísticas a cero</string>
   <string name="reset_data_hint" formatted="false">Resetear los datos de llamadas y SMS fuerza el recálculo las estadísticas.\n\nLa puesta a cero del tráfico de datos es permanente. Sólo resetea el tráfico producido antes del arranque!</string>
-  <string name="reset_data_data_" formatted="false">Pone a cero también el tráfico de datos.</string>
+  <string name="reset_data_data_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Reset traffic too.">Poner a cero también el tráfico de datos.</string>
   <string name="reset_data_progr1" formatted="false" username="Jaime Bustillo &lt;jaime@bustillo.com&gt;" orig="Recalculating statistics ...\n\n(This may take some time!)">Recalculando...\n\n(¡Puede tardar un poco!)</string>
   <string name="reset_data_progr2" formatted="false" username="Jaime Bustillo &lt;jaime@bustillo.com&gt;" orig="Recalculating statistics ...">Recalculando...</string>
   <string name="contacts_" formatted="false">Contactos</string>
@@ -179,13 +179,13 @@
   <string name="shortname_" formatted="false">Nombre corto</string>
   <string name="shortname_help" formatted="false">Asigna aquí un nombre corto. Se mostrará en la presentación compacta.</string>
   <string name="type_" formatted="false">Tipo</string>
-  <string name="type_help" formatted="false">Selecciona un tipo.\n\"Título\" sólo mostrará un título en la vista principal.\n\"Espaciador\" mostrará sólo un espacio vacío.\n\"Periodo de factura\" contendrá la información sobre el periodo de facturación. La mayoría de usuarios necesitarán únicamente uno.\nUn plan \"mixto\" tiene en cuenta llamadas y mensajes a la vez. Combinará la facturación de todos ellos.\nUn plan de  \"llamadas\" sólo tiene en cuenta llamadas. Los planes \"SMS\" y \"MMS\" sólo tienen en cuenta mensajes.\nUn plan de \"datos\" contendrán información sobre el tráfico de datos.</string>
+  <string name="type_help" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Selecciona un tipo.\n"Título" mostrará un título en la vista principal.\n"Espaciador" mostrará un espacio vacío.\n"Periodo de factura" contendrá la información sobre el periodo de facturación. La mayoría de usuarios necesitarán únicamente uno.\nUn plan "mixto" tiene en cuenta llamadas y mensajes a la vez. Combinará la facturación de todos ellos.\nUn plan de  "llamadas" sólo tiene en cuenta llamadas. Los planes "SMS" y "MMS" sólo tienen en cuenta mensajes.\nUn plan de "datos" contendrán información sobre el tráfico de datos.</string>
   <string name="limit_type_" formatted="false">Tipo de límite</string>
   <string name="limit_type_help" formatted="false">Ajusta el tipo de límite aquí.\nUn límite de \"unidades\" limitará el plan basándose en minutos, mensajes, ...\nUn límite de \"coste\" limitará el plan basándose en el coste generado por los productos facturados en este plan.</string>
   <string name="limit_" formatted="false">Límite</string>
-  <string name="limit_help" formatted="false">Ajusta el límite de tu plan aquí.\n\nEl tipo \"unidades\" puede indicarse en minutos (llamadas), mensajes (SMS/MMS), megabytes (datos, 1024kB) or unidades (mixto).\n\nEl tipo \"coste\" tiene que indicarse en la moneda local (e.g. €).</string>
-  <string name="billmode_help" formatted="false">Ajustar el modo de facturar llamadas.\nLa primera parte es la duración mínima facturada por tu proveedor. A cualquier llamada más corta se le aplicará este mínimo.\nLa segunda parte es la duración en segundos de cada uno de los bloques de facturación siguientes.\nConsulta la sección FAQ para más información.</string>
-  <string name="billday_help" formatted="false">Ajústalo al primer día de facturación.</string>
+  <string name="limit_help" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">Ajusta el límite de tu plan aquí.\n\nEl tipo "unidades" tiene que indicarse en minutos (llamadas), mensajes (SMS/MMS), megabytes (datos, 1024kB) o unidades (mixto).\n\nEl tipo "coste" tiene que indicarse en la moneda local (ej. €).</string>
+  <string name="billmode_help" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.">Ajusta el modo de facturar llamadas.\nLa primera parte es la duración mínima facturada por tu proveedor. A cualquier llamada más corta se le aplicará este mínimo.\nLa segunda parte es la duración en segundos de cada uno de los bloques de facturación siguientes.\nConsulta la sección FAQ para más información.</string>
+  <string name="billday_help" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Set this to the first day of the bill of the current billing period.">Ajústalo al primer día de facturación de tu periodo actual.</string>
   <string name="billperiodid_" formatted="false">Periodo de facturación</string>
   <string name="billperiodid_help" formatted="false">Selecciona el periodo de facturación.\nPuede que necesites crear uno como un plan extra.</string>
   <string name="billperiod_" formatted="false">Duración del periodo de facturación</string>
@@ -196,32 +196,32 @@
   <string name="cost_per_item_in_limit_help" formatted="false" orig="Set the cost billed for a single log item (e.g. a call or a message) billed before the limit is exceeded." username="Jaime &lt;jaime@bustillo.com&gt;">Ajusta el coste facturado por cada elemento del registro (ej. una llamada o un mensaje) que se factura antes de exceder el límite.</string>
   <string name="cost_per_amount_" formatted="false">Coste por duración</string>
   <string name="cost_per_amount_help1" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Ajusta el coste facturado por duración de un elemento del registro (ej. por 1kB de datos) después de excedido el límite.</string>
-  <string name="cost_per_amount_help2" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute." username="@periclesurtubey">Ajuste el coste facturado por duración de un elemento del registro )ej. por 1 min. de llamada) después de excedido el límite).\nEl primer campo es el coste de los primeros segundos de llamada, el segundo es el coste de los siguientes (ambos están en $/minuto; ver modo de facturación).\nEn caso de duda, ajusta ambos a tu coste por minuto.</string>
+  <string name="cost_per_amount_help2" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute." username="kaixer &lt;kaixer@gmx.com&gt;">Ajusta el coste facturado por duración de un elemento del registro (ej. por 1min de llamada) después de excedido el límite.\nEl primer campo es el coste de los primeros segundos de la llamada, el segundo es el coste de los siguientes (ambos están en $/minuto; ver modo de facturación).\nEn caso de duda, ajusta ambos a tu coste por minuto.</string>
   <string name="cost_per_amount_in_limit_" formatted="false">Coste por duración dentro del límite</string>
-  <string name="cost_per_amount_in_limit_help1" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) before the limit is exceeded.">Introduce el coste facturado por duración de un elemento del registro (ej. para 1kB de datos) antes de sobrepasar el límite.</string>
-  <string name="cost_per_amount_in_limit_help2" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Introduce el coste facturado por duración de un elemento del registro (ej. 1 min de llamada, 1kB de datos) antes de sobrepasar el límite.\nEl primer campo es el coste de los primeros segundos de llamada, El segundo es el coste de los siguientes (ambos están en €/minuto; ver modo de facturación).\nEn caso de duda, ajusta ambos a tu coste por minuto.</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded." username="kaixer &lt;kaixer@gmx.com&gt;">Ajusta el coste facturado por duración de un elemento del registro (ej. 1 min de llamada, 1 KB de datos) antes de sobrepasar el límite.</string>
+  <string name="cost_per_amount_in_limit_help2" formatted="false" orig="Set the cost billed per length for a single log item (e.g. for 1min call) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute." username="kaixer &lt;kaixer@gmx.com&gt;">Ajusta el coste facturado por duración de un elemento del registro (ej. 1 min de llamada) antes de sobrepasar el límite.\nEl primer campo es el coste de los primeros segundos de la llamada, el segundo es el coste de los siguientes (ambos están en $/minuto; ver modo de facturación).\nEn caso de duda, ajusta ambos a tu coste por minuto.</string>
   <string name="cost_per_plan_" formatted="false">Coste por plan</string>
   <string name="cost_per_plan_help" formatted="false">Introduce el coste del plan por un periodo de facturación.</string>
   <string name="mixed_units_sms_" formatted="false">Unidades por SMS</string>
   <string name="mixed_units_sms_help" formatted="false">Unidades facturadas por un SMS.</string>
-  <string name="mixed_units_mms_" formatted="false">Unidades por un MMS</string>
+  <string name="mixed_units_mms_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Units for a mms">Unidades por MMS</string>
   <string name="mixed_units_mms_help" formatted="false">Unidades facturadas por un MMS.</string>
   <string name="mixed_units_call_" formatted="false">Unidades por llamada</string>
   <string name="mixed_units_call_help" formatted="false">Unidades facturadas por un minuto de llamada.\nAquí se tiene en cuenta el modo de facturación.</string>
   <string name="merge_plans_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Merge plans">Unir planes</string>
   <string name="merge_plans_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Merge other plans into this one and bill them here (too).">Unir otros planes con este y facturarlos aquí (también).</string>
-  <string name="units_cost" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="$">€</string>
+  <string name="units_cost" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="$">$</string>
   <string name="units_num_msg" formatted="false"># Mensajes</string>
   <string name="units_minutes" formatted="false">Minutos</string>
   <string name="units_mbyte" formatted="false">MBytes</string>
-  <string name="units_units" formatted="false">Units</string>
+  <string name="units_units" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Units">Unidades</string>
   <string name="units_units_per_minute" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="Units/Minute">Unidades/Minuto</string>
   <string name="units_units_per_message" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Units/Message">Unidades/Mensaje</string>
-  <string name="units_cost_per_call" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="$/Call">€/Llamada</string>
+  <string name="units_cost_per_call" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="$/Call">$/Llamada</string>
   <string name="units_cost_per_minute" formatted="false">$/Minuto</string>
   <string name="units_cost_per_message" formatted="false">$/Mensaje</string>
-  <string name="units_cost_per_mbyte" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="$/MByte">€/MByte</string>
-  <string name="units_cost_per_unit" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="$/Unit">€/Unidad</string>
+  <string name="units_cost_per_mbyte" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="$/MByte">$/MByte</string>
+  <string name="units_cost_per_unit" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="$/Unit">$/Unidad</string>
   <string name="plan_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Plan">Plan</string>
   <string name="plan_help" formatted="false">Escoge el plan que se ajusta a esta regla.</string>
   <string name="limitnotreached_" formatted="false">Límite no alcanzado</string>
@@ -231,7 +231,7 @@
   <string name="iswebsms_connector_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Is WebSMS Connector">Es conector WebSMS</string>
   <string name="iswebsms_connector_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Sent with specific WebSMS Connector, leave empty to match any.">Enviar con conector WebSMS específico, dejar en blanco para aplicar cualquiera.</string>
   <string name="issipcall_" formatted="false">Es llamada SIP</string>
-  <string name="issipcall_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Llamada hecha vía SIP. En este momento sipdroid &gt;1.6.1 está soportado.</string>
+  <string name="issipcall_help" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Call made via SIP. Currently sipdroid and CSipSimple are supported.">Llamada hecha vía SIP. Actualmente sipdroid y CSipSimple son soportados.</string>
   <string name="strip_seconds_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Do not bill first seconds">No facturar los primeros segundos</string>
   <string name="strip_seconds_help" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Do not bill first x seconds of a call.">No facturar los primeros x segundos de una llamada.</string>
   <string name="what_" formatted="false">Tipo de plan</string>
@@ -253,16 +253,16 @@
   <string name="export_" formatted="false">Exportar ...</string>
   <string name="export_hint" formatted="false" username="jonaguera" orig="Export rule sets, logs or groups">Exportar conjuntos de reglas, registros o grupos</string>
   <string name="export_rules_" formatted="false">Exportar conjunto de reglas</string>
-  <string name="export_rules_hint" formatted="false">Exportar reglas en email.</string>
+  <string name="export_rules_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Export rule set as mail.">Exportar reglas por correo.</string>
   <string name="export_rules_descr" formatted="false">Descripción</string>
   <string name="export_logs_" formatted="false" username="jonaguera" orig="Backup logs">Respaldar registros</string>
-  <string name="export_logs_hint" formatted="false" username="jonaguera" orig="Backup logs as mail.">Respaldar registros como correo.</string>
+  <string name="export_logs_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Backup logs as mail.">Respaldar registros por correo.</string>
   <string name="export_numgroups_" formatted="false">Exportar grupos de números</string>
-  <string name="export_numgroups_hint" formatted="false">Exportar grupos de números como correo.</string>
+  <string name="export_numgroups_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Export number groups as mail.">Exportar grupos de números por correo.</string>
   <string name="export_hourgroups_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Export hour groups">Exportar grupos horarios</string>
-  <string name="export_hourgroups_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Export hour groups as mail.">Exportar grupos horarios como correo.</string>
+  <string name="export_hourgroups_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Export hour groups as mail.">Exportar grupos horarios por correo.</string>
   <string name="import_rules_" formatted="false">Importar conjunto de reglas</string>
-  <string name="import_rules_hint" formatted="false">Importa un conjunto de reglas.</string>
+  <string name="import_rules_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Import preconfigured rule set.">Importar conjunto de reglas preconfigurado.</string>
   <string name="import_rules_empty" formatted="false">No hay planes/reglas configuradas. Haz click aquí para importar una regla por defecto.\n\nO añade planes y reglas manualmente en preferencias.</string>
   <string name="err_export_write" formatted="false">Error escribiendo archivo de exportación</string>
   <string name="err_export_read" formatted="false">Error leyendo archivo de exportación</string>
@@ -275,8 +275,8 @@
   <string name="alerts_100_" formatted="false">Avisar al 100%</string>
   <string name="alerts_100_hint" formatted="false">Avisa si el plan sobrepasa el 100% del límite.</string>
   <string name="widget_config_" formatted="false">Configuración del widget</string>
-  <string name="widget_plan_textsize" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Plan Text Size">Tamaño del texto del plan</string>
-  <string name="widget_cost_textsize" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Cost Text Size">Tamaño del texto del costo</string>
+  <string name="widget_plan_textsize" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Plan Text Size">Tamaño de texto del Plan</string>
+  <string name="widget_cost_textsize" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Cost Text Size">Tamaño de texto del Costo</string>
   <string name="widget_text_color_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Text color">Color del texto</string>
   <string name="widget_backgroud_color_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Background color">Color de fondo</string>
   <string name="widget_backgroud_transparency_" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Background transparency">Transparencia del fondo</string>
@@ -323,8 +323,8 @@
   <string name="title">Título</string>
   <string name="spacer">Espaciador</string>
   <string name="mixed" username="Ignacio Larrain &lt;ilarrain@gmail.com&gt;" orig="Mixed">Mixto</string>
-  <string name="limit_type_unlimited">Sin límite</string>
-  <string name="limit_type_units">Unidades</string>
+  <string name="limit_type_unlimited" username="kaixer &lt;kaixer@gmx.com&gt;" orig="unlimited">sin límite</string>
+  <string name="limit_type_units" username="kaixer &lt;kaixer@gmx.com&gt;" orig="units">unidades</string>
   <string name="limit_type_cost">coste</string>
   <string name="x1_day">Un día</string>
   <string name="x1_week">Una semana</string>
@@ -369,14 +369,14 @@
   <string name="messages" formatted="false" orig="Messages">Mensajes</string>
   <string name="simple_preferences_" formatted="false" orig="Simple preferences">Preferencias simples</string>
   <string name="numbergroup_excalls" formatted="false" orig="Exclude from calls">Exclusivamente para llamadas</string>
-  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set." username="jesus@yopmail.com">Preferencias muy simples,adecuadas para la mayoria de los usuarios. Solo disponibles con el conjunto de reglas por defecto</string>
-  <string name="numbergroup_exsms" formatted="false" orig="Exclude from SMS">Exclusivamente paramensaje</string>
-  <string name="messages_" formatted="false" orig="SMS/MMS">Mensaje/mensaje multimedia</string>
-  <string name="calls_out_" formatted="false" orig="CallsOut">Lllamada salida</string>
-  <string name="sms_in" formatted="false" orig="SMS In">Mensaje entrada</string>
-  <string name="sms_out" formatted="false" orig="SMS Out">Mensaje salida</string>
-  <string name="mms_in" formatted="false" orig="MMS In">Mensaje multimedia entrada</string>
-  <string name="mms_out" formatted="false" orig="MMS Out">Mensaje multimedia salida</string>
+  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set." username="kaixer &lt;kaixer@gmx.com&gt;">Preferencias muy simples, adecuadas para la mayoria de los usuarios. Solo disponibles con el conjunto de reglas por defecto</string>
+  <string name="numbergroup_exsms" formatted="false" orig="Exclude from SMS" username="kaixer &lt;kaixer@gmx.com&gt;">Exclusivamente para SMS</string>
+  <string name="messages_" formatted="false" orig="SMS/MMS" username="kaixer &lt;kaixer@gmx.com&gt;">Mensajes/Mensajes multimedia</string>
+  <string name="calls_out_" formatted="false" orig="CallsOut" username="kaixer &lt;kaixer@gmx.com&gt;">LlamadasSalientes</string>
+  <string name="sms_in" formatted="false" orig="SMS In" username="kaixer &lt;kaixer@gmx.com&gt;">Mensajes de entrada</string>
+  <string name="sms_out" formatted="false" orig="SMS Out" username="kaixer &lt;kaixer@gmx.com&gt;">Mensajes de salida</string>
+  <string name="mms_in" formatted="false" orig="MMS In" username="kaixer &lt;kaixer@gmx.com&gt;">Mensajes multimedia de entrada</string>
+  <string name="mms_out" formatted="false" orig="MMS Out" username="kaixer &lt;kaixer@gmx.com&gt;">Mensajes multimedia de salida</string>
   <string name="active_" formatted="false" orig="Active">Activado</string>
   <string name="loading" formatted="false" orig="Loading ...">Cargando....</string>
   <string name="import_rules_default_" formatted="false" username="jonaguera" orig="Import default rule set">Importar conjunto de reglas por defecto</string>
@@ -398,10 +398,10 @@
   <string name="widgets_no_widgets_" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="No widgets added">No hay widgets agregados</string>
   <string name="widgets_no_widgets_hint" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="There are no widgets added to the launcher.">No hay widgets agregados al lanzador.</string>
   <string name="now" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Now">Ahora</string>
-  <string name="sms_in_" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="SMSIn">Mensaje entrada</string>
-  <string name="sms_out_" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="SMSOut">Mensaje salida</string>
-  <string name="mms_in_" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="MMSIn">Mensaje multimedia entrada</string>
-  <string name="mms_out_" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="MMSOut">Mensaje multimedia salida</string>
+  <string name="sms_in_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="SMSIn">MensajesEntrada</string>
+  <string name="sms_out_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="SMSOut">MensajesSalida</string>
+  <string name="mms_in_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="MMSIn">Mensajes multimedia entrada</string>
+  <string name="mms_out_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="MMSOut">Mensajes multimedia salida</string>
   <string name="data_" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Data (2G/3G/4G)">Datos (2G/3G/4G)</string>
   <string name="data_inout" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Data In/Out">Datos Entrada/Salida</string>
   <string name="data_inout_" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="DataInOut">Datos Entrada/Salida</string>
@@ -413,52 +413,55 @@
   <string name="down_" formatted="false" username="jesus@yopmail.com" orig="Move down">Bajar</string>
   <string name="delete_widget" formatted="false" username="jesus@yopmail.com" orig="Delete widget">Eliminar Widget</string>
   <string name="reset" formatted="false" username="@periclesurtubey" orig="Reset">Resetear</string>
-  <string name="send_logs_" formatted="false" username="@periclesurtubey" orig="Send logs">Enviar Informes</string>
-  <string name="send_logs_hint" formatted="false" username="@periclesurtubey" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Envía los informes de su dispositivo al desarrollador.\nHágalo sólo si se le pide que lo haga.</string>
-  <string name="sendlog_run_" formatted="false" username="@periclesurtubey" orig="Run SendLog">Ejecuta la aplicación SendLog</string>
-  <string name="sendlog_run" formatted="false" username="@periclesurtubey" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog recolectará los informes de su dispositivo y los enviará al desarrollador.\nUsted tendrá la oportunidad de ver y modificar dicho informe antes de ser enviado.</string>
+  <string name="send_logs_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Send logs">Enviar registros</string>
+  <string name="send_logs_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Envía los registros de su dispositivo al desarrollador.\nHágalo solo si se le pide que lo haga.</string>
+  <string name="sendlog_run_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Run SendLog">Ejecutar la aplicación SendLog</string>
+  <string name="sendlog_run" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog recolectará los registros de su dispositivo y los enviará al desarrollador.\nUsted tendrá la oportunidad de ver y modificar los datos antes de ser enviados.</string>
   <string name="sendlog_install_" formatted="false" username="@periclesurtubey" orig="Install SendLog">Instalar SendLog</string>
-  <string name="sendlog_install" formatted="false" username="@periclesurtubey" orig="Install the free SendLog application to collect the device log and send it to the developer.">Instalar la aplicación gratuita SendLog para recolectar informes para enviar al desarrollador.</string>
+  <string name="sendlog_install" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">Instala la aplicación gratuita SendLog para recolectar los registros de su dispositivo para enviarlos al desarrollador.</string>
   <string name="license_" formatted="false" username="@periclesurtubey" orig="License:">Licencia:</string>
   <string name="license" formatted="false" username="@periclesurtubey" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - ver http://www.gnu.org/licenses/gpl-3.0.txt</string>
   <string name="author_" formatted="false" username="@periclesurtubey" orig="Author:">Autor:</string>
-  <string name="website_" formatted="false" username="@periclesurtubey" orig="Website:">Sitio Web</string>
-  <string name="source_" formatted="false" username="@periclesurtubey" orig="Sourcescode:">Codigos Fuente</string>
+  <string name="website_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Website:">Sitio Web:</string>
+  <string name="source_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Sourcescode:">Códigos Fuente:</string>
   <string name="country" formatted="false" username="@periclesurtubey" orig="Country">País</string>
-  <string name="provider" formatted="false" username="@periclesurtubey" orig="Provider">Empresa</string>
+  <string name="provider" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Provider">Proveedor</string>
   <string name="plan" formatted="false" username="@periclesurtubey" orig="Plan">Plan</string>
   <string name="my_number_" formatted="false" username="@periclesurtubey" orig="My number">Mí Número</string>
   <string name="my_sim_id_" formatted="false" username="@periclesurtubey" orig="SIM Id">SIM ID</string>
   <string name="set_current_number" formatted="false" username="@periclesurtubey" orig="Current number">Número actual</string>
-  <string name="simple_preferences_deactivated" formatted="false" username="@periclesurtubey" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Las preferencias básicas solo disponibles con el conjunto de reglas por defecto. Importar el conjunto de reglas por defecto para reactivar.</string>
+  <string name="simple_preferences_deactivated" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Las preferencias simples están disponibles solamente con el conjunto de reglas por defecto. Importar el conjunto de reglas por defecto para reactivar.</string>
   <string name="widget_stats_title" formatted="false" username="@periclesurtubey" orig="Call Meter (stats)">Medidor de llamadas (estadísticas)</string>
   <string name="widget_logs_title" formatted="false" username="@periclesurtubey" orig="Call Meter (last log)">Medidor de llamadas (último informe)</string>
   <string name="export_rules_dev_" formatted="false" username="@periclesurtubey" orig="Export rule set to developer">Exportar conjunto de reglas al desarrolllador</string>
   <string name="export_rules_dev_hint" formatted="false" username="@periclesurtubey" orig="Export rule set to let others import it.">Exportar conjunto de reglas para que otros puedan importarlas.</string>
   <string name="export_logs_csv_" formatted="false" username="@periclesurtubey" orig="Export CSV">Exportar CSV</string>
-  <string name="export_logs_csv_hint" formatted="false" username="@periclesurtubey" orig="Export logs as CSV.">Exportar registros en formato CSV</string>
-  <string name="widget_date_textsize" formatted="false" username="@periclesurtubey" orig="Date Text Size">Tamaño de letra para FECHA</string>
+  <string name="export_logs_csv_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Export logs as CSV.">Exportar registros en formato CSV.</string>
+  <string name="widget_date_textsize" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Date Text Size">Tamaño de texto de la Fecha</string>
   <string name="widget_details_textsize" formatted="false" username="@periclesurtubey" orig="Details Text Size">Detalle de tamaño de letra</string>
   <string name="x1_month_1_day" formatted="false" username="@periclesurtubey" orig="One month + one day">Un mes + un día</string>
   <string name="debug_" formatted="false" username="@periclesurtubey" orig="Debug">Depuración</string>
-  <string name="my_number_help" formatted="false" username="ar2rin" orig="Match only logs, while this SIM/number is active.">Tomar en cuenta sólo los registros, mientras esté activo este SIM/número</string>
-  <string name="my_sim_id_help" formatted="false" username="ar2rin" orig="Match only logs done with this SIM.">Tomar en cuenta sólo los registros hechos con esta SIM</string>
+  <string name="my_number_help" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Match only logs, while this SIM/number is active.">Tomar en cuenta sólo los registros, mientras esté activo este SIM/número.</string>
+  <string name="my_sim_id_help" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Match only logs done with this SIM.">Tomar en cuenta sólo los registros hechos con esta SIM.</string>
   <string name="delete_group_" formatted="false" username="ar2rin" orig="Delete group">Eliminar grupo</string>
-  <string name="delete_group_hint" formatted="false" username="ar2rin" orig="Do you really want to delete this group?">Realmente desea eliminar este grupo?</string>
+  <string name="delete_group_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Do you really want to delete this group?">¿Realmente quiere eliminar este grupo?</string>
   <string name="cost_per_item_no_limit_help" formatted="false" username="ar2rin" orig="Set the cost billed for a single log item (e.g. a call or a message).">Ajusta el coste facturado por cada elemento del registro (ej. una llamada o un mensaje)</string>
-  <string name="delete_plan_hint" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="Do you really want to delete this plan?">¿Realmente quiere borrar este plan?</string>
-  <string name="delete_rule_hint" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="Do you really want to delete this rule?">¿Realmente quiere borrar esta regla?</string>
-  <string name="cost_per_amount_no_limit_help1" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data).">Introduce el coste facturado por longitud de un elemento del registro (ej. 1 min de llamada, 1kB de datos).</string>
-  <string name="cost_per_amount_no_limit_help2" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call).\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Introduce el coste facturado por longitud de un elemento del registro (ej. 1 min de llamada). El primer campo es el coste del primer bloque de segundos de la llamada, el segundo campo es el coste del segundo bloque de segundos (los dos campos están en €/min; ver modo de facturación).\nEn caso de duda, escriba en los dos campos su coste por minuto.</string>
-  <string name="mixed_units_data_" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="Units for data">Unidades para datos</string>
-  <string name="mixed_units_data_help" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="Set the units billed for each MB of data traffic.">Introduce las unidades facturadas por cada MB de tráfico de datos</string>
+  <string name="delete_plan_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Do you really want to delete this plan?">¿Realmente quiere eliminar este plan?</string>
+  <string name="delete_rule_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Do you really want to delete this rule?">¿Realmente quiere eliminar esta regla?</string>
+  <string name="cost_per_amount_no_limit_help1" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data).">Ajusta el coste facturado por longitud de un elemento del registro (ej. 1 min de llamada, 1 KB de datos).</string>
+  <string name="cost_per_amount_no_limit_help2" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Set the cost billed per length for a single log item (e.g. for 1min call).\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Ajusta el coste facturado por longitud de un elemento del registro (ej. 1 min de llamada).\nEl primer campo es el coste de los primeros segundos de la llamada, el segundo es el coste de los siguientes (ambos están en $/minuto; ver modo de facturación).\nEn caso de duda, ajusta ambos a tu coste por minuto.</string>
+  <string name="mixed_units_data_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Units for data">Unidades por datos</string>
+  <string name="mixed_units_data_help" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Set the units billed for each MB of data traffic.">Introduce las unidades facturadas por cada MB de tráfico de datos.</string>
   <string name="strip_past_" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="Do not bill anything after seconds">No facturar nada despues de estos segundos</string>
-  <string name="strip_past_help" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="Do not bill anything after x seconds of a call.">No facturar nada después de x segundos de una llamada</string>
+  <string name="strip_past_help" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Do not bill anything after x seconds of a call.">No facturar nada después de x segundos de una llamada.</string>
   <string name="import_" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="Import">Importar</string>
-  <string name="import_link_" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="More info">Mas información</string>
+  <string name="import_link_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="More info">Más información</string>
   <string name="import_rules_users" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="Users\' rules">Reglas de Usuario</string>
-  <string name="import_rules_sd_help" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="Place your file on your SD card and click it below">Coloque su fichero en la tarjeta SD y haga click en ella aquí abajo.</string>
-  <string name="billday_last" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="Last day of your bill">Ultimo día de su factura</string>
+  <string name="import_rules_sd_help" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Place your file on your SD card and click it below">Coloque su fichero en la tarjeta SD y haga click aquí abajo</string>
+  <string name="billday_last" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Last day of your bill">Ultimo día de tu factura</string>
   <string name="show_target_billday_" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="Show last bill day">Mostrar el último día de su factura</string>
-  <string name="show_target_billday_hint" formatted="false" username="Jaime &lt;jaime@bustillo.com&gt;" orig="Show last day of bill instead of first.">Mostrar el último día de su factura en vez de el primero</string>
+  <string name="show_target_billday_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Show last day of bill instead of first.">Mostrar el último día de su factura en vez de el primero.</string>
+  <string name="second_sim_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Second SIM card">Segunda tarjeta SIM</string>
+  <string name="websms_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="WebSMS">WebSMS</string>
+  <string name="calls_voip_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="VoIP calls with supported apps">Llamadas VoIP con aplicaciones compatibles</string>
 </resources>
