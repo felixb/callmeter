@@ -232,7 +232,7 @@
   <string name="edit_selected_" formatted="false" username="mari" orig="Edit selected">Редактиране на избраното</string>
   <string name="name_help" formatted="false" username="mari" orig="Set a name here.">Задай име тук.</string>
   <string name="shortname_help" formatted="false" username="mari" orig="Set a short name here. It is displayed in compact layouts.">Задай кратко име тук. Показва се в съкратените оформления.</string>
-  <string name="limit_type_" formatted="false" username="mari" orig="Limit type">Ограничаване вида</string>
+  <string name="limit_type_" formatted="false" username="andreshko@hotmail.com" orig="Limit type">Вид на ограничение</string>
   <string name="billperiod_" formatted="false" username="mari" orig="Length of the billing period">Дължина на таксувания период</string>
   <string name="billperiod_help" formatted="false" username="mari" orig="Set the length of your billing period.">Задай дължината на твоя таксуващ период.</string>
   <string name="strip_leading_zeros_hint" formatted="false" username="andreshko@hotmail.com" orig="Strip leading zeros when comparing numbers.">Без начални нули, когато се сравняват номера.</string>
@@ -264,9 +264,9 @@
   <string name="plan_help" formatted="false" username="mari" orig="Choose the plan this rule should fit.">Избери плана, за който това правило трябва да пасне.</string>
   <string name="limitnotreached_" formatted="false" username="mari" orig="Limit not reached">Лимита не е достигнат</string>
   <string name="limitnotreached_help" formatted="false" username="mari" orig="Match only if target plan has not reached it\'s limit yet.">Пасва само ако крайния план не е достигнал своя лимит още.</string>
-  <string name="iswebsms_" formatted="false" username="mari" orig="Is WebSMS">Е УебSMS</string>
-  <string name="iswebsms_help" formatted="false" username="mari" orig="Message sent with WebSMS.">Съобщението изпратено с УебSMS.</string>
-  <string name="iswebsms_connector_" formatted="false" username="mari" orig="Is WebSMS Connector">Е УебSMS Конектор</string>
+  <string name="iswebsms_" formatted="false" username="andreshko@hotmail.com" orig="Is WebSMS">Е Уеб-SMS</string>
+  <string name="iswebsms_help" formatted="false" username="andreshko@hotmail.com" orig="Message sent with WebSMS.">Съобщението изпратено с Уеб-SMS.</string>
+  <string name="iswebsms_connector_" formatted="false" username="andreshko@hotmail.com" orig="Is WebSMS Connector">Е Уеб-SMS Конектор</string>
   <string name="issipcall_" formatted="false" username="mari" orig="Is SIP call">Е SIP обаждане</string>
   <string name="strip_seconds_" formatted="false" username="mari" orig="Do not bill first seconds">Не включвай в сметката първите секунди</string>
   <string name="strip_seconds_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Do not bill first x seconds of a call.">Не включвай в сметката първите x секунди от обаждането.</string>
@@ -316,7 +316,7 @@
   <string name="alerts_100_" formatted="false" username="mari" orig="Notify at 100%">Уведомявай при 100%</string>
   <string name="alerts_80_hint" formatted="false" username="mari" orig="Notify if a plan passes 80% of it\'s limit.">Уведомявай ако е преминат 80% от лимита на плана.</string>
   <string name="alerts_100_hint" formatted="false" username="mari" orig="Notify if a plan passes 100% of it\'s limit.">Уведомявай ако е преминат 100% от лимита на плана.</string>
-  <string name="widget_text_color_" formatted="false" username="mari" orig="Text color">Цвят на текста</string>
+  <string name="widget_text_color_" formatted="false" username="andreshko@hotmail.com" orig="Text color">Цвят на шрифта</string>
   <string name="widget_backgroud_color_" formatted="false" username="mari" orig="Background color">Цвят на фона</string>
   <string name="send_devices_hint" formatted="false" username="mari" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Изпращане списък с устройства на разработчика. Това е необходимо само ако данните в статистиките са нулеви.</string>
   <string name="send_devices_" formatted="false" username="mari" orig="Send devices">Изпрати устройства</string>
@@ -431,7 +431,7 @@
   <string name="mixed_units_data_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Units for data">Единици за данни</string>
   <string name="mixed_units_data_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Set the units billed for each MB of data traffic.">Определяне на единиците таксувани за всеки MB от трафика на данни.</string>
   <string name="merge_plans_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Merge other plans into this one and bill them here (too).">Обедини другите планове в този и ги таксувай тук (също).</string>
-  <string name="issipcall_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Разговорът е осъществен през SIP. Версията, която се поддържа в момента е 1.6.1</string>
+  <string name="issipcall_help" formatted="false" username="andreshko@hotmail.com" orig="Call made via SIP. Currently sipdroid and CSipSimple are supported.">Разговор проведен през SIP. Към момента се поддържат sipdroid и CSipSimple.</string>
   <string name="source_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Sourcescode:">Sourcescode:</string>
   <string name="import_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Import">Зареди</string>
   <string name="import_link_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="More info">Повече информация</string>
@@ -444,4 +444,22 @@
   <string name="sendlog_install_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Install SendLog">Инсталирай SendLog</string>
   <string name="export_logs_csv_hint" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Export logs as CSV.">Експортирай log-а към CSV.</string>
   <string name="second_sim_" formatted="false" username="andreshko@hotmail.com" orig="Second SIM card">Втора SIM карта</string>
+  <string name="cost_per_item_help" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.">Стойност, таксувана за единично събитие в дневника (напр. повикване или съобщение) след достигнато ограничение.</string>
+  <string name="cost_per_item_in_limit_help" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed for a single log item (e.g. a call or a message) billed before the limit is exceeded.">Стойност, таксувана за единично събитие в дневника (напр. повикване или съобщение) преди достигнато ограничение.</string>
+  <string name="cost_per_item_no_limit_help" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed for a single log item (e.g. a call or a message).">Стойност, таксувана за единично събитие в дневника (напр. повикване или съобщение).</string>
+  <string name="cost_per_amount_help1" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Стойност, таксувана за продължителност на единично събитие в дневника (напр. за 1 KB данни) след достигнато ограничение.</string>
+  <string name="cost_per_amount_help2" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Стойност, таксувана за продължителност на единично събитие в дневника (напр. за 1 мин. разговор) след достигнато ограничение.\nПървото поле съдържа стойността на първите секунди разговор, второто - за последващите секунди (и двете са в $/минута, вж. вид на таксуването).\nПри несигурност, и в двете да се въведе стойността за минута.</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.">Стойност, таксувана за продължителност на единично събитие в дневника (напр. за 1 KB данни) преди достигнато ограничение.</string>
+  <string name="cost_per_amount_in_limit_help2" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1min call) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Стойност, таксувана за продължителност на единично събитие в дневника (напр. за 1 мин. разговор) преди достигнато ограничение.\nПървото поле съдържа стойността на първите секунди разговор, второто - за последващите секунди (и двете са в $/минута, вж. вид на таксуването).\nПри несигурност, и в двете да се въведе стойността за минута.</string>
+  <string name="cost_per_amount_no_limit_help1" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data).">Стойност, таксувана за продължителност на единично събитие в дневника (напр. за 1 мин. разговор, 1 КВ данни)</string>
+  <string name="cost_per_amount_no_limit_help2" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1min call).\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Стойност, таксувана за продължителност на единично събитие в дневника (напр. за 1 мин. разговор).\nПървото поле съдържа стойността на първите секунди разговор, второто - за последващите секунди (и двете са в $/минута, вж. вид на таксуването).\nПри несигурност, и в двете да се въведе стойността за минута.</string>
+  <string name="websms_" formatted="false" username="andreshko@hotmail.com" orig="WebSMS">Уеб-SMS</string>
+  <string name="iswebsms_connector_help" formatted="false" username="andreshko@hotmail.com" orig="Sent with specific WebSMS Connector, leave empty to match any.">Изпратено с конкретен Уеб-SMS Конектор, празно за показване на всички.</string>
+  <string name="calls_voip_" formatted="false" username="andreshko@hotmail.com" orig="VoIP calls with supported apps">VoIP повиквания с поддържани приложения</string>
+  <string name="direction_help" formatted="false" username="andreshko@hotmail.com" orig="Choose a direction the given log has to be.">Избор на направление за конкретен дневник.</string>
+  <string name="roamed_help" formatted="false" username="andreshko@hotmail.com" orig="Choose whether the given log has to be roamed.">Избор дали дневникът да е в роуминг.</string>
+  <string name="widget_date_textsize" formatted="false" username="andreshko@hotmail.com" orig="Date Text Size">Големина на шрифт за дата</string>
+  <string name="widget_details_textsize" formatted="false" username="andreshko@hotmail.com" orig="Details Text Size">Големина на шрифт за подробности</string>
+  <string name="sendlog_run" formatted="false" username="andreshko@hotmail.com" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog ще събере дневника на устройството и ще го изпрати до разработчика.\nМоже тези данни да се прегледат и редактират преди изпращане.</string>
+  <string name="sendlog_install" formatted="false" username="andreshko@hotmail.com" orig="Install the free SendLog application to collect the device log and send it to the developer.">Инсталиране на SendLog приложението за събиране на дневника на устройството и изпращане до разработчика.</string>
 </resources>
