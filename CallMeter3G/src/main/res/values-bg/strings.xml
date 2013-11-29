@@ -235,8 +235,8 @@
   <string name="limit_type_" formatted="false" username="mari" orig="Limit type">Ограничаване вида</string>
   <string name="billperiod_" formatted="false" username="mari" orig="Length of the billing period">Дължина на таксувания период</string>
   <string name="billperiod_help" formatted="false" username="mari" orig="Set the length of your billing period.">Задай дължината на твоя таксуващ период.</string>
-  <string name="strip_leading_zeros_hint" formatted="false" username="mari" orig="Strip leading zeros when comparing numbers.">Премахване на нули, когато се сравняват номера.</string>
-  <string name="strip_leading_zeros_" formatted="false" username="mari" orig="Strip leading zeros">Премахване на нули</string>
+  <string name="strip_leading_zeros_hint" formatted="false" username="andreshko@hotmail.com" orig="Strip leading zeros when comparing numbers.">Без начални нули, когато се сравняват номера.</string>
+  <string name="strip_leading_zeros_" formatted="false" username="andreshko@hotmail.com" orig="Strip leading zeros">Без начални нули</string>
   <string name="type_" formatted="false" username="mari" orig="Type">Вид</string>
   <string name="type_help" formatted="false" username="mari" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Изберете вид.\n"Title" ще покаже заглавието в основния изглед.\n"Spacer" ще покаже само празно място.\n"Bill period" ще съдържа всяка информация за периода на таксуване. Повечето потребители имат нужда точно от това.\nA"mixed" планът може да съдържа и обаждания и съобщения наведнъж. Ще ги комбинира в таксуванията на всички.\nA"call"планът съдържа само обажданията."SMS" и "MMS" планове ще съдържат само  съобщенията\nA"data" съдържа информация за трафика от данни.</string>
   <string name="billperiodid_" formatted="false" username="mari" orig="Billing period">Период на таксуване</string>
@@ -443,4 +443,5 @@
   <string name="website_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Website:">Уебсайт:</string>
   <string name="sendlog_install_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Install SendLog">Инсталирай SendLog</string>
   <string name="export_logs_csv_hint" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Export logs as CSV.">Експортирай log-а към CSV.</string>
+  <string name="second_sim_" formatted="false" username="andreshko@hotmail.com" orig="Second SIM card">Втора SIM карта</string>
 </resources>
