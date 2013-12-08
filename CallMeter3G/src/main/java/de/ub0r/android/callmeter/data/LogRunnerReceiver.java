@@ -33,8 +33,8 @@ import android.telephony.TelephonyManager;
 
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * {@link BroadcastReceiver} running updates and postboot checks.
@@ -200,6 +200,7 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
                 if (state != null && !state.equals(TelephonyManager.EXTRA_STATE_IDLE)) {
                     return;
                 }
+                Log.d(TAG, "PHONE_STATE_CHANGE with state=", state);
             }
         }
         // run LogRunnerService

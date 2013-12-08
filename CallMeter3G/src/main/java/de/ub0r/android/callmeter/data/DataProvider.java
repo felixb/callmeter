@@ -2489,7 +2489,7 @@ public final class DataProvider extends ContentProvider {
     private static void unmatch(final SQLiteDatabase db) {
         Log.d(TAG, "unmatch()");
         if (db.isReadOnly()) {
-            Log.e(TAG, "Database is readonly, cann not unmatch on upgrade!");
+            Log.e(TAG, "Database is readonly, can not unmatch on upgrade!");
             return;
         }
         ContentValues cv = new ContentValues();

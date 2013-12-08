@@ -46,8 +46,8 @@ import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Class matching logs via rules to plans.
@@ -702,7 +702,7 @@ public final class RuleMatcher {
                     cursor.getFloat(DataProvider.Plans.INDEX_LIMIT));
             if (limitType == DataProvider.LIMIT_TYPE_UNITS
                     && type == DataProvider.TYPE_DATA) {
-                // normality amount is saved as kB, here it is B
+                // normally amount is saved as kB, here it is B
                 limit = l * CallMeter.BYTE_KB;
             } else {
                 limit = l;
@@ -1085,6 +1085,11 @@ public final class RuleMatcher {
             }
             return l - billedCost;
         }
+
+        @Override
+        public String toString() {
+            return "RuleMatcher.Plan: " + name;
+        }
     }
 
     /**
@@ -1181,7 +1186,13 @@ public final class RuleMatcher {
                 + " is null or NOT (" + DataProvider.Logs.RULE_ID + " = " + DataProvider.NOT_FOUND
                 + " AND " + DataProvider.Logs.PLAN_ID + " != " + DataProvider.NOT_FOUND + ")",
                 null);
-        cv.clear();
+        resetAlert(context);
+    }
+
+    public static void resetAlert(final Context context) {
+        Log.d(TAG, "resetAlert()");
+        ContentValues cv = new ContentValues();
+        final ContentResolver cr = context.getContentResolver();
         cv.put(DataProvider.Plans.NEXT_ALERT, 0);
         cr.update(DataProvider.Plans.CONTENT_URI, cv, null, null);
         flush();
@@ -1404,15 +1415,19 @@ public final class RuleMatcher {
                         continue;
                     }
                     if (plan.nextAlert > now) {
+                        Log.d(TAG, plan, ": skip alert until: ", plan.nextAlert, " now=", now);
                         continue;
                     }
-                    int used = DataProvider.Plans.getUsed(plan.limitType, plan.type,
+                    int used = DataProvider.Plans.getUsed(plan.type, plan.limitType,
                             plan.billedAmount, plan.billedCost);
-                    if (a100 && used > CallMeter.HUNDRET) {
-                        alert = used;
+                    int usedRate = plan.limit > 0 ?
+                            (int) ((used * CallMeter.HUNDRET) / plan.limit)
+                            : 0;
+                    if (a100 && usedRate >= CallMeter.HUNDRET) {
+                        alert = usedRate;
                         alertPlan = plan;
-                    } else if (a80 && alert < CallMeter.EIGHTY && used > CallMeter.EIGHTY) {
-                        alert = used;
+                    } else if (a80 && alert < CallMeter.EIGHTY && usedRate >= CallMeter.EIGHTY) {
+                        alert = usedRate;
                         alertPlan = plan;
                     }
                 }
@@ -1427,11 +1442,22 @@ public final class RuleMatcher {
                     b.setWhen(now);
                     b.setContentTitle(context.getString(R.string.alerts_title));
                     b.setContentText(t);
-                    b.setContentIntent(PendingIntent.getActivity(context, 0, new Intent(context,
-                            Plans.class), PendingIntent.FLAG_CANCEL_CURRENT));
+                    Intent i = new Intent(context, Plans.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    b.setContentIntent(PendingIntent.getActivity(
+                            context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT));
                     mNotificationMgr.notify(0, b.build());
+                    // set nextAlert to beginning of next day
+                    Calendar cal = Calendar.getInstance();
+                    cal.add(Calendar.DAY_OF_MONTH, 1);
+                    cal.set(Calendar.HOUR_OF_DAY, 0);
+                    cal.set(Calendar.MINUTE, 0);
+                    cal.set(Calendar.SECOND, 0);
+                    cal.set(Calendar.MILLISECOND, 0);
+                    alertPlan.nextAlert = cal.getTimeInMillis();
                     final ContentValues cv = new ContentValues();
-                    cv.put(DataProvider.Plans.NEXT_ALERT, alertPlan.nextBillday);
+                    cv.put(DataProvider.Plans.NEXT_ALERT, alertPlan.nextAlert);
                     cr.update(DataProvider.Plans.CONTENT_URI, cv, DataProvider.Plans.ID + " = ?",
                             new String[]{String.valueOf(alertPlan.id)});
                 }

@@ -67,6 +67,7 @@ import de.ub0r.android.callmeter.data.DataProvider.XmlMetaData;
 import de.ub0r.android.callmeter.data.Device;
 import de.ub0r.android.callmeter.data.ExportProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
+import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.Market;
@@ -415,6 +416,7 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
             getContentResolver().delete(DataProvider.Logs.CONTENT_URI,
                     DataProvider.Logs.TYPE + " = " + type, null);
         }
+        RuleMatcher.resetAlert(this);
     }
 
     /**

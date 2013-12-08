@@ -950,7 +950,7 @@ public final class LogRunnerService extends IntentService {
         }
 
         release(wakelock, h, a);
-        Log.d(TAG, "onHandleIntent(", a, ")", t);
+        Log.d(TAG, "onHandleIntent(", a, "): ", t);
     }
 
     /**
