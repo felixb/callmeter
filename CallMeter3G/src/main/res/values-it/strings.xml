@@ -456,4 +456,9 @@
   <string name="import_link_" formatted="false" username="clabacchio" orig="More info">Più info</string>
   <string name="import_rules_users" formatted="false" username="clabacchio" orig="Users\' rules">Regole degli utenti</string>
   <string name="import_" formatted="false" username="clabacchio" orig="Import">Importa</string>
+  <string name="billday_last" formatted="false" username="zago84 &lt;emanuele.sagona@gmail.com&gt;" orig="Last day of your bill">Ultimo giorno di tariffazione</string>
+  <string name="show_target_billday_" formatted="false" username="zago84 &lt;emanuele.sagona@gmail.com&gt;" orig="Show last bill day">Mostra l\'ultimo giorno di tariffazione</string>
+  <string name="show_target_billday_hint" formatted="false" username="zago84 &lt;emanuele.sagona@gmail.com&gt;" orig="Show last day of bill instead of first.">Mostra l\'ultimo giorno di tariffazione invece del primo.</string>
+  <string name="delete_plan_hint" formatted="false" username="zago84 &lt;emanuele.sagona@gmail.com&gt;" orig="Do you really want to delete this plan?">Vuoi davvero eliminare questo piano?</string>
+  <string name="delete_rule_hint" formatted="false" username="zago84 &lt;emanuele.sagona@gmail.com&gt;" orig="Do you really want to delete this rule?">Vuoi davvero eliminare questa regola?</string>
 </resources>

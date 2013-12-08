@@ -143,7 +143,7 @@
   <string name="show_titlebar_" formatted="false" orig="Show title bar">Покажи заглавната лента</string>
   <string name="show_time_" formatted="false" orig="Switch to date">Отиди на дата</string>
   <string name="about1" formatted="false" orig="The output format is usage | time or count used this billing period | time or count overall.">Изходният формат е потребление | за текущия период - време или брой | общо - време или брой</string>
-  <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">Режимът на отчитане указва дължинат ана първия / следващия период на отчитане. Например 60/10 означава, че всеки разговор се тарифира за минимум от 60 сек., а всички по-дълги разговори се закръгляват на 10 сек.</string>
+  <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s." username="Svetlio &lt;s.grozev@gmail.com&gt;">Режимът на отчитане указва дължината на първия/следващия период на отчитане. Например 60/10 означава, че всеки разговор се тарифира за минимум от 60 сек., а всички по-дълги разговори се закръгляват на 10 сек.</string>
   <string name="about3" formatted="false" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter се изпълнява незабележимо на всеки 30 минути (освен ако телефонът не е на standby режим). Това означава, че изтриване на повиквания или съобщения по-стари от 30мин няма да промени статистиките. Изтриване на обаждания и съобщения от последните 30 мин може да доведе до грешни статистики.</string>
   <string name="show_titlebar_hint" formatted="false" orig="Show title bar in main view. Without title bar, there is no way to see background activity.">Показване на заглавната лента в основния изглед. Без заглавна лента, няма начин да бъде отчетена от потребителя работата на приложението.</string>
   <string name="show_hours_" formatted="false" orig="Show hours">Показване часове</string>
@@ -157,11 +157,11 @@
   <string name="update_interval_data_hint" formatted="false" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">Актуализация на данните за статистиката трябва да се направи по-често. ESP. Samsung се нуждае от много кратки интервали.</string>
   <string name="google_plus_hint" formatted="false" orig="Follow me on Google+.\nGet update notifications etc.">Последвайте ме в Google +.\nПолучете актуализации уведомления и др.</string>
   <string name="widget_" formatted="false" orig="Widget">Уиджет</string>
-  <string name="widgets_" formatted="false" orig="Widgets">Уиджети</string>
-  <string name="widgets_no_widgets_" formatted="false" orig="No widgets added">Няма добавени уиджети</string>
-  <string name="widgets_no_widgets_hint" formatted="false" orig="There are no widgets added to the launcher.">Няма уиджети добавени във вашия Launcher</string>
+  <string name="widgets_" formatted="false" orig="Widgets" username="Svetlio &lt;s.grozev@gmail.com&gt;">Уиджет-и</string>
+  <string name="widgets_no_widgets_" formatted="false" orig="No widgets added" username="Svetlio &lt;s.grozev@gmail.com&gt;">Няма добавени уиджет-и</string>
+  <string name="widgets_no_widgets_hint" formatted="false" orig="There are no widgets added to the launcher." username="Svetlio &lt;s.grozev@gmail.com&gt;">Няма уиджет-и добавени във вашия стартер</string>
   <string name="delete_widget" formatted="false" orig="Delete widget">Изтриване на уиджет</string>
-  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set.">Много лесни предпочитания, подходящи за повечето потребители. Предлага се само с комплект правило по подразбиране.</string>
+  <string name="simple_preferences_hint" formatted="false" orig="Very simple preferences, suitable for most users. Only available with default rule set." username="Svetlio &lt;s.grozev@gmail.com&gt;">Много лесни настройки, подходящи за повечето потребители. Предлага се само с комплект правило по подразбиране.</string>
   <string name="show_hours_hint" formatted="false" username="mari" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Показва времето в секунди,минути,часове и дни.\nАко не е маркирано само секунди и минути са показани.</string>
   <string name="show_shortname_" formatted="false" username="mari" orig="Show short name instead of long name">Показва кратко име вместо дълго</string>
   <string name="hide_name_" formatted="false" username="mari" orig="Hide name of plan">Скрива името на плана</string>
@@ -232,11 +232,11 @@
   <string name="edit_selected_" formatted="false" username="mari" orig="Edit selected">Редактиране на избраното</string>
   <string name="name_help" formatted="false" username="mari" orig="Set a name here.">Задай име тук.</string>
   <string name="shortname_help" formatted="false" username="mari" orig="Set a short name here. It is displayed in compact layouts.">Задай кратко име тук. Показва се в съкратените оформления.</string>
-  <string name="limit_type_" formatted="false" username="mari" orig="Limit type">Ограничаване вида</string>
+  <string name="limit_type_" formatted="false" username="andreshko@hotmail.com" orig="Limit type">Вид на ограничение</string>
   <string name="billperiod_" formatted="false" username="mari" orig="Length of the billing period">Дължина на таксувания период</string>
   <string name="billperiod_help" formatted="false" username="mari" orig="Set the length of your billing period.">Задай дължината на твоя таксуващ период.</string>
-  <string name="strip_leading_zeros_hint" formatted="false" username="mari" orig="Strip leading zeros when comparing numbers.">Премахване на нули, когато се сравняват номера.</string>
-  <string name="strip_leading_zeros_" formatted="false" username="mari" orig="Strip leading zeros">Премахване на нули</string>
+  <string name="strip_leading_zeros_hint" formatted="false" username="andreshko@hotmail.com" orig="Strip leading zeros when comparing numbers.">Без начални нули, когато се сравняват номера.</string>
+  <string name="strip_leading_zeros_" formatted="false" username="andreshko@hotmail.com" orig="Strip leading zeros">Без начални нули</string>
   <string name="type_" formatted="false" username="mari" orig="Type">Вид</string>
   <string name="type_help" formatted="false" username="mari" orig="Select a type.\n\&quot;Title\&quot; will just display a title in main view.\n\&quot;Spacer\&quot; will display nothing but empty space.\n\&quot;Bill period\&quot; will hold any information about your billing period. Most users will need exactly one.\nA \&quot;mixed\&quot; plan can take calls and messages at once. It will combine billing of all those items.\nA \&quot;call\&quot; plan does only take calls. \&quot;SMS\&quot; and \&quot;MMS\&quot; plans will just take the messages.\nA \&quot;data\&quot; plan may hold information about your data traffic.">Изберете вид.\n"Title" ще покаже заглавието в основния изглед.\n"Spacer" ще покаже само празно място.\n"Bill period" ще съдържа всяка информация за периода на таксуване. Повечето потребители имат нужда точно от това.\nA"mixed" планът може да съдържа и обаждания и съобщения наведнъж. Ще ги комбинира в таксуванията на всички.\nA"call"планът съдържа само обажданията."SMS" и "MMS" планове ще съдържат само  съобщенията\nA"data" съдържа информация за трафика от данни.</string>
   <string name="billperiodid_" formatted="false" username="mari" orig="Billing period">Период на таксуване</string>
@@ -264,12 +264,12 @@
   <string name="plan_help" formatted="false" username="mari" orig="Choose the plan this rule should fit.">Избери плана, за който това правило трябва да пасне.</string>
   <string name="limitnotreached_" formatted="false" username="mari" orig="Limit not reached">Лимита не е достигнат</string>
   <string name="limitnotreached_help" formatted="false" username="mari" orig="Match only if target plan has not reached it\'s limit yet.">Пасва само ако крайния план не е достигнал своя лимит още.</string>
-  <string name="iswebsms_" formatted="false" username="mari" orig="Is WebSMS">Е УебSMS</string>
-  <string name="iswebsms_help" formatted="false" username="mari" orig="Message sent with WebSMS.">Съобщението изпратено с УебSMS.</string>
-  <string name="iswebsms_connector_" formatted="false" username="mari" orig="Is WebSMS Connector">Е УебSMS Конектор</string>
+  <string name="iswebsms_" formatted="false" username="andreshko@hotmail.com" orig="Is WebSMS">Е Уеб-SMS</string>
+  <string name="iswebsms_help" formatted="false" username="andreshko@hotmail.com" orig="Message sent with WebSMS.">Съобщението изпратено с Уеб-SMS.</string>
+  <string name="iswebsms_connector_" formatted="false" username="andreshko@hotmail.com" orig="Is WebSMS Connector">Е Уеб-SMS Конектор</string>
   <string name="issipcall_" formatted="false" username="mari" orig="Is SIP call">Е SIP обаждане</string>
   <string name="strip_seconds_" formatted="false" username="mari" orig="Do not bill first seconds">Не включвай в сметката първите секунди</string>
-  <string name="strip_seconds_help" formatted="false" username="mari" orig="Do not bill first x seconds of a call.">Не включвай първите x секунди от обаждането.</string>
+  <string name="strip_seconds_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Do not bill first x seconds of a call.">Не включвай в сметката първите x секунди от обаждането.</string>
   <string name="active_" formatted="false" username="mari" orig="Active">Активен</string>
   <string name="active_help" formatted="false" username="mari" orig="Only active rules are used for matching logs.">Само активните правила са използвани за пасващите логове.</string>
   <string name="direction_" formatted="false" username="mari" orig="Direction">Посока</string>
@@ -316,7 +316,7 @@
   <string name="alerts_100_" formatted="false" username="mari" orig="Notify at 100%">Уведомявай при 100%</string>
   <string name="alerts_80_hint" formatted="false" username="mari" orig="Notify if a plan passes 80% of it\'s limit.">Уведомявай ако е преминат 80% от лимита на плана.</string>
   <string name="alerts_100_hint" formatted="false" username="mari" orig="Notify if a plan passes 100% of it\'s limit.">Уведомявай ако е преминат 100% от лимита на плана.</string>
-  <string name="widget_text_color_" formatted="false" username="mari" orig="Text color">Цвят на текста</string>
+  <string name="widget_text_color_" formatted="false" username="andreshko@hotmail.com" orig="Text color">Цвят на шрифта</string>
   <string name="widget_backgroud_color_" formatted="false" username="mari" orig="Background color">Цвят на фона</string>
   <string name="send_devices_hint" formatted="false" username="mari" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Изпращане списък с устройства на разработчика. Това е необходимо само ако данните в статистиките са нулеви.</string>
   <string name="send_devices_" formatted="false" username="mari" orig="Send devices">Изпрати устройства</string>
@@ -324,9 +324,9 @@
   <string name="widget_plan_textsize" formatted="false" username="mari" orig="Plan Text Size">Размер на текста на плана</string>
   <string name="widget_config_" formatted="false" username="mari" orig="Widget config">Настройка на джаджата</string>
   <string name="alerts_message" formatted="false" username="mari" orig="Plan %s has reached %d%% usage!">Плана %s е достигнал %d%% употреба!</string>
-  <string name="limit_type_help" formatted="false" username="mari" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;cost\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Задайте вида на вашия лимит тук.\nA "units" лимит ще ограничи вашия план базиран на минути,съобщения,...\nA "cost" лимит ще ограничи вашия план базиран на стойността на произведените от елементите, вградени в този план.</string>
+  <string name="limit_type_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;costs\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Задайте вида на вашия лимит тук.\n"units" ще създаде ограничение за вашия план базирано на минути, съобщения, ...\n"cost" ще създаде ограничение за вашия план базирано на стойността на произведените елементи, вградени в този план.</string>
   <string name="mixed_units_sms_help" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="Set the units billed for a single sms.">Задай единица за таксуване на един sms.</string>
-  <string name="roamed_" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="Roamed">Роминг</string>
+  <string name="roamed_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Roamed">Роуминг</string>
   <string name="empty_group_" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="Please press &quot;Add&quot; to add an item to this group.">Моля натиснете \"Add\" за да добавите елемент в групата.</string>
   <string name="monday" formatted="false" username="hlp" orig="Monday">Понеделник</string>
   <string name="delete_" formatted="false" username="hlp" orig="Delete">Изтрий</string>
@@ -337,7 +337,129 @@
   <string name="provider" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="Provider">Оператор</string>
   <string name="plan" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="Plan">План</string>
   <string name="country" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="Country">Държава</string>
-  <string name="send_logs_" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="Send logs">Изпрати логовете</string>
+  <string name="send_logs_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Send logs">Изпрати дневници</string>
   <string name="my_number_" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="My number">Моят номер</string>
   <string name="my_sim_id_" formatted="false" username="venetin&lt;venetin@mail.ru&gt;" orig="SIM Id">SIM ID</string>
+  <string name="billday_last" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Last day of your bill">Последен ден на сметката Ви</string>
+  <string name="widget_stats_title" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Call Meter (stats)">Call Meter (статистика)</string>
+  <string name="widget_logs_title" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Call Meter (last log)">Call Meter (последен дневник)</string>
+  <string name="strip_past_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Do not bill anything after x seconds of a call.">Не включвай в сметката нищо след Х секунда на разговора</string>
+  <string name="strip_past_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Do not bill anything after seconds">Не включвай в сметката нищо след секунди</string>
+  <string name="what_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Target type">Целеви тип</string>
+  <string name="what_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Choose a target type here.">Избор на целеви тип тук</string>
+  <string name="delete_group_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Delete group">Изтрий група</string>
+  <string name="delete_group_hint" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Do you really want to delete this group?">Наистина ли искате да изтриете тази група?</string>
+  <string name="delete_plan_hint" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Do you really want to delete this plan?">Наистина ли искате да изтриете този план?</string>
+  <string name="delete_rule_hint" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Do you really want to delete this rule?">Наистина ли искате да изтриете това правило?</string>
+  <string name="limit_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Set the limit of your plan here.\n\nType \&quot;units\&quot; must be set in minutes (calls), messages (sms/mms), megabytes (data, 1024kB) or units (mixed).\n\nType \&quot;cost\&quot; must be set in your main currency (e.g. $).">Задайте вида на вашия лимит тук.\n\nТипът "units" трябва да бъде в минути (разговори), съобщения (sms/mms), мегабайти (данни, 1024kB) или единици (смесен).\n\nТипът "cost" трябва да бъде във Вашата основна валута (например $).</string>
+  <string name="billmode_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Set the mode of billing calls.\nThe first part is the minimum length billed by your provider. Each call with a shorter length is rounded up to this.\nThe second part is the minimum length of following blocks of seconds.\nPlease read the FAQ for further help.">Задайте типът на тарифиране за разговорите.\nПървата част е минималната/началната дължина отчитана от вашият оператор. Всеки разговор с по малка продължителност ще бъде закръглян към тази стойност.\nВтората част е минималната дължина на следващите отчетни блокове в секунди.\nМоля прочетете ЧЗВ за допълнителна информация.</string>
+  <string name="tuesday" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Tuesday">Вторник</string>
+  <string name="wednesday" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Wednesday">Сряда</string>
+  <string name="thursday" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Thursday">Четвъртък</string>
+  <string name="friday" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Friday">Петък</string>
+  <string name="saturday" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Saturday">Събота</string>
+  <string name="sunday" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Sunday">Неделя</string>
+  <string name="monday_till_friday" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Monday - Friday">Понеделник - Петък</string>
+  <string name="all_week" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="All week">Цяла седмица</string>
+  <string name="all_day" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="All day">Цял ден</string>
+  <string name="day_0" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="0:00 - 0:59">0:00 - 0:59</string>
+  <string name="day_1" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="1:00 - 1:59">1:00 - 1:59</string>
+  <string name="day_2" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="2:00 - 2:59">2:00 - 2:59</string>
+  <string name="day_3" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="3:00 - 3:59">3:00 - 3:59</string>
+  <string name="day_4" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="4:00 - 4:59">4:00 - 4:59</string>
+  <string name="day_5" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="5:00 - 5:59">5:00 - 5:59</string>
+  <string name="day_6" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="6:00 - 6:59">6:00 - 6:59</string>
+  <string name="day_7" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="7:00 - 7:59">7:00 - 7:59</string>
+  <string name="day_8" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="8:00 - 8:59">8:00 - 8:59</string>
+  <string name="day_9" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="9:00 - 9:59">9:00 - 9:59</string>
+  <string name="day_10" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="10:00 - 10:59">10:00 - 10:59</string>
+  <string name="day_11" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="11:00 - 11:59">11:00 - 11:59</string>
+  <string name="day_12" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="12:00 - 12:59">12:00 - 12:59</string>
+  <string name="day_13" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="13:00 - 13:59">13:00 - 13:59</string>
+  <string name="day_14" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="14:00 - 14:59">14:00 - 14:59</string>
+  <string name="day_15" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="15:00 - 15:59">15:00 - 15:59</string>
+  <string name="day_16" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="16:00 - 16:59">16:00 - 16:59</string>
+  <string name="day_17" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="17:00 - 17:59">17:00 - 17:59</string>
+  <string name="day_18" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="18:00 - 18:59">18:00 - 18:59</string>
+  <string name="day_19" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="19:00 - 19:59">19:00 - 19:59</string>
+  <string name="day_20" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="20:00 - 20:59">20:00 - 20:59</string>
+  <string name="day_21" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="21:00 - 21:59">21:00 - 21:59</string>
+  <string name="day_22" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="22:00 - 22:59">22:00 - 22:59</string>
+  <string name="day_23" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="23:00 - 23:59">23:00 - 23:59</string>
+  <string name="theme_black" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Black">Черно</string>
+  <string name="theme_light" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Light">Светло</string>
+  <string name="edit_plan_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Edit Plan">Редактирай план</string>
+  <string name="view_logs_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="View Logs">Виж дневник</string>
+  <string name="title" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Title">Заглавие</string>
+  <string name="mixed" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Mixed">Смесен</string>
+  <string name="limit_type_unlimited" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="unlimited">без лимит</string>
+  <string name="limit_type_units" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="units">единици</string>
+  <string name="limit_type_cost" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="costs">разходи</string>
+  <string name="x1_day" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="One day">Един ден</string>
+  <string name="x1_week" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="One week">Една седмица</string>
+  <string name="x14_day" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="14 days">14 дни</string>
+  <string name="x15_day" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="15 days">15 дни</string>
+  <string name="x30_day" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="30 days">30 дни</string>
+  <string name="x31_day" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="31 days">31 дни</string>
+  <string name="x60_day" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="60 days">60 дни</string>
+  <string name="x90_day" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="90 days">90 дни</string>
+  <string name="x1_month" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="One month">Един месец</string>
+  <string name="x1_month_1_day" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="One month + one day">Един месец + един ден</string>
+  <string name="x2_month" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Two months">Два месеца</string>
+  <string name="x3_month" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Three months">Три месеца</string>
+  <string name="x4_month" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Four months">Четири месеца</string>
+  <string name="x5_month" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Five months">Пет месеца</string>
+  <string name="x6_month" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Six months">Шест месеца</string>
+  <string name="x1_year" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="One year">Една година</string>
+  <string name="infinite" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Infinite">Безкраен</string>
+  <string name="x05_minute" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="0.5 minutes">0.5 минути</string>
+  <string name="x1_minute" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="1 minute">1 минута</string>
+  <string name="x2_minute" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="2 minutes">2 минути</string>
+  <string name="reset" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Reset">Изчисти</string>
+  <string name="debug_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Debug">Отстраняване на грешки</string>
+  <string name="send_logs_hint" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Изпратете дневниците от Вашето устройство до разработчика.\nНаправете това само ако сте помолени.</string>
+  <string name="sendlog_run_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Run SendLog">Стартирай \"изпращане на дневници\"</string>
+  <string name="show_target_billday_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Show last bill day">Покажи последен ден от таксуването</string>
+  <string name="show_target_billday_hint" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Show last day of bill instead of first.">Покажи последният ден от таксуването вместо първият</string>
+  <string name="billperiodid_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Select your billing period.\nYou may need to create one as extra plan.">Изберете Вашият период на таксуване.\nМоже да се наложи създаване на допълнителен план.</string>
+  <string name="cost_per_item_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Cost per item">Стойност за единица</string>
+  <string name="cost_per_item_in_limit_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Cost per item in limit">Стойност за единица в лимита</string>
+  <string name="cost_per_amount_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Cost per length">Стойност за дължина</string>
+  <string name="cost_per_amount_in_limit_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Cost per length in limit">Стойност за дължина в лимита</string>
+  <string name="cost_per_plan_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Set the cost of the plan for one billing period as is.">Определете стойност на плана за един отчетен период, както е.</string>
+  <string name="mixed_units_call_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Set the units billed for a one minute call.\nBill mode is taken into account here.">Определете единиците, които се таксуват за една минута разговор.\nВземете под внимание типа сметка.</string>
+  <string name="mixed_units_data_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Units for data">Единици за данни</string>
+  <string name="mixed_units_data_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Set the units billed for each MB of data traffic.">Определяне на единиците таксувани за всеки MB от трафика на данни.</string>
+  <string name="merge_plans_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Merge other plans into this one and bill them here (too).">Обедини другите планове в този и ги таксувай тук (също).</string>
+  <string name="issipcall_help" formatted="false" username="andreshko@hotmail.com" orig="Call made via SIP. Currently sipdroid and CSipSimple are supported.">Разговор проведен през SIP. Към момента се поддържат sipdroid и CSipSimple.</string>
+  <string name="source_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Sourcescode:">Sourcescode:</string>
+  <string name="import_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Import">Зареди</string>
+  <string name="import_link_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="More info">Повече информация</string>
+  <string name="import_rules_users" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Users\' rules">Потребителски правила</string>
+  <string name="spacer" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Spacer">Разстояние</string>
+  <string name="license_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="License:">Лиценз:</string>
+  <string name="license" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - виж http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="author_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Author:">Автор:</string>
+  <string name="website_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Website:">Уебсайт:</string>
+  <string name="sendlog_install_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Install SendLog">Инсталирай SendLog</string>
+  <string name="export_logs_csv_hint" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Export logs as CSV.">Експортирай log-а към CSV.</string>
+  <string name="second_sim_" formatted="false" username="andreshko@hotmail.com" orig="Second SIM card">Втора SIM карта</string>
+  <string name="cost_per_item_help" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed for a single log item (e.g. a call or a message) after the limit is exceeded.">Стойност, таксувана за единично събитие в дневника (напр. повикване или съобщение) след достигнато ограничение.</string>
+  <string name="cost_per_item_in_limit_help" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed for a single log item (e.g. a call or a message) billed before the limit is exceeded.">Стойност, таксувана за единично събитие в дневника (напр. повикване или съобщение) преди достигнато ограничение.</string>
+  <string name="cost_per_item_no_limit_help" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed for a single log item (e.g. a call or a message).">Стойност, таксувана за единично събитие в дневника (напр. повикване или съобщение).</string>
+  <string name="cost_per_amount_help1" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1kB data) after the limit is exceeded.">Стойност, таксувана за продължителност на единично събитие в дневника (напр. за 1 KB данни) след достигнато ограничение.</string>
+  <string name="cost_per_amount_help2" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1min call) after the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Стойност, таксувана за продължителност на единично събитие в дневника (напр. за 1 мин. разговор) след достигнато ограничение.\nПървото поле съдържа стойността на първите секунди разговор, второто - за последващите секунди (и двете са в $/минута, вж. вид на таксуването).\nПри несигурност, и в двете да се въведе стойността за минута.</string>
+  <string name="cost_per_amount_in_limit_help1" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data) before the limit is exceeded.">Стойност, таксувана за продължителност на единично събитие в дневника (напр. за 1 KB данни) преди достигнато ограничение.</string>
+  <string name="cost_per_amount_in_limit_help2" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1min call) before the limit is exceeded.\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Стойност, таксувана за продължителност на единично събитие в дневника (напр. за 1 мин. разговор) преди достигнато ограничение.\nПървото поле съдържа стойността на първите секунди разговор, второто - за последващите секунди (и двете са в $/минута, вж. вид на таксуването).\nПри несигурност, и в двете да се въведе стойността за минута.</string>
+  <string name="cost_per_amount_no_limit_help1" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1min call, 1kB data).">Стойност, таксувана за продължителност на единично събитие в дневника (напр. за 1 мин. разговор, 1 КВ данни)</string>
+  <string name="cost_per_amount_no_limit_help2" formatted="false" username="andreshko@hotmail.com" orig="Set the cost billed per length for a single log item (e.g. for 1min call).\nThe first field holds the cost for the first few seconds of the call, the second holds the cost for the following seconds (both are set in $/minute; see billing mode).\nIf doubt, just set both to your cost minute.">Стойност, таксувана за продължителност на единично събитие в дневника (напр. за 1 мин. разговор).\nПървото поле съдържа стойността на първите секунди разговор, второто - за последващите секунди (и двете са в $/минута, вж. вид на таксуването).\nПри несигурност, и в двете да се въведе стойността за минута.</string>
+  <string name="websms_" formatted="false" username="andreshko@hotmail.com" orig="WebSMS">Уеб-SMS</string>
+  <string name="iswebsms_connector_help" formatted="false" username="andreshko@hotmail.com" orig="Sent with specific WebSMS Connector, leave empty to match any.">Изпратено с конкретен Уеб-SMS Конектор, празно за показване на всички.</string>
+  <string name="calls_voip_" formatted="false" username="andreshko@hotmail.com" orig="VoIP calls with supported apps">VoIP повиквания с поддържани приложения</string>
+  <string name="direction_help" formatted="false" username="andreshko@hotmail.com" orig="Choose a direction the given log has to be.">Избор на направление за конкретен дневник.</string>
+  <string name="roamed_help" formatted="false" username="andreshko@hotmail.com" orig="Choose whether the given log has to be roamed.">Избор дали дневникът да е в роуминг.</string>
+  <string name="widget_date_textsize" formatted="false" username="andreshko@hotmail.com" orig="Date Text Size">Големина на шрифт за дата</string>
+  <string name="widget_details_textsize" formatted="false" username="andreshko@hotmail.com" orig="Details Text Size">Големина на шрифт за подробности</string>
+  <string name="sendlog_run" formatted="false" username="andreshko@hotmail.com" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog ще събере дневника на устройството и ще го изпрати до разработчика.\nМоже тези данни да се прегледат и редактират преди изпращане.</string>
+  <string name="sendlog_install" formatted="false" username="andreshko@hotmail.com" orig="Install the free SendLog application to collect the device log and send it to the developer.">Инсталиране на SendLog приложението за събиране на дневника на устройството и изпращане до разработчика.</string>
 </resources>

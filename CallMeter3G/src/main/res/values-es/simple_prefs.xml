@@ -21,23 +21,23 @@
                Visit http://ub0r.de/translate/cm3/es/simple_prefs.xml to edit the file.
        -->
 <resources>
-  <string name="freemin_" formatted="false" orig="Free minutes">Minutos libres</string>
-  <string name="freemin_hint" formatted="false" orig="Free minutes / month">Minutos libres / mes</string>
+  <string name="freemin_" formatted="false" orig="Free minutes" username="kaixer &lt;kaixer@gmx.com&gt;">Minutos gratuitos</string>
+  <string name="freemin_hint" formatted="false" orig="Free minutes / month" username="kaixer &lt;kaixer@gmx.com&gt;">Minutos gratuitos / mes</string>
   <string name="cost_per_call_" formatted="false" orig="Cost / call">Costo / llamada</string>
   <string name="cost_per_min_" formatted="false" orig="Cost / minute">Costo / minuto</string>
-  <string name="freesms_hint" formatted="false" orig="Free SMS / month">Mensaje libre/Mes</string>
-  <string name="freesms_" formatted="false" orig="Free SMS">Mensaje libre</string>
-  <string name="cost_per_sms_" formatted="false" orig="Cost / SMS">Costo/Mensaje</string>
-  <string name="freemms_" formatted="false" orig="Free MMS">Mensaje multimedia libre</string>
-  <string name="freemms_hint" formatted="false" orig="Free MMS / month">Mensaje multimedia libre/mes</string>
-  <string name="cost_per_mms_" formatted="false" orig="Cost / MMS">Costo/mensaje multimedia</string>
-  <string name="freedata_" formatted="false" orig="Free traffic">Tráfico libre</string>
-  <string name="freedata_hint" formatted="false" orig="Free 2G, 3G or 4G data traffic / month">Tráfico de data 2G,3G o 4G/mes</string>
-  <string name="cost_per_mb_" formatted="false" orig="Cost / MB">Costo/MB</string>
-  <string name="missing_slash" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Bill mode needs to be in seconds/seconds!">Modo de facturación necesita estar en segundos/segundos</string>
-  <string name="cost_per_call_hint" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Each call get\'s billed.">Cada llamada es facturada</string>
-  <string name="cost_per_min_hint" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Each minute get\'s billed.">Cada minuto es facturado</string>
-  <string name="cost_per_sms_hint" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Each SMS get\'s billed.">Cada SMS es facturado</string>
-  <string name="cost_per_mms_hint" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Each MMS get\'s billed.">Cada MMS es facturado</string>
-  <string name="cost_per_mb_hint" formatted="false" username="Alvaro Garcia &lt;alrogafu@gmail.com&gt;" orig="Each MB get\'s billed.">Cada MB es facturado</string>
+  <string name="freesms_hint" formatted="false" orig="Free SMS / month" username="kaixer &lt;kaixer@gmx.com&gt;">Mensajes gratuitos / mes</string>
+  <string name="freesms_" formatted="false" orig="Free SMS" username="kaixer &lt;kaixer@gmx.com&gt;">Mensajes gratuitos</string>
+  <string name="cost_per_sms_" formatted="false" orig="Cost / SMS" username="kaixer &lt;kaixer@gmx.com&gt;">Costo / Mensaje</string>
+  <string name="freemms_" formatted="false" orig="Free MMS" username="kaixer &lt;kaixer@gmx.com&gt;">Mensajes multimedia gratuitos</string>
+  <string name="freemms_hint" formatted="false" orig="Free MMS / month" username="kaixer &lt;kaixer@gmx.com&gt;">Mensajes multimedia gratuitos / mes</string>
+  <string name="cost_per_mms_" formatted="false" orig="Cost / MMS" username="kaixer &lt;kaixer@gmx.com&gt;">Costo / mensajes multimedia</string>
+  <string name="freedata_" formatted="false" orig="Free traffic" username="kaixer &lt;kaixer@gmx.com&gt;">Tráfico gratuito</string>
+  <string name="freedata_hint" formatted="false" orig="Free 2G, 3G or 4G data traffic / month" username="kaixer &lt;kaixer@gmx.com&gt;">Tráfico de datos gratuito 2G, 3G o 4G / mes</string>
+  <string name="cost_per_mb_" formatted="false" orig="Cost / MB" username="kaixer &lt;kaixer@gmx.com&gt;">Costo / MB</string>
+  <string name="missing_slash" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Bill mode needs to be in seconds/seconds!">¡El modo de facturación necesita estar en segundos/segundos!</string>
+  <string name="cost_per_call_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Each call get\'s billed.">Cada llamada es facturada.</string>
+  <string name="cost_per_min_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Each minute get\'s billed.">Cada minuto es facturado.</string>
+  <string name="cost_per_sms_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Each SMS get\'s billed.">Cada mensaje es facturado.</string>
+  <string name="cost_per_mms_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Each MMS get\'s billed.">Cada mensaje multimedia es facturado.</string>
+  <string name="cost_per_mb_hint" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Each MB get\'s billed.">Cada MB es facturado.</string>
 </resources>

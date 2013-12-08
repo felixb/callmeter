@@ -363,7 +363,7 @@
   <string name="iswebsms_connector_" formatted="false" orig="Is WebSMS Connector">WebSMS Bağlayıcısı yap</string>
   <string name="iswebsms_connector_help" formatted="false" orig="Sent with specific WebSMS Connector, leave empty to match any.">Özel bir WebSMS Bağlayıcısı ile gönderilir. Herhangi biri ile eşleştirmek için boş bırakın.</string>
   <string name="issipcall_" formatted="false" orig="Is SIP call">SIP arama yap</string>
-  <string name="issipcall_help" formatted="false" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported.">Arama SIP yoluyla yapılır. sipdroid 1.6.1 ve üstü desteklenmektedir.</string>
+  <string name="issipcall_help" formatted="false" orig="Call made via SIP. Currently sipdroid and CSipSimple are supported." username="Can Örs &lt;canors@yandex.com&gt;">Arama SIP yoluyla yapılır. Şu anda sipdroid ve CSipSimple desteklenmektedir.</string>
   <string name="strip_seconds_" formatted="false" orig="Do not bill first seconds">İlk saniyeleri ücretlendirme</string>
   <string name="strip_seconds_help" formatted="false" orig="Do not bill first x seconds of a call.">Görüşmenin ilk x saniyesini ücretlendirme.</string>
   <string name="empty_groups_" formatted="false" orig="Please press &quot;Add&quot; to add a group.">Grup eklemek için \"Ekle\"ye tıklayınız.</string>
@@ -461,4 +461,7 @@
   <string name="widget_details_textsize" formatted="false" username="bluesman80@gmail.com" orig="Details Text Size">Detay metni boyutu</string>
   <string name="country" formatted="false" username="bluesman80@gmail.com" orig="Country">Ülke</string>
   <string name="provider" formatted="false" username="bluesman80@gmail.com" orig="Provider">Operatör</string>
+  <string name="second_sim_" formatted="false" username="Can Örs &lt;canors@yandex.com&gt;" orig="Second SIM card">İkinci SIM kartı</string>
+  <string name="websms_" formatted="false" username="Can Örs &lt;canors@yandex.com&gt;" orig="WebSMS">WebSMS</string>
+  <string name="calls_voip_" formatted="false" username="Can Örs &lt;canors@yandex.com&gt;" orig="VoIP calls with supported apps">VoIP destekli uygulamalar ile çağrı</string>
 </resources>
