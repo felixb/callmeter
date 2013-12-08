@@ -18,16 +18,23 @@ repositories {
     mavenCentral()
 }
 
-def getVersionName() {
-    def stdout = new ByteArrayOutputStream()
-    exec {
-        commandLine 'git', 'describe', '--tags'
-        standardOutput = stdout
+
+def getVersionName = { ->
+    try {
+        def stdout = new ByteArrayOutputStream()
+        exec {
+            commandLine 'git', 'describe', '--tags'
+            standardOutput = stdout
+        }
+        def version = stdout.toString().trim().replaceFirst('^[a-zA-Z][^-]*-', '')
+        logger.info("version: ${version}")
+        return version
+    } catch (ignored) {
+        return null
     }
-    return stdout.toString().trim().replaceFirst('^[a-zA-Z][^-]*-', '')
 }
 
-def getVersionCode(minSdk) {
+def getVersionCode = { minSdk ->
     def version = getVersionName()
     def parts = version.split('[\\.]')
     def l = parts.size()
@@ -43,7 +50,9 @@ def getVersionCode(minSdk) {
         code += parts[l-1].split('-')[1].toInteger()
     }
 
-    return code.toInteger()
+    def versionCode = code.toInteger()
+    logger.info("versionCode: ${versionCode}")
+    return versionCode
 }
 
 android {
