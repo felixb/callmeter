@@ -1,7 +1,5 @@
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,12 +24,13 @@ import java.util.Comparator;
 import java.util.HashMap;
 
 import de.ub0r.android.callmeter.R;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
-public class PreferencesRules extends SherlockPreferenceActivity {
+public class PreferencesRules extends TrackingSherlockPreferenceActivity {
 
-    private static final String TAG = "PrefRules";
+    private static final String TAG = "PreferencesRules";
 
     public static final String EXTRA_JSON = "json";
     public static final String EXTRA_COUNTRY = "country";
@@ -88,7 +87,7 @@ public class PreferencesRules extends SherlockPreferenceActivity {
                 final String link = j.isNull("link") ? null : j.getString("link").trim();
 
                 final String url = j.getString("importurl").trim();
-                Builder b = new Builder(this.c);
+                Builder b = new Builder(c);
                 b.setCancelable(true);
                 if ("all".equals(p)) {
                     b.setTitle(t);
@@ -121,7 +120,7 @@ public class PreferencesRules extends SherlockPreferenceActivity {
                 return true;
             } catch (JSONException e) {
                 Log.e(TAG, "JSONError", e);
-                Toast.makeText(this.c, R.string.err_export_read, Toast.LENGTH_LONG).show();
+                Toast.makeText(c, R.string.err_export_read, Toast.LENGTH_LONG).show();
                 return false;
             }
         }
@@ -141,7 +140,7 @@ public class PreferencesRules extends SherlockPreferenceActivity {
         PreferenceManager pm = getPreferenceManager();
 
         try {
-            JSONObject json = new JSONObject(this.getIntent().getStringExtra(EXTRA_JSON));
+            JSONObject json = new JSONObject(getIntent().getStringExtra(EXTRA_JSON));
             JSONArray ja = json.getJSONArray(k);
 
             ArrayList<String> providers = new ArrayList<String>();

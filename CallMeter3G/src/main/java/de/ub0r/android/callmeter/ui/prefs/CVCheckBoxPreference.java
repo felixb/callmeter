@@ -60,16 +60,16 @@ public final class CVCheckBoxPreference extends CheckBoxPreference {
     protected void onClick() {
         super.onClick();
         if (!this.sh) {
-            if (this.isChecked()) {
-                super.setSummary(this.getContext().getString(R.string.value) + " "
+            if (isChecked()) {
+                super.setSummary(getContext().getString(R.string.value) + " "
                         + getContext().getString(android.R.string.yes));
             } else {
-                super.setSummary(this.getContext().getString(R.string.value) + " "
+                super.setSummary(getContext().getString(R.string.value) + " "
                         + getContext().getString(android.R.string.no));
             }
         }
-        cv.put(this.getKey(), isChecked());
-        if (this.ul != null) {
+        cv.put(getKey(), isChecked());
+        if (ul != null) {
             ul.onUpdateValue(this);
         }
     }
@@ -77,8 +77,8 @@ public final class CVCheckBoxPreference extends CheckBoxPreference {
     @Override
     public void setChecked(final boolean checked) {
         super.setChecked(checked);
-        if (this.sh) {
-            setSummary(this.getContext().getText(R.string.value) + ": " + checked);
+        if (sh) {
+            setSummary(getContext().getText(R.string.value) + ": " + checked);
         }
     }
 }

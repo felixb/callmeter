@@ -23,7 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Acces /sys/class/net/ files.
@@ -31,7 +31,7 @@ import de.ub0r.android.lib.Log;
 public final class SysClassNet {
 
     /** Tag for output. */
-    private static final String TAG = "sys";
+    private static final String TAG = "SysClassNet";
 
     /** Prefix of all interfaces. */
     public static final String SYS_CLASS_NET = "/sys/class/net/";
@@ -65,16 +65,16 @@ public final class SysClassNet {
      * @return true if interface is available
      */
     public static boolean isAvail(final String inter) {
-        Log.d(TAG, "isAvail(" + inter + ")");
+        Log.d(TAG, "isAvail(", inter, ")");
         try {
             if (getRxBytes(inter) > 0L || getTxBytes(inter) > 0L) {
-                Log.d(TAG, "isAvail(" + inter + "): true");
+                Log.d(TAG, "isAvail(", inter, "): true");
                 return true;
             }
         } catch (Exception e) {
             Log.i(TAG, "could not read device: " + inter);
         }
-        Log.d(TAG, "isAvail(" + inter + "): false");
+        Log.d(TAG, "isAvail(", inter, "): false");
         return false;
     }
 
@@ -112,17 +112,17 @@ public final class SysClassNet {
      * @return bytes received or sent
      */
     private static long readLong(final String inter, final String file) {
-        Log.d(TAG, "readLong(" + inter + "," + file + ")");
+        Log.d(TAG, "readLong(", inter, ",", file, ")");
         StringBuilder sb = new StringBuilder();
         sb.append(SYS_CLASS_NET).append(inter).append(file);
         RandomAccessFile raf = null;
         try {
             raf = getFile(sb.toString());
             String l = raf.readLine();
-            Log.d(TAG, "readLong(" + inter + "," + file + "): " + l);
+            Log.d(TAG, "readLong(): ", l);
             return Long.valueOf(l);
         } catch (Exception e) {
-            Log.e(TAG, e.getMessage() + " / error readding long for inter: " + inter);
+            Log.e(TAG, e.getMessage() + " / error reading long for inter: " + inter);
             return 0;
         } finally {
             if (raf != null) {

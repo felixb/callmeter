@@ -52,17 +52,18 @@ import java.util.Date;
 import java.util.concurrent.RejectedExecutionException;
 
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.TrackingUtils;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.data.NameCache;
 import de.ub0r.android.callmeter.data.NameLoader;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
- * Callmeter's Log {@link LogFragment}.
+ * Callmeter's Log {@link LogsFragment}.
  *
  * @author flx
  */
@@ -70,7 +71,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
         OnItemLongClickListener, LoaderCallbacks<Cursor> {
 
     /** Tag for output. */
-    private static final String TAG = "logs";
+    private static final String TAG = "LogsFragment";
 
     /** Prefs: {@link ToggleButton} state for calls. */
     private static final String PREF_CALL = "_logs_call";
@@ -97,7 +98,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
     /** Selected plan id. */
     private long planId = -1;
 
-    /** Unique id for this {@link LogFragment}s loader. */
+    /** Unique id for this {@link LogsFragment}s loader. */
     private static final int LOADER_UID = -2;
 
     /**
@@ -183,8 +184,8 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
             buf.append(" ");
             buf.append(DateFormat.getTimeFormat(context).format(new Date(date)));
             holder.tvText1.setText(buf.toString());
-            holder.tvPlan.setText(cursor.getString(this.idPlanName));
-            holder.tvRule.setText(cursor.getString(this.idRuleName));
+            holder.tvPlan.setText(cursor.getString(idPlanName));
+            holder.tvRule.setText(cursor.getString(idRuleName));
 
             String s = cursor.getString(DataProvider.Logs.INDEX_REMOTE);
             if (s == null || s.trim().length() == 0) {
@@ -278,8 +279,10 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        setListAdapter(new LogAdapter(this.getActivity()));
+        setListAdapter(new LogAdapter(getActivity()));
         getListView().setOnItemLongClickListener(this);
+
+        TrackingUtils.sendView(this);
     }
 
     /**
@@ -321,8 +324,8 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
         tbOut.setTextOff(directions[DataProvider.DIRECTION_OUT]);
         directions = null;
 
-        if (this.planId >= 0L) {
-            setPlanId(this.planId);
+        if (planId >= 0L) {
+            setPlanId(planId);
         }
 
         return v;
@@ -334,7 +337,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
     @Override
     public void onResume() {
         super.onResume();
-        Common.setDateFormat(this.getActivity());
+        Common.setDateFormat(getActivity());
         Cursor c = this
                 .getActivity()
                 .getContentResolver()
@@ -346,9 +349,9 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
         } else {
             showMyNumber = false;
         }
-        showHours = PreferenceManager.getDefaultSharedPreferences(this.getActivity())
+        showHours = PreferenceManager.getDefaultSharedPreferences(getActivity())
                 .getBoolean(Preferences.PREFS_SHOWHOURS, true);
-        cformat = Preferences.getCurrencyFormat(this.getActivity());
+        cformat = Preferences.getCurrencyFormat(getActivity());
     }
 
     /**
@@ -357,7 +360,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
     @Override
     public void onStop() {
         super.onStop();
-        final Editor e = PreferenceManager.getDefaultSharedPreferences(this.getActivity()).edit();
+        final Editor e = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
         e.putBoolean(PREF_CALL, tbCall.isChecked());
         e.putBoolean(PREF_SMS, tbSMS.isChecked());
         e.putBoolean(PREF_MMS, tbMMS.isChecked());
@@ -379,32 +382,32 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
         }
 
         String where = DataProvider.Logs.TABLE + "." + DataProvider.Logs.TYPE + " in (-1";
-        if (this.tbCall != null && tbCall.isChecked()) {
+        if (tbCall != null && tbCall.isChecked()) {
             where += "," + DataProvider.TYPE_CALL;
         }
-        if (this.tbSMS != null && tbSMS.isChecked()) {
+        if (tbSMS != null && tbSMS.isChecked()) {
             where += "," + DataProvider.TYPE_SMS;
         }
-        if (this.tbMMS != null && tbMMS.isChecked()) {
+        if (tbMMS != null && tbMMS.isChecked()) {
             where += "," + DataProvider.TYPE_MMS;
         }
-        if (this.tbData != null && tbData.isChecked()) {
+        if (tbData != null && tbData.isChecked()) {
             where += "," + DataProvider.TYPE_DATA;
         }
         where += ") and " + DataProvider.Logs.TABLE + "." + DataProvider.Logs.DIRECTION + " in (-1";
-        if (this.tbIn != null && tbIn.isChecked()) {
+        if (tbIn != null && tbIn.isChecked()) {
             where += "," + DataProvider.DIRECTION_IN;
         }
-        if (this.tbOut != null && tbOut.isChecked()) {
+        if (tbOut != null && tbOut.isChecked()) {
             where += "," + DataProvider.DIRECTION_OUT;
         }
         where += ")";
 
-        if (this.planId > 0L && tbPlan != null && tbPlan.isChecked()) {
-            String plans = DataProvider.Plans.parseMergerWhere(this.getActivity()
+        if (planId > 0L && tbPlan != null && tbPlan.isChecked()) {
+            String plans = DataProvider.Plans.parseMergerWhere(getActivity()
                     .getContentResolver(), planId);
             where = DbUtils.sqlAnd(plans, where);
-            Log.d(TAG, "where: " + where);
+            Log.d(TAG, "where: ", where);
         }
         Bundle args = new Bundle(1);
         args.putString("where", where);
@@ -424,11 +427,11 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
      */
     public void setPlanId(final long id) {
         planId = id;
-        if (this.tbPlan != null) {
+        if (tbPlan != null) {
             if (id < 0L) {
                 tbPlan.setVisibility(View.GONE);
             } else {
-                String p = DataProvider.Plans.getName(this.getActivity().getContentResolver(),
+                String p = DataProvider.Plans.getName(getActivity().getContentResolver(),
                         planId);
                 tbPlan.setText(p);
                 tbPlan.setTextOn(p);
@@ -443,7 +446,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
                 tbSMS.setChecked(true);
             }
         }
-        if (this.isVisible()) {
+        if (isVisible()) {
             setAdapter(true);
         }
     }
@@ -471,9 +474,11 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_add:
-                getActivity().startActivity(new Intent(this.getActivity(), AddLogActivity.class));
+                TrackingUtils.sendMenu(this, "item_add");
+                getActivity().startActivity(new Intent(getActivity(), AddLogActivity.class));
                 return true;
             case R.id.item_export_csv:
+                TrackingUtils.sendMenu(this, "item_export_csv");
                 getActivity().startActivity(
                         new Intent(Preferences.ACTION_EXPORT_CSV, null, getActivity(),
                                 Preferences.class));
@@ -489,11 +494,13 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
     @Override
     public boolean onItemLongClick(final AdapterView<?> parent, final View view,
             final int position, final long id) {
-        final Builder b = new Builder(this.getActivity());
+        TrackingUtils.sendLongClick(this, "log", null);
+        final Builder b = new Builder(getActivity());
         b.setCancelable(true);
         b.setItems(R.array.dialog_delete, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(final DialogInterface dialog, final int which) {
+                TrackingUtils.sendLongClick(this, "log#delete", null);
                 LogsFragment.this
                         .getActivity()
                         .getContentResolver()
@@ -510,13 +517,13 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 
     @Override
     public Loader<Cursor> onCreateLoader(final int id, final Bundle args) {
-        Log.d(TAG, "onCreateLoader(" + id + "," + args + ")");
+        Log.d(TAG, "onCreateLoader(", id, ",", args, ")");
         ((Plans) getActivity()).setProgress(1);
         String where = null;
         if (args != null) {
             where = args.getString("where");
         }
-        return new CursorLoader(this.getActivity(), DataProvider.Logs.CONTENT_URI_JOIN,
+        return new CursorLoader(getActivity(), DataProvider.Logs.CONTENT_URI_JOIN,
                 DataProvider.Logs.PROJECTION_JOIN, where, null, DataProvider.Logs.DATE + " DESC");
     }
 

@@ -17,7 +17,7 @@ import android.widget.TimePicker;
 import java.util.Calendar;
 
 import de.ub0r.android.callmeter.R;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * DatePreference holding it's value in {@link ContentValues}.
@@ -89,7 +89,7 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
 
     @Override
     protected View onCreateDialogView() {
-        dp = new DatePicker(this.getContext());
+        dp = new DatePicker(getContext());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             dp.setCalendarViewShown(true);
             dp.setSpinnersShown(false);
@@ -107,8 +107,8 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
     public void setValue(final long time) {
         v.setTimeInMillis(time);
         if (!this.sh) {
-            setSummary(this.getContext().getString(R.string.value) + ": "
-                    + DateFormat.getDateFormat(this.getContext()).format(this.v.getTime()));
+            setSummary(getContext().getString(R.string.value) + ": "
+                    + DateFormat.getDateFormat(getContext()).format(v.getTime()));
         }
         updateDialog();
     }
@@ -128,31 +128,31 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
 
     /** Update {@link DatePicker}. */
     private void updateDialog() {
-        if (this.dp == null) {
+        if (dp == null) {
             return;
         }
         try {
-            dp.updateDate(this.v.get(Calendar.YEAR), v.get(Calendar.MONTH),
+            dp.updateDate(v.get(Calendar.YEAR), v.get(Calendar.MONTH),
                     v.get(Calendar.DAY_OF_MONTH));
         } catch (ArrayIndexOutOfBoundsException e) {
             Log.e(TAG, "date array out of bound", e);
             v.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
-            setValue(this.v);
+            setValue(v);
         }
     }
 
     @Override
     protected void onDialogClosed(final boolean positiveResult) {
         if (positiveResult) {
-            v.set(this.dp.getYear(), dp.getMonth(), dp.getDayOfMonth());
-            cv.put(this.getKey(), v.getTimeInMillis());
-            if (this.ul != null) {
+            v.set(dp.getYear(), dp.getMonth(), dp.getDayOfMonth());
+            cv.put(getKey(), v.getTimeInMillis());
+            if (ul != null) {
                 ul.onUpdateValue(this);
             }
-            if (this.dt) {
-                TimePickerDialog tpd = new TimePickerDialog(this.getContext(), this,
+            if (dt) {
+                TimePickerDialog tpd = new TimePickerDialog(getContext(), this,
                         v.get(Calendar.HOUR_OF_DAY), v.get(Calendar.MINUTE), true);
-                tpd.setTitle(this.getTitle());
+                tpd.setTitle(getTitle());
                 tpd.setCancelable(true);
                 tpd.show();
             }
@@ -163,8 +163,8 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
     public void onTimeSet(final TimePicker view, final int hourOfDay, final int minute) {
         v.set(Calendar.HOUR_OF_DAY, hourOfDay);
         v.set(Calendar.MINUTE, minute);
-        cv.put(this.getKey(), v.getTimeInMillis());
-        if (this.ul != null) {
+        cv.put(getKey(), v.getTimeInMillis());
+        if (ul != null) {
             ul.onUpdateValue(this);
         }
     }

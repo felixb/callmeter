@@ -9,7 +9,7 @@ CallMeter3G/gradle.properties
 .idea
 .gradle
 gradlew*
-cm3.iml
+*.iml
 gradle
 build
 release.ks

@@ -18,7 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui;
 
-import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
@@ -46,10 +45,11 @@ import java.util.Date;
 
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.TrackingUtils;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -57,11 +57,11 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class AddLogActivity extends SherlockActivity implements OnClickListener,
+public final class AddLogActivity extends TrackingSherlockActivity implements OnClickListener,
         OnDateSetListener, OnTimeSetListener {
 
     /** Tag for output. */
-    private static final String TAG = "addlog";
+    private static final String TAG = "AddLogActivity";
 
     /** {@link Spinner}s. */
     private Spinner spType, spDirection;
@@ -81,7 +81,7 @@ public final class AddLogActivity extends SherlockActivity implements OnClickLis
         Utils.setLocale(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logs_add);
-        CallMeter.fixActionBarBackground(this.getSupportActionBar(), getResources(),
+        CallMeter.fixActionBarBackground(getSupportActionBar(), getResources(),
                 R.drawable.bg_striped, R.drawable.bg_striped_split);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -158,12 +158,14 @@ public final class AddLogActivity extends SherlockActivity implements OnClickLis
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                TrackingUtils.sendMenu(this, "home");
                 finish();
                 return true;
             case R.id.item_add:
+                TrackingUtils.sendMenu(this, "item_add");
                 final int t = spType.getSelectedItemPosition();
                 final int d = spDirection.getSelectedItemPosition();
-                long l = Utils.parseLong(this.etLength.getText().toString(), 0L);
+                long l = Utils.parseLong(etLength.getText().toString(), 0L);
                 final String r = etRemote.getText().toString();
                 final boolean roamed = cbRoamed.isChecked();
                 final ContentValues cv = new ContentValues();
@@ -202,8 +204,10 @@ public final class AddLogActivity extends SherlockActivity implements OnClickLis
                 if (!this.isFinishing()) {
                     finish();
                 }
+                TrackingUtils.sendEvent(this, "data", "logs", "add", (long) t);
                 return true;
             case R.id.item_cancel:
+                TrackingUtils.sendMenu(this, "item_cancel");
                 if (!this.isFinishing()) {
                     finish();
                 }

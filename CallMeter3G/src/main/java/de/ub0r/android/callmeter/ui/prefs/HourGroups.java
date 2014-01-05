@@ -34,6 +34,7 @@ import android.preference.PreferenceScreen;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
+import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -41,7 +42,7 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class HourGroups extends SherlockPreferenceActivity implements
+public final class HourGroups extends TrackingSherlockPreferenceActivity implements
         OnPreferenceClickListener {
 
     @SuppressWarnings("deprecation")

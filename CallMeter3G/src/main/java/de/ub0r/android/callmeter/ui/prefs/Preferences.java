@@ -18,8 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-
 import org.apache.http.HttpStatus;
 
 import android.app.AlertDialog;
@@ -63,26 +61,30 @@ import java.util.Locale;
 
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.TrackingUtils;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.DataProvider.XmlMetaData;
 import de.ub0r.android.callmeter.data.Device;
 import de.ub0r.android.callmeter.data.ExportProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
+import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.callmeter.ui.Common;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.Market;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
+import de.ub0r.android.logg0r.LogCollector;
 
 /**
  * Preferences.
  *
  * @author flx
  */
-public final class Preferences extends SherlockPreferenceActivity implements
+public final class Preferences extends TrackingSherlockPreferenceActivity implements
         OnPreferenceClickListener {
 
     /** Tag for output. */
-    private static final String TAG = "prefs";
+    private static final String TAG = "Preferences";
 
     /** Standard buffer size. */
     public static final int BUFSIZE = 1024;
@@ -206,9 +208,12 @@ public final class Preferences extends SherlockPreferenceActivity implements
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_THEME, THEME_LIGHT);
         if (s != null && THEME_BLACK.equals(s)) {
+            TrackingUtils.setDimension(context, 1, "dark");
             return R.style.Theme_SherlockCallMeter;
+        } else {
+            TrackingUtils.setDimension(context, 1, "light");
+            return R.style.Theme_SherlockCallMeter_Light;
         }
-        return R.style.Theme_SherlockCallMeter_Light;
     }
 
     /**
@@ -220,7 +225,9 @@ public final class Preferences extends SherlockPreferenceActivity implements
     public static int getTextsize(final Context context) {
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE, null);
-        return Utils.parseInt(s, 0);
+        int size = Utils.parseInt(s, 0);
+        TrackingUtils.setDimension(context, 3, size);
+        return size;
     }
 
     /**
@@ -232,7 +239,9 @@ public final class Preferences extends SherlockPreferenceActivity implements
     public static int getTextsizeBigTitle(final Context context) {
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE_BIGTITLE, null);
-        return Utils.parseInt(s, 0);
+        int size = Utils.parseInt(s, 0);
+        TrackingUtils.setDimension(context, 4, size);
+        return size;
     }
 
     /**
@@ -244,7 +253,9 @@ public final class Preferences extends SherlockPreferenceActivity implements
     public static int getTextsizeTitle(final Context context) {
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE_TITLE, null);
-        return Utils.parseInt(s, 0);
+        int size = Utils.parseInt(s, 0);
+        TrackingUtils.setDimension(context, 5, size);
+        return size;
     }
 
     /**
@@ -256,7 +267,9 @@ public final class Preferences extends SherlockPreferenceActivity implements
     public static int getTextsizeSpacer(final Context context) {
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE_SPACER, null);
-        return Utils.parseInt(s, 0);
+        int size = Utils.parseInt(s, 0);
+        TrackingUtils.setDimension(context, 6, size);
+        return size;
     }
 
     /**
@@ -268,7 +281,9 @@ public final class Preferences extends SherlockPreferenceActivity implements
     public static int getTextsizeProgressBar(final Context context) {
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE_PBAR, null);
-        return Utils.parseInt(s, 0);
+        int size = Utils.parseInt(s, 0);
+        TrackingUtils.setDimension(context, 7, size);
+        return size;
     }
 
     /**
@@ -280,7 +295,9 @@ public final class Preferences extends SherlockPreferenceActivity implements
     public static int getTextsizeProgressBarBP(final Context context) {
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE_PBARBP, null);
-        return Utils.parseInt(s, 0);
+        int size = Utils.parseInt(s, 0);
+        TrackingUtils.setDimension(context, 8, size);
+        return size;
     }
 
     /**
@@ -333,15 +350,15 @@ public final class Preferences extends SherlockPreferenceActivity implements
             }
             return "%." + defaultCurrencyDigits + "f" + getCurrencySymbol(context);
         } else {
-            Log.d(TAG, "custom currency format: " + pcs);
+            Log.d(TAG, "custom currency format: ", pcs);
             String c = getCurrencySymbol(context);
-            Log.d(TAG, "custom currency symbol: " + c);
+            Log.d(TAG, "custom currency symbol: ", c);
             if (c.equals("$")) {
                 c = "\\$";
-                Log.d(TAG, "custom currency symbol: " + c);
+                Log.d(TAG, "custom currency symbol: ", c);
             } else if (c.equals("%")) {
                 c = "%%";
-                Log.d(TAG, "custom currency symbol: " + c);
+                Log.d(TAG, "custom currency symbol: ", c);
             }
             String ret = "$%.2f";
             try {
@@ -349,7 +366,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
             } catch (ArrayIndexOutOfBoundsException e) {
                 Log.e(TAG, "could not parse currency format", e);
             }
-            Log.d(TAG, "custom currency format: " + ret);
+            Log.d(TAG, "custom currency format: ", ret);
             return ret;
         }
     }
@@ -399,6 +416,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
             getContentResolver().delete(DataProvider.Logs.CONTENT_URI,
                     DataProvider.Logs.TYPE + " = " + type, null);
         }
+        RuleMatcher.resetAlert(this);
     }
 
     /**
@@ -412,6 +430,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
         builder.setPositiveButton(android.R.string.yes, new OnClickListener() {
             @Override
             public void onClick(final DialogInterface dialog, final int which) {
+                TrackingUtils.sendClick(this, "reset_data#yes", null);
                 Preferences.this.resetData(DataProvider.TYPE_CALL);
                 Preferences.this.resetData(DataProvider.TYPE_SMS);
                 Preferences.this.resetData(DataProvider.TYPE_MMS);
@@ -420,6 +439,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
         builder.setNeutralButton(R.string.reset_data_data_, new OnClickListener() {
             @Override
             public void onClick(final DialogInterface dialog, final int which) {
+                TrackingUtils.sendClick(this, "reset_data#yes+data", null);
                 Preferences.this.resetData(-1);
             }
         });
@@ -449,7 +469,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
         if (p != null) {
             p.setOnPreferenceClickListener(this);
         }
-        onNewIntent(this.getIntent());
+        onNewIntent(getIntent());
     }
 
     /**
@@ -471,10 +491,13 @@ public final class Preferences extends SherlockPreferenceActivity implements
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
         boolean enabled = !overrideNo && p.getBoolean(PREFS_ISDEFAULT, false);
         Preference pr = findPreference("simple_settings");
+        assert pr != null;
         if (enabled) {
+            TrackingUtils.setDimension(this, 2, "1");
             pr.setOnPreferenceClickListener(null);
             pr.setSummary(R.string.simple_preferences_hint);
         } else {
+            TrackingUtils.setDimension(this, 2, "0");
             pr.setOnPreferenceClickListener(new OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(final Preference preference) {
@@ -498,6 +521,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
      */
     private InputStream getStream(final ContentResolver cr, final Uri uri) throws IOException {
         String scheme = uri.getScheme();
+        assert scheme != null;
         if (uri.toString().equals("content://default")) {
             return IS_DEFAULT;
         } else if (scheme.equals("content") || scheme.equals("file")) {
@@ -529,10 +553,10 @@ public final class Preferences extends SherlockPreferenceActivity implements
      * @param uri     {@link Uri}
      */
     private void importData(final Context context, final Uri uri) {
-        Log.d(TAG, "importData(ctx, " + uri + ")");
+        Log.d(TAG, "importData(ctx, ", uri, ")");
         final ProgressDialog d1 = new ProgressDialog(this);
         d1.setCancelable(true);
-        d1.setMessage(this.getString(R.string.import_progr));
+        d1.setMessage(getString(R.string.import_progr));
         d1.setIndeterminate(true);
         d1.show();
 
@@ -548,7 +572,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
                                 BUFSIZE);
                         String line = r.readLine();
                         while (line != null) {
-                            // Log.d(TAG, "read new line: " + line);
+                            // Log.d(TAG, "read new line: ", line);
                             sb.append(line);
                             sb.append("\n");
                             line = r.readLine();
@@ -568,7 +592,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
             @SuppressWarnings("deprecation")
             @Override
             protected void onPostExecute(final String result) {
-                Log.d(TAG, "import:\n" + result);
+                Log.d(TAG, "import:\n", result);
                 try {
                     d1.dismiss();
                 } catch (Exception e) { // ignore any exception
@@ -674,6 +698,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
             EditText et0, et1, et2;
             if (fn.equals(ExportProvider.EXPORT_RULESET_FILE)) {
                 View v = LayoutInflater.from(context).inflate(R.layout.dialog_export, null);
+                assert v != null;
                 builder.setView(v);
                 et0 = (EditText) v.findViewById(R.id.country);
                 if (!TextUtils.isEmpty(country)) {
@@ -731,7 +756,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
 
                 @Override
                 protected void onPostExecute(final String result) {
-                    Log.d(TAG, "export:\n" + result);
+                    Log.d(TAG, "export:\n", result);
                     System.out.println("\n" + result);
                     d.dismiss();
                     if (result != null && result.length() > 0) {
@@ -865,7 +890,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
 
             @Override
             protected void onPostExecute(final String result) {
-                Log.d(TAG, "csv.task.onPostExecute(" + result + ")");
+                Log.d(TAG, "csv.task.onPostExecute(", result, ")");
                 d.dismiss();
                 if (TextUtils.isEmpty(result)) {
                     Log.e(TAG, "error writing export file: " + result);
@@ -886,13 +911,15 @@ public final class Preferences extends SherlockPreferenceActivity implements
     protected void onNewIntent(final Intent intent) {
         final Uri uri = intent.getData();
         String a = intent.getAction();
-        Log.d(TAG, "new intent: " + a);
-        Log.d(TAG, "intent: " + uri);
+        Log.d(TAG, "new intent: ", a);
+        Log.d(TAG, "intent: ", uri);
         if (ACTION_EXPORT_CSV.equals(a)) {
             Log.d(TAG, "export csv");
+            TrackingUtils.sendEvent(this, "data", "export", "csv", null);
             exportLogsCsv(this);
         } else if (uri != null) {
-            Log.d(TAG, "importing: " + uri.toString());
+            Log.d(TAG, "importing: ", uri.toString());
+            TrackingUtils.sendEvent(this, "data", "import", uri.toString(), null);
             importData(this, uri);
         }
     }
@@ -903,10 +930,13 @@ public final class Preferences extends SherlockPreferenceActivity implements
     @Override
     public boolean onPreferenceClick(final Preference preference) {
         final String k = preference.getKey();
+        assert k != null;
         if (k.equals("send_logs")) {
-            Log.collectAndSendLog(Preferences.this, getString(R.string.sendlog_install_),
+            LogCollector.collectAndSendLogs(this, "android@ub0r.de",
+                    getString(R.string.sendlog_install_),
                     getString(R.string.sendlog_install),
-                    getString(R.string.sendlog_run_), getString(R.string.sendlog_run));
+                    getString(R.string.sendlog_run_),
+                    getString(R.string.sendlog_run));
             return true;
         } else if (k.equals("send_devices")) {
             final Intent intent = new Intent(Intent.ACTION_SEND);
@@ -922,6 +952,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
             }
             return true;
         } else if (k.equals("reset_data")) {
+            TrackingUtils.sendClick(this, "reset_data", null);
             resetDataDialog();
             return true;
         }

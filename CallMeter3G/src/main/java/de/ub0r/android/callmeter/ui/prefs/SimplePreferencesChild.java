@@ -18,14 +18,13 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.RuleMatcher;
+import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -33,7 +32,7 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class SimplePreferencesChild extends SherlockPreferenceActivity implements
+public final class SimplePreferencesChild extends TrackingSherlockPreferenceActivity implements
         OnPreferenceChangeListener {
 
     /** Action. */

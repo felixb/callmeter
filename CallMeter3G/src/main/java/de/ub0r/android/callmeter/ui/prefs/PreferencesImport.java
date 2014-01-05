@@ -18,7 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import com.actionbarsherlock.view.Window;
 
 import android.content.Intent;
@@ -33,7 +32,8 @@ import android.widget.Toast;
 import java.io.File;
 
 import de.ub0r.android.callmeter.R;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -41,7 +41,7 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class PreferencesImport extends SherlockPreferenceActivity {
+public final class PreferencesImport extends TrackingSherlockPreferenceActivity {
 
     /**
      * {@link AsyncTask} running through the SD card and adding {@link Preferences} for each file.
@@ -51,7 +51,7 @@ public final class PreferencesImport extends SherlockPreferenceActivity {
     private class FileFinder extends AsyncTask<Void, File, Boolean> {
 
         /** Tag for output. */
-        private static final String TAG = "prefs.ff";
+        private static final String TAG = "PreferencesImport.FileFinder";
 
         @Override
         protected void onPreExecute() {
@@ -123,11 +123,11 @@ public final class PreferencesImport extends SherlockPreferenceActivity {
                         || s.equals("DCIM") || s.equals("Music") || s.equals("TitaniumBackup")
                         || s.equals("openfeint") || s.equals("soundhound") || s.equals("WhatsApp")
                         || s.equals("Pictures") || s.equals("SMSBackupRestore")) {
-                    Log.d(TAG, "skip: " + s);
+                    Log.d(TAG, "skip: ", s);
                     continue;
                 }
                 File f = new File(d.getAbsoluteFile(), s);
-                Log.d(TAG, "try file: " + f.getAbsolutePath());
+                Log.d(TAG, "try file: ", f.getAbsolutePath());
                 if (f.isDirectory()) {
                     if (depth > 0) {
                         ret |= addExport(f, depth - 1);
@@ -153,7 +153,7 @@ public final class PreferencesImport extends SherlockPreferenceActivity {
     @SuppressWarnings("deprecation")
     @Override
     public void onCreate(final Bundle savedInstanceState) {
-        PreferencesImport.this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         super.onCreate(savedInstanceState);
         Utils.setLocale(this);
         addPreferencesFromResource(R.xml.import_from_sd);

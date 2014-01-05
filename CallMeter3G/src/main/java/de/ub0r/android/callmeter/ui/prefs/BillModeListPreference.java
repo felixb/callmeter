@@ -32,12 +32,12 @@ public class BillModeListPreference extends ListPreference {
         if (positiveResult) {
             String v = getValue();
             if (v == null || !v.contains("/")) { // custom bill mode
-                Builder b = new Builder(this.getContext());
-                final EditText et = new EditText(this.getContext());
+                Builder b = new Builder(getContext());
+                final EditText et = new EditText(getContext());
                 et.setText(ov);
                 b.setView(et);
                 b.setCancelable(false);
-                b.setTitle(this.getTitle());
+                b.setTitle(getTitle());
                 b.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(final DialogInterface paramDialogInterface,

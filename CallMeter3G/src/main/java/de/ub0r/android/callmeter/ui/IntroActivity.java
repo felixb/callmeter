@@ -35,7 +35,7 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class IntroActivity extends SherlockActivity implements OnClickListener {
+public final class IntroActivity extends TrackingSherlockActivity implements OnClickListener {
 
     /**
      * {@inheritDoc}
@@ -46,7 +46,7 @@ public final class IntroActivity extends SherlockActivity implements OnClickList
         Utils.setLocale(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro);
-        CallMeter.fixActionBarBackground(this.getSupportActionBar(), getResources(),
+        CallMeter.fixActionBarBackground(getSupportActionBar(), getResources(),
                 R.drawable.bg_striped, R.drawable.bg_striped_split);
         setTitle(R.string.intro_);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -18,8 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -53,11 +51,12 @@ import java.util.Iterator;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.ExportProvider;
 import de.ub0r.android.callmeter.ui.HelpActivity;
+import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.callmeter.widget.LogsAppWidgetConfigure;
 import de.ub0r.android.callmeter.widget.LogsAppWidgetProvider;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetConfigure;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -65,10 +64,10 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class PreferencesPlain extends SherlockPreferenceActivity implements
+public final class PreferencesPlain extends TrackingSherlockPreferenceActivity implements
         OnPreferenceClickListener, OnPreferenceChangeListener {
 
-    private static final String TAG = "PrefPlain";
+    private static final String TAG = "PreferencesPlain";
 
     /** Action. */
     private static final String APPERANCE = "APPERANCE";
@@ -262,7 +261,7 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
                     }
                     added = true;
                     p = new Preference(this);
-                    p.setTitle(this.getString(R.string.widget_) + " #" + id);
+                    p.setTitle(getString(R.string.widget_) + " #" + id);
                     final int fid = id;
                     p.setOnPreferenceClickListener(new OnPreferenceClickListener() {
                         @Override
@@ -286,7 +285,7 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
                     }
                     added = true;
                     p = new Preference(this);
-                    p.setTitle(this.getString(R.string.widget_) + " #" + id);
+                    p.setTitle(getString(R.string.widget_) + " #" + id);
                     final int fid = id;
                     p.setOnPreferenceClickListener(new OnPreferenceClickListener() {
                         @Override

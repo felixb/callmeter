@@ -29,7 +29,7 @@ public class UpDownPreference extends Preference implements OnClickListener {
     protected void onBindView(final View view) {
         super.onBindView(view);
         view.setOnClickListener(this);
-        if (this.mCallback != null) {
+        if (mCallback != null) {
             view.findViewById(R.id.button_up).setOnClickListener(this);
             view.findViewById(R.id.button_down).setOnClickListener(this);
         }
@@ -45,7 +45,7 @@ public class UpDownPreference extends Preference implements OnClickListener {
                 mCallback.onUpDownClick(this, 1);
                 return;
             default:
-                if (this.getOnPreferenceClickListener() != null) {
+                if (getOnPreferenceClickListener() != null) {
                     getOnPreferenceClickListener().onPreferenceClick(this);
                 }
                 return;

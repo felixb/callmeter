@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.ub0r.android.callmeter.R;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Representation of a device.
@@ -40,7 +40,7 @@ import de.ub0r.android.lib.Log;
 public abstract class Device {
 
     /** Tag for output. */
-    private static final String TAG = "device";
+    private static final String TAG = "Device";
 
     /** Size of read buffer. */
     private static final int BUFSIZE = 8;
@@ -54,9 +54,9 @@ public abstract class Device {
      * @return single instance
      */
     public static synchronized Device getDevice() {
-        Log.d(TAG, "Device: " + Build.DEVICE);
+        Log.d(TAG, "Device: ", Build.DEVICE);
         if (instance == null) {
-            Log.d(TAG, "Device: " + Build.DEVICE);
+            Log.d(TAG, "Device: ", Build.DEVICE);
             if (Build.PRODUCT.equals("sdk")) {
                 instance = new EmulatorDevice();
             } else {
@@ -200,13 +200,13 @@ public abstract class Device {
      * @return device's interfaces
      */
     public final synchronized String[] getInterfaces() {
-        if (this.mInterfaces == null) {
+        if (mInterfaces == null) {
             List<String> tmp = new ArrayList<String>();
-            if (this.getCell() != null) {
-                tmp.add(this.getCell());
+            if (getCell() != null) {
+                tmp.add(getCell());
             }
-            if (this.getWiFi() != null) {
-                tmp.add(this.getWiFi());
+            if (getWiFi() != null) {
+                tmp.add(getWiFi());
             }
             mInterfaces = tmp.toArray(new String[tmp.size()]);
         }
@@ -232,7 +232,7 @@ final class EmulatorDevice extends Device {
      */
     @Override
     protected String getCell() {
-        Log.d(TAG, "Cell interface: " + mCell);
+        Log.d(TAG, "Cell interface: ", mCell);
         return mCell;
     }
 
@@ -241,7 +241,7 @@ final class EmulatorDevice extends Device {
      */
     @Override
     protected String getWiFi() {
-        Log.d(TAG, "WiFi interface: " + mCell);
+        Log.d(TAG, "WiFi interface: ", mCell);
         return mWiFi;
     }
 
@@ -312,7 +312,7 @@ final class DebugDevice extends Device {
      */
     @Override
     protected String getCell() {
-        Log.d(TAG, "Cell interface: " + mCell);
+        Log.d(TAG, "Cell interface: ", mCell);
         return mCell;
     }
 
@@ -321,7 +321,7 @@ final class DebugDevice extends Device {
      */
     @Override
     protected String getWiFi() {
-        Log.d(TAG, "WiFi interface: " + mCell);
+        Log.d(TAG, "WiFi interface: ", mCell);
         return mWiFi;
     }
 

@@ -33,7 +33,7 @@ import android.widget.LinearLayout;
 
 import java.util.Set;
 
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Class managing ads.
@@ -43,7 +43,7 @@ import de.ub0r.android.lib.Log;
 public final class Ads {
 
     /** Tag for output. */
-    private static final String TAG = "ads";
+    private static final String TAG = "Ads";
 
     /** Size of an large ad. */
     // private final static int AD_HSIZE = 728;
@@ -65,14 +65,14 @@ public final class Ads {
      */
     public static void loadAd(final Activity activity, final int adBase, final String unitId,
             final Set<String> keywords) {
-        Log.d(TAG, "loadAd(" + unitId + ")");
+        Log.d(TAG, "loadAd(", unitId, ")");
 
         final LinearLayout adframe = (LinearLayout) activity.findViewById(adBase);
         if (adframe == null) {
             Log.e(TAG, "adframe=null");
             return;
         } else if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.FROYO) {
-            Log.d(TAG, "API " + Build.VERSION.SDK_INT + " <= FROYO");
+            Log.d(TAG, "API ", Build.VERSION.SDK_INT, " <= FROYO");
             WebViewDatabase webViewDB = WebViewDatabase.getInstance(activity);
             if (webViewDB == null) {
                 Log.e(TAG, "webViewDB == null");
@@ -97,7 +97,7 @@ public final class Ads {
         adv.setAdListener(new AdListener() {
             @Override
             public void onReceiveAd(final Ad ad) {
-                Log.d(TAG, "got ad: " + ad.toString());
+                Log.d(TAG, "got ad: ", ad.toString());
                 adframe.setVisibility(View.VISIBLE);
             }
 

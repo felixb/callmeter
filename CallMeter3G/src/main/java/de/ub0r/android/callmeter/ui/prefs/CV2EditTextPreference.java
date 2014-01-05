@@ -98,13 +98,13 @@ public final class CV2EditTextPreference extends EditTextPreference {
      */
     public void setText(final String text1, final String text2) {
         if (TextUtils.isEmpty(text1)) {
-            super.setText(this.dv1);
+            super.setText(dv1);
         } else {
             super.setText(text1);
         }
-        if (this.sm) {
+        if (sm) {
             if (!this.sh) {
-                setSummary(this.getContext().getString(R.string.value) + " " + getText());
+                setSummary(getContext().getString(R.string.value) + " " + getText());
             }
         } else {
             if (TextUtils.isEmpty(text2)) {
@@ -113,16 +113,16 @@ public final class CV2EditTextPreference extends EditTextPreference {
                 v2 = text2;
             }
 
-            if (this.et1 != null) {
-                et1.setText(this.getText());
-                et2.setText(this.v2);
+            if (et1 != null) {
+                et1.setText(getText());
+                et2.setText(v2);
             }
             if (!this.sh) {
-                if (TextUtils.isEmpty(this.v2) || v2.equals(this.getText())) {
-                    setSummary(this.getContext().getString(R.string.value) + ": "
+                if (TextUtils.isEmpty(v2) || v2.equals(getText())) {
+                    setSummary(getContext().getString(R.string.value) + ": "
                             + getText());
                 } else {
-                    setSummary(this.getContext().getString(R.string.value) + ": "
+                    setSummary(getContext().getString(R.string.value) + ": "
                             + getText() + "/" + v2);
                 }
             }
@@ -135,9 +135,9 @@ public final class CV2EditTextPreference extends EditTextPreference {
      * @param resid resource id
      */
     public void setHint(final int resid) {
-        if (this.sm) {
+        if (sm) {
             getEditText().setHint(resid);
-        } else if (this.et1 != null) {
+        } else if (et1 != null) {
             et1.setHint(resid);
             et2.setHint(resid);
         }
@@ -150,9 +150,9 @@ public final class CV2EditTextPreference extends EditTextPreference {
      * @param inputType input type
      */
     public void setInputType(final int inputType) {
-        if (this.sm) {
+        if (sm) {
             getEditText().setInputType(inputType);
-        } else if (this.et1 != null) {
+        } else if (et1 != null) {
             et1.setInputType(inputType);
             et2.setInputType(inputType);
         }
@@ -171,21 +171,21 @@ public final class CV2EditTextPreference extends EditTextPreference {
 
     @Override
     protected View onCreateDialogView() {
-        if (this.sm) {
+        if (sm) {
             return super.onCreateDialogView();
         } else {
-            View v = LayoutInflater.from(this.getContext()).inflate(R.layout.doubleedit, null);
+            View v = LayoutInflater.from(getContext()).inflate(R.layout.doubleedit, null);
             et1 = (EditText) v.findViewById(android.R.id.text1);
             et2 = (EditText) v.findViewById(android.R.id.text2);
-            et1.setText(this.getText());
-            et2.setText(this.v2);
-            if (this.it != -1) {
-                et1.setInputType(this.it);
-                et2.setInputType(this.it);
+            et1.setText(getText());
+            et2.setText(v2);
+            if (it != -1) {
+                et1.setInputType(it);
+                et2.setInputType(it);
             }
-            if (this.h != -1) {
-                et1.setHint(this.h);
-                et2.setHint(this.h);
+            if (h != -1) {
+                et1.setHint(h);
+                et2.setHint(h);
             }
             return v;
         }
@@ -193,20 +193,20 @@ public final class CV2EditTextPreference extends EditTextPreference {
 
     @Override
     protected void onDialogClosed(final boolean positiveResult) {
-        if (this.sm) {
+        if (sm) {
             super.onDialogClosed(positiveResult);
         }
         if (positiveResult) {
-            if (this.sm || et1 == null) {
+            if (sm || et1 == null) {
                 String v = getText();
-                cv.put(this.getKey(), v);
-                cv.put(this.k2, v);
+                cv.put(getKey(), v);
+                cv.put(k2, v);
             } else {
-                setText(this.et1.getText().toString(), et2.getText().toString());
-                cv.put(this.getKey(), getText());
-                cv.put(this.k2, v2);
+                setText(et1.getText().toString(), et2.getText().toString());
+                cv.put(getKey(), getText());
+                cv.put(k2, v2);
             }
-            if (this.ul != null) {
+            if (ul != null) {
                 ul.onUpdateValue(this);
             }
         }

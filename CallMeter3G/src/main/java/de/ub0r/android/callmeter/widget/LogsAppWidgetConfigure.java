@@ -18,7 +18,6 @@
  */
 package de.ub0r.android.callmeter.widget;
 
-import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
@@ -44,7 +43,8 @@ import android.widget.TextView;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.callmeter.ui.TrackingSherlockActivity;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 import yuku.ambilwarna.AmbilWarnaDialog;
 import yuku.ambilwarna.AmbilWarnaDialog.OnAmbilWarnaListener;
@@ -54,7 +54,8 @@ import yuku.ambilwarna.AmbilWarnaDialog.OnAmbilWarnaListener;
  *
  * @author flx
  */
-public final class LogsAppWidgetConfigure extends SherlockActivity implements OnClickListener,
+public final class LogsAppWidgetConfigure extends TrackingSherlockActivity
+        implements OnClickListener,
         OnCheckedChangeListener, OnSeekBarChangeListener {
 
     /** Tag for logging. */
@@ -179,10 +180,10 @@ public final class LogsAppWidgetConfigure extends SherlockActivity implements On
                 editor.putBoolean(LogsAppWidgetProvider.WIDGET_SMALL + mAppWidgetId,
                         cbSmallWidget.isChecked());
                 editor.putFloat(LogsAppWidgetProvider.WIDGET_STATS_TEXTSIZE + mAppWidgetId,
-                        Utils.parseFloat(this.etStatsTextSize.getText().toString(),
+                        Utils.parseFloat(etStatsTextSize.getText().toString(),
                                 DEFAULT_TEXTSIZE));
                 editor.putFloat(LogsAppWidgetProvider.WIDGET_PLAN_TEXTSIZE + mAppWidgetId,
-                        Utils.parseFloat(this.etPlanTextSize.getText().toString(),
+                        Utils.parseFloat(etPlanTextSize.getText().toString(),
                                 DEFAULT_TEXTSIZE));
                 editor.putInt(LogsAppWidgetProvider.WIDGET_TEXTCOLOR + mAppWidgetId,
                         getTextColor());
@@ -260,15 +261,15 @@ public final class LogsAppWidgetConfigure extends SherlockActivity implements On
     @Override
     public void onProgressChanged(final SeekBar seekBar, final int progress,
             final boolean fromUser) {
-        Log.d(TAG, "onProgressChanged(" + progress + ")");
+        Log.d(TAG, "onProgressChanged(", progress, ")");
         final int tp = 255 - progress;
         int c = getBgColor();
-        Log.d(TAG, "color: " + c);
+        Log.d(TAG, "color: ", c);
         c = c & BITMASK_COLOR;
-        Log.d(TAG, "color: " + c);
+        Log.d(TAG, "color: ", c);
         Log.i(TAG, "transparency: " + Integer.toHexString(tp << BITSHIFT_TRANSPARENCY));
         c = c | tp << BITSHIFT_TRANSPARENCY;
-        Log.d(TAG, "color: " + c);
+        Log.d(TAG, "color: ", c);
         setBgColor(c, true);
     }
 
@@ -332,7 +333,7 @@ public final class LogsAppWidgetConfigure extends SherlockActivity implements On
      */
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        if (this.isExistingWidget) {
+        if (isExistingWidget) {
             getSupportMenuInflater().inflate(R.menu.menu_widget, menu);
             return true;
         } else {
@@ -359,7 +360,7 @@ public final class LogsAppWidgetConfigure extends SherlockActivity implements On
      * @return color
      */
     private int getBgColor() {
-        return Long.decode(this.btnBgColor.getText().toString()).intValue();
+        return Long.decode(btnBgColor.getText().toString()).intValue();
     }
 
     /**
@@ -369,16 +370,16 @@ public final class LogsAppWidgetConfigure extends SherlockActivity implements On
      * @param fromProgressBar true, if setColor is called from onProgessChanged()
      */
     private void setBgColor(final int color, final boolean fromProgressBar) {
-        Log.d(TAG, "setBgColor(" + color + ", " + fromProgressBar + ")");
+        Log.d(TAG, "setBgColor(", color, ", ", fromProgressBar, ")");
         String hex = AmbilWarnaDialog.colorToString(color);
         btnBgColor.setText(hex);
         vBgColor.setBackgroundColor(color);
         if (!fromProgressBar) {
             int trans = color >> BITSHIFT_TRANSPARENCY;
-            Log.d(TAG, "transparency: " + trans);
+            Log.d(TAG, "transparency: ", trans);
             if (trans < 0) {
                 trans = 256 + trans;
-                Log.d(TAG, "transparency: " + trans);
+                Log.d(TAG, "transparency: ", trans);
             }
             sbBgTransparency.setProgress(255 - trans);
         }
@@ -390,7 +391,7 @@ public final class LogsAppWidgetConfigure extends SherlockActivity implements On
      * @return color
      */
     private int getTextColor() {
-        return Long.decode(this.btnTextColor.getText().toString()).intValue();
+        return Long.decode(btnTextColor.getText().toString()).intValue();
     }
 
     /**
@@ -399,12 +400,12 @@ public final class LogsAppWidgetConfigure extends SherlockActivity implements On
      * @param color color to set
      */
     private void setTextColor(final int color) {
-        Log.d(TAG, "setTextColor(" + color + ")");
+        Log.d(TAG, "setTextColor(", color, ")");
         String hex = AmbilWarnaDialog.colorToString(color);
-        Log.d(TAG, "color: " + hex);
+        Log.d(TAG, "color: ", hex);
         while (hex.length() < 9) {
             hex = "#0" + hex.substring(1);
-            Log.d(TAG, "color: " + hex);
+            Log.d(TAG, "color: ", hex);
         }
         btnTextColor.setText(hex);
         vTextColor.setBackgroundColor(color);

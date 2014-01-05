@@ -40,6 +40,7 @@ import android.widget.RemoteViews;
 import java.util.Date;
 
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.TrackingUtils;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.data.NameCache;
@@ -47,7 +48,7 @@ import de.ub0r.android.callmeter.data.NameLoader;
 import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -105,7 +106,9 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
         final int count = appWidgetIds.length;
         for (int i = 0; i < count; i++) {
             int id = appWidgetIds[i];
-            Log.d(TAG, "delete widget: " + id);
+            Log.d(TAG, "delete widget: ", id);
+            TrackingUtils
+                    .sendEvent(context, "widget", "delete", this.getClass().getName(), (long) id);
             e.remove(WIDGET_PLANID + id);
         }
 
@@ -126,7 +129,7 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
 
         for (int i = 0; i < count; i++) {
             int id = appWidgetIds[i];
-            Log.d(TAG, "update widget: " + id);
+            Log.d(TAG, "update widget: ", id);
             if (p.getLong(WIDGET_PLANID + id, -1) <= 0) {
                 Log.w(TAG, "skip stale widget: " + id);
             } else {
@@ -157,7 +160,9 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
      */
     static void updateWidget(final Context context, final AppWidgetManager appWidgetManager,
             final int appWidgetId) {
-        Log.d(TAG, "updateWidget(" + appWidgetId + ")");
+        Log.d(TAG, "updateWidget(", appWidgetId, ")");
+        TrackingUtils.sendEvent(context, "widget", "update", LogsAppWidgetProvider.class.getName(),
+                (long) appWidgetId);
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final boolean showHours = p.getBoolean(Preferences.PREFS_SHOWHOURS, true);
         final String cformat = Preferences.getCurrencyFormat(context);
@@ -173,7 +178,7 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
                 StatsAppWidgetConfigure.DEFAULT_TEXTCOLOR);
         final int bgColor = p.getInt(WIDGET_BGCOLOR + appWidgetId,
                 StatsAppWidgetConfigure.DEFAULT_BGCOLOR);
-        Log.d(TAG, "planid: " + pid);
+        Log.d(TAG, "planid: ", pid);
         int widgetLayout = R.layout.stats_appwidget;
         if (smallWidget) {
             widgetLayout = R.layout.stats_appwidget_small;

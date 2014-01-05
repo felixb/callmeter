@@ -6,18 +6,19 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AbsoluteLayout;
 import android.widget.EditText;
 import android.widget.ImageView;
+
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.logg0r.Log;
 
 @SuppressWarnings("deprecation")
 public class AmbilWarnaDialog implements TextWatcher {
-	private static final String TAG = AmbilWarnaDialog.class.getSimpleName();
+	private static final String TAG = "AmbilWarnaDialog";
 
 	public interface OnAmbilWarnaListener {
 		void onReset(AmbilWarnaDialog dialog);
@@ -58,8 +59,8 @@ public class AmbilWarnaDialog implements TextWatcher {
 
 		this.satudp = context.getResources().getDimension(R.dimen.ambilwarna_satudp);
 		this.ukuranUiPx = this.ukuranUiDp * this.satudp;
-		Log.d(TAG, "satudp = " + this.satudp);
-		Log.d(TAG, "ukuranUiPx=" + this.ukuranUiPx);
+		Log.d(TAG, "satudp = ", this.satudp);
+		Log.d(TAG, "ukuranUiPx=", this.ukuranUiPx);
 
 		View view = LayoutInflater.from(context).inflate(R.layout.ambilwarna_dialog, null);
 		this.viewHue = view.findViewById(R.id.ambilwarna_viewHue);

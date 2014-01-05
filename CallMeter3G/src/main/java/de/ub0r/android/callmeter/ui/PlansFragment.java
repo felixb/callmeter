@@ -59,10 +59,11 @@ import java.util.UnknownFormatConversionException;
 
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
+import de.ub0r.android.callmeter.TrackingUtils;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.ui.prefs.PlanEdit;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Show plans.
@@ -73,7 +74,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
         OnItemLongClickListener, LoaderCallbacks<Cursor> {
 
     /** Tag for output. */
-    private static final String TAG = "plans";
+    private static final String TAG = "PlansFragment";
     /** Run the dummy? */
     private static boolean doDummy = true;
     /** Show today stats. */
@@ -184,7 +185,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
             now = n;
             p = PreferenceManager.getDefaultSharedPreferences(context);
             e = p.edit();
-            if (this.p.getBoolean(Preferences.PREFS_HIDE_PROGRESSBARS, false)) {
+            if (p.getBoolean(Preferences.PREFS_HIDE_PROGRESSBARS, false)) {
                 progressBarVisability = View.GONE;
             } else {
                 progressBarVisability = View.VISIBLE;
@@ -290,13 +291,13 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                 }
             }
 
-            // Log.d(TAG, "plan id: " + plan.id);
-            // Log.d(TAG, "plan name: " + plan.name);
-            // Log.d(TAG, "type: " + plan.type);
-            // Log.d(TAG, "cost: " + cost);
-            // Log.d(TAG, "limit: " + plan.limit);
-            // Log.d(TAG, "limitPos: " + plan.limitPos);
-            // Log.d(TAG, "text: " + spb);
+            // Log.d(TAG, "plan id: ", plan.id);
+            // Log.d(TAG, "plan name: ", plan.name);
+            // Log.d(TAG, "type: ", plan.type);
+            // Log.d(TAG, "cost: ", cost);
+            // Log.d(TAG, "limit: ", plan.limit);
+            // Log.d(TAG, "limitPos: ", plan.limitPos);
+            // Log.d(TAG, "text: ", spb);
 
             TextView tvCache = null;
             ProgressBar pbCache = null;
@@ -373,7 +374,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                     pbCache.setIndeterminate(false);
                     pbCache.setMax((int) plan.limit);
                     pbCache.setProgress((int) plan.limitPos);
-                    pbCache.setVisibility(this.progressBarVisability);
+                    pbCache.setVisibility(progressBarVisability);
                     int pbs = 0;
                     if (plan.type == DataProvider.TYPE_BILLPERIOD) {
                         pbs = textSizePBarBP;
@@ -387,12 +388,12 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                     }
                 } else {
                     pbCache.setIndeterminate(true);
-                    pbCache.setVisibility(this.progressBarVisability);
+                    pbCache.setVisibility(progressBarVisability);
                 }
             }
             if (savePlan && now < 0L && plan.type != DataProvider.TYPE_SPACING
                     && plan.type != DataProvider.TYPE_TITLE) {
-                plan.save(this.e);
+                plan.save(e);
                 isDirty = true;
             }
         }
@@ -401,7 +402,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
          * Save current stats to {@link SharedPreferences}.
          */
         public void save() {
-            if (this.isDirty) {
+            if (isDirty) {
                 Log.d(TAG, "e.commit()");
                 e.commit();
                 isDirty = false;
@@ -495,17 +496,18 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        PlansAdapter adapter = new PlansAdapter(this.getActivity(), now);
+        PlansAdapter adapter = new PlansAdapter(getActivity(), now);
         setListAdapter(adapter);
         getListView().setOnItemLongClickListener(this);
 
         LoaderManager lm = getLoaderManager();
-        if (lm.getLoader(this.uid) != null) {
-            getLoaderManager().initLoader(this.uid, null, this);
+        if (lm.getLoader(uid) != null) {
+            getLoaderManager().initLoader(uid, null, this);
         } else if (doDummy && now < 0L) {
             doDummy = false;
             getLoaderManager().initLoader(UID_DUMMY, null, this);
         }
+        TrackingUtils.sendView(this);
     }
 
     /**
@@ -514,7 +516,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
     @Override
     public void onStop() {
         super.onStop();
-        if (this.now < 0L) {
+        if (now < 0L) {
             doDummy = true;
         }
     }
@@ -525,7 +527,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
      * @param add add number of running tasks
      */
     private synchronized void setInProgress(final int add) {
-        Log.d(TAG, "setInProgress(" + add + ")");
+        Log.d(TAG, "setInProgress(", add, ")");
         if (add == 0) {
             ((Plans) getActivity()).setInProgress(add);
         } else if (add > 0 && !this.inProgress) {
@@ -543,16 +545,16 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
      * @param forceUpdate force update
      */
     public void requery(final boolean forceUpdate) {
-        Log.d(TAG, "requery(" + forceUpdate + ")");
+        Log.d(TAG, "requery(", forceUpdate, ")");
         if (!this.ignoreQuery) {
             LoaderManager lm = getLoaderManager();
-            if (forceUpdate && lm.getLoader(this.uid) != null) {
-                lm.restartLoader(this.uid, null, this);
+            if (forceUpdate && lm.getLoader(uid) != null) {
+                lm.restartLoader(uid, null, this);
             } else {
-                lm.initLoader(this.uid, null, this);
+                lm.initLoader(uid, null, this);
             }
         } else {
-            Log.d(TAG, "requery(" + forceUpdate + "): ignore");
+            Log.d(TAG, "requery(", forceUpdate, "): ignore");
         }
     }
 
@@ -571,13 +573,14 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
     public void onClick(final View v) {
         switch (v.getId()) {
             case R.id.import_default:
+                TrackingUtils.sendLongClick(this, "import_default", null);
                 final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(this
                         .getString(R.string.url_rulesets)));
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
                     Log.e(TAG, "no activity to load url", e);
-                    Toast.makeText(this.getActivity(),
+                    Toast.makeText(getActivity(),
                             "no activity to load url: " + intent.getDataString(), Toast.LENGTH_LONG)
                             .show();
                 }
@@ -593,7 +596,8 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
     @Override
     public boolean onItemLongClick(final AdapterView<?> parent, final View view,
             final int position, final long id) {
-        final Builder builder = new Builder(this.getActivity());
+        TrackingUtils.sendLongClick(this, "plan", id);
+        final Builder builder = new Builder(getActivity());
         builder.setItems(R.array.dialog_edit_plan,
                 new android.content.DialogInterface.OnClickListener() {
                     @Override
@@ -601,6 +605,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                         Intent intent = null;
                         switch (which) {
                             case 0:
+                                TrackingUtils.sendLongClick(this, "plan#edit", id);
                                 intent = new Intent(PlansFragment.this.getActivity(),
                                         PlanEdit.class);
                                 intent.setData(ContentUris.withAppendedId(
@@ -608,6 +613,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                                 PlansFragment.this.getActivity().startActivity(intent);
                                 break;
                             case 1:
+                                TrackingUtils.sendLongClick(this, "plan#showLogs", id);
                                 ((Plans) PlansFragment.this.getActivity()).showLogsFragment(id);
                                 break;
                             default:
@@ -622,7 +628,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 
     @Override
     public Loader<Cursor> onCreateLoader(final int id, final Bundle args) {
-        Log.d(TAG, "onCreateLoader(" + id + "," + args + ")");
+        Log.d(TAG, "onCreateLoader(", id, ",", args, ")");
         setInProgress(1);
         PlansAdapter adapter = (PlansAdapter) getListAdapter();
         if ((adapter == null || adapter.getCount() == 0) && vLoading != null) {
@@ -631,15 +637,15 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
 
         if (id == UID_DUMMY) {
             ignoreQuery = true;
-            final String where = PreferenceManager.getDefaultSharedPreferences(this.getActivity())
+            final String where = PreferenceManager.getDefaultSharedPreferences(getActivity())
                     .getString("dummy_where", null);
-            return new CursorLoader(this.getActivity(), DataProvider.Plans.CONTENT_URI,
+            return new CursorLoader(getActivity(), DataProvider.Plans.CONTENT_URI,
                     DataProvider.Plans.PROJECTION_BASIC, where, null, DataProvider.Plans.ORDER
                     + " ASC");
         } else {
-            return new CursorLoader(this.getActivity(), DataProvider.Plans.CONTENT_URI_SUM
+            return new CursorLoader(getActivity(), DataProvider.Plans.CONTENT_URI_SUM
                     .buildUpon()
-                    .appendQueryParameter(DataProvider.Plans.PARAM_DATE, String.valueOf(this.now))
+                    .appendQueryParameter(DataProvider.Plans.PARAM_DATE, String.valueOf(now))
                     .appendQueryParameter(DataProvider.Plans.PARAM_HIDE_ZERO,
                             String.valueOf(hideZero))
                     .appendQueryParameter(DataProvider.Plans.PARAM_HIDE_NOCOST,
@@ -659,7 +665,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
         PlansAdapter adapter = (PlansAdapter) getListAdapter();
         adapter.save();
         if (data != null && data.getCount() > 0) {
-            if (this.now < 0L && data.getColumnIndex(DataProvider.Plans.SUM_COST) > 0) {
+            if (now < 0L && data.getColumnIndex(DataProvider.Plans.SUM_COST) > 0) {
                 StringBuilder sb = new StringBuilder(DataProvider.Plans.ID + " in (-1");
                 try {
                     if (!data.isClosed() && data.moveToFirst()) {
@@ -668,7 +674,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                         } while (data.moveToNext());
                     }
                     sb.append(")");
-                    PreferenceManager.getDefaultSharedPreferences(this.getActivity()).edit()
+                    PreferenceManager.getDefaultSharedPreferences(getActivity()).edit()
                             .putString("dummy_where", sb.toString()).commit();
                 } catch (IllegalStateException ex) {
                     Log.e(TAG, "could not walk through cursor to save shown plans", ex);

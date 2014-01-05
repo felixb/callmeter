@@ -10,9 +10,49 @@ apply plugin: 'android'
 
 repositories {
     maven {
+        url 'https://github.com/felixb/ub0rlogg0r/raw/mvn-repo/'
+    }
+    maven {
         url 'https://github.com/Goddchen/mvn-repo/raw/master/'
     }
     mavenCentral()
+}
+
+
+def getVersionName = { ->
+    try {
+        def stdout = new ByteArrayOutputStream()
+        exec {
+            commandLine 'git', 'describe', '--tags'
+            standardOutput = stdout
+        }
+        def version = stdout.toString().trim().replaceFirst('^[a-zA-Z][^-]*-', '')
+        logger.info("version: ${version}")
+        return version
+    } catch (ignored) {
+        return null
+    }
+}
+
+def getVersionCode = { minSdk ->
+    def version = getVersionName()
+    def parts = version.split('[\\.]')
+    def l = parts.size()
+    def multi = 100000000
+    def code = minSdk * multi
+
+    for (int i = 0; i < l; i++) {
+        multi /= 100
+        code += parts[i].replaceFirst('-.*', '').toInteger() * multi
+    }
+
+    if (parts[l-1].contains('-')) {
+        code += parts[l-1].split('-')[1].toInteger()
+    }
+
+    def versionCode = code.toInteger()
+    logger.info("versionCode: ${versionCode}")
+    return versionCode
 }
 
 android {
@@ -22,8 +62,8 @@ android {
     defaultConfig {
         minSdkVersion 8
         targetSdkVersion 18
-        versionName "3.10"
-        versionCode 7391002
+        versionName getVersionName()
+        versionCode getVersionCode(minSdkVersion)
     }
 
     signingConfigs {
@@ -39,7 +79,13 @@ android {
 
     buildTypes {
         debug {
-            versionNameSuffix " debug"
+            versionNameSuffix "-debug"
+        }
+
+        logRelease {
+            versionNameSuffix "-logRelease"
+            signingConfig signingConfigs.release
+            runProguard false
         }
 
         release {
@@ -55,4 +101,5 @@ dependencies {
     compile 'com.android.support:support-v4:18.0.+'
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.+@aar'
     compile 'com.actionbarsherlock:viewpagerindicator:2.4.+'
+    compile 'de.ub0r.android.logg0r:logg0r:1.1.+'
 }

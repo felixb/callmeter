@@ -71,7 +71,7 @@ public final class CVBillModePreference extends ListPreference {
     public void setValue(final String value) {
         super.setValue(value);
         if (!this.sh) {
-            setSummary(this.getContext().getText(R.string.value) + ": " + getValue());
+            setSummary(getContext().getText(R.string.value) + ": " + getValue());
         }
     }
 
@@ -92,12 +92,12 @@ public final class CVBillModePreference extends ListPreference {
         if (positiveResult) {
             String v = getValue();
             if (v == null || !v.contains("/")) { // custom bill mode
-                Builder b = new Builder(this.getContext());
-                final EditText et = new EditText(this.getContext());
+                Builder b = new Builder(getContext());
+                final EditText et = new EditText(getContext());
                 et.setText(ov);
                 b.setView(et);
                 b.setCancelable(false);
-                b.setTitle(this.getTitle());
+                b.setTitle(getTitle());
                 b.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(final DialogInterface paramDialogInterface,
@@ -128,8 +128,8 @@ public final class CVBillModePreference extends ListPreference {
                 });
                 b.show();
             } else {
-                cv.put(this.getKey(), v);
-                if (this.ul != null) {
+                cv.put(getKey(), v);
+                if (ul != null) {
                     ul.onUpdateValue(this);
                 }
             }

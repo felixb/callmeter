@@ -18,8 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.SharedPreferences;
@@ -36,7 +34,8 @@ import java.util.Calendar;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -44,10 +43,10 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class PlanEdit extends SherlockPreferenceActivity implements UpdateListener {
+public final class PlanEdit extends TrackingSherlockPreferenceActivity implements UpdateListener {
 
     /** Tag for debug out. */
-    private static final String TAG = "pe";
+    private static final String TAG = "PlanEdit";
 
     /** This rule's {@link Uri}. */
     private Uri uri = null;
@@ -64,7 +63,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
 
         addPreferencesFromResource(R.xml.group_prefs);
         uri = getIntent().getData();
-        pid = (int) ContentUris.parseId(this.uri);
+        pid = (int) ContentUris.parseId(uri);
     }
 
     @Override
@@ -83,7 +82,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
         PreferenceScreen ps = (PreferenceScreen) findPreference("container");
         ps.removeAll();
 
-        Cursor c = getContentResolver().query(this.uri, DataProvider.Plans.PROJECTION, null,
+        Cursor c = getContentResolver().query(uri, DataProvider.Plans.PROJECTION, null,
                 null, null);
         if (c.moveToFirst()) {
             int t;
@@ -100,7 +99,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
             } else {
                 lt = c.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
             }
-            int ppid = DataProvider.Plans.getParent(this.getContentResolver(), pid);
+            int ppid = DataProvider.Plans.getParent(getContentResolver(), pid);
             String merged = c.getString(DataProvider.Plans.INDEX_MERGED_PLANS);
             if (merged != null && merged.replaceAll(",", "").length() == 0) {
                 merged = null;
@@ -197,6 +196,20 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
                 } else {
                     i = c.getInt(DataProvider.Plans.INDEX_BILLPERIOD_ID);
                 }
+                if (i == -1) {
+                    // get first bill period
+                    Cursor cursor = getContentResolver().query(DataProvider.Plans.CONTENT_URI,
+                            new String[]{DataProvider.Plans.ID},
+                            DataProvider.Plans.TYPE + "=" + DataProvider.TYPE_BILLPERIOD, null,
+                            null);
+                    if (cursor != null) {
+                        if (cursor.moveToFirst()) {
+                            i = cursor.getInt(0);
+                            values.put(DataProvider.Plans.BILLPERIOD_ID, i);
+                        }
+                        cursor.close();
+                    }
+                }
                 lp.setValue(String.valueOf(i));
                 ps.addPreference(lp);
                 if (ppid < 0L) {
@@ -225,7 +238,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
                     ep = new CVEditTextPreference(this, values, DataProvider.Plans.LIMIT, "");
                     ep.setTitle(R.string.limit_);
                     ep.setSummary(R.string.limit_help);
-                    ep.setHint(this.getLimitHint(t, lt));
+                    ep.setHint(getLimitHint(t, lt));
                     ep.setText(c.getString(DataProvider.Plans.INDEX_LIMIT));
                     ep.setInputType(InputType.TYPE_CLASS_NUMBER
                             | InputType.TYPE_NUMBER_FLAG_DECIMAL);
@@ -289,7 +302,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
                     ep.setTitle(R.string.cost_per_item_in_limit_);
                     ep.setSummary(R.string.cost_per_item_in_limit_help);
                     ep.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_ITEM_IN_LIMIT));
-                    ep.setHint(this.getCostPerItemHint(t));
+                    ep.setHint(getCostPerItemHint(t));
                     ep.setInputType(InputType.TYPE_CLASS_NUMBER
                             | InputType.TYPE_NUMBER_FLAG_DECIMAL);
                     ps.addPreference(ep);
@@ -304,7 +317,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
                     ep.setSummary(R.string.cost_per_item_help);
                 }
                 ep.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_ITEM));
-                ep.setHint(this.getCostPerItemHint(t));
+                ep.setHint(getCostPerItemHint(t));
                 ep.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
                 ps.addPreference(ep);
             }
@@ -355,7 +368,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
                     } else {
                         ep2.setSummary(R.string.cost_per_amount_in_limit_help1);
                     }
-                    ep2.setHint(this.getCostPerAmountHint(t));
+                    ep2.setHint(getCostPerAmountHint(t));
                     ep2.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT_IN_LIMIT1),
                             c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT_IN_LIMIT2));
                     ep2.setInputType(InputType.TYPE_CLASS_NUMBER
@@ -380,7 +393,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
                         ep2.setSummary(R.string.cost_per_amount_help1);
                     }
                 }
-                ep2.setHint(this.getCostPerAmountHint(t));
+                ep2.setHint(getCostPerAmountHint(t));
                 ep2.setText(c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT1),
                         c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT2));
                 ep2.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
@@ -388,8 +401,8 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
             }
         }
         c.close();
-        if (this.values.size() > 0) {
-            getContentResolver().update(this.uri, values, null, null);
+        if (values.size() > 0) {
+            getContentResolver().update(uri, values, null, null);
             values.clear();
         }
     }
@@ -411,7 +424,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
         }
         where += " AND " + DataProvider.Plans.ID + " != " + pid + " AND "
                 + DataProvider.Plans.MERGED_PLANS + " IS NULL";
-        Log.d(TAG, "selection: " + where);
+        Log.d(TAG, "selection: ", where);
         return where;
     }
 
@@ -485,7 +498,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
     @Override
     public void onUpdateValue(final android.preference.Preference p) {
         int l = values.size();
-        if (this.uri != null && l > 0) {
+        if (uri != null && l > 0) {
             boolean badkey = !this.values.containsKey(DataProvider.Plans.NAME);
             badkey &= !this.values.containsKey(DataProvider.Plans.SHORTNAME);
             boolean needUnmatch = l > 1 || badkey;
@@ -493,7 +506,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
             badkey &= !this.values.containsKey(DataProvider.Plans.COST_PER_ITEM);
             badkey &= !this.values.containsKey(DataProvider.Plans.COST_PER_AMOUNT1);
             boolean nonDefault = l > 1 || badkey;
-            getContentResolver().update(this.uri, values, null, null);
+            getContentResolver().update(uri, values, null, null);
             values.clear();
             if (nonDefault) {
                 Preferences.setDefaultPlan(this, false);

@@ -46,8 +46,8 @@ import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.lib.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Class matching logs via rules to plans.
@@ -57,7 +57,7 @@ import de.ub0r.android.lib.Utils;
 public final class RuleMatcher {
 
     /** Tag for output. */
-    private static final String TAG = "rm";
+    private static final String TAG = "RuleMatcher";
 
     /** Steps for updating the GUI. */
     private static final int PROGRESS_STEPS = 25;
@@ -450,39 +450,39 @@ public final class RuleMatcher {
          */
         boolean match(final ContentResolver cr, final Cursor log) {
             Log.d(TAG, "match()");
-            Log.d(TAG, "what: " + what);
+            Log.d(TAG, "what: ", what);
             final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
-            Log.d(TAG, "type: " + t);
+            Log.d(TAG, "type: ", t);
             boolean ret = false;
 
-            if (this.roamed == 0 || roamed == 1) {
+            if (roamed == 0 || roamed == 1) {
                 // rule.roamed=0: yes
                 // rule.roamed=1: no
                 // log.roamed=0: not roamed
                 // log.roamed=1: roamed
                 ret = log.getInt(DataProvider.Logs.INDEX_ROAMED) != roamed;
-                Log.d(TAG, "ret after romaing: " + ret);
+                Log.d(TAG, "ret after romaing: ", ret);
                 if (!ret) {
                     return false;
                 }
             }
 
-            if (this.direction >= 0 && direction != DataProvider.Rules.NO_MATTER) {
+            if (direction >= 0 && direction != DataProvider.Rules.NO_MATTER) {
                 ret = log.getInt(DataProvider.Logs.INDEX_DIRECTION) == direction;
-                Log.d(TAG, "ret after direction: " + ret);
+                Log.d(TAG, "ret after direction: ", ret);
                 if (!ret) {
                     return false;
                 }
             }
 
-            switch (this.what) {
+            switch (what) {
                 case DataProvider.Rules.WHAT_CALL:
                     ret = (t == DataProvider.TYPE_CALL);
                     if (ret && issipcall != DataProvider.Rules.NO_MATTER) {
                         final long d = log.getLong(DataProvider.Logs.INDEX_DATE);
-                        Log.d(TAG, "match sipcall: " + issipcall);
+                        Log.d(TAG, "match sipcall: ", issipcall);
                         S1[0] = String.valueOf(d);
-                        if (this.issipcall == 1) {
+                        if (issipcall == 1) {
                             // match no sipcall
                             final Cursor c = cr.query(DataProvider.SipCall.CONTENT_URI,
                                     DataProvider.SipCall.PROJECTION,
@@ -503,7 +503,7 @@ public final class RuleMatcher {
                                 c.close();
                             }
                         }
-                        Log.d(TAG, "match sipcall: " + issipcall + "; " + ret);
+                        Log.d(TAG, "match sipcall: ", issipcall, "; ", ret);
                     }
                     break;
                 case DataProvider.Rules.WHAT_DATA:
@@ -516,9 +516,9 @@ public final class RuleMatcher {
                     ret = (t == DataProvider.TYPE_SMS);
                     if (ret && iswebsms != DataProvider.Rules.NO_MATTER) {
                         final long d = log.getLong(DataProvider.Logs.INDEX_DATE);
-                        Log.d(TAG, "match websms: " + iswebsms);
+                        Log.d(TAG, "match websms: ", iswebsms);
                         S1[0] = String.valueOf(d);
-                        if (this.iswebsms == 1) {
+                        if (iswebsms == 1) {
                             // match no websms
                             final Cursor c = cr.query(DataProvider.WebSMS.CONTENT_URI,
                                     DataProvider.WebSMS.PROJECTION,
@@ -541,41 +541,41 @@ public final class RuleMatcher {
                                 c.close();
                             }
                         }
-                        Log.d(TAG, "match websms: " + iswebsms + "; " + ret);
+                        Log.d(TAG, "match websms: ", iswebsms, "; ", ret);
                     }
                     break;
                 default:
                     break;
             }
-            Log.d(TAG, "ret after type: " + ret);
+            Log.d(TAG, "ret after type: ", ret);
             if (!ret) {
                 return false;
             }
-            if (this.limitNotReached) {
-                final Plan p = plans.get(this.planId);
+            if (limitNotReached) {
+                final Plan p = plans.get(planId);
                 if (p != null) {
                     p.checkBillday(log);
                     ret = p.getRemainingLimit() > 0f;
                 }
                 if (!ret) {
-                    Log.d(TAG, "limit reached: " + planId);
+                    Log.d(TAG, "limit reached: ", planId);
                 }
             }
-            Log.d(TAG, "ret after limit: " + ret);
+            Log.d(TAG, "ret after limit: ", ret);
             if (!ret) {
                 return false;
             }
 
-            if (this.myNumber != null) {
+            if (myNumber != null) {
                 // FIXME: do equals?
                 ret = myNumber.equals(log.getString(DataProvider.Logs.INDEX_MYNUMBER));
-                Log.d(TAG, "ret after mynumber: " + ret);
+                Log.d(TAG, "ret after mynumber: ", ret);
                 if (!ret) {
                     return false;
                 }
             }
 
-            if (this.inhours != null) {
+            if (inhours != null) {
                 final int l = inhours.length;
                 ret = false;
                 for (int i = 0; i < l; i++) {
@@ -585,11 +585,11 @@ public final class RuleMatcher {
                     }
                 }
             }
-            Log.d(TAG, "ret after inhours: " + ret);
+            Log.d(TAG, "ret after inhours: ", ret);
             if (!ret) {
                 return false;
             }
-            if (this.exhours != null) {
+            if (exhours != null) {
                 final int l = exhours.length;
                 for (int i = 0; i < l; i++) {
                     ret = !this.exhours[i].match(log);
@@ -598,11 +598,11 @@ public final class RuleMatcher {
                     }
                 }
             }
-            Log.d(TAG, "ret after exhours: " + ret);
+            Log.d(TAG, "ret after exhours: ", ret);
             if (!ret) {
                 return false;
             }
-            if (this.innumbers != null) {
+            if (innumbers != null) {
                 final int l = innumbers.length;
                 ret = false;
                 for (int i = 0; i < l; i++) {
@@ -612,11 +612,11 @@ public final class RuleMatcher {
                     }
                 }
             }
-            Log.d(TAG, "ret after innumbers: " + ret);
+            Log.d(TAG, "ret after innumbers: ", ret);
             if (!ret) {
                 return false;
             }
-            if (this.exnumbers != null) {
+            if (exnumbers != null) {
                 final int l = exnumbers.length;
                 for (int i = 0; i < l; i++) {
                     ret = !this.exnumbers[i].match(log);
@@ -625,7 +625,7 @@ public final class RuleMatcher {
                     }
                 }
             }
-            Log.d(TAG, "ret after exnumbers: " + ret);
+            Log.d(TAG, "ret after exnumbers: ", ret);
             return ret;
         }
     }
@@ -698,11 +698,11 @@ public final class RuleMatcher {
             name = cursor.getString(DataProvider.Plans.INDEX_NAME);
             type = cursor.getInt(DataProvider.Plans.INDEX_TYPE);
             limitType = cursor.getInt(DataProvider.Plans.INDEX_LIMIT_TYPE);
-            final long l = DataProvider.Plans.getLimit(this.type, limitType,
+            final long l = DataProvider.Plans.getLimit(type, limitType,
                     cursor.getFloat(DataProvider.Plans.INDEX_LIMIT));
-            if (this.limitType == DataProvider.LIMIT_TYPE_UNITS
+            if (limitType == DataProvider.LIMIT_TYPE_UNITS
                     && type == DataProvider.TYPE_DATA) {
-                // normality amount is saved as kB, here it is B
+                // normally amount is saved as kB, here it is B
                 limit = l * CallMeter.BYTE_KB;
             } else {
                 limit = l;
@@ -794,22 +794,22 @@ public final class RuleMatcher {
          */
         void checkBillday(final Cursor log) {
             // skip for infinite bill periods
-            if (this.billperiod == DataProvider.BILLPERIOD_INFINITE) {
+            if (billperiod == DataProvider.BILLPERIOD_INFINITE) {
                 return;
             }
 
             // check whether date is in current bill period
             final long d = log.getLong(DataProvider.Logs.INDEX_DATE);
-            if (this.currentBillday == null || nextBillday < d
+            if (currentBillday == null || nextBillday < d
                     || d < currentBillday.getTimeInMillis()) {
                 final Calendar now = Calendar.getInstance();
                 now.setTimeInMillis(d);
-                currentBillday = DataProvider.Plans.getBillDay(this.billperiod, billday,
+                currentBillday = DataProvider.Plans.getBillDay(billperiod, billday,
                         now, false);
-                if (this.currentBillday == null) {
+                if (currentBillday == null) {
                     return;
                 }
-                final Calendar nbd = DataProvider.Plans.getBillDay(this.billperiod, billday,
+                final Calendar nbd = DataProvider.Plans.getBillDay(billperiod, billday,
                         now, true);
                 if (nbd == null) {
                     return;
@@ -827,7 +827,7 @@ public final class RuleMatcher {
                     billedCost = plan.cost;
                 }
             }
-            if (this.parent != null) {
+            if (parent != null) {
                 parent.checkBillday(log);
             }
         }
@@ -836,18 +836,18 @@ public final class RuleMatcher {
          * @return remaining limit before it is reached.
          */
         float getRemainingLimit() {
-            Log.d(TAG, "getRemainingLimit(): " + id);
-            if (this.parent != null && limitType == DataProvider.LIMIT_TYPE_NONE) {
+            Log.d(TAG, "getRemainingLimit(): ", id);
+            if (parent != null && limitType == DataProvider.LIMIT_TYPE_NONE) {
                 Log.d(TAG, "check parent");
                 return parent.getRemainingLimit();
             } else {
-                Log.d(TAG, "ltype: " + limitType);
-                switch (this.limitType) {
+                Log.d(TAG, "ltype: ", limitType);
+                switch (limitType) {
                     case DataProvider.LIMIT_TYPE_COST:
-                        Log.d(TAG, "bc<lt " + billedCost * CallMeter.HUNDRET + "<" + limit);
+                        Log.d(TAG, "bc<lt ", billedCost * CallMeter.HUNDRET, "<", limit);
                         return limit - billedCost * CallMeter.HUNDRET;
                     case DataProvider.LIMIT_TYPE_UNITS:
-                        Log.d(TAG, "ba<lt " + billedAmount + "<" + limit);
+                        Log.d(TAG, "ba<lt ", billedAmount, "<", limit);
                         return limit - billedAmount;
                     default:
                         return 0;
@@ -894,7 +894,7 @@ public final class RuleMatcher {
             billedCost += cost;
             final Plan pp = parent;
             if (pp != null) {
-                if (this.type != DataProvider.TYPE_MIXED && pp.type == DataProvider.TYPE_MIXED) {
+                if (type != DataProvider.TYPE_MIXED && pp.type == DataProvider.TYPE_MIXED) {
                     switch (t) {
                         case DataProvider.TYPE_CALL:
                             pp.billedAmount += amount * pp.upc / CallMeter.SECONDS_MINUTE;
@@ -928,13 +928,13 @@ public final class RuleMatcher {
             switch (t) {
                 case DataProvider.TYPE_CALL:
                     ret = roundTime(amount);
-                    if (this.stripSeconds > 0) {
+                    if (stripSeconds > 0) {
                         ret -= stripSeconds;
                         if (ret < 0f) {
                             ret = 0f;
                         }
                     }
-                    if (this.stripPast > 0 && ret > stripPast) {
+                    if (stripPast > 0 && ret > stripPast) {
                         ret = stripPast;
                     }
                     break;
@@ -943,7 +943,7 @@ public final class RuleMatcher {
                     break;
             }
 
-            if (this.type == DataProvider.TYPE_MIXED) {
+            if (type == DataProvider.TYPE_MIXED) {
                 switch (t) {
                     case DataProvider.TYPE_CALL:
                         ret = ret * upc / CallMeter.SECONDS_MINUTE;
@@ -979,7 +979,7 @@ public final class RuleMatcher {
             float as1; // split amount: after limit
             Plan p;
             float f = 1; // factor for mixed plans with limits merging this plan
-            if (this.parent != null && limitType == DataProvider.LIMIT_TYPE_NONE) {
+            if (parent != null && limitType == DataProvider.LIMIT_TYPE_NONE) {
                 p = parent;
                 if (pt != DataProvider.TYPE_MIXED && p.type == DataProvider.TYPE_MIXED) {
                     f = 1f / p.getUP(t);
@@ -1046,7 +1046,7 @@ public final class RuleMatcher {
                         ret += as1 * costPerAmount2 / CallMeter.SECONDS_MINUTE;
                     } else { // as0 < billModeFirstLength && as0 > 0 && as1 > 0
                         ret += as0 * costPerAmountInLimit1 / CallMeter.SECONDS_MINUTE;
-                        ret += (this.billModeFirstLength - as0) * costPerAmount1
+                        ret += (billModeFirstLength - as0) * costPerAmount1
                                 / CallMeter.SECONDS_MINUTE;
                         ret += costPerAmount2 * (bAmount - billModeFirstLength)
                                 / CallMeter.SECONDS_MINUTE;
@@ -1070,8 +1070,8 @@ public final class RuleMatcher {
          * @return free cost
          */
         float getFree(final Cursor log, final float cost) {
-            if (this.limitType != DataProvider.LIMIT_TYPE_COST) {
-                if (this.parent != null) {
+            if (limitType != DataProvider.LIMIT_TYPE_COST) {
+                if (parent != null) {
                     return parent.getFree(log, cost);
                 }
                 return 0f;
@@ -1084,6 +1084,11 @@ public final class RuleMatcher {
                 return cost;
             }
             return l - billedCost;
+        }
+
+        @Override
+        public String toString() {
+            return "RuleMatcher.Plan: " + name;
         }
     }
 
@@ -1181,7 +1186,13 @@ public final class RuleMatcher {
                 + " is null or NOT (" + DataProvider.Logs.RULE_ID + " = " + DataProvider.NOT_FOUND
                 + " AND " + DataProvider.Logs.PLAN_ID + " != " + DataProvider.NOT_FOUND + ")",
                 null);
-        cv.clear();
+        resetAlert(context);
+    }
+
+    public static void resetAlert(final Context context) {
+        Log.d(TAG, "resetAlert()");
+        ContentValues cv = new ContentValues();
+        final ContentResolver cr = context.getContentResolver();
         cv.put(DataProvider.Plans.NEXT_ALERT, 0);
         cr.update(DataProvider.Plans.CONTENT_URI, cv, null, null);
         flush();
@@ -1210,7 +1221,7 @@ public final class RuleMatcher {
         }
         final long lid = log.getLong(DataProvider.Logs.INDEX_ID);
         final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
-        Log.d(TAG, "matchLog(cr, " + lid + ")");
+        Log.d(TAG, "matchLog(cr, ", lid, ")");
         boolean matched = false;
         if (rules == null) {
             Log.e(TAG, "rules = null");
@@ -1226,12 +1237,12 @@ public final class RuleMatcher {
             if (r == null || !r.match(cr, log) || plans == null) {
                 continue;
             }
-            Log.d(TAG, "matched rule: " + r.getId());
+            Log.d(TAG, "matched rule: ", r.getId());
             final Plan p = plans.get(r.getPlanId());
             if (p != null) {
                 final long pid = p.getId();
                 final long rid = r.getId();
-                Log.d(TAG, "found plan: " + pid);
+                Log.d(TAG, "found plan: ", pid);
                 p.checkBillday(log);
                 final float ba = p.getBilledAmount(log);
                 final float bc = p.getCost(log, ba);
@@ -1276,7 +1287,7 @@ public final class RuleMatcher {
             Log.e(TAG, "matchLog(cr, " + lid + "," + pid + ")");
             return;
         }
-        Log.d(TAG, "matchLog(cr, " + lid + "," + pid + ")");
+        Log.d(TAG, "matchLog(cr, ", lid, ",", pid, ")");
 
         if (plans == null) {
             Log.e(TAG, "plans = null");
@@ -1320,7 +1331,7 @@ public final class RuleMatcher {
      * @return true if a log was matched
      */
     static synchronized boolean match(final Context context, final boolean showStatus) {
-        Log.d(TAG, "match(ctx, " + showStatus + ")");
+        Log.d(TAG, "match(ctx, ", showStatus, ")");
         boolean ret = false;
         load(context);
         final ContentResolver cr = context.getContentResolver();
@@ -1351,10 +1362,10 @@ public final class RuleMatcher {
                                     .obtainMessage(Plans.MSG_BACKGROUND_PROGRESS_MATCHER);
                             m.arg1 = i;
                             m.arg2 = l;
-                            Log.d(TAG, "send progress: " + i + "/" + l);
+                            Log.d(TAG, "send progress: ", i, "/", l);
                             m.sendToTarget();
                         } else {
-                            Log.d(TAG, "send progress: " + i + " handler=null");
+                            Log.d(TAG, "send progress: ", i, " handler=null");
                         }
                         Log.d(TAG, "save logs..");
                         cr.applyBatch(DataProvider.AUTHORITY, ops);
@@ -1404,15 +1415,19 @@ public final class RuleMatcher {
                         continue;
                     }
                     if (plan.nextAlert > now) {
+                        Log.d(TAG, plan, ": skip alert until: ", plan.nextAlert, " now=", now);
                         continue;
                     }
-                    int used = DataProvider.Plans.getUsed(plan.limitType, plan.type,
+                    int used = DataProvider.Plans.getUsed(plan.type, plan.limitType,
                             plan.billedAmount, plan.billedCost);
-                    if (a100 && used > CallMeter.HUNDRET) {
-                        alert = used;
+                    int usedRate = plan.limit > 0 ?
+                            (int) ((used * CallMeter.HUNDRET) / plan.limit)
+                            : 0;
+                    if (a100 && usedRate >= CallMeter.HUNDRET) {
+                        alert = usedRate;
                         alertPlan = plan;
-                    } else if (a80 && alert < CallMeter.EIGHTY && used > CallMeter.EIGHTY) {
-                        alert = used;
+                    } else if (a80 && alert < CallMeter.EIGHTY && usedRate >= CallMeter.EIGHTY) {
+                        alert = usedRate;
                         alertPlan = plan;
                     }
                 }
@@ -1427,11 +1442,22 @@ public final class RuleMatcher {
                     b.setWhen(now);
                     b.setContentTitle(context.getString(R.string.alerts_title));
                     b.setContentText(t);
-                    b.setContentIntent(PendingIntent.getActivity(context, 0, new Intent(context,
-                            Plans.class), PendingIntent.FLAG_CANCEL_CURRENT));
+                    Intent i = new Intent(context, Plans.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    b.setContentIntent(PendingIntent.getActivity(
+                            context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT));
                     mNotificationMgr.notify(0, b.build());
+                    // set nextAlert to beginning of next day
+                    Calendar cal = Calendar.getInstance();
+                    cal.add(Calendar.DAY_OF_MONTH, 1);
+                    cal.set(Calendar.HOUR_OF_DAY, 0);
+                    cal.set(Calendar.MINUTE, 0);
+                    cal.set(Calendar.SECOND, 0);
+                    cal.set(Calendar.MILLISECOND, 0);
+                    alertPlan.nextAlert = cal.getTimeInMillis();
                     final ContentValues cv = new ContentValues();
-                    cv.put(DataProvider.Plans.NEXT_ALERT, alertPlan.nextBillday);
+                    cv.put(DataProvider.Plans.NEXT_ALERT, alertPlan.nextAlert);
                     cr.update(DataProvider.Plans.CONTENT_URI, cv, DataProvider.Plans.ID + " = ?",
                             new String[]{String.valueOf(alertPlan.id)});
                 }

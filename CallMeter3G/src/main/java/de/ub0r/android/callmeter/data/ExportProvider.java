@@ -13,12 +13,12 @@ import android.provider.OpenableColumns;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 
 public class ExportProvider extends ContentProvider {
 
     /** Tag for output. */
-    private static final String TAG = "ep";
+    private static final String TAG = "ExportProvider";
 
     /** Authority. */
     public static final String AUTHORITY = DataProvider.PACKAGE + ".export";
@@ -94,7 +94,7 @@ public class ExportProvider extends ContentProvider {
     @Override
     public Cursor query(final Uri uri, final String[] projection, final String selection,
             final String[] selectionArgs, final String sortOrder) {
-        Log.d(TAG, "export proj: + " + projection);
+        Log.d(TAG, "export proj:, ", projection);
         String fn = null;
         final int uid = URI_MATCHER.match(uri);
 
@@ -128,7 +128,7 @@ public class ExportProvider extends ContentProvider {
         }
         final MatrixCursor ret = new MatrixCursor(projection, 1);
         ret.addRow(retArray);
-        Log.d(TAG, "query(): " + ret.getCount());
+        Log.d(TAG, "query(): ", ret.getCount());
         return ret;
     }
 
@@ -141,7 +141,7 @@ public class ExportProvider extends ContentProvider {
     @Override
     public ParcelFileDescriptor openFile(final Uri uri, final String mode)
             throws FileNotFoundException {
-        Log.d(TAG, "openFile(" + uri.toString() + ")");
+        Log.d(TAG, "openFile(", uri.toString(), ")");
         final File d = Environment.getExternalStorageDirectory();
         String fn = null;
         if (uri.equals(EXPORT_RULESET_URI)) {

@@ -18,8 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-
 import android.app.AlertDialog.Builder;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -36,8 +34,9 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.data.RuleMatcher;
+import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.DbUtils;
-import de.ub0r.android.lib.Log;
+import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 
 /**
@@ -45,10 +44,10 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class RuleEdit extends SherlockPreferenceActivity implements UpdateListener {
+public final class RuleEdit extends TrackingSherlockPreferenceActivity implements UpdateListener {
 
     /** Tag for debug out. */
-    private static final String TAG = "re";
+    private static final String TAG = "RuleEdit";
 
     /** This rule's {@link Uri}. */
     private Uri uri = null;
@@ -94,7 +93,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
     private String[] getStrings(final int base) {
         switch (base) {
             case R.array.direction_calls:
-                if (this.inOutNomatterCalls == null) {
+                if (inOutNomatterCalls == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
@@ -104,7 +103,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
                 }
                 return inOutNomatterCalls;
             case R.array.direction_sms:
-                if (this.inOutNomatterSms == null) {
+                if (inOutNomatterSms == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
@@ -114,7 +113,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
                 }
                 return inOutNomatterSms;
             case R.array.direction_mms:
-                if (this.inOutNomatterMms == null) {
+                if (inOutNomatterMms == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
@@ -124,7 +123,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
                 }
                 return inOutNomatterMms;
             case R.array.direction_data:
-                if (this.inOutNomatterData == null) {
+                if (inOutNomatterData == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
@@ -134,7 +133,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
                 }
                 return inOutNomatterData;
             default:
-                if (this.yesNoNomatter == null) {
+                if (yesNoNomatter == null) {
                     final String[] tmp1 = new String[3];
                     tmp1[0] = getString(R.string.yes);
                     tmp1[1] = getString(R.string.no);
@@ -171,9 +170,9 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
         PreferenceScreen ps = (PreferenceScreen) findPreference("container");
         ps.removeAll();
 
-        boolean hasCallsSimId = LogRunnerService.checkCallsSimIdColumn(this.getContentResolver());
-        boolean hasSmsSimId = LogRunnerService.checkSmsSimIdColumn(this.getContentResolver());
-        Cursor c = getContentResolver().query(this.uri, DataProvider.Rules.PROJECTION, null,
+        boolean hasCallsSimId = LogRunnerService.checkCallsSimIdColumn(getContentResolver());
+        boolean hasSmsSimId = LogRunnerService.checkSmsSimIdColumn(getContentResolver());
+        Cursor c = getContentResolver().query(uri, DataProvider.Rules.PROJECTION, null,
                 null, null);
         if (c.moveToFirst()) {
             // name
@@ -206,7 +205,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
             } else {
                 w = c.getInt(DataProvider.Rules.INDEX_WHAT);
             }
-            Log.d(TAG, "what: " + w);
+            Log.d(TAG, "what: ", w);
             lp.setValue(String.valueOf(w));
             ps.addPreference(lp);
             int t = DataProvider.what2type(w);
@@ -234,7 +233,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
             lp.setStatic(
                     new String[]{String.valueOf(DataProvider.DIRECTION_IN),
                             String.valueOf(DataProvider.DIRECTION_OUT), "-1"},
-                    getStrings(this.getStringArray(t)));
+                    getStrings(getStringArray(t)));
             int i;
             if (c.isNull(DataProvider.Rules.INDEX_DIRECTION)) {
                 i = -1;
@@ -377,8 +376,8 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
             }
         }
         c.close();
-        if (this.values.size() > 0) {
-            getContentResolver().update(this.uri, values, null, null);
+        if (values.size() > 0) {
+            getContentResolver().update(uri, values, null, null);
             values.clear();
         }
     }
@@ -411,14 +410,14 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
                 break;
         }
         where = DbUtils.sqlAnd(where, DataProvider.Plans.MERGED_PLANS + " IS NULL");
-        Log.d(TAG, "plans.where: " + where);
+        Log.d(TAG, "plans.where: ", where);
         return where;
     }
 
     @Override
     public void onUpdateValue(final android.preference.Preference p) {
-        if (this.uri != null && values.size() > 0) {
-            getContentResolver().update(this.uri, values, null, null);
+        if (uri != null && values.size() > 0) {
+            getContentResolver().update(uri, values, null, null);
             values.clear();
             Preferences.setDefaultPlan(this, false);
             RuleMatcher.unmatch(this);

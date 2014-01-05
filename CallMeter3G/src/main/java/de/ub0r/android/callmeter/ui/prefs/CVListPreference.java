@@ -98,7 +98,7 @@ public final class CVListPreference extends ListPreference {
     public void setStatic(final String[] values, final String[] names) {
         setEntryValues(values);
         setEntries(names);
-        if (this.m) {
+        if (m) {
             setCheckedArray();
         }
     }
@@ -112,7 +112,7 @@ public final class CVListPreference extends ListPreference {
     public void setStatic(final int values, final int names) {
         setEntryValues(values);
         setEntries(names);
-        if (this.m) {
+        if (m) {
             setCheckedArray();
         }
     }
@@ -139,7 +139,7 @@ public final class CVListPreference extends ListPreference {
         setEntryValues(values);
         setEntries(names);
         c.close();
-        if (this.m) {
+        if (m) {
             setCheckedArray();
         }
     }
@@ -171,7 +171,7 @@ public final class CVListPreference extends ListPreference {
         int l = checked.length;
         boolean empty = true;
         for (int i = 0; i < l; i++) {
-            if (this.checked[i]) {
+            if (checked[i]) {
                 sb.append(values[i]);
                 sb.append(",");
                 empty = false;
@@ -186,7 +186,7 @@ public final class CVListPreference extends ListPreference {
 
     @Override
     public void setValue(final String value) {
-        if (this.m) {
+        if (m) {
             String v = value;
             if (v != null) {
                 v = v.replaceAll(",,", ",");
@@ -195,10 +195,10 @@ public final class CVListPreference extends ListPreference {
             reloadCheckedArray();
             if (!this.sh) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.getContext().getString(R.string.value));
+                sb.append(getContext().getString(R.string.value));
                 sb.append(": ");
                 for (int i = 0; i < checked.length; i++) {
-                    if (this.checked[i]) {
+                    if (checked[i]) {
                         CharSequence e = getEntries()[i];
                         sb.append(e == null ? "?" : e.toString().trim());
                         sb.append(", ");
@@ -214,7 +214,7 @@ public final class CVListPreference extends ListPreference {
             super.setValue(value);
             if (!this.sh) {
                 CharSequence e = getEntry();
-                setSummary(this.getContext().getString(R.string.value) + ": "
+                setSummary(getContext().getString(R.string.value) + ": "
                         + (e == null ? "" : e.toString().trim()));
             }
         }
@@ -222,8 +222,8 @@ public final class CVListPreference extends ListPreference {
 
     @Override
     protected void onPrepareDialogBuilder(final Builder builder) {
-        if (this.m) {
-            builder.setMultiChoiceItems(this.getEntries(), checked,
+        if (m) {
+            builder.setMultiChoiceItems(getEntries(), checked,
                     new DialogInterface.OnMultiChoiceClickListener() {
                         public void onClick(final DialogInterface dialog, final int which,
                                 final boolean val) {
@@ -247,19 +247,19 @@ public final class CVListPreference extends ListPreference {
 
     @Override
     protected void onDialogClosed(final boolean positiveResult) {
-        if (this.m) {
+        if (m) {
             if (positiveResult) {
                 String v = storeCheckedArray();
                 String ov = getValue();
                 if (ov == null & v != null || ov != null && !ov.equals(v)) {
                     setValue(v);
                 }
-                cv.put(this.getKey(), v);
+                cv.put(getKey(), v);
             }
         } else {
             super.onDialogClosed(positiveResult);
             if (positiveResult) {
-                cv.put(this.getKey(), getValue());
+                cv.put(getKey(), getValue());
             }
         }
         if (positiveResult && ul != null) {

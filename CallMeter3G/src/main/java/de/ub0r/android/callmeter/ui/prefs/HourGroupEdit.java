@@ -18,7 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
@@ -40,6 +39,7 @@ import android.widget.Toast;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
+import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.lib.apis.ContactsWrapper;
 
@@ -48,7 +48,7 @@ import de.ub0r.android.lib.apis.ContactsWrapper;
  *
  * @author flx
  */
-public final class HourGroupEdit extends SherlockPreferenceActivity implements
+public final class HourGroupEdit extends TrackingSherlockPreferenceActivity implements
         OnPreferenceClickListener {
 
     /** {@link ContactsWrapper}. */
@@ -117,7 +117,7 @@ public final class HourGroupEdit extends SherlockPreferenceActivity implements
                 p.setPersistent(false);
                 final int day = c.getInt(DataProvider.Hours.INDEX_DAY);
                 final int hour = c.getInt(DataProvider.Hours.INDEX_HOUR);
-                p.setTitle(this.resDays[day] + ": " + resHours[hour]);
+                p.setTitle(resDays[day] + ": " + resHours[hour]);
                 p.setKey("item_" + c.getInt(DataProvider.Hours.INDEX_ID));
                 p.setOnPreferenceClickListener(this);
                 ps.addPreference(p);
