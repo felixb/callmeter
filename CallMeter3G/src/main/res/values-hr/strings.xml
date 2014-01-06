@@ -464,4 +464,6 @@
   <string name="second_sim_" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="Second SIM card">Druga SIM kartica</string>
   <string name="websms_" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="WebSMS">WebSMS</string>
   <string name="calls_voip_" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="VoIP calls with supported apps">VoIP pozivi sa podržanim aplikacijama</string>
+  <string name="analytics_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Collect anonymous statistics">Prikupljaj statistiku anonimno</string>
+  <string name="analytics_hint" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Collect anonymous usage statistics to help improving the app.">Anonimno prikupljanje statistike korištenja za poboljšanje aplikacije.</string>
 </resources>
