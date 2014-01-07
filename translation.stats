@@ -3,6 +3,10 @@ res/values/market.xml:6
 res/values/notes.xml:3
 res/values/strings.xml:129
 res/values/update.xml:34
+res/values-ar/donation.xml:0
+res/values-ar/market.xml:0
+res/values-ar/notes.xml:0
+res/values-ar/strings.xml:0
 res/values-ca/donation.xml:0
 res/values-ca/market.xml:0
 res/values-ca/notes.xml:0
@@ -84,6 +88,7 @@ res/values-zh/market.xml:5
 res/values-zh/notes.xml:3
 res/values-zh/strings.xml:129
 res/values:178
+res/values-ar:0
 res/values-ca:0
 res/values-cs:125
 res/values-da:123
