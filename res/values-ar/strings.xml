@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
+<!--
 		Copyright (C) 2009-2011 Felix Bechstein
 	-->
-	<!--
+<!--
 		This file is part of Call Meter NG. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
 		version.
 	-->
-	<!--
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -18,4 +18,13 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string name="about0_" formatted="false" username="abuiyad" orig="Watch your call, message and data plans!">مشاهدة مكالمتك، ورسائلك وخطط البيانات!</string>
+  <string name="about0" formatted="false" username="abuiyad" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter ينشئ تقارير المكالمات، والرسائل النصية وسجل البيانات . أنها تدعم العديد من وسائل الفواتير.</string>
+  <string name="about1" formatted="false" username="abuiyad" orig="The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not.">تنسيق الإخراج هو استخدام / الوقت أو العد تستخدم هذه الفترة الفواتير / الوقت أو العد الشامل. الشهري حساب الوقت الذي يستغرقه وضع الفواتير في الاعتبار. لا الشامل .</string>
+  <string name="about2" formatted="false" username="abuiyad" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">يحدد وضع الفواتير طول فترات الفواتير الأول / المقبل. على سبيل المثال 60/10 وسائل وتوصف كل مكالمة للحد الأدنى 60ثانيه، يتم تقريب أي أتصال لفترة أطول تصل إلى 10ثواني كامل التالي.</string>
+  <string name="about3" formatted="false" username="abuiyad" orig="You can split your call or message plan into up to two plans. Each plan can be set to be totally free, capped to a set limit or unlimited.">يمكنك تقسيم المكالمات أو خطة الرسالة إلى ما يصل الى اثنين الخطط. يمكن تعيين كل خطة أن تكون خالية تماما، إلى حد توج مجموعة أو غير محدودة.</string>
+  <string name="about4" formatted="false" username="abuiyad" orig="Your messages can be merged into your call plan. E.g. counting every message as a 15s call.">يمكن دمج الرسائل في خطة مكالمتك. على سبيل المثال عد كل رسالة بمثابة مكالمة 15ثانية.</string>
+  <string name="about5" formatted="false" username="abuiyad" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">البرنامج يعمل في الخلفية كل 30دقيقة (فقط إن لم يكن في وضع الاستعداد). وهذا يعني، أن حذف المكالمات أو الرسائل القديمة من 30دقيقة لن يغير احصائيات الخاص بك. حذف المكالمات أو الرسائل الذين تقل أعمارهم عن 30دقيقة قد يؤدي إلى إحصاءات خاطئة.</string>
+  <string name="about6_" formatted="false" username="abuiyad" orig="What does CallMeter NG not do:">ماذا لو البرنامج  لا يعمل:</string>
+  <string name="about6" formatted="false" username="abuiyad" orig="There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs.">لا توجد وسيلة للتمييز بين المكالمات والروبوت الحقيقي أو بين الرسائل القصيرة على شبكة الإنترنت والرسائل القصيرة الحقيقي. التكامل السلس الروبوت من هذه التطبيقات يجعل من المستحيل لاسترداد البيانات الخاصة بالتطبيق من سجلات المكالمات.</string>
 </resources>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
+<!--
 		Copyright (C) 2009-2012 Felix Bechstein
 	-->
-	<!--
+<!--
 		This file is part of ub0rlib. This program is free software; you can
 		redistribute it and/or modify it under the terms of the GNU General
 		Public License as published by the Free Software Foundation; either
 		version 3 of the License, or (at your option) any later version.
 	-->
-	<!--
+<!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -17,4 +17,10 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string name="donate_" formatted="false" username="abuiyad" orig="Donate (%s)">تبرع(%s)</string>
+  <string name="donate" formatted="false" username="abuiyad" orig="Donate">تبرع</string>
+  <string name="donate_remove_ads_" formatted="false" username="abuiyad" orig="Donate/remove ads">تبرع / إزالة الإعلانات</string>
+  <string name="predonate_market" formatted="false" username="abuiyad" orig="This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.">هذا هو تطبيق مفتوح المصدر تم طرحه بموجب ترخيص GLPv3 من. أنه مجاني وسيبقى مجاني. إذا كنت ترغب في ذلك حقا أو إذا كنت منزعجون من الإعلانات، يرجى النظر في التبرع.\nشكرا لك!\n\nسوف التبرع إزالة الإعلانات في جميع التطبيقات التي تقدمها لي.</string>
+  <string name="did_paypal_donation" formatted="false" username="abuiyad" orig="I already did a donation via Paypal">سبق لي أن فعلت التبرع عن طريق باي بال</string>
+  <string name="notify_" formatted="false" username="abuiyad" orig="Forgot to remove the ads?">نسيت أن إزالة الإعلانات؟</string>
 </resources>
