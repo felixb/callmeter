@@ -27,4 +27,35 @@
   <string name="about5" formatted="false" username="abuiyad" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">البرنامج يعمل في الخلفية كل 30دقيقة (فقط إن لم يكن في وضع الاستعداد). وهذا يعني، أن حذف المكالمات أو الرسائل القديمة من 30دقيقة لن يغير احصائيات الخاص بك. حذف المكالمات أو الرسائل الذين تقل أعمارهم عن 30دقيقة قد يؤدي إلى إحصاءات خاطئة.</string>
   <string name="about6_" formatted="false" username="abuiyad" orig="What does CallMeter NG not do:">ماذا لو البرنامج  لا يعمل:</string>
   <string name="about6" formatted="false" username="abuiyad" orig="There is no way to distinguish between sipdroid and real calls or between websms and real sms. Android\'s seamless integration of these apps makes it impossible to retrieve application-specific data from call logs.">لا توجد وسيلة للتمييز بين المكالمات والروبوت الحقيقي أو بين الرسائل القصيرة على شبكة الإنترنت والرسائل القصيرة الحقيقي. التكامل السلس الروبوت من هذه التطبيقات يجعل من المستحيل لاسترداد البيانات الخاصة بالتطبيق من سجلات المكالمات.</string>
+  <string name="send_" formatted="false" username="abuiyad" orig="Send">إرسال</string>
+  <string name="settings" formatted="false" username="abuiyad" orig="Preferences">التفضيلات</string>
+  <string name="about_" formatted="false" username="abuiyad" orig="About">تعريب أبوإياد</string>
+  <string name="about_hint" formatted="false" username="abuiyad" orig="About this app">حول هذا التطبيق</string>
+  <string name="faq_hint" formatted="false" username="abuiyad" orig="Some tips and tricks, how to set up this app.">بعض النصائح والحيل، وكيفية إعداد هذا التطبيق.</string>
+  <string name="feedback_" formatted="false" username="abuiyad" orig="Feedback">ردود الفعل</string>
+  <string name="feedback_hint" formatted="false" username="abuiyad" orig="Report bugs, request features ...">طلب تقرير ملامح الأخطاء</string>
+  <string name="more_" formatted="false" username="abuiyad" orig="More Apps..">المزيد من التطبيقات</string>
+  <string name="billday_" formatted="false" username="abuiyad" orig="First day of your bill">اليوم الأول من فاتورتك</string>
+  <string name="billmode_" formatted="false" username="abuiyad" orig="Mode of billing">وضع الفوترة</string>
+  <string name="billmode_hint" formatted="false" username="abuiyad" orig="Length of first/following billing intervals.">طول فترات الفواتير الأول / التالي.</string>
+  <string name="billdate_" formatted="false" username="abuiyad" orig="Start of billing period:">تبدأ فترة الفوترة:</string>
+  <string name="smsperiod_" formatted="false" username="abuiyad" orig="Same Period for SMS">نفس الفترة لSMS</string>
+  <string name="smsperiod_hint" formatted="false" username="abuiyad" orig="Set SMS\'s billing period to calls\' period.">تعيين المدة الزمنية للفوترة SMS ولفترة المكالمات.</string>
+  <string name="smsbillday_" formatted="false" username="abuiyad" orig="First day of your SMS bill">اليوم الأول من فاتورة الخاص SMS</string>
+  <string name="dataperiod_" formatted="false" username="abuiyad" orig="Same Period for data">نفس الفترة للبيانات</string>
+  <string name="dataperiod_hint" formatted="false" username="abuiyad" orig="Set data\'s billing period to calls\' period.">تعيين المدة الزمنية للفوترة البيانات لفترة المكالمات.</string>
+  <string name="databillday_" formatted="false" username="abuiyad" orig="First day of your data bill">اليوم الأول من فاتورة البيانات الخاصة بك</string>
+  <string name="appearance_" formatted="false" username="abuiyad" orig="Appearance">المظهر</string>
+  <string name="theme_" formatted="false" username="abuiyad" orig="Theme">الثيم</string>
+  <string name="textsize_" formatted="false" username="abuiyad" orig="Text size">حجم النص</string>
+  <string name="advanced_" formatted="false" username="abuiyad" orig="Advanced">متقدم</string>
+  <string name="exclude_people_" formatted="false" username="abuiyad" orig="Exclude numbers">استبعاد الأرقام</string>
+  <string name="exclude_people_hint" formatted="false" username="abuiyad" orig="Don\'t bill some numbers\nwildcards allowed: *555, 555* or *555*">لا فاتورة بعض الأرقام\nأحرف البدل المسموحه: * 555، 555 * 555 * أو *</string>
+  <string name="exclude_people_add" formatted="false" username="abuiyad" orig="Add number">إضافة أرقام</string>
+  <string name="exclude_people_edit" formatted="false" username="abuiyad" orig="Edit">تحرير</string>
+  <string name="exclude_people_delete" formatted="false" username="abuiyad" orig="Delete">حذف</string>
+  <string name="exclude_people_to_plan1_" formatted="false" username="abuiyad" orig="Excluded numbers to plan #1">أرقام استبعاد لتخطيط # 1</string>
+  <string name="exclude_people_to_plan2_" formatted="false" username="abuiyad" orig="Excluded numbers to plan #2">أرقام استبعاد لتخطيط # 2</string>
+  <string name="exclude_people_calls_" formatted="false" username="abuiyad" orig="Enable for Calls">تمكين للمكالمات</string>
+  <string name="exclude_people_calls_to_plan1_hint" formatted="false" username="abuiyad" orig="Bill calls to/from excluded numbers in plan #1">فاتورة المكالمات إلى / من أعداد المستبعدين في خطة # 1</string>
 </resources>
