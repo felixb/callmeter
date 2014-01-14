@@ -58,4 +58,95 @@
   <string name="exclude_people_to_plan2_" formatted="false" username="abuiyad" orig="Excluded numbers to plan #2">أرقام استبعاد لتخطيط # 2</string>
   <string name="exclude_people_calls_" formatted="false" username="abuiyad" orig="Enable for Calls">تمكين للمكالمات</string>
   <string name="exclude_people_calls_to_plan1_hint" formatted="false" username="abuiyad" orig="Bill calls to/from excluded numbers in plan #1">فاتورة المكالمات إلى / من أعداد المستبعدين في خطة # 1</string>
+  <string name="exclude_people_calls_to_plan2_hint" formatted="false" username="abuiyad" orig="Bill calls to/from excluded numbers in plan #2">فاتورة المكالمات إلى / من أعداد المستبعدين في الخطة رقم 2</string>
+  <string name="exclude_people_sms_" formatted="false" username="abuiyad" orig="Enable for SMS">تمكين للرسائل النصية</string>
+  <string name="exclude_people_sms_to_plan1_hint" formatted="false" username="abuiyad" orig="Bill messages to/from excluded numbers in plan #1">فاتورة الرسائل/ من أرقام المستبعدين في خطة # 1</string>
+  <string name="exclude_people_sms_to_plan2_hint" formatted="false" username="abuiyad" orig="Bill messages to/from excluded numbers in plan #2">فاتورة الرسائل/ من أرقام المستبعدين في خطة # 2</string>
+  <string name="plans" formatted="false" username="abuiyad" orig="Plans">خطط</string>
+  <string name="plans_split" formatted="false" username="abuiyad" orig="Split plans">خطط الانقسام</string>
+  <string name="plans_merge" formatted="false" username="abuiyad" orig="Merge plans">دمج الخطط</string>
+  <string name="plans_split_hint" formatted="false" username="abuiyad" orig="Split plan into two different billed plans.">تقسيم الخطة إلى خطتين مفوتر مختلفة.</string>
+  <string name="plan1" formatted="false" username="abuiyad" orig="Plan 1">خطة 1</string>
+  <string name="plan2" formatted="false" username="abuiyad" orig="Plan 2">خطة 2</string>
+  <string name="plan1_hint" formatted="false" username="abuiyad" orig="Check hours to include calls/sms into first plan. All others will go into second plan.">ساعات للتحقق بما في ذلك مكالمات / الرسائل القصيرة في الخطة الأولى. كل الآخرين سوف تذهب إلى الخطة الثانية.</string>
+  <string name="plan_free_" formatted="false" username="abuiyad" orig="No billing">لا توجد فواتير</string>
+  <string name="plan_freemin_" formatted="false" username="abuiyad" orig="Free Minutes">دقائق مجانية</string>
+  <string name="plan_freesms_" formatted="false" username="abuiyad" orig="Free SMS">رسائل مجانية</string>
+  <string name="free_hint" formatted="false" username="abuiyad" orig="Totally free">مجانا بالكامل</string>
+  <string name="freemin_hint" formatted="false" username="abuiyad" orig="Free Minutes / Month">دقيقة مجانية / شهر</string>
+  <string name="freesms_hint" formatted="false" username="abuiyad" orig="Free SMS / Month">رسائل مجانية / شهر</string>
+  <string name="bill_calls_incoming_" formatted="false" username="abuiyad" orig="Bill incoming">فاتورة واردة</string>
+  <string name="bill_calls_incoming_hint" formatted="false" username="abuiyad" orig="Bill incoming calls as well.">فاتورة المكالمات الواردة كذلك.</string>
+  <string name="bill_sms_incoming_" formatted="false" username="abuiyad" orig="Bill incoming">فاتورة واردة</string>
+  <string name="bill_sms_incoming_hint" formatted="false" username="abuiyad" orig="Bill incoming sms as well.">فاتورة الرسائل القصيرة واردة أيضا.</string>
+  <string name="bill_data_incoming_only_" formatted="false" username="abuiyad" orig="Bill incoming only">فاتورة واردة فقط</string>
+  <string name="bill_data_incoming_only_hint" formatted="false" username="abuiyad" orig="Bill only incoming traffic.">فاتورة واردة فقط حركة المرور.</string>
+  <string name="cost_per_call_" formatted="false" username="abuiyad" orig="Cost per call">تكلفة المكالمة الواحدة</string>
+  <string name="cost_per_call_hint" formatted="false" username="abuiyad" orig="Each call will be billed with this.">ستتم احتساب كل مكالمة مع هذا.</string>
+  <string name="cost_per_minute_" formatted="false" username="abuiyad" orig="Cost per minute">تكلفة الدقيقة الواحدة</string>
+  <string name="cost_per_minute_hint" formatted="false" username="abuiyad" orig="Each minute of a call will be billed with this.">ستتم أحتساب كل دقيقة مكالمة مع هذا.</string>
+  <string name="cost_per_sms_" formatted="false" username="abuiyad" orig="Cost per SMS">تكلفة الرسائل القصيرة</string>
+  <string name="cost_per_sms_hint" formatted="false" username="abuiyad" orig="Each SMS will be billed with this.">ستتم أحتساب كل الرسائل القصيرة مع هذا.</string>
+  <string name="cost_per_mb_" formatted="false" username="abuiyad" orig="Cost per MB">التكلفة لكل ميغابايت</string>
+  <string name="cost_per_mb_hint" formatted="false" username="abuiyad" orig="Each MB of the traffic will be billed with this.">ستتم محاسبة كل ميغابايت من حركة المرور مع هذا.</string>
+  <string name="merge_sms_calls_" formatted="false" username="abuiyad" orig="Merge SMS into calls">دمج الرسائل القصيرة مع المكالمات</string>
+  <string name="merge_sms_calls_hint" formatted="false" username="abuiyad" orig="Bill SMS as part of calls.">فاتورة الرسائل كجزء من المكالمات.</string>
+  <string name="merge_sms_calls_sec_" formatted="false" username="abuiyad" orig="Seconds / SMS">ثانية / الرسائل</string>
+  <string name="merge_sms_calls_sec_hint" formatted="false" username="abuiyad" orig="Number of seconds billed for a single sms.">عدد الثواني المفوتر للرسائل القصيرة واحدة.</string>
+  <string name="merge_sms_plan1_" formatted="false" username="abuiyad" orig="Merge SMS into plan 1">دمج الرسائل القصيرة في خطة 1</string>
+  <string name="merge_sms_plan1_hint" formatted="false" username="abuiyad" orig="Uncheck to merge them into plan 2.">ازل لدمجها في الخطة 2.</string>
+  <string name="data_hint" formatted="false" username="abuiyad" orig="WLAN/WIFI stats are not collected here!">لا يتم جمع احصائيات الواي فاي هنا!</string>
+  <string name="data_enable_" formatted="false" username="abuiyad" orig="Show data stats">إظهار احصائيات البيانات</string>
+  <string name="data_enable_hint" formatted="false" username="abuiyad" orig="Data is collected in real time. First month may be incorrect!">يتم جمع البيانات في الوقت الحقيقي. قد يكون الشهر الأول غير صحيح!</string>
+  <string name="data_show_simple_" formatted="false" username="abuiyad" orig="Show only \&quot;Data\&quot; as title">تظهر فقط \"البيانات\" كما العنوان</string>
+  <string name="data_show_simple_hint" formatted="false" username="abuiyad" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">إخفاء \"(2G/3G/4G)\" في العنوان. هذا لا يؤثر على احصائيات.</string>
+  <string name="data_each_day" formatted="false" username="abuiyad" orig="Bill each day separately">فاتورة كل يوم على حدة</string>
+  <string name="data_each_day_hint" formatted="false" username="abuiyad" orig="Your billing period starts with each day.">بدء فترة الفوترة مع كل يوم.</string>
+  <string name="data_limit_" formatted="false" username="abuiyad" orig="Limit">حد</string>
+  <string name="data_limit_hint" formatted="false" username="abuiyad" orig="Limit of data plan (MB/month)">الحد من خطة البيانات (ميغابايت/ شهر)</string>
+  <string name="monday" formatted="false" username="abuiyad" orig="Monday">الاثنين</string>
+  <string name="tuesday" formatted="false" username="abuiyad" orig="Tuesday">الثلاثاء</string>
+  <string name="wednesday" formatted="false" username="abuiyad" orig="Wednesday">الأربعاء</string>
+  <string name="thursday" formatted="false" username="abuiyad" orig="Thursday">الخميس</string>
+  <string name="friday" formatted="false" username="abuiyad" orig="Friday">الجمعة</string>
+  <string name="saturday" formatted="false" username="abuiyad" orig="Saturday">السبت</string>
+  <string name="sunday" formatted="false" username="abuiyad" orig="Sunday">الأحد</string>
+  <string name="calls" formatted="false" username="abuiyad" orig="Calls">المكالمات</string>
+  <string name="sms" formatted="false" username="abuiyad" orig="SMS">الرسائل النصية</string>
+  <string name="data" formatted="false" username="abuiyad" orig="Data">البيانات</string>
+  <string name="data_" formatted="false" username="abuiyad" orig="Data (2G/3G/4G)">بيانات(2G/3G/4G)</string>
+  <string name="calls_sms" formatted="false" username="abuiyad" orig="Calls/SMS">المكالمات والرسائل</string>
+  <string name="in_calls" formatted="false" username="abuiyad" orig="In%s:">واردة%s:</string>
+  <string name="in_sms" formatted="false" username="abuiyad" orig="In%s:">واردة%s:</string>
+  <string name="in_data" formatted="false" username="abuiyad" orig="In:">واردة</string>
+  <string name="out_calls" formatted="false" username="abuiyad" orig="Out%s:">الصادرة%s:</string>
+  <string name="out_sms" formatted="false" username="abuiyad" orig="Out%s:">الصادرة%s:</string>
+  <string name="out_data" formatted="false" username="abuiyad" orig="Out:">الصادرة</string>
+  <string name="plan_name1_" formatted="false" username="abuiyad" orig="Plan 1: name">خطة 1: الاسم</string>
+  <string name="plan_name2_" formatted="false" username="abuiyad" orig="Plan 2: name">خطة 2: الاسم</string>
+  <string name="plan_name_hint" formatted="false" username="abuiyad" orig="Custom Name">اسم مخصص</string>
+  <string name="reset_data_" formatted="false" username="abuiyad" orig="Reset statistics">إعادة تعيين الإحصائيات</string>
+  <string name="reset_data_hint" formatted="false" username="abuiyad" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">سوف يتم إعادة تعيين بيانات الاتصال / الرسائل القصيرة تؤدي إلى إعادة الحساب للإحصاءات.\n\nإعادة إحصاءات حركة المرور هو دائم. فإنه يعيد تعيين حركة المرور فقط القيام به قبل التمهيد!</string>
+  <string name="reset_data_data_" formatted="false" username="abuiyad" orig="Reset traffic too.">إعادة تعين حركة المرور أيضا.</string>
+  <string name="contacts_" formatted="false" username="abuiyad" orig="Contacts">جهات الاتصال</string>
+  <string name="debug_" formatted="false" username="abuiyad" orig="Debug">تصحيح أخطاء</string>
+  <string name="send_logs_" formatted="false" username="abuiyad" orig="Send logs">إرسال سجلات</string>
+  <string name="send_logs_hint" formatted="false" username="abuiyad" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">إرسال سجلات الجهاز الخاص بك إلى المطور.\nالقيام بذلك إلا إذا طلب منك أن تفعل ذلك.</string>
+  <string name="sendlog_run_" formatted="false" username="abuiyad" orig="Run SendLog">تشغيل ارسال سجل</string>
+  <string name="sendlog_run" formatted="false" username="abuiyad" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">إرسال وسجل جمع سجل الجهاز وإرساله إلى المطور.\nسيكون لديك فرصة لمراجعة وتعديل البيانات التي يتم إرسالها.</string>
+  <string name="sendlog_install_" formatted="false" username="abuiyad" orig="Install SendLog">تثبيت إرسال سجل</string>
+  <string name="sendlog_install" formatted="false" username="abuiyad" orig="Install the free SendLog application to collect the device log and send it to the developer.">تثبيت تطبيق مجاني سجل إرسال لجمع سجل الجهاز وإرساله إلى المطور.</string>
+  <string name="license_" formatted="false" username="abuiyad" orig="License:">الترخيص:</string>
+  <string name="license" formatted="false" username="abuiyad" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="author_" formatted="false" username="abuiyad" orig="Author:">المؤلف:</string>
+  <string name="website_" formatted="false" username="abuiyad" orig="Website:">الموقع:</string>
+  <string name="source_" formatted="false" username="abuiyad" orig="Sourcescode:">كود المصدر:</string>
+  <string-array name="themes" username="abuiyad">
+    <item>أسود</item>
+    <item>أبيض</item>
+  </string-array>
+  <string-array name="textsize" username="abuiyad">
+    <item>صغير</item>
+    <item>متوسط</item>
+  </string-array>
 </resources>
