@@ -50,7 +50,7 @@ res/values-iw/strings.xml:117
 res/values-lt/donation.xml:6
 res/values-lt/market.xml:6
 res/values-lt/notes.xml:3
-res/values-lt/strings.xml:131
+res/values-lt/strings.xml:129
 res/values-nb/donation.xml:0
 res/values-nb/market.xml:5
 res/values-nb/notes.xml:3
@@ -99,7 +99,7 @@ res/values-fr:137
 res/values-hu:136
 res/values-it:130
 res/values-iw:120
-res/values-lt:146
+res/values-lt:144
 res/values-nb:125
 res/values-nl:119
 res/values-pl:125
