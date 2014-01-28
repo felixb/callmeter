@@ -464,4 +464,6 @@
   <string name="second_sim_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Second SIM card">Вторая сим-карта</string>
   <string name="websms_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="WebSMS">WebSMS</string>
   <string name="calls_voip_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="VoIP calls with supported apps">VoIP вызовы с поддерживаемых приложений</string>
+  <string name="analytics_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Collect anonymous statistics">Сбор анонимной статистики</string>
+  <string name="analytics_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Collect anonymous usage statistics to help improving the app.">Сбор анонимной статистики для помощи в улучшении приложения.</string>
 </resources>
