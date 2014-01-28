@@ -27,6 +27,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.database.SQLException;
+import android.database.sqlite.SQLiteException;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Handler;
@@ -54,9 +55,9 @@ import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.callmeter.widget.LogsAppWidgetProvider;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.lib.apis.Contact;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Run logs in background.
@@ -451,26 +452,36 @@ public final class LogRunnerService extends IntentService {
 
     /** Check, if there is dual sim support. */
     public static boolean checkCallsSimIdColumn(final ContentResolver cr) {
-        Cursor c = cr.query(Calls.CONTENT_URI, null, "1=2", null, null);
-        boolean check = false;
-        if (c != null) {
-            check = getSimIdColumn(c) >= 0;
-            c.close();
+        try {
+            Cursor c = cr.query(Calls.CONTENT_URI, null, "1=2", null, null);
+            boolean check = false;
+            if (c != null) {
+                check = getSimIdColumn(c) >= 0;
+                c.close();
+            }
+            Log.i(TAG, "sim_id column found in calls database: " + check);
+            return check;
+        } catch (SQLiteException e) {
+            Log.w(TAG, "sim_id check for calls failed", e);
+            return false;
         }
-        Log.i(TAG, "sim_id column found in calls database: " + check);
-        return check;
     }
 
     /** Check, if there is dual sim support. */
     public static boolean checkSmsSimIdColumn(final ContentResolver cr) {
-        Cursor c = cr.query(URI_SMS, null, "1=2", null, null);
-        boolean check = false;
-        if (c != null) {
-            check = getSimIdColumn(c) >= 0;
-            c.close();
+        try {
+            Cursor c = cr.query(URI_SMS, null, "1=2", null, null);
+            boolean check = false;
+            if (c != null) {
+                check = getSimIdColumn(c) >= 0;
+                c.close();
+            }
+            Log.i(TAG, "sim_id column found in calls database: " + check);
+            return check;
+        } catch (SQLiteException e) {
+            Log.w(TAG, "sim_id check for sms failed", e);
+            return false;
         }
-        Log.i(TAG, "sim_id column found in calls database: " + check);
-        return check;
     }
 
     /**

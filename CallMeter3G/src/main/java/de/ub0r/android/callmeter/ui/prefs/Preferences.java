@@ -663,8 +663,12 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
                             @Override
                             protected void onPostExecute(final Boolean result) {
                                 if (!result) {
+                                    try {
                                     Toast.makeText(context, R.string.err_export_read,
                                             Toast.LENGTH_LONG).show();
+                                    } catch (Exception e) {
+                                        Log.w(TAG, "activity already finished?",e);
+                                    }
                                 }
                                 d1.dismiss();
                                 Preferences.this.checkSimplePrefs();

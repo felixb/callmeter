@@ -46,8 +46,8 @@ def getVersionCode = { minSdk ->
         code += parts[i].replaceFirst('-.*', '').toInteger() * multi
     }
 
-    if (parts[l-1].contains('-')) {
-        code += parts[l-1].split('-')[1].toInteger()
+    if (parts[l - 1].contains('-')) {
+        code += parts[l - 1].split('-')[1].toInteger()
     }
 
     def versionCode = code.toInteger()
@@ -65,6 +65,14 @@ android {
         versionName getVersionName()
         versionCode getVersionCode(minSdkVersion)
     }
+
+    lintOptions {
+        // checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
 
     signingConfigs {
         if (project.hasProperty('releaseKeystorePassword')) {

@@ -172,9 +172,13 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
                             statusMatcher.setIndeterminate(false);
                             statusMatcherProgress = true;
                             Log.d(TAG, "showing dialog..");
-                            statusMatcher.show();
-                            if (dold != null) {
-                                dold.dismiss();
+                            try {
+                                statusMatcher.show();
+                                if (dold != null) {
+                                    dold.dismiss();
+                                }
+                            } catch (Exception e) {
+                                Log.w(TAG, "activity already finished?", e);
                             }
                         }
                         statusMatcher.setProgress(msg.arg1);
@@ -197,7 +201,11 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
                     statusMatcher.setMessage(Plans.this.getString(R.string.reset_data_progr1));
                     statusMatcher.setIndeterminate(true);
                     statusMatcherProgress = false;
-                    statusMatcher.show();
+                    try {
+                        statusMatcher.show();
+                    } catch (Exception e) {
+                        Log.w(TAG, "activity already finished?", e);
+                    }
                 }
             } else {
                 if (statusMatcher != null && statusMatcher.isShowing()) {
