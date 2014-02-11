@@ -664,10 +664,10 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
                             protected void onPostExecute(final Boolean result) {
                                 if (!result) {
                                     try {
-                                    Toast.makeText(context, R.string.err_export_read,
-                                            Toast.LENGTH_LONG).show();
+                                        Toast.makeText(context, R.string.err_export_read,
+                                                Toast.LENGTH_LONG).show();
                                     } catch (Exception e) {
-                                        Log.w(TAG, "activity already finished?",e);
+                                        Log.w(TAG, "activity already finished?", e);
                                     }
                                 }
                                 d1.dismiss();
@@ -728,8 +728,11 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
                 @Override
                 public void onClick(final DialogInterface dialog, final int which) {
                     String s0, s1, s2;
+                    //noinspection ConstantConditions
                     s0 = etCountry == null ? null : etCountry.getText().toString().trim();
+                    //noinspection ConstantConditions
                     s1 = etProvider == null ? null : etProvider.getText().toString().trim();
+                    //noinspection ConstantConditions
                     s2 = etPlan == null ? null : etPlan.getText().toString().trim();
                     exportData(context, s0, s1, s2, fn, recipient);
                 }
@@ -797,10 +800,13 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
                             final File d = new File(Environment.getExternalStorageDirectory(),
                                     DataProvider.PACKAGE);
                             final File f = new File(d, fn);
+                            //noinspection ResultOfMethodCallIgnored
                             f.mkdirs();
                             if (f.exists()) {
+                                //noinspection ResultOfMethodCallIgnored
                                 f.delete();
                             }
+                            //noinspection ResultOfMethodCallIgnored
                             f.createNewFile();
                             FileWriter fw = new FileWriter(f);
                             fw.append(result);
@@ -845,8 +851,10 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
                 File d = new File(Environment.getExternalStorageDirectory(), DataProvider.PACKAGE);
                 File f = new File(d, "logs-"
                         + DateFormat.format("yyyyMMddkkmmss", System.currentTimeMillis()) + ".csv");
+                //noinspection ResultOfMethodCallIgnored
                 f.mkdirs();
                 if (f.exists()) {
+                    //noinspection ResultOfMethodCallIgnored
                     f.delete();
                 }
                 try {
@@ -855,30 +863,32 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
                     Cursor c = context.getContentResolver().query(
                             DataProvider.Logs.CONTENT_URI_JOIN, DataProvider.Logs.PROJECTION_JOIN,
                             null, null, null);
-                    w.append("date;type;direction;roamed;remote_number;"
+                    assert c != null;
+                    w.append("date;type;direction;my_number/sim_id;roamed;remote_number;"
                             + "amount;billed_amount;cost;plan;rule\n");
                     String[] types = context.getResources().getStringArray(R.array.plans_type);
                     String[] directions = context.getResources().getStringArray(
                             R.array.direction_calls);
-                    String cformat = getCurrencyFormat(context);
+                    String cFormat = getCurrencyFormat(context);
                     if (c.moveToFirst()) {
                         do {
                             w.append(DateFormat.format("yyyyMMddkkmmss;",
                                     c.getLong(DataProvider.Logs.INDEX_DATE)));
                             int t = c.getInt(DataProvider.Logs.INDEX_TYPE);
-                            w.append(types[t] + ";");
+                            w.append(types[t]).append(";");
                             int dir = c.getInt(DataProvider.Logs.INDEX_DIRECTION);
-                            w.append(directions[dir] + ";");
-                            w.append(c.getInt(DataProvider.Logs.INDEX_ROAMED) + ";");
-                            w.append(c.getString(DataProvider.Logs.INDEX_REMOTE) + ";");
+                            w.append(directions[dir]).append(";");
+                            w.append(c.getString(DataProvider.Logs.INDEX_MYNUMBER)).append(";");
+                            w.append(c.getString(DataProvider.Logs.INDEX_ROAMED)).append(";");
+                            w.append(c.getString(DataProvider.Logs.INDEX_REMOTE)).append(";");
                             long a = c.getLong(DataProvider.Logs.INDEX_AMOUNT);
                             float ba = c.getFloat(DataProvider.Logs.INDEX_BILL_AMOUNT);
                             float cost = c.getFloat(DataProvider.Logs.INDEX_COST);
-                            w.append(Common.formatAmount(t, a, true) + ";");
-                            w.append(Common.formatAmount(t, ba, true) + ";");
-                            w.append(String.format(cformat, cost) + ";");
-                            w.append(c.getString(DataProvider.Logs.INDEX_PLAN_NAME) + ";");
-                            w.append(c.getString(DataProvider.Logs.INDEX_RULE_NAME) + "\n");
+                            w.append(Common.formatAmount(t, a, true)).append(";");
+                            w.append(Common.formatAmount(t, ba, true)).append(";");
+                            w.append(String.format(cFormat, cost)).append(";");
+                            w.append(c.getString(DataProvider.Logs.INDEX_PLAN_NAME)).append(";");
+                            w.append(c.getString(DataProvider.Logs.INDEX_RULE_NAME)).append("\n");
                         } while (c.moveToNext());
                     }
 
