@@ -41,13 +41,11 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Xml;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
@@ -1268,6 +1266,7 @@ public final class DataProvider extends ContentProvider {
             if (id < 0) {
                 return null;
             }
+            //noinspection ConstantConditions
             final Cursor cursor = cr.query(ContentUris.withAppendedId(CONTENT_URI, id),
                     PROJECTION_NAME, null, null, null);
             String ret = null;
@@ -1885,6 +1884,7 @@ public final class DataProvider extends ContentProvider {
             if (id < 0) {
                 return null;
             }
+            //noinspection ConstantConditions
             final Cursor cursor = cr.query(ContentUris.withAppendedId(CONTENT_URI, id),
                     new String[]{NAME}, null, null, null);
             String ret = null;
@@ -2024,6 +2024,7 @@ public final class DataProvider extends ContentProvider {
          * @return name
          */
         public static String getName(final ContentResolver cr, final long id) {
+            //noinspection ConstantConditions
             final Cursor cursor = cr.query(ContentUris.withAppendedId(CONTENT_URI, id),
                     new String[]{NAME}, null, null, null);
             String ret = null;
@@ -2204,6 +2205,7 @@ public final class DataProvider extends ContentProvider {
          * @return name
          */
         public static String getName(final ContentResolver cr, final long id) {
+            //noinspection ConstantConditions
             final Cursor cursor = cr.query(ContentUris.withAppendedId(CONTENT_URI, id),
                     new String[]{NAME}, null, null, null);
             String ret = null;
@@ -2500,7 +2502,7 @@ public final class DataProvider extends ContentProvider {
     private static void backupRuleSetSub(final StringBuilder sb, final SQLiteDatabase db,
             final String table, final String[] projection, final String selection,
             final String[] selectionArgs, final String strip) {
-        ContentValues[] cvs = null;
+        ContentValues[] cvs;
         try {
             cvs = backup(db, table, projection, selection, selectionArgs, strip, null);
         } catch (IOException e) {
@@ -2805,10 +2807,10 @@ public final class DataProvider extends ContentProvider {
         Log.d(TAG, "importXml(db, #", xml.length(), ")");
         boolean ret = true;
         XmlPullParser parser = Xml.newPullParser();
-        String version = null;
-        String country = null;
-        String provider = null;
-        String title = null;
+        String version;
+        String country;
+        String provider;
+        String title;
         HashMap<String, ArrayList<ContentValues>> lists
                 = new HashMap<String, ArrayList<ContentValues>>();
         try {
@@ -2820,7 +2822,7 @@ public final class DataProvider extends ContentProvider {
             Log.d(TAG, "xml version: ", version);
             String base = parser.getName();
             Log.d(TAG, "xml base element: ", base);
-            while (parser.next() != XmlPullParser.END_TAG || parser.getName() != base) {
+            while (parser.next() != XmlPullParser.END_TAG || !parser.getName().equals(base)) {
                 if (parser.getEventType() != XmlPullParser.START_TAG) {
                     continue;
                 }
@@ -3246,7 +3248,6 @@ public final class DataProvider extends ContentProvider {
         String[] proj = cols;
         if (strip != null) {
             ArrayList<String> a = new ArrayList<String>(cols.length);
-            proj = new String[cols.length - 1];
             for (String c : cols) {
                 if (strip.equals(c)) {
                     Log.d(TAG, "ignore column: ", c);
@@ -3257,7 +3258,7 @@ public final class DataProvider extends ContentProvider {
             proj = a.toArray(new String[a.size()]);
         }
         final int l = proj.length;
-        Cursor cursor = null;
+        Cursor cursor;
         try {
             cursor = db.query(table, proj, selection, selectionArgs, null, null, null);
         } catch (SQLException e) {
@@ -3273,7 +3274,6 @@ public final class DataProvider extends ContentProvider {
                 throw new IllegalStateException("Could not parse exeption message: " + err);
             }
             final String str = m.group(1);
-            ret = null;
             return backup(db, table, proj, selection, selectionArgs, str, os);
         }
         if (cursor != null && cursor.moveToFirst()) {
@@ -3299,7 +3299,7 @@ public final class DataProvider extends ContentProvider {
                         os.reset();
                     }
                 }
-                cnt++;
+                ++cnt;
             } while (cursor.moveToNext());
         }
         if (cursor != null && !cursor.isClosed()) {
@@ -3308,7 +3308,7 @@ public final class DataProvider extends ContentProvider {
         if (ret == null) {
             return null;
         }
-        return ret.toArray(new ContentValues[0]);
+        return ret.toArray(new ContentValues[ret.size()]);
     }
 
     @SuppressWarnings("unchecked")
@@ -3408,9 +3408,12 @@ public final class DataProvider extends ContentProvider {
     @Override
     public int delete(final Uri uri, final String selection, final String[] selectionArgs) {
         Log.d(TAG, "delete(", uri, ",", selection, ")");
-        final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+        SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         assert db != null;
-        int ret = 0;
+        //noinspection ConstantConditions
+        ContentResolver cr = getContext().getContentResolver();
+        assert cr != null;
+        int ret;
         long id;
         Cursor c;
         String w;
@@ -3440,13 +3443,11 @@ public final class DataProvider extends ContentProvider {
                         null);
                 if (c != null && c.moveToFirst()) {
                     final long gid = c.getLong(0);
-                    getContext().getContentResolver()
-                            .notifyChange(ContentUris.withAppendedId(Numbers.GROUP_URI, gid), null);
+                    cr.notifyChange(ContentUris.withAppendedId(Numbers.GROUP_URI, gid), null);
                 }
                 if (c != null && !c.isClosed()) {
                     c.close();
                 }
-                c = null;
                 ret = db.delete(Numbers.TABLE, w, selectionArgs);
                 break;
             case NUMBERS_GID:
@@ -3463,13 +3464,11 @@ public final class DataProvider extends ContentProvider {
                         null);
                 if (c != null && c.moveToFirst()) {
                     final long gid = c.getLong(0);
-                    getContext().getContentResolver()
-                            .notifyChange(ContentUris.withAppendedId(Hours.GROUP_URI, gid), null);
+                    cr.notifyChange(ContentUris.withAppendedId(Hours.GROUP_URI, gid), null);
                 }
                 if (c != null && !c.isClosed()) {
                     c.close();
                 }
-                c = null;
                 ret = db.delete(Hours.TABLE,
                         DbUtils.sqlAnd(Hours.ID + "=" + ContentUris.parseId(uri), selection),
                         selectionArgs);
@@ -3485,7 +3484,7 @@ public final class DataProvider extends ContentProvider {
                 throw new IllegalArgumentException("Unknown Uri " + uri);
         }
         if (ret > 0) {
-            getContext().getContentResolver().notifyChange(uri, null);
+            cr.notifyChange(uri, null);
         }
         return ret;
     }
@@ -3557,6 +3556,7 @@ public final class DataProvider extends ContentProvider {
     @Override
     public int bulkInsert(final Uri uri, final ContentValues[] values) {
         Log.d(TAG, "bulkInsert(", uri, ", #", values.length, ")");
+        assert values != null;
         if (values.length == 0) {
             return 0;
         }
@@ -3584,7 +3584,7 @@ public final class DataProvider extends ContentProvider {
         Log.d(TAG, "insert(", uri, ",", values, ")");
         final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         assert db != null;
-        long ret = -1;
+        long ret;
         switch (URI_MATCHER.match(uri)) {
             case LOGS:
                 ret = db.insert(Logs.TABLE, null, values);
@@ -3640,6 +3640,7 @@ public final class DataProvider extends ContentProvider {
             Log.d(TAG, "insert(): null");
             return null;
         } else {
+            //noinspection ConstantConditions
             getContext().getContentResolver().notifyChange(uri, null);
             final Uri u = ContentUris.withAppendedId(uri, ret);
             Log.d(TAG, "insert(): ", u);
@@ -3672,7 +3673,7 @@ public final class DataProvider extends ContentProvider {
         String[] proj = null;
         final int l = projection.length;
 
-        Cursor c = null;
+        Cursor c;
 
         switch (uid) {
             case LOGS_ID:
@@ -3767,7 +3768,6 @@ public final class DataProvider extends ContentProvider {
                     nbillps = "0";
                 }
                 cursor.close();
-                cursor = null;
                 String logDate = "";
                 if (lowBp > 0L) {
                     logDate = Logs.TABLE + "." + Logs.DATE + ">" + lowBp + " and ";
@@ -3794,7 +3794,6 @@ public final class DataProvider extends ContentProvider {
                                 + Logs.TABLE + "." + Logs.PLAN_ID + "||'%,'" + " and pp."
                                 + Plans.BILLPERIOD_ID
                                 + "=" + Plans.TABLE + "." + Plans.ID + ")))))");
-                logDate = null;
                 groupBy = Plans.TABLE + "." + Plans.ID;
                 if (hideZero || hideNoCost) {
                     having = Plans.TYPE + " in(" + TYPE_BILLPERIOD + "," + TYPE_SPACING + ","
@@ -3909,10 +3908,13 @@ public final class DataProvider extends ContentProvider {
     public int update(final Uri uri, final ContentValues values, final String selection,
             final String[] selectionArgs) {
         Log.d(TAG, "update(", uri, ",", selection, ", values)");
-        final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+        SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         assert db != null;
+        //noinspection ConstantConditions
+        ContentResolver cr = getContext().getContentResolver();
+        assert cr != null;
         long i;
-        int ret = 0;
+        int ret;
         switch (URI_MATCHER.match(uri)) {
             case LOGS:
                 ret = db.update(Logs.TABLE, values, selection, selectionArgs);
@@ -3940,11 +3942,11 @@ public final class DataProvider extends ContentProvider {
                         DbUtils.sqlAnd(Numbers.ID + "=" + ContentUris.parseId(uri), selection),
                         selectionArgs);
                 if (ret > 0 && values != null) {
+                    //noinspection ConstantConditions
                     i = values.getAsLong(Numbers.GID);
                     if (i >= 0) {
-                        getContext().getContentResolver()
-                                .notifyChange(ContentUris.withAppendedId(Numbers.GROUP_URI, i),
-                                        null);
+                        cr.notifyChange(ContentUris.withAppendedId(Numbers.GROUP_URI, i),
+                                null);
                     }
                 }
                 break;
@@ -3958,10 +3960,11 @@ public final class DataProvider extends ContentProvider {
                         DbUtils.sqlAnd(Hours.ID + "=" + ContentUris.parseId(uri), selection),
                         selectionArgs);
                 if (ret > 0 && values != null) {
+                    //noinspection ConstantConditions
                     i = values.getAsLong(Numbers.GID);
                     if (i >= 0) {
-                        getContext().getContentResolver()
-                                .notifyChange(ContentUris.withAppendedId(Hours.GROUP_URI, i), null);
+                        cr.notifyChange(ContentUris.withAppendedId(Hours.GROUP_URI, i),
+                                null);
                     }
                 }
                 break;
@@ -3974,7 +3977,7 @@ public final class DataProvider extends ContentProvider {
                 throw new IllegalArgumentException("Unknown Uri " + uri);
         }
         if (ret > 0) {
-            getContext().getContentResolver().notifyChange(uri, null);
+            cr.notifyChange(uri, null);
         }
         Log.d(TAG, "update(): ", ret);
         return ret;

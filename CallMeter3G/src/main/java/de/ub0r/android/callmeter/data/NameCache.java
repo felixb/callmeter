@@ -28,7 +28,7 @@ import android.support.v4.util.LruCache;
 public final class NameCache extends LruCache<String, String> {
 
     /** Maximum cache size. */
-    private static final int MAXCACHESIZE = 100;
+    private static final int MAX_CACHE_SIZE = 100;
 
     /** Single instance. */
     private static NameCache instance;
@@ -47,15 +47,15 @@ public final class NameCache extends LruCache<String, String> {
 
     /** hide public constructor. */
     private NameCache() {
-        super(MAXCACHESIZE);
+        super(MAX_CACHE_SIZE);
     }
 
     /**
-     * Return get(key) formated with format.
+     * Return get(key) formatted with format.
      *
      * @param key    key
      * @param format format
-     * @return formated {@link String}
+     * @return formatted {@link String}
      */
     public String get(final String key, final String format) {
         String s = get(key);

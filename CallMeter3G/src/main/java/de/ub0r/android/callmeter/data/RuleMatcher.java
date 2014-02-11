@@ -93,14 +93,14 @@ public final class RuleMatcher {
                     continue;
                 }
                 final NumbersGroup ng = new NumbersGroup(cr, Utils.parseLong(s, -1L));
-                if (ng != null && ng.numbers.size() > 0) {
+                if (ng.numbers.size() > 0) {
                     list.add(ng);
                 }
             }
             if (list.size() == 0) {
                 return null;
             }
-            return list.toArray(new NumbersGroup[]{});
+            return list.toArray(new NumbersGroup[list.size()]);
         }
 
         /**
@@ -121,14 +121,14 @@ public final class RuleMatcher {
                     continue;
                 }
                 final HoursGroup ng = new HoursGroup(cr, Utils.parseLong(s, -1L));
-                if (ng != null && ng.hours.size() > 0) {
+                if (ng.hours.size() > 0) {
                     list.add(ng);
                 }
             }
             if (list.size() == 0) {
                 return null;
             }
-            return list.toArray(new HoursGroup[]{});
+            return list.toArray(new HoursGroup[list.size()]);
         }
 
         /** Group of numbers. */
@@ -144,6 +144,7 @@ public final class RuleMatcher {
              * @param what0 argument
              */
             private NumbersGroup(final ContentResolver cr, final long what0) {
+                //noinspection ConstantConditions
                 final Cursor cursor = cr.query(
                         ContentUris.withAppendedId(DataProvider.Numbers.GROUP_URI, what0),
                         DataProvider.Numbers.PROJECTION, null, null, null);
@@ -289,6 +290,7 @@ public final class RuleMatcher {
              * @param what0 argument
              */
             private HoursGroup(final ContentResolver cr, final long what0) {
+                //noinspection ConstantConditions
                 final Cursor cursor = cr.query(
                         ContentUris.withAppendedId(DataProvider.Hours.GROUP_URI, what0),
                         DataProvider.Hours.PROJECTION, null, null, null);
@@ -409,6 +411,7 @@ public final class RuleMatcher {
             if (TextUtils.isEmpty(s)) {
                 iswebsmsConnector = "";
             } else {
+                assert  s != null;
                 iswebsmsConnector = " AND " + DataProvider.WebSMS.CONNECTOR + " LIKE '%"
                         + s.toLowerCase() + "%'";
             }
@@ -576,10 +579,9 @@ public final class RuleMatcher {
             }
 
             if (inhours != null) {
-                final int l = inhours.length;
                 ret = false;
-                for (int i = 0; i < l; i++) {
-                    ret |= inhours[i].match(log);
+                for (HoursGroup inhour : inhours) {
+                    ret = inhour.match(log);
                     if (ret) {
                         break;
                     }
@@ -590,9 +592,8 @@ public final class RuleMatcher {
                 return false;
             }
             if (exhours != null) {
-                final int l = exhours.length;
-                for (int i = 0; i < l; i++) {
-                    ret = !this.exhours[i].match(log);
+                for (HoursGroup exhour : exhours) {
+                    ret = !exhour.match(log);
                     if (!ret) {
                         break;
                     }
@@ -603,10 +604,9 @@ public final class RuleMatcher {
                 return false;
             }
             if (innumbers != null) {
-                final int l = innumbers.length;
                 ret = false;
-                for (int i = 0; i < l; i++) {
-                    ret |= innumbers[i].match(log);
+                for (NumbersGroup innumber : innumbers) {
+                    ret = innumber.match(log);
                     if (ret) {
                         break;
                     }
@@ -617,9 +617,8 @@ public final class RuleMatcher {
                 return false;
             }
             if (exnumbers != null) {
-                final int l = exnumbers.length;
-                for (int i = 0; i < l; i++) {
-                    ret = !this.exnumbers[i].match(log);
+                for (NumbersGroup exnumber : exnumbers) {
+                    ret = !exnumber.match(log);
                     if (!ret) {
                         break;
                     }
@@ -727,6 +726,7 @@ public final class RuleMatcher {
 
             final long bp = cursor.getLong(DataProvider.Plans.INDEX_BILLPERIOD_ID);
             if (bp >= 0) {
+                //noinspection ConstantConditions
                 final Cursor c = cr.query(
                         ContentUris.withAppendedId(DataProvider.Plans.CONTENT_URI, bp),
                         DataProvider.Plans.PROJECTION, null, null, null);
@@ -924,7 +924,7 @@ public final class RuleMatcher {
         float getBilledAmount(final Cursor log) {
             long amount = log.getLong(DataProvider.Logs.INDEX_AMOUNT);
             final int t = log.getInt(DataProvider.Logs.INDEX_TYPE);
-            float ret = 0f;
+            float ret;
             switch (t) {
                 case DataProvider.TYPE_CALL:
                     ret = roundTime(amount);
@@ -1121,7 +1121,6 @@ public final class RuleMatcher {
         stripLeadingZeros = prefs.getBoolean(Preferences.PREFS_STRIP_LEADING_ZEROS, false);
         intPrefix = prefs.getString(Preferences.PREFS_INT_PREFIX, "");
         zeroPrefix = !intPrefix.equals("+44") && !intPrefix.equals("+49");
-        prefs = null;
 
         final ContentResolver cr = context.getContentResolver();
 
@@ -1136,7 +1135,6 @@ public final class RuleMatcher {
         }
         if (cursor != null && !cursor.isClosed()) {
             cursor.close();
-            cursor = null;
         }
 
         // load plans
@@ -1151,7 +1149,6 @@ public final class RuleMatcher {
         }
         if (cursor != null && !cursor.isClosed()) {
             cursor.close();
-            cursor = null;
         }
         // update parent references
         int l = plans.size();
@@ -1231,9 +1228,7 @@ public final class RuleMatcher {
             Log.e(TAG, "plans = null");
             return false;
         }
-        final int l = rules.size();
-        for (int i = 0; i < l; i++) {
-            final Rule r = rules.get(i);
+        for (final Rule r : rules) {
             if (r == null || !r.match(cr, log) || plans == null) {
                 continue;
             }
@@ -1340,7 +1335,7 @@ public final class RuleMatcher {
                 DataProvider.Logs.DATE + " ASC");
         if (cursor.moveToFirst()) {
             final int l = cursor.getCount();
-            Handler h = null;
+            Handler h;
             if (showStatus) {
                 h = Plans.getHandler();
                 if (h != null) {

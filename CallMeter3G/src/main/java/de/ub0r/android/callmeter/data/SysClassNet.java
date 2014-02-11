@@ -52,34 +52,6 @@ public final class SysClassNet {
 
     /**
      * @param inter interface
-     * @return true if interface is up
-     */
-    public static boolean isUp(final String inter) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(SYS_CLASS_NET).append(inter).append(CARRIER);
-        return new File(sb.toString()).canRead();
-    }
-
-    /**
-     * @param inter interface
-     * @return true if interface is available
-     */
-    public static boolean isAvail(final String inter) {
-        Log.d(TAG, "isAvail(", inter, ")");
-        try {
-            if (getRxBytes(inter) > 0L || getTxBytes(inter) > 0L) {
-                Log.d(TAG, "isAvail(", inter, "): true");
-                return true;
-            }
-        } catch (Exception e) {
-            Log.i(TAG, "could not read device: " + inter);
-        }
-        Log.d(TAG, "isAvail(", inter, "): false");
-        return false;
-    }
-
-    /**
-     * @param inter interface
      * @return bytes received
      * @throws IOException IOException
      */

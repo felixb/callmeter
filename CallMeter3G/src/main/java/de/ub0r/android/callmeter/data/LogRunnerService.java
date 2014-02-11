@@ -93,9 +93,6 @@ public final class LogRunnerService extends IntentService {
     /** {@link Intent}'s action for receiving SMS. */
     private static final String ACTION_SMS = "android.provider.Telephony.SMS_RECEIVED";
 
-    /** Empty array of {@link ContentValues} to convert a list to array. */
-    private static final ContentValues[] TO_ARRAY = new ContentValues[]{};
-
     /** Prefix for store of last data. */
     private static final String PREFS_LASTDATA_PREFIX = "last_data_";
 
@@ -390,7 +387,6 @@ public final class LogRunnerService extends IntentService {
                         cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID + "=?",
                                 new String[]{c.getString(0)});
                         c.close();
-                        c = null;
                     } else {
                         Log.d(TAG, "skip rx: ", rrx);
                     }
@@ -418,7 +414,6 @@ public final class LogRunnerService extends IntentService {
                         cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.ID + "=?",
                                 new String[]{c.getString(0)});
                         c.close();
-                        c = null;
                     } else {
                         Log.d(TAG, "skip tx: ", rtx);
                     }
@@ -486,8 +481,6 @@ public final class LogRunnerService extends IntentService {
 
     /**
      * Run logs: calls.
-     *
-     * @param cr {@link ContentResolver}
      */
     private static void updateCalls(final Context context) {
         Log.d(TAG, "updateCalls()");
@@ -560,13 +553,15 @@ public final class LogRunnerService extends IntentService {
                 }
                 cvalues.add(cv);
                 if (cvalues.size() >= CallMeter.HUNDRET) {
-                    cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues.toArray(TO_ARRAY));
+                    cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
+                            cvalues.toArray(new ContentValues[cvalues.size()]));
                     Log.d(TAG, "new calls: ", cvalues.size());
                     cvalues.clear();
                 }
             } while (cursor.moveToNext());
             if (cvalues.size() > 0) {
-                cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues.toArray(TO_ARRAY));
+                cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
+                        cvalues.toArray(new ContentValues[cvalues.size()]));
                 Log.d(TAG, "new calls: ", cvalues.size());
             }
         }
@@ -633,6 +628,7 @@ public final class LogRunnerService extends IntentService {
                 final String body = cursor.getString(idBody);
                 int l = 1;
                 if (!TextUtils.isEmpty(body)) {
+                    assert body != null;
                     Log.d(TAG, "body: ", body.replaceAll("[a-z]", "x").replaceAll("[A-Z]", "X"));
                     if (splitAt160) {
                         l = ((body.length() - 1) / SMS_LENGTH) + 1;
@@ -656,13 +652,15 @@ public final class LogRunnerService extends IntentService {
                 }
                 cvalues.add(cv);
                 if (cvalues.size() >= CallMeter.HUNDRET) {
-                    cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues.toArray(TO_ARRAY));
+                    cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
+                            cvalues.toArray(new ContentValues[cvalues.size()]));
                     Log.d(TAG, "new sms: ", cvalues.size());
                     cvalues.clear();
                 }
             } while (cursor.moveToNext());
             if (cvalues.size() > 0) {
-                cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues.toArray(TO_ARRAY));
+                cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
+                        cvalues.toArray(new ContentValues[cvalues.size()]));
                 Log.d(TAG, "new sms: ", cvalues.size());
             }
         }
@@ -730,6 +728,7 @@ public final class LogRunnerService extends IntentService {
                     if (n == null) {
                         final Cursor c = cr.query(URI_THREADS, THREADS_PROJ, "_id = ?",
                                 new String[]{String.valueOf(tid)}, null);
+                        assert c != null;
                         if (c.moveToFirst()) {
                             final String rid = c.getString(0);
                             Log.d(TAG, "recipient_ids: ", rid);
@@ -760,13 +759,15 @@ public final class LogRunnerService extends IntentService {
                 }
                 cvalues.add(cv);
                 if (cvalues.size() >= CallMeter.HUNDRET) {
-                    cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues.toArray(TO_ARRAY));
+                    cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
+                            cvalues.toArray(new ContentValues[cvalues.size()]));
                     Log.d(TAG, "new mms: ", cvalues.size());
                     cvalues.clear();
                 }
             } while (cursor.moveToNext());
             if (cvalues.size() > 0) {
-                cr.bulkInsert(DataProvider.Logs.CONTENT_URI, cvalues.toArray(TO_ARRAY));
+                cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
+                        cvalues.toArray(new ContentValues[cvalues.size()]));
                 Log.d(TAG, "new mms: ", cvalues.size());
             }
         }
@@ -847,11 +848,13 @@ public final class LogRunnerService extends IntentService {
                     new String[]{DataProvider.Logs.PLAN_ID}, DataProvider.Logs.RULE_ID + " != "
                     + DataProvider.NO_ID + " AND " + DataProvider.Logs.TYPE + " != "
                     + DataProvider.TYPE_DATA, null, null);
+            assert c != null;
             if (c.getCount() < UNMATHCEDLOGS_TO_SHOW_DIALOG) {
                 showDialog = true;
                 // skip if no plan is set up
                 Cursor c1 = cr.query(DataProvider.Plans.CONTENT_URI,
                         new String[]{DataProvider.Plans.ID}, null, null, null);
+                assert c1 != null;
                 if (c1.getCount() <= 0) {
                     shortRun = true;
                     showDialog = false;
@@ -860,6 +863,7 @@ public final class LogRunnerService extends IntentService {
                 // skip if no rule is set up
                 c1 = cr.query(DataProvider.Rules.CONTENT_URI,
                         new String[]{DataProvider.Rules.ID}, null, null, null);
+                assert c1 != null;
                 if (c1.getCount() <= 0) {
                     shortRun = true;
                     showDialog = false;
@@ -913,11 +917,11 @@ public final class LogRunnerService extends IntentService {
                     final float cost = c.getFloat(DataProvider.Logs.INDEX_COST);
                     final String planname = DataProvider.Plans.getName(cr,
                             c.getLong(DataProvider.Logs.INDEX_PLAN_ID));
-                    StringBuffer sb = new StringBuffer();
+                    StringBuilder sb = new StringBuilder();
                     sb.append(Common.prettySeconds(amount, false));
                     if (cost > 0) {
                         String currencyFormat = Preferences.getCurrencyFormat(this);
-                        sb.append(delimiter + String.format(currencyFormat, cost));
+                        sb.append(delimiter).append(String.format(currencyFormat, cost));
                     }
                     if (planname != null) {
                         sb.insert(0, planname + ": ");

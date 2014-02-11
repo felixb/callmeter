@@ -28,8 +28,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.logg0r.Log;
@@ -47,8 +45,6 @@ public abstract class Device {
 
     /** Single instance. */
     private static Device instance = null;
-    /** Device's interfaces. */
-    private String[] mInterfaces = null;
 
     /**
      * @return single instance
@@ -77,7 +73,7 @@ public abstract class Device {
         StringBuilder sb = new StringBuilder();
         try {
             BufferedReader r = new BufferedReader(new FileReader(f), BUFSIZE);
-            sb.append("read: " + f);
+            sb.append("read: ").append(f);
             sb.append("\t");
             sb.append(r.readLine());
             r.close();
@@ -151,12 +147,12 @@ public abstract class Device {
                     sb.append(readFile(dev + SysClassNet.TX_BYTES));
                     sb.append("\n");
                 } catch (Exception e) {
-                    sb.append("\nERROR: " + e + "\n");
+                    sb.append("\nERROR: ").append(e).append("\n");
                     Log.e(TAG, "ERROR reading " + dev, e);
                 }
             }
         } catch (Exception e) {
-            sb.append("\nERROR: " + e + "\n");
+            sb.append("\nERROR: ").append(e).append("\n");
             Log.e(TAG, "error reading /sys/", e);
         }
         return sb.toString();
@@ -195,23 +191,6 @@ public abstract class Device {
      * @throws IOException IOException
      */
     public abstract long getWiFiTxBytes() throws IOException;
-
-    /**
-     * @return device's interfaces
-     */
-    public final synchronized String[] getInterfaces() {
-        if (mInterfaces == null) {
-            List<String> tmp = new ArrayList<String>();
-            if (getCell() != null) {
-                tmp.add(getCell());
-            }
-            if (getWiFi() != null) {
-                tmp.add(getWiFi());
-            }
-            mInterfaces = tmp.toArray(new String[tmp.size()]);
-        }
-        return mInterfaces;
-    }
 }
 
 /**
@@ -297,6 +276,7 @@ final class EmulatorDevice extends Device {
 /**
  * Emulator Device showing all traffic on cell and wifi.
  */
+@SuppressWarnings("UnusedDeclaration")
 final class DebugDevice extends Device {
 
     /** Tag for output. */

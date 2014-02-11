@@ -52,7 +52,7 @@ public class NameLoader extends AsyncTask<Void, Void, String> {
      * @param context {@link Context}
      * @param number  phone number
      * @param format  format to format the {@link String} with
-     * @return name or formated {@link String}
+     * @return name or formatted {@link String}
      */
     public static String getName(final Context context, final String number, final String format) {
         NameLoader loader = new NameLoader(context, number, format, null);
@@ -89,13 +89,16 @@ public class NameLoader extends AsyncTask<Void, Void, String> {
     protected String doInBackground(final Void... params) {
         String ret = null;
         try {
+            //noinspection ConstantConditions
             Cursor c = ctx.getContentResolver().query(
                     Uri.withAppendedPath(PhoneLookup.CONTENT_FILTER_URI, num),
                     new String[]{PhoneLookup.DISPLAY_NAME}, null, null, null);
-            if (c.moveToFirst()) {
-                ret = c.getString(0);
+            if (c != null) {
+                if (c.moveToFirst()) {
+                    ret = c.getString(0);
+                }
+                c.close();
             }
-            c.close();
         } catch (Exception e) {
             Log.e(TAG, "error loading name", e);
         }
