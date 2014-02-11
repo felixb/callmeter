@@ -84,11 +84,6 @@ public final class DataProvider extends ContentProvider {
     /** Authority. */
     public static final String AUTHORITY = PACKAGE + ".data";
 
-    /** Preference's name: last backup. */
-    private static final String PREFS_LASTBACKUP = "lastbackup";
-    /** Period for backups. */
-    private static final long BACKUP_PERIOD = 1000L * 60L * 60L * 24L;
-
     /** Name of the {@link SQLiteDatabase}. */
     private static final String DATABASE_NAME = "callmeter.db";
     /** Version of the {@link SQLiteDatabase}. */
@@ -2375,9 +2370,6 @@ public final class DataProvider extends ContentProvider {
         @Override
         public void onCreate(final SQLiteDatabase db) {
             Log.i(TAG, "create database");
-            if (doRestore(db)) {
-                return; // skip create
-            }
             Logs.onCreate(db);
             WebSMS.onCreate(db);
             SipCall.onCreate(db);
@@ -2468,18 +2460,8 @@ public final class DataProvider extends ContentProvider {
         }
     }
 
-    /**
-     * Empty {@link Object} to sync backup and {@link SQLiteDatabase} access with.
-     */
-    private final Object[] mBackupSync = new Object[0];
-    /** True, if backup is currently running. */
-    private boolean mInBackup = false;
-
     /** {@link DatabaseHelper}. */
     private DatabaseHelper mOpenHelper;
-
-    /** {@link SharedPreferences}. */
-    private SharedPreferences mSharedPreferences;
 
     /**
      * Run RuleMatcher.unmatch locally.
@@ -3426,7 +3408,6 @@ public final class DataProvider extends ContentProvider {
     @Override
     public int delete(final Uri uri, final String selection, final String[] selectionArgs) {
         Log.d(TAG, "delete(", uri, ",", selection, ")");
-        waitForBackup();
         final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         assert db != null;
         int ret = 0;
@@ -3557,7 +3538,6 @@ public final class DataProvider extends ContentProvider {
     public ContentProviderResult[] applyBatch(final ArrayList<ContentProviderOperation> operations)
             throws OperationApplicationException {
         Log.d(TAG, "applyBatch(#", operations.size(), ")");
-        waitForBackup();
         ContentProviderResult[] ret = null;
         final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         assert db != null;
@@ -3581,7 +3561,6 @@ public final class DataProvider extends ContentProvider {
             return 0;
         }
         int ret = 0;
-        waitForBackup();
         final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         assert db != null;
         db.beginTransaction();
@@ -3603,7 +3582,6 @@ public final class DataProvider extends ContentProvider {
     @Override
     public Uri insert(final Uri uri, final ContentValues values) {
         Log.d(TAG, "insert(", uri, ",", values, ")");
-        waitForBackup();
         final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         assert db != null;
         long ret = -1;
@@ -3672,7 +3650,6 @@ public final class DataProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
         mOpenHelper = new DatabaseHelper(getContext());
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         return true;
     }
 
@@ -3680,7 +3657,6 @@ public final class DataProvider extends ContentProvider {
     public Cursor query(final Uri uri, final String[] projection, final String selection,
             final String[] selectionArgs, final String sortOrder) {
         Log.d(TAG, "query(", uri, ",", selection, ")");
-        doBackup(getContext());
         final SQLiteDatabase db = mOpenHelper.getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
         final int uid = URI_MATCHER.match(uri);
@@ -3933,7 +3909,6 @@ public final class DataProvider extends ContentProvider {
     public int update(final Uri uri, final ContentValues values, final String selection,
             final String[] selectionArgs) {
         Log.d(TAG, "update(", uri, ",", selection, ", values)");
-        waitForBackup();
         final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         assert db != null;
         long i;
@@ -4002,104 +3977,6 @@ public final class DataProvider extends ContentProvider {
             getContext().getContentResolver().notifyChange(uri, null);
         }
         Log.d(TAG, "update(): ", ret);
-        return ret;
-    }
-
-    /**
-     * Need to do backup of internal {@link SQLiteDatabase}?
-     *
-     * @return true, if backup needs to be done
-     */
-    private boolean needBackup() {
-        return System.currentTimeMillis() - mSharedPreferences.getLong(PREFS_LASTBACKUP, 0L)
-                > BACKUP_PERIOD;
-    }
-
-    /**
-     * Wait for doBackup() to finish it's work.
-     */
-    private void waitForBackup() {
-        while (mInBackup) {
-            Log.i(TAG, "wait for backup to finish");
-            synchronized (mBackupSync) {
-                Log.i(TAG, "backup finished. continue the work..");
-                if (mInBackup) {
-                    throw new IllegalStateException("mInBackup should be false");
-                }
-            }
-
-        }
-    }
-
-    /**
-     * Backup {@link SQLiteDatabase} on file system level.
-     *
-     * @param context {@link Context}
-     */
-    private void doBackup(final Context context) {
-        if (!this.needBackup()) {
-            // check before going into synchronized code
-            Log.d(TAG, "skip backup()");
-            return;
-        }
-        Log.i(TAG, "doBackup()");
-        synchronized (mBackupSync) {
-            if (!this.needBackup()) {
-                // check again: somebody did a backup just now!?
-                Log.i(TAG, "skip backup()");
-                return;
-            }
-            SQLiteDatabase db;
-            try {
-                db = mOpenHelper.getWritableDatabase();
-            } catch (IllegalStateException e) {
-                Log.e(TAG, "WTF?", e);
-                db = null;
-            }
-            if (db != null) {
-                final String path = db.getPath();
-                mInBackup = true;
-                try {
-                    Log.d(TAG, "cp ", path, " ", path, ".bak");
-                    Utils.copyFile(path, path + ".bak");
-                    mSharedPreferences.edit()
-                            .putLong(PREFS_LASTBACKUP, System.currentTimeMillis()).commit();
-                } catch (IOException e) {
-                    Log.e(TAG, "could not backup database", e);
-                }
-            } else {
-                // do not try with next run again..
-                mSharedPreferences.edit()
-                        .putLong(PREFS_LASTBACKUP, System.currentTimeMillis()).commit();
-            }
-            mInBackup = false;
-        }
-        Log.d(TAG, "doBackup(): return");
-    }
-
-    /**
-     * Try to restore backup of {@link SQLiteDatabase}.
-     *
-     * @param db {@link SQLiteDatabase}
-     * @return restored successfully?
-     */
-    private static boolean doRestore(final SQLiteDatabase db) {
-        Log.i(TAG, "doRestore()");
-        boolean ret = false;
-        final String path = db.getPath();
-        final File bak = new File(path + ".bak");
-        if (bak.exists()) {
-            try {
-                db.close();
-                Utils.copyFile(bak.getAbsolutePath(), path);
-                ret = true;
-                Log.w(TAG, "backup restored");
-            } catch (IOException e) {
-                Log.e(TAG, "failed restoring backup", e);
-            }
-        } else {
-            Log.w(TAG, "no backup found");
-        }
         return ret;
     }
 }
