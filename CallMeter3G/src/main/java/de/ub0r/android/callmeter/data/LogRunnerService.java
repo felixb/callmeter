@@ -136,6 +136,8 @@ public final class LogRunnerService extends IntentService {
     /** Time of last call. */
     private static long lastUpdate = 0L;
 
+    private static boolean inUpdate = false;
+
     /** Service's {@link Handler}. */
     private Handler handler = null;
 
@@ -152,10 +154,12 @@ public final class LogRunnerService extends IntentService {
      * @param action  original action sent to {@link LogRunnerReceiver}
      * @param context {@link Context}
      */
-    public static synchronized void update(final Context context, final String action) {
+    public static void update(final Context context, final String action) {
         Log.d(TAG, "update(", action, ")");
         long now = System.currentTimeMillis();
-        if ((action == null && lastAction != null)
+        if (inUpdate) {
+            Log.i(TAG, "skip update(" + action + "): still updating");
+        } else if ((action == null && lastAction != null)
                 || (action != null && !action.equals(lastAction)) || lastUpdate == 0L
                 || now > lastUpdate + MIN_DELAY) {
             context.startService(new Intent(action, null, context, LogRunnerService.class));
@@ -802,18 +806,31 @@ public final class LogRunnerService extends IntentService {
         };
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        inUpdate = false;
+    }
+
     /**
      * {@inheritDoc}
      */
     @Override
     protected void onHandleIntent(final Intent intent) {
-        long t = SystemClock.elapsedRealtime();
         if (intent == null) {
-            Log.w(TAG, "onHandleIntent(null)");
+            Log.w(TAG, "handleIntent(null)");
             return;
         }
+        inUpdate = true;
+        handleIntent(intent);
+        inUpdate = false;
+    }
+
+    private void handleIntent(final Intent intent) {
+        assert intent != null;
+        long t = SystemClock.elapsedRealtime();
         final String a = intent.getAction();
-        Log.d(TAG, "onHandleIntent(action=", a, ")");
+        Log.d(TAG, "handleIntent(action=", a, ")");
 
         final WakeLock wakelock = acquire(a);
 
