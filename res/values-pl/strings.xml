@@ -21,8 +21,8 @@
                Visit http://ub0r.de/translate/cm2/pl/strings.xml to edit the file.
        -->
 <resources>
-  <string name="about0_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Watch your call, message and data plans!">Obserwuj swoje połączenia, wiadomości oraz pakiet rozmów!</string>
-  <string name="about0" formatted="false" username="najodleglejszy" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Obsługuje wiele planów taryfowych.</string>
+  <string name="about0_" formatted="false" username="Michał Markiewicz marszczybrew1@gmail.com" orig="Watch your call, message and data plans!">Obserwuj swoje połączenia, wiadomości oraz pakiet danych!</string>
+  <string name="about0" formatted="false" username="Michał Markiewicz marszczybrew1@gmail.com" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter generuje raport na podstawie logu z połączeń i wiadomości. Obsługuje wiele rodzajów taryf.</string>
   <string name="about1" formatted="false" username="najodleglejszy" orig="The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not.">Format wyjściowy to wykorzystanie/czas, całość wykorzystanego rachunku/czas lub całość ogółem. Przelicznik miesięczny jest obliczany na podstawie rodzaju rachunku (cyklu rozliczeniowego).</string>
   <string name="about2" formatted="false">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
   <string name="about3" formatted="false">Możesz podzielić swoje połączenia lub sms na dwa plany. Oba plany mogą być ustawione na całodobowe darmowe połączenia lub w określonych godzinach.</string>
@@ -46,7 +46,7 @@
   <string name="smsperiod_hint" formatted="false">Okres rozliczeniowy wiadomości SMS taki sam jak dla Połączeń</string>
   <string name="smsbillday_" formatted="false">Pierwszy dzień rachunku SMS</string>
   <string name="dataperiod_" formatted="false">Ten sam przedział dla danych</string>
-  <string name="dataperiod_hint" formatted="false">Okres rozliczeniowy danych taki sam jak dla Połączeń</string>
+  <string name="dataperiod_hint" formatted="false" username="Michał Markiewicz marszczybrew1@gmail.com" orig="Set data\'s billing period to calls\' period.">Okres rozliczeniowy danych taki sam jak dla połączeń</string>
   <string name="databillday_" formatted="false">Pierwszy dzień rachunku za dane</string>
   <string name="appearance_" formatted="false">Wygląd</string>
   <string name="theme_" formatted="false">Styl</string>
