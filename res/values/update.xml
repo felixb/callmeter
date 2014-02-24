@@ -19,6 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates">
+		<item>v2.3.21: add Arabic translation (thanks to AbuIyad), add Lithuanian translation (thanks to Aivaras Skuodas), update translations</item>
 		<item>v2.3.20: add Portuguese translation (thanks to Sérgio Marques), update translations</item>
 		<item>v2.3.19.1: update translations</item>
 		<item>v2.3.19: use Holo themes on Android 3+</item>
