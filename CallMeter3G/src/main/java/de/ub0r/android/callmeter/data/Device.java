@@ -29,6 +29,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import de.ub0r.android.callmeter.BuildConfig;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.logg0r.Log;
 
@@ -94,7 +95,7 @@ public abstract class Device {
         sb.append("app: ");
         sb.append(context.getString(R.string.app_name));
         sb.append("\nversion: ");
-        sb.append(context.getString(R.string.app_version));
+        sb.append(BuildConfig.VERSION_NAME);
         sb.append("\nsdk version: ");
         sb.append(Build.VERSION.SDK_INT);
         sb.append("\nproduct: ");

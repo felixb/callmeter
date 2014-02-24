@@ -23,6 +23,7 @@ import com.actionbarsherlock.view.MenuItem;
 
 import android.os.Bundle;
 
+import de.ub0r.android.callmeter.BuildConfig;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.Utils;
 
@@ -43,7 +44,7 @@ public final class AboutActivity extends TrackingSherlockActivity {
 
         setContentView(R.layout.about);
         setTitle(getString(R.string.about_) + " " + getString(R.string.app_name)
-                + " v" + getString(R.string.app_version));
+                + " v" + BuildConfig.VERSION_NAME);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
