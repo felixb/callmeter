@@ -49,8 +49,8 @@ import de.ub0r.android.callmeter.data.NameLoader;
 import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Stats Widget.
@@ -104,9 +104,7 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
     @Override
     public void onDeleted(final Context context, final int[] appWidgetIds) {
         Editor e = PreferenceManager.getDefaultSharedPreferences(context).edit();
-        final int count = appWidgetIds.length;
-        for (int i = 0; i < count; i++) {
-            int id = appWidgetIds[i];
+        for (int id : appWidgetIds) {
             Log.d(TAG, "delete widget: ", id);
             TrackingUtils
                     .sendEvent(context, "widget", "delete", this.getClass().getName(), (long) id);
@@ -125,11 +123,9 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
      */
     private static void updateWidgets(final Context context,
             final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
-        final int count = appWidgetIds.length;
         SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 
-        for (int i = 0; i < count; i++) {
-            int id = appWidgetIds[i];
+        for (int id : appWidgetIds) {
             Log.d(TAG, "update widget: ", id);
             if (p.getLong(WIDGET_PLANID + id, -1) <= 0) {
                 Log.w(TAG, "skip stale widget: " + id);
@@ -147,6 +143,7 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
     public static void updateWidgets(final Context context) {
         Log.d(TAG, "updateWidgets()");
         final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        assert appWidgetManager != null;
         final int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context,
                 LogsAppWidgetProvider.class));
         updateWidgets(context, appWidgetManager, appWidgetIds);
@@ -197,6 +194,7 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
         Cursor c = cr.query(DataProvider.Logs.CONTENT_URI, DataProvider.Logs.PROJECTION,
                 DataProvider.Logs.PLAN_ID + "=?", new String[]{String.valueOf(pid)},
                 DataProvider.Logs.DATE + " DESC");
+        assert c != null;
         if (c.moveToFirst()) {
             final int t = c.getInt(DataProvider.Logs.INDEX_TYPE);
             final long date = c.getLong(DataProvider.Logs.INDEX_DATE);
@@ -232,10 +230,10 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
                 if (free == 0f) {
                     buf1.append(String.format(cformat, cost));
                 } else if (free >= cost) {
-                    buf1.append("(" + String.format(cformat, cost) + ")");
+                    buf1.append("(").append(String.format(cformat, cost)).append(")");
                 } else {
-                    buf1.append("(" + String.format(cformat, free) + ") "
-                            + String.format(cformat, cost - free));
+                    buf1.append("(").append(String.format(cformat, free)).append(") ")
+                            .append(String.format(cformat, cost - free));
                 }
             }
 
@@ -279,6 +277,7 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
      * @return {@link Bitmap}
      */
     private static Bitmap getBackground(final int bgColor) {
+        //noinspection SuspiciousNameCombination
         final Bitmap bitmap = Bitmap.createBitmap(StatsAppWidgetProvider.WIDGET_WIDTH,
                 StatsAppWidgetProvider.WIDGET_WIDTH, Bitmap.Config.ARGB_8888);
         final Canvas canvas = new Canvas(bitmap);
@@ -286,6 +285,7 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(bgColor);
+        //noinspection SuspiciousNameCombination
         final RectF base = new RectF(0f, 0f, StatsAppWidgetProvider.WIDGET_WIDTH,
                 StatsAppWidgetProvider.WIDGET_WIDTH);
         canvas.drawRoundRect(base, StatsAppWidgetProvider.WIDGET_RCORNER,

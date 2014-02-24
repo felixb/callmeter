@@ -117,9 +117,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
     @Override
     public void onDeleted(final Context context, final int[] appWidgetIds) {
         Editor e = PreferenceManager.getDefaultSharedPreferences(context).edit();
-        final int count = appWidgetIds.length;
-        for (int i = 0; i < count; i++) {
-            int id = appWidgetIds[i];
+        for (int id : appWidgetIds) {
             Log.d(TAG, "delete widget: ", id);
             TrackingUtils
                     .sendEvent(context, "widget", "delete", this.getClass().getName(), (long) id);
@@ -138,11 +136,9 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
      */
     private static void updateWidgets(final Context context,
             final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
-        final int count = appWidgetIds.length;
         SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 
-        for (int i = 0; i < count; i++) {
-            int id = appWidgetIds[i];
+        for (int id : appWidgetIds) {
             Log.d(TAG, "update widget: ", id);
             if (p.getLong(WIDGET_PLANID + id, -1) <= 0) {
                 Log.w(TAG, "skip stale widget: " + id);
@@ -160,6 +156,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
     public static void updateWidgets(final Context context) {
         Log.d(TAG, "updateWidgets()");
         final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        assert appWidgetManager != null;
         final int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context,
                 StatsAppWidgetProvider.class));
         updateWidgets(context, appWidgetManager, appWidgetIds);
@@ -315,6 +312,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
      */
     private static Bitmap getBackground(final int bgColor, final int bmax, final int bpos,
             final boolean showBillPeriod, final long limit, final long used) {
+        //noinspection SuspiciousNameCombination
         final Bitmap bitmap = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH,
                 Bitmap.Config.ARGB_8888);
         final Canvas canvas = new Canvas(bitmap);
@@ -322,10 +320,12 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(bgColor);
+        //noinspection SuspiciousNameCombination
         final RectF base = new RectF(0f, 0f, WIDGET_WIDTH, WIDGET_WIDTH);
         canvas.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER, paint);
         if (showBillPeriod && bmax > 0) {
             // paint progress bar background
+            //noinspection SuspiciousNameCombination
             Bitmap bitmapPb = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH,
                     Bitmap.Config.ARGB_8888);
             Canvas canvasPb = new Canvas(bitmapPb);
@@ -337,6 +337,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
             Rect copy = new Rect(0, 0, WIDGET_WIDTH, PB_HEIGHT);
             canvas.drawBitmap(bitmapPb, copy, copy, null);
             // paint progress bar
+            //noinspection SuspiciousNameCombination
             bitmapPb = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH, Bitmap.Config.ARGB_8888);
             canvasPb = new Canvas(bitmapPb);
             paintPb.setColor(PB_COLOR_GREY);
@@ -346,6 +347,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
         }
         if (limit > 0L) {
             // paint progress bar background
+            //noinspection SuspiciousNameCombination
             Bitmap bitmapPb = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH,
                     Bitmap.Config.ARGB_8888);
             Canvas canvasPb = new Canvas(bitmapPb);
@@ -354,9 +356,11 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
             paintPb.setStyle(Paint.Style.FILL);
             paintPb.setColor(PB_COLOR_LGREY);
             canvasPb.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER, paintPb);
+            //noinspection SuspiciousNameCombination
             Rect copy = new Rect(0, WIDGET_WIDTH - PB_HEIGHT, WIDGET_WIDTH, WIDGET_WIDTH);
             canvas.drawBitmap(bitmapPb, copy, copy, null);
             // paint progress bar
+            //noinspection SuspiciousNameCombination
             bitmapPb = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH, Bitmap.Config.ARGB_8888);
             canvasPb = new Canvas(bitmapPb);
             int u = (int) ((used * CallMeter.HUNDRET) / limit);
@@ -372,6 +376,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
                 u = CallMeter.HUNDRET;
             }
             canvasPb.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER, paintPb);
+            //noinspection SuspiciousNameCombination
             copy = new Rect(0, WIDGET_WIDTH - PB_HEIGHT, (WIDGET_WIDTH * u) / CallMeter.HUNDRET,
                     WIDGET_WIDTH);
             canvas.drawBitmap(bitmapPb, copy, copy, null);
