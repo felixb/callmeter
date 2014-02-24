@@ -33,6 +33,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -209,14 +210,18 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
             if (t == DataProvider.TYPE_MMS || t == DataProvider.TYPE_SMS
                     || t == DataProvider.TYPE_CALL) {
                 String number = c.getString(DataProvider.Logs.INDEX_REMOTE);
-                String name = NameCache.getInstance().get(number);
-                if (name == null) {
-                    name = NameLoader.getName(context, number, null);
-                }
-                if (name == null) {
-                    buf1.append(number);
+                if (TextUtils.isEmpty(number)) {
+                    buf1.append("???");
                 } else {
-                    buf1.append(name);
+                    String name = NameCache.getInstance().get(number);
+                    if (name == null) {
+                        name = NameLoader.getName(context, number, null);
+                    }
+                    if (name == null) {
+                        buf1.append(number);
+                    } else {
+                        buf1.append(name);
+                    }
                 }
                 buf1.append("\n");
             }
