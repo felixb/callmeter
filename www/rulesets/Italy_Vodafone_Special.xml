@@ -13,7 +13,7 @@
       <_limit>0</_limit>
       <_billperiod>8</_billperiod>
       <_billmode>1/1</_billmode>
-      <_billday>1374796800947</_billday>
+      <_billday>1385506860947</_billday>
       <_cost_per_plan>10</_cost_per_plan>
       <_billperiod_id>0</_billperiod_id>
       <_next_alert>0</_next_alert>
@@ -22,7 +22,7 @@
     </plan>
     <plan>
       <_id>16</_id>
-      <_plan_name>CALL Voda</_plan_name>
+      <_plan_name>Chiamate</_plan_name>
       <_shortname>CV</_shortname>
       <_plan_type>4</_plan_type>
       <_limit_type>1</_limit_type>
@@ -36,7 +36,7 @@
     </plan>
     <plan>
       <_id>20</_id>
-      <_plan_name>MSG Voda</_plan_name>
+      <_plan_name>SMS</_plan_name>
       <_shortname>MV</_shortname>
       <_plan_type>5</_plan_type>
       <_limit_type>1</_limit_type>
@@ -44,36 +44,30 @@
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
+      <_cost_per_item></_cost_per_item>
+      <_cost_per_plan></_cost_per_plan>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>2</_order>
     </plan>
     <plan>
       <_id>23</_id>
-      <_plan_name>3G Voda</_plan_name>
+      <_plan_name>Dati mobili</_plan_name>
       <_shortname>3GV</_shortname>
       <_plan_type>7</_plan_type>
       <_limit_type>1</_limit_type>
-      <_limit>2000</_limit>
+      <_limit>2048</_limit>
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
+      <_cost_per_amount1></_cost_per_amount1>
+      <_cost_per_amount2></_cost_per_amount2>
+      <_cost_per_amount_in_limit1></_cost_per_amount_in_limit1>
+      <_cost_per_amount_in_limit2></_cost_per_amount_in_limit2>
+      <_cost_per_plan></_cost_per_plan>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>3</_order>
-    </plan>
-    <plan>
-      <_id>29</_id>
-      <_plan_name>CALL Anto</_plan_name>
-      <_shortname>CA</_shortname>
-      <_plan_type>4</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_billperiod>8</_billperiod>
-      <_billmode>1/1</_billmode>
-      <_billday>1372629660857</_billday>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_order>4</_order>
     </plan>
   </plans>
   <rules>
@@ -84,7 +78,7 @@
       <_plan_id>23</_plan_id>
       <_rule_name>Dati2GB</_rule_name>
       <_what>3</_what>
-      <_roamed>-1</_roamed>
+      <_roamed>1</_roamed>
       <_direction>-1</_direction>
       <_inhourgroup_id>-1</_inhourgroup_id>
       <_exhourgroup_id>-1</_exhourgroup_id>
@@ -100,7 +94,7 @@
       <_plan_id>16</_plan_id>
       <_rule_name>Call400</_rule_name>
       <_what>0</_what>
-      <_roamed>2</_roamed>
+      <_roamed>1</_roamed>
       <_direction>1</_direction>
       <_exnumbergroup_id>,1,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
@@ -114,7 +108,7 @@
       <_plan_id>20</_plan_id>
       <_rule_name>Sms1000</_rule_name>
       <_what>1</_what>
-      <_roamed>2</_roamed>
+      <_roamed>1</_roamed>
       <_direction>1</_direction>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
@@ -129,9 +123,9 @@
       <_name>Escludi dalle chiamate</_name>
       <numbers>
         <number>
-          <_id>1</_id>
+          <_id>2</_id>
           <_gid>1</_gid>
-          <_number>3339112039</_number>
+          <_number>3333920284</_number>
         </number>
       </numbers>
     </numbersgroup>
