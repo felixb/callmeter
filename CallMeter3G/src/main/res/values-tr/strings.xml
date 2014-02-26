@@ -173,7 +173,7 @@
   <string name="alerts_" formatted="false">Uyarılar</string>
   <string name="alerts_hint" formatted="false">Paket kullanımına göre uyarılar belirleyin.</string>
   <string name="alerts_title" formatted="false">Call Meter 3G uyarısı</string>
-  <string name="alerts_message" formatted="false">Paket %s %%d% kullanıldı!</string>
+  <string name="alerts_message" formatted="false">Paket %1$s %%2$d% kullanıldı!</string>
   <string name="alerts_80_" formatted="false">%80 kullanımda bildir</string>
   <string name="alerts_80_hint" formatted="false">Bir planın %80\'i kullanıldığında bildir.</string>
   <string name="alerts_100_" formatted="false">%100 kullanımda bildir</string>

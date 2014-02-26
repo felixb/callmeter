@@ -262,7 +262,7 @@
   <string name="alerts_" formatted="false">Figyelmeztetések</string>
   <string name="alerts_hint" formatted="false">Figyelmeztetések beállítása a Tarifa használata alapján.</string>
   <string name="alerts_title" formatted="false">Call Meter 3G figyelmeztetés</string>
-  <string name="alerts_message" formatted="false">A következő tarifa elérte a keret %d%%-át: %s</string>
+  <string name="alerts_message" formatted="false">A következő tarifa elérte a keret %2$d%%-át: %1$s</string>
   <string name="alerts_80_" formatted="false">Értesítés 80%-nál</string>
   <string name="alerts_80_hint" formatted="false">Értesít, ha egy tarifa átlépi a keret 80%-át.</string>
   <string name="alerts_100_" formatted="false">Értesítés 100%-nál</string>

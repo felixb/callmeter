@@ -342,7 +342,7 @@
 	<string name="alerts_">Alerts</string>
 	<string name="alerts_hint">Set alerts based on plan usage.</string>
 	<string name="alerts_title">Call Meter 3G alert</string>
-	<string name="alerts_message" formatted="false">Plan %s has reached %d%% usage!</string>
+	<string name="alerts_message" formatted="false">Plan %1$s has reached %2$d%% usage!</string>
 	<string name="alerts_80_">Notify at 80%</string>
 	<string name="alerts_80_hint">Notify if a plan passes 80% of it\'s limit.</string>
 	<string name="alerts_100_">Notify at 100%</string>

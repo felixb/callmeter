@@ -262,7 +262,7 @@
   <string name="alerts_" formatted="false">Alertas</string>
   <string name="alerts_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Set alerts based on plan usage.">Definir alertas do seu plano.</string>
   <string name="alerts_title" formatted="false">Alerta do Call Meter 3G </string>
-  <string name="alerts_message" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Plan %s has reached %d%% usage!">O plano %s atingiu %d%% de utilização!</string>
+  <string name="alerts_message" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Plan %1$s has reached %2$d%% usage!">O plano %1$s atingiu %2$d%% de utilização!</string>
   <string name="alerts_80_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Notify at 80%">Notificar aos 80%</string>
   <string name="alerts_80_hint" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Notify if a plan passes 80% of it\'s limit.">Notificar se o plano ultrapassar 80% do limite.</string>
   <string name="alerts_100_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Notify at 100%">Notificar aos 100%</string>

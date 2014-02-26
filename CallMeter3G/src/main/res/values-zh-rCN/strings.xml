@@ -197,7 +197,7 @@
   <string name="alerts_" formatted="false">警报</string>
   <string name="alerts_hint" formatted="false">根据方案使用情况发出警报.</string>
   <string name="alerts_title" formatted="false">Call Meter 3G 警报</string>
-  <string name="alerts_message" formatted="false">方案%s已经使用%d%%!</string>
+  <string name="alerts_message" formatted="false">方案%1$s已经使用%2$d%%!</string>
   <string name="alerts_80_" formatted="false">剩余到达80\'%时提示</string>
   <string name="alerts_80_hint" formatted="false">剩余超过80\'%时提示.</string>
   <string name="alerts_100_" formatted="false">剩余到达100\'%时提示</string>

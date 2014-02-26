@@ -312,7 +312,7 @@
   <string name="alerts_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Alerts">התראות</string>
   <string name="alerts_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Set alerts based on plan usage.">הגדר התראות המבוססות על שימושים בתכנית</string>
   <string name="alerts_title" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Call Meter 3G alert">התראת Call Meter 3g</string>
-  <string name="alerts_message" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Plan %s has reached %d%% usage!">תכנית %s הגיע לניצול של %d%% !</string>
+  <string name="alerts_message" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Plan %1$s has reached %2$d%% usage!">תכנית %1$s הגיע לניצול של %2$d%% !</string>
   <string name="alerts_80_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Notify at 80%">עדכן ב80%</string>
   <string name="alerts_80_hint" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Notify if a plan passes 80% of it\'s limit.">עדכן אם תכנית עוברת 80% מהמגבלה.</string>
   <string name="alerts_100_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Notify at 100%">עדכן ב100%</string>

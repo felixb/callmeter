@@ -339,7 +339,7 @@
   <string name="alerts_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Alerts">Upozorenja</string>
   <string name="alerts_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Set alerts based on plan usage.">Zadaj upozorenja na korišćenju plana.</string>
   <string name="alerts_title" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Call Meter 3G alert">Call Meter 3G upozorenje</string>
-  <string name="alerts_message" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Plan %s has reached %d%% usage!">Plan %s je dostigao %d%% svoje upotrebljivosti!</string>
+  <string name="alerts_message" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Plan %1$s has reached %2$d%% usage!">Plan %1$s je dostigao %2$d%% svoje upotrebljivosti!</string>
   <string name="alerts_80_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Notify at 80%">Obavesti na 80%</string>
   <string name="alerts_80_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Notify if a plan passes 80% of it\'s limit.">Obavesti ako je plan prešao 80% svog limita.</string>
   <string name="alerts_100_hint" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Notify if a plan passes 100% of it\'s limit.">Obavesti ako je plan prešao 100% svog limita.</string>

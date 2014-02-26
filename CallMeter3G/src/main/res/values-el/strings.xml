@@ -258,7 +258,7 @@
   <string name="alerts_" formatted="false">Ειδοποιήσεις</string>
   <string name="alerts_hint" formatted="false">Ορίστε ειδοποιήσεις βασισμένες στη χρήση του πλάνου.</string>
   <string name="alerts_title" formatted="false">Ειδοποιήση του Call Meter 3G</string>
-  <string name="alerts_message" formatted="false">Το πλάνο %s έφτασε %d%% της χρήσης!</string>
+  <string name="alerts_message" formatted="false">Το πλάνο %1$s έφτασε %2$d%% της χρήσης!</string>
   <string name="alerts_80_" formatted="false">Ειδοποιήση στο 80%</string>
   <string name="alerts_80_hint" formatted="false">Ειδοποιήση εάν ένα πλάνο περάσει το 80% του ορίου του.</string>
   <string name="alerts_100_" formatted="false">Ειδοποιήση στο 100%</string>

@@ -407,7 +407,7 @@
   <string name="alerts_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Alerts">Alertes</string>
   <string name="alerts_hint" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Set alerts based on plan usage.">Définir des alertes basées sur le plan.</string>
   <string name="alerts_title" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Call Meter 3G alert">Call Meter 3G alertes</string>
-  <string name="alerts_message" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Plan %s has reached %d%% usage!">Le plan %s a atteint %d%% d\'utilisation!</string>
+  <string name="alerts_message" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Plan %1$s has reached %2$d%% usage!">Le plan %1$s a atteint %2$d%% d\'utilisation!</string>
   <string name="alerts_80_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Notify at 80%">Notifier à 80%</string>
   <string name="alerts_80_hint" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Notify if a plan passes 80% of it\'s limit.">Notifier si le plan atteint 80% de sa limite.</string>
   <string name="alerts_100_" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="Notify at 100%">Notifier à 100%</string>

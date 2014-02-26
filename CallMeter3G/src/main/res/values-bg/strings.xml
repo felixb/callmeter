@@ -323,7 +323,7 @@
   <string name="widget_cost_textsize" formatted="false" username="mari" orig="Cost Text Size">Размер на текста на разходите</string>
   <string name="widget_plan_textsize" formatted="false" username="mari" orig="Plan Text Size">Размер на текста на плана</string>
   <string name="widget_config_" formatted="false" username="mari" orig="Widget config">Настройка на джаджата</string>
-  <string name="alerts_message" formatted="false" username="mari" orig="Plan %s has reached %d%% usage!">Плана %s е достигнал %d%% употреба!</string>
+  <string name="alerts_message" formatted="false" username="mari" orig="Plan %1$s has reached %2$d%% usage!">Плана %1$s е достигнал %2$d%% употреба!</string>
   <string name="limit_type_help" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Set the type of your limit here.\nA \&quot;units\&quot; limit will limit your plan based on minutes, messages, ...\nA \&quot;costs\&quot; limit will limit your plan based on cost produced by the items billed in this plan.">Задайте вида на вашия лимит тук.\n"units" ще създаде ограничение за вашия план базирано на минути, съобщения, ...\n"cost" ще създаде ограничение за вашия план базирано на стойността на произведените елементи, вградени в този план.</string>
   <string name="mixed_units_sms_help" formatted="false" username="deian&lt;deian@hotmail.bg&gt;" orig="Set the units billed for a single sms.">Задай единица за таксуване на един sms.</string>
   <string name="roamed_" formatted="false" username="Svetlio &lt;s.grozev@gmail.com&gt;" orig="Roamed">Роуминг</string>

@@ -215,7 +215,7 @@
   <string name="err_export_read" formatted="false">Chyba při čtení exportovaného souboru</string>
   <string name="alerts_" formatted="false">Výstrahy</string>
   <string name="alerts_title" formatted="false" username="Svatopluk Vít &lt;svatopluk.vit@ruzne.info&gt;" orig="Call Meter 3G alert">Upozornění Call Meter 3G</string>
-  <string name="alerts_message" formatted="false">Tarif %s dosáhl využití %d%%!</string>
+  <string name="alerts_message" formatted="false">Tarif %1$s dosáhl využití %2$d%%!</string>
   <string name="alerts_80_" formatted="false">Upozornit při 80%</string>
   <string name="alerts_80_hint" formatted="false">Notify if a plan passes 80% of it\'s limit.</string>
   <string name="alerts_100_" formatted="false">Upozornit při 100%</string>

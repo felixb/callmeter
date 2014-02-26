@@ -309,7 +309,7 @@
   <string name="alerts_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Alerts">Alertes</string>
   <string name="alerts_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Set alerts based on plan usage.">Enviar alertes basades el pla en ús.</string>
   <string name="alerts_title" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Call Meter 3G alert">Alerta de Call Meter 3G</string>
-  <string name="alerts_message" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Plan %s has reached %d%% usage!">El Pla %s ha assolit %d%% d\'ús!</string>
+  <string name="alerts_message" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Plan %1$s has reached %2$d%% usage!">El Pla %1$s ha assolit %2$d%% d\'ús!</string>
   <string name="alerts_80_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Notify at 80%">Notificar a 80%</string>
   <string name="alerts_80_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Notify if a plan passes 80% of it\'s limit.">Notificar si el pla supera el 80% del seu límit.</string>
   <string name="alerts_100_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Notify at 100%">Notificar al 100%</string>

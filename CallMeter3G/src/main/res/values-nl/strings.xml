@@ -221,7 +221,7 @@
   <string name="alerts_" formatted="false">Waarschuwingen</string>
   <string name="alerts_hint" formatted="false">Stel waarschuwingen in gebaseerd op schema verbruik.</string>
   <string name="alerts_title" formatted="false">Call Meter 3G waarschuwing</string>
-  <string name="alerts_message" formatted="false">Schema %s heeft %d%% verbruik bereikt!</string>
+  <string name="alerts_message" formatted="false">Schema %1$s heeft %2$d%% verbruik bereikt!</string>
   <string name="alerts_80_" formatted="false">Notificatie op 80%</string>
   <string name="alerts_80_hint" formatted="false">Notificatie als een schema over 80% van limiet gaat.</string>
   <string name="alerts_100_" formatted="false">Notificatie op 100%</string>

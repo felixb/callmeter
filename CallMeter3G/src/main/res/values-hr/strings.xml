@@ -165,7 +165,7 @@
   <string name="alerts_100_" formatted="false" orig="Notify at 100%">Obavijesti na 100%</string>
   <string name="alerts_80_hint" formatted="false" orig="Notify if a plan passes 80% of it\'s limit.">Obavijesti ako je plan prešao 80% svog limita.</string>
   <string name="alerts_80_" formatted="false" orig="Notify at 80%">Obavijesti na 80%</string>
-  <string name="alerts_message" formatted="false" username="lesart.mario@gmail.com" orig="Plan %s has reached %d%% usage!">Plan %s je dostigao %d%% svoje upotrebljivosti!</string>
+  <string name="alerts_message" formatted="false" username="lesart.mario@gmail.com" orig="Plan %1$s has reached %2$d%% usage!">Plan %1$s je dostigao %2$d%% svoje upotrebljivosti!</string>
   <string name="alerts_title" formatted="false" username="lesart.mario@gmail.com" orig="Call Meter 3G alert">CallMeter 3G upozorenje</string>
   <string name="alerts_hint" formatted="false" username="lesart.mario@gmail.com" orig="Set alerts based on plan usage.">Podesi upozorenja na ograničenjima plana.</string>
   <string name="show_today_" formatted="false" orig="Show today">Pokaži danas</string>

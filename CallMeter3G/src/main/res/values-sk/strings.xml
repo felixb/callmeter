@@ -456,7 +456,7 @@
   <string name="import_rules_default_hint" formatted="false" username="matelkoxxl &lt;matelkoxxl@gmail.com&gt;. " orig="Import default rule set shipped with the app.">Importovať základnú sadu pravidiel dodanú s aplikáciou.</string>
   <string name="import_rules_empty" formatted="false" username="matelkoxxl &lt;matelkoxxl@gmail.com&gt;. " orig="No plans/rules set. Click this text to import a default rule set.\n\nOr add plans and rules in preferences manually.">Nie sú nastavené žiadne plány/pravidlá. Kliknite na tento text pre import základných pravidiel.\n\nAlebo pridajte plány a pravidlá ručne v Nastaveniach.</string>
   <string name="alerts_hint" formatted="false" username="matelkoxxl &lt;matelkoxxl@gmail.com&gt;. " orig="Set alerts based on plan usage.">Nastaviť upozornenie na základe využitia plánu.</string>
-  <string name="alerts_message" formatted="false" username="matelkoxxl &lt;matelkoxxl@gmail.com&gt;. " orig="Plan %s has reached %d%% usage!">Plán %s dosiahol využitie %d%%!</string>
+  <string name="alerts_message" formatted="false" username="matelkoxxl &lt;matelkoxxl@gmail.com&gt;. " orig="Plan %1$s has reached %2$d%% usage!">Plán %1$s dosiahol využitie %2$d%%!</string>
   <string name="send_devices_hint" formatted="false" username="matelkoxxl &lt;matelkoxxl@gmail.com&gt;. " orig="Send list of devices to the developer. This is only needed if your data stats are zero.">Poslať zoznam zariadení autorovi. Toto je potrebné iba ak Vaše štatistiky sú nulové.</string>
   <string name="spacer" formatted="false" username="matelkoxxl &lt;matelkoxxl@gmail.com&gt;. " orig="Spacer">Oddeľovač</string>
   <string name="debug_" formatted="false" username="matelkoxxl &lt;matelkoxxl@gmail.com&gt;. " orig="Debug">Debug</string>

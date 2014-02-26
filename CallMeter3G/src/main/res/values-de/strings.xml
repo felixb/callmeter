@@ -333,7 +333,7 @@
   <string name="alerts_" formatted="false">Alarme</string>
   <string name="alerts_hint" formatted="false">Stelle Alarme basierend auf der Nutzung der Kontingente ein.</string>
   <string name="alerts_title" formatted="false">Call Meter 3G Alarm</string>
-  <string name="alerts_message" formatted="false">Kontingent %s hat %d%% Benutzung erreicht!</string>
+  <string name="alerts_message" formatted="false">Kontingent %1$s hat %2$d%% Benutzung erreicht!</string>
   <string name="alerts_80_" formatted="false">Alarm bei 80%</string>
   <string name="alerts_80_hint" formatted="false">Alarmiere mich, wenn ein Kontingent 80% des Limits erreicht hat.</string>
   <string name="alerts_100_" formatted="false">Alarm bei 100%</string>

@@ -269,7 +269,7 @@
   <string name="alerts_" formatted="false">Alertas</string>
   <string name="alerts_hint" formatted="false">Configura alertas según el uso del plan.</string>
   <string name="alerts_title" formatted="false">Alerta Call Meter 3G</string>
-  <string name="alerts_message" formatted="false">El plan %s ha alcanzado el límite del %d%%!</string>
+  <string name="alerts_message" formatted="false">El plan %1$s ha alcanzado el límite del %2$d%%!</string>
   <string name="alerts_80_" formatted="false">Avisar al 80%</string>
   <string name="alerts_80_hint" formatted="false">Avisa si el plan sobrepasa el 80% del límite.</string>
   <string name="alerts_100_" formatted="false">Avisar al 100%</string>

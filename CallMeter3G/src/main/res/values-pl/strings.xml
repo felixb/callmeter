@@ -283,7 +283,7 @@
   <string name="alerts_" formatted="false">Powiadomienia</string>
   <string name="alerts_hint" formatted="false">Ustaw powiadomienia bazując na stopniu zużycia planu.</string>
   <string name="alerts_title" formatted="false">Powiadomienia Call Meter 3G</string>
-  <string name="alerts_message" formatted="false">Plan %s osiągnął %d%% zużycia!</string>
+  <string name="alerts_message" formatted="false">Plan %1$s osiągnął %2$d%% zużycia!</string>
   <string name="alerts_80_" formatted="false">Powiadom przy 80%</string>
   <string name="alerts_80_hint" formatted="false">Powiadom, jeżeli plan przekroczy 80% ustalonego limitu</string>
   <string name="alerts_100_" formatted="false">Powiadom przy 100%</string>

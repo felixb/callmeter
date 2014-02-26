@@ -159,7 +159,7 @@
   <string name="err_export_read" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Error reading export file">Ошибка чтения файла экспорта</string>
   <string name="alerts_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Alerts">Оповещения</string>
   <string name="alerts_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Set alerts based on plan usage.">Настройка оповещений на основании использования тарифа.</string>
-  <string name="alerts_message" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Plan %s has reached %d%% usage!">Тариф %s достиг %d%%!</string>
+  <string name="alerts_message" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Plan %1$s has reached %2$d%% usage!">Тариф %1$s достиг %2$d%%!</string>
   <string name="alerts_80_" formatted="false" username="htc@norcis.lv" orig="Notify at 80%">Уведомлять при 80%</string>
   <string name="alerts_80_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Notify if a plan passes 80% of it\'s limit.">Уведомлять при 80% достижении лимита тарифа.</string>
   <string name="alerts_100_" formatted="false" username="htc@norcis.lv" orig="Notify at 100%">Уведомлять при 100%</string>
