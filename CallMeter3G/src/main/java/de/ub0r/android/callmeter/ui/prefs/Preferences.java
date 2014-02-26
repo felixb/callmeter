@@ -676,7 +676,11 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
                         }.execute((Void) null);
                     }
                 });
-                builder.show();
+                try {
+                    builder.show();
+                } catch (Exception e) {
+                    Log.w(TAG, "activity already finished?", e);
+                }
             }
         }.execute((Void) null);
     }
@@ -905,7 +909,11 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
             @Override
             protected void onPostExecute(final String result) {
                 Log.d(TAG, "csv.task.onPostExecute(", result, ")");
-                d.dismiss();
+                try {
+                    d.dismiss();
+                } catch (Exception e) {
+                    Log.w(TAG, "activity already finished?", e);
+                }
                 if (TextUtils.isEmpty(result)) {
                     Log.e(TAG, "error writing export file: " + result);
                     Toast.makeText(context, R.string.err_export_write, Toast.LENGTH_LONG).show();

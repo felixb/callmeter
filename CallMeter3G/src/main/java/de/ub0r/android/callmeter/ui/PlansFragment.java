@@ -661,6 +661,10 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
     @Override
     public void onLoadFinished(final Loader<Cursor> loader, final Cursor data) {
         Log.d(TAG, "onLoadFinished()");
+        if (getActivity() == null) {
+            Log.w(TAG, "ignore loaded data, activity finished");
+            return;
+        }
         ignoreQuery = false;
         PlansAdapter adapter = (PlansAdapter) getListAdapter();
         adapter.save();
@@ -670,7 +674,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                 try {
                     if (!data.isClosed() && data.moveToFirst()) {
                         do {
-                            sb.append("," + data.getLong(DataProvider.Plans.INDEX_ID));
+                            sb.append(",").append(data.getLong(DataProvider.Plans.INDEX_ID));
                         } while (data.moveToNext());
                     }
                     sb.append(")");
@@ -688,7 +692,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
         try {
             adapter.swapCursor(data);
         } catch (IllegalStateException ex) {
-            Log.e(TAG, "could not set coursor to adapter", ex);
+            Log.e(TAG, "could not set cursor to adapter", ex);
             adapter.swapCursor(null);
         }
         setInProgress(-1);
