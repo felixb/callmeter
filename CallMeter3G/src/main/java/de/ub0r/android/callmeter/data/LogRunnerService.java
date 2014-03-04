@@ -48,6 +48,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import de.ub0r.android.callmeter.BuildConfig;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.ui.AskForPlan;
 import de.ub0r.android.callmeter.ui.Common;
@@ -438,7 +439,15 @@ public final class LogRunnerService extends IntentService {
 
     /** Get column id holding sim_id, simid or whatever. */
     public static int getSimIdColumn(final Cursor c) {
-        for (String s : new String[]{"sim_id", "simid"}) {
+        if (BuildConfig.DEBUG_LOG) {
+            Log.i(TAG, "table schema for cursor: ", c);
+            int l = c.getColumnCount();
+            Log.i(TAG, "coulumn count: ", l);
+            for (int i = 0; i < l; ++i) {
+                Log.i(TAG, "column: ", c.getColumnName(i));
+            }
+        }
+        for (String s : new String[]{"sim_id", "simid", "sub_id"}) {
             int id = c.getColumnIndex(s);
             if (id >= 0) {
                 Log.d(TAG, "sim_id column found: ", s);
@@ -831,6 +840,13 @@ public final class LogRunnerService extends IntentService {
         long t = SystemClock.elapsedRealtime();
         final String a = intent.getAction();
         Log.d(TAG, "handleIntent(action=", a, ")");
+
+        if (BuildConfig.DEBUG_LOG) {
+            Log.i(TAG, "check call sim_id");
+            checkCallsSimIdColumn(getContentResolver());
+            Log.i(TAG, "check sms sim_id");
+            checkSmsSimIdColumn(getContentResolver());
+        }
 
         final WakeLock wakelock = acquire(a);
 

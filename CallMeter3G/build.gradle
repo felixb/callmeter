@@ -64,6 +64,7 @@ android {
         targetSdkVersion 19
         versionName getVersionName()
         versionCode getVersionCode(minSdkVersion)
+        buildConfigField 'boolean', 'DEBUG_LOG', 'true'
     }
 
     lintOptions {
@@ -90,6 +91,13 @@ android {
             versionNameSuffix "-debug"
         }
 
+        nologDebug {
+            versionNameSuffix "-debug"
+            proguardFile 'proguard.cfg'
+            runProguard true
+            buildConfigField 'boolean', 'DEBUG_LOG', 'false'
+        }
+
         logRelease {
             versionNameSuffix "-logRelease"
             signingConfig signingConfigs.release
@@ -100,6 +108,7 @@ android {
             signingConfig signingConfigs.release
             proguardFile 'proguard.cfg'
             runProguard true
+            buildConfigField 'boolean', 'DEBUG_LOG', 'false'
         }
     }
 }
