@@ -306,7 +306,7 @@ public final class RuleEdit extends TrackingSherlockPreferenceActivity implement
                 }
                 lp.setValue(String.valueOf(i));
                 ps.addPreference(lp);
-                if (i == 1) {
+                if (i == 0) {
                     // websms connector
                     ep = new CVEditTextPreference(this, values,
                             DataProvider.Rules.IS_WEBSMS_CONNETOR, null);
