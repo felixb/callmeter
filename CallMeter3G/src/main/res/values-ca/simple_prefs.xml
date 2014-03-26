@@ -18,7 +18,7 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-  <string name="missing_slash" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Bill mode needs to be in seconds/seconds!">És necessari que el mode de facturació sigui segons/segons.</string>
+  <string name="missing_slash" formatted="false" username="Oriol Garrote" orig="Bill mode needs to be in seconds/seconds!">El mode de facturació ha de ser en segons/segons!</string>
   <string name="freemin_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Free minutes">Minuts gratuits</string>
   <string name="freemin_hint" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Free minutes / month">Minuts gratuits / mes</string>
   <string name="cost_per_call_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Cost / call">Cost / Trucada</string>
