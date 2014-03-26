@@ -268,7 +268,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                         try {
                             s = String.format(currencyFormat, free);
                         } catch (UnknownFormatConversionException ex) {
-                            Log.e(TAG, "unkown format error with format '" + currencyFormat
+                            Log.e(TAG, "unknown format error with format '" + currencyFormat
                                     + "' and free=" + free, ex);
                             s = "$";
                         }
@@ -279,7 +279,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                         try {
                             s = String.format(currencyFormat, cost);
                         } catch (UnknownFormatConversionException ex) {
-                            Log.e(TAG, "unkown format error with format '" + currencyFormat
+                            Log.e(TAG, "unknown format error with format '" + currencyFormat
                                     + "' and cost=" + cost, ex);
                             s = "$";
                         }
@@ -291,13 +291,13 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                 }
             }
 
-            // Log.d(TAG, "plan id: ", plan.id);
-            // Log.d(TAG, "plan name: ", plan.name);
-            // Log.d(TAG, "type: ", plan.type);
-            // Log.d(TAG, "cost: ", cost);
-            // Log.d(TAG, "limit: ", plan.limit);
-            // Log.d(TAG, "limitPos: ", plan.limitPos);
-            // Log.d(TAG, "text: ", spb);
+            Log.v(TAG, "plan id: ", plan.id);
+            Log.v(TAG, "plan name: ", plan.name);
+            Log.v(TAG, "type: ", plan.type);
+            Log.v(TAG, "cost: ", cost);
+            Log.v(TAG, "limit: ", plan.limit);
+            Log.v(TAG, "limitPos: ", plan.limitPos);
+            Log.v(TAG, "text: ", spb);
 
             TextView tvCache = null;
             ProgressBar pbCache = null;

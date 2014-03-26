@@ -3770,11 +3770,13 @@ public final class DataProvider extends ContentProvider {
                         if (period != BILLPERIOD_INFINITE && (highBp < 0L || highBp < hbtime)) {
                             highBp = hbtime;
                         }
-                        billps += " WHEN " + Plans.TABLE + "." + Plans.ID + "=" + pid + " or "
-                                + Plans.TABLE + "." + Plans.BILLPERIOD_ID + "=" + pid + " THEN "
+                        billps += " WHEN " + Plans.TABLE + "." + Plans.ID + "=" + pid + " or ("
+                                + Plans.TABLE + "." + Plans.TYPE + "!=" + TYPE_BILLPERIOD + " and "
+                                + Plans.TABLE + "." + Plans.BILLPERIOD_ID + "=" + pid + ") THEN "
                                 + lbtime;
-                        nbillps += " WHEN " + Plans.TABLE + "." + Plans.ID + "=" + pid + " or "
-                                + Plans.TABLE + "." + Plans.BILLPERIOD_ID + "=" + pid + " THEN "
+                        nbillps += " WHEN " + Plans.TABLE + "." + Plans.ID + "=" + pid + " or ("
+                                + Plans.TABLE + "." + Plans.TYPE + "!=" + TYPE_BILLPERIOD + " and "
+                                + Plans.TABLE + "." + Plans.BILLPERIOD_ID + "=" + pid + ") THEN "
                                 + hbtime;
                     } while (cursor.moveToNext());
                     billps += " ELSE 0 END)";
