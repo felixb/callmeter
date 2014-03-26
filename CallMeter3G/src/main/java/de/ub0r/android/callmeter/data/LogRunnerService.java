@@ -442,7 +442,7 @@ public final class LogRunnerService extends IntentService {
         if (BuildConfig.DEBUG_LOG) {
             Log.i(TAG, "table schema for cursor: ", c);
             int l = c.getColumnCount();
-            Log.i(TAG, "coulumn count: ", l);
+            Log.i(TAG, "column count: ", l);
             for (int i = 0; i < l; ++i) {
                 Log.i(TAG, "column: ", c.getColumnName(i));
             }
@@ -456,6 +456,27 @@ public final class LogRunnerService extends IntentService {
         }
         Log.d(TAG, "no sim_id column found");
         return -1;
+    }
+
+    private static int getSecondSimId(final ContentResolver cr, final Uri uri) {
+        try {
+            int secondSimId = -1;
+            Cursor c = cr.query(uri, null, "1=2", null, null);
+            assert c != null;
+            int id = getSimIdColumn(c);
+            String name = c.getColumnName(id);
+            c.close();
+            c = cr.query(uri, null, name + ">0", null, name + " DESC");
+            assert c != null;
+            if (c.moveToFirst()) {
+                secondSimId = c.getInt(id);
+            }
+            c.close();
+            return secondSimId;
+        } catch (SQLiteException e) {
+            Log.w(TAG, "sim_id check for calls failed", e);
+            return -1;
+        }
     }
 
     /** Check, if there is dual sim support. */
@@ -475,6 +496,10 @@ public final class LogRunnerService extends IntentService {
         }
     }
 
+    public static int getSecondCallsSimId(final ContentResolver cr) {
+        return getSecondSimId(cr, Calls.CONTENT_URI);
+    }
+
     /** Check, if there is dual sim support. */
     public static boolean checkSmsSimIdColumn(final ContentResolver cr) {
         try {
@@ -490,6 +515,10 @@ public final class LogRunnerService extends IntentService {
             Log.w(TAG, "sim_id check for sms failed", e);
             return false;
         }
+    }
+
+    public static int getSecondSMSSimId(final ContentResolver cr) {
+        return getSecondSimId(cr, URI_SMS);
     }
 
     /**

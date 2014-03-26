@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates" translatable="false">
-		<item>v3.11.2: add support for some more dual sim devices, fix closing dialog after importing</item>
+		<item>v3.11.2: add support for some more dual sim devices, fix closing dialog after importing, fix default rule set for second sim if any</item>
 		<item>v3.11.1: fix alert strings for Hungarian, fix some minor FCs</item>
 		<item>v3.11: fix for Sony\'s broken android implementation, fix missing alerts on 80% and 100% plan usage</item>
 		<item>v3.10: fix RuleEdit for dual sim phones, filter sms by sim id, new default rule set with dual sim/websms/voip if available</item>

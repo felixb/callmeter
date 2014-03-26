@@ -3161,6 +3161,14 @@ public final class DataProvider extends ContentProvider {
             cv.put(Rules.NAME, context.getString(R.string.calls_in) + " 2");
             db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(32));
             cv.clear();
+            // get second calls sim id
+            int simId = LogRunnerService.getSecondCallsSimId(context.getContentResolver());
+            if (simId > 0) {
+                cv.put(Rules.MYNUMBER, simId);
+                db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(31));
+                db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(32));
+                cv.clear();
+            }
         } else {
             // remove unused call * 2 plans/rules
             db.delete(Plans.TABLE, Plans.ID + "=?", getIdMapping(31));
@@ -3185,6 +3193,14 @@ public final class DataProvider extends ContentProvider {
             cv.put(Rules.NAME, context.getString(R.string.sms_in) + " 2");
             db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(33));
             cv.clear();
+            // get second sms sim id
+            int simId = LogRunnerService.getSecondSMSSimId(context.getContentResolver());
+            if (simId > 0) {
+                cv.put(Rules.MYNUMBER, simId);
+                db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(34));
+                db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(33));
+                cv.clear();
+            }
         } else {
             // remove unused sms * 2 plans/rules
             db.delete(Plans.TABLE, Plans.ID + "=?", getIdMapping(33));
