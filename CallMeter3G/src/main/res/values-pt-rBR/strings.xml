@@ -93,7 +93,6 @@
   <string name="alerts_100_" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Notify at 100%">Notificar aos 100%</string>
   <string name="alerts_80_hint" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Notify if a plan passes 80% of it\'s limit.">Notificar se o plano passar de 80% do seu limite.</string>
   <string name="alerts_80_" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Notify at 80%">Notificar aos 80%</string>
-  <string name="alerts_message" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Plan %1$s has reached %2$d%% usage!">Plano alcançou seu limite de uso!</string>
   <string name="alerts_title" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Call Meter 3G alert">Alerta do Call Meter 3G</string>
   <string name="alerts_hint" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Set alerts based on plan usage.">Definir alertas com base na utilização do plano</string>
   <string name="alerts_" formatted="false" username="Pedro &lt;pedro_pabm@hotmail.com&gt;" orig="Alerts">Alertas</string>

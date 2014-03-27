@@ -105,11 +105,15 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
         if (action != null) {
             i.setAction(action);
         }
-        final PendingIntent pi = PendingIntent.getBroadcast(context, 0, i,
-                PendingIntent.FLAG_CANCEL_CURRENT);
-        final long t = SystemClock.elapsedRealtime() + delay;
-        final AlarmManager mgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        mgr.set(AlarmManager.ELAPSED_REALTIME, t, pi);
+        try {
+            final PendingIntent pi = PendingIntent.getBroadcast(context, 0, i,
+                    PendingIntent.FLAG_CANCEL_CURRENT);
+            final long t = SystemClock.elapsedRealtime() + delay;
+            final AlarmManager mgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            mgr.set(AlarmManager.ELAPSED_REALTIME, t, pi);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            Log.e(TAG, "schedule next check failed", e);
+        }
     }
 
     /**
