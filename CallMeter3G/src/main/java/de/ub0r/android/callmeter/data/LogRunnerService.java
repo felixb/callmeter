@@ -679,6 +679,10 @@ public final class LogRunnerService extends IntentService {
                             l = SmsMessage.calculateLength(body, false)[0];
                         } catch (NullPointerException e) {
                             Log.e(TAG, "error getting length for message: " + body, e);
+                            l = ((body.length() - 1) / SMS_LENGTH) + 1;
+                        } catch (RuntimeException e) {
+                            Log.e(TAG, "SMS app not available", e);
+                            l = ((body.length() - 1) / SMS_LENGTH) + 1;
                         }
                         Log.d(TAG, "body length: ", l);
                     }
