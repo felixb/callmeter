@@ -464,6 +464,9 @@ public final class LogRunnerService extends IntentService {
             Cursor c = cr.query(uri, null, "1=2", null, null);
             assert c != null;
             int id = getSimIdColumn(c);
+            if (id < 0) {
+                return -1;
+            }
             String name = c.getColumnName(id);
             c.close();
             c = cr.query(uri, null, name + ">0", null, name + " DESC");
@@ -477,6 +480,16 @@ public final class LogRunnerService extends IntentService {
             Log.w(TAG, "sim_id check for calls failed", e);
             return -1;
         }
+    }
+
+    /**
+     * Get maximum sim id we can find.
+     */
+    public static int getSecondCombinedSimId(final ContentResolver cr) {
+        return Math.max(
+                getSecondSimId(cr, Calls.CONTENT_URI),
+                getSecondSimId(cr, URI_SMS)
+        );
     }
 
     /** Check, if there is dual sim support. */
@@ -496,10 +509,6 @@ public final class LogRunnerService extends IntentService {
         }
     }
 
-    public static int getSecondCallsSimId(final ContentResolver cr) {
-        return getSecondSimId(cr, Calls.CONTENT_URI);
-    }
-
     /** Check, if there is dual sim support. */
     public static boolean checkSmsSimIdColumn(final ContentResolver cr) {
         try {
@@ -515,10 +524,6 @@ public final class LogRunnerService extends IntentService {
             Log.w(TAG, "sim_id check for sms failed", e);
             return false;
         }
-    }
-
-    public static int getSecondSMSSimId(final ContentResolver cr) {
-        return getSecondSimId(cr, URI_SMS);
     }
 
     /**
