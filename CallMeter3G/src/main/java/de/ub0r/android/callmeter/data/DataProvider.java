@@ -1589,13 +1589,14 @@ public final class DataProvider extends ContentProvider {
                 ret.add(f, v * -1);
                 ret.add(j, k * -1);
             }
+            long time = ret.getTimeInMillis();
             while (!ret.after(n)) {
+                time = ret.getTimeInMillis();
                 ret.add(f, v);
                 ret.add(j, k);
             }
             if (!next) {
-                ret.add(f, v * -1);
-                ret.add(j, k * -1);
+                ret.setTimeInMillis(time);
             }
             return ret;
         }
