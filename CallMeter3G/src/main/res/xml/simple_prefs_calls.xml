@@ -41,7 +41,7 @@
             android:title="@string/cost_per_min_"/>
 
     <PreferenceScreen
-            android:summary="@string/exhourgroup_help"
+            android:summary="@string/exnumbergroup_help"
             android:title="@string/numbergroup_excalls">
         <intent
                 android:action="android.intent.action.VIEW"

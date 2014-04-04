@@ -1589,13 +1589,14 @@ public final class DataProvider extends ContentProvider {
                 ret.add(f, v * -1);
                 ret.add(j, k * -1);
             }
+            long time = ret.getTimeInMillis();
             while (!ret.after(n)) {
+                time = ret.getTimeInMillis();
                 ret.add(f, v);
                 ret.add(j, k);
             }
             if (!next) {
-                ret.add(f, v * -1);
-                ret.add(j, k * -1);
+                ret.setTimeInMillis(time);
             }
             return ret;
         }
@@ -3145,9 +3146,19 @@ public final class DataProvider extends ContentProvider {
         updateTable(db, NumbersGroup.TABLE, cv, 2);
         cv.clear();
 
+        boolean dualCalls = LogRunnerService.checkCallsSimIdColumn(context.getContentResolver());
+        boolean dualSMS = LogRunnerService.checkSmsSimIdColumn(context.getContentResolver());
+        int simId;
+        if (dualCalls || dualSMS) {
+            // get second sim id
+            simId = LogRunnerService.getSecondCombinedSimId(context.getContentResolver());
+        } else {
+            simId = -1;
+        }
+
         // calls out 2: 31
         // calls in 2: 32
-        if (LogRunnerService.checkCallsSimIdColumn(context.getContentResolver())) {
+        if (dualCalls) {
             // rename call * 2 plans/rules
             cv.put(Plans.NAME, context.getString(R.string.calls_out) + " 2");
             cv.put(Plans.SHORTNAME, context.getString(R.string.calls_out_) + "2");
@@ -3161,8 +3172,7 @@ public final class DataProvider extends ContentProvider {
             cv.put(Rules.NAME, context.getString(R.string.calls_in) + " 2");
             db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(32));
             cv.clear();
-            // get second calls sim id
-            int simId = LogRunnerService.getSecondCallsSimId(context.getContentResolver());
+            // if second sim is found, change rules
             if (simId > 0) {
                 cv.put(Rules.MYNUMBER, simId);
                 db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(31));
@@ -3179,7 +3189,7 @@ public final class DataProvider extends ContentProvider {
 
         // sms out 2: 34
         // sms in 2: 33
-        if (LogRunnerService.checkSmsSimIdColumn(context.getContentResolver())) {
+        if (dualSMS) {
             // rename sms * 2 plans/rules
             cv.put(Plans.NAME, context.getString(R.string.sms_out) + " 2");
             cv.put(Plans.SHORTNAME, context.getString(R.string.sms_out_) + "2");
@@ -3193,8 +3203,7 @@ public final class DataProvider extends ContentProvider {
             cv.put(Rules.NAME, context.getString(R.string.sms_in) + " 2");
             db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(33));
             cv.clear();
-            // get second sms sim id
-            int simId = LogRunnerService.getSecondSMSSimId(context.getContentResolver());
+            // if second sim is found, change rules
             if (simId > 0) {
                 cv.put(Rules.MYNUMBER, simId);
                 db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(34));
