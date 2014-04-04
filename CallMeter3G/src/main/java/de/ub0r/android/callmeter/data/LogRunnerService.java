@@ -475,6 +475,7 @@ public final class LogRunnerService extends IntentService {
                 secondSimId = c.getInt(id);
             }
             c.close();
+            Log.d(TAG, "second sim id: ", uri, ": ", secondSimId);
             return secondSimId;
         } catch (SQLiteException e) {
             Log.w(TAG, "sim_id check for calls failed", e);
