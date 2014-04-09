@@ -93,6 +93,7 @@ android {
 
         nologDebug {
             versionNameSuffix "-debug"
+            signingConfig signingConfigs.debug
             proguardFile 'proguard.cfg'
             runProguard true
             buildConfigField 'boolean', 'DEBUG_LOG', 'false'
