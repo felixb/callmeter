@@ -16,9 +16,9 @@ res/values-cs/market.xml:5
 res/values-cs/notes.xml:3
 res/values-cs/strings.xml:117
 res/values-da/donation.xml:0
-res/values-da/market.xml:5
+res/values-da/market.xml:6
 res/values-da/notes.xml:3
-res/values-da/strings.xml:115
+res/values-da/strings.xml:117
 res/values-de/donation.xml:6
 res/values-de/market.xml:6
 res/values-de/notes.xml:3
@@ -91,7 +91,7 @@ res/values:179
 res/values-ar:144
 res/values-ca:0
 res/values-cs:125
-res/values-da:123
+res/values-da:126
 res/values-de:144
 res/values-el:117
 res/values-es:144
