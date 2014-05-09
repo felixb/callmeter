@@ -21,8 +21,8 @@
                Visit http://ub0r.de/translate/cm2/nl/strings.xml to edit the file.
        -->
 <resources>
-  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!" username="rainbowwarrior7">Houd de minuten, aantal berichten en het dataverkeer van je abonnement bij!</string>
-  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing." username="rainbowwarrior7">CallMeter genereert rapporten uit de gesprek, berichten en data log van je telefoon. Het ondersteunt meerdere manieren van factureren.</string>
+  <string name="about0_" formatted="false" orig="Watch your call, message and data plans!" username="Kiki">Houd de minuten, het aantal berichten en het dataverkeer van je abonnement bij!</string>
+  <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing." username="Kiki">CallMeter genereert rapporten uit de gesprek-, berichten- en datalogs van je telefoon. Het ondersteunt meerdere manieren van factureren.</string>
   <string name="about1" formatted="false" orig="The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not." username="rainbowwarrior7">Het resultaat is het verbruik (tijd of aantal) tijdens de huidige facturatie periode of over het gehele verbruik. De maandelijkse berekening van de tijd houdt rekening met de facturatie modus (zie volgende alinea). Die over de gehele periode doet dit niet.</string>
   <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s." username="rainbowwarrior7">De facturatie modus specificeert de lengte van de eerste/volgende facturatie eenheden. Bijvoorbeeld: 60/10 betekent dat elk gesprek voor minimaal 60 sec. gefactureerd wordt, gesprekken langer dan dat gaan per volle 10 sec.</string>
   <string name="about3" formatted="false" orig="You can split your call or message plan into up to two plans. Each plan can be set to be totally free, capped to a set limit or unlimited." username="rainbowwarrior7">Je kunt je verbruik in 2 schema\'s splitsen. Elk schema kan geheel vrij ingesteld worden, beperkt tot een bepaalde limiet of onbeperkt.</string>
@@ -34,7 +34,7 @@
   <string name="settings" formatted="false" username="rainbowwarrior7" orig="Preferences">Voorkeuren</string>
   <string name="about_" formatted="false" username="rainbowwarrior7" orig="About">Over</string>
   <string name="about_hint" formatted="false" username="rainbowwarrior7" orig="About this app">Over deze app</string>
-  <string name="faq_hint" formatted="false" username="rainbowwarrior7" orig="Some tips and tricks, how to set up this app.">Tips &amp; trucks hoe deze app in te stellen.</string>
+  <string name="faq_hint" formatted="false" username="Kiki" orig="Some tips and tricks, how to set up this app.">Tips &amp; trucs voor de instellingen van deze app.</string>
   <string name="feedback_" formatted="false" username="rainbowwarrior7" orig="Feedback">Feedback</string>
   <string name="feedback_hint" formatted="false" username="rainbowwarrior7" orig="Report bugs, request features ...">Meld bugs, suggesties ...</string>
   <string name="more_" formatted="false" username="rainbowwarrior7" orig="More Apps..">Meer apps..</string>
@@ -42,7 +42,7 @@
   <string name="billmode_" formatted="false" username="rainbowwarrior7" orig="Mode of billing">Facturatie modus</string>
   <string name="billmode_hint" formatted="false" username="rainbowwarrior7" orig="Length of first/following billing intervals.">Lengte van eerste/volgende facturatie eenheden.</string>
   <string name="billdate_" formatted="false" username="rainbowwarrior7" orig="Start of billing period:">Begin facturatie periode:</string>
-  <string name="smsperiod_" formatted="false" username="rainbowwarrior7" orig="Same Period for SMS">Zelfde voor SMS</string>
+  <string name="smsperiod_" formatted="false" username="Kiki" orig="Same Period for SMS">Zelfde periode voor SMS</string>
   <string name="smsperiod_hint" formatted="false" username="rainbowwarrior7" orig="Set SMS\'s billing period to calls\' period.">Stel factuur periode SMS gelijk aan die van gesprekken.</string>
   <string name="smsbillday_" formatted="false" username="rainbowwarrior7" orig="First day of your SMS bill">Eerste dag SMS facturatie</string>
   <string name="dataperiod_" formatted="false" username="Triodes" orig="Same Period for data">Zelfde periode voor data</string>
@@ -53,7 +53,7 @@
   <string name="textsize_" formatted="false" username="rainbowwarrior7" orig="Text size">Text grootte</string>
   <string name="advanced_" formatted="false" username="rainbowwarrior7" orig="Advanced">Geavanceerd</string>
   <string name="exclude_people_" formatted="false" username="rainbowwarrior7" orig="Exclude numbers">Nummers uitsluiten</string>
-  <string name="exclude_people_hint" formatted="false" username="rainbowwarrior7" orig="Don\'t bill some numbers\nwildcards allowed: *555, 555* or *555*">Alleen telefoongesprekken\njokers toegestaan: *555, 555* of *555*</string>
+  <string name="exclude_people_hint" formatted="false" username="Kiki" orig="Don\'t bill some numbers\nwildcards allowed: *555, 555* or *555*">Sluit nummers uit van factuur\nwildcards toegestaan: *555, 555* of *555*</string>
   <string name="exclude_people_add" formatted="false" username="rainbowwarrior7" orig="Add number">Nummer toevoegen</string>
   <string name="exclude_people_edit" formatted="false" username="rainbowwarrior7" orig="Edit">Bewerken</string>
   <string name="exclude_people_delete" formatted="false" username="rainbowwarrior7" orig="Delete">Verwijderen</string>
@@ -71,7 +71,7 @@
   <string name="plans_split_hint" formatted="false">Splits vebruik in verschillende facturatie schema\'s.</string>
   <string name="plan1" formatted="false">Schema 1</string>
   <string name="plan2" formatted="false">Schema 2</string>
-  <string name="plan1_hint" formatted="false">Uren opgeven voor verbruik 1e schema. Rest: naar 2e schema.</string>
+  <string name="plan1_hint" formatted="false" username="Kiki" orig="Check hours to include calls/sms into first plan. All others will go into second plan.">Tijden opgeven voor verbruik 1e schema. Rest: naar 2e schema.</string>
   <string name="plan_free_" formatted="false">Geen facturatie</string>
   <string name="plan_freemin_" formatted="false">Gratis minuten</string>
   <string name="plan_freesms_" formatted="false">Gratis SMS</string>
@@ -89,7 +89,7 @@
   <string name="cost_per_minute_" formatted="false">Kosten per minuut</string>
   <string name="cost_per_minute_hint" formatted="false">Gesprekskosten per minuut.</string>
   <string name="cost_per_sms_" formatted="false">Kosten per SMS</string>
-  <string name="cost_per_sms_hint" formatted="false">Kosten van een SMS bericht.</string>
+  <string name="cost_per_sms_hint" formatted="false" username="Kiki" orig="Each SMS will be billed with this.">Elke SMS wordt met deze kosten berekend.</string>
   <string name="cost_per_mb_" formatted="false">Kosten per MB</string>
   <string name="cost_per_mb_hint" formatted="false">Elke MB aan dataverkeer wordt met deze kosten berekend.</string>
   <string name="merge_sms_calls_" formatted="false">Voeg SMS samen met gesprekken</string>
@@ -98,7 +98,7 @@
   <string name="merge_sms_calls_sec_hint" formatted="false">Aantal seconden gefactureerd per SMS.</string>
   <string name="merge_sms_plan1_" formatted="false">Voeg SMS samen met schema 1</string>
   <string name="merge_sms_plan1_hint" formatted="false">Vink uit om samen te voegen met schema 2.</string>
-  <string name="data_hint" formatted="false">WLAN stats worden niet bijgehouden!</string>
+  <string name="data_hint" formatted="false" username="Kiki" orig="WLAN/WIFI stats are not collected here!">WLAN/WIFI stats worden niet bijgehouden!</string>
   <string name="data_enable_" formatted="false">Toon data stats</string>
   <string name="data_enable_hint" formatted="false">Data wordt realtime bijgehouden. Eerste maand kan onjuist zijn!</string>
   <string name="data_each_day" formatted="false">Factureer elke dag apart</string>
@@ -140,4 +140,16 @@
   </string-array>
   <string name="data_show_simple_hint" formatted="false" username="Triodes" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Verberg \"(2G/3G/4G)\" in titel. Dit heeft geen gevolg voor de statistieken.</string>
   <string name="data_show_simple_" formatted="false" username="Triodes" orig="Show only \&quot;Data\&quot; as title">Laat alleen \"Data\" als titel zien.</string>
+  <string name="debug_" formatted="false" username="Kiki" orig="Debug">Debug</string>
+  <string name="send_logs_" formatted="false" username="Kiki" orig="Send logs">Verstuur logs</string>
+  <string name="send_logs_hint" formatted="false" username="Kiki" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Verstuur de logs van je telefoon naar de developer.\nDoe dit alleen als hierom gevraagd is.</string>
+  <string name="sendlog_run_" formatted="false" username="Kiki" orig="Run SendLog">Start SendLog</string>
+  <string name="sendlog_run" formatted="false" username="Kiki" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog verzamelt de logs van je telefoon en verzend ze naar de developer.\nJe kunt de data die verzameld is inzien en wijzigen voordat het verzonden wordt.</string>
+  <string name="sendlog_install_" formatted="false" username="Kiki" orig="Install SendLog">Installeer SendLog</string>
+  <string name="sendlog_install" formatted="false" username="Kiki" orig="Install the free SendLog application to collect the device log and send it to the developer.">Installeer de gratis app SendLog om datalogs te verzamelen en deze te verzenden aan de developer.</string>
+  <string name="license_" formatted="false" username="Kiki" orig="License:">Licentie:</string>
+  <string name="license" formatted="false" username="Kiki" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - zie http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="author_" formatted="false" username="Kiki" orig="Author:">Auteur:</string>
+  <string name="website_" formatted="false" username="Kiki" orig="Website:">Website:</string>
+  <string name="source_" formatted="false" username="Kiki" orig="Sourcescode:">Sourcecode:</string>
 </resources>

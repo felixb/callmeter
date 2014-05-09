@@ -21,8 +21,8 @@
                Visit http://ub0r.de/translate/cm2/nl/notes.xml to edit the file.
        -->
 <resources>
-  <string-array name="notes_from_dev">
+  <string-array name="notes_from_dev" username="Kiki">
     <item>Dec. 2010, Call Meter 3G is beschikbaar: Call Meter 3G ofwel CM3 is beschikbaar in de Google Play Store. Probeer \'m uit en geef je opmerkingen op de projectpagina.</item>
-    <item notranslation="true">Mar. 2011, Settings: Don\'t forget to clear statistics after changing settings to apply the new rules for past log items too.</item>
+    <item>Mar. 2011, Instellingen: Vergeet niet om de statistieken te resetten na de instellingen gewijzigd te hebben. Dit zorgt ervoor dat de nieuwe regels ook op bestaande logs worden toegepast.</item>
   </string-array>
 </resources>
