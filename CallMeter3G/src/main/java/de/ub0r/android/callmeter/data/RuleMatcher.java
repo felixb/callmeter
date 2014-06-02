@@ -415,7 +415,7 @@ public final class RuleMatcher {
             if (TextUtils.isEmpty(s)) {
                 iswebsmsConnector = "";
             } else {
-                assert  s != null;
+                assert s != null;
                 iswebsmsConnector = " AND " + DataProvider.WebSMS.CONNECTOR + " LIKE '%"
                         + s.toLowerCase() + "%'";
             }
@@ -542,7 +542,8 @@ public final class RuleMatcher {
                             final Cursor c = cr.query(DataProvider.WebSMS.CONTENT_URI,
                                     DataProvider.WebSMS.PROJECTION,
                                     DataProvider.WebSMS.DATE + " = ? "
-                                            + iswebsmsConnector, S1, null);
+                                            + iswebsmsConnector, S1, null
+                            );
                             ret = c != null && c.getCount() > 0;
                             if (c != null && !c.isClosed()) {
                                 c.close();
@@ -1184,9 +1185,12 @@ public final class RuleMatcher {
         cv.put(DataProvider.Logs.RULE_ID, DataProvider.NO_ID);
         // reset all but manually set plans
         cr.update(DataProvider.Logs.CONTENT_URI, cv, DataProvider.Logs.RULE_ID
-                + " is null or NOT (" + DataProvider.Logs.RULE_ID + " = " + DataProvider.NOT_FOUND
-                + " AND " + DataProvider.Logs.PLAN_ID + " != " + DataProvider.NOT_FOUND + ")",
-                null);
+                        + " is null or NOT (" + DataProvider.Logs.RULE_ID + " = "
+                        + DataProvider.NOT_FOUND
+                        + " AND " + DataProvider.Logs.PLAN_ID + " != " + DataProvider.NOT_FOUND
+                        + ")",
+                null
+        );
         resetAlert(context);
     }
 

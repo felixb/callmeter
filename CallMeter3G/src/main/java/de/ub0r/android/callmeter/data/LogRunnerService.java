@@ -224,9 +224,10 @@ public final class LogRunnerService extends IntentService {
         Log.d(TAG, "getMaxDate(", type, ",", direction, ")");
         final Cursor cursor = cr.query(DataProvider.Logs.CONTENT_URI,
                 new String[]{DataProvider.Logs.DATE}, DataProvider.Logs.TYPE + " = ? AND "
-                + DataProvider.Logs.DIRECTION + " = ?", new String[]{
-                String.valueOf(type), String.valueOf(direction)}, DataProvider.Logs.DATE
-                + " DESC LIMIT 1");
+                        + DataProvider.Logs.DIRECTION + " = ?", new String[]{
+                        String.valueOf(type), String.valueOf(direction)}, DataProvider.Logs.DATE
+                        + " DESC LIMIT 1"
+        );
         long maxdate = deleteBefore;
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -269,10 +270,12 @@ public final class LogRunnerService extends IntentService {
     private static Cursor getLastData(final ContentResolver cr, final int type,
             final int direction) {
         Cursor c = cr.query(DataProvider.Logs.CONTENT_URI, new String[]{DataProvider.Logs.ID,
-                DataProvider.Logs.AMOUNT, DataProvider.Logs.PLAN_ID, DataProvider.Logs.ROAMED},
+                        DataProvider.Logs.AMOUNT, DataProvider.Logs.PLAN_ID,
+                        DataProvider.Logs.ROAMED},
                 DataProvider.Logs.TYPE + " = ? AND " + DataProvider.Logs.DIRECTION + " = ?",
                 new String[]{String.valueOf(type), String.valueOf(direction)},
-                DataProvider.Logs.DATE + " DESC LIMIT 1");
+                DataProvider.Logs.DATE + " DESC LIMIT 1"
+        );
         if (c == null) {
             return null;
         }
@@ -326,7 +329,8 @@ public final class LogRunnerService extends IntentService {
             long dateLastTx = getMaxDate(cr, DataProvider.TYPE_DATA, DataProvider.DIRECTION_OUT);
             final long updateinterval = Utils.parseLong(
                     p.getString(Preferences.PREFS_UPDATE_INTERVAL,
-                            String.valueOf(LogRunnerReceiver.DELAY)), LogRunnerReceiver.DELAY)
+                            String.valueOf(LogRunnerReceiver.DELAY)), LogRunnerReceiver.DELAY
+            )
                     * LogRunnerReceiver.DELAY_FACTOR;
             final long n = System.currentTimeMillis();
             if (n - dateLastRx > updateinterval / 2) {
@@ -439,6 +443,9 @@ public final class LogRunnerService extends IntentService {
 
     /** Get column id holding sim_id, simid or whatever. */
     public static int getSimIdColumn(final Cursor c) {
+        if (c == null) {
+            return -1;
+        }
         if (BuildConfig.DEBUG_LOG) {
             Log.i(TAG, "table schema for cursor: ", c);
             int l = c.getColumnCount();
@@ -544,8 +551,9 @@ public final class LogRunnerService extends IntentService {
         } catch (SQLException e) {
             Log.e(TAG, "updateCalls(): SQLE", e);
             cursor = cr.query(Calls.CONTENT_URI, new String[]{Calls.TYPE, Calls.DURATION,
-                    Calls.DATE, Calls.NUMBER}, Calls.DATE + " > ?",
-                    new String[]{String.valueOf(maxdate)}, Calls.DATE + " DESC");
+                            Calls.DATE, Calls.NUMBER}, Calls.DATE + " > ?",
+                    new String[]{String.valueOf(maxdate)}, Calls.DATE + " DESC"
+            );
         } catch (NullPointerException e) {
             Log.e(TAG, "updateCalls(): NPE", e);
             return;
@@ -640,12 +648,15 @@ public final class LogRunnerService extends IntentService {
             try {
                 cursor = cr.query(URI_SMS, null, Calls.DATE + " > ? and " + Calls.TYPE + " = ?",
                         new String[]{String.valueOf(maxdate), String.valueOf(type)}, Calls.DATE
-                        + " DESC");
+                                + " DESC"
+                );
             } catch (SQLException e) {
                 Log.e(TAG, "updateCalls(): SQLE", e);
                 cursor = cr.query(URI_SMS, smsProjection, Calls.DATE + " > ? and " + Calls.TYPE
-                        + " = ?", new String[]{String.valueOf(maxdate), String.valueOf(type)},
-                        Calls.DATE + " DESC");
+                                + " = ?",
+                        new String[]{String.valueOf(maxdate), String.valueOf(type)},
+                        Calls.DATE + " DESC"
+                );
             }
         } catch (NullPointerException e) {
             Log.e(TAG, "updateSMS(): NPE", e);
@@ -918,8 +929,9 @@ public final class LogRunnerService extends IntentService {
         if (!shortRun && h != null) {
             final Cursor c = cr.query(DataProvider.Logs.CONTENT_URI,
                     new String[]{DataProvider.Logs.PLAN_ID}, DataProvider.Logs.RULE_ID + " != "
-                    + DataProvider.NO_ID + " AND " + DataProvider.Logs.TYPE + " != "
-                    + DataProvider.TYPE_DATA, null, null);
+                            + DataProvider.NO_ID + " AND " + DataProvider.Logs.TYPE + " != "
+                            + DataProvider.TYPE_DATA, null, null
+            );
             assert c != null;
             if (c.getCount() < UNMATHCEDLOGS_TO_SHOW_DIALOG) {
                 showDialog = true;
