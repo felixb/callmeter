@@ -59,6 +59,8 @@ public final class RuleMatcher {
     /** Tag for output. */
     private static final String TAG = "RuleMatcher";
 
+    /** Minimal number length for converting national to international numbers. */
+    private static final int NUMBER_MIN_LENGTH = 7;
     /** Steps for updating the GUI. */
     private static final int PROGRESS_STEPS = 25;
     /** Strip leading zeros. */
@@ -180,7 +182,9 @@ public final class RuleMatcher {
              */
             private static String national2international(final String iPrefix,
                     final boolean zPrefix, final String number) {
-                if (number.startsWith("00800") || number.startsWith("000800")) {
+                if (number.length() < NUMBER_MIN_LENGTH) {
+                    return number;
+                } else if (number.startsWith("00800") || number.startsWith("000800")) {
                     return number;
                 } else if (number.startsWith("+")) {
                     return number;
