@@ -407,7 +407,7 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
     private void resetData(final int type) {
         if (type < 0 || type == DataProvider.TYPE_CALL) {
             Editor e = PreferenceManager.getDefaultSharedPreferences(this).edit();
-            LogRunnerService.setLastData(e, DataProvider.TYPE_CALL, 0, 0L);
+            LogRunnerService.setLastData(e, DataProvider.TYPE_CALL, 0, -1L);
             e.commit();
         }
         if (type < 0) {

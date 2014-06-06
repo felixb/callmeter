@@ -201,14 +201,14 @@ public final class LogRunnerService extends IntentService {
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 maxdate = cursor.getLong(0);
+                Log.d(TAG, "maxdate=", maxdate);
             }
             cursor.close();
         }
         if (maxdate > dateStart) {
-            Log.d(TAG, "getMaxDate(): ", maxdate);
             return maxdate;
         }
-        Log.d(TAG, "getMaxDate(): ", dateStart);
+        Log.d(TAG, "getMaxDate(): dateStart=", dateStart);
         return dateStart;
     }
 
@@ -619,12 +619,12 @@ public final class LogRunnerService extends IntentService {
                 cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
                         cvalues.toArray(new ContentValues[cvalues.size()]));
                 Log.d(TAG, "new calls: ", cvalues.size());
+                Editor e = p.edit();
+                setLastData(e, DataProvider.TYPE_CALL, 0, maxdate);
+                e.commit();
             }
         }
         cursor.close();
-        Editor e = p.edit();
-        setLastData(e, DataProvider.TYPE_CALL, 0, maxdate);
-        e.commit();
         Log.d(TAG, "updateCalls(): done");
     }
 
