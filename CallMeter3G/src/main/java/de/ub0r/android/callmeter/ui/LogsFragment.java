@@ -59,8 +59,8 @@ import de.ub0r.android.callmeter.data.NameCache;
 import de.ub0r.android.callmeter.data.NameLoader;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.DbUtils;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Callmeter's Log {@link LogsFragment}.
@@ -481,7 +481,8 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
                 TrackingUtils.sendMenu(this, "item_export_csv");
                 getActivity().startActivity(
                         new Intent(Preferences.ACTION_EXPORT_CSV, null, getActivity(),
-                                Preferences.class));
+                                Preferences.class)
+                );
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -531,7 +532,10 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
     public void onLoadFinished(final Loader<Cursor> loader, final Cursor data) {
         Log.d(TAG, "onLoadFinished()");
         ((LogAdapter) getListAdapter()).swapCursor(data);
-        ((Plans) getActivity()).setProgress(-1);
+        Plans activity = (Plans) getActivity();
+        if (activity != null) {
+            activity.setProgress(-1);
+        }
     }
 
     @Override
