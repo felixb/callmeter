@@ -168,6 +168,13 @@ res/values-sv/market.xml:0
 res/values-sv/notes.xml:0
 res/values-sv/simple_prefs.xml:0
 res/values-sv/strings.xml:79
+res/values-ta/donation.xml:0
+res/values-ta/help.xml:0
+res/values-ta/intro.xml:0
+res/values-ta/market.xml:0
+res/values-ta/notes.xml:0
+res/values-ta/simple_prefs.xml:0
+res/values-ta/strings.xml:0
 res/values-tr/donation.xml:5
 res/values-tr/help.xml:14
 res/values-tr/intro.xml:10
@@ -213,6 +220,7 @@ res/values-ru:501
 res/values-sk:499
 res/values-sr:496
 res/values-sv:79
+res/values-ta:0
 res/values-tr:501
 res/values-zh-rCN:283
 res/values-zh-rTW:81
