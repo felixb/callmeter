@@ -139,7 +139,7 @@ res/values-pt-rBR/notes.xml:0
 res/values-pt-rBR/simple_prefs.xml:19
 res/values-pt-rBR/strings.xml:297
 res/values-pt/simple_prefs.xml:19
-res/values-pt/strings.xml:438
+res/values-pt/strings.xml:442
 res/values-ru/donation.xml:5
 res/values-ru/help.xml:14
 res/values-ru/intro.xml:10
@@ -214,7 +214,7 @@ res/values-ko:0
 res/values-nb:370
 res/values-nl:499
 res/values-pl:488
-res/values-pt:494
+res/values-pt:498
 res/values-pt-rBR:347
 res/values-ru:501
 res/values-sk:499

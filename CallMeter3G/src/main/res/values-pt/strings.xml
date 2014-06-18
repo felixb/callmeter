@@ -224,7 +224,7 @@
   <string name="iswebsms_connector_" formatted="false" orig="Is WebSMS Connector" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">É conetor WebSMS</string>
   <string name="iswebsms_connector_help" formatted="false" orig="Sent with specific WebSMS Connector, leave empty to match any." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Enviada por uma conetor WebSMS, deixe em branco para coincidir com qualquer um.</string>
   <string name="issipcall_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Is SIP call">É chamada SIP</string>
-  <string name="issipcall_help" formatted="false" orig="Call made via SIP. Currently sipdroid &gt;1.6.1 is supported." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Chamada efetuada por SIP. Atualmente, só existe suporte a sipdroid &gt; 1.6.1.</string>
+  <string name="issipcall_help" formatted="false" orig="Call made via SIP. Currently sipdroid and CSipSimple are supported." username="smarquespt@gmail.com">Chamada efetuada por SIP. Atualmente, só existe suporte a sipdroid e CSipSimple.</string>
   <string name="strip_seconds_" formatted="false" orig="Do not bill first seconds">Não faturar os primeiros segundos</string>
   <string name="strip_seconds_help" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Do not bill first x seconds of a call.">Não faturar os primeiros n segundos de uma chamada.</string>
   <string name="what_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Target type">Tipo de destino</string>
@@ -459,4 +459,8 @@
   <string name="export_sd" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Export to SD card">Exportar para o SD</string>
   <string name="widget_date_textsize" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Date Text Size">Tamanho de texto da data</string>
   <string name="widget_details_textsize" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Details Text Size">Tamanho de texto dos detalhes</string>
+  <string name="websms_" formatted="false" username="smarquespt@gmail.com" orig="WebSMS">WebSMS</string>
+  <string name="calls_voip_" formatted="false" username="smarquespt@gmail.com" orig="VoIP calls with supported apps">Chamadas VoIP com aplicações suportadas</string>
+  <string name="analytics_" formatted="false" username="smarquespt@gmail.com" orig="Collect anonymous statistics">Recolher estatísticas anónimas</string>
+  <string name="analytics_hint" formatted="false" username="smarquespt@gmail.com" orig="Collect anonymous usage statistics to help improving the app.">Recolhe estatísticas anónimas para ajudar a melhorar a aplicação.</string>
 </resources>
