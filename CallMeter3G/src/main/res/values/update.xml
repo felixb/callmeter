@@ -19,7 +19,7 @@
 	-->
 <resources>
 	<string-array name="updates" translatable="false">
-		<item>v3.11.3: internationalize only numbers with length &gt;6</item>
+		<item>v3.11.3: internationalize only numbers with length &gt;6, fix handling of 0800 numbers</item>
 		<item>v3.11.2: add support for some more dual sim devices, fix closing dialog after importing, fix default rule set for second sim if any, fix for second bill period</item>
 		<item>v3.11.1: fix alert strings for Hungarian, fix some minor FCs</item>
 		<item>v3.11: fix for Sony\'s broken android implementation, fix missing alerts on 80%% and 100%% plan usage</item>

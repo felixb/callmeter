@@ -34,7 +34,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-import android.os.SystemClock;
 import android.preference.DatePreference;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
@@ -887,7 +886,7 @@ public final class LogRunnerService extends IntentService {
 
     private void handleIntent(final Intent intent) {
         assert intent != null;
-        long t = SystemClock.elapsedRealtime();
+        long start = System.currentTimeMillis();
         final String a = intent.getAction();
         Log.d(TAG, "handleIntent(action=", a, ")");
 
@@ -1049,7 +1048,8 @@ public final class LogRunnerService extends IntentService {
         }
 
         release(wakelock, h, a);
-        Log.d(TAG, "onHandleIntent(", a, "): ", t);
+        long end = System.currentTimeMillis();
+        Log.i(TAG, "onHandleIntent(", a, "): ", end - start, "ms");
     }
 
     /**
