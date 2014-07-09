@@ -184,7 +184,7 @@ public final class RuleMatcher {
                     final boolean zPrefix, final String number) {
                 if (number.length() < NUMBER_MIN_LENGTH) {
                     return number;
-                } else if (number.startsWith("00800") || number.startsWith("000800")) {
+                } else if (number.startsWith("0800") || number.startsWith("00800")) {
                     return number;
                 } else if (number.startsWith("+")) {
                     return number;
@@ -212,51 +212,57 @@ public final class RuleMatcher {
                 if (number == null) {
                     return false;
                 }
-                int numl = number.length();
-                if (numl == 0) {
+                if (number.length() == 0) {
                     return false;
                 }
-                if (numl > 1) {
+                Log.d(TAG, "NumbersGroup.match(", number, ")");
+                if (number.length() > 1) {
                     if (stripLeadingZeros) {
                         number = number.replaceFirst("^00*", "");
-                        numl = number.length();
                     }
                     if (intPrefix.length() > 1) {
                         number = national2international(intPrefix, zeroPrefix, number);
-                        numl = number.length();
                     }
                 }
                 final int l = numbers.size();
                 for (int i = 0; i < l; i++) {
                     String n = numbers.get(i);
                     if (n == null) {
+                        Log.w(TAG, "numbers[", i, "] = null");
                         return false;
                     }
                     int nl = n.length();
                     if (nl <= 1) {
+                        Log.w(TAG, "#numbers[", i, "] = ", nl);
                         return false;
                     }
 
                     if (n.startsWith("%")) {
                         if (n.endsWith("%")) {
                             if (nl == 2) {
+                                Log.w(TAG, "numbers[", i, "] = ", n);
                                 return false;
                             }
                             if (number.contains(n.substring(1, nl - 1))) {
+                                Log.d(TAG, "match: ", n);
                                 return true;
                             }
                         } else {
                             if (number.endsWith(n.substring(1))) {
+                                Log.d(TAG, "match: ", n);
                                 return true;
                             }
                         }
                     } else if (n.endsWith("%")) {
                         if (number.startsWith(n.substring(0, nl - 1))) {
+                            Log.d(TAG, "match: ", n);
                             return true;
                         }
                     } else if (PhoneNumberUtils.compare(number, n)) {
+                        Log.d(TAG, "match: ", n);
                         return true;
                     }
+                    Log.v(TAG, "no match: ", n);
                 }
                 return false;
             }
@@ -415,7 +421,6 @@ public final class RuleMatcher {
             if (TextUtils.isEmpty(s)) {
                 iswebsmsConnector = "";
             } else {
-                assert s != null;
                 iswebsmsConnector = " AND " + DataProvider.WebSMS.CONNECTOR + " LIKE '%"
                         + s.toLowerCase() + "%'";
             }
@@ -1250,13 +1255,14 @@ public final class RuleMatcher {
                 final float ba = p.getBilledAmount(log);
                 final float bc = p.getCost(log, ba);
                 ContentProviderOperation op = ContentProviderOperation
-                        .newUpdate(DataProvider.Logs.CONTENT_URI) // .
-                        .withValue(DataProvider.Logs.PLAN_ID, pid) // .
-                        .withValue(DataProvider.Logs.RULE_ID, rid) // .
-                        .withValue(DataProvider.Logs.BILL_AMOUNT, ba) // .
-                        .withValue(DataProvider.Logs.COST, bc) // .
-                        .withValue(DataProvider.Logs.FREE, p.getFree(log, bc)) // .
-                        .withSelection(WHERE, new String[]{String.valueOf(lid)}).build();
+                        .newUpdate(DataProvider.Logs.CONTENT_URI)
+                        .withValue(DataProvider.Logs.PLAN_ID, pid)
+                        .withValue(DataProvider.Logs.RULE_ID, rid)
+                        .withValue(DataProvider.Logs.BILL_AMOUNT, ba)
+                        .withValue(DataProvider.Logs.COST, bc)
+                        .withValue(DataProvider.Logs.FREE, p.getFree(log, bc))
+                        .withSelection(WHERE, new String[]{String.valueOf(lid)})
+                        .build();
                 p.updatePlan(ba, bc, t);
                 ops.add(op);
                 matched = true;
@@ -1265,10 +1271,11 @@ public final class RuleMatcher {
         }
         if (!matched) {
             ContentProviderOperation op = ContentProviderOperation
-                    .newUpdate(DataProvider.Logs.CONTENT_URI) // .
-                    .withValue(DataProvider.Logs.PLAN_ID, DataProvider.NOT_FOUND) // .
-                    .withValue(DataProvider.Logs.RULE_ID, DataProvider.NOT_FOUND) // .
-                    .withSelection(WHERE, new String[]{String.valueOf(lid)}).build();
+                    .newUpdate(DataProvider.Logs.CONTENT_URI)
+                    .withValue(DataProvider.Logs.PLAN_ID, DataProvider.NOT_FOUND)
+                    .withValue(DataProvider.Logs.RULE_ID, DataProvider.NOT_FOUND)
+                    .withSelection(WHERE, new String[]{String.valueOf(lid)})
+                    .build();
             ops.add(op);
         }
         return matched;
@@ -1335,6 +1342,7 @@ public final class RuleMatcher {
      */
     static synchronized boolean match(final Context context, final boolean showStatus) {
         Log.d(TAG, "match(ctx, ", showStatus, ")");
+        long start = System.currentTimeMillis();
         boolean ret = false;
         load(context);
         final ContentResolver cr = context.getContentResolver();
@@ -1466,6 +1474,8 @@ public final class RuleMatcher {
                 }
             }
         }
+        long end = System.currentTimeMillis();
+        Log.i(TAG, "match(): ", end-start, "ms");
         return ret;
     }
 }

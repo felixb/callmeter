@@ -178,7 +178,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
             buf.append(strs[t]);
             final int dir = cursor.getInt(DataProvider.Logs.INDEX_DIRECTION);
             strs = context.getResources().getStringArray(R.array.direction_calls);
-            buf.append(" (" + strs[dir] + "): ");
+            buf.append(" (").append(strs[dir]).append("): ");
             final long date = cursor.getLong(DataProvider.Logs.INDEX_DATE);
             buf.append(Common.formatDate(context, date));
             buf.append(" ");
@@ -202,7 +202,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
                         holder.loader = new NameLoader(context, s, format, holder.tvRemote);
                         holder.loader.execute();
                     } catch (RejectedExecutionException e) {
-                        Log.e(TAG, "rejected excecution", e);
+                        Log.e(TAG, "rejected execution", e);
                         holder.loader = null;
                     }
                 }
@@ -322,7 +322,6 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
         tbOut.setText(directions[DataProvider.DIRECTION_OUT]);
         tbOut.setTextOn(directions[DataProvider.DIRECTION_OUT]);
         tbOut.setTextOff(directions[DataProvider.DIRECTION_OUT]);
-        directions = null;
 
         if (planId >= 0L) {
             setPlanId(planId);
@@ -519,7 +518,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
     @Override
     public Loader<Cursor> onCreateLoader(final int id, final Bundle args) {
         Log.d(TAG, "onCreateLoader(", id, ",", args, ")");
-        ((Plans) getActivity()).setProgress(1);
+        getActivity().setProgress(1);
         String where = null;
         if (args != null) {
             where = args.getString("where");

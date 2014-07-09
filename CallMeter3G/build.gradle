@@ -3,35 +3,45 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.10.+'
+        classpath 'com.android.tools.build:gradle:0.12.+'
     }
 }
-apply plugin: 'android'
+
+apply plugin: 'com.android.application'
 
 repositories {
     maven {
-        url 'https://github.com/felixb/ub0rlogg0r/raw/mvn-repo/'
+        url 'https://raw.githubusercontent.com/felixb/ub0rlogg0r/mvn-repo/'
     }
     maven {
-        url 'https://github.com/Goddchen/mvn-repo/raw/master/'
+        url 'https://raw.githubusercontent.com/Goddchen/mvn-repo/master/'
     }
     mavenCentral()
 }
 
+ext {
+    gitVersion = null
+}
 
 def getVersionName = { ->
-    try {
-        def stdout = new ByteArrayOutputStream()
-        exec {
-            commandLine 'git', 'describe', '--tags'
-            standardOutput = stdout
+    if (project.gitVersion == null) {
+        def version = "0.0.0"
+        try {
+            def stdout = new ByteArrayOutputStream()
+            exec {
+                commandLine 'git', 'describe', '--tags'
+                standardOutput = stdout
+            }
+            version = stdout.toString().trim().replaceFirst('^[a-zA-Z][^-]*-', '')
+        } catch (ignored) {
+            return null
         }
-        def version = stdout.toString().trim().replaceFirst('^[a-zA-Z][^-]*-', '')
         logger.info("version: ${version}")
-        return version
-    } catch (ignored) {
-        return null
+        project.gitVersion = version
+    } else {
+      logger.debug("version already set: ${project.gitVersion}")
     }
+    return project.gitVersion
 }
 
 def getVersionCode = { minSdk ->
@@ -57,13 +67,13 @@ def getVersionCode = { minSdk ->
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.1.0"
+    buildToolsVersion '20'
 
     defaultConfig {
         minSdkVersion 8
         targetSdkVersion 19
         versionName getVersionName()
-        versionCode getVersionCode(minSdkVersion)
+        versionCode getVersionCode(minSdkVersion.mApiLevel)
         buildConfigField 'boolean', 'DEBUG_LOG', 'true'
     }
 
@@ -116,8 +126,8 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
-    compile 'com.android.support:support-v4:19.1.+'
-    compile 'com.actionbarsherlock:actionbarsherlock:4.4.+@aar'
-    compile 'com.actionbarsherlock:viewpagerindicator:2.4.+'
-    compile 'de.ub0r.android.logg0r:logg0r:1.1.+'
+    compile 'com.android.support:support-v4:20.+'
+    compile 'com.actionbarsherlock:actionbarsherlock:+@aar'
+    compile 'com.actionbarsherlock:viewpagerindicator:+'
+    compile 'de.ub0r.android.logg0r:logg0r:+'
 }
