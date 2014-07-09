@@ -22,11 +22,11 @@
 		<item>v3.11.3: internationalize only numbers with length &gt;6</item>
 		<item>v3.11.2: add support for some more dual sim devices, fix closing dialog after importing, fix default rule set for second sim if any, fix for second bill period</item>
 		<item>v3.11.1: fix alert strings for Hungarian, fix some minor FCs</item>
-		<item>v3.11: fix for Sony\'s broken android implementation, fix missing alerts on 80% and 100% plan usage</item>
+		<item>v3.11: fix for Sony\'s broken android implementation, fix missing alerts on 80%% and 100%% plan usage</item>
 		<item>v3.10: fix RuleEdit for dual sim phones, filter sms by sim id, new default rule set with dual sim/websms/voip if available</item>
 		<item>v3.9.1: handle merged plans in LogsFragment, add Portuguese translation (thanks to Sérgio Marques), update translations</item>
 		<item>v3.9: show last day of bill period, fix multi sim on ZTE V970, confirm deleting plans/rules, tune widget layout</item>
-		<item>v3.8.4: fix \'%\' in number groups, set widget color directly, minor fixes and translation updates</item>
+		<item>v3.8.4: fix \'%%\' in number groups, set widget color directly, minor fixes and translation updates</item>
 		<item>v3.8.3: UI improvements, Russian translation added, translation updates</item>
 		<item>v3.8.2: hide total stats by default, hide amount for "total merger plans", include/exclude numbers for MMS</item>
 		<item>v3.8.1: fix limit calculation for cost limits, fix mixed plans merging data plans, fix cost in mixed plans merging other plans</item>
@@ -42,7 +42,7 @@
 		<item>v3.5.1: fix some FCs, fix dark theme, fix titles in main view</item>
 		<item>v3.5: update abs 4.0, prepare for jelly bean, fix some FCs</item>
 		<item>v3.4.2: fix 31d bill period, update translations</item>
-		<item>v3.4.1: show past bill periods as 100%, fix import/export of rules with new and old bill periods</item>
+		<item>v3.4.1: show past bill periods as 100%%, fix import/export of rules with new and old bill periods</item>
 		<item>v3.4: add bill period length 14d 15d 31d 1m+1d, fix merged cost limits, minor UI fixes, remove stale widgets, text in number groups, fix prepaid cost in widget, show up to 20plans in "ask for plans" activity</item>
 		<item>v3.3.1: fix FC on android 1.6</item>
 		<item>v3.3: fix FC on android 1.6, fix sorting plans/rules, fix sum of cost for multi bill period plans, fix accuracy of data stats (esp. for samsung devices), fix widget for galaxy nexus, configure existing widgets, add widget for bill period, show intro for new users, data stats for acer e130</item>
