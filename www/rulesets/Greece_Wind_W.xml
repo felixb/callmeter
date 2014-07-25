@@ -13,7 +13,7 @@
       <_limit>0</_limit>
       <_billperiod>8</_billperiod>
       <_billmode>1/1</_billmode>
-      <_billday>1372888801612</_billday>
+      <_billday>1393628401720</_billday>
       <_billperiod_id>0</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
@@ -55,7 +55,7 @@
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
       <_billperiod>12</_billperiod>
-      <_billmode>60/1</_billmode>
+      <_billmode>1/1</_billmode>
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
@@ -72,8 +72,8 @@
       <_billmode>60/1</_billmode>
       <_billday>0</_billday>
       <_cost_per_item>0</_cost_per_item>
-      <_cost_per_amount1>0.342</_cost_per_amount1>
-      <_cost_per_amount2>0.342</_cost_per_amount2>
+      <_cost_per_amount1>0.198</_cost_per_amount1>
+      <_cost_per_amount2>0.198</_cost_per_amount2>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>4</_order>
@@ -90,7 +90,7 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>5</_order>
+      <_order>8</_order>
     </plan>
     <plan>
       <_id>18</_id>
@@ -105,7 +105,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>6</_order>
+      <_order>9</_order>
     </plan>
     <plan>
       <_id>19</_id>
@@ -119,7 +119,7 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>7</_order>
+      <_order>10</_order>
     </plan>
     <plan>
       <_id>20</_id>
@@ -127,14 +127,14 @@
       <_shortname>SMSOut</_shortname>
       <_plan_type>5</_plan_type>
       <_limit_type>1</_limit_type>
-      <_limit>30</_limit>
+      <_limit>1500</_limit>
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
       <_cost_per_item>0.1423</_cost_per_item>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>8</_order>
+      <_order>11</_order>
     </plan>
     <plan>
       <_id>21</_id>
@@ -147,7 +147,7 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>11</_order>
+      <_order>17</_order>
     </plan>
     <plan>
       <_id>22</_id>
@@ -161,7 +161,7 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>12</_order>
+      <_order>18</_order>
     </plan>
     <plan>
       <_id>23</_id>
@@ -177,7 +177,7 @@
       <_cost_per_amount2>0.1024</_cost_per_amount2>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>13</_order>
+      <_order>19</_order>
     </plan>
     <plan>
       <_id>27</_id>
@@ -201,15 +201,15 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>9</_order>
+      <_order>15</_order>
     </plan>
     <plan>
       <_id>28</_id>
       <_plan_name>MMS Out</_plan_name>
       <_shortname>MMSOut</_shortname>
       <_plan_type>6</_plan_type>
-      <_limit_type>1</_limit_type>
-      <_limit>1500</_limit>
+      <_limit_type>0</_limit_type>
+      <_limit>0</_limit>
       <_billperiod>5</_billperiod>
       <_billday>1287927174859</_billday>
       <_cost_per_item>0.4797</_cost_per_item>
@@ -225,14 +225,14 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>10</_order>
+      <_order>16</_order>
     </plan>
   </plans>
   <rules>
     <rule>
       <_id>1</_id>
       <_active>1</_active>
-      <_order>1</_order>
+      <_order>0</_order>
       <_plan_id>23</_plan_id>
       <_rule_name>Data</_rule_name>
       <_what>3</_what>
@@ -247,7 +247,7 @@
     <rule>
       <_id>2</_id>
       <_active>1</_active>
-      <_order>1</_order>
+      <_order>4</_order>
       <_plan_id>15</_plan_id>
       <_rule_name>Calls In</_rule_name>
       <_what>0</_what>
@@ -262,7 +262,7 @@
     <rule>
       <_id>3</_id>
       <_active>1</_active>
-      <_order>2</_order>
+      <_order>5</_order>
       <_plan_id>16</_plan_id>
       <_rule_name>Calls Out</_rule_name>
       <_what>0</_what>
@@ -276,7 +276,7 @@
     <rule>
       <_id>4</_id>
       <_active>1</_active>
-      <_order>3</_order>
+      <_order>9</_order>
       <_plan_id>19</_plan_id>
       <_rule_name>SMS In</_rule_name>
       <_what>1</_what>
@@ -292,7 +292,7 @@
     <rule>
       <_id>5</_id>
       <_active>1</_active>
-      <_order>4</_order>
+      <_order>10</_order>
       <_plan_id>20</_plan_id>
       <_rule_name>SMS Out</_rule_name>
       <_what>1</_what>
@@ -306,7 +306,7 @@
     <rule>
       <_id>7</_id>
       <_active>1</_active>
-      <_order>5</_order>
+      <_order>11</_order>
       <_plan_id>27</_plan_id>
       <_rule_name>MMS In</_rule_name>
       <_what>2</_what>
@@ -322,7 +322,7 @@
     <rule>
       <_id>8</_id>
       <_active>1</_active>
-      <_order>6</_order>
+      <_order>12</_order>
       <_plan_id>28</_plan_id>
       <_rule_name>MMS Out</_rule_name>
       <_what>2</_what>

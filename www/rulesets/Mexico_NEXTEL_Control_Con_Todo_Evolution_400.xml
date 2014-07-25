@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
   <country>Mexico</country>
-  <provider>NEXTEL</provider>
+  <provider>Nextel</provider>
   <title>Control Con Todo Evolution 400</title>
   <plans>
     <plan>

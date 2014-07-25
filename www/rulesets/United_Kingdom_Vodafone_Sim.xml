@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
-  <country>United_Kingdom</country>
+  <country>United Kingdom</country>
   <provider>Vodafone</provider>
   <title>Sim</title>
   <plans>

@@ -209,7 +209,7 @@
     <plan>
       <_id>30</_id>
       <_plan_name>Prichádzajúce SIM1</_plan_name>
-      <_shortname>HpO2</_shortname>
+      <_shortname>Hpo2</_shortname>
       <_plan_type>4</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>100</_limit>
@@ -239,7 +239,7 @@
     <plan>
       <_id>32</_id>
       <_plan_name>Odchádzajúce SIM1</_plan_name>
-      <_shortname>HoO2</_shortname>
+      <_shortname>Hoo2</_shortname>
       <_plan_type>4</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0.1</_limit>

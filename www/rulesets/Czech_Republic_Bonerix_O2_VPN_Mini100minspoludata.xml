@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
   <country>Czech Republic</country>
-  <provider>Bonerix (O2 VPN)</provider>
+  <provider>Bonerix (o2 VPN)</provider>
   <title>Mini+100min+spolu+data</title>
   <plans>
     <plan>

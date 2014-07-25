@@ -13,7 +13,7 @@
       <_limit>0</_limit>
       <_billperiod>4</_billperiod>
       <_billmode>1/1</_billmode>
-      <_billday>1376532301681</_billday>
+      <_billday>1392022801681</_billday>
       <_cost_per_plan>220</_cost_per_plan>
       <_billperiod_id>0</_billperiod_id>
       <_next_alert>0</_next_alert>
@@ -268,7 +268,7 @@
       <_mixed_units_sms>0</_mixed_units_sms>
       <_mixed_units_mms>0</_mixed_units_mms>
       <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
+      <_next_alert>1404511200000</_next_alert>
       <_strip_seconds>0</_strip_seconds>
       <_merged_plans>,16,20,46,28,48,49,59,55,57,56,</_merged_plans>
       <_order>4</_order>
@@ -505,7 +505,7 @@
       <_what>1</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
-      <_exnumbergroup_id>,10,</_exnumbergroup_id>
+      <_exnumbergroup_id>,10,18,</_exnumbergroup_id>
       <_is_websms>-1</_is_websms>
     </rule>
     <rule>
@@ -798,6 +798,32 @@
           <_id>18</_id>
           <_gid>17</_gid>
           <_number>+689%</_number>
+        </number>
+      </numbers>
+    </numbersgroup>
+    <numbersgroup>
+      <_id>18</_id>
+      <_name>Australia landlines</_name>
+      <numbers>
+        <number>
+          <_id>22</_id>
+          <_gid>18</_gid>
+          <_number>+612%</_number>
+        </number>
+        <number>
+          <_id>23</_id>
+          <_gid>18</_gid>
+          <_number>+613%</_number>
+        </number>
+        <number>
+          <_id>24</_id>
+          <_gid>18</_gid>
+          <_number>+617%</_number>
+        </number>
+        <number>
+          <_id>25</_id>
+          <_gid>18</_gid>
+          <_number>+618%</_number>
         </number>
       </numbers>
     </numbersgroup>

@@ -131,8 +131,8 @@
     </plan>
     <plan>
       <_id>31</_id>
-      <_plan_name>O2 Kimenő</_plan_name>
-      <_shortname>O2 KI</_shortname>
+      <_plan_name>o2 Kimenő</_plan_name>
+      <_shortname>o2 KI</_shortname>
       <_plan_type>4</_plan_type>
       <_limit_type>2</_limit_type>
       <_limit>0</_limit>
@@ -455,7 +455,7 @@
       <_active>1</_active>
       <_order>2</_order>
       <_plan_id>31</_plan_id>
-      <_rule_name>O2 fér ²</_rule_name>
+      <_rule_name>o2 fér ²</_rule_name>
       <_what>0</_what>
       <_roamed>1</_roamed>
       <_direction>1</_direction>
@@ -500,7 +500,7 @@
       <_active>1</_active>
       <_order>1</_order>
       <_plan_id>46</_plan_id>
-      <_rule_name>O2 fér ¹</_rule_name>
+      <_rule_name>o2 fér ¹</_rule_name>
       <_what>0</_what>
       <_roamed>1</_roamed>
       <_direction>1</_direction>
