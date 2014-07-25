@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
   <country>Germany</country>
-  <provider>1&amp;1</provider>
+  <provider>1und1</provider>
   <title>All Net 100</title>
   <plans>
     <plan>
@@ -428,7 +428,7 @@
     </plan>
     <plan>
       <_id>45</_id>
-      <_plan_name>O2</_plan_name>
+      <_plan_name>o2</_plan_name>
       <_shortname>o2</_shortname>
       <_plan_type>4</_plan_type>
       <_limit_type>0</_limit_type>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
   <country>Germany</country>
-  <provider>Base</provider>
+  <provider>BASE</provider>
   <title>Mein Festnetz Allnet100 Internet 50</title>
   <plans>
     <plan>

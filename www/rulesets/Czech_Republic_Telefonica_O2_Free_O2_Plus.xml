@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
   <country>Czech Republic</country>
-  <provider>Telefonica O2</provider>
-  <title>Free O2 Plus</title>
+  <provider>Telefonica o2</provider>
+  <title>Free o2 Plus</title>
   <plans>
     <plan>
       <_id>12</_id>
@@ -68,7 +68,7 @@
     </plan>
     <plan>
       <_id>16</_id>
-      <_plan_name>Odchozí hovory O2</_plan_name>
+      <_plan_name>Odchozí hovory o2</_plan_name>
       <_shortname>OdchHov</_shortname>
       <_plan_type>4</_plan_type>
       <_limit_type>0</_limit_type>
@@ -134,8 +134,8 @@
     </plan>
     <plan>
       <_id>20</_id>
-      <_plan_name>SMS odeslané O2</_plan_name>
-      <_shortname>SMSOdeslO2</_shortname>
+      <_plan_name>SMS odeslané o2</_plan_name>
+      <_shortname>SMSOdeslo2</_shortname>
       <_plan_type>5</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
@@ -291,7 +291,7 @@
       <_active>1</_active>
       <_order>3</_order>
       <_plan_id>16</_plan_id>
-      <_rule_name>Odchozí hovory O2</_rule_name>
+      <_rule_name>Odchozí hovory o2</_rule_name>
       <_what>0</_what>
       <_roamed>1</_roamed>
       <_direction>1</_direction>
@@ -321,7 +321,7 @@
       <_active>1</_active>
       <_order>7</_order>
       <_plan_id>20</_plan_id>
-      <_rule_name>SMS odeslané O2</_rule_name>
+      <_rule_name>SMS odeslané o2</_rule_name>
       <_what>1</_what>
       <_roamed>1</_roamed>
       <_direction>1</_direction>

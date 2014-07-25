@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
   <country>Germany</country>
-  <provider>Kauflandtarif, Telefonica, O2</provider>
+  <provider>Kauflandtarif, Telefonica, o2</provider>
   <title>500 Mb Internet, 400 min. in alle Netze, danach 9cent/min</title>
   <plans>
     <plan>

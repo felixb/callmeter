@@ -2,7 +2,7 @@
 <ruleset version="2">
   <title>internetflat allnet50</title>
   <country>Germany</country>
-  <provider>Base</provider>
+  <provider>BASE</provider>
   <plans>
     <plan>
       <_id>12</_id>

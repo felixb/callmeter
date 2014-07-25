@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
   <country>Germany</country>
-  <provider>Fonic</provider>
+  <provider>fonic</provider>
   <title>Smart S</title>
   <plans>
     <plan>

@@ -2,7 +2,7 @@
 <ruleset version="2">
   <title>Flatrate inkl. SMS Flatrate</title>
   <country>Germany</country>
-  <provider>1&amp;1</provider>
+  <provider>1und1</provider>
   <plans>
     <plan>
       <_id>12</_id>

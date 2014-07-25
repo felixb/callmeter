@@ -13,21 +13,20 @@
       <_limit>4990</_limit>
       <_billperiod>8</_billperiod>
       <_billmode>1/1</_billmode>
-      <_billday>1386284401381</_billday>
+      <_billday>1402092001381</_billday>
       <_cost_per_plan>4990</_cost_per_plan>
       <_mixed_units_call>35</_mixed_units_call>
       <_mixed_units_sms>35</_mixed_units_sms>
       <_mixed_units_mms>50</_mixed_units_mms>
-      <_mixed_units_data></_mixed_units_data>
       <_billperiod_id>0</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
       <_merged_plans>,16,20,28,23,</_merged_plans>
-      <_order>-1</_order>
+      <_order>18</_order>
     </plan>
     <plan>
       <_id>14</_id>
-      <_plan_name>Hálózaton belüli Hívások</_plan_name>
+      <_plan_name>Hálóz Belüli Hívások</_plan_name>
       <_shortname>Vodás Hívások</_shortname>
       <_plan_type>4</_plan_type>
       <_limit_type>0</_limit_type>
@@ -35,20 +34,15 @@
       <_billperiod>-1</_billperiod>
       <_billmode>60/60</_billmode>
       <_billday>0</_billday>
-      <_cost_per_item></_cost_per_item>
-      <_cost_per_amount1></_cost_per_amount1>
-      <_cost_per_amount2></_cost_per_amount2>
-      <_cost_per_item_in_limit></_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1></_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2></_cost_per_amount_in_limit2>
-      <_cost_per_plan></_cost_per_plan>
+      <_cost_per_amount1>0</_cost_per_amount1>
+      <_cost_per_amount2>0</_cost_per_amount2>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>2</_order>
+      <_order>19</_order>
     </plan>
     <plan>
       <_id>16</_id>
-      <_plan_name>Hálózaton kívüli hívások</_plan_name>
+      <_plan_name>Hálóz Kívüli Hívások</_plan_name>
       <_shortname>Kimenő hívások</_shortname>
       <_plan_type>4</_plan_type>
       <_limit_type>1</_limit_type>
@@ -59,15 +53,12 @@
       <_cost_per_item>40</_cost_per_item>
       <_cost_per_amount1>40</_cost_per_amount1>
       <_cost_per_amount2>40</_cost_per_amount2>
-      <_cost_per_item_in_limit>40</_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1></_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2></_cost_per_amount_in_limit2>
-      <_cost_per_plan></_cost_per_plan>
+      <_cost_per_item_in_limit>0</_cost_per_item_in_limit>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
       <_strip_past>0</_strip_past>
-      <_order>16</_order>
+      <_order>20</_order>
     </plan>
     <plan>
       <_id>22</_id>
@@ -81,12 +72,9 @@
       <_billday>0</_billday>
       <_cost_per_amount1>50</_cost_per_amount1>
       <_cost_per_amount2>50</_cost_per_amount2>
-      <_cost_per_amount_in_limit1></_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2></_cost_per_amount_in_limit2>
-      <_cost_per_plan></_cost_per_plan>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>23</_order>
+      <_order>24</_order>
     </plan>
     <plan>
       <_id>28</_id>
@@ -103,14 +91,13 @@
       <_cost_per_item_in_limit>80</_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>0</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>0</_cost_per_amount_in_limit2>
-      <_cost_per_plan></_cost_per_plan>
       <_mixed_units_call>0</_mixed_units_call>
       <_mixed_units_sms>0</_mixed_units_sms>
       <_mixed_units_mms>0</_mixed_units_mms>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>22</_order>
+      <_order>23</_order>
     </plan>
     <plan>
       <_id>39</_id>
@@ -120,28 +107,33 @@
       <_limit_type>1</_limit_type>
       <_limit>150</_limit>
       <_cost_per_item>40</_cost_per_item>
-      <_cost_per_item_in_limit></_cost_per_item_in_limit>
-      <_cost_per_plan></_cost_per_plan>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>19</_order>
+      <_order>21</_order>
     </plan>
     <plan>
       <_id>40</_id>
-      <_plan_name>Összevonás hálózaton kívüli</_plan_name>
+      <_plan_name>Hálóz Kiv Hív és SMS</_plan_name>
       <_shortname>ÚjTarifa</_shortname>
       <_plan_type>3</_plan_type>
       <_limit_type>1</_limit_type>
       <_limit>150</_limit>
-      <_cost_per_plan></_cost_per_plan>
-      <_mixed_units_call>1</_mixed_units_call>
       <_mixed_units_sms>1</_mixed_units_sms>
-      <_mixed_units_mms></_mixed_units_mms>
       <_mixed_units_data>1</_mixed_units_data>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_merged_plans>,16,39,</_merged_plans>
-      <_order>21</_order>
+      <_order>22</_order>
+    </plan>
+    <plan>
+      <_id>51</_id>
+      <_plan_name>Vodafone Go+</_plan_name>
+      <_shortname>ÚjTarifa</_shortname>
+      <_plan_type>0</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>17</_order>
     </plan>
   </plans>
   <rules>
@@ -183,6 +175,7 @@
       <_exnumbergroup_id>,6,</_exnumbergroup_id>
       <_is_websms>-1</_is_websms>
       <_is_sipcall>-1</_is_sipcall>
+      <_mynumber>0</_mynumber>
     </rule>
     <rule>
       <_id>18</_id>
@@ -196,6 +189,7 @@
       <_innumbergroup_id>,6,</_innumbergroup_id>
       <_exnumbergroup_id>,3,</_exnumbergroup_id>
       <_is_sipcall>-1</_is_sipcall>
+      <_mynumber>0</_mynumber>
     </rule>
     <rule>
       <_id>19</_id>
@@ -209,6 +203,7 @@
       <_innumbergroup_id>,3,</_innumbergroup_id>
       <_exnumbergroup_id>,6,</_exnumbergroup_id>
       <_is_sipcall>-1</_is_sipcall>
+      <_mynumber>0</_mynumber>
     </rule>
     <rule>
       <_id>21</_id>
@@ -223,9 +218,22 @@
       <_exnumbergroup_id>,4,</_exnumbergroup_id>
       <_is_websms>-1</_is_websms>
       <_is_sipcall>-1</_is_sipcall>
+      <_mynumber>0</_mynumber>
     </rule>
   </rules>
   <hoursgroups>
+    <hoursgroup>
+      <_id>1</_id>
+      <_name>Időszak hozzáadása</_name>
+      <hours>
+        <hour>
+          <_id>20</_id>
+          <_gid>1</_gid>
+          <_day>0</_day>
+          <_hour>0</_hour>
+        </hour>
+      </hours>
+    </hoursgroup>
   </hoursgroups>
   <numbersgroups>
     <numbersgroup>

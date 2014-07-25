@@ -2,7 +2,7 @@
 <ruleset version="2">
   <title>flat + Internetflat</title>
   <country>Germany</country>
-  <provider>Base</provider>
+  <provider>BASE</provider>
   <plans>
     <plan>
       <_id>12</_id>
