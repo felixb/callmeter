@@ -41,7 +41,7 @@
 	<string name="author_tr" translatable="false">Sinan Cem KILIÇKAPLAN &lt;bluesman80@gmail.com&gt; (Turkish)</string>
 	<string name="author_zh" translatable="false">蔡杰伦 &lt;case3526@gmail.com&gt; (Chinese)</string>
 	<string name="source" translatable="false">http://github.com/felixb/callmeter</string>
-	<string name="website" translatable="false">http://code.google.com/p/callmeter/</string>
+	<string name="website" translatable="false">@string/source</string>
 	<string name="faq_" translatable="false">FAQ</string>
 	<string name="google_plus_" translatable="false">Google+</string>
 	<string name="export_rules_body" translatable="false">Hi developer,\nhere are the rules for my provider. Please add it to the website to let others enjoy it. Please see the details below.\n\nCountry: %s\nProvider: %s\nPlan name: %s\n\nCheers, a User</string>

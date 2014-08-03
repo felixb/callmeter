@@ -90,14 +90,14 @@
                 android:title="@string/faq_">
             <intent
                     android:action="android.intent.action.VIEW"
-                    android:data="http://code.google.com/p/callmeter/wiki/FAQCM3"/>
+                    android:data="https://github.com/felixb/callmeter/wiki/FAQ"/>
         </PreferenceScreen>
         <PreferenceScreen
                 android:summary="@string/feedback_hint"
                 android:title="@string/feedback_">
             <intent
                     android:action="android.intent.action.VIEW"
-                    android:data="http://code.google.com/p/callmeter/issues/list"/>
+                    android:data="https://github.com/felixb/callmeter/issues"/>
         </PreferenceScreen>
         <PreferenceScreen
                 android:summary="@string/google_plus_hint"
