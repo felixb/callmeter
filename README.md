@@ -3,6 +3,8 @@
 Call Meter 3G is the most complete monitor app for your Android device:
 It monitors your calls, text messages and data usage.
 
+[![Call Meter 3G on Google Play][1]][2]
+
 ## Call Meter 3G vs. Call Meter NG
 
 Call Meter 3G is a complete reimplementation of Call Meter NG.
@@ -11,6 +13,8 @@ CM3 even supports most dual sim phones!
 
 The old app is deprecated since 2011. Only critical updates and translation changes are released for Call Meter NG.
 Please read more [here](https://github.com/felixb/callmeter/tree/cm2), if you are still interested in Call Meter NG.
+
+[![Call Meter NG on Google Play][1]][3]
 
 ## Rule sets
 
@@ -34,3 +38,7 @@ Just run `./gradlew assemble` to build the app.
 
 Please fork and send a PR.
 I'll merge most patches. ;)
+
+[1]: https://developer.android.com/images/brand/en_generic_rgb_wo_45.png
+[2]: https://play.google.com/store/apps/details?id=de.ub0r.android.callmeter
+[3]: https://play.google.com/store/apps/details?id=de.ub0r.de.android.callMeterNG
