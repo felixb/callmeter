@@ -18,4 +18,97 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
+  <string name="changelog_notification_" formatted="false" username="gsabaah@gmail.com" orig="Recent changes:">التعديلات الأخيرة:</string>
+  <string name="changelog_notification_text" formatted="false" username="gsabaah@gmail.com" orig="Click here to show recent changes of">انقر هنا من اجل إظهار التعديلات الأخيره لـ</string>
+  <string name="never_show_again" formatted="false" username="gsabaah@gmail.com" orig="Never show changelog again">عدم إظهار سجل التغيرات مره اخرى</string>
+  <string name="notes_from_developer_" formatted="false" username="gsabaah@gmail.com" orig="Notes from developer">ملاحظات من المطور</string>
+  <string name="notes_from_developer_text" formatted="false" username="gsabaah@gmail.com" orig="Click here to show recent news from the developer">انقر هنا من اجل إظهار أخر الاخبار من المطور</string>
+  <string name="about0_" formatted="false" username="gsabaah@gmail.com" orig="Watch your call, message and data plans!">راقب مكالماتك, رسائلك و حزم البيانات</string>
+  <string name="provider" formatted="false" username="gsabaah@gmail.com" orig="Provider">مزود الخدمة</string>
+  <string name="country" formatted="false" username="gsabaah@gmail.com" orig="Country">الدولة</string>
+  <string name="website_" formatted="false" username="gsabaah@gmail.com" orig="Website:">الموقع:</string>
+  <string name="license_" formatted="false" username="gsabaah@gmail.com" orig="License:">الرخصة:</string>
+  <string name="license" formatted="false" username="gsabaah@gmail.com" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - انظر http://www.gnu.org/licenses/gp1-3.0.txt</string>
+  <string name="author_" formatted="false" username="gsabaah@gmail.com" orig="Author:">المؤلف:</string>
+  <string name="send_logs_" formatted="false" username="gsabaah@gmail.com" orig="Send logs">ارسال السجلات</string>
+  <string name="x2_hour" formatted="false" username="gsabaah@gmail.com" orig="Two hours">ساعتين</string>
+  <string name="x1_hour" formatted="false" username="gsabaah@gmail.com" orig="One hour">ساعة</string>
+  <string name="x30_day" formatted="false" username="gsabaah@gmail.com" orig="30 days">30 يوم</string>
+  <string name="x31_day" formatted="false" username="gsabaah@gmail.com" orig="31 days">31 يوم</string>
+  <string name="theme_black" formatted="false" username="gsabaah@gmail.com" orig="Black">أسود</string>
+  <string name="theme_light" formatted="false" username="gsabaah@gmail.com" orig="Light">أبيض</string>
+  <string name="view_logs_" formatted="false" username="gsabaah@gmail.com" orig="View Logs">رؤية السجلات</string>
+  <string name="title" formatted="false" username="gsabaah@gmail.com" orig="Title">العنوان</string>
+  <string name="spacer" formatted="false" username="gsabaah@gmail.com" orig="Spacer">فراغ</string>
+  <string name="limit_type_unlimited" formatted="false" username="gsabaah@gmail.com" orig="unlimited">غير محدود</string>
+  <string name="limit_type_units" formatted="false" username="gsabaah@gmail.com" orig="units">وحدة</string>
+  <string name="limit_type_cost" formatted="false" username="gsabaah@gmail.com" orig="costs">تكلفة</string>
+  <string name="x1_day" formatted="false" username="gsabaah@gmail.com" orig="One day">يوم</string>
+  <string name="x1_week" formatted="false" username="gsabaah@gmail.com" orig="One week">اسبوع</string>
+  <string name="x14_day" formatted="false" username="gsabaah@gmail.com" orig="14 days">14 يوم</string>
+  <string name="x15_day" formatted="false" username="gsabaah@gmail.com" orig="15 days">15 يوم</string>
+  <string name="x60_day" formatted="false" username="gsabaah@gmail.com" orig="60 days">60 يوم</string>
+  <string name="x90_day" formatted="false" username="gsabaah@gmail.com" orig="90 days">90 يوم</string>
+  <string name="x1_month" formatted="false" username="gsabaah@gmail.com" orig="One month">شهر</string>
+  <string name="x1_month_1_day" formatted="false" username="gsabaah@gmail.com" orig="One month + one day">شهر + يوم</string>
+  <string name="x2_month" formatted="false" username="gsabaah@gmail.com" orig="Two months">شهرين</string>
+  <string name="x3_month" formatted="false" username="gsabaah@gmail.com" orig="Three months">3 أشهر</string>
+  <string name="x4_month" formatted="false" username="gsabaah@gmail.com" orig="Four months">4 أشهر</string>
+  <string name="x5_month" formatted="false" username="gsabaah@gmail.com" orig="Five months">5 أشهر</string>
+  <string name="x6_month" formatted="false" username="gsabaah@gmail.com" orig="Six months">6 أشهر</string>
+  <string name="x1_year" formatted="false" username="gsabaah@gmail.com" orig="One year">سنة</string>
+  <string name="infinite" formatted="false" username="gsabaah@gmail.com" orig="Infinite">غير محدود</string>
+  <string name="custom" formatted="false" username="gsabaah@gmail.com" orig="Custom">مخصص</string>
+  <string name="direction_calls_in" formatted="false" username="gsabaah@gmail.com" orig="in">وارد</string>
+  <string name="direction_calls_out" formatted="false" username="gsabaah@gmail.com" orig="out">صادر</string>
+  <string name="direction_sms_in" formatted="false" username="gsabaah@gmail.com" orig="in">وارد</string>
+  <string name="direction_sms_out" formatted="false" username="gsabaah@gmail.com" orig="out">صادر</string>
+  <string name="direction_mms_in" formatted="false" username="gsabaah@gmail.com" orig="in">وارد</string>
+  <string name="direction_mms_out" formatted="false" username="gsabaah@gmail.com" orig="out">صادر</string>
+  <string name="direction_data_in" formatted="false" username="gsabaah@gmail.com" orig="in">وارد</string>
+  <string name="direction_data_out" formatted="false" username="gsabaah@gmail.com" orig="out">صادر</string>
+  <string name="default_" formatted="false" username="gsabaah@gmail.com" orig="Default">إفتراضي</string>
+  <string name="currency_formats_1" formatted="false" username="gsabaah@gmail.com" orig="$1.00">1.00 ريال</string>
+  <string name="currency_formats_2" formatted="false" username="gsabaah@gmail.com" orig="$1000">1000 ريال</string>
+  <string name="currency_formats_3" formatted="false" username="gsabaah@gmail.com" orig="1.00$">ريال 1.00</string>
+  <string name="currency_formats_4" formatted="false" username="gsabaah@gmail.com" orig="1000$">ريال 1000</string>
+  <string name="date_formats_1" formatted="false" username="gsabaah@gmail.com" orig="MM/DD/YY">ﺱﺱ/ﻱﻱ/ﺵﺵ</string>
+  <string name="date_formats_2" formatted="false" username="gsabaah@gmail.com" orig="DD/MM/YYYY">ﺱﺱﺱﺱ/ﺵﺵ/ﻱﻱ</string>
+  <string name="date_formats_3" formatted="false" username="gsabaah@gmail.com" orig="DD.MM.YYYY">ﺱﺱﺱﺱ . ﺵﺵ . ﻱﻱ</string>
+  <string name="x05_minute" formatted="false" username="gsabaah@gmail.com" orig="0.5 minutes">0.5 دقيقة</string>
+  <string name="x1_minute" formatted="false" username="gsabaah@gmail.com" orig="1 minute">دقيقة</string>
+  <string name="x2_minute" formatted="false" username="gsabaah@gmail.com" orig="2 minutes">دقيقتين</string>
+  <string name="x5_minute" formatted="false" username="gsabaah@gmail.com" orig="5 minutes">5 دقائق</string>
+  <string name="x10_minute" formatted="false" username="gsabaah@gmail.com" orig="10 minutes">10 دقائق</string>
+  <string name="x15_minute" formatted="false" username="gsabaah@gmail.com" orig="15 minutes">15 دقيقة</string>
+  <string name="x30_minute" formatted="false" username="gsabaah@gmail.com" orig="30 minutes">30 دقيقة</string>
+  <string name="manually_only" formatted="false" username="gsabaah@gmail.com" orig="Manually only">يدوي فقط</string>
+  <string name="reset" formatted="false" username="gsabaah@gmail.com" orig="Reset">إعادة تعيين</string>
+  <string name="debug_" formatted="false" username="gsabaah@gmail.com" orig="Debug">Debug</string>
+  <string name="send_" formatted="false" username="gsabaah@gmail.com" orig="Send">إرسال</string>
+  <string name="add_" formatted="false" username="gsabaah@gmail.com" orig="Add">إضافة</string>
+  <string name="date_begin_" formatted="false" username="gsabaah@gmail.com" orig="Beginning of records">بداية السجلات</string>
+  <string name="date_begin_hint" formatted="false" username="gsabaah@gmail.com" orig="Ignore any logs before this date.">تجاهل اي سجلات قبل هذا التاريخ</string>
+  <string name="delete_old_logs_" formatted="false" username="gsabaah@gmail.com" orig="Delete logs older than">حذف السجلات الاقدم من</string>
+  <string name="edit_" formatted="false" username="gsabaah@gmail.com" orig="Edit">تعديل</string>
+  <string name="delete_" formatted="false" username="gsabaah@gmail.com" orig="Delete">حذف</string>
+  <string name="up_" formatted="false" username="gsabaah@gmail.com" orig="Move up">تحريك للأعلى</string>
+  <string name="down_" formatted="false" username="gsabaah@gmail.com" orig="Move down">تحريك للأسفل</string>
+  <string name="about_" formatted="false" username="gsabaah@gmail.com" orig="About">عن</string>
+  <string name="about_hint" formatted="false" username="gsabaah@gmail.com" orig="About this app">عن هذا التطبيق</string>
+  <string name="more_" formatted="false" username="gsabaah@gmail.com" orig="More Apps..">المزيد من التطبيقات..</string>
+  <string name="appearance_" formatted="false" username="gsabaah@gmail.com" orig="Appearance">المظهر</string>
+  <string name="behavior_" formatted="false" username="gsabaah@gmail.com" orig="Behavior">السلوك</string>
+  <string name="appearance_and_behavior_" formatted="false" username="gsabaah@gmail.com" orig="Appearance &amp; behavior">المظهر و السلوك</string>
+  <string name="theme_" formatted="false" username="gsabaah@gmail.com" orig="Theme">ثيم</string>
+  <string name="textsize_" formatted="false" username="gsabaah@gmail.com" orig="Text size">حجم الخط</string>
+  <string name="textsize_title_" formatted="false" username="gsabaah@gmail.com" orig="Title\'s text size">حجم خط العنوان</string>
+  <string name="show_today_" formatted="false" username="gsabaah@gmail.com" orig="Show today">إظهار اليوم</string>
+  <string name="show_total_" formatted="false" username="gsabaah@gmail.com" orig="Show total">إظهار المجموع</string>
+  <string name="show_titlebar_" formatted="false" username="gsabaah@gmail.com" orig="Show title bar">إظهار شريط العنوان</string>
+  <string name="show_hours_" formatted="false" username="gsabaah@gmail.com" orig="Show hours">إظهار الساعات</string>
+  <string name="show_cost_" formatted="false" username="gsabaah@gmail.com" orig="Show cost">إظهار التكلفة</string>
+  <string name="show_icon_" formatted="false" username="gsabaah@gmail.com" orig="Show icon">إظهار الايقونة</string>
+  <string name="send_logs_hint" formatted="false" username="gsabaah@gmail.com" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">إرسال سجلات جهازك إلى المطور.\nافعل ذلك اذا تم الطلب منك فقط.</string>
+  <string name="sendlog_run_" formatted="false" username="gsabaah@gmail.com" orig="Run SendLog">تشغيل إرساﻝالسجلات</string>
 </resources>
