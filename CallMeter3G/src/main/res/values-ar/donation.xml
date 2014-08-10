@@ -19,7 +19,7 @@
 <resources>
   <string name="donate" formatted="false" username="Gihad" orig="Donate">تبرع</string>
   <string name="donate_remove_ads_" formatted="false" username="Gihad" orig="Donate/remove ads">تبرع/إزالة الإعلانات</string>
-  <string name="donate_" formatted="false" username="Gihad" orig="Donate (%s)">تبرع</string>
+  <string name="donate_" formatted="false" username="jsa_x@yahoo.com" orig="Donate (%s)">تبرع (s%)</string>
   <string name="did_paypal_donation" formatted="false" username="Gihad" orig="I already did a donation via Paypal">لقد تبرعت عن طريق باي بال مسبقا</string>
   <string name="predonate_market" formatted="false" username="Gihad" orig="This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.">هذا التطبيق مفتوح المصدر تم اصداره تحت رخصة GPLv3.\nالتطبيق مجاني و سيبقى مجاني.\nاذا فعلا احببت التطبيق او مللت من الإعلانات, من فضلك فكر في التبرع.\nشكرا!\n\nالتبرع سوف يزيل جميع الإعلانات المقدمة من قبلي</string>
 </resources>
