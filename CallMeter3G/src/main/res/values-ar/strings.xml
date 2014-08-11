@@ -207,4 +207,5 @@
   <string name="widget_backgroud_transparency_" formatted="false" username="gsabaah@gmail.com" orig="Background transparency">شفافية الخلفية</string>
   <string name="send_devices_" formatted="false" username="gsabaah@gmail.com" orig="Send devices">إرسال الأجهزة</string>
   <string name="send_devices_hint" formatted="false" username="gsabaah@gmail.com" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">إرسال قائمة الأجهزة للمطور. انت بحاجة إلى هذا فقط في حالة ان إحصاءات حزم البيانات صفر</string>
+  <string name="about1" formatted="false" username="jsa_x@yahoo.com" orig="The output format is usage | time or count used this billing period | time or count overall.">هيئة الإخراج هي الإستهلاك | الوقت او العد المستخدم في هذي الفاتورة | الوقت او العد الكلي</string>
 </resources>
