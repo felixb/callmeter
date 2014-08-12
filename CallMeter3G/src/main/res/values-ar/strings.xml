@@ -279,4 +279,11 @@
   <string name="new_hourgroup" formatted="false" username="jsa_x@yahoo.com" orig="New hour group">إظافة مجموعة ساعات</string>
   <string name="add_hour" formatted="false" username="jsa_x@yahoo.com" orig="Add hour">إظافة ساعة</string>
   <string name="empty_group" formatted="false" username="jsa_x@yahoo.com" orig="Empty groups won\'t match anything. Please go back and add at least one item.">ان المجموعة الخالية لن تطابق اي شيء. من فضلك الرجوع للخلف وإظافة عنصر واحد على الأقل</string>
+  <string name="calls" formatted="false" username="jsa_x@yahoo.com" orig="Calls">الإتصالات</string>
+  <string name="calls_in" formatted="false" username="jsa_x@yahoo.com" orig="Calls In">الإتصالات الواردة</string>
+  <string name="calls_out" formatted="false" username="jsa_x@yahoo.com" orig="Calls Out">الإتصالات الصادرة</string>
+  <string name="messages" formatted="false" username="jsa_x@yahoo.com" orig="Messages">جميع الرسائل</string>
+  <string name="sms" formatted="false" username="jsa_x@yahoo.com" orig="SMS">الرسائل</string>
+  <string name="sms_in" formatted="false" username="jsa_x@yahoo.com" orig="SMS In">SMS الواردة</string>
+  <string name="sms_out" formatted="false" username="jsa_x@yahoo.com" orig="SMS Out">الرسائل الصادرة</string>
 </resources>
