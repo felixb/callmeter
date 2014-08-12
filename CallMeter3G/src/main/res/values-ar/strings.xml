@@ -88,7 +88,7 @@
   <string name="send_" formatted="false" username="gsabaah@gmail.com" orig="Send">إرسال</string>
   <string name="add_" formatted="false" username="gsabaah@gmail.com" orig="Add">إضافة</string>
   <string name="date_begin_" formatted="false" username="gsabaah@gmail.com" orig="Beginning of records">بداية السجلات</string>
-  <string name="date_begin_hint" formatted="false" username="gsabaah@gmail.com" orig="Ignore any logs before this date.">تجاهل اي سجلات قبل هذا التاريخ</string>
+  <string name="date_begin_hint" formatted="false" username="jsa_x@yahoo.com" orig="Ignore any logs before this date.">إستثناء اي سجلات قبل هذا التاريخ</string>
   <string name="delete_old_logs_" formatted="false" username="gsabaah@gmail.com" orig="Delete logs older than">حذف السجلات الاقدم من</string>
   <string name="edit_" formatted="false" username="gsabaah@gmail.com" orig="Edit">تعديل</string>
   <string name="delete_" formatted="false" username="gsabaah@gmail.com" orig="Delete">حذف</string>
@@ -208,4 +208,75 @@
   <string name="send_devices_" formatted="false" username="gsabaah@gmail.com" orig="Send devices">إرسال الأجهزة</string>
   <string name="send_devices_hint" formatted="false" username="gsabaah@gmail.com" orig="Send list of devices to the developer. This is only needed if your data stats are zero.">إرسال قائمة الأجهزة للمطور. انت بحاجة إلى هذا فقط في حالة ان إحصاءات حزم البيانات صفر</string>
   <string name="about1" formatted="false" username="jsa_x@yahoo.com" orig="The output format is usage | time or count used this billing period | time or count overall.">هيئة الإخراج هي الإستهلاك | الوقت او العد المستخدم في هذي الفاتورة | الوقت او العد الكلي</string>
+  <string name="show_hours_hint" formatted="false" username="jsa_x@yahoo.com" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">إظهار الوقت بالثواني, الدقائق, الساعات و الأيام\nفي حالة عدم الضبط يتم عرض الثواني و الدقائق فقط</string>
+  <string name="about2" formatted="false" username="jsa_x@yahoo.com" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">طور \"الفوترة\" يحدد مدة كيفية حساب المكالمات. مثلا: 60/10 يشير إلى ان اقل مدة يتم فوترتها هي 60 ثانية (حتى لو كانت مدة المكالمة 30 ثانية يتم احتسابها 60 ثانية)و بعد  الـ60 ثانية الاولى تتم احتساب التكلفة على كل 10 ثواني أي حتى لو كانت مدة المكالمة 1:15 ثانية يتم احتسابها على انها 1:20 ثانية.</string>
+  <string name="about3" formatted="false" username="jsa_x@yahoo.com" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">يعمل كوﻝميتر في الخلفية كل 30 دقيقة(ما عدى في حالة الإستعداد/ستاندباي). اي ان حذف المكالمات/الرسائل الاقدم من 30 دقيقة لن يؤثر على الإحصائيات. ولكن حذف المكالمات/الرسائل الأحدث من 30 دقيقة قد يؤدي على إحصاءات مغلوطة و غير دقيقة</string>
+  <string name="show_titlebar_hint" formatted="false" username="jsa_x@yahoo.com" orig="Show title bar in main view. Without title bar, there is no way to see background activity.">إظهار شريط العنوان في الشاشة الرئيسية. بدون شريط العنوان لن تكون هناك اي طريقة لرؤية النشاطات التي تحصل في الخلفية/نظام التشغيل</string>
+  <string name="show_help_" formatted="false" username="jsa_x@yahoo.com" orig="Show help">إظهار المساعدة</string>
+  <string name="show_help_hint" formatted="false" username="jsa_x@yahoo.com" orig="Show help in Plans/Rules setup view.">إظهار المساعدة في الباقات/الشروط</string>
+  <string name="show_shortname_" formatted="false" username="jsa_x@yahoo.com" orig="Show short name instead of long name">إظهار الإسم القصير بدلا عن الإسم المطول</string>
+  <string name="show_billperiod_" formatted="false" username="jsa_x@yahoo.com" orig="Show progress of billing period">إظهار التقدم لمدة الفاتورة</string>
+  <string name="hide_name_" formatted="false" username="jsa_x@yahoo.com" orig="Hide name of plan">إخفاء إسم الباقة</string>
+  <string name="small_widget_" formatted="false" username="jsa_x@yahoo.com" orig="Use small widget">إستخدام ويدجت صغير</string>
+  <string name="show_target_billday_" formatted="false" username="jsa_x@yahoo.com" orig="Show last bill day">إظهار أخر يوم للفاتورة</string>
+  <string name="show_target_billday_hint" formatted="false" username="jsa_x@yahoo.com" orig="Show last day of bill instead of first.">إظهار أخر يوم للفاتورة بدلا عن أول يوم</string>
+  <string name="show_calllength_" formatted="false" username="jsa_x@yahoo.com" orig="Show info after hanging up">إظهار ملخص بعد إنهاء المكالمة</string>
+  <string name="show_calllength_hint" formatted="false" username="jsa_x@yahoo.com" orig="Show length/cost of a call after hanging up.">إظهار مدة/تكلفة المكالمة بعد إنها المكالمة</string>
+  <string name="hide_zero_" formatted="false" username="jsa_x@yahoo.com" orig="Hide empty plans">إخفاء الباقات الخالية</string>
+  <string name="hide_zero_hint" formatted="false" username="jsa_x@yahoo.com" orig="Hide plans containing no item.">إخفاء الباقات التي لا تحتوي على عناصر</string>
+  <string name="hide_nocost_" formatted="false" username="jsa_x@yahoo.com" orig="Hide no cost plans">إخفاء الباقات التي ليس لها تكلفة</string>
+  <string name="hide_nocost_hint" formatted="false" username="jsa_x@yahoo.com" orig="Hide plans with no cost.">إخفاء الباقات التي ليس لها تكلفة</string>
+  <string name="hide_progressbars_" formatted="false" username="jsa_x@yahoo.com" orig="Hide progress bars">إخفاء شريط التقدم</string>
+  <string name="hide_progressbars_hint" formatted="false" username="jsa_x@yahoo.com" orig="Hide progress bars in main view.">إخفاء شريط التقدم في الشاشة الرئيسية</string>
+  <string name="custom_currency_symbol_" formatted="false" username="jsa_x@yahoo.com" orig="Custom currency symbol">رمز عملة مخصصة</string>
+  <string name="custom_currency_symbol_hint" formatted="false" username="jsa_x@yahoo.com" orig="Set a custom currency symbol, leave empty for system default.">تخصيص علامة عملة:  حقل خالي = إفتراضي</string>
+  <string name="custom_currency_format_" formatted="false" username="jsa_x@yahoo.com" orig="Custom currency format">تخصيص تصميم العملة</string>
+  <string name="custom_currency_format_hint" formatted="false" username="jsa_x@yahoo.com" orig="Select a custom currency format.">اختار تصميم عملة مخصصة</string>
+  <string name="custom_date_format_" formatted="false" username="jsa_x@yahoo.com" orig="Custom date format">تخصيص تصميم التاريخ</string>
+  <string name="custom_date_format_hint" formatted="false" username="jsa_x@yahoo.com" orig="Select a custom date format.">اختار تصميم تاريخ مخصص</string>
+  <string name="custom_delimiter_" formatted="false" username="jsa_x@yahoo.com" orig="Custom delimiter">تخصيص الفاصل/الحد</string>
+  <string name="custom_delimiter_hint" formatted="false" username="jsa_x@yahoo.com" orig="Set a custom delimiter separating the blocks of statistics.">وضع فاصل/حد مخصص لفصل مجموعة من الإحصاءات</string>
+  <string name="split_sms_at_160_" formatted="false" username="jsa_x@yahoo.com" orig="Split text messages at 160 chars">تقسيم الرسائل بعد 160 حرف</string>
+  <string name="split_sms_at_160_hint" formatted="false" username="jsa_x@yahoo.com" orig="Disable to use android\'s system method.">عطل من اجل إستخدام النط الإفتراضي لنظام الأندرويد</string>
+  <string name="ask_for_plan_" formatted="false" username="jsa_x@yahoo.com" orig="Ask for plan">إطلب باقة</string>
+  <string name="ask_for_plan_hint" formatted="false" username="jsa_x@yahoo.com" orig="Ask for plan for unmatched calls after hanging up.">إطلب الباقة في حال عدم تطابق الإتصال بعد إنهاء المكالمة</string>
+  <string name="autohide_" formatted="false" username="jsa_x@yahoo.com" orig="Auto hide">إخفاء تلقائي</string>
+  <string name="autohide_hint" formatted="false" username="jsa_x@yahoo.com" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">إخفاء النافذة بعد .. ثواني:  حقل خالي = تعطيل الإخفاء التلقائي</string>
+  <string name="select_plan_" formatted="false" username="jsa_x@yahoo.com" orig="Select a plan">إختر باقة</string>
+  <string name="set_selected_as_default_" formatted="false" username="jsa_x@yahoo.com" orig="Set selected plan as default">إجعل الباقة المختارة هي الباقة الإفتراضية</string>
+  <string name="autohide_in_" formatted="false" username="jsa_x@yahoo.com" orig="Auto hide dialog in: %ds">إخفاء تلقائي للنافذة خلال : %ds</string>
+  <string name="logs" formatted="false" username="jsa_x@yahoo.com" orig="Logs">سجلات</string>
+  <string name="now" formatted="false" username="jsa_x@yahoo.com" orig="Now">الأن</string>
+  <string name="show_logs" formatted="false" username="jsa_x@yahoo.com" orig="Show logs">إظهار السجلات</string>
+  <string name="plans" formatted="false" username="jsa_x@yahoo.com" orig="Plans">الباقات</string>
+  <string name="plans_hint" formatted="false" username="jsa_x@yahoo.com" orig="Set your plans for all kind of billing here.">إجعل باقتك لمجميع الفواتير المتواجدة</string>
+  <string name="plans_new" formatted="false" username="jsa_x@yahoo.com" orig="New plan">باقة جديدة</string>
+  <string name="rule_" formatted="false" username="jsa_x@yahoo.com" orig="Rule">الشروط</string>
+  <string name="rules" formatted="false" username="jsa_x@yahoo.com" orig="Rules">الشروط</string>
+  <string name="rules_hint" formatted="false" username="jsa_x@yahoo.com" orig="Set your billing rules here.">يمكن إعداد الشروط من هنا</string>
+  <string name="rules_new" formatted="false" username="jsa_x@yahoo.com" orig="New Rule">شرط جديد</string>
+  <string name="length_" formatted="false" username="jsa_x@yahoo.com" orig="Length">المدة</string>
+  <string name="blength_" formatted="false" username="jsa_x@yahoo.com" orig="Billed length">مدة الفاتورة</string>
+  <string name="cost_" formatted="false" username="jsa_x@yahoo.com" orig="Cost">التكلفة</string>
+  <string name="numbergroups_edit_" formatted="false" username="jsa_x@yahoo.com" orig="Number groups">مجموعات الأرقام</string>
+  <string name="numbergroups_edit_hint" formatted="false" username="jsa_x@yahoo.com" orig="Edit number groups here.">هنا يتم تعديل مجموعات الأرقام</string>
+  <string name="hourgroups_edit_" formatted="false" username="jsa_x@yahoo.com" orig="Hour groups">مجموعات الساعات</string>
+  <string name="hourgroups_edit_hint" formatted="false" username="jsa_x@yahoo.com" orig="Edit hour groups here.">هنا يتم تعديل مجموعات الساعات</string>
+  <string name="numbers" formatted="false" username="jsa_x@yahoo.com" orig="Numbers">الأرقام</string>
+  <string name="numbergroup_" formatted="false" username="jsa_x@yahoo.com" orig="Include numbers">إدراج أرقام</string>
+  <string name="exnumbergroup_" formatted="false" username="jsa_x@yahoo.com" orig="Exclude numbers">إستثناء أرقام</string>
+  <string name="new_numbergroup" formatted="false" username="jsa_x@yahoo.com" orig="New number group">مجموعة أرقام جديدة</string>
+  <string name="add_number" formatted="false" username="jsa_x@yahoo.com" orig="Add number">أضف رقم</string>
+  <string name="exnumbergroup_help" formatted="false" username="jsa_x@yahoo.com" orig="Add some numbers this rule must not match.\nSee above.">اضف بعض الأرقام التي يجب عدم مطابقتها مع الشرط. انظر للأعلى</string>
+  <string name="numbergroup_excalls" formatted="false" username="jsa_x@yahoo.com" orig="Exclude from calls">إستثناء من الإتصالات</string>
+  <string name="numbergroup_exsms" formatted="false" username="jsa_x@yahoo.com" orig="Exclude from SMS">إستثناء من الرسائل</string>
+  <string name="hours" formatted="false" username="jsa_x@yahoo.com" orig="Hours">الساعات</string>
+  <string name="hourgroup_" formatted="false" username="jsa_x@yahoo.com" orig="Include hours">إدراج ساعات</string>
+  <string name="remote_" formatted="false" username="jsa_x@yahoo.com" orig="Remote number">أرقام عن بعد</string>
+  <string name="hourgroup_help" formatted="false" username="jsa_x@yahoo.com" orig="Add some hours this rule must match.">اضف بعض الساعات التي يجب مطابقتها مع الشرط</string>
+  <string name="exhourgroup_" formatted="false" username="jsa_x@yahoo.com" orig="Exclude hours">إستثناء ساعات</string>
+  <string name="exhourgroup_help" formatted="false" username="jsa_x@yahoo.com" orig="Add some hours this rule must not match.">اضف بعض الساعات التي يجب عدم مطابقتها مع الشرط</string>
+  <string name="new_hourgroup" formatted="false" username="jsa_x@yahoo.com" orig="New hour group">إظافة مجموعة ساعات</string>
+  <string name="add_hour" formatted="false" username="jsa_x@yahoo.com" orig="Add hour">إظافة ساعة</string>
+  <string name="empty_group" formatted="false" username="jsa_x@yahoo.com" orig="Empty groups won\'t match anything. Please go back and add at least one item.">ان المجموعة الخالية لن تطابق اي شيء. من فضلك الرجوع للخلف وإظافة عنصر واحد على الأقل</string>
 </resources>
