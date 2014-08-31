@@ -251,7 +251,7 @@
  * set date+time for start of billing period (google code issue #258, issue #345)
  * improve data logging (google code issue #346)
  * match (inter-)national numbers (enter your prefix in preferences) (google code issue #349)
- * show today\'s stats (google code issue #242)
+ * show today's stats (google code issue #242)
  * allow multi bill period merger (google code issue #56)
  * show call info after hanging up (google code issue #318)
 
