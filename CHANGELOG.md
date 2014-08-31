@@ -1,10 +1,11 @@
 # List of versions and changes for Call Meter 3G aka cm3
 
 ## 3.11.3 (unreleased)
- * fix behavior of "Is WebSMS" (ussue #31)
+ * fix behavior of "Is WebSMS" (issue #31)
  * fix Number match issue (issue #32)
  * fix Call Meter 3G not recognizing SMS sent with WebSMS (issue #33)
  * add Arabic translation
+ * migrate from google code to github.com (issue #1)
  
 ## 3.11.2
  * add support for some more dual sim devices (google code issue #163)
