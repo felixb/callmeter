@@ -24,7 +24,7 @@ You should check it out before trying to implement your own rules.
 
 ## Screenshots
 
-Please find a set of scrrenshos [here](https://github.com/felixb/callmeter/tree/master/hi-res)
+Please find a set of screenshos [here](https://github.com/felixb/callmeter/tree/master/hi-res)
 
 ## Changelog
 
