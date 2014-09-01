@@ -3050,6 +3050,14 @@ public final class DataProvider extends ContentProvider {
         cv.put(Plans.NAME,
                 context.getResources().getStringArray(R.array.plans_type)[TYPE_BILLPERIOD]);
         cv.put(Plans.SHORTNAME, context.getString(R.string.billperiod_sn));
+        // set 1st day of billing (including TZ)
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 1);
+        cal.set(Calendar.SECOND, 1);
+        cal.set(Calendar.MILLISECOND, 0);
+        cv.put(Plans.BILLDAY, cal.getTimeInMillis());
         updatePlans(db, cv, 12);
         cv.clear();
         // spacer: 13, 17, 21
