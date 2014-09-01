@@ -707,7 +707,6 @@ public final class LogRunnerService extends IntentService {
                 final String body = cursor.getString(idBody);
                 int l = 1;
                 if (!TextUtils.isEmpty(body)) {
-                    assert body != null;
                     Log.d(TAG, "body: ", body.replaceAll("[a-z]", "x").replaceAll("[A-Z]", "X"));
                     if (splitAt160) {
                         l = ((body.length() - 1) / SMS_LENGTH) + 1;

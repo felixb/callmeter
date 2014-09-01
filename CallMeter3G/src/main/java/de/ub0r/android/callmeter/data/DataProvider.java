@@ -41,6 +41,7 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Xml;
 import android.widget.Toast;
@@ -1369,21 +1370,6 @@ public final class DataProvider extends ContentProvider {
          * @param now    move now to some other time, null == real now
          * @return SQL {@link String} selecting the bill period
          */
-        public static String getBilldayWhere(final int period, final long start,
-                final Calendar now) {
-            Calendar s = Calendar.getInstance();
-            s.setTimeInMillis(start);
-            return getBilldayWhere(period, s, now);
-        }
-
-        /**
-         * Get the SQL {@link String} selecting the bill period.
-         *
-         * @param period type of period
-         * @param start  first bill day set.
-         * @param now    move now to some other time, null == real now
-         * @return SQL {@link String} selecting the bill period
-         */
         public static String getBilldayWhere(final int period, final Calendar start,
                 final Calendar now) {
             final Calendar bd = getBillDay(period, start, now, false);
@@ -1586,13 +1572,17 @@ public final class DataProvider extends ContentProvider {
             }
 
             while (ret.after(n)) {
+                //noinspection ResourceType
                 ret.add(f, v * -1);
+                //noinspection ResourceType
                 ret.add(j, k * -1);
             }
             long time = ret.getTimeInMillis();
             while (!ret.after(n)) {
                 time = ret.getTimeInMillis();
+                //noinspection ResourceType
                 ret.add(f, v);
+                //noinspection ResourceType
                 ret.add(j, k);
             }
             if (!next) {
@@ -1648,11 +1638,15 @@ public final class DataProvider extends ContentProvider {
                     k = i[3];
                     c.setTimeInMillis(start);
                     while (c.getTimeInMillis() < now) {
+                        //noinspection ResourceType
                         c.add(f, v);
+                        //noinspection ResourceType
                         c.add(j, k);
                     }
                     do {
+                        //noinspection ResourceType
                         c.add(f, -1 * v);
+                        //noinspection ResourceType
                         c.add(j, -1 * k);
                         Log.d(TAG, "return ", (c.getTimeInMillis() + offset));
                         ret.add(c.getTimeInMillis() + offset);
@@ -1873,30 +1867,6 @@ public final class DataProvider extends ContentProvider {
         private Rules() {
             // nothing here.
         }
-
-        /**
-         * Get Name for id.
-         *
-         * @param cr {@link ContentResolver}
-         * @param id id
-         * @return name
-         */
-        public static String getName(final ContentResolver cr, final long id) {
-            if (id < 0) {
-                return null;
-            }
-            //noinspection ConstantConditions
-            final Cursor cursor = cr.query(ContentUris.withAppendedId(CONTENT_URI, id),
-                    new String[]{NAME}, null, null, null);
-            String ret = null;
-            if (cursor != null && cursor.moveToFirst()) {
-                ret = cursor.getString(0);
-            }
-            if (cursor != null && !cursor.isClosed()) {
-                cursor.close();
-            }
-            return ret;
-        }
     }
 
     /**
@@ -2016,27 +1986,6 @@ public final class DataProvider extends ContentProvider {
          */
         public static final String CONTENT_ITEM_TYPE
                 = "vnd.android.cursor.item/vnd.ub0r.numbergroup";
-
-        /**
-         * Get Name for id.
-         *
-         * @param cr {@link ContentResolver}
-         * @param id id
-         * @return name
-         */
-        public static String getName(final ContentResolver cr, final long id) {
-            //noinspection ConstantConditions
-            final Cursor cursor = cr.query(ContentUris.withAppendedId(CONTENT_URI, id),
-                    new String[]{NAME}, null, null, null);
-            String ret = null;
-            if (cursor != null && cursor.moveToFirst()) {
-                ret = cursor.getString(0);
-            }
-            if (cursor != null && !cursor.isClosed()) {
-                cursor.close();
-            }
-            return ret;
-        }
 
         /**
          * Create table in {@link SQLiteDatabase}.
@@ -2197,27 +2146,6 @@ public final class DataProvider extends ContentProvider {
          * The MIME type of a {@link #CONTENT_URI} single entry.
          */
         public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.ub0r.hourgroup";
-
-        /**
-         * Get Name for id.
-         *
-         * @param cr {@link ContentResolver}
-         * @param id id
-         * @return name
-         */
-        public static String getName(final ContentResolver cr, final long id) {
-            //noinspection ConstantConditions
-            final Cursor cursor = cr.query(ContentUris.withAppendedId(CONTENT_URI, id),
-                    new String[]{NAME}, null, null, null);
-            String ret = null;
-            if (cursor != null && cursor.moveToFirst()) {
-                ret = cursor.getString(0);
-            }
-            if (cursor != null && !cursor.isClosed()) {
-                cursor.close();
-            }
-            return ret;
-        }
 
         /**
          * Create table in {@link SQLiteDatabase}.
@@ -2686,15 +2614,14 @@ public final class DataProvider extends ContentProvider {
      * Parse all values of a given XML element to import it as {@link ContentValues} into {@link
      * SQLiteDatabase}.
      *
-     * @param context {@link Context}
-     * @param parser  XmlPullParser
-     * @param lists   list of {@link ContentValues} {@link ArrayList}s.
-     * @param name    name of the holding element
-     * @param list    current list
+     * @param parser XmlPullParser
+     * @param lists  list of {@link android.content.ContentValues} {@link java.util.ArrayList}s.
+     * @param name   name of the holding element
+     * @param list   current list
      * @throws XmlPullParserException XmlPullParserException
      * @throws IOException            IOException
      */
-    private static void parseValues(final Context context, final XmlPullParser parser,
+    private static void parseValues(final XmlPullParser parser,
             final HashMap<String, ArrayList<ContentValues>> lists, final String name,
             final ArrayList<ContentValues> list) throws XmlPullParserException, IOException {
         Log.d(TAG, "parseValues(..,", name, ", #", list.size(), ")");
@@ -2717,7 +2644,7 @@ public final class DataProvider extends ContentProvider {
                         l = new ArrayList<ContentValues>();
                         lists.put(DataProvider.Hours.TABLE, l);
                     }
-                    parseValues(context, parser, lists, k, l);
+                    parseValues(parser, lists, k, l);
                 } else if (k.equals("numbers")) {
                     parser.next();
                     ArrayList<ContentValues> l = lists.get(DataProvider.Numbers.TABLE);
@@ -2725,7 +2652,7 @@ public final class DataProvider extends ContentProvider {
                         l = new ArrayList<ContentValues>();
                         lists.put(DataProvider.Numbers.TABLE, l);
                     }
-                    parseValues(context, parser, lists, k, l);
+                    parseValues(parser, lists, k, l);
                 } else {
                     parser.next();
                     String v = parser.getText();
@@ -2798,13 +2725,11 @@ public final class DataProvider extends ContentProvider {
     /**
      * Import data from XML into {@link SQLiteDatabase}.
      *
-     * @param context {@link Context}
-     * @param db      {@link SQLiteDatabase}
-     * @param xml     XML
+     * @param db  {@link android.database.sqlite.SQLiteDatabase}
+     * @param xml XML
      * @return true, if import was successful
      */
-    private static boolean importXml(final Context context, final SQLiteDatabase db,
-            final String xml) {
+    private static boolean importXml(final SQLiteDatabase db, final String xml) {
         Log.d(TAG, "importXml(db, #", xml.length(), ")");
         boolean ret = true;
         XmlPullParser parser = Xml.newPullParser();
@@ -2876,7 +2801,7 @@ public final class DataProvider extends ContentProvider {
                     parser.next();
                 }
                 if (list != null) {
-                    parseValues(context, parser, lists, name, list);
+                    parseValues(parser, lists, name, list);
                 }
             }
             // reload lists
@@ -2911,12 +2836,10 @@ public final class DataProvider extends ContentProvider {
     /**
      * Import data from lines into {@link SQLiteDatabase}.
      *
-     * @param context {@link Context}
-     * @param db      {@link SQLiteDatabase}
-     * @param lines   data
+     * @param db    {@link android.database.sqlite.SQLiteDatabase}
+     * @param lines data
      */
-    private static void importData(final Context context, final SQLiteDatabase db,
-            final String[] lines) {
+    private static void importData(final SQLiteDatabase db, final String[] lines) {
         final int l = lines.length;
         Log.d(TAG, "importData(db, #", l, ")");
         String table = null;
@@ -2978,7 +2901,7 @@ public final class DataProvider extends ContentProvider {
         final SQLiteDatabase db = new DatabaseHelper(context).getWritableDatabase();
         assert db != null;
         if (ruleSet.trim().startsWith("<")) {
-            ret = importXml(context, db, ruleSet);
+            ret = importXml(db, ruleSet);
             Preferences.setDefaultPlan(context, false);
             RuleMatcher.unmatch(context);
         } else if (ruleSet.equals("DEFAULT")) {
@@ -2989,7 +2912,7 @@ public final class DataProvider extends ContentProvider {
         } else {
             String[] lines = ruleSet.split("\n");
             if (lines.length > 2) {
-                importData(context, db, lines);
+                importData(db, lines);
                 Preferences.setDefaultPlan(context, false);
                 RuleMatcher.unmatch(context);
                 return true;
@@ -3042,7 +2965,7 @@ public final class DataProvider extends ContentProvider {
         } catch (IOException e) {
             Log.e(TAG, "error reading raw data", e);
         }
-        importXml(context, db, sb.toString());
+        importXml(db, sb.toString());
 
         // translate default rule set:
         ContentValues cv = new ContentValues();
@@ -3567,7 +3490,8 @@ public final class DataProvider extends ContentProvider {
     }
 
     @Override
-    public ContentProviderResult[] applyBatch(final ArrayList<ContentProviderOperation> operations)
+    public ContentProviderResult[] applyBatch(
+            @NonNull final ArrayList<ContentProviderOperation> operations)
             throws OperationApplicationException {
         Log.d(TAG, "applyBatch(#", operations.size(), ")");
         ContentProviderResult[] ret = null;
@@ -3587,9 +3511,8 @@ public final class DataProvider extends ContentProvider {
     }
 
     @Override
-    public int bulkInsert(final Uri uri, final ContentValues[] values) {
+    public int bulkInsert(final Uri uri, @NonNull final ContentValues[] values) {
         Log.d(TAG, "bulkInsert(", uri, ", #", values.length, ")");
-        assert values != null;
         if (values.length == 0) {
             return 0;
         }
