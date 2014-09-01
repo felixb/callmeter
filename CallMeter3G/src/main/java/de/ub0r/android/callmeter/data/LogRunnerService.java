@@ -440,10 +440,26 @@ public final class LogRunnerService extends IntentService {
         Log.d(TAG, "updateData(): done");
     }
 
+    private static void printColumn(final Cursor c, int n) {
+        Log.i(TAG, "---------- column - start ----: ", n);
+        int l = c.getColumnCount();
+        for (int i = 0; i < l; ++i) {
+            Log.i(TAG, c.getColumnName(i), ": ", c.getString(i));
+        }
+        Log.i(TAG, "---------- column - end ------: ", n);
+    }
+
     /** Get column id holding sim_id, simid or whatever. */
     public static int getSimIdColumn(final Cursor c) {
         if (c == null) {
             return -1;
+        }
+        for (String s : new String[]{"sim_id", "simid", "sub_id", "sim_slot"}) {
+            int id = c.getColumnIndex(s);
+            if (id >= 0) {
+                Log.d(TAG, "sim_id column found: ", s);
+                return id;
+            }
         }
         if (BuildConfig.DEBUG_LOG) {
             Log.i(TAG, "table schema for cursor: ", c);
@@ -451,13 +467,6 @@ public final class LogRunnerService extends IntentService {
             Log.i(TAG, "column count: ", l);
             for (int i = 0; i < l; ++i) {
                 Log.i(TAG, "column: ", c.getColumnName(i));
-            }
-        }
-        for (String s : new String[]{"sim_id", "simid", "sub_id"}) {
-            int id = c.getColumnIndex(s);
-            if (id >= 0) {
-                Log.d(TAG, "sim_id column found: ", s);
-                return id;
             }
         }
         Log.d(TAG, "no sim_id column found");
@@ -502,7 +511,8 @@ public final class LogRunnerService extends IntentService {
     /** Check, if there is dual sim support. */
     public static boolean checkCallsSimIdColumn(final ContentResolver cr) {
         try {
-            Cursor c = cr.query(Calls.CONTENT_URI, null, "1=2", null, null);
+            String where = BuildConfig.DEBUG_LOG ? null : "1=2";
+            Cursor c = cr.query(Calls.CONTENT_URI, null, where, null, null);
             boolean check = false;
             if (c != null) {
                 check = getSimIdColumn(c) >= 0;
@@ -519,13 +529,14 @@ public final class LogRunnerService extends IntentService {
     /** Check, if there is dual sim support. */
     public static boolean checkSmsSimIdColumn(final ContentResolver cr) {
         try {
-            Cursor c = cr.query(URI_SMS, null, "1=2", null, null);
+            String where = BuildConfig.DEBUG_LOG ? null : "1=2";
+            Cursor c = cr.query(URI_SMS, null, where, null, null);
             boolean check = false;
             if (c != null) {
                 check = getSimIdColumn(c) >= 0;
                 c.close();
             }
-            Log.i(TAG, "sim_id column found in calls database: " + check);
+            Log.i(TAG, "sim_id column found in sms database: " + check);
             return check;
         } catch (SQLiteException e) {
             Log.w(TAG, "sim_id check for sms failed", e);
@@ -571,7 +582,12 @@ public final class LogRunnerService extends IntentService {
 
             final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(
                     CallMeter.HUNDRET);
+            int i = 0;
             do {
+                if (BuildConfig.DEBUG_LOG && idSimId < 0 && i < 30) {
+                    printColumn(cursor, i);
+                    i += 1;
+                }
                 final ContentValues cv = new ContentValues();
                 final int t = cursor.getInt(idType);
                 if (t == Calls.INCOMING_TYPE) {
@@ -673,7 +689,12 @@ public final class LogRunnerService extends IntentService {
             final int idSimId = getSimIdColumn(cursor);
             final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(
                     CallMeter.HUNDRET);
+            int i = 0;
             do {
+                if (BuildConfig.DEBUG_LOG && idSimId < 0 && i < 30) {
+                    printColumn(cursor, i);
+                    i += 1;
+                }
                 final ContentValues cv = new ContentValues();
                 cv.put(DataProvider.Logs.DIRECTION, direction);
                 cv.put(DataProvider.Logs.PLAN_ID, DataProvider.NO_ID);
@@ -686,7 +707,6 @@ public final class LogRunnerService extends IntentService {
                 final String body = cursor.getString(idBody);
                 int l = 1;
                 if (!TextUtils.isEmpty(body)) {
-                    assert body != null;
                     Log.d(TAG, "body: ", body.replaceAll("[a-z]", "x").replaceAll("[A-Z]", "X"));
                     if (splitAt160) {
                         l = ((body.length() - 1) / SMS_LENGTH) + 1;
