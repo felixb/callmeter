@@ -56,10 +56,6 @@ def getVersionCode = { minSdk ->
         code += parts[i].replaceFirst('-.*', '').toInteger() * multi
     }
 
-    if (parts[l - 1].contains('-')) {
-        code += parts[l - 1].split('-')[1].toInteger()
-    }
-
     def versionCode = code.toInteger()
     logger.info("versionCode: ${versionCode}")
     return versionCode
