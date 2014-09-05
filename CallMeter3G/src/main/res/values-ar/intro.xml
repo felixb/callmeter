@@ -18,6 +18,7 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-  <string name="intro_" formatted="false" username="MohammedAR@umniah.com" orig="Introducing Call Meter 3G">التعريف ببرنامج (مقياس المكالمات 3G)</string>
-  <string name="intro0" formatted="false" username="MohammedAR@umniah.com" orig="With &lt;b&gt;Call Meter 3G&lt;/b&gt; you can monitor the usage of your calls, messages and data connections.">باستخدام برنامج مقياس المكالمات 3G، يمكنك ضبط ومراقبة استخدام مكالماتك، رسائلك، و روابط بياناتك</string>
+  <string name="intro_" formatted="false" username="jsa_x@yahoo.com" orig="Introducing Call Meter 3G">التعريف ببرنامج (كوﻝميتر 3G)</string>
+  <string name="intro0" formatted="false" username="jsa_x@yahoo.com" orig="&lt;b&gt;Call Meter 3G&lt;/b&gt; monitors usage of your calls, messages and data connections.">باستخدام تطبيق <b>كوﻝميتر 3G </b>، يمكنك ضبط ومراقبة استخدام مكالماتك، رسائلك، و حزم بياناتك</string>
+  <string name="intro1" formatted="false" username="gsabaah@gmail.com" orig="In order to get accurate statistics, it is important to set up Call Meter 3G as accurately as possible.">من المهم تخصيص التطبيق (Call Meter 3G) بأكبر قدر ممكن من الدقة\nمن اجل الحصول على افضل إحصائيات</string>
 </resources>
