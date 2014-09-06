@@ -45,8 +45,8 @@ import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.callmeter.ui.Plans;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Stats Widget.
@@ -172,8 +172,10 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
     static void updateWidget(final Context context, final AppWidgetManager appWidgetManager,
             final int appWidgetId) {
         Log.d(TAG, "updateWidget(", appWidgetId, ")");
-        TrackingUtils.sendEvent(context, "widget", "update", StatsAppWidgetProvider.class.getName(),
-                (long) appWidgetId);
+        if (!(context instanceof LogRunnerService)) {
+            TrackingUtils.sendEvent(context, "widget", "update",
+                    StatsAppWidgetProvider.class.getName(), (long) appWidgetId);
+        }
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final boolean showTargetBillDay = p
                 .getBoolean(Preferences.PREFS_SHOW_TARGET_BILLDAY, false);

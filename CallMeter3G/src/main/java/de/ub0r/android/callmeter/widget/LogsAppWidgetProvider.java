@@ -159,8 +159,10 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
     static void updateWidget(final Context context, final AppWidgetManager appWidgetManager,
             final int appWidgetId) {
         Log.d(TAG, "updateWidget(", appWidgetId, ")");
-        TrackingUtils.sendEvent(context, "widget", "update", LogsAppWidgetProvider.class.getName(),
-                (long) appWidgetId);
+        if (!(context instanceof LogRunnerService)) {
+            TrackingUtils.sendEvent(context, "widget", "update",
+                    LogsAppWidgetProvider.class.getName(), (long) appWidgetId);
+        }
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final boolean showHours = p.getBoolean(Preferences.PREFS_SHOWHOURS, true);
         final String cformat = Preferences.getCurrencyFormat(context);
