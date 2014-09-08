@@ -2,6 +2,7 @@
 <!-- generated with shell/update-changelog.py -->
 <resources>
   <string-array name="updates" translatable="false">
+    <item>v3.12 (Unreleased): add date format DD MMM. YYYY (issue #38)</item>
     <item>v3.11.3: fix behavior of "Is WebSMS" (issue #31), fix Number match issue (issue #32), fix Call Meter 3G not recognizing SMS sent with WebSMS (issue #33), set timezone when importing default rules (issue #6), migrate from google code to github.com (issue #1)</item>
     <item>v3.11.2: add support for some more dual sim devices (google code issue #163), fix default rule set for second sim if any (google code issue #949), fix closing dialog after importing (google code issue #959), fix for second bill period (google code issue #956)</item>
     <item>v3.11.1: fix alert strings for Hungarian, fix some minor FCs</item>

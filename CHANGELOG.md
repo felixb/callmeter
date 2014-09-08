@@ -1,5 +1,8 @@
 # List of versions and changes for Call Meter 3G aka cm3
 
+## 3.12 (Unreleased)
+ * add date format DD MMM. YYYY (issue #38)
+
 ## 3.11.3
  * fix behavior of "Is WebSMS" (issue #31)
  * fix Number match issue (issue #32)

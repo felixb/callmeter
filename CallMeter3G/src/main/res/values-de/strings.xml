@@ -431,6 +431,7 @@
   <string name="date_formats_1">MM/TT/JJ</string>
   <string name="date_formats_2">TT/MM/JJJJ</string>
   <string name="date_formats_3">TT.MM.JJJJ</string>
+  <string name="date_formats_4">TT MMM. JJJJ</string>
   <string name="x5_minute">5 Minuten</string>
   <string name="x10_minute">10 Minuten</string>
   <string name="x15_minute">15 Minuten</string>

@@ -435,6 +435,7 @@
 	<string name="date_formats_1">MM/DD/YY</string>
 	<string name="date_formats_2">DD/MM/YYYY</string>
 	<string name="date_formats_3">DD.MM.YYYY</string>
+	<string name="date_formats_4">DD MMM. YYYY</string>
 	<string name="x05_minute">0.5 minutes</string>
 	<string name="x1_minute">1 minute</string>
 	<string name="x2_minute">2 minutes</string>

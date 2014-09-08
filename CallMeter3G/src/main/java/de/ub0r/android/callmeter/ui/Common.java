@@ -79,7 +79,7 @@ public final class Common {
      *
      * @param context {@link Context}
      * @param cal     {@link Calendar}
-     * @return formated date
+     * @return formatted date
      */
     public static String formatDate(final Context context, final Calendar cal) {
         if (dateFormat == null) {
@@ -97,7 +97,7 @@ public final class Common {
      *
      * @param context {@link Context}
      * @param date    time in milliseconds
-     * @return formated date
+     * @return formatted date
      */
     public static String formatDate(final Context context, final long date) {
         if (dateFormat == null) {

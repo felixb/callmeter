@@ -29,6 +29,7 @@
         <item>$tD</item>
         <item>$te/$tm/$tY</item>
         <item>$te.$tm.$tY</item>
+        <item>$te $tb $tY</item>
     </string-array>
     <string-array name="themes_values" translatable="false">
         <item>black</item>
@@ -270,6 +271,7 @@
         <item>@string/date_formats_1</item>
         <item>@string/date_formats_2</item>
         <item>@string/date_formats_3</item>
+        <item>@string/date_formats_4</item>
     </string-array>
     <string-array name="update_interval" translatable="false">
         <item>@string/x5_minute</item>
