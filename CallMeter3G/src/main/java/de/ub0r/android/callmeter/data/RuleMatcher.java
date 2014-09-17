@@ -182,7 +182,7 @@ public final class RuleMatcher {
              */
             private static String national2international(final String iPrefix,
                     final boolean zPrefix, final String number) {
-                if (number.length() < NUMBER_MIN_LENGTH) {
+                if (number.length() < NUMBER_MIN_LENGTH && !number.endsWith("%")) {
                     return number;
                 } else if (number.startsWith("0800") || number.startsWith("00800")) {
                     return number;
@@ -1475,7 +1475,7 @@ public final class RuleMatcher {
             }
         }
         long end = System.currentTimeMillis();
-        Log.i(TAG, "match(): ", end-start, "ms");
+        Log.i(TAG, "match(): ", end - start, "ms");
         return ret;
     }
 }
