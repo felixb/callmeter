@@ -2,7 +2,7 @@
 <ruleset version="2">
   <country>South Africa</country>
   <provider>Vodacom</provider>
-  <title>120 Every Day</title>
+  <title>120 Every Day 500 MB</title>
   <plans>
     <plan>
       <_id>13</_id>
@@ -76,7 +76,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>3</_strip_seconds>
-      <_order>17</_order>
+      <_order>20</_order>
     </plan>
     <plan>
       <_id>18</_id>
@@ -101,7 +101,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>26</_order>
+      <_order>27</_order>
     </plan>
     <plan>
       <_id>20</_id>
@@ -126,7 +126,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>27</_order>
+      <_order>30</_order>
     </plan>
     <plan>
       <_id>22</_id>
@@ -151,7 +151,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>36</_order>
+      <_order>39</_order>
     </plan>
     <plan>
       <_id>23</_id>
@@ -167,16 +167,16 @@
       <_cost_per_amount1>2</_cost_per_amount1>
       <_cost_per_amount2>2</_cost_per_amount2>
       <_cost_per_item_in_limit></_cost_per_item_in_limit>
-      <_cost_per_amount_in_limit1>3</_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2>3</_cost_per_amount_in_limit2>
-      <_cost_per_plan>0</_cost_per_plan>
+      <_cost_per_amount_in_limit1>0.2</_cost_per_amount_in_limit1>
+      <_cost_per_amount_in_limit2>0.2</_cost_per_amount_in_limit2>
+      <_cost_per_plan></_cost_per_plan>
       <_mixed_units_call></_mixed_units_call>
       <_mixed_units_sms></_mixed_units_sms>
       <_mixed_units_mms></_mixed_units_mms>
       <_billperiod_id>49</_billperiod_id>
-      <_next_alert>0</_next_alert>
+      <_next_alert>1411077600000</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>37</_order>
+      <_order>41</_order>
     </plan>
     <plan>
       <_id>28</_id>
@@ -200,7 +200,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>34</_order>
+      <_order>37</_order>
     </plan>
     <plan>
       <_id>30</_id>
@@ -225,7 +225,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>3</_strip_seconds>
-      <_order>20</_order>
+      <_order>21</_order>
     </plan>
     <plan>
       <_id>31</_id>
@@ -249,7 +249,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>30</_order>
+      <_order>33</_order>
     </plan>
     <plan>
       <_id>32</_id>
@@ -257,7 +257,7 @@
       <_shortname>CALLSOFFP</_shortname>
       <_plan_type>4</_plan_type>
       <_limit_type>2</_limit_type>
-      <_limit>178</_limit>
+      <_limit>120</_limit>
       <_billperiod>5</_billperiod>
       <_billmode>60/60</_billmode>
       <_billday>1297764141831</_billday>
@@ -274,7 +274,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>22</_order>
+      <_order>23</_order>
     </plan>
     <plan>
       <_id>37</_id>
@@ -299,7 +299,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>23</_order>
+      <_order>24</_order>
     </plan>
     <plan>
       <_id>38</_id>
@@ -324,7 +324,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>28</_order>
+      <_order>31</_order>
     </plan>
     <plan>
       <_id>40</_id>
@@ -348,7 +348,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>29</_order>
+      <_order>32</_order>
     </plan>
     <plan>
       <_id>41</_id>
@@ -372,7 +372,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>31</_order>
+      <_order>34</_order>
     </plan>
     <plan>
       <_id>42</_id>
@@ -396,7 +396,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>33</_order>
+      <_order>36</_order>
     </plan>
     <plan>
       <_id>45</_id>
@@ -420,7 +420,7 @@
       <_billperiod_id>-1</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>40</_order>
+      <_order>45</_order>
     </plan>
     <plan>
       <_id>46</_id>
@@ -444,7 +444,7 @@
       <_billperiod_id>-1</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>25</_order>
+      <_order>19</_order>
     </plan>
     <plan>
       <_id>49</_id>
@@ -461,14 +461,14 @@
       <_cost_per_item_in_limit>0</_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>0</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>0</_cost_per_amount_in_limit2>
-      <_cost_per_plan>255.5</_cost_per_plan>
+      <_cost_per_plan>243.5</_cost_per_plan>
       <_mixed_units_call>0</_mixed_units_call>
       <_mixed_units_sms>0</_mixed_units_sms>
       <_mixed_units_mms>0</_mixed_units_mms>
       <_billperiod_id>-1</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>42</_order>
+      <_order>47</_order>
     </plan>
     <plan>
       <_id>52</_id>
@@ -492,7 +492,7 @@
       <_billperiod_id>-1</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>35</_order>
+      <_order>28</_order>
     </plan>
     <plan>
       <_id>53</_id>
@@ -516,7 +516,7 @@
       <_billperiod_id>-1</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>41</_order>
+      <_order>46</_order>
     </plan>
     <plan>
       <_id>54</_id>
@@ -541,7 +541,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>21</_order>
+      <_order>22</_order>
     </plan>
     <plan>
       <_id>55</_id>
@@ -566,7 +566,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>3</_strip_seconds>
-      <_order>24</_order>
+      <_order>25</_order>
     </plan>
     <plan>
       <_id>56</_id>
@@ -590,7 +590,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>32</_order>
+      <_order>35</_order>
     </plan>
     <plan>
       <_id>57</_id>
@@ -614,7 +614,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>38</_order>
+      <_order>43</_order>
     </plan>
     <plan>
       <_id>58</_id>
@@ -624,7 +624,7 @@
       <_limit_type>0</_limit_type>
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>39</_order>
+      <_order>38</_order>
     </plan>
     <plan>
       <_id>59</_id>
@@ -634,7 +634,47 @@
       <_limit_type>0</_limit_type>
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>43</_order>
+      <_order>26</_order>
+    </plan>
+    <plan>
+      <_id>61</_id>
+      <_plan_name>Spacer</_plan_name>
+      <_shortname>NeuesKontingent</_shortname>
+      <_plan_type>1</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>49</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>40</_order>
+    </plan>
+    <plan>
+      <_id>62</_id>
+      <_plan_name>Spacer</_plan_name>
+      <_shortname>NeuesKontingent</_shortname>
+      <_plan_type>1</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>49</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>42</_order>
+    </plan>
+    <plan>
+      <_id>63</_id>
+      <_plan_name>Spacer</_plan_name>
+      <_shortname>NeuesKontingent</_shortname>
+      <_plan_type>1</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>49</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>44</_order>
+    </plan>
+    <plan>
+      <_id>64</_id>
+      <_plan_name>Spacer</_plan_name>
+      <_shortname>NeuesKontingent</_shortname>
+      <_plan_type>1</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>49</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>48</_order>
     </plan>
   </plans>
   <rules>
