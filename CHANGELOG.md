@@ -1,6 +1,6 @@
 # List of versions and changes for Call Meter 3G aka cm3
 
-## 3.11.4 (Unreleased)
+## 3.11.4
  * fix internationalizing number groups with prefixes (issue #41)
  * add date format DD MMM. YYYY (issue #38)
 
