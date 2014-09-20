@@ -1,12 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.12'
-}
-
-task updateChangelog << {
-    def proc = 'shell/update-changelog.sh'.execute()
-    proc.in.eachLine {line -> println line}
-    proc.err.eachLine {line -> println 'ERROR: ' + line}
-    proc.waitFor()
+    gradleVersion = '2.1'
 }

@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.12.+'
+        classpath 'com.android.tools.build:gradle:0.13.0'
     }
 }
 
@@ -126,4 +126,32 @@ dependencies {
     compile 'com.actionbarsherlock:actionbarsherlock:+@aar'
     compile 'com.actionbarsherlock:viewpagerindicator:+'
     compile 'de.ub0r.android.logg0r:logg0r:+'
+}
+
+task updateChangelog << {
+    def proc = 'shell/update-changelog.sh'.execute()
+    proc.in.eachLine {line -> println line}
+    proc.err.eachLine {line -> println 'ERROR: ' + line}
+    proc.waitFor()
+}
+
+task removeUnfinishedTranslations << {
+    def proc = 'shell/remove-unfinished-translations.sh'.execute()
+    proc.in.eachLine {line -> println line}
+    proc.err.eachLine {line -> println 'ERROR: ' + line}
+    proc.waitFor()
+}
+
+task readdUnfinishedTranslations << {
+    def proc = "git checkout CallMeter3G/src/main/res/values-*/*xml".execute()
+    proc.in.eachLine {line -> println line}
+    proc.err.eachLine {line -> println 'ERROR: ' + line}
+    proc.waitFor()
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'mergeReleaseResources') {
+        task.dependsOn updateChangelog
+        task.dependsOn removeUnfinishedTranslations
+    }
 }
