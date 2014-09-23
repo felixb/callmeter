@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
   <country>Poland</country>
-  <provider>Szablony</provider>
+  <provider>Szablon</provider>
   <title>Abonament 59zł/mc - 0 gr/min, 0 gr/sms, 0 gr/MMS, pakiet danych: 1GB/mies (potem 0 zł/MB), 2 zl/min miedzyn, 50 gr/SMS miedzyn, 3 zl/MMS miedzyn</title>
   <plans>
     <plan>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
   <country>Poland</country>
-  <provider>Szablony</provider>
-  <title>Prepaid - 29 gr/min, 20 gr/sms, 30 gr/MMS, pakiet danych: 100MB/mies (10 zl/mc, potem 1,2 zl/MB), brak pakietu minut/SMS, 2 zl/min miedzyn, 50 gr/SMS miedzyn, 3 zl/MMS miedzyn</title>
+  <provider>Szablon</provider>
+  <title>Prepaid - 29 gr/min, 20 gr/sms, 30 gr/MMS, 1,2 zl/MB, brak pakietu minut/SMS, 2 zl/min miedzyn, 50 gr/SMS miedzyn, 3 zl/MMS miedzyn</title>
   <plans>
     <plan>
       <_id>12</_id>
@@ -137,7 +137,7 @@
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_cost_per_item>0.2</_cost_per_item>
+      <_cost_per_item>0.20</_cost_per_item>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
@@ -181,11 +181,13 @@
       <_limit>0</_limit>
       <_billperiod>5</_billperiod>
       <_billday>1287927116450</_billday>
+      <_cost_per_item></_cost_per_item>
       <_cost_per_amount1>0</_cost_per_amount1>
       <_cost_per_amount2>0</_cost_per_amount2>
       <_cost_per_item_in_limit>0</_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>0</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>0</_cost_per_amount_in_limit2>
+      <_cost_per_plan>0</_cost_per_plan>
       <_mixed_units_call>0</_mixed_units_call>
       <_mixed_units_sms>0</_mixed_units_sms>
       <_mixed_units_mms>0</_mixed_units_mms>
@@ -203,12 +205,13 @@
       <_limit>0</_limit>
       <_billperiod>5</_billperiod>
       <_billday>1287927174859</_billday>
-      <_cost_per_item>0.3</_cost_per_item>
+      <_cost_per_item>0.30</_cost_per_item>
       <_cost_per_amount1>0</_cost_per_amount1>
       <_cost_per_amount2>0</_cost_per_amount2>
-      <_cost_per_item_in_limit>0.3</_cost_per_item_in_limit>
+      <_cost_per_item_in_limit>0.30</_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>0</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>0</_cost_per_amount_in_limit2>
+      <_cost_per_plan>0</_cost_per_plan>
       <_mixed_units_call>0</_mixed_units_call>
       <_mixed_units_sms>0</_mixed_units_sms>
       <_mixed_units_mms>0</_mixed_units_mms>
@@ -226,12 +229,13 @@
       <_limit>0</_limit>
       <_billperiod>8</_billperiod>
       <_billday>1336483760410</_billday>
-      <_cost_per_item>0.2</_cost_per_item>
+      <_cost_per_item>0.20</_cost_per_item>
       <_cost_per_amount1>0</_cost_per_amount1>
       <_cost_per_amount2>0</_cost_per_amount2>
-      <_cost_per_item_in_limit>0.2</_cost_per_item_in_limit>
+      <_cost_per_item_in_limit>0.20</_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>0</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>0</_cost_per_amount_in_limit2>
+      <_cost_per_plan>0</_cost_per_plan>
       <_mixed_units_call>0</_mixed_units_call>
       <_mixed_units_sms>0</_mixed_units_sms>
       <_mixed_units_mms>0</_mixed_units_mms>
@@ -249,8 +253,10 @@
       <_billperiod>8</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>1336495008904</_billday>
+      <_cost_per_item></_cost_per_item>
       <_cost_per_amount1>0.29</_cost_per_amount1>
       <_cost_per_amount2>0.29</_cost_per_amount2>
+      <_cost_per_item_in_limit></_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>0.29</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>0.29</_cost_per_amount_in_limit2>
       <_mixed_units_call>0</_mixed_units_call>
@@ -271,10 +277,13 @@
       <_billperiod>8</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>1336537714575</_billday>
+      <_cost_per_item></_cost_per_item>
       <_cost_per_amount1>0.29</_cost_per_amount1>
       <_cost_per_amount2>0.29</_cost_per_amount2>
+      <_cost_per_item_in_limit></_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>0.29</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>0.29</_cost_per_amount_in_limit2>
+      <_cost_per_plan>0</_cost_per_plan>
       <_mixed_units_call>0</_mixed_units_call>
       <_mixed_units_sms>0</_mixed_units_sms>
       <_mixed_units_mms>0</_mixed_units_mms>
@@ -314,10 +323,13 @@
       <_billperiod>8</_billperiod>
       <_billmode>60/60</_billmode>
       <_billday>1336557733106</_billday>
+      <_cost_per_item></_cost_per_item>
       <_cost_per_amount1>0.62</_cost_per_amount1>
       <_cost_per_amount2>0.62</_cost_per_amount2>
+      <_cost_per_item_in_limit></_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>0.62</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>0.62</_cost_per_amount_in_limit2>
+      <_cost_per_plan>0</_cost_per_plan>
       <_mixed_units_call>0</_mixed_units_call>
       <_mixed_units_sms>0</_mixed_units_sms>
       <_mixed_units_mms>0</_mixed_units_mms>
@@ -360,10 +372,13 @@
       <_billperiod>8</_billperiod>
       <_billmode>30/30</_billmode>
       <_billday>1336582762981</_billday>
+      <_cost_per_item></_cost_per_item>
       <_cost_per_amount1>2</_cost_per_amount1>
       <_cost_per_amount2>2</_cost_per_amount2>
+      <_cost_per_item_in_limit></_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>2</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>2</_cost_per_amount_in_limit2>
+      <_cost_per_plan>0</_cost_per_plan>
       <_mixed_units_call>0</_mixed_units_call>
       <_mixed_units_sms>0</_mixed_units_sms>
       <_mixed_units_mms>0</_mixed_units_mms>
@@ -387,6 +402,7 @@
       <_cost_per_item_in_limit>0.5</_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>0</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>0</_cost_per_amount_in_limit2>
+      <_cost_per_plan>0</_cost_per_plan>
       <_mixed_units_call>0</_mixed_units_call>
       <_mixed_units_sms>0</_mixed_units_sms>
       <_mixed_units_mms>0</_mixed_units_mms>
@@ -405,9 +421,13 @@
       <_billperiod>8</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>1340102337365</_billday>
+      <_cost_per_item></_cost_per_item>
+      <_cost_per_amount1></_cost_per_amount1>
+      <_cost_per_amount2></_cost_per_amount2>
       <_cost_per_item_in_limit>0</_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>0</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>0</_cost_per_amount_in_limit2>
+      <_cost_per_plan>0</_cost_per_plan>
       <_mixed_units_call>0</_mixed_units_call>
       <_mixed_units_sms>0</_mixed_units_sms>
       <_mixed_units_mms>0</_mixed_units_mms>
@@ -426,9 +446,13 @@
       <_billperiod>8</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>1340102444318</_billday>
+      <_cost_per_item></_cost_per_item>
+      <_cost_per_amount1></_cost_per_amount1>
+      <_cost_per_amount2></_cost_per_amount2>
       <_cost_per_item_in_limit>0</_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>0</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>0</_cost_per_amount_in_limit2>
+      <_cost_per_plan>0</_cost_per_plan>
       <_mixed_units_call>0</_mixed_units_call>
       <_mixed_units_sms>0</_mixed_units_sms>
       <_mixed_units_mms>0</_mixed_units_mms>
@@ -467,8 +491,8 @@
       <_shortname>SmsWychKomInne</_shortname>
       <_plan_type>5</_plan_type>
       <_limit_type>0</_limit_type>
-      <_cost_per_item>0.2</_cost_per_item>
-      <_cost_per_item_in_limit>0.2</_cost_per_item_in_limit>
+      <_cost_per_item>0.20</_cost_per_item>
+      <_cost_per_item_in_limit>0.20</_cost_per_item_in_limit>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>31</_order>
@@ -516,9 +540,8 @@
       <_plan_name>Dane razem</_plan_name>
       <_shortname>Dane razem</_shortname>
       <_plan_type>7</_plan_type>
-      <_limit_type>1</_limit_type>
-      <_limit>100</_limit>
-      <_cost_per_plan>10</_cost_per_plan>
+      <_limit_type>0</_limit_type>
+      <_cost_per_plan>0</_cost_per_plan>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_merged_plans>,52,53,</_merged_plans>
@@ -626,8 +649,8 @@
       <_shortname>SMS wych. Plus</_shortname>
       <_plan_type>5</_plan_type>
       <_limit_type>0</_limit_type>
-      <_cost_per_item>0.2</_cost_per_item>
-      <_cost_per_item_in_limit>0.2</_cost_per_item_in_limit>
+      <_cost_per_item>0.20</_cost_per_item>
+      <_cost_per_item_in_limit>0.20</_cost_per_item_in_limit>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>28</_order>
@@ -638,8 +661,8 @@
       <_shortname>SMS wych. Orange</_shortname>
       <_plan_type>5</_plan_type>
       <_limit_type>0</_limit_type>
-      <_cost_per_item>0.2</_cost_per_item>
-      <_cost_per_item_in_limit>0.2</_cost_per_item_in_limit>
+      <_cost_per_item>0.20</_cost_per_item>
+      <_cost_per_item_in_limit>0.20</_cost_per_item_in_limit>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>29</_order>
@@ -650,8 +673,8 @@
       <_shortname>SMS wych. T-Mobile</_shortname>
       <_plan_type>5</_plan_type>
       <_limit_type>0</_limit_type>
-      <_cost_per_item>0.2</_cost_per_item>
-      <_cost_per_item_in_limit>0.2</_cost_per_item_in_limit>
+      <_cost_per_item>0.20</_cost_per_item>
+      <_cost_per_item_in_limit>0.20</_cost_per_item_in_limit>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>30</_order>
@@ -674,8 +697,8 @@
       <_shortname>SMS Wych. inne</_shortname>
       <_plan_type>5</_plan_type>
       <_limit_type>0</_limit_type>
-      <_cost_per_item>0.2</_cost_per_item>
-      <_cost_per_item_in_limit>0.2</_cost_per_item_in_limit>
+      <_cost_per_item>0.20</_cost_per_item>
+      <_cost_per_item_in_limit>0.20</_cost_per_item_in_limit>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>34</_order>
@@ -696,8 +719,8 @@
       <_shortname>MMS wych. Plus</_shortname>
       <_plan_type>6</_plan_type>
       <_limit_type>0</_limit_type>
-      <_cost_per_item>0.3</_cost_per_item>
-      <_cost_per_item_in_limit>0.3</_cost_per_item_in_limit>
+      <_cost_per_item>0.30</_cost_per_item>
+      <_cost_per_item_in_limit>0.30</_cost_per_item_in_limit>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>41</_order>
@@ -708,8 +731,8 @@
       <_shortname>MMS wych. Orange</_shortname>
       <_plan_type>6</_plan_type>
       <_limit_type>0</_limit_type>
-      <_cost_per_item>0.3</_cost_per_item>
-      <_cost_per_item_in_limit>0.3</_cost_per_item_in_limit>
+      <_cost_per_item>0.30</_cost_per_item>
+      <_cost_per_item_in_limit>0.30</_cost_per_item_in_limit>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>42</_order>
@@ -720,8 +743,8 @@
       <_shortname>MMS wych. TMob.</_shortname>
       <_plan_type>6</_plan_type>
       <_limit_type>0</_limit_type>
-      <_cost_per_item>0.3</_cost_per_item>
-      <_cost_per_item_in_limit>0.3</_cost_per_item_in_limit>
+      <_cost_per_item>0.30</_cost_per_item>
+      <_cost_per_item_in_limit>0.30</_cost_per_item_in_limit>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>43</_order>
@@ -732,8 +755,8 @@
       <_shortname>MMS wych. kom. Inne</_shortname>
       <_plan_type>6</_plan_type>
       <_limit_type>0</_limit_type>
-      <_cost_per_item>0.3</_cost_per_item>
-      <_cost_per_item_in_limit>0.3</_cost_per_item_in_limit>
+      <_cost_per_item>0.30</_cost_per_item>
+      <_cost_per_item_in_limit>0.30</_cost_per_item_in_limit>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>44</_order>
@@ -756,8 +779,8 @@
       <_shortname>MMS Wych. inne</_shortname>
       <_plan_type>6</_plan_type>
       <_limit_type>0</_limit_type>
-      <_cost_per_item>0.3</_cost_per_item>
-      <_cost_per_item_in_limit>0.3</_cost_per_item_in_limit>
+      <_cost_per_item>0.30</_cost_per_item>
+      <_cost_per_item_in_limit>0.30</_cost_per_item_in_limit>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>46</_order>
@@ -779,6 +802,7 @@
       <_shortname>MMS wych. darm.</_shortname>
       <_plan_type>6</_plan_type>
       <_limit_type>0</_limit_type>
+      <_cost_per_item></_cost_per_item>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>39</_order>
@@ -3813,6 +3837,7 @@
           <_number>+487876%</_number>
         </number>
         <number>
+
           <_id>462</_id>
           <_gid>5</_gid>
           <_number>+487877%</_number>
