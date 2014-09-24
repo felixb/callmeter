@@ -1426,7 +1426,7 @@ public final class RuleMatcher {
                         continue;
                     }
                     if (plan.nextAlert > now) {
-                        Log.d(TAG, plan, ": skip alert until: ", plan.nextAlert, " now=", now);
+                        Log.d(TAG, "%s: skip alert until: %d now=%d", plan, plan.nextAlert, now);
                         continue;
                     }
                     int used = DataProvider.Plans.getUsed(plan.type, plan.limitType,
