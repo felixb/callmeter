@@ -174,6 +174,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 
             StringBuilder buf = new StringBuilder();
             final int t = cursor.getInt(DataProvider.Logs.INDEX_TYPE);
+            final int pt = cursor.getInt(DataProvider.Logs.INDEX_PLAN_TYPE);
             String[] strs = context.getResources().getStringArray(R.array.plans_type);
             buf.append(strs[t]);
             final int dir = cursor.getInt(DataProvider.Logs.INDEX_DIRECTION);
@@ -232,8 +233,8 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
                 holder.tvLengthLable.setVisibility(View.VISIBLE);
             }
             final float ba = cursor.getFloat(DataProvider.Logs.INDEX_BILL_AMOUNT);
-            if (amount != ba) {
-                holder.tvBilledLength.setText(Common.formatAmount(t, ba,
+            if (amount != ba || pt == DataProvider.TYPE_MIXED) {
+                holder.tvBilledLength.setText(Common.formatAmount(pt, ba,
                         LogsFragment.this.showHours));
                 holder.tvBilledLength.setVisibility(View.VISIBLE);
                 holder.tvBilledLengthLable.setVisibility(View.VISIBLE);

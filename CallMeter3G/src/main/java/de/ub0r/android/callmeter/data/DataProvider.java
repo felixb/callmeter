@@ -204,6 +204,8 @@ public final class DataProvider extends ContentProvider {
         public static final int INDEX_PLAN_NAME = 13;
         /** Index in projection: Rule name. */
         public static final int INDEX_RULE_NAME = 14;
+        /** Index in projection: Plan type. */
+        public static final int INDEX_PLAN_TYPE = 15;
 
         /** Index in projection - sum: Type of log. */
         public static final int INDEX_SUM_TYPE = 0;
@@ -259,12 +261,13 @@ public final class DataProvider extends ContentProvider {
 
         static {
             final int l = PROJECTION.length;
-            PROJECTION_JOIN = new String[l + 2];
+            PROJECTION_JOIN = new String[l + 3];
             for (int i = 0; i < l; i++) {
                 PROJECTION_JOIN[i] = TABLE + "." + PROJECTION[i] + " as " + PROJECTION[i];
             }
             PROJECTION_JOIN[l] = Plans.TABLE + "." + Plans.NAME + " as " + Plans.NAME;
             PROJECTION_JOIN[l + 1] = Rules.TABLE + "." + Rules.NAME + " as " + Rules.NAME;
+            PROJECTION_JOIN[l + 2] = Plans.TABLE + "." + Plans.TYPE + " as " + Plans.TYPE;
         }
 
         /** Projection used for query - sum. */
