@@ -213,7 +213,7 @@
   <string name="about3" formatted="false" username="jsa_x@yahoo.com" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">يعمل كوﻝميتر في الخلفية كل 30 دقيقة(ما عدى في حالة الإستعداد/ستاندباي). اي ان حذف المكالمات/الرسائل الاقدم من 30 دقيقة لن يؤثر على الإحصائيات. ولكن حذف المكالمات/الرسائل الأحدث من 30 دقيقة قد يؤدي على إحصاءات مغلوطة و غير دقيقة</string>
   <string name="show_titlebar_hint" formatted="false" username="jsa_x@yahoo.com" orig="Show title bar in main view. Without title bar, there is no way to see background activity.">إظهار شريط العنوان في الشاشة الرئيسية. بدون شريط العنوان لن تكون هناك اي طريقة لرؤية النشاطات التي تحصل في الخلفية/نظام التشغيل</string>
   <string name="show_help_" formatted="false" username="jsa_x@yahoo.com" orig="Show help">إظهار المساعدة</string>
-  <string name="show_help_hint" formatted="false" username="jsa_x@yahoo.com" orig="Show help in Plans/Rules setup view.">إظهار المساعدة في الباقات/الشروط</string>
+  <string name="show_help_hint" formatted="false" username="randvoo12" orig="Show help in Plans/Rules setup view.">إظهار المساعدة في خطط الاسعار/الشروط</string>
   <string name="show_shortname_" formatted="false" username="jsa_x@yahoo.com" orig="Show short name instead of long name">إظهار الإسم القصير بدلا عن الإسم المطول</string>
   <string name="show_billperiod_" formatted="false" username="jsa_x@yahoo.com" orig="Show progress of billing period">إظهار التقدم لمدة الفاتورة</string>
   <string name="hide_name_" formatted="false" username="jsa_x@yahoo.com" orig="Hide name of plan">إخفاء إسم الباقة</string>
@@ -222,9 +222,9 @@
   <string name="show_target_billday_hint" formatted="false" username="jsa_x@yahoo.com" orig="Show last day of bill instead of first.">إظهار أخر يوم للفاتورة بدلا عن أول يوم</string>
   <string name="show_calllength_" formatted="false" username="jsa_x@yahoo.com" orig="Show info after hanging up">إظهار ملخص بعد إنهاء المكالمة</string>
   <string name="show_calllength_hint" formatted="false" username="jsa_x@yahoo.com" orig="Show length/cost of a call after hanging up.">إظهار مدة/تكلفة المكالمة بعد إنها المكالمة</string>
-  <string name="hide_zero_" formatted="false" username="jsa_x@yahoo.com" orig="Hide empty plans">إخفاء الباقات الخالية</string>
+  <string name="hide_zero_" formatted="false" username="randvoo12" orig="Hide empty plans">إخفاء خطط الاسعار الخالية</string>
   <string name="hide_zero_hint" formatted="false" username="jsa_x@yahoo.com" orig="Hide plans containing no item.">إخفاء الباقات التي لا تحتوي على عناصر</string>
-  <string name="hide_nocost_" formatted="false" username="jsa_x@yahoo.com" orig="Hide no cost plans">إخفاء الباقات التي ليس لها تكلفة</string>
+  <string name="hide_nocost_" formatted="false" username="randvoo12" orig="Hide no cost plans">إخفاء خطط الاسعار التي ليس لها تكلفة</string>
   <string name="hide_nocost_hint" formatted="false" username="jsa_x@yahoo.com" orig="Hide plans with no cost.">إخفاء الباقات التي ليس لها تكلفة</string>
   <string name="hide_progressbars_" formatted="false" username="jsa_x@yahoo.com" orig="Hide progress bars">إخفاء شريط التقدم</string>
   <string name="hide_progressbars_hint" formatted="false" username="jsa_x@yahoo.com" orig="Hide progress bars in main view.">إخفاء شريط التقدم في الشاشة الرئيسية</string>
@@ -237,7 +237,7 @@
   <string name="custom_delimiter_" formatted="false" username="jsa_x@yahoo.com" orig="Custom delimiter">تخصيص الفاصل/الحد</string>
   <string name="custom_delimiter_hint" formatted="false" username="jsa_x@yahoo.com" orig="Set a custom delimiter separating the blocks of statistics.">وضع فاصل/حد مخصص لفصل مجموعة من الإحصاءات</string>
   <string name="split_sms_at_160_" formatted="false" username="jsa_x@yahoo.com" orig="Split text messages at 160 chars">تقسيم الرسائل بعد 160 حرف</string>
-  <string name="split_sms_at_160_hint" formatted="false" username="jsa_x@yahoo.com" orig="Disable to use android\'s system method.">عطل من اجل إستخدام النط الإفتراضي لنظام الأندرويد</string>
+  <string name="split_sms_at_160_hint" formatted="false" username="randvoo12" orig="Disable to use android\'s system method.">عطل من اجل إستخدام النمط الإفتراضي لنظام الأندرويد</string>
   <string name="ask_for_plan_" formatted="false" username="jsa_x@yahoo.com" orig="Ask for plan">إطلب باقة</string>
   <string name="ask_for_plan_hint" formatted="false" username="jsa_x@yahoo.com" orig="Ask for plan for unmatched calls after hanging up.">إطلب الباقة في حال عدم تطابق الإتصال بعد إنهاء المكالمة</string>
   <string name="autohide_" formatted="false" username="jsa_x@yahoo.com" orig="Auto hide">إخفاء تلقائي</string>
@@ -248,12 +248,12 @@
   <string name="logs" formatted="false" username="jsa_x@yahoo.com" orig="Logs">سجلات</string>
   <string name="now" formatted="false" username="jsa_x@yahoo.com" orig="Now">الأن</string>
   <string name="show_logs" formatted="false" username="jsa_x@yahoo.com" orig="Show logs">إظهار السجلات</string>
-  <string name="plans" formatted="false" username="jsa_x@yahoo.com" orig="Plans">الباقات</string>
-  <string name="plans_hint" formatted="false" username="jsa_x@yahoo.com" orig="Set your plans for all kind of billing here.">إجعل باقتك لمجميع الفواتير المتواجدة</string>
-  <string name="plans_new" formatted="false" username="jsa_x@yahoo.com" orig="New plan">باقة جديدة</string>
+  <string name="plans" formatted="false" username="randvoo12" orig="Plans">خطط الاسعار</string>
+  <string name="plans_hint" formatted="false" username="randvoo12" orig="Set your plans for all kind of billing here.">إجعل خطة اسعارك لمجميع الفواتير المتواجدة</string>
+  <string name="plans_new" formatted="false" username="randvoo12" orig="New plan">خطة اسعار جديدة</string>
   <string name="rule_" formatted="false" username="jsa_x@yahoo.com" orig="Rule">الشروط</string>
   <string name="rules" formatted="false" username="jsa_x@yahoo.com" orig="Rules">الشروط</string>
-  <string name="rules_hint" formatted="false" username="jsa_x@yahoo.com" orig="Set your billing rules here.">يمكن إعداد الشروط من هنا</string>
+  <string name="rules_hint" formatted="false" username="randvoo12" orig="Set your billing rules here.">يمكن إعداد شروط محاسبتك من هنا</string>
   <string name="rules_new" formatted="false" username="jsa_x@yahoo.com" orig="New Rule">شرط جديد</string>
   <string name="length_" formatted="false" username="jsa_x@yahoo.com" orig="Length">المدة</string>
   <string name="blength_" formatted="false" username="jsa_x@yahoo.com" orig="Billed length">مدة الفاتورة</string>
@@ -286,4 +286,10 @@
   <string name="sms" formatted="false" username="jsa_x@yahoo.com" orig="SMS">الرسائل</string>
   <string name="sms_in" formatted="false" username="jsa_x@yahoo.com" orig="SMS In">SMS الواردة</string>
   <string name="sms_out" formatted="false" username="jsa_x@yahoo.com" orig="SMS Out">الرسائل الصادرة</string>
+  <string name="numbergroup_help" formatted="false" username="randvoo12" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">قم بإضافة بعض الارقام لتطابق هذا الشرط .\nالاحصنة البرية ("%") مسموح بوجودها على جانبى الرقم \nتوضيح: %34 سيكون مطابق ل 1234 بينما 12% سيكون مطابق ل 1234\nو %23% سيكون مطابق ل 12345\n</string>
+  <string name="billperiod_sn" formatted="false" username="randvoo12" orig="BillPeriod">فترة المحاسبة</string>
+  <string name="mms" formatted="false" username="randvoo12" orig="MMS">رسائل الوسائط المتعددة</string>
+  <string name="mms_in" formatted="false" username="randvoo12" orig="MMS In">رسائل الوسائط المتعددة الواردة</string>
+  <string name="mms_out" formatted="false" username="randvoo12" orig="MMS Out">رسائل الوسائط المتعددة الصادرة</string>
+  <string name="data" formatted="false" username="randvoo12" orig="Data">البيانات</string>
 </resources>

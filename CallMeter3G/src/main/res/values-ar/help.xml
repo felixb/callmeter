@@ -18,5 +18,10 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-  <string name="help_title_" formatted="false" username="jsa_x@yahoo.com" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">من فضلك إقرأ التالي من اجل إدراك مهفوم كلا من <b>السجلات</b>, <b>الباقات</b> و <b>الشروط</b>:</string>
+  <string name="help_title_" formatted="false" username="randvoo12" orig="Please read the following to understand the concept of &lt;b&gt;logs&lt;/b&gt;, &lt;b&gt;plans&lt;/b&gt; and &lt;b&gt;rules&lt;/b&gt;:">من فضلك إقرأ التالي من اجل إدراك مهفوم كلا من <b>السجلات</b>, <b>خطط الاسعار</b> و <b>الشروط</b>:</string>
+  <string name="help_import_" formatted="false" username="randvoo12" orig="A good starting point are some preconfigured rule sets available on the website. Just import them via import menu and play around.">نقطة بداية جيدة هى بعض القواعد المعدة مسبقا و متاحة على الموقع الالكترونى . فقط قم بإيرادهم عن طريق قائمة الإيراد و قم بضبطها لتوافقك خطك.</string>
+  <string name="help_export_" formatted="false" username="randvoo12" orig="If you managed to set up a common plan for your country, do not hesitate to export your rule set to me by mail. I will put it on the website to make it available for all the users.">إذا قمت بإداد خطة عامة لبلدك , فلا تتردد فى توريدهاالى المبرمج عن طريق البريد الالكترونى. سيقوم بوضعها على الموقع الالكترونى لتكون متاحة لجميع المستخدمين .</string>
+  <string name="help_logs_plans_rules_" formatted="false" username="randvoo12" orig="There are three kinds of data structures:">هناك ثلاثة انواع من هياكل البيانات:</string>
+  <string name="help_logs_" formatted="false" username="randvoo12" orig="&lt;b&gt;Logs&lt;/b&gt; to save informations about your calls, messages and traffic statistics."><b>السجلات</b> لتقوم بحفظ المعلومات عن مكالماتك ,رسائلك و حزم البيانات .</string>
+  <string name="help_plans_" formatted="false" username="randvoo12" orig="&lt;b&gt;Plans&lt;/b&gt; to describe all kinds of aspects of your bill."><b>خطط الاسعار</b> لوصف جميع اجزاء فاتورتك .</string>
 </resources>
