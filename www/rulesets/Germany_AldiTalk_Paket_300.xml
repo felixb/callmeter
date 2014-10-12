@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
   <country>Germany</country>
-  <provider>Alditalk</provider>
+  <provider>AldiTalk</provider>
   <title>Paket 300</title>
   <plans>
     <plan>
