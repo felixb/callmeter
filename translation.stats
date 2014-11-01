@@ -19,10 +19,10 @@ res/values-de/donation.xml:6
 res/values-de/market.xml:5
 res/values-de/notes.xml:3
 res/values-de/strings.xml:129
-res/values-el/donation.xml:0
+res/values-el/donation.xml:6
 res/values-el/market.xml:0
 res/values-el/notes.xml:0
-res/values-el/strings.xml:117
+res/values-el/strings.xml:128
 res/values-es/donation.xml:6
 res/values-es/market.xml:5
 res/values-es/notes.xml:3
@@ -88,7 +88,7 @@ res/values-ca:0
 res/values-cs:124
 res/values-da:125
 res/values-de:143
-res/values-el:117
+res/values-el:134
 res/values-es:143
 res/values-fr:136
 res/values-hu:135

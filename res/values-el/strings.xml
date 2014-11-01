@@ -140,4 +140,15 @@
   <string name="exclude_people_calls_to_plan2_hint" formatted="false" orig="Bill calls to/from excluded numbers in plan #2">Λογάριασε κλήσεις πρός/από εξαιρούμενους αριθμούς στο πλάνο #2</string>
   <string name="exclude_people_sms_to_plan1_hint" formatted="false" orig="Bill messages to/from excluded numbers in plan #1">Λογάριασε μηνύματα πρός/από εξαιρούμενους αριθμούς στο πλάνο #1</string>
   <string name="exclude_people_sms_to_plan2_hint" formatted="false" orig="Bill messages to/from excluded numbers in plan #2">Λογάριασε μηνύματα πρός/από εξαιρούμενους αριθμούς στο πλάνο #2</string>
+  <string name="send_logs_" formatted="false" username="n4src@yahoo.com" orig="Send logs">Αποστολή στατιστικών</string>
+  <string name="send_logs_hint" formatted="false" username="n4src@yahoo.com" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Αποστολή στατιστικών συσκευής στον προγραμαιστή.\nΝα γίνεται μονο αν ζητηθεί!</string>
+  <string name="sendlog_run_" formatted="false" username="n4src@yahoo.com" orig="Run SendLog">Τρέξε SendLog</string>
+  <string name="sendlog_run" formatted="false" username="n4src@yahoo.com" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">Το SendLog θα πάρει τα στατιστικά τις συσκευής και θα τα στείλει στον προγραματιστή. Θα έχετε το δικαίωμα ελέγχου και επεξεργασίας των δεδομένων που θα αποσταλούν.</string>
+  <string name="sendlog_install_" formatted="false" username="n4src@yahoo.com" orig="Install SendLog">Εγκατάσταση SendLog</string>
+  <string name="sendlog_install" formatted="false" username="n4src@yahoo.com" orig="Install the free SendLog application to collect the device log and send it to the developer.">Εγκαταστήστε τη δωρεαν εφαρμογή SendLog για να συλέξετε και να στείλετε τα στατιστικά της συσκευής στον προγραματιστή.</string>
+  <string name="license_" formatted="false" username="n4src@yahoo.com" orig="License:">Άδεια:</string>
+  <string name="license" formatted="false" username="n4src@yahoo.com" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - δείτε εδώ http&gt;://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="author_" formatted="false" username="n4src@yahoo.com" orig="Author:">Προγραματστής εφαρμογής</string>
+  <string name="source_" formatted="false" username="n4src@yahoo.com" orig="Sourcescode:">Γραμμοκώδικας</string>
+  <string name="website_" formatted="false" username="n4src@yahoo.com" orig="Website:">Ιστοσελίδα</string>
 </resources>
