@@ -94,7 +94,7 @@ public class ExportProvider extends ContentProvider {
     @Override
     public Cursor query(final Uri uri, final String[] projection, final String selection,
             final String[] selectionArgs, final String sortOrder) {
-        Log.d(TAG, "export proj: ", projection);
+        Log.d(TAG, "export uri: ", uri);
         String fn;
         final int uid = URI_MATCHER.match(uri);
 

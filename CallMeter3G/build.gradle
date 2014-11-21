@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.13.0'
+        classpath 'com.android.tools.build:gradle:0.14.2'
     }
 }
 
@@ -101,20 +101,20 @@ android {
             versionNameSuffix "-debug"
             signingConfig signingConfigs.debug
             proguardFile 'proguard.cfg'
-            runProguard true
+            minifyEnabled true
             buildConfigField 'boolean', 'DEBUG_LOG', 'false'
         }
 
         logRelease {
             versionNameSuffix "-logRelease"
             signingConfig signingConfigs.release
-            runProguard false
+            minifyEnabled false
         }
 
         release {
             signingConfig signingConfigs.release
             proguardFile 'proguard.cfg'
-            runProguard true
+            minifyEnabled true
             buildConfigField 'boolean', 'DEBUG_LOG', 'false'
         }
     }
