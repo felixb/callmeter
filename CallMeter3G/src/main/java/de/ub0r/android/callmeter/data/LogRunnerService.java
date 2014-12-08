@@ -584,7 +584,7 @@ public final class LogRunnerService extends IntentService {
                     CallMeter.HUNDRET);
             int i = 0;
             do {
-                if (BuildConfig.DEBUG_LOG && idSimId < 0 && i < 30) {
+                if (BuildConfig.DEBUG_LOG && i < 30) {
                     printColumn(cursor, i);
                     i += 1;
                 }
@@ -691,7 +691,7 @@ public final class LogRunnerService extends IntentService {
                     CallMeter.HUNDRET);
             int i = 0;
             do {
-                if (BuildConfig.DEBUG_LOG && idSimId < 0 && i < 30) {
+                if (BuildConfig.DEBUG_LOG && i < 30) {
                     printColumn(cursor, i);
                     i += 1;
                 }
