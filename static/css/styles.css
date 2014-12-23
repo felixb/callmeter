@@ -1,0 +1,46 @@
+body { margin: 0px; padding: 0px; font-family:"Verdana", Verdana, sans-serif; }
+
+a { color: black; }
+
+.top { display: block; background: #303030; color: #F0F0F0; margin: 0px; padding: 5px; }
+.top a { color: #F0F0F0; }
+.top ul { list-style-type: none; display: inline; margin: 0px; padding: 0px; font-size: 110%; }
+.top li { display: inline; }
+
+.topright { float: right; }
+
+.left { margin: 5px 270px 0 0; padding: 5px; }
+.right { float: right; width: 250px; border: 2px dashed gray; clear: both; margin: 5px; padding: 5px }
+.right ul { list-style-type: none; margin: 0px; padding: 0px; }
+
+.app ul { list-style-type: none; display: inline; margin: 0px; padding: 0px; font-size: 80%; }
+.app li { display: inline; }
+
+h1 { border-bottom: 1px dashed gray; }
+
+table {
+	width: 100%;
+}
+
+.thead, .thead select {
+	background: #ddd;
+}
+
+.trow td {
+	border-bottom: 2px dashed #ddd;
+}
+
+#content {
+	margin: 5px;
+}
+
+.ruleset { border-top-style: dashed; border-top-width: 1px; }
+.hidelink { color: #000000; text-decoration: none; }
+.hidelink:hover { text-decoration: underline; }
+.barcode { float: left; padding: 0px; }
+.text { float: left; margin-bottom: 15px; }
+.endtext { clear: both; }
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,42 @@
+<table id="table_of_rulesets">
+  <tr>
+    <th>
+      <select id="country" name="country" class="form-control">
+        <option value="">Country</option>
+        <option value="">[all]</option>
+        <option value="common">common</option>
+        {% for country in site.data.rulesets | sort %}{% if country[0] != 'common' %}
+        <option value="{{ country[0] }}">{{ country[0] }}</option>
+        {% endif %}{% endfor %}
+      </select>
+    </th>
+    <th>
+      <select id="provider" name="provider" class="form-control">
+        <option value="">Provider</option>
+      </select>
+    </th>
+    <th>
+      Plan
+    </th>
+    <th>
+      Import Links
+    </th>
+  </tr>
+
+  {% for country in site.data.rulesets %}{% if country[0] == 'common' %}
+    {% include tablerow_of_rulesets.html %}
+  {% endif %}{% endfor %}
+
+  {% for country in site.data.rulesets %}{% if country[0] != 'common' %}
+      {% include tablerow_of_rulesets.html %}
+  {% endif %}{% endfor %}
+</table>
+
+{% for country in site.data.rulesets %}
+{% for plan in country[1] %}
+<div data-role="popup" id="popup_{{ plan.id }}" class="lazy-popup">
+  <a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right ui-link ui-btn ui-btn-a ui-icon-delete ui-btn-icon-notext ui-shadow ui-corner-all" role="button">Close</a>
+  <img class="lazy" src="/static/white.gif" data-original="http://{% cycle '1', '2', '3', '4', '5', '6', '7', '8', '9' %}.chart.apis.google.com/chart?chs=400x400&amp;cht=qr&amp;chl={{ plan.importurl | uri_escape }}">
+</div>
+{% endfor %}
+{% endfor %}

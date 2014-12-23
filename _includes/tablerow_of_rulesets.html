@@ -1,0 +1,11 @@
+{% for plan in country[1] %}
+<tr id="{{ plan.id }}" rel-country="{{ plan.country }}" rel-provider="{{ plan.provider }}">
+  <td>{{ plan.country }}</td>
+  <td>{{ plan.provider }}</td>
+  <td>{{ plan.title }}</td>
+  <td>
+    <a href="{{ plan.importurl }}">direct</a>
+    <a href="#popup_{{ plan.id }}" data-rel="popup" data-position-to="window">barcode</a>
+  </td>
+</tr>
+{% endfor %}
