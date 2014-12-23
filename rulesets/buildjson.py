@@ -42,7 +42,7 @@ def parseFile(f):
   if len(list) > 0:
     dict['link'] = list[0].text
 
-  dict['importurl'] = 'http://ub0r.de/android/callmeter/rulesets/' + f
+  dict['importurl'] = 'https://raw.githubusercontent.com/felixb/callmeter/gh-pages/rulesets/' + f
   dict['id'] = 'f_' + f.replace('.xml', '')
 
   return dict

@@ -36,7 +36,7 @@
 {% for plan in country[1] %}
 <div data-role="popup" id="popup_{{ plan.id }}" class="lazy-popup">
   <a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right ui-link ui-btn ui-btn-a ui-icon-delete ui-btn-icon-notext ui-shadow ui-corner-all" role="button">Close</a>
-  <img class="lazy" src="/static/white.gif" data-original="http://{% cycle '1', '2', '3', '4', '5', '6', '7', '8', '9' %}.chart.apis.google.com/chart?chs=400x400&amp;cht=qr&amp;chl={{ plan.importurl | uri_escape }}">
+  <img class="lazy" src="{{site.github.url}}/static/white.gif" data-original="http://{% cycle '1', '2', '3', '4', '5', '6', '7', '8', '9' %}.chart.apis.google.com/chart?chs=400x400&amp;cht=qr&amp;chl={{ plan.importurl | uri_escape }}">
 </div>
 {% endfor %}
 {% endfor %}
