@@ -13,3 +13,5 @@ gradlew*
 gradle
 build
 release.ks
+.bundle
+_site
