@@ -10,4 +10,4 @@ layout: default
 
 [rules][1]
 
-[1]: {{site.github.url}}/rulesets
+[1]: {{site.baseurl}}/rulesets

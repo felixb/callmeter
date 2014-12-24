@@ -61,7 +61,7 @@ table {
 }
 
 .lazy-popup .close {
-	background-image:url(/static/close.png);
+	background-image:url(/callmeter/static/close.png);
 	position:absolute;
 	right:-15px;
 	top:-15px;
