@@ -1,8 +1,15 @@
+function arrayUnique(a) {
+  return a.reduce(function(p, c) {
+      if (p.indexOf(c) < 0) p.push(c);
+      return p;
+  }, []);
+}
+
 function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+      results = regex.exec(location.search);
+  return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
 function updateProviderList(c, p) {
@@ -21,7 +28,7 @@ function updateProviderList(c, p) {
     }
   });
 
-  providers = $.unique(providers).sort();
+  providers = arrayUnique(providers.sort());
 
   $.each(providers, function(i,e){
     $('#provider').append('<option value="' + e + '"' + (e == p ? ' selected' : '') + '>' + e + '</option>');
@@ -48,6 +55,22 @@ function updateFilter() {
   setFilter(c, p);
 }
 
+function setImportLinks() {
+  if (navigator.userAgent.match(/Android/)) {
+    return;
+  }
+
+  // change link to open popup
+  var overlayconfig = {
+    mask: { opacity: 0.8},
+    onLoad: function() {
+      $("img.lazy").lazyload({ effect: "fadeIn"});
+    }
+  };
+
+  $("a[rel]").overlay(overlayconfig);
+}
+
 window.onload = function() {
   $('#country').change(updateFilter);
   $('#provider').change(updateFilter);
@@ -56,15 +79,7 @@ window.onload = function() {
   var p = getParameterByName('provider');
   setFilter(c, p);
 
+  setImportLinks();
+
   $("img.lazy").lazyload({ effect: "fadeIn"});
-
-
-  $( ".lazy-popup" ).on({
-    popupbeforeposition: function() {
-      console.log($(this));
-      $(".lazy-popup img").lazyload({ effect: "fadeIn"});
-      $(".lazy-popup img").css("height", 400);
-      $(".lazy-popup img").css("width", 400);
-    }
-  });
 }

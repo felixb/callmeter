@@ -44,3 +44,28 @@ table {
 .hidden {
   display: none;
 }
+
+
+.lazy-popup {
+	display: none;
+	z-index: 10000;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	-moz-box-shadow:0 0 90px 5px #000;
+	-webkit-box-shadow: 0 0 90px #000;
+}
+
+.lazy-popup .barcode {
+  height:400px;
+  width:400px;
+}
+
+.lazy-popup .close {
+	background-image:url(/static/close.png);
+	position:absolute;
+	right:-15px;
+	top:-15px;
+	cursor:pointer;
+	height:35px;
+	width:35px;
+}
