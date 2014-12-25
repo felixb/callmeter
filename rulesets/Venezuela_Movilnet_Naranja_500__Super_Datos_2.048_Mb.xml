@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
-  <country>Spain</country>
-  <provider>Masmóvil</provider>
-  <title>Minúscula</title>
+  <country>Venezuela</country>
+  <provider>Movilnet</provider>
+  <title>Naranja 500 + Super Datos (2.048 Mb)</title>
   <plans>
     <plan>
       <_id>12</_id>
-      <_plan_name>Periodo de facturación</_plan_name>
-      <_shortname>Periodo de facturación</_shortname>
+      <_plan_name>Periodo de Facturación</_plan_name>
+      <_shortname>Periodo de Facturación</_shortname>
       <_plan_type>2</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
       <_billperiod>8</_billperiod>
       <_billmode>1/1</_billmode>
-      <_billday>1375311601514</_billday>
+      <_billday>1406435400947</_billday>
+      <_cost_per_plan>200</_cost_per_plan>
       <_billperiod_id>0</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
@@ -34,49 +35,38 @@
       <_order>1</_order>
     </plan>
     <plan>
-      <_id>14</_id>
-      <_plan_name>Llamadas</_plan_name>
-      <_shortname>Llamadas</_shortname>
-      <_plan_type>0</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_limit>0</_limit>
-      <_billperiod>-1</_billperiod>
-      <_billmode>1/1</_billmode>
-      <_billday>0</_billday>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_order>2</_order>
-    </plan>
-    <plan>
       <_id>15</_id>
-      <_plan_name>Llamadas entrantes</_plan_name>
-      <_shortname>Llamadas entrantes</_shortname>
+      <_plan_name>MOVILNET/CANTV (500 min)</_plan_name>
+      <_shortname>Entrada: Casa</_shortname>
       <_plan_type>4</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_limit>0</_limit>
+      <_limit_type>1</_limit_type>
+      <_limit>500</_limit>
       <_billperiod>12</_billperiod>
-      <_billmode>1/1</_billmode>
+      <_billmode>60/60</_billmode>
       <_billday>0</_billday>
+      <_cost_per_amount1>0.48852</_cost_per_amount1>
+      <_cost_per_amount2>0.48852</_cost_per_amount2>
+      <_cost_per_plan></_cost_per_plan>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>3</_order>
+      <_order>11</_order>
     </plan>
     <plan>
       <_id>16</_id>
-      <_plan_name>Llamadas salientes</_plan_name>
-      <_shortname>Lllamada salida</_shortname>
+      <_plan_name>MOVISTAR/DIGITEL/Otros (500 min)</_plan_name>
+      <_shortname>Salida: Otras</_shortname>
       <_plan_type>4</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_limit>0</_limit>
+      <_limit_type>1</_limit_type>
+      <_limit>500</_limit>
       <_billperiod>12</_billperiod>
-      <_billmode>1/1</_billmode>
+      <_billmode>60/60</_billmode>
       <_billday>0</_billday>
-      <_cost_per_item>0.1815</_cost_per_item>
-      <_cost_per_amount1>0.045</_cost_per_amount1>
-      <_cost_per_amount2>0.045</_cost_per_amount2>
+      <_cost_per_amount1>0.48852</_cost_per_amount1>
+      <_cost_per_amount2>0.48852</_cost_per_amount2>
+      <_cost_per_plan>0</_cost_per_plan>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>4</_order>
+      <_order>12</_order>
     </plan>
     <plan>
       <_id>17</_id>
@@ -90,12 +80,12 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>5</_order>
+      <_order>17</_order>
     </plan>
     <plan>
       <_id>18</_id>
-      <_plan_name>Mensajes</_plan_name>
-      <_shortname>Mensaje/mensaje multimedia</_shortname>
+      <_plan_name>Mensajes Texto</_plan_name>
+      <_shortname>Mensajes/Mensajes multimedia</_shortname>
       <_plan_type>0</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
@@ -105,36 +95,36 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>6</_order>
+      <_order>18</_order>
     </plan>
     <plan>
       <_id>19</_id>
-      <_plan_name>Mensaje entrada</_plan_name>
-      <_shortname>Mensaje entrada</_shortname>
+      <_plan_name>Salida (500 msjs)</_plan_name>
+      <_shortname>Texto Salida</_shortname>
       <_plan_type>5</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_limit>0</_limit>
+      <_limit_type>1</_limit_type>
+      <_limit>500</_limit>
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
+      <_cost_per_item>0.18064</_cost_per_item>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>7</_order>
+      <_order>19</_order>
     </plan>
     <plan>
       <_id>20</_id>
-      <_plan_name>Mensaje salida</_plan_name>
-      <_shortname>Mensaje salida</_shortname>
+      <_plan_name>Entrada</_plan_name>
+      <_shortname>Texto Entrada</_shortname>
       <_plan_type>5</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_cost_per_item>0.085</_cost_per_item>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>8</_order>
+      <_order>20</_order>
     </plan>
     <plan>
       <_id>21</_id>
@@ -147,42 +137,29 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>11</_order>
-    </plan>
-    <plan>
-      <_id>22</_id>
-      <_plan_name>Datos (2G/3G/4G)</_plan_name>
-      <_shortname>Datos</_shortname>
-      <_plan_type>0</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_limit>0</_limit>
-      <_billperiod>-1</_billperiod>
-      <_billmode>1/1</_billmode>
-      <_billday>0</_billday>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_order>12</_order>
+      <_order>24</_order>
     </plan>
     <plan>
       <_id>23</_id>
-      <_plan_name>Datos Entrada/Salida</_plan_name>
-      <_shortname>Datos Entrada/Salida</_shortname>
+      <_plan_name>Entrada/Salida (2.056 Mb) </_plan_name>
+      <_shortname>Entrada/Salida</_shortname>
       <_plan_type>7</_plan_type>
       <_limit_type>1</_limit_type>
-      <_limit>500</_limit>
+      <_limit>2056</_limit>
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_cost_per_amount1>0.0363</_cost_per_amount1>
-      <_cost_per_amount2>0.0363</_cost_per_amount2>
+      <_cost_per_amount1>0.79968</_cost_per_amount1>
+      <_cost_per_amount2>0.79968</_cost_per_amount2>
+      <_cost_per_plan>180</_cost_per_plan>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>13</_order>
+      <_order>26</_order>
     </plan>
     <plan>
       <_id>27</_id>
-      <_plan_name>Mensaje multimedia entrada</_plan_name>
-      <_shortname>Mensaje multimedia entrada</_shortname>
+      <_plan_name>Entrada</_plan_name>
+      <_shortname>Mensajes Entrada</_shortname>
       <_plan_type>6</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
@@ -201,18 +178,18 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>9</_order>
+      <_order>23</_order>
     </plan>
     <plan>
       <_id>28</_id>
-      <_plan_name>Mensaje multimedia salida</_plan_name>
-      <_shortname>Mensaje multimedia salida</_shortname>
+      <_plan_name>Salida (Se cobra por cada msj enviado)</_plan_name>
+      <_shortname>Multimedia Salida</_shortname>
       <_plan_type>6</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
       <_billperiod>5</_billperiod>
       <_billday>1287927174859</_billday>
-      <_cost_per_item>0</_cost_per_item>
+      <_cost_per_item>0.19649</_cost_per_item>
       <_cost_per_amount1>0</_cost_per_amount1>
       <_cost_per_amount2>0</_cost_per_amount2>
       <_cost_per_item_in_limit>0</_cost_per_item_in_limit>
@@ -225,14 +202,64 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>10</_order>
+      <_order>22</_order>
+    </plan>
+    <plan>
+      <_id>35</_id>
+      <_plan_name>Entrada: Todas</_plan_name>
+      <_shortname>Entrada: Todas</_shortname>
+      <_plan_type>4</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>16</_order>
+    </plan>
+    <plan>
+      <_id>36</_id>
+      <_plan_name>Llamadas</_plan_name>
+      <_shortname>Llamadas </_shortname>
+      <_plan_type>0</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>9</_order>
+    </plan>
+    <plan>
+      <_id>37</_id>
+      <_plan_name>Datos (E/2G/3G/H)</_plan_name>
+      <_shortname>Datos (2G/3G/H) </_shortname>
+      <_plan_type>0</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>25</_order>
+    </plan>
+    <plan>
+      <_id>39</_id>
+      <_plan_name>Plan Naranja 500 + Super Datos</_plan_name>
+      <_shortname>Plan Naranja 500 + Super Datos</_shortname>
+      <_plan_type>0</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>8</_order>
+    </plan>
+    <plan>
+      <_id>41</_id>
+      <_plan_name>Mensajes Multimedia</_plan_name>
+      <_shortname>Mensajes Multimedia</_shortname>
+      <_plan_type>0</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>21</_order>
     </plan>
   </plans>
   <rules>
     <rule>
       <_id>1</_id>
       <_active>1</_active>
-      <_order>1</_order>
+      <_order>0</_order>
       <_plan_id>23</_plan_id>
       <_rule_name>Datos</_rule_name>
       <_what>3</_what>
@@ -247,28 +274,30 @@
     <rule>
       <_id>2</_id>
       <_active>1</_active>
-      <_order>1</_order>
+      <_order>8</_order>
       <_plan_id>15</_plan_id>
-      <_rule_name>Llamadas entrantes</_rule_name>
+      <_rule_name>Llamadas Salida Casa</_rule_name>
       <_what>0</_what>
       <_roamed>-1</_roamed>
-      <_direction>0</_direction>
+      <_direction>1</_direction>
       <_inhourgroup_id>-1</_inhourgroup_id>
       <_exhourgroup_id>-1</_exhourgroup_id>
-      <_innumbergroup_id>-1</_innumbergroup_id>
-      <_exnumbergroup_id>-1</_exnumbergroup_id>
+      <_innumbergroup_id>,1,3,</_innumbergroup_id>
+      <_exnumbergroup_id>,4,5,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
+      <_is_sipcall>-1</_is_sipcall>
     </rule>
     <rule>
       <_id>3</_id>
       <_active>1</_active>
-      <_order>2</_order>
+      <_order>9</_order>
       <_plan_id>16</_plan_id>
-      <_rule_name>Llamadas salientes</_rule_name>
+      <_rule_name>Llamadas Salientes Otras</_rule_name>
       <_what>0</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
-      <_exnumbergroup_id>,1,</_exnumbergroup_id>
+      <_innumbergroup_id>,4,</_innumbergroup_id>
+      <_exnumbergroup_id>,1,3,5,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
       <_is_sipcall>2</_is_sipcall>
@@ -276,29 +305,30 @@
     <rule>
       <_id>4</_id>
       <_active>1</_active>
-      <_order>3</_order>
-      <_plan_id>19</_plan_id>
-      <_rule_name>Mensaje entrada</_rule_name>
+      <_order>13</_order>
+      <_plan_id>20</_plan_id>
+      <_rule_name>Mensajes de entrada</_rule_name>
       <_what>1</_what>
       <_roamed>2</_roamed>
       <_direction>0</_direction>
       <_inhourgroup_id>-1</_inhourgroup_id>
       <_exhourgroup_id>-1</_exhourgroup_id>
-      <_innumbergroup_id>-1</_innumbergroup_id>
-      <_exnumbergroup_id>-1</_exnumbergroup_id>
+      <_innumbergroup_id>,3,4,</_innumbergroup_id>
+      <_exnumbergroup_id>,5,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
-      <_is_websms>2</_is_websms>
+      <_is_websms>-1</_is_websms>
     </rule>
     <rule>
       <_id>5</_id>
       <_active>1</_active>
-      <_order>4</_order>
-      <_plan_id>20</_plan_id>
-      <_rule_name>Mensaje salida</_rule_name>
+      <_order>14</_order>
+      <_plan_id>19</_plan_id>
+      <_rule_name>Mensajes de salida</_rule_name>
       <_what>1</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
-      <_exnumbergroup_id>,2,</_exnumbergroup_id>
+      <_innumbergroup_id>,3,4,</_innumbergroup_id>
+      <_exnumbergroup_id>,5,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
       <_is_sipcall>2</_is_sipcall>
@@ -306,9 +336,9 @@
     <rule>
       <_id>7</_id>
       <_active>1</_active>
-      <_order>5</_order>
+      <_order>15</_order>
       <_plan_id>27</_plan_id>
-      <_rule_name>Mensaje multimedia entrada</_rule_name>
+      <_rule_name>Mensajes multimedia de entrada</_rule_name>
       <_what>2</_what>
       <_roamed>2</_roamed>
       <_direction>0</_direction>
@@ -322,9 +352,9 @@
     <rule>
       <_id>8</_id>
       <_active>1</_active>
-      <_order>6</_order>
+      <_order>16</_order>
       <_plan_id>28</_plan_id>
-      <_rule_name>Mensaje multimedia salida</_rule_name>
+      <_rule_name>Mensajes multimedia de salida</_rule_name>
       <_what>2</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
@@ -335,25 +365,120 @@
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
     </rule>
+    <rule>
+      <_id>16</_id>
+      <_active>1</_active>
+      <_order>12</_order>
+      <_plan_id>35</_plan_id>
+      <_rule_name>Entrada: Todas</_rule_name>
+      <_what>0</_what>
+      <_roamed>2</_roamed>
+      <_direction>0</_direction>
+      <_innumbergroup_id>,3,4,</_innumbergroup_id>
+      <_exnumbergroup_id>,5,</_exnumbergroup_id>
+      <_limit_not_reached>0</_limit_not_reached>
+      <_is_sipcall>1</_is_sipcall>
+    </rule>
   </rules>
   <hoursgroups>
   </hoursgroups>
   <numbersgroups>
     <numbersgroup>
-      <_id>1</_id>
-      <_name>Exclusivamente para llamadas</_name>
+      <_id>3</_id>
+      <_name>MOVILNET/CANTV</_name>
       <numbers>
         <number>
-          <_id>1</_id>
-          <_gid>1</_gid>
-          <_number>00800%</_number>
+          <_id>7</_id>
+          <_gid>3</_gid>
+          <_number>0416%</_number>
+        </number>
+        <number>
+          <_id>8</_id>
+          <_gid>3</_gid>
+          <_number>0426%</_number>
+        </number>
+        <number>
+          <_id>9</_id>
+          <_gid>3</_gid>
+          <_number>+58416%</_number>
+        </number>
+        <number>
+          <_id>10</_id>
+          <_gid>3</_gid>
+          <_number>+58426%</_number>
+        </number>
+        <number>
+          <_id>22</_id>
+          <_gid>3</_gid>
+          <_number>*113%</_number>
+        </number>
+        <number>
+          <_id>23</_id>
+          <_gid>3</_gid>
+          <_number>02%</_number>
+        </number>
+        <number>
+          <_id>24</_id>
+          <_gid>3</_gid>
+          <_number>0500%</_number>
         </number>
       </numbers>
     </numbersgroup>
     <numbersgroup>
-      <_id>2</_id>
-      <_name>Exclusivamente paramensaje</_name>
+      <_id>4</_id>
+      <_name>MOVISTAR/DIGITEL/Otras</_name>
       <numbers>
+        <number>
+          <_id>11</_id>
+          <_gid>4</_gid>
+          <_number>0414%</_number>
+        </number>
+        <number>
+          <_id>12</_id>
+          <_gid>4</_gid>
+          <_number>0424%</_number>
+        </number>
+        <number>
+          <_id>13</_id>
+          <_gid>4</_gid>
+          <_number>+58414%</_number>
+        </number>
+        <number>
+          <_id>14</_id>
+          <_gid>4</_gid>
+          <_number>+58424%</_number>
+        </number>
+        <number>
+          <_id>15</_id>
+          <_gid>4</_gid>
+          <_number>0412%</_number>
+        </number>
+        <number>
+          <_id>16</_id>
+          <_gid>4</_gid>
+          <_number>+58412%</_number>
+        </number>
+      </numbers>
+    </numbersgroup>
+    <numbersgroup>
+      <_id>5</_id>
+      <_name>Gratis</_name>
+      <numbers>
+        <number>
+          <_id>17</_id>
+          <_gid>5</_gid>
+          <_number>0800%</_number>
+        </number>
+        <number>
+          <_id>21</_id>
+          <_gid>5</_gid>
+          <_number>*611%</_number>
+        </number>
+        <number>
+          <_id>25</_id>
+          <_gid>5</_gid>
+          <_number>28722</_number>
+        </number>
       </numbers>
     </numbersgroup>
   </numbersgroups>

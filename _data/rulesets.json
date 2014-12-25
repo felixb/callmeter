@@ -357,6 +357,13 @@
   "Bulgaria": [
     {
       "country": "Bulgaria",
+      "id": "f_Bulgaria_GLOBUL_Web_amp_Talk_2099",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Bulgaria_GLOBUL_Web_amp_Talk_2099.xml",
+      "provider": "GLOBUL",
+      "title": "Web & Talk 20,99"
+    },
+    {
+      "country": "Bulgaria",
       "id": "f_Bulgaria_GLOBUL_unlimited_19_90",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Bulgaria_GLOBUL_unlimited_19.90.xml",
       "provider": "GLOBUL",
@@ -368,13 +375,6 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Bulgaria_GLOBUL_Web_and_Talk_1490.xml",
       "provider": "GLOBUL",
       "title": "Web and Talk 14,90"
-    },
-    {
-      "country": "Bulgaria",
-      "id": "f_Bulgaria_Globul_Web_amp_Talk_2099",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Bulgaria_Globul_Web_amp_Talk_2099.xml",
-      "provider": "Globul",
-      "title": "Web & Talk 20,99"
     },
     {
       "country": "Bulgaria",
@@ -647,9 +647,9 @@
   "Croatia": [
     {
       "country": "Croatia",
-      "id": "f_Croatia_T-MOBILE_Simpa_Prejaka",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Croatia_T-MOBILE_Simpa_Prejaka.xml",
-      "provider": "T-MOBILE",
+      "id": "f_Croatia_T-Mobile_Simpa_Prejaka",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Croatia_T-Mobile_Simpa_Prejaka.xml",
+      "provider": "T-Mobile",
       "title": "Simpa Prejaka"
     },
     {
@@ -756,17 +756,17 @@
   "Czech Republic": [
     {
       "country": "Czech Republic",
-      "id": "f_Czech_Republic__4U_tarif_1",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic__4U_tarif_1.xml",
-      "provider": "+ 4U",
-      "title": "tarif 1"
-    },
-    {
-      "country": "Czech Republic",
       "id": "f_Czech_Republic_4U_tarif_2",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_4U_tarif_2.xml",
       "provider": "+4U",
       "title": "tarif 2"
+    },
+    {
+      "country": "Czech Republic",
+      "id": "f_Czech_Republic_4U_tarif_1",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_4U_tarif_1.xml",
+      "provider": "+4U",
+      "title": "tarif 1"
     },
     {
       "country": "Czech Republic",
@@ -798,20 +798,6 @@
     },
     {
       "country": "Czech Republic",
-      "id": "f_Czech_Republic_O2_Vario_profil_Voice",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_O2_Vario_profil_Voice.xml",
-      "provider": "O2",
-      "title": "Vario profil Voice"
-    },
-    {
-      "country": "Czech Republic",
-      "id": "f_Czech_Republic_O2_Vario_profil__1",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_O2_Vario_profil__1.xml",
-      "provider": "O2",
-      "title": "Vario profil  1"
-    },
-    {
-      "country": "Czech Republic",
       "id": "f_Czech_Republic_SIPhone_Tarif3Internet2",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_SIPhone_Tarif3Internet2.xml",
       "provider": "SIPhone",
@@ -819,9 +805,9 @@
     },
     {
       "country": "Czech Republic",
-      "id": "f_Czech_Republic_T-MOBILE_S_nami_590_HIT",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_T-MOBILE_S_nami_590_HIT.xml",
-      "provider": "T-MOBILE",
+      "id": "f_Czech_Republic_T-Mobile_S_nami_590_HIT",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_T-Mobile_S_nami_590_HIT.xml",
+      "provider": "T-Mobile",
       "title": "S nami 590 HIT"
     },
     {
@@ -903,27 +889,6 @@
     },
     {
       "country": "Czech Republic",
-      "id": "f_Czech_Republic_Telefonica_Free_EU_plus",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_Telefonica_Free_EU_plus.xml",
-      "provider": "Telefonica",
-      "title": "Free EU plus"
-    },
-    {
-      "country": "Czech Republic",
-      "id": "f_Czech_Republic_Telefonica_O2_Free_O2_Plus",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_Telefonica_O2_Free_O2_Plus.xml",
-      "provider": "Telefonica o2",
-      "title": "Free o2 Plus"
-    },
-    {
-      "country": "Czech Republic",
-      "id": "f_Czech_Republic_Telefonika_O2_FREE_O2__200_MB_Internet__100_K_sleva_za_Optimal",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_Telefonika_O2_FREE_O2__200_MB_Internet__100_K_sleva_za_Optimal.xml",
-      "provider": "Telefonika o2",
-      "title": "FREE o2 + 200 MB Internet + 100 K\u010d sleva za Optimal+"
-    },
-    {
-      "country": "Czech Republic",
       "id": "f_Czech_Republic_VPN_O2_Bonerix_-_Volejte_levnji_Mini",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_VPN_O2_Bonerix_-_Volejte_levnji_Mini.xml",
       "provider": "VPN o2 Bonerix - Volejte levn\u011bji",
@@ -966,6 +931,13 @@
     },
     {
       "country": "Czech Republic",
+      "id": "f_Czech_Republic_o2_Free_EU_plus",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_o2_Free_EU_plus.xml",
+      "provider": "o2",
+      "title": "Free EU plus"
+    },
+    {
+      "country": "Czech Republic",
       "id": "f_Czech_Republic_o2_neon_S_senior",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_o2_neon_S_senior.xml",
       "provider": "o2",
@@ -980,10 +952,24 @@
     },
     {
       "country": "Czech Republic",
-      "id": "f_Czech_Republic_O2_kl",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_O2_kl.xml",
+      "id": "f_Czech_Republic_o2_Vario_profil__1",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_o2_Vario_profil__1.xml",
+      "provider": "o2",
+      "title": "Vario profil  1"
+    },
+    {
+      "country": "Czech Republic",
+      "id": "f_Czech_Republic_o2_kl",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_o2_kl.xml",
       "provider": "o2",
       "title": "[:k\u016fl:]"
+    },
+    {
+      "country": "Czech Republic",
+      "id": "f_Czech_Republic_o2_Vario_profil_Voice",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_o2_Vario_profil_Voice.xml",
+      "provider": "o2",
+      "title": "Vario profil Voice"
     },
     {
       "country": "Czech Republic",
@@ -998,6 +984,20 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_o2_Neon_l.xml",
       "provider": "o2",
       "title": "Neon l+"
+    },
+    {
+      "country": "Czech Republic",
+      "id": "f_Czech_Republic_o2_FREE__200_MB_Internet__100_K_sleva_za_Optimal",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_o2_FREE__200_MB_Internet__100_K_sleva_za_Optimal.xml",
+      "provider": "o2",
+      "title": "FREE + 200 MB Internet + 100 K\u010d sleva za Optimal+"
+    },
+    {
+      "country": "Czech Republic",
+      "id": "f_Czech_Republic_o2_Free_Plus",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_o2_Free_Plus.xml",
+      "provider": "o2",
+      "title": "Free Plus"
     },
     {
       "country": "Czech Republic",
@@ -1502,17 +1502,17 @@
     },
     {
       "country": "Germany",
-      "id": "f_Germany_K_CLASSIC_SURF_amp_TALK_100",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_K_CLASSIC_SURF_amp_TALK_100.xml",
-      "provider": "K CLASSIC",
-      "title": "SURF & TALK 100"
-    },
-    {
-      "country": "Germany",
       "id": "f_Germany_K_Classic_Surf_amp_Talk_500",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_K_Classic_Surf_amp_Talk_500.xml",
       "provider": "K Classic",
       "title": "Surf & Talk 500"
+    },
+    {
+      "country": "Germany",
+      "id": "f_Germany_K_Classic_SURF_amp_TALK_100",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_K_Classic_SURF_amp_TALK_100.xml",
+      "provider": "K Classic",
+      "title": "SURF & TALK 100"
     },
     {
       "country": "Germany",
@@ -1537,52 +1537,52 @@
     },
     {
       "country": "Germany",
-      "id": "f_Germany_Lidl_Smart_Tarif_exkl__Roaming",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Smart_Tarif_exkl._Roaming.xml",
-      "provider": "Lidl",
+      "id": "f_Germany_Lidl_Mobile_Smart_Tarif_exkl__Roaming",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Mobile_Smart_Tarif_exkl._Roaming.xml",
+      "provider": "Lidl Mobile",
       "title": "Smart Tarif exkl. Roaming"
     },
     {
       "country": "Germany",
-      "id": "f_Germany_Lidl_Smart_S_300",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Smart_S_300.xml",
-      "provider": "Lidl",
-      "title": "Smart S 300"
-    },
-    {
-      "country": "Germany",
-      "id": "f_Germany_Lidl_Smart_S_500",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Smart_S_500.xml",
-      "provider": "Lidl",
-      "title": "Smart S 500"
-    },
-    {
-      "country": "Germany",
-      "id": "f_Germany_Lidl_Smart_alt",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Smart_alt.xml",
-      "provider": "Lidl",
-      "title": "Smart (alt)"
-    },
-    {
-      "country": "Germany",
-      "id": "f_Germany_Lidl_Smart_Tarif",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Smart_Tarif.xml",
-      "provider": "Lidl",
+      "id": "f_Germany_Lidl_Mobile_Smart_Tarif",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Mobile_Smart_Tarif.xml",
+      "provider": "Lidl Mobile",
       "title": "Smart Tarif"
     },
     {
       "country": "Germany",
-      "id": "f_Germany_Lidl_Mobile_Fonic_Monats_Flatrate_5GB",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Mobile_Fonic_Monats_Flatrate_5GB.xml",
-      "provider": "Lidl Mobile (Fonic)",
+      "id": "f_Germany_Lidl_Mobile_Smart_S_300",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Mobile_Smart_S_300.xml",
+      "provider": "Lidl Mobile",
+      "title": "Smart S 300"
+    },
+    {
+      "country": "Germany",
+      "id": "f_Germany_Lidl_Mobile_SMART_XS",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Mobile_SMART_XS.xml",
+      "provider": "Lidl Mobile",
+      "title": "SMART XS"
+    },
+    {
+      "country": "Germany",
+      "id": "f_Germany_Lidl_Mobile_Smart_alt",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Mobile_Smart_alt.xml",
+      "provider": "Lidl Mobile",
+      "title": "Smart (alt)"
+    },
+    {
+      "country": "Germany",
+      "id": "f_Germany_Lidl_Mobile_Monats_Flatrate_5GB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Mobile_Monats_Flatrate_5GB.xml",
+      "provider": "Lidl Mobile",
       "title": "Monats Flatrate 5GB"
     },
     {
       "country": "Germany",
-      "id": "f_Germany_Lidle_Mobile_LIDLE_MOBILE_SMART_XS",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidle_Mobile_LIDLE_MOBILE_SMART_XS.xml",
-      "provider": "Lidle Mobile",
-      "title": "LIDLE MOBILE SMART XS"
+      "id": "f_Germany_Lidl_Mobile_Smart_S_500",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Mobile_Smart_S_500.xml",
+      "provider": "Lidl Mobile",
+      "title": "Smart S 500"
     },
     {
       "country": "Germany",
@@ -2081,13 +2081,6 @@
   "Greece": [
     {
       "country": "Greece",
-      "id": "f_Greece_VODAFONE_RED_1",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Greece_VODAFONE_RED_1.xml",
-      "provider": "VODAFONE",
-      "title": "RED 1"
-    },
-    {
-      "country": "Greece",
       "id": "f_Greece_Vodafone_to_all_200_25Euro__70_sms_5E",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Greece_Vodafone_to_all_200_25Euro__70_sms_5E.xml",
       "provider": "Vodafone",
@@ -2109,10 +2102,24 @@
     },
     {
       "country": "Greece",
+      "id": "f_Greece_Vodafone_RED_1",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Greece_Vodafone_RED_1.xml",
+      "provider": "Vodafone",
+      "title": "RED 1"
+    },
+    {
+      "country": "Greece",
       "id": "f_Greece_Vodafone_Unlimited_35",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Greece_Vodafone_Unlimited_35.xml",
       "provider": "Vodafone",
       "title": "Unlimited 35"
+    },
+    {
+      "country": "Greece",
+      "id": "f_Greece_Wind_kartosymvolaio_35",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Greece_Wind_kartosymvolaio_35.xml",
+      "provider": "Wind",
+      "title": "kartosymvolaio 35"
     },
     {
       "country": "Greece",
@@ -2190,13 +2197,6 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Greece_cosmote_aperiorista_25_Greece.xml",
       "provider": "cosmote",
       "title": "aperiorista 25 Greece"
-    },
-    {
-      "country": "Greece",
-      "id": "f_Greece_wind_kartosymvolaio_35",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Greece_wind_kartosymvolaio_35.xml",
-      "provider": "wind",
-      "title": "kartosymvolaio 35"
     }
   ],
   "Guam": [
@@ -2248,20 +2248,6 @@
     },
     {
       "country": "Hungary",
-      "id": "f_Hungary_T-_Mobil_Mozaik_S__1GB__Pi_",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_T-_Mobil_Mozaik_S__1GB__Pi..xml",
-      "provider": "T- Mobil",
-      "title": "Mozaik S + 1GB / Pi."
-    },
-    {
-      "country": "Hungary",
-      "id": "f_Hungary_T-Mibile_RJMozaik_S",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_T-Mibile_RJMozaik_S.xml",
-      "provider": "T-Mibile",
-      "title": "RJMozaik S"
-    },
-    {
-      "country": "Hungary",
       "id": "f_Hungary_T-Mobile_Mozaik_S",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_T-Mobile_Mozaik_S.xml",
       "provider": "T-Mobile",
@@ -2294,6 +2280,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_T-Mobile_kormanyzati.xml",
       "provider": "T-Mobile",
       "title": "kormanyzati"
+    },
+    {
+      "country": "Hungary",
+      "id": "f_Hungary_T-Mobile_Move_M_Pi",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_T-Mobile_Move_M_Pi.xml",
+      "provider": "T-Mobile",
+      "title": "Move M /Pi"
     },
     {
       "country": "Hungary",
@@ -2357,6 +2350,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_T-Mobile_Flotta_Fzi_Holding_.xml",
       "provider": "T-Mobile",
       "title": "Flotta (F\u00fazi\u00f3 Holding)"
+    },
+    {
+      "country": "Hungary",
+      "id": "f_Hungary_T-Mobile_Mozaik_S__1GB__Pi_",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_T-Mobile_Mozaik_S__1GB__Pi..xml",
+      "provider": "T-Mobile",
+      "title": "Mozaik S + 1GB / Pi."
     },
     {
       "country": "Hungary",
@@ -2438,16 +2438,9 @@
     },
     {
       "country": "Hungary",
-      "id": "f_Hungary_T-mobile_Move_M_Pi",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_T-mobile_Move_M_Pi.xml",
-      "provider": "T-mobile",
-      "title": "Move M /Pi"
-    },
-    {
-      "country": "Hungary",
-      "id": "f_Hungary_T-mobile_s_Vodafone_dual_sim_HM_EI_ingyenes_tarifa_s_Vodafone_LIGA_Tarifa",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_T-mobile_s_Vodafone_dual_sim_HM_EI_ingyenes_tarifa_s_Vodafone_LIGA_Tarifa.xml",
-      "provider": "T-mobile \u00e9s Vodafone (dual sim)",
+      "id": "f_Hungary_T-Mobile_s_Vodafone_dual_sim_HM_EI_ingyenes_tarifa_s_Vodafone_LIGA_Tarifa",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_T-Mobile_s_Vodafone_dual_sim_HM_EI_ingyenes_tarifa_s_Vodafone_LIGA_Tarifa.xml",
+      "provider": "T-Mobile \u00e9s Vodafone (dual sim)",
       "title": "HM EI ingyenes tarifa \u00e9s Vodafone LIGA Tarifa"
     },
     {
@@ -2813,13 +2806,6 @@
   "India": [
     {
       "country": "India",
-      "id": "f_India_Aircel_174_Paise_per_sec",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/India_Aircel_174_Paise_per_sec.xml",
-      "provider": "Aircel",
-      "title": "174 Paise per sec"
-    },
-    {
-      "country": "India",
       "id": "f_India_Airtel_299",
       "importurl": "https://felixb.github.io/callmeter/rulesets/India_Airtel_299.xml",
       "provider": "Airtel",
@@ -2852,6 +2838,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/India_Airtel_CUG_99.xml",
       "provider": "Airtel",
       "title": "CUG 99"
+    },
+    {
+      "country": "India",
+      "id": "f_India_Airtel_174_Paise_per_sec",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/India_Airtel_174_Paise_per_sec.xml",
+      "provider": "Airtel",
+      "title": "174 Paise per sec"
     },
     {
       "country": "India",
@@ -3016,6 +3009,13 @@
     },
     {
       "country": "India",
+      "id": "f_India_Vodafone_199_600mnt",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/India_Vodafone_199_600mnt.xml",
+      "provider": "Vodafone",
+      "title": "199 600mnt"
+    },
+    {
+      "country": "India",
       "id": "f_India_Vodafone_CUG_299",
       "importurl": "https://felixb.github.io/callmeter/rulesets/India_Vodafone_CUG_299.xml",
       "provider": "Vodafone",
@@ -3048,13 +3048,6 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/India_Vodafone_99_bumper_plan.xml",
       "provider": "Vodafone",
       "title": "99 bumper plan"
-    },
-    {
-      "country": "India",
-      "id": "f_India_Vodaphone_199_600mnt",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/India_Vodaphone_199_600mnt.xml",
-      "provider": "Vodaphone",
-      "title": "199 600mnt"
     },
     {
       "country": "India",
@@ -3232,13 +3225,6 @@
     },
     {
       "country": "Italy",
-      "id": "f_Italy_Bip_megabit_internet",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_Bip_megabit_internet.xml",
-      "provider": "Bip",
-      "title": "megabit internet"
-    },
-    {
-      "country": "Italy",
       "id": "f_Italy_Bip_Mobile_Super_5_Ricaricabile__Opzione_MBIP_500",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_Bip_Mobile_Super_5_Ricaricabile__Opzione_MBIP_500.xml",
       "provider": "Bip Mobile",
@@ -3257,6 +3243,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_Bip_Mobile_Megabip_500_amp_Super_5.xml",
       "provider": "Bip Mobile",
       "title": "Megabip 500 & Super 5"
+    },
+    {
+      "country": "Italy",
+      "id": "f_Italy_Bip_Mobile_megabit_internet",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_Bip_Mobile_megabit_internet.xml",
+      "provider": "Bip Mobile",
+      "title": "megabit internet"
     },
     {
       "country": "Italy",
@@ -3316,17 +3309,24 @@
     },
     {
       "country": "Italy",
+      "id": "f_Italy_TIM_Tutto_a_secondi_full_MNP_2012",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_TIM_Tutto_a_secondi_full_MNP_2012.xml",
+      "provider": "TIM",
+      "title": "Tutto a secondi full MNP 2012"
+    },
+    {
+      "country": "Italy",
+      "id": "f_Italy_TIM_business",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_TIM_business.xml",
+      "provider": "TIM",
+      "title": "business"
+    },
+    {
+      "country": "Italy",
       "id": "f_Italy_TIM_12_New",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_TIM_12_New.xml",
       "provider": "TIM",
       "title": "12 New"
-    },
-    {
-      "country": "Italy",
-      "id": "f_Italy_Tim_Tutto_a_secondi_full_MNP_2012",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_Tim_Tutto_a_secondi_full_MNP_2012.xml",
-      "provider": "Tim",
-      "title": "Tutto a secondi full MNP 2012"
     },
     {
       "country": "Italy",
@@ -3393,6 +3393,13 @@
     },
     {
       "country": "Italy",
+      "id": "f_Italy_WIND_Alla_Inclusive_Super",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_WIND_Alla_Inclusive_Super.xml",
+      "provider": "WIND",
+      "title": "Alla Inclusive Super"
+    },
+    {
+      "country": "Italy",
       "id": "f_Italy_WIND_super_noi_tutti_x2__internet_no_stop",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_WIND_super_noi_tutti_x2__internet_no_stop.xml",
       "provider": "WIND",
@@ -3418,36 +3425,22 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_WIND_all_inclusive.xml",
       "provider": "WIND",
       "title": "all inclusive"
-    },
-    {
-      "country": "Italy",
-      "id": "f_Italy_Wind_Alla_Inclusive_Super",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_Wind_Alla_Inclusive_Super.xml",
-      "provider": "Wind",
-      "title": "Alla Inclusive Super"
-    },
-    {
-      "country": "Italy",
-      "id": "f_Italy_tim_business",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_tim_business.xml",
-      "provider": "tim",
-      "title": "business"
     }
   ],
   "Jordan": [
+    {
+      "country": "Jordan",
+      "id": "f_Jordan_Zain_Mesh_Tabi3i_El_Gawi_2_1_GB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Jordan_Zain_Mesh_Tabi3i_El_Gawi_2_1_GB.xml",
+      "provider": "Zain",
+      "title": "Mesh Tabi3i El Gawi 2 (1 GB)"
+    },
     {
       "country": "Jordan",
       "id": "f_Jordan_Zain_Mesh_Tabee3ee_El_Gawee_2_1_GB",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Jordan_Zain_Mesh_Tabee3ee_El_Gawee_2_1_GB.xml",
       "provider": "Zain",
       "title": "Mesh Tabee3ee El Gawee 2 (1 GB)"
-    },
-    {
-      "country": "Jordan",
-      "id": "f_Jordan_Zain_JO_Mesh_Tabi3i_El_Gawi_2_1_GB",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Jordan_Zain_JO_Mesh_Tabi3i_El_Gawi_2_1_GB.xml",
-      "provider": "Zain JO",
-      "title": "Mesh Tabi3i El Gawi 2 (1 GB)"
     }
   ],
   "Kenya": [
@@ -3812,13 +3805,6 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_Ben_regelmatig__www_soms.xml",
       "provider": "Ben",
       "title": "regelmatig + www soms"
-    },
-    {
-      "country": "Netherlands",
-      "id": "f_Netherlands_Hollandsenieuwe_550",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_Hollandsenieuwe_550.xml",
-      "provider": "Hollandsenieuwe",
-      "title": "550"
     },
     {
       "country": "Netherlands",
@@ -4758,7 +4744,7 @@
       "country": "Spain",
       "id": "f_Spain_Masmovil_Minscula",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Spain_Masmovil_Minscula.xml",
-      "provider": "Masmovil",
+      "provider": "Masm\u00f3vil",
       "title": "Min\u00fascula"
     },
     {
@@ -5209,17 +5195,10 @@
     },
     {
       "country": "Venezuela",
-      "id": "f_Venezuela_MOVILNET_Plan_Naranja_250__Super_Datos",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Venezuela_MOVILNET_Plan_Naranja_250__Super_Datos.xml",
-      "provider": "MOVILNET",
+      "id": "f_Venezuela_Movilnet_Plan_Naranja_250__Super_Datos",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Venezuela_Movilnet_Plan_Naranja_250__Super_Datos.xml",
+      "provider": "Movilnet",
       "title": "Plan Naranja 250 / Super Datos"
-    },
-    {
-      "country": "Venezuela",
-      "id": "f_Venezuela_MOVILNET_Naranja_500__Super_Datos_2_048_Mb",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Venezuela_MOVILNET_Naranja_500__Super_Datos_2.048_Mb.xml",
-      "provider": "MOVILNET",
-      "title": "Naranja 500 + Super Datos (2.048 Mb)"
     },
     {
       "country": "Venezuela",
@@ -5235,6 +5214,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Venezuela_Movilnet_Plan_Naranja_250_y_Rapid_Datos.xml",
       "provider": "Movilnet",
       "title": "Plan Naranja 250 y Rapid Datos"
+    },
+    {
+      "country": "Venezuela",
+      "id": "f_Venezuela_Movilnet_Naranja_500__Super_Datos_2_048_Mb",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Venezuela_Movilnet_Naranja_500__Super_Datos_2.048_Mb.xml",
+      "provider": "Movilnet",
+      "title": "Naranja 500 + Super Datos (2.048 Mb)"
     },
     {
       "country": "Venezuela",
