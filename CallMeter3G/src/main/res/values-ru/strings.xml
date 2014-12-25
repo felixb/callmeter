@@ -466,4 +466,5 @@
   <string name="calls_voip_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="VoIP calls with supported apps">VoIP вызовы с поддерживаемых приложений</string>
   <string name="analytics_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Collect anonymous statistics">Сбор анонимной статистики</string>
   <string name="analytics_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Collect anonymous usage statistics to help improving the app.">Сбор анонимной статистики для помощи в улучшении приложения.</string>
+  <string name="date_formats_4" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="DD MMM. YYYY">ДД МММ. ГГГГ</string>
 </resources>
