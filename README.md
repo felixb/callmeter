@@ -19,7 +19,7 @@ Please read more [here](https://github.com/felixb/callmeter/tree/cm2), if you ar
 ## Rule sets
 
 Call Meter 3G is able to import rule sets from other users.
-There is a [list](http://ub0r.de/android/callmeter/rulesets/) of rules contributed by a huge number of contributors.
+There is a [list of rules][4] contributed by a huge number of contributors.
 You should check it out before trying to implement your own rules.
 
 ## Screenshots
@@ -42,3 +42,4 @@ I'll merge most patches. ;)
 [1]: https://developer.android.com/images/brand/en_generic_rgb_wo_45.png
 [2]: https://play.google.com/store/apps/details?id=de.ub0r.android.callmeter
 [3]: https://play.google.com/store/apps/details?id=de.ub0r.de.android.callMeterNG
+[4]: https://felixb.github.io/callmeter/rulesets
