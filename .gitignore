@@ -1,2 +1,9 @@
 .bundle
 _site
+.gradle
+.idea
+CallMeter3G
+build
+*.iml
+gradle*
+local.properties
