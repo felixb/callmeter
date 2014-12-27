@@ -381,9 +381,9 @@
   <string name="mms_out" formatted="false" orig="MMS Out">MMS Inviati</string>
   <string name="mms_out_" formatted="false" orig="MMSOut">MMSInviati</string>
   <string name="author_and_many_more" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="and many more...">e molto altro...</string>
-  <string name="update_interval_data_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Update interval (data)">Intervallo di aggiornamento (traffico dati)</string>
+  <string name="update_interval_data_" formatted="false" username="Edit ltalian" orig="Update interval (data)">Intervallo di aggiornamento (traffico dati)</string>
   <string name="update_interval_data_hint" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">E\' necessario che le statistiche sul traffico dati siano aggiornate più spesso. Specialmente i terminali Samsung richiedono intervalli molto brevi.</string>
-  <string name="google_plus_hint" formatted="false" username="fedekikko89" orig="Follow me on Google+.\nGet update notifications etc.">Seguimi su Google+.\nRicevi aggiornamenti notifiche etc.</string>
+  <string name="google_plus_hint" formatted="false" username="Edit ltalian" orig="Follow me on Google+.\nGet update notifications etc.">Seguimi su Google+.\nRicevi aggiornamenti notifiche etc.</string>
   <string name="widget_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Widget">Widget</string>
   <string name="widgets_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="Widgets">Widgets</string>
   <string name="widgets_no_widgets_" formatted="false" username="Crespo80 &lt;cesare.piccolo@gmail.com&gt;" orig="No widgets added">Nessun widget aggiunto</string>
