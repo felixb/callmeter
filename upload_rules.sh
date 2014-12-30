@@ -9,6 +9,7 @@ BASE=$(dirname "${0}")
 RULES=${BASE}/rulesets
 
 mv ${1}/ruleset*xml "${RULES}/"
+rename 's/[() ]/_/g' ruleset*xml
 pushd "${RULES}/"
 
 for f in $(ls -1 ruleset*xml) ; do

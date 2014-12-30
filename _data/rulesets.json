@@ -3815,6 +3815,13 @@
     },
     {
       "country": "Netherlands",
+      "id": "f_Netherlands_Ben_NL_ben_zuinig",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_Ben_NL_ben_zuinig.xml",
+      "provider": "Ben NL",
+      "title": "ben zuinig"
+    },
+    {
+      "country": "Netherlands",
       "id": "f_Netherlands_Hollandsnieuwe_550",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_Hollandsnieuwe_550.xml",
       "provider": "Hollandsnieuwe",
