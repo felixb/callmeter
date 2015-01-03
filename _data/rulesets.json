@@ -747,6 +747,13 @@
     },
     {
       "country": "Cyprus",
+      "id": "f_Cyprus_MTN_Smart_L",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Cyprus_MTN_Smart_L.xml",
+      "provider": "MTN",
+      "title": "Smart L"
+    },
+    {
+      "country": "Cyprus",
       "id": "f_Cyprus_MTN_600",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Cyprus_MTN_600.xml",
       "provider": "MTN",
