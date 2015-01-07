@@ -805,6 +805,13 @@
     },
     {
       "country": "Czech Republic",
+      "id": "f_Czech_Republic_Mobil_cz_internet_zdarma",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_Mobil.cz_internet_zdarma.xml",
+      "provider": "Mobil.cz",
+      "title": "internet zdarma"
+    },
+    {
+      "country": "Czech Republic",
       "id": "f_Czech_Republic_SIPhone_Tarif3Internet2",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_SIPhone_Tarif3Internet2.xml",
       "provider": "SIPhone",
