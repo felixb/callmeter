@@ -1144,6 +1144,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_1und1_All-Net_amp_Surf_Giga_300_Einheiten",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_1und1_All-Net_amp_Surf_Giga_300_Einheiten.xml",
+      "provider": "1und1",
+      "title": "All-Net & Surf Giga 300 Einheiten"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_1amp1_Allnet_100_SMS",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_1amp1_Allnet_100_SMS.xml",
       "provider": "1und1",
@@ -1161,7 +1168,7 @@
       "id": "f_Germany_1amp1_ALL-NET_amp_SURF_GIGA",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_1amp1_ALL-NET_amp_SURF_GIGA.xml",
       "provider": "1und1",
-      "title": "ALL-NET & SURF GIGA"
+      "title": "All-Net & Surf Giga 200 Einheiten"
     },
     {
       "country": "Germany",
