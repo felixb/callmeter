@@ -1656,6 +1656,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_ruleset (1)",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/ruleset (1).xml",
+      "provider": "Netzclub",
+      "title": "AllNet Clever"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Netzclub_Fan-Tarif_1001001GB",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Netzclub_Fan-Tarif_1001001GB.xml",
       "provider": "Netzclub",
