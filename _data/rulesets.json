@@ -4562,6 +4562,13 @@
     },
     {
       "country": "Russia",
+      "id": "f_Russia_Megafon_Unlimited_Corporate_L1500",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Russia_Megafon_Unlimited_Corporate_L1500.xml",
+      "provider": "Megafon",
+      "title": "Unlimited Corporate L1500+"
+    },
+    {
+      "country": "Russia",
       "id": "f_Russia_Tele2_Prosche_prostogo__internet-svoboda",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Russia_Tele2_Prosche_prostogo__internet-svoboda.xml",
       "provider": "Tele2",
