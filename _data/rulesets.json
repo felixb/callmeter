@@ -758,6 +758,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Cyprus_MTN_600.xml",
       "provider": "MTN",
       "title": "600"
+    },
+    {
+      "country": "Cyprus",
+      "id": "f_Cyprus_MTN_Smart_M",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Cyprus_MTN_Smart_M.xml",
+      "provider": "MTN",
+      "title": "Smart M"
     }
   ],
   "Czech Republic": [
