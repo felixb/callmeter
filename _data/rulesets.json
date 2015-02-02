@@ -1663,8 +1663,8 @@
     },
     {
       "country": "Germany",
-      "id": "f_ruleset (1)",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/ruleset (1).xml",
+      "id": "f_Germany_Netzclub_AllNet_Clever",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Netzclub_AllNet_Clever.xml",
       "provider": "Netzclub",
       "title": "AllNet Clever"
     },
@@ -3250,6 +3250,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_3_All-in_Big.xml",
       "provider": "3",
       "title": "All-in Big"
+    },
+    {
+      "country": "Italy",
+      "id": "f_Italy_3_all-in_200",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_3_all-in_200.xml",
+      "provider": "3",
+      "title": "all-in 200"
     },
     {
       "country": "Italy",
@@ -5118,6 +5125,15 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Turkey_Vodafone_Cep_Avantaj_Mini.xml",
       "provider": "Vodafone",
       "title": "Cep Avantaj Mini"
+    }
+  ],
+  "USA": [
+    {
+      "country": "USA",
+      "id": "f_USA_textfree_pinger",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/USA_textfree_pinger.xml",
+      "provider": "textfree",
+      "title": "pinger"
     }
   ],
   "Ukraine": [
