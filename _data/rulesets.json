@@ -2720,6 +2720,13 @@
     },
     {
       "country": "Hungary",
+      "id": "f_Hungary_Vodafone_Vitamax_Joker",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Vodafone_Vitamax_Joker.xml",
+      "provider": "Vodafone",
+      "title": "Vitamax Joker"
+    },
+    {
+      "country": "Hungary",
       "id": "f_Hungary_Vodafone_VitaMAX_Party",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Vodafone_VitaMAX_Party.xml",
       "provider": "Vodafone",
