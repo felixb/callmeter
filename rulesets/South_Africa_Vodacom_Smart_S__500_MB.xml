@@ -75,8 +75,9 @@
       <_billday>0</_billday>
       <_cost_per_amount1>1</_cost_per_amount1>
       <_cost_per_amount2>1</_cost_per_amount2>
-      <_cost_per_amount_in_limit1>0.1414</_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2>0.1414</_cost_per_amount_in_limit2>
+      <_cost_per_amount_in_limit1>0.1404</_cost_per_amount_in_limit1>
+      <_cost_per_amount_in_limit2>0.1404</_cost_per_amount_in_limit2>
+      <_cost_per_plan></_cost_per_plan>
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
@@ -104,7 +105,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>36</_order>
+      <_order>35</_order>
     </plan>
     <plan>
       <_id>31</_id>
@@ -112,7 +113,7 @@
       <_shortname>SMS Bundle </_shortname>
       <_plan_type>5</_plan_type>
       <_limit_type>2</_limit_type>
-      <_limit>200</_limit>
+      <_limit>90</_limit>
       <_billperiod>5</_billperiod>
       <_billday>1297763091109</_billday>
       <_cost_per_item>0.85</_cost_per_item>
@@ -128,7 +129,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>34</_order>
+      <_order>37</_order>
     </plan>
     <plan>
       <_id>32</_id>
@@ -136,14 +137,14 @@
       <_shortname>CALLSOFFP</_shortname>
       <_plan_type>4</_plan_type>
       <_limit_type>2</_limit_type>
-      <_limit>407.75</_limit>
+      <_limit>157.5</_limit>
       <_billperiod>5</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>1297764141831</_billday>
       <_cost_per_item>0</_cost_per_item>
       <_cost_per_amount1>1.75</_cost_per_amount1>
       <_cost_per_amount2>1.75</_cost_per_amount2>
-      <_cost_per_item_in_limit>0</_cost_per_item_in_limit>
+      <_cost_per_item_in_limit>1.75</_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>1.75</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>1.75</_cost_per_amount_in_limit2>
       <_cost_per_plan>0</_cost_per_plan>
@@ -151,8 +152,8 @@
       <_mixed_units_sms>0</_mixed_units_sms>
       <_mixed_units_mms>0</_mixed_units_mms>
       <_billperiod_id>49</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_strip_seconds>0</_strip_seconds>
+      <_next_alert>1423173600000</_next_alert>
+      <_strip_seconds>3</_strip_seconds>
       <_order>26</_order>
     </plan>
     <plan>
@@ -244,14 +245,14 @@
       <_cost_per_item_in_limit>0</_cost_per_item_in_limit>
       <_cost_per_amount_in_limit1>0</_cost_per_amount_in_limit1>
       <_cost_per_amount_in_limit2>0</_cost_per_amount_in_limit2>
-      <_cost_per_plan>1.74</_cost_per_plan>
+      <_cost_per_plan>0</_cost_per_plan>
       <_mixed_units_call>0</_mixed_units_call>
       <_mixed_units_sms>0</_mixed_units_sms>
       <_mixed_units_mms>0</_mixed_units_mms>
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>35</_order>
+      <_order>34</_order>
     </plan>
     <plan>
       <_id>42</_id>
@@ -275,7 +276,7 @@
       <_billperiod_id>49</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>37</_order>
+      <_order>36</_order>
     </plan>
     <plan>
       <_id>45</_id>
@@ -333,7 +334,7 @@
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
       <_billperiod>8</_billperiod>
-      <_billday>1312149605282</_billday>
+      <_billday>1422741605282</_billday>
       <_cost_per_item>0</_cost_per_item>
       <_cost_per_amount1>0</_cost_per_amount1>
       <_cost_per_amount2>0</_cost_per_amount2>
@@ -540,7 +541,7 @@
       <_rule_name>Data Peak</_rule_name>
       <_what>3</_what>
       <_roamed>2</_roamed>
-      <_direction>2</_direction>
+      <_direction>-1</_direction>
       <_inhourgroup_id>,8,</_inhourgroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
@@ -629,7 +630,7 @@
       <_what>1</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
-      <_inhourgroup_id>,3,1,</_inhourgroup_id>
+      <_inhourgroup_id>,10,</_inhourgroup_id>
       <_innumbergroup_id>,7,</_innumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
@@ -992,11 +993,6 @@
           <_number>+27760628605</_number>
         </number>
         <number>
-          <_id>91</_id>
-          <_gid>2</_gid>
-          <_number>0715060726</_number>
-        </number>
-        <number>
           <_id>99</_id>
           <_gid>2</_gid>
           <_number>+27825530319</_number>
@@ -1013,11 +1009,6 @@
         </number>
         <number>
           <_id>104</_id>
-          <_gid>2</_gid>
-          <_number>+27715060726</_number>
-        </number>
-        <number>
-          <_id>105</_id>
           <_gid>2</_gid>
           <_number>+27715060726</_number>
         </number>
@@ -1130,7 +1121,7 @@
         <number>
           <_id>54</_id>
           <_gid>3</_gid>
-          <_number>+27824%</_number>
+          <_number>+2782%</_number>
         </number>
         <number>
           <_id>58</_id>
@@ -1171,6 +1162,11 @@
           <_id>102</_id>
           <_gid>3</_gid>
           <_number>%278200%</_number>
+        </number>
+        <number>
+          <_id>109</_id>
+          <_gid>3</_gid>
+          <_number>+27822590910</_number>
         </number>
       </numbers>
     </numbersgroup>
