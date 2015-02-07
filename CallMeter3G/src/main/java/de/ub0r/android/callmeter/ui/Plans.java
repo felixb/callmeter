@@ -56,7 +56,6 @@ import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerReceiver;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.lib.ChangelogHelper;
 import de.ub0r.android.lib.DonationHelper;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.logg0r.Log;
@@ -260,7 +259,7 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
                         c.close();
                     }
                 } else {
-                    ArrayList<Long> list = new ArrayList<Long>();
+                    ArrayList<Long> list = new ArrayList<>();
                     int bptype = c.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
                     ArrayList<Long> bps = DataProvider.Plans.getBillDays(bptype,
                             c.getLong(DataProvider.Plans.INDEX_BILLDAY), minDate, -1);
@@ -390,11 +389,8 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
             c.set(Calendar.DAY_OF_MONTH, 0);
             c.add(Calendar.MONTH, -1);
             Log.i(TAG, "set date of recording: " + c);
-            p.edit().putLong(Preferences.PREFS_DATE_BEGIN, c.getTimeInMillis()).commit();
+            p.edit().putLong(Preferences.PREFS_DATE_BEGIN, c.getTimeInMillis()).apply();
         }
-
-        ChangelogHelper.showChangelog(this, getString(R.string.changelog_),
-                getString(R.string.app_name), R.array.updates, R.array.notes_from_dev);
 
         pager = (ViewPager) findViewById(R.id.pager);
 
