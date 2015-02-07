@@ -1,5 +1,9 @@
 # List of versions and changes for Call Meter 3G aka cm3
 
+## 3.11.6
+ * update translations
+ * internal updates
+
 ## 3.11.5
  * fix units are shown as seconds for mixed plans (issue #45)
 

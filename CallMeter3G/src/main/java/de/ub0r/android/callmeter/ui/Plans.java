@@ -18,6 +18,10 @@
  */
 package de.ub0r.android.callmeter.ui;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -44,9 +48,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.HashSet;
 
-import de.ub0r.android.callmeter.Ads;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.TrackingUtils;
@@ -69,31 +71,6 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
     /** Tag for output. */
     private static final String TAG = "Plans";
 
-    /** Ad's unit id. */
-    private static final String AD_UNITID = "a14c185ce8841c6";
-
-    /** Ad's keywords. */
-    public static final HashSet<String> AD_KEYWORDS = new HashSet<String>();
-
-    static {
-        AD_KEYWORDS.add("android");
-        AD_KEYWORDS.add("mobile");
-        AD_KEYWORDS.add("handy");
-        AD_KEYWORDS.add("cellphone");
-        AD_KEYWORDS.add("google");
-        AD_KEYWORDS.add("htc");
-        AD_KEYWORDS.add("samsung");
-        AD_KEYWORDS.add("motorola");
-        AD_KEYWORDS.add("market");
-        AD_KEYWORDS.add("app");
-        AD_KEYWORDS.add("report");
-        AD_KEYWORDS.add("calls");
-        AD_KEYWORDS.add("game");
-        AD_KEYWORDS.add("traffic");
-        AD_KEYWORDS.add("data");
-        AD_KEYWORDS.add("amazon");
-    }
-
     /** {@link Message} for {@link Handler}: start background: LogMatcher. */
     public static final int MSG_BACKGROUND_START_MATCHER = 1;
     /** {@link Message} for {@link Handler}: stop background: LogMatcher. */
@@ -115,6 +92,8 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
     private ViewPager pager;
     /** {@link PlansFragmentAdapter}. */
     private PlansFragmentAdapter fadapter;
+
+    private AdView mAdView;
 
     /** {@link Handler} for handling messages from background process. */
     private final Handler handler = new Handler() {
@@ -336,17 +315,11 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
             return "android:switcher:" + viewId + ":" + index;
         }
 
-        /**
-         * {@inheritDoc}
-         */
         @Override
         public int getCount() {
             return positions.length;
         }
 
-        /**
-         * {@inheritDoc}
-         */
         @Override
         public Fragment getItem(final int position) {
             if (position == getLogsFragmentPos()) {
@@ -390,17 +363,12 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void onDestroy() {
+        mAdView.destroy();
         super.onDestroy();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         setTheme(Preferences.getTheme(this));
@@ -428,8 +396,6 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
         ChangelogHelper.showChangelog(this, getString(R.string.changelog_),
                 getString(R.string.app_name), R.array.updates, R.array.notes_from_dev);
 
-        prefsNoAds = DonationHelper.hideAds(this);
-
         pager = (ViewPager) findViewById(R.id.pager);
 
         fadapter = new PlansFragmentAdapter(this, getSupportFragmentManager());
@@ -440,6 +406,20 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
 
         pager.setCurrentItem(fadapter.getHomeFragmentPos());
         indicator.setOnPageChangeListener(this);
+
+        prefsNoAds = DonationHelper.hideAds(this);
+        mAdView = (AdView) findViewById(R.id.ads);
+        mAdView.setVisibility(View.GONE);
+        if (!prefsNoAds) {
+            mAdView.loadAd(new AdRequest.Builder().build());
+            mAdView.setAdListener(new AdListener() {
+                @Override
+                public void onAdLoaded() {
+                    mAdView.setVisibility(View.VISIBLE);
+                    super.onAdLoaded();
+                }
+            });
+        }
     }
 
     /**
@@ -456,11 +436,8 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
         // schedule next update
         LogRunnerReceiver.schedNext(this, DELAY_LOGRUNNER, LogRunnerService.ACTION_RUN_MATCHER);
         LogRunnerReceiver.schedNext(this, LogRunnerService.ACTION_SHORT_RUN);
-        if (!prefsNoAds) {
-            Ads.loadAd(this, R.id.ad, AD_UNITID, AD_KEYWORDS);
-        } else {
-            findViewById(R.id.ad).setVisibility(View.GONE);
-        }
+
+        mAdView.resume();
     }
 
     /**
@@ -476,8 +453,9 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
      */
     @Override
     protected void onPause() {
-        super.onPause();
         currentHandler = null;
+        mAdView.pause();
+        super.onPause();
     }
 
     /**
@@ -565,7 +543,6 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
     public void onPageSelected(final int position) {
         Log.d(TAG, "onPageSelected(", position, ")");
         if (position == fadapter.getLogsFragmentPos()) {
-            findViewById(R.id.ad).setVisibility(View.GONE);
             Fragment f = fadapter.getActiveFragment(pager,
                     fadapter.getLogsFragmentPos());
             if (f != null && f instanceof LogsFragment) {
@@ -576,9 +553,6 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
             if (f != null && f instanceof PlansFragment) {
                 ((PlansFragment) f).requery(false);
             }
-        }
-        if (!prefsNoAds) {
-            findViewById(R.id.ad).setVisibility(View.VISIBLE);
         }
     }
 
