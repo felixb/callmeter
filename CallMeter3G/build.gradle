@@ -4,7 +4,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.0.1'
-        classpath('com.github.triplet.gradle:play-publisher:1.0.0') {
+        classpath('com.github.triplet.gradle:play-publisher:1.0.1') {
             exclude group: 'com.google.guava'
         }
     }
@@ -14,7 +14,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'play'
 
 play {
-    uploadImages = true
+    uploadImages = false
     serviceAccountEmail =
             '925691948433-pl4bec638njeenipednmsmo0q55j6907@developer.gserviceaccount.com'
     pk12File = file('play_api_client.p12')

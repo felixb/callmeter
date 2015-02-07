@@ -1,0 +1,24 @@
+Call Meter 3G ti permette di tenere d'occhio i tuoi piani di telefonia mobile.
+
+Ti mostra le statistiche di chiamate/messaggi/traffico dati e ti permette di settare limiti per ognuno di questi piani.
+Call Meter supporta molteplici modalità di tariffazione per adattarsi al meglio alle tariffe del tuo operatore.
+
+Questa applicazione è un software open source, sviluppato nel tempo libero. Aggiungere commenti negativi nel market non aiuterà a migliorarlo.
+Per favore comunica eventuali problemi nel sito web dell'applicazione.
+
+Questa è una riscrittura completa di Call Meter NG. Ha un'enorme quantita di nuove caratteristiche come widget e notifiche.
+La sua nuova architettura permette piani più complessi.
+Testala e aiutami a renderla di più semplice utilizzo rispetto ad ora. ;)
+
+Permessi di questa app:
+* LEGGI SMS O MMS: conta i tuoi messaggi
+* RICEVI SMS: aggiorna i log prima che un messaggio da poco ricevuto venga cancellato
+* COMPLETO ACCESSO AD INTERNET: importazione regole
+* LEGGI DATI DEI CONTATTI: converte i numeri in nomi (es. in gruppi di numeri)
+* MODIFICA/CANCELLA DATI DA MEMORIA SD: importa/esporta regole nella memoria SD
+* LEGGI STATO DEL TELEFONO ED IDENTITA': aggiorna i registri in background
+* IMPEDISCI AL TELEFONO DI DORMIRE: aggiorna i registri in background
+
+Puoi tradurre questa applicazione nella tua lingua qui: http://ub0r.de/translate/cm3/
+
+Visitare https://github.com/felixb/callmeter/issues per problemi e richieste di miglioramento.

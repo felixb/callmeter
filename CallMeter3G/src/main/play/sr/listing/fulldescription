@@ -1,0 +1,31 @@
+Call Meter 3G je najkompletnija aplikacija za Vaš Android koja vam omogućava da pratite pozive, poruke i korišćenje interneta.
+
+Pokazuje statistike korišćenja telefona i omogućava vam postavljanje granica za svaki od tih troškova.
+Pomoću različitih widgeta, pokazuje vam statistiku direktno na početnom ekranu.
+
+Call Meter 3G sadrži kompleksan engine kako bi podesili aplikaciju tačno onako kako Vam vaš provajder ispostavlja račun.
+
+Postojeći problemi:
+* Viber pozivi se računaju kao standardni pozivi. Molimo obratite se Viber-u kako bi to popravio.
+* Na nekim Samsung modelima merenje količine internet podataka se ne prikazuje pravilno. Problem je u verziji Androida za Samsung i popravljen je na većini modela sa novijim update-om.
+
+Ovo je aplikacija otvorenog koda koja je rađena u autorovo slobodno vreme. Dodavanje loših komentara u Play Store-u neće pomoći da bude bolja.
+Molimo, navedite svoje probleme s ovom aplikacijom na web stranici aplikacije.
+
+Ovo je potpuno obnovljeni Call Meter 3G/NG. Sadrži ogromnu količinu novih dodataka kao što su widgeti i upozorenja.
+Ova nova arhitektura omogućava složenije planove.
+Slobodno testirajte i pomozite mi učiniti aplikaciju korisnijom nego što je trenutno. ;)
+
+Dopuštenja za ovu aplikaciju
+* ČITANJE SMS-a ILI MMS-a: broji vaše poruke
+* PRIMLJENI SMS: ažurira zapisnik pre nego što primljena poruka bude obrisana
+* POTPUNI PRISTUP INTERNETU: uvoz pravila
+* ČITANJE KONTAKATA: pretvaranje brojeva u imena (npr. u grupi brojeva)
+* IZMENA/BRISANJE SADRŽAJA SD KARTICE: pisanje/izvoz pravila na sd karticu
+* ČITANJE STANJA TELEFONA I IDENTITETA: ažuriranje zapisnika u pozadini
+* SPREČAVANJE UREĐAJA DA ODE U SLEEP MOD: ažuriranje zapisnika u pozadini
+
+Slobodno pomozite u prevođenju ove aplikacije na vaš jezik ovde:
+http://ub0r.de/translate/cm3/
+
+Molimo pogledajte https://github.com/felixb/callmeter/issues za pitanja i pojašnjenja zahteva.

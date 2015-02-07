@@ -1,0 +1,29 @@
+Call Meter 3G je nejkomplexnější monitorovací aplikace pro váš přístroj s Androidem: Hlídá vaše hovory, textové zprávy a využití dat.
+
+Zobrazuje statisky využití a upozornění, pokud se přiblížíte k vámi nastavenému limitu. Aplikace obsahuje tři typy widgetů, které zobrazují nejhodnotnější statistiky prímo na domovské stránce.
+
+Call Meter 3G obsahuje komplexní nástroj pro správu pravidel, který vám umožňuje nastavit aplikaci přesně podle vašeho účtu u operátora.
+
+Známé problémy:
+* Hovory přes Viber jsou započítávány mezi standardní hovory. Tento problém musí vyřešit vývojáři Viberu.
+* Na některých zařízeních Samsungu nejsou data započítávána správně. Tento problém je způsoben verzí Androidu, kterou Samsung na svých zařízeních používá a měl by být opraven v následných updatech Androidu.
+
+Tato aplikace je open source tvořený ve volném čase. Negativním hodnocením v Marketu nepomůžete jejímu zlepšení.
+Nahlašte prosím problémy na domovské stránce aplikace.
+
+Toto je kompletně předělaný Call Meter NG. Má mnoho nových vlastností, jako widgety a výstrahy.
+Nová architektura umožňuje komplexnější plány.
+Pomozte ji otestovat a udělat ji uživatelsky příjemnější než nyní. ;)
+
+Potřebné oprávnění:
+* PŘÍSTUP K SMS A MMS: počítání zpráv
+* PŘÍJEM SMS: aktualizace záznamu před smazáním příchozí zprávy
+* PLNÝ PŘÍSTUP K INTERNETU: pravidla pro import
+* PŘÍSTUP KE KONTAKTŮM: převod čísel na jména (např. ve skupinách čísel)
+* ÚPRAVA/MAZÁNÍ OBSAHU SD KARTY: zápis/export pravidel na SD kartu
+* PŘÍSTUP KE STAVU TELEFONU A IDENTITĚ: aktualizace záznamů na pozadí
+* ZABRÁNIT PŘECHODU DO REŽIMU SPÁNKU: aktualizace záznamů na pozadí
+
+Nebojte se pomoci překládat do vašeho jazyka zde: http://ub0r.de/translate/cm3/
+
+Na stránce https://github.com/felixb/callmeter/issues naleznete seznam známých chyb a požadavků na vylepšení.vodafone

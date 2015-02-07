@@ -1,0 +1,29 @@
+Call meter 3G est l’appli la plus avancée pour votre appareil Android. Elle vous permet de surveiller vos appels, vos SMS et votre utilisation internet.
+
+Elle montre des statistiques sur votre utilisation et vous alerte en cas de dépassement des imites prédéfinies. Toute une série de widgets vous permet de visualiser sur la page d’accueil les infos que vous préférez.
+
+Call Meter 3G a un puissant moteur de gestion des données à base de règles pour configurer l'appli de manière à établir une facturation comme votre opérateur.
+
+Problèmes connus : 
+* Appels avec Viber sont détectés comme des appels standard. Demandez SVP à Viber de corriger ce problème
+* Ne compte pas correctement les données internet sur certains appareils SAMSUNG. ce problème est lié à la version d'Android de SAMSUNG et a été corrigé sur certains modèles récents.
+
+Cette appli est un logiciel libre, conçu pendant mon temps libre. Donner de mauvais commentaires sur le PLay Store ne va pas la rendre meilleure.
+Veuillez SVP rapporter des éventuels problèmes avec cette appli sur son site web.
+
+C'est une nouvelle version de Call Meter NG. Il y a un nombre élevé de nouvelles fonctionnalités comme les widgets et les alertes.
+Sa nouvelle architecture permet de créer des plans plus complexes.
+N'hésitez pas à la tester et à m'aider à la rendre plus agréable ;)
+
+Permissions pour cette application : 
+* LECTURE SMS OU MMS : compte vos messages
+* RECEPTION SMS : mise-à-jour de l'historique avant qu'un nouveau message ne soit effacé
+* ACCES INTERNET COMPLET : importer des règles
+* DONNÉES DES CONTACTS : conversion des numéros en nom
+* MODIFIER/EFFACER LE CONTENU CARTE SD : écriture/export des règles sur carte SD
+* LECTURE DE L'ÉTAT DU MOBILE : mise à jour des logs en arrière plan
+* EMPÊCHER LA MISE EN VEILLE : mise à jour des logs en arrière plan
+
+N'hésitez pas à nous aider en traduisant cette application via le lien suivant: http://ub0r.de/translate/cm3/
+
+Allez sur https://github.com/felixb/callmeter/issues pour découvrir les corrections et les améliorations.

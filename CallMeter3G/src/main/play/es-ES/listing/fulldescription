@@ -1,0 +1,29 @@
+Call Meter es la aplicación de monitorización mas completa para su dispositivo Android: Monitoriza sus llamadas, mensajes de texto y uso de datos
+
+Muestra las estadísticas de tráfico de sus llamadas/sms/txt/datos y le permite fijar límites para recibir una alerta para cada uno de estos planes.
+
+Call Meter soporta una gran cantidad de modos de facturación y le permite adaptar su comportamiento a la facturación de su operador.
+
+Problemas conocidos:
+* Las llamadas de Viber se detectan como llamadas estandar. Por favor, pida a Viber que lo arregle.
+* NO cuenta adecuadamente el uso de datos en algunos dispositivos Samsung. El problema esta en la versión de Android que usa Samsung y se arregla en muchos de los dispositivos al hacer un update de la versión de Android.
+
+Esta aplicación es de código abierto, desarrollada en tiempo libre. Agregar malos comentarios en el mercado no ayudará mucho a mejorarla.
+Por favor agregue sus problemas con esta aplicación en el sitio WEB de la APP.
+
+Esta es una reconstrucción completa de Call Meter NG. Tiene una vasta cantidad de nuevas funciones como widgets y alertas.
+Su nueva arquitectura permite planes más complejos.
+Siéntase en libertad de probarla y ayudarme a hacerla más amigable de lo que es actualmente. ;)
+
+Permisos que necesita esta aplicación:
+* LEER SMS o MMS: para contar los mensajes
+* RECIBIR SMS: para alctualizar los logs antes que un mensaje recientemente recibido sea eliminado
+* ACCESO COMPLETO A INTERNET: para importar reglas
+* LEER INFORMACION DE LOS CONTACTOS: para convertir números a nombres (ej: en grupos de números)
+* MODIFICAR/ELIMINAR CONTENIDO DE LA TARJETA SD: para escribir/exportar reglas a la tarjeta sd
+* LEER ESTADO DEL TELEFONO E IDENTIDAD: para actualizar los logs en segundo plano
+* IMPEDIR QUE EL DISPOSITIVO ENTRE EN MODO ESPERA: para actualizar los logs en segundo plano
+
+Siéntase en libertad de ayudar a traducir esta aplicación en su propio idioma aquí: http://ub0r.de/translate/cm3
+
+Visite https://github.com/felixb/callmeter/issues para problemas conocidos y solicitudes de mejoras

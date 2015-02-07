@@ -1,0 +1,31 @@
+Call Meter vam omogućuje držati vašu mobilnu potrošnju na oku.
+
+Pokazuje statistike vaših poziva/SMS/txt/podatkovnog prometa i omogućuje vam postavljanje granica za svaki od tih troškova.
+Call Meter podržava golemi broj načina naplate kako bi ga mogli prilagoditi načinu obračuna vašeg operatera.
+
+
+Poznati problemi:
+* Viber pozive detektira kao standardne pozive. Molim vas prijavite Viberu da to poprave.
+* Ne broji točno potrošnju mobilne veze kod nekih Samsungovih uređaja. Taj problem je baziran na Samsungovoj Android inačici i popravljen je na većini uređaja sa Android aktualizacijom.
+
+
+Ovo je aplikacija otvorenog koda koja se radi u slobodno vrijeme. Dodavanje loših komentara na marketu neće pomoći da bude bolja.
+Molimo navedite svoje probleme s ovom aplikacijom na web stranici aplikacije.
+
+Ovo je potpuno obnovljeni Call Meter NG. Sadrži golemu količinu novih značajki kao što su dodaci i upozorenja.
+Ovo je nova arhitektura koja omogućuje složenije planove.
+Slobodno testirajte i pomognite mi učiniti aplikaciju korisnijom nego što je trenutno. ;)
+
+Dopuštenja za ovu aplikaciju
+* ČITANJE SMS ILI MMS: broji vaše poruke
+* PRIMLJENI SMS: ažurira zapisnik prije nego što primljena poruka bude obrisana
+* POTPUNI PRISTUP INTERNETU: uvoz pravila
+* ČITANJE KONTAKATA: pretvaranje brojeva u imena (npr. u grupi brojeva)
+* IZMJENA/BRISANJE SADRŽAJA SD KARTICE: pisanje/izvoz pravila na sd karticu
+* ČITANJE STANJA TELEFONA I IDENTITETA: ažuriranje zapisnika u pozadini
+* SPRJEČAVANJE UREĐAJA DA ODE U SLEEP NAČIN: ažuriranje zapisnika u pozadini
+
+Slobodno pomognite u prevođenju ove aplikacije na vaš jezik ovdje:
+http://ub0r.de/translate/cm3/
+
+Molim Vas pogledajte https://github.com/felixb/callmeter/issues za pitanja i pojašnjavanja zahtjeva.

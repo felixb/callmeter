@@ -1,0 +1,29 @@
+Call Meter 3G Android cihazınız için en iyi izleme uygulamasıdır: aramalarınızı, mesajlarınızı ve veri kullanımınızı izler.
+
+Size kullanımınız hakkında istatistikler ve belirlediğiniz sınırlarda uyarılar gösterir. En önemli istatistikleri doğrudan ana ekranınızda göstermek için her türlü widget'a sahiptir.
+
+Call Meter 3G, GSM operatörünüzün size çıkardığı faturayı birebir karşılayacak şekilde ayarlar yapabilmenizi sağlayacak karmaşık bir kural oluşturma modülüne sahiptir.
+
+Bilinen sorunlar:
+* Viber ile yapılan aramalar standart arama olarak algılanmaktadır. Lütfen Viber'dan bunu düzeltmesini isteyiniz.
+* Bazı Samsung cihazlarında veri kullanımı tam doğru olarak hesaplanamamaktadır. Bu sorun Samsung'un Android versiyonu ile ilgilidir ve bazı Android güncellemeleri ile pek çok cihazda giderilmiştir.
+
+Bu uygulama, yazarının boş zamanlarında geliştirdiği açık kaynak kodlu bir uygulamadır. Markette bu uygulama ile ilgili kötü yorumlar yazmak, uygulamanın daha iyi olmasını sağlamayacaktır.
+Lütfen, bu uygulama ile ilgili olumsuz durumları uygulamanın web sitesinde paylaşınız.
+
+Bu, Call Meter NG'nin bütün bir revizyonudur. Widget ve uyarılar gibi pek çok yeni özellik eklenmiştir.
+Yeni yapısıyla daha karmaşık paketlerin kullanımına izin vermektedir.
+Lütfen uygulamayı çekinmeden deneyin ve daha kullanıcı dostu haline getirmeme yardım edin. ;)
+
+Bu uygulamanın sahip olduğu izinler:
+* SMS VEYA MMS OKUMA: mesajlarınızın sayılması için
+* SMS ALMA: yeni alınan bir mesaj silinmeden önce logların güncellenmesi için
+* TAM INTERNET ERİŞİMİ: kuralların içe aktarılması için
+* İRTİBAT VERİSİ OKUMA: numaraların isimlere çevrilmesi için (örn. numara gruplarında)
+* SD KART İÇERİĞİNİN DEĞİŞTİRİLMESİ/SİLİNMESİ: kuralların SD karta yazılması/aktarılması için
+* TELEFON DURUMU VE KİMLİĞİNİN OKUNMASI: geri planda logların güncellenmesi için
+* CİHAZIN UYKU DURUMUNA GEÇMESİNİN ENGELLENMESİ: geri planda logların güncellenmesi için
+
+Bu uygulamayı kendi dilinize çevirmek isterseniz: http://ub0r.de/translate/cm3
+
+Geliştirme talepleri ve sorunlar için lütfen https://github.com/felixb/callmeter/issues adresini ziyaret edin.

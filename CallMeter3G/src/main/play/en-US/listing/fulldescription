@@ -1,0 +1,30 @@
+Call Meter 3G is the most complete monitor app for your Android device: It monitors your calls, text messages and data usage.
+
+It shows statistics of your usage and shows alerts if you reach your limit.
+There are all kinds of widgets to show the most valuable statistics directly on the home screen.
+
+Call Meter 3G has a complex rule engine to let you set up the app exactly the way your provider writes your bills.
+
+Known problems:
+* Viber calls are detected as standard calls. Please tell Viber to fix this.
+* Doesn't count properly data usage on some Samsung devices. This problem is based on Samsung's Android version and got fixed on most devices with some Android update.
+
+This app is open source software build in spare time. Adding bad comments in Play Store won't help much to make it better.
+Please add your issues with this app on the app's website.
+
+This is a complete rebuild of Call Meter NG. It has a huge amount of new features like widgets and alerts.
+It's new architecure allows more complex plans.
+Feel free to test it and help me make it more userfriendly as it is currently. ;)
+
+Permissions of this app:
+* READ SMS OR MMS: count your messages
+* RECEIVE SMS: update logs before a recently received message got deleted
+* FULL INTERNET ACCESS: importing rules
+* READ CONTACT DATA: convert numbers to names (e.g. in number groups)
+* MODIFY/DELETE SD CARD CONTENTS: write/export rules to sd card
+* READ PHONE STATE AND IDENTITY: update logs in background
+* PREVENT DEVICE FROM SLEEPING: update logs in background
+
+Feel free to help translating this app to your language here: http://ub0r.de/translate/cm3/
+
+Please see https://github.com/felixb/callmeter/issues for issues and enhancement requests.
