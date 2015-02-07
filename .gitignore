@@ -15,3 +15,4 @@ build
 release.ks
 .bundle
 _site
+*.p12

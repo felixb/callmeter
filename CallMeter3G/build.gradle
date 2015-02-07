@@ -3,11 +3,22 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.0.0'
+        classpath 'com.android.tools.build:gradle:1.0.1'
+        classpath('com.github.triplet.gradle:play-publisher:1.0.0') {
+            exclude group: 'com.google.guava'
+        }
     }
 }
 
 apply plugin: 'com.android.application'
+apply plugin: 'play'
+
+play {
+    uploadImages = true
+    serviceAccountEmail =
+            '925691948433-pl4bec638njeenipednmsmo0q55j6907@developer.gserviceaccount.com'
+    pk12File = file('play_api_client.p12')
+}
 
 repositories {
     maven {
@@ -116,6 +127,16 @@ android {
             proguardFile 'proguard.cfg'
             minifyEnabled true
             buildConfigField 'boolean', 'DEBUG_LOG', 'false'
+        }
+    }
+
+    applicationVariants.all { variant ->
+        if (!variant.name.contains('debug')) {
+            variant.outputs.each { output ->
+                def file = output.outputFile
+                output.outputFile = new File(file.parent,
+                        file.name.replace('.apk', '-' + defaultConfig.versionName + '.apk'))
+            }
         }
     }
 }
