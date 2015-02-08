@@ -3617,6 +3617,13 @@
     },
     {
       "country": "Mexico",
+      "id": "f_Mexico_Iusacell_Plan_Libertad_199",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Mexico_Iusacell_Plan_Libertad_199.xml",
+      "provider": "Iusacell",
+      "title": "Plan Libertad 199"
+    },
+    {
+      "country": "Mexico",
       "id": "f_Mexico_Iusacell_Libertad_Total_199",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Mexico_Iusacell_Libertad_Total_199.xml",
       "provider": "Iusacell",
@@ -4750,6 +4757,13 @@
     }
   ],
   "Slovenia": [
+    {
+      "country": "Slovenia",
+      "id": "f_Slovenia_Debitel_EnotniD_200",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Slovenia_Debitel_EnotniD_200.xml",
+      "provider": "Debitel",
+      "title": "EnotniD 200"
+    },
     {
       "country": "Slovenia",
       "id": "f_Slovenia_Telekom_slovenije_Mobitel_Paket_2014",
