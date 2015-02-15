@@ -22,6 +22,9 @@ play {
 
 repositories {
     maven {
+        url 'https://github.com/felixb/ub0rlib/raw/mvn-repo/'
+    }
+    maven {
         url 'https://raw.githubusercontent.com/felixb/ub0rlogg0r/mvn-repo/'
     }
     maven {
@@ -147,6 +150,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-ads:6.5.87'
     compile 'com.actionbarsherlock:actionbarsherlock:+@aar'
     compile 'com.actionbarsherlock:viewpagerindicator:2.4.1'
+    compile 'de.ub0r.android.lib:lib:1.0.1'
     compile 'de.ub0r.android.logg0r:logg0r:2.0.0'
 }
 
