@@ -2890,6 +2890,13 @@
     },
     {
       "country": "India",
+      "id": "f_India_Airtel_MH_Power_299",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/India_Airtel_MH_Power_299.xml",
+      "provider": "Airtel",
+      "title": "MH Power 299"
+    },
+    {
+      "country": "India",
       "id": "f_India_Airtel_174_Paise_per_sec",
       "importurl": "https://felixb.github.io/callmeter/rulesets/India_Airtel_174_Paise_per_sec.xml",
       "provider": "Airtel",
