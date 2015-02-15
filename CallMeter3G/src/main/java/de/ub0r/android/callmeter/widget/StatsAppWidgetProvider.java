@@ -215,7 +215,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
         Log.d(TAG, "cost: ", cost);
         Log.d(TAG, "billedAmount: ", plan.bpBa);
 
-        int bpos = (int) (plan.getBillPlanUsage() * CallMeter.HUNDRET);
+        int bpos = (int) (plan.getBillPlanUsage() * CallMeter.HUNDRED);
         int bmax;
         if (bpos < 0) {
             bpos = 0;
@@ -224,7 +224,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
             bpos = 0;
             bmax = 0;
         } else {
-            bmax = CallMeter.HUNDRET;
+            bmax = CallMeter.HUNDRED;
         }
         Log.d(TAG, "bpos/bmax: ", bpos, "/", bmax);
 
@@ -236,7 +236,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
                     plan.billperiod, bd, false);
         }
         if (plan.limit > 0) {
-            stats += "\n" + ((int) (plan.usage * CallMeter.HUNDRET)) + "%";
+            stats += "\n" + ((int) (plan.usage * CallMeter.HUNDRED)) + "%";
         }
         if (!plan.hasBa && showCost && free > 0F) {
             stats += "\n(" + String.format(Preferences.getCurrencyFormat(context), free) + ")";
@@ -365,8 +365,8 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
             //noinspection SuspiciousNameCombination
             bitmapPb = Bitmap.createBitmap(WIDGET_WIDTH, WIDGET_WIDTH, Bitmap.Config.ARGB_8888);
             canvasPb = new Canvas(bitmapPb);
-            int u = (int) ((used * CallMeter.HUNDRET) / limit);
-            if (u >= CallMeter.HUNDRET) {
+            int u = (int) ((used * CallMeter.HUNDRED) / limit);
+            if (u >= CallMeter.HUNDRED) {
                 paintPb.setColor(PB_COLOR_RED);
             } else if (bmax < 0 && u >= CallMeter.EIGHTY || bmax > 0
                     && (float) used / limit >= (float) bpos / bmax) {
@@ -374,12 +374,12 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
             } else {
                 paintPb.setColor(PB_COLOR_GREEN);
             }
-            if (u > CallMeter.HUNDRET) {
-                u = CallMeter.HUNDRET;
+            if (u > CallMeter.HUNDRED) {
+                u = CallMeter.HUNDRED;
             }
             canvasPb.drawRoundRect(base, WIDGET_RCORNER, WIDGET_RCORNER, paintPb);
             //noinspection SuspiciousNameCombination
-            copy = new Rect(0, WIDGET_WIDTH - PB_HEIGHT, (WIDGET_WIDTH * u) / CallMeter.HUNDRET,
+            copy = new Rect(0, WIDGET_WIDTH - PB_HEIGHT, (WIDGET_WIDTH * u) / CallMeter.HUNDRED,
                     WIDGET_WIDTH);
             canvas.drawBitmap(bitmapPb, copy, copy, null);
         }

@@ -581,7 +581,7 @@ public final class LogRunnerService extends IntentService {
             final int idSimId = getSimIdColumn(cursor);
 
             final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(
-                    CallMeter.HUNDRET);
+                    CallMeter.HUNDRED);
             int i = 0;
             do {
                 if (BuildConfig.DEBUG_LOG && i < 30) {
@@ -623,7 +623,7 @@ public final class LogRunnerService extends IntentService {
                     cv.put(DataProvider.Logs.MYNUMBER, mynumber);
                 }
                 cvalues.add(cv);
-                if (cvalues.size() >= CallMeter.HUNDRET) {
+                if (cvalues.size() >= CallMeter.HUNDRED) {
                     cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
                             cvalues.toArray(new ContentValues[cvalues.size()]));
                     Log.d(TAG, "new calls: ", cvalues.size());
@@ -688,7 +688,7 @@ public final class LogRunnerService extends IntentService {
             final int idBody = cursor.getColumnIndex("body");
             final int idSimId = getSimIdColumn(cursor);
             final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(
-                    CallMeter.HUNDRET);
+                    CallMeter.HUNDRED);
             int i = 0;
             do {
                 if (BuildConfig.DEBUG_LOG && i < 30) {
@@ -733,7 +733,7 @@ public final class LogRunnerService extends IntentService {
                     cv.put(DataProvider.Logs.MYNUMBER, mynumber);
                 }
                 cvalues.add(cv);
-                if (cvalues.size() >= CallMeter.HUNDRET) {
+                if (cvalues.size() >= CallMeter.HUNDRED) {
                     cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
                             cvalues.toArray(new ContentValues[cvalues.size()]));
                     Log.d(TAG, "new sms: ", cvalues.size());
@@ -789,7 +789,7 @@ public final class LogRunnerService extends IntentService {
             final int idSimId = cursor.getColumnIndex("sim_id");
 
             final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(
-                    CallMeter.HUNDRET);
+                    CallMeter.HUNDRED);
             do {
                 final ContentValues cv = new ContentValues();
                 final int t = cursor.getInt(idType);
@@ -840,7 +840,7 @@ public final class LogRunnerService extends IntentService {
                     cv.put(DataProvider.Logs.MYNUMBER, mynumber);
                 }
                 cvalues.add(cv);
-                if (cvalues.size() >= CallMeter.HUNDRET) {
+                if (cvalues.size() >= CallMeter.HUNDRED) {
                     cr.bulkInsert(DataProvider.Logs.CONTENT_URI,
                             cvalues.toArray(new ContentValues[cvalues.size()]));
                     Log.d(TAG, "new mms: ", cvalues.size());

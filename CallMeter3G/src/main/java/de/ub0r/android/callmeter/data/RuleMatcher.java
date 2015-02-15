@@ -854,8 +854,8 @@ public final class RuleMatcher {
                 Log.d(TAG, "ltype: ", limitType);
                 switch (limitType) {
                     case DataProvider.LIMIT_TYPE_COST:
-                        Log.d(TAG, "bc<lt ", billedCost * CallMeter.HUNDRET, "<", limit);
-                        return limit - billedCost * CallMeter.HUNDRET;
+                        Log.d(TAG, "bc<lt ", billedCost * CallMeter.HUNDRED, "<", limit);
+                        return limit - billedCost * CallMeter.HUNDRED;
                     case DataProvider.LIMIT_TYPE_UNITS:
                         Log.d(TAG, "ba<lt ", billedAmount, "<", limit);
                         return limit - billedAmount;
@@ -1086,7 +1086,7 @@ public final class RuleMatcher {
                 }
                 return 0f;
             }
-            final float l = ((float) limit) / CallMeter.HUNDRET;
+            final float l = ((float) limit) / CallMeter.HUNDRED;
             if (l <= billedCost) {
                 return 0f;
             }
@@ -1432,9 +1432,9 @@ public final class RuleMatcher {
                     int used = DataProvider.Plans.getUsed(plan.type, plan.limitType,
                             plan.billedAmount, plan.billedCost);
                     int usedRate = plan.limit > 0 ?
-                            (int) ((used * CallMeter.HUNDRET) / plan.limit)
+                            (int) ((used * CallMeter.HUNDRED) / plan.limit)
                             : 0;
-                    if (a100 && usedRate >= CallMeter.HUNDRET) {
+                    if (a100 && usedRate >= CallMeter.HUNDRED) {
                         alert = usedRate;
                         alertPlan = plan;
                     } else if (a80 && alert < CallMeter.EIGHTY && usedRate >= CallMeter.EIGHTY) {

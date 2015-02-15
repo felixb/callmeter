@@ -117,7 +117,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
 
             /** Holder for item's view. */
             TextView tvPlan, tvRule, tvText1, tvRemoteLabel, tvRemote, tvMyNumberLabel, tvMyNumber,
-                    tvLengthLable, tvLength, tvBilledLengthLable, tvBilledLength, tvCostLable,
+                    tvLengthLabel, tvLength, tvBilledLengthLabel, tvBilledLength, tvCostLabel,
                     tvCost;
             /** Hold {@link NameLoader}. */
             NameLoader loader;
@@ -161,11 +161,11 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
                 holder.tvRemote = (TextView) view.findViewById(R.id.remote);
                 holder.tvMyNumberLabel = (TextView) view.findViewById(R.id.mynumber_);
                 holder.tvMyNumber = (TextView) view.findViewById(R.id.mynumber);
-                holder.tvLengthLable = (TextView) view.findViewById(R.id.length_);
+                holder.tvLengthLabel = (TextView) view.findViewById(R.id.length_);
                 holder.tvLength = (TextView) view.findViewById(R.id.length);
-                holder.tvBilledLengthLable = (TextView) view.findViewById(R.id.blength_);
+                holder.tvBilledLengthLabel = (TextView) view.findViewById(R.id.blength_);
                 holder.tvBilledLength = (TextView) view.findViewById(R.id.blength);
-                holder.tvCostLable = (TextView) view.findViewById(R.id.cost_);
+                holder.tvCostLabel = (TextView) view.findViewById(R.id.cost_);
                 holder.tvCost = (TextView) view.findViewById(R.id.cost);
                 view.setTag(holder);
             } else if (holder.loader != null && !holder.loader.isCancelled()) {
@@ -203,7 +203,7 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
                         holder.loader = new NameLoader(context, s, format, holder.tvRemote);
                         holder.loader.execute();
                     } catch (RejectedExecutionException e) {
-                        Log.e(TAG, "rejected execution", e);
+                        Log.e(TAG, "error loading names", e);
                         holder.loader = null;
                     }
                 }
@@ -226,21 +226,21 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
             s = Common.formatAmount(t, amount, LogsFragment.this.showHours);
             if (s == null || s.trim().length() == 0 || s.equals("1")) {
                 holder.tvLength.setVisibility(View.GONE);
-                holder.tvLengthLable.setVisibility(View.GONE);
+                holder.tvLengthLabel.setVisibility(View.GONE);
             } else {
                 holder.tvLength.setVisibility(View.VISIBLE);
                 holder.tvLength.setText(s);
-                holder.tvLengthLable.setVisibility(View.VISIBLE);
+                holder.tvLengthLabel.setVisibility(View.VISIBLE);
             }
             final float ba = cursor.getFloat(DataProvider.Logs.INDEX_BILL_AMOUNT);
             if (amount != ba || pt == DataProvider.TYPE_MIXED) {
                 holder.tvBilledLength.setText(Common.formatAmount(pt, ba,
                         LogsFragment.this.showHours));
                 holder.tvBilledLength.setVisibility(View.VISIBLE);
-                holder.tvBilledLengthLable.setVisibility(View.VISIBLE);
+                holder.tvBilledLengthLabel.setVisibility(View.VISIBLE);
             } else {
                 holder.tvBilledLength.setVisibility(View.GONE);
-                holder.tvBilledLengthLable.setVisibility(View.GONE);
+                holder.tvBilledLengthLabel.setVisibility(View.GONE);
             }
             final float cost = cursor.getFloat(DataProvider.Logs.INDEX_COST);
             final float free = cursor.getFloat(DataProvider.Logs.INDEX_FREE);
@@ -257,10 +257,10 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
                 }
                 holder.tvCost.setText(c);
                 holder.tvCost.setVisibility(View.VISIBLE);
-                holder.tvCostLable.setVisibility(View.VISIBLE);
+                holder.tvCostLabel.setVisibility(View.VISIBLE);
             } else {
                 holder.tvCost.setVisibility(View.GONE);
-                holder.tvCostLable.setVisibility(View.GONE);
+                holder.tvCostLabel.setVisibility(View.GONE);
             }
         }
     }

@@ -1319,7 +1319,7 @@ public final class DataProvider extends ContentProvider {
                 final float cost) {
             switch (lType) {
                 case DataProvider.LIMIT_TYPE_COST:
-                    return (int) (cost * CallMeter.HUNDRET);
+                    return (int) (cost * CallMeter.HUNDRED);
                 case DataProvider.LIMIT_TYPE_UNITS:
                     if (pType == DataProvider.TYPE_DATA) {
                         return (int) (amount / CallMeter.BYTE_KB);
@@ -1358,7 +1358,7 @@ public final class DataProvider extends ContentProvider {
                             return (long) limit;
                     }
                 case DataProvider.LIMIT_TYPE_COST:
-                    return (long) (limit * CallMeter.HUNDRET);
+                    return (long) (limit * CallMeter.HUNDRED);
                 default:
                     return 0L;
             }
@@ -3679,8 +3679,8 @@ public final class DataProvider extends ContentProvider {
                 long date = Utils.parseLong(uri.getQueryParameter(Plans.PARAM_DATE), -1L);
                 if (date < 0L) {
                     // round up minutes for SQL caching
-                    date = ((System.currentTimeMillis() / CallMeter.HUNDRET) + 1)
-                            * CallMeter.HUNDRET;
+                    date = ((System.currentTimeMillis() / CallMeter.HUNDRED) + 1)
+                            * CallMeter.HUNDRED;
                 }
                 final Calendar now = Calendar.getInstance();
                 now.setTimeInMillis(date);

@@ -287,7 +287,7 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                     }
                 }
                 if (plan.limit > 0) {
-                    spb.insert(0, ((int) (plan.usage * CallMeter.HUNDRET)) + "%" + delimiter);
+                    spb.insert(0, ((int) (plan.usage * CallMeter.HUNDRED)) + "%" + delimiter);
                 }
             }
 
