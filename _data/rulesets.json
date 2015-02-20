@@ -264,6 +264,13 @@
   "Brazil": [
     {
       "country": "Brazil",
+      "id": "f_Brazil_Algar_Telecom_Plano_20_centavos",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Brazil_Algar_Telecom_Plano_20_centavos.xml",
+      "provider": "Algar Telecom",
+      "title": "Plano 20 centavos"
+    },
+    {
+      "country": "Brazil",
       "id": "f_Brazil_Claro_100_minutos_300_MB_MSG_ilimitado_e_sem_roaning_",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Brazil_Claro_100_minutos_300_MB_MSG_ilimitado_e_sem_roaning..xml",
       "provider": "Claro",
@@ -355,6 +362,13 @@
     }
   ],
   "Bulgaria": [
+    {
+      "country": "Bulgaria",
+      "id": "f_Bulgaria_Bob_Minibob",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Bulgaria_Bob_Minibob.xml",
+      "provider": "Bob",
+      "title": "Minibob"
+    },
     {
       "country": "Bulgaria",
       "id": "f_Bulgaria_GLOBUL_Web_amp_Talk_2099",
