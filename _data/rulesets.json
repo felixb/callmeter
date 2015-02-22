@@ -1889,6 +1889,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Vodafone_Callya_Smartphone_Special",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Vodafone_Callya_Smartphone_Special.xml",
+      "provider": "Vodafone",
+      "title": "Callya Smartphone Special"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Vodafone_RED_M_-_Student",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Vodafone_RED_M_-_Student.xml",
       "provider": "Vodafone",
