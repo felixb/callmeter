@@ -1748,6 +1748,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_SmartMobile_de_All-in_XL",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_SmartMobile.de_All-in_XL.xml",
+      "provider": "SmartMobile.de",
+      "title": "All-in XL"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Smartmobil_de_All-in_100",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Smartmobil.de_All-in_100.xml",
       "provider": "Smartmobil.de",
