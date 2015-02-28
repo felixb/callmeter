@@ -3920,6 +3920,13 @@
     },
     {
       "country": "Netherlands",
+      "id": "f_Netherlands_Choozze_Zero",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_Choozze_Zero.xml",
+      "provider": "Choozze",
+      "title": "Zero"
+    },
+    {
+      "country": "Netherlands",
       "id": "f_Netherlands_Hollandsnieuwe_550",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_Hollandsnieuwe_550.xml",
       "provider": "Hollandsnieuwe",
