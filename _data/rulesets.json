@@ -1165,6 +1165,20 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_1und1_All-Net_amp_Surf_2_500",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_1und1_All-Net_amp_Surf_2.500.xml",
+      "provider": "1und1",
+      "title": "All-Net & Surf 2.500"
+    },
+    {
+      "country": "Germany",
+      "id": "f_Germany_1und1_All-Net_amp_Surf_1_500",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_1und1_All-Net_amp_Surf_1.500.xml",
+      "provider": "1und1",
+      "title": "All-Net & Surf 1.500"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_1und1_All-Net_amp_Surf_Giga_300_Einheiten",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_1und1_All-Net_amp_Surf_Giga_300_Einheiten.xml",
       "provider": "1und1",
