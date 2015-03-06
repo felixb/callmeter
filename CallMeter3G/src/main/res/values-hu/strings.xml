@@ -464,4 +464,7 @@
   <string name="second_sim_" formatted="false" username="lucian" orig="Second SIM card">Második SIM kártya</string>
   <string name="websms_" formatted="false" username="lucian" orig="WebSMS">WebSMS</string>
   <string name="calls_voip_" formatted="false" username="lucian" orig="VoIP calls with supported apps">VoIP hívások támogatott alkalmazásokkal</string>
+  <string name="analytics_" formatted="false" username="Maximumia &lt;tms@nincsmail.hu&gt;" orig="Collect anonymous statistics">Névtelen használati adatok gyűjtése</string>
+  <string name="analytics_hint" formatted="false" username="Maximumia &lt;tms@nincsmail.hu&gt;" orig="Collect anonymous usage statistics to help improving the app.">A névtelen használati adatok gyűjtése segít az alkalmazás tökéletesítésében.</string>
+  <string name="date_formats_4" formatted="false" username="Maximumia &lt;tms@nincsmail.hu&gt;" orig="DD MMM. YYYY">NN HHH. ÉÉÉÉ</string>
 </resources>

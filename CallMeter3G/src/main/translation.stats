@@ -83,7 +83,7 @@ res/values-hu/intro.xml:10
 res/values-hu/market.xml:7
 res/values-hu/notes.xml:0
 res/values-hu/simple_prefs.xml:19
-res/values-hu/strings.xml:443
+res/values-hu/strings.xml:446
 res/values-it/donation.xml:5
 res/values-it/help.xml:14
 res/values-it/intro.xml:10
@@ -207,7 +207,7 @@ res/values-es:498
 res/values-fr:495
 res/values-hi:7
 res/values-hr:501
-res/values-hu:498
+res/values-hu:501
 res/values-it:495
 res/values-iw:443
 res/values-ko:0
