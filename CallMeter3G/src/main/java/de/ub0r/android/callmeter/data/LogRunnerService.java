@@ -454,7 +454,7 @@ public final class LogRunnerService extends IntentService {
         if (c == null) {
             return -1;
         }
-        for (String s : new String[]{"sim_id", "simid", "sub_id", "sim_slot"}) {
+        for (String s : new String[]{"sim_id", "simid", "sub_id", "sim_slot", "sim_sn"}) {
             int id = c.getColumnIndex(s);
             if (id >= 0) {
                 Log.d(TAG, "sim_id column found: ", s);
