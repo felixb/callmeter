@@ -966,6 +966,13 @@
     },
     {
       "country": "Czech Republic",
+      "id": "f_Czech_Republic_Vodafone_Odepi",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_Vodafone_Odepi.xml",
+      "provider": "Vodafone",
+      "title": "Odepi\u0161"
+    },
+    {
+      "country": "Czech Republic",
       "id": "f_Czech_Republic_o2_Free_EU_plus",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_o2_Free_EU_plus.xml",
       "provider": "o2",
