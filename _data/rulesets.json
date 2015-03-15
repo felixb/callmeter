@@ -1277,17 +1277,17 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_ALDITALK_Paket_600",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_ALDITALK_Paket_600.xml",
+      "provider": "AldiTalk",
+      "title": "Paket 600, Variante 2"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_AldiTalk_300",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_AldiTalk_300.xml",
       "provider": "AldiTalk",
       "title": "300"
-    },
-    {
-      "country": "Germany",
-      "id": "f_Germany_ALDITALK_Paket_600",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_ALDITALK_Paket_600.xml",
-      "provider": "Alditalk",
-      "title": "Paket 600"
     },
     {
       "country": "Germany",
