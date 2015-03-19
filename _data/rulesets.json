@@ -2853,6 +2853,13 @@
     },
     {
       "country": "Hungary",
+      "id": "f_Hungary_Vodafone_ltalnos_Kzszolglati_Flotta_Plusz__500_perc_vodafon",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Vodafone_ltalnos_Kzszolglati_Flotta_Plusz__500_perc_vodafon.xml",
+      "provider": "Vodafone",
+      "title": "\u00c1ltal\u00e1nos K\u00f6zszolg\u00e1lati Flotta Plusz + 500 perc vodafon"
+    },
+    {
+      "country": "Hungary",
       "id": "f_Hungary_Vodafone_Economy_System",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Vodafone_Economy_System.xml",
       "provider": "Vodafone",
