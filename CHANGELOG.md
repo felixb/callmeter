@@ -1,5 +1,8 @@
 # List of versions and changes for Call Meter 3G aka cm3
 
+## 3.12
+ * Android 5.1 multi SIM support
+
 ## 3.11.7
  * fix FCs on Android 5.0
  * fix FCs on Android 2.3
