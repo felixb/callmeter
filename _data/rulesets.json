@@ -1952,6 +1952,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Winsim_LTE_Mini_Plus_2000",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Winsim_LTE_Mini_Plus_2000.xml",
+      "provider": "Winsim",
+      "title": "LTE Mini Plus 2000"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_all_Numbergroups_for_German_providers",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_all_Numbergroups_for_German_providers.xml",
       "provider": "all",
