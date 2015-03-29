@@ -348,6 +348,13 @@
     },
     {
       "country": "Brazil",
+      "id": "f_Brazil_Vivo_smatilim_4g_PL200_smsddd-tit",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Brazil_Vivo_smatilim_4g_PL200_smsddd-tit.xml",
+      "provider": "Vivo",
+      "title": "smatilim 4g PL200 sms+ddd-tit"
+    },
+    {
+      "country": "Brazil",
       "id": "f_Brazil_Vivo_smartphone_Ilimitado_3G_-_60_minutos",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Brazil_Vivo_smartphone_Ilimitado_3G_-_60_minutos.xml",
       "provider": "Vivo",
