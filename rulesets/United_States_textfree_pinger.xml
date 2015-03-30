@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
-  <country>USA</country>
+  <country>United States</country>
   <provider>textfree</provider>
   <title>pinger</title>
   <plans>
