@@ -371,6 +371,20 @@
   "Bulgaria": [
     {
       "country": "Bulgaria",
+      "id": "f_Bulgaria_Bob_boombob",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Bulgaria_Bob_boombob.xml",
+      "provider": "Bob",
+      "title": "boombob+"
+    },
+    {
+      "country": "Bulgaria",
+      "id": "f_Bulgaria_Bob_super",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Bulgaria_Bob_super.xml",
+      "provider": "Bob",
+      "title": "super"
+    },
+    {
+      "country": "Bulgaria",
       "id": "f_Bulgaria_Bob_Minibob",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Bulgaria_Bob_Minibob.xml",
       "provider": "Bob",
@@ -494,13 +508,6 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Bulgaria_VIVACOM_Unicall_L__Data_unlimited.xml",
       "provider": "VIVACOM",
       "title": "Unicall L + Data unlimited"
-    },
-    {
-      "country": "Bulgaria",
-      "id": "f_Bulgaria_bob_super_",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Bulgaria_bob_super_.xml",
-      "provider": "bob",
-      "title": "super"
     }
   ],
   "Chile": [
@@ -1344,6 +1351,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Blau.de_Einheitstarif_mit_SmartOption.xml",
       "provider": "Blau.de",
       "title": "Einheitstarif mit SmartOption"
+    },
+    {
+      "country": "Germany",
+      "id": "f_Germany_Callmobile_Smart_200",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Callmobile_Smart_200.xml",
+      "provider": "Callmobile",
+      "title": "Smart 200"
     },
     {
       "country": "Germany",
@@ -5239,15 +5253,6 @@
       "title": "Cep Avantaj Mini"
     }
   ],
-  "USA": [
-    {
-      "country": "USA",
-      "id": "f_USA_textfree_pinger",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/USA_textfree_pinger.xml",
-      "provider": "textfree",
-      "title": "pinger"
-    }
-  ],
   "Ukraine": [
     {
       "country": "Ukraine",
@@ -5344,22 +5349,29 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/United_States_Platinum_Tel_PayGo.xml",
       "provider": "Platinum Tel",
       "title": "PayGo"
+    },
+    {
+      "country": "United States",
+      "id": "f_United_States_textfree_pinger",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/United_States_textfree_pinger.xml",
+      "provider": "textfree",
+      "title": "pinger"
     }
   ],
   "Uruguay": [
-    {
-      "country": "Uruguay",
-      "id": "f_Uruguay_ANTEL_Convenio_SL_250",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Uruguay_ANTEL_Convenio_SL_250.xml",
-      "provider": "ANTEL",
-      "title": "Convenio SL 250"
-    },
     {
       "country": "Uruguay",
       "id": "f_Uruguay_Antel_Vera_630_SL",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Uruguay_Antel_Vera_630_SL.xml",
       "provider": "Antel",
       "title": "Vera 630 SL"
+    },
+    {
+      "country": "Uruguay",
+      "id": "f_Uruguay_Antel_Convenio_SL_250",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Uruguay_Antel_Convenio_SL_250.xml",
+      "provider": "Antel",
+      "title": "Convenio SL 250"
     },
     {
       "country": "Uruguay",
@@ -5370,10 +5382,10 @@
     },
     {
       "country": "Uruguay",
-      "id": "f_Uruguay_super_ANTEL_plan_750",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Uruguay_super_ANTEL_plan_750.xml",
-      "provider": "super",
-      "title": "ANTEL plan 750"
+      "id": "f_Uruguay_Antel_super_plan_750",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Uruguay_Antel_super_plan_750.xml",
+      "provider": "Antel",
+      "title": "super plan 750"
     }
   ],
   "Venezuela": [

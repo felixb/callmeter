@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
   <country>Bulgaria</country>
-  <provider>bob</provider>
-  <title>super </title>
+  <provider>Bob</provider>
+  <title>super</title>
   <plans>
     <plan>
       <_id>12</_id>
