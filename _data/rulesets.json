@@ -67,6 +67,13 @@
     },
     {
       "country": "Argentina",
+      "id": "f_Argentina_Personal_Black_360",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Argentina_Personal_Black_360.xml",
+      "provider": "Personal",
+      "title": "Black 360"
+    },
+    {
+      "country": "Argentina",
       "id": "f_Argentina_Personal_Todo_Incluido_250",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Argentina_Personal_Todo_Incluido_250.xml",
       "provider": "Personal",
