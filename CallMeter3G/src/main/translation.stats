@@ -181,7 +181,7 @@ res/values-tr/intro.xml:10
 res/values-tr/market.xml:7
 res/values-tr/notes.xml:0
 res/values-tr/simple_prefs.xml:19
-res/values-tr/strings.xml:445
+res/values-tr/strings.xml:446
 res/values-zh-rCN/donation.xml:0
 res/values-zh-rCN/help.xml:0
 res/values-zh-rCN/intro.xml:0
@@ -221,6 +221,6 @@ res/values-sk:498
 res/values-sr:495
 res/values-sv:79
 res/values-ta:0
-res/values-tr:500
+res/values-tr:501
 res/values-zh-rCN:283
 res/values-zh-rTW:80
