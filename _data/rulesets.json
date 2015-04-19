@@ -1754,6 +1754,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Ortel_Smart_180",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Ortel_Smart_180.xml",
+      "provider": "Ortel",
+      "title": "Smart 180"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Premiumsim_Smart_500",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Premiumsim_Smart_500.xml",
       "provider": "Premiumsim",
