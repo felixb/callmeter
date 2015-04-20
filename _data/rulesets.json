@@ -1698,6 +1698,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Maxxim_All-in_500_plus",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Maxxim_All-in_500_plus.xml",
+      "provider": "Maxxim",
+      "title": "All-in 500 plus"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Maxxim_All_in_XS_smart_695Monat",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Maxxim_All_in_XS_smart_695Monat.xml",
       "provider": "Maxxim",
@@ -5281,6 +5288,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Ukraine_Kyivstar_Comfort_100.xml",
       "provider": "Kyivstar",
       "title": "Comfort 100"
+    },
+    {
+      "country": "Ukraine",
+      "id": "f_Ukraine_MTS_Super_bez_PZS_0-50_Kontrakt_s_uchetom_PensFond",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Ukraine_MTS_Super_bez_PZS_0-50_Kontrakt_s_uchetom_PensFond.xml",
+      "provider": "MTS",
+      "title": "Super bez PZS 0-50 (Kontrakt, s uchetom PensFond)"
     },
     {
       "country": "Ukraine",
