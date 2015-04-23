@@ -126,7 +126,7 @@
   <string name="new_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="New">Novo</string>
   <string name="help_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Help">Ajuda</string>
   <string name="contacts_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Contacts">Contatos</string>
-  <string name="prepaid_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Prepaid plan">Plano Pré Pago</string>
+  <string name="prepaid_" formatted="false" username="daniel.silvestre@gmail.com" orig="Prepaid plan">Plano Pré-pago</string>
   <string name="mms" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="MMS">MMS</string>
   <string name="sms" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="SMS">SMS</string>
   <string name="messages_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="SMS/MMS">SMS/MMS</string>
@@ -284,7 +284,7 @@
   <string name="textsize_title_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Text size for titles in pixels; leave empty for default">Tamanho do texto para títulos em pixels; deixe em branco para padrão</string>
   <string name="textsize_bigtitle_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Text size for big titles in pixels; leave empty for default">Tamanho do texto para títulos grandes em pixels; deixe em branco para padrão</string>
   <string name="textsize_spacer_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Size for spacers in pixels; leave empty for default">Tamanho dos espaçadores em pixels; deixe em branco para padrão</string>
-  <string name="textsize_pbar_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Size for progress bars in pixels; leave empty for default">Tamanho da barras de progresso em pixels; deixe em branco para padrão</string>
+  <string name="textsize_pbar_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Size for progress bars in pixels; leave empty for default">Tamanho das barras de progresso em pixels; deixe em branco para padrão</string>
   <string name="show_hours_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Mostrar o tempo em segundos, minutos, horas e dias.\nSe nada for marcado apenas segundos e minutos serão mostrados.</string>
   <string name="show_calllength_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Show length/cost of a call after hanging up.">Mostrar duração/custo da chamada após desligar.</string>
   <string name="custom_currency_format_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Custom currency format">Formato de moeda personalizado</string>
@@ -318,4 +318,76 @@
   <string name="billperiod_sn" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="BillPeriod">Período de cobrança</string>
   <string name="cost_per_amount_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Cost per length">Custo por duração</string>
   <string name="export_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Export rule sets, logs or groups">Exportar conjuntos de regras, logs ou grupos</string>
+  <string name="up_" formatted="false" username="daniel.silvestre@gmail.com" orig="Move up">Mover para cima</string>
+  <string name="down_" formatted="false" username="daniel.silvestre@gmail.com" orig="Move down">Mover para baixo</string>
+  <string name="billday_last" formatted="false" username="daniel.silvestre@gmail.com" orig="Last day of your bill">Último dia de cobrança</string>
+  <string name="widget_stats_title" formatted="false" username="daniel.silvestre@gmail.com" orig="Call Meter (stats)">Call Meter (estatísticas)</string>
+  <string name="widget_logs_title" formatted="false" username="daniel.silvestre@gmail.com" orig="Call Meter (last log)">Call Meter (último log)</string>
+  <string name="date_begin_" formatted="false" username="daniel.silvestre@gmail.com" orig="Beginning of records">Ínicio dos registros</string>
+  <string name="update_interval_data_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Update data stats needs to be done more often. Esp. Samsung needs very short intervals.">A atualização de dados estatísticos precisa ser feita com maior frequência. Esp. Samsung necessita de intervalos muito curtos.</string>
+  <string name="delete_old_logs_" formatted="false" username="daniel.silvestre@gmail.com" orig="Delete logs older than">Excluir logs anteriores a</string>
+  <string name="simple_preferences_deactivated" formatted="false" username="daniel.silvestre@gmail.com" orig="Simple preferences are available for default rule set only. Import the default rule set to reactivate.">Preferências simples estão disponíveis somente para o conjunto de regras padrão. Importe o conjunto de regras padrão para reativar.</string>
+  <string name="textsize_title_" formatted="false" username="daniel.silvestre@gmail.com" orig="Title\'s text size">Tamanho do texto do título</string>
+  <string name="textsize_bigtitle_" formatted="false" username="daniel.silvestre@gmail.com" orig="Big title\'s text size">Tamanho do texto do título grande</string>
+  <string name="textsize_pbarbp_" formatted="false" username="daniel.silvestre@gmail.com" orig="Bill period\'s progress bar\'s size">Tamanho da barra de progresso do período de cobrança</string>
+  <string name="textsize_pbarbp_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Tamanho das barras de progresso do período de cobrança; deixe em branco para padrão</string>
+  <string name="show_titlebar_" formatted="false" username="daniel.silvestre@gmail.com" orig="Show title bar">Mostrar barra de título</string>
+  <string name="show_titlebar_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Show title bar in main view. Without title bar, there is no way to see background activity.">Mostrar barra de título na visão principal. Sem a barra de título, não existe forma de ver as atividades em segundo plano.</string>
+  <string name="show_help_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Show help in Plans/Rules setup view.">Mostrar ajuda em na visão de configuração de Planos/Regras.</string>
+  <string name="show_target_billday_" formatted="false" username="daniel.silvestre@gmail.com" orig="Show last bill day">Mostrar último dia de cobrança</string>
+  <string name="show_target_billday_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Show last day of bill instead of first.">Mostrar o último dia de cobrança em vez do primeiro.</string>
+  <string name="hide_zero_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Hide plans containing no item.">Ocultar planos que não contêm itens.</string>
+  <string name="hide_progressbars_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Hide progress bars in main view.">Ocultar barras de progresso na visão principal.</string>
+  <string name="split_sms_at_160_" formatted="false" username="daniel.silvestre@gmail.com" orig="Split text messages at 160 chars">Separar mensagens de texto a cada 160 caracteres</string>
+  <string name="split_sms_at_160_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Disable to use android\'s system method.">Desative para usar o método do sistema Android.</string>
+  <string name="ask_for_plan_" formatted="false" username="daniel.silvestre@gmail.com" orig="Ask for plan">Pedir plano</string>
+  <string name="ask_for_plan_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Ask for plan for unmatched calls after hanging up.">Após desligar, pedir plano para chamadas não coincidentes com um plano.</string>
+  <string name="autohide_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Ocultar diálogo depois de .. segundos. Deixe em branco para desativar o auto ocultar.</string>
+  <string name="blength_" formatted="false" username="daniel.silvestre@gmail.com" orig="Billed length">Período cobrado</string>
+  <string name="numbergroup_help" formatted="false" username="daniel.silvestre@gmail.com" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Adicione os números que devem coincidir com esta regra.\n\nCaracteres curingas ("%") são permitidos em ambas as extremidades do número.\nEx. %34 coincidirá com 1234, 12% coincidirá com 1234 e %23% coincidirá com 12345.</string>
+  <string name="exnumbergroup_help" formatted="false" username="daniel.silvestre@gmail.com" orig="Add some numbers this rule must not match.\nSee above.">Adicione os números que não devem coincidir com esta regra.\nVeja acima.</string>
+  <string name="hourgroup_help" formatted="false" username="daniel.silvestre@gmail.com" orig="Add some hours this rule must match.">Adicione as horas que devem coincidir com esta regra.</string>
+  <string name="exhourgroup_help" formatted="false" username="daniel.silvestre@gmail.com" orig="Add some hours this rule must not match.">Adicione as horas que não devem coincidir com esta regra.</string>
+  <string name="empty_group" formatted="false" username="daniel.silvestre@gmail.com" orig="Empty groups won\'t match anything. Please go back and add at least one item.">Grupos vazios não coincidem com nada. Por favor volte e adicione ao menos um item.</string>
+  <string name="calls_in" formatted="false" username="daniel.silvestre@gmail.com" orig="Calls In">Chamadas Recebidas</string>
+  <string name="calls_in_" formatted="false" username="daniel.silvestre@gmail.com" orig="CallsIn">ChamadasRecebidas</string>
+  <string name="calls_out" formatted="false" username="daniel.silvestre@gmail.com" orig="Calls Out">Chamadas Efetuadas</string>
+  <string name="calls_out_" formatted="false" username="daniel.silvestre@gmail.com" orig="CallsOut">ChamadasEfetuadas</string>
+  <string name="sms_in" formatted="false" username="daniel.silvestre@gmail.com" orig="SMS In">SMS Recebido</string>
+  <string name="sms_out" formatted="false" username="daniel.silvestre@gmail.com" orig="SMS Out">SMS Enviado</string>
+  <string name="sms_out_" formatted="false" username="daniel.silvestre@gmail.com" orig="SMSOut">SMSEnviado</string>
+  <string name="sms_in_" formatted="false" username="daniel.silvestre@gmail.com" orig="SMSIn">SMSRecebido</string>
+  <string name="mms_in" formatted="false" username="daniel.silvestre@gmail.com" orig="MMS In">MMS Recebido</string>
+  <string name="mms_in_" formatted="false" username="daniel.silvestre@gmail.com" orig="MMSIn">MMSRecebido</string>
+  <string name="mms_out" formatted="false" username="daniel.silvestre@gmail.com" orig="MMS Out">MMS Enviado</string>
+  <string name="mms_out_" formatted="false" username="daniel.silvestre@gmail.com" orig="MMSOut">MMSEnviado</string>
+  <string name="data_inout" formatted="false" username="daniel.silvestre@gmail.com" orig="Data In/Out">Dados Recebidos/Enviados</string>
+  <string name="data_inout_" formatted="false" username="daniel.silvestre@gmail.com" orig="DataInOut">DadosRecebidosEnviados</string>
+  <string name="second_sim_" formatted="false" username="daniel.silvestre@gmail.com" orig="Second SIM card">Segundo cartão SIM</string>
+  <string name="prepaid_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Bill on prepaid basis. Cost is substracted from balance as you call etc.">Cobrança baseada em pré-pago. O custo é descontado do saldo a cada chamada.</string>
+  <string name="strip_leading_zeros_" formatted="false" username="daniel.silvestre@gmail.com" orig="Strip leading zeros">Ignorar zeros à esquerda</string>
+  <string name="strip_leading_zeros_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Strip leading zeros when comparing numbers.">Ignorar zeros à esquerda ao comparar números.</string>
+  <string name="my_number_" formatted="false" username="daniel.silvestre@gmail.com" orig="My number">Meu número</string>
+  <string name="my_number_help" formatted="false" username="daniel.silvestre@gmail.com" orig="Match only logs, while this SIM/number is active.">Apenas registrar coincidências enquanto este SIM/número estiver ativo.</string>
+  <string name="my_sim_id_" formatted="false" username="daniel.silvestre@gmail.com" orig="SIM Id">Id do SIM</string>
+  <string name="set_current_number" formatted="false" username="daniel.silvestre@gmail.com" orig="Current number">Número atual</string>
+  <string name="number_prefix_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">Seu prefixo internacional no formato +1 ou +55. Utilizado para números coincidentes com +5511.. e +0179..</string>
+  <string name="reset_data_data_" formatted="false" username="daniel.silvestre@gmail.com" orig="Reset traffic too.">Redefinir tráfego também.</string>
+  <string name="reset_data_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Resetting call/sms data will result in recalculation of the statistics.\n\nResetting traffic statistics is permanent. It only resets traffic done before boot!">Redefinir as informações de chamadas/sms resultará em recálculo das estatísticas.\n\nA redefinição das estatísticas de tráfego é permanente. Apenas redefine o tráfego efetuado antes da inicialização!</string>
+  <string name="delete_group_" formatted="false" username="daniel.silvestre@gmail.com" orig="Delete group">Excluir grupo</string>
+  <string name="delete_group_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Do you really want to delete this group?">Quer mesmo excluir este grupo?</string>
+  <string name="delete_plan_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Do you really want to delete this plan?">Quer mesmo excluir este plano?</string>
+  <string name="delete_rule_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Do you really want to delete this rule?">Quer mesmo excluir esta regra?</string>
+  <string name="limit_type_" formatted="false" username="daniel.silvestre@gmail.com" orig="Limit type">Tipo de limite</string>
+  <string name="country" formatted="false" username="daniel.silvestre@gmail.com" orig="Country">País</string>
+  <string name="analytics_" formatted="false" username="daniel.silvestre@gmail.com" orig="Collect anonymous statistics">Coletar estatísticas anônimas</string>
+  <string name="analytics_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Collect anonymous usage statistics to help improving the app.">Coletar estatísticas de uso anônimas para ajudar a melhorar o aplicativo.</string>
+  <string name="plan" formatted="false" username="daniel.silvestre@gmail.com" orig="Plan">Plano</string>
+  <string name="website_" formatted="false" username="daniel.silvestre@gmail.com" orig="Website:">Website:</string>
+  <string name="author_" formatted="false" username="daniel.silvestre@gmail.com" orig="Author:">Autor:</string>
+  <string name="license_" formatted="false" username="daniel.silvestre@gmail.com" orig="License:">Licença:</string>
+  <string name="license" formatted="false" username="daniel.silvestre@gmail.com" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - acesse http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="strip_seconds_help" formatted="false" username="daniel.silvestre@gmail.com" orig="Do not bill first x seconds of a call.">Não cobrar os primeiros x segundos de uma chamada.</string>
+  <string name="export_logs_csv_" formatted="false" username="daniel.silvestre@gmail.com" orig="Export CSV">Exportar CSV</string>
+  <string name="export_logs_csv_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Export logs as CSV.">Exportar logs como CSV.</string>
 </resources>

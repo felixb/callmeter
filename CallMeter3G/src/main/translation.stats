@@ -137,7 +137,7 @@ res/values-pt-rBR/intro.xml:10
 res/values-pt-rBR/market.xml:7
 res/values-pt-rBR/notes.xml:0
 res/values-pt-rBR/simple_prefs.xml:19
-res/values-pt-rBR/strings.xml:297
+res/values-pt-rBR/strings.xml:369
 res/values-pt/simple_prefs.xml:19
 res/values-pt/strings.xml:443
 res/values-ru/donation.xml:5
@@ -215,7 +215,7 @@ res/values-nb:370
 res/values-nl:498
 res/values-pl:487
 res/values-pt:498
-res/values-pt-rBR:352
+res/values-pt-rBR:424
 res/values-ru:501
 res/values-sk:498
 res/values-sr:495
