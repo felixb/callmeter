@@ -1761,6 +1761,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_O2_loop__All-In_5_GB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_O2_loop__All-In_5_GB.xml",
+      "provider": "O2",
+      "title": "loop + All-In 5 GB"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Ortel_Smart_180",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Ortel_Smart_180.xml",
       "provider": "Ortel",
