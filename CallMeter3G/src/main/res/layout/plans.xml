@@ -20,13 +20,14 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
 
-    <LinearLayout
-            android:id="@+id/ad"
-            android:layout_width="fill_parent"
+    <com.google.android.gms.ads.AdView
+            android:id="@+id/ads"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:gravity="center_horizontal"
-            android:visibility="gone"/>
+            app:adUnitId="ca-app-pub-1948477123608376/3725600484"
+            app:adSize="SMART_BANNER"/>
 
     <com.viewpagerindicator.TitlePageIndicator
             android:id="@+id/titles"
@@ -41,7 +42,7 @@
             android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/ad"
+            android:layout_above="@id/ads"
             android:layout_below="@id/titles"/>
 
 </RelativeLayout>

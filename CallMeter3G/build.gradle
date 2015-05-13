@@ -3,13 +3,27 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.14.2'
+        classpath 'com.android.tools.build:gradle:1.1.0'
+        classpath('com.github.triplet.gradle:play-publisher:1.0.1') {
+            exclude group: 'com.google.guava'
+        }
     }
 }
 
 apply plugin: 'com.android.application'
+apply plugin: 'play'
+
+play {
+    uploadImages = false
+    serviceAccountEmail =
+            '925691948433-pl4bec638njeenipednmsmo0q55j6907@developer.gserviceaccount.com'
+    pk12File = file('play_api_client.p12')
+}
 
 repositories {
+    maven {
+        url 'https://github.com/felixb/ub0rlib/raw/mvn-repo/'
+    }
     maven {
         url 'https://raw.githubusercontent.com/felixb/ub0rlogg0r/mvn-repo/'
     }
@@ -62,12 +76,12 @@ def getVersionCode = { minSdk ->
 }
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion '20'
+    compileSdkVersion 22
+    buildToolsVersion '22.0.0'
 
     defaultConfig {
-        minSdkVersion 8
-        targetSdkVersion 19
+        minSdkVersion 9
+        targetSdkVersion 22
         versionName getVersionName()
         versionCode getVersionCode(minSdkVersion.mApiLevel)
         buildConfigField 'boolean', 'DEBUG_LOG', 'true'
@@ -118,14 +132,26 @@ android {
             buildConfigField 'boolean', 'DEBUG_LOG', 'false'
         }
     }
+
+    applicationVariants.all { variant ->
+        if (!variant.name.contains('debug')) {
+            variant.outputs.each { output ->
+                def file = output.outputFile
+                output.outputFile = new File(file.parent,
+                        file.name.replace('.apk', '-' + defaultConfig.versionName + '.apk'))
+            }
+        }
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
-    compile 'com.android.support:support-v4:20.+'
+    compile 'com.android.support:support-v4:22.0.0'
+    compile 'com.google.android.gms:play-services-ads:7.0.0'
     compile 'com.actionbarsherlock:actionbarsherlock:+@aar'
-    compile 'com.actionbarsherlock:viewpagerindicator:+'
-    compile 'de.ub0r.android.logg0r:logg0r:+'
+    compile 'com.actionbarsherlock:viewpagerindicator:2.4.1'
+    compile 'de.ub0r.android.lib:lib:1.0.1'
+    compile 'de.ub0r.android.logg0r:logg0r:2.0.0'
 }
 
 task updateChangelog << {

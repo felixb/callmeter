@@ -1,0 +1,25 @@
+Call Meter li permet mantenir vigilats els seus plans.
+
+Mostra estadístiques de les seves trucades/sms/mms/dades i li permet establir límits per a cada un d'aquests plans.
+Call Meter incorpora moltes varietats de facturació que permetran adaptar-se a la facturació del seu operador.
+
+Aquesta és una aplicació de codi lliure construida en els temps lliures. Afegint comentaris negatius no ajuda a millorar-la.
+Si us plau afegeixi els seus comentaris sobre aquesta aplicació en la pàgina web de la mateixa.
+
+És una reconstrucció completa de Call Meter NG. Disposa d'una gran quantitat de noves característiques com alertes i widgets.
+La seva nova arquitectura permet plans més complexos.
+Es lliure de provar-la així com a ajudar a que sigui de més fàcil ús.
+
+Permisos de l'aplicaciÓ:
+* Llegir SMS o MMS: contar els missatges
+* Rebre SMS: registres d'actualització abans que un missatge rebut sigui eliminat
+* Accés total a Internet: importació de regles
+* Llegir dades de contacte: convertir els números a noms (per exemple, en grups de números)
+* Modificar / esborrar els continguts de la targeta SD: escriure / exportar regles per a targetes SD
+* Llegir estat del telèfon: registres d'actualització en segon pla
+* Prevenir que el dispositiu entri en mode sleeping: registres d'actualització en segon pla
+
+Sentis lliure d'ajudar a traduïr l'aplicació al seu idioma aquí:
+http://ub0r.de/translate/cm3/
+
+Si us plau, visiti https://github.com/felixb/callmeter/issues per preguntes i propostes de millora.

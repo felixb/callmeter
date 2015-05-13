@@ -216,7 +216,7 @@
   <string name="shortname_" formatted="false">Kurzname</string>
   <string name="shortname_help" formatted="false">Setze hier einen Namen. Dieser wird in kompakten Layouts benutzt.</string>
   <string name="type_" formatted="false">Typ</string>
-  <string name="type_help" formatted="false">Wähle einen Typ aus.\n\"Titel\" zeigt einfach nur eine Titelzeile an.\nEin \"Abstandshalter\" zeigt nichts an.\nDer \"Abrechnungszeitraum\" hält Inforamtionen über deinen Abrechnungszeitrau. Die meisten Nutzer benötigen genau einen.\nIn einem \"Mixed\" Kontingent können Anrufe und Nachrichten gleichzeitig abgerechnet werden.\n"Anrufe\", \"SMS\", \"MMS\" oder \"Daten\" Kontingente sind für die Abrechnung der jeweiligen Typen bestimmt.</string>
+  <string name="type_help" formatted="false">Wähle einen Typ aus.\n\"Titel\" zeigt einfach nur eine Titelzeile an.\nEin \"Abstandshalter\" zeigt nichts an.\nDer \"Abrechnungszeitraum\" hält Informationen über deinen Abrechnungszeitraum. Die meisten Nutzer benötigen genau einen.\nIn einem \"Mixed\" Kontingent können Anrufe und Nachrichten gleichzeitig abgerechnet werden.\n"Anrufe\", \"SMS\", \"MMS\" oder \"Daten\" Kontingente sind für die Abrechnung der jeweiligen Typen bestimmt.</string>
   <string name="limit_type_" formatted="false">Limittyp</string>
   <string name="limit_type_help" formatted="false">Wähle hier einen Typ des Limits aus.\nBei \"Einheite\" wird das Kontingent nach Minuten/SMS/MB abgerechnet. Bei \"Kosten\" geschieht die Limitbrechnung auf Basis der entstandenen Kosten.</string>
   <string name="limit_" formatted="false">Limit</string>

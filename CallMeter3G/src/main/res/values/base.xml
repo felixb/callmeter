@@ -47,7 +47,7 @@
 	<string name="export_rules_body" translatable="false">Hi developer,\nhere are the rules for my provider. Please add it to the website to let others enjoy it. Please see the details below.\n\nCountry: %s\nProvider: %s\nPlan name: %s\n\nCheers, a User</string>
 	<string name="country_value" translatable="false"></string>
 
-	<string name="url_rulesets" translatable="false">http://www.ub0r.de/android/callmeter/rulesets/</string>
+	<string name="url_rulesets" translatable="false">https://felixb.github.io/callmeter/rulesets/</string>
 
 	<dimen name="touchlist_height">30dip</dimen>
 	<dimen name="widget_margin">4dp</dimen>

@@ -1,0 +1,22 @@
+Call Meter deixa você de olho na sua conta de telefone.
+
+Mostra as estatísticas das suas ligações/mensagens/mms/dados e permite que você defina um limite para cada um dos serviços. 
+Call Meter suporta vários tipos de planos e você pode adaptar a sua utilização ao plano de sua operadora.
+
+Este aplicativo é de código aberto e é desenvolvido no meu tempo livre. Enviar comentários desnecessários não ajudam no desenvolvimento do aplicativo.
+Envie os erros encontrados e sugestões no site do aplicativo.
+
+Esta é uma versão completamente refeita do Call Meter NG. Ela tem várias novidades e melhorias como widgets e alertas.
+Com uma nova arquitetura, permite planos mais complexos.
+Sinta-se livre para testar e torná-lo cada vez melhor. ;)
+
+Permissões para esta aplicação:
+* READ SMS OR MMS: contar as suas mensagens (SMS ou MMS)
+* RECEIVE SMS: actualizar logs antes que uma mensagem recebida seja apagada
+* FULL INTERNET ACCESS: importar regras
+* READ CONTACT DATA: converter números para nomes
+* MODIFY/DELETE SD CARD CONTENTS: escrever/exportar regras para o cartão SD
+* READ PHONE STATE AND IDENTITY: actualizar logs em background
+* PREVENT DEVICE FROM SLEEPING: actualizar logs em background
+
+Sinta-se á vontade para ajudar na tradução deste aplicativo aqui: http://ub0r.de/translate/cm3/

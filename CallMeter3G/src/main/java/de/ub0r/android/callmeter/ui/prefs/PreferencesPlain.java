@@ -113,7 +113,7 @@ public final class PreferencesPlain extends TrackingSherlockPreferenceActivity i
                             f.delete();
                         }
                         HttpURLConnection c = (HttpURLConnection) new URL(
-                                "http://ub0r.de/android/callmeter/rulesets/rulesets.json")
+                                "https://raw.githubusercontent.com/felixb/callmeter/gh-pages/_data/rulesets.json")
                                 .openConnection();
                         Log.i(TAG, "load new data: " + c.getURL());
                         BufferedReader r = new BufferedReader(new InputStreamReader(
