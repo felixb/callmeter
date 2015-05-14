@@ -21,17 +21,11 @@
                Visit http://ub0r.de/translate/cm3/pt/strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Alterações recentes:</string>
-  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Clique aqui para mostrar as alterações recentes</string>
-  <string name="never_show_again" formatted="false" orig="Never show changelog again" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Não mostrar o registo de alterações</string>
-  <string name="notes_from_developer_" formatted="false" orig="Notes from developer" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Notas do programador</string>
-  <string name="notes_from_developer_text" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Click here to show recent news from the developer">Clique aqui para mostrar novidades do programador</string>
   <string name="about0_" formatted="false" orig="Watch your call, message and data plans!" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">Monitorize as chamadas, mensagens e planos de dados!</string>
   <string name="about0" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">O CallMeter gera relatórios de chamadas, mensagens e dados. Possui suporte a vários métodos de faturação.</string>
   <string name="about1" formatted="false" orig="The output format is usage | time or count used this billing period | time or count overall." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">O formato de exibição é: utilização| tempo ou contagem neste período de cobrança | tempo ou contagem total.</string>
   <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s." username="Sérgio Marques &lt;smarquespt@gmail.com&gt;">O método de faturação determina a duração do primeiro e seguintes períodos de faturação. Por exemplo: 60/10 significa que todas as chamadas são faturadas, pelo menos, durante 60 segundos e se superior é faturada por períodos de 10 segundos.</string>
   <string name="about3" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">O CallMeter é executado em segundo plano a cada 30 minutos (se não estiver em modo de espera). Isto significa que a eliminação de chamadas ou mensagens após 30 minutos a execução ou receção não afeta as estatísticas. Mas se as eliminar durante este período pode distorcer as estatísticas.</string>
-  <string name="send_" formatted="false">Enviar</string>
   <string name="add_" formatted="false">Adicionar</string>
   <string name="add_log" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Add log entry">Adicionar item de registo</string>
   <string name="length_hint_call" formatted="false">Duração em segundos</string>

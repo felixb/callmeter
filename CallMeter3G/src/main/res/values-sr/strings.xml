@@ -18,18 +18,12 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-  <string name="changelog_notification_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Recent changes:">Nedavne promene:</string>
-  <string name="changelog_notification_text" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Click here to show recent changes of">Kliknite ovde za prikaz nedavnih promena</string>
-  <string name="never_show_again" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Never show changelog again">Ne prikazuj više promenu</string>
-  <string name="notes_from_developer_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Notes from developer">Beleške programera</string>
-  <string name="notes_from_developer_text" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Click here to show recent news from the developer">Kliknite ovde za prikaz najnovijih vesti od programera</string>
   <string name="about0_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Watch your call, message and data plans!">Pratite svoje pozive, poruke i internet saobraćaj!</string>
   <string name="about0" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter generiše izveštaj za Vaše razgovore, poruke i prenešene podatke. Podržava nekoliko načina naplate.</string>
   <string name="about1" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="The output format is usage | time or count used this billing period | time or count overall.">Izlazni format koji brojač koristi je potrošnja po jedinici vremena ili potrošnja za obračunski period po jedinici vremena ili uopštena potrošnja.</string>
   <string name="about2" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">Način obračuna određuje dužinu prvog / sledećeg obračunskog intervala. Npr. 60/10 znači - svaki poziv kraći od 60s se zaokružuje na taj interval, sve nakon 60s se zaokružuje na po 10s.</string>
   <string name="about3" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter se pokreće u pozadini svakih 30min (samo ako nije u mirovanju). To znači da brisanje poziva ili poruka starijih od 30min neće promeniti vašu statistiku.</string>
   <string name="author_and_many_more" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="and many more...">i mnogo više...</string>
-  <string name="send_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Send">Pošalji</string>
   <string name="add_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Add">Dodaj</string>
   <string name="length_hint_call" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Length in seconds">Dužina u sekundama</string>
   <string name="add_log" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Add log entry">Dodaj izveštaj</string>

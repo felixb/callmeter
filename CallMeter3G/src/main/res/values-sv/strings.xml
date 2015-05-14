@@ -26,7 +26,6 @@
   <string name="about1" formatted="false">Visningsformatet är användning / tid eller uträknad kostnad med hjälp av prislistan eller total uträkning. Månadsuträkningen använder prislistan men total uträkning gör det inte.</string>
   <string name="about2" formatted="false">Kostnadsläge innebär att du ställer in hur samtal debiteras. Tex 60/10 menar att varje samtal räknas som minst 60 sekunder, samtal längre än så avrundas till nästa 10-sekunders period.</string>
   <string name="about3" formatted="false">CallMeter körs i bakgrunden var 30:e minut (om telefonen inte är i stand-by). Detta menar att om du raderar samtal eller SMS som är äldre än 30 minuter kommer de inte att förändra din uträkning. Raderar du samtal eller meddelanden som är nyare än 30 min riskerar du att få fel i uträkningen.</string>
-  <string name="send_" formatted="false">Skicka</string>
   <string name="add_" formatted="false">Lägg till</string>
   <string name="add_log" formatted="false">Lägg till loggpost</string>
   <string name="length_hint_call" formatted="false">Längd i sekunder</string>

@@ -26,7 +26,6 @@
   <string name="about1" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="The output format is usage | time or count used this billing period | time or count overall.">Il affiche le compte | le décompte du forfait pour une période de facturation | une période quelconque ou le décompte global. Le calcul du temps restant par mois prend en compte votre forfait, contrairement au décompte global.</string>
   <string name="about2" formatted="false">Le mode de facturation des appels permet de définir les durées minimales facturées (la première / les suivantes). Ces deux durées sont exprimées en seconde. Par exemple, 60/10 signifie que chaque appel est facturé au minimum 60 secondes, pour ensuite être facturé par tranche de 10 secondes.</string>
   <string name="about3" formatted="false" username="Fabrice kurz &lt;kurzf@voila.fr&gt;" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter se lance en arrière plan toutes les 30 minutes (uniquement lorsque le téléphone n\'est pas en veille). Cela signifie que les appels supprimés ou les messages datés de plus de 30 minutes ne modifieront pas vos statistiques. La suppression d\'appels ou de messages datés de moins de 30 minutes peut donc générer des statistiques fausses.</string>
-  <string name="send_" formatted="false">Envoyer</string>
   <string name="settings" formatted="false">Préférences</string>
   <string name="about_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="About">Ȧ propos de</string>
   <string name="about_hint" formatted="false">A propos de cette application</string>
@@ -55,11 +54,6 @@
   <string name="data_" formatted="false" orig="Data (2G/3G/4G)" username="Fabrice kurz &lt;kurzf@voila.fr&gt;">Internet(2G/3G/4G)</string>
   <string name="data_inout" formatted="false" orig="Data In/Out">Data Entrant/Sortant</string>
   <string name="now" formatted="false" orig="Now">Maintenant</string>
-  <string name="changelog_notification_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Recent changes:">Modifications récentes :</string>
-  <string name="changelog_notification_text" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Click here to show recent changes of">Appuyez ici pour avoir les modifications récentes de</string>
-  <string name="never_show_again" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Never show changelog again">Ne plus montrer le changelog</string>
-  <string name="notes_from_developer_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Notes from developer">Notes du développeur</string>
-  <string name="notes_from_developer_text" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Click here to show recent news from the developer">Appuyez ici pour visualiser les nouveautés</string>
   <string name="author_and_many_more" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="and many more...">et bien plus encore ...</string>
   <string name="add_" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Add">Ajouter</string>
   <string name="add_log" formatted="false" username="Fabrice KURZ &lt;kurzf@voila.fr&gt;" orig="Add log entry">Ajouter une entrée dans l\'historique</string>

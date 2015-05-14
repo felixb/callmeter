@@ -21,17 +21,11 @@
                Visit http://ub0r.de/translate/cm3/pl/strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Ostatnie zmiany:</string>
-  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Kliknij tutaj, aby wyświetlić ostatnie zmiany</string>
-  <string name="never_show_again" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Never show changelog again">Nie pokazuj więcej dziennika zmian</string>
-  <string name="notes_from_developer_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Notes from developer">Informacje od autora programu</string>
-  <string name="notes_from_developer_text" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Click here to show recent news from the developer">Kliknij aby zobaczyć najświeższe informacje od autora programu</string>
   <string name="about0_" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Watch your call, message and data plans!">Obserwuj swoje połączenia, wiadomości oraz pakiety danych!</string>
   <string name="about0" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter generuje raport na podstawie zapisów z połączeń, wiadomości i danych. Wspiera wiele typów planów taryfowych.</string>
   <string name="about1" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="The output format is usage | time or count used this billing period | time or count overall.">Format wyjściowy wykorzystuje | czas lub zlicza użycie z aktualnego okresu rozliczeniowego | czas lub całość ogółem.</string>
   <string name="about2" formatted="false">Rodzaj rozliczenia oznacza rodzaj rozliczenia. Np. 60/10 oznacza, że każde połączenie na starcie jest naliczane jako pełna minuta a każda następna sekunda jest zaokrąglana do 10s. Jeśli masz rozliczanie sekundowe powinieneś wybrać 1/1.</string>
   <string name="about3" formatted="false">CallMeter uruchamia się w tle co 30 min (jeśli nie jest w standby). Oznacza to, że usunięcie połączeń lub wiadomości starszych niż 30 min nie zmieni statystyk. Usunięcie wiadomości/połączeń starszych niż 30 min odbije się na przekłamanych statystykach.</string>
-  <string name="send_" formatted="false">Wyślij</string>
   <string name="add_" formatted="false">Dodaj</string>
   <string name="add_log" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Add log entry">Dodaj element dziennika zmian</string>
   <string name="length_hint_call" formatted="false">Długość w sekundach</string>

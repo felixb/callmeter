@@ -21,13 +21,7 @@
                Visit http://ub0r.de/translate/cm3/bg/strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Последни промени:</string>
-  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Натиснете тук за да видите последните промени на</string>
-  <string name="never_show_again" formatted="false" orig="Never show changelog again">Не показвай промените отново</string>
-  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Бележки от разработчика</string>
-  <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Натиснете тук за да видите последните бележки от разработчика</string>
   <string name="about0_" formatted="false" orig="Watch your call, message and data plans!">Следете тарифните планове за разговори, съобщения и мобилен Интернет!</string>
-  <string name="send_" formatted="false" orig="Send">Изпрати</string>
   <string name="add_" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Add">Добави</string>
   <string name="length_hint_data" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Length in kB">Дължина в kB</string>
   <string name="settings" formatted="false" username="Angel Kitov &lt;angel.kitov@gmail.com&gt;" orig="Preferences">Настройки</string>

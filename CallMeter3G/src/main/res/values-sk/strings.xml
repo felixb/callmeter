@@ -26,7 +26,6 @@
   <string name="about1" formatted="false" orig="The output format is usage | time or count used this billing period | time or count overall.">Výstupom je celkový počet využitých minút/sms/dát od nainštalovania aplikácie, a počet týchto jednotiek prípadne ukazatel využitia voľných minút/sms/dát za aktuálne zúčtovacie obdobie. Výpočet mesačnej spotreby berie na vedomie vybranú tarifikáciu. V celkovom výpočte nie je tarifikácia zohladnená.\n\nLegenda zobrazovania štatistík:\nPríchodzie hovory: dĺžka a počet v aktuálnom období / dĺžka všetkých hovorov\nOdchádzajúce hovory: [% využitie voľných minút akt. obdobia] / dĺžka a počet v akt. období / dĺžka všetkých hovorov\nPríchodzie SMS: počet SMS v akt. období / celkový počet SMS\nOdchodzie SMS: cena za SMS v akt. období / [% využitie voľných SMS v akt. období] / počet SMS v akt. období / celkový počet SMS</string>
   <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">Režim tarifikácie určuje spôsob spoplatnenia prvého a nasledujúceho intervalu hlasových hovorov. Napr. 60/10 znamená, že u hovoru sa vždy započíta min. 60 sekúnd a čas nad rámec prvého intervalu je zaokrúhlený nahor na najbližších 10 sekúnd.</string>
   <string name="about3" formatted="false" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics." username="kayle.sk &lt;kayle.sk@gmail.com&gt;">Call Meter sa spúšťa každých 30 minút (pokiaľ nie je telefón v pohotovostnom režime), čo znamená, že zmazaním záznamov o hovoroch/sms/dátach za posledných 30 minút sa ovplyvní výpočet štatistiky.</string>
-  <string name="send_" formatted="false" orig="Send">Odoslať</string>
   <string name="settings" formatted="false">Nastavenia</string>
   <string name="about_" formatted="false">Nápoveda</string>
   <string name="about_hint" formatted="false" username="matelkoxxl &lt;matelkoxxl@gmail.com&gt;. " orig="About this app">O aplikácii</string>
@@ -56,7 +55,6 @@
   <string name="x1_hour">hodina</string>
   <string name="x2_hour">dve hodiny</string>
   <string name="manually_only">Iba manuálne</string>
-  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Poznámka od vývojára</string>
   <string name="add_" formatted="false" orig="Add">Pridať</string>
   <string name="length_hint_call" formatted="false" orig="Length in seconds">Dĺžka v sekundách</string>
   <string name="update_interval_" formatted="false" orig="Update interval">Interval obnovovania</string>
@@ -67,7 +65,6 @@
   <string name="show_hours_hint" formatted="false" orig="Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.">Ukázať čas v sekundách, minútach, hodinách a dňoch.\nAk je položka nezašktrnutá zobrazuje iba sekundy a minúty.</string>
   <string name="number_prefix_" formatted="false" orig="International prefix">Medzinárodný prefix</string>
   <string name="number_prefix_hint" formatted="false" orig="Your international prefix in format like +1 or +49. It\'s used to match numbers like +49170.. and 0179..">Váš medzinárodný prefix vo formáte +1 alebo +421. Je použitý na porovnávanie čísiel ako +49170.. a 0179..</string>
-  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Posledné zmeny:</string>
   <string name="x1_day">Deň</string>
   <string name="x1_week">Týždeň</string>
   <string name="x14_day">14 dní</string>
@@ -120,7 +117,6 @@
   <string name="advanced_preferences_hint" formatted="false" username="matelkoxxl &lt;matelkoxxl@gmail.com&gt;. " orig="This allows you to set a way more complex setup. Most Users won\'t need it.">Tu si môžete nastaviť komplexnejšie pravidlá. Väčšina používateľov ich nepotrebuje.</string>
   <string name="edit_" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Edit">Upraviť</string>
   <string name="update_interval_hint" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Shorter period will use more battery.">Kratší čas zvýši spotrebu batérie.</string>
-  <string name="notes_from_developer_text" formatted="false" username="kayle.sk &lt;kayle.sk@gmail.com&gt;" orig="Click here to show recent news from the developer">Kliknite sem pre zobrazenie najnovších správ od vývojára.</string>
   <string name="hide_name_" formatted="false" orig="Hide name of plan">Skryť meno plánu</string>
   <string name="google_plus_hint" formatted="false" orig="Follow me on Google+.\nGet update notifications etc." username="matelkoxxl &lt;matelkoxxl@gmail.com&gt;. ">Sleduj ma na Google+\nInfo o nových verziách apod.</string>
   <string name="textsize_bigtitle_" formatted="false" orig="Big title\'s text size">Veľkosť veľkého nadpisu</string>
@@ -158,7 +154,6 @@
   <string name="behavior_" formatted="false" orig="Behavior">Správanie</string>
   <string name="appearance_and_behavior_" formatted="false" orig="Appearance &amp; behavior">Vzhĺaď a správanie</string>
   <string name="delete_">Vymazať</string>
-  <string name="never_show_again" formatted="false" orig="Never show changelog again">Viac nezobrazovať zoznam zmien</string>
   <string name="update_interval_data_" formatted="false" orig="Update interval (data)">Interval obnovenia (data)</string>
   <string name="date_begin_" formatted="false" orig="Beginning of records">Začiatok nahrávania</string>
   <string name="delete_widget" formatted="false" orig="Delete widget">Vymazať miniaplikáciu</string>
@@ -171,7 +166,6 @@
   <string name="widgets_" formatted="false" orig="Widgets">Miniaplikácie</string>
   <string name="widgets_no_widgets_" formatted="false" orig="No widgets added">Nepridané žiadne miniaplikácie</string>
   <string name="widgets_no_widgets_hint" formatted="false" orig="There are no widgets added to the launcher.">Nie sú žiadne miniaplikácie pridané do spúšťača</string>
-  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Kliknite sem pre zobrazenie posledných zmien</string>
   <string name="limit_type_unlimited">neobmedzene</string>
   <string name="limit_type_units">jednotky</string>
   <string name="limit_type_cost">náklady</string>

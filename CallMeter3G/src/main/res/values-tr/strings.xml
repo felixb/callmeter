@@ -26,7 +26,6 @@
   <string name="about1" formatted="false">Kullanım bilgilerinizi, fatura dönemi içerisinde kullanım / süre veya görüşme sayısı olarak veya toplam görüşme sayısı olarak verir. Aylık süre hesabı, ücretlendirme biçimi dikkate alınarak, toplam ise ücretlendirme biçimi dikkate alınmadan yapılır.</string>
   <string name="about2" formatted="false">Ücretlendirme biçimi ilk / bir sonraki ücretlendirme aralıklarını belirler. Örneğin, 60/10, her bir görüşme en az 60 saniye için ücretlendirilir, daha uzun görüşmelerse bir sonraki 10 saniyeye tamamlanır anlamındadır.</string>
   <string name="about3" formatted="false">CallMeter arka planda 30 dakikada bir çalışır (eğer telefon bekleme konumunda değilse). Böylelikle 30 dakikadan eski olmayan görüşme veya mesaj kayıtlarını silerseniz istatistikleriniz değişmez. Son 30 dakika içindeki görüşme veya mesajları silerseniz istatistikler yanlış raporlanabilir.</string>
-  <string name="send_" formatted="false">Gönder</string>
   <string name="add_" formatted="false">Ekle</string>
   <string name="add_log" formatted="false" username="bluesman80@gmail.com" orig="Add log entry">Kayda girdi ekle</string>
   <string name="length_hint_call" formatted="false">Saniye olarak süre</string>
@@ -264,11 +263,6 @@
   <string name="x1_hour">1 saat</string>
   <string name="x2_hour">2 saat</string>
   <string name="manually_only">Yalnızca elle</string>
-  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Güncel değişiklikler:</string>
-  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Bu konudaki güncel değişiklikleri görmek için buraya tıklayın.</string>
-  <string name="never_show_again" formatted="false" orig="Never show changelog again">Değişiklik kayıtlarını bir daha gösterme</string>
-  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Uygulama geliştiricisinin notları</string>
-  <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Uygulama geliştiricisinden en son haberler için buraya tıklayın</string>
   <string name="delete_old_logs_" formatted="false" orig="Delete logs older than">Bu tarihten önceki kayıtları sil</string>
   <string name="delete_old_logs_help" formatted="false" orig="Delete logs older than x days from internal database. Leave empty to disable." username="bluesman80@gmail.com">x günden daha eski kayıtları iç veritabanından sil. Devre dışı bırakmak için boş bırakın.</string>
   <string name="behavior_" formatted="false" orig="Behavior">Davranış</string>

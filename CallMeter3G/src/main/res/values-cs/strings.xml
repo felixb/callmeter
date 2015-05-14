@@ -21,17 +21,11 @@
                Visit http://ub0r.de/translate/cm3/cs/strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Poslední změny:</string>
-  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Klikněte zde pro zobrazení posledních změn</string>
-  <string name="never_show_again" formatted="false" orig="Never show changelog again">Changelog již nezobrazovat</string>
-  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Poznámky autora</string>
-  <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Klikněte zde pro zobrazení posledních novinek od autora</string>
   <string name="about0_" formatted="false">Call Meter slouží ke sledování stavu čerpání hovorného, SMS zpráv a datových přenosů v rámci měsíčního paušálu.</string>
   <string name="about0" formatted="false">Aplikace tvoří statistiku na základě logů o hovorech, SMS zprávách a datových přenosech a podporuje několik způsobů účtování/tarifikace.</string>
   <string name="about1" formatted="false">Výstupem je celkový počet využitých minut/sms/dat od nainstalování aplikace, a počet těchto jednotek případně ukazatel využití volných minut/sms/dat za aktuální účetní období. Výpočet měsíční spotřeby bere v potaz vybranou tarifikaci. V celkovém výpočtu není tarifikace zohledněna.\n\nLegenda zobrazování statistik:\nPříchozí hovory: délka a počet v aktuálním období / délka všech hovorů\nOdchozí hovory: [% využití volných minut akt. období] / délka a počet v akt. období / délka všech hovorů\nPříchozí SMS: počet SMS akt. období / celkový počet SMS\nOdchozí SMS: cena za SMS akt. období / [% využití volných SMS akt. období] / počet SMS akt. období / celkový počet SMS </string>
   <string name="about2" formatted="false">Režim tarifikace určuje způsob zpoplatnění prvního a následujícího intervalu hlasových hovorů. Např. 60/10 znamená, že u hovoru se vždy započte min. 60 vteřin a čas nad rámec prvního intervalu je zaokrouhlen nahoru na nejbližších 10 vteřin.</string>
   <string name="about3" formatted="false">Call Meter se spouští každých 30 minut (pokud není telefon v pohotovostním režimu), což znamená, že smazání záznamů o hovorech/sms/datech za posledních 30 minut ovlivní vypočtenou statistiku.</string>
-  <string name="send_" formatted="false">Odeslat</string>
   <string name="add_" formatted="false">Přidat</string>
   <string name="add_log" formatted="false" orig="Add log entry">Přidat záznam do logu</string>
   <string name="length_hint_call" formatted="false" orig="Length in seconds">Délka v sekundách</string>

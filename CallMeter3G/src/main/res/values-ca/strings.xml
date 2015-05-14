@@ -18,14 +18,8 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-  <string name="changelog_notification_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Recent changes:">Canvis recents:</string>
-  <string name="changelog_notification_text" formatted="false" username="Oriol Garrote &lt;oriol.garrote@gmail.com&gt;" orig="Click here to show recent changes of">Cliqueu aquí per visualitzar els canvis recents de</string>
-  <string name="never_show_again" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Never show changelog again">No tornar a mostar el registre de canvis</string>
-  <string name="notes_from_developer_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Notes from developer">Notes del desenvolupador</string>
-  <string name="notes_from_developer_text" formatted="false" username="Oriol Garrote &lt;oriol.garrote@gmail.com&gt;" orig="Click here to show recent news from the developer">Cliqueu aquí per visualitzar notícies recents del desenvolupador</string>
   <string name="about0_" formatted="false" username="Oriol Garrote &lt;oriol.garrote@gmail.com&gt;" orig="Watch your call, message and data plans!">Controleu el vostre pla de trucades, missatges i dades!</string>
   <string name="about0" formatted="false" username="Oriol Garrote &lt;oriol.garrote@gmail.com&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter genera informes a partir dels registres de trucades, missatges i dades. Suporta diversos modes de facturació.</string>
-  <string name="send_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Send">Enviar</string>
   <string name="add_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Add">Afegir</string>
   <string name="length_hint_call" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Length in seconds">Duració en segons</string>
   <string name="length_hint_data" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Length in kB">Duració en kB</string>

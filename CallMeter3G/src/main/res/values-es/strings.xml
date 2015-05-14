@@ -21,17 +21,11 @@
                Visit http://ub0r.de/translate/cm3/es/strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false">Cambios recientes:</string>
-  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Haz click aquí para ver los cambios recientes de</string>
-  <string name="never_show_again" formatted="false" orig="Never show changelog again" username="ar2rin">No volver a mostrar el registro de cambios (changelog)</string>
-  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Notas del desarrollador</string>
-  <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Haz click aquí para leer noticias recientes del desarrollador</string>
   <string name="about0_" formatted="false">¡Controla tus planes de llamadas, mensajes y datos!</string>
   <string name="about0" formatted="false">CallMeter genera informes de tus registros de llamadas, mensajes y datos. Permite muchos tipos de tarificación.</string>
   <string name="about1" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="The output format is usage | time or count used this billing period | time or count overall.">El formato de salida es: minutos o uso en el día | minutos o uso en el ciclo de facturación | minutos o uso total.</string>
   <string name="about2" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">El modo de tarificación especifica la longitud del primero/siguientes intervalos de facturación. Ej. 60/10 significa que en cada llamada se facturan los primeros 60 segundos completos y el resto se redondea en periodos de 10 s.</string>
   <string name="about3" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter se ejecuta en segundo plano cada 30min (si no está en modo espera), por lo que borrar llamadas o mensajes de más de 30min no cambiará las estadísticas. Borrar llamadas o mensajes de los últimos 30min puede dar estadísticas erróneas.</string>
-  <string name="send_" formatted="false">Enviar</string>
   <string name="add_" formatted="false">Añadir</string>
   <string name="add_log" formatted="false" orig="Add log entry">Añadir entrada al registro</string>
   <string name="length_hint_call" formatted="false" orig="Length in seconds">Duración en segundos</string>

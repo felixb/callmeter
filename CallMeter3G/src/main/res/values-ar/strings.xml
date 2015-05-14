@@ -18,11 +18,6 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <resources>
-  <string name="changelog_notification_" formatted="false" username="gsabaah@gmail.com" orig="Recent changes:">التعديلات الأخيرة:</string>
-  <string name="changelog_notification_text" formatted="false" username="gsabaah@gmail.com" orig="Click here to show recent changes of">انقر هنا من اجل إظهار التعديلات الأخيره لـ</string>
-  <string name="never_show_again" formatted="false" username="gsabaah@gmail.com" orig="Never show changelog again">عدم إظهار سجل التغيرات مره اخرى</string>
-  <string name="notes_from_developer_" formatted="false" username="gsabaah@gmail.com" orig="Notes from developer">ملاحظات من المطور</string>
-  <string name="notes_from_developer_text" formatted="false" username="gsabaah@gmail.com" orig="Click here to show recent news from the developer">انقر هنا من اجل إظهار أخر الاخبار من المطور</string>
   <string name="about0_" formatted="false" username="gsabaah@gmail.com" orig="Watch your call, message and data plans!">راقب مكالماتك, رسائلك و حزم البيانات</string>
   <string name="provider" formatted="false" username="gsabaah@gmail.com" orig="Provider">مزود الخدمة</string>
   <string name="country" formatted="false" username="gsabaah@gmail.com" orig="Country">الدولة</string>
@@ -85,7 +80,6 @@
   <string name="manually_only" formatted="false" username="gsabaah@gmail.com" orig="Manually only">يدوي فقط</string>
   <string name="reset" formatted="false" username="gsabaah@gmail.com" orig="Reset">إعادة تعيين</string>
   <string name="debug_" formatted="false" username="gsabaah@gmail.com" orig="Debug">Debug</string>
-  <string name="send_" formatted="false" username="gsabaah@gmail.com" orig="Send">إرسال</string>
   <string name="add_" formatted="false" username="gsabaah@gmail.com" orig="Add">إضافة</string>
   <string name="date_begin_" formatted="false" username="gsabaah@gmail.com" orig="Beginning of records">بداية السجلات</string>
   <string name="date_begin_hint" formatted="false" username="jsa_x@yahoo.com" orig="Ignore any logs before this date.">إستثناء اي سجلات قبل هذا التاريخ</string>

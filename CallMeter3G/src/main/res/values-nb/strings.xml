@@ -21,17 +21,11 @@
                Visit http://ub0r.de/translate/cm3/nb/strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Recent changes:">Siste endringer:</string>
-  <string name="changelog_notification_text" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Click here to show recent changes of">Trykk her for å vise siste endringer av</string>
-  <string name="never_show_again" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Never show changelog again">Ikke vis endringloggen flere ganger</string>
-  <string name="notes_from_developer_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Notes from developer">Notater fra utvikler</string>
-  <string name="notes_from_developer_text" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Click here to show recent news from the developer">Trykk her for å vise siste nytt fra utvikler</string>
   <string name="about0_" formatted="false" username="Magnusson.ida88@gmail.com" orig="Watch your call, message and data plans!">Følg med på dine samtaler, meldinger og data trafikk!</string>
   <string name="about0" formatted="false">CallMeter lager rapporter fra samtale-, meldings- og dataloggen. Det er støtte for flere metoder av taksering.</string>
   <string name="about1" formatted="false">Oversikt over bruk/tid eller antall denne perioden/tid eller totaloversikt hele perioden. Månedlig beregning i samsvar med dine preferanser for avregning. Ingen beregning for totalforbruk.</string>
   <string name="about2" formatted="false">Takseringsintervall spesifiserer lengden på de første/neste takseringene. F.eks. 60/10 betyr at enhver samtale blir taksert for minimum 60s, og tid over dette rundes opp til nærmeste fulle 10s.</string>
   <string name="about3" formatted="false">CallMeter oppdaterer seg hvert 30. min. (ikke i stand-by). Dette betyr at det ikke vil påvirke din statistikk hvis du sletter samtaler eller meldinger som er eldre en 30 min. Hvis du sletter samtaler eller meldinger som er nyere enn 30 minutter, kan din statistikk/oversikt bli feil.</string>
-  <string name="send_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Send">Send</string>
   <string name="add_" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Add">Legg til</string>
   <string name="add_log" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Add log entry">Legg til loggoppføring</string>
   <string name="length_hint_call" formatted="false" username="Thomas Fauskanger  &lt;thomasfauskanger@gmail.com&gt;" orig="Length in seconds">Lengde i sekunder</string>

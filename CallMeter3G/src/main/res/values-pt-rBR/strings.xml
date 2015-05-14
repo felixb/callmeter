@@ -30,10 +30,6 @@
   <string name="units_cost_per_message" formatted="false">R$/Mensagem</string>
   <string name="units_cost_per_mbyte" formatted="false" orig="$/MByte">R$/MByte</string>
   <string name="units_cost_per_unit" formatted="false" orig="$/Unit">R$/Unidade</string>
-  <string name="changelog_notification_" formatted="false" orig="Recent changes:">Mudanças recentes:</string>
-  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of">Clique aqui para mostrar as mudanças recentes de</string>
-  <string name="never_show_again" formatted="false" orig="Never show changelog again">Nunca mostrar log de mudanças novamente</string>
-  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Notas do desenvolvedor</string>
   <string name="x5_minute">5 minutos</string>
   <string name="x10_minute">10 minutos</string>
   <string name="x15_minute">15 minutos</string>
@@ -162,7 +158,6 @@
   <string name="edit_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Edit">Editar</string>
   <string name="settings" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Preferences">Preferências</string>
   <string name="add_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Add">Adicionar</string>
-  <string name="send_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Send">Enviar</string>
   <string name="x1_month_1_day" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="One month + one day">Um mês + um dia</string>
   <string name="view_logs_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="View Logs">Visualizar Logs</string>
   <string name="day_23" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="23:00 - 23:59">23:00 - 23:59</string>
@@ -226,7 +221,6 @@
   <string name="export_logs_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Backup logs">Backup logs</string>
   <string name="export_rules_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Export rule set">Exportar conjunto de regras</string>
   <string name="import_rules_default_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Import default rule set">Importar conjunto de regras padrão</string>
-  <string name="notes_from_developer_text" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Click here to show recent news from the developer">Clique aqui para ver notícias recentes do desenvolvedor</string>
   <string name="about0_" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Watch your call, message and data plans!">Monitore seus planos de chamada, mensagem e dados!</string>
   <string name="add_log" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Add log entry">Adicionar entrada de log</string>
   <string name="update_interval_hint" formatted="false" username="Breno Carvalho &lt;brenopapito@gmail.com&gt;" orig="Shorter period will use more battery.">Período mais curto vai usar mais bateria.</string>

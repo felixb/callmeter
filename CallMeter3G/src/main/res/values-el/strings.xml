@@ -21,17 +21,11 @@
                Visit http://ub0r.de/translate/cm3/el/strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false">Πρόσφατες αλλαγές:</string>
-  <string name="changelog_notification_text" formatted="false">Κλικ εδώ για εμφάνιση πρόσφατων αλλαγών από</string>
-  <string name="never_show_again" formatted="false">Μη εμφάνιση πρόσφατων αλλαγών ξανά</string>
-  <string name="notes_from_developer_" formatted="false">Σημειώσεις του προγραμματιστή</string>
-  <string name="notes_from_developer_text" formatted="false">Κλικ εδώ για την εμφάνιση νέων από τον προγραμματιστή</string>
   <string name="about0_" formatted="false">Παρακολουθήστε τις κλήσεις, τα μηνύματα και τα πακέτα δεδομένων σας!</string>
   <string name="about0" formatted="false">Το CallMeter δημιουργεί αναφορές από τα αρχεία κλήσεων, μηνυμάτων και δεδομένων. Υποστηρίζει πληθώρα μεθόδων τιμολόγησης.</string>
   <string name="about1" formatted="false">Η μορφή θα είναι ως χρήση/χρόνος,ποσό που χρησιμοποιήθηκε την περίοδο/χρόνο, συγκεντρωτικό ποσό. Μηνιαίοι υπολογισμοί χρησιμοποιούν το τύπο χρέωσης του λογαριασμού. Οι συγκεντρωτικοί, όχι.</string>
   <string name="about2" formatted="false">Ο τύπος χρέωσης καθορίζει την ελάχιστη χρέωση/και την χρέωση στη συνέχεια. Π.χ. 60/10 σημαίνει ελάχιστη χρέωση 60s, και στη συνέχεια χρέωση ανά 10s.</string>
   <string name="about3" formatted="false">Το CallMeter τρέχει στο παρασκήνιο κάθε 30 λεπτά (εφόσον δεν είναι σε αναμονή. Αυτό σημαίνει ότι, σβησμένες κλήσεις ή μηνύματα προ 30 λεπτών δεν θα επηρεάσουν τα στατιστικά. Σβησμένες κλήσεις ή μηνύματα των τελευταίων 30 λεπτών θα οδηγήσουν σε λάθος στατιστικά.</string>
-  <string name="send_" formatted="false">Αποστολή</string>
   <string name="add_" formatted="false">Προσθήκη</string>
   <string name="add_log" formatted="false">Προσθήκη εγγραφής</string>
   <string name="length_hint_call" formatted="false">Διάρκεια σε δευτερόλεπτα</string>

@@ -21,18 +21,12 @@
                Visit http://ub0r.de/translate/cm3/iw/strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Recent changes:">שינויים אחרונים:</string>
-  <string name="changelog_notification_text" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Click here to show recent changes of">לחץ כאן כדי לראות שינויים אחרונים של</string>
-  <string name="never_show_again" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Never show changelog again">לעולם אל תציג שוב את רשימת השינויים</string>
-  <string name="notes_from_developer_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Notes from developer">הערות המפתח</string>
-  <string name="notes_from_developer_text" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Click here to show recent news from the developer">לחץ כאן כדי לראות חדשות אחרונות מהמפתח</string>
   <string name="about0_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Watch your call, message and data plans!">צפה בתכניות השיחות, הודעות והגלישה שלך!</string>
   <string name="about0" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter מחולל דוחות מרשומות של שיחות, הודעות וגלישה. היישום תומך במספר מצבים שונים של חיוב.</string>
   <string name="about1" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="The output format is usage | time or count used this billing period | time or count overall.">פורמט הפלט הוא שימוש | משך הזמן או כמות שבוצעה במהלך מחזור החיוב | זמן או כמות כוללים.</string>
   <string name="about2" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s.">מצב החיוב מציין את אורך יחידות החיוב של הדקה הראשונה/שאר הדקות. לדוגמה, 60/10 משמעו שכל שיחה מחייבת לפחות על 60 שניות, כל שיחה ארוכה יותר מעוגלת כלפי מעלה לכפולה הקרובה של 10 שניות.</string>
   <string name="about3" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="CallMeter runs in background every 30min (only if not in standby). This means, that deleting calls or messages older than 30min will not change your stats. Deleting calls or messages younger than 30min may result in wrong statistics.">CallMeter רץ ברקע בכל 30 דקות (רק אם לא נמצא במצב המתנה). פירוש הדבר, שמחיקת שיחות או הודעות שבוצעו לפני יותר מ30 דקות לא ישנו את הספירה. מחיקת שיחות או הודעות שבוצעו ב30 הדקות האחרונות, עשויות לגרום להצגת סטטיסטיקה שגויה.</string>
   <string name="author_and_many_more" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="and many more...">ועוד דברים רבים...</string>
-  <string name="send_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Send">שלח</string>
   <string name="add_" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Add">הוסף</string>
   <string name="add_log" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Add log entry">הוסף ערך רשומה</string>
   <string name="length_hint_call" formatted="false" username="amit&lt;harrisamit@gmail.com&gt;" orig="Length in seconds">משך בשניות</string>

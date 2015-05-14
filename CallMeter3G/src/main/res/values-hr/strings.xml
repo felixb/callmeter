@@ -21,14 +21,8 @@
                Visit http://ub0r.de/translate/cm3/hr/strings.xml to edit the file.
        -->
 <resources>
-  <string name="changelog_notification_" formatted="false" orig="Recent changes:" username="Grmone&lt;grmone.pu@gmail.com&gt;">Nedavne promjene:</string>
-  <string name="changelog_notification_text" formatted="false" orig="Click here to show recent changes of" username="grmone.pu@gmail.com">Kliknite ovdje za prikaz nedavnih promjena</string>
-  <string name="notes_from_developer_" formatted="false" orig="Notes from developer">Bilješke programera</string>
   <string name="about0_" formatted="false" username="lesart.mario@gmail.com" orig="Watch your call, message and data plans!">Pratite svoje pozive, poruke i podatke!</string>
-  <string name="never_show_again" formatted="false" orig="Never show changelog again">Ne prikazuj više promjenu</string>
-  <string name="notes_from_developer_text" formatted="false" orig="Click here to show recent news from the developer">Klikni za prikaz zadnjih vijesti od programera</string>
   <string name="about0" formatted="false" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter generira izvješća za Vaše razgovore, poruke i prenesene podatke. Podržava nekoliko načina naplate.</string>
-  <string name="send_" formatted="false" username="lesart.mario@gmail.com" orig="Send">Pošalji</string>
   <string name="add_" formatted="false" username="lesart.mario@gmail.com" orig="Add">Dodaj</string>
   <string name="add_log" formatted="false" username="lesart.mario@gmail.com" orig="Add log entry">Dodaj upis u dnevnik</string>
   <string name="length_hint_call" formatted="false" orig="Length in seconds">Duljina u sekundama</string>
