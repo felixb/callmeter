@@ -16,3 +16,4 @@ release.ks
 .bundle
 _site
 *.p12
+crowdin.yaml
