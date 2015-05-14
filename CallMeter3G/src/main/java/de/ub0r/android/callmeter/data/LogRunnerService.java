@@ -66,79 +66,147 @@ import de.ub0r.android.logg0r.Log;
  */
 public final class LogRunnerService extends IntentService {
 
-    /** Tag for output. */
+    /**
+     * Tag for output.
+     */
     private static final String TAG = "LogRunnerService";
 
-    /** Minimum amount of unmatched logs to start showing the dialog. */
+    /**
+     * Minimum amount of unmatched logs to start showing the dialog.
+     */
     private static final int UNMATHCEDLOGS_TO_SHOW_DIALOG = 50;
 
-    /** {@link Uri} to all threads. */
+    /**
+     * {@link Uri} to all threads.
+     */
     private static final Uri URI_THREADS = Uri.parse("content://mms-sms/conversations").buildUpon()
             .appendQueryParameter("simple", "true").build();
-    /** {@link Uri} to all sms. */
+
+    /**
+     * {@link Uri} to all sms.
+     */
     private static final Uri URI_SMS = Uri.parse("content://sms/");
-    /** {@link Uri} to all mms. */
+
+    /**
+     * {@link Uri} to all mms.
+     */
     private static final Uri URI_MMS = Uri.parse("content://mms/");
 
-    /** Projection for threads table. */
+    /**
+     * Projection for threads table.
+     */
     private static final String[] THREADS_PROJ = new String[]{"recipient_ids"};
 
-    /** {@link HashMap} mapping threads to numbers. */
+    /**
+     * {@link HashMap} mapping threads to numbers.
+     */
     private static final SparseArray<String> THREAD_TO_NUMBER = new SparseArray<String>();
 
-    /** {@link Intent}'s action for run matcher. */
+    /**
+     * {@link Intent}'s action for run matcher.
+     */
     public static final String ACTION_RUN_MATCHER = "de.ub0r.android.callmeter.RUN_MATCHER";
-    /** {@link Intent}'s action for short run. */
+
+    /**
+     * {@link Intent}'s action for short run.
+     */
     public static final String ACTION_SHORT_RUN = "de.ub0r.android.callmeter.SHORT_RUN";
-    /** {@link Intent}'s action for receiving SMS. */
+
+    /**
+     * {@link Intent}'s action for receiving SMS.
+     */
     private static final String ACTION_SMS = "android.provider.Telephony.SMS_RECEIVED";
 
-    /** Prefix for store of last data. */
+    /**
+     * Prefix for store of last data.
+     */
     private static final String PREFS_LASTDATA_PREFIX = "last_data_";
 
-    /** Thread Id. */
+    /**
+     * Thread Id.
+     */
     private static final String THRADID = "thread_id";
-    /** Type for mms. */
+
+    /**
+     * Type for mms.
+     */
     private static final String MMS_TYPE = "m_type";
-    /** Type for incoming mms. */
+
+    /**
+     * Type for incoming mms.
+     */
     private static final int MMS_IN = 132;
-    /** Type for outgoing mms. */
+
+    /**
+     * Type for outgoing mms.
+     */
     private static final int MMS_OUT = 128;
 
-    /** Length of an SMS. */
+    /**
+     * Length of an SMS.
+     */
     private static final int SMS_LENGTH = 160;
 
-    /** Is phone roaming? */
+    /**
+     * Is phone roaming?
+     */
     private static boolean roaming = false;
-    /** My own number. */
+
+    /**
+     * My own number.
+     */
     private static String mynumber = null;
-    /** Split messages at 160chars. */
+
+    /**
+     * Split messages at 160chars.
+     */
     private static boolean splitAt160 = false;
 
-    /** Ignore logs before. */
+    /**
+     * Ignore logs before.
+     */
     private static long dateStart = 0L;
 
-    /** Delete logs before that date. */
+    /**
+     * Delete logs before that date.
+     */
     private static long deleteBefore = -1L;
 
-    /** Minimal difference of traffic which will get saved. */
+    /**
+     * Minimal difference of traffic which will get saved.
+     */
     private static final long DATA_MIN_DIFF = 1024L * 512L;
 
-    /** Time to wait for logs after hanging up. */
+    /**
+     * Time to wait for logs after hanging up.
+     */
     private static final long WAIT_FOR_LOGS = 1500L;
-    /** Maximum gap for logs. */
+
+    /**
+     * Maximum gap for logs.
+     */
     private static final long GAP_FOR_LOGS = 10000L;
 
-    /** Minimal time between updates. */
+    /**
+     * Minimal time between updates.
+     */
     private static final long MIN_DELAY = 5000L;
-    /** Action of last call. */
+
+    /**
+     * Action of last call.
+     */
     private static String lastAction = null;
-    /** Time of last call. */
+
+    /**
+     * Time of last call.
+     */
     private static long lastUpdate = 0L;
 
     private static boolean inUpdate = false;
 
-    /** Service's {@link Handler}. */
+    /**
+     * Service's {@link Handler}.
+     */
     private Handler handler = null;
 
     /**
@@ -449,12 +517,15 @@ public final class LogRunnerService extends IntentService {
         Log.i(TAG, "---------- column - end ------: ", n);
     }
 
-    /** Get column id holding sim_id, simid or whatever. */
+    /**
+     * Get column id holding sim_id, simid or whatever.
+     */
     public static int getSimIdColumn(final Cursor c) {
         if (c == null) {
             return -1;
         }
-        for (String s : new String[]{"sim_id", "simid", "sub_id", "subscription_id", "sim_slot", "sim_sn"}) {
+        for (String s : new String[]{"sim_id", "simid", "sub_id", "subscription_id", "sim_slot",
+                "sim_sn"}) {
             int id = c.getColumnIndex(s);
             if (id >= 0) {
                 Log.d(TAG, "sim_id column found: ", s);
@@ -508,7 +579,9 @@ public final class LogRunnerService extends IntentService {
         );
     }
 
-    /** Check, if there is dual sim support. */
+    /**
+     * Check, if there is dual sim support.
+     */
     public static boolean checkCallsSimIdColumn(final ContentResolver cr) {
         try {
             String where = BuildConfig.DEBUG_LOG ? null : "1=2";
@@ -526,7 +599,9 @@ public final class LogRunnerService extends IntentService {
         }
     }
 
-    /** Check, if there is dual sim support. */
+    /**
+     * Check, if there is dual sim support.
+     */
     public static boolean checkSmsSimIdColumn(final ContentResolver cr) {
         try {
             String where = BuildConfig.DEBUG_LOG ? null : "1=2";

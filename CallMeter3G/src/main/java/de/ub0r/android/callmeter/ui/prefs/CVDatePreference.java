@@ -28,17 +28,34 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
 
     private static final String TAG = "CVDatePreference";
 
-    /** {@link ContentValues} for saving values. */
+    /**
+     * {@link ContentValues} for saving values.
+     */
     private final ContentValues cv;
-    /** {@link UpdateListener}. */
+
+    /**
+     * {@link UpdateListener}.
+     */
     private final UpdateListener ul;
-    /** Show date and time? */
+
+    /**
+     * Show date and time?
+     */
     private final boolean dt;
-    /** Current date. */
+
+    /**
+     * Current date.
+     */
     private final Calendar v = Calendar.getInstance();
-    /** {@link DatePicker}. */
+
+    /**
+     * {@link DatePicker}.
+     */
     private DatePicker dp = null;
-    /** Show help. */
+
+    /**
+     * Show help.
+     */
     private final boolean sh;
 
     /**
@@ -126,7 +143,9 @@ public final class CVDatePreference extends DialogPreference implements OnTimeSe
         }
     }
 
-    /** Update {@link DatePicker}. */
+    /**
+     * Update {@link DatePicker}.
+     */
     private void updateDialog() {
         if (dp == null) {
             return;

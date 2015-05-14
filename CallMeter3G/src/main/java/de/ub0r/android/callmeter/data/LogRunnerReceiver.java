@@ -43,28 +43,54 @@ import de.ub0r.android.logg0r.Log;
  */
 public final class LogRunnerReceiver extends BroadcastReceiver {
 
-    /** Tag for output. */
+    /**
+     * Tag for output.
+     */
     private static final String TAG = "LogRunnerReceiver";
 
-    /** Time between to update checks. */
+    /**
+     * Time between to update checks.
+     */
     static final long DELAY = 30; // 30min
-    /** Time between to update checks for data. */
+
+    /**
+     * Time between to update checks for data.
+     */
     static final float DELAY_DATA = 2f; // 2min
-    /** Factor for time between update checks. */
+
+    /**
+     * Factor for time between update checks.
+     */
     static final long DELAY_FACTOR = CallMeter.SECONDS_MINUTE * CallMeter.MILLIS;
 
-    /** ACTION for publishing information about sent websms. */
+    /**
+     * ACTION for publishing information about sent websms.
+     */
     private static final String ACTION_CM_WEBSMS = "de.ub0r.android.callmeter.SAVE_WEBSMS";
-    /** Extra holding uri of sent sms. */
+
+    /**
+     * Extra holding uri of sent sms.
+     */
     private static final String EXTRA_WEBSMS_URI = "uri";
-    /** Extra holding name of connector. */
+
+    /**
+     * Extra holding name of connector.
+     */
     private static final String EXTRA_WEBSMS_CONNECTOR = "connector";
 
-    /** ACTION for publishing information about calls. */
+    /**
+     * ACTION for publishing information about calls.
+     */
     private static final String ACTION_CM_SIP = "de.ub0r.android.callmeter.SAVE_SIPCALL";
-    /** Extra holding uri of done call. */
+
+    /**
+     * Extra holding uri of done call.
+     */
     private static final String EXTRA_SIP_URI = "uri";
-    /** Extra holding name of provider. */
+
+    /**
+     * Extra holding name of provider.
+     */
     private static final String EXTRA_SIP_PROVIDER = "provider";
 
     /**
@@ -78,7 +104,8 @@ public final class LogRunnerReceiver extends BroadcastReceiver {
         long delay;
         if (a != null && a.equals(LogRunnerService.ACTION_SHORT_RUN)) {
             delay = (long) (Utils.parseFloat(PreferenceManager.getDefaultSharedPreferences(context)
-                    .getString(Preferences.PREFS_UPDATE_INTERVAL_DATA, String.valueOf(DELAY_DATA)),
+                            .getString(Preferences.PREFS_UPDATE_INTERVAL_DATA,
+                                    String.valueOf(DELAY_DATA)),
                     DELAY_DATA) * DELAY_FACTOR);
         } else {
             delay = Utils.parseLong(PreferenceManager.getDefaultSharedPreferences(context)

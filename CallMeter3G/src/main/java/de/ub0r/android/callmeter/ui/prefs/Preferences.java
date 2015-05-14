@@ -83,92 +83,209 @@ import de.ub0r.android.logg0r.LogCollector;
 public final class Preferences extends TrackingSherlockPreferenceActivity implements
         OnPreferenceClickListener {
 
-    /** Tag for output. */
+    /**
+     * Tag for output.
+     */
     private static final String TAG = "Preferences";
 
-    /** Standard buffer size. */
+    /**
+     * Standard buffer size.
+     */
     public static final int BUFSIZE = 1024;
 
-    /** Action for exporting CSV file. */
+    /**
+     * Action for exporting CSV file.
+     */
     public static final String ACTION_EXPORT_CSV = "export_csv";
 
-    /** Preference's name: is default rule set. */
+    /**
+     * Preference's name: is default rule set.
+     */
     public static final String PREFS_ISDEFAULT = "is_default_ruleset";
-    /** Preference's name: show advanced preferences. */
+
+    /**
+     * Preference's name: show advanced preferences.
+     */
     public static final String PREFS_ADVANCED = "advanced_preferences";
-    /** Preference's name: split messages at 160chars. */
+
+    /**
+     * Preference's name: split messages at 160chars.
+     */
     public static final String PREFS_SPLIT_SMS_AT_160 = "split_at_160";
-    /** Preference's name: alert at 80% usage. */
+
+    /**
+     * Preference's name: alert at 80% usage.
+     */
     public static final String PREFS_ALERT80 = "alert_80";
-    /** Preference's name: alert at 100% usage. */
+
+    /**
+     * Preference's name: alert at 100% usage.
+     */
     public static final String PREFS_ALERT100 = "alert_100";
-    /** Preference's name: update interval. */
+
+    /**
+     * Preference's name: update interval.
+     */
     public static final String PREFS_UPDATE_INTERVAL = "update_interval";
-    /** Preference's name: update interval (data). */
+
+    /**
+     * Preference's name: update interval (data).
+     */
     public static final String PREFS_UPDATE_INTERVAL_DATA = "update_interval_data";
-    /** Preference's name: beginning of record. */
+
+    /**
+     * Preference's name: beginning of record.
+     */
     public static final String PREFS_DATE_BEGIN = "date_begin";
-    /** Preference's name: delete old logs before x days. */
+
+    /**
+     * Preference's name: delete old logs before x days.
+     */
     public static final String PREFS_DELETE_OLD_LOGS = "delete_old_logs";
-    /** Preference's name: prepaid plan. */
+
+    /**
+     * Preference's name: prepaid plan.
+     */
     public static final String PREFS_PREPAID = "prepaid";
 
-    /** Preference's name: theme. */
+    /**
+     * Preference's name: theme.
+     */
     private static final String PREFS_THEME = "theme";
-    /** Theme: black. */
+
+    /**
+     * Theme: black.
+     */
     private static final String THEME_BLACK = "black";
-    /** Theme: light. */
+
+    /**
+     * Theme: light.
+     */
     private static final String THEME_LIGHT = "light";
-    /** Preference's name: text size. */
+
+    /**
+     * Preference's name: text size.
+     */
     private static final String PREFS_TEXTSIZE = "textsize";
-    /** Preference's name: text size for big titles. */
+
+    /**
+     * Preference's name: text size for big titles.
+     */
     private static final String PREFS_TEXTSIZE_BIGTITLE = "textsize_bigtitle";
-    /** Preference's name: text size for titles. */
+
+    /**
+     * Preference's name: text size for titles.
+     */
     private static final String PREFS_TEXTSIZE_TITLE = "textsize_title";
-    /** Preference's name: text size for spacers. */
+
+    /**
+     * Preference's name: text size for spacers.
+     */
     private static final String PREFS_TEXTSIZE_SPACER = "textsize_spacer";
-    /** Preference's name: text size for progress bars. */
+
+    /**
+     * Preference's name: text size for progress bars.
+     */
     private static final String PREFS_TEXTSIZE_PBAR = "textsize_pbar";
-    /** Preference's name: text size for progress bars of billing periods. */
+
+    /**
+     * Preference's name: text size for progress bars of billing periods.
+     */
     private static final String PREFS_TEXTSIZE_PBARBP = "textsize_pbarbp";
-    /** Preference's name: show last bill day instead of first. */
+
+    /**
+     * Preference's name: show last bill day instead of first.
+     */
     public static final String PREFS_SHOW_TARGET_BILLDAY = "show_target_billday";
-    /** Preference's name: show hours. */
+
+    /**
+     * Preference's name: show hours.
+     */
     public static final String PREFS_SHOWHOURS = "show_hours";
-    /** Preference's name: hide zero. */
+
+    /**
+     * Preference's name: hide zero.
+     */
     public static final String PREFS_HIDE_ZERO = "hide_zero";
-    /** Preference's name: hide no cost plans. */
+
+    /**
+     * Preference's name: hide no cost plans.
+     */
     public static final String PREFS_HIDE_NOCOST = "hide_nocost";
-    /** Preference's name: hide progress bars in main view. */
+
+    /**
+     * Preference's name: hide progress bars in main view.
+     */
     public static final String PREFS_HIDE_PROGRESSBARS = "hide_progressbars";
-    /** Preference's name: custom delimiter. */
+
+    /**
+     * Preference's name: custom delimiter.
+     */
     public static final String PREFS_DELIMITER = "custom_delimiter";
-    /** Preference's name: currency symbol. */
+
+    /**
+     * Preference's name: currency symbol.
+     */
     private static final String PREFS_CURRENCY_SYMBOL = "currency_symbol";
-    /** Preference's name: currency format. */
+
+    /**
+     * Preference's name: currency format.
+     */
     private static final String PREFS_CURRENCY_FORMAT = "currency_format";
-    /** Preference's name: date format. */
+
+    /**
+     * Preference's name: date format.
+     */
     private static final String PREFS_DATE_FORMAT = "date_format";
-    /** Preference's name: show today. */
+
+    /**
+     * Preference's name: show today.
+     */
     public static final String PREFS_SHOWTODAY = "show_today";
-    /** Preference's name: show total. */
+
+    /**
+     * Preference's name: show total.
+     */
     public static final String PREFS_SHOWTOTAL = "show_total";
-    /** Preference's name: show help. */
+
+    /**
+     * Preference's name: show help.
+     */
     public static final String PREFS_SHOWHELP = "show_help";
-    /** Preference's name: show length/cost of call. */
+
+    /**
+     * Preference's name: show length/cost of call.
+     */
     public static final String PREFS_SHOWCALLINFO = "show_callinfo";
-    /** Preference's name: strip leading zeros. */
+
+    /**
+     * Preference's name: strip leading zeros.
+     */
     public static final String PREFS_STRIP_LEADING_ZEROS = "strip_leading_zeros";
-    /** Preference's name: international prefix. */
+
+    /**
+     * Preference's name: international prefix.
+     */
     public static final String PREFS_INT_PREFIX = "intPrefix";
-    /** Preference's name: ask for plan. */
+
+    /**
+     * Preference's name: ask for plan.
+     */
     public static final String PREFS_ASK_FOR_PLAN = "ask_for_plan";
-    /** Preference's name: ask for plan, auto hide. */
+
+    /**
+     * Preference's name: ask for plan, auto hide.
+     */
     public static final String PREFS_ASK_FOR_PLAN_AUTOHIDE = "autohide";
-    /** Preference's name: default plan for ask for plan. */
+
+    /**
+     * Preference's name: default plan for ask for plan.
+     */
     public static final String PREFS_ASK_FOR_PLAN_DEFAULT = "ask_for_plan_default";
 
-    /** Default rule set. */
+    /**
+     * Default rule set.
+     */
     private static final InputStream IS_DEFAULT = new InputStream() {
         @Override
         public int read() throws IOException {
@@ -176,9 +293,14 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         }
     };
 
-    /** {@link Currency} symbol. */
+    /**
+     * {@link Currency} symbol.
+     */
     private static String defaultCurrencySymbol = null;
-    /** {@link Currency} fraction digits. */
+
+    /**
+     * {@link Currency} fraction digits.
+     */
     private static int defaultCurrencyDigits = 2;
 
     /**

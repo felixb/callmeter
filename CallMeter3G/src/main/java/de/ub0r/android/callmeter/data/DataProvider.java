@@ -71,97 +71,209 @@ import de.ub0r.android.logg0r.Log;
  */
 public final class DataProvider extends ContentProvider {
 
-    /** Tag for output. */
+    /**
+     * Tag for output.
+     */
     private static final String TAG = "DataProvider";
 
-    /** Pattern parsing {@link SQLException}. */
+    /**
+     * Pattern parsing {@link SQLException}.
+     */
     private static final Pattern P = Pattern.compile(": *([^ :,]*)", 0);
 
-    /** Callmeter's package name. */
+    /**
+     * Callmeter's package name.
+     */
     public static final String PACKAGE = "de.ub0r.android.callmeter";
 
-    /** Authority. */
+    /**
+     * Authority.
+     */
     public static final String AUTHORITY = PACKAGE + ".data";
 
-    /** Name of the {@link SQLiteDatabase}. */
+    /**
+     * Name of the {@link SQLiteDatabase}.
+     */
     private static final String DATABASE_NAME = "callmeter.db";
-    /** Version of the {@link SQLiteDatabase}. */
+
+    /**
+     * Version of the {@link SQLiteDatabase}.
+     */
     private static final int DATABASE_VERSION = 35;
-    /** Versions of {@link SQLiteDatabase}, which need no unmatch(). */
+
+    /**
+     * Versions of {@link SQLiteDatabase}, which need no unmatch().
+     */
     private static final int[] DATABASE_KNOWNGOOD = new int[]{30, 31, 32, 33, 34};
 
-    /** Version of the export file. */
+    /**
+     * Version of the export file.
+     */
     private static final int EXPORT_VERSION = 2;
-    /** Separator of values. */
+
+    /**
+     * Separator of values.
+     */
     private static final String EXPORT_VALUESEPARATOR = ":#:";
 
-    /** Type of log: title. */
+    /**
+     * Type of log: title.
+     */
     public static final int TYPE_TITLE = 0;
-    /** Type of log: spacing. */
+
+    /**
+     * Type of log: spacing.
+     */
     public static final int TYPE_SPACING = 1;
-    /** Type of log: billmode. */
+
+    /**
+     * Type of log: billmode.
+     */
     public static final int TYPE_BILLPERIOD = 2;
-    /** Type of log: mixed. */
+
+    /**
+     * Type of log: mixed.
+     */
     public static final int TYPE_MIXED = 3;
-    /** Type of log: call. */
+
+    /**
+     * Type of log: call.
+     */
     public static final int TYPE_CALL = 4;
-    /** Type of log: sms. */
+
+    /**
+     * Type of log: sms.
+     */
     public static final int TYPE_SMS = 5;
-    /** Type of log: mms. */
+
+    /**
+     * Type of log: mms.
+     */
     public static final int TYPE_MMS = 6;
-    /** Type of log: data. */
+
+    /**
+     * Type of log: data.
+     */
     public static final int TYPE_DATA = 7;
 
-    /** Direction of log: in. */
+    /**
+     * Direction of log: in.
+     */
     public static final int DIRECTION_IN = 0;
-    /** Direction of log: out. */
+
+    /**
+     * Direction of log: out.
+     */
     public static final int DIRECTION_OUT = 1;
 
-    /** Type of limit: none. */
+    /**
+     * Type of limit: none.
+     */
     public static final int LIMIT_TYPE_NONE = 0;
-    /** Type of limit: units. */
+
+    /**
+     * Type of limit: units.
+     */
     public static final int LIMIT_TYPE_UNITS = 1;
-    /** Type of limit: cost. */
+
+    /**
+     * Type of limit: cost.
+     */
     public static final int LIMIT_TYPE_COST = 2;
 
-    /** Bill period: one day. */
+    /**
+     * Bill period: one day.
+     */
     public static final int BILLPERIOD_DAY = 0;
-    /** Bill period: one week. */
+
+    /**
+     * Bill period: one week.
+     */
     public static final int BILLPERIOD_WEEK = 1;
-    /** Bill period: two weeks. */
+
+    /**
+     * Bill period: two weeks.
+     */
     public static final int BILLPERIOD_14D = 2;
-    /** Bill period: 15 days. */
+
+    /**
+     * Bill period: 15 days.
+     */
     public static final int BILLPERIOD_15D = 3;
-    /** Bill period: 30 days. */
+
+    /**
+     * Bill period: 30 days.
+     */
     public static final int BILLPERIOD_30D = 4;
-    /** Bill period: 31 days. */
+
+    /**
+     * Bill period: 31 days.
+     */
     public static final int BILLPERIOD_31D = 5;
-    /** Bill period: 60 days. */
+
+    /**
+     * Bill period: 60 days.
+     */
     public static final int BILLPERIOD_60D = 6;
-    /** Bill period: 90 days. */
+
+    /**
+     * Bill period: 90 days.
+     */
     public static final int BILLPERIOD_90D = 7;
-    /** Bill period: 1 month. */
+
+    /**
+     * Bill period: 1 month.
+     */
     public static final int BILLPERIOD_1MONTH = 8;
-    /** Bill period: 1 month + 1 Day. */
+
+    /**
+     * Bill period: 1 month + 1 Day.
+     */
     public static final int BILLPERIOD_1MONTH_1DAY = 9;
-    /** Bill period: 2 month. */
+
+    /**
+     * Bill period: 2 month.
+     */
     public static final int BILLPERIOD_2MONTH = 10;
-    /** Bill period: 3 month. */
+
+    /**
+     * Bill period: 3 month.
+     */
     public static final int BILLPERIOD_3MONTH = 11;
-    /** Bill period: 4 month. */
+
+    /**
+     * Bill period: 4 month.
+     */
     public static final int BILLPERIOD_4MONTH = 12;
-    /** Bill period: 5 month. */
+
+    /**
+     * Bill period: 5 month.
+     */
     public static final int BILLPERIOD_5MONTH = 13;
-    /** Bill period: 6 month. */
+
+    /**
+     * Bill period: 6 month.
+     */
     public static final int BILLPERIOD_6MONTH = 14;
-    /** Bill period: 12 month. */
+
+    /**
+     * Bill period: 12 month.
+     */
     public static final int BILLPERIOD_12MONTH = 15;
-    /** Bill period: infinite. */
+
+    /**
+     * Bill period: infinite.
+     */
     public static final int BILLPERIOD_INFINITE = 16;
 
-    /** Plan/rule id: not yet calculated. */
+    /**
+     * Plan/rule id: not yet calculated.
+     */
     public static final int NO_ID = -1;
-    /** Plan/rule id: no plan/rule found. */
+
+    /**
+     * Plan/rule id: no plan/rule found.
+     */
     public static final int NOT_FOUND = -2;
 
     /**
@@ -171,92 +283,210 @@ public final class DataProvider extends ContentProvider {
      */
     public static final class Logs {
 
-        /** Table name. */
+        /**
+         * Table name.
+         */
         public static final String TABLE = "logs";
 
-        /** Index in projection: ID. */
+        /**
+         * Index in projection: ID.
+         */
         public static final int INDEX_ID = 0;
-        /** Index in projection: ID of plan this log is billed in. */
+
+        /**
+         * Index in projection: ID of plan this log is billed in.
+         */
         public static final int INDEX_PLAN_ID = 1;
-        /** Index in projection: ID of rule this log was matched. */
+
+        /**
+         * Index in projection: ID of rule this log was matched.
+         */
         public static final int INDEX_RULE_ID = 2;
-        /** Index in projection: Type of log. */
+
+        /**
+         * Index in projection: Type of log.
+         */
         public static final int INDEX_TYPE = 3;
-        /** Index in projection: Direction of log. */
+
+        /**
+         * Index in projection: Direction of log.
+         */
         public static final int INDEX_DIRECTION = 4;
-        /** Index in projection: Date. */
+
+        /**
+         * Index in projection: Date.
+         */
         public static final int INDEX_DATE = 5;
-        /** Index in projection: Amount. */
+
+        /**
+         * Index in projection: Amount.
+         */
         public static final int INDEX_AMOUNT = 6;
-        /** Index in projection: Billed amount. */
+
+        /**
+         * Index in projection: Billed amount.
+         */
         public static final int INDEX_BILL_AMOUNT = 7;
-        /** Index in projection: Remote part. */
+
+        /**
+         * Index in projection: Remote part.
+         */
         public static final int INDEX_REMOTE = 8;
-        /** Index in projection: Roamed? */
+
+        /**
+         * Index in projection: Roamed?
+         */
         public static final int INDEX_ROAMED = 9;
-        /** Index in projection: Cost. */
+
+        /**
+         * Index in projection: Cost.
+         */
         public static final int INDEX_COST = 10;
-        /** Index in projection: Cost (free). */
+
+        /**
+         * Index in projection: Cost (free).
+         */
         public static final int INDEX_FREE = 11;
-        /** Index in projection: my own number. */
+
+        /**
+         * Index in projection: my own number.
+         */
         public static final int INDEX_MYNUMBER = 12;
-        /** Index in projection: Plan name. */
+
+        /**
+         * Index in projection: Plan name.
+         */
         public static final int INDEX_PLAN_NAME = 13;
-        /** Index in projection: Rule name. */
+
+        /**
+         * Index in projection: Rule name.
+         */
         public static final int INDEX_RULE_NAME = 14;
-        /** Index in projection: Plan type. */
+
+        /**
+         * Index in projection: Plan type.
+         */
         public static final int INDEX_PLAN_TYPE = 15;
 
-        /** Index in projection - sum: Type of log. */
+        /**
+         * Index in projection - sum: Type of log.
+         */
         public static final int INDEX_SUM_TYPE = 0;
-        /** Index in projection - sum: id of plan. */
+
+        /**
+         * Index in projection - sum: id of plan.
+         */
         public static final int INDEX_SUM_PLAN_ID = 1;
-        /** Index in projection - sum: type of plan. */
+
+        /**
+         * Index in projection - sum: type of plan.
+         */
         public static final int INDEX_SUM_PLAN_TYPE = 2;
-        /** Index in projection - sum: Amount. */
+
+        /**
+         * Index in projection - sum: Amount.
+         */
         public static final int INDEX_SUM_AMOUNT = 3;
-        /** Index in projection - sum: Billed amount. */
+
+        /**
+         * Index in projection - sum: Billed amount.
+         */
         public static final int INDEX_SUM_BILL_AMOUNT = 4;
-        /** Index in projection - sum: Cost. */
+
+        /**
+         * Index in projection - sum: Cost.
+         */
         public static final int INDEX_SUM_COST = 5;
-        /** Index in projection - sum: Cost (free). */
+
+        /**
+         * Index in projection - sum: Cost (free).
+         */
         public static final int INDEX_SUM_FREE = 6;
-        /** Index in projection - sum: count. */
+
+        /**
+         * Index in projection - sum: count.
+         */
         public static final int INDEX_SUM_COUNT = 7;
 
-        /** ID. */
+        /**
+         * ID.
+         */
         public static final String ID = "_id";
-        /** ID of plan this log is billed in. */
+
+        /**
+         * ID of plan this log is billed in.
+         */
         public static final String PLAN_ID = "_plan_id";
-        /** ID of rule this log was matched. */
+
+        /**
+         * ID of rule this log was matched.
+         */
         public static final String RULE_ID = "_rule_id";
-        /** Type of log. */
+
+        /**
+         * Type of log.
+         */
         public static final String TYPE = "_type";
-        /** Direction of log. */
+
+        /**
+         * Direction of log.
+         */
         public static final String DIRECTION = "_direction";
-        /** Date of log. */
+
+        /**
+         * Date of log.
+         */
         public static final String DATE = "_date";
-        /** Amount. */
+
+        /**
+         * Amount.
+         */
         public static final String AMOUNT = "_amount";
-        /** Billed amount. */
+
+        /**
+         * Billed amount.
+         */
         public static final String BILL_AMOUNT = "_bill_amount";
-        /** Remote part. */
+
+        /**
+         * Remote part.
+         */
         public static final String REMOTE = "_remote";
-        /** Roamed? */
+
+        /**
+         * Roamed?
+         */
         public static final String ROAMED = "_roamed";
-        /** Cost. */
+
+        /**
+         * Cost.
+         */
         public static final String COST = "_logs_cost";
-        /** Cost (free). */
+
+        /**
+         * Cost (free).
+         */
         public static final String FREE = "_logs_cost_free";
-        /** Type of plan. Only available in sum query. */
+
+        /**
+         * Type of plan. Only available in sum query.
+         */
         public static final String PLAN_TYPE = "_plan_type";
-        /** My own number. */
+
+        /**
+         * My own number.
+         */
         public static final String MYNUMBER = "_mynumber";
 
-        /** Projection used for query. */
+        /**
+         * Projection used for query.
+         */
         public static final String[] PROJECTION = new String[]{ID, PLAN_ID, RULE_ID, TYPE,
                 DIRECTION, DATE, AMOUNT, BILL_AMOUNT, REMOTE, ROAMED, COST, FREE, MYNUMBER};
-        /** Projection used for join query. */
+
+        /**
+         * Projection used for join query.
+         */
         public static final String[] PROJECTION_JOIN;
 
         static {
@@ -270,19 +500,30 @@ public final class DataProvider extends ContentProvider {
             PROJECTION_JOIN[l + 2] = Plans.TABLE + "." + Plans.TYPE + " as " + Plans.TYPE;
         }
 
-        /** Projection used for query - sum. */
+        /**
+         * Projection used for query - sum.
+         */
         public static final String[] PROJECTION_SUM = new String[]{TYPE, PLAN_ID,
                 Plans.TABLE + "." + Plans.TYPE + " AS " + PLAN_TYPE, "sum(" + AMOUNT + ")",
                 "sum(" + BILL_AMOUNT + ")", "sum(" + COST + ")", "sum(" + FREE + ")",
                 "count(" + PLAN_ID + ")"};
 
-        /** Content {@link Uri}. */
+        /**
+         * Content {@link Uri}.
+         */
         public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/logs");
-        /** Content {@link Uri} logs joined with plans and rules. */
+
+        /**
+         * Content {@link Uri} logs joined with plans and rules.
+         */
         public static final Uri CONTENT_URI_JOIN = Uri.parse("content://" + AUTHORITY
                 + "/logs/join");
-        /** Content {@link Uri} - sum. */
+
+        /**
+         * Content {@link Uri} - sum.
+         */
         public static final Uri SUM_URI = Uri.parse("content://" + AUTHORITY + "/logs/sum");
+
         /**
          * The MIME type of {@link #CONTENT_URI} providing a list.
          */
@@ -332,7 +573,9 @@ public final class DataProvider extends ContentProvider {
             is.close();
         }
 
-        /** Default constructor. */
+        /**
+         * Default constructor.
+         */
         private Logs() {
             // nothing here.
         }
@@ -368,28 +611,51 @@ public final class DataProvider extends ContentProvider {
      */
     public static final class WebSMS {
 
-        /** Table name. */
+        /**
+         * Table name.
+         */
         private static final String TABLE = "websms";
 
-        /** Index in projection: ID. */
+        /**
+         * Index in projection: ID.
+         */
         public static final int INDEX_ID = 0;
-        /** Index in projection: Connector's name. */
+
+        /**
+         * Index in projection: Connector's name.
+         */
         public static final int INDEX_CONNECTOR = 1;
-        /** Index in projection: date. */
+
+        /**
+         * Index in projection: date.
+         */
         public static final int INDEX_DATE = 2;
 
-        /** ID. */
+        /**
+         * ID.
+         */
         public static final String ID = "_id";
-        /** Connector's name. */
+
+        /**
+         * Connector's name.
+         */
         public static final String CONNECTOR = "_connector";
-        /** Date. */
+
+        /**
+         * Date.
+         */
         public static final String DATE = "_date";
 
-        /** Projection used for query. */
+        /**
+         * Projection used for query.
+         */
         public static final String[] PROJECTION = new String[]{ID, CONNECTOR, DATE};
 
-        /** Content {@link Uri}. */
+        /**
+         * Content {@link Uri}.
+         */
         public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/websms");
+
         /**
          * The MIME type of {@link #CONTENT_URI} providing a list.
          */
@@ -434,7 +700,9 @@ public final class DataProvider extends ContentProvider {
             is.close();
         }
 
-        /** Default constructor. */
+        /**
+         * Default constructor.
+         */
         private WebSMS() {
             // nothing here.
         }
@@ -447,28 +715,51 @@ public final class DataProvider extends ContentProvider {
      */
     public static final class SipCall {
 
-        /** Table name. */
+        /**
+         * Table name.
+         */
         private static final String TABLE = "sipcall";
 
-        /** Index in projection: ID. */
+        /**
+         * Index in projection: ID.
+         */
         public static final int INDEX_ID = 0;
-        /** Index in projection: Provider's name. */
+
+        /**
+         * Index in projection: Provider's name.
+         */
         public static final int INDEX_PROVIDER = 1;
-        /** Index in projection: date. */
+
+        /**
+         * Index in projection: date.
+         */
         public static final int INDEX_DATE = 2;
 
-        /** ID. */
+        /**
+         * ID.
+         */
         public static final String ID = "_id";
-        /** Provider's name. */
+
+        /**
+         * Provider's name.
+         */
         public static final String PROVIDER = "_connector";
-        /** Date. */
+
+        /**
+         * Date.
+         */
         public static final String DATE = "_date";
 
-        /** Projection used for query. */
+        /**
+         * Projection used for query.
+         */
         public static final String[] PROJECTION = new String[]{ID, PROVIDER, DATE};
 
-        /** Content {@link Uri}. */
+        /**
+         * Content {@link Uri}.
+         */
         public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/sipcall");
+
         /**
          * The MIME type of {@link #CONTENT_URI} providing a list.
          */
@@ -513,7 +804,9 @@ public final class DataProvider extends ContentProvider {
             is.close();
         }
 
-        /** Hide constructor. */
+        /**
+         * Hide constructor.
+         */
         private SipCall() {
             // nothing here.
         }
@@ -526,55 +819,124 @@ public final class DataProvider extends ContentProvider {
      */
     public static final class Plans {
 
-        /** A plan. */
+        /**
+         * A plan.
+         */
         public static final class Plan {
 
-            /** Prefix for loading plans from {@link SharedPreferences}. */
+            /**
+             * Prefix for loading plans from {@link SharedPreferences}.
+             */
             private static final String PREF_PREFIX = "_plans_";
 
-            /** Id of plan. */
+            /**
+             * Id of plan.
+             */
             public final long id;
-            /** Type of plan. */
+
+            /**
+             * Type of plan.
+             */
             public final int type;
-            /** Plans's name. */
+
+            /**
+             * Plans's name.
+             */
             public final String name;
-            /** Plans's short name. */
+
+            /**
+             * Plans's short name.
+             */
             public final String sname;
-            /** Bill period. */
+
+            /**
+             * Bill period.
+             */
             public final int billperiod;
-            /** Bill day. */
+
+            /**
+             * Bill day.
+             */
             public final long billday;
-            /** Next bill day. */
+
+            /**
+             * Next bill day.
+             */
             public final long nextbillday;
-            /** Current time used for query. */
+
+            /**
+             * Current time used for query.
+             */
             public final long now;
-            /** Type of limit. */
+
+            /**
+             * Type of limit.
+             */
             public final int limittype;
-            /** Limit. */
+
+            /**
+             * Limit.
+             */
             public final long limit;
-            /** Position in limit. */
+
+            /**
+             * Position in limit.
+             */
             public final long limitPos;
-            /** Used limit. */
+
+            /**
+             * Used limit.
+             */
             public final float usage;
-            /** Cost per plan. */
+
+            /**
+             * Cost per plan.
+             */
             private final float cpp;
-            /** Sum of cost. */
+
+            /**
+             * Sum of cost.
+             */
             public final float cost;
-            /** Sum of free cost. */
+
+            /**
+             * Sum of free cost.
+             */
             public final float free;
-            /** Sum of todays count. */
+
+            /**
+             * Sum of todays count.
+             */
             public final int tdCount;
-            /** Sum of todays billed amount. */
+
+            /**
+             * Sum of todays billed amount.
+             */
             public final float tdBa;
-            /** Sum of this bill period's count. */
+
+            /**
+             * Sum of this bill period's count.
+             */
             public final int bpCount;
-            /** Sum of this bill period's billed amount. */
+
+            /**
+             * Sum of this bill period's billed amount.
+             */
             public final float bpBa;
-            /** Sum of this all time's count. */
+
+            /**
+             * Sum of this all time's count.
+             */
             public final int atCount;
-            /** Sum of this all time's billed amount. */
+
+            /**
+             * Sum of this all time's billed amount.
+             */
             public final float atBa;
-            /** Has billed amount. */
+
+            /**
+             * Has billed amount.
+             */
             public final boolean hasBa;
 
             /**
@@ -900,204 +1262,476 @@ public final class DataProvider extends ContentProvider {
             }
         }
 
-        /** Table name. */
+        /**
+         * Table name.
+         */
         public static final String TABLE = "plans";
 
-        /** Parameter for query: date. */
+        /**
+         * Parameter for query: date.
+         */
         public static final String PARAM_DATE = "date";
-        /** Parameter for query: hide zero plans. */
+
+        /**
+         * Parameter for query: hide zero plans.
+         */
         public static final String PARAM_HIDE_ZERO = "hide_zero";
-        /** Parameter for query: hide zero cost plans. */
+
+        /**
+         * Parameter for query: hide zero cost plans.
+         */
         public static final String PARAM_HIDE_NOCOST = "hide_nocost";
-        /** Parameter for query: hide today stats. */
+
+        /**
+         * Parameter for query: hide today stats.
+         */
         public static final String PARAM_HIDE_TODAY = "hide_today";
-        /** Parameter for query: hide all time stats. */
+
+        /**
+         * Parameter for query: hide all time stats.
+         */
         public static final String PARAM_HIDE_ALLTIME = "hide_alltime";
 
-        /** Index in projection: id. */
+        /**
+         * Index in projection: id.
+         */
         public static final int INDEX_ID = 0;
-        /** Index in projection: name. */
+
+        /**
+         * Index in projection: name.
+         */
         public static final int INDEX_NAME = 1;
-        /** Index in projection: short name. */
+
+        /**
+         * Index in projection: short name.
+         */
         public static final int INDEX_SHORTNAME = 2;
-        /** Index in projection: type. */
+
+        /**
+         * Index in projection: type.
+         */
         public static final int INDEX_TYPE = 3;
-        /** Index in projection: Type of limit. */
+
+        /**
+         * Index in projection: Type of limit.
+         */
         public static final int INDEX_LIMIT_TYPE = 4;
-        /** Index in projection: limit. */
+
+        /**
+         * Index in projection: limit.
+         */
         public static final int INDEX_LIMIT = 5;
-        /** Index in projection: type of billperiod. */
+
+        /**
+         * Index in projection: type of billperiod.
+         */
         public static final int INDEX_BILLPERIOD = 6;
-        /** Index in projection: Billmode. */
+
+        /**
+         * Index in projection: Billmode.
+         */
         public static final int INDEX_BILLMODE = 7;
-        /** Index in projection: Billday. */
+
+        /**
+         * Index in projection: Billday.
+         */
         public static final int INDEX_BILLDAY = 8;
-        /** Index in projection: Cost per item. */
+
+        /**
+         * Index in projection: Cost per item.
+         */
         public static final int INDEX_COST_PER_ITEM = 9;
-        /** Index in projection: Cost per amount1. */
+
+        /**
+         * Index in projection: Cost per amount1.
+         */
         public static final int INDEX_COST_PER_AMOUNT1 = 10;
-        /** Index in projection: Cost per amount2. */
+
+        /**
+         * Index in projection: Cost per amount2.
+         */
         public static final int INDEX_COST_PER_AMOUNT2 = 11;
-        /** Index in projection: Cost per item in limit. */
+
+        /**
+         * Index in projection: Cost per item in limit.
+         */
         public static final int INDEX_COST_PER_ITEM_IN_LIMIT = 12;
-        /** Index in projection: Cost per amount1 in limit. */
+
+        /**
+         * Index in projection: Cost per amount1 in limit.
+         */
         public static final int INDEX_COST_PER_AMOUNT_IN_LIMIT1 = 13;
-        /** Index in projection: Cost per amount2 in limit. */
+
+        /**
+         * Index in projection: Cost per amount2 in limit.
+         */
         public static final int INDEX_COST_PER_AMOUNT_IN_LIMIT2 = 14;
-        /** Index in projection: Cost per plan. */
+
+        /**
+         * Index in projection: Cost per plan.
+         */
         public static final int INDEX_COST_PER_PLAN = 15;
-        /** Index in projection: Mixed units for call. */
+
+        /**
+         * Index in projection: Mixed units for call.
+         */
         public static final int INDEX_MIXED_UNITS_CALL = 16;
-        /** Index in projection: Mixed units for sms. */
+
+        /**
+         * Index in projection: Mixed units for sms.
+         */
         public static final int INDEX_MIXED_UNITS_SMS = 17;
-        /** Index in projection: Mixed units for mms. */
+
+        /**
+         * Index in projection: Mixed units for mms.
+         */
         public static final int INDEX_MIXED_UNITS_MMS = 18;
-        /** Index in projection: Mixed units for data. */
+
+        /**
+         * Index in projection: Mixed units for data.
+         */
         public static final int INDEX_MIXED_UNITS_DATA = 19;
-        /** Index in projection: id of billperiod. */
+
+        /**
+         * Index in projection: id of billperiod.
+         */
         public static final int INDEX_BILLPERIOD_ID = 20;
-        /** Index in projection: next alert. */
+
+        /**
+         * Index in projection: next alert.
+         */
         public static final int INDEX_NEXT_ALERT = 21;
-        /** Index in projection: strip first seconds. */
+
+        /**
+         * Index in projection: strip first seconds.
+         */
         public static final int INDEX_STRIP_SECONDS = 22;
-        /** Index in projection: strip all but first seconds. */
+
+        /**
+         * Index in projection: strip all but first seconds.
+         */
         public static final int INDEX_STRIP_PAST = 23;
-        /** Index in projection: merged plans. */
+
+        /**
+         * Index in projection: merged plans.
+         */
         public static final int INDEX_MERGED_PLANS = 24;
-        /** Index in projection: sum, now. */
+
+        /**
+         * Index in projection: sum, now.
+         */
         public static final int INDEX_SUM_NOW = 9;
-        /** Index in projection: sum, last bill day. */
+
+        /**
+         * Index in projection: sum, last bill day.
+         */
         public static final int INDEX_SUM_BILLDAY = 10;
-        /** Index in projection: sum: next bill day. */
+
+        /**
+         * Index in projection: sum: next bill day.
+         */
         public static final int INDEX_SUM_NEXTBILLDAY = 11;
-        /** Index in projection: sum count for today. */
+
+        /**
+         * Index in projection: sum count for today.
+         */
         public static final int INDEX_SUM_TD_COUNT = 12;
-        /** Index in projection: sum billed amount for today. */
+
+        /**
+         * Index in projection: sum billed amount for today.
+         */
         public static final int INDEX_SUM_TD_BILLED_AMOUNT = 13;
-        /** Index in projection: sum count for this bill period. */
+
+        /**
+         * Index in projection: sum count for this bill period.
+         */
         public static final int INDEX_SUM_BP_COUNT = 14;
-        /** Index in projection: sum billed amount for this bill period. */
+
+        /**
+         * Index in projection: sum billed amount for this bill period.
+         */
         public static final int INDEX_SUM_BP_BILLED_AMOUNT = 15;
-        /** Index in projection: sum count. */
+
+        /**
+         * Index in projection: sum count.
+         */
         public static final int INDEX_SUM_AT_COUNT = 16;
-        /** Index in projection: sum billed amount. */
+
+        /**
+         * Index in projection: sum billed amount.
+         */
         public static final int INDEX_SUM_AT_BILLED_AMOUNT = 17;
-        /** Index in projection: sum cost for all plans. */
+
+        /**
+         * Index in projection: sum cost for all plans.
+         */
         public static final int INDEX_SUM_CPP = 18;
-        /** Index in projection: sum cost for this bill period. */
+
+        /**
+         * Index in projection: sum cost for this bill period.
+         */
         public static final int INDEX_SUM_COST = 19;
-        /** Index in projection: sum free cost for this bill period. */
+
+        /**
+         * Index in projection: sum free cost for this bill period.
+         */
         public static final int INDEX_SUM_FREE = 20;
-        /** Index in projection: Mixed units for call. */
+
+        /**
+         * Index in projection: Mixed units for call.
+         */
         public static final int INDEX_SUM_MIXED_UNITS_CALL = 21;
-        /** Index in projection: Mixed units for data. */
+
+        /**
+         * Index in projection: Mixed units for data.
+         */
         public static final int INDEX_SUM_MIXED_UNITS_DATA = 22;
-        /** Index in projection: Mixed units for mms. */
+
+        /**
+         * Index in projection: Mixed units for mms.
+         */
         public static final int INDEX_SUM_MIXED_UNITS_MMS = 23;
-        /** Index in projection: Mixed units for sms. */
+
+        /**
+         * Index in projection: Mixed units for sms.
+         */
         public static final int INDEX_SUM_MIXED_UNITS_SMS = 24;
-        /** Index in projection: Mixed units for call. */
+
+        /**
+         * Index in projection: Mixed units for call.
+         */
         public static final int INDEX_BASIC_MIXED_UNITS_CALL = INDEX_BILLPERIOD + 2;
-        /** Index in projection: Mixed units for data. */
+
+        /**
+         * Index in projection: Mixed units for data.
+         */
         public static final int INDEX_BASIC_MIXED_UNITS_DATA = INDEX_BASIC_MIXED_UNITS_CALL + 1;
-        /** Index in projection: Mixed units for mms. */
+
+        /**
+         * Index in projection: Mixed units for mms.
+         */
         public static final int INDEX_BASIC_MIXED_UNITS_MMS = INDEX_BASIC_MIXED_UNITS_DATA + 1;
-        /** Index in projection: Mixed units for sms. */
+
+        /**
+         * Index in projection: Mixed units for sms.
+         */
         public static final int INDEX_BASIC_MIXED_UNITS_SMS = INDEX_BASIC_MIXED_UNITS_MMS + 1;
 
-        /** ID. */
+        /**
+         * ID.
+         */
         public static final String ID = "_id";
-        /** Order. */
+
+        /**
+         * Order.
+         */
         public static final String ORDER = "_order";
-        /** Name. */
+
+        /**
+         * Name.
+         */
         public static final String NAME = "_plan_name";
-        /** Short name. */
+
+        /**
+         * Short name.
+         */
         public static final String SHORTNAME = "_shortname";
-        /** Type of log. */
+
+        /**
+         * Type of log.
+         */
         public static final String TYPE = "_plan_type";
-        /** Type of limit. */
+
+        /**
+         * Type of limit.
+         */
         public static final String LIMIT_TYPE = "_limit_type";
-        /** Limit. */
+
+        /**
+         * Limit.
+         */
         public static final String LIMIT = "_limit";
-        /** Type of billperiod. */
+
+        /**
+         * Type of billperiod.
+         */
         public static final String BILLPERIOD = "_billperiod";
-        /** Billmode. */
+
+        /**
+         * Billmode.
+         */
         public static final String BILLMODE = "_billmode";
-        /** Billday. */
+
+        /**
+         * Billday.
+         */
         public static final String BILLDAY = "_billday";
-        /** Id of billperiod. */
+
+        /**
+         * Id of billperiod.
+         */
         public static final String BILLPERIOD_ID = "_billperiod_id";
-        /** Cost per item. */
+
+        /**
+         * Cost per item.
+         */
         public static final String COST_PER_ITEM = "_cost_per_item";
-        /** Cost per amount1. */
+
+        /**
+         * Cost per amount1.
+         */
         public static final String COST_PER_AMOUNT1 = "_cost_per_amount1";
-        /** Cost per amount2. */
+
+        /**
+         * Cost per amount2.
+         */
         public static final String COST_PER_AMOUNT2 = "_cost_per_amount2";
-        /** Cost per item in limit. */
+
+        /**
+         * Cost per item in limit.
+         */
         public static final String COST_PER_ITEM_IN_LIMIT = "_cost_per_item_in_limit";
-        /** Cost per amount1 in limit. */
+
+        /**
+         * Cost per amount1 in limit.
+         */
         public static final String COST_PER_AMOUNT_IN_LIMIT1 = "_cost_per_amount_in_limit1";
-        /** Cost per amount2 in limit. */
+
+        /**
+         * Cost per amount2 in limit.
+         */
         public static final String COST_PER_AMOUNT_IN_LIMIT2 = "_cost_per_amount_in_limit2";
-        /** Cost per plan. */
+
+        /**
+         * Cost per plan.
+         */
         public static final String COST_PER_PLAN = "_cost_per_plan";
-        /** Mixed units for call. */
+
+        /**
+         * Mixed units for call.
+         */
         public static final String MIXED_UNITS_CALL = "_mixed_units_call";
-        /** Mixed units for sms. */
+
+        /**
+         * Mixed units for sms.
+         */
         public static final String MIXED_UNITS_SMS = "_mixed_units_sms";
-        /** Mixed units for mms. */
+
+        /**
+         * Mixed units for mms.
+         */
         public static final String MIXED_UNITS_MMS = "_mixed_units_mms";
-        /** Mixed units for data. */
+
+        /**
+         * Mixed units for data.
+         */
         public static final String MIXED_UNITS_DATA = "_mixed_units_data";
-        /** Next alert. */
+
+        /**
+         * Next alert.
+         */
         public static final String NEXT_ALERT = "_next_alert";
-        /** Strip first seconds. */
+
+        /**
+         * Strip first seconds.
+         */
         public static final String STRIP_SECONDS = "_strip_seconds";
-        /** Strip anything but first seconds. */
+
+        /**
+         * Strip anything but first seconds.
+         */
         public static final String STRIP_PAST = "_strip_past";
-        /** Merged plans. */
+
+        /**
+         * Merged plans.
+         */
         public static final String MERGED_PLANS = "_merged_plans";
 
-        /** Sum: now. */
+        /**
+         * Sum: now.
+         */
         public static final String SUM_NOW = "NOW";
-        /** Sum: last bill day. */
+
+        /**
+         * Sum: last bill day.
+         */
         public static final String SUM_BILLDAY = "BILLDAY";
-        /** Sum: next bill day. */
+
+        /**
+         * Sum: next bill day.
+         */
         public static final String SUM_NEXTBILLDAY = "NEXTBILLDAY";
-        /** Sum: TODAY. */
+
+        /**
+         * Sum: TODAY.
+         */
         public static final String SUM_TODAY = "TODAY";
-        /** Sum: count for this bill period. */
+
+        /**
+         * Sum: count for this bill period.
+         */
         public static final String SUM_BP_COUNT = "SUM_BP_COUNT";
-        /** Sum: billed amount for this bill period. */
+
+        /**
+         * Sum: billed amount for this bill period.
+         */
         public static final String SUM_BP_BILLED_AMOUNT = "SUM_BP_BA";
-        /** Sum: count. */
+
+        /**
+         * Sum: count.
+         */
         public static final String SUM_AT_COUNT = "SUM_AT_COUNT";
-        /** Sum: billed amount. */
+
+        /**
+         * Sum: billed amount.
+         */
         public static final String SUM_AT_BILLED_AMOUNT = "SUM_AT_BA";
-        /** Sum: count for today. */
+
+        /**
+         * Sum: count for today.
+         */
         public static final String SUM_TD_COUNT = "SUM_TD_COUNT";
-        /** Sum: billed amount for today. */
+
+        /**
+         * Sum: billed amount for today.
+         */
         public static final String SUM_TD_BILLED_AMOUNT = "SUM_TD_BA";
-        /** Sum: cost for all plans. */
+
+        /**
+         * Sum: cost for all plans.
+         */
         public static final String SUM_CPP = "SUM_CPP";
-        /** Sum: cost for this bill period. */
+
+        /**
+         * Sum: cost for this bill period.
+         */
         public static final String SUM_COST = "SUM_COST";
-        /** Sum: free cost for this bill period. */
+
+        /**
+         * Sum: free cost for this bill period.
+         */
         public static final String SUM_FREE = "SUM_FREE";
 
-        /** Projection used for query. */
+        /**
+         * Projection used for query.
+         */
         public static final String[] PROJECTION = new String[]{ID, NAME, SHORTNAME, TYPE,
                 LIMIT_TYPE, LIMIT, BILLPERIOD, BILLMODE, BILLDAY, COST_PER_ITEM, COST_PER_AMOUNT1,
                 COST_PER_AMOUNT2, COST_PER_ITEM_IN_LIMIT, COST_PER_AMOUNT_IN_LIMIT1,
                 COST_PER_AMOUNT_IN_LIMIT2, COST_PER_PLAN, MIXED_UNITS_CALL, MIXED_UNITS_SMS,
                 MIXED_UNITS_MMS, MIXED_UNITS_DATA, BILLPERIOD_ID, NEXT_ALERT, STRIP_SECONDS,
                 STRIP_PAST, MERGED_PLANS, ORDER};
-        /** Projection used for basic query. */
+
+        /**
+         * Projection used for basic query.
+         */
         public static final String[] PROJECTION_BASIC = new String[]{ID, NAME, SHORTNAME, TYPE,
                 LIMIT_TYPE, LIMIT, BILLPERIOD, ORDER, MIXED_UNITS_CALL, MIXED_UNITS_DATA,
                 MIXED_UNITS_MMS, MIXED_UNITS_SMS};
 
-        /** Projection used for sum query. */
+        /**
+         * Projection used for sum query.
+         */
         public static final String[] PROJECTION_SUM = new String[]{
                 TABLE + "." + ID + " AS " + ID,
                 TABLE + "." + NAME + " AS " + NAME,
@@ -1177,28 +1811,49 @@ public final class DataProvider extends ContentProvider {
                 TABLE + "." + MIXED_UNITS_MMS + " AS " + MIXED_UNITS_MMS,
                 TABLE + "." + MIXED_UNITS_SMS + " AS " + MIXED_UNITS_SMS};
 
-        /** Projection used for query id and (short)name. */
+        /**
+         * Projection used for query id and (short)name.
+         */
         public static final String[] PROJECTION_NAME = new String[]{ID, NAME, SHORTNAME};
 
-        /** Select only real plans. */
+        /**
+         * Select only real plans.
+         */
         public static final String WHERE_REALPLANS = TYPE + "!=" + TYPE_BILLPERIOD + " and " + TYPE
                 + "!=" + TYPE_SPACING + " and " + TYPE + "!=" + TYPE_TITLE;
-        /** Select only bill periods. */
+
+        /**
+         * Select only bill periods.
+         */
         public static final String WHERE_BILLPERIODS = TYPE + " = " + TYPE_BILLPERIOD;
-        /** Select only real plans and bill periods. */
+
+        /**
+         * Select only real plans and bill periods.
+         */
         public static final String WHERE_PLANS = TYPE + "!=" + TYPE_SPACING + " and " + TYPE + "!="
                 + TYPE_TITLE;
 
-        /** Default order. */
+        /**
+         * Default order.
+         */
         public static final String DEFAULT_ORDER = ORDER + " ASC , " + ID + " ASC";
-        /** Reverse order. */
+
+        /**
+         * Reverse order.
+         */
         public static final String REVERSE_ORDER = ORDER + " DESC , " + ID + " DESC";
 
-        /** Content {@link Uri}. */
+        /**
+         * Content {@link Uri}.
+         */
         public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/plans");
-        /** Content {@link Uri}. */
+
+        /**
+         * Content {@link Uri}.
+         */
         public static final Uri CONTENT_URI_SUM = Uri
                 .parse("content://" + AUTHORITY + "/plans/sum");
+
         /**
          * The MIME type of {@link #CONTENT_URI} providing a list.
          */
@@ -1254,7 +1909,9 @@ public final class DataProvider extends ContentProvider {
             is.close();
         }
 
-        /** Default constructor. */
+        /**
+         * Default constructor.
+         */
         private Plans() {
             // nothing here.
         }
@@ -1713,108 +2370,239 @@ public final class DataProvider extends ContentProvider {
      */
     public static final class Rules {
 
-        /** Condition does not matter. */
+        /**
+         * Condition does not matter.
+         */
         public static final int NO_MATTER = 2;
 
-        /** Condition type: match call. */
+        /**
+         * Condition type: match call.
+         */
         public static final int WHAT_CALL = 0;
-        /** Condition type: match sms. */
+
+        /**
+         * Condition type: match sms.
+         */
         public static final int WHAT_SMS = 1;
-        /** Condition type: match mms. */
+
+        /**
+         * Condition type: match mms.
+         */
         public static final int WHAT_MMS = 2;
-        /** Condition type: match data. */
+
+        /**
+         * Condition type: match data.
+         */
         public static final int WHAT_DATA = 3;
 
-        /** Table name. */
+        /**
+         * Table name.
+         */
         private static final String TABLE = "rules";
 
-        /** Index in projection: id. */
+        /**
+         * Index in projection: id.
+         */
         public static final int INDEX_ID = 0;
-        /** Index in projection: active? */
+
+        /**
+         * Index in projection: active?
+         */
         public static final int INDEX_ACTIVE = 1;
-        /** Index in projection: order. */
+
+        /**
+         * Index in projection: order.
+         */
         public static final int INDEX_ORDER = 2;
-        /** Index in projection: ID of plan referred by this rule. */
+
+        /**
+         * Index in projection: ID of plan referred by this rule.
+         */
         public static final int INDEX_PLAN_ID = 3;
-        /** Index in projection: Name. */
+
+        /**
+         * Index in projection: Name.
+         */
         public static final int INDEX_NAME = 4;
-        /** Index in projection: Kind of rule. */
+
+        /**
+         * Index in projection: Kind of rule.
+         */
         public static final int INDEX_WHAT = 5;
-        /** Index in projection: is roamed? */
+
+        /**
+         * Index in projection: is roamed?
+         */
         public static final int INDEX_ROAMED = 6;
-        /** Index in projection: is direction? */
+
+        /**
+         * Index in projection: is direction?
+         */
         public static final int INDEX_DIRECTION = 7;
-        /** Index in projection: is hours? */
+
+        /**
+         * Index in projection: is hours?
+         */
         public static final int INDEX_INHOURS_ID = 8;
-        /** Index in projection: is not hours? */
+
+        /**
+         * Index in projection: is not hours?
+         */
         public static final int INDEX_EXHOURS_ID = 9;
-        /** Index in projection: is number? */
+
+        /**
+         * Index in projection: is number?
+         */
         public static final int INDEX_INNUMBERS_ID = 10;
-        /** Index in projection: is not number? */
+
+        /**
+         * Index in projection: is not number?
+         */
         public static final int INDEX_EXNUMBERS_ID = 11;
-        /** Index in projection: limit not reached? */
+
+        /**
+         * Index in projection: limit not reached?
+         */
         public static final int INDEX_LIMIT_NOT_REACHED = 12;
-        /** Index in projection: is websms. */
+
+        /**
+         * Index in projection: is websms.
+         */
         public static final int INDEX_IS_WEBSMS = 13;
-        /** Index in projection: is websms connector. */
+
+        /**
+         * Index in projection: is websms connector.
+         */
         public static final int INDEX_IS_WEBSMS_CONNETOR = 14;
-        /** Index in projection: is sipcall. */
+
+        /**
+         * Index in projection: is sipcall.
+         */
         public static final int INDEX_IS_SIPCALL = 15;
-        /** Index in projection: is sipcall provider. */
+
+        /**
+         * Index in projection: is sipcall provider.
+         */
         public static final int INDEX_IS_SIPCALL_PROVIDER = 16;
-        /** Index in projection: my own number. */
+
+        /**
+         * Index in projection: my own number.
+         */
         public static final int INDEX_MYNUMBER = 17;
 
-        /** ID. */
+        /**
+         * ID.
+         */
         public static final String ID = "_id";
-        /** Active? */
+
+        /**
+         * Active?
+         */
         public static final String ACTIVE = "_active";
-        /** Order. */
+
+        /**
+         * Order.
+         */
         public static final String ORDER = "_order";
-        /** ID of plan referred by this rule. */
+
+        /**
+         * ID of plan referred by this rule.
+         */
         public static final String PLAN_ID = "_plan_id";
-        /** Name. */
+
+        /**
+         * Name.
+         */
         public static final String NAME = "_rule_name";
-        /** Kind of rule. */
+
+        /**
+         * Kind of rule.
+         */
         public static final String WHAT = "_what";
-        /** Is roamed? */
+
+        /**
+         * Is roamed?
+         */
         public static final String ROAMED = "_roamed";
-        /** Is direction? */
+
+        /**
+         * Is direction?
+         */
         public static final String DIRECTION = "_direction";
-        /** Is hours? */
+
+        /**
+         * Is hours?
+         */
         public static final String INHOURS_ID = "_inhourgroup_id";
-        /** Is not hours? */
+
+        /**
+         * Is not hours?
+         */
         public static final String EXHOURS_ID = "_exhourgroup_id";
-        /** Is number? */
+
+        /**
+         * Is number?
+         */
         public static final String INNUMBERS_ID = "_innumbergroup_id";
-        /** Is not number? */
+
+        /**
+         * Is not number?
+         */
         public static final String EXNUMBERS_ID = "_exnumbergroup_id";
-        /** Limit not reached? */
+
+        /**
+         * Limit not reached?
+         */
         public static final String LIMIT_NOT_REACHED = "_limit_not_reached";
-        /** Is websms. */
+
+        /**
+         * Is websms.
+         */
         public static final String IS_WEBSMS = "_is_websms";
-        /** Is websms connector. */
+
+        /**
+         * Is websms connector.
+         */
         public static final String IS_WEBSMS_CONNETOR = "_is_websms_connector";
-        /** Is sipcall. */
+
+        /**
+         * Is sipcall.
+         */
         public static final String IS_SIPCALL = "_is_sipcall";
-        /** Is sipcall provider. */
+
+        /**
+         * Is sipcall provider.
+         */
         public static final String IS_SIPCALL_PROVIDER = "_is_sipcall_provider";
-        /** My own number. */
+
+        /**
+         * My own number.
+         */
         public static final String MYNUMBER = "_mynumber";
 
-        /** Projection used for query. */
+        /**
+         * Projection used for query.
+         */
         public static final String[] PROJECTION = new String[]{ID, ACTIVE, ORDER, PLAN_ID, NAME,
                 WHAT, ROAMED, DIRECTION, INHOURS_ID, EXHOURS_ID, INNUMBERS_ID, EXNUMBERS_ID,
                 LIMIT_NOT_REACHED, IS_WEBSMS, IS_WEBSMS_CONNETOR, IS_SIPCALL, IS_SIPCALL_PROVIDER,
                 MYNUMBER};
 
-        /** Default order. */
+        /**
+         * Default order.
+         */
         public static final String DEFAULT_ORDER = ORDER + " ASC , " + ID + " ASC";
-        /** Reverse order. */
+
+        /**
+         * Reverse order.
+         */
         public static final String REVERSE_ORDER = ORDER + " DESC , " + ID + " DESC";
 
-        /** Content {@link Uri}. */
+        /**
+         * Content {@link Uri}.
+         */
         public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/rules");
+
         /**
          * The MIME type of {@link #CONTENT_URI} providing a list.
          */
@@ -1866,7 +2654,9 @@ public final class DataProvider extends ContentProvider {
             is.close();
         }
 
-        /** Default constructor. */
+        /**
+         * Default constructor.
+         */
         private Rules() {
             // nothing here.
         }
@@ -1879,30 +2669,56 @@ public final class DataProvider extends ContentProvider {
      */
     public static final class Numbers {
 
-        /** Table name. */
+        /**
+         * Table name.
+         */
         private static final String TABLE = "numbers";
 
-        /** Index in projection: ID. */
+        /**
+         * Index in projection: ID.
+         */
         public static final int INDEX_ID = 0;
-        /** Index in projection: ID for number block. */
+
+        /**
+         * Index in projection: ID for number block.
+         */
         public static final int INDEX_GID = 1;
-        /** Index in projection: number. */
+
+        /**
+         * Index in projection: number.
+         */
         public static final int INDEX_NUMBER = 2;
 
-        /** ID. */
+        /**
+         * ID.
+         */
         public static final String ID = "_id";
-        /** ID for number block. */
+
+        /**
+         * ID for number block.
+         */
         public static final String GID = "_gid";
-        /** Number. */
+
+        /**
+         * Number.
+         */
         public static final String NUMBER = "_number";
 
-        /** Projection used for query. */
+        /**
+         * Projection used for query.
+         */
         public static final String[] PROJECTION = new String[]{ID, GID, NUMBER};
 
-        /** Content {@link Uri}. */
+        /**
+         * Content {@link Uri}.
+         */
         public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/numbers");
-        /** Content {@link Uri} for a group of numbers. */
+
+        /**
+         * Content {@link Uri} for a group of numbers.
+         */
         public static final Uri GROUP_URI = Uri.parse("content://" + AUTHORITY + "/numbers/group");
+
         /**
          * The MIME type of {@link #CONTENT_URI} providing a list.
          */
@@ -1947,7 +2763,9 @@ public final class DataProvider extends ContentProvider {
             is.close();
         }
 
-        /** Default constructor. */
+        /**
+         * Default constructor.
+         */
         private Numbers() {
             // nothing here.
         }
@@ -1960,25 +2778,42 @@ public final class DataProvider extends ContentProvider {
      */
     public static final class NumbersGroup {
 
-        /** Table name. */
+        /**
+         * Table name.
+         */
         private static final String TABLE = "numbersgroup";
 
-        /** Index in projection: ID. */
+        /**
+         * Index in projection: ID.
+         */
         public static final int INDEX_ID = 0;
-        /** Index in projection: name of Numbers group. */
+
+        /**
+         * Index in projection: name of Numbers group.
+         */
         public static final int INDEX_NAME = 1;
 
-        /** ID. */
+        /**
+         * ID.
+         */
         public static final String ID = "_id";
-        /** Name of Numbers group. */
+
+        /**
+         * Name of Numbers group.
+         */
         public static final String NAME = "_name";
 
-        /** Projection used for query. */
+        /**
+         * Projection used for query.
+         */
         public static final String[] PROJECTION = new String[]{ID, NAME};
 
-        /** Content {@link Uri}. */
+        /**
+         * Content {@link Uri}.
+         */
         public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY
                 + "/numbers/groups");
+
         /**
          * The MIME type of {@link #CONTENT_URI} providing a list.
          */
@@ -2024,7 +2859,9 @@ public final class DataProvider extends ContentProvider {
             is.close();
         }
 
-        /** Default constructor. */
+        /**
+         * Default constructor.
+         */
         private NumbersGroup() {
             // nothing here.
         }
@@ -2037,34 +2874,66 @@ public final class DataProvider extends ContentProvider {
      */
     public static final class Hours {
 
-        /** Table name. */
+        /**
+         * Table name.
+         */
         private static final String TABLE = "hours";
 
-        /** Index in projection: ID. */
+        /**
+         * Index in projection: ID.
+         */
         public static final int INDEX_ID = 0;
-        /** Index in projection: ID for block of hours. */
+
+        /**
+         * Index in projection: ID for block of hours.
+         */
         public static final int INDEX_HOURS_ID = 1;
-        /** Index in projection: Day. */
+
+        /**
+         * Index in projection: Day.
+         */
         public static final int INDEX_DAY = 2;
-        /** Index in projection: Hour of day. */
+
+        /**
+         * Index in projection: Hour of day.
+         */
         public static final int INDEX_HOUR = 3;
 
-        /** ID. */
+        /**
+         * ID.
+         */
         public static final String ID = "_id";
-        /** ID for block of hours. */
+
+        /**
+         * ID for block of hours.
+         */
         public static final String GID = "_gid";
-        /** Day. */
+
+        /**
+         * Day.
+         */
         public static final String DAY = "_day";
-        /** Hour of day. */
+
+        /**
+         * Hour of day.
+         */
         public static final String HOUR = "_hour";
 
-        /** Projection used for query. */
+        /**
+         * Projection used for query.
+         */
         public static final String[] PROJECTION = new String[]{ID, GID, DAY, HOUR};
 
-        /** Content {@link Uri}. */
+        /**
+         * Content {@link Uri}.
+         */
         public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/hours");
-        /** Content {@link Uri} for a group of numbers. */
+
+        /**
+         * Content {@link Uri} for a group of numbers.
+         */
         public static final Uri GROUP_URI = Uri.parse("content://" + AUTHORITY + "/hours/group");
+
         /**
          * The MIME type of {@link #CONTENT_URI} providing a list.
          */
@@ -2109,7 +2978,9 @@ public final class DataProvider extends ContentProvider {
             is.close();
         }
 
-        /** Default constructor. */
+        /**
+         * Default constructor.
+         */
         private Hours() {
             // nothing here.
         }
@@ -2122,24 +2993,41 @@ public final class DataProvider extends ContentProvider {
      */
     public static final class HoursGroup {
 
-        /** Table name. */
+        /**
+         * Table name.
+         */
         private static final String TABLE = "hoursgroup";
 
-        /** Index in projection: ID. */
+        /**
+         * Index in projection: ID.
+         */
         public static final int INDEX_ID = 0;
-        /** Index in projection: name of hours group. */
+
+        /**
+         * Index in projection: name of hours group.
+         */
         public static final int INDEX_NAME = 1;
 
-        /** ID. */
+        /**
+         * ID.
+         */
         public static final String ID = "_id";
-        /** Name of hours group. */
+
+        /**
+         * Name of hours group.
+         */
         public static final String NAME = "_name";
 
-        /** Projection used for query. */
+        /**
+         * Projection used for query.
+         */
         public static final String[] PROJECTION = new String[]{ID, NAME};
 
-        /** Content {@link Uri}. */
+        /**
+         * Content {@link Uri}.
+         */
         public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/hours/groups");
+
         /**
          * The MIME type of {@link #CONTENT_URI} providing a list.
          */
@@ -2184,7 +3072,9 @@ public final class DataProvider extends ContentProvider {
             is.close();
         }
 
-        /** Default constructor. */
+        /**
+         * Default constructor.
+         */
         private HoursGroup() {
             // nothing here.
         }
@@ -2197,61 +3087,132 @@ public final class DataProvider extends ContentProvider {
      */
     public final static class XmlMetaData {
 
-        /** Meta data. */
+        /**
+         * Meta data.
+         */
         public String version, country, provider, title;
 
-        /** @return true, if country, provider and title are set. */
+        /**
+         * @return true, if country, provider and title are set.
+         */
         public boolean isSet() {
             return country != null && provider != null && title != null;
         }
     }
 
-    /** Internal id: logs. */
+    /**
+     * Internal id: logs.
+     */
     private static final int LOGS = 1;
-    /** Internal id: single log entry. */
+
+    /**
+     * Internal id: single log entry.
+     */
     private static final int LOGS_ID = 2;
-    /** Internal id: plans. */
+
+    /**
+     * Internal id: plans.
+     */
     private static final int PLANS = 3;
-    /** Internal id: single plan. */
+
+    /**
+     * Internal id: single plan.
+     */
     private static final int PLANS_ID = 4;
-    /** Internal id: rules. */
+
+    /**
+     * Internal id: rules.
+     */
     private static final int RULES = 5;
-    /** Internal id: single rule. */
+
+    /**
+     * Internal id: single rule.
+     */
     private static final int RULES_ID = 6;
-    /** Internal id: numbers. */
+
+    /**
+     * Internal id: numbers.
+     */
     private static final int NUMBERS = 7;
-    /** Internal id: single number. */
+
+    /**
+     * Internal id: single number.
+     */
     private static final int NUMBERS_ID = 8;
-    /** Internal id: group of numbers. */
+
+    /**
+     * Internal id: group of numbers.
+     */
     private static final int NUMBERS_GID = 9;
-    /** Internal id: number group. */
+
+    /**
+     * Internal id: number group.
+     */
     private static final int NUMBERS_GROUP = 10;
-    /** Internal id: singla number group. */
+
+    /**
+     * Internal id: singla number group.
+     */
     private static final int NUMBERS_GROUP_ID = 11;
-    /** Internal id: hours. */
+
+    /**
+     * Internal id: hours.
+     */
     private static final int HOURS = 12;
-    /** Internal id: single hour. */
+
+    /**
+     * Internal id: single hour.
+     */
     private static final int HOURS_ID = 13;
-    /** Internal id: group of hours. */
+
+    /**
+     * Internal id: group of hours.
+     */
     private static final int HOURS_GID = 14;
-    /** Internal id: hours group. */
+
+    /**
+     * Internal id: hours group.
+     */
     private static final int HOURS_GROUP = 15;
-    /** Internal id: single hours group. */
+
+    /**
+     * Internal id: single hours group.
+     */
     private static final int HOURS_GROUP_ID = 16;
-    /** Internal id: sum of logs. */
+
+    /**
+     * Internal id: sum of logs.
+     */
     private static final int LOGS_SUM = 17;
-    /** Internal id: logs joined with rules and plans. */
+
+    /**
+     * Internal id: logs joined with rules and plans.
+     */
     private static final int LOGS_JOIN = 18;
-    /** Internal id: websms. */
+
+    /**
+     * Internal id: websms.
+     */
     private static final int WEBSMS = 19;
-    /** Internal id: sipcall. */
+
+    /**
+     * Internal id: sipcall.
+     */
     private static final int SIPCALL = 20;
-    /** Internal id: plans outer joined with its logs. */
+
+    /**
+     * Internal id: plans outer joined with its logs.
+     */
     private static final int PLANS_SUM = 21;
-    /** Internal id: single plan outer joined with its logs. */
+
+    /**
+     * Internal id: single plan outer joined with its logs.
+     */
     private static final int PLANS_SUM_ID = 22;
 
-    /** {@link UriMatcher}. */
+    /**
+     * {@link UriMatcher}.
+     */
     private static final UriMatcher URI_MATCHER;
 
     static {
@@ -2285,7 +3246,9 @@ public final class DataProvider extends ContentProvider {
      */
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        /** {@link Context} . */
+        /**
+         * {@link Context} .
+         */
         private final Context ctx;
 
         /**
@@ -2394,7 +3357,9 @@ public final class DataProvider extends ContentProvider {
         }
     }
 
-    /** {@link DatabaseHelper}. */
+    /**
+     * {@link DatabaseHelper}.
+     */
     private DatabaseHelper mOpenHelper;
 
     /**

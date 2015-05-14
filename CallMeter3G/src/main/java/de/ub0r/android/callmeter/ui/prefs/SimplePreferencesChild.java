@@ -35,21 +35,44 @@ import de.ub0r.android.lib.Utils;
 public final class SimplePreferencesChild extends TrackingSherlockPreferenceActivity implements
         OnPreferenceChangeListener {
 
-    /** Action. */
+    /**
+     * Action.
+     */
     private static final String CALLS = "CALLS";
-    /** Action. */
+
+    /**
+     * Action.
+     */
     private static final String CALLS_2 = "CALLS_2";
-    /** Action. */
+
+    /**
+     * Action.
+     */
     private static final String CALLS_VOIP = "CALLS_VOIP";
-    /** Action. */
+
+    /**
+     * Action.
+     */
     private static final String SMS = "SMS";
-    /** Action. */
+
+    /**
+     * Action.
+     */
     private static final String SMS_2 = "SMS_2";
-    /** Action. */
+
+    /**
+     * Action.
+     */
     private static final String SMS_WEBSMS = "SMS_WEBSMS";
-    /** Action. */
+
+    /**
+     * Action.
+     */
     private static final String MMS = "MMS";
-    /** Action. */
+
+    /**
+     * Action.
+     */
     private static final String DATA = "DATA";
 
     @SuppressWarnings("deprecation")

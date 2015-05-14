@@ -67,39 +67,68 @@ import de.ub0r.android.logg0r.Log;
  */
 public final class Plans extends TrackingSherlockFragmentActivity implements OnPageChangeListener {
 
-    /** Tag for output. */
+    /**
+     * Tag for output.
+     */
     private static final String TAG = "Plans";
 
-    /** {@link Message} for {@link Handler}: start background: LogMatcher. */
+    /**
+     * {@link Message} for {@link Handler}: start background: LogMatcher.
+     */
     public static final int MSG_BACKGROUND_START_MATCHER = 1;
-    /** {@link Message} for {@link Handler}: stop background: LogMatcher. */
+
+    /**
+     * {@link Message} for {@link Handler}: stop background: LogMatcher.
+     */
     public static final int MSG_BACKGROUND_STOP_MATCHER = 2;
-    /** {@link Message} for {@link Handler}: start background: LogRunner. */
+
+    /**
+     * {@link Message} for {@link Handler}: start background: LogRunner.
+     */
     public static final int MSG_BACKGROUND_START_RUNNER = 3;
-    /** {@link Message} for {@link Handler}: stop background: LogRunner. */
+
+    /**
+     * {@link Message} for {@link Handler}: stop background: LogRunner.
+     */
     public static final int MSG_BACKGROUND_STOP_RUNNER = 4;
-    /** {@link Message} for {@link Handler}: progress: LogMatcher. */
+
+    /**
+     * {@link Message} for {@link Handler}: progress: LogMatcher.
+     */
     public static final int MSG_BACKGROUND_PROGRESS_MATCHER = 5;
 
-    /** Delay for LogRunnerService to run. */
+    /**
+     * Delay for LogRunnerService to run.
+     */
     private static final long DELAY_LOGRUNNER = 1500;
 
-    /** Display ads? */
+    /**
+     * Display ads?
+     */
     private static boolean prefsNoAds;
 
-    /** {@link ViewPager}. */
+    /**
+     * {@link ViewPager}.
+     */
     private ViewPager pager;
-    /** {@link PlansFragmentAdapter}. */
+
+    /**
+     * {@link PlansFragmentAdapter}.
+     */
     private PlansFragmentAdapter fadapter;
 
     private AdView mAdView;
 
-    /** {@link Handler} for handling messages from background process. */
+    /**
+     * {@link Handler} for handling messages from background process.
+     */
     private final Handler handler = new Handler() {
         /** LogRunner running in background? */
         private boolean inProgressRunner = false;
+
         /** {@link ProgressDialog} showing LogMatcher's status. */
         private ProgressDialog statusMatcher = null;
+
         /** Is statusMatcher a {@link ProgressDialog}? */
         private boolean statusMatcherProgress = false;
 
@@ -198,10 +227,14 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
         }
     };
 
-    /** Number of background tasks. */
+    /**
+     * Number of background tasks.
+     */
     private int progressCount = 0;
 
-    /** {@link Handler} for outside. */
+    /**
+     * {@link Handler} for outside.
+     */
     private static Handler currentHandler = null;
 
     /**
@@ -211,15 +244,29 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
      */
     private static class PlansFragmentAdapter extends FragmentPagerAdapter {
 
-        /** {@link FragmentManager} . */
+        /**
+         * {@link FragmentManager} .
+         */
         private final FragmentManager mFragmentManager;
-        /** List of positions. */
+
+        /**
+         * List of positions.
+         */
         private final Long[] positions;
-        /** List of bill days. */
+
+        /**
+         * List of bill days.
+         */
         private final Long[] billDays;
-        /** List of titles. */
+
+        /**
+         * List of titles.
+         */
         private final String[] titles;
-        /** {@link Context}. */
+
+        /**
+         * {@link Context}.
+         */
         private final Context ctx;
 
         /**
@@ -235,7 +282,7 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
             ContentResolver cr = context.getContentResolver();
             Cursor c = cr.query(DataProvider.Logs.CONTENT_URI,
                     new String[]{DataProvider.Logs.DATE}, null, null, DataProvider.Logs.DATE
-                    + " ASC LIMIT 1");
+                            + " ASC LIMIT 1");
             if (c == null || !c.moveToFirst()) {
                 positions = new Long[]{-1L, -1L};
                 billDays = positions;
@@ -263,10 +310,12 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
                     int bptype = c.getInt(DataProvider.Plans.INDEX_BILLPERIOD);
                     ArrayList<Long> bps = DataProvider.Plans.getBillDays(bptype,
                             c.getLong(DataProvider.Plans.INDEX_BILLDAY), minDate, -1);
-                    Log.d(TAG, "bill periods: ", bps.size());
-                    if (!bps.isEmpty()) {
-                        bps.remove(bps.size() - 1);
-                        list.addAll(bps);
+                    if (bps != null) {
+                        Log.d(TAG, "bill periods: ", bps.size());
+                        if (!bps.isEmpty()) {
+                            bps.remove(bps.size() - 1);
+                            list.addAll(bps);
+                        }
                     }
                     c.close();
                     list.add(-1L); // current time

@@ -56,8 +56,8 @@ import de.ub0r.android.callmeter.widget.LogsAppWidgetConfigure;
 import de.ub0r.android.callmeter.widget.LogsAppWidgetProvider;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetConfigure;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Show simple preferences.
@@ -69,23 +69,49 @@ public final class PreferencesPlain extends TrackingSherlockPreferenceActivity i
 
     private static final String TAG = "PreferencesPlain";
 
-    /** Action. */
+    /**
+     * Action.
+     */
     private static final String APPERANCE = "APPERANCE";
-    /** Action. */
+
+    /**
+     * Action.
+     */
     private static final String TEXTSIZE = "TEXTSIZE";
-    /** Action. */
+
+    /**
+     * Action.
+     */
     private static final String BEHAVIOR = "BEHAVIOR";
-    /** Action. */
+
+    /**
+     * Action.
+     */
     private static final String ALERT = "ALERT";
-    /** Action. */
+
+    /**
+     * Action.
+     */
     private static final String ASK_FOR_PLAN = "ASK_FOR_PLAN";
-    /** Action. */
+
+    /**
+     * Action.
+     */
     private static final String WIDGETS = "WIDGETS";
-    /** Action. */
+
+    /**
+     * Action.
+     */
     private static final String EXPORT = "EXPORT";
-    /** Action. */
+
+    /**
+     * Action.
+     */
     private static final String IMPORT = "IMPORT";
-    /** Action. */
+
+    /**
+     * Action.
+     */
     private static final String ADVANCED = "ADVANCED";
 
     private static final long CACHE_TIMEOUT = 1000L * 60L * 15L; // 15min
@@ -243,7 +269,9 @@ public final class PreferencesPlain extends TrackingSherlockPreferenceActivity i
         }
     }
 
-    /** Load widget list. */
+    /**
+     * Load widget list.
+     */
     @SuppressWarnings("deprecation")
     private void loadWidgets() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);

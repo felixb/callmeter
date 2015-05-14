@@ -56,18 +56,34 @@ import de.ub0r.android.logg0r.Log;
  */
 public final class RuleMatcher {
 
-    /** Tag for output. */
+    /**
+     * Tag for output.
+     */
     private static final String TAG = "RuleMatcher";
 
-    /** Minimal number length for converting national to international numbers. */
+    /**
+     * Minimal number length for converting national to international numbers.
+     */
     private static final int NUMBER_MIN_LENGTH = 7;
-    /** Steps for updating the GUI. */
+
+    /**
+     * Steps for updating the GUI.
+     */
     private static final int PROGRESS_STEPS = 25;
-    /** Strip leading zeros. */
+
+    /**
+     * Strip leading zeros.
+     */
     private static boolean stripLeadingZeros = false;
-    /** International number prefix. */
+
+    /**
+     * International number prefix.
+     */
     private static String intPrefix = "";
-    /** Concat prefix and number without leading zeros at number. */
+
+    /**
+     * Concat prefix and number without leading zeros at number.
+     */
     private static boolean zeroPrefix = true;
 
     /**
@@ -133,10 +149,14 @@ public final class RuleMatcher {
             return list.toArray(new HoursGroup[list.size()]);
         }
 
-        /** Group of numbers. */
+        /**
+         * Group of numbers.
+         */
         private static final class NumbersGroup {
 
-            /** List of numbers. */
+            /**
+             * List of numbers.
+             */
             private final ArrayList<String> numbers = new ArrayList<String>();
 
             /**
@@ -268,15 +288,24 @@ public final class RuleMatcher {
             }
         }
 
-        /** Group of hours. */
+        /**
+         * Group of hours.
+         */
         private static final class HoursGroup {
 
-            /** List of hours. */
+            /**
+             * List of hours.
+             */
             private final SparseArray<HashSet<Integer>> hours = new SparseArray<HashSet<Integer>>();
 
-            /** Entry for monday - sunday. */
+            /**
+             * Entry for monday - sunday.
+             */
             private static final int ALL_WEEK = 0;
-            /** Entry for monday. */
+
+            /**
+             * Entry for monday.
+             */
             private static final int MON = 1;
             /** Entry for tuesday. */
             // private static final int TUE = 2;
@@ -286,11 +315,20 @@ public final class RuleMatcher {
             // private static final int THU = 4;
             /** Entry for friday. */
             // private static final int FRI = 5;
-            /** Entry for satadurday. */
+
+            /**
+             * Entry for satadurday.
+             */
             private static final int SAT = 6;
-            /** Entry for sunday. */
+
+            /**
+             * Entry for sunday.
+             */
             private static final int SUN = 7;
-            /** Entry for monday - friday. */
+
+            /**
+             * Entry for monday - friday.
+             */
             private static final int MON_FRI = 8;
 
             /**
@@ -323,7 +361,9 @@ public final class RuleMatcher {
                 }
             }
 
-            /** Internal var for match(). */
+            /**
+             * Internal var for match().
+             */
             private static final Calendar CAL = Calendar.getInstance();
 
             /**
@@ -352,29 +392,64 @@ public final class RuleMatcher {
             }
         }
 
-        /** Id. */
+        /**
+         * Id.
+         */
         private final int id;
-        /** ID of plan referred by this rule. */
+
+        /**
+         * ID of plan referred by this rule.
+         */
         private final int planId;
-        /** Kind of rule. */
+
+        /**
+         * Kind of rule.
+         */
         private final int what;
-        /** My own number. */
+
+        /**
+         * My own number.
+         */
         private final String myNumber;
-        /** Is roamed? */
+
+        /**
+         * Is roamed?
+         */
         private final int roamed;
-        /** Is direction? */
+
+        /**
+         * Is direction?
+         */
         private final int direction;
-        /** Match hours? */
+
+        /**
+         * Match hours?
+         */
         private final HoursGroup[] inhours, exhours;
-        /** Match numbers? */
+
+        /**
+         * Match numbers?
+         */
         private final NumbersGroup[] innumbers, exnumbers;
-        /** Match only if limit is not reached? */
+
+        /**
+         * Match only if limit is not reached?
+         */
         private final boolean limitNotReached;
-        /** Match only websms. */
+
+        /**
+         * Match only websms.
+         */
         private final int iswebsms;
-        /** Match only specific websms connector. */
+
+        /**
+         * Match only specific websms connector.
+         */
         private final String iswebsmsConnector;
-        /** Match only sipcalls. */
+
+        /**
+         * Match only sipcalls.
+         */
         private final int issipcall;
 
         /**
@@ -450,7 +525,9 @@ public final class RuleMatcher {
             return planId;
         }
 
-        /** Internal var for match(). */
+        /**
+         * Internal var for match().
+         */
         private static final String[] S1 = new String[1];
 
         /**
@@ -646,53 +723,119 @@ public final class RuleMatcher {
      */
     private static class Plan {
 
-        /** Id. */
+        /**
+         * Id.
+         */
         private final int id;
-        /** Name of plan. */
+
+        /**
+         * Name of plan.
+         */
         private final String name;
-        /** Type of log. */
+
+        /**
+         * Type of log.
+         */
         private final int type;
-        /** Type of limit. */
+
+        /**
+         * Type of limit.
+         */
         private final int limitType;
-        /** Limit. */
+
+        /**
+         * Limit.
+         */
         private final long limit;
-        /** Billmode. */
+
+        /**
+         * Billmode.
+         */
         private final int billModeFirstLength, billModeNextLength;
-        /** Billday. */
+
+        /**
+         * Billday.
+         */
         private final Calendar billday;
-        /** Billperiod. */
+
+        /**
+         * Billperiod.
+         */
         private final int billperiod;
-        /** Cost per item. */
+
+        /**
+         * Cost per item.
+         */
         private final float costPerItem;
-        /** Cost per amount. */
+
+        /**
+         * Cost per amount.
+         */
         private final float costPerAmount1, costPerAmount2;
-        /** Cost per item in limit. */
+
+        /**
+         * Cost per item in limit.
+         */
         private final float costPerItemInLimit;
-        /** Cost per amount in limit. */
+
+        /**
+         * Cost per amount in limit.
+         */
         private final float costPerAmountInLimit1, costPerAmountInLimit2;
-        /** Units for mixed plans. */
+
+        /**
+         * Units for mixed plans.
+         */
         private final int upc, ups, upm, upd;
-        /** Strip first x seconds. */
+
+        /**
+         * Strip first x seconds.
+         */
         private final int stripSeconds;
-        /** Strip everything but first x seconds. */
+
+        /**
+         * Strip everything but first x seconds.
+         */
         private final int stripPast;
-        /** Parent plan id. */
+
+        /**
+         * Parent plan id.
+         */
         private final int ppid;
-        /** PArent plan. Set in RuleMatcher.load(). */
+
+        /**
+         * PArent plan. Set in RuleMatcher.load().
+         */
         private Plan parent = null;
-        /** Time of next alert. */
+
+        /**
+         * Time of next alert.
+         */
         private long nextAlert = 0;
 
-        /** Last valid billday. */
+        /**
+         * Last valid billday.
+         */
         private Calendar currentBillday = null;
-        /** Time of nextBillday. */
+
+        /**
+         * Time of nextBillday.
+         */
         private long nextBillday = -1L;
-        /** Amount billed this period. */
+
+        /**
+         * Amount billed this period.
+         */
         private float billedAmount = 0f;
-        /** Cost billed this period. */
+
+        /**
+         * Cost billed this period.
+         */
         private float billedCost = 0f;
 
-        /** {@link ContentResolver}. */
+        /**
+         * {@link ContentResolver}.
+         */
         private final ContentResolver cResolver;
 
         /**
@@ -1106,6 +1249,7 @@ public final class RuleMatcher {
      * List of {@link Rule}s.
      */
     private static ArrayList<Rule> rules = null;
+
     /**
      * List of {@link Plan}s.
      */
@@ -1208,7 +1352,9 @@ public final class RuleMatcher {
         flush();
     }
 
-    /** Internal ar for matchLog(). */
+    /**
+     * Internal ar for matchLog().
+     */
     private static final String WHERE = DataProvider.Logs.ID + " = ?";
 
     /**

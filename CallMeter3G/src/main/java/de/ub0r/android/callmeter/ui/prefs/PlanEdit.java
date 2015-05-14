@@ -35,8 +35,8 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Edit a single Plan.
@@ -45,14 +45,24 @@ import de.ub0r.android.lib.Utils;
  */
 public final class PlanEdit extends TrackingSherlockPreferenceActivity implements UpdateListener {
 
-    /** Tag for debug out. */
+    /**
+     * Tag for debug out.
+     */
     private static final String TAG = "PlanEdit";
 
-    /** This rule's {@link Uri}. */
+    /**
+     * This rule's {@link Uri}.
+     */
     private Uri uri = null;
-    /** Id of edited filed. */
+
+    /**
+     * Id of edited filed.
+     */
     private int pid = -1;
-    /** {@link ContentValues} holding preferences. */
+
+    /**
+     * {@link ContentValues} holding preferences.
+     */
     private ContentValues values = new ContentValues();
 
     @SuppressWarnings("deprecation")

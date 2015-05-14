@@ -23,11 +23,20 @@ import de.ub0r.android.callmeter.R;
 public final class CVBillModePreference extends ListPreference {
 
     private final Context ctx;
-    /** {@link ContentValues} for saving values. */
+
+    /**
+     * {@link ContentValues} for saving values.
+     */
     private final ContentValues cv;
-    /** {@link UpdateListener}. */
+
+    /**
+     * {@link UpdateListener}.
+     */
     private final UpdateListener ul;
-    /** Show help. */
+
+    /**
+     * Show help.
+     */
     private final boolean sh;
 
     /**

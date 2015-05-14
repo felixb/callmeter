@@ -70,35 +70,69 @@ import de.ub0r.android.logg0r.Log;
 public final class LogsFragment extends SherlockListFragment implements OnClickListener,
         OnItemLongClickListener, LoaderCallbacks<Cursor> {
 
-    /** Tag for output. */
+    /**
+     * Tag for output.
+     */
     private static final String TAG = "LogsFragment";
 
-    /** Prefs: {@link ToggleButton} state for calls. */
+    /**
+     * Prefs: {@link ToggleButton} state for calls.
+     */
     private static final String PREF_CALL = "_logs_call";
-    /** Prefs: {@link ToggleButton} state for sms. */
+
+    /**
+     * Prefs: {@link ToggleButton} state for sms.
+     */
     private static final String PREF_SMS = "_logs_sms";
-    /** Prefs: {@link ToggleButton} state for mms. */
+
+    /**
+     * Prefs: {@link ToggleButton} state for mms.
+     */
     private static final String PREF_MMS = "_logs_mms";
-    /** Prefs: {@link ToggleButton} state for data. */
+
+    /**
+     * Prefs: {@link ToggleButton} state for data.
+     */
     private static final String PREF_DATA = "_logs_data";
-    /** Prefs: {@link ToggleButton} state for in. */
+
+    /**
+     * Prefs: {@link ToggleButton} state for in.
+     */
     private static final String PREF_IN = "_in";
-    /** Prefs: {@link ToggleButton} state for out. */
+
+    /**
+     * Prefs: {@link ToggleButton} state for out.
+     */
     private static final String PREF_OUT = "_out";
 
-    /** {@link ToggleButton}s. */
+    /**
+     * {@link ToggleButton}s.
+     */
     private ToggleButton tbCall, tbSMS, tbMMS, tbData, tbIn, tbOut, tbPlan;
-    /** Show my number. */
+
+    /**
+     * Show my number.
+     */
     private boolean showMyNumber = false;
-    /** Show hours and days. */
+
+    /**
+     * Show hours and days.
+     */
     private boolean showHours = true;
-    /** Currency format. */
+
+    /**
+     * Currency format.
+     */
     private String cformat;
 
-    /** Selected plan id. */
+    /**
+     * Selected plan id.
+     */
     private long planId = -1;
 
-    /** Unique id for this {@link LogsFragment}s loader. */
+    /**
+     * Unique id for this {@link LogsFragment}s loader.
+     */
     private static final int LOADER_UID = -2;
 
     /**
@@ -115,15 +149,22 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
          */
         private class ViewHolder {
 
-            /** Holder for item's view. */
+            /**
+             * Holder for item's view.
+             */
             TextView tvPlan, tvRule, tvText1, tvRemoteLabel, tvRemote, tvMyNumberLabel, tvMyNumber,
                     tvLengthLabel, tvLength, tvBilledLengthLabel, tvBilledLength, tvCostLabel,
                     tvCost;
-            /** Hold {@link NameLoader}. */
+
+            /**
+             * Hold {@link NameLoader}.
+             */
             NameLoader loader;
         }
 
-        /** Column ids. */
+        /**
+         * Column ids.
+         */
         private int idPlanName, idRuleName;
 
         /**

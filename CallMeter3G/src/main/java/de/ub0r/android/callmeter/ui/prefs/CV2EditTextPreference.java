@@ -21,25 +21,54 @@ import de.ub0r.android.callmeter.R;
  */
 public final class CV2EditTextPreference extends EditTextPreference {
 
-    /** {@link ContentValues} for saving values. */
+    /**
+     * {@link ContentValues} for saving values.
+     */
     private final ContentValues cv;
-    /** {@link UpdateListener}. */
+
+    /**
+     * {@link UpdateListener}.
+     */
     private final UpdateListener ul;
-    /** Single mode. */
+
+    /**
+     * Single mode.
+     */
     private final boolean sm;
-    /** Default value. */
+
+    /**
+     * Default value.
+     */
     private final String dv1, dv2;
-    /** Key 2. */
+
+    /**
+     * Key 2.
+     */
     private final String k2;
-    /** Value 2. */
+
+    /**
+     * Value 2.
+     */
     private String v2;
-    /** {@link EditText}s in multi mode. */
+
+    /**
+     * {@link EditText}s in multi mode.
+     */
     private EditText et1, et2;
-    /** Input type. */
+
+    /**
+     * Input type.
+     */
     private int it = -1;
-    /** Hint. */
+
+    /**
+     * Hint.
+     */
     private int h = -1;
-    /** Show help. */
+
+    /**
+     * Show help.
+     */
     private final boolean sh;
 
     /**

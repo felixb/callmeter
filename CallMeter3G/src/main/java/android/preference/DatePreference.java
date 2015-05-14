@@ -33,9 +33,14 @@ import de.ub0r.android.lib.Utils;
 public final class DatePreference extends DialogPreference implements
         DatePicker.OnDateChangedListener {
 
-    /** Global default value. */
+    /**
+     * Global default value.
+     */
     public static final long DEFAULT_VALUE = 1262300400001L; // 1.1.2010
-    /** Default value. */
+
+    /**
+     * Default value.
+     */
     private long defValue = DEFAULT_VALUE;
 
     /**

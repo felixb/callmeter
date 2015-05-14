@@ -59,30 +59,64 @@ import de.ub0r.android.logg0r.Log;
  */
 public final class LogsAppWidgetProvider extends AppWidgetProvider {
 
-    /** Tag for debug out. */
+    /**
+     * Tag for debug out.
+     */
     private static final String TAG = "wdgt";
 
-    /** Plan.id for widget. */
+    /**
+     * Plan.id for widget.
+     */
     public static final String WIDGET_PLANID = "logswidget_planid_";
-    /** Hide name for widget. */
+
+    /**
+     * Hide name for widget.
+     */
     static final String WIDGET_HIDETNAME = "logswidget_hidename_";
-    /** Show short name for widget. */
+
+    /**
+     * Show short name for widget.
+     */
     static final String WIDGET_SHORTNAME = "logswidget_shortname_";
-    /** Show cost for widget. */
+
+    /**
+     * Show cost for widget.
+     */
     static final String WIDGET_COST = "logswidget_cost_";
-    /** Show progress of billing period for widget. */
+
+    /**
+     * Show progress of billing period for widget.
+     */
     static final String WIDGET_BILLPERIOD = "logswidget_billp_";
-    /** Size of the plan name text. */
+
+    /**
+     * Size of the plan name text.
+     */
     static final String WIDGET_PLAN_TEXTSIZE = "logswidget_plan_textsize_";
-    /** Size of the statistics text. */
+
+    /**
+     * Size of the statistics text.
+     */
     static final String WIDGET_STATS_TEXTSIZE = "logswidget_stats_textsize_";
-    /** Widget's text color. */
+
+    /**
+     * Widget's text color.
+     */
     static final String WIDGET_TEXTCOLOR = "logswidget_textcolor_";
-    /** Widget's background color. */
+
+    /**
+     * Widget's background color.
+     */
     static final String WIDGET_BGCOLOR = "logswidget_bgcolor_";
-    /** Widget's icon. */
+
+    /**
+     * Widget's icon.
+     */
     static final String WIDGET_ICON = "logswidget_icon_";
-    /** Must widget be small? */
+
+    /**
+     * Must widget be small?
+     */
     static final String WIDGET_SMALL = "logswidget_small_";
 
     /**

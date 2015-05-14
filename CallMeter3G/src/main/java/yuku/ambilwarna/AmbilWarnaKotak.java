@@ -11,59 +11,67 @@ import android.graphics.Shader;
 import android.graphics.Shader.TileMode;
 import android.util.AttributeSet;
 import android.view.View;
+
 import de.ub0r.android.callmeter.R;
 
 public class AmbilWarnaKotak extends View {
 
-	Paint paint;
-	Shader dalam;
-	Shader luar;
-	float hue;
-	float satudp;
-	float ukuranUiDp = 240.f;
-	float ukuranUiPx; // diset di constructor
-	float[] tmp00 = new float[3];
+    Paint paint;
 
-	public AmbilWarnaKotak(final Context context) {
-		this(context, null);
-	}
+    Shader dalam;
 
-	public AmbilWarnaKotak(final Context context, final AttributeSet attrs) {
-		this(context, attrs, 0);
-	}
+    Shader luar;
 
-	public AmbilWarnaKotak(final Context context, final AttributeSet attrs, final int defStyle) {
-		super(context, attrs, defStyle);
+    float hue;
 
-		this.satudp = context.getResources().getDimension(R.dimen.ambilwarna_satudp);
-		this.ukuranUiPx = this.ukuranUiDp * this.satudp;
-	}
+    float satudp;
 
-	@Override
-	protected void onDraw(final Canvas canvas) {
-		super.onDraw(canvas);
+    float ukuranUiDp = 240.f;
 
-		if (this.paint == null) {
-			this.paint = new Paint();
-			this.luar = new LinearGradient(0.f, 0.f, 0.f, this.ukuranUiPx, 0xffffffff, 0xff000000,
-					TileMode.CLAMP);
-		}
+    float ukuranUiPx; // diset di constructor
 
-		this.tmp00[1] = this.tmp00[2] = 1.f;
-		this.tmp00[0] = this.hue;
-		int rgb = Color.HSVToColor(this.tmp00);
+    float[] tmp00 = new float[3];
 
-		this.dalam = new LinearGradient(0.f, 0.f, this.ukuranUiPx, 0.f, 0xffffffff, rgb,
-				TileMode.CLAMP);
-		ComposeShader shader = new ComposeShader(this.luar, this.dalam, PorterDuff.Mode.MULTIPLY);
+    public AmbilWarnaKotak(final Context context) {
+        this(context, null);
+    }
 
-		this.paint.setShader(shader);
+    public AmbilWarnaKotak(final Context context, final AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
 
-		canvas.drawRect(0.f, 0.f, this.ukuranUiPx, this.ukuranUiPx, this.paint);
-	}
+    public AmbilWarnaKotak(final Context context, final AttributeSet attrs, final int defStyle) {
+        super(context, attrs, defStyle);
 
-	void setHue(final float hue) {
-		this.hue = hue;
-		this.invalidate();
-	}
+        this.satudp = context.getResources().getDimension(R.dimen.ambilwarna_satudp);
+        this.ukuranUiPx = this.ukuranUiDp * this.satudp;
+    }
+
+    @Override
+    protected void onDraw(final Canvas canvas) {
+        super.onDraw(canvas);
+
+        if (this.paint == null) {
+            this.paint = new Paint();
+            this.luar = new LinearGradient(0.f, 0.f, 0.f, this.ukuranUiPx, 0xffffffff, 0xff000000,
+                    TileMode.CLAMP);
+        }
+
+        this.tmp00[1] = this.tmp00[2] = 1.f;
+        this.tmp00[0] = this.hue;
+        int rgb = Color.HSVToColor(this.tmp00);
+
+        this.dalam = new LinearGradient(0.f, 0.f, this.ukuranUiPx, 0.f, 0xffffffff, rgb,
+                TileMode.CLAMP);
+        ComposeShader shader = new ComposeShader(this.luar, this.dalam, PorterDuff.Mode.MULTIPLY);
+
+        this.paint.setShader(shader);
+
+        canvas.drawRect(0.f, 0.f, this.ukuranUiPx, this.ukuranUiPx, this.paint);
+    }
+
+    void setHue(final float hue) {
+        this.hue = hue;
+        this.invalidate();
+    }
 }

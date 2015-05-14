@@ -18,13 +18,24 @@ import de.ub0r.android.callmeter.R;
  */
 public class CVEditTextPreference extends EditTextPreference {
 
-    /** {@link ContentValues} for saving values. */
+    /**
+     * {@link ContentValues} for saving values.
+     */
     private final ContentValues cv;
-    /** {@link UpdateListener}. */
+
+    /**
+     * {@link UpdateListener}.
+     */
     private final UpdateListener ul;
-    /** Default value. */
+
+    /**
+     * Default value.
+     */
     private final String dv;
-    /** Show help. */
+
+    /**
+     * Show help.
+     */
     private final boolean sh;
 
     /**

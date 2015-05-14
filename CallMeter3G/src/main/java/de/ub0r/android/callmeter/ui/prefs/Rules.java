@@ -53,9 +53,14 @@ public final class Rules extends TrackingSherlockPreferenceActivity
     /** Tag for output. */
     // private static final String TAG = "pr";
 
-    /** Item menu: edit. */
+    /**
+     * Item menu: edit.
+     */
     private static final int WHICH_EDIT = 0;
-    /** Item menu: delete. */
+
+    /**
+     * Item menu: delete.
+     */
     private static final int WHICH_DELETE = 1;
 
     @SuppressWarnings("deprecation")
@@ -246,8 +251,8 @@ public final class Rules extends TrackingSherlockPreferenceActivity
                                                     Rules.this
                                                             .getContentResolver()
                                                             .delete(ContentUris.withAppendedId(
-                                                                    DataProvider.Rules.CONTENT_URI,
-                                                                    id),
+                                                                            DataProvider.Rules.CONTENT_URI,
+                                                                            id),
                                                                     null, null);
                                                     Rules.this.reload();
                                                     Preferences.setDefaultPlan(Rules.this, false);

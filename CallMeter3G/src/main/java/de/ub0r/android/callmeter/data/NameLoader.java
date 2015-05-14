@@ -34,16 +34,29 @@ import de.ub0r.android.logg0r.Log;
  */
 public class NameLoader extends AsyncTask<Void, Void, String> {
 
-    /** TAG for Log. */
+    /**
+     * TAG for Log.
+     */
     private static final String TAG = "NameLoader";
 
-    /** {@link Context}. */
+    /**
+     * {@link Context}.
+     */
     private final Context ctx;
-    /** {@link TextView}. */
+
+    /**
+     * {@link TextView}.
+     */
     private final TextView tv;
-    /** Number. */
+
+    /**
+     * Number.
+     */
     private final String num;
-    /** {@link String} format. */
+
+    /**
+     * {@link String} format.
+     */
     private final String f;
 
     /**

@@ -49,8 +49,8 @@ import de.ub0r.android.callmeter.TrackingUtils;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Add a log entry.
@@ -60,16 +60,28 @@ import de.ub0r.android.lib.Utils;
 public final class AddLogActivity extends TrackingSherlockActivity implements OnClickListener,
         OnDateSetListener, OnTimeSetListener {
 
-    /** Tag for output. */
+    /**
+     * Tag for output.
+     */
     private static final String TAG = "AddLogActivity";
 
-    /** {@link Spinner}s. */
+    /**
+     * {@link Spinner}s.
+     */
     private Spinner spType, spDirection;
-    /** {@link EditText}s. */
+
+    /**
+     * {@link EditText}s.
+     */
     private EditText etLength, etRemote;
+
     private TextView tvDate, tvTime;
-    /** {@link CheckBox}. */
+
+    /**
+     * {@link CheckBox}.
+     */
     private CheckBox cbRoamed;
+
     private Calendar cal;
 
     /**

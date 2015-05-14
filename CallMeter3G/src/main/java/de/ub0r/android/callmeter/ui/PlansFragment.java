@@ -73,22 +73,44 @@ import de.ub0r.android.logg0r.Log;
 public final class PlansFragment extends SherlockListFragment implements OnClickListener,
         OnItemLongClickListener, LoaderCallbacks<Cursor> {
 
-    /** Tag for output. */
+    /**
+     * Tag for output.
+     */
     private static final String TAG = "PlansFragment";
-    /** Run the dummy? */
+
+    /**
+     * Run the dummy?
+     */
     private static boolean doDummy = true;
-    /** Show today stats. */
+
+    /**
+     * Show today stats.
+     */
     private static boolean showToday = false;
-    /** Show total stats. */
+
+    /**
+     * Show total stats.
+     */
     private static boolean showTotal = true;
-    /** Hide zero plans. */
+
+    /**
+     * Hide zero plans.
+     */
     private static boolean hideZero = false;
-    /** Hide no cost plans. */
+
+    /**
+     * Hide no cost plans.
+     */
     private static boolean hideNoCost = false;
-    /** Ignore query requests. */
+
+    /**
+     * Ignore query requests.
+     */
     private boolean ignoreQuery = false;
 
-    /** Unique id for dummy loader. */
+    /**
+     * Unique id for dummy loader.
+     */
     private static final int UID_DUMMY = -3;
 
     /**
@@ -105,46 +127,86 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
          */
         private class ViewHolder {
 
-            /** {@link View}s. */
+            /**
+             * {@link View}s.
+             */
             View vPeriodLayout, vContent, vSpacer;
-            /** {@link TextView}s. */
+
+            /**
+             * {@link TextView}s.
+             */
             TextView tvBigtitle, tvPeriod, tvBilldayLable, tvTitle, tvData;
-            /** {@link ProgressBar}s. */
+
+            /**
+             * {@link ProgressBar}s.
+             */
             ProgressBar pbPeriod, pbLimitGreen, pbLimitYellow, pbLimitRed;
         }
 
-        /** {@link SharedPreferences}. */
+        /**
+         * {@link SharedPreferences}.
+         */
         private final SharedPreferences p;
-        /** {@link Editor}. */
+
+        /**
+         * {@link Editor}.
+         */
         private final Editor e;
-        /** Does the {@link Editor} needs commit? */
+
+        /**
+         * Does the {@link Editor} needs commit?
+         */
         private boolean isDirty = false;
 
-        /** Now. */
+        /**
+         * Now.
+         */
         private final long now;
 
-        /** Text sizes. */
+        /**
+         * Text sizes.
+         */
         private static int textSize, textSizeBigTitle, textSizeTitle, textSizeSpacer, textSizePBar,
                 textSizePBarBP;
 
-        /** Separator for the data. */
+        /**
+         * Separator for the data.
+         */
         private static String delimiter = " | ";
-        /** Selected currency format. */
+
+        /**
+         * Selected currency format.
+         */
         private static String currencyFormat = "$%.2f";
-        /** Show hours and days. */
+
+        /**
+         * Show hours and days.
+         */
         private static boolean pShowHours = true;
-        /** Show target bill day. */
+
+        /**
+         * Show target bill day.
+         */
         private static boolean pShowTargetBillDay = false;
-        /** First/last bill day shown. */
+
+        /**
+         * First/last bill day shown.
+         */
         private static int billDayResId = R.string.billday_;
 
-        /** Prepaid plan? */
+        /**
+         * Prepaid plan?
+         */
         private static boolean prepaid;
 
-        /** Visibility for {@link ProgressBar}s. */
+        /**
+         * Visibility for {@link ProgressBar}s.
+         */
         private final int progressBarVisability;
 
-        /** Need a reload of preferences. */
+        /**
+         * Need a reload of preferences.
+         */
         private static boolean needReloadPrefs = true;
 
         /**
@@ -410,14 +472,24 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
         }
     }
 
-    /** This fragments time stamp. */
+    /**
+     * This fragments time stamp.
+     */
     private long now;
-    /** Unique id of this fragment. */
+
+    /**
+     * Unique id of this fragment.
+     */
     private int uid;
-    /** Is loader running? */
+
+    /**
+     * Is loader running?
+     */
     private boolean inProgress;
 
-    /** Handle for view. */
+    /**
+     * Handle for view.
+     */
     private View vLoading, vImport;
 
     /**

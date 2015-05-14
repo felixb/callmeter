@@ -51,20 +51,34 @@ import de.ub0r.android.lib.apis.ContactsWrapper;
 public final class HourGroupEdit extends TrackingSherlockPreferenceActivity implements
         OnPreferenceClickListener {
 
-    /** {@link ContactsWrapper}. */
+    /**
+     * {@link ContactsWrapper}.
+     */
     public static final ContactsWrapper CWRAPPER = ContactsWrapper.getInstance();
 
-    /** Item menu: edit. */
+    /**
+     * Item menu: edit.
+     */
     private static final int WHICH_EDIT = 0;
-    /** Item menu: delete. */
+
+    /**
+     * Item menu: delete.
+     */
     private static final int WHICH_DELETE = 1;
 
-    /** List of weekdays. */
+    /**
+     * List of weekdays.
+     */
     private String[] resDays;
-    /** List of hours. */
+
+    /**
+     * List of hours.
+     */
     private String[] resHours;
 
-    /** Id of edited filed. */
+    /**
+     * Id of edited filed.
+     */
     private long gid = -1;
 
     @SuppressWarnings("deprecation")

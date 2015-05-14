@@ -36,8 +36,8 @@ import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.DbUtils;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Edit a single Plan.
@@ -46,23 +46,44 @@ import de.ub0r.android.lib.Utils;
  */
 public final class RuleEdit extends TrackingSherlockPreferenceActivity implements UpdateListener {
 
-    /** Tag for debug out. */
+    /**
+     * Tag for debug out.
+     */
     private static final String TAG = "RuleEdit";
 
-    /** This rule's {@link Uri}. */
+    /**
+     * This rule's {@link Uri}.
+     */
     private Uri uri = null;
-    /** {@link ContentValues} holding preferences. */
+
+    /**
+     * {@link ContentValues} holding preferences.
+     */
     private ContentValues values = new ContentValues();
 
-    /** Array holding {@link String}s. */
+    /**
+     * Array holding {@link String}s.
+     */
     private String[] inOutNomatterCalls = null;
-    /** Array holding {@link String}s. */
+
+    /**
+     * Array holding {@link String}s.
+     */
     private String[] inOutNomatterSms = null;
-    /** Array holding {@link String}s. */
+
+    /**
+     * Array holding {@link String}s.
+     */
     private String[] inOutNomatterMms = null;
-    /** Array holding {@link String}s. */
+
+    /**
+     * Array holding {@link String}s.
+     */
     private String[] inOutNomatterData = null;
-    /** Array holding {@link String}s. */
+
+    /**
+     * Array holding {@link String}s.
+     */
     private String[] yesNoNomatter = null;
 
     /**

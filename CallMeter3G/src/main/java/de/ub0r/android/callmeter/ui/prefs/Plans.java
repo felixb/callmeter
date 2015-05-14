@@ -53,9 +53,14 @@ public final class Plans extends TrackingSherlockPreferenceActivity
     /** Tag for output. */
     // private static final String TAG = "pp";
 
-    /** Item menu: edit. */
+    /**
+     * Item menu: edit.
+     */
     private static final int WHICH_EDIT = 0;
-    /** Item menu: delete. */
+
+    /**
+     * Item menu: delete.
+     */
     private static final int WHICH_DELETE = 1;
 
     @SuppressWarnings("deprecation")
@@ -216,8 +221,8 @@ public final class Plans extends TrackingSherlockPreferenceActivity
                                                     Plans.this
                                                             .getContentResolver()
                                                             .delete(ContentUris.withAppendedId(
-                                                                    DataProvider.Plans.CONTENT_URI,
-                                                                    id),
+                                                                            DataProvider.Plans.CONTENT_URI,
+                                                                            id),
                                                                     null, null);
                                                     Plans.this.reload();
                                                     Preferences.setDefaultPlan(Plans.this, false);

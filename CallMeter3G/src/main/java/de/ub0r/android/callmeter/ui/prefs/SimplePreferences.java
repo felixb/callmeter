@@ -37,8 +37,8 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Show simple preferences.
@@ -48,64 +48,143 @@ import de.ub0r.android.lib.Utils;
 public final class SimplePreferences extends TrackingSherlockPreferenceActivity implements
         OnPreferenceChangeListener {
 
-    /** Tag for output. */
+    /**
+     * Tag for output.
+     */
     private static final String TAG = "SimplePreferences";
 
-    /** Preference's name: bill day. */
+    /**
+     * Preference's name: bill day.
+     */
     static final String PREFS_BILLDAY = "sp_billday";
 
-    /** Preference's name: bill mode. */
+    /**
+     * Preference's name: bill mode.
+     */
     static final String PREFS_BILLMODE = "sp_billmode";
-    /** Preference's name: bill mode. */
+
+    /**
+     * Preference's name: bill mode.
+     */
     static final String PREFS_BILLMODE_2 = "sp_billmode_2";
-    /** Preference's name: bill mode. */
+
+    /**
+     * Preference's name: bill mode.
+     */
     static final String PREFS_BILLMODE_VOIP = "sp_billmode_voip";
-    /** Preference's name: custom bill mode. */
+
+    /**
+     * Preference's name: custom bill mode.
+     */
     static final String PREFS_CUSTOM_BILLMODE = "sp_custom_billmode";
-    /** Preference's name: custom bill mode. */
+
+    /**
+     * Preference's name: custom bill mode.
+     */
     static final String PREFS_CUSTOM_BILLMODE_2 = "sp_custom_billmode_2";
-    /** Preference's name: custom bill mode. */
+
+    /**
+     * Preference's name: custom bill mode.
+     */
     static final String PREFS_CUSTOM_BILLMODE_VOIP = "sp_custom_billmode_voip";
-    /** Preference's name: free minutes. */
+
+    /**
+     * Preference's name: free minutes.
+     */
     static final String PREFS_FREEMIN = "sp_freemin";
-    /** Preference's name: free minutes. */
+
+    /**
+     * Preference's name: free minutes.
+     */
     static final String PREFS_FREEMIN_2 = "sp_freemin_2";
-    /** Preference's name: free minutes. */
+
+    /**
+     * Preference's name: free minutes.
+     */
     static final String PREFS_FREEMIN_VOIP = "sp_freemin_voip";
-    /** Preference's name: free cost per call. */
+
+    /**
+     * Preference's name: free cost per call.
+     */
     static final String PREFS_COST_PER_CALL = "sp_cost_per_call";
-    /** Preference's name: free cost per call. */
+
+    /**
+     * Preference's name: free cost per call.
+     */
     static final String PREFS_COST_PER_CALL_2 = "sp_cost_per_call_2";
-    /** Preference's name: free cost per call. */
+
+    /**
+     * Preference's name: free cost per call.
+     */
     static final String PREFS_COST_PER_CALL_VOIP = "sp_cost_per_call_voip";
-    /** Preference's name: free cost per min. */
+
+    /**
+     * Preference's name: free cost per min.
+     */
     static final String PREFS_COST_PER_MIN = "sp_cost_per_min";
-    /** Preference's name: free cost per min. */
+
+    /**
+     * Preference's name: free cost per min.
+     */
     static final String PREFS_COST_PER_MIN_2 = "sp_cost_per_min_2";
-    /** Preference's name: free cost per min. */
+
+    /**
+     * Preference's name: free cost per min.
+     */
     static final String PREFS_COST_PER_MIN_VOIP = "sp_cost_per_min_voip";
-    /** Preference's name: free sms. */
+
+    /**
+     * Preference's name: free sms.
+     */
     static final String PREFS_FREESMS = "sp_freesms";
-    /** Preference's name: free sms. */
+
+    /**
+     * Preference's name: free sms.
+     */
     static final String PREFS_FREESMS_2 = "sp_freesms_2";
-    /** Preference's name: free sms. */
+
+    /**
+     * Preference's name: free sms.
+     */
     static final String PREFS_FREESMS_WEBSMS = "sp_freesms_websms";
-    /** Preference's name: free cost per sms. */
+
+    /**
+     * Preference's name: free cost per sms.
+     */
     static final String PREFS_COST_PER_SMS = "sp_cost_per_sms";
-    /** Preference's name: free cost per sms. */
+
+    /**
+     * Preference's name: free cost per sms.
+     */
     static final String PREFS_COST_PER_SMS_2 = "sp_cost_per_sms_2";
-    /** Preference's name: free cost per sms. */
+
+    /**
+     * Preference's name: free cost per sms.
+     */
     static final String PREFS_COST_PER_SMS_WEBSMS = "sp_cost_per_sms_websms";
-    /** Preference's name: free mms. */
+
+    /**
+     * Preference's name: free mms.
+     */
     static final String PREFS_FREEMMS = "sp_freemms";
-    /** Preference's name: free cost per mms. */
+
+    /**
+     * Preference's name: free cost per mms.
+     */
     static final String PREFS_COST_PER_MMS = "sp_cost_per_mms";
-    /** Preference's name: free MiBi. */
+
+    /**
+     * Preference's name: free MiBi.
+     */
     static final String PREFS_FREEDATA = "sp_freedata";
-    /** Preference's name: free cost per MiBi. */
+
+    /**
+     * Preference's name: free cost per MiBi.
+     */
     static final String PREFS_COST_PER_MB = "sp_cost_per_mb";
 
     private static final String SELECTION_ID = DataProvider.Plans.ID + "=?";
+
     private static final String SELECTION_TYPE = DataProvider.Plans.TYPE + "=?";
 
     private void removePreferenceIfPlanMissing(final ContentResolver cr, final PreferenceGroup pg,

@@ -40,9 +40,9 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.lib.apis.ContactsWrapper;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Edit a single Plan.
@@ -54,15 +54,24 @@ public final class NumberGroupEdit extends TrackingSherlockPreferenceActivity im
     /** Tag for debug out. */
     // private static final String TAG = "NumberGroupEdit";
 
-    /** {@link ContactsWrapper}. */
+    /**
+     * {@link ContactsWrapper}.
+     */
     public static final ContactsWrapper CWRAPPER = ContactsWrapper.getInstance();
 
-    /** Item menu: edit. */
+    /**
+     * Item menu: edit.
+     */
     private static final int WHICH_EDIT = 0;
-    /** Item menu: delete. */
+
+    /**
+     * Item menu: delete.
+     */
     private static final int WHICH_DELETE = 1;
 
-    /** Id of edited filed. */
+    /**
+     * Id of edited filed.
+     */
     private long gid = -1;
 
     @SuppressWarnings("deprecation")

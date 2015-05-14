@@ -33,8 +33,8 @@ import java.io.File;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Show a list of ready to import rule sets.
@@ -50,7 +50,9 @@ public final class PreferencesImport extends TrackingSherlockPreferenceActivity 
      */
     private class FileFinder extends AsyncTask<Void, File, Boolean> {
 
-        /** Tag for output. */
+        /**
+         * Tag for output.
+         */
         private static final String TAG = "PreferencesImport.FileFinder";
 
         @Override
@@ -144,7 +146,9 @@ public final class PreferencesImport extends TrackingSherlockPreferenceActivity 
         }
     }
 
-    /** Maximal depth for searching files. */
+    /**
+     * Maximal depth for searching files.
+     */
     private static final int MAXDEPTH = 3;
 
     /**

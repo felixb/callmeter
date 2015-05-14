@@ -38,13 +38,19 @@ import de.ub0r.android.logg0r.Log;
  */
 public abstract class Device {
 
-    /** Tag for output. */
+    /**
+     * Tag for output.
+     */
     private static final String TAG = "Device";
 
-    /** Size of read buffer. */
+    /**
+     * Size of read buffer.
+     */
     private static final int BUFSIZE = 8;
 
-    /** Single instance. */
+    /**
+     * Single instance.
+     */
     private static Device instance = null;
 
     /**
@@ -199,12 +205,19 @@ public abstract class Device {
  */
 final class EmulatorDevice extends Device {
 
-    /** Tag for output. */
+    /**
+     * Tag for output.
+     */
     private static final String TAG = "EmulatorDevice";
 
-    /** My cell interface. */
+    /**
+     * My cell interface.
+     */
     private final String mCell = "eth0";
-    /** My wifi interface. */
+
+    /**
+     * My wifi interface.
+     */
     private final String mWiFi = "eth0";
 
     /**
@@ -280,12 +293,19 @@ final class EmulatorDevice extends Device {
 @SuppressWarnings("UnusedDeclaration")
 final class DebugDevice extends Device {
 
-    /** Tag for output. */
+    /**
+     * Tag for output.
+     */
     private static final String TAG = "DebugDevice";
 
-    /** My cell interface. */
+    /**
+     * My cell interface.
+     */
     private final String mCell = "tiwlan0";
-    /** My wifi interface. */
+
+    /**
+     * My wifi interface.
+     */
     private final String mWiFi = "tiwlan0";
 
     /**

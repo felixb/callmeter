@@ -34,19 +34,39 @@ import de.ub0r.android.callmeter.ui.prefs.Preferences;
  */
 public final class Common {
 
-    /** Byte units. */
+    /**
+     * Byte units.
+     */
     private static final String BYTE_UNITS_B = "B";
-    /** Byte units: kB. */
+
+    /**
+     * Byte units: kB.
+     */
     private static final String BYTE_UNITS_KB = "kB";
-    /** Byte units: MB. */
+
+    /**
+     * Byte units: MB.
+     */
     private static final String BYTE_UNITS_MB = "MB";
-    /** Byte units: GB. */
+
+    /**
+     * Byte units: GB.
+     */
     private static final String BYTE_UNITS_GB = "GB";
-    /** Byte units: TB. */
+
+    /**
+     * Byte units: TB.
+     */
     private static final String BYTE_UNITS_TB = "TB";
-    /** Selected date format. */
+
+    /**
+     * Selected date format.
+     */
     private static String dateFormat = null;
-    /** {@link DateFormat}. */
+
+    /**
+     * {@link DateFormat}.
+     */
     private static DateFormat dateFormater = null;
 
     /**

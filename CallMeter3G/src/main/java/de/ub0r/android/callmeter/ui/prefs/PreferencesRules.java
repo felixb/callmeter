@@ -25,14 +25,15 @@ import java.util.HashMap;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 public class PreferencesRules extends TrackingSherlockPreferenceActivity {
 
     private static final String TAG = "PreferencesRules";
 
     public static final String EXTRA_JSON = "json";
+
     public static final String EXTRA_COUNTRY = "country";
 
     private static class RuleComparator implements Comparator<JSONObject> {
@@ -68,6 +69,7 @@ public class PreferencesRules extends TrackingSherlockPreferenceActivity {
     private static class OnRuleClickListener implements OnPreferenceClickListener {
 
         private final Context c;
+
         private final JSONObject j;
 
         public OnRuleClickListener(final Context context, final JSONObject json) {

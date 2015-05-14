@@ -43,8 +43,8 @@ import android.widget.SpinnerAdapter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.ui.TrackingSherlockActivity;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 import yuku.ambilwarna.AmbilWarnaDialog;
 import yuku.ambilwarna.AmbilWarnaDialog.OnAmbilWarnaListener;
 
@@ -57,42 +57,81 @@ public final class StatsAppWidgetConfigure extends TrackingSherlockActivity
         implements OnClickListener,
         OnCheckedChangeListener, OnSeekBarChangeListener {
 
-    /** Tag for logging. */
+    /**
+     * Tag for logging.
+     */
     private static final String TAG = "wdgtcfg";
 
-    /** Widget id. */
+    /**
+     * Widget id.
+     */
     private int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
-    /** {@link Spinner} holding the plan. */
+
+    /**
+     * {@link Spinner} holding the plan.
+     */
     private Spinner spinner;
 
-    /** {@link CheckBox}s. */
+    /**
+     * {@link CheckBox}s.
+     */
     private CheckBox cbHideName, cbShowShortname, cbShowCost, cbShowBillp, cbShowIcon,
             cbSmallWidget;
-    /** {@link EditText}s. */
+
+    /**
+     * {@link EditText}s.
+     */
     private EditText etPlanTextSize, etStatsTextSize;
-    /** {@link Button}s. */
+
+    /**
+     * {@link Button}s.
+     */
     private Button btnTextColor, btnBgColor;
-    /** {@link View}s. */
+
+    /**
+     * {@link View}s.
+     */
     private View vTextColor, vBgColor;
-    /** {@link SeekBar}. */
+
+    /**
+     * {@link SeekBar}.
+     */
     private SeekBar sbBgTransparency;
 
-    /** Default text size. */
+    /**
+     * Default text size.
+     */
     static final float DEFAULT_TEXTSIZE = 10f;
-    /** Default text color. */
+
+    /**
+     * Default text color.
+     */
     static final int DEFAULT_TEXTCOLOR = 0xffffffff;
-    /** Default background color. */
+
+    /**
+     * Default background color.
+     */
     static final int DEFAULT_BGCOLOR = 0x80000000;
-    /** Bit mask for colors. */
+
+    /**
+     * Bit mask for colors.
+     */
     private static final int BITMASK_COLOR = 0x00FFFFFF;
-    /** Shift for transparency. */
+
+    /**
+     * Shift for transparency.
+     */
     private static final int BITSHIFT_TRANSPARENCY = 24;
 
-    /** Projection for {@link SimpleCursorAdapter} query. */
+    /**
+     * Projection for {@link SimpleCursorAdapter} query.
+     */
     private static final String[] PROJ_ADAPTER = new String[]{DataProvider.Plans.ID,
             DataProvider.Plans.NAME, DataProvider.Plans.SHORTNAME};
 
-    /** Does the widget already exist? */
+    /**
+     * Does the widget already exist?
+     */
     private boolean isExistingWidget = false;
 
     /**
@@ -134,7 +173,9 @@ public final class StatsAppWidgetConfigure extends TrackingSherlockActivity
         setBgColor(DEFAULT_BGCOLOR, false);
     }
 
-    /** Set {@link SimpleCursorAdapter} for {@link Spinner}. */
+    /**
+     * Set {@link SimpleCursorAdapter} for {@link Spinner}.
+     */
     private void setAdapter() {
         final Cursor c = getContentResolver().query(DataProvider.Plans.CONTENT_URI,
                 PROJ_ADAPTER, DataProvider.Plans.WHERE_PLANS, null, DataProvider.Plans.NAME);

@@ -17,42 +17,86 @@ import de.ub0r.android.logg0r.Log;
 
 public class ExportProvider extends ContentProvider {
 
-    /** Tag for output. */
+    /**
+     * Tag for output.
+     */
     private static final String TAG = "ExportProvider";
 
-    /** Authority. */
+    /**
+     * Authority.
+     */
     public static final String AUTHORITY = DataProvider.PACKAGE + ".export";
 
-    /** Mime type for export. */
+    /**
+     * Mime type for export.
+     */
     public static final String EXPORT_MIMETYPE = "application/android.callmeter.export";
-    /** {@link Uri} for export Content. */
+
+    /**
+     * {@link Uri} for export Content.
+     */
     public static final Uri EXPORT_RULESET_URI = Uri.parse("content://" + AUTHORITY + "/ruleset");
-    /** {@link Uri} for export Content. */
+
+    /**
+     * {@link Uri} for export Content.
+     */
     public static final Uri EXPORT_LOGS_URI = Uri.parse("content://" + AUTHORITY + "/logs");
-    /** {@link Uri} for export Content. */
+
+    /**
+     * {@link Uri} for export Content.
+     */
     public static final Uri EXPORT_NUMGROUPS_URI = Uri.parse("content://" + AUTHORITY
             + "/numgroups");
-    /** {@link Uri} for export Content. */
+
+    /**
+     * {@link Uri} for export Content.
+     */
     public static final Uri EXPORT_HOURGROUPS_URI = Uri.parse("content://" + AUTHORITY
             + "/hourgroups");
-    /** Filename for the actual export file. */
+
+    /**
+     * Filename for the actual export file.
+     */
     public static final String EXPORT_RULESET_FILE = "ruleset.xml";
-    /** Filename for the actual logs file. */
+
+    /**
+     * Filename for the actual logs file.
+     */
     public static final String EXPORT_LOGS_FILE = "logs.xml";
-    /** Filename for the actual number groups file. */
+
+    /**
+     * Filename for the actual number groups file.
+     */
     public static final String EXPORT_NUMGROUPS_FILE = "numgroups.xml";
-    /** Filename for the actual hour groups file. */
+
+    /**
+     * Filename for the actual hour groups file.
+     */
     public static final String EXPORT_HOURGROUPS_FILE = "hourgroups.xml";
 
-    /** {@link UriMatcher}. */
+    /**
+     * {@link UriMatcher}.
+     */
     private static final UriMatcher URI_MATCHER;
-    /** Internal id: export. */
+
+    /**
+     * Internal id: export.
+     */
     private static final int EXPORT_RULESET = 200;
-    /** Internal id: export. */
+
+    /**
+     * Internal id: export.
+     */
     private static final int EXPORT_LOGS = 201;
-    /** Internal id: export. */
+
+    /**
+     * Internal id: export.
+     */
     private static final int EXPORT_NUMGROUPS = 202;
-    /** Internal id: export. */
+
+    /**
+     * Internal id: export.
+     */
     private static final int EXPORT_HOURGROUPS = 203;
 
     static {

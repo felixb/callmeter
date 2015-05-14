@@ -40,8 +40,8 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
-import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * Display Ask for plan {@link Activity}.
@@ -51,41 +51,72 @@ import de.ub0r.android.lib.Utils;
 public final class AskForPlan extends TrackingActivity
         implements OnClickListener, OnDismissListener {
 
-    /** Tag for output. */
+    /**
+     * Tag for output.
+     */
     private static final String TAG = "AskForPlan";
 
-    /** Extra providing id of call. */
+    /**
+     * Extra providing id of call.
+     */
     public static final String EXTRA_ID = "id";
-    /** Extra providing date of call. */
+
+    /**
+     * Extra providing date of call.
+     */
     public static final String EXTRA_DATE = "date";
-    /** Extra providing amount of call. */
+
+    /**
+     * Extra providing amount of call.
+     */
     public static final String EXTRA_AMOUNT = "amount";
 
-    /** Ids of plans' {@link Button}s. */
+    /**
+     * Ids of plans' {@link Button}s.
+     */
     private static final int[] PLAN_BTNS = new int[]{R.id.btn00, R.id.btn01, R.id.btn02,
             R.id.btn03, R.id.btn04, R.id.btn05, R.id.btn06, R.id.btn07, R.id.btn08, R.id.btn09,
             R.id.btn10, R.id.btn11, R.id.btn12, R.id.btn13, R.id.btn14, R.id.btn15, R.id.btn16,
             R.id.btn17, R.id.btn18, R.id.btn19};
-    /** Maximal number of plans. */
+
+    /**
+     * Maximal number of plans.
+     */
     private static final int MAX_PLANS = PLAN_BTNS.length;
-    /** Ids of plans. */
+
+    /**
+     * Ids of plans.
+     */
     private final int[] planIds = new int[MAX_PLANS];
 
-    /** Task updating timeout field. */
+    /**
+     * Task updating timeout field.
+     */
     private AsyncTask<Void, Void, Void> timeoutTask = null;
 
-    /** {@link TextView} holding timeout. */
+    /**
+     * {@link TextView} holding timeout.
+     */
     private TextView tvTimeout = null;
-    /** {@link CheckBox} holding set default. */
+
+    /**
+     * {@link CheckBox} holding set default.
+     */
     private CheckBox cbSetDefault = null;
 
-    /** Default plan id. */
+    /**
+     * Default plan id.
+     */
     private int defaultPlanId = -1;
 
-    /** Data of call. */
+    /**
+     * Data of call.
+     */
     private long id;
 
-    /** Inner {@link Dialog}. */
+    /**
+     * Inner {@link Dialog}.
+     */
     private Dialog d = null;
 
     /**

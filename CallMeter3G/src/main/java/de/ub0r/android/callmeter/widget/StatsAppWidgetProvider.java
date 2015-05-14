@@ -55,47 +55,104 @@ import de.ub0r.android.logg0r.Log;
  */
 public final class StatsAppWidgetProvider extends AppWidgetProvider {
 
-    /** Tag for debug out. */
+    /**
+     * Tag for debug out.
+     */
     private static final String TAG = "wdgt";
 
-    /** Plan.id for widget. */
+    /**
+     * Plan.id for widget.
+     */
     public static final String WIDGET_PLANID = "widget_planid_";
-    /** Hide name for widget. */
+
+    /**
+     * Hide name for widget.
+     */
     static final String WIDGET_HIDETNAME = "widget_hidename_";
-    /** Show short name for widget. */
+
+    /**
+     * Show short name for widget.
+     */
     static final String WIDGET_SHORTNAME = "widget_shortname_";
-    /** Show cost for widget. */
+
+    /**
+     * Show cost for widget.
+     */
     static final String WIDGET_COST = "widget_cost_";
-    /** Show progress of billing period for widget. */
+
+    /**
+     * Show progress of billing period for widget.
+     */
     static final String WIDGET_BILLPERIOD = "widget_billp_";
-    /** Size of the plan name text. */
+
+    /**
+     * Size of the plan name text.
+     */
     static final String WIDGET_PLAN_TEXTSIZE = "widget_plan_textsize_";
-    /** Size of the statistics text. */
+
+    /**
+     * Size of the statistics text.
+     */
     static final String WIDGET_STATS_TEXTSIZE = "widget_stats_textsize_";
-    /** Widget's text color. */
+
+    /**
+     * Widget's text color.
+     */
     static final String WIDGET_TEXTCOLOR = "widget_textcolor_";
-    /** Widget's background color. */
+
+    /**
+     * Widget's background color.
+     */
     static final String WIDGET_BGCOLOR = "widget_bgcolor_";
-    /** Widget's icon. */
+
+    /**
+     * Widget's icon.
+     */
     static final String WIDGET_ICON = "widget_icon_";
-    /** Must widget be small? */
+
+    /**
+     * Must widget be small?
+     */
     static final String WIDGET_SMALL = "widget_small_";
 
-    /** Width of the widget. */
+    /**
+     * Width of the widget.
+     */
     static final int WIDGET_WIDTH = 100;
-    /** Height of progress bars. */
+
+    /**
+     * Height of progress bars.
+     */
     private static final int PB_HEIGHT = 4;
-    /** Round corners. */
+
+    /**
+     * Round corners.
+     */
     static final float WIDGET_RCORNER = 10f;
-    /** Red color for progress bars. */
+
+    /**
+     * Red color for progress bars.
+     */
     private static final int PB_COLOR_GREY = 0xD0D0D0D0;
-    /** Red light color for progress bars. */
+
+    /**
+     * Red light color for progress bars.
+     */
     private static final int PB_COLOR_LGREY = 0x50D0D0D0;
-    /** Red color for progress bars. */
+
+    /**
+     * Red color for progress bars.
+     */
     private static final int PB_COLOR_RED = 0xFFFF0000;
-    /** Yellow color for progress bars. */
+
+    /**
+     * Yellow color for progress bars.
+     */
     private static final int PB_COLOR_YELLOW = 0xFFFFD000;
-    /** Green color for progress bars. */
+
+    /**
+     * Green color for progress bars.
+     */
     private static final int PB_COLOR_GREEN = 0xFF00FF00;
 
     /**

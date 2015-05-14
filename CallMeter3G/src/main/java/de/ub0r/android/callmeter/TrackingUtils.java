@@ -21,6 +21,7 @@ public class TrackingUtils {
     private static final String TAG = "TrackingUtils";
 
     private static int sEnableAnalytics = -1;
+
     private static String sTrackingId;
 
     private TrackingUtils() {
@@ -80,9 +81,9 @@ public class TrackingUtils {
             return;
         }
         tr.send(MapBuilder
-                .createAppView()
-                .set(Fields.SCREEN_NAME, view)
-                .build()
+                        .createAppView()
+                        .set(Fields.SCREEN_NAME, view)
+                        .build()
         );
     }
 

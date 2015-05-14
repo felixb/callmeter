@@ -20,15 +20,29 @@ import de.ub0r.android.callmeter.R;
  */
 public final class CVListPreference extends ListPreference {
 
-    /** {@link ContentValues} for saving values. */
+    /**
+     * {@link ContentValues} for saving values.
+     */
     private final ContentValues cv;
-    /** Show a multi select dialog. */
+
+    /**
+     * Show a multi select dialog.
+     */
     private final boolean m;
-    /** Checked values. */
+
+    /**
+     * Checked values.
+     */
     private boolean[] checked = null;
-    /** {@link UpdateListener}. */
+
+    /**
+     * {@link UpdateListener}.
+     */
     private final UpdateListener ul;
-    /** Show help. */
+
+    /**
+     * Show help.
+     */
     private final boolean sh;
 
     /**
@@ -144,14 +158,18 @@ public final class CVListPreference extends ListPreference {
         }
     }
 
-    /** Initialize checked array. */
+    /**
+     * Initialize checked array.
+     */
     private void setCheckedArray() {
         int l = getEntries().length;
         checked = new boolean[l];
         reloadCheckedArray();
     }
 
-    /** Reload checked array. */
+    /**
+     * Reload checked array.
+     */
     private void reloadCheckedArray() {
         CharSequence[] values = getEntryValues();
         String s = "," + getValue() + ",";
