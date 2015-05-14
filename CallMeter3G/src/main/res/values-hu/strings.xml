@@ -464,4 +464,5 @@
   <string name="second_sim_" formatted="false" username="lucian" orig="Second SIM card">Második SIM kártya</string>
   <string name="websms_" formatted="false" username="lucian" orig="WebSMS">WebSMS</string>
   <string name="calls_voip_" formatted="false" username="lucian" orig="VoIP calls with supported apps">VoIP hívások támogatott alkalmazásokkal</string>
+  <string name="donate_remove_ads_" formatted="false" username="gaborgabor" orig="Donate/remove ads">Adományozás/reklám eltávolítása</string>
 </resources>

@@ -292,4 +292,5 @@
   <string name="mms_in" formatted="false" username="randvoo12" orig="MMS In">رسائل الوسائط المتعددة الواردة</string>
   <string name="mms_out" formatted="false" username="randvoo12" orig="MMS Out">رسائل الوسائط المتعددة الصادرة</string>
   <string name="data" formatted="false" username="randvoo12" orig="Data">البيانات</string>
+  <string name="donate_remove_ads_" formatted="false" username="Gihad" orig="Donate/remove ads">تبرع/إزالة الإعلانات</string>
 </resources>

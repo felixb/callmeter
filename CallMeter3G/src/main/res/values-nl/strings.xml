@@ -464,4 +464,5 @@
   <string name="calls_voip_" formatted="false" username="ditsy@live.nl" orig="VoIP calls with supported apps">VoIP gesprek met ondersteunende apps</string>
   <string name="second_sim_" formatted="false" username="ditsy@live.nl" orig="Second SIM card">Tweede SIM card</string>
   <string name="websms_" formatted="false" username="ditsy@live.nl" orig="WebSMS">WebSMS</string>
+  <string name="donate_remove_ads_" formatted="false" username="Gummie" orig="Donate/remove ads">Doneer/verwijder ads</string>
 </resources>

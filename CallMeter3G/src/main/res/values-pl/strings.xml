@@ -453,4 +453,5 @@
   <string name="my_sim_id_" formatted="false" username="mstojek@gmail.com" orig="SIM Id">Identyfikator karty SIM</string>
   <string name="my_sim_id_help" formatted="false" username="mstojek@gmail.com" orig="Match only logs done with this SIM.">Dopasuj logi wygenerowane z użyciem tej karty SIM.</string>
   <string name="strip_past_help" formatted="false" username="mstojek@gmail.com" orig="Do not bill anything after x seconds of a call.">Nie licz po x sekundach rozmowy</string>
+  <string name="donate_remove_ads_" formatted="false" username="mstojek@gmail.com" orig="Donate/remove ads">Darowizna/usunięcie reklam</string>
 </resources>

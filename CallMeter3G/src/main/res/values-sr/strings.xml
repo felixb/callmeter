@@ -458,4 +458,5 @@
   <string name="provider" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Provider">Provajder</string>
   <string name="plan" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Plan">Plan</string>
   <string name="widget_config_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Widget config">Uredi widget</string>
+  <string name="donate_remove_ads_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Donate/remove ads">Doniraj/ukloni reklame</string>
 </resources>

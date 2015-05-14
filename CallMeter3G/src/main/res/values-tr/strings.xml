@@ -466,4 +466,5 @@
   <string name="calls_voip_" formatted="false" username="Can Örs &lt;canors@yandex.com&gt;" orig="VoIP calls with supported apps">VoIP destekli uygulamalar ile çağrı</string>
   <string name="analytics_" formatted="false" username="Sinan Cem Kilickaplan bluesman80@gmail.com" orig="Collect anonymous statistics">İstatistikleri anonim olarak topla.</string>
   <string name="analytics_hint" formatted="false" username="Sinan Cem Kilickaplan bluesman80@gmail.com" orig="Collect anonymous usage statistics to help improving the app.">Uygulamaya katkıda bulunmak için kullanım istatistiklerini anonim olarak topla.</string>
+  <string name="donate_remove_ads_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Donate/remove ads">Bağış yap/reklamları kaldır</string>
 </resources>

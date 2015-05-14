@@ -464,4 +464,5 @@
   <string name="sendlog_run" formatted="false" username="matelkoxxl &lt;matelkoxxl@gmail.com&gt;. " orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog pozbiera záznamy zo zariadenia a pošle ich autorovi.\nBudete mať možnosť dáta skontrolovať a prípadne ich pred odoslaním upraviť.</string>
   <string name="sendlog_install" formatted="false" username="matelkoxxl &lt;matelkoxxl@gmail.com&gt;. " orig="Install the free SendLog application to collect the device log and send it to the developer.">Nainštalujte aplikáciu SendLog, ktorá je zdarma a s jej pomocou môžete posielať dáta o využívaní autorovi.</string>
   <string name="license" formatted="false" username="matelkoxxl &lt;matelkoxxl@gmail.com&gt;. " orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - viď.</string>
+  <string name="donate_remove_ads_" formatted="false" username="ManuelMigel &lt;manuel.migel@gmail.com&gt;" orig="Donate/remove ads">Darovať/Odstrániť reklamy</string>
 </resources>

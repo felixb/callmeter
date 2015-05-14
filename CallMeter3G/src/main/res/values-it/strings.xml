@@ -461,4 +461,5 @@
   <string name="show_target_billday_hint" formatted="false" username="zago84 &lt;emanuele.sagona@gmail.com&gt;" orig="Show last day of bill instead of first.">Mostra l\'ultimo giorno di tariffazione invece del primo.</string>
   <string name="delete_plan_hint" formatted="false" username="zago84 &lt;emanuele.sagona@gmail.com&gt;" orig="Do you really want to delete this plan?">Vuoi davvero eliminare questo piano?</string>
   <string name="delete_rule_hint" formatted="false" username="zago84 &lt;emanuele.sagona@gmail.com&gt;" orig="Do you really want to delete this rule?">Vuoi davvero eliminare questa regola?</string>
+  <string name="donate_remove_ads_" formatted="false" username="fedekikko89" orig="Donate/remove ads">Dona/rimuovi pubblicità</string>
 </resources>

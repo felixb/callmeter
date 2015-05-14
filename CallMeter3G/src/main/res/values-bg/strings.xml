@@ -462,4 +462,5 @@
   <string name="widget_details_textsize" formatted="false" username="andreshko@hotmail.com" orig="Details Text Size">Големина на шрифт за подробности</string>
   <string name="sendlog_run" formatted="false" username="andreshko@hotmail.com" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog ще събере дневника на устройството и ще го изпрати до разработчика.\nМоже тези данни да се прегледат и редактират преди изпращане.</string>
   <string name="sendlog_install" formatted="false" username="andreshko@hotmail.com" orig="Install the free SendLog application to collect the device log and send it to the developer.">Инсталиране на SendLog приложението за събиране на дневника на устройството и изпращане до разработчика.</string>
+  <string name="donate_remove_ads_" formatted="false" username="hlp" orig="Donate/remove ads">Направи Дарение/Премахни Рекламите</string>
 </resources>

@@ -464,4 +464,5 @@
   <string name="second_sim_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Second SIM card">Segunda tarjeta SIM</string>
   <string name="websms_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="WebSMS">WebSMS</string>
   <string name="calls_voip_" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="VoIP calls with supported apps">Llamadas VoIP con aplicaciones compatibles</string>
+  <string name="donate_remove_ads_" formatted="false" username="jesus@yopmail.com" orig="Donate/remove ads">Donar/eliminar publicidad</string>
 </resources>

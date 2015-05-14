@@ -29,11 +29,13 @@ import com.actionbarsherlock.view.Window;
 import com.viewpagerindicator.TitlePageIndicator;
 
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -44,6 +46,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -536,10 +539,14 @@ public final class Plans extends TrackingSherlockFragmentActivity implements OnP
                 return true;
             case R.id.item_donate:
                 TrackingUtils.sendMenu(this, "item_donate");
-                DonationHelper.showDonationDialog(this, getString(R.string.donate),
-                        getString(R.string.donate_), getString(R.string.did_paypal_donation),
-                        getResources().getStringArray(R.array.donation_messages_market));
-                TrackingUtils.sendView(this, "de.ub0r.android.lib.DonationHelper.DonationDialog");
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(
+                            "https://play.google.com/store/apps/details?id=de.ub0r.android.donator")));
+                } catch (ActivityNotFoundException e) {
+                    Log.e(TAG, "error opening play store with donation app", e);
+                    Toast.makeText(this, R.string.common_google_play_services_unknown_issue,
+                            Toast.LENGTH_LONG).show();
+                }
                 return true;
             case R.id.item_logs:
                 TrackingUtils.sendMenu(this, "item_logs");

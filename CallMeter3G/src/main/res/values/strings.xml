@@ -465,4 +465,5 @@
 	<string name="plan">Plan</string>
     <string name="analytics_">Collect anonymous statistics</string>
     <string name="analytics_hint">Collect anonymous usage statistics to help improving the app.</string>
+    <string name="donate_remove_ads_">Donate/remove ads</string>
 </resources>

@@ -463,4 +463,5 @@
   <string name="analytics_" formatted="false" username="Oriol Garrote" orig="Collect anonymous statistics">Recollir estadístiques anònimes</string>
   <string name="analytics_hint" formatted="false" username="Oriol Garrote" orig="Collect anonymous usage statistics to help improving the app.">Recollir estadístiques d\'ús anònimes per ajudar a millorar l\'aplicació</string>
   <string name="billday_last" formatted="false" username="Oriol Garrote" orig="Last day of your bill">Últim dia de facturació</string>
+  <string name="donate_remove_ads_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Donate/remove ads">Donar/retirar anuncis</string>
 </resources>
