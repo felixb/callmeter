@@ -343,7 +343,7 @@
   <string name="down_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Move down">Опустить ниже</string>
   <string name="widgets_no_widgets_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="No widgets added">Виджеты не добавлены</string>
   <string name="widget_stats_title" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Call Meter (stats)">Call Meter (статистика)</string>
-  <string name="widget_logs_title" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Call Meter (last log)">Call Meter (последний журнал)</string>
+  <string name="widget_logs_title" formatted="false" username="pulse" orig="Call Meter (last log)">Call Meter (последний журнал)</string>
   <string name="textsize_pbarbp_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Bill period\'s progress bar\'s size">Размер шкалы прогресса расчетного периода</string>
   <string name="textsize_pbarbp_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Size for bill period\'s progress bars in pixels; leave empty for default">Размер шкалы прогресса расчетного периода в пикселях; оставьте пустым по умолчанию</string>
   <string name="show_shortname_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Show short name instead of long name">Показать короткое название вместо длинного</string>
