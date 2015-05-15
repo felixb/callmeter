@@ -4933,6 +4933,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/South_Africa_Vodacom_120_Every_Day_500_MB.xml",
       "provider": "Vodacom",
       "title": "120 Every Day 500 MB"
+    },
+    {
+      "country": "South Africa",
+      "id": "f_South_Africa_Vodacom_Smart_S",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/South_Africa_Vodacom_Smart_S.xml",
+      "provider": "Vodacom",
+      "title": "Smart S"
     }
   ],
   "Spain": [
