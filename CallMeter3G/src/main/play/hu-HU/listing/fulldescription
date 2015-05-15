@@ -23,6 +23,6 @@ A program műküdéséhez szükséges engedélyek:
 * READ PHONE STATE AND IDENTITY: log-ok háttérben frissítéséhez.
 * PREVENT DEVICE FROM SLEEPING: log-ok háttérben frissítéséhez.
 
-Segítsen lefordítani ezt a programot a saját nyelvére ezen az oldalon: http://ub0r.de/translate/cm3/
+Segítsen lefordítani ezt a programot a saját nyelvére ezen az oldalon: https://crowdin.com/project/callmeter3g/invite
 
 Ha fejlesztése javaslaataid vannak, kérlek látogasd meg a https://github.com/felixb/callmeter/issues lapot.
