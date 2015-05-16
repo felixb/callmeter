@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.1.0'
+        classpath 'com.android.tools.build:gradle:1.2.3'
         classpath('com.github.triplet.gradle:play-publisher:1.0.1') {
             exclude group: 'com.google.guava'
         }
@@ -22,10 +22,7 @@ play {
 
 repositories {
     maven {
-        url 'https://github.com/felixb/ub0rlib/raw/mvn-repo/'
-    }
-    maven {
-        url 'https://raw.githubusercontent.com/felixb/ub0rlogg0r/mvn-repo/'
+        url 'https://raw.githubusercontent.com/felixb/mvn-repo/master'
     }
     maven {
         url 'https://raw.githubusercontent.com/Goddchen/mvn-repo/master/'
@@ -146,11 +143,11 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
-    compile 'com.android.support:support-v4:22.0.0'
-    compile 'com.google.android.gms:play-services-ads:7.0.0'
-    compile 'com.actionbarsherlock:actionbarsherlock:+@aar'
+    compile 'com.android.support:support-v4:22.1.1'
+    compile 'com.google.android.gms:play-services-ads:7.3.0'
+    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
     compile 'com.actionbarsherlock:viewpagerindicator:2.4.1'
-    compile 'de.ub0r.android.lib:lib:1.0.1'
+    compile 'de.ub0r.android.lib:lib:1.1.0'
     compile 'de.ub0r.android.logg0r:logg0r:2.0.0'
 }
 
