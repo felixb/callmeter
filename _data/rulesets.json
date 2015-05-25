@@ -225,6 +225,15 @@
       "title": "Biz Inclusive Unlimited"
     }
   ],
+  "Bangladesh": [
+    {
+      "country": "Bangladesh",
+      "id": "f_Bangladesh_Teletalk_Agami",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Bangladesh_Teletalk_Agami.xml",
+      "provider": "Teletalk",
+      "title": "Agami"
+    }
+  ],
   "Barbados": [
     {
       "country": "Barbados",
