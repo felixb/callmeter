@@ -13,7 +13,7 @@
       <_limit>0</_limit>
       <_billperiod>8</_billperiod>
       <_billmode>1/1</_billmode>
-      <_billday>1277942400947</_billday>
+      <_billday>1430438400947</_billday>
       <_next_alert>0</_next_alert>
       <_order>0</_order>
     </plan>
@@ -59,7 +59,7 @@
       <_cost_per_amount2>0.094</_cost_per_amount2>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>3</_order>
+      <_order>10</_order>
     </plan>
     <plan>
       <_id>16</_id>
@@ -77,7 +77,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>4</_order>
+      <_order>3</_order>
     </plan>
     <plan>
       <_id>17</_id>
@@ -98,15 +98,15 @@
       <_plan_name>SMS Out Cyprus</_plan_name>
       <_shortname>SMSOutCyprus</_shortname>
       <_plan_type>5</_plan_type>
-      <_limit_type>1</_limit_type>
+      <_limit_type>0</_limit_type>
       <_limit>1000</_limit>
       <_billperiod>16</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_cost_per_item>0.024</_cost_per_item>
+      <_cost_per_item>0</_cost_per_item>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>13</_order>
+      <_order>14</_order>
     </plan>
     <plan>
       <_id>34</_id>
@@ -142,7 +142,7 @@
       <_cost_per_item>0.09</_cost_per_item>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>14</_order>
+      <_order>16</_order>
     </plan>
     <plan>
       <_id>36</_id>
@@ -155,7 +155,50 @@
       <_cost_per_amount2>0.24</_cost_per_amount2>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>10</_order>
+      <_order>9</_order>
+    </plan>
+    <plan>
+      <_id>37</_id>
+      <_plan_name>Data Roaming </_plan_name>
+      <_shortname>Data Roaming </_shortname>
+      <_plan_type>7</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_cost_per_amount1>0.29</_cost_per_amount1>
+      <_cost_per_amount2>0.29</_cost_per_amount2>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>18</_order>
+    </plan>
+    <plan>
+      <_id>38</_id>
+      <_plan_name>SMS Out to abroad</_plan_name>
+      <_shortname>smstoabroad</_shortname>
+      <_plan_type>5</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_cost_per_item>0.05</_cost_per_item>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>15</_order>
+    </plan>
+    <plan>
+      <_id>39</_id>
+      <_plan_name>SMS</_plan_name>
+      <_shortname>Newplan</_shortname>
+      <_plan_type>0</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>13</_order>
+    </plan>
+    <plan>
+      <_id>40</_id>
+      <_plan_name>Data</_plan_name>
+      <_shortname>Newplan</_shortname>
+      <_plan_type>0</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>17</_order>
     </plan>
   </plans>
   <rules>
@@ -202,8 +245,7 @@
       <_direction>1</_direction>
       <_inhourgroup_id>-1</_inhourgroup_id>
       <_exhourgroup_id>-1</_exhourgroup_id>
-      <_innumbergroup_id>-1</_innumbergroup_id>
-      <_exnumbergroup_id>-1</_exnumbergroup_id>
+      <_exnumbergroup_id>,6,8,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>-1</_is_websms>
     </rule>
@@ -244,6 +286,31 @@
       <_innumbergroup_id>,8,</_innumbergroup_id>
       <_is_sipcall>1</_is_sipcall>
     </rule>
+    <rule>
+      <_id>15</_id>
+      <_active>1</_active>
+      <_order>10</_order>
+      <_plan_id>37</_plan_id>
+      <_rule_name>Data Roaming </_rule_name>
+      <_what>3</_what>
+      <_roamed>0</_roamed>
+      <_direction>-1</_direction>
+      <_is_sipcall>-1</_is_sipcall>
+    </rule>
+    <rule>
+      <_id>16</_id>
+      <_active>1</_active>
+      <_order>11</_order>
+      <_plan_id>38</_plan_id>
+      <_rule_name>SMS to abroad</_rule_name>
+      <_what>1</_what>
+      <_roamed>1</_roamed>
+      <_direction>1</_direction>
+      <_innumbergroup_id>,6,8,</_innumbergroup_id>
+      <_limit_not_reached>0</_limit_not_reached>
+      <_is_websms>-1</_is_websms>
+      <_is_sipcall>-1</_is_sipcall>
+    </rule>
   </rules>
   <hoursgroups>
   </hoursgroups>
@@ -276,7 +343,7 @@
         <number>
           <_id>12</_id>
           <_gid>7</_gid>
-          <_number>8000%</_number>
+          <_number>800%</_number>
         </number>
       </numbers>
     </numbersgroup>
