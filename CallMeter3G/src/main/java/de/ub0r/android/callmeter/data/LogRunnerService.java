@@ -889,10 +889,14 @@ public final class LogRunnerService extends IntentService {
                         if (c.moveToFirst()) {
                             final String rid = c.getString(0);
                             Log.d(TAG, "recipient_ids: ", rid);
-                            final Contact con = new Contact(Utils.parseLong(rid, -1));
-                            con.update(context, true, false);
-                            n = DataProvider.Logs.cleanNumber(con.getNumber(), false);
-                            THREAD_TO_NUMBER.put(tid, n);
+                            try {
+                                final Contact con = new Contact(Utils.parseLong(rid, -1));
+                                con.update(context, true, false);
+                                n = DataProvider.Logs.cleanNumber(con.getNumber(), false);
+                                THREAD_TO_NUMBER.put(tid, n);
+                            } catch (NullPointerException e) {
+                                Log.e(TAG, "error loading number from recipient_ids", rid, e);
+                            }
                         }
                         c.close();
                     }
