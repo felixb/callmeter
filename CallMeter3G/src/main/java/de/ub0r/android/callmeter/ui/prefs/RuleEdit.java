@@ -64,27 +64,27 @@ public final class RuleEdit extends TrackingSherlockPreferenceActivity implement
     /**
      * Array holding {@link String}s.
      */
-    private String[] inOutNomatterCalls = null;
+    private String[] inOutNoMatterCalls = null;
 
     /**
      * Array holding {@link String}s.
      */
-    private String[] inOutNomatterSms = null;
+    private String[] inOutNoMatterSms = null;
 
     /**
      * Array holding {@link String}s.
      */
-    private String[] inOutNomatterMms = null;
+    private String[] inOutNoMatterMms = null;
 
     /**
      * Array holding {@link String}s.
      */
-    private String[] inOutNomatterData = null;
+    private String[] inOutNoMatterData = null;
 
     /**
      * Array holding {@link String}s.
      */
-    private String[] yesNoNomatter = null;
+    private String[] yesNoNoMatter = null;
 
     /**
      * Get a string array for directions.
@@ -114,54 +114,54 @@ public final class RuleEdit extends TrackingSherlockPreferenceActivity implement
     private String[] getStrings(final int base) {
         switch (base) {
             case R.array.direction_calls:
-                if (inOutNomatterCalls == null) {
+                if (inOutNoMatterCalls == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
                     tmp1[1] = tmp2[1];
                     tmp1[2] = getString(R.string.no_matter_);
-                    inOutNomatterCalls = tmp1;
+                    inOutNoMatterCalls = tmp1;
                 }
-                return inOutNomatterCalls;
+                return inOutNoMatterCalls;
             case R.array.direction_sms:
-                if (inOutNomatterSms == null) {
+                if (inOutNoMatterSms == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
                     tmp1[1] = tmp2[1];
                     tmp1[2] = getString(R.string.no_matter_);
-                    inOutNomatterSms = tmp1;
+                    inOutNoMatterSms = tmp1;
                 }
-                return inOutNomatterSms;
+                return inOutNoMatterSms;
             case R.array.direction_mms:
-                if (inOutNomatterMms == null) {
+                if (inOutNoMatterMms == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
                     tmp1[1] = tmp2[1];
                     tmp1[2] = getString(R.string.no_matter_);
-                    inOutNomatterMms = tmp1;
+                    inOutNoMatterMms = tmp1;
                 }
-                return inOutNomatterMms;
+                return inOutNoMatterMms;
             case R.array.direction_data:
-                if (inOutNomatterData == null) {
+                if (inOutNoMatterData == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
                     tmp1[1] = tmp2[1];
                     tmp1[2] = getString(R.string.no_matter_);
-                    inOutNomatterData = tmp1;
+                    inOutNoMatterData = tmp1;
                 }
-                return inOutNomatterData;
+                return inOutNoMatterData;
             default:
-                if (yesNoNomatter == null) {
+                if (yesNoNoMatter == null) {
                     final String[] tmp1 = new String[3];
                     tmp1[0] = getString(R.string.yes);
                     tmp1[1] = getString(R.string.no);
                     tmp1[2] = getString(R.string.no_matter_);
-                    yesNoNomatter = tmp1;
+                    yesNoNoMatter = tmp1;
                 }
-                return yesNoNomatter;
+                return yesNoNoMatter;
         }
     }
 
@@ -410,7 +410,7 @@ public final class RuleEdit extends TrackingSherlockPreferenceActivity implement
      * @return where clause
      */
     private String getPlanWhere(final int w) {
-        String where = null;
+        String where;
         switch (w) {
             case DataProvider.Rules.WHAT_CALL:
                 where = DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_CALL + " OR "
