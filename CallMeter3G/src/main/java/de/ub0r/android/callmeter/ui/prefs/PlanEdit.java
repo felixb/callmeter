@@ -198,7 +198,7 @@ public final class PlanEdit extends TrackingSherlockPreferenceActivity implement
                         getContentResolver().query(DataProvider.Plans.CONTENT_URI,
                                 DataProvider.Plans.PROJECTION_BASIC,
                                 DataProvider.Plans.WHERE_BILLPERIODS, null, null),
-                        DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME);
+                        DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME).close();
                 int i;
                 if (c.isNull(DataProvider.Plans.INDEX_BILLPERIOD_ID)) {
                     i = -1;
@@ -232,7 +232,7 @@ public final class PlanEdit extends TrackingSherlockPreferenceActivity implement
                             getContentResolver().query(DataProvider.Plans.CONTENT_URI,
                                     DataProvider.Plans.PROJECTION_BASIC,
                                     getMergePlansWhere(t), null, null),
-                            DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME);
+                            DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME).close();
                     lp.setValue(merged);
                     ps.addPreference(lp);
                 }

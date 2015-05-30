@@ -237,7 +237,7 @@ public final class RuleEdit extends TrackingSherlockPreferenceActivity implement
             lp.setCursor(
                     getContentResolver().query(DataProvider.Plans.CONTENT_URI,
                             DataProvider.Plans.PROJECTION_BASIC, getPlanWhere(w), null, null),
-                    DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME);
+                    DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME).close();
             lp.setValue(c.getString(DataProvider.Rules.INDEX_PLAN_ID));
             ps.addPreference(lp);
             // limit reached
@@ -353,47 +353,51 @@ public final class RuleEdit extends TrackingSherlockPreferenceActivity implement
                 lp.setValue(String.valueOf(i));
                 ps.addPreference(lp);
             }
-            // include hours
-            lp = new CVListPreference(this, values, DataProvider.Rules.INHOURS_ID, true);
-            lp.setTitle(R.string.hourgroup_);
-            lp.setSummary(R.string.hourgroup_help);
-            lp.setCursor(
-                    getContentResolver().query(DataProvider.HoursGroup.CONTENT_URI,
-                            DataProvider.HoursGroup.PROJECTION, null, null, null),
-                    DataProvider.HoursGroup.INDEX_ID, DataProvider.HoursGroup.INDEX_NAME);
-            lp.setValue(c.getString(DataProvider.Rules.INDEX_INHOURS_ID));
-            ps.addPreference(lp);
-            // exclude hours
-            lp = new CVListPreference(this, values, DataProvider.Rules.EXHOURS_ID, true);
-            lp.setTitle(R.string.exhourgroup_);
-            lp.setSummary(R.string.exhourgroup_help);
-            lp.setCursor(
-                    getContentResolver().query(DataProvider.HoursGroup.CONTENT_URI,
-                            DataProvider.HoursGroup.PROJECTION, null, null, null),
-                    DataProvider.HoursGroup.INDEX_ID, DataProvider.HoursGroup.INDEX_NAME);
-            lp.setValue(c.getString(DataProvider.Rules.INDEX_EXHOURS_ID));
-            ps.addPreference(lp);
+            // in-/exclude hours
+            Cursor query = getContentResolver().query(DataProvider.HoursGroup.CONTENT_URI,
+                    DataProvider.HoursGroup.PROJECTION, null, null, null);
+            if (query.getCount() > 0) {
+                // include hours
+                lp = new CVListPreference(this, values, DataProvider.Rules.INHOURS_ID, true);
+                lp.setTitle(R.string.hourgroup_);
+                lp.setSummary(R.string.hourgroup_help);
+                lp.setCursor(query, DataProvider.HoursGroup.INDEX_ID,
+                        DataProvider.HoursGroup.INDEX_NAME);
+                lp.setValue(c.getString(DataProvider.Rules.INDEX_INHOURS_ID));
+                ps.addPreference(lp);
+                // exclude hours
+                lp = new CVListPreference(this, values, DataProvider.Rules.EXHOURS_ID, true);
+                lp.setTitle(R.string.exhourgroup_);
+                lp.setSummary(R.string.exhourgroup_help);
+                lp.setCursor(query, DataProvider.HoursGroup.INDEX_ID,
+                        DataProvider.HoursGroup.INDEX_NAME);
+                lp.setValue(c.getString(DataProvider.Rules.INDEX_EXHOURS_ID));
+                ps.addPreference(lp);
+            }
+            query.close();
             if (w != DataProvider.Rules.WHAT_DATA) {
-                // include numbers
-                lp = new CVListPreference(this, values, DataProvider.Rules.INNUMBERS_ID, true);
-                lp.setTitle(R.string.numbergroup_);
-                lp.setSummary(R.string.numbergroup_help);
-                lp.setCursor(
-                        getContentResolver().query(DataProvider.NumbersGroup.CONTENT_URI,
-                                DataProvider.NumbersGroup.PROJECTION, null, null, null),
-                        DataProvider.NumbersGroup.INDEX_ID, DataProvider.NumbersGroup.INDEX_NAME);
-                lp.setValue(c.getString(DataProvider.Rules.INDEX_INNUMBERS_ID));
-                ps.addPreference(lp);
-                // exclude numbers
-                lp = new CVListPreference(this, values, DataProvider.Rules.EXNUMBERS_ID, true);
-                lp.setTitle(R.string.exnumbergroup_);
-                lp.setSummary(R.string.exnumbergroup_help);
-                lp.setCursor(
-                        getContentResolver().query(DataProvider.NumbersGroup.CONTENT_URI,
-                                DataProvider.NumbersGroup.PROJECTION, null, null, null),
-                        DataProvider.NumbersGroup.INDEX_ID, DataProvider.NumbersGroup.INDEX_NAME);
-                lp.setValue(c.getString(DataProvider.Rules.INDEX_EXNUMBERS_ID));
-                ps.addPreference(lp);
+                // in-/exclude numbers
+                query = getContentResolver().query(DataProvider.NumbersGroup.CONTENT_URI,
+                        DataProvider.NumbersGroup.PROJECTION, null, null, null);
+                if (query.getCount() > 0) {
+                    // include numbers
+                    lp = new CVListPreference(this, values, DataProvider.Rules.INNUMBERS_ID, true);
+                    lp.setTitle(R.string.numbergroup_);
+                    lp.setSummary(R.string.numbergroup_help);
+                    lp.setCursor(query, DataProvider.NumbersGroup.INDEX_ID,
+                            DataProvider.NumbersGroup.INDEX_NAME);
+                    lp.setValue(c.getString(DataProvider.Rules.INDEX_INNUMBERS_ID));
+                    ps.addPreference(lp);
+                    // exclude numbers
+                    lp = new CVListPreference(this, values, DataProvider.Rules.EXNUMBERS_ID, true);
+                    lp.setTitle(R.string.exnumbergroup_);
+                    lp.setSummary(R.string.exnumbergroup_help);
+                    lp.setCursor(query, DataProvider.NumbersGroup.INDEX_ID,
+                            DataProvider.NumbersGroup.INDEX_NAME);
+                    lp.setValue(c.getString(DataProvider.Rules.INDEX_EXNUMBERS_ID));
+                    ps.addPreference(lp);
+                }
+                query.close();
             }
         }
         c.close();

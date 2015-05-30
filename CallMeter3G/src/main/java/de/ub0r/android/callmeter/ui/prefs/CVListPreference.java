@@ -138,7 +138,7 @@ public final class CVListPreference extends ListPreference {
      * @param value index of id
      * @param name  index of name
      */
-    public void setCursor(final Cursor c, final int value, final int name) {
+    public Cursor setCursor(final Cursor c, final int value, final int name) {
         int l = c.getCount();
         String[] values = new String[l];
         String[] names = new String[l];
@@ -152,10 +152,10 @@ public final class CVListPreference extends ListPreference {
         }
         setEntryValues(values);
         setEntries(names);
-        c.close();
         if (m) {
             setCheckedArray();
         }
+        return c;
     }
 
     /**

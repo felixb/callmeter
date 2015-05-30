@@ -70,7 +70,6 @@ import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.callmeter.ui.Common;
 import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
-import de.ub0r.android.lib.Market;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.logg0r.LogCollector;
@@ -577,9 +576,11 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         setTitle(R.string.settings);
         addPreferencesFromResource(R.xml.prefs);
 
-        Market.setOnPreferenceClickListener(this, findPreference("more_apps"), null,
-                Market.SEARCH_APPS, Market.ALT_APPS);
-        Preference p = findPreference("send_logs");
+        Preference p = findPreference("more_apps");
+        if (p != null) {
+            p.setOnPreferenceClickListener(this);
+        }
+        p = findPreference("send_logs");
         if (p != null) {
             p.setOnPreferenceClickListener(this);
         }
@@ -1075,31 +1076,42 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
     public boolean onPreferenceClick(final Preference preference) {
         final String k = preference.getKey();
         assert k != null;
-        if (k.equals("send_logs")) {
-            LogCollector.collectAndSendLogs(this, "android@ub0r.de",
-                    getString(R.string.sendlog_install_),
-                    getString(R.string.sendlog_install),
-                    getString(R.string.sendlog_run_),
-                    getString(R.string.sendlog_run));
-            return true;
-        } else if (k.equals("send_devices")) {
-            final Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.setType("text/plain");
-            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"android@ub0r.de", ""});
-            intent.putExtra(Intent.EXTRA_TEXT, Device.debugDeviceList(this));
-            intent.putExtra(Intent.EXTRA_SUBJECT, "Call Meter 3G: Device List");
-            try {
-                startActivity(intent);
-            } catch (ActivityNotFoundException e) {
-                Log.e(TAG, "no mail", e);
-                Toast.makeText(this, "no mail app found", Toast.LENGTH_LONG).show();
-            }
-            return true;
-        } else if (k.equals("reset_data")) {
-            TrackingUtils.sendClick(this, "reset_data", null);
-            resetDataDialog();
-            return true;
+        switch (k) {
+            case "more_apps":
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(
+                            "https://play.google.com/store/apps/developer?id=Felix+Bechstein")));
+                } catch (ActivityNotFoundException e) {
+                    Log.e(TAG, "no play store", e);
+                    Toast.makeText(this, "play store not found", Toast.LENGTH_LONG).show();
+                }
+                return true;
+            case "send_logs":
+                LogCollector.collectAndSendLogs(this, "android@ub0r.de",
+                        getString(R.string.sendlog_install_),
+                        getString(R.string.sendlog_install),
+                        getString(R.string.sendlog_run_),
+                        getString(R.string.sendlog_run));
+                return true;
+            case "send_devices":
+                final Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"android@ub0r.de", ""});
+                intent.putExtra(Intent.EXTRA_TEXT, Device.debugDeviceList(this));
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Call Meter 3G: Device List");
+                try {
+                    startActivity(intent);
+                } catch (ActivityNotFoundException e) {
+                    Log.e(TAG, "no mail", e);
+                    Toast.makeText(this, "no mail app found", Toast.LENGTH_LONG).show();
+                }
+                return true;
+            case "reset_data":
+                TrackingUtils.sendClick(this, "reset_data", null);
+                resetDataDialog();
+                return true;
+            default:
+                return false;
         }
-        return false;
     }
 }
