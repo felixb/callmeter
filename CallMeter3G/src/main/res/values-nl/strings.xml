@@ -96,7 +96,7 @@
   <string name="rules_new" formatted="false">Nieuwe Regel</string>
   <string name="numbers" formatted="false">Nummers</string>
   <string name="numbergroup_" formatted="false">Insluiten nummers</string>
-  <string name="numbergroup_help" formatted="false" username="ditsy@live.nl" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Voeg nummers toe die deze regel moeten matchen.\n\nWildcards ("%") zijn toegestaan aan het begin en aan het einde van het nummer.\nBv. %34 match 1234, 12% match 1234 en %23% match 12345.</string>
+  <string name="numbergroup_help" formatted="false" username="ditsy@live.nl" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%%\&quot;) are allowed on both ends of the number.\nE.g. %%34 will match 1234, 12%% will match 1234 and %%23%% will match 12345.">Voeg nummers toe die deze regel moeten matchen.\n\nWildcards ("%%") zijn toegestaan aan het begin en aan het einde van het nummer.\nBv. %%34 match 1234, 12%% match 1234 en %%23%% match 12345.</string>
   <string name="exnumbergroup_" formatted="false">Uitsluiten nummers</string>
   <string name="exnumbergroup_help" formatted="false">Voeg nummers toe die deze regel niet moeten matchen.\nZie hierboven.</string>
   <string name="new_numbergroup" formatted="false" username="Gummie" orig="New number group">Nieuwe nummergroep</string>

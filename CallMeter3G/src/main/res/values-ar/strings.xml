@@ -280,7 +280,7 @@
   <string name="sms" formatted="false" username="jsa_x@yahoo.com" orig="SMS">الرسائل</string>
   <string name="sms_in" formatted="false" username="jsa_x@yahoo.com" orig="SMS In">SMS الواردة</string>
   <string name="sms_out" formatted="false" username="jsa_x@yahoo.com" orig="SMS Out">الرسائل الصادرة</string>
-  <string name="numbergroup_help" formatted="false" username="randvoo12" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">قم بإضافة بعض الارقام لتطابق هذا الشرط .\nالاحصنة البرية ("%") مسموح بوجودها على جانبى الرقم \nتوضيح: %34 سيكون مطابق ل 1234 بينما 12% سيكون مطابق ل 1234\nو %23% سيكون مطابق ل 12345\n</string>
+  <string name="numbergroup_help" formatted="false" username="randvoo12" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%%\&quot;) are allowed on both ends of the number.\nE.g. %%34 will match 1234, 12%% will match 1234 and %%23%% will match 12345.">قم بإضافة بعض الارقام لتطابق هذا الشرط .\nالاحصنة البرية ("%%") مسموح بوجودها على جانبى الرقم \nتوضيح: %%34 سيكون مطابق ل 1234 بينما 12%% سيكون مطابق ل 1234\nو %%23%% سيكون مطابق ل 12345\n</string>
   <string name="billperiod_sn" formatted="false" username="randvoo12" orig="BillPeriod">فترة المحاسبة</string>
   <string name="mms" formatted="false" username="randvoo12" orig="MMS">رسائل الوسائط المتعددة</string>
   <string name="mms_in" formatted="false" username="randvoo12" orig="MMS In">رسائل الوسائط المتعددة الواردة</string>

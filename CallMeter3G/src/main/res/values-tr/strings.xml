@@ -75,7 +75,7 @@
   <string name="rules_new" formatted="false">Yeni Kural</string>
   <string name="numbers" formatted="false">Numaralar</string>
   <string name="numbergroup_" formatted="false">Numaraları dahil et</string>
-  <string name="numbergroup_help" formatted="false">Bu kurala dahil olacak numaraları ekleyin.\n\nArama karakteri (\"%\") numaranın her iki tarafında kullanılabilir.\nÖr: %34 ve 12%, 1234\'e; ve %23%, 12345\'e karşılık gelir.</string>
+  <string name="numbergroup_help" formatted="false">Bu kurala dahil olacak numaraları ekleyin.\n\nArama karakteri (\"%%\") numaranın her iki tarafında kullanılabilir.\nÖr: %%34 ve 12%%, 1234\'e; ve %%23%%, 12345\'e karşılık gelir.</string>
   <string name="exnumbergroup_" formatted="false">Numaraları hariç tut</string>
   <string name="exnumbergroup_help" formatted="false">Bu kurala dahil olmayacak numaraları ekleyin.\nYukarıdaki açıklamaya bakın.</string>
   <string name="new_numbergroup" formatted="false">Yeni numara grubu</string>

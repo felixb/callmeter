@@ -128,7 +128,7 @@
   <string name="hourgroups_edit_hint" formatted="false" username="Alvaro Amador &lt;amador.alvaro@gmail.com&gt;" orig="Edit hour groups here.">Editar aquí los grupos horarios.</string>
   <string name="numbers" formatted="false">Números</string>
   <string name="numbergroup_" formatted="false">Incluir números</string>
-  <string name="numbergroup_help" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Añade números que se ajusten a esta regla.\n\nSe permiten comodines ("%") a ambos extremos del número.\nEj. %34 coincidirá con 1234, 12% coincidirá con 1234 y %23% coincidirá con 12345.</string>
+  <string name="numbergroup_help" formatted="false" username="kaixer &lt;kaixer@gmx.com&gt;" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%%\&quot;) are allowed on both ends of the number.\nE.g. %%34 will match 1234, 12%% will match 1234 and %%23%% will match 12345.">Añade números que se ajusten a esta regla.\n\nSe permiten comodines ("%%") a ambos extremos del número.\nEj. %%34 coincidirá con 1234, 12%% coincidirá con 1234 y %%23%% coincidirá con 12345.</string>
   <string name="exnumbergroup_" formatted="false">Excluir números</string>
   <string name="exnumbergroup_help" formatted="false">Añade números que no se ajusten a esta regla.\nVer más arriba.</string>
   <string name="new_numbergroup" formatted="false">Nuevo grupo de números</string>

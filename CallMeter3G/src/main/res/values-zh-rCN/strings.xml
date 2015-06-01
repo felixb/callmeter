@@ -96,7 +96,7 @@
   <string name="length_" formatted="false">长度</string>
   <string name="numbers" formatted="false">号码</string>
   <string name="numbergroup_" formatted="false">有效号码</string>
-  <string name="numbergroup_help" formatted="false">添加使用本规则的号码.\n\n号码首尾均允许使用通配符(\"%\").\n例如. %34 包含 1234, 12% 包含 1234, %23% 包含 12345.</string>
+  <string name="numbergroup_help" formatted="false">添加使用本规则的号码.\n\n号码首尾均允许使用通配符(\"%%\").\n例如. %%34 包含 1234, 12%% 包含 1234, %%23%% 包含 12345.</string>
   <string name="exnumbergroup_" formatted="false">无效的号码</string>
   <string name="exnumbergroup_help" formatted="false">添加不使用本规则的号码.\n详情如上.</string>
   <string name="new_numbergroup" formatted="false">新号码组</string>
