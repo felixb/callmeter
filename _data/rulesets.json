@@ -4588,6 +4588,13 @@
     },
     {
       "country": "Poland",
+      "id": "f_Poland_T-Mobile_JUMP_Relax",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_T-Mobile_JUMP_Relax.xml",
+      "provider": "T-Mobile",
+      "title": "JUMP Relax"
+    },
+    {
+      "country": "Poland",
       "id": "f_Poland_T-Mobile_Rodzina_40",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_T-Mobile_Rodzina_40.xml",
       "provider": "T-Mobile",
