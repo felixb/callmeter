@@ -38,7 +38,6 @@ import android.preference.PreferenceScreen;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
-import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.callmeter.ui.prefs.UpDownPreference.OnUpDownClickListener;
 import de.ub0r.android.lib.Utils;
 
@@ -47,7 +46,7 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class Plans extends TrackingSherlockPreferenceActivity
+public final class Plans extends SherlockPreferenceActivity
         implements OnPreferenceClickListener,
         OnUpDownClickListener {
     /** Tag for output. */

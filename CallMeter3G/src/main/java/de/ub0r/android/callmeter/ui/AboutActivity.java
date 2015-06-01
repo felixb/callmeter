@@ -32,7 +32,7 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class AboutActivity extends TrackingSherlockActivity {
+public final class AboutActivity extends SherlockActivity {
 
     /**
      * {@inheritDoc}

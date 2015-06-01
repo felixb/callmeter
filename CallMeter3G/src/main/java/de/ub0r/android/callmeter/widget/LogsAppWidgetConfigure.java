@@ -18,6 +18,7 @@
  */
 package de.ub0r.android.callmeter.widget;
 
+import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
@@ -43,7 +44,6 @@ import android.widget.TextView;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
-import de.ub0r.android.callmeter.ui.TrackingSherlockActivity;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.logg0r.Log;
 import yuku.ambilwarna.AmbilWarnaDialog;
@@ -54,7 +54,7 @@ import yuku.ambilwarna.AmbilWarnaDialog.OnAmbilWarnaListener;
  *
  * @author flx
  */
-public final class LogsAppWidgetConfigure extends TrackingSherlockActivity
+public final class LogsAppWidgetConfigure extends SherlockActivity
         implements OnClickListener,
         OnCheckedChangeListener, OnSeekBarChangeListener {
 

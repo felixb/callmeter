@@ -374,8 +374,6 @@
   <string name="delete_rule_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Do you really want to delete this rule?">Quer mesmo excluir esta regra?</string>
   <string name="limit_type_" formatted="false" username="daniel.silvestre@gmail.com" orig="Limit type">Tipo de limite</string>
   <string name="country" formatted="false" username="daniel.silvestre@gmail.com" orig="Country">País</string>
-  <string name="analytics_" formatted="false" username="daniel.silvestre@gmail.com" orig="Collect anonymous statistics">Coletar estatísticas anônimas</string>
-  <string name="analytics_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Collect anonymous usage statistics to help improving the app.">Coletar estatísticas de uso anônimas para ajudar a melhorar o aplicativo.</string>
   <string name="plan" formatted="false" username="daniel.silvestre@gmail.com" orig="Plan">Plano</string>
   <string name="website_" formatted="false" username="daniel.silvestre@gmail.com" orig="Website:">Website:</string>
   <string name="author_" formatted="false" username="daniel.silvestre@gmail.com" orig="Author:">Autor:</string>

@@ -18,6 +18,8 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -51,7 +53,6 @@ import java.util.Iterator;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.ExportProvider;
 import de.ub0r.android.callmeter.ui.HelpActivity;
-import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.callmeter.widget.LogsAppWidgetConfigure;
 import de.ub0r.android.callmeter.widget.LogsAppWidgetProvider;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetConfigure;
@@ -64,7 +65,7 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-public final class PreferencesPlain extends TrackingSherlockPreferenceActivity implements
+public final class PreferencesPlain extends SherlockPreferenceActivity implements
         OnPreferenceClickListener, OnPreferenceChangeListener {
 
     private static final String TAG = "PreferencesPlain";

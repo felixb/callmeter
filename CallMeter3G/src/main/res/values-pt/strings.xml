@@ -455,8 +455,6 @@
   <string name="widget_details_textsize" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Details Text Size">Tamanho de texto dos detalhes</string>
   <string name="websms_" formatted="false" username="smarquespt@gmail.com" orig="WebSMS">WebSMS</string>
   <string name="calls_voip_" formatted="false" username="smarquespt@gmail.com" orig="VoIP calls with supported apps">Chamadas VoIP com aplicações suportadas</string>
-  <string name="analytics_" formatted="false" username="smarquespt@gmail.com" orig="Collect anonymous statistics">Recolher estatísticas anónimas</string>
-  <string name="analytics_hint" formatted="false" username="smarquespt@gmail.com" orig="Collect anonymous usage statistics to help improving the app.">Recolhe estatísticas anónimas para ajudar a melhorar a aplicação.</string>
   <string name="second_sim_" formatted="false" username="Isildo Mendes &lt;isildomendes@gmail.com&gt;" orig="Second SIM card">Segundo cartão SIM</string>
   <string name="donate_remove_ads_" formatted="false" username="Sérgio Marques &lt;smarquespt@gmail.com&gt;" orig="Donate/remove ads">Doar e remover publicidade</string>
 </resources>

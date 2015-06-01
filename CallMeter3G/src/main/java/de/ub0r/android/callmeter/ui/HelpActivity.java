@@ -33,7 +33,7 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class HelpActivity extends TrackingSherlockActivity implements OnClickListener {
+public final class HelpActivity extends SherlockActivity implements OnClickListener {
 
     /**
      * {@inheritDoc}

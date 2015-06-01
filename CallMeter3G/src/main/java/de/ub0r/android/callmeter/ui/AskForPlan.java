@@ -48,8 +48,7 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-public final class AskForPlan extends TrackingActivity
-        implements OnClickListener, OnDismissListener {
+public final class AskForPlan extends Activity implements OnClickListener, OnDismissListener {
 
     /**
      * Tag for output.

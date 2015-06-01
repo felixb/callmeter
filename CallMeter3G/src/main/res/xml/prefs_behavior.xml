@@ -76,10 +76,4 @@
                 android:targetPackage="de.ub0r.android.callmeter"/>
     </PreferenceScreen>
 
-    <CheckBoxPreference
-            android:key="enable_analytics"
-            android:title="@string/analytics_"
-            android:summary="@string/analytics_hint"
-            android:defaultValue="true"/>
-
 </PreferenceScreen>

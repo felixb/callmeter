@@ -18,6 +18,8 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+
 import org.apache.http.HttpStatus;
 
 import android.app.AlertDialog;
@@ -61,7 +63,6 @@ import java.util.Locale;
 
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
-import de.ub0r.android.callmeter.TrackingUtils;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.DataProvider.XmlMetaData;
 import de.ub0r.android.callmeter.data.Device;
@@ -69,7 +70,6 @@ import de.ub0r.android.callmeter.data.ExportProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.data.RuleMatcher;
 import de.ub0r.android.callmeter.ui.Common;
-import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.logg0r.Log;
 import de.ub0r.android.logg0r.LogCollector;
@@ -79,7 +79,7 @@ import de.ub0r.android.logg0r.LogCollector;
  *
  * @author flx
  */
-public final class Preferences extends TrackingSherlockPreferenceActivity implements
+public final class Preferences extends SherlockPreferenceActivity implements
         OnPreferenceClickListener {
 
     /**
@@ -329,10 +329,8 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_THEME, THEME_LIGHT);
         if (s != null && THEME_BLACK.equals(s)) {
-            TrackingUtils.setDimension(context, 1, "dark");
             return R.style.Theme_SherlockCallMeter;
         } else {
-            TrackingUtils.setDimension(context, 1, "light");
             return R.style.Theme_SherlockCallMeter_Light;
         }
     }
@@ -347,7 +345,6 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE, null);
         int size = Utils.parseInt(s, 0);
-        TrackingUtils.setDimension(context, 3, size);
         return size;
     }
 
@@ -361,7 +358,6 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE_BIGTITLE, null);
         int size = Utils.parseInt(s, 0);
-        TrackingUtils.setDimension(context, 4, size);
         return size;
     }
 
@@ -375,7 +371,6 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE_TITLE, null);
         int size = Utils.parseInt(s, 0);
-        TrackingUtils.setDimension(context, 5, size);
         return size;
     }
 
@@ -389,7 +384,6 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE_SPACER, null);
         int size = Utils.parseInt(s, 0);
-        TrackingUtils.setDimension(context, 6, size);
         return size;
     }
 
@@ -403,7 +397,6 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE_PBAR, null);
         int size = Utils.parseInt(s, 0);
-        TrackingUtils.setDimension(context, 7, size);
         return size;
     }
 
@@ -417,7 +410,6 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE_PBARBP, null);
         int size = Utils.parseInt(s, 0);
-        TrackingUtils.setDimension(context, 8, size);
         return size;
     }
 
@@ -551,7 +543,6 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         builder.setPositiveButton(android.R.string.yes, new OnClickListener() {
             @Override
             public void onClick(final DialogInterface dialog, final int which) {
-                TrackingUtils.sendClick(this, "reset_data#yes", null);
                 Preferences.this.resetData(DataProvider.TYPE_CALL);
                 Preferences.this.resetData(DataProvider.TYPE_SMS);
                 Preferences.this.resetData(DataProvider.TYPE_MMS);
@@ -560,7 +551,6 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         builder.setNeutralButton(R.string.reset_data_data_, new OnClickListener() {
             @Override
             public void onClick(final DialogInterface dialog, final int which) {
-                TrackingUtils.sendClick(this, "reset_data#yes+data", null);
                 Preferences.this.resetData(-1);
             }
         });
@@ -616,11 +606,9 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         Preference pr = findPreference("simple_settings");
         assert pr != null;
         if (enabled) {
-            TrackingUtils.setDimension(this, 2, "1");
             pr.setOnPreferenceClickListener(null);
             pr.setSummary(R.string.simple_preferences_hint);
         } else {
-            TrackingUtils.setDimension(this, 2, "0");
             pr.setOnPreferenceClickListener(new OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(final Preference preference) {
@@ -1060,11 +1048,9 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
         Log.d(TAG, "intent: ", uri);
         if (ACTION_EXPORT_CSV.equals(a)) {
             Log.d(TAG, "export csv");
-            TrackingUtils.sendEvent(this, "data", "export", "csv", null);
             exportLogsCsv(this);
         } else if (uri != null) {
             Log.d(TAG, "importing: ", uri.toString());
-            TrackingUtils.sendEvent(this, "data", "import", uri.toString(), null);
             importData(this, uri);
         }
     }
@@ -1107,7 +1093,6 @@ public final class Preferences extends TrackingSherlockPreferenceActivity implem
                 }
                 return true;
             case "reset_data":
-                TrackingUtils.sendClick(this, "reset_data", null);
                 resetDataDialog();
                 return true;
             default:

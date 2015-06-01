@@ -18,6 +18,7 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import com.actionbarsherlock.view.Window;
 
 import android.content.Intent;
@@ -32,7 +33,6 @@ import android.widget.Toast;
 import java.io.File;
 
 import de.ub0r.android.callmeter.R;
-import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.logg0r.Log;
 
@@ -41,7 +41,7 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-public final class PreferencesImport extends TrackingSherlockPreferenceActivity {
+public final class PreferencesImport extends SherlockPreferenceActivity {
 
     /**
      * {@link AsyncTask} running through the SD card and adding {@link Preferences} for each file.
