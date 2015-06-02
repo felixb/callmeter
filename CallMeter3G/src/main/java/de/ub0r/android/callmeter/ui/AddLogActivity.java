@@ -18,6 +18,7 @@
  */
 package de.ub0r.android.callmeter.ui;
 
+import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
@@ -45,7 +46,6 @@ import java.util.Date;
 
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
-import de.ub0r.android.callmeter.TrackingUtils;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
@@ -57,7 +57,7 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-public final class AddLogActivity extends TrackingSherlockActivity implements OnClickListener,
+public final class AddLogActivity extends SherlockActivity implements OnClickListener,
         OnDateSetListener, OnTimeSetListener {
 
     /**
@@ -170,11 +170,9 @@ public final class AddLogActivity extends TrackingSherlockActivity implements On
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                TrackingUtils.sendMenu(this, "home");
                 finish();
                 return true;
             case R.id.item_add:
-                TrackingUtils.sendMenu(this, "item_add");
                 final int t = spType.getSelectedItemPosition();
                 final int d = spDirection.getSelectedItemPosition();
                 long l = Utils.parseLong(etLength.getText().toString(), 0L);
@@ -216,10 +214,8 @@ public final class AddLogActivity extends TrackingSherlockActivity implements On
                 if (!this.isFinishing()) {
                     finish();
                 }
-                TrackingUtils.sendEvent(this, "data", "logs", "add", (long) t);
                 return true;
             case R.id.item_cancel:
-                TrackingUtils.sendMenu(this, "item_cancel");
                 if (!this.isFinishing()) {
                     finish();
                 }

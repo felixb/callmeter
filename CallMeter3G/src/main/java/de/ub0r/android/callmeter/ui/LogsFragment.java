@@ -52,7 +52,6 @@ import java.util.Date;
 import java.util.concurrent.RejectedExecutionException;
 
 import de.ub0r.android.callmeter.R;
-import de.ub0r.android.callmeter.TrackingUtils;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.data.NameCache;
@@ -324,7 +323,6 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
         setListAdapter(new LogAdapter(getActivity()));
         getListView().setOnItemLongClickListener(this);
 
-        TrackingUtils.sendView(this);
     }
 
     /**
@@ -515,11 +513,9 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_add:
-                TrackingUtils.sendMenu(this, "item_add");
                 getActivity().startActivity(new Intent(getActivity(), AddLogActivity.class));
                 return true;
             case R.id.item_export_csv:
-                TrackingUtils.sendMenu(this, "item_export_csv");
                 getActivity().startActivity(
                         new Intent(Preferences.ACTION_EXPORT_CSV, null, getActivity(),
                                 Preferences.class)
@@ -536,13 +532,11 @@ public final class LogsFragment extends SherlockListFragment implements OnClickL
     @Override
     public boolean onItemLongClick(final AdapterView<?> parent, final View view,
             final int position, final long id) {
-        TrackingUtils.sendLongClick(this, "log", null);
         final Builder b = new Builder(getActivity());
         b.setCancelable(true);
         b.setItems(R.array.dialog_delete, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(final DialogInterface dialog, final int which) {
-                TrackingUtils.sendLongClick(this, "log#delete", null);
                 LogsFragment.this
                         .getActivity()
                         .getContentResolver()

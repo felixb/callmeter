@@ -338,7 +338,7 @@
   <string name="ask_for_plan_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Ask for plan for unmatched calls after hanging up.">Após desligar, pedir plano para chamadas não coincidentes com um plano.</string>
   <string name="autohide_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Hide dialog after .. seconds. Leave empty to deactivate auto hide.">Ocultar diálogo depois de .. segundos. Deixe em branco para desativar o auto ocultar.</string>
   <string name="blength_" formatted="false" username="daniel.silvestre@gmail.com" orig="Billed length">Período cobrado</string>
-  <string name="numbergroup_help" formatted="false" username="daniel.silvestre@gmail.com" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Adicione os números que devem coincidir com esta regra.\n\nCaracteres curingas ("%") são permitidos em ambas as extremidades do número.\nEx. %34 coincidirá com 1234, 12% coincidirá com 1234 e %23% coincidirá com 12345.</string>
+  <string name="numbergroup_help" formatted="false" username="daniel.silvestre@gmail.com" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%%\&quot;) are allowed on both ends of the number.\nE.g. %%34 will match 1234, 12%% will match 1234 and %%23%% will match 12345.">Adicione os números que devem coincidir com esta regra.\n\nCaracteres curingas ("%%") são permitidos em ambas as extremidades do número.\nEx. %%34 coincidirá com 1234, 12%% coincidirá com 1234 e %%23%% coincidirá com 12345.</string>
   <string name="exnumbergroup_help" formatted="false" username="daniel.silvestre@gmail.com" orig="Add some numbers this rule must not match.\nSee above.">Adicione os números que não devem coincidir com esta regra.\nVeja acima.</string>
   <string name="hourgroup_help" formatted="false" username="daniel.silvestre@gmail.com" orig="Add some hours this rule must match.">Adicione as horas que devem coincidir com esta regra.</string>
   <string name="exhourgroup_help" formatted="false" username="daniel.silvestre@gmail.com" orig="Add some hours this rule must not match.">Adicione as horas que não devem coincidir com esta regra.</string>
@@ -374,8 +374,6 @@
   <string name="delete_rule_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Do you really want to delete this rule?">Quer mesmo excluir esta regra?</string>
   <string name="limit_type_" formatted="false" username="daniel.silvestre@gmail.com" orig="Limit type">Tipo de limite</string>
   <string name="country" formatted="false" username="daniel.silvestre@gmail.com" orig="Country">País</string>
-  <string name="analytics_" formatted="false" username="daniel.silvestre@gmail.com" orig="Collect anonymous statistics">Coletar estatísticas anônimas</string>
-  <string name="analytics_hint" formatted="false" username="daniel.silvestre@gmail.com" orig="Collect anonymous usage statistics to help improving the app.">Coletar estatísticas de uso anônimas para ajudar a melhorar o aplicativo.</string>
   <string name="plan" formatted="false" username="daniel.silvestre@gmail.com" orig="Plan">Plano</string>
   <string name="website_" formatted="false" username="daniel.silvestre@gmail.com" orig="Website:">Website:</string>
   <string name="author_" formatted="false" username="daniel.silvestre@gmail.com" orig="Author:">Autor:</string>

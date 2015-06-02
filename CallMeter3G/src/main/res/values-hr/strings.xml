@@ -324,7 +324,7 @@
   <string name="exhourgroup_help" formatted="false" orig="Add some hours this rule must not match.">Dodajte sate kojima ovo pravilo ne smije odgovarati.</string>
   <string name="new_hourgroup" formatted="false" orig="New hour group">Nova grupa sati</string>
   <string name="exnumbergroup_help" formatted="false" orig="Add some numbers this rule must not match.\nSee above.">Dodajte brojeve kojima ovo pravilo ne smije odgovarati.\nVidi gore.</string>
-  <string name="numbergroup_help" formatted="false" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Dodajte brojeve kojima ovo pravilo mora odgovarati.\n\nDopušteni su zamjenski znakovi ("%") s oba kraja broja.\nNpr. %34 obuhvaća 1234, 12% obuhvaća 1234 a %23% obuhvaća 12345.</string>
+  <string name="numbergroup_help" formatted="false" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%%\&quot;) are allowed on both ends of the number.\nE.g. %%34 will match 1234, 12%% will match 1234 and %%23%% will match 12345.">Dodajte brojeve kojima ovo pravilo mora odgovarati.\n\nDopušteni su zamjenski znakovi ("%%") s oba kraja broja.\nNpr. %%34 obuhvaća 1234, 12%% obuhvaća 1234 a %%23%% obuhvaća 12345.</string>
   <string name="remote_" formatted="false" orig="Remote number">Udaljeni broj</string>
   <string name="numbergroups_edit_" formatted="false" orig="Number groups">Grupe brojeva</string>
   <string name="numbergroups_edit_hint" formatted="false" orig="Edit number groups here.">Uredi grupe brojeva ovdje.</string>
@@ -458,8 +458,6 @@
   <string name="second_sim_" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="Second SIM card">Druga SIM kartica</string>
   <string name="websms_" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="WebSMS">WebSMS</string>
   <string name="calls_voip_" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="VoIP calls with supported apps">VoIP pozivi sa podržanim aplikacijama</string>
-  <string name="analytics_" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Collect anonymous statistics">Prikupljaj statistiku anonimno</string>
-  <string name="analytics_hint" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Collect anonymous usage statistics to help improving the app.">Anonimno prikupljanje statistike korištenja za poboljšanje aplikacije.</string>
   <string name="date_formats_4" formatted="false" username="Grmone &lt;grmone.pu@gmail.com&gt;" orig="DD MMM. YYYY">DD MMM. YYYY</string>
   <string name="donate_remove_ads_" formatted="false" username="grmone.pu@gmail.com" orig="Donate/remove ads">Doniraj/makni dodatke</string>
 </resources>

@@ -18,6 +18,8 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.SharedPreferences;
@@ -34,7 +36,6 @@ import java.util.Calendar;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
-import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.logg0r.Log;
 
@@ -43,7 +44,7 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-public final class PlanEdit extends TrackingSherlockPreferenceActivity implements UpdateListener {
+public final class PlanEdit extends SherlockPreferenceActivity implements UpdateListener {
 
     /**
      * Tag for debug out.
@@ -198,7 +199,7 @@ public final class PlanEdit extends TrackingSherlockPreferenceActivity implement
                         getContentResolver().query(DataProvider.Plans.CONTENT_URI,
                                 DataProvider.Plans.PROJECTION_BASIC,
                                 DataProvider.Plans.WHERE_BILLPERIODS, null, null),
-                        DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME);
+                        DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME).close();
                 int i;
                 if (c.isNull(DataProvider.Plans.INDEX_BILLPERIOD_ID)) {
                     i = -1;
@@ -232,7 +233,7 @@ public final class PlanEdit extends TrackingSherlockPreferenceActivity implement
                             getContentResolver().query(DataProvider.Plans.CONTENT_URI,
                                     DataProvider.Plans.PROJECTION_BASIC,
                                     getMergePlansWhere(t), null, null),
-                            DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME);
+                            DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME).close();
                     lp.setValue(merged);
                     ps.addPreference(lp);
                 }

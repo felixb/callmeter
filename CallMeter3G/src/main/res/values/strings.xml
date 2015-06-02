@@ -146,7 +146,7 @@
 	<string name="hourgroups_edit_hint">Edit hour groups here.</string>
 	<string name="numbers">Numbers</string>
 	<string name="numbergroup_">Include numbers</string>
-	<string name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string>
+	<string name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%%\") are allowed on both ends of the number.\nE.g. %%34 will match 1234, 12%% will match 1234 and %%23%% will match 12345.</string>
 	<string name="exnumbergroup_">Exclude numbers</string>
 	<string name="exnumbergroup_help">Add some numbers this rule must not match.\nSee above.</string>
 	<string name="new_numbergroup">New number group</string>
@@ -456,7 +456,5 @@
 	<string name="country">Country</string>
 	<string name="provider">Provider</string>
 	<string name="plan">Plan</string>
-    <string name="analytics_">Collect anonymous statistics</string>
-    <string name="analytics_hint">Collect anonymous usage statistics to help improving the app.</string>
     <string name="donate_remove_ads_">Donate/remove ads</string>
 </resources>

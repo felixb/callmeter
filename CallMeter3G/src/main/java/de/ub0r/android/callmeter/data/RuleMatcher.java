@@ -1495,7 +1495,7 @@ public final class RuleMatcher {
         final Cursor cursor = cr.query(DataProvider.Logs.CONTENT_URI, DataProvider.Logs.PROJECTION,
                 DataProvider.Logs.PLAN_ID + " = " + DataProvider.NO_ID, null,
                 DataProvider.Logs.DATE + " ASC");
-        if (cursor.moveToFirst()) {
+        if (cursor != null && cursor.moveToFirst()) {
             final int l = cursor.getCount();
             Handler h;
             if (showStatus) {
@@ -1549,7 +1549,7 @@ public final class RuleMatcher {
             }
         }
         try {
-            if (!cursor.isClosed()) {
+            if (cursor != null && !cursor.isClosed()) {
                 cursor.close();
             }
         } catch (IllegalStateException e) {

@@ -121,7 +121,7 @@
   <string name="hourgroups_edit_hint" formatted="false">Επεξεργαστείτε τις ομάδες ωρών εδώ.</string>
   <string name="numbers" formatted="false">Αριθμοί</string>
   <string name="numbergroup_" formatted="false">Συμπερίληψη αριθμών</string>
-  <string name="numbergroup_help" formatted="false">Προσθέστε μερικούς αριθμούς που πρέπει να χαρακτηρίζει ο κανόνας.\n\nΜπαλαντέρ (\"%\") επιτρέπονται και στις δύο άκρες του αριθμού.\nΠ.χ. %34 χαρακτηρίζει το 1234, 12% χαρακτηρίζει το 1234 και %23% χαρακτηρίζει το 12345.</string>
+  <string name="numbergroup_help" formatted="false">Προσθέστε μερικούς αριθμούς που πρέπει να χαρακτηρίζει ο κανόνας.\n\nΜπαλαντέρ (\"%%\") επιτρέπονται και στις δύο άκρες του αριθμού.\nΠ.χ. %%34 χαρακτηρίζει το 1234, 12%% χαρακτηρίζει το 1234 και %%23%% χαρακτηρίζει το 12345.</string>
   <string name="exnumbergroup_" formatted="false">Εξαίρεση αριθμών</string>
   <string name="exnumbergroup_help" formatted="false">Προσθέστε μερικούς αριθμούς που δεν πρέπει να χαρακτηρίζει ο κανόνας.\nΔέστε ανωτέρω.</string>
   <string name="new_numbergroup" formatted="false">Νέα ομάδα αριθμών</string>

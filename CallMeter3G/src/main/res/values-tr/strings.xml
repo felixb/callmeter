@@ -75,7 +75,7 @@
   <string name="rules_new" formatted="false">Yeni Kural</string>
   <string name="numbers" formatted="false">Numaralar</string>
   <string name="numbergroup_" formatted="false">Numaraları dahil et</string>
-  <string name="numbergroup_help" formatted="false">Bu kurala dahil olacak numaraları ekleyin.\n\nArama karakteri (\"%\") numaranın her iki tarafında kullanılabilir.\nÖr: %34 ve 12%, 1234\'e; ve %23%, 12345\'e karşılık gelir.</string>
+  <string name="numbergroup_help" formatted="false">Bu kurala dahil olacak numaraları ekleyin.\n\nArama karakteri (\"%%\") numaranın her iki tarafında kullanılabilir.\nÖr: %%34 ve 12%%, 1234\'e; ve %%23%%, 12345\'e karşılık gelir.</string>
   <string name="exnumbergroup_" formatted="false">Numaraları hariç tut</string>
   <string name="exnumbergroup_help" formatted="false">Bu kurala dahil olmayacak numaraları ekleyin.\nYukarıdaki açıklamaya bakın.</string>
   <string name="new_numbergroup" formatted="false">Yeni numara grubu</string>
@@ -458,8 +458,6 @@
   <string name="second_sim_" formatted="false" username="Can Örs &lt;canors@yandex.com&gt;" orig="Second SIM card">İkinci SIM kartı</string>
   <string name="websms_" formatted="false" username="Can Örs &lt;canors@yandex.com&gt;" orig="WebSMS">WebSMS</string>
   <string name="calls_voip_" formatted="false" username="Can Örs &lt;canors@yandex.com&gt;" orig="VoIP calls with supported apps">VoIP destekli uygulamalar ile çağrı</string>
-  <string name="analytics_" formatted="false" username="Sinan Cem Kilickaplan bluesman80@gmail.com" orig="Collect anonymous statistics">İstatistikleri anonim olarak topla.</string>
-  <string name="analytics_hint" formatted="false" username="Sinan Cem Kilickaplan bluesman80@gmail.com" orig="Collect anonymous usage statistics to help improving the app.">Uygulamaya katkıda bulunmak için kullanım istatistiklerini anonim olarak topla.</string>
   <string name="date_formats_4" formatted="false" username="S. Cem Kilickaplan &lt;bluesman80@gmail.com&gt;" orig="DD MMM. YYYY">GG AAA. YYYY</string>
   <string name="donate_remove_ads_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Donate/remove ads">Bağış yap/reklamları kaldır</string>
 </resources>

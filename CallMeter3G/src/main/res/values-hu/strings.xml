@@ -126,7 +126,7 @@
   <string name="hourgroups_edit_hint" formatted="false">Az Időszakokat itt lehet szerkeszteni.</string>
   <string name="numbers" formatted="false" orig="Numbers">Számok</string>
   <string name="numbergroup_" formatted="false">Tartalmazott számok</string>
-  <string name="numbergroup_help" formatted="false">Adj hozzá számokat, amikre a szabály vonatkozik.\n\nHelyettesítő (\"%\") karakter használható a számok elején és végén. %34 esetén 1234-re vonatkozni fog, 12% esetén is,  %23% esetén is. </string>
+  <string name="numbergroup_help" formatted="false">Adj hozzá számokat, amikre a szabály vonatkozik.\n\nHelyettesítő (\"%%\") karakter használható a számok elején és végén. %%34 esetén 1234-re vonatkozni fog, 12%% esetén is,  %%23%% esetén is. </string>
   <string name="exnumbergroup_" formatted="false">Kizárt számok</string>
   <string name="exnumbergroup_help" formatted="false">Adj hozzá számokat, amikre a szabály nem vonatkozik.</string>
   <string name="new_numbergroup" formatted="false">Új számcsoport</string>
@@ -459,8 +459,6 @@
   <string name="second_sim_" formatted="false" username="lucian" orig="Second SIM card">Második SIM kártya</string>
   <string name="websms_" formatted="false" username="lucian" orig="WebSMS">WebSMS</string>
   <string name="calls_voip_" formatted="false" username="lucian" orig="VoIP calls with supported apps">VoIP hívások támogatott alkalmazásokkal</string>
-  <string name="analytics_" formatted="false" username="Maximumia &lt;tms@nincsmail.hu&gt;" orig="Collect anonymous statistics">Névtelen használati adatok gyűjtése</string>
-  <string name="analytics_hint" formatted="false" username="Maximumia &lt;tms@nincsmail.hu&gt;" orig="Collect anonymous usage statistics to help improving the app.">A névtelen használati adatok gyűjtése segít az alkalmazás tökéletesítésében.</string>
   <string name="date_formats_4" formatted="false" username="Maximumia &lt;tms@nincsmail.hu&gt;" orig="DD MMM. YYYY">NN HHH. ÉÉÉÉ</string>
   <string name="donate_remove_ads_" formatted="false" username="gaborgabor" orig="Donate/remove ads">Adományozás/reklám eltávolítása</string>
 </resources>

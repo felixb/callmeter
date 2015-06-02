@@ -128,7 +128,7 @@
   <string name="hourgroups_edit_hint" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Edit hour groups here.">Edytuj grupy godzin.</string>
   <string name="numbers" formatted="false">Numery</string>
   <string name="numbergroup_" formatted="false">Wliczaj numery</string>
-  <string name="numbergroup_help" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Dodaj numery które będą zastosowane do reguły.\n\nWzorce ("%") są dopuszczalne na obu końcach numeru.\nNp.: %34 będzie pasować do 1234, 12% do 1234 i %23% do 12345.</string>
+  <string name="numbergroup_help" formatted="false" username="Mariusz &lt;mariusz.mb@gmail.com&gt;" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%%\&quot;) are allowed on both ends of the number.\nE.g. %%34 will match 1234, 12%% will match 1234 and %%23%% will match 12345.">Dodaj numery które będą zastosowane do reguły.\n\nWzorce ("%%") są dopuszczalne na obu końcach numeru.\nNp.: %%34 będzie pasować do 1234, 12%% do 1234 i %%23%% do 12345.</string>
   <string name="exnumbergroup_" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Exclude numbers">Wyklucz numery</string>
   <string name="exnumbergroup_help" formatted="false" username="Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt;" orig="Add some numbers this rule must not match.\nSee above.">Dodaj numery które nie będą pasowały do tej reguły.\nPatrz powyżej.</string>
   <string name="new_numbergroup" formatted="false">Nowa grupa numerów</string>

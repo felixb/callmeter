@@ -70,7 +70,7 @@
   <string name="rules_new" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="New Rule">Новое правило</string>
   <string name="numbers" formatted="false">Номера</string>
   <string name="numbergroup_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Include numbers">Учитываемые номера</string>
-  <string name="numbergroup_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Добавьте номера, которые будут соответствовать данному правилу.\n\nРазрешено использование шаблонов ("%") на обоих концах номера.\nНапример: %34 будет соответствовать 1234, 12% будет соответствовать 1234 и %23% будет соответствовать 12345.</string>
+  <string name="numbergroup_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%%\&quot;) are allowed on both ends of the number.\nE.g. %%34 will match 1234, 12%% will match 1234 and %%23%% will match 12345.">Добавьте номера, которые будут соответствовать данному правилу.\n\nРазрешено использование шаблонов ("%%") на обоих концах номера.\nНапример: %%34 будет соответствовать 1234, 12%% будет соответствовать 1234 и %%23%% будет соответствовать 12345.</string>
   <string name="exnumbergroup_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Exclude numbers">Не учитываемые номера</string>
   <string name="exnumbergroup_help" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Add some numbers this rule must not match.\nSee above.">Добавьте номера, которые не должны соответствовать данному правилу.\nСмотрите пример выше.</string>
   <string name="new_numbergroup" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="New number group">Новая номерная группа</string>
@@ -458,8 +458,6 @@
   <string name="second_sim_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Second SIM card">Вторая сим-карта</string>
   <string name="websms_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="WebSMS">WebSMS</string>
   <string name="calls_voip_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="VoIP calls with supported apps">VoIP вызовы с поддерживаемых приложений</string>
-  <string name="analytics_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Collect anonymous statistics">Сбор анонимной статистики</string>
-  <string name="analytics_hint" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Collect anonymous usage statistics to help improving the app.">Сбор анонимной статистики для помощи в улучшении приложения.</string>
   <string name="date_formats_4" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="DD MMM. YYYY">ДД МММ. ГГГГ</string>
   <string name="donate_remove_ads_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Donate/remove ads">Пожертвовать/убрать рекламу</string>
 </resources>

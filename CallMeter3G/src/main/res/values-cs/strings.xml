@@ -328,7 +328,7 @@
   <string name="calls_in_" formatted="false" orig="CallsIn">Příchozí hovory</string>
   <string name="calls_in" formatted="false" orig="Calls In">Příchozí hovory</string>
   <string name="exnumbergroup_help" formatted="false" orig="Add some numbers this rule must not match.\nSee above.">Přidejte čísla, která nesmí vyhovovat tomuto pravidlu</string>
-  <string name="numbergroup_help" formatted="false" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%\&quot;) are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.">Přidejte čísla, která musí vyhovovat tomuto pravidlu.\n\nZnak "%" můžete použít na obou koncích zadávaného čísla.\nNapř. %34 zastoupí 1234, 12% zastoupí 1234 a %23% zastoupí 12345</string>
+  <string name="numbergroup_help" formatted="false" orig="Add some numbers this rule must match.\n\nWildcards (\&quot;%%\&quot;) are allowed on both ends of the number.\nE.g. %%34 will match 1234, 12%% will match 1234 and %%23%% will match 12345.">Přidejte čísla, která musí vyhovovat tomuto pravidlu.\n\nZnak "%%" můžete použít na obou koncích zadávaného čísla.\nNapř. %%34 zastoupí 1234, 12%% zastoupí 1234 a %%23%% zastoupí 12345</string>
   <string name="hourgroups_edit_hint" formatted="false" orig="Edit hour groups here.">Zde upravte skupiny hodin</string>
   <string name="split_sms_at_160_" formatted="false" orig="Split text messages at 160 chars">Rozdělit zprávy po 160 znacích</string>
   <string name="split_sms_at_160_hint" formatted="false" orig="Disable to use android\'s system method.">Znemožnit použití systémové metody Androidu</string>

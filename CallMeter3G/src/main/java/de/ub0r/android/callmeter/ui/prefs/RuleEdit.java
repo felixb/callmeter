@@ -18,6 +18,8 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+
 import android.app.AlertDialog.Builder;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -34,7 +36,6 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
 import de.ub0r.android.callmeter.data.RuleMatcher;
-import de.ub0r.android.callmeter.ui.TrackingSherlockPreferenceActivity;
 import de.ub0r.android.lib.DbUtils;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.logg0r.Log;
@@ -44,7 +45,7 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-public final class RuleEdit extends TrackingSherlockPreferenceActivity implements UpdateListener {
+public final class RuleEdit extends SherlockPreferenceActivity implements UpdateListener {
 
     /**
      * Tag for debug out.
@@ -64,27 +65,27 @@ public final class RuleEdit extends TrackingSherlockPreferenceActivity implement
     /**
      * Array holding {@link String}s.
      */
-    private String[] inOutNomatterCalls = null;
+    private String[] inOutNoMatterCalls = null;
 
     /**
      * Array holding {@link String}s.
      */
-    private String[] inOutNomatterSms = null;
+    private String[] inOutNoMatterSms = null;
 
     /**
      * Array holding {@link String}s.
      */
-    private String[] inOutNomatterMms = null;
+    private String[] inOutNoMatterMms = null;
 
     /**
      * Array holding {@link String}s.
      */
-    private String[] inOutNomatterData = null;
+    private String[] inOutNoMatterData = null;
 
     /**
      * Array holding {@link String}s.
      */
-    private String[] yesNoNomatter = null;
+    private String[] yesNoNoMatter = null;
 
     /**
      * Get a string array for directions.
@@ -114,54 +115,54 @@ public final class RuleEdit extends TrackingSherlockPreferenceActivity implement
     private String[] getStrings(final int base) {
         switch (base) {
             case R.array.direction_calls:
-                if (inOutNomatterCalls == null) {
+                if (inOutNoMatterCalls == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
                     tmp1[1] = tmp2[1];
                     tmp1[2] = getString(R.string.no_matter_);
-                    inOutNomatterCalls = tmp1;
+                    inOutNoMatterCalls = tmp1;
                 }
-                return inOutNomatterCalls;
+                return inOutNoMatterCalls;
             case R.array.direction_sms:
-                if (inOutNomatterSms == null) {
+                if (inOutNoMatterSms == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
                     tmp1[1] = tmp2[1];
                     tmp1[2] = getString(R.string.no_matter_);
-                    inOutNomatterSms = tmp1;
+                    inOutNoMatterSms = tmp1;
                 }
-                return inOutNomatterSms;
+                return inOutNoMatterSms;
             case R.array.direction_mms:
-                if (inOutNomatterMms == null) {
+                if (inOutNoMatterMms == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
                     tmp1[1] = tmp2[1];
                     tmp1[2] = getString(R.string.no_matter_);
-                    inOutNomatterMms = tmp1;
+                    inOutNoMatterMms = tmp1;
                 }
-                return inOutNomatterMms;
+                return inOutNoMatterMms;
             case R.array.direction_data:
-                if (inOutNomatterData == null) {
+                if (inOutNoMatterData == null) {
                     final String[] tmp1 = new String[3];
                     final String[] tmp2 = getResources().getStringArray(base);
                     tmp1[0] = tmp2[0];
                     tmp1[1] = tmp2[1];
                     tmp1[2] = getString(R.string.no_matter_);
-                    inOutNomatterData = tmp1;
+                    inOutNoMatterData = tmp1;
                 }
-                return inOutNomatterData;
+                return inOutNoMatterData;
             default:
-                if (yesNoNomatter == null) {
+                if (yesNoNoMatter == null) {
                     final String[] tmp1 = new String[3];
                     tmp1[0] = getString(R.string.yes);
                     tmp1[1] = getString(R.string.no);
                     tmp1[2] = getString(R.string.no_matter_);
-                    yesNoNomatter = tmp1;
+                    yesNoNoMatter = tmp1;
                 }
-                return yesNoNomatter;
+                return yesNoNoMatter;
         }
     }
 
@@ -237,7 +238,7 @@ public final class RuleEdit extends TrackingSherlockPreferenceActivity implement
             lp.setCursor(
                     getContentResolver().query(DataProvider.Plans.CONTENT_URI,
                             DataProvider.Plans.PROJECTION_BASIC, getPlanWhere(w), null, null),
-                    DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME);
+                    DataProvider.Plans.INDEX_ID, DataProvider.Plans.INDEX_NAME).close();
             lp.setValue(c.getString(DataProvider.Rules.INDEX_PLAN_ID));
             ps.addPreference(lp);
             // limit reached
@@ -353,47 +354,51 @@ public final class RuleEdit extends TrackingSherlockPreferenceActivity implement
                 lp.setValue(String.valueOf(i));
                 ps.addPreference(lp);
             }
-            // include hours
-            lp = new CVListPreference(this, values, DataProvider.Rules.INHOURS_ID, true);
-            lp.setTitle(R.string.hourgroup_);
-            lp.setSummary(R.string.hourgroup_help);
-            lp.setCursor(
-                    getContentResolver().query(DataProvider.HoursGroup.CONTENT_URI,
-                            DataProvider.HoursGroup.PROJECTION, null, null, null),
-                    DataProvider.HoursGroup.INDEX_ID, DataProvider.HoursGroup.INDEX_NAME);
-            lp.setValue(c.getString(DataProvider.Rules.INDEX_INHOURS_ID));
-            ps.addPreference(lp);
-            // exclude hours
-            lp = new CVListPreference(this, values, DataProvider.Rules.EXHOURS_ID, true);
-            lp.setTitle(R.string.exhourgroup_);
-            lp.setSummary(R.string.exhourgroup_help);
-            lp.setCursor(
-                    getContentResolver().query(DataProvider.HoursGroup.CONTENT_URI,
-                            DataProvider.HoursGroup.PROJECTION, null, null, null),
-                    DataProvider.HoursGroup.INDEX_ID, DataProvider.HoursGroup.INDEX_NAME);
-            lp.setValue(c.getString(DataProvider.Rules.INDEX_EXHOURS_ID));
-            ps.addPreference(lp);
+            // in-/exclude hours
+            Cursor query = getContentResolver().query(DataProvider.HoursGroup.CONTENT_URI,
+                    DataProvider.HoursGroup.PROJECTION, null, null, null);
+            if (query.getCount() > 0) {
+                // include hours
+                lp = new CVListPreference(this, values, DataProvider.Rules.INHOURS_ID, true);
+                lp.setTitle(R.string.hourgroup_);
+                lp.setSummary(R.string.hourgroup_help);
+                lp.setCursor(query, DataProvider.HoursGroup.INDEX_ID,
+                        DataProvider.HoursGroup.INDEX_NAME);
+                lp.setValue(c.getString(DataProvider.Rules.INDEX_INHOURS_ID));
+                ps.addPreference(lp);
+                // exclude hours
+                lp = new CVListPreference(this, values, DataProvider.Rules.EXHOURS_ID, true);
+                lp.setTitle(R.string.exhourgroup_);
+                lp.setSummary(R.string.exhourgroup_help);
+                lp.setCursor(query, DataProvider.HoursGroup.INDEX_ID,
+                        DataProvider.HoursGroup.INDEX_NAME);
+                lp.setValue(c.getString(DataProvider.Rules.INDEX_EXHOURS_ID));
+                ps.addPreference(lp);
+            }
+            query.close();
             if (w != DataProvider.Rules.WHAT_DATA) {
-                // include numbers
-                lp = new CVListPreference(this, values, DataProvider.Rules.INNUMBERS_ID, true);
-                lp.setTitle(R.string.numbergroup_);
-                lp.setSummary(R.string.numbergroup_help);
-                lp.setCursor(
-                        getContentResolver().query(DataProvider.NumbersGroup.CONTENT_URI,
-                                DataProvider.NumbersGroup.PROJECTION, null, null, null),
-                        DataProvider.NumbersGroup.INDEX_ID, DataProvider.NumbersGroup.INDEX_NAME);
-                lp.setValue(c.getString(DataProvider.Rules.INDEX_INNUMBERS_ID));
-                ps.addPreference(lp);
-                // exclude numbers
-                lp = new CVListPreference(this, values, DataProvider.Rules.EXNUMBERS_ID, true);
-                lp.setTitle(R.string.exnumbergroup_);
-                lp.setSummary(R.string.exnumbergroup_help);
-                lp.setCursor(
-                        getContentResolver().query(DataProvider.NumbersGroup.CONTENT_URI,
-                                DataProvider.NumbersGroup.PROJECTION, null, null, null),
-                        DataProvider.NumbersGroup.INDEX_ID, DataProvider.NumbersGroup.INDEX_NAME);
-                lp.setValue(c.getString(DataProvider.Rules.INDEX_EXNUMBERS_ID));
-                ps.addPreference(lp);
+                // in-/exclude numbers
+                query = getContentResolver().query(DataProvider.NumbersGroup.CONTENT_URI,
+                        DataProvider.NumbersGroup.PROJECTION, null, null, null);
+                if (query.getCount() > 0) {
+                    // include numbers
+                    lp = new CVListPreference(this, values, DataProvider.Rules.INNUMBERS_ID, true);
+                    lp.setTitle(R.string.numbergroup_);
+                    lp.setSummary(R.string.numbergroup_help);
+                    lp.setCursor(query, DataProvider.NumbersGroup.INDEX_ID,
+                            DataProvider.NumbersGroup.INDEX_NAME);
+                    lp.setValue(c.getString(DataProvider.Rules.INDEX_INNUMBERS_ID));
+                    ps.addPreference(lp);
+                    // exclude numbers
+                    lp = new CVListPreference(this, values, DataProvider.Rules.EXNUMBERS_ID, true);
+                    lp.setTitle(R.string.exnumbergroup_);
+                    lp.setSummary(R.string.exnumbergroup_help);
+                    lp.setCursor(query, DataProvider.NumbersGroup.INDEX_ID,
+                            DataProvider.NumbersGroup.INDEX_NAME);
+                    lp.setValue(c.getString(DataProvider.Rules.INDEX_EXNUMBERS_ID));
+                    ps.addPreference(lp);
+                }
+                query.close();
             }
         }
         c.close();
@@ -410,7 +415,7 @@ public final class RuleEdit extends TrackingSherlockPreferenceActivity implement
      * @return where clause
      */
     private String getPlanWhere(final int w) {
-        String where = null;
+        String where;
         switch (w) {
             case DataProvider.Rules.WHAT_CALL:
                 where = DataProvider.Plans.TYPE + " = " + DataProvider.TYPE_CALL + " OR "
