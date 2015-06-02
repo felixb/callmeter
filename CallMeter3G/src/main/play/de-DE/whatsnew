@@ -1,2 +1,4 @@
-* fix FCs on Android 5.0
-* fix FCs on Android 2.3
+* Android 5.1 multi SIM support
+* fix FCs
+* remove google analytics
+* update translations
