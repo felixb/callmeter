@@ -1028,11 +1028,15 @@ public final class RuleMatcher {
             if (nl == 0) {
                 return fl;
             }
-            if (time % nl == 0 || nl == 1) {
+            if (nl == 1) {
+                return time;
+            }
+            final long nt = time - fl;
+            if (nt % nl == 0) {
                 return time;
             }
             // round up to next full slot
-            return ((time / nl) + 1) * nl;
+            return fl + ((nt / nl) + 1) * nl;
         }
 
         /**
