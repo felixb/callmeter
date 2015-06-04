@@ -110,7 +110,8 @@
                 android:key="more_apps"
                 android:title="@string/more_"/>
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/debug_">
+    <PreferenceCategory android:title="@string/debug_"
+                        android:key="debug">
         <PreferenceScreen
                 android:key="reset_data"
                 android:summary="@string/reset_data_hint"
@@ -119,12 +120,10 @@
                 android:key="send_logs"
                 android:summary="@string/send_logs_hint"
                 android:title="@string/send_logs_"/>
-        <!--
         <PreferenceScreen
-            android:key="send_devices"
-            android:summary="@string/send_devices_hint"
-            android:title="@string/send_devices_" />
-        -->
+                android:key="send_devices"
+                android:summary="@string/send_devices_hint"
+                android:title="@string/send_devices_"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

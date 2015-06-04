@@ -40,7 +40,9 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
@@ -61,6 +63,7 @@ import java.net.URLDecoder;
 import java.util.Currency;
 import java.util.Locale;
 
+import de.ub0r.android.callmeter.BuildConfig;
 import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
@@ -570,17 +573,27 @@ public final class Preferences extends SherlockPreferenceActivity implements
         if (p != null) {
             p.setOnPreferenceClickListener(this);
         }
-        p = findPreference("send_logs");
-        if (p != null) {
-            p.setOnPreferenceClickListener(this);
-        }
-        p = findPreference("send_devices");
-        if (p != null) {
-            p.setOnPreferenceClickListener(this);
-        }
         p = findPreference("reset_data");
         if (p != null) {
             p.setOnPreferenceClickListener(this);
+        }
+
+        if (BuildConfig.DEBUG_LOG) {
+            p = findPreference("send_logs");
+            if (p != null) {
+                p.setOnPreferenceClickListener(this);
+            }
+            p = findPreference("send_devices");
+            if (p != null) {
+                p.setOnPreferenceClickListener(this);
+            }
+        } else {
+            p = findPreference("debug");
+            if (p != null) {
+                PreferenceGroup pg = (PreferenceGroup) p;
+                pg.removePreference(findPreference("send_logs"));
+                pg.removePreference(findPreference("send_devices"));
+            }
         }
         onNewIntent(getIntent());
     }
