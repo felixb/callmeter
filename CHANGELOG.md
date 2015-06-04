@@ -2,7 +2,8 @@
 
 ## 3.11.8
  * Android 5.1 multi SIM support
- * fix FCs
+ * fix FCs (issue #70)
+ * fix calculation of billing mode (issue #72)
  * remove google analytics
  * update translations
 

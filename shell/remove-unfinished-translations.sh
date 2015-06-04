@@ -1,17 +1,13 @@
 #! /bin/sh
 
-targetdir=$(find . -name translation.stats | head -n1 | xargs dirname)
-if [ -n "${targetdir}" ] ; then
-  cd ${targetdir}
-fi
-
-BASE=$(grep -F 'res/values:' translation.stats | cut -d: -f2)
+BASE=$(grep -e string */src/main/res/values/*.xml  | wc -l)
 MIN=$(( ${BASE} * 55 / 100 ))
+LANGS=$(ls -1d */src/main/res/values-[a-zA-Z\\-]* | grep -ve dpi -e '-v' | xargs -n1 basename)
 
-for lang in $(grep 'res/values-[a-zA-Z\\-]*:' translation.stats | cut -d: -f1) ; do
-  i=$(grep -F "${lang}:" translation.stats | cut -d: -f2)
+for lang in ${LANGS} ; do
+  i=$(grep -e string */src/main/res/${lang}/*.xml  | wc -l)
   if [ ${i} -lt ${MIN} ] ; then
     echo "remove lang: ${lang} ${i}/${BASE}"
-    rm -rf "${lang}"
+    rm -rf */src/main/res/${lang}
   fi
 done
