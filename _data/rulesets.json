@@ -4090,6 +4090,13 @@
     },
     {
       "country": "Netherlands",
+      "id": "f_Netherlands_Tele2_SimOnly_150__Internet_500Mb",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_Tele2_SimOnly_150__Internet_500Mb.xml",
+      "provider": "Tele2",
+      "title": "SimOnly 150 + Internet 500Mb"
+    },
+    {
+      "country": "Netherlands",
       "id": "f_Netherlands_Tele2_SmartMix_300__X-Large_1_5GB",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_Tele2_SmartMix_300__X-Large_1.5GB.xml",
       "provider": "Tele2",
