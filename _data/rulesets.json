@@ -1791,6 +1791,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Simply_All-in_XS",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Simply_All-in_XS.xml",
+      "provider": "Simply",
+      "title": "All-in XS"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Simply_All_in_M",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Simply_All_in_M.xml",
       "provider": "Simply",
