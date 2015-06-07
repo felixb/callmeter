@@ -2010,24 +2010,24 @@
     },
     {
       "country": "Germany",
-      "id": "f_Germany_WinSIM_Smart_1000__250_Min_u__SMS_inkl__1_GB_Daten_12_95",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_WinSIM_Smart_1000__250_Min_u._SMS_inkl._1_GB_Daten_12.95.xml",
+      "id": "f_Germany_WinSIM_LTE_Mini_Plus_2000",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_WinSIM_LTE_Mini_Plus_2000.xml",
       "provider": "WinSIM",
-      "title": "Smart 1000 / 250 Min u. SMS inkl. 1 GB Daten 12.95\u20ac"
+      "title": "LTE Mini Plus 2000"
     },
     {
       "country": "Germany",
-      "id": "f_Germany_Winsim_1000_250min_250sms_500mb_7_95monat_von_Amazon",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Winsim_1000_250min_250sms_500mb_7.95monat_von_Amazon.xml",
-      "provider": "Winsim",
+      "id": "f_Germany_WinSIM_1000_250min_250sms_500mb_7_95monat_von_Amazon",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_WinSIM_1000_250min_250sms_500mb_7.95monat_von_Amazon.xml",
+      "provider": "WinSIM",
       "title": "1000 250min 250sms 500mb 7.95\u20ac/monat (von Amazon)"
     },
     {
       "country": "Germany",
-      "id": "f_Germany_Winsim_LTE_Mini_Plus_2000",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Winsim_LTE_Mini_Plus_2000.xml",
-      "provider": "Winsim",
-      "title": "LTE Mini Plus 2000"
+      "id": "f_Germany_WinSIM_Smart_1000__250_Min_u__SMS_inkl__1_GB_Daten_12_95",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_WinSIM_Smart_1000__250_Min_u._SMS_inkl._1_GB_Daten_12.95.xml",
+      "provider": "WinSIM",
+      "title": "Smart 1000 / 250 Min u. SMS inkl. 1 GB Daten 12.95\u20ac"
     },
     {
       "country": "Germany",
