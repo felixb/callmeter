@@ -1798,6 +1798,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Simply_LTE_Mini_Plus",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Simply_LTE_Mini_Plus.xml",
+      "provider": "Simply",
+      "title": "LTE Mini Plus"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Simply_All_in_M",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Simply_All_in_M.xml",
       "provider": "Simply",
