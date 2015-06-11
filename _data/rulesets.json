@@ -1777,6 +1777,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Ortel_CROSS",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Ortel_CROSS.xml",
+      "provider": "Ortel",
+      "title": "CROSS"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Ortel_Smart_180",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Ortel_Smart_180.xml",
       "provider": "Ortel",
