@@ -761,6 +761,13 @@
     },
     {
       "country": "Croatia",
+      "id": "f_Croatia_Vipnet_Zakon_Tarifa_50",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Croatia_Vipnet_Zakon_Tarifa_50.xml",
+      "provider": "Vipnet",
+      "title": "Zakon Tarifa 50"
+    },
+    {
+      "country": "Croatia",
       "id": "f_Croatia_Vipnet_Vip_Bez_limita_100",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Croatia_Vipnet_Vip_Bez_limita_100.xml",
       "provider": "Vipnet",
@@ -5531,6 +5538,15 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Venezuela_Movistar_Full_2.0.xml",
       "provider": "Movistar",
       "title": "Full 2.0"
+    }
+  ],
+  "Zambia": [
+    {
+      "country": "Zambia",
+      "id": "f_Zambia_MTN_Mobile_Anytime_Prepaid",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Zambia_MTN_Mobile_Anytime_Prepaid.xml",
+      "provider": "MTN Mobile",
+      "title": "Anytime Prepaid"
     }
   ],
   "common": [
