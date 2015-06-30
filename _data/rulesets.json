@@ -4553,6 +4553,13 @@
     },
     {
       "country": "Poland",
+      "id": "f_Poland_Plus_LTE_7999_minus_rabat_10_z",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_Plus_LTE_7999_minus_rabat_10_z.xml",
+      "provider": "Plus",
+      "title": "LTE 79,99 minus rabat 10 z\u0142"
+    },
+    {
+      "country": "Poland",
       "id": "f_Poland_Szablon_Prepaid_-_29_grmin_20_grsms_30_grMMS_12_zlMB_brak_pakietu_minutSMS_2_zlmin_miedzyn_50_grSMS_miedzyn_3_zlMMS_miedz",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_Szablon_Prepaid_-_29_grmin_20_grsms_30_grMMS_12_zlMB_brak_pakietu_minutSMS_2_zlmin_miedzyn_50_grSMS_miedzyn_3_zlMMS_miedz.xml",
       "provider": "Szablon",
