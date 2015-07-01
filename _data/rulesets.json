@@ -2904,6 +2904,13 @@
     },
     {
       "country": "Hungary",
+      "id": "f_Hungary_Vodafone_Go_FULL",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Vodafone_Go_FULL.xml",
+      "provider": "Vodafone",
+      "title": "Go+ FULL"
+    },
+    {
+      "country": "Hungary",
       "id": "f_Hungary_Vodafone_bkv",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Vodafone_bkv.xml",
       "provider": "Vodafone",
