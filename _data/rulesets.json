@@ -2657,6 +2657,13 @@
     },
     {
       "country": "Hungary",
+      "id": "f_Hungary_Telekom_MOVE_XS",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Telekom_MOVE_XS.xml",
+      "provider": "Telekom",
+      "title": "MOVE XS"
+    },
+    {
+      "country": "Hungary",
       "id": "f_Hungary_Telekom_FUN_uj",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Telekom_FUN_uj.xml",
       "provider": "Telekom",
@@ -5035,6 +5042,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Spain_Eroski_Conect.xml",
       "provider": "Eroski",
       "title": "Conect@"
+    },
+    {
+      "country": "Spain",
+      "id": "f_Spain_Euskaltel_Tarifa_Family",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Spain_Euskaltel_Tarifa_Family.xml",
+      "provider": "Euskaltel",
+      "title": "Tarifa Family"
     },
     {
       "country": "Spain",
