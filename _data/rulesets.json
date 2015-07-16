@@ -2876,6 +2876,13 @@
     },
     {
       "country": "Hungary",
+      "id": "f_Hungary_Upc_Mobil_S",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Upc_Mobil_S.xml",
+      "provider": "Upc",
+      "title": "Mobil S"
+    },
+    {
+      "country": "Hungary",
       "id": "f_Hungary_Vodafone_mix_20_6060",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Vodafone_mix_20_6060.xml",
       "provider": "Vodafone",
