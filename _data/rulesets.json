@@ -3729,6 +3729,13 @@
   "Malaysia": [
     {
       "country": "Malaysia",
+      "id": "f_Malaysia_Celcom_FIRST_Basic_38",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Malaysia_Celcom_FIRST_Basic_38.xml",
+      "provider": "Celcom",
+      "title": "FIRST Basic 38"
+    },
+    {
+      "country": "Malaysia",
       "id": "f_Malaysia_Maxis_SurfMore_50",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Malaysia_Maxis_SurfMore_50.xml",
       "provider": "Maxis",
@@ -3754,6 +3761,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Malaysia_Maxis_Talkmore.xml",
       "provider": "Maxis",
       "title": "Talkmore"
+    },
+    {
+      "country": "Malaysia",
+      "id": "f_Malaysia_U_Mobile_i40",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Malaysia_U_Mobile_i40.xml",
+      "provider": "U Mobile",
+      "title": "i40"
     },
     {
       "country": "Malaysia",
