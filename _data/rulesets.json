@@ -1854,18 +1854,17 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Simyo_ALL-ON_XL",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Simyo_ALL-ON_XL.xml",
+      "provider": "Simyo",
+      "title": "ALL-ON XL"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Simyo_Standard",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Simyo_Standard.xml",
       "provider": "Simyo",
       "title": "Standard"
-    },
-    {
-      "country": "Germany",
-      "description": "1GB Internet Flatrate\n400 Min./SMS inklusive\nPreis 15,90 \u20ac",
-      "id": "f_Germany_Simyo_All-On_XL",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Simyo_All-On_XL.xml",
-      "provider": "Simyo",
-      "title": "All-On XL"
     },
     {
       "country": "Germany",
