@@ -782,6 +782,13 @@
     },
     {
       "country": "Croatia",
+      "id": "f_Croatia_Vipnet_Savrena_Nova",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Croatia_Vipnet_Savrena_Nova.xml",
+      "provider": "Vipnet",
+      "title": "Savr\u0161ena Nova"
+    },
+    {
+      "country": "Croatia",
       "id": "f_Croatia_Vipnet_Sve_za_mene_150_ispravak_cijena_MMS-a",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Croatia_Vipnet_Sve_za_mene_150_ispravak_cijena_MMS-a.xml",
       "provider": "Vipnet",
