@@ -2037,6 +2037,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Vodafone_prepaid",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Vodafone_prepaid.xml",
+      "provider": "Vodafone",
+      "title": "prepaid"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_WinSIM_LTE_Mini_Plus_2000",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_WinSIM_LTE_Mini_Plus_2000.xml",
       "provider": "WinSIM",
