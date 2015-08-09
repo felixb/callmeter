@@ -5514,6 +5514,13 @@
     },
     {
       "country": "United States",
+      "id": "f_United_States_Cingular_monthly",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/United_States_Cingular_monthly.xml",
+      "provider": "Cingular",
+      "title": "monthly"
+    },
+    {
+      "country": "United States",
       "id": "f_United_States_Platinum_Tel_PayGo",
       "importurl": "https://felixb.github.io/callmeter/rulesets/United_States_Platinum_Tel_PayGo.xml",
       "provider": "Platinum Tel",
