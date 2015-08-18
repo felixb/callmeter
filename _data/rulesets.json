@@ -60,6 +60,13 @@
     },
     {
       "country": "Argentina",
+      "id": "f_Argentina_Movistar_Comunidad_habla_y_navega",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Argentina_Movistar_Comunidad_habla_y_navega.xml",
+      "provider": "Movistar",
+      "title": "Comunidad habla y navega"
+    },
+    {
+      "country": "Argentina",
       "id": "f_Argentina_Personal_Black",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Argentina_Personal_Black.xml",
       "provider": "Personal",
