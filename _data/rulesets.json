@@ -4968,6 +4968,13 @@
     },
     {
       "country": "Slovakia",
+      "id": "f_Slovakia_Telekom_Happy_XL",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Slovakia_Telekom_Happy_XL.xml",
+      "provider": "Telekom",
+      "title": "Happy XL"
+    },
+    {
+      "country": "Slovakia",
       "id": "f_Slovakia_Telekom_Easy_Free__Show_monthly_statistics",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Slovakia_Telekom_Easy_Free__Show_monthly_statistics.xml",
       "provider": "Telekom",
