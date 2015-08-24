@@ -210,6 +210,13 @@
     },
     {
       "country": "Australia",
+      "id": "f_Australia_Telstra_Encore_40",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Australia_Telstra_Encore_40.xml",
+      "provider": "Telstra",
+      "title": "Encore $40"
+    },
+    {
+      "country": "Australia",
       "id": "f_Australia_Telstra_Freedom_30_with_Night_Bonus",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Australia_Telstra_Freedom_30_with_Night_Bonus.xml",
       "provider": "Telstra",
