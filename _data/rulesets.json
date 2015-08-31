@@ -3050,6 +3050,13 @@
     },
     {
       "country": "Hungary",
+      "id": "f_Hungary_blue_mobile_blue_easy__blue_net_plusz",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_blue_mobile_blue_easy__blue_net_plusz.xml",
+      "provider": "blue mobile",
+      "title": "blue easy + blue net plusz"
+    },
+    {
+      "country": "Hungary",
       "id": "f_Hungary_telefon_flotta_oli",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_telefon_flotta_oli.xml",
       "provider": "telefon",
@@ -5195,6 +5202,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Spain_Orange_Delfin_20.xml",
       "provider": "Orange",
       "title": "Delfin 20"
+    },
+    {
+      "country": "Spain",
+      "id": "f_Spain_Orange_Canguro_Pro_Ahorro",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Spain_Orange_Canguro_Pro_Ahorro.xml",
+      "provider": "Orange",
+      "title": "Canguro Pro Ahorro"
     },
     {
       "country": "Spain",
