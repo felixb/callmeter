@@ -202,6 +202,11 @@ public final class DataProvider extends ContentProvider {
     public static final int BILLPERIOD_15D = 3;
 
     /**
+     * Bill period: 28 days.
+     */
+    public static final int BILLPERIOD_28D = 17;
+
+    /**
      * Bill period: 30 days.
      */
     public static final int BILLPERIOD_30D = 4;
@@ -2103,6 +2108,10 @@ public final class DataProvider extends ContentProvider {
                 case BILLPERIOD_DAY:
                     f = Calendar.DAY_OF_MONTH;
                     v = 1;
+                    break;
+                case BILLPERIOD_28D:
+                    f = Calendar.DAY_OF_MONTH;
+                    v = 28;
                     break;
                 case BILLPERIOD_30D:
                     f = Calendar.DAY_OF_MONTH;

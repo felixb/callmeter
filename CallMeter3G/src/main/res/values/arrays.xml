@@ -191,6 +191,7 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>17</item>
         <item>4</item>
         <item>5</item>
         <item>6</item>
@@ -210,6 +211,7 @@
         <item>@string/x1_week</item>
         <item>@string/x14_day</item>
         <item>@string/x15_day</item>
+        <item>@string/x28_day</item>
         <item>@string/x30_day</item>
         <item>@string/x31_day</item>
         <item>@string/x60_day</item>
