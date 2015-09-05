@@ -272,17 +272,15 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
                 views.setViewVisibility(R.id.widget_icon, View.VISIBLE);
                 switch (t) {
                     case DataProvider.TYPE_DATA:
-                        views.setImageViewResource(R.id.widget_icon, R.drawable.data);
+                        views.setImageViewResource(R.id.widget_icon, R.drawable.ic_widget_data);
                         break;
                     case DataProvider.TYPE_CALL:
-                        views.setImageViewResource(R.id.widget_icon, R.drawable.phone);
+                    case DataProvider.TYPE_MIXED:
+                        views.setImageViewResource(R.id.widget_icon, R.drawable.ic_widget_phone);
                         break;
                     case DataProvider.TYPE_SMS:
                     case DataProvider.TYPE_MMS:
-                        views.setImageViewResource(R.id.widget_icon, R.drawable.message);
-                        break;
-                    case DataProvider.TYPE_MIXED:
-                        views.setImageViewResource(R.id.widget_icon, R.drawable.phone);
+                        views.setImageViewResource(R.id.widget_icon, R.drawable.ic_widget_message);
                         break;
                     default:
                         views.setViewVisibility(R.id.widget_icon, android.view.View.GONE);
