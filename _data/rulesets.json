@@ -844,6 +844,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Cyprus_MTN_Smart_M.xml",
       "provider": "MTN",
       "title": "Smart M"
+    },
+    {
+      "country": "Cyprus",
+      "id": "f_Cyprus_Primetel_Unlimited_3",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Cyprus_Primetel_Unlimited_3.xml",
+      "provider": "Primetel",
+      "title": "Unlimited 3"
     }
   ],
   "Czech Republic": [
