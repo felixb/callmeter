@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+               Copyright (C) 2009-2011 Felix Bechstein
+       -->
+<!--
+               This file is part of Call Meter NG. This program is free software; you can
+               redistribute it and/or modify it under the terms of the GNU General
+               Public License as published by the Free Software Foundation; either
+               version 3 of the License, or (at your option) any later version.
+       -->
+<!--
+               This program is distributed in the hope that it will be useful, but
+               WITHOUT ANY WARRANTY; without even the implied warranty of
+               MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+               General Public License for more details. You should have received a
+               copy of the GNU General Public License along with this program; If
+               not, see <http://www.gnu.org/licenses/>.
+       -->
+<!--
+               This file is generated automatically by ub0rlib/php.
+               Visit http://ub0r.de/translate/cm2/fr/strings.xml to edit the file.
+       -->
+<resources>
+  <string name="about0_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Watch your call, message and data plans!">Surveillez votre forfait d\'appels, de messages et de données !</string>
+  <string name="about0" formatted="false">CallMeter crée le rapport du décompte de vos appels, de vos SMS et de vos données sur votre forfait téléphonique. Il permet également de paramétrer plusieurs plans de facturations différents.</string>
+  <string name="about1" formatted="false">Il affiche le compte / le décompte du forfait pour une période de facturation / une période quelconque ou le décompte global. Le calcul du temps restant par mois prend en compte votre forfait, contrairement au décompte global.</string>
+  <string name="about2" formatted="false">Le mode de facturation des appels permet de définir les durées minimales facturées (la première / les suivantes). Ces deux durées sont exprimées en seconde. Par exemple, 60/10 signifie que chaque appel est facturé au minimum 60 secondes, pour ensuite être facturé par tranche de 10 secondes.</string>
+  <string name="about3" formatted="false">Vous pouvez séparer la facturation des appels ou des messages en deux planifications distinctes. Chaque plan de facturation peut être configuré comme étant totalement gratuit, plafonné ou illimité.</string>
+  <string name="about4" formatted="false">Vos messages SMS peuvent être inclus dans votre temps d\'appel. Par exemple, en facturant chaque message comme 15s d\'appels.</string>
+  <string name="about5" formatted="false">CallMeter se lance en arrière plan toutes les 30 minutes (uniquement lorsque le téléphone n\'est pas en veille). Cela signifie que les appels supprimés ou les messages datés de plus de 30 minutes ne modifieront pas vos statistiques. La suppression d\'appels ou de messages datés de moins de 30 minutes peut donc générer de fausses statistiques.</string>
+  <string name="about6_" formatted="false">Ce que CallMeter NG ne fait pas:</string>
+  <string name="about6" formatted="false">Il n\'existe aucun de moyen de distinguer les appels émis par sipdroid (VOIP) des appels réels et les websms des SMS réels. Le manque d\'intégration de ces applications au système Android rend leur logs impossibles à distinguer.</string>
+  <string name="send_" formatted="false">Envoyer</string>
+  <string name="settings" formatted="false">Préférences</string>
+  <string name="about_" formatted="false">A propos de</string>
+  <string name="about_hint" formatted="false">A propos de cette application</string>
+  <string name="faq_hint" formatted="false" username="lanathdu26@hotmail.fr" orig="Some tips and tricks, how to set up this app.">Quelques astuce pour paramétrer cette application.</string>
+  <string name="feedback_" formatted="false">Contact</string>
+  <string name="feedback_hint" formatted="false">Rapporter un bug, demander de nouvelles fonctionnalités ...</string>
+  <string name="more_" formatted="false">Plus d\'applications..</string>
+  <string name="billday_" formatted="false">Premier jour du forfait</string>
+  <string name="billmode_" formatted="false">Mode de facturation d\'appels</string>
+  <string name="billmode_hint" formatted="false">Durées minimales facturées (première / suivantes-en secondes)</string>
+  <string name="billdate_" formatted="false">Début de la période de facturation:</string>
+  <string name="smsperiod_" formatted="false">Même période pour les SMS</string>
+  <string name="smsperiod_hint" formatted="false">Le forfait SMS débute le même jour que le forfait d\'appels.</string>
+  <string name="smsbillday_" formatted="false">Premier jour de facturation SMS</string>
+  <string name="dataperiod_" formatted="false">Même période pour les données</string>
+  <string name="dataperiod_hint" formatted="false">Le forfait de données débute le même jour que le forfait d\'appels.</string>
+  <string name="databillday_" formatted="false">Premier jour de votre forfait de données</string>
+  <string name="appearance_" formatted="false">Apparence</string>
+  <string name="theme_" formatted="false">Thème</string>
+  <string name="textsize_" formatted="false">Taille du texte</string>
+  <string name="advanced_" formatted="false">Avancé</string>
+  <string name="exclude_people_" formatted="false">Numéros gratuits</string>
+  <string name="exclude_people_hint" formatted="false">Appels non facturés (chiffres et joker acceptés : *555, 555* ou *555*)</string>
+  <string name="exclude_people_add" formatted="false">Ajouter un numéro</string>
+  <string name="exclude_people_edit" formatted="false">Modifier</string>
+  <string name="exclude_people_delete" formatted="false">Supprimer</string>
+  <string name="exclude_people_to_plan1_" formatted="false">Numéros gratuits de la planification #1</string>
+  <string name="exclude_people_to_plan2_" formatted="false">Numéros gratuits de la planification #2</string>
+  <string name="exclude_people_calls_" formatted="false">Activer pour les appels</string>
+  <string name="exclude_people_calls_to_plan1_hint" formatted="false">Facturation des appels pour les numéros exclus du plan #1</string>
+  <string name="exclude_people_calls_to_plan2_hint" formatted="false">acturation des appels pour les numéros exclus du plan #2</string>
+  <string name="exclude_people_sms_" formatted="false">Activer pour les SMS</string>
+  <string name="exclude_people_sms_to_plan1_hint" formatted="false">Facturation des messages pour les numéros exclus du plan #1</string>
+  <string name="exclude_people_sms_to_plan2_hint" formatted="false">Facturation des messages pour les numéros exclus du plan #2</string>
+  <string name="plans" formatted="false">Plans</string>
+  <string name="plans_split" formatted="false">Séparer les planifications</string>
+  <string name="plans_merge" formatted="false">Rassembler les planifications</string>
+  <string name="plans_split_hint" formatted="false">Sépare la planification en deux plans différents.</string>
+  <string name="plan1" formatted="false">Planification 1</string>
+  <string name="plan2" formatted="false">Planification 2</string>
+  <string name="plan1_hint" formatted="false">Cocher les heures pour lesquelles les appels et SMS sont comptabilisés dans le premier plan. Les autres seront comptabilisées dans le second plan.</string>
+  <string name="plan_free_" formatted="false">Non facturé</string>
+  <string name="plan_freemin_" formatted="false">Minutes gratuites</string>
+  <string name="plan_freesms_" formatted="false">SMS gratuits</string>
+  <string name="free_hint" formatted="false">Complètement gratuit</string>
+  <string name="freemin_hint" formatted="false">Minutes gratuites / Mois</string>
+  <string name="freesms_hint" formatted="false">SMS gratuits / Mois</string>
+  <string name="bill_calls_incoming_" formatted="false">Facturation des appels reçus</string>
+  <string name="bill_calls_incoming_hint" formatted="false">Les appels reçus sur votre téléphone sont facturés par l\'opérateur.</string>
+  <string name="bill_sms_incoming_" formatted="false">Facturation des SMS reçus</string>
+  <string name="bill_sms_incoming_hint" formatted="false">Les SMS reçus sur votre téléphone sont facturés par l\'opérateur.</string>
+  <string name="bill_data_incoming_only_" formatted="false">Facturation des données entrantes</string>
+  <string name="bill_data_incoming_only_hint" formatted="false">Facturation uniquement des données entrantes.</string>
+  <string name="cost_per_call_" formatted="false">Coût d\'un appel</string>
+  <string name="cost_per_call_hint" formatted="false">Prix de facturation de l\'appel.</string>
+  <string name="cost_per_minute_" formatted="false">Coût d\'une minute</string>
+  <string name="cost_per_minute_hint" formatted="false">Prix de facturation d\'une minute.</string>
+  <string name="cost_per_sms_" formatted="false">Coût d\'un SMS</string>
+  <string name="cost_per_sms_hint" formatted="false">Prix de facturation de chaque SMS.</string>
+  <string name="cost_per_mb_" formatted="false">Coût par MB</string>
+  <string name="cost_per_mb_hint" formatted="false">Prix de chaque MB.</string>
+  <string name="merge_sms_calls_" formatted="false">Inclure les SMS aux appels</string>
+  <string name="merge_sms_calls_hint" formatted="false">Facturation des SMS comme un temps d\'appel.</string>
+  <string name="merge_sms_calls_sec_" formatted="false">Secondes / SMS</string>
+  <string name="merge_sms_calls_sec_hint" formatted="false">Nombre de secondes facturées pour un SMS.</string>
+  <string name="merge_sms_plan1_" formatted="false">Inclure les SMS dans la planification 1</string>
+  <string name="merge_sms_plan1_hint" formatted="false">Décocher pour les inclure à la planification 2.</string>
+  <string name="data_hint" formatted="false">Les statistiques WIFI ne sont pas collectées ici !</string>
+  <string name="data_enable_" formatted="false">Afficher les statistiques des données</string>
+  <string name="data_enable_hint" formatted="false">Les données sont collectées en temps réel. Le premier mois peut être incorrect !</string>
+  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title">Afficher seulement les \"Données\" en titre</string>
+  <string name="data_show_simple_hint" formatted="false" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Cacher \"(2G/3G/4G)\" dans le titre. Ceci n\'affecte pas les statistiques </string>
+  <string name="data_each_day" formatted="false">Facture de chaque jour séparément</string>
+  <string name="data_each_day_hint" formatted="false">Votre période de facturation débute chaque nouveau jour.</string>
+  <string name="data_limit_" formatted="false">Limite</string>
+  <string name="data_limit_hint" formatted="false">Limites du forfait des données (Mo/mois)</string>
+  <string name="monday" formatted="false">Lundi</string>
+  <string name="tuesday" formatted="false">Mardi</string>
+  <string name="wednesday" formatted="false">Mercredi</string>
+  <string name="thursday" formatted="false">Jeudi</string>
+  <string name="friday" formatted="false">Vendredi</string>
+  <string name="saturday" formatted="false">Samedi</string>
+  <string name="sunday" formatted="false">Dimanche</string>
+  <string name="calls" formatted="false">Appels</string>
+  <string name="sms" formatted="false">SMS</string>
+  <string name="data" formatted="false">Données</string>
+  <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Données (2G/3G/4G)</string>
+  <string name="calls_sms" formatted="false">Appels/SMS</string>
+  <string name="in_calls" formatted="false">Entrants%s:</string>
+  <string name="in_sms" formatted="false">Entrants%s:</string>
+  <string name="in_data" formatted="false">Entrants:</string>
+  <string name="out_calls" formatted="false">Sortants%s:</string>
+  <string name="out_sms" formatted="false">Sortants%s:</string>
+  <string name="out_data" formatted="false">Sortants:</string>
+  <string name="plan_name1_" formatted="false">Planification 1: nom</string>
+  <string name="plan_name2_" formatted="false">Planification 2: nom</string>
+  <string name="plan_name_hint" formatted="false">Nom personnalisé</string>
+  <string name="reset_data_" formatted="false">Réinitialisation des statistiques</string>
+  <string name="reset_data_hint" formatted="false">Réinitialiser les statistiques des appels/SMS va nécessiter le recalcule de ces statistiques.\n\nPar contre, la réinitialisation des statistiques de consommation internet est permanente : les statistiques du traffic effectué avant le dernier démarrage seront perdues!</string>
+  <string name="reset_data_data_" formatted="false" orig="Reset traffic too.">Réinitialiser le trafic de données.</string>
+  <string name="contacts_" formatted="false">Contacts</string>
+  <string-array name="themes">
+    <item>Noir</item>
+    <item>Clair</item>
+  </string-array>
+  <string-array name="textsize">
+    <item>Petit</item>
+    <item>Moyen</item>
+  </string-array>
+  <string name="send_logs_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Send logs">Envoyer les journaux (logs)</string>
+  <string name="debug_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Debug">Debug</string>
+  <string name="send_logs_hint" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Envoyer les journaux (logs) au développeur.\nNe le faites que si cela vous a été demandé.</string>
+  <string name="sendlog_run_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Run SendLog">Exécuter SendLog</string>
+  <string name="sendlog_run" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog va collecter les journaux (logs) de votre appareil et les envoyer au développeur.\nVous aurez l\'occasion de vérifier et de modifier les données avant l\'envoi.</string>
+  <string name="sendlog_install_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Install SendLog">Installer SendLog</string>
+  <string name="sendlog_install" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">Installer l\'application gratuite SendLog pour collecter les journaux (logs) de votre appareil et pour les envoyer au développeur.</string>
+  <string name="license_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="License:">Licence:</string>
+  <string name="author_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Author:">Auteur:</string>
+  <string name="license" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="website_" formatted="false" username="Christian Knecht &lt;g.chrisk@gmail.com&gt;" orig="Website:">Site web:</string>
+</resources>

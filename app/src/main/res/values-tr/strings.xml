@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+               Copyright (C) 2009-2011 Felix Bechstein
+       -->
+<!--
+               This file is part of Call Meter NG. This program is free software; you can
+               redistribute it and/or modify it under the terms of the GNU General
+               Public License as published by the Free Software Foundation; either
+               version 3 of the License, or (at your option) any later version.
+       -->
+<!--
+               This program is distributed in the hope that it will be useful, but
+               WITHOUT ANY WARRANTY; without even the implied warranty of
+               MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+               General Public License for more details. You should have received a
+               copy of the GNU General Public License along with this program; If
+               not, see <http://www.gnu.org/licenses/>.
+       -->
+<!--
+               This file is generated automatically by ub0rlib/php.
+               Visit http://ub0r.de/translate/cm2/tr/strings.xml to edit the file.
+       -->
+<resources>
+  <string name="about0_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Watch your call, message and data plans!">Görüşme, mesaj ve data paketlerinizi takip edin!</string>
+  <string name="about0" formatted="false">CallMeter görüşme, mesaj ve veri loglarından raporlar oluşturur. Birden fazla ücretlendirme biçimini destekler.</string>
+  <string name="about1" formatted="false">Kullanım bilgilerinizi, fatura dönemi içerisinde kullanım / süre veya görüşme sayısı olarak veya toplam görüşme sayısı olarak verir. Aylık süre hesabı, ücretlendirme biçimi dikkate alınarak, toplam ise ücretlendirme biçimi dikkate alınmadan yapılır.</string>
+  <string name="about2" formatted="false">Ücretlendirme biçimi ilk / bir sonraki ücretlendirme aralıklarını belirler. Örneğin, 60/10, her bir görüşme en az 60 saniye için ücretlendirilir, daha uzun görüşmelerse bir sonraki 10 saniyeye tamamlanır anlamındadır.</string>
+  <string name="about3" formatted="false">Görüşme ya da mesaj paketlerinizi en fazla ikiye bölebilirsiniz. Her bir paket tamamen ücretsiz, belirli bir miktarla sınırlı ya da sınırsız olarak ayarlanabilir.</string>
+  <string name="about4" formatted="false">Mesajlarınızı görüşme pakediniz içine alabilirsiniz. Örneğin, her bir mesajın 15 saniyelik bir görüşme sayılması gibi.</string>
+  <string name="about5" formatted="false">CallMeter arka planda 30 dakikada bir çalışır (eğer telefon bekleme konumunda değilse). Böylelikle 30 dakikadan eski olmayan görüşme veya mesaj kayıtlarını silerseniz istatistikleriniz değişmez. Son 30 dakika içindeki görüşme veya mesajları silerseniz yanlış istatistikler yanlış raporlanabilir.</string>
+  <string name="about6_" formatted="false">CallMeter NG ne yapmaz:</string>
+  <string name="about6" formatted="false">Sipdroid ve gerçek görüşmelerin veya websms ile gerçek mesajların ayırt edilmesi için bir yol yoktur. Android\'in bu uygulamaları görünmez olarak entegre etmesinden ötürü görüşme loglarından uygulamaya özel verilerin elde edilmesi imkansızdır.</string>
+  <string name="send_" formatted="false">Gönder</string>
+  <string name="settings" formatted="false">Tercihler</string>
+  <string name="about_" formatted="false">Hakkında</string>
+  <string name="about_hint" formatted="false">Bu uygulama hakkında</string>
+  <string name="faq_hint" formatted="false">Bu uygulamanın ayarlarını yapmak için bazı ipuçları.</string>
+  <string name="feedback_" formatted="false" orig="Feedback">Geribildirim</string>
+  <string name="feedback_hint" formatted="false">Hata bildirin, özellik eklenmesini talep edin..</string>
+  <string name="more_" formatted="false">Daha fazla uygulama..</string>
+  <string name="billday_" formatted="false">Fatura başlangıç günü</string>
+  <string name="billmode_" formatted="false">Ücretlendirme biçimi</string>
+  <string name="billmode_hint" formatted="false">İlk/sonraki ücretlendirme periyodu.</string>
+  <string name="billdate_" formatted="false">Ücretlendirme periyodu başlangıcı:</string>
+  <string name="smsperiod_" formatted="false">SMS için aynı periyod</string>
+  <string name="smsperiod_hint" formatted="false">SMS ücretlendirme periyodunu görüşme periyoduna ayarla.</string>
+  <string name="smsbillday_" formatted="false">SMS fatura başl. günü</string>
+  <string name="dataperiod_" formatted="false">Data için aynı periyod</string>
+  <string name="dataperiod_hint" formatted="false">Data ücretlendirme periyodunu görüşme periyoduna ayarla.</string>
+  <string name="databillday_" formatted="false">Data fatura başl. günü</string>
+  <string name="appearance_" formatted="false">Görünüm</string>
+  <string name="theme_" formatted="false">Tema</string>
+  <string name="textsize_" formatted="false">Metin boyutu</string>
+  <string name="advanced_" formatted="false">Gelişmiş</string>
+  <string name="exclude_people_" formatted="false">Hariç tutulacak numaralar</string>
+  <string name="exclude_people_hint" formatted="false">Bazı numaraların ücretlendirilmemesi içindir.\n* karakteri kullanılabilir: *555, 555* veya *555* vb.</string>
+  <string name="exclude_people_add" formatted="false">Numara ekle</string>
+  <string name="exclude_people_edit" formatted="false">Düzenle</string>
+  <string name="exclude_people_delete" formatted="false">Sil</string>
+  <string name="exclude_people_to_plan1_" formatted="false">1. pakette hariç tut. numaralar</string>
+  <string name="exclude_people_to_plan2_" formatted="false">2. pakette hariç tut. numaralar</string>
+  <string name="exclude_people_calls_" formatted="false">Aramalar için etkinleştir</string>
+  <string name="exclude_people_calls_to_plan1_hint" formatted="false">1 no.lu pakette hariç tutulan numaralar için gelen/giden aramaları ücretlendir</string>
+  <string name="exclude_people_calls_to_plan2_hint" formatted="false">2 no.lu pakette hariç tutulan numaralar için gelen/giden aramaları ücretlendir</string>
+  <string name="exclude_people_sms_" formatted="false">SMS için etkinleştir</string>
+  <string name="exclude_people_sms_to_plan1_hint" formatted="false">1 no.lu pakette hariç tutulan numaralar için gelen/giden mesajları ücretlendir</string>
+  <string name="exclude_people_sms_to_plan2_hint" formatted="false">2 no.lu pakette hariç tutulan numaralar için gelen/giden mesajları ücretlendir</string>
+  <string name="plans" formatted="false">Paketler</string>
+  <string name="plans_split" formatted="false">Paketleri böl</string>
+  <string name="plans_merge" formatted="false" orig="Merge plans">Paketleri birleştir</string>
+  <string name="plans_split_hint" formatted="false">Pakedi değişik ücretlendirilen iki pakede böl.</string>
+  <string name="plan1" formatted="false">Paket 1</string>
+  <string name="plan2" formatted="false">Paket 2</string>
+  <string name="plan1_hint" formatted="false">1. pakede dahil edilecek arama ve SMS\'leri işaretleyin. Diğerleri 2. pakede dahil olacaktır.</string>
+  <string name="plan_free_" formatted="false"> Ücretlendirilmeyen</string>
+  <string name="plan_freemin_" formatted="false">Bedava dakikalar</string>
+  <string name="plan_freesms_" formatted="false">Bedava SMS</string>
+  <string name="free_hint" formatted="false">Tamamen ücretsizse işaretleyin.</string>
+  <string name="freemin_hint" formatted="false">Bedava dakika / Ay</string>
+  <string name="freesms_hint" formatted="false">Bedava SMS / Ay</string>
+  <string name="bill_calls_incoming_" formatted="false">Gelen aramaları ücretlendir</string>
+  <string name="bill_calls_incoming_hint" formatted="false">Gelen aramalar da ücretlendirilir.</string>
+  <string name="bill_sms_incoming_" formatted="false">Gelen SMS\’i ücretlendir</string>
+  <string name="bill_sms_incoming_hint" formatted="false">Gelen mesajlar da ücretlendirilir</string>
+  <string name="bill_data_incoming_only_" formatted="false">Yalnızca alınanı ücretlendir</string>
+  <string name="bill_data_incoming_only_hint" formatted="false">Yalnızca gelen trafik ücretlendirilir.</string>
+  <string name="cost_per_call_" formatted="false">Arama başına ücret</string>
+  <string name="cost_per_call_hint" formatted="false">Her bir aramayı bu değer göre ücretlendir.</string>
+  <string name="cost_per_minute_" formatted="false">Dakika başına ücret</string>
+  <string name="cost_per_minute_hint" formatted="false">Aramanın her bir dakikasını bu değere göre ücretlendir.</string>
+  <string name="cost_per_sms_" formatted="false">SMS ücreti</string>
+  <string name="cost_per_sms_hint" formatted="false">Her bir SMS\'i bu değer göre ücretlendir.</string>
+  <string name="cost_per_mb_" formatted="false">Megabyte ücreti</string>
+  <string name="cost_per_mb_hint" formatted="false">Her 1 MB\'ı bu değere göre ücretlendir.</string>
+  <string name="merge_sms_calls_" formatted="false">SMS\'i görüşmelerle birleştir</string>
+  <string name="merge_sms_calls_hint" formatted="false">SMS\'leri görüşmelerin bir parçası olarak ücretlendir.</string>
+  <string name="merge_sms_calls_sec_" formatted="false">Saniye / SMS</string>
+  <string name="merge_sms_calls_sec_hint" formatted="false">Bir SMS kaç saniyelik görüşme olarak ücretlendirilecek?</string>
+  <string name="merge_sms_plan1_" formatted="false">SMS\'i  1. paketle birleştir</string>
+  <string name="merge_sms_plan1_hint" formatted="false">2 . paketle birleştirmek için seçimi kaldırın.</string>
+  <string name="data_hint" formatted="false">WLAN istatistikleri burada dikkate alınmaz!</string>
+  <string name="data_enable_" formatted="false">Data istatistiğini göster</string>
+  <string name="data_enable_hint" formatted="false">Data gerçek zamanlı olarak toplanır. İlk ay verileri yanlış olabilir!</string>
+  <string name="data_each_day" formatted="false">Her günü ayrı ücretlendir</string>
+  <string name="data_each_day_hint" formatted="false">Ücretlendirme periyodu hergün yeniden başlar.</string>
+  <string name="data_limit_" formatted="false">Sınır</string>
+  <string name="data_limit_hint" formatted="false">Data (internet) pakedi sınırı (MB/ay)</string>
+  <string name="monday" formatted="false">Pazartesi</string>
+  <string name="tuesday" formatted="false">Salı</string>
+  <string name="wednesday" formatted="false">Çarşamba</string>
+  <string name="thursday" formatted="false">Perşembe</string>
+  <string name="friday" formatted="false">Cuma</string>
+  <string name="saturday" formatted="false">Cumartesi</string>
+  <string name="sunday" formatted="false">Pazar</string>
+  <string name="calls" formatted="false">Aramalar</string>
+  <string name="sms" formatted="false">SMS</string>
+  <string name="data" formatted="false">Data</string>
+  <string name="calls_sms" formatted="false">Arama/SMS</string>
+  <string name="in_calls" formatted="false">Gelen%s:</string>
+  <string name="in_sms" formatted="false">Alınan%s:</string>
+  <string name="in_data" formatted="false">Alınan:</string>
+  <string name="out_calls" formatted="false">Giden%s:</string>
+  <string name="out_sms" formatted="false">Gönderilen%s:</string>
+  <string name="out_data" formatted="false">Gönderilen:</string>
+  <string name="plan_name1_" formatted="false">Paket 1: isim</string>
+  <string name="plan_name2_" formatted="false">Paket 2: isim</string>
+  <string name="plan_name_hint" formatted="false">Özel İsim</string>
+  <string name="reset_data_" formatted="false">İstatistikleri sıfırla</string>
+  <string name="reset_data_hint" formatted="false">Görüşme/SMS verilerinin sıfırlanması istatistiklerin yeniden hesaplanmasına yol açar.\n\nTrafik istatistiklerinin sıfırlanması kalıcıdır. Yalnızca boot öncesi trafik sıfırlanır!</string>
+  <string name="reset_data_data_" formatted="false">Trafiği de sıfırla.</string>
+  <string name="contacts_" formatted="false">Kişiler</string>
+  <string-array name="themes">
+    <item>Siyah</item>
+    <item>Beyaz</item>
+  </string-array>
+  <string-array name="textsize">
+    <item>Küçük</item>
+    <item>Orta</item>
+  </string-array>
+  <string name="data_" formatted="false" orig="Data (2G/3G/4G)">Data (2G/3G/4G)</string>
+  <string name="data_show_simple_" formatted="false" username="Muzaffer AKYIL &lt;muzaffer@akyil.net&gt;" orig="Show only \&quot;Data\&quot; as title">Sadece başlığı Data olanları göster</string>
+  <string name="data_show_simple_hint" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">Başlıkta \"(2G/3G/4G)\" gizle. Bu istatistikleri etkilemeyecektir.</string>
+  <string name="debug_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Debug">Hata ayıkla</string>
+  <string name="send_logs_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Send logs">Kayıtları gönder</string>
+  <string name="send_logs_hint" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">Aygıtınızın kayıtlarını geliştiriciye gönderin.\nBunu sadece eğer yapmanız istendiyse yapın.</string>
+  <string name="sendlog_run_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Run SendLog">SendLog Çalıştır</string>
+  <string name="sendlog_run" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog aygıtın kayıtlarını toplayarak geliştiriciye gönderecek.\nGönderilen veriyi inceleme ve değiştirme imkanına sahip olacaksınız.</string>
+  <string name="sendlog_install_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Install SendLog">SendLog Yükle</string>
+  <string name="sendlog_install" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">Aygıt kayıtlarını toplayıp geliştiriciye göndermek için ücretsiz SendLog uygulamasını yükleyin.</string>
+  <string name="license_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="License:">Lisans:</string>
+  <string name="license" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - lisans bilgisi : http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="author_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Author:">Yazar:</string>
+  <string name="website_" formatted="false" username="Dogukan &lt;dogukan@live.de&gt;" orig="Website:">Websitesi:</string>
+</resources>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+               Copyright (C) 2009-2011 Felix Bechstein
+       -->
+<!--
+               This file is part of Call Meter NG. This program is free software; you can
+               redistribute it and/or modify it under the terms of the GNU General
+               Public License as published by the Free Software Foundation; either
+               version 3 of the License, or (at your option) any later version.
+       -->
+<!--
+               This program is distributed in the hope that it will be useful, but
+               WITHOUT ANY WARRANTY; without even the implied warranty of
+               MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+               General Public License for more details. You should have received a
+               copy of the GNU General Public License along with this program; If
+               not, see <http://www.gnu.org/licenses/>.
+       -->
+<!--
+               This file is generated automatically by ub0rlib/php.
+               Visit http://ub0r.de/translate/cm2/zh/strings.xml to edit the file.
+       -->
+<resources>
+  <string name="about0_" formatted="false" username="Eliseu M.D.C.Sequeta" orig="Watch your call, message and data plans!">查看电话,短信,数据连接方案!</string>
+  <string name="about0" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="CallMeter generates reports from call, message and data logs. It supports several modes of billing.">CallMeter根据电话,短信,数据连接记录生成报告.它支持多种支付方案.</string>
+  <string name="about1" formatted="false" username="Eliseu M.D.C.Sequeta" orig="The output format is usage / time or count used this billing period / time or count overall. Monthly time calculation takes the billing mode into account. Overall does not.">账单输出模式是 一次通讯/次 或者 账单周期/次 或者 全部累加统计. 一个月（账单周期/次）一次的统计可以每月看到您实际消费的金额. 全部累加统计的无法看到每个月的消费金额.</string>
+  <string name="about2" formatted="false" orig="The billing mode specifies the length of the first / next billing intervals. E.g. 60/10 means every call is billed for minimum 60s, any longer call is rounded up to next full 10s." username="Eliseu M.D.C.Sequeta">入账模式为 首×分钟/每×分钟. 例如. 60/10 意味着首分钟不足60秒按60秒计算,以后每10秒计算一次.</string>
+  <string name="about3" formatted="false">您可以分两部分分别统计短信及电话. 任意一个套餐都可以设置为完全免费,或设置使用上限或无上限.</string>
+  <string name="about4" formatted="false">您的短信可以统计入通话记录中. 例如. 将每一条短信按15s语音通话入账.</string>
+  <string name="about5" formatted="false">CallMeter每30分钟统计一次数据(除非程序不在背景运行). 这意味着删除30分钟前的系统统计数据不会影响统计结果. 删除之后的数据则会导致错误的统计结果.</string>
+  <string name="about6_" formatted="false">CallMeter NG不能做什么:</string>
+  <string name="about6" formatted="false">无法区分SIP呼叫和普通呼叫、无法区分网络（网页）短信和普通短信. 由于在Android系统中,程序无缝整体运行,所以无法单独获取某一程序所使用的流量.</string>
+  <string name="send_" formatted="false">发送</string>
+  <string name="settings" formatted="false">选项</string>
+  <string name="about_" formatted="false">关于</string>
+  <string name="about_hint" formatted="false" username="Eliseu M.D.C.Sequeta" orig="About this app">关于这个程序</string>
+  <string name="faq_hint" formatted="false">设置这个程序的小贴士.</string>
+  <string name="feedback_" formatted="false">反馈</string>
+  <string name="feedback_hint" formatted="false">报告漏洞,建议添加新功能...</string>
+  <string name="more_" formatted="false" username="Eliseu M.D.C.Sequeta" orig="More Apps..">更多程序..</string>
+  <string name="billday_" formatted="false">账单周期开始日</string>
+  <string name="billmode_" formatted="false">支付模式</string>
+  <string name="billmode_hint" formatted="false">首×分钟/每×分钟 入账间隔.</string>
+  <string name="billdate_" formatted="false">账单周期开始于:</string>
+  <string name="smsperiod_" formatted="false">短信周期同步</string>
+  <string name="smsperiod_hint" formatted="false">设置为周期同步（与电话账单周期同步）.</string>
+  <string name="smsbillday_" formatted="false">短信账单开始于：</string>
+  <string name="dataperiod_" formatted="false">数据连接周期同步</string>
+  <string name="dataperiod_hint" formatted="false">设置为周期同步（与电话账单周期同步）.</string>
+  <string name="databillday_" formatted="false">数据连接账单开始于：</string>
+  <string name="appearance_" formatted="false">外观</string>
+  <string name="theme_" formatted="false">主题</string>
+  <string name="textsize_" formatted="false">文字大小</string>
+  <string name="advanced_" formatted="false">高级</string>
+  <string name="exclude_people_" formatted="false">免费号码</string>
+  <string name="exclude_people_hint" formatted="false">免费号码\n允许使用通配符: *555, 555* or *555*</string>
+  <string name="exclude_people_add" formatted="false">添加号码</string>
+  <string name="exclude_people_edit" formatted="false">编辑</string>
+  <string name="exclude_people_delete" formatted="false">删除</string>
+  <string name="exclude_people_to_plan1_" formatted="false">方案1中免费的号码</string>
+  <string name="exclude_people_to_plan2_" formatted="false">方案2中免费的号码</string>
+  <string name="exclude_people_calls_" formatted="false">对电话生效</string>
+  <string name="exclude_people_calls_to_plan1_hint" formatted="false">在方案1中启用免费号码</string>
+  <string name="exclude_people_calls_to_plan2_hint" formatted="false">在方案2中启用免费号码</string>
+  <string name="exclude_people_sms_" formatted="false">对短信生效</string>
+  <string name="exclude_people_sms_to_plan1_hint" formatted="false">在方案1中启用免费号码</string>
+  <string name="exclude_people_sms_to_plan2_hint" formatted="false">在方案2中启用免费号码</string>
+  <string name="plans" formatted="false">方案</string>
+  <string name="plans_split" formatted="false">使用不同方案</string>
+  <string name="plans_merge" formatted="false">合并所有方案</string>
+  <string name="plans_split_hint" formatted="false">使用两个不同方案.</string>
+  <string name="plan1" formatted="false">方案1</string>
+  <string name="plan2" formatted="false">方案2</string>
+  <string name="plan1_hint" formatted="false">根据特定时间将短信/通话统计在方案1中.其他时间的通讯则统计在方案2中.</string>
+  <string name="plan_free_" formatted="false">套餐内账单</string>
+  <string name="plan_freemin_" formatted="false" username="Eliseu M.D.C.Sequeta" orig="Free Minutes">套餐内通话时长</string>
+  <string name="plan_freesms_" formatted="false">套餐内短信</string>
+  <string name="free_hint" formatted="false">完全免费</string>
+  <string name="freemin_hint" formatted="false">套餐内通话分钟数 分钟/月</string>
+  <string name="freesms_hint" formatted="false">套餐内短信条数 条/月</string>
+  <string name="bill_calls_incoming_" formatted="false">接听电话也需要收费</string>
+  <string name="bill_calls_incoming_hint" formatted="false">接听电话也需要收费.</string>
+  <string name="bill_sms_incoming_" formatted="false">接收短信也需要收费</string>
+  <string name="bill_sms_incoming_hint" formatted="false">接收短信也需要收费.</string>
+  <string name="bill_data_incoming_only_" formatted="false">上行数据免费</string>
+  <string name="bill_data_incoming_only_hint" formatted="false">上行数据免费.</string>
+  <string name="cost_per_call_" formatted="false">每则通话费用</string>
+  <string name="cost_per_call_hint" formatted="false">每则通话费用.</string>
+  <string name="cost_per_minute_" formatted="false">每分钟通话费用</string>
+  <string name="cost_per_minute_hint" formatted="false">每分钟通话费用.</string>
+  <string name="cost_per_sms_" formatted="false">每条短信费用</string>
+  <string name="cost_per_sms_hint" formatted="false">套餐外每条短信费用.</string>
+  <string name="cost_per_mb_" formatted="false">每MB流量费用</string>
+  <string name="cost_per_mb_hint" formatted="false">套餐外流量每MB流量费用.</string>
+  <string name="merge_sms_calls_" formatted="false">合并统计短信及电话</string>
+  <string name="merge_sms_calls_hint" formatted="false">合并支付短信与电话.</string>
+  <string name="merge_sms_calls_sec_" formatted="false">秒 / 短信</string>
+  <string name="merge_sms_calls_sec_hint" formatted="false">每一条短信相当于多少秒通话.</string>
+  <string name="merge_sms_plan1_" formatted="false">合并短信至方案1</string>
+  <string name="merge_sms_plan1_hint" formatted="false">不选中即合并至方案2.</string>
+  <string name="data_hint" formatted="false">WLAN流量不会被统计!</string>
+  <string name="data_enable_" formatted="false">显示数据连接使用状况</string>
+  <string name="data_enable_hint" formatted="false">数据连接流量实时统计,第一个月统计结果可能不准确!</string>
+  <string name="data_each_day" formatted="false">每天分别计算账单</string>
+  <string name="data_each_day_hint" formatted="false">每天分别计算账单.</string>
+  <string name="data_limit_" formatted="false">套餐</string>
+  <string name="data_limit_hint" formatted="false">数据连接套餐(MB/月)</string>
+  <string name="monday" formatted="false">星期一</string>
+  <string name="tuesday" formatted="false">星期二</string>
+  <string name="wednesday" formatted="false">星期三</string>
+  <string name="thursday" formatted="false">星期四</string>
+  <string name="friday" formatted="false">星期五</string>
+  <string name="saturday" formatted="false">星期六</string>
+  <string name="sunday" formatted="false">星期天</string>
+  <string name="calls" formatted="false">电话</string>
+  <string name="sms" formatted="false">短信</string>
+  <string name="data" formatted="false">数据连接</string>
+  <string name="calls_sms" formatted="false">电话/短信</string>
+  <string name="in_calls" formatted="false">拨入%s:</string>
+  <string name="in_sms" formatted="false">接收%s:</string>
+  <string name="in_data" formatted="false">下行:</string>
+  <string name="out_calls" formatted="false">拨出%s:</string>
+  <string name="out_sms" formatted="false">发送%s:</string>
+  <string name="out_data" formatted="false">上行:</string>
+  <string name="plan_name1_" formatted="false">方案1:名称</string>
+  <string name="plan_name2_" formatted="false">方案2:名称</string>
+  <string name="plan_name_hint" formatted="false" username="Eliseu M.D.C.Sequeta" orig="Custom Name">自定义名称</string>
+  <string name="reset_data_" formatted="false">重置统计数据</string>
+  <string name="reset_data_hint" formatted="false">重置电话/短信记录后会重新计算统计数据.\n\n且重置统计数据操作是不可逆的.只有本次启动过程中产生的数据会被重置!</string>
+  <string name="reset_data_data_" formatted="false">重置数据连接记录.</string>
+  <string name="contacts_" formatted="false">联系人</string>
+  <string-array name="themes">
+    <item>黑</item>
+    <item>白</item>
+  </string-array>
+  <string-array name="textsize">
+    <item>小</item>
+    <item>中</item>
+  </string-array>
+  <string name="data_show_simple_" formatted="false" orig="Show only \&quot;Data\&quot; as title" username="Chen Ma &lt;i@chen.ma&gt;">标题仅显示“数据连接”</string>
+  <string name="data_" formatted="false" orig="Data (2G/3G/4G)">数据</string>
+  <string name="data_show_simple_hint" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Hide \&quot;(2G/3G/4G)\&quot; in title. This does not affect stats.">在标题中隐藏“(2G/3G/4G)”。这并不影响统计。</string>
+  <string name="send_logs_" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Send logs">发送日志</string>
+  <string name="sendlog_run_" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Run SendLog">运行日志发送工具</string>
+  <string name="debug_" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Debug">调试</string>
+  <string name="sendlog_install" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">安装免费的日志发送工具来收集设备日志，并发送给开发者。</string>
+  <string name="sendlog_install_" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Install SendLog">安装日志发送工具</string>
+  <string name="send_logs_hint" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Send your device\'s logs to the developer.\nDo this only if you were asked to do so.">发送您的设备日志给开发者。\n请仅在得到相关请求后进行此操作。</string>
+  <string name="license_" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="License:">授权：</string>
+  <string name="author_" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Author:">作者：</string>
+  <string name="website_" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="Website:">网站：</string>
+  <string name="license" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - 请查阅 http://www.gnu.org/licenses/gpl-3.0.txt</string>
+  <string name="sendlog_run" formatted="false" username="Chen Ma &lt;i@chen.ma&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">日志发送工具会收集设备日志并发送给开发者。\n您在数据发送之前可以预先查阅并修改。</string>
+</resources>

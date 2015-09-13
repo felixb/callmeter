@@ -1,5 +1,8 @@
 # List of versions and changes for Call Meter NG aka cm2
 
+## v2.3.22
+ * add EU cookie consent banner
+ * update translations
 ## v2.3.21
  * add Arabic translation (thanks to AbuIyad)
  * add Lithuanian translation (thanks to Aivaras Skuodas)
