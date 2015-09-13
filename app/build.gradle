@@ -1,23 +1,39 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 17
+    compileSdkVersion 23
     buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "de.ub0r.de.android.callMeterNG"
         minSdkVersion 9
-        targetSdkVersion 17
+        targetSdkVersion 23
 
-        versionCode 9232100
-        versionName "2.3.21"
+        versionCode 9232200
+        versionName "2.3.22"
         buildConfigField 'boolean', 'DEBUG_LOG', 'true'
     }
 
+    signingConfigs {
+        if (project.hasProperty("releaseKeystorePassword")) {
+            release {
+                storeFile file("release.ks")
+                storePassword releaseKeystorePassword
+                keyAlias "jarsign"
+                keyPassword releaseKeyPassword
+            }
+        }
+    }
+
     buildTypes {
+        debug {
+            versionNameSuffix " debug"
+        }
+
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
             buildConfigField 'boolean', 'DEBUG_LOG', 'false'
         }
     }
