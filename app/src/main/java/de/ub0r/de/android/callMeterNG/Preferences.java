@@ -193,27 +193,26 @@ public class Preferences extends PreferenceActivity implements
         registerPreferenceLauncher(findPreference("more_apps"), this, new Intent(Intent.ACTION_VIEW,
                 Uri.parse("https://play.google.com/store/apps/developer?id=Felix+Bechstein")));
 
-        Preference p = this.findPreference("send_logs");
-        if (p != null) {
-            if (BuildConfig.DEBUG_LOG) {
-                p.setOnPreferenceClickListener(// .
-                        new Preference.OnPreferenceClickListener() {
-                            public boolean onPreferenceClick(final Preference preference) {
-                                LogCollector.collectAndSendLogs(Preferences.this, "android@ub0r.de",
-                                        Preferences.this
-                                                .getString(R.string.sendlog_install_),
-                                        Preferences.this
-                                                .getString(R.string.sendlog_install),
-                                        Preferences.this.getString(R.string.sendlog_run_),
-                                        Preferences.this.getString(R.string.sendlog_run));
-                                return true;
-                            }
-                        });
-            } else {
-                PreferenceGroup container = (PreferenceGroup) findPreference("container");
-                if (container != null) {
-                    container.removePreference(p);
-                }
+        if (BuildConfig.DEBUG_LOG) {
+            Preference p = this.findPreference("send_logs");
+            p.setOnPreferenceClickListener(// .
+                    new Preference.OnPreferenceClickListener() {
+                        public boolean onPreferenceClick(final Preference preference) {
+                            LogCollector.collectAndSendLogs(Preferences.this, "android@ub0r.de",
+                                    Preferences.this
+                                            .getString(R.string.sendlog_install_),
+                                    Preferences.this
+                                            .getString(R.string.sendlog_install),
+                                    Preferences.this.getString(R.string.sendlog_run_),
+                                    Preferences.this.getString(R.string.sendlog_run));
+                            return true;
+                        }
+                    });
+        } else {
+            PreferenceGroup container = (PreferenceGroup) findPreference("container");
+            Preference p = findPreference("debug");
+            if (container != null && p != null) {
+                container.removePreference(p);
             }
         }
     }
