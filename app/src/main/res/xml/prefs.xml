@@ -621,12 +621,12 @@
         <PreferenceScreen android:title="@string/faq_"
                           android:summary="@string/faq_hint">
             <intent android:action="android.intent.action.VIEW"
-                    android:data="http://code.google.com/p/callmeter/wiki/FAQ"/>
+                    android:data="https://github.com/felixb/callmeter/wiki/FAQ-CM2"/>
         </PreferenceScreen>
         <PreferenceScreen android:title="@string/feedback_"
                           android:summary="@string/feedback_hint">
             <intent android:action="android.intent.action.VIEW"
-                    android:data="http://code.google.com/p/callmeter/issues/list"/>
+                    android:data="https://github.com/felixb/callmeter/issues"/>
         </PreferenceScreen>
         <PreferenceScreen android:key="more_apps"
                           android:title="@string/more_"/>

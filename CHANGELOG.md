@@ -2,6 +2,7 @@
 
 ## v2.3.22
  * add EU cookie consent banner
+ * link to new project website
  * update translations
 ## v2.3.21
  * add Arabic translation (thanks to AbuIyad)
