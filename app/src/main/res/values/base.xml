@@ -1,196 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2010-2011 Felix Bechstein
-	-->
-	<!--
-		This file is part of Call Meter NG. This program is free software; you
-		can redistribute it and/or modify it under the terms of the GNU
-		General Public License as published by the Free Software Foundation;
-		either version 3 of the License, or (at your option) any later
-		version.
-	-->
-	<!--
-		This program is distributed in the hope that it will be useful, but
-		WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-		General Public License for more details. You should have received a
-		copy of the GNU General Public License along with this program; If
-		not, see <http://www.gnu.org/licenses/>.
-	-->
+<!--
+    Copyright (C) 2009-2015 Felix Bechstein
+-->
+<!--
+    This file is part of Call Meter NG. This program is free software; you
+    can redistribute it and/or modify it under the terms of the GNU
+    General Public License as published by the Free Software Foundation;
+    either version 3 of the License, or (at your option) any later
+    version.
+-->
+<!--
+    This program is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    General Public License for more details. You should have received a
+    copy of the GNU General Public License along with this program; If
+    not, see <http://www.gnu.org/licenses/>.
+-->
 <resources>
-	<string name="app_name">Call Meter NG</string>
-	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt; (Code, German)</string>
-	<string name="author_nc">Cyril Jaquier &lt;netcounter@jaqpot.net&gt; (NetCounter)</string>
-	<string name="author_icon">Christoph Rado &lt;christoph.rado@gmail.com&gt; (Icon)</string>
-	<string name="author_nl">Tom Nuss &lt;tomnuss@gmail.com&gt; (Dutch)</string>
-	<string name="author_pl1">Łukasz Malicki &lt;maalicki@gmail.com&gt; (Polish)</string>
-	<string name="author_pl2">Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt; (Polish)</string>
-	<string name="author_gr">George Koutsouvalis &lt;koutsou@koutsou.gr&gt; (Greek)</string>
-	<string name="author_es">Angel Martinez &lt;angelmtn@gmail.com&gt; (Spanish)</string>
-	<string name="author_pt_br">Renato Picozzi &lt;jdasco@gmail.com&gt; (Portuguese-Br)</string>
-	<string name="author_fr">Johann Vandromme &lt;jowann@gmail.com&gt; (French)</string>
-	<string name="author_hu">Lóránt Szabó &lt;loorant@gmail.com&gt; (Hungarian)</string>
-	<string name="author_cz">Tomáš Landovský &lt;landovsky@gmail.com&gt; (Czech)</string>
-	<string name="author_sv">David Hulth &lt;david@hulth.nu&gt; (Swedish)</string>
-	<string name="author_nb">Tor-Erik Selvik &lt;teselvik@gmail.com&gt; (Norwegian)</string>
-	<string name="author_it">Samuel Algisi &lt;woodhouse@email.it&gt; (Italian)</string>
-	<string name="author_ru">Valentin R. &lt;rvs2008@gmail.com&gt; (Russian)</string>
-	<string name="author_sk">Adrian Kolencik &lt;kolencik.adrian@gmail.com&gt; (Slovak)</string>
-	<string name="author_tr">Sinan Cem KILIÇKAPLAN &lt;bluesman80@gmail.com&gt; (Turkish)</string>
-	<string name="author_zh">蔡杰伦 &lt;case3526@gmail.com&gt; (Chinese)</string>
-	<string name="author_iw">Aviad Hadarian &lt;aviad.hadarian@gmail.com&gt; (Hebrew)</string>
-	<string name="author_da">Niklas &lt;k0n.ungdom@gmail.com&gt; (Danish)</string>
-	<string name="website">http://github.com/felixb/callmeter</string>
-	<string name="privacy_policy_url" translatable="false">https://github.com/felixb/callmeter/blob/master/PRIVACY.md</string>
-	<string name="see_about">Please consult the about dialog for information on what CallMeter NG does and does not do.</string>
-	<string name="faq_">FAQ</string>
+    <string name="app_name">Call Meter NG</string>
+    <string name="author">Felix Bechstein &lt;f@ub0r.de&gt; (Code, German)</string>
+    <string name="author_nc">Cyril Jaquier &lt;netcounter@jaqpot.net&gt; (NetCounter)</string>
+    <string name="author_icon">Christoph Rado &lt;christoph.rado@gmail.com&gt; (Icon)</string>
+    <string name="author_nl">Tom Nuss &lt;tomnuss@gmail.com&gt; (Dutch)</string>
+    <string name="author_pl1">Łukasz Malicki &lt;maalicki@gmail.com&gt; (Polish)</string>
+    <string name="author_pl2">Dariusz Więckiewicz &lt;dariusz@wieckiewicz.org&gt; (Polish)</string>
+    <string name="author_gr">George Koutsouvalis &lt;koutsou@koutsou.gr&gt; (Greek)</string>
+    <string name="author_es">Angel Martinez &lt;angelmtn@gmail.com&gt; (Spanish)</string>
+    <string name="author_pt_br">Renato Picozzi &lt;jdasco@gmail.com&gt; (Portuguese-Br)</string>
+    <string name="author_fr">Johann Vandromme &lt;jowann@gmail.com&gt; (French)</string>
+    <string name="author_hu">Lóránt Szabó &lt;loorant@gmail.com&gt; (Hungarian)</string>
+    <string name="author_cz">Tomáš Landovský &lt;landovsky@gmail.com&gt; (Czech)</string>
+    <string name="author_sv">David Hulth &lt;david@hulth.nu&gt; (Swedish)</string>
+    <string name="author_nb">Tor-Erik Selvik &lt;teselvik@gmail.com&gt; (Norwegian)</string>
+    <string name="author_it">Samuel Algisi &lt;woodhouse@email.it&gt; (Italian)</string>
+    <string name="author_ru">Valentin R. &lt;rvs2008@gmail.com&gt; (Russian)</string>
+    <string name="author_sk">Adrian Kolencik &lt;kolencik.adrian@gmail.com&gt; (Slovak)</string>
+    <string name="author_tr">Sinan Cem KILIÇKAPLAN &lt;bluesman80@gmail.com&gt; (Turkish)</string>
+    <string name="author_zh">蔡杰伦 &lt;case3526@gmail.com&gt; (Chinese)</string>
+    <string name="author_iw">Aviad Hadarian &lt;aviad.hadarian@gmail.com&gt; (Hebrew)</string>
+    <string name="author_da">Niklas &lt;k0n.ungdom@gmail.com&gt; (Danish)</string>
+    <string name="website">http://github.com/felixb/callmeter</string>
+    <string name="privacy_policy_url" translatable="false">
+        https://github.com/felixb/callmeter/blob/master/PRIVACY.md
+    </string>
+    <string name="see_about">Please consult the about dialog for information on what CallMeter NG
+        does and does not do.
+    </string>
+    <string name="faq_">FAQ</string>
 
-	<string name="hours_0">0:00 - 0:59</string>
-	<string name="hours_1">1:00 - 1:59</string>
-	<string name="hours_2">2:00 - 2:59</string>
-	<string name="hours_3">3:00 - 3:59</string>
-	<string name="hours_4">4:00 - 4:59</string>
-	<string name="hours_5">5:00 - 5:59</string>
-	<string name="hours_6">6:00 - 6:59</string>
-	<string name="hours_7">7:00 - 7:59</string>
-	<string name="hours_8">8:00 - 8:59</string>
-	<string name="hours_9">9:00 - 9:59</string>
-	<string name="hours_10">10:00 - 10:59</string>
-	<string name="hours_11">11:00 - 11:59</string>
-	<string name="hours_12">12:00 - 12:59</string>
-	<string name="hours_13">13:00 - 13:59</string>
-	<string name="hours_14">14:00 - 14:59</string>
-	<string name="hours_15">15:00 - 15:59</string>
-	<string name="hours_16">16:00 - 16:59</string>
-	<string name="hours_17">17:00 - 17:59</string>
-	<string name="hours_18">18:00 - 18:59</string>
-	<string name="hours_19">19:00 - 19:59</string>
-	<string name="hours_20">20:00 - 20:59</string>
-	<string name="hours_21">21:00 - 21:59</string>
-	<string name="hours_22">22:00 - 22:59</string>
-	<string name="hours_23">23:00 - 23:59</string>
+    <string name="hours_0">0:00 – 0:59</string>
+    <string name="hours_1">1:00 – 1:59</string>
+    <string name="hours_2">2:00 – 2:59</string>
+    <string name="hours_3">3:00 – 3:59</string>
+    <string name="hours_4">4:00 – 4:59</string>
+    <string name="hours_5">5:00 – 5:59</string>
+    <string name="hours_6">6:00 – 6:59</string>
+    <string name="hours_7">7:00 – 7:59</string>
+    <string name="hours_8">8:00 – 8:59</string>
+    <string name="hours_9">9:00 – 9:59</string>
+    <string name="hours_10">10:00 – 10:59</string>
+    <string name="hours_11">11:00 – 11:59</string>
+    <string name="hours_12">12:00 – 12:59</string>
+    <string name="hours_13">13:00 – 13:59</string>
+    <string name="hours_14">14:00 – 14:59</string>
+    <string name="hours_15">15:00 – 15:59</string>
+    <string name="hours_16">16:00 – 16:59</string>
+    <string name="hours_17">17:00 – 17:59</string>
+    <string name="hours_18">18:00 – 18:59</string>
+    <string name="hours_19">19:00 – 19:59</string>
+    <string name="hours_20">20:00 – 20:59</string>
+    <string name="hours_21">21:00 – 21:59</string>
+    <string name="hours_22">22:00 – 22:59</string>
+    <string name="hours_23">23:00 – 23:59</string>
 
-	<string-array name="days">
-		<item>1</item>
-		<item>2</item>
-		<item>3</item>
-		<item>4</item>
-		<item>5</item>
-		<item>6</item>
-		<item>7</item>
-		<item>8</item>
-		<item>9</item>
-		<item>10</item>
-		<item>11</item>
-		<item>12</item>
-		<item>13</item>
-		<item>14</item>
-		<item>15</item>
-		<item>16</item>
-		<item>17</item>
-		<item>18</item>
-		<item>19</item>
-		<item>20</item>
-		<item>21</item>
-		<item>22</item>
-		<item>23</item>
-		<item>24</item>
-		<item>25</item>
-		<item>26</item>
-		<item>27</item>
-		<item>28</item>
-		<item>29</item>
-		<item>30</item>
-		<item>31</item>
-	</string-array>
-	<string-array name="modes_">
-		<item>1/1</item>
-		<item>6/6</item>
-		<item>10/10</item>
-		<item>30/1</item>
-		<item>30/6</item>
-		<item>30/10</item>
-		<item>30/30</item>
-		<item>30/60</item>
-		<item>45/1</item>
-		<item>60/0</item>
-		<item>60/1</item>
-		<item>60/6</item>
-		<item>60/10</item>
-		<item>60/15</item>
-		<item>60/30</item>
-		<item>60/60</item>
-	</string-array>
-	<string-array name="modes">
-		<item>1_1</item>
-		<item>6_6</item>
-		<item>10_10</item>
-		<item>30_1</item>
-		<item>30_6</item>
-		<item>30_10</item>
-		<item>30_30</item>
-		<item>30_60</item>
-		<item>45_1</item>
-		<item>60_0</item>
-		<item>60_1</item>
-		<item>60_6</item>
-		<item>60_10</item>
-		<item>60_15</item>
-		<item>60_30</item>
-		<item>60_60</item>
-	</string-array>
+    <string-array name="days">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+    </string-array>
+    <string-array name="modes_">
+        <item>1/1</item>
+        <item>6/6</item>
+        <item>10/10</item>
+        <item>30/1</item>
+        <item>30/6</item>
+        <item>30/10</item>
+        <item>30/30</item>
+        <item>30/60</item>
+        <item>45/1</item>
+        <item>60/0</item>
+        <item>60/1</item>
+        <item>60/6</item>
+        <item>60/10</item>
+        <item>60/15</item>
+        <item>60/30</item>
+        <item>60/60</item>
+    </string-array>
+    <string-array name="modes">
+        <item>1_1</item>
+        <item>6_6</item>
+        <item>10_10</item>
+        <item>30_1</item>
+        <item>30_6</item>
+        <item>30_10</item>
+        <item>30_30</item>
+        <item>30_60</item>
+        <item>45_1</item>
+        <item>60_0</item>
+        <item>60_1</item>
+        <item>60_6</item>
+        <item>60_10</item>
+        <item>60_15</item>
+        <item>60_30</item>
+        <item>60_60</item>
+    </string-array>
 
-	<string-array name="themes_values">
-		<item>black</item>
-		<item>light</item>
-	</string-array>
-	<string-array name="textsize_values">
-		<item>small</item>
-		<item>medium</item>
-	</string-array>
-	
-	<string-array name="lang_values">
-		<item></item>
-		<item>en</item>
-		<item>cs</item>
-		<item>da</item>
-		<item>de</item>
-		<item>el</item>
-		<item>es</item>
-		<item>fr</item>
-		<item>hu</item>
-		<item>it</item>
-		<item>nb</item>
-		<item>nl</item>
-		<item>pl</item>
-		<item>pt</item>
-		<item>ru</item>
-		<item>sk</item>
-		<item>sv</item>
-		<item>tr</item>
-		<item>zh</item>
-		<item>iw</item>
-	</string-array>
-	<string-array name="lang_">
-		<item>Default language</item>
-		<item>English</item>
-		<item>Czech</item>
-		<item>Danish</item>
-		<item>German</item>
-		<item>Greek</item>
-		<item>Spanish</item>
-		<item>French</item>
-		<item>Hungarian</item>
-		<item>Italian</item>
-		<item>Norwegian</item>
-		<item>Dutch</item>
-		<item>Polish</item>
-		<item>Portuguese (Brasil)</item>
-		<item>Russian</item>
-		<item>Slovak</item>
-		<item>Swedish</item>
-		<item>Turkish</item>
-		<item>Chinese</item>
-		<item>Hebrew</item>
-	</string-array>
+    <string-array name="themes_values">
+        <item>black</item>
+        <item>light</item>
+    </string-array>
+    <string-array name="textsize_values">
+        <item>small</item>
+        <item>medium</item>
+    </string-array>
+
+    <string-array name="lang_values">
+        <item></item>
+        <item>en</item>
+        <item>cs</item>
+        <item>da</item>
+        <item>de</item>
+        <item>el</item>
+        <item>es</item>
+        <item>fr</item>
+        <item>hu</item>
+        <item>it</item>
+        <item>nb</item>
+        <item>nl</item>
+        <item>pl</item>
+        <item>pt</item>
+        <item>ru</item>
+        <item>sk</item>
+        <item>sv</item>
+        <item>tr</item>
+        <item>zh</item>
+        <item>iw</item>
+    </string-array>
+    <string-array name="lang_">
+        <item>Default language</item>
+        <item>English</item>
+        <item>Czech</item>
+        <item>Danish</item>
+        <item>German</item>
+        <item>Greek</item>
+        <item>Spanish</item>
+        <item>French</item>
+        <item>Hungarian</item>
+        <item>Italian</item>
+        <item>Norwegian</item>
+        <item>Dutch</item>
+        <item>Polish</item>
+        <item>Portuguese (Brasil)</item>
+        <item>Russian</item>
+        <item>Slovak</item>
+        <item>Swedish</item>
+        <item>Turkish</item>
+        <item>Chinese</item>
+        <item>Hebrew</item>
+    </string-array>
 </resources>

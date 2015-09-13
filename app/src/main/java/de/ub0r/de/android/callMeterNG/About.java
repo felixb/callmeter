@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 Felix Bechstein
+ * Copyright (C) 2009-2015 Felix Bechstein
  * 
  * This file is part of CallMeter NG.
  * 
@@ -23,20 +23,21 @@ import android.os.Bundle;
 
 /**
  * Display About {@link Activity}.
- * 
+ *
  * @author flx
  */
 public class About extends Activity {
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onCreate(final Bundle savedInstanceState) {
-		this.setTheme(Preferences.getTheme(this));
-		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.about);
-		this.setTitle(this.getString(R.string.about_) + " "
-				+ this.getString(R.string.app_name) + " v"
-				+ BuildConfig.VERSION_NAME);
-	}
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final void onCreate(final Bundle savedInstanceState) {
+        this.setTheme(Preferences.getTheme(this));
+        super.onCreate(savedInstanceState);
+        this.setContentView(R.layout.about);
+        this.setTitle(this.getString(R.string.about_) + " "
+                + this.getString(R.string.app_name) + " v"
+                + BuildConfig.VERSION_NAME);
+    }
 }

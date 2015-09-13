@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 Felix Bechstein
+ * Copyright (C) 2009-2015 Felix Bechstein
  * 
  * This file is part of Call Meter NG.
  * 
@@ -39,114 +39,124 @@ import de.ub0r.android.lib.Utils;
 
 /**
  * The main Activity, holding all data.
- * 
+ *
  * @author flx
  */
 public class CallMeter extends Activity {
-	/** Tag for output. */
-	public static final String DONATION_URL
-			= "https://play.google.com/store/apps/details?id=de.ub0r.android.donator";
 
-	/** 100. */
-	static final int HUNDRED = 100;
+    /**
+     * Tag for output.
+     */
+    public static final String DONATION_URL
+            = "https://play.google.com/store/apps/details?id=de.ub0r.android.donator";
 
-	/** Preference's name: show short title for data. */
-	private static final String PREFS_DATA_SHORT = "data_short";
+    /**
+     * 100.
+     */
+    static final int HUNDRED = 100;
 
-	/** Display ads? */
-	private static boolean prefsNoAds;
-	private AdView mAdView;
+    /**
+     * Preference's name: show short title for data.
+     */
+    private static final String PREFS_DATA_SHORT = "data_short";
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onCreate(final Bundle savedInstanceState) {
-		this.setTheme(Preferences.getTheme(this));
-		super.onCreate(savedInstanceState);
-		this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-		Utils.setLocale(this);
-		this.setContentView(R.layout.main);
+    /**
+     * Display ads?
+     */
+    private static boolean prefsNoAds;
 
-		prefsNoAds = DonationHelper.hideAds(this);
+    private AdView mAdView;
 
-		TextView tv = (TextView) this.findViewById(R.id.calls_);
-		Preferences.textSizeMedium = tv.getTextSize();
-		tv = (TextView) this.findViewById(R.id.calls1_in_);
-		Preferences.textSizeSmall = tv.getTextSize();
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final void onCreate(final Bundle savedInstanceState) {
+        this.setTheme(Preferences.getTheme(this));
+        super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        Utils.setLocale(this);
+        this.setContentView(R.layout.main);
 
-		mAdView = (AdView) findViewById(R.id.ad);
-		mAdView.setVisibility(View.GONE);
-	}
+        prefsNoAds = DonationHelper.hideAds(this);
 
-	@Override
-	protected final void onPause() {
-		mAdView.pause();
-		super.onPause();
-	}
+        TextView tv = (TextView) this.findViewById(R.id.calls_);
+        Preferences.textSizeMedium = tv.getTextSize();
+        tv = (TextView) this.findViewById(R.id.calls1_in_);
+        Preferences.textSizeSmall = tv.getTextSize();
 
-	@Override
-	protected final void onResume() {
-		super.onResume();
-		mAdView.resume();
-		// get call/sms stats
-		new Updater(this).execute((Void[]) null);
-		// get data stats
-		new UpdaterData(this).execute((Void[]) null);
-		// schedule next update
-		CMBroadcastReceiver.schedNext(this);
-		if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
-				PREFS_DATA_SHORT, false)) {
-			((TextView) this.findViewById(R.id.data_)).setText(R.string.data);
-		} else {
-			((TextView) this.findViewById(R.id.data_)).setText(R.string.data_);
-		}
+        mAdView = (AdView) findViewById(R.id.ad);
+        mAdView.setVisibility(View.GONE);
+    }
 
-		if (!prefsNoAds) {
-			mAdView.loadAd(new AdRequest.Builder().build());
-			mAdView.setAdListener(new AdListener() {
-				@Override
-				public void onAdLoaded() {
-					mAdView.setVisibility(View.VISIBLE);
-					super.onAdLoaded();
-				}
-			});
-		}
-	}
+    @Override
+    protected final void onPause() {
+        mAdView.pause();
+        super.onPause();
+    }
 
-	@Override
-	protected final void onDestroy() {
-		mAdView.destroy();
-		super.onDestroy();
-	}
+    @Override
+    protected final void onResume() {
+        super.onResume();
+        mAdView.resume();
+        // get call/sms stats
+        new Updater(this).execute((Void[]) null);
+        // get data stats
+        new UpdaterData(this).execute((Void[]) null);
+        // schedule next update
+        CMBroadcastReceiver.schedNext(this);
+        if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+                PREFS_DATA_SHORT, false)) {
+            ((TextView) this.findViewById(R.id.data_)).setText(R.string.data);
+        } else {
+            ((TextView) this.findViewById(R.id.data_)).setText(R.string.data_);
+        }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final boolean onCreateOptionsMenu(final Menu menu) {
-		MenuInflater inflater = this.getMenuInflater();
-		inflater.inflate(R.menu.menu, menu);
-		if (prefsNoAds) {
-			menu.removeItem(R.id.item_donate);
-		}
-		return true;
-	}
+        if (!prefsNoAds) {
+            mAdView.loadAd(new AdRequest.Builder().build());
+            mAdView.setAdListener(new AdListener() {
+                @Override
+                public void onAdLoaded() {
+                    mAdView.setVisibility(View.VISIBLE);
+                    super.onAdLoaded();
+                }
+            });
+        }
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final boolean onOptionsItemSelected(final MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.item_settings:
-			this.startActivity(new Intent(this, Preferences.class));
-			return true;
-		case R.id.item_donate:
-			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(DONATION_URL)));
-			return true;
-		default:
-			return false;
-		}
-	}
+    @Override
+    protected final void onDestroy() {
+        mAdView.destroy();
+        super.onDestroy();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final boolean onCreateOptionsMenu(final Menu menu) {
+        MenuInflater inflater = this.getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        if (prefsNoAds) {
+            menu.removeItem(R.id.item_donate);
+        }
+        return true;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item_settings:
+                this.startActivity(new Intent(this, Preferences.class));
+                return true;
+            case R.id.item_donate:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(DONATION_URL)));
+                return true;
+            default:
+                return false;
+        }
+    }
 }

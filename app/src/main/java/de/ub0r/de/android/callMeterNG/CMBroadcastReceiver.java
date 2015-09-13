@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 Felix Bechstein
+ * Copyright (C) 2009-2015 Felix Bechstein
  * 
  * This file is part of CallMeter NG.
  * 
@@ -32,47 +32,51 @@ import de.ub0r.android.logg0r.Log;
 
 /**
  * {@link BroadcastReceiver} running updates and postboot checks.
- * 
+ *
  * @author Felix Bechstein
  */
 public class CMBroadcastReceiver extends BroadcastReceiver {
-	/** Tag for output. */
-	private static final String TAG = "CMBroadcastReceiver";
 
-	/** Time between to update checks. */
-	private static final long DELAY = 30 * 60 * 1000; // 30min
+    /**
+     * Tag for output.
+     */
+    private static final String TAG = "CMBroadcastReceiver";
 
-	/**
-	 * Schedule next update.
-	 * 
-	 * @param context
-	 *            {@link Context}
-	 */
-	static final void schedNext(final Context context) {
-		final Intent i = new Intent(context, CMBroadcastReceiver.class);
-		final PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
-		final long t = SystemClock.elapsedRealtime() + DELAY;
-		final AlarmManager mgr = (AlarmManager) context
-				.getSystemService(Context.ALARM_SERVICE);
-		mgr.set(AlarmManager.ELAPSED_REALTIME, t, pi);
-	}
+    /**
+     * Time between to update checks.
+     */
+    private static final long DELAY = 30 * 60 * 1000; // 30min
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void onReceive(final Context context, final Intent intent) {
-		Log.d(TAG, "wakeup");
-		final SharedPreferences prefs = PreferenceManager
-				.getDefaultSharedPreferences(context);
-		final String action = intent.getAction();
-		if (action != null && action.equals(Intent.ACTION_BOOT_COMPLETED)) {
-			UpdaterData.checkPostboot(prefs);
-		}
-		// run update
-		new Updater(context).execute((Void) null);
-		UpdaterData.updateTraffic(context, prefs);
-		// schedule next update
-		CMBroadcastReceiver.schedNext(context);
-	}
+    /**
+     * Schedule next update.
+     *
+     * @param context {@link Context}
+     */
+    static final void schedNext(final Context context) {
+        final Intent i = new Intent(context, CMBroadcastReceiver.class);
+        final PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
+        final long t = SystemClock.elapsedRealtime() + DELAY;
+        final AlarmManager mgr = (AlarmManager) context
+                .getSystemService(Context.ALARM_SERVICE);
+        mgr.set(AlarmManager.ELAPSED_REALTIME, t, pi);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final void onReceive(final Context context, final Intent intent) {
+        Log.d(TAG, "wakeup");
+        final SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        final String action = intent.getAction();
+        if (action != null && action.equals(Intent.ACTION_BOOT_COMPLETED)) {
+            UpdaterData.checkPostboot(prefs);
+        }
+        // run update
+        new Updater(context).execute((Void) null);
+        UpdaterData.updateTraffic(context, prefs);
+        // schedule next update
+        CMBroadcastReceiver.schedNext(context);
+    }
 }

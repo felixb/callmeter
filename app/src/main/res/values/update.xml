@@ -1,57 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2010 Felix Bechstein
-	-->
-	<!--
-		This file is part of Call Meter NG. This program is free software; you
-		can redistribute it and/or modify it under the terms of the GNU
-		General Public License as published by the Free Software Foundation;
-		either version 3 of the License, or (at your option) any later
-		version.
-	-->
-	<!--
-		This program is distributed in the hope that it will be useful, but
-		WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-		General Public License for more details. You should have received a
-		copy of the GNU General Public License along with this program; If
-		not, see <http://www.gnu.org/licenses/>.
-	-->
+<!--
+    Copyright (C) 2009-2015 Felix Bechstein
+-->
+<!--
+    This file is part of Call Meter NG. This program is free software; you
+    can redistribute it and/or modify it under the terms of the GNU
+    General Public License as published by the Free Software Foundation;
+    either version 3 of the License, or (at your option) any later
+    version.
+-->
+<!--
+    This program is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    General Public License for more details. You should have received a
+    copy of the GNU General Public License along with this program; If
+    not, see <http://www.gnu.org/licenses/>.
+-->
 <resources>
-	<string-array name="updates">
-		<item>v2.3.21: add Arabic translation (thanks to AbuIyad), add Lithuanian translation (thanks to Aivaras Skuodas), update translations</item>
-		<item>v2.3.20: add Portuguese translation (thanks to Sérgio Marques), update translations</item>
-		<item>v2.3.19.1: update translations</item>
-		<item>v2.3.19: use Holo themes on Android 3+</item>
-		<item>v2.3.18.8: update translations</item>
-		<item>v2.3.18.7: minor fixes, update translations</item>
-		<item>v2.3.18.6: fix translation causing FCs</item>
-		<item>v2.3.18.5: fix translation causing FCs</item>
-		<item>v2.3.18.4: update translations, prepare for jelly bean</item>
-		<item>v2.3.18.3: reduce app size, update translations</item>
-		<item>v2.3.18.2: data stats for acer e130, update translations</item>
-		<item>v2.3.18.1: Fix for HC/ICS devices, update translations</item>
-		<item>v2.3.18: Merge new data stats from Call Meter 3G, update translations</item>
-		<item>v2.3.17.10: Fix data stats</item>
-		<item>v2.3.17.9: add support for a601 and htc thunderbolt, update translations</item>
-		<item>v2.3.17.8: Fix for samsung phones</item>
-		<item>v2.3.17.7: Fix Samsung Galaxy S 2, fix hebrew translation</item>
-		<item>v2.3.17.6: Translation updates</item>
-		<item>v2.3.17.5: Fix language selection for german+danish, add an other hint for data stats</item>
-		<item>v2.3.17.4: Fix for android 1.5</item>
-		<item>v2.3.17: add support for LG-P990, minor fixes, translation updates, add (not yet finished) danish translation</item>
-		<item>v2.3.16: Add support for GT-S5830, move to new translation system</item>
-		<item>v2.3.15: Inner changes, translation update, add hebrew translation, add support for GT-I5510</item>
-		<item>v2.3.14: Add Slovak translation, fix czech tanslation</item>
-		<item>v2.3.13: Add chinese translation, set custom locale</item>
-		<item>v2.3.12: Add turkish translation, support for Samsung Galaxy GT-I5500</item>
-		<item>v2.3.9: Support any other device, fix some FC</item>
-		<item>v2.3.8: Support Samsung Galxy S GT-I9000</item>
-		<item>v2.3.7: Add italian and norwegian translation</item>
-		<item>v2.3.5: New icon, new billing modes 6/6,30/60 and 60/6, fix some bugs</item>
-		<item>v2.3: Fix counting incoming calls, change separator, show contacts name in excluded numbers, allow *555* wildcards, allow to exclude numbers for sms, allow to set separate billing period for data plan, allow to reset traffic stats, add cost to traffic stats, show progressbar for billing cycle, fix some more bugs</item>
-		<item>v2.2: Allow to bill incoming calls/messages across two plans, minor changes to gui</item>
-		<item>v2.1: Allow to set cost for calls/messages, allow to bill incoming traffic only, set excluded numbers from contacts</item>
-		<item>v2.0: Run callmeter every 30min in background to save logs, add 60/30 billing mode, allow to bill inbound calls/messages, change donator check</item>
-	</string-array>
+    <string-array name="updates">
+        <item>v2.3.21: add Arabic translation (thanks to AbuIyad), add Lithuanian translation
+            (thanks to Aivaras Skuodas), update translations
+        </item>
+        <item>v2.3.20: add Portuguese translation (thanks to Sérgio Marques), update translations
+        </item>
+        <item>v2.3.19.1: update translations</item>
+        <item>v2.3.19: use Holo themes on Android 3+</item>
+        <item>v2.3.18.8: update translations</item>
+        <item>v2.3.18.7: minor fixes, update translations</item>
+        <item>v2.3.18.6: fix translation causing FCs</item>
+        <item>v2.3.18.5: fix translation causing FCs</item>
+        <item>v2.3.18.4: update translations, prepare for jelly bean</item>
+        <item>v2.3.18.3: reduce app size, update translations</item>
+        <item>v2.3.18.2: data stats for acer e130, update translations</item>
+        <item>v2.3.18.1: Fix for HC/ICS devices, update translations</item>
+        <item>v2.3.18: Merge new data stats from Call Meter 3G, update translations</item>
+        <item>v2.3.17.10: Fix data stats</item>
+        <item>v2.3.17.9: add support for a601 and htc thunderbolt, update translations</item>
+        <item>v2.3.17.8: Fix for samsung phones</item>
+        <item>v2.3.17.7: Fix Samsung Galaxy S 2, fix hebrew translation</item>
+        <item>v2.3.17.6: Translation updates</item>
+        <item>v2.3.17.5: Fix language selection for german+danish, add an other hint for data
+            stats
+        </item>
+        <item>v2.3.17.4: Fix for android 1.5</item>
+        <item>v2.3.17: add support for LG-P990, minor fixes, translation updates, add (not yet
+            finished) danish translation
+        </item>
+        <item>v2.3.16: Add support for GT-S5830, move to new translation system</item>
+        <item>v2.3.15: Inner changes, translation update, add hebrew translation, add support for
+            GT-I5510
+        </item>
+        <item>v2.3.14: Add Slovak translation, fix czech tanslation</item>
+        <item>v2.3.13: Add chinese translation, set custom locale</item>
+        <item>v2.3.12: Add turkish translation, support for Samsung Galaxy GT-I5500</item>
+        <item>v2.3.9: Support any other device, fix some FC</item>
+        <item>v2.3.8: Support Samsung Galxy S GT-I9000</item>
+        <item>v2.3.7: Add italian and norwegian translation</item>
+        <item>v2.3.5: New icon, new billing modes 6/6,30/60 and 60/6, fix some bugs</item>
+        <item>v2.3: Fix counting incoming calls, change separator, show contacts name in excluded
+            numbers, allow *555* wildcards, allow to exclude numbers for sms, allow to set separate
+            billing period for data plan, allow to reset traffic stats, add cost to traffic stats,
+            show progressbar for billing cycle, fix some more bugs
+        </item>
+        <item>v2.2: Allow to bill incoming calls/messages across two plans, minor changes to gui
+        </item>
+        <item>v2.1: Allow to set cost for calls/messages, allow to bill incoming traffic only, set
+            excluded numbers from contacts
+        </item>
+        <item>v2.0: Run callmeter every 30min in background to save logs, add 60/30 billing mode,
+            allow to bill inbound calls/messages, change donator check
+        </item>
+    </string-array>
 </resources>
