@@ -17,33 +17,17 @@
     copy of the GNU General Public License along with this program; If
     not, see <http://www.gnu.org/licenses/>.
 -->
-<RelativeLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_height="fill_parent" android:layout_width="fill_parent"
-        android:background="?android:attr/colorBackground">
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:background="?android:attr/colorBackground"
+        android:orientation="vertical">
 
-    <de.ub0r.android.eucookieconsent.EuCookieConsentView
-            android:id="@+id/cookie_consent"
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            app:urlLeanMore="@string/privacy_policy_url"/>
-
-    <com.google.android.gms.ads.AdView
-            android:id="@+id/ad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/cookie_consent"
-            android:cacheColorHint="?android:attr/colorBackground"
-            android:gravity="center_horizontal"
-            app:adUnitId="ca-app-pub-1948477123608376/9772134085"
-            app:adSize="SMART_BANNER"/>
-
-    <ScrollView android:layout_height="fill_parent"
-                android:layout_width="fill_parent" android:layout_above="@+id/ad">
+    <ScrollView android:layout_height="0dip"
+                android:layout_width="fill_parent"
+                android:layout_weight="1">
         <LinearLayout android:layout_height="wrap_content"
                       android:layout_width="fill_parent" android:orientation="vertical"
                       android:padding="5dip">
@@ -268,4 +252,22 @@
             <!-- end data -->
         </LinearLayout>
     </ScrollView>
-</RelativeLayout>
+
+    <com.google.android.gms.ads.AdView
+            android:id="@+id/ad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="?android:attr/colorBackground"
+            android:gravity="center_horizontal"
+            app:adUnitId="ca-app-pub-1948477123608376/9772134085"
+            app:adSize="SMART_BANNER"/>
+
+    <de.ub0r.android.eucookieconsent.EuCookieConsentView
+            android:id="@+id/cookie_consent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            app:urlLeanMore="@string/privacy_policy_url"/>
+
+</LinearLayout>
