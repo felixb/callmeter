@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-               Copyright (C) 2009-2013 Felix Bechstein
+               Copyright (C) 2009-2015 Felix Bechstein
        -->
 <!--
                This file is part of Call Meter 3G. This program is free software; you can
@@ -425,7 +425,6 @@
   <string name="license" formatted="false" username="grmone.pu@gmail.com" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - pogledaj http://www.gnu.org/licenses/gpl-3.0.txt</string>
   <string name="website_" formatted="false" username="grmone.pu@gmail.com" orig="Website:">Web stranica</string>
   <string name="author_" formatted="false" username="grmone.pu@gmail.com" orig="Author:">Autor:</string>
-  <string name="source_" formatted="false" username="grmone.pu@gmail.com" orig="Sourcescode:">Izvorni kod:</string>
   <string name="country" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Country">Zemlja</string>
   <string name="provider" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Provider">Pružatelj usluga</string>
   <string name="plan" formatted="false" username="Grmone&lt;grmone.pu@gmail.com&gt;" orig="Plan">Plan</string>

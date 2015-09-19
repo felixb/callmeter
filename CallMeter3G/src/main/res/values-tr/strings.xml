@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-               Copyright (C) 2009-2013 Felix Bechstein
+               Copyright (C) 2009-2015 Felix Bechstein
        -->
 <!--
                This file is part of Call Meter 3G. This program is free software; you can
@@ -423,7 +423,6 @@
   <string name="license" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - bkz. http://www.gnu.org/licenses/gpl-3.0.txt</string>
   <string name="author_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Author:">Yazar:</string>
   <string name="website_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Website:">Web sitesi:</string>
-  <string name="source_" formatted="false" username="Sinan Cem Kılıçkaplan &lt;bluesman80@gmail.com&gt;" orig="Sourcescode:">Kaynak kod:</string>
   <string name="up_" formatted="false" username="bluesman80@gmail.com" orig="Move up">Yukarı taşı</string>
   <string name="down_" formatted="false" username="bluesman80@gmail.com" orig="Move down">Aşağı taşı</string>
   <string name="billday_last" formatted="false" username="bluesman80@gmail.com" orig="Last day of your bill">Faturanızın son günü</string>

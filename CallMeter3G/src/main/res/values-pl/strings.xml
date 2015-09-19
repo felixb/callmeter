@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-               Copyright (C) 2009-2013 Felix Bechstein
+               Copyright (C) 2009-2015 Felix Bechstein
        -->
 <!--
                This file is part of Call Meter 3G. This program is free software; you can
@@ -426,7 +426,6 @@
   <string name="license" formatted="false" username="maladrill" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - więcej na: http://www.gnu.org/licenses/gpl-3.0.txt</string>
   <string name="author_" formatted="false" username="maladrill" orig="Author:">Autor:</string>
   <string name="website_" formatted="false" username="maladrill" orig="Website:">Strona www:</string>
-  <string name="source_" formatted="false" username="maladrill" orig="Sourcescode:">Kod źródłowy:</string>
   <string name="country" formatted="false" username="maladrill" orig="Country">Państwo</string>
   <string name="provider" formatted="false" username="maladrill" orig="Provider">Dostawca</string>
   <string name="plan" formatted="false" username="maladrill" orig="Plan">Plan</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-               Copyright (C) 2009-2013 Felix Bechstein
+               Copyright (C) 2009-2015 Felix Bechstein
        -->
 <!--
                This file is part of Call Meter 3G. This program is free software; you can
@@ -418,7 +418,6 @@
   <string name="license" formatted="false" username="carloraudino@fedoraproject.org" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - vedere http://www.gnu.org/licenses/gpl-3.0.txt</string>
   <string name="author_" formatted="false" username="carloraudino@fedoraproject.org" orig="Author:">Autore:</string>
   <string name="website_" formatted="false" username="carloraudino@fedoraproject.org" orig="Website:">Sito web:</string>
-  <string name="source_" formatted="false" username="carloraudino@fedoraproject.org" orig="Sourcescode:">Codice sorgente:</string>
   <string name="export_logs_csv_" formatted="false" username="Gianluca gianluca-s@libero.it" orig="Export CSV">Esporta in formato CSV</string>
   <string name="delete_widget" formatted="false" username="Gianluca gianluca-s@libero.it" orig="Delete widget">Elimina widget</string>
   <string name="up_" formatted="false" username="fedekikko89" orig="Move up">Sposta sù</string>

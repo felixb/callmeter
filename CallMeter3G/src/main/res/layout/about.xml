@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Copyright (C) 2009-2013 Felix Bechstein
+               Copyright (C) 2009-2015 Felix Bechstein
 -->
 <!--
     This file is part of Call Meter 3G. This program is free software; you
@@ -117,10 +117,6 @@
                   android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:paddingLeft="10dip" android:autoLink="web"/>
 
-        <TextView android:text="@string/source_"
                   android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-        <TextView android:text="@string/source" android:layout_width="wrap_content"
-                  android:layout_height="wrap_content" android:paddingLeft="10dip"
-                  android:autoLink="web"/>
     </LinearLayout>
 </ScrollView>

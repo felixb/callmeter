@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-		Copyright (C) 2009-2013 Felix Bechstein
+		               Copyright (C) 2009-2015 Felix Bechstein
 	-->
 <!--
 		This file is part of Call Meter 3G. This program is free software; you
@@ -196,7 +196,6 @@
   <string name="plan" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Plan">Pla</string>
   <string name="provider" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Provider">Proveïdor</string>
   <string name="country" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Country">País</string>
-  <string name="source_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Sourcescode:">Font del codi:</string>
   <string name="website_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Website:">Pàgina web:</string>
   <string name="author_" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="Author:">Autor:</string>
   <string name="license" formatted="false" username="Ramon &lt;ramon_garcia83@hotmail.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - veure http://www.gnu.org/licenses/gpl-3.0.txt</string>

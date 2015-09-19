@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<!--
-		Copyright (C) 2009-2013 Felix Bechstein
+		Copyright (C) 2009-2015 Felix Bechstein
 	-->
 	<!--
 		This file is part of Call Meter 3G. This program is free software; you
@@ -40,8 +40,7 @@
 	<string name="author_sk" translatable="false">Adrian Kolencik &lt;kolencik.adrian@gmail.com&gt; (Slovak)</string>
 	<string name="author_tr" translatable="false">Sinan Cem KILIÇKAPLAN &lt;bluesman80@gmail.com&gt; (Turkish)</string>
 	<string name="author_zh" translatable="false">蔡杰伦 &lt;case3526@gmail.com&gt; (Chinese)</string>
-	<string name="source" translatable="false">http://github.com/felixb/callmeter</string>
-	<string name="website" translatable="false">@string/source</string>
+	<string name="website" translatable="false">http://github.com/felixb/callmeter</string>
 	<string name="faq_" translatable="false">FAQ</string>
 	<string name="google_plus_" translatable="false">Google+</string>
 	<string name="export_rules_body" translatable="false">Hi developer,\nhere are the rules for my provider. Please add it to the website to let others enjoy it. Please see the details below.\n\nCountry: %s\nProvider: %s\nPlan name: %s\n\nCheers, a User</string>
@@ -49,10 +48,4 @@
 
 	<string name="url_rulesets" translatable="false">https://felixb.github.io/callmeter/rulesets/</string>
 	<string name="privacy_policy_url" translatable="false">https://github.com/felixb/callmeter/blob/master/PRIVACY.md</string>
-
-	<dimen name="touchlist_height">30dip</dimen>
-	<dimen name="widget_margin">4dp</dimen>
-	<dimen name="widget_padding">4dp</dimen>
-	<dimen name="pb_plan_height">10dp</dimen>
-	<dimen name="pb_bp_height">5dp</dimen>
 </resources>

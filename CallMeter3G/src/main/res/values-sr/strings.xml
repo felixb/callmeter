@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-		Copyright (C) 2009-2013 Felix Bechstein
+		               Copyright (C) 2009-2015 Felix Bechstein
 	-->
 <!--
 		This file is part of Call Meter 3G. This program is free software; you
@@ -447,7 +447,6 @@
   <string name="author_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Author:">Autor:</string>
   <string name="license" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt">GPLv3 - pogledaj http://www.gnu.org/licenses/gpl-3.0.txt</string>
   <string name="website_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Website:">Web sajt:</string>
-  <string name="source_" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Sourcescode:">Izvorni kod:</string>
   <string name="country" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Country">Država</string>
   <string name="provider" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Provider">Provajder</string>
   <string name="plan" formatted="false" username="Igor Kutlarevic &lt;kuxman_ns@yahoo.com&gt;" orig="Plan">Plan</string>

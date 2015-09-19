@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-               Copyright (C) 2009-2015 Felix Bechstein
+    Copyright (C) 2009-2015 Felix Bechstein
 -->
 <!--
     This file is part of Call Meter 3G. This program is free software; you
@@ -17,9 +17,12 @@
     copy of the GNU General Public License along with this program; If
     not, see <http://www.gnu.org/licenses/>.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceScreen android:title="@string/import_rules_sd_"
-                      android:summary="@string/import_rules_sd_help"/>
-    <PreferenceCategory android:key="import_rules_files"
-                        android:title="@string/import_rules_sd_files"/>
-</PreferenceScreen>
+<resources>
+    <dimen name="touchlist_height">30dip</dimen>
+    <dimen name="widget_margin">4dp</dimen>
+    <dimen name="widget_padding">4dp</dimen>
+    <dimen name="pb_plan_height">10dp</dimen>
+    <dimen name="pb_bp_height">5dp</dimen>
+
+    <dimen name="ambilwarna_satudp">1dp</dimen>
+</resources>
