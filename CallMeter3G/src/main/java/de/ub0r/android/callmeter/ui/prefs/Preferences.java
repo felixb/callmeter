@@ -20,8 +20,6 @@ package de.ub0r.android.callmeter.ui.prefs;
 
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 
-import org.apache.http.HttpStatus;
-
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
@@ -42,7 +40,6 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
@@ -658,7 +655,7 @@ public final class Preferences extends SherlockPreferenceActivity implements
         } else if (scheme.equals("http") || scheme.equals("https")) {
             String url = uri.toString();
             HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
-            if (con.getResponseCode() != HttpStatus.SC_OK) {
+            if (con.getResponseCode() != HttpURLConnection.HTTP_OK) {
                 Log.e(TAG,
                         "error in reading export: " + url + "Response: " + con
                                 .getResponseMessage());
