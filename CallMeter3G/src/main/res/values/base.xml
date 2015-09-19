@@ -48,6 +48,7 @@
 	<string name="country_value" translatable="false"></string>
 
 	<string name="url_rulesets" translatable="false">https://felixb.github.io/callmeter/rulesets/</string>
+	<string name="privacy_policy_url" translatable="false">https://github.com/felixb/callmeter/blob/master/PRIVACY.md</string>
 
 	<dimen name="touchlist_height">30dip</dimen>
 	<dimen name="widget_margin">4dp</dimen>

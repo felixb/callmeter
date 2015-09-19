@@ -1,5 +1,9 @@
 # List of versions and changes for Call Meter 3G aka cm3
 
+## 3.11.9
+ * add EU cookie consent banner
+ * update translations
+
 ## 3.11.8
  * Android 5.1 multi SIM support
  * fix FCs (issue #70)

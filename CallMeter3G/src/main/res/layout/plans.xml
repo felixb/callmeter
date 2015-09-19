@@ -15,25 +15,16 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-
-    <com.google.android.gms.ads.AdView
-            android:id="@+id/ads"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:gravity="center_horizontal"
-            app:adUnitId="ca-app-pub-1948477123608376/3725600484"
-            app:adSize="SMART_BANNER"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical">
 
     <com.viewpagerindicator.TitlePageIndicator
             android:id="@+id/titles"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             app:footerIndicatorStyle="underline"
             android:textColor="?android:attr/textColorSecondary"
             app:selectedColor="?android:attr/textColorPrimary"/>
@@ -41,8 +32,22 @@
     <android.support.v4.view.ViewPager
             android:id="@+id/pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/ads"
-            android:layout_below="@id/titles"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
-</RelativeLayout>
+    <com.google.android.gms.ads.AdView
+            android:id="@+id/ads"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            app:adUnitId="ca-app-pub-1948477123608376/3725600484"
+            app:adSize="SMART_BANNER"/>
+
+    <de.ub0r.android.eucookieconsent.EuCookieConsentView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            app:urlLeanMore="@string/privacy_policy_url"/>
+
+</LinearLayout>
