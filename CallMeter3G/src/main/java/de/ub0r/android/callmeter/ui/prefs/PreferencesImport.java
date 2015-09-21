@@ -18,8 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-import com.actionbarsherlock.view.Window;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -27,7 +25,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.Preference;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
+import android.view.Window;
 import android.widget.Toast;
 
 import java.io.File;
@@ -41,7 +41,11 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-public final class PreferencesImport extends SherlockPreferenceActivity {
+public final class PreferencesImport extends PreferenceActivity {
+    /**
+     * Maximal depth for searching files.
+     */
+    private static final int MAX_DEPTH = 3;
 
     /**
      * {@link AsyncTask} running through the SD card and adding {@link Preferences} for each file.
@@ -63,7 +67,7 @@ public final class PreferencesImport extends SherlockPreferenceActivity {
 
         @Override
         protected Boolean doInBackground(final Void... paramArrayOfParams) {
-            return addExport(Environment.getExternalStorageDirectory(), MAXDEPTH);
+            return addExport(Environment.getExternalStorageDirectory(), MAX_DEPTH);
         }
 
         @SuppressWarnings("deprecation")
@@ -90,8 +94,6 @@ public final class PreferencesImport extends SherlockPreferenceActivity {
                         Toast.LENGTH_LONG).show();
             }
         }
-
-        ;
 
         /**
          * Add all ready to import rule sets to preference list.
@@ -146,14 +148,6 @@ public final class PreferencesImport extends SherlockPreferenceActivity {
         }
     }
 
-    /**
-     * Maximal depth for searching files.
-     */
-    private static final int MAXDEPTH = 3;
-
-    /**
-     * {@inheritDoc}
-     */
     @SuppressWarnings("deprecation")
     @Override
     public void onCreate(final Bundle savedInstanceState) {

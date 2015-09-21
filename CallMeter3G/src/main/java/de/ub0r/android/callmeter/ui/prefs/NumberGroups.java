@@ -18,9 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -30,18 +27,21 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.lib.Utils;
 
 /**
- * {@link SherlockPreferenceActivity} for setting plans.
+ * Activity for setting plans.
  *
  * @author flx
  */
-public final class NumberGroups extends SherlockPreferenceActivity implements
+public final class NumberGroups extends PreferenceActivity implements
         OnPreferenceClickListener {
 
     @SuppressWarnings("deprecation")
@@ -90,7 +90,7 @@ public final class NumberGroups extends SherlockPreferenceActivity implements
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        getSupportMenuInflater().inflate(R.menu.menu_group, menu);
+        getMenuInflater().inflate(R.menu.menu_group, menu);
         return true;
     }
 

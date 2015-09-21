@@ -18,10 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui;
 
-import com.actionbarsherlock.app.SherlockListFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
 
 import android.app.AlertDialog.Builder;
 import android.content.ContentUris;
@@ -33,6 +29,7 @@ import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
@@ -40,6 +37,9 @@ import android.support.v4.content.Loader;
 import android.support.v4.widget.ResourceCursorAdapter;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -66,7 +66,7 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-public final class LogsFragment extends SherlockListFragment implements OnClickListener,
+public final class LogsFragment extends ListFragment implements OnClickListener,
         OnItemLongClickListener, LoaderCallbacks<Cursor> {
 
     /**

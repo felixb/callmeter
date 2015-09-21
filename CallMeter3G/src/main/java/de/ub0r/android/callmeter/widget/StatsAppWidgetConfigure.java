@@ -18,9 +18,6 @@
  */
 package de.ub0r.android.callmeter.widget;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
@@ -28,6 +25,9 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -53,7 +53,7 @@ import yuku.ambilwarna.AmbilWarnaDialog.OnAmbilWarnaListener;
  *
  * @author flx
  */
-public final class StatsAppWidgetConfigure extends SherlockActivity implements OnClickListener,
+public final class StatsAppWidgetConfigure extends AppCompatActivity implements OnClickListener,
         OnCheckedChangeListener, OnSeekBarChangeListener {
 
     /**
@@ -394,7 +394,7 @@ public final class StatsAppWidgetConfigure extends SherlockActivity implements O
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         if (isExistingWidget) {
-            getSupportMenuInflater().inflate(R.menu.menu_widget, menu);
+            getMenuInflater().inflate(R.menu.menu_widget, menu);
             return true;
         } else {
             return super.onCreateOptionsMenu(menu);

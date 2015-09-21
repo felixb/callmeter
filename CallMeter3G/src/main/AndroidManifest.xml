@@ -66,7 +66,7 @@
                 android:name=".ui.Plans"
                 android:configChanges="orientation|keyboardHidden"
                 android:label="@string/app_name"
-                android:theme="@style/Theme.SherlockCallMeter_Light"
+                android:theme="@style/Theme.CallMeter_Light"
                 android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -76,7 +76,7 @@
         </activity>
         <activity
                 android:name=".ui.AddLogActivity"
-                android:theme="@style/Theme.SherlockCallMeter_Light"
+                android:theme="@style/Theme.CallMeter_Light"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.AskForPlan"
@@ -88,7 +88,7 @@
                 android:configChanges="orientation|keyboardHidden"
                 android:label="@string/import_rules_"
                 android:launchMode="singleTask"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.Default"
                 android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -131,95 +131,95 @@
                 android:name=".ui.prefs.PreferencesPlain"
                 android:configChanges="orientation|keyboardHidden"
                 android:label="@string/settings"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.Default"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.prefs.PreferencesRules"
                 android:label="@string/settings"
-                android:theme="@style/Theme.SherlockDefault"/>
+                android:theme="@style/Theme.Default"/>
         <activity
                 android:name=".ui.prefs.SimplePreferences"
                 android:configChanges="orientation|keyboardHidden"
                 android:label="@string/simple_preferences_"
                 android:launchMode="singleTask"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.Default"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.prefs.SimplePreferencesChild"
                 android:configChanges="orientation|keyboardHidden"
                 android:label="@string/simple_preferences_"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.Default"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.prefs.PreferencesImport"
                 android:label="@string/import_rules_"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.Default"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.prefs.Plans"
                 android:configChanges="orientation|keyboardHidden"
                 android:label="@string/plans"
                 android:launchMode="singleTop"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.Default"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.prefs.PlanEdit"
                 android:configChanges="orientation|keyboardHidden"
                 android:label="@string/plans"
                 android:launchMode="singleTop"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.Default"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.prefs.Rules"
                 android:configChanges="orientation|keyboardHidden"
                 android:label="@string/rules"
                 android:launchMode="singleTop"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.Default"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.prefs.RuleEdit"
                 android:configChanges="orientation|keyboardHidden"
                 android:label="@string/rules"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.Default"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.prefs.NumberGroups"
                 android:configChanges="orientation|keyboardHidden"
                 android:label="@string/numbergroups_edit_"
                 android:launchMode="singleTop"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.Default"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.prefs.NumberGroupEdit"
                 android:configChanges="orientation|keyboardHidden"
                 android:label="@string/numbers"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.Default"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.prefs.HourGroups"
                 android:configChanges="orientation|keyboardHidden"
                 android:label="@string/hourgroups_edit_"
                 android:launchMode="singleTop"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.Default"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.prefs.HourGroupEdit"
                 android:configChanges="orientation|keyboardHidden"
                 android:label="@string/hours"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.Default"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.AboutActivity"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.CallMeter"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.HelpActivity"
                 android:label="@string/help_"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.CallMeter"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.IntroActivity"
-                android:theme="@style/Theme.SherlockCallMeter_Light"
+                android:theme="@style/Theme.CallMeter_Light"
                 android:windowSoftInputMode="adjustResize"/>
 
         <receiver android:name=".data.LogRunnerReceiver">
@@ -280,7 +280,7 @@
                 android:configChanges="orientation|keyboardHidden"
                 android:label="@string/widget_config_"
                 android:launchMode="singleTop"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.CallMeter"
                 android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
@@ -291,7 +291,7 @@
                 android:configChanges="orientation|keyboardHidden"
                 android:label="@string/widget_config_"
                 android:launchMode="singleTop"
-                android:theme="@style/Theme.SherlockDefault"
+                android:theme="@style/Theme.CallMeter"
                 android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>

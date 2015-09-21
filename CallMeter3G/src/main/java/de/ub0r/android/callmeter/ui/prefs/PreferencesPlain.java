@@ -18,7 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,6 +32,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
@@ -65,7 +65,7 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-public final class PreferencesPlain extends SherlockPreferenceActivity implements
+public final class PreferencesPlain extends PreferenceActivity implements
         OnPreferenceClickListener, OnPreferenceChangeListener {
 
     private static final String TAG = "PreferencesPlain";
@@ -225,7 +225,6 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
         String a = getIntent().getAction();
         if (a == null) {
             finish();
-            return;
         } else if (APPERANCE.equals(a)) {
             addPreferencesFromResource(R.xml.prefs_apperance);
         } else if (TEXTSIZE.equals(a)) {
@@ -264,7 +263,6 @@ public final class PreferencesPlain extends SherlockPreferenceActivity implement
         String a = getIntent().getAction();
         if (a == null) {
             finish();
-            return;
         } else if (WIDGETS.equals(a)) {
             loadWidgets();
         }

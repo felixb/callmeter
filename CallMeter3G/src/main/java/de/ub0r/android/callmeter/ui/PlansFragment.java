@@ -18,9 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui;
 
-import com.actionbarsherlock.app.SherlockListFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
 
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
@@ -36,6 +33,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
@@ -45,6 +43,8 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -69,7 +69,7 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-public final class PlansFragment extends SherlockListFragment implements OnClickListener,
+public final class PlansFragment extends ListFragment implements OnClickListener,
         OnItemLongClickListener, LoaderCallbacks<Cursor> {
 
     /**
@@ -628,17 +628,11 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void onCreateOptionsMenu(final Menu menu, final MenuInflater inflater) {
         inflater.inflate(R.menu.menu_plans, menu);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void onClick(final View v) {
         switch (v.getId()) {
@@ -670,10 +664,9 @@ public final class PlansFragment extends SherlockListFragment implements OnClick
                 new android.content.DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(final DialogInterface dialog, final int which) {
-                        Intent intent = null;
                         switch (which) {
                             case 0:
-                                intent = new Intent(PlansFragment.this.getActivity(),
+                                Intent intent = new Intent(PlansFragment.this.getActivity(),
                                         PlanEdit.class);
                                 intent.setData(ContentUris.withAppendedId(
                                         DataProvider.Plans.CONTENT_URI, id));

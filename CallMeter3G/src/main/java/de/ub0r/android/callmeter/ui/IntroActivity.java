@@ -18,24 +18,23 @@
  */
 package de.ub0r.android.callmeter.ui;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.MenuItem;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.ui.prefs.Preferences;
 import de.ub0r.android.lib.Utils;
 
 /**
- * Display Help {@link SherlockActivity}.
+ * Display Help Activity.
  *
  * @author flx
  */
-public final class IntroActivity extends SherlockActivity implements OnClickListener {
+public final class IntroActivity extends AppCompatActivity implements OnClickListener {
 
     /**
      * {@inheritDoc}
@@ -46,8 +45,6 @@ public final class IntroActivity extends SherlockActivity implements OnClickList
         Utils.setLocale(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro);
-        CallMeter.fixActionBarBackground(getSupportActionBar(), getResources(),
-                R.drawable.bg_striped, R.drawable.bg_striped_split);
         setTitle(R.string.intro_);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         findViewById(R.id.ok).setOnClickListener(this);

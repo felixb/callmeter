@@ -18,9 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 
 import android.app.AlertDialog.Builder;
 import android.content.ContentUris;
@@ -32,11 +29,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
@@ -49,7 +50,7 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-public final class NumberGroupEdit extends SherlockPreferenceActivity implements
+public final class NumberGroupEdit extends PreferenceActivity implements
         OnPreferenceClickListener {
     /** Tag for debug out. */
     // private static final String TAG = "NumberGroupEdit";
@@ -106,8 +107,7 @@ public final class NumberGroupEdit extends SherlockPreferenceActivity implements
                 ContentUris.withAppendedId(DataProvider.NumbersGroup.CONTENT_URI, gid),
                 DataProvider.NumbersGroup.PROJECTION, null, null, null);
         if (c.moveToFirst()) {
-            getSupportActionBar().setSubtitle(
-                    c.getString(DataProvider.NumbersGroup.INDEX_NAME));
+            CallMeter.setActivitySubtitle(this, c.getString(DataProvider.NumbersGroup.INDEX_NAME));
         }
         c.close();
         PreferenceScreen ps = (PreferenceScreen) findPreference("container");
@@ -168,7 +168,7 @@ public final class NumberGroupEdit extends SherlockPreferenceActivity implements
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        getSupportMenuInflater().inflate(R.menu.menu_group_edit, menu);
+        getMenuInflater().inflate(R.menu.menu_group_edit, menu);
         return true;
     }
 
@@ -298,7 +298,7 @@ public final class NumberGroupEdit extends SherlockPreferenceActivity implements
                 ContentValues values = new ContentValues();
                 values.put(DataProvider.NumbersGroup.NAME, et.getText().toString());
                 NumberGroupEdit.this.getContentResolver().update(u, values, null, null);
-                NumberGroupEdit.this.getSupportActionBar().setSubtitle(et.getText().toString());
+                CallMeter.setActivitySubtitle(NumberGroupEdit.this, et.getText().toString());
             }
         });
         builder.setNegativeButton(android.R.string.cancel, null);

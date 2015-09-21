@@ -18,7 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -29,6 +28,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 import android.text.format.DateFormat;
@@ -46,7 +46,7 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-public final class SimplePreferences extends SherlockPreferenceActivity implements
+public final class SimplePreferences extends PreferenceActivity implements
         OnPreferenceChangeListener {
 
     /**

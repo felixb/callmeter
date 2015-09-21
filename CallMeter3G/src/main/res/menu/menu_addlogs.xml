@@ -15,17 +15,19 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 -->
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
             android:id="@+id/item_cancel"
             android:icon="@drawable/ic_menu_close_clear_cancel"
-            android:showAsAction="ifRoom|never"
+            app:showAsAction="ifRoom|never"
             android:title="@android:string/cancel"/>
     <item
             android:id="@+id/item_add"
             android:icon="@drawable/ic_menu_add"
-            android:showAsAction="ifRoom|never"
+            app:showAsAction="ifRoom|never"
             android:title="@string/add_"/>
 
 </menu>

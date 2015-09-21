@@ -15,27 +15,35 @@
 		copy of the GNU General Public License along with this program; If
 		not, see <http://www.gnu.org/licenses/>.
 -->
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
             android:id="@+id/item_add"
+            android:title="@string/add_"
             android:icon="@drawable/ic_menu_add"
             android:showAsAction="ifRoom"
-            android:title="@string/add_"/>
+            app:showAsAction="ifRoom"
+            tools:ignore="AppCompatResource,UnusedAttribute"/>
     <item
             android:id="@+id/item_rename"
-            android:icon="@drawable/ic_menu_edit"
-            android:showAsAction="never"
-            android:title="@string/name_"/>
+            android:title="@string/name_"
+            android:icon="@drawable/ic_menu_edit"/>
     <item
             android:id="@+id/item_delete"
+            android:title="@string/delete_"
             android:icon="@drawable/ic_menu_close_clear_cancel"
             android:showAsAction="ifRoom"
-            android:title="@string/delete_"/>
+            app:showAsAction="ifRoom"
+            tools:ignore="AppCompatResource,UnusedAttribute"/>
     <item
             android:id="@+id/item_help"
+            android:title="@string/help_"
             android:icon="@drawable/ic_menu_help"
             android:showAsAction="ifRoom"
-            android:title="@string/help_"/>
+            app:showAsAction="ifRoom"
+            tools:ignore="AppCompatResource,UnusedAttribute"/>
 
 </menu>

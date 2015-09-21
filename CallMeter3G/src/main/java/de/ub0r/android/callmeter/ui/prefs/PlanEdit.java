@@ -18,7 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
 
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -27,12 +26,14 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.text.InputType;
 
 import java.util.Calendar;
 
+import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.RuleMatcher;
@@ -44,7 +45,7 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-public final class PlanEdit extends SherlockPreferenceActivity implements UpdateListener {
+public final class PlanEdit extends PreferenceActivity implements UpdateListener {
 
     /**
      * Tag for debug out.
@@ -127,7 +128,7 @@ public final class PlanEdit extends SherlockPreferenceActivity implements Update
             ep.setText(c.getString(DataProvider.Plans.INDEX_NAME));
             ep.setInputType(InputType.TYPE_CLASS_TEXT);
             ps.addPreference(ep);
-            getSupportActionBar().setSubtitle(ep.getText());
+            CallMeter.setActivitySubtitle(this, ep.getText());
             if (t != DataProvider.TYPE_SPACING && t != DataProvider.TYPE_TITLE) {
                 // short name
                 ep = new CVEditTextPreference(this, values, DataProvider.Plans.SHORTNAME, this

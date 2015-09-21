@@ -22,10 +22,6 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.view.Window;
 import com.viewpagerindicator.TitlePageIndicator;
 
 import android.app.ProgressDialog;
@@ -45,14 +41,17 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 
-import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerReceiver;
@@ -63,11 +62,11 @@ import de.ub0r.android.lib.Utils;
 import de.ub0r.android.logg0r.Log;
 
 /**
- * Callmeter's Main {@link SherlockFragmentActivity}.
+ * Callmeter's Main Activity
  *
  * @author flx
  */
-public final class Plans extends SherlockFragmentActivity implements OnPageChangeListener {
+public final class Plans extends AppCompatActivity implements OnPageChangeListener {
 
     /**
      * Tag for output.
@@ -421,13 +420,11 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setTheme(Preferences.getTheme(this));
         Utils.setLocale(this);
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.plans);
-        CallMeter.fixActionBarBackground(getSupportActionBar(), getResources(),
-                R.drawable.bg_striped, R.drawable.bg_striped_split);
         getSupportActionBar().setHomeButtonEnabled(true);
 
         SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
@@ -519,7 +516,7 @@ public final class Plans extends SherlockFragmentActivity implements OnPageChang
      */
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        getSupportMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         if (prefsNoAds) {
             menu.removeItem(R.id.item_donate);
         }

@@ -18,11 +18,11 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
 
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceActivity;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.RuleMatcher;
@@ -33,7 +33,7 @@ import de.ub0r.android.lib.Utils;
  *
  * @author flx
  */
-public final class SimplePreferencesChild extends SherlockPreferenceActivity implements
+public final class SimplePreferencesChild extends PreferenceActivity implements
         OnPreferenceChangeListener {
 
     /**
@@ -106,7 +106,6 @@ public final class SimplePreferencesChild extends SherlockPreferenceActivity imp
         String a = getIntent().getAction();
         if (a == null) {
             finish();
-            return;
         } else if (CALLS.equals(a)) {
             addPreferencesFromResource(R.xml.simple_prefs_calls);
             setOnChangeListenerCall("");

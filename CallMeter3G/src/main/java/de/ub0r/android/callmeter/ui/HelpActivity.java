@@ -18,10 +18,9 @@
  */
 package de.ub0r.android.callmeter.ui;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.MenuItem;
-
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -29,15 +28,12 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.Utils;
 
 /**
- * Display Help {@link SherlockActivity}.
+ * Display Help Activity.
  *
  * @author flx
  */
-public final class HelpActivity extends SherlockActivity implements OnClickListener {
+public final class HelpActivity extends AppCompatActivity implements OnClickListener {
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         Utils.setLocale(this);
@@ -48,9 +44,6 @@ public final class HelpActivity extends SherlockActivity implements OnClickListe
         findViewById(R.id.ok).setOnClickListener(this);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void onClick(final View v) {
         switch (v.getId()) {
@@ -62,9 +55,6 @@ public final class HelpActivity extends SherlockActivity implements OnClickListe
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {

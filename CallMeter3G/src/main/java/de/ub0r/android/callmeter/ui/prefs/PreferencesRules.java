@@ -1,6 +1,5 @@
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
@@ -29,7 +29,7 @@ import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.logg0r.Log;
 
-public class PreferencesRules extends SherlockPreferenceActivity {
+public class PreferencesRules extends PreferenceActivity {
 
     private static final String TAG = "PreferencesRules";
 

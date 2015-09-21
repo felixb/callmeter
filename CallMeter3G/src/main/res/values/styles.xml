@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--    Copyright (C) 2009-2015 Felix Bechstein -->
 <!--
-		This file is part of Call MEter 3G. This program is free software; you can
+		This file is part of Call Meter 3G. This program is free software; you can
 		redistribute it and/or modify it under the terms of the GNU General
 		Public License as published by the Free Software Foundation; either
 		version 3 of the License, or (at your option) any later version.
@@ -39,15 +39,15 @@
 
     <style name="TextAppearance.Multicomplete" parent="@android:style/TextAppearance.Widget.EditText" />
 
-    <style name="Devider">
+    <style name="Divider">
         <item name="android:visibility">gone</item>
     </style>
 
-    <style name="Theme.SherlockDefault" parent="style/Theme.Sherlock">
+    <style name="Theme.Default" parent="android:Theme">
         <item name="ubButtonBarBackground">@android:color/transparent</item>
     </style>
 
-    <style name="Theme.SherlockCallMeter" parent="style/Theme.Sherlock">
+    <style name="Theme.CallMeter" parent="style/Theme.AppCompat">
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
         <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>
         <item name="ubButtonBarBackground">@color/ubActionBarBackgroundDark</item>
@@ -57,7 +57,7 @@
         <item name="cmProgressRedBackground">@drawable/progress_horizontal_dark_red</item>
     </style>
 
-    <style name="Theme.SherlockCallMeter_Light" parent="style/Theme.Sherlock.Light.DarkActionBar">
+    <style name="Theme.CallMeter_Light" parent="style/Theme.AppCompat.Light.DarkActionBar">
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar_Light</item>
         <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar_Light</item>
         <item name="ubButtonBarBackground">@color/ubActionBarBackgroundLight</item>
@@ -67,14 +67,14 @@
         <item name="cmProgressRedBackground">@drawable/progress_horizontal_light_red</item>
     </style>
 
-    <style name="Widget.Styled.ActionBar" parent="Widget.Sherlock.ActionBar.Solid">
+    <style name="Widget.Styled.ActionBar" parent="Widget.AppCompat.ActionBar.Solid">
         <item name="background">@drawable/bg_striped</item>
         <item name="android:background">@drawable/bg_striped</item>
         <item name="backgroundSplit">@drawable/bg_striped_split</item>
         <item name="android:backgroundSplit">@drawable/bg_striped_split</item>
     </style>
 
-    <style name="Widget.Styled.ActionBar_Light" parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
+    <style name="Widget.Styled.ActionBar_Light" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="background">@drawable/bg_striped</item>
         <item name="android:background">@drawable/bg_striped</item>
         <item name="backgroundSplit">@drawable/bg_striped_split</item>

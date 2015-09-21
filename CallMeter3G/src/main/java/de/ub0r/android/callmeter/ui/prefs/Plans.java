@@ -18,9 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 
 import android.app.AlertDialog.Builder;
 import android.content.ContentUris;
@@ -32,8 +29,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
@@ -42,13 +42,12 @@ import de.ub0r.android.callmeter.ui.prefs.UpDownPreference.OnUpDownClickListener
 import de.ub0r.android.lib.Utils;
 
 /**
- * {@link SherlockPreferenceActivity} for setting plans.
+ * Activity for setting plans.
  *
  * @author flx
  */
-public final class Plans extends SherlockPreferenceActivity
-        implements OnPreferenceClickListener,
-        OnUpDownClickListener {
+public final class Plans extends PreferenceActivity
+        implements OnPreferenceClickListener, OnUpDownClickListener {
     /** Tag for output. */
     // private static final String TAG = "pp";
 
@@ -114,7 +113,7 @@ public final class Plans extends SherlockPreferenceActivity
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        getSupportMenuInflater().inflate(R.menu.menu_group, menu);
+        getMenuInflater().inflate(R.menu.menu_group, menu);
         return true;
     }
 

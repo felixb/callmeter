@@ -18,9 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
@@ -28,7 +25,10 @@ import android.app.TimePickerDialog;
 import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.ContentValues;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -57,7 +57,7 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-public final class AddLogActivity extends SherlockActivity implements OnClickListener,
+public final class AddLogActivity extends AppCompatActivity implements OnClickListener,
         OnDateSetListener, OnTimeSetListener {
 
     /**
@@ -84,17 +84,12 @@ public final class AddLogActivity extends SherlockActivity implements OnClickLis
 
     private Calendar cal;
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         setTheme(Preferences.getTheme(this));
         Utils.setLocale(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logs_add);
-        CallMeter.fixActionBarBackground(getSupportActionBar(), getResources(),
-                R.drawable.bg_striped, R.drawable.bg_striped_split);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle(R.string.add_log);
@@ -159,7 +154,7 @@ public final class AddLogActivity extends SherlockActivity implements OnClickLis
      */
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        getSupportMenuInflater().inflate(R.menu.menu_addlogs, menu);
+        getMenuInflater().inflate(R.menu.menu_addlogs, menu);
         return true;
     }
 

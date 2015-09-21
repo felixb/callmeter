@@ -18,7 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -38,6 +37,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -79,7 +79,7 @@ import de.ub0r.android.logg0r.LogCollector;
  *
  * @author flx
  */
-public final class Preferences extends SherlockPreferenceActivity implements
+public final class Preferences extends PreferenceActivity implements
         OnPreferenceClickListener {
 
     /**
@@ -329,9 +329,9 @@ public final class Preferences extends SherlockPreferenceActivity implements
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_THEME, THEME_LIGHT);
         if (s != null && THEME_BLACK.equals(s)) {
-            return R.style.Theme_SherlockCallMeter;
+            return R.style.Theme_CallMeter;
         } else {
-            return R.style.Theme_SherlockCallMeter_Light;
+            return R.style.Theme_CallMeter_Light;
         }
     }
 

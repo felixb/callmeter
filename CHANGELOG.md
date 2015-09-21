@@ -2,6 +2,7 @@
 
 ## 3.11.9
  * add EU cookie consent banner
+ * migrate from ActionBarSherlock to AppCompat
  * update translations
 
 ## 3.11.8

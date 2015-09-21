@@ -18,7 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
 
 import android.app.AlertDialog.Builder;
 import android.content.ContentValues;
@@ -27,11 +26,13 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.telephony.TelephonyManager;
 import android.text.InputType;
 import android.text.TextUtils;
 
+import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerService;
@@ -45,7 +46,7 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-public final class RuleEdit extends SherlockPreferenceActivity implements UpdateListener {
+public final class RuleEdit extends PreferenceActivity implements UpdateListener {
 
     /**
      * Tag for debug out.
@@ -205,7 +206,7 @@ public final class RuleEdit extends SherlockPreferenceActivity implements Update
             ep.setText(c.getString(DataProvider.Rules.INDEX_NAME));
             ep.setInputType(InputType.TYPE_CLASS_TEXT);
             ps.addPreference(ep);
-            getSupportActionBar().setSubtitle(ep.getText());
+            CallMeter.setActivitySubtitle(this, ep.getText());
             // active
             CVCheckBoxPreference cp = new CVCheckBoxPreference(this, values,
                     DataProvider.Rules.ACTIVE);

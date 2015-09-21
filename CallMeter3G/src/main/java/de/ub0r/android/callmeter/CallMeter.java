@@ -18,12 +18,10 @@
  */
 package de.ub0r.android.callmeter;
 
-import com.actionbarsherlock.app.ActionBar;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.Application;
-import android.content.res.Resources;
-import android.graphics.Shader.TileMode;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 
 import de.ub0r.android.lib.Utils;
@@ -108,25 +106,10 @@ public final class CallMeter extends Application {
         Utils.setLocale(this);
     }
 
-    /**
-     * Fix ActionBar background. See http://b.android.com/15340.
-     *
-     * @param ab      {@link ActionBar}
-     * @param r       {@link Resources}
-     * @param bg      res id of background {@link BitmapDrawable}
-     * @param bgSplit res id of background {@link BitmapDrawable} in split mode
-     */
-    public static void fixActionBarBackground(final ActionBar ab, final Resources r, final int bg,
-            final int bgSplit) {
-        // This is a workaround for http://b.android.com/15340 from
-        // http://stackoverflow.com/a/5852198/132047
-        BitmapDrawable d = (BitmapDrawable) r.getDrawable(bg);
-        d.setTileModeXY(TileMode.REPEAT, TileMode.REPEAT);
-        ab.setBackgroundDrawable(d);
-        if (bgSplit >= 0) {
-            d = (BitmapDrawable) r.getDrawable(bgSplit);
-            d.setTileModeXY(TileMode.REPEAT, TileMode.REPEAT);
-            ab.setSplitBackgroundDrawable(d);
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public static void setActivitySubtitle(final Activity a, final String t) {
+        if (BuildConfig.VERSION_CODE >= Build.VERSION_CODES.HONEYCOMB) {
+            a.getActionBar().setSubtitle(t);
         }
     }
 }
