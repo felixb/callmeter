@@ -2910,6 +2910,13 @@
     },
     {
       "country": "Hungary",
+      "id": "f_Hungary_UPC_Freedom_M",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_UPC_Freedom_M.xml",
+      "provider": "UPC",
+      "title": "Freedom M"
+    },
+    {
+      "country": "Hungary",
       "id": "f_Hungary_Upc_Mobil_S",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Upc_Mobil_S.xml",
       "provider": "Upc",
