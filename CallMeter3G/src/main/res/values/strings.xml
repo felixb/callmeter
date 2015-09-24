@@ -86,9 +86,6 @@
 	<string name="show_today_hint">Show today stats</string>
 	<string name="show_total_">Show total</string>
 	<string name="show_total_hint">Show total stats, disable to see current only.</string>
-	<string name="show_time_">Switch to date</string>
-	<string name="show_titlebar_">Show title bar</string>
-	<string name="show_titlebar_hint">Show title bar in main view. Without title bar, there is no way to see background activity.</string>
 	<string name="show_hours_">Show hours</string>
 	<string name="show_hours_hint">Show time in seconds, minutes, hours and days.\nIf unchecked only seconds and minutes are shown.</string>
 	<string name="show_help_">Show help</string>
@@ -146,7 +143,7 @@
 	<string name="hourgroups_edit_hint">Edit hour groups here.</string>
 	<string name="numbers">Numbers</string>
 	<string name="numbergroup_">Include numbers</string>
-	<string name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%%\") are allowed on both ends of the number.\nE.g. %%34 will match 1234, 12%% will match 1234 and %%23%% will match 12345.</string>
+	<string name="numbergroup_help">Add some numbers this rule must match.\n\nWildcards (\"%\") are allowed on both ends of the number.\nE.g. %34 will match 1234, 12% will match 1234 and %23% will match 12345.</string>
 	<string name="exnumbergroup_">Exclude numbers</string>
 	<string name="exnumbergroup_help">Add some numbers this rule must not match.\nSee above.</string>
 	<string name="new_numbergroup">New number group</string>
@@ -296,7 +293,6 @@
 	<string name="none">None</string>
 	<string name="value">Value</string>
 	<string name="empty_groups_">Please press "Add" to add a group.</string>
-	<string name="empty_group_">Please press "Add" to add an item to this group.</string>
 	<string name="export_progr">Exporting data ...</string>
 	<string name="import_progr">Import data ...</string>
 	<string name="export_">Export ...</string>
