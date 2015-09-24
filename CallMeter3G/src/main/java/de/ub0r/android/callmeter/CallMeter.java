@@ -108,7 +108,7 @@ public final class CallMeter extends Application {
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static void setActivitySubtitle(final Activity a, final String t) {
-        if (BuildConfig.VERSION_CODE >= Build.VERSION_CODES.HONEYCOMB) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             a.getActionBar().setSubtitle(t);
         }
     }

@@ -20,7 +20,7 @@
 		<item name="ubButtonBarBackground">@android:color/transparent</item>
 	</style>
 
-	<style name="TextAppearance.Multicomplete" parent="@android:style/TextAppearance" />
+	<style name="TextAppearance.MultiComplete" parent="@android:style/TextAppearance" />
 
     <style name="ButtonBar" parent="@android:style/ButtonBar">
         <item name="android:background">?attr/ubButtonBarBackground</item>
