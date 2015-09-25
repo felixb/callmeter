@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!--
-		Copyright (C) 2009-2015 Felix Bechstein
-	-->
-	<!--
-		This file is part of Call Meter 3G. This program is free software; you
-		can redistribute it and/or modify it under the terms of the GNU
-		General Public License as published by the Free Software Foundation;
-		either version 3 of the License, or (at your option) any later
-		version.
-	-->
-	<!--
-		This program is distributed in the hope that it will be useful, but
-		WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-		General Public License for more details. You should have received a
-		copy of the GNU General Public License along with this program; If
-		not, see <http://www.gnu.org/licenses/>.
-	-->
+    <!--
+        Copyright (C) 2009-2015 Felix Bechstein
+    -->
+    <!--
+        This file is part of Call Meter 3G. This program is free software; you
+        can redistribute it and/or modify it under the terms of the GNU
+        General Public License as published by the Free Software Foundation;
+        either version 3 of the License, or (at your option) any later
+        version.
+    -->
+    <!--
+        This program is distributed in the hope that it will be useful, but
+        WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+        General Public License for more details. You should have received a
+        copy of the GNU General Public License along with this program; If
+        not, see <http://www.gnu.org/licenses/>.
+    -->
 <resources>
-	<string name="missing_slash">Bill mode needs to be in seconds/seconds!</string>
-	<string name="freemin_">Free minutes</string>
-	<string name="freemin_hint">Free minutes / month</string>
-	<string name="cost_per_call_">Cost / call</string>
-	<string name="cost_per_call_hint">Each call get\'s billed.</string>
-	<string name="cost_per_min_">Cost / minute</string>
-	<string name="cost_per_min_hint">Each minute get\'s billed.</string>
-	<string name="freesms_">Free SMS</string>
-	<string name="freesms_hint">Free SMS / month</string>
-	<string name="cost_per_sms_">Cost / SMS</string>
-	<string name="cost_per_sms_hint">Each SMS get\'s billed.</string>
-	<string name="freemms_">Free MMS</string>
-	<string name="freemms_hint">Free MMS / month</string>
-	<string name="cost_per_mms_">Cost / MMS</string>
-	<string name="cost_per_mms_hint">Each MMS get\'s billed.</string>
-	<string name="freedata_">Free traffic</string>
-	<string name="freedata_hint">Free 2G, 3G or 4G data traffic / month</string>
-	<string name="cost_per_mb_">Cost / MB</string>
-	<string name="cost_per_mb_hint">Each MB get\'s billed.</string>
+    <string name="missing_slash">Bill mode needs to be in seconds/seconds!</string>
+    <string name="freemin_">Free minutes</string>
+    <string name="freemin_hint">Free minutes / month</string>
+    <string name="cost_per_call_">Cost / call</string>
+    <string name="cost_per_call_hint">Each call get\'s billed.</string>
+    <string name="cost_per_min_">Cost / minute</string>
+    <string name="cost_per_min_hint">Each minute get\'s billed.</string>
+    <string name="freesms_">Free SMS</string>
+    <string name="freesms_hint">Free SMS / month</string>
+    <string name="cost_per_sms_">Cost / SMS</string>
+    <string name="cost_per_sms_hint">Each SMS get\'s billed.</string>
+    <string name="freemms_">Free MMS</string>
+    <string name="freemms_hint">Free MMS / month</string>
+    <string name="cost_per_mms_">Cost / MMS</string>
+    <string name="cost_per_mms_hint">Each MMS get\'s billed.</string>
+    <string name="freedata_">Free traffic</string>
+    <string name="freedata_hint">Free 2G, 3G or 4G data traffic / month</string>
+    <string name="cost_per_mb_">Cost / MB</string>
+    <string name="cost_per_mb_hint">Each MB get\'s billed.</string>
 </resources>
