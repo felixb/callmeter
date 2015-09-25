@@ -18,14 +18,14 @@
         not, see <http://www.gnu.org/licenses/>.
     -->
 <resources>
-    <string name="intro_">Introducing Call Meter 3G</string>
-    <string name="intro0"><b>Call Meter 3G</b> monitors usage of your calls, messages and data connections.</string>
-    <string name="intro1">In order to get accurate statistics, it is important to set up Call Meter 3G as accurately as possible.</string>
-    <string name="intro_simple">Most users only need to set their settings in menu <b>Basic settings</b>. Just set the number of inclusive minutes or messages. Set up cost for calls made, etc..</string>
-    <string name="intro_import">If your billing is more complex, for example because messages and calls are billed as merged units, you can import pre-configured rules. Just select the menu <b>Import rule set</b>.</string>
-    <string name="intro_export">In any case, when everything is set up, you can export your rules to me. Thus, all other users can benefit from your work.</string>
-    <string name="intro_recalc0">The statistics are recalculated after each change to the configuration. This will take some time depending on the number of calls, messages or data logs. It therefore makes sense to adjust all the settings in one fell swoop.</string>
-    <string name="intro_recalc1">The process can be greatly accelerated by the setting <b>Beginning of recording</b> or <b>Delete logs older than</b>.</string>
-    <string name="intro_data">Please note that no data statistics from before the last phone boot can be displayed.</string>
-    <string name="intro_kill">Please note that <b>killing</b> the app can lead to corrupted (data) statistics.</string>
+    <string formatted="false" name="intro_">Introducing Call Meter 3G</string>
+    <string formatted="false" name="intro0"><b>Call Meter 3G</b> monitors usage of your calls, messages and data connections.</string>
+    <string formatted="false" name="intro1">In order to get accurate statistics, it is important to set up Call Meter 3G as accurately as possible.</string>
+    <string formatted="false" name="intro_simple">Most users only need to set their settings in menu <b>Basic settings</b>. Just set the number of inclusive minutes or messages. Set up cost for calls made, etc..</string>
+    <string formatted="false" name="intro_import">If your billing is more complex, for example because messages and calls are billed as merged units, you can import pre-configured rules. Just select the menu <b>Import rule set</b>.</string>
+    <string formatted="false" name="intro_export">In any case, when everything is set up, you can export your rules to me. Thus, all other users can benefit from your work.</string>
+    <string formatted="false" name="intro_recalc0">The statistics are recalculated after each change to the configuration. This will take some time depending on the number of calls, messages or data logs. It therefore makes sense to adjust all the settings in one fell swoop.</string>
+    <string formatted="false" name="intro_recalc1">The process can be greatly accelerated by the setting <b>Beginning of recording</b> or <b>Delete logs older than</b>.</string>
+    <string formatted="false" name="intro_data">Please note that no data statistics from before the last phone boot can be displayed.</string>
+    <string formatted="false" name="intro_kill">Please note that <b>killing</b> the app can lead to corrupted (data) statistics.</string>
 </resources>

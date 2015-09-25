@@ -18,23 +18,23 @@
         not, see <http://www.gnu.org/licenses/>.
     -->
 <resources>
-    <string name="missing_slash">Bill mode needs to be in seconds/seconds!</string>
-    <string name="freemin_">Free minutes</string>
-    <string name="freemin_hint">Free minutes / month</string>
-    <string name="cost_per_call_">Cost / call</string>
-    <string name="cost_per_call_hint">Each call get\'s billed.</string>
-    <string name="cost_per_min_">Cost / minute</string>
-    <string name="cost_per_min_hint">Each minute get\'s billed.</string>
-    <string name="freesms_">Free SMS</string>
-    <string name="freesms_hint">Free SMS / month</string>
-    <string name="cost_per_sms_">Cost / SMS</string>
-    <string name="cost_per_sms_hint">Each SMS get\'s billed.</string>
-    <string name="freemms_">Free MMS</string>
-    <string name="freemms_hint">Free MMS / month</string>
-    <string name="cost_per_mms_">Cost / MMS</string>
-    <string name="cost_per_mms_hint">Each MMS get\'s billed.</string>
-    <string name="freedata_">Free traffic</string>
-    <string name="freedata_hint">Free 2G, 3G or 4G data traffic / month</string>
-    <string name="cost_per_mb_">Cost / MB</string>
-    <string name="cost_per_mb_hint">Each MB get\'s billed.</string>
+    <string formatted="false" name="missing_slash">Bill mode needs to be in seconds/seconds!</string>
+    <string formatted="false" name="freemin_">Free minutes</string>
+    <string formatted="false" name="freemin_hint">Free minutes / month</string>
+    <string formatted="false" name="cost_per_call_">Cost / call</string>
+    <string formatted="false" name="cost_per_call_hint">Each call get\'s billed.</string>
+    <string formatted="false" name="cost_per_min_">Cost / minute</string>
+    <string formatted="false" name="cost_per_min_hint">Each minute get\'s billed.</string>
+    <string formatted="false" name="freesms_">Free SMS</string>
+    <string formatted="false" name="freesms_hint">Free SMS / month</string>
+    <string formatted="false" name="cost_per_sms_">Cost / SMS</string>
+    <string formatted="false" name="cost_per_sms_hint">Each SMS get\'s billed.</string>
+    <string formatted="false" name="freemms_">Free MMS</string>
+    <string formatted="false" name="freemms_hint">Free MMS / month</string>
+    <string formatted="false" name="cost_per_mms_">Cost / MMS</string>
+    <string formatted="false" name="cost_per_mms_hint">Each MMS get\'s billed.</string>
+    <string formatted="false" name="freedata_">Free traffic</string>
+    <string formatted="false" name="freedata_hint">Free 2G, 3G or 4G data traffic / month</string>
+    <string formatted="false" name="cost_per_mb_">Cost / MB</string>
+    <string formatted="false" name="cost_per_mb_hint">Each MB get\'s billed.</string>
 </resources>
