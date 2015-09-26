@@ -13,7 +13,7 @@
       <_limit>0</_limit>
       <_billperiod>4</_billperiod>
       <_billmode>1/1</_billmode>
-      <_billday>1408838401681</_billday>
+      <_billday>1443038401681</_billday>
       <_cost_per_plan>510</_cost_per_plan>
       <_billperiod_id>0</_billperiod_id>
       <_next_alert>0</_next_alert>
@@ -466,6 +466,7 @@
       <_what>0</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
+      <_exnumbergroup_id>,1,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
       <_is_sipcall>1</_is_sipcall>
@@ -479,6 +480,7 @@
       <_what>1</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
+      <_exnumbergroup_id>,2,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
       <_is_sipcall>2</_is_sipcall>
@@ -692,9 +694,14 @@
       <_name>Exclude from calls</_name>
       <numbers>
         <number>
-          <_id>1</_id>
+          <_id>33</_id>
           <_gid>1</_gid>
-          <_number>00800%</_number>
+          <_number>1258888</_number>
+        </number>
+        <number>
+          <_id>34</_id>
+          <_gid>1</_gid>
+          <_number>1258880</_number>
         </number>
       </numbers>
     </numbersgroup>
@@ -702,6 +709,16 @@
       <_id>2</_id>
       <_name>Exclude from SMS</_name>
       <numbers>
+        <number>
+          <_id>31</_id>
+          <_gid>2</_gid>
+          <_number>1258888</_number>
+        </number>
+        <number>
+          <_id>32</_id>
+          <_gid>2</_gid>
+          <_number>1258880</_number>
+        </number>
       </numbers>
     </numbersgroup>
     <numbersgroup>
@@ -824,6 +841,16 @@
           <_id>25</_id>
           <_gid>18</_gid>
           <_number>+618%</_number>
+        </number>
+        <number>
+          <_id>29</_id>
+          <_gid>18</_gid>
+          <_number>1258888</_number>
+        </number>
+        <number>
+          <_id>35</_id>
+          <_gid>18</_gid>
+          <_number>1258880</_number>
         </number>
       </numbers>
     </numbersgroup>
