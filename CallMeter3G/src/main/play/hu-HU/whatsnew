@@ -1,5 +1,3 @@
-* Android 5.1 multi SIM support
-* fix FCs (issue #70)
-* fix calculation of billing mode (issue #72)
-* remove google analytics
+* add EU cookie consent banner
+* migrate from ActionBarSherlock to AppCompat
 * update translations

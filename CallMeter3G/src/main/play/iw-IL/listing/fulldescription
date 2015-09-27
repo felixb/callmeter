@@ -11,5 +11,15 @@ Call Meter תומך במגוון רב של מצבי חיוב בכדי לתת ל�
 המבנה החדש שלו מאפשר הוספת עוד תכניות מורכבות.
 הרגש חופשי לבחון אותו ולעזור לי לעשות אותו יותר ידידותי למשתמש אף ממה שקיים כעת. ;)
 
-הרגש חופשי לעזור לתרגם את היישום לשפתך כאן: 
-http://ub0r.de/translate/cm3
+Permissions of this app:
+* READ SMS OR MMS: count your messages
+* RECEIVE SMS: update logs before a recently received message got deleted
+* FULL INTERNET ACCESS: importing rules
+* READ CONTACT DATA: convert numbers to names (e.g. in number groups)
+* MODIFY/DELETE SD CARD CONTENTS: write/export rules to sd card
+* READ PHONE STATE AND IDENTITY: update logs in background
+* PREVENT DEVICE FROM SLEEPING: update logs in background
+
+הרגש חופשי לעזור לתרגם את היישום לשפתך כאן: https://crowdin.com/project/callmeter3g/invite
+
+Please see https://github.com/felixb/callmeter/issues for issues and enhancement requests.

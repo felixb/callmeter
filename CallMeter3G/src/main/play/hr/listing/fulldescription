@@ -1,31 +1,30 @@
-Call Meter vam omogućuje držati vašu mobilnu potrošnju na oku.
+Call Meter 3G je najpotpunija aplikacija nadziranja za vaš Android uređaj: Nadzire vaše pozive, tekstualne poruke i korištenje podataka.
 
-Pokazuje statistike vaših poziva/SMS/txt/podatkovnog prometa i omogućuje vam postavljanje granica za svaki od tih troškova.
-Call Meter podržava golemi broj načina naplate kako bi ga mogli prilagoditi načinu obračuna vašeg operatera.
+Prikazuje statistiku vašeg korištenja i prikazuje upozorenja ako dostignete vaša ograničenja.
+Tu su sve vrste dodataka kako bi prikazivali najvrjednije statistike izravno na početnom zaslonu.
 
+Call Meter 3G ima kompleksan pogon pravila kako bi vam dozvolio da postavite aplikaciju točno na onaj način kako vas tarifira vaš davatelj usluga.
 
 Poznati problemi:
-* Viber pozive detektira kao standardne pozive. Molim vas prijavite Viberu da to poprave.
-* Ne broji točno potrošnju mobilne veze kod nekih Samsungovih uređaja. Taj problem je baziran na Samsungovoj Android inačici i popravljen je na većini uređaja sa Android aktualizacijom.
+*Viber pozivi se detektiraju kao standardni pozivi. Molim vas recite Viberu da to popravi.
+*Ne računa ispravno korištenje podataka na nekim Samsung uređajima. Ovaj problem je temeljen na Samsung Android inačici i popravljen je na većini uređaja neki ažuriranjem Androida.
 
+Ova aplikacija je softver orvorenog koda napravljena u slobodno vrijeme.
+Dodavanjem lošeg komentara u Trgovini Play neće pomoći da bude bolja.\Molim vas dodajte vaš problem sa ovom aplikacijom na web stranicu aplikacije.
 
-Ovo je aplikacija otvorenog koda koja se radi u slobodno vrijeme. Dodavanje loših komentara na marketu neće pomoći da bude bolja.
-Molimo navedite svoje probleme s ovom aplikacijom na web stranici aplikacije.
+Ovo je potpuna obnova Call Meter NG. To je ogroman broj novih značajki kao što su dodaci i upozorenja.
+To je nova arhitektura koja omogućava složenije planove. 
+Osjećajte se slobodno testirati i pomoći mi da je napravim više korisničko-prijateljskom kao što je trenutno. ;)
 
-Ovo je potpuno obnovljeni Call Meter NG. Sadrži golemu količinu novih značajki kao što su dodaci i upozorenja.
-Ovo je nova arhitektura koja omogućuje složenije planove.
-Slobodno testirajte i pomognite mi učiniti aplikaciju korisnijom nego što je trenutno. ;)
-
-Dopuštenja za ovu aplikaciju
-* ČITANJE SMS ILI MMS: broji vaše poruke
-* PRIMLJENI SMS: ažurira zapisnik prije nego što primljena poruka bude obrisana
-* POTPUNI PRISTUP INTERNETU: uvoz pravila
-* ČITANJE KONTAKATA: pretvaranje brojeva u imena (npr. u grupi brojeva)
+Dozvole za ovu aplikaciju:
+* ČITANE SMS ILI MMS: brojanje vaših poruka
+* PRIMANJE SMS: ažuriranje zapisnika prije nego nedavno primljena poruka bude obrisana
+* POTPUNI PRISTUP INTERNETU: uvoženje pravila
+* ČITANJE PODATAKA KONTAKATA: pretvaranje brojeva u imena (npr. u brojevima grupa)
 * IZMJENA/BRISANJE SADRŽAJA SD KARTICE: pisanje/izvoz pravila na sd karticu
-* ČITANJE STANJA TELEFONA I IDENTITETA: ažuriranje zapisnika u pozadini
-* SPRJEČAVANJE UREĐAJA DA ODE U SLEEP NAČIN: ažuriranje zapisnika u pozadini
+* ČITANJE STANJA I IDENTITETA TELEFONA: ažuriranje zapisnika u pozadini
+* SPRJEČAVANJE SPAVANJA UREĐAJA: ažuriranje zapisnika u pozadini
 
-Slobodno pomognite u prevođenju ove aplikacije na vaš jezik ovdje:
-https://crowdin.com/project/callmeter3g/invite
+Osjećajte se slobodnim pomoći prevesti ovu aplikaciju na vaš jezik ovdje: https://crowdin.com/project/callmeter3g/invite
 
-Molim Vas pogledajte https://github.com/felixb/callmeter/issues za pitanja i pojašnjavanja zahtjeva.
+Molim vas pogledajte https://github.com/felixb/callmeter/issues za probleme i zahtjeve za poboljšanjem.

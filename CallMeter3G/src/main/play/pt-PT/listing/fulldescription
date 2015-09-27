@@ -1,30 +1,29 @@
-Call Meter 3G is the most complete monitor app for your Android device: It monitors your calls, text messages and data usage.
+O Call Meter 3G é uma aplicação para monitorizar o seu dispositivo. A aplicação monitoriza as chamadas, as mensagens e a utilização de dados.
 
-It shows statistics of your usage and shows alerts if you reach your limit.
-There are all kinds of widgets to show the most valuable statistics directly on the home screen.
+A aplicação apresenta as estatísticas de utilização e  mostra um alerta se os limites forem atingidos. Existem também widgets que exibem as estatísticas mais relevantes no ecrã do dispositivo.
 
-Call Meter 3G has a complex rule engine to let you set up the app exactly the way your provider writes your bills.
+O Call Metter 3G possui um mecanismo de regras complexas que lhe permite configurar os seus tarifários e planos de faturação.
 
-Known problems:
-* Viber calls are detected as standard calls. Please tell Viber to fix this.
-* Doesn't count properly data usage on some Samsung devices. This problem is based on Samsung's Android version and got fixed on most devices with some Android update.
+Problemas conhecidos:
+* As chamadas Viber são reconhecidas como chamadas normais. 
+* Alguns dispositivos Samsung não são monitorizados corretamente. Este problema está presente em algumas versões Android da Samsung e normalmente, são corrigidos com as atualizações.
 
-This app is open source software build in spare time. Adding bad comments in Play Store won't help much to make it better.
-Please add your issues with this app on the app's website.
+Esta é uma aplicação de código livre criada no meu tempo livre. Se adicionar comentários negativos não a tornará melhor.
+Por favor reporte os erros encontrados no sítio web da aplicação.
 
-This is a complete rebuild of Call Meter NG. It has a huge amount of new features like widgets and alerts.
-It's new architecure allows more complex plans.
-Feel free to test it and help me make it more userfriendly as it is currently. ;)
+Esta é uma versão melhorada do Call Metter NG. Possui mais funcionalidades como os widgets e os alertas.
+Foi criada um novo mecanismo para suporte a planos complexos.
+Experimente a ajude a melhorar a aplicação através do reporte de erros.
 
-Permissions of this app:
-* READ SMS OR MMS: count your messages
-* RECEIVE SMS: update logs before a recently received message got deleted
-* FULL INTERNET ACCESS: importing rules
-* READ CONTACT DATA: convert numbers to names (e.g. in number groups)
-* MODIFY/DELETE SD CARD CONTENTS: write/export rules to sd card
-* READ PHONE STATE AND IDENTITY: update logs in background
-* PREVENT DEVICE FROM SLEEPING: update logs in background
+Permissões desta aplicação:
+* Ler SMS e MMS: para contar as mensagens
+* SMS recebidas: para atualização de registos antes de eliminar uma mensagem
+* Acesso à Internet: para importação de regras
+* Ler dados dos contactos: para converter números em nomes
+* Modificar e eliminar dados no cartão SD: para gravar e exportar regras
+* Ler estado e identidade do telefone: para atualização de registos
+* Impedir o dispositivos de entrar em suspensão: para atualização de registos
 
-Feel free to help translating this app to your language here: https://crowdin.com/project/callmeter3g/invite
+Para ajudar a traduzir a aplicação aceda a: https://crowdin.com/project/callmeter3g/invite
 
-Please see https://github.com/felixb/callmeter/issues for issues and enhancement requests.
+Aceda a https://github.com/felixb/callmeter/issues para reportar erros ou solicitar funcionalidades.

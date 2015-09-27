@@ -3,6 +3,10 @@ Call Meter Vám umožní mať Vaše mobilné účty pod dohľadom.
 Zobrazuje štatistiku Vašich hovorov/SMS/MMS/dát a dovoľuje stanoviť limity pre každý typ.
 Call Meter podporuje širokú škálu účtovania, aby sa vedel prispôsobiť Vašim požiadavkám a spôsobu účtovania Vášho operátora.
 
+Známe problémy:
+* Vıber hovory sú detekované ako bežné volania. Prosím, kontaktujte Viber pre opravu.
+* Nepočíta správne využitie dát na niektorých zariadeniach Samsung. Tento problém je len na niektorých verziách Androidu na zariadeniach Samsung a bol upravený na väčšine zariadení s nejakou aktualizáciu Android.
+
 Toto je open source aplikácia tvorená vo voľnom čase. Negatívny komentár na Markete aplikáciu nevylepší.
 Prosím pridajte Váš problém na web stránke aplikácie.
 
@@ -10,4 +14,15 @@ Toto je kompletne prepísaný Call Meter NG. Má množstvo nových vlastností a
 Jeho nová architektúra dovoľuje oveľa komplexnejšie spôsoby tarifikácie.
 Vyskúšajte ho a pomôžte ho spraviť ešte viac prívetivejším ako je. ;)
 
-Môžete pomôcť aj s prekladom aplikácie na https://crowdin.com/project/callmeter3g/invite
+Povolenia tejto aplikácie:
+* ČÍTANIE SMS A MMS: počet správ
+* PRÍJEM SMS: aktualizácia protokolov nedávno prijatých správ pred ich odstránením
+* PLNÝ PRÍSTUP K INTERNETU: dodané pravidlá
+* ČÍTATA KONTAKTNÉ ÚDAJE: mení čísla na mená (napr. čísla skupín)
+* UPRAVUJE/MAŽE OBSAH SD KARTY: napísať/export pravidiel na SD kartu
+* ČÍTANIE IDENTITY A STAVU TELFÓNU: aktualizácia protokolov na pozadí
+* ZABRÁNENIE PRECHODU ZARIADENIA DO REŽIMU SPÁnKU: aktualizácia protokolov na pozadí
+
+Môžete pomôcť aj s prekladom aplikácie na: https://crowdin.com/project/callmeter3g/invite
+
+Pozri https://github.com/felixb/callmeter/issues pre otázky a požiadavky na vylepšenie.

@@ -1,29 +1,28 @@
-Call Meter es la aplicación de monitorización mas completa para su dispositivo Android: Monitoriza sus llamadas, mensajes de texto y uso de datos
+Το Call Meter 3G είναι η πιο πλήρης εφαρμογή εποπτείας για την Android συσκευή σας: παρακολουθεί τις κλήσεις, τα μηνύματα και τη χρήση δεδομένων σας.
 
-Muestra las estadísticas de tráfico de sus llamadas/sms/txt/datos y le permite fijar límites para recibir una alerta para cada uno de estos planes.
+Εμφανίζει στατιστικές της χρήσης σας και εμφανίζει προειδοποιήσεις όταν φτάσετε το όριό σας.
+Υπάρχουν όλα τα είδη γραφικών στοιχείων για εμφάνιση των πιο πολύτιμων στατιστικών απευθείας από την αρχική οθόνη.
 
-Call Meter soporta una gran cantidad de modos de facturación y le permite adaptar su comportamiento a la facturación de su operador.
+Το Call Meter 3G έχει μια μηχανή ακόμη και για περίπλοκους κανόνες που σας επιτρέπει να ρυθμίσετε την εφαρμογή με τον ακριβή τρόπο που σας χρεώνει ο πάροχός σας.
 
-Problemas conocidos:
-* Las llamadas de Viber se detectan como llamadas estandar. Por favor, pida a Viber que lo arregle.
-* NO cuenta adecuadamente el uso de datos en algunos dispositivos Samsung. El problema esta en la versión de Android que usa Samsung y se arregla en muchos de los dispositivos al hacer un update de la versión de Android.
+Γνωστά προβλήματα:
+* Οι κλήσεις Viber ανακατευθήνονται ως τυπικές κλήσεις. Παρακαλώ πείτε στην ομάδα του Viber να το διορθώσει αυτό.
+* Δεν μετρά κανονικά τη χρήση δεδομένων σε κάποιες συσκευές Samsung. Αυτό το πρόβλημα βασίζεται στην έκδοση Android της Samsung και διορθώθηκε στις περισσότερες συσκευές με κάποια ενημέρωση του Android.
 
-Esta aplicación es de código abierto, desarrollada en tiempo libre. Agregar malos comentarios en el mercado no ayudará mucho a mejorarla.
-Por favor agregue sus problemas con esta aplicación en el sitio WEB de la APP.
+Αυτή η εφαρμογή είναι ανοιχτού κώδικα και φτιάχνεται στον ελεύθερο χρόνο. Βάζοντας αρνητικά σχόλια στο μάρκετ δεν βοηθάτε στο να την κάνετε καλύτερη.
 
-Esta es una reconstrucción completa de Call Meter NG. Tiene una vasta cantidad de nuevas funciones como widgets y alertas.
-Su nueva arquitectura permite planes más complejos.
-Siéntase en libertad de probarla y ayudarme a hacerla más amigable de lo que es actualmente. ;)
+Αυτή είναι μια πλήρης ανακατασκευή του Call Meter NG. Έχει ένα μεγάλο αριθμό νέων λειτουργιών όπως widgets και alerts.  
 
-Permisos que necesita esta aplicación:
-* LEER SMS o MMS: para contar los mensajes
-* RECIBIR SMS: para alctualizar los logs antes que un mensaje recientemente recibido sea eliminado
-* ACCESO COMPLETO A INTERNET: para importar reglas
-* LEER INFORMACION DE LOS CONTACTOS: para convertir números a nombres (ej: en grupos de números)
-* MODIFICAR/ELIMINAR CONTENIDO DE LA TARJETA SD: para escribir/exportar reglas a la tarjeta sd
-* LEER ESTADO DEL TELEFONO E IDENTIDAD: para actualizar los logs en segundo plano
-* IMPEDIR QUE EL DISPOSITIVO ENTRE EN MODO ESPERA: para actualizar los logs en segundo plano
 
-Siéntase en libertad de ayudar a traducir esta aplicación en su propio idioma aquí: http://ub0r.de/translate/cm3
+Η εφαρμογή αυτή λαμβάνει τα παρακάτω δικαιώματα:
+* ΑΝΑΓΝΩΣΗ SMS Ή MMS: υπολογισμός μηνυμάτων
+* ΛΗΨΗ SMS: ενημέρωση μετρήσεων πριν από τη διαγραφή πρόσφατου ληφθέντος μηνύματος
+* ΠΛΗΡΗΣ ΠΡΟΣΒΑΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ: εισαγωγή κανόνων
+* ΑΝΑΓΝΩΣΗ ΤΩΝ ΕΠΑΦΩΝ: μετατροπή αριθμών σε ονόματα (π.χ. στις ομάδες αριθμών)
+* ΑΛΛΑΓΗ/ΔΙΑΓΡΑΦΗ ΠΕΡΙΕΧΟΜΕΝΩΝ ΣΤΗΝ ΚΑΡΤΑ SD: εγγραφή/εξαγωγή κανόνων στη SD κάρτα 
+* ΑΝΑΓΝΩΣΗ ΚΑΤΑΣΤΑΣΗΣ ΚΑΙ ΤΑΥΤΟΤΗΤΑΣ ΤΟΥ ΤΗΛΕΦΩΝΟΥ: ενημέρωση μετρήσεων στο παρασκήνιο
+* ΑΠΟΤΡΟΠΗ ΤΟΥ ΤΗΛΕΦΩΝΟΥ ΣΕ ΑΝΑΣΤΟΛΗ ΛΕΙΤΟΥΡΓΙΑΣ: ενημέρωση μετρήσεων στο παρασκήνιο
 
-Visite https://github.com/felixb/callmeter/issues para problemas conocidos y solicitudes de mejoras
+Νιώστε ελεύθεροι να βοηθήσετε με τη μετάφραση αυτής της εφαρμογής στη γλώσσας σας εδώ: https://crowdin.com/project/callmeter3g/invite
+
+Παρακαλώ επισκεφθείτε τον ιστότοπο https://github.com/felixb/callmeter/issues για προβλήματα και αιτήματα βελτίωσης.
