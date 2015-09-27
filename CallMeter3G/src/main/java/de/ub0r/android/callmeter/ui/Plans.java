@@ -463,6 +463,8 @@ public final class Plans extends AppCompatActivity implements OnPageChangeListen
                     super.onAdLoaded();
                 }
             });
+        } else {
+            findViewById(R.id.cookieconsent).setVisibility(View.GONE);
         }
     }
 
