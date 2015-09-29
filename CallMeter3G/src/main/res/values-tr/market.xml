@@ -19,6 +19,7 @@
         not, see <http://www.gnu.org/licenses/>.
     -->
 <resources>
+  <string formatted="false" name="market_app_name">Call Meter 3G: Veri izleme uyg</string>
   <string formatted="false" name="market_promo">Faturaya çok fazla ödemeyin!</string>
   <string formatted="false" name="market_about">Call Meter 3G Android cihazınız için en iyi izleme uygulamasıdır: aramalarınızı, mesajlarınızı ve veri kullanımınızı izler.\n\nSize kullanımınız hakkında istatistikler ve belirlediğiniz sınırlarda uyarılar gösterir. En önemli istatistikleri doğrudan ana ekranınızda göstermek için her türlü widget\'a sahiptir.\n\nCall Meter 3G, GSM operatörünüzün size çıkardığı faturayı birebir karşılayacak şekilde ayarlar yapabilmenizi sağlayacak karmaşık bir kural oluşturma modülüne sahiptir.\n\nBilinen sorunlar:\n* Viber ile yapılan aramalar standart arama olarak algılanmaktadır. Lütfen Viber\'dan bunu düzeltmesini isteyiniz.\n* Bazı Samsung cihazlarında veri kullanımı tam doğru olarak hesaplanamamaktadır. Bu sorun Samsung\'un Android versiyonu ile ilgilidir ve bazı Android güncellemeleri ile pek çok cihazda giderilmiştir.</string>
   <string formatted="false" name="market_cm2">Bu, Call Meter NG\'nin bütün bir revizyonudur. Widget ve uyarılar gibi pek çok yeni özellik eklenmiştir.\nYeni yapısıyla daha karmaşık paketlerin kullanımına izin vermektedir.\nLütfen uygulamayı çekinmeden deneyin ve daha kullanıcı dostu haline getirmeme yardım edin. ;)</string>

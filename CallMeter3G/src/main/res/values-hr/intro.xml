@@ -23,7 +23,7 @@
   <string formatted="false" name="intro0"><b>Call Meter 3G</b> prati korištenje vaših poziva, poruka i mobilnih podataka.</string>
   <string formatted="false" name="intro1">Kako bi dobili točne statistike, važno je postaviti Call Meter 3G što je točnije moguće.</string>
   <string formatted="false" name="intro_simple">Većina korisnika samo treba postaviti postavke u izborniku <b>Osnovna podešenja</b>. Samo postavite broj uključenih minuta ili poruka. Postavite troškove odlaznih poziva itd..</string>
-  <string formatted="false" name="intro_import">Ako je vaš izračun više kompleksniji, npr. zato jer su poruke i pozivi spojeni i računaju se kao spojene jedinice, možete uvesti unaprijed konfigurirana pravila. Samo odaberite izbornik <b>Uvoz pravila postavki</b>.</string>
+  <string formatted="false" name="intro_import">Ako je vaš obračun kompleksniji, npr. zato jer su poruke i pozivi spojeni i obračunavaju se kao spojene jedinice, možete uvesti unaprijed konfigurirana pravila. Samo odaberite izbornik <b>Uvoz pravila postavki</b>.</string>
   <string formatted="false" name="intro_export">U svakom slučaju, kada je sve postavljeno, možete izvesti pravila meni. Dakle svi ostali korisnici mogu imati koristi od vašeg rada.</string>
   <string formatted="false" name="intro_recalc0">Statistika se ponovno izračuna nakon svake promjene u konfiguraciji. To će potrajati neko vrijeme ovisno o broju poziva, poruka ili zapisnika podataka. Stoga ima smisla podesiti sve postavke u jednom naletu.</string>
   <string formatted="false" name="intro_recalc1">Proces se može uvelike ubrzati postavljanjem <b>Početak snimanja</b> ili <b>Izbrišite zapisnike starije od</b>.</string>

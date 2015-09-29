@@ -60,6 +60,7 @@
   <string formatted="false" name="appearance_and_behavior_">Görünüm </string>
   <string formatted="false" name="widget_stats_title">Call Meter (istatistikler)</string>
   <string formatted="false" name="widget_logs_title">Call Meter (son kayıt)</string>
+  <string formatted="false" name="widget_">Widget</string>
   <string formatted="false" name="widgets_">Widget\'lar</string>
   <string formatted="false" name="widgets_no_widgets_">Eklenen Widget yok</string>
   <string formatted="false" name="widgets_no_widgets_hint">Başlatıcıya eklenmiş herhangi bir widget yok.</string>
@@ -176,6 +177,8 @@
   <string formatted="false" name="mms_in_">GelenMMS</string>
   <string formatted="false" name="mms_out">Gönderilen MMS</string>
   <string formatted="false" name="mms_out_">GönderilenMMS</string>
+  <string formatted="false" name="data">Veri</string>
+  <string formatted="false" name="data_">Veri (2G/3G/4G)</string>
   <string formatted="false" name="data_inout">Data Gelen/Giden</string>
   <string formatted="false" name="data_inout_">DataGelen/Giden</string>
   <string formatted="false" name="second_sim_">İkinci SIM kartı</string>
@@ -407,6 +410,7 @@
   <string formatted="false" name="x6_month">Altı ay</string>
   <string formatted="false" name="x1_year">Bir yıl</string>
   <string formatted="false" name="infinite">Sonsuz</string>
+  <string formatted="false" name="custom">Özel</string>
   <string formatted="false" name="direction_calls_in">gelen</string>
   <string formatted="false" name="direction_calls_out">giden</string>
   <string formatted="false" name="direction_sms_in">gelen</string>

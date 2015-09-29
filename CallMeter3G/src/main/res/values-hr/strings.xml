@@ -20,9 +20,9 @@
     -->
 <resources>
   <string formatted="false" name="about0_">Pazite vaše planove poziva, poruka i mobilnih podataka!</string>
-  <string formatted="false" name="about0">Call Meter generira izvješća iz zapisnika poziva, poruka i mobilnih podataka. Podržava nekoliko načina naplate.</string>
-  <string formatted="false" name="about1">Izlazni format je korištenje | vrijeme ili zbroj koristeći ovaj period naplate | vrijeme ili zbroj ukupnog.</string>
-  <string formatted="false" name="about2">Način naplate određuje duljinu prvog / slijedećeg intervala naplate. Npr. 60/10 znači svaki poziv se naplaćuje minimalno 60s, svaki duži poziv zaokružuje se na slijedećih punih 10s.</string>
+  <string formatted="false" name="about0">Call Meter generira izvješća iz zapisnika poziva, poruka i mobilnih podataka. Podržava nekoliko načina obračuna.</string>
+  <string formatted="false" name="about1">Izlazni format je korištenje | vrijeme ili zbroj korištenja ovog obračunskog razdoblja | vrijeme ili zbroj ukupnog.</string>
+  <string formatted="false" name="about2">Način obračuna određuje duljinu prvog / slijedećeg intervala obračuna. Npr. 60/10 znači svaki poziv se obračunava minimalno 60s, svaki duži poziv zaokružuje se na slijedećih punih 10s.</string>
   <string formatted="false" name="about3">Call Meter se pokreće u pozadini svakih 30min (samo ako nije u pripravi). To znači, da brisanje poziva ili poruka starijih od 30min neće promjeniti vašu statistiku. Brisanje poziva ili poruka mlađih od tih 30min može rezultirati krivom statistikom.</string>
   <string formatted="false" name="author_and_many_more">i još mnogo toga...</string>
   <string formatted="false" name="add_">Dodaj</string>
@@ -50,11 +50,11 @@
   <string formatted="false" name="feedback_hint">Prijavite mane, zahtjeve za novim značajkama ...</string>
   <string formatted="false" name="google_plus_hint">Slijedite me na Google+.\nDobivajte obavijesti o ažuriranju itd.</string>
   <string formatted="false" name="more_">Više Aplikacija..</string>
-  <string formatted="false" name="billing_">Naplata</string>
+  <string formatted="false" name="billing_">Obračun</string>
   <string formatted="false" name="billday_">Prvi dan vašeg računa</string>
   <string formatted="false" name="billday_last">Posljednji dan vašeg računa</string>
-  <string formatted="false" name="billmode_">Način naplate</string>
-  <string formatted="false" name="billdate_">Početak razdoblja naplate:</string>
+  <string formatted="false" name="billmode_">Način obračuna</string>
+  <string formatted="false" name="billdate_">Početak obračunskog razdoblja:</string>
   <string formatted="false" name="appearance_">Izgled</string>
   <string formatted="false" name="behavior_">Ponašanje</string>
   <string formatted="false" name="appearance_and_behavior_">Izgled &amp; ponašanje</string>
@@ -81,8 +81,8 @@
   <string formatted="false" name="textsize_spacer_hint">Veličina razmaka u pikselima; Ostavite prazno za zadano</string>
   <string formatted="false" name="textsize_pbar_">Veličina trake napretka</string>
   <string formatted="false" name="textsize_pbar_hint">Veličina trake napretka u pikselima: Ostavite prazno za zadano</string>
-  <string formatted="false" name="textsize_pbarbp_">Veličina trake napretka naplate</string>
-  <string formatted="false" name="textsize_pbarbp_hint">Veličina trake napretka naplate u pikselima; Ostavite prazno za zadano</string>
+  <string formatted="false" name="textsize_pbarbp_">Veličina trake napretka obračuna</string>
+  <string formatted="false" name="textsize_pbarbp_hint">Veličina trake napretka obračuna u pikselima; Ostavite prazno za zadano</string>
   <string formatted="false" name="show_today_">Prikaži danas</string>
   <string formatted="false" name="show_today_hint">Prikaži današnju statistiku</string>
   <string formatted="false" name="show_total_">Prikaži ukupno</string>
@@ -93,7 +93,7 @@
   <string formatted="false" name="show_help_hint">Prikaži pomoć pregledu postavki Planova/Pravila.</string>
   <string formatted="false" name="show_shortname_">Prikaži kraći naziv umjesto dugačkoga naziva</string>
   <string formatted="false" name="show_cost_">Prikaži trošak</string>
-  <string formatted="false" name="show_billperiod_">Prikaži napredak razdoblja naplate</string>
+  <string formatted="false" name="show_billperiod_">Prikaži napredak obračunskog razdoblja</string>
   <string formatted="false" name="show_icon_">Prikaži ikonu</string>
   <string formatted="false" name="hide_name_">Sakrij naziv plana</string>
   <string formatted="false" name="small_widget_">Koristi mali dodatak</string>
@@ -128,14 +128,14 @@
   <string formatted="false" name="now">Sada</string>
   <string formatted="false" name="show_logs">Prikaži zapisnike</string>
   <string formatted="false" name="plans">Planovi</string>
-  <string formatted="false" name="plans_hint">Postavite vaše planove za sve vrste naplata.</string>
+  <string formatted="false" name="plans_hint">Postavite vaše planove za sve vrste obračuna.</string>
   <string formatted="false" name="plans_new">Novi plan</string>
   <string formatted="false" name="rule_">Pravilo</string>
   <string formatted="false" name="rules">Pravila</string>
-  <string formatted="false" name="rules_hint">Postavite vaša pravila naplata ovdje.</string>
+  <string formatted="false" name="rules_hint">Postavite vaša pravila obračuna ovdje.</string>
   <string formatted="false" name="rules_new">Novo pravilo</string>
   <string formatted="false" name="length_">Dužina</string>
-  <string formatted="false" name="blength_">Dužina naplaćenog</string>
+  <string formatted="false" name="blength_">Duljina obračunatog</string>
   <string formatted="false" name="cost_">Trošak</string>
   <string formatted="false" name="remote_">Udaljeni broj</string>
   <string formatted="false" name="numbergroups_edit_">Broj grupa</string>
@@ -183,7 +183,7 @@
   <string formatted="false" name="data_inout_">MobilniPodaciUlazIzlaz</string>
   <string formatted="false" name="second_sim_">Druga SIM kartica</string>
   <string formatted="false" name="prepaid_">Unaprijed plaćen plan</string>
-  <string formatted="false" name="prepaid_hint">Naplata na osnovi unaprijed plaćenog. Trošak se oduzima od salda poput poziva itd.</string>
+  <string formatted="false" name="prepaid_hint">Obračun na osnovi unaprijed plaćenoga. Trošak se oduzima od salda poput poziva itd.</string>
   <string formatted="false" name="balance_">Saldo</string>
   <string formatted="false" name="balance_help">Saldo na vašem računu na određeni datum.</string>
   <string formatted="false" name="strip_leading_zeros_">Maknuti vodeće nule</string>
@@ -215,28 +215,42 @@
   <string formatted="false" name="shortname_">Skraćeni naziv</string>
   <string formatted="false" name="shortname_help">Postavite skraćeni naziv ovdje. Prikazuje se u kompaktnom prikazima.</string>
   <string formatted="false" name="type_">Vrsta</string>
-  <string formatted="false" name="type_help">Odaberite vrstu\n\"Naslov\" će se samo prikazati u glavnom pregledu.\n\"Razmak\" neće prikazati ništa osim praznog prostora.\n\"Razdoblje naplate\" će sadržavati informacije o vašem razdoblju naplate. Većini korisnika je potreban samo jedan.\n \"Miješan\" plan može uzimati pozive i poruke odjednom. To će kombinirati naplatu svih tih stavki.\nPlan \"poziv\" uzima samo pozive. \"SMS\" i \"MMS\" planovi će uzimati samo poruke.\nPlan \"mobilni podaci\" sadržava informacije o vašem prometu mobilnih podataka.</string>
+  <string formatted="false" name="type_help">Odaberite vrstu\n\"Naslov\" će se samo prikazati u glavnom pregledu.\n\"Razmak\" neće prikazati ništa osim praznog prostora.\n\"Obračunsko razdoblje\" će sadržavati informacije o vašem obračunskom razdoblju. Većini korisnika je potreban samo jedan.\n \"Miješan\" plan može uzimati pozive i poruke odjednom. To će kombinirati obračun svih tih stavki.\nPlan \"poziv\" uzima samo pozive. \"SMS\" i \"MMS\" planovi će uzimati samo poruke.\nPlan \"mobilni podaci\" sadržava informacije o vašem prometu mobilnih podataka.</string>
   <string formatted="false" name="limit_type_">Vrsta ograničenja</string>
+  <string formatted="false" name="limit_type_help">Postavite ovdje vrstu ograničenja.\nOgraničenje \"jedinice\" će ograničiti vaš plan na temelju minuta, poruka, ...\nOgraničenje \"troškovi\" ograničiti će vaš plan temeljen na trošku nastalom po obračunatim stavkama ovog plana.</string>
   <string formatted="false" name="limit_">Ograničenje</string>
-  <string formatted="false" name="billperiodid_">Razdoblje naplate</string>
-  <string formatted="false" name="billperiod_">Dužina razdoblja naplate</string>
-  <string formatted="false" name="billperiod_help">Postavite duljinu razdoblja naplate.</string>
+  <string formatted="false" name="limit_help">Postavite ovdje ograničenje vašeg plana.\n\nVrsta \"jedinice\" moraju biti postavljene u minutama (pozivi), poruke (sms/mms), megabajti (podaci, 1024kB) ili jedinice (miješano).\n\nVrsta \"trošak\" mora biti postavljen u vašoj valuti (npr. $).</string>
+  <string formatted="false" name="billmode_help">Postavite način obračunavanja poziva\nPrvi dio je minimalna duljina trajanja poziva koju obračunava vaš operater. Svaki poziv koji je kraći od toga zaokružuje se na tu vrijednost.\nDrugi dio je minimalna duljina poziva slijedeći blokove sekundi.\nMolim vas pročitajte ČPP za daljnju pomoć.</string>
+  <string formatted="false" name="billday_help">Postavi ovo na prvi dan trenutnog obračunskog razdoblja.</string>
+  <string formatted="false" name="billperiodid_">Obračunsko razdoblje</string>
+  <string formatted="false" name="billperiodid_help">Odaberite vaše obračunsko razdoblje.\nMožda će te trebati kreirati još jedan dodatni plan.</string>
+  <string formatted="false" name="billperiod_">Duljina obračunskog razdoblja</string>
+  <string formatted="false" name="billperiod_help">Postavite duljinu obračunskog razdoblja.</string>
   <string formatted="false" name="cost_per_item_">Trošak po stavci</string>
+  <string formatted="false" name="cost_per_item_help">Postavite obračunati trošak za samostalnu stavku (npr. poziv ili poruku) nakon što se prekorači ograničenje.</string>
   <string formatted="false" name="cost_per_item_in_limit_">Trošak po stavci unutar ograničenja</string>
+  <string formatted="false" name="cost_per_item_in_limit_help">Postavite obračunati trošak za samostalnu stavku (mpr. poziv ili poruku) obračunatu prije prekoračenja ograničenja.</string>
+  <string formatted="false" name="cost_per_item_no_limit_help">Postavite obračunati trošak za samostalnu stavku (npr. poziv ili poruku).</string>
   <string formatted="false" name="cost_per_amount_">Trošak po duljini</string>
+  <string formatted="false" name="cost_per_amount_help1">Postavite obračunati trošak po dužini za jednu stavku zapisnika (npr. za 1kB podataka) nakon prekoračenja ograničenja.</string>
+  <string formatted="false" name="cost_per_amount_help2">Postavite obračun troška po duljini za pojedinačnu stavku (npr. 1 min za poziv) nakon prekoračenja ograničenja.\nPrvo polje sadržava trošak prvih par sekundi poziva, drugo polje sadržava trošak narednih sekundi (oba polja su postavljena u $/minuta; pogledajte način obračuna).\nAko sumnjate,samo postavite u oba polja vašu cijenu minute.</string>
   <string formatted="false" name="cost_per_amount_in_limit_">Trošak po dužine unutar ograničenja</string>
+  <string formatted="false" name="cost_per_amount_in_limit_help1">Postavite obračun troška po duljini za pojedinu stavku zapisnika (npr. za 1min poziva, 1kB podataka) prije prekoračenja ograničenja.</string>
+  <string formatted="false" name="cost_per_amount_in_limit_help2">Postavite obračun troška po duljini za pojedinačnu stavku (npr. 1 min za poziv) nakon prekoračenja ograničenja.\nPrvo polje sadržava trošak prvih par sekundi poziva, drugo polje sadržava trošak narednih sekundi (oba polja su postavljena u $/minuta; pogledajte način obračuna).\nAko sumnjate,samo postavite u oba polja vašu cijenu minute.</string>
+  <string formatted="false" name="cost_per_amount_no_limit_help1">Postavite obračunati trošak po duljini za samostalnu stavku (npr. za 1min poziva, 1kB podataka).</string>
+  <string formatted="false" name="cost_per_amount_no_limit_help2">Postavite obračun troška po duljini za pojedinačnu stavku (npr. 1 min za poziv) nakon prekoračenja ograničenja.\nPrvo polje sadržava trošak prvih par sekundi poziva, drugo polje sadržava trošak narednih sekundi (oba polja su postavljena u $/minuta; pogledajte način obračuna).\nAko sumnjate,samo postavite u oba polja vašu cijenu minute.</string>
   <string formatted="false" name="cost_per_plan_">Trošak po planu</string>
-  <string formatted="false" name="cost_per_plan_help">Postavite trošak po planu za jedno razdoblje naplate kao što je.</string>
+  <string formatted="false" name="cost_per_plan_help">Postavite trošak po planu za jedno obračunsko razdoblje kao što je.</string>
   <string formatted="false" name="mixed_units_sms_">Jedinica za SMS</string>
-  <string formatted="false" name="mixed_units_sms_help">Postavite jedinicu troška za jedan SMS.</string>
+  <string formatted="false" name="mixed_units_sms_help">Postavite jedinicu obračuna za jedan SMS.</string>
   <string formatted="false" name="mixed_units_mms_">Jedinica za MMS</string>
-  <string formatted="false" name="mixed_units_mms_help">Postavite jedinicu troška za jedan MMS.</string>
+  <string formatted="false" name="mixed_units_mms_help">Postavite jedinicu obračuna za jedan MMS.</string>
   <string formatted="false" name="mixed_units_call_">Jedinica za poziv</string>
-  <string formatted="false" name="mixed_units_call_help">Postavite jedinice naplaćene za minutu poziva.\nNačin naplate koji je uzet u obzir ovdje.</string>
+  <string formatted="false" name="mixed_units_call_help">Postavite jedinice obračuna za minutu poziva.\nNačin obračuna je uzet u obzir iz ovog ovdje računa.</string>
   <string formatted="false" name="mixed_units_data_">Jedinice za mobilne podatke</string>
-  <string formatted="false" name="mixed_units_data_help">Postavite jedinice naplate za svaki MB mobilnog prometa.</string>
+  <string formatted="false" name="mixed_units_data_help">Postavite jedinice obračuna za svaki MB mobilnog prometa.</string>
   <string formatted="false" name="merge_plans_">Spajanje planova</string>
-  <string formatted="false" name="merge_plans_help">Spajanje drugih planova u ovaj i naplatiti ih ovdje (isto).</string>
+  <string formatted="false" name="merge_plans_help">Spajanje drugih planova u ovaj i obračunaj ih ovdje (isto).</string>
   <string formatted="false" name="units_cost">$</string>
   <string formatted="false" name="units_num_msg"># Poruke</string>
   <string formatted="false" name="units_minutes">Minute</string>
@@ -261,10 +275,10 @@
   <string formatted="false" name="calls_voip_">VoIP pozivi s podržanih aplikacija</string>
   <string formatted="false" name="issipcall_">Je SIP poziv</string>
   <string formatted="false" name="issipcall_help">SIP pozivi. Trenutno su podržani Sipdroid i CSipSimple.</string>
-  <string formatted="false" name="strip_seconds_">Ne zaračunavaj prve sekunde</string>
-  <string formatted="false" name="strip_seconds_help">Ne zaračunavaj prvih x sekundi poziva.</string>
-  <string formatted="false" name="strip_past_">Ne zarčunavaj ništa nakon sekunde</string>
-  <string formatted="false" name="strip_past_help">Ne naplaćuj ništa nakon x sekundi poziva.</string>
+  <string formatted="false" name="strip_seconds_">Ne obračunavaj prve sekunde</string>
+  <string formatted="false" name="strip_seconds_help">Ne obračunavaj prvih x sekundi poziva.</string>
+  <string formatted="false" name="strip_past_">Ne obračunavaj ništa nakon sekunde</string>
+  <string formatted="false" name="strip_past_help">Ne obračunavaj ništa nakon x sekundi poziva.</string>
   <string formatted="false" name="active_">Aktivan</string>
   <string formatted="false" name="active_help">Samo aktivna pravila se koriste da odgovaraju zapisnicima.</string>
   <string formatted="false" name="what_">Vrsta cilja</string>
