@@ -280,6 +280,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Belgium_Base_B-9.xml",
       "provider": "Base",
       "title": "B-9"
+    },
+    {
+      "country": "Belgium",
+      "id": "f_Belgium_Numericable_Mobile_Extra",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Belgium_Numericable_Mobile_Extra.xml",
+      "provider": "Numericable",
+      "title": "Mobile Extra"
     }
   ],
   "Bosnia and Herzegovina": [
