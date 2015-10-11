@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ruleset version="2">
-  <country>Norway</country>
-  <provider>Hello</provider>
-  <title>Smil</title>
+  <country>Portugal</country>
+  <provider>Vodafone</provider>
+  <title>plano Estado</title>
   <plans>
     <plan>
       <_id>12</_id>
-      <_plan_name>Fakturerings periode</_plan_name>
-      <_shortname>Fakturaperiode</_shortname>
+      <_plan_name>Período de faturação</_plan_name>
+      <_shortname>Período de faturação</_shortname>
       <_plan_type>2</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
       <_billperiod>8</_billperiod>
       <_billmode>1/1</_billmode>
-      <_billday>1433109600947</_billday>
-      <_cost_per_plan>47.6</_cost_per_plan>
+      <_billday>1443654001268</_billday>
       <_billperiod_id>0</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>-2</_order>
+      <_order>-1</_order>
     </plan>
     <plan>
       <_id>13</_id>
-      <_plan_name>Spacer</_plan_name>
+      <_plan_name>Separador</_plan_name>
       <_shortname>space</_shortname>
       <_plan_type>1</_plan_type>
       <_limit_type>0</_limit_type>
@@ -32,12 +31,12 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>0</_order>
+      <_order>7</_order>
     </plan>
     <plan>
       <_id>14</_id>
-      <_plan_name>Samtaler</_plan_name>
-      <_shortname>Samtaler</_shortname>
+      <_plan_name>Chamadas</_plan_name>
+      <_shortname>Chamadas</_shortname>
       <_plan_type>0</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
@@ -46,44 +45,61 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>2</_order>
+      <_order>17</_order>
     </plan>
     <plan>
       <_id>15</_id>
-      <_plan_name>Innkommende samtaler</_plan_name>
-      <_shortname>SamtalerInn</_shortname>
+      <_plan_name>Chamadas recebidas</_plan_name>
+      <_shortname>Chamadas recebidas</_shortname>
       <_plan_type>4</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_order>3</_order>
-    </plan>
-    <plan>
-      <_id>16</_id>
-      <_plan_name>Utgående samtaler</_plan_name>
-      <_shortname>SamtalerUt</_shortname>
-      <_plan_type>4</_plan_type>
-      <_limit_type>1</_limit_type>
-      <_limit>250</_limit>
-      <_billperiod>12</_billperiod>
-      <_billmode>1/1</_billmode>
-      <_billday>0</_billday>
-      <_cost_per_item>0.35</_cost_per_item>
-      <_cost_per_amount1>0.35</_cost_per_amount1>
-      <_cost_per_amount2>0.35</_cost_per_amount2>
-      <_cost_per_item_in_limit>0</_cost_per_item_in_limit>
+      <_cost_per_item>0</_cost_per_item>
+      <_cost_per_amount1>0</_cost_per_amount1>
+      <_cost_per_amount2></_cost_per_amount2>
       <_cost_per_plan>0</_cost_per_plan>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>4</_order>
+      <_order>12</_order>
+    </plan>
+    <plan>
+      <_id>16</_id>
+      <_plan_name>Chamadas efetuadas</_plan_name>
+      <_shortname>Chamadas efetuadas</_shortname>
+      <_plan_type>4</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_limit>0</_limit>
+      <_billperiod>12</_billperiod>
+      <_billmode>60/60</_billmode>
+      <_billday>0</_billday>
+      <_cost_per_item>0</_cost_per_item>
+      <_cost_per_amount1>0.05</_cost_per_amount1>
+      <_cost_per_amount2>0.05</_cost_per_amount2>
+      <_cost_per_plan></_cost_per_plan>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>8</_order>
+    </plan>
+    <plan>
+      <_id>17</_id>
+      <_plan_name>Separador</_plan_name>
+      <_shortname>spacer</_shortname>
+      <_plan_type>1</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_limit>0</_limit>
+      <_billperiod>-1</_billperiod>
+      <_billmode>1/1</_billmode>
+      <_billday>0</_billday>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>11</_order>
     </plan>
     <plan>
       <_id>18</_id>
-      <_plan_name>Meldinger</_plan_name>
+      <_plan_name>Mensagens</_plan_name>
       <_shortname>SMS/MMS</_shortname>
       <_plan_type>0</_plan_type>
       <_limit_type>0</_limit_type>
@@ -94,12 +110,12 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>12</_order>
+      <_order>18</_order>
     </plan>
     <plan>
       <_id>19</_id>
-      <_plan_name>SMS inn</_plan_name>
-      <_shortname>SMSinn</_shortname>
+      <_plan_name>SMS recebidas</_plan_name>
+      <_shortname>SMS recebidas</_shortname>
       <_plan_type>5</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
@@ -112,26 +128,23 @@
     </plan>
     <plan>
       <_id>20</_id>
-      <_plan_name>SMS ut</_plan_name>
-      <_shortname>SMS ut</_shortname>
+      <_plan_name>SMS enviadas</_plan_name>
+      <_shortname>SMS enviadas</_shortname>
       <_plan_type>5</_plan_type>
-      <_limit_type>1</_limit_type>
-      <_limit>250</_limit>
+      <_limit_type>0</_limit_type>
+      <_limit>0</_limit>
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_cost_per_item>0.39</_cost_per_item>
-      <_cost_per_item_in_limit>0</_cost_per_item_in_limit>
-      <_cost_per_plan>0</_cost_per_plan>
+      <_cost_per_item>0.05</_cost_per_item>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>14</_order>
+      <_order>9</_order>
     </plan>
     <plan>
-      <_id>22</_id>
-      <_plan_name>Data (2G/3G/4G)</_plan_name>
-      <_shortname>Data</_shortname>
-      <_plan_type>0</_plan_type>
+      <_id>21</_id>
+      <_plan_name>Separador</_plan_name>
+      <_plan_type>1</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
       <_billperiod>-1</_billperiod>
@@ -139,31 +152,45 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>17</_order>
+      <_order>15</_order>
+    </plan>
+    <plan>
+      <_id>22</_id>
+      <_plan_name>Dados (2G/3G/4G)</_plan_name>
+      <_shortname>Dados</_shortname>
+      <_plan_type>7</_plan_type>
+      <_limit_type>1</_limit_type>
+      <_limit>4000</_limit>
+      <_billperiod>-1</_billperiod>
+      <_billmode>1/1</_billmode>
+      <_billday>0</_billday>
+      <_cost_per_amount1>0.02</_cost_per_amount1>
+      <_cost_per_amount2>0.02</_cost_per_amount2>
+      <_cost_per_plan>12</_cost_per_plan>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>5</_order>
     </plan>
     <plan>
       <_id>23</_id>
-      <_plan_name>Data Inn/Ut</_plan_name>
-      <_shortname>DataInnUt</_shortname>
+      <_plan_name>Dados recebidos/enviados</_plan_name>
+      <_shortname>Dados recebidos/enviados</_shortname>
       <_plan_type>7</_plan_type>
-      <_limit_type>1</_limit_type>
-      <_limit>250</_limit>
+      <_limit_type>0</_limit_type>
+      <_limit>0</_limit>
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
-      <_cost_per_amount1>1.99</_cost_per_amount1>
-      <_cost_per_amount2>1.99</_cost_per_amount2>
-      <_cost_per_amount_in_limit1>0</_cost_per_amount_in_limit1>
-      <_cost_per_amount_in_limit2>0</_cost_per_amount_in_limit2>
-      <_cost_per_plan>0</_cost_per_plan>
+      <_cost_per_amount1>0</_cost_per_amount1>
+      <_cost_per_amount2>0</_cost_per_amount2>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>19</_order>
+      <_order>20</_order>
     </plan>
     <plan>
       <_id>27</_id>
-      <_plan_name>MMS inn</_plan_name>
-      <_shortname>MMSinn</_shortname>
+      <_plan_name>MMS recebidas</_plan_name>
+      <_shortname>MMS recebidas</_shortname>
       <_plan_type>6</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
@@ -182,18 +209,18 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>15</_order>
+      <_order>14</_order>
     </plan>
     <plan>
       <_id>28</_id>
-      <_plan_name>MMS ut</_plan_name>
-      <_shortname>MMSut</_shortname>
+      <_plan_name>MMS enviadas</_plan_name>
+      <_shortname>MMS enviadas</_shortname>
       <_plan_type>6</_plan_type>
-      <_limit_type>1</_limit_type>
-      <_limit>100</_limit>
+      <_limit_type>0</_limit_type>
+      <_limit>0</_limit>
       <_billperiod>5</_billperiod>
       <_billday>1287927174859</_billday>
-      <_cost_per_item>1.35</_cost_per_item>
+      <_cost_per_item>0</_cost_per_item>
       <_cost_per_amount1>0</_cost_per_amount1>
       <_cost_per_amount2>0</_cost_per_amount2>
       <_cost_per_item_in_limit>0</_cost_per_item_in_limit>
@@ -206,91 +233,67 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
+      <_order>10</_order>
+    </plan>
+    <plan>
+      <_id>30</_id>
+      <_plan_name>VoIP Out</_plan_name>
+      <_shortname>voip</_shortname>
+      <_plan_type>4</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_limit>0</_limit>
+      <_billmode>1/1</_billmode>
+      <_cost_per_item>0</_cost_per_item>
+      <_cost_per_amount1>0</_cost_per_amount1>
+      <_cost_per_amount2>0</_cost_per_amount2>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
       <_order>16</_order>
     </plan>
     <plan>
+      <_id>34</_id>
+      <_plan_name>SMS enviadas 2</_plan_name>
+      <_shortname>SMS enviadas2</_shortname>
+      <_plan_type>5</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_limit>0</_limit>
+      <_cost_per_item>0</_cost_per_item>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>19</_order>
+    </plan>
+    <plan>
       <_id>35</_id>
-      <_plan_name>Tale Roaming ut</_plan_name>
-      <_shortname>Troamut</_shortname>
+      <_plan_name>Novo plano</_plan_name>
+      <_shortname>Novoplano</_shortname>
       <_plan_type>4</_plan_type>
       <_limit_type>0</_limit_type>
-      <_billmode>30/1</_billmode>
-      <_cost_per_amount1>1.49</_cost_per_amount1>
-      <_cost_per_amount2>1.49</_cost_per_amount2>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_order>21</_order>
     </plan>
     <plan>
       <_id>36</_id>
-      <_plan_name>Roaming</_plan_name>
-      <_shortname>Nyplan</_shortname>
-      <_plan_type>0</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_order>20</_order>
-    </plan>
-    <plan>
-      <_id>37</_id>
-      <_plan_name>Tale Roaming inn</_plan_name>
-      <_shortname>Taleroaminn</_shortname>
+      <_plan_name>Novo plano</_plan_name>
+      <_shortname>Novoplano</_shortname>
       <_plan_type>4</_plan_type>
       <_limit_type>0</_limit_type>
-      <_billmode>1/2</_billmode>
-      <_cost_per_item>0.89</_cost_per_item>
-      <_cost_per_amount1>0.53</_cost_per_amount1>
-      <_cost_per_amount2>0.53</_cost_per_amount2>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_strip_seconds>0</_strip_seconds>
-      <_strip_past>0</_strip_past>
       <_order>22</_order>
     </plan>
     <plan>
-      <_id>38</_id>
-      <_plan_name>SMS R ut</_plan_name>
-      <_shortname>SMS R ut</_shortname>
-      <_plan_type>5</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_cost_per_item>0.39</_cost_per_item>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_order>23</_order>
-    </plan>
-    <plan>
-      <_id>39</_id>
-      <_plan_name>MMS R inn</_plan_name>
-      <_shortname>MMS R inn</_shortname>
-      <_plan_type>6</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_cost_per_item>1.49</_cost_per_item>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_order>24</_order>
-    </plan>
-    <plan>
-      <_id>40</_id>
-      <_plan_name>MMS R ut</_plan_name>
-      <_shortname>MMS R ut</_shortname>
-      <_plan_type>6</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_cost_per_item>1.49</_cost_per_item>
-      <_billperiod_id>12</_billperiod_id>
-      <_next_alert>0</_next_alert>
-      <_order>25</_order>
-    </plan>
-    <plan>
-      <_id>41</_id>
-      <_plan_name>Data R inn/ut</_plan_name>
-      <_shortname>Data R inn/ut</_shortname>
+      <_id>37</_id>
+      <_plan_name>Spotify</_plan_name>
+      <_shortname>Spotify</_shortname>
       <_plan_type>7</_plan_type>
-      <_limit_type>0</_limit_type>
-      <_cost_per_amount1>0.65</_cost_per_amount1>
-      <_cost_per_amount2>0.65</_cost_per_amount2>
+      <_limit_type>2</_limit_type>
+      <_billperiod>8</_billperiod>
+      <_billday>1443654060267</_billday>
+      <_cost_per_plan>7</_cost_per_plan>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>26</_order>
+      <_order>6</_order>
     </plan>
   </plans>
   <rules>
@@ -298,10 +301,10 @@
       <_id>1</_id>
       <_active>1</_active>
       <_order>0</_order>
-      <_plan_id>23</_plan_id>
-      <_rule_name>Data</_rule_name>
+      <_plan_id>22</_plan_id>
+      <_rule_name>Dados</_rule_name>
       <_what>3</_what>
-      <_roamed>1</_roamed>
+      <_roamed>-1</_roamed>
       <_direction>-1</_direction>
       <_inhourgroup_id>-1</_inhourgroup_id>
       <_exhourgroup_id>-1</_exhourgroup_id>
@@ -314,25 +317,24 @@
       <_active>1</_active>
       <_order>4</_order>
       <_plan_id>15</_plan_id>
-      <_rule_name>Innkommende samtaler</_rule_name>
+      <_rule_name>Chamadas recebidas</_rule_name>
       <_what>0</_what>
-      <_roamed>1</_roamed>
+      <_roamed>-1</_roamed>
       <_direction>0</_direction>
       <_inhourgroup_id>-1</_inhourgroup_id>
       <_exhourgroup_id>-1</_exhourgroup_id>
       <_innumbergroup_id>-1</_innumbergroup_id>
       <_exnumbergroup_id>-1</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
-      <_is_sipcall>-1</_is_sipcall>
     </rule>
     <rule>
       <_id>3</_id>
       <_active>1</_active>
       <_order>5</_order>
       <_plan_id>16</_plan_id>
-      <_rule_name>Utgående samtaler</_rule_name>
+      <_rule_name>Chamadas efetuadas</_rule_name>
       <_what>0</_what>
-      <_roamed>1</_roamed>
+      <_roamed>2</_roamed>
       <_direction>1</_direction>
       <_exnumbergroup_id>,1,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
@@ -344,7 +346,7 @@
       <_active>1</_active>
       <_order>9</_order>
       <_plan_id>19</_plan_id>
-      <_rule_name>SMS inn</_rule_name>
+      <_rule_name>SMS recebidas</_rule_name>
       <_what>1</_what>
       <_roamed>2</_roamed>
       <_direction>0</_direction>
@@ -360,9 +362,9 @@
       <_active>1</_active>
       <_order>10</_order>
       <_plan_id>20</_plan_id>
-      <_rule_name>SMS ut</_rule_name>
+      <_rule_name>SMS enviadas</_rule_name>
       <_what>1</_what>
-      <_roamed>1</_roamed>
+      <_roamed>2</_roamed>
       <_direction>1</_direction>
       <_exnumbergroup_id>,2,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
@@ -374,9 +376,9 @@
       <_active>1</_active>
       <_order>11</_order>
       <_plan_id>27</_plan_id>
-      <_rule_name>MMS inn</_rule_name>
+      <_rule_name>MMS recebidas</_rule_name>
       <_what>2</_what>
-      <_roamed>1</_roamed>
+      <_roamed>2</_roamed>
       <_direction>0</_direction>
       <_inhourgroup_id>-1</_inhourgroup_id>
       <_exhourgroup_id>-1</_exhourgroup_id>
@@ -390,9 +392,9 @@
       <_active>1</_active>
       <_order>12</_order>
       <_plan_id>28</_plan_id>
-      <_rule_name>MMS ut</_rule_name>
+      <_rule_name>MMS enviadas</_rule_name>
       <_what>2</_what>
-      <_roamed>1</_roamed>
+      <_roamed>2</_roamed>
       <_direction>1</_direction>
       <_inhourgroup_id>-1</_inhourgroup_id>
       <_exhourgroup_id>-1</_exhourgroup_id>
@@ -402,82 +404,67 @@
       <_is_websms>2</_is_websms>
     </rule>
     <rule>
-      <_id>15</_id>
+      <_id>10</_id>
       <_active>1</_active>
-      <_order>13</_order>
-      <_plan_id>37</_plan_id>
-      <_rule_name>Tale Roaming inn</_rule_name>
+      <_order>1</_order>
+      <_plan_id>30</_plan_id>
+      <_rule_name>VoIP</_rule_name>
       <_what>0</_what>
-      <_roamed>0</_roamed>
+      <_roamed>2</_roamed>
+      <_direction>1</_direction>
+      <_is_sipcall>0</_is_sipcall>
+    </rule>
+    <rule>
+      <_id>11</_id>
+      <_active>1</_active>
+      <_order>2</_order>
+      <_plan_id>32</_plan_id>
+      <_rule_name>Chamadas recebidas 2</_rule_name>
+      <_what>0</_what>
+      <_roamed>2</_roamed>
       <_direction>0</_direction>
       <_is_sipcall>-1</_is_sipcall>
+      <_mynumber>2</_mynumber>
     </rule>
     <rule>
-      <_id>16</_id>
+      <_id>12</_id>
       <_active>1</_active>
-      <_order>14</_order>
-      <_plan_id>35</_plan_id>
-      <_rule_name>Tale Roaming ut</_rule_name>
+      <_order>3</_order>
+      <_plan_id>31</_plan_id>
+      <_rule_name>Chamadas efetuadas 2</_rule_name>
       <_what>0</_what>
-      <_roamed>0</_roamed>
+      <_roamed>2</_roamed>
       <_direction>1</_direction>
+      <_exnumbergroup_id>,1,</_exnumbergroup_id>
       <_is_sipcall>-1</_is_sipcall>
+      <_mynumber>2</_mynumber>
     </rule>
     <rule>
-      <_id>17</_id>
+      <_id>13</_id>
       <_active>1</_active>
-      <_order>15</_order>
-      <_plan_id>38</_plan_id>
-      <_rule_name>SMS R ut</_rule_name>
+      <_order>8</_order>
+      <_plan_id>34</_plan_id>
+      <_rule_name>SMS enviadas 2</_rule_name>
       <_what>1</_what>
-      <_roamed>0</_roamed>
+      <_roamed>2</_roamed>
       <_direction>1</_direction>
+      <_exnumbergroup_id>,2,</_exnumbergroup_id>
       <_is_websms>-1</_is_websms>
       <_is_sipcall>-1</_is_sipcall>
+      <_mynumber>2</_mynumber>
     </rule>
     <rule>
-      <_id>18</_id>
+      <_id>14</_id>
       <_active>1</_active>
-      <_order>16</_order>
-      <_plan_id>39</_plan_id>
-      <_rule_name>MMS R inn</_rule_name>
-      <_what>2</_what>
-      <_roamed>0</_roamed>
+      <_order>7</_order>
+      <_plan_id>33</_plan_id>
+      <_rule_name>SMS recebidas 2</_rule_name>
+      <_what>1</_what>
+      <_roamed>2</_roamed>
       <_direction>0</_direction>
+      <_is_websms>-1</_is_websms>
       <_is_sipcall>-1</_is_sipcall>
-    </rule>
-    <rule>
-      <_id>19</_id>
-      <_active>1</_active>
-      <_order>17</_order>
-      <_plan_id>40</_plan_id>
-      <_rule_name>MMS R ut</_rule_name>
-      <_what>2</_what>
-      <_roamed>0</_roamed>
-      <_direction>1</_direction>
-      <_is_sipcall>-1</_is_sipcall>
-    </rule>
-    <rule>
-      <_id>20</_id>
-      <_active>1</_active>
-      <_order>18</_order>
-      <_plan_id>41</_plan_id>
-      <_rule_name>Data R inn/ut</_rule_name>
-      <_what>3</_what>
-      <_roamed>0</_roamed>
-      <_direction>-1</_direction>
-      <_is_sipcall>-1</_is_sipcall>
-    </rule>
-    <rule>
-      <_id>21</_id>
-      <_active>1</_active>
-      <_order>19</_order>
-      <_plan_id>42</_plan_id>
-      <_rule_name>Data R ut</_rule_name>
-      <_what>3</_what>
-      <_roamed>0</_roamed>
-      <_direction>1</_direction>
-      <_is_sipcall>-1</_is_sipcall>
+      <_mynumber>2</_mynumber>
     </rule>
   </rules>
   <hoursgroups>
@@ -485,7 +472,7 @@
   <numbersgroups>
     <numbersgroup>
       <_id>1</_id>
-      <_name>Utelukke fra anrop</_name>
+      <_name>Excluir das chamadas</_name>
       <numbers>
         <number>
           <_id>1</_id>
@@ -496,7 +483,7 @@
     </numbersgroup>
     <numbersgroup>
       <_id>2</_id>
-      <_name>Utelukke fra SMS</_name>
+      <_name>Excluir das SMS</_name>
       <numbers>
       </numbers>
     </numbersgroup>

@@ -4827,6 +4827,13 @@
     },
     {
       "country": "Portugal",
+      "id": "f_Portugal_Vodafone_plano_Estado",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Portugal_Vodafone_plano_Estado.xml",
+      "provider": "Vodafone",
+      "title": "plano Estado"
+    },
+    {
+      "country": "Portugal",
       "id": "f_Portugal_Vodafone_Red_Top",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Portugal_Vodafone_Red_Top.xml",
       "provider": "Vodafone",
