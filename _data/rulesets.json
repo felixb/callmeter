@@ -3381,6 +3381,13 @@
     },
     {
       "country": "India",
+      "id": "f_India_idea_unlimited",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/India_idea_unlimited.xml",
+      "provider": "idea",
+      "title": "unlimited"
+    },
+    {
+      "country": "India",
       "id": "f_India_idea_call_rate",
       "importurl": "https://felixb.github.io/callmeter/rulesets/India_idea_call_rate.xml",
       "provider": "idea",
