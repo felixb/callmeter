@@ -2355,6 +2355,13 @@
     },
     {
       "country": "Greece",
+      "id": "f_Greece_Vodafone_400_to_all",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Greece_Vodafone_400_to_all.xml",
+      "provider": "Vodafone",
+      "title": "400 to all"
+    },
+    {
+      "country": "Greece",
       "id": "f_Greece_Vodafone_RED_1",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Greece_Vodafone_RED_1.xml",
       "provider": "Vodafone",
@@ -2871,6 +2878,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Telenor_alaptarifa_2__100_MB_.xml",
       "provider": "Telenor",
       "title": "alaptarifa 2 / 100 MB"
+    },
+    {
+      "country": "Hungary",
+      "id": "f_Hungary_Telenor_Djuice_Extra",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Telenor_Djuice_Extra.xml",
+      "provider": "Telenor",
+      "title": "Djuice Extra"
     },
     {
       "country": "Hungary",
