@@ -4115,6 +4115,13 @@
     },
     {
       "country": "Mexico",
+      "id": "f_Mexico_Telcel_plan_200_triple",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Mexico_Telcel_plan_200_triple.xml",
+      "provider": "Telcel",
+      "title": "plan 200 triple"
+    },
+    {
+      "country": "Mexico",
       "id": "f_Mexico_Telcel_300_plus",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Mexico_Telcel_300_plus.xml",
       "provider": "Telcel",
