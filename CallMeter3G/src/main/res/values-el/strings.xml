@@ -24,79 +24,88 @@
   <string formatted="false" name="about1">Η μορφή θα είναι ως χρήση/χρόνος,ποσό που χρησιμοποιήθηκε την περίοδο/χρόνο, συγκεντρωτικό ποσό. Μηνιαίοι υπολογισμοί χρησιμοποιούν το τύπο χρέωσης του λογαριασμού. Οι συγκεντρωτικοί, όχι.</string>
   <string formatted="false" name="about2">Ο τύπος χρέωσης καθορίζει την ελάχιστη χρέωση/και την χρέωση στη συνέχεια. Π.χ. 60/10 σημαίνει ελάχιστη χρέωση 60s, και στη συνέχεια χρέωση ανά 10s.</string>
   <string formatted="false" name="about3">Το CallMeter τρέχει στο παρασκήνιο κάθε 30 λεπτά (εφόσον δεν είναι σε αναμονή. Αυτό σημαίνει ότι, σβησμένες κλήσεις ή μηνύματα προ 30 λεπτών δεν θα επηρεάσουν τα στατιστικά. Σβησμένες κλήσεις ή μηνύματα των τελευταίων 30 λεπτών θα οδηγήσουν σε λάθος στατιστικά.</string>
-  <string formatted="false" name="author_and_many_more">και πιο πολλά...</string>
+  <string formatted="false" name="author_and_many_more">και πολλά άλλα...</string>
   <string formatted="false" name="add_">Προσθήκη</string>
   <string formatted="false" name="add_log">Προσθήκη εγγραφής</string>
   <string formatted="false" name="length_hint_call">Διάρκεια σε δευτερόλεπτα</string>
   <string formatted="false" name="length_hint_data">Μέγεθος σε kB</string>
-  <string formatted="false" name="settings">Ρυθμίσεις</string>
+  <string formatted="false" name="settings">Προτιμήσεις</string>
   <string formatted="false" name="update_interval_">Διάστημα ενημέρωσης</string>
   <string formatted="false" name="update_interval_hint">Μικρότερη περίοδος θα χρησιμοποιεί περισσότερη μπαταρία.</string>
+  <string formatted="false" name="update_interval_data_">Χρονικό διάστημα ενημέρωσης (δεδομένα)</string>
+  <string formatted="false" name="update_interval_data_hint">Πρέπει να γίνονται πιο συχνά ενημερώσεις στατιστικών δεδομένων. Ειδικά οι συσκευές Samsung χρειάζονται πολύ σύντομα διαστήματα.</string>
   <string formatted="false" name="date_begin_">Αρχή των εγγραφών</string>
   <string formatted="false" name="date_begin_hint">Παράβλεψη εγγραφών πριν από αυτή την ημερομηνία.</string>
   <string formatted="false" name="delete_old_logs_">Διαγραφή εγγραφών παλιότερων από</string>
   <string formatted="false" name="delete_old_logs_help">Διαγραφή παλιότερων από χ ημέρες εγγραφών από την βάση δεδομενων. Αφήστε κενό για απενεργοποίηση.</string>
-  <string formatted="false" name="common_prefs_">Κοινές ρυθμίσεις</string>
+  <string formatted="false" name="common_prefs_">Κοινές προτιμήσεις</string>
   <string formatted="false" name="edit_">Επεξεργασία</string>
   <string formatted="false" name="delete_">Διαγραφή</string>
   <string formatted="false" name="up_">Μετακίνηση επάνω</string>
   <string formatted="false" name="down_">Μετακίνηση κάτω</string>
-  <string formatted="false" name="about_">Σχετικά με</string>
+  <string formatted="false" name="about_">Σχετικά</string>
   <string formatted="false" name="about_hint">Σχετικά με αυτή την εφαρμογή</string>
   <string formatted="false" name="faq_hint">Μερικές συμβουλές για την ρύθμιση αυτής της εφαρμογής.</string>
-  <string formatted="false" name="feedback_">Αναπληροφόρηση</string>
+  <string formatted="false" name="feedback_">Σχόλια</string>
   <string formatted="false" name="feedback_hint">Αναφέρετε λάθη, αιτηθείτε λειτουργιες ...</string>
+  <string formatted="false" name="google_plus_hint">Ακολουθήστε με στο Google+.\nΛάβετε ειδοποιήσεις ενημερώσεων κλπ.</string>
   <string formatted="false" name="more_">Περισσότερες Εφαρμογές..</string>
-  <string formatted="false" name="billing_">Τιμολόγηση</string>
-  <string formatted="false" name="billday_">Αρχική ημέρα τιμολόγησης</string>
-  <string formatted="false" name="billmode_">Μέθοδος τιμολόγησης</string>
-  <string formatted="false" name="billdate_">Πρώτη τιμολογούμενη ημέρα:</string>
+  <string formatted="false" name="billing_">Χρέωση</string>
+  <string formatted="false" name="billday_">Πρώτη μέρα χρέωσης</string>
+  <string formatted="false" name="billday_last">Τελευταία μέρα λογαριασμού</string>
+  <string formatted="false" name="billmode_">Λειτουργία χρεώσης</string>
+  <string formatted="false" name="billdate_">Έναρξη περιόδου χρέωσης:</string>
   <string formatted="false" name="appearance_">Εμφάνιση</string>
   <string formatted="false" name="behavior_">Συμπεριφορά</string>
-  <string formatted="false" name="appearance_and_behavior_">Εμφάνιση </string>
+  <string formatted="false" name="appearance_and_behavior_">Εμφάνιση &amp; συμπεριφορά</string>
   <string formatted="false" name="widget_stats_title">Call Meter (στατιστικά)</string>
   <string formatted="false" name="widget_logs_title">Call Meter (τελευταία καταγραφή)</string>
+  <string formatted="false" name="widget_">Γραφικό Στοιχείο</string>
+  <string formatted="false" name="widgets_">Γραφικά Στοιχεία</string>
   <string formatted="false" name="widgets_no_widgets_">Κανένα widget δεν προστέθηκε</string>
   <string formatted="false" name="widgets_no_widgets_hint">Δεν έχουν προστεθεί widget στην αρχική οθόνη.</string>
   <string formatted="false" name="delete_widget">Διαγραφή widget</string>
   <string formatted="false" name="simple_preferences_">Απλές ρυθμίσεις</string>
   <string formatted="false" name="simple_preferences_hint">Πολύ απλες ρυθμίσεις, κατάλληλες για τους περισσότερους χρήστες. Διαθέσιμες μόνο στους προεπιλεγμένους κανόνες.</string>
+  <string formatted="false" name="simple_preferences_deactivated">Οι απλές προτιμήσεις είναι διαθέσιμες μόνο για το προεπιλεγμένο σύνολο κανόνων. Εισάγετε το προεπιλεγμένο σύνολο κανόνων για επανενεργοποίηση.</string>
   <string formatted="false" name="advanced_preferences_">Ρυθμίσεις προχωρημένων</string>
   <string formatted="false" name="advanced_preferences_hint">Αυτό επιτρέπει την ρύθμιση ενός περίπλοκου πλάνου. Οι περισσότεροι χρήστες δεν το χρειάζονται.</string>
   <string formatted="false" name="theme_">Θέμα</string>
   <string formatted="false" name="textsize_">Μέγεθος κειμένου</string>
   <string formatted="false" name="textsize_hint">Μέγεθος κειμένου σε pixels· αφήστε κενό για προεπιλογή</string>
-  <string formatted="false" name="textsize_title_">Μέγεθος κειμένου τίτλων</string>
+  <string formatted="false" name="textsize_title_">Μέγεθος κειμένου τίτλου</string>
   <string formatted="false" name="textsize_title_hint">Μέγεθος κειμένου των τίτλων σε pixels· αφήστε κενό για προεπιλογή</string>
   <string formatted="false" name="textsize_bigtitle_">Μέγεθος κειμένου μεγάλων τίτλων</string>
   <string formatted="false" name="textsize_bigtitle_hint">Μέγεθος κειμένου των μεγάλων τίτλων σε pixels· αφήστε κενό για προεπιλογή</string>
-  <string formatted="false" name="textsize_spacer_">Μέγεθος διάκενων</string>
+  <string formatted="false" name="textsize_spacer_">Μέγεθος διαστήματος</string>
   <string formatted="false" name="textsize_spacer_hint">Μέγεθος των διάκενων σε pixels· αφήστε κενό για προεπιλογή</string>
   <string formatted="false" name="textsize_pbar_">Μέγεθος μπαρών προόδου</string>
   <string formatted="false" name="textsize_pbar_hint">Μέγεθος των μπαρών προόδου σε pixels· αφήστε κενό για προεπιλογή</string>
   <string formatted="false" name="textsize_pbarbp_">Μέγεθος μπαρών προόδου περιόδων χρήσης</string>
   <string formatted="false" name="textsize_pbarbp_hint">Μέγεθος των μπαρών προόδου περιόδων χρήσης σε pixels· αφήστε κενό για προεπιλογή</string>
-  <string formatted="false" name="show_today_">Εμφάνιση σημερινής</string>
-  <string formatted="false" name="show_today_hint">Εμφάνιση στατιστικών σημερινής</string>
-  <string formatted="false" name="show_total_">Εμφάνιση συνόλων</string>
-  <string formatted="false" name="show_total_hint">Εμφάνιση συνολικών στατιστικών, απενεργοποιείστε για εμφάνιση μόνο τρέχοντων.</string>
+  <string formatted="false" name="show_today_">Εμφάνιση σημερινής ημέρας</string>
+  <string formatted="false" name="show_today_hint">Εμφάνιση σημερινών στατιστικών</string>
+  <string formatted="false" name="show_total_">Εμφάνιση συνόλου</string>
+  <string formatted="false" name="show_total_hint">Εμφάνιση συνολικών στατιστικών, απενεργοποιήστε για εμφάνιση μόνο τρέχοντος.</string>
   <string formatted="false" name="show_hours_">Εμφάνιση ωρών</string>
-  <string formatted="false" name="show_hours_hint">Εμφάνιση χρόνου σε δευτερόλεπτα, λεπτά, ώρες και ημέρες.\nΣτην αποεπιλογή εμφανίζονται μόνο δευτερόλεπτα και λεπτά.</string>
+  <string formatted="false" name="show_hours_hint">Εμφάνιση χρόνου σε δευτερόλεπτα, λεπτά, ώρες και ημέρες.\nΑν από-επιλεγεί, εμφανίζονται μόνο δευτερόλεπτα και λεπτά.</string>
   <string formatted="false" name="show_help_">Εμφάνιση βοήθειας</string>
-  <string formatted="false" name="show_help_hint">Εμφάνιση βοήθειας στην προβολή ρύθμισης Πλάνων/Κανόνων.</string>
-  <string formatted="false" name="show_shortname_">Εμφάνιση σύντομου ονόματος αντί για το εκτενές</string>
+  <string formatted="false" name="show_help_hint">Εμφάνιση βοήθειας στην προβολή ρύθμισης Προγραμμάτων/Κανόνων.</string>
+  <string formatted="false" name="show_shortname_">Εμφάνιση σύντομου ονόματος αντί για το πλήρες</string>
   <string formatted="false" name="show_cost_">Εμφάνιση κόστους</string>
-  <string formatted="false" name="show_billperiod_">Εμφάνιση προόδου της περιόδου χρήσης</string>
+  <string formatted="false" name="show_billperiod_">Εμφάνιση προόδου της περιόδου χρέωσης</string>
   <string formatted="false" name="show_icon_">Εμφάνιση εικονιδίου</string>
   <string formatted="false" name="hide_name_">Απόκρυψη ονόματος πλάνου</string>
   <string formatted="false" name="small_widget_">Χρήση μικρού widget</string>
-  <string formatted="false" name="show_calllength_">Εμφάνιση πληροφοριών μετά το κλείσιμο της γραμμής</string>
-  <string formatted="false" name="show_calllength_hint">Εμφάνιση διάρκειας/κόστους για μια κλήση μετά το κλείσιμο της γραμμής.</string>
+  <string formatted="false" name="show_target_billday_">Εμφάνιση τελευταίας ημέρας χρέωσης</string>
+  <string formatted="false" name="show_target_billday_hint">Εμφάνιση τελευταίας ημέρας χρέωσης αντί για την πρώτη.</string>
+  <string formatted="false" name="show_calllength_">Εμφάνιση πληροφοριών μετά τον τερματισμό κλήσης</string>
+  <string formatted="false" name="show_calllength_hint">Εμφάνιση διάρκειας/κόστους για μια κλήση μετά τον τερματισμό κλήσης.</string>
   <string formatted="false" name="hide_zero_">Απόκρυψη κενών πλάνων</string>
   <string formatted="false" name="hide_zero_hint">Απόκρυψη πλάνων που δεν περιέχουν αντικείμενα.</string>
   <string formatted="false" name="hide_nocost_">Απόκρυψη πλάνων δίχως κόστος</string>
   <string formatted="false" name="hide_nocost_hint">Απόκρυψη πλάνων που δεν έχουν κόστος.</string>
-  <string formatted="false" name="hide_progressbars_">Απόκρυψη μπαρών προόδου</string>
+  <string formatted="false" name="hide_progressbars_">Απόκρυψη γραμμών προόδου</string>
   <string formatted="false" name="hide_progressbars_hint">Απόκρυψη μπαρών προόδου στην κύρια προβολή.</string>
   <string formatted="false" name="custom_currency_symbol_">Προσαρμογή συμβόλου νομίσματος</string>
   <string formatted="false" name="custom_currency_symbol_hint">Προσαρμόστε το σύμβολο νομίσματος, αφήστε κενό για προεπιλογή συστήματος.</string>
@@ -104,25 +113,28 @@
   <string formatted="false" name="custom_currency_format_hint">Επιλέξτε μια προσαρμοσμένη μορφή νομισματικής αξίας.</string>
   <string formatted="false" name="custom_date_format_">Προσαρμογή μορφής ημερομηνίας</string>
   <string formatted="false" name="custom_date_format_hint">Επιλέξτε μια προσαρμοσμένη μορφή ημερομηνίας.</string>
-  <string formatted="false" name="custom_delimiter_">Προσαρμογή οριοθέτη</string>
+  <string formatted="false" name="custom_delimiter_">Προσαρμοσμένος οριοθέτης</string>
   <string formatted="false" name="custom_delimiter_hint">Ορίστε ένα προσαρμοσμένο οριοθέτη των μπλοκ στατιστικών.</string>
+  <string formatted="false" name="split_sms_at_160_">Χωρισμός μηνυμάτων σε 160 χαρακτ.</string>
+  <string formatted="false" name="split_sms_at_160_hint">Απενεργοποιήστε για χρήση μεθόδου συστήματος Android.</string>
   <string formatted="false" name="ask_for_plan_">Ερώτηση πλάνου</string>
   <string formatted="false" name="ask_for_plan_hint">Ερώτηση πλάνου για αχαρακτήριστες κλήσεις μετά το κλείσιμο της γραμμής.</string>
   <string formatted="false" name="autohide_">Αυτόματη απόκρυψη</string>
   <string formatted="false" name="autohide_hint">Απόκρυψη διαλόγου μετά από .. δευτερόλεπτα. Αφήστε κενό για απενεργοποίηση της αυτόματης απόκρυψης.</string>
-  <string formatted="false" name="select_plan_">Επιλογή πλάνου</string>
+  <string formatted="false" name="select_plan_">Επιλογή προγράμματος</string>
   <string formatted="false" name="set_selected_as_default_">Θέση επιλεγμένου πλάνου ως προεπιλογή</string>
   <string formatted="false" name="autohide_in_">Αυτόματη απόκρυψη διαλόγου σε: %dδ</string>
-  <string formatted="false" name="logs">Εγγραφές</string>
-  <string formatted="false" name="show_logs">Εμφάνιση εγγραφών</string>
-  <string formatted="false" name="plans">Πλάνα Χρέωσης</string>
+  <string formatted="false" name="logs">Αρχεία Καταγραφής</string>
+  <string formatted="false" name="now">Τωρα</string>
+  <string formatted="false" name="show_logs">Εμφάνιση αρχείων καταγραφής</string>
+  <string formatted="false" name="plans">Προγράμματα</string>
   <string formatted="false" name="plans_hint">Ρυθμίστε τα πλάνα για κάθε είδους τιμολόγηση εδώ.</string>
-  <string formatted="false" name="plans_new">Νέο πλάνο</string>
+  <string formatted="false" name="plans_new">Νέο πρόγραμμα</string>
   <string formatted="false" name="rule_">Κανόνας</string>
   <string formatted="false" name="rules">Κανόνες</string>
   <string formatted="false" name="rules_hint">Ρυθμίστε τους κανόνες τιμολόγησης εδώ.</string>
-  <string formatted="false" name="rules_new">Νέος κανόνας</string>
-  <string formatted="false" name="length_">Διάρκεια/Μέγεθος</string>
+  <string formatted="false" name="rules_new">Νέος Κανόνας</string>
+  <string formatted="false" name="length_">Διάρκεια</string>
   <string formatted="false" name="blength_">Μήκος κοστολογημένου</string>
   <string formatted="false" name="cost_">Κόστος</string>
   <string formatted="false" name="remote_">Απομακρυσμένος αριθμός</string>
@@ -147,30 +159,47 @@
   <string formatted="false" name="new_hourgroup">Νέα ομάδα ωρών</string>
   <string formatted="false" name="add_hour">Προσθήκη ώρας</string>
   <string formatted="false" name="empty_group">Οι κενές ομάδες δεν χαρακτηρίζουν τίποτα. Παρακαλώ προσθέστε τουλάχιστον ένα αντικείμενο.</string>
+  <string formatted="false" name="billperiod_sn">BillPeriod</string>
   <string formatted="false" name="calls">Κλήσεις</string>
+  <string formatted="false" name="calls_in">Εισερχ. Κλήσεις</string>
+  <string formatted="false" name="calls_in_">CallsIn</string>
+  <string formatted="false" name="calls_out">Εξερχ. Κλήσεις</string>
+  <string formatted="false" name="calls_out_">CallsOut</string>
   <string formatted="false" name="messages">Μηνύματα</string>
   <string formatted="false" name="messages_">SMS/MMS</string>
   <string formatted="false" name="sms">SMS</string>
   <string formatted="false" name="sms_in">Εισερχόμενα SMS</string>
+  <string formatted="false" name="sms_in_">SMSIn</string>
+  <string formatted="false" name="sms_out">Εξερχ. SMS</string>
+  <string formatted="false" name="sms_out_">SMSOut</string>
   <string formatted="false" name="mms">MMS</string>
+  <string formatted="false" name="mms_in">Εισερχ. MMS</string>
+  <string formatted="false" name="mms_in_">MMSIn</string>
+  <string formatted="false" name="mms_out">Εξερχ. MMS</string>
+  <string formatted="false" name="mms_out_">MMSOut</string>
   <string formatted="false" name="data">Δεδομένα</string>
   <string formatted="false" name="data_">Δεδομένα (2G/3G/4G)</string>
+  <string formatted="false" name="data_inout">Εισερχ./Εξερχ. Δεδομένα</string>
+  <string formatted="false" name="data_inout_">DataInOut</string>
   <string formatted="false" name="second_sim_">Δεύτερη κάρτα SIM</string>
-  <string formatted="false" name="prepaid_">Πλάνο προπληρωμένης υπηρεσίας</string>
+  <string formatted="false" name="prepaid_">Προπληρωμένο πρόγραμμα</string>
   <string formatted="false" name="prepaid_hint">Τιμολόγηση βάση προπληρωμής. Το κόστος αφαιρείται από το υπόλοιπο σε κάθε κλήση κτλ.</string>
   <string formatted="false" name="balance_">Υπόλοιπο</string>
   <string formatted="false" name="balance_help">Υπόλοιπο του λογαριασμού σε αυτή την δεδομένη ημερομηνία.</string>
   <string formatted="false" name="strip_leading_zeros_">Αφαίρεση αρχικών μηδενικών</string>
   <string formatted="false" name="strip_leading_zeros_hint">Αφαίρεση αρχικών μηδενικών στην σύγκριση αριθμών.</string>
   <string formatted="false" name="my_number_">Ο αριθμός μου</string>
+  <string formatted="false" name="my_number_help">Αντιστοίχιση μόνο των αρχείων καταγραφής, ενώ αυτή η SIM/αριθμός είναι ενεργά.</string>
   <string formatted="false" name="my_sim_id_">Αναγνωριστικό SIM</string>
+  <string formatted="false" name="my_sim_id_help">Η αντιστοίχιση των αρχείων καταγραφής με αυτή τη SIM ολοκληρώθηκε.</string>
+  <string formatted="false" name="set_current_number">Τρέχων αριθμός</string>
   <string formatted="false" name="number_prefix_">Διεθνές πρόθεμα</string>
   <string formatted="false" name="number_prefix_hint">Το διεθνές πρόθεμά σας στην μορφή +1 ή +30. Χρησιμοποιείται για τον χαρακτηρισμό αριθμών όπως +30697.. and 0179..</string>
   <string formatted="false" name="reset_data_">Επαναφορά στατιστικών</string>
   <string formatted="false" name="reset_data_hint">Η επαναφορά δεδομένων κλήσεων/sms θα οδηγήσει στον επαναϋπολογισμό των στατιστικών.\n\nΗ επαναφορά των στατιστικών κινήσεων είναι μόνιμη. Επαναφέρει μόνο τις κινήσεις που έγιναν πριν την επανεκκίνηση!</string>
-  <string formatted="false" name="reset_data_data_">Επιπλέον επαναφορά στατιστικών κίνησης.</string>
+  <string formatted="false" name="reset_data_data_">Επαναφορά κίνησης.</string>
   <string formatted="false" name="reset_data_progr1">Επαναϋπολογισμός στατιστικών ...\n\n(Μπορεί να πάρει καποιο χρόνο!)</string>
-  <string formatted="false" name="reset_data_progr2">Επαναϋπολογισμός στατιστικών ...</string>
+  <string formatted="false" name="reset_data_progr2">Εκ νέου υπολογισμός στατιστικών ...</string>
   <string formatted="false" name="contacts_">Επαφές</string>
   <string formatted="false" name="clear_">Εκκαθάριση</string>
   <string formatted="false" name="help_">Βοήθεια</string>
@@ -178,6 +207,9 @@
   <string formatted="false" name="edit_selected_">Επεξεργασία επιλεγμένου</string>
   <string formatted="false" name="edit_groups_">Επεξεργασία ομάδων</string>
   <string formatted="false" name="delete_group_">Διαγραφή ομάδας</string>
+  <string formatted="false" name="delete_group_hint">Θέλετε σίγουρα να διαγράψετε αυτή την ομάδα;</string>
+  <string formatted="false" name="delete_plan_hint">Θέλετε να σίγουρα διαγράψετε αυτό το πρόγραμμα;</string>
+  <string formatted="false" name="delete_rule_hint">Θέλετε πραγματικά να διαγράψετε αυτόν τον κανόνα;</string>
   <string formatted="false" name="name_">Όνομα</string>
   <string formatted="false" name="name_help">Ορίστε ένα όνομα εδώ.</string>
   <string formatted="false" name="shortname_">Σύντομο όνομα</string>
@@ -198,12 +230,15 @@
   <string formatted="false" name="cost_per_item_help">Ορίστε το τιμολογούμενο κόστος για μια εγγραφή αντικειμένου (π.χ. μια κλήση ή ένα μήνυμα) μετά την υπέρβαση του ορίου.</string>
   <string formatted="false" name="cost_per_item_in_limit_">Κόστος ανά αντικέιμενο εντός ορίου</string>
   <string formatted="false" name="cost_per_item_in_limit_help">Ορίστε το τιμολογούμενο κόστος για μια εγγραφή αντικειμένου (π.χ. μια κλήση ή ένα μήνυμα) πριν την υπέρβαση του ορίου.</string>
+  <string formatted="false" name="cost_per_item_no_limit_help">Ορίστε το κόστος για ένα μόνο αρχείο καταγραφής (π.χ. κλήση ή μήνυμα).</string>
   <string formatted="false" name="cost_per_amount_">Κόστος ανά διάρκεια/μέγεθος</string>
   <string formatted="false" name="cost_per_amount_help1">Ορίστε το τιμολογούμενο κόστος για μια εγγραφή αντικειμένου (π.χ. για 1kB δεδομένων) μετά την υπέρβαση του ορίου.</string>
   <string formatted="false" name="cost_per_amount_help2">Ορίστε το τιμολογούμενο κόστος για μια εγγραφή αντικειμένου (π.χ. για 1λ κλήσης) μετά την υπέρβαση του ορίου.\nΤο πρώτο πεδίο είναι το κόστος για τα πρώτα δευτερόλεπτα της κλήσης, το δεύτερο πεδίο είναι το κόστος για τα επόμενα δευτερόλεπτα (και τα δύο ορίζονται σε €/λεπτό; δεστε μέθοδο τιμολόγησης).\nΑν αμφιβάλετε, απλώς θέστε το κόστος ανα λεπτό.</string>
   <string formatted="false" name="cost_per_amount_in_limit_">Κόστος ανά διάρκεια/μέγεθος εντός ορίου</string>
   <string formatted="false" name="cost_per_amount_in_limit_help1">Ορίστε το τιμολογούμενο κόστος για μια εγγραφή αντικειμένου (π.χ. για 1kB δεδομένων) πριν την υπέρβαση του ορίου.</string>
   <string formatted="false" name="cost_per_amount_in_limit_help2">Ορίστε το τιμολογούμενο κόστος για μια εγγραφή αντικειμένου (π.χ. για 1λ κλήσης, 1kB δεδομένων) πριν την υπέρβαση του ορίου.\nΤο πρώτο πεδίο είναι το κόστος για τα πρώτα δευτερόλεπτα της κλήσης, το δεύτερο πεδίο είναι το κόστος για τα επόμενα δευτερόλεπτα (και τα δύο ορίζονται σε €/λεπτό; δεστε μέθοδο τιμολόγησης).\nΑν αμφιβάλετε, απλώς θέστε το κόστος ανα λεπτό.</string>
+  <string formatted="false" name="cost_per_amount_no_limit_help1">Ορίστε το κόστος ανά διάρκεια για ένα μόνο αρχείο καταγραφής (π.χ. για κλήση 1 λεπτού, 1kB δεδομένων).</string>
+  <string formatted="false" name="cost_per_amount_no_limit_help2">Ορίστε το κόστος ανά διάρκεια για ένα μόνο αρχείο καταγραφής (π.χ. για κλήση 1 λεπτού).\nΤο πρώτο πεδίο είναι το κόστος για τα πρώτα δευτερόλεπτα της κλήσης, το δεύτερο για τα επόμενα δευτερόλεπτα (και τα δύο ορίζονται σε $/λεπτό· δείτε τη λειτουργία χρέωσης).\nΑν αμφιβάλετε, απλά ορίστε και στα δύο το κόστος ανά λεπτό.</string>
   <string formatted="false" name="cost_per_plan_">Κόστος ανά πλάνο</string>
   <string formatted="false" name="cost_per_plan_help">Ορίστε το πάγιο κόστος του πλάνου για μία περίοδο χρήσης.</string>
   <string formatted="false" name="mixed_units_sms_">Μονάδες για ένα sms</string>
@@ -212,10 +247,12 @@
   <string formatted="false" name="mixed_units_mms_help">Ορίστε τις τιμολογούμενες μονάδες για ένα mms.</string>
   <string formatted="false" name="mixed_units_call_">Μονάδες για μία κλήση</string>
   <string formatted="false" name="mixed_units_call_help">Ορίστε τις τιμολογούμενες μονάδες για ένα λεπτό κλήσης.\nΗ μέθοδος τιμολόγησης λαμβάνεται υπόψιν εδώ.</string>
-  <string formatted="false" name="merge_plans_">Συγχώνευση πλάνων</string>
+  <string formatted="false" name="mixed_units_data_">Μονάδες για δεδομένα</string>
+  <string formatted="false" name="mixed_units_data_help">Ορίστε τις μονάδες που χρεώνονται για κάθε MB δεδομένων.</string>
+  <string formatted="false" name="merge_plans_">Συγχώνευση προγραμμάτων</string>
   <string formatted="false" name="merge_plans_help">Συγχώνευση άλλων πλάνων σε αυτό και τιμολόγησή τους εδώ (επιπλέον).</string>
   <string formatted="false" name="units_cost">€</string>
-  <string formatted="false" name="units_num_msg"># Μηνυματων</string>
+  <string formatted="false" name="units_num_msg"># Μηνύματα</string>
   <string formatted="false" name="units_minutes">Λεπτά</string>
   <string formatted="false" name="units_mbyte">MBytes</string>
   <string formatted="false" name="units_units">Μονάδες</string>
@@ -226,7 +263,7 @@
   <string formatted="false" name="units_cost_per_message">€/Μήνυμα</string>
   <string formatted="false" name="units_cost_per_mbyte">€/MByte</string>
   <string formatted="false" name="units_cost_per_unit">€/Μονάδα</string>
-  <string formatted="false" name="plan_">Πλάνο</string>
+  <string formatted="false" name="plan_">Πρόγραμμα</string>
   <string formatted="false" name="plan_help">Επιλέξτε το πλάνο που αυτός ο κανόνας πρέπει να χαρακτηρίζει.</string>
   <string formatted="false" name="limitnotreached_">Μη υπέρβαση ορίου</string>
   <string formatted="false" name="limitnotreached_help">Αντιπαραβολή μόνο εάν στο στοχευμένο πλάνο δεν έχει γίνει υπέρβαση του ορίου του ακόμα.</string>
@@ -235,11 +272,15 @@
   <string formatted="false" name="iswebsms_help">Το μήνυμα εστάλει με WebSMS.</string>
   <string formatted="false" name="iswebsms_connector_">Είναι WebSMS με Connector</string>
   <string formatted="false" name="iswebsms_connector_help">Εστάλει με συγκεκριμένο WebSMS Connector, αφήστε κενό για οποιονδήποτε.</string>
+  <string formatted="false" name="calls_voip_">Κλήσεις VoIP με υποστηριζόμενες εφαρμογές</string>
   <string formatted="false" name="issipcall_">Είναι κλήση SIP</string>
   <string formatted="false" name="issipcall_help">Η κλήση έγινε μέσω SIP. Προς το παρόν το sipdroid &gt;1.6.1 υποστηρίζεται.</string>
   <string formatted="false" name="strip_seconds_">Πρώτα δευτερόλεπτα άνευ τιμολόγησης</string>
   <string formatted="false" name="strip_seconds_help">Μα μην τιμολογούνται τα πρώτα χ δευτερόλεπτα μιας κλήσης.</string>
+  <string formatted="false" name="strip_past_">Να μην γίνεται χρεώση μετά από δευτερόλεπτα</string>
+  <string formatted="false" name="strip_past_help">Να μην γίνεται χρέωση μετά από x δευτερόλεπτα κλήσης.</string>
   <string formatted="false" name="active_">Ενεργό</string>
+  <string formatted="false" name="active_help">Να γίνεται χρήση μόνο των ενεργών κανόνων για την αντιστοίχιση αρχείων καταγραφής.</string>
   <string formatted="false" name="what_">Στοχευμένος τύπος</string>
   <string formatted="false" name="what_help">Επιλέξτε ένα στοχευμένο τύπο εδώ.</string>
   <string formatted="false" name="direction_">Κατεύθυνση</string>
@@ -261,10 +302,13 @@
   <string formatted="false" name="export_sd">Εξαγωγή στην κάρτα SD</string>
   <string formatted="false" name="export_rules_">Εξαγωγή κανόνων</string>
   <string formatted="false" name="export_rules_hint">Εξαγωγή κανόνων σε ηλ. ταχυδρομείο.</string>
+  <string formatted="false" name="export_rules_dev_">Εξαγωγή συνόλου κανόνων στον προγραμματιστή</string>
+  <string formatted="false" name="export_rules_dev_hint">Εξαγωγή συνόλου κανόνων για να το εισάγουν άλλα άτομα.</string>
   <string formatted="false" name="export_rules_descr">Περιγραφή</string>
   <string formatted="false" name="export_logs_">Αντίγραφο ασφαλείας εγγραφών</string>
   <string formatted="false" name="export_logs_hint">Αντίγραφο ασφαλείας εγγραφών σε ηλ. ταχυδρομείο.</string>
   <string formatted="false" name="export_logs_csv_">Εξαγωγή CSV</string>
+  <string formatted="false" name="export_logs_csv_hint">Εξαγωγή αρχείων καταγραφής ως CSV.</string>
   <string formatted="false" name="export_numgroups_">Εξαγωγή ομάδων αριθμών</string>
   <string formatted="false" name="export_numgroups_hint">Εξαγωγή ομάδων αριθμών σε ηλ. ταχυδρομείο.</string>
   <string formatted="false" name="export_hourgroups_">Εξαγωγή ομάδων ωρών</string>
@@ -273,26 +317,37 @@
   <string formatted="false" name="import_link_">Περισσότερες πληροφορίες</string>
   <string formatted="false" name="import_rules_">Εισαγωγή κανόνων</string>
   <string formatted="false" name="import_rules_hint">Εισαγωγή κανόνων.</string>
+  <string formatted="false" name="import_rules_www_hint">Εισαγωγή προκαθορισμένου συνόλου κανόνων από το http://www.ub0r.de/.</string>
+  <string formatted="false" name="import_rules_users">Κανόνες χρηστών</string>
+  <string formatted="false" name="import_rules_sd_">Εισαγωγή συνόλου κανόνων από την κάρτα SD</string>
+  <string formatted="false" name="import_rules_sd_hint">Εισαγωγή συνόλου κανόνων από την κάρτα SD.</string>
+  <string formatted="false" name="import_rules_sd_help">Τοποθετήστε το αρχείο σας στην κάρτα SD σας και πατήστε παρακάτω</string>
+  <string formatted="false" name="import_rules_sd_files">Βρέθηκαν αρχεία</string>
+  <string formatted="false" name="import_rules_sd_nofiles">Δε βρέθηκαν αρχεία</string>
+  <string formatted="false" name="import_rules_default_">Εισαγωγή προεπιλεγμένου συνόλου κανόνων</string>
+  <string formatted="false" name="import_rules_default_hint">Εισαγωγή προεπιλεγμένου συνόλου κανόνων που έρχεται με την εφαρμογή.</string>
   <string formatted="false" name="import_rules_empty">Δεν υπάρχουν πλάνα/κανόνες. Κάντε κλικ σε αυτό το κείμενο για την εισαγωγή προεπιλεγμένων κανόνων.\n\nΉ προσθέστε πλάνα και κανόνες στις ρυθμίσεις χειροκίνητα.</string>
   <string formatted="false" name="loading">Φόρτωση ...</string>
-  <string formatted="false" name="err_export_write">Σφάλμα εγγραφής στο αρχείο εξαγωγής</string>
-  <string formatted="false" name="err_export_read">Σφάλμα ανάγνωσης στο αρχείο εξαγωγής</string>
+  <string formatted="false" name="err_export_write">Σφάλμα εγγραφής αρχείου εξαγωγής</string>
+  <string formatted="false" name="err_export_read">Σφάλμα ανάγνωσης αρχείου εξαγωγής</string>
   <string formatted="false" name="alerts_">Ειδοποιήσεις</string>
   <string formatted="false" name="alerts_hint">Ορίστε ειδοποιήσεις βασισμένες στη χρήση του πλάνου.</string>
-  <string formatted="false" name="alerts_title">Ειδοποιήση του Call Meter 3G</string>
-  <string formatted="false" name="alerts_message">Το πλάνο %1$s έφτασε %2$d%% της χρήσης!</string>
-  <string formatted="false" name="alerts_80_">Ειδοποιήση στο 80%</string>
-  <string formatted="false" name="alerts_80_hint">Ειδοποιήση εάν ένα πλάνο περάσει το 80% του ορίου του.</string>
-  <string formatted="false" name="alerts_100_">Ειδοποιήση στο 100%</string>
-  <string formatted="false" name="alerts_100_hint">Ειδοποιήση εάν ένα πλάνο περάσει το 100% του ορίου του.</string>
-  <string formatted="false" name="widget_config_">Ρυθμίσεις widget</string>
-  <string formatted="false" name="widget_plan_textsize">Μέγεθος Γραμματοσειράς Πλάνου</string>
-  <string formatted="false" name="widget_cost_textsize">Μέγεθος Γραμματοσειράς Κόστους</string>
-  <string formatted="false" name="widget_text_color_">Χρώμα Γραμματοσειράς</string>
-  <string formatted="false" name="widget_backgroud_color_">Χρώμα Φόντου</string>
-  <string formatted="false" name="widget_backgroud_transparency_">Διαφάνεια Φόντου</string>
-  <string formatted="false" name="send_devices_">Στείλε συσκευές</string>
-  <string formatted="false" name="send_devices_hint">Στείλε λίστα με συσκευές στον προγραμματιστή. Αυτό είναι απαραίτητο μόνο αν τα στατιστικά δεδομένων είναι μηδέν.</string>
+  <string formatted="false" name="alerts_title">Ειδοποιήση Call Meter 3G</string>
+  <string formatted="false" name="alerts_message">Το πρόγραμμα %1$s έφτασε το %2$d%% χρήσης!</string>
+  <string formatted="false" name="alerts_80_">Ειδοποίηση στο 80%</string>
+  <string formatted="false" name="alerts_80_hint">Ειδοποίηση όταν το πρόγραμμα περάσει το 80% του ορίου.</string>
+  <string formatted="false" name="alerts_100_">Ειδοποίηση στο 100%</string>
+  <string formatted="false" name="alerts_100_hint">Ειδοποίηση αν το πρόγραμμα περάσει το 100% του ορίου.</string>
+  <string formatted="false" name="widget_config_">Ρυθμίσεις γραφικού στοιχείου</string>
+  <string formatted="false" name="widget_plan_textsize">Μέγεθος Κειμένου Προ/τος</string>
+  <string formatted="false" name="widget_cost_textsize">Μέγεθος Κειμένου Κόστους</string>
+  <string formatted="false" name="widget_date_textsize">Μέγεθος Κειμένου Ημερομηνίας</string>
+  <string formatted="false" name="widget_details_textsize">Μέγεθος Κειμένου Λεπτομερειών</string>
+  <string formatted="false" name="widget_text_color_">Χρώμα κειμένου</string>
+  <string formatted="false" name="widget_backgroud_color_">Χρώμα φόντου</string>
+  <string formatted="false" name="widget_backgroud_transparency_">Διαφάνεια φόντου</string>
+  <string formatted="false" name="send_devices_">Συσκευές αποστολής</string>
+  <string formatted="false" name="send_devices_hint">Λίστα αποστολής συσκευών στον προγραμματιστή. Αυτό χρειάζεται μόνο αν τα στατιστικά δεδομένων είναι μηδενικά.</string>
   <string formatted="false" name="monday">Δευτέρα</string>
   <string formatted="false" name="tuesday">Τρίτη</string>
   <string formatted="false" name="wednesday">Τετάρτη</string>
@@ -327,16 +382,16 @@
   <string formatted="false" name="day_21">21:00 - 21:59</string>
   <string formatted="false" name="day_22">22:00 - 22:59</string>
   <string formatted="false" name="day_23">23:00 - 23:59</string>
-  <string formatted="false" name="theme_black">Σκούρο</string>
+  <string formatted="false" name="theme_black">Μαύρο</string>
   <string formatted="false" name="theme_light">Φωτεινό</string>
-  <string formatted="false" name="edit_plan_">Επεξεργασία πλάνου</string>
+  <string formatted="false" name="edit_plan_">Επεξεργασία Προ/τος</string>
   <string formatted="false" name="view_logs_">Προβολή Αρχείων Καταγραφής</string>
   <string formatted="false" name="title">Τίτλος</string>
-  <string formatted="false" name="spacer">Διάκενο</string>
-  <string formatted="false" name="mixed">Κλήσεων</string>
+  <string formatted="false" name="spacer">Διάστημα</string>
+  <string formatted="false" name="mixed">Μεικτό</string>
   <string formatted="false" name="limit_type_unlimited">απεριόριστο</string>
-  <string formatted="false" name="limit_type_units">μονάδων</string>
-  <string formatted="false" name="limit_type_cost">κόστους</string>
+  <string formatted="false" name="limit_type_units">μονάδες</string>
+  <string formatted="false" name="limit_type_cost">κόστος</string>
   <string formatted="false" name="x1_day">Μία ημέρα</string>
   <string formatted="false" name="x1_week">Μία εβδομάδα</string>
   <string formatted="false" name="x14_day">14 ημέρες</string>
@@ -346,16 +401,16 @@
   <string formatted="false" name="x31_day">31 ημέρες</string>
   <string formatted="false" name="x60_day">60 ημέρες</string>
   <string formatted="false" name="x90_day">90 ημέρες</string>
-  <string formatted="false" name="x1_month">Ένα μήνα</string>
+  <string formatted="false" name="x1_month">Ένας μήνας</string>
   <string formatted="false" name="x1_month_1_day">Ένας μήνας + μια ημέρα</string>
   <string formatted="false" name="x2_month">Δύο μήνες</string>
-  <string formatted="false" name="x3_month">Τρείς μήνες</string>
+  <string formatted="false" name="x3_month">Τρεις μήνες</string>
   <string formatted="false" name="x4_month">Τέσσερις μήνες</string>
   <string formatted="false" name="x5_month">Πέντε μήνες</string>
   <string formatted="false" name="x6_month">Έξι μήνες</string>
   <string formatted="false" name="x1_year">Ένας χρόνος</string>
-  <string formatted="false" name="infinite">Άπειρη</string>
-  <string formatted="false" name="custom">Προσαρμοσμένη</string>
+  <string formatted="false" name="infinite">Απεριόριστο</string>
+  <string formatted="false" name="custom">Προσαρμοσμένο</string>
   <string formatted="false" name="direction_calls_in">εισερχόμενη</string>
   <string formatted="false" name="direction_calls_out">εξερχόμενη</string>
   <string formatted="false" name="direction_sms_in">εισερχόμενη</string>
@@ -365,10 +420,10 @@
   <string formatted="false" name="direction_data_in">εισερχόμενη</string>
   <string formatted="false" name="direction_data_out">εξερχόμενη</string>
   <string formatted="false" name="default_">Προεπιλογή</string>
-  <string formatted="false" name="currency_formats_1">€1.00</string>
-  <string formatted="false" name="currency_formats_2">€1000</string>
-  <string formatted="false" name="currency_formats_3">1.00€</string>
-  <string formatted="false" name="currency_formats_4">1000€</string>
+  <string formatted="false" name="currency_formats_1">€1,00</string>
+  <string formatted="false" name="currency_formats_2">€1.000</string>
+  <string formatted="false" name="currency_formats_3">1,00€</string>
+  <string formatted="false" name="currency_formats_4">1.000$</string>
   <string formatted="false" name="date_formats_1">ΜΜ/ΗΗ/ΕΕ</string>
   <string formatted="false" name="date_formats_2">ΗΗ/ΜΜ/ΕΕΕΕ</string>
   <string formatted="false" name="date_formats_3">ΗΗ.ΜΜ.ΕΕΕΕ</string>
@@ -382,17 +437,21 @@
   <string formatted="false" name="x30_minute">30 λεπτά</string>
   <string formatted="false" name="x1_hour">Μία ώρα</string>
   <string formatted="false" name="x2_hour">Δύο ώρες</string>
-  <string formatted="false" name="manually_only">Χειροκίνητα μόνο</string>
+  <string formatted="false" name="manually_only">Μόνο χειροκίνητα</string>
   <string formatted="false" name="reset">Επαναφορά</string>
   <string formatted="false" name="debug_">Αποσφαλμάτωση</string>
   <string formatted="false" name="send_logs_">Αποστολή αρχείων καταγραφής</string>
   <string formatted="false" name="send_logs_hint">Στείλτε τα αρχεία καταγραφής της συσκευής σας στον προγραμματιστή.\nΚάντε το μόνο αν σας ζητηθεί.</string>
+  <string formatted="false" name="sendlog_run_">Εκτέλεση SendLog</string>
+  <string formatted="false" name="sendlog_run">Το SendLog θα συλλέξει τα αρχεία καταγραφής της συσκευής και θα τα στείλει στον προγραμματιστή.\nΘα έχετε την ευκαιρία να εξετάσετε και να τροποποιήσετε τα δεδομένα που θα σταλούν.</string>
+  <string formatted="false" name="sendlog_install_">Εγκατάσταση SendLog</string>
+  <string formatted="false" name="sendlog_install">Εγκαταστήστε τη δωρεάν εφαρμογή SendLog για συλλογή αρχείων καταγραφής συσκευής και αποστολή στον προγραμματιστή.</string>
   <string formatted="false" name="license_">Άδεια:</string>
   <string formatted="false" name="license">GPLv3 - δείτε το http://www.gnu.org/licenses/gpl-3.0.txt</string>
   <string formatted="false" name="author_">Δημιουργός:</string>
   <string formatted="false" name="website_">Ιστοσελίδα:</string>
   <string formatted="false" name="country">Χώρα</string>
   <string formatted="false" name="provider">Πάροχος</string>
-  <string formatted="false" name="plan">Πλάνο</string>
+  <string formatted="false" name="plan">Πρόγραμμα</string>
   <string formatted="false" name="donate_remove_ads_">Δωρεά/αφαίρεση διαφημίσεων</string>
 </resources>

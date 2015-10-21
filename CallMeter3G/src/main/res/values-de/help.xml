@@ -19,9 +19,9 @@
         not, see <http://www.gnu.org/licenses/>.
     -->
 <resources>
-  <string formatted="false" name="help_title_">Bitte lies folgendes, um das Konzept der <b>Logs</b>, <b>Kontingente</b> und <b>Regeln</b> zu verstehen:</string>
-  <string formatted="false" name="help_import_">Ein guter Anfangspunkt sind fertige Regelsätze. Sie sind über die Website erhältlich. Importiere sie einfach über das Import Menü und spiele mit ihnen rum.</string>
-  <string formatted="false" name="help_export_">Wenn du es geschafft hast ein für dein Land typischen Regelsatz zu erstellen, kannst du ihn gern per Mail exportieren und mir schicken. Ich werde den Regelsatz dann auf der Website für alle Benutzer zugänglich machen.</string>
+  <string formatted="false" name="help_title_">Bitte lies den folgenden Abschnitt, um das Konzept der <b>Logs</b>, <b>Kontingente</b> und <b>Regeln</b> zu verstehen:</string>
+  <string formatted="false" name="help_import_">Ein guter Einstieg sind die fertigen Regelsätze, die auf der Website verfügbar sind. Füge sie einfach über das Import-Menü hinzu und spiele mit ihnen herum.</string>
+  <string formatted="false" name="help_export_">Solltest Du einen allgemeinen Regelsatz für dein Land fertiggestellt haben, kannst Du ihn gern als E-Mail exportieren und mir schicken. Ich werde den Regelsatz dann auf der Website für andere Benutzer bereitstellen.</string>
   <string formatted="false" name="help_logs_plans_rules_">Es gibt drei Arten von Datenstrukturen:</string>
   <string formatted="false" name="help_logs_"><b>Logs</b> um Informationen über Anrufe, Nachrichten und Datenverkehr zu speichern.</string>
   <string formatted="false" name="help_plans_"><b>Plans</b> um alle Aspekte deiner Rechnung zu beschreiben.</string>
