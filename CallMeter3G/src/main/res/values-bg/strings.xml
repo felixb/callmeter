@@ -144,7 +144,7 @@
   <string formatted="false" name="hourgroups_edit_hint">Редактирайте часовите групи тук.</string>
   <string formatted="false" name="numbers">Номера</string>
   <string formatted="false" name="numbergroup_">Включи номера</string>
-  <string formatted="false" name="numbergroup_help">Добави номера, за които това правило трябва да съвпадне.\n\nЗаместващи символи (\"%\")са позволени в двата края на номера.\nПример %34 ще съвпадне с 1234, 12% ще съвпадне с 1234 и %23% ще съвпадне с 12345.</string>
+  <string formatted="false" name="numbergroup_help">Добави номера, за които това правило трябва да съвпадне.\n\nЗаместващи символи (\"%%\")са позволени в двата края на номера.\nПример %%34 ще съвпадне с 1234, 12%% ще съвпадне с 1234 и %%23%% ще съвпадне с 12345.</string>
   <string formatted="false" name="exnumbergroup_">Изключи номера</string>
   <string formatted="false" name="exnumbergroup_help">Добавяне на номера, за които това правило не пасва.\nВиж по-горе.</string>
   <string formatted="false" name="new_numbergroup">Нова група от номера</string>

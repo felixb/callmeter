@@ -144,7 +144,7 @@
   <string formatted="false" name="hourgroups_edit_hint">Zde upravte skupiny hodin</string>
   <string formatted="false" name="numbers">Čísla</string>
   <string formatted="false" name="numbergroup_">Zahrnutá čísla</string>
-  <string formatted="false" name="numbergroup_help">Přidejte čísla, která musí vyhovovat tomuto pravidlu.\n\nZnak (\"%\") můžete použít na obou koncích zadávaného čísla.\nNapř. %34 zastoupí 1234, 12% zastoupí 1234 a %23% zastoupí 12345.</string>
+  <string formatted="false" name="numbergroup_help">Přidejte čísla, která musí vyhovovat tomuto pravidlu.\n\nZnak (\"%%\") můžete použít na obou koncích zadávaného čísla.\nNapř. %%34 zastoupí 1234, 12%% zastoupí 1234 a %%23%% zastoupí 12345.</string>
   <string formatted="false" name="exnumbergroup_">Vyloučená čísla</string>
   <string formatted="false" name="exnumbergroup_help">Přidejte čísla, která nesmí vyhovovat tomuto pravidlu</string>
   <string formatted="false" name="new_numbergroup">Přidat skupinu čísel</string>

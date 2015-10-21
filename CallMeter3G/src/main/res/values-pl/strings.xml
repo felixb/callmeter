@@ -141,7 +141,7 @@
   <string formatted="false" name="hourgroups_edit_hint">Edytuj grupy godzin.</string>
   <string formatted="false" name="numbers">Numery</string>
   <string formatted="false" name="numbergroup_">Wliczaj numery</string>
-  <string formatted="false" name="numbergroup_help">Dodaj numery które będą zastosowane do reguły.\n\nWzorce (\"%\") są dopuszczalne na obu końcach numeru.\nNp.: %34 będzie pasować do 1234, 12% do 1234 i %23% do 12345.</string>
+  <string formatted="false" name="numbergroup_help">Dodaj numery które będą zastosowane do reguły.\n\nWzorce (\"%%\") są dopuszczalne na obu końcach numeru.\nNp.: %%34 będzie pasować do 1234, 12%% do 1234 i %%23%% do 12345.</string>
   <string formatted="false" name="exnumbergroup_">Wyklucz numery</string>
   <string formatted="false" name="exnumbergroup_help">Dodaj numery które nie będą pasowały do tej reguły.\nPatrz powyżej.</string>
   <string formatted="false" name="new_numbergroup">Nowa grupa numerów</string>

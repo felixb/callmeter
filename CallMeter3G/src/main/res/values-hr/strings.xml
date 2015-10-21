@@ -144,7 +144,7 @@
   <string formatted="false" name="hourgroups_edit_hint">Uredite grupe sati ovdje.</string>
   <string formatted="false" name="numbers">Brojevi</string>
   <string formatted="false" name="numbergroup_">Uključivanje brojeva</string>
-  <string formatted="false" name="numbergroup_help">Dodajte neke brojeve kojima mora odgovarati ovo pravilo.\n\nZamjenski znakovi (\"%\") su dozvoljeni na oba kraja broja.\nNpr. %34 će odgovarati 1234, 12% će odgovarati 1234 i %23% će odgovarati 12345.</string>
+  <string formatted="false" name="numbergroup_help">Dodajte neke brojeve kojima mora odgovarati ovo pravilo.\n\nZamjenski znakovi (\"%%\") su dozvoljeni na oba kraja broja.\nNpr. %%34 će odgovarati 1234, 12%% će odgovarati 1234 i %%23%% će odgovarati 12345.</string>
   <string formatted="false" name="exnumbergroup_">Izuzimanje brojeva</string>
   <string formatted="false" name="exnumbergroup_help">Dodajte neke brojeve kojima ovo pravilo ne mora odgovarati.\nPogledajte gore.</string>
   <string formatted="false" name="new_numbergroup">Novi broj grupe</string>

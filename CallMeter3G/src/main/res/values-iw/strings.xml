@@ -137,7 +137,7 @@
   <string formatted="false" name="hourgroups_edit_hint">ערוך כאן קבוצות שעות</string>
   <string formatted="false" name="numbers">מספרים</string>
   <string formatted="false" name="numbergroup_">כלול מספרים</string>
-  <string formatted="false" name="numbergroup_help">הוסף מספרים שכלל זה חייב להתאים להם. \n\nשימוש בסימן אחוז (\"%\")אפשרי בתחילת או בסוף המספר. \nלדוגמה, %34 יתאים ל1234, 12% יתאים ל1234 ו %23% יתאים ל12345.</string>
+  <string formatted="false" name="numbergroup_help">הוסף מספרים שכלל זה חייב להתאים להם. \n\nשימוש בסימן אחוז (\"%%\")אפשרי בתחילת או בסוף המספר. \nלדוגמה, %%34 יתאים ל1234, 12%% יתאים ל1234 ו %%23%% יתאים ל12345.</string>
   <string formatted="false" name="exnumbergroup_">אל תכלול מספרים</string>
   <string formatted="false" name="exnumbergroup_help">הוסף מספרים שכלל זה לא יחול עליהם. \nראה בהמשך.</string>
   <string formatted="false" name="new_numbergroup">קבוצת מספרים חדשה</string>

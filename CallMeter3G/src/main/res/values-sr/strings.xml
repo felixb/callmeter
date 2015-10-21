@@ -143,7 +143,7 @@
   <string formatted="false" name="hourgroups_edit_hint">Uredi ovde grupe sati.</string>
   <string formatted="false" name="numbers">Brojevi</string>
   <string formatted="false" name="numbergroup_">Uvrsti brojeve</string>
-  <string formatted="false" name="numbergroup_help">Dodajte brojeve kojima ovo pravilo mora odgovarati.\n\nDopušteni su zamenski znakovi (\"%\") s oba kraja broja.\nNpr. %34 obuhvata 1234, 12% obuhvata 1234 a %23% obuhvata 12345.</string>
+  <string formatted="false" name="numbergroup_help">Dodajte brojeve kojima ovo pravilo mora odgovarati.\n\nDopušteni su zamenski znakovi (\"%%\") s oba kraja broja.\nNpr. %%34 obuhvata 1234, 12%% obuhvata 1234 a %%23%% obuhvata 12345.</string>
   <string formatted="false" name="exnumbergroup_">Izbaci brojeve</string>
   <string formatted="false" name="exnumbergroup_help">Dodajte brojeve kojima ovo pravilo ne sme odgovarati.\nVidi gore.</string>
   <string formatted="false" name="new_numbergroup">Nova grupa brojeva</string>

@@ -144,7 +144,7 @@
   <string formatted="false" name="hourgroups_edit_hint">هنا يتم تعديل مجموعات الساعات</string>
   <string formatted="false" name="numbers">الأرقام</string>
   <string formatted="false" name="numbergroup_">إدراج أرقام</string>
-  <string formatted="false" name="numbergroup_help">قم بإضافة بعض الارقام لتطابق هذا الشرط.\nالاحصنة البرية (\"%\") مسموح بوجودها على جانبى الرقم \nتوضيح: %34 سيكون مطابق ل 1234 بينما 12% سيكون مطابق ل 1234\nو %23% سيكون مطابق ل 12345\n.</string>
+  <string formatted="false" name="numbergroup_help">قم بإضافة بعض الارقام لتطابق هذا الشرط.\nالاحصنة البرية (\"%%\") مسموح بوجودها على جانبى الرقم \nتوضيح: %%34 سيكون مطابق ل 1234 بينما 12%% سيكون مطابق ل 1234\nو %%23%% سيكون مطابق ل 12345\n.</string>
   <string formatted="false" name="exnumbergroup_">إستثناء أرقام</string>
   <string formatted="false" name="exnumbergroup_help">اضف بعض الأرقام التي يجب عدم مطابقتها مع الشرط. انظر للأعلى</string>
   <string formatted="false" name="new_numbergroup">مجموعة أرقام جديدة</string>

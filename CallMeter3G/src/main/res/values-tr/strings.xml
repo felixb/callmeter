@@ -144,7 +144,7 @@
   <string formatted="false" name="hourgroups_edit_hint">Saat gruplarını burada ayarlayın.</string>
   <string formatted="false" name="numbers">Numaralar</string>
   <string formatted="false" name="numbergroup_">Numaraları dahil et</string>
-  <string formatted="false" name="numbergroup_help">Bu kurala dahil olacak numaraları ekleyin.\n\nArama karakteri (\"%\") numaranın her iki tarafında kullanılabilir.\nÖr: %34 ve 12%, 1234\'e; ve %23%, 12345\'e karşılık gelir.</string>
+  <string formatted="false" name="numbergroup_help">Bu kurala dahil olacak numaraları ekleyin.\n\nArama karakteri (\"%%\") numaranın her iki tarafında kullanılabilir.\nÖr: %%34 ve 12%%, 1234\'e; ve %%23%%, 12345\'e karşılık gelir.</string>
   <string formatted="false" name="exnumbergroup_">Numaraları hariç tut</string>
   <string formatted="false" name="exnumbergroup_help">Bu kurala dahil olmayacak numaraları ekleyin.\nYukarıdaki açıklamaya bakın.</string>
   <string formatted="false" name="new_numbergroup">Yeni numara grubu</string>

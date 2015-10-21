@@ -144,7 +144,7 @@
   <string formatted="false" name="hourgroups_edit_hint">Bearbeite Stunden Gruppen hier.</string>
   <string formatted="false" name="numbers">Nummern</string>
   <string formatted="false" name="numbergroup_">Nummern einschließen</string>
-  <string formatted="false" name="numbergroup_help">Füge hier die Nummern hinzu, die diese Regel treffen muss.\n\nPlatzhalter (\"%\") sind and beiden Enden der Nummer erlaubt.\nZ.B. trifft %34 1234, 12% trifft 1234 und %23% trifft 12345.</string>
+  <string formatted="false" name="numbergroup_help">Füge hier die Nummern hinzu, die diese Regel treffen muss.\n\nPlatzhalter (\"%%\") sind and beiden Enden der Nummer erlaubt.\nZ.B. trifft %%34 1234, 12%% trifft 1234 und %%23%% trifft 12345.</string>
   <string formatted="false" name="exnumbergroup_">Nummern ausschließen</string>
   <string formatted="false" name="exnumbergroup_help">Füge hier die Nummern hinzu, die diese Regel nicht treffen darf.\nAnalog zu oben.</string>
   <string formatted="false" name="new_numbergroup">Neue Nummerngruppe</string>

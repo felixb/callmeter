@@ -144,7 +144,7 @@
   <string formatted="false" name="hourgroups_edit_hint">Editar hores de grups aquí.</string>
   <string formatted="false" name="numbers">Números</string>
   <string formatted="false" name="numbergroup_">Incloure números</string>
-  <string formatted="false" name="numbergroup_help">Afegir números els quals la norma ha de complir.\n\nWildcards (\"%\") són permesos en els dos finals del número.\nEx. %34 coincidirà amb 1234, 12% coincidirà amb 1234 i %23% amb 12345.</string>
+  <string formatted="false" name="numbergroup_help">Afegir números els quals la norma ha de complir.\n\nWildcards (\"%%\") són permesos en els dos finals del número.\nEx. %%34 coincidirà amb 1234, 12%% coincidirà amb 1234 i %%23%% amb 12345.</string>
   <string formatted="false" name="exnumbergroup_">Excloure números</string>
   <string formatted="false" name="exnumbergroup_help">Afegir número que aquesta norma no ha de complir.\nVeure abaix.</string>
   <string formatted="false" name="new_numbergroup">Nou grup de números</string>

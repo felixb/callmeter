@@ -142,7 +142,7 @@
   <string formatted="false" name="hourgroups_edit_hint">Modifica i gruppi di orari qui.</string>
   <string formatted="false" name="numbers">Numeri</string>
   <string formatted="false" name="numbergroup_">Includi numeri</string>
-  <string formatted="false" name="numbergroup_help">Aggiungi dei numeri per cui questa regola sarà applicata.\n\nI caratteri jolly (\"%\") sono permessi all\'inizio e alla fine del numero.\nEs. %34 includerà 1234, 12% includerà 1234 e %23% includerà 12345.</string>
+  <string formatted="false" name="numbergroup_help">Aggiungi dei numeri per cui questa regola sarà applicata.\n\nI caratteri jolly (\"%%\") sono permessi all\'inizio e alla fine del numero.\nEs. %%34 includerà 1234, 12%% includerà 1234 e %%23%% includerà 12345.</string>
   <string formatted="false" name="exnumbergroup_">Escludi numeri</string>
   <string formatted="false" name="exnumbergroup_help">Aggiungi dei numeri per cui questa regola non sarà applicata.\nVedi sopra</string>
   <string formatted="false" name="new_numbergroup">Nuovo gruppo numeri</string>

@@ -123,7 +123,7 @@
   <string formatted="false" name="hourgroups_edit_hint">Rediger timegrupper her.</string>
   <string formatted="false" name="numbers">Nummer</string>
   <string formatted="false" name="numbergroup_">Inkluder nummer</string>
-  <string formatted="false" name="numbergroup_help">Legg til noen nummer denne regelen må samsvare med.\n\nJokertegn (\"%\") er tillat i begge ender av nummeret.\nF.eks: %34 vil stemme med 1234, 12% med 1234 og %23% med 12345.</string>
+  <string formatted="false" name="numbergroup_help">Legg til noen nummer denne regelen må samsvare med.\n\nJokertegn (\"%%\") er tillat i begge ender av nummeret.\nF.eks: %%34 vil stemme med 1234, 12%% med 1234 og %%23%% med 12345.</string>
   <string formatted="false" name="exnumbergroup_">Ekskluder nummer</string>
   <string formatted="false" name="exnumbergroup_help">Legg til noen nummer denne regelen ikke kan samsvare med.\nSe ovenfor.</string>
   <string formatted="false" name="new_numbergroup">Ny nummergruppe</string>

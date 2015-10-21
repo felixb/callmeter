@@ -140,7 +140,7 @@
   <string formatted="false" name="hourgroups_edit_hint">Wijzig urengroepen hier.</string>
   <string formatted="false" name="numbers">Nummers</string>
   <string formatted="false" name="numbergroup_">Insluiten nummers</string>
-  <string formatted="false" name="numbergroup_help">Voeg nummers toe die deze regel moeten matchen.\n\nWildcards (\"%\") zijn toegestaan aan het begin en aan het einde van het nummer.\nBv. %34 match 1234, 12% match 1234 en %23% match 12345.</string>
+  <string formatted="false" name="numbergroup_help">Voeg nummers toe die deze regel moeten matchen.\n\nWildcards (\"%%\") zijn toegestaan aan het begin en aan het einde van het nummer.\nBv. %%34 match 1234, 12%% match 1234 en %%23%% match 12345.</string>
   <string formatted="false" name="exnumbergroup_">Uitsluiten nummers</string>
   <string formatted="false" name="exnumbergroup_help">Voeg nummers toe die deze regel niet moeten matchen.\nZie hierboven.</string>
   <string formatted="false" name="new_numbergroup">Nieuwe nummergroep</string>

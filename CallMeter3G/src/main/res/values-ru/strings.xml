@@ -144,7 +144,7 @@
   <string formatted="false" name="hourgroups_edit_hint">Редактирование периодов времени</string>
   <string formatted="false" name="numbers">Номера</string>
   <string formatted="false" name="numbergroup_">Учитываемые номера</string>
-  <string formatted="false" name="numbergroup_help">Добавьте номера, которые будут соответствовать данному правилу.\n\nРазрешено использование шаблонов (\"%\") на обоих концах номера.\nНапример: %34 будет соответствовать 1234, 12% будет соответствовать 1234 и %23% будет соответствовать 12345.</string>
+  <string formatted="false" name="numbergroup_help">Добавьте номера, которые будут соответствовать данному правилу.\n\nРазрешено использование шаблонов (\"%%\") на обоих концах номера.\nНапример: %%34 будет соответствовать 1234, 12%% будет соответствовать 1234 и %%23%% будет соответствовать 12345.</string>
   <string formatted="false" name="exnumbergroup_">Не учитываемые номера</string>
   <string formatted="false" name="exnumbergroup_help">Добавьте номера, которые не должны соответствовать данному правилу.\nСмотрите пример выше.</string>
   <string formatted="false" name="new_numbergroup">Новая номерная группа</string>

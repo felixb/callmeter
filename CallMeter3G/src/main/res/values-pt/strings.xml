@@ -142,7 +142,7 @@
   <string formatted="false" name="hourgroups_edit_hint">Edite aqui os grupos de horas.</string>
   <string formatted="false" name="numbers">Números</string>
   <string formatted="false" name="numbergroup_">Números incluídos</string>
-  <string formatted="false" name="numbergroup_help">Adicione os números coincidentes com esta regra.\n\nOs caracteres universais (\"%\") são permitidos nas extremidades do número.\nEx. %34 corresponderá a 1234, 12% corresponderá a 1234 e %23% corresponderá a 12345.</string>
+  <string formatted="false" name="numbergroup_help">Adicione os números coincidentes com esta regra.\n\nOs caracteres universais (\"%%\") são permitidos nas extremidades do número.\nEx. %%34 corresponderá a 1234, 12%% corresponderá a 1234 e %%23%% corresponderá a 12345.</string>
   <string formatted="false" name="exnumbergroup_">Números excluídos</string>
   <string formatted="false" name="exnumbergroup_help">Adicione os números não coincidentes com esta regra.\nVeja abaixo.</string>
   <string formatted="false" name="new_numbergroup">Novo grupo de números</string>

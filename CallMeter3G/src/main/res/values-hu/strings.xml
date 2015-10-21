@@ -144,7 +144,7 @@
   <string formatted="false" name="hourgroups_edit_hint">Az Időszakokat itt lehet szerkeszteni.</string>
   <string formatted="false" name="numbers">Számok</string>
   <string formatted="false" name="numbergroup_">Tartalmazott számok</string>
-  <string formatted="false" name="numbergroup_help">Adj hozzá számokat, amikre a szabály vonatkozik.\n\nHelyettesítő (\"%\") karakter használható a számok elején és végén. %34 esetén 1234-re vonatkozni fog, 12% esetén is, %23% esetén is.</string>
+  <string formatted="false" name="numbergroup_help">Adj hozzá számokat, amikre a szabály vonatkozik.\n\nHelyettesítő (\"%%\") karakter használható a számok elején és végén. %%34 esetén 1234-re vonatkozni fog, 12%% esetén is, %%23%% esetén is.</string>
   <string formatted="false" name="exnumbergroup_">Kizárt számok</string>
   <string formatted="false" name="exnumbergroup_help">Adj hozzá számokat, amikre a szabály nem vonatkozik.</string>
   <string formatted="false" name="new_numbergroup">Új számcsoport</string>

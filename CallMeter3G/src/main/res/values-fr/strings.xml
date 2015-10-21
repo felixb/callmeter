@@ -140,7 +140,7 @@
   <string formatted="false" name="hourgroups_edit_hint">Editez des groupes d\'heures ici.</string>
   <string formatted="false" name="numbers">Numéros</string>
   <string formatted="false" name="numbergroup_">Numéros inclus</string>
-  <string formatted="false" name="numbergroup_help">Ajouter des numéros associés à cette règle.\n\nLes jokers (\"%\") sont autorisés à chaque extrémité des numéros.\nAinsi, %34 associera 1234, 12% associera 1234 et %23% associera 12345.</string>
+  <string formatted="false" name="numbergroup_help">Ajouter des numéros associés à cette règle.\n\nLes jokers (\"%%\") sont autorisés à chaque extrémité des numéros.\nAinsi, %%34 associera 1234, 12%% associera 1234 et %%23%% associera 12345.</string>
   <string formatted="false" name="exnumbergroup_">Numéros exclus</string>
   <string formatted="false" name="exnumbergroup_help">Ajouter des numéros qui ne seront pas associés par cette règle.\nVoir ci-dessus.</string>
   <string formatted="false" name="new_numbergroup">Nouveau groupe de numéros</string>
