@@ -24,7 +24,7 @@
     <string formatted="false" name="help_export_">If you managed to set up a common plan for your country, do not hesitate to export your rule set to me by mail. I will put it on the website to make it available for all the users.</string>
 
     <string formatted="false" name="help_logs_plans_rules_">There are three kinds of data structures:</string>
-    <string formatted="false" name="help_logs_"><b>Logs</b> to save informations about your calls, messages and traffic statistics.</string>
+    <string formatted="false" name="help_logs_"><b>Logs</b> to save information about your calls, messages and traffic statistics.</string>
     <string formatted="false" name="help_plans_"><b>Plans</b> to describe all kinds of aspects of your bill.</string>
     <string formatted="false" name="help_rules_"><b>Rules</b> to match the <b>logs</b> and move them to a particular <b>plan</b>.</string>
         
