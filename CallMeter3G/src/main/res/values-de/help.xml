@@ -24,9 +24,9 @@
   <string formatted="false" name="help_export_">Solltest Du einen allgemeinen Regelsatz für dein Land fertiggestellt haben, kannst Du ihn gern als E-Mail exportieren und mir schicken. Ich werde den Regelsatz dann auf der Website für andere Benutzer bereitstellen.</string>
   <string formatted="false" name="help_logs_plans_rules_">Es gibt drei Arten von Datenstrukturen:</string>
   <string formatted="false" name="help_logs_"><b>Logs</b> um Informationen über Anrufe, Nachrichten und Datenverkehr zu speichern.</string>
-  <string formatted="false" name="help_plans_"><b>Plans</b> um alle Aspekte deiner Rechnung zu beschreiben.</string>
-  <string formatted="false" name="help_rules_"><b>Rules</b> um die <b>Logs</b> in bestimmte <b>Kontingente</b> zu sortieren.</string>
-  <string formatted="false" name="help_plans_detail0_">Du kannst jederzeit <b>Kontingente</b> hinzufügen oder löschen. Die Reihenfolge kannst du mit dem Handle an der rechten Site per Drag &amp; Drop verändern.</string>
+  <string formatted="false" name="help_plans_"><b>Kontingente</b> um alle Konditionen deiner Abrechnung zu beschreiben.</string>
+  <string formatted="false" name="help_rules_"><b>Regeln</b> um die <b>Logs</b> in bestimmte <b>Kontingente</b> zu sortieren.</string>
+  <string formatted="false" name="help_plans_detail0_">Du kannst jederzeit <b>Kontingente</b> hinzufügen oder entfernen. Die Reihenfolge kannst Du auf der rechten Seite per Drag &amp; Drop einstellen.</string>
   <string formatted="false" name="help_plans_detail1_">Um ein <b>Kontingent</b> zu bearbeiten musst du es nur anklicken. Im nächsten Fenster kannst du alle möglichen Einstellungen verändern. Ein paar dieser Einstellungen werden von den meisten Benutzern nicht gebraucht. Von einigen aber schon. Eine kurze Hilfe wird zu jeder Einstellung angezeigt. Die meisten Einstellungen, die du nicht verstehst, werden in deinem Land nicht benutzt. Lass sie einfach wie sie sind. ;)</string>
   <string formatted="false" name="help_plans_merge_">Du kannst <b>Kontingente</b> zusammenführen um ihre <b>Logs</b> zu aggregieren. Dabei werden Kosten und das Limit kombiniert/aufsummiert.</string>
   <string formatted="false" name="help_rules_detail0_"><b>Regeln</b> lassen sich auf die gleiche weise bearbeiten. Jede <b>Regel</b> passt auf einige <b>Logs</b> und sortiert diese in das <b>Kontingent</b> mit welchem die <b>Logs</b> abgerechnet werden sollen.</string>
