@@ -4818,6 +4818,13 @@
     },
     {
       "country": "Poland",
+      "id": "f_Poland_Virgin_Mobile_freemium",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_Virgin_Mobile_freemium.xml",
+      "provider": "Virgin Mobile",
+      "title": "#freemium"
+    },
+    {
+      "country": "Poland",
       "id": "f_Poland_all_Plan_numeracji_w_Polsce",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_all_Plan_numeracji_w_Polsce.xml",
       "provider": "all",
