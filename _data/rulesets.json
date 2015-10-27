@@ -4264,6 +4264,13 @@
     },
     {
       "country": "Netherlands",
+      "id": "f_Netherlands_Tele2_150_Min_-_100_Mb",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_Tele2_150_Min_-_100_Mb.xml",
+      "provider": "Tele2",
+      "title": "150 Min - 100 Mb"
+    },
+    {
+      "country": "Netherlands",
       "id": "f_Netherlands_Tele2_200_minsms__200MB",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_Tele2_200_minsms__200MB.xml",
       "provider": "Tele2",
