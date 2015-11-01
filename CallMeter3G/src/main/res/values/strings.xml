@@ -453,4 +453,11 @@
     <string formatted="false" name="provider">Provider</string>
     <string formatted="false" name="plan">Plan</string>
     <string formatted="false" name="donate_remove_ads_">Donate/remove ads</string>
+    <string formatted="false" name="permissions_">Permissions</string>
+    <string formatted="false" name="permissions_read_contacts">Read contacts: this permission is necessary to resolve phone numbers to contacts and read MMS stats from phone\'s database.\nThe app does not work without this permission.</string>
+    <string formatted="false" name="permissions_read_phone">Read phone: this permission is necessary to read traffic stats from phone\'s database.\nThe app does not work without this permission.</string>
+    <string formatted="false" name="permissions_read_sms">Read SMS: this permission is necessary to read SMS stats from phone\'s database.\nThe app does not work without this permission.</string>
+    <string formatted="false" name="permissions_read_call_log">Read call log: this permission is necessary to read call stats from phone\'s database.\nThe app does not work without this permission.</string>
+    <string formatted="false" name="permissions_read_external_storage">Read external storage: this permission is necessary load saved rule sets and backups from external storage.\nThe app still works when this permission is denied.</string>
+    <string formatted="false" name="permissions_write_external_storage">Write external storage: this permission is necessary to save rule sets and backups to external storage.\nThe app still works when this permission is denied.</string>
 </resources>

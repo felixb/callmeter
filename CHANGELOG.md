@@ -1,5 +1,8 @@
 # List of versions and changes for Call Meter 3G aka cm3
 
+## 3.11.10
+ * fix FCs on Android 6.0
+
 ## 3.11.9
  * add EU cookie consent banner
  * migrate from ActionBarSherlock to AppCompat

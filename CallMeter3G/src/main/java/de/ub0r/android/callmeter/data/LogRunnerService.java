@@ -18,6 +18,7 @@
  */
 package de.ub0r.android.callmeter.data;
 
+import android.Manifest;
 import android.app.IntentService;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -832,6 +833,11 @@ public final class LogRunnerService extends IntentService {
      */
     private static void updateMMS(final Context context) {
         Log.d(TAG, "updateMMS()");
+        if (!CallMeter.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
+            Log.w(TAG, "skip MMS logs, permission READ_CONTACTS is denied");
+            return;
+        }
+
         final ContentResolver cr = context.getContentResolver();
         final long maxdate = getMaxDate(cr, DataProvider.TYPE_MMS);
         final String[] mmsProjection = new String[]{Calls.DATE, MMS_TYPE, THRADID};
@@ -978,9 +984,13 @@ public final class LogRunnerService extends IntentService {
             Log.w(TAG, "handleIntent(null)");
             return;
         }
-        inUpdate = true;
-        handleIntent(intent);
-        inUpdate = false;
+
+        if (CallMeter.hasPermissions(this, Manifest.permission.READ_CALL_LOG,
+                Manifest.permission.READ_SMS)) {
+            inUpdate = true;
+            handleIntent(intent);
+            inUpdate = false;
+        }
     }
 
     private void handleIntent(final Intent intent) {

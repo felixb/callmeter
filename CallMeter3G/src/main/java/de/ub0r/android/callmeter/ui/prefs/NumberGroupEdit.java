@@ -19,6 +19,7 @@
 package de.ub0r.android.callmeter.ui.prefs;
 
 
+import android.Manifest;
 import android.app.AlertDialog.Builder;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -125,7 +126,8 @@ public final class NumberGroupEdit extends PreferenceActivity implements
                 p.setOnPreferenceClickListener(this);
                 ps.addPreference(p);
 
-                if (number != null && !number.contains("%")) {
+                if (number != null && !number.contains("%")
+                        && CallMeter.hasPermission(this, Manifest.permission.READ_CONTACTS)) {
                     String name = CWRAPPER.getNameForNumber(getContentResolver(), number);
                     if (!TextUtils.isEmpty(name)) {
                         p.setSummary(name);

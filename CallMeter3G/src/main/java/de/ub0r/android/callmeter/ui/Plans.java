@@ -24,18 +24,22 @@ import com.google.android.gms.ads.AdView;
 
 import com.viewpagerindicator.TitlePageIndicator;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -52,6 +56,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 
+import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerReceiver;
@@ -97,6 +102,10 @@ public final class Plans extends AppCompatActivity implements OnPageChangeListen
      * {@link Message} for {@link Handler}: progress: LogMatcher.
      */
     public static final int MSG_BACKGROUND_PROGRESS_MATCHER = 5;
+
+    private static final int PERMISSION_REQUEST_READ_CALL_LOG = 1;
+    private static final int PERMISSION_REQUEST_READ_SMS = 2;
+    private static final int PERMISSION_REQUEST_READ_CONTACTS = 3;
 
     /**
      * Delay for LogRunnerService to run.
@@ -442,15 +451,6 @@ public final class Plans extends AppCompatActivity implements OnPageChangeListen
 
         pager = (ViewPager) findViewById(R.id.pager);
 
-        fadapter = new PlansFragmentAdapter(this, getSupportFragmentManager());
-        pager.setAdapter(fadapter);
-
-        TitlePageIndicator indicator = (TitlePageIndicator) findViewById(R.id.titles);
-        indicator.setViewPager(pager);
-
-        pager.setCurrentItem(fadapter.getHomeFragmentPos());
-        indicator.setOnPageChangeListener(this);
-
         prefsNoAds = DonationHelper.hideAds(this);
         mAdView = (AdView) findViewById(R.id.ads);
         mAdView.setVisibility(View.GONE);
@@ -466,6 +466,44 @@ public final class Plans extends AppCompatActivity implements OnPageChangeListen
         } else {
             findViewById(R.id.cookieconsent).setVisibility(View.GONE);
         }
+
+        initAdapter();
+    }
+
+    private void initAdapter() {
+        // request permissions before doing any real work
+        if (!CallMeter.requestPermission(this, Manifest.permission.READ_CALL_LOG,
+                PERMISSION_REQUEST_READ_CALL_LOG, R.string.permissions_read_call_log,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                })) {
+            return;
+        }
+        if (!CallMeter.requestPermission(this, Manifest.permission.READ_SMS,
+                PERMISSION_REQUEST_READ_CALL_LOG, R.string.permissions_read_sms,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                })) {
+            return;
+        }
+
+        // request semi optional permission
+        CallMeter.requestPermission(this, Manifest.permission.READ_CONTACTS,
+                PERMISSION_REQUEST_READ_CONTACTS, R.string.permissions_read_contacts, null);
+
+        fadapter = new PlansFragmentAdapter(this, getSupportFragmentManager());
+        pager.setAdapter(fadapter);
+        pager.setCurrentItem(fadapter.getHomeFragmentPos());
+
+        TitlePageIndicator indicator = (TitlePageIndicator) findViewById(R.id.titles);
+        indicator.setViewPager(pager);
+        indicator.setOnPageChangeListener(this);
     }
 
     /**
@@ -478,12 +516,14 @@ public final class Plans extends AppCompatActivity implements OnPageChangeListen
         currentHandler = handler;
         setInProgress(0);
         PlansFragment.reloadPreferences(this);
+        runLogRunner();
+        mAdView.resume();
+    }
 
+    private void runLogRunner() {
         // schedule next update
         LogRunnerReceiver.schedNext(this, DELAY_LOGRUNNER, LogRunnerService.ACTION_RUN_MATCHER);
         LogRunnerReceiver.schedNext(this, LogRunnerService.ACTION_SHORT_RUN);
-
-        mAdView.resume();
     }
 
     /**
@@ -511,6 +551,28 @@ public final class Plans extends AppCompatActivity implements OnPageChangeListen
      */
     public static Handler getHandler() {
         return currentHandler;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(
+            final int requestCode,
+            @NonNull final String permissions[],
+            @NonNull final int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSION_REQUEST_READ_CALL_LOG:
+            case PERMISSION_REQUEST_READ_SMS:
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // just try again.
+                    initAdapter();
+                    runLogRunner();
+                } else {
+                    // this app is useless without permission for reading sms
+                    Log.e(TAG, "permission denied: " + requestCode + " , exit");
+                    finish();
+                }
+                return;
+        }
     }
 
     /**

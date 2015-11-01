@@ -18,6 +18,7 @@
  */
 package de.ub0r.android.callmeter.data;
 
+import android.Manifest;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
@@ -25,6 +26,7 @@ import android.os.AsyncTask;
 import android.provider.ContactsContract.PhoneLookup;
 import android.widget.TextView;
 
+import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.logg0r.Log;
 
 /**
@@ -101,19 +103,22 @@ public class NameLoader extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(final Void... params) {
         String ret = null;
-        try {
-            //noinspection ConstantConditions
-            Cursor c = ctx.getContentResolver().query(
-                    Uri.withAppendedPath(PhoneLookup.CONTENT_FILTER_URI, num),
-                    new String[]{PhoneLookup.DISPLAY_NAME}, null, null, null);
-            if (c != null) {
-                if (c.moveToFirst()) {
-                    ret = c.getString(0);
+        if (CallMeter.hasPermission(ctx, Manifest.permission.READ_CONTACTS)) {
+            // resolve names only when permission is granted
+            try {
+                //noinspection ConstantConditions
+                Cursor c = ctx.getContentResolver().query(
+                        Uri.withAppendedPath(PhoneLookup.CONTENT_FILTER_URI, num),
+                        new String[]{PhoneLookup.DISPLAY_NAME}, null, null, null);
+                if (c != null) {
+                    if (c.moveToFirst()) {
+                        ret = c.getString(0);
+                    }
+                    c.close();
                 }
-                c.close();
+            } catch (Exception e) {
+                Log.e(TAG, "error loading name", e);
             }
-        } catch (Exception e) {
-            Log.e(TAG, "error loading name", e);
         }
         return ret;
     }

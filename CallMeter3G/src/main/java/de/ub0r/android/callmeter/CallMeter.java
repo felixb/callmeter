@@ -21,15 +21,24 @@ package de.ub0r.android.callmeter;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Application;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * @author flx
  */
 public final class CallMeter extends Application {
+
+    private static final String TAG = "CallMeter";
 
     /**
      * Minimum date.
@@ -110,6 +119,50 @@ public final class CallMeter extends Application {
     public static void setActivitySubtitle(final Activity a, final String t) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             a.getActionBar().setSubtitle(t);
+        }
+    }
+
+    public static boolean hasPermission(final Context context, final String permission) {
+        return ContextCompat.checkSelfPermission(context, permission)
+                == PackageManager.PERMISSION_GRANTED;
+    }
+
+    public static boolean hasPermissions(final Context context, final String... permissions) {
+        for (String p : permissions) {
+            if (!hasPermission(context, p)) {
+                return  false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean requestPermission(final Activity activity, final String permission,
+            final int requestCode, final int message,
+            final DialogInterface.OnClickListener onCancelListener) {
+        Log.i(TAG, "requesting permission: " + permission);
+        if (!hasPermission(activity, permission)) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, permission)) {
+                new AlertDialog.Builder(activity)
+                        .setTitle(R.string.permissions_)
+                        .setMessage(message)
+                        .setCancelable(false)
+                        .setNegativeButton(android.R.string.cancel, onCancelListener)
+                        .setPositiveButton(android.R.string.ok,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(final DialogInterface dialogInterface,
+                                            final int i) {
+                                        ActivityCompat.requestPermissions(activity,
+                                                new String[]{permission}, requestCode);
+                                    }
+                                })
+                        .show();
+            } else {
+                ActivityCompat.requestPermissions(activity, new String[]{permission}, requestCode);
+            }
+            return false;
+        } else {
+            return true;
         }
     }
 }
