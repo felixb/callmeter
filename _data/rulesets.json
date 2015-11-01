@@ -4222,6 +4222,13 @@
     },
     {
       "country": "Netherlands",
+      "id": "f_Netherlands_T-Mobile_Stel_Samen_amp_Stel_Bij_-_120_min__NLEU__3GB_data",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_T-Mobile_Stel_Samen_amp_Stel_Bij_-_120_min._NLEU__3GB_data.xml",
+      "provider": "T-Mobile",
+      "title": "Stel Samen & Stel Bij - 120 min. NL/EU + 3GB data"
+    },
+    {
+      "country": "Netherlands",
       "id": "f_Netherlands_T-Mobile_90_belminuten_250_MB_internet_onbeperkt_SMS",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_T-Mobile_90_belminuten_250_MB_internet_onbeperkt_SMS.xml",
       "provider": "T-Mobile",
