@@ -4973,6 +4973,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Russia_Tele2_Prosche_prostogo__internet-svoboda.xml",
       "provider": "Tele2",
       "title": "Prosche prostogo + internet-svoboda"
+    },
+    {
+      "country": "Russia",
+      "id": "f_Russia_mts_super_MTS_2012",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Russia_mts_super_MTS_2012.xml",
+      "provider": "mts",
+      "title": "super MTS 2012"
     }
   ],
   "Serbia": [
