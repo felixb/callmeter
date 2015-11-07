@@ -56,7 +56,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.util.Currency;
 import java.util.Locale;
 
@@ -730,7 +729,7 @@ public final class Preferences extends PreferenceActivity implements
                 Builder builder = new Builder(Preferences.this);
                 if (result.equals("DEFAULT")) {
                     builder.setMessage(R.string.import_rules_default_hint);
-                } else if (result.startsWith("<")) {
+                } else {
                     XmlMetaData m = DataProvider.parseXml(context, result);
                     if (m == null) {
                         Toast.makeText(Preferences.this, R.string.err_export_read,
@@ -759,15 +758,6 @@ public final class Preferences extends PreferenceActivity implements
                         sb.append("\n");
                     }
                     builder.setMessage(sb.toString().trim());
-                } else {
-                    String[] lines = result.split("\n");
-                    if (lines.length <= 2) {
-                        Toast.makeText(Preferences.this, R.string.err_export_read,
-                                Toast.LENGTH_LONG).show();
-                        return;
-                    }
-                    builder.setMessage(Preferences.this.getString(R.string.import_rules_hint)
-                            + "\n" + URLDecoder.decode(lines[1]));
                 }
                 builder.setCancelable(true);
                 builder.setTitle(R.string.import_rules_);

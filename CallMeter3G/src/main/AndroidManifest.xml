@@ -115,8 +115,6 @@
                 <data android:mimeType="*/*"/>
                 <data android:pathPattern=".*xml"/>
                 <data android:pathPattern=".*\\.xml"/>
-                <data android:pathPattern=".*export"/>
-                <data android:pathPattern=".*\\.export"/>
             </intent-filter>
         </activity>
         <activity

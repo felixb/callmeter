@@ -3,6 +3,11 @@
 ## 3.11.10
  * fix FCs on Android 6.0
 
+## 3.11.10
+ * support runtime permissions on Android 6.0
+ * drop support for .export files
+ * update translations
+
 ## 3.11.9
  * add EU cookie consent banner
  * migrate from ActionBarSherlock to AppCompat

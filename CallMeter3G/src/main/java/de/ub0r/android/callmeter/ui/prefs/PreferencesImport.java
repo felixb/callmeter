@@ -146,9 +146,7 @@ public final class PreferencesImport extends PreferenceActivity {
                     if (depth > 0) {
                         ret |= addExport(f, depth - 1);
                     }
-                } else if (f.isFile()
-                        && (f.getAbsolutePath().endsWith(".export") || f.getAbsolutePath()
-                        .endsWith(".xml"))) {
+                } else if (f.isFile() && (f.getAbsolutePath().endsWith(".xml"))) {
                     // add file to list
                     onProgressUpdate(f);
                     ret = true;
