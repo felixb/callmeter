@@ -97,6 +97,9 @@ public final class Preferences extends PreferenceActivity implements
      */
     public static final String ACTION_EXPORT_CSV = "export_csv";
 
+    private static final int PERMISSION_REQUEST_READ_EXTERNAL_STORAGE = 1;
+    private static final int PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE = 2;
+
     /**
      * Preference's name: is default rule set.
      */

@@ -19,7 +19,10 @@
 package de.ub0r.android.callmeter.ui.prefs;
 
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -27,11 +30,13 @@ import android.os.Environment;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
+import android.support.annotation.NonNull;
 import android.view.Window;
 import android.widget.Toast;
 
 import java.io.File;
 
+import de.ub0r.android.callmeter.CallMeter;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.logg0r.Log;
@@ -42,10 +47,15 @@ import de.ub0r.android.logg0r.Log;
  * @author flx
  */
 public final class PreferencesImport extends PreferenceActivity {
+
+    private static final String TAG = "PreferencesImport";
+
     /**
      * Maximal depth for searching files.
      */
     private static final int MAX_DEPTH = 3;
+
+    private static final int PERMISSION_REQUEST_READ_EXTERNAL_STORAGE = 1;
 
     /**
      * {@link AsyncTask} running through the SD card and adding {@link Preferences} for each file.
@@ -155,6 +165,40 @@ public final class PreferencesImport extends PreferenceActivity {
         super.onCreate(savedInstanceState);
         Utils.setLocale(this);
         addPreferencesFromResource(R.xml.import_from_sd);
+        updateFiles();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(
+            final int requestCode,
+            @NonNull final String permissions[],
+            @NonNull final int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSION_REQUEST_READ_EXTERNAL_STORAGE:
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // just try again.
+                    updateFiles();
+                } else {
+                    Log.e(TAG, "permission denied: READ_EXTERNAL_STORAGE, finish");
+                    finish();
+                }
+        }
+    }
+
+    private void updateFiles() {
+        if (!CallMeter.requestPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE,
+                PERMISSION_REQUEST_READ_EXTERNAL_STORAGE,
+                R.string.permissions_read_external_storage,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                })) {
+            return;
+        }
+
         new FileFinder().execute((Void) null);
     }
 }
