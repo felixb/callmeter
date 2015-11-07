@@ -454,4 +454,11 @@
   <string formatted="false" name="provider">Anbieter</string>
   <string formatted="false" name="plan">Kontingent</string>
   <string formatted="false" name="donate_remove_ads_">Spenden/Werbung entfernen</string>
+  <string formatted="false" name="permissions_">Zugriffsberechtigungen</string>
+  <string formatted="false" name="permissions_read_contacts">Kontakte lesen: Diese Berechtigung wird benötigt um Nummern Kontakten zuzuordnen sowei MMS-Statistik zu lesen. \nOhne diese Berechtigung funktioniert die App nicht.</string>
+  <string formatted="false" name="permissions_read_phone">Telefondaten lesen: Diese Berechtigung wird benötigt um Datenstatisik auszulesen.\nOhne diese Berechtigung funktioniert die App nicht.</string>
+  <string formatted="false" name="permissions_read_sms">SMS lesen: Diese Berechtigung wird benötigt um SMS Statistiken auszulesen.\nOhne diese Berechtigung funktioniert die App nicht.</string>
+  <string formatted="false" name="permissions_read_call_log">Anrufe lesen: Diese Berechtigung wird benötigt um Anrufstatistiken auszulesen.\nOhne diese Berechtigung funktioniert die App nicht.</string>
+  <string formatted="false" name="permissions_read_external_storage">Externen Speicher lesen: Diese Berechtigung ist notwendig, um Backups oder exportierte Regelsätze vom externen Speicher zu lesen.\nDie App funktioniert, wenn diese Berechtigung verweigert wird.</string>
+  <string formatted="false" name="permissions_write_external_storage">Externen Speicher schreiben: Diese Berechtigung ist notwendig, um Backups oder exportierte Regelsätze abzulegen.\nDie App funktioniert, wenn diese Berechtigung verweigert wird.</string>
 </resources>

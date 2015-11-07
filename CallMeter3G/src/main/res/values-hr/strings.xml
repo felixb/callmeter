@@ -454,4 +454,11 @@
   <string formatted="false" name="provider">Davatelj usluga</string>
   <string formatted="false" name="plan">Plan</string>
   <string formatted="false" name="donate_remove_ads_">Donirajte/uklanjanje oglasa</string>
+  <string formatted="false" name="permissions_">Dopuštenja</string>
+  <string formatted="false" name="permissions_read_contacts">Čitanje kontakata: ovo dopuštenje je potrebno kako bi se povezali telefonski brojevi sa kontaktima i čitala statistika MMS-a iz baze podataka telefona.\nAplikacija neće raditi bez ovog dopuštenja.</string>
+  <string formatted="false" name="permissions_read_phone">Čitanje telefona: ovo dopuštenje je potrebno za očitavanje statistike prometa iz baze podataka telefona.\nAplikacija neće raditi bez ovog dopuštenja.</string>
+  <string formatted="false" name="permissions_read_sms">Čitanje SMS-a: ovo dopuštenje je potrebno za očitavanje statistike SMS-a iz baze podataka telefona.\nAplikacija neće raditi bez ovog dopuštenja.</string>
+  <string formatted="false" name="permissions_read_call_log">Čitanje popisa poziva: ovo dopuštenje je potrebno za očitavanje statistike poziva iz baze podataka telefona.\nAplikacija neće raditi bez ovog dopuštenja.</string>
+  <string formatted="false" name="permissions_read_external_storage">Čitanje vanjske pohrane: ovo dopuštenje je potrebno za učitavanje spremljenih postavki pravila i sigurnosne kopije sa vanjske pohrane.\nAplikacija će svejedno raditi ako je ovo dopuštenje odbijeno.</string>
+  <string formatted="false" name="permissions_write_external_storage">Pisanje vanjske pohrane: ovo dopuštenje je potrebno za spremanje postavki pravila i sigurnosno kopiranje u vanjsku pohranu.\nAplikacija će svejedno raditi ako je ovo dopuštenje odbijeno.</string>
 </resources>
