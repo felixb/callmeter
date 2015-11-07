@@ -1,3 +1,1 @@
-* add EU cookie consent banner
-* migrate from ActionBarSherlock to AppCompat
-* update translations
+* fix FCs on Android 6.0
