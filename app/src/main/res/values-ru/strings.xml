@@ -151,4 +151,7 @@
   <string name="sendlog_run" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent.">SendLog получит журнал устройства и отправит его разработчику.\nУ Вас будет возможность просмотреть и изменить отправляемые данные.</string>
   <string name="sendlog_install_" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Install SendLog">Установить SendLog</string>
   <string name="sendlog_install" formatted="false" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com&gt;" orig="Install the free SendLog application to collect the device log and send it to the developer.">Установить бесплатное приложение SendLog для получения журнала устройства и отправки его разработчику.</string>
+  <string formatted="false" name="permissions_">Разрешения</string>
+  <string formatted="false" name="permissions_read_sms">Просмотр СМС: данное разрешение необходимо для чтения СМС статистики из базы данных телефона.\nПриложение не будет работать без данного разрешения.</string>
+  <string formatted="false" name="permissions_read_call_log">Просмотр журнала вызовов: данное разрешение необходимо для просмотра статистики вызовов из базы данных телефона.\nПриложение не будет работать без данного разрешения.</string>
 </resources>

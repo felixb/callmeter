@@ -1,5 +1,6 @@
 package de.ub0r.de.android.callMeterNG;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
@@ -20,7 +21,7 @@ import de.ub0r.android.lib.apis.ContactsWrapper;
 import de.ub0r.android.logg0r.Log;
 
 /**
- * Preferences subscreen to exclude numbers.
+ * Preferences sub screen to exclude numbers.
  *
  * @author flx
  */
@@ -30,6 +31,8 @@ public class ExcludePeople extends ListActivity implements OnItemClickListener {
      * Tag for output.
      */
     private static final String TAG = "ExcludePeople";
+
+    private static final int PERMISSION_REQUEST_READ_CONTACTS = 1;
 
     /**
      * {@link ContactsWrapper}.
@@ -108,58 +111,55 @@ public class ExcludePeople extends ListActivity implements OnItemClickListener {
         /**
          * {@link Context}.
          */
-        private static Context context = null;
+        private static Context mContext = null;
 
         /**
          * Number.
          */
-        private final String number;
+        private final String mNumber;
 
         /**
          * Name.
          */
-        private String name = null;
+        private String mName = null;
 
         /**
          * Default constructor.
          *
-         * @param num number
+         * @param num mNumber
          */
         public ExcludedPerson(final String num) {
-            this.number = num;
+            mNumber = num;
         }
 
         /**
-         * @return number
+         * @return mNumber
          */
         public String getNumber() {
-            return this.number;
+            return mNumber;
         }
 
-        /**
-         * {@inheritDoc}
-         */
         @Override
         public String toString() {
-            if (this.name == null && this.name != NOT_FOUND //
-                    && context != null && this.number.indexOf("*") < 0) {
-                this.name = ContactsWrapper.getInstance().getNameForNumber(
-                        context.getContentResolver(), this.number);
-                if (this.name == null || this.name.equals(this.number)) {
-                    this.name = NOT_FOUND;
+            if (mContext != null
+                    && (mName == null || !NOT_FOUND.equals(mName))
+                    && !mNumber.contains("*")
+                    && CallMeter.hasPermission(mContext, Manifest.permission.READ_CONTACTS)) {
+                mName = ContactsWrapper.getInstance().getNameForNumber(
+                        mContext.getContentResolver(), mNumber);
+                if (mName == null || mName.equals(this.mNumber)) {
+                    mName = NOT_FOUND;
                 }
             }
-            if (this.name == null || this.name == NOT_FOUND) {
-                return this.number;
+
+            if (mName == null || NOT_FOUND.equals(mName)) {
+                return mNumber;
             } else {
-                return this.name + " <" + this.number + ">";
+                return String.format("%s <%s>", mName, mNumber);
             }
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -169,20 +169,17 @@ public class ExcludePeople extends ListActivity implements OnItemClickListener {
                 android.R.layout.simple_list_item_1, prefsExcludePeople);
         this.setListAdapter(this.adapter);
         this.getListView().setOnItemClickListener(this);
+
+        CallMeter.requestPermission(this, Manifest.permission.READ_CONTACTS,
+                PERMISSION_REQUEST_READ_CONTACTS, R.string.permissions_read_contacts, null);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected final void onResume() {
         super.onResume();
-        ExcludedPerson.context = this;
+        ExcludedPerson.mContext = this;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected final void onPause() {
         super.onPause();
@@ -194,13 +191,10 @@ public class ExcludePeople extends ListActivity implements OnItemClickListener {
             editor.putString(PREFS_EXCLUDE_PEOPLE_PREFIX + (i - 1),
                     prefsExcludePeople.get(i).getNumber());
         }
-        editor.commit();
-        ExcludedPerson.context = null;
+        editor.apply();
+        ExcludedPerson.mContext = null;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected final void onActivityResult(final int requestCode,
             final int resultCode, final Intent data) {
@@ -210,7 +204,7 @@ public class ExcludePeople extends ListActivity implements OnItemClickListener {
             return;
         }
         Log.d(TAG, "data: " + data.getData().toString());
-        // get number for uri
+        // get mNumber for uri
         String number = CWRAPPER.getNameAndNumber(this.getContentResolver(),
                 data.getData());
         if (number == null) {
@@ -227,9 +221,6 @@ public class ExcludePeople extends ListActivity implements OnItemClickListener {
         this.adapter.notifyDataSetChanged();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public final void onItemClick(final AdapterView<?> parent, final View view,
             final int position, final long id) {
         if (position == 0) {

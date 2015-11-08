@@ -190,4 +190,8 @@
     <string name="author_">Author:</string>
     <string name="website_">Website:</string>
     <string name="changelog_" translatable="false">Changelog</string>
+    <string formatted="false" name="permissions_">Permissions</string>
+    <string formatted="false" name="permissions_read_contacts">Read contacts: this permission is necessary to resolve excluded phone numbers to contacts.\nThe app works without this permission.</string>
+    <string formatted="false" name="permissions_read_sms">Read SMS: this permission is necessary to read SMS stats from phone\'s database.\nThe app does not work without this permission.</string>
+    <string formatted="false" name="permissions_read_call_log">Read call log: this permission is necessary to read call stats from phone\'s database.\nThe app does not work without this permission.</string>
 </resources>

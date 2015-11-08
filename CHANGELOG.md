@@ -1,5 +1,7 @@
 # List of versions and changes for Call Meter NG aka cm2
 
+## v2.3.23
+ * support runtime permissions and Android 6.0
 ## v2.3.22
  * add EU cookie consent banner
  * link to new project website

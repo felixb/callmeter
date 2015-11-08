@@ -151,4 +151,8 @@
   <string name="license" formatted="false">GPLv3 - siehe http://www.gnu.org/licenses/gpl-3.0.txt</string>
   <string name="author_" formatted="false" username="flx &lt;f+translator@ub0r.de&gt;" orig="Author:">Autor:</string>
   <string name="website_" formatted="false">Website:</string>
+  <string formatted="false" name="permissions_">Zugriffsberechtigungen</string>
+  <string formatted="false" name="permissions_read_contacts">Kontakte lesen: Diese Berechtigung wird benötigt um Nummern Kontakte zuzuordnen\nDie App funktioniert auch ohne diese Berechtigung.</string>
+  <string formatted="false" name="permissions_read_sms">SMS lesen: Diese Berechtigung wird benötigt um SMS Statistiken auszulesen.\nOhne diese Berechtigung funktioniert die App nicht.</string>
+  <string formatted="false" name="permissions_read_call_log">Anrufe lesen: Diese Berechtigung wird benötigt um Anrufstatistiken auszulesen.\nOhne diese Berechtigung funktioniert die App nicht.</string>
 </resources>

@@ -18,6 +18,7 @@
  */
 package de.ub0r.de.android.callMeterNG;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -42,7 +43,7 @@ import de.ub0r.android.logg0r.Log;
 import de.ub0r.de.android.callMeterNG.ExcludePeople.ExcludedPerson;
 
 /**
- * AsyncTask to handle calcualtions in background.
+ * AsyncTask to handle calculations in background.
  *
  * @author flx
  */
@@ -500,6 +501,13 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
      * Error message which should be returned to user.
      */
     private String error = null;
+
+    static void startUpdater(final Context context) {
+        if (CallMeter.hasPermissions(context, Manifest.permission.READ_CALL_LOG,
+                Manifest.permission.READ_SMS)) {
+            new Updater(context).execute((Void) null);
+        }
+    }
 
     /**
      * AsyncTask updating statistics.
@@ -1464,7 +1472,7 @@ class Updater extends AsyncTask<Void, Void, Integer[]> {
                 this.walkSMS(plans, calBillDate, ret);
             }
         } catch (Exception e) {
-            this.error = "some error occured, "
+            this.error = "some error occurred, "
                     + "please load sendlog from market and "
                     + "send your logs to the developer.";
             Log.e(TAG, "error in background", e);

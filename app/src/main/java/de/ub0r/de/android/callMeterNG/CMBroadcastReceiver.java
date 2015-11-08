@@ -74,7 +74,7 @@ public class CMBroadcastReceiver extends BroadcastReceiver {
             UpdaterData.checkPostboot(prefs);
         }
         // run update
-        new Updater(context).execute((Void) null);
+        Updater.startUpdater(context);
         UpdaterData.updateTraffic(context, prefs);
         // schedule next update
         CMBroadcastReceiver.schedNext(context);

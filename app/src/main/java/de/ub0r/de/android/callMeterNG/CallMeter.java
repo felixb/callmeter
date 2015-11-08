@@ -22,11 +22,19 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -36,6 +44,7 @@ import android.widget.TextView;
 
 import de.ub0r.android.lib.DonationHelper;
 import de.ub0r.android.lib.Utils;
+import de.ub0r.android.logg0r.Log;
 
 /**
  * The main Activity, holding all data.
@@ -44,11 +53,16 @@ import de.ub0r.android.lib.Utils;
  */
 public class CallMeter extends Activity {
 
+    private static final String TAG = "CallMeter";
+
     /**
      * Tag for output.
      */
     public static final String DONATION_URL
             = "https://play.google.com/store/apps/details?id=de.ub0r.android.donator";
+
+    private static final int PERMISSION_REQUEST_READ_CALL_LOG = 1;
+    private static final int PERMISSION_REQUEST_READ_SMS = 2;
 
     /**
      * 100.
@@ -100,7 +114,7 @@ public class CallMeter extends Activity {
         super.onResume();
         mAdView.resume();
         // get call/sms stats
-        new Updater(this).execute((Void[]) null);
+        startUpdater();
         // get data stats
         new UpdaterData(this).execute((Void[]) null);
         // schedule next update
@@ -121,6 +135,53 @@ public class CallMeter extends Activity {
                     super.onAdLoaded();
                 }
             });
+        }
+    }
+
+    private void startUpdater() {
+        // request permissions before doing any real work
+        if (!CallMeter.requestPermission(this, Manifest.permission.READ_CALL_LOG,
+                PERMISSION_REQUEST_READ_CALL_LOG, R.string.permissions_read_call_log,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                })) {
+            return;
+        }
+        if (!CallMeter.requestPermission(this, Manifest.permission.READ_SMS,
+                PERMISSION_REQUEST_READ_CALL_LOG, R.string.permissions_read_sms,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                })) {
+            return;
+        }
+
+        Updater.startUpdater(this);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(
+            final int requestCode,
+            @NonNull final String permissions[],
+            @NonNull final int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSION_REQUEST_READ_CALL_LOG:
+            case PERMISSION_REQUEST_READ_SMS:
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // just try again.
+                    startUpdater();
+                } else {
+                    // this app is useless without permission for reading sms
+                    Log.e(TAG, "permission denied: " + requestCode + " , exit");
+                    finish();
+                }
+                return;
         }
     }
 
@@ -157,6 +218,50 @@ public class CallMeter extends Activity {
                 return true;
             default:
                 return false;
+        }
+    }
+
+    public static boolean hasPermission(final Context context, final String permission) {
+        return ContextCompat.checkSelfPermission(context, permission)
+                == PackageManager.PERMISSION_GRANTED;
+    }
+
+    public static boolean hasPermissions(final Context context, final String... permissions) {
+        for (String p : permissions) {
+            if (!hasPermission(context, p)) {
+                return  false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean requestPermission(final Activity activity, final String permission,
+            final int requestCode, final int message,
+            final DialogInterface.OnClickListener onCancelListener) {
+        Log.i(TAG, "requesting permission: " + permission);
+        if (!hasPermission(activity, permission)) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, permission)) {
+                new AlertDialog.Builder(activity)
+                        .setTitle(R.string.permissions_)
+                        .setMessage(message)
+                        .setCancelable(false)
+                        .setNegativeButton(android.R.string.cancel, onCancelListener)
+                        .setPositiveButton(android.R.string.ok,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(final DialogInterface dialogInterface,
+                                            final int i) {
+                                        ActivityCompat.requestPermissions(activity,
+                                                new String[]{permission}, requestCode);
+                                    }
+                                })
+                        .show();
+            } else {
+                ActivityCompat.requestPermissions(activity, new String[]{permission}, requestCode);
+            }
+            return false;
+        } else {
+            return true;
         }
     }
 }
