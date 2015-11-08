@@ -9,8 +9,8 @@ android {
         minSdkVersion 9
         targetSdkVersion 23
 
-        versionCode 9232201
-        versionName "2.3.22"
+        versionCode 9232300
+        versionName "2.3.23"
         buildConfigField 'boolean', 'DEBUG_LOG', 'true'
     }
 
