@@ -1010,6 +1010,13 @@
     },
     {
       "country": "Czech Republic",
+      "id": "f_Czech_Republic_Vodafone_Odepi-_updated",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_Vodafone_Odepi-_updated.xml",
+      "provider": "Vodafone",
+      "title": "Odepi\u0161- updated"
+    },
+    {
+      "country": "Czech Republic",
       "id": "f_Czech_Republic_Vodafone_VPN_OneNet_premium",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_Vodafone_VPN_OneNet_premium.xml",
       "provider": "Vodafone",
@@ -4437,6 +4444,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_ERA_240_min.250MB.xml",
       "provider": "ERA",
       "title": "240 min.+250MB"
+    },
+    {
+      "country": "Poland",
+      "id": "f_Poland_ERA_Na_karte_bez_limitu",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_ERA_Na_karte_bez_limitu.xml",
+      "provider": "ERA",
+      "title": "Na karte bez limitu"
     },
     {
       "country": "Poland",
