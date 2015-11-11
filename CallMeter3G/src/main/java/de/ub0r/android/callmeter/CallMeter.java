@@ -123,14 +123,16 @@ public final class CallMeter extends Application {
     }
 
     public static boolean hasPermission(final Context context, final String permission) {
-        return ContextCompat.checkSelfPermission(context, permission)
-                == PackageManager.PERMISSION_GRANTED;
+        return
+                Build.VERSION.SDK_INT < Build.VERSION_CODES.M
+                        || ContextCompat.checkSelfPermission(context, permission)
+                        == PackageManager.PERMISSION_GRANTED;
     }
 
     public static boolean hasPermissions(final Context context, final String... permissions) {
         for (String p : permissions) {
             if (!hasPermission(context, p)) {
-                return  false;
+                return false;
             }
         }
         return true;

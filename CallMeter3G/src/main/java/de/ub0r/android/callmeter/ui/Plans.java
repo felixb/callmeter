@@ -483,7 +483,7 @@ public final class Plans extends AppCompatActivity implements OnPageChangeListen
             return;
         }
         if (!CallMeter.requestPermission(this, Manifest.permission.READ_SMS,
-                PERMISSION_REQUEST_READ_CALL_LOG, R.string.permissions_read_sms,
+                PERMISSION_REQUEST_READ_SMS, R.string.permissions_read_sms,
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
