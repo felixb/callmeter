@@ -4482,6 +4482,13 @@
     },
     {
       "country": "Poland",
+      "id": "f_Poland_Orange_Smart_Plan_LTE_6999",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_Orange_Smart_Plan_LTE_6999.xml",
+      "provider": "Orange",
+      "title": "Smart Plan LTE 69,99"
+    },
+    {
+      "country": "Poland",
       "id": "f_Poland_Orange_Free_Na_Kart_PrePaid",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_Orange_Free_Na_Kart_PrePaid.xml",
       "provider": "Orange",
