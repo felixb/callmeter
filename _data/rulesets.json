@@ -4818,6 +4818,13 @@
     },
     {
       "country": "Poland",
+      "id": "f_Poland_T-Mobile_jump-1GB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_T-Mobile_jump-1GB.xml",
+      "provider": "T-Mobile",
+      "title": "jump-1GB"
+    },
+    {
+      "country": "Poland",
       "id": "f_Poland_T-Mobile_Rodzina_60",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_T-Mobile_Rodzina_60.xml",
       "provider": "T-Mobile",
