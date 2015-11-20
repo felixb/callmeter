@@ -1496,6 +1496,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Congstar_Smart_mit_Datenturbo_2015",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Congstar_Smart_mit_Datenturbo_2015.xml",
+      "provider": "Congstar",
+      "title": "Smart mit Datenturbo (2015)"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Congstar_Allnet_Flat_S",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Congstar_Allnet_Flat_S.xml",
       "provider": "Congstar",
@@ -3343,6 +3350,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/India_Vodafone_199_600mnt.xml",
       "provider": "Vodafone",
       "title": "199 600mnt"
+    },
+    {
+      "country": "India",
+      "id": "f_India_Vodafone_Vod299-Cug-3G750-2GUnlim",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/India_Vodafone_Vod299-Cug-3G750-2GUnlim.xml",
+      "provider": "Vodafone",
+      "title": "Vod299-Cug-3G750-2GUnlim"
     },
     {
       "country": "India",
