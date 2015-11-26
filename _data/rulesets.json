@@ -1426,6 +1426,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_BILDmobile_Alles_Drin-Option_300",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_BILDmobile_Alles_Drin-Option_300.xml",
+      "provider": "BILDmobile",
+      "title": "Alles Drin-Option 300"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Blau_de_Einheitstarif_mit_SmartOption",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Blau.de_Einheitstarif_mit_SmartOption.xml",
       "provider": "Blau.de",
