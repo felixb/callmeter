@@ -221,6 +221,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Australia_Telstra_Freedom_30_with_Night_Bonus.xml",
       "provider": "Telstra",
       "title": "Freedom $30 with Night Bonus"
+    },
+    {
+      "country": "Australia",
+      "id": "f_Australia_Telstra_Freedom__30",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Australia_Telstra_Freedom__30.xml",
+      "provider": "Telstra",
+      "title": "Freedom + $30"
     }
   ],
   "Austria": [
@@ -1223,6 +1230,15 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Espaa_Jazztel_Jazzcard_mvil.xml",
       "provider": "Jazztel",
       "title": "Jazzcard m\u00f3vil"
+    }
+  ],
+  "Ethiopian": [
+    {
+      "country": "Ethiopian",
+      "id": "f_Ethiopian_Jijga_my_plan_is_a_f_go_usa_ilike",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Ethiopian_Jijga_my_plan_is_a_f_go_usa_ilike.xml",
+      "provider": "Jijga",
+      "title": "my plan is a f go usa ilike"
     }
   ],
   "France": [
@@ -4292,6 +4308,13 @@
     },
     {
       "country": "Netherlands",
+      "id": "f_Netherlands_Tele2_SimOnly_150__Internet_1000MB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_Tele2_SimOnly_150__Internet_1000MB.xml",
+      "provider": "Tele2",
+      "title": "SimOnly 150 + Internet 1000MB"
+    },
+    {
+      "country": "Netherlands",
       "id": "f_Netherlands_Tele2_100_minsms__500MB",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_Tele2_100_minsms__500MB.xml",
       "provider": "Tele2",
@@ -4850,6 +4873,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_T-Mobile_Rodzina_60.xml",
       "provider": "T-Mobile",
       "title": "Rodzina 60"
+    },
+    {
+      "country": "Poland",
+      "id": "f_Poland_T-Mobile_7201GB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_T-Mobile_7201GB.xml",
+      "provider": "T-Mobile",
+      "title": "720/1GB"
     },
     {
       "country": "Poland",
@@ -5656,6 +5686,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/United_Kingdom_Three_One_plan.xml",
       "provider": "Three",
       "title": "One plan"
+    },
+    {
+      "country": "United Kingdom",
+      "id": "f_United_Kingdom_Three_Pay_As_You_Go",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/United_Kingdom_Three_Pay_As_You_Go.xml",
+      "provider": "Three",
+      "title": "Pay As You Go"
     },
     {
       "country": "United Kingdom",
