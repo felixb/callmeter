@@ -2151,13 +2151,6 @@
     },
     {
       "country": "Germany",
-      "id": "f_Germany_WinSim_LTE-Mini_Plus_2000",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_WinSim_LTE-Mini_Plus_2000.xml",
-      "provider": "WinSim",
-      "title": "LTE-Mini Plus 2000"
-    },
-    {
-      "country": "Germany",
       "id": "f_Germany_all_Numbergroups_for_German_providers",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_all_Numbergroups_for_German_providers.xml",
       "provider": "all",
