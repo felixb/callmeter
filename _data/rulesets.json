@@ -1221,6 +1221,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Egypt_Vodafone_Open_99_Calls.xml",
       "provider": "Vodafone",
       "title": "Open 99 Calls"
+    },
+    {
+      "country": "Egypt",
+      "id": "f_Egypt_Vodafone_Control_Flex_40",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Egypt_Vodafone_Control_Flex_40.xml",
+      "provider": "Vodafone",
+      "title": "Control Flex 40"
     }
   ],
   "Espa\u00f1a": [
@@ -2141,6 +2148,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_WinSIM_Smart_1000__250_Min_u._SMS_inkl._1_GB_Daten_12.95.xml",
       "provider": "WinSIM",
       "title": "Smart 1000 / 250 Min u. SMS inkl. 1 GB Daten 12.95\u20ac"
+    },
+    {
+      "country": "Germany",
+      "id": "f_Germany_WinSim_LTE-Mini_Plus_2000",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_WinSim_LTE-Mini_Plus_2000.xml",
+      "provider": "WinSim",
+      "title": "LTE-Mini Plus 2000"
     },
     {
       "country": "Germany",
