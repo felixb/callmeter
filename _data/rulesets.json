@@ -1316,6 +1316,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_1und1_All-Net_amp_Surf_Special_1_GB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_1und1_All-Net_amp_Surf_Special_1_GB.xml",
+      "provider": "1und1",
+      "title": "All-Net & Surf Special 1 GB"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_1amp1_ALL-NET_amp_SURF_GIGA",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_1amp1_ALL-NET_amp_SURF_GIGA.xml",
       "provider": "1und1",
