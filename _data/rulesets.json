@@ -1407,6 +1407,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_AldiTalk_300_Version_2_300_Minuten__community__400mb_InternetFlat",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_AldiTalk_300_Version_2_300_Minuten__community__400mb_InternetFlat.xml",
+      "provider": "AldiTalk 300 Version 2",
+      "title": "300 Minuten + community + 400mb InternetFlat"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_BASE_Base_pur_-_incl__roaming_u__hotline",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_BASE_Base_pur_-_incl._roaming_u._hotline.xml",
       "provider": "BASE",
