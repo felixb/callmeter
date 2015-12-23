@@ -47,7 +47,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>11</_order>
+      <_order>17</_order>
     </plan>
     <plan>
       <_id>16</_id>
@@ -83,7 +83,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>13</_order>
+      <_order>19</_order>
     </plan>
     <plan>
       <_id>20</_id>
@@ -99,7 +99,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>12</_order>
+      <_order>18</_order>
     </plan>
     <plan>
       <_id>22</_id>
@@ -114,7 +114,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>27</_order>
+      <_order>28</_order>
     </plan>
     <plan>
       <_id>23</_id>
@@ -122,7 +122,7 @@
       <_shortname>DataInOut</_shortname>
       <_plan_type>7</_plan_type>
       <_limit_type>1</_limit_type>
-      <_limit>400</_limit>
+      <_limit>1300</_limit>
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
@@ -133,7 +133,7 @@
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
       <_merged_plans>,37,38,</_merged_plans>
-      <_order>28</_order>
+      <_order>29</_order>
     </plan>
     <plan>
       <_id>27</_id>
@@ -157,7 +157,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>15</_order>
+      <_order>21</_order>
     </plan>
     <plan>
       <_id>28</_id>
@@ -181,7 +181,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>14</_order>
+      <_order>20</_order>
     </plan>
     <plan>
       <_id>36</_id>
@@ -230,7 +230,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>29</_order>
+      <_order>30</_order>
     </plan>
     <plan>
       <_id>38</_id>
@@ -254,7 +254,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>30</_order>
+      <_order>31</_order>
     </plan>
     <plan>
       <_id>46</_id>
@@ -266,7 +266,7 @@
       <_cost_per_item_in_limit>0.35</_cost_per_item_in_limit>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>20</_order>
+      <_order>24</_order>
     </plan>
     <plan>
       <_id>67</_id>
@@ -276,7 +276,7 @@
       <_limit_type>0</_limit_type>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>8</_order>
+      <_order>16</_order>
     </plan>
     <plan>
       <_id>68</_id>
@@ -287,7 +287,7 @@
       <_billmode>1/1</_billmode>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>17</_order>
+      <_order>22</_order>
     </plan>
     <plan>
       <_id>70</_id>
@@ -299,7 +299,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_merged_plans>,46,71,77,72,</_merged_plans>
-      <_order>18</_order>
+      <_order>23</_order>
     </plan>
     <plan>
       <_id>71</_id>
@@ -316,7 +316,7 @@
       <_cost_per_amount_in_limit2>0.99</_cost_per_amount_in_limit2>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>21</_order>
+      <_order>25</_order>
     </plan>
     <plan>
       <_id>72</_id>
@@ -333,7 +333,7 @@
       <_cost_per_amount_in_limit2>3.99</_cost_per_amount_in_limit2>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>26</_order>
+      <_order>27</_order>
     </plan>
     <plan>
       <_id>77</_id>
@@ -350,14 +350,35 @@
       <_cost_per_amount_in_limit2>2.99</_cost_per_amount_in_limit2>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>25</_order>
+      <_order>26</_order>
+    </plan>
+    <plan>
+      <_id>78</_id>
+      <_plan_name>New plan</_plan_name>
+      <_shortname>Newplan</_shortname>
+      <_plan_type>4</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>32</_order>
+    </plan>
+    <plan>
+      <_id>79</_id>
+      <_plan_name>Calls out Telstra</_plan_name>
+      <_shortname>Calls T</_shortname>
+      <_plan_type>4</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billmode>60/60</_billmode>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>15</_order>
     </plan>
   </plans>
   <rules>
     <rule>
       <_id>1</_id>
       <_active>1</_active>
-      <_order>16</_order>
+      <_order>21</_order>
       <_plan_id>38</_plan_id>
       <_rule_name>Data Out</_rule_name>
       <_what>3</_what>
@@ -383,7 +404,7 @@
     <rule>
       <_id>4</_id>
       <_active>1</_active>
-      <_order>9</_order>
+      <_order>10</_order>
       <_plan_id>19</_plan_id>
       <_rule_name>SMS In</_rule_name>
       <_what>1</_what>
@@ -399,7 +420,7 @@
     <rule>
       <_id>7</_id>
       <_active>1</_active>
-      <_order>12</_order>
+      <_order>14</_order>
       <_plan_id>27</_plan_id>
       <_rule_name>MMS In</_rule_name>
       <_what>2</_what>
@@ -415,7 +436,7 @@
     <rule>
       <_id>8</_id>
       <_active>1</_active>
-      <_order>13</_order>
+      <_order>16</_order>
       <_plan_id>28</_plan_id>
       <_rule_name>MMS Out</_rule_name>
       <_what>2</_what>
@@ -430,22 +451,22 @@
     </rule>
     <rule>
       <_id>12</_id>
-      <_active>0</_active>
-      <_order>17</_order>
-      <_plan_id>34</_plan_id>
+      <_active>1</_active>
+      <_order>9</_order>
+      <_plan_id>79</_plan_id>
       <_rule_name>Calls Out free</_rule_name>
       <_what>0</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
-      <_inhourgroup_id>,2,</_inhourgroup_id>
+      <_innumbergroup_id>,24,</_innumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
       <_is_sipcall>1</_is_sipcall>
     </rule>
     <rule>
       <_id>13</_id>
-      <_active>0</_active>
-      <_order>18</_order>
+      <_active>1</_active>
+      <_order>12</_order>
       <_plan_id>35</_plan_id>
       <_rule_name>SMS Out free</_rule_name>
       <_what>1</_what>
@@ -465,6 +486,7 @@
       <_what>0</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
+      <_exnumbergroup_id>,24,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
       <_is_sipcall>1</_is_sipcall>
@@ -472,7 +494,7 @@
     <rule>
       <_id>15</_id>
       <_active>1</_active>
-      <_order>11</_order>
+      <_order>13</_order>
       <_plan_id>20</_plan_id>
       <_rule_name>SMS Out</_rule_name>
       <_what>1</_what>
@@ -485,7 +507,7 @@
     <rule>
       <_id>17</_id>
       <_active>1</_active>
-      <_order>15</_order>
+      <_order>20</_order>
       <_plan_id>37</_plan_id>
       <_rule_name>Data In</_rule_name>
       <_what>3</_what>
@@ -498,7 +520,7 @@
     <rule>
       <_id>21</_id>
       <_active>1</_active>
-      <_order>10</_order>
+      <_order>11</_order>
       <_plan_id>46</_plan_id>
       <_rule_name>SMS o/s</_rule_name>
       <_what>1</_what>
@@ -510,7 +532,7 @@
     <rule>
       <_id>22</_id>
       <_active>0</_active>
-      <_order>21</_order>
+      <_order>17</_order>
       <_plan_id>48</_plan_id>
       <_rule_name>Satellite</_rule_name>
       <_what>0</_what>
@@ -522,8 +544,8 @@
     </rule>
     <rule>
       <_id>23</_id>
-      <_active>0</_active>
-      <_order>20</_order>
+      <_active>1</_active>
+      <_order>18</_order>
       <_plan_id>69</_plan_id>
       <_rule_name>InternationalMax</_rule_name>
       <_what>0</_what>
@@ -547,8 +569,8 @@
     </rule>
     <rule>
       <_id>29</_id>
-      <_active>0</_active>
-      <_order>19</_order>
+      <_active>1</_active>
+      <_order>15</_order>
       <_plan_id>60</_plan_id>
       <_rule_name>MMS out free</_rule_name>
       <_what>2</_what>
@@ -560,7 +582,7 @@
     <rule>
       <_id>30</_id>
       <_active>1</_active>
-      <_order>14</_order>
+      <_order>19</_order>
       <_plan_id>67</_plan_id>
       <_rule_name>CallsVOIP</_rule_name>
       <_what>0</_what>
@@ -690,6 +712,11 @@
       <_id>2</_id>
       <_name>Exclude from SMS</_name>
       <numbers>
+        <number>
+          <_id>43</_id>
+          <_gid>2</_gid>
+          <_number>00800%</_number>
+        </number>
       </numbers>
     </numbersgroup>
     <numbersgroup>
@@ -830,6 +857,22 @@
           <_id>40</_id>
           <_gid>23</_gid>
           <_number>+48%</_number>
+        </number>
+      </numbers>
+    </numbersgroup>
+    <numbersgroup>
+      <_id>24</_id>
+      <_name>Telstra mobiles</_name>
+      <numbers>
+        <number>
+          <_id>41</_id>
+          <_gid>24</_gid>
+          <_number>0456713088</_number>
+        </number>
+        <number>
+          <_id>42</_id>
+          <_gid>24</_gid>
+          <_number>0419243034</_number>
         </number>
       </numbers>
     </numbersgroup>
