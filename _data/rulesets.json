@@ -4948,6 +4948,13 @@
   "Portugal": [
     {
       "country": "Portugal",
+      "id": "f_Portugal_MEO_UNLIMITED_L_2_GB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Portugal_MEO_UNLIMITED_L_2_GB.xml",
+      "provider": "MEO",
+      "title": "UNLIMITED L 2 GB"
+    },
+    {
+      "country": "Portugal",
       "id": "f_Portugal_MEO_al_net_unlimited_15",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Portugal_MEO_al_net_unlimited_15.xml",
       "provider": "MEO",
