@@ -2,7 +2,7 @@
 <ruleset version="2">
   <country>Australia</country>
   <provider>Telstra</provider>
-  <title>Freedom + $30</title>
+  <title>Freedom+ $30</title>
   <plans>
     <plan>
       <_id>12</_id>
@@ -11,10 +11,10 @@
       <_plan_type>2</_plan_type>
       <_limit_type>0</_limit_type>
       <_limit>0</_limit>
-      <_billperiod>4</_billperiod>
+      <_billperiod>17</_billperiod>
       <_billmode>1/1</_billmode>
-      <_billday>1448568001681</_billday>
-      <_cost_per_plan>700</_cost_per_plan>
+      <_billday>1451523601681</_billday>
+      <_cost_per_plan>900</_cost_per_plan>
       <_billperiod_id>0</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
@@ -118,11 +118,11 @@
     </plan>
     <plan>
       <_id>23</_id>
-      <_plan_name>Data Total down/up</_plan_name>
+      <_plan_name>Data Total 2.6GB</_plan_name>
       <_shortname>DataInOut</_shortname>
       <_plan_type>7</_plan_type>
       <_limit_type>1</_limit_type>
-      <_limit>1300</_limit>
+      <_limit>2600</_limit>
       <_billperiod>12</_billperiod>
       <_billmode>1/1</_billmode>
       <_billday>0</_billday>
@@ -132,7 +132,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_merged_plans>,37,38,</_merged_plans>
+      <_merged_plans>,37,38,81,78,</_merged_plans>
       <_order>29</_order>
     </plan>
     <plan>
@@ -185,7 +185,7 @@
     </plan>
     <plan>
       <_id>36</_id>
-      <_plan_name>Total Calls/Messages</_plan_name>
+      <_plan_name>Total Calls/Messages $700</_plan_name>
       <_shortname>TotalC&amp;M</_shortname>
       <_plan_type>3</_plan_type>
       <_limit_type>2</_limit_type>
@@ -210,7 +210,7 @@
     </plan>
     <plan>
       <_id>37</_id>
-      <_plan_name>Data downloaded</_plan_name>
+      <_plan_name>Data download</_plan_name>
       <_shortname>DataIn</_shortname>
       <_plan_type>7</_plan_type>
       <_limit_type>0</_limit_type>
@@ -230,14 +230,14 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>30</_order>
+      <_order>32</_order>
     </plan>
     <plan>
       <_id>38</_id>
-      <_plan_name>Data uploaded</_plan_name>
+      <_plan_name>Data upload</_plan_name>
       <_shortname>DataOut</_shortname>
       <_plan_type>7</_plan_type>
-      <_limit_type>0</_limit_type>
+      <_limit_type>1</_limit_type>
       <_limit>0</_limit>
       <_billperiod>5</_billperiod>
       <_billday>1330460925539</_billday>
@@ -254,7 +254,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>31</_order>
+      <_order>33</_order>
     </plan>
     <plan>
       <_id>46</_id>
@@ -291,11 +291,12 @@
     </plan>
     <plan>
       <_id>70</_id>
-      <_plan_name>Total International</_plan_name>
+      <_plan_name>Total International $200</_plan_name>
       <_shortname>Total I</_shortname>
       <_plan_type>3</_plan_type>
       <_limit_type>2</_limit_type>
       <_limit>200</_limit>
+      <_cost_per_plan></_cost_per_plan>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_merged_plans>,46,71,77,72,</_merged_plans>
@@ -354,13 +355,13 @@
     </plan>
     <plan>
       <_id>78</_id>
-      <_plan_name>New plan</_plan_name>
-      <_shortname>Newplan</_shortname>
-      <_plan_type>4</_plan_type>
+      <_plan_name>Data upload off peak</_plan_name>
+      <_shortname>Data i/o op</_shortname>
+      <_plan_type>7</_plan_type>
       <_limit_type>0</_limit_type>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>32</_order>
+      <_order>35</_order>
     </plan>
     <plan>
       <_id>79</_id>
@@ -373,12 +374,46 @@
       <_next_alert>0</_next_alert>
       <_order>15</_order>
     </plan>
+    <plan>
+      <_id>81</_id>
+      <_plan_name>Data download off peak</_plan_name>
+      <_shortname>Data i/o op</_shortname>
+      <_plan_type>7</_plan_type>
+      <_limit_type>1</_limit_type>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>34</_order>
+    </plan>
+    <plan>
+      <_id>82</_id>
+      <_plan_name>Data 1.3GB off peak</_plan_name>
+      <_shortname>Data op</_shortname>
+      <_plan_type>7</_plan_type>
+      <_limit_type>1</_limit_type>
+      <_limit>1300</_limit>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_merged_plans>,81,78,</_merged_plans>
+      <_order>31</_order>
+    </plan>
+    <plan>
+      <_id>83</_id>
+      <_plan_name>Data 1.3GB</_plan_name>
+      <_shortname>Data</_shortname>
+      <_plan_type>7</_plan_type>
+      <_limit_type>1</_limit_type>
+      <_limit>1300</_limit>
+      <_billperiod_id>12</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_merged_plans>,37,38,</_merged_plans>
+      <_order>30</_order>
+    </plan>
   </plans>
   <rules>
     <rule>
       <_id>1</_id>
       <_active>1</_active>
-      <_order>21</_order>
+      <_order>23</_order>
       <_plan_id>38</_plan_id>
       <_rule_name>Data Out</_rule_name>
       <_what>3</_what>
@@ -458,7 +493,7 @@
       <_what>0</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
-      <_innumbergroup_id>,24,</_innumbergroup_id>
+      <_innumbergroup_id>,24,25,</_innumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
       <_is_sipcall>1</_is_sipcall>
@@ -486,7 +521,7 @@
       <_what>0</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
-      <_exnumbergroup_id>,24,</_exnumbergroup_id>
+      <_exnumbergroup_id>,24,25,</_exnumbergroup_id>
       <_limit_not_reached>0</_limit_not_reached>
       <_is_websms>2</_is_websms>
       <_is_sipcall>1</_is_sipcall>
@@ -507,7 +542,7 @@
     <rule>
       <_id>17</_id>
       <_active>1</_active>
-      <_order>20</_order>
+      <_order>22</_order>
       <_plan_id>37</_plan_id>
       <_rule_name>Data In</_rule_name>
       <_what>3</_what>
@@ -615,6 +650,31 @@
       <_innumbergroup_id>,22,</_innumbergroup_id>
       <_is_sipcall>-1</_is_sipcall>
     </rule>
+    <rule>
+      <_id>34</_id>
+      <_active>1</_active>
+      <_order>20</_order>
+      <_plan_id>81</_plan_id>
+      <_rule_name>Data in off peak</_rule_name>
+      <_what>3</_what>
+      <_roamed>2</_roamed>
+      <_direction>0</_direction>
+      <_inhourgroup_id>,3,</_inhourgroup_id>
+      <_is_sipcall>-1</_is_sipcall>
+    </rule>
+    <rule>
+      <_id>35</_id>
+      <_active>1</_active>
+      <_order>21</_order>
+      <_plan_id>78</_plan_id>
+      <_rule_name>Data out off peak</_rule_name>
+      <_what>3</_what>
+      <_roamed>2</_roamed>
+      <_direction>1</_direction>
+      <_inhourgroup_id>,3,</_inhourgroup_id>
+      <_limit_not_reached>0</_limit_not_reached>
+      <_is_sipcall>-1</_is_sipcall>
+    </rule>
   </rules>
   <hoursgroups>
     <hoursgroup>
@@ -692,6 +752,78 @@
           <_gid>2</_gid>
           <_day>0</_day>
           <_hour>24</_hour>
+        </hour>
+      </hours>
+    </hoursgroup>
+    <hoursgroup>
+      <_id>3</_id>
+      <_name>Every day 8pm-8am</_name>
+      <hours>
+        <hour>
+          <_id>18</_id>
+          <_gid>3</_gid>
+          <_day>0</_day>
+          <_hour>21</_hour>
+        </hour>
+        <hour>
+          <_id>19</_id>
+          <_gid>3</_gid>
+          <_day>0</_day>
+          <_hour>22</_hour>
+        </hour>
+        <hour>
+          <_id>20</_id>
+          <_gid>3</_gid>
+          <_day>0</_day>
+          <_hour>23</_hour>
+        </hour>
+        <hour>
+          <_id>21</_id>
+          <_gid>3</_gid>
+          <_day>0</_day>
+          <_hour>24</_hour>
+        </hour>
+        <hour>
+          <_id>23</_id>
+          <_gid>3</_gid>
+          <_day>0</_day>
+          <_hour>1</_hour>
+        </hour>
+        <hour>
+          <_id>24</_id>
+          <_gid>3</_gid>
+          <_day>0</_day>
+          <_hour>2</_hour>
+        </hour>
+        <hour>
+          <_id>25</_id>
+          <_gid>3</_gid>
+          <_day>0</_day>
+          <_hour>3</_hour>
+        </hour>
+        <hour>
+          <_id>26</_id>
+          <_gid>3</_gid>
+          <_day>0</_day>
+          <_hour>4</_hour>
+        </hour>
+        <hour>
+          <_id>27</_id>
+          <_gid>3</_gid>
+          <_day>0</_day>
+          <_hour>5</_hour>
+        </hour>
+        <hour>
+          <_id>28</_id>
+          <_gid>3</_gid>
+          <_day>0</_day>
+          <_hour>7</_hour>
+        </hour>
+        <hour>
+          <_id>29</_id>
+          <_gid>3</_gid>
+          <_day>0</_day>
+          <_hour>8</_hour>
         </hour>
       </hours>
     </hoursgroup>
@@ -873,6 +1005,22 @@
           <_id>42</_id>
           <_gid>24</_gid>
           <_number>0419243034</_number>
+        </number>
+      </numbers>
+    </numbersgroup>
+    <numbersgroup>
+      <_id>25</_id>
+      <_name>Telstra</_name>
+      <numbers>
+        <number>
+          <_id>45</_id>
+          <_gid>25</_gid>
+          <_number>1258888</_number>
+        </number>
+        <number>
+          <_id>46</_id>
+          <_gid>25</_gid>
+          <_number>1258880</_number>
         </number>
       </numbers>
     </numbersgroup>

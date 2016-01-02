@@ -224,10 +224,10 @@
     },
     {
       "country": "Australia",
-      "id": "f_Australia_Telstra_Freedom__30",
-      "importurl": "https://felixb.github.io/callmeter/rulesets/Australia_Telstra_Freedom__30.xml",
+      "id": "f_Australia_Telstra_Freedom_30",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Australia_Telstra_Freedom_30.xml",
       "provider": "Telstra",
-      "title": "Freedom + $30"
+      "title": "Freedom+ $30"
     }
   ],
   "Austria": [
