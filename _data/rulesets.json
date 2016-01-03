@@ -5487,6 +5487,13 @@
     },
     {
       "country": "Spain",
+      "id": "f_Spain_Simyo_Prepago_300MB__30Min",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Spain_Simyo_Prepago_300MB__30Min.xml",
+      "provider": "Simyo",
+      "title": "Prepago 300MB + 30Min"
+    },
+    {
+      "country": "Spain",
       "id": "f_Spain_Vodafone_Tarifa_S",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Spain_Vodafone_Tarifa_S.xml",
       "provider": "Vodafone",
