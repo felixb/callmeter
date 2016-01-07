@@ -336,6 +336,13 @@
     },
     {
       "country": "Brazil",
+      "id": "f_Brazil_Oi_Controle_Avancado",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Brazil_Oi_Controle_Avancado.xml",
+      "provider": "Oi",
+      "title": "Controle Avancado"
+    },
+    {
+      "country": "Brazil",
       "id": "f_Brazil_TIM_Liberty_controle",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Brazil_TIM_Liberty_controle.xml",
       "provider": "TIM",
