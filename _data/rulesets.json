@@ -4946,6 +4946,13 @@
     },
     {
       "country": "Poland",
+      "id": "f_Poland_Virgin_freenium",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_Virgin_freenium.xml",
+      "provider": "Virgin",
+      "title": "#freenium"
+    },
+    {
+      "country": "Poland",
       "id": "f_Poland_Virgin_Mobile_freemium",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_Virgin_Mobile_freemium.xml",
       "provider": "Virgin Mobile",
