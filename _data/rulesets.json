@@ -2200,6 +2200,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_congstar_Prepaid_wie_ich_will__300min",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_congstar_Prepaid_wie_ich_will__300min.xml",
+      "provider": "congstar",
+      "title": "Prepaid wie ich will / 300min"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_debitel_100",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_debitel_100.xml",
       "provider": "debitel",
@@ -4950,6 +4957,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_Virgin_freenium.xml",
       "provider": "Virgin",
       "title": "#freenium"
+    },
+    {
+      "country": "Poland",
+      "id": "f_Poland_Virgin_freemium",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_Virgin_freemium.xml",
+      "provider": "Virgin",
+      "title": "#freemium"
     },
     {
       "country": "Poland",
