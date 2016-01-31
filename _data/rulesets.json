@@ -2200,6 +2200,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_callmobile_cleverSMART_400",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_callmobile_cleverSMART_400.xml",
+      "provider": "callmobile",
+      "title": "cleverSMART 400"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_congstar_Prepaid_wie_ich_will__300min",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_congstar_Prepaid_wie_ich_will__300min.xml",
       "provider": "congstar",
