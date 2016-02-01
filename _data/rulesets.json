@@ -3467,6 +3467,13 @@
     },
     {
       "country": "India",
+      "id": "f_India_airtel_nws_corporate_199",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/India_airtel_nws_corporate_199.xml",
+      "provider": "airtel",
+      "title": "nws corporate 199"
+    },
+    {
+      "country": "India",
       "id": "f_India_airtel_225",
       "importurl": "https://felixb.github.io/callmeter/rulesets/India_airtel_225.xml",
       "provider": "airtel",
