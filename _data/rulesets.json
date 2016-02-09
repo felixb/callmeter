@@ -2137,6 +2137,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Vodafone_Callya_Smartphone_Special_200_Einheiten_750_MB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Vodafone_Callya_Smartphone_Special_200_Einheiten_750_MB.xml",
+      "provider": "Vodafone",
+      "title": "Callya Smartphone Special 200 Einheiten 750 MB"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Vodafone_Callya_Smartphone_Special",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Vodafone_Callya_Smartphone_Special.xml",
       "provider": "Vodafone",
