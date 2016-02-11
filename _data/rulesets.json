@@ -2186,6 +2186,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_WinSim_LTE_Mini_SMS_3GB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_WinSim_LTE_Mini_SMS_3GB.xml",
+      "provider": "WinSim",
+      "title": "LTE Mini SMS 3GB"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_all_Numbergroups_for_German_providers",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_all_Numbergroups_for_German_providers.xml",
       "provider": "all",
