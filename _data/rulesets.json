@@ -5169,6 +5169,13 @@
     },
     {
       "country": "Serbia",
+      "id": "f_Serbia_MTS_Miks_M",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Serbia_MTS_Miks_M.xml",
+      "provider": "MTS",
+      "title": "Miks M"
+    },
+    {
+      "country": "Serbia",
       "id": "f_Serbia_MTS_MixNet_L",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Serbia_MTS_MixNet_L.xml",
       "provider": "MTS",
