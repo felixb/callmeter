@@ -3299,6 +3299,13 @@
     },
     {
       "country": "India",
+      "id": "f_India_Airtel_nws_199",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/India_Airtel_nws_199.xml",
+      "provider": "Airtel",
+      "title": "nws 199"
+    },
+    {
+      "country": "India",
       "id": "f_India_Airtel_Hero_GJ_399",
       "importurl": "https://felixb.github.io/callmeter/rulesets/India_Airtel_Hero_GJ_399.xml",
       "provider": "Airtel",
