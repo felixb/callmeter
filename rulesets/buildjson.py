@@ -50,6 +50,7 @@ def parseFile(f):
 countries = {}
 
 files = [f for f in os.listdir('.') if os.path.isfile(f) and f.endswith('.xml')]
+files = sorted(files)
 for f in files:
   ruleset = parseFile(f)
   country = ruleset['country']
