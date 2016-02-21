@@ -4250,6 +4250,13 @@
     },
     {
       "country": "Mexico",
+      "id": "f_Mexico_Telcel_TEL_MAX_SL_CC_3000_L",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Mexico_Telcel_TEL_MAX_SL_CC_3000_L.xml",
+      "provider": "Telcel",
+      "title": "TEL MAX SL CC 3000 L"
+    },
+    {
+      "country": "Mexico",
       "id": "f_Mexico_Telcel_Todo_Destino_3gb",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Mexico_Telcel_Todo_Destino_3gb.xml",
       "provider": "Telcel",
