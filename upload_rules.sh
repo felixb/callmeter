@@ -5,6 +5,8 @@ if [ ! -d "${1}" ] ; then
   exit 1
 fi
 
+git pull -r
+
 BASE=$(dirname "${0}")
 RULES=${BASE}/rulesets
 
