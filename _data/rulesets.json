@@ -1238,6 +1238,13 @@
     },
     {
       "country": "Egypt",
+      "id": "f_Egypt_Vodafone_Red_plus_300",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Egypt_Vodafone_Red_plus_300.xml",
+      "provider": "Vodafone",
+      "title": "Red plus 300"
+    },
+    {
+      "country": "Egypt",
       "id": "f_Egypt_Vodafone_control_flex",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Egypt_Vodafone_control_flex.xml",
       "provider": "Vodafone",
