@@ -1744,6 +1744,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_GMX_mobil_1amp1_All-Net_amp_Surf_2GB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_GMX_mobil_1amp1_All-Net_amp_Surf_2GB.xml",
+      "provider": "GMX mobil (1&1)",
+      "title": "All-Net & Surf 2GB"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Ja-mobil_smart",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Ja-mobil_smart.xml",
       "provider": "Ja-mobil",
