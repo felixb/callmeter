@@ -153,6 +153,13 @@
     },
     {
       "country": "Australia",
+      "id": "f_Australia_Dodo_prepaid",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Australia_Dodo_prepaid.xml",
+      "provider": "Dodo",
+      "title": "prepaid"
+    },
+    {
+      "country": "Australia",
       "id": "f_Australia_LiveConnected_11_99",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Australia_LiveConnected_11.99.xml",
       "provider": "LiveConnected",
@@ -228,6 +235,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Australia_Telstra_Freedom_30_with_Night_Bonus.xml",
       "provider": "Telstra",
       "title": "Freedom $30 with Night Bonus"
+    },
+    {
+      "country": "Australia",
+      "id": "f_Australia_Yomojo_pay_as_you_go",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Australia_Yomojo_pay_as_you_go.xml",
+      "provider": "Yomojo",
+      "title": "pay as you go"
     }
   ],
   "Austria": [
