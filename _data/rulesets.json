@@ -4492,6 +4492,13 @@
   "Norway": [
     {
       "country": "Norway",
+      "id": "f_Norway_Hello_250",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Norway_Hello_250.xml",
+      "provider": "Hello",
+      "title": "250"
+    },
+    {
+      "country": "Norway",
       "id": "f_Norway_Hello_Smil",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Norway_Hello_Smil.xml",
       "provider": "Hello",
