@@ -2875,6 +2875,13 @@
     },
     {
       "country": "Hungary",
+      "id": "f_Hungary_Telenor_2",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Telenor_2.xml",
+      "provider": "Telenor",
+      "title": "2"
+    },
+    {
+      "country": "Hungary",
       "id": "f_Hungary_Telenor_BB_Flotta",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Telenor_BB_Flotta.xml",
       "provider": "Telenor",
