@@ -5188,6 +5188,13 @@
     },
     {
       "country": "Russia",
+      "id": "f_Russia_Megafon____2016",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Russia_Megafon____2016.xml",
+      "provider": "Megafon",
+      "title": "\u0412\u0441\u0435 \u0432\u043a\u043b\u044e\u0447\u0435\u043d\u043e \u041c 2016"
+    },
+    {
+      "country": "Russia",
       "id": "f_Russia_Megafon_use_vklucheno_s",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Russia_Megafon_use_vklucheno_s.xml",
       "provider": "Megafon",
