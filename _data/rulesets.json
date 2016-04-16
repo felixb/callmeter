@@ -3627,6 +3627,13 @@
     },
     {
       "country": "Italy",
+      "id": "f_Italy_3_All-in_400_per_te",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_3_All-in_400_per_te.xml",
+      "provider": "3",
+      "title": "All-in 400 per te"
+    },
+    {
+      "country": "Italy",
       "id": "f_Italy_3_All-in_Big",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_3_All-in_Big.xml",
       "provider": "3",
