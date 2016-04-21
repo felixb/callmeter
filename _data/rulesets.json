@@ -5445,6 +5445,13 @@
     },
     {
       "country": "Spain",
+      "id": "f_Spain_Cablemovil_300300",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Spain_Cablemovil_300300.xml",
+      "provider": "Cablemovil",
+      "title": "300+300"
+    },
+    {
+      "country": "Spain",
       "id": "f_Spain_Carrefour_Redonda_25",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Spain_Carrefour_Redonda_25.xml",
       "provider": "Carrefour",
