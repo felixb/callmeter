@@ -242,6 +242,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Australia_YOMOJO_pay_as_you_you_-_no_packs.xml",
       "provider": "YOMOJO",
       "title": "pay as you you - no packs"
+    },
+    {
+      "country": "Australia",
+      "id": "f_Australia_yomojo_pay_as_you_go_-prepaid-no_pack",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Australia_yomojo_pay_as_you_go_-prepaid-no_pack.xml",
+      "provider": "yomojo",
+      "title": "pay as you go -prepaid-no pack"
     }
   ],
   "Austria": [
