@@ -1,4 +1,13 @@
 {
+  "Algeria": [
+    {
+      "country": "Algeria",
+      "id": "f_Algeria_Mobilis_900_DA",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Algeria_Mobilis_900_DA.xml",
+      "provider": "Mobilis",
+      "title": "900 DA"
+    }
+  ],
   "Andorra": [
     {
       "country": "Andorra",
@@ -2225,6 +2234,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_WinSim_LTE_Mini_SMS_3GB.xml",
       "provider": "WinSim",
       "title": "LTE Mini SMS 3GB"
+    },
+    {
+      "country": "Germany",
+      "id": "f_Germany_WinSim_LTE_all_1gb",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_WinSim_LTE_all_1gb.xml",
+      "provider": "WinSim",
+      "title": "LTE all 1gb"
     },
     {
       "country": "Germany",
