@@ -1823,6 +1823,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Klarmobil_Allnet_Starter_mit_400_MB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Klarmobil_Allnet_Starter_mit_400_MB.xml",
+      "provider": "Klarmobil",
+      "title": "Allnet Starter mit 400 MB"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Lidl_Mobile_Monats_Flatrate_5GB",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Mobile_Monats_Flatrate_5GB.xml",
       "provider": "Lidl Mobile",
