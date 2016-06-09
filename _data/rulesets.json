@@ -3811,6 +3811,13 @@
     },
     {
       "country": "Italy",
+      "id": "f_Italy_H3G_All-in_Special_400_400min400sms4Gb125xsett",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_H3G_All-in_Special_400_400min400sms4Gb125xsett.xml",
+      "provider": "H3G",
+      "title": "All-in Special 400 (400min/400sms/4Gb=1,25\u20acxsett)"
+    },
+    {
+      "country": "Italy",
       "id": "f_Italy_Nverca_Steel_Pack",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_Nverca_Steel_Pack.xml",
       "provider": "N\u00f2verca",
