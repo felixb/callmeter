@@ -4815,6 +4815,13 @@
     },
     {
       "country": "Poland",
+      "id": "f_Poland_Play_Formua_na_kart_Unlimited",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_Play_Formua_na_kart_Unlimited.xml",
+      "provider": "Play",
+      "title": "Formu\u0142a na kart\u0119 Unlimited"
+    },
+    {
+      "country": "Poland",
       "id": "f_Poland_Play_Formua_play_na_kart",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_Play_Formua_play_na_kart.xml",
       "provider": "Play",
