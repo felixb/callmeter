@@ -1563,6 +1563,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Congstar_Prepaid_Wie_ich_will_100_Min___Surf-Flat_600",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Congstar_Prepaid_Wie_ich_will_100_Min.__Surf-Flat_600.xml",
+      "provider": "Congstar",
+      "title": "Prepaid Wie ich will 100 Min. + Surf-Flat 600"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Congstar_Prepaid__Surf_Flat_Option_500",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Congstar_Prepaid__Surf_Flat_Option_500.xml",
       "provider": "Congstar",
@@ -4375,6 +4382,15 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Mexico_jalisco_plus_40_telcel.xml",
       "provider": "jalisco",
       "title": "plus 40 telcel"
+    }
+  ],
+  "Nederland": [
+    {
+      "country": "Nederland",
+      "id": "f_Nederland_Ben_200_min__2000_mb",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Nederland_Ben_200_min__2000_mb.xml",
+      "provider": "Ben",
+      "title": "200 min / 2000 mb"
     }
   ],
   "Netherlands": [
