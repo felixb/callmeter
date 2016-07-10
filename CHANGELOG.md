@@ -1,5 +1,8 @@
 # List of versions and changes for Call Meter 3G aka cm3
 
+## 3.11.12
+* fix exporting to SD card
+
 ## 3.11.11
  * fix permissions on Android older than 6.0
 

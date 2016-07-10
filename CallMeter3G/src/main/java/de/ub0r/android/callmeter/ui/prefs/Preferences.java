@@ -34,7 +34,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
@@ -97,6 +96,7 @@ public final class Preferences extends PreferenceActivity implements
     public static final String ACTION_EXPORT_CSV = "export_csv";
 
     private static final int PERMISSION_REQUEST_READ_EXTERNAL_STORAGE = 1;
+
     private static final int PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE = 2;
 
     /**
@@ -915,11 +915,7 @@ public final class Preferences extends PreferenceActivity implements
                         }
 
                         try {
-                            final File d = new File(Environment.getExternalStorageDirectory(),
-                                    DataProvider.PACKAGE);
-                            final File f = new File(d, fn);
-                            //noinspection ResultOfMethodCallIgnored
-                            f.mkdirs();
+                            final File f = new File(context.getExternalFilesDir(null), fn);
                             if (f.exists()) {
                                 //noinspection ResultOfMethodCallIgnored
                                 f.delete();
@@ -966,11 +962,8 @@ public final class Preferences extends PreferenceActivity implements
         final AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
             @Override
             protected String doInBackground(final Void... params) {
-                File d = new File(Environment.getExternalStorageDirectory(), DataProvider.PACKAGE);
-                File f = new File(d, "logs-"
+                File f = new File(context.getExternalFilesDir(null), "logs-"
                         + DateFormat.format("yyyyMMddkkmmss", System.currentTimeMillis()) + ".csv");
-                //noinspection ResultOfMethodCallIgnored
-                f.mkdirs();
                 if (f.exists()) {
                     //noinspection ResultOfMethodCallIgnored
                     f.delete();
