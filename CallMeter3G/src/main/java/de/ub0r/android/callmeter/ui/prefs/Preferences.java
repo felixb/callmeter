@@ -976,7 +976,7 @@ public final class Preferences extends PreferenceActivity implements
                             null, null, null);
                     assert c != null;
                     w.append("date;type;direction;my_number/sim_id;roamed;remote_number;"
-                            + "amount;billed_amount;cost;plan;rule\n");
+                            + "amount;amount_formatted;billed_amount;billed_amount_formatted;cost;plan;rule\n");
                     String[] types = context.getResources().getStringArray(R.array.plans_type);
                     String[] directions = context.getResources().getStringArray(
                             R.array.direction_calls);
@@ -993,10 +993,12 @@ public final class Preferences extends PreferenceActivity implements
                             w.append(c.getString(DataProvider.Logs.INDEX_ROAMED)).append(";");
                             w.append(c.getString(DataProvider.Logs.INDEX_REMOTE)).append(";");
                             long a = c.getLong(DataProvider.Logs.INDEX_AMOUNT);
-                            float ba = c.getFloat(DataProvider.Logs.INDEX_BILL_AMOUNT);
-                            float cost = c.getFloat(DataProvider.Logs.INDEX_COST);
+                            w.append(String.valueOf(a)).append(";");
                             w.append(Common.formatAmount(t, a, true)).append(";");
+                            float ba = c.getFloat(DataProvider.Logs.INDEX_BILL_AMOUNT);
+                            w.append(String.valueOf(ba)).append(";");
                             w.append(Common.formatAmount(t, ba, true)).append(";");
+                            float cost = c.getFloat(DataProvider.Logs.INDEX_COST);
                             w.append(String.format(cFormat, cost)).append(";");
                             w.append(c.getString(DataProvider.Logs.INDEX_PLAN_NAME)).append(";");
                             w.append(c.getString(DataProvider.Logs.INDEX_RULE_NAME)).append("\n");
