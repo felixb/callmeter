@@ -2,7 +2,7 @@
 
 ## 3.11.12
 * add unformatted values to csv export (issue #113)
-* fix exporting to SD card
+* fix exporting to SD card (issue #105)
 
 ## 3.11.11
  * fix permissions on Android older than 6.0
