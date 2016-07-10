@@ -5461,6 +5461,13 @@
   "South Africa": [
     {
       "country": "South Africa",
+      "id": "f_South_Africa_Telkom_Smart_Plan_50",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/South_Africa_Telkom_Smart_Plan_50.xml",
+      "provider": "Telkom",
+      "title": "Smart Plan 50"
+    },
+    {
+      "country": "South Africa",
       "id": "f_South_Africa_Telkom_Mobile_Smart_Internet_1_GB",
       "importurl": "https://felixb.github.io/callmeter/rulesets/South_Africa_Telkom_Mobile_Smart_Internet_1_GB.xml",
       "provider": "Telkom Mobile",
