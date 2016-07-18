@@ -2146,6 +2146,20 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_T-Mobile_Magenta_Mobil_L_ab_Juli__16",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_T-Mobile_Magenta_Mobil_L_ab_Juli__16.xml",
+      "provider": "T-Mobile",
+      "title": "Magenta Mobil L ab Juli  16"
+    },
+    {
+      "country": "Germany",
+      "id": "f_Germany_T-Mobile_Magenta_S_ab_Juli_16",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_T-Mobile_Magenta_S_ab_Juli_16.xml",
+      "provider": "T-Mobile",
+      "title": "Magenta S ab Juli 16"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Talkline_100_Minuten_200_MB_3000_SMS",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Talkline_100_Minuten_200_MB_3000_SMS.xml",
       "provider": "Talkline",
