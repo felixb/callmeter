@@ -4719,6 +4719,13 @@
     },
     {
       "country": "Poland",
+      "id": "f_Poland_MarekM_2xSim_przyklad",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_MarekM_2xSim_przyklad.xml",
+      "provider": "MarekM",
+      "title": "2xSim przyklad"
+    },
+    {
+      "country": "Poland",
       "id": "f_Poland_ORANGE_Free_Net_na_Karte_Tablet",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_ORANGE_Free_Net_na_Karte_Tablet.xml",
       "provider": "ORANGE",
