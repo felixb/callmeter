@@ -5241,6 +5241,13 @@
     },
     {
       "country": "Russia",
+      "id": "f_Russia_MTS_Moskva_Smart",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Russia_MTS_Moskva_Smart.xml",
+      "provider": "MTS Moskva",
+      "title": "Smart+"
+    },
+    {
+      "country": "Russia",
       "id": "f_Russia_Megafon_CorporateUnlimitedL",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Russia_Megafon_CorporateUnlimitedL.xml",
       "provider": "Megafon",
