@@ -3145,6 +3145,13 @@
     },
     {
       "country": "Hungary",
+      "id": "f_Hungary_Vodafone_Debreceni_Egyetem_Hallgati",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Vodafone_Debreceni_Egyetem_Hallgati.xml",
+      "provider": "Vodafone",
+      "title": "Debreceni Egyetem Hallgat\u00f3i"
+    },
+    {
+      "country": "Hungary",
       "id": "f_Hungary_Vodafone_Economy_System",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Vodafone_Economy_System.xml",
       "provider": "Vodafone",
