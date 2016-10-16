@@ -1956,6 +1956,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_O2_Smart_Surf_50_minSMS_1GB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_O2_Smart_Surf_50_minSMS_1GB.xml",
+      "provider": "O2",
+      "title": "Smart Surf 50 min/SMS 1GB"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_O2_loop__All-In_5_GB",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_O2_loop__All-In_5_GB.xml",
       "provider": "O2",
