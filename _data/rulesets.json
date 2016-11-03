@@ -2279,6 +2279,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Winsim__Nettokom_50_1GB___9cent",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Winsim__Nettokom_50_1GB___9cent.xml",
+      "provider": "Winsim + Nettokom",
+      "title": "50 /1GB  + 9cent"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_all_Festnetz_Flatrate",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_all_Festnetz_Flatrate.xml",
       "provider": "all",
@@ -6035,6 +6042,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/United_States_Platinum_Tel_PayGo.xml",
       "provider": "Platinum Tel",
       "title": "PayGo"
+    },
+    {
+      "country": "United States",
+      "id": "f_United_States_cricket_wireless_unlimited_talk_and_text",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/United_States_cricket_wireless_unlimited_talk_and_text.xml",
+      "provider": "cricket wireless",
+      "title": "unlimited talk and text"
     },
     {
       "country": "United States",
