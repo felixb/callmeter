@@ -5146,6 +5146,13 @@
     },
     {
       "country": "Poland",
+      "id": "f_Poland_T-mobile_karta_3w1",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_T-mobile_karta_3w1.xml",
+      "provider": "T-mobile",
+      "title": "karta 3w1"
+    },
+    {
+      "country": "Poland",
       "id": "f_Poland_Virgin_freemium",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_Virgin_freemium.xml",
       "provider": "Virgin",
