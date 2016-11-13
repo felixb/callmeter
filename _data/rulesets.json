@@ -76,6 +76,13 @@
     },
     {
       "country": "Argentina",
+      "id": "f_Argentina_Personal_320",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Argentina_Personal_320.xml",
+      "provider": "Personal",
+      "title": "320"
+    },
+    {
+      "country": "Argentina",
       "id": "f_Argentina_Personal_500_minutos",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Argentina_Personal_500_minutos.xml",
       "provider": "Personal",
