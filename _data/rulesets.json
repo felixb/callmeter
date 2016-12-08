@@ -819,6 +819,13 @@
     },
     {
       "country": "Croatia",
+      "id": "f_Croatia_Vipnet_Bez_granica_L_sa_besp__VIPuspostava_poziva",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Croatia_Vipnet_Bez_granica_L_sa_besp._VIPuspostava_poziva.xml",
+      "provider": "Vipnet",
+      "title": "Bez granica L+ sa besp. VIP+uspostava poziva"
+    },
+    {
+      "country": "Croatia",
       "id": "f_Croatia_Vipnet_Bez_limita_222_bespl_pozivi_Tele2",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Croatia_Vipnet_Bez_limita_222_bespl.pozivi_Tele2.xml",
       "provider": "Vipnet",
