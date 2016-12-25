@@ -5160,6 +5160,13 @@
     },
     {
       "country": "Poland",
+      "id": "f_Poland_T-mobile_Taryfa_2___5GB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_T-mobile_Taryfa_2___5GB.xml",
+      "provider": "T-mobile",
+      "title": "Taryfa 2   5GB"
+    },
+    {
+      "country": "Poland",
       "id": "f_Poland_T-mobile_karta_3w1",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_T-mobile_karta_3w1.xml",
       "provider": "T-mobile",
