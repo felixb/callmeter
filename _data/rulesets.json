@@ -5199,6 +5199,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_all_Plan_numeracji_w_Polsce.xml",
       "provider": "all",
       "title": "Plan numeracji w Polsce"
+    },
+    {
+      "country": "Poland",
+      "id": "f_Poland_play_Formua_S_100_minut",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Poland_play_Formua_S_100_minut.xml",
+      "provider": "play",
+      "title": "Formu\u0142a S 100 minut"
     }
   ],
   "Portugal": [
