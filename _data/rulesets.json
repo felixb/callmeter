@@ -1703,6 +1703,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_DeutschlandSIM_All-In_50_795",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_DeutschlandSIM_All-In_50_795.xml",
+      "provider": "DeutschlandSIM",
+      "title": "All-In 50 7,95\u20ac"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_DeutschlandSIM_AllNet_100_100_min_100_SMS_500MB",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_DeutschlandSIM_AllNet_100_100_min_100_SMS_500MB.xml",
       "provider": "DeutschlandSIM",
