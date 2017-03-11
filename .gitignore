@@ -8,9 +8,7 @@ commit.log
 CallMeter3G/gradle.properties
 .idea
 .gradle
-gradlew*
 *.iml
-gradle
 build
 release.ks
 .bundle
