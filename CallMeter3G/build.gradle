@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.+'
+        classpath 'com.android.tools.build:gradle:2.3.0'
         classpath('com.github.triplet.gradle:play-publisher:1.1.5') {
             exclude group: 'com.google.guava'
         }
@@ -11,7 +11,7 @@ buildscript {
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'play'
+apply plugin: 'com.github.triplet.play'
 
 play {
     uploadImages = false
@@ -30,48 +30,6 @@ repositories {
     mavenCentral()
 }
 
-ext {
-    gitVersion = null
-}
-
-def getVersionName = { ->
-    if (project.gitVersion == null) {
-        def version = "0.0.0"
-        try {
-            def stdout = new ByteArrayOutputStream()
-            exec {
-                commandLine 'git', 'describe', '--tags'
-                standardOutput = stdout
-            }
-            version = stdout.toString().trim().replaceFirst('^[a-zA-Z][^-]*-', '')
-        } catch (ignored) {
-            return null
-        }
-        logger.info("version: ${version}")
-        project.gitVersion = version
-    } else {
-      logger.debug("version already set: ${project.gitVersion}")
-    }
-    return project.gitVersion
-}
-
-def getVersionCode = { minSdk ->
-    def version = getVersionName()
-    def parts = version.split('[\\.]')
-    def l = parts.size()
-    def multi = 100000000
-    def code = minSdk * multi
-
-    for (int i = 0; i < l; i++) {
-        multi /= 100
-        code += parts[i].replaceFirst('-.*', '').toInteger() * multi
-    }
-
-    def versionCode = code.toInteger()
-    logger.info("versionCode: ${versionCode}")
-    return versionCode
-}
-
 android {
     compileSdkVersion 25
     buildToolsVersion '25.0.2'
@@ -79,8 +37,8 @@ android {
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 25
-        versionName getVersionName()
-        versionCode getVersionCode(minSdkVersion.mApiLevel)
+        versionName "3.11.9.1"
+        versionCode 903111100
         buildConfigField 'boolean', 'DEBUG_LOG', 'true'
     }
 
@@ -93,12 +51,16 @@ android {
 
 
     signingConfigs {
-        if (project.hasProperty('releaseKeystorePassword')) {
-            release {
-                storeFile file("release.ks")
-                storePassword releaseKeystorePassword
+        release {
+            File releaseProps = new File("release.properties")
+            if (releaseProps.exists()) {
+                Properties props = new Properties()
+                props.load(new FileInputStream(releaseProps))
+
+                storeFile file("../release.ks")
+                storePassword props.getProperty("releaseKeystorePassword")
                 keyAlias "jarsign"
-                keyPassword releaseKeyPassword
+                keyPassword props.getProperty("releaseKeyPassword")
             }
         }
     }

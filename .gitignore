@@ -10,7 +10,7 @@ CallMeter3G/gradle.properties
 .gradle
 *.iml
 build
-release.ks
+release.*
 .bundle
 _site
 *.p12
