@@ -2328,6 +2328,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_callmobile_CleverSmart_500_bis_28_02_17",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_callmobile_CleverSmart_500_bis_28.02.17.xml",
+      "provider": "callmobile",
+      "title": "CleverSmart 500 (bis 28.02.17)"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_callmobile_cleverSMART_400",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_callmobile_cleverSMART_400.xml",
       "provider": "callmobile",
