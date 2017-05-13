@@ -1,5 +1,8 @@
 # List of versions and changes for Call Meter 3G aka cm3
 
+## 3.11.13
+* bug fixes
+
 ## 3.11.12
 * add unformatted values to csv export (issue #113)
 * fix exporting to SD card (issue #105)
