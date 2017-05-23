@@ -882,7 +882,6 @@ public final class Preferences extends PreferenceActivity implements
                 @Override
                 protected void onPostExecute(final String result) {
                     Log.d(TAG, "export:\n", result);
-                    System.out.println("\n" + result);
                     d.dismiss();
                     if (result != null && result.length() > 0) {
                         Uri uri = null;
@@ -915,8 +914,10 @@ public final class Preferences extends PreferenceActivity implements
                         }
 
                         try {
-                            final File f = new File(context.getExternalFilesDir(null), fn);
+                            final File f = new File(ExportProvider.getExportDirectory(context), fn);
+                            Log.d(TAG, "export to file ", f.getAbsolutePath());
                             if (f.exists()) {
+                                Log.d(TAG, "removing previously existing export file");
                                 //noinspection ResultOfMethodCallIgnored
                                 f.delete();
                             }
@@ -925,6 +926,7 @@ public final class Preferences extends PreferenceActivity implements
                             FileWriter fw = new FileWriter(f);
                             fw.append(result);
                             fw.close();
+                            Log.d(TAG, "export file written sucessfully");
                             final String t = context.getString(R.string.exported_) + " "
                                     + f.getAbsolutePath();
                             Toast.makeText(context, t, Toast.LENGTH_LONG).show();

@@ -2,6 +2,7 @@ package de.ub0r.android.callmeter.data;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.MatrixCursor;
@@ -9,6 +10,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.provider.OpenableColumns;
+import android.support.annotation.NonNull;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -107,13 +109,17 @@ public class ExportProvider extends ContentProvider {
         URI_MATCHER.addURI(AUTHORITY, "hourgroups", EXPORT_HOURGROUPS);
     }
 
-    @Override
-    public int delete(final Uri uri, final String selection, final String[] selectionArgs) {
-        throw new IllegalStateException("Unsupported operation: delete(" + uri + ")");
+    public static File getExportDirectory(final Context context) {
+        return context.getExternalFilesDir(null);
     }
 
     @Override
-    public String getType(final Uri uri) {
+    public boolean onCreate() {
+        return true;
+    }
+
+    @Override
+    public String getType(@NonNull final Uri uri) {
         switch (URI_MATCHER.match(uri)) {
             case EXPORT_RULESET:
             case EXPORT_LOGS:
@@ -126,18 +132,8 @@ public class ExportProvider extends ContentProvider {
     }
 
     @Override
-    public Uri insert(final Uri uri, final ContentValues values) {
-        throw new IllegalStateException("Unsupported operation: insert(" + uri + ")");
-    }
-
-    @Override
-    public boolean onCreate() {
-        return true;
-    }
-
-    @Override
-    public Cursor query(final Uri uri, final String[] projection, final String selection,
-            final String[] selectionArgs, final String sortOrder) {
+    public Cursor query(@NonNull final Uri uri, final String[] projection, final String selection,
+                        final String[] selectionArgs, final String sortOrder) {
         Log.d(TAG, "export uri: ", uri);
         String fn;
         final int uid = URI_MATCHER.match(uri);
@@ -177,16 +173,10 @@ public class ExportProvider extends ContentProvider {
     }
 
     @Override
-    public int update(final Uri uri, final ContentValues values, final String selection,
-            final String[] selectionArgs) {
-        throw new IllegalStateException("Unsupported operation: update(" + uri + ")");
-    }
-
-    @Override
-    public ParcelFileDescriptor openFile(final Uri uri, final String mode)
+    public ParcelFileDescriptor openFile(@NonNull final Uri uri, @NonNull final String mode)
             throws FileNotFoundException {
         Log.d(TAG, "openFile(", uri.toString(), ")");
-        final File d = Environment.getExternalStorageDirectory();
+        final File d = getExportDirectory(getContext());
         String fn = null;
         if (uri.equals(EXPORT_RULESET_URI)) {
             fn = EXPORT_RULESET_FILE;
@@ -200,7 +190,24 @@ public class ExportProvider extends ContentProvider {
         if (fn == null) {
             return null;
         }
-        final File f = new File(d, DataProvider.PACKAGE + File.separator + fn);
+        final File f = new File(d, fn);
+        Log.d(TAG, "export file ", f);
         return ParcelFileDescriptor.open(f, ParcelFileDescriptor.MODE_READ_ONLY);
+    }
+
+    @Override
+    public int delete(@NonNull final Uri uri, final String selection, final String[] selectionArgs) {
+        throw new IllegalStateException("Unsupported operation: delete(" + uri + ")");
+    }
+
+    @Override
+    public Uri insert(@NonNull final Uri uri, final ContentValues values) {
+        throw new IllegalStateException("Unsupported operation: insert(" + uri + ")");
+    }
+
+    @Override
+    public int update(@NonNull final Uri uri, final ContentValues values, final String selection,
+                      final String[] selectionArgs) {
+        throw new IllegalStateException("Unsupported operation: update(" + uri + ")");
     }
 }

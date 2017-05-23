@@ -1,5 +1,8 @@
 # List of versions and changes for Call Meter 3G aka cm3
 
+## 3.11.14
+* fix export on newer Android versions
+
 ## 3.11.13
 * bug fixes
 
