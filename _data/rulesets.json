@@ -1795,6 +1795,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Edeka_mobil_Smart_300",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Edeka_mobil_Smart_300.xml",
+      "provider": "Edeka mobil",
+      "title": "Smart 300"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Eteleon_Smart100",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Eteleon_Smart100.xml",
       "provider": "Eteleon",
