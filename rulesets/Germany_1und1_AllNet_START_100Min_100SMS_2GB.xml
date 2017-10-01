@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ruleset version="2">
+  <country>Germany</country>
+  <provider>1und1</provider>
+  <title>AllNet START (100Min 100SMS 2GB)</title>
+  <plans>
+    <plan>
+      <_id>54</_id>
+      <_plan_name>Anrufe Ausgehend</_plan_name>
+      <_shortname>Anrufe (100Min)</_shortname>
+      <_plan_type>4</_plan_type>
+      <_limit_type>1</_limit_type>
+      <_limit>100</_limit>
+      <_billmode>60/60</_billmode>
+      <_cost_per_amount1>0.199</_cost_per_amount1>
+      <_cost_per_amount2></_cost_per_amount2>
+      <_billperiod_id>55</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>54</_order>
+    </plan>
+    <plan>
+      <_id>55</_id>
+      <_plan_name>Rechnungstag Anrufe</_plan_name>
+      <_shortname>Rechnungstag Anrufe</_shortname>
+      <_plan_type>2</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod>8</_billperiod>
+      <_billday>1505340000290</_billday>
+      <_cost_per_plan>9.99</_cost_per_plan>
+      <_billperiod_id>-1</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>2</_order>
+    </plan>
+    <plan>
+      <_id>56</_id>
+      <_plan_name>Rechnungstag Daten</_plan_name>
+      <_shortname>Rechnungstag Daten</_shortname>
+      <_plan_type>2</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod>8</_billperiod>
+      <_billday>1506031260639</_billday>
+      <_billperiod_id>55</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>60</_order>
+    </plan>
+    <plan>
+      <_id>57</_id>
+      <_plan_name>ANRUFE (100 Min)</_plan_name>
+      <_shortname>NeuesKontingent</_shortname>
+      <_plan_type>0</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>55</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>-3</_order>
+    </plan>
+    <plan>
+      <_id>59</_id>
+      <_plan_name>DATEN (2GB)</_plan_name>
+      <_shortname>NeuesKontingent</_shortname>
+      <_plan_type>0</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>55</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>59</_order>
+    </plan>
+    <plan>
+      <_id>60</_id>
+      <_plan_name>Daten (2GB)</_plan_name>
+      <_shortname>Daten (2GB)</_shortname>
+      <_plan_type>7</_plan_type>
+      <_limit_type>1</_limit_type>
+      <_limit>2000</_limit>
+      <_billperiod_id>56</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>61</_order>
+    </plan>
+    <plan>
+      <_id>61</_id>
+      <_plan_name>Leerzeile</_plan_name>
+      <_shortname>NeuesKontingent</_shortname>
+      <_plan_type>1</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>55</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>58</_order>
+    </plan>
+    <plan>
+      <_id>62</_id>
+      <_plan_name>SMS (100)</_plan_name>
+      <_shortname>NeuesKontingent</_shortname>
+      <_plan_type>0</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>55</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>56</_order>
+    </plan>
+    <plan>
+      <_id>63</_id>
+      <_plan_name>SMS</_plan_name>
+      <_shortname>SMS (100)</_shortname>
+      <_plan_type>5</_plan_type>
+      <_limit_type>1</_limit_type>
+      <_limit>100</_limit>
+      <_cost_per_item>0.199</_cost_per_item>
+      <_billperiod_id>55</_billperiod_id>
+      <_next_alert>0</_next_alert>
+      <_order>57</_order>
+    </plan>
+  </plans>
+  <rules>
+    <rule>
+      <_id>24</_id>
+      <_active>1</_active>
+      <_plan_id>54</_plan_id>
+      <_rule_name>Anrufe ausgehend</_rule_name>
+      <_what>0</_what>
+      <_roamed>2</_roamed>
+      <_direction>1</_direction>
+      <_is_sipcall>-1</_is_sipcall>
+    </rule>
+    <rule>
+      <_id>25</_id>
+      <_active>1</_active>
+      <_order>1</_order>
+      <_plan_id>60</_plan_id>
+      <_rule_name>Daten</_rule_name>
+      <_what>3</_what>
+      <_roamed>2</_roamed>
+      <_direction>-1</_direction>
+      <_is_sipcall>-1</_is_sipcall>
+    </rule>
+    <rule>
+      <_id>26</_id>
+      <_active>1</_active>
+      <_order>2</_order>
+      <_plan_id>63</_plan_id>
+      <_rule_name>SMS</_rule_name>
+      <_what>1</_what>
+      <_roamed>2</_roamed>
+      <_direction>1</_direction>
+      <_is_websms>-1</_is_websms>
+      <_is_sipcall>-1</_is_sipcall>
+    </rule>
+  </rules>
+  <hoursgroups>
+  </hoursgroups>
+  <numbersgroups>
+  </numbersgroups>
+</ruleset>

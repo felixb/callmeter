@@ -1437,6 +1437,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_1und1_AllNet_START_100Min_100SMS_2GB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_1und1_AllNet_START_100Min_100SMS_2GB.xml",
+      "provider": "1und1",
+      "title": "AllNet START (100Min 100SMS 2GB)"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_1und1_Allnet_400",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_1und1_Allnet_400.xml",
       "provider": "1und1",
