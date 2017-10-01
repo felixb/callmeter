@@ -275,7 +275,6 @@ public final class RuleEdit extends PreferenceActivity implements UpdateListener
                 ep.setTitle(R.string.my_sim_id_);
                 ep.setSummary(R.string.my_sim_id_help);
                 ep.setText(c.getString(DataProvider.Rules.INDEX_MYNUMBER));
-                ep.setInputType(InputType.TYPE_CLASS_NUMBER);
                 ps.addPreference(ep);
             } else if (!TextUtils.isEmpty(mynumber)) {
                 ep = new CVEditTextPreference(this, values, DataProvider.Rules.MYNUMBER, null) {
