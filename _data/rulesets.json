@@ -2019,6 +2019,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Penny_mobil_Smart_ab_13_7_2017",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Penny_mobil_Smart_ab_13.7.2017.xml",
+      "provider": "Penny mobil",
+      "title": "Smart ab 13.7.2017"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Premiumsim_Smart_500",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Premiumsim_Smart_500.xml",
       "provider": "Premiumsim",
