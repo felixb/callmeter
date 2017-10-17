@@ -254,6 +254,13 @@
     },
     {
       "country": "Australia",
+      "id": "f_Australia_Vaya_Powerplan_18",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Australia_Vaya_Powerplan_18.xml",
+      "provider": "Vaya",
+      "title": "Powerplan 18"
+    },
+    {
+      "country": "Australia",
       "id": "f_Australia_YOMOJO_pay_as_you_you_-_no_packs",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Australia_YOMOJO_pay_as_you_you_-_no_packs.xml",
       "provider": "YOMOJO",
