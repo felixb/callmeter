@@ -1395,6 +1395,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_1und1_All-Net_Surf_LTE_2_GB_E-Netz",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_1und1_All-Net_Surf_LTE_2_GB_E-Netz.xml",
+      "provider": "1und1",
+      "title": "All-Net Surf LTE 2 GB (E-Netz)"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_1und1_All-Net_amp_Surf_1_500",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_1und1_All-Net_amp_Surf_1.500.xml",
       "provider": "1und1",
