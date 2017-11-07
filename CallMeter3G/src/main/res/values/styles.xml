@@ -47,7 +47,7 @@
         <item name="ubButtonBarBackground">@android:color/transparent</item>
     </style>
 
-    <style name="Theme.CallMeter" parent="style/Theme.AppCompat">
+    <style name="Theme.CallMeter" parent="@style/Theme.AppCompat">
         <item name="android:actionBarStyle" tools:ignore="NewApi">@style/Widget.Styled.ActionBar</item>
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
         <item name="ubButtonBarBackground">@color/ubActionBarBackgroundDark</item>
@@ -57,7 +57,7 @@
         <item name="cmProgressRedBackground">@drawable/progress_horizontal_dark_red</item>
     </style>
 
-    <style name="Theme.CallMeter_Light" parent="style/Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.CallMeter_Light" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="android:actionBarStyle" tools:ignore="NewApi">@style/Widget.Styled.ActionBar_Light</item>
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar_Light</item>
         <item name="ubButtonBarBackground">@color/ubActionBarBackgroundLight</item>

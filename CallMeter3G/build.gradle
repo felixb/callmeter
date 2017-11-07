@@ -1,9 +1,10 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.android.tools.build:gradle:3.0.0'
         classpath('com.github.triplet.gradle:play-publisher:1.1.5') {
             exclude group: 'com.google.guava'
         }
@@ -32,7 +33,7 @@ repositories {
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '25.0.3'
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         minSdkVersion 14
@@ -89,16 +90,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
             minifyEnabled true
             buildConfigField 'boolean', 'DEBUG_LOG', 'false'
-        }
-    }
-
-    applicationVariants.all { variant ->
-        if (!variant.name.contains('debug')) {
-            variant.outputs.each { output ->
-                def file = output.outputFile
-                output.outputFile = new File(file.parent,
-                        file.name.replace('.apk', '-' + defaultConfig.versionName + '.apk'))
-            }
         }
     }
 }
