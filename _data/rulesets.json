@@ -4489,6 +4489,15 @@
       "title": "plus 40 telcel"
     }
   ],
+  "Moldova": [
+    {
+      "country": "Moldova",
+      "id": "f_Moldova_Orange_Colibri_100",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Moldova_Orange_Colibri_100.xml",
+      "provider": "Orange",
+      "title": "Colibri 100"
+    }
+  ],
   "Nederland": [
     {
       "country": "Nederland",
