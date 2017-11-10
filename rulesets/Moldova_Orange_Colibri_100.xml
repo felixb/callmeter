@@ -46,7 +46,7 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>5</_order>
+      <_order>4</_order>
     </plan>
     <plan>
       <_id>15</_id>
@@ -61,7 +61,7 @@
       <_cost_per_plan></_cost_per_plan>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>6</_order>
+      <_order>11</_order>
     </plan>
     <plan>
       <_id>16</_id>
@@ -79,7 +79,7 @@
       <_cost_per_plan></_cost_per_plan>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>7</_order>
+      <_order>10</_order>
     </plan>
     <plan>
       <_id>17</_id>
@@ -93,7 +93,7 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>10</_order>
+      <_order>12</_order>
     </plan>
     <plan>
       <_id>18</_id>
@@ -108,7 +108,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>11</_order>
+      <_order>13</_order>
     </plan>
     <plan>
       <_id>19</_id>
@@ -122,7 +122,7 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>12</_order>
+      <_order>14</_order>
     </plan>
     <plan>
       <_id>20</_id>
@@ -137,7 +137,7 @@
       <_cost_per_item>0</_cost_per_item>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>13</_order>
+      <_order>15</_order>
     </plan>
     <plan>
       <_id>21</_id>
@@ -150,7 +150,7 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>18</_order>
+      <_order>20</_order>
     </plan>
     <plan>
       <_id>22</_id>
@@ -164,7 +164,7 @@
       <_billday>0</_billday>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>19</_order>
+      <_order>21</_order>
     </plan>
     <plan>
       <_id>23</_id>
@@ -180,7 +180,7 @@
       <_cost_per_amount2>0</_cost_per_amount2>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>20</_order>
+      <_order>22</_order>
     </plan>
     <plan>
       <_id>27</_id>
@@ -204,7 +204,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>16</_order>
+      <_order>18</_order>
     </plan>
     <plan>
       <_id>28</_id>
@@ -228,7 +228,7 @@
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
       <_strip_seconds>0</_strip_seconds>
-      <_order>17</_order>
+      <_order>19</_order>
     </plan>
     <plan>
       <_id>31</_id>
@@ -242,9 +242,8 @@
       <_cost_per_amount1>1.5</_cost_per_amount1>
       <_cost_per_amount2>1.5</_cost_per_amount2>
       <_billperiod_id>12</_billperiod_id>
-      <_next_alert>1510092000000</_next_alert>
-      <_merged_plans>,35,</_merged_plans>
-      <_order>9</_order>
+      <_next_alert>0</_next_alert>
+      <_order>6</_order>
     </plan>
     <plan>
       <_id>32</_id>
@@ -266,7 +265,7 @@
       <_limit_type>0</_limit_type>
       <_billperiod_id>-1</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>14</_order>
+      <_order>16</_order>
     </plan>
     <plan>
       <_id>34</_id>
@@ -278,7 +277,7 @@
       <_cost_per_item>0</_cost_per_item>
       <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>15</_order>
+      <_order>17</_order>
     </plan>
     <plan>
       <_id>35</_id>
@@ -291,15 +290,25 @@
       <_billday>1506805260255</_billday>
       <_cost_per_plan>40</_cost_per_plan>
       <_billperiod_id>12</_billperiod_id>
+      <_next_alert>1510178400000</_next_alert>
+      <_order>7</_order>
+    </plan>
+    <plan>
+      <_id>38</_id>
+      <_plan_name>spacer</_plan_name>
+      <_shortname>Новыйтариф</_shortname>
+      <_plan_type>1</_plan_type>
+      <_limit_type>0</_limit_type>
+      <_billperiod_id>12</_billperiod_id>
       <_next_alert>0</_next_alert>
-      <_order>4</_order>
+      <_order>9</_order>
     </plan>
   </plans>
   <rules>
     <rule>
       <_id>1</_id>
       <_active>1</_active>
-      <_order>3</_order>
+      <_order>6</_order>
       <_plan_id>23</_plan_id>
       <_rule_name>Data</_rule_name>
       <_what>3</_what>
@@ -314,7 +323,7 @@
     <rule>
       <_id>2</_id>
       <_active>1</_active>
-      <_order>4</_order>
+      <_order>7</_order>
       <_plan_id>15</_plan_id>
       <_rule_name>Calls In</_rule_name>
       <_what>0</_what>
@@ -329,7 +338,7 @@
     <rule>
       <_id>3</_id>
       <_active>1</_active>
-      <_order>5</_order>
+      <_order>8</_order>
       <_plan_id>16</_plan_id>
       <_rule_name>Calls Out</_rule_name>
       <_what>0</_what>
@@ -343,7 +352,7 @@
     <rule>
       <_id>4</_id>
       <_active>1</_active>
-      <_order>9</_order>
+      <_order>11</_order>
       <_plan_id>19</_plan_id>
       <_rule_name>SMS In</_rule_name>
       <_what>1</_what>
@@ -359,7 +368,7 @@
     <rule>
       <_id>5</_id>
       <_active>1</_active>
-      <_order>10</_order>
+      <_order>12</_order>
       <_plan_id>20</_plan_id>
       <_rule_name>SMS Out</_rule_name>
       <_what>1</_what>
@@ -373,7 +382,7 @@
     <rule>
       <_id>7</_id>
       <_active>1</_active>
-      <_order>11</_order>
+      <_order>13</_order>
       <_plan_id>27</_plan_id>
       <_rule_name>MMS In</_rule_name>
       <_what>2</_what>
@@ -389,7 +398,7 @@
     <rule>
       <_id>8</_id>
       <_active>1</_active>
-      <_order>12</_order>
+      <_order>14</_order>
       <_plan_id>28</_plan_id>
       <_rule_name>MMS Out</_rule_name>
       <_what>2</_what>
@@ -405,7 +414,7 @@
     <rule>
       <_id>11</_id>
       <_active>1</_active>
-      <_order>1</_order>
+      <_order>4</_order>
       <_plan_id>32</_plan_id>
       <_rule_name>Calls In 2</_rule_name>
       <_what>0</_what>
@@ -417,20 +426,21 @@
     <rule>
       <_id>12</_id>
       <_active>1</_active>
-      <_order>0</_order>
+      <_order>5</_order>
       <_plan_id>31</_plan_id>
       <_rule_name>Calls Out 2</_rule_name>
       <_what>0</_what>
       <_roamed>2</_roamed>
       <_direction>1</_direction>
       <_exnumbergroup_id>,1,</_exnumbergroup_id>
+      <_limit_not_reached>0</_limit_not_reached>
       <_is_sipcall>-1</_is_sipcall>
       <_mynumber>1</_mynumber>
     </rule>
     <rule>
       <_id>13</_id>
       <_active>1</_active>
-      <_order>8</_order>
+      <_order>10</_order>
       <_plan_id>34</_plan_id>
       <_rule_name>SMS Out 2</_rule_name>
       <_what>1</_what>
@@ -444,7 +454,7 @@
     <rule>
       <_id>14</_id>
       <_active>1</_active>
-      <_order>7</_order>
+      <_order>9</_order>
       <_plan_id>33</_plan_id>
       <_rule_name>SMS In 2</_rule_name>
       <_what>1</_what>
@@ -453,6 +463,32 @@
       <_is_websms>-1</_is_websms>
       <_is_sipcall>-1</_is_sipcall>
       <_mynumber>1</_mynumber>
+    </rule>
+    <rule>
+      <_id>15</_id>
+      <_active>1</_active>
+      <_order>3</_order>
+      <_plan_id>35</_plan_id>
+      <_rule_name>Optiuni suplimentare</_rule_name>
+      <_what>0</_what>
+      <_roamed>2</_roamed>
+      <_direction>1</_direction>
+      <_exnumbergroup_id>,1,</_exnumbergroup_id>
+      <_limit_not_reached>1</_limit_not_reached>
+      <_is_sipcall>-1</_is_sipcall>
+    </rule>
+    <rule>
+      <_id>18</_id>
+      <_active>0</_active>
+      <_order>2</_order>
+      <_plan_id>37</_plan_id>
+      <_rule_name>Новое правило</_rule_name>
+      <_what>0</_what>
+      <_roamed>2</_roamed>
+      <_direction>1</_direction>
+      <_exnumbergroup_id>,1,</_exnumbergroup_id>
+      <_limit_not_reached>1</_limit_not_reached>
+      <_is_sipcall>-1</_is_sipcall>
     </rule>
   </rules>
   <hoursgroups>
@@ -496,6 +532,16 @@
           <_id>15</_id>
           <_gid>1</_gid>
           <_number>555</_number>
+        </number>
+        <number>
+          <_id>16</_id>
+          <_gid>1</_gid>
+          <_number>200</_number>
+        </number>
+        <number>
+          <_id>17</_id>
+          <_gid>1</_gid>
+          <_number>133</_number>
         </number>
       </numbers>
     </numbersgroup>
