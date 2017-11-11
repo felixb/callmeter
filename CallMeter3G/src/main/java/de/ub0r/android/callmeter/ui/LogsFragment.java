@@ -251,9 +251,9 @@ public final class LogsFragment extends ListFragment implements OnClickListener,
                 holder.tvRemoteLabel.setVisibility(View.VISIBLE);
             }
             s = cursor.getString(DataProvider.Logs.INDEX_MYNUMBER);
-            boolean b = s != null && s.length() <= 2 && Utils.parseInt(s, -1) >= 0;
-            if (LogsFragment.this.showMyNumber || b) {
-                holder.tvMyNumberLabel.setText(b ? R.string.my_sim_id_ : R.string.my_number_);
+            final boolean hasSimId = s != null && s.length() > 0 && !s.startsWith("+");
+            if (LogsFragment.this.showMyNumber || hasSimId) {
+                holder.tvMyNumberLabel.setText(hasSimId ? R.string.my_sim_id_ : R.string.my_number_);
                 holder.tvMyNumber.setText(s);
                 holder.tvMyNumberLabel.setVisibility(View.VISIBLE);
                 holder.tvMyNumber.setVisibility(View.VISIBLE);

@@ -1,6 +1,7 @@
 # List of versions and changes for Call Meter 3G aka cm3
 
 ## 3.11.15
+* fix for detecting the right SIMId database column (#124)
 * allow alpha numerics as SIMId
 * switch from depricated ViewPageIndicator to MagicIndicator
 

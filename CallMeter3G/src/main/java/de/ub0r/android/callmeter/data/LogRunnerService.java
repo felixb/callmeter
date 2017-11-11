@@ -38,6 +38,7 @@ import android.os.PowerManager.WakeLock;
 import android.preference.DatePreference;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
+import android.support.annotation.NonNull;
 import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -147,6 +148,8 @@ public final class LogRunnerService extends IntentService {
      * Length of an SMS.
      */
     private static final int SMS_LENGTH = 160;
+    public static final String[] SIM_ID_COLUMN_NAMES = {"sim_id", "simid", "sub_id", "subscription_id", "sim_slot",
+            "sim_sn", "subscription"};
 
     /**
      * Is phone roaming?
@@ -320,7 +323,7 @@ public final class LogRunnerService extends IntentService {
      * @return amount of last log entry
      */
     private static long getLastData(final SharedPreferences p, final int type,
-            final int direction) {
+                                    final int direction) {
         Log.d(TAG, "getLastData(p,", type, ",", direction, ")");
         long l = p.getLong(PREFS_LASTDATA_PREFIX + type + "_" + direction, 0L);
         Log.d(TAG, "getLastData(): ", l);
@@ -336,7 +339,7 @@ public final class LogRunnerService extends IntentService {
      * @return {@link Cursor} of last log record; column 0=id,1=amount
      */
     private static Cursor getLastData(final ContentResolver cr, final int type,
-            final int direction) {
+                                      final int direction) {
         Cursor c = cr.query(DataProvider.Logs.CONTENT_URI, new String[]{DataProvider.Logs.ID,
                         DataProvider.Logs.AMOUNT, DataProvider.Logs.PLAN_ID,
                         DataProvider.Logs.ROAMED},
@@ -372,7 +375,7 @@ public final class LogRunnerService extends IntentService {
      * @param amount    amount
      */
     public static void setLastData(final Editor e, final int type, final int direction,
-            final long amount) {
+                                   final long amount) {
         if (amount < 0L) {
             e.remove(PREFS_LASTDATA_PREFIX + type + "_" + direction);
         } else {
@@ -519,38 +522,86 @@ public final class LogRunnerService extends IntentService {
     }
 
     /**
+     * Print out column names.
+     */
+    private static void printColumnNames(final Cursor c) {
+        Log.i(TAG, "table schema for cursor: ", c);
+        int l = c.getColumnCount();
+        Log.i(TAG, "column count: ", l);
+        for (int i = 0; i < l; ++i) {
+            Log.i(TAG, "column: ", c.getColumnName(i));
+        }
+    }
+
+    @NonNull
+    private static ArrayList<String> getAllSimIdColumnNames(final Cursor c) {
+        ArrayList<String> simIdColumns = new ArrayList<>();
+        for (String name : SIM_ID_COLUMN_NAMES) {
+            int id = c.getColumnIndex(name);
+            if (id >= 0) {
+                Log.d(TAG, "sim_id column found: ", name);
+                simIdColumns.add(name);
+            }
+        }
+        return simIdColumns;
+    }
+
+    private static Cursor getSimIdsForColumn(final ContentResolver cr, final Uri uri, final String name) {
+        return cr.query(uri, new String[]{name}, name + " != ?", new String[]{"-1"}, null);
+    }
+
+    private static int getSimIdCountForColumn(final ContentResolver cr, final Uri uri, final String name) {
+        final Cursor cursor = getSimIdsForColumn(cr, uri, name);
+        if (cursor != null) {
+            final int count = cursor.getCount();
+            Log.d(TAG, "found ", count, " sim_id values for column ", name);
+            cursor.close();
+            return count;
+        }
+        Log.e(TAG, "error getting cursor on ", uri);
+        return 0;
+    }
+
+    /**
      * Get column id holding sim_id, simid or whatever.
      */
-    public static int getSimIdColumn(final Cursor c) {
+    public static int getSimIdColumn(final ContentResolver cr, final Uri uri, final Cursor c) {
         if (c == null) {
             return -1;
         }
-        for (String s : new String[]{"sim_id", "simid", "sub_id", "subscription_id", "sim_slot",
-                "sim_sn", "subscription"}) {
-            int id = c.getColumnIndex(s);
-            if (id >= 0) {
-                Log.d(TAG, "sim_id column found: ", s);
-                return id;
+
+        ArrayList<String> simIdColumns = getAllSimIdColumnNames(c);
+        if (simIdColumns.size() == 0) {
+            if (BuildConfig.DEBUG_LOG) {
+                printColumnNames(c);
             }
-        }
-        if (BuildConfig.DEBUG_LOG) {
-            Log.i(TAG, "table schema for cursor: ", c);
-            int l = c.getColumnCount();
-            Log.i(TAG, "column count: ", l);
-            for (int i = 0; i < l; ++i) {
-                Log.i(TAG, "column: ", c.getColumnName(i));
+
+            Log.d(TAG, "no sim_id column found");
+            return -1;
+        } else if (simIdColumns.size() == 1) {
+            Log.d(TAG, "found a single sim id column");
+            return c.getColumnIndex(simIdColumns.get(0));
+        } else {
+            Log.d(TAG, "found multiple sim_id columns: ", simIdColumns.size());
+            // select simid column based on content of rows (e.g. which row has column with val != -1 if more than one one exists)
+            for (String name : simIdColumns) {
+                if (getSimIdCountForColumn(cr, uri, name) > 0) {
+                    return c.getColumnIndex(name);
+                }
             }
+            final String firstColumnName = simIdColumns.get(0);
+            Log.w(TAG, "no sim_id values found for any column, picking the first one: ", firstColumnName);
+            return c.getColumnIndex(firstColumnName);
         }
-        Log.d(TAG, "no sim_id column found");
-        return -1;
     }
 
     private static int getSecondSimId(final ContentResolver cr, final Uri uri) {
+        // TODO should return string
         try {
             int secondSimId = -1;
             Cursor c = cr.query(uri, null, "1=2", null, null);
             assert c != null;
-            int id = getSimIdColumn(c);
+            int id = getSimIdColumn(cr, uri, c);
             if (id < 0) {
                 return -1;
             }
@@ -574,6 +625,7 @@ public final class LogRunnerService extends IntentService {
      * Get maximum sim id we can find.
      */
     public static int getSecondCombinedSimId(final ContentResolver cr) {
+        // TODO: this does not make much sense.
         return Math.max(
                 getSecondSimId(cr, Calls.CONTENT_URI),
                 getSecondSimId(cr, URI_SMS)
@@ -589,7 +641,7 @@ public final class LogRunnerService extends IntentService {
             Cursor c = cr.query(Calls.CONTENT_URI, null, where, null, null);
             boolean check = false;
             if (c != null) {
-                check = getSimIdColumn(c) >= 0;
+                check = getSimIdColumn(cr, Calls.CONTENT_URI, c) >= 0;
                 c.close();
             }
             Log.i(TAG, "sim_id column found in calls database: " + check);
@@ -609,7 +661,7 @@ public final class LogRunnerService extends IntentService {
             Cursor c = cr.query(URI_SMS, null, where, null, null);
             boolean check = false;
             if (c != null) {
-                check = getSimIdColumn(c) >= 0;
+                check = getSimIdColumn(cr, URI_SMS, c) >= 0;
                 c.close();
             }
             Log.i(TAG, "sim_id column found in sms database: " + check);
@@ -654,7 +706,7 @@ public final class LogRunnerService extends IntentService {
             final int idDuration = cursor.getColumnIndex(Calls.DURATION);
             final int idDate = cursor.getColumnIndex(Calls.DATE);
             final int idNumber = cursor.getColumnIndex(Calls.NUMBER);
-            final int idSimId = getSimIdColumn(cursor);
+            final int idSimId = getSimIdColumn(cr, Calls.CONTENT_URI, cursor);
 
             final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(
                     CallMeter.HUNDRED);
@@ -762,7 +814,7 @@ public final class LogRunnerService extends IntentService {
             final int idDate = cursor.getColumnIndex(Calls.DATE);
             final int idAddress = cursor.getColumnIndex("address");
             final int idBody = cursor.getColumnIndex("body");
-            final int idSimId = getSimIdColumn(cursor);
+            final int idSimId = getSimIdColumn(cr, URI_SMS, cursor);
             final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(
                     CallMeter.HUNDRED);
             int i = 0;
