@@ -2,6 +2,7 @@
 
 ## 3.11.15
 * allow alpha numerics as SIMId
+* switch from depricated ViewPageIndicator to MagicIndicator
 
 ## 3.11.14
 * fix export on newer Android versions

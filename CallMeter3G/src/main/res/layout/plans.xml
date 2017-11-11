@@ -1,13 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--    Copyright (C) 2009-2015 Felix Bechstein -->
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--    Copyright (C) 2009-2015 Felix Bechstein --><!--
 		This file is part of Call Meter 3G. This program is free software; you
 		can redistribute it and/or modify it under the terms of the GNU
 		General Public License as published by the Free Software Foundation;
 		either version 3 of the License, or (at your option) any later
 		version.
--->
-<!--
+--><!--
 		This program is distributed in the hope that it will be useful, but
 		WITHOUT ANY WARRANTY; without even the implied warranty of
 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,39 +13,37 @@
 		not, see <http://www.gnu.org/licenses/>.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <com.viewpagerindicator.TitlePageIndicator
-            android:id="@+id/titles"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            app:footerIndicatorStyle="underline"
-            android:textColor="?android:attr/textColorSecondary"
-            app:selectedColor="?android:attr/textColorPrimary"/>
+    <net.lucode.hackware.magicindicator.MagicIndicator
+        android:id="@+id/titles"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/title_view_hight"
+        android:layout_gravity="center_horizontal"/>
 
     <android.support.v4.view.ViewPager
-            android:id="@+id/pager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <com.google.android.gms.ads.AdView
-            android:id="@+id/ads"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            app:adUnitId="ca-app-pub-1948477123608376/3725600484"
-            app:adSize="SMART_BANNER"/>
+        android:id="@+id/ads"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        app:adSize="SMART_BANNER"
+        app:adUnitId="ca-app-pub-1948477123608376/3725600484" />
 
     <de.ub0r.android.eucookieconsent.EuCookieConsentView
-            android:id="@+id/cookieconsent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            app:urlLeanMore="@string/privacy_policy_url"/>
+        android:id="@+id/cookieconsent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        app:urlLeanMore="@string/privacy_policy_url" />
 
 </LinearLayout>

@@ -24,4 +24,5 @@
     <dimen name="pb_bp_height">5dp</dimen>
 
     <dimen name="ambilwarna_satudp">1dp</dimen>
+    <dimen name="title_view_hight">24dp</dimen>
 </resources>

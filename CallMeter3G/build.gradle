@@ -26,7 +26,7 @@ repositories {
         url 'https://raw.githubusercontent.com/felixb/mvn-repo/master'
     }
     maven {
-        url 'https://raw.githubusercontent.com/Goddchen/mvn-repo/master/'
+        url "https://jitpack.io"
     }
     mavenCentral()
 }
@@ -99,7 +99,7 @@ dependencies {
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.google.android.gms:play-services-ads:10.2.4'
-    compile 'com.actionbarsherlock:viewpagerindicator:2.4.1'
+    compile 'com.github.hackware1993:MagicIndicator:1.5.0'
     compile 'de.ub0r.android.lib:lib:1.1.1'
     compile 'de.ub0r.android.logg0r:logg0r:2.0.0'
     compile 'de.ub0r.android.eucookieconsent:library:0.2.0@aar'

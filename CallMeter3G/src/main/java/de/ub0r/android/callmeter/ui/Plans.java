@@ -18,12 +18,6 @@
  */
 package de.ub0r.android.callmeter.ui;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
-import com.viewpagerindicator.TitlePageIndicator;
-
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
@@ -33,7 +27,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.TypedArray;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -51,6 +47,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+import net.lucode.hackware.magicindicator.MagicIndicator;
+import net.lucode.hackware.magicindicator.ViewPagerHelper;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -500,10 +509,46 @@ public final class Plans extends AppCompatActivity implements OnPageChangeListen
         fadapter = new PlansFragmentAdapter(this, getSupportFragmentManager());
         pager.setAdapter(fadapter);
         pager.setCurrentItem(fadapter.getHomeFragmentPos());
+        pager.addOnPageChangeListener(this);
 
-        TitlePageIndicator indicator = (TitlePageIndicator) findViewById(R.id.titles);
-        indicator.setViewPager(pager);
-        indicator.setOnPageChangeListener(this);
+        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.titles);
+        CommonNavigator commonNavigator = new CommonNavigator(this);
+        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
+            @Override
+            public int getCount() {
+                return fadapter.getCount();
+            }
+
+            @Override
+            public IPagerTitleView getTitleView(final Context context, final int i) {
+                ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
+
+                TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{android.R.attr.textColorPrimary, android.R.attr.textColorSecondary});
+                try {
+                    colorTransitionPagerTitleView.setNormalColor(a.getColor(1, Color.GRAY));
+                    colorTransitionPagerTitleView.setSelectedColor(a.getColor(0, Color.BLACK));
+                } finally {
+                    a.recycle();
+                }
+                colorTransitionPagerTitleView.setText(fadapter.getPageTitle(i));
+                colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        pager.setCurrentItem(i);
+                    }
+                });
+                return colorTransitionPagerTitleView;
+            }
+
+            @Override
+            public IPagerIndicator getIndicator(final Context context) {
+                LinePagerIndicator indicator = new LinePagerIndicator(context);
+                indicator.setMode(LinePagerIndicator.MODE_MATCH_EDGE);
+                return indicator;
+            }
+        });
+        magicIndicator.setNavigator(commonNavigator);
+        ViewPagerHelper.bind(magicIndicator, pager);
     }
 
     /**
@@ -639,7 +684,7 @@ public final class Plans extends AppCompatActivity implements OnPageChangeListen
      */
     @Override
     public void onPageScrolled(final int position, final float positionOffset,
-            final int positionOffsetPixels) {
+                               final int positionOffsetPixels) {
         // nothing to do
 
     }
