@@ -3257,6 +3257,13 @@
     },
     {
       "country": "Hungary",
+      "id": "f_Hungary_Vodafone_GO_flotts",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Vodafone_GO_flotts.xml",
+      "provider": "Vodafone",
+      "title": "GO+ flott\u00e1s"
+    },
+    {
+      "country": "Hungary",
       "id": "f_Hungary_Vodafone_Go",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Vodafone_Go.xml",
       "provider": "Vodafone",
