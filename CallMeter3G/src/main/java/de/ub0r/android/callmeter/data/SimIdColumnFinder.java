@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import de.ub0r.android.callmeter.BuildConfig;
 import de.ub0r.android.logg0r.Log;
@@ -19,6 +20,8 @@ public class SimIdColumnFinder {
             "sim_sn", "subscription"};
 
     private static SimIdColumnFinder sInstance;
+
+    private HashMap<Uri, String> mCache = new HashMap<>();
 
     private SimIdColumnFinder() {
     }
@@ -39,6 +42,15 @@ public class SimIdColumnFinder {
             return -1;
         }
 
+        if (mCache.containsKey(uri)) {
+            final String simIdColumnName = mCache.get(uri);
+            if (simIdColumnName == null) {
+                return -1;
+            } else {
+                return c.getColumnIndex(simIdColumnName);
+            }
+        }
+
         ArrayList<String> simIdColumns = getAllSimIdColumnNames(c);
         if (simIdColumns.size() == 0) {
             if (BuildConfig.DEBUG_LOG) {
@@ -46,16 +58,20 @@ public class SimIdColumnFinder {
             }
 
             Log.d(TAG, "no sim_id column found");
+            mCache.put(uri, null);
             return -1;
         } else if (simIdColumns.size() == 1) {
             Log.d(TAG, "found a single sim id column");
-            return c.getColumnIndex(simIdColumns.get(0));
+            final String simIdColumnName = simIdColumns.get(0);
+            mCache.put(uri, simIdColumnName);
+            return c.getColumnIndex(simIdColumnName);
         } else {
             Log.d(TAG, "found multiple sim_id columns: ", simIdColumns.size());
             // select simid column based on content of rows (e.g. which row has column with val != -1 if more than one one exists)
-            for (String name : simIdColumns) {
-                if (getSimIdCountForColumn(cr, uri, name) > 0) {
-                    return c.getColumnIndex(name);
+            for (String simIdColumnName : simIdColumns) {
+                if (getSimIdCountForColumn(cr, uri, simIdColumnName) > 0) {
+                    mCache.put(uri, simIdColumnName);
+                    return c.getColumnIndex(simIdColumnName);
                 }
             }
             final String firstColumnName = simIdColumns.get(0);
