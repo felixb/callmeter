@@ -18,9 +18,6 @@
  */
 package de.ub0r.android.callmeter.data;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-
 import android.content.ContentProvider;
 import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;
@@ -41,10 +38,14 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.provider.CallLog;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Xml;
 import android.widget.Toast;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -4054,19 +4055,14 @@ public final class DataProvider extends ContentProvider {
         updateTable(db, NumbersGroup.TABLE, cv, 2);
         cv.clear();
 
-        boolean dualCalls = LogRunnerService.checkCallsSimIdColumn(context.getContentResolver());
-        boolean dualSMS = LogRunnerService.checkSmsSimIdColumn(context.getContentResolver());
-        int simId;
-        if (dualCalls || dualSMS) {
-            // get second sim id
-            simId = LogRunnerService.getSecondCombinedSimId(context.getContentResolver());
-        } else {
-            simId = -1;
-        }
+        final ContentResolver cr = context.getContentResolver();
+        final SimIdColumnFinder finder = SimIdColumnFinder.getsInstance();
+        final String simIdCalls = finder.getSecondSimId(cr, CallLog.Calls.CONTENT_URI);
+        final String simIdSMS = finder.getSecondSimId(cr, LogRunnerService.URI_SMS);
 
         // calls out 2: 31
         // calls in 2: 32
-        if (dualCalls) {
+        if (simIdCalls != null) {
             // rename call * 2 plans/rules
             cv.put(Plans.NAME, context.getString(R.string.calls_out) + " 2");
             cv.put(Plans.SHORTNAME, context.getString(R.string.calls_out_) + "2");
@@ -4081,12 +4077,10 @@ public final class DataProvider extends ContentProvider {
             db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(32));
             cv.clear();
             // if second sim is found, change rules
-            if (simId > 0) {
-                cv.put(Rules.MYNUMBER, simId);
-                db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(31));
-                db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(32));
-                cv.clear();
-            }
+            cv.put(Rules.MYNUMBER, simIdCalls);
+            db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(31));
+            db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(32));
+            cv.clear();
         } else {
             // remove unused call * 2 plans/rules
             db.delete(Plans.TABLE, Plans.ID + "=?", getIdMapping(31));
@@ -4097,7 +4091,7 @@ public final class DataProvider extends ContentProvider {
 
         // sms out 2: 34
         // sms in 2: 33
-        if (dualSMS) {
+        if (simIdSMS != null) {
             // rename sms * 2 plans/rules
             cv.put(Plans.NAME, context.getString(R.string.sms_out) + " 2");
             cv.put(Plans.SHORTNAME, context.getString(R.string.sms_out_) + "2");
@@ -4112,12 +4106,10 @@ public final class DataProvider extends ContentProvider {
             db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(33));
             cv.clear();
             // if second sim is found, change rules
-            if (simId > 0) {
-                cv.put(Rules.MYNUMBER, simId);
-                db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(34));
-                db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(33));
-                cv.clear();
-            }
+            cv.put(Rules.MYNUMBER, simIdSMS);
+            db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(34));
+            db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(33));
+            cv.clear();
         } else {
             // remove unused sms * 2 plans/rules
             db.delete(Plans.TABLE, Plans.ID + "=?", getIdMapping(33));
