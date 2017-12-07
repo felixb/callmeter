@@ -4057,12 +4057,12 @@ public final class DataProvider extends ContentProvider {
 
         final ContentResolver cr = context.getContentResolver();
         final SimIdColumnFinder finder = SimIdColumnFinder.getsInstance();
-        final String simIdCalls = finder.getSecondSimId(cr, CallLog.Calls.CONTENT_URI);
-        final String simIdSMS = finder.getSecondSimId(cr, LogRunnerService.URI_SMS);
+        final List<String> simIdsCalls = finder.getSimIds(cr, CallLog.Calls.CONTENT_URI);
+        final List<String> simIdsSms = finder.getSimIds(cr, LogRunnerService.URI_SMS);
 
         // calls out 2: 31
         // calls in 2: 32
-        if (simIdCalls != null) {
+        if (simIdsCalls.size() > 1) {
             // rename call * 2 plans/rules
             cv.put(Plans.NAME, context.getString(R.string.calls_out) + " 2");
             cv.put(Plans.SHORTNAME, context.getString(R.string.calls_out_) + "2");
@@ -4077,7 +4077,7 @@ public final class DataProvider extends ContentProvider {
             db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(32));
             cv.clear();
             // if second sim is found, change rules
-            cv.put(Rules.MYNUMBER, simIdCalls);
+            cv.put(Rules.MYNUMBER, simIdsCalls.get(0));
             db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(31));
             db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(32));
             cv.clear();
@@ -4091,7 +4091,7 @@ public final class DataProvider extends ContentProvider {
 
         // sms out 2: 34
         // sms in 2: 33
-        if (simIdSMS != null) {
+        if (simIdsSms.size() > 1) {
             // rename sms * 2 plans/rules
             cv.put(Plans.NAME, context.getString(R.string.sms_out) + " 2");
             cv.put(Plans.SHORTNAME, context.getString(R.string.sms_out_) + "2");
@@ -4106,7 +4106,7 @@ public final class DataProvider extends ContentProvider {
             db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(33));
             cv.clear();
             // if second sim is found, change rules
-            cv.put(Rules.MYNUMBER, simIdSMS);
+            cv.put(Rules.MYNUMBER, simIdsSms.get(0));
             db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(34));
             db.update(Rules.TABLE, cv, Rules.PLAN_ID + "=?", getIdMapping(33));
             cv.clear();

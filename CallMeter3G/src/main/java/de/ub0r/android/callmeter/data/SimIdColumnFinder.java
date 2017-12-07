@@ -7,7 +7,10 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 
 import de.ub0r.android.callmeter.BuildConfig;
 import de.ub0r.android.logg0r.Log;
@@ -80,28 +83,39 @@ public class SimIdColumnFinder {
         }
     }
 
-    public String getSecondSimId(final ContentResolver cr, final Uri uri) {
+    @NonNull
+    public List<String> getSimIds(final ContentResolver cr, final Uri uri) {
         try {
-            String secondSimId = null;
             Cursor c = cr.query(uri, null, "1=2", null, null);
             assert c != null;
             int id = getSimIdColumn(cr, uri, c);
             if (id < 0) {
-                return null;
+                return new ArrayList<>();
             }
             String name = c.getColumnName(id);
             c.close();
             c = cr.query(uri, null, name + ">0", null, name + " DESC");
             assert c != null;
+            HashSet<String> simIds = new HashSet<>();
             if (c.moveToFirst()) {
-                secondSimId = c.getString(id);
+                do {
+                    simIds.add(c.getString(id));
+                } while (c.moveToNext());
             }
             c.close();
-            Log.d(TAG, "second sim id: ", uri, ": ", secondSimId);
-            return secondSimId;
+
+            ArrayList<String> listOfSimIds = new ArrayList<>(simIds);
+            Collections.sort(listOfSimIds);
+            Log.d(TAG, "sim ids found: ", uri, ": ", listOfSimIds.size());
+            if (BuildConfig.DEBUG_LOG) {
+                for (String simdId : listOfSimIds) {
+                    Log.d(TAG, "sim id: ", simdId);
+                }
+            }
+            return listOfSimIds;
         } catch (SQLiteException e) {
             Log.w(TAG, "sim_id check for calls failed", e);
-            return null;
+            return new ArrayList<>();
         }
     }
 
@@ -127,6 +141,9 @@ public class SimIdColumnFinder {
         if (cursor != null) {
             final int count = cursor.getCount();
             Log.d(TAG, "found ", count, " sim_id values for column ", name);
+            if (BuildConfig.DEBUG_LOG && cursor.moveToFirst()) {
+                Log.d(TAG, "first sim_id value: ", cursor.getString(0));
+            }
             cursor.close();
             return count;
         }
