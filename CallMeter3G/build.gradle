@@ -38,8 +38,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 25
-        versionName "3.11.13"
-        versionCode 1403111300
+        versionName "3.11.14"
+        versionCode 1403111400
         buildConfigField 'boolean', 'DEBUG_LOG', 'true'
     }
 
