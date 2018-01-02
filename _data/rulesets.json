@@ -2230,6 +2230,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Telekom_Mobil_Start_L",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Telekom_Mobil_Start_L.xml",
+      "provider": "Telekom",
+      "title": "Mobil Start L"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Telekom_Xctra_9_Cent",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Telekom_Xctra_9_Cent.xml",
       "provider": "Telekom",
