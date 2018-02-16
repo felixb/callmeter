@@ -4566,6 +4566,13 @@
     },
     {
       "country": "Netherlands",
+      "id": "f_Netherlands_Simpel_125_min_2_Gb_1000_sms",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_Simpel_125_min_2_Gb_1000_sms.xml",
+      "provider": "Simpel",
+      "title": "125 min 2 Gb 1000 sms"
+    },
+    {
+      "country": "Netherlands",
       "id": "f_Netherlands_Simyo_100_MinSMS__500_MB",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Netherlands_Simyo_100_MinSMS__500_MB.xml",
       "provider": "Simyo",
