@@ -1900,6 +1900,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Lidl_Connect_XS_100_500",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Connect_XS_100_500.xml",
+      "provider": "Lidl Connect",
+      "title": "XS 100 /500"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Lidl_Mobile_Monats_Flatrate_5GB",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Mobile_Monats_Flatrate_5GB.xml",
       "provider": "Lidl Mobile",
