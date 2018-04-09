@@ -1465,6 +1465,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_ALDI_Talk300",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_ALDI_Talk300.xml",
+      "provider": "ALDI",
+      "title": "Talk300"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Aldi_Talk_300",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Aldi_Talk_300.xml",
       "provider": "Aldi",
