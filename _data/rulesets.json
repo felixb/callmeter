@@ -1907,6 +1907,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Lidl_Connect_Smart_S_-_3001500",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Connect_Smart_S_-_3001500.xml",
+      "provider": "Lidl Connect",
+      "title": "Smart S - 300/1500"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Lidl_Connect_XS_100_500",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Lidl_Connect_XS_100_500.xml",
       "provider": "Lidl Connect",
