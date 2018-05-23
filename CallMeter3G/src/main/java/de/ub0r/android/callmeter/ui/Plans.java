@@ -511,7 +511,7 @@ public final class Plans extends AppCompatActivity implements OnPageChangeListen
         pager.setCurrentItem(fadapter.getHomeFragmentPos());
         pager.addOnPageChangeListener(this);
 
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.titles);
+        MagicIndicator magicIndicator = findViewById(R.id.titles);
         CommonNavigator commonNavigator = new CommonNavigator(this);
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
             @Override
@@ -732,10 +732,5 @@ public final class Plans extends AppCompatActivity implements OnPageChangeListen
         }
 
         Log.d(TAG, "progressCount: ", progressCount);
-        if (progressCount == 0) {
-            setSupportProgressBarIndeterminateVisibility(false);
-        } else {
-            setSupportProgressBarIndeterminateVisibility(true);
-        }
     }
 }

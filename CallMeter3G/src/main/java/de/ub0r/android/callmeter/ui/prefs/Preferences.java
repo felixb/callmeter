@@ -330,7 +330,7 @@ public final class Preferences extends PreferenceActivity implements
     public static int getTheme(final Context context) {
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_THEME, THEME_LIGHT);
-        if (s != null && THEME_BLACK.equals(s)) {
+        if (THEME_BLACK.equals(s)) {
             return R.style.Theme_CallMeter;
         } else {
             return R.style.Theme_CallMeter_Light;
@@ -346,8 +346,7 @@ public final class Preferences extends PreferenceActivity implements
     public static int getTextsize(final Context context) {
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE, null);
-        int size = Utils.parseInt(s, 0);
-        return size;
+        return Utils.parseInt(s, 0);
     }
 
     /**
@@ -359,8 +358,7 @@ public final class Preferences extends PreferenceActivity implements
     public static int getTextsizeBigTitle(final Context context) {
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE_BIGTITLE, null);
-        int size = Utils.parseInt(s, 0);
-        return size;
+        return Utils.parseInt(s, 0);
     }
 
     /**
@@ -372,8 +370,7 @@ public final class Preferences extends PreferenceActivity implements
     public static int getTextsizeTitle(final Context context) {
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE_TITLE, null);
-        int size = Utils.parseInt(s, 0);
-        return size;
+        return Utils.parseInt(s, 0);
     }
 
     /**
@@ -385,8 +382,7 @@ public final class Preferences extends PreferenceActivity implements
     public static int getTextsizeSpacer(final Context context) {
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE_SPACER, null);
-        int size = Utils.parseInt(s, 0);
-        return size;
+        return Utils.parseInt(s, 0);
     }
 
     /**
@@ -398,8 +394,7 @@ public final class Preferences extends PreferenceActivity implements
     public static int getTextsizeProgressBar(final Context context) {
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE_PBAR, null);
-        int size = Utils.parseInt(s, 0);
-        return size;
+        return Utils.parseInt(s, 0);
     }
 
     /**
@@ -411,8 +406,7 @@ public final class Preferences extends PreferenceActivity implements
     public static int getTextsizeProgressBarBP(final Context context) {
         final SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         final String s = p.getString(PREFS_TEXTSIZE_PBARBP, null);
-        int size = Utils.parseInt(s, 0);
-        return size;
+        return Utils.parseInt(s, 0);
     }
 
     /**
@@ -511,7 +505,7 @@ public final class Preferences extends PreferenceActivity implements
     public static void setDefaultPlan(final Context context, final boolean isDefault) {
         final Editor e = PreferenceManager.getDefaultSharedPreferences(context).edit();
         e.putBoolean(PREFS_ISDEFAULT, isDefault);
-        e.commit();
+        e.apply();
     }
 
     /**
@@ -523,7 +517,7 @@ public final class Preferences extends PreferenceActivity implements
         if (type < 0 || type == DataProvider.TYPE_CALL) {
             Editor e = PreferenceManager.getDefaultSharedPreferences(this).edit();
             LogRunnerService.setLastData(e, DataProvider.TYPE_CALL, 0, -1L);
-            e.commit();
+            e.apply();
         }
         if (type < 0) {
             getContentResolver().delete(DataProvider.Logs.CONTENT_URI, null, null);
@@ -822,13 +816,13 @@ public final class Preferences extends PreferenceActivity implements
                 View v = LayoutInflater.from(context).inflate(R.layout.dialog_export, null);
                 assert v != null;
                 builder.setView(v);
-                et0 = (EditText) v.findViewById(R.id.country);
+                et0 = v.findViewById(R.id.country);
                 if (!TextUtils.isEmpty(country)) {
                     et0.setText(country);
                 }
-                et1 = (EditText) v.findViewById(R.id.provider);
+                et1 = v.findViewById(R.id.provider);
                 et1.setText(provider);
-                et2 = (EditText) v.findViewById(R.id.plan);
+                et2 = v.findViewById(R.id.plan);
                 et2.setText(descr);
             } else {
                 et0 = null;
