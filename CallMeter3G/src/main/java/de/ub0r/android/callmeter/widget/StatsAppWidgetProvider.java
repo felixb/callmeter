@@ -178,7 +178,7 @@ public final class StatsAppWidgetProvider extends AppWidgetProvider {
             e.remove(WIDGET_PLANID + id);
         }
 
-        e.commit();
+        e.apply();
     }
 
     /**

@@ -464,8 +464,8 @@ public final class PlansFragment extends ListFragment implements OnClickListener
          */
         public void save() {
             if (isDirty) {
-                Log.d(TAG, "e.commit()");
-                e.commit();
+                Log.d(TAG, "e.apply()");
+                e.apply();
                 isDirty = false;
             }
         }

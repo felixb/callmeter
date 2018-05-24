@@ -406,7 +406,7 @@ public final class LogsFragment extends ListFragment implements OnClickListener,
         e.putBoolean(PREF_DATA, tbData.isChecked());
         e.putBoolean(PREF_IN, tbIn.isChecked());
         e.putBoolean(PREF_OUT, tbOut.isChecked());
-        e.commit();
+        e.apply();
     }
 
     /**

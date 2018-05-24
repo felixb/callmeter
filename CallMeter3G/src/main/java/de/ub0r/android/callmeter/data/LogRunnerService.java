@@ -65,6 +65,7 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
+// TODO extend JobIntentService
 public final class LogRunnerService extends IntentService {
 
     /**
@@ -499,7 +500,7 @@ public final class LogRunnerService extends IntentService {
                         dirty = true;
                     }
                     if (dirty) {
-                        e.commit();
+                        e.apply();
                     }
                 }
             }
@@ -650,7 +651,7 @@ public final class LogRunnerService extends IntentService {
                 Log.d(TAG, "new calls: ", cvalues.size());
                 Editor e = p.edit();
                 setLastData(e, DataProvider.TYPE_CALL, 0, maxdate);
-                e.commit();
+                e.apply();
             }
         }
         cursor.close();

@@ -142,7 +142,7 @@ public final class LogsAppWidgetProvider extends AppWidgetProvider {
             e.remove(WIDGET_PLANID + id);
         }
 
-        e.commit();
+        e.apply();
     }
 
     /**

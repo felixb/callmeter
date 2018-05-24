@@ -271,7 +271,7 @@ public final class AskForPlan extends Activity implements OnClickListener, OnDis
                             final Editor e = PreferenceManager.getDefaultSharedPreferences(this)
                                     .edit();
                             e.putInt(Preferences.PREFS_ASK_FOR_PLAN_DEFAULT, pid);
-                            e.commit();
+                            e.apply();
                         }
                         d.cancel();
                         finish();

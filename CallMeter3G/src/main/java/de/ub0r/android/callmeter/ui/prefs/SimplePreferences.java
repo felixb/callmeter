@@ -335,7 +335,7 @@ public final class SimplePreferences extends PreferenceActivity implements
             e.putString(PREFS_COST_PER_MB, c.getString(DataProvider.Plans.INDEX_COST_PER_AMOUNT1));
         }
         c.close();
-        e.commit();
+        e.apply();
     }
 
     private static void savePrefsCall(final SharedPreferences p, final ContentResolver cr,
