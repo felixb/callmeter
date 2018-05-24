@@ -229,7 +229,9 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".data.LogRunnerService" />
+        <service
+            android:name=".data.LogRunnerService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <provider
             android:name=".data.DataProvider"

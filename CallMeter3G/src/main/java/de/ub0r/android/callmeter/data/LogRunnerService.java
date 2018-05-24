@@ -1,25 +1,25 @@
 /*
  * Copyright (C) 2009-2013 Felix Bechstein
- * 
+ *
  * This file is part of CallMeter 3G.
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 3 of the License, or (at your option) any later
  * version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
 package de.ub0r.android.callmeter.data;
 
 import android.Manifest;
-import android.app.IntentService;
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -32,12 +32,12 @@ import android.database.sqlite.SQLiteException;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Handler;
-import android.os.Message;
-import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.preference.DatePreference;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
+import android.support.annotation.NonNull;
+import android.support.v4.app.JobIntentService;
 import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -65,13 +65,14 @@ import de.ub0r.android.logg0r.Log;
  *
  * @author flx
  */
-// TODO extend JobIntentService
-public final class LogRunnerService extends IntentService {
+public final class LogRunnerService extends JobIntentService {
 
     /**
      * Tag for output.
      */
     private static final String TAG = "LogRunnerService";
+
+    private static final int JOB_ID = 1000;
 
     /**
      * Minimum amount of unmatched logs to start showing the dialog.
@@ -206,17 +207,7 @@ public final class LogRunnerService extends IntentService {
 
     private static boolean inUpdate = false;
 
-    /**
-     * Service's {@link Handler}.
-     */
-    private Handler handler = null;
-
-    /**
-     * Default Constructor.
-     */
-    public LogRunnerService() {
-        super("LogRunner");
-    }
+    private final Handler mHandler = new Handler();
 
     /**
      * Run {@link LogRunnerService}.
@@ -232,7 +223,7 @@ public final class LogRunnerService extends IntentService {
         } else if ((action == null && lastAction != null)
                 || (action != null && !action.equals(lastAction)) || lastUpdate == 0L
                 || now > lastUpdate + MIN_DELAY) {
-            context.startService(new Intent(action, null, context, LogRunnerService.class));
+            enqueueWork(context, LogRunnerService.class, JOB_ID, new Intent(action));
             lastAction = action;
             lastUpdate = now;
         } else {
@@ -522,6 +513,7 @@ public final class LogRunnerService extends IntentService {
     /**
      * Check, if there is dual sim support.
      */
+    @SuppressLint("MissingPermission")
     public static boolean checkCallsSimIdColumn(final ContentResolver cr) {
         try {
             String where = BuildConfig.DEBUG_LOG ? null : "1=2";
@@ -562,6 +554,7 @@ public final class LogRunnerService extends IntentService {
     /**
      * Run logs: calls.
      */
+    @SuppressLint("MissingPermission")
     private static void updateCalls(final Context context) {
         Log.d(TAG, "updateCalls()");
         final ContentResolver cr = context.getContentResolver();
@@ -595,7 +588,7 @@ public final class LogRunnerService extends IntentService {
             final int idNumber = cursor.getColumnIndex(Calls.NUMBER);
             final int idSimId = SimIdColumnFinder.getsInstance().getSimIdColumn(cr, Calls.CONTENT_URI, cursor);
 
-            final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(
+            final ArrayList<ContentValues> cvalues = new ArrayList<>(
                     CallMeter.HUNDRED);
             int i = 0;
             do {
@@ -702,7 +695,7 @@ public final class LogRunnerService extends IntentService {
             final int idAddress = cursor.getColumnIndex("address");
             final int idBody = cursor.getColumnIndex("body");
             final int idSimId = SimIdColumnFinder.getsInstance().getSimIdColumn(cr, URI_SMS, cursor);
-            final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(
+            final ArrayList<ContentValues> cvalues = new ArrayList<>(
                     CallMeter.HUNDRED);
             int i = 0;
             do {
@@ -808,7 +801,7 @@ public final class LogRunnerService extends IntentService {
             final int idThId = cursor.getColumnIndex(THRADID);
             final int idSimId = cursor.getColumnIndex("sim_id");
 
-            final ArrayList<ContentValues> cvalues = new ArrayList<ContentValues>(
+            final ArrayList<ContentValues> cvalues = new ArrayList<>(
                     CallMeter.HUNDRED);
             do {
                 final ContentValues cv = new ContentValues();
@@ -898,42 +891,29 @@ public final class LogRunnerService extends IntentService {
     }
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-        handler = new Handler() {
-            @Override
-            public void handleMessage(final Message msg) {
-                Log.i(TAG, "In handleMessage...");
-            }
-        };
-    }
-
-    @Override
     public void onDestroy() {
         super.onDestroy();
         inUpdate = false;
+        Log.i(TAG, "Destroying..");
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected void onHandleIntent(final Intent intent) {
-        if (intent == null) {
-            Log.w(TAG, "handleIntent(null)");
-            return;
-        }
+    private void post(final Runnable r) {
+        mHandler.post(r);
+    }
 
+    @Override
+    protected void onHandleWork(@NonNull final Intent intent) {
         if (CallMeter.hasPermissions(this, Manifest.permission.READ_CALL_LOG,
                 Manifest.permission.READ_SMS)) {
             inUpdate = true;
             handleIntent(intent);
             inUpdate = false;
+        } else {
+            Log.e(TAG, "missing permissions, skipping work: ", intent.getAction());
         }
     }
 
-    private void handleIntent(final Intent intent) {
-        assert intent != null;
+    private void handleIntent(@NonNull final Intent intent) {
         long start = System.currentTimeMillis();
         final String a = intent.getAction();
         Log.d(TAG, "handleIntent(action=", a, ")");
@@ -945,7 +925,7 @@ public final class LogRunnerService extends IntentService {
             checkSmsSimIdColumn(getContentResolver());
         }
 
-        final WakeLock wakelock = acquire(a);
+        acquire(a);
 
         final Handler h = Plans.getHandler();
         if (h != null) {
@@ -1057,7 +1037,7 @@ public final class LogRunnerService extends IntentService {
                     if (planname != null) {
                         sb.insert(0, planname + ": ");
                     } else if (askForPlan) {
-                        handler.post(new Runnable() {
+                        post(new Runnable() {
                             @Override
                             public void run() {
                                 Log.i(TAG, "launching ask for plan dialog");
@@ -1074,7 +1054,7 @@ public final class LogRunnerService extends IntentService {
                     if (showCallInfo) {
                         final String s = sb.toString();
                         Log.i(TAG, "Toast: " + s);
-                        handler.post(new Runnable() {
+                        post(new Runnable() {
                             @Override
                             public void run() {
                                 final Toast toast = Toast.makeText(LogRunnerService.this, s,
@@ -1095,7 +1075,7 @@ public final class LogRunnerService extends IntentService {
             }
         }
 
-        release(wakelock, h, a);
+        release(h, a);
         long end = System.currentTimeMillis();
         Log.i(TAG, "onHandleIntent(", a, "): ", end - start, "ms");
     }
@@ -1104,17 +1084,10 @@ public final class LogRunnerService extends IntentService {
      * Acquire {@link WakeLock} and init service.
      *
      * @param a action
-     * @return {@link WakeLock}
      */
-    private WakeLock acquire(final String a) {
-        final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        final PowerManager.WakeLock wakelock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
-        wakelock.acquire();
-        Log.i(TAG, "got wakelock");
-
-        if (a != null
-                && (a.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED) || a
-                .equals(ACTION_SMS))) {
+    @SuppressLint({"MissingPermission", "HardwareIds"})
+    private void acquire(final String a) {
+        if (TelephonyManager.ACTION_PHONE_STATE_CHANGED.equals(a) || ACTION_SMS.equals(a)) {
             Log.i(TAG, "sleep for " + WAIT_FOR_LOGS + "ms");
             try {
                 Thread.sleep(WAIT_FOR_LOGS);
@@ -1125,22 +1098,21 @@ public final class LogRunnerService extends IntentService {
 
         // update roaming info
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        roaming = tm.isNetworkRoaming();
-        Log.d(TAG, "roaming: ", roaming);
-        mynumber = tm.getLine1Number();
-        Log.d(TAG, "my number: ", mynumber);
-
-        return wakelock;
+        if (tm != null) {
+            roaming = tm.isNetworkRoaming();
+            Log.d(TAG, "roaming: ", roaming);
+            mynumber = tm.getLine1Number();
+            Log.d(TAG, "my number: ", mynumber);
+        }
     }
 
     /**
      * Release {@link WakeLock} and notify {@link Handler}.
      *
-     * @param wakelock {@link WakeLock}
      * @param h        {@link Handler}
      * @param a        action
      */
-    private void release(final WakeLock wakelock, final Handler h, final String a) {
+    private void release(final Handler h, final String a) {
         // schedule next update
         if (a == null || !a.equals(ACTION_SHORT_RUN)) {
             LogRunnerReceiver.schedNext(this, null);
@@ -1150,7 +1122,6 @@ public final class LogRunnerService extends IntentService {
         if (h != null) {
             h.sendEmptyMessage(Plans.MSG_BACKGROUND_STOP_MATCHER);
         }
-        wakelock.release();
         Log.i(TAG, "wakelock released");
     }
 }
