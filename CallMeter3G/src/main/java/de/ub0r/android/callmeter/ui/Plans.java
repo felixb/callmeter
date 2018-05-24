@@ -66,6 +66,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 
 import de.ub0r.android.callmeter.CallMeter;
+import de.ub0r.android.callmeter.ConsentManager;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.DataProvider;
 import de.ub0r.android.callmeter.data.LogRunnerReceiver;
@@ -458,12 +459,14 @@ public final class Plans extends AppCompatActivity implements OnPageChangeListen
             p.edit().putLong(Preferences.PREFS_DATE_BEGIN, c.getTimeInMillis()).apply();
         }
 
-        pager = (ViewPager) findViewById(R.id.pager);
+        pager = findViewById(R.id.pager);
 
         prefsNoAds = DonationHelper.hideAds(this);
-        mAdView = (AdView) findViewById(R.id.ads);
+        mAdView = findViewById(R.id.ads);
         mAdView.setVisibility(View.GONE);
-        if (!prefsNoAds) {
+        final ConsentManager cm = new ConsentManager(this);
+        cm.updateConsent();
+        if (cm.showAds()) {
             mAdView.loadAd(new AdRequest.Builder().build());
             mAdView.setAdListener(new AdListener() {
                 @Override
@@ -472,8 +475,6 @@ public final class Plans extends AppCompatActivity implements OnPageChangeListen
                     super.onAdLoaded();
                 }
             });
-        } else {
-            findViewById(R.id.cookieconsent).setVisibility(View.GONE);
         }
 
         initAdapter();
@@ -626,9 +627,6 @@ public final class Plans extends AppCompatActivity implements OnPageChangeListen
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        if (prefsNoAds) {
-            menu.removeItem(R.id.item_donate);
-        }
         return true;
     }
 
@@ -640,16 +638,6 @@ public final class Plans extends AppCompatActivity implements OnPageChangeListen
         switch (item.getItemId()) {
             case R.id.item_settings:
                 startActivity(new Intent(this, Preferences.class));
-                return true;
-            case R.id.item_donate:
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(
-                            "https://play.google.com/store/apps/details?id=de.ub0r.android.donator")));
-                } catch (ActivityNotFoundException e) {
-                    Log.e(TAG, "error opening play store with donation app", e);
-                    Toast.makeText(this, R.string.common_google_play_services_unknown_issue,
-                            Toast.LENGTH_LONG).show();
-                }
                 return true;
             case R.id.item_logs:
                 showLogsFragment(-1L);

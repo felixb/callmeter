@@ -461,4 +461,5 @@
   <string formatted="false" name="permissions_read_call_log">Anrufe lesen: Diese Berechtigung wird benötigt um Anrufstatistiken auszulesen.\nOhne diese Berechtigung funktioniert die App nicht.</string>
   <string formatted="false" name="permissions_read_external_storage">Externen Speicher lesen: Diese Berechtigung ist notwendig, um Backups oder exportierte Regelsätze vom externen Speicher zu lesen.\nDie App funktioniert, wenn diese Berechtigung verweigert wird.</string>
   <string formatted="false" name="permissions_write_external_storage">Externen Speicher schreiben: Diese Berechtigung ist notwendig, um Backups oder exportierte Regelsätze abzulegen.\nDie App funktioniert, wenn diese Berechtigung verweigert wird.</string>
+  <string formatted="false" name="eu_user_consent_policy">EU Benutzer Einwilligung</string>
 </resources>

@@ -38,12 +38,4 @@
         app:adSize="SMART_BANNER"
         app:adUnitId="ca-app-pub-1948477123608376/3725600484" />
 
-    <de.ub0r.android.eucookieconsent.EuCookieConsentView
-        android:id="@+id/cookieconsent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        app:urlLeanMore="@string/privacy_policy_url" />
-
 </LinearLayout>

@@ -22,9 +22,4 @@
             android:icon="@android:drawable/ic_menu_preferences"
             android:title="@string/settings"/>
 
-    <item
-            android:id="@+id/item_donate"
-            android:icon="@drawable/ic_menu_star"
-            android:title="@string/donate_remove_ads_"/>
-
 </menu>

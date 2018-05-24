@@ -1,6 +1,6 @@
 # Call Meter NG/3G Privacy Policy
 
-This Privacy Policy was last modified on 12.09.2015.
+This Privacy Policy was last modified on 24.05.2018.
 
 ub0r.de / Felix Bechstein ("us", "we", or "our") operates the Call Meter NG/3G App (the "App").
 This page informs you of our policies regarding the collection,

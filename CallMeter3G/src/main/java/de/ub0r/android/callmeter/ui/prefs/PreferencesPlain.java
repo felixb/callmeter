@@ -1,26 +1,23 @@
 /*
  * Copyright (C) 2009-2013 Felix Bechstein
- * 
+ *
  * This file is part of Call Meter 3G.
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 3 of the License, or (at your option) any later
  * version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
 package de.ub0r.android.callmeter.ui.prefs;
 
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
@@ -38,6 +35,9 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -50,6 +50,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
+import de.ub0r.android.callmeter.ConsentManager;
 import de.ub0r.android.callmeter.R;
 import de.ub0r.android.callmeter.data.ExportProvider;
 import de.ub0r.android.callmeter.ui.HelpActivity;
@@ -57,6 +58,7 @@ import de.ub0r.android.callmeter.widget.LogsAppWidgetConfigure;
 import de.ub0r.android.callmeter.widget.LogsAppWidgetProvider;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetConfigure;
 import de.ub0r.android.callmeter.widget.StatsAppWidgetProvider;
+import de.ub0r.android.lib.DonationHelper;
 import de.ub0r.android.lib.Utils;
 import de.ub0r.android.logg0r.Log;
 
@@ -231,6 +233,20 @@ public final class PreferencesPlain extends PreferenceActivity implements
             addPreferencesFromResource(R.xml.prefs_apperance_textsize);
         } else if (BEHAVIOR.equals(a)) {
             addPreferencesFromResource(R.xml.prefs_behavior);
+            Preference p = findPreference("eu_user_consent_policy");
+            final ConsentManager consentManager = new ConsentManager(this);
+            if (!DonationHelper.hideAds(this) || consentManager.needConsent()) {
+                p.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+                    @Override
+                    public boolean onPreferenceClick(final Preference preference) {
+                        consentManager.askForConsent();
+                        return true;
+                    }
+                });
+            } else {
+                PreferenceScreen ps = (PreferenceScreen) findPreference("prefs_behavior");
+                ps.removePreference(p);
+            }
         } else if (ALERT.equals(a)) {
             addPreferencesFromResource(R.xml.prefs_behavior_alert);
         } else if (ASK_FOR_PLAN.equals(a)) {

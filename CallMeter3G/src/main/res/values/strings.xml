@@ -460,4 +460,5 @@
     <string formatted="false" name="permissions_read_call_log">Read call log: this permission is necessary to read call stats from phone\'s database.\nThe app does not work without this permission.</string>
     <string formatted="false" name="permissions_read_external_storage">Read external storage: this permission is necessary load saved rule sets and backups from external storage.\nThe app still works when this permission is denied.</string>
     <string formatted="false" name="permissions_write_external_storage">Write external storage: this permission is necessary to save rule sets and backups to external storage.\nThe app still works when this permission is denied.</string>
+    <string formatted="false" name="eu_user_consent_policy">EU User Consent Policy</string>
 </resources>

@@ -1,5 +1,9 @@
 # List of versions and changes for Call Meter 3G aka cm3
 
+## 3.11.15
+* GDPR compliance
+* Google Play Store compliance
+
 ## 3.11.14
 * fix export on newer Android versions
 * fix for detecting the right SIMId database column (#122, #124)
