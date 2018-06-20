@@ -5532,6 +5532,13 @@
     },
     {
       "country": "Serbia",
+      "id": "f_Serbia_MTS_Omorika_1",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Serbia_MTS_Omorika_1.xml",
+      "provider": "MTS",
+      "title": "Omorika 1"
+    },
+    {
+      "country": "Serbia",
       "id": "f_Serbia_MTS_SRB_Prva_Droid",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Serbia_MTS_SRB_Prva_Droid.xml",
       "provider": "MTS",
