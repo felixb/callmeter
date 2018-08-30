@@ -2279,6 +2279,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Telekom_Prepaid_M_ab_1_8_2018",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Telekom_Prepaid_M_ab_1.8.2018.xml",
+      "provider": "Telekom",
+      "title": "Prepaid M (ab 1.8.2018)"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Telekom_Xctra_9_Cent",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Telekom_Xctra_9_Cent.xml",
       "provider": "Telekom",
