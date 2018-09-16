@@ -3087,6 +3087,13 @@
     },
     {
       "country": "Hungary",
+      "id": "f_Hungary_Telenor_DPI_Alap",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Telenor_DPI_Alap.xml",
+      "provider": "Telenor",
+      "title": "DPI Alap"
+    },
+    {
+      "country": "Hungary",
       "id": "f_Hungary_Telenor_Djuice_Extra",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Telenor_Djuice_Extra.xml",
       "provider": "Telenor",
