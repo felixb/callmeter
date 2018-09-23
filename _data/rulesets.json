@@ -1858,6 +1858,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_GMX_mobil_1amp1_All-Net_amp_Surf_Flex_2002000MB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_GMX_mobil_1amp1_All-Net_amp_Surf_Flex_2002000MB.xml",
+      "provider": "GMX mobil (1&1)",
+      "title": "All-Net & Surf Flex 200/2000MB"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Ja-mobil_smart",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Ja-mobil_smart.xml",
       "provider": "Ja-mobil",
@@ -3056,6 +3063,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Telekom_Mobil_M_400Mb_adat.xml",
       "provider": "Telekom",
       "title": "Mobil M +400Mb adat"
+    },
+    {
+      "country": "Hungary",
+      "id": "f_Hungary_Telekom_Mobil_S",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Hungary_Telekom_Mobil_S.xml",
+      "provider": "Telekom",
+      "title": "Mobil S"
     },
     {
       "country": "Hungary",
