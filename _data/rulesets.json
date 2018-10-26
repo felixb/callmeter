@@ -466,6 +466,13 @@
   "Bulgaria": [
     {
       "country": "Bulgaria",
+      "id": "f_Bulgaria_Bob_290",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Bulgaria_Bob_290.xml",
+      "provider": "Bob",
+      "title": "2,90"
+    },
+    {
+      "country": "Bulgaria",
       "id": "f_Bulgaria_Bob_Minibob",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Bulgaria_Bob_Minibob.xml",
       "provider": "Bob",
