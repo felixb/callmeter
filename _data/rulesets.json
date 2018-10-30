@@ -2005,6 +2005,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Maxxim_LTE_Mini_Plus_2000",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Maxxim_LTE_Mini_Plus_2000.xml",
+      "provider": "Maxxim",
+      "title": "LTE Mini Plus 2000"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_McSIM_McFLEX",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_McSIM_McFLEX.xml",
       "provider": "McSIM",
