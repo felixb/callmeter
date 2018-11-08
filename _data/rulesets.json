@@ -2658,6 +2658,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_otelo_Allnet-Flat_Classic",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_otelo_Allnet-Flat_Classic.xml",
+      "provider": "otelo",
+      "title": "Allnet-Flat Classic"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_otelo_smartphone_300",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_otelo_smartphone_300.xml",
       "provider": "otelo",
@@ -5754,6 +5761,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/South_Africa_Vodacom_Smart_S__500_MB.xml",
       "provider": "Vodacom",
       "title": "Smart S + 500 MB"
+    },
+    {
+      "country": "South Africa",
+      "id": "f_South_Africa_Vodacom_uChoose_Flexi_120",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/South_Africa_Vodacom_uChoose_Flexi_120.xml",
+      "provider": "Vodacom",
+      "title": "uChoose Flexi 120"
     }
   ],
   "Spain": [
