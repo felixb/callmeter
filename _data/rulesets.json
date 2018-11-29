@@ -6151,6 +6151,15 @@
       "title": "Red classic"
     }
   ],
+  "UAE": [
+    {
+      "country": "UAE",
+      "id": "f_UAE_ETISALAT_merge_flexi",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/UAE_ETISALAT_merge_flexi.xml",
+      "provider": "ETISALAT",
+      "title": "merge flexi"
+    }
+  ],
   "Ukraine": [
     {
       "country": "Ukraine",
