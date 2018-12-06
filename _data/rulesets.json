@@ -991,6 +991,13 @@
     },
     {
       "country": "Czech Republic",
+      "id": "f_Czech_Republic_O2_Family_SUAS",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_O2_Family_SUAS.xml",
+      "provider": "O2 Family",
+      "title": "SUAS"
+    },
+    {
+      "country": "Czech Republic",
       "id": "f_Czech_Republic_SIPhone_Tarif3Internet2",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Czech_Republic_SIPhone_Tarif3Internet2.xml",
       "provider": "SIPhone",
