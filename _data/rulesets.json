@@ -5550,6 +5550,15 @@
       "title": "super MTS 2012"
     }
   ],
+  "Schweiz": [
+    {
+      "country": "Schweiz",
+      "id": "f_Schweiz_Lycamobile_CH_Prepaid",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Schweiz_Lycamobile_CH_Prepaid.xml",
+      "provider": "Lycamobile CH",
+      "title": "Prepaid"
+    }
+  ],
   "Serbia": [
     {
       "country": "Serbia",
