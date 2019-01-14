@@ -777,6 +777,13 @@
   "Croatia": [
     {
       "country": "Croatia",
+      "id": "f_Croatia_A1_Mobilna_M_5GB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Croatia_A1_Mobilna_M_5GB.xml",
+      "provider": "A1",
+      "title": "Mobilna M 5GB"
+    },
+    {
+      "country": "Croatia",
       "id": "f_Croatia_T-Mobile_EXTRA_prica_XS",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Croatia_T-Mobile_EXTRA_prica_XS.xml",
       "provider": "T-Mobile",
