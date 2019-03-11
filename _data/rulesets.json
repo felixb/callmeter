@@ -2103,6 +2103,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Penny_Smart_Plus",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Penny_Smart_Plus.xml",
+      "provider": "Penny",
+      "title": "Smart Plus"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Penny_mobil_Prebaid_Smart_ab_29_3_2018",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Penny_mobil_Prebaid_Smart_ab_29.3.2018.xml",
       "provider": "Penny mobil",
