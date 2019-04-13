@@ -1633,6 +1633,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Congstar_Prepaid_Basic_S",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Congstar_Prepaid_Basic_S.xml",
+      "provider": "Congstar",
+      "title": "Prepaid Basic S"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Congstar_Prepaid_Wie_ich_will_100_Min___Surf-Flat_600",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Congstar_Prepaid_Wie_ich_will_100_Min.__Surf-Flat_600.xml",
       "provider": "Congstar",
