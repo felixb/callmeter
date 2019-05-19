@@ -1598,6 +1598,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_CONGSTAR_FairFlat_mit_Roaming_in_EU",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_CONGSTAR_FairFlat_mit_Roaming_in_EU.xml",
+      "provider": "CONGSTAR",
+      "title": "FairFlat mit Roaming in EU"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Callmobile_Smart_200",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Callmobile_Smart_200.xml",
       "provider": "Callmobile",
