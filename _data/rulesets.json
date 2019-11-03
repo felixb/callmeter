@@ -2159,6 +2159,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Simply_LTE_1000__1GB",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Simply_LTE_1000__1GB.xml",
+      "provider": "Simply",
+      "title": "LTE 1000 + 1GB"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Simply_LTE_Mini_Plus",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Simply_LTE_Mini_Plus.xml",
       "provider": "Simply",
