@@ -761,6 +761,13 @@
     },
     {
       "country": "Costa Rica",
+      "id": "f_Costa_Rica_Klbi_4G_K1",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Costa_Rica_Klbi_4G_K1.xml",
+      "provider": "K\u00f6lbi",
+      "title": "4G K1"
+    },
+    {
+      "country": "Costa Rica",
       "id": "f_Costa_Rica_Klbi_ICE_Conectados_2",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Costa_Rica_Klbi_ICE_Conectados_2.xml",
       "provider": "K\u00f6lbi ICE",
