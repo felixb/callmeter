@@ -2054,6 +2054,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Mobilcom_Debitel_Green_LTE_D1",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Mobilcom_Debitel_Green_LTE_D1.xml",
+      "provider": "Mobilcom Debitel",
+      "title": "Green LTE D1"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Mobilkom_Debitel_flat_4_you",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Mobilkom_Debitel_flat_4_you.xml",
       "provider": "Mobilkom Debitel",
