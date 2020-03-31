@@ -2349,6 +2349,13 @@
     },
     {
       "country": "Germany",
+      "id": "f_Germany_Telekom_MagentaMobil_M",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Telekom_MagentaMobil_M.xml",
+      "provider": "Telekom",
+      "title": "MagentaMobil M"
+    },
+    {
+      "country": "Germany",
       "id": "f_Germany_Telekom_Mobil_Start_L",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Germany_Telekom_Mobil_Start_L.xml",
       "provider": "Telekom",
