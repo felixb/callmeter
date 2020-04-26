@@ -4242,6 +4242,13 @@
       "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_WIND_super_noi_tutti_x2__internet_no_stop.xml",
       "provider": "WIND",
       "title": "super noi tutti x2 + internet no stop"
+    },
+    {
+      "country": "Italy",
+      "id": "f_Italy_WindTre_Go_100_Star_",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Italy_WindTre_Go_100_Star_.xml",
+      "provider": "WindTre",
+      "title": "Go 100 Star +"
     }
   ],
   "Jordan": [
