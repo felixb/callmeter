@@ -5762,6 +5762,13 @@
     },
     {
       "country": "Slovakia",
+      "id": "f_Slovakia_Telekom_T-Zklad-11__Magenta_1",
+      "importurl": "https://felixb.github.io/callmeter/rulesets/Slovakia_Telekom_T-Zklad-11__Magenta_1.xml",
+      "provider": "Telekom",
+      "title": "T-Z\u00e1klad-11, + Magenta 1"
+    },
+    {
+      "country": "Slovakia",
       "id": "f_Slovakia_Telekom_easy_free",
       "importurl": "https://felixb.github.io/callmeter/rulesets/Slovakia_Telekom_easy_free.xml",
       "provider": "Telekom",
